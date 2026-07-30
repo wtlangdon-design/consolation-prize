@@ -1,0 +1,154 @@
+# CONSOLATION PRIZE
+## Errata & Reconciliation — v1
+
+**Precedence: this document overrides all others on every point it addresses.** Where a numbered document contradicts a ruling here, this document wins and the other document is wrong.
+
+Raised by a Claude Code review of the full document set. All catches confirmed as genuine authoring errors.
+
+---
+
+# HARD CONTRADICTIONS — RESOLVED
+
+## 1 · Act II document structure — **Doc 02 wins**
+
+Bible 01 (Part Five) is **wrong**. It states Document C requires A and B, and that "Document B can only be issued to a deceased person."
+
+**Canonical:** Document C (Certificate of Contiguity) requires **A, B and D**.
+
+- **A** — Affidavit of Original Sale (Vessel's signature) — Trial One
+- **B** — Assay of Record (Winnie) — Trial Two
+- **D** — Proof of Continuous Occupancy (Pratt's perjury) — Trial Three
+
+The deceased-person mechanic belongs to **Act III archive access (E2)**, not to Document B. Bible 01's Act II paragraph is void; use doc 02.
+
+## 2 · Dead-end audit arithmetic — **doc 02's proof was false**
+
+Doc 02 states: *"B6 requires 14 pairs, and 14 are obtainable from Trials Two and Three alone."* This is wrong. Winnie yields 5 and Pratt 6 — 11, not 14.
+
+**Corrected statement — this replaces the audit line:**
+
+> B6 requires 14 pairs. Available before B6: **B5 grants 4 automatically** (Duel One is unwinnable by design and the four counters are acquired on the mandatory loss), **Winnie grants 5**, **Pratt grants 6** — **15 without any optional collection**. Tier 4 (5 pairs) and Hob (1) raise the ceiling to 21. B6 is therefore unblockable, and the traversal script must count B5's four as guaranteed rather than optional.
+
+## 3 · Winnie's pair count — **five**
+
+Doc 02 (C6) says four. **Doc 03 wins**: Winnie yields **5**, and the 24-pair distribution depends on it. Doc 02 C6 is wrong.
+
+## 4 · Duel numbering — **three duels, two sparrings**
+
+There is no Duel Three. Everything claiming "4 duels" is wrong. Canonical:
+
+| Label | Who | Outcome |
+|---|---|---|
+| **Duel One** | Vessel (B5) | Unwinnable by design. Yields 4 pairs. |
+| **Sparring** | Winnie (C6) | Not a duel. Yields 5 pairs. |
+| **Sparring** | Pratt (D5) | Not a duel. Yields 6 pairs. |
+| **Duel Two** | Vessel rematch (B6) | Winnable. Requires 14. |
+| **Duel Three** | Fanshawe (F4) | Public, final. Was labelled "Duel Four." |
+
+Doc 02's "the three losing duels and the final one" is wrong — **one losing duel and two sparrings**. Doc 03's "Duel Four" is renamed **Duel Three**.
+
+## 5 · Puzzle count — **45**
+
+43 is wrong everywhere it appears, including CLAUDE.md and doc 06.
+
+Enumerated: A1–A10 (10) · B1–B6 (6) · C1–C6 (6) · D1–D6 (6) · E0, E0b (2) · E1–E10 (10) · F1–F5 (5) = **45**.
+
+E1 is a puzzle beat that is deliberately blocked and resolves to E2; it counts. **The traversal script uses this list of 45.**
+
+## 6 · Room count — **36 rooms, 42 screens, 41 backgrounds**
+
+Bible 01's "35 screens" is wrong. It counted "Sheng's laundry & the high ridge" as one screen; doc 05 correctly splits them into Rooms 28 and 29.
+
+**Canonical:** 36 numbered rooms + 6 ancillary interiors = **42 screens**. Room 32 (inside the coffin) is not painted — it is a black frame produced in post. Therefore **41 backgrounds to produce**, which is why that number appears in docs 06 and 11 and is correct for art, though wrong as a screen count.
+
+**Doc 05's numbering is canonical.** The coffin is Room 32. The art-prompt document's numbering (coffin as 31) is superseded.
+
+## 7 · Reputation state order — **doc 07 wins**
+
+Doc 06 orders `R_BORDERS_MOTT` before `R_SURVEYED`. Wrong. Puzzle order is A7 (survey) before A9 (borders Mott).
+
+**Canonical order:**
+
+`R_NOBODY` → `R_SWINDLED` → `R_RACCOON` → `R_SURVEYED` → `R_BORDERS_MOTT` → `R_LOST_DUEL` → `R_WON_DUEL` → `R_DEAD` → `R_TRUTH`
+
+## 8 · Phase 1 scope — **validation tooling is in Phase 1**
+
+Doc 06 puts it in Phase 3. Wrong. CLAUDE.md and the build brief agree and win.
+
+**Phase 1 acceptance:** test room with three hotspots, all nine verbs, a two-node dialogue tree with gates and state changes, save surviving refresh, zero content strings in `.ts`, **and the validation scripts existing and running**.
+
+---
+
+# CONTINUITY — RESOLVED
+
+## 9 · The misspelling gag — **the payoff moves to the grave marker**
+
+Doc 04 says the obituary (E5) is the first and only correct spelling. Doc 10's funeral marker (Room 31, at E7 — later) is misspelled. Both cannot be the last.
+
+**Ruling — and this is better than what was written:** the obituary carries one more wrong spelling. **The grave marker is correct.** Thaddeus Grubb's name is spelled right exactly once, on his headstone, for a man who is not in the grave.
+
+**Canonical run — nine renderings, matching `MISSPELLINGS_SEEN` 0–9:**
+
+| Event | Rendering |
+|---|---|
+| A3 · the swindle | GRUBBS |
+| A5 · the raccoon | GRUB |
+| A7 · the survey | GRABB |
+| B5 · first duel | "a Mr. Grubbe of the East" |
+| B6 · Vessel rematch | T. GRUB |
+| C5 · the padded log | GRUBBE |
+| E3 · funeral notice | "the Piano Man" |
+| E5 · the obituary | THADEUS GRUBBE |
+| **E7 · the grave marker** | **THADDEUS GRUBB** |
+
+Doc 10's Room 31 marker line changes to: *"THADDEUS GRUBB. Frame supplied the spelling and got it right, once, for a grave I am not going to be in."*
+
+Bible 01's "Grubb of the East" is superseded by doc 04's "Grubbe of the East."
+
+## 10 · The in-world year — **the present is 1858; Mott filed in 1846**
+
+Three documents implied three different presents. Fixed:
+
+| Fact | Canonical | Was |
+|---|---|---|
+| **The present** | **1858** | unstated |
+| Mott's filing | **1846** (twelve years ago) | — |
+| Boston subscription (doc 10, Room 35) | **1846** | 1847 |
+| Winnie's second ledger begun | 1849, kept nine years | ✓ unchanged |
+| Stock portraits purchased (doc 10, Room 35) | 1851, printed as Mott **seven** years | eleven years |
+| The one-strike man's find | 1849 | ✓ unchanged |
+
+Fanshawe's "Chapultepec, '47" is unaffected — it was always a lie.
+
+## 11 · Line counts — **~3,850 total; ~890 examine**
+
+Doc 05's header says ~1,040 examine lines; its own accounting says ~890. **890 is canonical.** Project total **~3,850**, per docs 10 and 11.
+
+## 12 · Display resolution — **1280×800**
+
+Doc 06's 1920×1080 is not an integer multiple of 320×200 (6× horizontal, 5.4× vertical) and is **void**. Doc 11 wins: **1280×800 (4×)** or 1600×1000 (5×), nearest-neighbour.
+
+## 13 · The missing art document
+
+Doc 11 references a Background Art Prompts document that was not in `/docs`. Now added as **`docs/12-art-prompts.md`**.
+
+**Its status:** superseded as a final-art spec by doc 11, retained as the **source-generation spec** — the master style block and 41 subject blocks used to produce the high-resolution inputs to the downsampling pipeline. Its room numbering is superseded by doc 05 (see ruling 6). Not needed for Phase 1.
+
+---
+
+# DOCUMENTS REQUIRING EDIT
+
+For whoever does the reconciliation pass. Until then, this errata governs.
+
+| Doc | Fix |
+|---|---|
+| 01 Bible | Act II document structure (1); room count 36 (6); "Grubb of the East" (9) |
+| 02 Puzzle graph | Dead-end audit line (2); Winnie = 5 (3); "three losing duels" (4); count 45 (5) |
+| 03 Liar's Assay | Duel Four → Duel Three (4) |
+| 04 Dialogue trees | Misspelling table — nine entries, marker correct (9) |
+| 05 Examine layer | Header line count 890 (11) |
+| 06 Technical spec | Reputation order (7); validation in Phase 1 (8); resolution void (12); count 45 (5) |
+| 10 Examine batch 3 | Room 31 marker (9); Room 35 dates (10) |
+| CLAUDE.md | Puzzle count 45; room/screen counts; duel count |
+
+**Do not begin the reconciliation pass without being asked.** Phase 1 does not require it — only rulings 5, 7 and 8 touch Phase 1 work, and all three are stated here.
