@@ -6,7 +6,9 @@
 
 ## What this is
 
-A 2D point-and-click comedy adventure game in the tradition of *The Secret of Monkey Island*. Frontier gold rush town, 1850s. Dry, deadpan. Ten-to-twelve hours, 43 puzzles, ~3,850 written lines.
+A 2D point-and-click comedy adventure game in the tradition of *The Secret of Monkey Island*. Frontier gold rush town, 1850s. Dry, deadpan. Ten-to-twelve hours, 45 puzzles, 42 screens, ~3,850 written lines.
+
+**`docs/00-errata.md` overrides every other document on every point it addresses. Read it first.** The design documents were written in sequence and contradict each other in thirteen places; the errata resolves all of them.
 
 The design is complete and lives in `/docs`. **Do not invent content.** Every line of dialogue, every examine line, every bark already exists in those documents. If something is missing, say so and stop — do not fill the gap.
 
@@ -76,7 +78,7 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 - Every hotspot has a distinct LOOK line and a distinct LISTEN line; no duplicates game-wide
 - Every dialogue node has ≥3 options and ≥1 `[COMIC]` option
 - No flag is read before it can be written
-- All 43 puzzles reachable from a fresh save (automated traversal)
+- All 45 puzzles reachable from a fresh save (automated traversal — canonical list in the errata)
 - Win state reachable from every reachable state
 - Save/load restores exact state including partial dialogue trees
 - 60fps on a Chromebook
@@ -87,6 +89,7 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 
 | File | Contains |
 |---|---|
+| `docs/00-errata.md` | **Overrides all others. Read first.** |
 | `docs/01-bible-v2.md` | Story, characters, stakes, verbs, rooms, music, the opening |
 | `docs/02-puzzle-graph.md` | 43 puzzles, item ledger, dead-end audit |
 | `docs/03-liars-assay.md` | 24 boast/counter pairs, 4 duels |
@@ -96,6 +99,7 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 | `docs/07-ambient-layer.md` | 18 characters, 162 reputation barks |
 | `docs/08-10-examine-batches.md` | Remaining 23 rooms |
 | `docs/11-art-revision-pixel.md` | Pixel-art direction — supersedes art in 01 and 06 |
+| `docs/12-art-prompts.md` | Source-generation art prompts — superseded as final spec by 11 |
 
 ---
 
