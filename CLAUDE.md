@@ -38,6 +38,14 @@ The engine reads JSON and knows nothing about Consolation. There are ~3,850 writ
 
 Enforce with a CI check: no content strings in any `.ts` file.
 
+## Typography
+
+Text renders through a hand-authored 1-bit 5×7 font. Rasterised system fonts anti-alias at 320×200 and are forbidden.
+
+**The design documents were written in prose typography** — curly quotes, em dashes, en dashes, ellipsis characters. The glyph set must cover, at minimum: `' ' " " — – …`
+
+Extend the font to cover them rather than normalising the writing to ASCII. Straight-quoting a comedy script flattens it, and Thad's voice depends on the dashes. Anything outside the covered set gets normalised at the content-authoring step, and the glyph-coverage check stays as the backstop.
+
 ---
 
 ## DESIGN INVARIANTS — these look like bugs and are not
@@ -91,13 +99,15 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 |---|---|
 | `docs/00-errata.md` | **Overrides all others. Read first.** |
 | `docs/01-bible-v2.md` | Story, characters, stakes, verbs, rooms, music, the opening |
-| `docs/02-puzzle-graph.md` | 43 puzzles, item ledger, dead-end audit |
-| `docs/03-liars-assay.md` | 24 boast/counter pairs, 4 duels |
+| `docs/02-puzzle-graph.md` | 45 puzzles, item ledger, dead-end audit |
+| `docs/03-liars-assay.md` | 24 boast/counter pairs, 3 duels + 2 sparrings |
 | `docs/04-dialogue-trees.md` | 8 character trees, ~40 flags |
 | `docs/05-examine-layer.md` | LOOK/LISTEN doctrine, 12 rooms |
 | `docs/06-technical-spec.md` | Ambient layer, engine, audio, build brief |
 | `docs/07-ambient-layer.md` | 18 characters, 162 reputation barks |
-| `docs/08-10-examine-batches.md` | Remaining 23 rooms |
+| `docs/08-examine-batch-1.md` | Examine rooms, batch one |
+| `docs/09-examine-batch-2.md` | Examine rooms, batch two |
+| `docs/10-examine-batch-3.md` | Examine rooms, batch three |
 | `docs/11-art-revision-pixel.md` | Pixel-art direction — supersedes art in 01 and 06 |
 | `docs/12-art-prompts.md` | Source-generation art prompts — superseded as final spec by 11 |
 
