@@ -125,8 +125,10 @@ First selection, then second, then third. Third repeats indefinitely thereafter.
 **LISTEN** — 2 "Still contented. Still solvent." · 3 "Nothing. He has gone to sleep in the middle of my attention."
 
 ## THE MUD
-**LOOK** — 2 "That portion I have named. I will not be sharing the name." · 3 "Mud. It has been mud since I arrived and it intends to continue."
-**LISTEN** — 2 "Nothing new." *(deliberately identical to variant 1 — do not 'fix')* · 3 "Nothing new. I want that understood."
+**Reordered — supersedes doc 05's Room 2 mud entry.** The original variant 1 opened "The same mud" and "Nothing new", both of which assume a prior look. Doc 17's stand-alone rule applies.
+
+**LOOK** — 1 "Mud, the full width of the street and six inches deep. The boardwalk is six inches high. Somebody worked that out." · 2 "The same mud. I have begun to recognise individual portions of it." · 3 "That portion I have named. I will not be sharing the name."
+**LISTEN** — 1 "Nothing. It is mud, and it is being mud." · 2 "Nothing new." · 3 "Nothing new. I want that understood."
 
 ## THE HILLS
 **LOOK** — 2 "Still gold country. Still no gold." · 3 "They are the same hills as yesterday. I check."
