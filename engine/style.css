@@ -1,0 +1,23 @@
+/* Page chrome around the canvas. Nothing here scales the game -- Phaser owns
+   the integer upscale, and the canvas must never be resampled by CSS. */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #000000;
+  overflow: hidden;
+}
+
+#game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+#game canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}

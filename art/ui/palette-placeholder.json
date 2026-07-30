@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "note": "PLACEHOLDER. The locked 256-colour VGA palette is step 1 of the revised sequence in doc 11 and has not been produced yet. These 16 indices exist only so the Phase 1 harness can draw solid blocks. Nothing downstream may depend on them.",
+  "locked": false,
+  "colours": [
+    "#000000",
+    "#2b2118",
+    "#3d3227",
+    "#57452f",
+    "#6b5638",
+    "#846b45",
+    "#9c8054",
+    "#b39a66",
+    "#1e2a1c",
+    "#33452c",
+    "#4a5f3c",
+    "#6b7a53",
+    "#7a6a4f",
+    "#a89372",
+    "#cfc0a0",
+    "#e8e0cc"
+  ]
+}

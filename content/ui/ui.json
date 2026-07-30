@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "note": "Every string the engine can draw. If a string is not here or in a room/dialogue file, the engine cannot render it. Harness values are placeholders, not written content.",
+  "sentence": {
+    "template": "{verb} {target}",
+    "verbOnly": "{verb}",
+    "walkTemplate": "{verb}"
+  },
+  "dialogue": {
+    "optionPrefix": "- ",
+    "optionPrefixSelected": "> ",
+    "exhaustedPrefix": "- "
+  },
+  "notices": {
+    "saved": "SAVED",
+    "restored": "RESTORED",
+    "reset": "RESET"
+  },
+  "keys": {
+    "save": "F5",
+    "load": "F9",
+    "reset": "F6"
+  },
+  "hud": {
+    "hintTemplate": "{save} SAVE  {load} LOAD  {reset} RESET"
+  }
+}

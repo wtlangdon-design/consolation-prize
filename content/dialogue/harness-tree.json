@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "id": "harness_tree",
+  "note": "Two-node engine test fixture per Phase 1 acceptance. Exercises gates, state changes, exhaustion with repeat responses, and a COMIC option that silently sets a flag -- the HOB_C1 shape from invariant 7, which the engine must support and no validator may 'correct'.",
+  "start": "HARN_1",
+  "nodes": {
+    "HARN_1": {
+      "prompt": "Harness node one prompt.",
+      "options": [
+        {
+          "id": "opt_unlock",
+          "text": "Harness one, option one.",
+          "tag": "PROGRESS",
+          "say": "Harness node one, response to option one.",
+          "set": { "T_HARNESS_UNLOCKED": true },
+          "goto": "HARN_2"
+        },
+        {
+          "id": "opt_topic",
+          "text": "Harness one, option two.",
+          "tag": "TOPIC",
+          "say": "Harness node one, first response to option two.",
+          "repeat": "Harness node one, repeat response to option two."
+        },
+        {
+          "id": "opt_comic",
+          "text": "Harness one, option three.",
+          "tag": "COMIC",
+          "say": "Harness node one, response to option three."
+        },
+        {
+          "id": "opt_exit_1",
+          "text": "Harness one, option four.",
+          "tag": "EXIT"
+        }
+      ]
+    },
+    "HARN_2": {
+      "prompt": "Harness node two prompt.",
+      "options": [
+        {
+          "id": "opt_gated",
+          "text": "Harness two, option one.",
+          "tag": "TOPIC",
+          "when": { "T_HARNESS_UNLOCKED": true },
+          "say": "Harness node two, first response to option one.",
+          "repeat": "Harness node two, repeat response to option one."
+        },
+        {
+          "id": "opt_comic_flag",
+          "text": "Harness two, option two.",
+          "tag": "COMIC",
+          "say": "Harness node two, response to option two.",
+          "set": { "T_HARNESS_COMIC_SEEN": true },
+          "silentState": true
+        },
+        {
+          "id": "opt_progress",
+          "text": "Harness two, option three.",
+          "tag": "PROGRESS",
+          "say": "Harness node two, response to option three.",
+          "add": { "HARNESS_PUSH_COUNT": 1 }
+        },
+        {
+          "id": "opt_exit_2",
+          "text": "Harness two, option four.",
+          "tag": "EXIT"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "note": "Flat key-value store: booleans and integers only. This is also the entire save file. Harness flags are engine-test fixtures, not design flags -- the ~40 real topic flags land with Act content.",
+  "flags": [
+    {
+      "id": "T_HARNESS_EXAMINED",
+      "type": "boolean",
+      "initial": false,
+      "writtenBy": ["room:harness_a:hs_alpha:LOOK_AT"]
+    },
+    {
+      "id": "T_HARNESS_UNLOCKED",
+      "type": "boolean",
+      "initial": false,
+      "writtenBy": ["dialogue:harness_tree:HARN_1:opt_unlock"]
+    },
+    {
+      "id": "T_HARNESS_COMIC_SEEN",
+      "type": "boolean",
+      "initial": false,
+      "writtenBy": ["dialogue:harness_tree:HARN_2:opt_comic_flag"]
+    },
+    {
+      "id": "HARNESS_PUSH_COUNT",
+      "type": "integer",
+      "initial": 0,
+      "writtenBy": ["room:harness_a:hs_beta:PUSH"]
+    }
+  ]
+}

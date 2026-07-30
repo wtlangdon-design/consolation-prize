@@ -1,0 +1,81 @@
+import { allDialogueOptions, allInteractables, loadContent, Report, runCheck } from './lib/content.mjs';
+
+/**
+ * Every character the game can draw has a glyph.
+ *
+ * The font is 1-bit and hand-authored, so an unmapped character renders as a
+ * gap rather than a fallback shape -- a typographer's quote or an en dash
+ * pasted in from a design document would silently vanish mid-sentence.
+ */
+function collectStrings(content) {
+  const strings = [];
+
+  for (const { roomId, target } of allInteractables(content)) {
+    strings.push({ text: target.name, where: `${roomId}/${target.id} (name)` });
+    for (const [verb, rules] of Object.entries(target.responses ?? {})) {
+      rules.forEach((rule, index) => {
+        if (rule.say) strings.push({ text: rule.say, where: `${roomId}/${target.id}/${verb}[${index}]` });
+      });
+    }
+    (target.fallback ?? []).forEach((line, index) => {
+      strings.push({ text: line, where: `${roomId}/${target.id}/fallback[${index}]` });
+    });
+  }
+
+  for (const { data } of content.dialogue) {
+    for (const [nodeId, node] of Object.entries(data.nodes ?? {})) {
+      if (node.prompt) strings.push({ text: node.prompt, where: `${data.id}/${nodeId} (prompt)` });
+    }
+  }
+  for (const { treeId, nodeId, option } of allDialogueOptions(content)) {
+    const where = `${treeId}/${nodeId}/${option.id}`;
+    for (const [field, text] of Object.entries({ text: option.text, say: option.say, repeat: option.repeat })) {
+      if (text) strings.push({ text, where: `${where} (${field})` });
+    }
+  }
+
+  for (const verb of content.verbs.verbs) {
+    strings.push({ text: verb.label, where: `verb ${verb.id}` });
+  }
+  strings.push({ text: content.verbs.walkVerb.label, where: 'walk verb' });
+
+  for (const [key, value] of Object.entries(content.ui.notices)) {
+    strings.push({ text: value, where: `ui.notices.${key}` });
+  }
+  for (const [key, value] of Object.entries(content.ui.keys)) {
+    strings.push({ text: value, where: `ui.keys.${key}` });
+  }
+  for (const [key, value] of Object.entries(content.ui.dialogue)) {
+    strings.push({ text: value, where: `ui.dialogue.${key}` });
+  }
+
+  return strings;
+}
+
+export function check() {
+  const report = new Report('Every content character has a font glyph');
+  const content = loadContent();
+  const glyphs = new Set(Object.keys(content.font.glyphs));
+  const strings = collectStrings(content);
+
+  const missing = new Map();
+  for (const { text, where } of strings) {
+    for (const char of text) {
+      if (!glyphs.has(char)) {
+        if (!missing.has(char)) missing.set(char, where);
+      }
+    }
+  }
+
+  for (const [char, where] of missing) {
+    const code = char.codePointAt(0)?.toString(16).padStart(4, '0');
+    report.fail(`no glyph for "${char}" (U+${code}), first seen at ${where}`);
+  }
+
+  report.note(`${strings.length} strings checked against ${glyphs.size} glyphs`);
+  return report;
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  process.exit(runCheck(check()) ? 0 : 1);
+}

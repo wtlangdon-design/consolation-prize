@@ -21,8 +21,8 @@
 
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["engine/*"]
     }
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["engine", "tests", "vite.config.ts"]
 }
