@@ -2,6 +2,7 @@ import { runCheck } from './lib/content.mjs';
 
 import { check as noContentInCode } from './check-no-content-in-code.mjs';
 import { check as contentSchema } from './check-content-schema.mjs';
+import { check as paletteLocked } from './check-palette.mjs';
 import { check as examineLines } from './check-examine-lines.mjs';
 import { check as dialogueNodes } from './check-dialogue-nodes.mjs';
 import { check as flagOrder } from './check-flag-order.mjs';
@@ -15,6 +16,7 @@ import { check as puzzleGraph } from './check-puzzle-graph.mjs';
 const CHECKS = [
   noContentInCode,
   contentSchema,
+  paletteLocked,
   examineLines,
   dialogueNodes,
   flagOrder,

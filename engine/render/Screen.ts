@@ -14,14 +14,20 @@ export const VERB_HEIGHT = 11;
 export const VERB_ROW_Y = [156, 168, 180] as const;
 export const HUD_Y = 192;
 
-/** Palette indices used by the interface chrome. */
-export const UI_INK = 14;
-export const UI_INK_DIM = 12;
-export const UI_INK_BRIGHT = 15;
-export const UI_PANEL_BG = 1;
-export const UI_BUTTON_BG = 2;
-export const UI_BUTTON_BG_ACTIVE = 4;
-export const UI_OVERLAY_BG = 0;
+/**
+ * Interface colours are looked up by role name, never by index. The locked
+ * palette owns the numbers; changing a chrome colour is a palette edit, not
+ * a code edit.
+ */
+export type UiRole =
+  | 'overlayBg'
+  | 'panelBg'
+  | 'buttonBg'
+  | 'buttonBgActive'
+  | 'outline'
+  | 'inkDim'
+  | 'ink'
+  | 'inkBright';
 
 /**
  * Owns the single 320x200 canvas everything is drawn into. Redrawing the
@@ -30,10 +36,29 @@ export const UI_OVERLAY_BG = 0;
 export class Screen {
   private readonly swatches: string[];
   private readonly ctx: CanvasRenderingContext2D;
+  private readonly roles: Record<string, number>;
 
   constructor(ctx: CanvasRenderingContext2D, palette: PaletteFile) {
+    if (!palette.locked) {
+      throw new Error(`Palette ${palette.id} is not locked`);
+    }
     this.ctx = ctx;
     this.swatches = palette.colours;
+    this.roles = palette.roles;
+  }
+
+  /** Palette index for a named interface role. */
+  role(name: UiRole): number {
+    const index = this.roles[name];
+    if (index === undefined) {
+      throw new Error(`Palette has no role: ${name}`);
+    }
+    return index;
+  }
+
+  /** Convenience: the colour string for a named role. */
+  roleColour(name: UiRole): string {
+    return this.colour(this.role(name));
   }
 
   get context(): CanvasRenderingContext2D {

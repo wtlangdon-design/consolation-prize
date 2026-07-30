@@ -54,15 +54,20 @@ content/            all game content, loaded at runtime
   dialogue/         trees, nodes, options, tags, gates, state changes
   flags/            flag definitions and initial state
   ui/               verb labels and every string the interface can draw
-art/ui/             1-bit font, placeholder palette
+art/palette/        the LOCKED 256-colour palette. Do not edit.
+art/ui/             1-bit font
+art/backgrounds/    composed room backgrounds (native + 4x preview)
+art/reference/      palette and component reference sheets
 tools/              the validation pass
+tools/pixelart/     Python pixel-art toolchain: indexed canvas, Bayer
+                    dithering, component library, room compositions
 tests/              engine tests
 docs/               the design. 00-errata.md wins over all of it.
 ```
 
 ## Validation, not judgement
 
-`npm run validate` runs seven checks, each readable in under a minute:
+`npm run validate` runs eight checks, each readable in under a minute:
 
 | Check | Enforces |
 | --- | --- |
@@ -72,6 +77,7 @@ docs/               the design. 00-errata.md wins over all of it.
 | Dialogue nodes | ≥3 options and ≥1 `[COMIC]` option per node |
 | Flag order | No gate can be read before something can write it |
 | Glyph coverage | Every character in content has a font glyph |
+| Palette | Locked, 256 entries, 6-bit VGA, every referenced index in range |
 | Puzzle graph | All 45 puzzles reachable; win reachable from every reachable state |
 
 The puzzle-graph check is inert until the graph lands — it reports that it
@@ -81,3 +87,21 @@ traversed nothing rather than passing on no evidence.
 
 **Phase 1 — engine skeleton.** No content. The two rooms and one dialogue tree
 under `content/` are engine test fixtures, not Consolation.
+
+## Pixel art
+
+The palette in `art/palette/consolation-256.json` is **locked** (doc 11 step 1).
+Every asset indexes into it and the engine refuses to start on an unlocked
+palette. Regenerate only if you intend to redo every asset:
+
+```sh
+python3 tools/pixelart/palette_gen.py       # regenerates the locked palette
+python3 tools/pixelart/sheets.py            # palette + component reference sheets
+python3 tools/pixelart/room02_main_street.py  # composes Room 2
+```
+
+Backgrounds are composed procedurally from the component library in
+`tools/pixelart/components.py` rather than generated and downsampled. Every
+pixel lands on the grid by construction, so the failure signatures doc 11
+lists — off-grid pixels, soft edges, thousands of colours, imitation
+dithering — cannot occur. Output is deterministic for a given seed.

@@ -141,6 +141,13 @@ export interface FontFile {
 
 export interface PaletteFile {
   schema: number;
+  id: string;
+  /** The locked palette may not be edited. The engine refuses an unlocked one. */
+  locked: boolean;
+  channelBits: number;
+  families: Record<string, { start: number; count: number }>;
+  /** Named interface colours, so no .ts file hard-codes a palette index. */
+  roles: Record<string, number>;
   colours: string[];
 }
 

@@ -3,64 +3,156 @@
   "id": "harness_b",
   "name": "HARNESS ROOM B",
   "note": "Second engine test fixture. Exists so room transitions and autosave-on-transition are exercised.",
-  "colours": { "sky": 7, "ground": 8 },
+  "colours": {
+    "sky": 152,
+    "ground": 12
+  },
   "horizon": 88,
   "hotspots": [
     {
       "id": "hs_delta",
       "name": "DELTA CRATE",
-      "rect": [40, 48, 48, 40],
-      "colour": 9,
+      "rect": [
+        40,
+        48,
+        48,
+        40
+      ],
+      "colour": 48,
       "responses": {
-        "LOOK_AT": [{ "say": "Delta crate. Look response E1." }],
-        "LISTEN_TO": [{ "say": "Delta crate. Listen response E2." }],
-        "OPEN": [{ "say": "Delta crate. Open response E3." }],
-        "CLOSE": [{ "say": "Delta crate. Close response E4." }],
-        "PICK_UP": [{ "say": "Delta crate. Pick up response E5." }]
+        "LOOK_AT": [
+          {
+            "say": "Delta crate. Look response E1."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Delta crate. Listen response E2."
+          }
+        ],
+        "OPEN": [
+          {
+            "say": "Delta crate. Open response E3."
+          }
+        ],
+        "CLOSE": [
+          {
+            "say": "Delta crate. Close response E4."
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "Delta crate. Pick up response E5."
+          }
+        ]
       },
-      "fallback": ["Delta crate. Fallback response E6."]
+      "fallback": [
+        "Delta crate. Fallback response E6."
+      ]
     },
     {
       "id": "hs_epsilon",
       "name": "EPSILON DIAL",
-      "rect": [120, 40, 40, 40],
-      "colour": 10,
+      "rect": [
+        120,
+        40,
+        40,
+        40
+      ],
+      "colour": 70,
       "responses": {
         "LOOK_AT": [
-          { "when": { "HARNESS_PUSH_COUNT": { "atLeast": 3 } }, "say": "Epsilon dial. Look response F1, counter at three or more." },
-          { "say": "Epsilon dial. Look response F2, counter below three." }
+          {
+            "when": {
+              "HARNESS_PUSH_COUNT": {
+                "atLeast": 3
+              }
+            },
+            "say": "Epsilon dial. Look response F1, counter at three or more."
+          },
+          {
+            "say": "Epsilon dial. Look response F2, counter below three."
+          }
         ],
-        "LISTEN_TO": [{ "say": "Epsilon dial. Listen response F3." }],
-        "USE": [{ "say": "Epsilon dial. Use response F4." }],
-        "PULL": [{ "say": "Epsilon dial. Pull response F5." }]
+        "LISTEN_TO": [
+          {
+            "say": "Epsilon dial. Listen response F3."
+          }
+        ],
+        "USE": [
+          {
+            "say": "Epsilon dial. Use response F4."
+          }
+        ],
+        "PULL": [
+          {
+            "say": "Epsilon dial. Pull response F5."
+          }
+        ]
       },
-      "fallback": ["Epsilon dial. Fallback response F6."]
+      "fallback": [
+        "Epsilon dial. Fallback response F6."
+      ]
     },
     {
       "id": "hs_zeta",
       "name": "ZETA MARK",
-      "rect": [192, 64, 56, 24],
-      "colour": 11,
+      "rect": [
+        192,
+        64,
+        56,
+        24
+      ],
+      "colour": 124,
       "responses": {
-        "LOOK_AT": [{ "say": "Zeta mark. Look response G1." }],
-        "LISTEN_TO": [{ "say": "Zeta mark. Listen response G2." }],
-        "PUSH": [{ "say": "Zeta mark. Push response G3." }]
+        "LOOK_AT": [
+          {
+            "say": "Zeta mark. Look response G1."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Zeta mark. Listen response G2."
+          }
+        ],
+        "PUSH": [
+          {
+            "say": "Zeta mark. Push response G3."
+          }
+        ]
       },
-      "fallback": ["Zeta mark. Fallback response G4."]
+      "fallback": [
+        "Zeta mark. Fallback response G4."
+      ]
     }
   ],
   "exits": [
     {
       "id": "exit_b_to_a",
       "name": "WEST DOORWAY",
-      "rect": [8, 40, 32, 64],
-      "colour": 6,
+      "rect": [
+        8,
+        40,
+        32,
+        64
+      ],
+      "colour": 104,
       "to": "harness_a",
       "responses": {
-        "LOOK_AT": [{ "say": "West doorway. Look response H1." }],
-        "LISTEN_TO": [{ "say": "West doorway. Listen response H2." }]
+        "LOOK_AT": [
+          {
+            "say": "West doorway. Look response H1."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "West doorway. Listen response H2."
+          }
+        ]
       },
-      "fallback": ["West doorway. Fallback response H3."]
+      "fallback": [
+        "West doorway. Fallback response H3."
+      ]
     }
   ]
 }

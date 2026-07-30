@@ -17,3 +17,10 @@ pnpm-debug.log*
 
 *.tsbuildinfo
 .vite/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Local browser verification output
+.phase1-shots/

@@ -9,13 +9,6 @@ import {
   PLAY_HEIGHT,
   Screen,
   SENTENCE_Y,
-  UI_BUTTON_BG,
-  UI_BUTTON_BG_ACTIVE,
-  UI_INK,
-  UI_INK_BRIGHT,
-  UI_INK_DIM,
-  UI_OVERLAY_BG,
-  UI_PANEL_BG,
   verbButtonRect,
 } from './Screen.ts';
 
@@ -74,7 +67,7 @@ export class Renderer {
     for (const target of this.state.targets) {
       const [x, y, width, height] = target.rect;
       this.screen.fill(x, y, width, height, target.colour);
-      this.screen.outline(x, y, width, height, UI_INK_DIM);
+      this.screen.outline(x, y, width, height, this.screen.role('outline'));
     }
   }
 
@@ -85,7 +78,7 @@ export class Renderer {
         line,
         NATIVE_WIDTH / 2,
         SAY_TOP + index * DIALOGUE_LINE_HEIGHT,
-        this.screen.colour(UI_INK_BRIGHT),
+        this.screen.roleColour('inkBright'),
       );
     });
   }
@@ -96,13 +89,13 @@ export class Renderer {
     const ui = this.state.content.ui.dialogue;
     const ctx = this.screen.context;
 
-    this.screen.fill(0, DIALOGUE_TOP - 14, NATIVE_WIDTH, PLAY_HEIGHT - DIALOGUE_TOP + 14, UI_OVERLAY_BG);
-    this.font.draw(ctx, node.prompt, TEXT_MARGIN, DIALOGUE_TOP - 12, this.screen.colour(UI_INK_BRIGHT));
+    this.screen.fill(0, DIALOGUE_TOP - 14, NATIVE_WIDTH, PLAY_HEIGHT - DIALOGUE_TOP + 14, this.screen.role('overlayBg'));
+    this.font.draw(ctx, node.prompt, TEXT_MARGIN, DIALOGUE_TOP - 12, this.screen.roleColour('inkBright'));
 
     const options = this.state.dialogue.presentOptions();
     options.forEach((presented, index) => {
       const prefix = presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix;
-      const colour = this.screen.colour(presented.exhausted ? UI_INK_DIM : UI_INK);
+      const colour = this.screen.roleColour(presented.exhausted ? 'inkDim' : 'ink');
       this.font.draw(
         ctx,
         `${prefix}${presented.option.text}`,
@@ -117,26 +110,26 @@ export class Renderer {
     const ctx = this.screen.context;
     const { ui, verbs } = this.state.content;
 
-    this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, UI_PANEL_BG);
+    this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, this.screen.role('panelBg'));
 
     const sentence = frame.notice ?? this.sentenceText(frame.hoveredTargetName);
-    this.font.draw(ctx, sentence, TEXT_MARGIN, SENTENCE_Y, this.screen.colour(UI_INK_BRIGHT));
+    this.font.draw(ctx, sentence, TEXT_MARGIN, SENTENCE_Y, this.screen.roleColour('inkBright'));
 
     for (const verb of verbs.verbs) {
       const rect = verbButtonRect(verb.col, verb.row);
       const active = verb.id === this.state.verbs.selectedVerb;
-      this.screen.fill(rect.x, rect.y, rect.width, rect.height, active ? UI_BUTTON_BG_ACTIVE : UI_BUTTON_BG);
+      this.screen.fill(rect.x, rect.y, rect.width, rect.height, this.screen.role(active ? 'buttonBgActive' : 'buttonBg'));
       this.font.draw(
         ctx,
         verb.label,
         rect.x + 3,
         rect.y + 2,
-        this.screen.colour(active ? UI_INK_BRIGHT : UI_INK),
+        this.screen.roleColour(active ? 'inkBright' : 'ink'),
       );
     }
 
     const hint = format(ui.hud.hintTemplate, ui.keys);
-    this.font.draw(ctx, hint, TEXT_MARGIN, HUD_Y, this.screen.colour(UI_INK_DIM));
+    this.font.draw(ctx, hint, TEXT_MARGIN, HUD_Y, this.screen.roleColour('inkDim'));
   }
 
   private sentenceText(targetName: string | null): string {

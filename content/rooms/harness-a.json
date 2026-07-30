@@ -3,69 +3,178 @@
   "id": "harness_a",
   "name": "HARNESS ROOM A",
   "note": "Engine test fixture. Not a Consolation room. Three hotspots plus one exit, per the Phase 1 acceptance in errata ruling 8.",
-  "colours": { "sky": 1, "ground": 2 },
+  "colours": {
+    "sky": 158,
+    "ground": 8
+  },
   "horizon": 96,
   "hotspots": [
     {
       "id": "hs_alpha",
       "name": "ALPHA BLOCK",
-      "rect": [24, 40, 56, 48],
-      "colour": 3,
+      "rect": [
+        24,
+        40,
+        56,
+        48
+      ],
+      "colour": 44,
       "responses": {
-        "LOOK_AT": [{ "say": "Alpha block. Look response A1.", "set": { "T_HARNESS_EXAMINED": true } }],
-        "LISTEN_TO": [{ "say": "Alpha block. Listen response A2." }],
-        "PICK_UP": [{ "say": "Alpha block. Pick up response A3." }],
-        "OPEN": [
-          { "when": { "T_HARNESS_UNLOCKED": true }, "say": "Alpha block. Open response A4, gated open." },
-          { "say": "Alpha block. Open response A5, gated shut." }
+        "LOOK_AT": [
+          {
+            "say": "Alpha block. Look response A1.",
+            "set": {
+              "T_HARNESS_EXAMINED": true
+            }
+          }
         ],
-        "TALK_TO": [{ "say": "Alpha block. Talk response A6.", "dialogue": "harness_tree" }]
+        "LISTEN_TO": [
+          {
+            "say": "Alpha block. Listen response A2."
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "Alpha block. Pick up response A3."
+          }
+        ],
+        "OPEN": [
+          {
+            "when": {
+              "T_HARNESS_UNLOCKED": true
+            },
+            "say": "Alpha block. Open response A4, gated open."
+          },
+          {
+            "say": "Alpha block. Open response A5, gated shut."
+          }
+        ],
+        "TALK_TO": [
+          {
+            "say": "Alpha block. Talk response A6.",
+            "dialogue": "harness_tree"
+          }
+        ]
       },
-      "fallback": ["Alpha block. Fallback response A7.", "Alpha block. Fallback response A8."]
+      "fallback": [
+        "Alpha block. Fallback response A7.",
+        "Alpha block. Fallback response A8."
+      ]
     },
     {
       "id": "hs_beta",
       "name": "BETA LEVER",
-      "rect": [104, 56, 48, 32],
-      "colour": 4,
+      "rect": [
+        104,
+        56,
+        48,
+        32
+      ],
+      "colour": 66,
       "responses": {
-        "LOOK_AT": [{ "say": "Beta lever. Look response B1." }],
-        "LISTEN_TO": [{ "say": "Beta lever. Listen response B2." }],
-        "PUSH": [{ "say": "Beta lever. Push response B3, counter increments.", "add": { "HARNESS_PUSH_COUNT": 1 } }],
-        "PULL": [{ "say": "Beta lever. Pull response B4." }],
-        "USE": [{ "say": "Beta lever. Use response B5." }]
+        "LOOK_AT": [
+          {
+            "say": "Beta lever. Look response B1."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Beta lever. Listen response B2."
+          }
+        ],
+        "PUSH": [
+          {
+            "say": "Beta lever. Push response B3, counter increments.",
+            "add": {
+              "HARNESS_PUSH_COUNT": 1
+            }
+          }
+        ],
+        "PULL": [
+          {
+            "say": "Beta lever. Pull response B4."
+          }
+        ],
+        "USE": [
+          {
+            "say": "Beta lever. Use response B5."
+          }
+        ]
       },
-      "fallback": ["Beta lever. Fallback response B6."]
+      "fallback": [
+        "Beta lever. Fallback response B6."
+      ]
     },
     {
       "id": "hs_gamma",
       "name": "GAMMA HATCH",
-      "rect": [176, 32, 64, 56],
-      "colour": 5,
+      "rect": [
+        176,
+        32,
+        64,
+        56
+      ],
+      "colour": 88,
       "responses": {
         "LOOK_AT": [
-          { "when": { "T_HARNESS_EXAMINED": true }, "say": "Gamma hatch. Look response C1, after alpha." },
-          { "say": "Gamma hatch. Look response C2, before alpha." }
+          {
+            "when": {
+              "T_HARNESS_EXAMINED": true
+            },
+            "say": "Gamma hatch. Look response C1, after alpha."
+          },
+          {
+            "say": "Gamma hatch. Look response C2, before alpha."
+          }
         ],
-        "LISTEN_TO": [{ "say": "Gamma hatch. Listen response C3." }],
-        "OPEN": [{ "say": "Gamma hatch. Open response C4." }],
-        "CLOSE": [{ "say": "Gamma hatch. Close response C5." }]
+        "LISTEN_TO": [
+          {
+            "say": "Gamma hatch. Listen response C3."
+          }
+        ],
+        "OPEN": [
+          {
+            "say": "Gamma hatch. Open response C4."
+          }
+        ],
+        "CLOSE": [
+          {
+            "say": "Gamma hatch. Close response C5."
+          }
+        ]
       },
-      "fallback": ["Gamma hatch. Fallback response C6."]
+      "fallback": [
+        "Gamma hatch. Fallback response C6."
+      ]
     }
   ],
   "exits": [
     {
       "id": "exit_a_to_b",
       "name": "EAST DOORWAY",
-      "rect": [280, 40, 32, 64],
-      "colour": 6,
+      "rect": [
+        280,
+        40,
+        32,
+        64
+      ],
+      "colour": 104,
       "to": "harness_b",
       "responses": {
-        "LOOK_AT": [{ "say": "East doorway. Look response D1." }],
-        "LISTEN_TO": [{ "say": "East doorway. Listen response D2." }]
+        "LOOK_AT": [
+          {
+            "say": "East doorway. Look response D1."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "East doorway. Listen response D2."
+          }
+        ]
       },
-      "fallback": ["East doorway. Fallback response D3."]
+      "fallback": [
+        "East doorway. Fallback response D3."
+      ]
     }
   ]
 }

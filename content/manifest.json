@@ -2,12 +2,17 @@
   "schema": 1,
   "note": "Index of every content file the engine loads. The engine resolves nothing by hard-coded path except this manifest.",
   "font": "art/ui/font-5x7.json",
-  "palette": "art/ui/palette-placeholder.json",
+  "palette": "art/palette/consolation-256.json",
   "ui": "content/ui/ui.json",
   "verbs": "content/ui/verbs.json",
   "flags": "content/flags/flags.json",
   "startRoom": "harness_a",
-  "rooms": ["content/rooms/harness-a.json", "content/rooms/harness-b.json"],
-  "dialogue": ["content/dialogue/harness-tree.json"],
+  "rooms": [
+    "content/rooms/harness-a.json",
+    "content/rooms/harness-b.json"
+  ],
+  "dialogue": [
+    "content/dialogue/harness-tree.json"
+  ],
   "puzzles": []
 }
