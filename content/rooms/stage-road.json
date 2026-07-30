@@ -160,10 +160,10 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The number has been repainted four times. You can see the smaller ones underneath, each of them once true.",
+            "say": "CONSOLATION — POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later.",
             "repeat": [
-              "The smallest number underneath is two hundred. Somebody was pleased with two hundred once.",
-              "POP. 2,000 AND CLIMBING. The 'and climbing' is painted in a different hand, and later."
+              "The number has been repainted four times. You can see the smaller ones underneath, each of them once true.",
+              "The smallest number underneath is two hundred. Somebody was pleased with two hundred once."
             ]
           }
         ],
