@@ -152,3 +152,26 @@ For whoever does the reconciliation pass. Until then, this errata governs.
 | CLAUDE.md | Puzzle count 45; room/screen counts; duel count |
 
 **Do not begin the reconciliation pass without being asked.** Phase 1 does not require it — only rulings 5, 7 and 8 touch Phase 1 work, and all three are stated here.
+
+---
+
+# 14 · ART PIPELINE — **procedural composition supersedes generate-and-downsample**
+
+Doc 11 Part Two specifies: generate at high resolution → downsample to 320×144 → quantise → hand-clean. **That pipeline is superseded.**
+
+**Canonical:** backgrounds are composed procedurally from an indexed-canvas component library (`tools/pixelart/`), drawing palette indices directly against `art/palette/consolation-256.json`.
+
+**Rationale, since this reverses a documented decision:**
+
+1. **Off-palette colour is unrepresentable, not merely discouraged.** The canvas stores indices; colour resolves only at export.
+2. **Deterministic per seed.** Backgrounds are reproducible, diffable, and version-controlled as source rather than as binary art.
+3. **Cross-room consistency is structural.** Every building in Consolation is assembled from the same components at the same palette. It cannot drift — which was the single largest risk in the original art plan and the reason doc 11 mandated an anchor-image method.
+4. **Room 36 (Main Street, dawn) becomes trivially safe.** It is the same composition with a different palette ramp, so identical framing is guaranteed rather than hoped for. This was the riskiest single item in the art plan and the pipeline change removes the risk entirely.
+5. **No hand-clean step.** Doc 11 estimated 30–90 minutes per room across 41 rooms.
+6. **Revision is a code change.** "The boardwalk reads flat" is a parameter, not a repaint.
+
+**Doc 11 Part Two is retained as the fallback** if a room proves too organic for procedural composition — likely candidates are Room 29 (high ridge) and Room 26 (creek). Falling back is a per-room decision, not a reversal of this ruling.
+
+**Doc 12 (art prompts) is now dormant.** It remains valid only if the fallback is invoked.
+
+**Character sprites are not covered by this ruling.** Doc 11's assessment stands: Thad at ~40px is expressive posing rather than geometry, and remains a commission candidate. Procedural composition earning backgrounds does not automatically earn characters — that is a separate test with a separate go/no-go.
