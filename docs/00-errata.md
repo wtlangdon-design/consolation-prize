@@ -223,3 +223,51 @@ Established during the Thad sprite pass, and it overrides the character descript
 6. **Downscales are produced by dropping uniform rows, never by ratio.** Ratio reduction lands on the eyes. Both raw and hand-corrected versions are retained on the sheet so the correction is reviewable.
 
 **Applies to:** all 8 named characters, all 18 ambient characters, and any future sprite. Ambient characters may share a base sprite with palette swaps, but each swap is measured independently.
+
+---
+
+# 17 · INTERIORS — TEMPERATURE, MATERIAL IDENTITY, AND PER-SURFACE LEGIBILITY
+
+Established composing Room 3 (the Bountiful Nugget), the first interior. Applies to all 25 interior screens.
+
+## 17a · Temperature is set by family choice, not by lighting
+
+The lighting pass steps a colour along its own ramp. It cannot change hue. **A candle cannot make grey wood warm — it can only make it lighter grey.**
+
+Room 3 was first composed in `pine_weathered` (saturation 0.17, effectively grey) and read as cold and morgue-like despite visible candles, a lit stove and a chandelier.
+
+**Rule: choose the material family for the temperature the room needs, before composing. Lighting cannot rescue a cold family.**
+
+## 17b · Each interior needs a distinct material identity
+
+Room 3 is monotone — nearly every surface sits in a warm brown family and the eye has nowhere to rest. Defensible once. Fatal repeated across twenty-five rooms.
+
+**Rule: every interior declares a dominant material identity, and no two adjacent-in-play rooms share one.**
+
+| Room | Identity |
+|---|---|
+| 3 · The Nugget | Warm timber, brass, lamplight |
+| 5 · Assay Office | Grey, bone, glass, brass — cold precision |
+| 7 · Claims Registrar | Paper, pale institutional wood, dust |
+| 9 · The Clarion | Black iron, lead, newsprint white |
+| 11 · Fanshawe's office | Deep leather, gilt, red — the only saturated interior in the game |
+| 12 · Mercantile | Warm, but broken up by fabric, tin and printed labels |
+| 13 · Undertaker's | Scrubbed bone-white and pine, near-monochrome, deliberately |
+| 14 · Livery | Straw, leather, warm dark |
+| 16 · Ozymandia's tent | Fabric — the most saturated and least architectural room |
+| 20 · Watchman's shack | Cold grey, near-empty, the least material room in the game |
+| 21 · Thad's room | Neutral, plain, cheap |
+
+Remaining interiors assigned at composition time. Declared in room JSON.
+
+## 17c · Per-surface luminance, not zone average
+
+**Amends ruling 16.** Zone-average legibility checking is insufficient and will pass rooms that fail.
+
+Room 3's zone table reported "ok — both" at all three zones while Thad's face was failing against the bar top (+5 over p90), the back wall (+21) and the doorway (−42). The average mixed a bright bar top with the dark front beneath it into a comfortable middle and hid all three.
+
+**Rule: legibility is checked per surface, not per zone.** Every distinct surface a character can stand in front of is measured separately. A room passes only if every surface has at least one anchor clearing it.
+
+**Corollary:** the anchor may differ per room. In Room 2 the face carried Thad and the coat was at risk. In Room 3 the coat carries him everywhere (+25 to +50) and the face has stopped working. Both pass. This is ruling 16's rule 3 functioning as designed, and it is why that rule exists.
+
+**Any interior placing a 150+ luminance surface where a head falls must be checked before composition, not after.**
