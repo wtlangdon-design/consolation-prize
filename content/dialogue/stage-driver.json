@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "id": "STAGE_DRIVER",
+  "name": "THE STAGE DRIVER",
+  "note": "Doc 17 v2 PART TWO, verbatim. He is the exposition, not Hob -- Hob speaks forty words across two acts and that is a design invariant. Options 1, 2, 4 and 5 carry the setting, the premise, the money problem and the first objective; all four are optional and a player who skips him entirely still reaches Room 2. Option 5 pays off in twenty minutes: the undertaker does know everybody, because he buried Ezra Pike in 1852. His EXIT line departs the coach -- beat 7 is player-triggered, not a timer.",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "say": "Four days from Sacramento. Four days.",
+      "options": [
+        {
+          "id": "drv1",
+          "text": "What is this place?",
+          "tag": "PROGRESS",
+          "say": "Consolation. Two thousand men and one hole.",
+          "set": {
+            "T_DRIVER_PLACE": true
+          }
+        },
+        {
+          "id": "drv2",
+          "text": "What hole?",
+          "tag": "PROGRESS",
+          "say": "Mott's. Fella found the biggest strike in the territory, twelve year back. Then he didn't. Every man you can see is looking for it.",
+          "when": {
+            "T_DRIVER_PLACE": true
+          }
+        },
+        {
+          "id": "drv3",
+          "text": "Has anyone found it?",
+          "tag": "PROGRESS",
+          "say": "No.\" \"They'd have mentioned it."
+        },
+        {
+          "id": "drv4",
+          "text": "Where do I sleep?",
+          "tag": "PROGRESS",
+          "say": "Hotel's five dollars. - I have four. - You've all got four."
+        },
+        {
+          "id": "drv5",
+          "text": "I'm looking for a man named Ezra Pike.",
+          "tag": "PROGRESS",
+          "say": "Don't know him. Ask in town.\" \"Ask the undertaker. He knows everybody."
+        },
+        {
+          "id": "drv6",
+          "text": "What should I do first?",
+          "tag": "COMIC",
+          "say": "Get off my road."
+        },
+        {
+          "id": "drv7",
+          "text": "I'm going to find gold.",
+          "tag": "COMIC",
+          "say": "Course you are."
+        },
+        {
+          "id": "drv8",
+          "text": "Do you come out here often?",
+          "tag": "COMIC",
+          "say": "Four days. Each way. Since 'fifty-one."
+        },
+        {
+          "id": "drv9",
+          "text": "[EXIT]",
+          "tag": "EXIT",
+          "say": "Right. I'm turning her round.",
+          "ends": true,
+          "set": {
+            "T_COACH_DEPARTED": true
+          }
+        }
+      ]
+    }
+  },
+  "start": "root"
+}

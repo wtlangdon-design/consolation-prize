@@ -1,0 +1,289 @@
+{
+  "schema": 1,
+  "id": "stage_road",
+  "name": "STAGE ROAD & COACH STOP",
+  "materialIdentity": "cold indigo, grey and sky, with warm ochre and gold only where the lamp and the windows reach -- ruling 17a. The only night exterior in the game.",
+  "note": "Doc 05 Room 1 plus doc 17 v2, verbatim. Six hotspots and one exit. Doc 17 note 3: THE ROAD EAST's LISTEN variants 2 and 3 are identical to each other AND to the line at the high ridge in Act IV -- three uses of 'Nothing coming', a hundred yards and fifteen hours apart. Do not vary them. THE COACH's LOOK variant 1 is the coach still present; variants 2 and 3 read as after it has gone, which is when the player will reach them.",
+  "background": "art/backgrounds/room-01-stage-road.png",
+  "colours": {
+    "sky": 240,
+    "ground": 181
+  },
+  "horizon": 58,
+  "walkable": [
+    {
+      "id": "road_far",
+      "zone": 2,
+      "rect": [
+        0,
+        96,
+        320,
+        12
+      ]
+    },
+    {
+      "id": "road_mid",
+      "zone": 1,
+      "rect": [
+        0,
+        108,
+        320,
+        14
+      ]
+    },
+    {
+      "id": "road_near",
+      "zone": 0,
+      "rect": [
+        0,
+        122,
+        320,
+        22
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "case",
+      "name": "HIS CASE",
+      "rect": [
+        146,
+        122,
+        24,
+        16
+      ],
+      "colour": 28,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Everything I own, and a tuning fork. The tuning fork is the valuable part.",
+            "repeat": [
+              "Everything I own. It is not heavy and that is the whole difficulty.",
+              "My father packed it. He put the fork in first, which tells you what he thought of the rest."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The fork, faintly, against the clasp. A. Four hundred and forty. It is the only correct thing within a hundred miles.",
+            "repeat": [
+              "The fork against the clasp. A. It is still four hundred and forty.",
+              "Nothing. I have stopped shaking it to hear it, which is a low thing to be caught doing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent.",
+        "PICK_UP": "I have it. I have had it the entire time."
+      }
+    },
+    {
+      "id": "lamp",
+      "name": "THE WATCHMAN'S LAMP",
+      "rect": [
+        80,
+        74,
+        20,
+        28
+      ],
+      "colour": 226,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A lamp, going away. It has not once looked back at me.",
+            "repeat": [
+              "Still going. He has not once looked at me and I have been standing here in a good coat.",
+              "The only lit thing on this road. He is carrying the whole street around with him."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Footsteps. Even ones. He is counting them.",
+            "repeat": [
+              "Even footsteps. Still counting.",
+              "He has not broken stride once. Not once, in the whole length of the street."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "He is walking. I shall let him walk."
+      }
+    },
+    {
+      "id": "coach",
+      "name": "THE COACH",
+      "rect": [
+        192,
+        60,
+        80,
+        42
+      ],
+      "colour": 30,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "It is leaving. It has the confident manner of a thing that will not be coming back.",
+            "repeat": [
+              "Gone. It made very good time on the way out.",
+              "There is not another one for four days. I have checked twice and the answer did not improve."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The near axle is dry. It will be heard from.",
+            "repeat": [
+              "The near axle, going away. It will fail on somebody else's stretch.",
+              "Nothing. It is a long way off now."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "It is going. It is going with some enthusiasm.",
+        "PULL": "I have considered running after it. I would like that on the record and nowhere else."
+      }
+    },
+    {
+      "id": "town_sign",
+      "name": "THE TOWN SIGN",
+      "rect": [
+        34,
+        60,
+        32,
+        40
+      ],
+      "colour": 199,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The number has been repainted four times. You can see the smaller ones underneath, each of them once true.",
+            "repeat": [
+              "The smallest number underneath is two hundred. Somebody was pleased with two hundred once.",
+              "POP. 2,000 AND CLIMBING. The 'and climbing' is painted in a different hand, and later."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It creaks. It would like to be taken down.",
+            "repeat": [
+              "Creaking. It would still like to be taken down.",
+              "Nothing. The wind has dropped and it has stopped complaining."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It is nailed to a post, in the ground, at the edge of a town. I have been here two minutes and I am already vandalising the place.",
+        "TALK_TO": "Good evening. I am new."
+      }
+    },
+    {
+      "id": "road_east",
+      "name": "THE ROAD EAST",
+      "rect": [
+        276,
+        88,
+        44,
+        26
+      ],
+      "colour": 10,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Home is that way. It is eleven hundred miles that way, which robs the gesture of some of its force.",
+            "repeat": [
+              "Eleven hundred miles. I have just come along it and it did not feel optional at the time.",
+              "Home is that way. I am not going to keep looking at it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing coming.",
+            "repeat": [
+              "Nothing coming.",
+              "Nothing coming."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "That would be a decision, and I have only just made one.",
+        "PICK_UP": "It is a road."
+      }
+    },
+    {
+      "id": "mud",
+      "name": "THE MUD",
+      "rect": [
+        0,
+        110,
+        320,
+        34
+      ],
+      "colour": 6,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Mud. I have been assured it improves.",
+            "repeat": [
+              "It has come over the top of my boots, which I had not thought possible in the first minute.",
+              "Mud. I have been in this territory for ninety seconds and I have formed a view."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Mud is the only honest thing in the territory and it has nothing to say.",
+            "repeat": [
+              "Nothing. It is entirely uninterested.",
+              "Nothing. I am going to stop asking it things."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "I have enough on my boots. I am carrying a quantity of this town already."
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "road_west",
+      "name": "THE ROAD WEST",
+      "rect": [
+        0,
+        86,
+        34,
+        58
+      ],
+      "colour": 198,
+      "to": "main_street",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Consolation. There are lamps on in about a third of it.",
+            "repeat": [
+              "Somebody is still awake down there, and somebody is playing a piano badly, and those are two separate facts.",
+              "Two hundred yards. It is the shortest part of the journey and I am putting it off."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A town, at night, half of it asleep. A piano, flat, some distance off.",
+            "repeat": [
+              "Still flat. Whoever is playing it is not the problem.",
+              "Somebody laughing. It is the first cheerful sound I have heard since Sacramento."
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

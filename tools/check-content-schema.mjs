@@ -92,9 +92,15 @@ export function check() {
   }
 
   // --- dialogue ----------------------------------------------------------
-  for (const { treeId, nodeId, option } of allDialogueOptions(content)) {
+  for (const { treeId, nodeId, node, option } of allDialogueOptions(content)) {
     if (option.tag !== 'EXIT' && !option.say && !option.repeat) {
-      report.fail(`${treeId}/${nodeId}/${option.id}: no response line`);
+      // A node may declare that its options have no replies. The opening
+      // line is the case that needs it: the options are what Thad says, and
+      // doc 17 is explicit that nobody is listening. Declared in the content
+      // with a reason, so the exception is reviewable rather than implicit.
+      if (node.noReply !== true) {
+        report.fail(`${treeId}/${nodeId}/${option.id}: no response line`);
+      }
     }
   }
 

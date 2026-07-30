@@ -6,25 +6,51 @@
       "id": "T_HARNESS_EXAMINED",
       "type": "boolean",
       "initial": false,
-      "writtenBy": ["room:harness_a:hs_alpha:LOOK_AT"]
+      "writtenBy": [
+        "room:harness_a:hs_alpha:LOOK_AT"
+      ]
     },
     {
       "id": "T_HARNESS_UNLOCKED",
       "type": "boolean",
       "initial": false,
-      "writtenBy": ["dialogue:harness_tree:HARN_1:opt_unlock"]
+      "writtenBy": [
+        "dialogue:harness_tree:HARN_1:opt_unlock"
+      ]
     },
     {
       "id": "T_HARNESS_COMIC_SEEN",
       "type": "boolean",
       "initial": false,
-      "writtenBy": ["dialogue:harness_tree:HARN_2:opt_comic_flag"]
+      "writtenBy": [
+        "dialogue:harness_tree:HARN_2:opt_comic_flag"
+      ]
     },
     {
       "id": "HARNESS_PUSH_COUNT",
       "type": "integer",
       "initial": 0,
-      "writtenBy": ["room:harness_a:hs_beta:PUSH"]
+      "writtenBy": [
+        "room:harness_a:hs_beta:PUSH"
+      ]
+    },
+    {
+      "id": "T_OPENING_SAID",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has said his opening line. Doc 17 beat 4; set by whichever of the three options the player picks."
+    },
+    {
+      "id": "T_DRIVER_PLACE",
+      "type": "bool",
+      "initial": false,
+      "note": "The driver has said where this is. Doc 17 gates his option 2 on it -- you cannot ask 'what hole?' before he has mentioned a hole."
+    },
+    {
+      "id": "T_COACH_DEPARTED",
+      "type": "bool",
+      "initial": false,
+      "note": "The coach has gone. Doc 17 beat 7: set by the driver's EXIT line, not by a timer. Beat 8, Hob's crossing, keys off this."
     }
   ]
 }

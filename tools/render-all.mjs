@@ -31,6 +31,7 @@ const SCRIPTS = [
   ['room05_assay.py', 'Room 5, the Assay Office'],
   ['room05_background.py', 'Room 5 background (shipping asset)'],
   ['room05_proof.py', 'Room 5 with Thad, and the ruling 17c audit'],
+  ['room01_stage_road.py', 'Room 1, the stage road at night'],
   ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
   ['title_screen.py', 'Title screen'],
 ];

@@ -1,125 +1,65 @@
-"""The title screen: Room 29 with a drawn title over it.
+"""The title screen. Its own composition, no longer Room 29 with text on it.
 
-The title is NOT the 5x7 game font. That font exists to fit three lines of
-Thad into a 320px frame and it is built for density, not for presence -- set
-CONSOLATION PRIZE in it and you get a caption. So the letters here are drawn
-at 11 rows with a heavier stem, still strictly on the pixel grid and still
-drawn only from the locked palette.
+Room 29 and this share a viewpoint and a palette and nothing else. Room 29
+is a place Thad stands in Act IV, so it stays wide and empty and mostly
+landscape. This is a poster, and a poster has one job: say what the game is
+before anyone has pressed anything.
 
-The letterforms are a slab: flat serifs, even weight, no curves that need
-more than one step. That is a period-plausible display face and, more
-usefully, it is a shape that survives being one colour on a busy landscape.
+What the game is: a town PERFORMING prosperity. So Consolation is pushed
+much larger and much nearer than Room 29 has it -- near enough that the
+false fronts read as flat boards standing a storey above the sheds behind
+them, near enough for lit windows and a worn street. At Room 29's distance
+that is an indistinct smudge and the joke of the shot is lost entirely.
 
-MUSIC: there is none. The score does not exist yet, and errata invariant 5
-makes the score's detuning the emotional arc of the whole game -- so a
-placeholder here would be actively misleading rather than merely absent.
-`MUSIC_CUE` below is the hook and the gap is noted in the render output.
+Layout, in thirds:
+  top     -- CONSOLATION PRIZE, the second largest thing in the frame
+  middle  -- the town, performing
+  bottom  -- the menu, in the game font, deliberately unremarkable
+
+MUSIC: there is none. The score does not exist, and errata invariant 5 makes
+its detuning the emotional arc of the whole game, so a placeholder would be
+actively misleading rather than merely absent. MUSIC_CUE is the hook.
 """
 
 from __future__ import annotations
 
 import json
+import random
 from pathlib import Path
 
-import room29_ridge
+import title_face
 from canvas import IndexedCanvas
+from components import distant_hills
+from dither import BAYER2, BAYER4, dither_pixel
 from palette import Palette, Ramp
 from renders import RENDERS
 
 ROOT = Path(__file__).resolve().parents[2]
 
-#: The one thing the title screen will eventually ask the audio layer for.
-#: Nothing plays it. Doc 06 will own the cue list when the score exists.
+WIDTH, HEIGHT = 320, 144
+SEED = 18581225
+
 MUSIC_CUE = "title.theme"
 
-TITLE_TOP = 22
-#: Menu down the left, not centred. Centred, it landed squarely on the town
-#: -- and the town is the picture. Title top-centre, menu lower-left, town
-#: centre-right is a composition rather than three things stacked.
-MENU_LEFT = 20
-MENU_TOP = 94
-MENU_ROW = 13
+#: The title gets the top third, as instructed.
+TITLE_TOP = 8
+#: The town sits across the middle, near enough to read.
+STREET_Y = 104
+TOWN_LEFT, TOWN_RIGHT = 30, 292
+HORIZON = 40
 
-#: 11-row slab letterforms. Wider than the game font and heavier in the
-#: stem, so the title has presence at 320px instead of reading as a caption.
-GLYPHS: dict[str, list[str]] = {
-    "C": ["████████", "████████", "██░░░░██", "██░░░░░░", "██░░░░░░", "██░░░░░░",
-          "██░░░░░░", "██░░░░██", "████████", "████████", "░░░░░░░░"],
-    "O": ["████████", "████████", "██░░░░██", "██░░░░██", "██░░░░██", "██░░░░██",
-          "██░░░░██", "██░░░░██", "████████", "████████", "░░░░░░░░"],
-    "N": ["██░░░░██", "███░░░██", "████░░██", "██░██░██", "██░░████", "██░░░███",
-          "██░░░░██", "██░░░░██", "██░░░░██", "██░░░░██", "░░░░░░░░"],
-    "S": ["████████", "████████", "██░░░░░░", "██░░░░░░", "████████", "████████",
-          "░░░░░░██", "░░░░░░██", "████████", "████████", "░░░░░░░░"],
-    "L": ["██░░░░░░", "██░░░░░░", "██░░░░░░", "██░░░░░░", "██░░░░░░", "██░░░░░░",
-          "██░░░░░░", "██░░░░░░", "████████", "████████", "░░░░░░░░"],
-    "A": ["████████", "████████", "██░░░░██", "██░░░░██", "████████", "████████",
-          "██░░░░██", "██░░░░██", "██░░░░██", "██░░░░██", "░░░░░░░░"],
-    "T": ["████████", "████████", "░░░██░░░", "░░░██░░░", "░░░██░░░", "░░░██░░░",
-          "░░░██░░░", "░░░██░░░", "░░░██░░░", "░░░██░░░", "░░░░░░░░"],
-    "I": ["████████", "████████", "░░░██░░░", "░░░██░░░", "░░░██░░░", "░░░██░░░",
-          "░░░██░░░", "░░░██░░░", "████████", "████████", "░░░░░░░░"],
-    "P": ["████████", "████████", "██░░░░██", "██░░░░██", "████████", "████████",
-          "██░░░░░░", "██░░░░░░", "██░░░░░░", "██░░░░░░", "░░░░░░░░"],
-    "R": ["████████", "████████", "██░░░░██", "██░░░░██", "██████░░", "██████░░",
-          "██░░██░░", "██░░░███", "██░░░░██", "██░░░░██", "░░░░░░░░"],
-    "Z": ["████████", "████████", "░░░░░███", "░░░░██░░", "░░░██░░░", "░░██░░░░",
-          "░██░░░░░", "██░░░░░░", "████████", "████████", "░░░░░░░░"],
-    "E": ["████████", "████████", "██░░░░░░", "██░░░░░░", "██████░░", "██████░░",
-          "██░░░░░░", "██░░░░░░", "████████", "████████", "░░░░░░░░"],
-    " ": ["░░░░░░░░"] * 11,
-}
+#: Four rows have to fit above the frame edge. At 118 the fourth fell
+#: off the bottom and CREDITS silently vanished from the menu.
+MENU_TOP = 107
+MENU_ROW = 9
 
-GLYPH_W, GLYPH_H, TRACK = 8, 11, 1
-
-
-def measure(text: str) -> int:
-    return len(text) * (GLYPH_W + TRACK) - TRACK
-
-
-def draw_title(
-    canvas: IndexedCanvas, text: str, x: int, y: int, face: Ramp, shadow: Ramp,
-) -> None:
-    """Slab letters with a hard drop shadow and a lit top edge.
-
-    The shadow is not decoration: the title sits over a landscape whose
-    luminance varies from 30 to 190 across its width, and a single-colour
-    title would disappear somewhere along it. A dark offset copy guarantees
-    an edge everywhere regardless of what is behind.
-    """
-    for offset, ramp, step in ((2, shadow, 0.04), (0, face, 0.86)):
-        cursor = x
-        for character in text:
-            glyph = GLYPHS.get(character, GLYPHS[" "])
-            for row, bits in enumerate(glyph):
-                for column, mark in enumerate(bits):
-                    if mark != "█":
-                        continue
-                    canvas.put(cursor + column + offset, y + row + offset, ramp.frac(step))
-            cursor += GLYPH_W + TRACK
-    # Lit top edge on the face only, so the slab has a light source.
-    cursor = x
-    for character in text:
-        glyph = GLYPHS.get(character, GLYPHS[" "])
-        for column, mark in enumerate(glyph[0]):
-            if mark == "█":
-                canvas.put(cursor + column, y, face.frac(0.98))
-        cursor += GLYPH_W + TRACK
-
-
-#: The real 5x7 game font, read from the same JSON the engine reads. The
-#: preview draws the menu with the actual glyphs rather than placeholder
-#: blocks -- a render whose text is fake is a render you cannot judge.
-#: Path comes from the manifest, so the preview cannot drift onto a
-#: different font from the one the engine loads.
 _MANIFEST = json.loads((ROOT / "content" / "manifest.json").read_text(encoding="utf-8"))
 _FONT = json.loads((ROOT / _MANIFEST["font"]).read_text(encoding="utf-8"))
 
 
-def _game_font(canvas: IndexedCanvas, text: str, x: int, y: int, ramp: Ramp, tone: float) -> int:
+def game_font(canvas: IndexedCanvas, text: str, x: int, y: int, ramp: Ramp, tone: float) -> int:
+    """The 5x7 game font, read from the same JSON the engine reads."""
     glyphs = _FONT["glyphs"]
-    # Per-glyph advance overrides, with a font-wide default. Same two fields
-    # BitmapFont reads, so the preview spaces text exactly as the game does.
     per_glyph = _FONT.get("advances", {})
     default = _FONT.get("advance", 6)
     cursor = x
@@ -139,45 +79,168 @@ def _game_font(canvas: IndexedCanvas, text: str, x: int, y: int, ramp: Ramp, ton
     return cursor - x
 
 
+def landscape(canvas: IndexedCanvas, palette: Palette, rng) -> None:
+    """Same viewpoint and palette as Room 29, composed nearer."""
+    sky = palette.family("dusk")
+    far = palette.family("sky")
+    sage = palette.family("sage")
+    mud = palette.family("mud")
+
+    for y in range(HORIZON + 6):
+        position = 1.0 - (y / max(1, HORIZON + 6))
+        for x in range(WIDTH):
+            dither_pixel(canvas, x, y, sky, max(0.04, 0.26 + 0.58 * position), BAYER4)
+
+    distant_hills(canvas, 0, HORIZON - 14, WIDTH, 18, far, rng, layers=2, amplitude=5)
+    distant_hills(canvas, 0, HORIZON - 4, WIDTH, 20, sage, rng, layers=3, amplitude=8)
+
+    # The valley floor the town stands on, and the slope below it running
+    # down out of frame toward the viewer.
+    for y in range(HORIZON + 4, HEIGHT):
+        walk = (y - HORIZON - 4) / max(1, HEIGHT - HORIZON - 4)
+        ramp, tone = (sage, 0.26 - 0.06 * walk) if walk < 0.28 else (mud, 0.30 + 0.26 * walk)
+        for x in range(WIDTH):
+            dither_pixel(canvas, x, y, ramp, max(0.04, tone), BAYER2)
+
+
+def town(canvas: IndexedCanvas, palette: Palette, rng) -> None:
+    """Consolation, near enough to see it performing.
+
+    Each building is a flat false front with a shallow shed behind it, and at
+    this distance the relationship is legible: the parapet stands clear above
+    the roof it is hiding, and you can see the gap. Half the windows are lit,
+    which is the performance -- a town this size at this hour should be dark.
+    """
+    bone = palette.family("bone")
+    umber = palette.family("umber")
+    ochre = palette.family("ochre")
+    mud = palette.family("mud")
+    grey = palette.family("grey")
+
+    # The street: worn, rutted, and paler than the ground either side.
+    canvas.rect(TOWN_LEFT - 8, STREET_Y, TOWN_RIGHT - TOWN_LEFT + 16, 14, mud.frac(0.50))
+    for _ in range(60):
+        x = rng.randrange(TOWN_LEFT - 6, TOWN_RIGHT + 6)
+        y = STREET_Y + rng.randrange(0, 14)
+        canvas.hline(x, y, 2 + rng.randrange(0, 7), mud.frac(0.36 + 0.20 * rng.random()))
+
+    x = TOWN_LEFT
+    while x < TOWN_RIGHT:
+        width = 22 + rng.randrange(0, 12)
+        parapet = 30 + rng.randrange(0, 12)
+        shed = parapet - 14 - rng.randrange(0, 5)
+        top = STREET_Y - parapet
+
+        # The shed behind: lower, darker, and WIDER than the board in front
+        # of it, so it protrudes at both sides.
+        #
+        # Drawn narrower than the parapet -- the first attempt -- it was
+        # entirely hidden behind it and the buildings read as flat boards
+        # with nothing at all behind them, which loses the one thing this
+        # viewpoint exists to show. You have to be able to see the building
+        # the sign is lying about.
+        back_top = STREET_Y - shed
+        canvas.rect(x - 4, back_top, width + 8, shed, umber.frac(0.15))
+        canvas.hline(x - 4, back_top, width + 8, umber.frac(0.34))     # roof edge
+        canvas.hline(x - 4, back_top + 1, width + 8, umber.frac(0.22))
+        for rib in range(x - 2, x + width + 6, 5):
+            canvas.vline(rib, back_top + 2, shed - 2, umber.frac(0.10))
+
+        # The false front: flat, pale, facing us square, catching the last
+        # of the light. This is the board the town is hiding behind.
+        canvas.rect(x, top, width, parapet, bone.frac(0.30 + 0.14 * rng.random()))
+        canvas.hline(x, top, width, bone.frac(0.84))                  # lit cap
+        canvas.hline(x, top + 1, width, bone.frac(0.56))
+        canvas.vline(x, top, parapet, bone.frac(0.62))                # lit edge
+        canvas.vline(x + width - 1, top, parapet, umber.frac(0.10))   # shade edge
+        # The shadow the parapet throws onto the shed roof behind it. This
+        # single line is what makes the board read as standing IN FRONT OF
+        # something rather than as the front wall of it.
+        canvas.hline(x + 1, top + 2, width + 4, umber.frac(0.05))
+
+        # A cornice band, and blank signage. No lettering anywhere: doc 05
+        # holds the words and the examine layer delivers them.
+        canvas.hline(x + 1, top + 6, width - 2, umber.frac(0.14))
+        canvas.rect(x + 3, top + 9, width - 6, 5, bone.frac(0.20))
+
+        # Windows. About half lit, which at this hour is the performance.
+        rows = 2
+        for row in range(rows):
+            wy = top + 18 + row * 9
+            if wy + 5 > STREET_Y - 2:
+                continue
+            for wx in range(x + 3, x + width - 5, 8):
+                lit = rng.random() < 0.5
+                canvas.rect(wx, wy, 5, 6, ochre.frac(0.62) if lit else grey.frac(0.14))
+                if lit:
+                    canvas.rect(wx + 1, wy + 1, 3, 4, ochre.frac(0.86))
+                    # The light it throws down onto the street below.
+                    canvas.put(wx + 2, STREET_Y + 1, ochre.frac(0.34))
+                canvas.hline(wx - 1, wy - 1, 7, umber.frac(0.12))
+
+        # A door at street level, and the boardwalk in front of it.
+        door_x = x + width // 2 - 3
+        canvas.rect(door_x, STREET_Y - 9, 6, 9, umber.frac(0.10))
+        canvas.hline(x, STREET_Y - 1, width, umber.frac(0.22))
+
+        x += width + 3 + rng.randrange(0, 4)
+
+    # The far side of the street: rooflines only, seen from behind.
+    x = TOWN_LEFT + 10
+    while x < TOWN_RIGHT - 10:
+        width = 18 + rng.randrange(0, 10)
+        depth = 7 + rng.randrange(0, 4)
+        canvas.rect(x, STREET_Y + 13, width, depth, umber.frac(0.22))
+        canvas.hline(x, STREET_Y + 13, width, umber.frac(0.40))
+        canvas.hline(x, STREET_Y + 14, width, umber.frac(0.28))
+        x += width + 3 + rng.randrange(0, 4)
+
 
 def compose(has_save: bool = False) -> tuple[IndexedCanvas, Palette, dict]:
-    canvas, palette = room29_ridge.compose()
-    menu = json.loads((ROOT / "content" / "ui" / "title.json").read_text(encoding="utf-8"))
+    palette = Palette.load()
+    rng = random.Random(SEED)
+    canvas = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("void").at(0))
+
+    landscape(canvas, palette, rng)
+    town(canvas, palette, rng)
 
     bone = palette.family("bone")
     umber = palette.family("umber")
     grey = palette.family("grey")
 
-    # A band behind the title, one step down from whatever it covers, so the
-    # letters never have to fight the sky's dither.
-    for y in range(TITLE_TOP - 5, TITLE_TOP + GLYPH_H * 2 + 8):
-        for x in range(canvas.width):
+    menu = json.loads((ROOT / "content" / "ui" / "title.json").read_text(encoding="utf-8"))
+
+    # A band behind the title, stepped down its own ramps, so the letters
+    # never have to fight the sky's dither for an edge.
+    band_top, band_height = TITLE_TOP - 5, title_face.CELL_H * 2 + 14
+    for y in range(band_top, band_top + band_height):
+        for x in range(WIDTH):
             canvas.put(x, y, palette.darken(canvas.get(x, y), 2))
 
-    for index, line in enumerate(menu["title"]["lines"]):
-        width = measure(line)
-        draw_title(canvas, line, (canvas.width - width) // 2,
-                   TITLE_TOP + index * (GLYPH_H + 3), bone, umber)
+    lines = menu["title"]["lines"]
+    for index, line in enumerate(lines):
+        width = title_face.measure(line)
+        title_face.draw(canvas, line, (WIDTH - width) // 2,
+                        TITLE_TOP + index * (title_face.CELL_H + 4), bone, umber)
 
+    # The menu: game font, centred, bottom. Deliberately unremarkable -- it
+    # is how you start, not what the game is.
     hitboxes = []
     for index, item in enumerate(menu["menu"]["items"]):
         y = MENU_TOP + index * MENU_ROW
+        if y + 7 > HEIGHT:
+            break
         enabled = item["id"] != "continue" or has_save
         label = item["label"]
-        width = len(label) * (_FONT.get("advance", 6)) + 10
-        # A darkened plate behind each row, so the labels read over whatever
-        # part of the hillside they happen to fall on.
-        for offset_y in range(-3, MENU_ROW - 3):
-            for x in range(MENU_LEFT - 5, MENU_LEFT + width):
-                canvas.put(x, y + offset_y, palette.darken(canvas.get(x, y + offset_y), 3))
+        width = sum(_FONT.get("advances", {}).get(c, _FONT.get("advance", 6)) for c in label)
+        left = (WIDTH - width) // 2
+        for offset in range(-1, 8):
+            for x in range(left - 4, left + width + 4):
+                canvas.put(x, y + offset, palette.darken(canvas.get(x, y + offset), 2))
         hitboxes.append({"id": item["id"], "label": label,
-                         "rect": [MENU_LEFT - 5, y - 3, width + 5, MENU_ROW],
-                         "enabled": enabled})
-        # CONTINUE is drawn dim, not omitted: a title menu that changes
-        # length depending on whether you have played before is worse than
-        # one with a dead row in it.
-        _game_font(canvas, label, MENU_LEFT, y, bone if enabled else grey,
-                   0.92 if enabled else 0.44)
+                         "rect": [left - 4, y - 1, width + 8, 9], "enabled": enabled})
+        game_font(canvas, label, left, y, bone if enabled else grey,
+                  0.92 if enabled else 0.42)
 
     return canvas, palette, {"items": hitboxes, "music": MUSIC_CUE}
 
@@ -187,12 +250,14 @@ def main() -> None:
     RENDERS.mkdir(parents=True, exist_ok=True)
     canvas.save(RENDERS / "title-screen.png", palette)
     canvas.save(RENDERS / "title-screen@4x.png", palette, scale=4)
+    native = ROOT / "art" / "backgrounds" / "title-screen.png"
+    canvas.save(native, palette)
     print("wrote renders/title-screen@4x.png")
-    print(f"colours used: {len(canvas.used_indices())}")
-    print(f"menu items: {', '.join(item['label'] for item in meta['items'])}")
-    print(f"MUSIC: none. Cue hook is '{meta['music']}' and nothing plays it --")
-    print("  the score does not exist, and invariant 5 makes its detuning the")
-    print("  emotional arc of the game, so a placeholder would mislead.")
+    print(f"  colours used: {len(canvas.used_indices())}")
+    print(f"  title cell {title_face.CELL_W}x{title_face.CELL_H}; "
+          f'"CONSOLATION" measures {title_face.measure("CONSOLATION")}px of {WIDTH}')
+    print(f"  menu: {', '.join(item['label'] for item in meta['items'])}")
+    print(f"  MUSIC: none. Hook is '{meta['music']}' and nothing plays it.")
 
 
 if __name__ == "__main__":

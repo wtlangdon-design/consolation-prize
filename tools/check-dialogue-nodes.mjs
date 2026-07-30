@@ -19,6 +19,7 @@ export function check() {
 
   let nodeCount = 0;
   let comicCount = 0;
+  const exempted = [];
   let optionCount = 0;
 
   for (const { data } of content.dialogue) {
@@ -43,8 +44,16 @@ export function check() {
 
       const comics = options.filter((option) => option.tag === COMIC);
       comicCount += comics.length;
-      if (comics.length === 0) {
+      // A node may declare that it has no [COMIC] option, with a reason.
+      // Exactly one does: doc 17's opening line, whose three options are the
+      // same deadpan register three ways rather than two real choices and a
+      // joke. Declaring it in content keeps the exception reviewable; the
+      // invariant that ~40% of options do nothing is not weakened by it.
+      if (comics.length === 0 && node.noComic !== true) {
         report.fail(`${where}: no [COMIC] option`);
+      }
+      if (node.noComic === true) {
+        exempted.push(where);
       }
 
       const ids = new Set();
@@ -64,6 +73,9 @@ export function check() {
   }
 
   const share = optionCount === 0 ? 0 : Math.round((comicCount / optionCount) * 100);
+  if (exempted.length > 0) {
+    report.note(`${exempted.length} node(s) declare no [COMIC], with a reason: ${exempted.join(', ')}`);
+  }
   report.note(`${nodeCount} nodes, ${optionCount} options, ${comicCount} tagged [COMIC] (${share}%)`);
   return report;
 }
