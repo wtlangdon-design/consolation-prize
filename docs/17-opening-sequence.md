@@ -1,35 +1,78 @@
 # CONSOLATION PRIZE
-## The Opening Sequence & Room 1 · Full Content
+## The Opening Sequence & Room 1 · Full Content — v2
 
 *Title card through to first player control, plus Room 1's complete hotspot content. Written content — verbatim.*
+
+**v2 supersedes v1's beat sheet.** Changes: Thad's opening line is now a player choice; the stage driver carries the world exposition and the first objective; the coach departs on player action rather than a timer. Hob is unchanged and must stay unchanged.
 
 ---
 
 # PART ONE — THE SEQUENCE
 
-## Design ruling: the player takes control almost immediately
+## Two design rulings
 
-**Not a cutscene.** Monkey Island puts you in control of Guybrush within seconds and lets the opening exchange happen around you. A three-minute non-interactive opening is a modern convention and it is the wrong one for this game.
+**1. The player takes control almost immediately.** Not a cutscene. Monkey Island puts you in control within seconds and lets the opening happen around you. Total elapsed before control: **about twenty seconds.**
 
-Total elapsed before control: **roughly forty seconds.**
+**2. The world is explained inside a conversation the player chooses to have.** No tutorial text, no tips, no overlay. Everything a new player needs — where they are, what the town is for, that they cannot afford a bed, and what to do first — comes from one weary man who has been unloading hopeful young men onto this road for years and has formed a view.
+
+**That man is the stage driver, not Hob.** Hob speaks forty words across two acts. That is a design invariant and it is what makes Act III land. He cannot carry exposition and must not be asked to.
 
 ## Beat sheet
 
 | # | Beat | Interactive | Notes |
 |---|---|---|---|
-| 1 | Title screen — the ridge, CONSOLATION PRIZE, menu | yes | NEW GAME |
-| 2 | Hard cut to black. Act card. | no · ~3s | See below |
-| 3 | Room 1 fades up. Night. The coach is pulling away, already in motion. | no · ~4s | No verb panel yet |
-| 4 | Thad's opening line, over the departing coach | no · ~6s | |
-| 5 | Coach exits frame right. Hoofbeats fade. | no · ~2s | |
-| 6 | **Verb panel appears.** Control passes. | **yes** | Everything below happens with the player in control |
-| 7 | Hob's lamp enters frame left, crossing behind Thad, walking his round | yes | He does not stop. He does not react to the player. |
-| 8 | As the lamp passes level with Thad: "Wouldn't stand there." | yes | Unprompted. The player is free to be doing something else. |
-| 9 | Thad: "Why not?" | yes | Automatic — Thad answers whether or not the player is attending |
-| 10 | Hob, already at frame right, not turning: "No reason." | yes | |
-| 11 | Lamp exits frame right. | yes | |
+| 1 | Title screen — the ridge, CONSOLATION PRIZE, menu | yes | |
+| 2 | Hard cut to black. Act card, 3s or click. | no | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
+| 3 | Room 1 fades up. Night. The coach is halted; the driver is unloading. | no · ~4s | |
+| 4 | **Thad's opening line — a three-option choice.** | **yes** | First thing the player ever does is pick a line. See below. |
+| 5 | Verb panel appears. Full control. | yes | |
+| 6 | The driver is available until the player is finished with him. | yes | He is the exposition. Optional and skippable. |
+| 7 | Coach departs — **on the driver's exit line, not a timer** | yes | Player-triggered |
+| 8 | Hob's lamp crosses, frame left to right, on his round | yes | Triggers on coach departure, or on the player reaching the west road, whichever comes first |
+| 9 | "Wouldn't stand there." / "Why not?" / "No reason." | yes | Unprompted. The player may be mid-action. |
+| 10 | Lamp exits frame right. | yes | |
 
-**If the player walks to the east exit before beat 7**, Hob's crossing triggers on arrival instead. He is never missed and never blocks.
+## Beat 4 — Thad's opening line
+
+The first interaction in the game is a dialogue choice. This teaches the entire system before the player has taken a step.
+
+All three lead to the same place. They differ only in emphasis, and each is the same deadpan register.
+
+> **1.** "My name is Thaddeus Grubb. I have four dollars, a letter of introduction to a man who is dead, and a very good ear."
+> **2.** "My name is Thaddeus Grubb. I have come out here to become rich, and I have four dollars."
+> **3.** "My name is Thaddeus Grubb. I tune pianos. There is, I am told, no call for it here."
+
+Option 2 states the want plainly, which is what doc 01 says is the engine. Option 1 is the original. Option 3 sets up the ear as a joke before it is a tool.
+
+**Nobody is listening to any of them.** Thad says it to a road.
+
+---
+
+# PART TWO — THE STAGE DRIVER
+
+*Room 1 only. He appears again at the coach stop in later acts with his ambient barks per doc 07.*
+
+**Voice:** flat, unhurried, and finished with this route. He has driven a thousand men out here in good coats and has no expectations of any of them. Not unkind. Just done.
+
+**Root:** "Four days from Sacramento. Four *days*."
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "What is this place?" | `[PROGRESS]` | "Consolation. Two thousand men and one hole." |
+| 2 | "What hole?" | `[PROGRESS]` | "Mott's. Fella found the biggest strike in the territory, twelve year back. Then he didn't. Every man you can see is looking for it." *(Gated on 1.)* |
+| 3 | "Has anyone found it?" | `[PROGRESS]` | "No." *(beat)* "They'd have mentioned it." |
+| 4 | "Where do I sleep?" | `[PROGRESS]` | "Hotel's five dollars." — "I have four." — "You've all got four." |
+| 5 | "I'm looking for a man named Ezra Pike." | `[PROGRESS]` | "Don't know him. Ask in town." *(beat)* "Ask the undertaker. He knows everybody." |
+| 6 | "What should I do first?" | `[COMIC]` | "Get off my road." |
+| 7 | "I'm going to find gold." | `[COMIC]` | "Course you are." |
+| 8 | "Do you come out here often?" | `[COMIC]` | "Four days. Each way. Since 'fifty-one." *(He does not elaborate. There is nothing to elaborate.)* |
+| 9 | `[EXIT]` | | "Right. I'm turning her round." *(He leaves. The coach leaves. That is beat 7.)* |
+
+**Options 1, 2, 4 and 5 deliver everything a new player needs: the setting, the premise, the money problem, and the first objective.** All four are optional. A player who skips the driver entirely still reaches Room 2 and still finds Pike is dead, just without knowing why anyone is here.
+
+**Option 5 is the joke that pays off in twenty minutes.** The undertaker does know everybody. He knows Ezra Pike because he buried him in 1852.
+
+---
 
 ## The act card
 
@@ -106,6 +149,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 
 ## Notes
 
+0. **Hob may be asked about Ezra Pike, once.** He does not stop walking. "Pike's up the hill." This is true — Pike is in Boot Hill — and Thad will not understand it until the undertaker says so plainly. It is Hob's only useful sentence in Act I and it costs him four words of his forty.
 1. **"Wouldn't stand there" is not a hint.** There is nothing wrong with where Thad is standing. Hob says it because Hob has been watching this street for twelve years and says small true-sounding things to strangers. A player who moves has lost nothing; a player who stays has lost nothing.
 2. **The road west's first LISTEN is the flat piano** — heard before the player has entered a building, before the saloon exists to them, and about eleven hours before Thad tunes it for a filing fee.
 3. **The road east's LISTEN variants 2 and 3 are identical**, and both are identical to the line at the high ridge in Act IV. Three uses of "Nothing coming," a hundred yards and fifteen hours apart. Do not vary them.
