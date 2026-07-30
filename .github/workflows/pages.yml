@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+# Every push to main publishes a playable build. workflow_dispatch is here so
+# a deploy can be re-run without an empty commit -- note GitHub only offers it
+# for workflows that exist on the default branch.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish rather than cancelling it; a half-published
+# Pages site is worse than a slightly stale one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # `npm run build` is tsc --noEmit followed by vite build, so a type
+      # error fails the deploy rather than publishing a broken game.
+      - name: Build
+        run: npm run build
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}/
+
+      # The engine fetches content/*.json at runtime relative to the page, so
+      # a build that published only the JS would load and then immediately
+      # fail on the manifest. Cheap to assert here, expensive to diagnose in
+      # a browser.
+      - name: Check the content shipped with the build
+        run: |
+          test -f dist/index.html
+          test -f dist/content/manifest.json
+          test -f dist/content/rooms/main-street.json
+          echo "rooms published: $(find dist/content/rooms -name '*.json' | wc -l)"
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

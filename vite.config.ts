@@ -25,10 +25,20 @@ function copyDataDirs(): Plugin {
   };
 }
 
-export default defineConfig({
-  // Relative base so a production build works from any path, including a
-  // project subdirectory on GitHub Pages.
-  base: './',
+/**
+ * Where the built game is served from.
+ *
+ * GitHub Pages serves a project site under /<repo>/, so the build needs that
+ * prefix. Dev stays at the root, because typing a subdirectory into the
+ * address bar every time is a tax on the person who has to play this most.
+ *
+ * BASE_PATH overrides it, so the same build can be pointed at a custom
+ * domain or a preview host without editing this file.
+ */
+const PAGES_BASE = process.env.BASE_PATH ?? '/consolation-prize/';
+
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? PAGES_BASE : '/',
   plugins: [copyDataDirs()],
   resolve: {
     alias: {
@@ -46,4 +56,4 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
   },
-});
+}));
