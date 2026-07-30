@@ -154,5 +154,17 @@
         "West doorway. Fallback response H3."
       ]
     }
+  ],
+  "walkable": [
+    {
+      "id": "floor",
+      "zone": 1,
+      "rect": [
+        0,
+        88,
+        320,
+        56
+      ]
+    }
   ]
 }

@@ -46,6 +46,7 @@ from canvas import IndexedCanvas
 from clutter import crate_stack, lumber_stack, laundry_line, leaning_tools, rope_coil, sacks
 from components import (
     barrel,
+    plank_wall,
     boardwalk,
     ridge_range,
     door,
@@ -123,6 +124,7 @@ class Scheme:
     name: str
     sky_top: float
     sky_bottom: float
+    sky_family: str
     far_hill: str
     far_tone: float
     near_hill: str
@@ -139,16 +141,40 @@ class Scheme:
     # sky loses two thirds of its own, so at dawn it would out-light the sky
     # and invert the whole atmosphere. Caught by luminance_check.py.
     pale_shift: float = 0.0
+    shadow_tint: str | None = None
     swap: dict[str, str] = field(default_factory=dict)
 
     def family(self, palette: Palette, name: str):
         return palette.family(self.swap.get(name, name))
+
+    def tone_for(self, palette: Palette, name: str, tone: float) -> float:
+        """The tone in the swapped family that matches the original's value.
+
+        Swapping a family to cut saturation must not move the value with it.
+        `umber` at 0.64 and `grey` at 0.64 are nowhere near each other in
+        luminance, so a naive swap turned the darkest building on the street
+        into a mid-tone one. Matching on measured luminance instead keeps the
+        composition's value structure intact while the colour drains out.
+        """
+        target_name = self.swap.get(name, name)
+        if target_name == name:
+            return tone
+        source = palette.family(name)
+        target = palette.family(target_name)
+        wanted = palette.luminance(source.frac(tone))
+        best, best_gap = tone, None
+        for step in range(target.count):
+            gap = abs(palette.luminance(target.at(step)) - wanted)
+            if best_gap is None or gap < best_gap:
+                best, best_gap = step / max(1, target.count - 1), gap
+        return best
 
 
 DAY = Scheme(
     name="day",
     sky_top=0.54,
     sky_bottom=1.00,
+    sky_family="sky",
     far_hill="sky",
     far_tone=0.84,
     near_hill="sage",
@@ -164,30 +190,45 @@ DAY = Scheme(
     shadow_steps=2,
 )
 
+# Dawn is not day with the lights turned down -- that reads as dusk. It is
+# the same amount of light with the colour drained out of it. So: the sky
+# goes UP in value, the buildings hold their day values, saturation is
+# roughly halved by swapping every warm family for its neutral counterpart,
+# and shadows stop being warm because the only thing lighting them now is
+# the sky. Verified by luminance_check.py, which measures both axes.
+#
+# The palette caps this. sky tops out at luminance 204, so a paler-than-day
+# horizon has to come from `bone`, whose light end is very nearly white and
+# almost neutral. That is a locked-palette constraint, not a choice.
 DAWN = Scheme(
     name="dawn",
-    sky_top=0.12,
-    sky_bottom=0.58,
-    far_hill="sky",
-    far_tone=0.44,
-    near_hill="sage",
-    near_tone=0.50,
+    sky_top=0.46,
+    sky_bottom=1.00,
+    sky_family="bone",
+    far_hill="bone",
+    far_tone=0.80,
+    near_hill="dust",
+    near_tone=0.70,
     ghost_lettering=True,
-    pale_shift=-0.30,
-    facade_shift=-0.15,
-    walk_base=0.40,
-    mud_shift=-0.13,
+    facade_shift=0.0,
+    walk_base=0.62,
+    mud_shift=0.0,
     grit_family="dust",
-    steeple_shift=-0.18,
-    alley_tone=0.06,
-    shadow_steps=1,
+    steeple_shift=0.0,
+    alley_tone=0.17,
+    shadow_steps=2,
+    pale_shift=0.0,
+    shadow_tint="sky",
     swap={
+        "mud": "dust",
         "umber": "grey",
         "pine_fresh": "pine_weathered",
         "ochre": "dust",
-        "accent_rust": "dust",
+        "sage": "dust",
+        "accent_rust": "grey",
         "accent_red": "grey",
         "accent_gold": "dust",
+        "accent_teal": "grey",
     },
 )
 
@@ -225,6 +266,46 @@ def distant_steeple(canvas: IndexedCanvas, x: int, base_y: int, palette: Palette
     canvas.hline(x, base_y - tower_h, tower_w, lit)
 
 
+def notice_board(canvas: IndexedCanvas, x: int, y: int, palette: Palette, scheme: Scheme, rng: random.Random) -> None:
+    """Claims for sale, claims disputed, a lost dog, and a man offering to
+    write letters home for those who cannot."""
+    pine = scheme.family(palette, "pine_weathered")
+    bone = scheme.family(palette, "bone")
+
+    canvas.rect(x - 1, y - 1, 22, 19, pine.frac(0.08))
+    plank_wall(canvas, x, y, 20, 16, pine, rng, plank_width=5, base=0.52, weathering=0.3, battens=False)
+    canvas.hline(x, y, 20, pine.frac(0.72))
+
+    for _ in range(5):
+        note_w = rng.randrange(4, 8)
+        note_h = rng.randrange(4, 6)
+        nx = x + rng.randrange(1, max(2, 20 - note_w))
+        ny = y + rng.randrange(1, max(2, 16 - note_h))
+        canvas.rect(nx, ny, note_w, note_h, bone.frac(rng.uniform(0.50, 0.82)))
+        canvas.hline(nx, ny + note_h, note_w, pine.frac(0.10))
+        canvas.hline(nx + 1, ny + 1, max(1, note_w - 2), bone.frac(0.18))
+    cast_shadow(canvas, palette, x + 20, y, 2, 16, steps=2)
+
+
+def street_dog(canvas: IndexedCanvas, x: int, base_y: int, palette: Palette, scheme: Scheme) -> None:
+    """A dog with the settled look of an animal that has outlasted several
+    owners. Sat, not standing -- a standing dog reads as about to leave."""
+    coat = scheme.family(palette, "umber")
+    body, dark, lit = coat.frac(0.44), coat.frac(0.18), coat.frac(0.62)
+
+    canvas.rect(x + 3, base_y - 6, 9, 6, body)          # haunches and back
+    canvas.rect(x + 10, base_y - 9, 5, 5, body)          # head
+    canvas.rect(x + 14, base_y - 8, 2, 2, body)          # muzzle
+    canvas.put(x + 10, base_y - 10, dark)                # ears
+    canvas.put(x + 13, base_y - 10, dark)
+    canvas.rect(x + 3, base_y - 8, 7, 2, lit)            # sunlit spine
+    canvas.rect(x + 1, base_y - 3, 3, 3, body)           # tail, curled
+    canvas.put(x + 15, base_y - 7, dark)                 # eye side of the muzzle
+    canvas.rect(x + 11, base_y - 4, 2, 4, dark)          # foreleg
+    canvas.hline(x + 1, base_y, 15, dark)                # contact shadow
+    cast_shadow(canvas, palette, x + 15, base_y - 2, 4, 2, steps=2)
+
+
 def alley(canvas: IndexedCanvas, x: int, width: int, top: int, palette: Palette, scheme: Scheme) -> None:
     """The gap between two lots. Dark, never black -- and with the real shed
     roofs of both neighbours running back into it."""
@@ -251,7 +332,9 @@ def storefront(
 ) -> None:
     """One building: false front, sign panel, openings, porch."""
     wall = scheme.family(palette, lot.wall)
-    tone = max(0.06, lot.tone + scheme.facade_shift + (scheme.pale_shift if lot.wall == "bone" else 0.0))
+    tone = max(0.06, scheme.tone_for(palette, lot.wall, lot.tone)
+                + scheme.facade_shift
+                + (scheme.pale_shift if lot.wall == "bone" else 0.0))
     trim = scheme.family(palette, "bone") if lot.kind == "company" else wall
 
     shoulder_y = false_front(
@@ -400,17 +483,23 @@ def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng
 # ---------------------------------------------------------------------------
 
 
+def palette_notice_x() -> int:
+    """Board hangs on the newspaper's corner, where the whole street passes."""
+    return 66
+
+
 def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     palette = Palette.load()
     rng = random.Random(SEED)
-    canvas = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("sky").frac(0.5))
+    palette.shadow_tint = scheme.shadow_tint
+    canvas = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family(scheme.sky_family).frac(0.5))
 
     # -- air, and plenty of it ---------------------------------------------
     # Sky first, over the full height the terrace will later cover, and
     # lightest at the horizon. Then two ranges, each only slightly darker
     # than the air behind it. Nothing in the picture may out-light the sky:
     # the moment a hill or a wall does, the frame lids over.
-    sky_gradient(canvas, 0, 0, WIDTH, NEAR_BASE + 14, palette.family("sky"),
+    sky_gradient(canvas, 0, 0, WIDTH, NEAR_BASE + 14, palette.family(scheme.sky_family),
                  top=scheme.sky_top, bottom=scheme.sky_bottom)
     ridge_range(canvas, palette.family(scheme.far_hill), scheme.far_tone,
                 FAR_BASE, SKY_OPEN - 6, SKY_OPEN + 1, rng, step=24, feather=3)
@@ -450,11 +539,15 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     balcony(canvas, palette, 220, 46, 52, scheme.family(palette, "pine_weathered"), rng,
             tone=max(0.06, 0.52 + scheme.facade_shift))
 
+    # -- the two hotspots that needed something to point at ----------------
+    notice_board(canvas, palette_notice_x(), 52, palette, scheme, rng)
+    street_dog(canvas, 88, GROUND + 8, palette, scheme)
+
     # -- goods, tools, washing ---------------------------------------------
     dress_boardwalk(canvas, palette, scheme, rng)
 
     # -- street ------------------------------------------------------------
-    mud_street(canvas, 0, STREET_TOP, WIDTH, HEIGHT - STREET_TOP, palette.family("mud"), rng,
+    mud_street(canvas, 0, STREET_TOP, WIDTH, HEIGHT - STREET_TOP, scheme.family(palette, "mud"), rng,
                grit=palette.family(scheme.grit_family), tone_shift=scheme.mud_shift)
 
     hitching_rail(canvas, 96, STREET_TOP + 12, 46, 12, pine, rng, base=max(0.06, 0.38 + scheme.facade_shift))
@@ -465,7 +558,7 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     cast_shadow(canvas, palette, 2, STREET_TOP, WIDTH, 3, steps=2, soft_edge=2)
 
     # -- boot churn, ruts and standing water in the lower third ------------
-    mud = palette.family("mud")
+    mud = scheme.family(palette, "mud")
     churn_top = STREET_TOP + 1
     for _ in range(85):
         col = rng.randrange(WIDTH)

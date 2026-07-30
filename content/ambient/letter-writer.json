@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "id": "letter_writer",
+  "name": "THE LETTER-WRITER",
+  "note": "Doc 07 #1. Writes letters home for men who can't. Charges by the page. Resolves the notice board hotspot. Doing better than anyone, because he sells the one thing that never runs out.",
+  "room": "main_street",
+  "x": 30,
+  "y": 112,
+  "zone": 1,
+  "approachRadius": 40,
+  "tree": "amb_letter_writer",
+  "barks": {
+    "R_NOBODY": "Letters home. Ten cents the page.",
+    "R_SWINDLED": "Letters home. Might want to leave a bit out.",
+    "R_RACCOON": "I could make the raccoon sound better.",
+    "R_SURVEYED": "‘Had my land surveyed by a professional.’ See? Free of charge.",
+    "R_BORDERS_MOTT": "Now you’ve got something to write about. Twenty cents.",
+    "R_LOST_DUEL": "I’d leave the duel out entirely.",
+    "R_WON_DUEL": "Beat Deke Vessel. That’s a page and a half right there.",
+    "R_DEAD": "Do you want me to write to her, or would that be strange?",
+    "R_TRUTH": "Twelve years I’ve been making things up on this street and you did it in one afternoon."
+  }
+}

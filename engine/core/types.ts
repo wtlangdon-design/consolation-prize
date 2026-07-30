@@ -37,6 +37,13 @@ export type FlagAdds = Record<string, number>;
 export interface ResponseRule {
   when?: Condition;
   say?: string;
+  /**
+   * Lines for repeat selections, cycled in order. Doc 05 requires three
+   * variants minimum on Room 2 hotspots -- the player will read them
+   * hundreds of times and a hotspot that answers identically forever is the
+   * fastest way to make a room feel like a menu.
+   */
+  repeat?: string[];
   set?: FlagWrites;
   add?: FlagAdds;
   dialogue?: string;
@@ -54,6 +61,44 @@ export interface Interactable {
 
 export interface Exit extends Interactable {
   to: string;
+  /** A destination that exists but has no written examine layer yet. */
+  stub?: boolean;
+}
+
+export interface AmbientFile {
+  schema: number;
+  id: string;
+  name: string;
+  room: string;
+  x: number;
+  y: number;
+  zone: number;
+  approachRadius: number;
+  tree: string;
+  barks: Record<string, string>;
+}
+
+export interface ReputationFile {
+  schema: number;
+  states: string[];
+}
+
+/** One region of floor. Errata ruling 15: a region without a zone fails the build. */
+export interface WalkableRegion {
+  id: string;
+  zone: number;
+  rect: [number, number, number, number];
+}
+
+export interface ScalingZone {
+  index: number;
+  name: string;
+  height: number;
+}
+
+export interface ScalingFile {
+  schema: number;
+  zones: ScalingZone[];
 }
 
 export interface RoomFile {
@@ -65,6 +110,12 @@ export interface RoomFile {
   horizon: number;
   hotspots: Interactable[];
   exits: Exit[];
+  /** Floor regions, each carrying a depth zone. Absent in rooms with no floor. */
+  walkable?: WalkableRegion[];
+  /** Composed background, relative to the manifest. */
+  background?: string;
+  /** Ambient NPC ids placed in this room. */
+  ambient?: string[];
 }
 
 export type OptionTag = 'PROGRESS' | 'TOPIC' | 'COMIC' | 'ASSAY' | 'EXIT';
@@ -137,6 +188,8 @@ export interface FontFile {
   spaceAdvance: number;
   on: string;
   glyphs: Record<string, string[]>;
+  /** Per-glyph advance overrides, for dashes and the ellipsis. */
+  advances?: Record<string, number>;
 }
 
 export interface PaletteFile {
@@ -154,6 +207,9 @@ export interface PaletteFile {
 export interface ManifestFile {
   schema: number;
   font: string;
+  scaling: string;
+  reputation: string;
+  ambient: string[];
   palette: string;
   ui: string;
   verbs: string;
@@ -172,6 +228,9 @@ export interface ContentBundle {
   ui: UiFile;
   verbs: VerbsFile;
   flags: FlagsFile;
+  scaling: ScalingFile;
+  reputation: ReputationFile;
+  ambient: Map<string, AmbientFile>;
   rooms: Map<string, RoomFile>;
   dialogue: Map<string, DialogueFile>;
 }

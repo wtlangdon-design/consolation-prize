@@ -1,4 +1,4 @@
-import type { ContentBundle, Exit, Interactable, RoomFile } from './types.ts';
+import type { ContentBundle, Exit, Interactable, RoomFile, WalkableRegion } from './types.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
 import { VerbSystem } from './VerbSystem.ts';
@@ -33,6 +33,10 @@ export class GameState {
     this.dialogue = new DialogueRunner(content.dialogue, this.flags);
     this.saves = new SaveManager(storage);
     this.currentRoomId = content.manifest.startRoom;
+  }
+
+  get reputationIndex(): number {
+    return this.reputation;
   }
 
   get roomId(): string {
@@ -98,6 +102,43 @@ export class GameState {
     const exit = target as Partial<Exit>;
     if (!exit.to) return null;
     return this.verbs.selectedVerb === this.verbs.walkVerbId ? exit.to : null;
+  }
+
+  /**
+   * The walkable region under a point, or undefined if it is not floor.
+   * Regions are tested in declaration order, so a room may overlap them and
+   * rely on the first match.
+   */
+  regionAt(x: number, y: number): WalkableRegion | undefined {
+    return (this.room.walkable ?? []).find((region) => {
+      const [rx, ry, rw, rh] = region.rect;
+      return x >= rx && x < rx + rw && y >= ry && y < ry + rh;
+    });
+  }
+
+  isWalkable(x: number, y: number): boolean {
+    return this.regionAt(x, y) !== undefined;
+  }
+
+  /**
+   * Drawn height for an actor standing at a point.
+   *
+   * Errata ruling 15: three drawn sizes, snapped on crossing a boundary,
+   * never interpolated. Returning a discrete height rather than a scale
+   * factor is what makes interpolation impossible to introduce by accident.
+   */
+  actorHeightAt(x: number, y: number): number | null {
+    const region = this.regionAt(x, y);
+    if (!region) return null;
+    return this.heightForZone(region.zone);
+  }
+
+  heightForZone(zone: number): number {
+    const found = this.content.scaling.zones.find((candidate) => candidate.index === zone);
+    if (!found) {
+      throw new Error(`Undeclared depth zone: ${zone}`);
+    }
+    return found.height;
   }
 
   save(): void {

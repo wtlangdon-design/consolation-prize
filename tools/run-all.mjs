@@ -3,7 +3,9 @@ import { runCheck } from './lib/content.mjs';
 import { check as noContentInCode } from './check-no-content-in-code.mjs';
 import { check as contentSchema } from './check-content-schema.mjs';
 import { check as paletteLocked } from './check-palette.mjs';
+import { check as walkableZones } from './check-walkable.mjs';
 import { check as examineLines } from './check-examine-lines.mjs';
+import { check as writtenContent } from './check-written-content.mjs';
 import { check as dialogueNodes } from './check-dialogue-nodes.mjs';
 import { check as flagOrder } from './check-flag-order.mjs';
 import { check as glyphCoverage } from './check-glyph-coverage.mjs';
@@ -17,7 +19,9 @@ const CHECKS = [
   noContentInCode,
   contentSchema,
   paletteLocked,
+  walkableZones,
   examineLines,
+  writtenContent,
   dialogueNodes,
   flagOrder,
   glyphCoverage,

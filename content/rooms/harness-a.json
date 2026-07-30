@@ -176,5 +176,37 @@
         "East doorway. Fallback response D3."
       ]
     }
+  ],
+  "walkable": [
+    {
+      "id": "walk_far",
+      "zone": 2,
+      "rect": [
+        0,
+        96,
+        320,
+        16
+      ]
+    },
+    {
+      "id": "walk_mid",
+      "zone": 1,
+      "rect": [
+        0,
+        112,
+        320,
+        16
+      ]
+    },
+    {
+      "id": "walk_near",
+      "zone": 0,
+      "rect": [
+        0,
+        128,
+        320,
+        16
+      ]
+    }
   ]
 }

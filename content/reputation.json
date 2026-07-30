@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "note": "Errata ruling 7 order. One integer and a lookup; every ambient bark keys off it. Doc 06 calls this the propagation engine -- the town's entire information system is one enthusiastic idiot with a press.",
+  "states": [
+    "R_NOBODY",
+    "R_SWINDLED",
+    "R_RACCOON",
+    "R_SURVEYED",
+    "R_BORDERS_MOTT",
+    "R_LOST_DUEL",
+    "R_WON_DUEL",
+    "R_DEAD",
+    "R_TRUTH"
+  ]
+}

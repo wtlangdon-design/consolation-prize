@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "stub_company",
+  "name": "THE IMPROVEMENT COMPANY LOBBY",
+  "stub": true,
+  "note": "Phase 2 stub for doc 05 Room 10. No hotspots and no examine lines -- those are written but not yet transcribed, and inventing them here would be worse than leaving the room empty.",
+  "colours": {
+    "sky": 148,
+    "ground": 6
+  },
+  "horizon": 60,
+  "walkable": [
+    {
+      "id": "floor",
+      "zone": 1,
+      "rect": [
+        0,
+        96,
+        320,
+        48
+      ]
+    }
+  ],
+  "hotspots": [],
+  "exits": [
+    {
+      "id": "back_to_street",
+      "name": "MAIN STREET",
+      "stub": true,
+      "rect": [
+        128,
+        60,
+        64,
+        44
+      ],
+      "colour": 90,
+      "to": "main_street",
+      "responses": {},
+      "fallback": []
+    }
+  ]
+}

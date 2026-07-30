@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "amb_letter_writer",
+  "note": "Doc 07 #1 micro-tree, verbatim. The [COMIC] option changes nothing and is the best line in it.",
+  "start": "N1",
+  "nodes": {
+    "N1": {
+      "prompt": "The letter-writer looks up.",
+      "options": [
+        {
+          "id": "charge",
+          "text": "What do you charge?",
+          "tag": "TOPIC",
+          "say": "Ten cents the page. Fifteen if it’s going well.",
+          "repeat": "Ten cents the page. Fifteen if it’s going well."
+        },
+        {
+          "id": "going_well",
+          "text": "Going well?",
+          "tag": "TOPIC",
+          "say": "If a man’s had a good week I write more. If he’s had a bad week I write much more. Bad weeks are my living.",
+          "repeat": "Bad weeks are my living."
+        },
+        {
+          "id": "truth",
+          "text": "Do you ever write the truth?",
+          "tag": "TOPIC",
+          "say": "Once. Fella insisted. I charged him double and he cried the whole time.",
+          "repeat": "Once. And I charged him double."
+        },
+        {
+          "id": "own",
+          "text": "I write my own.",
+          "tag": "COMIC",
+          "say": "I know. I’ve read them over your shoulder. You’re not bad. You’re just honest, which is a phase.",
+          "repeat": "Still honest, then."
+        },
+        {
+          "id": "exit",
+          "text": "I should go.",
+          "tag": "EXIT"
+        }
+      ]
+    }
+  }
+}

@@ -13,6 +13,7 @@ export class BitmapFont {
   private readonly spaceAdvance: number;
   private readonly onChar: string;
   private readonly glyphs: Map<string, string[]>;
+  private readonly advances: Map<string, number>;
 
   constructor(file: FontFile) {
     this.height = file.height;
@@ -20,6 +21,9 @@ export class BitmapFont {
     this.spaceAdvance = file.spaceAdvance;
     this.onChar = file.on;
     this.glyphs = new Map(Object.entries(file.glyphs));
+    // Per-glyph advance overrides. An em dash has to be wider than the cell
+    // to read as an em dash rather than as a hyphen someone leaned on.
+    this.advances = new Map(Object.entries(file.advances ?? {}));
   }
 
   supports(char: string): boolean {
@@ -36,6 +40,8 @@ export class BitmapFont {
   }
 
   private advanceFor(char: string): number {
+    const override = this.advances.get(char);
+    if (override !== undefined) return override;
     return char === ' ' ? this.spaceAdvance : this.advance;
   }
 
@@ -65,6 +71,30 @@ export class BitmapFont {
       cursor += this.advanceFor(char);
     }
     return cursor - x;
+  }
+
+  /**
+   * Draws with a hard 1px outline, so text stays legible over any artwork.
+   *
+   * Speech is drawn straight over the background with no plate, the way SCUMM
+   * does it. Without the outline a pale line vanishes against a pale building,
+   * which it did over the Improvement Company on the first run.
+   */
+  drawOutlined(ctx: Ctx, text: string, x: number, y: number, colour: string, outline: string): void {
+    for (const [dx, dy] of [
+      [-1, 0],
+      [1, 0],
+      [0, -1],
+      [0, 1],
+    ] as const) {
+      this.draw(ctx, text, x + dx, y + dy, outline);
+    }
+    this.draw(ctx, text, x, y, colour);
+  }
+
+  drawCentredOutlined(ctx: Ctx, text: string, centreX: number, y: number, colour: string, outline: string): void {
+    const x = Math.round(centreX - this.measure(text) / 2);
+    this.drawOutlined(ctx, text, x, y, colour, outline);
   }
 
   /** Draws centred on `centreX`, snapped to whole pixels. */

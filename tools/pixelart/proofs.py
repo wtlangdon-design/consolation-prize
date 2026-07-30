@@ -13,6 +13,7 @@
 
 from __future__ import annotations
 
+import json
 import random
 from pathlib import Path
 
@@ -89,6 +90,53 @@ def edge_map(canvas: IndexedCanvas) -> set[tuple[int, int]]:
     return edges
 
 
+def zone_figures(canvas: IndexedCanvas, palette: Palette) -> list[tuple[str, int, int, int]]:
+    """One figure per declared depth zone, at that zone's DRAWN height.
+
+    Errata ruling 15 in one picture. The heights are read from the same JSON
+    the engine reads and the zones from the same room file, so this cannot
+    drift from what actually ships. The sizes are deliberately not a smooth
+    series -- 40, 32, 26 is what is drawn, and anything between them is what
+    the ruling forbids.
+    """
+    scaling = json.loads((ROOT / "content" / "actors" / "scaling.json").read_text())
+    room = json.loads((ROOT / "content" / "rooms" / "main-street.json").read_text())
+    heights = {zone["index"]: (zone["name"], zone["height"]) for zone in scaling["zones"]}
+
+    ink = palette.family("umber").at(0)
+    placements: list[tuple[str, int, int, int]] = []
+    columns = {0: 250, 1: 158, 2: 62}
+    for region in room["walkable"]:
+        if region["id"] == "boardwalk":
+            continue
+        name, height = heights[region["zone"]]
+        x = columns.get(region["zone"], 160)
+        rx, ry, rw, rh = region["rect"]
+        feet = ry + rh - 1
+        draw_figure(canvas, x, feet, height, ink)
+        placements.append((f'{region["id"]} ({name})', x, feet, height))
+    return placements
+
+
+def draw_figure(canvas: IndexedCanvas, centre_x: int, feet_y: int, height: int, index: int) -> None:
+    """The same block proportions at any drawn height, snapped to whole pixels."""
+    unit = height / FIGURE_HEIGHT
+    top = feet_y - height + 1
+
+    def block(x0: int, y0: int, w: int, h: int) -> None:
+        canvas.rect(
+            centre_x + round(x0 * unit), top + round(y0 * unit),
+            max(1, round(w * unit)), max(1, round(h * unit)), index,
+        )
+
+    block(-3, 0, 6, 8)
+    block(-5, 9, 10, 15)
+    block(-7, 10, 2, 13)
+    block(5, 10, 2, 13)
+    block(-5, 24, 4, 16)
+    block(1, 24, 4, 16)
+
+
 def human_silhouette(canvas: IndexedCanvas, centre_x: int, feet_y: int, index: int) -> int:
     """A plain 40px figure. No art -- a shape at the correct scale.
 
@@ -156,45 +204,20 @@ def main() -> None:
 
     # -- proof 2 -----------------------------------------------------------
     check, _ = compose(DAY)
-    silhouette = palette.family("umber").at(0)
-
-    # Three figures standing IN THE MUD -- back, middle and front of the
-    # walkable band. This is the question the deeper street was dug for: can
-    # a 40px character actually move around down here, and does the terrace
-    # still read as buildings when one stands in front of it.
-    #
-    # All three are drawn at a flat 40px. In the engine SCUMM-style depth
-    # scaling would shrink the far one to roughly two thirds; drawing them
-    # unscaled is the harsher test, because if the back one does not fit
-    # unscaled it will not fit scaled either.
-    stations = [("left, back", 52, STREET_TOP + 10),
-                ("centre, middle", 158, STREET_TOP + 30),
-                ("right, front", 268, HEIGHT - 3)]
-    placements = [(label, x, feet, human_silhouette(check, x, feet, silhouette)) for label, x, feet in stations]
-
+    placements = zone_figures(check, palette)
     check.save(OUT / "room-02-scale-check.png", palette)
     check.save(OUT / "room-02-scale-check@4x.png", palette, scale=4)
 
-    mud_depth = HEIGHT - STREET_TOP
     print()
-    print("PROOF 2 -- three 40px figures standing in the mud")
-    print(f"  mud band           y={STREET_TOP}..{HEIGHT}  ({mud_depth}px deep)")
-    print(f"  walkable depth     {mud_depth / FIGURE_HEIGHT:.2f}x the figure height")
-    print(f"  {'station':<18}{'feet y':>8}{'head y':>8}{'clear of walk':>16}")
-    for label, _, feet, eye in placements:
-        head = feet - (FIGURE_HEIGHT - 1)
-        # A figure whose head rises past the deck overlaps the terrace, which
-        # is correct occlusion, not an error -- it just has to be deliberate.
-        note = "in front of terrace" if head < GROUND else "fully in street"
-        print(f"  {label:<18}{feet:>8}{head:>8}{note:>16}")
-    print()
-    print(f"  {'building':<12}{'door px':>9}{'x figure':>10}{'verdict':>10}")
-    for lot in LOTS:
-        door_h = GROUND - (lot.awning - 2)
-        ratio = door_h / FIGURE_HEIGHT
-        print(f"  {lot.kind:<12}{door_h:>9}{ratio:>9.2f}x{'ok' if ratio >= 0.55 else 'SHORT':>10}")
-    print("  (doors are sized for a depth-scaled actor at the boardwalk, not a")
-    print("   front-of-frame one -- see the note above)")
+    print("PROOF 2 -- depth zones, errata ruling 15")
+    print(f"  mud band           y={STREET_TOP}..{HEIGHT}  ({HEIGHT - STREET_TOP}px deep)")
+    print(f"  {'region':<22}{'x':>5}{'feet y':>8}{'drawn':>8}")
+    for label, x, feet, height in placements:
+        print(f"  {label:<22}{x:>5}{feet:>8}{height:>7}px")
+    heights = sorted({height for _, _, _, height in placements}, reverse=True)
+    print(f"  drawn sizes in use: {', '.join(f'{h}px' for h in heights)}")
+    print("  sizes are snapped on crossing, never interpolated -- rescaling 1-bit")
+    print("  art at a non-integer ratio is what the ruling exists to prevent")
     print(f"  wrote {(OUT / 'room-02-scale-check@4x.png').relative_to(ROOT)}")
 
 

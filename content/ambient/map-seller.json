@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "id": "map_seller",
+  "name": "THE MAP SELLER",
+  "note": "Doc 07 #16. Sells maps to Mott's strike. Unknowingly employed by the Improvement Company. Genuinely believes in them. The saddest character in the game and he is played entirely for laughs.",
+  "room": "main_street",
+  "x": 250,
+  "y": 116,
+  "zone": 1,
+  "approachRadius": 40,
+  "tree": "amb_map_seller",
+  "barks": {
+    "R_NOBODY": "Map to Mott’s strike! Dollar!",
+    "R_SWINDLED": "Map, sir? Turn it round for you?",
+    "R_RACCOON": "Map! Dollar! Nothing about raccoons on it, I’ll be honest.",
+    "R_SURVEYED": "You’ve had a survey! Now you want a map.",
+    "R_BORDERS_MOTT": "Sir — sir — you’ve land on it. You’re on the map. You’re on the map.",
+    "R_LOST_DUEL": "Map, sir. Cheer you up.",
+    "R_WON_DUEL": "Map for the champion. Ninety cents.",
+    "R_DEAD": "…Do you want one for the road?",
+    "R_TRUTH": "Map to Mott’s strike! Dollar!"
+  }
+}

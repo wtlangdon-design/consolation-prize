@@ -1,5 +1,7 @@
 import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
+import type { Actor } from '../core/Actor.ts';
+import type { AmbientLayer } from '../core/Ambient.ts';
 import { BitmapFont } from './BitmapFont.ts';
 import {
   HUD_Y,
@@ -16,7 +18,12 @@ export interface Frame {
   hoveredTargetName: string | null;
   sayLines: string[];
   notice: string | null;
+  barkLines: string[];
+  barkAt: { x: number; y: number } | null;
 }
+
+/** Composed room backgrounds, keyed by room id. */
+export type BackgroundSource = (roomId: string) => CanvasImageSource | null;
 
 const DIALOGUE_TOP = 84;
 const DIALOGUE_LINE_HEIGHT = 9;
@@ -33,10 +40,24 @@ export class Renderer {
   private readonly font: BitmapFont;
   private readonly state: GameState;
 
-  constructor(screen: Screen, font: BitmapFont, state: GameState) {
+  private readonly actor: Actor;
+  private readonly ambient: AmbientLayer;
+  private readonly background: BackgroundSource;
+
+  constructor(
+    screen: Screen,
+    font: BitmapFont,
+    state: GameState,
+    actor: Actor,
+    ambient: AmbientLayer,
+    background: BackgroundSource,
+  ) {
     this.screen = screen;
     this.font = font;
     this.state = state;
+    this.actor = actor;
+    this.ambient = ambient;
+    this.background = background;
   }
 
   /** Options currently drawn, so the scene can hit-test them. */
@@ -50,9 +71,13 @@ export class Renderer {
 
   drawFrame(frame: Frame): void {
     this.drawRoom();
+    this.drawPeople();
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
     this.drawSay(frame.sayLines);
+    if (frame.barkAt) {
+      this.drawBark(frame.barkLines, frame.barkAt);
+    }
     if (this.state.dialogue.isActive) {
       this.drawDialogue();
     }
@@ -61,9 +86,16 @@ export class Renderer {
 
   private drawRoom(): void {
     const room = this.state.room;
+    const image = this.background(room.id);
+    if (image) {
+      this.screen.context.drawImage(image, 0, 0);
+      return;
+    }
+
+    // No composed background yet: flat bands and blocked-out hotspots, which
+    // is what a stub room looks like and should look like.
     this.screen.fill(0, 0, NATIVE_WIDTH, room.horizon, room.colours.sky);
     this.screen.fill(0, room.horizon, NATIVE_WIDTH, PLAY_HEIGHT - room.horizon, room.colours.ground);
-
     for (const target of this.state.targets) {
       const [x, y, width, height] = target.rect;
       this.screen.fill(x, y, width, height, target.colour);
@@ -71,14 +103,64 @@ export class Renderer {
     }
   }
 
+  /**
+   * Placeholder figures. Solid silhouettes at the zone's drawn height --
+   * deliberately not scaled smoothly, so a zone crossing is visible as the
+   * snap it is rather than hidden behind a tween.
+   */
+  private drawPeople(): void {
+    for (const npc of this.ambient.present) {
+      this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone), this.screen.role('outline'));
+    }
+    this.drawFigure(
+      Math.round(this.actor.x),
+      Math.round(this.actor.y),
+      this.actor.height,
+      this.screen.role('overlayBg'),
+    );
+  }
+
+  private drawFigure(centreX: number, feetY: number, height: number, index: number): void {
+    const unit = height / 40;
+    const px = (value: number) => Math.max(1, Math.round(value * unit));
+    const top = feetY - height + 1;
+    const block = (dx: number, dy: number, w: number, h: number) =>
+      this.screen.fill(centreX + Math.round(dx * unit), top + Math.round(dy * unit), px(w), px(h), index);
+
+    block(-3, 0, 6, 8);
+    block(-5, 9, 10, 15);
+    block(-7, 10, 2, 13);
+    block(5, 10, 2, 13);
+    block(-5, 24, 4, 16);
+    block(1, 24, 4, 16);
+  }
+
   private drawSay(lines: string[]): void {
     lines.forEach((line, index) => {
-      this.font.drawCentred(
+      this.font.drawCentredOutlined(
         this.screen.context,
         line,
         NATIVE_WIDTH / 2,
         SAY_TOP + index * DIALOGUE_LINE_HEIGHT,
         this.screen.roleColour('inkBright'),
+        this.screen.roleColour('overlayBg'),
+      );
+    });
+  }
+
+  /** A bark sits over the character who said it, not at the top of the screen. */
+  private drawBark(lines: string[], at: { x: number; y: number }): void {
+    lines.forEach((line, index) => {
+      const y = at.y - (lines.length - index) * DIALOGUE_LINE_HEIGHT;
+      const width = this.font.measure(line);
+      const x = Math.max(2, Math.min(NATIVE_WIDTH - width - 2, at.x - Math.round(width / 2)));
+      this.font.drawOutlined(
+        this.screen.context,
+        line,
+        x,
+        y,
+        this.screen.roleColour('inkBright'),
+        this.screen.roleColour('overlayBg'),
       );
     });
   }

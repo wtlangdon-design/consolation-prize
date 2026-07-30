@@ -54,6 +54,11 @@ class Palette:
         }
         self._roles: dict[str, int] = data["roles"]
 
+        # Optional family that shadows are tinted toward. None keeps a shadow
+        # in its own material, which is right under warm sun; at dawn the only
+        # light reaching a shadow is the sky, so shadows go blue-grey.
+        self.shadow_tint: str | None = None
+
         # Reverse map, so a colour can be darkened without knowing what it is.
         self._reverse: dict[int, tuple[str, int]] = {}
         for name, ramp in self._families.items():
@@ -92,7 +97,38 @@ class Palette:
         if entry is None:
             return index
         name, step = entry
-        return self._families[name].at(max(0, step - steps))
+        darker = self._families[name].at(max(0, step - steps))
+        # Only deep shade takes the tint. A one-step turn away from the sun
+        # is still lit by the sun; a cast shadow is lit by the sky instead.
+        if self.shadow_tint is not None and steps >= 2:
+            return self.nearest_in_family(darker, self.shadow_tint)
+        return darker
+
+    def luminance(self, index: int) -> float:
+        red, green, blue = self.colours[index]
+        return 0.299 * red + 0.587 * green + 0.114 * blue
+
+    def saturation(self, index: int) -> float:
+        red, green, blue = self.colours[index]
+        peak = max(red, green, blue)
+        return 0.0 if peak == 0 else (peak - min(red, green, blue)) / peak
+
+    def nearest_in_family(self, index: int, family: str) -> int:
+        """The entry of `family` closest in luminance to `index`.
+
+        Re-materialising a colour at matched value is how a shadow changes
+        hue without changing how dark it reads -- shifting both at once would
+        just look like a mistake.
+        """
+        target = self.luminance(index)
+        ramp = self.family(family)
+        best, best_gap = ramp.at(0), None
+        for step in range(ramp.count):
+            candidate = ramp.at(step)
+            gap = abs(self.luminance(candidate) - target)
+            if best_gap is None or gap < best_gap:
+                best, best_gap = candidate, gap
+        return best
 
     def lighten(self, index: int, steps: int = 1) -> int:
         entry = self._reverse.get(index)

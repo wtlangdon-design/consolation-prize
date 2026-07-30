@@ -19,7 +19,15 @@ export function check() {
 
   const seen = { [LOOK]: new Map(), [LISTEN]: new Map() };
 
+  let stubs = 0;
   for (const { roomId, target } of targets) {
+    // A stub is a destination that exists so the exit works, with its examine
+    // layer honestly absent rather than invented. Counted, not skipped
+    // silently.
+    if (target.stub) {
+      stubs += 1;
+      continue;
+    }
     for (const verb of [LOOK, LISTEN]) {
       const rules = target.responses?.[verb];
       const lines = (rules ?? []).map((rule) => rule.say).filter((say) => typeof say === 'string');
@@ -40,6 +48,9 @@ export function check() {
     }
   }
 
+  if (stubs > 0) {
+    report.note(`${stubs} stub exits skipped -- their examine lines are written but not transcribed`);
+  }
   return report;
 }
 

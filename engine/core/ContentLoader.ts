@@ -1,11 +1,14 @@
 import type {
+  AmbientFile,
   ContentBundle,
   DialogueFile,
   FlagsFile,
   FontFile,
   ManifestFile,
   PaletteFile,
+  ReputationFile,
   RoomFile,
+  ScalingFile,
   UiFile,
   VerbsFile,
 } from './types.ts';
@@ -22,16 +25,27 @@ export const MANIFEST_PATH = 'content/manifest.json';
 export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH): Promise<ContentBundle> {
   const manifest = (await read(manifestPath)) as ManifestFile;
 
-  const [font, palette, ui, verbs, flags] = await Promise.all([
+  const [font, palette, ui, verbs, flags, scaling, reputation] = await Promise.all([
     read(manifest.font) as Promise<FontFile>,
     read(manifest.palette) as Promise<PaletteFile>,
     read(manifest.ui) as Promise<UiFile>,
     read(manifest.verbs) as Promise<VerbsFile>,
     read(manifest.flags) as Promise<FlagsFile>,
+    read(manifest.scaling) as Promise<ScalingFile>,
+    read(manifest.reputation) as Promise<ReputationFile>,
   ]);
 
   const roomFiles = (await Promise.all(manifest.rooms.map((path) => read(path)))) as RoomFile[];
   const dialogueFiles = (await Promise.all(manifest.dialogue.map((path) => read(path)))) as DialogueFile[];
+  const ambientFiles = (await Promise.all(manifest.ambient.map((path) => read(path)))) as AmbientFile[];
+
+  const ambient = new Map<string, AmbientFile>();
+  for (const npc of ambientFiles) {
+    if (ambient.has(npc.id)) {
+      throw new Error(`Duplicate ambient id: ${npc.id}`);
+    }
+    ambient.set(npc.id, npc);
+  }
 
   const rooms = new Map<string, RoomFile>();
   for (const room of roomFiles) {
@@ -53,7 +67,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     throw new Error(`Start room not found: ${manifest.startRoom}`);
   }
 
-  return { manifest, font, palette, ui, verbs, flags, rooms, dialogue };
+  return { manifest, font, palette, ui, verbs, flags, scaling, reputation, ambient, rooms, dialogue };
 }
 
 /** JsonReader backed by fetch, for the browser. */

@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "amb_map_seller",
+  "note": "Doc 07 #16 micro-tree, verbatim. He is the saddest character in the game and none of this is played as sad.",
+  "start": "N1",
+  "nodes": {
+    "N1": {
+      "prompt": "The map seller brightens considerably.",
+      "options": [
+        {
+          "id": "where_from",
+          "text": "Where do the maps come from?",
+          "tag": "TOPIC",
+          "say": "I draw them.",
+          "repeat": "I draw them."
+        },
+        {
+          "id": "from_what",
+          "text": "From what?",
+          "tag": "TOPIC",
+          "say": "From the accounts. There’s dozens of accounts. You put them together and a picture comes out.",
+          "repeat": "You put the accounts together and a picture comes out."
+        },
+        {
+          "id": "ever_dug",
+          "text": "Have you ever dug where a map says?",
+          "tag": "TOPIC",
+          "say": "I’d not dig my own map, sir. That’d be like a man eating his own dinner.",
+          "repeat": "Like a man eating his own dinner, sir."
+        },
+        {
+          "id": "do_they_work",
+          "text": "Do they work?",
+          "tag": "COMIC",
+          "say": "They’ve not been disproved.",
+          "repeat": "Still not been disproved."
+        },
+        {
+          "id": "exit",
+          "text": "I am going to leave now, in a dignified manner.",
+          "tag": "EXIT"
+        }
+      ]
+    }
+  }
+}

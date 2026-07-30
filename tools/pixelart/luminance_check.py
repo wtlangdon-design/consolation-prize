@@ -22,7 +22,7 @@ def luminance(rgb: tuple[int, int, int]) -> float:
 
 def audit(scheme) -> int:
     palette = Palette.load()
-    sky = palette.family("sky")
+    sky = palette.family(scheme.sky_family)
     sky_lightest = luminance(palette.colours[sky.frac(scheme.sky_bottom)])
 
     rows: list[tuple[str, float]] = [
@@ -32,7 +32,7 @@ def audit(scheme) -> int:
     for lot in LOTS:
         family = palette.family(scheme.swap.get(lot.wall, lot.wall))
         pale = scheme.pale_shift if lot.wall == "bone" else 0.0
-        tone = max(0.06, lot.tone + scheme.facade_shift + pale)
+        tone = max(0.06, scheme.tone_for(palette, lot.wall, lot.tone) + scheme.facade_shift + pale)
         rows.append((lot.kind, luminance(palette.colours[family.frac(tone)])))
 
     failures = 0
@@ -51,11 +51,39 @@ def audit(scheme) -> int:
     return failures
 
 
+def scheme_saturation(scheme) -> float:
+    """Mean saturation of every family the scheme actually paints with."""
+    palette = Palette.load()
+    families = [scheme.sky_family, scheme.far_hill, scheme.near_hill, "mud", "pine_weathered"]
+    families += [lot.wall for lot in LOTS]
+    total, count = 0.0, 0
+    for name in families:
+        ramp = palette.family(scheme.swap.get(name, name))
+        total += palette.saturation(ramp.frac(0.55))
+        count += 1
+    return total / count
+
+
 if __name__ == "__main__":
     total = 0
     for scheme in (DAY, DAWN):
         print(f"{scheme.name.upper()}")
         total += audit(scheme)
         print()
+
+    palette = Palette.load()
+    day_sky = luminance(palette.colours[palette.family(DAY.sky_family).frac(DAY.sky_bottom)])
+    dawn_sky = luminance(palette.colours[palette.family(DAWN.sky_family).frac(DAWN.sky_bottom)])
+    day_sat, dawn_sat = scheme_saturation(DAY), scheme_saturation(DAWN)
+
+    print("DAY vs DAWN")
+    print(f"  sky at horizon     day {day_sky:6.1f}   dawn {dawn_sky:6.1f}   "
+          f"{'dawn is paler' if dawn_sky > day_sky else 'DAWN IS DARKER -- reads as dusk'}")
+    if dawn_sky <= day_sky:
+        total += 1
+    print(f"  mean saturation    day {day_sat:6.3f}   dawn {dawn_sat:6.3f}   "
+          f"cut {100 * (1 - dawn_sat / day_sat):.0f}%")
+    print(f"  shadow tint        day {DAY.shadow_tint or 'in-material':>12}   dawn {DAWN.shadow_tint or 'in-material':>12}")
+    print()
     print("PASS" if total == 0 else f"FAIL -- {total} violation(s)")
     sys.exit(0 if total == 0 else 1)

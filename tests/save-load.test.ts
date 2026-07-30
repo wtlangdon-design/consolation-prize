@@ -19,6 +19,7 @@ async function bundle(): Promise<ContentBundle> {
 
 /** Drives the harness into a distinctive, partly-explored state. */
 function advance(state: GameState): void {
+  state.enterRoom('harness_a');
   state.verbs.selectVerb('LOOK_AT');
   state.interact(state.findTarget('hs_alpha')!); // sets T_HARNESS_EXAMINED
 
@@ -36,7 +37,7 @@ function advance(state: GameState): void {
 test('a fresh state starts from declared initial values', async () => {
   const state = new GameState(await bundle(), new MemoryStorage());
 
-  assert.equal(state.roomId, 'harness_a');
+  assert.equal(state.roomId, state.content.manifest.startRoom);
   assert.equal(state.flags.getBoolean('T_HARNESS_EXAMINED'), false);
   assert.equal(state.flags.getNumber('HARNESS_PUSH_COUNT'), 0);
   assert.equal(state.dialogue.isActive, false);
@@ -129,6 +130,7 @@ test('room transitions autosave, and a corrupt save is refused rather than half-
   const storage = new MemoryStorage();
 
   const state = new GameState(content, storage);
+  state.enterRoom('harness_a');
   state.verbs.selectVerb(state.verbs.walkVerbId);
   state.interact(state.findTarget('exit_a_to_b')!);
   assert.equal(state.roomId, 'harness_b');
@@ -140,7 +142,7 @@ test('room transitions autosave, and a corrupt save is refused rather than half-
   storage.setItem('consolation.save.v1', '{"version":1,"room":');
   const broken = new GameState(content, storage);
   assert.equal(broken.load(), false);
-  assert.equal(broken.roomId, 'harness_a', 'a refused load leaves the fresh state untouched');
+  assert.equal(broken.roomId, content.manifest.startRoom, 'a refused load leaves the fresh state untouched');
 });
 
 test('reset returns to initial state and clears the save', async () => {
@@ -152,7 +154,7 @@ test('reset returns to initial state and clears the save', async () => {
   state.save();
   state.reset();
 
-  assert.equal(state.roomId, 'harness_a');
+  assert.equal(state.roomId, state.content.manifest.startRoom);
   assert.equal(state.flags.getNumber('HARNESS_PUSH_COUNT'), 0);
   assert.equal(state.dialogue.isActive, false);
   assert.equal(state.saves.exists(), false);
@@ -161,6 +163,7 @@ test('reset returns to initial state and clears the save', async () => {
 
 test('an exit is only walked through on the walk verb', async () => {
   const state = new GameState(await bundle(), new MemoryStorage());
+  state.enterRoom('harness_a');
 
   state.verbs.selectVerb('LOOK_AT');
   const result = state.interact(state.findTarget('exit_a_to_b')!);
@@ -171,6 +174,7 @@ test('an exit is only walked through on the walk verb', async () => {
 
 test('an unhandled verb draws from the target fallback pool, rotating', async () => {
   const state = new GameState(await bundle(), new MemoryStorage());
+  state.enterRoom('harness_a');
   const alpha = state.findTarget('hs_alpha')!;
 
   state.verbs.selectVerb('PULL'); // hs_alpha defines no PULL response

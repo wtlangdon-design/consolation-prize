@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "id": "pie_woman",
+  "name": "THE PIE WOMAN",
+  "note": "Doc 07 #6. Pies of unstated provenance. Best R_DEAD bark in the game.",
+  "room": "main_street",
+  "x": 150,
+  "y": 126,
+  "zone": 0,
+  "approachRadius": 40,
+  "tree": "amb_pie_woman",
+  "barks": {
+    "R_NOBODY": "Pie.",
+    "R_SWINDLED": "Pie. Half price for the newly poor.",
+    "R_RACCOON": "Heard about your animal. Pie?",
+    "R_SURVEYED": "That woman charged you two dollars to point at dirt. Pie.",
+    "R_BORDERS_MOTT": "Pie, Mr. Grubb. On the house. On the house today.",
+    "R_LOST_DUEL": "Pie. You’ll want the big one.",
+    "R_WON_DUEL": "Beat Deke Vessel! Pie’s still a nickel.",
+    "R_DEAD": "Thought you’d passed.",
+    "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
+  }
+}

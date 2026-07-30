@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "id": "main_street",
+  "name": "MAIN STREET",
+  "note": "Room 2. The hub, and the most-visited screen in the game. Every LOOK and LISTEN line here is verbatim from docs/05-examine-layer.md -- nothing on this screen is written by the engine or by anyone implementing it.",
+  "background": "art/backgrounds/room-02-main-street.png",
+  "colours": { "sky": 158, "ground": 8 },
+  "horizon": 32,
+  "ambient": ["letter_writer", "pie_woman", "map_seller"],
+  "walkable": [
+    { "id": "boardwalk", "zone": 2, "rect": [0, 78, 320, 9] },
+    { "id": "mud_far", "zone": 2, "rect": [0, 88, 320, 16] },
+    { "id": "mud_mid", "zone": 1, "rect": [0, 104, 320, 18] },
+    { "id": "mud_near", "zone": 0, "rect": [0, 122, 320, 22] }
+  ],
+  "hotspots": [
+    {
+      "id": "company_sign",
+      "name": "THE IMPROVEMENT COMPANY SIGN",
+      "rect": [174, 32, 30, 12],
+      "colour": 226,
+      "responses": {
+        "LOOK_AT": [{ "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. It is the only sign in town that has been painted twice." }],
+        "LISTEN_TO": [{ "say": "Nothing. It is the quietest building on the street and it is always full." }]
+      },
+      "fallback": []
+    },
+    {
+      "id": "church_steeple",
+      "name": "THE CHURCH STEEPLE",
+      "rect": [134, 18, 22, 16],
+      "colour": 70,
+      "responses": {
+        "LOOK_AT": [{ "say": "The tallest thing in Consolation, and the only building that is as deep as it is tall." }],
+        "LISTEN_TO": [{ "say": "The bell is a half-step flat. It has been struck by hand for six years by a man who does not care." }]
+      },
+      "fallback": []
+    },
+    {
+      "id": "posted_notices",
+      "name": "POSTED NOTICES",
+      "rect": [64, 50, 24, 20],
+      "colour": 200,
+      "responses": {
+        "LOOK_AT": [{ "say": "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who cannot. He is doing better than anyone." }],
+        "LISTEN_TO": [{ "say": "Paper, in wind. A great deal of it." }]
+      },
+      "fallback": []
+    },
+    {
+      "id": "dog",
+      "name": "A DOG",
+      "rect": [87, 73, 20, 14],
+      "colour": 30,
+      "responses": {
+        "LOOK_AT": [{ "say": "A dog with the settled look of an animal that has outlasted several owners." }],
+        "LISTEN_TO": [{ "say": "Breathing. Contented. He is the only solvent resident of Consolation." }]
+      },
+      "fallback": []
+    },
+    {
+      "id": "water_trough",
+      "name": "THE WATER TROUGH",
+      "rect": [212, 104, 44, 16],
+      "colour": 150,
+      "responses": {
+        "LOOK_AT": [{ "say": "A trough. Three inches of water and a great deal of ambition." }],
+        "LISTEN_TO": [{ "say": "Something is living in it. I have decided not to pursue this." }]
+      },
+      "fallback": []
+    },
+    {
+      "id": "boardwalk",
+      "name": "THE BOARDWALK",
+      "rect": [0, 77, 320, 11],
+      "colour": 90,
+      "responses": {
+        "LOOK_AT": [{ "say": "Six inches above the mud. In Consolation, this is the difference between a gentleman and a prospector." }],
+        "LISTEN_TO": [{ "say": "Loose board, third from the end. Everyone in town steps over it without thinking. Nobody has ever fixed it." }]
+      },
+      "fallback": []
+    },
+    {
+      "id": "false_fronts",
+      "name": "THE FALSE FRONTS",
+      "rect": [0, 20, 320, 57],
+      "colour": 88,
+      "responses": {
+        "LOOK_AT": [{ "say": "Every building on this street is two storeys tall in front and one storey deep. Consolation is a stage set that people have moved into." }],
+        "LISTEN_TO": [{ "say": "Wind. There is a great deal of nothing behind these." }]
+      },
+      "fallback": []
+    },
+    {
+      "id": "hills",
+      "name": "THE HILLS",
+      "rect": [0, 4, 320, 16],
+      "colour": 124,
+      "responses": {
+        "LOOK_AT": [{ "say": "Gold country. Everyone here has looked at these hills for years and seen a number." }],
+        "LISTEN_TO": [{ "say": "Nothing. They are extremely large and they are not doing anything." }]
+      },
+      "fallback": []
+    },
+    {
+      "id": "mud",
+      "name": "THE MUD",
+      "rect": [0, 88, 320, 56],
+      "colour": 8,
+      "responses": {
+        "LOOK_AT": [{ "say": "The same mud. I have begun to recognise individual portions of it." }],
+        "LISTEN_TO": [{ "say": "Nothing new." }]
+      },
+      "fallback": []
+    }
+  ],
+  "exits": [
+    {
+      "id": "to_nugget",
+      "name": "THE BOUNTIFUL NUGGET",
+      "stub": true,
+      "rect": [121, 45, 20, 32],
+      "colour": 40,
+      "to": "stub_nugget",
+      "responses": {},
+      "fallback": []
+    },
+    {
+      "id": "to_company",
+      "name": "THE IMPROVEMENT COMPANY",
+      "stub": true,
+      "rect": [182, 43, 18, 34],
+      "colour": 200,
+      "to": "stub_company",
+      "responses": {},
+      "fallback": []
+    },
+    {
+      "id": "to_clarion",
+      "name": "THE CONSOLATION CLARION",
+      "stub": true,
+      "rect": [81, 41, 14, 36],
+      "colour": 30,
+      "to": "stub_clarion",
+      "responses": {},
+      "fallback": []
+    },
+    {
+      "id": "to_claims_road",
+      "name": "THE ROAD TO THE CLAIMS",
+      "stub": true,
+      "rect": [300, 100, 20, 44],
+      "colour": 12,
+      "to": "stub_claims_road",
+      "responses": {},
+      "fallback": []
+    }
+  ]
+}

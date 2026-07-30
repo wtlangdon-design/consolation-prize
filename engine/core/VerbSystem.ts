@@ -17,6 +17,7 @@ export interface ResolvedAction {
 export class VerbSystem {
   private readonly verbLabels = new Map<string, string>();
   private fallbackCursor = new Map<string, number>();
+  private repeatCursor = new Map<string, number>();
   private selected: string;
   private readonly file: VerbsFile;
   private readonly flags: FlagStore;
@@ -74,13 +75,29 @@ export class VerbSystem {
       this.flags.applyWrites(matched.set);
       this.flags.applyAdds(matched.add);
       return {
-        say: matched.say ?? null,
+        say: this.nextLine(target.id, verbId, matched),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
       };
     }
 
     return { say: this.nextFallback(target), dialogue: null, goto: null };
+  }
+
+  /**
+   * The line for this selection: the written one first, then the repeat
+   * variants in order, then back round. Doc 05 is explicit that Room 2 needs
+   * three minimum, because it is the screen the player reads most.
+   */
+  private nextLine(targetId: string, verbId: string, rule: ResponseRule): string | null {
+    const variants = [rule.say, ...(rule.repeat ?? [])].filter(
+      (line): line is string => typeof line === 'string',
+    );
+    if (variants.length === 0) return null;
+    const key = `${targetId}:${verbId}`;
+    const cursor = this.repeatCursor.get(key) ?? 0;
+    this.repeatCursor.set(key, cursor + 1);
+    return variants[Math.min(cursor, variants.length - 1)] ?? null;
   }
 
   private nextFallback(target: Interactable): string | null {

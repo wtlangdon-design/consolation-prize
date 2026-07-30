@@ -6,13 +6,28 @@
   "ui": "content/ui/ui.json",
   "verbs": "content/ui/verbs.json",
   "flags": "content/flags/flags.json",
-  "startRoom": "harness_a",
+  "startRoom": "main_street",
   "rooms": [
+    "content/rooms/main-street.json",
+    "content/rooms/stub-nugget.json",
+    "content/rooms/stub-company.json",
+    "content/rooms/stub-clarion.json",
+    "content/rooms/stub-claims-road.json",
     "content/rooms/harness-a.json",
     "content/rooms/harness-b.json"
   ],
   "dialogue": [
+    "content/dialogue/amb-letter-writer.json",
+    "content/dialogue/amb-pie-woman.json",
+    "content/dialogue/amb-map-seller.json",
     "content/dialogue/harness-tree.json"
   ],
-  "puzzles": []
+  "puzzles": [],
+  "scaling": "content/actors/scaling.json",
+  "ambient": [
+    "content/ambient/letter-writer.json",
+    "content/ambient/pie-woman.json",
+    "content/ambient/map-seller.json"
+  ],
+  "reputation": "content/reputation.json"
 }
