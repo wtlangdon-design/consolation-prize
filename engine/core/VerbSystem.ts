@@ -51,6 +51,11 @@ export class VerbSystem {
     return this.file.walkVerb.id;
   }
 
+  /** True if this verb goes through a doorway rather than asking about one. */
+  isTransit(verbId: string): boolean {
+    return (this.file.transitVerbs ?? [this.file.walkVerb.id]).includes(verbId);
+  }
+
   selectVerb(id: string): void {
     if (!this.verbLabels.has(id)) {
       throw new Error(`Unknown verb: ${id}`);

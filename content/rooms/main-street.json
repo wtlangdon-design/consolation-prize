@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "main_street",
   "name": "MAIN STREET",
-  "note": "Room 2. The hub, and the most-visited screen in the game. LOOK and LISTEN lines are verbatim from docs/05-examine-layer.md; repeat variants and verb overrides are verbatim from docs/13-room-02-content.md. Nothing on this screen was written by anyone implementing it.",
+  "note": "Room 2. The hub, and the most-visited screen in the game. LOOK and LISTEN lines are verbatim from docs/05-examine-layer.md; repeat variants and verb overrides are verbatim from docs/13-room-02-content.md; the four exits from docs/14-room-02-exits.md. Nothing on this screen was written by anyone implementing it.",
   "background": "art/backgrounds/room-02-main-street.png",
   "colours": {
     "sky": 158,
@@ -378,8 +378,7 @@
   "exits": [
     {
       "id": "to_nugget",
-      "name": "THE BOUNTIFUL NUGGET",
-      "stub": true,
+      "name": "THE NUGGET'S DOORS",
       "rect": [
         121,
         45,
@@ -388,13 +387,35 @@
       ],
       "colour": 40,
       "to": "stub_nugget",
-      "responses": {},
-      "fallback": []
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Bountiful Nugget. Batwing doors, which swing both ways, and which I suspect is the whole philosophy of the establishment.",
+            "repeat": [
+              "Somebody spent money on those doors and on nothing else. I have looked.",
+              "The Nugget. It is bountiful in the way that a promise is bountiful."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Talk, glasses, and a piano that is flat in one place. I could put it right in four minutes and nobody has asked me.",
+            "repeat": [
+              "Still flat. C-sharp. It is going to be C-sharp for the rest of my life.",
+              "Somebody in there has told the same story four times and it has grown twice."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "CLOSE": "They swing. Closing them is a temporary opinion.",
+        "TALK_TO": "I would have to go in. Going in costs money.",
+        "PULL": "They swing outward, inward, and for some time afterwards."
+      }
     },
     {
       "id": "to_company",
       "name": "THE IMPROVEMENT COMPANY",
-      "stub": true,
       "rect": [
         182,
         43,
@@ -403,13 +424,35 @@
       ],
       "colour": 200,
       "to": "stub_company",
-      "responses": {},
-      "fallback": []
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building requires.",
+            "repeat": [
+              "Everyone who goes in comes out pleased. I have watched eleven men do it.",
+              "Three storeys from here. I have been round the back and it is one."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is the quietest doorway on the street and it is never still.",
+            "repeat": [
+              "Nothing. Somebody is always going in.",
+              "Nothing at all. Not one raised voice in eleven weeks."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "It opens inward, which is a decision somebody made.",
+        "TALK_TO": "I have spoken to the man behind that door. I came away with a map and I am no longer certain what I gave him.",
+        "CLOSE": "It closes on its own, slowly, and without a sound. Somebody paid for that too."
+      }
     },
     {
       "id": "to_clarion",
-      "name": "THE CONSOLATION CLARION",
-      "stub": true,
+      "name": "THE CLARION OFFICE",
       "rect": [
         81,
         41,
@@ -418,13 +461,34 @@
       ],
       "colour": 30,
       "to": "stub_clarion",
-      "responses": {},
-      "fallback": []
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The Consolation Clarion. One press, one man, and the front page of every issue for twelve years has been about a hole nobody can find.",
+            "repeat": [
+              "The door is open. The door is always open. He is desperate for somebody to say something quotable.",
+              "There is a bill in the window advertising the Clarion, printed by the Clarion, on the Clarion's press."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The press. It knocks on the return stroke, and it has knocked for years.",
+            "repeat": [
+              "Knocking. Still knocking.",
+              "He is talking to himself in there. He is doing both sides of an interview."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "If I say anything within forty feet of that door it will be in print by four o'clock.",
+        "CLOSE": "He would only open it again, and then write about it."
+      }
     },
     {
       "id": "to_claims_road",
       "name": "THE ROAD TO THE CLAIMS",
-      "stub": true,
       "rect": [
         300,
         100,
@@ -433,8 +497,32 @@
       ],
       "colour": 12,
       "to": "stub_claims_road",
-      "responses": {},
-      "fallback": []
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
+            "repeat": [
+              "Two miles. It looks further in the morning and considerably further at night.",
+              "Somewhere down there is forty feet of mud that is legally mine."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Boots. A great many of them, going out. It is the most cheerful sound in Consolation and it happens at six in the morning.",
+            "repeat": [
+              "Nothing at the moment. They are all out there.",
+              "Nothing coming back yet. They come back quiet."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is a road.",
+        "PULL": "It is a road.",
+        "TALK_TO": "There is nobody on it.",
+        "CLOSE": "I have considered it. Several of us have."
+      }
     }
   ]
 }

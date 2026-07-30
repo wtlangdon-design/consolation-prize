@@ -51,10 +51,17 @@ export class GameState {
     return room;
   }
 
-  /** Hotspots and exits together, in the order they should hit-test. */
+  /**
+   * Hotspots and exits together, in the order they should hit-test.
+   *
+   * Exits first. A doorway is a small, specific target that sits inside a
+   * large piece of scenery -- all three of Room 2's doors fall within THE
+   * FALSE FRONTS, and the road to the claims falls within THE MUD. Testing
+   * scenery first made every exit in the room unclickable.
+   */
   get targets(): Interactable[] {
     const room = this.room;
-    return [...room.hotspots, ...room.exits];
+    return [...room.exits, ...room.hotspots];
   }
 
   findTarget(id: string): Interactable | undefined {
@@ -78,6 +85,15 @@ export class GameState {
 
   /** Applies the selected verb to a target and resolves what follows. */
   interact(target: Interactable): InteractionResult {
+    // Going through a door is not a question about the door. Checked before
+    // the verb resolves, so no line is produced and no pool is consumed --
+    // otherwise OPEN on an exit would spend a fallback line on its way out.
+    const transit = this.transitDestination(target);
+    if (transit) {
+      this.enterRoom(transit);
+      return { say: null, enteredDialogue: false, changedRoom: true };
+    }
+
     const action = this.verbs.resolve(this.verbs.selectedVerb, target);
 
     if (action.dialogue) {
@@ -85,7 +101,7 @@ export class GameState {
       return { say: action.say, enteredDialogue: true, changedRoom: false };
     }
 
-    const destination = action.goto ?? this.exitDestination(target);
+    const destination = action.goto ?? null;
     if (destination) {
       this.enterRoom(destination);
       return { say: action.say, enteredDialogue: false, changedRoom: true };
@@ -95,13 +111,14 @@ export class GameState {
   }
 
   /**
-   * An exit only walks the player through on the walk verb. Every other verb
-   * examines it in place, so LOOK AT on a doorway is not a room transition.
+   * An exit transits only on a transit verb. Every other verb examines it in
+   * place, so LOOK AT on a doorway describes the doorway rather than
+   * teleporting the player through it mid-sentence.
    */
-  private exitDestination(target: Interactable): string | null {
+  private transitDestination(target: Interactable): string | null {
     const exit = target as Partial<Exit>;
     if (!exit.to) return null;
-    return this.verbs.selectedVerb === this.verbs.walkVerbId ? exit.to : null;
+    return this.verbs.isTransit(this.verbs.selectedVerb) ? exit.to : null;
   }
 
   /**

@@ -178,6 +178,12 @@ export interface VerbDefinition {
 export interface VerbsFile {
   schema: number;
   walkVerb: { id: string; label: string };
+  /**
+   * Verbs that walk the player through an exit instead of examining it, and
+   * deliberately produce no line. Doc 14 engine note: OPEN and USE on a
+   * doorway are ways of going through it, not questions about it.
+   */
+  transitVerbs?: string[];
   defaultVerb: string;
   grid: { cols: number; rows: number };
   verbs: VerbDefinition[];

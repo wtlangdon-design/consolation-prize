@@ -44,6 +44,7 @@ test('all nine verbs are selectable, and every written examine line answers', as
       // but not yet transcribed, and a placeholder line would be worse than
       // nothing. They still have to be walkable, which is asserted below.
       const isStub = (target as { stub?: boolean }).stub === true;
+      const isExit = (target as { to?: string }).to !== undefined;
       for (const verb of content.verbs.verbs) {
         state.verbs.selectVerb(verb.id);
         const result = state.interact(target);
@@ -53,7 +54,9 @@ test('all nine verbs are selectable, and every written examine line answers', as
         // that doc 06 specifies but nobody has written yet, so they are
         // allowed to be silent -- tracked by check-written-content.mjs
         // rather than papered over with a generated line here.
-        const mustAnswer = !isStub && (verb.id === 'LOOK_AT' || verb.id === 'LISTEN_TO');
+        // Transit verbs on an exit go through it and say nothing, on purpose.
+        const transits = isExit && state.verbs.isTransit(verb.id);
+        const mustAnswer = !isStub && !transits && (verb.id === 'LOOK_AT' || verb.id === 'LISTEN_TO');
         if (mustAnswer) {
           assert.ok(
             producedSomething,
@@ -243,6 +246,71 @@ test('every verb now answers on every Main Street hotspot', async () => {
         result.say !== null,
         `${target.id} + ${verb.id} is silent -- doc 06 allows no unanswered combination`,
       );
+    }
+  }
+});
+
+
+test('OPEN and USE walk through an exit and say nothing; every other verb answers', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  const street = content.rooms.get('main_street')!;
+
+  for (const exit of street.exits) {
+    // Doc 14 engine note. Going through a door is not a question about it.
+    for (const verb of ['OPEN', 'USE']) {
+      state.enterRoom('main_street');
+      state.verbs.selectVerb(verb);
+      const result = state.interact(exit);
+      assert.equal(result.changedRoom, true, `${exit.id} + ${verb} should transit`);
+      assert.equal(result.say, null, `${exit.id} + ${verb} must produce no line`);
+      assert.equal(state.roomId, exit.to);
+    }
+
+    // Everything else describes the doorway from the street and stays put.
+    state.enterRoom('main_street');
+    for (const verb of content.verbs.verbs) {
+      if (state.verbs.isTransit(verb.id)) continue;
+      state.verbs.selectVerb(verb.id);
+      const result = state.interact(exit);
+      assert.equal(result.changedRoom, false, `${exit.id} + ${verb.id} should not transit`);
+      assert.ok(result.say, `${exit.id} + ${verb.id} is silent`);
+    }
+  }
+});
+
+test('every exit is reachable by clicking it, scenery notwithstanding', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street');
+
+  // Regression. Every Room 2 exit sits inside a much larger hotspot -- the
+  // three doors inside THE FALSE FRONTS, the road inside THE MUD -- so with
+  // scenery hit-testing first, no exit in the room could be clicked at all.
+  // Driving state.interact(exit) directly cannot catch this; only a click can.
+  for (const exit of content.rooms.get('main_street')!.exits) {
+    const [x, y, w, h] = exit.rect;
+    const hit = state.targetAt(x + Math.floor(w / 2), y + Math.floor(h / 2));
+    assert.equal(hit?.id, exit.id, `a click at the centre of ${exit.id} hit ${hit?.id} instead`);
+  }
+});
+
+test('exits carry three LOOK and three LISTEN variants from doc 14', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street');
+
+  for (const exit of content.rooms.get('main_street')!.exits) {
+    for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
+      state.verbs.selectVerb(verb);
+      const seen = [
+        state.interact(exit).say,
+        state.interact(exit).say,
+        state.interact(exit).say,
+        state.interact(exit).say,
+      ];
+      assert.equal(new Set(seen.slice(0, 3)).size, 3, `${exit.id}/${verb} needs three distinct variants`);
+      assert.equal(seen[3], seen[2], 'the third repeats indefinitely thereafter');
     }
   }
 });

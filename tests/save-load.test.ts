@@ -161,7 +161,7 @@ test('reset returns to initial state and clears the save', async () => {
   assert.equal(state.load(), false);
 });
 
-test('an exit is only walked through on the walk verb', async () => {
+test('a non-transit verb examines a doorway in place instead of going through it', async () => {
   const state = new GameState(await bundle(), new MemoryStorage());
   state.enterRoom('harness_a');
 

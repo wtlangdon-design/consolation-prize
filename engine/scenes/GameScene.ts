@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { Interactable } from '../core/types.ts';
+import type { Exit, Interactable } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { BitmapFont } from '../render/BitmapFont.ts';
@@ -154,13 +154,25 @@ export class GameScene extends Phaser.Scene {
     const isDoubleClick = detectDoubleClick(this.lastClick, target?.id, now);
     this.lastClick = recordClick(target?.id, now);
 
+    const isExit = target !== undefined && (target as Partial<Exit>).to !== undefined;
+    const wantsToWalk = isDoubleClick || this.state.verbs.selectedVerb === this.state.verbs.walkVerbId;
+
+    // A doorway asked to be walked through is walked through, even when it
+    // happens to stand on walkable ground -- the road to the claims does.
+    if (isExit && (wantsToWalk || this.state.verbs.isTransit(this.state.verbs.selectedVerb))) {
+      const before = this.state.verbs.selectedVerb;
+      if (wantsToWalk) this.state.verbs.selectVerb(this.state.verbs.walkVerbId);
+      this.applyInteraction(target as Interactable);
+      if (wantsToWalk) this.state.verbs.selectVerb(before);
+      return;
+    }
+
     // Walking wins over examining whenever the player has asked to walk.
     //
     // THE MUD is a hotspot covering the entire walkable band, so without this
     // there is nowhere on the street left to click to move, and double-click
     // resolved WALK TO against a hotspot that has no WALK TO response and
     // therefore did nothing at all. Doc 06: double-click is the walk verb.
-    const wantsToWalk = isDoubleClick || this.state.verbs.selectedVerb === this.state.verbs.walkVerbId;
     if (!target || wantsToWalk) {
       if (this.actor.walkTo(x, y)) {
         this.markDirty();

@@ -1,18 +1,74 @@
 {
   "schema": 1,
-  "note": "The nine verbs, per Bible v2 Part Two. Panel is a 3x3 grid occupying the bottom 56px natively. Labels live here so no verb string ever appears in a .ts file.",
-  "walkVerb": { "id": "WALK_TO", "label": "Walk to" },
+  "note": "The nine verbs, per Bible v2 Part Two. Panel is a 3x3 grid occupying the bottom 56px natively. Labels live here so no verb string ever appears in a .ts file. transitVerbs walk the player through an exit and deliberately produce no line -- doc 14 engine note.",
+  "walkVerb": {
+    "id": "WALK_TO",
+    "label": "Walk to"
+  },
   "defaultVerb": "LOOK_AT",
-  "grid": { "cols": 3, "rows": 3 },
+  "grid": {
+    "cols": 3,
+    "rows": 3
+  },
   "verbs": [
-    { "id": "LOOK_AT", "label": "Look at", "col": 0, "row": 0 },
-    { "id": "PICK_UP", "label": "Pick up", "col": 0, "row": 1 },
-    { "id": "TALK_TO", "label": "Talk to", "col": 0, "row": 2 },
-    { "id": "OPEN", "label": "Open", "col": 1, "row": 0 },
-    { "id": "CLOSE", "label": "Close", "col": 1, "row": 1 },
-    { "id": "USE", "label": "Use", "col": 1, "row": 2 },
-    { "id": "PUSH", "label": "Push", "col": 2, "row": 0 },
-    { "id": "PULL", "label": "Pull", "col": 2, "row": 1 },
-    { "id": "LISTEN_TO", "label": "Listen to", "col": 2, "row": 2 }
+    {
+      "id": "LOOK_AT",
+      "label": "Look at",
+      "col": 0,
+      "row": 0
+    },
+    {
+      "id": "PICK_UP",
+      "label": "Pick up",
+      "col": 0,
+      "row": 1
+    },
+    {
+      "id": "TALK_TO",
+      "label": "Talk to",
+      "col": 0,
+      "row": 2
+    },
+    {
+      "id": "OPEN",
+      "label": "Open",
+      "col": 1,
+      "row": 0
+    },
+    {
+      "id": "CLOSE",
+      "label": "Close",
+      "col": 1,
+      "row": 1
+    },
+    {
+      "id": "USE",
+      "label": "Use",
+      "col": 1,
+      "row": 2
+    },
+    {
+      "id": "PUSH",
+      "label": "Push",
+      "col": 2,
+      "row": 0
+    },
+    {
+      "id": "PULL",
+      "label": "Pull",
+      "col": 2,
+      "row": 1
+    },
+    {
+      "id": "LISTEN_TO",
+      "label": "Listen to",
+      "col": 2,
+      "row": 2
+    }
+  ],
+  "transitVerbs": [
+    "WALK_TO",
+    "OPEN",
+    "USE"
   ]
 }
