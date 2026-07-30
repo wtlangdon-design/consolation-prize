@@ -56,6 +56,13 @@ export interface Interactable {
   rect: [number, number, number, number];
   colour: number;
   responses?: Record<string, ResponseRule[]>;
+  /**
+   * Object-specific line for a verb this object has no written response to.
+   * Fires the SAME line every time for that verb-object pair -- deliberately
+   * unlike the global pools, which rotate. Doc 13 note 4.
+   */
+  overrides?: Record<string, string>;
+  /** Per-object rotating pool. Rarely used; the global pools cover most cases. */
   fallback?: string[];
 }
 
@@ -76,6 +83,11 @@ export interface AmbientFile {
   approachRadius: number;
   tree: string;
   barks: Record<string, string>;
+}
+
+export interface VerbFallbacksFile {
+  schema: number;
+  pools: Record<string, string[]>;
 }
 
 export interface ReputationFile {
@@ -116,6 +128,10 @@ export interface RoomFile {
   background?: string;
   /** Ambient NPC ids placed in this room. */
   ambient?: string[];
+  /** An engine test fixture rather than shipped content. */
+  fixture?: boolean;
+  /** A destination that exists so an exit works, with its content pending. */
+  stub?: boolean;
 }
 
 export type OptionTag = 'PROGRESS' | 'TOPIC' | 'COMIC' | 'ASSAY' | 'EXIT';
@@ -209,6 +225,7 @@ export interface ManifestFile {
   font: string;
   scaling: string;
   reputation: string;
+  verbFallbacks: string;
   ambient: string[];
   palette: string;
   ui: string;
@@ -230,6 +247,7 @@ export interface ContentBundle {
   flags: FlagsFile;
   scaling: ScalingFile;
   reputation: ReputationFile;
+  verbFallbacks: VerbFallbacksFile;
   ambient: Map<string, AmbientFile>;
   rooms: Map<string, RoomFile>;
   dialogue: Map<string, DialogueFile>;

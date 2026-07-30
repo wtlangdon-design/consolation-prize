@@ -186,3 +186,63 @@ test('a point off the floor has no actor height at all', async () => {
   assert.equal(state.actorHeightAt(160, 4), null);
   assert.equal(state.isWalkable(160, 4), false);
 });
+
+test('the mud answers a second LISTEN with the first LISTEN, word for word', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street');
+  const mud = state.findTarget('mud')!;
+  state.verbs.selectVerb('LISTEN_TO');
+
+  const first = state.interact(mud).say;
+  const second = state.interact(mud).say;
+  const third = state.interact(mud).say;
+
+  // Doc 13 note 1. Thad asks the mud twice and gets the same nothing. A
+  // dedupe pass would "fix" this and delete the joke; this test is the guard.
+  assert.equal(second, first, 'variant 2 is character-for-character variant 1, on purpose');
+  assert.notEqual(third, second, 'variant 3 does move on');
+  assert.equal(state.interact(mud).say, third, 'and the third repeats indefinitely thereafter');
+});
+
+test('object overrides repeat; global pools rotate', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street');
+
+  // Doc 13 note 4. Two different behaviours, both correct.
+  const dog = state.findTarget('dog')!;
+  state.verbs.selectVerb('PUSH');
+  const override = [state.interact(dog).say, state.interact(dog).say, state.interact(dog).say];
+  assert.equal(override[0], 'I will not.');
+  assert.ok(
+    override.every((line) => line === override[0]),
+    'an object override fires the same line every time for that verb-object pair',
+  );
+
+  // The hills have no PUSH override, so PUSH falls to the global pool.
+  const hills = state.findTarget('hills')!;
+  const pool = content.verbFallbacks.pools['PUSH']!;
+  const drawn = [state.interact(hills).say, state.interact(hills).say, state.interact(hills).say];
+  assert.equal(new Set(drawn).size, Math.min(3, pool.length), 'the pool rotates rather than repeating');
+  for (let index = 1; index < drawn.length; index += 1) {
+    assert.notEqual(drawn[index], drawn[index - 1], 'and never repeats consecutively');
+  }
+});
+
+test('every verb now answers on every Main Street hotspot', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street');
+
+  for (const target of content.rooms.get('main_street')!.hotspots) {
+    for (const verb of content.verbs.verbs) {
+      state.verbs.selectVerb(verb.id);
+      const result = state.interact(target);
+      assert.ok(
+        result.say !== null,
+        `${target.id} + ${verb.id} is silent -- doc 06 allows no unanswered combination`,
+      );
+    }
+  }
+});

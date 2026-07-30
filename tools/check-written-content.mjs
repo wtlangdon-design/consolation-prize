@@ -20,13 +20,20 @@ export function check() {
   const report = new Report('Written content the design requires is present');
   const content = loadContent();
   const verbIds = content.verbs.verbs.map((verb) => verb.id);
+  const pools = content.verbFallbacks?.pools ?? {};
 
   const thinVariants = [];
   const noFallback = [];
   let responses = 0;
 
+  const fixtureRooms = new Set(
+    content.rooms.filter(({ data }) => data.fixture).map(({ data }) => data.id),
+  );
+
   for (const { roomId, target } of allInteractables(content)) {
-    if (target.stub) continue;
+    // Engine test fixtures are not shipped content and are not held to doc
+    // 05's standard -- they exist to exercise code paths, not to be read.
+    if (target.stub || fixtureRooms.has(roomId)) continue;
     const where = `${roomId}/${target.id}`;
 
     for (const verb of EXAMINE) {
@@ -38,9 +45,17 @@ export function check() {
       }
     }
 
-    const unhandled = verbIds.filter((verb) => !(target.responses ?? {})[verb]);
-    if (unhandled.length > 0 && (target.fallback ?? []).length === 0) {
-      noFallback.push({ where, unhandled: unhandled.length });
+    // A verb is covered by a written response, an object-specific override,
+    // an object pool, or the global pool for that verb -- in that order.
+    const silent = verbIds.filter(
+      (verb) =>
+        !(target.responses ?? {})[verb] &&
+        !(target.overrides ?? {})[verb] &&
+        (target.fallback ?? []).length === 0 &&
+        (pools[verb] ?? []).length === 0,
+    );
+    if (silent.length > 0) {
+      noFallback.push({ where, unhandled: silent.length });
     }
   }
 
@@ -59,7 +74,7 @@ export function check() {
   }
 
   report.note('these lines exist in the design or must be authored -- they are not to be generated');
-  report.note(`${responses} examine responses checked across ${content.rooms.length} rooms`);
+  report.note(`${responses} examine responses checked; ${fixtureRooms.size} fixture room(s) excluded`);
   return report;
 }
 

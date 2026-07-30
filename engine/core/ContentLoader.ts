@@ -10,6 +10,7 @@ import type {
   RoomFile,
   ScalingFile,
   UiFile,
+  VerbFallbacksFile,
   VerbsFile,
 } from './types.ts';
 
@@ -25,7 +26,7 @@ export const MANIFEST_PATH = 'content/manifest.json';
 export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH): Promise<ContentBundle> {
   const manifest = (await read(manifestPath)) as ManifestFile;
 
-  const [font, palette, ui, verbs, flags, scaling, reputation] = await Promise.all([
+  const [font, palette, ui, verbs, flags, scaling, reputation, verbFallbacks] = await Promise.all([
     read(manifest.font) as Promise<FontFile>,
     read(manifest.palette) as Promise<PaletteFile>,
     read(manifest.ui) as Promise<UiFile>,
@@ -33,6 +34,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     read(manifest.flags) as Promise<FlagsFile>,
     read(manifest.scaling) as Promise<ScalingFile>,
     read(manifest.reputation) as Promise<ReputationFile>,
+    read(manifest.verbFallbacks) as Promise<VerbFallbacksFile>,
   ]);
 
   const roomFiles = (await Promise.all(manifest.rooms.map((path) => read(path)))) as RoomFile[];
@@ -67,7 +69,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     throw new Error(`Start room not found: ${manifest.startRoom}`);
   }
 
-  return { manifest, font, palette, ui, verbs, flags, scaling, reputation, ambient, rooms, dialogue };
+  return { manifest, font, palette, ui, verbs, flags, scaling, reputation, verbFallbacks, ambient, rooms, dialogue };
 }
 
 /** JsonReader backed by fetch, for the browser. */

@@ -29,7 +29,7 @@ export class GameState {
   constructor(content: ContentBundle, storage: StorageLike) {
     this.content = content;
     this.flags = new FlagStore(content.flags);
-    this.verbs = new VerbSystem(content.verbs, this.flags);
+    this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks);
     this.dialogue = new DialogueRunner(content.dialogue, this.flags);
     this.saves = new SaveManager(storage);
     this.currentRoomId = content.manifest.startRoom;

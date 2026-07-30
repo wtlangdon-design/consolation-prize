@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "note": "Doc 13 Part One, verbatim. Used when an object has no written response and no object-specific override. Pools ROTATE and never repeat consecutively. Doc 06: an unhandled combination gets a Thad line, never a generic refusal -- the pool is itself comedy.",
+  "pools": {
+    "PICK_UP": [
+      "It stays where it is.",
+      "I have tried. It has views.",
+      "That is not mine, and more to the point it will not come.",
+      "No. It is part of the town."
+    ],
+    "USE": [
+      "I have no plan for it.",
+      "Not usefully.",
+      "I should want something first. I have not got a want to hand.",
+      "That would require a purpose."
+    ],
+    "OPEN": [
+      "It does not open. Very little here does.",
+      "There is no way into it.",
+      "It is not that kind of thing."
+    ],
+    "CLOSE": [
+      "It is already as closed as it intends to be.",
+      "It is not open.",
+      "There is nothing to close."
+    ],
+    "PUSH": [
+      "It does not move. I have committed to this now and it still does not move.",
+      "Nothing.",
+      "It stays."
+    ],
+    "PULL": [
+      "It stays where it is, and I look like a man pulling at a thing.",
+      "No.",
+      "It is not coming."
+    ],
+    "TALK_TO": [
+      "I have decided against it.",
+      "It has said nothing and I have said nothing and we are both content.",
+      "I would like it on record that I considered it."
+    ]
+  }
+}

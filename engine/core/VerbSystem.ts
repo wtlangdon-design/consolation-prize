@@ -1,4 +1,4 @@
-import type { Interactable, ResponseRule, VerbsFile } from './types.ts';
+import type { Interactable, ResponseRule, VerbFallbacksFile, VerbsFile } from './types.ts';
 import type { FlagStore } from './FlagStore.ts';
 
 export interface ResolvedAction {
@@ -19,12 +19,15 @@ export class VerbSystem {
   private fallbackCursor = new Map<string, number>();
   private repeatCursor = new Map<string, number>();
   private selected: string;
+  private poolCursor = new Map<string, number>();
   private readonly file: VerbsFile;
   private readonly flags: FlagStore;
+  private readonly pools: Record<string, string[]>;
 
-  constructor(file: VerbsFile, flags: FlagStore) {
+  constructor(file: VerbsFile, flags: FlagStore, fallbacks?: VerbFallbacksFile) {
     this.file = file;
     this.flags = flags;
+    this.pools = fallbacks?.pools ?? {};
     for (const verb of file.verbs) {
       this.verbLabels.set(verb.id, verb.label);
     }
@@ -81,7 +84,18 @@ export class VerbSystem {
       };
     }
 
-    return { say: this.nextFallback(target), dialogue: null, goto: null };
+    // Nothing written for this combination. Three sources, most specific
+    // first. Doc 13 note 4: an object override fires the same line every
+    // time; a pool rotates. Two different behaviours, both deliberate.
+    const override = target.overrides?.[verbId];
+    if (override) {
+      return { say: override, dialogue: null, goto: null };
+    }
+    return {
+      say: this.nextFallback(target) ?? this.nextFromPool(verbId),
+      dialogue: null,
+      goto: null,
+    };
   }
 
   /**
@@ -98,6 +112,18 @@ export class VerbSystem {
     const cursor = this.repeatCursor.get(key) ?? 0;
     this.repeatCursor.set(key, cursor + 1);
     return variants[Math.min(cursor, variants.length - 1)] ?? null;
+  }
+
+  /**
+   * Global pool for a verb, rotated in order so a line never follows itself.
+   * Order rather than random: repeat-avoidance for free, and deterministic.
+   */
+  private nextFromPool(verbId: string): string | null {
+    const pool = this.pools[verbId];
+    if (!pool || pool.length === 0) return null;
+    const cursor = this.poolCursor.get(verbId) ?? 0;
+    this.poolCursor.set(verbId, cursor + 1);
+    return pool[cursor % pool.length] ?? null;
   }
 
   private nextFallback(target: Interactable): string | null {

@@ -154,20 +154,22 @@ export class GameScene extends Phaser.Scene {
     const isDoubleClick = detectDoubleClick(this.lastClick, target?.id, now);
     this.lastClick = recordClick(target?.id, now);
 
-    if (!target) {
-      // Empty floor: walk there. This is the only way to reach a character.
-      this.actor.walkTo(x, y);
-      this.markDirty();
-      return;
+    // Walking wins over examining whenever the player has asked to walk.
+    //
+    // THE MUD is a hotspot covering the entire walkable band, so without this
+    // there is nowhere on the street left to click to move, and double-click
+    // resolved WALK TO against a hotspot that has no WALK TO response and
+    // therefore did nothing at all. Doc 06: double-click is the walk verb.
+    const wantsToWalk = isDoubleClick || this.state.verbs.selectedVerb === this.state.verbs.walkVerbId;
+    if (!target || wantsToWalk) {
+      if (this.actor.walkTo(x, y)) {
+        this.markDirty();
+        return;
+      }
+      if (!target) return;
     }
 
-    if (isDoubleClick) {
-      this.state.verbs.selectVerb(this.state.verbs.walkVerbId);
-    }
     this.applyInteraction(target);
-    if (isDoubleClick) {
-      this.state.verbs.resetToDefault();
-    }
   }
 
   private applyInteraction(target: Interactable): void {

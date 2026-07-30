@@ -21,6 +21,7 @@ export function loadContent() {
     flags: readJson(manifest.flags),
     scaling: readJson(manifest.scaling),
     reputation: readJson(manifest.reputation),
+    verbFallbacks: readJson(manifest.verbFallbacks),
     ambient: (manifest.ambient ?? []).map((path) => ({ path, data: readJson(path) })),
     rooms: manifest.rooms.map((path) => ({ path, data: readJson(path) })),
     dialogue: manifest.dialogue.map((path) => ({ path, data: readJson(path) })),

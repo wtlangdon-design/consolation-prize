@@ -29,5 +29,7 @@
     "content/ambient/pie-woman.json",
     "content/ambient/map-seller.json"
   ],
-  "reputation": "content/reputation.json"
+  "reputation": "content/reputation.json",
+  "verbFallbacks": "content/ui/verb-fallbacks.json",
+  "duplicateAllowlist": "content/ui/duplicate-allowlist.json"
 }

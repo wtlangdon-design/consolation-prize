@@ -2,116 +2,377 @@
   "schema": 1,
   "id": "main_street",
   "name": "MAIN STREET",
-  "note": "Room 2. The hub, and the most-visited screen in the game. Every LOOK and LISTEN line here is verbatim from docs/05-examine-layer.md -- nothing on this screen is written by the engine or by anyone implementing it.",
+  "note": "Room 2. The hub, and the most-visited screen in the game. LOOK and LISTEN lines are verbatim from docs/05-examine-layer.md; repeat variants and verb overrides are verbatim from docs/13-room-02-content.md. Nothing on this screen was written by anyone implementing it.",
   "background": "art/backgrounds/room-02-main-street.png",
-  "colours": { "sky": 158, "ground": 8 },
+  "colours": {
+    "sky": 158,
+    "ground": 8
+  },
   "horizon": 32,
-  "ambient": ["letter_writer", "pie_woman", "map_seller"],
+  "ambient": [
+    "letter_writer",
+    "pie_woman",
+    "map_seller"
+  ],
   "walkable": [
-    { "id": "boardwalk", "zone": 2, "rect": [0, 78, 320, 9] },
-    { "id": "mud_far", "zone": 2, "rect": [0, 88, 320, 16] },
-    { "id": "mud_mid", "zone": 1, "rect": [0, 104, 320, 18] },
-    { "id": "mud_near", "zone": 0, "rect": [0, 122, 320, 22] }
+    {
+      "id": "boardwalk",
+      "zone": 2,
+      "rect": [
+        0,
+        78,
+        320,
+        9
+      ]
+    },
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "rect": [
+        0,
+        88,
+        320,
+        16
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "rect": [
+        0,
+        104,
+        320,
+        18
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "rect": [
+        0,
+        122,
+        320,
+        22
+      ]
+    }
   ],
   "hotspots": [
     {
       "id": "company_sign",
       "name": "THE IMPROVEMENT COMPANY SIGN",
-      "rect": [174, 32, 30, 12],
+      "rect": [
+        174,
+        32,
+        30,
+        12
+      ],
       "colour": 226,
       "responses": {
-        "LOOK_AT": [{ "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. It is the only sign in town that has been painted twice." }],
-        "LISTEN_TO": [{ "say": "Nothing. It is the quietest building on the street and it is always full." }]
+        "LOOK_AT": [
+          {
+            "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. It is the only sign in town that has been painted twice.",
+            "repeat": [
+              "Gilt. Actual gilt. In a town where the road is a suggestion.",
+              "Painted twice, and the second time by a better man than the first."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is the quietest building on the street and it is always full.",
+            "repeat": [
+              "Nothing. Still full.",
+              "Nothing at all. Whatever they do in there, they do it without raising their voices."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "PULL": "It is screwed on. Thoroughly. Somebody paid for it to be screwed on.",
+        "TALK_TO": "I have spoken to the building it is attached to. It went badly and I have not recovered."
+      }
     },
     {
       "id": "church_steeple",
       "name": "THE CHURCH STEEPLE",
-      "rect": [134, 18, 22, 16],
+      "rect": [
+        134,
+        18,
+        22,
+        16
+      ],
       "colour": 70,
       "responses": {
-        "LOOK_AT": [{ "say": "The tallest thing in Consolation, and the only building that is as deep as it is tall." }],
-        "LISTEN_TO": [{ "say": "The bell is a half-step flat. It has been struck by hand for six years by a man who does not care." }]
+        "LOOK_AT": [
+          {
+            "say": "The tallest thing in Consolation, and the only building that is as deep as it is tall.",
+            "repeat": [
+              "Still the only honest building on the horizon.",
+              "Somebody built that properly. I should like to meet them and I suspect they have left."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The bell is a half-step flat. It has been struck by hand for six years by a man who does not care.",
+            "repeat": [
+              "Half a step. Every time.",
+              "I have begun to hear it correctly in my head before it rings, which is the first sign of something."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "PICK_UP": "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction.",
+        "TALK_TO": "I am not going to shout at a church from a street."
+      }
     },
     {
       "id": "posted_notices",
       "name": "POSTED NOTICES",
-      "rect": [64, 50, 24, 20],
+      "rect": [
+        64,
+        50,
+        24,
+        20
+      ],
       "colour": 200,
       "responses": {
-        "LOOK_AT": [{ "say": "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who cannot. He is doing better than anyone." }],
-        "LISTEN_TO": [{ "say": "Paper, in wind. A great deal of it." }]
+        "LOOK_AT": [
+          {
+            "say": "Claims for sale, claims disputed, a lost dog, and a man offering to write letters home for those who cannot. He is doing better than anyone.",
+            "repeat": [
+              "The lost dog notice has been up six weeks. The dog is on this street.",
+              "Four claims for sale today. There were three yesterday."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper, in wind. A great deal of it.",
+            "repeat": [
+              "Paper. Still a great deal of it.",
+              "One corner has come loose and is knocking. It will do that until somebody dies."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "PICK_UP": "They belong to the town. I have read them four times, which I consider a form of ownership.",
+        "OPEN": "They are already facing outward. That is the whole design."
+      }
     },
     {
       "id": "dog",
       "name": "A DOG",
-      "rect": [87, 73, 20, 14],
+      "rect": [
+        87,
+        73,
+        20,
+        14
+      ],
       "colour": 30,
       "responses": {
-        "LOOK_AT": [{ "say": "A dog with the settled look of an animal that has outlasted several owners." }],
-        "LISTEN_TO": [{ "say": "Breathing. Contented. He is the only solvent resident of Consolation." }]
+        "LOOK_AT": [
+          {
+            "say": "A dog with the settled look of an animal that has outlasted several owners.",
+            "repeat": [
+              "He has not moved. He has the air of a creature waiting for the town to finish.",
+              "He is looking at me. I have nothing to offer and he knows it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Breathing. Contented. He is the only solvent resident of Consolation.",
+            "repeat": [
+              "Still contented. Still solvent.",
+              "Nothing. He has gone to sleep in the middle of my attention."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "TALK_TO": "\"Good morning.\" (The dog does not respond. It is the most dignified exchange I have had in Consolation.)",
+        "PICK_UP": "I am not picking up a dog I have not been introduced to.",
+        "PUSH": "I will not."
+      }
     },
     {
       "id": "water_trough",
       "name": "THE WATER TROUGH",
-      "rect": [212, 104, 44, 16],
+      "rect": [
+        212,
+        104,
+        44,
+        16
+      ],
       "colour": 150,
       "responses": {
-        "LOOK_AT": [{ "say": "A trough. Three inches of water and a great deal of ambition." }],
-        "LISTEN_TO": [{ "say": "Something is living in it. I have decided not to pursue this." }]
+        "LOOK_AT": [
+          {
+            "say": "A trough. Three inches of water and a great deal of ambition.",
+            "repeat": [
+              "The water has not improved.",
+              "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Something is living in it. I have decided not to pursue this.",
+            "repeat": [
+              "It is still in there. It has moved.",
+              "We have reached an understanding."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "USE": "I am not drinking from that. I have standards, and they are the last thing I own.",
+        "OPEN": "It is a trough. It is entirely open. It is nothing but open."
+      }
     },
     {
       "id": "boardwalk",
       "name": "THE BOARDWALK",
-      "rect": [0, 77, 320, 11],
+      "rect": [
+        0,
+        77,
+        320,
+        11
+      ],
       "colour": 90,
       "responses": {
-        "LOOK_AT": [{ "say": "Six inches above the mud. In Consolation, this is the difference between a gentleman and a prospector." }],
-        "LISTEN_TO": [{ "say": "Loose board, third from the end. Everyone in town steps over it without thinking. Nobody has ever fixed it." }]
+        "LOOK_AT": [
+          {
+            "say": "Six inches above the mud. In Consolation, this is the difference between a gentleman and a prospector.",
+            "repeat": [
+              "Six inches. I have never been so aware of six inches.",
+              "The boards are good. Somebody spent money on the one thing that keeps a man out of the road."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Loose board, third from the end. Everyone in town steps over it without thinking. Nobody has ever fixed it.",
+            "repeat": [
+              "Third from the end. Still loose.",
+              "It has a note. B flat, roughly. I have decided not to tell anyone."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "PULL": "The third board from the end comes up an inch and goes back down.",
+        "PUSH": "Third from the end. Up an inch, down an inch. Nobody has ever fixed it."
+      }
     },
     {
       "id": "false_fronts",
       "name": "THE FALSE FRONTS",
-      "rect": [0, 20, 320, 57],
+      "rect": [
+        0,
+        20,
+        320,
+        57
+      ],
       "colour": 88,
       "responses": {
-        "LOOK_AT": [{ "say": "Every building on this street is two storeys tall in front and one storey deep. Consolation is a stage set that people have moved into." }],
-        "LISTEN_TO": [{ "say": "Wind. There is a great deal of nothing behind these." }]
+        "LOOK_AT": [
+          {
+            "say": "Every building on this street is two storeys tall in front and one storey deep. Consolation is a stage set that people have moved into.",
+            "repeat": [
+              "Still two storeys of nothing. I keep hoping the back will have arrived.",
+              "I have counted. Six fronts, six sheds, one town."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind. There is a great deal of nothing behind these.",
+            "repeat": [
+              "The same nothing. It is a very consistent nothing.",
+              "Nothing. I have stopped expecting otherwise and I am the better for it."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "PUSH": "I have pushed the front of a building. It did not fall over, which is more than I expected.",
+        "PULL": "If I pull hard enough the entire town comes down, and I have not settled how I feel about that."
+      }
     },
     {
       "id": "hills",
       "name": "THE HILLS",
-      "rect": [0, 4, 320, 16],
+      "rect": [
+        0,
+        4,
+        320,
+        16
+      ],
       "colour": 124,
       "responses": {
-        "LOOK_AT": [{ "say": "Gold country. Everyone here has looked at these hills for years and seen a number." }],
-        "LISTEN_TO": [{ "say": "Nothing. They are extremely large and they are not doing anything." }]
+        "LOOK_AT": [
+          {
+            "say": "Gold country. Everyone here has looked at these hills for years and seen a number.",
+            "repeat": [
+              "Still gold country. Still no gold.",
+              "They are the same hills as yesterday. I check."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. They are extremely large and they are not doing anything.",
+            "repeat": [
+              "Nothing. Still large.",
+              "Nothing. I should be alarmed if there were."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "PICK_UP": "They are hills.",
+        "TALK_TO": "No.",
+        "USE": "I would not know where to begin, and neither would they."
+      }
     },
     {
       "id": "mud",
       "name": "THE MUD",
-      "rect": [0, 88, 320, 56],
+      "rect": [
+        0,
+        88,
+        320,
+        56
+      ],
       "colour": 8,
       "responses": {
-        "LOOK_AT": [{ "say": "The same mud. I have begun to recognise individual portions of it." }],
-        "LISTEN_TO": [{ "say": "Nothing new." }]
+        "LOOK_AT": [
+          {
+            "say": "The same mud. I have begun to recognise individual portions of it.",
+            "repeat": [
+              "That portion I have named. I will not be sharing the name.",
+              "Mud. It has been mud since I arrived and it intends to continue."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing new.",
+            "repeat": [
+              "Nothing new.",
+              "Nothing new. I want that understood."
+            ]
+          }
+        ]
       },
-      "fallback": []
+      "overrides": {
+        "PICK_UP": "I have picked up some mud. I am now a man holding mud, in a street, in daylight.",
+        "USE": "On what."
+      }
     }
   ],
   "exits": [
@@ -119,7 +380,12 @@
       "id": "to_nugget",
       "name": "THE BOUNTIFUL NUGGET",
       "stub": true,
-      "rect": [121, 45, 20, 32],
+      "rect": [
+        121,
+        45,
+        20,
+        32
+      ],
       "colour": 40,
       "to": "stub_nugget",
       "responses": {},
@@ -129,7 +395,12 @@
       "id": "to_company",
       "name": "THE IMPROVEMENT COMPANY",
       "stub": true,
-      "rect": [182, 43, 18, 34],
+      "rect": [
+        182,
+        43,
+        18,
+        34
+      ],
       "colour": 200,
       "to": "stub_company",
       "responses": {},
@@ -139,7 +410,12 @@
       "id": "to_clarion",
       "name": "THE CONSOLATION CLARION",
       "stub": true,
-      "rect": [81, 41, 14, 36],
+      "rect": [
+        81,
+        41,
+        14,
+        36
+      ],
       "colour": 30,
       "to": "stub_clarion",
       "responses": {},
@@ -149,7 +425,12 @@
       "id": "to_claims_road",
       "name": "THE ROAD TO THE CLAIMS",
       "stub": true,
-      "rect": [300, 100, 20, 44],
+      "rect": [
+        300,
+        100,
+        20,
+        44
+      ],
       "colour": 12,
       "to": "stub_claims_road",
       "responses": {},

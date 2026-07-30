@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "note": "Examine lines are unique game-wide, with these exceptions. Each one is a deliberate repetition that a dedupe pass would 'fix' and thereby delete a joke.",
+  "allow": [
+    {
+      "line": "Nothing new.",
+      "where": "main_street/mud/LISTEN_TO",
+      "reason": "Doc 13 note 1. The mud's second LISTEN is character-for-character identical to its first. Thad asks the mud twice and gets the same nothing. Whitelisted, not deduped."
+    }
+  ]
+}
