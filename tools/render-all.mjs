@@ -34,6 +34,7 @@ const SCRIPTS = [
   ['room01_stage_road.py', 'Room 1, the stage road at night'],
   ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
   ['title_screen.py', 'Title screen'],
+  ['legibility_audit.py', 'legibility across every composed room -- rulings 16, 17c, 18'],
 ];
 
 let failed = 0;

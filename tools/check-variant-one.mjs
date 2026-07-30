@@ -56,7 +56,10 @@ export function check() {
     for (const verb of EXAMINE) {
       const rule = target.responses?.[verb]?.[0];
       if (typeof rule?.say !== 'string') continue;
-      if (!rule.repeat?.length) continue;      // nothing to stand alone against
+      // Every variant 1 is audited, including hotspots that have only one
+      // line. An earlier version skipped those, which silently excluded a
+      // whole room -- the rule is about whether a line works cold, and a
+      // hotspot with one line is the case where that matters most.
       sequences += 1;
       const where = `${roomId}/${target.id}/${verb}`;
       const first = rule.say;
