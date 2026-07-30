@@ -50,7 +50,12 @@ jobs:
           test -f dist/content/rooms/main-street.json
           echo "rooms published: $(find dist/content/rooms -name '*.json' | wc -l)"
 
+      # enablement turns Pages on and sets its source to Actions if that has
+      # not been done in repository settings, so the first deploy does not
+      # need someone to visit a settings page first.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
