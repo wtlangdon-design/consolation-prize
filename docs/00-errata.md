@@ -271,3 +271,38 @@ Room 3's zone table reported "ok — both" at all three zones while Thad's face 
 **Corollary:** the anchor may differ per room. In Room 2 the face carried Thad and the coat was at risk. In Room 3 the coat carries him everywhere (+25 to +50) and the face has stopped working. Both pass. This is ruling 16's rule 3 functioning as designed, and it is why that rule exists.
 
 **Any interior placing a 150+ luminance surface where a head falls must be checked before composition, not after.**
+
+---
+
+# 18 · TWO AMENDMENTS TO THE LEGIBILITY CHECK
+
+Both discovered composing Room 1. Both amend rulings 16 and 17c.
+
+## 18a · A pass on one anchor while the other fails badly is a weak pass
+
+Room 1 **passed** 17c and was unplayable. Ground p10 measured 16–23 against Thad's coat at 34 — a seven-to-fourteen point margin — so his entire dark mass melted into the road and only his face read. The room passed on the face anchor alone.
+
+Ruling 16 rule 3 requires two anchors against different backgrounds. It does not require both to be healthy in the same room, and it should.
+
+**Amendment: the check reports a margin per anchor, not a pass/fail per surface.**
+
+- **Strong pass** — both anchors clear by 25 or more
+- **Weak pass** — one anchor clears by 25+, the other by less than 15. **Reported as a warning, and the room is reviewed before it ships.** This is the Room 1 case.
+- **Fail** — no anchor clears
+
+A weak pass is not a failure. A character legitimately carried by one anchor in a given room is normal — Room 3 is carried almost entirely by the coat. The requirement is that a weak pass be *visible* rather than silently indistinguishable from a strong one.
+
+## 18b · Sample rectangles must exclude the light sources they sit near
+
+**This has now cost two wrong readings.**
+
+- Room 5: the "counter top" sample included the counter's own dark lip; the "floor" sample sat on the counter. Two apparent failures on surfaces that were fine.
+- Room 1: the verge measured 203, apparently tying the lamp as the brightest object in the frame. The sample contained the lamp.
+
+**A contaminated sample is indistinguishable from a real result.** It fails and passes with equal confidence, and both directions are dangerous — Room 5 lost time chasing failures that were not real, Room 1 nearly lost the lamp's status as the uniquely brightest object in the only night exterior in the game.
+
+**Rules:**
+
+1. Sample rectangles exclude light sources, their glow falloff, and any adjacent surface at a different depth.
+2. Any measurement that contradicts the intent of the composition is treated as a suspected contamination first and a finding second. Re-sample before acting.
+3. Sample geometry is reviewable — the rectangles are part of the check, not incidental to it, and getting them right is the work.
