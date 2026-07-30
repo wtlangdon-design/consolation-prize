@@ -54,6 +54,12 @@ class Palette:
         }
         self._roles: dict[str, int] = data["roles"]
 
+        # Reverse map, so a colour can be darkened without knowing what it is.
+        self._reverse: dict[int, tuple[str, int]] = {}
+        for name, ramp in self._families.items():
+            for step in range(ramp.count):
+                self._reverse[ramp.start + step] = (name, step)
+
     @classmethod
     def load(cls, path: Path = PALETTE_PATH) -> "Palette":
         return cls(json.loads(path.read_text()))
@@ -73,3 +79,24 @@ class Palette:
         for red, green, blue in self.colours:
             out.extend((red, green, blue))
         return out
+
+    def darken(self, index: int, steps: int = 1) -> int:
+        """Steps a colour down its own family's ramp.
+
+        This is how shadow works on an indexed palette: a shadow is not a
+        black wash, it is the same material with less light on it. Stepping
+        within the family keeps cream reading as cream and timber as timber,
+        which a blend toward black would destroy.
+        """
+        entry = self._reverse.get(index)
+        if entry is None:
+            return index
+        name, step = entry
+        return self._families[name].at(max(0, step - steps))
+
+    def lighten(self, index: int, steps: int = 1) -> int:
+        entry = self._reverse.get(index)
+        if entry is None:
+            return index
+        name, step = entry
+        return self._families[name].at(step + steps)

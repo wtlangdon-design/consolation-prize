@@ -198,12 +198,12 @@ def plank_wall(
             canvas.vline(x + column + 1, y, height, batten)
 
         # Weathering: a few boards split, warp or lose a nail.
-        if weathering > 0.5 and rng.random() < 0.28 * weathering:
+        if weathering > 0.5 and rng.random() < 0.14 * weathering:
             split_y = y + rng.randrange(0, max(1, height - 6))
             split_len = rng.randrange(4, min(14, max(5, height - 2)))
             canvas.vline(x + column + rng.randrange(2, max(3, board_width)), split_y, split_len, seam)
 
-        if rng.random() < 0.45:
+        if rng.random() < 0.22:
             nail_y = y + rng.randrange(2, max(3, height - 2))
             canvas.put(x + column + board_width // 2, nail_y, ramp.frac(max(0.02, base - 0.42)))
 
@@ -211,11 +211,11 @@ def plank_wall(
 
     if weathering > 0.5:
         # Damp rising out of the mud, dithered so it has no hard top edge.
-        damp_height = min(height, 9)
+        damp_height = min(height, 5)
         for row in range(damp_height):
             strength = 1.0 - row / damp_height
             for col in range(width):
-                if rng.random() < strength * 0.55 * weathering:
+                if rng.random() < strength * 0.32 * weathering:
                     dither_pixel(canvas, x + col, y + height - 1 - row, ramp, max(0.05, base - 0.30), BAYER4)
 
 
@@ -329,7 +329,7 @@ def window(
         # Dark. Glass in daylight is a hole, not a light source -- bright
         # panes were the single loudest error in the first pass.
         for row in range(inner_h):
-            tone = 0.20 - (row / max(1, inner_h - 1)) * 0.10
+            tone = 0.28 - (row / max(1, inner_h - 1)) * 0.10
             for col in range(inner_w):
                 dither_pixel(canvas, inner_x + col, inner_y + row, glass, max(0.04, tone), BAYER4)
 

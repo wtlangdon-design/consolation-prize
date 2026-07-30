@@ -18,7 +18,7 @@ from pathlib import Path
 
 from canvas import IndexedCanvas
 from palette import Palette
-from street_scene import DAWN, DAY, GROUND, HEIGHT, HILL_BASE, SEED, WIDTH, compose
+from street_scene import DAWN, DAY, GROUND, HEIGHT, HILL_BASE, LOTS, SEED, WIDTH, compose
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "art" / "reference"
@@ -159,9 +159,7 @@ def main() -> None:
     ink = palette.role("inkBright")
     silhouette = palette.family("umber").at(0)
 
-    # Feet rest on the top surface of the deck, so the figure occupies the
-    # row above it.
-    eye_y = human_silhouette(check, 128, GROUND - 1, silhouette)
+    eye_y = human_silhouette(check, 130, GROUND - 1, silhouette)
     dashed_rule(check, HILL_BASE, ink)
 
     check.save(OUT / "room-02-scale-check.png", palette)
@@ -172,9 +170,22 @@ def main() -> None:
     print(f"  figure height      {FIGURE_HEIGHT}px  (spec: ~40px sprites)")
     print(f"  feet               y={GROUND - 1}  (deck surface y={GROUND})")
     print(f"  eyeline            y={eye_y}")
-    print(f"  horizon            y={HILL_BASE}")
-    print(f"  delta              {eye_y - HILL_BASE}px  "
-          f"{'EYES ON HORIZON' if eye_y == HILL_BASE else 'MISMATCH'}")
+    print(f"  hill base          y={HILL_BASE}  (dashed rule)")
+    print()
+    # The eyes-on-horizon test no longer applies and saying so is the point.
+    # Reclaiming the top quarter of the frame for sky put the ridges well
+    # above eye level and the true horizon behind the terrace, where it is
+    # occluded. That is normal for a street view -- but it means the check
+    # that mattered before is now meaningless, and the honest replacement is
+    # to measure the figure against the things it has to walk through.
+    print("  horizon is occluded by the terrace, so eyes-on-horizon no longer applies;")
+    print("  scale is checked against the openings instead:")
+    print(f"  {'building':<12}{'door px':>9}{'x figure':>10}{'verdict':>10}")
+    for lot in LOTS:
+        door_h = GROUND - (lot.awning - 2)
+        ratio = door_h / FIGURE_HEIGHT
+        verdict = "ok" if 0.95 <= ratio <= 1.30 else "SHORT"
+        print(f"  {lot.kind:<12}{door_h:>9}{ratio:>9.2f}x{verdict:>10}")
     print(f"  wrote {(OUT / 'room-02-scale-check@4x.png').relative_to(ROOT)}")
 
 
