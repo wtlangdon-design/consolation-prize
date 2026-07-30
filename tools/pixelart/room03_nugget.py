@@ -27,9 +27,10 @@ from canvas import IndexedCanvas
 from interior import Box
 from lighting import Lamp, LightField, Shaft
 from palette import Palette
+from renders import RENDERS
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "art" / "reference"
+OUT = RENDERS
 
 WIDTH, HEIGHT = 320, 144
 SEED = 18580411

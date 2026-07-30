@@ -24,10 +24,11 @@ from actor import BACK, FRONT, SIDE
 from canvas import IndexedCanvas
 from interior import floor_zone_rows
 from palette import Palette
+from renders import RENDERS
 from room03_nugget import BOX, HEIGHT, WIDTH
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "art" / "reference"
+OUT = RENDERS
 
 #: Zone index per floor band, back to front. floor_zone_rows returns spans
 #: far-to-near; the scaling file numbers zones near-to-far, so this is the
@@ -223,8 +224,8 @@ def main() -> None:
     palette = Palette.load()
     OUT.mkdir(parents=True, exist_ok=True)
     scene = composite()
-    scene.save(OUT / "room-03-thad.png", palette)
-    scene.save(OUT / "room-03-thad@4x.png", palette, scale=4)
+    scene.save(OUT / "room-03-nugget-with-thad.png", palette)
+    scene.save(OUT / "room-03-nugget-with-thad@4x.png", palette, scale=4)
     failures = audit()
     print()
     print("PASS" if failures == 0 else f"FAIL -- {failures} zone(s) where he does not read")

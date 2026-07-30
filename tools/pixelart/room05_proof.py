@@ -16,11 +16,12 @@ from actor import BACK, FRONT, SIDE
 from canvas import IndexedCanvas
 from interior import floor_zone_rows
 from palette import Palette
+from renders import RENDERS
 from room03_proof import masses, percentiles
 from room05_assay import BOX, HEIGHT, WIDTH
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "art" / "reference"
+OUT = RENDERS
 
 BAND_ZONES = (2, 1, 0)
 #: Far one behind the counter is impossible -- the counter is in the way --
@@ -102,8 +103,8 @@ def composite() -> IndexedCanvas:
 def main() -> None:
     palette = Palette.load()
     scene = composite()
-    scene.save(OUT / "room-05-thad.png", palette)
-    scene.save(OUT / "room-05-thad@4x.png", palette, scale=4)
+    scene.save(OUT / "room-05-assay-office-with-thad.png", palette)
+    scene.save(OUT / "room-05-assay-office-with-thad@4x.png", palette, scale=4)
     failures = audit()
     print()
     print("PASS" if failures == 0 else f"FAIL -- {failures} surface(s) with no anchor")

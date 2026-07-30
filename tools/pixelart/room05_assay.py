@@ -32,10 +32,11 @@ from canvas import IndexedCanvas
 from interior import Box
 from lighting import Lamp, LightField, Shaft
 from palette import Palette
+from renders import RENDERS
 from surface_plan import PlannedSurface, audit_plan, thad_anchors
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "art" / "reference"
+OUT = RENDERS
 
 WIDTH, HEIGHT = 320, 144
 SEED = 18580617
@@ -181,8 +182,8 @@ def main() -> None:
     print()
     canvas, _, _ = compose()
     OUT.mkdir(parents=True, exist_ok=True)
-    canvas.save(OUT / "room-05-assay.png", palette)
-    canvas.save(OUT / "room-05-assay@4x.png", palette, scale=4)
+    canvas.save(OUT / "room-05-assay-office.png", palette)
+    canvas.save(OUT / "room-05-assay-office@4x.png", palette, scale=4)
     print(f"wrote {(OUT / 'room-05-assay@4x.png').relative_to(ROOT)}")
     print(f"colours used: {len(canvas.used_indices())}")
     print(f"back wall {BOX.back_right - BOX.back_left}px wide "

@@ -1,0 +1,50 @@
+/**
+ * Regenerates every render into renders/, and every shipping background.
+ *
+ * One command, because "push after each pass" only works if a pass is one
+ * thing. Running seven Python scripts by hand and forgetting the eighth is
+ * how renders/ and the code that made them drift apart.
+ *
+ * Order matters: the room compositions run before the proofs that composite
+ * Thad into them, and the background writer runs after the composition it
+ * reads from.
+ */
+import { spawnSync } from 'node:child_process';
+import { readdirSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const PIXELART = resolve(ROOT, 'tools/pixelart');
+
+/** Each entry is one script and what it is for, shown as it runs. */
+const SCRIPTS = [
+  ['sheets.py', 'locked palette and the exterior component library'],
+  ['proofs.py', 'Room 2 vs Room 36, and the Room 2 scale check'],
+  ['room02_main_street.py', 'Room 2 background (shipping asset)'],
+  ['room36_main_street_dawn.py', 'Room 36 background (shipping asset)'],
+  ['actor_sheet.py', "Thad's reference sheet and his Room 2 composites"],
+  ['thad_inspect.py', 'Thad at 8x -- ruling 16 rule 5'],
+  ['room03_nugget.py', 'Room 3, the Bountiful Nugget'],
+  ['room03_background.py', 'Room 3 background (shipping asset)'],
+  ['room03_proof.py', 'Room 3 with Thad, and the ruling 17c audit'],
+  ['room05_assay.py', 'Room 5, the Assay Office'],
+  ['room05_proof.py', 'Room 5 with Thad, and the ruling 17c audit'],
+];
+
+let failed = 0;
+for (const [script, what] of SCRIPTS) {
+  process.stdout.write(`\n=== ${script} -- ${what}\n`);
+  const run = spawnSync('python3', [script], { cwd: PIXELART, stdio: 'inherit' });
+  if (run.status !== 0) {
+    failed += 1;
+    process.stdout.write(`    FAILED (exit ${run.status})\n`);
+  }
+}
+
+const produced = readdirSync(resolve(ROOT, 'renders')).filter((name) => name.endsWith('.png'));
+process.stdout.write(`\n${produced.length} renders in renders/\n`);
+if (failed > 0) {
+  process.stdout.write(`${failed} script(s) failed\n`);
+  process.exit(1);
+}

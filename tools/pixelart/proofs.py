@@ -19,10 +19,11 @@ from pathlib import Path
 
 from canvas import IndexedCanvas
 from palette import Palette
+from renders import RENDERS
 from street_scene import DAWN, DAY, GROUND, HEIGHT, LOTS, SEED, STREET_TOP, WIDTH, compose
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "art" / "reference"
+OUT = RENDERS
 
 FIGURE_HEIGHT = 40
 
@@ -198,15 +199,15 @@ def main() -> None:
     stacked = IndexedCanvas(WIDTH, HEIGHT * 2 + gap, fill=palette.role("overlayBg"))
     stacked.blit(day, 0, 0)
     stacked.blit(dawn, 0, HEIGHT + gap)
-    stacked.save(OUT / "room-02-vs-36.png", palette)
-    stacked.save(OUT / "room-02-vs-36@4x.png", palette, scale=4)
+    stacked.save(OUT / "room-02-day-vs-room-36-dawn.png", palette)
+    stacked.save(OUT / "room-02-day-vs-room-36-dawn@4x.png", palette, scale=4)
     print(f"  wrote {(OUT / 'room-02-vs-36@4x.png').relative_to(ROOT)}")
 
     # -- proof 2 -----------------------------------------------------------
     check, _ = compose(DAY)
     placements = zone_figures(check, palette)
-    check.save(OUT / "room-02-scale-check.png", palette)
-    check.save(OUT / "room-02-scale-check@4x.png", palette, scale=4)
+    check.save(OUT / "room-02-scale-check-three-zones.png", palette)
+    check.save(OUT / "room-02-scale-check-three-zones@4x.png", palette, scale=4)
 
     print()
     print("PROOF 2 -- depth zones, errata ruling 15")

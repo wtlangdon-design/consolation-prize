@@ -22,9 +22,10 @@ from components import (
     window,
 )
 from palette import Palette
+from renders import RENDERS
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "art" / "reference"
+OUT = RENDERS
 
 
 def palette_sheet(palette: Palette) -> IndexedCanvas:
@@ -94,12 +95,12 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
 
     sheet = palette_sheet(palette)
-    sheet.save(OUT / "palette-256.png", palette)
-    sheet.save(OUT / "palette-256@4x.png", palette, scale=4)
+    sheet.save(OUT / "palette-256-locked.png", palette)
+    sheet.save(OUT / "palette-256-locked@4x.png", palette, scale=4)
 
     components = component_sheet(palette)
-    components.save(OUT / "components.png", palette)
-    components.save(OUT / "components@4x.png", palette, scale=4)
+    components.save(OUT / "component-library-exterior.png", palette)
+    components.save(OUT / "component-library-exterior@4x.png", palette, scale=4)
 
     print(f"wrote {(OUT / 'palette-256.png').relative_to(ROOT)} and @4x")
     print(f"wrote {(OUT / 'components.png').relative_to(ROOT)} and @4x")

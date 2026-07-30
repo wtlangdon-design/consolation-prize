@@ -17,12 +17,14 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def main() -> None:
     canvas, palette, _ = room03_nugget.compose()
+    # Shipping asset only. The 4x review render of this same composition is
+    # written by room03_nugget.py; producing it twice under two names put
+    # the same picture in renders/ as both "room-03-nugget@4x" and
+    # "room-03-nugget-background@4x", which is exactly the ambiguity the
+    # one-name-per-render rule exists to stop.
     native = ROOT / "art" / "backgrounds" / "room-03-nugget.png"
-    preview = ROOT / "art" / "backgrounds" / "preview" / "room-03-nugget@4x.png"
     canvas.save(native, palette)
-    canvas.save(preview, palette, scale=4)
     print(f"wrote {native.relative_to(ROOT)} ({canvas.width}x{canvas.height})")
-    print(f"wrote {preview.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

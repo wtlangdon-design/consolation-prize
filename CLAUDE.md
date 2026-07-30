@@ -113,6 +113,21 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 
 ---
 
+## Renders
+
+**Every render goes to `renders/` on `main`, and gets pushed.** Room
+composites, character sheets, scale checks, inspection crops — all of it.
+
+- Descriptive filenames. `room-05-assay-office-with-thad@4x.png`, not `r5b.png`.
+- **Overwrite in place. Never version in the filename.** Git is the
+  versioning system; a second one in the filenames would only disagree with it.
+- One command regenerates everything: `npm run renders`.
+- Push after each pass, so what is on `main` is what was last looked at.
+
+`art/backgrounds/*.png` are **not** renders — they are shipping assets the
+engine loads and room JSON references by path. They live apart and keep
+their own names.
+
 ## Current phase
 
 **Phase 1 — engine skeleton.** Verb panel, flag store, room loader, dialogue runner, save/load, validation tooling. No content.

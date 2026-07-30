@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 def main() -> None:
     canvas, palette = compose(DAY)
     native = ROOT / "art" / "backgrounds" / "room-02-main-street.png"
-    preview = ROOT / "art" / "backgrounds" / "preview" / "room-02-main-street@4x.png"
+    preview = ROOT / "renders" / "room-02-main-street-day@4x.png"
     canvas.save(native, palette)
     canvas.save(preview, palette, scale=4)
     print(f"wrote {native.relative_to(ROOT)}  ({WIDTH}x{HEIGHT})")

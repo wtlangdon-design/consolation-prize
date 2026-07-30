@@ -16,10 +16,11 @@ import actor
 from actor import BACK, FRONT, SIDE, VIEWS, WALK_BOARDWALK, WALK_MUD, Wardrobe
 from canvas import IndexedCanvas
 from palette import Palette
+from renders import RENDERS
 from street_scene import DAY, compose
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "art" / "reference"
+OUT = RENDERS
 
 HEIGHTS = (40, 32, 26)
 
@@ -244,14 +245,14 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
 
     sheet = reference_sheet(palette)
-    sheet.save(OUT / "thad-sheet.png", palette)
-    sheet.save(OUT / "thad-sheet@4x.png", palette, scale=4)
+    sheet.save(OUT / "thad-reference-sheet.png", palette)
+    sheet.save(OUT / "thad-reference-sheet@4x.png", palette, scale=4)
 
     standing, walking = room_composites(palette)
-    standing.save(OUT / "thad-room02-standing.png", palette)
-    standing.save(OUT / "thad-room02-standing@4x.png", palette, scale=4)
-    walking.save(OUT / "thad-room02-walking.png", palette)
-    walking.save(OUT / "thad-room02-walking@4x.png", palette, scale=4)
+    standing.save(OUT / "thad-in-room-02-standing.png", palette)
+    standing.save(OUT / "thad-in-room-02-standing@4x.png", palette, scale=4)
+    walking.save(OUT / "thad-in-room-02-walking.png", palette)
+    walking.save(OUT / "thad-in-room-02-walking@4x.png", palette, scale=4)
 
     print("THAD -- contrast against Room 2, per zone")
     print(f"  {'where':<20}{'bg mean':>9}{'darkest':>9}{'lightest':>10}{'margin':>12}")
