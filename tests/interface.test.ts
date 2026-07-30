@@ -408,3 +408,38 @@ test('a save slot records which room it was made in', async () => {
   assert.equal(slot!.room, elsewhere);
   assert.ok(slot!.when.length > 0, 'and when it was made');
 });
+
+
+test('repeat variants cycle FORWARD, then hold on the last one', async () => {
+  const content = await loadContent(fsReader);
+
+  // Reported as a bug: variants appearing to arrive in reverse, so a hotspot
+  // gives its third line first. It does not, and this asserts it across every
+  // written sequence in the game rather than for the one hotspot that
+  // prompted the report -- if the cycling were ever inverted it would be
+  // inverted everywhere, and every escalating variant in every room would
+  // land backwards.
+  let sequences = 0;
+  for (const room of content.rooms.values()) {
+    if ((room as { fixture?: boolean }).fixture) continue;
+    const state = new GameState(content, new MemoryStorage());
+    state.enterRoom(room.id);
+    for (const target of [...room.hotspots, ...room.exits]) {
+      for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
+        const rule = target.responses?.[verb]?.[0];
+        if (!rule?.say) continue;
+        const expected = [rule.say, ...(rule.repeat ?? [])];
+        state.verbs.selectVerb(verb);
+        const got = expected.map(() => state.interact(target).say);
+        assert.deepEqual(
+          got, expected,
+          `${room.id}/${target.id}/${verb} did not return its variants in written order`,
+        );
+        // And the last one repeats indefinitely rather than wrapping round.
+        assert.equal(state.interact(target).say, expected[expected.length - 1]);
+        sequences += 1;
+      }
+    }
+  }
+  assert.ok(sequences > 60, `expected to have checked the whole game, checked ${sequences}`);
+});

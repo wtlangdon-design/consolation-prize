@@ -45,13 +45,19 @@ MUSIC_CUE = "title.theme"
 TITLE_TOP = 8
 #: The town sits across the middle, near enough to read.
 STREET_Y = 104
-TOWN_LEFT, TOWN_RIGHT = 30, 292
+TOWN_LEFT, TOWN_RIGHT = 16, 250
 HORIZON = 40
 
-#: Four rows have to fit above the frame edge. At 118 the fourth fell
-#: off the bottom and CREDITS silently vanished from the menu.
-MENU_TOP = 107
-MENU_ROW = 9
+#: Menu down the right, clear of the town.
+#:
+#: Centred and low, it sat squarely on the buildings and needed a dark plate
+#: under every row to stay readable -- which punched a black slab through the
+#: middle of the picture. Moved right, it clears the last building and the
+#: plates can be much lighter, because there is less behind them to fight.
+#: The lettering above is untouched.
+MENU_RIGHT = 306
+MENU_TOP = 88
+MENU_ROW = 11
 
 _MANIFEST = json.loads((ROOT / "content" / "manifest.json").read_text(encoding="utf-8"))
 _FONT = json.loads((ROOT / _MANIFEST["font"]).read_text(encoding="utf-8"))
@@ -233,14 +239,14 @@ def compose(has_save: bool = False) -> tuple[IndexedCanvas, Palette, dict]:
         enabled = item["id"] != "continue" or has_save
         label = item["label"]
         width = sum(_FONT.get("advances", {}).get(c, _FONT.get("advance", 6)) for c in label)
-        left = (WIDTH - width) // 2
-        for offset in range(-1, 8):
-            for x in range(left - 4, left + width + 4):
-                canvas.put(x, y + offset, palette.darken(canvas.get(x, y + offset), 2))
+        left = MENU_RIGHT - width
+        for offset in range(-2, 9):
+            for x in range(left - 5, MENU_RIGHT + 5):
+                canvas.put(x, y + offset, palette.darken(canvas.get(x, y + offset), 1))
         hitboxes.append({"id": item["id"], "label": label,
-                         "rect": [left - 4, y - 1, width + 8, 9], "enabled": enabled})
+                         "rect": [left - 5, y - 2, width + 10, MENU_ROW], "enabled": enabled})
         game_font(canvas, label, left, y, bone if enabled else grey,
-                  0.92 if enabled else 0.42)
+                  0.94 if enabled else 0.46)
 
     return canvas, palette, {"items": hitboxes, "music": MUSIC_CUE}
 

@@ -1,4 +1,4 @@
-"""Room 29 — the high ridge, looking down on Consolation. Also the title image.
+"""Room 29 — the high ridge, looking down on Consolation.
 
 Every other room in this game is at eye level in the town. This one is the
 only view from outside it, and the composition exists to make one point:
@@ -7,8 +7,12 @@ parapets standing a storey above the shallow buildings behind them, which
 from Main Street is the one thing you cannot see. The town is a row of
 painted boards with sheds behind, in a valley, in a very large landscape.
 
-Act IV needs this room anyway, so the title image is not a separate asset --
-it is Room 29's background with a title drawn over it.
+This is NOT the title image. The two shared a composition once and have
+since diverged: title_screen.py has its own, with Consolation pushed to a
+third of the frame and much nearer, because a poster has to show the town
+performing. This room is a place Thad stands in Act IV, so it stays wide
+and empty and mostly landscape. They share a viewpoint and a palette and
+nothing else.
 
 Scale is the whole job. The town occupies about a fifth of the frame's
 width and sits low; the claims are single pixels; the road leaves east and
