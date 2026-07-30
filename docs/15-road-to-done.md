@@ -18,19 +18,30 @@ That is **~154 additional lines for one room**, and Room 2 has only nine hotspot
 
 Extrapolated flat across 42 screens: **~6,000 additional lines**, taking the project total to roughly **9,800**. That is not a realistic hand-written target.
 
-## The fix: tier the rooms
+## The decision: no tiering. Uniform standard everywhere.
 
-Monkey Island did not treat every screen equally, and neither should this.
+**Ruled by Tyler, 30 July 2026: every room is written to the Room 2 standard. The line total is not a constraint on this project.**
 
-| Tier | Rooms | Standard |
-|---|---|---|
-| **A — hubs** | Main Street, the Nugget, Prosperity, the assay office, Fanshawe's office, the Registrar, Main Street dawn | 3 repeat variants per verb, rich object overrides, full exit treatment. The Room 2 standard. |
-| **B — story rooms** | ~14 rooms carrying puzzles or reveals | 2 repeat variants, overrides only where a joke exists, global fallbacks otherwise |
-| **C — everything else** | ~21 rooms, mostly ancillary and single-visit | 1 line per hotspot verb, global fallbacks only |
+Tiering was considered and rejected. There is no deadline, no budget per line, and no reason to accept "adequate" in a room a player might spend ten minutes in.
 
-**Revised realistic total: ~5,600 written lines.** Still large. Achievable.
+**Working total: ~9,800 lines.** Treat it as a fact about the project, not a problem with it.
 
-**Decision required before Act I content authoring begins.** Tier assignment is a design call, not an implementation one.
+### What actually threatens quality at this volume
+
+Not exhaustion of time or budget — degradation of voice. The failure mode is line 4,000 reading flatter than line 100 and nobody catching it, because the person writing it has stopped hearing Thad and started producing examine lines.
+
+Four practices, all free:
+
+1. **Batch by voice, not by room.** Write all of one character's dialogue in one sitting; write all of one verb's fallbacks together. Room-by-room authoring forces constant tonal context-switching and it shows.
+2. **Short sessions.** Room 2's 154 lines were good because they were one focused pass. Volume sessions sag around the 300-line mark, and they sag invisibly.
+3. **No fixed order.** Write whichever room is interesting that day. Nothing in the build depends on examine content arriving in sequence.
+4. **Cold reads.** Re-read batches out of order a week later. Flat lines announce themselves once you have forgotten writing them. This is the only reliable quality check available.
+
+### The actual constraint
+
+CLAUDE.md forbids the build agent from generating written content. Every one of those ~9,800 lines is hand-written in chat and committed. That is a deliberately narrow pipe, and it is the correct one — generated examine text is the single most detectable tell in an AI-built adventure game.
+
+Plan around the pipe, not around the total.
 
 ---
 
