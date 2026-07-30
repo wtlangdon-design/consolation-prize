@@ -93,6 +93,7 @@ def mud_street(
     ramp: Ramp,
     rng: random.Random,
     grit: Ramp | None = None,
+    tone_shift: float = 0.0,
 ) -> None:
     """Churned mud.
 
@@ -104,7 +105,7 @@ def mud_street(
     for row in range(height):
         across = row / max(1, height - 1)
         # Wetter and darker toward the camera.
-        tone = 0.40 - across * 0.20
+        tone = 0.40 + tone_shift - across * 0.20
         # The dry crown: a broad lift through the middle of the band.
         crown = max(0.0, 1.0 - abs(across - 0.45) * 2.4)
         tone += crown * 0.16
@@ -118,8 +119,8 @@ def mud_street(
         rut_y = y + rng.randrange(2, height - 2)
         rut_x = rng.randrange(-20, width - 20)
         length = rng.randrange(30, 92)
-        dark = ramp.frac(0.14)
-        edge = ramp.frac(0.52)
+        dark = ramp.frac(max(0.03, 0.14 + tone_shift))
+        edge = ramp.frac(max(0.05, 0.52 + tone_shift))
         for col in range(length):
             drift = int((col / 22) % 2 == 0)
             canvas.put(x + rut_x + col, rut_y + drift, dark)
