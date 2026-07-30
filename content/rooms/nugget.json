@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "nugget",
   "name": "THE BOUNTIFUL NUGGET",
-  "note": "Doc 05 Room 3. FIVE of eleven hotspots. Doc 05 gives complete LOOK and LISTEN for the handbill, piano, chandelier, bar and mirror; the stairs, faded portrait, spittoon, stove, window and patrons are marked '(full lines in the working script)' and that script is not in /docs. Those six are NOT here because they are not written down anywhere I can read -- see check-written-content. THE HANDBILL is the Rules of the Assay and carries Rule 3, the thesis of the game.",
+  "note": "Doc 05 Room 3 plus doc 16, verbatim. Twelve hotspots and two exits. THE HANDBILL is the Rules of the Assay and carries Rule 3. THE PATRONS has no drawn figures in the background -- doc 07's ambient characters supply them at runtime, so the rect covers where they stand. Doc 16 note 4: the stove's third LISTEN reverses the first two on purpose; it has gone out and nobody has noticed. Do not 'correct' it.",
   "background": "art/backgrounds/room-03-nugget.png",
   "colours": {
     "sky": 0,
@@ -55,14 +55,60 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic."
+            "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic.",
+            "repeat": [
+              "I have read it twice. Rule five forbids arithmetic, which I assume has a history.",
+              "Rule four permits an appeal to the same judges who made the decision. Somebody thought about that and wrote it down anyway."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Paper. It has been on this wall a long time. It has stopped being read."
+            "say": "Paper. It has been on this wall a long time. It has stopped being read.",
+            "repeat": [
+              "Paper. Still not being read.",
+              "Nothing. It has outlasted everyone who nailed it up."
+            ]
           }
         ]
+      },
+      "overrides": {
+        "PICK_UP": "It has been nailed on. Thoroughly. Somebody wanted the rules to stay up."
+      }
+    },
+    {
+      "id": "cards",
+      "name": "THE HAND OF CARDS",
+      "rect": [
+        104,
+        90,
+        18,
+        12
+      ],
+      "colour": 202,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A hand of cards, face up, abandoned. It is a very good hand. Somebody left a very good hand on a table and went outside.",
+            "repeat": [
+              "Still there. Nobody has claimed it and nobody has cleared it.",
+              "I have decided he is coming back. I have decided this several times."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. Whoever he was, he is not in the building."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is not my hand.",
+        "USE": "I do not play. My father was very clear about it, and he was wrong about most things."
       }
     },
     {
@@ -78,14 +124,26 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "An upright, hauled four hundred miles by mule, at a cost exceeding its value by an order of magnitude. Nobody here can play it."
+            "say": "An upright, hauled four hundred miles by mule, at a cost exceeding its value by an order of magnitude. Nobody here can play it.",
+            "repeat": [
+              "Nobody has touched it since I arrived. I check.",
+              "There is a bottle ring on the lid. Several. It is being used as furniture."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "C-sharp is a semitone flat and has been for years. Nobody has noticed. I have made a note of it. I have made several notes of it."
+            "say": "C-sharp is a semitone flat and has been for years. Nobody has noticed. I have made a note of it. I have made several notes of it.",
+            "repeat": [
+              "Still C-sharp. Still flat. Still nobody.",
+              "I could put it right in four minutes, and I have begun to think about it during other activities."
+            ]
           }
         ]
+      },
+      "overrides": {
+        "USE": "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me.",
+        "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment."
       }
     },
     {
@@ -101,12 +159,54 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A chandelier. Below it, a dirt floor. The two have never been introduced."
+            "say": "A chandelier. Below it, a dirt floor. The two have never been introduced.",
+            "repeat": [
+              "Brass, crystal, and a dirt floor. Somebody made a decision about priorities and I should like to meet them.",
+              "It is not lit. It has never been lit while I have been in this room."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "It ticks as it cools. It is the most expensive object in the territory and it is hanging over mud."
+            "say": "It ticks as it cools. It is the most expensive object in the territory and it is hanging over mud.",
+            "repeat": [
+              "Ticking as it cools. Still hanging over mud.",
+              "Nothing. It is the most expensive object in the territory and it has nothing to say for itself."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It is nine feet up and it weighs more than I do. I shall admire it from here."
+      }
+    },
+    {
+      "id": "mirror",
+      "name": "THE MIRROR",
+      "rect": [
+        265,
+        38,
+        52,
+        20
+      ],
+      "colour": 186,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "I look like a man who has recently been robbed and is being brave about it.",
+            "repeat": [
+              "Still me. I had hoped for some improvement.",
+              "Eleven weeks, and I have started to look like I belong here, which was not the plan."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Mirrors are silent, which is the only restraint they show.",
+            "repeat": [
+              "Still nothing.",
+              "Nothing. I keep checking. It keeps not."
+            ]
           }
         ]
       }
@@ -124,44 +224,231 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Mahogany. Genuinely. Somebody spent real money on the one surface everyone leans on."
+            "say": "Mahogany. Genuinely. Somebody spent real money on the one surface everyone leans on.",
+            "repeat": [
+              "Mahogany. Four hundred miles from a tree that could have produced it.",
+              "The only maintained surface in Consolation, and it is a bar."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Glasses. Talk. Somebody in the corner has told the same story four times and it has grown twice."
+            "say": "Glasses. Talk. Somebody in the corner has told the same story four times and it has grown twice.",
+            "repeat": [
+              "Glasses. Talk. The same story, larger.",
+              "Somebody is being served ahead of somebody else and it is being noticed."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "That would cost money.",
+        "PUSH": "It does not move. It is the only thing in Consolation built to stay."
+      }
+    },
+    {
+      "id": "stairs",
+      "name": "THE STAIRS",
+      "rect": [
+        166,
+        30,
+        56,
+        52
+      ],
+      "colour": 104,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Stairs, up to rooms I have not been invited to. There is a man on the landing. There is always a man on the landing.",
+            "repeat": [
+              "He has not moved. I have begun to suspect he is not waiting for anything.",
+              "Eleven steps. I have counted them from down here, which is as far as I have got."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Boards, above. Somebody pacing a room about the size of mine.",
+            "repeat": [
+              "Still pacing.",
+              "He has stopped. That is somehow worse."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I have not been invited up and I am not going to invite myself."
+      }
+    },
+    {
+      "id": "portrait",
+      "name": "THE FADED PORTRAIT",
+      "rect": [
+        126,
+        32,
+        18,
+        22
+      ],
+      "colour": 172,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A portrait of a man in a good collar, hung crooked, above a saloon. Nobody in here knows who he is. I have asked three people and had three answers.",
+            "repeat": [
+              "The three answers were a governor, a founder, and 'that's Bill's uncle.'",
+              "It is the same photograph the Clarion prints as Obadiah Mott. I am fairly sure. I am not going to raise it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. He has been silent about it for years.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. He is a man in Ohio and nobody is asking him."
+            ]
           }
         ]
       }
     },
     {
-      "id": "mirror",
-      "name": "THE MIRROR",
+      "id": "spittoon",
+      "name": "THE SPITTOON",
       "rect": [
-        246,
-        35,
-        72,
-        22
+        196,
+        124,
+        16,
+        14
       ],
-      "colour": 186,
+      "colour": 224,
       "responses": {
         "LOOK_AT": [
           {
-            "say": "I look like a man who has recently been robbed and is being brave about it."
+            "say": "A spittoon, positioned optimistically far from anyone sitting down.",
+            "repeat": [
+              "The floor around it tells the story of a town that has tried.",
+              "Brass. Somebody polished this once, as a joke or as a duty."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. Mirrors are silent, which is the only restraint they show."
+            "say": "Regrettably, yes.",
+            "repeat": [
+              "Still yes.",
+              "I have stopped."
+            ]
           }
         ]
+      },
+      "overrides": {
+        "PICK_UP": "No."
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE",
+      "rect": [
+        104,
+        54,
+        20,
+        30
+      ],
+      "colour": 183,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cast iron stove, lit, in July. Nobody has raised it and I am not going to be the first.",
+            "repeat": [
+              "Still lit. There is a man beside it who has not taken his coat off since I arrived in this territory.",
+              "The warmest thing in Consolation, wasted on a room full of men who are already drinking."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It ticks. It is the only object in this room doing honest work.",
+            "repeat": [
+              "Ticking. Working.",
+              "Nothing. It has gone out and nobody has noticed."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "It is lit. I am not opening a lit stove in a wooden building full of drunk men."
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        6,
+        30,
+        34,
+        32
+      ],
+      "colour": 204,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A window onto Main Street, and the cleanest thing in the building, because it is the only thing anyone in here looks at.",
+            "repeat": [
+              "From in here the street looks better. That is what a window is for.",
+              "Somebody has scratched a name into the pane. It is not a name I know."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street. Muffled. Somebody arguing about a boundary.",
+            "repeat": [
+              "Still the boundary. Still arguing.",
+              "The stage has come in. Four days from Sacramento and eleven new men who think they are early."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "patrons",
+      "name": "THE PATRONS",
+      "rect": [
+        128,
+        84,
+        38,
+        30
+      ],
+      "colour": 170,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
+            "repeat": [
+              "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
+              "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Talk. A great deal of it, all at the same volume, none of it listened to.",
+            "repeat": [
+              "Somebody in the corner has told the same story four times and it has grown twice.",
+              "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
       }
     }
   ],
   "exits": [
     {
-      "id": "back_to_street",
-      "name": "THE DOORS",
+      "id": "front_doors",
+      "name": "THE FRONT DOORS",
       "rect": [
         58,
         36,
@@ -170,9 +457,61 @@
       ],
       "colour": 198,
       "to": "main_street",
-      "stub": true,
-      "responses": {},
-      "fallback": []
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Batwing doors, from the inside. They swing both ways, which from in here reads as a warning rather than a convenience.",
+            "repeat": [
+              "Daylight past them. It is always a surprise.",
+              "Six inches of boardwalk and then the mud. I know exactly how far it is now."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street. It sounds busier from in here than it is.",
+            "repeat": [
+              "Boots on the boardwalk. Somebody deciding whether to come in.",
+              "Nothing. Everyone who is coming in is in."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "back_room_door",
+      "name": "THE BACK ROOM DOOR",
+      "rect": [
+        230,
+        34,
+        30,
+        48
+      ],
+      "colour": 110,
+      "to": "stub_nugget_back",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A door behind the bar, shut. There is a room back there and things are settled in it.",
+            "repeat": [
+              "Shut. It has been shut every time I have looked, which is not the same as locked.",
+              "Men go in through that door in twos and come out in twos, and one of the two is always pleased."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it.",
+            "repeat": [
+              "Nothing.",
+              "A pencil. Somebody is writing something down."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "It gives half an inch and stops. Somebody has a chair against it."
+      }
     }
   ]
 }

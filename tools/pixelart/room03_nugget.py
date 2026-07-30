@@ -97,8 +97,22 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     furniture.handbill(canvas, palette, *HANDBILL_RECT, bone, rng)
 
     # -- back wall furniture ------------------------------------------------
-    furniture.staircase(canvas, palette, 178, BOX.back_top + 4, 60, BOX.back_bottom - BOX.back_top - 4,
+    furniture.staircase(canvas, palette, 166, BOX.back_top + 4, 56, BOX.back_bottom - BOX.back_top - 4,
                         fresh, rng, steps=9, rise_right=True)
+
+    # The back room door. Doc 16 gives it an exit and three examine variants
+    # each way, so it has to be visible: shut, behind the bar, and the only
+    # door in the room that is not letting daylight in.
+    BACK_DOOR = (232, BOX.back_bottom - 46, 26, 46)
+    bd_x, bd_y, bd_w, bd_h = BACK_DOOR
+    canvas.rect(bd_x - 2, bd_y - 2, bd_w + 4, bd_h + 2, fresh.frac(0.14))
+    canvas.rect(bd_x, bd_y, bd_w, bd_h, fresh.frac(0.26))
+    for plank in range(bd_x + 1, bd_x + bd_w, 5):
+        canvas.vline(plank, bd_y, bd_h, fresh.frac(0.18))
+    canvas.hline(bd_x - 2, bd_y - 2, bd_w + 4, fresh.frac(0.46))
+    canvas.vline(bd_x - 1, bd_y - 1, bd_h + 1, fresh.frac(0.40))
+    canvas.vline(bd_x + bd_w, bd_y - 1, bd_h + 1, fresh.frac(0.10))
+    canvas.put(bd_x + bd_w - 4, bd_y + bd_h // 2, brass.frac(0.52))
     furniture.framed_portrait(canvas, palette, 128, 34, 14, 18, umber, dusk, rng)
     stove_x, stove_y = 106, BOX.back_bottom - 26
     stove_door = furniture.pot_stove(canvas, palette, stove_x, stove_y, 16, 26, grey, ember,
@@ -109,7 +123,7 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     # back_edge is 6, not 16. At 16 the counter climbed so steeply across its
     # own length that it stopped reading as a horizontal surface and became a
     # ramp walling off the corner of the room.
-    furniture.back_bar(canvas, palette, 244, BOX.back_top + 8, 76, 44, fresh, dusk, brass, rng)
+    furniture.back_bar(canvas, palette, 262, BOX.back_top + 8, 58, 44, fresh, dusk, brass, rng)
     bar_x, bar_w = 216, WIDTH - 216
     bar_y, bar_h = 90, 26
     furniture.bar_counter(canvas, palette, bar_x, bar_y, bar_w, bar_h, fresh, brass, rng, back_edge=6)
@@ -140,7 +154,7 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
 
     # Coats and hats on the wall by the door -- the strongest evidence of
     # people available without drawing any.
-    furniture.wall_hooks(canvas, palette, 246, 48, 5, fresh, rng, spacing=7)
+    furniture.wall_hooks(canvas, palette, 128, 60, 3, fresh, rng, spacing=7)
     furniture.wall_hooks(canvas, palette, 48, 46, 2, fresh, rng, spacing=8)
 
     # -- the chandelier, over the dirt floor ---------------------------------

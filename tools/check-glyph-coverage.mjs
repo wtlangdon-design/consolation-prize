@@ -42,8 +42,30 @@ function collectStrings(content) {
   for (const [key, value] of Object.entries(content.ui.notices)) {
     strings.push({ text: value, where: `ui.notices.${key}` });
   }
-  for (const [key, value] of Object.entries(content.ui.keys)) {
-    strings.push({ text: value, where: `ui.keys.${key}` });
+  // ui.keys is gone -- there are no F-key hints to draw any more. The menu
+  // replaced them, and every string it can show has to have glyphs.
+  const menu = content.menu ?? {};
+  for (const [section, value] of Object.entries(menu)) {
+    if (typeof value === 'string') {
+      strings.push({ text: value, where: `menu.${section}` });
+      continue;
+    }
+    if (value === null || typeof value !== 'object') continue;
+    for (const [key, inner] of Object.entries(value)) {
+      if (typeof inner === 'string') {
+        strings.push({ text: inner, where: `menu.${section}.${key}` });
+      } else if (Array.isArray(inner)) {
+        for (const item of inner) {
+          if (item?.label) strings.push({ text: item.label, where: `menu.${section}.${key}` });
+        }
+      } else if (inner && typeof inner === 'object') {
+        for (const [deep, text] of Object.entries(inner)) {
+          if (typeof text === 'string') {
+            strings.push({ text, where: `menu.${section}.${key}.${deep}` });
+          }
+        }
+      }
+    }
   }
   for (const [key, value] of Object.entries(content.ui.dialogue)) {
     strings.push({ text: value, where: `ui.dialogue.${key}` });

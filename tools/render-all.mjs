@@ -29,7 +29,10 @@ const SCRIPTS = [
   ['room03_background.py', 'Room 3 background (shipping asset)'],
   ['room03_proof.py', 'Room 3 with Thad, and the ruling 17c audit'],
   ['room05_assay.py', 'Room 5, the Assay Office'],
+  ['room05_background.py', 'Room 5 background (shipping asset)'],
   ['room05_proof.py', 'Room 5 with Thad, and the ruling 17c audit'],
+  ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
+  ['title_screen.py', 'Title screen'],
 ];
 
 let failed = 0;

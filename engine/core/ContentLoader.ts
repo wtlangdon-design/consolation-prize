@@ -12,6 +12,7 @@ import type {
   UiFile,
   VerbFallbacksFile,
   VerbsFile,
+  MenuFile,
 } from './types.ts';
 
 /** Reads and parses one JSON file. Supplied by the host (fetch, or fs in tests). */
@@ -36,6 +37,8 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     read(manifest.reputation) as Promise<ReputationFile>,
     read(manifest.verbFallbacks) as Promise<VerbFallbacksFile>,
   ]);
+
+  const menu = (await read(manifest.menu)) as MenuFile;
 
   const roomFiles = (await Promise.all(manifest.rooms.map((path) => read(path)))) as RoomFile[];
   const dialogueFiles = (await Promise.all(manifest.dialogue.map((path) => read(path)))) as DialogueFile[];
@@ -69,7 +72,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     throw new Error(`Start room not found: ${manifest.startRoom}`);
   }
 
-  return { manifest, font, palette, ui, verbs, flags, scaling, reputation, verbFallbacks, ambient, rooms, dialogue };
+  return { manifest, font, palette, ui, menu, verbs, flags, scaling, reputation, verbFallbacks, ambient, rooms, dialogue };
 }
 
 /** JsonReader backed by fetch, for the browser. */

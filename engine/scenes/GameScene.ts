@@ -6,14 +6,30 @@ import { Actor } from '../core/Actor.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { BitmapFont } from '../render/BitmapFont.ts';
 import { Renderer } from '../render/Renderer.ts';
-import { NATIVE_HEIGHT, NATIVE_WIDTH, PLAY_HEIGHT, Screen, pointInRect, verbButtonRect } from '../render/Screen.ts';
+import {
+  MENU_BUTTON,
+  NATIVE_HEIGHT,
+  NATIVE_WIDTH,
+  PLAY_HEIGHT,
+  Screen,
+  pointInRect,
+  verbButtonRect,
+} from '../render/Screen.ts';
 import {
   isDoubleClick as detectDoubleClick,
   NO_CLICK,
   recordClick,
   type ClickRecord,
 } from '../core/ClickTracker.ts';
-import { GAME_SCENE, KEY_LOAD, KEY_RESET, KEY_SAVE, REGISTRY_STATE, SCREEN_TEXTURE } from './keys.ts';
+import {
+  GAME_SCENE,
+  KEY_LOAD_MODIFIED,
+  KEY_MENU,
+  KEY_SAVE_MODIFIED,
+  QUICK_SLOT,
+  REGISTRY_STATE,
+  SCREEN_TEXTURE,
+} from './keys.ts';
 
 const NOTICE_MS = 1200;
 const TEXT_MARGIN = 6;
@@ -73,9 +89,10 @@ export class GameScene extends Phaser.Scene {
 
     this.input.on(Phaser.Input.Events.POINTER_MOVE, this.onPointerMove, this);
     this.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
-    this.input.keyboard?.on(`keydown-${KEY_SAVE}`, this.onSave, this);
-    this.input.keyboard?.on(`keydown-${KEY_LOAD}`, this.onLoad, this);
-    this.input.keyboard?.on(`keydown-${KEY_RESET}`, this.onReset, this);
+    this.input.keyboard?.on(`keydown-${KEY_MENU}`, this.onMenuKey, this);
+    // Ctrl+S and Ctrl+L, both preventDefault so the browser does not take
+    // them. Convenience only -- everything they do is on the menu.
+    this.input.keyboard?.on('keydown', this.onModifiedKey, this);
 
     this.markDirty();
   }
@@ -104,7 +121,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
-    if (this.state.dialogue.isActive) return;
+    if (this.state.dialogue.isActive || this.state.menu.isOpen) return;
     const { x, y } = this.nativePoint(pointer);
     // Ambient characters stand in front of the scenery, so they take the
     // pointer first -- exactly as they take the click. Reading one name and
@@ -126,6 +143,21 @@ export class GameScene extends Phaser.Scene {
   private onPointerDown(pointer: Phaser.Input.Pointer): void {
     const { x, y } = this.nativePoint(pointer);
     const now = this.time.now;
+
+    // The menu takes every click while it is open, including clicks on the
+    // verb panel behind it.
+    if (this.state.menu.isOpen) {
+      this.onMenuClick(y);
+      this.lastClick = { targetId: null, at: now };
+      return;
+    }
+
+    if (pointInRect(x, y, MENU_BUTTON)) {
+      this.state.menu.open();
+      this.lastClick = { targetId: null, at: now };
+      this.markDirty();
+      return;
+    }
 
     if (this.state.dialogue.isActive) {
       this.onDialogueClick(y);
@@ -224,25 +256,65 @@ export class GameScene extends Phaser.Scene {
     this.sayLines = text ? this.font.wrap(text, NATIVE_WIDTH - TEXT_MARGIN * 2) : [];
   }
 
-  private onSave(): void {
-    this.state.save();
-    this.showNotice(this.state.content.ui.notices.saved);
+  private onMenuKey(): void {
+    if (this.state.dialogue.isActive) return;
+    this.state.menu.escape();
+    this.afterMenu();
   }
 
-  private onLoad(): void {
-    if (!this.state.load()) return;
+  private onModifiedKey(event: KeyboardEvent): void {
+    if (!event.ctrlKey && !event.metaKey) return;
+    const key = event.key.toUpperCase();
+    if (key !== KEY_SAVE_MODIFIED && key !== KEY_LOAD_MODIFIED) return;
+    // The browser's own Save Page and Location Bar are not what the player
+    // meant. Taking the event is the whole reason these are worth binding.
+    event.preventDefault();
+    if (key === KEY_SAVE_MODIFIED) {
+      this.state.save(QUICK_SLOT);
+      this.showNotice(this.state.content.menu.notices.saved);
+      return;
+    }
+    if (this.state.load(QUICK_SLOT)) {
+      this.afterLoad();
+      this.showNotice(this.state.content.menu.notices.restored);
+    } else {
+      this.showNotice(this.state.content.menu.notices.noSave);
+    }
+  }
+
+  /** Clears anything that referred to the room we are no longer in. */
+  private afterLoad(): void {
     this.hovered = null;
     this.hoveredName = null;
     this.sayLines = [];
-    this.showNotice(this.state.content.ui.notices.restored);
+    this.actor.placeIn(this.state.roomId);
   }
 
-  private onReset(): void {
-    this.state.reset();
-    this.hovered = null;
-    this.hoveredName = null;
-    this.sayLines = [];
-    this.showNotice(this.state.content.ui.notices.reset);
+  private afterMenu(): void {
+    const notice = this.state.menu.takeNotice();
+    if (notice) this.showNotice(notice);
+    this.markDirty();
+  }
+
+  private onMenuClick(y: number): void {
+    const hit = this.view.menuHitboxes().find((box) => y >= box.y && y < box.y + box.height);
+    if (!hit) return;
+    const rows = this.state.menu.rows();
+    if (!rows.find((row) => row.id === hit.id)?.enabled) return;
+
+    const action = this.state.menu.select(hit.id);
+    if (action.kind === 'save') {
+      this.state.save(action.slot ?? QUICK_SLOT);
+    } else if (action.kind === 'load') {
+      if (this.state.load(action.slot ?? QUICK_SLOT)) this.afterLoad();
+    } else if (action.kind === 'quit') {
+      // No title scene is wired in yet, so quitting resets to the start
+      // room. Marked here because it is the one menu route that does not
+      // yet do what its label says.
+      this.state.reset();
+      this.afterLoad();
+    }
+    this.afterMenu();
   }
 
   private showBark(_name: string, line: string, x: number, y: number): void {

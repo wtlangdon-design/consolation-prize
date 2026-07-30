@@ -346,13 +346,30 @@ def plank_floor(
         canvas.line(int(back_x), box.back_bottom, int(front_x), box.height - 1,
                     ramp.frac(max(0.03, base - 0.14)))
 
-    # Cross-joins, spaced wider as they come forward.
-    y, gap = box.back_bottom + 5, 5
+    # Butt joints, STAGGERED per board rather than run full width.
+    #
+    # Continuous cross-lines every few rows turn a plank floor into a tile
+    # grid -- the boards stop reading as long runs of timber and start
+    # reading as lino. Real boards are long, and where they end they end at
+    # different points, so the joint is a short mark on one board only.
+    y, gap = box.back_bottom + 6, 6
+    stagger = 0
     while y < box.height:
-        left, right = int(box.floor_left_at(y)), int(box.floor_right_at(y))
-        canvas.hline(max(0, left), y, min(box.width, right) - max(0, left),
-                     ramp.frac(max(0.03, base - 0.09)))
-        gap = int(gap * 1.45)
+        run = box.back_bottom - vanish_y
+        for index in range(boards + 1):
+            if (index + stagger) % 3:
+                continue
+            back_x = box.back_left + index * (box.back_right - box.back_left) / boards
+            if run == 0:
+                continue
+            scale = (y - vanish_y) / run
+            here = vanish_x + (back_x - vanish_x) * scale
+            nxt_back = box.back_left + (index + 1) * (box.back_right - box.back_left) / boards
+            nxt = vanish_x + (nxt_back - vanish_x) * scale
+            canvas.hline(int(here), y, max(1, int(nxt - here)),
+                         ramp.frac(max(0.03, base - 0.10)))
+        stagger += 1
+        gap = int(gap * 1.5)
         y += gap
 
     canvas.hline(box.back_left, box.back_bottom, box.back_right - box.back_left,

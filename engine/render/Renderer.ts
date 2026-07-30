@@ -4,7 +4,7 @@ import type { Actor } from '../core/Actor.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import { BitmapFont } from './BitmapFont.ts';
 import {
-  HUD_Y,
+  MENU_BUTTON,
   NATIVE_WIDTH,
   PANEL_HEIGHT,
   PANEL_Y,
@@ -34,6 +34,12 @@ const TEXT_MARGIN = 6;
 export function format(template: string, vars: Record<string, string>): string {
   return template.replace(/\{(\w+)\}/g, (whole, key: string) => vars[key] ?? whole);
 }
+
+/** Overlay geometry. Sits over the play area, clear of the verb panel. */
+const MENU_X = 84;
+const MENU_WIDTH = 152;
+const MENU_TOP = 18;
+const MENU_ROW = 12;
 
 export class Renderer {
   private readonly screen: Screen;
@@ -82,6 +88,8 @@ export class Renderer {
       this.drawDialogue();
     }
     this.drawPanel(frame);
+    // Last, so it sits over everything including the panel.
+    this.drawMenu();
   }
 
   private drawRoom(): void {
@@ -165,6 +173,35 @@ export class Renderer {
     });
   }
 
+  /** Row hitboxes for the open menu page, in draw order. */
+  menuHitboxes(): { id: string; y: number; height: number }[] {
+    const rows = this.state.menu.rows();
+    const top = MENU_TOP + MENU_ROW;
+    return rows.map((row, index) => ({
+      id: row.id, y: top + index * MENU_ROW, height: MENU_ROW,
+    }));
+  }
+
+  private drawMenu(): void {
+    const menu = this.state.menu;
+    if (!menu.isOpen) return;
+    const ctx = this.screen.context;
+    const rows = menu.rows();
+    const height = MENU_ROW * (rows.length + 2);
+
+    this.screen.fill(MENU_X, MENU_TOP, MENU_WIDTH, height, this.screen.role('overlayBg'));
+    this.screen.outline(MENU_X, MENU_TOP, MENU_WIDTH, height, this.screen.role('outline'));
+    this.font.draw(ctx, menu.title(), MENU_X + 6, MENU_TOP + 3, this.screen.roleColour('inkBright'));
+
+    for (const [index, row] of rows.entries()) {
+      const y = MENU_TOP + MENU_ROW * (index + 1);
+      // A disabled row is drawn dim and still drawn: a menu that changes
+      // length depending on whether a save exists is harder to learn.
+      const colour = this.screen.roleColour(row.enabled ? 'ink' : 'inkDim');
+      this.font.draw(ctx, row.label, MENU_X + 8, y + 3, colour);
+    }
+  }
+
   private drawDialogue(): void {
     const node = this.state.dialogue.currentNode;
     if (!node) return;
@@ -190,7 +227,7 @@ export class Renderer {
 
   private drawPanel(frame: Frame): void {
     const ctx = this.screen.context;
-    const { ui, verbs } = this.state.content;
+    const { verbs } = this.state.content;
 
     this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, this.screen.role('panelBg'));
 
@@ -210,8 +247,14 @@ export class Renderer {
       );
     }
 
-    const hint = format(ui.hud.hintTemplate, ui.keys);
-    this.font.draw(ctx, hint, TEXT_MARGIN, HUD_Y, this.screen.roleColour('inkDim'));
+    // The menu button, always present, always clickable. No key hints are
+    // drawn because there are no required keys left to hint at.
+    const menu = this.state.menu;
+    this.screen.fill(MENU_BUTTON.x, MENU_BUTTON.y, MENU_BUTTON.width, MENU_BUTTON.height,
+      this.screen.role(menu.isOpen ? 'buttonBgActive' : 'buttonBg'));
+    const label = menu.buttonLabel;
+    const labelX = MENU_BUTTON.x + Math.floor((MENU_BUTTON.width - this.font.measure(label)) / 2);
+    this.font.draw(ctx, label, labelX, MENU_BUTTON.y + 1, this.screen.roleColour('ink'));
   }
 
   private sentenceText(targetName: string | null): string {

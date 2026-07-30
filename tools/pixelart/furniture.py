@@ -511,10 +511,15 @@ def service_counter(
         # Thin, dark bars. At brass 0.42 on a 4px pitch this read as a rank
         # of gold pipes and took the focal point off the balance, which is
         # the object the room is actually about.
+        # Iron bars with a brass top rail, not brass bars. A rank of gold
+        # verticals is the loudest thing that can be put in a grey room, and
+        # it was taking the focal point off the balance -- which is the
+        # object this room is actually about.
         for bar in range(win_x + 3, win_x + win_w - 2, 5):
-            canvas.vline(bar, grille_top + 1, 20, brass.frac(0.14))
-        canvas.hline(win_x - 2, grille_top - 2, win_w + 4, brass.frac(0.20))
-        canvas.hline(win_x, grille_top + 10, win_w, brass.frac(0.12))
+            canvas.vline(bar, grille_top + 1, 20, body.frac(0.44))
+            canvas.put(bar, grille_top + 1, body.frac(0.60))
+        canvas.hline(win_x - 2, grille_top - 2, win_w + 4, brass.frac(0.26))
+        canvas.hline(win_x, grille_top + 10, win_w, body.frac(0.30))
         canvas.hline(win_x, y - 1, win_w, top_ramp.frac(0.80))
 
 
@@ -529,19 +534,37 @@ def vial_shelves(
     same component idea, opposite reading, and that is the whole point of
     ruling 17b.
     """
-    canvas.rect(x, y, width, height, frame.frac(0.20))
-    canvas.outline(x, y, width, height, frame.frac(0.34))
+    # The case is PALE, not black. The vials were reading as faint marks on
+    # dark shelving because they were the only light thing on a near-black
+    # ground, which puts all the contrast in the wrong place: the eye sees
+    # the shelving and has to hunt for the contents. Doc 05 calls this
+    # beautiful in the way only a completed thing is beautiful, so the case
+    # recedes and the work in it comes forward.
+    canvas.rect(x, y, width, height, frame.frac(0.46))
+    canvas.outline(x, y, width, height, frame.frac(0.26))
     shelf_gap = height // ranks
     for rank in range(ranks):
         sy = y + (rank + 1) * shelf_gap - 1
-        canvas.hline(x + 1, sy, width - 2, frame.frac(0.46))
-        canvas.hline(x + 1, sy + 1, width - 2, frame.frac(0.12))
-        # Vials: same height, same spacing, no exceptions.
-        for vx in range(x + 3, x + width - 3, 4):
-            canvas.vline(vx, sy - 4, 4, glass.frac(0.52))
-            canvas.put(vx, sy - 4, glass.frac(0.74))
-            canvas.put(vx, sy - 1, label.frac(0.20))     # the sample in it
-            canvas.put(vx + 1, sy - 3, label.frac(0.78))  # the label, blank
+        # A shadowed recess behind each rank, so the vials stand IN something.
+        canvas.rect(x + 1, sy - 7, width - 2, 7, frame.frac(0.22))
+        canvas.hline(x + 1, sy, width - 2, frame.frac(0.62))
+        canvas.hline(x + 1, sy + 1, width - 2, frame.frac(0.16))
+        # Vials: same height, same spacing, no exceptions. Three pixels wide
+        # rather than one -- at one pixel a vial is a scratch, and nine years
+        # of one person's finished work should not read as a scratch.
+        for vx in range(x + 3, x + width - 4, 5):
+            canvas.rect(vx, sy - 6, 3, 6, glass.frac(0.44))
+            canvas.vline(vx, sy - 6, 6, glass.frac(0.76))        # lit edge
+            canvas.put(vx + 2, sy - 6, glass.frac(0.24))         # shade edge
+            canvas.put(vx + 1, sy - 6, glass.at(glass.count - 2))  # stopper
+            # The sample: a band of ore at the bottom, and every one different,
+            # because they came out of four hundred different holes.
+            ore = (0.16, 0.30, 0.46, 0.62)[(vx // 5) % 4]
+            canvas.hline(vx, sy - 2, 3, label.frac(ore))
+            canvas.hline(vx, sy - 1, 3, label.frac(max(0.06, ore - 0.14)))
+            # The label, blank, catching the light.
+            canvas.hline(vx, sy - 4, 3, label.frac(0.86))
+            canvas.put(vx + 2, sy - 4, label.frac(0.62))
 
 
 def balance_under_dome(
@@ -622,3 +645,22 @@ def pinned_card(
     canvas.hline(x + 1, y + height // 3, width - 3, paper.frac(0.52))
     canvas.hline(x + 1, y + 2 * height // 3, width - 4, paper.frac(0.56))
     canvas.put(x + width // 2, y - 1, palette.family("grey").at(10))
+
+
+def proud_floorboard(
+    canvas: IndexedCanvas, palette: Palette, x: int, y: int, width: int,
+    board: Ramp,
+) -> None:
+    """A floorboard sitting a little proud of the others.
+
+    Doc 05's exact words, and it is where Winnie's second ledger lives -- so
+    it has to be findable by a player who is looking and invisible to one who
+    is not. That is a two-pixel problem: a lit top edge and the shadow it
+    casts, and nothing else. Any more and it announces itself; any less and a
+    thorough player never gets rewarded for being thorough.
+    """
+    canvas.hline(x, y, width, board.frac(0.82))          # the proud edge, lit
+    canvas.hline(x, y + 1, width, board.frac(0.52))
+    canvas.hline(x, y + 2, width, board.frac(0.20))      # shadow it casts
+    canvas.put(x, y, board.frac(0.34))                   # ends, slightly sprung
+    canvas.put(x + width - 1, y, board.frac(0.34))

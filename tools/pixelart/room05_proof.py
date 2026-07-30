@@ -26,7 +26,7 @@ OUT = RENDERS
 BAND_ZONES = (2, 1, 0)
 #: Far one behind the counter is impossible -- the counter is in the way --
 #: so the far figure stands at the counter and the near two downstage of it.
-BAND_COLUMNS = (196, 108, 232)
+BAND_COLUMNS = (206, 96, 244)
 
 #: Sample rectangles must isolate ONE surface. The first set overlapped --
 #: the "floor, mid" box sat on top of the counter and the "back wall" box on
@@ -36,11 +36,11 @@ BAND_COLUMNS = (196, 108, 232)
 #: part of the check rather than incidental to it.
 SURFACES = {
     "back wall": (100, 72, 120, 6),          # the strip below the shelves
-    "counter top": (70, 90, 180, 3),      # rows 90-92; row 93 is the dark lip
-    "counter front": (70, 97, 180, 13),
-    "shelf bank": (104, 30, 50, 38),
+    "counter top": (155, 90, 75, 3),      # right of the ledgers, under the grille
+    "counter front": (60, 97, 170, 13),
+    "shelf bank": (100, 28, 70, 46),
     "plank floor, near": (60, 122, 200, 18),
-    "plank floor, mid": (100, 79, 55, 9),    # left of the service grille
+    "plank floor, mid": (100, 79, 80, 9),    # left of the service grille
     "left wall": (4, 40, 22, 40),
     "window": (250, 34, 22, 34),
 }

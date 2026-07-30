@@ -15,6 +15,16 @@ export const VERB_ROW_Y = [156, 168, 180] as const;
 export const HUD_Y = 192;
 
 /**
+ * The menu button, bottom-right of the verb panel.
+ *
+ * This exists so the keyboard is never required. The target machine is a
+ * Chromebook, whose top row is browser keys, so the game had no working
+ * save or load at all until this button existed -- F5, F9 and F6 were the
+ * only routes and all three are taken by the browser.
+ */
+export const MENU_BUTTON = { x: 246, y: 190, width: 70, height: 9 };
+
+/**
  * Interface colours are looked up by role name, never by index. The locked
  * palette owns the numbers; changing a chrome colour is a palette edit, not
  * a code edit.

@@ -1,0 +1,17 @@
+{
+  "schema": 1,
+  "note": "The title screen. Mouse-driven: every item is clickable and no key is required. CONTINUE greys out with no save rather than disappearing, so the menu is the same length every time. There is no music -- the score does not exist, and errata invariant 5 makes its detuning the emotional arc of the whole game, so a placeholder would be actively misleading. musicCue is the hook and nothing plays it.",
+  "title": {
+    "lines": ["CONSOLATION", "PRIZE"]
+  },
+  "menu": {
+    "items": [
+      { "id": "new", "label": "NEW GAME" },
+      { "id": "continue", "label": "CONTINUE" },
+      { "id": "options", "label": "OPTIONS" },
+      { "id": "credits", "label": "CREDITS" }
+    ]
+  },
+  "background": "art/backgrounds/room-29-high-ridge.png",
+  "musicCue": "title.theme"
+}

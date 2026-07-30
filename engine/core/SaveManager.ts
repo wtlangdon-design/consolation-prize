@@ -7,6 +7,8 @@ export const SAVE_VERSION = 1;
 export interface SaveFile {
   version: number;
   room: string;
+  /** Epoch millis, for the slot list. Written by the engine, never by hand. */
+  savedAt?: number;
   inventory: string[];
   reputation: number;
   flags: Record<string, FlagValue>;
@@ -43,19 +45,81 @@ export class MemoryStorage implements StorageLike {
  * dialogue state. That is the whole save -- it falls straight out of the
  * flag-store design and is small enough to be trivially reliable.
  */
+export interface SlotSummary {
+  slot: number;
+  used: boolean;
+  /** Room id as stored. */
+  room: string;
+  /** Human-facing room name; filled in by the caller that knows the rooms. */
+  roomName: string;
+  when: string;
+}
+
 export class SaveManager {
   private readonly storage: StorageLike;
   private readonly key: string;
+  private readonly clock: () => number;
 
-  constructor(storage: StorageLike, key: string = SAVE_KEY) {
+  constructor(storage: StorageLike, key: string = SAVE_KEY, clock: () => number = Date.now) {
     this.storage = storage;
     this.key = key;
+    // Injected so slot listings are assertable without freezing real time.
+    this.clock = clock;
   }
 
-  write(save: Omit<SaveFile, 'version'>): SaveFile {
-    const payload: SaveFile = { version: SAVE_VERSION, ...save };
-    this.storage.setItem(this.key, JSON.stringify(payload));
+  write(save: Omit<SaveFile, 'version'>, slot: number | null = null): SaveFile {
+    const payload: SaveFile = { version: SAVE_VERSION, savedAt: this.now(), ...save };
+    this.storage.setItem(this.keyFor(slot), JSON.stringify(payload));
     return payload;
+  }
+
+  /** Slot 0..n-1 are the player's named slots; null is the autosave. */
+  keyFor(slot: number | null): string {
+    return slot === null ? this.key : `${this.key}.slot${slot}`;
+  }
+
+  readSlot(slot: number): SaveFile | null {
+    const raw = this.storage.getItem(this.keyFor(slot));
+    if (raw === null) return null;
+    try {
+      return this.validate(JSON.parse(raw));
+    } catch {
+      return null;
+    }
+  }
+
+  anySlotUsed(count = 3): boolean {
+    if (this.exists()) return true;
+    for (let slot = 0; slot < count; slot += 1) {
+      if (this.readSlot(slot) !== null) return true;
+    }
+    return false;
+  }
+
+  /**
+   * One row per slot, whether used or not.
+   *
+   * Room and time are resolved here rather than at draw time so the menu
+   * can stay a pure list of strings -- and so an unreadable save shows as
+   * empty instead of throwing in the middle of a frame.
+   */
+  listSlots(count = 3, labels?: TimeLabels): SlotSummary[] {
+    const rows: SlotSummary[] = [];
+    for (let slot = 0; slot < count; slot += 1) {
+      const save = this.readSlot(slot);
+      rows.push({
+        slot,
+        used: save !== null,
+        room: save?.room ?? '',
+        roomName: save?.room ?? '',
+        when: save?.savedAt && labels ? formatWhen(save.savedAt, labels, this.clock()) : '',
+      });
+    }
+    return rows;
+  }
+
+  private now(): number {
+    return this.clock();
   }
 
   read(): SaveFile | null {
@@ -71,8 +135,8 @@ export class SaveManager {
     return this.validate(parsed);
   }
 
-  clear(): void {
-    this.storage.removeItem(this.key);
+  clear(slot: number | null = null): void {
+    this.storage.removeItem(this.keyFor(slot));
   }
 
   exists(): boolean {
@@ -96,4 +160,36 @@ export class SaveManager {
     }
     return candidate as SaveFile;
   }
+}
+
+
+/** The four templates a save's age can be rendered with. */
+export interface TimeLabels {
+  justNow: string;
+  minutes: string;
+  hours: string;
+  days: string;
+}
+
+/**
+ * A save's age, as short text.
+ *
+ * Relative rather than a clock time: a player who saved twenty minutes ago
+ * knows what "20m ago" means without doing arithmetic against a timestamp,
+ * and it sidesteps locale formatting entirely -- which matters when every
+ * glyph has to exist in a hand-authored 5x7 font.
+ *
+ * The words come in from content. An earlier version had them as literals
+ * here and check-no-content-in-code was right to reject it: "just now" is
+ * something the player reads, and the one architecture rule is that nothing
+ * the player reads lives in a .ts file.
+ */
+export function formatWhen(savedAt: number, labels: TimeLabels, nowMs: number): string {
+  const seconds = Math.max(0, Math.floor((nowMs - savedAt) / 1000));
+  if (seconds < 60) return labels.justNow;
+  const minutes = Math.floor(seconds / 60);
+  if (minutes < 60) return labels.minutes.replace('{n}', String(minutes));
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return labels.hours.replace('{n}', String(hours));
+  return labels.days.replace('{n}', String(Math.floor(hours / 24)));
 }

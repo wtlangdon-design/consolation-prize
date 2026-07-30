@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "id": "stub_nugget_back",
+  "name": "THE NUGGET BACK ROOM",
+  "stub": true,
+  "note": "Doc 05 Room 4. Stub -- the assay duels are held here and doc 09 has its content; not built.",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 60,
+  "walkable": [
+    {
+      "id": "floor",
+      "zone": 1,
+      "rect": [
+        0,
+        96,
+        320,
+        48
+      ]
+    }
+  ],
+  "hotspots": [],
+  "exits": [
+    {
+      "id": "back_to_nugget",
+      "name": "THE BOUNTIFUL NUGGET",
+      "stub": true,
+      "rect": [
+        128,
+        60,
+        64,
+        44
+      ],
+      "colour": 90,
+      "to": "nugget",
+      "responses": {},
+      "fallback": []
+    }
+  ]
+}

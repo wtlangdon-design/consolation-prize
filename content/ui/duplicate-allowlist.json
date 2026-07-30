@@ -6,6 +6,21 @@
       "line": "Nothing new.",
       "where": "main_street/mud/LISTEN_TO",
       "reason": "Doc 13 note 1. The mud's second LISTEN is character-for-character identical to its first. Thad asks the mud twice and gets the same nothing. Whitelisted, not deduped."
+    },
+    {
+      "line": "Nothing.",
+      "where": "nugget/cards/LISTEN_TO",
+      "reason": "Doc 16, verbatim. The cards' first two LISTEN variants are both a flat 'Nothing.' -- the hand is abandoned and there is nobody to hear. Variant 3 resolves it. Same construction as the mud's identical variant."
+    },
+    {
+      "line": "Nothing.",
+      "where": "nugget/portrait/LISTEN_TO",
+      "reason": "Doc 16, verbatim. 'Nothing.' is Thad's standing answer to a silent object, and doc 16 uses it as a bare line for the portrait, the cards and the back room door. Three objects being silent in the same words is the joke; making them silent in three different ways would be writing around it."
+    },
+    {
+      "line": "Nothing.",
+      "where": "nugget/back_room_door/LISTEN_TO",
+      "reason": "Doc 16, verbatim. Variant 2 of the back room door. Variant 3 is 'A pencil. Somebody is writing something down.' -- doc 16 note 2 makes that the judges' pencil heard through a door fifteen hours before Act II. The flat 'Nothing.' before it is what makes that land."
     }
   ]
 }

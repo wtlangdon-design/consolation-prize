@@ -1,0 +1,72 @@
+{
+  "schema": 1,
+  "note": "Every string the menu can draw. The target machine is a Chromebook, whose top row is browser keys, so no F-key appears anywhere in this file or in the engine. The game is fully playable with a mouse and no keyboard at all: the panel button opens this menu, and every route through it is clickable. Ctrl+S and Ctrl+L are convenience only and are never the only way to reach anything.",
+  "button": {
+    "label": "MENU"
+  },
+  "root": {
+    "title": "MENU",
+    "items": [
+      {
+        "id": "resume",
+        "label": "Resume"
+      },
+      {
+        "id": "save",
+        "label": "Save"
+      },
+      {
+        "id": "load",
+        "label": "Load"
+      },
+      {
+        "id": "options",
+        "label": "Options"
+      },
+      {
+        "id": "quit",
+        "label": "Quit to Title"
+      }
+    ]
+  },
+  "save": {
+    "title": "SAVE",
+    "back": "Back"
+  },
+  "load": {
+    "title": "LOAD",
+    "back": "Back"
+  },
+  "options": {
+    "title": "OPTIONS",
+    "back": "Back",
+    "items": [
+      {
+        "id": "textSpeed",
+        "label": "Text speed"
+      },
+      {
+        "id": "scale",
+        "label": "Window scale"
+      }
+    ]
+  },
+  "slots": {
+    "count": 3,
+    "nameTemplate": "Slot {number}",
+    "emptyLabel": "- empty -",
+    "usedTemplate": "{room} - {when}",
+    "overwriteNote": "Saving overwrites this slot.",
+    "time": {
+      "justNow": "just now",
+      "minutes": "{n}m ago",
+      "hours": "{n}h ago",
+      "days": "{n}d ago"
+    }
+  },
+  "notices": {
+    "saved": "SAVED",
+    "restored": "RESTORED",
+    "noSave": "NO SAVE IN THAT SLOT"
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "id": "assay_office",
+  "name": "THE ASSAY OFFICE",
+  "materialIdentity": "grey, bone, glass, brass -- cold precision (errata ruling 17b)",
+  "note": "Doc 05 Room 5. FOUR of eight hotspots -- doc 05 writes out the window sign, scales, queue book and floorboard in full; the sample shelves, her pen, the certificate and the stove are listed as '(working script)' and that script is not in /docs. THE FLOORBOARD is unmarked and critical: Winnie's second ledger is under it and Act II turns on it. It carries no visual marking beyond a lit edge, and must never be given one.",
+  "background": "art/backgrounds/room-05-assay-office.png",
+  "colours": {
+    "sky": 0,
+    "ground": 196
+  },
+  "horizon": 78,
+  "walkable": [
+    {
+      "id": "floor_far",
+      "zone": 2,
+      "rect": [
+        96,
+        116,
+        128,
+        10
+      ]
+    },
+    {
+      "id": "floor_mid",
+      "zone": 1,
+      "rect": [
+        60,
+        126,
+        200,
+        9
+      ]
+    },
+    {
+      "id": "floor_near",
+      "zone": 0,
+      "rect": [
+        30,
+        135,
+        260,
+        9
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "window_sign",
+      "name": "THE WINDOW SIGN",
+      "rect": [
+        234,
+        40,
+        14,
+        17
+      ],
+      "colour": 203,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has been saying the same thing for six years and requires no assistance."
+          }
+        ]
+      }
+    },
+    {
+      "id": "scales",
+      "name": "THE SCALES",
+      "rect": [
+        74,
+        66,
+        28,
+        26
+      ],
+      "colour": 204,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A balance, in a glass case, so accurate that men have wept in front of it. Mostly in the other direction."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing at all. It is the only instrument in Consolation that cannot be argued with."
+          }
+        ]
+      }
+    },
+    {
+      "id": "queue_book",
+      "name": "THE QUEUE BOOK",
+      "rect": [
+        130,
+        84,
+        26,
+        10
+      ],
+      "colour": 199,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eight months of names. Two-thirds of them in the same hand."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper."
+          }
+        ]
+      }
+    },
+    {
+      "id": "floorboard",
+      "name": "THE FLOORBOARD",
+      "rect": [
+        194,
+        124,
+        46,
+        10
+      ],
+      "colour": 197,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A floorboard. It sits a little proud of the others."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Loose. There's a space under it."
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_street",
+      "name": "THE STREET DOOR",
+      "stub": true,
+      "rect": [
+        4,
+        60,
+        26,
+        60
+      ],
+      "colour": 198,
+      "to": "main_street",
+      "responses": {},
+      "fallback": []
+    }
+  ]
+}

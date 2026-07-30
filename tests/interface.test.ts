@@ -314,3 +314,97 @@ test('exits carry three LOOK and three LISTEN variants from doc 14', async () =>
     }
   }
 });
+
+
+test('no F-key is bound anywhere -- the Chromebook top row is browser keys', async () => {
+  const { readdir } = await import('node:fs/promises');
+  const engineFiles: string[] = [];
+  const walk = async (dir: string): Promise<void> => {
+    for (const entry of await readdir(resolve(ROOT, dir), { withFileTypes: true })) {
+      const path = `${dir}/${entry.name}`;
+      if (entry.isDirectory()) await walk(path);
+      else if (entry.name.endsWith('.ts')) engineFiles.push(path);
+    }
+  };
+  await walk('engine');
+
+  for (const path of engineFiles) {
+    const source = await readFile(resolve(ROOT, path), 'utf8');
+    // A binding looks like `keydown-F5` or 'F5' as a key constant. Prose in
+    // a comment explaining WHY there are no F-keys is allowed to say F5.
+    const code = source.replace(/\/\*[\s\S]*?\*\/|\/\/.*$/gm, '');
+    assert.doesNotMatch(
+      code,
+      /['"`]F(?:[1-9]|1[0-2])['"`]|keydown-F\d/,
+      `${path} binds an F-key; the target machine's top row never reaches the game`,
+    );
+  }
+});
+
+test('every menu route is reachable by mouse, and load greys out with no save', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  assert.equal(state.menu.isOpen, false);
+  state.menu.open();
+  assert.equal(state.menu.isOpen, true);
+
+  const root = state.menu.rows();
+  const ids = root.map((row) => row.id);
+  assert.deepEqual(ids, ['resume', 'save', 'load', 'options', 'quit']);
+  assert.equal(root.find((row) => row.id === 'load')!.enabled, false,
+    'Load is dim with nothing saved, but still present');
+
+  // Save into slot 2, then Load must come alive and name the room.
+  state.menu.select('save');
+  const slots = state.menu.rows().filter((row) => row.id.startsWith('slot:'));
+  assert.equal(slots.length, content.menu.slots.count);
+  const action = state.menu.select('slot:1');
+  assert.equal(action.kind, 'save');
+  assert.equal(action.slot, 1);
+  state.save(1);
+
+  state.menu.open();
+  assert.equal(state.menu.rows().find((row) => row.id === 'load')!.enabled, true);
+  state.menu.select('load');
+  const loadRow = state.menu.rows().find((row) => row.id === 'slot:1')!;
+  assert.ok(loadRow.enabled, 'a used slot can be loaded');
+  assert.ok(
+    loadRow.label.includes(content.rooms.get(content.manifest.startRoom)!.name),
+    'the slot names the room, not the room id',
+  );
+  assert.equal(state.menu.rows().find((row) => row.id === 'slot:0')!.enabled, false,
+    'an empty slot cannot be loaded');
+});
+
+test('ESC steps back out of a subpage rather than closing the menu', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  state.menu.escape();
+  assert.equal(state.menu.page, 'root');
+  state.menu.select('options');
+  assert.equal(state.menu.page, 'options');
+  state.menu.escape();
+  assert.equal(state.menu.page, 'root', 'ESC in a subpage goes back, not out');
+  state.menu.escape();
+  assert.equal(state.menu.page, 'closed');
+});
+
+test('a save slot records which room it was made in', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  // Any room that is not the start room. Picked from content rather than
+  // named here -- a test that hard-codes a room id is a test that knows
+  // about the fiction, and check-no-content-in-code is right to reject it.
+  const elsewhere = [...content.rooms.keys()].find(
+    (id) => id !== content.manifest.startRoom && !content.rooms.get(id)!.fixture,
+  )!;
+  state.enterRoom(elsewhere);
+  state.save(0);
+
+  const [slot] = state.saves.listSlots(1, content.menu.slots.time);
+  assert.equal(slot!.used, true);
+  assert.equal(slot!.room, elsewhere);
+  assert.ok(slot!.when.length > 0, 'and when it was made');
+});

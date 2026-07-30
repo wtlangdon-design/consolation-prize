@@ -227,6 +227,7 @@ export interface PaletteFile {
 }
 
 export interface ManifestFile {
+  menu: string;
   schema: number;
   font: string;
   scaling: string;
@@ -245,6 +246,7 @@ export interface ManifestFile {
 
 /** Everything the engine needs, resolved from the manifest. */
 export interface ContentBundle {
+  menu: MenuFile;
   manifest: ManifestFile;
   font: FontFile;
   palette: PaletteFile;
@@ -257,4 +259,24 @@ export interface ContentBundle {
   ambient: Map<string, AmbientFile>;
   rooms: Map<string, RoomFile>;
   dialogue: Map<string, DialogueFile>;
+}
+
+
+/** content/ui/menu.json -- every string the pause menu can draw. */
+export interface MenuFile {
+  schema: number;
+  button: { label: string };
+  root: { title: string; items: { id: string; label: string }[] };
+  save: { title: string; back: string };
+  load: { title: string; back: string };
+  options: { title: string; back: string; items: { id: string; label: string }[] };
+  slots: {
+    count: number;
+    nameTemplate: string;
+    emptyLabel: string;
+    usedTemplate: string;
+    overwriteNote: string;
+    time: { justNow: string; minutes: string; hours: string; days: string };
+  };
+  notices: { saved: string; restored: string; noSave: string };
 }

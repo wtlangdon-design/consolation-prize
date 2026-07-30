@@ -3,6 +3,7 @@ import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
 import { VerbSystem } from './VerbSystem.ts';
 import { SaveManager, type StorageLike } from './SaveManager.ts';
+import { MenuSystem } from './MenuSystem.ts';
 
 export interface InteractionResult {
   say: string | null;
@@ -20,6 +21,7 @@ export class GameState {
   readonly verbs: VerbSystem;
   readonly dialogue: DialogueRunner;
   readonly saves: SaveManager;
+  readonly menu: MenuSystem;
   readonly content: ContentBundle;
 
   private currentRoomId: string;
@@ -32,6 +34,8 @@ export class GameState {
     this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks);
     this.dialogue = new DialogueRunner(content.dialogue, this.flags);
     this.saves = new SaveManager(storage);
+    this.menu = new MenuSystem(content.menu, this.saves,
+      (id) => content.rooms.get(id)?.name ?? id);
     this.currentRoomId = content.manifest.startRoom;
   }
 
@@ -158,7 +162,7 @@ export class GameState {
     return found.height;
   }
 
-  save(): void {
+  save(slot: number | null = null): void {
     this.saves.write({
       room: this.currentRoomId,
       inventory: [...this.inventory],
@@ -166,7 +170,7 @@ export class GameState {
       flags: this.flags.snapshot(),
       dialogueProgress: this.dialogue.progressSnapshot(),
       dialoguePosition: this.dialogue.positionSnapshot(),
-    });
+    }, slot);
   }
 
   autosave(): void {
@@ -174,8 +178,8 @@ export class GameState {
   }
 
   /** Returns false when there is no save, or the save is unreadable. */
-  load(): boolean {
-    const save = this.saves.read();
+  load(slot: number | null = null): boolean {
+    const save = slot === null ? this.saves.read() : this.saves.readSlot(slot);
     if (!save) return false;
     if (!this.content.rooms.has(save.room)) return false;
 

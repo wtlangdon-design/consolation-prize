@@ -10,6 +10,8 @@
   "rooms": [
     "content/rooms/main-street.json",
     "content/rooms/nugget.json",
+    "content/rooms/stub-nugget-back.json",
+    "content/rooms/assay-office.json",
     "content/rooms/stub-company.json",
     "content/rooms/stub-clarion.json",
     "content/rooms/stub-claims-road.json",
@@ -31,5 +33,6 @@
   ],
   "reputation": "content/reputation.json",
   "verbFallbacks": "content/ui/verb-fallbacks.json",
-  "duplicateAllowlist": "content/ui/duplicate-allowlist.json"
+  "duplicateAllowlist": "content/ui/duplicate-allowlist.json",
+  "menu": "content/ui/menu.json"
 }

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "note": "Every string the engine can draw. If a string is not here or in a room/dialogue file, the engine cannot render it. Harness values are placeholders, not written content.",
+  "note": "Every string the engine can draw. If a string is not here or in a room, dialogue or menu file, the engine cannot render it. Harness values are placeholders, not written content.",
   "sentence": {
     "template": "{verb} {target}",
     "verbOnly": "{verb}",
@@ -16,12 +16,7 @@
     "restored": "RESTORED",
     "reset": "RESET"
   },
-  "keys": {
-    "save": "F5",
-    "load": "F9",
-    "reset": "F6"
-  },
   "hud": {
-    "hintTemplate": "{save} SAVE  {load} LOAD  {reset} RESET"
+    "note": "The key-hint line is gone. There are no required keys: the MENU button in the panel is the route to save, load, options and quit. Chromebook top-row keys are browser keys and never reached the game."
   }
 }

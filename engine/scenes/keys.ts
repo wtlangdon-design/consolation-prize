@@ -4,7 +4,20 @@ export const GAME_SCENE = 'game';
 export const REGISTRY_STATE = 'state';
 export const SCREEN_TEXTURE = 'screen';
 
-/** Keyboard bindings for the save system. */
-export const KEY_SAVE = 'F5';
-export const KEY_LOAD = 'F9';
-export const KEY_RESET = 'F6';
+/**
+ * Keyboard bindings.
+ *
+ * There are no F-keys. The target machine is a Chromebook, whose top row is
+ * browser keys -- F5 reloads the page, F6 moves focus to the address bar --
+ * so the previous save/load/reset bindings never reached the game at all.
+ *
+ * Everything below is CONVENIENCE ONLY. The panel's menu button reaches
+ * save, load, options and quit with a mouse, and nothing here is the sole
+ * route to anything.
+ */
+export const KEY_MENU = 'ESC';
+export const KEY_SAVE_MODIFIED = 'S';
+export const KEY_LOAD_MODIFIED = 'L';
+
+/** Slot the Ctrl shortcuts act on. Slot 1 in the menu's numbering. */
+export const QUICK_SLOT = 0;

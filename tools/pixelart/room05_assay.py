@@ -52,7 +52,11 @@ BOX = Box(
 #: living does not get the Nugget's amber.
 WINDOW = (250, 34, 22, 34)
 
-AMBIENT = 0.95
+#: The best-lit interior in Consolation, and that is a design point rather
+#: than a lighting preference: you cannot judge ore colour in gloom, so an
+#: assayer lights her office. It is the one room in the game where you can
+#: see, run by the one person who deals in facts.
+AMBIENT = 1.12
 
 
 def plan() -> list[PlannedSurface]:
@@ -85,6 +89,7 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     glass = palette.family("sky")
     brass = palette.family("accent_gold")
     ember = palette.family("accent_rust")
+    ochre = palette.family("ochre")
     pine = palette.family("pine_weathered")
 
     # -- the shell ---------------------------------------------------------
@@ -108,23 +113,38 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
 
     # -- the counter, across the middle distance ----------------------------
     counter_y = 90
-    furniture.service_counter(canvas, palette, 64, counter_y, 196, 26,
-                              bone, grey, brass, rng, window=(158, 30))
+    # Counter offset left and the grille well off centre. Dead-centre
+    # counter with mirrored shelves either side reads as mechanical, which
+    # is a different thing from precise -- symmetry is a machine, and this
+    # room is a person who is very good at her job.
+    furniture.service_counter(canvas, palette, 48, counter_y, 190, 26,
+                              bone, grey, brass, rng, window=(186, 28))
 
     # -- behind the counter: shelves of vials, in rank ----------------------
-    furniture.vial_shelves(canvas, palette, BOX.back_left + 4, BOX.back_top + 8,
-                           58, 46, grey, glass, bone, rng, ranks=3)
-    furniture.vial_shelves(canvas, palette, BOX.back_left + 68, BOX.back_top + 8,
-                           54, 46, grey, glass, bone, rng, ranks=3)
+    # Unequal banks at unequal heights -- one tall case of four ranks and one
+    # short of two, not a mirrored pair.
+    furniture.vial_shelves(canvas, palette, BOX.back_left + 2, BOX.back_top + 6,
+                           74, 52, grey, glass, ochre, rng, ranks=4)
+    furniture.vial_shelves(canvas, palette, BOX.back_left + 82, BOX.back_top + 22,
+                           40, 34, grey, glass, ochre, rng, ranks=2)
 
     # -- on the counter -----------------------------------------------------
     # The dome sits on the counter top: above a near actor's head, behind a
     # far actor's. That placement is the 17c pre-check's finding made
     # geometric rather than left to chance.
-    furniture.balance_under_dome(canvas, palette, 94, counter_y - 22, 24, 23,
+    furniture.balance_under_dome(canvas, palette, 76, counter_y - 22, 24, 23,
                                  bone, brass, grey)
-    furniture.ledger_stack(canvas, palette, 214, counter_y - 1, 22, 4, grey, bone)
-    furniture.ledger_stack(canvas, palette, 66, counter_y - 1, 18, 3, grey, bone)
+    furniture.ledger_stack(canvas, palette, 132, counter_y - 1, 22, 4, grey, bone)
+    furniture.ledger_stack(canvas, palette, 52, counter_y - 1, 16, 2, grey, bone)
+
+    # -- the loose floorboard -----------------------------------------------
+    # Doc 05: "A floorboard. It sits a little proud of the others." Winnie's
+    # second ledger is under it and Act II turns on it, so it exists in the
+    # art and is a registered hotspot -- but it is two pixels of highlight,
+    # findable and not advertised.
+    global FLOORBOARD_RECT
+    FLOORBOARD_RECT = (196, 126, 42, 6)
+    furniture.proud_floorboard(canvas, palette, 196, 128, 42, bone)
 
     # -- the stove, cold iron -----------------------------------------------
     stove_door = furniture.pot_stove(canvas, palette, 30, 96, 15, 24, grey, ember,
@@ -166,10 +186,15 @@ def build_light(stove_door: tuple[int, int]) -> LightField:
     for shaft in shafts():
         field.add_shaft(shaft)
     win_x, win_y, win_w, win_h = WINDOW
-    field.add_lamp(Lamp(x=win_x, y=win_y + win_h // 2, radius=90, intensity=0.42, squash=1.1))
+    field.add_lamp(Lamp(x=win_x, y=win_y + win_h // 2, radius=110, intensity=0.50, squash=1.1))
     field.add_lamp(Lamp(x=stove_door[0], y=stove_door[1], radius=22, intensity=0.26, squash=1.2))
     # The counter is the working surface and gets the light that matters.
-    field.add_lamp(Lamp(x=160, y=88, radius=110, intensity=0.20, squash=2.0))
+    # Two working lamps over the counter -- this is a bench you read colour
+    # at, so it gets more light than anything else in the building.
+    field.add_lamp(Lamp(x=120, y=86, radius=96, intensity=0.30, squash=1.9))
+    field.add_lamp(Lamp(x=214, y=86, radius=96, intensity=0.26, squash=1.9))
+    # And the vial case, lit deliberately so the work in it is legible.
+    field.add_lamp(Lamp(x=160, y=48, radius=104, intensity=0.30, squash=1.4))
     field.scale_below(BOX.back_bottom, 0.98)
     return field
 
