@@ -335,8 +335,9 @@ def window(
 
         # A raking reflection. Length, start and side vary per window, or
         # a terrace of them reads as one stamp repeated.
-        run = rng.randrange(max(2, inner_h // 2), inner_h + 1)
-        start = rng.randrange(0, max(1, inner_h - run + 1))
+        span = max(3, inner_h)
+        run = rng.randrange(max(2, span // 2), span + 1)
+        start = rng.randrange(0, max(1, span - run + 1))
         flip = rng.random() < 0.4
         for step in range(run):
             col = (inner_w - 1 - step) if flip else step
@@ -646,3 +647,53 @@ def building(
         door_h = min(30, usable_h - 4)
         dx = x + int(width * door_at) - door_w // 2
         door(canvas, dx, body_y + body_h - door_h, door_w, door_h, wall, rng, base=wall_tone - 0.10)
+
+
+def ridge_range(
+    canvas: IndexedCanvas,
+    ramp: Ramp,
+    tone: float,
+    baseline: int,
+    crest_min: int,
+    crest_max: int,
+    rng: random.Random,
+    *,
+    step: int = 18,
+    feather: int = 5,
+) -> None:
+    """One range of hills with a dithered top edge.
+
+    Aerial perspective is the whole job here: distance is read as *loss of
+    contrast*, not as a different colour. A far range is therefore drawn a
+    hair below the sky's own value, and its crest dissolves into the sky over
+    a few rows instead of landing on a hard line -- a crisp silhouette at the
+    back of a picture reads as nearer than everything in front of it.
+    """
+    points: list[tuple[int, int]] = []
+    col = -step
+    while col < canvas.width + step * 2:
+        points.append((col, rng.randint(crest_min, crest_max)))
+        col += step
+
+    for col in range(canvas.width):
+        crest = points[-1][1]
+        for index in range(len(points) - 1):
+            x0, y0 = points[index]
+            x1, y1 = points[index + 1]
+            if x0 <= col <= x1:
+                blend = (col - x0) / max(1, x1 - x0)
+                # Smoothstep, so ridges roll rather than zigzag.
+                eased = blend * blend * (3 - 2 * blend)
+                crest = int(y0 + (y1 - y0) * eased)
+                break
+        solid = ramp.frac(tone)
+        for row in range(crest, baseline + 1):
+            depth = row - crest
+            if depth < feather:
+                # Only the crest dithers, and it dithers into whatever is
+                # already behind it. Dithering the whole body against a sky of
+                # almost the same value produces a checkerboard that reads as
+                # texture -- the exact failure the haze band had twice.
+                if BAYER8.threshold(col, row) > (depth + 0.5) / feather:
+                    continue
+            canvas.put(col, row, solid)

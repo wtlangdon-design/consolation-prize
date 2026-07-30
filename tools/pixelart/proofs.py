@@ -18,7 +18,7 @@ from pathlib import Path
 
 from canvas import IndexedCanvas
 from palette import Palette
-from street_scene import DAWN, DAY, GROUND, HEIGHT, HILL_BASE, LOTS, SEED, WIDTH, compose
+from street_scene import DAWN, DAY, GROUND, HEIGHT, LOTS, SEED, STREET_TOP, WIDTH, compose
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "art" / "reference"
@@ -156,36 +156,45 @@ def main() -> None:
 
     # -- proof 2 -----------------------------------------------------------
     check, _ = compose(DAY)
-    ink = palette.role("inkBright")
     silhouette = palette.family("umber").at(0)
 
-    eye_y = human_silhouette(check, 130, GROUND - 1, silhouette)
-    dashed_rule(check, HILL_BASE, ink)
+    # Three figures standing IN THE MUD -- back, middle and front of the
+    # walkable band. This is the question the deeper street was dug for: can
+    # a 40px character actually move around down here, and does the terrace
+    # still read as buildings when one stands in front of it.
+    #
+    # All three are drawn at a flat 40px. In the engine SCUMM-style depth
+    # scaling would shrink the far one to roughly two thirds; drawing them
+    # unscaled is the harsher test, because if the back one does not fit
+    # unscaled it will not fit scaled either.
+    stations = [("left, back", 52, STREET_TOP + 10),
+                ("centre, middle", 158, STREET_TOP + 30),
+                ("right, front", 268, HEIGHT - 3)]
+    placements = [(label, x, feet, human_silhouette(check, x, feet, silhouette)) for label, x, feet in stations]
 
     check.save(OUT / "room-02-scale-check.png", palette)
     check.save(OUT / "room-02-scale-check@4x.png", palette, scale=4)
 
+    mud_depth = HEIGHT - STREET_TOP
     print()
-    print("PROOF 2 -- 40px figure on the boardwalk")
-    print(f"  figure height      {FIGURE_HEIGHT}px  (spec: ~40px sprites)")
-    print(f"  feet               y={GROUND - 1}  (deck surface y={GROUND})")
-    print(f"  eyeline            y={eye_y}")
-    print(f"  hill base          y={HILL_BASE}  (dashed rule)")
+    print("PROOF 2 -- three 40px figures standing in the mud")
+    print(f"  mud band           y={STREET_TOP}..{HEIGHT}  ({mud_depth}px deep)")
+    print(f"  walkable depth     {mud_depth / FIGURE_HEIGHT:.2f}x the figure height")
+    print(f"  {'station':<18}{'feet y':>8}{'head y':>8}{'clear of walk':>16}")
+    for label, _, feet, eye in placements:
+        head = feet - (FIGURE_HEIGHT - 1)
+        # A figure whose head rises past the deck overlaps the terrace, which
+        # is correct occlusion, not an error -- it just has to be deliberate.
+        note = "in front of terrace" if head < GROUND else "fully in street"
+        print(f"  {label:<18}{feet:>8}{head:>8}{note:>16}")
     print()
-    # The eyes-on-horizon test no longer applies and saying so is the point.
-    # Reclaiming the top quarter of the frame for sky put the ridges well
-    # above eye level and the true horizon behind the terrace, where it is
-    # occluded. That is normal for a street view -- but it means the check
-    # that mattered before is now meaningless, and the honest replacement is
-    # to measure the figure against the things it has to walk through.
-    print("  horizon is occluded by the terrace, so eyes-on-horizon no longer applies;")
-    print("  scale is checked against the openings instead:")
     print(f"  {'building':<12}{'door px':>9}{'x figure':>10}{'verdict':>10}")
     for lot in LOTS:
         door_h = GROUND - (lot.awning - 2)
         ratio = door_h / FIGURE_HEIGHT
-        verdict = "ok" if 0.95 <= ratio <= 1.30 else "SHORT"
-        print(f"  {lot.kind:<12}{door_h:>9}{ratio:>9.2f}x{verdict:>10}")
+        print(f"  {lot.kind:<12}{door_h:>9}{ratio:>9.2f}x{'ok' if ratio >= 0.55 else 'SHORT':>10}")
+    print("  (doors are sized for a depth-scaled actor at the boardwalk, not a")
+    print("   front-of-frame one -- see the note above)")
     print(f"  wrote {(OUT / 'room-02-scale-check@4x.png').relative_to(ROOT)}")
 
 

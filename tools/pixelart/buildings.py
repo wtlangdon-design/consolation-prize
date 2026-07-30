@@ -383,3 +383,96 @@ def display_window(
 
     canvas.rect(x - 1, y + height - 1, width + 2, 2, frame.frac(min(0.95, tone + 0.12)))
     cast_shadow(canvas, palette, x - 1, y + height + 1, width + 2, 2, steps=2)
+
+
+# ---------------------------------------------------------------------------
+# Window treatments
+# ---------------------------------------------------------------------------
+
+
+def dress_window(
+    canvas: IndexedCanvas,
+    palette: Palette,
+    x: int,
+    y: int,
+    width: int,
+    height: int,
+    ramp: Ramp,
+    treatment: str,
+    rng: random.Random,
+    *,
+    tone: float = 0.50,
+) -> None:
+    """Shutters, boarding, a blind or curtains, over an already-drawn window.
+
+    Six identical windows on a street is the clearest tell that a facade was
+    generated rather than built. Treatments cost almost nothing and break the
+    repeat, and each one says something: boarding says the tenant left,
+    curtains say somebody sleeps there.
+    """
+    if treatment == "shutters":
+        for side, sx in ((-1, x - 4), (1, x + width)):
+            canvas.rect(sx, y, 4, height, ramp.frac(tone))
+            canvas.vline(sx if side < 0 else sx + 3, y, height, ramp.frac(max(0.04, tone - 0.28)))
+            canvas.hline(sx, y, 4, ramp.frac(min(0.95, tone + 0.20)))
+            for slat in range(y + 2, y + height - 1, 3):
+                canvas.hline(sx + 1, slat, 2, ramp.frac(max(0.05, tone - 0.18)))
+            cast_shadow(canvas, palette, sx + 4, y, 2, height, steps=1)
+
+    elif treatment == "boarded":
+        for index in range(3):
+            offset = y + 3 + index * (height // 3)
+            canvas.line(x - 1, offset + 3, x + width, offset - 2, ramp.frac(min(0.95, tone + 0.16)))
+            canvas.line(x - 1, offset + 4, x + width, offset - 1, ramp.frac(max(0.05, tone - 0.20)))
+            canvas.put(x, offset + 3, ramp.frac(max(0.03, tone - 0.34)))
+            canvas.put(x + width - 1, offset - 1, ramp.frac(max(0.03, tone - 0.34)))
+
+    elif treatment == "blind":
+        drop = max(3, int(height * 0.55))
+        canvas.rect(x + 2, y + 2, width - 4, drop, ramp.frac(min(0.95, tone + 0.10)))
+        for slat in range(y + 3, y + 2 + drop, 2):
+            canvas.hline(x + 2, slat, width - 4, ramp.frac(max(0.05, tone - 0.14)))
+        canvas.hline(x + 2, y + 2 + drop, width - 4, ramp.frac(max(0.03, tone - 0.30)))
+
+    elif treatment == "curtain":
+        for side in (0, 1):
+            cx = x + 2 if side == 0 else x + width - 5
+            for row in range(height - 4):
+                across = row / max(1, height - 5)
+                span = max(1, int(3 - across * 2))
+                canvas.rect(cx if side == 0 else cx + 3 - span, y + 2 + row, span, 1,
+                            ramp.frac(min(0.95, tone + 0.24 - across * 0.10)))
+        canvas.hline(x + 2, y + 2, width - 4, ramp.frac(min(0.95, tone + 0.26)))
+
+
+def ghost_lettering(
+    canvas: IndexedCanvas,
+    x: int,
+    y: int,
+    width: int,
+    height: int,
+    board: Ramp,
+    *,
+    board_tone: float,
+) -> None:
+    """Clean unfaded rectangles where gilt lettering was unscrewed.
+
+    Paint under a fixed letter does not fade, so removing the letters leaves
+    the original colour behind in the shape of the words. It is the absence
+    of text rather than text, which is why it can live in the art -- there is
+    nothing here for the engine to render, and nothing to translate.
+
+    Deliberately free of rng: this only appears in one scheme, and consuming
+    randomness in one and not the other would desynchronise the two rooms.
+    """
+    rhythm = (3, 2, 4, 2, 3, 3, 2, 4, 2, 3)
+    cursor = x + 3
+    for index, glyph_w in enumerate(rhythm):
+        if cursor + glyph_w > x + width - 3:
+            break
+        # Unfaded means *richer*, so a step down the ramp, not up.
+        canvas.rect(cursor, y + 2, glyph_w, max(2, height - 4), board.frac(max(0.04, board_tone - 0.26)))
+        # The screw holes that held it.
+        canvas.put(cursor, y + 2, board.frac(max(0.02, board_tone - 0.44)))
+        canvas.put(cursor + glyph_w - 1, y + height - 3, board.frac(max(0.02, board_tone - 0.44)))
+        cursor += glyph_w + 2

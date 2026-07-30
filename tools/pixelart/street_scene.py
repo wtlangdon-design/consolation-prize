@@ -7,12 +7,14 @@ the same street. See rng_sync in proofs.py.
 
 Vertical budget for 320x144, which is tight and had to be argued about:
 
-    0  - 32   sky and distant hills, unbroken across most of the width (22%)
-    30 - 44   false-front parapets stand against it; the hotel alone goes high
-    ~56- 68   porch awnings, varying per building
-    104       boardwalk deck
-    104-114   the walk itself
-    116-144   mud (28px, trimmed back from 36)
+    0  - 20   open sky, palest at the horizon
+    14 - 32   far range: barely darker than the sky, crest dithered into it
+    24 - 42   near range: greener, still lighter than any building
+    18 - 44   parapets, deliberately ragged -- 33px to 59px of false front
+    ~40- 56   porch awnings
+    77        boardwalk deck
+    77 - 86   the walk itself
+    88 -144   mud, 56px, deep enough for a character to move in
 
 Every building is a false front: a tall decorative board nailed to a shallow
 shed. The parapets are stepped so the real roof shows in the notch above each
@@ -31,6 +33,8 @@ from dataclasses import dataclass, field
 
 from buildings import (
     balcony,
+    dress_window,
+    ghost_lettering,
     batwing_doors,
     cast_shadow,
     display_window,
@@ -43,7 +47,7 @@ from clutter import crate_stack, lumber_stack, laundry_line, leaning_tools, rope
 from components import (
     barrel,
     boardwalk,
-    distant_hills,
+    ridge_range,
     door,
     hitching_rail,
     mud_street,
@@ -56,14 +60,16 @@ from palette import Palette
 
 WIDTH, HEIGHT = 320, 144
 
-HILL_BASE = 32        # ridges sit down here; the true horizon is behind the terrace
-GROUND = 108          # top of the boardwalk deck
-WALK_DEPTH = 10
-POST_FOOT = GROUND + 8
-STREET_TOP = GROUND + WALK_DEPTH + 2
+SKY_OPEN = 20         # nothing but sky above this
+FAR_BASE = 36         # where the far range sits down
+NEAR_BASE = 47        # where the near range sits down
+HILL_BASE = NEAR_BASE
+GROUND = 77           # top of the boardwalk deck
+WALK_DEPTH = 9
+POST_FOOT = GROUND + 7
+STREET_TOP = GROUND + WALK_DEPTH + 2      # 88; leaves 56px of mud
 
-SHOULDER_DROP = 18    # parapet centre to shoulder: the sign panel
-ROOF_DROP = 8         # parapet centre to the real roof ridge behind it
+ROOF_DROP = 5         # parapet centre to the real roof ridge behind it
 
 SEED = 20250730
 
@@ -79,19 +85,32 @@ class Lot:
     weathering: float
     awning: int
     posts: int
+    shoulder_drop: int = 14
+    detail: str = "quiet"          # 'busy' lots earn their clutter; the rest rest
+    treatments: tuple[str, ...] = ()
     roof: str = "umber"
 
 
-# Six businesses, six widths, no two alike. The Improvement Company is cream
-# and everything either side of it is weathered grey-brown -- it reads as
-# expensive because it is the only maintained thing on the street.
+# Six businesses. Widths, parapet heights and detail are all deliberately
+# uneven: Consolation was put up in a hurry by different people with
+# different money, and a regular rhythm reads as wallpaper.
+#
+# Detail is concentrated at three places -- the store display, the saloon
+# porch and the Company frontage. Everything else is deliberately quiet.
+# The flat rests are not laziness; they are what lets the busy parts read.
 LOTS = [
-    Lot("store",      -8, 66, 38, "pine_weathered", 0.70, 1.0, 66, 4),
-    Lot("newspaper",  64, 32, 30, "umber",          0.64, 1.0, 70, 2),
-    Lot("saloon",    100, 60, 36, "pine_fresh",     0.56, 1.0, 62, 4),
-    Lot("company",   164, 50, 32, "bone",           0.84, 0.0, 68, 3, roof="grey"),
-    Lot("hotel",     218, 56, 10, "pine_weathered", 0.72, 1.0, 72, 4),
-    Lot("assay",     278, 50, 42, "umber",          0.70, 1.0, 68, 3),
+    Lot("store",      -8, 66, 36, "pine_weathered", 0.70, 1.0, 50, 4,
+        shoulder_drop=12, detail="busy",  treatments=("shutters",)),
+    Lot("newspaper",  64, 32, 24, "umber",          0.64, 1.0, 44, 2,
+        shoulder_drop=14, detail="quiet", treatments=("blind",)),
+    Lot("saloon",    100, 60, 32, "pine_fresh",     0.56, 1.0, 48, 4,
+        shoulder_drop=14, detail="busy",  treatments=("curtain", "curtain")),
+    Lot("company",   164, 50, 28, "bone",           0.74, 0.0, 46, 3,
+        shoulder_drop=14, detail="busy",  treatments=("blind", "blind"), roof="grey"),
+    Lot("hotel",     218, 56, 18, "pine_weathered", 0.72, 1.0, 54, 4,
+        shoulder_drop=14, detail="quiet", treatments=("curtain", "shutters")),
+    Lot("assay",     278, 50, 44, "umber",          0.70, 1.0, 56, 3,
+        shoulder_drop=8,  detail="quiet", treatments=("boarded",)),
 ]
 
 ALLEYS = [(58, 6, 0, 1), (96, 4, 1, 2), (160, 4, 2, 3), (214, 4, 3, 4), (274, 4, 4, 5)]
@@ -104,8 +123,11 @@ class Scheme:
     name: str
     sky_top: float
     sky_bottom: float
-    hill_family: str
-    haze_tone: float
+    far_hill: str
+    far_tone: float
+    near_hill: str
+    near_tone: float
+    ghost_lettering: bool
     facade_shift: float
     walk_base: float
     mud_shift: float
@@ -113,6 +135,10 @@ class Scheme:
     steeple_shift: float
     alley_tone: float
     shadow_steps: int
+    # Extra shift for pale facades. A cream building keeps its value when the
+    # sky loses two thirds of its own, so at dawn it would out-light the sky
+    # and invert the whole atmosphere. Caught by luminance_check.py.
+    pale_shift: float = 0.0
     swap: dict[str, str] = field(default_factory=dict)
 
     def family(self, palette: Palette, name: str):
@@ -121,10 +147,14 @@ class Scheme:
 
 DAY = Scheme(
     name="day",
-    sky_top=0.40,
-    sky_bottom=0.97,
-    hill_family="sage",
-    haze_tone=0.70,
+    sky_top=0.54,
+    sky_bottom=1.00,
+    far_hill="sky",
+    far_tone=0.84,
+    near_hill="sage",
+    near_tone=0.72,
+    ghost_lettering=False,
+    pale_shift=0.0,
     facade_shift=0.0,
     walk_base=0.62,
     mud_shift=0.0,
@@ -138,8 +168,12 @@ DAWN = Scheme(
     name="dawn",
     sky_top=0.12,
     sky_bottom=0.58,
-    hill_family="pine_green",
-    haze_tone=0.30,
+    far_hill="sky",
+    far_tone=0.44,
+    near_hill="sage",
+    near_tone=0.50,
+    ghost_lettering=True,
+    pale_shift=-0.30,
     facade_shift=-0.15,
     walk_base=0.40,
     mud_shift=-0.13,
@@ -217,7 +251,7 @@ def storefront(
 ) -> None:
     """One building: false front, sign panel, openings, porch."""
     wall = scheme.family(palette, lot.wall)
-    tone = max(0.06, lot.tone + scheme.facade_shift)
+    tone = max(0.06, lot.tone + scheme.facade_shift + (scheme.pale_shift if lot.wall == "bone" else 0.0))
     trim = scheme.family(palette, "bone") if lot.kind == "company" else wall
 
     shoulder_y = false_front(
@@ -232,7 +266,7 @@ def storefront(
         wall_tone=tone,
         weathering=lot.weathering,
         roof_family=scheme.swap.get(lot.roof, lot.roof),
-        shoulder_drop=SHOULDER_DROP,
+        shoulder_drop=lot.shoulder_drop,
         roof_drop=ROOF_DROP,
         trim=trim,
         battens=lot.kind != "company",
@@ -247,12 +281,34 @@ def storefront(
         lot.x + (lot.width - sign_w) // 2,
         lot.parapet + 6,
         sign_w,
-        SHOULDER_DROP - 8,
+        max(4, lot.shoulder_drop - 6),
         trim,
         tone=min(0.90, tone + (0.06 if lot.kind == "company" else 0.14)),
     )
 
+    if scheme.ghost_lettering and lot.kind == "company":
+        ghost_lettering(
+            canvas,
+            lot.x + (lot.width - sign_w) // 2,
+            lot.parapet + 6,
+            sign_w,
+            max(4, lot.shoulder_drop - 6),
+            trim,
+            board_tone=min(0.90, tone + 0.06),
+        )
+
     glass = scheme.family(palette, "grey")
+
+    treatment_index = [0]
+
+    def treat(wx: int, wy: int, ww: int, wh: int) -> None:
+        """Applies this lot's next window treatment, if it has any left."""
+        if treatment_index[0] >= len(lot.treatments):
+            return
+        dress_window(canvas, palette, wx, wy, ww, wh, wall,
+                     lot.treatments[treatment_index[0]], rng, tone=tone)
+        treatment_index[0] += 1
+
     open_top = lot.awning + 4
     open_h = GROUND - open_top
     # Door head tucks behind the awning; the porch is drawn later and overlaps it.
@@ -265,30 +321,38 @@ def storefront(
 
     elif lot.kind == "newspaper":
         window(canvas, lot.x + 4, open_top + 4, 12, open_h - 12, wall, glass, rng, panes=(2, 2))
+        treat(lot.x + 4, open_top + 4, 12, open_h - 12)
         door(canvas, lot.x + 18, door_top, 12, door_h, wall, rng, base=tone - 0.10)
 
     elif lot.kind == "saloon":
         batwing_doors(canvas, palette, lot.x + 22, door_top + 2, 18, door_h - 4, wall, rng, tone=tone - 0.04)
         window(canvas, lot.x + 5, open_top + 4, 13, open_h - 14, wall, glass, rng, panes=(2, 2))
+        treat(lot.x + 5, open_top + 4, 13, open_h - 14)
         window(canvas, lot.x + 43, open_top + 4, 13, open_h - 14, wall, glass, rng, panes=(2, 2))
+        treat(lot.x + 43, open_top + 4, 13, open_h - 14)
 
     elif lot.kind == "company":
         door(canvas, lot.x + 19, door_top, 16, door_h, wall, rng, base=tone - 0.18)
         window(canvas, lot.x + 4, open_top + 3, 12, open_h - 10, wall, glass, rng, panes=(2, 3))
+        treat(lot.x + 4, open_top + 3, 12, open_h - 10)
         window(canvas, lot.x + 35, open_top + 3, 12, open_h - 10, wall, glass, rng, panes=(2, 3))
+        treat(lot.x + 35, open_top + 3, 12, open_h - 10)
 
     elif lot.kind == "hotel":
         # Tall enough to have a real upper storey above the porch.
         window(canvas, lot.x + 8, shoulder_y + 2, 13, 17, wall, glass, rng, panes=(2, 3))
+        treat(lot.x + 8, shoulder_y + 2, 13, 17)
         window(canvas, lot.x + 25, shoulder_y + 2, 13, 17, wall, glass, rng, panes=(2, 3), lit=True)
         window(canvas, lot.x + 42, shoulder_y + 2, 12, 17, wall, glass, rng, panes=(2, 3))
+        treat(lot.x + 42, shoulder_y + 2, 12, 17)
         door(canvas, lot.x + 21, door_top, 16, door_h, wall, rng, base=tone - 0.12)
-        window(canvas, lot.x + 5, open_top + 4, 12, open_h - 12, wall, glass, rng, panes=(2, 2))
-        window(canvas, lot.x + 40, open_top + 4, 12, open_h - 12, wall, glass, rng, panes=(2, 2))
+        window(canvas, lot.x + 5, open_top + 2, 12, open_h - 5, wall, glass, rng, panes=(2, 2))
+        window(canvas, lot.x + 40, open_top + 2, 12, open_h - 5, wall, glass, rng, panes=(2, 2))
 
     else:  # assay
         door(canvas, lot.x + 16, door_top, 15, door_h, wall, rng, base=tone - 0.12)
-        window(canvas, lot.x + 33, open_top + 4, 13, open_h - 12, wall, glass, rng, panes=(2, 3))
+        window(canvas, lot.x + 33, open_top + 2, 13, open_h - 5, wall, glass, rng, panes=(2, 2))
+        treat(lot.x + 33, open_top + 2, 13, open_h - 5)
 
 
 # ---------------------------------------------------------------------------
@@ -306,31 +370,29 @@ def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng
     dust = scheme.family(palette, "dust")
     deck = GROUND + 7
 
-    # In front of the general store: sacks, crates and cut lumber.
+    # FOCAL POINT 1 -- the store display. Goods spill out onto the walk.
     sacks(canvas, palette, 2, deck, 3, dust, rng, tone=0.60)
     crate_stack(canvas, palette, 26, deck, fresh, rng, tone=0.56)
     lumber_stack(canvas, palette, 44, deck - 1, 15, 4, fresh, rng, tone=0.60)
 
-    # The newspaper keeps its bundles by the door.
-    crate_stack(canvas, palette, 76, deck - 2, umber, rng, tone=0.44)
+    # The newspaper is quiet: one bundle by the door and nothing else.
+    crate_stack(canvas, palette, 78, deck - 2, umber, rng, tone=0.44)
 
-    # Saloon: barrels, and one on its side.
+    # FOCAL POINT 2 -- the saloon porch.
     barrel(canvas, 104, deck - 16, 12, 16, fresh, grey, rng, base=0.46)
     barrel(canvas, 117, deck - 14, 11, 14, umber, grey, rng, base=0.40)
     barrel(canvas, 146, deck - 15, 11, 15, fresh, grey, rng, base=0.44)
 
-    # The Improvement Company keeps its frontage clear. That is the joke.
+    # FOCAL POINT 3 -- the Company frontage, detailed by being the only
+    # swept, painted, empty stretch of walk on the street. That is the joke,
+    # and it only works while the walk either side of it is full.
 
-    # Hotel: a trunk waiting to go somewhere, and rope.
-    crate_stack(canvas, palette, 258, deck - 1, umber, rng, tone=0.40)
-    rope_coil(canvas, palette, 246, deck, pine, rng, tone=0.54)
-
-    # Assay office: tools leaning where men left them.
+    # Hotel and assay office stay quiet: one prop each.
+    rope_coil(canvas, palette, 250, deck, pine, rng, tone=0.54)
     leaning_tools(canvas, palette, 300, deck, 3, pine, grey, rng)
-    sacks(canvas, palette, 284, deck, 2, dust, rng, tone=0.54)
 
     # Washing over the hotel balcony rail. Somebody is living up there.
-    laundry_line(canvas, palette, 226, 54, 40, pine, bone, rng)
+    laundry_line(canvas, palette, 226, 36, 40, pine, bone, rng)
 
 
 # ---------------------------------------------------------------------------
@@ -344,11 +406,17 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     canvas = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("sky").frac(0.5))
 
     # -- air, and plenty of it ---------------------------------------------
-    sky_gradient(canvas, 0, 0, WIDTH, HILL_BASE + 12, palette.family("sky"),
+    # Sky first, over the full height the terrace will later cover, and
+    # lightest at the horizon. Then two ranges, each only slightly darker
+    # than the air behind it. Nothing in the picture may out-light the sky:
+    # the moment a hill or a wall does, the frame lids over.
+    sky_gradient(canvas, 0, 0, WIDTH, NEAR_BASE + 14, palette.family("sky"),
                  top=scheme.sky_top, bottom=scheme.sky_bottom)
-    distant_hills(canvas, 0, HILL_BASE - 20, WIDTH, 20, palette.family(scheme.hill_family),
-                  rng, layers=4, amplitude=8)
-    distant_steeple(canvas, 140, HILL_BASE + 18, palette, scheme)
+    ridge_range(canvas, palette.family(scheme.far_hill), scheme.far_tone,
+                FAR_BASE, SKY_OPEN - 6, SKY_OPEN + 1, rng, step=24, feather=3)
+    ridge_range(canvas, palette.family(scheme.near_hill), scheme.near_tone,
+                NEAR_BASE, SKY_OPEN + 1, SKY_OPEN + 10, rng, step=16, feather=3)
+    distant_steeple(canvas, 140, NEAR_BASE + 10, palette, scheme)
 
     # -- alleys first, so facades overlap their edges ----------------------
     for gap_x, gap_w, left, right in ALLEYS:
@@ -379,7 +447,7 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
             for col in range(gap_x + 2, gap_x + gap_w + 6):
                 canvas.put(col, row, palette.lighten(canvas.get(col, row), 1))
 
-    balcony(canvas, palette, 220, 64, 52, scheme.family(palette, "pine_weathered"), rng,
+    balcony(canvas, palette, 220, 46, 52, scheme.family(palette, "pine_weathered"), rng,
             tone=max(0.06, 0.52 + scheme.facade_shift))
 
     # -- goods, tools, washing ---------------------------------------------
@@ -389,8 +457,8 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     mud_street(canvas, 0, STREET_TOP, WIDTH, HEIGHT - STREET_TOP, palette.family("mud"), rng,
                grit=palette.family(scheme.grit_family), tone_shift=scheme.mud_shift)
 
-    hitching_rail(canvas, 96, STREET_TOP + 6, 46, 12, pine, rng, base=max(0.06, 0.38 + scheme.facade_shift))
-    water_trough(canvas, 214, STREET_TOP + 8, 40, 12, pine, palette.family("sky"), rng,
+    hitching_rail(canvas, 96, STREET_TOP + 12, 46, 12, pine, rng, base=max(0.06, 0.38 + scheme.facade_shift))
+    water_trough(canvas, 214, STREET_TOP + 18, 40, 12, pine, palette.family("sky"), rng,
                  base=max(0.06, 0.34 + scheme.facade_shift))
 
     # The walk throws its own shadow onto the mud, offset right with the sun.
@@ -410,10 +478,16 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
         rut_x = rng.randrange(-10, WIDTH - 30)
         rut_y = lower + rng.randrange(0, HEIGHT - lower - 2)
         length = rng.randrange(34, 96)
+        # A rut is a depression, not a line: a lit lip where the wheel threw
+        # the mud up, a dark trough, and a dimmer far lip. Drawn as three
+        # values it reads as a hollow; drawn as one it reads as a scratch.
         for col in range(length):
             drift = (col // 24) % 2
-            canvas.put(rut_x + col, rut_y + drift, mud.frac(max(0.03, 0.10 + scheme.mud_shift)))
-            canvas.put(rut_x + col, rut_y + drift - 1, mud.frac(max(0.06, 0.44 + scheme.mud_shift)))
+            base_row = rut_y + drift
+            canvas.put(rut_x + col, base_row - 1, mud.frac(max(0.08, 0.56 + scheme.mud_shift)))
+            canvas.put(rut_x + col, base_row, mud.frac(max(0.03, 0.12 + scheme.mud_shift)))
+            canvas.put(rut_x + col, base_row + 1, mud.frac(max(0.03, 0.08 + scheme.mud_shift)))
+            canvas.put(rut_x + col, base_row + 2, mud.frac(max(0.05, 0.34 + scheme.mud_shift)))
 
     for _ in range(4):
         pool_w = rng.randrange(16, 40)
