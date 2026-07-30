@@ -103,8 +103,10 @@ The only exit is the road west into town, which arrives at Room 2. There is no b
 Six hotspots from doc 05, now with variants, overrides and the exit.
 
 ## THE TOWN SIGN
-**LOOK** 1 *(existing)* · 2 "The smallest number underneath is two hundred. Somebody was pleased with two hundred once." · 3 "POP. 2,000 AND CLIMBING. The 'and climbing' is painted in a different hand, and later."
-**LISTEN** 1 *(existing)* · 2 "Creaking. It would still like to be taken down." · 3 "Nothing. The wind has dropped and it has stopped complaining."
+**Reordered — supersedes doc 05's Room 1 sign entry.** Variant 1 must read the sign; the original opened on repainting before the player had been told what was painted.
+
+**LOOK** 1 "CONSOLATION — POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later." · 2 "The number has been repainted four times. You can see the smaller ones underneath, each of them once true." · 3 "The smallest number underneath is two hundred. Somebody was pleased with two hundred once."
+**LISTEN** 1 "It creaks. It would like to be taken down." · 2 "Creaking. It would still like to be taken down." · 3 "Nothing. The wind has dropped and it has stopped complaining."
 
 ## THE MUD
 **LOOK** 2 "It has come over the top of my boots, which I had not thought possible in the first minute." · 3 "Mud. I have been in this territory for ninety seconds and I have formed a view."
@@ -148,6 +150,8 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 ---
 
 ## Notes
+
+-1. **VARIANT 1 MUST STAND ALONE.** A general rule, discovered here and applying to every hotspot in every room. Most players examine an object once. Variant 1 has to work cold, assuming no prior knowledge — it establishes what the thing *is*. Variants 2 and 3 may assume the player has seen what came before, and should escalate, narrow, or complicate. An opening variant that depends on information only a later variant supplies reads as out-of-order even when the cycling is correct. Audit existing content against this.
 
 0. **Hob may be asked about Ezra Pike, once.** He does not stop walking. "Pike's up the hill." This is true — Pike is in Boot Hill — and Thad will not understand it until the undertaker says so plainly. It is Hob's only useful sentence in Act I and it costs him four words of his forty.
 1. **"Wouldn't stand there" is not a hint.** There is nothing wrong with where Thad is standing. Hob says it because Hob has been watching this street for twelve years and says small true-sounding things to strangers. A player who moves has lost nothing; a player who stays has lost nothing.
