@@ -44,6 +44,14 @@ TRANSPARENT = 0
 FRONT, SIDE, BACK = "front", "side", "back"
 VIEWS = (FRONT, SIDE, BACK)
 
+#: The two surfaces he walks on, and they are not the same walk. Most of
+#: this game happens in the street, so the mud gets the attention: a shorter
+#: stride, weight landing rather than being placed, boots standing a pixel
+#: or two into the surface instead of on top of it, and dried mud on the
+#: leather that the boardwalk does not put there.
+MUD, BOARDWALK = "mud", "boardwalk"
+SURFACES = (MUD, BOARDWALK)
+
 
 @dataclass(frozen=True)
 class Build:
@@ -299,12 +307,14 @@ def _collar_and_shirt(
     shoulder_y = top + build.shoulder
 
     if view == BACK:
-        # From behind, only the collar shows above the coat -- two pixels of
-        # it, in the shaded bone rather than the bright. At full width and
-        # full brightness it merged with the neck into a white band across
-        # his shoulders that read as a clerical collar.
-        left, _ = _span(cx, 2)
-        canvas.rect(left, neck_y, 2, 1, wardrobe.shirt_shade)
+        # From behind, the shirt collar shows as one line above the coat --
+        # in the shaded bone, not the bright. At full shoulder width and full
+        # brightness it merged with the neck into a white band that read as a
+        # clerical collar, so it stops short of the shoulder seams.
+        width = max(2, build.chest_w // 2)
+        left, _ = _span(cx, width)
+        canvas.rect(left, neck_y, width, 1, wardrobe.shirt_shade)
+        canvas.put(left, neck_y, wardrobe.collar)
         return
 
     if view == SIDE:
@@ -351,7 +361,7 @@ def _collar_and_shirt(
 
 def _legs(
     canvas: IndexedCanvas, build: Build, wardrobe: Wardrobe, cx: int, top: int,
-    view: str, stride: int = 0, lift: int = 0,
+    view: str, stride: int = 0, lift: int = 0, surface: str = MUD,
 ) -> None:
     """Trousers and boots. `stride` swings the legs for the walk cycle:
     positive puts the near leg forward."""
@@ -382,12 +392,25 @@ def _legs(
         shank = foot_top - hip - raise_by
         canvas.rect(x, hip, lw, shank, cloth)
         canvas.vline(x + lw - 1, hip, shank, wardrobe.trousers)
-        # Boot. Toe points the way he is facing, and it is always caked.
+        # Boot. Toe points the way he is facing.
         toe = 1 if view == SIDE and swing >= 0 else 0
-        canvas.rect(x - (0 if toe else 0), foot_top - raise_by, boot_w + toe,
-                    sole - foot_top + 1 - raise_by, leather)
-        canvas.hline(x, sole - raise_by, boot_w + toe, wardrobe.boot_caked)
+        boot_h = sole - foot_top + 1 - raise_by
+        canvas.rect(x, foot_top - raise_by, boot_w + toe, boot_h, leather)
         canvas.put(x, foot_top - raise_by, wardrobe.boot_lit)
+
+        if surface is MUD or surface == MUD:
+            # Dried mud, crusted up from the sole. On the boardwalk the same
+            # boot is clean leather -- two surface states, not one boot.
+            canvas.hline(x, sole - raise_by, boot_w + toe, wardrobe.boot_caked)
+            crust = sole - raise_by - 1
+            if boot_h >= 3:
+                canvas.put(x + 1, crust, wardrobe.boot_caked)
+                if boot_w + toe >= 4:
+                    canvas.put(x + boot_w + toe - 2, crust, wardrobe.boot_caked)
+            if build.height >= 40 and boot_h >= 4:
+                canvas.put(x + boot_w + toe - 1, crust - 1, wardrobe.boot_caked)
+        else:
+            canvas.hline(x, sole - raise_by, boot_w + toe, wardrobe.boot)
 
 
 def _arms(
@@ -464,11 +487,33 @@ def _coat(
     canvas.hline(hx0 + 1, hem_y, hx1 - hx0 - 1, wardrobe.coat_shade)
 
     if view == BACK:
-        # Centre vent and two waist buttons: the back of a frock coat is
-        # otherwise a featureless dark slab.
+        # Enough structure to stop it reading as a slab, and no more. In a
+        # lateral stage set he walks left and right; the back is for going
+        # through doors and a few scripted beats, so it does not earn a pass
+        # of its own.
+        #
+        # Centre vent, two waist buttons, a yoke seam across the shoulders,
+        # and the two seams where the sleeves join. The value break comes
+        # from lightening the lit half of the back panel by one ramp step,
+        # which is the same trick the buildings use across a flat wall.
+        for row in range(build.shoulder + 2, build.hem - 1):
+            width = _torso_width(build, row, view)
+            x0, _ = _span(cx, width)
+            canvas.rect(x0 + 1, top + row, max(1, width // 2 - 1), 1, wardrobe.coat_mid)
+
         canvas.vline(cx, top + build.skirt_top, build.hem - build.skirt_top, wardrobe.coat_shade)
         canvas.put(cx - 2, top + build.waist, wardrobe.coat_lit)
         canvas.put(cx + 1, top + build.waist, wardrobe.coat_lit)
+
+        yoke = top + build.shoulder + 2
+        yoke_w = _torso_width(build, build.shoulder + 2, view)
+        yx0, _ = _span(cx, yoke_w)
+        canvas.hline(yx0 + 1, yoke, yoke_w - 2, wardrobe.coat_shade)
+
+        seam_x = build.chest_w // 2 - 1
+        seam_len = build.waist - build.shoulder - 2
+        canvas.vline(cx - seam_x, yoke + 1, seam_len, wardrobe.coat_shade)
+        canvas.vline(cx + seam_x - 1, yoke + 1, seam_len, wardrobe.coat_shade)
     elif view == SIDE:
         # Only the front edge is drawn here. The trailing edge is left to
         # _shade_body, which knows the per-row taper: drawing it as one
@@ -479,17 +524,23 @@ def _coat(
 
 
 def draw(
-    palette: Palette, view: str = FRONT, height: int = 40,
-    stride: int = 0, lift: int = 0, arm: int = 0, skirt_lag: int = 0, bob: int = 0,
+    palette: Palette, view: str = FRONT, height: int = 40, surface: str = MUD,
+    stride: int = 0, lift: int = 0, arm: int = 0, skirt_lag: int = 0,
 ) -> IndexedCanvas:
-    """One Thad, on a transparent canvas of his own."""
+    """One Thad, on a transparent canvas of his own, standing on nothing.
+
+    How far he stands INTO a surface is not decided here -- see _submerge.
+    An earlier version dropped the whole figure by a "bob" on the weight
+    frames, which lowered the planted boot along with the body and read as
+    the ground moving rather than the man.
+    """
     build = BUILDS[height]
     wardrobe = Wardrobe(palette)
     canvas = IndexedCanvas(build.width, height + 1, fill=TRANSPARENT)
     cx = build.width // 2
-    top = bob
+    top = 0
 
-    _legs(canvas, build, wardrobe, cx, top, view, stride=stride, lift=lift)
+    _legs(canvas, build, wardrobe, cx, top, view, stride=stride, lift=lift, surface=surface)
     _coat(canvas, build, wardrobe, cx, top, view, skirt_lag=skirt_lag)
     _collar_and_shirt(canvas, build, wardrobe, cx, top, view)
     _arms(canvas, build, wardrobe, cx, top, view, swing=arm)
@@ -524,38 +575,120 @@ def _outline(canvas: IndexedCanvas, wardrobe: Wardrobe) -> None:
 #: Eight frames: contact, down, pass, up, and the same again on the other leg.
 #: stride swings the legs, lift raises the trailing boot, arm counter-swings,
 #: skirt_lag trails the coat, bob drops the body on the down frames.
-#: Tuned down from a wider stride: at ±3 the legs split far enough to read
-#: as a man straddling something, and the swinging sleeve pulled clear of
-#: the coat and floated. A 40px figure has about two pixels of stride in it.
-WALK = [
-    dict(stride=2, lift=0, arm=-1, skirt_lag=-1, bob=0),   # contact, left fwd
-    dict(stride=1, lift=0, arm=-1, skirt_lag=-1, bob=1),   # down
-    dict(stride=0, lift=1, arm=0, skirt_lag=0, bob=1),     # pass
-    dict(stride=-1, lift=1, arm=1, skirt_lag=0, bob=0),    # up
-    dict(stride=-2, lift=0, arm=1, skirt_lag=1, bob=0),    # contact, right fwd
-    dict(stride=-1, lift=0, arm=1, skirt_lag=1, bob=1),    # down
-    dict(stride=0, lift=1, arm=0, skirt_lag=0, bob=1),     # pass
-    dict(stride=1, lift=1, arm=-1, skirt_lag=0, bob=0),    # up
+#: On the boardwalk: a full stride on a hard surface, feet planted, nothing
+#: sinking. Tuned down from ±3, where the legs split far enough to read as a
+#: man straddling something. A 40px figure has about two pixels of stride.
+WALK_BOARDWALK = [
+    dict(stride=2, lift=0, arm=-1, skirt_lag=-1, sink=0),   # contact, left fwd
+    dict(stride=1, lift=0, arm=-1, skirt_lag=-1, sink=0),   # down
+    dict(stride=0, lift=1, arm=0, skirt_lag=0, sink=0),     # pass
+    dict(stride=-1, lift=1, arm=1, skirt_lag=0, sink=0),    # up
+    dict(stride=-2, lift=0, arm=1, skirt_lag=1, sink=0),    # contact, right fwd
+    dict(stride=-1, lift=0, arm=1, skirt_lag=1, sink=0),    # down
+    dict(stride=0, lift=1, arm=0, skirt_lag=0, sink=0),     # pass
+    dict(stride=1, lift=1, arm=-1, skirt_lag=0, sink=0),    # up
 ]
 
+#: In the mud: a shorter stride, because nobody strides in it, and weight
+#: that lands rather than being placed. `sink` is how far the boot stands
+#: into the surface -- deepest on the contact and down frames, where the
+#: weight arrives, and back to one on the pass, where he is pulling a foot
+#: out of it. He is never fully on top of the mud, which is the point.
+#: A boot is four pixels tall at 40px, so the sink has to stay at one or two
+#: or it stops reading as a boot standing in mud and starts reading as a man
+#: with no boots. The one-pixel swing between the contact and the weight
+#: frame is the drop; at this size one pixel is a real drop.
+WALK_MUD = [
+    dict(stride=1, lift=0, arm=-1, skirt_lag=-1, sink=1),   # contact, left fwd
+    dict(stride=1, lift=0, arm=-1, skirt_lag=-1, sink=2),   # down, weight lands
+    dict(stride=0, lift=1, arm=0, skirt_lag=0, sink=1),     # pass
+    dict(stride=-1, lift=1, arm=1, skirt_lag=0, sink=1),    # up, foot clearing
+    dict(stride=-1, lift=0, arm=1, skirt_lag=1, sink=1),    # contact, right fwd
+    dict(stride=-1, lift=0, arm=1, skirt_lag=1, sink=2),    # down, weight lands
+    dict(stride=0, lift=1, arm=0, skirt_lag=0, sink=1),     # pass
+    dict(stride=1, lift=1, arm=-1, skirt_lag=0, sink=1),    # up, foot clearing
+]
 
-def walk_frame(palette: Palette, index: int, height: int = 40, view: str = SIDE) -> IndexedCanvas:
-    return at_height(palette, view=view, height=height, **WALK[index % len(WALK)])
+WALKS = {MUD: WALK_MUD, BOARDWALK: WALK_BOARDWALK}
+
+#: How far a standing figure stands into each surface.
+STANDING_SINK = {MUD: 1, BOARDWALK: 0}
+
+#: Kept for callers that only want the frame count.
+WALK = WALK_MUD
 
 
-def at_height(palette: Palette, view: str = FRONT, height: int = 40, **motion) -> IndexedCanvas:
+def walk_frame(
+    palette: Palette, index: int, height: int = 40, view: str = SIDE,
+    surface: str = MUD,
+) -> IndexedCanvas:
+    cycle = WALKS[surface]
+    return at_height(
+        palette, view=view, height=height, surface=surface, **cycle[index % len(cycle)]
+    )
+
+
+def at_height(
+    palette: Palette, view: str = FRONT, height: int = 40,
+    surface: str = MUD, sink: int | None = None, **motion,
+) -> IndexedCanvas:
     """The canonical figure at a drawn height. Use this, not draw().
 
     26px is not drawn from scratch: it is the 32px figure reduced and then
     corrected, which is what reduce_and_correct() does. Routing every caller
     through here is what stops two different 26px Thads existing -- one on
     the reference sheet and a different one in the room.
+
+    `sink` is applied last, after any reduction, so the 26px figure stands
+    in the mud by the same rule as the other two rather than by a separately
+    tuned number that would drift out of agreement with them.
     """
-    if height != 26:
-        return draw(palette, view=view, height=height, **motion)
-    source = draw(palette, view=view, height=32, **motion)
-    _, corrected = reduce_and_correct(source, palette, view=view)
-    return corrected
+    depth = STANDING_SINK[surface] if sink is None else sink
+    if height == 26:
+        source = draw(palette, view=view, height=32, surface=surface, **motion)
+        _, figure = reduce_and_correct(source, palette, view=view)
+        # A 26px man is further away, so he sinks less of himself into the
+        # same mud. Scaling the sink with the drawn height keeps him standing
+        # at the same depth in world terms rather than the same pixel depth.
+        depth = round(depth * 26 / 40)
+    else:
+        figure = draw(palette, view=view, height=height, surface=surface, **motion)
+        if height != 40:
+            depth = round(depth * height / 40)
+    return _submerge(figure, depth)
+
+
+def _submerge(figure: IndexedCanvas, depth: int) -> IndexedCanvas:
+    """Removes the bottom `depth` rows of drawn content.
+
+    Standing IN a surface rather than on it, expressed the only way an
+    opaque sprite can express it: the buried rows are not drawn, so whatever
+    the room put there -- mud, a puddle, a rut -- is what shows.
+    """
+    if depth <= 0:
+        return figure
+    bottom = _content_bottom(figure)
+    if bottom is None:
+        return figure
+    keep = max(1, bottom + 1 - depth)
+    out = IndexedCanvas(figure.width, keep, fill=TRANSPARENT)
+    for y in range(keep):
+        for x in range(figure.width):
+            out.put(x, y, figure.pixels[y][x])
+    return out
+
+
+def _content_bottom(figure: IndexedCanvas) -> int | None:
+    """Last row holding any drawn pixel."""
+    for y in range(figure.height - 1, -1, -1):
+        if any(figure.pixels[y][x] != TRANSPARENT for x in range(figure.width)):
+            return y
+    return None
+
+
+def content_bottom(figure: IndexedCanvas) -> int:
+    """Public: the row a caller should align with the ground."""
+    return _content_bottom(figure) or figure.height - 1
 
 
 # -- the 26px reduction -----------------------------------------------------

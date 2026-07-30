@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 
 import actor
-from actor import BACK, FRONT, SIDE, VIEWS, WALK, Wardrobe
+from actor import BACK, FRONT, SIDE, VIEWS, WALK_BOARDWALK, WALK_MUD, Wardrobe
 from canvas import IndexedCanvas
 from palette import Palette
 from street_scene import DAY, compose
@@ -28,48 +28,64 @@ def _label_bar(canvas: IndexedCanvas, x: int, y: int, width: int, palette: Palet
     canvas.hline(x, y, width, palette.family("grey").at(6))
 
 
+def _ground_strip(
+    canvas: IndexedCanvas, palette: Palette, x: int, y: int, width: int, height: int,
+    index: int,
+) -> None:
+    """A band of surface to stand the walk cycle on.
+
+    Without one the sink is invisible -- a figure with its boots removed on a
+    blank background just looks like a figure with its boots removed.
+    """
+    canvas.rect(x, y, width, height, index)
+    canvas.hline(x, y + height - 1, width, palette.darken(index, 2))
+
+
 def reference_sheet(palette: Palette) -> IndexedCanvas:
     """Three views at three heights, the walk cycle, and the 26px workings."""
     wardrobe = Wardrobe(palette)
     bg = palette.family("grey").at(3)
     canvas = IndexedCanvas(320, 200, fill=bg)
 
-    # Band 1 -- three views, three heights.
+    # Band 1 -- three views, three heights, shown WHOLE. Surface is forced to
+    # the boardwalk so nothing is buried: this band is the character
+    # reference, and a sunk figure on a blank background is just a figure
+    # with its boots missing.
     x = 8
     for height in HEIGHTS:
         for view in VIEWS:
-            figure = actor.at_height(palette, view=view, height=height)
+            figure = actor.at_height(palette, view=view, height=height, surface=actor.BOARDWALK)
             canvas.blit(figure, x, 6 + (44 - height), transparent=actor.TRANSPARENT)
             x += figure.width + 2
         x += 6
     _label_bar(canvas, 4, 52, 312, palette)
 
-    # Band 2 -- the walk cycle at 40px.
+    # Band 2 -- the mud walk at 40px, on a strip of mud, with a ground line
+    # so the sink is visible. Judging it against a flat background hides the
+    # whole effect.
+    # The surface starts AT the baseline, so the buried rows fall into it.
+    _ground_strip(canvas, palette, 4, 94, 312, 8, palette.family("mud").at(8))
     x = 6
-    for index in range(len(WALK)):
-        frame = actor.walk_frame(palette, index, height=40)
-        canvas.blit(frame, x, 58, transparent=actor.TRANSPARENT)
+    for index in range(len(WALK_MUD)):
+        frame = actor.walk_frame(palette, index, height=40, surface=actor.MUD)
+        canvas.blit(frame, x, 94 - actor.content_bottom(frame), transparent=actor.TRANSPARENT)
         x += frame.width + 1
     _label_bar(canvas, 4, 102, 312, palette)
 
-    # Band 3 -- the walk cycle at 32px and 26px, so the smaller sizes are
-    # judged in motion rather than only standing still.
+    # Band 3 -- the same cycle on the boardwalk. Longer stride, feet on top
+    # of the surface, clean boots. The two bands are the comparison.
+    _ground_strip(canvas, palette, 4, 145, 312, 3, palette.family("pine_weathered").at(11))
     x = 6
-    for index in range(len(WALK)):
-        frame = actor.walk_frame(palette, index, height=32)
-        canvas.blit(frame, x, 108 + 8, transparent=actor.TRANSPARENT)
+    for index in range(len(WALK_BOARDWALK)):
+        frame = actor.walk_frame(palette, index, height=40, surface=actor.BOARDWALK)
+        canvas.blit(frame, x, 144 - actor.content_bottom(frame), transparent=actor.TRANSPARENT)
         x += frame.width + 1
-    x += 8
-    for index in range(0, len(WALK), 2):
-        small = actor.walk_frame(palette, index, height=26)
-        canvas.blit(small, x, 108 + 14, transparent=actor.TRANSPARENT)
-        x += small.width + 1
     _label_bar(canvas, 4, 148, 312, palette)
 
     # Band 4 -- the 26px workings: 32 source, raw reduction, corrected.
     x = 10
     for view in VIEWS:
-        source = actor.draw(palette, view=view, height=32)
+        source = actor.draw(palette, view=view, height=32, surface=actor.BOARDWALK)
         raw, corrected = actor.reduce_and_correct(source, palette, view=view)
         canvas.blit(source, x, 154, transparent=actor.TRANSPARENT)
         x += source.width + 2
@@ -110,38 +126,50 @@ def _heights_by_zone() -> dict[int, int]:
 
 def place(
     canvas: IndexedCanvas, palette: Palette, x: int, feet_y: int, height: int,
-    view: str = FRONT, frame: int | None = None,
+    view: str = FRONT, frame: int | None = None, surface: str = actor.MUD,
 ) -> IndexedCanvas:
     """Stands a figure with his soles on feet_y and returns what was drawn."""
     figure = (
-        actor.at_height(palette, view=view, height=height)
+        actor.at_height(palette, view=view, height=height, surface=surface)
         if frame is None
-        else actor.walk_frame(palette, frame, height=height, view=view)
+        else actor.walk_frame(palette, frame, height=height, view=view, surface=surface)
     )
-    top = feet_y - height + 1
+    # Bottom-align on what is actually drawn, not on the nominal height. A
+    # figure standing in the mud has had its buried rows removed, so its
+    # canvas is shorter than its height -- aligning by height would float him
+    # back out of the surface he was just sunk into.
+    top = feet_y - actor.content_bottom(figure)
     left = x - figure.width // 2
-    _contact_shadow(canvas, palette, figure, left, top)
+    _contact_shadow(canvas, palette, figure, left, top, surface)
     canvas.blit(figure, left, top, transparent=actor.TRANSPARENT)
     return figure
 
 
 def _contact_shadow(
     canvas: IndexedCanvas, palette: Palette, figure: IndexedCanvas, left: int, top: int,
+    surface: str = actor.MUD,
 ) -> None:
     """A shadow under the boots only, stepped down the ground's own ramp.
 
     Same rule as the street's cast shadows: a shadow is the same material
     with less light on it, never a black wash. Without it he hovers.
+
+    In the mud it goes two steps and a row deeper: a boot standing in a
+    surface displaces it, and the dark ring round the boot is what sells the
+    standing-in rather than the standing-on.
     """
-    sole = top + figure.height - 1
+    sole = top + actor.content_bottom(figure)
+    bottom = actor.content_bottom(figure)
     columns = [
         x for x in range(figure.width)
-        if any(figure.pixels[y][x] != actor.TRANSPARENT for y in range(figure.height - 4, figure.height))
+        if any(figure.pixels[y][x] != actor.TRANSPARENT
+               for y in range(max(0, bottom - 3), bottom + 1))
     ]
     if not columns:
         return
+    rings = ((0, 3), (1, 2), (2, 1)) if surface == actor.MUD else ((0, 2), (1, 1))
     for x in range(left + min(columns) - 1, left + max(columns) + 2):
-        for depth, steps in ((0, 2), (1, 1)):
+        for depth, steps in rings:
             y = sole - depth
             canvas.put(x, y, palette.darken(canvas.get(x, y), steps))
 
@@ -155,14 +183,21 @@ def room_composites(palette: Palette) -> tuple[IndexedCanvas, IndexedCanvas]:
     for zone, (x, feet) in sorted(spots.items()):
         height = heights.get(zone, 26)
         view = (FRONT, SIDE, BACK)[zone % 3] if zone != 99 else FRONT
-        place(standing, palette, x, feet, height, view=view)
+        place(standing, palette, x, feet, height, view=view, surface=_surface(zone))
 
     walking, _ = compose(DAY)
     for zone, (x, feet) in sorted(spots.items()):
         height = heights.get(zone, 26)
-        place(walking, palette, x, feet, height, view=SIDE, frame=2 + zone % 4)
+        place(walking, palette, x, feet, height, view=SIDE,
+              frame=2 + zone % 4, surface=_surface(zone))
 
     return standing, walking
+
+
+def _surface(zone: int) -> str:
+    """Which walk this region gets. The boardwalk is the only hard ground on
+    this screen; everything else is the street."""
+    return actor.BOARDWALK if zone == 99 else actor.MUD
 
 
 def contrast_report(palette: Palette) -> list[tuple[str, float, float, float, str]]:
