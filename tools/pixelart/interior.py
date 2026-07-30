@@ -311,3 +311,49 @@ def interior_window(
     canvas.hline(x - 3, y + height + 2, width + 6, frame.frac(min(0.95, base + 0.34)))
     canvas.hline(x - 3, y + height + 3, width + 6, frame.frac(base))
     canvas.hline(x, y + height - 1, width, glow.at(glow.count - 1))
+
+
+def plank_floor(
+    canvas: IndexedCanvas, box: Box, ramp: Ramp, rng, base: float = 0.34,
+    boards: int = 13,
+) -> None:
+    """A swept plank floor in perspective. The opposite of dirt_floor.
+
+    Boards run away from the viewer and converge, and their spacing tightens
+    with distance. Doc 05 calls this the tidiest room in the territory, so
+    the grain is regular and the only irregularity is wear along the line
+    people actually walk.
+    """
+    for y in range(box.back_bottom, box.height):
+        left = int(box.floor_left_at(y))
+        right = int(box.floor_right_at(y))
+        depth = (y - box.back_bottom) / max(1, box.height - box.back_bottom)
+        tone = base + 0.10 * depth          # nearer floor catches more light
+        for x in range(max(0, left), min(box.width, right)):
+            dither_pixel(canvas, x, y, ramp, max(0.04, tone), BAYER4)
+
+    # Board seams, converging on the vanishing point.
+    vanish_x, vanish_y = box.vanishing_x, box.vanishing_y
+    for index in range(boards + 1):
+        back_x = box.back_left + index * (box.back_right - box.back_left) / boards
+        # Extend the line from the vanishing point through the back-wall
+        # foot and on to the bottom of the frame.
+        run = box.back_bottom - vanish_y
+        if run == 0:
+            continue
+        scale = (box.height - vanish_y) / run
+        front_x = vanish_x + (back_x - vanish_x) * scale
+        canvas.line(int(back_x), box.back_bottom, int(front_x), box.height - 1,
+                    ramp.frac(max(0.03, base - 0.14)))
+
+    # Cross-joins, spaced wider as they come forward.
+    y, gap = box.back_bottom + 5, 5
+    while y < box.height:
+        left, right = int(box.floor_left_at(y)), int(box.floor_right_at(y))
+        canvas.hline(max(0, left), y, min(box.width, right) - max(0, left),
+                     ramp.frac(max(0.03, base - 0.09)))
+        gap = int(gap * 1.45)
+        y += gap
+
+    canvas.hline(box.back_left, box.back_bottom, box.back_right - box.back_left,
+                 ramp.frac(max(0.03, base - 0.20)))

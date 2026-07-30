@@ -85,12 +85,20 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     interior.doorway(canvas, door_x, door_y, door_w, 44, pine, dusk, base=0.34)
 
     # Doc 05: the handbill is pinned by the door, and nobody will read it.
-    furniture.handbill(canvas, palette, door_x + door_w + 5, door_y + 8, 9, 12, bone, rng)
+    #
+    # It was previously drawn at (91,46) and the portrait at (96,36), so the
+    # portrait covered half of it -- the Rules of the Assay, which carry the
+    # thesis of the game and sit on this wall for fifteen hours, were partly
+    # hidden behind a picture. Moved clear, enlarged, and given a dark ground
+    # so it is the brightest thing on that stretch of wall.
+    global HANDBILL_RECT
+    HANDBILL_RECT = (90, 42, 12, 16)
+    furniture.handbill(canvas, palette, *HANDBILL_RECT, bone, rng)
 
     # -- back wall furniture ------------------------------------------------
     furniture.staircase(canvas, palette, 178, BOX.back_top + 4, 60, BOX.back_bottom - BOX.back_top - 4,
                         fresh, rng, steps=9, rise_right=True)
-    furniture.framed_portrait(canvas, palette, 96, 36, 13, 17, umber, dusk, rng)
+    furniture.framed_portrait(canvas, palette, 128, 34, 14, 18, umber, dusk, rng)
     stove_x, stove_y = 106, BOX.back_bottom - 26
     stove_door = furniture.pot_stove(canvas, palette, stove_x, stove_y, 16, 26, grey, ember,
                                      flue_top=BOX.back_top)
@@ -112,10 +120,27 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     furniture.upright_piano(canvas, palette, 30, 68, 36, 34, fresh, bone, rng)
 
     # -- tables and chairs, midground, foreground left open ------------------
-    for tx, ty, tw in ((100, 98, 28), (156, 90, 22), (76, 118, 34)):
+    for index, (tx, ty, tw) in enumerate(((100, 98, 28), (156, 90, 22), (76, 118, 34))):
         furniture.rough_table(canvas, palette, tx, ty, tw, 11 + (ty - 90) // 5, umber, rng)
-        furniture.rough_chair(canvas, palette, tx - 6, ty - 3, 13, umber, facing=1)
-        furniture.rough_chair(canvas, palette, tx + tw + 2, ty - 3, 13, umber, facing=-1)
+        furniture.rough_chair(canvas, palette, tx - 6, ty - 3, 13, umber, facing=1,
+                              askew=(1, -1, 2)[index])
+        furniture.rough_chair(canvas, palette, tx + tw + 2, ty - 3, 13, umber, facing=-1,
+                              askew=(-2, 1, -1)[index])
+        # What the last people to sit here left on it.
+        if index == 0:
+            furniture.card_hand(canvas, palette, tx + 9, ty - 3, bone, rng)
+            furniture.left_glass(canvas, palette, tx + 3, ty, glass, rng)
+        elif index == 1:
+            furniture.standing_bottle(canvas, palette, tx + 6, ty, glass, height=7)
+            furniture.left_glass(canvas, palette, tx + 14, ty, glass, rng, drained=True)
+        else:
+            furniture.left_glass(canvas, palette, tx + 5, ty, glass, rng)
+            furniture.left_glass(canvas, palette, tx + 9, ty, glass, rng, drained=True)
+
+    # Coats and hats on the wall by the door -- the strongest evidence of
+    # people available without drawing any.
+    furniture.wall_hooks(canvas, palette, 246, 48, 5, fresh, rng, spacing=7)
+    furniture.wall_hooks(canvas, palette, 48, 46, 2, fresh, rng, spacing=8)
 
     # -- the chandelier, over the dirt floor ---------------------------------
     candles, ring_y = furniture.chandelier(canvas, palette, 150, 50, 58, brass, ochre,

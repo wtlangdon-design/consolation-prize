@@ -9,7 +9,7 @@
   "startRoom": "main_street",
   "rooms": [
     "content/rooms/main-street.json",
-    "content/rooms/stub-nugget.json",
+    "content/rooms/nugget.json",
     "content/rooms/stub-company.json",
     "content/rooms/stub-clarion.json",
     "content/rooms/stub-claims-road.json",

@@ -386,7 +386,7 @@
         32
       ],
       "colour": 40,
-      "to": "stub_nugget",
+      "to": "nugget",
       "responses": {
         "LOOK_AT": [
           {

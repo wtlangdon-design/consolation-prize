@@ -63,6 +63,18 @@ export function check() {
     const missing = thinVariants.reduce((sum, entry) => sum + (MIN_VARIANTS - entry.have), 0);
     report.fail(`${missing} repeat-selection lines missing (doc 05 wants ${MIN_VARIANTS} per hotspot verb)`);
     report.fail(`  ${thinVariants.length} of ${responses} examine responses have only one line`);
+    // Broken down by room, because "20 lines missing" is a number and
+    // "the Nugget needs its repeat variants" is something someone can act
+    // on. Room 2 got its variants in docs 13 and 14; the rooms below are
+    // waiting on the same treatment.
+    const byRoom = new Map();
+    for (const entry of thinVariants) {
+      const room = entry.where.split('/')[0];
+      byRoom.set(room, (byRoom.get(room) ?? 0) + (MIN_VARIANTS - entry.have));
+    }
+    for (const [room, count] of [...byRoom].sort((a, b) => b[1] - a[1])) {
+      report.fail(`  ${room}: ${count} lines, not yet in /docs`);
+    }
   }
   if (noFallback.length > 0) {
     const combinations = noFallback.reduce((sum, entry) => sum + entry.unhandled, 0);

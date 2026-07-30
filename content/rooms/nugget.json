@@ -1,0 +1,178 @@
+{
+  "schema": 1,
+  "id": "nugget",
+  "name": "THE BOUNTIFUL NUGGET",
+  "note": "Doc 05 Room 3. FIVE of eleven hotspots. Doc 05 gives complete LOOK and LISTEN for the handbill, piano, chandelier, bar and mirror; the stairs, faded portrait, spittoon, stove, window and patrons are marked '(full lines in the working script)' and that script is not in /docs. Those six are NOT here because they are not written down anywhere I can read -- see check-written-content. THE HANDBILL is the Rules of the Assay and carries Rule 3, the thesis of the game.",
+  "background": "art/backgrounds/room-03-nugget.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 82,
+  "walkable": [
+    {
+      "id": "floor_far",
+      "zone": 2,
+      "rect": [
+        44,
+        82,
+        170,
+        17
+      ]
+    },
+    {
+      "id": "floor_mid",
+      "zone": 1,
+      "rect": [
+        32,
+        99,
+        182,
+        19
+      ]
+    },
+    {
+      "id": "floor_near",
+      "zone": 0,
+      "rect": [
+        18,
+        118,
+        284,
+        26
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "handbill",
+      "name": "THE HANDBILL",
+      "rect": [
+        88,
+        40,
+        16,
+        20
+      ],
+      "colour": 203,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper. It has been on this wall a long time. It has stopped being read."
+          }
+        ]
+      }
+    },
+    {
+      "id": "piano",
+      "name": "THE PIANO",
+      "rect": [
+        26,
+        64,
+        42,
+        38
+      ],
+      "colour": 105,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An upright, hauled four hundred miles by mule, at a cost exceeding its value by an order of magnitude. Nobody here can play it."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "C-sharp is a semitone flat and has been for years. Nobody has noticed. I have made a note of it. I have made several notes of it."
+          }
+        ]
+      }
+    },
+    {
+      "id": "chandelier",
+      "name": "THE CHANDELIER",
+      "rect": [
+        120,
+        26,
+        60,
+        32
+      ],
+      "colour": 226,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A chandelier. Below it, a dirt floor. The two have never been introduced."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It ticks as it cools. It is the most expensive object in the territory and it is hanging over mud."
+          }
+        ]
+      }
+    },
+    {
+      "id": "bar",
+      "name": "THE BAR",
+      "rect": [
+        216,
+        86,
+        104,
+        32
+      ],
+      "colour": 108,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Mahogany. Genuinely. Somebody spent real money on the one surface everyone leans on."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Glasses. Talk. Somebody in the corner has told the same story four times and it has grown twice."
+          }
+        ]
+      }
+    },
+    {
+      "id": "mirror",
+      "name": "THE MIRROR",
+      "rect": [
+        246,
+        35,
+        72,
+        22
+      ],
+      "colour": 186,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "I look like a man who has recently been robbed and is being brave about it."
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Mirrors are silent, which is the only restraint they show."
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_street",
+      "name": "THE DOORS",
+      "rect": [
+        58,
+        36,
+        30,
+        46
+      ],
+      "colour": 198,
+      "to": "main_street",
+      "stub": true,
+      "responses": {},
+      "fallback": []
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+"""Room 5 — Assay Office, front. The small-room test, at 320x144.
+
+Room 3's box has a 234px back wall. This one has 128 -- barely half -- and
+that is the point: the perspective machinery was tuned on a wide room and
+was unproven at this width before Act I depended on it. A narrow back wall
+means the two side walls take almost two thirds of the frame, so the whole
+picture now rests on the receding planes rather than on the flat one.
+
+Ruling 17b identity: grey, bone, glass and brass. Cold precision. Not one
+warm family appears anywhere in this file, which is the hard guarantee that
+it cannot read as the Nugget rearranged -- but the other half of the
+separation is order. Every vial is the same height at the same spacing,
+every ledger is squared. The Nugget is a room where things were put down;
+this is a room where things were put away.
+
+Ruling 17c was run BEFORE any of this was composed, in surface_plan.py. It
+said the counter top, the balance dome, the ledger stack and the window card
+all land above 150 and that Thad's face fails against every one of them by
+23 to 75. So this is a coat room, and the composition is built knowing that:
+the dome is placed where no head reaches it.
+"""
+
+from __future__ import annotations
+
+import random
+from pathlib import Path
+
+import furniture
+import interior
+import lighting
+from canvas import IndexedCanvas
+from interior import Box
+from lighting import Lamp, LightField, Shaft
+from palette import Palette
+from surface_plan import PlannedSurface, audit_plan, thad_anchors
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / "art" / "reference"
+
+WIDTH, HEIGHT = 320, 144
+SEED = 18580617
+
+#: Half the Nugget's back wall. The small-room test.
+BOX = Box(
+    width=WIDTH, height=HEIGHT,
+    back_left=96, back_right=224, back_top=18, back_bottom=78,
+)
+
+#: A tall window on the right-hand wall. Cold north light, drawn from the
+#: sky family rather than bone -- an office that measures things for a
+#: living does not get the Nugget's amber.
+WINDOW = (250, 34, 22, 34)
+
+AMBIENT = 0.95
+
+
+def plan() -> list[PlannedSurface]:
+    """The room as a list of intended surfaces, for the 17c pre-check."""
+    return [
+        PlannedSurface("back wall", "grey", 0.34, AMBIENT),
+        PlannedSurface("side walls", "grey", 0.26, AMBIENT * 0.95),
+        PlannedSurface("plank floor", "bone", 0.30, AMBIENT * 0.92),
+        PlannedSurface("counter top", "bone", 0.62, AMBIENT * 1.10),
+        PlannedSurface("counter front", "grey", 0.30, AMBIENT),
+        PlannedSurface("shelf bank", "grey", 0.22, AMBIENT * 0.95),
+        PlannedSurface("vial rank", "sky", 0.55, AMBIENT),
+        # No head reaches the dome: it stands on the counter top, which puts
+        # it above a near actor's head and behind a far actor's.
+        PlannedSurface("balance dome", "bone", 0.92, AMBIENT * 1.25, behind_head=False),
+        PlannedSurface("ledger stack", "bone", 0.55, AMBIENT, behind_head=False),
+        PlannedSurface("stove, iron", "grey", 0.14, AMBIENT),
+        PlannedSurface("brass fittings", "accent_gold", 0.50, AMBIENT * 1.1),
+        PlannedSurface("window card", "bone", 0.90, AMBIENT * 1.15, behind_head=False),
+    ]
+
+
+def compose() -> tuple[IndexedCanvas, Palette, LightField]:
+    palette = Palette.load()
+    rng = random.Random(SEED)
+    canvas = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("void").at(0))
+
+    grey = palette.family("grey")
+    bone = palette.family("bone")
+    glass = palette.family("sky")
+    brass = palette.family("accent_gold")
+    ember = palette.family("accent_rust")
+    pine = palette.family("pine_weathered")
+
+    # -- the shell ---------------------------------------------------------
+    #
+    # pine_weathered is the right family HERE for exactly the reason it was
+    # wrong in the Nugget: saturation 0.17 reads cold, and cold is the brief.
+    # Ruling 17a cuts both ways.
+    # Ceiling deliberately shallow. There is genuinely nothing up there, so
+    # the answer is less of it rather than more detail in it.
+    interior.ceiling(canvas, BOX, grey, rng, base=0.14, beams=4)
+    interior.side_walls(canvas, BOX, grey, rng, base=0.26, board_spacing=18)
+    interior.back_wall(canvas, BOX, grey, rng, base=0.34, board=9, wainscot=0.20)
+    interior.plank_floor(canvas, BOX, bone, rng, base=0.30, boards=11)
+
+    # -- the window, on the right-hand wall ---------------------------------
+    win_x, win_y, win_w, win_h = WINDOW
+    interior.interior_window(canvas, win_x, win_y, win_w, win_h, pine, glass,
+                             panes=(2, 3), base=0.30)
+    # Doc 05: THE WINDOW SIGN. Blank, like every sign in this game.
+    furniture.pinned_card(canvas, palette, win_x - 14, win_y + 8, 10, 13, bone, rng)
+
+    # -- the counter, across the middle distance ----------------------------
+    counter_y = 90
+    furniture.service_counter(canvas, palette, 64, counter_y, 196, 26,
+                              bone, grey, brass, rng, window=(158, 30))
+
+    # -- behind the counter: shelves of vials, in rank ----------------------
+    furniture.vial_shelves(canvas, palette, BOX.back_left + 4, BOX.back_top + 8,
+                           58, 46, grey, glass, bone, rng, ranks=3)
+    furniture.vial_shelves(canvas, palette, BOX.back_left + 68, BOX.back_top + 8,
+                           54, 46, grey, glass, bone, rng, ranks=3)
+
+    # -- on the counter -----------------------------------------------------
+    # The dome sits on the counter top: above a near actor's head, behind a
+    # far actor's. That placement is the 17c pre-check's finding made
+    # geometric rather than left to chance.
+    furniture.balance_under_dome(canvas, palette, 94, counter_y - 22, 24, 23,
+                                 bone, brass, grey)
+    furniture.ledger_stack(canvas, palette, 214, counter_y - 1, 22, 4, grey, bone)
+    furniture.ledger_stack(canvas, palette, 66, counter_y - 1, 18, 3, grey, bone)
+
+    # -- the stove, cold iron -----------------------------------------------
+    stove_door = furniture.pot_stove(canvas, palette, 30, 96, 15, 24, grey, ember,
+                                     flue_top=int(BOX.ceiling_y_at(30)))
+
+    field = build_light(stove_door)
+    field.apply(canvas, palette)
+
+    # Sources are objects, not lit surfaces.
+    canvas.rect(win_x, win_y, win_w, win_h, glass.at(glass.count - 1))
+    for row in range(1, 3):
+        canvas.hline(win_x, win_y + row * win_h // 3, win_w, pine.frac(0.26))
+    canvas.vline(win_x + win_w // 2, win_y, win_h, pine.frac(0.26))
+
+    for shaft in shafts():
+        lighting.dust_motes(canvas, palette, shaft, rng, density=0.35)
+
+    return canvas, palette, field
+
+
+def shafts() -> list[Shaft]:
+    """Cold light from the right, falling left and down across the floor."""
+    win_x, win_y, win_w, win_h = WINDOW
+    return [
+        Shaft(x=win_x, y=win_y + 4, width=11, length=180,
+              dx=-0.80, dy=0.60, intensity=0.62, spread=0.12),
+    ]
+
+
+def build_light(stove_door: tuple[int, int]) -> LightField:
+    """Daylight, and not much else.
+
+    The Nugget needed ambient 0.80 because it is lit by candles. This room
+    has a big window and is open for business, so it starts near 1.0 -- the
+    difference in ambient between the two is as much of the identity
+    separation as the palette is.
+    """
+    field = LightField(WIDTH, HEIGHT, ambient=AMBIENT)
+    for shaft in shafts():
+        field.add_shaft(shaft)
+    win_x, win_y, win_w, win_h = WINDOW
+    field.add_lamp(Lamp(x=win_x, y=win_y + win_h // 2, radius=90, intensity=0.42, squash=1.1))
+    field.add_lamp(Lamp(x=stove_door[0], y=stove_door[1], radius=22, intensity=0.26, squash=1.2))
+    # The counter is the working surface and gets the light that matters.
+    field.add_lamp(Lamp(x=160, y=88, radius=110, intensity=0.20, squash=2.0))
+    field.scale_below(BOX.back_bottom, 0.98)
+    return field
+
+
+def main() -> None:
+    palette = Palette.load()
+    coat, face = thad_anchors(palette)
+    failures = audit_plan(palette, "ROOM 5 -- ASSAY OFFICE (plan, ruling 17c)",
+                          plan(), coat, face)
+    print()
+    canvas, _, _ = compose()
+    OUT.mkdir(parents=True, exist_ok=True)
+    canvas.save(OUT / "room-05-assay.png", palette)
+    canvas.save(OUT / "room-05-assay@4x.png", palette, scale=4)
+    print(f"wrote {(OUT / 'room-05-assay@4x.png').relative_to(ROOT)}")
+    print(f"colours used: {len(canvas.used_indices())}")
+    print(f"back wall {BOX.back_right - BOX.back_left}px wide "
+          f"(the Nugget's is 234) -- side walls take "
+          f"{WIDTH - (BOX.back_right - BOX.back_left)}px of the frame")
+    if failures:
+        raise SystemExit(f"plan failed on {failures} surface(s)")
+
+
+if __name__ == "__main__":
+    main()
