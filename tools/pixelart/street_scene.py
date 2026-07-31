@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import math
 import random
+from contextlib import contextmanager, nullcontext
 from dataclasses import dataclass, field
 
 from buildings import (
@@ -460,7 +461,8 @@ def storefront(
 # ---------------------------------------------------------------------------
 
 
-def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng: random.Random) -> None:
+def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme,
+                    rng: random.Random, tracked: bool = False) -> None:
     """Goods stacked outside, because nothing here has a back room."""
     pine = scheme.family(palette, "pine_weathered")
     umber = scheme.family(palette, "umber")
@@ -472,28 +474,37 @@ def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng
     deck = GROUND + 7
 
     # FOCAL POINT 1 -- the store display. Goods spill out onto the walk.
-    sacks(canvas, palette, 2, deck, 3, dust, rng, tone=0.60)
-    crate_stack(canvas, palette, 26, deck, fresh, rng, tone=0.56)
-    lumber_stack(canvas, palette, 44, deck - 1, 15, 4, fresh, rng, tone=0.60)
+    with (canvas.track("walk sacks 0") if tracked else nullcontext()):
+        sacks(canvas, palette, 2, deck, 3, dust, rng, tone=0.60)
+    with (canvas.track("walk crate_stack 1") if tracked else nullcontext()):
+        crate_stack(canvas, palette, 26, deck, fresh, rng, tone=0.56)
+    with (canvas.track("walk lumber_stack 2") if tracked else nullcontext()):
+        lumber_stack(canvas, palette, 44, deck - 1, 15, 4, fresh, rng, tone=0.60)
 
     # The newspaper is quiet: one bundle by the door and nothing else.
-    crate_stack(canvas, palette, 78, deck - 2, umber, rng, tone=0.44)
+    with (canvas.track("walk crate_stack 3") if tracked else nullcontext()):
+        crate_stack(canvas, palette, 92, deck - 2, umber, rng, tone=0.44)
 
     # FOCAL POINT 2 -- the saloon porch.
-    barrel(canvas, 104, deck - 16, 12, 16, fresh, grey, rng, base=0.46)
-    barrel(canvas, 117, deck - 14, 11, 14, umber, grey, rng, base=0.40)
-    barrel(canvas, 146, deck - 15, 11, 15, fresh, grey, rng, base=0.44)
+    with (canvas.track("walk barrel 4") if tracked else nullcontext()):
+        barrel(canvas, 100, deck - 16, 12, 16, fresh, grey, rng, base=0.46)
+    with (canvas.track("walk barrel 5") if tracked else nullcontext()):
+        barrel(canvas, 109, deck - 14, 11, 14, umber, grey, rng, base=0.40)
+    with (canvas.track("walk barrel 6") if tracked else nullcontext()):
+        barrel(canvas, 118, deck - 15, 11, 15, fresh, grey, rng, base=0.44)
 
     # FOCAL POINT 3 -- the Company frontage, detailed by being the only
     # swept, painted, empty stretch of walk on the street. That is the joke,
     # and it only works while the walk either side of it is full.
 
     # Hotel and assay office stay quiet: one prop each.
-    rope_coil(canvas, palette, 250, deck, pine, rng, tone=0.54)
+    with (canvas.track("walk rope_coil 7") if tracked else nullcontext()):
+        rope_coil(canvas, palette, 250, deck, pine, rng, tone=0.54)
     # Two, not three, and hard against the left edge of the assay front where
     # there is blank wall. At x300 they leaned across the door, which is the
     # thing the player has to be able to see.
-    leaning_tools(canvas, palette, 279, deck, 2, pine, grey, rng)
+    with (canvas.track("walk leaning_tools 8") if tracked else nullcontext()):
+        leaning_tools(canvas, palette, 268, deck, 2, pine, grey, rng)
 
     # The assay office step. One board proud of the walk, worn pale in the
     # middle where eleven weeks of assays have gone in and come out again. It
@@ -529,7 +540,8 @@ def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng
     ASSAY_DOOR_OPEN.vline(door_x + door_w - 4, door_y + 1, door_h - 1, pine.frac(0.22))
 
     # Washing over the hotel balcony rail. Somebody is living up there.
-    laundry_line(canvas, palette, 226, 36, 40, pine, bone, rng)
+    with (canvas.track("walk laundry_line 9") if tracked else nullcontext()):
+        laundry_line(canvas, palette, 222, 40, 44, pine, bone, rng)
 
 
 # ---------------------------------------------------------------------------
@@ -543,7 +555,7 @@ def palette_notice_x() -> int:
 
 
 def street_dressing(canvas: IndexedCanvas, palette: Palette, scheme: Scheme,
-                    rng: random.Random) -> None:
+                    rng: random.Random, tracked: bool = False) -> None:
     """Build item 3 for Room 2. The street had one composed band and two empty planes.
 
     Main Street already carried more than Room 1 -- six storefronts, a
@@ -571,16 +583,32 @@ def street_dressing(canvas: IndexedCanvas, palette: Palette, scheme: Scheme,
     grey = palette.family("grey")
     dust = palette.family("dust")
 
+    @contextmanager
+    def tag(name: str):
+        if tracked:
+            with canvas.track(name):
+                yield
+        else:
+            yield
+
     deck = GROUND + WALK_DEPTH - 1
 
     # -- goods pushed off the walk and into the street, overlapping the
     #    boardwalk edge. This is the join the old composition never made:
     #    two planes that meet along a ruled line and share nothing.
-    for x, w, h, ramp, tone in ((38, 15, 18, umber, 0.30), (52, 12, 14, pine, 0.34),
-                                (188, 14, 17, fresh, 0.36), (258, 13, 15, umber, 0.28)):
-        turned_barrel(canvas, x, STREET_TOP - h - 2, w, h, ramp, grey, rng, base=tone)
-    for x in (30, 66, 200, 272):
-        slumped_sack(canvas, x, STREET_TOP + 3, 13, 14, pine, rng, tone=0.30)
+    for index, (x, w, h, ramp, tone) in enumerate(
+            ((38, 15, 18, umber, 0.30), (52, 12, 14, pine, 0.34),
+             (188, 14, 17, fresh, 0.36), (258, 13, 15, umber, 0.28))):
+        with tag(f"kerb barrel {index}"):
+            turned_barrel(canvas, x, STREET_TOP - h - 2, w, h, ramp, grey, rng, base=tone)
+    # Each sack now leans against the barrel beside it rather than standing
+    # in its own space. Four sacks on one baseline with clear air between
+    # them is the exact pattern errata 32a forbids, and the fix is the same
+    # four sacks moved eight pixels.
+    for index, (x, top) in enumerate(((44, STREET_TOP - 3), (58, STREET_TOP + 1),
+                                      (194, STREET_TOP - 2), (264, STREET_TOP + 2))):
+        with tag(f"kerb sack {index}"):
+            slumped_sack(canvas, x, top + 6, 13, 14, pine, rng, tone=0.30)
 
     # -- the shadow the boardwalk throws. Two steps, hard, and it is what
     #    puts the terrace ON the street instead of behind it.
@@ -600,24 +628,29 @@ def street_dressing(canvas: IndexedCanvas, palette: Palette, scheme: Scheme,
 
     # -- spoil and stone at the frame edges, so the street runs off the
     #    picture rather than stopping at it.
-    for cx, cy, r in ((4, HEIGHT - 10, 11), (18, HEIGHT - 26, 7),
-                      (314, HEIGHT - 14, 12), (300, HEIGHT - 30, 8)):
-        organic_mass(canvas, cx, cy, r, max(2, r // 2), mud, rng, tone=0.20, lumps=3)
+    for index, (cx, cy, r) in enumerate(((4, HEIGHT - 10, 11), (14, HEIGHT - 20, 8),
+                                         (314, HEIGHT - 14, 12), (304, HEIGHT - 26, 9))):
+        with tag(f"edge spoil {index}"):
+            organic_mass(canvas, cx, cy, r, max(2, r // 2), mud, rng, tone=0.20, lumps=3)
 
     # -- a second wheel, half-sunk, at the far kerb. Curves, in a frame whose
     #    only one was in the foreground plane.
-    spoked_wheel(canvas, 118, STREET_TOP + 8, 9, grey, spokes=10, tone=0.22, squash=0.35)
+    with tag("sunk wheel"):
+        spoked_wheel(canvas, 62, STREET_TOP + 6, 9, grey, spokes=10, tone=0.22, squash=0.35)
 
     # -- the water butt under the hotel's downpipe, and a rope from the
     #    balcony rail. Verticals at the right, where the terrace has none.
-    turned_barrel(canvas, 246, GROUND - 22, 16, 20, pine, grey, rng, base=0.34, open_top=True)
+    with tag("hotel water butt"):
+        turned_barrel(canvas, 246, GROUND - 22, 16, 20, pine, grey, rng, base=0.34, open_top=True)
 
     # -- stacked cordwood against the west end, end-on. The left edge of the
     #    terrace stopped in mid-air.
-    for row in range(4):
-        for col in range(5 - row):
-            ellipse_shaded(canvas, 4 + col * 6 + row * 3, deck - 4 - row * 5, 3, 2, pine, 0.34)
-            ellipse_outline(canvas, 4 + col * 6 + row * 3, deck - 4 - row * 5, 3, 2, pine.frac(0.14))
+    with tag("cordwood"):
+        for row in range(4):
+            for col in range(5 - row):
+                ellipse_shaded(canvas, 4 + col * 6 + row * 3, deck - 4 - row * 5, 3, 2, pine, 0.34)
+                ellipse_outline(canvas, 4 + col * 6 + row * 3, deck - 4 - row * 5, 3, 2,
+                                pine.frac(0.14))
 
     # -- boot churn. Grain, not litter: single pixels, thickest where the
     #    boardwalk steps come down.
@@ -627,7 +660,7 @@ def street_dressing(canvas: IndexedCanvas, palette: Palette, scheme: Scheme,
         canvas.put(bx, by, mud.frac(max(0.05, 0.26 - 0.10 * rng.random())))
 
 
-def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
+def compose(scheme: Scheme, tracked: bool = False) -> tuple[IndexedCanvas, Palette]:
     palette = Palette.load()
     rng = random.Random(SEED)
     palette.shadow_tint = scheme.shadow_tint
@@ -683,7 +716,7 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     street_dog(canvas, 88, GROUND + 8, palette, scheme)
 
     # -- goods, tools, washing ---------------------------------------------
-    dress_boardwalk(canvas, palette, scheme, rng)
+    dress_boardwalk(canvas, palette, scheme, rng, tracked=tracked)
 
     # -- street ------------------------------------------------------------
     mud_street(canvas, 0, STREET_TOP, WIDTH, HEIGHT - STREET_TOP, scheme.family(palette, "mud"), rng,
@@ -748,7 +781,7 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     speckle(canvas, 0, HEIGHT - 16, WIDTH, 16, mud.frac(max(0.04, 0.16 + scheme.mud_shift)), rng, 0.03)
 
     # -- what the street has accumulated -----------------------------------
-    street_dressing(canvas, palette, scheme, random.Random(SEED ^ 0xD8E5))
+    street_dressing(canvas, palette, scheme, random.Random(SEED ^ 0xD8E5), tracked=tracked)
 
     # -- the foreground plane, ruling 21a ----------------------------------
     #

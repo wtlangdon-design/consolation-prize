@@ -12,6 +12,7 @@ pixel.
 
 from __future__ import annotations
 
+from contextlib import contextmanager
 from pathlib import Path
 
 from PIL import Image
@@ -24,12 +25,37 @@ class IndexedCanvas:
         self.width = width
         self.height = height
         self.pixels = [[fill] * width for _ in range(height)]
+        # Off by default and free when off. Errata 32a says no room may
+        # contain a row of objects sharing a baseline with clear air between
+        # them, and that is a claim about the composition rather than about
+        # the image -- two objects can look adjacent and be twenty pixels
+        # apart. The only way to check it is to know which pixels belong to
+        # which object, which only the code that drew them knows.
+        self._tracking: str | None = None
+        self.strokes: list[tuple[str, set[tuple[int, int]]]] = []
+
+    @contextmanager
+    def track(self, name: str):
+        """Records every pixel written inside the block as one object."""
+        previous, self._tracking = self._tracking, name
+        owned: set[tuple[int, int]] = set()
+        self.strokes.append((name, owned))
+        self._own = owned
+        try:
+            yield
+        finally:
+            self._tracking = previous
+            self._own = None
+
+    _own: set[tuple[int, int]] | None = None
 
     # -- primitives ---------------------------------------------------------
 
     def put(self, x: int, y: int, index: int) -> None:
         if 0 <= x < self.width and 0 <= y < self.height:
             self.pixels[y][x] = index
+            if self._own is not None:
+                self._own.add((x, y))
 
     def get(self, x: int, y: int) -> int:
         if 0 <= x < self.width and 0 <= y < self.height:
@@ -37,6 +63,11 @@ class IndexedCanvas:
         return 0
 
     def rect(self, x: int, y: int, width: int, height: int, index: int) -> None:
+        if self._own is not None:
+            for row in range(y, y + height):
+                for col in range(x, x + width):
+                    self.put(col, row, index)
+            return
         for row in range(y, y + height):
             if 0 <= row < self.height:
                 line = self.pixels[row]

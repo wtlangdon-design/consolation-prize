@@ -45,6 +45,7 @@ const SCRIPTS = [
   ['panel_render.py', 'the verb panel and inventory -- errata ruling 26'],
   ['walkbox_render.py', "Room 2's walk boxes, staging points and a route -- errata 28a"],
   ['identity_plan.py', 'errata 30f step 0 -- eleven Act I interior identities'],
+  ['overlap_audit.py', 'errata 32a and 32b, measured -- overlap, baseline rows, floor load'],
   ['legibility_audit.py', 'legibility across every composed room -- rulings 16, 17c, 18'],
   ['legibility_audit.py', 'the sample geometry, drawn over each room', ['--overlay']],
   ['shadow_audit.py', 'pale families at their floor -- ruling 21b'],

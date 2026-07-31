@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import math
 import random
+from contextlib import contextmanager, nullcontext
 from pathlib import Path
 
 import cycling
@@ -73,7 +74,8 @@ LAMP_BAND = _band("stage_road", "hobs_lamp")
 PUDDLE_BAND = _band("stage_road", "puddles")
 
 
-def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[IndexedCanvas, Palette]:
+def compose(with_coach: bool = True, lamp_x: int | None = None,
+            tracked: bool = False) -> tuple[IndexedCanvas, Palette]:
     palette = Palette.load()
     rng = random.Random(SEED)
     canvas = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("void").at(0))
@@ -204,23 +206,27 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     # Before the sign and the coach, so those two stay the objects that read
     # first: dressing goes down early and is overlapped by everything that
     # matters, which is also how it stays quiet.
-    roadside(canvas, palette, random.Random(SEED ^ 0xD8E5), ROAD_Y)
+    roadside(canvas, palette, random.Random(SEED ^ 0xD8E5), ROAD_Y, tracked=tracked)
 
     # -- the town sign -----------------------------------------------------
-    town_sign(canvas, palette, 36, ROAD_Y - 34, umber, bone)
+    with (canvas.track('town sign') if tracked else nullcontext()):
+        town_sign(canvas, palette, 36, ROAD_Y - 34, umber, bone)
 
     # -- his case, at his feet, downstage ----------------------------------
-    case(canvas, palette, 150, 126, umber, gold)
+    with (canvas.track('his case') if tracked else nullcontext()):
+        case(canvas, palette, 150, 126, umber, gold)
 
     # -- the coach, halted, driver unloading -------------------------------
     if with_coach:
-        coach(canvas, palette, rng, COACH_X, ROAD_Y + 2, umber, grey, gold)
+        with (canvas.track('the coach') if tracked else nullcontext()):
+            coach(canvas, palette, rng, COACH_X, ROAD_Y + 2, umber, grey, gold)
 
     # -- Hob, and his lamp -------------------------------------------------
     # Hob is lit; his lamp is not, so only Hob goes in before the pass.
     lx = LAMP[0] if lamp_x is None else lamp_x
     ly = LAMP[1]
-    watchman(canvas, palette, lx, ly, grey)
+    with (canvas.track('hob') if tracked else nullcontext()):
+        watchman(canvas, palette, lx, ly, grey)
 
     # -- one lighting pass over the lot ------------------------------------
     field = LightField(WIDTH, HEIGHT, ambient=AMBIENT)
@@ -285,7 +291,8 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     return canvas, palette
 
 
-def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int) -> None:
+def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int,
+             tracked: bool = False) -> None:
     """What a stage road accumulates. Build item 3, and most of it is not a hotspot.
 
     Room 1 had nine drawn objects and about ninety per cent of the frame was
@@ -320,6 +327,14 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int) -> Non
     sage = palette.family("sage")
     dust = palette.family("dust")
 
+    @contextmanager
+    def tag(name: str):
+        if tracked:
+            with canvas.track(name):
+                yield
+        else:
+            yield
+
     # SILHOUETTE, NOT TEXTURE. The first pass put everything at tone 0.16 to
     # 0.26 against a verge running 0.20 to 0.54 -- the same luminance band, so
     # forty new objects arrived and the frame read as slightly dirtier rather
@@ -335,12 +350,14 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int) -> Non
     # more steps.
 
     # -- far band: low, half-buried, against the verge ----------------------
-    for x, r in ((16, 6), (48, 4), (150, 5), (196, 6), (232, 4)):
-        organic_mass(canvas, x, ground_y - 13, r, max(2, r - 2), grey, rng, tone=0.10, lumps=3)
+    for index, (x, r) in enumerate(((16, 6), (48, 4), (150, 5), (196, 6), (232, 4))):
+        with tag(f"verge stone {index}"):
+            organic_mass(canvas, x, ground_y - 13, r, max(2, r - 2), grey, rng, tone=0.10, lumps=3)
 
     # -- the fence: the one thing crossing the middle distance at an angle,
     #    which is what an empty plane needs more than it needs objects on it.
     for index in range(9):
+      with tag(f"fence post {index}"):
         px = 12 + index * 34
         py = ground_y - 13 - index // 3
         canvas.vline(px, py - 10, 11, pine.frac(0.10))
@@ -351,60 +368,81 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int) -> Non
 
     # -- LEFT EDGE: the freight heap. A vertical mass at the frame edge, in
     #    depth: butt behind, barrels across it, sacks and crates in front.
-    barrel(canvas, 2, ground_y - 42, 19, 26, pine, grey, rng, base=0.14, open_top=True)
-    rope(canvas, catenary(8, ground_y - 44, 21, ground_y - 42, 5), pine, tone=0.16)
-    barrel(canvas, 18, ground_y - 32, 15, 18, umber, grey, rng, base=0.12)
-    barrel(canvas, 30, ground_y - 27, 12, 14, mud, grey, rng, base=0.10)
-    crate(canvas, 40, ground_y - 22, 14, 11, pine, rng, base=0.12)
-    sack(canvas, 14, ground_y - 6, 13, 14, dust, rng, tone=0.16)
-    sack(canvas, 34, ground_y - 7, 11, 12, dust, rng, tone=0.13)
+    with tag("water butt"):
+        barrel(canvas, 2, ground_y - 42, 19, 26, pine, grey, rng, base=0.14, open_top=True)
+    with tag("butt rope"):
+        rope(canvas, catenary(8, ground_y - 44, 21, ground_y - 42, 5), pine, tone=0.16)
+    with tag("freight barrel A"):
+        barrel(canvas, 18, ground_y - 32, 15, 18, umber, grey, rng, base=0.12)
+    with tag("freight barrel B"):
+        barrel(canvas, 30, ground_y - 27, 12, 14, mud, grey, rng, base=0.10)
+    with tag("freight crate"):
+        crate(canvas, 40, ground_y - 22, 14, 11, pine, rng, base=0.12)
+    with tag("freight sack A"):
+        sack(canvas, 14, ground_y - 6, 13, 14, dust, rng, tone=0.16)
+    with tag("freight sack B"):
+        sack(canvas, 25, ground_y - 7, 11, 12, dust, rng, tone=0.13)
 
     # -- 96 to 150: what was bare. Feed trough, lumber, a leaning crate.
-    canvas.rect(98, ground_y - 15, 30, 6, pine.frac(0.11))
-    canvas.hline(98, ground_y - 15, 30, pine.frac(0.20))
-    canvas.vline(100, ground_y - 9, 8, pine.frac(0.09))
-    canvas.vline(125, ground_y - 9, 8, pine.frac(0.09))
-    lumber_stack(canvas, palette, 132, ground_y - 5, 20, 5, pine, rng, tone=0.11)
-    crate(canvas, 116, ground_y - 26, 12, 10, pine, rng, base=0.13)
+    with tag("feed trough"):
+        canvas.rect(98, ground_y - 15, 30, 6, pine.frac(0.11))
+        canvas.hline(98, ground_y - 15, 30, pine.frac(0.20))
+        canvas.vline(100, ground_y - 9, 8, pine.frac(0.09))
+        canvas.vline(125, ground_y - 9, 8, pine.frac(0.09))
+    with tag("lumber"):
+        lumber_stack(canvas, palette, 112, ground_y - 4, 22, 5, pine, rng, tone=0.11)
+    with tag("trough crate"):
+        crate(canvas, 116, ground_y - 26, 12, 10, pine, rng, base=0.13)
 
     # -- the milepost, alone, with air round it. It is the only object in the
     #    frame that is a statement about distance, which is what the road is
     #    about, and crowding it would waste it.
-    canvas.vline(160, ground_y + 4, 14, pine.frac(0.26))
-    canvas.rect(157, ground_y, 9, 6, pine.frac(0.34))
-    canvas.hline(157, ground_y, 9, pine.frac(0.50))
-    canvas.hline(157, ground_y + 5, 9, pine.frac(0.08))
+    with tag("milepost"):
+        canvas.vline(160, ground_y + 4, 14, pine.frac(0.26))
+        canvas.rect(157, ground_y, 9, 6, pine.frac(0.34))
+        canvas.hline(157, ground_y, 9, pine.frac(0.50))
+        canvas.hline(157, ground_y + 5, 9, pine.frac(0.08))
 
     # -- the broken wheel, leaning on the fence. A curve in a frame that had
     #    exactly one, and now the second-largest object on the left of the
     #    coach.
-    spoked_wheel(canvas, 198, ground_y + 7, 12, grey, spokes=10, tone=0.12, squash=0.94)
-    canvas.line(186, ground_y + 18, 210, ground_y + 14, grey.frac(0.07))
+    with tag("broken wheel"):
+        spoked_wheel(canvas, 190, ground_y + 7, 12, grey, spokes=10, tone=0.12, squash=0.94)
+    with tag("dropped axle"):
+        # Runs from under the milepost to under the wheel and touches both.
+        for offset in range(3):
+            canvas.line(160, ground_y + 15 + offset, 196, ground_y + 9 + offset,
+                        grey.frac(0.16 if offset == 1 else 0.08))
 
     # -- the harness rail: posts, a top bar, and three sets over it. Without
     #    the posts the ropes were three squiggles in mid-air.
-    canvas.vline(210, ground_y - 26, 14, pine.frac(0.14))
-    canvas.vline(246, ground_y - 26, 14, pine.frac(0.14))
-    canvas.hline(210, ground_y - 26, 37, pine.frac(0.20))
-    for hook_x in (216, 226, 236):
-        rope(canvas, catenary(hook_x, ground_y - 25, hook_x + 8, ground_y - 25, 7),
-             umber, tone=0.14)
+    with tag("harness rail"):
+        canvas.vline(210, ground_y - 26, 14, pine.frac(0.14))
+        canvas.vline(246, ground_y - 26, 14, pine.frac(0.14))
+        canvas.hline(210, ground_y - 26, 37, pine.frac(0.20))
+        for hook_x in (216, 226, 236):
+            rope(canvas, catenary(hook_x, ground_y - 25, hook_x + 8, ground_y - 25, 7),
+                 umber, tone=0.14)
 
     # -- RIGHT EDGE: a woodpile, stacked end-on, closing the frame the way
     #    the freight heap closes the left. Nothing was over there but road.
-    for row in range(5):
-        for col in range(6 - row):
-            cx = 288 + col * 6 + row * 3
-            cy = ground_y - 8 - row * 5
-            ellipse_shaded(canvas, cx, cy, 3, 2, pine, 0.13, lift=0.14)
-            ellipse_outline(canvas, cx, cy, 3, 2, pine.frac(0.05))
+    with tag("cordwood spoil"):
+        organic_mass(canvas, 292, ground_y - 4, 13, 6, mud, rng, tone=0.12, lumps=3)
+    with tag("cordwood"):
+        for row in range(5):
+            for col in range(6 - row):
+                cx = 288 + col * 6 + row * 3
+                cy = ground_y - 8 - row * 5
+                ellipse_shaded(canvas, cx, cy, 3, 2, pine, 0.13, lift=0.14)
+                ellipse_outline(canvas, cx, cy, 3, 2, pine.frac(0.05))
 
     # -- near band, and ONLY at the frame edges. A verge does not stop at the
     #    picture edge, and a few dark masses running off the bottom corners
     #    say so without putting anything where Thad walks.
-    for cx, cy, r in ((6, ground_y + 16, 9), (24, ground_y + 30, 7),
-                      (300, ground_y + 30, 10)):
-        organic_mass(canvas, cx, cy, r, max(2, r // 2), mud, rng, tone=0.14, lumps=3)
+    for index, (cx, cy, r) in enumerate(((6, ground_y + 16, 9), (16, ground_y + 26, 8),
+                                         (300, ground_y + 30, 10), (312, ground_y + 20, 8))):
+        with tag(f"near spoil {index}"):
+            organic_mass(canvas, cx, cy, r, max(2, r // 2), mud, rng, tone=0.14, lumps=3)
     for bx, by in ((46, ground_y + 9), (272, ground_y + 6)):
         canvas.vline(bx, by - 4, 4, sage.frac(0.24))
         canvas.put(bx, by - 5, sage.frac(0.34))
@@ -418,10 +456,11 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int) -> Non
 
     # -- the nailed notice, on the nearest fence post. Blank: the engine
     #    draws words and this is the board they would go on.
-    canvas.rect(60, ground_y - 33, 12, 9, dust.frac(0.26))
-    canvas.outline(60, ground_y - 33, 12, 9, dust.frac(0.10))
-    canvas.put(61, ground_y - 32, grey.frac(0.40))
-    canvas.put(71, ground_y - 32, grey.frac(0.40))
+    with tag("nailed notice"):
+        canvas.rect(60, ground_y - 33, 12, 9, dust.frac(0.26))
+        canvas.outline(60, ground_y - 33, 12, 9, dust.frac(0.10))
+        canvas.put(61, ground_y - 32, grey.frac(0.40))
+        canvas.put(71, ground_y - 32, grey.frac(0.40))
 
 
 def scrub_bank(canvas: IndexedCanvas, palette: Palette, rng) -> None:
