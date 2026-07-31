@@ -83,7 +83,7 @@ Built:
 Not built:
 - [ ] **Y-sorting and per-box clip levels** (doc 22 items 4, 6) — **now due, not deferred.** An actor routing behind the trough draws over it
 - [ ] **Object visual states and ownership** (item 9)
-- [ ] **Inventory combination table** — the array, panel and item lines are built. **~40 item icons struck per errata 26**
+- [ ] **Inventory combination table** — the array, panel and item lines are built. **~40 item icons RESTORED per errata 29 — inventory uses icons after all**
 - [ ] **The Liar's Assay** — turn-based duel: boast/counter resolution, five exchanges, learn-by-losing, mockery pool, pair acquisition state
 - [ ] **Reputation broadcast** — integer state, ambient bark firing on approach, one-shot-per-state
 - [ ] **Letters home** — three-version choice UI, per act, tracking nothing
@@ -123,7 +123,7 @@ Characters — **1 of 31 done**:
 - [ ] All subject to ruling 16 — measured legibility per room they appear in
 
 Interface:
-- [ ] Inventory panel, dialogue overlay polish, title and credits. **Item icons struck per errata 26**
+- [ ] Inventory panel, dialogue overlay polish, title and credits. **~40 item icons, per errata 29**
 
 # 4 · AUDIO — **nothing exists**
 
