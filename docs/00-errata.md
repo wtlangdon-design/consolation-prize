@@ -401,3 +401,60 @@ Every crowd resolved to "draw in" by doc 19:
 ## Note on doc 18
 
 Doc 18's palette-cycling list is unchanged and remains correct — nine elements, restraint is the design. But its framing implied cycling was the game's principal source of motion. **It is not. Sprites are.** Cycling is for fire, water and lamplight, and nothing else should be asked of it.
+
+---
+
+# 21 · THE FOREGROUND PLANE, AND SHADOW IN THE PALE FAMILIES
+
+Two rulings from the compositional analysis against Monkey Island reference. The first is the highest-leverage change available to the art direction.
+
+## 21a · Every room has a foreground plane
+
+**Every composed room has exactly two planes: a background, and an actor standing on it.** Monkey Island's screens routinely have three — something near and dark that the actor passes behind, cropping a corner or a side.
+
+**The evidence is already in the repository.** Room 29 is the only composed room with a foreground occluder. It has the widest value distribution of the six rooms (138 points), 13% of pixels below luminance 30, and reads as the most dimensional — despite being by far the emptiest composition. Less in it than Main Street, and more depth.
+
+**Rule: every room carries a foreground plane. It is not optional and not decorative.**
+
+**Why it fixes more than depth:**
+
+1. **It supplies the missing bottom of the value range.** A near plane is out of the light by definition and may be drawn in `void` or a family floor at luminance 9. The 0–30 band arrives without touching a single lit surface and without re-running the legibility audit — which is the entire reason this ruling outranks widening the range directly.
+2. **Its silhouette is almost never horizontal.** A ridge brow, a doorframe, a barrel, a wagon wheel, a table edge. The banding breaks as a side effect.
+3. **It is a missing layer, not a dial set wrong.** Value and diagonals are per-room judgements. This is structural and applies everywhere.
+
+**Implementation:**
+
+- Draws over the actor. Walkable mask **unchanged** — the actor's position and depth zone are unaffected; only draw order changes.
+- Excluded from the legibility check. It is not a surface anyone stands in front of.
+- Should crop a corner, a side, or the bottom edge. It must not be a horizontal band across the frame — that reproduces the problem it exists to solve.
+- **Interiors:** a table edge, a doorframe, the near end of a bar, a stack of crates, a hanging lamp cropping the top corner.
+- **Exteriors:** a hitching rail, a wagon wheel, a boardwalk post, scrub, a ridge brow, a stack of lumber.
+
+**Priority: Room 1 first.** It puts 80% of the first screen anyone plays into a 58-point band, a quarter of the range available. A dark near plane is the single largest improvement available to it.
+
+## 21b · Four families cannot reach dark, and must swap rather than darken
+
+`void` at index 0 is the only true black and is a single entry with no ramp — nothing can be darkened toward it, since the entire lighting pass steps within a family.
+
+Family floors, lowest to highest: nine families reach near-black. **Four cannot approach it:**
+
+| Family | Floor | Where it matters |
+|---|---|---|
+| `bone` | **90.0** | The Improvement Company's frontage · the assay office's identity material · the title screen's false fronts · **the handbill carrying the thesis of the game** |
+| `sky` | 52.7 | Every daylight exterior |
+| `dusk` | 49.8 | |
+| `accent_gold` | 41.4 | Hob's lamp, the chandelier |
+
+**The whitest material in Consolation cannot be in shadow.** A bone surface in deep shade is currently impossible to render, and every room built from here would be silently wrong in the same way.
+
+**The fix already exists in the repository.** The dawn scheme built **luminance-matched family swapping** — swaps matched on measured luminance rather than ramp position, because position does not correspond across families.
+
+**Rule: a surface in one of the four pale families, when it needs to go below its floor, swaps to a cooler family at matched luminance rather than darkening within its own.**
+
+- `bone` in shadow → `grey` or `dust` at the target luminance
+- `sky` in shadow → `accent_indigo` or `grey`
+- `accent_gold` in shadow → `umber` or `ochre`
+
+The swap is chosen by measured luminance, never by ramp index. Declared at composition time and checked, so a shadowed bone surface cannot silently sit at 90 while everything around it goes to 20.
+
+**The palette is not reopened.** This is a lighting rule, not a palette change.
