@@ -150,7 +150,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 > **PICK UP — takes it.** *"I have it."* **This is the first PICK UP in the game and it teaches the verb.**
 > OPEN — "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent."
 
-**State C — carried.** The hotspot is gone; the case is inventory.
+**State C — carried.** The hotspot is gone and the case is inventory. **It has no LOOK or LISTEN lines of its own** — an object that does not exist cannot answer. Its inventory lines are doc 23's.
 **LISTEN** 2 "The fork against the clasp. A. It is still four hundred and forty." · 3 "Nothing. I have stopped shaking it to hear it, which is a low thing to be caught doing."
 
 ## THE WATCHMAN'S LAMP
