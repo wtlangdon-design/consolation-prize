@@ -48,7 +48,7 @@
 
 **THE STREET DOOR → Room 2**
 **LOOK** 1 "The door out onto Main Street, with a bell that does not work and a mat that has given up." · 2 "The bell is a formality. Everybody who comes in is already known." · 3 "Daylight, past it. It is always brighter than I remember."
-**LISTEN** 1 "The street. Boots on the boardwalk." · 2 "Still the street." · 3 "Nothing. It has gone quiet out there, which happens about four."
+**LISTEN** 1 "The street. Boots on the boardwalk." · 2 "Boots. Two men, and neither of them is coming in." · 3 "Nothing. It has gone quiet out there, which happens about four." *(Corrected — "Still the street." belongs to the assay office's door in doc 25.)*
 
 **THE STAIRS → Room 19**
 > Uses THE STAIRS' lines above. OPEN and USE walk through.
@@ -79,9 +79,15 @@
 
 **THE DESK** — LOOK 2 "A desk, a chair, and a window facing an alley. For four dollars a week I had expected a slightly worse alley." · 3 "The chair does not match the desk. Neither matches the room." | LISTEN 2 "Nothing." · 3 "Nothing. It is the only place in Consolation where nobody is talking at me."
 
-**HIS MOTHER'S LETTERS** — *(act-variant LOOK lines are written in doc 23 and stand)* | LISTEN 2 "Nothing." · 3 "Nothing. Paper is very quiet about this sort of thing."
+**HIS MOTHER'S LETTERS** — *Correction: I sent this to doc 23 in error. Doc 23 is inventory; the act-variant lines are doc 08's and they are ACT variants, not repeat variants. Act I's three repeats are written here. Later acts take doc 08's line as their variant 1 and reuse variants 2 and 3.*
 
-**THE OUTGOING LETTER** — LOOK 2 "It is what I last decided to say. I could change it. I have changed it before." · 3 "Four pages, and I have been in this territory eleven weeks." | LISTEN 2 "Nothing." · 3 "Nothing."
+**LOOK Act I** 1 "Three from home. She is proud of me. She has been given no reason to be." · 2 "She asks about the weather here as though it were a place that has weather." · 3 "The most recent is six weeks old. It went to Sacramento and waited for me there."
+**LISTEN** 1 "Nothing. Paper is very quiet about this sort of thing." · 2 "Nothing." · 3 "Nothing. Three letters, and not one of them has asked me anything I would have to answer."
+
+**THE OUTGOING LETTER** — *Correction: doc 08 wrote its LOOK as a stage direction rather than a line, which cannot be wired. **These are the default lines, shown before any letter has been chosen, and they must always exist** — when the letters-home system lands it replaces variant 1 with the chosen text and leaves 2 and 3 alone.*
+
+**LOOK** 1 "A sheet, begun. 'Dear Mother —' and then a space where the rest of it should be." · 2 "I have started it four times. The four beginnings are identical." · 3 "It goes out Thursday, with whatever is on it by Thursday."
+**LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "Nothing. It has not been written yet and it is being quiet about that too."
 
 **THE TUNING FORK CASE** — LOOK 2 "Velvet-lined, and worth more than the fork it was made for." · 3 "It is the most cared-for object I own and it is a box." | LISTEN 2 "Nothing, closed." · 3 "Nothing."
 
@@ -127,7 +133,7 @@
 
 **THE COFFINS** — LOOK 2 "Stacked by size, and there are a great many in the smallest." · 3 "Six months of work, standing ready. He is not expecting a quiet year." | LISTEN 2 "Nothing." · 3 "Nothing. Naturally nothing."
 
-**THE JAR OF TEETH** — LOOK 2 "Still there. I have decided to think of it as inventory." · 3 "He sells them to the barber, who fits them to the living. Nothing in this establishment is wasted." | LISTEN 2 "Nothing." · 3 "I have stopped."
+**THE JAR OF TEETH** — LOOK 2 "Still there. I have decided to think of it as inventory." · 3 "He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted." | LISTEN 2 "Nothing." · 3 "Nothing. I have satisfied myself and I should like that to be the end of it." *(Corrected — "I have stopped." belongs to the Nugget's spittoon and must not be shared.)*
 
 **THE GOOD SUIT** — LOOK 2 "Three sizes, on one hanger, and all three have been let out at the waist." · 3 "Half the men on Boot Hill were viewed in this and buried in their own clothes." | LISTEN 2 "Nothing." · 3 "Nothing."
 
