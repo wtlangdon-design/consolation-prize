@@ -549,7 +549,54 @@ function combinations() {
 
 // ---------------------------------------------------------------------------
 
-const written = [opening(), stageDriver(), combinations(), ...rooms0507()];
+
+// ---------------------------------------------------------------------------
+
+/**
+ * Doc 14's Room 2 exits. Only THE ASSAY OFFICE is extracted here.
+ *
+ * The other four were transcribed before the extraction rule was binding and
+ * re-parsing them now would be a diff nobody asked for; this one arrived
+ * after, and it is the shape the rest convert to when they are next touched.
+ */
+function room02Exits() {
+  const doc = read('docs/14-room-02-exits.md');
+  const path = 'content/rooms/main-street.json';
+  const room = JSON.parse(read(path));
+
+  const section = doc.split('## THE ASSAY OFFICE \u2192 Room 5')[1];
+  if (!section) throw new Error('doc 14: no assay office section');
+
+  const exit = room.exits.find((entry) => entry.id === 'to_assay_office');
+  if (!exit) throw new Error('doc 14: main street has no to_assay_office exit');
+
+  for (const [verb, heading] of [['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']]) {
+    const block = section.split(`**${heading}**`)[1];
+    if (!block) throw new Error(`doc 14: assay office has no ${heading} run`);
+    const lines = [];
+    for (const line of block.split('\n')) {
+      const numbered = line.match(/^(\d)\. "(.+)"$/);
+      if (numbered) lines[Number(numbered[1]) - 1] = numbered[2];
+      else if (line.startsWith('**') && lines.length) break;
+    }
+    if (lines.length !== 3) throw new Error(`doc 14: assay ${heading} has ${lines.length} variants`);
+    exit.responses = exit.responses ?? {};
+    exit.responses[verb] = [{ say: lines[0], repeat: lines.slice(1) }];
+  }
+
+  exit.overrides = exit.overrides ?? {};
+  for (const entry of section.matchAll(/^> (\w[\w ]*?) \u2014 "(.+)"$/gm)) {
+    exit.overrides[entry[1].trim().replace(/ /g, '_')] = entry[2];
+  }
+
+  // THE STUB MARKING COMES OFF. `stub` means the destination exists so the
+  // exit works with its examine layer honestly absent -- true of this door
+  // until doc 14 covered it, and a lie the moment it did.
+  delete exit.stub;
+  return write(path, room);
+}
+
+const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

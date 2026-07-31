@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "id": "hotel_lobby",
+  "name": "THE HOTEL LOBBY",
+  "note": "Room 18, doc 20. ERRATA 34's asymmetry, and the room that sets the pattern: the back wall sits left of centre, the right-hand wall runs much longer, and the stair climbs it. Composed to the frozen standard; NO HOTSPOTS YET. The examine layer arrives with the document being written for this room -- a hotspot with no line is worse than no hotspot, and check-examine-lines says so. Every door here is marked stub for the same reason: the destination exists so the exit works and the lines are honestly absent rather than invented.",
+  "materialIdentity": "Worn blue-grey plush and tarnished brass (30d) -- the only interior in Act I with a BLUE cast. The assay office is achromatic cold; nothing else in Act I may go blue",
+  "paletteScript": {
+    "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+    "dominant": "sky 0.45",
+    "shadow": "accent_indigo 0.3",
+    "secondary": "ochre 0.4",
+    "accent": "accent_gold 0.72"
+  },
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 60,
+  "background": "art/backgrounds/room-18-hotel-lobby.png",
+  "foreground": "art/foregrounds/room-18-hotel-lobby.png",
+  "walkable": [
+    {
+      "id": "floor_far",
+      "zone": 2,
+      "rect": [
+        60,
+        88,
+        150,
+        12
+      ]
+    },
+    {
+      "id": "floor_mid",
+      "zone": 1,
+      "rect": [
+        40,
+        100,
+        200,
+        16
+      ]
+    },
+    {
+      "id": "floor_near",
+      "zone": 0,
+      "rect": [
+        24,
+        116,
+        250,
+        22
+      ]
+    }
+  ],
+  "hotspots": [],
+  "exits": [
+    {
+      "id": "back_to_street",
+      "name": "THE STREET DOOR",
+      "rect": [
+        4,
+        46,
+        22,
+        44
+      ],
+      "colour": 90,
+      "to": "main_street",
+      "stub": true,
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO"
+    },
+    {
+      "id": "up_to_room",
+      "name": "THE STAIRS",
+      "rect": [
+        214,
+        30,
+        100,
+        60
+      ],
+      "colour": 90,
+      "to": "thads_room",
+      "stub": true,
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO"
+    }
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        40,
+        122
+      ],
+      "facing": "right",
+      "note": "In off the street, at the near end of the lobby with the desk ahead."
+    },
+    {
+      "from": "thads_room",
+      "at": [
+        214,
+        104
+      ],
+      "facing": "front",
+      "note": "Down the stair, which climbs the long right-hand wall."
+    }
+  ],
+  "lightSources": [
+    {
+      "note": "The desk lamp. One oil lamp against a cool field, per errata 30d, with 33a's dark collar around it.",
+      "rect": [
+        26,
+        74,
+        36,
+        32
+      ]
+    }
+  ]
+}

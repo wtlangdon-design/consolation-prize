@@ -40,8 +40,6 @@
     {
       "id": "loc_undertaker",
       "room": "undertaker",
-      "label": "THE UNDERTAKER'S",
-      "unbuilt": true,
       "at": [
         162,
         96
@@ -49,7 +47,7 @@
       "when": {
         "T_UNDERTAKER_NAMED": true
       },
-      "note": "Doc 20 rule 3 in its original form: heard of, not visited. The driver names him and nobody else in Act I does. Room 13 is not built, so this carries its own label from doc 20 until the room exists to supply one -- and draws dim and untravellable, rather than being hidden, because a location Thad has heard of is on the map whether or not we have drawn it yet."
+      "note": "ERRATA 31b and doc 20 rule 3: heard of, not visited. The driver names him and nobody else in Act I does. Room 13 is composed now, so the label comes from the room's own name."
     },
     {
       "id": "loc_boot_hill",

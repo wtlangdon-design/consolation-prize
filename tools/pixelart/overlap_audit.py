@@ -20,6 +20,19 @@ THREE NUMBERS, and they are the whole report:
   plane. Errata 32b: the hold is packed to the walls and its floor is nearly
   clear, and strewing the walkable plane is a legibility problem with extra
   steps rather than density.
+
+FLOOR LOAD IS AN EXTERIOR METRIC AND DOES NOT TRANSFER. On a street the
+distinction is clean -- goods at the kerb against litter in the road. In a
+room every object stands on the floor because the floor is where the room
+is, so a desk, a bed and two armchairs score sixty per cent and a bare room
+scores nothing. That is the metric being wrong, not the rooms.
+
+It is reported for interiors and MARKED, rather than retuned until it agrees
+with the composition, because a measurement adjusted to produce the answer
+you wanted is indistinguishable from a result. What would actually transfer
+is whether the crossing route is clear -- object pixels inside the declared
+walkable polygons rather than inside a row band -- and that wants the walk
+boxes these rooms do not have yet.
 """
 
 from __future__ import annotations
@@ -27,15 +40,24 @@ from __future__ import annotations
 import sys
 
 import room01_stage_road
+import rooms_batch_a
 import street_scene
 from renders import RENDERS
 from title_screen import game_font
 from canvas import IndexedCanvas
 from palette import Palette
 
-#: Which rows are the plane the player walks on, per room.
+#: Which rows are the plane the player walks on, per room. An interior's is
+#: its floor, read off the room file's own walkable regions rather than typed
+#: twice -- the audit and the game must agree about where the floor is.
 MARGIN = 26
-WALKABLE = {"room 1 -- stage road": (100, 144), "room 2 -- main street": (86, 144)}
+WALKABLE = {
+    "room 1 -- stage road": (100, 144),
+    "room 2 -- main street": (86, 144),
+    "room 18 -- hotel lobby": (88, 144),
+    "room 19 -- thad's room": (88, 144),
+    "room 13 -- undertaker's": (82, 144),
+}
 
 
 def measure(name: str, strokes: list[tuple[str, set[tuple[int, int]]]]) -> dict:
@@ -112,7 +134,9 @@ def report(name: str, result: dict) -> None:
     print(f"  overlapping pairs     {result['pairs']}")
     print(f"  objects that overlap  {result['overlapping']}/{result['objects']} "
           f"({100 * result['rate']:.0f}%)")
-    print(f"  on the walkable plane {100 * result['floor']:.0f}% of object pixels")
+    interior = name not in ("room 1 -- stage road", "room 2 -- main street")
+    print(f"  on the walkable plane {100 * result['floor']:.0f}% of object pixels"
+          + ("   (exterior metric -- see the module docstring)" if interior else ""))
     if result["rows"]:
         print(f"  ERRATA 32a VIOLATIONS  {len(result['rows'])} baseline row(s) with clear air:")
         for base, group in result["rows"]:
@@ -129,6 +153,14 @@ def main() -> None:
     street = street_scene.compose(street_scene.DAY, tracked=True)[0]
     results["room 2 -- main street"] = measure("room 2 -- main street", street.strokes)
 
+    # Batch A. These track ALWAYS -- the contact shadows are driven off it --
+    # so they arrive already measurable and a room composed later cannot slip
+    # in unaudited.
+    for number, label, compose, _plane in rooms_batch_a.ROOMS:
+        name = {18: "room 18 -- hotel lobby", 19: "room 19 -- thad\'s room",
+                13: "room 13 -- undertaker\'s"}[number]
+        results[name] = measure(name, compose()[0].strokes)
+
     for name, result in results.items():
         report(name, result)
 
@@ -144,7 +176,7 @@ def sheet(results: dict) -> None:
     bone = palette.family("bone")
     grey = palette.family("grey")
     gold = palette.family("accent_gold")
-    canvas = IndexedCanvas(320, 60, palette.role("panelBg"))
+    canvas = IndexedCanvas(320, 26 * len(results) + 8, palette.role("panelBg"))
     y = 6
     for name, result in results.items():
         game_font(canvas, name.upper(), 6, y, bone, 0.86)

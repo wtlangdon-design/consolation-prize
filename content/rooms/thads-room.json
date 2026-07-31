@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "id": "thads_room",
+  "name": "THAD'S ROOM",
+  "note": "Room 19, doc 20, directly above the lobby. Warm-neutral against the hotel's cool, per errata 30d -- neutral beside cool reads as nothing, so the drab here is warm drab. Composed to the frozen standard; NO HOTSPOTS YET. The examine layer arrives with the document being written for this room -- a hotspot with no line is worse than no hotspot, and check-examine-lines says so. Every door here is marked stub for the same reason: the destination exists so the exit works and the lines are honestly absent rather than invented.",
+  "materialIdentity": "Neutral drab: bare pine, unbleached calico, a tin basin. Warm-neutral so it separates by hue from the hotel's blue directly below it",
+  "paletteScript": {
+    "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+    "dominant": "dust 0.55",
+    "shadow": "dust 0.28",
+    "secondary": "bone 0.8",
+    "accent": "grey 0.6"
+  },
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 60,
+  "background": "art/backgrounds/room-19-thads-room.png",
+  "foreground": "art/foregrounds/room-19-thads-room.png",
+  "walkable": [
+    {
+      "id": "floor_far",
+      "zone": 2,
+      "rect": [
+        86,
+        88,
+        120,
+        12
+      ]
+    },
+    {
+      "id": "floor_mid",
+      "zone": 1,
+      "rect": [
+        64,
+        100,
+        170,
+        16
+      ]
+    },
+    {
+      "id": "floor_near",
+      "zone": 0,
+      "rect": [
+        40,
+        116,
+        200,
+        20
+      ]
+    }
+  ],
+  "hotspots": [],
+  "exits": [
+    {
+      "id": "down_to_lobby",
+      "name": "THE DOOR",
+      "rect": [
+        40,
+        52,
+        22,
+        42
+      ],
+      "colour": 90,
+      "to": "hotel_lobby",
+      "stub": true,
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO"
+    }
+  ],
+  "entrances": [
+    {
+      "from": "hotel_lobby",
+      "at": [
+        70,
+        120
+      ],
+      "facing": "right",
+      "note": "In at the door, with the bed across the room and the window ahead."
+    }
+  ]
+}

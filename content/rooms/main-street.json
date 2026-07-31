@@ -676,7 +676,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The road out to the diggings. Worn a foot deep by boots \u2014 which is more dirt than anybody out there has shifted on purpose.",
+            "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
             "repeat": [
               "Two miles. It looks further in the morning and considerably further at night.",
               "Somewhere down there is forty feet of mud that is legally mine."
@@ -710,7 +710,6 @@
       "id": "to_assay_office",
       "name": "THE ASSAY OFFICE",
       "note": "Doc 20's graph: the sixth enterable facade. Room 5 was composed, wired with sixteen lines and audited three times while nothing on Main Street opened onto it. Marked stub because doc 05's Room 2 does not script this door and its examine lines are not written; inventing them would be worse than the honest gap. The rect is the door and its step. The lot was drawn BOARDED with tools leaning across it, which is ruling 19b in the other direction -- art asserting a building this exit contradicts -- and it now has a door, clean glass and a worn step, and nothing else. It is still the plainest front on the street.",
-      "stub": true,
       "rect": [
         292,
         54,
@@ -719,7 +718,26 @@
       ],
       "colour": 26,
       "to": "assay_office",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The assay office. A door, a step, and one window. It is the only front on this street that is not selling itself.",
+            "repeat": [
+              "No sign. Everybody knows where it is and nobody needs telling twice.",
+              "The step is worn pale in the middle and nowhere else. They come, they stand, they go."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is the quietest working building in Consolation.",
+            "repeat": [
+              "Nothing. A pen, possibly. I may be inventing the pen.",
+              "Nothing at all. Whatever is decided in there is decided without discussion."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "OPEN",
       "walkTo": {
@@ -743,7 +761,29 @@
             32
           ]
         }
+      },
+      "overrides": {
+        "PUSH": "It opens inward, and it opens easily. Somebody has oiled it.",
+        "CLOSE": "It closes itself, slowly, and latches. Somebody sees to that.",
+        "TALK_TO": "I have tried talking to it. The building is not the problem."
       }
+    },
+    {
+      "id": "to_hotel",
+      "name": "THE HOTEL",
+      "rect": [
+        218,
+        52,
+        56,
+        50
+      ],
+      "colour": 96,
+      "to": "hotel_lobby",
+      "stub": true,
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "OPEN",
+      "note": "Doc 20: the hotel is one of the six facades. Stub until doc 14 covers it, as it did not cover the assay office until Room 5 was written."
     }
   ],
   "walkBoxes": [

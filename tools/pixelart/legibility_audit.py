@@ -30,6 +30,7 @@ import cycling
 import room01_stage_road
 import room03_nugget
 import room05_assay
+import rooms_batch_a
 from legibility import LightZone, Surface, anchors, audit
 from palette import Palette
 from renders import RENDERS
@@ -242,6 +243,55 @@ ROOM_05 = [
 CYCLED = {"ROOM 1 -- stage road, night": "stage_road"}
 
 
+
+# --- Batch A ---------------------------------------------------------------
+# Every distinct surface a character can stand in front of, per ruling 17c.
+# Declared before the rooms were lit rather than found afterwards, which is
+# errata 22's gate working the way it was meant to: the list is the graybox's
+# output, and a surface that fails here is a re-block rather than a re-light.
+
+ROOM_18_LIGHTS = [LightZone("desk lamp", (38, 78, 12, 12), halo=10)]
+ROOM_18 = [
+    Surface("back wall, above the dado", (60, 26, 110, 30),
+            "The cool field an actor at the desk end is seen against."),
+    Surface("wainscot", (60, 62, 110, 20), "Darker dado below the rail."),
+    Surface("long right wall", (232, 40, 60, 46),
+            "Errata 34's asymmetry means this wall is most of the frame's "
+            "right half and a character crosses the whole of it."),
+    Surface("plank floor", (90, 100, 110, 30), "The crossable middle."),
+    Surface("desk front", (30, 100, 76, 16), "Panelled, and in the lamp's reach."),
+    Surface("armchair plush", (96, 96, 34, 24),
+            "The palest large surface in the room, and errata 30d's warning: "
+            "Thad's coat is dark bottle green and this is the first interior "
+            "where green sits near green."),
+    Surface("stair risers", (236, 56, 60, 26), "Behind an actor climbing."),
+]
+
+ROOM_19_LIGHTS = [LightZone("window", (168, 34, 26, 30))]
+ROOM_19 = [
+    Surface("back wall, above the dado", (90, 32, 70, 26), "Warm drab."),
+    Surface("wainscot", (90, 62, 70, 22), "The darker dado."),
+    Surface("plank floor", (80, 100, 110, 30), "Most of this small room."),
+    Surface("the bed", (210, 90, 84, 20),
+            "Calico, and the largest pale mass in the room after the wall."),
+    Surface("washstand front", (88, 92, 34, 16), "Pine, in shadow."),
+]
+
+ROOM_13_LIGHTS: list[LightZone] = []
+ROOM_13 = [
+    Surface("scrubbed wall", (180, 26, 50, 30),
+            "The palest large surface in the game. Errata 23's named "
+            "exception: near-monochrome on purpose, which makes this the "
+            "hardest surface in Act I to read a dark coat against and the "
+            "reason it is measured first."),
+    Surface("wainscot", (180, 62, 50, 16), "The one value break on that wall."),
+    Surface("pine floor", (90, 96, 110, 30), "Sawn boards, walked on."),
+    Surface("the coffins", (74, 30, 98, 48),
+            "Six of them on end, and an actor crosses in front of the rank."),
+    Surface("workbench front", (190, 96, 100, 22), "Under the bench top."),
+]
+
+
 def rooms() -> list[tuple[str, str, object, list[Surface], list[LightZone]]]:
     return [
         ("ROOM 1 -- stage road, night", "room-01-stage-road",
@@ -252,6 +302,12 @@ def rooms() -> list[tuple[str, str, object, list[Surface], list[LightZone]]]:
          room03_nugget.compose()[0], ROOM_03, ROOM_03_LIGHTS),
         ("ROOM 5 -- the Assay Office", "room-05-assay-office",
          room05_assay.compose()[0], ROOM_05, ROOM_05_LIGHTS),
+        ("ROOM 18 -- the hotel lobby", "room-18-hotel-lobby",
+         rooms_batch_a.hotel_lobby()[0], ROOM_18, ROOM_18_LIGHTS),
+        ("ROOM 19 -- Thad's room", "room-19-thads-room",
+         rooms_batch_a.thads_room()[0], ROOM_19, ROOM_19_LIGHTS),
+        ("ROOM 13 -- the undertaker's", "room-13-undertakers",
+         rooms_batch_a.undertakers()[0], ROOM_13, ROOM_13_LIGHTS),
     ]
 
 

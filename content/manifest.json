@@ -20,7 +20,10 @@
     "content/rooms/stub-clarion.json",
     "content/rooms/stub-claims-road.json",
     "content/rooms/harness-a.json",
-    "content/rooms/harness-b.json"
+    "content/rooms/harness-b.json",
+    "content/rooms/hotel-lobby.json",
+    "content/rooms/thads-room.json",
+    "content/rooms/undertaker.json"
   ],
   "dialogue": [
     "content/dialogue/stage-driver.json",

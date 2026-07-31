@@ -476,7 +476,7 @@ def card_hand(
 
 def service_counter(
     canvas: IndexedCanvas, palette: Palette, x: int, y: int, width: int, height: int,
-    top_ramp: Ramp, body: Ramp, brass: Ramp, rng, window: tuple[int, int] = (0, 0),
+    top_ramp: Ramp, body: Ramp, brass: Ramp, rng, window: tuple[int, int] | None = (0, 0),
 ) -> None:
     """A counter across the middle distance with a barred service window."""
     top_rows = max(3, height // 6)
@@ -497,6 +497,10 @@ def service_counter(
     # The barred window: an opening in the screen above the counter, with
     # vertical bars. This is the room's one piece of hostile architecture and
     # doc 05 hangs a hotspot on the sign beside it.
+    # A counter with no barred window is a HOTEL desk rather than a
+    # government one, which is most of the difference between the two rooms.
+    if window is None:
+        return
     win_x, win_w = window
     if win_w:
         # A partition standing on the counter, with the opening cut in it.
