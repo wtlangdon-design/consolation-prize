@@ -7,123 +7,77 @@
 
 ---
 
-# PART ONE — THE SEQUENCE
+# PART ONE — THE SEQUENCE (v3)
 
-## Two design rulings
+**v3 supersedes v2's beat sheet and the stage driver's tree.** Three changes, all adopted from a critique of the opening against Monkey Island's dramatic architecture:
 
-**1. The player takes control almost immediately.** Not a cutscene. Monkey Island puts you in control within seconds and lets the opening happen around you. Total elapsed before control: **about twenty seconds.**
+1. **One canonical opening line, not a three-way choice.**
+2. **The driver gives one destination and one problem. He is not the town's database.**
+3. **The act card lands after Thad crosses into the story, not before it.**
 
-**2. The world is explained inside a conversation the player chooses to have.** No tutorial text, no tips, no overlay. Everything a new player needs — where they are, what the town is for, that they cannot afford a bed, and what to do first — comes from one weary man who has been unloading hopeful young men onto this road for years and has formed a view.
+## Why the choice was cut
 
-**That man is the stage driver, not Hob.** Hob speaks forty words across two acts. That is a design invariant and it is what makes Act III land. He cannot carry exposition and must not be asked to.
+Guybrush has a single opening declaration that defines him for a decade. The three-option version bought a dialogue tutorial at the cost of Thad's introduction — three self-descriptions before the player knows who he is. The tutorial can happen in town.
+
+**Thad's line, canonical:**
+
+> **"My name is Thaddeus Grubb. I have come to Consolation to make my fortune."**
+
+**Played entirely sincerely. It is not a joke and must not be delivered as one.** He believes this is the first day of his life.
+
+The joke belongs to somebody else. The driver does not stop unloading:
+
+> **"Course you have."**
+
+That is the whole engine of the game in two exchanges: Thad believes he has arrived at the beginning of his fortune, everyone else has watched this exact arrival hundreds of times, and the player sees both at once.
 
 ## Beat sheet
 
 | # | Beat | Interactive | Notes |
 |---|---|---|---|
-| 1 | Title screen — THE LAST CLAIM IN CONSOLATION, menu | yes | |
-| 2 | Hard cut to black. Act card, 3s or click. | no | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
-| 3 | Room 1 fades up. Night. The coach is halted; the driver is unloading. | no · ~4s | |
-| 4 | **Thad's opening line — a three-option choice.** | **yes** | First thing the player ever does is pick a line. See below. |
-| 5 | Verb panel appears. Full control. | yes | |
-| 6 | The driver is available until the player is finished with him. | yes | He is the exposition. Optional and skippable. |
-| 7 | Coach departs — **on the driver's exit line, not a timer** | yes | Player-triggered |
-| 8 | Hob's lamp crosses, frame left to right, on his round | yes | Triggers on coach departure, or on the player reaching the west road, whichever comes first |
-| 9 | "Wouldn't stand there." / "Why not?" / "No reason." | yes | Unprompted. The player may be mid-action. |
-| 10 | Lamp exits frame right. | yes | |
+| 1 | **Title** over the ridge at night. Consolation below as scattered lamps in a great deal of darkness | menu | Longing, not comedy. **No act card here** |
+| 2 | Cut closer. The coach halted, the driver unloading. Thad steps down, straightens his coat, looks at the town | no · ~6s | Largely visual. Keep it brief |
+| 3 | **"My name is Thaddeus Grubb. I have come to Consolation to make my fortune."** — *"Course you have."* | no | Sincere, then punctured |
+| 4 | *"Four dollars?"* — Thad checks — *"Four dollars."* — **"You've all got four."** | no | The predatory machinery, unexplained |
+| 5 | Thad asks after Ezra Pike — **"Ask the undertaker. He knows everybody."** | no | **One destination. Nothing else.** |
+| 6 | The case goes in the mud. *"Hotel's five."* — *"I have four."* The driver climbs aboard | no | The material problem. He leaves before Thad can ask anything more |
+| 7 | The coach recedes east. A badly tuned piano, faint, from the town. **ACT CARD** | no · ~3s | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
+| 8 | **Control.** Verb panel appears | **yes** | ~60–70 seconds elapsed |
+| 9 | Hob's lamp crosses. *"Wouldn't stand there." / "Why not?" / "No reason."* | yes | Now the **second** strange encounter, carrying no exposition |
+| 10 | West, toward town | yes | See the descent, below |
 
-## Beat 4 — Thad's opening line
+## What the driver no longer says
 
-The first interaction in the game is a dialogue choice. This teaches the entire system before the player has taken a step.
+**Cut from v2 and redistributed into Consolation:** what the town is, Mott's strike, whether anyone has found it, how long the search has run. Four exchanges of premise delivered by one man on an empty road before the player has seen a building.
 
-All three lead to the same place. They differ only in emphasis, and each is the same deadpan register.
+**Where it goes instead — and the point is that the sources disagree:**
 
-> **1.** "My name is Thaddeus Grubb. I have four dollars, a letter of introduction to a man who is dead, and a very good ear."
-> **2.** "My name is Thaddeus Grubb. I have come out here to become rich, and I have four dollars."
-> **3.** "My name is Thaddeus Grubb. I tune pianos. There is, I am told, no call for it here."
+| Source | Version of the premise |
+|---|---|
+| The Nugget's patrons | Confident, specific, and wrong. Once a minute |
+| The map seller | Sells eleven different authoritative maps |
+| The *Clarion* | Printed the legend and can no longer tell which half it invented |
+| Ah-Lam Sheng | Accurate, brief, and volunteered to nobody |
+| The one-strike man | 1849, and shrinking |
+| Winnie | Will not discuss it until Thad has something to trade |
 
-Option 2 states the want plainly, which is what doc 01 says is the engine. Option 1 is the original. Option 3 sets up the ear as a joke before it is a tool.
+**No character in Act I gives a complete or correct account of Mott.** The player assembles it from people who contradict each other, which is what the town is.
 
-**Nobody is listening to any of them.** Thad says it to a road.
+**The driver keeps only:** "Course you have," the four dollars, the undertaker, and the hotel's five. Four beats, no tree, and he is gone.
 
----
+## The descent — optional, and flagged as a cost
 
-# PART TWO — THE STAGE DRIVER
+Monkey Island shows Guybrush descending toward the lit town: a visual promise that the small world below is about to open.
 
-*Room 1 only. He appears again at the coach stop in later acts with his ambient barks per doc 07.*
+Consolation's equivalent would be one transitional composition, tiny Thad on the ridge road above the lamps. **It is one more screen and it contradicts doc 20's "travel is instant, no transition screens."**
 
-**Voice:** flat, unhurried, and finished with this route. He has driven a thousand men out here in good coats and has no expectations of any of them. Not unkind. Just done.
+**Deferred, not rejected.** Build the opening without it. If the walk from Room 1 to Main Street reads as flat, this is the fix, and it is a deliberate single exception rather than a general transition system.
 
-**Root:** "Four days from Sacramento. Four *days*."
+## What the opening must end on
 
-| # | Option | Tag | Response |
-|---|---|---|---|
-| 1 | "What is this place?" | `[PROGRESS]` | "Consolation. Two thousand men and one hole." |
-| 2 | "What hole?" | `[PROGRESS]` | "Mott's. Fella found the biggest strike in the territory, twelve year back. Then he didn't. Every man you can see is looking for it." *(Gated on 1.)* |
-| 3 | "Has anyone found it?" | `[PROGRESS]` | "No." *(beat)* "They'd have mentioned it." |
-| 4 | "Where do I sleep?" | `[PROGRESS]` | "Hotel's five dollars." — "I have four." — "You've all got four." |
-| 5 | "I'm looking for a man named Ezra Pike." | `[PROGRESS]` | "Don't know him. Ask in town." *(beat)* "Ask the undertaker. He knows everybody." |
-| 6 | "What should I do first?" | `[COMIC]` | "Get off my road." |
-| 7 | "I'm going to find gold." | `[COMIC]` | "Course you are." |
-| 8 | "Do you come out here often?" | `[COMIC]` | "Four days. Each way. Since 'fifty-one." *(He does not elaborate. There is nothing to elaborate.)* |
-| 9 | `[EXIT]` | | "Right. I'm turning her round." *(He leaves. The coach leaves. That is beat 7.)* |
+**A question the player wants answered: why does the undertaker know Ezra Pike?**
 
-**Options 1, 2, 4 and 5 deliver everything a new player needs: the setting, the premise, the money problem, and the first objective.** All four are optional. A player who skips the driver entirely still reaches Room 2 and still finds Pike is dead, just without knowing why anyone is here.
-
-**Option 5 is the joke that pays off in twenty minutes.** The undertaker does know everybody. He knows Ezra Pike because he buried him in 1852.
-
----
-
-## The title, and its layout constraint
-
-**The game is titled *The Last Claim in Consolation*.** Renamed 30 July from *Consolation Prize*.
-
-"Claim" carries both meanings the game runs on — a mining claim, and an assertion. The town was built on a claim that was a lie, and the last puzzle is a filing.
-
-**Layout — revised against the original Monkey Island title screen.**
-
-The 1990 title does **not** set its words at one size. "THE SECRET OF" is small; "MONKEY ISLAND" is enormous, taking roughly 60% of the frame height. Fitting five words uniformly is not the problem to solve — hierarchy is the answer.
-
-```
-THE LAST
-   CLAIM
-IN CONSOLATION
-```
-
-**CLAIM is huge. The rest is small.** This is not only a layout convenience: CLAIM is the word carrying the double meaning the title rests on — a mining claim and an assertion — so making it the largest thing on the screen is the design stating its own theme.
-
-**Four properties of the reference our current title lacks:**
-
-1. **Size hierarchy**, as above. Connective words small, key word dominant.
-2. **Decorative letterforms.** The original has flared terminals, pointed serifs, a hand-cut look. Ours is a slab sans — competent, and plainer than the era. Keep the weathering and irregularity, add cut character to the terminals.
-3. **One saturated accent against a cool dark field.** The original is magenta on blue-purple: very high contrast, one colour. Ours is cream on warm dusk, which is why it reads as a caption rather than a logo. Consider putting the title screen at dusk or night rather than late afternoon so a warm accent can carry.
-4. **The type overlaps the art.** The island silhouette runs behind and through the lettering. Ours sits in clear space above the town, which is safer and flatter.
-
-**Unchanged:** the town composition, the menu position, and the weathered signwriting quality of the existing letterforms, which was right.
-
-## The act card
-
-> **PART ONE**
-> *In Which Our Hero Is Robbed, and Enjoys It*
-
-Drawn in the pixel title face, not the 5×7 game font. Black ground. Three seconds, or dismissed by click. One appears before each act.
-
-Remaining cards, for reference:
-> **PART TWO** — *Three Pieces of Paper*
-> **PART THREE** — *Thaddeus Grubb Is Legally Dead*
-> **PART FOUR** — *The Quietest Part of the Game*
-
-## Room 1 is the only night exterior in the game
-
-Lamp and window light only, no directional sun. Ruling 17a applies: the family choice sets the temperature. A cold-blue night with a warm lamp needs both families present from the start — the lamp cannot warm a blue room.
-
-**Hob's lamp is the brightest object on screen and the only warm one.** He is also the only figure. A player who examines nothing will still watch him cross, because there is nothing else lit.
-
-## Leaving Room 1
-
-The only exit is the road west into town, which arrives at Room 2. There is no barrier and no prompt. Thad has nowhere to sleep and four dollars, and the game does not say so.
-
----
+Not a task list. Not a map marker. One name, one destination, and a reason to walk into town.
 
 # PART TWO — ROOM 1 CONTENT
 
