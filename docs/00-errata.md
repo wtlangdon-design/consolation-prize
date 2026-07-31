@@ -306,3 +306,51 @@ A weak pass is not a failure. A character legitimately carried by one anchor in 
 1. Sample rectangles exclude light sources, their glow falloff, and any adjacent surface at a different depth.
 2. Any measurement that contradicts the intent of the composition is treated as a suspected contamination first and a finding second. Re-sample before acting.
 3. Sample geometry is reviewable — the rectangles are part of the check, not incidental to it, and getting them right is the work.
+
+---
+
+# 19 · LINES MUST MATCH WHAT IS ON SCREEN
+
+Two rules. Both were violated in Room 1 from the moment doc 17 v2 changed the beat structure and the hotspot lines were not updated with it.
+
+## 19a · Objects whose state changes within a scene need per-state lines
+
+Doc 17 v1 had the coach depart on a timer at beat 5. Doc 17 v2 has it stand there, driver unloading, until his exit line — but Room 1's coach lines still say "It is leaving," which is false for the first several minutes of the game.
+
+**Rule: any object whose state changes during a scene carries a full line set per state.** Not one line with a caveat. A hotspot that does not exist yet is not a hotspot; a hotspot whose subject has left describes an absence.
+
+**Room 1, canonical:**
+
+**THE COACH — state A, present, driver unloading**
+> LOOK 1 "A stage coach, halted, with my case coming down off the back. It has come four hundred miles and it looks it." · 2 "The near wheel has been repaired twice with two different woods." · 3 "There is a great deal of dust on it and none of it is from here."
+> LISTEN 1 "The team, shifting. The near axle is dry — it has been dry a long time." · 2 "Still dry. It will be heard from." · 3 "Somebody up top is rearranging the load and swearing about it."
+
+**THE COACH — state B, departed** *(hotspot becomes THE ROAD WEST OUT)*
+> LOOK 1 "Gone. It made very good time on the way out." · 2 "Not another one for four days. I have checked twice and the answer did not improve." · 3 "The ruts are still filling in. That is the whole of my connection to the rest of the world, filling in."
+> LISTEN 1 "The near axle, going away. It will fail on somebody else's stretch." · 2 "Faint now." · 3 "Nothing. It is a long way off."
+
+**THE TEAM — state A only** *(new hotspot; see the wheel-pair art)*
+> LOOK 1 "Two horses I can see and I am told there are four more. They have their heads down and they have earned it." · 2 "Nobody has unhitched them. We are not stopping long." · 3 "The near one has looked at me twice, which is twice more than the driver."
+> LISTEN 1 "Breathing, and harness. It is the most contented sound on this road." · 2 "Shifting. One of them is bored." · 3 "Nothing. They have gone to sleep standing up, which I did not know was available."
+
+**THE WATCHMAN'S LAMP — does not exist before beat 8.** Not a hotspot until Hob enters frame.
+> **Crossing:** LOOK 1 "A lamp, crossing the road. There is a man behind it and he has not looked at me." · 2 "Still crossing. He is in no hurry and he is not lost." · 3 "The only lit thing on this road, and it is going the other way."
+> LISTEN 1 "Footsteps. Even ones. He is counting them." · 2 "Still even." · 3 "He has not broken stride once. Not once, in the whole length of the road."
+> **Gone:** LOOK 1 "The lamp, away up the street. It has not once looked back at me." · 2 "Small now." · 3 "Gone round the corner and taken the only light with it."
+> LISTEN 1 "Nothing. He has taken the sound with him too." · 2 "Nothing." · 3 "Nothing at all."
+
+## 19b · LOOK may not describe the unseen. LISTEN may.
+
+This falls out of the LOOK/LISTEN doctrine in doc 05 and should have been stated there.
+
+**LOOK describes what is rendered.** If a LOOK line names people, activity, or objects, they must be visible — drawn into the background, or present as sprites. A LOOK line describing eleven men in an empty room is a contradiction the player can see.
+
+**LISTEN may describe anything, seen or not.** Sound has no such requirement — a boundary argument through a window, someone pacing upstairs, a stage arriving two streets away. This is a large part of why LISTEN carries the game's texture.
+
+**Audit required.** Written content contains many LOOK lines naming figures — the Nugget's patrons and the man on the landing, Room 22's men going out and coming back, the Registrar's two queues, the creek's man panning. Each needs one of:
+
+1. The figures drawn into the background *(permitted for anonymous crowds and distant figures; the no-figures rule in doc 11 concerns characters the player can interact with)*
+2. Ambient sprites supplying them
+3. The line rewritten, or moved to LISTEN
+
+**Report the list before rewriting anything. The choice between the three is a design decision per hotspot, not a mechanical fix.**
