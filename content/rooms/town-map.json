@@ -3,7 +3,7 @@
   "id": "town_map",
   "kind": "map",
   "name": "THE DISTRICT",
-  "note": "Room 0, doc 20. Not a painted location -- a drawn plan of the district, clicked to travel. It has no floor, no actor and no hotspots, which is why it declares kind: map: the walk-box, staging and depth checks all reason about a room a person stands in, and this is a menu that looks like a place (doc 20 rule 5). Errata 25 withdrew the character token, so nothing on this screen moves.",
+  "note": "Room 0, doc 20. Not a painted location -- a drawn plan of the district, clicked to travel. It has no floor, no actor and no hotspots, which is why it declares kind: map: the walk-box, staging and depth checks all reason about a room a person stands in, and this is a menu that looks like a place (doc 20 rule 5). Errata 25 withdrew the character token, so nothing on this screen moves. ERRATA 31b and 31c settle every location that was pending: Boot Hill gates on the undertaker naming Pike dead, and everything visible from Main Street appears the first time Thad stands on it -- two locations become twelve at the moment the town opens.",
   "colours": {
     "sky": 0,
     "ground": 0
@@ -50,44 +50,162 @@
         "T_UNDERTAKER_NAMED": true
       },
       "note": "Doc 20 rule 3 in its original form: heard of, not visited. The driver names him and nobody else in Act I does. Room 13 is not built, so this carries its own label from doc 20 until the room exists to supply one -- and draws dim and untravellable, rather than being hidden, because a location Thad has heard of is on the map whether or not we have drawn it yet."
+    },
+    {
+      "id": "loc_boot_hill",
+      "room": "boot_hill",
+      "label": "BOOT HILL",
+      "unbuilt": true,
+      "at": [
+        286,
+        74
+      ],
+      "when": {
+        "T_PIKE_DEAD": true
+      },
+      "note": "ERRATA 31b. Doc 20's 'once Pike is mentioned' is VOID: Thad names Ezra Pike to the driver in the opening, and gating on that would put Boot Hill on the map at the coach stop and break 30c's floor of two. It gates on the undertaker saying he is dead."
+    },
+    {
+      "id": "loc_registrar",
+      "room": "claims_registrar",
+      "at": [
+        96,
+        60
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      }
+    },
+    {
+      "id": "loc_livery",
+      "room": "livery",
+      "at": [
+        204,
+        106
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE LIVERY STABLE",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_tent",
+      "room": "ozymandias_tent",
+      "at": [
+        148,
+        44
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "OZYMANDIA'S TENT",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_church",
+      "room": "church",
+      "at": [
+        58,
+        44
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE CHURCH",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_back_alley",
+      "room": "back_alley",
+      "at": [
+        278,
+        62
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE BACK ALLEY",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_barber",
+      "room": "barber",
+      "at": [
+        70,
+        90
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE BARBER'S",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_boarding_house",
+      "room": "boarding_house",
+      "at": [
+        34,
+        106
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE BOARDING HOUSE",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_photographer",
+      "room": "photographer",
+      "at": [
+        116,
+        120
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE PHOTOGRAPHER'S",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_bakehouse",
+      "room": "bakehouse",
+      "at": [
+        186,
+        126
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE BAKEHOUSE",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_storefront",
+      "room": "empty_storefront",
+      "at": [
+        242,
+        92
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE EMPTY STOREFRONT",
+      "unbuilt": true
+    },
+    {
+      "id": "loc_schoolhouse",
+      "room": "schoolhouse",
+      "at": [
+        26,
+        64
+      ],
+      "when": {
+        "T_SEEN_MAIN_STREET": true
+      },
+      "label": "THE SCHOOLHOUSE",
+      "unbuilt": true
     }
   ],
-  "pendingLocations": [
-    {
-      "room": 14,
-      "name": "Boot Hill",
-      "doc": "doc 20: 'Also directly on the map once Pike is mentioned'",
-      "missing": "WHICH mention. Thad names Ezra Pike to the driver in v3.1's first option, which would put Boot Hill on the map during the opening and break errata 30c's floor of two. The undertaker saying Pike is dead is the other reading, and it is the one 30c is consistent with. Needs a ruling; not guessed."
-    },
-    {
-      "room": 7,
-      "name": "Claims Registrar",
-      "doc": "doc 20 interiors table: reached from the map",
-      "missing": "no stated appearance rule"
-    },
-    {
-      "room": 15,
-      "name": "Livery stable",
-      "doc": "doc 20 interiors table: reached from the map",
-      "missing": "no stated appearance rule"
-    },
-    {
-      "room": 16,
-      "name": "Ozymandia's tent",
-      "doc": "doc 20 interiors table: reached from the map",
-      "missing": "no stated appearance rule"
-    },
-    {
-      "room": 17,
-      "name": "Church & meeting hall",
-      "doc": "doc 20 interiors table: reached from the map",
-      "missing": "no stated appearance rule"
-    },
-    {
-      "room": null,
-      "name": "The six ancillary interiors",
-      "doc": "doc 20: 'All from the map... None gates anything. All appear on the map from Act I.'",
-      "missing": "'from Act I' against errata 30c's floor of two. If all six are on the map at the coach stop the first state is eight, not two. If 'from Act I' means once Thad is in town, they are gated on something nobody has named. Needs a ruling; not guessed."
-    }
-  ]
+  "pendingLocations": []
 }

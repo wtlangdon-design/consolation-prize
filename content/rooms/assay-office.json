@@ -3,7 +3,7 @@
   "id": "assay_office",
   "name": "THE ASSAY OFFICE",
   "materialIdentity": "grey, bone, glass, brass -- cold precision (errata ruling 17b)",
-  "note": "Doc 05 Room 5. FOUR of eight hotspots -- doc 05 writes out the window sign, scales, queue book and floorboard in full; the sample shelves, her pen, the certificate and the stove are listed as '(working script)' and that script is not in /docs. THE FLOORBOARD is unmarked and critical: Winnie's second ledger is under it and Act II turns on it. It carries no visual marking beyond a lit edge, and must never be given one.",
+  "note": "Doc 05 Room 5. FOUR of eight hotspots -- doc 05 writes out the window sign, scales, queue book and floorboard in full; the sample shelves, her pen, the certificate and the stove are listed as '(working script)' and that script is not in /docs. THE FLOORBOARD is unmarked and critical: Winnie's second ledger is under it and Act II turns on it. It carries no visual marking beyond a lit edge, and must never be given one. Lines EXTRACTED from docs/25-rooms-05-07.md by tools/extract-content.mjs. Do not edit: change doc 25 and re-run.",
   "background": "art/backgrounds/room-05-assay-office.png",
   "colours": {
     "sky": 0,
@@ -56,12 +56,20 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not."
+            "say": "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not.",
+            "repeat": [
+              "Six years. The ink has gone and nobody has needed to read it in some time.",
+              "THIS WINDOW CLOSES AT FOUR. It closes at four."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing. It has been saying the same thing for six years and requires no assistance."
+            "say": "Nothing. It has been saying the same thing for six years and requires no assistance.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It has said the same thing for six years and needed no help."
+            ]
           }
         ]
       },
@@ -80,16 +88,28 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A balance, in a glass case, so accurate that men have wept in front of it. Mostly in the other direction."
+            "say": "A balance, in a glass case, so accurate that men have wept in front of it. Mostly in the other direction.",
+            "repeat": [
+              "Under glass. Nobody touches it but her.",
+              "I have watched a man watch this scale for four minutes without breathing."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing at all. It is the only instrument in Consolation that cannot be argued with."
+            "say": "Nothing at all. It is the only instrument in Consolation that cannot be argued with.",
+            "repeat": [
+              "Nothing.",
+              "Nothing at all. It cannot be argued with, and it knows."
+            ]
           }
         ]
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "overrides": {
+        "USE": "I am not touching it.",
+        "PICK_UP": "It is under glass, and I would not touch it if it were not."
+      }
     },
     {
       "id": "queue_book",
@@ -104,16 +124,27 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Eight months of names. Two-thirds of them in the same hand."
+            "say": "Eight months of names. Two-thirds of them in the same hand.",
+            "repeat": [
+              "Two-thirds of these entries are in the same hand and the same ink.",
+              "Eight months. I have counted forward and I arrive in March."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Paper."
+            "say": "Paper.",
+            "repeat": [
+              "Paper.",
+              "Nothing."
+            ]
           }
         ]
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "overrides": {
+        "PICK_UP": "That is the queue. Men have killed over less orderly things."
+      }
     },
     {
       "id": "floorboard",
@@ -128,16 +159,172 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A floorboard. It sits a little proud of the others."
+            "say": "A floorboard. It sits a little proud of the others.",
+            "repeat": [
+              "Proud by about the width of a nail head.",
+              "Every other board in this room is flush. She has not fixed this one."
+            ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Loose. There's a space under it."
+            "say": "Loose. There's a space under it.",
+            "repeat": [
+              "Still loose.",
+              "Loose. And nothing under it that rattles."
+            ]
           }
         ]
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "overrides": {
+        "PULL": "It gives, and stops. Somebody has arranged for it to give and stop.",
+        "OPEN": "Not with her at the counter."
+      }
+    },
+    {
+      "id": "sample_shelves",
+      "name": "THE SAMPLE SHELVES",
+      "rect": [
+        96,
+        22,
+        128,
+        58
+      ],
+      "colour": 192,
+      "note": "The two vial banks behind the counter, drawn by furniture.vial_shelves.",
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Vials, labelled, in rows, in order. Nine years of them and not one out of place.",
+            "repeat": [
+              "Each one is somebody's morning. Somebody carried that up here in a fold of paper and waited.",
+              "I have looked for a gap. There is no gap."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is nine years of finished work and it is not asking for anything.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. Glass, in order, with nothing to add."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Nine years, in order. I am not going to be the man who moves one."
+      }
+    },
+    {
+      "id": "her_pen",
+      "name": "HER PEN",
+      "rect": [
+        118,
+        80,
+        12,
+        12
+      ],
+      "colour": 195,
+      "note": "In its stand on the counter top. Drawn for doc 25, because ruling 19b will not have a LOOK line about a pen in a room with no pen.",
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A steel pen, nib down in its stand, cleaned. It has been cleaned today.",
+            "repeat": [
+              "There is no blot anywhere on this counter. I have looked for one.",
+              "She writes down what she knows. It is apparently the entire discipline."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It is a pen and it is between sentences."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "No."
+      }
+    },
+    {
+      "id": "certificate",
+      "name": "THE CERTIFICATE ON THE WALL",
+      "rect": [
+        72,
+        24,
+        22,
+        26
+      ],
+      "colour": 199,
+      "note": "Framed, high on the back wall left of the shelves. Blank, like every sign in this game.",
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A territorial commission, framed, appointing W. LEDGER acting assayer. The word acting has been there nine years.",
+            "repeat": [
+              "Acting. Nine years of acting.",
+              "Somebody in a capital four hundred miles away has never got round to the other word."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing at all."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is screwed to the wall, and it is hers."
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE",
+      "rect": [
+        28,
+        94,
+        20,
+        28
+      ],
+      "colour": 190,
+      "note": "The pot stove at frame left, drawn since Room 5 was composed.",
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A small stove, lit, with a kettle on it that is not for tea. It is for the work.",
+            "repeat": [
+              "The only warm thing in a cold room, and it is warm for the ore's sake rather than anybody's.",
+              "Somebody has swept the ash. Of course somebody has swept the ash."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Ticking. Working.",
+            "repeat": [
+              "Ticking.",
+              "Nothing. It has been let go out, and the room is colder for it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "That is the work's fire. I am not opening it."
+      }
     }
   ],
   "exits": [
@@ -153,9 +340,62 @@
       ],
       "colour": 198,
       "to": "main_street",
-      "responses": {},
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The door out, plain, with a step worn pale in the middle.",
+            "repeat": [
+              "The only unornamented front on the street, seen from the inside.",
+              "It shuts properly. Almost nothing in Consolation shuts properly."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street. Muffled. It sounds like a town from in here.",
+            "repeat": [
+              "Still the street.",
+              "Somebody arguing about a boundary, a long way off."
+            ]
+          }
+        ]
+      },
       "fallback": [],
       "defaultVerb": "WALK_TO"
+    },
+    {
+      "id": "to_records",
+      "name": "THE RECORDS ROOM DOOR",
+      "rect": [
+        204,
+        52,
+        24,
+        40
+      ],
+      "colour": 196,
+      "to": "stub_assay_records",
+      "defaultVerb": "OPEN",
+      "note": "Doc 20: Room 5 leads on to Room 6. Doc 25 writes the door, which is why it exists now -- the room behind it is a stub.",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A door behind the counter. Records, presumably, and the presumption is doing some work.",
+            "repeat": [
+              "It is shut and it is not locked, which are different facts.",
+              "There is a cot in there. I have seen the corner of it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. She is not in there, and she is not going to be."
+            ]
+          }
+        ]
+      }
     }
   ]
 }

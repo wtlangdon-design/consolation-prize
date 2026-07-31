@@ -259,6 +259,10 @@ export class GameState {
     this.cameFrom = this.currentRoomId;
     this.currentRoomId = roomId;
     this.boxCache = null;
+    // Errata 31c: standing somewhere is a thing that can happen to a player,
+    // and no hotspot response can observe it. Applied before the autosave so
+    // a save taken on arrival already knows where he has been.
+    this.flags.applyWrites(this.content.rooms.get(roomId)?.onEnter?.set);
     this.autosave();
   }
 
@@ -289,7 +293,7 @@ export class GameState {
     // walking through a door while carrying something still walks.
     const action = this.held
       ? this.verbs.resolveWith(verb, this.held, target, this.currentRoomId)
-      : this.verbs.resolve(verb, target);
+      : this.verbs.resolve(verb, target, this.currentRoomId);
 
     if (action.state) this.setState(target, action.state);
     if (action.take && target.item) {

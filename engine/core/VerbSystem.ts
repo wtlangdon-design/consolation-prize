@@ -168,7 +168,19 @@ export class VerbSystem {
     return label;
   }
 
-  resolve(verbId: string, target: Interactable): ResolvedAction {
+  /**
+   * `scope` disambiguates two targets that share an id.
+   *
+   * Two rooms can legitimately name an exit the same thing -- Room 5 and
+   * Room 7 both have a THE STREET DOOR with the id `back_to_street`, which
+   * doc 25 gave them and which is the natural name in both. Keyed on the id
+   * alone they shared one repeat cursor, so walking out of the assay office
+   * advanced the registrar's door and the two rooms handed each other lines.
+   *
+   * Found by driving the second room rather than by reading the first: with
+   * one room in the game the key was unique and the bug did not exist yet.
+   */
+  resolve(verbId: string, target: Interactable, scope = ''): ResolvedAction {
     const rules = target.responses?.[verbId];
     const index = rules?.findIndex((rule: ResponseRule) => this.flags.test(rule.when)) ?? -1;
     const matched = index >= 0 ? rules?.[index] : undefined;
@@ -177,7 +189,7 @@ export class VerbSystem {
       this.flags.applyWrites(matched.set);
       this.flags.applyAdds(matched.add);
       return {
-        say: this.nextLine(`${target.id}#${index}`, verbId, matched),
+        say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
         state: matched.setState,

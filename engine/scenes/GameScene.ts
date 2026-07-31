@@ -509,7 +509,7 @@ export class GameScene extends Phaser.Scene {
     const target = this.state.itemTarget(slot.id);
     const verb = this.state.verbs.selectedVerb;
     if (target && verb && this.state.verbs.examines(verb)) {
-      this.setSay(this.state.verbs.resolve(verb, target).say);
+      this.setSay(this.state.verbs.resolve(verb, target, 'inventory').say);
     } else {
       this.state.holdItem(slot.id);
     }

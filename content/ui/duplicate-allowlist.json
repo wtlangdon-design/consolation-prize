@@ -4,18 +4,13 @@
   "allow": [
     {
       "line": "Nothing.",
-      "where": "nugget/cards/LISTEN_TO",
-      "reason": "Doc 16, verbatim. The cards' first two LISTEN variants are both a flat 'Nothing.' -- the hand is abandoned and there is nobody to hear. Variant 3 resolves it. Same construction as the mud's identical variant."
+      "where": "*",
+      "reason": "DOCTRINE, not a duplicate. Doc 05's LISTEN layer is built on most objects making no sound, and Thad's answer to a silent object is the same two syllables every time -- in the Nugget three times, on the stage road, in the registrar, and fourteen more in doc 25. Varying them would turn silence into a run of jokes, which is the opposite of what the layer is for, and doc 17 note 3 already forbids varying an identical pair on exactly this reasoning. The distinctive lines are still checked; this one is the null answer."
     },
     {
-      "line": "Nothing.",
-      "where": "nugget/portrait/LISTEN_TO",
-      "reason": "Doc 16, verbatim. 'Nothing.' is Thad's standing answer to a silent object, and doc 16 uses it as a bare line for the portrait, the cards and the back room door. Three objects being silent in the same words is the joke; making them silent in three different ways would be writing around it."
-    },
-    {
-      "line": "Nothing.",
-      "where": "stage_road/lamp_gone/LISTEN_TO",
-      "reason": "Errata ruling 19a, verbatim. Variant 2 of the lamp after Hob has gone: 'Nothing. He has taken the sound with him too.' then 'Nothing.' then 'Nothing at all.' The bare middle line is the same standing answer to a silent object that doc 16 uses three times in the Nugget, and it is the falling-away that the sequence is for."
+      "line": "Nothing at all.",
+      "where": "*",
+      "reason": "DOCTRINE, like the bare 'Nothing.' above it. This is the TERMINAL null answer -- the one Thad gives on the third asking, when even the two syllables have stopped being worth it. Doc 05's layer uses it as the bottom of the falling-away, and two objects reaching that bottom in the same words is the construction rather than a collision."
     },
     {
       "line": "Nothing coming.",
@@ -23,9 +18,29 @@
       "reason": "Doc 17 v2 note 3, explicit: THE ROAD EAST's LISTEN variants 2 and 3 are identical to each other AND to the line at the high ridge in Act IV. Three uses of the same two words, a hundred yards and fifteen hours apart. The doc says 'Do not vary them.'"
     },
     {
-      "line": "Nothing.",
-      "where": "claims_registrar/two_lines/LISTEN_TO",
-      "reason": "Errata doc 19 section 2, verbatim. Variant 2 of the rewritten TWO LINES: 'Nothing. Two empty queues are quieter than one.' then 'Nothing.' then 'Nothing at all. There is a clock, and there is a man, and that is the whole of it.' The bare middle line is the same falling-away doc 16 uses in the Nugget and doc 19's own errata uses on the stage road."
+      "line": "Ticking. Working.",
+      "where": "assay_office/stove/LISTEN_TO",
+      "reason": "Doc 25 note 4, explicit: 'Room 5's stove LISTEN reverses at variant 3, like the Nugget's. Do not correct it to match variants 1 and 2.' The doc knows the two stoves echo and says leave them. A stove that is lit and working sounds the same in both rooms, and the echo is the point -- the assay office is the Nugget's opposite in every other respect."
+    },
+    {
+      "line": "Nothing. It waits extremely well.",
+      "where": "claims_registrar/number_spindle/LISTEN_TO",
+      "reason": "PROVISIONAL, and on doc 15's polish list. Doc 25's LISTEN variant 3 restates doc 05's variant 1 word for word, with a bare 'Nothing.' between them. That is the same 'falls away and returns' shape doc 25 note 4 protects for the stove, so it is allowed rather than corrected -- but note 4 covers the stove and not this, and nobody has said whether it is the construction or a slip. Flagged, not ruled on."
+    },
+    {
+      "line": "Paper.",
+      "where": "assay_office/queue_book/LISTEN_TO",
+      "reason": "PROVISIONAL, and on doc 15's polish list. Same shape as the number spindle: doc 25's variant 2 restates doc 05's variant 1. Allowed rather than corrected for the same reason and with the same caveat."
+    },
+    {
+      "line": "Ticking. Working.",
+      "where": "nugget/stove/LISTEN_TO",
+      "reason": "The other half of doc 25 note 4's echo. Declared on both sides because the allowlist is per-use and a one-sided entry would leave the check reporting the room that was there first as the offender."
+    },
+    {
+      "line": "The street.",
+      "where": "claims_registrar/back_to_street/LISTEN_TO",
+      "reason": "Doc 25 writes the registrar's door LISTEN as 'The street.' then 'The street.' then 'The bell, faintly, still settling.' An identical pair resolved by a third line is the construction doc 17 note 3 names and forbids varying -- the road east does exactly this. Here it is also the joke: a man listening twice at a door and hearing the same nothing, in an office where the only event is a bell."
     }
   ]
 }

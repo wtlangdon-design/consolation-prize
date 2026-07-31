@@ -318,6 +318,158 @@ function stageDriver() {
 
 // ---------------------------------------------------------------------------
 
+/**
+ * A "1 ... · 2 ... · 3 ..." variant run, as [v1, v2, v3].
+ *
+ * SPLIT ON THE SEPARATOR, then read each piece. The first version matched
+ * `(?:^|·)\s*(\d)\s+"..."` across the whole run, which requires a bullet or
+ * a line start before every number -- true in the "newly written" sections
+ * and false in the repeat runs, where variant 2 follows the word LOOK. So
+ * every repeat run silently lost its middle variant and wrote a null into
+ * the array. It passed extraction, produced valid JSON, and only surfaced
+ * because a downstream check noticed variant 3 equalled variant 1.
+ */
+function variants(text) {
+  const out = [];
+  for (const piece of text.split('·')) {
+    const match = piece.match(/(\d)\s+"([^"]+)"/);
+    if (match) out[Number(match[1]) - 1] = match[2];
+  }
+  return out;
+}
+
+/**
+ * Doc 25: Rooms 5 and 7, complete.
+ *
+ * The first document written specifically to clear a failing check --
+ * check-written-content had been red for many turns on exactly these
+ * thirty-two lines, and it was red for the right reason. So this is the
+ * shape every remaining room's content will arrive in, and the extractor
+ * is written for the shape rather than for these two rooms.
+ *
+ * FOUR KINDS OF ENTRY, all of them the doc's own sections:
+ *
+ *   ### HEADING with LOOK and LISTEN runs   -- a new hotspot's lines
+ *   **NAME** -- LOOK 2 "..." · 3 "..." | LISTEN ...  -- repeats for an
+ *                                          existing hotspot
+ *   > **NAME** · VERB -- "..."             -- an override
+ *   **NAME -> Room N** with LOOK/LISTEN     -- an exit
+ *
+ * Nothing here decides which hotspot a heading belongs to by guessing: the
+ * name is slugged and matched against ids already in the room file, and a
+ * heading that matches nothing is reported rather than invented.
+ */
+function rooms0507() {
+  const doc = read('docs/25-rooms-05-07.md');
+  const sections = doc.split(/^# ROOM (\d+) · /m).slice(1);
+  const written = [];
+
+  const FILE = { 5: 'content/rooms/assay-office.json', 7: 'content/rooms/claims-registrar.json' };
+  const shortened = new Set();
+  const VERBS = { LOOK: 'LOOK_AT', LISTEN: 'LISTEN_TO' };
+
+  for (let index = 0; index < sections.length; index += 2) {
+    const number = Number(sections[index]);
+    const body = sections[index + 1];
+    const path = FILE[number];
+    if (!path) throw new Error(`doc 25: no room file for room ${number}`);
+    const room = JSON.parse(read(path));
+
+    const byName = new Map();
+    for (const target of [...room.hotspots, ...room.exits]) byName.set(target.name, target);
+
+    // Exact name first, then a UNIQUE PREFIX. The doc heads a hotspot THE
+    // CERTIFICATE ON THE WALL and calls it THE CERTIFICATE in the override
+    // list, which is how anybody writes and is not an error. A prefix that
+    // matches two hotspots is an error and says so -- the shortening is
+    // allowed to be convenient, never ambiguous.
+    const lineFor = (name) => {
+      const exact = byName.get(name);
+      if (exact) return exact;
+      const near = [...byName.keys()].filter((full) => full.startsWith(name));
+      if (near.length === 1) {
+        shortened.add(`${name} -> ${near[0]}`);
+        return byName.get(near[0]);
+      }
+      if (near.length > 1) {
+        throw new Error(`doc 25 room ${number}: "${name}" matches ${near.length} hotspots`);
+      }
+      throw new Error(`doc 25 room ${number}: no hotspot named "${name}"`);
+    };
+
+    // --- new hotspots: a ### heading, then a LOOK run and a LISTEN run.
+    for (const block of body.matchAll(/^### (.+?)\n\*\*LOOK\*\*(.+?)\n\*\*LISTEN\*\*(.+?)$/gm)) {
+      const [, name, look, listen] = block;
+      const target = byName.get(plain(name));
+      if (!target) {
+        // A heading the room has no hotspot for. Reported, never invented --
+        // an id guessed here is a hotspot nobody can point at.
+        throw new Error(`doc 25 room ${number}: "${plain(name)}" is written but the room `
+          + 'has no hotspot with that name');
+      }
+      for (const [verb, run] of [[VERBS.LOOK, look], [VERBS.LISTEN, listen]]) {
+        const said = variants(run);
+        target.responses = target.responses ?? {};
+        target.responses[verb] = [{ say: said[0], repeat: said.slice(1) }];
+      }
+    }
+
+    // --- repeat variants for hotspots doc 05 already wrote variant 1 for.
+    for (const entry of body.matchAll(/^\*\*(.+?)\*\* — LOOK (.+?) \| LISTEN (.+?)$/gm)) {
+      const [, name, look, listen] = entry;
+      const target = lineFor(plain(name));
+      for (const [verb, run] of [[VERBS.LOOK, look], [VERBS.LISTEN, listen]]) {
+        // Indexed by the doc's own numbers, so variant 2 lands at index 1 --
+        // and a run that skips a number leaves a hole rather than shifting
+        // everything up one.
+        const said = variants(run);
+        if (said[0] !== undefined) {
+          throw new Error(`doc 25: ${plain(name)} ${verb} repeat run restates variant 1`);
+        }
+        const rule = (target.responses?.[verb] ?? [])[0];
+        if (!rule) throw new Error(`doc 25: ${plain(name)} has no ${verb} to add repeats to`);
+        rule.repeat = said.slice(1);
+        if (rule.repeat.some((line) => line === undefined)) {
+          throw new Error(`doc 25: ${plain(name)} ${verb} repeats have a gap -- `
+            + `got ${JSON.stringify(rule.repeat)}`);
+        }
+      }
+    }
+
+    // --- overrides.
+    for (const entry of body.matchAll(/^> \*\*(.+?)\*\* · (.+)$/gm)) {
+      const target = lineFor(plain(entry[1]));
+      target.overrides = target.overrides ?? {};
+      for (const pair of entry[2].split(' · ')) {
+        const split = pair.match(/^(\w[\w ]*?) — "(.+)"$/);
+        if (!split) throw new Error(`doc 25: cannot read override "${pair.slice(0, 40)}"`);
+        target.overrides[split[1].trim().replace(/ /g, '_')] = split[2];
+      }
+    }
+
+    // --- exits.
+    for (const entry of body.matchAll(
+      /^\*\*(.+?) → Room (\d+)\*\*\n\*\*LOOK\*\*(.+?)\n\*\*LISTEN\*\*(.+?)$/gm)) {
+      const [, name, , look, listen] = entry;
+      const target = lineFor(plain(name));
+      for (const [verb, run] of [[VERBS.LOOK, look], [VERBS.LISTEN, listen]]) {
+        const said = variants(run);
+        target.responses = target.responses ?? {};
+        target.responses[verb] = [{ say: said[0], repeat: said.slice(1) }];
+      }
+    }
+
+    room.note = `${(room.note ?? '').replace(/ Lines EXTRACTED.*$/, '')} `
+      + 'Lines EXTRACTED from docs/25-rooms-05-07.md by tools/extract-content.mjs. Do not '
+      + 'edit: change doc 25 and re-run.';
+    written.push(write(path, room));
+  }
+  for (const pair of shortened) process.stderr.write(`  doc 25 short name: ${pair}\n`);
+  return written;
+}
+
+// ---------------------------------------------------------------------------
+
 /** Doc 24's combination table: three tiers, extracted whole. */
 function combinations() {
   const doc = read('docs/24-combinations.md');
@@ -397,7 +549,7 @@ function combinations() {
 
 // ---------------------------------------------------------------------------
 
-const written = [opening(), stageDriver(), combinations()];
+const written = [opening(), stageDriver(), combinations(), ...rooms0507()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

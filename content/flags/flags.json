@@ -97,6 +97,15 @@
       "writtenBy": [
         "sequence:opening:complete"
       ]
+    },
+    {
+      "id": "T_SEEN_MAIN_STREET",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has stood on Main Street. ERRATA 31c: seeing counts, so everything visible from the street goes on the map the first time he is on it -- the map jumps from two locations to twelve at the moment the town opens, which is the shape doc 20 wanted and could not express while the rule was 'heard of'.",
+      "writtenBy": [
+        "room:main_street:entry"
+      ]
     }
   ]
 }
