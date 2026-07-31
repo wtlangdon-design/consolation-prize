@@ -1,4 +1,4 @@
-# THE LAST CLAIM IN CONSOLATION
+# CONSOLATION PRIZE
 ## Errata & Reconciliation — v1
 
 **Precedence: this document overrides all others on every point it addresses.** Where a numbered document contradicts a ruling here, this document wins and the other document is wrong.
@@ -559,3 +559,40 @@ Decimation narrows proportionally: 20 → 16 → 13 pixels wide. The hand reduct
 ## Cost
 
 **Thirty remaining characters go from three drawn sizes to two.** The largest single saving available in the remaining art budget, and it came from reading the original engine rather than reasoning about it.
+
+---
+
+# 25 · NO CHARACTER TOKENS ON THE MAP — closes doc 21 gap 2's tail
+
+Thad's colour cue holds to 26px (+176 and +149 against the darkest and brightest composed rooms) and **fails at 8 and 4px**: the bright column decimates away and the brightest remaining mass is his face at 156. Same failure mode as the eyes, for the same reason.
+
+**The requirement is withdrawn rather than solved.**
+
+The dossier's "test at four-to-eight-pixel map-token scale" applies to games whose maps carry a character token. **Ours does not.** Doc 20 specifies the map as a plan of the district with location markers, clicked to travel, and states that travel is instant with no transition. There is no moving figure on it and no reason to add one.
+
+I introduced the token requirement by quoting the dossier without checking it against doc 20. **Closed. No character needs a sprite below 26px.**
+
+If a token is ever wanted, it needs its own drawn asset — the decimation curve cannot produce one, and that is now a measured fact rather than a suspicion.
+
+---
+
+# 26 · THE VERB PANEL AND INVENTORY — text, not icons
+
+The inventory's geometry appears in no document. Doc 06 specifies the array and the per-item lines and stops. Flagged during the vertical slice, with nine verbs already filling the panel width and forty items to place.
+
+**Canonical, and it follows the 1990 original:**
+
+- **Verbs occupy the left of the panel in three columns of four**, exactly as SCUMM laid them out.
+- **Inventory occupies the right of the panel as a scrollable list of ITEM NAMES IN TEXT.** Not icons.
+- Scroll arrows at the right edge. Roughly four to six items visible at once.
+- The sentence line sits above both, full width.
+
+**Text inventory is not a compromise, it is the period-correct answer.** *The Secret of Monkey Island* listed inventory as text — "meat with condiment", "rubber chicken" — and only later games in the series moved to icons. Reading a list of nouns is also funnier than looking at pictures of them, which matters for a game whose comedy lives in objects.
+
+**Consequences:**
+
+1. **~40 inventory item icons are struck from scope** (doc 15). Item art is not needed. Each item's LOOK and LISTEN lines are still required and are the whole of its presentation.
+2. Item names must read at the game's 5×7 font in the panel width. Long names — "Form 12-C (Amended, Void)" — need a stated truncation rule, or shorter display names alongside their full LOOK text.
+3. The held-item sentence templates added to `ui.json` during the slice are correct and stay.
+
+**On item-on-target resolution:** the slice found that USE FORK ON MUD answers from the global pool rather than the mud's own USE override. That is correct and doc 13 says so — an override answers its verb-object pair, and a held item makes a different sentence. No change.
