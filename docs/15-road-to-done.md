@@ -61,7 +61,7 @@ Built:
 - [x] Deploy to Pages
 
 Not built:
-- [ ] **Inventory** — array, panel UI, ~40 item icons, LOOK/LISTEN per item, combination table
+- [ ] **Inventory** — array, panel UI, LOOK/LISTEN per item, combination table. **~40 item icons struck per errata 26 — inventory is text, as in the 1990 original**
 - [ ] **The Liar's Assay** — turn-based duel: boast/counter resolution, five exchanges, learn-by-losing, mockery pool, pair acquisition state
 - [ ] **Reputation broadcast** — integer state, ambient bark firing on approach, one-shot-per-state
 - [ ] **Letters home** — three-version choice UI, per act, tracking nothing
@@ -101,7 +101,7 @@ Characters — **1 of 31 done**:
 - [ ] All subject to ruling 16 — measured legibility per room they appear in
 
 Interface:
-- [ ] Inventory panel, dialogue overlay polish, ~40 item icons, title and credits
+- [ ] Inventory panel, dialogue overlay polish, title and credits. **Item icons struck per errata 26**
 
 # 4 · AUDIO — **nothing exists**
 
