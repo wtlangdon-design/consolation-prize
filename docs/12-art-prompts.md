@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Background Art Prompts — 41 Rooms
 
 *Paste-ready. Read Part One before generating anything.*
