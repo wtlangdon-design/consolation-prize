@@ -953,3 +953,21 @@ Reported from the deployed build.
 3. **Barrel lid ellipses face the wrong way for their position** — the viewing angle should follow the object's height relative to the horizon.
 
 **Not a bug:** the coach is absent because the driver departed. The coach and team leave together and the departed state is correct.
+
+
+---
+
+# 37 · EXHAUSTED DIALOGUE OPTIONS — progress goes, topic and comic stay
+
+From a player audit: Monkey Island removes an option once it has been asked, and ours grey out and remain. Both behaviours are right, for different options.
+
+| Tag | Behaviour |
+|---|---|
+| `[PROGRESS]` | **Removed once used.** It has done its job. Leaving it clutters the list and invites a player to re-ask a question that has been answered |
+| `[TOPIC]` | **Stays, greys, remains selectable.** Its repeat responses are written content |
+| `[COMIC]` | **Stays, greys, remains selectable.** Same |
+| `[EXIT]` | Always present |
+
+**Why topic and comic must stay:** doc 04's Winnie tree turns on asking her about the raccoon five times until she cracks — "What's its name." — and that arc is one of the best things in the game. Removing exhausted options would delete it silently.
+
+**Doc 04 rule 4 is amended accordingly.** It said all exhausted options grey and remain; only `[PROGRESS]` changes.
