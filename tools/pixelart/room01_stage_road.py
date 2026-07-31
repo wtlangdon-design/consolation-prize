@@ -27,11 +27,18 @@ from pathlib import Path
 
 import cycling
 from canvas import IndexedCanvas
-from components import distant_hills
+from clutter import lumber_stack
+from components import crate, distant_hills
 from dither import BAYER2, BAYER4, dither_pixel
 from lighting import Lamp, LightField, lamp_core
 from palette import Palette
+from primitives import (
+    barrel, catenary, ellipse_outline, ellipse_shaded, organic_mass, rope, sack,
+    spoked_wheel,
+)
 from renders import BACKGROUNDS, FOREGROUNDS, RENDERS
+
+OBJECTS = BACKGROUNDS.parent / "objects"
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -193,6 +200,12 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     # painted straight over the top, so the town was not in the picture at all.
     town_glow(canvas, palette, rng, ochre, umber, grey)
 
+    # -- what the road has accumulated -------------------------------------
+    # Before the sign and the coach, so those two stay the objects that read
+    # first: dressing goes down early and is overlapped by everything that
+    # matters, which is also how it stays quiet.
+    roadside(canvas, palette, random.Random(SEED ^ 0xD8E5), ROAD_Y)
+
     # -- the town sign -----------------------------------------------------
     town_sign(canvas, palette, 36, ROAD_Y - 34, umber, bone)
 
@@ -270,6 +283,145 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     cycling.verify(canvas, elements)
 
     return canvas, palette
+
+
+def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int) -> None:
+    """What a stage road accumulates. Build item 3, and most of it is not a hotspot.
+
+    Room 1 had nine drawn objects and about ninety per cent of the frame was
+    two empty planes. Monkey Island's rooms carry forty to sixty, and the
+    difference is not decoration -- an empty plane reads as unfinished
+    whatever is standing on it, and Thad's first thirty seconds are spent
+    looking at one.
+
+    THREE RULES, all from the references rather than from taste:
+
+    OVERLAP. Not one object in Room 1 partially occluded another. Everything
+    stood alone on the ground line like stock on a shelf. In the ship's hold
+    every object overlaps something, and that is what makes forty objects a
+    place instead of forty stickers. So these are drawn in depth bands, back
+    to front, and they are allowed to cross.
+
+    QUIET. Errata 23's proportions do not relax and neither does the
+    legibility gate. Almost all of this sits in the dominant field and the
+    structural shadow -- mud, grey and weathered pine -- and introduces no
+    new colour, which is how the reference gets density without losing the
+    things that matter. A dense room is exactly where a hotspot stops
+    reading.
+
+    SCALE VARIETY. Everything in the old frame was between eight and twenty
+    pixels. The reference runs from a whole circus tent down to a hammock.
+    So: a water butt as tall as Thad's chest, and bottles four pixels long.
+    """
+    mud = palette.family("mud")
+    grey = palette.family("grey")
+    pine = palette.family("pine_weathered")
+    umber = palette.family("umber")
+    sage = palette.family("sage")
+    dust = palette.family("dust")
+
+    # SILHOUETTE, NOT TEXTURE. The first pass put everything at tone 0.16 to
+    # 0.26 against a verge running 0.20 to 0.54 -- the same luminance band, so
+    # forty new objects arrived and the frame read as slightly dirtier rather
+    # than fuller. At night an object between the eye and a moonlit verge is
+    # DARKER than it, not the same. Everything in the far and mid bands is
+    # pushed down to read as a cut-out.
+    #
+    # And density belongs at the EDGES and in DEPTH, not scattered over the
+    # plane the player walks on. That is the reference's actual habit: the
+    # ship's hold is packed to the walls and its floor is nearly clear, the
+    # circus clearing is empty because it is a pool of light. Litter strewn
+    # across a walkable band is not density, it is a legibility problem with
+    # more steps.
+
+    # -- far band: low, half-buried, against the verge ----------------------
+    for x, r in ((16, 6), (48, 4), (150, 5), (196, 6), (232, 4)):
+        organic_mass(canvas, x, ground_y - 13, r, max(2, r - 2), grey, rng, tone=0.10, lumps=3)
+
+    # -- the fence: the one thing crossing the middle distance at an angle,
+    #    which is what an empty plane needs more than it needs objects on it.
+    for index in range(9):
+        px = 12 + index * 34
+        py = ground_y - 13 - index // 3
+        canvas.vline(px, py - 10, 11, pine.frac(0.10))
+        canvas.put(px + 1, py - 10, pine.frac(0.05))
+        if index:
+            canvas.line(px - 34, py - 7, px, py - 8, pine.frac(0.08))
+            canvas.line(px - 34, py - 4, px, py - 5, pine.frac(0.06))
+
+    # -- LEFT EDGE: the freight heap. A vertical mass at the frame edge, in
+    #    depth: butt behind, barrels across it, sacks and crates in front.
+    barrel(canvas, 2, ground_y - 42, 19, 26, pine, grey, rng, base=0.14, open_top=True)
+    rope(canvas, catenary(8, ground_y - 44, 21, ground_y - 42, 5), pine, tone=0.16)
+    barrel(canvas, 18, ground_y - 32, 15, 18, umber, grey, rng, base=0.12)
+    barrel(canvas, 30, ground_y - 27, 12, 14, mud, grey, rng, base=0.10)
+    crate(canvas, 40, ground_y - 22, 14, 11, pine, rng, base=0.12)
+    sack(canvas, 14, ground_y - 6, 13, 14, dust, rng, tone=0.16)
+    sack(canvas, 34, ground_y - 7, 11, 12, dust, rng, tone=0.13)
+
+    # -- 96 to 150: what was bare. Feed trough, lumber, a leaning crate.
+    canvas.rect(98, ground_y - 15, 30, 6, pine.frac(0.11))
+    canvas.hline(98, ground_y - 15, 30, pine.frac(0.20))
+    canvas.vline(100, ground_y - 9, 8, pine.frac(0.09))
+    canvas.vline(125, ground_y - 9, 8, pine.frac(0.09))
+    lumber_stack(canvas, palette, 132, ground_y - 5, 20, 5, pine, rng, tone=0.11)
+    crate(canvas, 116, ground_y - 26, 12, 10, pine, rng, base=0.13)
+
+    # -- the milepost, alone, with air round it. It is the only object in the
+    #    frame that is a statement about distance, which is what the road is
+    #    about, and crowding it would waste it.
+    canvas.vline(160, ground_y + 4, 14, pine.frac(0.26))
+    canvas.rect(157, ground_y, 9, 6, pine.frac(0.34))
+    canvas.hline(157, ground_y, 9, pine.frac(0.50))
+    canvas.hline(157, ground_y + 5, 9, pine.frac(0.08))
+
+    # -- the broken wheel, leaning on the fence. A curve in a frame that had
+    #    exactly one, and now the second-largest object on the left of the
+    #    coach.
+    spoked_wheel(canvas, 198, ground_y + 7, 12, grey, spokes=10, tone=0.12, squash=0.94)
+    canvas.line(186, ground_y + 18, 210, ground_y + 14, grey.frac(0.07))
+
+    # -- the harness rail: posts, a top bar, and three sets over it. Without
+    #    the posts the ropes were three squiggles in mid-air.
+    canvas.vline(210, ground_y - 26, 14, pine.frac(0.14))
+    canvas.vline(246, ground_y - 26, 14, pine.frac(0.14))
+    canvas.hline(210, ground_y - 26, 37, pine.frac(0.20))
+    for hook_x in (216, 226, 236):
+        rope(canvas, catenary(hook_x, ground_y - 25, hook_x + 8, ground_y - 25, 7),
+             umber, tone=0.14)
+
+    # -- RIGHT EDGE: a woodpile, stacked end-on, closing the frame the way
+    #    the freight heap closes the left. Nothing was over there but road.
+    for row in range(5):
+        for col in range(6 - row):
+            cx = 288 + col * 6 + row * 3
+            cy = ground_y - 8 - row * 5
+            ellipse_shaded(canvas, cx, cy, 3, 2, pine, 0.13, lift=0.14)
+            ellipse_outline(canvas, cx, cy, 3, 2, pine.frac(0.05))
+
+    # -- near band, and ONLY at the frame edges. A verge does not stop at the
+    #    picture edge, and a few dark masses running off the bottom corners
+    #    say so without putting anything where Thad walks.
+    for cx, cy, r in ((6, ground_y + 16, 9), (24, ground_y + 30, 7),
+                      (300, ground_y + 30, 10)):
+        organic_mass(canvas, cx, cy, r, max(2, r // 2), mud, rng, tone=0.14, lumps=3)
+    for bx, by in ((46, ground_y + 9), (272, ground_y + 6)):
+        canvas.vline(bx, by - 4, 4, sage.frac(0.24))
+        canvas.put(bx, by - 5, sage.frac(0.34))
+
+    # -- boot churn: single pixels, not objects. Grain on the road rather
+    #    than litter on it.
+    for _ in range(90):
+        bx = rng.randrange(2, WIDTH - 2)
+        by = rng.randrange(ground_y + 2, HEIGHT - 1)
+        canvas.put(bx, by, mud.frac(0.22 if rng.random() < 0.5 else 0.16))
+
+    # -- the nailed notice, on the nearest fence post. Blank: the engine
+    #    draws words and this is the board they would go on.
+    canvas.rect(60, ground_y - 33, 12, 9, dust.frac(0.26))
+    canvas.outline(60, ground_y - 33, 12, 9, dust.frac(0.10))
+    canvas.put(61, ground_y - 32, grey.frac(0.40))
+    canvas.put(71, ground_y - 32, grey.frac(0.40))
 
 
 def scrub_bank(canvas: IndexedCanvas, palette: Palette, rng) -> None:
@@ -539,24 +691,27 @@ def cart_wheel(canvas: IndexedCanvas, cx: int, cy: int, radius: int, iron, spoke
 def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, iron, brass) -> None:
     """The stage, halted, facing west. Departs on the driver's exit line.
 
-    It read as a dark shed with two pale rectangles in it. The rectangles
-    were the windows -- drawn in a different family from the body and landing
-    LIGHTER than the wall they were cut into, so the one thing on the coach
-    that caught the eye was the one thing that should have been a hole. The
-    wheels were square outlines with a line through them.
-
-    Rebuilt silhouette first, because at 1x that is all there is: two round
-    wheels of visibly different size, a body slung between them, a roof line
+    SILHOUETTE FIRST, because at 1x that is all there is: two round wheels of
+    visibly different size, a body slung between them, a roof line
     overhanging both ends, and a pole running out to the ground. Those four
-    shapes are what makes a coach a coach at fifty pixels wide. Everything
-    after them can only confirm a reading the silhouette has already made,
-    and if the silhouette has not made it, no amount of it will.
+    shapes are what makes a coach a coach at fifty pixels wide.
+
+    DETAIL SECOND, and it was missing entirely. The body was three flat
+    horizontal bands and two windows -- a brown box with two wheels, which
+    against Monkey Island's ship's hold is the whole complaint in one object.
+    A vehicle that a man has just climbed down from and unloaded luggage off
+    carries: a door with a handle and a drip moulding, a folding step under
+    it, a lamp on a bracket, a boot with the load strapped down, a driver's
+    box with a rail and a footboard, leather braces the body hangs on, and
+    wear where boots and hands have been going for four days. Every one of
+    those is a shape somebody could name, which is the test.
     """
     ground = y + 3                       # where both wheels meet the road
-    # Rear wheel larger than front, which is the proportion that says
-    # "stagecoach" rather than "cart" before any detail is legible.
-    cart_wheel(canvas, x + 40, ground - 10, 10, iron)
-    cart_wheel(canvas, x + 9, ground - 7, 7, iron, spokes=6)
+    # Rear wheel larger than front -- the proportion that says "stagecoach"
+    # rather than "cart" before any detail is legible. Now with a felloe, a
+    # tyre and a hub, from the primitives library.
+    spoked_wheel(canvas, x + 40, ground - 10, 10, iron, spokes=12, tone=0.24)
+    spoked_wheel(canvas, x + 9, ground - 7, 7, iron, spokes=10, tone=0.22)
 
     # The pole, out to the front and down. It is what a coach is missing when
     # it reads as a shed: a shed is not attached to anything.
@@ -564,6 +719,13 @@ def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, ir
     canvas.line(x + 4, ground - 12, x - 21, ground - 2, iron.frac(0.16))
     canvas.vline(x - 21, ground - 5, 4, iron.frac(0.22))          # swingletree
     team(canvas, x - 52, ground, body, iron)
+
+    # Leather braces. The body of a stage hangs on them rather than sitting on
+    # the axle, and the two diagonals under the doors are the most
+    # recognisable thing about the vehicle after the wheels.
+    for brace_x in (x + 6, x + 44):
+        canvas.line(brace_x, ground - 12, brace_x + 2, ground - 26, iron.frac(0.30))
+        canvas.line(brace_x + 1, ground - 12, brace_x + 3, ground - 26, iron.frac(0.14))
 
     # Body: swelled, so its underside is a curve and not a plank.
     for row in range(19):
@@ -573,22 +735,65 @@ def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, ir
     canvas.hline(x + 2, ground - 31, 47, body.frac(0.42))
     canvas.hline(x + 4, ground - 20, 43, body.frac(0.20))         # the belt rail
 
+    # THE DOOR, centred, with its frame proud of the panel, a handle, and the
+    # drip moulding over it that every coach of this period had.
+    door_x, door_y = x + 20, ground - 30
+    canvas.outline(door_x, door_y, 14, 17, body.frac(0.44))
+    canvas.vline(door_x + 1, door_y + 1, 15, body.frac(0.18))
+    canvas.hline(door_x - 1, door_y - 1, 16, body.frac(0.50))     # drip moulding
+    canvas.put(door_x + 11, door_y + 10, brass.frac(0.34))        # handle
+    canvas.put(door_x + 11, door_y + 11, brass.frac(0.18))
+
     # Windows: DARKER than the body. An unlit interior at night is a hole.
-    for window_x in (x + 12, x + 28):
-        canvas.rect(window_x, ground - 29, 11, 8, body.frac(0.06))
-        canvas.hline(window_x, ground - 30, 11, body.frac(0.44))   # the drip cap
+    for window_x in (x + 8, x + 36):
+        canvas.rect(window_x, ground - 29, 10, 8, body.frac(0.06))
+        canvas.hline(window_x, ground - 30, 10, body.frac(0.44))   # the drip cap
+        canvas.vline(window_x - 1, ground - 29, 8, body.frac(0.40))
+    canvas.rect(door_x + 3, ground - 29, 8, 7, body.frac(0.08))    # door glass
+    canvas.hline(door_x + 3, ground - 30, 8, body.frac(0.46))
+
+    # The folding step, under the door. Down, because somebody just used it.
+    canvas.hline(door_x + 3, ground - 12, 7, iron.frac(0.30))
+    canvas.line(door_x + 3, ground - 13, door_x + 4, ground - 16, iron.frac(0.22))
+    canvas.line(door_x + 9, ground - 13, door_x + 8, ground - 16, iron.frac(0.22))
 
     # Roof line, overhanging both ends -- the horizontal that reads first.
     canvas.rect(x - 1, ground - 34, 53, 2, body.frac(0.26))
     canvas.hline(x - 1, ground - 34, 53, body.frac(0.52))
-    canvas.rect(x + 30, ground - 39, 18, 5, body.frac(0.24))       # the load
-    canvas.hline(x + 30, ground - 39, 18, body.frac(0.40))
-    canvas.rect(x + 2, ground - 39, 15, 5, body.frac(0.28))        # driver's box
-    canvas.hline(x + 2, ground - 39, 15, body.frac(0.46))
 
-    # Dimmer than Hob's lamp on purpose. At full brightness it tied it at
-    # 203 and the frame had two equally bright warm points, which is one
-    # more than doc 17 allows.
+    # The boot: the load, strapped down, with the straps drawn. Thad's case
+    # came off this two minutes ago and the rest of it has not.
+    canvas.rect(x + 30, ground - 39, 18, 5, body.frac(0.24))
+    canvas.hline(x + 30, ground - 39, 18, body.frac(0.40))
+    for strap_x in (x + 34, x + 43):
+        canvas.vline(strap_x, ground - 39, 6, iron.frac(0.34))
+        canvas.put(strap_x, ground - 36, brass.frac(0.30))         # buckle
+    canvas.rect(x + 33, ground - 42, 7, 3, body.frac(0.34))        # a trunk on top
+    canvas.hline(x + 33, ground - 42, 7, body.frac(0.48))
+
+    # Driver's box, with the rail he holds and the footboard he braces on.
+    canvas.rect(x + 2, ground - 39, 15, 5, body.frac(0.28))
+    canvas.hline(x + 2, ground - 39, 15, body.frac(0.46))
+    canvas.hline(x + 1, ground - 41, 16, iron.frac(0.32))          # the rail
+    canvas.vline(x + 1, ground - 41, 3, iron.frac(0.26))
+    canvas.vline(x + 16, ground - 41, 3, iron.frac(0.26))
+    canvas.hline(x - 1, ground - 33, 6, body.frac(0.36))           # footboard
+
+    # WEAR. Four days from Sacramento, and it goes on the two places a coach
+    # actually wears: the panel below the door where boots scuff it, and the
+    # roof edge where the load has been dragged on and off.
+    for _ in range(14):
+        wx = x + 3 + rng.randrange(0, 46)
+        wy = ground - 19 + rng.randrange(0, 5)
+        canvas.put(wx, wy, body.frac(0.34 if rng.random() < 0.5 else 0.14))
+    for _ in range(8):
+        canvas.put(x + 30 + rng.randrange(0, 18), ground - 35, body.frac(0.16))
+
+    # The lamp on its bracket. Dimmer than Hob's on purpose: at full
+    # brightness it tied it at 203 and the frame had two equally bright warm
+    # points, which is one more than doc 17 allows.
+    canvas.line(x - 3, ground - 33, x - 15, ground - 31, iron.frac(0.30))   # bracket
+    canvas.rect(x - 17, ground - 33, 3, 4, iron.frac(0.24))
     canvas.put(x - 16, y - 4, brass.frac(0.42))             # the coach lantern
     canvas.put(x - 16, y - 5, brass.frac(0.58))
 
@@ -626,11 +831,39 @@ def main() -> None:
     canvas, palette = compose(with_coach=True)
     canvas.save(RENDERS / "room-01-stage-road.png", palette)
     canvas.save(RENDERS / "room-01-stage-road@4x.png", palette, scale=4)
-    canvas.save(BACKGROUNDS / "room-01-stage-road.png", palette)
     FOREGROUND.save_rgba(FOREGROUNDS / "room-01-stage-road.png", palette)
 
-    departed, _ = compose(with_coach=False, lamp_x=250)
+    # ERRATA 31d. The coach is an OBJECT STATE, not background art.
+    #
+    # It was painted into the background, so when T_COACH_DEPARTED flipped the
+    # hotspot correctly became THE ROAD WEST OUT and answered "Gone. It made
+    # very good time on the way out." while a coach sat in the frame -- ruling
+    # 19b in reverse, and the sort of thing that passes every check because
+    # nothing checks the picture against the line.
+    #
+    # THE SHIPPING BACKGROUND IS NOW THE DEPARTED COMPOSITION, and the coach
+    # layer is the DIFFERENCE between the two composes. Differencing rather
+    # than drawing the coach onto a transparent canvas, because the coach is
+    # lit by the same pass as everything else and carries its own lantern:
+    # the pixels that change are the coach, the team, and the light they
+    # throw on the road, which is exactly the set that should leave with it.
+    # Drawn separately it would have to be lit separately, and the seam
+    # between two lighting passes is the kind of thing nobody sees until the
+    # coach goes.
+    departed, _ = compose(with_coach=False)
+    departed.save(BACKGROUNDS / "room-01-stage-road.png", palette)
     departed.save(RENDERS / "room-01-stage-road-coach-gone@4x.png", palette, scale=4)
+
+    layer = IndexedCanvas(WIDTH, HEIGHT, fill=255)
+    changed = 0
+    for y in range(HEIGHT):
+        for x in range(WIDTH):
+            if canvas.get(x, y) != departed.get(x, y):
+                layer.put(x, y, canvas.get(x, y))
+                changed += 1
+    OBJECTS.mkdir(parents=True, exist_ok=True)
+    layer.save_rgba(OBJECTS / "room-01-coach.png", palette)
+    print(f"  coach layer: {changed} px -> art/objects/room-01-coach.png")
 
     print("wrote renders/room-01-stage-road@4x.png (+ coach-gone)")
     print(f"  colours used: {len(canvas.used_indices())}")

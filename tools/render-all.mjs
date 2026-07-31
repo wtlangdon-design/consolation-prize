@@ -20,6 +20,7 @@ const PIXELART = resolve(ROOT, 'tools/pixelart');
 /** Each entry is one script, what it is for, and any arguments it takes. */
 const SCRIPTS = [
   ['sheets.py', 'locked palette and the exterior component library'],
+  ['primitives_sheet.py', 'non-rectangular primitives -- ellipse, arch, wheel, rope, cylinder'],
   ['proofs.py', 'Room 2 vs Room 36, and the Room 2 scale check'],
   ['room02_main_street.py', 'Room 2 background (shipping asset)'],
   ['room36_main_street_dawn.py', 'Room 36 background (shipping asset)'],

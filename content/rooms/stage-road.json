@@ -217,7 +217,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "The team, shifting. The near axle is dry — it has been dry a long time.",
+            "say": "The team, shifting. The near axle is dry \u2014 it has been dry a long time.",
             "repeat": [
               "Still dry. It will be heard from.",
               "Somebody up top is rearranging the load and swearing about it."
@@ -229,7 +229,14 @@
         "USE": "It is going. It is going with some enthusiasm.",
         "PULL": "I have considered running after it. I would like that on the record and nowhere else."
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "state": "halted",
+      "states": {
+        "halted": {
+          "note": "ERRATA 31d: the coach is an object state, not background art. The shipping background is the DEPARTED composition and this layer is the difference between the two composes -- the coach, the team, and the light its lantern throws on the road, which is exactly the set that leaves with it. When T_COACH_DEPARTED flips, this hotspot's gate fails, it drops out of the room, and its image goes with it.",
+          "image": "art/objects/room-01-coach.png"
+        }
+      }
     },
     {
       "id": "team",
@@ -264,7 +271,8 @@
           }
         ]
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "note": "The horses are drawn INSIDE the coach layer (errata 31d): they belong to the same departure and splitting them into a second image would put a seam down the middle of the harness."
     },
     {
       "id": "coach_gone",
@@ -314,7 +322,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "CONSOLATION — POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later.",
+            "say": "CONSOLATION \u2014 POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later.",
             "repeat": [
               "The number has been repainted four times. You can see the smaller ones underneath, each of them once true.",
               "The smallest number underneath is two hundred. Somebody was pleased with two hundred once."

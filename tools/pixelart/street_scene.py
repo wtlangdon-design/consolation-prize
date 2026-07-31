@@ -45,6 +45,10 @@ from buildings import (
 )
 from canvas import IndexedCanvas
 from clutter import crate_stack, lumber_stack, laundry_line, leaning_tools, rope_coil, sacks
+from primitives import (
+    barrel as turned_barrel, catenary, ellipse_outline, ellipse_shaded, organic_mass,
+    rope as rope_line, sack as slumped_sack, spoked_wheel,
+)
 from components import (
     barrel,
     plank_wall,
@@ -538,6 +542,91 @@ def palette_notice_x() -> int:
     return 66
 
 
+def street_dressing(canvas: IndexedCanvas, palette: Palette, scheme: Scheme,
+                    rng: random.Random) -> None:
+    """Build item 3 for Room 2. The street had one composed band and two empty planes.
+
+    Main Street already carried more than Room 1 -- six storefronts, a
+    boardwalk of goods, a rail, a trough -- and it still read thin, which is
+    the useful finding: the count was not the problem. Three things were.
+
+    THE BOTTOM FORTY PER CENT WAS BARE MUD. One rail, one trough and a
+    foreground wheel across 320 by 60 pixels. The reference keeps its
+    walkable plane clear, but clear is not the same as empty: the ship's
+    hold's floor has crates breaking into it from three sides and a cast
+    shadow under everything standing on it.
+
+    NOTHING OVERLAPPED. Every object on the boardwalk sat in its own space
+    along one line, which reads as stock on a shelf rather than goods in a
+    street.
+
+    NOTHING CAST A SHADOW ONTO THE STREET. The terrace looked pasted onto the
+    mud rather than standing on it, and a boardwalk two feet above a road
+    throws the hardest shadow in the frame.
+    """
+    mud = scheme.family(palette, "mud")
+    pine = scheme.family(palette, "pine_weathered")
+    fresh = scheme.family(palette, "pine_fresh")
+    umber = scheme.family(palette, "umber")
+    grey = palette.family("grey")
+    dust = palette.family("dust")
+
+    deck = GROUND + WALK_DEPTH - 1
+
+    # -- goods pushed off the walk and into the street, overlapping the
+    #    boardwalk edge. This is the join the old composition never made:
+    #    two planes that meet along a ruled line and share nothing.
+    for x, w, h, ramp, tone in ((38, 15, 18, umber, 0.30), (52, 12, 14, pine, 0.34),
+                                (188, 14, 17, fresh, 0.36), (258, 13, 15, umber, 0.28)):
+        turned_barrel(canvas, x, STREET_TOP - h - 2, w, h, ramp, grey, rng, base=tone)
+    for x in (30, 66, 200, 272):
+        slumped_sack(canvas, x, STREET_TOP + 3, 13, 14, pine, rng, tone=0.30)
+
+    # -- the shadow the boardwalk throws. Two steps, hard, and it is what
+    #    puts the terrace ON the street instead of behind it.
+    for row in range(4):
+        for col in range(WIDTH):
+            canvas.put(col, STREET_TOP + row, palette.darken(canvas.get(col, STREET_TOP + row),
+                                                             2 if row < 2 else 1))
+
+    # -- wheel tracks running away up the street, which is the one thing in
+    #    the mud that recedes rather than lying flat.
+    for lane, drift in ((84, -0.22), (150, 0.05), (232, 0.30)):
+        for step in range(HEIGHT - STREET_TOP - 6):
+            t = step / max(1, HEIGHT - STREET_TOP - 6)
+            x = round(lane + drift * step * 2.4)
+            canvas.put(x, STREET_TOP + 5 + step, mud.frac(max(0.05, 0.22 - 0.06 * t)))
+            canvas.put(x + 11, STREET_TOP + 5 + step, mud.frac(max(0.05, 0.20 - 0.06 * t)))
+
+    # -- spoil and stone at the frame edges, so the street runs off the
+    #    picture rather than stopping at it.
+    for cx, cy, r in ((4, HEIGHT - 10, 11), (18, HEIGHT - 26, 7),
+                      (314, HEIGHT - 14, 12), (300, HEIGHT - 30, 8)):
+        organic_mass(canvas, cx, cy, r, max(2, r // 2), mud, rng, tone=0.20, lumps=3)
+
+    # -- a second wheel, half-sunk, at the far kerb. Curves, in a frame whose
+    #    only one was in the foreground plane.
+    spoked_wheel(canvas, 118, STREET_TOP + 8, 9, grey, spokes=10, tone=0.22, squash=0.35)
+
+    # -- the water butt under the hotel's downpipe, and a rope from the
+    #    balcony rail. Verticals at the right, where the terrace has none.
+    turned_barrel(canvas, 246, GROUND - 22, 16, 20, pine, grey, rng, base=0.34, open_top=True)
+
+    # -- stacked cordwood against the west end, end-on. The left edge of the
+    #    terrace stopped in mid-air.
+    for row in range(4):
+        for col in range(5 - row):
+            ellipse_shaded(canvas, 4 + col * 6 + row * 3, deck - 4 - row * 5, 3, 2, pine, 0.34)
+            ellipse_outline(canvas, 4 + col * 6 + row * 3, deck - 4 - row * 5, 3, 2, pine.frac(0.14))
+
+    # -- boot churn. Grain, not litter: single pixels, thickest where the
+    #    boardwalk steps come down.
+    for _ in range(220):
+        bx = rng.randrange(2, WIDTH - 2)
+        by = rng.randrange(STREET_TOP + 4, HEIGHT - 1)
+        canvas.put(bx, by, mud.frac(max(0.05, 0.26 - 0.10 * rng.random())))
+
+
 def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     palette = Palette.load()
     rng = random.Random(SEED)
@@ -657,6 +746,9 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
         canvas.hline(pool_x + 2, pool_y, max(1, pool_w - 4), palette.family("sky").frac(0.38))
 
     speckle(canvas, 0, HEIGHT - 16, WIDTH, 16, mud.frac(max(0.04, 0.16 + scheme.mud_shift)), rng, 0.03)
+
+    # -- what the street has accumulated -----------------------------------
+    street_dressing(canvas, palette, scheme, random.Random(SEED ^ 0xD8E5))
 
     # -- the foreground plane, ruling 21a ----------------------------------
     #
