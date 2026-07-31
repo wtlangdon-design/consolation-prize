@@ -62,10 +62,17 @@ export class GameState {
    * large piece of scenery -- all three of Room 2's doors fall within THE
    * FALSE FRONTS, and the road to the claims falls within THE MUD. Testing
    * scenery first made every exit in the room unclickable.
+   *
+   * Targets whose `when` does not hold are not here at all, per ruling 19a.
+   * Filtered rather than hidden: a target that fails its gate must not be
+   * findable, hit-testable, or countable, because the two halves of a state
+   * change share a rect and the wrong half would answer first.
    */
   get targets(): Interactable[] {
     const room = this.room;
-    return [...room.exits, ...room.hotspots];
+    return [...room.exits, ...room.hotspots].filter(
+      (target) => this.flags.test(target.when),
+    );
   }
 
   findTarget(id: string): Interactable | undefined {

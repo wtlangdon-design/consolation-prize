@@ -55,6 +55,20 @@ export interface Interactable {
   name: string;
   rect: [number, number, number, number];
   colour: number;
+  /**
+   * When this target exists at all. An absent condition means always.
+   *
+   * Errata ruling 19a: an object whose state changes during a scene carries a
+   * full line set per state, and "a hotspot that does not exist yet is not a
+   * hotspot". The lamp in Room 1 is the case that forced this -- there is no
+   * lamp on that road until Hob walks onto it, and a hotspot answering
+   * questions about a man who has not arrived is worse than no hotspot.
+   *
+   * A state CHANGE is two targets over the same rect with opposite gates,
+   * because the name changes too: the coach becomes THE ROAD WEST OUT once
+   * it has gone, and one target cannot carry two names.
+   */
+  when?: Condition;
   responses?: Record<string, ResponseRule[]>;
   /**
    * Object-specific line for a verb this object has no written response to.

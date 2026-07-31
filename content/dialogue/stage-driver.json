@@ -69,7 +69,8 @@
           "say": "Right. I'm turning her round.",
           "ends": true,
           "set": {
-            "T_COACH_DEPARTED": true
+            "T_COACH_DEPARTED": true,
+            "T_HOB_CROSSING": true
           }
         }
       ]

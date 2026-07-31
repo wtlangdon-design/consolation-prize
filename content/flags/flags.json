@@ -51,6 +51,24 @@
       "type": "bool",
       "initial": false,
       "note": "The coach has gone. Doc 17 beat 7: set by the driver's EXIT line, not by a timer. Beat 8, Hob's crossing, keys off this."
+    },
+    {
+      "id": "T_HOB_CROSSING",
+      "type": "bool",
+      "initial": false,
+      "note": "Hob is on screen. Doc 17 beat 8, which fires on the coach departing OR the player reaching the west road, whichever comes first. Its own flag rather than a reading of T_COACH_DEPARTED, so that the second trigger has somewhere to land when the opening-sequence driver exists -- only the first of the two can be expressed in content today.",
+      "writtenBy": [
+        "dialogue:stage_driver:root:drv9"
+      ]
+    },
+    {
+      "id": "T_HOB_GONE",
+      "type": "bool",
+      "initial": false,
+      "note": "Hob has left frame. Doc 17 beat 10, which is an animation finishing rather than anything the player does, so nothing in content can write it and the opening-sequence driver must.",
+      "writtenBy": [
+        "engine:opening-sequence:beat10"
+      ]
     }
   ]
 }

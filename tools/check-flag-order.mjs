@@ -42,6 +42,13 @@ function collectWrites(content) {
 function collectReads(content) {
   const reads = [];
   for (const { roomId, target } of allInteractables(content)) {
+    // Ruling 19a puts a gate on the target itself, not only on its lines: a
+    // hotspot that does not exist yet is not a hotspot. Missing these meant a
+    // whole class of gate went unchecked -- the one deciding whether the
+    // player can see the object at all.
+    for (const [id, expected] of Object.entries(target.when ?? {})) {
+      reads.push({ id, expected, where: `${roomId}/${target.id}` });
+    }
     for (const [verb, rules] of Object.entries(target.responses ?? {})) {
       for (const rule of rules) {
         for (const [id, expected] of Object.entries(rule.when ?? {})) {
@@ -95,6 +102,18 @@ export function check() {
     }
   }
 
+  // A flag some beat of the engine sets -- an animation finishing, a fade
+  // ending -- has no `set` anywhere in content and would read as an
+  // unsatisfiable gate. `writtenBy` on the declaration is where that is
+  // recorded, and it is named here rather than trusted silently: every one is
+  // reported on every run, so the list stays short and visible instead of
+  // becoming a way to quiet the check.
+  const byEngine = new Set(
+    content.flags.flags
+      .filter((flag) => (flag.writtenBy ?? []).some((source) => source.startsWith('engine:')))
+      .map((flag) => flag.id),
+  );
+
   for (const { id, expected, where } of reads) {
     const definition = declared.get(id);
     if (!definition) {
@@ -102,6 +121,7 @@ export function check() {
       continue;
     }
     const writtenValues = sets.get(id) ?? new Set();
+    if (byEngine.has(id)) continue;
     if (!satisfiable(expected, definition.initial, writtenValues, adds.has(id))) {
       report.fail(`${where}: gate on "${id}" can never be satisfied -- nothing writes a passing value`);
     }
@@ -112,6 +132,10 @@ export function check() {
   report.note(`${declared.size} flags declared, ${reads.length} gates, ${sets.size + adds.size} written`);
   if (unread.length > 0) {
     report.note(`declared but never gated on: ${unread.join(', ')}`);
+  }
+  for (const id of byEngine) {
+    const source = declared.get(id).writtenBy.find((entry) => entry.startsWith('engine:'));
+    report.note(`gated on but written by no content: "${id}" -- ${source} must exist for it to fire`);
   }
   report.note('ordering-aware half deferred to the puzzle graph (Phase 5)');
 

@@ -68,9 +68,11 @@ ROOM_01 = [
     # where it matters: he walks on the ROAD, so a 26px head at the far edge
     # of it tops out at y74, and rows 74-90 are the only part of this band any
     # part of him is ever seen against.
-    Surface("verge, behind his head", (128, 74, 48, 17),
-            "x128-176, rows 74-90: the band a far-zone head stands against. "
-            "Between the sign and the coach, and clear of the lamp -- the "
+    Surface("verge, behind his head", (100, 74, 44, 17),
+            "x100-143, rows 74-90: the band a far-zone head stands against. "
+            "It was x128-176 until the team was drawn in at x145-190 and put "
+            "two horses inside it. Between the sign and the team, and clear of "
+            "the lamp -- the "
             "full-width version contained the lamp itself and reported the "
             "verge at 203, nearly costing the lamp its status as the uniquely "
             "brightest object in the only night exterior in the game."),

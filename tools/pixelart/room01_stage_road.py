@@ -337,6 +337,66 @@ def case(canvas: IndexedCanvas, palette: Palette, x: int, y: int, leather, brass
     canvas.put(x + 8, y + 4, brass.frac(0.30))
 
 
+def team(canvas: IndexedCanvas, x: int, ground: int, hide, iron) -> None:
+    """Two horses, hitched, heads down. Errata ruling 19a gives them lines.
+
+    Drawn because the lines exist, not the other way round. Ruling 19b says a
+    LOOK line may not describe what is not rendered, and THE TEAM's first
+    variant opens "Two horses I can see" -- so a hotspot with no horses under
+    it would violate the ruling it was added to serve. 19b's own first
+    resolution permits it: anonymous background figures are not the
+    interactable characters doc 11's no-figures rule is about.
+
+    Two, and only two, are visible. The pair stand side by side, so the far
+    one is mostly behind the near one and shows as a second head, a second
+    rump and one extra pair of legs -- which is what "I am told there are
+    four more" is counting from.
+    """
+    # Row by row, because at eighteen rows a horse is a silhouette and nothing
+    # else. Drawn from rectangles first, it came out as two boxes on sticks --
+    # the shape has to carry withers, a dip of back, a rump and a dropped head
+    # or the eye files it as furniture.
+    #
+    # (row, left offset, width). The barrel is as long as the legs are tall,
+    # which is the proportion that stops it. At twenty-two long over seven of
+    # leg it came out a bench, and no amount of detail on a bench helps.
+    BODY = (
+        (0, 11, 13), (1, 10, 16), (2, 9, 18), (3, 9, 18),
+        (4, 9, 18), (5, 10, 16), (6, 11, 14), (7, 12, 11),
+    )
+    NECK = ((0, 10, 4), (1, 8, 5), (2, 7, 5), (3, 5, 5), (4, 4, 5), (5, 3, 4))
+    HEAD = ((6, 1, 5), (7, 0, 4), (8, 0, 3))
+
+    # The offside horse is nearly black and the nearside nearly twice that.
+    # At two steps apart the pair merged into one animal with eight legs;
+    # the separation has to be tonal, because at this offset the shapes
+    # overlap almost exactly and outline alone cannot do it.
+    for offset, up, tone in ((-9, -3, 0.06), (0, 0, 0.28)):
+        left, top = x + offset, ground - 17 + up
+        for row, span, width in BODY:
+            canvas.hline(left + span, top + 2 + row, width, hide.frac(tone))
+        canvas.hline(left + 11, top + 2, 13, hide.frac(tone + 0.20))      # lit back
+        canvas.hline(left + 21, top + 3, 6, hide.frac(tone + 0.13))       # rump
+        canvas.vline(left + 12, top + 4, 4, hide.frac(tone - 0.07))       # shoulder
+        for row, span, width in NECK + HEAD:
+            canvas.hline(left + span, top + 1 + row, width, hide.frac(tone + 0.04))
+        canvas.put(left + 7, top + 2, hide.frac(tone + 0.15))             # ear
+        canvas.put(left, top + 10, hide.frac(tone + 0.18))                # muzzle
+        # Fore under the shoulder, hind under the rump, one of each forward so
+        # the four of them are not a fence.
+        for leg_x, lean in ((11, 0), (14, 1), (22, 0), (25, -1)):
+            canvas.vline(left + leg_x, top + 9, 4, hide.frac(tone - 0.06))
+            canvas.vline(left + leg_x + lean, top + 13, ground - top - 13, hide.frac(tone - 0.11))
+        canvas.line(left + 27, top + 2, left + 28, top + 10, hide.frac(tone - 0.03))   # tail
+        # Moonlit edge down the chest and along the near flank, which is
+        # what parts the nearside horse from the one standing behind it.
+        canvas.line(left + 9, top + 3, left + 12, top + 8, hide.frac(tone + 0.22))
+        canvas.hline(left + 12, top + 9, 11, hide.frac(tone + 0.10))
+    # Harness: collar at the shoulder, and the trace running back to the pole.
+    canvas.vline(x + 10, ground - 16, 5, iron.frac(0.36))
+    canvas.hline(x + 28, ground - 13, 10, iron.frac(0.26))
+
+
 def cart_wheel(canvas: IndexedCanvas, cx: int, cy: int, radius: int, iron, spokes: int = 8) -> None:
     """A wheel that is round, because the last ones were square outlines.
 
@@ -387,6 +447,7 @@ def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, ir
     canvas.line(x + 4, ground - 13, x - 21, ground - 3, iron.frac(0.26))
     canvas.line(x + 4, ground - 12, x - 21, ground - 2, iron.frac(0.16))
     canvas.vline(x - 21, ground - 5, 4, iron.frac(0.22))          # swingletree
+    team(canvas, x - 52, ground, body, iron)
 
     # Body: swelled, so its underside is a curve and not a plank.
     for row in range(19):

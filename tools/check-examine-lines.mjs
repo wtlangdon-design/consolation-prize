@@ -28,6 +28,14 @@ export function check() {
     ),
   );
 
+  // Collected first, judged second, because judging as it goes made the
+  // verdict depend on the order rooms happen to sit in the manifest.
+  //
+  // The single-pass version claimed a line for whichever target reached it
+  // first and only compared later ones against that. So an ALLOWLISTED use
+  // seen first would shield an unlisted use seen later: three whitelisted
+  // "Nothing."s in the Nugget silently absorbed a fourth on the stage road,
+  // and the check reported a uniqueness guarantee it was not making.
   let stubs = 0;
   let allowedHits = 0;
   for (const { roomId, target } of targets) {
@@ -50,25 +58,31 @@ export function check() {
         continue;
       }
 
-      const localSeen = new Set();
-      for (const line of lines) {
-        const allowed = allowlist.has(`${roomId}/${target.id}/${verb}|${line}`);
-        if (allowed) {
+      const where = `${roomId}/${target.id}`;
+      for (const [index, line] of lines.entries()) {
+        if (!seen[verb].has(line)) seen[verb].set(line, []);
+        seen[verb].get(line).push({
+          where,
+          allowed: allowlist.has(`${where}/${verb}|${line}`),
+          repeatOfOwnVariant: lines.indexOf(line) !== index,
+        });
+      }
+    }
+  }
+
+  for (const verb of [LOOK, LISTEN]) {
+    for (const [line, uses] of seen[verb]) {
+      const owners = new Set(uses.map((use) => use.where));
+      for (const use of uses) {
+        if (use.allowed) {
           allowedHits += 1;
-          localSeen.add(line);
-          seen[verb].set(line, `${roomId}/${target.id}`);
           continue;
         }
-        if (localSeen.has(line)) {
-          report.fail(`${roomId}/${target.id}: ${verb} repeats a line within its own variants -- "${line}"`);
-          continue;
-        }
-        localSeen.add(line);
-        const owner = seen[verb].get(line);
-        if (owner && owner !== `${roomId}/${target.id}`) {
-          report.fail(`${roomId}/${target.id}: ${verb} line duplicates ${owner} -- "${line}"`);
-        } else {
-          seen[verb].set(line, `${roomId}/${target.id}`);
+        if (use.repeatOfOwnVariant) {
+          report.fail(`${use.where}: ${verb} repeats a line within its own variants -- "${line}"`);
+        } else if (owners.size > 1) {
+          const others = [...owners].filter((owner) => owner !== use.where).join(', ');
+          report.fail(`${use.where}: ${verb} line duplicates ${others} -- "${line}"`);
         }
       }
     }
