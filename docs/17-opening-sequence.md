@@ -46,6 +46,43 @@ That is the whole engine of the game in two exchanges: Thad believes he has arri
 | 9 | Hob's lamp crosses. *"Wouldn't stand there." / "Why not?" / "No reason."* | yes | Now the **second** strange encounter, carrying no exposition |
 | 10 | West, toward town | yes | See the descent, below |
 
+## The driver's tree — restored at four options (v3.1)
+
+**v3 cut the tree to zero. That was an over-correction and it is reversed.**
+
+Confirmed since: Monkey Island's lookout exchange is genuinely automatic, not player-selected — the recollection of a tree there was of *Return to Monkey Island*, which does make it explicit. But cutting ours entirely threw out the instruction along with the encyclopedia.
+
+**MI's opening teaches the game without announcing it, across four layers:** the lookout gives a destination; the dock teaches movement and examination; the ordinary pirates teach dialogue trees; the leaders convert a want into objectives. **A compact driver tree does the work of the first and third at once**, which is the only reason it should exist.
+
+**Four options. One of each kind.**
+
+| Option | Tag | Response |
+|---|---|---|
+| "Where can I find Ezra Pike?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." |
+| "Where am I supposed to sleep?" | `[PROGRESS]` | "Hotel's five." — *"I have four."* — **"You've all got four."** |
+| "You don't think much of my chances." | `[COMIC]` | "I don't think about them at all." |
+| "Thank you for the ride." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
+
+**"Wasn't for you"** is the best line in the opening and it should be the last thing anyone says on that road. The coach was not a service Thad bought. He was freight.
+
+**What it teaches, none of it stated:** that dialogue has choices, that the comic option costs nothing and answers, that one option ends a scene, and that a destination is a thing you are given rather than shown on a map.
+
+**Mott stays out.** The v2 tree had four exchanges of premise here. A question about the strike would also presuppose knowledge the player does not have — Thad has been in the territory ninety seconds. The town explains itself, contradicting itself as it goes.
+
+## The opening is the tutorial, and it runs to the undertaker
+
+Not the coach stop. The whole journey:
+
+> **receive a destination → walk there → examine something → open a door → talk to someone → navigate a tree → get an objective**
+
+- **The driver** gives the destination and teaches that dialogue branches.
+- **The ridge road** teaches movement, and that LOOK and LISTEN both answer.
+- **Hob** teaches that not every conversation yields anything, and does it in nine words.
+- **Main Street** teaches the verbs properly — LOOK AT the sign, LISTEN TO the flat piano, OPEN a door, TALK TO somebody — and rewards lingering.
+- **The undertaker** pays off the objective and replaces it with a better question.
+
+**Nothing in this sequence may announce itself as instruction.** No tips, no prompts, no highlighted first target.
+
 ## What the driver no longer says
 
 **Cut from v2 and redistributed into Consolation:** what the town is, Mott's strike, whether anyone has found it, how long the search has run. Four exchanges of premise delivered by one man on an empty road before the player has seen a building.
