@@ -576,7 +576,7 @@ If a token is ever wanted, it needs its own drawn asset — the decimation curve
 
 ---
 
-# 26 · THE VERB PANEL AND INVENTORY — text, not icons
+# 26 · THE VERB PANEL AND INVENTORY — ~~text, not icons~~ **OVERTURNED, see 29**
 
 The inventory's geometry appears in no document. Doc 06 specifies the array and the per-item lines and stops. Flagged during the vertical slice, with nine verbs already filling the panel width and forty items to place.
 
@@ -677,3 +677,28 @@ Double-click-to-walk was specified in the Phase 1 brief and it was wrong. It is 
 - **Every object declares a `defaultVerb`.** Most are LOOK AT. Doors and exits are OPEN or WALK TO. It is the verb a player would try first, and getting it right is a small authoring decision per object rather than an engine default.
 - A selected verb **persists** until another is chosen. It is not cleared by use.
 - The game remains fully playable with left click alone. Right click is never the only route to anything, per the mouse-only requirement.
+
+
+---
+
+# 29 · INVENTORY USES ICONS — overturns 26
+
+Ruling 26 made inventory text on the grounds that the 1990 original did so. **That was accuracy reasoning, not design reasoning.** *Monkey Island 2* introduced the icon panel and it is the better interface; this game targets the era's discipline, not its limitations.
+
+**Canonical: inventory is a grid of icons.** Verbs stay three columns of four on the left, icons on the right where the text list was, scroll arrows at the right edge, six to eight visible, sentence line full width above.
+
+**Item art is restored to scope.** ~40 small icons, procedurally composed against the locked palette like everything else.
+
+## Two conditions
+
+**1. The item name appears in the sentence line on hover and on selection.** Not optional. The sentence line already assembles "Use THE COMPANY MAP on THE MUD"; an icon must never be the only way an item is identified. **The authored display names from ruling 26 stand** — they are what the sentence line draws.
+
+**2. Near-identical items must be visibly distinguishable, and this is the harder half.**
+
+Form 12-C, Form 12-C (Amended), and Form 12-C (Amended, Void) are three separate items whose entire running gag is that they are distinguishable. **Rendered as three identical pieces of paper the joke is dead**, and it dies silently: the build passes, the panel looks right, and a player never learns there was a joke.
+
+They need visible escalation — clean; then a torn corner and a second stamp; then VOID across the face. Arguably funnier than the text version, because the bureaucracy is visibly accumulating.
+
+Same risk on every near-identical set: the *Clarion* editions, Ozymandia's two brass rods, the coins.
+
+**`check-item-names` extends rather than being replaced.** It currently fails on two items drawing the same row. It must also fail on **two items rendering the same icon.** The uniqueness half was always the part that protected the gag; only the medium has changed.
