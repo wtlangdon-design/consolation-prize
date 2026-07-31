@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## The Opening Sequence & Room 1 · Full Content — v2
 
 *Title card through to first player control, plus Room 1's complete hotspot content. Written content — verbatim.*
@@ -21,7 +21,7 @@
 
 | # | Beat | Interactive | Notes |
 |---|---|---|---|
-| 1 | Title screen — the ridge, CONSOLATION PRIZE, menu | yes | |
+| 1 | Title screen — THE LAST CLAIM IN CONSOLATION, menu | yes | |
 | 2 | Hard cut to black. Act card, 3s or click. | no | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
 | 3 | Room 1 fades up. Night. The coach is halted; the driver is unloading. | no · ~4s | |
 | 4 | **Thad's opening line — a three-option choice.** | **yes** | First thing the player ever does is pick a line. See below. |
@@ -73,6 +73,33 @@ Option 2 states the want plainly, which is what doc 01 says is the engine. Optio
 **Option 5 is the joke that pays off in twenty minutes.** The undertaker does know everybody. He knows Ezra Pike because he buried him in 1852.
 
 ---
+
+## The title, and its layout constraint
+
+**The game is titled *The Last Claim in Consolation*.** Renamed 30 July from *Consolation Prize*.
+
+"Claim" carries both meanings the game runs on — a mining claim, and an assertion. The town was built on a claim that was a lie, and the last puzzle is a filing.
+
+**Layout — revised against the original Monkey Island title screen.**
+
+The 1990 title does **not** set its words at one size. "THE SECRET OF" is small; "MONKEY ISLAND" is enormous, taking roughly 60% of the frame height. Fitting five words uniformly is not the problem to solve — hierarchy is the answer.
+
+```
+THE LAST
+   CLAIM
+IN CONSOLATION
+```
+
+**CLAIM is huge. The rest is small.** This is not only a layout convenience: CLAIM is the word carrying the double meaning the title rests on — a mining claim and an assertion — so making it the largest thing on the screen is the design stating its own theme.
+
+**Four properties of the reference our current title lacks:**
+
+1. **Size hierarchy**, as above. Connective words small, key word dominant.
+2. **Decorative letterforms.** The original has flared terminals, pointed serifs, a hand-cut look. Ours is a slab sans — competent, and plainer than the era. Keep the weathering and irregularity, add cut character to the terminals.
+3. **One saturated accent against a cool dark field.** The original is magenta on blue-purple: very high contrast, one colour. Ours is cream on warm dusk, which is why it reads as a caption rather than a logo. Consider putting the title screen at dusk or night rather than late afternoon so a warm accent can carry.
+4. **The type overlaps the art.** The island silhouette runs behind and through the lettering. Ours sits in clear space above the town, which is safer and flatter.
+
+**Unchanged:** the town composition, the menu position, and the weathered signwriting quality of the existing letterforms, which was right.
 
 ## The act card
 

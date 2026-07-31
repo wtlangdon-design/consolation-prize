@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## The Liar's Assay — Full Script
 
 *Companion to Bible v2 and the Puzzle Graph. 24 boast/counter pairs · 4 duels · the calibration document for the game's entire voice.*

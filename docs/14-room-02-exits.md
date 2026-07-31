@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Room 2 — Exit Hotspots
 
 *The four exits as seen from Main Street. Distinct from the rooms behind them: this is a doorway from outside, not the interior. Written content — verbatim.*

@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Examine Layer — Batch Three *(final)*
 
 *Seven rooms — the diggings, the ridge, the funeral, and the endgame. ~120 lines. This completes the examine layer and the project's writing.*

@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Dialogue Architecture & Character Trees — v1
 
 *Companion to Bible v2, the Puzzle Graph, and the Liar's Assay. Eight full trees · ~40 topic flags · act-gated variation · every node carries a mechanically worthless option, on purpose.*

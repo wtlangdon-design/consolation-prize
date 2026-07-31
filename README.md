@@ -1,4 +1,4 @@
-# Consolation Prize
+# The Last Claim in Consolation
 
 A 2D point-and-click comedy adventure. Phaser 3 + TypeScript, built with Vite,
 native 320×200 with a nine-verb SCUMM-style panel.

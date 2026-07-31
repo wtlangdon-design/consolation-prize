@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Room Connectivity Map
 
 *Never written. Doc 02 graphs the puzzles; nothing graphed the rooms, which is why Room 7 had no way in. Binding.*

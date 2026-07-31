@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Art Direction Revision — Authentic 1990 Pixel Art
 
 *Supersedes the art direction in Bible v2, the presentation section of the Technical Spec, and the entire Background Art Prompts document. Changes nothing in the writing.*

@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Road to Done — full remaining scope
 
 *Written after Phase 2 shipped and deployed. Honest sizing, including one significant scope discovery.*

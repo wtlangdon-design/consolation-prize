@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Audit against the Monkey Island design dossier
 
 *Source: a synthesis of the Video Game History Foundation's source-code archive, supplied 30 July. Audited against the project as it stands. Confirmations listed briefly; gaps in full.*

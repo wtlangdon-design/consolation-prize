@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Ruling 19b — resolutions for all 21 hotspots
 
 *Decisions on the 19b audit. Each hotspot gets one of: **draw in**, **ambient sprite**, or **rewrite**. Binding.*

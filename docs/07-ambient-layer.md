@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## The Ambient Layer — Script
 
 *Companion to the Technical Spec. 18 background characters · 162 reputation barks · 6 ancillary interiors · ~500 lines. None of it gates anything.*

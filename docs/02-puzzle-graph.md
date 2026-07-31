@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Puzzle Dependency Graph — v1
 
 *Companion to Bible v2. 43 puzzles · 4 acts · ~40 items · no dead ends.*

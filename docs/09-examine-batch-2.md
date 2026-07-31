@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Examine Layer — Batch Two
 
 *Eight town interiors. ~135 lines. Contains one significant plant (Room 4) that the Bible didn't have.*
