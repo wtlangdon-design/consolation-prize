@@ -80,7 +80,26 @@ Option 2 states the want plainly, which is what doc 01 says is the engine. Optio
 
 "Claim" carries both meanings the game runs on — a mining claim, and an assertion. The town was built on a claim that was a lie, and the last puzzle is a filing.
 
-**Layout:** 27 characters against the old title's 16. At 320 pixels the split is **`THE LAST CLAIM` / `IN CONSOLATION`** — 14 and 14, balanced, two lines as before. The drawn letterforms must shrink to fit; keep the weathered, slightly irregular signwriting character established in the existing title art, which was right and is the only thing about that screen not to change.
+**Layout — revised against the original Monkey Island title screen.**
+
+The 1990 title does **not** set its words at one size. "THE SECRET OF" is small; "MONKEY ISLAND" is enormous, taking roughly 60% of the frame height. Fitting five words uniformly is not the problem to solve — hierarchy is the answer.
+
+```
+THE LAST
+   CLAIM
+IN CONSOLATION
+```
+
+**CLAIM is huge. The rest is small.** This is not only a layout convenience: CLAIM is the word carrying the double meaning the title rests on — a mining claim and an assertion — so making it the largest thing on the screen is the design stating its own theme.
+
+**Four properties of the reference our current title lacks:**
+
+1. **Size hierarchy**, as above. Connective words small, key word dominant.
+2. **Decorative letterforms.** The original has flared terminals, pointed serifs, a hand-cut look. Ours is a slab sans — competent, and plainer than the era. Keep the weathering and irregularity, add cut character to the terminals.
+3. **One saturated accent against a cool dark field.** The original is magenta on blue-purple: very high contrast, one colour. Ours is cream on warm dusk, which is why it reads as a caption rather than a logo. Consider putting the title screen at dusk or night rather than late afternoon so a warm accent can carry.
+4. **The type overlaps the art.** The island silhouette runs behind and through the lettering. Ours sits in clear space above the town, which is safer and flatter.
+
+**Unchanged:** the town composition, the menu position, and the weathered signwriting quality of the existing letterforms, which was right.
 
 ## The act card
 
