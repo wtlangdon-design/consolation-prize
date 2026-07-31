@@ -59,17 +59,17 @@ The audit found a genuine writing contradiction: THE TWO LINES needs two occupie
 | 31 | MOURNERS | **Draw in — exactly nine** | The line counts them. It is the emotional beat of the act |
 | 31 | HOB, AT THE EDGE | **Draw in** | In daylight, at the back. First and only time |
 | 31 | THE HATS | Falls out of the above | |
-| 34 | THE WAY BACK | **Rewrite — move to LISTEN** | Audible through forty feet of rock. Cannot be drawn and should not be |
+| 34 | THE WAY BACK | **NO CHANGE — this entry was an error** | Doc 10 already reads "Daylight, a long way up, the size of a coin." with the argument on LISTEN. The audit's extractor attributed a quoted LISTEN to the LOOK because docs 08-10 write light hotspots on one line. A false positive, and I wrote a resolution for it without checking. Room 34 was never dirty |
 | 36 | THE DOG | **Draw in** | Bill, sitting with somebody |
 
-**Room 34, THE WAY BACK — replacement LOOK v3:** "Daylight, a long way up, the size of a coin."
-*(Its current LOOK v3 content moves to LISTEN v3, which already reads "The town. Very faint. Somebody is arguing about a boundary." — so no new line is needed; delete the LOOK assertion and let LISTEN carry it alone.)*
+**Room 34 — struck.** See the table entry above. No change is required and none should be made.
 
 ---
 
 # 4 · THE THREE FLAGGED-NOT-LISTED
 
 - **Room 9's press operator and Room 28's chair** — both are named characters who will be present as sprites. Not violations. **Confirm each is on screen in their room when composed.**
+- **Room 7 owes exactly one drawn man when it is composed.** Keeping the spindle line — "There is one other man in the room and he is forty" — makes that figure mandatory, not optional. Recorded here so it cannot be lost between this ruling and the composition.
 - **Room 2's TO_COMPANY**, "I have watched eleven men do it" — reading accepted. Habitual observation plus stated past, not a claim about the current frame. **No change.**
 
 ---
