@@ -36,11 +36,12 @@ That is the whole engine of the game in two exchanges: Thad believes he has arri
 | # | Beat | Interactive | Notes |
 |---|---|---|---|
 | 1 | **Title** over the ridge at night. Consolation below as scattered lamps in a great deal of darkness | menu | Longing, not comedy. **No act card here** |
-| 2 | Cut closer. The coach halted, the driver unloading. Thad steps down, straightens his coat, looks at the town | no · ~6s | Largely visual. Keep it brief |
+| 2 | **The coach arrives and halts with Thad visibly aboard.** He climbs down, straightens his coat, looks at the town. The driver gets up on the wheel to reach the roof rack | no · ~8s | **Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him.** The arrival must be seen |
 | 3 | **"My name is Thaddeus Grubb. I have come to Consolation to make my fortune."** — *"Course you have."* | no | Sincere, then punctured |
 | 4 | *"Four dollars?"* — Thad checks — *"Four dollars."* — **"You've all got four."** | no | The predatory machinery, unexplained |
 | 5 | Thad asks after Ezra Pike — **"Ask the undertaker. He knows everybody."** | no | **One destination. Nothing else.** |
-| 6 | The case goes in the mud. *"Hotel's five."* — *"I have four."* The driver climbs aboard | no | The material problem. He leaves before Thad can ask anything more |
+| 6 | The case goes in the mud. *"Hotel's five dollars."* — *"I have four."* The driver climbs aboard | no | The material problem. He leaves before Thad can ask anything more |
+| 6b | **The coach DEPARTS — it does not vanish.** Team walks, wheels turn, it leaves frame right over two or three seconds and the sound goes with it | no · ~3s | Player-audit fix. A coach that disappears on a click is not a coach leaving |
 | 7 | The coach recedes east. A badly tuned piano, faint, from the town. **ACT CARD** | no · ~3s | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
 | 8 | **Control.** Verb panel appears | **yes** | ~60–70 seconds elapsed |
 | 9 | Hob's lamp crosses. *"Wouldn't stand there." / "Why not?" / "No reason."* | yes | Now the **second** strange encounter, carrying no exposition |
@@ -59,7 +60,7 @@ Confirmed since: Monkey Island's lookout exchange is genuinely automatic, not pl
 | Option | Tag | Response |
 |---|---|---|
 | "Where can I find Ezra Pike?" | `[PROGRESS]` | "Ask the undertaker. He knows everybody." |
-| "Where am I supposed to sleep?" | `[PROGRESS]` | "Hotel's five." — *"I have four."* — **"You've all got four."** |
+| "Where am I supposed to sleep?" | `[PROGRESS]` | "Hotel's five dollars." — *"I have four."* — **"You've all got four."** |
 | "You don't think much of my chances." | `[COMIC]` | "I don't think about them at all." |
 | "Thank you for the ride." | `[EXIT]` | **"Wasn't for you."** *(He climbs aboard. The coach goes. Beat 7.)* |
 
@@ -134,8 +135,22 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 **LOOK** 2 *(after departure)* "Gone. It made very good time on the way out." · 3 "There is not another one for four days. I have checked twice and the answer did not improve."
 **LISTEN** 2 "The near axle, going away. It will fail on somebody else's stretch." · 3 "Nothing. It is a long way off now."
 
-## HIS CASE
-**LOOK** 2 "Everything I own. It is not heavy and that is the whole difficulty." · 3 "My father packed it. He put the fork in first, which tells you what he thought of the rest."
+## HIS CASE — **two states, and the game's first PICK UP**
+
+*Player-audit fix: the override read "I have it. I have had it the entire time," which is false while the case is on the coach roof and false again while it is lying in the mud.*
+
+**State A — on the coach, beats 1–5**
+**LOOK** 1 "My case, still up on the roof, under the driver's hand." · 2 "Everything I own is up there and a stranger is holding it." · 3 "He has not dropped it. I have been watching to see whether he would."
+**LISTEN** 1 "Nothing." · 2 "Nothing." · 3 "The fork against the clasp, faintly, when he shifts it."
+> PICK UP — "It is eight feet up and it is not mine to reach for yet."
+
+**State B — in the mud, from beat 6**
+**LOOK** 1 "My case, in the mud, where it was put." · 2 "Everything I own. It is not heavy and that is the whole difficulty." · 3 "My father packed it. He put the fork in first, which tells you what he thought of the rest."
+**LISTEN** 1 "Nothing." · 2 "The fork against the clasp. A. It is still four hundred and forty." · 3 "Nothing. I have stopped shaking it to hear that, which is a low thing to be caught doing."
+> **PICK UP — takes it.** *"I have it."* **This is the first PICK UP in the game and it teaches the verb.**
+> OPEN — "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent."
+
+**State C — carried.** The hotspot is gone; the case is inventory.
 **LISTEN** 2 "The fork against the clasp. A. It is still four hundred and forty." · 3 "Nothing. I have stopped shaking it to hear it, which is a low thing to be caught doing."
 
 ## THE WATCHMAN'S LAMP
