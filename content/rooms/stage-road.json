@@ -451,5 +451,46 @@
       },
       "defaultVerb": "WALK_TO"
     }
+  ],
+  "atmosphere": {
+    "note": "ERRATA 33b. Declared rather than derived from `horizon`: the sky is measured over these rows and nothing below them may be lighter than its p90. Rows 0-40 are sky and only sky -- the hills start at 42.",
+    "skyRows": [
+      0,
+      44
+    ],
+    "skylineRows": [
+      44,
+      80
+    ],
+    "skylineNote": "The hills and the town downhill -- everything that meets the night sky. NOT the road: a moonlit ground plane in front of the viewer is not seen against the sky, and grading it against one failed twenty thousand pixels for no reason."
+  },
+  "lightSources": [
+    {
+      "note": "Hob's lamp. The brightest thing in Room 1 at 205 against a night sky p90 of 42.7, and it is SUPPOSED to be -- a source out-blazes a night sky, and errata 33a is about to widen that gap by darkening the collar. Declared, not inferred: a brightness test would excuse the Company facade too.",
+      "rect": [
+        64,
+        66,
+        46,
+        42
+      ]
+    },
+    {
+      "note": "The coach lantern, dimmer on purpose -- doc 17 allows one bright warm point on this road and Hob has it.",
+      "rect": [
+        180,
+        76,
+        34,
+        30
+      ]
+    },
+    {
+      "note": "The town downhill, west: lit windows and nothing else. Doc 17's road west LOOK line is 'There are lamps on in about a third of it.'",
+      "rect": [
+        0,
+        56,
+        74,
+        22
+      ]
+    }
   ]
 }

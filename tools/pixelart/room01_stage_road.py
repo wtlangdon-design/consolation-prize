@@ -34,8 +34,8 @@ from dither import BAYER2, BAYER4, dither_pixel
 from lighting import Lamp, LightField, lamp_core
 from palette import Palette
 from primitives import (
-    barrel, catenary, ellipse_outline, ellipse_shaded, organic_mass, rope, sack,
-    spoked_wheel,
+    barrel, catenary, ellipse_outline, ellipse_shaded, enforce_sky_ceiling,
+    ground_objects, organic_mass, rope, sack, spoked_wheel,
 )
 from renders import BACKGROUNDS, FOREGROUNDS, RENDERS
 
@@ -280,6 +280,15 @@ def compose(with_coach: bool = True, lamp_x: int | None = None,
     scrub_bank(FOREGROUND, palette, random.Random(SEED ^ 0x21A))
     canvas.blit(FOREGROUND, 0, 0, transparent=255)
 
+    # ERRATA 33b, enforced rather than remembered. Room 1's hills were drawn
+    # in the sky family and came out at 148 to 172 against a night sky of
+    # 42.7 -- the code called them "nearly silhouettes" and they were the
+    # second brightest thing in the frame after the lamp. The lamp, the coach
+    # lantern and the town are exempt because the room file says so.
+    enforce_sky_ceiling(canvas, palette, (0, 44), (44, 80), exempt=(
+        (64, 66, 46, 42), (180, 76, 34, 30), (0, 56, 74, 22),
+    ))
+
     # Doc 18 note 1, enforced before anything is written: a reserved index may
     # appear only inside its own element. reserve() moves the trespassers --
     # here the coach lantern and the clasp on Thad's case, both accent_gold --
@@ -327,12 +336,14 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int,
     sage = palette.family("sage")
     dust = palette.family("dust")
 
+    # Tracking is on ALWAYS, not only for the audit: the contact shadows are
+    # driven off it, so an object that is not tagged is an object that does
+    # not get grounded, which is the failure this is here to make impossible.
+    first = len(canvas.strokes)
+
     @contextmanager
     def tag(name: str):
-        if tracked:
-            with canvas.track(name):
-                yield
-        else:
+        with canvas.track(name):
             yield
 
     # SILHOUETTE, NOT TEXTURE. The first pass put everything at tone 0.16 to
@@ -407,11 +418,11 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int,
     #    exactly one, and now the second-largest object on the left of the
     #    coach.
     with tag("broken wheel"):
-        spoked_wheel(canvas, 190, ground_y + 7, 12, grey, spokes=10, tone=0.12, squash=0.94)
+        spoked_wheel(canvas, 190, ground_y + 11, 13, grey, spokes=10, tone=0.13, squash=0.34)
     with tag("dropped axle"):
         # Runs from under the milepost to under the wheel and touches both.
         for offset in range(3):
-            canvas.line(160, ground_y + 15 + offset, 196, ground_y + 9 + offset,
+            canvas.line(160, ground_y + 16 + offset, 192, ground_y + 12 + offset,
                         grey.frac(0.16 if offset == 1 else 0.08))
 
     # -- the harness rail: posts, a top bar, and three sets over it. Without
@@ -461,6 +472,9 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int,
         canvas.outline(60, ground_y - 33, 12, 9, dust.frac(0.10))
         canvas.put(61, ground_y - 32, grey.frac(0.40))
         canvas.put(71, ground_y - 32, grey.frac(0.40))
+
+    # -- and every one of them gets a contact shadow, so nothing floats.
+    ground_objects(canvas, palette, canvas.strokes[first:], ground_y - 20)
 
 
 def scrub_bank(canvas: IndexedCanvas, palette: Palette, rng) -> None:
@@ -647,61 +661,103 @@ def case(canvas: IndexedCanvas, palette: Palette, x: int, y: int, leather, brass
 def team(canvas: IndexedCanvas, x: int, ground: int, hide, iron) -> None:
     """Two horses, hitched, heads down. Errata ruling 19a gives them lines.
 
-    Drawn because the lines exist, not the other way round. Ruling 19b says a
-    LOOK line may not describe what is not rendered, and THE TEAM's first
-    variant opens "Two horses I can see" -- so a hotspot with no horses under
-    it would violate the ruling it was added to serve. 19b's own first
-    resolution permits it: anonymous background figures are not the
-    interactable characters doc 11's no-figures rule is about.
+    MEASURED, NOT DRAWN BY EYE, and the first version was badly wrong. The
+    pair stood eighteen pixels tall where Thad is about twenty-seven at that
+    depth -- withers fifteen pixels above the road against a coach body
+    forty-three tall. They read as ponies, which does not make the horses
+    look small, it makes the coach look enormous.
+
+    The real proportion: a draft horse's withers are about 163cm against a
+    man's 175, so the withers land at roughly nine tenths of his height and
+    his eye is level with the top of the animal's back. Body length runs
+    about one and a half times the withers height. At Thad's twenty-seven
+    that is withers 25 and a barrel 36 long, which is what this draws.
+
+    Heads stay DOWN. The doc has them halted and waiting, and a raised head
+    would put the pair above the coach roof and make them the tallest thing
+    in the frame -- which is a different picture from the one written.
 
     Two, and only two, are visible. The pair stand side by side, so the far
-    one is mostly behind the near one and shows as a second head, a second
-    rump and one extra pair of legs -- which is what "I am told there are
-    four more" is counting from.
+    one shows as a second head, a second rump and one extra pair of legs,
+    which is what "I am told there are four more" is counting from.
     """
-    # Row by row, because at eighteen rows a horse is a silhouette and nothing
-    # else. Drawn from rectangles first, it came out as two boxes on sticks --
-    # the shape has to carry withers, a dip of back, a rump and a dropped head
-    # or the eye files it as furniture.
-    #
-    # (row, left offset, width). The barrel is as long as the legs are tall,
-    # which is the proportion that stops it. At twenty-two long over seven of
-    # leg it came out a bench, and no amount of detail on a bench helps.
-    BODY = (
-        (0, 11, 13), (1, 10, 16), (2, 9, 18), (3, 9, 18),
-        (4, 9, 18), (5, 10, 16), (6, 11, 14), (7, 12, 11),
-    )
-    NECK = ((0, 10, 4), (1, 8, 5), (2, 7, 5), (3, 5, 5), (4, 4, 5), (5, 3, 4))
-    HEAD = ((6, 1, 5), (7, 0, 4), (8, 0, 3))
+    WITHERS = 25          # top of the shoulder, above the road
+    BARREL = 36           # nose-to-tail of the body itself
+    DEPTH = 12            # how deep the barrel is, withers to belly
 
     # The offside horse is nearly black and the nearside nearly twice that.
-    # At two steps apart the pair merged into one animal with eight legs;
-    # the separation has to be tonal, because at this offset the shapes
-    # overlap almost exactly and outline alone cannot do it.
-    for offset, up, tone in ((-9, -3, 0.06), (0, 0, 0.28)):
-        left, top = x + offset, ground - 17 + up
-        for row, span, width in BODY:
-            canvas.hline(left + span, top + 2 + row, width, hide.frac(tone))
-        canvas.hline(left + 11, top + 2, 13, hide.frac(tone + 0.20))      # lit back
-        canvas.hline(left + 21, top + 3, 6, hide.frac(tone + 0.13))       # rump
-        canvas.vline(left + 12, top + 4, 4, hide.frac(tone - 0.07))       # shoulder
-        for row, span, width in NECK + HEAD:
-            canvas.hline(left + span, top + 1 + row, width, hide.frac(tone + 0.04))
-        canvas.put(left + 7, top + 2, hide.frac(tone + 0.15))             # ear
-        canvas.put(left, top + 10, hide.frac(tone + 0.18))                # muzzle
-        # Fore under the shoulder, hind under the rump, one of each forward so
-        # the four of them are not a fence.
-        for leg_x, lean in ((11, 0), (14, 1), (22, 0), (25, -1)):
-            canvas.vline(left + leg_x, top + 9, 4, hide.frac(tone - 0.06))
-            canvas.vline(left + leg_x + lean, top + 13, ground - top - 13, hide.frac(tone - 0.11))
-        canvas.line(left + 27, top + 2, left + 28, top + 10, hide.frac(tone - 0.03))   # tail
-        # Moonlit edge down the chest and along the near flank, which is
-        # what parts the nearside horse from the one standing behind it.
-        canvas.line(left + 9, top + 3, left + 12, top + 8, hide.frac(tone + 0.22))
-        canvas.hline(left + 12, top + 9, 11, hide.frac(tone + 0.10))
+    # At two steps apart the pair merged into one animal with eight legs; the
+    # separation has to be tonal, because at this offset the shapes overlap
+    # almost exactly and outline alone cannot do it.
+    for offset, up, tone in ((-11, -4, 0.06), (0, 0, 0.28)):
+        left = x + offset
+        back = ground - WITHERS + up
+        belly = back + DEPTH
+
+        # THE BARREL, by two profiles rather than one dip table. The first
+        # attempt used a single table for the top edge and left the belly
+        # straight, which draws a slab: what makes a horse read in side view
+        # is that the TOP falls from the withers and rises again to the rump
+        # WHILE the bottom tucks up behind the ribcage. Two curves going
+        # opposite ways, and the shape between them is the animal.
+        #
+        # (position along the body, drop from the back line) and
+        # (position, lift from the belly line). Linear between the stops.
+        TOP = ((0.00, 4), (0.14, 0), (0.50, 3), (0.80, 1), (1.00, 4))
+        BOTTOM = ((0.00, 3), (0.18, 0), (0.45, 1), (0.75, 5), (1.00, 3))
+
+        def sample(table, along):
+            for (a0, v0), (a1, v1) in zip(table, table[1:]):
+                if along <= a1:
+                    t = (along - a0) / max(1e-6, a1 - a0)
+                    return v0 + (v1 - v0) * t
+            return table[-1][1]
+
+        for column in range(BARREL):
+            along = column / (BARREL - 1)
+            top = back + round(sample(TOP, along))
+            bottom = belly - round(sample(BOTTOM, along))
+            canvas.vline(left + 10 + column, top, bottom - top, hide.frac(tone))
+            canvas.put(left + 10 + column, top, hide.frac(min(0.95, tone + 0.20)))
+            canvas.put(left + 10 + column, bottom - 1, hide.frac(max(0.03, tone - 0.10)))
+
+        # Neck and head. The neck leaves the withers going forward and down
+        # and NARROWS as it goes -- a constant-width neck is a plank.
+        for step in range(15):
+            along = step / 14
+            nx = left + 11 - round(along * 11)
+            ny = back + 1 + round(along * 13)
+            thick = max(3, round(8 - along * 4))
+            canvas.vline(nx, ny, thick, hide.frac(tone + 0.03))
+            canvas.put(nx, ny, hide.frac(min(0.95, tone + 0.16)))       # crest
+        # The head hangs off the end of the neck, longer than it is deep,
+        # angled down. A square is a box; a horse's head is a wedge.
+        for step in range(7):
+            canvas.vline(left - 4 + step, ground - 11 + step // 2, 5 - step // 3,
+                         hide.frac(tone + 0.05))
+        canvas.put(left - 4, ground - 7, hide.frac(tone + 0.20))            # muzzle
+        canvas.put(left + 4, ground - 13, hide.frac(tone + 0.15))           # ear
+
+        # Legs. Fore under the shoulder, hind under the rump, each pair one
+        # forward of the other so the four are not a fence. Narrow below the
+        # knee, which is most of what says "leg" at this size.
+        for at, lean in ((0.14, 0), (0.24, 1), (0.76, 0), (0.90, -1)):
+            leg_x = left + 10 + round(at * (BARREL - 1))
+            knee = belly - round(sample(BOTTOM, at)) + 5
+            canvas.rect(leg_x, belly - round(sample(BOTTOM, at)) - 1, 3, 6,
+                        hide.frac(tone - 0.06))
+            canvas.rect(leg_x + lean, knee, 2, ground - knee, hide.frac(tone - 0.11))
+            canvas.hline(leg_x + lean - 1, ground - 1, 3, hide.frac(max(0.03, tone - 0.16)))
+        canvas.line(left + 45, back + 3, left + 47, belly + 2, hide.frac(tone - 0.03))  # tail
+
+        # Moonlit edge down the chest and along the near flank -- what parts
+        # the nearside horse from the one standing behind it.
+        canvas.line(left + 9, back + 5, left + 12, back + 11, hide.frac(tone + 0.22))
+        canvas.hline(left + 13, belly - 4, 20, hide.frac(tone + 0.10))
+
     # Harness: collar at the shoulder, and the trace running back to the pole.
-    canvas.vline(x + 10, ground - 16, 5, iron.frac(0.36))
-    canvas.hline(x + 28, ground - 13, 10, iron.frac(0.26))
+    canvas.vline(x + 10, ground - WITHERS + 2, 8, iron.frac(0.36))
+    canvas.hline(x + 40, ground - 14, 14, iron.frac(0.26))
 
 
 def cart_wheel(canvas: IndexedCanvas, cx: int, cy: int, radius: int, iron, spokes: int = 8) -> None:
@@ -754,10 +810,10 @@ def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, ir
 
     # The pole, out to the front and down. It is what a coach is missing when
     # it reads as a shed: a shed is not attached to anything.
-    canvas.line(x + 4, ground - 13, x - 21, ground - 3, iron.frac(0.26))
-    canvas.line(x + 4, ground - 12, x - 21, ground - 2, iron.frac(0.16))
-    canvas.vline(x - 21, ground - 5, 4, iron.frac(0.22))          # swingletree
-    team(canvas, x - 52, ground, body, iron)
+    canvas.line(x + 4, ground - 13, x - 26, ground - 4, iron.frac(0.26))
+    canvas.line(x + 4, ground - 12, x - 26, ground - 3, iron.frac(0.16))
+    canvas.vline(x - 26, ground - 7, 5, iron.frac(0.22))          # swingletree
+    team(canvas, x - 74, ground, body, iron)
 
     # Leather braces. The body of a stage hangs on them rather than sitting on
     # the axle, and the two diagonals under the doors are the most

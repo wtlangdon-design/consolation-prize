@@ -47,8 +47,9 @@ from buildings import (
 from canvas import IndexedCanvas
 from clutter import crate_stack, lumber_stack, laundry_line, leaning_tools, rope_coil, sacks
 from primitives import (
-    barrel as turned_barrel, catenary, ellipse_outline, ellipse_shaded, organic_mass,
-    rope as rope_line, sack as slumped_sack, spoked_wheel,
+    barrel as turned_barrel, catenary, ellipse_outline, ellipse_shaded,
+    enforce_sky_ceiling, ground_objects, organic_mass, rope as rope_line,
+    sack as slumped_sack, spoked_wheel,
 )
 from components import (
     barrel,
@@ -112,7 +113,7 @@ LOTS = [
         shoulder_drop=14, detail="quiet", treatments=("blind",)),
     Lot("saloon",    100, 60, 32, "pine_fresh",     0.56, 1.0, 48, 4,
         shoulder_drop=14, detail="busy",  treatments=("curtain", "curtain")),
-    Lot("company",   164, 50, 28, "bone",           0.74, 0.0, 46, 3,
+    Lot("company",   164, 50, 28, "bone",           0.44, 0.0, 46, 3,
         shoulder_drop=14, detail="busy",  treatments=("blind", "blind"), roof="grey"),
     Lot("hotel",     218, 56, 18, "pine_weathered", 0.72, 1.0, 54, 4,
         shoulder_drop=14, detail="quiet", treatments=("curtain", "shutters")),
@@ -583,12 +584,12 @@ def street_dressing(canvas: IndexedCanvas, palette: Palette, scheme: Scheme,
     grey = palette.family("grey")
     dust = palette.family("dust")
 
+    # Always on -- the contact shadows are driven off it. See room 1.
+    first = len(canvas.strokes)
+
     @contextmanager
     def tag(name: str):
-        if tracked:
-            with canvas.track(name):
-                yield
-        else:
+        with canvas.track(name):
             yield
 
     deck = GROUND + WALK_DEPTH - 1
@@ -658,6 +659,9 @@ def street_dressing(canvas: IndexedCanvas, palette: Palette, scheme: Scheme,
         bx = rng.randrange(2, WIDTH - 2)
         by = rng.randrange(STREET_TOP + 4, HEIGHT - 1)
         canvas.put(bx, by, mud.frac(max(0.05, 0.26 - 0.10 * rng.random())))
+
+    # -- and every one of them gets a contact shadow, so nothing floats.
+    ground_objects(canvas, palette, canvas.strokes[first:], STREET_TOP - 6)
 
 
 def compose(scheme: Scheme, tracked: bool = False) -> tuple[IndexedCanvas, Palette]:
@@ -782,6 +786,10 @@ def compose(scheme: Scheme, tracked: bool = False) -> tuple[IndexedCanvas, Palet
 
     # -- what the street has accumulated -----------------------------------
     street_dressing(canvas, palette, scheme, random.Random(SEED ^ 0xD8E5), tracked=tracked)
+
+    # ERRATA 33b. Nothing on the skyline may be lighter than the sky, and a
+    # daylight exterior declares no sources.
+    enforce_sky_ceiling(canvas, palette, (0, 20), (20, 80))
 
     # -- the foreground plane, ruling 21a ----------------------------------
     #

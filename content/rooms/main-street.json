@@ -676,7 +676,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The road out to the diggings. Worn a foot deep by boots — which is more dirt than anybody out there has shifted on purpose.",
+            "say": "The road out to the diggings. Worn a foot deep by boots \u2014 which is more dirt than anybody out there has shifted on purpose.",
             "repeat": [
               "Two miles. It looks further in the morning and considerably further at night.",
               "Somewhere down there is forty feet of mud that is legally mine."
@@ -932,5 +932,18 @@
       "mask": "art/masks/room-02-plane-2.png"
     }
   ],
-  "occlusionNote": "No box in this room is clipPlane 0. Doc 22 defines 0 as always-in-front and nothing in Main Street is nearer than the wagon wheel, whose base sits on the bottom row of the frame -- so there is no depth for such a box to occupy. Recorded rather than left to look like an oversight."
+  "occlusionNote": "No box in this room is clipPlane 0. Doc 22 defines 0 as always-in-front and nothing in Main Street is nearer than the wagon wheel, whose base sits on the bottom row of the frame -- so there is no depth for such a box to occupy. Recorded rather than left to look like an oversight.",
+  "atmosphere": {
+    "note": "ERRATA 33b. Rows 0-20 only: the false fronts reach into the top third, so measuring 'above the horizon' would grade the facades against themselves.",
+    "skyRows": [
+      0,
+      20
+    ],
+    "skylineRows": [
+      20,
+      80
+    ],
+    "skylineNote": "The terrace, the ridges and the steeple -- everything that meets the sky. The mud below the boardwalk is ground, not skyline."
+  },
+  "lightSources": []
 }

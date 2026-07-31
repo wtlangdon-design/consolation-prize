@@ -48,6 +48,7 @@ const SCRIPTS = [
   ['overlap_audit.py', 'errata 32a and 32b, measured -- overlap, baseline rows, floor load'],
   ['legibility_audit.py', 'legibility across every composed room -- rulings 16, 17c, 18'],
   ['legibility_audit.py', 'the sample geometry, drawn over each room', ['--overlay']],
+  ['atmospheric_audit.py', 'errata 33b -- no scenery lighter than the sky'],
   ['shadow_audit.py', 'pale families at their floor -- ruling 21b'],
 ];
 

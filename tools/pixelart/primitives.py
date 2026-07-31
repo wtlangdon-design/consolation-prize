@@ -471,3 +471,103 @@ def cast_shadow_ellipse(
             ny = (y - cy) / max(1, ry)
             steps = 2 if (nx * nx + ny * ny) < 0.45 else 1
             canvas.put(x, y, darken(canvas.get(x, y), steps))
+
+
+def ground_objects(canvas: IndexedCanvas, palette, strokes, floor: int) -> int:
+    """Puts a contact shadow under every tracked object. Returns how many.
+
+    THE FLOATING WHEEL. Room 1's broken wheel was reported hanging in mid-air
+    over the mud after it had already been joined to the milepost by a
+    dropped axle -- so the join was not the problem. Nothing in either room
+    cast a contact shadow, and without one an object at a depth on a flat
+    plane has no way to say which. It is not standing on anything because
+    nothing under it got darker.
+
+    Driven off the tracking the overlap audit already needs, and run over
+    every tagged object rather than at each drawing site, so an object added
+    later cannot be forgotten. The shadow is DARKENED GROUND, not a painted
+    ellipse: a flat dark shape over dithered mud puts a hole in the texture.
+    And it skips the object's own pixels, which is what lets it be drawn
+    afterwards -- a contact shadow is the ground around a foot, not the foot.
+    """
+    grounded = 0
+    for _, pixels in strokes:
+        if not pixels:
+            continue
+        base = max(y for _, y in pixels)
+        if base < floor:
+            continue                        # not standing on this plane
+        feet = [x for x, y in pixels if y >= base - 1]
+        if not feet:
+            continue
+        left, right = min(feet), max(feet)
+        half = max(2, (right - left) // 2 + 1)
+        centre = (left + right) // 2
+        for y, (span_left, span_right) in ellipse_spans(centre, base, half, max(1, half // 3)).items():
+            if y < base - 1:
+                continue                    # only the ground, never the object
+            for x in range(span_left, span_right + 1):
+                if (x, y) in pixels:
+                    continue
+                near = abs(x - centre) < half * 0.55
+                canvas.put(x, y, palette.darken(canvas.get(x, y), 2 if near else 1))
+        grounded += 1
+    return grounded
+
+
+def enforce_sky_ceiling(canvas: IndexedCanvas, palette, sky_rows, skyline_rows,
+                        exempt=(), verbose: bool = False) -> int:
+    """Errata 33b, applied at composition. Returns how many pixels moved.
+
+    No building and no hill may be lighter than the sky. It was already the
+    rule -- stated in street_scene.py's own comment and in the fix that gave
+    Main Street its sky -- and it was enforced by memory, so the Company
+    facade ended up the brightest object in the world and Room 1's "nearly
+    silhouette" hills measured 148 to 172 against a night sky of 42.7.
+
+    Enforced here rather than by hand at each drawing site, because the whole
+    lesson of the facade is that a rule nobody checks is already broken
+    somewhere nobody has looked. Offending pixels step DOWN THEIR OWN FAMILY
+    until they clear the ceiling, so a surface keeps its hue and its material
+    and loses only the brightness it was not entitled to -- ruling 17a's
+    constraint applied to a correction.
+
+    Light sources are exempt and the exemption is declared by the room, never
+    inferred: a source is supposed to out-blaze a night sky, and a
+    brightness-based test would excuse the facade along with the lamp.
+    """
+    lum = [0.2126 * r + 0.7152 * g + 0.0722 * b for r, g, b in palette.colours]
+    grey = palette.family("grey")
+    swap = [grey.at(step) for step in range(grey.count)]
+    sky = sorted(lum[canvas.get(x, y)]
+                 for y in range(*sky_rows) for x in range(canvas.width))
+    ceiling = sky[9 * len(sky) // 10]
+
+    moved = 0
+    for y in range(skyline_rows[0], min(skyline_rows[1], canvas.height)):
+        for x in range(canvas.width):
+            if any(x0 <= x < x0 + w and y0 <= y < y0 + h for x0, y0, w, h in exempt):
+                continue
+            index = canvas.get(x, y)
+            if lum[index] <= ceiling:
+                continue
+            for _ in range(16):
+                stepped = palette.darken(index, 1)
+                if stepped == index:
+                    break
+                index = stepped
+                if lum[index] <= ceiling:
+                    break
+            if lum[index] > ceiling:
+                # RULING 21b, in the other direction. Four families cannot
+                # reach dark, and pine_green is one: its floor is 52.7, which
+                # is still over a night sky of 42.7, so no amount of stepping
+                # inside the family gets there. 21b's answer is to swap
+                # rather than darken, and a hill that has run out of its own
+                # ramp at night is a hill that should be a silhouette.
+                index = min(swap, key=lambda candidate: abs(lum[candidate] - ceiling * 0.8))
+            canvas.put(x, y, index)
+            moved += 1
+    if verbose:
+        print(f"  sky ceiling {ceiling:.1f}: {moved} scenery px brought under it")
+    return moved

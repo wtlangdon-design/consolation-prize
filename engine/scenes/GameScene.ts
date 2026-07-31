@@ -310,6 +310,14 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    // Ahead of the panel buttons, because the options are drawn over them.
+    // A click on a conversation must never reach the MENU or MAP button
+    // underneath it.
+    if (this.state.dialogue.isActive) {
+      if (!this.advanceSay()) this.onDialogueClick(y);
+      return;
+    }
+
     if (pointInRect(x, y, this.panel.menuButton)) {
       this.state.menu.open();
       this.markDirty();
@@ -325,11 +333,6 @@ export class GameScene extends Phaser.Scene {
     }
 
     if (this.advanceSay()) return;
-
-    if (this.state.dialogue.isActive) {
-      this.onDialogueClick(y);
-      return;
-    }
 
     // Doc 20 rule 5: the map is a menu that looks like a place. A click on a
     // location travels, instantly, whatever verb happens to be selected --

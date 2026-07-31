@@ -7,6 +7,7 @@ import { ActorSprite } from './ActorSprite.ts';
 import { BitmapFont } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
 import {
+  NATIVE_HEIGHT,
   NATIVE_WIDTH,
   PANEL_HEIGHT,
   PANEL_Y,
@@ -37,8 +38,25 @@ export interface Frame {
 /** Composed room images, keyed by room id. Used for both planes. */
 export type BackgroundSource = (roomId: string) => CanvasImageSource | null;
 
-const DIALOGUE_TOP = 84;
-const DIALOGUE_LINE_HEIGHT = 9;
+/**
+ * The conversation draws in the PANEL, not over the room.
+ *
+ * It used to fill from y=70 to the bottom of the play area -- seventy-four of
+ * a hundred and forty-four rows -- so during the driver's tree the room was
+ * cropped to a letterbox strip of sky and the options sat in black under it.
+ * Technically inside the 320x200 frame; in practice the room was gone.
+ *
+ * The reference never crops the room. The verb panel is where a conversation
+ * happens: the options take the space the verbs were in, the picture stays
+ * whole, and the player keeps looking at the place they are standing in
+ * while somebody talks to them.
+ *
+ * Rows are bottom-anchored to the panel and grow UPWARD, so a node with more
+ * options than the panel holds spills into the play area by exactly what it
+ * needs rather than by a fixed seventy-four.
+ */
+const DIALOGUE_BOTTOM = NATIVE_HEIGHT - 3;
+const DIALOGUE_LINE_HEIGHT = 10;
 const SAY_TOP = 8;
 const TEXT_MARGIN = 6;
 /**
@@ -49,6 +67,16 @@ const TEXT_MARGIN = 6;
 const ACT_CARD_Y = 66;
 const MAP_MARKER = 3;
 const MAP_LABEL_HEIGHT = 11;
+
+/**
+ * Where the first option row sits, for a node with this many options.
+ *
+ * Bottom-anchored, and it only reaches above the panel when the options
+ * genuinely do not fit in it -- which for every tree in Act I they do.
+ */
+export function dialogueTop(count: number): number {
+  return DIALOGUE_BOTTOM - count * DIALOGUE_LINE_HEIGHT;
+}
 
 /** Fills `{name}` placeholders from the supplied map. */
 export function format(template: string, vars: Record<string, string>): string {
@@ -121,9 +149,10 @@ export class Renderer {
 
   /** Options currently drawn, so the scene can hit-test them. */
   dialogueHitboxes(options: PresentedOption[]): { id: string; y: number; height: number }[] {
+    const top = dialogueTop(options.length);
     return options.map((presented, index) => ({
       id: presented.option.id,
-      y: DIALOGUE_TOP + index * DIALOGUE_LINE_HEIGHT,
+      y: top + index * DIALOGUE_LINE_HEIGHT,
       height: DIALOGUE_LINE_HEIGHT,
     }));
   }
@@ -513,12 +542,20 @@ export class Renderer {
     const ui = this.state.content.ui.dialogue;
     const ctx = this.screen.context;
 
-    this.screen.fill(0, DIALOGUE_TOP - 14, NATIVE_WIDTH, PLAY_HEIGHT - DIALOGUE_TOP + 14, this.screen.role('overlayBg'));
+    const options = this.state.dialogue.presentOptions();
+    const top = dialogueTop(options.length);
+    // Backing over the panel always, and over the play area only by however
+    // much the options actually overflow it.
+    this.screen.fill(0, Math.min(top - 2, PANEL_Y), NATIVE_WIDTH,
+      NATIVE_HEIGHT - Math.min(top - 2, PANEL_Y), this.screen.role('overlayBg'));
+
+    // The prompt goes in the sentence line's slot. Nothing else is using it:
+    // there is no hovering during a conversation.
     if (node.prompt) {
-      this.font.draw(ctx, node.prompt, TEXT_MARGIN, DIALOGUE_TOP - 12, this.screen.roleColour('inkBright'));
+      const { x: px, y: py } = this.panel.sentence;
+      this.font.draw(ctx, node.prompt, px, py, this.screen.roleColour('inkBright'));
     }
 
-    const options = this.state.dialogue.presentOptions();
     options.forEach((presented, index) => {
       const prefix = presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix;
       const colour = this.screen.roleColour(presented.exhausted ? 'inkDim' : 'ink');
@@ -526,7 +563,7 @@ export class Renderer {
         ctx,
         `${prefix}${presented.option.text}`,
         TEXT_MARGIN,
-        DIALOGUE_TOP + index * DIALOGUE_LINE_HEIGHT,
+        top + index * DIALOGUE_LINE_HEIGHT + 1,
         colour,
       );
     });
