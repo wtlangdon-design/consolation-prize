@@ -512,3 +512,50 @@ Ruling 17b assigns each interior a material *identity*. That is a hue decision a
 **Implementation:** a check reporting actual proportions against declared targets. **A warning, not a build failure.** A deliberate near-monochrome room — the undertaker's, per doc 09, is scrubbed bone and pine on purpose — is a legitimate choice. The requirement is that it be visibly deliberate rather than accidental.
 
 **Also add `actor_staging_marks` to the room spec.** The dossier lists it and we do not have it: the named positions a character is placed at for scripted beats, checked for legibility and reach at step 4 rather than discovered during a cutscene.
+
+---
+
+# 24 · SCALING — amends ruling 15. Two drawn sizes, not three.
+
+Settled by measurement against ScummVM's source and a decimation test on Thad.
+
+## What the evidence showed
+
+**SCUMM scaled continuously and stayed crisp by decimating, not resampling.** `smallCostumeScaleTable` is an eight-bit reversal deciding which rows and columns to skip. Nothing blends.
+
+**Ruling 15's smearing argument was about resampling and does not apply to this mechanism.** Reimplemented properly, decimation is perfectly crisp at every height.
+
+| Height | Result |
+|---|---|
+| **32px decimated from 40** | Face survives. Two eyes. Near-interchangeable with the hand-corrected sprite at 16× |
+| **26px decimated from 40** | Fails. Zero eyes — a blank tan block with a nose smudge |
+
+**The failure mode is column decimation, not row.** A one-pixel eye cannot survive dropping 35% of columns and the distribution table does not know where the eyes are.
+
+**It is not gradual.** Across Room 2's walkable band the height changes every 4.7 rows — invisible. But the eye count changes **exactly once**, 2 → 0, at one specific row. Thad's face switches off mid-stride and back on when he turns round.
+
+## Canonical
+
+**Two drawn sizes per character, not three.**
+
+| Range | Source |
+|---|---|
+| Near, at full height | **Drawn** |
+| Between full height and the eye-death row | **Decimated continuously** from the drawn near sprite |
+| Below the eye-death row | **Drawn far sprite**, snapped |
+
+- **Scaling is continuous above the threshold and snapped once at it.** One snap per character per room, not three.
+- **The threshold is measured, not chosen.** It is the row at which decimation drops the character's eye count, found per character. It is not a fixed height — a character with a wider face survives further down.
+- **Ruling 15's 40/32/26 zone table is void.** 32 is no longer a drawn size.
+
+## The width correction, and it is mandatory
+
+Decimation narrows proportionally: 20 → 16 → 13 pixels wide. The hand reduction drops rows only and stays 18 wide.
+
+**Swapping between them would make the character 38% wider in a single step at the exact row where the snap happens** — a far more visible artefact than the one this ruling exists to avoid.
+
+**The drawn far sprite must match the decimation curve's width at that height** — 13px for Thad's 26, not 18. Redraw it accordingly. Check the width curve, not just the height, at the snap row.
+
+## Cost
+
+**Thirty remaining characters go from three drawn sizes to two.** The largest single saving available in the remaining art budget, and it came from reading the original engine rather than reasoning about it.
