@@ -48,6 +48,14 @@ Steps 1–6 are graybox. **Nothing proceeds past the legibility gate until it pa
 
 Three rooms have already shipped or nearly shipped broken by ignoring this. Thirty-nine remain.
 
+## Content is extracted from the docs, never retyped
+
+Every written line in `/content` is **parsed out of `/docs`**, not transcribed. The documents are the source of truth and the pipeline reads them.
+
+Transcribing by hand is how a comma goes missing from a joke — and the failure is silent, because the line still exists, still passes every check, and is simply slightly worse than what was written. Across ~9,800 lines that is not a risk worth taking once.
+
+A line that needs changing is changed in `/docs` and re-extracted. Never edited in `/content`.
+
 ## Typography
 
 Text renders through a hand-authored 1-bit 5×7 font. Rasterised system fonts anti-alias at 320×200 and are forbidden.
