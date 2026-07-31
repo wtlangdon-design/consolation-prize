@@ -66,7 +66,10 @@
         "LOOK_AT": [
           {
             "say": "Three from home. She is proud of me. She has been given no reason to be.",
-            "repeat": []
+            "repeat": [
+              "She asks about the weather here as though it were a place that has weather.",
+              "The most recent is six weeks old. It went to Sacramento and waited for me there."
+            ]
           }
         ],
         "LISTEN_TO": [
@@ -74,7 +77,7 @@
             "say": "Nothing. Paper is very quiet about this sort of thing.",
             "repeat": [
               "Nothing.",
-              "Nothing. Paper is very quiet about this sort of thing."
+              "Nothing. Three letters, and not one of them has asked me anything I would have to answer."
             ]
           }
         ]
@@ -100,7 +103,16 @@
             "say": "Nothing.",
             "repeat": [
               "Nothing.",
-              "Nothing."
+              "Nothing. It has not been written yet and it is being quiet about that too."
+            ]
+          }
+        ],
+        "LOOK_AT": [
+          {
+            "say": "A sheet, begun. 'Dear Mother —' and then a space where the rest of it should be.",
+            "repeat": [
+              "I have started it four times. The four beginnings are identical.",
+              "It goes out Thursday, with whatever is on it by Thursday."
             ]
           }
         ]

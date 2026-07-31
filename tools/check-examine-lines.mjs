@@ -98,6 +98,39 @@ export function check() {
     }
   }
 
+  // A variant that is a SUBSTRING of another variant on the same verb. Not a
+  // duplicate, so nothing above sees it, and the player reads the same words
+  // twice all the same: doc 08 packs three sentences into variant 1 and doc
+  // 26's repeats pull two of them back out, so looking three times gives the
+  // whole line, then its front half, then its back half.
+  //
+  // Reported, not failed. Whether a restatement is a repetition or a callback
+  // is a writing judgement -- doc 13's mud answers its second LISTEN with the
+  // first one's exact words on purpose -- and the tool does not make it. The
+  // threshold is 30 characters so a shared "Nothing." is not a finding.
+  const contained = [];
+  for (const { roomId, target } of targets) {
+    if (target.stub) continue;
+    for (const verb of [LOOK, LISTEN]) {
+      const lines = (target.responses?.[verb] ?? [])
+        .flatMap((rule) => [rule.say, ...(rule.repeat ?? [])])
+        .filter((say) => typeof say === 'string');
+      for (const [outer, long] of lines.entries()) {
+        for (const [inner, short] of lines.entries()) {
+          if (outer === inner || long === short || short.length <= 30) continue;
+          if (long.includes(short)) {
+            contained.push(`${roomId}/${target.id}/${verb}: variant ${inner + 1} is `
+              + `word-for-word inside variant ${outer + 1}`);
+          }
+        }
+      }
+    }
+  }
+  if (contained.length > 0) {
+    report.note(`${contained.length} variant(s) restated inside another variant -- a writing call`);
+    for (const entry of contained) report.note(`  ${entry}`);
+  }
+
   if (allowedHits > 0) {
     report.note(`${allowedHits} deliberate duplicate(s) whitelisted, not deduped`);
   }

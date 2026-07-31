@@ -138,7 +138,7 @@
             "say": "A jar of teeth. He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted.",
             "repeat": [
               "Still there. I have decided to think of it as inventory.",
-              "He sells them to the barber, who fits them to the living. Nothing in this establishment is wasted."
+              "He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted."
             ]
           }
         ],
@@ -147,7 +147,7 @@
             "say": "Nothing. Obviously nothing. I checked, and I regret it.",
             "repeat": [
               "Nothing.",
-              "I have stopped."
+              "Nothing. I have satisfied myself and I should like that to be the end of it."
             ]
           }
         ]

@@ -637,12 +637,41 @@ function priorVariantOne(docPath, roomNumber, name) {
         // the word boundary is doing real work and an /I/ without it wired
         // the Act III coat as the Act I coat.
         if (!qualifier || /Acts? I\b/.test(qualifier)) said[verb] = line;
-        else unwired.push(`${name} ${verb}${qualifier}`);
+        else unwired.push({ label: `${name} ${verb}${qualifier}`, line });
       }
       return { said, unwired };
     }
   }
   return null;
+}
+
+/**
+ * Every act-qualified line in a room's prior section, attributed or not.
+ *
+ * priorVariantOne only sees entries written as a standalone `**NAME**`
+ * heading. Doc 08 writes some hotspots as a parenthetical inside a group line
+ * -- `> *(The coat — **LOOK Act I:** "..." **LOOK Act III:** "...")*` -- and
+ * the Act III coat was invisible to the extractor for that reason alone:
+ * written, unwired, and not on the list of things known to be unwired, which
+ * is the worse of the two.
+ *
+ * This sweeps the whole section and the caller subtracts what it already
+ * knows about, so an unattributed line is reported by its text rather than
+ * silently absent.
+ */
+function actLinesIn(docPath, roomNumber) {
+  const doc = read(docPath);
+  const sections = doc.split(/^## ROOM (\d+) — /m).slice(1);
+  const found = [];
+  for (let index = 0; index < sections.length; index += 2) {
+    if (Number(sections[index]) !== roomNumber) continue;
+    for (const row of sections[index + 1].matchAll(/\*\*LOOK (Acts? [^:*]*?):\*\* "(.+?)"/g)) {
+      const [, qualifier, line] = row;
+      if (/^Acts? I\b/.test(qualifier)) continue;
+      found.push({ label: `LOOK ${qualifier}`, line });
+    }
+  }
+  return found;
 }
 
 /**
@@ -680,6 +709,8 @@ function roomsBatchA() {
   };
   const VERBS = { LOOK: 'LOOK_AT', LISTEN: 'LISTEN_TO' };
   const unwiredActLines = [];
+  const coverage = [];
+  const named = new Set();
   const gaps = [];
 
   for (let index = 0; index < sections.length; index += 2) {
@@ -717,7 +748,40 @@ function roomsBatchA() {
         }
         target.responses = target.responses ?? {};
         target.responses[verb] = [{ say: said[0], repeat: said.slice(1) }];
-        if (qualifier.trim()) unwiredActLines.push(`${plain(name)} ${verb} covers${qualifier}`);
+        if (qualifier.trim()) coverage.push(`${plain(name)} ${verb} covers${qualifier}`);
+      }
+    }
+
+    // --- a NAMED BLOCK: a name, a correction in italics, then its own
+    //     numbered runs starting at 1. The shape doc 26 reached for when a
+    //     hotspot's variant 1 turned out not to exist in the earlier doc --
+    //     the correction is prose, and the lines below it are the entry.
+    //
+    //     It is matched before the repeat form and cannot collide with it:
+    //     a repeat entry carries " | LISTEN " on the name's own line and
+    //     this one carries nothing but the correction.
+    for (const block of body.matchAll(
+      /^\*\*(.+?)\*\* — \*[^\n]*\*\n\n\*\*LOOK(.*?)\*\*(.+?)\n\*\*LISTEN(.*?)\*\*(.+?)$/gm)) {
+      const [, rawName, lookQualifier, look, listenQualifier, listen] = block;
+      const name = plain(rawName);
+      const target = lineFor(name);
+      named.add(name);
+      // Consulted for what it does NOT wire. The prior doc still carries this
+      // hotspot's other acts, and they are reported even though doc 26 now
+      // writes Act I's three variants here.
+      const prior = priorVariantOne(PRIOR[number], number, name);
+      if (prior) unwiredActLines.push(...prior.unwired);
+
+      for (const [verb, run, qualifier] of [
+        [VERBS.LOOK, look, lookQualifier], [VERBS.LISTEN, listen, listenQualifier],
+      ]) {
+        const said = variants(run);
+        if (said.length < 1 || said.some((line) => line === undefined)) {
+          throw new Error(`doc 26 room ${number}: ${name} ${verb} run has a gap`);
+        }
+        target.responses = target.responses ?? {};
+        target.responses[verb] = [{ say: said[0], repeat: said.slice(1) }];
+        if (qualifier.trim()) coverage.push(`${name} ${verb} covers${qualifier}`);
       }
     }
 
@@ -737,11 +801,11 @@ function roomsBatchA() {
       if (lookPart.startsWith('LOOK ')) {
         runs.unshift([VERBS.LOOK, lookPart.slice(5), 'LOOK']);
       } else {
-        // No LOOK run: doc 26 says the act-variant LOOK lines stand. The
-        // first line is still fetched, so the hotspot answers LOOK -- it
-        // just answers with one line, which check-written-content reports.
-        gaps.push(`${name} LOOK has no repeat variants written -- doc 26 cites `
-          + 'doc 23, which is the inventory document and has no entry for it');
+        // A repeat entry with no LOOK run at all. Doc 26 no longer has one --
+        // both were rewritten as named blocks above -- and this stays because
+        // the next document that reaches for the shape should be reported
+        // rather than parsed into a hotspot with one line.
+        gaps.push(`${name} LOOK has repeat variants declared elsewhere and no run here`);
         if (prior.said.LOOK) {
           target.responses = target.responses ?? {};
           target.responses[VERBS.LOOK] = [{ say: prior.said.LOOK, repeat: [] }];
@@ -814,14 +878,31 @@ function roomsBatchA() {
       if (target.stub && target.responses?.LOOK_AT) delete target.stub;
     }
 
+    // Act-qualified lines the prior doc carries that nothing above accounted
+    // for. Doc 08 writes some hotspots inside a group parenthetical rather
+    // than under their own heading, so an unwired line can be invisible to
+    // every named lookup -- and a line that is unwired AND unlisted is the
+    // one that gets forgotten.
+    const claimed = new Set(unwiredActLines.map((entry) => entry.line));
+    for (const entry of actLinesIn(PRIOR[number], number)) {
+      if (claimed.has(entry.line)) continue;
+      claimed.add(entry.line);
+      unwiredActLines.push({ label: `${entry.label} (unattributed in ${PRIOR[number]})`, line: entry.line });
+    }
+
     room.note = `${(room.note ?? '').replace(/ Lines EXTRACTED.*$/, '')} `
       + 'Lines EXTRACTED from docs/26-batch-a.md by tools/extract-content.mjs. Do not '
       + 'edit: change doc 26 and re-run.';
     written.push(write(path, room));
   }
 
-  for (const line of unwiredActLines) process.stderr.write(`  doc 26 act-gated: ${line}\n`);
+  for (const line of coverage) process.stderr.write(`  doc 26 act coverage: ${line}\n`);
+  for (const entry of unwiredActLines) {
+    process.stderr.write(`  doc 26 act-gated, UNWIRED: ${entry.label} -- `
+      + `"${entry.line.slice(0, 48)}${entry.line.length > 48 ? '...' : ''}"\n`);
+  }
   for (const gap of gaps) process.stderr.write(`  doc 26 GAP: ${gap}\n`);
+  if (named.size) process.stderr.write(`  doc 26 named blocks: ${[...named].join(', ')}\n`);
   return written;
 }
 
