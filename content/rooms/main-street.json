@@ -352,16 +352,16 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "The same mud. I have begun to recognise individual portions of it.",
+            "say": "Mud, the full width of the street and six inches deep. The boardwalk is six inches high. Somebody worked that out.",
             "repeat": [
-              "That portion I have named. I will not be sharing the name.",
-              "Mud. It has been mud since I arrived and it intends to continue."
+              "The same mud. I have begun to recognise individual portions of it.",
+              "That portion I have named. I will not be sharing the name."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "Nothing new.",
+            "say": "Nothing. It is mud, and it is being mud.",
             "repeat": [
               "Nothing new.",
               "Nothing new. I want that understood."
