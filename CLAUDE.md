@@ -66,7 +66,11 @@ Extend the font to cover them rather than normalising the writing to ASCII. Stra
 
 7. **`HOB_C1` option 4 is tagged `[COMIC]` and silently sets a critical flag.** It must not be marked as progress in the data. The player must not be able to tell.
 
-8. **Nothing in the letters-home system is ever tracked or referenced.** Resist every instinct to pay it off. The absence of payoff is the payoff.
+8. **Room 33's lamp stops cycling during F2.** Its rate ramps to zero across the same ninety seconds as the audio detune. By the time the score resolves, the only moving thing in the frame has stopped. Nothing announces this. It is not a stalled animation.
+
+9. **Cycling never conveys information.** No background element cycles because it is important, and nothing stops cycling because a puzzle state changed. A player must never learn to read motion as a hint. The single exception is item 8, which is an ending, not a hint.
+
+10. **Nothing in the letters-home system is ever tracked or referenced.** Resist every instinct to pay it off. The absence of payoff is the payoff.
 
 ---
 
@@ -110,6 +114,8 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 | `docs/10-examine-batch-3.md` | Examine rooms, batch three |
 | `docs/11-art-revision-pixel.md` | Pixel-art direction — supersedes art in 01 and 06 |
 | `docs/12-art-prompts.md` | Source-generation art prompts — superseded as final spec by 11 |
+| `docs/13-17` | Room content, opening sequence, road to done |
+| `docs/18-palette-cycling.md` | Background animation — the only non-sprite motion in the game |
 
 ---
 
