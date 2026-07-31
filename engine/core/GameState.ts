@@ -38,6 +38,10 @@ export class GameState {
   private scroll = 0;
   private boxCache: WalkBoxes | null = null;
   private boxesFor: string | null = null;
+  /** Doc 22 item 9: runtime object state, keyed room/object. Saved. */
+  private objectStates = new Map<string, string>();
+  /** Objects whose ownership has passed to the actor. Saved. */
+  private taken = new Set<string>();
 
   constructor(content: ContentBundle, storage: StorageLike) {
     this.content = content;
@@ -170,8 +174,35 @@ export class GameState {
   get targets(): Interactable[] {
     const room = this.room;
     return [...room.exits, ...room.hotspots].filter(
-      (target) => this.flags.test(target.when),
+      // An object the actor owns is not in the room. Doc 22 item 9: taking
+      // something is an ownership change, so it leaves the room the same way
+      // a gated hotspot does -- filtered out entirely, not drawn dim.
+      (target) => this.flags.test(target.when) && !this.taken.has(this.key(target.id)),
     );
+  }
+
+  private key(objectId: string): string {
+    return `${this.currentRoomId}/${objectId}`;
+  }
+
+  /** The object's current state, or its declared initial one. */
+  stateOf(target: Interactable): string | undefined {
+    return this.objectStates.get(this.key(target.id)) ?? target.state;
+  }
+
+  /** What this object looks like and covers right now. */
+  presentation(target: Interactable) {
+    const state = this.stateOf(target);
+    return (state && target.states?.[state]) || undefined;
+  }
+
+  setState(target: Interactable, state: string): void {
+    this.objectStates.set(this.key(target.id), state);
+  }
+
+  /** Every object in the current room that draws something for its state. */
+  get statefulTargets(): Interactable[] {
+    return this.targets.filter((target) => this.presentation(target)?.image);
   }
 
   findTarget(id: string): Interactable | undefined {
@@ -180,7 +211,10 @@ export class GameState {
 
   targetAt(x: number, y: number): Interactable | undefined {
     return this.targets.find((target) => {
-      const [tx, ty, tw, th] = target.rect;
+      // Per-state bounds, per doc 22. An open door is a different shape from
+      // a shut one, and hit-testing the shut one's rect after it opens is the
+      // kind of wrongness nobody reports because it nearly works.
+      const [tx, ty, tw, th] = this.presentation(target)?.bounds ?? target.rect;
       return x >= tx && x < tx + tw && y >= ty && y < ty + th;
     });
   }
@@ -209,6 +243,10 @@ export class GameState {
     // otherwise OPEN on an exit would spend a fallback line on its way out.
     const transit = this.transitDestination(target, verb);
     if (transit) {
+      // A door that has been gone through is a door that is open. Applied
+      // here rather than through a response rule because doc 14 is explicit
+      // that transit produces no line -- and a state change is not a line.
+      if (target.stateOnTransit) this.setState(target, target.stateOnTransit);
       this.enterRoom(transit);
       return { say: null, enteredDialogue: false, changedRoom: true };
     }
@@ -219,6 +257,12 @@ export class GameState {
     const action = this.held
       ? this.verbs.resolveWith(verb, this.held, target, this.currentRoomId)
       : this.verbs.resolve(verb, target);
+
+    if (action.state) this.setState(target, action.state);
+    if (action.take && target.item) {
+      this.taken.add(this.key(target.id));
+      if (!this.inventory.includes(target.item)) this.inventory.push(target.item);
+    }
 
     if (action.dialogue) {
       this.dialogue.start(action.dialogue);
@@ -391,6 +435,8 @@ export class GameState {
       room: this.currentRoomId,
       inventory: [...this.inventory],
       reputation: this.reputation,
+      objectStates: Object.fromEntries(this.objectStates),
+      taken: [...this.taken].sort(),
       flags: this.flags.snapshot(),
       dialogueProgress: this.dialogue.progressSnapshot(),
       dialoguePosition: this.dialogue.positionSnapshot(),
@@ -415,6 +461,8 @@ export class GameState {
     this.held = null;
     this.cameFrom = null;
     this.scroll = 0;
+    this.objectStates = new Map(Object.entries(save.objectStates ?? {}));
+    this.taken = new Set(save.taken ?? []);
     return true;
   }
 
@@ -427,6 +475,8 @@ export class GameState {
     this.held = null;
     this.cameFrom = null;
     this.scroll = 0;
+    this.objectStates.clear();
+    this.taken.clear();
     this.verbs.resetToDefault();
     this.saves.clear();
   }

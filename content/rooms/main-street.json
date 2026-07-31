@@ -726,6 +726,23 @@
         "x": 302,
         "y": 86,
         "facing": "back"
+      },
+      "state": "shut",
+      "stateOnTransit": "open",
+      "states": {
+        "shut": {
+          "note": "As the room composes. Winnie's door is shut because Winnie is working."
+        },
+        "open": {
+          "note": "Doc 22 item 9, and the appearance change that does NOT change identity: it is still THE ASSAY OFFICE, so it is one object with two states rather than the coach's two hotspots with opposite gates. The bounds widen by the swung leaf, which is why per-state bounds exist -- hit-testing the shut door's rect after it opens is the kind of wrongness nobody reports because it nearly works.",
+          "image": "art/objects/room-02-assay-door-open.png",
+          "bounds": [
+            292,
+            50,
+            20,
+            32
+          ]
+        }
       }
     }
   ],

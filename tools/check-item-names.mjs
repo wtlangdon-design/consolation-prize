@@ -1,8 +1,12 @@
-import { loadContent, Report, runCheck } from './lib/content.mjs';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+import { loadContent, Report, ROOT, runCheck } from './lib/content.mjs';
+import { readPng, region } from './lib/png.mjs';
 
 /**
- * Errata ruling 26 point 2: every inventory row must fit the panel, and no
- * two rows may draw the same thing.
+ * Errata 26 point 2 and errata 29 condition 2: no two items may be
+ * indistinguishable in the panel. The medium changed and the rule did not.
  *
  * THE SECOND HALF IS THE POINT. Form 12-C, Form 12-C (Amended) and Form 12-C
  * (Amended, Void) are three separate items and the joke in Act II is that
@@ -14,7 +18,16 @@ import { loadContent, Report, runCheck } from './lib/content.mjs';
  * check is what stops two of them colliding.
  *
  * Width is measured through the same font JSON the engine draws with, so
- * "fits" means fits rather than "is under some character count".
+ * "fits" means fits rather than "is under some character count". The names
+ * still matter under ruling 29 because they are what the sentence line draws
+ * on hover and on selection -- an icon is never the only identification.
+ *
+ * AND NOW THE ICONS. Ruling 29 keeps the uniqueness half and moves it: two
+ * items rendering the same icon is the same silent failure as two drawing the
+ * same row. The check reads the ACTUAL PNG rather than a hash the generator
+ * wrote, because a generated hash only proves the generator agrees with
+ * itself. Fully transparent pixels are ignored -- what is compared is what is
+ * drawn.
  */
 function measure(font, text) {
   const per = font.advances ?? {};
@@ -30,7 +43,7 @@ function measure(font, text) {
 }
 
 export function check() {
-  const report = new Report('Inventory names fit the panel and stay distinct (ruling 26)');
+  const report = new Report('Inventory items are distinguishable, by name and by icon (26, 29)');
   const content = loadContent();
   const items = content.items ?? [];
 
@@ -42,7 +55,9 @@ export function check() {
   const panel = content.panel;
   // Two pixels of padding at the left of a row, and the same at the right so
   // a name never touches the scroll arrows.
-  const room = panel.inventory.width - 4;
+  // Ruling 29 moved the names out of the panel and into the sentence line,
+  // so the width they must fit is the sentence's, not a grid cell's.
+  const room = 320 - panel.sentence.x * 2;
   const drawn = new Map();
   let pending = 0;
 
@@ -65,7 +80,42 @@ export function check() {
     }
   }
 
-  report.note(`${items.length} item(s); the panel row holds ${room}px, `
+  // Errata 29 condition 2.
+  const table = content.itemIcons;
+  if (table) {
+    let sheet;
+    try {
+      sheet = readPng(readFileSync(resolve(ROOT, table.sheet)));
+    } catch (error) {
+      report.fail(`cannot read the icon sheet ${table.sheet}: ${error.message}`);
+    }
+    if (sheet) {
+      const drawnIcons = new Map();
+      for (const { data } of items) {
+        if (data.fixture) continue;
+        const cell = table.icons[data.id];
+        if (!cell) {
+          report.fail(`${data.id}: no icon -- errata 29 restores item art to scope`);
+          continue;
+        }
+        const shape = region(sheet, cell);
+        if (/^[.|]*$/.test(shape)) {
+          report.fail(`${data.id}: its icon cell is empty`);
+          continue;
+        }
+        if (drawnIcons.has(shape)) {
+          report.fail(`${data.id} and ${drawnIcons.get(shape)} render the SAME ICON -- `
+            + 'errata 29 condition 2. Two items a player cannot tell apart is a running gag '
+            + 'dying silently: the build passes and the panel looks right');
+          continue;
+        }
+        drawnIcons.set(shape, data.id);
+      }
+      report.note(`${drawnIcons.size} distinct icon(s) at ${table.cell[0]}x${table.cell[1]}`);
+    }
+  }
+
+  report.note(`${items.length} item(s); the sentence line holds ${room}px, `
     + `about ${Math.floor(room / content.font.advance)} glyphs`);
   if (pending > 0) {
     report.note(`${pending} item(s) awaiting LOOK and LISTEN lines -- doc 15 lists ~40 `

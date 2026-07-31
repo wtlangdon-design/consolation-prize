@@ -7,6 +7,10 @@ export interface ResolvedAction {
   say: string | null;
   dialogue: string | null;
   goto: string | null;
+  /** Doc 22 item 9: the state this response moves the object to. */
+  state?: string;
+  /** Ownership passes to the actor. */
+  take?: boolean;
 }
 
 /**
@@ -122,7 +126,7 @@ export class VerbSystem {
     );
     if (pair) {
       this.flags.applyWrites(pair.set);
-      return { say: pair.say ?? null, dialogue: null, goto: null };
+      return { say: pair.say ?? null, dialogue: null, goto: null, state: pair.setState };
     }
     const own = table?.itemPools[itemId];
     if (own?.length) return { say: this.rotate(`item:${itemId}`, own), dialogue: null, goto: null };
@@ -176,6 +180,8 @@ export class VerbSystem {
         say: this.nextLine(`${target.id}#${index}`, verbId, matched),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
+        state: matched.setState,
+        take: matched.take,
       };
     }
 

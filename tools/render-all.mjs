@@ -39,6 +39,7 @@ const SCRIPTS = [
   ['cycling_render.py', 'Room 1 palette cycling -- GIF at real rates, plus the states'],
   ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
   ['title_screen.py', 'Title screen -- doc 17 revised: hierarchy, night, overlap'],
+  ['item_icons.py', "the eight Act I inventory icons -- errata 29"],
   ['panel_render.py', 'the verb panel and inventory -- errata ruling 26'],
   ['walkbox_render.py', "Room 2's walk boxes, staging points and a route -- errata 28a"],
   ['legibility_audit.py', 'legibility across every composed room -- rulings 16, 17c, 18'],

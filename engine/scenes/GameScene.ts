@@ -219,6 +219,21 @@ export class GameScene extends Phaser.Scene {
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
     if (this.state.dialogue.isActive || this.state.menu.isOpen) return;
     const { x, y } = this.nativePoint(pointer);
+
+    // ERRATA 29 CONDITION 1. An icon must never be the only way an item is
+    // identified, so hovering one puts its authored display name in the
+    // sentence line -- the same line, the same templates, the same names
+    // ruling 26 had drawn in the panel itself.
+    if (y >= PLAY_HEIGHT) {
+      const slot = this.view.inventoryHitboxes().find((box) => pointInRect(x, y, box));
+      const item = slot ? this.state.itemTarget(slot.id) : undefined;
+      if ((item?.id ?? null) !== (this.hovered?.id ?? null)) {
+        this.hovered = item ?? null;
+        this.hoveredName = item ? this.state.itemLabel(item.id) : null;
+        this.markDirty();
+      }
+      return;
+    }
     // Ambient characters stand in front of the scenery, so they take the
     // pointer first -- exactly as they take the click. Reading one name and
     // clicking another is worse than either alone.

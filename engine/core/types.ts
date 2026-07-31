@@ -36,6 +36,18 @@ export type FlagAdds = Record<string, number>;
 /** One branch of a verb response. The first branch whose `when` holds is used. */
 export interface ResponseRule {
   when?: Condition;
+  /**
+   * Move this object to a named state. Doc 22 item 9: a state change drives
+   * both what is drawn and what occludes, so it is one field rather than a
+   * second overlapping hotspot with the opposite gate.
+   */
+  setState?: string;
+  /**
+   * Ownership passes to the actor -- doc 22's `owner`. Taking an item is an
+   * ownership change, not a hotspot swap: the object stops being in the room
+   * and its `item` appears in the inventory.
+   */
+  take?: boolean;
   say?: string;
   /**
    * Lines for repeat selections, cycled in order. Doc 05 requires three
@@ -94,6 +106,33 @@ export interface Interactable {
   overrides?: Record<string, string>;
   /** Per-object rotating pool. Rarely used; the global pools cover most cases. */
   fallback?: string[];
+  /**
+   * Doc 22 item 9. The object's current state, and what each state looks like.
+   *
+   * A state carries its own image, its own bounds, and the clip levels it
+   * occludes -- so opening a door changes the picture, the hit area and the
+   * depth behaviour together, which is what errata 27 says duplicate
+   * overlapping hotspots are the wrong tool for.
+   *
+   * THE DUPLICATE-HOTSPOT PATTERN STAYS where semantic identity genuinely
+   * changes. The coach becoming THE ROAD WEST OUT is two objects because the
+   * NAME changes, and one object cannot carry two names. A door that opens is
+   * the same door.
+   */
+  state?: string;
+  states?: Record<string, {
+    note?: string;
+    /** Drawn over the background while this state holds. */
+    image?: string;
+    /** Replaces `rect` for hit-testing while this state holds. */
+    bounds?: [number, number, number, number];
+    /** Clip levels this state's image masks. Doc 22 section 5, step 5. */
+    occludes?: number[];
+  }>;
+  /** The inventory item this object becomes when taken. */
+  item?: string;
+  /** State to move to when an exit is transited. */
+  stateOnTransit?: string;
   /**
    * Verb id to the id of an actor clip played when that verb lands here.
    *
@@ -282,6 +321,8 @@ export interface CombinationPair {
   item: string;
   room: string;
   target: string;
+  /** The state this combination moves the target to. Doc 22 item 9. */
+  setState?: string;
   /** The doc 02 puzzle this serves, where it serves one. */
   puzzle?: string;
   say?: string;
@@ -303,6 +344,15 @@ export interface CombinationsFile {
   globalPool: string[];
 }
 
+/** content/ui/item-icons.json -- errata 29's sheet, and where each icon sits in it. */
+export interface ItemIconsFile {
+  schema: number;
+  note?: string;
+  sheet: string;
+  cell: [number, number];
+  icons: Record<string, [number, number, number, number]>;
+}
+
 /** content/ui/panel.json -- errata ruling 26's geometry, read by engine and tools. */
 export interface PanelFile {
   schema: number;
@@ -314,8 +364,9 @@ export interface PanelFile {
     note?: string;
     x: number;
     y: number;
-    width: number;
-    rowHeight: number;
+    /** Errata 29: a grid of icons, not a list of rows. */
+    cell: [number, number];
+    cols: number;
     rows: number;
     arrows: { x: number; width: number; note?: string };
   };
@@ -596,6 +647,8 @@ export interface ManifestFile {
   panel: string;
   /** Doc 24's item combination table. */
   combinations: string;
+  /** Errata 29's inventory icon sheet. */
+  itemIcons: string;
 }
 
 /** Everything the engine needs, resolved from the manifest. */
@@ -617,6 +670,7 @@ export interface ContentBundle {
   items: Map<string, ItemFile>;
   panel: PanelFile;
   combinations: CombinationsFile;
+  itemIcons: ItemIconsFile;
 }
 
 

@@ -143,12 +143,28 @@
           {
             "say": "Gamma hatch. Close response C5."
           }
+        ],
+        "PICK_UP": [
+          {
+            "say": "GAMMA BLOCK TAKEN",
+            "take": true,
+            "setState": "taken"
+          }
         ]
       },
       "fallback": [
         "Gamma hatch. Fallback response C6."
       ],
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "note": "Doc 22 item 9's OWNERSHIP half, proven on the fixture. Main Street has no takeable object in the design -- doc 13 writes five PICK UP overrides for it and four are refusals, the fifth is a joke about holding mud, and doc 01's inventory list contains nothing found on that street. Inventing one to demonstrate the mechanism would be inventing content.",
+      "state": "present",
+      "item": "harness_token",
+      "states": {
+        "present": {},
+        "taken": {
+          "note": "Unreachable as a drawn state: an object the actor owns is filtered out of the room entirely, the same way a gated hotspot is."
+        }
+      }
     }
   ],
   "exits": [

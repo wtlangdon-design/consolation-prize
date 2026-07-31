@@ -57,20 +57,28 @@ export class PanelLayout {
     return this.verbButton(col, row);
   }
 
-  /** Visible inventory rows. Fewer if the player is carrying fewer. */
+  /** Icons visible at once. Errata 29: six to eight, and this is eight. */
   get visibleRows(): number {
-    return this.file.inventory.rows;
+    const { cols, rows } = this.file.inventory;
+    return cols * rows;
   }
 
+  /** The nth visible icon cell, filling left to right then down. */
   inventoryRow(index: number): Rect {
-    const { x, y, width, rowHeight } = this.file.inventory;
-    return { x, y: y + index * rowHeight, width, height: rowHeight };
+    const { x, y, cell, cols } = this.file.inventory;
+    const [width, height] = cell;
+    return {
+      x: x + (index % cols) * width,
+      y: y + Math.floor(index / cols) * height,
+      width,
+      height,
+    };
   }
 
   /** Up and down, stacked over the height of the list. */
   arrow(direction: 'up' | 'down'): Rect {
-    const { y, rowHeight, rows, arrows } = this.file.inventory;
-    const half = Math.floor((rowHeight * rows) / 2);
+    const { y, cell, rows, arrows } = this.file.inventory;
+    const half = Math.floor((cell[1] * rows) / 2);
     return {
       x: arrows.x,
       y: direction === 'up' ? y : y + half,

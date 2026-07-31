@@ -24,6 +24,7 @@ export function loadContent() {
     verbFallbacks: readJson(manifest.verbFallbacks),
     panel: readJson(manifest.panel),
     combinations: readJson(manifest.combinations),
+    itemIcons: readJson(manifest.itemIcons),
     actor: readJson(manifest.actor),
     items: (manifest.items ?? []).map((path) => ({ path, data: readJson(path) })),
     ambient: (manifest.ambient ?? []).map((path) => ({ path, data: readJson(path) })),

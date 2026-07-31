@@ -39,7 +39,8 @@
     "content/items/company-map.json",
     "content/items/horse-blanket.json",
     "content/items/pickaxe.json",
-    "content/items/filing-fee.json"
+    "content/items/filing-fee.json",
+    "content/items/harness-token.json"
   ],
   "scaling": "content/actors/scaling.json",
   "ambient": [
@@ -51,5 +52,6 @@
   "verbFallbacks": "content/ui/verb-fallbacks.json",
   "duplicateAllowlist": "content/ui/duplicate-allowlist.json",
   "menu": "content/ui/menu.json",
-  "combinations": "content/combinations.json"
+  "combinations": "content/combinations.json",
+  "itemIcons": "content/ui/item-icons.json"
 }

@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "note": "Errata 29. Where each item's icon sits in the sheet. Declared here rather than computed in two places, for the same reason the room idle sheets are: the builder and the engine must not be able to disagree about a rectangle. check-item-names reads the PNG itself and fails if two of these cells are pixel-identical -- an icon nobody can tell from another icon is the running gag dying quietly, which is what that check has always existed to stop.",
+  "sheet": "art/ui/item-icons.png",
+  "cell": [
+    30,
+    21
+  ],
+  "icons": {
+    "tuning_fork": [
+      0,
+      0,
+      30,
+      21
+    ],
+    "letter": [
+      30,
+      0,
+      30,
+      21
+    ],
+    "four_dollars": [
+      60,
+      0,
+      30,
+      21
+    ],
+    "deed": [
+      90,
+      0,
+      30,
+      21
+    ],
+    "company_map": [
+      0,
+      21,
+      30,
+      21
+    ],
+    "horse_blanket": [
+      30,
+      21,
+      30,
+      21
+    ],
+    "pickaxe": [
+      60,
+      21,
+      30,
+      21
+    ],
+    "filing_fee": [
+      90,
+      21,
+      30,
+      21
+    ]
+  }
+}

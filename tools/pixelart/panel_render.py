@@ -1,4 +1,4 @@
-"""The verb panel and inventory, drawn for review. Errata ruling 26.
+"""The verb panel and inventory, drawn for review. Errata 26, as amended by 29.
 
 Two pictures at 1x and 4x: the panel as the game currently draws it, and the
 panel with a long list in it so the scroll and the name-length problem can be
@@ -9,17 +9,19 @@ engine reads. This module deliberately hard-codes no geometry: a review render
 that agrees with a description of the layout rather than with the layout is
 worse than no render, because it looks like evidence.
 
-The long list is a DEMONSTRATION, not content. The names are doc 01's core
-inventory, quoted, and they are here to show two things: that four rows plus
-arrows reads at 1x, and that "Form 12-C (Amended, Void)" does not fit -- which
-is the case errata 26 point 2 asks for a rule about, and the reason that rule
-is authored short names rather than computed truncation.
+ERRATA 29 replaced the text list with a grid of icons. What is drawn here is
+what the game draws: the same sheet, the same cells, the same geometry, read
+from the same JSON. The names have not gone anywhere -- they draw in the
+sentence line on hover and on selection, which is ruling 29's first condition,
+and the top panel shows one doing it.
 """
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
+
+from PIL import Image
 
 from canvas import IndexedCanvas
 from palette import Palette, Ramp
@@ -29,25 +31,23 @@ from title_screen import game_font
 ROOT = Path(__file__).resolve().parents[2]
 WIDTH, PANEL_Y, HEIGHT = 320, 144, 200
 
-#: The Act II forms, quoted from doc 01, appended to the real Act I list.
-#: They are here because they are the case errata 26 point 2 asks for a rule
-#: about: three items whose whole joke is that they are tellable apart, and
-#: the third does not fit. They are NOT content -- doc 23 covers Act I and
-#: these have no display names authored yet.
-UNAUTHORED = [
-    "FORM 12-C",
-    "FORM 12-C (AMENDED)",
-    "FORM 12-C (AMENDED, VOID)",
-]
-
-
-def act_one_names() -> list[str]:
-    """Doc 23's eight display names, read from the shipped item files."""
+def act_one_items() -> list[str]:
+    """Doc 23's eight item ids, in manifest order. Fixtures excluded."""
     manifest = json.loads((ROOT / "content" / "manifest.json").read_text(encoding="utf-8"))
-    names = []
+    ids = []
     for relative in manifest["items"]:
         data = json.loads((ROOT / relative).read_text(encoding="utf-8"))
-        names.append(data.get("short") or data["name"])
+        if not data.get("fixture"):
+            ids.append(data["id"])
+    return ids
+
+
+def display_names() -> dict:
+    manifest = json.loads((ROOT / "content" / "manifest.json").read_text(encoding="utf-8"))
+    names = {}
+    for relative in manifest["items"]:
+        data = json.loads((ROOT / relative).read_text(encoding="utf-8"))
+        names[data["id"]] = data.get("short") or data["name"]
     return names
 
 
@@ -92,26 +92,37 @@ def draw_panel(canvas: IndexedCanvas, palette: Palette, panel: dict, verbs: dict
     game_font(canvas, label, bx + (spec["width"] - label_w) // 2, by + 2, bone, 0.72)
 
     inventory = panel["inventory"]
-    visible = inventory["rows"]
+    cell_w, cell_h = inventory["cell"]
+    cols, rows = inventory["cols"], inventory["rows"]
+    visible = cols * rows
     over = []
-    for row in range(visible):
-        index = scroll + row
+
+    icons = json.loads((ROOT / "content" / "ui" / "item-icons.json").read_text(encoding="utf-8"))
+    sheet_image = Image.open(ROOT / icons["sheet"]).convert("RGBA")
+    sheet = sheet_image.load()
+    lookup = {tuple(palette.colours[i]): i for i in range(len(palette.colours))}
+
+    for slot in range(visible):
+        index = scroll + slot
         if index >= len(items):
             break
-        y = inventory["y"] + row * inventory["rowHeight"]
+        x = inventory["x"] + (slot % cols) * cell_w
+        y = inventory["y"] + (slot // cols) * cell_h
         if index == held:
-            canvas.rect(inventory["x"], y, inventory["width"], inventory["rowHeight"],
-                        grey.frac(0.30))
-        game_font(canvas, items[index], inventory["x"] + 2, y + 2, bone,
-                  0.94 if index == held else 0.72)
-
-    for name in items:
-        width = game_font(IndexedCanvas(400, 8), name, 0, 0, bone, 0.0)
-        if width > inventory["width"] - 4:
-            over.append((name, width))
+            canvas.rect(x, y, cell_w, cell_h, grey.frac(0.30))
+        cell = icons["icons"].get(items[index])
+        if not cell:
+            continue
+        for row in range(cell[3]):
+            for col in range(cell[2]):
+                red, green, blue, alpha = sheet[cell[0] + col, cell[1] + row]
+                if alpha:
+                    canvas.put(x + col, y + row, lookup[(red, green, blue)])
+        if index == held:
+            canvas.outline(x, y, cell_w, cell_h, bone.frac(0.94))
 
     arrows = inventory["arrows"]
-    half = (inventory["rowHeight"] * visible) // 2
+    half = (cell_h * rows) // 2
     for up in (True, False):
         rect = {"x": arrows["x"], "y": inventory["y"] + (0 if up else half),
                 "width": arrows["width"], "height": half}
@@ -119,7 +130,7 @@ def draw_panel(canvas: IndexedCanvas, palette: Palette, panel: dict, verbs: dict
         live = scroll > 0 if up else scroll + visible < len(items)
         triangle(canvas, rect, up, bone, 0.94 if live else 0.34)
 
-    return {"overflow": over, "room": inventory["width"] - 4}
+    return {"overflow": over}
 
 
 def main() -> None:
@@ -133,14 +144,19 @@ def main() -> None:
     canvas = IndexedCanvas(WIDTH, (HEIGHT - PANEL_Y) * 2 + 4,
                            fill=palette.family("void").at(0))
 
-    short = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("void").at(0))
-    draw_panel(short, palette, panel, verbs, "Look at THE LETTER",
-               act_one_names()[:3], 0, 1)
+    items = act_one_items()
+    names = display_names()
 
-    items = act_one_names() + UNAUTHORED
+    # Top: hovering an icon. The NAME is in the sentence line, which is ruling
+    # 29 condition 1 and the reason the authored display names survived the
+    # move from text to icons.
+    short = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("void").at(0))
+    draw_panel(short, palette, panel, verbs, f"Look at {names['letter']}", items, 0, None)
+
+    # Bottom: one selected and applied to something in the room.
     long = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("void").at(0))
-    report = draw_panel(long, palette, panel, verbs, "Use THE COMPANY MAP on THE MUD",
-                        items, 7, 8)
+    report = draw_panel(long, palette, panel, verbs,
+                        f"Use {names['tuning_fork']} on POSTED NOTICES", items, 0, 0)
 
     for index, source in enumerate((short, long)):
         for y in range(PANEL_Y, HEIGHT):
@@ -153,12 +169,9 @@ def main() -> None:
     print("wrote renders/verb-panel-and-inventory.png and @4x.png")
     print(f"  verbs {len(verbs['verbs'])} in {len(panel['verbs']['cols'])} columns of "
           f"{len(panel['verbs']['rows'])}; the fourth row carries MENU")
-    print(f"  inventory: {panel['inventory']['rows']} rows visible, "
-          f"row holds {report['room']}px")
-    for name, width in report["overflow"]:
-        print(f"  DOES NOT FIT: \"{name}\" at {width}px -- needs an authored short name")
-    if not report["overflow"]:
-        print("  every demonstration name fits")
+    print(f"  inventory: {panel['inventory']['cols']}x{panel['inventory']['rows']} icons "
+          f"at {panel['inventory']['cell'][0]}x{panel['inventory']['cell'][1]}, "
+          f"{len(items)} carried")
 
 
 if __name__ == "__main__":

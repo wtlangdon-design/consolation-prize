@@ -501,6 +501,29 @@ def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng
     canvas.hline(step_x + 4, GROUND + 2, step_w - 8, bone.frac(0.42))
     canvas.hline(step_x, GROUND + 4, step_w, umber.frac(0.10))
 
+    # THE ASSAY DOOR, OPEN. Doc 22 item 9's per-state image.
+    #
+    # Drawn into its own canvas and NOT blitted: the room composes with the
+    # door shut, and this is what the engine lays over it once the player has
+    # been inside. One object, two states -- not two overlapping hotspots,
+    # which errata 27 reserves for a genuine change of identity. It is still
+    # THE ASSAY OFFICE either way.
+    #
+    # An open door in a lit street is a hole, so it is drawn as one: the
+    # darkest umber the palette has short of void, a lit jamb on the frame-left
+    # edge where the light comes from, and the door itself swung inward and
+    # showing only its edge.
+    global ASSAY_DOOR_OPEN
+    ASSAY_DOOR_OPEN = IndexedCanvas(WIDTH, HEIGHT, fill=255)
+    door_x, door_y, door_w, door_h = assay.x + 15, GROUND - 26, 17, 26
+    ASSAY_DOOR_OPEN.rect(door_x, door_y, door_w, door_h, umber.frac(0.02))
+    ASSAY_DOOR_OPEN.vline(door_x, door_y, door_h, umber.frac(0.30))
+    ASSAY_DOOR_OPEN.vline(door_x + 1, door_y, door_h, umber.frac(0.16))
+    ASSAY_DOOR_OPEN.hline(door_x, door_y, door_w, umber.frac(0.24))
+    # The leaf, swung in and caught by the light down its outer edge.
+    ASSAY_DOOR_OPEN.rect(door_x + door_w - 4, door_y + 1, 3, door_h - 1, umber.frac(0.08))
+    ASSAY_DOOR_OPEN.vline(door_x + door_w - 4, door_y + 1, door_h - 1, pine.frac(0.22))
+
     # Washing over the hotel balcony rail. Somebody is living up there.
     laundry_line(canvas, palette, 226, 36, 40, pine, bone, rng)
 

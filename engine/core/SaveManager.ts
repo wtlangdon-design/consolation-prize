@@ -11,6 +11,16 @@ export interface SaveFile {
   savedAt?: number;
   inventory: string[];
   reputation: number;
+  /**
+   * Doc 22 item 9's runtime object state, keyed "room/object", and the
+   * objects whose ownership has passed to the actor.
+   *
+   * Optional so a save written before states existed still loads: an absent
+   * map means every object is at its declared initial state, which is what a
+   * save from before the feature meant.
+   */
+  objectStates?: Record<string, string>;
+  taken?: string[];
   flags: Record<string, FlagValue>;
   dialogueProgress: DialogueProgress;
   dialoguePosition: { tree: string | null; node: string | null };

@@ -34,6 +34,12 @@ export class BootScene extends Phaser.Scene {
       for (const plane of room.occlusionPlanes ?? []) {
         if (!this.textures.exists(plane.mask)) want(plane.mask, plane.mask);
       }
+      // Doc 22 item 9's per-state images, keyed by content path like the rest.
+      for (const target of [...room.hotspots, ...room.exits]) {
+        for (const shown of Object.values(target.states ?? {})) {
+          if (shown.image && !this.textures.exists(shown.image)) want(shown.image, shown.image);
+        }
+      }
     }
     // Character sheets, keyed by their content path so the renderer can ask
     // for one by the same string the content used to name it.
@@ -41,6 +47,7 @@ export class BootScene extends Phaser.Scene {
     for (const npc of bundle.ambient.values()) {
       if (npc.sprite) sheets.add(npc.sprite.sheet);
     }
+    sheets.add(bundle.itemIcons.sheet);
     for (const path of sheets) want(path, path);
     if (pending.length > 0) {
       this.load.start();

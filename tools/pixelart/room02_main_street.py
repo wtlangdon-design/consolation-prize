@@ -34,6 +34,14 @@ def main() -> None:
     plane2.blit(street_scene.FOREGROUND, 0, 0, transparent=255)
     plane2.save_rgba(masks / "room-02-plane-2.png", palette)
     print("wrote art/masks/room-02-plane-1.png and room-02-plane-2.png")
+
+    # Doc 22 item 9. The state image is an OVERLAY on the composed room, not a
+    # second room: the door shut is what the background draws, and this is
+    # what covers it once it is open.
+    objects = ROOT / "art" / "objects"
+    objects.mkdir(parents=True, exist_ok=True)
+    street_scene.ASSAY_DOOR_OPEN.save_rgba(objects / "room-02-assay-door-open.png", palette)
+    print("wrote art/objects/room-02-assay-door-open.png")
     print(f"wrote {native.relative_to(ROOT)}  ({WIDTH}x{HEIGHT})")
     print(f"wrote {preview.relative_to(ROOT)}  ({WIDTH * 4}x{HEIGHT * 4})")
     print(f"colours used: {len(canvas.used_indices())} of 256")

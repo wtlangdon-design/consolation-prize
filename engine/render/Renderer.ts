@@ -113,6 +113,7 @@ export class Renderer {
 
   drawFrame(frame: Frame): void {
     this.drawRoom();
+    this.drawObjectStates();
     this.idles.draw(this.state.room, this.idleSheet(this.state.room.id), this.clock);
     this.drawPeople();
     this.drawForeground();
@@ -146,6 +147,23 @@ export class Renderer {
       const [x, y, width, height] = target.rect;
       this.screen.fill(x, y, width, height, target.colour);
       this.screen.outline(x, y, width, height, this.screen.role('outline'));
+    }
+  }
+
+  /**
+   * Doc 22 item 9. Whatever each object's current state draws, over the room.
+   *
+   * Before the people, because a state image is room geometry -- an open door
+   * is part of the building. A state that also OCCLUDES declares the clip
+   * levels it masks and is composited into the figure pass instead, which is
+   * doc 22 section 5 step 5.
+   */
+  private drawObjectStates(): void {
+    for (const target of this.state.statefulTargets) {
+      const shown = this.state.presentation(target);
+      if (!shown?.image) continue;
+      const image = this.sheet(shown.image);
+      if (image) this.screen.context.drawImage(image, 0, 0);
     }
   }
 
@@ -240,7 +258,15 @@ export class Renderer {
     const level = this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY));
     const plane = planes.find((candidate) => candidate.level === level);
     const mask = plane ? this.sheet(plane.mask) : null;
-    if (!mask) {
+    // Doc 22 item 9: a state can change what OCCLUDES, not only what is
+    // drawn, so an object whose current state masks this level joins the
+    // punch-out alongside the room's own plane.
+    const stateMasks = this.state.statefulTargets
+      .map((target) => this.state.presentation(target))
+      .filter((shown) => shown?.image && shown.occludes?.includes(level))
+      .map((shown) => this.sheet(shown!.image as string))
+      .filter((image): image is CanvasImageSource => image !== null);
+    if (!mask && stateMasks.length === 0) {
       draw();
       return;
     }
@@ -258,7 +284,8 @@ export class Renderer {
       this.screen.borrow(screenContext);
     }
     scratch.globalCompositeOperation = 'destination-out';
-    scratch.drawImage(mask, 0, 0);
+    if (mask) scratch.drawImage(mask, 0, 0);
+    for (const extra of stateMasks) scratch.drawImage(extra, 0, 0);
     scratch.globalCompositeOperation = 'source-over';
     screenContext.drawImage(scratch.canvas, 0, 0);
   }
@@ -449,14 +476,35 @@ export class Renderer {
     ];
   }
 
+  /**
+   * Errata 29: a grid of icons, drawn from one sheet.
+   *
+   * The NAME is not drawn here and never was -- it goes in the sentence line
+   * on hover and on selection, which is ruling 29's first condition and the
+   * reason the authored display names survived the change of medium. An icon
+   * is never the only way an item is identified.
+   */
   private drawInventory(): void {
-    const ctx = this.screen.context;
+    const table = this.state.content.itemIcons;
+    const sheet = this.sheet(table.sheet);
     for (const slot of this.inventoryHitboxes()) {
       const held = this.state.heldItem === slot.id;
       this.screen.fill(slot.x, slot.y, slot.width, slot.height,
         this.screen.role(held ? 'buttonBgActive' : 'panelBg'));
-      this.font.draw(ctx, this.state.itemLabel(slot.id), slot.x + 2, slot.y + 2,
-        this.screen.roleColour(held ? 'inkBright' : 'ink'));
+      const cell = table.icons[slot.id];
+      if (sheet && cell) {
+        this.screen.context.drawImage(sheet, cell[0], cell[1], cell[2], cell[3],
+          slot.x, slot.y, cell[2], cell[3]);
+      } else {
+        // No icon drawn for this item yet. A labelled box is a visible gap;
+        // an empty one is an item the player cannot see they are carrying.
+        this.screen.outline(slot.x, slot.y, slot.width, slot.height,
+          this.screen.role('inkDim'));
+        this.font.draw(this.screen.context, this.state.itemLabel(slot.id).slice(0, 4),
+          slot.x + 2, slot.y + 2, this.screen.roleColour('inkDim'));
+      }
+      if (held) this.screen.outline(slot.x, slot.y, slot.width, slot.height,
+        this.screen.role('inkBright'));
     }
 
     // Arrows are drawn dim when they would do nothing rather than hidden, so

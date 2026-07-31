@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "note": "Errata ruling 26. Verbs left in three columns, inventory right as a scrollable list of item NAMES IN TEXT, sentence line full width above both -- the 1990 original's layout, and text inventory is the period-correct answer rather than a compromise. Geometry lives here rather than in Screen.ts because two things read it: the engine, and the Python that renders the panel for review. Two copies of a rectangle stay in agreement for about one commit.",
+  "note": "Errata 29, which overturns 26 on the inventory. Verbs stay three columns of four on the left; the inventory is now a GRID OF ICONS on the right where the text list was, scroll arrows at the right edge, sentence line full width above. Geometry lives here rather than in Screen.ts because two things read it: the engine, and the Python that renders the panel for review.",
   "sentence": {
     "x": 6,
     "y": 146
@@ -26,12 +26,15 @@
     "row": 3
   },
   "inventory": {
-    "note": "Four rows visible, which is the bottom of ruling 26's four-to-six. Six would need 7px rows and the font is 7 tall, leaving no gap between names. The text column is 121px, which is twenty glyphs at the 5x7 advance -- that number is the truncation rule's whole basis.",
+    "note": "Eight visible, the top of ruling 29's six-to-eight. Four columns of 30px across the 122px column, two rows of 21. The ITEM NAME still draws in the sentence line on hover and on selection -- ruling 29 condition 1, and it is not optional: an icon must never be the only way an item is identified, which is also why ruling 26's authored display names stand unchanged.",
     "x": 182,
     "y": 155,
-    "width": 122,
-    "rowHeight": 11,
-    "rows": 4,
+    "cell": [
+      30,
+      21
+    ],
+    "cols": 4,
+    "rows": 2,
     "arrows": {
       "note": "Drawn as triangles, not typed. The 5x7 face has no arrow glyph and adding one would put an interface shape into the writing font.",
       "x": 306,
