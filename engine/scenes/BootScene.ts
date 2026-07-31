@@ -28,6 +28,12 @@ export class BootScene extends Phaser.Scene {
       if (room.background) want(`bg:${room.id}`, room.background);
       if (room.foreground) want(`fg:${room.id}`, room.foreground);
       if (room.idles?.sheet) want(`idle:${room.id}`, room.idles.sheet);
+      // Occlusion masks are keyed by their content path, like character
+      // sheets, because the renderer asks for one by the string the plane
+      // used to name it.
+      for (const plane of room.occlusionPlanes ?? []) {
+        if (!this.textures.exists(plane.mask)) want(plane.mask, plane.mask);
+      }
     }
     // Character sheets, keyed by their content path so the renderer can ask
     // for one by the same string the content used to name it.

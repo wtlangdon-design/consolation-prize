@@ -577,9 +577,22 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
     mud_street(canvas, 0, STREET_TOP, WIDTH, HEIGHT - STREET_TOP, scheme.family(palette, "mud"), rng,
                grit=palette.family(scheme.grit_family), tone_shift=scheme.mud_shift)
 
-    hitching_rail(canvas, 96, STREET_TOP + 12, 46, 12, pine, rng, base=max(0.06, 0.38 + scheme.facade_shift))
-    water_trough(canvas, 214, STREET_TOP + 18, 40, 12, pine, palette.family("sky"), rng,
+    # THE MID-GROUND OCCLUDERS, drawn once into their own canvas and blitted.
+    #
+    # Doc 22 section 5: a z-plane is a MASK, not a picture -- the rail and the
+    # trough are part of the room art and always were. What is new is that a
+    # copy of their silhouette exists, so an actor standing further up the
+    # street can be masked by them instead of drawn over them. Drawing them
+    # here rather than re-drawing them into a mask afterwards is the only way
+    # the two are guaranteed identical: a second call with a different rng
+    # state is a mask that is a pixel out in places nobody will look.
+    global MIDGROUND
+    MIDGROUND = IndexedCanvas(WIDTH, HEIGHT, fill=255)
+    hitching_rail(MIDGROUND, 96, STREET_TOP + 12, 46, 12, pine, rng,
+                  base=max(0.06, 0.38 + scheme.facade_shift))
+    water_trough(MIDGROUND, 214, STREET_TOP + 18, 40, 12, pine, palette.family("sky"), rng,
                  base=max(0.06, 0.34 + scheme.facade_shift))
+    canvas.blit(MIDGROUND, 0, 0, transparent=255)
 
     # The walk throws its own shadow onto the mud, offset right with the sun.
     cast_shadow(canvas, palette, 2, STREET_TOP, WIDTH, 3, steps=2, soft_edge=2)

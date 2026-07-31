@@ -336,7 +336,12 @@ export class GameScene extends Phaser.Scene {
       { kind: 'face', actor, facing: staging.facing },
       { kind: 'waitForActor', actor },
     ];
-    const chore = target.reactions?.[verb];
+    // A reaction belongs to the LINE it was written for. USE on the trough
+    // is a recoil because "I am not drinking from that" is a flinch; USE THE
+    // TUNING FORK ON THE TROUGH is a different sentence with a different
+    // answer, and playing the recoil against it would be an animation
+    // performing a line nobody said.
+    const chore = this.state.heldItem ? undefined : target.reactions?.[verb];
     if (chore) steps.push({ kind: 'chore', actor, chore });
     steps.push({ kind: 'say', actor, interact: { target: target.id, verb } });
     this.sequence.start(steps);

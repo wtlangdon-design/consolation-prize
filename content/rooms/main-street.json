@@ -754,7 +754,7 @@
       "neighbours": [
         "mud_far"
       ],
-      "clipPlane": 0,
+      "clipPlane": 2,
       "surface": "boardwalk",
       "scaleMode": {
         "kind": "fixed",
@@ -787,7 +787,7 @@
         "mud_mid_west",
         "mud_mid_east"
       ],
-      "clipPlane": 1,
+      "clipPlane": 2,
       "surface": "mud",
       "scaleMode": {
         "kind": "curve",
@@ -822,7 +822,7 @@
         "mud_far",
         "mud_near"
       ],
-      "clipPlane": 1,
+      "clipPlane": 2,
       "surface": "mud",
       "scaleMode": {
         "kind": "curve",
@@ -857,7 +857,7 @@
         "mud_far",
         "mud_near"
       ],
-      "clipPlane": 1,
+      "clipPlane": 2,
       "surface": "mud",
       "scaleMode": {
         "kind": "curve",
@@ -891,7 +891,7 @@
         "mud_mid_west",
         "mud_mid_east"
       ],
-      "clipPlane": 2,
+      "clipPlane": 1,
       "surface": "mud",
       "scaleMode": {
         "kind": "curve",
@@ -902,5 +902,18 @@
       }
     }
   ],
-  "walkBoxNote": "Errata 28a item 1. These REPLACE the walkable rectangles below, which are kept only so the zone-model checks and the older room proofs keep resolving until every room is converted at ruling 22 step 2. The engine prefers walkBoxes wherever a room declares them."
+  "walkBoxNote": "Errata 28a item 1. These REPLACE the walkable rectangles below, which are kept only so the zone-model checks and the older room proofs keep resolving until every room is converted at ruling 22 step 2. The engine prefers walkBoxes wherever a room declares them.",
+  "occlusionPlanes": [
+    {
+      "level": 1,
+      "note": "The near corner alone -- the lumber stack and the wagon wheel. An actor in the near mud is masked by this and by nothing else, so he passes BEHIND the woodpile and IN FRONT of the trough, which is the point of having two planes rather than one flat overlay.",
+      "mask": "art/masks/room-02-plane-1.png"
+    },
+    {
+      "level": 2,
+      "note": "Plane 1 plus the hitching rail and the water trough. CONTAINS plane 1 on purpose: doc 22 section 5 says an actor is masked by its own plane and not by a union of every plane, so each level has to carry everything nearer than the actors assigned to it. An actor in the middle band or further is behind all of it.",
+      "mask": "art/masks/room-02-plane-2.png"
+    }
+  ],
+  "occlusionNote": "No box in this room is clipPlane 0. Doc 22 defines 0 as always-in-front and nothing in Main Street is nearer than the wagon wheel, whose base sits on the bottom row of the frame -- so there is no depth for such a box to occupy. Recorded rather than left to look like an oversight."
 }

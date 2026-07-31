@@ -394,11 +394,22 @@ export interface RoomFile {
   /** Composed background, relative to the manifest. */
   background?: string;
   /**
-   * Ruling 21a's near plane: an RGBA overlay drawn after the actor. Every
-   * room carries one. The walkable mask is unchanged -- this is draw order
-   * and nothing else.
+   * Ruling 21a's near plane: an RGBA overlay drawn after the actor. Kept for
+   * rooms not yet converted to z-planes; a room declaring `occlusionPlanes`
+   * does not use it.
    */
   foreground?: string;
+  /**
+   * Doc 22 section 5. One 1-bit mask per clip level, and an actor is masked
+   * by ITS OWN plane rather than by a union of every plane -- so each plane
+   * carries everything nearer than the actors assigned to it, and plane 2
+   * contains plane 1.
+   *
+   * The masks are not drawn. That geometry is already in the background; a
+   * plane only says which of those pixels are in front of an actor at that
+   * level. `clipPlane: 0` on a walk box means masked by nothing.
+   */
+  occlusionPlanes?: { level: number; note?: string; mask: string }[];
   /**
    * Ruling 20: a drawn crowd of four or more needs at least three animated
    * members. The rest stay painted into the background and the eye gives them

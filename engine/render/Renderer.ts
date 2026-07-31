@@ -70,6 +70,7 @@ export class Renderer {
   private readonly sheet: (path: string) => CanvasImageSource | null;
   /** Errata ruling 26's geometry, resolved from content. */
   private readonly panel: PanelLayout;
+  private scratchContext: CanvasRenderingContext2D | null = null;
 
   constructor(
     screen: Screen,
@@ -157,26 +158,55 @@ export class Renderer {
    * picture. Drawing the same pixels twice costs one blit at 320x144.
    */
   private drawForeground(): void {
+    // A room with z-planes has already had every figure masked individually,
+    // and drawing the flat overlay on top of that would put the near corner
+    // back in front of an actor the plane deliberately let through.
+    if (this.state.room.occlusionPlanes?.length) return;
     const image = this.foreground(this.state.room.id);
     if (image) this.screen.context.drawImage(image, 0, 0);
   }
 
   /**
-   * The people, back to front: ambient characters, then the player.
+   * Everyone in the room, BACK TO FRONT BY FEET-Y. Doc 22 section 5, step 3.
    *
-   * Both are real sprites now. The block silhouettes are kept only as the
-   * fallback for a sheet that has not loaded -- a missing sheet should be a
-   * figure that looks wrong, not a screen with no protagonist on it.
+   * Sorted rather than drawn in a fixed order: the player passing an ambient
+   * character used to draw over them wherever he was, so walking behind the
+   * pie woman put him in front of her. Feet-Y is the whole depth cue in a
+   * lateral room -- whoever is standing lower is nearer.
+   *
+   * Each figure is then drawn through the mask for ITS OWN clip level, which
+   * is the other half of the same question: sorting settles actor against
+   * actor, and the plane settles actor against room geometry.
    */
   private drawPeople(): void {
+    const drawables: { feetX: number; feetY: number; draw: () => void }[] = [];
+
     for (const npc of this.ambient.present) {
-      if (!this.drawAmbient(npc)) {
-        this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
-          this.screen.role('outline'));
-      }
+      drawables.push({
+        feetX: npc.x,
+        feetY: npc.y,
+        draw: () => {
+          if (!this.drawAmbient(npc)) {
+            this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
+              this.screen.role('outline'));
+          }
+        },
+      });
     }
+
     const feetX = Math.round(this.actor.x);
     const feetY = Math.round(this.actor.y);
+    drawables.push({ feetX, feetY, draw: () => this.drawActor(feetX, feetY) });
+
+    // Stable by construction: ambient characters keep their declared order
+    // among themselves when they share a row, so a tie does not flicker.
+    drawables.sort((a, b) => a.feetY - b.feetY);
+    for (const drawable of drawables) {
+      this.masked(drawable.feetX, drawable.feetY, drawable.draw);
+    }
+  }
+
+  private drawActor(feetX: number, feetY: number): void {
     const surface = this.actor.surfaceHere();
     const clip = this.actor.clip;
     const { walkRate, reactRate } = this.state.content.actor;
@@ -187,6 +217,64 @@ export class Renderer {
     if (!drawn) {
       this.drawFigure(feetX, feetY, this.actor.height, this.screen.role('overlayBg'));
     }
+  }
+
+  /**
+   * Draws a figure through the occlusion plane of the walk box it stands in.
+   *
+   * The figure goes to a scratch canvas, the plane's mask is composited with
+   * destination-out to erase whatever is in front of it, and the remainder is
+   * blitted. Nothing about the mask is ever DRAWN -- the room art already
+   * contains the trough and the lumber; the mask only says which of those
+   * pixels win.
+   *
+   * A figure at clip level 0, or in a room with no planes, skips all of this
+   * and draws straight to the screen.
+   */
+  private masked(feetX: number, feetY: number, draw: () => void): void {
+    const planes = this.state.room.occlusionPlanes;
+    if (!planes?.length) {
+      draw();
+      return;
+    }
+    const level = this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY));
+    const plane = planes.find((candidate) => candidate.level === level);
+    const mask = plane ? this.sheet(plane.mask) : null;
+    if (!mask) {
+      draw();
+      return;
+    }
+
+    const scratch = this.scratch();
+    if (!scratch) {
+      draw();
+      return;
+    }
+    scratch.clearRect(0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    const screenContext = this.screen.borrow(scratch);
+    try {
+      draw();
+    } finally {
+      this.screen.borrow(screenContext);
+    }
+    scratch.globalCompositeOperation = 'destination-out';
+    scratch.drawImage(mask, 0, 0);
+    scratch.globalCompositeOperation = 'source-over';
+    screenContext.drawImage(scratch.canvas, 0, 0);
+  }
+
+  /** One reusable offscreen canvas for masking. Made on first use. */
+  private scratch(): CanvasRenderingContext2D | null {
+    if (this.scratchContext) return this.scratchContext;
+    if (typeof document === 'undefined') return null;
+    const canvas = document.createElement('canvas');
+    canvas.width = NATIVE_WIDTH;
+    canvas.height = PLAY_HEIGHT;
+    const context = canvas.getContext('2d');
+    if (!context) return null;
+    context.imageSmoothingEnabled = false;
+    this.scratchContext = context;
+    return context;
   }
 
   /** An ambient character's two-frame idle. Ruling 20. */
@@ -417,7 +505,10 @@ export class Renderer {
     // holding something and reading "Use the trough" cannot tell whether the
     // fork is in the sentence or not.
     if (held) {
-      const item = this.state.itemNamed(held);
+      // The DISPLAY name, the same string the panel row draws. Doc 23 gives
+      // every item both, and a sentence reading "Use The tuning fork on
+      // POSTED NOTICES" mixes the two conventions in one line.
+      const item = this.state.itemLabel(held);
       if (!targetName) return format(ui.sentence.itemOnly, { verb: verbLabel, item });
       return format(ui.sentence.itemTemplate, { verb: verbLabel, item, target: targetName });
     }

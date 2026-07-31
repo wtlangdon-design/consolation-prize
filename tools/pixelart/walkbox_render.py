@@ -99,6 +99,10 @@ def route(boxes: list[dict], start: tuple[int, int], end: tuple[int, int]) -> li
     return points
 
 
+def canvas_source(pixels, width: int, x: int, y: int) -> int:
+    return pixels[y * width + x]
+
+
 def main() -> None:
     palette = Palette.load()
     room = load_room("main_street")
@@ -137,9 +141,32 @@ def main() -> None:
     for x, y in legs:
         canvas.rect(round(x) - 1, round(y) - 1, 3, 3, path.frac(0.60))
 
+    # A second picture: the two z-planes, tinted, over the room. Doc 22
+    # section 5's masks are invisible in play by design -- they only decide
+    # which pixels of the background win against a figure -- so this is the
+    # only way to look at them.
+    planes = IndexedCanvas(image.width, image.height)
+    for y in range(image.height):
+        for x in range(image.width):
+            planes.put(x, y, palette.darken(canvas_source(pixels, image.width, x, y), 3))
+    tints = {1: palette.family("accent_red"), 2: palette.family("accent_teal")}
+    for plane in room["occlusionPlanes"]:
+        mask = Image.open(ROOT / plane["mask"]).convert("RGBA")
+        cells = mask.load()
+        for y in range(mask.height):
+            for x in range(mask.width):
+                if cells[x, y][3] > 0:
+                    planes.put(x, y, tints[plane["level"]].frac(0.30 + 0.30 * plane["level"]))
+    planes.save(RENDERS / "room-02-occlusion-planes.png", palette)
+    planes.save(RENDERS / "room-02-occlusion-planes@4x.png", palette, scale=4)
+
     canvas.save(RENDERS / "room-02-walk-boxes.png", palette)
     canvas.save(RENDERS / "room-02-walk-boxes@4x.png", palette, scale=4)
     print("wrote renders/room-02-walk-boxes.png and @4x.png")
+    print("wrote renders/room-02-occlusion-planes.png and @4x.png")
+    for plane in room["occlusionPlanes"]:
+        boxes_at = [b["id"] for b in boxes if b["clipPlane"] == plane["level"]]
+        print(f"  plane {plane['level']}: {', '.join(boxes_at) or 'no box uses it'}")
     for box in boxes:
         mode = box["scaleMode"]
         described = (f"fixed {mode['height']}" if mode["kind"] == "fixed"

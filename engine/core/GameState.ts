@@ -269,6 +269,20 @@ export class GameState {
     return this.boxes?.route(fromX, fromY, toX, toY);
   }
 
+  /**
+   * The occlusion level for a figure standing at a point. Doc 22 section 5.
+   *
+   * Falls back to the NEAREST box rather than to zero, because a figure whose
+   * feet are a pixel outside a box -- standing on a seam, or mid-turn -- would
+   * otherwise flip to unmasked for a frame and pop out from behind whatever
+   * was covering him.
+   */
+  clipPlaneAt(x: number, y: number): number {
+    const boxes = this.boxes;
+    if (!boxes) return 0;
+    return (boxes.boxAt(x, y) ?? boxes.nearest(x, y)?.box)?.clipPlane ?? 0;
+  }
+
   /** Nearest standable point. Doc 22 step 1 -- a click is snapped, not refused. */
   nearestFloor(x: number, y: number): Point | undefined {
     return this.boxes?.nearest(x, y)?.point;

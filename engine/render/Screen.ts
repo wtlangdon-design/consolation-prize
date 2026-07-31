@@ -101,7 +101,7 @@ export type UiRole =
  */
 export class Screen {
   private readonly swatches: string[];
-  private readonly ctx: CanvasRenderingContext2D;
+  private ctx: CanvasRenderingContext2D;
   private readonly roles: Record<string, number>;
 
   constructor(ctx: CanvasRenderingContext2D, palette: PaletteFile) {
@@ -129,6 +129,23 @@ export class Screen {
 
   get context(): CanvasRenderingContext2D {
     return this.ctx;
+  }
+
+  /**
+   * Redirects everything Screen draws to another context, and returns the one
+   * it was using.
+   *
+   * Doc 22 section 5 needs a figure drawn to a scratch canvas so its own
+   * occlusion mask can be punched out of it before it reaches the screen.
+   * Swapping the target here rather than threading a context through every
+   * draw call keeps the drawing code identical whether it is going to the
+   * screen or to a mask buffer -- and the figure has to be drawn exactly the
+   * same way in both cases or the mask lines up with the wrong pixels.
+   */
+  borrow(context: CanvasRenderingContext2D): CanvasRenderingContext2D {
+    const previous = this.ctx;
+    this.ctx = context;
+    return previous;
   }
 
   colour(index: number): string {
