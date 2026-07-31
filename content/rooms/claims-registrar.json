@@ -3,12 +3,18 @@
   "id": "claims_registrar",
   "name": "THE CLAIMS REGISTRAR",
   "materialIdentity": "Not composed. Doc 12's prompt: a cramped government office, a tall counter, two roped queue lines with blank signs, a spindle of numbered tickets, a wall rack of pigeonholes, a large clock, a locked iron-strapped door at the back.",
-  "note": "Doc 05 Room 7, with THE TWO LINES replaced by errata doc 19 section 2. The contradiction doc 19 settles: THE TWO LINES needed two occupied queues and THE NUMBER SPINDLE says there is one other man in the room. The spindle survives -- ticket ninety-one in a room containing two people is the funnier and more particular joke -- and the queues are rewritten empty, which also costs no drawn crowd. TWO THINGS ARE PROVISIONAL AND MARKED AS SUCH. The rects are placed against doc 12's prompt and not against art, because the room is not composed; they are the one part of this file that must be re-sited when it is. And five of doc 05's ten hotspots -- THE LEDGER, THE COUNTER, THE BENCH, THE MAP OF CLAIMS, SUMP'S PEN -- are marked '(working script)' there and are absent here rather than invented. The room has no exit into it yet either; doc 05 does not say which room it opens off, and guessing would be a worse answer than an unreachable room.",
+  "note": "Doc 05 Room 7, with THE TWO LINES replaced by errata doc 19 section 2. The contradiction doc 19 settles: THE TWO LINES needed two occupied queues and THE NUMBER SPINDLE says there is one other man in the room. The spindle survives -- ticket ninety-one in a room containing two people is the funnier and more particular joke -- and the queues are rewritten empty, which also costs no drawn crowd. TWO THINGS ARE PROVISIONAL AND MARKED AS SUCH. The rects are placed against doc 12's prompt and not against art, because the room is not composed; they are the one part of this file that must be re-sited when it is. And five of doc 05's ten hotspots -- THE LEDGER, THE COUNTER, THE BENCH, THE MAP OF CLAIMS, SUMP'S PEN -- are marked '(working script)' there and are absent here rather than invented. Doc 20 answers the question this file used to leave open: it is reached from the town map, declared in `entrances` above.",
   "colours": {
     "sky": 0,
     "ground": 196
   },
   "horizon": 78,
+  "entrances": [
+    {
+      "from": "town_map",
+      "note": "Doc 20's graph: Room 7 is reached from the town map, not from a facade on Main Street. The map screen is Room 0 and is not built, so this states a route to a room that does not exist yet -- which doc 20 rule 1 asks for and check-room-entries reports as pending rather than failing. The id is provisional until the map screen picks one."
+    }
+  ],
   "walkable": [
     {
       "id": "floor_far",

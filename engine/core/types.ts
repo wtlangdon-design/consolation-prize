@@ -163,6 +163,16 @@ export interface RoomFile {
   background?: string;
   /** Background elements that cycle. At most two, per doc 18. */
   cycling?: CyclingElement[];
+  /**
+   * Stated routes in that are not another room's exit. Doc 20 rule 1: every
+   * room has a stated route in, and thirteen of them arrive through the town
+   * map, which is a screen rather than a doorway.
+   *
+   * Documentary only -- the engine walks exits, not these. What reads them is
+   * check-room-entries, which is the reason Room 7 stopped being a room with
+   * five hotspots and no door.
+   */
+  entrances?: { from: string; note?: string }[];
   /** Ambient NPC ids placed in this room. */
   ambient?: string[];
   /** An engine test fixture rather than shipped content. */

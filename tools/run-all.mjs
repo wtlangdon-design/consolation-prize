@@ -4,6 +4,7 @@ import { check as noContentInCode } from './check-no-content-in-code.mjs';
 import { check as contentSchema } from './check-content-schema.mjs';
 import { check as paletteLocked } from './check-palette.mjs';
 import { check as walkableZones } from './check-walkable.mjs';
+import { check as roomEntries } from './check-room-entries.mjs';
 import { check as paletteCycling } from './check-palette-cycling.mjs';
 import { check as examineLines } from './check-examine-lines.mjs';
 import { check as writtenContent } from './check-written-content.mjs';
@@ -23,6 +24,7 @@ const CHECKS = [
   contentSchema,
   paletteLocked,
   walkableZones,
+  roomEntries,
   paletteCycling,
   examineLines,
   writtenContent,
