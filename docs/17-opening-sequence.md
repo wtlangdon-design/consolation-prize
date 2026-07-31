@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## The Opening Sequence & Room 1 · Full Content — v2
 
 *Title card through to first player control, plus Room 1's complete hotspot content. Written content — verbatim.*
