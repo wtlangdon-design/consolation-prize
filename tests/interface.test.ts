@@ -190,6 +190,38 @@ test('a point off the floor has no actor height at all', async () => {
   assert.equal(state.isWalkable(160, 4), false);
 });
 
+test('a hotspot whose state gate fails is not there at all', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('stage_road');
+
+  // Ruling 19a. Before Hob walks onto the road there is no lamp, so clicking
+  // where the lamp will be must find nothing -- not a lamp with a caveat.
+  const lampRect = content.rooms.get('stage_road')!.hotspots
+    .find((hotspot) => hotspot.id === 'lamp')!.rect;
+  const centre: [number, number] = [lampRect[0] + 2, lampRect[1] + 2];
+  assert.equal(state.findTarget('lamp'), undefined);
+  assert.equal(state.findTarget('lamp_gone'), undefined);
+  assert.equal(state.targetAt(...centre), undefined);
+
+  // The coach is here and so is its team; the road it left on is not.
+  assert.ok(state.findTarget('coach'));
+  assert.ok(state.findTarget('team'));
+  assert.equal(state.findTarget('coach_gone'), undefined);
+
+  state.flags.set('T_COACH_DEPARTED', true);
+  state.flags.set('T_HOB_CROSSING', true);
+  assert.equal(state.findTarget('coach'), undefined);
+  assert.equal(state.findTarget('team'), undefined, 'the team leaves with the coach');
+  assert.ok(state.findTarget('coach_gone'));
+
+  // Both halves of a state change share a rect, so only one may ever answer.
+  const crossing = state.targetAt(...centre);
+  assert.equal(crossing?.id, 'lamp');
+  state.flags.set('T_HOB_GONE', true);
+  assert.equal(state.targetAt(...centre)?.id, 'lamp_gone');
+});
+
 test("the mud's first LISTEN stands alone, and the last one repeats forever", async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());

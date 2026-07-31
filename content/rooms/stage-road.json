@@ -3,7 +3,7 @@
   "id": "stage_road",
   "name": "STAGE ROAD & COACH STOP",
   "materialIdentity": "cold indigo, grey and sky, with warm ochre and gold only where the lamp and the windows reach -- ruling 17a. The only night exterior in the game.",
-  "note": "Doc 05 Room 1 plus doc 17 v2, verbatim. Six hotspots and one exit. Doc 17 note 3: THE ROAD EAST's LISTEN variants 2 and 3 are identical to each other AND to the line at the high ridge in Act IV -- three uses of 'Nothing coming', a hundred yards and fifteen hours apart. Do not vary them. THE COACH's LOOK variant 1 is the coach still present; variants 2 and 3 read as after it has gone, which is when the player will reach them.",
+  "note": "Doc 05 Room 1 plus doc 17 v2, with errata ruling 19a's canonical per-state line sets. Doc 17 note 3: THE ROAD EAST's LISTEN variants 2 and 3 are identical to each other AND to the line at the high ridge in Act IV -- three uses of 'Nothing coming', a hundred yards and fifteen hours apart. Do not vary them. THE COACH, THE TEAM and THE WATCHMAN'S LAMP are state-gated: the coach becomes THE ROAD WEST OUT once it has gone, the team exists only while it is here, and there is no lamp at all until Hob walks onto the road.",
   "background": "art/backgrounds/room-01-stage-road.png",
   "colours": {
     "sky": 240,
@@ -88,13 +88,17 @@
         28
       ],
       "colour": 226,
+      "when": {
+        "T_HOB_CROSSING": true,
+        "T_HOB_GONE": false
+      },
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A lamp, going away. It has not once looked back at me.",
+            "say": "A lamp, crossing the road. There is a man behind it and he has not looked at me.",
             "repeat": [
-              "Still going. He has not once looked at me and I have been standing here in a good coat.",
-              "The only lit thing on this road. He is carrying the whole street around with him."
+              "Still crossing. He is in no hurry and he is not lost.",
+              "The only lit thing on this road, and it is going the other way."
             ]
           }
         ],
@@ -102,14 +106,48 @@
           {
             "say": "Footsteps. Even ones. He is counting them.",
             "repeat": [
-              "Even footsteps. Still counting.",
-              "He has not broken stride once. Not once, in the whole length of the street."
+              "Still even.",
+              "He has not broken stride once. Not once, in the whole length of the road."
             ]
           }
         ]
       },
       "overrides": {
         "TALK_TO": "He is walking. I shall let him walk."
+      }
+    },
+    {
+      "id": "lamp_gone",
+      "name": "THE WATCHMAN'S LAMP",
+      "rect": [
+        80,
+        74,
+        20,
+        28
+      ],
+      "colour": 226,
+      "when": {
+        "T_HOB_GONE": true
+      },
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The lamp, away up the street. It has not once looked back at me.",
+            "repeat": [
+              "Small now.",
+              "Gone round the corner and taken the only light with it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. He has taken the sound with him too.",
+            "repeat": [
+              "Nothing.",
+              "Nothing at all."
+            ]
+          }
+        ]
       }
     },
     {
@@ -122,22 +160,25 @@
         42
       ],
       "colour": 30,
+      "when": {
+        "T_COACH_DEPARTED": false
+      },
       "responses": {
         "LOOK_AT": [
           {
-            "say": "It is leaving. It has the confident manner of a thing that will not be coming back.",
+            "say": "A stage coach, halted, with my case coming down off the back. It has come four hundred miles and it looks it.",
             "repeat": [
-              "Gone. It made very good time on the way out.",
-              "There is not another one for four days. I have checked twice and the answer did not improve."
+              "The near wheel has been repaired twice with two different woods.",
+              "There is a great deal of dust on it and none of it is from here."
             ]
           }
         ],
         "LISTEN_TO": [
           {
-            "say": "The near axle is dry. It will be heard from.",
+            "say": "The team, shifting. The near axle is dry — it has been dry a long time.",
             "repeat": [
-              "The near axle, going away. It will fail on somebody else's stretch.",
-              "Nothing. It is a long way off now."
+              "Still dry. It will be heard from.",
+              "Somebody up top is rearranging the load and swearing about it."
             ]
           }
         ]
@@ -145,6 +186,74 @@
       "overrides": {
         "USE": "It is going. It is going with some enthusiasm.",
         "PULL": "I have considered running after it. I would like that on the record and nowhere else."
+      }
+    },
+    {
+      "id": "team",
+      "name": "THE TEAM",
+      "rect": [
+        152,
+        74,
+        40,
+        28
+      ],
+      "colour": 30,
+      "when": {
+        "T_COACH_DEPARTED": false
+      },
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Two horses I can see and I am told there are four more. They have their heads down and they have earned it.",
+            "repeat": [
+              "Nobody has unhitched them. We are not stopping long.",
+              "The near one has looked at me twice, which is twice more than the driver."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Breathing, and harness. It is the most contented sound on this road.",
+            "repeat": [
+              "Shifting. One of them is bored.",
+              "Nothing. They have gone to sleep standing up, which I did not know was available."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "coach_gone",
+      "name": "THE ROAD WEST OUT",
+      "rect": [
+        192,
+        60,
+        80,
+        42
+      ],
+      "colour": 30,
+      "when": {
+        "T_COACH_DEPARTED": true
+      },
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Gone. It made very good time on the way out.",
+            "repeat": [
+              "Not another one for four days. I have checked twice and the answer did not improve.",
+              "The ruts are still filling in. That is the whole of my connection to the rest of the world, filling in."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The near axle, going away. It will fail on somebody else's stretch.",
+            "repeat": [
+              "Faint now.",
+              "Nothing. It is a long way off."
+            ]
+          }
+        ]
       }
     },
     {
