@@ -699,6 +699,13 @@ Form 12-C, Form 12-C (Amended), and Form 12-C (Amended, Void) are three separate
 
 They need visible escalation — clean; then a torn corner and a second stamp; then VOID across the face. Arguably funnier than the text version, because the bureaucracy is visibly accumulating.
 
-Same risk on every near-identical set: the *Clarion* editions, Ozymandia's two brass rods, the coins.
+**Amended — escalation and differentiation are different problems, and I conflated them.**
+
+- **Escalation** is for items that are genuinely **the same object in successive states**. The three Form 12-Cs are one form acquiring damage and stamps. Draw them as one paper with visible accumulation: clean; torn corner and a second stamp; VOID across the face. The bureaucracy is the joke and it should be watchable.
+- **Differentiation** is for items that merely **share a category**. The letter, the deed and the Company map are three unrelated documents. Drawing them as a series would spend the escalation trick early and imply a relationship that does not exist. They are a sealed envelope, a hand-drawn deed with a wax blob, and a printed map with something already circled.
+
+The *Clarion* editions are escalation — the same newspaper, later. Ozymandia's two brass rods are the joke that they are identical, so they should be identical and the check must whitelist them rather than fail. The coins are differentiation.
+
+**The uniqueness check still fails on accidental collisions. Deliberate identity is an allowlist entry with a reason, exactly as the duplicate examine lines are.**
 
 **`check-item-names` extends rather than being replaced.** It currently fails on two items drawing the same row. It must also fail on **two items rendering the same icon.** The uniqueness half was always the part that protected the gag; only the medium has changed.
