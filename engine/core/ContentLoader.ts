@@ -1,6 +1,8 @@
 import type {
+  ActorFile,
   AmbientFile,
   ContentBundle,
+  ItemFile,
   DialogueFile,
   FlagsFile,
   FontFile,
@@ -39,6 +41,16 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   ]);
 
   const menu = (await read(manifest.menu)) as MenuFile;
+  const actor = (await read(manifest.actor)) as ActorFile;
+  const itemFiles = (await Promise.all((manifest.items ?? []).map((path) => read(path)))) as ItemFile[];
+
+  const items = new Map<string, ItemFile>();
+  for (const item of itemFiles) {
+    if (items.has(item.id)) {
+      throw new Error(`Duplicate item id: ${item.id}`);
+    }
+    items.set(item.id, item);
+  }
 
   const roomFiles = (await Promise.all(manifest.rooms.map((path) => read(path)))) as RoomFile[];
   const dialogueFiles = (await Promise.all(manifest.dialogue.map((path) => read(path)))) as DialogueFile[];
@@ -72,7 +84,10 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     throw new Error(`Start room not found: ${manifest.startRoom}`);
   }
 
-  return { manifest, font, palette, ui, menu, verbs, flags, scaling, reputation, verbFallbacks, ambient, rooms, dialogue };
+  return {
+    manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
+    verbFallbacks, ambient, rooms, dialogue, actor, items,
+  };
 }
 
 /** JsonReader backed by fetch, for the browser. */

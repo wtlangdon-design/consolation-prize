@@ -36,6 +36,18 @@ const config: Phaser.Types.Core.GameConfig = {
 
 const game = new Phaser.Game(config);
 
+// A handle for driving the game from outside it, in dev builds only.
+//
+// Unit tests cannot see a sprite, a depth change or a frame rate, and the
+// external audit's fair complaint was that the pieces had been proven
+// separately and never proven to combine. Proving that means opening the
+// game in a browser and clicking on it, and reading the real state back
+// rather than inferring it from pixels. Stripped from the production bundle
+// by the import.meta.env.DEV guard, which Vite resolves at build time.
+if (import.meta.env.DEV) {
+  (window as unknown as { __game: Phaser.Game }).__game = game;
+}
+
 window.addEventListener('resize', () => {
   const zoom = integerZoom();
   game.scale.setZoom(zoom);

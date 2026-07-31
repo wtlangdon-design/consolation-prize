@@ -70,5 +70,9 @@
     "WALK_TO",
     "OPEN",
     "USE"
+  ],
+  "examineVerbs": [
+    "LOOK_AT",
+    "LISTEN_TO"
   ]
 }

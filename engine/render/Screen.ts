@@ -25,6 +25,22 @@ export const HUD_Y = 192;
 export const MENU_BUTTON = { x: 246, y: 190, width: 70, height: 9 };
 
 /**
+ * The inventory strip: the eight rows under the verb grid, left of the menu
+ * button. It is text rather than icons because there are no item icons yet --
+ * doc 15 lists forty of them as unbuilt -- and a row of empty boxes would be
+ * a worse placeholder than the item's own name.
+ *
+ * This is the one piece of interface geometry in the slice that the design
+ * documents do not specify. Doc 06 says only "array of item IDs, LOOK and
+ * LISTEN per item"; SCUMM's own answer was verbs left, inventory right, and
+ * ours cannot be that because the nine verbs already occupy the full width at
+ * 100px a button. At forty items this needs the real panel and a decision
+ * about which of the two halves gives up space.
+ */
+export const INVENTORY_STRIP = { x: 4, y: 191, width: 238, height: 8 };
+export const INVENTORY_SLOT_WIDTH = 78;
+
+/**
  * Interface colours are looked up by role name, never by index. The locked
  * palette owns the numbers; changing a chrome colour is a palette edit, not
  * a code edit.

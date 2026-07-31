@@ -29,6 +29,13 @@ export class BootScene extends Phaser.Scene {
       if (room.foreground) want(`fg:${room.id}`, room.foreground);
       if (room.idles?.sheet) want(`idle:${room.id}`, room.idles.sheet);
     }
+    // Character sheets, keyed by their content path so the renderer can ask
+    // for one by the same string the content used to name it.
+    const sheets = new Set<string>([bundle.actor.sizes.near.sheet, bundle.actor.sizes.far.sheet]);
+    for (const npc of bundle.ambient.values()) {
+      if (npc.sprite) sheets.add(npc.sprite.sheet);
+    }
+    for (const path of sheets) want(path, path);
     if (pending.length > 0) {
       this.load.start();
       await Promise.all(pending);

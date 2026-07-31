@@ -1,0 +1,367 @@
+{
+  "schema": 1,
+  "id": "thad",
+  "note": "Errata ruling 24. Two drawn sizes and nothing between them: the engine decimates the near sheet for every height above the threshold and swaps to the far sheet at it. Frame rects are row * cell height, column * cell width -- declared here so the exporter and the engine cannot disagree about where a frame is. Anchor is the bottom centre of a cell: the figure's soles.",
+  "threshold": 30,
+  "thresholdNote": "The height at which decimation stops leaving him eyes. Measured by tools/pixelart/actor.py:eye_death_row, not chosen.",
+  "walkRate": 8.0,
+  "reactRate": 7.0,
+  "sizes": {
+    "near": {
+      "sheet": "art/actors/thad-near.png",
+      "height": 40,
+      "cell": [
+        20,
+        42
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "facing": "front",
+          "surface": "mud",
+          "row": 0,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "front",
+          "surface": "mud",
+          "row": 1,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "front",
+          "surface": "mud",
+          "row": 2,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "back",
+          "surface": "mud",
+          "row": 3,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "back",
+          "surface": "mud",
+          "row": 4,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "back",
+          "surface": "mud",
+          "row": 5,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "left",
+          "surface": "mud",
+          "row": 6,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "left",
+          "surface": "mud",
+          "row": 7,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "left",
+          "surface": "mud",
+          "row": 8,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "right",
+          "surface": "mud",
+          "row": 9,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "right",
+          "surface": "mud",
+          "row": 10,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "right",
+          "surface": "mud",
+          "row": 11,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "front",
+          "surface": "boardwalk",
+          "row": 12,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "front",
+          "surface": "boardwalk",
+          "row": 13,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "front",
+          "surface": "boardwalk",
+          "row": 14,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "back",
+          "surface": "boardwalk",
+          "row": 15,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "back",
+          "surface": "boardwalk",
+          "row": 16,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "back",
+          "surface": "boardwalk",
+          "row": 17,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "left",
+          "surface": "boardwalk",
+          "row": 18,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "left",
+          "surface": "boardwalk",
+          "row": 19,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "left",
+          "surface": "boardwalk",
+          "row": 20,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "right",
+          "surface": "boardwalk",
+          "row": 21,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "right",
+          "surface": "boardwalk",
+          "row": 22,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "right",
+          "surface": "boardwalk",
+          "row": 23,
+          "frames": 4
+        }
+      ]
+    },
+    "far": {
+      "sheet": "art/actors/thad-far.png",
+      "height": 26,
+      "cell": [
+        14,
+        28
+      ],
+      "clips": [
+        {
+          "id": "idle",
+          "facing": "front",
+          "surface": "mud",
+          "row": 0,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "front",
+          "surface": "mud",
+          "row": 1,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "front",
+          "surface": "mud",
+          "row": 2,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "back",
+          "surface": "mud",
+          "row": 3,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "back",
+          "surface": "mud",
+          "row": 4,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "back",
+          "surface": "mud",
+          "row": 5,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "left",
+          "surface": "mud",
+          "row": 6,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "left",
+          "surface": "mud",
+          "row": 7,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "left",
+          "surface": "mud",
+          "row": 8,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "right",
+          "surface": "mud",
+          "row": 9,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "right",
+          "surface": "mud",
+          "row": 10,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "right",
+          "surface": "mud",
+          "row": 11,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "front",
+          "surface": "boardwalk",
+          "row": 12,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "front",
+          "surface": "boardwalk",
+          "row": 13,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "front",
+          "surface": "boardwalk",
+          "row": 14,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "back",
+          "surface": "boardwalk",
+          "row": 15,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "back",
+          "surface": "boardwalk",
+          "row": 16,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "back",
+          "surface": "boardwalk",
+          "row": 17,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "left",
+          "surface": "boardwalk",
+          "row": 18,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "left",
+          "surface": "boardwalk",
+          "row": 19,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "left",
+          "surface": "boardwalk",
+          "row": 20,
+          "frames": 4
+        },
+        {
+          "id": "idle",
+          "facing": "right",
+          "surface": "boardwalk",
+          "row": 21,
+          "frames": 1
+        },
+        {
+          "id": "walk",
+          "facing": "right",
+          "surface": "boardwalk",
+          "row": 22,
+          "frames": 8
+        },
+        {
+          "id": "recoil",
+          "facing": "right",
+          "surface": "boardwalk",
+          "row": 23,
+          "frames": 4
+        }
+      ]
+    }
+  }
+}

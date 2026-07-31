@@ -243,7 +243,10 @@ def audit(
             print(f"  measured at the WORST of {len(states)} cycle states, "
                   f"not at the base frame -- doc 18 note 3")
         print(f"  anchors: darkest large mass {dark:.0f} (the boot; the coat body is 34),")
-        print(f"           lightest large mass {light:.0f} (the face)")
+        # The light anchor was the face at 157 until doc 21 gap 2 widened the
+        # shirt front into a stripe. It is now the shirt, at 219, and every
+        # light margin in every room moved 62 points with it.
+        print(f"           lightest large mass {light:.0f} (the shirt stripe; the face is 157)")
         print(f"  {'surface':<30}{'p10':>7}{'p90':>7}{'dark':>8}{'light':>8}   verdict")
         for r in readings:
             print(f"  {r.surface:<30}{r.p10:>7.1f}{r.p90:>7.1f}"

@@ -1,4 +1,6 @@
-import type { ContentBundle, Exit, Interactable, RoomFile, WalkableRegion } from './types.ts';
+import type {
+  ContentBundle, Entrance, Exit, Interactable, RoomFile, WalkableRegion,
+} from './types.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
 import { VerbSystem } from './VerbSystem.ts';
@@ -27,6 +29,10 @@ export class GameState {
   private currentRoomId: string;
   private inventory: string[] = [];
   private reputation = 0;
+  /** The room walked out of, so the arrival point can be chosen. Doc 21 gap 7. */
+  private cameFrom: string | null = null;
+  /** The item the next verb applies WITH, not the item it applies TO. */
+  private held: string | null = null;
 
   constructor(content: ContentBundle, storage: StorageLike) {
     this.content = content;
@@ -37,6 +43,68 @@ export class GameState {
     this.menu = new MenuSystem(content.menu, this.saves,
       (id) => content.rooms.get(id)?.name ?? id);
     this.currentRoomId = content.manifest.startRoom;
+    this.inventory = this.startingInventory();
+  }
+
+  /** Doc 01: the fork is his one tool and never leaves the inventory. */
+  private startingInventory(): string[] {
+    return [...this.content.items.values()]
+      .filter((item) => item.startsHeld)
+      .map((item) => item.id);
+  }
+
+  get carried(): string[] {
+    return [...this.inventory];
+  }
+
+  get heldItem(): string | null {
+    return this.held;
+  }
+
+  /**
+   * Picks an item up as the thing the next verb is applied WITH.
+   *
+   * Clicking the same item again puts it down, which is the only way back out
+   * of a held state with a mouse and no second button.
+   */
+  holdItem(id: string | null): void {
+    this.held = this.held === id ? null : id;
+  }
+
+  itemNamed(id: string): string {
+    return this.content.items.get(id)?.name ?? id;
+  }
+
+  /**
+   * An inventory item as a verb target.
+   *
+   * Items carry the same `responses`/`overrides` shape a hotspot carries, so
+   * they resolve through the same verb system. There is deliberately no
+   * second resolver: two paths to a line is two places for a line to differ
+   * from what was written.
+   */
+  itemTarget(id: string): Interactable | undefined {
+    const item = this.content.items.get(id);
+    if (!item) return undefined;
+    return {
+      id: item.id,
+      name: item.name,
+      rect: [0, 0, 0, 0],
+      colour: 0,
+      responses: item.responses,
+      overrides: item.overrides,
+    };
+  }
+
+  /** The declared arrival point for entering `roomId` out of `from`. */
+  entranceInto(roomId: string, from: string | null): Entrance | undefined {
+    const entrances = this.content.rooms.get(roomId)?.entrances ?? [];
+    return entrances.find((entrance) => entrance.from === from && entrance.at)
+      ?? entrances.find((entrance) => entrance.at !== undefined && entrance.from === 'default');
+  }
+
+  get previousRoomId(): string | null {
+    return this.cameFrom;
   }
 
   get reputationIndex(): number {
@@ -90,6 +158,7 @@ export class GameState {
     if (!this.content.rooms.has(roomId)) {
       throw new Error(`Unknown room: ${roomId}`);
     }
+    this.cameFrom = this.currentRoomId;
     this.currentRoomId = roomId;
     this.autosave();
   }
@@ -105,7 +174,12 @@ export class GameState {
       return { say: null, enteredDialogue: false, changedRoom: true };
     }
 
-    const action = this.verbs.resolve(this.verbs.selectedVerb, target);
+    // With an item held the verb applies WITH it, which is a different
+    // question and draws on a different source. Checked after transit, so
+    // walking through a door while carrying something still walks.
+    const action = this.held
+      ? this.verbs.resolveWith(this.verbs.selectedVerb, this.held, target)
+      : this.verbs.resolve(this.verbs.selectedVerb, target);
 
     if (action.dialogue) {
       this.dialogue.start(action.dialogue);
@@ -149,16 +223,68 @@ export class GameState {
   }
 
   /**
+   * The surface a point stands on, for the walk cycle and the standing sink.
+   *
+   * Falls back to the actor sheet's first declared surface rather than to a
+   * name in this file. No .ts file gets to know that mud is called mud.
+   */
+  surfaceAt(x: number, y: number): string {
+    const fallback = this.content.actor.sizes.near.clips[0]?.surface ?? '';
+    return this.regionAt(x, y)?.surface ?? fallback;
+  }
+
+  /**
    * Drawn height for an actor standing at a point.
    *
-   * Errata ruling 15: three drawn sizes, snapped on crossing a boundary,
-   * never interpolated. Returning a discrete height rather than a scale
-   * factor is what makes interpolation impossible to introduce by accident.
+   * ERRATA RULING 24 replaced ruling 15's snapping here. The zone heights are
+   * depth SAMPLES, not drawn sizes: each walkable band contributes one
+   * (row, height) point at its vertical centre and the height between two
+   * bands is interpolated. Crossing from the mid band to the near band is now
+   * a one-row change every few rows of walk instead of an eight-row jump.
+   *
+   * What is drawn at that height is ActorSprite's problem, and the one place
+   * a snap survives is its threshold.
    */
   actorHeightAt(x: number, y: number): number | null {
-    const region = this.regionAt(x, y);
-    if (!region) return null;
-    return this.heightForZone(region.zone);
+    if (!this.isWalkable(x, y)) return null;
+    const samples = this.depthSamples();
+    if (samples.length === 0) return null;
+    if (samples.length === 1) return (samples[0] as [number, number])[1];
+
+    const first = samples[0] as [number, number];
+    const last = samples[samples.length - 1] as [number, number];
+    if (y <= first[0]) return Math.round(first[1]);
+    if (y >= last[0]) return Math.round(last[1]);
+    for (let index = 1; index < samples.length; index += 1) {
+      const [aboveY, aboveH] = samples[index - 1] as [number, number];
+      const [belowY, belowH] = samples[index] as [number, number];
+      if (y <= belowY) {
+        const walk = (y - aboveY) / Math.max(1, belowY - aboveY);
+        return Math.round(aboveH + (belowH - aboveH) * walk);
+      }
+    }
+    return Math.round(last[1]);
+  }
+
+  /**
+   * (row, height) pairs from the room's walkable bands, far to near.
+   *
+   * The sample sits at each band's vertical centre rather than at its edge,
+   * so a band is its declared height in the middle and blends at its seams --
+   * which is what stops the interpolation putting a visible kink exactly on
+   * the line where two rectangles meet.
+   */
+  private depthSamples(): [number, number][] {
+    // One sample per REGION, not per zone. Room 2 puts the boardwalk and the
+    // far mud both in zone 2 at different rows; sampling by zone would give
+    // the pair one row between them and make the far mud interpolate away
+    // from the height it declares.
+    return (this.room.walkable ?? [])
+      .map((region): [number, number] => {
+        const [, ry, , rh] = region.rect;
+        return [ry + rh / 2, this.heightForZone(region.zone)];
+      })
+      .sort((a, b) => a[0] - b[0]);
   }
 
   heightForZone(zone: number): number {
@@ -195,6 +321,8 @@ export class GameState {
     this.currentRoomId = save.room;
     this.inventory = [...save.inventory];
     this.reputation = save.reputation;
+    this.held = null;
+    this.cameFrom = null;
     return true;
   }
 
@@ -202,8 +330,10 @@ export class GameState {
     this.flags.reset();
     this.dialogue.restore({}, { tree: null, node: null });
     this.currentRoomId = this.content.manifest.startRoom;
-    this.inventory = [];
+    this.inventory = this.startingInventory();
     this.reputation = 0;
+    this.held = null;
+    this.cameFrom = null;
     this.verbs.resetToDefault();
     this.saves.clear();
   }

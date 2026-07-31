@@ -2,9 +2,13 @@ import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
 import type { Actor } from '../core/Actor.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
+import type { AmbientFile } from '../core/types.ts';
+import { ActorSprite } from './ActorSprite.ts';
 import { BitmapFont } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
 import {
+  INVENTORY_SLOT_WIDTH,
+  INVENTORY_STRIP,
   MENU_BUTTON,
   NATIVE_WIDTH,
   PANEL_HEIGHT,
@@ -62,6 +66,11 @@ export class Renderer {
   /** Seconds since the scene started, supplied by the caller each frame. */
   private clock = 0;
 
+  /** The player's drawn sprite. Null only before the sheets have loaded. */
+  private readonly sprite: ActorSprite | null;
+  /** Any loaded image by content path, for ambient sheets. */
+  private readonly sheet: (path: string) => CanvasImageSource | null;
+
   constructor(
     screen: Screen,
     font: BitmapFont,
@@ -71,6 +80,7 @@ export class Renderer {
     background: BackgroundSource,
     foreground: BackgroundSource = () => null,
     idleSheet: BackgroundSource = () => null,
+    sheet: (path: string) => CanvasImageSource | null = () => null,
   ) {
     this.screen = screen;
     this.font = font;
@@ -81,6 +91,8 @@ export class Renderer {
     this.foreground = foreground;
     this.idleSheet = idleSheet;
     this.idles = new IdleLayer(screen.context);
+    this.sheet = sheet;
+    this.sprite = new ActorSprite(state.content.actor, sheet);
   }
 
   /** The animation clock, in seconds. Set once per frame by the scene. */
@@ -149,20 +161,47 @@ export class Renderer {
   }
 
   /**
-   * Placeholder figures. Solid silhouettes at the zone's drawn height --
-   * deliberately not scaled smoothly, so a zone crossing is visible as the
-   * snap it is rather than hidden behind a tween.
+   * The people, back to front: ambient characters, then the player.
+   *
+   * Both are real sprites now. The block silhouettes are kept only as the
+   * fallback for a sheet that has not loaded -- a missing sheet should be a
+   * figure that looks wrong, not a screen with no protagonist on it.
    */
   private drawPeople(): void {
     for (const npc of this.ambient.present) {
-      this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone), this.screen.role('outline'));
+      if (!this.drawAmbient(npc)) {
+        this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
+          this.screen.role('outline'));
+      }
     }
-    this.drawFigure(
-      Math.round(this.actor.x),
-      Math.round(this.actor.y),
-      this.actor.height,
-      this.screen.role('overlayBg'),
-    );
+    const feetX = Math.round(this.actor.x);
+    const feetY = Math.round(this.actor.y);
+    const surface = this.actor.surfaceHere();
+    const clip = this.actor.clip;
+    const { walkRate, reactRate } = this.state.content.actor;
+    const frames = this.sprite?.frameCount(clip, this.actor.facing, surface, this.actor.height) ?? 1;
+    const frame = this.actor.frameAt(this.clock, walkRate, reactRate, frames);
+    const drawn = this.sprite?.draw(this.screen.context, clip, this.actor.facing, surface,
+      frame, feetX, feetY, this.actor.height);
+    if (!drawn) {
+      this.drawFigure(feetX, feetY, this.actor.height, this.screen.role('overlayBg'));
+    }
+  }
+
+  /** An ambient character's two-frame idle. Ruling 20. */
+  private drawAmbient(npc: AmbientFile): boolean {
+    const declared = npc.sprite;
+    if (!declared) return false;
+    const image = this.sheet(declared.sheet);
+    if (!image) return false;
+    const phase = declared.phase ?? 0;
+    const index = Math.floor((this.clock * declared.rate + phase) * 2) % declared.frames.length;
+    const [sx, sy, width, height] = declared.frames[
+      (index + declared.frames.length) % declared.frames.length
+    ] as [number, number, number, number];
+    this.screen.context.drawImage(image, sx, sy, width, height,
+      npc.x - Math.floor(width / 2), npc.y - height + 1, width, height);
+    return true;
   }
 
   private drawFigure(centreX: number, feetY: number, height: number, index: number): void {
@@ -284,6 +323,8 @@ export class Renderer {
       );
     }
 
+    this.drawInventory();
+
     // The menu button, always present, always clickable. No key hints are
     // drawn because there are no required keys left to hint at.
     const menu = this.state.menu;
@@ -294,9 +335,40 @@ export class Renderer {
     this.font.draw(ctx, label, labelX, MENU_BUTTON.y + 1, this.screen.roleColour('ink'));
   }
 
+  /** Slot hitboxes for what the player is carrying, in draw order. */
+  inventoryHitboxes(): { id: string; x: number; width: number; y: number; height: number }[] {
+    return this.state.carried.map((id, index) => ({
+      id,
+      x: INVENTORY_STRIP.x + index * INVENTORY_SLOT_WIDTH,
+      width: INVENTORY_SLOT_WIDTH - 2,
+      y: INVENTORY_STRIP.y,
+      height: INVENTORY_STRIP.height,
+    }));
+  }
+
+  private drawInventory(): void {
+    for (const slot of this.inventoryHitboxes()) {
+      const held = this.state.heldItem === slot.id;
+      this.screen.fill(slot.x, slot.y, slot.width, slot.height,
+        this.screen.role(held ? 'buttonBgActive' : 'buttonBg'));
+      this.font.draw(this.screen.context, this.state.itemNamed(slot.id), slot.x + 2,
+        slot.y + 1, this.screen.roleColour(held ? 'inkBright' : 'ink'));
+    }
+  }
+
   private sentenceText(targetName: string | null): string {
     const { ui } = this.state.content;
     const verbLabel = this.state.verbs.labelFor(this.state.verbs.selectedVerb);
+    const held = this.state.heldItem;
+    // With an item picked up the sentence gains a middle: the verb applies
+    // WITH the item TO the target. Both halves are named, because a player
+    // holding something and reading "Use the trough" cannot tell whether the
+    // fork is in the sentence or not.
+    if (held) {
+      const item = this.state.itemNamed(held);
+      if (!targetName) return format(ui.sentence.itemOnly, { verb: verbLabel, item });
+      return format(ui.sentence.itemTemplate, { verb: verbLabel, item, target: targetName });
+    }
     if (!targetName) {
       return format(ui.sentence.verbOnly, { verb: verbLabel });
     }

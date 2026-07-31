@@ -41,26 +41,47 @@ def main() -> None:
                    transparent=actor.TRANSPARENT)
     walks.save(RENDERS / "thad-walk-mud-vs-boardwalk@8x.png", palette, scale=8)
 
-    # The 26px reduction: 32px source, raw row-drop, hand-corrected. Both the
-    # raw and the corrected are kept, per ruling 16 rule 6.
+    # The snap, per ruling 24: the last decimated height with eyes, the first
+    # without, and the drawn far sprite that replaces it. Kept at 8x because
+    # the whole decision is about two pixels in a face.
+    threshold = actor.eye_death_row(palette)
+    heights = (threshold + 1, threshold, actor.FAR)
     workings = IndexedCanvas(3 * (3 * 18) + 8, 40, fill=ground)
     x = 2
     for view in actor.VIEWS:
-        source = actor.draw(palette, view=view, height=32, surface=actor.BOARDWALK)
-        raw, corrected = actor.reduce_and_correct(source, palette, view=view)
-        for figure in (source, raw, corrected):
+        for height in heights:
+            figure = actor.at_height(palette, view=view, height=height,
+                                     surface=actor.BOARDWALK, sink=0)
             workings.blit(figure, x, 4 + (33 - figure.height), transparent=actor.TRANSPARENT)
             x += 17
         x += 4
-    workings.save(RENDERS / "thad-26px-reduction-workings@8x.png", palette, scale=8)
+    workings.save(RENDERS / "thad-far-sprite-snap@8x.png", palette, scale=8)
+
+    # The one bespoke reaction, front and side, every frame. Doc 15's short
+    # comic reaction: he leans away, his eyes go with him, he comes back.
+    # Held still at 8x because in motion it is over in half a second, which
+    # is the point of it and also the reason it needs checking like this.
+    frames = actor.RECOIL
+    recoil = IndexedCanvas(len(frames) * 2 * 22 + 6, 46, fill=ground)
+    x = 3
+    for view in (actor.FRONT, actor.SIDE):
+        for step in frames:
+            figure = actor.at_height(palette, view=view, height=40,
+                                     surface=actor.BOARDWALK, sink=0, **step)
+            recoil.blit(figure, x, 44 - figure.height, transparent=actor.TRANSPARENT)
+            x += 22
+        x += 6
+    recoil.save(RENDERS / "thad-recoil@8x.png", palette, scale=8)
 
     near_mud(palette)
 
     for name in ("thad-views-front-side-back@8x.png",
                  "thad-walk-mud-vs-boardwalk@8x.png",
-                 "thad-26px-reduction-workings@8x.png",
+                 "thad-far-sprite-snap@8x.png",
+                 "thad-recoil@8x.png",
                  "thad-near-mud-inspection@8x.png"):
         print(f"wrote renders/{name}")
+    print(f"  the snap is at {threshold} -> {actor.FAR}, measured, not chosen")
 
 
 def near_mud(palette: Palette) -> None:

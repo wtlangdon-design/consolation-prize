@@ -15,10 +15,61 @@
     "pie_woman",
     "map_seller"
   ],
+  "entrances": [
+    {
+      "from": "nugget",
+      "note": "Doc 21 gap 7. Out of the batwing doors onto the boardwalk in front of them, facing the street. Before this he arrived in the middle of the road with his back to the building he had just left.",
+      "at": [131, 86],
+      "facing": "front"
+    },
+    {
+      "from": "stub_clarion",
+      "at": [88, 86],
+      "facing": "front"
+    },
+    {
+      "from": "stub_company",
+      "at": [191, 86],
+      "facing": "front"
+    },
+    {
+      "from": "assay_office",
+      "at": [302, 86],
+      "facing": "front"
+    },
+    {
+      "from": "stub_claims_road",
+      "note": "The east end. He comes up out of the road, so he is already looking back down the street.",
+      "at": [306, 130],
+      "facing": "left"
+    },
+    {
+      "from": "stage_road",
+      "note": "West, into town, and the first time the player sees this screen. Facing east down the street he has just walked into.",
+      "at": [14, 128],
+      "facing": "right"
+    }
+  ],
+  "staging": [
+    {
+      "id": "outside_nugget",
+      "note": "Errata ruling 23. These are the positions the composition has to hold a character at -- one in front of each enterable facade, one at each end. Checked for reach and legibility at graybox rather than discovered in a cutscene.",
+      "at": [131, 86],
+      "facing": "front"
+    },
+    { "id": "outside_clarion", "at": [88, 86], "facing": "front" },
+    { "id": "outside_company", "at": [191, 86], "facing": "front" },
+    { "id": "outside_assay", "at": [302, 86], "facing": "front" },
+    { "id": "at_notices", "at": [76, 86], "facing": "back" },
+    { "id": "at_trough", "at": [234, 122], "facing": "back" },
+    { "id": "street_west", "at": [14, 128], "facing": "right" },
+    { "id": "street_east", "at": [306, 130], "facing": "left" }
+  ],
   "walkable": [
     {
       "id": "boardwalk",
       "zone": 2,
+      "surface": "boardwalk",
       "rect": [
         0,
         78,
@@ -29,6 +80,7 @@
     {
       "id": "mud_far",
       "zone": 2,
+      "surface": "mud",
       "rect": [
         0,
         88,
@@ -39,6 +91,7 @@
     {
       "id": "mud_mid",
       "zone": 1,
+      "surface": "mud",
       "rect": [
         0,
         104,
@@ -49,6 +102,7 @@
     {
       "id": "mud_near",
       "zone": 0,
+      "surface": "mud",
       "rect": [
         0,
         122,
@@ -232,7 +286,11 @@
       "overrides": {
         "USE": "I am not drinking from that. I have standards, and they are the last thing I own.",
         "OPEN": "It is a trough. It is entirely open. It is nothing but open."
-      }
+      },
+      "reactions": {
+        "USE": "recoil"
+      },
+      "reactionNote": "The one bespoke reaction in the slice, on the one line that is physically a flinch. Doc 15's short comic reaction, built the way the dossier says to build it -- he leans away two pixels, his eyes go with him, and he comes back. No step and no arm. The line is doc 13's and is unchanged; the animation is not content and can be dropped without touching a word."
     },
     {
       "id": "boardwalk",

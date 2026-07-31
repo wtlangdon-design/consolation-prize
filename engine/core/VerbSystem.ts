@@ -56,6 +56,30 @@ export class VerbSystem {
     return (this.file.transitVerbs ?? [this.file.walkVerb.id]).includes(verbId);
   }
 
+  /**
+   * True if this verb asks a question about an inventory item rather than
+   * picking it up to use. LOOK and LISTEN are the two, and they are named in
+   * content because everything else about a verb is.
+   */
+  examines(verbId: string): boolean {
+    return (this.file.examineVerbs ?? []).includes(verbId);
+  }
+
+  /**
+   * A verb applied WITH an item TO a target.
+   *
+   * Doc 06 specifies combination as a lookup table of pairs. NO SUCH TABLE
+   * EXISTS YET and none of the design documents writes a line for any pair,
+   * so this deliberately does not fall through to the target's own override:
+   * "On what." is written as the answer to USE THE MUD, and it is not the
+   * answer to USE THE TUNING FORK ON THE MUD. What answers here is the global
+   * pool, which doc 13 states is for exactly this -- no object-specific line
+   * exists for the combination, because no combination has one.
+   */
+  resolveWith(verbId: string, _itemId: string, _target: Interactable): ResolvedAction {
+    return { say: this.nextFromPool(verbId), dialogue: null, goto: null };
+  }
+
   selectVerb(id: string): void {
     if (!this.verbLabels.has(id)) {
       throw new Error(`Unknown verb: ${id}`);

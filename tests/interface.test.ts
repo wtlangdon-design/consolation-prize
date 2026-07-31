@@ -170,12 +170,20 @@ test('a double-click is two rapid clicks on the same target, not just two rapid 
 });
 
 
-test('every walkable region resolves to one of the three drawn heights', async () => {
+test('height is continuous within the drawn range, and never leaves it', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
-  const drawn = new Set(content.scaling.zones.map((zone) => zone.height));
+  const { near, far } = content.scaling.drawn;
 
-  assert.deepEqual([...drawn].sort((a, b) => b - a), [40, 32, 26], 'errata ruling 15 sizes');
+  // Errata ruling 24 voided ruling 15's three-size table. What is asserted
+  // now is the range, not membership of it: every walkable point resolves to
+  // a height between the two DRAWN sizes, and the sprite decides which of
+  // them serves it.
+  assert.ok(near > far, 'the near drawn size is the taller one');
+  assert.ok(content.scaling.threshold > far && content.scaling.threshold < near,
+    'the measured threshold falls between the two drawn sizes');
+  assert.equal(content.scaling.threshold, content.actor.threshold,
+    'the scaling file and the actor sheet were measured from the same sprite');
 
   for (const room of content.rooms.values()) {
     state.enterRoom(room.id);
@@ -183,9 +191,29 @@ test('every walkable region resolves to one of the three drawn heights', async (
       const [x, y, w, h] = region.rect;
       const height = state.actorHeightAt(x + Math.floor(w / 2), y + h - 1);
       assert.ok(height !== null, `${room.id}/${region.id} should be walkable at its own centre`);
-      assert.ok(drawn.has(height!), `${room.id}/${region.id} resolved to an undrawn height ${height}`);
+      assert.ok(height! <= near && height! >= far,
+        `${room.id}/${region.id} resolved to ${height}, outside the drawn range`);
     }
   }
+});
+
+test('walking a room changes height by one row at a time', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street');
+
+  // Ruling 24's whole claim: continuous above the threshold. A step of more
+  // than one row anywhere in the band would mean the interpolation has a
+  // seam in it, which is the artefact this replaced.
+  let previous: number | null = null;
+  let biggest = 0;
+  for (let y = 78; y < 144; y += 1) {
+    const height = state.actorHeightAt(160, y);
+    if (height === null) continue;
+    if (previous !== null) biggest = Math.max(biggest, Math.abs(height - previous));
+    previous = height;
+  }
+  assert.equal(biggest, 1, 'the drawn height moves one row at a time down the street');
 });
 
 test('a point off the floor has no actor height at all', async () => {

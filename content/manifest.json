@@ -29,6 +29,10 @@
     "content/dialogue/harness-tree.json"
   ],
   "puzzles": [],
+  "actor": "content/actors/thad.json",
+  "items": [
+    "content/items/tuning-fork.json"
+  ],
   "scaling": "content/actors/scaling.json",
   "ambient": [
     "content/ambient/letter-writer.json",

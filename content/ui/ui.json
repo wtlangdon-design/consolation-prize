@@ -2,9 +2,12 @@
   "schema": 1,
   "note": "Every string the engine can draw. If a string is not here or in a room, dialogue or menu file, the engine cannot render it. Harness values are placeholders, not written content.",
   "sentence": {
+    "note": "itemTemplate and itemOnly are new with the inventory. They are interface grammar of the same class as the two above them, not written content -- no document specifies them because no document specifies '{verb} {target}' either.",
     "template": "{verb} {target}",
     "verbOnly": "{verb}",
-    "walkTemplate": "{verb}"
+    "walkTemplate": "{verb}",
+    "itemTemplate": "{verb} {item} on {target}",
+    "itemOnly": "{verb} {item}"
   },
   "dialogue": {
     "optionPrefix": "- ",

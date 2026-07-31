@@ -22,7 +22,10 @@ from street_scene import DAY, compose
 ROOT = Path(__file__).resolve().parents[2]
 OUT = RENDERS
 
-HEIGHTS = (40, 32, 26)
+#: Ruling 24: 40 and 26 are DRAWN. 33 is in the band and is decimated from
+#: the 40 -- it is in this list so the sheet shows what the middle of the
+#: range actually looks like, not so anyone draws it.
+HEIGHTS = (40, 33, 26)
 
 
 def _label_bar(canvas: IndexedCanvas, x: int, y: int, width: int, palette: Palette) -> None:
@@ -83,17 +86,19 @@ def reference_sheet(palette: Palette) -> IndexedCanvas:
         x += frame.width + 1
     _label_bar(canvas, 4, 148, 312, palette)
 
-    # Band 4 -- the 26px workings: 32 source, raw reduction, corrected.
+    # Band 4 -- the snap, per ruling 24. Each view shows the last decimated
+    # height that still has eyes, the first that does not, and the drawn far
+    # sprite that takes over there. The middle figure is the whole argument:
+    # it is the one the player would otherwise be looking at.
+    threshold = actor.eye_death_row(palette)
     x = 10
     for view in VIEWS:
-        source = actor.draw(palette, view=view, height=32, surface=actor.BOARDWALK)
-        raw, corrected = actor.reduce_and_correct(source, palette, view=view)
-        canvas.blit(source, x, 154, transparent=actor.TRANSPARENT)
-        x += source.width + 2
-        canvas.blit(raw, x, 154 + 6, transparent=actor.TRANSPARENT)
-        x += raw.width + 2
-        canvas.blit(corrected, x, 154 + 6, transparent=actor.TRANSPARENT)
-        x += corrected.width + 10
+        for height in (threshold + 1, threshold, actor.FAR):
+            figure = actor.at_height(palette, view=view, height=height,
+                                     surface=actor.BOARDWALK, sink=0)
+            canvas.blit(figure, x, 154 + (41 - figure.height), transparent=actor.TRANSPARENT)
+            x += figure.width + 3
+        x += 8
 
     return canvas
 

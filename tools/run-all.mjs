@@ -5,6 +5,7 @@ import { check as contentSchema } from './check-content-schema.mjs';
 import { check as paletteLocked } from './check-palette.mjs';
 import { check as walkableZones } from './check-walkable.mjs';
 import { check as roomEntries } from './check-room-entries.mjs';
+import { check as staging } from './check-staging.mjs';
 import { check as paletteCycling } from './check-palette-cycling.mjs';
 import { check as examineLines } from './check-examine-lines.mjs';
 import { check as writtenContent } from './check-written-content.mjs';
@@ -25,6 +26,7 @@ const CHECKS = [
   paletteLocked,
   walkableZones,
   roomEntries,
+  staging,
   paletteCycling,
   examineLines,
   writtenContent,

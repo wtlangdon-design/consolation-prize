@@ -19,5 +19,25 @@
     "R_WON_DUEL": "Beat Deke Vessel! Pie’s still a nickel.",
     "R_DEAD": "Thought you’d passed.",
     "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
+  },
+  "sprite": {
+    "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
+    "sheet": "art/actors/ambient-main-street.png",
+    "frames": [
+      [
+        80,
+        0,
+        24,
+        41
+      ],
+      [
+        104,
+        0,
+        24,
+        41
+      ]
+    ],
+    "rate": 0.37,
+    "phase": 0.28
   }
 }

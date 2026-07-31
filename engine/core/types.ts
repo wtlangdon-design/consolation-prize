@@ -78,12 +78,58 @@ export interface Interactable {
   overrides?: Record<string, string>;
   /** Per-object rotating pool. Rarely used; the global pools cover most cases. */
   fallback?: string[];
+  /**
+   * Verb id to the id of an actor clip played when that verb lands here.
+   *
+   * Separate from the line rather than part of it, because the line is
+   * written content and the animation is not: a reaction may be re-tuned or
+   * dropped without touching a word of the script.
+   */
+  reactions?: Record<string, string>;
 }
 
 export interface Exit extends Interactable {
   to: string;
   /** A destination that exists but has no written examine layer yet. */
   stub?: boolean;
+}
+
+/**
+ * Doc 21 gap 7. A named arrival point, one per incoming exit.
+ *
+ * Without this the actor is placed at the centre of the last walkable
+ * rectangle on every room change, so walking out of the Nugget's front door
+ * put Thad in the middle of the road with his back to the building he had
+ * just left. `from` is the room he arrived out of; `at` is where he stands
+ * and `facing` is which way he is looking when the screen appears.
+ *
+ * It is also doc 20 rule 1's stated route in, which is why an entrance with
+ * no coordinates is still legal: thirteen rooms arrive through the town map,
+ * which is a screen rather than a doorway, and declaring the route is the
+ * point of those.
+ */
+export interface Entrance {
+  from: string;
+  note?: string;
+  at?: [number, number];
+  facing?: Facing;
+}
+
+export type Facing = 'front' | 'back' | 'left' | 'right';
+
+/**
+ * Errata ruling 23. A named position a character is placed at for a scripted
+ * beat, declared at graybox rather than discovered during a cutscene.
+ *
+ * The dossier lists these and we did not have them. They exist so step 4 of
+ * ruling 22 -- character placement and reach -- has something to check, and
+ * the validator asserts every one of them is on floor a person can stand on.
+ */
+export interface StagingMark {
+  id: string;
+  note?: string;
+  at: [number, number];
+  facing?: Facing;
 }
 
 export interface AmbientFile {
@@ -97,6 +143,17 @@ export interface AmbientFile {
   approachRadius: number;
   tree: string;
   barks: Record<string, string>;
+  /**
+   * Ruling 20's two-frame idle, for a character who is a sprite rather than
+   * part of a drawn crowd. Rate is full cycles per second and phase offsets
+   * it, so no two people on a street move on the same beat.
+   */
+  sprite?: {
+    sheet: string;
+    rate: number;
+    phase?: number;
+    frames: [number, number, number, number][];
+  };
 }
 
 export interface VerbFallbacksFile {
@@ -114,6 +171,13 @@ export interface WalkableRegion {
   id: string;
   zone: number;
   rect: [number, number, number, number];
+  /**
+   * Which walk cycle and standing sink this floor uses. Named in content, not
+   * in code: mud and boards are not the same walk and there will be more than
+   * two before the game is finished. Absent means the actor sheet's first
+   * declared surface.
+   */
+  surface?: string;
 }
 
 export interface ScalingZone {
@@ -124,7 +188,63 @@ export interface ScalingZone {
 
 export interface ScalingFile {
   schema: number;
+  /**
+   * Ruling 24's two drawn sizes. Zone heights are depth samples the drawn
+   * height interpolates between; only these two are ever drawn.
+   */
+  drawn: { near: number; far: number };
+  /** The measured height at which decimation stops leaving eyes. */
+  threshold: number;
   zones: ScalingZone[];
+}
+
+/** One animation in an actor sheet: a row of frames at a constant stride. */
+export interface ActorClip {
+  id: string;
+  facing: Facing;
+  surface: string;
+  row: number;
+  frames: number;
+}
+
+export interface ActorSize {
+  sheet: string;
+  height: number;
+  /** Cell width and height. Frames stride by these; the anchor is bottom centre. */
+  cell: [number, number];
+  clips: ActorClip[];
+}
+
+/** content/actors/*.json -- where a character's frames are, never how they look. */
+export interface ActorFile {
+  schema: number;
+  id: string;
+  note?: string;
+  threshold: number;
+  /** Walk-cycle frames per second. */
+  walkRate: number;
+  /** Reaction frames per second. */
+  reactRate: number;
+  sizes: { near: ActorSize; far: ActorSize };
+}
+
+/**
+ * One inventory item. Doc 06: an array of ids, LOOK and LISTEN per item, and
+ * combination as a lookup table of pairs.
+ *
+ * `responses` is the same shape a hotspot carries, because an item in the
+ * inventory is examined by exactly the same route as a thing in the room --
+ * one verb system, one response resolver, no second path to maintain.
+ */
+export interface ItemFile {
+  schema: number;
+  id: string;
+  name: string;
+  note?: string;
+  /** In the inventory from a new game. The fork never leaves it. */
+  startsHeld?: boolean;
+  responses?: Record<string, ResponseRule[]>;
+  overrides?: Record<string, string>;
 }
 
 /**
@@ -197,15 +317,13 @@ export interface RoomFile {
   /** Background elements that cycle. At most two, per doc 18. */
   cycling?: CyclingElement[];
   /**
-   * Stated routes in that are not another room's exit. Doc 20 rule 1: every
-   * room has a stated route in, and thirteen of them arrive through the town
-   * map, which is a screen rather than a doorway.
-   *
-   * Documentary only -- the engine walks exits, not these. What reads them is
-   * check-room-entries, which is the reason Room 7 stopped being a room with
-   * five hotspots and no door.
+   * Arrival points, one per incoming exit, and doc 20 rule 1's stated routes
+   * in. An entrance carrying `at` places the actor; one carrying only `from`
+   * still declares the route, which is what check-room-entries reads.
    */
-  entrances?: { from: string; note?: string }[];
+  entrances?: Entrance[];
+  /** Ruling 23's named positions for scripted beats. */
+  staging?: StagingMark[];
   /** Ambient NPC ids placed in this room. */
   ambient?: string[];
   /** An engine test fixture rather than shipped content. */
@@ -264,6 +382,8 @@ export interface VerbsFile {
    * doorway are ways of going through it, not questions about it.
    */
   transitVerbs?: string[];
+  /** Verbs that ask about a held item rather than picking it up to use with. */
+  examineVerbs?: string[];
   defaultVerb: string;
   grid: { cols: number; rows: number };
   verbs: VerbDefinition[];
@@ -271,7 +391,15 @@ export interface VerbsFile {
 
 export interface UiFile {
   schema: number;
-  sentence: { template: string; verbOnly: string; walkTemplate: string };
+  sentence: {
+    template: string;
+    verbOnly: string;
+    walkTemplate: string;
+    /** With an item held: verb, item, target. */
+    itemTemplate: string;
+    /** With an item held and nothing under the pointer. */
+    itemOnly: string;
+  };
   dialogue: {
     optionPrefix: string;
     optionPrefixSelected: string;
@@ -322,6 +450,9 @@ export interface ManifestFile {
   rooms: string[];
   dialogue: string[];
   puzzles: string[];
+  /** The player character's sheet and clip table. */
+  actor: string;
+  items: string[];
 }
 
 /** Everything the engine needs, resolved from the manifest. */
@@ -339,6 +470,8 @@ export interface ContentBundle {
   ambient: Map<string, AmbientFile>;
   rooms: Map<string, RoomFile>;
   dialogue: Map<string, DialogueFile>;
+  actor: ActorFile;
+  items: Map<string, ItemFile>;
 }
 
 

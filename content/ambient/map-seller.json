@@ -19,5 +19,25 @@
     "R_WON_DUEL": "Map for the champion. Ninety cents.",
     "R_DEAD": "…Do you want one for the road?",
     "R_TRUTH": "Map to Mott’s strike! Dollar!"
+  },
+  "sprite": {
+    "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
+    "sheet": "art/actors/ambient-main-street.png",
+    "frames": [
+      [
+        40,
+        8,
+        20,
+        33
+      ],
+      [
+        60,
+        8,
+        20,
+        33
+      ]
+    ],
+    "rate": 0.44,
+    "phase": 0.55
   }
 }

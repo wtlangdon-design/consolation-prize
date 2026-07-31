@@ -59,8 +59,11 @@ class Build:
 
     Written out per size rather than scaled from one master. A 40px figure
     reduced by 0.65 gives a 26px figure with a two-pixel head and no shirt;
-    the proportions have to be re-budgeted at each size, which is the whole
-    reason errata ruling 15 fixes three sizes instead of allowing a scale.
+    the proportions have to be re-budgeted at each size.
+
+    ERRATA RULING 24: there are TWO of these, not three. Everything between
+    them is decimated from the near build at run time, and 32 is no longer a
+    drawn size.
     """
 
     height: int
@@ -86,30 +89,34 @@ class Build:
         return self.skirt_w + 8
 
 
-# 40px -- the near zone, and the size everything else is corrected against.
+# 40px -- the near build, drawn, and the source every larger-than-threshold
+# height is decimated from.
 BUILD_40 = Build(
     height=40, face_top=2, neck=8, shoulder=9, waist=18, skirt_top=20, hem=25,
     boot_top=36, head_w=7, shoulder_w=11, chest_w=10, waist_w=8, skirt_w=12,
     leg_w=3, boot_w=4, shirt_w=3,
 )
 
-# 32px -- the mid zone. Head loses one row, not two: at this size the face is
-# already down to four rows and the eyes have to survive.
-BUILD_32 = Build(
-    height=32, face_top=2, neck=7, shoulder=8, waist=15, skirt_top=16, hem=20,
-    boot_top=29, head_w=6, shoulder_w=9, chest_w=8, waist_w=7, skirt_w=10,
-    leg_w=2, boot_w=4, shirt_w=2,
-)
-
-# 26px -- the far zone. Produced by reduction from 32 and then corrected;
-# see reduce_and_correct(). This build is what the correction pass targets.
+# 26px -- the far build, drawn, and NARROWER than the old one by a third.
+#
+# Ruling 24's mandatory width correction. The old 26 was the 32 build with
+# rows dropped, so it kept 32's widths on 26's height: an 18-pixel canvas
+# around a figure whose own height says 13. Swapping to it from a decimated
+# 31 made him 38% wider in one step -- a man who gets shorter and fatter at
+# a fixed row of the walk, which is a worse artefact than the one the snap
+# exists to avoid.
+#
+# These widths are the decimation curve's, measured rather than chosen:
+# decimating the 40 down to a 26px figure gives a 14-wide canvas around a
+# 9-wide figure, so that is what this is. skirt_w + 8 == 14.
 BUILD_26 = Build(
     height=26, face_top=2, neck=6, shoulder=7, waist=12, skirt_top=13, hem=17,
-    boot_top=23, head_w=5, shoulder_w=7, chest_w=7, waist_w=6, skirt_w=9,
-    leg_w=2, boot_w=3, shirt_w=1,
+    boot_top=23, head_w=5, shoulder_w=7, chest_w=7, waist_w=5, skirt_w=6,
+    leg_w=1, boot_w=2, shirt_w=1,
 )
 
-BUILDS = {40: BUILD_40, 32: BUILD_32, 26: BUILD_26}
+NEAR, FAR = 40, 26
+BUILDS = {NEAR: BUILD_40, FAR: BUILD_26}
 
 
 class Wardrobe:
@@ -216,6 +223,7 @@ def _shade_body(
 
 def _head(
     canvas: IndexedCanvas, build: Build, wardrobe: Wardrobe, cx: int, top: int, view: str,
+    eye_shift: int = 0,
 ) -> None:
     """Bare head. No hat -- the one silhouette note that separates him from
     every other man on the street, all of whom have one."""
@@ -273,9 +281,17 @@ def _head(
         canvas.put(right - 1, y, wardrobe.skin_shade)
 
     if view == FRONT:
-        eye = face_top + (1 if build.height >= 32 else 0)
-        canvas.put(left + 1, eye, wardrobe.ink)
-        canvas.put(right - 2, eye, wardrobe.ink)
+        # One row of face above the eyes wherever the face is three rows or
+        # more. Eyes flush against the hair read as a heavy brow and, at the
+        # far size, as no eyes at all -- which is the exact failure ruling 24
+        # measures. This is the rule the old 32-to-26 reduction had to correct
+        # for by hand; drawing 26 directly makes the correction unnecessary.
+        eye = face_top + (1 if chin - face_top >= 3 else 0)
+        # The dossier singles out a two-frame eye movement as the highest
+        # economy reaction available -- it does the work of a full animation
+        # for two pixels. `eye_shift` is that, and nothing else uses it.
+        canvas.put(left + 1 + eye_shift, eye, wardrobe.ink)
+        canvas.put(right - 2 + eye_shift, eye, wardrobe.ink)
         if build.height >= 40:
             # A mouth, but only one pixel of it, and not a happy one.
             canvas.put(cx, chin - 1, wardrobe.skin_shade)
@@ -318,40 +334,60 @@ def _collar_and_shirt(
         return
 
     if view == SIDE:
-        # Buttoned, so the shirt is a sliver at the throat and a hint of
-        # waistcoat below it.
-        canvas.put(cx + 1, neck_y, wardrobe.collar)
-        canvas.put(cx + 1, neck_y + 1, wardrobe.shirt)
-        for y in range(shoulder_y + 2, top + build.waist):
-            canvas.put(cx + build.chest_w // 2 - 1, y, wardrobe.waistcoat)
+        # Seen side-on the stripe runs down the coat's front edge, not the
+        # middle of him. Narrower than the front view because that is what a
+        # shirt front does in profile -- but it is there, and it is the same
+        # cue. A cue that only exists in one view is not persistent, and he
+        # spends the whole game walking left and right.
+        edge = cx + round(build.chest_w * SIDE_NARROW) // 2 - 1
+        canvas.put(edge, neck_y, wardrobe.collar)
+        for y in range(neck_y + 1, top + build.waist):
+            canvas.put(edge, y, wardrobe.shirt)
+        if build.height >= NEAR:
+            canvas.vline(edge - 1, shoulder_y + 1, build.waist - build.shoulder - 1,
+                         wardrobe.waistcoat)
         return
 
-    # Front: shirt at the throat, waistcoat filling the chest below it.
+    # Front: the shirt as a BRIGHT VERTICAL STRIPE from the collar to the
+    # waist. Doc 21 gap 2, and it is the identification cue, not a detail.
     #
-    # The shirt narrows going down and the waistcoat is WIDER than it, which
-    # is the wrong way round from the first attempt -- one column of white
-    # running from collar to waist read as a necktie, not as an open coat
-    # with a man's shirt front inside it.
-    left, right = _span(cx, build.shirt_w)
-    canvas.rect(left, neck_y, build.shirt_w, 1, wardrobe.collar)
+    # The dossier's rule is one persistent high-contrast cue per principal and
+    # never rely on facial detail, because facial detail is the first thing to
+    # go. Thad used to be carried by a pale face and a dark coat, which works
+    # at 40 and 32 and is gone by 8: at map-token scale the face is one pixel
+    # and the coat is a smudge. A stripe is the one shape that survives being
+    # reduced to a single column, which is Guybrush's answer and it is the
+    # right one.
+    #
+    # The earlier note here said a column of white from collar to waist read
+    # as a necktie. It did -- at ONE pixel wide, with ochre either side of it.
+    # A stripe as wide as the shirt front, with the waistcoat pushed out to
+    # two flanking columns, reads as an open coat over a shirt. The width is
+    # what separates the two readings, not the length.
+    stripe_w = build.shirt_w + (1 if build.height >= NEAR else 0)
+    left, right = _span(cx, stripe_w)
+    canvas.rect(left, neck_y, stripe_w, 1, wardrobe.collar)
 
-    shirt_rows = 3 if build.height >= 40 else 2
-    for step in range(shirt_rows):
-        width = max(1, build.shirt_w - step)
-        wl, wr = _span(cx, width)
-        canvas.rect(wl, shoulder_y + step, width, 1, wardrobe.shirt)
-        if width > 1:
-            canvas.put(wr - 1, shoulder_y + step, wardrobe.shirt_shade)
+    waist_y = top + build.waist
+    for y in range(shoulder_y, waist_y):
+        canvas.rect(left, y, stripe_w, 1, wardrobe.shirt)
+        if stripe_w > 1:
+            # One shaded column on the shade side, so the stripe has an edge
+            # and does not read as a cut-out.
+            canvas.put(right - 1, y, wardrobe.shirt_shade)
 
-    vest_w = min(build.chest_w - 4, build.shirt_w + 2)
-    for y in range(shoulder_y + shirt_rows, top + build.waist):
-        vl, vr = _span(cx, vest_w)
-        canvas.rect(vl, y, vest_w, 1, wardrobe.waistcoat)
-        canvas.put(vl, y, wardrobe.waistcoat_lit)
-    if build.height >= 40:
-        # Two waistcoat buttons, dark against the ochre.
-        canvas.put(cx, shoulder_y + shirt_rows + 2, wardrobe.coat_shade)
-        canvas.put(cx, shoulder_y + shirt_rows + 5, wardrobe.coat_shade)
+    # The waistcoat survives as two flanking columns. It is the only warm
+    # colour on him and losing it entirely made the figure read cold.
+    if build.chest_w >= stripe_w + 4:
+        for y in range(shoulder_y + 1, waist_y):
+            canvas.put(left - 1, y, wardrobe.waistcoat_lit)
+            canvas.put(right, y, wardrobe.waistcoat)
+    if build.height >= NEAR:
+        # Two shirt buttons, dark against the bone. They sit ON the stripe
+        # rather than beside it -- a button is what stops a broad pale mass
+        # reading as a bib.
+        canvas.put(cx, shoulder_y + 3, wardrobe.coat_shade)
+        canvas.put(cx, shoulder_y + 6, wardrobe.coat_shade)
 
     if build.height >= 40:
         # Lapels, as two short diagonals off the collar.
@@ -526,6 +562,7 @@ def _coat(
 def draw(
     palette: Palette, view: str = FRONT, height: int = 40, surface: str = MUD,
     stride: int = 0, lift: int = 0, arm: int = 0, skirt_lag: int = 0,
+    lean: int = 0, eye_shift: int = 0,
 ) -> IndexedCanvas:
     """One Thad, on a transparent canvas of his own, standing on nothing.
 
@@ -533,18 +570,24 @@ def draw(
     An earlier version dropped the whole figure by a "bob" on the weight
     frames, which lowered the planted boot along with the body and read as
     the ground moving rather than the man.
+
+    `lean` moves everything above the hip and leaves the boots planted, which
+    is the whole of the recoil: a man who steps back has moved, a man who
+    leans back has had an opinion. `eye_shift` moves the eyes and nothing
+    else.
     """
     build = BUILDS[height]
     wardrobe = Wardrobe(palette)
     canvas = IndexedCanvas(build.width, height + 1, fill=TRANSPARENT)
     cx = build.width // 2
     top = 0
+    body = cx + lean
 
     _legs(canvas, build, wardrobe, cx, top, view, stride=stride, lift=lift, surface=surface)
-    _coat(canvas, build, wardrobe, cx, top, view, skirt_lag=skirt_lag)
-    _collar_and_shirt(canvas, build, wardrobe, cx, top, view)
-    _arms(canvas, build, wardrobe, cx, top, view, swing=arm)
-    _head(canvas, build, wardrobe, cx, top, view)
+    _coat(canvas, build, wardrobe, body, top, view, skirt_lag=skirt_lag)
+    _collar_and_shirt(canvas, build, wardrobe, body, top, view)
+    _arms(canvas, build, wardrobe, body, top, view, swing=arm)
+    _head(canvas, build, wardrobe, body, top, view, eye_shift=eye_shift)
     _outline(canvas, wardrobe)
     return canvas
 
@@ -611,6 +654,20 @@ WALK_MUD = [
 
 WALKS = {MUD: WALK_MUD, BOARDWALK: WALK_BOARDWALK}
 
+#: The one bespoke reaction, and it is three frames because the dossier says
+#: prefer the smallest readable reaction. He leans away, his eyes go with him,
+#: and he comes back. No step, no arm flail, no second thought.
+#:
+#: Frame 2 is held twice as long as the others by the clip's frame list rather
+#: than by a per-frame duration -- the hold IS the joke, and a duration field
+#: on every frame everywhere to express one hold is not worth the schema.
+RECOIL = [
+    dict(lean=0, eye_shift=0),
+    dict(lean=-2, eye_shift=-1),
+    dict(lean=-2, eye_shift=-1),
+    dict(lean=-1, eye_shift=-1),
+]
+
 #: How far a standing figure stands into each surface.
 STANDING_SINK = {MUD: 1, BOARDWALK: 0}
 
@@ -632,29 +689,30 @@ def at_height(
     palette: Palette, view: str = FRONT, height: int = 40,
     surface: str = MUD, sink: int | None = None, **motion,
 ) -> IndexedCanvas:
-    """The canonical figure at a drawn height. Use this, not draw().
+    """The canonical figure at a height. Use this, not draw().
 
-    26px is not drawn from scratch: it is the 32px figure reduced and then
-    corrected, which is what reduce_and_correct() does. Routing every caller
-    through here is what stops two different 26px Thads existing -- one on
-    the reference sheet and a different one in the room.
+    Ruling 24. Two heights are DRAWN -- 40 and 26 -- and everything between
+    them is decimated from the 40, which is what SCUMM did and what keeps the
+    figure crisp at every height in between. Ask for 33 and you get a
+    decimated 33, not a rounded 32.
 
-    `sink` is applied last, after any reduction, so the 26px figure stands
-    in the mud by the same rule as the other two rather than by a separately
-    tuned number that would drift out of agreement with them.
+    `sink` is applied last, after any decimation, so a figure stands in the
+    mud by one rule at every height rather than by a separately tuned number
+    per size that would drift out of agreement with the others.
     """
+    import decimation
+
     depth = STANDING_SINK[surface] if sink is None else sink
-    if height == 26:
-        source = draw(palette, view=view, height=32, surface=surface, **motion)
-        _, figure = reduce_and_correct(source, palette, view=view)
-        # A 26px man is further away, so he sinks less of himself into the
-        # same mud. Scaling the sink with the drawn height keeps him standing
-        # at the same depth in world terms rather than the same pixel depth.
-        depth = round(depth * 26 / 40)
-    else:
+    if height in BUILDS:
         figure = draw(palette, view=view, height=height, surface=surface, **motion)
-        if height != 40:
-            depth = round(depth * height / 40)
+    else:
+        source = draw(palette, view=view, height=NEAR, surface=surface, **motion)
+        figure = decimation.decimate(source, decimation.scale_for(source.height, height + 1))
+    if height != NEAR:
+        # A figure further away sinks less of himself into the same mud.
+        # Scaling the sink with the drawn height keeps him standing at the
+        # same depth in world terms rather than the same pixel depth.
+        depth = round(depth * height / NEAR)
     return _submerge(figure, depth)
 
 
@@ -691,75 +749,41 @@ def content_bottom(figure: IndexedCanvas) -> int:
     return _content_bottom(figure) or figure.height - 1
 
 
-# -- the 26px reduction -----------------------------------------------------
-
-#: Rows dropped when reducing a 32px figure to 26px. Chosen where the figure
-#: is uniform -- coat body, trouser shank -- so nothing with a feature in it
-#: is lost. Reducing by ratio instead would land on the eyes.
-DROP_ROWS_32_TO_26 = (10, 12, 14, 21, 27, 29)
+# -- the snap threshold, measured ------------------------------------------
 
 
-def reduce_and_correct(
-    source: IndexedCanvas, palette: Palette, view: str = FRONT,
-) -> tuple[IndexedCanvas, IndexedCanvas]:
-    """32px down to 26px by dropping rows, then corrected by hand.
+def eye_pixels(palette: Palette, figure: IndexedCanvas) -> list[tuple[int, int]]:
+    """The drawn eyes: ink with skin on at least two sides.
 
-    Returns (raw reduction, corrected). Both are kept because the difference
-    between them is the argument for doing it this way: the raw reduction is
-    a shorter man with the same head, and the corrections are what make him
-    read as the same man further away.
+    Not simply "ink", which was the first version of this and was useless --
+    the keyline is ink too, so it reported that every column of the figure
+    carried an eye and that the eyes always survived. The render showed the
+    opposite. A check that cannot fail is not a check.
     """
-    build = BUILDS[26]
     wardrobe = Wardrobe(palette)
-    keep = [y for y in range(source.height - 1) if y not in DROP_ROWS_32_TO_26]
+    skin = (wardrobe.skin, wardrobe.skin_lit, wardrobe.skin_shade)
+    found = []
+    for y in range(1, figure.height - 1):
+        for x in range(1, figure.width - 1):
+            if figure.pixels[y][x] != wardrobe.ink:
+                continue
+            around = (figure.pixels[y][x - 1], figure.pixels[y][x + 1],
+                      figure.pixels[y - 1][x], figure.pixels[y + 1][x])
+            if sum(1 for pixel in around if pixel in skin) >= 2:
+                found.append((x, y))
+    return found
 
-    raw = IndexedCanvas(source.width, build.height + 1, fill=TRANSPARENT)
-    for target_y, source_y in enumerate(keep[: build.height + 1]):
-        for x in range(source.width):
-            raw.put(x, target_y, source.pixels[source_y][x])
 
-    corrected = IndexedCanvas(raw.width, raw.height, fill=TRANSPARENT)
-    for y in range(raw.height):
-        for x in range(raw.width):
-            corrected.put(x, y, raw.pixels[y][x])
+def eye_death_row(palette: Palette, view: str = FRONT, surface: str = BOARDWALK) -> int:
+    """Ruling 24's threshold: the tallest decimation with no eyes left.
 
-    cx = source.width // 2
-
-    # Correction 1 -- the shirt. Dropping coat rows collapses the wedge to
-    # nothing, and the wedge is the whole reason he reads in the mud.
-    neck_y = build.neck
-    if view != BACK:
-        corrected.put(cx, neck_y, wardrobe.collar)
-        # Two rows of shirt and no more. Running it to the waist -- the first
-        # attempt -- put a white stripe down his whole front that read as a
-        # bib. At 26px the wedge only has to say "something pale at the
-        # throat"; any more of it and it stops being a shirt.
-        corrected.put(cx, neck_y + 1, wardrobe.shirt)
-        corrected.put(cx, neck_y + 2, wardrobe.shirt_shade)
-
-    # Correction 2 -- the eyes. The reduction leaves them touching the hair;
-    # one row of face has to be given back above them.
-    if view == FRONT:
-        eye = build.face_top
-        corrected.put(cx - 2, eye, wardrobe.ink)
-        corrected.put(cx + 1, eye, wardrobe.ink)
-        corrected.rect(cx - 2, eye - 1, 4, 1, wardrobe.skin)
-    elif view == SIDE:
-        corrected.put(cx + build.head_w // 2, build.face_top, wardrobe.skin)
-
-    # Correction 3 -- the hem. A dropped skirt row leaves the flare ending in
-    # a taper rather than a line, which loses the 1850s read entirely.
-    hem_y = build.hem - 1
-    hx0, hx1 = _span(cx, build.skirt_w)
-    corrected.hline(hx0 + 1, hem_y, hx1 - hx0 - 2, wardrobe.coat_shade)
-    _shade_body(corrected, wardrobe, hx0 + 1, hx1 - 1, hem_y - 1)
-
-    # Correction 4 -- the boots. Two dropped trouser rows leave the sole
-    # ambiguous; it has to be one clean dark line or he floats.
-    sole = build.height - 1
-    for x in range(raw.width):
-        if corrected.pixels[sole - 1][x] != TRANSPARENT:
-            corrected.put(x, sole, wardrobe.boot_caked)
-
-    _outline(corrected, wardrobe)
-    return raw, corrected
+    MEASURED, per character, not chosen. A character with a wider face
+    survives further down and gets a lower threshold; this is the number that
+    decides where the snap goes, so it has to come out of the sprite rather
+    than out of a table someone typed.
+    """
+    for height in range(NEAR - 1, FAR, -1):
+        figure = at_height(palette, view=view, height=height, surface=surface, sink=0)
+        if not eye_pixels(palette, figure):
+            return height
+    return FAR

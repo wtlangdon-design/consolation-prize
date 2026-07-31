@@ -1,33 +1,70 @@
+import type { Facing } from './types.ts';
 import type { GameState } from './GameState.ts';
 
 /** Pixels moved per frame at 60fps. Slow enough to read as walking. */
 const WALK_SPEED = 0.9;
 
 /**
- * The player character's position and drawn height.
+ * A turn on the spot is a hold, not an instant. Two tenths is long enough to
+ * read as a decision and short enough that nobody waits for it -- the dossier
+ * lists face-direction-change-without-walking as a required animation for a
+ * reason: a character who pivots between frames looks like a sprite, and one
+ * who takes a beat looks like a man who thought about it.
+ */
+const TURN_SECONDS = 0.2;
+
+export const IDLE = 'idle';
+export const WALK = 'walk';
+
+/**
+ * The player character: where he is, which way he is looking, and which clip
+ * is playing.
  *
- * Height is snapped, never interpolated (errata ruling 15). The actor is a
- * plain silhouette for now -- three drawn sizes are a sprite commission, and
- * a placeholder that scales smoothly would hide the very artefact the
- * stepped design exists to avoid.
+ * Height is CONTINUOUS now (errata ruling 24). The class no longer snaps it,
+ * because the snap moved to the one place ruling 24 puts it: the sprite's
+ * threshold, where the drawn far sheet takes over from the decimated near
+ * one. Everything above that is its own reduction.
  */
 export class Actor {
   x: number;
   y: number;
   height: number;
+  facing: Facing = 'front';
+
   private targetX: number;
   private targetY: number;
+  /** Clip playing instead of idle or walk, with the moment it started. */
+  private special: { clip: string; startedAt: number; seconds: number } | null = null;
+  private turningUntil = 0;
+  private clock = 0;
+  private readonly state: GameState;
 
-  constructor(private readonly state: GameState, x: number, y: number) {
+  constructor(state: GameState, x: number, y: number) {
+    this.state = state;
     this.x = x;
     this.y = y;
     this.targetX = x;
     this.targetY = y;
-    this.height = state.actorHeightAt(x, y) ?? state.heightForZone(0);
+    this.height = state.actorHeightAt(x, y) ?? state.content.scaling.drawn.near;
   }
 
   get isWalking(): boolean {
     return Math.abs(this.targetX - this.x) > 0.5 || Math.abs(this.targetY - this.y) > 0.5;
+  }
+
+  /** The clip to draw right now, and how far into it we are. */
+  get clip(): string {
+    if (this.special) return this.special.clip;
+    return this.isWalking ? WALK : IDLE;
+  }
+
+  get isBusy(): boolean {
+    return this.special !== null || this.clock < this.turningUntil;
+  }
+
+  /** Which surface he is standing on, for the two walk cycles and the sink. */
+  surfaceHere(): string {
+    return this.state.surfaceAt(Math.round(this.x), Math.round(this.y));
   }
 
   /** Ignores a destination that is not floor, rather than sliding to its edge. */
@@ -35,24 +72,96 @@ export class Actor {
     if (!this.state.isWalkable(Math.round(x), Math.round(y))) return false;
     this.targetX = x;
     this.targetY = y;
+    this.faceToward(x);
     return true;
   }
 
-  placeIn(roomId: string): void {
+  /**
+   * Turns to look at a point WITHOUT walking. The dossier's required
+   * animation, and the thing that makes examining feel like looking: a man
+   * who describes a trough while facing away from it is reading a label.
+   */
+  faceToward(x: number, y?: number): boolean {
+    const wanted = this.facingToward(x, y);
+    if (wanted === this.facing) return false;
+    this.facing = wanted;
+    this.turningUntil = this.clock + TURN_SECONDS;
+    return true;
+  }
+
+  private facingToward(x: number, y?: number): Facing {
+    // A target directly above him at close range is something he turns his
+    // back to the camera for; anything to either side is a side view. The
+    // dead band is deliberately wide, because a one-pixel horizontal
+    // difference flipping him round is worse than not turning at all.
+    if (y !== undefined && Math.abs(x - this.x) < 8) {
+      return y < this.y - 8 ? 'back' : 'front';
+    }
+    if (Math.abs(x - this.x) < 4) return this.facing;
+    return x < this.x ? 'left' : 'right';
+  }
+
+  /** Plays a one-shot clip. Returns false if the character is already busy. */
+  react(clip: string, seconds: number): boolean {
+    if (this.special) return false;
+    this.special = { clip, startedAt: this.clock, seconds };
+    return true;
+  }
+
+  /**
+   * Puts him at the declared arrival point for this room, per doc 21 gap 7.
+   *
+   * The fallback is the old behaviour -- the centre of the last walkable
+   * rectangle -- and it is kept rather than made an error, because a room
+   * reached by a route nobody has declared yet should still be playable. What
+   * reports the gap is check-room-entries, not a crash at the door.
+   */
+  placeIn(roomId: string, from: string | null = null): void {
+    const entrance = this.state.entranceInto(roomId, from);
+    if (entrance?.at) {
+      const [x, y] = entrance.at;
+      this.moveTo(x, y);
+      if (entrance.facing) this.facing = entrance.facing;
+      return;
+    }
     const regions = this.state.content.rooms.get(roomId)?.walkable ?? [];
     const region = regions[regions.length - 1] ?? regions[0];
     if (!region) return;
     const [rx, ry, rw, rh] = region.rect;
-    this.x = rx + rw / 2;
-    this.y = ry + rh - 1;
-    this.targetX = this.x;
-    this.targetY = this.y;
-    this.height = this.state.actorHeightAt(Math.round(this.x), Math.round(this.y)) ?? this.height;
+    this.moveTo(rx + rw / 2, ry + rh - 1);
   }
 
-  /** Returns true if the drawn height changed, i.e. a zone boundary was crossed. */
-  update(): boolean {
-    if (this.isWalking) {
+  private moveTo(x: number, y: number): void {
+    this.x = x;
+    this.y = y;
+    this.targetX = x;
+    this.targetY = y;
+    this.special = null;
+    this.height = this.state.actorHeightAt(Math.round(x), Math.round(y)) ?? this.height;
+  }
+
+  /** Frame index within the current clip at the given time. */
+  frameAt(seconds: number, walkRate: number, reactRate: number, frames: number): number {
+    if (this.special) {
+      const elapsed = seconds - this.special.startedAt;
+      return Math.min(frames - 1, Math.floor(elapsed * reactRate));
+    }
+    if (!this.isWalking) return 0;
+    return Math.floor(seconds * walkRate) % Math.max(1, frames);
+  }
+
+  /** Returns true if anything that affects the drawn frame changed. */
+  update(seconds: number): boolean {
+    const wasHeight = this.height;
+    const wasWalking = this.isWalking;
+    this.clock = seconds;
+
+    if (this.special && seconds - this.special.startedAt >= this.special.seconds) {
+      this.special = null;
+    }
+    // A one-shot clip owns the body until it is done. Walking through a
+    // reaction would play the recoil sliding down the street.
+    if (this.isWalking && !this.special) {
       const dx = this.targetX - this.x;
       const dy = this.targetY - this.y;
       const distance = Math.hypot(dx, dy);
@@ -60,11 +169,8 @@ export class Actor {
       this.x += (dx / distance) * step;
       this.y += (dy / distance) * step;
     }
-    const zoneHeight = this.state.actorHeightAt(Math.round(this.x), Math.round(this.y));
-    if (zoneHeight !== null && zoneHeight !== this.height) {
-      this.height = zoneHeight;
-      return true;
-    }
-    return false;
+    const here = this.state.actorHeightAt(Math.round(this.x), Math.round(this.y));
+    if (here !== null) this.height = here;
+    return this.height !== wasHeight || this.isWalking !== wasWalking || this.isBusy;
   }
 }

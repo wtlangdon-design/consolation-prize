@@ -90,7 +90,8 @@ export class GameScene extends Phaser.Scene {
     this.view = new Renderer(this.screen, this.font, this.state, this.actor, this.ambient,
       (roomId) => this.backgroundFor(roomId),
       (roomId) => this.foregroundFor(roomId),
-      (roomId) => this.imageFor(roomId, 'idle', this.state.content.rooms.get(roomId)?.idles?.sheet));
+      (roomId) => this.imageFor(roomId, 'idle', this.state.content.rooms.get(roomId)?.idles?.sheet),
+      (path) => this.sheetFor(path));
 
     this.input.on(Phaser.Input.Events.POINTER_MOVE, this.onPointerMove, this);
     this.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
@@ -106,11 +107,16 @@ export class GameScene extends Phaser.Scene {
     const now = this.time.now / 1000;
     // Ruling 20's idles are a function of the clock and nothing else, so the
     // only state needed is what the last drawn frame showed.
-    if (IdleLayer.changed(this.state.room, this.lastFrameAt, now)) this.markDirty();
+    const before = this.lastFrameAt;
+    if (IdleLayer.changed(this.state.room, before, now)) this.markDirty();
     this.lastFrameAt = now;
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
-    if (this.actor.update()) this.markDirty();
+    if (this.actor.update(now)) this.markDirty();
+    // Ambient idles are two-frame and slow, so the scene redraws on the frame
+    // one of them turns over rather than every frame. Same rule as ruling
+    // 20's crowds: the room is still, and then it is very slightly not.
+    if (this.ambientChanged(before, now)) this.markDirty();
     if (this.actor.isWalking) {
       this.markDirty();
       const fired = this.ambient.checkApproach(this.actor.x, this.actor.y);
@@ -179,6 +185,13 @@ export class GameScene extends Phaser.Scene {
     return this.imageFor(roomId, 'fg', this.state.content.rooms.get(roomId)?.foreground);
   }
 
+  /** A loaded character sheet, keyed by the content path that named it. */
+  private sheetFor(path: string): CanvasImageSource | null {
+    return this.textures.exists(path)
+      ? (this.textures.get(path).getSourceImage() as CanvasImageSource)
+      : null;
+  }
+
   /** A loaded room image, or null if the room does not declare one. */
   private imageFor(roomId: string, prefix: string, declared?: string): CanvasImageSource | null {
     if (!declared) return null;
@@ -190,6 +203,17 @@ export class GameScene extends Phaser.Scene {
 
   private markDirty(): void {
     this.dirty = true;
+  }
+
+  /** Whether any ambient character's two-frame idle turned over. */
+  private ambientChanged(before: number, after: number): boolean {
+    return this.ambient.present.some((npc) => {
+      const sprite = npc.sprite;
+      if (!sprite) return false;
+      const phase = sprite.phase ?? 0;
+      const at = (seconds: number) => Math.floor((seconds * sprite.rate + phase) * 2);
+      return at(before) !== at(after);
+    });
   }
 
   private onPointerMove(pointer: Phaser.Input.Pointer): void {
@@ -237,7 +261,7 @@ export class GameScene extends Phaser.Scene {
     }
 
     if (y >= PLAY_HEIGHT) {
-      this.onPanelClick(x, y);
+      if (!this.onInventoryClick(x, y)) this.onPanelClick(x, y);
       // Choosing a verb is not half of a double-click. Without this, picking
       // a verb and then clicking a hotspot quickly reads as a double-click
       // and silently walks instead of applying the verb.
@@ -289,14 +313,52 @@ export class GameScene extends Phaser.Scene {
   }
 
   private applyInteraction(target: Interactable): void {
+    // He looks at what he is talking about. A man who describes a trough
+    // while facing away from it is reading a label, and this is the dossier's
+    // face-direction-change-without-walking doing its actual job rather than
+    // sitting in an animation list.
+    const [tx, ty, tw, th] = target.rect;
+    if (tw > 0 && th > 0) this.actor.faceToward(tx + tw / 2, ty + th / 2);
+
+    const verb = this.state.verbs.selectedVerb;
     const result = this.state.interact(target);
     this.setSay(result.say);
     if (result.changedRoom) {
       this.hovered = null;
       this.hoveredName = null;
-      this.actor.placeIn(this.state.roomId);
+      this.actor.placeIn(this.state.roomId, this.state.previousRoomId);
+    } else {
+      const clip = target.reactions?.[verb];
+      if (clip) {
+        const { reactRate } = this.state.content.actor;
+        const frames = this.state.content.actor.sizes.near.clips
+          .find((candidate) => candidate.id === clip)?.frames ?? 1;
+        this.actor.react(clip, frames / reactRate);
+      }
     }
     this.markDirty();
+  }
+
+  /**
+   * A click in the inventory strip.
+   *
+   * LOOK and LISTEN examine the item where it is. Every other verb picks it
+   * up as the thing the next click applies WITH -- which is the whole of
+   * item-on-target, and it needs no second verb and no second click mode.
+   */
+  private onInventoryClick(x: number, y: number): boolean {
+    const slot = this.view.inventoryHitboxes().find(
+      (box) => x >= box.x && x < box.x + box.width && y >= box.y && y < box.y + box.height,
+    );
+    if (!slot) return false;
+    const target = this.state.itemTarget(slot.id);
+    if (target && this.state.verbs.examines(this.state.verbs.selectedVerb)) {
+      this.setSay(this.state.verbs.resolve(this.state.verbs.selectedVerb, target).say);
+    } else {
+      this.state.holdItem(slot.id);
+    }
+    this.markDirty();
+    return true;
   }
 
   private onPanelClick(x: number, y: number): void {
