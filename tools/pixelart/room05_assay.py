@@ -137,6 +137,35 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     furniture.ledger_stack(canvas, palette, 132, counter_y - 1, 22, 4, grey, bone)
     furniture.ledger_stack(canvas, palette, 52, counter_y - 1, 16, 2, grey, bone)
 
+    # HER PEN, in its stand, nib down. Doc 25 writes it, so ruling 19b makes
+    # it exist -- a LOOK line describing a pen in a room with no pen is the
+    # contradiction that ruling is about. Six pixels, on the counter top,
+    # between the ledgers where a right-handed person would reach it.
+    global PEN_RECT
+    PEN_RECT = (120, counter_y - 8, 8, 9)
+    canvas.rect(122, counter_y - 3, 4, 3, brass.frac(0.30))          # the stand
+    canvas.hline(121, counter_y - 4, 6, brass.frac(0.46))
+    canvas.vline(124, counter_y - 8, 5, grey.frac(0.52))             # the shaft
+    canvas.put(124, counter_y - 8, bone.frac(0.80))                  # the nib, up
+
+    # THE CERTIFICATE. Framed, on the back wall left of the shelves, high --
+    # where a thing nobody reads any more gets hung. The word on it is drawn
+    # by nothing: every sign in this game is blank and the engine has the
+    # words, which is also why "acting" can stay a LOOK line and not a
+    # legibility problem.
+    global CERTIFICATE_RECT
+    CERTIFICATE_RECT = (BOX.back_left - 22, 26, 18, 22)
+    cert_x, cert_y, cert_w, cert_h = CERTIFICATE_RECT
+    canvas.rect(cert_x, cert_y, cert_w, cert_h, grey.frac(0.30))          # the frame
+    canvas.outline(cert_x, cert_y, cert_w, cert_h, grey.frac(0.14))
+    canvas.rect(cert_x + 2, cert_y + 2, cert_w - 4, cert_h - 4, bone.frac(0.62))
+    # Ruled, not lettered. Every sign in this game is blank and the engine
+    # holds the words -- which is also why "the word acting has been there
+    # nine years" can be a LOOK line rather than a legibility problem.
+    for row in range(4, cert_h - 5, 3):
+        canvas.hline(cert_x + 4, cert_y + row, cert_w - 8, bone.frac(0.40))
+    canvas.rect(cert_x + 4, cert_y + cert_h - 7, 4, 3, grey.frac(0.40))   # the seal
+
     # -- the loose floorboard -----------------------------------------------
     # Doc 05: "A floorboard. It sits a little proud of the others." Winnie's
     # second ledger is under it and Act II turns on it, so it exists in the

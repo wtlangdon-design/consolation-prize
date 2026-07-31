@@ -493,6 +493,16 @@ export interface RoomFile {
   kind?: 'map';
   /** Doc 20's travel destinations. Only a `map` room has these. */
   locations?: MapLocation[];
+  /**
+   * Flags set the first time the player stands in this room.
+   *
+   * Errata 31c is the case that needs it: everything visible from Main
+   * Street goes on the map the first time Thad is on Main Street, and
+   * "being here" is not something a hotspot response can observe. Applied
+   * on entry and idempotent -- a flag already true stays true, so walking
+   * in and out does not re-fire anything downstream.
+   */
+  onEnter?: { note?: string; set?: FlagWrites };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
   pendingLocations?: { room: number | null; name: string; doc: string; missing: string }[];
   colours: { sky: number; ground: number };

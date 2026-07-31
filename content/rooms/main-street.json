@@ -945,5 +945,11 @@
     ],
     "skylineNote": "The terrace, the ridges and the steeple -- everything that meets the sky. The mud below the boardwalk is ground, not skyline."
   },
-  "lightSources": []
+  "lightSources": [],
+  "onEnter": {
+    "note": "ERRATA 31c. Everything visible from Main Street appears on the map the first time Thad stands on it -- the map goes from two locations to twelve at the moment the town opens.",
+    "set": {
+      "T_SEEN_MAIN_STREET": true
+    }
+  }
 }

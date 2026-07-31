@@ -836,3 +836,27 @@ test('errata 30a: a duration on a beat the player controls is refused', async ()
   const steps = stepsFor(automatic!);
   assert.ok(steps.some((step) => step.kind === 'wait'), 'the duration became a wait');
 });
+
+test('two rooms may share an exit id without sharing its repeat cursor', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  // Doc 25 gives Room 5 and Room 7 a street door each, and the natural id
+  // for both is the same. Keyed on the id alone they shared one cursor, so
+  // walking out of one advanced the other and the two rooms handed each
+  // other lines. It could not happen with one room in the game, which is why
+  // it appeared the moment the second one landed.
+  const linesFor = (room: string) => {
+    state.enterRoom(room);
+    const door = state.findTarget('back_to_street')!;
+    return [0, 1, 2].map(() => state.verbs.resolve('LOOK_AT', door, room).say);
+  };
+  const assay = linesFor('assay_office');
+  const registrar = linesFor('claims_registrar');
+
+  assert.equal(new Set(assay).size, 3, 'the assay door cycles its own three');
+  assert.equal(new Set(registrar).size, 3, 'and so does the registrar door');
+  for (const line of registrar) {
+    assert.ok(!assay.includes(line), 'and neither says the other room’s line');
+  }
+});

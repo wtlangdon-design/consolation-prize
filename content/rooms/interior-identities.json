@@ -1,0 +1,105 @@
+{
+  "schema": 1,
+  "note": "ERRATA 30f step 0, APPROVED and committed. The eleven Act I interior identities, assigned in one pass against doc 20's adjacency before any of them is blocked out -- because material identity is a constraint over a graph and solving it room by room means room nine finds both plausible answers taken. Rooms that exist carry this in their own file; these nine do not exist yet and carry it here so composing one is a lookup rather than a decision. Taken from renders/interior-identity-plan, which is the approved artefact.",
+  "identities": {
+    "4": {
+      "name": "NUGGET BACK ROOM",
+      "materialIdentity": "Bare board and cold grey, no brass and no lamplight -- the Nugget stripped, so walking through the door is a step DOWN in warmth rather than more of the same",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "pine_weathered 0.42",
+        "shadow": "umber 0.25",
+        "secondary": "grey 0.5",
+        "accent": "accent_gold 0.6"
+      }
+    },
+    "13": {
+      "name": "THE UNDERTAKER'S",
+      "materialIdentity": "Scrubbed bone-white and pine, near-monochrome, deliberately (17b) -- errata 23's named exception to the palette proportions",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "bone 0.85",
+        "shadow": "dust 0.45",
+        "secondary": "pine_fresh 0.8",
+        "accent": "bone 0.6"
+      }
+    },
+    "15": {
+      "name": "LIVERY STABLE",
+      "materialIdentity": "Straw, leather and warm dark (17b)",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "ochre 0.42",
+        "shadow": "umber 0.22",
+        "secondary": "mud 0.42",
+        "accent": "accent_rust 0.5"
+      }
+    },
+    "16": {
+      "name": "OZYMANDIA'S TENT",
+      "materialIdentity": "Fabric: indigo and teal, saturated by having many colours at once rather than one strong one, so it is the most saturated room without spending Fanshawe's card",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "accent_indigo 0.5",
+        "shadow": "accent_indigo 0.25",
+        "secondary": "accent_teal 0.55",
+        "accent": "accent_gold 0.85"
+      }
+    },
+    "10": {
+      "name": "IMPROVEMENT CO.",
+      "materialIdentity": "New pine, varnished and too orange, with whitewash and gilt -- new money pretending to be old, and the step into Fanshawe's deep red is the Fanshawe rule in the walls",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "pine_fresh 0.85",
+        "shadow": "dust 0.4",
+        "secondary": "bone 0.85",
+        "accent": "accent_gold 0.85"
+      }
+    },
+    "11": {
+      "name": "FANSHAWE'S OFFICE",
+      "materialIdentity": "Deep red as the FIELD, with leather and gilt (17b). The one saturated interior in the game, and at leather-dominant proportions it did not read as one",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "accent_red 0.3",
+        "shadow": "void 0.4",
+        "secondary": "umber 0.45",
+        "accent": "accent_gold 0.85"
+      }
+    },
+    "12": {
+      "name": "MERCANTILE",
+      "materialIdentity": "Ochre warmth broken by fabric, tin and printed labels (17b)",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "ochre 0.55",
+        "shadow": "umber 0.28",
+        "secondary": "accent_teal 0.5",
+        "accent": "accent_red 0.55"
+      }
+    },
+    "18": {
+      "name": "HOTEL LOBBY",
+      "materialIdentity": "Worn blue-grey plush and tarnished brass (30d) -- the only interior in Act I with a BLUE cast. The assay office is achromatic cold; nothing else in Act I may go blue",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "sky 0.45",
+        "shadow": "accent_indigo 0.3",
+        "secondary": "ochre 0.4",
+        "accent": "accent_gold 0.72"
+      }
+    },
+    "19": {
+      "name": "THAD'S ROOM",
+      "materialIdentity": "Neutral drab: bare pine, unbleached calico, a tin basin. Warm-neutral so it separates by hue from the hotel's blue directly below it",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "dust 0.55",
+        "shadow": "dust 0.28",
+        "secondary": "bone 0.8",
+        "accent": "grey 0.6"
+      }
+    }
+  }
+}

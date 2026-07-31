@@ -45,6 +45,9 @@ function collectWrites(content) {
   for (const { data } of content.sequences ?? []) {
     for (const beat of data.beats ?? []) record(beat.set, beat.add);
   }
+  // Errata 31c's room-entry writes. Standing somewhere is a write like any
+  // other, and it is the only one no hotspot response can make.
+  for (const { data } of content.rooms) record(data.onEnter?.set, undefined);
 
   return { sets, adds };
 }

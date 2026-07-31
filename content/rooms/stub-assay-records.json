@@ -1,9 +1,10 @@
 {
   "schema": 1,
-  "id": "stub_nugget_back",
-  "name": "THE NUGGET BACK ROOM",
+  "id": "stub_assay_records",
+  "name": "THE ASSAY RECORDS ROOM",
   "stub": true,
-  "note": "Doc 05 Room 4. Stub -- the assay duels are held here and doc 09 has its content; not built.",
+  "note": "Doc 20 Room 6, reached from the assay office. Stub -- doc 25 writes Room 5's door to it, and a written exit needs somewhere to go. Errata 30f's identity pass gives it ledger leather and dust, warm and closed against Room 5's cold precision; not composed.",
+  "materialIdentity": "Ledger leather and dust over a dark field, warm and closed against Room 5's cold precision next door",
   "colours": {
     "sky": 0,
     "ground": 6
@@ -24,8 +25,8 @@
   "hotspots": [],
   "exits": [
     {
-      "id": "back_to_nugget",
-      "name": "THE BOUNTIFUL NUGGET",
+      "id": "back_to_assay",
+      "name": "THE ASSAY OFFICE",
       "stub": true,
       "rect": [
         128,
@@ -34,18 +35,17 @@
         44
       ],
       "colour": 90,
-      "to": "nugget",
+      "to": "assay_office",
       "responses": {},
       "fallback": [],
       "defaultVerb": "OPEN"
     }
   ],
-  "materialIdentity": "Bare board and cold grey, no brass and no lamplight -- the Nugget stripped, so walking through the door is a step DOWN in warmth rather than more of the same",
   "paletteScript": {
     "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
-    "dominant": "pine_weathered 0.42",
-    "shadow": "umber 0.25",
-    "secondary": "grey 0.5",
-    "accent": "accent_gold 0.6"
+    "dominant": "umber 0.65",
+    "shadow": "mud 0.25",
+    "secondary": "bone 0.72",
+    "accent": "accent_rust 0.55"
   }
 }

@@ -22,10 +22,20 @@ export function check() {
   // Deliberate repetitions, declared in content. Doc 13 note 1: the mud
   // answers the second LISTEN with the first LISTEN's exact words. A dedupe
   // pass would "fix" that and delete the joke.
+  // Two kinds of entry. A `where` names one hotspot's one verb, which is
+  // how a specific repetition is declared. A `where` of "*" declares that
+  // the LINE ITSELF is doctrine wherever it appears -- which is what a bare
+  // "Nothing." is: doc 05's LISTEN layer says most objects are silent, and
+  // Thad's answer to a silent object is the same two syllables every time.
+  // The allowlist already carried four separate entries for that one string
+  // before doc 25 brought fourteen more, and enumerating them would have
+  // been the check asking to be quietened rather than answered.
+  const entries = readJson(content.manifest.duplicateAllowlist).allow ?? [];
   const allowlist = new Set(
-    (readJson(content.manifest.duplicateAllowlist).allow ?? []).map(
-      (entry) => `${entry.where}|${entry.line}`,
-    ),
+    entries.filter((entry) => entry.where !== '*').map((entry) => `${entry.where}|${entry.line}`),
+  );
+  const doctrine = new Set(
+    entries.filter((entry) => entry.where === '*').map((entry) => entry.line),
   );
 
   // Collected first, judged second, because judging as it goes made the
@@ -63,7 +73,7 @@ export function check() {
         if (!seen[verb].has(line)) seen[verb].set(line, []);
         seen[verb].get(line).push({
           where,
-          allowed: allowlist.has(`${where}/${verb}|${line}`),
+          allowed: doctrine.has(line) || allowlist.has(`${where}/${verb}|${line}`),
           repeatOfOwnVariant: lines.indexOf(line) !== index,
         });
       }

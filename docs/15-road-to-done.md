@@ -163,6 +163,26 @@ Not written:
 - [ ] **Act III** — 10 puzzles, the funeral, the coffin, the Hob reveal
 - [ ] **Act IV** — 5 puzzles, the Listening, the final duel, the filing, the ending
 
+# POLISH LIST
+
+**Opened when art direction froze.** Anything that looks wrong from here goes
+here rather than becoming a ruling. One pass across everything at once, at the
+end, against a settled rulebook — rather than discovering rule thirty-five on
+room two.
+
+Nothing here stops the line.
+
+| # | What | Where | Why it is here and not a ruling |
+|---|---|---|---|
+| P1 | Ruling 34's camera work — Room 5's symmetrical one-point VP, three-quarter exteriors | Rooms 1, 2, 5 | Deferred indefinitely by decision. A re-block of composed rooms, and the churn that kept us on two rooms |
+| P2 | Doc 25 restates variant 1 at a later variant, twice | `claims_registrar/number_spindle` LISTEN 3, `assay_office/queue_book` LISTEN 2 | Same "falls away and returns" shape doc 25 note 4 protects for the stove, but note 4 covers the stove and not these. Allowlisted provisionally with the caveat in the entry |
+| P3 | Room 2 is broadly bright — p90 155, 16% over luminance 140 | Room 2 | The façade was the loudest offender and only 70px. The real lever is the mud and the boardwalk sitting in the same upper-middle band as the sky, which is a re-block |
+| P4 | The offside horse reads as a dark mass beside the nearside one | Room 1 | Correctly proportioned and correctly separated in tone; the far animal is simply behind the near one at 26px |
+| P5 | Room 0's plan is sparse at frame left | Room 0 | Twelve locations now land on it rather than three. Judge the composition when it is carrying its real load |
+| P6 | 32d and 32e on Rooms 1 and 2 — foreground planes are still amorphous, and almost everything is 8–20px | Rooms 1, 2 | Ruled but not executed before the freeze. Both rooms pass every audit as they stand |
+
+---
+
 # 7 · QA
 
 - [ ] Automated graph traversal proving all 45 puzzles reachable and no dead ends
