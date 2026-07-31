@@ -675,6 +675,18 @@ export interface UiFile {
   hud: { hintTemplate: string };
   /** Doc 20's map screen. Interface grammar, of a class with the templates. */
   map?: { note?: string; button: string; back: string; travelTemplate: string };
+  /**
+   * How long a line stays up. Not written content and not in any document:
+   * doc 17 states seconds for BEATS, and a line's duration is a property of
+   * the line rather than of the beat that contains it.
+   */
+  timing?: {
+    note?: string;
+    lineSecondsPerGlyph: number;
+    lineSecondsMinimum: number;
+    actCardExtraSeconds: number;
+    actCardNote?: string;
+  };
 }
 
 export interface FontFile {
@@ -781,7 +793,12 @@ export interface SequenceFile {
 }
 
 export interface SequenceBeat {
-  beat: number;
+  /**
+   * The beat's id, as the DOCUMENT writes it -- a string, because doc 17's
+   * beat 6b exists. It was a number, and the extractor's row pattern demanded
+   * digits, so the beat the player audit asked for was dropped in silence.
+   */
+  beat: string;
   description: string;
   /** 'menu' is the title screen, 'none' is a cutscene, 'player' has control. */
   control: 'menu' | 'none' | 'player';

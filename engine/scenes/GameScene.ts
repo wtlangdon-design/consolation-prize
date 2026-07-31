@@ -476,11 +476,28 @@ export class GameScene extends Phaser.Scene {
         if (step.interact) {
           const target = this.state.findTarget(step.interact.target);
           if (target) this.applyInteraction(target, step.interact.verb);
-          return;
+          return 0;
         }
         this.setSay(step.line ?? null);
+        return this.lineSeconds(step.line ?? '');
       },
     };
+  }
+
+  /**
+   * How long a line stays on screen, from its length and a rate in content.
+   *
+   * Doc 17 states seconds for BEATS and never for lines, which is correct --
+   * a line's duration is a property of the line. The rate and the floor live
+   * in content/ui/ui.json because menu.json already declares an OPTIONS item
+   * called "Text speed" that nothing implements yet: when it is built, this
+   * is the value it scales, and a rate written into this file could not be.
+   */
+  private lineSeconds(line: string): number {
+    const timing = this.state.content.ui.timing;
+    const perGlyph = timing?.lineSecondsPerGlyph ?? 0.045;
+    const minimum = timing?.lineSecondsMinimum ?? 1.6;
+    return Math.max(minimum, line.length * perGlyph);
   }
 
   /** How long a clip runs, from its own frame count. */
@@ -631,8 +648,18 @@ export class GameScene extends Phaser.Scene {
         // lands underneath whatever the driver said on his way out.
         this.setSay(null);
         this.pendingSay = [];
-        this.actCard = actCardOf(segment);
-        this.sequence.start(stepsFor(segment));
+        // The card holds for doc 17's stated beat duration PLUS its own
+        // reading time. The ~3s in the beat sheet is how long the beat lasts;
+        // how long two lines of a 5x7 font take to read is interface timing
+        // of the same class as lineSecondsPerGlyph, and it lives in content
+        // beside it. Legal under errata 30a -- this segment's control is
+        // `none`, which is the only place a wait may be added at all.
+        const card = actCardOf(segment);
+        this.actCard = card;
+        const steps = stepsFor(segment);
+        const extra = this.state.content.ui.timing?.actCardExtraSeconds ?? 0;
+        if (card && extra > 0) steps.push({ kind: 'wait', seconds: extra });
+        this.sequence.start(steps);
         this.markDirty();
         return;
       }

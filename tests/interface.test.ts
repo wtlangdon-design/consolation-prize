@@ -727,7 +727,7 @@ test('doc 17 v3.1: one automatic opening line, a four-option driver tree, a late
   // The protagonist is never named here either -- he is "not the driver".
   // No .ts file may know who lives in this game.
   const DRIVER = 'stage_driver';
-  const declaration = opening.beats.find((beat) => beat.beat === 3)!;
+  const declaration = opening.beats.find((beat) => beat.beat === '3')!;
   const spoken = declaration.lines ?? [];
   assert.equal(spoken.filter((line) => line.speaker !== DRIVER).length, 1,
     'one opening line, not three to pick from');
@@ -759,19 +759,27 @@ test('doc 17 v3.1: one automatic opening line, a four-option driver tree, a late
   // beat does not also write it. Two writers on one fact is a race.
   const exit = options.find((o) => o.tag === 'EXIT')!;
   assert.equal(exit.set?.T_COACH_DEPARTED, true);
-  const beat7 = opening.beats.find((beat) => beat.beat === 7)!;
+  const beat7 = opening.beats.find((beat) => beat.beat === '7')!;
   assert.equal(beat7.set?.T_COACH_DEPARTED, undefined);
+
+  // BEAT 6b EXISTS. The coach departs before the card; a beat number with a
+  // letter in it was dropped by the extractor's row pattern and nothing
+  // noticed, because the guard counted ten beats and still found ten.
+  const departure = opening.beats.find((beat) => beat.beat === '6b')!;
+  assert.ok(departure, 'the coach departs on its own beat');
+  assert.equal(departure.control, 'none');
+  assert.ok((departure.seconds ?? 0) > 0, 'the departure takes stated time');
 
   // The act card lands AFTER the coach leaves, on the view of the town --
   // not before Room 1 fades up. Beat 1 is the title and must not carry it.
   const carded = opening.beats.filter((beat) => beat.actCard);
   assert.equal(carded.length, 1);
-  assert.equal(carded[0]!.beat, 7);
-  assert.equal(opening.beats.find((beat) => beat.beat === 1)!.control, 'menu');
+  assert.equal(carded[0]!.beat, '7');
+  assert.equal(opening.beats.find((beat) => beat.beat === '1')!.control, 'menu');
 
   // Room 1 gates hotspots on Hob's crossing, which the act card pushed from
   // beat 8 to beat 9. Without that write those gates are unreachable.
-  assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!.beat, 9);
+  assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!.beat, '9');
 });
 
 test('a multi-speaker response plays one line at a time', async () => {
@@ -799,7 +807,7 @@ test('errata 30a: a trailing wait takes its stated time', () => {
   const runner = new SequenceRunner();
   const host: SequenceHost = {
     walk: () => {}, isWalking: () => false, face: () => {},
-    isTurning: () => false, chore: () => 0, say: () => {},
+    isTurning: () => false, chore: () => 0, say: () => 0,
   };
 
   // The shape that failed: the LAST step is a wait. It was consumed, the

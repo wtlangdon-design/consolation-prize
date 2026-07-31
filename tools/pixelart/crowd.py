@@ -79,18 +79,32 @@ HATS = ("slouch", "stovepipe", "cap", "bare", "back")
 
 def _build(seed: int) -> dict:
     """One man's silhouette, from his own index. Stable under upstream change."""
-    # POSTURE VARIES FASTEST. It used to be HATS[seed] and POSTURES[seed//5],
-    # so seeds 0 to 4 -- which is every man at the bar and most of a table --
-    # all got posture 0. Eleven men, one posture, and 3a reported exactly
-    # that: nobody leaning on anything. Posture is the most visible property
-    # a figure this size has, so it is the one that must differ between
-    # neighbours, and the hat is the one that may repeat.
+    # EVERY STRIDE IS CO-PRIME WITH ITS TABLE, and that is the whole rule.
+    # This function was written in one sitting and three of its five
+    # properties collapsed on the seeds the game actually uses -- 0 to 6 for
+    # the Nugget's cast -- because a stride that divides into the run gives
+    # everybody the same answer:
+    #
+    #   posture  was POSTURES[(seed // 5) % 4]  -- seeds 0-4 all posture 0,
+    #            which is every man at the bar and most of a table. Eleven
+    #            men, one posture, nobody leaning on anything.
+    #   hat      was HATS[(seed // 4) % 5]      -- TWO hats across seven men,
+    #            and that one was mine: it was HATS[seed % 5] and gave five,
+    #            and I broke it while fixing posture in the same edit.
+    #   stoop    was (seed // 7) % 2            -- ZERO for every seed 0 to 6.
+    #            Dead for the entire room it was written for, and it has been
+    #            since it was written.
+    #
+    # Audited by evaluating each property over the seeds in use rather than
+    # by reading the arithmetic, which is how the first one hid.
+    #
+    # `arm` is gone. The posture branches draw the arms now, and a property
+    # nothing reads is worse than no property: it looks like variety.
     return {
-        "hat": HATS[(seed // 4) % len(HATS)],
-        "posture": POSTURES[seed % len(POSTURES)],
-        "arm": (seed // 3) % 3,          # 0 none, 1 hanging, 2 bent
-        "girth": (seed * 7) % 3 - 1,     # a pixel either way on the shoulders
-        "stoop": (seed // 7) % 2,        # a pixel off the head height
+        "hat": HATS[(seed * 3) % len(HATS)],       # stride 3, table 5
+        "posture": POSTURES[seed % len(POSTURES)],  # stride 1, table 4
+        "girth": (seed * 7) % 3 - 1,                # stride 7, table 3
+        "stoop": seed % 2,                          # alternates; no two neighbours alike
     }
 
 

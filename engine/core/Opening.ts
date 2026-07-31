@@ -43,7 +43,13 @@ export function segmentsOf(file: SequenceFile): Segment[] {
     // A run continues only while both the control and the carrier hold. Two
     // adjacent player beats carried by different things are two segments:
     // the driver's tree and Hob's crossing are not one stretch of play.
-    if (last && last.kind === kind && last.carriedBy === carriedBy) {
+    // A BEAT CARRYING AN ACT CARD STARTS ITS OWN SEGMENT. The card is raised
+    // when its segment begins, so a beat that merely precedes it in the same
+    // automatic run would raise it early -- and doc 17's beat 6b is exactly
+    // that beat: the coach departing, immediately before the card. Without
+    // this split the card would sit over the departure it is supposed to
+    // follow.
+    if (last && last.kind === kind && last.carriedBy === carriedBy && !beat.actCard) {
       last.beats.push(beat);
       continue;
     }

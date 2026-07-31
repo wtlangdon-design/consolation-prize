@@ -17,7 +17,7 @@
       "note": "Doc 18: a carried flame in still air, not a torch. It is the brightest and only warm object in the frame and must not draw more attention than a lamp deserves. Four entries at the top of accent_gold, reserved -- which is also what now keeps the coach lantern and the clasp on Thad's case below it, a rule doc 17 stated and nothing was checking.",
       "mode": "pulse",
       "rate": 0.6,
-      "phase": 0.0,
+      "phase": 0,
       "ramp": {
         "family": "accent_gold",
         "start": 4,
@@ -35,7 +35,7 @@
       "note": "Doc 18: moonlight on standing water shifting as air moves over it, barely perceptible. The phase offset is per puddle and costs no extra entries -- each streak is painted with a different one of the three reserved indices, so the same rotation shows each of them a different part of the cycle. That is how the technique did it in 1990.",
       "mode": "pingpong",
       "rate": 0.25,
-      "phase": 0.0,
+      "phase": 0,
       "ramp": {
         "family": "sky",
         "start": 7,
@@ -83,7 +83,46 @@
   ],
   "hotspots": [
     {
-      "id": "case",
+      "id": "case_roof",
+      "name": "HIS CASE",
+      "rect": [
+        206,
+        56,
+        22,
+        12
+      ],
+      "colour": 28,
+      "when": {
+        "T_CASE_DOWN": false
+      },
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My case, still up on the roof, under the driver's hand.",
+            "repeat": [
+              "Everything I own is up there and a stranger is holding it.",
+              "He has not dropped it. I have been watching to see whether he would."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "The fork against the clasp, faintly, when he shifts it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is eight feet up and it is not mine to reach for yet."
+      },
+      "note": "Doc 17, state A: on the coach, beats 1–5"
+    },
+    {
+      "id": "case_mud",
       "name": "HIS CASE",
       "rect": [
         146,
@@ -92,10 +131,14 @@
         16
       ],
       "colour": 28,
+      "when": {
+        "T_CASE_DOWN": true
+      },
+      "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Everything I own, and a tuning fork. The tuning fork is the valuable part.",
+            "say": "My case, in the mud, where it was put.",
             "repeat": [
               "Everything I own. It is not heavy and that is the whole difficulty.",
               "My father packed it. He put the fork in first, which tells you what he thought of the rest."
@@ -104,19 +147,24 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "The fork, faintly, against the clasp. A. Four hundred and forty. It is the only correct thing within a hundred miles.",
+            "say": "Nothing.",
             "repeat": [
               "The fork against the clasp. A. It is still four hundred and forty.",
-              "Nothing. I have stopped shaking it to hear it, which is a low thing to be caught doing."
+              "Nothing. I have stopped shaking it to hear that, which is a low thing to be caught doing."
             ]
+          }
+        ],
+        "PICK_UP": [
+          {
+            "say": "I have it.",
+            "take": true
           }
         ]
       },
       "overrides": {
-        "OPEN": "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent.",
-        "PICK_UP": "I have it. I have had it the entire time."
+        "OPEN": "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent."
       },
-      "defaultVerb": "LOOK_AT"
+      "note": "Doc 17, state B: in the mud, from beat 6"
     },
     {
       "id": "lamp",
@@ -217,7 +265,7 @@
         ],
         "LISTEN_TO": [
           {
-            "say": "The team, shifting. The near axle is dry \u2014 it has been dry a long time.",
+            "say": "The team, shifting. The near axle is dry — it has been dry a long time.",
             "repeat": [
               "Still dry. It will be heard from.",
               "Somebody up top is rearranging the load and swearing about it."
@@ -322,7 +370,7 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "CONSOLATION \u2014 POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later.",
+            "say": "CONSOLATION — POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later.",
             "repeat": [
               "The number has been repainted four times. You can see the smaller ones underneath, each of them once true.",
               "The smallest number underneath is two hundred. Somebody was pleased with two hundred once."

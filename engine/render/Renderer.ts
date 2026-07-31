@@ -65,6 +65,8 @@ const TEXT_MARGIN = 6;
  * shot the card is commenting on.
  */
 const ACT_CARD_Y = 66;
+//: Doc 17 writes the card on two lines. 11 rows apart for a 7-row font.
+const ACT_CARD_LINE_HEIGHT = 11;
 const MAP_MARKER = 3;
 const MAP_LABEL_HEIGHT = 11;
 
@@ -226,15 +228,32 @@ export class Renderer {
     this.drawMenu();
   }
 
+  /**
+   * Doc 17's act card, in the TWO-LINE FORM the document writes it in.
+   *
+   * "PART ONE — In Which Our Hero Is Robbed, and Enjoys It" is one string in
+   * the beat sheet and two lines on screen: the part number above, the title
+   * below. It was drawn as a single centred line, which at 320 pixels wide
+   * in a 5x7 font is 53 glyphs across a 320-pixel frame -- it fitted, and it
+   * read as a caption rather than as a card.
+   *
+   * The split is on the em dash, which is where the document puts it, so the
+   * layout is the writing's own and not a rule invented here.
+   */
   private drawActCard(text: string): void {
-    this.font.drawCentredOutlined(
-      this.screen.context,
-      text,
-      NATIVE_WIDTH / 2,
-      ACT_CARD_Y,
-      this.screen.roleColour('inkBright'),
-      this.screen.roleColour('overlayBg'),
-    );
+    const parts = text.split('\u2014').map((part) => part.trim()).filter(Boolean);
+    const lines = parts.length > 1 ? [parts[0] as string, parts.slice(1).join(' — ')] : parts;
+    const top = ACT_CARD_Y - (lines.length - 1) * ACT_CARD_LINE_HEIGHT / 2;
+    for (const [index, line] of lines.entries()) {
+      this.font.drawCentredOutlined(
+        this.screen.context,
+        line,
+        NATIVE_WIDTH / 2,
+        top + index * ACT_CARD_LINE_HEIGHT,
+        this.screen.roleColour('inkBright'),
+        this.screen.roleColour('overlayBg'),
+      );
+    }
   }
 
   /**

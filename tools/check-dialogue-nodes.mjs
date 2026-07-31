@@ -42,6 +42,17 @@ export function check() {
         report.fail(`${where}: ${options.length} option(s), minimum is ${MIN_OPTIONS}`);
       }
 
+      // ERRATA 37 removes an exhausted [PROGRESS] option from the list. That
+      // is only safe if something always survives: a node whose every option
+      // is PROGRESS would empty itself and strand the player inside the tree
+      // with nothing to click. The >=1 COMIC rule below already guarantees it
+      // today, and this asks the question directly rather than relying on one
+      // rule to protect another.
+      if (options.length > 0 && options.every((option) => option.tag === 'PROGRESS')) {
+        report.fail(`${where}: every option is PROGRESS -- errata 37 removes them all once `
+          + 'taken and leaves the player with nothing to click');
+      }
+
       const comics = options.filter((option) => option.tag === COMIC);
       comicCount += comics.length;
       // A node may declare that it has no [COMIC] option, with a reason.

@@ -123,6 +123,15 @@
       "writtenBy": [
         "dialogue:DEKE_VESSEL:root:deke_vessel6"
       ]
+    },
+    {
+      "id": "T_CASE_DOWN",
+      "type": "bool",
+      "initial": false,
+      "note": "The case is off the coach and in the mud. Doc 17 beat 6 -- 'The case goes in the mud' -- is the writer, and the beat says so in its own words, so this is routing rather than a decision. It gates HIS CASE's two drawn states: on the roof while it is false, in the mud while it is true, and gone once he picks it up, which is an ownership change rather than a third flag.",
+      "writtenBy": [
+        "sequence:opening:6"
+      ]
     }
   ]
 }

@@ -100,7 +100,13 @@ function opening() {
 
   const beats = [];
   for (const line of doc.split('\n')) {
-    const row = line.match(/^\| (\d+) \| (.+?) \| (.+?) \| (.+?) \|$/);
+    // A BEAT NUMBER MAY CARRY A LETTER. Doc 17 added beat 6b -- the coach
+    // departing -- and this pattern demanded \d+, so the new beat was
+    // dropped without a word. The guard below counted ten beats and still
+    // counted ten, because it was written against the old table and now
+    // certifies a table it no longer describes: it counts the rows found,
+    // not the rows present.
+    const row = line.match(/^\| (\d+[a-z]?) \| (.+?) \| (.+?) \| (.+?) \|$/);
     if (!row) continue;
     const [, number, beat, control, notes] = row;
     // The control column is one of three words plus an optional duration, and
@@ -113,7 +119,9 @@ function opening() {
     }
     const seconds = control.match(/~(\d+)/);
     beats.push({
-      beat: Number(number),
+      // The id stays a STRING so "6b" survives. Sorting and the flag routing
+      // below both key on it, and a Number("6b") is NaN.
+      beat: number,
       description: plain(beat),
       control: { menu: 'menu', no: 'none', yes: 'player' }[word],
       seconds: seconds ? Number(seconds[1]) : undefined,
@@ -121,7 +129,13 @@ function opening() {
       quoted: quoted(beat),
     });
   }
-  if (beats.length !== 10) throw new Error(`doc 17: expected 10 beats, found ${beats.length}`);
+  // Counted against the DOCUMENT rather than against a number written here.
+  // A literal 10 is a claim about the table that stops being true the moment
+  // somebody adds a beat, and it stayed true through beat 6b being dropped.
+  const rows = (doc.match(/^\| \d+[a-z]? \| /gm) ?? []).length;
+  if (beats.length !== rows) {
+    throw new Error(`doc 17: ${rows} beat rows in the table, ${beats.length} extracted`);
+  }
 
   const DRIVER = 'stage_driver';
   const THAD = 'thad';
@@ -145,8 +159,11 @@ function opening() {
   // coach goes. Beat 7." -- so the write belongs to the option and a second
   // writer on the beat would be a race with it.
   const flags = {
-    3: { T_OPENING_SAID: true },
-    9: { T_HOB_CROSSING: true },
+    '3': { T_OPENING_SAID: true },
+    // Doc 17 beat 6 opens "The case goes in the mud." The beat says it in its
+    // own words, so the write belongs to the beat and not to anything else.
+    '6': { T_CASE_DOWN: true },
+    '9': { T_HOB_CROSSING: true },
   };
 
   // v3.1 restored the tree without rewriting the beat sheet around it, so the
@@ -155,7 +172,7 @@ function opening() {
   // table: those three beats ARE interactive, carriedBy is the right
   // annotation, and beat 3 stays automatic. Applied here rather than in the
   // doc so the correction is one ruling in one place.
-  const carried = { 4: 'STAGE_DRIVER', 5: 'STAGE_DRIVER', 6: 'STAGE_DRIVER' };
+  const carried = { '4': 'STAGE_DRIVER', '5': 'STAGE_DRIVER', '6': 'STAGE_DRIVER' };
 
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];
@@ -1080,8 +1097,98 @@ function stageDirections(cell) {
   return [...cell.matchAll(/\*\(([^)]+)\)\*/g)].map((match) => match[1]);
 }
 
+// ---------------------------------------------------------------------------
+
+/**
+ * Doc 17's HIS CASE, which now has THREE STATES and is the game's first PICK UP.
+ *
+ * The old single hotspot answered PICK UP with "I have it. I have had it the
+ * entire time," which is false while the case is on the coach roof and false
+ * again while it is lying in the mud. Doc 17 replaces it with a state per
+ * place the case can be, and the third state is not a hotspot at all:
+ *
+ *   A  on the coach roof, beats 1-5   -- reaching for it is refused
+ *   B  in the mud, from beat 6        -- PICK UP TAKES IT
+ *   C  carried                        -- the hotspot is gone
+ *
+ * State C needs no data. GameState.targets already filters out anything the
+ * actor owns -- doc 22 item 9, taking something is an ownership change -- so
+ * `take: true` on state B's PICK UP is the whole of state C.
+ *
+ * The two drawn states follow ruling 19a's pattern exactly, the one the coach
+ * already uses: two hotspots sharing a name, gated on one flag, rather than
+ * one hotspot with two rule sets. The NAME does not change but the PLACE does,
+ * and a hotspot is a rectangle before it is anything else.
+ */
+function openingCase() {
+  const doc = read('docs/17-opening-sequence.md');
+  const path = 'content/rooms/stage-road.json';
+  const room = JSON.parse(read(path));
+
+  const section = doc.split(/^## HIS CASE.*$/m)[1]?.split(/^## /m)[0];
+  if (!section) throw new Error('doc 17: no HIS CASE section');
+
+  const STATES = { A: 'case_roof', B: 'case_mud' };
+  const VERBS = { LOOK: 'LOOK_AT', LISTEN: 'LISTEN_TO' };
+  const orphans = [];
+
+  for (const block of section.matchAll(
+    /^\*\*State ([ABC]) —(.*?)\*\*(.*)\n((?:(?:\*\*|>).*\n)*)/gm)) {
+    const [, letter, label, tail, body] = block;
+    const id = STATES[letter];
+    if (!id) {
+      // State C is "the hotspot is gone". Doc 17 still carries two LISTEN
+      // variants under that heading, left over from the single-state version,
+      // and they belong to nothing: a hotspot that does not exist cannot
+      // answer LISTEN. Reported rather than wired to the nearest thing.
+      for (const line of quoted(body)) orphans.push(line);
+      continue;
+    }
+    const target = room.hotspots.find((entry) => entry.id === id);
+    if (!target) throw new Error(`doc 17: stage road has no hotspot "${id}"`);
+
+    for (const [verb, heading] of [[VERBS.LOOK, 'LOOK'], [VERBS.LISTEN, 'LISTEN']]) {
+      const run = body.match(new RegExp(`^\\*\\*${heading}\\*\\*(.+)$`, 'm'));
+      if (!run) throw new Error(`doc 17: state ${letter} has no ${heading} run`);
+      const said = variants(run[1]);
+      if (said.length !== 3 || said.some((line) => line === undefined)) {
+        throw new Error(`doc 17: state ${letter} ${heading} has ${said.length} variants`);
+      }
+      target.responses = target.responses ?? {};
+      target.responses[verb] = [{ say: said[0], repeat: said.slice(1) }];
+    }
+
+    target.overrides = {};
+    for (const entry of body.matchAll(/^> (.+)$/gm)) {
+      // Two forms. A plain refusal is `VERB — "line"`. The one that TAKES the
+      // object is written with the verb in bold and the line in italics --
+      // `**PICK UP — takes it.** *"I have it."*` -- because it is a different
+      // kind of thing and doc 17 marks it as one. "takes it" is the flag.
+      const takes = entry[1].match(/^\*\*(\w[\w ]*?) — takes it\.\*\*\s*\*"(.+?)"\*/);
+      if (takes) {
+        target.responses[takes[1].trim().replace(/ /g, '_')] = [
+          { say: takes[2], take: true },
+        ];
+        continue;
+      }
+      const plain_ = entry[1].match(/^(\w[\w ]*?) — "(.+?)"/);
+      if (!plain_) throw new Error(`doc 17: cannot read case override "${entry[1].slice(0, 40)}"`);
+      target.overrides[plain_[1].trim().replace(/ /g, '_')] = plain_[2];
+    }
+    if (Object.keys(target.overrides).length === 0) delete target.overrides;
+    target.note = `Doc 17, state ${letter}:${label.replace(/\*/g, '')}${tail.replace(/\*/g, '')}`
+      .replace(/\s+/g, ' ').trim();
+  }
+
+  for (const line of orphans) {
+    process.stderr.write(`  doc 17 ORPHAN: state C is "the hotspot is gone" and still `
+      + `carries a line -- "${line.slice(0, 52)}..."\n`);
+  }
+  return write(path, room);
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees()];
+  ...roomsBatchA(), ...minorTrees(), openingCase()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

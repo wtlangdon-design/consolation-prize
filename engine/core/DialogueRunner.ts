@@ -24,6 +24,8 @@ export interface SelectionResult {
 export type DialogueProgress = Record<string, string[]>;
 
 const EXIT_TAG = 'EXIT';
+//: Errata 37: the one tag that is removed once taken rather than greyed.
+const SPENT_TAG = 'PROGRESS';
 
 /**
  * Reads trees from JSON, evaluates gates against the flag store, applies
@@ -67,6 +69,22 @@ export class DialogueRunner {
   }
 
   /** Options whose gate currently holds, in authored order. */
+  /**
+   * ERRATA 37. An exhausted [PROGRESS] option is REMOVED; every other tag
+   * stays, greys, and remains selectable.
+   *
+   * The two behaviours are both right and they are right for different
+   * options. A progress question has been answered and leaving it in the
+   * list invites the player to ask it again. A topic or comic option's
+   * REPEAT RESPONSES ARE WRITTEN CONTENT -- doc 04's Winnie tree turns on
+   * asking her about the raccoon five times until she cracks, and removing
+   * exhausted options would delete that arc without a word.
+   *
+   * EXIT is never removed. It carries no tag exemption of its own here
+   * because it is not PROGRESS, but the guarantee is worth stating: the way
+   * out of a tree cannot be consumed, and a node whose every option has been
+   * taken still lists it.
+   */
   presentOptions(): PresentedOption[] {
     const node = this.currentNode;
     if (!node || !this.activeTree) return [];
@@ -77,7 +95,8 @@ export class DialogueRunner {
       .map((option) => ({
         option,
         exhausted: this.hasTaken(treeId, nodeId, option.id),
-      }));
+      }))
+      .filter((presented) => !(presented.exhausted && presented.option.tag === SPENT_TAG));
   }
 
   select(optionId: string): SelectionResult {

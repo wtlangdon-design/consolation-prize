@@ -85,9 +85,16 @@ def build(room_id: str, palette: Palette) -> IndexedCanvas:
             # mud it is standing in. Lifting the base is what gives them a lit
             # side and a shaded side, which is the difference between a person
             # and a post.
+            # THE SEED WAS NEVER PASSED, so all three of these characters got
+            # _build(0): the same hat, the same posture, the same girth. The
+            # rng argument varies their COAT COLOUR and nothing else, which is
+            # why three identical silhouettes in three different colours read
+            # as three copies of one man. It is derived from the id, so it is
+            # stable under anything being added upstream.
             crowd.standing(cell, palette, fw // 2, fh - 1, fh - 1,
                            random.Random(SEED ^ crc32(npc["id"].encode()) & 0xFFFF),
-                           pose=pose, tone=0.42)
+                           pose=pose, tone=0.42,
+                           seed=crc32(npc["id"].encode()) % 97)
             canvas.blit(cell, fx, fy, transparent=TRANSPARENT)
     return canvas
 

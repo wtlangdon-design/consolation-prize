@@ -61,7 +61,21 @@ export interface SequenceHost {
   isTurning(actor: string): boolean;
   /** Starts a one-shot clip and returns how long it runs, in seconds. */
   chore(actor: string, chore: string): number;
-  say(step: Extract<SequenceStep, { kind: 'say' }>): void;
+  /**
+   * Shows a line, and returns how long it stays up, in seconds.
+   *
+   * IT RETURNS A DURATION FOR THE SAME REASON `chore` DOES. This used to
+   * return void, and the runner treated a line as instantaneous: it called
+   * say, advanced, and went round the loop again in the SAME TICK. Beat 3 is
+   * two lines -- Thad's "My name is Thaddeus Grubb..." and the driver's
+   * "Course you have." -- so the first was drawn over by the second before a
+   * frame was ever presented, and the opening appeared to start halfway
+   * through its own joke.
+   *
+   * The runner does not decide how long; a duration is a property of the
+   * line and of whoever is reading it, and neither is the runner's business.
+   */
+  say(step: Extract<SequenceStep, { kind: 'say' }>): number;
 }
 
 export class SequenceRunner {
@@ -163,7 +177,18 @@ export class SequenceRunner {
         moved = true;
         continue;
       }
-      host.say(step);
+      // A line holds. See SequenceHost.say -- without this, every line in a
+      // beat but the last is drawn and overwritten within one tick.
+      //
+      // A hold of ZERO does not block. An `interact` say produces no line and
+      // returns 0, and so does a host that does not care about timing; making
+      // those wait a frame would put a frame's delay into every scripted
+      // interaction for no reason.
+      const hold = host.say(step);
+      if (hold > 0) {
+        this.waitUntil = seconds + hold;
+        this.waiting = true;
+      }
       this.index += 1;
       moved = true;
     }

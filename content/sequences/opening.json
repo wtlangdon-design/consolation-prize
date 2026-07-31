@@ -25,20 +25,20 @@
   ],
   "beats": [
     {
-      "beat": 1,
+      "beat": "1",
       "description": "Title over the ridge at night. Consolation below as scattered lamps in a great deal of darkness",
       "control": "menu",
       "note": "Longing, not comedy. No act card here"
     },
     {
-      "beat": 2,
-      "description": "Cut closer. The coach halted, the driver unloading. Thad steps down, straightens his coat, looks at the town",
+      "beat": "2",
+      "description": "The coach arrives and halts with Thad visibly aboard. He climbs down, straightens his coat, looks at the town. The driver gets up on the wheel to reach the roof rack",
       "control": "none",
-      "seconds": 6,
-      "note": "Largely visual. Keep it brief"
+      "seconds": 8,
+      "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen"
     },
     {
-      "beat": 3,
+      "beat": "3",
       "description": "\"My name is Thaddeus Grubb. I have come to Consolation to make my fortune.\" — \"Course you have.\"",
       "control": "none",
       "note": "Sincere, then punctured",
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "beat": 4,
+      "beat": "4",
       "description": "\"Four dollars?\" — Thad checks — \"Four dollars.\" — \"You've all got four.\"",
       "control": "player",
       "note": "The predatory machinery, unexplained",
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "beat": 5,
+      "beat": "5",
       "description": "Thad asks after Ezra Pike — \"Ask the undertaker. He knows everybody.\"",
       "control": "player",
       "note": "One destination. Nothing else.",
@@ -91,15 +91,18 @@
       ]
     },
     {
-      "beat": 6,
-      "description": "The case goes in the mud. \"Hotel's five.\" — \"I have four.\" The driver climbs aboard",
+      "beat": "6",
+      "description": "The case goes in the mud. \"Hotel's five dollars.\" — \"I have four.\" The driver climbs aboard",
       "control": "player",
       "note": "The material problem. He leaves before Thad can ask anything more",
+      "set": {
+        "T_CASE_DOWN": true
+      },
       "carriedBy": "STAGE_DRIVER",
       "lines": [
         {
           "speaker": "stage_driver",
-          "line": "Hotel's five."
+          "line": "Hotel's five dollars."
         },
         {
           "speaker": "thad",
@@ -108,7 +111,14 @@
       ]
     },
     {
-      "beat": 7,
+      "beat": "6b",
+      "description": "The coach DEPARTS — it does not vanish. Team walks, wheels turn, it leaves frame right over two or three seconds and the sound goes with it",
+      "control": "none",
+      "seconds": 3,
+      "note": "Player-audit fix. A coach that disappears on a click is not a coach leaving"
+    },
+    {
+      "beat": "7",
       "description": "The coach recedes east. A badly tuned piano, faint, from the town. ACT CARD",
       "control": "none",
       "seconds": 3,
@@ -116,13 +126,13 @@
       "actCard": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It"
     },
     {
-      "beat": 8,
+      "beat": "8",
       "description": "Control. Verb panel appears",
       "control": "player",
       "note": "~60–70 seconds elapsed"
     },
     {
-      "beat": 9,
+      "beat": "9",
       "description": "Hob's lamp crosses. \"Wouldn't stand there.\" / \"Why not?\" / \"No reason.\"",
       "control": "player",
       "note": "Now the second strange encounter, carrying no exposition",
@@ -145,7 +155,7 @@
       ]
     },
     {
-      "beat": 10,
+      "beat": "10",
       "description": "West, toward town",
       "control": "player",
       "note": "See the descent, below"
