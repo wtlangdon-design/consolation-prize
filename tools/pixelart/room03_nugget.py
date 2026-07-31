@@ -48,6 +48,11 @@ BOX = Box(
 #: back to this and to the chandelier.
 WINDOW = (10, 34, 26, 24)
 
+#: The bar counter's top. A module constant because two things need it and
+#: they are in different functions: the counter is drawn in compose() and the
+#: men leaning on it are placed in patrons().
+BAR_TOP = 90
+
 #: x, top, width. Ordered far to near, which is also drawing order.
 TABLES = ((156, 90, 22), (100, 98, 28), (76, 118, 34))
 #: The one doc 19 keeps vacated. Index into TABLES.
@@ -135,7 +140,7 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     # ramp walling off the corner of the room.
     furniture.back_bar(canvas, palette, 262, BOX.back_top + 8, 58, 44, fresh, dusk, brass, rng)
     bar_x, bar_w = 216, WIDTH - 216
-    bar_y, bar_h = 90, 26
+    bar_y, bar_h = BAR_TOP, 26
     furniture.bar_counter(canvas, palette, bar_x, bar_y, bar_w, bar_h, fresh, brass, rng, back_edge=6)
     furniture.glassware(canvas, palette, bar_x + 30, bar_y + 8, 4, glass, rng)
     furniture.spittoon(canvas, palette, bar_x - 16, HEIGHT - 16, 9, brass)
@@ -267,8 +272,13 @@ def patrons(canvas: IndexedCanvas, palette: Palette, rng) -> None:
     for x, feet, height in BAR_PATRONS:
         # The bar is the near group and 32c's detail hierarchy puts the real
         # detail here: an arm on the counter and a glass in it.
+        # rail_y is the bar top. A man at a bar puts a forearm ON it, and
+        # that horizontal is the most legible thing a 24px figure can do --
+        # without it the posture is "standing near the bar", which is what
+        # the whole row read as.
         drawn.append(crowd.standing(canvas, palette, x, feet, height, rng,
-                                    facing=(1, 0, -1)[x % 3], seed=seed, glass=seed % 3 == 1))
+                                    facing=(1, 0, -1)[x % 3], seed=seed,
+                                    glass=seed % 3 == 1, rail_y=BAR_TOP))
         seed += 1
     for x, table, height in TABLE_PATRONS:
         drawn.append(crowd.seated(canvas, palette, x, TABLES[table][1], height, rng,

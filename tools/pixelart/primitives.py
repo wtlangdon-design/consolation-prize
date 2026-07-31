@@ -201,9 +201,25 @@ def barrel(
     rng: random.Random,
     base: float = 0.46,
     open_top: bool = False,
+    horizon: int | None = None,
 ) -> None:
-    """A staved barrel: lid, hoops, staves, a highlight and a bung."""
+    """A staved barrel: lid, hoops, staves, a highlight and a bung.
+
+    ERRATA 36.3. THE LID ELLIPSE FOLLOWS THE HORIZON. Every barrel in the
+    game was drawn with the same lid at the same depth wherever it stood,
+    which is a camera in two places at once: you look DOWN into a barrel
+    whose top is below eye level and UP at the underside of one whose top is
+    above it, and how open the ellipse is says how far from eye level it is.
+    Given `horizon`, the lid's depth is computed from the distance to it and
+    a barrel standing above it shows a rim curving the other way instead of
+    a lid it cannot be showing.
+    """
     ry = max(3, width // 4)
+    above_eye = False
+    if horizon is not None:
+        drop = abs(y - horizon)
+        ry = max(1, min(width // 2 - 1, round(width * 0.5 * min(1.0, drop / 34))))
+        above_eye = y < horizon
     top = cylinder(canvas, x, y, width, height, ramp, base=base,
                    lid_lift=0.0 if open_top else 0.34, lid_depth=ry)
     cx = x + width // 2
@@ -227,7 +243,12 @@ def barrel(
         arc(canvas, cx, hoop_y, half, max(1, bow), hoops.frac(0.44), lower_half)
         arc(canvas, cx, hoop_y - 1, half, max(1, bow), hoops.frac(0.20), lower_half)
 
-    if open_top:
+    if above_eye:
+        # Seen from below: no lid at all, and the near rim bows UP. Drawing a
+        # lid here is drawing the top of something the camera is under.
+        arc(canvas, cx, top + ry, width // 2, ry, ramp.frac(min(0.96, base + 0.30)), upper_half)
+        arc(canvas, cx, top + ry + 1, width // 2, ry, ramp.frac(max(0.04, base - 0.22)), upper_half)
+    elif open_top:
         ellipse_fill(canvas, cx, top, max(1, width // 2 - 1), max(1, ry - 1),
                      ramp.frac(max(0.03, base - 0.30)))
         arc(canvas, cx, top, width // 2, ry, ramp.frac(min(0.96, base + 0.34)), upper_half)

@@ -75,6 +75,7 @@ PUDDLE_BAND = _band("stage_road", "puddles")
 
 
 def compose(with_coach: bool = True, lamp_x: int | None = None,
+            swing: int = 0, graze: tuple[int, int] = (0, 0),
             tracked: bool = False) -> tuple[IndexedCanvas, Palette]:
     palette = Palette.load()
     rng = random.Random(SEED)
@@ -219,14 +220,15 @@ def compose(with_coach: bool = True, lamp_x: int | None = None,
     # -- the coach, halted, driver unloading -------------------------------
     if with_coach:
         with (canvas.track('the coach') if tracked else nullcontext()):
-            coach(canvas, palette, rng, COACH_X, ROAD_Y + 2, umber, grey, gold)
+            coach(canvas, palette, rng, COACH_X, ROAD_Y + 2, umber, grey, gold,
+                  graze=graze)
 
     # -- Hob, and his lamp -------------------------------------------------
     # Hob is lit; his lamp is not, so only Hob goes in before the pass.
     lx = LAMP[0] if lamp_x is None else lamp_x
     ly = LAMP[1]
     with (canvas.track('hob') if tracked else nullcontext()):
-        watchman(canvas, palette, lx, ly, grey)
+        watchman(canvas, palette, lx, ly, grey, swing=swing)
 
     # -- one lighting pass over the lot ------------------------------------
     field = LightField(WIDTH, HEIGHT, ambient=AMBIENT)
@@ -399,16 +401,25 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int,
 
     # -- LEFT EDGE: the freight heap. A vertical mass at the frame edge, in
     #    depth: butt behind, barrels across it, sacks and crates in front.
+    # ERRATA 36.1: THE HEAP CLEARS THE TOWN'S WINDOWS. town_glow paints its
+    # lit squares between y=55 and y=64 across the whole of frame left, and
+    # the water butt stood from 54 to 80 -- straight through them. The only
+    # warm thing in the distance was behind a barrel. Everything here now
+    # starts at 66 or lower, which keeps the heap at the frame edge where
+    # 32b wants it and takes it out of the one band that matters.
     with tag("water butt"):
-        barrel(canvas, 2, ground_y - 42, 19, 26, pine, grey, rng, base=0.14, open_top=True)
+        barrel(canvas, 2, ground_y - 30, 19, 26, pine, grey, rng, base=0.14,
+               open_top=True, horizon=HORIZON)
     with tag("butt rope"):
         rope(canvas, catenary(8, ground_y - 44, 21, ground_y - 42, 5), pine, tone=0.16)
     with tag("freight barrel A"):
-        barrel(canvas, 18, ground_y - 32, 15, 18, umber, grey, rng, base=0.12)
+        barrel(canvas, 18, ground_y - 26, 15, 18, umber, grey, rng, base=0.12,
+               horizon=HORIZON)
     with tag("freight barrel B"):
-        barrel(canvas, 30, ground_y - 27, 12, 14, mud, grey, rng, base=0.10)
+        barrel(canvas, 30, ground_y - 22, 12, 14, mud, grey, rng, base=0.10,
+               horizon=HORIZON)
     with tag("freight crate"):
-        crate(canvas, 40, ground_y - 22, 14, 11, pine, rng, base=0.12)
+        crate(canvas, 40, ground_y - 18, 14, 11, pine, rng, base=0.12)
     with tag("freight sack A"):
         sack(canvas, 14, ground_y - 6, 13, 14, dust, rng, tone=0.16)
     with tag("freight sack B"):
@@ -460,12 +471,27 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int,
     with tag("cordwood spoil"):
         organic_mass(canvas, 292, ground_y - 4, 13, 6, mud, rng, tone=0.12, lumps=3)
     with tag("cordwood"):
-        for row in range(5):
-            for col in range(6 - row):
-                cx = 288 + col * 6 + row * 3
-                cy = ground_y - 8 - row * 5
-                ellipse_shaded(canvas, cx, cy, 3, 2, pine, 0.13, lift=0.14)
-                ellipse_outline(canvas, cx, cy, 3, 2, pine.frac(0.05))
+        # ERRATA 36.2. This was a five-row pyramid of three-pixel ellipses --
+        # log ENDS, stacked in a neat triangle -- and it read as cannonballs
+        # because a tidy pyramid of equal spheres is the only thing that
+        # shape says. Cordwood by a road is stacked LENGTHWAYS: long
+        # horizontals of unequal length, the stack settled at one end, and
+        # one log rolled off. The horizontals are also the point -- errata
+        # 3b: nothing in the frame was at an angle, and a sagging woodpile is
+        # the cheapest gravity available.
+        for row in range(6):
+            sag = row // 3                       # the stack has settled left
+            length = 30 - row * 3 - (row % 2) * 4
+            lx = 286 + (row % 2) * 2
+            ly = ground_y - 6 - row * 4 + sag
+            canvas.hline(lx, ly, length, pine.frac(max(0.05, 0.15 - row * 0.01)))
+            canvas.hline(lx, ly + 1, length, pine.frac(max(0.04, 0.09 - row * 0.01)))
+            canvas.hline(lx, ly + 2, length, pine.frac(0.05))
+            ellipse_shaded(canvas, lx, ly + 1, 2, 2, pine, 0.18, lift=0.12)   # the cut end
+        # One rolled off and lies across the others at an angle.
+        canvas.line(280, ground_y - 3, 306, ground_y - 7, pine.frac(0.16))
+        canvas.line(280, ground_y - 2, 306, ground_y - 6, pine.frac(0.09))
+        ellipse_shaded(canvas, 280, ground_y - 3, 2, 2, pine, 0.20, lift=0.12)
 
     # -- near band, and ONLY at the frame edges. A verge does not stop at the
     #    picture edge, and a few dark masses running off the bottom corners
@@ -678,7 +704,8 @@ def case(canvas: IndexedCanvas, palette: Palette, x: int, y: int, leather, brass
     canvas.put(x + 8, y + 4, brass.frac(0.30))
 
 
-def team(canvas: IndexedCanvas, x: int, ground: int, hide, iron) -> None:
+def team(canvas: IndexedCanvas, x: int, ground: int, hide, iron,
+         graze: tuple[int, int] = (0, 0)) -> None:
     """Two horses, hitched, heads down. Errata ruling 19a gives them lines.
 
     MEASURED, NOT DRAWN BY EYE, and the first version was badly wrong. The
@@ -709,8 +736,15 @@ def team(canvas: IndexedCanvas, x: int, ground: int, hide, iron) -> None:
     # At two steps apart the pair merged into one animal with eight legs; the
     # separation has to be tonal, because at this offset the shapes overlap
     # almost exactly and outline alone cannot do it.
-    for offset, up, tone in ((-11, -4, 0.06), (0, 0, 0.28)):
+    # ERRATA 35d: the heads come UP. `graze` is 0 for a head at the ground
+    # and 1 for a head raised and chewing, PER HORSE -- the two are out of
+    # phase because two animals lifting together is a pantomime horse. The
+    # neck is redrawn rather than translated: a raised head shortens the
+    # neck's reach as well as lifting it, and sliding the same pixels up
+    # gives a giraffe.
+    for index, (offset, up, tone) in enumerate(((-11, -4, 0.06), (0, 0, 0.28))):
         left = x + offset
+        raise_by = graze[index] * 9
         back = ground - WITHERS + up
         belly = back + DEPTH
 
@@ -745,18 +779,19 @@ def team(canvas: IndexedCanvas, x: int, ground: int, hide, iron) -> None:
         # and NARROWS as it goes -- a constant-width neck is a plank.
         for step in range(15):
             along = step / 14
-            nx = left + 11 - round(along * 11)
-            ny = back + 1 + round(along * 13)
+            nx = left + 11 - round(along * (11 - raise_by * 0.4))
+            ny = back + 1 + round(along * (13 - raise_by))
             thick = max(3, round(8 - along * 4))
             canvas.vline(nx, ny, thick, hide.frac(tone + 0.03))
             canvas.put(nx, ny, hide.frac(min(0.95, tone + 0.16)))       # crest
         # The head hangs off the end of the neck, longer than it is deep,
         # angled down. A square is a box; a horse's head is a wedge.
+        head_y = ground - 11 - raise_by
         for step in range(7):
-            canvas.vline(left - 4 + step, ground - 11 + step // 2, 5 - step // 3,
-                         hide.frac(tone + 0.05))
-        canvas.put(left - 4, ground - 7, hide.frac(tone + 0.20))            # muzzle
-        canvas.put(left + 4, ground - 13, hide.frac(tone + 0.15))           # ear
+            canvas.vline(left - 4 + step + raise_by // 3, head_y + step // 2,
+                         5 - step // 3, hide.frac(tone + 0.05))
+        canvas.put(left - 4 + raise_by // 3, head_y + 4, hide.frac(tone + 0.20))   # muzzle
+        canvas.put(left + 4, ground - 13 - raise_by, hide.frac(tone + 0.15))       # ear
 
         # Legs. Fore under the shoulder, hind under the rump, each pair one
         # forward of the other so the four are not a fence. Narrow below the
@@ -803,7 +838,8 @@ def cart_wheel(canvas: IndexedCanvas, cx: int, cy: int, radius: int, iron, spoke
     canvas.rect(cx - 1, cy - 1, 3, 3, iron.frac(0.34))
 
 
-def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, iron, brass) -> None:
+def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, iron, brass,
+          graze: tuple[int, int] = (0, 0)) -> None:
     """The stage, halted, facing west. Departs on the driver's exit line.
 
     SILHOUETTE FIRST, because at 1x that is all there is: two round wheels of
@@ -833,7 +869,7 @@ def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, ir
     canvas.line(x + 4, ground - 13, x - 26, ground - 4, iron.frac(0.26))
     canvas.line(x + 4, ground - 12, x - 26, ground - 3, iron.frac(0.16))
     canvas.vline(x - 26, ground - 7, 5, iron.frac(0.22))          # swingletree
-    team(canvas, x - 74, ground, body, iron)
+    team(canvas, x - 74, ground, body, iron, graze=graze)
 
     # Leather braces. The body of a stage hangs on them rather than sitting on
     # the axle, and the two diagonals under the doors are the most
@@ -913,13 +949,59 @@ def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, ir
     canvas.put(x - 16, y - 5, brass.frac(0.58))
 
 
-def watchman(canvas: IndexedCanvas, palette: Palette, x: int, y: int, cloth) -> None:
-    """Hob, crossing. A dark figure, drawn before the pass because he is lit."""
-    canvas.rect(x + 3, y - 2, 7, 14, cloth.frac(0.06))      # body, near-black
-    canvas.rect(x + 4, y - 7, 5, 5, cloth.frac(0.08))       # head
-    canvas.rect(x + 3, y + 12, 3, 4, cloth.frac(0.05))      # legs
-    canvas.rect(x + 7, y + 12, 3, 4, cloth.frac(0.05))
-    canvas.vline(x + 2, y + 1, 5, cloth.frac(0.10))         # arm to the lamp
+def watchman(canvas: IndexedCanvas, palette: Palette, x: int, y: int, cloth,
+             swing: int = 0) -> None:
+    """Hob, crossing, LIT BY HIS OWN LAMP. Errata 35c.
+
+    He was five rectangles at cloth 0.05 to 0.10 -- a black slab, and 35c is
+    right that a black slab is not a man you walked past, it is a shape. The
+    whole Act III reveal rests on a player having seen him and not looked
+    twice, and you cannot fail to look twice at something with no face.
+
+    THE LAMP IS ON HIS LEFT, so his left side is lit and his right is not.
+    That is the entire drawing: the same silhouette, with two columns of warm
+    value down the near edge and a face that has a brow, an eye socket and a
+    jaw. He should be UNREMARKABLE, which is a different thing from invisible.
+
+    `swing` moves the lamp arm and the lit edge together. The light on him
+    moves because the lamp does -- lighting him from a fixed side while the
+    lamp swings would be worse than not swinging it.
+    """
+    skin = palette.family("dust")
+    warm = palette.family("ochre")
+    dark = palette.family("void")
+    lit = max(0.0, 0.06 + swing * 0.02)          # the near edge, lamp-side
+
+    # Coat: near-black on the far side, warm on the lamp side. Two columns,
+    # because at seven pixels across two columns is a quarter of him.
+    canvas.rect(x + 3, y - 2, 7, 14, cloth.frac(0.05))
+    canvas.vline(x + 3, y - 2, 14, warm.frac(0.16 + lit))
+    canvas.vline(x + 4, y - 1, 13, warm.frac(0.10 + lit * 0.5))
+    canvas.hline(x + 3, y - 2, 7, cloth.frac(0.11))          # shoulder line
+    canvas.hline(x + 4, y + 11, 6, dark.at(0))               # coat hem
+
+    # Legs, with light between them.
+    canvas.rect(x + 3, y + 12, 2, 4, cloth.frac(0.05))
+    canvas.rect(x + 8, y + 12, 2, 4, cloth.frac(0.04))
+    canvas.hline(x + 3, y + 15, 7, dark.at(0))
+
+    # THE FACE. Five by five, and four of those pixels do the work: a lit
+    # cheek and jaw on the lamp side, a dark eye socket, a brow above it.
+    canvas.rect(x + 4, y - 7, 5, 5, cloth.frac(0.06))        # hat shadow / hair
+    canvas.rect(x + 4, y - 5, 4, 3, skin.frac(0.16))         # the face, in shade
+    canvas.vline(x + 4, y - 5, 3, skin.frac(0.34 + lit))     # lamp-side cheek
+    canvas.put(x + 5, y - 5, skin.frac(0.30 + lit))
+    canvas.put(x + 5, y - 4, dark.at(0))                     # the eye
+    canvas.put(x + 6, y - 4, skin.frac(0.12))
+    canvas.hline(x + 4, y - 6, 4, cloth.frac(0.09))          # the brow
+    canvas.put(x + 4, y - 3, skin.frac(0.26 + lit))          # jaw, catching it
+    # A hat with a brim, so the head is not a cube.
+    canvas.hline(x + 3, y - 8, 7, cloth.frac(0.08))
+    canvas.hline(x + 4, y - 9, 5, cloth.frac(0.05))
+
+    # The arm to the lamp, and it moves with the swing.
+    canvas.vline(x + 2 + swing, y + 1, 5, warm.frac(0.14 + lit))
+    canvas.put(x + 2 + swing, y + 6, skin.frac(0.24 + lit))  # the hand on the bail
 
 
 def lantern(canvas: IndexedCanvas, x: int, y: int) -> None:

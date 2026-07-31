@@ -75,14 +75,19 @@ def _garment(palette: Palette, rng, tone: float, named: str | None = None):
 #: is that no two OUTLINES match, and headgear plus posture does that for
 #: about four pixels a man.
 HATS = ("slouch", "stovepipe", "cap", "bare", "back")
-POSTURES = ("upright", "lean", "hunch", "hip")
 
 
 def _build(seed: int) -> dict:
     """One man's silhouette, from his own index. Stable under upstream change."""
+    # POSTURE VARIES FASTEST. It used to be HATS[seed] and POSTURES[seed//5],
+    # so seeds 0 to 4 -- which is every man at the bar and most of a table --
+    # all got posture 0. Eleven men, one posture, and 3a reported exactly
+    # that: nobody leaning on anything. Posture is the most visible property
+    # a figure this size has, so it is the one that must differ between
+    # neighbours, and the hat is the one that may repeat.
     return {
-        "hat": HATS[seed % len(HATS)],
-        "posture": POSTURES[(seed // 5) % len(POSTURES)],
+        "hat": HATS[(seed // 4) % len(HATS)],
+        "posture": POSTURES[seed % len(POSTURES)],
         "arm": (seed // 3) % 3,          # 0 none, 1 hanging, 2 bent
         "girth": (seed * 7) % 3 - 1,     # a pixel either way on the shoulders
         "stoop": (seed // 7) % 2,        # a pixel off the head height
@@ -116,119 +121,164 @@ def _headgear(canvas, cloth, base, kind, head_x, head_top, head_w) -> int:
     return 2
 
 
+#: ERRATA 36/3a. Four postures, and they are TRANSFORMS rather than a pixel
+#: of sway. The old set -- upright, lean, hunch, hip -- moved the shoulders by
+#: one pixel over a body six pixels wide, which is not a posture, it is a
+#: rounding error. These change where the weight is, where the arms go, and
+#: what the outline does at the elbow, which is the only place a person at
+#: twenty-six pixels is distinguishable from a filing cabinet.
+POSTURES = ("bar_lean", "akimbo", "hunch", "turned")
+
+
+def _proportions(height: int, girth: int) -> dict:
+    """Shoulders wider than hips, hips wider than a leg, head narrower again.
+
+    THE OLD NUMBERS MADE THE FIGURE SIX PIXELS WIDE at height 24 -- 0.26 of
+    the height -- and then drew four one-pixel leg columns into it. There was
+    no room left for daylight between the legs, so eleven men came out as
+    eleven slabs and every internal shading step landed inside the keyline.
+    A man is about a third of his height across the shoulders; at 24 that is
+    nine pixels, and nine is enough to have a gap in the middle of.
+    """
+    shoulder = max(7, round(height * 0.40) + girth)
+    return {
+        "head_h": max(3, round(height * 0.17)),
+        "torso_h": max(7, round(height * 0.40)),
+        "shoulder": shoulder,
+        "hip": max(5, shoulder - 2),
+        "head_w": max(3, shoulder - 5),
+        "leg_w": max(2, (shoulder - 2) // 4),
+    }
+
+
 def standing(
     canvas: IndexedCanvas, palette: Palette, x: int, feet_y: int, height: int, rng,
     hat: bool = True, facing: int = 0, tone: float = 0.14, pose: int = 0,
     glass: bool = False, seed: int = 0, garment: str | None = None,
+    rail_y: int | None = None,
 ) -> tuple[int, int, int, int]:
-    """A man standing, seen from behind or three-quarters. Returns his bounds.
+    """A man standing. Returns his bounds.
 
-    `facing` is -1, 0 or 1 and only moves the shoulders and the hat brim by a
-    pixel. At this size it is the difference between a row of identical
-    cutouts and a group of people, and it costs almost nothing.
+    SILHOUETTE FIRST, then posture. Head narrower than shoulders, shoulders
+    wider than hips, two legs with light between them, and one arm that
+    breaks the outline. Everything below is in service of the shape read at a
+    glance -- internal shading at this size is decoration and the outline is
+    the drawing.
+
+    `rail_y`, when given, is the top of something to lean on. A man at a bar
+    puts a forearm ON it, and that horizontal is the single most legible thing
+    a figure this size can do.
     """
     cloth, base = _garment(palette, rng, tone, garment)
     dark = palette.family("void")
-
-    # Proportions, not fractions of a box. The first version divided the
-    # height into thirds and drew a rectangle per third, and eleven of them
-    # read as eleven barrels: a person is narrow at the head, wide at the
-    # shoulder and split at the legs, and if those three are not there the
-    # size does not matter.
+    skin = palette.family("dust")
     build = _build(seed)
-    head_h = max(3, round(height * 0.16))
-    leg_h = max(4, round(height * 0.34))
-    body_h = height - head_h - leg_h - 1                     # 1 for the neck
-    width = max(5, round(height * 0.26) + build["girth"])
-    left = x - width // 2
-    # Posture: where the shoulders sit relative to the hips, and how far the
-    # head drops toward them. Two pixels of difference, and it is the
-    # difference between a rank of cutouts and a group of men waiting.
-    sway = {"upright": 0, "lean": 1, "hunch": 0, "hip": -1}[build["posture"]]
-    stoop = build["stoop"] + (1 if build["posture"] == "hunch" else 0)
+    posture = build["posture"]
+    prop = _proportions(height, build["girth"])
 
-    # Ruling 20's second frame. One pixel of weight shift: the legs stay put
-    # and everything above the hip comes up. That is the whole animation, and
-    # at 27 pixels it is the right amount -- a bigger move at this size reads
-    # as a walk cycle, and ruling 20 is explicit that these are idles.
+    head_h, torso_h = prop["head_h"], prop["torso_h"]
+    shoulder_w, hip_w, leg_w = prop["shoulder"], prop["hip"], prop["leg_w"]
+    leg_h = max(5, height - head_h - torso_h - 1)
+    side = 1 if facing >= 0 else -1
+
+    # Ruling 20's second frame: a pixel of lift above the hip, legs planted.
     lift = 1 if pose else 0
+    # Posture, as offsets rather than as a mood.
+    #   lean     shoulders displaced toward what he is leaning on
+    #   rise     shoulders raised (hunch) or dropped (turned)
+    #   narrow   foreshortening, for the man with his back half to us
+    lean = {"bar_lean": 2 * side, "akimbo": 0, "hunch": 0, "turned": -side}[posture]
+    rise = {"bar_lean": 0, "akimbo": 0, "hunch": -1, "turned": 1}[posture]
+    narrow = 2 if posture == "turned" else 0
+    shoulder_w = max(6, shoulder_w - narrow)
 
-    # Legs, with daylight between them.
-    hip = feet_y - leg_h
-    canvas.vline(left + 1, hip, leg_h, cloth.frac(max(0.04, base - 0.12)))
-    canvas.vline(left + 2, hip, leg_h, cloth.frac(max(0.03, base - 0.16)))
-    canvas.vline(left + width - 2, hip, leg_h, cloth.frac(max(0.04, base - 0.13)))
-    canvas.vline(left + width - 3, hip, leg_h, cloth.frac(max(0.03, base - 0.17)))
-    canvas.hline(left + 1, feet_y - 1, width - 2, dark.at(0))            # boots in the dirt
+    hip_y = feet_y - leg_h
+    hip_left = x - hip_w // 2
 
-    # Coat: widest at the shoulder, narrowing to the hem, with the arms a
-    # step darker than the back so the mass is not one slab.
-    body_top = hip - body_h - lift
-    for row in range(body_h + lift):
-        inset = 1 if row >= body_h + lift - 2 else 0
-        # The shoulders drift over the hips by `sway`, easing to nothing at
-        # the waist -- a man leaning on a bar is not a parallelogram.
-        drift = round(sway * (1 - row / max(1, body_h)))
-        canvas.hline(left + inset + drift, body_top + row, width - inset * 2, cloth.frac(base))
-    canvas.hline(left + sway, body_top, width, cloth.frac(min(0.9, base + 0.16)))  # lit shoulder
-    canvas.vline(left + sway, body_top + 1, body_h - 1, cloth.frac(max(0.03, base - 0.09)))
-    canvas.vline(left + width - 1 + sway, body_top + 1, body_h - 1,
-                 cloth.frac(max(0.03, base - 0.13)))
+    # -- LEGS. Two of them, with daylight down the middle. The gap is the
+    #    whole point and it is checked rather than hoped for.
+    gap = hip_w - leg_w * 2
+    if gap < 1:
+        raise ValueError(f"a {height}px figure has no daylight between its legs")
+    stride = 1 if posture in ("akimbo", "bar_lean") else 0
+    for index, leg_x in enumerate((hip_left, hip_left + hip_w - leg_w)):
+        # One leg forward on a cocked hip, and one crossed at the ankle for
+        # the man at the bar. Two pixels, and it is the last thing separating
+        # one outline from the next.
+        drop = stride if index else 0
+        canvas.rect(leg_x, hip_y, leg_w, leg_h - drop, cloth.frac(max(0.04, base - 0.10)))
+        canvas.vline(leg_x, hip_y, leg_h - drop, cloth.frac(max(0.03, base - 0.18)))
+    if posture == "bar_lean":                       # ankle crossed behind
+        canvas.hline(hip_left + 1, feet_y - 2, hip_w - 2, cloth.frac(max(0.03, base - 0.20)))
+    canvas.hline(hip_left, feet_y - 1, hip_w, dark.at(0))               # boots in the dirt
 
-    # AN ARM. The coat was a solid slab from shoulder to hem on all eleven,
-    # and an arm is two pixels wide -- a hanging one breaks the outline at
-    # the elbow, a bent one puts a hand where the bar is.
-    # It has to be OUTSIDE the coat. The first version drew it in the body's
-    # last column, a step darker -- which is invisible against a dark coat
-    # and changes nothing about the outline, and the outline is the entire
-    # point. An arm that does not break the silhouette is not an arm.
-    if build["arm"]:
-        side = 1 if facing >= 0 else -1
-        edge = (left + width + sway) if side > 0 else (left - 1 + sway)
-        elbow = body_top + max(3, body_h // 2)
-        canvas.vline(edge, body_top + 2, elbow - body_top - 1,
-                     cloth.frac(max(0.04, base - 0.06)))
-        canvas.vline(edge, body_top + 2, 1, cloth.frac(min(0.9, base + 0.10)))
-        if build["arm"] == 2:                       # bent, hand forward
-            canvas.hline(min(edge, edge + side * 2), elbow, 3,
-                         cloth.frac(max(0.04, base - 0.04)))
-            canvas.put(edge + side * 2, elbow, palette.family("dust").frac(0.22))
-        else:                                       # hanging, hand at the hip
-            canvas.vline(edge, elbow, max(2, body_h - (elbow - body_top)),
-                         cloth.frac(max(0.04, base - 0.10)))
-            canvas.put(edge, hip - 1, palette.family("dust").frac(0.20))
+    # -- TORSO. Trapezoid: shoulders wide, waist narrow, so the mass has a
+    #    direction. A rectangle has none, which is what eleven rectangles
+    #    looked like.
+    torso_top = hip_y - torso_h - lift + rise
+    for row in range(torso_h + lift):
+        t = row / max(1, torso_h + lift - 1)
+        w = round(shoulder_w - (shoulder_w - hip_w) * t)
+        drift = round(lean * (1 - t))
+        canvas.hline(x - w // 2 + drift, torso_top + row, w, cloth.frac(base))
+    canvas.hline(x - shoulder_w // 2 + lean, torso_top, shoulder_w,
+                 cloth.frac(min(0.92, base + 0.18)))                    # lit shoulder line
+    canvas.vline(x - shoulder_w // 2 + lean, torso_top + 1, torso_h - 2,
+                 cloth.frac(max(0.03, base - 0.10)))
 
-    # STANCE. Every man had both boots square under him. One foot forward, or
-    # up on the bar rail, is two pixels and it is the last thing separating
-    # eleven outlines.
-    if build["posture"] == "lean":
-        canvas.hline(left + width - 1, feet_y - max(2, leg_h // 3), 2,
-                     cloth.frac(max(0.03, base - 0.14)))
-    elif build["posture"] == "hip":
-        canvas.hline(left - 1, feet_y - 1, 2, dark.at(0))
-    # A glass, going up on the second frame. One pixel of sky family, which
-    # is the only cold thing on a man in a warm room and so reads as glass.
+    # -- ARMS, ALWAYS, and always OUTSIDE the torso. An arm inside the
+    #    outline is a shading step; an arm outside it is an arm.
+    arm_top = torso_top + 2
+    arm_len = max(4, torso_h - 2)
+    near = x + side * (shoulder_w // 2) + lean
+    far = x - side * (shoulder_w // 2) + lean
+    if posture == "bar_lean" and rail_y is not None:
+        # Forearm ON the rail. The horizontal is the most legible thing a
+        # figure this size can do, and it is what says "leaning on the bar"
+        # rather than "standing near the bar".
+        elbow = min(rail_y - 1, arm_top + arm_len // 2)
+        canvas.vline(near, arm_top, max(2, elbow - arm_top), cloth.frac(max(0.04, base - 0.05)))
+        canvas.hline(min(near, near + side * 4), elbow, 5, cloth.frac(max(0.04, base - 0.02)))
+        canvas.put(near + side * 4, elbow, skin.frac(0.26))
+        canvas.vline(far, arm_top, arm_len, cloth.frac(max(0.03, base - 0.12)))
+    elif posture == "akimbo":
+        # Hand on the hip: the arm bows out and leaves a HOLE between elbow
+        # and waist. A gap inside a silhouette is worth more than any amount
+        # of shading -- it is the only shape here the eye cannot read as a box.
+        elbow_x = near + side * 2
+        canvas.vline(near, arm_top, 2, cloth.frac(max(0.04, base - 0.04)))
+        canvas.vline(elbow_x, arm_top + 1, arm_len - 3, cloth.frac(max(0.04, base - 0.04)))
+        canvas.hline(min(elbow_x, x), hip_y - 2, 3, cloth.frac(max(0.03, base - 0.10)))
+        canvas.put(elbow_x - side, hip_y - 2, skin.frac(0.24))
+        canvas.vline(far, arm_top, arm_len, cloth.frac(max(0.03, base - 0.12)))
+    elif posture == "hunch":
+        # Both forearms forward, hands together. Shoulders already raised.
+        for edge in (near, far):
+            canvas.vline(edge, arm_top, arm_len - 2, cloth.frac(max(0.04, base - 0.06)))
+        canvas.hline(min(near, far), arm_top + arm_len - 2, abs(near - far) + 1,
+                     cloth.frac(max(0.04, base - 0.03)))
+        canvas.put(x, arm_top + arm_len - 2, skin.frac(0.22))
+    else:                                            # turned: one arm hidden
+        canvas.vline(far, arm_top, arm_len, cloth.frac(max(0.04, base - 0.06)))
+        canvas.put(far, arm_top + arm_len - 1, skin.frac(0.22))
+
     if glass:
-        canvas.put(left + width, body_top + 2 - lift * 2, palette.family("sky").frac(0.62))
+        canvas.put(near + side, torso_top + 2 - lift * 2, palette.family("sky").frac(0.62))
 
-    # Neck, then a head narrower than the shoulders. That difference is most
-    # of what says "man" at twenty-six pixels.
-    head_w = max(3, width - 4)
-    head_x = left + (width - head_w) // 2 + facing + sway
-    canvas.hline(head_x, body_top - 1, head_w, cloth.frac(max(0.03, base - 0.14)))
-    head_top = body_top - 1 - head_h + stoop
-    canvas.rect(head_x, head_top, head_w, head_h, palette.family("dust").frac(0.20))
-    canvas.vline(head_x + head_w - 1, head_top, head_h, palette.family("dust").frac(0.12))
+    # -- NECK AND HEAD. Narrower than the shoulders by five pixels, which is
+    #    most of what says "man" rather than "post".
+    head_w = prop["head_w"]
+    head_x = x - head_w // 2 + facing + lean + (side if posture == "hunch" else 0)
+    canvas.hline(head_x, torso_top - 1, head_w, cloth.frac(max(0.03, base - 0.16)))
+    head_top = torso_top - 1 - head_h + build["stoop"]
+    canvas.rect(head_x, head_top, head_w, head_h, skin.frac(0.20))
+    canvas.vline(head_x + head_w - 1, head_top, head_h, skin.frac(0.12))
     if hat:
         head_top -= _headgear(canvas, cloth, base, build["hat"], head_x, head_top, head_w)
 
-    # A keyline, in void, which has one entry and therefore cannot be lifted
-    # by the lighting pass. Without it these read fine in shadow and dissolve
-    # into pale sacks wherever the window shaft or the chandelier lands on
-    # them -- lit correctly, and unreadable, which is the worst combination.
-    _keyline(canvas, dark, left, body_top, width, body_h + lift, head_x, head_top, head_w,
-             body_top - head_top)
-    return left - 1, head_top, width + 2, feet_y - head_top
+    _keyline(canvas, dark, x - shoulder_w // 2 + lean, torso_top, shoulder_w,
+             torso_h + lift, head_x, head_top, head_w, torso_top - head_top, side=-side)
+    return x - shoulder_w // 2 - 1, head_top, shoulder_w + 2, feet_y - head_top
 
 
 def seated(
@@ -238,53 +288,72 @@ def seated(
 ) -> tuple[int, int, int, int]:
     """A man at a table: head and shoulders above the top, and nothing else.
 
-    Drawing legs under a table is drawing something nobody can see, and at
-    this size the two pixels it would cost are two pixels of noise. What
-    makes a seated figure read is that his shoulders START at the table.
+    Drawing legs under a table is drawing something nobody can see. What makes
+    a seated figure read is that his shoulders START at the table -- and, per
+    3a, that his ELBOWS ARE ON IT. A seated man who is not touching the table
+    is a bust on a plinth.
     """
     cloth, base = _garment(palette, rng, tone)
+    dark = palette.family("void")
+    skin = palette.family("dust")
     build = _build(seed)
-    head_h = max(3, round(height * 0.30))
-    width = max(6, round(height * 0.55) + build["girth"])
+    posture = build["posture"]
+    head_h = max(4, round(height * 0.30))
+    width = max(8, round(height * 0.58) + build["girth"])
     left = x - width // 2
+    side = 1 if facing >= 0 else -1
 
-    # Ruling 20's second frame, seated: he leans back a pixel. The shoulders
-    # stay at the table because that is what makes a seated figure read.
     shoulder_h = height - head_h - 1 + (1 if pose else 0)
     body_top = table_top - shoulder_h
+    # Sloped shoulders rather than a square top: at this size the two pixels
+    # taken off each corner are the difference between a man and a crate.
     for row in range(shoulder_h):
-        canvas.hline(left + (1 if row == 0 else 0), body_top + row,
-                     width - (2 if row == 0 else 0), cloth.frac(base))
-    canvas.hline(left + 1, body_top, width - 2, cloth.frac(min(0.9, base + 0.14)))
-    canvas.vline(left + width - 1, body_top + 1, shoulder_h - 1, cloth.frac(max(0.03, base - 0.12)))
+        inset = 2 if row == 0 else (1 if row == 1 else 0)
+        canvas.hline(left + inset, body_top + row, width - inset * 2, cloth.frac(base))
+    canvas.hline(left + 2, body_top, width - 4, cloth.frac(min(0.92, base + 0.16)))
+    canvas.vline(left + width - 1, body_top + 2, shoulder_h - 2, cloth.frac(max(0.03, base - 0.12)))
 
-    head_w = max(3, width - 4)
-    head_x = left + (width - head_w) // 2 + facing
-    canvas.hline(head_x, body_top - 1, head_w, cloth.frac(max(0.03, base - 0.14)))
+    # BOTH FOREARMS ON THE TABLE for a man talking, one for a man turned away,
+    # and the hand pixel is what stops them reading as sleeves.
+    reach = max(3, width // 2)
+    if posture in ("hunch", "bar_lean"):
+        for edge in (left, left + width - reach):
+            canvas.hline(edge, table_top - 1, reach, cloth.frac(max(0.03, base - 0.06)))
+        canvas.put(left + 1, table_top - 1, skin.frac(0.24))
+        canvas.put(left + width - 2, table_top - 1, skin.frac(0.24))
+    else:
+        edge = left if side < 0 else left + width - reach
+        canvas.hline(edge, table_top - 1, reach, cloth.frac(max(0.03, base - 0.06)))
+        canvas.put(edge if side < 0 else edge + reach - 1, table_top - 1, skin.frac(0.24))
+
+    head_w = max(3, width - 5)
+    head_x = left + (width - head_w) // 2 + facing + (side if posture == "turned" else 0)
+    canvas.hline(head_x, body_top - 1, head_w, cloth.frac(max(0.03, base - 0.16)))
     head_top = body_top - 1 - head_h + build["stoop"]
-    canvas.rect(head_x, head_top, head_w, head_h, palette.family("dust").frac(0.20))
-    canvas.vline(head_x + head_w - 1, head_top, head_h, palette.family("dust").frac(0.12))
-    # A forearm on the table -- the one thing a seated man does that a
-    # standing one does not, and it is three pixels.
-    if build["arm"]:
-        reach = 2 + build["arm"]
-        canvas.hline(left + (0 if facing < 0 else width - reach), table_top - 1, reach,
-                     cloth.frac(max(0.03, base - 0.18)))
+    canvas.rect(head_x, head_top, head_w, head_h, skin.frac(0.20))
+    canvas.vline(head_x + head_w - 1, head_top, head_h, skin.frac(0.12))
     if hat:
         head_top -= _headgear(canvas, cloth, base, build["hat"], head_x, head_top, head_w)
-    _keyline(canvas, palette.family("void"), left, body_top, width, shoulder_h,
-             head_x, head_top, head_w, body_top - head_top)
+    _keyline(canvas, dark, left, body_top, width, shoulder_h,
+             head_x, head_top, head_w, body_top - head_top, side=-side)
     return left - 1, head_top, width + 2, table_top - head_top
 
 
 def _keyline(canvas, dark, left, body_top, width, body_h,
-             head_x, head_top, head_w, head_h) -> None:
-    """One dark pixel down each edge. Cheap, and it is the whole difference."""
-    canvas.vline(left - 1, body_top, body_h, dark.at(0))
-    canvas.vline(left + width, body_top, body_h, dark.at(0))
-    canvas.vline(head_x - 1, head_top, head_h, dark.at(0))
-    canvas.vline(head_x + head_w, head_top, head_h, dark.at(0))
-    canvas.hline(head_x - 1, head_top - 1, head_w + 2, dark.at(0))
+             head_x, head_top, head_w, head_h, side: int = 1) -> None:
+    """A dark edge on ONE side, and the crown.
+
+    It used to run down both sides of the torso and all four sides of the
+    head. At nine pixels across that is two columns of pure void out of nine
+    and a closed box around a five-pixel head -- which is exactly the reading
+    3a reports: a rectangle with a rectangle on top. The keyline exists so a
+    figure does not dissolve where the light lands on him, and one edge does
+    that. Two edges draw a box.
+    """
+    shadow = left + width if side > 0 else left - 1
+    canvas.vline(shadow, body_top, body_h, dark.at(0))
+    canvas.vline(head_x + head_w if side > 0 else head_x - 1, head_top, head_h, dark.at(0))
+    canvas.hline(head_x, head_top - 1, head_w, dark.at(0))
 
 
 def overlaps(a: tuple[int, int, int, int], b: tuple[int, int, int, int]) -> bool:

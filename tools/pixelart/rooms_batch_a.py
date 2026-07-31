@@ -141,11 +141,25 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
     brass, brass_tone = script["secondary"]
     lamp_ramp, lamp_tone = script["accent"]
     bone = palette.family("bone")
-    pine = palette.family("pine_weathered")
+    # ERRATA 30d, AMENDED. "The only cool interior" governs the room's
+    # DOMINANT FIELD, not every surface in it, and reading it as every
+    # surface produced exactly one colour: wall, wainscot, floor, settee and
+    # stairs all the same blue-grey, which is the ruling doing what it was
+    # asked and the asking being wrong.
+    #
+    # pine_weathered was already a different FAMILY and that changed nothing,
+    # because it measures saturation 0.17 -- effectively grey -- and a cool
+    # field with an indigo shadow tint pushes grey timber straight to blue.
+    # A second material has to differ in HUE, not in name. So the boards and
+    # the treads are umber, which is warm and stays warm through the pass,
+    # and the brass is lifted until it reads as brass rather than as a lighter
+    # blue. The room is still cool: the field is 55 to 70 per cent of the
+    # frame and every bit of it is sky.
+    pine = palette.family("umber")
 
     shell(canvas, palette, box, script, rng)
     batten_wall(canvas, box, plush, plush_tone)
-    interior.plank_floor(canvas, box, pine, rng, base=0.30)
+    interior.plank_floor(canvas, box, pine, rng, base=0.34)
 
     # -- the staircase, climbing the long right-hand wall. It is the room's
     #    largest object and the reason the box is asymmetric: a stair on a
@@ -166,7 +180,7 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
                 canvas.hline(x + 1, y, 10, plush.frac(max(0.05, plush_tone - 0.12)))
         # The banister, which is what makes it a stair rather than a ziggurat.
         canvas.line(box.back_right - 4, box.back_bottom - 20, WIDTH - 6, box.back_bottom - 76,
-                    brass.frac(brass_tone + 0.16))
+                    brass.frac(min(0.95, brass_tone + 0.40)))
         canvas.line(box.back_right - 4, box.back_bottom - 18, WIDTH - 6, box.back_bottom - 74,
                     brass.frac(max(0.04, brass_tone - 0.14)))
         for post in range(6):
