@@ -354,3 +354,50 @@ This falls out of the LOOK/LISTEN doctrine in doc 05 and should have been stated
 3. The line rewritten, or moved to LISTEN
 
 **Report the list before rewriting anything. The choice between the three is a design decision per hotspot, not a mechanical fix.**
+
+---
+
+# 20 · SPRITE MOTION DENSITY — amends 19b and doc 18
+
+**Raised by Tyler after watching gameplay footage, and it corrects me.** I wrote doc 18 from memory and described Monkey Island's screens as largely still, with motion supplied by a few palette-cycled background elements. That is true of the *backgrounds* and badly understates the sprite layer.
+
+In play, almost every populated screen in Monkey Island is moving. The SCUMM Bar holds roughly twelve pirates and all of them animate. The stillness is in the painted background; the life is in the sprites, and there is far more of it than doc 18 implies.
+
+## The conflict this creates
+
+Ruling 19b and doc 19 resolve most crowds to **"draw into the background."** Against a reference where a comparable room has twelve animating figures, a painted crowd reads as a waxwork — and worse, in the Nugget the palette-cycled stove would be the only moving thing in a room full of people, pulling the eye to precisely the wrong place.
+
+## Amendment
+
+**A drawn crowd of four or more must include at least three animated members.**
+
+- The rest stay painted into the background. **You animate three and the other eight get the credit** — the eye catches motion and infers it across the group.
+- The animated members are **two-frame idles**, not walk cycles: raise a glass, shift weight, lean back, turn a page, scratch a mule's neck. Two frames at 40px is a small amount of art.
+- **Phase-offset each one.** Three figures moving on the same beat is worse than none.
+- Idle rates are slow and irregular — roughly 0.3–0.8 Hz, varied per figure. Nothing metronomic.
+
+## Where it applies
+
+Every crowd resolved to "draw in" by doc 19:
+
+| Room | Crowd | Animated members |
+|---|---|---|
+| 3 · The Nugget | Eleven drinkers | **4** — two at the bar, one at a far table, the man by the stove |
+| 3 · The Nugget | The man on the landing | **0 — he must not move.** His entire joke is that he never does. Explicit exception |
+| 22 · Road to claims | Men going out | **3** — the morning screen is talking over each other |
+| 22 · Road to claims | Men coming back | **1** — the evening screen is nearly silent, and one figure moving in an otherwise still column carries that |
+| 26 · Creek | Men at the sluices | **3** |
+| 31 · The funeral | Nine mourners | **1** — stillness is the point; one man shifting his weight is enough to stop it being a photograph |
+| 12 · Mercantile | The man looking at boots | **1** — he is the only figure |
+| 15 · Livery | Four mules | **2** |
+| 7 · Registrar | The one other man | **1** |
+
+**Room 29's single-pixel traffic already moves** and needs nothing further.
+
+## The rule this replaces
+
+19b's "crowds are background, individuals are sprites" stands as a rule about **who can be approached**. It is no longer a rule about what moves. A crowd is background *and* partly animated; an individual is a sprite; a figure who must be conspicuously motionless is drawn and stays drawn.
+
+## Note on doc 18
+
+Doc 18's palette-cycling list is unchanged and remains correct — nine elements, restraint is the design. But its framing implied cycling was the game's principal source of motion. **It is not. Sprites are.** Cycling is for fire, water and lamplight, and nothing else should be asked of it.
