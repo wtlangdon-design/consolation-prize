@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Examine Layer — Batch One
 
 *Eight of the twenty-three manifest rooms, fully scripted. ~165 lines. Calibrated against the twelve rooms in the Examine Layer document.*
