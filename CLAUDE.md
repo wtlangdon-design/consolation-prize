@@ -1,4 +1,4 @@
-# CLAUDE.md — Consolation Prize
+# CLAUDE.md — The Last Claim in Consolation
 
 **Read this at the start of every session. It is binding.**
 
