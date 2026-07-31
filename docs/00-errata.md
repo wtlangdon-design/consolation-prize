@@ -971,3 +971,34 @@ From a player audit: Monkey Island removes an option once it has been asked, and
 **Why topic and comic must stay:** doc 04's Winnie tree turns on asking her about the raccoon five times until she cracks — "What's its name." — and that arc is one of the best things in the game. Removing exhausted options would delete it silently.
 
 **Doc 04 rule 4 is amended accordingly.** It said all exhausted options grey and remain; only `[PROGRESS]` changes.
+
+
+---
+
+# 38 · A SEVENTH STEP KIND: `move`
+
+Errata 28a cut the sequence runner to five kinds and 30a added `wait` as a sixth. The coach's departure needs a seventh, and the reasoning that struck `setObjectState` and `parallel` does not apply to it.
+
+**`move` translates a named object from one position to another over a duration.**
+
+- **Legal only inside a beat whose control is `none`** — the same fence as `wait`, and for the same reason: in a cutscene the movement *is* the content, and in ordinary interaction `walkTo` and `waitForActor` already do this properly.
+- It carries the object's own animation while it travels. The coach's wheels turn because the coach has an idle cycle, not because `move` knows about wheels.
+- **`parallel` stays struck.** A departure is one object leaving; the sound going with it is that step's business, not a second track.
+
+**Beat 6b, exactly:** the team walks, the wheels turn, the coach leaves frame right over about three seconds, and the sound recedes with it. **A coach that vanishes on a click is not a coach leaving**, and the player audit was right to call it.
+
+---
+
+# 39 · NATIVE RESOLUTION STAYS 320×200 — the fix is fullscreen
+
+The frame does not fill a browser window, and the analysis is correct: at 1920×1080 the canvas is 1600×1000, which is already the largest integer multiple. The binding dimension is the 200-row native height — 5× needs 1000px of usable viewport, and browser chrome plus the Chromebook shelf takes you under it.
+
+**Two options were on the table. Ruling for the second.**
+
+**Rejected: a 320×180 native frame.** It is 16:9 and would fill a modern screen at integer multiples. It is also not the shape of a 1990 adventure game, it costs 20 rows of play area, and it invalidates six composed rooms. The pixel art is what reads as period, but the frame is part of it.
+
+**Adopted: a fullscreen toggle.** At true fullscreen on a 1080p display the chrome is gone and 5× fits inside 1080 with room to spare. It costs one control, changes no art, and it is the honest fix — Monkey Island letterboxes on a modern screen too.
+
+- A fullscreen control in the menu overlay, and in the verb panel per the mouse-only requirement.
+- The game remains correct windowed. Fullscreen is better, not required.
+- **Never break the integer rule to fill a window.** A fractionally scaled frame is not this game.
