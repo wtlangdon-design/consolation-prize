@@ -24,7 +24,6 @@ strong one -- Room 1 shipped unplayable because it did.
 
 from __future__ import annotations
 
-import math
 from dataclasses import dataclass, field
 
 from canvas import IndexedCanvas
@@ -44,22 +43,46 @@ SPREAD_LIMIT = 110.0
 
 @dataclass(frozen=True)
 class LightZone:
-    """A source and the falloff around it, which samples must not contain."""
+    """The DRAWN extent of a light source, plus a small halo.
+
+    Not its illumination radius. That distinction is the whole thing.
+
+    A lamp that lifts a whole wall evenly does not contaminate a measurement
+    of that wall -- the lifted value IS what the player sees, and excluding
+    it would mean measuring a room in a state it is never in. What
+    contaminates a sample is the SOURCE OBJECT: a handful of near-white
+    pixels that drag the 90th percentile up and answer a question nobody
+    asked.
+
+    Declaring illumination radii here instead made Room 3 unmeasurable. The
+    chandelier alone throws light 104px across a 320px room, so four of six
+    surfaces came back flagged and the room could not be judged at all. A
+    room that cannot be measured cannot be judged.
+
+    The extent is a RECTANGLE, not a circle, because a circle round a wide
+    flat object claims everything under it too. The Nugget's chandelier is
+    59px wide and 28 tall; the circle that covered it also covered thirty
+    rows of bare dado below it and reported clean wall as contaminated --
+    the same false positive in the opposite direction. An object drawn in
+    two separated parts gets two zones rather than one box round both.
+
+    Samples that straddle a steep lighting gradient are caught separately,
+    by SPREAD_LIMIT -- a sample spanning two lighting states spans a wide
+    luminance range for the same reason one spanning two materials does.
+    """
 
     name: str
-    x: int
-    y: int
-    radius: int
-
-    def contains(self, px: int, py: int) -> bool:
-        return math.hypot(px - self.x, py - self.y) <= self.radius
+    #: The source's drawn bounding box, x, y, width, height.
+    rect: tuple[int, int, int, int]
+    #: Bloom, and the pixels a source lights so hard they are effectively it.
+    halo: int = 3
 
     def overlaps(self, rect: tuple[int, int, int, int]) -> bool:
-        x, y, w, h = rect
-        # Nearest point of the rectangle to the source centre.
-        near_x = min(max(self.x, x), x + w - 1)
-        near_y = min(max(self.y, y), y + h - 1)
-        return self.contains(near_x, near_y)
+        ax, ay, aw, ah = self.rect
+        ax, ay = ax - self.halo, ay - self.halo
+        aw, ah = aw + self.halo * 2, ah + self.halo * 2
+        bx, by, bw, bh = rect
+        return ax < bx + bw and bx < ax + aw and ay < by + bh and by < ay + ah
 
 
 @dataclass(frozen=True)
@@ -202,9 +225,9 @@ def audit(
         print(f"{room} -- legibility (rulings 16, 17c, 18)")
         print(f"  anchors: darkest large mass {dark:.0f} (the boot; the coat body is 34),")
         print(f"           lightest large mass {light:.0f} (the face)")
-        print(f"  {'surface':<20}{'p10':>7}{'p90':>7}{'dark':>8}{'light':>8}   verdict")
+        print(f"  {'surface':<30}{'p10':>7}{'p90':>7}{'dark':>8}{'light':>8}   verdict")
         for r in readings:
-            print(f"  {r.surface:<20}{r.p10:>7.1f}{r.p90:>7.1f}"
+            print(f"  {r.surface:<30}{r.p10:>7.1f}{r.p90:>7.1f}"
                   f"{r.dark_margin:>+8.0f}{r.light_margin:>+8.0f}   {r.verdict}")
             for warning in r.warnings:
                 print(f"      ! {warning}")
