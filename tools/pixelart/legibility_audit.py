@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import sys
 
+import cycling
 import room01_stage_road
 import room03_nugget
 import room05_assay
@@ -214,6 +215,13 @@ ROOM_05 = [
 ]
 
 
+#: Room id -> the room's cycling declarations, for the extremes check. Doc 18
+#: note 3: a cycled band may not move a surface across a legibility boundary,
+#: so a cycled room is measured at every state it can be in rather than at the
+#: one frame that happens to get exported.
+CYCLED = {"ROOM 1 -- stage road, night": "stage_road"}
+
+
 def rooms() -> list[tuple[str, str, object, list[Surface], list[LightZone]]]:
     return [
         ("ROOM 1 -- stage road, night", "room-01-stage-road",
@@ -261,7 +269,10 @@ def main() -> None:
     dark, light = anchors(palette)
     total_fail = total_weak = 0
     for title, _, canvas, surfaces, lights in rooms():
-        _, fails, weak = audit(canvas, palette, title, surfaces, lights, dark, light)
+        room_id = CYCLED.get(title)
+        states = cycling.extremes(cycling.load(room_id, palette)) if room_id else None
+        _, fails, weak = audit(canvas, palette, title, surfaces, lights, dark, light,
+                               cycling=states)
         total_fail += fails
         total_weak += weak
         print()

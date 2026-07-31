@@ -21,3 +21,12 @@ export const KEY_LOAD_MODIFIED = 'L';
 
 /** Slot the Ctrl shortcuts act on. Slot 1 in the menu's numbering. */
 export const QUICK_SLOT = 0;
+
+/**
+ * The options toggle governing background palette cycling. Doc 18 note 2:
+ * cycling is decorative and must be disableable, defaulting on.
+ *
+ * An id, not a label -- the words on the row are in content/ui/menu.json,
+ * and this names the row the way SCREEN_TEXTURE names a texture.
+ */
+export const CYCLING_OPTION = 'cycling';

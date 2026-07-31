@@ -25,6 +25,7 @@ import math
 import random
 from pathlib import Path
 
+import cycling
 from canvas import IndexedCanvas
 from components import distant_hills
 from dither import BAYER2, BAYER4, dither_pixel
@@ -50,6 +51,19 @@ AMBIENT = 0.86
 #: for the reference render.
 LAMP = (88, 84)
 COACH_X = 214
+
+#: The two reserved cycling bands, doc 18. Absolute indices, resolved from the
+#: same declarations content/rooms/stage-road.json gives the engine -- they are
+#: derived here rather than typed twice, because two copies of a palette range
+#: is exactly the sort of thing that stays right for one commit.
+def _band(room_id: str, element_id: str) -> list[int]:
+    from palette import Palette as _P
+    element = next(e for e in cycling.load(room_id, _P.load()) if e.id == element_id)
+    return list(element.indices)
+
+
+LAMP_BAND = _band("stage_road", "hobs_lamp")
+PUDDLE_BAND = _band("stage_road", "puddles")
 
 
 def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[IndexedCanvas, Palette]:
@@ -154,11 +168,25 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     # cold or it competes with the lamp for being the warm object. Ruling 17a
     # again -- the family decides, and no amount of lighting would have made
     # a mud-family highlight read as moonlight.
-    for _ in range(34):
+    #
+    # Painted with the three RESERVED sky entries rather than with a fraction
+    # of the ramp, because these are doc 18's cycling element. Each streak
+    # takes a different one of the three in turn, which is where the per-puddle
+    # phase offset comes from: one rotation, three indices, and a puddle
+    # painted with the second index is always one third of a cycle ahead of a
+    # puddle painted with the first. Doc 18 asks for three entries and this is
+    # how three entries buy three phases.
+    #
+    # 152-154 and not the 149-151 they used to sit on: those three are shared
+    # with the distant hills, and a reserved band may not be shared with
+    # anything. The move is also a lift -- luminance 107 to 123 against a road
+    # at 65 to 85 -- which reads more like standing water than the old one did.
+    for streak in range(34):
         y = rng.randrange(ROAD_Y + 2, HEIGHT)
         x = rng.randrange(0, WIDTH - 8)
         length = 2 + rng.randrange(0, 6)
-        canvas.hline(x, y, length, sky.frac(0.20 + 0.14 * rng.random()))
+        rng.random()                      # kept, so the streaks stay where they were
+        canvas.hline(x, y, length, PUDDLE_BAND[streak % len(PUDDLE_BAND)])
 
     # -- the town downhill, west: lit windows and nothing else -------------
     # Drawn AFTER the ground. It was drawn before it and the ground fill
@@ -175,10 +203,11 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     if with_coach:
         coach(canvas, palette, rng, COACH_X, ROAD_Y + 2, umber, grey, gold)
 
-    # -- Hob's lamp --------------------------------------------------------
+    # -- Hob, and his lamp -------------------------------------------------
+    # Hob is lit; his lamp is not, so only Hob goes in before the pass.
     lx = LAMP[0] if lamp_x is None else lamp_x
     ly = LAMP[1]
-    watchman(canvas, palette, lx, ly, grey, gold)
+    watchman(canvas, palette, lx, ly, grey)
 
     # -- one lighting pass over the lot ------------------------------------
     field = LightField(WIDTH, HEIGHT, ambient=AMBIENT)
@@ -200,8 +229,27 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     field.apply(canvas, palette)
 
     # Sources are objects, not lit surfaces, so they go on after the pass.
+    #
+    # The lamp OBJECT moved here too, from inside watchman(). It has to be
+    # drawn after the field rather than before it: the field steps a colour
+    # along its own ramp, and a lamp painted in its reserved band before the
+    # pass comes out of the pass somewhere else, which would leave the band
+    # reserved for pixels that are no longer in it.
+    lantern(canvas, lx, ly)
     lamp_core(canvas, palette, lx - 1, ly + 2, "accent_gold", radius=1)
-    canvas.rect(lx - 2, ly + 1, 3, 4, gold.at(gold.count - 1))
+    # Two rows of core, not four. At four it covered the third band entry
+    # completely and the lamp cycled on three of its four reserved entries --
+    # which still animates, and still looks like a lamp, and is exactly the
+    # kind of thing that is invisible until somebody counts the pixels.
+    canvas.rect(lx - 2, ly + 2, 3, 2, LAMP_BAND[3])
+
+    # Doc 18 note 1, enforced before anything is written: a reserved index may
+    # appear only inside its own element. reserve() moves the trespassers --
+    # here the coach lantern and the clasp on Thad's case, both accent_gold --
+    # and verify() proves none are left.
+    elements = cycling.load("stage_road", palette)
+    cycling.reserve(canvas, palette, elements)
+    cycling.verify(canvas, elements)
 
     return canvas, palette
 
@@ -477,20 +525,32 @@ def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, ir
     canvas.put(x - 16, y - 5, brass.frac(0.58))
 
 
-def watchman(canvas: IndexedCanvas, palette: Palette, x: int, y: int, cloth, brass) -> None:
-    """Hob, crossing. A dark figure and a lamp, and the lamp is the subject."""
+def watchman(canvas: IndexedCanvas, palette: Palette, x: int, y: int, cloth) -> None:
+    """Hob, crossing. A dark figure, drawn before the pass because he is lit."""
     canvas.rect(x + 3, y - 2, 7, 14, cloth.frac(0.06))      # body, near-black
     canvas.rect(x + 4, y - 7, 5, 5, cloth.frac(0.08))       # head
     canvas.rect(x + 3, y + 12, 3, 4, cloth.frac(0.05))      # legs
     canvas.rect(x + 7, y + 12, 3, 4, cloth.frac(0.05))
     canvas.vline(x + 2, y + 1, 5, cloth.frac(0.10))         # arm to the lamp
-    # The lamp. Larger than it needs to be for its own sake, because doc 17
-    # makes it the thing a player watches when they are not doing anything.
-    canvas.rect(x - 3, y, 5, 6, brass.frac(0.52))
-    canvas.rect(x - 2, y + 1, 3, 4, brass.at(brass.count - 2))
-    canvas.hline(x - 4, y - 1, 7, brass.frac(0.34))         # its hood
-    canvas.hline(x - 4, y + 6, 7, brass.frac(0.22))         # its base
-    canvas.vline(x - 1, y - 4, 3, brass.frac(0.28))         # the bail
+
+
+def lantern(canvas: IndexedCanvas, x: int, y: int) -> None:
+    """Hob's lamp, in its four reserved entries and nothing else.
+
+    Larger than it needs to be for its own sake, because doc 17 makes it the
+    thing a player watches when they are not doing anything -- and doc 18
+    makes it the thing that moves.
+
+    Every pixel here is one of LAMP_BAND, so the pulse has the whole object
+    and no part of any other object. Drawn after the lighting pass: a source
+    is not a lit surface, and a band assigned before the pass does not survive
+    it.
+    """
+    canvas.rect(x - 3, y, 5, 6, LAMP_BAND[1])
+    canvas.rect(x - 2, y + 1, 3, 4, LAMP_BAND[2])
+    canvas.hline(x - 4, y - 1, 7, LAMP_BAND[0])             # its hood
+    canvas.hline(x - 4, y + 6, 7, LAMP_BAND[0])             # its base
+    canvas.vline(x - 1, y - 4, 3, LAMP_BAND[0])             # the bail
 
 
 def main() -> None:

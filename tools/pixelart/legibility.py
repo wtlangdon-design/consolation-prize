@@ -175,8 +175,18 @@ def audit(
     canvas: IndexedCanvas, palette: Palette, room: str,
     surfaces: list[Surface], lights: list[LightZone],
     dark: float, light: float, verbose: bool = True,
+    cycling: list[dict[int, int]] | None = None,
 ) -> tuple[list[Reading], int, int]:
-    """Measures every declared surface. Returns readings, fails, weak passes."""
+    """Measures every declared surface. Returns readings, fails, weak passes.
+
+    `cycling` is every index mapping a cycled room can be in. Doc 18 note 3:
+    cycling is not part of this check, but a cycled band must not move a
+    surface across a boundary, so the check runs over the EXTREMES of the
+    cycle rather than over the base frame. A sample is scored at its worst
+    reading across all of them -- a lamp that is legible for three seconds
+    out of four is not legible.
+    """
+    states = cycling or [{}]
     readings: list[Reading] = []
     for surface in surfaces:
         x, y, w, h = surface.rect
@@ -188,12 +198,18 @@ def audit(
             if zone.overlaps(surface.rect):
                 warnings.append(f"CONTAMINATED by light source '{zone.name}'")
 
-        values = [
-            palette.luminance(canvas.get(px, py))
+        indices = [
+            canvas.get(px, py)
             for py in range(y, min(canvas.height, y + h))
             for px in range(x, min(canvas.width, x + w))
         ]
-        _, p10, p90 = percentiles(values)
+        p10 = p90 = None
+        for table in states:
+            values = [palette.luminance(table.get(index, index)) for index in indices]
+            _, low, high = percentiles(values)
+            # Worst case per anchor, which can come from two different states.
+            p10 = low if p10 is None else min(p10, low)
+            p90 = high if p90 is None else max(p90, high)
         if p90 - p10 > SPREAD_LIMIT:
             warnings.append(f"spread {p90 - p10:.0f} -- may span two materials")
 
@@ -223,6 +239,9 @@ def audit(
 
     if verbose:
         print(f"{room} -- legibility (rulings 16, 17c, 18)")
+        if len(states) > 1:
+            print(f"  measured at the WORST of {len(states)} cycle states, "
+                  f"not at the base frame -- doc 18 note 3")
         print(f"  anchors: darkest large mass {dark:.0f} (the boot; the coat body is 34),")
         print(f"           lightest large mass {light:.0f} (the face)")
         print(f"  {'surface':<30}{'p10':>7}{'p90':>7}{'dark':>8}{'light':>8}   verdict")

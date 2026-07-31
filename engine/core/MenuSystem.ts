@@ -34,6 +34,12 @@ export class MenuSystem {
   private readonly saves: SaveManager;
   private current: MenuPage = 'closed';
   private notice: string | null = null;
+  /**
+   * Toggle options, by id. Doc 18 note 2: background cycling is decorative
+   * and must be disableable, defaulting on. Held here rather than in the save
+   * file -- a display preference belongs to the machine, not to the game.
+   */
+  private readonly toggles = new Map<string, boolean>();
 
   private readonly roomName: (id: string) => string;
 
@@ -42,6 +48,14 @@ export class MenuSystem {
     this.saves = saves;
     // Injected rather than looked up: the menu must not know what a room is.
     this.roomName = roomName;
+    for (const item of file.options.items) {
+      if (item.type === 'toggle') this.toggles.set(item.id, item.default ?? true);
+    }
+  }
+
+  /** Whether a toggle option is on. Unknown ids are off. */
+  toggle(id: string): boolean {
+    return this.toggles.get(id) ?? false;
   }
 
   get page(): MenuPage {
@@ -111,7 +125,14 @@ export class MenuSystem {
       case 'options':
         return [
           ...this.file.options.items.map((item) => ({
-            id: item.id, label: item.label, enabled: true,
+            id: item.id,
+            label: item.type === 'toggle'
+              ? fill(this.file.options.valueTemplate, {
+                label: item.label,
+                value: (this.toggle(item.id) ? item.on : item.off) ?? '',
+              })
+              : item.label,
+            enabled: true,
           })),
           { id: 'back', label: this.file.options.back, enabled: true },
         ];
@@ -157,6 +178,10 @@ export class MenuSystem {
       this.notice = this.file.notices.restored;
       this.current = 'closed';
       return { kind: 'load', slot };
+    }
+    if (this.toggles.has(rowId)) {
+      this.toggles.set(rowId, !this.toggles.get(rowId));
+      return { kind: 'none' };
     }
     switch (rowId) {
       case 'resume':

@@ -4,7 +4,9 @@ import type { GameState } from '../core/GameState.ts';
 import type { Exit, Interactable } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
+import { mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont } from '../render/BitmapFont.ts';
+import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { Renderer } from '../render/Renderer.ts';
 import {
   MENU_BUTTON,
@@ -22,6 +24,7 @@ import {
   type ClickRecord,
 } from '../core/ClickTracker.ts';
 import {
+  CYCLING_OPTION,
   GAME_SCENE,
   KEY_LOAD_MODIFIED,
   KEY_MENU,
@@ -58,6 +61,8 @@ export class GameScene extends Phaser.Scene {
   private noticeTimer?: Phaser.Time.TimerEvent;
   private lastClick: ClickRecord = NO_CLICK;
   private dirty = true;
+  private readonly cyclers = new Map<string, CyclingBackground>();
+  private lastCycle: Map<number, number> | null = null;
 
   constructor() {
     super(GAME_SCENE);
@@ -80,12 +85,8 @@ export class GameScene extends Phaser.Scene {
     this.actor = new Actor(this.state, 160, 130);
     this.actor.placeIn(this.state.roomId);
     this.ambient = new AmbientLayer(this.state);
-    this.view = new Renderer(this.screen, this.font, this.state, this.actor, this.ambient, (roomId) => {
-      const room = this.state.content.rooms.get(roomId);
-      if (!room?.background) return null;
-      const key = `bg:${roomId}`;
-      return this.textures.exists(key) ? this.textures.get(key).getSourceImage() as CanvasImageSource : null;
-    });
+    this.view = new Renderer(this.screen, this.font, this.state, this.actor, this.ambient,
+      (roomId) => this.backgroundFor(roomId));
 
     this.input.on(Phaser.Input.Events.POINTER_MOVE, this.onPointerMove, this);
     this.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
@@ -98,6 +99,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   update(): void {
+    if (this.cycleChanged()) this.markDirty();
     if (this.actor.update()) this.markDirty();
     if (this.actor.isWalking) {
       this.markDirty();
@@ -114,6 +116,52 @@ export class GameScene extends Phaser.Scene {
       barkAt: this.barkAt,
     });
     this.texture.refresh();
+  }
+
+  /**
+   * Whether the cycling bands have moved since the last drawn frame.
+   *
+   * The scene only redraws when something changed, which is what keeps 60fps
+   * on a Chromebook affordable -- so a room that animates has to say so. At
+   * 0.25 and 0.6 Hz this is true a handful of times a minute and false on
+   * every other frame, which is the point: the room is still, and then it
+   * is very slightly not.
+   */
+  private cycleChanged(): boolean {
+    const elements = this.state.room.cycling;
+    if (!elements?.length) return false;
+    const on = this.state.menu.toggle(CYCLING_OPTION);
+    const mapping = on
+      ? mappingAt(elements.map((element) => resolve(this.state.content.palette, element)),
+        this.time.now / 1000)
+      : new Map<number, number>();
+    if (this.lastCycle && sameMapping(this.lastCycle, mapping)) return false;
+    this.lastCycle = mapping;
+    return true;
+  }
+
+  /**
+   * The background for a room, cycled if it declares any elements. Doc 18.
+   *
+   * Wrapped once per room and cached, because the wrapper scans the whole
+   * image for the reserved bands when it is built. Rooms that declare no
+   * cycling get the loaded texture straight through and pay nothing.
+   */
+  private backgroundFor(roomId: string): CanvasImageSource | null {
+    const room = this.state.content.rooms.get(roomId);
+    if (!room?.background) return null;
+    const key = `bg:${roomId}`;
+    if (!this.textures.exists(key)) return null;
+    const source = this.textures.get(key).getSourceImage() as CanvasImageSource;
+    if (!room.cycling?.length) return source;
+
+    let cycler = this.cyclers.get(roomId);
+    if (!cycler) {
+      cycler = new CyclingBackground(source, room, this.state.content.palette,
+        NATIVE_WIDTH, PLAY_HEIGHT);
+      this.cyclers.set(roomId, cycler);
+    }
+    return cycler.frameAt(this.time.now / 1000, this.state.menu.toggle(CYCLING_OPTION));
   }
 
   private markDirty(): void {

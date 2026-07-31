@@ -32,6 +32,7 @@ const SCRIPTS = [
   ['room05_background.py', 'Room 5 background (shipping asset)'],
   ['room05_proof.py', 'Room 5 with Thad, and the ruling 17c audit'],
   ['room01_stage_road.py', 'Room 1, the stage road at night'],
+  ['cycling_render.py', 'Room 1 palette cycling -- GIF at real rates, plus the states'],
   ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
   ['title_screen.py', 'Title screen'],
   ['legibility_audit.py', 'legibility across every composed room -- rulings 16, 17c, 18'],

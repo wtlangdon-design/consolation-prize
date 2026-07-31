@@ -10,6 +10,44 @@
     "ground": 181
   },
   "horizon": 58,
+  "cycling": [
+    {
+      "id": "hobs_lamp",
+      "note": "Doc 18: a carried flame in still air, not a torch. It is the brightest and only warm object in the frame and must not draw more attention than a lamp deserves. Four entries at the top of accent_gold, reserved -- which is also what now keeps the coach lantern and the clasp on Thad's case below it, a rule doc 17 stated and nothing was checking.",
+      "mode": "pulse",
+      "rate": 0.6,
+      "phase": 0.0,
+      "ramp": {
+        "family": "accent_gold",
+        "start": 4,
+        "count": 4
+      },
+      "bounds": [
+        80,
+        76,
+        16,
+        16
+      ]
+    },
+    {
+      "id": "puddles",
+      "note": "Doc 18: moonlight on standing water shifting as air moves over it, barely perceptible. The phase offset is per puddle and costs no extra entries -- each streak is painted with a different one of the three reserved indices, so the same rotation shows each of them a different part of the cycle. That is how the technique did it in 1990.",
+      "mode": "pingpong",
+      "rate": 0.25,
+      "phase": 0.0,
+      "ramp": {
+        "family": "sky",
+        "start": 7,
+        "count": 3
+      },
+      "bounds": [
+        0,
+        96,
+        320,
+        48
+      ]
+    }
+  ],
   "walkable": [
     {
       "id": "road_far",

@@ -21,6 +21,13 @@ import {
   NO_CLICK,
   recordClick,
 } from '../engine/core/ClickTracker.ts';
+import {
+  mappingAt,
+  offsetAt,
+  resolve as resolveCycling,
+  sameMapping,
+  stateCount,
+} from '../engine/core/PaletteCycling.ts';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
@@ -478,4 +485,46 @@ test('repeat variants cycle FORWARD, then hold on the last one', async () => {
     }
   }
   assert.ok(sequences > 60, `expected to have checked the whole game, checked ${sequences}`);
+});
+
+test('palette cycling: rotate wraps, pingpong turns round, pulse clamps', async () => {
+  const content = await loadContent(fsReader);
+  const room = content.rooms.get('stage_road')!;
+  const elements = (room.cycling ?? []).map((element) => resolveCycling(content.palette, element));
+  const lamp = elements.find((element) => element.mode === 'pulse')!;
+  const puddles = elements.find((element) => element.mode === 'pingpong')!;
+
+  // Pingpong turns round rather than repeating: 0 1 2 1, then again.
+  assert.deepEqual([0, 1, 2, 3, 4].map((step) => offsetAt(puddles, step)), [0, 1, 2, 1, 0]);
+  assert.equal(stateCount(puddles), 4);
+
+  // Pulse CLAMPS. Wrapping would drop the lamp's brightest entry to its
+  // darkest every second beat, which is a strobe and not a flame -- and it
+  // would do it to the only warm object in the only night exterior.
+  const brightest = lamp.first + lamp.count - 1;
+  const lit = mappingAt([lamp], 1 / lamp.rate + 0.01);
+  assert.equal(lit.get(brightest), brightest, 'the core holds');
+  assert.equal(lit.get(lamp.first), lamp.first + 1, 'everything under it comes up one step');
+
+  // And it comes back. Two states, so one full period returns the base frame.
+  assert.ok(sameMapping(mappingAt([lamp], 0), mappingAt([lamp], 2 / lamp.rate + 0.01)));
+});
+
+test('background motion is an option, on by default, and reversible', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  // Doc 18 note 2: decorative, disableable, defaulting on.
+  assert.equal(state.menu.toggle('cycling'), true);
+
+  state.menu.open();
+  state.menu.select('options');
+  const before = state.menu.rows().find((row) => row.id === 'cycling')!;
+  state.menu.select('cycling');
+  assert.equal(state.menu.toggle('cycling'), false);
+  const after = state.menu.rows().find((row) => row.id === 'cycling')!;
+  assert.notEqual(after.label, before.label, 'the row says which way it is set');
+
+  state.menu.select('cycling');
+  assert.equal(state.menu.toggle('cycling'), true);
 });

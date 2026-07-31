@@ -127,6 +127,27 @@ export interface ScalingFile {
   zones: ScalingZone[];
 }
 
+/**
+ * One background element that animates by palette cycling. Doc 18.
+ *
+ * The band is family-relative so a room never names an absolute palette
+ * index, and `bounds` is the reservation: those indices may be drawn only
+ * inside that rectangle. tools/pixelart/cycling.py enforces it at composition
+ * time, because a lamp's band reused on a window frame makes the window
+ * frame flicker.
+ */
+export interface CyclingElement {
+  id: string;
+  note?: string;
+  mode: 'rotate' | 'pingpong' | 'pulse';
+  /** Steps per second. Doc 18 discipline rule 4: nothing above about 4 Hz. */
+  rate: number;
+  /** Offset in whole states, so two elements on one ramp are not in lockstep. */
+  phase?: number;
+  ramp: { family: string; start: number; count: number };
+  bounds: [number, number, number, number];
+}
+
 export interface RoomFile {
   schema: number;
   id: string;
@@ -140,6 +161,8 @@ export interface RoomFile {
   walkable?: WalkableRegion[];
   /** Composed background, relative to the manifest. */
   background?: string;
+  /** Background elements that cycle. At most two, per doc 18. */
+  cycling?: CyclingElement[];
   /** Ambient NPC ids placed in this room. */
   ambient?: string[];
   /** An engine test fixture rather than shipped content. */
@@ -283,7 +306,20 @@ export interface MenuFile {
   root: { title: string; items: { id: string; label: string }[] };
   save: { title: string; back: string };
   load: { title: string; back: string };
-  options: { title: string; back: string; items: { id: string; label: string }[] };
+  options: {
+    title: string;
+    back: string;
+    /** How a toggle draws its label and its current value. */
+    valueTemplate: string;
+    items: {
+      id: string;
+      label: string;
+      type?: 'toggle';
+      on?: string;
+      off?: string;
+      default?: boolean;
+    }[];
+  };
   slots: {
     count: number;
     nameTemplate: string;
