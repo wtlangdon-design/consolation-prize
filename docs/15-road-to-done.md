@@ -52,16 +52,38 @@ Plan around the pipe, not around the total.
 - [ ] **Reconciliation pass** — fold all 16 rulings back into the source documents (errata lists the file-by-file edits)
 - [ ] **Room tiering decision** (above)
 
+# STATUS — 31 July, after the vertical slice
+
+**Doc 22 §6 runs end to end in Main Street on THE WATER TROUGH.** Resolve, walk to staging point, wait, turn to facing, wait, chore, script, respond — with a real route around an obstacle, not a straight line. This was the external audit's central criticism and it is addressed: the components have now been shown to combine.
+
+Built since that audit: polygonal walk boxes with breadth-first routing and per-box scale and clip; staging points with required facing on 60 objects across 11 rooms; a five-step sequence runner; the single-click model with `defaultVerb`; entrance placement; real Thad sprites in the runtime; the foreground plane; two-frame crowd idles; text inventory with authored display names.
+
+**Now due rather than deferred:** an actor routing behind the trough is drawn over it. Y-sorting and per-box clip levels (doc 22 items 4 and 6) were correctly deferred and are now reachable in play.
+
+**Still not started:** audio, object states, Acts I–IV content, 39 backgrounds, 30 characters.
+
+---
+
 # 2 · ENGINE
 
 Built:
 - [x] Nine-verb panel, flag store, room loader, dialogue runner
 - [x] Save/load, validation tooling, content pipeline
-- [x] Depth zones with discrete snapping
+- [x] Depth zones — superseded by errata 24: two drawn sizes, continuous decimation, snap at the measured eye-death row
 - [x] Deploy to Pages
+- [x] **Polygonal walk boxes, routing, per-box scale and clip** (doc 22 items 1, 5)
+- [x] **Staging points with required facing** (item 3)
+- [x] **Sequence runner — walk, waitForActor, face, chore, say** (item 8, reduced)
+- [x] **Single-click model with defaultVerb** (item 11, errata 28b)
+- [x] **Entrance positions and facing** (item 2)
+- [x] **Real Thad sprites in the runtime** (item 7)
+- [x] Foreground plane (flat; per-box clip levels pending)
+- [x] Text inventory panel, 8 Act I items wired
 
 Not built:
-- [ ] **Inventory** — array, panel UI, LOOK/LISTEN per item, combination table. **~40 item icons struck per errata 26 — inventory is text, as in the 1990 original**
+- [ ] **Y-sorting and per-box clip levels** (doc 22 items 4, 6) — **now due, not deferred.** An actor routing behind the trough draws over it
+- [ ] **Object visual states and ownership** (item 9)
+- [ ] **Inventory combination table** — the array, panel and item lines are built. **~40 item icons struck per errata 26**
 - [ ] **The Liar's Assay** — turn-based duel: boast/counter resolution, five exchanges, learn-by-losing, mockery pool, pair acquisition state
 - [ ] **Reputation broadcast** — integer state, ambient bark firing on approach, one-shot-per-state
 - [ ] **Letters home** — three-version choice UI, per act, tracking nothing
