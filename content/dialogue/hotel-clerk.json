@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "id": "HOTEL_CLERK",
+  "name": "THE HOTEL CLERK",
+  "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are hotel_clerk, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "prompt": "Mr. Grubbe.",
+      "options": [
+        {
+          "id": "hotel_clerk1",
+          "text": "It's Grubb.",
+          "tag": "TOPIC",
+          "say": "It's as given."
+        },
+        {
+          "id": "hotel_clerk2",
+          "text": "I'd like a room.",
+          "tag": "PROGRESS",
+          "say": "Five dollars."
+        },
+        {
+          "id": "hotel_clerk3",
+          "text": "I have four.",
+          "tag": "PROGRESS",
+          "say": "Then you have four dollars and no room. Those are compatible."
+        },
+        {
+          "id": "hotel_clerk4",
+          "text": "Your piano is out of tune.",
+          "tag": "PROGRESS",
+          "exchange": [
+            {
+              "speaker": "hotel_clerk",
+              "line": "It is."
+            },
+            {
+              "speaker": "thad",
+              "line": "I could put it right."
+            },
+            {
+              "speaker": "hotel_clerk",
+              "line": "For a room?"
+            },
+            {
+              "speaker": "thad",
+              "line": "For a room."
+            },
+            {
+              "speaker": "hotel_clerk",
+              "line": "Nineteen."
+            }
+          ],
+          "set": {
+            "T_TUNES_PIANOS": true
+          }
+        },
+        {
+          "id": "hotel_clerk5",
+          "text": "Is there anything cheaper?",
+          "tag": "COMIC",
+          "say": "There is the road."
+        },
+        {
+          "id": "hotel_clerk6",
+          "text": "I'll think about it.",
+          "tag": "EXIT",
+          "say": "Mr. Grubbe."
+        }
+      ]
+    }
+  },
+  "start": "root"
+}

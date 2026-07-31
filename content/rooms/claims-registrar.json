@@ -81,6 +81,76 @@
       }
     },
     {
+      "id": "ledger",
+      "name": "THE LEDGER",
+      "rect": [
+        176,
+        92,
+        34,
+        12
+      ],
+      "colour": 199,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The claims ledger. Every filing in the district, in one book, in one hand.",
+            "repeat": [
+              "Claim One is on the first page and it is one line long.",
+              "Six thousand entries after it, and all six thousand are looking for the first one."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It has the whole town in it and no opinion about any of it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "That is the district."
+      }
+    },
+    {
+      "id": "sumps_pen",
+      "name": "SUMP'S PEN",
+      "rect": [
+        214,
+        90,
+        10,
+        10
+      ],
+      "colour": 190,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A pen, chained to the counter. The chain is longer than the counter requires.",
+            "repeat": [
+              "It has been chained since before the chain was needed, or since somebody proved it was.",
+              "It writes. I have used it. It is a perfectly good pen on a chain."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is chained. That is the entire design."
+      }
+    },
+    {
       "id": "counter",
       "name": "THE COUNTER",
       "rect": [
@@ -145,41 +215,6 @@
       "defaultVerb": "LOOK_AT",
       "overrides": {
         "PICK_UP": "I have taken one of each already and it did not help."
-      }
-    },
-    {
-      "id": "ledger",
-      "name": "THE LEDGER",
-      "rect": [
-        176,
-        92,
-        34,
-        12
-      ],
-      "colour": 199,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "The claims ledger. Every filing in the district, in one book, in one hand.",
-            "repeat": [
-              "Claim One is on the first page and it is one line long.",
-              "Six thousand entries after it, and all six thousand are looking for the first one."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. It has the whole town in it and no opinion about any of it."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "That is the district."
       }
     },
     {
@@ -322,41 +357,6 @@
       "defaultVerb": "LOOK_AT",
       "overrides": {
         "USE": "I am not adjusting the Registrar's clock."
-      }
-    },
-    {
-      "id": "sumps_pen",
-      "name": "SUMP'S PEN",
-      "rect": [
-        214,
-        90,
-        10,
-        10
-      ],
-      "colour": 190,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A pen, chained to the counter. The chain is longer than the counter requires.",
-            "repeat": [
-              "It has been chained since before the chain was needed, or since somebody proved it was.",
-              "It writes. I have used it. It is a perfectly good pen on a chain."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing.",
-            "repeat": [
-              "Nothing.",
-              "Nothing."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "It is chained. That is the entire design."
       }
     },
     {

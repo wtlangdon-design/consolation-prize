@@ -83,11 +83,10 @@
       "id": "T_PIKE_DEAD",
       "type": "bool",
       "initial": false,
-      "note": "Thad has learned that Ezra Pike, the man his letter of introduction is addressed to, has been dead six years. Gates the letter's second line set per ruling 19a and doc 23. Nothing writes it yet -- the beat that does is in Act I's opening run of puzzles and is not built, so this is declared-and-unwritten on purpose and check-flag-order reports it.",
+      "note": "Thad has learned that Ezra Pike, the man his letter of introduction is addressed to, has been dead six years. Gates the letter's second line set per ruling 19a and doc 23, and ERRATA 31b puts Boot Hill on the map on the strength of it -- not on Thad naming Pike to the driver, which happens at the coach stop and would break 30c's floor of two. Doc 27's undertaker option 2 is the writer, and it is built.",
       "writtenBy": [
-        "content:act-1:pike"
-      ],
-      "pending": true
+        "dialogue:UNDERTAKER:root:undertaker2"
+      ]
     },
     {
       "id": "T_OPENING_DONE",
@@ -105,6 +104,24 @@
       "note": "Thad has stood on Main Street. ERRATA 31c: seeing counts, so everything visible from the street goes on the map the first time he is on it -- the map jumps from two locations to twelve at the moment the town opens, which is the shape doc 20 wanted and could not express while the rule was 'heard of'.",
       "writtenBy": [
         "room:main_street:entry"
+      ]
+    },
+    {
+      "id": "T_TUNES_PIANOS",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has told somebody he tunes pianos. Doc 04 declares it an Act I topic flag and gates an option in Winnie's tree on it, which means something earlier has to set it; doc 02's A2 row states the topic as 'I tune pianos'; and doc 27's clerk option 4 is the only place in Act I where Thad says he can put a piano right. Doc 27 does not name the flag -- three documents between them leave exactly one writer, and this is the routing. IT DOES NOT COMPLETE A2. It grants permission; doc 24's pair -- the fork on the hotel parlour piano, in a room that is not built -- earns the room. A tree that resolved A2 would make the combination decorative.",
+      "writtenBy": [
+        "dialogue:HOTEL_CLERK:root:hotel_clerk4"
+      ]
+    },
+    {
+      "id": "T_SWINDLED",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has bought Claim Two from Deke Vessel for four dollars and his father's watch. Doc 27 names it on Vessel's option 6. The option carries NO LINE: doc 27 writes the beat as a stage direction -- 'The swindle. Four dollars and the watch for the deed.' -- and the item transfer that plays it is Act I puzzle machinery Phase 1 does not build. The flag is written and the beat is not.",
+      "writtenBy": [
+        "dialogue:DEKE_VESSEL:root:deke_vessel6"
       ]
     }
   ]

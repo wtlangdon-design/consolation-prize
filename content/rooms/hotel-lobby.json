@@ -52,6 +52,27 @@
   ],
   "hotspots": [
     {
+      "id": "the_clerk",
+      "name": "THE HOTEL CLERK",
+      "rect": [
+        64,
+        62,
+        12,
+        18
+      ],
+      "colour": 30,
+      "stub": true,
+      "defaultVerb": "TALK_TO",
+      "note": "He stands BEHIND the counter and is drawn before it, so the counter cuts him off at the chest. The rect covers only what clears the counter -- a hotspot over his hidden half would be a click on a man who is not visibly there. Doc 27 gives this character a tree and no examine layer. The hotspot is marked stub for the reason the word already means in this repo: the thing exists so the interaction works and its LOOK and LISTEN lines are honestly absent rather than invented. Three characters x two verbs x three variants is eighteen lines nobody has written, and check-examine-lines names them on every run until somebody does.",
+      "responses": {
+        "TALK_TO": [
+          {
+            "dialogue": "HOTEL_CLERK"
+          }
+        ]
+      }
+    },
+    {
       "id": "register",
       "name": "THE REGISTER",
       "rect": [

@@ -46,14 +46,14 @@ export function check() {
   // seen first would shield an unlisted use seen later: three whitelisted
   // "Nothing."s in the Nugget silently absorbed a fourth on the stage road,
   // and the check reported a uniqueness guarantee it was not making.
-  let stubs = 0;
+  const stubs = [];
   let allowedHits = 0;
   for (const { roomId, target } of targets) {
     // A stub is a destination that exists so the exit works, with its examine
     // layer honestly absent rather than invented. Counted, not skipped
     // silently.
     if (target.stub) {
-      stubs += 1;
+      stubs.push(`${roomId}/${target.id}`);
       continue;
     }
     for (const verb of [LOOK, LISTEN]) {
@@ -134,8 +134,15 @@ export function check() {
   if (allowedHits > 0) {
     report.note(`${allowedHits} deliberate duplicate(s) whitelisted, not deduped`);
   }
-  if (stubs > 0) {
-    report.note(`${stubs} stub exits skipped -- their examine lines are written but not transcribed`);
+  // NAMED, not counted. A stub is skipped by every check in this file, so a
+  // number is a promise that somebody will remember what is behind it. Two
+  // kinds are behind it now and they are not the same kind: an exit whose
+  // lines are WRITTEN and not yet transcribed, and a character nobody has
+  // written an examine layer for at all. The list is the only place the
+  // second kind is visible.
+  if (stubs.length > 0) {
+    report.note(`${stubs.length} stub target(s) skipped -- no LOOK or LISTEN checked on these`);
+    for (const stub of stubs) report.note(`  ${stub}`);
   }
   return report;
 }

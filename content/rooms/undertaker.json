@@ -52,6 +52,27 @@
   ],
   "hotspots": [
     {
+      "id": "the_undertaker",
+      "name": "THE UNDERTAKER",
+      "rect": [
+        143,
+        66,
+        15,
+        36
+      ],
+      "colour": 30,
+      "stub": true,
+      "defaultVerb": "TALK_TO",
+      "note": "Doc 27 note 2: he is never named, and THE UNDERTAKER is the whole of it -- the only person in Consolation whose function is entirely sufficient. Doc 27 gives this character a tree and no examine layer. The hotspot is marked stub for the reason the word already means in this repo: the thing exists so the interaction works and its LOOK and LISTEN lines are honestly absent rather than invented. Three characters x two verbs x three variants is eighteen lines nobody has written, and check-examine-lines names them on every run until somebody does.",
+      "responses": {
+        "TALK_TO": [
+          {
+            "dialogue": "UNDERTAKER"
+          }
+        ]
+      }
+    },
+    {
       "id": "good_suit",
       "name": "THE GOOD SUIT",
       "rect": [
@@ -138,7 +159,7 @@
             "say": "A jar of teeth. He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted.",
             "repeat": [
               "Still there. I have decided to think of it as inventory.",
-              "He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted."
+              "There are more than there were on Tuesday. I am not going to develop this thought."
             ]
           }
         ],

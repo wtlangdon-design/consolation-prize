@@ -155,6 +155,27 @@
   ],
   "hotspots": [
     {
+      "id": "deke_vessel",
+      "name": "DEKE VESSEL",
+      "rect": [
+        174,
+        96,
+        15,
+        30
+      ],
+      "colour": 30,
+      "stub": true,
+      "defaultVerb": "TALK_TO",
+      "note": "Doc 27: HE OPENS, and Thad does not approach him. There is no mechanism for that -- onEnter carries flag writes and nothing else -- so the tree is reached by TALK TO and the auto-open is unbuilt rather than approximated. He is drawn outside the eleven, like the man on the landing: he is not drinking at eleven in the morning, he is working. Doc 27 gives this character a tree and no examine layer. The hotspot is marked stub for the reason the word already means in this repo: the thing exists so the interaction works and its LOOK and LISTEN lines are honestly absent rather than invented. Three characters x two verbs x three variants is eighteen lines nobody has written, and check-examine-lines names them on every run until somebody does.",
+      "responses": {
+        "TALK_TO": [
+          {
+            "dialogue": "DEKE_VESSEL"
+          }
+        ]
+      }
+    },
+    {
       "id": "handbill",
       "name": "THE HANDBILL",
       "rect": [
@@ -258,6 +279,38 @@
       "overrides": {
         "USE": "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me.",
         "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment."
+      },
+      "defaultVerb": "LOOK_AT"
+    },
+    {
+      "id": "portrait",
+      "name": "THE FADED PORTRAIT",
+      "rect": [
+        126,
+        32,
+        18,
+        22
+      ],
+      "colour": 172,
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A portrait of a man in a good collar, hung crooked, above a saloon. Nobody in here knows who he is. I have asked three people and had three answers.",
+            "repeat": [
+              "The three answers were a governor, a founder, and 'that's Bill's uncle.'",
+              "It is the same photograph the Clarion prints as Obadiah Mott. I am fairly sure. I am not going to raise it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. He has been silent about it for years.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. He is a man in Ohio and nobody is asking him."
+            ]
+          }
+        ]
       },
       "defaultVerb": "LOOK_AT"
     },
@@ -396,38 +449,6 @@
       },
       "overrides": {
         "USE": "I have not been invited up and I am not going to invite myself."
-      },
-      "defaultVerb": "LOOK_AT"
-    },
-    {
-      "id": "portrait",
-      "name": "THE FADED PORTRAIT",
-      "rect": [
-        126,
-        32,
-        18,
-        22
-      ],
-      "colour": 172,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A portrait of a man in a good collar, hung crooked, above a saloon. Nobody in here knows who he is. I have asked three people and had three answers.",
-            "repeat": [
-              "The three answers were a governor, a founder, and 'that's Bill's uncle.'",
-              "It is the same photograph the Clarion prints as Obadiah Mott. I am fairly sure. I am not going to raise it."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. He has been silent about it for years.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. He is a man in Ohio and nobody is asking him."
-            ]
-          }
-        ]
       },
       "defaultVerb": "LOOK_AT"
     },

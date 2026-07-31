@@ -55,7 +55,19 @@ from palette import Palette
 GARMENTS = ("umber", "pine_green", "dusk", "accent_indigo")
 
 
-def _garment(palette: Palette, rng, tone: float):
+def _garment(palette: Palette, rng, tone: float, named: str | None = None):
+    """The coat. Random for the crowd, NAMED for a character.
+
+    The crowd is anonymous and a random pick out of four dark families is
+    exactly right for it. A named character is not anonymous, and the one
+    thing that must not happen by accident is a man the player has to
+    recognise wearing the protagonist's coat family -- Thad is pine_green,
+    and a green Deke Vessel in the same frame is two green men.
+    """
+    if named is not None:
+        if named not in GARMENTS:
+            raise ValueError(f"{named} is not one of the crowd's families: {GARMENTS}")
+        return palette.family(named), tone
     return palette.family(GARMENTS[rng.randrange(len(GARMENTS))]), tone
 
 
@@ -107,7 +119,7 @@ def _headgear(canvas, cloth, base, kind, head_x, head_top, head_w) -> int:
 def standing(
     canvas: IndexedCanvas, palette: Palette, x: int, feet_y: int, height: int, rng,
     hat: bool = True, facing: int = 0, tone: float = 0.14, pose: int = 0,
-    glass: bool = False, seed: int = 0,
+    glass: bool = False, seed: int = 0, garment: str | None = None,
 ) -> tuple[int, int, int, int]:
     """A man standing, seen from behind or three-quarters. Returns his bounds.
 
@@ -115,7 +127,7 @@ def standing(
     pixel. At this size it is the difference between a row of identical
     cutouts and a group of people, and it costs almost nothing.
     """
-    cloth, base = _garment(palette, rng, tone)
+    cloth, base = _garment(palette, rng, tone, garment)
     dark = palette.family("void")
 
     # Proportions, not fractions of a box. The first version divided the

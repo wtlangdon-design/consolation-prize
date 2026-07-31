@@ -1,0 +1,67 @@
+{
+  "schema": 1,
+  "id": "UNDERTAKER",
+  "name": "THE UNDERTAKER",
+  "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are undertaker, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "prompt": "Yes.",
+      "options": [
+        {
+          "id": "undertaker1",
+          "text": "I'm looking for a man named Ezra Pike.",
+          "tag": "PROGRESS",
+          "exchange": [
+            {
+              "speaker": "undertaker",
+              "line": "Eighteen fifty-two."
+            },
+            {
+              "speaker": "thad",
+              "line": "I'm sorry?"
+            },
+            {
+              "speaker": "undertaker",
+              "line": "Eighteen fifty-two. He's up the hill."
+            }
+          ]
+        },
+        {
+          "id": "undertaker2",
+          "text": "Up the hill?",
+          "tag": "PROGRESS",
+          "say": "Boot Hill. Third row, second from the end. He's got a marker.",
+          "set": {
+            "T_PIKE_DEAD": true
+          }
+        },
+        {
+          "id": "undertaker3",
+          "text": "What did he die of?",
+          "tag": "TOPIC",
+          "say": "Nothing interesting."
+        },
+        {
+          "id": "undertaker4",
+          "text": "I had a letter for him.",
+          "tag": "TOPIC",
+          "say": "You still have a letter for him."
+        },
+        {
+          "id": "undertaker5",
+          "text": "Do you know everybody?",
+          "tag": "COMIC",
+          "say": "I know everybody who's finished."
+        },
+        {
+          "id": "undertaker6",
+          "text": "Thank you.",
+          "tag": "EXIT",
+          "say": "Mm."
+        }
+      ]
+    }
+  },
+  "start": "root"
+}

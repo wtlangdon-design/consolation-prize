@@ -241,6 +241,10 @@ FLOOR_PATRONS = ()
 #: landing." Seventh tread of nine, which is as near the top as the frame
 #: has -- the stairs climb out of it and so does the landing.
 LANDING_MAN = (207, 47, 20)
+#: Deke Vessel, doc 27, mid-floor in front of the stair's foot. He OPENS the
+#: scene, so he stands clear of the furniture and of the vacated table -- a
+#: man who speaks first has to be the man the eye lands on first.
+VESSEL = (180, 124, 26)
 
 
 def patrons(canvas: IndexedCanvas, palette: Palette, rng) -> None:
@@ -283,6 +287,20 @@ def patrons(canvas: IndexedCanvas, palette: Palette, rng) -> None:
     # of the ceiling -- there are only twenty rows above that tread. Not one
     # of the eleven: THE STAIRS is his hotspot and THE PATRONS is theirs.
     crowd.standing(canvas, palette, *LANDING_MAN, rng, hat=False, tone=0.13)
+
+    # DEKE VESSEL, doc 27. Not one of the eleven either -- he is not drinking
+    # at eleven in the morning, he is working -- so he is drawn outside the
+    # count for the same reason the landing man is, and he carries his own
+    # hotspot rather than being absorbed into THE PATRONS.
+    #
+    # LIGHTER THAN EVERY OTHER FIGURE IN THE ROOM. Doc 27 opens the scene on
+    # him rather than on Thad, and a man the player has to find first cannot
+    # open anything. The patrons run 0.12 to 0.14 and he runs 0.34, which is
+    # the only reason he reads as somebody in particular.
+    vessel = crowd.standing(canvas, palette, *VESSEL, rng, facing=0, tone=0.34,
+                            seed=97, garment="dusk")
+    if crowd.overlaps(vessel, VACATED):
+        raise RuntimeError(f"Vessel at {vessel} stands in the vacated table's space")
 
     # Doc 19, the one thing that would undo all of this. Checked rather than
     # eyeballed: the near table's chairs are pulled out and a man drawn into

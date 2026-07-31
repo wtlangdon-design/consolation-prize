@@ -39,6 +39,7 @@ import json
 import random
 from pathlib import Path
 
+import crowd
 import furniture
 import interior
 import lighting
@@ -52,6 +53,11 @@ from primitives import (
     ground_objects, organic_mass, rope, sack,
 )
 from renders import BACKGROUNDS, FOREGROUNDS, RENDERS
+
+#: Figure bounds, filled at compose time and read by the hotspot report so a
+#: rect in a room file is measured off the drawing rather than eyeballed.
+UNDERTAKER_BOUNDS: list = []
+CLERK_BOUNDS: list = []
 
 ROOT = Path(__file__).resolve().parents[2]
 WIDTH, HEIGHT = 320, 144
@@ -166,6 +172,17 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
         for post in range(6):
             px = box.back_right - 2 + post * 20
             canvas.vline(px, box.back_bottom - 22 - post * 10, 12, pine.frac(0.24))
+
+    # -- THE HOTEL CLERK, doc 27, BEHIND his counter -- and drawn before it,
+    #    so the counter cuts him off at the chest. Standing him in front of
+    #    the furniture and drawing him last put a man's head and shoulders on
+    #    top of the settee with no legs under them: he was correctly placed in
+    #    depth and incorrectly placed in the drawing order, which at this size
+    #    are the same mistake. Only what clears the counter is clickable.
+    with canvas.track("the hotel clerk"):
+        CLERK_BOUNDS.append(
+            crowd.standing(canvas, palette, 70, 98, 34, rng, hat=False,
+                           facing=1, tone=0.30, seed=18))
 
     # -- the desk, left of the vanishing point, with the register on it and
     #    the key rack behind. The focal object: 32c's detail hierarchy puts
@@ -783,6 +800,18 @@ def undertakers() -> tuple[IndexedCanvas, Palette]:
         for _ in range(140):
             x, y = rng.randrange(14, WIDTH - 14), rng.randrange(box.back_bottom, HEIGHT - 2)
             canvas.put(x, y, fresh.frac(max(0.04, fresh_tone - 0.14 + 0.10 * rng.random())))
+
+    # -- THE UNDERTAKER. Doc 27 gives him a tree and doc 20 gives him this
+    #    room; a tree with nobody in the room to open it is a written scene
+    #    the player cannot reach. He is never named -- note 2 -- so the
+    #    hotspot is THE UNDERTAKER and nothing in the game improves on that.
+    #
+    #    Mid-dark, not black. The good suit on its peg is this room's one
+    #    void-black mass and 32c's hierarchy rests on it being the only one.
+    with canvas.track("the undertaker"):
+        UNDERTAKER_BOUNDS.append(
+            crowd.standing(canvas, palette, 150, 100, 34, rng, hat=False,
+                           facing=1, tone=0.20, seed=13))
 
     ground_objects(canvas, palette, canvas.strokes, box.back_bottom - 8)
 

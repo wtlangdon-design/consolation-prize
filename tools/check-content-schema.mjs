@@ -54,6 +54,62 @@ export function check() {
     }
   }
 
+  // --- reachability ------------------------------------------------------
+  //
+  // targetAt returns the FIRST target whose rect contains the point, so a
+  // small target listed after a larger one that covers it can never be
+  // clicked. The Nugget's framed portrait sits entirely inside the
+  // chandelier's rect and is listed after it: six written lines no player
+  // could ever reach, passing every check in the repo, because every check
+  // asked whether the lines existed and none asked whether the hotspot did.
+  //
+  // THE ORDER HERE IS THE ENGINE'S, exits before hotspots, and getting that
+  // backwards on the first attempt reported all four of Main Street's doors
+  // as unreachable behind the false fronts -- which would have been a serious
+  // bug if it were true and was entirely an artefact of the check.
+  //
+  // Only UNGATED earlier targets can occlude. A gated one is filtered out of
+  // the list when its condition is false, so the coach and the coach-gone
+  // hotspot of ruling 19a never coexist and neither hides the other. That
+  // under-reports -- two differently-gated targets that happen to coexist are
+  // missed -- and under-reporting is the right way for a build-failing check
+  // to be wrong.
+  //
+  // Brute force over the rect. A room has a dozen targets in a 320x144 frame,
+  // and being exactly right about this is worth more than being quick.
+  for (const { data } of content.rooms) {
+    const targets = [...(data.exits ?? []), ...(data.hotspots ?? [])];
+    targets.forEach((target, index) => {
+      const [x, y, w, h] = target.rect ?? [];
+      if ([x, y, w, h].some((value) => typeof value !== 'number')) return;
+      // A stateful target's bounds change with its state, so its rect is not
+      // the whole of where it can be clicked; it is never treated as one that
+      // hides something else.
+      const occluders = targets.slice(0, index).filter(
+        (other) => other.when === undefined && other.states === undefined,
+      );
+      let reachable = false;
+      for (let py = y; py < y + h && !reachable; py += 1) {
+        for (let px = x; px < x + w && !reachable; px += 1) {
+          reachable = !occluders.some((other) => {
+            const [ox, oy, ow, oh] = other.rect ?? [];
+            return px >= ox && px < ox + ow && py >= oy && py < oy + oh;
+          });
+        }
+      }
+      if (!reachable) {
+        const covering = occluders
+          .filter((other) => {
+            const [ox, oy, ow, oh] = other.rect ?? [];
+            return ox <= x && oy <= y && ox + ow >= x + w && oy + oh >= y + h;
+          })
+          .map((other) => other.id);
+        report.fail(`${data.id}/${target.id}: no point in its rect resolves to it -- `
+          + `covered by ${covering.length ? covering.join(', ') : 'earlier targets'}`);
+      }
+    });
+  }
+
   // --- targets -----------------------------------------------------------
   for (const { roomId, kind, target } of allInteractables(content)) {
     const where = `${roomId}/${target.id}`;
@@ -106,11 +162,16 @@ export function check() {
       }
     }
   }
+  const beats = [];
   for (const { treeId, nodeId, node, option } of allDialogueOptions(content)) {
     if (option.say && option.exchange) {
       report.fail(`${treeId}/${nodeId}/${option.id}: has both a say and an exchange`);
     }
-    if (option.tag !== 'EXIT' && !option.say && !option.repeat && !option.exchange) {
+    if (option.beat && (option.say || option.exchange)) {
+      report.fail(`${treeId}/${nodeId}/${option.id}: has both a beat and a line`);
+    }
+    if (option.tag !== 'EXIT' && !option.say && !option.repeat && !option.exchange
+        && !option.beat) {
       // A node may declare that its options have no replies. The opening
       // line is the case that needs it: the options are what Thad says, and
       // doc 17 is explicit that nobody is listening. Declared in the content
@@ -119,6 +180,19 @@ export function check() {
         report.fail(`${treeId}/${nodeId}/${option.id}: no response line`);
       }
     }
+    if (option.beat) beats.push(`${treeId}/${nodeId}/${option.id}: ${option.beat}`);
+  }
+
+  // An option whose response the document writes as a SCENE rather than a
+  // line. Doc 27's Vessel option 6 is "(The swindle. Four dollars and the
+  // watch for the deed.)" -- there is no line to say because nobody says
+  // anything, and the item transfer that plays it is puzzle machinery. The
+  // direction is carried into the data rather than dropped, and listed here
+  // every run, because an option that shows the player nothing is otherwise
+  // indistinguishable from an option somebody forgot to write.
+  if (beats.length > 0) {
+    report.note(`${beats.length} option(s) declare a beat rather than a line -- unbuilt`);
+    for (const beat of beats) report.note(`  ${beat}`);
   }
 
   // --- ui ----------------------------------------------------------------

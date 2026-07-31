@@ -1,0 +1,86 @@
+{
+  "schema": 1,
+  "id": "DEKE_VESSEL",
+  "name": "DEKE VESSEL",
+  "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are deke_vessel, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "prompt": "You're the piano man.",
+      "options": [
+        {
+          "id": "deke_vessel1",
+          "text": "How did you know?",
+          "tag": "TOPIC",
+          "say": "Everybody knows. It's a small place and you're a new thing in it."
+        },
+        {
+          "id": "deke_vessel2",
+          "text": "What are you selling?",
+          "tag": "PROGRESS",
+          "exchange": [
+            {
+              "speaker": "deke_vessel",
+              "line": "Nothing. I'm getting out."
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "Which is a kind of selling, I suppose."
+            }
+          ]
+        },
+        {
+          "id": "deke_vessel3",
+          "text": "Getting out of what?",
+          "tag": "PROGRESS",
+          "say": "Claim Two. Producing, mind. But my sister's poorly and Sacramento's four days."
+        },
+        {
+          "id": "deke_vessel4",
+          "text": "How much?",
+          "tag": "PROGRESS",
+          "exchange": [
+            {
+              "speaker": "deke_vessel",
+              "line": "What have you got?"
+            },
+            {
+              "speaker": "thad",
+              "line": "Four dollars."
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "Four dollars."
+            },
+            {
+              "speaker": "deke_vessel",
+              "line": "And that."
+            }
+          ]
+        },
+        {
+          "id": "deke_vessel5",
+          "text": "You seem cheerful for a man with a poorly sister.",
+          "tag": "COMIC",
+          "say": "I've made my peace with it."
+        },
+        {
+          "id": "deke_vessel6",
+          "text": "All right.",
+          "tag": "PROGRESS",
+          "beat": "The swindle. Four dollars and the watch for the deed.",
+          "set": {
+            "T_SWINDLED": true
+          }
+        },
+        {
+          "id": "deke_vessel7",
+          "text": "I'll think about it.",
+          "tag": "EXIT",
+          "say": "Course you will."
+        }
+      ]
+    }
+  },
+  "start": "root"
+}

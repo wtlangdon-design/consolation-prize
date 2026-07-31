@@ -906,8 +906,182 @@ function roomsBatchA() {
   return written;
 }
 
+// ---------------------------------------------------------------------------
+
+/**
+ * Doc 27's three Act I trees: the undertaker, the hotel clerk, Deke Vessel.
+ *
+ * SPEAKER ATTRIBUTION IS THE DOCUMENT'S OWN TYPOGRAPHY, not a decision made
+ * here. A response cell alternates speakers and marks each one:
+ *
+ *   "..."      plain          -- the character whose tree this is
+ *   *"..."*    italic         -- Thad
+ *   **"..."**  bold           -- the character, emphasised
+ *   *(...)*    italic bracket -- a stage direction, and nobody says it
+ *
+ * The rule holds across all three trees and all six multi-speaker cells, and
+ * it is the same kind of forced reading doc 17's beat sheet needed. Note that
+ * italic-with-quotes and italic-without are different things: `*"I'm sorry?"*`
+ * is Thad and `*(pause)*` is nobody, so the parser cannot simply strip
+ * emphasis and look at what is left.
+ *
+ * FLAG ROUTING. Two of the three flags are named in the document, in the cell
+ * that writes them. The third is not, and it is not invented here either:
+ *
+ *   T_PIKE_DEAD      doc 27, undertaker option 2, in so many words
+ *   T_SWINDLED       doc 27, Vessel option 6, in so many words
+ *   T_TUNES_PIANOS   NOT named in doc 27. Doc 02's A2 row states the topic as
+ *                    "I tune pianos"; doc 04 declares T_TUNES_PIANOS as an
+ *                    Act I flag and gates an option in Winnie's tree on it
+ *                    ("I tune pianos." req `T_TUNES_PIANOS`), which means
+ *                    something earlier must set it; and the clerk's option 4
+ *                    is the only place in Act I where Thad says he can tune a
+ *                    piano. Three documents leave exactly one writer.
+ *
+ * The clerk's option 4 sets that flag AND NOTHING ELSE. It grants permission;
+ * doc 24's A2 pair -- the fork on the parlour piano, in a room that is not
+ * built -- is what earns the room. A tree that resolved A2 would make the
+ * combination decorative.
+ */
+function minorTrees() {
+  const doc = read('docs/27-minor-trees.md');
+  const sections = doc.split(/^# (.+?) · Room (\d+)$/m).slice(1);
+  const written = [];
+
+  //: Tree id, speaker id and room, per character. The room is carried so the
+  //: hotspot that opens the tree can be checked against it.
+  const WHO = {
+    'THE UNDERTAKER': { tree: 'UNDERTAKER', speaker: 'undertaker', room: 'undertaker' },
+    'THE HOTEL CLERK': { tree: 'HOTEL_CLERK', speaker: 'hotel_clerk', room: 'hotel_lobby' },
+    'DEKE VESSEL': { tree: 'DEKE_VESSEL', speaker: 'deke_vessel', room: 'nugget' },
+  };
+  //: Doc 27 leaves one writer unnamed. See the routing note above.
+  const ROUTED = { 'THE HOTEL CLERK': { 4: 'T_TUNES_PIANOS' } };
+  const THAD = 'thad';
+  const unspoken = [];
+  const directions = [];
+
+  for (let index = 0; index < sections.length; index += 3) {
+    const title = sections[index].trim();
+    const body = sections[index + 2];
+    const who = WHO[title];
+    if (!who) throw new Error(`doc 27: no tree wired for "${title}"`);
+
+    const rootCell = body.match(/^\*\*Root:\*\* (.+)$/m);
+    if (!rootCell) throw new Error(`doc 27: ${title} has no root line`);
+    const rootSpeech = speech(rootCell[1], who.speaker);
+    if (rootSpeech.length !== 1) {
+      throw new Error(`doc 27: ${title}'s root is ${rootSpeech.length} lines, not 1`);
+    }
+    for (const note of stageDirections(rootCell[1])) directions.push(`${title} root: ${note}`);
+
+    const options = [];
+    // The tag cell may be EMPTY, and an empty cell in this document is "| |"
+    // with one space rather than two -- so the separators cannot carry their
+    // own spaces or every EXIT row is silently skipped. It was: three trees
+    // came out with no way to leave any of them, and nothing failed, because
+    // no check requires an exit and the runner ends on a tag it never saw.
+    const ROW = /^\| (\d+) \|\s*(.+?)\s*\|\s*(.*?)\s*\|\s*(.+?)\s*\|$/gm;
+    for (const row of body.matchAll(ROW)) {
+      const [, number, optionCell, tagCell, responseCell] = row;
+
+      // The tag is normally its own column. An EXIT row leaves that column
+      // empty and marks the option text instead, which is how the document
+      // reads on the page and is not an error to be normalised.
+      const tagged = `${tagCell} ${optionCell}`.match(/\[([A-Z]+)\]/);
+      if (!tagged) throw new Error(`doc 27: ${title} option ${number} has no tag`);
+      const tag = tagged[1];
+      const text = quoted(optionCell)[0];
+      if (!text) throw new Error(`doc 27: ${title} option ${number} has no option text`);
+
+      // Everything before the arrow is spoken; everything after it is state.
+      const [spoken, ...after] = responseCell.split('→');
+      const lines = speech(spoken, who.speaker);
+      for (const note of stageDirections(spoken)) {
+        directions.push(`${title} option ${number}: ${note}`);
+      }
+
+      const option = { id: `${who.speaker}${number}`, text, tag };
+      if (lines.length === 1 && lines[0].speaker === who.speaker) {
+        option.say = lines[0].line;
+      } else if (lines.length > 1) {
+        option.exchange = lines;
+      } else if (lines.length === 0) {
+        // Doc 27's Vessel option 6 is "(The swindle. Four dollars and the
+        // watch for the deed.)" -- a scene, not a line. Nothing is invented
+        // to fill it: the DIRECTION ITSELF is carried as the option's beat,
+        // so the document's words survive into the data and the engine has
+        // something to play when the machinery for it exists. An option with
+        // neither a line nor a direction is an error and says so.
+        const direction = stageDirections(spoken)[0];
+        if (!direction) {
+          throw new Error(`doc 27: ${title} option ${number} has no line and no direction`);
+        }
+        option.beat = direction;
+        unspoken.push(`${title} option ${number} "${text}" -- ${direction}`);
+      } else {
+        throw new Error(`doc 27: ${title} option ${number} is one line and Thad says it`);
+      }
+
+      const named = after.join('→').match(/\**`([A-Z][A-Z_0-9]+)`\**/);
+      const routed = ROUTED[title]?.[Number(number)];
+      if (named && routed) {
+        throw new Error(`doc 27: ${title} option ${number} names ${named[1]} and is `
+          + `also routed to ${routed} -- one of the two is now wrong`);
+      }
+      if (named || routed) option.set = { [named ? named[1] : routed]: true };
+      options.push(option);
+    }
+
+    if (options.length < 3) throw new Error(`doc 27: ${title} has ${options.length} options`);
+
+    written.push(write(`content/dialogue/${who.tree.toLowerCase().replace(/_/g, '-')}.json`, {
+      schema: 1,
+      id: who.tree,
+      name: title,
+      note: `EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not `
+        + `edit: change doc 27 and re-run. Speakers come from the document's own `
+        + `typography -- plain quotes are ${who.speaker}, italic quotes are Thad, and `
+        + `an italic bracket is a stage direction nobody says.`,
+      nodes: {
+        root: {
+          id: 'root',
+          prompt: rootSpeech[0].line,
+          options,
+        },
+      },
+      start: 'root',
+    }));
+  }
+
+  for (const note of directions) process.stderr.write(`  doc 27 staging: ${note}\n`);
+  for (const note of unspoken) process.stderr.write(`  doc 27 UNSPOKEN: ${note}\n`);
+  return written;
+}
+
+/**
+ * The speech in a response cell, in order, each line with its speaker.
+ *
+ * The three forms are tried most-specific first, in one pass, so a bold span
+ * is not read as a plain one that happens to have asterisks around it.
+ */
+function speech(cell, npc) {
+  const out = [];
+  for (const span of cell.matchAll(/\*\*"([^"]+)"\*\*|\*"([^"]+)"\*|"([^"]+)"/g)) {
+    const [, bold, italic, plainSpan] = span;
+    if (italic !== undefined) out.push({ speaker: 'thad', line: italic });
+    else out.push({ speaker: npc, line: bold ?? plainSpan });
+  }
+  return out;
+}
+
+/** Italic brackets: staging, carried out of the data and reported. */
+function stageDirections(cell) {
+  return [...cell.matchAll(/\*\(([^)]+)\)\*/g)].map((match) => match[1]);
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA()];
+  ...roomsBatchA(), ...minorTrees()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

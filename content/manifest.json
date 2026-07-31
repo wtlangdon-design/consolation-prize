@@ -30,7 +30,10 @@
     "content/dialogue/amb-letter-writer.json",
     "content/dialogue/amb-pie-woman.json",
     "content/dialogue/amb-map-seller.json",
-    "content/dialogue/harness-tree.json"
+    "content/dialogue/harness-tree.json",
+    "content/dialogue/undertaker.json",
+    "content/dialogue/hotel-clerk.json",
+    "content/dialogue/deke-vessel.json"
   ],
   "puzzles": [],
   "sequences": [

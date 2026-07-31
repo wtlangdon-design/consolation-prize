@@ -36,6 +36,12 @@ const SCRIPTS = [
   ['room05_assay.py', 'Room 5, the Assay Office'],
   ['room05_background.py', 'Room 5 background (shipping asset)'],
   ['room05_proof.py', 'Room 5 with Thad, and the ruling 17c audit'],
+  // Batch A. It was never in this list: three rooms' shipping backgrounds
+  // regenerated only when somebody remembered to run the module by hand,
+  // which is the exact thing 'one command regenerates everything' exists to
+  // stop. Found because git reported the audit overlays changed and the
+  // backgrounds they were drawn over did not.
+  ['rooms_batch_a.py', 'Rooms 18, 19 and 13 -- backgrounds and foregrounds (shipping assets)'],
   ['room01_stage_road.py', 'Room 1, the stage road at night'],
   ['cycling_render.py', 'Room 1 palette cycling -- GIF at real rates, plus the states'],
   ['room00_map.py', 'Room 0, the town map -- doc 20. A plan, not a place'],

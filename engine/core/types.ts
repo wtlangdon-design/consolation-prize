@@ -581,6 +581,20 @@ export interface DialogueOption {
   exchange?: { speaker: string; line: string }[];
   /** Shown instead of `say` once the option has already been taken. */
   repeat?: string;
+  /**
+   * The option's response is a SCENE, not a line, and the scene is not built.
+   *
+   * Doc 27 writes Vessel's sixth option as "(The swindle. Four dollars and
+   * the watch for the deed.)" -- a stage direction with no speech in it,
+   * because nobody says anything: four dollars and a watch go one way and a
+   * deed comes back. The direction is carried here verbatim rather than
+   * dropped, and check-content-schema lists every one of these on every run.
+   *
+   * The runner shows nothing for it, which is correct and temporary. An
+   * option carrying a beat must never be given an invented line to fill the
+   * silence -- when the machinery exists, the beat plays.
+   */
+  beat?: string;
   set?: FlagWrites;
   add?: FlagAdds;
   goto?: string;
