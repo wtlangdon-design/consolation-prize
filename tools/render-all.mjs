@@ -25,6 +25,7 @@ const SCRIPTS = [
   ['room36_main_street_dawn.py', 'Room 36 background (shipping asset)'],
   ['actor_sheet.py', "Thad's reference sheet and his Room 2 composites"],
   ['thad_inspect.py', 'Thad at 8x -- ruling 16 rule 5'],
+  ['scaling_test.py', 'SCUMM decimation vs the hand reductions -- evidence for ruling 15'],
   ['room03_nugget.py', 'Room 3, the Bountiful Nugget'],
   ['room03_background.py', 'Room 3 background (shipping asset)'],
   ['room03_proof.py', 'Room 3 with Thad, and the ruling 17c audit'],

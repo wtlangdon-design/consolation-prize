@@ -548,10 +548,16 @@ test('a stub exit still transits, and ruling 20 keeps the landing man still', as
   assert.equal(state.interact(assay).changedRoom, true);
   assert.equal(state.roomId, 'assay_office');
 
-  // Ruling 20: four of the Nugget's eleven animate, and the man on the
-  // landing is an explicit exception. He has no idle and must never get one.
-  const nugget = content.rooms.get('nugget')!;
-  const animated = nugget.idles?.figures ?? [];
+  // Ruling 20: four of a crowd of eleven animate, and the man on the landing
+  // is an explicit exception. He has no idle and must never get one.
+  //
+  // The room is found by the fact that it declares idles rather than by name.
+  // check-no-content-in-code counts a room's name as fiction leaking into the
+  // engine, and a test that has to be renamed when a room is is a test tied
+  // to something it does not care about.
+  const withIdles = [...content.rooms.values()].filter((room) => room.idles?.figures?.length);
+  assert.equal(withIdles.length, 1, 'one composed room declares idles so far');
+  const animated = withIdles[0]!.idles!.figures;
   assert.equal(animated.length, 4, 'ruling 20 wants at least three of this crowd moving');
   assert.ok(!animated.some((figure) => figure.id.includes('landing')),
     'the man on the landing does not move, and that is his whole joke');

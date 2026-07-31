@@ -528,13 +528,13 @@
     {
       "id": "to_assay_office",
       "name": "THE ASSAY OFFICE",
-      "note": "Doc 20's graph: the sixth enterable facade. Room 5 was composed, wired with sixteen lines and audited three times while nothing on Main Street opened onto it -- the player could leave a room they could never enter, which check-room-entries now calls a build failure. Marked stub because doc 05's Room 2 does not script this door and its examine lines are not written; inventing them here would be worse than the honest gap. The rect sits on the assay lot, which street_scene draws BOARDED, with leaning tools in front and no doorway. It should get one at Room 2's next revision.",
+      "note": "Doc 20's graph: the sixth enterable facade. Room 5 was composed, wired with sixteen lines and audited three times while nothing on Main Street opened onto it. Marked stub because doc 05's Room 2 does not script this door and its examine lines are not written; inventing them would be worse than the honest gap. The rect is the door and its step. The lot was drawn BOARDED with tools leaning across it, which is ruling 19b in the other direction -- art asserting a building this exit contradicts -- and it now has a door, clean glass and a worn step, and nothing else. It is still the plainest front on the street.",
       "stub": true,
       "rect": [
-        288,
-        58,
-        22,
-        19
+        292,
+        54,
+        20,
+        28
       ],
       "colour": 26,
       "to": "assay_office",

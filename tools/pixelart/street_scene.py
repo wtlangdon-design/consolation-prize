@@ -111,8 +111,16 @@ LOTS = [
         shoulder_drop=14, detail="busy",  treatments=("blind", "blind"), roof="grey"),
     Lot("hotel",     218, 56, 18, "pine_weathered", 0.72, 1.0, 54, 4,
         shoulder_drop=14, detail="quiet", treatments=("curtain", "shutters")),
+    # No treatment on the window and nothing else on the front. Ruling 19b
+    # cuts both ways and this facade was the other direction: boarded, with
+    # tools leaning across the door, while Room 2's exit walked the player
+    # into it. The art asserted a building that cannot be entered.
+    #
+    # Unornamented is still the right note -- Winnie spends nothing on
+    # appearances and this is the plainest front on the street -- but plain
+    # is not shut. A door, a step, clean glass, and no sign.
     Lot("assay",     278, 50, 44, "umber",          0.70, 1.0, 56, 3,
-        shoulder_drop=8,  detail="quiet", treatments=("boarded",)),
+        shoulder_drop=8,  detail="quiet", treatments=()),
 ]
 
 ALLEYS = [(58, 6, 0, 1), (96, 4, 1, 2), (160, 4, 2, 3), (214, 4, 3, 4), (274, 4, 4, 5)]
@@ -434,9 +442,13 @@ def storefront(
         window(canvas, lot.x + 40, open_top + 2, 12, open_h - 5, wall, glass, rng, panes=(2, 2))
 
     else:  # assay
-        door(canvas, lot.x + 16, door_top, 15, door_h, wall, rng, base=tone - 0.12)
+        # A shade lighter than the other doors rather than darker, because it
+        # is the only thing on this front and it has to carry the whole
+        # reading of "you may come in here".
+        door(canvas, lot.x + 16, door_top, 15, door_h, wall, rng, base=tone + 0.04)
         window(canvas, lot.x + 33, open_top + 2, 13, open_h - 5, wall, glass, rng, panes=(2, 2))
-        treat(lot.x + 33, open_top + 2, 13, open_h - 5)
+        # Its step is drawn later, with the boardwalk clutter -- the walk is
+        # laid over the storefronts and would bury anything put down here.
 
 
 # ---------------------------------------------------------------------------
@@ -447,6 +459,7 @@ def storefront(
 def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng: random.Random) -> None:
     """Goods stacked outside, because nothing here has a back room."""
     pine = scheme.family(palette, "pine_weathered")
+    umber = scheme.family(palette, "umber")
     fresh = scheme.family(palette, "pine_fresh")
     umber = scheme.family(palette, "umber")
     bone = scheme.family(palette, "bone")
@@ -473,7 +486,20 @@ def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng
 
     # Hotel and assay office stay quiet: one prop each.
     rope_coil(canvas, palette, 250, deck, pine, rng, tone=0.54)
-    leaning_tools(canvas, palette, 300, deck, 3, pine, grey, rng)
+    # Two, not three, and hard against the left edge of the assay front where
+    # there is blank wall. At x300 they leaned across the door, which is the
+    # thing the player has to be able to see.
+    leaning_tools(canvas, palette, 279, deck, 2, pine, grey, rng)
+
+    # The assay office step. One board proud of the walk, worn pale in the
+    # middle where eleven weeks of assays have gone in and come out again. It
+    # is the whole of Winnie's ornament and it is not ornament.
+    assay = LOTS[-1]
+    step_x, step_w = assay.x + 13, 21
+    canvas.rect(step_x, GROUND + 1, step_w, 3, bone.frac(0.30))
+    canvas.hline(step_x, GROUND + 1, step_w, bone.frac(0.52))
+    canvas.hline(step_x + 4, GROUND + 2, step_w - 8, bone.frac(0.42))
+    canvas.hline(step_x, GROUND + 4, step_w, umber.frac(0.10))
 
     # Washing over the hotel balcony rail. Somebody is living up there.
     laundry_line(canvas, palette, 226, 36, 40, pine, bone, rng)
