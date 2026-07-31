@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "pickaxe",
+  "name": "A pickaxe with a loose head",
+  "short": "THE PICKAXE",
+  "note": "Doc 23. Mercantile, Act I. The head falls off twice for comedy and is always refittable, so this is a candidate for doc 22 section 6's object states rather than a second item.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "A pickaxe. The head is loose, which is the only reason I could afford it.",
+        "repeat": [
+          "Still loose. I have wedged it with a shim of pine and I am calling that repaired.",
+          "The head has come off twice. Both times it went forwards, which I choose to read as enthusiasm."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "The head, shifting on the haft. It has an opinion about being carried.",
+        "repeat": [
+          "Still shifting.",
+          "Nothing. It has settled, which worries me more."
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "id": "four_dollars",
+  "name": "Four dollars",
+  "short": "FOUR DOLLARS",
+  "note": "Doc 23. Depleting, and gone after puzzle A3 -- doc 02 has Vessel take it along with the watch.",
+  "startsHeld": true,
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Four dollars. It was eleven when I left Providence and the difference is entirely the fault of a coach line.",
+        "repeat": [
+          "Four dollars. A room is five.",
+          "Four dollars. I have counted it twice and it has not improved."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Coin, in a pocket. Not a great deal of it.",
+        "repeat": [
+          "Less than it sounds.",
+          "Nothing. It is four dollars and it is being quiet about it."
+        ]
+      }
+    ]
+  }
+}

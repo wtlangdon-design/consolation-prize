@@ -69,6 +69,16 @@
       "writtenBy": [
         "engine:opening-sequence:beat10"
       ]
+    },
+    {
+      "id": "T_PIKE_DEAD",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has learned that Ezra Pike, the man his letter of introduction is addressed to, has been dead six years. Gates the letter's second line set per ruling 19a and doc 23. Nothing writes it yet -- the beat that does is in Act I's opening run of puzzles and is not built, so this is declared-and-unwritten on purpose and check-flag-order reports it.",
+      "writtenBy": [
+        "content:act-1:pike"
+      ],
+      "pending": true
     }
   ]
 }

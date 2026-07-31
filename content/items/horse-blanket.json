@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "horse_blanket",
+  "name": "A livery blanket",
+  "short": "HORSE BLANKET",
+  "note": "Doc 23. Acquired for A5, returnable.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "A horse blanket, borrowed, folded, and considerably better than the blanket on my own bed.",
+        "repeat": [
+          "It smells of horse. This is not a complaint. It is the most honest thing I have carried this week.",
+          "I intend to return it."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Nothing. Wool.",
+        "repeat": [
+          "Nothing.",
+          "Nothing."
+        ]
+      }
+    ]
+  }
+}

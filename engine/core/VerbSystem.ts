@@ -101,13 +101,14 @@ export class VerbSystem {
 
   resolve(verbId: string, target: Interactable): ResolvedAction {
     const rules = target.responses?.[verbId];
-    const matched = rules?.find((rule: ResponseRule) => this.flags.test(rule.when));
+    const index = rules?.findIndex((rule: ResponseRule) => this.flags.test(rule.when)) ?? -1;
+    const matched = index >= 0 ? rules?.[index] : undefined;
 
     if (matched) {
       this.flags.applyWrites(matched.set);
       this.flags.applyAdds(matched.add);
       return {
-        say: this.nextLine(target.id, verbId, matched),
+        say: this.nextLine(`${target.id}#${index}`, verbId, matched),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
       };
@@ -133,6 +134,11 @@ export class VerbSystem {
    * three minimum, because it is the screen the player reads most.
    */
   private nextLine(targetId: string, verbId: string, rule: ResponseRule): string | null {
+    // targetId carries the matched RULE INDEX, so a ruling 19a state change
+    // gets its own cursor. Keyed on the target alone, looking at the letter
+    // twice before Pike dies and once after handed the player the third
+    // after-state line first -- the quiet one about his father, out of order
+    // and as a punchline.
     const variants = [rule.say, ...(rule.repeat ?? [])].filter(
       (line): line is string => typeof line === 'string',
     );

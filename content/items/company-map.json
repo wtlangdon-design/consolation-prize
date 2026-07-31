@@ -1,7 +1,27 @@
 {
   "schema": 1,
   "id": "company_map",
-  "name": "THE COMPANY MAP",
-  "note": "Doc 04, FAN_A1: Fanshawe gives it free in exchange for the deed number, read aloud, and there is no way to withhold it. It has Claim Two circled. Fits the panel at 15 characters, so it needs no short name. No LOOK or LISTEN is written for this item anywhere in /docs. Doc 15 lists ~40 inventory item LOOK and LISTEN lines as unwritten and these are two of them, so they are NOT invented here -- the item exists, is carried, is named, and answers unhandled verbs from doc 13's authored global pools. check-item-names reports it until the lines are written.",
-  "linesPending": true
+  "name": "The Improvement Company map",
+  "short": "THE COMPANY MAP",
+  "note": "Doc 23. Acquired at A4 -- doc 04's FAN_A1, where there is no way to withhold the deed number and the map comes anyway with Claim Two already circled. Doc 23 note 3: the second LOOK is the Fanshawe rule stated by a man who does not yet know it is one.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "A printed map of the district, given to me free by the Improvement Company. Claim Two is circled.",
+        "repeat": [
+          "I did not circle it. I have thought about that several times since.",
+          "The roads on it are accurate. Everything else on it is an advertisement."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Paper. Good paper — better than the deed it describes.",
+        "repeat": [
+          "Nothing.",
+          "Nothing at all."
+        ]
+      }
+    ]
+  }
 }

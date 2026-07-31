@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "deed",
+  "name": "The deed to Prosperity",
+  "short": "THE DEED",
+  "note": "Doc 23, and the display name is CONFIRMED there rather than provisional. Acquired at puzzle A3; doc 02's ledger says it cannot be lost. Doc 23 note 2: THAD names the claim, the deed does not -- nothing may imply Vessel sold him something already called Prosperity.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "A deed to forty feet of ground, drawn by hand, the boundary described as ‘from the stake, thereabouts.’",
+        "repeat": [
+          "Claim Two. I have written Prosperity across the top myself, in pencil, which I am aware changes nothing.",
+          "Signed by Deke Vessel and witnessed by nobody at all."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Paper. It cost me four dollars and my father’s watch.",
+        "repeat": [
+          "Nothing.",
+          "Nothing. It is a legal document and it is not going to help me."
+        ]
+      }
+    ]
+  }
+}

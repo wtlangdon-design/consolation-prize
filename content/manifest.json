@@ -33,8 +33,13 @@
   "panel": "content/ui/panel.json",
   "items": [
     "content/items/tuning-fork.json",
-    "content/items/deed-to-prosperity.json",
-    "content/items/company-map.json"
+    "content/items/letter.json",
+    "content/items/four-dollars.json",
+    "content/items/deed.json",
+    "content/items/company-map.json",
+    "content/items/horse-blanket.json",
+    "content/items/pickaxe.json",
+    "content/items/filing-fee.json"
   ],
   "scaling": "content/actors/scaling.json",
   "ambient": [

@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "id": "letter",
+  "name": "The letter of introduction",
+  "short": "THE LETTER",
+  "note": "Doc 23, and the only Act I inventory item with a ruling 19a state change. Both states carry a full line set; the gate is T_PIKE_DEAD. Doc 23 note 1: the after-state's third LOOK is the one moment in the act where Thad is not being funny, and a joke must not be added to it. Two rules over one item rather than two items, because the letter's semantic identity does not change -- what changed is the world. Ruling 19a's two-hotspots pattern is for when the NAME changes too, which is the coach.",
+  "startsHeld": true,
+  "responses": {
+    "LOOK_AT": [
+      {
+        "when": {
+          "T_PIKE_DEAD": true
+        },
+        "say": "A letter of introduction to a man who has been dead six years. I have not opened it.",
+        "repeat": [
+          "Still sealed. It seems rude, somehow, and I am not certain to whom.",
+          "My father did not know. That is the part I keep arriving at."
+        ]
+      },
+      {
+        "when": {
+          "T_PIKE_DEAD": false
+        },
+        "say": "A letter of introduction to Mr Ezra Pike of Consolation, in my father’s hand, sealed.",
+        "repeat": [
+          "My father wrote it in one sitting and would not let me read it.",
+          "Sealed. I have carried it eleven hundred miles without opening it, which I had thought was patience."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "when": {
+          "T_PIKE_DEAD": true
+        },
+        "say": "Nothing. Paper.",
+        "repeat": [
+          "Nothing.",
+          "Nothing. Whatever it says, it is saying it to nobody."
+        ]
+      },
+      {
+        "when": {
+          "T_PIKE_DEAD": false
+        },
+        "say": "Nothing. Paper.",
+        "repeat": [
+          "Nothing.",
+          "Nothing."
+        ]
+      }
+    ]
+  }
+}

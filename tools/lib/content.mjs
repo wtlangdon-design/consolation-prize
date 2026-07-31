@@ -46,6 +46,25 @@ export function allInteractables(content) {
   return out;
 }
 
+/**
+ * Everything that carries a `responses` table: room targets AND inventory
+ * items. Items resolve through the same verb system, so a gate on an item's
+ * line is a gate like any other -- and until this existed the letter's
+ * ruling 19a gate on T_PIKE_DEAD was invisible to every validator.
+ *
+ * Deliberately separate from allInteractables rather than folded into it.
+ * The examine-line and schema checks reason about ROOM targets and expect a
+ * rect and a colour; an item has neither, and quietly widening what those
+ * checks sweep would have produced a page of failures about the wrong thing.
+ */
+export function allResponseCarriers(content) {
+  return [
+    ...allInteractables(content),
+    ...(content.items ?? []).map(({ path, data }) => (
+      { path, roomId: 'inventory', kind: 'item', target: data })),
+  ];
+}
+
 /** Every dialogue option across every tree, tagged with its tree and node. */
 export function allDialogueOptions(content) {
   const out = [];

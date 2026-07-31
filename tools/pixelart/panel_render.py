@@ -29,18 +29,26 @@ from title_screen import game_font
 ROOT = Path(__file__).resolve().parents[2]
 WIDTH, PANEL_Y, HEIGHT = 320, 144, 200
 
-#: Doc 01's core inventory, quoted for the layout proof. Three of these are
-#: the Act II running gag whose whole joke is that they are tellable apart.
-DEMO = [
-    "THE TUNING FORK",
-    "THE DEED",
-    "THE COMPANY MAP",
+#: The Act II forms, quoted from doc 01, appended to the real Act I list.
+#: They are here because they are the case errata 26 point 2 asks for a rule
+#: about: three items whose whole joke is that they are tellable apart, and
+#: the third does not fit. They are NOT content -- doc 23 covers Act I and
+#: these have no display names authored yet.
+UNAUTHORED = [
     "FORM 12-C",
     "FORM 12-C (AMENDED)",
     "FORM 12-C (AMENDED, VOID)",
-    "A POCKET WATCH",
-    "SOMEONE ELSE'S TEETH",
 ]
+
+
+def act_one_names() -> list[str]:
+    """Doc 23's eight display names, read from the shipped item files."""
+    manifest = json.loads((ROOT / "content" / "manifest.json").read_text(encoding="utf-8"))
+    names = []
+    for relative in manifest["items"]:
+        data = json.loads((ROOT / relative).read_text(encoding="utf-8"))
+        names.append(data.get("short") or data["name"])
+    return names
 
 
 def _load(name: str) -> dict:
@@ -94,10 +102,13 @@ def draw_panel(canvas: IndexedCanvas, palette: Palette, panel: dict, verbs: dict
         if index == held:
             canvas.rect(inventory["x"], y, inventory["width"], inventory["rowHeight"],
                         grey.frac(0.30))
-        width = game_font(canvas, items[index], inventory["x"] + 2, y + 2, bone,
-                          0.94 if index == held else 0.72)
+        game_font(canvas, items[index], inventory["x"] + 2, y + 2, bone,
+                  0.94 if index == held else 0.72)
+
+    for name in items:
+        width = game_font(IndexedCanvas(400, 8), name, 0, 0, bone, 0.0)
         if width > inventory["width"] - 4:
-            over.append((items[index], width))
+            over.append((name, width))
 
     arrows = inventory["arrows"]
     half = (inventory["rowHeight"] * visible) // 2
@@ -123,12 +134,13 @@ def main() -> None:
                            fill=palette.family("void").at(0))
 
     short = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("void").at(0))
-    draw_panel(short, palette, panel, verbs, "Look at THE TUNING FORK",
-               ["THE TUNING FORK"], 0, 0)
+    draw_panel(short, palette, panel, verbs, "Look at THE LETTER",
+               act_one_names()[:3], 0, 1)
 
+    items = act_one_names() + UNAUTHORED
     long = IndexedCanvas(WIDTH, HEIGHT, fill=palette.family("void").at(0))
     report = draw_panel(long, palette, panel, verbs, "Use THE COMPANY MAP on THE MUD",
-                        DEMO, 2, 2)
+                        items, 7, 8)
 
     for index, source in enumerate((short, long)):
         for y in range(PANEL_Y, HEIGHT):

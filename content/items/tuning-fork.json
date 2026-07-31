@@ -1,23 +1,26 @@
 {
   "schema": 1,
   "id": "tuning_fork",
-  "name": "THE TUNING FORK",
-  "note": "Doc 01: his one tool, the game's totem, never leaves the inventory -- so it starts in it and there is no puzzle that gives it to him. LOOK and LISTEN are verbatim from docs/10-examine-batch-3.md. The repeat variants are the doc 05 Room 1 pair for the same object, which is the only other place it is written; a third variant for each is NOT written anywhere and is not invented here.",
+  "name": "The tuning fork",
+  "short": "THE TUNING FORK",
+  "note": "Doc 23. Never leaves inventory -- doc 01 calls it the game's totem -- so it starts held and no puzzle grants it. Doc 23 note 4: the third LOOK is one of only two mentions of Thad's father in Act I; the other is Room 1's case. These lines SUPERSEDE the pair I wired from doc 10, which were the Room 34 hotspot's rather than the item's.",
   "startsHeld": true,
   "responses": {
     "LOOK_AT": [
       {
-        "say": "My father thought this was a sensible investment. He was, on the evidence, the only person in my family who has ever been right about anything.",
+        "say": "A tuning fork. Steel, A above middle C, and the only tool of my trade with any use out here.",
         "repeat": [
-          "Everything I own, and a tuning fork. The tuning fork is the valuable part."
+          "There is a small dent in one tine. It has not affected the pitch, which I have checked more often than is reasonable.",
+          "My father put this in the case first. He packed it before the shirts."
         ]
       }
     ],
     "LISTEN_TO": [
       {
-        "say": "A. Four hundred and forty. It is still the only correct thing within a hundred miles.",
+        "say": "A. Four hundred and forty. Correct.",
         "repeat": [
-          "The fork, faintly, against the clasp. A. Four hundred and forty. It is the only correct thing within a hundred miles."
+          "Still correct.",
+          "Correct. It is the only thing I own that is."
         ]
       }
     ]

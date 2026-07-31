@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "filing_fee",
+  "name": "The filing fee",
+  "short": "THE FILING FEE",
+  "note": "Doc 23. Earned at A8 by tuning the Nugget's piano, spent at A9 filing the deed.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Two dollars, earned by tuning a saloon piano that nobody plays.",
+        "repeat": [
+          "Two dollars, going to a man behind a grille to write a number in a book.",
+          "The most useful money I have earned in my life, and it is for paperwork."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Coin.",
+        "repeat": [
+          "Coin.",
+          "Nothing. It is two dollars and it will not be two dollars for long."
+        ]
+      }
+    ]
+  }
+}

@@ -604,3 +604,37 @@ test('a stub exit still transits, and ruling 20 keeps the landing man still', as
   const rates = new Set(animated.map((figure) => figure.rate));
   assert.equal(rates.size, animated.length, 'nothing metronomic -- no two share a rate');
 });
+
+test('an item with two ruling 19a states keeps a cursor per state', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  const letter = content.items.get('letter')!;
+  const target = state.itemTarget('letter')!;
+
+  // Doc 23: the letter is the only Act I item with a 19a state change, and
+  // both states carry a full set. Two rules over ONE item, because its
+  // semantic identity does not change -- the coach's two-hotspot pattern is
+  // for when the name changes too.
+  assert.equal(letter.responses!.LOOK_AT!.length, 2, 'two states');
+  for (const rule of letter.responses!.LOOK_AT!) {
+    assert.ok(rule.when, 'each state declares its own gate');
+    assert.equal((rule.repeat ?? []).length, 2, 'three lines per state');
+  }
+
+  state.verbs.selectVerb('LOOK_AT');
+  const before = [
+    state.verbs.resolve('LOOK_AT', target).say,
+    state.verbs.resolve('LOOK_AT', target).say,
+  ];
+  state.flags.applyWrites({ T_PIKE_DEAD: true });
+  const after = state.verbs.resolve('LOOK_AT', target).say;
+
+  // The cursor is per state. Shared, this third selection would have been
+  // the after-state's THIRD line -- the quiet one about his father -- served
+  // out of order and as a punchline, which doc 23 note 1 forbids.
+  const rules = letter.responses!.LOOK_AT!;
+  const [dead, alive] = rules[0]!.when!.T_PIKE_DEAD === true
+    ? [rules[0]!, rules[1]!] : [rules[1]!, rules[0]!];
+  assert.deepEqual(before, [alive.say, alive.repeat![0]], 'the before-state runs in order');
+  assert.equal(after, dead.say, 'the after-state starts at its own first line');
+});

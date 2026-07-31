@@ -1,4 +1,6 @@
-import { allDialogueOptions, allInteractables, loadContent, Report, runCheck } from './lib/content.mjs';
+import {
+  allDialogueOptions, allResponseCarriers, loadContent, Report, runCheck,
+} from './lib/content.mjs';
 
 /**
  * No flag is read before it can be written.
@@ -27,7 +29,7 @@ function collectWrites(content) {
     }
   };
 
-  for (const { target } of allInteractables(content)) {
+  for (const { target } of allResponseCarriers(content)) {
     for (const rules of Object.values(target.responses ?? {})) {
       for (const rule of rules) record(rule.set, rule.add);
     }
@@ -41,7 +43,7 @@ function collectWrites(content) {
 
 function collectReads(content) {
   const reads = [];
-  for (const { roomId, target } of allInteractables(content)) {
+  for (const { roomId, target } of allResponseCarriers(content)) {
     // Ruling 19a puts a gate on the target itself, not only on its lines: a
     // hotspot that does not exist yet is not a hotspot. Missing these meant a
     // whole class of gate went unchecked -- the one deciding whether the
@@ -114,6 +116,16 @@ export function check() {
       .map((flag) => flag.id),
   );
 
+  // A flag whose writer is DESIGNED but not yet built. The letter's second
+  // state is gated on the moment Thad learns Pike is dead, and that beat is
+  // in Act I's unbuilt run -- so the gate is unsatisfiable today and will not
+  // be later. Marked on the declaration, listed on every run for the same
+  // reason the engine list is: an exemption nobody can see becomes a way to
+  // quiet the check.
+  const pending = new Set(
+    content.flags.flags.filter((flag) => flag.pending).map((flag) => flag.id),
+  );
+
   for (const { id, expected, where } of reads) {
     const definition = declared.get(id);
     if (!definition) {
@@ -121,7 +133,7 @@ export function check() {
       continue;
     }
     const writtenValues = sets.get(id) ?? new Set();
-    if (byEngine.has(id)) continue;
+    if (byEngine.has(id) || pending.has(id)) continue;
     if (!satisfiable(expected, definition.initial, writtenValues, adds.has(id))) {
       report.fail(`${where}: gate on "${id}" can never be satisfied -- nothing writes a passing value`);
     }
@@ -132,6 +144,11 @@ export function check() {
   report.note(`${declared.size} flags declared, ${reads.length} gates, ${sets.size + adds.size} written`);
   if (unread.length > 0) {
     report.note(`declared but never gated on: ${unread.join(', ')}`);
+  }
+  for (const id of pending) {
+    const flag = declared.get(id);
+    report.note(`gated on but its writer is not built yet: "${id}" -- `
+      + `${(flag.writtenBy ?? ['unattributed']).join(', ')}`);
   }
   for (const id of byEngine) {
     const source = declared.get(id).writtenBy.find((entry) => entry.startsWith('engine:'));
