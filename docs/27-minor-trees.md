@@ -70,9 +70,55 @@
 
 ---
 
+# EXAMINE LAYERS
+
+*The eighteen lines. Each character is a hotspot in their room like anything else.*
+
+## THE UNDERTAKER
+**LOOK** 1 "A man in his fifties in a clean apron, doing something careful with a plane. He has not looked up." · 2 "His hands are a carpenter's. Everything else about him is a clerk's." · 3 "He is the only man in Consolation who is not waiting for something."
+**LISTEN** 1 "Nothing. He works quietly and he does not hum." · 2 "Nothing." · 3 "Breathing, and a plane on pine. It is the most restful sound in the territory and I would rather it were anywhere else."
+
+## THE HOTEL CLERK
+**LOOK** 1 "A young man behind a counter, in a coat that has been brushed a great deal more often than it has been cleaned." · 2 "He is twenty-two at the outside and he has the manner of a man defending an institution." · 3 "He has not once looked at the door. Nobody is coming through it and he knows the timetable."
+**LISTEN** 1 "A pen. He is writing something that is not the register." · 2 "Still writing." · 3 "Nothing. He has stopped, and he is waiting for me to go so that he can start again."
+
+## DEKE VESSEL
+**LOOK** 1 "A man at the bar with his hat pushed back, entirely at ease, watching the door." · 2 "His boots are good. Everything above the boots is not, and I have decided that is deliberate." · 3 "He has been in this territory a long time and he is leaving it in a very good mood."
+**LISTEN** 1 "Talking. He has been talking since before I came in and he has not yet said anything." · 2 "Still talking." · 3 "He has stopped, which is worse."
+
+---
+
+# VESSEL'S AUTO-OPEN — what re-arms it
+
+Doc 27 says *"He opens. Thad does not approach him."* `onEnter` carries flag writes and nothing else, so the tree is currently reached by TALK TO and the opening is unbuilt.
+
+**The missing piece is that `onEnter` may carry a sequence, not only flag writes** — the same five-step runner, reused rather than a new mechanism.
+
+**Vessel's, exactly:**
+
+```
+onEnter (room 3):
+  when:  NOT T_SWINDLED  AND  NOT T_VESSEL_OPENED
+  steps: wait 1500ms
+         say "You're the piano man."
+         openDialogue VESSEL
+  then:  set T_VESSEL_OPENED
+```
+
+- **Gated on `NOT T_SWINDLED`.** After the swindle he never opens again — he has what he came for.
+- **Once only**, via its own flag. A player who leaves and returns is not re-approached.
+- **TALK TO still works and always did.** The auto-open is how Vessel finds Thad; it is not the only route to the tree.
+- The `wait` is legal here because control is the player's but the sequence is non-interactive, which is 30a's fence read narrowly. **If that reading is wrong, drop the wait rather than widening the fence** — he can speak on entry.
+
+**This is the pattern for every character who accosts the player**, and Act II has several. Do it once here.
+
+---
+
 ## Notes
 
 1. **"You still have a letter for him."** The undertaker is not being cruel. He is correcting a tense, because a man who deals in the dead notices when somebody uses the wrong one. It is the best line in Act I and it should be delivered completely flat.
 2. **The undertaker never gets a name.** Everyone else in Consolation is named, several of them absurdly. He is the only person in town whose function is entirely sufficient.
 3. **Vessel's exit line is "Course you will," which is the driver's line from the opening.** Two different men, an hour apart, in the same four words, about the same young man. Nothing points at it.
-4. **The clerk's "Then you have four dollars and no room. Those are compatible."** He is not refusing. He is explaining that the situation is consistent.
+4. **Vessel is "watching the door" in his first LOOK.** He is not waiting for a friend.
+5. **The undertaker's LISTEN 3 — "the most restful sound in the territory and I would rather it were anywhere else."** It is the only time in Act I that Thad admits a place is getting to him.
+6. **The clerk's "Then you have four dollars and no room. Those are compatible."** He is not refusing. He is explaining that the situation is consistent.
