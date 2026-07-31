@@ -21,6 +21,7 @@ the background.
 
 from __future__ import annotations
 
+import math
 import random
 from pathlib import Path
 
@@ -81,14 +82,43 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
 
     # -- ground: cold, because night ground is cold ------------------------
     #
-    # A flat grey fill here read as a concrete wall standing behind the road
-    # rather than as ground going away from the viewer, so it is graded and
-    # then scrubbed over. Still grey, still cold: night ground is not warm and
-    # ruling 17a means no amount of lamplight would make it so.
-    for y in range(HORIZON + 2, HEIGHT):
-        walk = (y - HORIZON - 2) / max(1, HEIGHT - HORIZON - 2)
+    # Still grey, still cold: night ground is not warm and ruling 17a means no
+    # amount of lamplight would make it so. But a graded fill was not enough.
+    # It read as a concrete wall standing behind the road -- a quarter of the
+    # frame at one tone, meeting the road at a dead straight horizontal. Three
+    # things were wrong, and all three are ground cues rather than lighting.
+    #
+    # THE GRADE RAN OVER THE WRONG EXTENT. It was computed across the whole
+    # canvas below the horizon, but the road covers the bottom half of that,
+    # so the 36 visible rows used 0.30 to 0.39 of the ramp -- nine hundredths
+    # of it -- and looked flat because they were flat. It now runs over the
+    # band's own height, dark and cool at the hill base, lifting toward the
+    # road.
+    #
+    # THE TWO PLANES BUTTED. They interleave now: the road's own family
+    # appears in the verge with rising density over the last dozen rows, so
+    # the near ground comes up to meet the far ground. Dithering ACROSS
+    # families is normally wrong and dither.py says so; it is right here for
+    # the same reason it is normally wrong. This genuinely is two materials
+    # meeting, and the crosshatch is what stops the meeting being a line.
+    ground_rng = random.Random(SEED ^ 0x51DE)
+    verge_top = HORIZON + 2
+    for y in range(verge_top, ROAD_Y):
+        walk = (y - verge_top) / max(1, ROAD_Y - 1 - verge_top)
         for x in range(WIDTH):
-            dither_pixel(canvas, x, y, grey, max(0.03, 0.30 + 0.22 * walk), BAYER2)
+            # Nothing warm until the last third, then quickly. A linear fade
+            # puts stray warm pixels up by the horizon, where there is no road
+            # to explain them.
+            #
+            # The threshold moves with x. Without that the interleave is a
+            # perfectly horizontal crosshatch stripe, which replaces one ruled
+            # line across the frame with a wider ruled band -- the same defect
+            # in softer form. The undulation is worth about four rows.
+            warm = max(0.0, (walk - (0.66 + 0.09 * _edge_wave(x))) / 0.34) ** 1.7
+            if BAYER4.threshold(x, y) < warm:
+                dither_pixel(canvas, x, y, mud, 0.38 + 0.16 * walk, BAYER2)
+            else:
+                dither_pixel(canvas, x, y, grey, max(0.03, 0.20 + 0.34 * walk), BAYER2)
     for _ in range(220):
         x, y = rng.randrange(WIDTH), rng.randrange(HORIZON + 3, ROAD_Y)
         canvas.put(x, y, sage.frac(0.10 + 0.14 * rng.random()))
@@ -96,6 +126,18 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
             canvas.put(x + 1, y, sage.frac(0.08))
         if rng.random() < 0.3:
             canvas.put(x, y - 1, grey.frac(0.46))
+
+    # AND THE HORIZONTAL WENT UNBROKEN from frame edge to frame edge. Scrub
+    # gathered into clumps instead of scattered evenly, stones, and the wheel
+    # ruts of the road east climbing away to frame right, which is the one
+    # thing in the band that crosses it at an angle. An even scatter is a
+    # texture; a plane needs something on it that recedes.
+    #
+    # ground_rng is its own stream so that adding any of this does not shift
+    # the town's windows or the stars, which are already where they should be.
+    scrub_clumps(canvas, ground_rng, sage, grey, verge_top)
+    stones(canvas, ground_rng, grey, verge_top)
+    wheel_ruts(canvas, mud, grey)
 
     # The road itself: churned mud, paler than the verge.
     for y in range(ROAD_Y, HEIGHT):
@@ -164,6 +206,78 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     return canvas, palette
 
 
+def _edge_wave(x: int) -> float:
+    """A slow, non-repeating undulation in -1..1. Two incommensurate sines,
+    so the ground's edge never lines up with itself across 320 pixels."""
+    return (math.sin(x * 0.041) + 0.6 * math.sin(x * 0.017 + 1.7)) * 0.55
+
+
+def scrub_clumps(canvas: IndexedCanvas, rng, sage, grey, top: int) -> None:
+    """Sagebrush, gathered. Bigger and looser downhill, tighter toward the rim.
+
+    Scale is the whole job here. A clump the same size at the horizon as at
+    the road says the ground is a wall; halving it over 36 rows says the
+    ground is going away.
+    """
+    for _ in range(38):
+        y = rng.randrange(top + 2, ROAD_Y - 2)
+        x = rng.randrange(2, WIDTH - 6)
+        near = (y - top) / max(1, ROAD_Y - top)
+        size = 1 + int(3 * near)
+        for _ in range(2 + size * 3):
+            dx = rng.randrange(-size, size + 1)
+            dy = rng.randrange(-max(1, size // 2), 1)
+            canvas.put(x + dx, y + dy, sage.frac(0.07 + 0.16 * rng.random()))
+        # Moonlight is from high frame right, so the lit side is the right one.
+        canvas.put(x + size, y - max(1, size // 2), grey.frac(0.40))
+
+
+def stones(canvas: IndexedCanvas, rng, grey, top: int) -> None:
+    """Half a dozen, lit on the upper right by the same moon as everything."""
+    for _ in range(11):
+        y = rng.randrange(top + 6, ROAD_Y - 3)
+        x = rng.randrange(6, WIDTH - 8)
+        near = (y - top) / max(1, ROAD_Y - top)
+        width = 2 + int(3 * near)
+        height = max(1, width // 2)
+        canvas.rect(x, y, width, height, grey.frac(0.14))
+        canvas.hline(x + 1, y - 1, width - 1, grey.frac(0.52))
+        canvas.put(x + width, y, grey.frac(0.34))
+
+
+def wheel_ruts(canvas: IndexedCanvas, mud, grey) -> None:
+    """The road east, climbing away over the rise at frame right.
+
+    Doc 17 puts THE ROAD EAST at x276-319 and gives it examine lines, so the
+    road demonstrably continues past the frame -- but nothing in the picture
+    said so, and the ground read as a backdrop because the only line on it
+    was the one along the bottom. Two ruts converging as they recede are the
+    cheapest available statement that this is a plane.
+    """
+    # Drawn in the VERGE's own family, not the road's. The first attempt used
+    # mud, and two warm bars on a cold plain read as planks lying on it rather
+    # than as tracks worn into it. A rut is not an object: it is a trough in
+    # shadow with a moonlit ridge beside it, and both belong to the ground.
+    span = ROAD_Y - 2 - (HORIZON + 5)
+    for near_x, far_x in ((260, 299), (287, 306)):
+        for step in range(span):
+            t = step / max(1, span - 1)
+            y = ROAD_Y - 2 - step
+            x = int(near_x + (far_x - near_x) * t)
+            wobble = (step % 9) // 7                    # not a ruled line
+            width = 1 if t > 0.45 else 2
+            # The far end breaks up rather than stopping. A track that ends in
+            # a clean point says the frame ends there; one that thins out says
+            # the country does not.
+            if t > 0.74 and (step % 3) == 0:
+                continue
+            canvas.hline(x + wobble, y, width, grey.frac(0.09 + 0.05 * t))
+            canvas.put(x + wobble + width, y, grey.frac(0.44 - 0.14 * t))
+            # Churned earth only where the track joins the road it is part of.
+            if t < 0.14:
+                canvas.put(x + wobble, y, mud.frac(0.30))
+
+
 def town_glow(canvas: IndexedCanvas, palette: Palette, rng, ochre, umber, grey) -> None:
     """Consolation downhill to the west. Doc 17: lamps on in about a third.
 
@@ -223,19 +337,78 @@ def case(canvas: IndexedCanvas, palette: Palette, x: int, y: int, leather, brass
     canvas.put(x + 8, y + 4, brass.frac(0.30))
 
 
+def cart_wheel(canvas: IndexedCanvas, cx: int, cy: int, radius: int, iron, spokes: int = 8) -> None:
+    """A wheel that is round, because the last ones were square outlines.
+
+    Rim, hub and spokes, with the upper-right arc a step lighter -- the same
+    moon lights everything else in this room from high frame right and a
+    wheel is the object in it most obviously made of a curve.
+    """
+    for dy in range(-radius, radius + 1):
+        for dx in range(-radius, radius + 1):
+            distance = math.hypot(dx, dy)
+            if abs(distance - radius) > 0.7:
+                continue
+            lit = dx + dy < -radius // 2
+            canvas.put(cx + dx, cy + dy, iron.frac(0.44 if lit else 0.22))
+    for index in range(spokes):
+        angle = math.tau * index / spokes
+        canvas.line(cx, cy,
+                    cx + round(math.cos(angle) * (radius - 1)),
+                    cy + round(math.sin(angle) * (radius - 1)),
+                    iron.frac(0.16))
+    canvas.rect(cx - 1, cy - 1, 3, 3, iron.frac(0.34))
+
+
 def coach(canvas: IndexedCanvas, palette: Palette, rng, x: int, y: int, body, iron, brass) -> None:
-    """The stage, halted. Departs on the driver's exit line, not a timer."""
-    canvas.rect(x, y - 26, 52, 22, body.frac(0.34))
-    canvas.hline(x, y - 26, 52, body.frac(0.50))
-    canvas.rect(x + 4, y - 22, 12, 9, iron.frac(0.10))      # window, unlit
-    canvas.rect(x + 22, y - 22, 12, 9, iron.frac(0.10))
-    canvas.rect(x - 6, y - 30, 20, 5, body.frac(0.38))      # roof rack and load
-    canvas.hline(x - 6, y - 30, 20, body.frac(0.54))
-    for wheel_x, radius in ((x + 8, 7), (x + 40, 9)):
-        canvas.outline(wheel_x - radius, y - radius - 4, radius * 2, radius * 2, iron.frac(0.36))
-        canvas.hline(wheel_x - radius, y - 4 - radius, radius * 2, iron.frac(0.44))
-        canvas.vline(wheel_x, y - radius * 2 - 4, radius * 2, iron.frac(0.30))
-    canvas.rect(x - 18, y - 20, 14, 3, body.frac(0.30))     # shaft
+    """The stage, halted, facing west. Departs on the driver's exit line.
+
+    It read as a dark shed with two pale rectangles in it. The rectangles
+    were the windows -- drawn in a different family from the body and landing
+    LIGHTER than the wall they were cut into, so the one thing on the coach
+    that caught the eye was the one thing that should have been a hole. The
+    wheels were square outlines with a line through them.
+
+    Rebuilt silhouette first, because at 1x that is all there is: two round
+    wheels of visibly different size, a body slung between them, a roof line
+    overhanging both ends, and a pole running out to the ground. Those four
+    shapes are what makes a coach a coach at fifty pixels wide. Everything
+    after them can only confirm a reading the silhouette has already made,
+    and if the silhouette has not made it, no amount of it will.
+    """
+    ground = y + 3                       # where both wheels meet the road
+    # Rear wheel larger than front, which is the proportion that says
+    # "stagecoach" rather than "cart" before any detail is legible.
+    cart_wheel(canvas, x + 40, ground - 10, 10, iron)
+    cart_wheel(canvas, x + 9, ground - 7, 7, iron, spokes=6)
+
+    # The pole, out to the front and down. It is what a coach is missing when
+    # it reads as a shed: a shed is not attached to anything.
+    canvas.line(x + 4, ground - 13, x - 21, ground - 3, iron.frac(0.26))
+    canvas.line(x + 4, ground - 12, x - 21, ground - 2, iron.frac(0.16))
+    canvas.vline(x - 21, ground - 5, 4, iron.frac(0.22))          # swingletree
+
+    # Body: swelled, so its underside is a curve and not a plank.
+    for row in range(19):
+        inset = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 2, 3, 4, 6)[row]
+        canvas.hline(x + 2 + inset, ground - 31 + row, 47 - inset * 2,
+                     body.frac(0.30 - 0.10 * (row / 18)))
+    canvas.hline(x + 2, ground - 31, 47, body.frac(0.42))
+    canvas.hline(x + 4, ground - 20, 43, body.frac(0.20))         # the belt rail
+
+    # Windows: DARKER than the body. An unlit interior at night is a hole.
+    for window_x in (x + 12, x + 28):
+        canvas.rect(window_x, ground - 29, 11, 8, body.frac(0.06))
+        canvas.hline(window_x, ground - 30, 11, body.frac(0.44))   # the drip cap
+
+    # Roof line, overhanging both ends -- the horizontal that reads first.
+    canvas.rect(x - 1, ground - 34, 53, 2, body.frac(0.26))
+    canvas.hline(x - 1, ground - 34, 53, body.frac(0.52))
+    canvas.rect(x + 30, ground - 39, 18, 5, body.frac(0.24))       # the load
+    canvas.hline(x + 30, ground - 39, 18, body.frac(0.40))
+    canvas.rect(x + 2, ground - 39, 15, 5, body.frac(0.28))        # driver's box
+    canvas.hline(x + 2, ground - 39, 15, body.frac(0.46))
+
     # Dimmer than Hob's lamp on purpose. At full brightness it tied it at
     # 203 and the frame had two equally bright warm points, which is one
     # more than doc 17 allows.

@@ -62,11 +62,22 @@ ROOM_01 = [
             "way -- eighty pixels of spokes did not move p10 or p90 -- which is "
             "the point. A rectangle on top of an object is not detectably wrong "
             "from its number, only from looking at it."),
-    Surface("verge", (128, 64, 48, 26),
-            "x128-176, between the sign and the coach. The full-width version "
-            "contained the lamp itself and reported the verge at 203, nearly "
-            "costing the lamp its status as the uniquely brightest object in "
-            "the only night exterior in the game.",
+    # The verge is now graded across its own height, dark at the hill base and
+    # lifting toward the road, so it is not one number and one rectangle over
+    # all 36 rows would average the two ends of a deliberate gradient. Split
+    # where it matters: he walks on the ROAD, so a 26px head at the far edge
+    # of it tops out at y74, and rows 74-90 are the only part of this band any
+    # part of him is ever seen against.
+    Surface("verge, behind his head", (128, 74, 48, 17),
+            "x128-176, rows 74-90: the band a far-zone head stands against. "
+            "Between the sign and the coach, and clear of the lamp -- the "
+            "full-width version contained the lamp itself and reported the "
+            "verge at 203, nearly costing the lamp its status as the uniquely "
+            "brightest object in the only night exterior in the game."),
+    Surface("verge, hill base", (128, 62, 48, 12),
+            "The top of the band, which the grade deliberately takes down to "
+            "0.20 of the grey ramp. Nothing stands in front of it -- the road "
+            "is fourteen rows below -- so it is recorded, not governing.",
             behind_head=False),
 ]
 
