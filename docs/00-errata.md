@@ -895,3 +895,61 @@ Composed rooms use four relationships, and only one interior has perspective at 
 | 14 · Boot Hill | Elevated three-quarter, as Room 29 |
 
 **The hotel lobby is a corner box with an off-centre vanishing point**, and it sets the pattern for the ten interiors after it.
+
+
+---
+
+# 35 · AMBIENT MOTION — the category the freeze does not cover
+
+**The art-direction freeze is on composition. This is not composition.**
+
+Tyler has now twice reported the game feeling stagnant against the reference, and both previous answers missed. Ruling 20 gave *crowds* two-frame idles. Doc 18 gave nine palette-cycled elements and explicitly restrained them. Neither covers the general case, and the result is Room 1: **nothing in it moves except a lamp getting brighter.** Thad stands perfectly still. Hob is a motionless silhouette. The horses were static.
+
+In the reference, something is moving in almost every frame of almost every screen.
+
+## 35a · Every room has at least one moving thing that is not palette cycling
+
+Cycling is fire, water and lamplight. **It is not the game's motion.** Sprites are.
+
+**A room with no animated sprite fails review.** Not a build check — a standing requirement at composition.
+
+## 35b · The protagonist is never perfectly still
+
+**Thad gets an idle: a slow breath, and a weight shift on a long irregular cycle.** Two frames each. He is on screen more than anything else in the game and he is currently a statue between clicks.
+
+This is the highest-value animation in the project and it was never specified.
+
+## 35c · Hob is lit by his own lamp
+
+**He is not a silhouette, and making him one was wrong.**
+
+He carries the only light in the only night exterior. A man holding a lantern has a lit face — and Hob's face is the single most important piece of art in Act I, because the whole Act III reveal depends on the player having walked past him and not looked twice.
+
+**A black slab is not a man you walked past. It is a shape.** Light the face and the near side of the coat from the lamp; leave the far side dark. He should be *unremarkable*, which is a different thing from *invisible*.
+
+**His lamp also swings as he walks**, and the light on him moves with it.
+
+## 35d · Named ambient idles for the opening
+
+| Subject | Motion |
+|---|---|
+| **The team** | Heads drop to graze, hold, come up, chew. Slow and irregular, 10–20 second cycle, the two horses out of phase |
+| **Hob** | Lamp swings on the walk; lit face and near shoulder move with it |
+| **Thad** | Breath and weight shift, always |
+| **The driver** | Shifts a case, straightens, looks up the road — during the tree, so the scene is not two people standing still talking |
+
+## 35e · Motion is not information
+
+Ruling 18's constraint carries over unchanged: **nothing moves because it is important, and nothing stops because a puzzle state changed.** A player must never learn to read motion as a hint. Ambient life is texture.
+
+---
+
+# 36 · ROOM 1 BUGS
+
+Reported from the deployed build.
+
+1. **The barrel stack at frame left occludes the town's lights.** The distant lamps are the only lit thing on that horizon and a prop is standing in front of them. Move the stack.
+2. **The stacked round forms at frame right read as cannonballs.** Whatever they are meant to be, they are not something a stage road has. Replace or remove.
+3. **Barrel lid ellipses face the wrong way for their position** — the viewing angle should follow the object's height relative to the horizon.
+
+**Not a bug:** the coach is absent because the driver departed. The coach and team leave together and the departed state is correct.
