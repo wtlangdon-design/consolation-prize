@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Room 2 — Verb Fallbacks & Repeat Variants
 
 *Fills the two gaps blocking Phase 2 acceptance. Written content — use verbatim, do not generate around it.*
