@@ -20,6 +20,7 @@ from __future__ import annotations
 import random
 from pathlib import Path
 
+import crowd
 import furniture
 import interior
 import lighting
@@ -45,6 +46,14 @@ BOX = Box(
 #: Frame left, high on the side wall. Everything warm in the room points
 #: back to this and to the chandelier.
 WINDOW = (10, 34, 26, 24)
+
+#: x, top, width. Ordered far to near, which is also drawing order.
+TABLES = ((156, 90, 22), (100, 98, 28), (76, 118, 34))
+#: The one doc 19 keeps vacated. Index into TABLES.
+NEAR_TABLE = 2
+#: Its table, its two pulled-out chairs, and the floor a man would stand on
+#: to reach either. Nobody is drawn inside this.
+VACATED = (66, 110, 64, 34)
 
 
 def compose() -> tuple[IndexedCanvas, Palette, LightField]:
@@ -134,26 +143,40 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     # Its foot sits ON the floor line at that depth, not floating above it.
     furniture.upright_piano(canvas, palette, 30, 68, 36, 34, fresh, bone, rng)
 
-    # -- tables and chairs, midground, foreground left open ------------------
-    for index, (tx, ty, tw) in enumerate(((100, 98, 28), (156, 90, 22), (76, 118, 34))):
+    # -- tables and chairs ---------------------------------------------------
+    #
+    # Doc 19: the crowd AND the dressing, and they must not overlap. The two
+    # FAR tables get men at them. The NEAR one keeps everything it had --
+    # cards face up, a bottle set down, chairs pulled out and not pushed back
+    # -- and gets nobody.
+    #
+    # The dressing was spread across all three tables and is consolidated onto
+    # the near one, because the joke only works if it is all on one table. Doc
+    # 19: an abandoned winning hand in an empty room is melancholy; an
+    # abandoned winning hand in a CROWDED room is wrong. Somebody left a very
+    # good hand and walked out while everyone else stayed, and the cards, the
+    # bottle and the pulled-out chairs have to be the same table for a player
+    # to read it as one person leaving rather than as a tidy-up not done.
+    for index, (tx, ty, tw) in enumerate(TABLES):
         furniture.rough_table(canvas, palette, tx, ty, tw, 11 + (ty - 90) // 5, umber, rng)
         furniture.rough_chair(canvas, palette, tx - 6, ty - 3, 13, umber, facing=1,
                               askew=(1, -1, 2)[index])
         furniture.rough_chair(canvas, palette, tx + tw + 2, ty - 3, 13, umber, facing=-1,
                               askew=(-2, 1, -1)[index])
-        # What the last people to sit here left on it.
-        if index == 0:
-            furniture.card_hand(canvas, palette, tx + 9, ty - 3, bone, rng)
-            furniture.left_glass(canvas, palette, tx + 3, ty, glass, rng)
-        elif index == 1:
-            furniture.standing_bottle(canvas, palette, tx + 6, ty, glass, height=7)
-            furniture.left_glass(canvas, palette, tx + 14, ty, glass, rng, drained=True)
-        else:
-            furniture.left_glass(canvas, palette, tx + 5, ty, glass, rng)
-            furniture.left_glass(canvas, palette, tx + 9, ty, glass, rng, drained=True)
+        if index == NEAR_TABLE:
+            furniture.card_hand(canvas, palette, tx + 15, ty - 3, bone, rng)
+            furniture.standing_bottle(canvas, palette, tx + 5, ty, glass, height=7)
+            furniture.left_glass(canvas, palette, tx + 9, ty, glass, rng)
+            furniture.left_glass(canvas, palette, tx + 25, ty, glass, rng, drained=True)
 
-    # Coats and hats on the wall by the door -- the strongest evidence of
-    # people available without drawing any.
+    # Eleven men, and the man on the landing. Ruling 19b: THE PATRONS, THE
+    # STOVE and THE STAIRS all name figures, and the room had none.
+    patrons(canvas, palette, rng)
+
+    # Coats and hats on the wall by the door. They were the strongest evidence
+    # of people available WITHOUT drawing any, and they still earn their place
+    # now that there are people -- a hook with a coat on it and a room with
+    # eleven coats being worn is a room where more men have been than are.
     furniture.wall_hooks(canvas, palette, 128, 60, 3, fresh, rng, spacing=7)
     furniture.wall_hooks(canvas, palette, 48, 46, 2, fresh, rng, spacing=8)
 
@@ -177,6 +200,67 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
         lighting.dust_motes(canvas, palette, shaft, rng, density=0.6)
 
     return canvas, palette, field
+
+
+#: Eleven men, doc 16's count, placed rather than scattered. Five at the bar,
+#: five at the two far tables, and the one beside the stove who has not taken
+#: his coat off -- doc 19 makes him one of the eleven rather than a twelfth.
+#:
+#: (x, feet, height). Depths and heights are staggered so they overlap into a
+#: knot instead of standing in a row: five evenly spaced men at one height is
+#: a picket fence, and a picket fence is not a crowd.
+BAR_PATRONS = ((226, 120, 27), (235, 116, 24), (252, 122, 29), (266, 117, 25), (292, 115, 23))
+#: (x, table index, height). Seated: shoulders start at the table top. Five
+#: of them, two at the far table and three at the mid one -- the third sits at
+#: the far side rather than standing behind it, because a standing man there
+#: lands in front of the stove and the stove is the one lit thing on that wall.
+TABLE_PATRONS = ((152, 0, 15), (180, 0, 14), (95, 1, 16), (131, 1, 15), (113, 1, 14))
+#: Doc 16's man beside the stove, who has not taken his coat off since Thad
+#: arrived in the territory. Doc 19 makes him one of the eleven, not a twelfth.
+#: Left of the stove, not right: the coat hooks are on the right and a man
+#: standing under three hanging coats reads as a fourth coat.
+FLOOR_PATRONS = ((99, 88, 24),)
+#: Doc 16: "There is a man on the landing. There is always a man on the
+#: landing." Seventh tread of nine, which is as near the top as the frame
+#: has -- the stairs climb out of it and so does the landing.
+LANDING_MAN = (207, 47, 20)
+
+
+def patrons(canvas: IndexedCanvas, palette: Palette, rng) -> None:
+    """The room's people. Ruling 19b, resolved by doc 19 as "draw in".
+
+    Every one of them is background: anonymous, unapproachable, no hotspot of
+    his own. THE PATRONS is one hotspot over all of them, which is what the
+    line has always described.
+
+    Placed against the furniture rather than sprinkled, because the one thing
+    that would undo this is a man standing where the near table's abandoned
+    hand is. Doc 19 is explicit that the two must not overlap, and the
+    positions here are checked against TABLES by the assertion below.
+    """
+    drawn = []
+    for x, feet, height in BAR_PATRONS:
+        drawn.append(crowd.standing(canvas, palette, x, feet, height, rng,
+                                    facing=(1, 0, -1)[x % 3]))
+    for x, table, height in TABLE_PATRONS:
+        drawn.append(crowd.seated(canvas, palette, x, TABLES[table][1], height, rng,
+                                  facing=(1, -1)[x % 2]))
+    for x, feet, height in FLOOR_PATRONS:
+        drawn.append(crowd.standing(canvas, palette, x, feet, height, rng, facing=0))
+    if len(drawn) != 11:
+        raise RuntimeError(f"doc 16 says eleven men; {len(drawn)} were placed")
+
+    # Hat off. He is indoors and he is waiting, and it also keeps his head out
+    # of the ceiling -- there are only twenty rows above that tread. Not one
+    # of the eleven: THE STAIRS is his hotspot and THE PATRONS is theirs.
+    crowd.standing(canvas, palette, *LANDING_MAN, rng, hat=False, tone=0.13)
+
+    # Doc 19, the one thing that would undo all of this. Checked rather than
+    # eyeballed: the near table's chairs are pulled out and a man drawn into
+    # one of them turns a person who left into a person who is sitting there.
+    for bounds in drawn:
+        if crowd.overlaps(bounds, VACATED):
+            raise RuntimeError(f"a patron at {bounds} sits in the vacated table's space")
 
 
 def shafts() -> list[Shaft]:

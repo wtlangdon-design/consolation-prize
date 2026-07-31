@@ -146,13 +146,20 @@ ROOM_03 = [
     # The wall he stands against is the DADO, not the boards: it runs from
     # y62 to the floor at y82, and a head tops out at y56 at the very back of
     # the far zone and lower everywhere else. Sampled at both lighting ends.
-    Surface("back wall dado, shadowed", (151, 64, 15, 18),
-            "Between the coat hooks (rail ends x150) and the staircase (x166). "
-            "The darkest stretch of wall he can stand in front of."),
-    Surface("back wall dado, in the shaft", (86, 64, 20, 18),
-            "Between the door (ends x85) and the stove (x106), where the "
-            "window shaft lands. The lightest stretch. Its dust motes are the "
-            "only emissive pixels in it and they are too sparse to reach p90."),
+    Surface("back wall dado, shadowed", (157, 64, 9, 18),
+            "Between the man seated at the far table (x146-156) and the "
+            "staircase (x166). The darkest stretch of wall he can stand in "
+            "front of. Nine pixels wide, not fifteen: it used to start at x151 "
+            "and doc 19 put a man's hat in rows 75-81 of it, which dropped p10 "
+            "from 54 to 41 and made the wall look thirteen points darker than "
+            "it is."),
+    Surface("back wall dado, in the shaft", (86, 64, 10, 18),
+            "Between the door (ends x85) and the man beside the stove (x96), "
+            "where the window shaft lands. The lightest stretch. Ten pixels "
+            "wide, not twenty: doc 19 put eleven men in this room and one of "
+            "them stands in the right-hand half of the old rectangle. Its "
+            "dust motes are the only emissive pixels in it and they are too "
+            "sparse to reach p90."),
     Surface("back wall boards", (60, 28, 26, 8),
             "Above the door frame, whose lintel occupies y36-37. The only bare "
             "upper wall wider than four pixels left of the chandelier -- the "
@@ -160,24 +167,33 @@ ROOM_03 = [
             "Above head height at every depth zone, so it is recorded rather "
             "than governing.",
             behind_head=False),
-    Surface("bar top", (285, 91, 35, 3),
+    Surface("bar top", (297, 91, 22, 3),
             "The near end only. The counter's top edge rises 6px across its "
             "length, so a rectangle spanning the whole bar cannot stay on it: "
             "the old x222-311 version left the slab entirely by mid-length and "
             "measured the room behind it, which is what produced the FAIL. "
-            "Rows 91-93 stay inside the slab across x285-319 and stop above "
-            "the counter's own dark front lip."),
-    Surface("bar front", (222, 100, 90, 12),
+            "Rows 91-93 stay inside the slab, and start at x297 rather than "
+            "x285 because a man now stands at the bar with his hat in rows "
+            "91-93. That one hat dropped p10 from 107 to 44 and turned the "
+            "surface back into a FAIL -- a measurement of a hat, not a bar."),
+    Surface("bar front", (270, 100, 18, 12),
             "The fielded panel, below the lip and above the foot rail, both of "
-            "which are trim rather than surface."),
-    Surface("floor, far in the shaft", (110, 84, 18, 11),
-            "Where the window shaft first meets the floor. The lightest floor."),
+            "which are trim rather than surface. The widest gap between the "
+            "five men standing at it -- the full-width version measured their "
+            "coats and reported the panel at -13 on the dark anchor."),
+    Surface("floor, far in the shaft", (118, 85, 8, 10),
+            "Where the window shaft meets the floor, in the gap between two of "
+            "the three men now seated at the mid table. Eight pixels wide and "
+            "it is the whole of the lit floor that is still floor; the rest of "
+            "the shaft's contact patch has people standing in it, which is what "
+            "a saloon at eleven in the morning looks like."),
     Surface("floor, mid", (150, 104, 41, 14),
             "Right of the tables, left of the bar, above the spittoon at "
             "x191-209."),
-    Surface("floor, near", (216, 126, 85, 16),
+    Surface("floor, near", (216, 128, 85, 14),
             "Below the bar's foot rail, right of the spittoon. The darkest "
-            "floor in the room and the worst case for his boots."),
+            "floor in the room and the worst case for his boots. Starts two "
+            "rows lower than it did, clear of the boots of the men at the bar."),
 ]
 
 # ---------------------------------------------------------------------------

@@ -8,6 +8,7 @@ import { check as paletteCycling } from './check-palette-cycling.mjs';
 import { check as examineLines } from './check-examine-lines.mjs';
 import { check as writtenContent } from './check-written-content.mjs';
 import { check as variantOne } from './check-variant-one.mjs';
+import { check as lookFigures } from './audit-look-figures.mjs';
 import { check as dialogueNodes } from './check-dialogue-nodes.mjs';
 import { check as flagOrder } from './check-flag-order.mjs';
 import { check as glyphCoverage } from './check-glyph-coverage.mjs';
@@ -26,6 +27,7 @@ const CHECKS = [
   examineLines,
   writtenContent,
   variantOne,
+  lookFigures,
   dialogueNodes,
   flagOrder,
   glyphCoverage,

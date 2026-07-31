@@ -19,10 +19,13 @@ import json
 from pathlib import Path
 
 import actor
+import legibility
+import legibility_audit
 import room03_nugget
 from actor import BACK, FRONT, SIDE
 from canvas import IndexedCanvas
 from interior import floor_zone_rows
+from legibility import anchors
 from palette import Palette
 from renders import RENDERS
 from room03_nugget import BOX, HEIGHT, WIDTH
@@ -128,55 +131,23 @@ def audit(verbose: bool = True) -> int:
             print(f"  {label:<22}{mean:>9.1f}{p10:>8.1f}{p90:>8.1f}"
                   f"{dark:>8.1f}{light:>8.1f}   {verdict}")
 
-    # Per-surface cross-check.
+    # Per-surface cross-check, delegated.
     #
-    # The zone table above averages a whole figure-shaped block of
-    # background, which quietly mixes a bright bar top with the dark bar
-    # front underneath it and reports a comfortable middle. That average is
-    # how a real problem hides: it is the surface a feature is actually
-    # against that decides whether the feature reads, not the mean of
-    # everything behind him.
-    reference = actor.at_height(palette, view=FRONT, height=40, surface=actor.MUD)
-    dark, light = masses(palette, reference)
-
-    surfaces = {
-        "back wall": (BOX.back_left, BOX.back_top, BOX.back_right - BOX.back_left, 30),
-        "bar top": (218, 90, 100, 6),
-        "bar front": (218, 98, 100, 16),
-        "floor, in shaft": (60, 100, 90, 30),
-        "floor, far": (120, 84, 120, 12),
-        "floor, near": (150, 126, 140, 16),
-        "doorway": (60, 40, 26, 40),
-    }
-
-    if verbose:
-        print()
-        print("  per-surface, against his two anchors "
-              f"(coat {dark:.0f}, face {light:.0f})")
-        print(f"    {'surface':<18}{'p10':>7}{'p90':>7}   {'coat':>10}{'face':>12}")
-
-    thin = 0
-    for name, (sx, sy, sw, sh) in surfaces.items():
-        values = [
-            palette.luminance(clean.get(px, py))
-            for py in range(sy, min(HEIGHT, sy + sh))
-            for px in range(sx, min(WIDTH, sx + sw))
-        ]
-        _, p10, p90 = percentiles(values)
-        coat_margin = p10 - dark
-        face_margin = light - p90
-        if verbose:
-            coat_note = f"{coat_margin:+6.0f}" + ("   " if coat_margin >= 25 else " ! ")
-            face_note = f"{face_margin:+8.0f}" + ("   " if face_margin >= 25 else " ! ")
-            print(f"    {name:<18}{p10:>7.1f}{p90:>7.1f}   {coat_note}{face_note}")
-        # A surface where BOTH anchors are within 25 of the background is one
-        # he does not separate from at all, whatever the zone average says.
-        if coat_margin < 25 and face_margin < 25:
-            thin += 1
-            failures += 1
-
-    if verbose and thin == 0:
-        print("    every surface separates on at least one anchor by 25+")
+    # This used to be a second implementation of ruling 16 living here: its
+    # own anchors, its own rectangles, its own threshold. Every fix made to
+    # the shared one since then missed it, so by the time doc 19 put eleven
+    # men in this room it was reporting a FAIL using the keyline as the dark
+    # anchor -- the exact bug legibility.py was written to kill -- against
+    # rectangles that now have people standing in them.
+    #
+    # One implementation. legibility_audit.py owns the geometry; this owns
+    # the zone composite, which is the thing it is actually for.
+    dark, light = anchors(palette)
+    _, fails, _ = legibility.audit(
+        clean, palette, "  per-surface (shared geometry, rulings 16, 17c, 18)",
+        legibility_audit.ROOM_03, legibility_audit.ROOM_03_LIGHTS,
+        dark, light, verbose=verbose)
+    failures += fails
 
     return failures
 
