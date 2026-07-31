@@ -401,7 +401,9 @@ export class Renderer {
     const ctx = this.screen.context;
 
     this.screen.fill(0, DIALOGUE_TOP - 14, NATIVE_WIDTH, PLAY_HEIGHT - DIALOGUE_TOP + 14, this.screen.role('overlayBg'));
-    this.font.draw(ctx, node.prompt, TEXT_MARGIN, DIALOGUE_TOP - 12, this.screen.roleColour('inkBright'));
+    if (node.prompt) {
+      this.font.draw(ctx, node.prompt, TEXT_MARGIN, DIALOGUE_TOP - 12, this.screen.roleColour('inkBright'));
+    }
 
     const options = this.state.dialogue.presentOptions();
     options.forEach((presented, index) => {

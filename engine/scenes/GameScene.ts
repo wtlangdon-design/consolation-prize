@@ -50,6 +50,8 @@ export class GameScene extends Phaser.Scene {
   private hovered: Interactable | null = null;
   private hoveredName: string | null = null;
   private sayLines: string[] = [];
+  /** Lines still to come in a multi-speaker response, in order. */
+  private pendingSay: string[] = [];
   private notice: string | null = null;
   private barkLines: string[] = [];
   private barkAt: { x: number; y: number } | null = null;
@@ -269,6 +271,8 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    if (this.advanceSay()) return;
+
     if (this.state.dialogue.isActive) {
       this.onDialogueClick(y);
       return;
@@ -467,10 +471,30 @@ export class GameScene extends Phaser.Scene {
 
     const result = this.state.dialogue.select(hit.id);
     this.setSay(result.say);
+    this.pendingSay = result.rest.map((spoken) => spoken.line);
     if (result.ended) {
       this.state.autosave();
     }
     this.markDirty();
+  }
+
+  /**
+   * Shows the next line of a multi-speaker response, and reports whether it
+   * took the click.
+   *
+   * Doc 17 v3.1's second driver option is three lines across two people, and
+   * they have to land one at a time or the joke's timing is gone -- the
+   * player has to see "Hotel's five." before "I have four." lands, and both
+   * before "You've all got four." The queue takes the click ahead of the
+   * option list so a click meant to advance the exchange cannot select the
+   * next option instead.
+   */
+  private advanceSay(): boolean {
+    const next = this.pendingSay.shift();
+    if (next === undefined) return false;
+    this.setSay(next);
+    this.markDirty();
+    return true;
   }
 
   private setSay(text: string | null): void {
@@ -508,6 +532,7 @@ export class GameScene extends Phaser.Scene {
     this.hovered = null;
     this.hoveredName = null;
     this.sayLines = [];
+    this.pendingSay = [];
     this.sequence.cancel();
     this.actor.placeIn(this.state.roomId);
   }

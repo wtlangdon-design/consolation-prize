@@ -21,6 +21,7 @@
     "content/rooms/harness-b.json"
   ],
   "dialogue": [
+    "content/dialogue/stage-driver.json",
     "content/dialogue/amb-letter-writer.json",
     "content/dialogue/amb-pie-woman.json",
     "content/dialogue/amb-map-seller.json",

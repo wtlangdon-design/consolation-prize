@@ -37,6 +37,9 @@ function collectStrings(content) {
     for (const [field, text] of Object.entries({ text: option.text, say: option.say, repeat: option.repeat })) {
       if (text) strings.push({ text, where: `${where} (${field})` });
     }
+    (option.exchange ?? []).forEach((spoken, index) => {
+      strings.push({ text: spoken.line, where: `${where} (exchange[${index}])` });
+    });
   }
 
   for (const verb of content.verbs.verbs) {

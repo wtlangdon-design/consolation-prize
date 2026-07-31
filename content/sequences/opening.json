@@ -2,7 +2,8 @@
   "schema": 1,
   "id": "opening",
   "note": "EXTRACTED from docs/17-opening-sequence.md by tools/extract-content.mjs. Do not edit: change doc 17 and re-run. Doc 17 v3 supersedes v2's beat sheet and the stage driver's tree, both of which are void -- the three-option opening line is one canonical line played sincerely, the driver is four beats with no tree, and the act card moved to after the coach leaves. The lines Thad and the driver speak are the quoted spans of the beat cells; the attribution is recorded in the extractor and is forced by the doc's prose, not chosen.",
-  "unplayed": "Doc 15 lists the scripted sequence system as unbuilt, and errata 28a's runner has five step kinds with no timed wait -- so these beats are content waiting for a player, not a sequence the engine can run today.",
+  "unplayed": "Doc 15 lists the scripted sequence system as unbuilt, and errata 28a's runner has five step kinds with no timed wait -- so these beats are content waiting for a player, not a sequence the engine can run today. Beats 2 and 7 state durations the runner has no step for.",
+  "contradiction": "v3.1 restores the driver's tree without rewriting the beat sheet. Beats 4, 5 and 6 are marked carriedBy STAGE_DRIVER and are listed here as \"no\" -- non-interactive -- while the tree that now carries their lines is interactive by definition. Beat 3 stays automatic: v3.1 confirms the lookout exchange is genuinely automatic and that is the one it is modelled on. Nobody has ruled on beats 4 to 6.",
   "speakers": {
     "thad": {
       "name": "THADDEUS GRUBB"
@@ -57,6 +58,7 @@
       "description": "\"Four dollars?\" — Thad checks — \"Four dollars.\" — \"You've all got four.\"",
       "control": "none",
       "note": "The predatory machinery, unexplained",
+      "carriedBy": "STAGE_DRIVER",
       "lines": [
         {
           "speaker": "stage_driver",
@@ -77,6 +79,7 @@
       "description": "Thad asks after Ezra Pike — \"Ask the undertaker. He knows everybody.\"",
       "control": "none",
       "note": "One destination. Nothing else.",
+      "carriedBy": "STAGE_DRIVER",
       "lines": [
         {
           "speaker": "stage_driver",
@@ -89,6 +92,7 @@
       "description": "The case goes in the mud. \"Hotel's five.\" — \"I have four.\" The driver climbs aboard",
       "control": "none",
       "note": "The material problem. He leaves before Thad can ask anything more",
+      "carriedBy": "STAGE_DRIVER",
       "lines": [
         {
           "speaker": "stage_driver",
@@ -106,9 +110,6 @@
       "control": "none",
       "seconds": 3,
       "note": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It",
-      "set": {
-        "T_COACH_DEPARTED": true
-      },
       "actCard": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It"
     },
     {

@@ -10,6 +10,12 @@ export interface PresentedOption {
 export interface SelectionResult {
   /** Response line to show, or null if the option had none. */
   say: string | null;
+  /**
+   * The remaining lines of a multi-speaker response, in order, when the
+   * option carries an exchange rather than a single line. `say` is the first
+   * of them; these are shown one at a time after it.
+   */
+  rest: { speaker: string; line: string }[];
   /** True once the conversation has closed. */
   ended: boolean;
 }
@@ -88,7 +94,21 @@ export class DialogueRunner {
     }
 
     const firstTime = !this.hasTaken(this.activeTree.id, this.activeNodeId, option.id);
-    const say = firstTime ? (option.say ?? null) : (option.repeat ?? option.say ?? null);
+    // An exchange only plays out in full the first time. On a repeat the
+    // option answers with its `repeat` line if it has one, and otherwise with
+    // the exchange again -- exhausted options stay selectable and must always
+    // answer with something.
+    const exchange = option.exchange ?? [];
+    let say: string | null;
+    let rest: { speaker: string; line: string }[] = [];
+    if (!firstTime && option.repeat) {
+      say = option.repeat;
+    } else if (exchange.length > 0) {
+      say = exchange[0]!.line;
+      rest = exchange.slice(1);
+    } else {
+      say = option.say ?? null;
+    }
 
     this.markTaken(this.activeTree.id, this.activeNodeId, option.id);
 
@@ -99,7 +119,7 @@ export class DialogueRunner {
 
     if (option.tag === EXIT_TAG) {
       this.end();
-      return { say, ended: true };
+      return { say, rest, ended: true };
     }
 
     if (option.goto) {
@@ -109,7 +129,7 @@ export class DialogueRunner {
       this.activeNodeId = option.goto;
     }
 
-    return { say, ended: false };
+    return { say, rest, ended: false };
   }
 
   private hasTaken(treeId: string, nodeId: string, optionId: string): boolean {

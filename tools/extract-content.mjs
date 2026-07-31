@@ -139,14 +139,25 @@ function opening() {
   // it belongs to in its own note in content/flags/flags.json, written when
   // the beats were v2's. v3 renumbers them -- Hob's crossing moved from 8 to
   // 9 when the act card was inserted -- and this is the renumbering.
+  //
+  // T_COACH_DEPARTED is NOT here. v3.1 restored the driver's tree and put the
+  // departure on its EXIT option in so many words -- "He climbs aboard. The
+  // coach goes. Beat 7." -- so the write belongs to the option and a second
+  // writer on the beat would be a race with it.
   const flags = {
     3: { T_OPENING_SAID: true },
-    7: { T_COACH_DEPARTED: true },
     9: { T_HOB_CROSSING: true },
   };
 
+  // v3.1 restores the tree without rewriting the beat sheet, so beats 4, 5
+  // and 6 still carry lines that are now the tree's four options. Marked
+  // rather than deleted: the beats are what the document says happens, and
+  // deleting them here would be this file overruling doc 17 quietly.
+  const carried = { 4: 'STAGE_DRIVER', 5: 'STAGE_DRIVER', 6: 'STAGE_DRIVER' };
+
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];
+    if (carried[entry.beat]) entry.carriedBy = carried[entry.beat];
     const plan = speech[entry.beat];
     if (!plan) continue;
     entry.lines = plan.map(([speaker, which]) => ({
@@ -175,7 +186,13 @@ function opening() {
       + 'forced by the doc\'s prose, not chosen.',
     unplayed: 'Doc 15 lists the scripted sequence system as unbuilt, and errata 28a\'s runner has '
       + 'five step kinds with no timed wait -- so these beats are content waiting for a player, '
-      + 'not a sequence the engine can run today.',
+      + 'not a sequence the engine can run today. Beats 2 and 7 state durations the runner has '
+      + 'no step for.',
+    contradiction: 'v3.1 restores the driver\'s tree without rewriting the beat sheet. Beats 4, '
+      + '5 and 6 are marked carriedBy STAGE_DRIVER and are listed here as "no" -- '
+      + 'non-interactive -- while the tree that now carries their lines is interactive by '
+      + 'definition. Beat 3 stays automatic: v3.1 confirms the lookout exchange is genuinely '
+      + 'automatic and that is the one it is modelled on. Nobody has ruled on beats 4 to 6.',
     speakers: {
       thad: { name: 'THADDEUS GRUBB' },
       stage_driver: {
@@ -199,6 +216,96 @@ function opening() {
       + 'Extracted here so it is on file rather than only in the doc.',
     ],
     beats,
+  });
+}
+
+// ---------------------------------------------------------------------------
+
+/**
+ * Doc 17 v3.1's driver tree, restored at four options after v3 cut it to zero.
+ *
+ * Four rows, one of each kind, and the doc's own tags. Nothing here is
+ * chosen: the option text, the tag and the response are three columns of one
+ * table, and the multi-speaker response in row 2 is carried as an exchange
+ * rather than flattened into one string with dashes between the speakers --
+ * which is what the v2 file did, and is the same failure as transcribing.
+ *
+ * The italics decide who speaks inside a response. The row's response is the
+ * driver's unless the doc puts it in italics, which it does exactly once, for
+ * Thad's "I have four." -- matching beat 6, where the same exchange appears
+ * with the same emphasis.
+ */
+function stageDriver() {
+  const doc = read('docs/17-opening-sequence.md');
+
+  const section = doc.split('## The driver\'s tree')[1];
+  if (!section) throw new Error('doc 17: no driver tree section');
+
+  const rows = [];
+  for (const line of section.split('\n')) {
+    const row = line.match(/^\| "(.+?)" \| `\[(\w+)\]` \| (.+?) \|$/);
+    if (row) rows.push({ text: row[1], tag: row[2], response: row[3] });
+  }
+  if (rows.length !== 4) throw new Error(`doc 17 v3.1: expected 4 options, found ${rows.length}`);
+
+  const DRIVER = 'stage_driver';
+  const THAD = 'thad';
+  const options = rows.map((row, index) => {
+    // Every quoted span in the response, with its emphasis, so the one
+    // italicised line can be told from the ones that are not.
+    const spans = [...row.response.matchAll(/(\*+)?"([^"]+)"(\*+)?/g)].map((match) => ({
+      line: match[2],
+      italic: match[1] === '*' && match[3] === '*',
+    }));
+    if (spans.length === 0) throw new Error(`doc 17 v3.1: option ${index + 1} has no response`);
+
+    const option = {
+      id: `drv${index + 1}`,
+      text: row.text,
+      tag: row.tag,
+    };
+    if (spans.length === 1) {
+      option.say = spans[0].line;
+    } else {
+      option.exchange = spans.map((span) => (
+        { speaker: span.italic ? THAD : DRIVER, line: span.line }));
+    }
+    return option;
+  });
+
+  // The two writes the doc states in the table itself: the PROGRESS option
+  // that names the undertaker is the objective, and the EXIT option is
+  // parenthesised "He climbs aboard. The coach goes. Beat 7."
+  const undertaker = options.find((option) => (option.say ?? '').includes('undertaker'));
+  if (!undertaker) throw new Error('doc 17 v3.1: no option names the undertaker');
+  undertaker.set = { T_UNDERTAKER_NAMED: true };
+
+  const exit = options.find((option) => option.tag === 'EXIT');
+  if (!exit) throw new Error('doc 17 v3.1: the tree has no EXIT option');
+  exit.set = { T_COACH_DEPARTED: true };
+  exit.ends = true;
+
+  return write('content/dialogue/stage-driver.json', {
+    schema: 1,
+    id: 'STAGE_DRIVER',
+    name: 'THE STAGE DRIVER',
+    note: 'EXTRACTED from docs/17-opening-sequence.md by tools/extract-content.mjs. Do not edit: '
+      + 'change doc 17 and re-run. v3.1 restores the tree at FOUR options after v3 cut it to '
+      + 'zero -- one of each kind, teaching that dialogue branches, that the comic option costs '
+      + 'nothing and answers, and that one option ends a scene. v2\'s nine exchanges are void: '
+      + 'Mott stays out, and the premise is redistributed into town where the sources disagree.',
+    nodes: {
+      root: {
+        id: 'root',
+        options,
+        noPrompt: true,
+        exceptionReason: 'The driver has no prompt of his own. Beat 3 is automatic -- Thad\'s '
+          + 'canonical line and "Course you have." -- and the tree opens on what the player asks '
+          + 'next. Doc 17 v3.1 writes four options and four responses and no opening line for '
+          + 'the node itself.',
+      },
+    },
+    start: 'root',
   });
 }
 
@@ -283,7 +390,7 @@ function combinations() {
 
 // ---------------------------------------------------------------------------
 
-const written = [opening(), combinations()];
+const written = [opening(), stageDriver(), combinations()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

@@ -92,8 +92,25 @@ export function check() {
   }
 
   // --- dialogue ----------------------------------------------------------
+  // A node with no prompt and no declaration reached the font as `undefined`
+  // and took the frame down. It was latent for as long as the tree carrying
+  // it was in the manifest but wired to nobody, which is the worst way for a
+  // crash to wait. Silence is allowed and has to be declared.
+  for (const { path, data } of content.dialogue) {
+    for (const [nodeId, node] of Object.entries(data.nodes ?? {})) {
+      if (!node.prompt && node.noPrompt !== true) {
+        report.fail(`${path}: ${data.id}/${nodeId} has no prompt and does not declare noPrompt`);
+      }
+      if (node.noPrompt === true && !node.exceptionReason) {
+        report.fail(`${path}: ${data.id}/${nodeId} declares noPrompt with no reason`);
+      }
+    }
+  }
   for (const { treeId, nodeId, node, option } of allDialogueOptions(content)) {
-    if (option.tag !== 'EXIT' && !option.say && !option.repeat) {
+    if (option.say && option.exchange) {
+      report.fail(`${treeId}/${nodeId}/${option.id}: has both a say and an exchange`);
+    }
+    if (option.tag !== 'EXIT' && !option.say && !option.repeat && !option.exchange) {
       // A node may declare that its options have no replies. The opening
       // line is the case that needs it: the options are what Thad says, and
       // doc 17 is explicit that nobody is listening. Declared in the content

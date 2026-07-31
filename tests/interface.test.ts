@@ -714,43 +714,81 @@ test('doc 24 rule 4: no authored pair exists without a written line', async () =
   }
 });
 
-test('doc 17 v3: the opening is one canonical line, four driver beats and a late act card', async () => {
+test('doc 17 v3.1: one automatic opening line, a four-option driver tree, a late act card', async () => {
   const content = await loadContent(fsReader);
   const opening = content.sequences.get('opening');
   assert.ok(opening, 'the opening sequence loads through the manifest');
 
-  // ONE line, played sincerely, not a choice. v2's three-option node is void:
-  // it is gone from content, and the beat that replaced it carries exactly
-  // one thing for Thad to say.
+  // ONE line, played sincerely, not a choice. v2's three-option node is void.
+  // What the line SAYS is not asserted here -- no .ts file may carry a line
+  // of the fiction, and check-extraction already proves it against the doc.
+  // The protagonist is never named here either -- he is "not the driver".
+  // No .ts file may know who lives in this game.
+  const DRIVER = 'stage_driver';
   const declaration = opening.beats.find((beat) => beat.beat === 3)!;
-  const thad = (declaration.lines ?? []).filter((spoken) => spoken.speaker === 'thad');
-  assert.equal(thad.length, 1, 'Thad has one opening line, not three to pick from');
-  assert.equal(
-    thad[0]!.line,
-    'My name is Thaddeus Grubb. I have come to Consolation to make my fortune.',
-  );
+  const spoken = declaration.lines ?? [];
+  assert.equal(spoken.filter((line) => line.speaker !== DRIVER).length, 1,
+    'one opening line, not three to pick from');
+  assert.equal(spoken.length, 2, 'sincere, then punctured');
   assert.equal(declaration.set?.T_OPENING_SAID, true);
+  assert.equal(declaration.control, 'none', 'beat 3 is automatic, like the lookout it models');
 
-  // The driver is four beats and no tree. He speaks in 3, 4, 5 and 6 and is
-  // gone; nothing in content is a dialogue tree of his any more.
-  const driverBeats = opening.beats
-    .filter((beat) => (beat.lines ?? []).some((spoken) => spoken.speaker === 'stage_driver'))
-    .map((beat) => beat.beat);
-  assert.deepEqual(driverBeats, [3, 4, 5, 6]);
-  assert.ok(!content.dialogue.has('STAGE_DRIVER'), "the driver's tree is void");
-  assert.ok(!content.dialogue.has('OPENING_LINE'), 'the three-option line is void');
+  // The tree is RESTORED at four options after v3 cut it to zero: one of
+  // each kind, and exactly one that ends the scene.
+  const driver = content.dialogue.get('STAGE_DRIVER');
+  assert.ok(driver, "the driver's tree is back in the manifest");
+  const options = driver.nodes.root!.options;
+  assert.equal(options.length, 4);
+  assert.deepEqual(options.map((o) => o.tag), ['PROGRESS', 'PROGRESS', 'COMIC', 'EXIT']);
+  assert.ok(!content.dialogue.has('OPENING_LINE'), 'the three-option line stays void');
+
+  // A three-line response across two speakers is carried as an exchange, not
+  // flattened into one string with dashes standing in for the speaker change.
+  const exchanged = options.filter((o) => o.exchange);
+  assert.equal(exchanged.length, 1);
+  assert.equal(exchanged[0]!.exchange!.length, 3);
+  assert.deepEqual(exchanged[0]!.exchange!.map((line) => line.speaker === DRIVER),
+    [true, false, true], 'the driver is interrupted and then lands the joke');
+  for (const option of options) {
+    assert.ok(!(option.say && option.exchange), 'an option has one or the other, never both');
+  }
+
+  // The EXIT option departs the coach -- the doc says so in words -- and the
+  // beat does not also write it. Two writers on one fact is a race.
+  const exit = options.find((o) => o.tag === 'EXIT')!;
+  assert.equal(exit.set?.T_COACH_DEPARTED, true);
+  const beat7 = opening.beats.find((beat) => beat.beat === 7)!;
+  assert.equal(beat7.set?.T_COACH_DEPARTED, undefined);
 
   // The act card lands AFTER the coach leaves, on the view of the town --
   // not before Room 1 fades up. Beat 1 is the title and must not carry it.
   const carded = opening.beats.filter((beat) => beat.actCard);
   assert.equal(carded.length, 1);
   assert.equal(carded[0]!.beat, 7);
-  assert.equal(carded[0]!.set?.T_COACH_DEPARTED, true, 'the coach goes under the card');
   assert.equal(opening.beats.find((beat) => beat.beat === 1)!.control, 'menu');
 
-  // Room 1 gates hotspots on the coach and on Hob. Both writes moved from the
-  // driver's tree to the beats when the tree went; if they had not, those
-  // gates would be unreachable.
-  const hob = opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!;
-  assert.equal(hob.beat, 9, 'the act card pushed Hob from beat 8 to beat 9');
+  // Room 1 gates hotspots on Hob's crossing, which the act card pushed from
+  // beat 8 to beat 9. Without that write those gates are unreachable.
+  assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!.beat, 9);
+});
+
+test('a multi-speaker response plays one line at a time', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  state.dialogue.start('STAGE_DRIVER');
+  const option = state.dialogue.presentOptions()
+    .find((presented) => presented.option.exchange)!;
+  const first = state.dialogue.select(option.option.id);
+
+  // The first line comes back as the say; the rest queue behind it in order.
+  assert.equal(first.say, option.option.exchange![0]!.line);
+  assert.deepEqual(first.rest.map((line) => line.line),
+    option.option.exchange!.slice(1).map((line) => line.line));
+  assert.equal(first.ended, false);
+
+  // A single-line option queues nothing, so nothing swallows the next click.
+  const plain = state.dialogue.presentOptions()
+    .find((presented) => presented.option.say && presented.option.tag !== 'EXIT')!;
+  assert.deepEqual(state.dialogue.select(plain.option.id).rest, []);
 });

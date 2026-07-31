@@ -528,6 +528,16 @@ export interface DialogueOption {
   tag: OptionTag;
   when?: Condition;
   say?: string;
+  /**
+   * A response with more than one speaker in it, in order.
+   *
+   * Doc 17 v3.1's second option is "Hotel's five." — "I have four." — "You've
+   * all got four.", three lines across two people. The v2 file carried that
+   * as one `say` with dashes standing in for the speaker changes, which reads
+   * on screen as one man saying all of it and loses the joke's timing. An
+   * option has either `say` or `exchange`, never both.
+   */
+  exchange?: { speaker: string; line: string }[];
   /** Shown instead of `say` once the option has already been taken. */
   repeat?: string;
   set?: FlagWrites;
@@ -542,7 +552,17 @@ export interface DialogueOption {
 }
 
 export interface DialogueNode {
-  prompt: string;
+  /**
+   * What the other party says before the options are offered.
+   *
+   * Optional, and its absence must be declared. Doc 17 v3.1's driver has no
+   * opening line of his own -- beat 3 is automatic and the tree opens on what
+   * the player asks next -- and a node with neither a prompt nor a
+   * declaration used to reach the font as `undefined` and take the frame down
+   * with it. `noPrompt` makes silence a thing somebody chose.
+   */
+  prompt?: string;
+  noPrompt?: boolean;
   options: DialogueOption[];
 }
 

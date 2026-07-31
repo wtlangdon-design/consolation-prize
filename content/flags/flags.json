@@ -47,9 +47,18 @@
       "id": "T_COACH_DEPARTED",
       "type": "bool",
       "initial": false,
-      "note": "The coach has gone. Doc 17 v3 beat 7: the coach recedes east under the act card. It departed on the driver's EXIT line while he had a tree; v3 has no tree, so the sequence departs it.",
+      "note": "The coach has gone. Doc 17 v3.1 restores the driver's tree, and its EXIT option says so in words: 'He climbs aboard. The coach goes. Beat 7.' Beat 7 does not write it -- two writers on the same fact is a race.",
       "writtenBy": [
-        "sequence:opening:7"
+        "dialogue:STAGE_DRIVER:root:drv4"
+      ]
+    },
+    {
+      "id": "T_UNDERTAKER_NAMED",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has been told to ask the undertaker. Doc 17 v3.1's first PROGRESS option, and the objective the whole opening runs to. Doc 20 rule 3 -- a location appears on the map when heard of, not when visited -- so this is what puts the undertaker's on the map, and the map cannot carry him until something sets it.",
+      "writtenBy": [
+        "dialogue:STAGE_DRIVER:root:drv1"
       ]
     },
     {

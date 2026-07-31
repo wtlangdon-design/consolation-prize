@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "STAGE_DRIVER",
+  "name": "THE STAGE DRIVER",
+  "note": "EXTRACTED from docs/17-opening-sequence.md by tools/extract-content.mjs. Do not edit: change doc 17 and re-run. v3.1 restores the tree at FOUR options after v3 cut it to zero -- one of each kind, teaching that dialogue branches, that the comic option costs nothing and answers, and that one option ends a scene. v2's nine exchanges are void: Mott stays out, and the premise is redistributed into town where the sources disagree.",
+  "nodes": {
+    "root": {
+      "id": "root",
+      "options": [
+        {
+          "id": "drv1",
+          "text": "Where can I find Ezra Pike?",
+          "tag": "PROGRESS",
+          "say": "Ask the undertaker. He knows everybody.",
+          "set": {
+            "T_UNDERTAKER_NAMED": true
+          }
+        },
+        {
+          "id": "drv2",
+          "text": "Where am I supposed to sleep?",
+          "tag": "PROGRESS",
+          "exchange": [
+            {
+              "speaker": "stage_driver",
+              "line": "Hotel's five."
+            },
+            {
+              "speaker": "thad",
+              "line": "I have four."
+            },
+            {
+              "speaker": "stage_driver",
+              "line": "You've all got four."
+            }
+          ]
+        },
+        {
+          "id": "drv3",
+          "text": "You don't think much of my chances.",
+          "tag": "COMIC",
+          "say": "I don't think about them at all."
+        },
+        {
+          "id": "drv4",
+          "text": "Thank you for the ride.",
+          "tag": "EXIT",
+          "say": "Wasn't for you.",
+          "set": {
+            "T_COACH_DEPARTED": true
+          },
+          "ends": true
+        }
+      ],
+      "noPrompt": true,
+      "exceptionReason": "The driver has no prompt of his own. Beat 3 is automatic -- Thad's canonical line and \"Course you have.\" -- and the tree opens on what the player asks next. Doc 17 v3.1 writes four options and four responses and no opening line for the node itself."
+    }
+  },
+  "start": "root"
+}
