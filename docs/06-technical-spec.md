@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Technical Specification & Build Brief — v1
 
 *Final design document. Companion to Bible v2, the Puzzle Graph, the Liar's Assay, the Dialogue Trees, and the Examine Layer.*
