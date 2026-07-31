@@ -70,6 +70,7 @@ Not built:
 - [ ] **The Listening (F2)** — pitch-based spatial puzzle, no text hints, tied to the audio system
 - [ ] **Act transitions and gating**
 - [ ] **Music manager** — stem mixing, bar-boundary crossfade, global detune with Act IV automation
+- [ ] **Palette cycling** — per doc 18. Ramp rotation on the indexed canvas, reserved index ranges, Options toggle, and Room 33's ramp-to-zero scripted against the detune automation
 - [ ] **Puzzle graph traversal** — written but inert; activates when the graph is in the manifest
 
 # 3 · ART
