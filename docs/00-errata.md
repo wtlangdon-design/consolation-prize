@@ -418,7 +418,11 @@ Two rulings from the compositional analysis against Monkey Island reference. The
 
 **Why it fixes more than depth:**
 
-1. **It supplies the missing bottom of the value range.** A near plane is out of the light by definition and may be drawn in `void` or a family floor at luminance 9. The 0–30 band arrives without touching a single lit surface and without re-running the legibility audit — which is the entire reason this ruling outranks widening the range directly.
+1. **It supplies an anchor at the bottom of the range — not a redistribution.** *(Amended after measurement. The original wording overstated this and rooms should not be composed against it.)* A near plane is out of the light by definition and may be drawn in `void` or a family floor at luminance 9.
+
+   Measured on Room 1: true black went from **0.0% to 7.8%** of the frame, and pixels below luminance 20 from 0.7% to 8.7%. The 80% band moved only 58 points to 70 — a near plane is roughly 8% of a frame and cannot shift a decile further than that.
+
+   **What it actually provides is a value the room did not previously contain at all.** Before the plane, nothing in Room 1 was darker than luminance 9. That anchor is what the eye reads the rest of the frame against, and it is why Room 29 looked dimensional while being the emptiest composition. Do not expect the distribution to move much; expect the floor to arrive.
 2. **Its silhouette is almost never horizontal.** A ridge brow, a doorframe, a barrel, a wagon wheel, a table edge. The banding breaks as a side effect.
 3. **It is a missing layer, not a dial set wrong.** Value and diagonals are per-room judgements. This is structural and applies everywhere.
 
