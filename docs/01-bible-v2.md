@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Story, Character & Game Design Bible — v2
 
 *A comedy mystery adventure in the spirit of Monkey Island. Frontier gold rush, dry and deadpan, 2D point-and-click.*
