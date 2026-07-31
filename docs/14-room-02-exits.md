@@ -83,8 +83,30 @@
 
 ---
 
+## THE ASSAY OFFICE → Room 5
+
+*Added after Room 5 was composed and written. It was the one Room 2 exit doc 14 never covered.*
+
+**LOOK**
+1. "The assay office. A door, a step, and one window. It is the only front on this street that is not selling itself."
+2. "No sign. Everybody knows where it is and nobody needs telling twice."
+3. "The step is worn pale in the middle and nowhere else. They come, they stand, they go."
+
+**LISTEN**
+1. "Nothing. It is the quietest working building in Consolation."
+2. "Nothing. A pen, possibly. I may be inventing the pen."
+3. "Nothing at all. Whatever is decided in there is decided without discussion."
+
+**Overrides**
+> PUSH — "It opens inward, and it opens easily. Somebody has oiled it."
+> CLOSE — "It closes itself, slowly, and latches. Somebody sees to that."
+> TALK TO — "I have tried talking to it. The building is not the problem."
+
+---
+
 ## Notes
 
 1. **"Nothing coming back yet. They come back quiet."** pairs with Room 22's own hotspots — men going out talk over each other, men coming back say nothing. Heard from Main Street before the player has ever walked out there.
 2. **The Improvement Company's TALK TO** is the Fanshawe rule stated by a man who does not yet know it is a rule: he came away with a map and is no longer sure what he gave for it.
-3. **"C-sharp for the rest of my life"** is the same joke as the boardwalk's B flat. Two of the nine hotspots and one exit now have Thad involuntarily pitching the town. That is the seeding rate the LISTEN endgame needs.
+3. **The assay office's overrides are Winnie's character in two lines.** The door is oiled and it latches itself. Nobody maintains a door in Consolation. She maintains hers, and the game never says so.
+4. **"C-sharp for the rest of my life"** is the same joke as the boardwalk's B flat. Two of the nine hotspots and one exit now have Thad involuntarily pitching the town. That is the seeding rate the LISTEN endgame needs.
