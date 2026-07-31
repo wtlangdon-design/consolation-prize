@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PIXELART = resolve(ROOT, 'tools/pixelart');
 
-/** Each entry is one script and what it is for, shown as it runs. */
+/** Each entry is one script, what it is for, and any arguments it takes. */
 const SCRIPTS = [
   ['sheets.py', 'locked palette and the exterior component library'],
   ['proofs.py', 'Room 2 vs Room 36, and the Room 2 scale check'],
@@ -35,12 +35,13 @@ const SCRIPTS = [
   ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
   ['title_screen.py', 'Title screen'],
   ['legibility_audit.py', 'legibility across every composed room -- rulings 16, 17c, 18'],
+  ['legibility_audit.py', 'the sample geometry, drawn over each room', ['--overlay']],
 ];
 
 let failed = 0;
-for (const [script, what] of SCRIPTS) {
+for (const [script, what, args = []] of SCRIPTS) {
   process.stdout.write(`\n=== ${script} -- ${what}\n`);
-  const run = spawnSync('python3', [script], { cwd: PIXELART, stdio: 'inherit' });
+  const run = spawnSync('python3', [script, ...args], { cwd: PIXELART, stdio: 'inherit' });
   if (run.status !== 0) {
     failed += 1;
     process.stdout.write(`    FAILED (exit ${run.status})\n`);

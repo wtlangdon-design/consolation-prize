@@ -45,7 +45,16 @@ MUSIC_CUE = "title.theme"
 TITLE_TOP = 8
 #: The town sits across the middle, near enough to read.
 STREET_Y = 104
-TOWN_LEFT, TOWN_RIGHT = 16, 250
+#: The town ends here, and the right third of the frame is sky and ground.
+#:
+#: At 250 the row kept going until the last false front was under the menu
+#: column, which starts at x253 -- so the menu read as having been dropped on
+#: top of a building rather than placed beside a town. The fix is the town's,
+#: not the menu's: two buildings come off the end at full size. Scaling the
+#: row down instead would have kept the same number of buildings and made
+#: every one of them wrong, and this viewpoint exists to show a false front
+#: at a size where you can see it is false.
+TOWN_LEFT, TOWN_RIGHT = 16, 208
 HORIZON = 40
 
 #: Menu down the right, clear of the town.
@@ -131,11 +140,16 @@ def town(canvas: IndexedCanvas, palette: Palette, rng) -> None:
         canvas.hline(x, y, 2 + rng.randrange(0, 7), mud.frac(0.36 + 0.20 * rng.random()))
 
     x = TOWN_LEFT
-    while x < TOWN_RIGHT:
+    while True:
         width = 22 + rng.randrange(0, 12)
         parapet = 30 + rng.randrange(0, 12)
         shed = parapet - 14 - rng.randrange(0, 5)
         top = STREET_Y - parapet
+        # The row ends on a WHOLE building. Testing x alone let the last one
+        # start just inside the edge and finish thirty pixels past it, which
+        # is how the town got under the menu.
+        if x + width > TOWN_RIGHT:
+            break
 
         # The shed behind: lower, darker, and WIDER than the board in front
         # of it, so it protrudes at both sides.

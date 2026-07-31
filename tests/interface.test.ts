@@ -190,7 +190,7 @@ test('a point off the floor has no actor height at all', async () => {
   assert.equal(state.isWalkable(160, 4), false);
 });
 
-test('the mud answers a second LISTEN with the first LISTEN, word for word', async () => {
+test("the mud's first LISTEN stands alone, and the last one repeats forever", async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
   state.enterRoom('main_street');
@@ -201,9 +201,13 @@ test('the mud answers a second LISTEN with the first LISTEN, word for word', asy
   const second = state.interact(mud).say;
   const third = state.interact(mud).say;
 
-  // Doc 13 note 1. Thad asks the mud twice and gets the same nothing. A
-  // dedupe pass would "fix" this and delete the joke; this test is the guard.
-  assert.equal(second, first, 'variant 2 is character-for-character variant 1, on purpose');
+  // Doc 13, reordered: variant 1 has to work cold, because most players
+  // listen once and never again. It used to be a bare "Nothing new.", which
+  // is an answer to a question nobody had asked yet. This test guarded the
+  // old shape -- variants 1 and 2 being character-for-character identical --
+  // and had to be rewritten rather than deleted, because the sequence still
+  // needs a guard and the tail of it is unchanged.
+  assert.notEqual(second, first, 'variant 1 no longer leans on a look the player has not taken');
   assert.notEqual(third, second, 'variant 3 does move on');
   assert.equal(state.interact(mud).say, third, 'and the third repeats indefinitely thereafter');
 });
