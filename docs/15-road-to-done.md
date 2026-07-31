@@ -175,11 +175,15 @@ Nothing here stops the line.
 | # | What | Where | Why it is here and not a ruling |
 |---|---|---|---|
 | P1 | Ruling 34's camera work — Room 5's symmetrical one-point VP, three-quarter exteriors | Rooms 1, 2, 5 | Deferred indefinitely by decision. A re-block of composed rooms, and the churn that kept us on two rooms |
+| P1b | 34 applied to new rooms only, so Rooms 18/19/13 are asymmetric and Room 5 is not — a permanent divergence | Rooms 5, 13, 18, 19 | Accepted with the deferral rather than resolved. Every interior built from here is asymmetric; the one composed before the ruling stays symmetrical, and the two will never match |
 | P2 | Doc 25 restates variant 1 at a later variant, twice | `claims_registrar/number_spindle` LISTEN 3, `assay_office/queue_book` LISTEN 2 | Same "falls away and returns" shape doc 25 note 4 protects for the stove, but note 4 covers the stove and not these. Allowlisted provisionally with the caveat in the entry |
 | P3 | Room 2 is broadly bright — p90 155, 16% over luminance 140 | Room 2 | The façade was the loudest offender and only 70px. The real lever is the mud and the boardwalk sitting in the same upper-middle band as the sky, which is a re-block |
 | P4 | The offside horse reads as a dark mass beside the nearside one | Room 1 | Correctly proportioned and correctly separated in tone; the far animal is simply behind the near one at 26px |
 | P5 | Room 0's plan is sparse at frame left | Room 0 | Twelve locations now land on it rather than three. Judge the composition when it is carrying its real load |
 | P6 | 32d and 32e on Rooms 1 and 2 — foreground planes are still amorphous, and almost everything is 8–20px | Rooms 1, 2 | Ruled but not executed before the freeze. Both rooms pass every audit as they stand |
+| P3b | Room 13 is very bright — 44.7% over luminance 140 and 0.5% under 30, near three times Room 2's load with essentially no true dark | Room 13 | Errata 23's named near-monochrome exception makes the pale field deliberate; what is not deliberate is the total absence of a dark end. Every legibility surface passes, so it is taste, not legibility |
+| P3c | Room 19 spans only 50 points p10 to p90, and 5.2% under 30 against Room 29's 13% | Room 19 | Likely a thin foreground plane — the bed rail and post are 7px and 10px. Same shape as P6 and best fixed in the same pass |
+| P7 | The hotel's foreground plane is a wing chair the room no longer contains | Room 18 | Doc 26 furnishes the lobby with a settee, and a cropped chair back is nameable and unwritten. Left as dressing rather than made into a second settee: "shiny at both arms and nowhere in the middle" is unreadable on an object with one arm in frame |
 
 ---
 

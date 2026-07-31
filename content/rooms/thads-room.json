@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "thads_room",
   "name": "THAD'S ROOM",
-  "note": "Room 19, doc 20, directly above the lobby. Warm-neutral against the hotel's cool, per errata 30d -- neutral beside cool reads as nothing, so the drab here is warm drab. Composed to the frozen standard; NO HOTSPOTS YET. The examine layer arrives with the document being written for this room -- a hotspot with no line is worse than no hotspot, and check-examine-lines says so. Every door here is marked stub for the same reason: the destination exists so the exit works and the lines are honestly absent rather than invented.",
+  "note": "Room 19, doc 20, directly above the lobby. Warm-neutral against the hotel's cool, per errata 30d -- neutral beside cool reads as nothing, so the drab here is warm drab. THE COAT IS ON THE DOOR: doc 26 names the hotspot THE COAT ON THE DOOR and it was drawn over a chair, which was a guess made before the writing landed. THE WALL is doc 26 note 1, and it is drawn exactly as written -- faint marks, no brighter than the boards, nothing pointing at them. Nothing in the game refers to them, no flag observes them, and no cycling, highlight or sting may ever be added. A player who finds the number finds it by reading a wall, or does not find it. Invariant 10 covers the letters on the desk in the same terms: they are never counted, never referenced, and the bundle drawn on the desk is not the act number. Lines EXTRACTED from docs/26-batch-a.md by tools/extract-content.mjs. Do not edit: change doc 26 and re-run.",
   "materialIdentity": "Neutral drab: bare pine, unbleached calico, a tin basin. Warm-neutral so it separates by hue from the hotel's blue directly below it",
   "paletteScript": {
     "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
@@ -25,7 +25,7 @@
       "rect": [
         86,
         88,
-        120,
+        24,
         12
       ]
     },
@@ -35,7 +35,7 @@
       "rect": [
         64,
         100,
-        170,
+        82,
         16
       ]
     },
@@ -45,39 +45,348 @@
       "rect": [
         40,
         116,
-        200,
+        160,
         20
       ]
     }
   ],
-  "hotspots": [],
+  "hotspots": [
+    {
+      "id": "mothers_letters",
+      "name": "HIS MOTHER'S LETTERS",
+      "rect": [
+        149,
+        89,
+        15,
+        8
+      ],
+      "colour": 34,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Three from home. She is proud of me. She has been given no reason to be.",
+            "repeat": []
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Paper is very quiet about this sort of thing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. Paper is very quiet about this sort of thing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "I have them. I have had them since Sacramento."
+      }
+    },
+    {
+      "id": "outgoing_letter",
+      "name": "THE OUTGOING LETTER",
+      "rect": [
+        164,
+        87,
+        14,
+        10
+      ],
+      "colour": 38,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "fork_case",
+      "name": "THE TUNING FORK CASE",
+      "rect": [
+        177,
+        87,
+        26,
+        10
+      ],
+      "colour": 42,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Velvet-lined, and worth more than the fork. My father's idea of a sensible investment.",
+            "repeat": [
+              "Velvet-lined, and worth more than the fork it was made for.",
+              "It is the most cared-for object I own and it is a box."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing, closed. It is a very good case.",
+            "repeat": [
+              "Nothing, closed.",
+              "Nothing."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "desk",
+      "name": "THE DESK",
+      "rect": [
+        148,
+        96,
+        54,
+        34
+      ],
+      "colour": 46,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A desk, a chair, and a window facing an alley. For four dollars a week, I had expected a slightly worse alley.",
+            "repeat": [
+              "A desk, a chair, and a window facing an alley. For four dollars a week I had expected a slightly worse alley.",
+              "The chair does not match the desk. Neither matches the room."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is the only place in Consolation where nobody is talking.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It is the only place in Consolation where nobody is talking at me."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "washstand",
+      "name": "THE WASHSTAND",
+      "rect": [
+        104,
+        64,
+        36,
+        48
+      ],
+      "colour": 50,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A washstand, a jug, a basin, and a piece of mirror the size of my hand.",
+            "repeat": [
+              "The water is brought up cold at six and is cold at six.",
+              "I have shaved in a piece of mirror the size of my hand every day for eleven weeks and I am beginning to take a view about it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Water, when I move it.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I have washed. It made less difference than I hoped."
+      }
+    },
+    {
+      "id": "coat",
+      "name": "THE COAT ON THE DOOR",
+      "rect": [
+        81,
+        42,
+        16,
+        34
+      ],
+      "colour": 54,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "My good coat. The only thing I own that suggests I was once somebody's son with prospects.",
+            "repeat": [
+              "It has mud to the knee and I have stopped attending to it.",
+              "Providence made this coat for a man walking to an office."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "I am wearing the other one, which is this one."
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        166,
+        32,
+        30,
+        34
+      ],
+      "colour": 58,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The alley. A cat, some barrels, and a view of the back of the Improvement Company.",
+            "repeat": [
+              "The alley. A cat, some barrels, and the back of the Improvement Company.",
+              "One storey, from here. From the street it is three. I have checked from both."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Somebody unloading, two streets over. It goes on all night. I have stopped minding it, which worries me.",
+            "repeat": [
+              "Somebody unloading, two streets over. It goes on all night.",
+              "I have stopped minding it, which worries me."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "wall",
+      "name": "THE WALL",
+      "rect": [
+        196,
+        32,
+        18,
+        24
+      ],
+      "colour": 62,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Boards, papered once, and the paper has given up in two corners.",
+            "repeat": [
+              "Somebody before me wrote a number on the wall beside the bed and crossed it out.",
+              "The number was two hundred. I have not worked out what it was counting and I have stopped trying."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions.",
+            "repeat": [
+              "Still sure. Still different.",
+              "One of them has gone to sleep mid-sentence. The other has not noticed."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PUSH": "It gives. I am going to stop pushing it."
+      }
+    },
+    {
+      "id": "bed",
+      "name": "THE BED",
+      "rect": [
+        200,
+        56,
+        114,
+        58
+      ],
+      "colour": 66,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A bed, made, narrow, and the sheets are clean. I had not expected the sheets to be clean.",
+            "repeat": [
+              "It is the only thing in Consolation that has exceeded my expectations.",
+              "Five dollars a week. I have decided the sheets are most of it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It is a bed and it is waiting, which is what they do."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "It is nine in the morning."
+      }
+    }
+  ],
   "exits": [
     {
       "id": "down_to_lobby",
       "name": "THE DOOR",
       "rect": [
-        40,
-        52,
-        22,
-        42
+        98,
+        38,
+        12,
+        48
       ],
       "colour": 90,
       "to": "hotel_lobby",
-      "stub": true,
-      "responses": {},
-      "fallback": [],
-      "defaultVerb": "WALK_TO"
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The door down to the lobby. Number nineteen, in brass, hung slightly crooked.",
+            "repeat": [
+              "Nineteen. The nine has been on and off more than once.",
+              "It locks. It is the only door I have ever had that locks and I do not lock it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The lobby. A clock, and somebody on the landing.",
+            "repeat": [
+              "Still the clock.",
+              "Nothing."
+            ]
+          }
+        ]
+      }
     }
   ],
   "entrances": [
     {
       "from": "hotel_lobby",
       "at": [
-        70,
-        120
+        104,
+        116
       ],
-      "facing": "right",
-      "note": "In at the door, with the bed across the room and the window ahead."
+      "facing": "front",
+      "note": "In at the door on the back wall, with the desk under the window to the right and the bed beyond it."
     }
   ]
 }

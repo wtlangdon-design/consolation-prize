@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "undertaker",
   "name": "THE UNDERTAKER'S",
-  "note": "Room 13, doc 20, reached only from the town map. ERRATA 23's named exception to the palette proportions: near-monochrome on purpose, and scrubbed rather than dim. Reached from a map drawn in achromatic pencil grey precisely so a bone map into a bone room is not the adjacency 17b forbids -- step 0 caught it before either existed. Composed to the frozen standard; NO HOTSPOTS YET. The examine layer arrives with the document being written for this room -- a hotspot with no line is worse than no hotspot, and check-examine-lines says so. Every door here is marked stub for the same reason: the destination exists so the exit works and the lines are honestly absent rather than invented.",
+  "note": "Room 13, doc 20. ERRATA 23's named exception to the palette proportions: near-monochrome on purpose, and scrubbed rather than dim. Reached from a map drawn in achromatic pencil grey precisely so a bone map into a bone room is not the adjacency 17b forbids -- step 0 caught it before either existed. DOC 26 gives this room ONE working surface, so the coffin that stood on trestles in front of the table is gone: two large pale horizontals where the writing describes one meant a player clicking the nearer of them got the table's line about a coffin. THE COFFINS' USE override is 'Not yet.' and IT HAS NO VARIANT AND MUST NEVER BE GIVEN ONE -- it is the same line in Act III when Thad is arranging his own funeral in this room, and a second version explains the joke. check-fixed-lines fails the build on a variant being added to it. Lines EXTRACTED from docs/26-batch-a.md by tools/extract-content.mjs. Do not edit: change doc 26 and re-run.",
   "materialIdentity": "Scrubbed bone-white and pine, near-monochrome, deliberately (17b) -- errata 23's named exception to the palette proportions",
   "paletteScript": {
     "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
@@ -23,20 +23,20 @@
       "id": "floor_far",
       "zone": 2,
       "rect": [
-        76,
-        82,
-        152,
-        12
+        110,
+        84,
+        70,
+        10
       ]
     },
     {
       "id": "floor_mid",
       "zone": 1,
       "rect": [
-        50,
-        94,
-        210,
-        18
+        40,
+        112,
+        220,
+        12
       ]
     },
     {
@@ -44,23 +44,376 @@
       "zone": 0,
       "rect": [
         28,
-        112,
-        260,
-        24
+        124,
+        264,
+        14
       ]
     }
   ],
-  "hotspots": [],
-  "exits": [],
+  "hotspots": [
+    {
+      "id": "good_suit",
+      "name": "THE GOOD SUIT",
+      "rect": [
+        74,
+        30,
+        22,
+        34
+      ],
+      "colour": 34,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "One good suit, in three sizes, rented for viewings and returned afterwards. Half the men in Boot Hill were buried in their own clothes and viewed in this.",
+            "repeat": [
+              "Three sizes, on one hanger, and all three have been let out at the waist.",
+              "Half the men on Boot Hill were viewed in this and buried in their own clothes."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is rented, and I am not the size."
+      }
+    },
+    {
+      "id": "price_list",
+      "name": "THE PRICE LIST",
+      "rect": [
+        166,
+        28,
+        22,
+        28
+      ],
+      "colour": 38,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Plain, Respectable, and Handsome. The Handsome is four times the Plain and the difference is a handle.",
+            "repeat": [
+              "There is a fourth line, scratched out, that began with the word Gratis.",
+              "Nobody has ever asked me which I would want, and I have decided that is a courtesy."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is nailed up, and I would rather not be seen taking it."
+      }
+    },
+    {
+      "id": "jar_of_teeth",
+      "name": "THE JAR OF TEETH",
+      "rect": [
+        256,
+        74,
+        22,
+        26
+      ],
+      "colour": 42,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A jar of teeth. He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted.",
+            "repeat": [
+              "Still there. I have decided to think of it as inventory.",
+              "He sells them to the barber, who fits them to the living. Nothing in this establishment is wasted."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Obviously nothing. I checked, and I regret it.",
+            "repeat": [
+              "Nothing.",
+              "I have stopped."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "No."
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        186,
+        24,
+        42,
+        42
+      ],
+      "colour": 46,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "North light, and a blind half down. He works by it and he does not want watching.",
+            "repeat": [
+              "The glass is clean. Everything in here is clean.",
+              "Boot Hill is that way, up the rise. You can see the markers from this window and he has left the blind so you can."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. The street, a long way off, and not much of it.",
+            "repeat": [
+              "Nothing.",
+              "Nothing at all."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "tools",
+      "name": "THE TOOLS",
+      "rect": [
+        176,
+        62,
+        82,
+        24
+      ],
+      "colour": 50,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A saw, a plane, a brace, and a mallet, hung level and clean. This is a carpenter's shop that has specialised.",
+            "repeat": [
+              "The plane has been used this morning. There are shavings and they are pale.",
+              "He makes them himself. I had assumed they came from somewhere."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. He is not working while I am standing here."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "They are hung level. I am not the man who unhangs them."
+      }
+    },
+    {
+      "id": "ledger",
+      "name": "THE LEDGER",
+      "rect": [
+        104,
+        82,
+        30,
+        40
+      ],
+      "colour": 54,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Every burial in Consolation. Eleven pages. Two thousand people have lived here for twelve years and it is eleven pages, which means most of them left.",
+            "repeat": [
+              "Eleven pages in twelve years, in a town of two thousand.",
+              "Which means most of them left. I have been telling myself that all morning."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "coffins",
+      "name": "THE COFFINS",
+      "rect": [
+        88,
+        22,
+        86,
+        60
+      ],
+      "colour": 58,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Coffins, stacked by size. There are a great many in the smallest size, which I have decided to attribute to storage efficiency.",
+            "repeat": [
+              "Stacked by size, and there are a great many in the smallest.",
+              "Six months of work, standing ready. He is not expecting a quiet year."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Naturally nothing. I don't know what I expected.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. Naturally nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Not yet.",
+        "OPEN": "There is nothing in it. I have checked, which I regret."
+      }
+    },
+    {
+      "id": "waiting_bench",
+      "name": "THE WAITING BENCH",
+      "rect": [
+        32,
+        96,
+        72,
+        36
+      ],
+      "colour": 62,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A bench by the door, for those come to arrange things. It has a cushion.",
+            "repeat": [
+              "Somebody put a cushion on a bench in an undertaker's. I would like to know who and I am not going to ask.",
+              "It is worn in the middle, which is the opposite of the Registrar's."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It is the quietest bench in the territory and it has earned it."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I have sat down. It is a very good cushion and that is somehow the worst part."
+      }
+    },
+    {
+      "id": "table",
+      "name": "THE TABLE",
+      "rect": [
+        186,
+        86,
+        108,
+        40
+      ],
+      "colour": 66,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Scrubbed to the grain. It is the cleanest surface in the territory.",
+            "repeat": [
+              "Scrubbed to the grain, and scrubbed again since.",
+              "It is the cleanest surface in the territory and I would rather look at the ceiling."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_street",
+      "name": "THE STREET DOOR",
+      "rect": [
+        6,
+        40,
+        24,
+        52
+      ],
+      "colour": 90,
+      "to": "town_map",
+      "defaultVerb": "WALK_TO",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The door out. There is no bell, and I understand the decision.",
+            "repeat": [
+              "It opens onto a lane rather than the street. He is not on Main Street and he is not hiding either.",
+              "The step is scrubbed. Of course the step is scrubbed."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The town, at a distance.",
+            "repeat": [
+              "Nothing.",
+              "Nothing."
+            ]
+          }
+        ]
+      }
+    }
+  ],
   "entrances": [
     {
       "from": "town_map",
       "at": [
-        60,
-        118
+        46,
+        128
       ],
       "facing": "right",
-      "note": "Doc 20: reached from the map, which is why there is no door hotspot to come in by. The map button is how a player leaves again."
+      "note": "Doc 20: reached from the map, and doc 26 gives the room a street door back out to it -- it opens onto a lane rather than Main Street."
+    }
+  ],
+  "lightSources": [
+    {
+      "note": "The window: north light, and the 33b exemption is DECLARED here rather than inferred from brightness, per the correction to that ruling. The blind is half down and left that way so a visitor can see Boot Hill before he has to say it.",
+      "rect": [
+        186,
+        24,
+        42,
+        42
+      ]
     }
   ]
 }

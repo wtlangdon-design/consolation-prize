@@ -252,43 +252,51 @@ CYCLED = {"ROOM 1 -- stage road, night": "stage_road"}
 
 ROOM_18_LIGHTS = [LightZone("desk lamp", (38, 78, 12, 12), halo=10)]
 ROOM_18 = [
-    Surface("back wall, above the dado", (60, 26, 110, 30),
-            "The cool field an actor at the desk end is seen against."),
-    Surface("wainscot", (60, 62, 110, 20), "Darker dado below the rail."),
+    Surface("back wall, above the dado", (110, 24, 46, 30),
+            "The cool field an actor at the desk end is seen against. Sampled "
+            "right of the clock and the engraving: the old rect straddled "
+            "both and reported their spread as the wall's."),
+    Surface("wainscot", (110, 60, 48, 14), "Darker dado below the rail."),
     Surface("long right wall", (232, 40, 60, 46),
             "Errata 34's asymmetry means this wall is most of the frame's "
             "right half and a character crosses the whole of it."),
-    Surface("plank floor", (90, 100, 110, 30), "The crossable middle."),
+    Surface("plank floor", (200, 118, 60, 20),
+            "The crossable near floor, clear of the rug."),
     Surface("desk front", (30, 100, 76, 16), "Panelled, and in the lamp's reach."),
-    Surface("armchair plush", (96, 96, 34, 24),
+    Surface("settee plush", (108, 78, 48, 18),
             "The palest large surface in the room, and errata 30d's warning: "
             "Thad's coat is dark bottle green and this is the first interior "
-            "where green sits near green."),
+            "where green sits near green. It was the armchairs; doc 26 wrote "
+            "a settee and the armchairs are gone."),
     Surface("stair risers", (236, 56, 60, 26), "Behind an actor climbing."),
 ]
 
 ROOM_19_LIGHTS = [LightZone("window", (168, 34, 26, 30))]
 ROOM_19 = [
-    Surface("back wall, above the dado", (90, 32, 70, 26), "Warm drab."),
-    Surface("wainscot", (90, 62, 70, 22), "The darker dado."),
-    Surface("plank floor", (80, 100, 110, 30), "Most of this small room."),
+    Surface("back wall, above the dado", (110, 30, 34, 24),
+            "Warm drab, sampled between the door and the window."),
+    Surface("wainscot", (196, 64, 18, 20), "The darker dado, right of the window."),
+    Surface("plank floor", (64, 116, 60, 22), "Most of this small room."),
     Surface("the bed", (210, 90, 84, 20),
             "Calico, and the largest pale mass in the room after the wall."),
-    Surface("washstand front", (88, 92, 34, 16), "Pine, in shadow."),
+    Surface("washstand front", (106, 92, 30, 16), "Pine, in shadow."),
 ]
 
 ROOM_13_LIGHTS: list[LightZone] = []
 ROOM_13 = [
-    Surface("scrubbed wall", (180, 26, 50, 30),
+    Surface("scrubbed wall", (240, 30, 50, 26),
             "The palest large surface in the game. Errata 23's named "
             "exception: near-monochrome on purpose, which makes this the "
             "hardest surface in Act I to read a dark coat against and the "
-            "reason it is measured first."),
-    Surface("wainscot", (180, 62, 50, 16), "The one value break on that wall."),
-    Surface("pine floor", (90, 96, 110, 30), "Sawn boards, walked on."),
-    Surface("the coffins", (74, 30, 98, 48),
-            "Six of them on end, and an actor crosses in front of the rank."),
-    Surface("workbench front", (190, 96, 100, 22), "Under the bench top."),
+            "reason it is measured first. Moved to the right-hand wall: doc "
+            "26 put the price list and the window through the old rect, and "
+            "a sample spanning three materials measures none of them."),
+    Surface("wainscot", (262, 52, 40, 18), "The one value break on that wall."),
+    Surface("pine floor", (140, 100, 60, 26), "Sawn boards, walked on."),
+    Surface("the coffins", (100, 30, 72, 46),
+            "Six of them on end, and an actor crosses in front of the rank. "
+            "Sampled right of the good suit, which hangs over the first one."),
+    Surface("table front", (196, 102, 80, 18), "Under the table top."),
 ]
 
 

@@ -20,9 +20,17 @@ composed rooms". These three are not composed rooms, and 34 names the hotel
 lobby as the room that sets the pattern, so the ruling is applied to the new
 and withheld from the old. Room 5 and the exteriors are untouched.
 
-NO HOTSPOTS. These rooms are enterable, lit and dressed; their examine
-layers arrive with the documents being written for them. A hotspot with no
-line is worse than no hotspot, and check-examine-lines says so.
+DOC 26 DRESSES THESE ROOMS, and it arrived after they were composed. Where
+the writing named furniture the composition did not have -- a settee, a
+parlour stove, a spittoon, a lobby clock, a desk, a window, a price list, a
+waiting bench -- the furniture went in, and where the composition had objects
+the writing never mentions -- a piano, two armchairs, a low table, a second
+coffin on trestles -- they came out.
+
+That is not the frozen standard being reopened. The freeze fixed how a room
+LOOKS; what is in it is a claim the examine layer makes, and a hotspot has to
+sit on a drawn object. A drawn object nobody wrote is a click with no answer,
+and a written object nobody drew is a line about nothing.
 """
 
 from __future__ import annotations
@@ -143,6 +151,13 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
             canvas.rect(x, y, 12, 5, pine.frac(max(0.06, 0.34 - tread * 0.01)))
             canvas.hline(x, y, 12, pine.frac(0.48))
             canvas.vline(x, y, 5, pine.frac(0.12))
+            # DOC 26: carpeted for the first four treads and bare above that.
+            # The carpet ran out. Four is the number in the line, so four is
+            # the number drawn -- and the fifth tread is where it stops being
+            # a hotel and starts being a building.
+            if tread < 4:
+                canvas.rect(x + 1, y, 10, 4, plush.frac(max(0.05, plush_tone - 0.24)))
+                canvas.hline(x + 1, y, 10, plush.frac(max(0.05, plush_tone - 0.12)))
         # The banister, which is what makes it a stair rather than a ziggurat.
         canvas.line(box.back_right - 4, box.back_bottom - 20, WIDTH - 6, box.back_bottom - 76,
                     brass.frac(brass_tone + 0.16))
@@ -164,29 +179,71 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
         canvas.vline(70, desk_y - 8, 6, brass.frac(brass_tone + 0.20))     # the pen
         canvas.put(70, desk_y - 8, bone.frac(0.82))
     with canvas.track("key rack"):
-        canvas.rect(30, box.back_bottom - 30, 34, 18, pine.frac(0.22))
-        canvas.outline(30, box.back_bottom - 30, 34, 18, pine.frac(0.10))
+        canvas.rect(30, box.back_bottom - 28, 34, 18, pine.frac(0.22))
+        canvas.outline(30, box.back_bottom - 28, 34, 18, pine.frac(0.10))
+        # Doc 26: four out of forty are gone, and the four are not near each
+        # other. Not random -- the gaps are placed, because "not near each
+        # other" is the observation and a random draw would clump.
+        gone = {1, 4, 8, 11}
         for row in range(2):
             for hook in range(6):
-                canvas.vline(34 + hook * 5, box.back_bottom - 26 + row * 8, 4,
+                index = row * 6 + hook
+                canvas.vline(34 + hook * 5, box.back_bottom - 24 + row * 8, 4,
                              brass.frac(brass_tone + 0.10))
-                if rng.random() < 0.55:
-                    canvas.put(34 + hook * 5, box.back_bottom - 22 + row * 8,
+                if index not in gone:
+                    canvas.put(34 + hook * 5, box.back_bottom - 20 + row * 8,
                                brass.frac(brass_tone + 0.26))
 
-    # -- the parlour, right of the desk: the piano A2 turns on, two armchairs
-    #    and a low table, arranged so every one of them crosses another.
-    with canvas.track("piano"):
-        furniture.upright_piano(canvas, palette, 128, 92, 52, 30, plush, bone, rng)
-    with canvas.track("piano stool"):
-        cylinder(canvas, 186, 104, 12, 10, pine, base=0.26, lid_lift=0.20)
-    with canvas.track("armchair near"):
-        armchair(canvas, palette, 96, 122, 34, 30, plush, plush_tone + 0.14, brass, rng)
-    with canvas.track("armchair far"):
-        armchair(canvas, palette, 172, 112, 28, 24, plush, plush_tone + 0.04, brass, rng)
-    with canvas.track("low table"):
-        furniture.rough_table(canvas, palette, 138, 112, 30, 12, pine, rng)
-        canvas.hline(140, 114, 26, bone.frac(0.34))                        # a cloth
+    # -- the parlour, right of the desk. DOC 26 NAMES THE FURNITURE and the
+    #    room is dressed to it rather than the other way round: a settee, a
+    #    parlour stove, a spittoon and a clock. What was here before -- a
+    #    piano, two armchairs, a low table -- was composed before the content
+    #    existed and none of it is written, so none of it is in the room. A
+    #    hotspot must sit on a drawn object and a drawn object nobody wrote
+    #    is a click with no answer.
+    with canvas.track("rug"):
+        # Doc 26: the spittoon has left a ring on the carpet where it used to
+        # be and a ring where it is. There has to be a carpet for that to be
+        # true, so there is one, and it is worn through in the traffic lane.
+        for row in range(22):
+            t = row / 21
+            left, right = int(98 - 4 * t), int(198 + 8 * t)
+            canvas.hline(left, 104 + row, right - left,
+                         plush.frac(max(0.04, plush_tone - 0.30 - 0.05 * t)))
+        canvas.hline(98, 104, 100, plush.frac(max(0.04, plush_tone - 0.18)))
+        for _ in range(70):                                     # worn through
+            x, y = rng.randrange(112, 190), rng.randrange(106, 124)
+            canvas.put(x, y, pine.frac(max(0.04, 0.24 + 0.06 * rng.random())))
+        for ring_x, ring_y in ((152, 112), (186, 110)):         # both rings
+            ellipse_outline(canvas, ring_x, ring_y, 7, 3,
+                            plush.frac(max(0.04, plush_tone - 0.38)))
+
+    with canvas.track("settee"):
+        settee(canvas, palette, 100, 106, 64, 32, plush, plush_tone + 0.02, brass, rng)
+
+    with canvas.track("stove"):
+        parlour_stove(canvas, palette, 164, 104, 28, 34, box.back_top, deep, brass, rng)
+
+    with canvas.track("spittoon"):
+        # Brass, emptied, and standing on its second ring rather than its
+        # first. 32e's middle scale, and the only object in the room a player
+        # could mistake for an item.
+        cylinder(canvas, 190, 104, 13, 9, brass, base=max(0.04, brass_tone - 0.06),
+                 lid_lift=0.22)
+        ellipse_outline(canvas, 196, 104, 7, 3, brass.frac(min(0.95, brass_tone + 0.24)))
+
+    with canvas.track("clock"):
+        # Behind the desk, which is where a lobby clock goes and where doc
+        # 26's joke needs it -- nineteen minutes off the Registrar's, and the
+        # two are never in frame together.
+        canvas.rect(76, 50, 20, 24, pine.frac(0.20))
+        canvas.outline(76, 50, 20, 24, pine.frac(0.08))
+        ellipse_shaded(canvas, 86, 58, 7, 7, bone, 0.62, lift=0.14)
+        ellipse_outline(canvas, 86, 58, 7, 7, brass.frac(min(0.95, brass_tone + 0.18)))
+        canvas.line(86, 58, 86, 54, pine.frac(0.06))                       # the hands
+        canvas.line(86, 58, 89, 60, pine.frac(0.06))
+        canvas.vline(86, 66, 6, brass.frac(brass_tone))                    # the pendulum
+        canvas.put(86, 72, brass.frac(min(0.95, brass_tone + 0.22)))
 
     # -- the engraving of an Italian bay, doc 09. Small, high, and the only
     #    thing in the room pretending to be somewhere else.
@@ -228,31 +285,87 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
     return canvas, palette
 
 
-def armchair(canvas, palette, x, base_y, width, height, ramp, tone, brass, rng) -> None:
-    """A wing chair: rounded back, arms proud of it, feet. Errata 32d's kind
-    of object -- nameable, and it reads at a glance from its outline."""
-    back_h = int(height * 0.72)
-    ellipse_shaded(canvas, x + width // 2, base_y - back_h, width // 2, back_h // 2 + 2,
-                   ramp, tone, lift=0.18)
-    canvas.rect(x + 3, base_y - back_h, width - 6, back_h, ramp.frac(tone))
-    for arm in (x, x + width - 6):
-        canvas.rect(arm, base_y - int(height * 0.44), 6, int(height * 0.34),
-                    ramp.frac(min(0.92, tone + 0.10)))
-        ellipse_shaded(canvas, arm + 3, base_y - int(height * 0.44), 3, 2, ramp, tone + 0.16)
-    canvas.rect(x + 2, base_y - int(height * 0.30), width - 4, int(height * 0.20),
-                ramp.frac(min(0.92, tone + 0.14)))              # the seat, shiny
-    for foot in (x + 3, x + width - 5):
+def settee(canvas, palette, x, base_y, width, height, ramp, tone, brass, rng) -> None:
+    """Doc 26's settee, and the LOOK line is the drawing instruction.
+
+    "Gone shiny at both arms and nowhere in the middle." So the two arms are
+    drawn a full two steps up the ramp and the seat between them is drawn at
+    the base tone, which is the opposite of how upholstery is normally shaded
+    and is the entire point of the object. A settee shaded conventionally --
+    bright in the middle where the light falls -- would contradict the only
+    line most players will ever read about it.
+    """
+    back_h = int(height * 0.62)
+    top = base_y - back_h
+    # The back is a PANEL with a shallow crown, not a dome. A dome at this
+    # width reads as a bathtub -- the horizontal top rail is what says settee.
+    canvas.rect(x + 6, top + 2, width - 12, back_h - 2, ramp.frac(max(0.05, tone - 0.06)))
+    ellipse_fill(canvas, x + width // 2, top + 3, width // 2 - 6, 4,
+                 ramp.frac(max(0.05, tone - 0.04)))
+    canvas.hline(x + 7, top + 1, width - 14, ramp.frac(min(0.94, tone + 0.06)))
+    canvas.hline(x + 7, top + 5, width - 14, ramp.frac(max(0.04, tone - 0.16)))
+    # The seat: darker than the arms and flat across, because nobody sits in
+    # the middle and it has never been polished by anybody's sleeve.
+    seat_y = base_y - int(height * 0.36)
+    canvas.rect(x + 6, seat_y, width - 12, int(height * 0.24),
+                ramp.frac(max(0.04, tone - 0.20)))
+    canvas.hline(x + 7, seat_y, width - 14, ramp.frac(max(0.05, tone - 0.10)))
+    # The arms, two full steps up: this is the whole line, drawn.
+    for arm in (x, x + width - 9):
+        canvas.rect(arm, base_y - int(height * 0.52), 9, int(height * 0.44),
+                    ramp.frac(min(0.95, tone + 0.20)))
+        ellipse_shaded(canvas, arm + 4, base_y - int(height * 0.52), 5, 3,
+                       ramp, min(0.95, tone + 0.28), lift=0.08)
+        canvas.vline(arm, base_y - int(height * 0.50), int(height * 0.42),
+                     ramp.frac(max(0.04, tone - 0.22)))
+    for foot in (x + 4, x + width - 6):
         canvas.rect(foot, base_y - 4, 2, 4, brass.frac(0.22))
-    canvas.hline(x + 1, base_y - 1, width - 2, ramp.frac(0.05))
+    canvas.hline(x + 2, base_y - 1, width - 4, ramp.frac(0.05))
+
+
+def parlour_stove(canvas, palette, x, base_y, width, height, ceiling_y,
+                  deep, brass, rng) -> None:
+    """Doc 26's stove: a parlour stove with a nickel rail, polished, and cold.
+
+    The rail is the object. Everything else here is a black iron mass, and
+    the one bright horizontal across its front is what says somebody in this
+    building spends an afternoon on something -- which is the line.
+    """
+    iron = palette.family("void")
+    body_top = base_y - height
+    for row in range(height):
+        t = row / (height - 1)
+        half = int(width * (0.32 + 0.18 * t)) if t < 0.24 else int(width * (0.50 - 0.06 * t))
+        canvas.hline(x + width // 2 - half, body_top + row, half * 2, iron.at(0))
+        canvas.put(x + width // 2 + half - 1, body_top + row, deep.frac(0.16))
+    ellipse_shaded(canvas, x + width // 2, body_top, width // 2 - 2, 4, deep, 0.12, lift=0.08)
+    # The flue, up to the ceiling. It is what makes the mass a stove.
+    canvas.rect(x + width // 2 - 2, ceiling_y, 5, body_top - ceiling_y + 2, iron.at(0))
+    canvas.vline(x + width // 2 + 2, ceiling_y, body_top - ceiling_y + 2, deep.frac(0.14))
+    # The nickel rail, polished, and the glove hooks nobody uses.
+    rail_y = base_y - int(height * 0.44)
+    canvas.hline(x - 3, rail_y, width + 6, brass.frac(0.86))
+    canvas.hline(x - 3, rail_y + 1, width + 6, brass.frac(0.40))
+    for hook in (x - 3, x + width + 2):
+        canvas.vline(hook, rail_y, 5, brass.frac(0.62))
+    for foot in (x + 4, x + width - 6):
+        canvas.rect(foot, base_y - 3, 2, 3, iron.at(0))
+    canvas.hline(x + 2, base_y - 1, width - 4, deep.frac(0.06))
 
 
 def hotel_foreground(palette: Palette) -> IndexedCanvas:
     """Errata 32d and 21a: a NAMEABLE object, cropped, at large scale.
 
-    The wing of a second armchair, bottom-left, forty pixels of it and the
+    The near end of a wing chair, bottom-left, forty pixels of it and the
     rest off the frame. A texture mass would satisfy 21a and do nothing 32d
     asks for -- this establishes depth in one read and gives the room a scale
     anchor, which is 32e's large end supplied for free.
+
+    IT IS NOT THE SETTEE and must not be made into one. Doc 26 writes one
+    settee, against the back wall, where both its arms are visible -- and
+    "shiny at both arms and nowhere in the middle" is unreadable on an object
+    with one arm in frame. So the foreground stays a chair: a lobby has
+    chairs, nobody wrote a line for this one, and it carries no hotspot.
     """
     plane = IndexedCanvas(WIDTH, HEIGHT, fill=255)
     plush = palette.family("sky")
@@ -332,53 +445,112 @@ def thads_room() -> tuple[IndexedCanvas, Palette]:
         canvas.rect(266, 80, 30, 12, calico.frac(calico_tone - 0.04))              # pillow
         ellipse_shaded(canvas, 281, 80, 15, 5, calico, calico_tone - 0.02, lift=0.10)
 
+    # -- the door, on the back wall at the left, with HIS COAT ON IT. Doc 26
+    #    names the hotspot THE COAT ON THE DOOR, so the coat is on the door.
+    #    It was on the chair, which was a guess made before the writing
+    #    landed and is now simply wrong.
+    with canvas.track("door"):
+        canvas.rect(82, 38, 26, 48, pine.frac(0.20))
+        canvas.outline(82, 38, 26, 48, pine.frac(0.08))
+        canvas.rect(85, 42, 20, 18, pine.frac(0.26))                       # the panels
+        canvas.rect(85, 63, 20, 19, pine.frac(0.24))
+        canvas.put(104, 64, gold.frac(0.52))                               # the knob
+        # Number nineteen, in brass, hung slightly crooked -- and the crook
+        # is one pixel of vertical offset on the nine, which is all a crook
+        # is at this size.
+        canvas.vline(92, 40, 4, gold.frac(0.60))
+        canvas.vline(96, 41, 4, gold.frac(0.60))
+        canvas.put(95, 41, gold.frac(0.44))
+    with canvas.track("coat"):
+        # His one coat, on the door peg. The only dark mass in a pale-drab
+        # room -- 32c's hierarchy in a single object.
+        green = palette.family("pine_green")
+        canvas.put(88, 44, pine.frac(0.40))                                # the peg
+        for row in range(26):
+            half = 7 + row // 4 - (3 if row > 21 else 0)
+            canvas.hline(88 - half // 2, 46 + row, half,
+                         green.frac(max(0.04, 0.14 - row * 0.002)))
+        canvas.hline(84, 46, 10, green.frac(0.24))
+
     # -- the washstand, against the back wall, with a basin and a jug. The
     #    accent lives here: tin, and nowhere else.
+    # ERRATA 32a: the washstand ABUTS THE DOOR. Standing clear of it, the
+    # door, the basin and the jug shared a baseline with air between them --
+    # the row the ruling forbids, found by the audit and not by looking.
     with canvas.track("washstand"):
-        canvas.rect(88, 84, 34, 26, pine.frac(0.24))
-        canvas.hline(88, 84, 34, pine.frac(0.40))
-        canvas.vline(90, 86, 24, pine.frac(0.12))
-        canvas.vline(118, 86, 24, pine.frac(0.12))
+        canvas.rect(104, 84, 34, 26, pine.frac(0.24))
+        canvas.hline(104, 84, 34, pine.frac(0.40))
+        canvas.vline(106, 86, 24, pine.frac(0.12))
+        canvas.vline(134, 86, 24, pine.frac(0.12))
     with canvas.track("basin"):
-        ellipse_shaded(canvas, 100, 82, 11, 4, tin, tin_tone, lift=0.20)
-        ellipse_outline(canvas, 100, 82, 11, 4, tin.frac(min(0.95, tin_tone + 0.22)))
+        ellipse_shaded(canvas, 116, 82, 11, 4, tin, tin_tone, lift=0.20)
+        ellipse_outline(canvas, 116, 82, 11, 4, tin.frac(min(0.95, tin_tone + 0.22)))
     with canvas.track("jug"):
-        cylinder(canvas, 112, 70, 10, 12, tin, base=max(0.04, tin_tone - 0.10), lid_lift=0.18)
-        canvas.line(122, 74, 125, 78, tin.frac(tin_tone))                  # the handle
+        cylinder(canvas, 128, 70, 10, 12, tin, base=max(0.04, tin_tone - 0.10), lid_lift=0.18)
+        canvas.line(138, 74, 141, 78, tin.frac(tin_tone))                  # the handle
+    with canvas.track("mirror"):
+        # "A piece of mirror the size of my hand." Six pixels by eight, and
+        # it is meant to look insufficient.
+        canvas.rect(120, 66, 6, 8, tin.frac(min(0.95, tin_tone + 0.18)))
+        canvas.outline(120, 66, 6, 8, pine.frac(0.14))
 
-    # -- his case, open on the floor at the foot of the bed, and the chair
-    #    with a coat over it. Both cross something.
+    # -- the desk under the window, and everything written on this room's
+    #    desk is on it: the case, the letters from home, the letter going
+    #    back. 32c's focal object, and the only place in the room with
+    #    detail at three scales.
+    with canvas.track("desk"):
+        canvas.rect(148, 96, 54, 6, pine.frac(0.32))
+        canvas.hline(148, 96, 54, pine.frac(0.46))
+        canvas.rect(150, 102, 50, 5, pine.frac(0.18))                      # the apron
+        for leg in (150, 197):
+            canvas.rect(leg, 107, 3, 19, pine.frac(0.16))
     with canvas.track("his case"):
-        canvas.rect(150, 116, 26, 12, palette.family("umber").frac(0.20))
-        canvas.hline(150, 116, 26, palette.family("umber").frac(0.34))
-        canvas.rect(152, 110, 22, 7, palette.family("umber").frac(0.14))   # the lid, up
-        canvas.put(162, 116, gold.frac(0.44))                              # the clasp
+        canvas.rect(178, 88, 24, 8, palette.family("umber").frac(0.20))
+        canvas.hline(178, 88, 24, palette.family("umber").frac(0.34))
+        canvas.hline(178, 92, 24, palette.family("umber").frac(0.10))      # the seam
+        canvas.put(190, 92, gold.frac(0.48))                               # the clasp
+    with canvas.track("letters from home"):
+        # A tied bundle. Errata invariant 10 stands: nothing counts these,
+        # nothing refers to them anywhere else in the game, and the number of
+        # sheets drawn is not the act number. Do not wire one to the other.
+        canvas.rect(150, 90, 13, 6, calico.frac(min(0.95, calico_tone + 0.10)))
+        canvas.hline(150, 90, 13, calico.frac(min(0.95, calico_tone + 0.22)))
+        canvas.hline(150, 93, 13, calico.frac(max(0.04, calico_tone - 0.30)))   # the tie
+        canvas.vline(156, 90, 6, calico.frac(max(0.04, calico_tone - 0.30)))
+    with canvas.track("outgoing letter"):
+        canvas.rect(165, 91, 11, 5, calico.frac(min(0.95, calico_tone + 0.16)))
+        canvas.hline(165, 91, 11, calico.frac(0.92))
+        for line in range(3):                                              # four pages of it
+            canvas.hline(166, 92 + line, 8 - line, pine.frac(0.20))
+        canvas.vline(178, 88, 6, tin.frac(min(0.95, tin_tone + 0.10)))     # the pen
+        canvas.put(178, 87, gold.frac(0.44))
+
     with canvas.track("chair"):
-        # Seat, four legs, a back. Drawn here rather than through
-        # rough_chair, which is built for a saloon at a different scale and
-        # came out a cone at this one.
-        canvas.rect(122, 112, 20, 3, pine.frac(0.30))
-        canvas.hline(122, 112, 20, pine.frac(0.44))
-        for leg in (123, 139):
-            canvas.rect(leg, 115, 2, 13, pine.frac(0.20))
-        canvas.rect(122, 96, 2, 17, pine.frac(0.26))
-        canvas.rect(140, 96, 2, 17, pine.frac(0.22))
-        canvas.hline(122, 97, 20, pine.frac(0.34))
-        canvas.hline(122, 103, 20, pine.frac(0.30))
-    with canvas.track("coat"):
-        # Over the chair back and hanging past the seat. His one coat, and
-        # the only dark mass in a pale-drab room.
-        green = palette.family("pine_green")
-        for row in range(22):
-            half = 7 + row // 4 - (3 if row > 17 else 0)
-            canvas.hline(132 - half // 2, 96 + row, half,
-                         green.frac(max(0.04, 0.14 - row * 0.002)))
-        canvas.hline(128, 96, 10, green.frac(0.24))
+        # Pulled up to the desk, seen from behind. Drawn here rather than
+        # through rough_chair, which is built for a saloon at a different
+        # scale and came out a cone at this one.
+        canvas.rect(158, 112, 20, 3, pine.frac(0.30))
+        canvas.hline(158, 112, 20, pine.frac(0.44))
+        for leg in (159, 175):
+            canvas.rect(leg, 115, 2, 15, pine.frac(0.20))
+        canvas.rect(158, 100, 2, 13, pine.frac(0.26))
+        canvas.rect(176, 100, 2, 13, pine.frac(0.22))
+        canvas.hline(158, 101, 20, pine.frac(0.34))
+        canvas.hline(158, 106, 20, pine.frac(0.30))
+
+    # -- the wall beside the bed. Doc 26 note 1, and it is drawn the way it
+    #    is written: faint, uncommented, and no brighter than the boards it
+    #    is on. NOTHING may mark this -- no cycling, no highlight, no sting.
+    #    If a player finds it, they find it by reading a wall.
+    with canvas.track("wall marks"):
+        for stroke_x, stroke_h in ((198, 5), (201, 5), (204, 5)):
+            canvas.vline(stroke_x, 42, stroke_h, drab.frac(max(0.03, drab_tone - 0.30)))
+        canvas.line(196, 48, 207, 41, drab.frac(max(0.03, drab_tone - 0.28)))
 
     # -- the candle, unlit until night, on the sill. 32e's small end.
     with canvas.track("candle"):
-        canvas.vline(160, 62, 7, calico.frac(0.72))
-        canvas.put(160, 61, gold.frac(0.50))
+        canvas.vline(172, 62, 7, calico.frac(0.72))
+        canvas.put(172, 61, gold.frac(0.50))
     with canvas.track("floor grit"):
         for _ in range(90):
             x, y = rng.randrange(30, WIDTH - 30), rng.randrange(box.back_bottom, HEIGHT - 2)
@@ -460,19 +632,29 @@ def undertakers() -> tuple[IndexedCanvas, Palette]:
                 canvas.put(x + w // 2 - half, top + row, fresh.frac(max(0.04, tone - 0.16)))
                 canvas.put(x + w // 2 + half - 1, top + row, fresh.frac(min(0.95, tone + 0.14)))
 
-    # -- the workbench, the focal object, with the tools that made them.
-    with canvas.track("workbench"):
+    # -- THE TABLE. Doc 26 gives this room one working surface, "scrubbed to
+    #    the grain, and scrubbed again since", and the coffin that used to
+    #    sit on trestles in front of it is gone: two large pale horizontals
+    #    where the writing describes one meant a player clicking the nearer
+    #    of them got the table's line about a coffin.
+    with canvas.track("table"):
         canvas.rect(186, 88, 108, 8, fresh.frac(fresh_tone))
-        canvas.hline(186, 88, 108, fresh.frac(min(0.95, fresh_tone + 0.18)))
+        canvas.hline(186, 88, 108, fresh.frac(min(0.95, fresh_tone + 0.22)))
         for leg in (190, 284):
-            canvas.rect(leg, 96, 5, 26, fresh.frac(max(0.04, fresh_tone - 0.22)))
-        canvas.line(195, 100, 284, 116, fresh.frac(max(0.04, fresh_tone - 0.26)))
-    with canvas.track("tools"):
-        for index, x in enumerate((196, 206, 214, 226, 238)):
-            canvas.vline(x, 78 - index % 2 * 3, 10 + index % 3 * 2, dust.frac(0.30))
-            canvas.hline(x - 1, 78 - index % 2 * 3, 3, dust.frac(0.46))
-        canvas.rect(250, 82, 18, 6, dust.frac(0.24))                       # a plane
-        canvas.hline(250, 82, 18, dust.frac(0.44))
+            canvas.rect(leg, 96, 5, 30, fresh.frac(max(0.04, fresh_tone - 0.22)))
+        canvas.line(195, 102, 284, 118, fresh.frac(max(0.04, fresh_tone - 0.26)))
+        for grain in range(7):                                  # scrubbed to the grain
+            canvas.hline(190 + grain % 3, 90 + grain % 4, 96 - grain * 4,
+                         fresh.frac(min(0.95, fresh_tone + 0.10)))
+    with canvas.track("jar of teeth"):
+        # On the table. Bone in a bone room, which is the joke: it does not
+        # stand out and nobody has hidden it.
+        cylinder(canvas, 264, 88, 10, 12, bone, base=max(0.04, bone_tone - 0.10),
+                 lid_lift=0.14)
+        for _ in range(14):
+            canvas.put(rng.randrange(260, 269), rng.randrange(80, 87),
+                       bone.frac(min(0.95, bone_tone + 0.10)))
+        canvas.hline(259, 76, 11, dust.frac(0.30))                         # the lid
     with canvas.track("shavings"):
         # ERRATA 32b: against the bench legs, not strewn over the floor a
         # player walks across. Shavings gather where the plane was used.
@@ -482,42 +664,121 @@ def undertakers() -> tuple[IndexedCanvas, Palette]:
             ellipse_outline(canvas, x, y, rng.randrange(2, 4), 1,
                             fresh.frac(min(0.95, fresh_tone + 0.06)))
 
-    # -- an unfinished coffin on trestles, mid-room, crossing the bench.
-    with canvas.track("trestles"):
-        for tx in (176, 250):
-            canvas.line(tx, 108, tx + 7, 122, fresh.frac(max(0.04, fresh_tone - 0.24)))
-            canvas.line(tx + 14, 108, tx + 7, 122, fresh.frac(max(0.04, fresh_tone - 0.24)))
-            canvas.hline(tx, 108, 15, fresh.frac(fresh_tone - 0.10))
-    with canvas.track("coffin on trestles"):
-        for row in range(11):
-            t = row / 10
-            left = int(170 + 6 * t)
-            right = int(268 - 4 * t)
-            canvas.hline(left, 98 + row, right - left, bone.frac(bone_tone - 0.10 - 0.04 * t))
-        canvas.hline(170, 98, 98, bone.frac(min(0.95, bone_tone + 0.06)))
-        # The lid line and the shoulder breaks, so it is a coffin rather than
-        # a trough. Three lines, and they are the whole difference.
-        canvas.hline(178, 103, 84, bone.frac(max(0.04, bone_tone - 0.26)))
-        canvas.vline(196, 98, 11, bone.frac(max(0.04, bone_tone - 0.22)))
-        canvas.vline(244, 98, 11, bone.frac(max(0.04, bone_tone - 0.22)))
+    # -- THE WINDOW. North light, a blind half down, and the blind is left
+    #    half down so a visitor can see Boot Hill from where they stand.
+    #    Doc 26 note 3: he has arranged the room so the answer is visible
+    #    before he has to say it. Declared as a light source in the room
+    #    file, per the 33b exemption.
+    with canvas.track("window"):
+        interior.interior_window(canvas, 190, 26, 34, 36, dust, palette.family("bone"),
+                                 panes=(2, 2), base=0.34)
+        canvas.hline(187, 62, 40, dust.frac(0.26))                         # the sill
+        canvas.hline(187, 63, 40, dust.frac(0.14))
+        # The blind, half down, and PALE -- it is linen with north light
+        # behind it. Drawn dark it read as a blackboard, which is a whole
+        # object arriving in the room that nobody wrote.
+        canvas.rect(192, 28, 30, 14, dust.frac(0.62))
+        canvas.hline(192, 28, 30, dust.frac(0.50))
+        for slat in range(31, 41, 3):                                      # the roll, creased
+            canvas.hline(193, slat, 28, dust.frac(0.56))
+        canvas.hline(192, 41, 30, dust.frac(0.24))                         # the bottom bar
+        canvas.vline(207, 42, 5, dust.frac(0.24))                          # the cord
+        canvas.put(207, 47, dust.frac(0.34))
+        # Boot Hill, through the lower panes: markers on a rise, four pixels
+        # tall, and no more legible than that from in here.
+        for marker_x, marker_y in ((196, 54), (203, 52), (212, 55), (217, 53)):
+            canvas.vline(marker_x, marker_y, 4, dust.frac(0.40))
+            canvas.hline(marker_x - 1, marker_y + 1, 3, dust.frac(0.40))
 
-    # -- the black coat on its peg. The ONE dark object in a pale room, and
-    #    32c's hierarchy in one item: everything else is plain, this is not.
-    with canvas.track("the coat"):
+    with canvas.track("tools"):
+        # DOC 26: a saw, a plane, a brace and a mallet, HUNG LEVEL and clean.
+        # They were standing on the bench, which is where a carpenter leaves
+        # tools and is not what the line says. Level is the observation, so
+        # they hang from one rail on the wall above the table.
+        # Individual nails rather than one rail: a continuous rail under a
+        # window read as a shelf, and four objects standing on a shelf is a
+        # different sentence from four hung level.
+        for nail in (180, 202, 224, 244):
+            canvas.put(nail + 4, 64, dust.frac(0.20))
+        # The saw: handle, then a blade tapering to a point over eighteen
+        # rows. The taper is the whole silhouette -- a bar was a smudge.
+        canvas.rect(178, 65, 6, 6, dust.frac(0.22))
+        for row in range(18):
+            canvas.hline(184, 66 + row, max(1, 12 - row * 2 // 3), dust.frac(0.12))
+        canvas.hline(184, 66, 12, dust.frac(0.46))
+        # The plane: a block with a knob at the front and a wedge slot.
+        canvas.rect(198, 68, 16, 7, dust.frac(0.14))
+        canvas.hline(198, 68, 16, dust.frac(0.46))
+        canvas.rect(200, 64, 4, 4, dust.frac(0.24))
+        canvas.line(207, 69, 210, 74, dust.frac(0.42))
+        # The brace: the crank, which is the only tool here with a curve.
+        canvas.vline(228, 65, 6, dust.frac(0.16))
+        canvas.line(228, 71, 234, 74, dust.frac(0.16))
+        canvas.line(234, 74, 234, 79, dust.frac(0.16))
+        canvas.vline(231, 79, 5, dust.frac(0.20))
+        # The mallet: head across, handle down.
+        canvas.rect(244, 65, 11, 7, dust.frac(0.12))
+        canvas.hline(244, 65, 11, dust.frac(0.40))
+        canvas.vline(249, 72, 13, dust.frac(0.24))
+
+    # -- THE PRICE LIST, nailed to the back wall where the coffins end.
+    with canvas.track("price list"):
+        canvas.rect(168, 30, 18, 24, bone.frac(min(0.95, bone_tone + 0.08)))
+        canvas.outline(168, 30, 18, 24, dust.frac(0.24))
+        for row, width in ((34, 12), (40, 14), (46, 13)):     # Plain, Respectable, Handsome
+            canvas.hline(170, row, width, dust.frac(0.34))
+        canvas.hline(170, 50, 11, dust.frac(0.30))            # the fourth line
+        canvas.line(169, 51, 182, 49, dust.frac(0.44))        # scratched out
+
+    # -- THE GOOD SUIT on its peg: three sizes on one hanger, all let out at
+    #    the waist. The ONE dark object in a pale room, and 32c's hierarchy
+    #    in a single item -- everything else here is plain, this is not.
+    with canvas.track("good suit"):
         canvas.put(84, 30, dust.frac(0.30))                                # the peg
-        for row in range(30):
-            half = 3 + row // 4
-            canvas.hline(84 - half // 2, 32 + row, half, palette.family("void").at(0))
-            canvas.put(84 - half // 2, 32 + row, dust.frac(max(0.04, 0.16 - row * 0.003)))
-        canvas.hline(80, 34, 9, dust.frac(0.12))                           # the shoulders
+        canvas.hline(78, 32, 13, dust.frac(0.22))                          # the hanger
+        for offset, height in ((-4, 30), (0, 28), (4, 26)):
+            for row in range(height):
+                half = 3 + row // 5
+                canvas.hline(84 + offset - half // 2, 33 + row, half,
+                             palette.family("void").at(0))
+                canvas.put(84 + offset - half // 2, 33 + row,
+                           dust.frac(max(0.04, 0.16 - row * 0.003)))
 
-    # -- the burial ledger, on a stand by the door. Small, and the object the
-    #    whole of A1 is about.
+    # -- the street door, on the short left wall, and the bench beside it for
+    #    those come to arrange things. Doc 26: it has a cushion.
+    with canvas.track("street door"):
+        arch(canvas, 6, 40, 24, 52, dust, tone=0.18, rise=10)
+    with canvas.track("waiting bench"):
+        canvas.rect(28, 108, 76, 5, fresh.frac(max(0.04, fresh_tone - 0.10)))
+        canvas.hline(28, 108, 76, fresh.frac(min(0.95, fresh_tone + 0.12)))
+        for leg in (32, 98):
+            canvas.rect(leg, 113, 3, 17, fresh.frac(max(0.04, fresh_tone - 0.26)))
+        canvas.rect(30, 96, 3, 13, fresh.frac(max(0.04, fresh_tone - 0.18)))
+        canvas.rect(99, 96, 3, 13, fresh.frac(max(0.04, fresh_tone - 0.20)))
+        canvas.hline(30, 97, 72, fresh.frac(fresh_tone - 0.06))
+    with canvas.track("cushion"):
+        # Worn in the middle, which is the opposite of the Registrar's --
+        # people who come here sit down properly and stay a while. Drawn with
+        # a top face and a seam: a flat ellipse read as a stain on the bench.
+        canvas.rect(46, 101, 34, 7, dust.frac(0.44))
+        canvas.hline(47, 100, 32, dust.frac(0.56))
+        canvas.hline(47, 104, 32, dust.frac(0.36))                        # the seam
+        for corner in (46, 79):
+            canvas.vline(corner, 101, 7, dust.frac(0.30))
+        ellipse_fill(canvas, 63, 104, 12, 2, dust.frac(0.34))             # worn, middle
+
+    # -- the burial ledger, on a stand between the door and the coffins. It
+    #    is a LECTERN: a sloped top on a post. Drawn flat it read as a mat
+    #    lying on the floor.
     with canvas.track("burial ledger"):
-        canvas.rect(40, 92, 22, 4, dust.frac(0.34))
-        canvas.rect(38, 96, 26, 4, dust.frac(0.22))
-        canvas.line(44, 100, 46, 120, fresh.frac(max(0.04, fresh_tone - 0.24)))
-        canvas.line(58, 100, 56, 120, fresh.frac(max(0.04, fresh_tone - 0.24)))
+        for row in range(7):
+            canvas.hline(106 + row // 2, 84 + row, 26 - row // 2,
+                         dust.frac(max(0.06, 0.34 - row * 0.02)))
+        canvas.hline(106, 84, 26, bone.frac(min(0.95, bone_tone + 0.06)))  # the open page
+        canvas.hline(107, 86, 22, dust.frac(0.20))
+        canvas.hline(108, 88, 18, dust.frac(0.18))
+        canvas.rect(116, 91, 4, 26, fresh.frac(max(0.04, fresh_tone - 0.20)))
+        canvas.rect(110, 117, 16, 3, fresh.frac(max(0.04, fresh_tone - 0.26)))
     with canvas.track("floor sawdust"):
         for _ in range(140):
             x, y = rng.randrange(14, WIDTH - 14), rng.randrange(box.back_bottom, HEIGHT - 2)

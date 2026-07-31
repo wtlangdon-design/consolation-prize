@@ -213,8 +213,11 @@ export class VerbSystem {
 
   /**
    * The line for this selection: the written one first, then the repeat
-   * variants in order, then back round. Doc 05 is explicit that Room 2 needs
-   * three minimum, because it is the screen the player reads most.
+   * variants in order, and then the last one holds. It does NOT wrap: a
+   * player who looks a fourth time gets the third line again rather than
+   * being walked back to the establishing one, which would read as the
+   * object resetting. Doc 05 is explicit that Room 2 needs three minimum,
+   * because it is the screen the player reads most.
    */
   private nextLine(targetId: string, verbId: string, rule: ResponseRule): string | null {
     // targetId carries the matched RULE INDEX, so a ruling 19a state change

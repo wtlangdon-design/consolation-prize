@@ -459,6 +459,14 @@ function rooms0507() {
       }
     }
 
+    // A target that now carries written lines is not a stub, and a stale
+    // `stub` is not cosmetic: check-examine-lines SKIPS stubs, so leaving it
+    // set on an exit doc 25 wrote three LOOK variants for quietly excluded
+    // those lines from the game-wide uniqueness guarantee.
+    for (const target of [...room.hotspots, ...room.exits]) {
+      if (target.stub && target.responses?.LOOK_AT) delete target.stub;
+    }
+
     room.note = `${(room.note ?? '').replace(/ Lines EXTRACTED.*$/, '')} `
       + 'Lines EXTRACTED from docs/25-rooms-05-07.md by tools/extract-content.mjs. Do not '
       + 'edit: change doc 25 and re-run.';
@@ -596,7 +604,229 @@ function room02Exits() {
   return write(path, room);
 }
 
-const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits()];
+// ---------------------------------------------------------------------------
+
+/**
+ * Docs 08 and 09, for the hotspots doc 26 writes REPEATS for.
+ *
+ * Doc 26 numbers those runs from 2, because variant 1 was written in the
+ * examine-layer batches and stands. So the batch document alone cannot fill a
+ * hotspot: the first line -- the only one most players will ever read -- lives
+ * in the older doc and is fetched from it rather than restated.
+ *
+ * ACT-QUALIFIED LINES. Docs 08 and 09 write some LOOK lines per act:
+ * `**LOOK Act I:**`, `**LOOK Acts I-III:**`, `**LOOK Act IV:**`. THERE IS NO
+ * ACT MECHANISM -- no flag, no writer, and Phase 1 is explicit that Acts I to
+ * IV are not being built. So the Act I line is wired and every other act's is
+ * collected and reported by name. Inventing an ACT flag to gate lines nothing
+ * can set would be building the act system in order to look complete.
+ */
+function priorVariantOne(docPath, roomNumber, name) {
+  const doc = read(docPath);
+  const sections = doc.split(/^## ROOM (\d+) — /m).slice(1);
+  const unwired = [];
+  for (let index = 0; index < sections.length; index += 2) {
+    if (Number(sections[index]) !== roomNumber) continue;
+    for (const entry of sections[index + 1].matchAll(/^\*\*(.+?)\*\*\n((?:> .*\n)+)/gm)) {
+      if (plain(entry[1]) !== name) continue;
+      const said = {};
+      for (const row of entry[2].matchAll(/^> \*\*(LOOK|LISTEN)(.*?):\*\* "(.+)"$/gm)) {
+        const [, verb, qualifier, line] = row;
+        // The unqualified line, or the one whose qualifier covers Act I.
+        // /Acts? I\b/ matches "Act I" and "Acts I-III" and NOT "Act III" --
+        // the word boundary is doing real work and an /I/ without it wired
+        // the Act III coat as the Act I coat.
+        if (!qualifier || /Acts? I\b/.test(qualifier)) said[verb] = line;
+        else unwired.push(`${name} ${verb}${qualifier}`);
+      }
+      return { said, unwired };
+    }
+  }
+  return null;
+}
+
+/**
+ * Doc 26: Rooms 18, 19 and 13, completing the hotspots docs 08 and 09 marked
+ * "(working script)".
+ *
+ * Same four kinds of entry as doc 25, and four differences that are the
+ * document being written by a person rather than to a grammar:
+ *
+ *   - a LOOK run can carry an act qualifier -- `**LOOK Acts I-II**`;
+ *   - a repeat entry can have no LOOK run at all, when the LOOK lines are
+ *     act-variant and live elsewhere;
+ *   - an override can carry a trailing instruction in italics, and one of
+ *     them is load-bearing: THE COFFINS' USE line must never gain a variant;
+ *   - an exit can defer to a hotspot's lines instead of repeating them, and
+ *     can lead to the map rather than to a numbered room.
+ *
+ * None of those is normalised away. The parser reads what is on the page.
+ */
+function roomsBatchA() {
+  const doc = read('docs/26-batch-a.md');
+  const sections = doc.split(/^# ROOM (\d+) · /m).slice(1);
+  const written = [];
+
+  const FILE = {
+    18: 'content/rooms/hotel-lobby.json',
+    19: 'content/rooms/thads-room.json',
+    13: 'content/rooms/undertaker.json',
+  };
+  //: Which examine-layer batch wrote variant 1 for each room.
+  const PRIOR = {
+    18: 'docs/09-examine-batch-2.md',
+    19: 'docs/08-examine-batch-1.md',
+    13: 'docs/09-examine-batch-2.md',
+  };
+  const VERBS = { LOOK: 'LOOK_AT', LISTEN: 'LISTEN_TO' };
+  const unwiredActLines = [];
+  const gaps = [];
+
+  for (let index = 0; index < sections.length; index += 2) {
+    const number = Number(sections[index]);
+    const body = sections[index + 1];
+    const path = FILE[number];
+    if (!path) throw new Error(`doc 26: no room file for room ${number}`);
+    const room = JSON.parse(read(path));
+
+    const byName = new Map();
+    for (const target of [...room.hotspots, ...room.exits]) byName.set(target.name, target);
+    const lineFor = (name) => {
+      const exact = byName.get(name);
+      if (exact) return exact;
+      const near = [...byName.keys()].filter((full) => full.startsWith(name));
+      if (near.length === 1) return byName.get(near[0]);
+      throw new Error(`doc 26 room ${number}: "${name}" matches ${near.length} hotspots`);
+    };
+
+    // --- newly written hotspots: a ### heading, a LOOK run and a LISTEN run.
+    for (const block of body.matchAll(
+      /^### (.+?)\n\*\*LOOK(.*?)\*\*(.+?)\n\*\*LISTEN(.*?)\*\*(.+?)$/gm)) {
+      const [, name, lookQualifier, look, listenQualifier, listen] = block;
+      const target = byName.get(plain(name));
+      if (!target) {
+        throw new Error(`doc 26 room ${number}: "${plain(name)}" is written but the room `
+          + 'has no hotspot with that name');
+      }
+      for (const [verb, run, qualifier] of [
+        [VERBS.LOOK, look, lookQualifier], [VERBS.LISTEN, listen, listenQualifier],
+      ]) {
+        const said = variants(run);
+        if (said.some((line) => line === undefined) || said.length < 1) {
+          throw new Error(`doc 26 room ${number}: ${plain(name)} ${verb} run has a gap`);
+        }
+        target.responses = target.responses ?? {};
+        target.responses[verb] = [{ say: said[0], repeat: said.slice(1) }];
+        if (qualifier.trim()) unwiredActLines.push(`${plain(name)} ${verb} covers${qualifier}`);
+      }
+    }
+
+    // --- repeat variants: variant 1 comes from doc 08 or doc 09.
+    for (const entry of body.matchAll(/^\*\*(.+?)\*\* — (.+?) \| LISTEN (.+?)$/gm)) {
+      const [, rawName, lookPart, listen] = entry;
+      const name = plain(rawName);
+      const target = lineFor(name);
+      const prior = priorVariantOne(PRIOR[number], number, name);
+      if (!prior) {
+        throw new Error(`doc 26 room ${number}: "${name}" has repeat variants but `
+          + `${PRIOR[number]} never wrote its variant 1`);
+      }
+      unwiredActLines.push(...prior.unwired);
+
+      const runs = [[VERBS.LISTEN, listen, 'LISTEN']];
+      if (lookPart.startsWith('LOOK ')) {
+        runs.unshift([VERBS.LOOK, lookPart.slice(5), 'LOOK']);
+      } else {
+        // No LOOK run: doc 26 says the act-variant LOOK lines stand. The
+        // first line is still fetched, so the hotspot answers LOOK -- it
+        // just answers with one line, which check-written-content reports.
+        gaps.push(`${name} LOOK has no repeat variants written -- doc 26 cites `
+          + 'doc 23, which is the inventory document and has no entry for it');
+        if (prior.said.LOOK) {
+          target.responses = target.responses ?? {};
+          target.responses[VERBS.LOOK] = [{ say: prior.said.LOOK, repeat: [] }];
+        }
+      }
+
+      for (const [verb, run, heading] of runs) {
+        const said = variants(run);
+        if (said[0] !== undefined) {
+          throw new Error(`doc 26: ${name} ${verb} repeat run restates variant 1`);
+        }
+        const first = prior.said[heading];
+        if (first === undefined) {
+          // Doc 08 writes THE OUTGOING LETTER's LOOK as a stage direction --
+          // "reflects whichever version the player last chose" -- not a line.
+          // Nothing is wired: a rule whose first line is undefined shows the
+          // player the word undefined, and inventing one here is the exact
+          // thing CLAUDE.md forbids.
+          gaps.push(`${name} ${heading} variant 1 is not a written line in ${PRIOR[number]}`);
+          continue;
+        }
+        const repeat = said.slice(1);
+        if (repeat.some((line) => line === undefined)) {
+          throw new Error(`doc 26: ${name} ${verb} repeats have a gap -- `
+            + `got ${JSON.stringify(repeat)}`);
+        }
+        target.responses = target.responses ?? {};
+        target.responses[verb] = [{ say: first, repeat }];
+      }
+    }
+
+    // --- overrides, which may carry a trailing instruction in italics.
+    for (const entry of body.matchAll(/^> \*\*(.+?)\*\* · (.+)$/gm)) {
+      const target = lineFor(plain(entry[1]));
+      target.overrides = target.overrides ?? {};
+      const split = entry[2].match(/^(\w[\w ]*?) — "(.+?)"(?:\s*\*\((.+)\)\*)?$/);
+      if (!split) throw new Error(`doc 26: cannot read override "${entry[2].slice(0, 40)}"`);
+      target.overrides[split[1].trim().replace(/ /g, '_')] = split[2];
+    }
+
+    // --- exits. An exit may defer to a hotspot's lines rather than repeat
+    //     them, and may lead to the map rather than to a numbered room.
+    for (const entry of body.matchAll(
+      /^\*\*(.+?) → (?:Room \d+|the map)\*\*\n(\*\*LOOK\*\*(.+?)\n\*\*LISTEN\*\*(.+?)|> .+?)$/gm)) {
+      const [, rawName, , look, listen] = entry;
+      const target = lineFor(plain(rawName));
+      if (look === undefined) {
+        // "Uses THE STAIRS' lines above." One object that is both a hotspot
+        // and the way out, so its lines are already on this target.
+        for (const verb of [VERBS.LOOK, VERBS.LISTEN]) {
+          if (!target.responses?.[verb]) {
+            throw new Error(`doc 26 room ${number}: ${plain(rawName)} defers to lines `
+              + `written above and has no ${verb}`);
+          }
+        }
+        continue;
+      }
+      for (const [verb, run] of [[VERBS.LOOK, look], [VERBS.LISTEN, listen]]) {
+        const said = variants(run);
+        target.responses = target.responses ?? {};
+        target.responses[verb] = [{ say: said[0], repeat: said.slice(1) }];
+      }
+    }
+
+    // A target that now carries written lines is not a stub. `stub` means the
+    // destination exists with its examine layer honestly absent, and it makes
+    // check-examine-lines SKIP the target -- so a stale one is not a cosmetic
+    // flag, it is a hole in the duplicate guarantee.
+    for (const target of [...room.hotspots, ...room.exits]) {
+      if (target.stub && target.responses?.LOOK_AT) delete target.stub;
+    }
+
+    room.note = `${(room.note ?? '').replace(/ Lines EXTRACTED.*$/, '')} `
+      + 'Lines EXTRACTED from docs/26-batch-a.md by tools/extract-content.mjs. Do not '
+      + 'edit: change doc 26 and re-run.';
+    written.push(write(path, room));
+  }
+
+  for (const line of unwiredActLines) process.stderr.write(`  doc 26 act-gated: ${line}\n`);
+  for (const gap of gaps) process.stderr.write(`  doc 26 GAP: ${gap}\n`);
+  return written;
+}
+
+const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
+  ...roomsBatchA()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

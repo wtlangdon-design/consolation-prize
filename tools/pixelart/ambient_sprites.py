@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import json
 import random
+from zlib import crc32
 from pathlib import Path
 
 import crowd
@@ -40,6 +41,12 @@ SHEETS = ROOT / "art" / "actors"
 TRANSPARENT = 255
 
 #: One seed, so a rebuild produces the same three people.
+#:
+#: PER-FIGURE SEEDS USE crc32, NOT hash(). Python salts hash() on strings per
+#: process, so the intent stated on this line was defeated by the line that
+#: read it: every `npm run renders` drew three different men and rewrote a
+#: shipping asset the engine loads. Found because git reported the sheet
+#: modified after a render pass that had changed nothing.
 SEED = 0x105E
 
 
@@ -79,7 +86,7 @@ def build(room_id: str, palette: Palette) -> IndexedCanvas:
             # side and a shaded side, which is the difference between a person
             # and a post.
             crowd.standing(cell, palette, fw // 2, fh - 1, fh - 1,
-                           random.Random(SEED ^ hash(npc["id"]) & 0xFFFF),
+                           random.Random(SEED ^ crc32(npc["id"].encode()) & 0xFFFF),
                            pose=pose, tone=0.42)
             canvas.blit(cell, fx, fy, transparent=TRANSPARENT)
     return canvas

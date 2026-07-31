@@ -331,7 +331,6 @@
     {
       "id": "back_to_street",
       "name": "THE STREET DOOR",
-      "stub": true,
       "rect": [
         4,
         60,
