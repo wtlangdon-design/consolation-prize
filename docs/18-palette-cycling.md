@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Palette Cycling — animation specification
 
 *The 1990 technique for background motion. Supersedes nothing; adds the only animation system the game will have outside sprites.*
