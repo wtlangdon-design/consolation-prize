@@ -91,7 +91,7 @@
 
 **THE TUNING FORK CASE** — LOOK 2 "Velvet-lined, and worth more than the fork it was made for." · 3 "It is the most cared-for object I own and it is a box." | LISTEN 2 "Nothing, closed." · 3 "Nothing."
 
-**THE WINDOW** — LOOK 2 "The alley. A cat, some barrels, and the back of the Improvement Company." · 3 "One storey, from here. From the street it is three. I have checked from both." | LISTEN 2 "Somebody unloading, two streets over. It goes on all night." · 3 "I have stopped minding it, which worries me."
+**THE WINDOW** — LOOK 2 "The alley. A cat, some barrels, and the back of the Improvement Company." · 3 "One storey, from here. From the street it is three. I have checked from both." | LISTEN 2 "The cat is on the barrels again. She gets up there and then reconsiders." · 3 "Nothing. Whoever was unloading has stopped, and the quiet is worse." *(Both rewritten — the old 2 and 3 were doc 08's variant 1 cut in half.)*
 
 ## Overrides
 
@@ -133,7 +133,7 @@
 
 **THE COFFINS** — LOOK 2 "Stacked by size, and there are a great many in the smallest." · 3 "Six months of work, standing ready. He is not expecting a quiet year." | LISTEN 2 "Nothing." · 3 "Nothing. Naturally nothing."
 
-**THE JAR OF TEETH** — LOOK 2 "Still there. I have decided to think of it as inventory." · 3 "He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted." | LISTEN 2 "Nothing." · 3 "Nothing. I have satisfied myself and I should like that to be the end of it." *(Corrected — "I have stopped." belongs to the Nugget's spittoon and must not be shared.)*
+**THE JAR OF TEETH** — LOOK 2 "Still there. I have decided to think of it as inventory." · 3 "There are more than there were on Tuesday. I am not going to develop this thought." *(Rewritten — the old variant 3 was the back half of doc 09's variant 1.)* | LISTEN 2 "Nothing." · 3 "Nothing. I have satisfied myself and I should like that to be the end of it." *(Corrected — "I have stopped." belongs to the Nugget's spittoon and must not be shared.)*
 
 **THE GOOD SUIT** — LOOK 2 "Three sizes, on one hanger, and all three have been let out at the waist." · 3 "Half the men on Boot Hill were viewed in this and buried in their own clothes." | LISTEN 2 "Nothing." · 3 "Nothing."
 
