@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## The Examine Layer — LOOK AT / LISTEN TO
 
 *Companion to Bible v2, the Puzzle Graph, the Liar's Assay, and the Dialogue Trees. 35 rooms · ~520 hotspots · ~1,040 lines.*
