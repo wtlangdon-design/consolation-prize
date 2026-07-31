@@ -7,16 +7,13 @@ import { ActorSprite } from './ActorSprite.ts';
 import { BitmapFont } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
 import {
-  INVENTORY_SLOT_WIDTH,
-  INVENTORY_STRIP,
-  MENU_BUTTON,
   NATIVE_WIDTH,
   PANEL_HEIGHT,
   PANEL_Y,
+  PanelLayout,
   PLAY_HEIGHT,
+  type Rect,
   Screen,
-  SENTENCE_Y,
-  verbButtonRect,
 } from './Screen.ts';
 
 export interface Frame {
@@ -70,6 +67,8 @@ export class Renderer {
   private readonly sprite: ActorSprite | null;
   /** Any loaded image by content path, for ambient sheets. */
   private readonly sheet: (path: string) => CanvasImageSource | null;
+  /** Errata ruling 26's geometry, resolved from content. */
+  private readonly panel: PanelLayout;
 
   constructor(
     screen: Screen,
@@ -93,6 +92,7 @@ export class Renderer {
     this.idles = new IdleLayer(screen.context);
     this.sheet = sheet;
     this.sprite = new ActorSprite(state.content.actor, sheet);
+    this.panel = new PanelLayout(state.content.panel);
   }
 
   /** The animation clock, in seconds. Set once per frame by the scene. */
@@ -308,10 +308,11 @@ export class Renderer {
     this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, this.screen.role('panelBg'));
 
     const sentence = frame.notice ?? this.sentenceText(frame.hoveredTargetName);
-    this.font.draw(ctx, sentence, TEXT_MARGIN, SENTENCE_Y, this.screen.roleColour('inkBright'));
+    const { x: sx, y: sy } = this.panel.sentence;
+    this.font.draw(ctx, sentence, sx, sy, this.screen.roleColour('inkBright'));
 
     for (const verb of verbs.verbs) {
-      const rect = verbButtonRect(verb.col, verb.row);
+      const rect = this.panel.verbButton(verb.col, verb.row);
       const active = verb.id === this.state.verbs.selectedVerb;
       this.screen.fill(rect.x, rect.y, rect.width, rect.height, this.screen.role(active ? 'buttonBgActive' : 'buttonBg'));
       this.font.draw(
@@ -328,31 +329,71 @@ export class Renderer {
     // The menu button, always present, always clickable. No key hints are
     // drawn because there are no required keys left to hint at.
     const menu = this.state.menu;
-    this.screen.fill(MENU_BUTTON.x, MENU_BUTTON.y, MENU_BUTTON.width, MENU_BUTTON.height,
+    const button = this.panel.menuButton;
+    this.screen.fill(button.x, button.y, button.width, button.height,
       this.screen.role(menu.isOpen ? 'buttonBgActive' : 'buttonBg'));
     const label = menu.buttonLabel;
-    const labelX = MENU_BUTTON.x + Math.floor((MENU_BUTTON.width - this.font.measure(label)) / 2);
-    this.font.draw(ctx, label, labelX, MENU_BUTTON.y + 1, this.screen.roleColour('ink'));
+    const labelX = button.x + Math.floor((button.width - this.font.measure(label)) / 2);
+    this.font.draw(ctx, label, labelX, button.y + 2, this.screen.roleColour('ink'));
   }
 
-  /** Slot hitboxes for what the player is carrying, in draw order. */
-  inventoryHitboxes(): { id: string; x: number; width: number; y: number; height: number }[] {
-    return this.state.carried.map((id, index) => ({
-      id,
-      x: INVENTORY_STRIP.x + index * INVENTORY_SLOT_WIDTH,
-      width: INVENTORY_SLOT_WIDTH - 2,
-      y: INVENTORY_STRIP.y,
-      height: INVENTORY_STRIP.height,
-    }));
+  /**
+   * Hitboxes for the item rows currently on screen. Errata ruling 26.
+   *
+   * Only the visible window, not the whole inventory -- a row that has been
+   * scrolled off is not clickable, and returning it here would make the
+   * eleventh item answer a click on the fourth.
+   */
+  inventoryHitboxes(): ({ id: string } & Rect)[] {
+    const carried = this.state.carried;
+    const first = this.state.inventoryScroll;
+    return carried
+      .slice(first, first + this.panel.visibleRows)
+      .map((id, index) => ({ id, ...this.panel.inventoryRow(index) }));
+  }
+
+  /** The two scroll arrows, whether or not they are currently usable. */
+  arrowHitboxes(): ({ direction: 'up' | 'down' } & Rect)[] {
+    return [
+      { direction: 'up' as const, ...this.panel.arrow('up') },
+      { direction: 'down' as const, ...this.panel.arrow('down') },
+    ];
   }
 
   private drawInventory(): void {
+    const ctx = this.screen.context;
     for (const slot of this.inventoryHitboxes()) {
       const held = this.state.heldItem === slot.id;
       this.screen.fill(slot.x, slot.y, slot.width, slot.height,
-        this.screen.role(held ? 'buttonBgActive' : 'buttonBg'));
-      this.font.draw(this.screen.context, this.state.itemNamed(slot.id), slot.x + 2,
-        slot.y + 1, this.screen.roleColour(held ? 'inkBright' : 'ink'));
+        this.screen.role(held ? 'buttonBgActive' : 'panelBg'));
+      this.font.draw(ctx, this.state.itemLabel(slot.id), slot.x + 2, slot.y + 2,
+        this.screen.roleColour(held ? 'inkBright' : 'ink'));
+    }
+
+    // Arrows are drawn dim when they would do nothing rather than hidden, so
+    // the list is the same shape whatever is in it -- the same reason
+    // CONTINUE greys out on the title screen instead of disappearing.
+    const first = this.state.inventoryScroll;
+    const canScroll = {
+      up: first > 0,
+      down: first + this.panel.visibleRows < this.state.carried.length,
+    };
+    for (const arrow of this.arrowHitboxes()) {
+      const live = canScroll[arrow.direction];
+      this.screen.fill(arrow.x, arrow.y, arrow.width, arrow.height,
+        this.screen.role('buttonBg'));
+      this.drawTriangle(arrow, this.screen.role(live ? 'ink' : 'inkDim'));
+    }
+  }
+
+  /** A solid triangle, point up or down, centred in its button. */
+  private drawTriangle(arrow: { direction: 'up' | 'down' } & Rect, index: number): void {
+    const rows = 4;
+    const centre = arrow.x + Math.floor(arrow.width / 2);
+    const top = arrow.y + Math.floor((arrow.height - rows) / 2);
+    for (let row = 0; row < rows; row += 1) {
+      const spread = arrow.direction === 'up' ? row : rows - 1 - row;
+      this.screen.fill(centre - spread, top + row, spread * 2 + 1, 1, index);
     }
   }
 

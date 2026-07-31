@@ -13,7 +13,7 @@ import {
   PANEL_HEIGHT,
   PLAY_HEIGHT,
   pointInRect,
-  verbButtonRect,
+  PanelLayout,
 } from '../engine/render/Screen.ts';
 import { format } from '../engine/render/Renderer.ts';
 import {
@@ -79,7 +79,15 @@ test('all nine verbs are selectable, and every written examine line answers', as
 
 test('every verb button is hit-testable and none overlap', async () => {
   const content = await loadContent(fsReader);
-  const rects = content.verbs.verbs.map((verb) => ({ id: verb.id, rect: verbButtonRect(verb.col, verb.row) }));
+  const panel = new PanelLayout(content.panel);
+  const rects = content.verbs.verbs.map(
+    (verb) => ({ id: verb.id, rect: panel.verbButton(verb.col, verb.row) }),
+  );
+  // Errata ruling 26 put the menu button in the verb grid's fourth row. It is
+  // in this list because it is a button in the same grid, and because it used
+  // to overlap LISTEN TO's bottom two rows -- which no test noticed, since
+  // the two were laid out by different numbers in different files.
+  rects.push({ id: 'menu', rect: panel.menuButton });
 
   for (const { id, rect } of rects) {
     assert.ok(rect.y >= PLAY_HEIGHT, `${id} must sit inside the verb panel`);

@@ -33,6 +33,8 @@ export class GameState {
   private cameFrom: string | null = null;
   /** The item the next verb applies WITH, not the item it applies TO. */
   private held: string | null = null;
+  /** First visible inventory row. Errata ruling 26's scrollable list. */
+  private scroll = 0;
 
   constructor(content: ContentBundle, storage: StorageLike) {
     this.content = content;
@@ -73,6 +75,31 @@ export class GameState {
 
   itemNamed(id: string): string {
     return this.content.items.get(id)?.name ?? id;
+  }
+
+  /**
+   * What the panel draws for an item. Errata ruling 26 point 2.
+   *
+   * The short name if one is authored, the full name otherwise. Never a
+   * computed truncation: three of the Act II items differ only in their
+   * parenthetical, and cutting them to the panel width would render two of
+   * them identically and quietly delete a running gag. check-item-names
+   * fails the build if a name does not fit or if two rows would draw the
+   * same, which is the part that actually protects it.
+   */
+  itemLabel(id: string): string {
+    const item = this.content.items.get(id);
+    return item?.short ?? item?.name ?? id;
+  }
+
+  get inventoryScroll(): number {
+    return this.scroll;
+  }
+
+  /** Moves the inventory window, clamped to what is actually carried. */
+  scrollInventory(by: number, visible: number): void {
+    const last = Math.max(0, this.inventory.length - visible);
+    this.scroll = Math.max(0, Math.min(last, this.scroll + by));
   }
 
   /**
@@ -323,6 +350,7 @@ export class GameState {
     this.reputation = save.reputation;
     this.held = null;
     this.cameFrom = null;
+    this.scroll = 0;
     return true;
   }
 
@@ -334,6 +362,7 @@ export class GameState {
     this.reputation = 0;
     this.held = null;
     this.cameFrom = null;
+    this.scroll = 0;
     this.verbs.resetToDefault();
     this.saves.clear();
   }

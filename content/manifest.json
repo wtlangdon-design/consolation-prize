@@ -30,8 +30,11 @@
   ],
   "puzzles": [],
   "actor": "content/actors/thad.json",
+  "panel": "content/ui/panel.json",
   "items": [
-    "content/items/tuning-fork.json"
+    "content/items/tuning-fork.json",
+    "content/items/deed-to-prosperity.json",
+    "content/items/company-map.json"
   ],
   "scaling": "content/actors/scaling.json",
   "ambient": [

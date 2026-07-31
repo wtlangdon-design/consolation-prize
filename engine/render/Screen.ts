@@ -1,4 +1,4 @@
-import type { PaletteFile } from '../core/types.ts';
+import type { PaletteFile, PanelFile } from '../core/types.ts';
 
 /** Native SCUMM-style geometry. Play area on top, verb panel below. */
 export const NATIVE_WIDTH = 320;
@@ -7,38 +7,78 @@ export const PLAY_HEIGHT = 144;
 export const PANEL_Y = PLAY_HEIGHT;
 export const PANEL_HEIGHT = NATIVE_HEIGHT - PLAY_HEIGHT;
 
-export const SENTENCE_Y = 146;
-export const VERB_MARGIN = 4;
-export const VERB_WIDTH = 104;
-export const VERB_HEIGHT = 11;
-export const VERB_ROW_Y = [156, 168, 180] as const;
-export const HUD_Y = 192;
+export interface Rect {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
 
 /**
- * The menu button, bottom-right of the verb panel.
+ * Errata ruling 26's panel, resolved from content/ui/panel.json.
  *
- * This exists so the keyboard is never required. The target machine is a
- * Chromebook, whose top row is browser keys, so the game had no working
- * save or load at all until this button existed -- F5, F9 and F6 were the
- * only routes and all three are taken by the browser.
+ * Verbs left in three columns, inventory right as a scrollable list of item
+ * names in text, sentence line full width above both. Nothing here is a
+ * constant in this file any more: the same JSON is read by the Python that
+ * renders the panel for review, so the picture Tyler looks at and the panel
+ * the game draws cannot drift apart.
+ *
+ * The menu button lives in the verb grid's fourth row. SCUMM had twelve verbs
+ * in three columns of four and we have nine, so the row that would have held
+ * the last three carries the button instead -- which is also how the button
+ * stopped overlapping LISTEN TO, where it had been sitting since it was put
+ * in a corner to keep the keyboard optional.
  */
-export const MENU_BUTTON = { x: 246, y: 190, width: 70, height: 9 };
+export class PanelLayout {
+  // Not a constructor parameter property: the tests run under
+  // node --experimental-strip-types, which refuses anything needing emit.
+  private readonly file: PanelFile;
 
-/**
- * The inventory strip: the eight rows under the verb grid, left of the menu
- * button. It is text rather than icons because there are no item icons yet --
- * doc 15 lists forty of them as unbuilt -- and a row of empty boxes would be
- * a worse placeholder than the item's own name.
- *
- * This is the one piece of interface geometry in the slice that the design
- * documents do not specify. Doc 06 says only "array of item IDs, LOOK and
- * LISTEN per item"; SCUMM's own answer was verbs left, inventory right, and
- * ours cannot be that because the nine verbs already occupy the full width at
- * 100px a button. At forty items this needs the real panel and a decision
- * about which of the two halves gives up space.
- */
-export const INVENTORY_STRIP = { x: 4, y: 191, width: 238, height: 8 };
-export const INVENTORY_SLOT_WIDTH = 78;
+  constructor(file: PanelFile) {
+    this.file = file;
+  }
+
+  get sentence(): { x: number; y: number } {
+    return this.file.sentence;
+  }
+
+  verbButton(col: number, row: number): Rect {
+    const { cols, rows, width, height } = this.file.verbs;
+    return {
+      x: cols[col] ?? (cols[0] as number),
+      y: rows[row] ?? (rows[0] as number),
+      width,
+      height,
+    };
+  }
+
+  get menuButton(): Rect {
+    const { col, row } = this.file.menuButton;
+    return this.verbButton(col, row);
+  }
+
+  /** Visible inventory rows. Fewer if the player is carrying fewer. */
+  get visibleRows(): number {
+    return this.file.inventory.rows;
+  }
+
+  inventoryRow(index: number): Rect {
+    const { x, y, width, rowHeight } = this.file.inventory;
+    return { x, y: y + index * rowHeight, width, height: rowHeight };
+  }
+
+  /** Up and down, stacked over the height of the list. */
+  arrow(direction: 'up' | 'down'): Rect {
+    const { y, rowHeight, rows, arrows } = this.file.inventory;
+    const half = Math.floor((rowHeight * rows) / 2);
+    return {
+      x: arrows.x,
+      y: direction === 'up' ? y : y + half,
+      width: arrows.width,
+      height: half,
+    };
+  }
+}
 
 /**
  * Interface colours are looked up by role name, never by index. The locked
@@ -112,22 +152,6 @@ export class Screen {
   }
 }
 
-export interface VerbButtonRect {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-}
-
-export function verbButtonRect(col: number, row: number): VerbButtonRect {
-  return {
-    x: VERB_MARGIN + col * VERB_WIDTH,
-    y: VERB_ROW_Y[row] ?? (VERB_ROW_Y[0] as number),
-    width: VERB_WIDTH - VERB_MARGIN,
-    height: VERB_HEIGHT,
-  };
-}
-
-export function pointInRect(x: number, y: number, rect: VerbButtonRect): boolean {
+export function pointInRect(x: number, y: number, rect: Rect): boolean {
   return x >= rect.x && x < rect.x + rect.width && y >= rect.y && y < rect.y + rect.height;
 }

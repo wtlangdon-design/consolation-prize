@@ -10,13 +10,12 @@ import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
 import { Renderer } from '../render/Renderer.ts';
 import {
-  MENU_BUTTON,
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
+  PanelLayout,
   PLAY_HEIGHT,
   Screen,
   pointInRect,
-  verbButtonRect,
 } from '../render/Screen.ts';
 import {
   isDoubleClick as detectDoubleClick,
@@ -50,6 +49,7 @@ export class GameScene extends Phaser.Scene {
   private view!: Renderer;
   private actor!: Actor;
   private ambient!: AmbientLayer;
+  private panel!: PanelLayout;
   private texture!: Phaser.Textures.CanvasTexture;
 
   private hovered: { id: string; name: string } | null = null;
@@ -87,6 +87,7 @@ export class GameScene extends Phaser.Scene {
     this.actor = new Actor(this.state, 160, 130);
     this.actor.placeIn(this.state.roomId);
     this.ambient = new AmbientLayer(this.state);
+    this.panel = new PanelLayout(this.state.content.panel);
     this.view = new Renderer(this.screen, this.font, this.state, this.actor, this.ambient,
       (roomId) => this.backgroundFor(roomId),
       (roomId) => this.foregroundFor(roomId),
@@ -248,7 +249,7 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
-    if (pointInRect(x, y, MENU_BUTTON)) {
+    if (pointInRect(x, y, this.panel.menuButton)) {
       this.state.menu.open();
       this.lastClick = { targetId: null, at: now };
       this.markDirty();
@@ -347,9 +348,13 @@ export class GameScene extends Phaser.Scene {
    * item-on-target, and it needs no second verb and no second click mode.
    */
   private onInventoryClick(x: number, y: number): boolean {
-    const slot = this.view.inventoryHitboxes().find(
-      (box) => x >= box.x && x < box.x + box.width && y >= box.y && y < box.y + box.height,
-    );
+    const arrow = this.view.arrowHitboxes().find((box) => pointInRect(x, y, box));
+    if (arrow) {
+      this.state.scrollInventory(arrow.direction === 'up' ? -1 : 1, this.panel.visibleRows);
+      this.markDirty();
+      return true;
+    }
+    const slot = this.view.inventoryHitboxes().find((box) => pointInRect(x, y, box));
     if (!slot) return false;
     const target = this.state.itemTarget(slot.id);
     if (target && this.state.verbs.examines(this.state.verbs.selectedVerb)) {
@@ -363,7 +368,7 @@ export class GameScene extends Phaser.Scene {
 
   private onPanelClick(x: number, y: number): void {
     for (const verb of this.state.content.verbs.verbs) {
-      if (pointInRect(x, y, verbButtonRect(verb.col, verb.row))) {
+      if (pointInRect(x, y, this.panel.verbButton(verb.col, verb.row))) {
         this.state.verbs.selectVerb(verb.id);
         this.markDirty();
         return;
