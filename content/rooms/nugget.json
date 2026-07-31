@@ -4,6 +4,118 @@
   "name": "THE BOUNTIFUL NUGGET",
   "note": "Doc 05 Room 3 plus doc 16, verbatim. Twelve hotspots and two exits. THE HANDBILL is the Rules of the Assay and carries Rule 3. THE PATRONS has no drawn figures in the background -- doc 07's ambient characters supply them at runtime, so the rect covers where they stand. Doc 16 note 4: the stove's third LISTEN reverses the first two on purpose; it has gone out and nobody has noticed. Do not 'correct' it.",
   "background": "art/backgrounds/room-03-nugget.png",
+  "foreground": "art/foregrounds/room-03-nugget.png",
+  "idles": {
+    "note": "Errata ruling 20: a drawn crowd of four or more needs at least three animated members, and the eye gives the rest the credit. Four here, of eleven. Two-frame idles, not walk cycles -- a weight shift and a lifted glass. Rates 0.3-0.8 Hz, none of them equal, and each phase-offset, because three figures moving on the same beat is worse than none. THE MAN ON THE LANDING IS NOT IN THIS LIST AND MUST NEVER BE. Ruling 20 makes him an explicit exception: his entire joke is that he never moves, and in a room where four others shift he becomes conspicuous, which is the intent.",
+    "sheet": "art/idles/room-03-nugget.png",
+    "figures": [
+      {
+        "id": "bar_near",
+        "note": "At the bar, near end. Weight shift.",
+        "at": [
+          226,
+          120
+        ],
+        "height": 27,
+        "kind": "standing",
+        "rate": 0.34,
+        "phase": 0.0,
+        "frames": [
+          [
+            0,
+            0,
+            18,
+            36
+          ],
+          [
+            18,
+            0,
+            18,
+            36
+          ]
+        ]
+      },
+      {
+        "id": "bar_mid",
+        "note": "At the bar, middle. Lifts a glass.",
+        "at": [
+          252,
+          122
+        ],
+        "height": 29,
+        "kind": "standing",
+        "rate": 0.52,
+        "phase": 0.4,
+        "frames": [
+          [
+            36,
+            0,
+            18,
+            36
+          ],
+          [
+            54,
+            0,
+            18,
+            36
+          ]
+        ],
+        "glass": true
+      },
+      {
+        "id": "far_table",
+        "note": "Seated at the far table. Leans back.",
+        "at": [
+          180,
+          90
+        ],
+        "height": 14,
+        "kind": "seated",
+        "rate": 0.41,
+        "phase": 0.7,
+        "frames": [
+          [
+            72,
+            0,
+            18,
+            36
+          ],
+          [
+            90,
+            0,
+            18,
+            36
+          ]
+        ]
+      },
+      {
+        "id": "stove_man",
+        "note": "Doc 16's man beside the stove, who has not taken his coat off. Shifts.",
+        "at": [
+          99,
+          88
+        ],
+        "height": 24,
+        "kind": "standing",
+        "rate": 0.66,
+        "phase": 0.2,
+        "frames": [
+          [
+            108,
+            0,
+            18,
+            36
+          ],
+          [
+            126,
+            0,
+            18,
+            36
+          ]
+        ]
+      }
+    ]
+  },
   "colours": {
     "sky": 0,
     "ground": 6
@@ -495,7 +607,7 @@
             "say": "A door behind the bar, shut. There is a room back there and things are settled in it.",
             "repeat": [
               "Shut. It has been shut every time I have looked, which is not the same as locked.",
-              "Men go in through that door in twos and come out in twos, and one of the two is always pleased."
+              "A door behind the bar. Shut, and shut in a way that has been decided rather than just closed."
             ]
           }
         ],
@@ -503,8 +615,8 @@
           {
             "say": "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it.",
             "repeat": [
-              "Nothing.",
-              "A pencil. Somebody is writing something down."
+              "A pencil. Somebody is writing something down.",
+              "Two men going in. A little later, two men coming out, and one of the two is pleased."
             ]
           }
         ]

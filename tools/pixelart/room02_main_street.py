@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import street_scene
+from renders import FOREGROUNDS
 from street_scene import DAY, HEIGHT, WIDTH, compose
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -15,6 +17,7 @@ def main() -> None:
     preview = ROOT / "renders" / "room-02-main-street-day@4x.png"
     canvas.save(native, palette)
     canvas.save(preview, palette, scale=4)
+    street_scene.FOREGROUND.save_rgba(FOREGROUNDS / "room-02-main-street.png", palette)
     print(f"wrote {native.relative_to(ROOT)}  ({WIDTH}x{HEIGHT})")
     print(f"wrote {preview.relative_to(ROOT)}  ({WIDTH * 4}x{HEIGHT * 4})")
     print(f"colours used: {len(canvas.used_indices())} of 256")

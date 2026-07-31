@@ -28,6 +28,7 @@ right, and shadows are cast by stepping colours down their own family ramp.
 
 from __future__ import annotations
 
+import math
 import random
 from dataclasses import dataclass, field
 
@@ -110,8 +111,16 @@ LOTS = [
         shoulder_drop=14, detail="busy",  treatments=("blind", "blind"), roof="grey"),
     Lot("hotel",     218, 56, 18, "pine_weathered", 0.72, 1.0, 54, 4,
         shoulder_drop=14, detail="quiet", treatments=("curtain", "shutters")),
+    # No treatment on the window and nothing else on the front. Ruling 19b
+    # cuts both ways and this facade was the other direction: boarded, with
+    # tools leaning across the door, while Room 2's exit walked the player
+    # into it. The art asserted a building that cannot be entered.
+    #
+    # Unornamented is still the right note -- Winnie spends nothing on
+    # appearances and this is the plainest front on the street -- but plain
+    # is not shut. A door, a step, clean glass, and no sign.
     Lot("assay",     278, 50, 44, "umber",          0.70, 1.0, 56, 3,
-        shoulder_drop=8,  detail="quiet", treatments=("boarded",)),
+        shoulder_drop=8,  detail="quiet", treatments=()),
 ]
 
 ALLEYS = [(58, 6, 0, 1), (96, 4, 1, 2), (160, 4, 2, 3), (214, 4, 3, 4), (274, 4, 4, 5)]
@@ -433,9 +442,13 @@ def storefront(
         window(canvas, lot.x + 40, open_top + 2, 12, open_h - 5, wall, glass, rng, panes=(2, 2))
 
     else:  # assay
-        door(canvas, lot.x + 16, door_top, 15, door_h, wall, rng, base=tone - 0.12)
+        # A shade lighter than the other doors rather than darker, because it
+        # is the only thing on this front and it has to carry the whole
+        # reading of "you may come in here".
+        door(canvas, lot.x + 16, door_top, 15, door_h, wall, rng, base=tone + 0.04)
         window(canvas, lot.x + 33, open_top + 2, 13, open_h - 5, wall, glass, rng, panes=(2, 2))
-        treat(lot.x + 33, open_top + 2, 13, open_h - 5)
+        # Its step is drawn later, with the boardwalk clutter -- the walk is
+        # laid over the storefronts and would bury anything put down here.
 
 
 # ---------------------------------------------------------------------------
@@ -446,6 +459,7 @@ def storefront(
 def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng: random.Random) -> None:
     """Goods stacked outside, because nothing here has a back room."""
     pine = scheme.family(palette, "pine_weathered")
+    umber = scheme.family(palette, "umber")
     fresh = scheme.family(palette, "pine_fresh")
     umber = scheme.family(palette, "umber")
     bone = scheme.family(palette, "bone")
@@ -472,7 +486,20 @@ def dress_boardwalk(canvas: IndexedCanvas, palette: Palette, scheme: Scheme, rng
 
     # Hotel and assay office stay quiet: one prop each.
     rope_coil(canvas, palette, 250, deck, pine, rng, tone=0.54)
-    leaning_tools(canvas, palette, 300, deck, 3, pine, grey, rng)
+    # Two, not three, and hard against the left edge of the assay front where
+    # there is blank wall. At x300 they leaned across the door, which is the
+    # thing the player has to be able to see.
+    leaning_tools(canvas, palette, 279, deck, 2, pine, grey, rng)
+
+    # The assay office step. One board proud of the walk, worn pale in the
+    # middle where eleven weeks of assays have gone in and come out again. It
+    # is the whole of Winnie's ornament and it is not ornament.
+    assay = LOTS[-1]
+    step_x, step_w = assay.x + 13, 21
+    canvas.rect(step_x, GROUND + 1, step_w, 3, bone.frac(0.30))
+    canvas.hline(step_x, GROUND + 1, step_w, bone.frac(0.52))
+    canvas.hline(step_x + 4, GROUND + 2, step_w - 8, bone.frac(0.42))
+    canvas.hline(step_x, GROUND + 4, step_w, umber.frac(0.10))
 
     # Washing over the hotel balcony rail. Somebody is living up there.
     laundry_line(canvas, palette, 226, 36, 40, pine, bone, rng)
@@ -595,4 +622,63 @@ def compose(scheme: Scheme) -> tuple[IndexedCanvas, Palette]:
 
     speckle(canvas, 0, HEIGHT - 16, WIDTH, 16, mud.frac(max(0.04, 0.16 + scheme.mud_shift)), rng, 0.03)
 
+    # -- the foreground plane, ruling 21a ----------------------------------
+    #
+    # A stack of milled lumber and a wagon wheel against it, cropping the
+    # bottom-left corner. Doc 05 already puts a lumber stack on the walk
+    # outside the store; this is the rest of the load, still in the street
+    # because nobody has moved it.
+    #
+    # Left, not right: frame right is the trough, the road out to the claims
+    # and the mud samples. Corner, not band -- 21a is explicit that a strip
+    # across the frame reproduces the problem it exists to solve.
+    global FOREGROUND
+    FOREGROUND = IndexedCanvas(WIDTH, HEIGHT, fill=255)
+    lumber_and_wheel(FOREGROUND, palette, random.Random(SEED ^ 0x21A))
+    canvas.blit(FOREGROUND, 0, 0, transparent=255)
+
     return canvas, palette
+
+
+def lumber_and_wheel(canvas: IndexedCanvas, palette: Palette, rng) -> None:
+    """Sawn lumber and a wheel off a wagon, bottom-left. Ruling 21a.
+
+    In void and umber's floor -- luminance 0 and 9. Main Street had 7.6% of
+    its pixels below 30 and nothing at all at true black; a daylight exterior
+    has no reason to reach either except a near plane, which is exactly the
+    ruling's argument.
+
+    The wheel is the diagonal. A stack of boards alone is horizontals, which
+    is the failure mode this is supposed to fix.
+    """
+    dark = palette.family("void")
+    umber = palette.family("umber")
+
+    # The stack: boards of unequal length, ends toward us, climbing left.
+    top = 116
+    for course in range(7):
+        y = 142 - course * 4
+        length = 54 - course * 5 + rng.randrange(0, 6)
+        if y < top:
+            break
+        canvas.rect(0, y - 3, length, 4, dark.at(0))
+        canvas.hline(0, y - 3, length, umber.at(1))          # the sawn edge
+        canvas.vline(length - 1, y - 3, 4, umber.at(0))
+
+    # The wheel, leaning against the stack: a ring, a hub, and four spokes,
+    # cut off by the frame's bottom edge.
+    cx, cy, radius = 62, 128, 19
+    for dy in range(-radius, radius + 1):
+        for dx in range(-radius, radius + 1):
+            distance = (dx * dx + dy * dy) ** 0.5
+            if abs(distance - radius) > 1.1:
+                continue
+            canvas.put(cx + dx, cy + dy, dark.at(0))
+    for angle in range(8):
+        step = angle * 3.14159 / 4
+        canvas.line(cx, cy,
+                    cx + round(math.cos(step) * (radius - 1)),
+                    cy + round(math.sin(step) * (radius - 1)), dark.at(0))
+    canvas.rect(cx - 2, cy - 2, 5, 5, dark.at(0))
+    canvas.put(cx - radius, cy, umber.at(1))
+    canvas.put(cx, cy - radius, umber.at(1))

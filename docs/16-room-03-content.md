@@ -87,8 +87,10 @@
 **LISTEN** 1 "The street. It sounds busier from in here than it is." · 2 "Boots on the boardwalk. Somebody deciding whether to come in." · 3 "Nothing. Everyone who is coming in is in."
 
 ## THE BACK ROOM DOOR → Room 4
-**LOOK** 1 "A door behind the bar, shut. There is a room back there and things are settled in it." · 2 "Shut. It has been shut every time I have looked, which is not the same as locked." · 3 "Men go in through that door in twos and come out in twos, and one of the two is always pleased."
-**LISTEN** 1 "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it." · 2 "Nothing." · 3 "A pencil. Somebody is writing something down."
+*(Ruling 19b, resolved by doc 19 § 1: the LOOK named men going through a shut door. Moved to LISTEN, which may describe what sight cannot.)*
+
+**LOOK** 1 "A door behind the bar, shut. There is a room back there and things are settled in it." · 2 "Shut. It has been shut every time I have looked, which is not the same as locked." · 3 "A door behind the bar. Shut, and shut in a way that has been decided rather than just closed."
+**LISTEN** 1 "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it." · 2 "A pencil. Somebody is writing something down." · 3 "Two men going in. A little later, two men coming out, and one of the two is pleased."
 
 **Overrides**
 > BACK ROOM DOOR · OPEN — *(walks through)*

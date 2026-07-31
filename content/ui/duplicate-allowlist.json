@@ -14,11 +14,6 @@
     },
     {
       "line": "Nothing.",
-      "where": "nugget/back_room_door/LISTEN_TO",
-      "reason": "Doc 16, verbatim. Variant 2 of the back room door. Variant 3 is 'A pencil. Somebody is writing something down.' -- doc 16 note 2 makes that the judges' pencil heard through a door fifteen hours before Act II. The flat 'Nothing.' before it is what makes that land."
-    },
-    {
-      "line": "Nothing.",
       "where": "stage_road/lamp_gone/LISTEN_TO",
       "reason": "Errata ruling 19a, verbatim. Variant 2 of the lamp after Hob has gone: 'Nothing. He has taken the sound with him too.' then 'Nothing.' then 'Nothing at all.' The bare middle line is the same standing answer to a silent object that doc 16 uses three times in the Nugget, and it is the falling-away that the sequence is for."
     },
@@ -26,6 +21,11 @@
       "line": "Nothing coming.",
       "where": "stage_road/road_east/LISTEN_TO",
       "reason": "Doc 17 v2 note 3, explicit: THE ROAD EAST's LISTEN variants 2 and 3 are identical to each other AND to the line at the high ridge in Act IV. Three uses of the same two words, a hundred yards and fifteen hours apart. The doc says 'Do not vary them.'"
+    },
+    {
+      "line": "Nothing.",
+      "where": "claims_registrar/two_lines/LISTEN_TO",
+      "reason": "Errata doc 19 section 2, verbatim. Variant 2 of the rewritten TWO LINES: 'Nothing. Two empty queues are quieter than one.' then 'Nothing.' then 'Nothing at all. There is a clock, and there is a man, and that is the whole of it.' The bare middle line is the same falling-away doc 16 uses in the Nugget and doc 19's own errata uses on the stage road."
     }
   ]
 }

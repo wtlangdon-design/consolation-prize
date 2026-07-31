@@ -148,6 +148,27 @@ export interface CyclingElement {
   bounds: [number, number, number, number];
 }
 
+/**
+ * One two-frame idle sprite in a drawn crowd. Errata ruling 20.
+ *
+ * `at` is the figure's feet, centred. `frames` are source rects in the room's
+ * idle sheet -- declared rather than computed, so the sheet builder and the
+ * engine read the same numbers and cannot disagree about where a frame is.
+ */
+export interface IdleFigure {
+  id: string;
+  note?: string;
+  at: [number, number];
+  height: number;
+  kind: 'standing' | 'seated';
+  /** Full cycles per second. Ruling 20: roughly 0.3-0.8, varied per figure. */
+  rate: number;
+  /** Offset in cycles, so no two figures move on the same beat. */
+  phase?: number;
+  glass?: boolean;
+  frames: [number, number, number, number][];
+}
+
 export interface RoomFile {
   schema: number;
   id: string;
@@ -161,8 +182,30 @@ export interface RoomFile {
   walkable?: WalkableRegion[];
   /** Composed background, relative to the manifest. */
   background?: string;
+  /**
+   * Ruling 21a's near plane: an RGBA overlay drawn after the actor. Every
+   * room carries one. The walkable mask is unchanged -- this is draw order
+   * and nothing else.
+   */
+  foreground?: string;
+  /**
+   * Ruling 20: a drawn crowd of four or more needs at least three animated
+   * members. The rest stay painted into the background and the eye gives them
+   * the credit.
+   */
+  idles?: { note?: string; sheet: string; figures: IdleFigure[] };
   /** Background elements that cycle. At most two, per doc 18. */
   cycling?: CyclingElement[];
+  /**
+   * Stated routes in that are not another room's exit. Doc 20 rule 1: every
+   * room has a stated route in, and thirteen of them arrive through the town
+   * map, which is a screen rather than a doorway.
+   *
+   * Documentary only -- the engine walks exits, not these. What reads them is
+   * check-room-entries, which is the reason Room 7 stopped being a room with
+   * five hotspots and no door.
+   */
+  entrances?: { from: string; note?: string }[];
   /** Ambient NPC ids placed in this room. */
   ambient?: string[];
   /** An engine test fixture rather than shipped content. */

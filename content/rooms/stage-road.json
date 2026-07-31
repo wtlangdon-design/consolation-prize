@@ -5,6 +5,7 @@
   "materialIdentity": "cold indigo, grey and sky, with warm ochre and gold only where the lamp and the windows reach -- ruling 17a. The only night exterior in the game.",
   "note": "Doc 05 Room 1 plus doc 17 v2, with errata ruling 19a's canonical per-state line sets. Doc 17 note 3: THE ROAD EAST's LISTEN variants 2 and 3 are identical to each other AND to the line at the high ridge in Act IV -- three uses of 'Nothing coming', a hundred yards and fifteen hours apart. Do not vary them. THE COACH, THE TEAM and THE WATCHMAN'S LAMP are state-gated: the coach becomes THE ROAD WEST OUT once it has gone, the team exists only while it is here, and there is no lamp at all until Hob walks onto the road.",
   "background": "art/backgrounds/room-01-stage-road.png",
+  "foreground": "art/foregrounds/room-01-stage-road.png",
   "colours": {
     "sky": 240,
     "ground": 181

@@ -31,7 +31,7 @@ from components import distant_hills
 from dither import BAYER2, BAYER4, dither_pixel
 from lighting import Lamp, LightField, lamp_core
 from palette import Palette
-from renders import RENDERS
+from renders import BACKGROUNDS, FOREGROUNDS, RENDERS
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -243,6 +243,24 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     # kind of thing that is invisible until somebody counts the pixels.
     canvas.rect(lx - 2, ly + 2, 3, 2, LAMP_BAND[3])
 
+    # -- the foreground plane, ruling 21a ----------------------------------
+    #
+    # Drawn last of the room, over everything including the actor when the
+    # engine composites it. Room 1 is the ruling's cited worst case: eighty
+    # per cent of the first screen anyone plays sat inside a 58-point band,
+    # a quarter of the range available, with nothing below luminance 20 to
+    # speak of. A near plane is out of the light by definition, so the bottom
+    # of the range arrives without touching one lit surface.
+    #
+    # Bottom LEFT, because the right of this frame is the coach, the team,
+    # the road east and every legibility sample. And a corner rather than a
+    # band: 21a is explicit that a horizontal strip across the frame
+    # reproduces the problem it exists to solve.
+    global FOREGROUND
+    FOREGROUND = IndexedCanvas(WIDTH, HEIGHT, fill=255)
+    scrub_bank(FOREGROUND, palette, random.Random(SEED ^ 0x21A))
+    canvas.blit(FOREGROUND, 0, 0, transparent=255)
+
     # Doc 18 note 1, enforced before anything is written: a reserved index may
     # appear only inside its own element. reserve() moves the trespassers --
     # here the coach lantern and the clasp on Thad's case, both accent_gold --
@@ -252,6 +270,56 @@ def compose(with_coach: bool = True, lamp_x: int | None = None) -> tuple[Indexed
     cycling.verify(canvas, elements)
 
     return canvas, palette
+
+
+def scrub_bank(canvas: IndexedCanvas, palette: Palette, rng) -> None:
+    """A rock and scrub bank, cropping the bottom-left corner. Ruling 21a.
+
+    Near, and therefore out of the light: the whole thing is drawn in void and
+    the floor of umber, luminance 0 and 9, which are two values this room did
+    not previously contain anywhere. That is the point of the ruling -- the
+    0-30 band arrives from a plane nobody is standing on, so no lit surface
+    moves and the legibility audit does not need re-running.
+
+    Its silhouette is a diagonal with a spiked top. A rounded hump would read
+    as a hill in the middle distance rather than as something four feet from
+    the camera, and a flat top would be the horizontal band 21a forbids.
+    """
+    dark = palette.family("void")
+    umber = palette.family("umber")
+    sage = palette.family("sage")
+
+    # The brow: high at the frame edge, falling away to nothing by x72.
+    reach = 100
+    brow = []
+    for x in range(reach):
+        walk = x / reach
+        top = int(94 + 50 * walk * walk) + (1 if (x * 7) % 5 == 0 else 0)
+        brow.append(min(HEIGHT, top))
+        canvas.vline(x, brow[x], HEIGHT - brow[x], dark.at(0))
+
+    # A rim of umber's floor along the top edge, one pixel of it, so the mass
+    # has an edge rather than being a hole cut in the picture.
+    for x in range(reach):
+        canvas.put(x, brow[x], umber.at(0))
+        if (x * 3) % 7 == 0 and brow[x] + 1 < HEIGHT:
+            canvas.put(x, brow[x] + 1, umber.at(1))
+
+    # Scrub standing off the brow: spikes, not lumps. Each is a few vertical
+    # strokes of different length, which at this size is what a sage bush is.
+    for _ in range(20):
+        x = rng.randrange(2, reach - 4)
+        height = 4 + rng.randrange(0, 9)
+        base = brow[x]
+        for offset in range(-2, 3):
+            column = x + offset
+            if not 0 <= column < reach:
+                continue
+            spike = height - abs(offset) * 2 - rng.randrange(0, 3)
+            if spike <= 0:
+                continue
+            canvas.vline(column, base - spike, spike, dark.at(0))
+            canvas.put(column, base - spike, sage.at(0))
 
 
 def _edge_wave(x: int) -> float:
@@ -558,7 +626,8 @@ def main() -> None:
     canvas, palette = compose(with_coach=True)
     canvas.save(RENDERS / "room-01-stage-road.png", palette)
     canvas.save(RENDERS / "room-01-stage-road@4x.png", palette, scale=4)
-    canvas.save(ROOT / "art" / "backgrounds" / "room-01-stage-road.png", palette)
+    canvas.save(BACKGROUNDS / "room-01-stage-road.png", palette)
+    FOREGROUND.save_rgba(FOREGROUNDS / "room-01-stage-road.png", palette)
 
     departed, _ = compose(with_coach=False, lamp_x=250)
     departed.save(RENDERS / "room-01-stage-road-coach-gone@4x.png", palette, scale=4)

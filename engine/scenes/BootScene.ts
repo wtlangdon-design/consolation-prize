@@ -16,14 +16,18 @@ export class BootScene extends Phaser.Scene {
   async create(): Promise<void> {
     const bundle = await loadContent(fetchReader(document.baseURI));
 
-    // Composed backgrounds, discovered through the rooms rather than listed
-    // anywhere in code.
+    // Composed images, discovered through the rooms rather than listed
+    // anywhere in code. Two per room: the background, and ruling 21a's near
+    // plane, which is drawn on the other side of the actor.
     const pending: Promise<void>[] = [];
-    for (const room of bundle.rooms.values()) {
-      if (!room.background) continue;
-      const key = `bg:${room.id}`;
-      this.load.image(key, new URL(room.background, document.baseURI).toString());
+    const want = (key: string, path: string) => {
+      this.load.image(key, new URL(path, document.baseURI).toString());
       pending.push(new Promise((resolve) => this.load.once(`filecomplete-image-${key}`, () => resolve())));
+    };
+    for (const room of bundle.rooms.values()) {
+      if (room.background) want(`bg:${room.id}`, room.background);
+      if (room.foreground) want(`fg:${room.id}`, room.foreground);
+      if (room.idles?.sheet) want(`idle:${room.id}`, room.idles.sheet);
     }
     if (pending.length > 0) {
       this.load.start();

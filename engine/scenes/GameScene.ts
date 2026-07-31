@@ -7,6 +7,7 @@ import { AmbientLayer } from '../core/Ambient.ts';
 import { mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont } from '../render/BitmapFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
+import { IdleLayer } from '../render/IdleLayer.ts';
 import { Renderer } from '../render/Renderer.ts';
 import {
   MENU_BUTTON,
@@ -63,6 +64,7 @@ export class GameScene extends Phaser.Scene {
   private dirty = true;
   private readonly cyclers = new Map<string, CyclingBackground>();
   private lastCycle: Map<number, number> | null = null;
+  private lastFrameAt = 0;
 
   constructor() {
     super(GAME_SCENE);
@@ -86,7 +88,9 @@ export class GameScene extends Phaser.Scene {
     this.actor.placeIn(this.state.roomId);
     this.ambient = new AmbientLayer(this.state);
     this.view = new Renderer(this.screen, this.font, this.state, this.actor, this.ambient,
-      (roomId) => this.backgroundFor(roomId));
+      (roomId) => this.backgroundFor(roomId),
+      (roomId) => this.foregroundFor(roomId),
+      (roomId) => this.imageFor(roomId, 'idle', this.state.content.rooms.get(roomId)?.idles?.sheet));
 
     this.input.on(Phaser.Input.Events.POINTER_MOVE, this.onPointerMove, this);
     this.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
@@ -99,6 +103,12 @@ export class GameScene extends Phaser.Scene {
   }
 
   update(): void {
+    const now = this.time.now / 1000;
+    // Ruling 20's idles are a function of the clock and nothing else, so the
+    // only state needed is what the last drawn frame showed.
+    if (IdleLayer.changed(this.state.room, this.lastFrameAt, now)) this.markDirty();
+    this.lastFrameAt = now;
+    this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
     if (this.actor.update()) this.markDirty();
     if (this.actor.isWalking) {
@@ -162,6 +172,20 @@ export class GameScene extends Phaser.Scene {
       this.cyclers.set(roomId, cycler);
     }
     return cycler.frameAt(this.time.now / 1000, this.state.menu.toggle(CYCLING_OPTION));
+  }
+
+  /** Ruling 21a's near plane. Straight through -- it never cycles. */
+  private foregroundFor(roomId: string): CanvasImageSource | null {
+    return this.imageFor(roomId, 'fg', this.state.content.rooms.get(roomId)?.foreground);
+  }
+
+  /** A loaded room image, or null if the room does not declare one. */
+  private imageFor(roomId: string, prefix: string, declared?: string): CanvasImageSource | null {
+    if (!declared) return null;
+    const key = `${prefix}:${roomId}`;
+    return this.textures.exists(key)
+      ? (this.textures.get(key).getSourceImage() as CanvasImageSource)
+      : null;
   }
 
   private markDirty(): void {

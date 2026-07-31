@@ -230,11 +230,46 @@ def town(canvas: IndexedCanvas, palette: Palette, rng, bone, umber, grey, ochre,
     # The street itself, between the rows.
     canvas.rect(TOWN_LEFT, ground + 1, TOWN_RIGHT - TOWN_LEFT, 3, mud.frac(0.62))
     canvas.hline(TOWN_LEFT, ground, TOWN_RIGHT - TOWN_LEFT, umber.frac(0.20))
+    street_traffic(canvas, rng, ground, umber)
 
     # One spire, because doc 05's Room 2 has a distant steeple.
     spire_x = TOWN_LEFT + 8
     canvas.vline(spire_x, ground - 20, 8, grey.frac(0.40))
     canvas.put(spire_x, ground - 21, bone.frac(0.60))
+
+
+def street_traffic(canvas: IndexedCanvas, rng, ground: int, umber) -> None:
+    """People on Main Street, at one pixel each. Ruling 19b, doc 19.
+
+    THE TOWN, BELOW says "you can see that every building on Main Street is a
+    front with nothing behind it, and that people are moving between them
+    anyway, briskly, all day." The first half was drawn and the second was
+    not, which made the line describe half a picture.
+
+    A pixel is the correct size. From this distance a man IS a pixel, and the
+    line's argument depends on him being small enough that the fronts dwarf
+    him -- draw them any larger and the joke inverts into a crowd scene. Two
+    rows of them, because the street has a near side and a far side and a
+    single row reads as a dotted line rather than as traffic.
+
+    Drawn near-black rather than mid-tone: the street is the lightest strip in
+    the valley and a figure the same weight as it disappears into it. A
+    silhouette is also what a person at that distance actually is.
+
+    They do not move. Doc 18 rule 3 is explicit that cycling never conveys
+    information, and the town at this distance is not one of its rooms.
+    """
+    for offset, tone, count in ((1, 0.06, 10), (2, 0.04, 7)):
+        stride = (TOWN_RIGHT - TOWN_LEFT) // (count + 1)
+        for step in range(count):
+            # Jittered off the grid: evenly spaced people are a fence.
+            x = TOWN_LEFT + stride * (step + 1) + rng.randrange(-4, 5)
+            canvas.put(x, ground + offset, umber.frac(tone))
+            # About a third of them are two pixels tall -- near side of the
+            # street, or a tall man, and the variation is what makes the row
+            # read as bodies rather than as dirt.
+            if rng.random() < 0.34:
+                canvas.put(x, ground + offset - 1, umber.frac(max(0.05, tone - 0.10)))
 
 
 def foreground_ridge(canvas: IndexedCanvas, palette: Palette, rng, umber, pine) -> None:
