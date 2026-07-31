@@ -86,7 +86,15 @@ Backgrounds — **2 of 41 done**:
 
 Characters — **1 of 31 done**:
 - [x] Thad — 3 sizes, 3 views, mud and boardwalk walk cycles
-- [ ] Thad: talk cycle, reach/pickup, tuning fork, and three scripted specials
+- [ ] Thad, full coverage per the dossier's protagonist minimum:
+  - [ ] four-direction walk and idle
+  - [ ] **face-direction change without walking**
+  - [ ] talk — left, right, near-front
+  - [ ] **three use heights** — pick up low, use at waist, use overhead
+  - [ ] give and take
+  - [ ] **eye shift and head turn** — cited as the highest-economy comic beats; a two-frame eye movement does the work of a full reaction
+  - [ ] short comic reaction
+  - [ ] tuning fork, and three scripted specials
 - [ ] 8 core named characters
 - [ ] 4 minor named characters
 - [ ] 18 ambient characters (may share base sprites with measured palette swaps)
