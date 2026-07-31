@@ -638,3 +638,42 @@ Recorded so it is not restated as new later:
 2. **Walk geometry is rectangles and straight lines.** Rulings 15 and 24 refined *scaling* while the geometry underneath stayed a list of rectangles. Doc 22 §3 is right that this is why Main Street reads flat: walk boxes are what make a character follow the painted street rather than cross it.
 3. **Objects have no staging.** The single largest gap for how the game *feels*. Doc 22 §6's sequence — resolve, walk to the object's staging point, wait, turn to required facing, wait, play chore, run script, respond — is the difference between an adventure game and clicking on things. Nothing in this errata anticipated it.
 4. **There is no choreography runner.** The opening sequence, the funeral, the coffin and the final duel all need one, and doc 17 specified beats with no machine to run them.
+
+---
+
+# 28 · THE AGREED BUILD SEQUENCE, AND THE CLICK MODEL
+
+## 28a · Sequence — approved as amended
+
+Doc 22's critical list is ten items. The core is four, not three, and the correction is accepted: **`scaleMode` belongs on the walk box, built with it.** It is one field on a structure being authored anyway, and it is the only thing that can put Room 2's scaling snap at the boardwalk lip rather than in open mud. Building boxes without it means authoring them twice.
+
+**The core, in order:**
+
+1. **Walk boxes with routing, carrying `scaleMode` and `clipPlane`** — doc 22 items 1 and 5
+2. **`walkTo: {x, y, facing}` on interactables** — item 3
+3. **A sequence runner with exactly five step kinds** — `walk`, `waitForActor`, `face`, `chore`, `say` — item 8 minus `parallel`, `sound`, `musicTransition`, `setObjectState`, and `camera` (which errata 27c strikes entirely)
+4. **The click model** — item 11, pulled forward from High
+
+Everything else in §6's chain already exists: resolve object is `targetAt`, play chore is the clip system the recoil runs on, run script is `VerbSystem.resolve`, deliver response is the say line.
+
+**Deferred, correctly:** occlusion masks and Y-sorting (4, 6) wait until there are multiple actors at multiple depths to sort. Object states (9) follow — the staged chain works against a stateless object. Item 10 is the acceptance test, not a prerequisite. Items 2 and 7 are already on main.
+
+**On the critical path and easy to mistake for polish: Main Street's walk boxes must be authored as trapezoids that route around the water trough.** Four full-width rectangles cannot demonstrate routing because there is nothing to route around. Authoring, not engineering, and the proof of item 1.
+
+## 28b · The click model — replaces double-click
+
+Double-click-to-walk was specified in the Phase 1 brief and it was wrong. It is ambiguous, it is the one thing in the build today a player would call a bug, and it collides with the staged-interaction click path.
+
+**Canonical:**
+
+| Action | Result |
+|---|---|
+| **Left click on walkable ground** | Walk there. Always. No verb required and no verb consumed |
+| **Left click on an object, verb selected** | Perform that verb on the object |
+| **Left click on an object, no verb selected** | Perform the object's `defaultVerb` — LOOK AT unless the object declares otherwise |
+| **Right click on an object** | Perform its `defaultVerb`, regardless of what is selected. Convenience only |
+| **Double click** | **Nothing. Remove it entirely.** |
+
+- **Every object declares a `defaultVerb`.** Most are LOOK AT. Doors and exits are OPEN or WALK TO. It is the verb a player would try first, and getting it right is a small authoring decision per object rather than an engine default.
+- A selected verb **persists** until another is chosen. It is not cleared by use.
+- The game remains fully playable with left click alone. Right click is never the only route to anything, per the mouse-only requirement.
