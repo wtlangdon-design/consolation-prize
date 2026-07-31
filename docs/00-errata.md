@@ -418,11 +418,7 @@ Two rulings from the compositional analysis against Monkey Island reference. The
 
 **Why it fixes more than depth:**
 
-1. **It supplies an anchor at the bottom of the range — not a redistribution.** *(Amended after measurement. The original wording overstated this and rooms should not be composed against it.)* A near plane is out of the light by definition and may be drawn in `void` or a family floor at luminance 9.
-
-   Measured on Room 1: true black went from **0.0% to 7.8%** of the frame, and pixels below luminance 20 from 0.7% to 8.7%. The 80% band moved only 58 points to 70 — a near plane is roughly 8% of a frame and cannot shift a decile further than that.
-
-   **What it actually provides is a value the room did not previously contain at all.** Before the plane, nothing in Room 1 was darker than luminance 9. That anchor is what the eye reads the rest of the frame against, and it is why Room 29 looked dimensional while being the emptiest composition. Do not expect the distribution to move much; expect the floor to arrive.
+1. **It supplies the missing bottom of the value range.** A near plane is out of the light by definition and may be drawn in `void` or a family floor at luminance 9. The 0–30 band arrives without touching a single lit surface and without re-running the legibility audit — which is the entire reason this ruling outranks widening the range directly.
 2. **Its silhouette is almost never horizontal.** A ridge brow, a doorframe, a barrel, a wagon wheel, a table edge. The banding breaks as a side effect.
 3. **It is a missing layer, not a dial set wrong.** Value and diagonals are per-room judgements. This is structural and applies everywhere.
 
@@ -462,3 +458,57 @@ Family floors, lowest to highest: nine families reach near-black. **Four cannot 
 The swap is chosen by measured luminance, never by ramp index. Declared at composition time and checked, so a shadowed bone surface cannot silently sit at 90 while everything around it goes to 20.
 
 **The palette is not reopened.** This is a lighting rule, not a palette change.
+
+---
+
+# 22 · COMPOSITION ORDER — graybox is a required gate
+
+From the design dossier, and from having violated it three times.
+
+**The order, for every remaining room:**
+
+1. **Grayscale value block** — masses only, no colour, no texture
+2. **Walkable band, entrances and exits** — where can a person stand and how do they arrive
+3. **Object silhouettes** — hotspots as shapes, unrendered
+4. **Character placement and reach** — the actor at every depth zone, at every staging mark
+5. **Occlusion test** — the foreground plane, per ruling 21a
+6. **Legibility check** — rulings 16, 17c, 18. **This is a gate. A room that fails here is re-blocked, not re-lit.**
+7. Lighting and palette
+8. Texture and dither
+9. Ambient animation and cycling
+
+**Steps 1–6 are graybox. No room proceeds past step 6 until it passes.**
+
+`surface_plan.py` already audits intended surfaces before drawing. That is graybox in embryo and it becomes a required gate rather than an available tool.
+
+**Why this is binding rather than advisory — we have already paid for it three times:**
+
+- **Room 1** shipped unplayable. 80% of the first screen anyone plays inside a 58-point band, Thad's coat invisible against the road. Found after full composition.
+- **Room 5** was a finished office before anyone asked where a bright counter put a character's face.
+- **Room 2** was composed four times before the false fronts read as false.
+
+The dossier states it plainly: *"Never let a beautifully finished background become the first time the team discovers that the character has nowhere good to stand."*
+
+**Thirty-nine rooms remain. This costs nothing and applies thirty-nine more times.**
+
+---
+
+# 23 · PALETTE PROPORTION — completes ruling 17b
+
+Ruling 17b assigns each interior a material *identity*. That is a hue decision and it has no proportion half, which is why Room 3 reads monotone despite having a correct identity.
+
+**Every room declares a palette script alongside its identity:**
+
+| Role | Target |
+|---|---|
+| Dominant field | 55–70% |
+| Structural shadow family | 15–25% |
+| Secondary local colour | 10–15% |
+| Narrative accent / light | 3–8% |
+| UI-safe highlight | reserved, unused by scenery |
+
+**Measured against the composed rooms, this explains what we already observed:** Room 3 sits 60% inside a single 74-point band and reads monotone. Room 5 spreads across 101 points and reads composed. Same rule set, opposite outcomes, and nothing was checking.
+
+**Implementation:** a check reporting actual proportions against declared targets. **A warning, not a build failure.** A deliberate near-monochrome room — the undertaker's, per doc 09, is scrubbed bone and pine on purpose — is a legitimate choice. The requirement is that it be visibly deliberate rather than accidental.
+
+**Also add `actor_staging_marks` to the room spec.** The dossier lists it and we do not have it: the named positions a character is placed at for scripted beats, checked for legibility and reach at step 4 rather than discovered during a cutscene.
