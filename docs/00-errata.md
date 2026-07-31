@@ -576,7 +576,7 @@ If a token is ever wanted, it needs its own drawn asset — the decimation curve
 
 ---
 
-# 26 · THE VERB PANEL AND INVENTORY — text, not icons
+# 26 · THE VERB PANEL AND INVENTORY — ~~text, not icons~~ **OVERTURNED, see 29**
 
 The inventory's geometry appears in no document. Doc 06 specifies the array and the per-item lines and stops. Flagged during the vertical slice, with nine verbs already filling the panel width and forty items to place.
 
@@ -737,3 +737,26 @@ It separates cleanly in three directions: the Nugget's warm timber, Thad's neutr
 **The per-room gate does not relax.** 17c's corollary stands — the anchor differs per room, the face carrying Thad in Room 2 and the coat in Room 3 — and a shared library does not give a shared anchor. Eleven-at-once buys an early warning, not an exemption.
 
 **And the foreground plane at step 5 is the one to watch.** The only plane proven in play is an exterior. Eleven interiors is where ruling 21a either becomes a habit or produces eleven rooms with a table in front of the camera. **The hotel lobby proves the interior case the way Main Street proved the exterior one.** If it does not, that is a re-block at step 5, before anything is lit.
+
+
+---
+
+# 29 · INVENTORY USES ICONS — overturns 26
+
+*Restored 31 July. This ruling was lost when errata 30 was pushed from a stale local copy that predated it. The icons were built correctly; only the file was wrong. Recorded rather than quietly reinstated, because a ruling that can vanish and be restored without trace is worse than one that was never made.*
+
+Ruling 26 made inventory text on the grounds that the 1990 original did so. **That was accuracy reasoning, not design reasoning.** *Monkey Island 2* introduced the icon panel and it is the better interface; this game targets the era's discipline, not its limitations.
+
+**Canonical: inventory is a grid of icons.** Verbs three columns of four on the left, icons on the right, scroll arrows at the right edge, six to eight visible, sentence line full width above. Item art is in scope.
+
+## Two conditions
+
+**1. The item name appears in the sentence line on hover and on selection.** An icon must never be the only way an item is identified. The authored display names from ruling 26 stand — they are what the sentence line draws.
+
+**2. Near-identical items must be visibly distinguishable — and escalation and differentiation are different problems.**
+
+- **Escalation** is for items that are genuinely **the same object in successive states**. The three Form 12-Cs are one form acquiring damage and stamps: clean; torn corner and a second stamp; VOID across the face. The bureaucracy accumulating is the joke and it should be watchable. The *Clarion* editions are also escalation — the same newspaper, later.
+- **Differentiation** is for items that merely **share a category**. The letter, the deed and the Company map are three unrelated documents. Drawing them as a series would spend the escalation trick early and imply a relationship that does not exist.
+- **Ozymandia's two brass rods are deliberately identical** — that is the joke. Allowlist entry with a reason, not a failure.
+
+**`check-item-names` extends rather than being replaced:** it fails on two items drawing the same row, and must also fail on two items rendering the same icon. Deliberate identity is an allowlist entry, exactly as duplicate examine lines are.
