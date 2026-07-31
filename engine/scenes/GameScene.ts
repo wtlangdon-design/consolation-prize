@@ -19,6 +19,9 @@ import {
 } from '../render/Screen.ts';
 import { SequenceRunner, type SequenceHost, type SequenceStep } from '../core/Sequence.ts';
 import {
+  actCardOf, segmentsOf, stepsFor, writesOf, type Segment,
+} from '../core/Opening.ts';
+import {
   CYCLING_OPTION,
   GAME_SCENE,
   KEY_LOAD_MODIFIED,
@@ -64,6 +67,24 @@ export class GameScene extends Phaser.Scene {
   /** Doc 22 section 7's choreography. One performance at a time. */
   private readonly sequence = new SequenceRunner();
 
+  /**
+   * Doc 17's opening, as segments. Null once it has handed over control, and
+   * null from the start in any room it is not the opening of.
+   *
+   * NOTHING HERE MAY ANNOUNCE ITSELF AS INSTRUCTION. Doc 17 v3.1 makes the
+   * whole opening the tutorial -- receive a destination, walk there, examine
+   * something, open a door, talk to someone, navigate a tree, get an
+   * objective -- and the constraint that goes with it is that no part of it
+   * says so. No tips, no prompts, no highlighted first target, no tutorial
+   * text. That is why this plays lines and hides the panel and does nothing
+   * else: every affordance the player learns, they learn by using it.
+   */
+  private opening: Segment[] | null = null;
+  private openingAt = 0;
+  private openingDoneFlag: string | null = null;
+  private actCard: string | null = null;
+  private hoveredLocation: string | null = null;
+
   constructor() {
     super(GAME_SCENE);
   }
@@ -99,6 +120,7 @@ export class GameScene extends Phaser.Scene {
     // them. Convenience only -- everything they do is on the menu.
     this.input.keyboard?.on('keydown', this.onModifiedKey, this);
 
+    this.beginOpening();
     this.markDirty();
   }
 
@@ -111,9 +133,13 @@ export class GameScene extends Phaser.Scene {
     this.lastFrameAt = now;
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
+    const wasRunning = this.sequence.isRunning;
     if (this.sequence.update(now, this.host())) this.markDirty();
     if (this.actor.update(now)) this.markDirty();
     if (this.sequence.isRunning) this.markDirty();
+    // The opening's automatic segment has played out. Bank its flag writes
+    // and move on -- to the driver's tree, or to control.
+    if (this.opening && wasRunning && !this.sequence.isRunning) this.advanceOpening();
     // Ambient idles are two-frame and slow, so the scene redraws on the frame
     // one of them turns over rather than every frame. Same rule as ruling
     // 20's crowds: the room is still, and then it is very slightly not.
@@ -132,6 +158,10 @@ export class GameScene extends Phaser.Scene {
       notice: this.notice,
       barkLines: this.barkLines,
       barkAt: this.barkAt,
+      actCard: this.actCard,
+      // Doc 17 beat 8: the panel appears when control does, and not before.
+      showPanel: this.opening === null,
+      hoveredLocation: this.hoveredLocation,
     });
     this.texture.refresh();
   }
@@ -236,6 +266,21 @@ export class GameScene extends Phaser.Scene {
       }
       return;
     }
+    // On the map the sentence line names the destination under the pointer,
+    // for the same reason an icon does: a marker must never be the only way a
+    // place is identified.
+    if (this.state.isMap) {
+      const hit = this.view.mapHitboxes().find((box) => pointInRect(x, y, box.rect));
+      const id = hit?.built ? hit.id : null;
+      if (id !== this.hoveredLocation) {
+        this.hoveredLocation = id;
+        const known = this.state.mapLocations.find((entry) => entry.location.id === id);
+        this.hoveredName = known?.label ?? null;
+        this.hovered = null;
+        this.markDirty();
+      }
+      return;
+    }
     // Ambient characters stand in front of the scenery, so they take the
     // pointer first -- exactly as they take the click. Reading one name and
     // clicking another is worse than either alone.
@@ -271,10 +316,27 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    // The map button, and BACK while it is open. Not gated on the opening
+    // being over, because the panel is not drawn until it is.
+    const mapButton = this.panel.mapButton;
+    if (mapButton && pointInRect(x, y, mapButton)) {
+      this.toggleMap();
+      return;
+    }
+
     if (this.advanceSay()) return;
 
     if (this.state.dialogue.isActive) {
       this.onDialogueClick(y);
+      return;
+    }
+
+    // Doc 20 rule 5: the map is a menu that looks like a place. A click on a
+    // location travels, instantly, whatever verb happens to be selected --
+    // there is nothing on this screen to look at, pull or open.
+    if (this.state.isMap) {
+      if (y < PLAY_HEIGHT) this.onMapClick(x, y);
+      else this.onPanelClick(x, y);
       return;
     }
 
@@ -452,6 +514,51 @@ export class GameScene extends Phaser.Scene {
     return true;
   }
 
+  /**
+   * Opens the map, or leaves it by the way it was opened.
+   *
+   * Doc 20 rule 5 -- travel is instant -- cuts both ways: coming back is a
+   * screen change and not a walk, and a player who opens the map to look at
+   * it must be able to close it without going anywhere.
+   */
+  private toggleMap(): void {
+    const target = this.state.isMap ? this.state.previousRoomId : this.mapRoomId();
+    if (!target || !this.state.content.rooms.has(target)) return;
+    this.state.enterRoom(target);
+    this.hovered = null;
+    this.hoveredName = null;
+    this.hoveredLocation = null;
+    this.setSay(null);
+    this.sequence.cancel();
+    this.actor.placeIn(this.state.roomId, this.state.previousRoomId);
+    this.markDirty();
+  }
+
+  /** The one room declaring itself a map. Found, not named. */
+  private mapRoomId(): string | null {
+    for (const [id, room] of this.state.content.rooms) {
+      if (room.kind === 'map') return id;
+    }
+    return null;
+  }
+
+  private onMapClick(x: number, y: number): void {
+    const hit = this.view.mapHitboxes().find((box) => pointInRect(x, y, box.rect));
+    // An unbuilt destination is drawn and does not travel. Silently: doc 17
+    // v3.1's constraint is that nothing announces itself, and a notice saying
+    // "not implemented" is the loudest possible announcement.
+    if (!hit?.built) return;
+    const location = (this.state.room.locations ?? []).find((entry) => entry.id === hit.id);
+    if (!location || !this.state.travelTo(location)) return;
+    this.hovered = null;
+    this.hoveredName = null;
+    this.hoveredLocation = null;
+    this.setSay(null);
+    this.sequence.cancel();
+    this.actor.placeIn(this.state.roomId, this.state.previousRoomId);
+    this.markDirty();
+  }
+
   private onPanelClick(x: number, y: number): void {
     for (const verb of this.state.content.verbs.verbs) {
       if (pointInRect(x, y, this.panel.verbButton(verb.col, verb.row))) {
@@ -474,7 +581,87 @@ export class GameScene extends Phaser.Scene {
     this.pendingSay = result.rest.map((spoken) => spoken.line);
     if (result.ended) {
       this.state.autosave();
+      // A tree that was carrying a run of beats hands the sheet back when it
+      // closes. Doc 17's EXIT option is "Thank you for the ride." -- the
+      // coach goes, and beat 7 follows it.
+      if (this.opening) this.advanceOpening();
     }
+    this.markDirty();
+  }
+
+  /**
+   * Starts doc 17's opening, if this is a fresh game standing in the room it
+   * opens in.
+   *
+   * Gated on the flags rather than on "have we been here before", so a save
+   * restored mid-opening does not replay it and a player who has already been
+   * told the undertaker's name is not told again.
+   */
+  private beginOpening(): void {
+    // Which sequence is the opening, and which flag records that it has run,
+    // are both content. No .ts file names either.
+    const id = this.state.content.manifest.openingSequence;
+    const file = id ? this.state.content.sequences.get(id) : undefined;
+    if (!file) return;
+    this.openingDoneFlag = file.doneFlag ?? null;
+    if (this.openingDoneFlag && this.state.flags.get(this.openingDoneFlag) === true) return;
+    if (this.state.roomId !== this.state.content.manifest.startRoom) return;
+    // Beat 1 is the title screen, which is its own scene and has already
+    // happened by the time anyone is standing on a road.
+    this.opening = segmentsOf(file).filter((segment) => segment.kind !== 'menu');
+    this.openingAt = 0;
+    this.playOpeningSegment();
+  }
+
+  /**
+   * Plays segments until it reaches one somebody else has to carry.
+   *
+   * An automatic segment becomes steps. A player segment does not: beats 4 to
+   * 6 are the driver's tree (errata 30b), so this opens the tree and stops,
+   * and the tree's EXIT option is what brings it back.
+   */
+  private playOpeningSegment(): void {
+    while (this.opening && this.openingAt < this.opening.length) {
+      const segment = this.opening[this.openingAt] as Segment;
+      if (segment.kind === 'automatic') {
+        // A new beat clears the last one's line. Without this the act card
+        // lands underneath whatever the driver said on his way out.
+        this.setSay(null);
+        this.pendingSay = [];
+        this.actCard = actCardOf(segment);
+        this.sequence.start(stepsFor(segment));
+        this.markDirty();
+        return;
+      }
+      if (segment.carriedBy) {
+        this.state.dialogue.start(segment.carriedBy);
+        this.markDirty();
+        return;
+      }
+      // A player segment nobody carries is beat 8 onwards: control, Hob's
+      // crossing, and the walk west. The opening is over and the game has
+      // started; there is no announcement, per doc 17 v3.1.
+      this.finishOpening();
+      return;
+    }
+    this.finishOpening();
+  }
+
+  /** The automatic segment that just ran, banked, and on to the next. */
+  private advanceOpening(): void {
+    if (!this.opening) return;
+    const segment = this.opening[this.openingAt] as Segment;
+    this.state.flags.applyWrites(writesOf(segment));
+    this.actCard = null;
+    this.openingAt += 1;
+    this.playOpeningSegment();
+  }
+
+  private finishOpening(): void {
+    this.opening = null;
+    this.actCard = null;
+    if (this.openingDoneFlag) this.state.flags.applyWrites({ [this.openingDoneFlag]: true });
+    this.state.autosave();
     this.markDirty();
   }
 

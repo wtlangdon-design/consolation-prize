@@ -40,5 +40,10 @@
       "x": 306,
       "width": 10
     }
+  },
+  "mapButton": {
+    "note": "Doc 20 rule 2: the map is ALWAYS reachable. A hotspot in one room cannot satisfy that, so the map opens from the panel and not from a doorway. It sits in the verb grid's fourth row beside MENU, in geometry errata 26 already allocated and left empty -- nine verbs fill three rows of three, and the fourth row had one cell used and two spare.",
+    "col": 1,
+    "row": 3
   }
 }

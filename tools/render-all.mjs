@@ -37,6 +37,7 @@ const SCRIPTS = [
   ['room05_proof.py', 'Room 5 with Thad, and the ruling 17c audit'],
   ['room01_stage_road.py', 'Room 1, the stage road at night'],
   ['cycling_render.py', 'Room 1 palette cycling -- GIF at real rates, plus the states'],
+  ['room00_map.py', 'Room 0, the town map -- doc 20. A plan, not a place'],
   ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
   ['title_screen.py', 'Title screen -- doc 17 revised: hierarchy, night, overlap'],
   ['item_icons.py', "the eight Act I inventory icons -- errata 29"],

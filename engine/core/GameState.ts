@@ -1,5 +1,5 @@
 import type {
-  ContentBundle, Entrance, Exit, Interactable, Point, RoomFile, WalkableRegion,
+  ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion,
 } from './types.ts';
 import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
 import { FlagStore } from './FlagStore.ts';
@@ -207,6 +207,39 @@ export class GameState {
 
   findTarget(id: string): Interactable | undefined {
     return this.targets.find((target) => target.id === id);
+  }
+
+  /** True on Room 0, which is a menu that looks like a place. Doc 20 rule 5. */
+  get isMap(): boolean {
+    return this.room.kind === 'map';
+  }
+
+  /**
+   * Map destinations Thad currently knows about.
+   *
+   * A location whose room is not in the manifest still appears: doc 20 rule 3
+   * says the map records what Thad has learned, and what we have got round to
+   * building is not something he knows about. It draws dim and does not
+   * travel, which is honest on screen and in the build output both.
+   */
+  get mapLocations(): { location: MapLocation; label: string; built: boolean }[] {
+    return (this.room.locations ?? [])
+      .filter((location) => this.flags.test(location.when))
+      .map((location) => {
+        const room = this.content.rooms.get(location.room);
+        return {
+          location,
+          label: room?.name ?? location.label ?? location.id,
+          built: room !== undefined,
+        };
+      });
+  }
+
+  /** Doc 20 rule 5: travel is instant. Nothing walks anywhere. */
+  travelTo(location: MapLocation): boolean {
+    if (!this.content.rooms.has(location.room)) return false;
+    this.enterRoom(location.room);
+    return true;
   }
 
   targetAt(x: number, y: number): Interactable | undefined {

@@ -57,6 +57,20 @@ export class PanelLayout {
     return this.verbButton(col, row);
   }
 
+  /**
+   * Doc 20 rule 2's always-reachable map, in the verb grid's fourth row.
+   *
+   * Nine verbs fill three rows of three and the fourth row had one cell used
+   * by MENU and two spare, so this costs no geometry. It is a panel button
+   * rather than a hotspot because "always reachable" is a claim about every
+   * room, and a hotspot is a claim about one.
+   */
+  get mapButton(): Rect | null {
+    if (!this.file.mapButton) return null;
+    const { col, row } = this.file.mapButton;
+    return this.verbButton(col, row);
+  }
+
   /** Icons visible at once. Errata 29: six to eight, and this is eight. */
   get visibleRows(): number {
     const { cols, rows } = this.file.inventory;

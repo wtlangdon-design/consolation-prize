@@ -8,6 +8,7 @@
   "flags": "content/flags/flags.json",
   "startRoom": "stage_road",
   "rooms": [
+    "content/rooms/town-map.json",
     "content/rooms/stage-road.json",
     "content/rooms/main-street.json",
     "content/rooms/nugget.json",
@@ -31,6 +32,7 @@
   "sequences": [
     "content/sequences/opening.json"
   ],
+  "openingSequence": "opening",
   "actor": "content/actors/thad.json",
   "panel": "content/ui/panel.json",
   "items": [

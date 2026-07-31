@@ -21,6 +21,8 @@ import {
   NO_CLICK,
   recordClick,
 } from '../engine/core/ClickTracker.ts';
+import { SequenceRunner, type SequenceHost } from '../engine/core/Sequence.ts';
+import { segmentsOf, stepsFor } from '../engine/core/Opening.ts';
 import {
   mappingAt,
   offsetAt,
@@ -791,4 +793,46 @@ test('a multi-speaker response plays one line at a time', async () => {
   const plain = state.dialogue.presentOptions()
     .find((presented) => presented.option.say && presented.option.tag !== 'EXIT')!;
   assert.deepEqual(state.dialogue.select(plain.option.id).rest, []);
+});
+
+test('errata 30a: a trailing wait takes its stated time', () => {
+  const runner = new SequenceRunner();
+  const host: SequenceHost = {
+    walk: () => {}, isWalking: () => false, face: () => {},
+    isTurning: () => false, chore: () => 0, say: () => {},
+  };
+
+  // The shape that failed: the LAST step is a wait. It was consumed, the
+  // index reached the end of the list, and isRunning went false on the same
+  // frame -- so a three-second act card lasted one frame. The unit tests
+  // advanced the clock past the wait every time and never asked in between.
+  runner.start([{ kind: 'say', line: 'x' }, { kind: 'wait', seconds: 3 }]);
+  runner.update(0, host);
+  assert.equal(runner.isRunning, true, 'still running the instant the wait begins');
+  runner.update(1.5, host);
+  assert.equal(runner.isRunning, true, 'still running halfway through');
+  runner.update(3, host);
+  assert.equal(runner.isRunning, false, 'finished once the stated time has passed');
+});
+
+test('errata 30a: a duration on a beat the player controls is refused', async () => {
+  const content = await loadContent(fsReader);
+  const opening = content.sequences.get('opening')!;
+
+  // The whole reason the step kind was granted at all is the restriction.
+  // Lowering refuses it, and so does the build check; this is the runtime
+  // half, asserted against a beat the doc does not have so that the rule is
+  // tested rather than the current content.
+  const carried = segmentsOf(opening).find((segment) => segment.carriedBy);
+  assert.ok(carried, 'the driver carries a segment');
+  assert.throws(
+    () => stepsFor({ ...carried, beats: carried.beats.map((b) => ({ ...b, seconds: 4 })) }),
+    /control is player/,
+  );
+
+  // And an automatic segment lowers its stated seconds into a wait step.
+  const automatic = segmentsOf(opening)
+    .find((segment) => segment.kind === 'automatic' && segment.beats.some((b) => b.seconds));
+  const steps = stepsFor(automatic!);
+  assert.ok(steps.some((step) => step.kind === 'wait'), 'the duration became a wait');
 });

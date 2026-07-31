@@ -27,7 +27,15 @@ export function check() {
   }
 
   let regionCount = 0;
+  let exempt = 0;
   for (const { data } of content.rooms) {
+    // Doc 20 rule 5: the map is a menu that looks like a place. Nobody
+    // stands on it, errata 25 withdrew the character token, and a depth zone
+    // for a screen with no actor on it would be a number nothing reads.
+    if (data.kind === 'map') {
+      exempt += 1;
+      continue;
+    }
     const regions = data.walkable ?? [];
     if (regions.length === 0) {
       report.fail(`${data.id}: no walkable regions -- a room with no floor cannot be entered`);
@@ -56,7 +64,8 @@ export function check() {
   }
 
   const heights = content.scaling.zones.map((zone) => `${zone.name} ${zone.height}px`).join(', ');
-  report.note(`${regionCount} regions across ${content.rooms.length} rooms; zones: ${heights}`);
+  report.note(`${regionCount} regions across ${content.rooms.length - exempt} rooms; zones: ${heights}`);
+  if (exempt > 0) report.note(`${exempt} room(s) exempt -- kind: map, nobody stands on them`);
   return report;
 }
 

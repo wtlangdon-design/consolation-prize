@@ -360,6 +360,8 @@ export interface PanelFile {
   sentence: { x: number; y: number };
   verbs: { cols: number[]; rows: number[]; width: number; height: number; note?: string };
   menuButton: { col: number; row: number };
+  /** Doc 20 rule 2. Optional so a panel without one still loads. */
+  mapButton?: { note?: string; col: number; row: number };
   inventory: {
     note?: string;
     x: number;
@@ -459,11 +461,40 @@ export interface IdleFigure {
   frames: [number, number, number, number][];
 }
 
+/**
+ * One clickable destination on the town map. Doc 20.
+ *
+ * `label` is a LAST RESORT and only legitimate while `unbuilt` is set: the
+ * name a location draws is its destination room's own `name`, so doc 20's
+ * requirement that nothing needs redrawing when a name changes holds without
+ * anyone having to remember it. A built room with a label on its location is
+ * two names for one place waiting to disagree, and the build refuses it.
+ */
+export interface MapLocation {
+  id: string;
+  room: string;
+  at: [number, number];
+  label?: string;
+  unbuilt?: boolean;
+  when?: Condition;
+  note?: string;
+}
+
 export interface RoomFile {
   schema: number;
   id: string;
   name: string;
   note?: string;
+  /**
+   * `map` is Room 0 and nothing else: no floor, no actor, no hotspots, and
+   * exempt from every check that reasons about somewhere a person stands.
+   * Absent means an ordinary room, which is the only other kind there is.
+   */
+  kind?: 'map';
+  /** Doc 20's travel destinations. Only a `map` room has these. */
+  locations?: MapLocation[];
+  /** Destinations doc 20 names but whose appearance rule nobody has stated. */
+  pendingLocations?: { room: number | null; name: string; doc: string; missing: string }[];
   colours: { sky: number; ground: number };
   horizon: number;
   hotspots: Interactable[];
@@ -618,6 +649,8 @@ export interface UiFile {
   notices: Record<string, string>;
   keys: Record<string, string>;
   hud: { hintTemplate: string };
+  /** Doc 20's map screen. Interface grammar, of a class with the templates. */
+  map?: { note?: string; button: string; back: string; travelTemplate: string };
 }
 
 export interface FontFile {
@@ -662,6 +695,8 @@ export interface ManifestFile {
   puzzles: string[];
   /** Doc 17's opening and anything else authored as beats rather than a tree. */
   sequences: string[];
+  /** Which sequence plays on a new game, by id. */
+  openingSequence?: string;
   /** The player character's sheet and clip table. */
   actor: string;
   items: string[];
@@ -711,8 +746,10 @@ export interface SequenceFile {
   schema: number;
   id: string;
   note?: string;
-  /** Why the engine cannot play this yet, if it cannot. */
-  unplayed?: string;
+  /** Rulings applied to the document on the way in. */
+  corrections?: string[];
+  /** The flag set when this sequence hands over control. */
+  doneFlag?: string;
   /** Lines the doc carries that have no home in content yet. */
   unwritten?: string[];
   speakers: Record<string, { name: string; note?: string }>;
@@ -729,6 +766,8 @@ export interface SequenceBeat {
   actCard?: string;
   lines?: { speaker: string; line: string }[];
   set?: Record<string, boolean | number>;
+  /** The dialogue tree that carries this beat's lines. Errata 30b. */
+  carriedBy?: string;
 }
 
 

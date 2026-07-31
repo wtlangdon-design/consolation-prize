@@ -88,6 +88,15 @@
         "content:act-1:pike"
       ],
       "pending": true
+    },
+    {
+      "id": "T_OPENING_DONE",
+      "type": "bool",
+      "initial": false,
+      "note": "The opening sequence has handed over control -- doc 17 beat 8. Not a design flag: it exists so a save restored mid-game does not replay the opening, and so a player who has already been told the undertaker's name is not told again. The sequence file names it, so the engine hard-codes nothing.",
+      "writtenBy": [
+        "sequence:opening:complete"
+      ]
     }
   ]
 }

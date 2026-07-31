@@ -23,6 +23,15 @@ export interface Frame {
   notice: string | null;
   barkLines: string[];
   barkAt: { x: number; y: number } | null;
+  /** Doc 17 beat 7, over the view of the town. Null the rest of the time. */
+  actCard?: string | null;
+  /**
+   * Doc 17 beat 8: "Control. Verb panel appears." Before that beat there is
+   * no panel, because there is nothing the player may do with it.
+   */
+  showPanel?: boolean;
+  /** The map location under the pointer, so it can draw as the live one. */
+  hoveredLocation?: string | null;
 }
 
 /** Composed room images, keyed by room id. Used for both planes. */
@@ -32,6 +41,14 @@ const DIALOGUE_TOP = 84;
 const DIALOGUE_LINE_HEIGHT = 9;
 const SAY_TOP = 8;
 const TEXT_MARGIN = 6;
+/**
+ * Doc 17 beat 7's card, on the view rather than across the man standing
+ * in it. At 118 it crossed Thad's chest; the band above the horizon is the
+ * shot the card is commenting on.
+ */
+const ACT_CARD_Y = 66;
+const MAP_MARKER = 3;
+const MAP_LABEL_HEIGHT = 11;
 
 /** Fills `{name}` placeholders from the supplied map. */
 export function format(template: string, vars: Record<string, string>): string {
@@ -111,7 +128,52 @@ export class Renderer {
     }));
   }
 
+  /**
+   * Marker hitboxes for the map's known locations, so the scene can hit-test
+   * them without knowing how they are drawn.
+   *
+   * Generous: the marker is a few pixels and the label beside it is the part
+   * a player aims at, so the box covers both.
+   */
+  mapHitboxes(): { id: string; rect: Rect; built: boolean }[] {
+    return this.mapLayout().map(({ location, built, rect }) => (
+      { id: location.id, built, rect }));
+  }
+
+  /**
+   * Where each location's marker and label go.
+   *
+   * A label near the right edge is drawn to the LEFT of its marker instead of
+   * running off the screen -- which is what THE ROAD TO THE CLAIMS did, and
+   * it is the location errata 30c puts on the map from the first opening, so
+   * it was the most-seen label in the game and half of it was missing.
+   */
+  private mapLayout() {
+    return this.state.mapLocations.map(({ location, label, built }) => {
+      const [x, y] = location.at;
+      const width = this.font.measure(label);
+      const fits = x + MAP_MARKER + 2 + width <= NATIVE_WIDTH - 2;
+      const labelX = fits ? x + MAP_MARKER + 2 : x - 2 - width;
+      const left = Math.min(x, labelX);
+      const right = Math.max(x + MAP_MARKER, labelX + width);
+      return {
+        location,
+        label,
+        built,
+        labelX,
+        rect: { x: left - 1, y: y - 2, width: (right - left) + 2, height: MAP_LABEL_HEIGHT },
+      };
+    });
+  }
+
   drawFrame(frame: Frame): void {
+    if (this.state.isMap) {
+      this.drawRoom();
+      this.drawMap(frame);
+      if (frame.showPanel !== false) this.drawPanel(frame);
+      this.drawMenu();
+      return;
+    }
     this.drawRoom();
     this.drawObjectStates();
     this.idles.draw(this.state.room, this.idleSheet(this.state.room.id), this.clock);
@@ -126,9 +188,60 @@ export class Renderer {
     if (this.state.dialogue.isActive) {
       this.drawDialogue();
     }
-    this.drawPanel(frame);
+    // Doc 17 beat 7. Over the room, not over black: the card lands on the
+    // view of the town after the coach has gone, which is the shot it is
+    // commenting on.
+    if (frame.actCard) this.drawActCard(frame.actCard);
+    if (frame.showPanel !== false) this.drawPanel(frame);
     // Last, so it sits over everything including the panel.
     this.drawMenu();
+  }
+
+  private drawActCard(text: string): void {
+    this.font.drawCentredOutlined(
+      this.screen.context,
+      text,
+      NATIVE_WIDTH / 2,
+      ACT_CARD_Y,
+      this.screen.roleColour('inkBright'),
+      this.screen.roleColour('overlayBg'),
+    );
+  }
+
+  /**
+   * Doc 20's map: markers and labels drawn by the engine, over a plan that
+   * has none baked into it.
+   *
+   * A location whose room is not built draws dim. It is deliberately still
+   * drawn -- rule 3 says the map records what Thad has heard of, and which
+   * rooms exist yet is not something he knows.
+   */
+  private drawMap(frame: Frame): void {
+    for (const { location, label, built, labelX } of this.mapLayout()) {
+      const [x, y] = location.at;
+      const live = built && frame.hoveredLocation === location.id;
+      const ink = this.screen.roleColour(built ? (live ? 'inkBright' : 'ink') : 'inkDim');
+
+      // A marker, not a token: errata 25 withdrew the character token and
+      // nothing here represents a person.
+      //
+      // Solid where the place exists, hollow where it does not. A tone step
+      // alone did not read at 1x against a bone field -- the two markers
+      // looked identical and only the label's weight differed, which is the
+      // kind of distinction that is visible in a 4x render and gone in the
+      // game.
+      if (built) {
+        this.screen.fill(x, y, MAP_MARKER, MAP_MARKER, this.screen.role('ink'));
+      } else {
+        this.screen.outline(x, y, MAP_MARKER, MAP_MARKER, this.screen.role('inkDim'));
+      }
+      this.screen.outline(x - 1, y - 1, MAP_MARKER + 2, MAP_MARKER + 2,
+        this.screen.role('overlayBg'));
+      this.font.drawOutlined(
+        this.screen.context, label, labelX, y - 2, ink,
+        this.screen.roleColour('overlayBg'),
+      );
+    }
   }
 
   private drawRoom(): void {
@@ -425,20 +538,30 @@ export class Renderer {
 
     this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, this.screen.role('panelBg'));
 
-    const sentence = frame.notice ?? this.sentenceText(frame.hoveredTarget, frame.hoveredTargetName);
+    const words = this.state.content.ui.map;
+    const travelling = this.state.isMap && frame.hoveredTargetName && words;
+    const sentence = frame.notice ?? (travelling
+      ? format(words.travelTemplate, { target: frame.hoveredTargetName as string })
+      : (this.state.isMap ? '' : this.sentenceText(frame.hoveredTarget, frame.hoveredTargetName)));
     const { x: sx, y: sy } = this.panel.sentence;
     this.font.draw(ctx, sentence, sx, sy, this.screen.roleColour('inkBright'));
 
+    // On the map every verb is inert -- doc 20 rule 5, a click travels and
+    // there is nothing to look at, pull or open. They draw dim rather than
+    // disappearing, the same convention an exhausted dialogue option uses:
+    // still there, visibly not doing anything. A panel offering LOOK AT on a
+    // screen with nothing to look at is the panel telling the player a lie.
+    const inert = this.state.isMap;
     for (const verb of verbs.verbs) {
       const rect = this.panel.verbButton(verb.col, verb.row);
-      const active = verb.id === this.state.verbs.selectedVerb;
+      const active = !inert && verb.id === this.state.verbs.selectedVerb;
       this.screen.fill(rect.x, rect.y, rect.width, rect.height, this.screen.role(active ? 'buttonBgActive' : 'buttonBg'));
       this.font.draw(
         ctx,
         verb.label,
         rect.x + 3,
         rect.y + 2,
-        this.screen.roleColour(active ? 'inkBright' : 'ink'),
+        this.screen.roleColour(inert ? 'inkDim' : (active ? 'inkBright' : 'ink')),
       );
     }
 
@@ -453,6 +576,19 @@ export class Renderer {
     const label = menu.buttonLabel;
     const labelX = button.x + Math.floor((button.width - this.font.measure(label)) / 2);
     this.font.draw(ctx, label, labelX, button.y + 2, this.screen.roleColour('ink'));
+
+    // Doc 20 rule 2. Beside MENU, and it says BACK while the map is open --
+    // the same button, because a screen you can enter and not leave by the
+    // way you came in is a trap, and travel is instant either way.
+    const map = this.panel.mapButton;
+    if (map && words) {
+      const open = this.state.isMap;
+      this.screen.fill(map.x, map.y, map.width, map.height,
+        this.screen.role(open ? 'buttonBgActive' : 'buttonBg'));
+      const text = open ? words.back : words.button;
+      const x = map.x + Math.floor((map.width - this.font.measure(text)) / 2);
+      this.font.draw(ctx, text, x, map.y + 2, this.screen.roleColour('ink'));
+    }
   }
 
   /**

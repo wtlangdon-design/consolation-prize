@@ -149,15 +149,20 @@ function opening() {
     9: { T_HOB_CROSSING: true },
   };
 
-  // v3.1 restores the tree without rewriting the beat sheet, so beats 4, 5
-  // and 6 still carry lines that are now the tree's four options. Marked
-  // rather than deleted: the beats are what the document says happens, and
-  // deleting them here would be this file overruling doc 17 quietly.
+  // v3.1 restored the tree without rewriting the beat sheet around it, so the
+  // table still calls beats 4, 5 and 6 non-interactive while the tree that
+  // carries their lines is interactive by definition. ERRATA 30b corrects the
+  // table: those three beats ARE interactive, carriedBy is the right
+  // annotation, and beat 3 stays automatic. Applied here rather than in the
+  // doc so the correction is one ruling in one place.
   const carried = { 4: 'STAGE_DRIVER', 5: 'STAGE_DRIVER', 6: 'STAGE_DRIVER' };
 
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];
-    if (carried[entry.beat]) entry.carriedBy = carried[entry.beat];
+    if (carried[entry.beat]) {
+      entry.carriedBy = carried[entry.beat];
+      entry.control = 'player';
+    }
     const plan = speech[entry.beat];
     if (!plan) continue;
     entry.lines = plan.map(([speaker, which]) => ({
@@ -177,6 +182,9 @@ function opening() {
   return write('content/sequences/opening.json', {
     schema: 1,
     id: 'opening',
+    // Which flag records that the opening has run. Routing, not content, and
+    // named here rather than in the engine so no .ts file knows a flag id.
+    doneFlag: 'T_OPENING_DONE',
     note: 'EXTRACTED from docs/17-opening-sequence.md by tools/extract-content.mjs. '
       + 'Do not edit: change doc 17 and re-run. Doc 17 v3 supersedes v2\'s beat sheet and the '
       + 'stage driver\'s tree, both of which are void -- the three-option opening line is one '
@@ -184,15 +192,14 @@ function opening() {
       + 'card moved to after the coach leaves. The lines Thad and the driver speak are the '
       + 'quoted spans of the beat cells; the attribution is recorded in the extractor and is '
       + 'forced by the doc\'s prose, not chosen.',
-    unplayed: 'Doc 15 lists the scripted sequence system as unbuilt, and errata 28a\'s runner has '
-      + 'five step kinds with no timed wait -- so these beats are content waiting for a player, '
-      + 'not a sequence the engine can run today. Beats 2 and 7 state durations the runner has '
-      + 'no step for.',
-    contradiction: 'v3.1 restores the driver\'s tree without rewriting the beat sheet. Beats 4, '
-      + '5 and 6 are marked carriedBy STAGE_DRIVER and are listed here as "no" -- '
-      + 'non-interactive -- while the tree that now carries their lines is interactive by '
-      + 'definition. Beat 3 stays automatic: v3.1 confirms the lookout exchange is genuinely '
-      + 'automatic and that is the one it is modelled on. Nobody has ruled on beats 4 to 6.',
+    corrections: [
+      'ERRATA 30a grants the runner a sixth step kind, `wait`, legal only inside a beat whose '
+      + 'control is none. Beats 2 and 7 state durations, and without it the opening cannot run.',
+      'ERRATA 30b corrects the beat sheet: beats 4, 5 and 6 are interactive, because the tree '
+      + 'that carries their lines is. The table still says "no"; the ruling governs. Beat 3 '
+      + 'stays automatic -- it is the exchange v3.1 models on the lookout, and that one is '
+      + 'genuinely automatic.',
+    ],
     speakers: {
       thad: { name: 'THADDEUS GRUBB' },
       stage_driver: {

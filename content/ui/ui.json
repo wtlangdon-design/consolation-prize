@@ -21,5 +21,11 @@
   },
   "hud": {
     "note": "The key-hint line is gone. There are no required keys: the MENU button in the panel is the route to save, load, options and quit. Chromebook top-row keys are browser keys and never reached the game."
+  },
+  "map": {
+    "note": "Interface grammar, not written content -- the same class as the sentence templates. Doc 20 names the screen THE MAP and specifies that its labels are drawn by the engine in the game font.",
+    "button": "MAP",
+    "back": "BACK",
+    "travelTemplate": "Go to {target}"
   }
 }
