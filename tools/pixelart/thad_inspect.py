@@ -54,10 +54,39 @@ def main() -> None:
         x += 4
     workings.save(RENDERS / "thad-26px-reduction-workings@8x.png", palette, scale=8)
 
+    near_mud(palette)
+
     for name in ("thad-views-front-side-back@8x.png",
                  "thad-walk-mud-vs-boardwalk@8x.png",
-                 "thad-26px-reduction-workings@8x.png"):
+                 "thad-26px-reduction-workings@8x.png",
+                 "thad-near-mud-inspection@8x.png"):
         print(f"wrote renders/{name}")
+
+
+def near_mud(palette: Palette) -> None:
+    """The near zone of Room 2, at 8x, standing and mid-stride.
+
+    Room 2's near mud measures p10 27.1 against a boot at 27 -- a dark margin
+    of zero, the thinnest reading in any composed room. The number cannot
+    settle it: the mud-sink takes the bottom rows of the sprite away on
+    purpose, so a boot that measures as invisible may be a boot that is not
+    being drawn. Ruling 16 rule 5 says look at it at 8x.
+    """
+    import actor_sheet
+    from street_scene import DAY, compose
+
+    x, feet = actor_sheet._zone_columns()[0]
+    crop_x, crop_y, crop_w, crop_h = x - 15, feet - 43, 30, 45
+
+    panel = IndexedCanvas(crop_w * 2 + 4, crop_h, fill=palette.family("void").at(0))
+    for column, frame in enumerate((None, 1)):
+        room, _ = compose(DAY)
+        actor_sheet.place(room, palette, x, feet, 40, view=actor.SIDE,
+                          frame=frame, surface=actor.MUD)
+        for y in range(crop_h):
+            for px in range(crop_w):
+                panel.put(column * (crop_w + 4) + px, y, room.get(crop_x + px, crop_y + y))
+    panel.save(RENDERS / "thad-near-mud-inspection@8x.png", palette, scale=8)
 
 
 if __name__ == "__main__":
