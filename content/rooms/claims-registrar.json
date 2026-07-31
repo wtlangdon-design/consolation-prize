@@ -70,7 +70,8 @@
             "say": "Nothing. It waits extremely well."
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "two_lines",
@@ -102,7 +103,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "forms_rack",
@@ -125,7 +127,8 @@
             "say": "Paper, settling. It is a sound like a very slow argument."
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "sumps_clock",
@@ -148,7 +151,8 @@
             "say": "Running eleven minutes fast, which I know because I own a watch that agrees with it and I do not trust that either."
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "sealed_archive_door",
@@ -171,7 +175,8 @@
             "say": "Nothing. It is very thick and there is nothing behind it that moves."
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     }
   ],
   "exits": []

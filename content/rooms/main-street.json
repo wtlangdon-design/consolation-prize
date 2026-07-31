@@ -19,34 +19,52 @@
     {
       "from": "nugget",
       "note": "Doc 21 gap 7. Out of the batwing doors onto the boardwalk in front of them, facing the street. Before this he arrived in the middle of the road with his back to the building he had just left.",
-      "at": [131, 86],
+      "at": [
+        131,
+        86
+      ],
       "facing": "front"
     },
     {
       "from": "stub_clarion",
-      "at": [88, 86],
+      "at": [
+        88,
+        86
+      ],
       "facing": "front"
     },
     {
       "from": "stub_company",
-      "at": [191, 86],
+      "at": [
+        191,
+        86
+      ],
       "facing": "front"
     },
     {
       "from": "assay_office",
-      "at": [302, 86],
+      "at": [
+        302,
+        86
+      ],
       "facing": "front"
     },
     {
       "from": "stub_claims_road",
       "note": "The east end. He comes up out of the road, so he is already looking back down the street.",
-      "at": [306, 130],
+      "at": [
+        306,
+        130
+      ],
       "facing": "left"
     },
     {
       "from": "stage_road",
       "note": "West, into town, and the first time the player sees this screen. Facing east down the street he has just walked into.",
-      "at": [14, 128],
+      "at": [
+        14,
+        128
+      ],
       "facing": "right"
     }
   ],
@@ -54,16 +72,68 @@
     {
       "id": "outside_nugget",
       "note": "Errata ruling 23. These are the positions the composition has to hold a character at -- one in front of each enterable facade, one at each end. Checked for reach and legibility at graybox rather than discovered in a cutscene.",
-      "at": [131, 86],
+      "at": [
+        131,
+        86
+      ],
       "facing": "front"
     },
-    { "id": "outside_clarion", "at": [88, 86], "facing": "front" },
-    { "id": "outside_company", "at": [191, 86], "facing": "front" },
-    { "id": "outside_assay", "at": [302, 86], "facing": "front" },
-    { "id": "at_notices", "at": [76, 86], "facing": "back" },
-    { "id": "at_trough", "at": [234, 122], "facing": "back" },
-    { "id": "street_west", "at": [14, 128], "facing": "right" },
-    { "id": "street_east", "at": [306, 130], "facing": "left" }
+    {
+      "id": "outside_clarion",
+      "at": [
+        88,
+        86
+      ],
+      "facing": "front"
+    },
+    {
+      "id": "outside_company",
+      "at": [
+        191,
+        86
+      ],
+      "facing": "front"
+    },
+    {
+      "id": "outside_assay",
+      "at": [
+        302,
+        86
+      ],
+      "facing": "front"
+    },
+    {
+      "id": "at_notices",
+      "at": [
+        76,
+        86
+      ],
+      "facing": "back"
+    },
+    {
+      "id": "at_trough",
+      "at": [
+        234,
+        122
+      ],
+      "facing": "back"
+    },
+    {
+      "id": "street_west",
+      "at": [
+        14,
+        128
+      ],
+      "facing": "right"
+    },
+    {
+      "id": "street_east",
+      "at": [
+        306,
+        130
+      ],
+      "facing": "left"
+    }
   ],
   "walkable": [
     {
@@ -145,6 +215,12 @@
       "overrides": {
         "PULL": "It is screwed on. Thoroughly. Somebody paid for it to be screwed on.",
         "TALK_TO": "I have spoken to the building it is attached to. It went badly and I have not recovered."
+      },
+      "defaultVerb": "LOOK_AT",
+      "walkTo": {
+        "x": 189,
+        "y": 86,
+        "facing": "back"
       }
     },
     {
@@ -180,7 +256,8 @@
       "overrides": {
         "PICK_UP": "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction.",
         "TALK_TO": "I am not going to shout at a church from a street."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "posted_notices",
@@ -215,6 +292,12 @@
       "overrides": {
         "PICK_UP": "They belong to the town. I have read them four times, which I consider a form of ownership.",
         "OPEN": "They are already facing outward. That is the whole design."
+      },
+      "defaultVerb": "LOOK_AT",
+      "walkTo": {
+        "x": 76,
+        "y": 86,
+        "facing": "back"
       }
     },
     {
@@ -251,6 +334,12 @@
         "TALK_TO": "\"Good morning.\" (The dog does not respond. It is the most dignified exchange I have had in Consolation.)",
         "PICK_UP": "I am not picking up a dog I have not been introduced to.",
         "PUSH": "I will not."
+      },
+      "defaultVerb": "LOOK_AT",
+      "walkTo": {
+        "x": 97,
+        "y": 88,
+        "facing": "back"
       }
     },
     {
@@ -290,7 +379,13 @@
       "reactions": {
         "USE": "recoil"
       },
-      "reactionNote": "The one bespoke reaction in the slice, on the one line that is physically a flinch. Doc 15's short comic reaction, built the way the dossier says to build it -- he leans away two pixels, his eyes go with him, and he comes back. No step and no arm. The line is doc 13's and is unchanged; the animation is not content and can be dropped without touching a word."
+      "reactionNote": "The one bespoke reaction in the slice, on the one line that is physically a flinch. Doc 15's short comic reaction, built the way the dossier says to build it -- he leans away two pixels, his eyes go with him, and he comes back. No step and no arm. The line is doc 13's and is unchanged; the animation is not content and can be dropped without touching a word.",
+      "defaultVerb": "LOOK_AT",
+      "walkTo": {
+        "x": 234,
+        "y": 128,
+        "facing": "back"
+      }
     },
     {
       "id": "boardwalk",
@@ -325,7 +420,8 @@
       "overrides": {
         "PULL": "The third board from the end comes up an inch and goes back down.",
         "PUSH": "Third from the end. Up an inch, down an inch. Nobody has ever fixed it."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "false_fronts",
@@ -360,7 +456,8 @@
       "overrides": {
         "PUSH": "I have pushed the front of a building. It did not fall over, which is more than I expected.",
         "PULL": "If I pull hard enough the entire town comes down, and I have not settled how I feel about that."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "hills",
@@ -396,7 +493,8 @@
         "PICK_UP": "They are hills.",
         "TALK_TO": "No.",
         "USE": "I would not know where to begin, and neither would they."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "mud",
@@ -431,7 +529,8 @@
       "overrides": {
         "PICK_UP": "I have picked up some mud. I am now a man holding mud, in a street, in daylight.",
         "USE": "On what."
-      }
+      },
+      "defaultVerb": "WALK_TO"
     }
   ],
   "exits": [
@@ -470,6 +569,12 @@
         "CLOSE": "They swing. Closing them is a temporary opinion.",
         "TALK_TO": "I would have to go in. Going in costs money.",
         "PULL": "They swing outward, inward, and for some time afterwards."
+      },
+      "defaultVerb": "OPEN",
+      "walkTo": {
+        "x": 131,
+        "y": 86,
+        "facing": "back"
       }
     },
     {
@@ -507,6 +612,12 @@
         "PUSH": "It opens inward, which is a decision somebody made.",
         "TALK_TO": "I have spoken to the man behind that door. I came away with a map and I am no longer certain what I gave him.",
         "CLOSE": "It closes on its own, slowly, and without a sound. Somebody paid for that too."
+      },
+      "defaultVerb": "OPEN",
+      "walkTo": {
+        "x": 191,
+        "y": 86,
+        "facing": "back"
       }
     },
     {
@@ -543,6 +654,12 @@
       "overrides": {
         "TALK_TO": "If I say anything within forty feet of that door it will be in print by four o'clock.",
         "CLOSE": "He would only open it again, and then write about it."
+      },
+      "defaultVerb": "OPEN",
+      "walkTo": {
+        "x": 88,
+        "y": 86,
+        "facing": "back"
       }
     },
     {
@@ -581,6 +698,12 @@
         "PULL": "It is a road.",
         "TALK_TO": "There is nobody on it.",
         "CLOSE": "I have considered it. Several of us have."
+      },
+      "defaultVerb": "WALK_TO",
+      "walkTo": {
+        "x": 306,
+        "y": 130,
+        "facing": "right"
       }
     },
     {
@@ -597,7 +720,187 @@
       "colour": 26,
       "to": "assay_office",
       "responses": {},
-      "fallback": []
+      "fallback": [],
+      "defaultVerb": "OPEN",
+      "walkTo": {
+        "x": 302,
+        "y": 86,
+        "facing": "back"
+      }
     }
-  ]
+  ],
+  "walkBoxes": [
+    {
+      "id": "boardwalk",
+      "note": "ERRATA 28a: fixed at the far drawn size, and that is where Room 2's scaling snap now lives. The boardwalk lip is the only real horizontal interruption in the walkable band -- measured at a mean luminance step of 64.5 against 16.3 for the next strongest row -- so stepping off it into the mud is where the sprite swaps from the drawn far sheet to a decimated one. Before boxes the height was one curve across the whole floor and the swap landed at y109, in open mud.",
+      "points": [
+        {
+          "x": 0,
+          "y": 78
+        },
+        {
+          "x": 320,
+          "y": 78
+        },
+        {
+          "x": 320,
+          "y": 87
+        },
+        {
+          "x": 0,
+          "y": 87
+        }
+      ],
+      "neighbours": [
+        "mud_far"
+      ],
+      "clipPlane": 0,
+      "surface": "boardwalk",
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 26
+      }
+    },
+    {
+      "id": "mud_far",
+      "note": "Starts at 31, one row above the measured eye-death threshold of 30, so the first step off the boardwalk is already decimated. The whole mud shares one curve: it is one continuous surface and a seam between bands would put a scale kink on a line the art does not draw.",
+      "points": [
+        {
+          "x": 0,
+          "y": 88
+        },
+        {
+          "x": 320,
+          "y": 88
+        },
+        {
+          "x": 320,
+          "y": 104
+        },
+        {
+          "x": 0,
+          "y": 104
+        }
+      ],
+      "neighbours": [
+        "boardwalk",
+        "mud_mid_west",
+        "mud_mid_east"
+      ],
+      "clipPlane": 1,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 88,
+        "farHeight": 31,
+        "nearY": 143,
+        "nearHeight": 40
+      }
+    },
+    {
+      "id": "mud_mid_west",
+      "note": "West of the water trough. A TRAPEZOID, not a rectangle: its inner edge follows the trough's silhouette, which is drawn wider at its near end than its far end -- x214 to x253 at y106 against x214 to x274 at y117.",
+      "points": [
+        {
+          "x": 0,
+          "y": 104
+        },
+        {
+          "x": 212,
+          "y": 104
+        },
+        {
+          "x": 210,
+          "y": 122
+        },
+        {
+          "x": 0,
+          "y": 122
+        }
+      ],
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ],
+      "clipPlane": 1,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 88,
+        "farHeight": 31,
+        "nearY": 143,
+        "nearHeight": 40
+      }
+    },
+    {
+      "id": "mud_mid_east",
+      "note": "East of the trough, and the reason routing is provable rather than asserted: it does NOT touch mud_mid_west, so crossing the street at this depth has to go round the trough by way of the far mud or the near mud. Four full-width rectangles had nothing to route around.",
+      "points": [
+        {
+          "x": 256,
+          "y": 104
+        },
+        {
+          "x": 320,
+          "y": 104
+        },
+        {
+          "x": 320,
+          "y": 122
+        },
+        {
+          "x": 278,
+          "y": 122
+        }
+      ],
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ],
+      "clipPlane": 1,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 88,
+        "farHeight": 31,
+        "nearY": 143,
+        "nearHeight": 40
+      }
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 0,
+          "y": 122
+        },
+        {
+          "x": 320,
+          "y": 122
+        },
+        {
+          "x": 320,
+          "y": 143
+        },
+        {
+          "x": 0,
+          "y": 143
+        }
+      ],
+      "neighbours": [
+        "mud_mid_west",
+        "mud_mid_east"
+      ],
+      "clipPlane": 2,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 88,
+        "farHeight": 31,
+        "nearY": 143,
+        "nearHeight": 40
+      }
+    }
+  ],
+  "walkBoxNote": "Errata 28a item 1. These REPLACE the walkable rectangles below, which are kept only so the zone-model checks and the older room proofs keep resolving until every room is converted at ruling 22 step 2. The engine prefers walkBoxes wherever a room declares them."
 }

@@ -69,6 +69,22 @@ export interface Interactable {
    * it has gone, and one target cannot carry two names.
    */
   when?: Condition;
+  /**
+   * The verb a player would try first. Errata 28b: every object declares one,
+   * and it fires on a left click with nothing selected and on any right
+   * click. Most are LOOK AT; doors are OPEN and roads are WALK TO.
+   *
+   * An authoring decision per object rather than an engine default, because
+   * "what would you try first" is a question about the object.
+   */
+  defaultVerb?: string;
+  /**
+   * Where the actor stands to interact with this, and which way he looks.
+   * Doc 22 section 6: the object already knows, which is what makes the
+   * interaction staged instead of performed wherever the player happened to
+   * be standing.
+   */
+  walkTo?: { x: number; y: number; facing: Facing };
   responses?: Record<string, ResponseRule[]>;
   /**
    * Object-specific line for a verb this object has no written response to.
@@ -116,6 +132,43 @@ export interface Entrance {
 }
 
 export type Facing = 'front' | 'back' | 'left' | 'right';
+
+export interface Point {
+  x: number;
+  y: number;
+}
+
+/**
+ * How an actor's drawn height behaves inside a walk box. Doc 22 section 3,
+ * and the field errata 28a insists is built WITH the boxes rather than after.
+ *
+ * `fixed` pins a box to one drawn size -- the boardwalk is the far sprite and
+ * only the far sprite. `curve` interpolates between two rows, which is ruling
+ * 24's continuous decimation expressed per box instead of per room.
+ */
+export type ScaleMode =
+  | { kind: 'fixed'; height: number }
+  | { kind: 'curve'; farY: number; farHeight: number; nearY: number; nearHeight: number };
+
+/** A convex quadrilateral of floor, with adjacency, scale and clip level. */
+export interface WalkBox {
+  id: string;
+  note?: string;
+  points: [Point, Point, Point, Point];
+  neighbours: string[];
+  /**
+   * Which foreground plane masks an actor standing here. Carried now and read
+   * by nothing yet: per-plane masks and Y-sorting are doc 22 items 4 and 6,
+   * deferred until there are several actors at several depths to sort. The
+   * field is here because authoring boxes twice is the thing errata 28a is
+   * specifically avoiding.
+   */
+  clipPlane: number;
+  scaleMode: ScaleMode;
+  /** Walk cycle and standing sink, as WalkableRegion carried it. */
+  surface?: string;
+  enabledWhen?: Condition;
+}
 
 /**
  * Errata ruling 23. A named position a character is placed at for a scripted
@@ -331,6 +384,13 @@ export interface RoomFile {
   exits: Exit[];
   /** Floor regions, each carrying a depth zone. Absent in rooms with no floor. */
   walkable?: WalkableRegion[];
+  /**
+   * Errata 28a item 1. Where a room declares these they REPLACE `walkable`:
+   * the boxes carry their own scale behaviour, so the zone table does not
+   * apply. Main Street is converted; the rest convert when they are
+   * re-blocked at ruling 22 step 2, and until then both models are live.
+   */
+  walkBoxes?: WalkBox[];
   /** Composed background, relative to the manifest. */
   background?: string;
   /**
@@ -415,6 +475,8 @@ export interface VerbsFile {
   transitVerbs?: string[];
   /** Verbs that ask about a held item rather than picking it up to use with. */
   examineVerbs?: string[];
+  /** What a click on an ambient character performs. */
+  npcVerb?: string;
   defaultVerb: string;
   grid: { cols: number; rows: number };
   verbs: VerbDefinition[];

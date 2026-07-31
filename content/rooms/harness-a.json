@@ -59,7 +59,8 @@
       "fallback": [
         "Alpha block. Fallback response A7.",
         "Alpha block. Fallback response A8."
-      ]
+      ],
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "hs_beta",
@@ -103,7 +104,8 @@
       },
       "fallback": [
         "Beta lever. Fallback response B6."
-      ]
+      ],
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "hs_gamma",
@@ -145,7 +147,8 @@
       },
       "fallback": [
         "Gamma hatch. Fallback response C6."
-      ]
+      ],
+      "defaultVerb": "LOOK_AT"
     }
   ],
   "exits": [
@@ -174,7 +177,8 @@
       },
       "fallback": [
         "East doorway. Fallback response D3."
-      ]
+      ],
+      "defaultVerb": "WALK_TO"
     }
   ],
   "walkable": [

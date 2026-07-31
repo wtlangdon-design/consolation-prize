@@ -40,6 +40,7 @@ const SCRIPTS = [
   ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
   ['title_screen.py', 'Title screen -- doc 17 revised: hierarchy, night, overlap'],
   ['panel_render.py', 'the verb panel and inventory -- errata ruling 26'],
+  ['walkbox_render.py', "Room 2's walk boxes, staging points and a route -- errata 28a"],
   ['legibility_audit.py', 'legibility across every composed room -- rulings 16, 17c, 18'],
   ['legibility_audit.py', 'the sample geometry, drawn over each room', ['--overlay']],
   ['shadow_audit.py', 'pale families at their floor -- ruling 21b'],

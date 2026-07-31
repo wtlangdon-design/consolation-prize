@@ -18,7 +18,7 @@ export class VerbSystem {
   private readonly verbLabels = new Map<string, string>();
   private fallbackCursor = new Map<string, number>();
   private repeatCursor = new Map<string, number>();
-  private selected: string;
+  private selected: string | null;
   private poolCursor = new Map<string, number>();
   private readonly file: VerbsFile;
   private readonly flags: FlagStore;
@@ -32,7 +32,11 @@ export class VerbSystem {
       this.verbLabels.set(verb.id, verb.label);
     }
     this.verbLabels.set(file.walkVerb.id, file.walkVerb.label);
-    this.selected = file.defaultVerb;
+    // ERRATA 28b: nothing is selected until the player selects something.
+    // With a verb always pre-selected there is no "no verb" state, and the
+    // ruling's third row -- left click on an object with no verb selected
+    // fires the object's own defaultVerb -- could never happen.
+    this.selected = null;
   }
 
   get verbs(): VerbsFile['verbs'] {
@@ -43,8 +47,23 @@ export class VerbSystem {
     return this.file.grid;
   }
 
-  get selectedVerb(): string {
+  get selectedVerb(): string | null {
     return this.selected;
+  }
+
+  /**
+   * The verb a click on this target performs. Errata 28b's table, in one
+   * function so the scene cannot implement half of it.
+   *
+   * `secondary` is the right button: the object's own default, whatever is
+   * selected. Otherwise the selection wins, and with nothing selected the
+   * object's default answers -- falling back to the verbs file's default for
+   * an object that has not declared one, which check-default-verbs reports.
+   */
+  verbFor(target: Interactable | undefined, secondary = false): string {
+    const fallback = target?.defaultVerb ?? this.file.defaultVerb;
+    if (secondary) return fallback;
+    return this.selected ?? fallback;
   }
 
   get walkVerbId(): string {
@@ -87,8 +106,9 @@ export class VerbSystem {
     this.selected = id;
   }
 
+  /** Back to nothing selected. A verb otherwise persists until changed. */
   resetToDefault(): void {
-    this.selected = this.file.defaultVerb;
+    this.selected = null;
   }
 
   labelFor(verbId: string): string {

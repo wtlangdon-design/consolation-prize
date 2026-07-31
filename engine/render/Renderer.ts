@@ -2,7 +2,7 @@ import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
 import type { Actor } from '../core/Actor.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
-import type { AmbientFile } from '../core/types.ts';
+import type { AmbientFile, Interactable } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
 import { BitmapFont } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
@@ -17,6 +17,7 @@ import {
 } from './Screen.ts';
 
 export interface Frame {
+  hoveredTarget: Interactable | null;
   hoveredTargetName: string | null;
   sayLines: string[];
   notice: string | null;
@@ -307,7 +308,7 @@ export class Renderer {
 
     this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, this.screen.role('panelBg'));
 
-    const sentence = frame.notice ?? this.sentenceText(frame.hoveredTargetName);
+    const sentence = frame.notice ?? this.sentenceText(frame.hoveredTarget, frame.hoveredTargetName);
     const { x: sx, y: sy } = this.panel.sentence;
     this.font.draw(ctx, sentence, sx, sy, this.screen.roleColour('inkBright'));
 
@@ -397,9 +398,19 @@ export class Renderer {
     }
   }
 
-  private sentenceText(targetName: string | null): string {
+  private sentenceText(target: Interactable | null, targetName: string | null): string {
     const { ui } = this.state.content;
-    const verbLabel = this.state.verbs.labelFor(this.state.verbs.selectedVerb);
+    // ERRATA 28b: the sentence shows what a click would DO, which with
+    // nothing selected is the hovered object's own default verb. Showing the
+    // selection alone would have left the line blank in the state the ruling
+    // makes the starting one.
+    const verb = this.state.verbs.verbFor(target ?? undefined);
+    const verbLabel = this.state.verbs.labelFor(verb);
+    // Walking is not a sentence about a thing. Doc 06's walk template is just
+    // the verb, so the road does not read "Walk to THE MUD".
+    if (verb === this.state.verbs.walkVerbId) {
+      return format(ui.sentence.walkTemplate, { verb: verbLabel });
+    }
     const held = this.state.heldItem;
     // With an item picked up the sentence gains a middle: the verb applies
     // WITH the item TO the target. Both halves are named, because a player

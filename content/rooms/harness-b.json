@@ -48,7 +48,8 @@
       },
       "fallback": [
         "Delta crate. Fallback response E6."
-      ]
+      ],
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "hs_epsilon",
@@ -92,7 +93,8 @@
       },
       "fallback": [
         "Epsilon dial. Fallback response F6."
-      ]
+      ],
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "hs_zeta",
@@ -123,7 +125,8 @@
       },
       "fallback": [
         "Zeta mark. Fallback response G4."
-      ]
+      ],
+      "defaultVerb": "LOOK_AT"
     }
   ],
   "exits": [
@@ -152,7 +155,8 @@
       },
       "fallback": [
         "West doorway. Fallback response H3."
-      ]
+      ],
+      "defaultVerb": "WALK_TO"
     }
   ],
   "walkable": [

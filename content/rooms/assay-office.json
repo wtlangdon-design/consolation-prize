@@ -64,7 +64,8 @@
             "say": "Nothing. It has been saying the same thing for six years and requires no assistance."
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "scales",
@@ -87,7 +88,8 @@
             "say": "Nothing at all. It is the only instrument in Consolation that cannot be argued with."
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "queue_book",
@@ -110,7 +112,8 @@
             "say": "Paper."
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "floorboard",
@@ -133,7 +136,8 @@
             "say": "Loose. There's a space under it."
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     }
   ],
   "exits": [
@@ -150,7 +154,8 @@
       "colour": 198,
       "to": "main_street",
       "responses": {},
-      "fallback": []
+      "fallback": [],
+      "defaultVerb": "WALK_TO"
     }
   ]
 }

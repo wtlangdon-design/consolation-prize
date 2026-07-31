@@ -36,7 +36,8 @@
       "colour": 90,
       "to": "nugget",
       "responses": {},
-      "fallback": []
+      "fallback": [],
+      "defaultVerb": "OPEN"
     }
   ]
 }

@@ -36,7 +36,8 @@
       "colour": 90,
       "to": "main_street",
       "responses": {},
-      "fallback": []
+      "fallback": [],
+      "defaultVerb": "WALK_TO"
     }
   ]
 }

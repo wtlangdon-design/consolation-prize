@@ -186,7 +186,8 @@
       },
       "overrides": {
         "PICK_UP": "It has been nailed on. Thoroughly. Somebody wanted the rules to stay up."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "cards",
@@ -221,7 +222,8 @@
       "overrides": {
         "PICK_UP": "It is not my hand.",
         "USE": "I do not play. My father was very clear about it, and he was wrong about most things."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "piano",
@@ -256,7 +258,8 @@
       "overrides": {
         "USE": "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me.",
         "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "chandelier",
@@ -290,7 +293,8 @@
       },
       "overrides": {
         "PULL": "It is nine feet up and it weighs more than I do. I shall admire it from here."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "mirror",
@@ -321,7 +325,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "bar",
@@ -356,7 +361,8 @@
       "overrides": {
         "USE": "That would cost money.",
         "PUSH": "It does not move. It is the only thing in Consolation built to stay."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "stairs",
@@ -390,7 +396,8 @@
       },
       "overrides": {
         "USE": "I have not been invited up and I am not going to invite myself."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "portrait",
@@ -421,7 +428,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "spittoon",
@@ -455,7 +463,8 @@
       },
       "overrides": {
         "PICK_UP": "No."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "stove",
@@ -489,7 +498,8 @@
       },
       "overrides": {
         "OPEN": "It is lit. I am not opening a lit stove in a wooden building full of drunk men."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "window",
@@ -520,7 +530,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "patrons",
@@ -554,7 +565,8 @@
       },
       "overrides": {
         "TALK_TO": "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     }
   ],
   "exits": [
@@ -588,7 +600,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "OPEN"
     },
     {
       "id": "back_room_door",
@@ -623,7 +636,8 @@
       },
       "overrides": {
         "PUSH": "It gives half an inch and stops. Somebody has a chair against it."
-      }
+      },
+      "defaultVerb": "OPEN"
     }
   ]
 }

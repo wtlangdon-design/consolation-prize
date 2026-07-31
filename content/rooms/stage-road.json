@@ -115,7 +115,8 @@
       "overrides": {
         "OPEN": "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent.",
         "PICK_UP": "I have it. I have had it the entire time."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "lamp",
@@ -153,7 +154,8 @@
       },
       "overrides": {
         "TALK_TO": "He is walking. I shall let him walk."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "lamp_gone",
@@ -187,7 +189,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "coach",
@@ -225,7 +228,8 @@
       "overrides": {
         "USE": "It is going. It is going with some enthusiasm.",
         "PULL": "I have considered running after it. I would like that on the record and nowhere else."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "team",
@@ -259,7 +263,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "coach_gone",
@@ -293,7 +298,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "town_sign",
@@ -328,7 +334,8 @@
       "overrides": {
         "PULL": "It is nailed to a post, in the ground, at the edge of a town. I have been here two minutes and I am already vandalising the place.",
         "TALK_TO": "Good evening. I am new."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "road_east",
@@ -363,7 +370,8 @@
       "overrides": {
         "USE": "That would be a decision, and I have only just made one.",
         "PICK_UP": "It is a road."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     },
     {
       "id": "mud",
@@ -397,7 +405,8 @@
       },
       "overrides": {
         "PICK_UP": "I have enough on my boots. I am carrying a quantity of this town already."
-      }
+      },
+      "defaultVerb": "LOOK_AT"
     }
   ],
   "exits": [
@@ -431,7 +440,8 @@
             ]
           }
         ]
-      }
+      },
+      "defaultVerb": "WALK_TO"
     }
   ]
 }

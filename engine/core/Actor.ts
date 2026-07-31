@@ -33,6 +33,13 @@ export class Actor {
 
   private targetX: number;
   private targetY: number;
+  /**
+   * Remaining waypoints of a route, destination last. Errata 28a item 1:
+   * walking is no longer a straight line to the click, it is a walk through
+   * the portals between the boxes the route crosses -- which is what takes
+   * him round the trough instead of through it.
+   */
+  private path: { x: number; y: number }[] = [];
   /** Clip playing instead of idle or walk, with the moment it started. */
   private special: { clip: string; startedAt: number; seconds: number } | null = null;
   private turningUntil = 0;
@@ -49,7 +56,19 @@ export class Actor {
   }
 
   get isWalking(): boolean {
-    return Math.abs(this.targetX - this.x) > 0.5 || Math.abs(this.targetY - this.y) > 0.5;
+    return this.path.length > 0 || !this.arrived();
+  }
+
+  /** At the current leg's end, within half a pixel. */
+  private arrived(): boolean {
+    return Math.abs(this.targetX - this.x) <= 0.5 && Math.abs(this.targetY - this.y) <= 0.5;
+  }
+
+  /** Stops where he stands, abandoning the rest of the route. */
+  halt(): void {
+    this.path = [];
+    this.targetX = this.x;
+    this.targetY = this.y;
   }
 
   /** The clip to draw right now, and how far into it we are. */
@@ -59,7 +78,19 @@ export class Actor {
   }
 
   get isBusy(): boolean {
-    return this.special !== null || this.clock < this.turningUntil;
+    return this.special !== null || this.isTurning;
+  }
+
+  /** Mid-turn. The sequence runner waits on this as well as on walking. */
+  get isTurning(): boolean {
+    return this.clock < this.turningUntil;
+  }
+
+  /** Turns to a named direction. The runner's `face` step. */
+  setFacing(facing: Facing): void {
+    if (this.facing === facing) return;
+    this.facing = facing;
+    this.turningUntil = this.clock + TURN_SECONDS;
   }
 
   /** Which surface he is standing on, for the two walk cycles and the sink. */
@@ -67,13 +98,35 @@ export class Actor {
     return this.state.surfaceAt(Math.round(this.x), Math.round(this.y));
   }
 
-  /** Ignores a destination that is not floor, rather than sliding to its edge. */
+  /**
+   * Walks to a point, routing across the walk boxes if the room has them.
+   *
+   * A click outside the floor is SNAPPED to the nearest standable point
+   * rather than refused -- doc 22 step 1. The old behaviour ignored it, which
+   * made the bottom two rows of the street and every pixel of sky a dead
+   * click with no feedback at all.
+   */
   walkTo(x: number, y: number): boolean {
+    const route = this.state.routeTo(this.x, this.y, x, y);
+    if (route) {
+      this.path = route.waypoints.slice();
+      const first = this.path.shift();
+      if (!first) return false;
+      this.aimAt(first);
+      return true;
+    }
     if (!this.state.isWalkable(Math.round(x), Math.round(y))) return false;
+    this.path = [];
     this.targetX = x;
     this.targetY = y;
     this.faceToward(x);
     return true;
+  }
+
+  private aimAt(point: { x: number; y: number }): void {
+    this.targetX = point.x;
+    this.targetY = point.y;
+    this.faceToward(point.x, point.y);
   }
 
   /**
@@ -136,6 +189,7 @@ export class Actor {
     this.y = y;
     this.targetX = x;
     this.targetY = y;
+    this.path = [];
     this.special = null;
     this.height = this.state.actorHeightAt(Math.round(x), Math.round(y)) ?? this.height;
   }
@@ -161,13 +215,24 @@ export class Actor {
     }
     // A one-shot clip owns the body until it is done. Walking through a
     // reaction would play the recoil sliding down the street.
-    if (this.isWalking && !this.special) {
-      const dx = this.targetX - this.x;
-      const dy = this.targetY - this.y;
-      const distance = Math.hypot(dx, dy);
-      const step = Math.min(WALK_SPEED, distance);
-      this.x += (dx / distance) * step;
-      this.y += (dy / distance) * step;
+    if (!this.special) {
+      // The leg is taken FIRST, before any movement. Moving first meant that
+      // on the frame a leg completed, `isWalking` was still true because the
+      // path was not empty, so the step ran with a distance of zero and put
+      // NaN into both coordinates -- the actor vanished mid-route and every
+      // sequence waiting on him waited forever.
+      if (this.arrived() && this.path.length > 0) {
+        const next = this.path.shift();
+        if (next) this.aimAt(next);
+      }
+      if (!this.arrived()) {
+        const dx = this.targetX - this.x;
+        const dy = this.targetY - this.y;
+        const distance = Math.hypot(dx, dy);
+        const step = Math.min(WALK_SPEED, distance);
+        this.x += (dx / distance) * step;
+        this.y += (dy / distance) * step;
+      }
     }
     const here = this.state.actorHeightAt(Math.round(this.x), Math.round(this.y));
     if (here !== null) this.height = here;

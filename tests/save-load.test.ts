@@ -21,14 +21,14 @@ async function bundle(): Promise<ContentBundle> {
 function advance(state: GameState): void {
   state.enterRoom('harness_a');
   state.verbs.selectVerb('LOOK_AT');
-  state.interact(state.findTarget('hs_alpha')!); // sets T_HARNESS_EXAMINED
+  state.interact(state.findTarget('hs_alpha')!, state.verbs.verbFor(state.findTarget('hs_alpha')!)); // sets T_HARNESS_EXAMINED
 
   state.verbs.selectVerb('PUSH');
-  state.interact(state.findTarget('hs_beta')!); // HARNESS_PUSH_COUNT 0 -> 1
-  state.interact(state.findTarget('hs_beta')!); // -> 2
+  state.interact(state.findTarget('hs_beta')!, state.verbs.verbFor(state.findTarget('hs_beta')!)); // HARNESS_PUSH_COUNT 0 -> 1
+  state.interact(state.findTarget('hs_beta')!, state.verbs.verbFor(state.findTarget('hs_beta')!)); // -> 2
 
   state.verbs.selectVerb('TALK_TO');
-  state.interact(state.findTarget('hs_alpha')!); // opens harness_tree at HARN_1
+  state.interact(state.findTarget('hs_alpha')!, state.verbs.verbFor(state.findTarget('hs_alpha')!)); // opens harness_tree at HARN_1
 
   state.dialogue.select('opt_topic'); // exhausts one option, stays on HARN_1
   state.dialogue.select('opt_unlock'); // sets T_HARNESS_UNLOCKED, moves to HARN_2
@@ -132,7 +132,7 @@ test('room transitions autosave, and a corrupt save is refused rather than half-
   const state = new GameState(content, storage);
   state.enterRoom('harness_a');
   state.verbs.selectVerb(state.verbs.walkVerbId);
-  state.interact(state.findTarget('exit_a_to_b')!);
+  state.interact(state.findTarget('exit_a_to_b')!, state.verbs.verbFor(state.findTarget('exit_a_to_b')!));
   assert.equal(state.roomId, 'harness_b');
 
   const reloaded = new GameState(content, storage);
@@ -166,7 +166,7 @@ test('a non-transit verb examines a doorway in place instead of going through it
   state.enterRoom('harness_a');
 
   state.verbs.selectVerb('LOOK_AT');
-  const result = state.interact(state.findTarget('exit_a_to_b')!);
+  const result = state.interact(state.findTarget('exit_a_to_b')!, state.verbs.verbFor(state.findTarget('exit_a_to_b')!));
   assert.equal(result.changedRoom, false, 'looking at a doorway examines it in place');
   assert.equal(state.roomId, 'harness_a');
   assert.ok(result.say, 'and still produces a line');
@@ -178,8 +178,8 @@ test('an unhandled verb draws from the target fallback pool, rotating', async ()
   const alpha = state.findTarget('hs_alpha')!;
 
   state.verbs.selectVerb('PULL'); // hs_alpha defines no PULL response
-  const first = state.interact(alpha).say;
-  const second = state.interact(alpha).say;
+  const first = state.interact(alpha, state.verbs.verbFor(alpha)).say;
+  const second = state.interact(alpha, state.verbs.verbFor(alpha)).say;
 
   assert.ok(first, 'fallback produces a line rather than nothing');
   assert.notEqual(first, second, 'the pool rotates instead of repeating');

@@ -17,12 +17,7 @@ import {
   Screen,
   pointInRect,
 } from '../render/Screen.ts';
-import {
-  isDoubleClick as detectDoubleClick,
-  NO_CLICK,
-  recordClick,
-  type ClickRecord,
-} from '../core/ClickTracker.ts';
+import { SequenceRunner, type SequenceHost, type SequenceStep } from '../core/Sequence.ts';
 import {
   CYCLING_OPTION,
   GAME_SCENE,
@@ -52,7 +47,7 @@ export class GameScene extends Phaser.Scene {
   private panel!: PanelLayout;
   private texture!: Phaser.Textures.CanvasTexture;
 
-  private hovered: { id: string; name: string } | null = null;
+  private hovered: Interactable | null = null;
   private hoveredName: string | null = null;
   private sayLines: string[] = [];
   private notice: string | null = null;
@@ -60,11 +55,12 @@ export class GameScene extends Phaser.Scene {
   private barkAt: { x: number; y: number } | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
   private noticeTimer?: Phaser.Time.TimerEvent;
-  private lastClick: ClickRecord = NO_CLICK;
   private dirty = true;
   private readonly cyclers = new Map<string, CyclingBackground>();
   private lastCycle: Map<number, number> | null = null;
   private lastFrameAt = 0;
+  /** Doc 22 section 7's choreography. One performance at a time. */
+  private readonly sequence = new SequenceRunner();
 
   constructor() {
     super(GAME_SCENE);
@@ -113,7 +109,9 @@ export class GameScene extends Phaser.Scene {
     this.lastFrameAt = now;
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
+    if (this.sequence.update(now, this.host())) this.markDirty();
     if (this.actor.update(now)) this.markDirty();
+    if (this.sequence.isRunning) this.markDirty();
     // Ambient idles are two-frame and slow, so the scene redraws on the frame
     // one of them turns over rather than every frame. Same rule as ruling
     // 20's crowds: the room is still, and then it is very slightly not.
@@ -126,6 +124,7 @@ export class GameScene extends Phaser.Scene {
     if (!this.dirty) return;
     this.dirty = false;
     this.view.drawFrame({
+      hoveredTarget: this.hovered,
       hoveredTargetName: this.hoveredName,
       sayLines: this.sayLines,
       notice: this.notice,
@@ -225,7 +224,8 @@ export class GameScene extends Phaser.Scene {
     // clicking another is worse than either alone.
     const npc = y < PLAY_HEIGHT ? this.ambient.npcAt(x, y) : undefined;
     const found = npc
-      ? { id: npc.id, name: npc.name }
+      ? { id: npc.id, name: npc.name,
+          defaultVerb: this.state.content.verbs.npcVerb }
       : y < PLAY_HEIGHT
         ? (this.state.targetAt(x, y) ?? null)
         : null;
@@ -239,19 +239,17 @@ export class GameScene extends Phaser.Scene {
 
   private onPointerDown(pointer: Phaser.Input.Pointer): void {
     const { x, y } = this.nativePoint(pointer);
-    const now = this.time.now;
+    const secondary = pointer.rightButtonDown();
 
     // The menu takes every click while it is open, including clicks on the
     // verb panel behind it.
     if (this.state.menu.isOpen) {
       this.onMenuClick(y);
-      this.lastClick = { targetId: null, at: now };
       return;
     }
 
     if (pointInRect(x, y, this.panel.menuButton)) {
       this.state.menu.open();
-      this.lastClick = { targetId: null, at: now };
       this.markDirty();
       return;
     }
@@ -263,11 +261,16 @@ export class GameScene extends Phaser.Scene {
 
     if (y >= PLAY_HEIGHT) {
       if (!this.onInventoryClick(x, y)) this.onPanelClick(x, y);
-      // Choosing a verb is not half of a double-click. Without this, picking
-      // a verb and then clicking a hotspot quickly reads as a double-click
-      // and silently walks instead of applying the verb.
-      this.lastClick = { targetId: null, at: now };
       return;
+    }
+
+    // A click in the play area abandons whatever performance is running. A
+    // staged interaction the player has changed their mind about should stop
+    // where it is rather than finish walking somewhere they no longer want to
+    // be -- doc 22's deterministic cancellation, applied to ordinary play.
+    if (this.sequence.isRunning) {
+      this.sequence.cancel();
+      this.actor.halt();
     }
 
     // An ambient character is talked to, never examined -- they are not
@@ -279,65 +282,123 @@ export class GameScene extends Phaser.Scene {
       return;
     }
 
+    // ERRATA 28b, the whole table:
+    //
+    //   ground, any selection      -> walk
+    //   object + selected verb     -> that verb
+    //   object, nothing selected   -> the object's own defaultVerb
+    //   right button on an object  -> its defaultVerb, whatever is selected
+    //
+    // Double-click is gone entirely, along with the click tracker it needed.
     const target = this.state.targetAt(x, y);
-    const isDoubleClick = detectDoubleClick(this.lastClick, target?.id, now);
-    this.lastClick = recordClick(target?.id, now);
+    const verb = this.state.verbs.verbFor(target, secondary);
 
-    const isExit = target !== undefined && (target as Partial<Exit>).to !== undefined;
-    const wantsToWalk = isDoubleClick || this.state.verbs.selectedVerb === this.state.verbs.walkVerbId;
-
-    // A doorway asked to be walked through is walked through, even when it
-    // happens to stand on walkable ground -- the road to the claims does.
-    if (isExit && (wantsToWalk || this.state.verbs.isTransit(this.state.verbs.selectedVerb))) {
-      const before = this.state.verbs.selectedVerb;
-      if (wantsToWalk) this.state.verbs.selectVerb(this.state.verbs.walkVerbId);
-      this.applyInteraction(target as Interactable);
-      if (wantsToWalk) this.state.verbs.selectVerb(before);
+    // A doorway asked for with a transit verb is walked through -- checked
+    // BEFORE the walk shortcut, because the road out of town declares WALK TO
+    // as its default and would otherwise be walked TO and never down.
+    if (target && (target as Partial<Exit>).to !== undefined
+        && this.state.verbs.isTransit(verb)) {
+      this.beginInteraction(target, verb);
       return;
     }
 
-    // Walking wins over examining whenever the player has asked to walk.
-    //
-    // THE MUD is a hotspot covering the entire walkable band, so without this
-    // there is nowhere on the street left to click to move, and double-click
-    // resolved WALK TO against a hotspot that has no WALK TO response and
-    // therefore did nothing at all. Doc 06: double-click is the walk verb.
-    if (!target || wantsToWalk) {
-      if (this.actor.walkTo(x, y)) {
-        this.markDirty();
-        return;
-      }
-      if (!target) return;
+    // WALK TO resolved against an object still walks: THE MUD covers the
+    // whole street and declares WALK TO as its default, so clicking the road
+    // moves the player rather than examining the ground they are standing on.
+    if (!target || verb === this.state.verbs.walkVerbId) {
+      if (this.actor.walkTo(x, y)) this.markDirty();
+      return;
     }
 
-    this.applyInteraction(target);
+    this.beginInteraction(target, verb);
   }
 
-  private applyInteraction(target: Interactable): void {
-    // He looks at what he is talking about. A man who describes a trough
-    // while facing away from it is reading a label, and this is the dossier's
-    // face-direction-change-without-walking doing its actual job rather than
-    // sitting in an animation list.
+  /**
+   * Doc 22 section 6, as data. An object that declares where to stand gets
+   * the full staged chain; one that does not answers where the player stands.
+   *
+   *   walk -> waitForActor -> face -> waitForActor -> [chore] -> say
+   *
+   * The chore step is only present when the object declares a reaction for
+   * this verb, so the chain is as short as the object needs and no shorter.
+   */
+  private beginInteraction(target: Interactable, verb: string): void {
+    const staging = target.walkTo;
+    if (!staging) {
+      this.faceTarget(target);
+      this.applyInteraction(target, verb);
+      return;
+    }
+    const actor = this.state.content.actor.id;
+    const steps: SequenceStep[] = [
+      { kind: 'walk', actor, x: staging.x, y: staging.y },
+      { kind: 'waitForActor', actor },
+      { kind: 'face', actor, facing: staging.facing },
+      { kind: 'waitForActor', actor },
+    ];
+    const chore = target.reactions?.[verb];
+    if (chore) steps.push({ kind: 'chore', actor, chore });
+    steps.push({ kind: 'say', actor, interact: { target: target.id, verb } });
+    this.sequence.start(steps);
+    this.markDirty();
+  }
+
+  /**
+   * He looks at what he is talking about. A man who describes a trough while
+   * facing away from it is reading a label -- and this is the dossier's
+   * face-direction-change-without-walking doing its job rather than sitting
+   * in an animation list.
+   */
+  private faceTarget(target: Interactable): void {
     const [tx, ty, tw, th] = target.rect;
     if (tw > 0 && th > 0) this.actor.faceToward(tx + tw / 2, ty + th / 2);
+  }
 
-    const verb = this.state.verbs.selectedVerb;
-    const result = this.state.interact(target);
+  private applyInteraction(target: Interactable, verb: string): void {
+    const result = this.state.interact(target, verb);
     this.setSay(result.say);
     if (result.changedRoom) {
       this.hovered = null;
       this.hoveredName = null;
+      this.sequence.cancel();
       this.actor.placeIn(this.state.roomId, this.state.previousRoomId);
-    } else {
-      const clip = target.reactions?.[verb];
-      if (clip) {
-        const { reactRate } = this.state.content.actor;
-        const frames = this.state.content.actor.sizes.near.clips
-          .find((candidate) => candidate.id === clip)?.frames ?? 1;
-        this.actor.react(clip, frames / reactRate);
-      }
     }
     this.markDirty();
+  }
+
+  /**
+   * What the sequence runner is allowed to do to the world.
+   *
+   * Built per tick rather than held, because it closes over nothing but the
+   * scene and the runner must not outlive a room change.
+   */
+  private host(): SequenceHost {
+    return {
+      walk: (_actor, x, y) => { this.actor.walkTo(x, y); },
+      isWalking: () => this.actor.isWalking,
+      face: (_actor, facing) => { this.actor.setFacing(facing); },
+      isTurning: () => this.actor.isTurning,
+      chore: (_actor, clip) => {
+        const seconds = this.choreSeconds(clip);
+        this.actor.react(clip, seconds);
+        return seconds;
+      },
+      say: (step) => {
+        if (step.interact) {
+          const target = this.state.findTarget(step.interact.target);
+          if (target) this.applyInteraction(target, step.interact.verb);
+          return;
+        }
+        this.setSay(step.line ?? null);
+      },
+    };
+  }
+
+  /** How long a clip runs, from its own frame count. */
+  private choreSeconds(clip: string): number {
+    const { reactRate, sizes } = this.state.content.actor;
+    const frames = sizes.near.clips.find((candidate) => candidate.id === clip)?.frames ?? 1;
+    return frames / reactRate;
   }
 
   /**
@@ -357,8 +418,9 @@ export class GameScene extends Phaser.Scene {
     const slot = this.view.inventoryHitboxes().find((box) => pointInRect(x, y, box));
     if (!slot) return false;
     const target = this.state.itemTarget(slot.id);
-    if (target && this.state.verbs.examines(this.state.verbs.selectedVerb)) {
-      this.setSay(this.state.verbs.resolve(this.state.verbs.selectedVerb, target).say);
+    const verb = this.state.verbs.selectedVerb;
+    if (target && verb && this.state.verbs.examines(verb)) {
+      this.setSay(this.state.verbs.resolve(verb, target).say);
     } else {
       this.state.holdItem(slot.id);
     }
@@ -426,6 +488,7 @@ export class GameScene extends Phaser.Scene {
     this.hovered = null;
     this.hoveredName = null;
     this.sayLines = [];
+    this.sequence.cancel();
     this.actor.placeIn(this.state.roomId);
   }
 

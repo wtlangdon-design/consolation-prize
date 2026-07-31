@@ -71,6 +71,8 @@
     "OPEN",
     "USE"
   ],
+  "npcVerb": "TALK_TO",
+  "npcVerbNote": "What a click on an ambient character does. Errata 28b makes the sentence line show the verb a click would perform, and an ambient is always talked to -- so the verb has to be nameable from content rather than assumed in the scene.",
   "examineVerbs": [
     "LOOK_AT",
     "LISTEN_TO"

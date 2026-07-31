@@ -1,6 +1,7 @@
 import type {
-  ContentBundle, Entrance, Exit, Interactable, RoomFile, WalkableRegion,
+  ContentBundle, Entrance, Exit, Interactable, Point, RoomFile, WalkableRegion,
 } from './types.ts';
+import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
 import { VerbSystem } from './VerbSystem.ts';
@@ -35,6 +36,8 @@ export class GameState {
   private held: string | null = null;
   /** First visible inventory row. Errata ruling 26's scrollable list. */
   private scroll = 0;
+  private boxCache: WalkBoxes | null = null;
+  private boxesFor: string | null = null;
 
   constructor(content: ContentBundle, storage: StorageLike) {
     this.content = content;
@@ -187,15 +190,23 @@ export class GameState {
     }
     this.cameFrom = this.currentRoomId;
     this.currentRoomId = roomId;
+    this.boxCache = null;
     this.autosave();
   }
 
-  /** Applies the selected verb to a target and resolves what follows. */
-  interact(target: Interactable): InteractionResult {
+  /**
+   * Applies a verb to a target and resolves what follows.
+   *
+   * The verb is passed IN rather than read from the selection, because errata
+   * 28b's table decides it: the selection, or the object's own defaultVerb, or
+   * the object's default regardless of selection on a right click. One place
+   * works that out and this is not it.
+   */
+  interact(target: Interactable, verb: string): InteractionResult {
     // Going through a door is not a question about the door. Checked before
     // the verb resolves, so no line is produced and no pool is consumed --
     // otherwise OPEN on an exit would spend a fallback line on its way out.
-    const transit = this.transitDestination(target);
+    const transit = this.transitDestination(target, verb);
     if (transit) {
       this.enterRoom(transit);
       return { say: null, enteredDialogue: false, changedRoom: true };
@@ -205,8 +216,8 @@ export class GameState {
     // question and draws on a different source. Checked after transit, so
     // walking through a door while carrying something still walks.
     const action = this.held
-      ? this.verbs.resolveWith(this.verbs.selectedVerb, this.held, target)
-      : this.verbs.resolve(this.verbs.selectedVerb, target);
+      ? this.verbs.resolveWith(verb, this.held, target)
+      : this.verbs.resolve(verb, target);
 
     if (action.dialogue) {
       this.dialogue.start(action.dialogue);
@@ -227,10 +238,10 @@ export class GameState {
    * place, so LOOK AT on a doorway describes the doorway rather than
    * teleporting the player through it mid-sentence.
    */
-  private transitDestination(target: Interactable): string | null {
+  private transitDestination(target: Interactable, verb: string): string | null {
     const exit = target as Partial<Exit>;
     if (!exit.to) return null;
-    return this.verbs.isTransit(this.verbs.selectedVerb) ? exit.to : null;
+    return this.verbs.isTransit(verb) ? exit.to : null;
   }
 
   /**
@@ -238,6 +249,31 @@ export class GameState {
    * Regions are tested in declaration order, so a room may overlap them and
    * rely on the first match.
    */
+  /**
+   * The current room's walk boxes, or undefined if it still uses the zone
+   * model. Rebuilt per room rather than cached across rooms, because a box's
+   * `enabledWhen` is evaluated against live flags.
+   */
+  get boxes(): WalkBoxes | undefined {
+    const declared = this.room.walkBoxes;
+    if (!declared) return undefined;
+    if (this.boxesFor !== this.currentRoomId || !this.boxCache) {
+      this.boxCache = new WalkBoxes(declared, (when) => this.flags.test(when));
+      this.boxesFor = this.currentRoomId;
+    }
+    return this.boxCache;
+  }
+
+  /** A route across the boxes, or undefined in a room without them. */
+  routeTo(fromX: number, fromY: number, toX: number, toY: number): Route | undefined {
+    return this.boxes?.route(fromX, fromY, toX, toY);
+  }
+
+  /** Nearest standable point. Doc 22 step 1 -- a click is snapped, not refused. */
+  nearestFloor(x: number, y: number): Point | undefined {
+    return this.boxes?.nearest(x, y)?.point;
+  }
+
   regionAt(x: number, y: number): WalkableRegion | undefined {
     return (this.room.walkable ?? []).find((region) => {
       const [rx, ry, rw, rh] = region.rect;
@@ -246,6 +282,8 @@ export class GameState {
   }
 
   isWalkable(x: number, y: number): boolean {
+    const boxes = this.boxes;
+    if (boxes) return boxes.contains(x, y);
     return this.regionAt(x, y) !== undefined;
   }
 
@@ -257,6 +295,8 @@ export class GameState {
    */
   surfaceAt(x: number, y: number): string {
     const fallback = this.content.actor.sizes.near.clips[0]?.surface ?? '';
+    const boxes = this.boxes;
+    if (boxes) return boxes.boxAt(x, y)?.surface ?? fallback;
     return this.regionAt(x, y)?.surface ?? fallback;
   }
 
@@ -273,6 +313,15 @@ export class GameState {
    * a snap survives is its threshold.
    */
   actorHeightAt(x: number, y: number): number | null {
+    // A room with boxes gets its height from the box the actor is in. That is
+    // errata 28a's whole point: the boardwalk is `fixed` at the far drawn
+    // size and the mud is a `curve` starting above the threshold, so the
+    // sprite swap happens at the lip rather than in open mud.
+    const boxes = this.boxes;
+    if (boxes) {
+      const box = boxes.boxAt(x, y);
+      return box ? heightIn(box, y) : null;
+    }
     if (!this.isWalkable(x, y)) return null;
     const samples = this.depthSamples();
     if (samples.length === 0) return null;

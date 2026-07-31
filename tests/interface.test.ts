@@ -54,7 +54,7 @@ test('all nine verbs are selectable, and every written examine line answers', as
       const isExit = (target as { to?: string }).to !== undefined;
       for (const verb of content.verbs.verbs) {
         state.verbs.selectVerb(verb.id);
-        const result = state.interact(target);
+        const result = state.interact(target, verb.id);
         const producedSomething = result.say !== null || result.enteredDialogue || result.changedRoom;
         // LOOK and LISTEN are written for every hotspot and must always
         // answer. The other seven verbs draw on a per-object fallback pool
@@ -205,23 +205,37 @@ test('height is continuous within the drawn range, and never leaves it', async (
   }
 });
 
-test('walking a room changes height by one row at a time', async () => {
+test('the one scaling snap in Room 2 lands at the boardwalk lip', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
   state.enterRoom('main_street');
 
-  // Ruling 24's whole claim: continuous above the threshold. A step of more
-  // than one row anywhere in the band would mean the interpolation has a
-  // seam in it, which is the artefact this replaced.
+  // Errata 28a: continuous within a box, and ONE source swap in the room, at
+  // the only real horizontal interruption in the band. The earlier version of
+  // this test asserted a maximum step of one row everywhere, which was right
+  // for the old single-curve model and would now forbid the snap the ruling
+  // exists to place.
+  const jumps: { y: number; from: number; to: number }[] = [];
   let previous: number | null = null;
-  let biggest = 0;
   for (let y = 78; y < 144; y += 1) {
     const height = state.actorHeightAt(160, y);
     if (height === null) continue;
-    if (previous !== null) biggest = Math.max(biggest, Math.abs(height - previous));
+    if (previous !== null && Math.abs(height - previous) > 1) {
+      jumps.push({ y, from: previous, to: height });
+    }
     previous = height;
   }
-  assert.equal(biggest, 1, 'the drawn height moves one row at a time down the street');
+
+  assert.equal(jumps.length, 1, 'exactly one snap in the room');
+  const snap = jumps[0]!;
+  const lip = content.rooms.get('main_street')!.walkBoxes!
+    .find((box) => box.scaleMode.kind === 'fixed')!;
+  const lipBottom = Math.max(...lip.points.map((point) => point.y));
+  assert.equal(snap.y, lipBottom + 1, 'the snap is the first row off the fixed box');
+  assert.ok(snap.from <= content.scaling.threshold,
+    'the box above the lip draws at or below the threshold -- the far sprite');
+  assert.ok(snap.to > content.scaling.threshold,
+    'the first row of mud is above it -- decimated');
 });
 
 test('a point off the floor has no actor height at all', async () => {
@@ -272,9 +286,9 @@ test("the mud's first LISTEN stands alone, and the last one repeats forever", as
   const mud = state.findTarget('mud')!;
   state.verbs.selectVerb('LISTEN_TO');
 
-  const first = state.interact(mud).say;
-  const second = state.interact(mud).say;
-  const third = state.interact(mud).say;
+  const first = state.interact(mud, state.verbs.verbFor(mud)).say;
+  const second = state.interact(mud, state.verbs.verbFor(mud)).say;
+  const third = state.interact(mud, state.verbs.verbFor(mud)).say;
 
   // Doc 13, reordered: variant 1 has to work cold, because most players
   // listen once and never again. It used to be a bare "Nothing new.", which
@@ -284,7 +298,7 @@ test("the mud's first LISTEN stands alone, and the last one repeats forever", as
   // needs a guard and the tail of it is unchanged.
   assert.notEqual(second, first, 'variant 1 no longer leans on a look the player has not taken');
   assert.notEqual(third, second, 'variant 3 does move on');
-  assert.equal(state.interact(mud).say, third, 'and the third repeats indefinitely thereafter');
+  assert.equal(state.interact(mud, state.verbs.verbFor(mud)).say, third, 'and the third repeats indefinitely thereafter');
 });
 
 test('object overrides repeat; global pools rotate', async () => {
@@ -295,7 +309,7 @@ test('object overrides repeat; global pools rotate', async () => {
   // Doc 13 note 4. Two different behaviours, both correct.
   const dog = state.findTarget('dog')!;
   state.verbs.selectVerb('PUSH');
-  const override = [state.interact(dog).say, state.interact(dog).say, state.interact(dog).say];
+  const override = [state.interact(dog, state.verbs.verbFor(dog)).say, state.interact(dog, state.verbs.verbFor(dog)).say, state.interact(dog, state.verbs.verbFor(dog)).say];
   assert.equal(override[0], 'I will not.');
   assert.ok(
     override.every((line) => line === override[0]),
@@ -305,7 +319,7 @@ test('object overrides repeat; global pools rotate', async () => {
   // The hills have no PUSH override, so PUSH falls to the global pool.
   const hills = state.findTarget('hills')!;
   const pool = content.verbFallbacks.pools['PUSH']!;
-  const drawn = [state.interact(hills).say, state.interact(hills).say, state.interact(hills).say];
+  const drawn = [state.interact(hills, state.verbs.verbFor(hills)).say, state.interact(hills, state.verbs.verbFor(hills)).say, state.interact(hills, state.verbs.verbFor(hills)).say];
   assert.equal(new Set(drawn).size, Math.min(3, pool.length), 'the pool rotates rather than repeating');
   for (let index = 1; index < drawn.length; index += 1) {
     assert.notEqual(drawn[index], drawn[index - 1], 'and never repeats consecutively');
@@ -320,7 +334,7 @@ test('every verb now answers on every Main Street hotspot', async () => {
   for (const target of content.rooms.get('main_street')!.hotspots) {
     for (const verb of content.verbs.verbs) {
       state.verbs.selectVerb(verb.id);
-      const result = state.interact(target);
+      const result = state.interact(target, verb.id);
       assert.ok(
         result.say !== null,
         `${target.id} + ${verb.id} is silent -- doc 06 allows no unanswered combination`,
@@ -345,7 +359,7 @@ test('OPEN and USE walk through an exit and say nothing; every other verb answer
     for (const verb of ['OPEN', 'USE']) {
       state.enterRoom('main_street');
       state.verbs.selectVerb(verb);
-      const result = state.interact(exit);
+      const result = state.interact(exit, state.verbs.verbFor(exit));
       assert.equal(result.changedRoom, true, `${exit.id} + ${verb} should transit`);
       assert.equal(result.say, null, `${exit.id} + ${verb} must produce no line`);
       assert.equal(state.roomId, exit.to);
@@ -356,7 +370,7 @@ test('OPEN and USE walk through an exit and say nothing; every other verb answer
     for (const verb of content.verbs.verbs) {
       if (state.verbs.isTransit(verb.id)) continue;
       state.verbs.selectVerb(verb.id);
-      const result = state.interact(exit);
+      const result = state.interact(exit, state.verbs.verbFor(exit));
       assert.equal(result.changedRoom, false, `${exit.id} + ${verb.id} should not transit`);
       assert.ok(result.say, `${exit.id} + ${verb.id} is silent`);
     }
@@ -371,7 +385,7 @@ test('every exit is reachable by clicking it, scenery notwithstanding', async ()
   // Regression. Every Room 2 exit sits inside a much larger hotspot -- the
   // three doors inside THE FALSE FRONTS, the road inside THE MUD -- so with
   // scenery hit-testing first, no exit in the room could be clicked at all.
-  // Driving state.interact(exit) directly cannot catch this; only a click can.
+  // Driving state.interact(exit, state.verbs.verbFor(exit)) directly cannot catch this; only a click can.
   for (const exit of content.rooms.get('main_street')!.exits) {
     const [x, y, w, h] = exit.rect;
     const hit = state.targetAt(x + Math.floor(w / 2), y + Math.floor(h / 2));
@@ -389,10 +403,10 @@ test('exits carry three LOOK and three LISTEN variants from doc 14', async () =>
     for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
       state.verbs.selectVerb(verb);
       const seen = [
-        state.interact(exit).say,
-        state.interact(exit).say,
-        state.interact(exit).say,
-        state.interact(exit).say,
+        state.interact(exit, state.verbs.verbFor(exit)).say,
+        state.interact(exit, state.verbs.verbFor(exit)).say,
+        state.interact(exit, state.verbs.verbFor(exit)).say,
+        state.interact(exit, state.verbs.verbFor(exit)).say,
       ];
       assert.equal(new Set(seen.slice(0, 3)).size, 3, `${exit.id}/${verb} needs three distinct variants`);
       assert.equal(seen[3], seen[2], 'the third repeats indefinitely thereafter');
@@ -515,13 +529,13 @@ test('repeat variants cycle FORWARD, then hold on the last one', async () => {
         if (!rule?.say) continue;
         const expected = [rule.say, ...(rule.repeat ?? [])];
         state.verbs.selectVerb(verb);
-        const got = expected.map(() => state.interact(target).say);
+        const got = expected.map(() => state.interact(target, state.verbs.verbFor(target)).say);
         assert.deepEqual(
           got, expected,
           `${room.id}/${target.id}/${verb} did not return its variants in written order`,
         );
         // And the last one repeats indefinitely rather than wrapping round.
-        assert.equal(state.interact(target).say, expected[expected.length - 1]);
+        assert.equal(state.interact(target, state.verbs.verbFor(target)).say, expected[expected.length - 1]);
         sequences += 1;
       }
     }
@@ -581,7 +595,7 @@ test('a stub exit still transits, and ruling 20 keeps the landing man still', as
   state.enterRoom('main_street');
   const assay = state.findTarget('to_assay_office')!;
   state.verbs.selectVerb('OPEN');
-  assert.equal(state.interact(assay).changedRoom, true);
+  assert.equal(state.interact(assay, state.verbs.verbFor(assay)).changedRoom, true);
   assert.equal(state.roomId, 'assay_office');
 
   // Ruling 20: four of a crowd of eleven animate, and the man on the landing
