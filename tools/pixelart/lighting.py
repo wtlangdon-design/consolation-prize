@@ -214,3 +214,53 @@ def lamp_core(
     for offset_x, offset_y in ((-1, 0), (1, 0), (0, -1), (0, 1)):
         if radius > 0:
             canvas.put(x + offset_x, y + offset_y, ramp.at(ramp.count - 3))
+
+
+def collar(
+    canvas: IndexedCanvas,
+    palette: Palette,
+    x: int,
+    y: int,
+    inner: int,
+    outer: int,
+    steps: int = 3,
+    keep=None,
+) -> int:
+    """Errata 33a. A dark ring immediately outside a source. Returns pixels moved.
+
+    THE CORE WAS NEVER THE PROBLEM. Hob's lamp measures 205.1, which is
+    exactly accent_gold's ceiling, and a swap to bone at 231 was on the table
+    and is not needed: core-to-surround is already 124. What was wrong is
+    where the surround falls. The ground immediately around the lamp sat at
+    81 in a frame whose median is 53 -- the lamp was in one of the LIGHTER
+    parts of the picture, so it read as a pale object rather than as a hole
+    punched in the night.
+
+    In the reference the window blazes at about 200 and the wall runs right
+    up to the frame at 40. There is a hard dark edge between the source and
+    everything else, and the glow starts on the far side of it.
+
+    So: the lighting pass lifts the whole neighbourhood, and this takes it
+    back for a few pixels. Physically it is a lantern's ironwork and the
+    shadow it throws on what it stands on. Compositionally it is the only
+    thing that makes 205 read as a source.
+
+    `keep` protects the source itself -- the collar is what is around a lamp,
+    never the lamp.
+    """
+    moved = 0
+    for row in range(y - outer, y + outer + 1):
+        for col in range(x - outer, x + outer + 1):
+            distance = math.hypot(col - x, (row - y) * 1.15)
+            if distance < inner or distance > outer:
+                continue
+            if keep is not None and keep(col, row):
+                continue
+            # Hardest against the source, easing out, so the ring is an edge
+            # rather than a band -- a uniformly dark annulus reads as a hole
+            # cut in the ground, which is a different mistake.
+            fade = 1.0 - (distance - inner) / max(1e-6, outer - inner)
+            depth = max(1, round(steps * fade))
+            canvas.put(col, row, palette.darken(canvas.get(col, row), depth))
+            moved += 1
+    return moved

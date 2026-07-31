@@ -31,7 +31,7 @@ from canvas import IndexedCanvas
 from clutter import lumber_stack
 from components import crate, distant_hills
 from dither import BAYER2, BAYER4, dither_pixel
-from lighting import Lamp, LightField, lamp_core
+from lighting import Lamp, LightField, collar, lamp_core
 from palette import Palette
 from primitives import (
     barrel, catenary, ellipse_outline, ellipse_shaded, enforce_sky_ceiling,
@@ -261,6 +261,26 @@ def compose(with_coach: bool = True, lamp_x: int | None = None,
     # which still animates, and still looks like a lamp, and is exactly the
     # kind of thing that is invisible until somebody counts the pixels.
     canvas.rect(lx - 2, ly + 2, 3, 2, LAMP_BAND[3])
+
+    # -- ERRATA 33a: dark collars -----------------------------------------
+    #
+    # Not a hotter core. The lamp is already at accent_gold's ceiling and the
+    # step to its surround is 124; what was wrong is that the surround sat at
+    # 81 in a frame whose median is 53, so the brightest thing in the picture
+    # was standing in one of its lighter patches.
+    #
+    # The lamp's own pixels are protected by its reserved band: doc 18 gives
+    # it four indices that nothing else in the room may use, which makes "is
+    # this the lamp" exact rather than a guess about brightness.
+    lamp_band = set(LAMP_BAND)
+    is_lamp = lambda cx, cy: canvas.get(cx, cy) in lamp_band
+    collar(canvas, palette, lx - 1, ly + 3, 4, 13, steps=3, keep=is_lamp)
+    if with_coach:
+        collar(canvas, palette, COACH_X - 16, ROAD_Y - 5, 3, 9, steps=2)
+    # The town downhill: a collar round the whole cluster, not each window.
+    # At this distance the lit windows are one source, which is also what
+    # doc 17's line calls them -- "lamps on in about a third of it".
+    collar(canvas, palette, 30, ROAD_Y - 30, 22, 40, steps=2)
 
     # -- the foreground plane, ruling 21a ----------------------------------
     #
@@ -914,8 +934,12 @@ def lantern(canvas: IndexedCanvas, x: int, y: int) -> None:
     is not a lit surface, and a band assigned before the pass does not survive
     it.
     """
-    canvas.rect(x - 3, y, 5, 6, LAMP_BAND[1])
-    canvas.rect(x - 2, y + 1, 3, 4, LAMP_BAND[2])
+    # ERRATA 33a: a source is a core plus a shaped falloff, not a bright
+    # blob. Three steps out from the middle rather than two flat rectangles,
+    # so the pane has a centre.
+    canvas.rect(x - 3, y, 5, 6, LAMP_BAND[0])
+    canvas.rect(x - 3, y + 1, 5, 4, LAMP_BAND[1])
+    canvas.rect(x - 2, y + 2, 3, 2, LAMP_BAND[2])
     canvas.hline(x - 4, y - 1, 7, LAMP_BAND[0])             # its hood
     canvas.hline(x - 4, y + 6, 7, LAMP_BAND[0])             # its base
     canvas.vline(x - 1, y - 4, 3, LAMP_BAND[0])             # the bail

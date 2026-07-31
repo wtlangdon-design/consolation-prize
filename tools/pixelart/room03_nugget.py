@@ -256,14 +256,24 @@ def patrons(canvas: IndexedCanvas, palette: Palette, rng) -> None:
     positions here are checked against TABLES by the assertion below.
     """
     drawn = []
+    # ERRATA 32c. Each man carries his own index, so his hat, his posture and
+    # his arm are HIS -- and stay his when something upstream draws one more
+    # barrel and shifts the shared rng.
+    seed = 0
     for x, feet, height in BAR_PATRONS:
+        # The bar is the near group and 32c's detail hierarchy puts the real
+        # detail here: an arm on the counter and a glass in it.
         drawn.append(crowd.standing(canvas, palette, x, feet, height, rng,
-                                    facing=(1, 0, -1)[x % 3]))
+                                    facing=(1, 0, -1)[x % 3], seed=seed, glass=seed % 3 == 1))
+        seed += 1
     for x, table, height in TABLE_PATRONS:
         drawn.append(crowd.seated(canvas, palette, x, TABLES[table][1], height, rng,
-                                  facing=(1, -1)[x % 2]))
+                                  facing=(1, -1)[x % 2], seed=seed))
+        seed += 1
     for x, feet, height in FLOOR_PATRONS:
-        drawn.append(crowd.standing(canvas, palette, x, feet, height, rng, facing=0))
+        drawn.append(crowd.standing(canvas, palette, x, feet, height, rng, facing=0,
+                                    seed=seed))
+        seed += 1
     painted, animated = len(drawn), len(idles.load("nugget")[1])
     if painted + animated != 11:
         raise RuntimeError(
