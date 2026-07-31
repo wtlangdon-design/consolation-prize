@@ -45,7 +45,8 @@ def _garment(palette: Palette, rng, tone: float):
 
 def standing(
     canvas: IndexedCanvas, palette: Palette, x: int, feet_y: int, height: int, rng,
-    hat: bool = True, facing: int = 0, tone: float = 0.14,
+    hat: bool = True, facing: int = 0, tone: float = 0.14, pose: int = 0,
+    glass: bool = False,
 ) -> tuple[int, int, int, int]:
     """A man standing, seen from behind or three-quarters. Returns his bounds.
 
@@ -67,6 +68,12 @@ def standing(
     width = max(5, round(height * 0.26))
     left = x - width // 2
 
+    # Ruling 20's second frame. One pixel of weight shift: the legs stay put
+    # and everything above the hip comes up. That is the whole animation, and
+    # at 27 pixels it is the right amount -- a bigger move at this size reads
+    # as a walk cycle, and ruling 20 is explicit that these are idles.
+    lift = 1 if pose else 0
+
     # Legs, with daylight between them.
     hip = feet_y - leg_h
     canvas.vline(left + 1, hip, leg_h, cloth.frac(max(0.04, base - 0.12)))
@@ -77,13 +84,17 @@ def standing(
 
     # Coat: widest at the shoulder, narrowing to the hem, with the arms a
     # step darker than the back so the mass is not one slab.
-    body_top = hip - body_h
-    for row in range(body_h):
-        inset = 1 if row >= body_h - 2 else 0
+    body_top = hip - body_h - lift
+    for row in range(body_h + lift):
+        inset = 1 if row >= body_h + lift - 2 else 0
         canvas.hline(left + inset, body_top + row, width - inset * 2, cloth.frac(base))
     canvas.hline(left, body_top, width, cloth.frac(min(0.9, base + 0.16)))     # lit shoulder
     canvas.vline(left, body_top + 1, body_h - 1, cloth.frac(max(0.03, base - 0.09)))
     canvas.vline(left + width - 1, body_top + 1, body_h - 1, cloth.frac(max(0.03, base - 0.13)))
+    # A glass, going up on the second frame. One pixel of sky family, which
+    # is the only cold thing on a man in a warm room and so reads as glass.
+    if glass:
+        canvas.put(left + width, body_top + 2 - lift * 2, palette.family("sky").frac(0.62))
 
     # Neck, then a head narrower than the shoulders. That difference is most
     # of what says "man" at twenty-six pixels.
@@ -102,14 +113,14 @@ def standing(
     # by the lighting pass. Without it these read fine in shadow and dissolve
     # into pale sacks wherever the window shaft or the chandelier lands on
     # them -- lit correctly, and unreadable, which is the worst combination.
-    _keyline(canvas, dark, left, body_top, width, body_h, head_x, head_top, head_w,
+    _keyline(canvas, dark, left, body_top, width, body_h + lift, head_x, head_top, head_w,
              body_top - head_top)
     return left - 1, head_top, width + 2, feet_y - head_top
 
 
 def seated(
     canvas: IndexedCanvas, palette: Palette, x: int, table_top: int, height: int, rng,
-    hat: bool = True, facing: int = 0, tone: float = 0.12,
+    hat: bool = True, facing: int = 0, tone: float = 0.12, pose: int = 0,
 ) -> tuple[int, int, int, int]:
     """A man at a table: head and shoulders above the top, and nothing else.
 
@@ -122,7 +133,9 @@ def seated(
     width = max(6, round(height * 0.55))
     left = x - width // 2
 
-    shoulder_h = height - head_h - 1
+    # Ruling 20's second frame, seated: he leans back a pixel. The shoulders
+    # stay at the table because that is what makes a seated figure read.
+    shoulder_h = height - head_h - 1 + (1 if pose else 0)
     body_top = table_top - shoulder_h
     for row in range(shoulder_h):
         canvas.hline(left + (1 if row == 0 else 0), body_top + row,

@@ -89,8 +89,12 @@ ROOM_01 = [
 # ---------------------------------------------------------------------------
 ROOM_02_LIGHTS: list[LightZone] = []          # exterior daylight, no point sources
 ROOM_02 = [
-    Surface("mud, near", (20, 126, 280, 16),
-            "Near band, below the trough, which stands on the mud to y119."),
+    Surface("mud, near", (90, 126, 210, 16),
+            "Near band, below the trough, which stands on the mud to y119. "
+            "Starts at x90, not x20: ruling 21a's foreground plane -- a lumber "
+            "stack and a wagon wheel -- crops the bottom-left corner and is "
+            "explicitly excluded from this check. It is not a surface anyone "
+            "stands in front of; it is a surface people stand BEHIND."),
     Surface("mud, mid", (145, 104, 65, 14),
             "Between the hitching rail (x96-141) and the trough (x214-253). "
             "The full-width version ran through both."),

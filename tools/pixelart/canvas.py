@@ -102,5 +102,28 @@ class IndexedCanvas:
         image.save(path, optimize=True)
         return path
 
+    def save_rgba(self, path: Path, palette: Palette, transparent: int = 255) -> Path:
+        """Exports with one index as full alpha. For foreground planes.
+
+        Ruling 21a's foreground draws OVER the actor, so it cannot travel in
+        the background PNG the actor is drawn on top of -- it needs its own
+        image with holes in it.
+
+        Index 255 is the key. It is one of the palette's five duplicate blacks
+        and no composition uses it, which check-palette-cycling already relies
+        on for a different reason: an index nothing draws with is an index
+        nothing can lose to a key.
+        """
+        pixels = []
+        for row in self.pixels:
+            for index in row:
+                red, green, blue = palette.colours[index]
+                pixels.append((red, green, blue, 0 if index == transparent else 255))
+        image = Image.new("RGBA", (self.width, self.height))
+        image.putdata(pixels)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        image.save(path, optimize=True)
+        return path
+
     def used_indices(self) -> set[int]:
         return {index for row in self.pixels for index in row}

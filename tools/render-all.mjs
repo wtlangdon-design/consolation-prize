@@ -28,6 +28,7 @@ const SCRIPTS = [
   ['room03_nugget.py', 'Room 3, the Bountiful Nugget'],
   ['room03_background.py', 'Room 3 background (shipping asset)'],
   ['room03_proof.py', 'Room 3 with Thad, and the ruling 17c audit'],
+  ['idle_render.py', "the Nugget's four idles at real rates -- ruling 20"],
   ['room05_assay.py', 'Room 5, the Assay Office'],
   ['room05_background.py', 'Room 5 background (shipping asset)'],
   ['room05_proof.py', 'Room 5 with Thad, and the ruling 17c audit'],
@@ -37,6 +38,7 @@ const SCRIPTS = [
   ['title_screen.py', 'Title screen'],
   ['legibility_audit.py', 'legibility across every composed room -- rulings 16, 17c, 18'],
   ['legibility_audit.py', 'the sample geometry, drawn over each room', ['--overlay']],
+  ['shadow_audit.py', 'pale families at their floor -- ruling 21b'],
 ];
 
 let failed = 0;

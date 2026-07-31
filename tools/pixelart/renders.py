@@ -23,6 +23,11 @@ RENDERS = ROOT / "renders"
 #: home and their own names.
 BACKGROUNDS = ROOT / "art" / "backgrounds"
 
+#: Ruling 21a's near planes. Separate from the backgrounds because they are
+#: drawn on the other side of the actor, and an RGBA image rather than an
+#: indexed one because they have holes in them.
+FOREGROUNDS = ROOT / "art" / "foregrounds"
+
 
 def out(name: str) -> Path:
     RENDERS.mkdir(parents=True, exist_ok=True)

@@ -22,13 +22,14 @@ from pathlib import Path
 
 import crowd
 import furniture
+import idles
 import interior
 import lighting
 from canvas import IndexedCanvas
 from interior import Box
 from lighting import Lamp, LightField, Shaft
 from palette import Palette
-from renders import RENDERS
+from renders import BACKGROUNDS, FOREGROUNDS, RENDERS
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = RENDERS
@@ -180,6 +181,19 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     furniture.wall_hooks(canvas, palette, 128, 60, 3, fresh, rng, spacing=7)
     furniture.wall_hooks(canvas, palette, 48, 46, 2, fresh, rng, spacing=8)
 
+    # -- the foreground plane, ruling 21a ------------------------------------
+    #
+    # A stack of stock at the bottom-left corner: barrels and crates, out of
+    # the light, in front of the piano and in front of the near table. Not the
+    # near end of the bar, which is where the eye already goes, and not a
+    # hanging lamp, which would land on the window shaft -- the two lightest
+    # things in the room are both in the top half and a near plane there would
+    # be fighting them.
+    global FOREGROUND
+    FOREGROUND = IndexedCanvas(WIDTH, HEIGHT, fill=255)
+    cellar_stock(FOREGROUND, palette, random.Random(SEED ^ 0x21A))
+    canvas.blit(FOREGROUND, 0, 0, transparent=255)
+
     # -- the chandelier, over the dirt floor ---------------------------------
     candles, ring_y = furniture.chandelier(canvas, palette, 150, 50, 58, brass, ochre,
                                            arms=7, drop=22)
@@ -202,24 +216,27 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     return canvas, palette, field
 
 
-#: Eleven men, doc 16's count, placed rather than scattered. Five at the bar,
-#: five at the two far tables, and the one beside the stove who has not taken
-#: his coat off -- doc 19 makes him one of the eleven rather than a twelfth.
+#: SEVEN of doc 16's eleven men. The other four are sprites, declared in
+#: content/rooms/nugget.json and drawn into an idle sheet rather than into the
+#: background -- errata ruling 20, which wants at least three of a drawn crowd
+#: animated and lets the eye give the rest the credit. Painting a man here AND
+#: animating him there would put him on screen twice, so the lists are
+#: disjoint and the count is asserted across both.
 #:
 #: (x, feet, height). Depths and heights are staggered so they overlap into a
 #: knot instead of standing in a row: five evenly spaced men at one height is
 #: a picket fence, and a picket fence is not a crowd.
-BAR_PATRONS = ((226, 120, 27), (235, 116, 24), (252, 122, 29), (266, 117, 25), (292, 115, 23))
+BAR_PATRONS = ((235, 116, 24), (266, 117, 25), (292, 115, 23))
 #: (x, table index, height). Seated: shoulders start at the table top. Five
 #: of them, two at the far table and three at the mid one -- the third sits at
 #: the far side rather than standing behind it, because a standing man there
 #: lands in front of the stove and the stove is the one lit thing on that wall.
-TABLE_PATRONS = ((152, 0, 15), (180, 0, 14), (95, 1, 16), (131, 1, 15), (113, 1, 14))
+TABLE_PATRONS = ((152, 0, 15), (95, 1, 16), (131, 1, 15), (113, 1, 14))
 #: Doc 16's man beside the stove, who has not taken his coat off since Thad
 #: arrived in the territory. Doc 19 makes him one of the eleven, not a twelfth.
 #: Left of the stove, not right: the coat hooks are on the right and a man
 #: standing under three hanging coats reads as a fourth coat.
-FLOOR_PATRONS = ((99, 88, 24),)
+FLOOR_PATRONS = ()
 #: Doc 16: "There is a man on the landing. There is always a man on the
 #: landing." Seventh tread of nine, which is as near the top as the frame
 #: has -- the stairs climb out of it and so does the landing.
@@ -247,8 +264,10 @@ def patrons(canvas: IndexedCanvas, palette: Palette, rng) -> None:
                                   facing=(1, -1)[x % 2]))
     for x, feet, height in FLOOR_PATRONS:
         drawn.append(crowd.standing(canvas, palette, x, feet, height, rng, facing=0))
-    if len(drawn) != 11:
-        raise RuntimeError(f"doc 16 says eleven men; {len(drawn)} were placed")
+    painted, animated = len(drawn), len(idles.load("nugget")[1])
+    if painted + animated != 11:
+        raise RuntimeError(
+            f"doc 16 says eleven men; {painted} painted plus {animated} animated")
 
     # Hat off. He is indoors and he is waiting, and it also keeps his head out
     # of the ceiling -- there are only twenty rows above that tread. Not one
@@ -261,6 +280,38 @@ def patrons(canvas: IndexedCanvas, palette: Palette, rng) -> None:
     for bounds in drawn:
         if crowd.overlaps(bounds, VACATED):
             raise RuntimeError(f"a patron at {bounds} sits in the vacated table's space")
+
+
+def cellar_stock(canvas: IndexedCanvas, palette: Palette, rng) -> None:
+    """Barrels and crates, cropping the bottom-left corner. Ruling 21a.
+
+    Drawn in void and the floor of umber -- luminance 0 and 9 -- because a
+    near plane is out of the light by definition and because those are the two
+    values this room reaches nowhere else except its ceiling.
+
+    Stepped, not level. Three barrels at three heights with a crate wedged
+    between them gives a silhouette that climbs from the frame edge, which is
+    the diagonal 21a asks for; a row of equal barrels would be the horizontal
+    band it forbids.
+    """
+    dark = palette.family("void")
+    umber = palette.family("umber")
+
+    # (x, width, top). Climbing left to right, then falling away.
+    for x, width, top in ((-4, 20, 108), (14, 17, 100), (29, 15, 112), (42, 12, 122)):
+        canvas.rect(x, top, width, HEIGHT - top, dark.at(0))
+        canvas.hline(x, top, width, umber.at(1))                 # a lit rim, barely
+        canvas.hline(x + 1, top + 1, width - 2, umber.at(0))
+        # Hoops. Two per barrel, and they are the only thing that says barrel
+        # rather than block at this value.
+        for hoop in (top + 6, top + 16):
+            if hoop < HEIGHT:
+                canvas.hline(x + 1, hoop, width - 2, umber.at(0))
+    # A crate lid tipped against the stack, which breaks the last vertical.
+    canvas.line(52, 126, 66, 138, umber.at(0))
+    canvas.line(52, 127, 66, 139, dark.at(0))
+    for step in range(14):
+        canvas.vline(52 + step, 127 + step, HEIGHT - 127 - step, dark.at(0))
 
 
 def shafts() -> list[Shaft]:
@@ -314,6 +365,10 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     canvas.save(OUT / "room-03-nugget.png", palette)
     canvas.save(OUT / "room-03-nugget@4x.png", palette, scale=4)
+    FOREGROUND.save_rgba(FOREGROUNDS / "room-03-nugget.png", palette)
+    sheet = idles.sheet("nugget", palette, random.Random(SEED ^ 0x20))
+    sheet.save_rgba(idles.SHEETS / "room-03-nugget.png", palette)
+    sheet.save(OUT / "room-03-idle-sheet@6x.png", palette, scale=6)
     print(f"wrote {(OUT / 'room-03-nugget@4x.png').relative_to(ROOT)}")
     print(f"colours used: {len(canvas.used_indices())}")
     for index, (top, bottom) in enumerate(interior.floor_zone_rows(BOX)):

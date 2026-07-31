@@ -3,6 +3,7 @@ import type { PresentedOption } from '../core/DialogueRunner.ts';
 import type { Actor } from '../core/Actor.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import { BitmapFont } from './BitmapFont.ts';
+import { IdleLayer } from './IdleLayer.ts';
 import {
   MENU_BUTTON,
   NATIVE_WIDTH,
@@ -22,7 +23,7 @@ export interface Frame {
   barkAt: { x: number; y: number } | null;
 }
 
-/** Composed room backgrounds, keyed by room id. */
+/** Composed room images, keyed by room id. Used for both planes. */
 export type BackgroundSource = (roomId: string) => CanvasImageSource | null;
 
 const DIALOGUE_TOP = 84;
@@ -49,6 +50,17 @@ export class Renderer {
   private readonly actor: Actor;
   private readonly ambient: AmbientLayer;
   private readonly background: BackgroundSource;
+  /**
+   * Ruling 21a's near plane. Drawn AFTER the people, which is the entire
+   * mechanism: the walkable mask is unchanged and the actor's depth zone is
+   * unaffected, and only the draw order says he is behind something.
+   */
+  private readonly foreground: BackgroundSource;
+  /** Ruling 20's animated crowd members. Drawn before the actor -- crowd. */
+  private readonly idleSheet: BackgroundSource;
+  private readonly idles: IdleLayer;
+  /** Seconds since the scene started, supplied by the caller each frame. */
+  private clock = 0;
 
   constructor(
     screen: Screen,
@@ -57,6 +69,8 @@ export class Renderer {
     actor: Actor,
     ambient: AmbientLayer,
     background: BackgroundSource,
+    foreground: BackgroundSource = () => null,
+    idleSheet: BackgroundSource = () => null,
   ) {
     this.screen = screen;
     this.font = font;
@@ -64,6 +78,14 @@ export class Renderer {
     this.actor = actor;
     this.ambient = ambient;
     this.background = background;
+    this.foreground = foreground;
+    this.idleSheet = idleSheet;
+    this.idles = new IdleLayer(screen.context);
+  }
+
+  /** The animation clock, in seconds. Set once per frame by the scene. */
+  setClock(seconds: number): void {
+    this.clock = seconds;
   }
 
   /** Options currently drawn, so the scene can hit-test them. */
@@ -77,7 +99,9 @@ export class Renderer {
 
   drawFrame(frame: Frame): void {
     this.drawRoom();
+    this.idles.draw(this.state.room, this.idleSheet(this.state.room.id), this.clock);
     this.drawPeople();
+    this.drawForeground();
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
     this.drawSay(frame.sayLines);
@@ -109,6 +133,19 @@ export class Renderer {
       this.screen.fill(x, y, width, height, target.colour);
       this.screen.outline(x, y, width, height, this.screen.role('outline'));
     }
+  }
+
+  /**
+   * The near plane, over the actor. Ruling 21a.
+   *
+   * It is also baked into the composed background, so a room whose overlay
+   * fails to load still looks right -- the actor stands in front of it
+   * instead of behind it, which is a depth error rather than a hole in the
+   * picture. Drawing the same pixels twice costs one blit at 320x144.
+   */
+  private drawForeground(): void {
+    const image = this.foreground(this.state.room.id);
+    if (image) this.screen.context.drawImage(image, 0, 0);
   }
 
   /**

@@ -300,6 +300,11 @@ test('OPEN and USE walk through an exit and say nothing; every other verb answer
   const street = content.rooms.get('main_street')!;
 
   for (const exit of street.exits) {
+    // A stub exit is a door whose examine layer is honestly absent -- doc 05
+    // does not script the assay office's, and check-examine-lines skips them
+    // for the same reason. Transit is still asserted below; only the lines
+    // are exempt, because there are none to assert.
+    if (exit.stub) continue;
     // Doc 14 engine note. Going through a door is not a question about it.
     for (const verb of ['OPEN', 'USE']) {
       state.enterRoom('main_street');
@@ -344,6 +349,7 @@ test('exits carry three LOOK and three LISTEN variants from doc 14', async () =>
   state.enterRoom('main_street');
 
   for (const exit of content.rooms.get('main_street')!.exits) {
+    if (exit.stub) continue;
     for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
       state.verbs.selectVerb(verb);
       const seen = [
@@ -527,4 +533,32 @@ test('background motion is an option, on by default, and reversible', async () =
 
   state.menu.select('cycling');
   assert.equal(state.menu.toggle('cycling'), true);
+});
+
+test('a stub exit still transits, and ruling 20 keeps the landing man still', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  // Doc 20 rule 1. The assay office was composed, wired and audited while
+  // nothing on Main Street opened onto it, so the one thing this exit has to
+  // do -- with no lines at all -- is work.
+  state.enterRoom('main_street');
+  const assay = state.findTarget('to_assay_office')!;
+  state.verbs.selectVerb('OPEN');
+  assert.equal(state.interact(assay).changedRoom, true);
+  assert.equal(state.roomId, 'assay_office');
+
+  // Ruling 20: four of the Nugget's eleven animate, and the man on the
+  // landing is an explicit exception. He has no idle and must never get one.
+  const nugget = content.rooms.get('nugget')!;
+  const animated = nugget.idles?.figures ?? [];
+  assert.equal(animated.length, 4, 'ruling 20 wants at least three of this crowd moving');
+  assert.ok(!animated.some((figure) => figure.id.includes('landing')),
+    'the man on the landing does not move, and that is his whole joke');
+  for (const figure of animated) {
+    assert.ok(figure.rate >= 0.3 && figure.rate <= 0.8, `${figure.id} outside 0.3-0.8 Hz`);
+    assert.equal(figure.frames.length, 2, `${figure.id} is a two-frame idle, not a walk cycle`);
+  }
+  const rates = new Set(animated.map((figure) => figure.rate));
+  assert.equal(rates.size, animated.length, 'nothing metronomic -- no two share a rate');
 });
