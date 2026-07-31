@@ -576,7 +576,7 @@ If a token is ever wanted, it needs its own drawn asset — the decimation curve
 
 ---
 
-# 26 · THE VERB PANEL AND INVENTORY — ~~text, not icons~~ **OVERTURNED, see 29**
+# 26 · THE VERB PANEL AND INVENTORY — text, not icons
 
 The inventory's geometry appears in no document. Doc 06 specifies the array and the per-item lines and stops. Flagged during the vertical slice, with nine verbs already filling the panel width and forty items to place.
 
@@ -678,34 +678,62 @@ Double-click-to-walk was specified in the Phase 1 brief and it was wrong. It is 
 - A selected verb **persists** until another is chosen. It is not cleared by use.
 - The game remains fully playable with left click alone. Right click is never the only route to anything, per the mouse-only requirement.
 
-
 ---
 
-# 29 · INVENTORY USES ICONS — overturns 26
+# 30 · SIX RULINGS FOR ACT I
 
-Ruling 26 made inventory text on the grounds that the 1990 original did so. **That was accuracy reasoning, not design reasoning.** *Monkey Island 2* introduced the icon panel and it is the better interface; this game targets the era's discipline, not its limitations.
+## 30a · The sequence runner gets a sixth step kind: `wait`
 
-**Canonical: inventory is a grid of icons.** Verbs stay three columns of four on the left, icons on the right where the text list was, scroll arrows at the right edge, six to eight visible, sentence line full width above.
+**Granted, with the restriction you proposed.**
 
-**Item art is restored to scope.** ~40 small icons, procedurally composed against the locked palette like everything else.
+Errata 28a excluded `wait` to stop "sleep 400ms and hope" becoming a substitute for `waitForActor` in ordinary interaction. That reasoning holds for interaction and does not hold for a cutscene, where **the duration is the content** — doc 17's beats state ~6s, ~3s and a ~60–70 second total, and without a timed wait the opening cannot run at all.
 
-## Two conditions
+**`wait` is legal only inside a beat whose control is `none`.** Checkable, and checked. Anywhere else it fails the build.
 
-**1. The item name appears in the sentence line on hover and on selection.** Not optional. The sentence line already assembles "Use THE COMPANY MAP on THE MUD"; an icon must never be the only way an item is identified. **The authored display names from ruling 26 stand** — they are what the sentence line draws.
+## 30b · Doc 17's beat sheet is corrected — beats 4–6 are interactive
 
-**2. Near-identical items must be visibly distinguishable, and this is the harder half.**
+v3.1 restored the driver's tree without rewriting the table around it. **Beats 4, 5 and 6 are interactive**, because the tree that carries their lines is. `carriedBy: STAGE_DRIVER` is the right annotation and it stops being a contradiction.
 
-Form 12-C, Form 12-C (Amended), and Form 12-C (Amended, Void) are three separate items whose entire running gag is that they are distinguishable. **Rendered as three identical pieces of paper the joke is dead**, and it dies silently: the build passes, the panel looks right, and a player never learns there was a joke.
+**Beat 3 stays automatic.** Thad's declaration and "Course you have" are the exchange v3.1 models on the lookout, and that one is genuinely automatic.
 
-They need visible escalation — clean; then a torn corner and a second stamp; then VOID across the face. Arguably funnier than the text version, because the bureaucracy is visibly accumulating.
+## 30c · The map's first state — seeing counts, and the floor is two
 
-**Amended — escalation and differentiation are different problems, and I conflated them.**
+Doc 20 rule 3 says a location appears when heard of. **Amended: a location Thad can see also appears.** Under v3.1 a player may take the EXIT option immediately and hear nothing, and an empty map on first opening is a broken screen.
 
-- **Escalation** is for items that are genuinely **the same object in successive states**. The three Form 12-Cs are one form acquiring damage and stamps. Draw them as one paper with visible accumulation: clean; torn corner and a second stamp; VOID across the face. The bureaucracy is the joke and it should be watchable.
-- **Differentiation** is for items that merely **share a category**. The letter, the deed and the Company map are three unrelated documents. Drawing them as a series would spend the escalation trick early and imply a relationship that does not exist. They are a sealed envelope, a hand-drawn deed with a wax blob, and a printed map with something already circled.
+**First state, minimum two, never zero:**
 
-The *Clarion* editions are escalation — the same newspaper, later. Ozymandia's two brass rods are the joke that they are identical, so they should be identical and the check must whitelist them rather than fail. The coins are differentiation.
+| Location | Because |
+|---|---|
+| **Main Street** | He is standing on it |
+| **The road to the claims** | He can see it from the street |
+| The undertaker's | Only if the driver named him |
 
-**The uniqueness check still fails on accidental collisions. Deliberate identity is an allowlist entry with a reason, exactly as the duplicate examine lines are.**
+Doc 20's "a player who has talked to nobody has two" is **restored as true** by this amendment rather than being void — the two are now Main Street and the road, not the hotel and the undertaker.
 
-**`check-item-names` extends rather than being replaced.** It currently fails on two items drawing the same row. It must also fail on **two items rendering the same icon.** The uniqueness half was always the part that protected the gag; only the medium has changed.
+**Note: the six Main Street façades are not map entries.** They are directly enterable and the map is for what is not on the street.
+
+## 30d · The hotel lobby's material identity — worn blue-grey plush and tarnished brass
+
+Not declared in 17b, and adjacent-in-play to both Thad's room and Main Street.
+
+**Cool, faded, genteel-pretending. The only cool interior in Act I.** Blue-grey plush gone shiny at the arms, tarnished brass, oil-lamp warmth fighting a cool field and losing. A framed engraving of an Italian bay, per doc 09.
+
+It separates cleanly in three directions: the Nugget's warm timber, Thad's neutral room directly above it, and Main Street's mud and pine outside the door.
+
+**Red is not available.** 17b reserves deep leather, gilt and red for Fanshawe's office as *the only saturated interior in the game*, and spending it on a hotel lobby would cost the game its one moment of real colour.
+
+**Watch the coat.** Thad's is dark bottle green; a cool mid field should carry him on the shirt anchor, but this is the first interior where green sits near green. Measure at graybox, per errata 22 step 6.
+
+## 30e · 17b's room numbers are stale — doc 20 governs
+
+17b calls Thad's room 21 and the livery 14; doc 20 and doc 01 both say 19 and 15. **The identities are right and the numbers are stale labels.** Go by doc 20 everywhere. 17b's numbering is not authoritative for anything.
+
+## 30f · The graybox gate, for eleven interiors — both amendments accepted
+
+**Step 0, once, before any of the eleven.** Material identity is a constraint over a graph, not a per-room choice: solving it room by room means room nine finds both plausible identities taken by its neighbours. **Assign all eleven identities up front**, against doc 20's adjacency, before a single room is blocked out. 17b's declared identities are inputs to that pass, not a completed answer.
+
+**A twelfth graybox, of a room that does not exist.** The shared component library is measured against Thad *before any room uses it*. A library surface that fails in room one fails in all eleven.
+
+**The per-room gate does not relax.** 17c's corollary stands — the anchor differs per room, the face carrying Thad in Room 2 and the coat in Room 3 — and a shared library does not give a shared anchor. Eleven-at-once buys an early warning, not an exemption.
+
+**And the foreground plane at step 5 is the one to watch.** The only plane proven in play is an exterior. Eleven interiors is where ruling 21a either becomes a habit or produces eleven rooms with a table in front of the camera. **The hotel lobby proves the interior case the way Main Street proved the exterior one.** If it does not, that is a re-block at step 5, before anything is lit.
