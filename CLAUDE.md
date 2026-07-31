@@ -38,6 +38,16 @@ The engine reads JSON and knows nothing about Consolation. There are ~3,850 writ
 
 Enforce with a CI check: no content strings in any `.ts` file.
 
+## Composing a room — graybox is a gate
+
+Errata ruling 22, in full. Every room, in this order:
+
+**grayscale value block → walkable band and exits → object silhouettes → character placement and reach → occlusion test → LEGIBILITY GATE → lighting → texture → ambient animation.**
+
+Steps 1–6 are graybox. **Nothing proceeds past the legibility gate until it passes, and a room that fails there is re-blocked, not re-lit.**
+
+Three rooms have already shipped or nearly shipped broken by ignoring this. Thirty-nine remain.
+
 ## Typography
 
 Text renders through a hand-authored 1-bit 5×7 font. Rasterised system fonts anti-alias at 320×200 and are forbidden.
@@ -116,6 +126,9 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 | `docs/12-art-prompts.md` | Source-generation art prompts — superseded as final spec by 11 |
 | `docs/13-17` | Room content, opening sequence, road to done |
 | `docs/18-palette-cycling.md` | Background animation — the only non-sprite motion in the game |
+| `docs/19-19b-resolutions.md` | Resolutions for the 21 unrendered-figure hotspots |
+| `docs/20-room-map.md` | Room connectivity and the town map screen |
+| `docs/21-dossier-audit.md` | Audit against the Monkey Island design dossier |
 
 ---
 
