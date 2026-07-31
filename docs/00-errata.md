@@ -760,3 +760,45 @@ Ruling 26 made inventory text on the grounds that the 1990 original did so. **Th
 - **Ozymandia's two brass rods are deliberately identical** — that is the joke. Allowlist entry with a reason, not a failure.
 
 **`check-item-names` extends rather than being replaced:** it fails on two items drawing the same row, and must also fail on two items rendering the same icon. Deliberate identity is an allowlist entry, exactly as duplicate examine lines are.
+
+
+---
+
+# 31 · THREE ACT I DECISIONS
+
+## 31a · Room 6, the assay records room — keep the dark field, light the floor
+
+**Do not lift the field.** A records room is dark and doc 09 calls its shelves *"beautiful, in the way that only a completed thing is beautiful"* — a beauty that needs a dark surround to read against.
+
+**Light the walkable area instead.** Ruling 17c measures per surface, not per room, and a character is only ever measured against what he stands in front of. Doc 05 gives the room a high small window and Winnie's cot; add a lamp at the desk.
+
+**The result: a dark room with a lit floor.** The shelves and the upper room stay at v0.30 and the coat vanishes into them, which is correct and unmeasured because nobody stands in front of a ceiling. The floor, the desk and the window wall carry him.
+
+If the lit band still fails the gate, that is a re-block at step 5 — not a brightening pass.
+
+## 31b · Boot Hill is gated on the undertaker, not on Pike being named
+
+Doc 20's "once Pike is mentioned" is void. **Thad names Ezra Pike to the driver in the opening**, which would put Boot Hill on the map at the coach stop and break 30c's floor of two.
+
+**Canonical: Boot Hill appears when the undertaker tells Thad that Pike is dead.** A graveyard appearing before the player knows anyone is buried is also strange on its own terms.
+
+## 31c · The map's gates — visible from Main Street, or heard of
+
+Doc 20's "the six ancillary interiors appear from Act I" is unworkable against 30c. **One rule, and it follows 30c's amendment that seeing counts:**
+
+> **Everything visible from Main Street appears the first time Thad stands on Main Street.**
+
+| Gate | Locations |
+|---|---|
+| **From the start** | Main Street · the road to the claims — 30c's floor of two |
+| **The driver names him** | The undertaker's |
+| **First arrival on Main Street** | The Registrar · the livery · Ozymandia's tent · the church · the back alley · the six ancillary interiors |
+| **Heard of specifically** | Boot Hill (31b) · the diggings beyond the road junction · everything in Acts II–IV |
+
+The map goes from two locations to roughly twelve at the moment the town opens, which is the moment it should feel like a town.
+
+## 31d · The coach is an object state, not background art
+
+After departure the hotspot correctly answers *"Gone. It made very good time on the way out"* while the coach is still painted into Room 1's background. **Ruling 19b in reverse: the art asserts something the room contradicts.**
+
+**The coach and team are a state image on an object, not background.** This is what doc 22 item 9 was built for, and Room 1 is its first real use outside a proof.
