@@ -802,3 +802,96 @@ The map goes from two locations to roughly twelve at the moment the town opens, 
 After departure the hotspot correctly answers *"Gone. It made very good time on the way out"* while the coach is still painted into Room 1's background. **Ruling 19b in reverse: the art asserts something the room contradicts.**
 
 **The coach and team are a state image on an object, not background.** This is what doc 22 item 9 was built for, and Room 1 is its first real use outside a proof.
+
+
+---
+
+# 32 · COMPOSITION — the density diagnosis was wrong, and here is what replaces it
+
+I diagnosed the visual gap as object count. **Room 2 already carried twenty-four objects and still read thin.** The count was never the whole problem and in Room 2 it was not the problem at all.
+
+**Five rules replace it. The first is free and it is the largest.**
+
+## 32a · Objects must overlap
+
+**Not one object in Room 1 partially occluded another.** Room 2's boardwalk goods sat in a row along one line. In the reference essentially every object overlaps something.
+
+> **Overlap is what makes forty objects a place instead of forty stickers.**
+
+It costs nothing — the same objects, moved. **No composed room may contain a row of objects sharing a baseline with clear air between them.** Objects sit in front of, behind, and against each other.
+
+## 32b · Density belongs at the edges and in depth, never on the walkable plane
+
+The reference's habit is the opposite of what "density" suggests: **the ship's hold is packed to the walls and its floor is nearly clear. The circus clearing is empty because it is a pool of light.**
+
+Strewing the walkable plane produces litter, and it is a legibility problem with extra steps — 21a and 17c both fight it.
+
+**Pack the edges, the back wall, the upper frame and the near plane. Keep the floor clear.**
+
+## 32c · Detail is a hierarchy, not a level
+
+In the SCUMM Bar the chandelier is fussy, the floor is plain, and every pirate is individual. **Ours is uniformly low everywhere, which reads as unfinished rather than composed.**
+
+Two or three focal objects per room carry real detail. The field is plain on purpose. This is errata 23's palette proportion argument applied to line rather than colour.
+
+**Named as the worst case in the project: the Nugget's eleven patrons.** Identical dark rounded rectangles with a head block — no arms, no hats, no pose variation. They are the room's focal population and they carry the least detail in it. Fix them before any further crowd is drawn anywhere.
+
+## 32d · The foreground plane must be a nameable object, not a mass
+
+**Amends 21a.** Every MI composition puts a large, recognisable object cropped by the frame edge in the near field — barrels bottom-centre in the hold, the tree trunk and roots in the circus, tables at bottom-left in the bar.
+
+Ours obey 21a and are amorphous: a black scrub bank, a lumber pile.
+
+**A cropped, nameable object at large scale does two things a texture mass cannot:** it establishes depth in a single read, and it gives the frame a scale anchor.
+
+## 32e · Scale variety — everything we draw is 8 to 20 pixels
+
+Nobody had named this and it is why the frames read flat even when full. **Every room needs objects at three scales:** something large and cropped in the near field (40px+), the ordinary 8–20px middle, and small detail at 3–4px in the far field.
+
+32d supplies the large end for free.
+
+---
+
+# 33 · LIGHT SOURCES, AND ROOM 2'S BRIGHTNESS
+
+## 33a · A source needs a dark collar, not a hotter core
+
+Room 1's lamp core measures **205 — exactly accent_gold's ceiling**. I was about to rule a 21b-style swap to bone at 231.
+
+**Do not.** The measurement says the core is the smaller half: core-to-surround is already 124. The problem is where the surround falls — **at 81, the ground around the lamp is one of the lighter parts of a frame whose median is 53.** In the reference the windows blaze at ~200 against a wall in the 40s, and the wall runs right up to the frame.
+
+> **Ours has no frame. The lamp bleeds straight into mid-grey mud.**
+
+**Darken the collar immediately around every light source.** Costs no palette change and no swap.
+
+**And a source at this resolution is a core plus a shaped falloff, not a bright blob.** The lamp core is six pixels. This is a drawing job.
+
+## 33b · Room 2 is too bright, and the Company façade breaks a rule we already have
+
+Room 2's p90 is **156, with 17.75% of pixels over 140. Bright images flatten.**
+
+**The bone Company façade is the brightest object in the frame — brighter than the sky.** `street_scene.py`'s own comment forbids this, and so does the atmospheric-perspective rule established when Main Street's sky was fixed: *no building or hill may be lighter than the sky.*
+
+**It is a live violation of a stated rule that nothing checks. Add the check**, and bring the façade under the sky. It should read as the best-kept building on the street, not as the brightest object in the world.
+
+---
+
+# 34 · CAMERA — asymmetry, and one relationship per neighbourhood
+
+Composed rooms use four relationships, and only one interior has perspective at all: **Room 5, symmetrical one-point with the vanishing point dead centre — the most static form available.** The hold and the SCUMM Bar are both asymmetric: VP off-centre, one wall much longer than the other.
+
+**Two rules:**
+
+1. **Perspective interiors are asymmetric.** Off-centre vanishing point, unequal walls. Room 5 is re-blocked to this at its next revision — not urgently, but before it becomes the model the other ten inherit.
+2. **No two adjacent-in-play rooms share a camera relationship**, the same constraint as material identity in 17b, and assigned in the same step 0 pass.
+
+**Act I's exteriors:**
+
+| Room | Camera |
+|---|---|
+| 2 · Main Street | **Flat elevation — unchanged.** The false-front joke needs the flat view and the hub should be the stable one |
+| 1 · Stage road | **Three-quarter.** It is the first screen and it currently shares Main Street's relationship |
+| 22 · Road to the claims | Three-quarter or receding |
+| 14 · Boot Hill | Elevated three-quarter, as Room 29 |
+
+**The hotel lobby is a corner box with an off-centre vanishing point**, and it sets the pattern for the ten interiors after it.
