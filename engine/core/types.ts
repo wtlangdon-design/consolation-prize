@@ -215,6 +215,24 @@ export interface ActorSize {
   clips: ActorClip[];
 }
 
+/** content/ui/panel.json -- errata ruling 26's geometry, read by engine and tools. */
+export interface PanelFile {
+  schema: number;
+  note?: string;
+  sentence: { x: number; y: number };
+  verbs: { cols: number[]; rows: number[]; width: number; height: number; note?: string };
+  menuButton: { col: number; row: number };
+  inventory: {
+    note?: string;
+    x: number;
+    y: number;
+    width: number;
+    rowHeight: number;
+    rows: number;
+    arrows: { x: number; width: number; note?: string };
+  };
+}
+
 /** content/actors/*.json -- where a character's frames are, never how they look. */
 export interface ActorFile {
   schema: number;
@@ -241,8 +259,21 @@ export interface ItemFile {
   id: string;
   name: string;
   note?: string;
+  /**
+   * Panel name, when the full name will not fit. Errata ruling 26 point 2.
+   *
+   * AUTHORED, never computed. Form 12-C, Form 12-C (Amended) and Form 12-C
+   * (Amended, Void) are three separate items and the joke in Act II is that
+   * they are TELLABLE APART; a truncation rule renders the second and third
+   * identically at the panel width and kills the gag. So the rule is: if the
+   * name does not fit, the item carries a short one somebody wrote, and
+   * check-item-names fails the build if two items would draw the same row.
+   */
+  short?: string;
   /** In the inventory from a new game. The fork never leaves it. */
   startsHeld?: boolean;
+  /** No LOOK or LISTEN written yet. Doc 15 lists ~40 of these as unwritten. */
+  linesPending?: boolean;
   responses?: Record<string, ResponseRule[]>;
   overrides?: Record<string, string>;
 }
@@ -453,6 +484,8 @@ export interface ManifestFile {
   /** The player character's sheet and clip table. */
   actor: string;
   items: string[];
+  /** Verb panel and inventory geometry. Errata ruling 26. */
+  panel: string;
 }
 
 /** Everything the engine needs, resolved from the manifest. */
@@ -472,6 +505,7 @@ export interface ContentBundle {
   dialogue: Map<string, DialogueFile>;
   actor: ActorFile;
   items: Map<string, ItemFile>;
+  panel: PanelFile;
 }
 
 

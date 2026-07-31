@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "id": "deed_to_prosperity",
+  "name": "THE DEED TO PROSPERITY",
+  "short": "THE DEED",
+  "note": "Doc 02 puzzle A3: Deke Vessel sells it to Thad in the Nugget for his last four dollars and his father's pocket watch. Named from doc 02's item ledger, which calls it 'Deed to Prosperity'. The ledger also says it cannot be lost. PROVISIONAL SHORT NAME -- the full name is 22 characters and the panel holds 20, and errata 26 asks for authored shorts rather than computed truncation. This one is mine and wants Tyler's eye on it. No LOOK or LISTEN is written for this item anywhere in /docs. Doc 15 lists ~40 inventory item LOOK and LISTEN lines as unwritten and these are two of them, so they are NOT invented here -- the item exists, is carried, is named, and answers unhandled verbs from doc 13's authored global pools. check-item-names reports it until the lines are written.",
+  "linesPending": true
+}

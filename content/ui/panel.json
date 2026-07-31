@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "note": "Errata ruling 26. Verbs left in three columns, inventory right as a scrollable list of item NAMES IN TEXT, sentence line full width above both -- the 1990 original's layout, and text inventory is the period-correct answer rather than a compromise. Geometry lives here rather than in Screen.ts because two things read it: the engine, and the Python that renders the panel for review. Two copies of a rectangle stay in agreement for about one commit.",
+  "sentence": {
+    "x": 6,
+    "y": 146
+  },
+  "verbs": {
+    "note": "SCUMM had twelve verbs in three columns of four. We have nine, per Bible v2, so the fourth row carries the MENU button instead of three more verbs -- the grid is the reference's shape and no cell is left empty.",
+    "cols": [
+      4,
+      62,
+      120
+    ],
+    "rows": [
+      155,
+      166,
+      177,
+      188
+    ],
+    "width": 56,
+    "height": 11
+  },
+  "menuButton": {
+    "col": 0,
+    "row": 3
+  },
+  "inventory": {
+    "note": "Four rows visible, which is the bottom of ruling 26's four-to-six. Six would need 7px rows and the font is 7 tall, leaving no gap between names. The text column is 121px, which is twenty glyphs at the 5x7 advance -- that number is the truncation rule's whole basis.",
+    "x": 182,
+    "y": 155,
+    "width": 122,
+    "rowHeight": 11,
+    "rows": 4,
+    "arrows": {
+      "note": "Drawn as triangles, not typed. The 5x7 face has no arrow glyph and adding one would put an interface shape into the writing font.",
+      "x": 306,
+      "width": 10
+    }
+  }
+}
