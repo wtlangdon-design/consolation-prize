@@ -5,11 +5,19 @@
 
 ---
 
+# CORRECTION — this table was wrong when written
+
+*Added after an external audit against `main`. The table below listed principles as "already in place" on the strength of Claude Code's reports rather than the code. **Occlusion, staging marks and entrance coordinates were not on `main` and several still are not.** The implementation work was sitting on an unmerged branch six commits ahead while documents were pushed directly to `main`.*
+
+**Rule going forward: a principle counts as in place when it is on `main`, verified in the schema or the renderer. Not when it is ruled, and not when it is reported.**
+
+Specifically corrected below: occlusion was **ruled**, implemented on a branch, and **not merged**. `RoomFile` on `main` had no foreground field, no occlusion mask, no entrances and no staging marks.
+
 # CONFIRMED — already in place
 
 | Dossier principle | Ours |
 |---|---|
-| Z-planes: occlusion as functional room data | Ruling 21a — arrived at independently the same day |
+| Z-planes: occlusion as functional room data | Ruling 21a — **ruled, not merged when this was written.** See correction above |
 | Depth scaling by position | Ruling 15 |
 | Ambient motion as actors, not baked into background | Ruling 20's architectural consequence |
 | Dependency charts, parallel goals over one corridor | Doc 02's three trials |
@@ -17,7 +25,7 @@
 | Failed actions are authored content | Docs 13, 14 |
 | Humour embedded in nouns | The whole examine layer |
 | Graybox before finish | **Stated, not practised — see gap 1** |
-| Room spec as data: walk polygons, occlusion, entrances, exits, hotspots | Present, except `actor_staging_marks` |
+| Room spec as data: walk polygons, occlusion, entrances, exits, hotspots | **Partially wrong as written.** `RoomFile` carries hotspots, exits, walkable regions with depth zones, cycling and ambient. It does **not** carry occlusion, entrances or staging marks. Entrance placement is a real gap: on a room change Thad is placed in the centre of the last walkable rectangle rather than arriving at the door he used |
 
 **On "do not copy insult-swordfighting":** the Liar's Assay occupies the same structural slot — dialogue as combat, learn the counters by losing. The content is entirely different (boasting about gold, not insults), as is the joke, and its payoff inverts the mechanic when Thad wins by telling the truth. The transferable lesson is the structure; the proprietary noun is the insult duel. Judged clear, and recorded here so the judgement is visible rather than assumed.
 
@@ -107,6 +115,14 @@ Doc 15 already commits to writing every room at full standard, so this is not a 
 **Ours:** the Nugget has the stove cycling, the chandelier cycling, and four crowd idles. Six moving elements, arguably two categories.
 
 **Change:** none yet. Watch it in the GIF. If it reads as busy, drop the chandelier — it is the weakest of the six and doc 05 describes it as unlit anyway.
+
+---
+
+# GAP 7 · Entrance placement — **severity: medium, added by external audit**
+
+On a room change the actor is placed at the centre of the last walkable rectangle rather than at the entrance he arrived through. Walking out of the Nugget's front door should put Thad on Main Street's boardwalk outside the Nugget, not in the middle of the road.
+
+`RoomFile` needs an `entrances` field: named arrival points, one per incoming exit, each with a position and a facing. Ruling 22's step 2 already asks for entrances at graybox; the schema does not yet hold them.
 
 ---
 
