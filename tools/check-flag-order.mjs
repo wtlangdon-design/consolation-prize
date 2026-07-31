@@ -37,6 +37,14 @@ function collectWrites(content) {
   for (const { option } of allDialogueOptions(content)) {
     record(option.set, option.add);
   }
+  // A sequence beat is a writer like any other. Doc 17 v3 took the driver's
+  // tree away, and with it the only content-side writer for the coach
+  // departing and Hob crossing -- both of which Room 1 gates hotspots on. The
+  // writes did not disappear, they moved to the beats; not counting them here
+  // would report Room 1's gates as unsatisfiable, which is exactly backwards.
+  for (const { data } of content.sequences ?? []) {
+    for (const beat of data.beats ?? []) record(beat.set, beat.add);
+  }
 
   return { sets, adds };
 }

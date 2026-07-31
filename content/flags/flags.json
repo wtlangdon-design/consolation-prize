@@ -38,27 +38,27 @@
       "id": "T_OPENING_SAID",
       "type": "bool",
       "initial": false,
-      "note": "Thad has said his opening line. Doc 17 beat 4; set by whichever of the three options the player picks."
-    },
-    {
-      "id": "T_DRIVER_PLACE",
-      "type": "bool",
-      "initial": false,
-      "note": "The driver has said where this is. Doc 17 gates his option 2 on it -- you cannot ask 'what hole?' before he has mentioned a hole."
+      "note": "Thad has said his opening line. Doc 17 v3 beat 3 -- one canonical line, played sincerely, not a choice. The three-option version and the flag's old writer are both void.",
+      "writtenBy": [
+        "sequence:opening:3"
+      ]
     },
     {
       "id": "T_COACH_DEPARTED",
       "type": "bool",
       "initial": false,
-      "note": "The coach has gone. Doc 17 beat 7: set by the driver's EXIT line, not by a timer. Beat 8, Hob's crossing, keys off this."
+      "note": "The coach has gone. Doc 17 v3 beat 7: the coach recedes east under the act card. It departed on the driver's EXIT line while he had a tree; v3 has no tree, so the sequence departs it.",
+      "writtenBy": [
+        "sequence:opening:7"
+      ]
     },
     {
       "id": "T_HOB_CROSSING",
       "type": "bool",
       "initial": false,
-      "note": "Hob is on screen. Doc 17 beat 8, which fires on the coach departing OR the player reaching the west road, whichever comes first. Its own flag rather than a reading of T_COACH_DEPARTED, so that the second trigger has somewhere to land when the opening-sequence driver exists -- only the first of the two can be expressed in content today.",
+      "note": "Hob is on screen. Doc 17 v3 beat 9 -- renumbered from beat 8 by the act card moving in ahead of it. Now the second strange encounter rather than the first, and it carries no exposition.",
       "writtenBy": [
-        "dialogue:stage_driver:root:drv9"
+        "sequence:opening:9"
       ]
     },
     {

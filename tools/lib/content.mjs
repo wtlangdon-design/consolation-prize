@@ -31,6 +31,7 @@ export function loadContent() {
     rooms: manifest.rooms.map((path) => ({ path, data: readJson(path) })),
     dialogue: manifest.dialogue.map((path) => ({ path, data: readJson(path) })),
     puzzles: manifest.puzzles.map((path) => ({ path, data: readJson(path) })),
+    sequences: (manifest.sequences ?? []).map((path) => ({ path, data: readJson(path) })),
   };
 }
 

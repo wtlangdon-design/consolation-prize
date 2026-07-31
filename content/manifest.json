@@ -21,14 +21,15 @@
     "content/rooms/harness-b.json"
   ],
   "dialogue": [
-    "content/dialogue/stage-driver.json",
-    "content/dialogue/opening-line.json",
     "content/dialogue/amb-letter-writer.json",
     "content/dialogue/amb-pie-woman.json",
     "content/dialogue/amb-map-seller.json",
     "content/dialogue/harness-tree.json"
   ],
   "puzzles": [],
+  "sequences": [
+    "content/sequences/opening.json"
+  ],
   "actor": "content/actors/thad.json",
   "panel": "content/ui/panel.json",
   "items": [

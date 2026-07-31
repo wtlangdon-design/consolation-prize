@@ -2,6 +2,7 @@ import { runCheck } from './lib/content.mjs';
 
 import { check as noContentInCode } from './check-no-content-in-code.mjs';
 import { check as contentSchema } from './check-content-schema.mjs';
+import { check as extraction } from './check-extraction.mjs';
 import { check as paletteLocked } from './check-palette.mjs';
 import { check as walkableZones } from './check-walkable.mjs';
 import { check as roomEntries } from './check-room-entries.mjs';
@@ -26,6 +27,7 @@ import { check as puzzleGraph } from './check-puzzle-graph.mjs';
 const CHECKS = [
   noContentInCode,
   contentSchema,
+  extraction,
   paletteLocked,
   walkableZones,
   roomEntries,

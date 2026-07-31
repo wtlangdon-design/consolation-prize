@@ -1,4 +1,6 @@
-import { allDialogueOptions, allInteractables, loadContent, Report, runCheck } from './lib/content.mjs';
+import {
+  allDialogueOptions, allResponseCarriers, loadContent, Report, runCheck,
+} from './lib/content.mjs';
 
 /**
  * Every character the game can draw has a glyph.
@@ -10,7 +12,10 @@ import { allDialogueOptions, allInteractables, loadContent, Report, runCheck } f
 function collectStrings(content) {
   const strings = [];
 
-  for (const { roomId, target } of allInteractables(content)) {
+  // Response carriers rather than room targets: an item's name goes in the
+  // sentence line and its lines are spoken, so they are drawn text and need
+  // glyphs exactly as a hotspot's do.
+  for (const { roomId, target } of allResponseCarriers(content)) {
     strings.push({ text: target.name, where: `${roomId}/${target.id} (name)` });
     for (const [verb, rules] of Object.entries(target.responses ?? {})) {
       rules.forEach((rule, index) => {
@@ -69,6 +74,22 @@ function collectStrings(content) {
   }
   for (const [key, value] of Object.entries(content.ui.dialogue)) {
     strings.push({ text: value, where: `ui.dialogue.${key}` });
+  }
+
+  // Sequence beats. Only the drawn parts: what a character says, and the act
+  // card. The description and the note are the document talking to us.
+  for (const { data } of content.sequences ?? []) {
+    for (const beat of data.beats ?? []) {
+      (beat.lines ?? []).forEach((spoken, index) => {
+        strings.push({ text: spoken.line, where: `${data.id}/beat ${beat.beat}[${index}]` });
+      });
+      if (beat.actCard) {
+        strings.push({ text: beat.actCard, where: `${data.id}/beat ${beat.beat} (act card)` });
+      }
+    }
+    for (const speaker of Object.values(data.speakers ?? {})) {
+      strings.push({ text: speaker.name, where: `${data.id} (speaker)` });
+    }
   }
 
   return strings;

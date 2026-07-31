@@ -640,6 +640,8 @@ export interface ManifestFile {
   rooms: string[];
   dialogue: string[];
   puzzles: string[];
+  /** Doc 17's opening and anything else authored as beats rather than a tree. */
+  sequences: string[];
   /** The player character's sheet and clip table. */
   actor: string;
   items: string[];
@@ -671,6 +673,42 @@ export interface ContentBundle {
   panel: PanelFile;
   combinations: CombinationsFile;
   itemIcons: ItemIconsFile;
+  sequences: Map<string, SequenceFile>;
+}
+
+/**
+ * content/sequences/*.json -- a scene authored as beats rather than as a
+ * dialogue tree, extracted from the doc that writes it.
+ *
+ * Deliberately NOT the same shape as errata 28a's SequenceStep. That runner
+ * has five step kinds and no timed wait, and doc 17's beats are timed; a beat
+ * is what the document says happens, and lowering it into steps the runner
+ * can execute is a separate job that has not been done. Loading them now
+ * means the lines are content the validators can see rather than prose in a
+ * markdown file that nothing checks.
+ */
+export interface SequenceFile {
+  schema: number;
+  id: string;
+  note?: string;
+  /** Why the engine cannot play this yet, if it cannot. */
+  unplayed?: string;
+  /** Lines the doc carries that have no home in content yet. */
+  unwritten?: string[];
+  speakers: Record<string, { name: string; note?: string }>;
+  beats: SequenceBeat[];
+}
+
+export interface SequenceBeat {
+  beat: number;
+  description: string;
+  /** 'menu' is the title screen, 'none' is a cutscene, 'player' has control. */
+  control: 'menu' | 'none' | 'player';
+  seconds?: number;
+  note?: string;
+  actCard?: string;
+  lines?: { speaker: string; line: string }[];
+  set?: Record<string, boolean | number>;
 }
 
 

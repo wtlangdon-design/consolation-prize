@@ -713,3 +713,44 @@ test('doc 24 rule 4: no authored pair exists without a written line', async () =
       `${pair.item} on ${pair.room}/${pair.target} has no line`);
   }
 });
+
+test('doc 17 v3: the opening is one canonical line, four driver beats and a late act card', async () => {
+  const content = await loadContent(fsReader);
+  const opening = content.sequences.get('opening');
+  assert.ok(opening, 'the opening sequence loads through the manifest');
+
+  // ONE line, played sincerely, not a choice. v2's three-option node is void:
+  // it is gone from content, and the beat that replaced it carries exactly
+  // one thing for Thad to say.
+  const declaration = opening.beats.find((beat) => beat.beat === 3)!;
+  const thad = (declaration.lines ?? []).filter((spoken) => spoken.speaker === 'thad');
+  assert.equal(thad.length, 1, 'Thad has one opening line, not three to pick from');
+  assert.equal(
+    thad[0]!.line,
+    'My name is Thaddeus Grubb. I have come to Consolation to make my fortune.',
+  );
+  assert.equal(declaration.set?.T_OPENING_SAID, true);
+
+  // The driver is four beats and no tree. He speaks in 3, 4, 5 and 6 and is
+  // gone; nothing in content is a dialogue tree of his any more.
+  const driverBeats = opening.beats
+    .filter((beat) => (beat.lines ?? []).some((spoken) => spoken.speaker === 'stage_driver'))
+    .map((beat) => beat.beat);
+  assert.deepEqual(driverBeats, [3, 4, 5, 6]);
+  assert.ok(!content.dialogue.has('STAGE_DRIVER'), "the driver's tree is void");
+  assert.ok(!content.dialogue.has('OPENING_LINE'), 'the three-option line is void');
+
+  // The act card lands AFTER the coach leaves, on the view of the town --
+  // not before Room 1 fades up. Beat 1 is the title and must not carry it.
+  const carded = opening.beats.filter((beat) => beat.actCard);
+  assert.equal(carded.length, 1);
+  assert.equal(carded[0]!.beat, 7);
+  assert.equal(carded[0]!.set?.T_COACH_DEPARTED, true, 'the coach goes under the card');
+  assert.equal(opening.beats.find((beat) => beat.beat === 1)!.control, 'menu');
+
+  // Room 1 gates hotspots on the coach and on Hob. Both writes moved from the
+  // driver's tree to the beats when the tree went; if they had not, those
+  // gates would be unreachable.
+  const hob = opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!;
+  assert.equal(hob.beat, 9, 'the act card pushed Hob from beat 8 to beat 9');
+});
