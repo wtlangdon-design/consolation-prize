@@ -21,7 +21,7 @@
 
 | # | Beat | Interactive | Notes |
 |---|---|---|---|
-| 1 | Title screen — the ridge, CONSOLATION PRIZE, menu | yes | |
+| 1 | Title screen — THE LAST CLAIM IN CONSOLATION, menu | yes | |
 | 2 | Hard cut to black. Act card, 3s or click. | no | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
 | 3 | Room 1 fades up. Night. The coach is halted; the driver is unloading. | no · ~4s | |
 | 4 | **Thad's opening line — a three-option choice.** | **yes** | First thing the player ever does is pick a line. See below. |
@@ -73,6 +73,14 @@ Option 2 states the want plainly, which is what doc 01 says is the engine. Optio
 **Option 5 is the joke that pays off in twenty minutes.** The undertaker does know everybody. He knows Ezra Pike because he buried him in 1852.
 
 ---
+
+## The title, and its layout constraint
+
+**The game is titled *The Last Claim in Consolation*.** Renamed 30 July from *Consolation Prize*.
+
+"Claim" carries both meanings the game runs on — a mining claim, and an assertion. The town was built on a claim that was a lie, and the last puzzle is a filing.
+
+**Layout:** 27 characters against the old title's 16. At 320 pixels the split is **`THE LAST CLAIM` / `IN CONSOLATION`** — 14 and 14, balanced, two lines as before. The drawn letterforms must shrink to fit; keep the weathered, slightly irregular signwriting character established in the existing title art, which was right and is the only thing about that screen not to change.
 
 ## The act card
 
