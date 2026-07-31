@@ -596,3 +596,45 @@ The inventory's geometry appears in no document. Doc 06 specifies the array and 
 3. The held-item sentence templates added to `ui.json` during the slice are correct and stay.
 
 **On item-on-target resolution:** the slice found that USE FORK ON MUD answers from the global pool rather than the mud's own USE override. That is correct and doc 13 says so — an override answers its verb-object pair, and a held item makes a different sentence. No change.
+
+---
+
+# 27 · THREE EXCEPTIONS TO DOC 22
+
+`docs/22-scumm-deep-dive.md` is binding. It is a better technical specification of the SCUMM room model than this project had, and it is adopted substantially whole rather than paraphrased.
+
+**Three exceptions, and nothing else.**
+
+## 27a · Scaling — ruling 24 stands, doc 22 §4 does not
+
+Doc 22 recommends keeping three hand-drawn sizes and calls stepped scaling "a Consolation-specific aesthetic compromise."
+
+**It was written before the measurement.** Ruling 24 is empirical: 32px decimated from 40 is near-interchangeable with a hand-drawn 32 at 16×; 26px is not, and the eye-death row is **30**, measured by decimating one row at a time. Two drawn sizes, continuous decimation between, one snap at the measured threshold.
+
+**Doc 22's advice inside that model is adopted:**
+
+- **Place the snap at a visual interruption** — an occlusion edge, a surface break, a doorway. Room 2's snap currently lands at y106; confirm whether that coincides with the boardwalk/mud boundary, and move it if it does not.
+- **Feet stay locked to the ground point through the transition.**
+- **Never change size and facing on the same frame** unless deliberately hidden.
+- The acceptance criterion is doc 22's, and it is better than a size count: *a player should perceive depth, not a sprite changing size.*
+
+## 27b · Inventory — errata 26 stands
+
+Doc 22's object model treats inventory items as objects with image states. **Item art is struck.** The 1990 original listed inventory as text; icons came later. Items carry a display name, a full LOOK and a LISTEN line, and no image.
+
+The rest of doc 22's object model — walk-to point, required facing, ownership, verb-to-script table, runtime state — applies to inventory items unchanged.
+
+## 27c · Camera — not applicable
+
+Doc 22's sequence system includes a `camera` step. **This game has no camera.** Rooms are fixed single-screen views at 320×144. Omit it from the sequence step union rather than implementing a no-op.
+
+---
+
+## What doc 22 correctly identifies that this errata got wrong
+
+Recorded so it is not restated as new later:
+
+1. **Occlusion was documented, not implemented.** Ruling 21a specified a foreground plane; doc 21 then listed z-planes as "already in place." Both were wrong about the runtime. Doc 22's model is stronger than 21a's single overlay — **multiple planes, an actor carrying a clip level derived from its walk box** — and supersedes it.
+2. **Walk geometry is rectangles and straight lines.** Rulings 15 and 24 refined *scaling* while the geometry underneath stayed a list of rectangles. Doc 22 §3 is right that this is why Main Street reads flat: walk boxes are what make a character follow the painted street rather than cross it.
+3. **Objects have no staging.** The single largest gap for how the game *feels*. Doc 22 §6's sequence — resolve, walk to the object's staging point, wait, turn to required facing, wait, play chore, run script, respond — is the difference between an adventure game and clicking on things. Nothing in this errata anticipated it.
+4. **There is no choreography runner.** The opening sequence, the funeral, the coffin and the final duel all need one, and doc 17 specified beats with no machine to run them.
