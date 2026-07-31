@@ -1,4 +1,4 @@
-# CONSOLATION PRIZE
+# THE LAST CLAIM IN CONSOLATION
 ## Room 3 — The Bountiful Nugget · Full Content
 
 *Completes doc 05's six unwritten hotspots, adds one, and supplies repeat variants, verb overrides and exits. Written content — verbatim.*
