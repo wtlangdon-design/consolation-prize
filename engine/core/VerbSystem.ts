@@ -1,4 +1,6 @@
-import type { Interactable, ResponseRule, VerbFallbacksFile, VerbsFile } from './types.ts';
+import type {
+  CombinationsFile, Interactable, ResponseRule, VerbFallbacksFile, VerbsFile,
+} from './types.ts';
 import type { FlagStore } from './FlagStore.ts';
 
 export interface ResolvedAction {
@@ -23,11 +25,16 @@ export class VerbSystem {
   private readonly file: VerbsFile;
   private readonly flags: FlagStore;
   private readonly pools: Record<string, string[]>;
+  private readonly combinations: CombinationsFile | undefined;
 
-  constructor(file: VerbsFile, flags: FlagStore, fallbacks?: VerbFallbacksFile) {
+  constructor(
+    file: VerbsFile, flags: FlagStore, fallbacks?: VerbFallbacksFile,
+    combinations?: CombinationsFile,
+  ) {
     this.file = file;
     this.flags = flags;
     this.pools = fallbacks?.pools ?? {};
+    this.combinations = combinations;
     for (const verb of file.verbs) {
       this.verbLabels.set(verb.id, verb.label);
     }
@@ -85,18 +92,56 @@ export class VerbSystem {
   }
 
   /**
-   * A verb applied WITH an item TO a target.
+   * A verb applied WITH an item TO a target. Doc 24's three tiers, resolved
+   * most specific first.
    *
-   * Doc 06 specifies combination as a lookup table of pairs. NO SUCH TABLE
-   * EXISTS YET and none of the design documents writes a line for any pair,
-   * so this deliberately does not fall through to the target's own override:
-   * "On what." is written as the answer to USE THE MUD, and it is not the
-   * answer to USE THE TUNING FORK ON THE MUD. What answers here is the global
-   * pool, which doc 13 states is for exactly this -- no object-specific line
-   * exists for the combination, because no combination has one.
+   *   1. the authored pair for this item on this target;
+   *   2. this item's own pool, rotating;
+   *   3. the global pool, rotating.
+   *
+   * It deliberately never reaches the TARGET's own override. "On what." is
+   * written as the answer to USE THE MUD and it is not the answer to USE THE
+   * TUNING FORK ON THE MUD -- a held item makes a different sentence, so it
+   * gets a different table.
+   *
+   * RULE 4. A pair that exists with no written line returns NOTHING rather
+   * than falling to a pool. Doc 24 note 4: a combination that should do
+   * something and has none is reported as unwritten, and a pool line standing
+   * in for it is a gap that reads as content. check-combinations fails the
+   * build on one, so this branch should be unreachable in a shipped build --
+   * it is here so that if it ever is reached, it is obvious.
    */
-  resolveWith(verbId: string, _itemId: string, _target: Interactable): ResolvedAction {
-    return { say: this.nextFromPool(verbId), dialogue: null, goto: null };
+  resolveWith(
+    _verbId: string, itemId: string, target: Interactable, roomId: string,
+  ): ResolvedAction {
+    const table = this.combinations;
+    const pair = table?.pairs.find(
+      (candidate) => candidate.item === itemId
+        && candidate.room === roomId
+        && candidate.target === target.id,
+    );
+    if (pair) {
+      this.flags.applyWrites(pair.set);
+      return { say: pair.say ?? null, dialogue: null, goto: null };
+    }
+    const own = table?.itemPools[itemId];
+    if (own?.length) return { say: this.rotate(`item:${itemId}`, own), dialogue: null, goto: null };
+    const global = table?.globalPool ?? [];
+    if (global.length) return { say: this.rotate('combination', global), dialogue: null, goto: null };
+    return { say: null, dialogue: null, goto: null };
+  }
+
+  /**
+   * The next line of a pool, in order, wrapping.
+   *
+   * Order rather than random, which is doc 13's rule for the verb pools and
+   * doc 24's for the item pools: it gives never-repeat-consecutively for free
+   * and it is deterministic, so a save and a test see the same sequence.
+   */
+  private rotate(key: string, pool: string[]): string | null {
+    const cursor = this.poolCursor.get(key) ?? 0;
+    this.poolCursor.set(key, cursor + 1);
+    return pool[cursor % pool.length] ?? null;
   }
 
   selectVerb(id: string): void {
@@ -176,9 +221,7 @@ export class VerbSystem {
   private nextFromPool(verbId: string): string | null {
     const pool = this.pools[verbId];
     if (!pool || pool.length === 0) return null;
-    const cursor = this.poolCursor.get(verbId) ?? 0;
-    this.poolCursor.set(verbId, cursor + 1);
-    return pool[cursor % pool.length] ?? null;
+    return this.rotate(verbId, pool);
   }
 
   private nextFallback(target: Interactable): string | null {

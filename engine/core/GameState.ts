@@ -42,7 +42,8 @@ export class GameState {
   constructor(content: ContentBundle, storage: StorageLike) {
     this.content = content;
     this.flags = new FlagStore(content.flags);
-    this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks);
+    this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks,
+      content.combinations);
     this.dialogue = new DialogueRunner(content.dialogue, this.flags);
     this.saves = new SaveManager(storage);
     this.menu = new MenuSystem(content.menu, this.saves,
@@ -216,7 +217,7 @@ export class GameState {
     // question and draws on a different source. Checked after transit, so
     // walking through a door while carrying something still walks.
     const action = this.held
-      ? this.verbs.resolveWith(verb, this.held, target)
+      ? this.verbs.resolveWith(verb, this.held, target, this.currentRoomId)
       : this.verbs.resolve(verb, target);
 
     if (action.dialogue) {

@@ -652,3 +652,64 @@ test('an item with two ruling 19a states keeps a cursor per state', async () => 
   assert.deepEqual(before, [alive.say, alive.repeat![0]], 'the before-state runs in order');
   assert.equal(after, dead.say, 'the after-state starts at its own first line');
 });
+
+test("doc 24's three tiers resolve most specific first, and pools rotate", async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street');
+  const table = content.combinations;
+
+  // TIER 1 -- the authored pair. The fork on the notices is doc 24 section 4,
+  // and it is the acceptance interaction's line.
+  const notices = state.findTarget('posted_notices')!;
+  const pair = table.pairs.find(
+    (candidate) => candidate.item === 'tuning_fork' && candidate.target === 'posted_notices')!;
+  assert.equal(
+    state.verbs.resolveWith('USE', 'tuning_fork', notices, 'main_street').say,
+    pair.say,
+    'an authored pair answers before any pool',
+  );
+
+  // TIER 2 -- the item's own pool, on a target with no pair. The trough has
+  // none, and doc 24 says not to add one: the fork pool is funnier.
+  const trough = state.findTarget('water_trough')!;
+  const fork = table.itemPools.tuning_fork!;
+  const drawn = fork.map(() => state.verbs.resolveWith('USE', 'tuning_fork', trough, 'main_street').say);
+  assert.deepEqual(drawn, fork, 'the item pool comes out in order');
+  for (let index = 1; index < drawn.length; index += 1) {
+    assert.notEqual(drawn[index], drawn[index - 1], 'a pool line never follows itself');
+  }
+  assert.equal(
+    state.verbs.resolveWith('USE', 'tuning_fork', trough, 'main_street').say, fork[0],
+    'and then wraps',
+  );
+
+  // TIER 3 -- the global pool, for an item with no pool of its own. Nothing
+  // in Act I is in that position, so this is asserted against the resolver
+  // rather than against content.
+  const orphan = { id: 'nothing_at_all', name: 'X', rect: [0, 0, 0, 0] as [number, number, number, number], colour: 0 };
+  assert.equal(
+    state.verbs.resolveWith('USE', 'no_such_item', orphan, 'main_street').say,
+    table.globalPool[0],
+    'an item with no pool falls to the global one',
+  );
+
+  // The target's OWN override is never reached. "On what." answers USE THE
+  // MUD and is not the answer to USE THE TUNING FORK ON THE MUD.
+  const mud = state.findTarget('mud')!;
+  assert.equal(mud.overrides!.USE, 'On what.');
+  assert.notEqual(
+    state.verbs.resolveWith('USE', 'tuning_fork', mud, 'main_street').say, 'On what.',
+  );
+});
+
+test('doc 24 rule 4: no authored pair exists without a written line', async () => {
+  const content = await loadContent(fsReader);
+  // The runtime half of the rule the build check enforces. A pair with no
+  // line returns NOTHING rather than a pool line, so a gap cannot disguise
+  // itself as content -- which is the whole of note 4.
+  for (const pair of content.combinations.pairs) {
+    assert.ok(typeof pair.say === 'string' && pair.say.length > 0,
+      `${pair.item} on ${pair.room}/${pair.target} has no line`);
+  }
+});

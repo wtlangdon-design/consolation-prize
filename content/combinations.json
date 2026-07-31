@@ -1,0 +1,138 @@
+{
+  "schema": 1,
+  "note": "Doc 24, which fills doc 06's combination table -- specified in the technical spec and never written until now. THREE TIERS, resolved most specific first: an authored pair, then the item's own pool, then the global pool. Doc 24's own instruction is not to add pairs merely to avoid a pool: the fork pool is funnier than forty fork pairs would be, because a pool is a character's relationship to the world rather than to one object.",
+  "rule4": "Doc 24 note 4. No authored pair may exist without a written line. A combination that should do something and has none is REPORTED as unwritten and never falls through to a pool -- a pool line in place of a missing pair is a gap that looks like content, which is the same silent failure the item-name uniqueness check exists to prevent.",
+  "pairs": [
+    {
+      "item": "tuning_fork",
+      "room": "hotel_parlour",
+      "target": "piano",
+      "puzzle": "A2",
+      "say": "Four minutes. It is the first honest work done in this building in some time.",
+      "targetPending": "Doc 02 A2. Room 18 is not built."
+    },
+    {
+      "item": "horse_blanket",
+      "room": "prosperity",
+      "target": "the_hole",
+      "puzzle": "A5",
+      "say": "I have stopped the draught with a horse blanket. The hole has gone cold. We shall see what the raccoon makes of that.",
+      "targetPending": "Doc 02 A5. Prosperity is not built."
+    },
+    {
+      "item": "tuning_fork",
+      "room": "nugget",
+      "target": "piano",
+      "puzzle": "A8",
+      "say": "Four minutes. C-sharp has come home, and nobody in this room has looked up."
+    },
+    {
+      "item": "deed",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "A9",
+      "say": "Filed. Mr Sump has written a number in a book, and the number is mine.",
+      "targetPending": "Doc 02 A9. Room 7 exists; doc 05 marks its hotspot list a working script and the counter is not among the five wired."
+    },
+    {
+      "item": "filing_fee",
+      "room": "claims_registrar",
+      "target": "sump",
+      "puzzle": "A9",
+      "say": "Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure.",
+      "targetPending": "Doc 02 A9. Sump is a character, not scenery -- he arrives with the minor character trees doc 15 lists as sketched only."
+    },
+    {
+      "item": "tuning_fork",
+      "room": "main_street",
+      "target": "posted_notices",
+      "say": "Paper. It absorbs. I have learned nothing and I am going to do it again."
+    },
+    {
+      "item": "tuning_fork",
+      "room": "main_street",
+      "target": "mud",
+      "say": "Nothing. Mud does not resonate. I have now established that experimentally and I would like it forgotten."
+    },
+    {
+      "item": "tuning_fork",
+      "room": "main_street",
+      "target": "dog",
+      "say": "He has heard it. He has decided against having an opinion."
+    },
+    {
+      "item": "tuning_fork",
+      "room": "main_street",
+      "target": "church_steeple",
+      "say": "Four hundred yards away, and I have struck a tuning fork at it. I am aware."
+    },
+    {
+      "item": "tuning_fork",
+      "room": "main_street",
+      "target": "company_sign",
+      "say": "Gilt over pine. It sounds like pine."
+    },
+    {
+      "item": "horse_blanket",
+      "room": "main_street",
+      "target": "dog",
+      "say": "He is warmer than I am."
+    },
+    {
+      "item": "company_map",
+      "room": "main_street",
+      "target": "hills",
+      "say": "I have compared the map to the hills. The hills are winning."
+    },
+    {
+      "item": "deed",
+      "room": "main_street",
+      "target": "mud",
+      "say": "I have shown the mud its deed. The mud is unmoved, which is the correct response and I resent it."
+    }
+  ],
+  "itemPools": {
+    "tuning_fork": [
+      "I have struck it against it. The fork is still A. The world is unchanged.",
+      "It rings. Nothing else does.",
+      "That cannot be tuned. I have established this experimentally, which tells you something about my week.",
+      "A. Four hundred and forty. Everything else remains as it was.",
+      "Nothing. I am beginning to think the fault is not with the fork."
+    ],
+    "horse_blanket": [
+      "It is a blanket. It goes over things, or under them, and that is the whole of its range.",
+      "I have put a blanket on it. Nothing has improved.",
+      "No."
+    ],
+    "company_map": [
+      "It is a map. It tells me where things are. It does not do anything to them.",
+      "I have held a map against it. We are both embarrassed."
+    ],
+    "deed": [
+      "I am not going to wave a legal document at it.",
+      "It is a paper saying that forty feet of mud belongs to me. It has no further powers."
+    ],
+    "letter": [
+      "It is sealed and it is addressed to a dead man. I am not opening it for this."
+    ],
+    "four_dollars": [
+      "That is money, and that is not a thing money buys.",
+      "I have four dollars. I am not spending them on that."
+    ],
+    "filing_fee": [
+      "That is money, and that is not a thing money buys.",
+      "I have four dollars. I am not spending them on that."
+    ],
+    "pickaxe": [
+      "I could. I have thought about it. I am not going to.",
+      "That would be destruction of property, and at least a third of the property is mine."
+    ]
+  },
+  "itemPoolNote": "Rotated in order, so a line never follows itself -- the same rule doc 13 sets for the verb pools. Doc 24 note 1: the fork pool is the highest-traffic piece of writing in Act I, because striking the fork against things is what the character does and the player finds that out within minutes.",
+  "globalPool": [
+    "That accomplishes nothing I can see.",
+    "No. They are two separate objects and I should like them to remain so.",
+    "I have tried it. Nothing about the arrangement improved.",
+    "I do not know what I expected."
+  ]
+}

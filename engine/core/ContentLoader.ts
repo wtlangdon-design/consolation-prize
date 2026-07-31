@@ -2,6 +2,7 @@ import type {
   ActorFile,
   AmbientFile,
   ContentBundle,
+  CombinationsFile,
   ItemFile,
   PanelFile,
   DialogueFile,
@@ -44,6 +45,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   const menu = (await read(manifest.menu)) as MenuFile;
   const actor = (await read(manifest.actor)) as ActorFile;
   const panel = (await read(manifest.panel)) as PanelFile;
+  const combinations = (await read(manifest.combinations)) as CombinationsFile;
   const itemFiles = (await Promise.all((manifest.items ?? []).map((path) => read(path)))) as ItemFile[];
 
   const items = new Map<string, ItemFile>();
@@ -88,7 +90,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
 
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
-    verbFallbacks, ambient, rooms, dialogue, actor, items, panel,
+    verbFallbacks, ambient, rooms, dialogue, actor, items, panel, combinations,
   };
 }
 

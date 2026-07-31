@@ -50,5 +50,6 @@
   "reputation": "content/reputation.json",
   "verbFallbacks": "content/ui/verb-fallbacks.json",
   "duplicateAllowlist": "content/ui/duplicate-allowlist.json",
-  "menu": "content/ui/menu.json"
+  "menu": "content/ui/menu.json",
+  "combinations": "content/combinations.json"
 }

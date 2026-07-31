@@ -268,6 +268,41 @@ export interface ActorSize {
   clips: ActorClip[];
 }
 
+/**
+ * One authored item-on-target pair. Doc 24 tier 1.
+ *
+ * A pair with no `say` is a RULE 4 VIOLATION, not a pair that falls through:
+ * doc 24 note 4 is explicit that a combination which should do something and
+ * has no line is reported as unwritten. check-combinations fails the build on
+ * one, and the resolver deliberately returns nothing rather than reaching for
+ * a pool -- a pool line standing in for a missing pair is a gap dressed as
+ * content.
+ */
+export interface CombinationPair {
+  item: string;
+  room: string;
+  target: string;
+  /** The doc 02 puzzle this serves, where it serves one. */
+  puzzle?: string;
+  say?: string;
+  /** Why the target does not resolve yet. Reported, never failed. */
+  targetPending?: string;
+  set?: FlagWrites;
+}
+
+/** content/combinations.json -- doc 06's table, written by doc 24. */
+export interface CombinationsFile {
+  schema: number;
+  note?: string;
+  rule4?: string;
+  pairs: CombinationPair[];
+  /** Item id to its own rotating pool. Doc 24 tier 2. */
+  itemPools: Record<string, string[]>;
+  itemPoolNote?: string;
+  /** Anything on anything unhandled. Doc 24 tier 3. */
+  globalPool: string[];
+}
+
 /** content/ui/panel.json -- errata ruling 26's geometry, read by engine and tools. */
 export interface PanelFile {
   schema: number;
@@ -559,6 +594,8 @@ export interface ManifestFile {
   items: string[];
   /** Verb panel and inventory geometry. Errata ruling 26. */
   panel: string;
+  /** Doc 24's item combination table. */
+  combinations: string;
 }
 
 /** Everything the engine needs, resolved from the manifest. */
@@ -579,6 +616,7 @@ export interface ContentBundle {
   actor: ActorFile;
   items: Map<string, ItemFile>;
   panel: PanelFile;
+  combinations: CombinationsFile;
 }
 
 

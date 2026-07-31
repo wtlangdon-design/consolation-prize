@@ -8,6 +8,7 @@ import { check as roomEntries } from './check-room-entries.mjs';
 import { check as staging } from './check-staging.mjs';
 import { check as walkBoxes } from './check-walk-boxes.mjs';
 import { check as itemNames } from './check-item-names.mjs';
+import { check as combinations } from './check-combinations.mjs';
 import { check as paletteCycling } from './check-palette-cycling.mjs';
 import { check as examineLines } from './check-examine-lines.mjs';
 import { check as writtenContent } from './check-written-content.mjs';
@@ -31,6 +32,7 @@ const CHECKS = [
   staging,
   walkBoxes,
   itemNames,
+  combinations,
   paletteCycling,
   examineLines,
   writtenContent,

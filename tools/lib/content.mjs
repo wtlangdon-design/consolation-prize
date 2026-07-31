@@ -23,6 +23,7 @@ export function loadContent() {
     reputation: readJson(manifest.reputation),
     verbFallbacks: readJson(manifest.verbFallbacks),
     panel: readJson(manifest.panel),
+    combinations: readJson(manifest.combinations),
     actor: readJson(manifest.actor),
     items: (manifest.items ?? []).map((path) => ({ path, data: readJson(path) })),
     ambient: (manifest.ambient ?? []).map((path) => ({ path, data: readJson(path) })),
