@@ -28,28 +28,32 @@ black has to come from somewhere else, and 21a already says where. The gap
 is recorded rather than split, because a plane at L 18 would satisfy neither
 document.
 
-IT IS A BOARDWALK EDGE AND A PORCH POST, AND ERRATA 32d IS WHY. 32d amends
-21a in as many words: "the foreground plane must be a nameable object, not a
-mass — ours obey 21a and are amorphous: a black scrub bank, a lumber pile."
-This plane was the scrub bank 32d names. It was a 78-column torn diagonal
-with a randomised broken top, which is neither nameable nor architectural,
-and it cost the bottom-left corner 12 luminance across 1,600 px against a
-reference that has a lit stony verge there — the single largest block
-difference in the whole frame, and reported by `road` as "the foreground
-module's occluder, not my verge."
+IT IS A PORCH POST, AND ERRATA 32d IS WHY. 32d amends 21a in as many words:
+"the foreground plane must be a nameable object, not a mass — ours obey 21a
+and are amorphous: a black scrub bank, a lumber pile." This plane was the
+scrub bank 32d names. It was a 78-column torn diagonal with a randomised
+broken top, which is neither nameable nor architectural, and it cost the
+bottom-left corner 12 luminance across 1,600 px against a reference that has
+a lit stony verge there — the single largest block difference in the whole
+frame, and reported by `road` as "the foreground module's occluder, not my
+verge."
 
-So the black is CONCENTRATED rather than spread. A post seven px wide and
-forty-three tall, a deck lip thirty-four px long, and everything else in the
-corner handed back to road.md §4.3's verge, which measures within a few
-luminance of the bar and was simply being painted over. 21a still gets its
-near plane and its bottom-of-range; 32d gets an object with a name; 32e gets
-its 40 px scale anchor, which nothing else in this frame supplies.
+So the black is CONCENTRATED rather than spread. One post, and everything
+else in the corner handed back to road.md §4.3's verge, which measures
+within a few luminance of the bar and was simply being painted over. 21a
+still gets its near plane and its bottom-of-range; 32d gets an object with a
+name.
+
+TWICE, in fact. The concentration was written down and then only half done:
+the post arrived and a pair of 71-column rails arrived with it, and the
+corner went back to being a mass with a straight edge on it. See the note at
+the constants below — they are gone, and the measurements that took them out
+are recorded there.
 
 ITS SILHOUETTE IS STRAIGHT AND VERTICAL, which is what makes it read as
 four feet away. 21a asks only that it not be a horizontal band across the
-frame, and a post cropped by the bottom edge with a deck running off the
-left edge is two hard verticals and one hard horizontal that both end inside
-the frame. A rounded hump reads as a hill in the middle distance.
+frame, and a post cropped by the bottom edge is two hard verticals ending
+inside the frame. A rounded hump reads as a hill in the middle distance.
 
 IT IS THE LAST THING DRAWN and it is drawn onto its OWN canvas, keyed on
 index 255. It cannot travel in the background PNG, because the engine draws
@@ -94,17 +98,34 @@ TRANSPARENT = 255
 #: plane is for; a corner it disappears into is not.
 POST = (63, 112, 8)
 
-#: The rail it carries, cropped by the left edge. Two members, running up to
-#: the left because a rail seen from four feet away in a frame whose horizon
-#: is at y=82 does exactly that. §21a: the silhouette must not be horizontal,
-#: and these are the only two long diagonals in the composition.
+#: THE TWO RAILS ARE GONE, AND THAT IS THIS ROUND'S FIX.
 #:
-#: They pass BELOW left_yard's wagon wheels, whose lowest tyre pixel is at
-#: y=114: left_yard.md §7.6 makes the far wheel's arc "the only evidence
-#: there are two wheels", and a near plane that crops it deletes the object
-#: it stands in front of.
-RAIL_UPPER = (122, 136, 3)     # y at x=0, y at the post, thickness
-RAIL_LOWER = (134, layout.HEIGHT - 1, 3)
+#: This module carried two 3 px members running from the left edge up to the
+#: post -- 71 columns each, both at `void`, both at L 0 -- and the docstring
+#: above describes something else entirely: "a post seven px wide and
+#: forty-three tall, a deck lip thirty-four px long, and everything else in
+#: the corner handed back to road.md §4.3's verge." The drawing had drifted
+#: from its own stated intent by a factor of four, and the drift is the whole
+#: defect: 32d's answer to "a black scrub bank" was concentration, and two
+#: long diagonals spread across 420 px of the bottom-left corner is the scrub
+#: bank again with a straight edge on it.
+#:
+#: Measured. The bar's bottom-left corner, x 0-59 / y 116-143, is a lit stony
+#: verge: mean L 23.2, median 22.2, p10 13.0, and 0.8% of it under L 6 --
+#: road.md §4.3's "shadowed verge under the building", which is a VALUE, not
+#: an occluder. The composite with these two members in it measured mean
+#: 14.7, p10 0.0 and 14.2% under L 6; with them out it measures 17.4, p10
+#: 8.9 and NOTHING under L 6. The two rails were the whole of that gap. They
+#: did not read as a rail either -- there is no post at the left edge for
+#: them to run to and nothing behind them to be near, so at 1x they are two
+#: black diagonals ruled across the corner.
+#:
+#: What 21a and 32d actually need survives without them. The post is still a
+#: nameable object, still cropped by the bottom edge, still two hard
+#: verticals ending inside the frame, and still read at 39 luminance of
+#: silhouette against the pool's left edge -- which is the number this plane
+#: exists for and the only place in the corner where it is available. What
+#: goes is 420 px of black over ground the reference draws as ground.
 
 
 def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -114,20 +135,10 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     post_x, post_y, post_w = POST
 
-    for left_y, right_y, thick in (RAIL_UPPER, RAIL_LOWER):
-        for x in range(0, post_x + post_w):
-            walk = x / float(post_x + post_w - 1)
-            top = int(round(left_y + (right_y - left_y) * walk))
-            if top >= layout.HEIGHT:
-                continue
-            canvas.vline(x, top, min(thick, layout.HEIGHT - top), dark)
-            # One pixel of umber's floor along the upper edge -- 21b's rule,
-            # a family floor rather than void, so the member has an edge
-            # rather than being a hole cut in the picture. The lower edge is
-            # left to the silhouette: a rail lit from above has one.
-            canvas.put(x, top, rim)
-
     canvas.rect(post_x, post_y, post_w, layout.HEIGHT - post_y, dark)
+    # One pixel of umber's floor around the standing edges -- 21b's rule, a
+    # family floor rather than void, so the object has an edge rather than
+    # being a hole cut in the picture.
     canvas.hline(post_x, post_y, post_w, rim)
     canvas.vline(post_x, post_y, layout.HEIGHT - post_y, rim)
     canvas.vline(post_x + post_w - 1, post_y, layout.HEIGHT - post_y, rim)

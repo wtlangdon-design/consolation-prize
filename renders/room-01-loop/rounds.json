@@ -58,5 +58,17 @@
       "town": "the lights are isolated pixels sitting directly on open sky with no host geometry \u2014 windows without buildings.",
       "left_yard": "the sign legend welds shut: 2px strokes at 4px per character, so counters fill in and adjacent letters touch."
     }
+  },
+  {
+    "round": 4,
+    "title": "The seams, fixed",
+    "note": "An integration pass on the three defects that belong to no region: the mid-ground lattice, the sign legend welding shut, and two black rails ruled across the bottom-left corner. Median holds at 24.5.",
+    "status": "seam pass; town and road water still short",
+    "verdicts": {},
+    "gaps": {
+      "town": "still a confetti cloud \u2014 lights with no host geometry, too wide and too high on the hill.",
+      "road": "the wet still reads as long regular dotted chains rather than pooled water lying in ruts.",
+      "foreground": "a black post at x 63-70 reads as a glitch; the reference has dark verge and scrub there."
+    }
   }
 ]

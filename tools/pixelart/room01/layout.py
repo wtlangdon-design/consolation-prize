@@ -1095,6 +1095,27 @@ ROAD_RIGHT_EDGE = 302
 #: pulls the bottom-left corner to L 14-24.
 VERGE_FALLOFF = (0, 118, 70, 26)
 
+# -- the seam between `town` and `terrain` ----------------------------------
+#: THE LIT VALLEY FLOOR THE TOWN STANDS ON. town.md §2.14's moonlit foot band
+#: is the top two rows of it and `town` draws those; the rest belongs to
+#: `terrain`, and both of them need to know where it is and how bright it
+#: gets. Measured on the bar over x 96-144: rows 69-73 run L 20-69, median
+#: near 41, brightening to the right, with no step at y=68 -- rows 67/68/69
+#: over x 64-152 are 46.2 / 43.5 / 42.1, a plane.
+#:
+#: It is READ TWICE, which is why it is here rather than in either module.
+#: `terrain` opens its band on it and eases off it over six rows, and
+#: SKY_CEILING_EXEMPT above quotes it, because errata 33b's ceiling is the
+#: sky's own p90 at 33.8 and this ground is measurably brighter than the sky.
+#: 33b is about buildings and hills meeting the dome; ground in front of a
+#: lit town is neither, and crushing it to the ceiling flattened the busiest
+#: plane in the frame into two values.
+#:
+#: x 62-179 is town.md's own extent for the foot band -- MASS_LEFT to the
+#: right edge of its rect -- carried down the eleven rows that
+#: SKYLINE_ROWS still covers.
+TOWN_FOOT_SPILL = (62, 69, 118, 11)
+
 
 # ---------------------------------------------------------------------------
 # 10. Ctx -- what every draw(canvas, ctx) is handed
@@ -1276,4 +1297,15 @@ SKY_CEILING_EXEMPT = (
     # against the valley floor rather than against the dome. Crushed, the
     # left structure loses every lit edge it has.
     (0, 44, 29, 12),
+    # THE GROUND IN FRONT OF A LIT TOWN IS LIT, and it is neither a building
+    # nor a hill. town.md §2.14's moonlit foot band ends at y=68 because that
+    # is where `town`'s rect ends; the plane it is a band OF carries on down
+    # into `terrain`. The bar measures it at x 96-144, rows 69-73, running
+    # L 20-69 with a median near 41 and rising to the right -- against a sky
+    # p90 of 33.8, so every pixel of it over `grey` 2 was being stepped down.
+    # Crushed, rows 69-73 composited as two values, 32 and 34, across the
+    # whole span: a dead flat plate under the one part of the valley study §6
+    # measures at 0.0% flat, with a bright one-row rule along the top of it
+    # where the foot band stopped. See TOWN_FOOT_SPILL.
+    TOWN_FOOT_SPILL,
 )
