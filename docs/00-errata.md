@@ -1128,3 +1128,39 @@ Doc 20 gave the town **one** street. Everything not on it — the Registrar, the
 ## Why this is worth two rooms
 
 A town you walk through has elsewhere in it. A town with a menu has a list. Forty-two screens becomes forty-four, and the two added are the cheapest kind — same time of day, same materials, same camera, and the component library already draws everything they need.
+
+
+---
+
+# 44 · DOC 29 IS BINDING — with two exceptions
+
+`docs/29-movement.md` is adopted. It identifies a gap nothing in this errata named, and its section 12 is the finding:
+
+> **Exits still end too early.** Thad walks to the exit, faces it, and the room changes. He never *crosses* anything, and at the destination he is placed rather than revealed.
+
+Everything ruled here about geography — 20, 31c, 43 — concerned **where** rooms connect. Doc 29 is about **how**, and the missing egress and ingress beats are why a transition reads as swapping paintings under a stationary man rather than a man walking through a door.
+
+**The four-point separation is the core of it and is adopted whole:** approach, threshold, egress and settle are four different coordinates and one cannot do all four jobs.
+
+## The two exceptions
+
+**44a · The map stays an instant menu with no actor token.** Doc 29 correctly frames this as a tradeoff rather than an error. Errata 43 has just reduced the map to long-distance travel only — the diggings, Boot Hill, and the few interiors on no street — because the town is now walked across three connected street screens. A four-pixel token needs paths, discovery gates, destination triggers and a travel speed, to compress a journey the player now makes on foot everywhere it matters.
+
+**Doc 29's condition is accepted with it:** if the map stays instant, local street-to-street and door transitions must carry more continuity work. That is exactly what the rest of this ruling requires.
+
+**44b · Section 13.2's note on the alley is superseded by errata 43.** Doc 29 says the alley "need not be an exit" and warns against a misleading hotspot. It **is** an exit — to Room 2c, the Lane — and it needs a real walk lane, a paired entrance and enough width for Thad's far-scale silhouette. Doc 29's requirements for a traversable alley apply in full.
+
+## What this changes about Room 1
+
+Doc 29 §13.1 is stronger than doc 17 on the arrival and doc 17 yields to it:
+
+- Thad must be **visibly associated with the coach** — seated, descending, or standing beside it as the case comes down. Doc 17 v3 already asks for this and the current build does not do it.
+- **The coach must not be deleted on the frame of the final dialogue click.** It moves far enough that departure is understood, then `T_COACH_DEPARTED` commits. Errata 38's `move` step exists for this.
+- **The act card waits** until the arrival blocking has established place and character.
+- **The exit to Main Street uses the road's real perspective lane** — Thad walks into depth, scales down, reaches an occluded bend, and Main Street receives him at its west entrance.
+
+## Precedence
+
+Doc 29 governs movement, transitions, entrances, exits and room-authoring data. Where it conflicts with an earlier errata ruling on those subjects, **doc 29 wins** unless named above.
+
+Its authoring defaults — approach distances, egress endpoints, ingress walks, turn holds — are explicitly project starting points, not historical measurements. Tune them at native scale.
