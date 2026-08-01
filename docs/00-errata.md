@@ -1035,3 +1035,51 @@ Room 1's moonlit ruts took over the lower half of the frame and outcompeted the 
 **A measurement that agrees with you on every axis it measures is not a result. It is a result on those axes.**
 
 This is the fourth time this project has been bitten by a measurement that looked like a finding — the keyline anchor, the contaminated samples, the control that was not a control, and now luminance parity across a hue difference. **The pattern is always the same: the instrument was correct and it was not measuring the thing that was wrong.**
+
+---
+
+# 42 · A SUMMARY STATISTIC CANNOT HOLD A SHAPE
+
+**Ruling 41 found a missing axis. This is a missing SHAPE, and every axis agreed.**
+
+## The case
+
+Room 1's town read as a scatter of lights on a dark hillside for four rounds. Three blind critics, in three separate rounds, from three separate crops, described it in almost the same words: *windows with no host geometry*. They were right.
+
+Every instrument this project owns said the region was fine, and several said it was *quieter* than the thing it was copying:
+
+| | ours | reference |
+|---|---|---|
+| mean luminance | 27.8 | 29.2 |
+| mean saturation | 0.29 | 0.53 |
+| roughness (mean neighbour ΔL) | 6.5 | 8.9 |
+| warm pixels | 345 | 402 |
+| warm rows spanned | 44–69 | 44–69 |
+| run anisotropy (H/V) | 1.51 | 1.28 |
+
+Per-row warm distribution matched within a few pixels the whole way down the hill. Ruling 41's new saturation companion was in place and *passed* — ours is barely half the reference's chroma.
+
+**The defect was the distribution's shape**, over the town core:
+
+| | <18 | 18–26 | 26–34 | 34–45 | 45+ |
+|---|---|---|---|---|---|
+| ours | 11.1% | **46.1%** | **6.7%** | 18.9% | 17.1% |
+| reference | 12.8% | **28.8%** | **16.6%** | 20.4% | 21.4% |
+
+**Bimodal.** Near-black mass with bright marks on it and a hollow where the middle should be. The windows had nothing to be holes *in* — they were dots on the night. The reference punches its windows into a wall you can already see, and that is the whole difference between a town and a starfield.
+
+A mean cannot see this. Two distributions with identical means, identical variances, identical extremes and identical per-row profiles can be a building and a scatter, and the number that separates them is not a number — it is a silhouette in the histogram.
+
+## The rulings
+
+1. **A drawn mass reports its histogram in bands, not its mean.** A town, a crowd, a stack of timber, a tree line, a rock face. Five bands is enough.
+2. **A mass whose mid-band is less than half the reference's is a field of marks, whatever its summary statistics say.** That is the test, and it is the one that would have caught this in round one.
+3. **Highlights need something to be highlights ON.** Before adding a bright mark to a mass, check the mass has a mid-tone the mark can sit in. A material two ramp steps above its background is a plane the eye can see; one two luminance points above it is a rounding error, and marks placed on a rounding error read as marks placed on nothing.
+
+## The general form
+
+**Ruling 41: a measurement that agrees with you on every axis it measures is not a result. Ruling 42: neither is one that agrees on every axis *and* every summary of those axes.**
+
+This is the fifth time this project has been bitten by a measurement that looked like a finding — the keyline anchor, the contaminated samples, the control that was not a control, luminance parity across a hue difference, and now five agreeing statistics over a hollow distribution. **The instrument was correct every time. It was not measuring the thing that was wrong, every time.**
+
+The practical consequence, for anybody adding a check: *state what shape of failure your check cannot see, in the check.* Every instrument in this project now carries that note, because the fifth instance was found by eye after three critics had already found it, and only then explained by a measurement nobody had thought to take.

@@ -22,6 +22,8 @@ import { check as dialogueNodes } from './check-dialogue-nodes.mjs';
 import { check as flagOrder } from './check-flag-order.mjs';
 import { check as glyphCoverage } from './check-glyph-coverage.mjs';
 import { check as puzzleGraph } from './check-puzzle-graph.mjs';
+import { check as roomOneDrawn } from './check-room-01-drawn.mjs';
+import { check as stableSeeds } from './check-stable-seeds.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -50,6 +52,8 @@ const CHECKS = [
   flagOrder,
   glyphCoverage,
   puzzleGraph,
+  roomOneDrawn,
+  stableSeeds,
 ];
 
 let failed = 0;

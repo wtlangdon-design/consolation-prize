@@ -166,12 +166,30 @@ def rect(canvas: IndexedCanvas, x: int, y: int, width: int, height: int,
 
 
 def smear(canvas: IndexedCanvas, x: int, y: int, width: int, height: int,
-          keep=None) -> int:
+          keep=None, floor: int = VOID, solid: bool = False) -> int:
     """A flat pool at an object's foot: wide, shallow, and thinning outwards.
 
     The shadow a table casts on a floor is not a circle under the table, it is
     a smear at the feet that fades along its length. Height is small on
     purpose -- anything taller reads as a hole.
+
+    TWO OPTIONS, BOTH ADDED BECAUSE ROOM 1 NEEDED THEM AND BOTH DEFAULTING TO
+    THE OLD BEHAVIOUR.
+
+    `floor` is the index stamped instead of index 0. Rule 3 above says the
+    middle of a pool is flat index 0, and that is right for a pool the frame
+    reads as black -- the coach doorway, the roof space. It is wrong for a
+    pool the reference measures at a value: Room 1's left-timber base is a
+    connected dark component in study §1's list AND measures L 11-16, so at
+    index 0 it is 15 luminance too deep and it swallows the wagon-wheel arc
+    standing in it. A pool with a floor is still one connected mass at one
+    value; it is simply the value the reference has.
+
+    `solid` drops the Bayer entirely. Rule 3's dithered edge is a shadow
+    dissolving into a floor. A shadow SLOT between two solids -- Room 1's
+    x 28-29 gap behind the signboard, measured flat at L 1.4 -- has no floor
+    to dissolve into, and an ordered checkerboard across it reads as texture
+    on the object beside it rather than as a gap behind it.
     """
     stamped = 0
     for py in range(y, y + height):
@@ -179,9 +197,13 @@ def smear(canvas: IndexedCanvas, x: int, y: int, width: int, height: int,
         for px in range(x, x + width):
             if not _allowed(canvas, px, py, keep):
                 continue
+            if solid:
+                canvas.put(px, py, floor)
+                stamped += 1
+                continue
             edge = min(px - x, x + width - 1 - px) / max(1, width * 0.22)
             weight = min(1.0, edge) * (1.0 - fall * 0.7)
             if BAYER4.threshold(px, py) < weight:
-                canvas.put(px, py, VOID)
+                canvas.put(px, py, floor)
                 stamped += 1
     return stamped

@@ -1,0 +1,117 @@
+[
+  {
+    "round": 0,
+    "title": "Baseline \u2014 the room as it stood",
+    "note": "The Room 1 that shipped before this run, composed by the single-file tools/pixelart/room01_stage_road.py. Recorded unjudged, as the thing every later round has to beat.",
+    "status": "graybox composed; nine authors next",
+    "verdicts": {},
+    "gaps": {}
+  },
+  {
+    "round": 1,
+    "title": "Graybox \u2014 the composition, from the measurements",
+    "note": "The 1154-line single file is now thirteen modules over a shared contract, and every object is blocked in at its measured position and value. No texture, no detail: correct silhouettes and correct value relationships only. Median perceptual luminance 27.1 against the reference's 26.1.",
+    "status": "graybox composed; nine authors next",
+    "verdicts": {},
+    "gaps": {}
+  },
+  {
+    "round": 2,
+    "title": "Nine authors, nine regions, drawn",
+    "note": "Every region rewritten from graybox by its own author, seven to fifteen render-look-revise cycles each, then judged blind by a fresh critic that never saw the project. Median perceptual luminance 24.5 against the reference's 26.1.",
+    "status": "held 2 of 9 regions blind",
+    "verdicts": {
+      "sky": "ours",
+      "hob": "ours",
+      "range": "bar",
+      "town": "bar",
+      "left_yard": "bar",
+      "rail": "bar",
+      "team": "bar",
+      "coach": "bar",
+      "road": "bar"
+    },
+    "gaps": {
+      "town": "no building silhouettes \u2014 a per-pixel random field where the reference has hard contiguous rooflines with windows aligned in storey rows.",
+      "road": "the standing water reads as bright blue dashes rather than water lying in ruts.",
+      "range": "the near range carries no lit form \u2014 flat masses, a dead-straight roofline, no light information.",
+      "rail": "the crate has no lit frame; the sky ceiling is crushing its internal range.",
+      "team": "no figure-ground separation \u2014 the animals do not read as three."
+    }
+  },
+  {
+    "round": 3,
+    "title": "The named gaps, acted on",
+    "note": "Each author briefed with the single gap its blind critic named last round. Sky and range finished before a session limit; the other seven re-ran after it. Hob held again. Median 24.5.",
+    "status": "held 1 of 8 judged; a cross-region lattice found",
+    "verdicts": {
+      "hob": "ours",
+      "town": "bar",
+      "left_yard": "bar",
+      "rail": "bar",
+      "team": "bar",
+      "coach": "bar",
+      "road": "bar"
+    },
+    "gaps": {
+      "terrain": "TWO INDEPENDENT CRITICS named the same thing without seeing each other: the mid-ground plane is a 50% ordered checker at one unmodulated density, and it runs straight through the geometry in front of it.",
+      "town": "the lights are isolated pixels sitting directly on open sky with no host geometry \u2014 windows without buildings.",
+      "left_yard": "the sign legend welds shut: 2px strokes at 4px per character, so counters fill in and adjacent letters touch."
+    }
+  },
+  {
+    "round": 4,
+    "title": "The seams, fixed",
+    "note": "An integration pass on the three defects that belong to no region: the mid-ground lattice, the sign legend welding shut, and two black rails ruled across the bottom-left corner. Median holds at 24.5.",
+    "status": "seam pass; town and road water still short",
+    "verdicts": {},
+    "gaps": {
+      "town": "still a confetti cloud \u2014 lights with no host geometry, too wide and too high on the hill.",
+      "road": "the wet still reads as long regular dotted chains rather than pooled water lying in ruts.",
+      "foreground": "a black post at x 63-70 reads as a glitch; the reference has dark verge and scrub there."
+    }
+  },
+  {
+    "round": 5,
+    "title": "Two corrections from Tyler",
+    "note": "The signboard is blank geometry \u2014 the engine renders sign text in the game font at runtime, and a check now fails the build if glyphs return. The moonlit ruts cut from 1,272 water pixels to 412, so the town can win the lower half back.",
+    "status": "corrections applied; region authors blocked on capacity",
+    "verdicts": {},
+    "gaps": {
+      "town": "unchanged this round \u2014 still lights with no host geometry. The region authors could not run.",
+      "foreground": "the black post at x 63-70 is still standing in the road."
+    }
+  },
+  {
+    "round": 6,
+    "title": "The town's missing mid-tone, and the post cropped",
+    "note": "The town measured quieter than the reference on every instrument we had, and read as confetti anyway. It was bimodal \u2014 near-black with bright marks and nothing between, so the windows had nothing to be holes IN. The mid-tone band is 2/3 recovered. The foreground post goes from 32 rows to 12.",
+    "status": "town diagnosed and partly closed; the read has not turned yet",
+    "verdicts": {},
+    "gaps": {
+      "town": "the mid-tone is measurably closer but the mass still reads as marks on night rather than as buildings. The texture-field architecture resists it."
+    }
+  },
+  {
+    "round": 7,
+    "title": "Final blind judging \u2014 the bar still wins",
+    "note": "Nine fresh region critics and a three-lens whole-frame panel, all blind. Ours held one region of nine (Hob and his lantern) and none of the three panel lenses. Every loss decisive. Recorded as the honest state at merge.",
+    "status": "held 1 of 9 regions, 0 of 3 panel lenses",
+    "verdicts": {
+      "hob": "ours",
+      "sky": "bar",
+      "range": "bar",
+      "town": "bar",
+      "left_yard": "bar",
+      "rail": "bar",
+      "team": "bar",
+      "coach": "bar",
+      "road": "bar"
+    },
+    "gaps": {
+      "sky": "no vertical value ramp \u2014 rows 0-17 are one flat colour across the full width, and the whole gradient is dumped into a hard-edged checker belt whose density peaks mid-band and then falls, making the horizon the darkest sky in the picture.",
+      "town": "90.5% of non-window pixels are three neutral greys, so every building shares a value with the one behind it and the windows float on an undifferentiated field. No lit roof planes.",
+      "range": "the masses are two colours with no internal form; the ridgeline is a mechanically regular two-pixel staircase."
+    }
+  }
+]
