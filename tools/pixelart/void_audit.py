@@ -147,6 +147,7 @@ def report(name: str, stats: dict) -> bool:
 
 
 def rooms():
+    import room01_hero
     import room01_stage_road
     import room02_main_street
     import room03_nugget
@@ -156,6 +157,7 @@ def rooms():
     from street_scene import DAY
 
     yield "ROOM 1 -- stage road, night", room01_stage_road.compose(with_coach=True)[0]
+    yield "ROOM 1 -- stage road, BESPOKE", room01_hero.compose()[0]
     yield "ROOM 2 -- Main Street, day", room02_main_street.compose(DAY)[0]
     yield "ROOM 3 -- the Nugget", room03_nugget.compose()[0]
     yield "ROOM 5 -- the assay office", room05_assay.compose()[0]

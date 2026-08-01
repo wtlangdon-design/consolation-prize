@@ -43,6 +43,7 @@ const SCRIPTS = [
   // backgrounds they were drawn over did not.
   ['rooms_batch_a.py', 'Rooms 18, 19 and 13 -- backgrounds and foregrounds (shipping assets)'],
   ['room01_stage_road.py', 'Room 1, the stage road at night'],
+  ['room01_hero.py', 'Room 1 BESPOKE -- the hero-room method, one script for one picture'],
   ['cycling_render.py', 'Room 1 palette cycling -- GIF at real rates, plus the states'],
   ['room01_ambient.py', "Room 1 ambient motion -- errata 35d's lamp swing and grazing team"],
   ['void_audit.py', "errata 40's four numbers, every composed room"],
