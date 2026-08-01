@@ -74,6 +74,8 @@ being the same lamp.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+
 from canvas import IndexedCanvas
 
 from . import layout
@@ -379,12 +381,233 @@ def _roof_ink(ctx: layout.Ctx, rng, roll: float | None = None) -> int:
     return ctx.ink("town_roof_bright")                     # grey 4, L 53.5
 
 
+#: Five terraces down the hillside. The mass runs from the roofline at
+#: y = 51 ± 2 to the base at y = 68 -- eighteen rows -- and the bar puts a
+#: change of plane every three or four of them: the eave rows read at 51-53,
+#: 54-57, 58-60, 61-64, 65-68 in the value map. Five is what that measures,
+#: and it is also the most a seventeen-row band can carry and still leave a
+#: wall under every roof.
+STOREYS = 5
+
+
+@dataclass(frozen=True)
+class _Building:
+    """One structure: an eave, a roof plate and the wall under it.
+
+    IT IS A PLATE, NOT A HOUSE. Nothing here has a gable, a chimney or a
+    door; at eight pixels wide there is room for a roof and a wall and
+    nothing else. What it contributes is the thing a per-pixel field cannot:
+    a run of four to twelve pixels that are all the SAME value, with a
+    different value directly above and below it. That contiguity is the
+    whole read -- §6's "hundreds of buildings" comes out of many small
+    plates at slightly different values, not out of many small drawings.
+    """
+
+    x: int
+    width: int
+    eave: int
+    roof_rows: int
+    wall_rows: int
+    roof: str
+    wall: str | None
+
+    @property
+    def right(self) -> int:
+        return self.x + self.width - 1
+
+    @property
+    def wall_top(self) -> int:
+        return self.eave + self.roof_rows
+
+    def wall_rows_range(self) -> range:
+        return range(self.wall_top, self.wall_top + self.wall_rows)
+
+
+def _storey_y(x: int, storey: int) -> int:
+    """The eave row of terrace `storey` at column x.
+
+    The terraces follow the silhouette rather than the frame, so the whole
+    stack tips with the roofline and falls away eastward with it. Spacing is
+    the mass's own depth divided by STOREYS, which keeps the near terraces
+    the same three or four rows apart as the far ones -- correct here, where
+    the town is seen from above and the hill is doing the foreshortening.
+    """
+    top = _roof_y(x)
+    span = max(1, layout.TOWN_BASE_Y - top)
+    return top + int(round(storey * span / STOREYS))
+
+
+#: Roof plates, by terrace. §5's cool structure and nothing outside it, and
+#: the weights are the locked-palette proof's own counts for the band: 97 px
+#: of `accent_indigo` 1 against 77 of `grey` 2 and 76 of `grey` 3.
+#:
+#: A ROOF IS BLUE AND A WALL IS GREY. There is exactly one light on a roof
+#: plane in this frame and it is the sky glow, which is saturated indigo;
+#: there is none at all on a wall, so a wall is the neutral it would
+#: photograph as. `grey` 3 is the roof that has turned furthest toward the
+#: dome and it is rationed -- §6 spends the whole of the town's "specific
+#: roof" budget on seven runs, and a hillside of them reads as a skyline.
+#: The far mix carries one entry the near mix does not: the hill's own
+#: colour, for a roof that is simply not catching anything. It is how the top
+#: terrace gets broken without being left out. Skipping the frontage instead
+#: breaks the roofline AND removes the wall under it, and §4 needs 102 warm
+#: pixels on rows 53-57 -- which have to be cut into something.
+ROOF_MIX_FAR = (("town_roof_sky", 0.32), ("town_wall_lit", 0.24),
+                ("town_wall", 0.20), ("town_mass_dark", 0.16),
+                ("town_roof", 0.08))
+ROOF_MIX_NEAR = (("town_roof_sky", 0.36), ("town_wall_lit", 0.32),
+                 ("town_roof", 0.20), ("town_wall", 0.12))
+
+#: Wall planes. `None` is the hill's own colour showing through, and it is
+#: the commonest wall in the town: §5 gives `accent_indigo` 0 to "hill
+#: backdrop, DARK WALL MASS" as one entry, and the proof measures it at 34%
+#: of the band -- more than every other cool value put together. A wall in
+#: this town is mostly just the night.
+#: AND `grey` 1 IS RATIONED, WHICH IS THE POINT OF THE TABLE. It sits at
+#: L 24.5 against the background's L 21.7 -- two and a half luminance apart,
+#: less than a quarter of a ramp step -- so a wall painted in it is invisible
+#: as a plane and merely lowers the local contrast everywhere it lands. The
+#: proof puts 11% of the band in it; an earlier pass here put 22%, and the
+#: result measured a correct histogram and a cool-to-cool roughness of 3.3
+#: against the bar's 6.4. Half the mass was two colours that are the same
+#: value. A wall is either the night (None), or it is in shade (`grey` 0 at
+#: L 16, five points BELOW the background and visible as a slot), and only
+#: sometimes the neutral in between.
+#:
+#: AND IT IS NOT THE SAME MIX DOWN THE HILL. Measured per row on the bar,
+#: over cool pixels in x 88-145: rows 52-53 mean L 26.2 and 25.4, rows 56-57
+#: 24.1 and 25.2, row 66 28.5. The upper terraces are LIGHTER than the middle
+#: of the town, not darker -- they are the far side of the valley, seen
+#: almost flat-on and catching the dome -- and row 66, the last band of wall
+#: before §2.14's moonlit bank, is the lightest wall in the region. One mix
+#: for all five terraces put rows 52-53 four points dark and row 66 seven
+#: points dark, which reads as a shadowed gully across the top of the town
+#: and a black line under its feet.
+WALL_MIX_FAR = ((None, 0.40), ("town_wall", 0.26),
+                ("town_wall_lit", 0.16), ("town_trough", 0.18))
+WALL_MIX_MID = ((None, 0.50), ("town_trough", 0.30), ("town_wall", 0.20))
+WALL_MIX_NEAR = ((None, 0.34), ("town_wall", 0.30),
+                 ("town_wall_lit", 0.20), ("town_trough", 0.16))
+
+
+def _pick(rng, mix):
+    roll = rng.random()
+    for name, weight in mix:
+        roll -= weight
+        if roll <= 0:
+            return name
+    return mix[-1][0]
+
+
+def _buildings(ctx: layout.Ctx) -> list[_Building]:
+    """The mass, as plates. Deterministic, and read twice.
+
+    `_mass` draws them and `_windows` reads them, because a window belongs on
+    a wall and the two passes must agree about where the walls are. Its own
+    named stream, so it is the same list in both calls without either pass
+    having to hand it to the other.
+    """
+    rng = ctx.stream("town.buildings")
+
+    # THE TERRACES WANDER, and if they do not the town has hidden storey
+    # lines. `_storey_y` is smooth in x, so five terraces put every eave in
+    # the town on one of about eight rows: measured, rows 57, 60, 61, 63, 64
+    # and 66-68 each carried forty to seventy columns of wall while rows 53,
+    # 55, 58, 62 and 65 carried twelve to twenty-nine. Windows then land
+    # where the walls are, and §9.2's hotel appears -- not as a neat grid,
+    # which would at least be visible, but as a lumpy horizontal banding
+    # nobody can point at. A terrace is a contour on a hillside; it wanders.
+    # One slow walk of +/-2 rows over runs of nine to twenty columns, shared
+    # by all five storeys so the stack tips together rather than shearing.
+    wander: dict[int, int] = {}
+    step, column = 0, MASS_LEFT
+    while column <= MASS_RIGHT:
+        run = 9 + int(rng.random() * 12)
+        step = max(-2, min(2, step + (1 if rng.random() < 0.5 else -1)))
+        for offset in range(run):
+            wander[column + offset] = step
+        column += run
+
+    out: list[_Building] = []
+    for storey in range(STOREYS):
+        near = storey >= 2
+        x = MASS_LEFT + int(rng.random() * 3)
+        while x <= MASS_RIGHT:
+            # §4's footprint sense, applied to buildings rather than to
+            # lights: mostly four to eight pixels of frontage, with about one
+            # in five running long enough to read as a warehouse or a terrace
+            # of three. Nothing over thirteen -- past that a plate stops
+            # being a building and starts being a wall across the hill.
+            width = 3 + int(rng.random() * 5)
+            if rng.random() < 0.20:
+                width += 2 + int(rng.random() * 4)
+            width = min(width, MASS_RIGHT - x + 1)
+            if width < 3:
+                break
+
+            # §6: the east end dissolves rather than ending. Roughness falls
+            # from 14 to 4.5 across x 138-152 and the mass stops, so the
+            # plates thin out over those columns instead of meeting an edge.
+            #
+            # AND THE SKYLINE IS BROKEN BEFORE IT IS ANYTHING ELSE. Terrace
+            # zero's eaves all sit within a row or two of the silhouette, so
+            # if every frontage on it takes a lit roof the town gets a lit
+            # line ninety pixels long across its top -- §9.4's modern
+            # skyline, exactly. ROOF_MIX_FAR breaks it by value rather than
+            # by absence; see there.
+            centre = x + width // 2
+            survives = 1.0
+            if centre > DISSOLVE_FROM:
+                survives *= max(0.0, 1.0 - (centre - DISSOLVE_FROM)
+                                / (DISSOLVE_TO - DISSOLVE_FROM))
+            if rng.random() > survives:
+                x += width + 1 + int(rng.random() * 3)
+                continue
+
+            # The top terrace does not wander: it IS the silhouette, and §2.3
+            # measures that edge at y = 51 +/- 2 from x=89 to x=140. Let the
+            # contour walk carry it as well and the eaves slide down to 55,
+            # the wall rows go with them, and rows 52-54 -- which the bar
+            # loads with twenty-five warm pixels -- come out empty.
+            eave = _storey_y(centre, storey)
+            if storey:
+                eave += wander.get(centre, 0)
+            # §2.3: the top edge is ragged by two or three pixels where
+            # chimneys and gable peaks poke up. Two or three -- so the jitter
+            # is one row on most frontages and two on a few.
+            roll = rng.random()
+            eave += -1 if roll < 0.20 else (1 if roll > 0.82 else 0)
+            if storey == 0:
+                if rng.random() < 0.12:
+                    eave -= 1
+                eave = min(max(eave, _roof_y(centre) - 2), _roof_y(centre) + 1)
+            else:
+                eave = max(eave, _roof_y(centre) - 2)
+            eave = min(eave, layout.TOWN_BASE_Y - 1)
+            floor = (_storey_y(centre, storey + 1) + wander.get(centre, 0)
+                     if storey + 1 < STOREYS else layout.TOWN_BASE_Y + 1)
+            roof_rows = 1 if rng.random() < 0.74 else 2
+            wall_rows = max(1, floor - eave - roof_rows)
+            out.append(_Building(
+                x=x, width=width, eave=eave,
+                roof_rows=roof_rows, wall_rows=wall_rows,
+                roof=_pick(rng, ROOF_MIX_NEAR if near else ROOF_MIX_FAR),
+                wall=_pick(rng, WALL_MIX_NEAR if storey == STOREYS - 1
+                           else WALL_MIX_MID if near else WALL_MIX_FAR)))
+            # The gap between frontages. §4's dark pixel between two lights
+            # is a spacing rule about windows; this is the alley, and it is
+            # what the hill is seen through. Wider up the hill, where the
+            # terraces are further apart than the buildings are wide.
+            gap = 1 + (rng.random() < (0.30 if near else 0.55)) \
+                + (rng.random() < (0.08 if near else 0.22))
+            x += width + gap
+    return out
+
+
 def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     rng = ctx.stream("town.mass")
     dark = _mass_dark(ctx)              # accent_indigo 0, L 21.7
     deep = ctx.ink("town_trough")       # grey 0, L 16.0
-    wall = ctx.ink("town_wall")         # grey 1, L 24.5
-    lit = ctx.ink("town_wall_lit")      # grey 2, L 32.5
     roof = ctx.ink("town_roof")         # grey 3, L 40.6
     bright = ctx.ink("town_roof_bright")  # grey 4, L 53.5
     base = layout.TOWN_BASE_Y
@@ -395,93 +618,73 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     tops = {}
     for x in range(MASS_LEFT, MASS_RIGHT + 1):
         top = _roof_y(x)
-        # §2.3: ragged by two or three pixels where chimneys and gable peaks
-        # poke up. Two or three. Not a skyline.
-        if rng.random() < 0.18:
-            top -= 1 + (rng.random() < 0.3)
         tops[x] = top
         for y in range(top, base + 1):
             _put(canvas, x, y, dark)
 
-    # 2. The material. A run-length walk per row: gap, ROOF, wall, gap, ROOF,
-    #    wall. The gap is the hill showing between buildings; the roof is a
-    #    stipple run at §2.4's measured mean of 2.06 px; the wall is the pixel
-    #    or two of shaded face below the eave. The gap length is driven by
-    #    _density, so the upper terraces are mostly gap and the near edge is
-    #    mostly building. THIS is where the roughness comes from -- three or
-    #    four value steps every ten pixels, at a mean value that never moves
-    #    more than five points off the hill's.
+    # 2. The plates, far terrace first. Each one paints over the skirt of the
+    #    terrace behind it, which is where the hard edge under an eave comes
+    #    from: it is not drawn as a line, it is the bottom of the plane above
+    #    meeting the top of the plane in front.
     #
-    #    ROOF OUTNUMBERS WALL, about two to one. That is what a town looks
-    #    like from several hundred feet up and two miles out, and it is what
-    #    the locked-palette proof measures: the mass is 28% highlight stipple
-    #    against 15% wall, with the remaining 35% cool background showing
-    #    through and 22% windows punched into it.
-    blocks = _blocks(ctx.stream("town.blocks"))
-    for y in range(layout.TOWN_ROOF_Y - 2, base + 1):
-        x = MASS_LEFT
-        while x <= MASS_RIGHT:
-            bias, _choice, _shaded = blocks.get(x, (0.0, None, False))
-            weight = max(0.05, min(1.0, _density(x, y) + bias))
-            x += 1 + int(rng.random() * (1.0 + 4.0 * (1.0 - weight)))
-            if x > MASS_RIGHT:
-                break
-            # §6: highlights are STIPPLE, not lines. Mean run 2.06 px, and
-            # 106 of the 157 runs are a single pixel; the seven runs of 6-9
-            # in §2.5 are the entire budget of "this is a specific roof".
-            run = 1 if rng.random() < 0.68 else 2 if rng.random() < 0.55 \
-                else 3 + (rng.random() < 0.3)
-            bias, choice, shaded = blocks.get(x, (0.0, None, False))
-            if shaded:
-                ink = wall if rng.random() < 0.75 else deep
-            else:
-                ink = _roof_ink(ctx, rng,
-                                choice if choice is not None and rng.random() < 0.6
-                                else None)
-            for step in range(run):
-                if x + step <= MASS_RIGHT and y >= tops.get(x + step, base + 1):
-                    _put(canvas, x + step, y, ink)
-            x += run
-            # The shaded face under the eave. One or two pixels, and it is
-            # what stops the stipple reading as snow on a hillside.
-            tail = 0 if rng.random() > 0.32 + 0.3 * weight else 1 + (rng.random() < 0.3)
-            for step in range(tail):
-                if x + step <= MASS_RIGHT and y >= tops.get(x + step, base + 1):
-                    _put(canvas, x + step, y,
-                         deep if (shaded and rng.random() < 0.5)
-                         or rng.random() > 0.92 else wall)
-            x += tail
+    #    THIS IS THE WHOLE DIFFERENCE BETWEEN A TOWN AND A FIELD OF NOISE.
+    #    The previous pass produced the right value histogram, the right run
+    #    lengths and the right roughness by walking each row independently,
+    #    and it read as television static, because no two adjacent pixels
+    #    were ever the same value and nothing survived from one row to the
+    #    next. The bar's mass is the opposite: long flat runs of one value --
+    #    eight pixels of `accent_indigo` 1 at y=60, seven of `grey` 2 at
+    #    y 62-63 -- with hard steps between them. Contiguity IS the subject.
+    for building in _buildings(ctx):
+        roof_ink = ctx.ink(building.roof)
+        wall_ink = ctx.ink(building.wall) if building.wall else None
+        for row in range(building.eave, building.eave + building.roof_rows):
+            for col in range(building.x, building.right + 1):
+                if row < tops.get(col, base + 1) or row > base:
+                    continue
+                # One frontage in six has its far end in shade -- a roof
+                # turning away, or the next building standing in front of it.
+                _put(canvas, col, row,
+                     dark if rng.random() < 0.08 else roof_ink)
+        if wall_ink is None:
+            continue
+        for row in building.wall_rows_range():
+            if row < tops.get(building.x, base + 1) or row > base:
+                continue
+            for col in range(building.x, building.right + 1):
+                if row < tops.get(col, base + 1):
+                    continue
+                # An alley, or a shutter, or the shaded return of a wall that
+                # has a lit one opposite. Vertical, one or two columns, and
+                # it is what stops a wall plate reading as a painted plank.
+                _put(canvas, col, row,
+                     dark if rng.random() < 0.18 else wall_ink)
 
-    # 2b. The crest. The mass's own top row gets a stipple pixel about a third
-    #     of the time -- the ridge tile catching the sky, which is the only
-    #     plane in the town facing straight up at the one light there is.
-    #     §2.2 says the trough is what makes the roofline read, and that is
-    #     only half of it: a hard dark band under a soft top edge reads as fog.
-    #     The town needs an edge ON ITS SIDE of the boundary too, and at this
-    #     scale that edge is single pixels, not a line. Never two adjacent, so
-    #     it cannot collapse into the skyline §9.4 forbids.
-    previous = False
+    # 3. Chimneys, gable ends and ridge tiles: single pixels of a roof value
+    #    standing on a wall. §6 -- two-thirds of all roof highlights in the
+    #    bar are single isolated pixels, mean run 2.06 px. The plates supply
+    #    the structure; this supplies the frequency, and it is deliberately
+    #    thin, because every one of these that lands on a plate edge softens
+    #    the edge the plates exist to make.
     for x in range(MASS_LEFT, MASS_RIGHT + 1):
         top = tops[x]
-        if previous or rng.random() > 0.34 * min(1.0, _density(x, top) + 0.4):
-            previous = False
-            continue
-        _put(canvas, x, top, _roof_ink(ctx, rng))
-        previous = True
+        for y in range(top, base + 1):
+            if rng.random() < 0.10 * min(1.0, _density(x, y) + 0.35):
+                _put(canvas, x, y, _roof_ink(ctx, rng))
 
-    # 3. The deepest slots. §5 gives `grey` 0 to "the dark trough, deepest
+    # 4. The deepest slots. §5 gives `grey` 0 to "the dark trough, deepest
     #    gaps between buildings" -- the alleys, and the shaded side of a wall
     #    that has a lit one opposite. Placed AFTER the walls so they cut.
-    for _ in range(20):
+    for _ in range(26):
         x = rng.randrange(MASS_LEFT, MASS_RIGHT + 1)
         y = rng.randrange(tops.get(x, base), base + 1)
         if rng.random() > _density(x, y) + 0.25:
             continue
-        height = 1 + (rng.random() < 0.35)
+        height = 1 + (rng.random() < 0.45)
         for step in range(height):
             _put(canvas, x, y + step, deep)
 
-    # 4. §2.5's seven legible ridges, and they are the entire budget of "this
+    # 5. §2.5's seven legible ridges, and they are the entire budget of "this
     #    is a specific roof". Six at the roof highlight, one at the top cool
     #    value -- the brightest single roof pixel in the reference is L=52.
     for index, (sx, sy, length) in enumerate(ROOF_STROKES):
@@ -671,8 +874,15 @@ class _Field:
         # pixels on the busiest rows. Counting pixels here caps the near edge
         # of town at a third of the reference's light and flattens the one
         # gradient that says the near terraces are nearer.
-        if any(self.per_row.get(row, 0) >= WINDOWS_PER_ROW
-               for row in range(y, y + height)):
+        #
+        # AND IT IS THE LIGHT'S OWN ROW, not every row it spans. Fifty-seven
+        # lights over nineteen rows is three a row on average, so a cap of
+        # seven should almost never bind -- and charging a 2x4 to four
+        # separate rows made it bind on the busiest six, which are exactly
+        # the near rows the bar loads to 19-24 warm pixels. The cap is there
+        # to stop a row of four aligned windows reading as a hotel; a light
+        # that happens to be tall is not four lights.
+        if self.per_row.get(y, 0) >= WINDOWS_PER_ROW:
             return False
         return all(self.free(x + dx, y + dy, reach)
                    for dy in range(height) for dx in range(width))
@@ -705,8 +915,7 @@ class _Field:
             if pair:
                 cells.sort()
             core = min(HOT_BLOB_MAX if pair else 1, max(0, self.hot_left))
-        for row in range(y, y + height):
-            self.per_row[row] = self.per_row.get(row, 0) + 1
+        self.per_row[y] = self.per_row.get(y, 0) + 1
         for order, (cx, cy) in enumerate(cells):
             ink = top if order < core else body
             if ink == self.hot:
@@ -745,6 +954,52 @@ class _Field:
                      else self.spills[1] if roll < 0.48 else self.spills[2])
 
 
+def _wall_rows(ctx: layout.Ctx) -> dict[int, list[int]]:
+    """Column -> the rows of wall standing at it. §4's "loosely share an edge".
+
+    A LIGHT BELONGS TO A BUILDING, and this is the only thing that says so.
+    §4 is emphatic that there is no grid, no storey line and no repeat, and
+    the previous pass took that literally and scattered sixty lights over the
+    mass by weighted random. What §4 actually measures is the absence of
+    ALIGNMENT ACROSS the town -- "windows within the four or five legible
+    buildings loosely share an edge; everywhere else they are placed
+    individually" -- and a light that ignores the plate it stands on is not
+    unaligned, it is unattached. It lands on roofs, in alleys and in the
+    night between frontages, and sixty of those read as a starfield lying on
+    a hill rather than as a place with people in it.
+
+    So the eligible rows are the wall rows, and because the eaves are jittered
+    by a row and the terraces follow the silhouette, no two neighbouring
+    buildings offer the same set. The grouping is per building; the disorder
+    is between them, which is where the bar puts it.
+    """
+    rows: dict[int, list[int]] = {}
+    for building in _buildings(ctx):
+        span = [row for row in building.wall_rows_range()
+                if layout.TOWN_ROOF_Y - 2 <= row <= layout.TOWN_BASE_Y]
+        if not span:
+            continue
+        for col in range(building.x, building.right + 1):
+            rows.setdefault(col, []).extend(span)
+    return rows
+
+
+def _weighted_row(rng, rows: list[int], top: int, base: int) -> int:
+    """One of `rows`, with the near ones 2.7 times likelier than the far.
+
+    §4's measured gradient, as a straight line in depth rather than as a
+    shaped draw. The constant is the ratio the bar has and nothing else: 102
+    warm pixels on rows 53-57 against 272 on rows 62-68.
+    """
+    weights = [0.30 + 0.70 * (row - top) / max(1, base - top) for row in rows]
+    pick = rng.random() * sum(weights)
+    for row, weight in zip(rows, weights):
+        pick -= weight
+        if pick <= 0:
+            return row
+    return rows[-1]
+
+
 def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     """Sixty lights, individually placed, on no grid whatsoever.
 
@@ -755,6 +1010,7 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     """
     rng = ctx.stream("town.windows")
     field = _Field(canvas, ctx)
+    walls = _wall_rows(ctx)
 
     # The headframe stack first: it is the region's one deliberate vertical
     # and it must not lose its slots to the scatter. §2.10 -- four stacked
@@ -794,10 +1050,31 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 # eleven to sixteen lit pixels on rows 53, 54, 56 and 57,
                 # high up the hill. A hard max-of-two empties the upper
                 # terraces and leaves the town looking like one lit street.
-                reach = rng.random()
-                if rng.random() < 0.6:
-                    reach = max(reach, rng.random())
-                y = top + int(span * reach + 0.5)
+                # THE BIAS IS 2.7 TO 1, AND IT IS LINEAR IN DEPTH. §4: bright
+                # window pixels per row climb from 5 at y=50 to 11-13 at
+                # y 63-67, and that ratio is the whole perspective cue. A
+                # max-of-two draw, which is the obvious way to lean a uniform
+                # pick downward, is a ratio of about twenty to one at the
+                # ends: it empties the upper terraces and leaves a dark band
+                # four rows deep under the roofline, which reads as a cliff
+                # with a town at the bottom of it.
+                #
+                # ...and the pick lands on a WALL. The weighting is applied
+                # to the wall rows standing at this column rather than to the
+                # whole depth of the mass, so a light is always on a plane
+                # somebody could have cut a window into. Columns with no wall
+                # -- an alley, a gap in a terrace, the thinning east end --
+                # fall through to the free pick, which is what keeps the five
+                # isolated eastern lights possible.
+                storeys = walls.get(x)
+                if storeys:
+                    y = _weighted_row(rng, storeys, top - 1,
+                                      layout.TOWN_BASE_Y)
+                else:
+                    reach = rng.random()
+                    if rng.random() < 0.5:
+                        reach = max(reach, rng.random())
+                    y = top + int(span * reach + 0.5)
                 width, height = shapes[slot % len(shapes)]
                 reach = WINDOW_SPACING if _attempt < 40 else 1
                 if not field.fits(x, y, width, height, reach):

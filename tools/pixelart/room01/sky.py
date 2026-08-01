@@ -21,23 +21,22 @@ rows of one flat colour is the quietest surface in the game and §6.3 of the
 whole-frame study says the calm is what makes everything below read as
 worked: 14.8% of the frame reads flat and essentially all of it is here.
 
-WHY THE DITHER IS SHEARED (§5, and this is the one real technique in the
-file). The band is fifteen rows and seventeen levels -- very nearly one
-level per row, which is why sky.md picks a 4x4 matrix. But a 4x4 Bayer
-indexed the ordinary way, `matrix[y % 4][x % 4]`, only offers FOUR distinct
-thresholds along any one picture row, so a per-row density can only land on
-0, 1/4, 1/2, 3/4 or 1. Measured on the previous block-in that produced row
-densities of 0%, 25%, 0%, 50%, 25%, 50%, 25%, 50%, 50%, 74%, 50%, 100% --
-non-monotone, saturated three rows early, and holding 50% for four rows in a
-row, which §5 forbids by name because a held 50% checker reads as a painted
-band and the eye finds it instantly at 320x144.
-
-Shearing the matrix row index by the pixel's 4-px column block --
-`matrix[(y + x // 4) % 4][x % 4]` -- walks all four matrix rows across every
-sixteen pixels of a picture row, so every row offers all sixteen thresholds
-and lands on its exact k/16. Each 4x4 block on screen is still an unmodified
-Bayer block; only which block goes where has moved. Monotone, exact, and no
-row is at 50% for longer than the one row the ramp actually spends there.
+WHICH DITHER, AND WHY IT IS NOT A 4x4 BAYER (§5, and this is the one real
+technique in the file). The band has to cross a 13.4-luminance gap in
+fifteen rows with no colour in between, so those fifteen rows are dithered
+and the other thirty-three are not. What §5 is choosing between is which
+mask is QUIETEST over that crossing; it names 4x4 Bayer, 8x8 Bayer and white
+noise, and picks 4x4. Four masks were built here and rendered as a density
+ladder -- every sixteenth from 1/16 to 15/16, four rows each, at 10x -- and
+looked at. The three Bayer variants all failed in a different way and all
+three failures are visible in the composed frame: the shear contours into
+diagonal streaks, the per-group permutation mottles into static, the per-row
+permutation repeats as sixteen-pixel wallpaper. Interleaved gradient noise
+had none of them and a finer grain than any of them. `_gradient_noise`
+carries the full comparison. It is still an ordered dither in the sense that
+matters -- a pure function of (x, y), no state, no stream, identical every
+compose -- it is simply not a matrix, and measured on the render it delivers
+the intended density to within one percent on every row of the band.
 
 WHY THE STARS THIN TOWARD THE HORIZON. Every instinct says a star field
 thickens where the sky meets the land. Measured (sky.md §5) it is SIX TIMES
@@ -100,7 +99,6 @@ WHAT THIS REGION DELIBERATELY DOES NOT DRAW:
 from __future__ import annotations
 
 from canvas import IndexedCanvas
-from dither import BAYER_4
 
 from . import layout
 
@@ -117,15 +115,27 @@ from . import layout
 #: medians it scores rms 2.79 with a worst row 3.9 out, against §3's stated
 #: per-row noise floor of 1.55.
 #:
-#: Sweeping the exponent over the same fifteen rows, with the density
-#: quantised to the k/16 the matrix actually delivers:
+#: Sweeping the exponent over the same fifteen rows, against the bar's own
+#: row medians, re-run after the mask changed and the density stopped being
+#: rounded to a sixteenth:
 #:
 #:      p     1.00  1.25  1.50  1.75  2.00  2.25  2.50  3.00
-#:      rms   2.79  2.18  1.68  1.24  1.12  1.28  1.34  1.64
+#:      rms   2.80  2.09  1.58  1.26  1.13  1.16  1.28  1.62
 #:
-#: p = 2 is the minimum and it lands INSIDE the reference's noise floor. It
-#: also costs nothing at the seam: row 31 comes out at 14/16 rather than
-#: 15/16, so the step into the flat plateau at row 32 is 1.7 luminance.
+#: p = 2 is the minimum -- the continuous sweep puts it at 2.07, which is
+#: inside the flat bottom of the curve -- and it lands INSIDE the reference's
+#: noise floor. It also costs little at the seam: row 31 comes out at 0.879
+#: rather than 1.0, so the step into the flat plateau at row 32 is 1.6
+#: luminance.
+#:
+#: CLOSING THE RAMP AT ROW 31 INSTEAD WAS TRIED AND REJECTED. Ending the
+#: density at exactly 1.0 on the last dithered row would remove the twelve
+#: percent of body-coloured specks that survive into row 31 and with them the
+#: one place the band's grain stops rather than fades. Re-fitted that way the
+#: best exponent is 2.33 and the best rms is 1.67 -- above §3's stated
+#: per-row noise floor of 1.55, where the current fit is comfortably below
+#: it. A texture seam worth a fifth of a luminance is not worth half a
+#: luminance of gradient.
 #:
 #: And it is the same correction twice over -- the bar's ramp barely moves
 #: for its first five rows, so squaring the density empties rows 17-20 to one
@@ -227,7 +237,20 @@ TIERS = (
 #: (dust[1], L 32.7). Against our sky -- 21.7 flat to row 16, dithering up
 #: through row 31, 35.0 below -- these hold +15 to +19, which is the bar's
 #: own faint-star contrast in every band. See the docstring.
-FAINT_FLOOR = (1, 1, 1, 1, 2, 3, 3)   # dust 2, 2, 2, 2, 3, 4, 4
+#:
+#: RE-CHECKED AS A CONTRAST RATIO, WHICH MOVED THE BOTTOM TWO BANDS. A
+#: constant +15 to +19 is the right rung while the sky under it barely
+#: moves, and rows 0-29 are that case: ours is accent_indigo[0] flat or
+#: nearly so. Rows 30-37 are not -- the sky there is accent_indigo[1] at
+#: L 35, and +18 on 35 is a much weaker mark than +18 on 22. Measured as
+#: Michelson contrast against the local sky, the bar's faint end runs
+#: 0.23 / 0.19 / 0.16 / 0.16 / 0.16 down the five bands and its median star
+#: runs 0.35 / 0.32 / 0.29 / 0.27 / 0.26; on the same measurement this
+#: region was returning 0.20 / 0.20 / 0.16 / 0.22 / 0.13 and 0.36 / 0.30 /
+#: 0.27 / 0.27 / 0.21. Every band matched but the last, which was a fifth
+#: weak at both ends -- the horizon stars were dissolving into the
+#: plateau. One step up puts band 5 at 0.21 and 0.27, on the bar.
+FAINT_FLOOR = (1, 1, 1, 1, 2, 4, 4)   # dust 2, 2, 2, 2, 3, 5, 5
 
 #: §5: keep the cool stars to about one in twenty, and put them in the MID
 #: tiers, never the bright ones. Six of 125.
@@ -239,17 +262,67 @@ COOL_COUNT = 6
 # ---------------------------------------------------------------------------
 
 
-def _sheared_bayer(x: int, y: int) -> float:
-    """4x4 Bayer threshold, matrix row sheared by the 4-px column block.
+#: The two constants of Jimenez' interleaved gradient noise, unchanged from
+#: the published function. They are the algorithm, not a measurement, and
+#: nothing here should tune them.
+IGN_A, IGN_B, IGN_C = 0.06711056, 0.00583715, 52.9829189
 
-    See the module docstring. `matrix[y % 4][x % 4]` gives a picture row only
-    four thresholds and quantises its density to quarters; walking the matrix
-    row with `x // 4` gives every picture row all sixteen, so a k/16 density
-    lights exactly k of every sixteen pixels and the band ramps one
-    seventeenth at a time as §5 asks. On screen every 4x4 block is still an
-    unmodified Bayer block.
+
+def _gradient_noise(x: int, y: int) -> float:
+    """A threshold in [0, 1) for the fifteen dithered rows. See below.
+
+    WHY THERE IS A DITHER AT ALL, since the reference has none. sky.md §5 is
+    explicit: the bar's sky varies by sd 1.55 per row with no checkerboard
+    and no column parity, so its texture is downsampling grain. Ours is an
+    addition forced by §4's hard constraint -- the locked palette holds
+    exactly two blue-dominant entries under L 40, accent_indigo[0] at 21.65
+    and accent_indigo[1] at 35.02, and there is nothing between them. Fifteen
+    rows of sky have to cross a 13.4-luminance gap with no intermediate
+    colour, so those fifteen rows get a dither and the other thirty-three get
+    none.
+
+    THE JOB IS THEREFORE TO BE INVISIBLE, and the mask is chosen on that and
+    nothing else. Four were built and rendered as a density ladder at 10x --
+    every sixteenth from 1/16 to 15/16, four rows each -- and looked at:
+
+      * 4x4 Bayer sheared by the column block, `[(y + x//4) % 4][x % 4]`.
+        Even and fine, and it gives every picture row all sixteen thresholds
+        so the density lands on an exact k/16. But the threshold is then a
+        function of `y + x // 4`, which is a PLANE, and a plane thresholded
+        against a density that changes slowly down the frame produces
+        CONTOURS. In the composed frame at 12x they were plainly there:
+        diagonal streaks at one row per four pixels, running the full width,
+        reading as a hatch laid over the sky rather than as sky.
+      * The same matrix with the block order permuted per 16-px group. The
+        streaks go and MOTTLE arrives -- the density stays exact in every
+        sixteen pixels but where inside them the lit pixels sit is
+        uncorrelated with the group next door, so pairs land across the
+        seams and two-group gaps open. At 12x it reads as static, which is
+        the failure §5 names when it rules out white noise.
+      * The same permutation held for a whole picture row, or for
+        sixty-four pixels of one. The mottle goes and WALLPAPER arrives: one
+        sixteen-pixel motif repeated, and between 8/16 and 12/16 the eye
+        picks the repeat out immediately. Rendered, it was the worst of the
+        four.
+      * R2, the plastic-number lattice. Clumps and long diagonals.
+
+    Interleaved gradient noise was the quietest of them by a clear margin at
+    every density on the ladder: no motif, no columns, no diagonals, and a
+    finer grain than the Bayer even where Bayer was at its best. It is an
+    ordered dither in the sense that matters here -- a pure deterministic
+    function of (x, y), no state, no stream, identical every compose -- it is
+    simply not a 4x4 matrix. §5 asks for 4x4 because it is reasoning about
+    which of Bayer 4x4, Bayer 8x8 and white noise is quietest across fifteen
+    rows and seventeen levels; this is the same question answered with a
+    fourth candidate on the table, and the answer is checked by looking.
+
+    ONE THING FALLS OUT OF IT. A 4x4 matrix can only deliver k/16, which is
+    why §5 counts levels against rows and finds seventeen against fifteen.
+    A continuous threshold has no such step, so the density below is the
+    ramp itself rather than the ramp rounded to a sixteenth, and rows 17-31
+    each get their own exact value.
     """
-    return (BAYER_4[(y + x // 4) % 4][x % 4] + 0.5) / 16.0
+    return (IGN_C * ((IGN_A * x + IGN_B * y) % 1.0)) % 1.0
 
 
 def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -258,7 +331,7 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     flat_to = layout.SKY_FLAT_TO
     ramp_from, ramp_to = layout.SKY_RAMP_ROWS
-    span = ramp_to - flat_to                      # sixteen, so k/16 per row
+    span = ramp_to - flat_to                      # sixteen rows of ramp
 
     for x in range(layout.WIDTH):
         # The sky owns the cut and the range fills below it (sky.md §7). One
@@ -270,12 +343,14 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
             if y <= flat_to:
                 canvas.put(x, y, body)
             elif y < ramp_to:
-                # §5: ordered 4x4, sixteen levels over the fifteen rows from
-                # 17 to 31. SQUARED, and that is a fit rather than a taste --
-                # see RAMP_GAMMA.
+                # §5's fifteen dithered rows, 17 to 31. SQUARED, and that
+                # is a fit rather than a taste -- see RAMP_GAMMA. The
+                # density is continuous rather than rounded to a sixteenth,
+                # because the mask is continuous; measured on the render it
+                # lands within one percent of this value on every row.
                 density = ((y - flat_to) / span) ** RAMP_GAMMA
                 canvas.put(x, y,
-                           horizon if _sheared_bayer(x, y) < density else body)
+                           horizon if _gradient_noise(x, y) < density else body)
             else:
                 # §3: the plateau is only reached where the range is low. On
                 # the left massif the skyline sits above row 32 and the sky is
@@ -327,6 +402,24 @@ def _row_weights() -> list[float]:
         area = sum(1 for x in range(layout.WIDTH) if layout.far_crest(x) > y)
         weights.append(rate * area)
     return weights
+
+
+def _quota(weights: list[float], count: int) -> list[int]:
+    """`count` row numbers, apportioned to `weights` by largest remainder.
+
+    One row number per star, so row y appears exactly as many times as its
+    share of the profile says it should. Largest remainder rather than plain
+    rounding because rounding thirty-eight rows independently loses or gains
+    several stars and the total has to come out at exactly `count`.
+    """
+    total = sum(weights)
+    share = [w * count / total for w in weights]
+    rows = [int(s) for s in share]
+    short = count - sum(rows)
+    order = sorted(range(len(share)), key=lambda i: rows[i] - share[i])
+    for i in order[:short]:
+        rows[i] += 1
+    return [y for y, n in enumerate(rows) for _ in range(n)]
 
 
 def _stars(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -390,30 +483,54 @@ def _stars(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # -- weights. DENSITY is a RATE, per thousand sky pixels, so each row's
     #    share is its rate times its own area. See DENSITY and _row_weights.
     weights = _row_weights()
-    total = sum(weights)
+
+    # -- EVERY STAR IS GIVEN ITS ROW BEFORE ANY OF THEM IS PLACED, and this
+    #    is a correction rather than a tidy-up. Drawing a fresh row on every
+    #    attempt and discarding the draw whenever the blue-noise test fails
+    #    looks unbiased and is not: the rejection rate rises with local
+    #    density, so the crowded rows fail more often and the stars they lose
+    #    are handed to the empty ones. Rendered and counted, the six-row
+    #    bands came out 37 / 39 / 22 / 19 / 23 / 11 against the rates in
+    #    DENSITY, which want 44 / 27 / 25 / 17 / 21 / 14 -- the top band six
+    #    short, the second twelve over, and the 6:1 falloff that §5 calls the
+    #    most characterful measurement in the region flattened to about 3:1
+    #    in the half of the frame where it is most visible.
+    #
+    #    So the rows are drawn once, up front, as a quota. A star that cannot
+    #    find room in its row gives up its SPACING, not its row: the soft
+    #    discouragement is relaxed over successive attempts and only the hard
+    #    2-px floor is kept, which is the right thing to trade because §5
+    #    states the minimum as a hard measurement and the median as a
+    #    tendency.
+    #    AND THE QUOTA IS ALLOCATED, NOT SAMPLED. Drawing 151 rows from the
+    #    weights is a multinomial with a standard deviation of about five in
+    #    the top band alone; the first draw handed it 37 where its own rate
+    #    wants 44, which is a seven-star error in the one place §5 measures
+    #    to a tenth. Largest-remainder gives every row exactly its share of
+    #    the 151 and leaves nothing to the seed except WHERE in the row.
+    rows = _quota(weights, len(bag))
+    rng.shuffle(rows)
 
     placed = 0
-    for _ in range(200000):
-        if placed >= len(bag):
-            break
-        pick = rng.random() * total
-        y = len(weights) - 1
-        for row, weight in enumerate(weights):
-            pick -= weight
-            if pick <= 0:
-                y = row
-                break
+    for y in rows:
         band = min(y // 6, len(FAINT_FLOOR) - 1)
-        x = rng.randrange(layout.WIDTH)
-        if not room(x, y):
-            continue
-        # Blue noise, not Poisson disc: a hard floor at 2 px and a linear
-        # discouragement out to SOFT_SPACING. See MIN_SPACING and SOFT_SPACING.
-        gap = nearest(x, y)
-        if gap < MIN_SPACING:
-            continue
-        if gap < SOFT_SPACING and rng.random() > (gap - MIN_SPACING) / (
-                SOFT_SPACING - MIN_SPACING):
+        for attempt in range(96):
+            x = rng.randrange(layout.WIDTH)
+            if not room(x, y):
+                continue
+            # Blue noise, not Poisson disc: a hard floor at 2 px and a linear
+            # discouragement out to SOFT_SPACING, which fades as the row runs
+            # out of places to put anything. See MIN_SPACING and SOFT_SPACING.
+            gap = nearest(x, y)
+            if gap < MIN_SPACING:
+                continue
+            soft = MIN_SPACING + (SOFT_SPACING - MIN_SPACING) * max(
+                0.0, 1.0 - attempt / 48.0)
+            if gap < soft and rng.random() > (gap - MIN_SPACING) / max(
+                    1e-6, soft - MIN_SPACING):
+                continue
+            break
+        else:
             continue
 
         tier = bag[placed]

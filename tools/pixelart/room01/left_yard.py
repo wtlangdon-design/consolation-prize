@@ -102,15 +102,84 @@ TIMBER_TOP = ((0, 2, 44), (3, 9, 42), (10, 13, 45), (14, 24, 46))
 TIMBER_PLANKS = (
     (0, 0, "void"), (1, 1, "seam"), (2, 2, "shade"), (3, 5, "face"),
     (6, 6, "lit"), (7, 7, "seam"), (8, 8, "face"), (9, 9, "seam"),
-    (10, 11, "shade"), (12, 13, "face"), (14, 14, "shade"), (15, 15, "lit"),
-    (16, 16, "shade"), (17, 19, "lit"), (20, 21, "lit"), (22, 22, "shade"),
-    (23, 23, "face"), (24, 24, "edge"),
+    (10, 10, "face"), (11, 11, "shade"), (12, 13, "face"), (14, 14, "shade"),
+    (15, 15, "lit"), (16, 16, "face"), (17, 17, "lit"), (18, 20, "moon"),
+    (21, 21, "lit"), (22, 22, "shade"), (23, 23, "mid"), (24, 24, "edge"),
 )
+
+#: THE STACK CHANGES BELOW THE y=71 RAIL AND THAT IS NOT WEATHERING. The same
+#: column-median reading, run separately over rows 55-71 and rows 72-96:
+#:
+#:   x       1   3   4   6   8  10  13  15  17  18  19  20  21  23  24
+#:   55-71  16  29  29  43  31  27  31  40  43  48  48  48  43  37  43
+#:   72-96  13  23  30  33  18  21  23  36  29  29  24  25  20  32  35
+#:
+#: The bright poles at x 18-21 lose 20-24 luminance across that rail and end
+#: up DARKER than their neighbours, while x 4 gains. This is not a body with
+#: a gradient on it — it is the upper gate face catching what light there is
+#: and the stacked timber below it standing in the yard's own shade, and the
+#: rail is where one stops and the other starts. One table for the whole
+#: height gives a set of full-height stripes, which is what a moonlit pole
+#: run from y=55 to y=96 looked like: a painted band, not a plane turning.
+TIMBER_PLANKS_LOWER = (
+    (0, 0, "void"), (1, 1, "seam"), (2, 2, "shade"), (3, 3, "shade"),
+    (4, 4, "face"), (5, 5, "shade"), (6, 6, "mid"), (7, 8, "seam"),
+    (9, 14, "shade"), (15, 15, "mid"), (16, 16, "shade"), (17, 18, "face"),
+    (19, 22, "shade"), (23, 23, "mid"), (24, 24, "edge"),
+)
+
+#: Where the one table gives way to the other: the pale run at y 70-71.
+TIMBER_SPLIT_Y = 72
 
 #: Ramp step for each tone, on the plank's own family. `seam` and `void` are
 #: the two that are NOT pine — a seam between two poles is a crack with
 #: nothing in it, and it is warm-dark rather than grey-dark.
-PLANK_TONE = {"shade": 0, "face": 1, "lit": 3}
+#:
+#: FIVE TONES, NOT FOUR, AND THE FIFTH IS THE POINT. Read down the bar's
+#: column profile at rows 56-70 in eight-luminance buckets and x 19-20
+#: alternate between L 40-47 and L 56-63 while every other lit face sits at
+#: L 40-47 flat: there is one pole in this stack whose face is square to
+#: whatever light there is, and it runs L 54-59 — the top of the timber's
+#: measured range at x < 23. Four tones capped at `lit` deliver a mass whose
+#: whole body lives inside eighteen luminance, which is the compression the
+#: critic named. The measured body is min 7.6 to max 80.3, and it is the
+#: SPREAD that says stack-of-poles rather than painted flat.
+PLANK_TONE = {"shade": 0, "face": 1, "mid": 2, "lit": 3, "moon": 4}
+
+#: THE BODY IS NOT ONE RAMP EITHER, and this is what the compressed range
+#: actually was. §4's own row for this material reads `pine_weathered` 0-1,
+#: `dust` 0-1, `mud` 1 — three families, not one — and counting indices in
+#: the locked-palette proof over x 0-24, y 55-96 bears it out: grey 0 (94 px)
+#: and pine_weathered 1 (81) and dust 0 (80) and pine_weathered 0 (77) and
+#: dust 1 (64) and mud 1 (54), a spread across four families before the
+#: seventh most common entry. Drawn out of one ramp the same rect came back
+#: 90% pine_weathered 0-3: the values were near enough, and the surface read
+#: as one painted board with a gradient because every pixel in it was a
+#: neighbour of every other.
+#:
+#: So each tone is a SET OF VALUE-MATCHED ENTRIES and the stream picks one
+#: per pixel. They agree on luminance to within a few points and disagree on
+#: hue and saturation, which at 320×144 is the difference between weathered
+#: timber and a flat fill — and it costs nothing, because these are the
+#: entries the region is already measured to use. Repeats are weights.
+#:
+#: The grain then steps whichever entry was drawn along ITS OWN family, so
+#: the hue rule survives: a pixel that came out `dust` is lit as `dust`.
+TIMBER_GRAIN = {
+    "shade": (("pine_weathered", 0), ("pine_weathered", 0), ("dust", 0),
+              ("mud", 1), ("grey", 0)),
+    "face":  (("pine_weathered", 1), ("pine_weathered", 1), ("dust", 1),
+              ("mud", 3)),
+    "mid":   (("pine_weathered", 2), ("pine_weathered", 2), ("dust", 1)),
+    "lit":   (("pine_weathered", 3), ("pine_weathered", 3), ("dust", 2)),
+    "moon":  (("pine_weathered", 4), ("pine_weathered", 4), ("dust", 3)),
+}
+
+#: §1's max row, and the one hard number the left-to-right ramp hangs on:
+#: NOTHING IN THE LEFTMOST 24 COLUMNS EXCEEDS L 59. Weathering may widen the
+#: band downward as far as it likes — the measured floor is 7.6 — and may not
+#: push a lit pole over this, whichever family the pixel landed in.
+TIMBER_CEILING = 60.0
 
 #: §2.9's near-horizontal pale runs, "each 1 px, spanning most of the mass's
 #: width". (row, x from, x to, step above the body). §7.7: Image A carries a
@@ -129,7 +198,7 @@ TIMBER_CAPS = ((53, 5, 8), (54, 17, 24))
 #: y 90 down. The mass is not lit from above — it is simply further out of
 #: the sky's reach the lower it goes, and a body drawn at one value from the
 #: cap to the ground is the single loudest way to make it read as a slab.
-BODY_FALL = ((63, -0), (80, -1), (90, -2))
+BODY_FALL = ((64, 0), (72, 1), (80, 0), (90, -1))
 
 #: §2.9's lower posts and crate, x 0-10, y 96-122. The same trough-and-peak
 #: reading as the body, measured over y 100-112.
@@ -201,7 +270,7 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 # ---------------------------------------------------------------------------
 
 
-def _plank_ink(ctx: layout.Ctx, tone: str, lift: int = 0) -> int:
+def _plank_ink(ctx: layout.Ctx, tone: str, lift: int = 0, stream=None) -> int:
     """The index for one pole face. Four tones, three families, one rule.
 
     A seam is a crack with nothing in it and is warm-dark rather than
@@ -215,7 +284,16 @@ def _plank_ink(ctx: layout.Ctx, tone: str, lift: int = 0) -> int:
         return ctx.ink("rail_shadow")               # mud 1, L 17.4
     if tone == "edge":
         return ctx.ink("dry_mud", -1 + lift)        # mud 5, L 37.9
-    return ctx.ink("timber_far", PLANK_TONE[tone] + lift)
+    choices = TIMBER_GRAIN[tone]
+    family, step = choices[int(stream.random() * len(choices))]
+    ramp = ctx.palette.family(family)
+    step = max(0, step + lift)
+    # The ceiling is a MEASURED LUMINANCE, not a ramp position, because the
+    # entry that reaches it differs by family: pine_weathered 6 is L 59 and
+    # dust 4 is L 53, and a fixed step index would cap one and not the other.
+    while step > 0 and ctx.palette.luminance(ramp.at(step)) > TIMBER_CEILING:
+        step -= 1
+    return ramp.at(step)
 
 
 def _body_fall(y: int) -> int:
@@ -248,6 +326,16 @@ def _plank_column(canvas: IndexedCanvas, ctx: layout.Ctx, x: int, tone: str,
                                      -1 if stream.random() < 0.45 else 0))
         return
     for y in range(top, bottom + 1):
+        # THE MASS RUNS OUT OF PINE BEFORE IT RUNS OUT OF DARK. Rows 90-96
+        # measure a median of 16-19 and `pine_weathered` 0 is L 21 — the
+        # family's own floor, so no number of steps down reaches it. The
+        # bottom of the stack is stepped into `mud` 0-1 instead: same warmth,
+        # four luminance lower, and it is what puts the measured floor of 7.6
+        # into a body whose ramp cannot otherwise go below 21.
+        if y >= 90 and stream.random() < 0.45:
+            canvas.put(x, y, ctx.ink("rail_shadow",
+                                     -1 if stream.random() < 0.4 else 0))
+            continue
         roll = stream.random()
         # A TWO-TO-THREE STEP BAND with occasional excursions to four. The
         # bar's timber measures min L 7.6 and max L 80.3 inside a body whose
@@ -264,7 +352,7 @@ def _plank_column(canvas: IndexedCanvas, ctx: layout.Ctx, x: int, tone: str,
             grain = -2
         else:
             grain = 0
-        canvas.put(x, y, _plank_ink(ctx, tone, _body_fall(y) + grain))
+        canvas.put(x, y, _plank_ink(ctx, tone, _body_fall(y) + grain, stream))
 
 
 def _timber(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -281,16 +369,28 @@ def _timber(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     for left, right, tone in TIMBER_PLANKS:
         for x in range(left, right + 1):
-            _plank_column(canvas, ctx, x, tone, tops[x], foot, stream)
+            _plank_column(canvas, ctx, x, tone, tops[x], TIMBER_SPLIT_Y - 1,
+                          stream)
+    for left, right, tone in TIMBER_PLANKS_LOWER:
+        for x in range(left, right + 1):
+            _plank_column(canvas, ctx, x, tone, TIMBER_SPLIT_Y, foot, stream)
 
     # §2.9's stepped top edge, "each tread capped by a 1-px cool moonlit line
     # at L 47-59 — the brightest cool marks in the region's left half". §5:
     # they are what separates the timber silhouette from the ridge behind it,
     # which is only 5-10 L points away, and they are load-bearing.
+    # THEY WERE A STEP DIM. `timber_cap` is grey 3 at L 41 and the caps
+    # measure L 47-59 — grey 4 and 5, at 53 and 61. Drawn at 41/53 the whole
+    # top of the mass sat under the bar's floor for these marks, and since
+    # they are the ONLY thing separating the timber silhouette from a range
+    # 5-10 L behind it, a step of loss there costs more than a step anywhere
+    # else in the rect. So the cap is grey 4 with grey 5 on the pixels that
+    # catch: the run reads as a lit edge with a sparkle in it rather than as
+    # a grey line.
     for left, right, row in TIMBER_TOP[1:]:
         for x in range(left, right + 1):
             canvas.put(x, row, ctx.ink("timber_cap",
-                                       1 if stream.random() < 0.55 else 0))
+                                       2 if stream.random() < 0.4 else 1))
     # The third tread carries a second, dimmer line a row down as the stack
     # steps back: the measured run at y=47 reaches x=24 where y=46 stops at 21.
     canvas.hline(16, 47, 9, cap)
@@ -316,9 +416,16 @@ def _timber(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     for row, left, run in ((50, 11, 1), (51, 11, 1), (52, 20, 5), (49, 13, 2)):
         canvas.hline(left, row, run, ctx.ink("timber_far", 1))
 
-    # The two cap rows where the stack's top timbers lie across it.
+    # The two cap rows where the stack's top timbers lie across it. Measured
+    # in the bar these are the brightest cool marks in the region's left
+    # half — L 48-63 at x 5-8 on row 53 and x 18-23 on row 54, i.e. grey 4
+    # AND grey 5, not one flat grey 4. A cap row drawn at one index is a
+    # ruled line; the bar's is a top face with two or three pixels on it
+    # catching more than their neighbours.
     for row, left, right in TIMBER_CAPS:
-        canvas.hline(left, row, right - left + 1, ctx.ink("timber_cap", 1))
+        for x in range(left, right + 1):
+            canvas.put(x, row, ctx.ink("timber_cap",
+                                       2 if stream.random() < 0.5 else 1))
 
     # §2.9's near-horizontal pale runs at y 70-71, 84 and 89.
     for row, left, right, lift in TIMBER_RAILS:
@@ -327,7 +434,11 @@ def _timber(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     # §5: the lit right edge at x 23-24 is WHAT KEEPS THE MASS FROM BLEEDING
     # INTO THE SHADOW SLOT BESIDE IT, and it is warm where the rest is not.
-    canvas.vline(24, 60, 29, ctx.ink("dry_mud", -1))
+    # It is measured at L 43 above the y=71 rail and L 35 below it, the same
+    # break the poles behind it take: the edge is the corner of the upper
+    # gate face, and below the rail there is no gate, only stacked timber.
+    canvas.vline(24, 60, 12, ctx.ink("dry_mud"))
+    canvas.vline(24, 72, 17, ctx.ink("dry_mud", -2))
     # And the near-black column at x=0: column mean L 10.8, the darkest column
     # in the region by a wide margin (§3).
     canvas.vline(0, 55, foot - 55, ctx.ink("shadow_slot"))
