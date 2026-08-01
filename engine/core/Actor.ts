@@ -195,12 +195,25 @@ export class Actor {
   }
 
   /** Frame index within the current clip at the given time. */
-  frameAt(seconds: number, walkRate: number, reactRate: number, frames: number): number {
+  /**
+   * Frame index within the current clip at the given time.
+   *
+   * ERRATA 35b. `if (!this.isWalking) return 0` was the whole of the
+   * protagonist's stillness: the idle clip could have had any number of
+   * frames and the engine would have drawn the first one forever. It now runs
+   * the idle at its own rate, which is slower than the walk by a factor of
+   * three and comes from content.
+   */
+  frameAt(seconds: number, walkRate: number, reactRate: number, frames: number,
+          idleRate = 0): number {
     if (this.special) {
       const elapsed = seconds - this.special.startedAt;
       return Math.min(frames - 1, Math.floor(elapsed * reactRate));
     }
-    if (!this.isWalking) return 0;
+    if (!this.isWalking) {
+      if (idleRate <= 0 || frames <= 1) return 0;
+      return Math.floor(seconds * idleRate) % frames;
+    }
     return Math.floor(seconds * walkRate) % Math.max(1, frames);
   }
 

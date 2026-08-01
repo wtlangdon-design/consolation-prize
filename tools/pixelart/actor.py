@@ -654,6 +654,56 @@ WALK_MUD = [
 
 WALKS = {MUD: WALK_MUD, BOARDWALK: WALK_BOARDWALK}
 
+#: ERRATA 35b. THE PROTAGONIST IS NEVER PERFECTLY STILL, and this was the
+#: highest-value animation in the project for six turns while `idle` stayed a
+#: single frame in every facing.
+#:
+#: A breath and a weight shift, two frames each, on a long irregular cycle.
+#: `lift` raises everything above the hip by a pixel and leaves the boots
+#: planted -- that is a chest filling. `lean` displaces the same mass
+#: sideways, which is weight going onto one leg. Neither moves the feet,
+#: because a man breathing has not gone anywhere.
+#:
+#: THE CYCLE IS SIX FRAMES AND NOT FOUR, so it does not divide evenly into
+#: anything: rest, breathe, rest, rest, shift, rest. At a slow rate the eye
+#: reads that as a man standing rather than as a two-stroke engine, and the
+#: irregularity is the whole of 35b's "long irregular cycle".
+IDLE = [
+    dict(),
+    dict(breath=1),
+    dict(breath=1),
+    dict(),
+    dict(lean=1),
+    dict(),
+]
+
+
+def breathe(figure: IndexedCanvas, rows: int = 1) -> IndexedCanvas:
+    """Raises everything above the hip by `rows`, boots planted.
+
+    `lift` could not do this: it raises the TRAILING BOOT and only when a
+    stride is swinging it, so `dict(lift=1)` with no stride drew a figure
+    identical to the rest pose -- measured at zero pixels different, which is
+    how it was caught. A breath is the chest going up while the feet stay
+    where they are, so it is a post-process on the drawn figure rather than
+    another parameter threaded through the limb code.
+
+    The seam row is duplicated rather than left blank, which at one pixel is
+    the difference between a man breathing and a man with a gap in him.
+    """
+    bottom = content_bottom(figure)
+    hip = bottom - max(4, round((bottom + 1) * 0.42))
+    out = IndexedCanvas(figure.width, figure.height, fill=figure.get(0, 0))
+    for y in range(figure.height):
+        for x in range(figure.width):
+            out.put(x, y, figure.get(x, y))
+    for y in range(1, hip + 1):
+        for x in range(figure.width):
+            out.put(x, y - rows if y - rows >= 0 else 0, figure.get(x, y))
+    for x in range(figure.width):
+        out.put(x, hip, figure.get(x, hip))
+    return out
+
 #: The one bespoke reaction, and it is three frames because the dossier says
 #: prefer the smallest readable reaction. He leans away, his eyes go with him,
 #: and he comes back. No step, no arm flail, no second thought.

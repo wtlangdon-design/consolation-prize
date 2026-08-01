@@ -43,6 +43,7 @@ import crowd
 import furniture
 import interior
 import lighting
+import void
 from canvas import IndexedCanvas
 from dither import BAYER2, BAYER4, dither_pixel
 from interior import Box
@@ -76,6 +77,21 @@ def script_for(number: int, palette: Palette):
         family, position = entry[role].rsplit(" ", 1)
         out[role] = (palette.family(family), float(position))
     return out
+
+
+def void_regions(canvas: IndexedCanvas, box: Box, regions) -> None:
+    """ERRATA 40, per room. The regions are passed in; this only stamps them.
+
+    Every interior gets the same three structural ones -- roof space, the two
+    ceiling/wall junctions, and the line where the floor meets the back wall
+    -- because those are properties of being a room rather than of being this
+    room. What differs is the furniture, and that is what `regions` carries.
+    """
+    void.band(canvas, 0, 0, WIDTH, box.back_top - 4, feather=5)
+    void.wedge(canvas, 0, box.back_top - 4, box.back_left, box.back_top + 2, 6)
+    void.wedge(canvas, WIDTH - 1, box.back_top - 4, box.back_right, box.back_top + 2, 6)
+    for kind, args in regions:
+        getattr(void, kind)(canvas, *args)
 
 
 def shell(canvas: IndexedCanvas, palette: Palette, box: Box, script, rng,
@@ -157,7 +173,18 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
     # frame and every bit of it is sky.
     pine = palette.family("umber")
 
-    shell(canvas, palette, box, script, rng)
+    # ERRATA 40 CANNOT BE MET IN THIS ROOM BY DARKENING, and the measurement
+    # says why: SKY'S FLOOR IS LUMINANCE 53. It is one of errata 21b's four
+    # families that cannot approach black, and 30d makes it this room's
+    # dominant. At drop 0.32 the wall and its wainscot both clamped onto the
+    # same bottom entry -- 45% of the frame at exactly 60.5, which is why the
+    # median and the p90 measured the same number.
+    #
+    # So the drop goes back to 0.22, which keeps the dado distinct from the
+    # wall, and the room sits at a median in the fifties. Reaching 25-35 needs
+    # 21b's SWAP rather than a darkening, and a swap here changes what 30d
+    # calls the only cool interior in Act I. That is a ruling, not a tuning.
+    shell(canvas, palette, box, script, rng, drop=0.22)
     batten_wall(canvas, box, plush, plush_tone)
     interior.plank_floor(canvas, box, pine, rng, base=0.34)
 
@@ -299,7 +326,12 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
     ground_objects(canvas, palette, canvas.strokes, box.back_bottom - 12)
 
     # -- one oil lamp on the desk, and the cool field it is losing to.
-    field = LightField(WIDTH, HEIGHT, ambient=0.72)
+    # ERRATA 40. Ambient was 0.72 -- a lobby at night, lit evenly, everywhere.
+    # The void regions moved p10 to 0 and left the median at 60 because the
+    # median is the WALLS, and an ambient that high means there is no such
+    # thing as away-from-the-lamp. 0.40 leaves the desk lamp doing the work it
+    # was drawn to do.
+    field = LightField(WIDTH, HEIGHT, ambient=0.40)
     field.add_lamp(Lamp(x=44, y=desk_y - 14, radius=70, intensity=0.62, squash=1.2))
     field.add_lamp(Lamp(x=250, y=40, radius=120, intensity=0.22, squash=1.4))
     field.apply(canvas, palette)
@@ -313,6 +345,18 @@ def hotel_lobby() -> tuple[IndexedCanvas, Palette]:
     # as a source rather than as a pale patch on a desk.
     collar(canvas, palette, 43, desk_y - 12, 6, 17, steps=3)
 
+    # ERRATA 40. Before: median 74.0, p10 21.7, 26.0% below 30, and 1.0% of
+    # the frame near-void in NO region over 150 pixels. A lobby at night with
+    # one oil lamp had no shadow in it anywhere.
+    void_regions(canvas, box, (
+        ("rect", (4, 48, 22, 40, 2)),                  # the street door, shut on night
+        ("wedge", (192, 82, 314, 20, 8)),              # under the stair, its full run
+        ("smear", (26, 112, 86, 6)),                   # under the desk
+        ("smear", (98, 102, 68, 5)),                   # under the settee
+        ("smear", (162, 100, 32, 5)),                  # under the stove
+        ("smear", (box.back_left, box.back_bottom - 1, 148, 4)),   # floor/wall junction
+        ("smear", (24, 132, 250, 8)),                  # the near floor, out of the lamp
+    ))
     return canvas, palette
 
 
@@ -452,7 +496,7 @@ def thads_room() -> tuple[IndexedCanvas, Palette]:
     pine = palette.family("pine_weathered")
     gold = palette.family("accent_gold")
 
-    shell(canvas, palette, box, script, rng)
+    shell(canvas, palette, box, script, rng, drop=0.30)
     batten_wall(canvas, box, drab, drab_tone, step=9)
     interior.plank_floor(canvas, box, pine, rng, base=0.34)
 
@@ -589,9 +633,23 @@ def thads_room() -> tuple[IndexedCanvas, Palette]:
 
     ground_objects(canvas, palette, canvas.strokes, box.back_bottom - 6)
 
-    field = LightField(WIDTH, HEIGHT, ambient=0.80)
+    # ERRATA 40. One alley window at 0.80 ambient is a room with no shadowed
+    # side. 0.46, and the window keeps its own reach.
+    field = LightField(WIDTH, HEIGHT, ambient=0.46)
     field.add_lamp(Lamp(x=180, y=46, radius=130, intensity=0.44, squash=1.5))
     field.apply(canvas, palette)
+
+    # ERRATA 40. Before: median 61.3, p10 32.7, 4.4% below 30 -- the least
+    # dark room in the game after the undertaker's, and it is a cheap hotel
+    # room at the top of a stair lit by one alley window.
+    void_regions(canvas, box, (
+        ("wedge", (box.back_left, box.back_bottom, 40, HEIGHT - 6, 7)),   # left corner
+        ("smear", (198, 108, 116, 8)),                 # under the bed
+        ("smear", (146, 122, 58, 6)),                  # under the desk
+        ("smear", (102, 106, 40, 5)),                  # under the washstand
+        ("smear", (box.back_left, box.back_bottom - 1, 138, 4)),
+        ("smear", (40, 130, 170, 9)),                  # the near floor
+    ))
     return canvas, palette
 
 
@@ -831,9 +889,32 @@ def undertakers() -> tuple[IndexedCanvas, Palette]:
 
     # Flat daylight through a window out of frame. No lamp: an undertaker's
     # is scrubbed and it works in the morning.
-    field = LightField(WIDTH, HEIGHT, ambient=0.90)
+    # ERRATA 40, held to THIS ROOM'S band. 0.90 to 0.74 and no further: the
+    # target is a median near 90, not near 30, because 17b declares the
+    # near-monochrome deliberate and pulling it down would be the ruling
+    # overruling its own stated exception.
+    field = LightField(WIDTH, HEIGHT, ambient=0.74)
     field.add_lamp(Lamp(x=40, y=40, radius=150, intensity=0.26, squash=1.6))
     field.apply(canvas, palette)
+
+    # ERRATA 40, AND THIS ROOM IS THE DECLARED EXCEPTION. Errata 17b makes it
+    # near-monochrome scrubbed white ON PURPOSE, so it is NOT pulled towards a
+    # median of 30: the target is about 90 with 15 to 20 per cent below
+    # luminance 30, which means real dark under the things in it and then
+    # stop. No roof band -- a scrubbed workshop's ceiling is not black, and
+    # blacking it would be the ruling applied against its own exception.
+    for kind, args in (
+        ("rect", (6, 42, 24, 48, 2)),                  # the street door
+        ("smear", (72, 76, 104, 6)),                   # under the standing coffins
+        ("smear", (184, 120, 114, 7)),                 # under the table
+        ("smear", (28, 124, 78, 6)),                   # under the waiting bench
+        ("smear", (102, 116, 34, 5)),                  # under the ledger stand
+        ("smear", (186, 92, 108, 5)),                  # under the table top itself
+        ("rect", (188, 28, 38, 14, 2)),                # the window's blind, unlit
+        ("smear", (28, 134, 264, 8)),                  # the near floor, out of the light
+        ("wedge", (0, box.back_top, 0, HEIGHT - 1, 5)),
+    ):
+        getattr(void, kind)(canvas, *args)
     return canvas, palette
 
 

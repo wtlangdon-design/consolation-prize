@@ -96,26 +96,54 @@ def measure(canvas, palette: Palette) -> dict:
     }
 
 
-#: The reference, and the window the ruling asks every room to land in.
+#: THREE BANDS, NOT ONE. The original target came from MI's SCUMM Bar, which
+#: is a NIGHT INTERIOR, and it does not transfer to daylight: a lit street
+#: with a sky in it cannot be 55% below luminance 30 without being wrong.
+#:
+#: Room 13 is its own case in both directions. Errata 17b declares it a
+#: near-monochrome scrubbed white room on purpose, so it is not pulled towards
+#: 30 -- it wants real dark under the coffins and the table and then it stops.
 REFERENCE = {"median": 27.3, "p10": 1.9, "below30": 55.0, "p90": 68.2}
-TARGET = {"median": (25.0, 35.0), "p10": (0.0, 8.0), "below30": (45.0, 60.0)}
+
+BANDS = {
+    "interior": {"median": (25.0, 35.0), "p10": (0.0, 8.0), "below30": (45.0, 60.0)},
+    "day": {"median": (45.0, 60.0), "p10": (0.0, 15.0), "below30": (20.0, 30.0)},
+    "monochrome": {"median": (80.0, 100.0), "p10": (0.0, 40.0), "below30": (15.0, 20.0)},
+}
+
+#: Which band each composed room answers to. Night exteriors take the interior
+#: band -- Room 1 is a night road and it landed inside it.
+BAND_OF = {
+    "ROOM 1": "interior", "ROOM 3": "interior", "ROOM 5": "interior",
+    "ROOM 18": "interior", "ROOM 19": "interior",
+    "ROOM 2": "day", "ROOM 29": "day", "ROOM 36": "day",
+    "ROOM 13": "monochrome",
+}
 
 
-def verdict(stats: dict) -> str:
-    misses = [name for name, (low, high) in TARGET.items()
-              if not low <= stats[name] <= high]
+def band_for(name: str) -> str:
+    for prefix, band in BAND_OF.items():
+        if name.startswith(prefix + " ") or name == prefix:
+            return band
+    raise KeyError(f"{name} is not assigned a band -- assign one before measuring it")
+
+
+def verdict(stats: dict, band: str) -> str:
+    misses = [key for key, (low, high) in BANDS[band].items()
+              if not low <= stats[key] <= high]
     return "in the window" if not misses else f"outside: {', '.join(misses)}"
 
 
 def report(name: str, stats: dict) -> bool:
-    print(f"{name}")
+    band = band_for(name)
+    print(f"{name}   [{band}]")
     print(f"  median {stats['median']:6.1f}   p10 {stats['p10']:6.1f}   "
           f"below 30 {stats['below30']:5.1f}%   p90 {stats['p90']:6.1f}")
     print(f"  near-void {stats['voidArea']:5.1f}% of frame, largest region "
           f"{stats['largest']:5.1f}%, {stats['regions']} region(s) over {REGION}px "
           f"({stats['components']} components)")
-    print(f"  {verdict(stats)}")
-    return verdict(stats) == "in the window"
+    print(f"  {verdict(stats, band)}")
+    return verdict(stats, band) == "in the window"
 
 
 def rooms():
@@ -141,7 +169,11 @@ def main() -> int:
     palette = Palette.load()
     print(f"REFERENCE  MI SCUMM Bar: median {REFERENCE['median']}, p10 {REFERENCE['p10']}, "
           f"below 30 {REFERENCE['below30']}%, p90 {REFERENCE['p90']}")
-    print(f"TARGET     median 25-35, p10 under 8, below-30 45-60%\n")
+    for name, limits in BANDS.items():
+        print(f"BAND {name:<11} median {limits['median'][0]:.0f}-{limits['median'][1]:.0f}, "
+              f"p10 under {limits['p10'][1]:.0f}, "
+              f"below-30 {limits['below30'][0]:.0f}-{limits['below30'][1]:.0f}%")
+    print()
     only = sys.argv[1:]
     outside = 0
     for name, canvas in rooms():

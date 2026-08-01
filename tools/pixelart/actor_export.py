@@ -72,7 +72,15 @@ def frames_for(palette: Palette, clip: str, facing: str, height: int,
         drawn = [actor.at_height(palette, view=view, height=height, surface=surface, **step)
                  for step in actor.RECOIL]
     else:
-        drawn = [actor.at_height(palette, view=view, height=height, surface=surface)]
+        # ERRATA 35b: idle is a CLIP now, not one frame. It was a single
+        # standing pose in all four facings and both sizes, which is why the
+        # man on screen more than anything else in the game was a statue.
+        drawn = []
+        for step in actor.IDLE:
+            rows = step.get("breath", 0)
+            figure = actor.at_height(palette, view=view, height=height, surface=surface,
+                                     **{k: v for k, v in step.items() if k != "breath"})
+            drawn.append(actor.breathe(figure, rows) if rows else figure)
     return [flip(figure) if mirror else figure for figure in drawn]
 
 
@@ -152,6 +160,13 @@ def main() -> None:
         ),
         "walkRate": 8.0,
         "reactRate": 7.0,
+        # ERRATA 35b's long irregular cycle. Six frames at 2.4 Hz is a
+        # two-and-a-half second loop -- slow enough to read as a man standing
+        # rather than as a mechanism, and six divides evenly into nothing else
+        # the game is doing. GENERATED HERE rather than hand-added to the
+        # JSON: this file rewrites content/actors/thad.json wholesale, and a
+        # value typed into the output is a value the next export deletes.
+        "idleRate": 2.4,
         "sizes": sizes,
     }
     TABLE.write_text(json.dumps(table, indent=2) + "\n")

@@ -384,6 +384,8 @@ export interface ActorFile {
   walkRate: number;
   /** Reaction frames per second. */
   reactRate: number;
+  /** Errata 35b: the idle cycle's rate. Slower than the walk, on purpose. */
+  idleRate?: number;
   sizes: { near: ActorSize; far: ActorSize };
 }
 

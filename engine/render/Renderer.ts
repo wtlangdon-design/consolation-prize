@@ -388,9 +388,9 @@ export class Renderer {
   private drawActor(feetX: number, feetY: number): void {
     const surface = this.actor.surfaceHere();
     const clip = this.actor.clip;
-    const { walkRate, reactRate } = this.state.content.actor;
+    const { walkRate, reactRate, idleRate } = this.state.content.actor;
     const frames = this.sprite?.frameCount(clip, this.actor.facing, surface, this.actor.height) ?? 1;
-    const frame = this.actor.frameAt(this.clock, walkRate, reactRate, frames);
+    const frame = this.actor.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0);
     const drawn = this.sprite?.draw(this.screen.context, clip, this.actor.facing, surface,
       frame, feetX, feetY, this.actor.height);
     if (!drawn) {
