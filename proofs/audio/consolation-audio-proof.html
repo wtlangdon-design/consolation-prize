@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Consolation — audio feasibility proof</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; padding: 24px 20px 60px;
+    background: #14130f; color: #d8d2c4;
+    font: 14px/1.55 ui-monospace, "DejaVu Sans Mono", Menlo, Consolas, monospace;
+    max-width: 760px;
+  }
+  h1 { font-size: 15px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 2px; }
+  h2 { font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+       color: #8d8674; margin: 26px 0 8px; }
+  p  { margin: 6px 0; max-width: 68ch; }
+  .sub { color: #8d8674; margin-bottom: 18px; }
+  hr { border: 0; border-top: 1px solid #2e2b23; margin: 22px 0; }
+
+  .row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  button {
+    font: inherit; color: #e7e1d2; background: #24221b;
+    border: 1px solid #4a4638; border-radius: 2px;
+    padding: 9px 14px; cursor: pointer;
+  }
+  button:hover:not(:disabled) { background: #2f2c23; border-color: #6a6553; }
+  button.on { background: #4a4023; border-color: #b08a2e; color: #ffe9b0; }
+  button.stop { background: #2b1d1d; border-color: #6b4040; }
+  button:disabled { opacity: .45; cursor: default; }
+  button.small { padding: 6px 10px; font-size: 13px; }
+
+  .panel { border: 1px solid #2e2b23; background: #1a1813; padding: 12px 14px; margin: 14px 0; }
+  .readout { display: grid; grid-template-columns: max-content 1fr; gap: 3px 16px; }
+  .readout dt { color: #8d8674; }
+  .readout dd { margin: 0; }
+  .big { font-size: 26px; line-height: 1.15; letter-spacing: .02em; }
+  .bar { height: 6px; background: #2b2820; margin-top: 10px; position: relative; }
+  .bar > i { display: block; height: 100%; width: 0; background: #b08a2e; }
+  label.cb { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; }
+  code { color: #c9b98c; }
+  .note { color: #8d8674; font-size: 13px; }
+  ul { margin: 6px 0; padding-left: 20px; }
+  li { margin: 3px 0; max-width: 68ch; }
+</style>
+</head>
+<body>
+
+<h1>The Last Claim in Consolation — audio feasibility proof</h1>
+<p class="sub">Four synthesised instruments, the CONSOLATION theme, and the global detune as one parameter.
+Web Audio only. Nothing here is a shipping asset.</p>
+
+<h2>The theme</h2>
+<div class="row">
+  <button id="b-flat">theme at &minus;35 cents</button>
+  <button id="b-tuned">theme in tune</button>
+  <button id="b-arc">the 90-second resolution</button>
+  <button id="b-stop" class="stop">stop</button>
+</div>
+
+<div class="panel">
+  <dl class="readout">
+    <dt>global detune</dt><dd class="big" id="r-detune">&mdash;</dd>
+    <dt>state</dt><dd id="r-state">idle</dd>
+    <dt>resolution</dt><dd id="r-arc">&mdash;</dd>
+    <dt>bar</dt><dd id="r-bar">&mdash;</dd>
+  </dl>
+  <div class="bar"><i id="r-fill"></i></div>
+</div>
+
+<p class="note">One <code>ConstantSourceNode</code> is connected to the <code>detune</code> AudioParam of every
+oscillator in the score. The number above is that node's <code>offset</code>, read live from the audio graph.
+Nothing detunes itself.</p>
+
+<h2>Diagnostics</h2>
+<div class="row">
+  <label class="cb"><input type="checkbox" id="cb-flat" checked> piano is a semitone flat on C&#9839; (doc 05)</label>
+</div>
+<p class="note">A per-note-class offset of &minus;100 cents on pitch class 1, in every octave, summed with the global
+detune rather than replacing it. Toggle it while the theme is playing &mdash; the melody lands on C&#9839; in bars 3, 6
+and on the held final note of bar 8.</p>
+
+<div class="row">
+  <button class="small" data-aud="piano">piano alone</button>
+  <button class="small" data-aud="fiddle">fiddle alone</button>
+  <button class="small" data-aud="jawharp">jaw harp alone</button>
+  <button class="small" data-aud="harmonica">harmonica alone</button>
+</div>
+<p class="note">Audition figures at the current global detune. Not content &mdash; they exist so each synth voice can be
+judged on its own. Harmonica does not appear in the theme: doc 28 scores CONSOLATION for piano, fiddle and jaw harp.</p>
+
+<hr>
+
+<h2>What this is claiming</h2>
+<ul>
+  <li>Melody is placeholder, written against doc 28's description (cheerful, slightly too fast, cadence unresolved so
+      it goes round again rather than ending). It ends on the leading tone and loops. Replace it freely.</li>
+  <li>D major, so C&#9839; is the leading tone &mdash; the most conspicuous note in the key to be flat by a semitone.</li>
+  <li>The A7 chords are voiced without their third. With a flat C&#9839; in every dominant chord the theme stops being
+      uncomfortable and starts being broken. The C&#9839;s that matter are in the melody, where they are heard.</li>
+  <li>Output stage quantises to 10 bits and rolls off at 11 kHz on purpose. 1990, not a sample library.</li>
+</ul>
+
+<script>
+'use strict';
+/* ------------------------------------------------------------------ *
+ * CONSOLATION — audio feasibility proof
+ * Synthesis + arrangement, exported on window.ConsolationAudio so the
+ * same code path can be rendered in an OfflineAudioContext for testing.
+ * ------------------------------------------------------------------ */
+const ConsolationAudio = (function () {
+
+  const TEMPO       = 152;              // "slightly too fast for its own good"
+  const BEAT        = 60 / TEMPO;
+  const LOOP_BEATS  = 32;               // 8 bars of 4/4
+  const LOOP_SECONDS = LOOP_BEATS * BEAT;
+  const ARC_SECONDS = 90;               // doc 28 / invariant 5
+  const LEAD_SECONDS = LOOP_SECONDS;    // one full statement wrong before it starts resolving
+  const DETUNE_START = -35;             // cents, global, whole game
+
+  // doc 05: "C-sharp is a semitone flat and has been for years."
+  // Per-note-class, piano only, independent of and summed with the global detune.
+  const PIANO_CLASS_CENTS = { 1: -100 };
+
+  const midiToFreq = m => 440 * Math.pow(2, (m - 69) / 12);
+  const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+
+  /* ---------- output stage: soft clip + 10-bit quantise ---------- */
+  function outputCurve(levels) {
+    const n = 8192, c = new Float32Array(n), k = Math.tanh(1.6);
+    for (let i = 0; i < n; i++) {
+      const x = (i / (n - 1)) * 2 - 1;
+      const s = Math.tanh(x * 1.6) / k;
+      c[i] = Math.round(s * levels) / levels;
+    }
+    return c;
+  }
+
+  const noiseCache = new WeakMap();
+  function noiseBuffer(ctx) {
+    let b = noiseCache.get(ctx);
+    if (!b) {
+      const n = Math.floor(ctx.sampleRate * 2);
+      b = ctx.createBuffer(1, n, ctx.sampleRate);
+      const d = b.getChannelData(0);
+      let last = 0;
+      for (let i = 0; i < n; i++) { last = (last + (Math.random() * 2 - 1)) * 0.5; d[i] = last * 1.6; }
+      noiseCache.set(ctx, b);
+    }
+    return b;
+  }
+
+  /* ================================================================ *
+   * ENGINE
+   * ================================================================ */
+  function createEngine(ctx, options) {
+    const opts = Object.assign({ detuneCents: DETUNE_START, pianoCSharpFlat: true, gain: 0.85 }, options || {});
+
+    // --- master chain -------------------------------------------------
+    const master = ctx.createGain();     master.gain.value = 0;
+    const shaper = ctx.createWaveShaper(); shaper.curve = outputCurve(512); // ~10 bit
+    const lp = ctx.createBiquadFilter(); lp.type = 'lowpass';  lp.frequency.value = 11000; lp.Q.value = 0.5;
+    const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 70;
+    const trim = ctx.createGain(); trim.gain.value = 0.8;   // headroom for filter overshoot
+    master.connect(shaper); shaper.connect(lp); lp.connect(hp); hp.connect(trim); trim.connect(ctx.destination);
+
+    // --- busses -------------------------------------------------------
+    const dry = ctx.createGain(); dry.gain.value = 1; dry.connect(master);
+
+    // "distance" bus — for anything played as if from somewhere else
+    const dist = ctx.createGain(); dist.gain.value = 1;
+    const distLp = ctx.createBiquadFilter(); distLp.type = 'lowpass'; distLp.frequency.value = 1100;
+    const delay = ctx.createDelay(1.0); delay.delayTime.value = 0.115;
+    const fb = ctx.createGain(); fb.gain.value = 0.34;
+    const fbLp = ctx.createBiquadFilter(); fbLp.type = 'lowpass'; fbLp.frequency.value = 800;
+    const distOut = ctx.createGain(); distOut.gain.value = 0.85;
+    dist.connect(distLp); distLp.connect(delay); delay.connect(fb); fb.connect(fbLp); fbLp.connect(delay);
+    distLp.connect(distOut); delay.connect(distOut); distOut.connect(master);
+
+    // --- THE ONE PARAMETER --------------------------------------------
+    // Every oscillator in the score has this node connected to its detune
+    // AudioParam. Moving this offset moves the entire band together.
+    const detuneSource = ctx.createConstantSource();
+    detuneSource.offset.value = opts.detuneCents;
+    detuneSource.start(ctx.currentTime);
+
+    /* ---- per-note lifecycle -----------------------------------------
+       Every note builds a little graph and every one of them has to be
+       taken down again. The global detune node holds an outgoing
+       connection to each oscillator's detune param, which keeps that
+       oscillator in the graph forever unless it is explicitly
+       disconnected. Ten hours of music will not survive being tidy
+       about this only sometimes. --------------------------------------*/
+    const pending = [];
+
+    function osc(v, type, freq, intrinsicCents) {
+      const o = ctx.createOscillator();
+      o.type = type;
+      o.frequency.value = freq;
+      o.detune.value = intrinsicCents || 0;   // per-voice / per-note-class offset
+      detuneSource.connect(o.detune);         // + the one global parameter
+      v.nodes.push(o); v.links.push(o.detune);
+      return o;
+    }
+    function lfo(v, freq) {                   // modulator: not part of the score, not detuned
+      const o = ctx.createOscillator();
+      o.type = 'sine'; o.frequency.value = freq;
+      v.nodes.push(o);
+      return o;
+    }
+    function gain(v, value) {
+      const g = ctx.createGain();
+      if (value != null) g.gain.value = value;
+      v.nodes.push(g);
+      return g;
+    }
+    function filt(v, type) {
+      const f = ctx.createBiquadFilter();
+      f.type = type; v.nodes.push(f);
+      return f;
+    }
+    function noise(v) {
+      const s = ctx.createBufferSource();
+      s.buffer = noiseBuffer(ctx);
+      s.loop = true;
+      v.nodes.push(s);
+      return s;
+    }
+    function scope() { return { nodes: [], links: [] }; }
+    function retire(v, endTime, lastSource) {
+      const done = () => {
+        for (const p of v.links) { try { detuneSource.disconnect(p); } catch (e) {} }
+        for (const n of v.nodes) { try { n.disconnect(); } catch (e) {} }
+        v.links.length = 0; v.nodes.length = 0;
+      };
+      if (lastSource) lastSource.onended = done;   // realtime
+      pending.push({ t: endTime + 0.1, done });    // and a sweep, for anything that misses
+    }
+    function collect(now) {
+      const t = now == null ? ctx.currentTime : now;
+      let w = 0;
+      for (let i = 0; i < pending.length; i++) {
+        if (pending[i].t <= t) pending[i].done();
+        else pending[w++] = pending[i];
+      }
+      pending.length = w;
+    }
+
+    /* ---------------- UPRIGHT PIANO ---------------------------------
+       Struck string: three strings per note, not in unison with each
+       other; slightly sharp partials; fast double-slope decay; a hammer
+       click that is mostly noise. ------------------------------------ */
+    const PIANO_PARTIALS = [
+      { r: 1,     d:  0,  t: 'triangle', g: 1.00, k: 1.00 },
+      { r: 1,     d:  7,  t: 'triangle', g: 0.62, k: 1.05 },
+      { r: 1,     d: -6,  t: 'sine',     g: 0.48, k: 0.95 },
+      { r: 2.002, d:  0,  t: 'sine',     g: 0.30, k: 0.62 },
+      { r: 3.011, d:  0,  t: 'sine',     g: 0.15, k: 0.42 },
+      { r: 4.03,  d:  0,  t: 'sine',     g: 0.07, k: 0.30 },
+      { r: 5.06,  d:  0,  t: 'sine',     g: 0.04, k: 0.22 }
+    ];
+
+    function piano(ev) {
+      const t = ev.time, vel = ev.vel == null ? 0.8 : ev.vel;
+      const cls = ((ev.midi % 12) + 12) % 12;
+      const classCents = opts.pianoCSharpFlat ? (PIANO_CLASS_CENTS[cls] || 0) : 0;
+      const f = midiToFreq(ev.midi);
+      const durS = (ev.dur || 1) * BEAT;
+
+      const v = scope();
+      const out = gain(v);
+      out.gain.setValueAtTime(vel * 0.42, t);
+
+      const damp = filt(v, 'lowpass');
+      damp.Q.value = 0.35;
+      damp.frequency.setValueAtTime(clamp(f * 6 + 2600 * vel, 700, 12000), t);
+      damp.frequency.exponentialRampToValueAtTime(clamp(f * 2.6, 420, 6000), t + 0.42);
+      damp.connect(out);
+
+      const decay = clamp(3.2 * Math.pow(261.63 / f, 0.5), 0.42, 4.2);
+      const off = t + Math.max(0.09, durS);
+      const stopAt = Math.min(t + decay, off + 0.4) + 0.06;
+      let last = null;
+
+      for (const p of PIANO_PARTIALS) {
+        const o = osc(v, p.t, f * p.r, p.d + classCents);
+        const g = gain(v);
+        const a = p.g * (0.35 + 0.65 * vel);
+        const dc = decay * p.k;
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(a, t + 0.004);
+        g.gain.exponentialRampToValueAtTime(a * 0.26, t + dc * 0.3);
+        g.gain.exponentialRampToValueAtTime(0.0004, t + dc);
+        o.connect(g); g.connect(damp);
+        o.start(t); o.stop(stopAt);
+        last = o;
+      }
+
+      // hammer
+      const n = noise(v), ng = gain(v), nb = filt(v, 'bandpass');
+      nb.frequency.value = clamp(f * 4.5, 900, 4200); nb.Q.value = 0.9;
+      ng.gain.setValueAtTime(0, t);
+      ng.gain.linearRampToValueAtTime(0.22 * vel, t + 0.0015);
+      ng.gain.exponentialRampToValueAtTime(0.0004, t + 0.035);
+      n.connect(nb); nb.connect(ng); ng.connect(damp);
+      n.start(t); n.stop(t + 0.06);
+
+      out.gain.setTargetAtTime(0.0001, off, 0.055);   // damper
+      out.gain.setValueAtTime(0, stopAt);             // terminates the automation
+      out.connect(dry);
+      const send = gain(v, 0.05); out.connect(send); send.connect(dist);
+      retire(v, stopAt, last);
+    }
+
+    /* ---------------- FIDDLE ----------------------------------------
+       Bowed sawtooth, two strings' worth of detune, vibrato that
+       arrives after the note does, a pitch scoop into the note and a
+       rosin scrape on top of the attack. ----------------------------- */
+    function fiddle(ev) {
+      const t = ev.time, vel = ev.vel == null ? 0.7 : ev.vel;
+      const f = midiToFreq(ev.midi);
+      const durS = Math.max(0.12, (ev.dur || 1) * BEAT);
+
+      const v = scope();
+      const out = gain(v);
+      const body1 = filt(v, 'peaking'); body1.frequency.value = 300;  body1.Q.value = 1.1; body1.gain.value = 6;
+      const body2 = filt(v, 'peaking'); body2.frequency.value = 1150; body2.Q.value = 0.9; body2.gain.value = 5;
+      const tone  = filt(v, 'lowpass'); tone.Q.value = 0.6;
+      tone.frequency.setValueAtTime(clamp(f * 3 + 900, 1200, 4200), t);
+      tone.frequency.linearRampToValueAtTime(clamp(f * 5 + 1600, 1800, 5200), t + 0.16);
+      body1.connect(body2); body2.connect(tone); tone.connect(out);
+
+      // vibrato — one LFO into every string's detune, alongside the global param
+      const vibOsc = lfo(v, 5.0 + Math.random() * 0.7);
+      const vib = gain(v);
+      vib.gain.setValueAtTime(0, t);
+      vib.gain.linearRampToValueAtTime(18, t + Math.min(0.28, durS * 0.6));
+      vibOsc.connect(vib);
+      vibOsc.start(t); vibOsc.stop(t + durS + 0.3);
+
+      const strings = [ {d: 0, g: 0.55}, {d: 9, g: 0.40}, {d: -8, g: 0.26} ];
+      for (const s of strings) {
+        const o = osc(v, 'sawtooth', f, s.d);
+        o.detune.setValueAtTime(s.d - 45, t);                    // scoop into the note
+        o.detune.linearRampToValueAtTime(s.d, t + 0.075);
+        vib.connect(o.detune);
+        const g = gain(v, s.g);
+        o.connect(g); g.connect(body1);
+        o.start(t); o.stop(t + durS + 0.28);
+      }
+
+      // rosin scrape
+      const n = noise(v), nb = filt(v, 'bandpass'), ng = gain(v);
+      nb.frequency.value = 2900; nb.Q.value = 0.7;
+      ng.gain.setValueAtTime(0, t);
+      ng.gain.linearRampToValueAtTime(0.16 * vel, t + 0.012);
+      ng.gain.exponentialRampToValueAtTime(0.0004, t + 0.09);
+      n.connect(nb); nb.connect(ng); ng.connect(out);
+      n.start(t); n.stop(t + 0.12);
+
+      // bow envelope, with bow-pressure tremolo
+      const amp = gain(v);
+      amp.gain.setValueAtTime(0.0001, t);
+      amp.gain.linearRampToValueAtTime(vel * 0.30, t + 0.05);
+      amp.gain.linearRampToValueAtTime(vel * 0.24, t + Math.min(0.14, durS * 0.5));
+      amp.gain.setValueAtTime(vel * 0.24, t + Math.max(0.14, durS - 0.06));
+      amp.gain.exponentialRampToValueAtTime(0.0001, t + durS + 0.12);
+      const trem = lfo(v, 4.4);
+      const tg = gain(v, vel * 0.022);
+      trem.connect(tg); tg.connect(amp.gain);
+      trem.start(t); trem.stop(t + durS + 0.2);
+
+      out.connect(amp); amp.connect(dry);
+      const send = gain(v, 0.10); amp.connect(send); send.connect(dist);
+      retire(v, t + durS + 0.3, vibOsc);
+    }
+
+    /* ---------------- JAW HARP --------------------------------------
+       One fixed twanging reed; the "melody" is a resonance sweeping
+       across its harmonics. Two cascaded bandpasses do the mouth. ---- */
+    function jawHarp(ev) {
+      const t = ev.time, vel = ev.vel == null ? 0.5 : ev.vel;
+      const f = midiToFreq(ev.midi == null ? 50 : ev.midi);   // fixed drone
+      const f0 = ev.sweepFrom || 2300, f1 = ev.sweepTo || 720;
+
+      const v = scope();
+      const out = gain(v);
+      const bp1 = filt(v, 'bandpass'); bp1.Q.value = 9;
+      const bp2 = filt(v, 'bandpass'); bp2.Q.value = 6;
+      for (const b of [bp1, bp2]) {
+        b.frequency.setValueAtTime(f0, t);
+        b.frequency.exponentialRampToValueAtTime(f1, t + 0.20);
+      }
+      bp1.connect(bp2); bp2.connect(out);
+
+      const o = osc(v, 'sawtooth', f, 0);
+      o.detune.setValueAtTime(60, t);                  // the twang
+      o.detune.exponentialRampToValueAtTime(1, t + 0.05);
+      const sq = osc(v, 'square', f, 3);
+      const sg = gain(v, 0.5);
+      sq.connect(sg); sg.connect(bp1);
+      o.connect(bp1);
+      o.start(t); o.stop(t + 0.42); sq.start(t); sq.stop(t + 0.42);
+
+      // tongue click
+      const n = noise(v), nh = filt(v, 'highpass'), ng = gain(v);
+      nh.frequency.value = 1400;
+      ng.gain.setValueAtTime(0.5 * vel, t);
+      ng.gain.exponentialRampToValueAtTime(0.0004, t + 0.02);
+      n.connect(nh); nh.connect(ng); ng.connect(bp1);
+      n.start(t); n.stop(t + 0.04);
+
+      const amp = gain(v);
+      amp.gain.setValueAtTime(0.0001, t);
+      // the cascaded bandpasses throw most of the energy away; make it back here
+      amp.gain.linearRampToValueAtTime(vel * 2.4, t + 0.003);
+      amp.gain.exponentialRampToValueAtTime(0.0001, t + 0.30);
+      out.connect(amp); amp.connect(dry);
+      const send = gain(v, 0.08); amp.connect(send); send.connect(dist);
+      retire(v, t + 0.42, sq);
+    }
+
+    /* ---------------- HARMONICA -------------------------------------
+       A pair of reeds that are not in tune with each other, and a
+       breath. Sent hard to the distance bus: always from somewhere
+       else. --------------------------------------------------------- */
+    function harmonica(ev) {
+      const t = ev.time, vel = ev.vel == null ? 0.6 : ev.vel;
+      const f = midiToFreq(ev.midi);
+      const durS = Math.max(0.15, (ev.dur || 1) * BEAT);
+
+      const v = scope();
+      const out = gain(v);
+      const pk = filt(v, 'peaking'); pk.frequency.value = 1750; pk.Q.value = 1.2; pk.gain.value = 7;
+      const tone = filt(v, 'lowpass'); tone.frequency.value = 3000; tone.Q.value = 0.7;
+      pk.connect(tone); tone.connect(out);
+
+      const reeds = [ {t: 'square', d: -7, g: 0.34}, {t: 'square', d: 6, g: 0.30}, {t: 'sawtooth', d: 0, g: 0.12} ];
+      let last = null;
+      for (const r of reeds) {
+        const o = osc(v, r.t, f, r.d);
+        o.detune.setValueAtTime(r.d - 14, t);                    // breath bends it flat on the way in
+        o.detune.linearRampToValueAtTime(r.d, t + 0.12);
+        const g = gain(v, r.g);
+        o.connect(g); g.connect(pk);
+        o.start(t); o.stop(t + durS + 0.35);
+        last = o;
+      }
+
+      // breath
+      const n = noise(v), nh = filt(v, 'highpass'), ng = gain(v);
+      nh.frequency.value = 1900;
+      ng.gain.setValueAtTime(0.0001, t);
+      ng.gain.linearRampToValueAtTime(0.05 * vel, t + 0.07);
+      ng.gain.exponentialRampToValueAtTime(0.0001, t + durS + 0.2);
+      n.connect(nh); nh.connect(ng); ng.connect(out);
+      n.start(t); n.stop(t + durS + 0.3);
+
+      const amp = gain(v);
+      amp.gain.setValueAtTime(0.0001, t);
+      amp.gain.linearRampToValueAtTime(vel * 0.30, t + 0.09);
+      amp.gain.linearRampToValueAtTime(vel * 0.24, t + 0.20);
+      amp.gain.setValueAtTime(vel * 0.24, t + Math.max(0.21, durS - 0.05));
+      amp.gain.exponentialRampToValueAtTime(0.0001, t + durS + 0.3);
+      const hand = lfo(v, 5.2);
+      const hg = gain(v, vel * 0.035);
+      hand.connect(hg); hg.connect(amp.gain);
+      hand.start(t); hand.stop(t + durS + 0.3);
+
+      out.connect(amp);
+      const near = gain(v, 0.28); amp.connect(near); near.connect(dry);
+      const far  = gain(v, 0.75); amp.connect(far);  far.connect(dist);
+      retire(v, t + durS + 0.35, last);
+    }
+
+    const voices = { piano, fiddle, jawHarp, harmonica };
+
+    /* ---------------- scheduling ------------------------------------ */
+    function scheduleBeat(absBeat, time) {
+      const loop = Math.floor(absBeat / LOOP_BEATS);
+      const local = absBeat - loop * LOOP_BEATS;
+      for (const part of THEME.parts) {
+        if ((part.fromLoop || 0) > loop) continue;
+        const v = voices[part.inst];
+        for (const e of part.events) {
+          if (Math.floor(e.b) !== local) continue;
+          v({ midi: e.m, time: time + (e.b - local) * BEAT, dur: e.d,
+              vel: (e.v == null ? 0.7 : e.v) * (part.gain == null ? 1 : part.gain),
+              sweepFrom: e.sf, sweepTo: e.st });
+        }
+      }
+    }
+
+    // schedule a contiguous run of beats in one go (used by offline renders)
+    function scheduleSpan(t0, beats, startBeat) {
+      const s = startBeat || 0;
+      for (let i = 0; i < beats; i++) scheduleBeat(s + i, t0 + i * BEAT);
+    }
+
+    function open(t) {
+      master.gain.cancelScheduledValues(t);
+      master.gain.setValueAtTime(0.0001, t);
+      master.gain.linearRampToValueAtTime(opts.gain, t + 0.05);
+    }
+    function close(t) {
+      const now = t == null ? ctx.currentTime : t;
+      master.gain.cancelScheduledValues(now);
+      master.gain.setValueAtTime(master.gain.value, now);
+      master.gain.linearRampToValueAtTime(0.0001, now + 0.28);
+      setTimeout(() => {
+        collect(Infinity);
+        try { detuneSource.stop(); detuneSource.disconnect(); master.disconnect(); } catch (e) {}
+      }, 600);
+    }
+
+    return {
+      ctx, opts, voices, master,
+      detuneParam: detuneSource.offset,
+      detuneSource, scheduleBeat, scheduleSpan, open, close, collect,
+      liveCount: () => pending.length
+    };
+  }
+
+  /* ================================================================ *
+   * THE ONE AUTOMATION — invariant 5 / doc 28 part five
+   * ================================================================ */
+  function automateArc(param, t0, leadSeconds, seconds) {
+    const lead = leadSeconds == null ? LEAD_SECONDS : leadSeconds;
+    const dur  = seconds == null ? ARC_SECONDS : seconds;
+    param.cancelScheduledValues(t0);
+    param.setValueAtTime(DETUNE_START, t0);
+    param.setValueAtTime(DETUNE_START, t0 + lead);
+    // linear in cents is exponential in frequency, which is what the ear wants
+    param.linearRampToValueAtTime(0, t0 + lead + dur);
+    return { t0: t0, lead: lead, dur: dur, rampStart: t0 + lead, rampEnd: t0 + lead + dur };
+  }
+
+  /* ================================================================ *
+   * THE CONSOLATION THEME  —  PLACEHOLDER MELODY
+   * Written against doc 28 theme 1. Not extracted from the docs
+   * because no notated score exists there. Expect it to be replaced.
+   *
+   * D major, 152bpm, 8 bars, ends on the leading tone and goes round
+   * again. Harmony: | D | A7 | Em | A7 | D | Bm | G | A7 |
+   * ================================================================ */
+  const MEL = [
+    // bar 1
+    {b:0.0,m:74,d:0.5},{b:0.5,m:78,d:0.5},{b:1.0,m:81,d:0.5},{b:1.5,m:78,d:0.5},
+    {b:2.0,m:74,d:1.0},{b:3.0,m:76,d:0.5},{b:3.5,m:78,d:0.5},
+    // bar 2
+    {b:4.0,m:79,d:0.5},{b:4.5,m:78,d:0.5},{b:5.0,m:76,d:1.0},{b:6.0,m:74,d:1.5},{b:7.5,m:69,d:0.5},
+    // bar 3  — C#5 at beat 11
+    {b:8.0,m:76,d:0.5},{b:8.5,m:79,d:0.5},{b:9.0,m:83,d:0.5},{b:9.5,m:79,d:0.5},
+    {b:10.0,m:76,d:1.0},{b:11.0,m:73,d:0.5},{b:11.5,m:76,d:0.5},
+    // bar 4
+    {b:12.0,m:81,d:0.5},{b:12.5,m:79,d:0.5},{b:13.0,m:78,d:1.0},{b:14.0,m:76,d:1.5},{b:15.5,m:69,d:0.5},
+    // bar 5
+    {b:16.0,m:78,d:0.5},{b:16.5,m:81,d:0.5},{b:17.0,m:86,d:0.5},{b:17.5,m:81,d:0.5},
+    {b:18.0,m:78,d:1.0},{b:19.0,m:81,d:0.5},{b:19.5,m:79,d:0.5},
+    // bar 6  — C#5 at beat 23
+    {b:20.0,m:78,d:0.5},{b:20.5,m:76,d:0.5},{b:21.0,m:74,d:1.0},{b:22.0,m:71,d:1.0},{b:23.0,m:73,d:1.0},
+    // bar 7
+    {b:24.0,m:74,d:0.5},{b:24.5,m:76,d:0.5},{b:25.0,m:78,d:0.5},{b:25.5,m:79,d:0.5},
+    {b:26.0,m:81,d:1.0},{b:27.0,m:83,d:0.5},{b:27.5,m:81,d:0.5},
+    // bar 8  — held C#5: the leading tone, unresolved, then round again
+    {b:28.0,m:79,d:0.5},{b:28.5,m:76,d:0.5},{b:29.0,m:73,d:2.0},{b:31.5,m:69,d:0.5}
+  ];
+
+  // oom-pah. A7 is voiced A-E-G: no third, so the flat C# lands in the
+  // melody where it is heard, not smeared through every dominant chord.
+  const CHORDS = [
+    { bass: 50, chord: [62, 66, 69] },  // D
+    { bass: 45, chord: [64, 67, 69] },  // A7 (no 3rd)
+    { bass: 52, chord: [64, 67, 71] },  // Em
+    { bass: 45, chord: [64, 67, 69] },  // A7
+    { bass: 50, chord: [62, 66, 69] },  // D
+    { bass: 47, chord: [66, 71, 74] },  // Bm
+    { bass: 43, chord: [67, 71, 74] },  // G
+    { bass: 45, chord: [64, 67, 69] }   // A7 — ends on the dominant
+  ];
+  const ACC = [];
+  for (let bar = 0; bar < 8; bar++) {
+    const h = CHORDS[bar], b0 = bar * 4;
+    ACC.push({ b: b0 + 0, m: h.bass, d: 0.5, v: 0.62 });
+    ACC.push({ b: b0 + 2, m: h.bass + 7 > 59 ? h.bass : h.bass + 7, d: 0.5, v: 0.5 });
+    for (const n of h.chord) {
+      ACC.push({ b: b0 + 1, m: n, d: 0.4, v: 0.34 });
+      ACC.push({ b: b0 + 3, m: n, d: 0.4, v: 0.30 });
+    }
+  }
+
+  // fiddle: long tones under the first half, then doubles the tune an
+  // octave down. Enters on the second time round — "fiddle joining".
+  const FID = [
+    {b:0.0,m:69,d:3.0},{b:3.0,m:71,d:1.0},{b:4.0,m:73,d:2.0},{b:6.0,m:74,d:2.0},
+    {b:8.0,m:71,d:3.0},{b:11.0,m:73,d:1.0},{b:12.0,m:76,d:2.5},{b:14.5,m:69,d:1.5}
+  ].concat(MEL.filter(e => e.b >= 16).map(e => ({ b: e.b, m: e.m - 12, d: e.d })));
+
+  // jaw harp on the offbeats, sweep direction alternating
+  const JAW = [];
+  for (let bar = 0; bar < 8; bar++) {
+    for (let k = 0; k < 4; k++) {
+      const b = bar * 4 + k + 0.5;
+      const strong = (k % 2 === 0);
+      JAW.push({ b: b, m: 50, d: 0.4, v: strong ? 0.55 : 0.34,
+                 sf: strong ? 2400 : 1700, st: strong ? 760 : 620 });
+    }
+  }
+
+  const THEME = {
+    name: 'CONSOLATION',
+    tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [
+      { inst: 'piano',   role: 'melody',        gain: 1.00, fromLoop: 0, events: MEL },
+      { inst: 'piano',   role: 'accompaniment', gain: 0.80, fromLoop: 0, events: ACC },
+      { inst: 'jawHarp', role: 'offbeats',      gain: 0.85, fromLoop: 0, events: JAW },
+      { inst: 'fiddle',  role: 'counter+tune',  gain: 0.95, fromLoop: 1, events: FID }
+    ]
+  };
+
+  /* ---------- audition figures (not content) ---------- */
+  const AUDITIONS = {
+    piano:     [ {m:74,b:0,d:0.5,v:.85},{m:78,b:0.5,d:0.5,v:.8},{m:81,b:1,d:0.5,v:.8},
+                 {m:85,b:1.5,d:0.5,v:.85},{m:73,b:2,d:2,v:.9},{m:61,b:4.5,d:2,v:.85} ],
+    fiddle:    [ {m:69,b:0,d:3,v:.8},{m:73,b:3,d:1,v:.75},{m:74,b:4,d:0.5,v:.8},
+                 {m:76,b:4.5,d:0.5,v:.8},{m:78,b:5,d:2.5,v:.85} ],
+    jawHarp:   Array.from({length: 12}, (_, i) => ({
+                 m:50, b:i*0.5, d:0.4, v: i%2 ? 0.4 : 0.6,
+                 sf: i%2 ? 1700 : 2400, st: i%2 ? 620 : 760 })),
+    harmonica: [ {m:69,b:0,d:2,v:.8},{m:71,b:2,d:2,v:.8},{m:76,b:4,d:3.5,v:.85} ]
+  };
+
+  return {
+    TEMPO, BEAT, LOOP_BEATS, LOOP_SECONDS, ARC_SECONDS, LEAD_SECONDS,
+    DETUNE_START, PIANO_CLASS_CENTS, THEME, AUDITIONS,
+    midiToFreq, createEngine, automateArc
+  };
+})();
+window.ConsolationAudio = ConsolationAudio;
+
+/* ================================================================== *
+ * PANEL
+ * ================================================================== */
+(function () {
+  const CA = window.ConsolationAudio;
+  const $ = id => document.getElementById(id);
+  const btn = { flat: $('b-flat'), tuned: $('b-tuned'), arc: $('b-arc'), stop: $('b-stop') };
+  const cbFlat = $('cb-flat');
+  const out = { detune: $('r-detune'), state: $('r-state'), arc: $('r-arc'), bar: $('r-bar'), fill: $('r-fill') };
+
+  let ctx = null, engine = null, mode = null, timer = null, arc = null, startTime = 0, nextBeat = 0;
+
+  function getCtx() {
+    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+    if (engine) { engine.close(); engine = null; }
+    mode = null; arc = null;
+    for (const k in btn) btn[k].classList.remove('on');
+    out.state.textContent = 'idle';
+  }
+
+  function newEngine(detune) {
+    const c = getCtx();
+    const e = CA.createEngine(c, { detuneCents: detune, pianoCSharpFlat: cbFlat.checked });
+    engine = e;
+    return e;
+  }
+
+  function playTheme(which) {
+    stop();
+    const e = newEngine(which === 'tuned' ? 0 : CA.DETUNE_START);
+    mode = which;
+    startTime = e.ctx.currentTime + 0.14;
+    nextBeat = 0;
+    e.open(startTime);
+    if (which === 'arc') arc = CA.automateArc(e.detuneParam, startTime);
+    timer = setInterval(tick, 25);
+    tick();
+    btn[which === 'flat' ? 'flat' : which === 'tuned' ? 'tuned' : 'arc'].classList.add('on');
+    out.state.textContent = which === 'arc' ? 'the resolution' : 'theme looping';
+  }
+
+  function tick() {
+    if (!engine) return;
+    const c = engine.ctx;
+    while (startTime + nextBeat * CA.BEAT < c.currentTime + 0.25) {
+      engine.scheduleBeat(nextBeat, startTime + nextBeat * CA.BEAT);
+      nextBeat++;
+    }
+    engine.collect();   // finished notes are taken back out of the graph
+  }
+
+  function audition(name) {
+    stop();
+    const e = newEngine(CA.DETUNE_START);
+    mode = 'audition:' + name;
+    const t0 = e.ctx.currentTime + 0.12;
+    e.open(t0);
+    const v = e.voices[name === 'jawharp' ? 'jawHarp' : name];
+    for (const ev of CA.AUDITIONS[name === 'jawharp' ? 'jawHarp' : name]) {
+      v({ midi: ev.m, time: t0 + ev.b * CA.BEAT, dur: ev.d, vel: ev.v, sweepFrom: ev.sf, sweepTo: ev.st });
+    }
+    out.state.textContent = name + ' alone';
+    setTimeout(() => { if (mode === 'audition:' + name) stop(); }, 6500);
+  }
+
+  btn.flat.onclick  = () => playTheme('flat');
+  btn.tuned.onclick = () => playTheme('tuned');
+  btn.arc.onclick   = () => playTheme('arc');
+  btn.stop.onclick  = () => stop();
+  for (const b of document.querySelectorAll('[data-aud]')) b.onclick = () => audition(b.dataset.aud);
+  cbFlat.onchange = () => { if (engine) engine.opts.pianoCSharpFlat = cbFlat.checked; };
+
+  function frame() {
+    if (engine && ctx) {
+      // read straight off the audio graph — this is the parameter itself
+      const cents = engine.detuneParam.value;
+      out.detune.textContent = (cents > -0.05 && cents < 0.05 ? '0.0' : cents.toFixed(1)) + ' cents';
+      const el = ctx.currentTime - startTime;
+      if (mode && mode.indexOf('audition') !== 0) {
+        const beat = Math.max(0, el / CA.BEAT);
+        out.bar.textContent = (Math.floor(beat / 4) % 8 + 1) + ' of 8   (loop ' +
+                              (Math.floor(beat / CA.LOOP_BEATS) + 1) + ')';
+      } else out.bar.textContent = '—';
+      if (arc) {
+        const p = clamp01((ctx.currentTime - arc.rampStart) / arc.dur);
+        out.arc.textContent = (ctx.currentTime < arc.rampStart)
+          ? 'lead-in — ' + (arc.rampStart - ctx.currentTime).toFixed(1) + 's'
+          : (p * arc.dur).toFixed(1) + ' s / ' + arc.dur.toFixed(1) + ' s';
+        out.fill.style.width = (p * 100).toFixed(2) + '%';
+      } else { out.arc.textContent = '—'; out.fill.style.width = '0%'; }
+    } else {
+      out.detune.textContent = '—';
+      out.arc.textContent = '—'; out.bar.textContent = '—'; out.fill.style.width = '0%';
+    }
+    requestAnimationFrame(frame);
+  }
+  const clamp01 = v => v < 0 ? 0 : v > 1 ? 1 : v;
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
