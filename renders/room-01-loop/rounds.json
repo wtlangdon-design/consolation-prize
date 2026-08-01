@@ -3,7 +3,15 @@
     "round": 0,
     "title": "Baseline \u2014 the room as it stood",
     "note": "The Room 1 that shipped before this run, composed by the single-file tools/pixelart/room01_stage_road.py. Recorded unjudged, as the thing every later round has to beat.",
-    "status": "ten studies measured; contract written; scaffolding the compositor",
+    "status": "graybox composed; nine authors next",
+    "verdicts": {},
+    "gaps": {}
+  },
+  {
+    "round": 1,
+    "title": "Graybox \u2014 the composition, from the measurements",
+    "note": "The 1154-line single file is now thirteen modules over a shared contract, and every object is blocked in at its measured position and value. No texture, no detail: correct silhouettes and correct value relationships only. Median perceptual luminance 27.1 against the reference's 26.1.",
+    "status": "graybox composed; nine authors next",
     "verdicts": {},
     "gaps": {}
   }

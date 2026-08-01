@@ -860,6 +860,14 @@ VERGE_FALLOFF = (0, 118, 70, 26)
 # ---------------------------------------------------------------------------
 
 
+def _stable_hash(name: str) -> int:
+    """FNV-1a, 32 bit. A number that is the same in every process, forever."""
+    value = 0x811C9DC5
+    for byte in name.encode("utf-8"):
+        value = ((value ^ byte) * 0x01000193) & 0xFFFFFFFF
+    return value
+
+
 @dataclass
 class Ctx:
     """Everything a region is allowed to know about the rest of the room."""
@@ -913,8 +921,16 @@ class Ctx:
         Nine authors edit nine files in one tree. If they all drew from one
         generator, adding a stone to the road would move every star in the
         sky, and the diff of a one-line change would be the whole frame.
+
+        STABLE MEANS ACROSS PROCESSES, not just within one. This used
+        Python's own hash() of the name, and CPython salts string hashing per
+        interpreter run unless PYTHONHASHSEED is set -- so every render put
+        the stars somewhere else, every render was a diff, and `npm run
+        renders` could never be idempotent. Fixed to FNV-1a, which is four
+        lines, has no import, and gives the same number in 2026 as it does
+        today.
         """
-        return random.Random(SEED ^ (hash(name) & 0xFFFFFFFF))
+        return random.Random(SEED ^ _stable_hash(name))
 
     # -- shielding and tracking ---------------------------------------------
 
