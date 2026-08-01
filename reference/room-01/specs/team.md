@@ -87,6 +87,21 @@ Numbered back to front. Bounding boxes are native and inclusive. The three
 animals are lettered **C** (far), **B** (middle), **A** (near) so the letters
 match the draw order: C first.
 
+**Why three and not two.** The count is not obvious at 320×144 and it is worth
+recording how it was settled, because a rebuild will be tempted to simplify to
+two. Three independent pieces of evidence, all measured:
+
+- **Three heads.** Three separate lowered head shapes, at x 153–159, 161–170 and
+  171–180, each with its own bridle furniture (C's is unlit; B and A each carry a
+  bridle mark and a bit mark). Confirmed against image A at 6×, where the ear, eye
+  and noseband of each are individually visible.
+- **Nine hoof ground-contacts** between x 172 and x 218 (§3.19). Two horses can
+  show at most eight, and a pair standing abreast would show fewer, not more.
+- **Two toplines with a 5-px step** at x 193→194, plus a third back that is
+  neither of them — B's, buried between them with no top edge of its own.
+
+Do not reduce it to two. Two animals cannot produce nine feet.
+
 ### The background they sit against (not this region's to draw)
 
 0. **Sky / far hillside / town lights**, y 54–68 above the mass and visible in
@@ -527,9 +542,9 @@ The specific mistakes this region invites, in the order they are likely.
     repeats. A Bayer or checkerboard fill at this density will read as fabric.
 
 11. **Someone will try to draw a horse's belly curve.** At this size the underline
-    is a straight near-black band, y 86–88, x 200–220. The curve happens only at
-    the ends, in the chest mass at x 181–190. Curving the middle produces a
-    pot-bellied pony.
+    is a straight near-black band, y 86–88, x 202–220. The curve happens only at
+    the front end, where it thickens into the chest mass at x 181–188. Curving the
+    middle produces a pot-bellied pony.
 
 12. **The four bridle sparks will be lost, evened out, or multiplied.** They are
     unequal on purpose: L 85 on the near horse, L 61 on the middle, **nothing at
