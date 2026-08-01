@@ -80,7 +80,13 @@ def build(round_number: int, only: set[str] | None = None) -> Path:
     ours.save(out / "ours.png")
     _magnify(ours, 4).save(out / "ours@4x.png")
 
+    # The gallery keeps both sizes on purpose. The native PNG is what the
+    # progress page embeds -- seven kilobytes, exact pixels, magnified by the
+    # browser with image-rendering: pixelated, so a phone gets the real thing
+    # rather than a resample of it. The 4x is for looking at on GitHub, where
+    # a 320x144 image is a postage stamp.
     GALLERY.mkdir(parents=True, exist_ok=True)
+    ours.save(GALLERY / f"round-{round_number:03d}.png")
     _magnify(ours, 4).save(GALLERY / f"round-{round_number:03d}@4x.png")
 
     for index, region in enumerate(REGIONS):
