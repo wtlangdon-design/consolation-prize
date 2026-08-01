@@ -70,5 +70,16 @@
       "road": "the wet still reads as long regular dotted chains rather than pooled water lying in ruts.",
       "foreground": "a black post at x 63-70 reads as a glitch; the reference has dark verge and scrub there."
     }
+  },
+  {
+    "round": 5,
+    "title": "Two corrections from Tyler",
+    "note": "The signboard is blank geometry \u2014 the engine renders sign text in the game font at runtime, and a check now fails the build if glyphs return. The moonlit ruts cut from 1,272 water pixels to 412, so the town can win the lower half back.",
+    "status": "corrections applied; region authors blocked on capacity",
+    "verdicts": {},
+    "gaps": {
+      "town": "unchanged this round \u2014 still lights with no host geometry. The region authors could not run.",
+      "foreground": "the black post at x 63-70 is still standing in the road."
+    }
   }
 ]

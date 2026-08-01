@@ -220,10 +220,13 @@ LANE_GAP = (18, 78)       # dry run between two chains on one rut
 #: of stones is the only thing out there.
 WATER_RIGHT_EDGE = 306
 
-#: §5.2: about 35 flecks of 1-3 px, against the bar's 40. They are placed
+#: §5.2 counts about 35 flecks of 1-3 px against the bar's 40, and that count
+#: is honest at the bar's saturation and too loud at ours -- see WATER_LANES.
+#: A fleck is a single bright chromatic dot on dark mud, which is the most
+#: eye-catching thing per pixel that this region can produce. They are placed
 #: from the trough register the surface pass builds rather than by rolling
-#: coordinates, so a fleck cannot land on a crest.
-FLECKS = 38
+#: coordinates, so a fleck still cannot land on a crest.
+FLECKS = 12
 
 #: Which rut each of §5.3's streak groups rides, by bottom-edge column, and
 #: HOW WET THAT RUT IS — the second number is the point. §5.3 names three
@@ -256,10 +259,27 @@ FLECKS = 38
 #: So `stretch` multiplies the piece length and divides the gap inside a
 #: chain: 1.0 on the near-left, 3.0 past the elbow. Wetness stays low there,
 #: so the right half gets FEWER wet ruts, each of them continuous.
-WATER_LANES = ((74, 1.00, 1.0), (145, 1.00, 1.1), (200, 0.90, 1.3),
-               (117, 0.80, 1.0), (164, 0.70, 1.0), (87, 0.55, 0.9),
-               (191, 0.55, 1.1), (238, 0.34, 2.4), (257, 0.50, 3.0),
-               (283, 0.40, 3.0), (269, 0.14, 1.6))
+#: CUT BACK HARD, AND NOT BECAUSE THE COUNT WAS WRONG. Eleven wet lanes put
+#: 1,272 px of water in the frame at a median of L 44.4, against the bar's
+#: 1,144 at 49.8 -- fewer pixels than the reference and darker. Measured, it
+#: was right. Looked at, the ruts had become the loudest thing in the picture
+#: and were beating the town for the eye, which is a focal-point error and not
+#: a statistics one.
+#:
+#: THE DIFFERENCE IS CHROMA. The bar's water is (44,49,82), saturation 0.46 --
+#: a blue-grey. Our reserved band is accent_indigo 2-4 at saturation 0.55-0.60,
+#: because that is where a THREE-ENTRY CYCLING RAMP could be reserved without
+#: colliding with anything, not because it is the colour of the water. So each
+#: of our pixels carries about a fifth more colour than the reference's, and
+#: over a thousand of them spread across the whole lower half that compounds
+#: into a blue corduroy. Luminance parity is not parity when the hue differs.
+#:
+#: There is no way to desaturate inside the band -- it is three fixed entries
+#: and they are what the engine cycles. The only control left is HOW MANY
+#: PIXELS TAKE IT, so the ration is cut to the four lanes doc 05 actually
+#: names as places water collects, and everywhere else is damp mud.
+WATER_LANES = ((74, 0.62, 1.0), (145, 0.55, 1.1), (200, 0.40, 1.3),
+               (257, 0.22, 3.0))
 
 #: THE VALUE LADDER INSIDE THE RESERVED BAND. accent_indigo 2-4 are L 42.7,
 #: 59.1 and 72.0 and the bar's water measures L 49.8 median, p10 37.5, p90
@@ -277,7 +297,13 @@ WATER_LANES = ((74, 1.00, 1.0), (145, 1.00, 1.1), (200, 0.90, 1.3),
 #: each streak sits at a different point in one rotation, so each streak
 #: still takes its own PRIMARY from the pattern below and the mix is a
 #: minority partner within it. What rotates as a unit is still the streak.
-BAND_PATTERN = (0, 0, 1, 0, 0, 2)
+#: Weighted hard toward the band's floor. An even round-robin lands the
+#: water's median on 59 -- ten points above the bar's, which turns it back
+#: into the highlight §5.4 spends a page arguing it is not. The rotation
+#: still visits all three entries, because that is what the engine cycles and
+#: an entry nothing paints is an entry that cannot animate; it just visits the
+#: top one rarely.
+BAND_PATTERN = (0, 0, 0, 1, 0, 0, 0, 0, 1, 2)
 BAND_PARTNER = (1, 0, 1)     # who each primary mixes with
 BAND_MIX = 3                 # partner takes 3 pixels in 10
 
