@@ -27,3 +27,7 @@ __pycache__/
 
 # Local browser verification output
 .phase2/
+
+# The Room 1 rebuild loop's scratch: blind A/B pairs, regenerated every round.
+# The renders themselves are committed under renders/room-01-loop/.
+work/
