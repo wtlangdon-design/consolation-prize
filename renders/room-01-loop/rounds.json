@@ -38,5 +38,25 @@
       "rail": "the crate has no lit frame; the sky ceiling is crushing its internal range.",
       "team": "no figure-ground separation \u2014 the animals do not read as three."
     }
+  },
+  {
+    "round": 3,
+    "title": "The named gaps, acted on",
+    "note": "Each author briefed with the single gap its blind critic named last round. Sky and range finished before a session limit; the other seven re-ran after it. Hob held again. Median 24.5.",
+    "status": "held 1 of 8 judged; a cross-region lattice found",
+    "verdicts": {
+      "hob": "ours",
+      "town": "bar",
+      "left_yard": "bar",
+      "rail": "bar",
+      "team": "bar",
+      "coach": "bar",
+      "road": "bar"
+    },
+    "gaps": {
+      "terrain": "TWO INDEPENDENT CRITICS named the same thing without seeing each other: the mid-ground plane is a 50% ordered checker at one unmodulated density, and it runs straight through the geometry in front of it.",
+      "town": "the lights are isolated pixels sitting directly on open sky with no host geometry \u2014 windows without buildings.",
+      "left_yard": "the sign legend welds shut: 2px strokes at 4px per character, so counters fill in and adjacent letters touch."
+    }
   }
 ]

@@ -226,9 +226,19 @@ def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # checkerboard content anywhere in the rect -- and softened the one edge
     # the region is built on. The slot's core measures flat near-black; a
     # gap between two solids has no floor to dissolve into.
+    #
+    # ...AND IT IS TWO COLUMNS WIDE, NOT FIVE. layout.SHADOW_SLOT's rect is
+    # x 25-29 because that is the slot's full extent, but its NEAR-BLACK CORE
+    # is not: the bar measures x 28-29 at L 2-11 and x 25-27 at L 11-22, so
+    # stamping index 0 across all five columns took three columns down about
+    # fifteen luminance and deleted the slot's own internal gradient -- the
+    # thing that made it read as a gap between two solids rather than as a
+    # painted black bar. left_yard reported 1040 px of its rect over the
+    # ceiling here and this is the other half of the same rect.
     slot_x, _, slot_w, _ = layout.SHADOW_SLOT
-    void.smear(canvas, slot_x, 66, slot_w, 10, keep=keep, solid=True)
-    void.smear(canvas, slot_x, 78, slot_w, 12, keep=keep, solid=True)
+    core_x, core_w = slot_x + slot_w - 2, 2
+    void.smear(canvas, core_x, 66, core_w, 10, keep=keep, solid=True)
+    void.smear(canvas, core_x, 78, core_w, 12, keep=keep, solid=True)
     # The left structure read against the sky, from the top tread down.
     void.smear(canvas, 11, 43, 14, 5, keep=keep)
     # rail.md §2.7's pocket is the ground both bright bars are read against,
@@ -237,7 +247,16 @@ def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # rect was 26 x 6 and took 60-90% of x 130-155 / y 96-101 -- the bucket
     # and the pocket floor -- to index 0, against a measured mean of 28.4,
     # and rail.md §8.11 forbids ordered dither in this region outright.
-    void.smear(canvas, 130, 99, 8, 4, keep=keep)
+    #
+    # AND NOW IT IS NOT HERE AT ALL. Narrowing the rect was not enough: the
+    # bar measures the pocket floor at L 16-54 and NEVER below 16, so there
+    # is no void component in it to deepen, and the 8x4 stamp that was left
+    # cost rows 99-102 about 5 L each and put the region's only near-black
+    # blob in the one place §8.7 says is a pocket rather than a hole. A pool
+    # this pass cannot find in the reference is a pool this pass should not
+    # be making. The two bright bars are read against the pocket's own
+    # measured floor, which `rail` draws.
+
     # NO POOL UNDER THE COACH. It is the obvious place for one and it is
     # wrong twice over. road.md §4.4: after [depth + lamp pool + left
     # falloff] the residual is within −8…+3 L everywhere in the open road --

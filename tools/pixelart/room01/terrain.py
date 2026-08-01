@@ -99,14 +99,77 @@ from . import layout
 #: smoothing was a seam that should be there. The ground line is a hue
 #: boundary with a value step of about +8 across it (§5's ladder), not a
 #: gradient that has to be levelled.
-TOP_L = 24.6
+#:
+#: TOP_L WAS 24.6 AND IS NOW 30.0. 24.6 is study §5's valley-floor number and
+#: it is RIDGE-RELATIVE -- a value measured at a fixed offset below the near
+#: crest, which is not the same thing as the value of these rows. Measured on
+#: the bar over the rects three region authors named, this band's top is not
+#: at 24.6: x 104-127 / y 64-88 is 35.7 (rail asked for 35.2, hob for a
+#: mottled 33-45 and both measured about 28.5 in the composite), and the
+#: genuinely open midground columns x 109-121 and x 165-175 run 24-31 across
+#: rows 69-77 against this module's 21. The band is the thing every near
+#: object in the lower half is READ AGAINST -- §5's separation switches from
+#: value to overlap right here -- so five luminance of it is five luminance
+#: off every silhouette standing on it.
+#:
+#: The bottom is unchanged: rows 84-93 already measure within +-5 of the bar.
+#: So the ramp is shallower than it was, not shifted.
+TOP_L = 30.0
 BOTTOM_L = 33.0
+
+#: Study §5's near-range-base rung, and how many rows the band takes to climb
+#: off it. See the comment at the lead-in in draw(): this is the rung between
+#: `range`'s mass and this band's own top, and without it the two met at a
+#: fourteen-luminance step in a single row.
+FOOT_L = 21.75
+FOOT_ROWS = 5
 
 #: How much of the plane is the blue entry rather than the neutral one.
 #: `grey` carries warmth -4 and `accent_indigo` -29 to -41, so an even mix
-#: lands at -16 to -22 against a measured -19 to -20. Ordered, phase-offset
-#: from the value dither below so the two do not lock into one pattern.
+#: lands at -16 to -22 against a measured -19 to -20.
 BLUE_DENSITY = 0.5
+
+#: THE MIX IS CELLED, NOT ORDERED, AND THIS IS THE INTEGRATION FIX OF THE
+#: ROUND. Four region authors reported the same defect from four different
+#: rects and none of them could reach it: rail's "a hard 2x2 blue
+#: checkerboard alternating L24/L35 -- §8.11 measures checkerboard bias at
+#: 0.02-0.09 across this rect and forbids ordered dither outright", team's
+#: "an ordered checkerboard that shows through the jaw wedge and the leg
+#: holes", coach's "showing at full amplitude across x210-240 rows 78-92",
+#: left_yard's "spec section 5 measures zero checkerboard content anywhere
+#: here". Measured ABAB rate over their rects: 0.50, 0.19, 0.26, 0.42,
+#: against a bar that measures 0.02-0.07.
+#:
+#: BOTH DITHERS IN THIS MODULE LANDED ON EXACTLY 0.5, which is the one
+#: density at which a Bayer matrix stops being a dither and becomes a
+#: lattice: BAYER4 thresholded at 0.5 is the checkerboard, exactly. Two of
+#: them, phase-offset, produce the 2x2 blue check every author saw.
+#:
+#: The hue mix is NOT a gradient. It is two families at MATCHED value -- the
+#: table below is chosen so the pairs are 1.5 to 3.3 L apart -- so there is
+#: no value information in the pattern at all and nothing is lost by
+#: scattering it. It is a material mottle and it is drawn as one: a hash over
+#: CELLS, so that one of a pixel's two horizontal neighbours always shares
+#: its cell and an ABAB run cannot form. Doc 11's "ordered, never
+#: error-diffused" is about dithering a gradient; this is not one, and the
+#: value gradient below is still ordered.
+#:
+#: Cells are 3x2 for the hue and 2x3 for the value, coprime in both axes so
+#: the two fields cannot come back into register anywhere in the band.
+HUE_CELL = (3, 2)
+VALUE_CELL = (2, 3)
+
+
+def _cell(x: int, y: int, cell: tuple[int, int], salt: int) -> float:
+    """A stable 0-1 per cell. No lattice, no sequence, no draw-order coupling."""
+    h = (x // cell[0]) * 73856093 ^ (y // cell[1]) * 19349663 ^ salt * 83492791
+    h &= 0xFFFFFFFF
+    h ^= h >> 15
+    h = (h * 0x2C1B3C6D) & 0xFFFFFFFF
+    h ^= h >> 12
+    h = (h * 0x297A2D39) & 0xFFFFFFFF
+    h ^= h >> 15
+    return (h & 0xFFFFFF) / float(0x1000000)
 
 #: THE GROUND LINE, as a handover rather than an edge. Study §3's boundary is
 #: the frame's principal structural line and it is a HUE boundary, but it is
@@ -160,32 +223,64 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     # Precompute the row's grey position once, so the fill is a lookup.
     span = {}
+    foot = {}
     warm_span = {}
     warm_share = {}
     for y in range(layout.TOWN_BASE_Y, bottom):
         walk = (y - top) / max(1, bottom - 1 - top)
         target = TOP_L + (BOTTOM_L - TOP_L) * max(0.0, walk)
-        span[y] = _span(palette, grey, target)
+        # THE FOOT, and it is a seam nothing but the whole frame shows.
+        # `range` fills its near mass at `near_rock`, L 16.0, down to its own
+        # base at y=67; this band opens at y=68 at TOP_L. Those two numbers
+        # were fourteen luminance apart, which put a hard horizontal rule
+        # across 170 px of the valley in one row -- and it is INVISIBLE IN
+        # THE REVIEW RENDER, because the coach and the team stand on exactly
+        # the columns where it shows. It is fully exposed in the shipping
+        # background, which is errata 31d's coach-departed composition, and
+        # that is the file the engine actually loads. The bar steps about one
+        # luminance across the same row.
+        #
+        # So the band opens at study §5's near-range-base rung, 21.75, and
+        # reaches TOP_L over five rows. §5's ladder is exactly this: near
+        # range base 21.75 -> valley floor 24.60 -> mid ground 28.92, and the
+        # rung below the ridge was simply missing from this module.
+        #
+        # AND ONLY WHERE `range` IS WHAT IT MEETS. Across the town's own
+        # columns the row above is town.md's moonlit foot band, which is
+        # BRIGHTER than this band, not darker -- the bar has x 128-135 at
+        # y 64-71 running to 49 -- so a lead-in there ramps down from a rung
+        # that is not underneath it and darkens the one part of the valley
+        # the town lights stand on. Two spans per row, and the column picks.
+        foot[y] = span[y] = _span(palette, grey, target)
+        if y < layout.TOWN_BASE_Y + FOOT_ROWS:
+            lead = (y - layout.TOWN_BASE_Y) / float(FOOT_ROWS)
+            foot[y] = _span(palette, grey, FOOT_L + (target - FOOT_L) * lead)
         warm_span[y] = _span(palette, warm, target)
         warm_share[y] = max(0.0, min(1.0, (y - GROUND_LINE_FROM)
                                      / float(bottom - GROUND_LINE_FROM)))
 
     for y in range(layout.TOWN_BASE_Y, bottom):
         low, high, blend = span[y]
+        flow, fhigh, fblend = foot[y]
         wlow, whigh, wblend = warm_span[y]
         share = warm_share[y]
         for x in range(layout.WIDTH):
             if (y < top and town_x <= x < town_x + town_w
                     and canvas.get(x, y) != hole):
                 continue
-            # The ground line first, on its own dither phase, so the three
+            # The ground line first, on its own cell field, so the three
             # families never lock into one pattern.
-            if share > 0.0 and BAYER4.threshold(x, y + 2) < share:
-                canvas.put(x, y, warm.at(whigh if wblend > BAYER4.threshold(x, y)
-                                         else wlow))
+            if share > 0.0 and _cell(x, y, HUE_CELL, 3) < share:
+                canvas.put(x, y, warm.at(
+                    whigh if wblend > _cell(x, y, VALUE_CELL, 4) else wlow))
                 continue
-            step = high if blend > BAYER4.threshold(x, y) else low
-            if BAYER4.threshold(x + 2, y) < BLUE_DENSITY:
+            # Outside the town's columns this row meets `range`'s mass, not
+            # the town's foot band, and takes the lead-in span.
+            if town_x <= x < town_x + town_w:
+                step = high if blend > _cell(x, y, VALUE_CELL, 1) else low
+            else:
+                step = fhigh if fblend > _cell(x, y, VALUE_CELL, 1) else flow
+            if _cell(x, y, HUE_CELL, 2) < BLUE_DENSITY:
                 canvas.put(x, y, blue.at(BLUE_FOR_GREY.get(step, 1)))
             else:
                 canvas.put(x, y, grey.at(step))

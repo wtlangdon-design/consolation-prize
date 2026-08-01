@@ -161,9 +161,9 @@ POOL_CONTRAST = 2.2
 #: near, 4.8 far-left verge, 4.0 right verge. It scales with LIGHT and not
 #: with depth, because a lit surface shows its texture and the verge has not
 #: enough light on it to show anything.
-GRAIN_BASE = 2.3
-GRAIN_LIT = 4.2
-GRAIN_VERGE = 2.2
+GRAIN_BASE = 2.0
+GRAIN_LIT = 3.6
+GRAIN_VERGE = 2.6
 #: §9: 3-4 px wide, 1 px tall dashes. The horizontal bias is doing real work
 #: — it lies along the ground plane and reinforces the recession, and
 #: isotropic noise will not.
@@ -189,9 +189,48 @@ STREAK_SIZES = (210, 153, 84, 73, 72, 52, 34, 34, 30, 30, 30, 24, 23, 23, 22,
                 20, 18, 17, 15, 14, 13, 12, 11, 10, 10, 9, 9, 8, 8, 7, 7, 6,
                 6, 6, 5, 5, 5, 5, 4, 4, 4, 4)
 
-#: Which rut each of §5.3's streak groups rides, by bottom-edge column, in
-#: the order the streak sizes are spent — so the head of this tuple carries
-#: the biggest water in the region.
+#: A STREAK IS NOT ONE UNBROKEN RUN, and that is the whole of the carried-over
+#: note on this region. Connected-component counts on the bar, taken inside
+#: the road proper and outside the verge:
+#:
+#:     86 pieces, 1,144 px. FORTY of them are 1-3 px flecks. 46 are four or
+#:     more, median 4, mean 13.3. The largest five are 158, 86, 79, 74, 72.
+#:
+#: The first build of this pass drew 33 pieces of which 31 were four or more
+#: — one continuous thread per rut, right across the fan — and that is what
+#: reads as sleepers or lane markings: a regular field of bright dashes at a
+#: regular pitch. The bar reads as water lying in ruts because most ruts are
+#: DRY, the wet ones are wet in bursts, and the bursts are separated by one
+#: to four pixels of trough that is not wet.
+#:
+#: So a lane is walked as a chain of short segments with a 1-4 px dry gap
+#: between them, then a long dry run, then another chain. Segment lengths are
+#: drawn to the measured PIECE distribution and not to §5.2's streak sizes,
+#: because a "streak" in §5.2 is one of these chains and a piece is what the
+#: eye resolves at 320x144.
+SEG_SHORT = (4, 9)        # 42% of pieces
+SEG_MID = (9, 16)         # 38%
+SEG_LONG = (16, 26)       # 15%
+SEG_CHAIN = (26, 42)      # 5% -- the spans that build §5.3's two chains
+CHAIN_GAP = (1, 6)        # dry trough inside a chain
+CHAIN_LENGTH = (2, 7)     # segments per chain
+LANE_GAP = (18, 78)       # dry run between two chains on one rut
+
+#: §5.3's rightmost thread stops at x=305; past that is verge, and §7's pair
+#: of stones is the only thing out there.
+WATER_RIGHT_EDGE = 306
+
+#: §5.2: about 35 flecks of 1-3 px, against the bar's 40. They are placed
+#: from the trough register the surface pass builds rather than by rolling
+#: coordinates, so a fleck cannot land on a crest.
+FLECKS = 38
+
+#: Which rut each of §5.3's streak groups rides, by bottom-edge column, and
+#: HOW WET THAT RUT IS — the second number is the point. §5.3 names three
+#: places water actually collects (the two near-left chains, the steep
+#: threads around and past the elbow, small dashes on the pool's outskirts)
+#: and by implication says everywhere else is damp mud. An equal ration per
+#: lane is what turned the fan into corduroy in blue.
 #:
 #: THE TWO CHAINS ARE SOLVED FOR, NOT GUESSED. §5.3 puts them at x 96-157 /
 #: y 119-139 and x 150-230 / y 122-143. Reading the first back through the u
@@ -202,8 +241,45 @@ STREAK_SIZES = (210, 153, 84, 73, 72, 52, 34, 34, 30, 30, 30, 24, 23, 23, 22,
 #: at 145. Riding them on 117 and 200 instead, which is what "the two
 #: longest ruts" suggests, puts both chains 30 px right of where they were
 #: measured.
-WATER_RUTS = (74, 145, 117, 87, 200, 220, 257, 283, 305, 238, 269, 246,
-              164, 191)
+#: (bottom-edge column, wetness, stretch). THE THIRD NUMBER IS THE ELBOW.
+#: §3.4 rotates the ruts from 20 degrees off horizontal at the bottom left to
+#: 20 degrees off vertical at the bottom right, and water behaves differently
+#: in the two. A shallow rut holds a string of separate lens-shaped pools,
+#: because the trough is nearly level and the water finds the low spots along
+#: it. A steep one drains, and what stands in it is one continuous ribbon
+#: running the whole visible length of the trough — which is exactly what the
+#: bar shows past x=240: three or four unbroken threads of 30-40 rows, with
+#: broad dry ruts between them. Drawn at the left-hand statistics the right
+#: half came out as speckle scattered over every rut, which reads as rain on
+#: the lens rather than as water in the road.
+#:
+#: So `stretch` multiplies the piece length and divides the gap inside a
+#: chain: 1.0 on the near-left, 3.0 past the elbow. Wetness stays low there,
+#: so the right half gets FEWER wet ruts, each of them continuous.
+WATER_LANES = ((74, 1.00, 1.0), (145, 1.00, 1.1), (200, 0.90, 1.3),
+               (117, 0.80, 1.0), (164, 0.70, 1.0), (87, 0.55, 0.9),
+               (191, 0.55, 1.1), (238, 0.34, 2.4), (257, 0.50, 3.0),
+               (283, 0.40, 3.0), (269, 0.14, 1.6))
+
+#: THE VALUE LADDER INSIDE THE RESERVED BAND. accent_indigo 2-4 are L 42.7,
+#: 59.1 and 72.0 and the bar's water measures L 49.8 median, p10 37.5, p90
+#: 68.6 — so an even round-robin across the three lands the water's median on
+#: 59, ten points high, and it goes straight back to being a highlight.
+#: §5.4's whole argument is that water is 12-17 L above its mud and not a
+#: highlight, and ten points is two of those seventeen.
+#:
+#: There is no entry at 50. So the value is reached the way a 256-colour
+#: artist reaches a value that is not in the ramp: two adjacent entries mixed
+#: along the thread. The bar supports it — its water is not one value either,
+#: p10 37.5 against p90 68.6 across 1,144 px.
+#:
+#: THE PER-STREAK PHASE SURVIVES. §5.1's reason for three entries is that
+#: each streak sits at a different point in one rotation, so each streak
+#: still takes its own PRIMARY from the pattern below and the mix is a
+#: minority partner within it. What rotates as a unit is still the streak.
+BAND_PATTERN = (0, 0, 1, 0, 0, 2)
+BAND_PARTNER = (1, 0, 1)     # who each primary mixes with
+BAND_MIX = 3                 # partner takes 3 pixels in 10
 
 
 # ---------------------------------------------------------------------------
@@ -522,12 +598,38 @@ def _pick_lit(palette, ladder, roll: float, wanted: float, applied: float) -> in
 #: 30 px of the tail and right everywhere the pool is legible.
 POOL_PEAK = 51.0
 POOL_HALF = 7.0
-POOL_WIDTH = 5.5
-POOL_ORIGIN = (92, 108)
+#: §4.2: HARD-EDGED ON THE LEFT, SOFT EVERYWHERE ELSE — "do not make the pool
+#: symmetric", and one width for both sides is exactly that. The excess table
+#: reaches +4 at x=176, 84 px right of the origin, and is already down to +17
+#: at x=64, 22 px left of it: the two sides differ by a factor of two and a
+#: half in reach, and the ratio is the whole reason the pool sits against the
+#: post rather than floating on the road.
+#:
+#: Measured against §4.2's y=106 row with these two widths: x=64 predicts 25
+#: against 17, x=80 44 against 51, x=112 36 against 41, x=128 26 against 30,
+#: x=144 19 against 13, x=176 8 against 4. The left half was 18 too high at
+#: x=64/y=116 with a single width and is 6 too high now, and the block-diff
+#: against the bar over x 52-78, y 106-118 came down from +21..+28 with it.
+POOL_WIDTH = 6.5
+POOL_WIDTH_LEFT = 3.2
+#: The origin follows layout.POOL_CENTRE's x rather than the excess table's
+#: apparent peak: the table is sampled every 16 px and reports +51 at both
+#: x=80 and x=96, so its peak is a plateau and the centre of that plateau is
+#: 88, not 92. Two pixels off the contract's 86 is inside the sampling.
+POOL_ORIGIN = (86, 108)
 #: §4.2: hard-edged on the left, cut at x 58-62 by the sign post standing
 #: there, and soft for 90 px to the right. Do not make it symmetric.
-POOL_CUT_DEAD = 50.0
-POOL_CUT_FULL = 62.0
+#:
+#: THE NUMBERS ARE NO LONGER HELD HERE. They were 50.0 and 62.0 -- a private
+#: copy of layout.POOL_CUT_DEAD_X and POOL_CUT_FULL_X, identical at the time
+#: and therefore invisible. The contract has since given the cut a shear,
+#: because the post casting it stands between the lamp and the near ground
+#: and its shadow widens toward the viewer; the copy did not get it, so
+#: `measured` here kept lighting x 62-80 at rows 106-120 while
+#: `pool_excess` had already stopped. That band composited +16 to +26 over
+#: the bar and is the residual left after the contract was fixed. Two copies
+#: of one number is the exact failure the shared contract exists to prevent,
+#: so this reads the contract.
 
 
 def _pool_factor(x: float, y: float, lamp_drift: int) -> tuple[float, float, float]:
@@ -552,16 +654,31 @@ def _pool_factor(x: float, y: float, lamp_drift: int) -> tuple[float, float, flo
     chasing a number a second file computed differently.
     """
     origin_x = POOL_ORIGIN[0] + lamp_drift
-    dx = (x - origin_x) / POOL_WIDTH
+    dx = (x - origin_x) / (POOL_WIDTH if x >= origin_x else POOL_WIDTH_LEFT)
     dy = y - POOL_ORIGIN[1]
     rho = math.hypot(dx, dy)
     measured = POOL_PEAK / (1.0 + (rho / POOL_HALF) ** 2)
 
     applied = layout.pool_excess(x, y, lamp_drift)
 
-    if x < POOL_CUT_FULL:
-        cut = max(0.0, (x - POOL_CUT_DEAD) / (POOL_CUT_FULL - POOL_CUT_DEAD))
-        measured *= cut
+    shear = min(layout.POOL_CUT_SHEAR_MAX,
+                layout.POOL_CUT_SHEAR
+                * max(0.0, y - layout.POOL_CUT_SHEAR_FROM_Y))
+    dead = layout.POOL_CUT_DEAD_X + shear + lamp_drift
+    full = layout.POOL_CUT_FULL_X + shear + lamp_drift
+    if x < full:
+        measured *= max(0.0, (x - dead) / (full - dead))
+    # And the same top edge the contract gives the excess: above the road's
+    # near plane there is valley floor, not road, and the lamp does not
+    # reach it. Without this the authored pool climbs eight rows past the
+    # lit one and the two disagree along their whole upper edge.
+    if y < layout.POOL_TOP_FULL_Y:
+        if y <= layout.POOL_TOP_DEAD_Y:
+            measured = 0.0
+        else:
+            walk = ((y - layout.POOL_TOP_DEAD_Y)
+                    / (layout.POOL_TOP_FULL_Y - layout.POOL_TOP_DEAD_Y))
+            measured *= walk * walk
     return min(1.0, measured / 30.0), measured, applied
 
 
@@ -574,14 +691,21 @@ def _verge_drop(x: float, y: float) -> float:
     there — both just go dark.
     """
     x0, y0, width, height = layout.VERGE_FALLOFF
-    if y < y0 - 8:
+    if y < y0 - 10:
         return 0.0
-    deep = min(1.0, max(0.0, (y - (y0 - 8)) / (height + 8.0)))
-    reach = width * (0.62 + 0.38 * deep)
+    # §4.3 states the strip as x 0-70 FOR y 118-144, and the first build read
+    # that as a wedge whose reach only arrives at 70 by the bottom row: at
+    # y=124 it covered x<54 and left x 60-70 sitting on the open-road model.
+    # The bar has that corner at L 15-27 against a model of 40, which is
+    # §4.3's "10 to 27 L below" exactly, so the wedge opens to its full width
+    # by y=120 and holds it, and only its DEPTH goes on growing after that.
+    deep = min(1.0, max(0.0, (y - (y0 - 10)) / 12.0))
+    reach = width * (0.37 + 0.63 * deep)
     if x >= reach:
         return 0.0
-    edge = min(1.0, (reach - x) / 14.0)
-    return 22.0 * deep * edge
+    edge = min(1.0, (reach - x) / 16.0)
+    gain = 10.0 + 17.0 * min(1.0, max(0.0, (y - (y0 - 10)) / 30.0))
+    return gain * edge
 
 
 # ---------------------------------------------------------------------------
@@ -599,6 +723,43 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     _water(canvas, ctx, troughs)
 
 
+#: How often a dash carries down into the row below. 0 gives §9's horizontal
+#: run and a vertical run of 1; 1 would give columns. One in two lands the
+#: mean vertical run on 2.0, which is what the bar measures.
+GRAIN_CARRY = 0.5
+
+
+def _grain_row(rng, previous: list[float] | None) -> list[float]:
+    """One row of §9's dash field: 3-5 px wide, 1 px tall, scattered.
+
+    Never an ordered screen — §9 counts no Bayer, no checkerboard and no
+    regular 50% pattern in the bar, and a regular screen at 320x144 reads as
+    a fabric swatch. The dash boundaries are rolled, the amplitudes are
+    gaussian, and the only structure is the carry into the next row.
+    """
+    row = [0.0] * layout.WIDTH
+    x = 0
+    while x < layout.WIDTH:
+        if previous is not None and rng.random() < GRAIN_CARRY:
+            # Inherit the dash the row above has at this column, for as long
+            # as that dash runs. The carried dash keeps its own extent, so
+            # the two rows share an edge rather than a grid.
+            amplitude = previous[x]
+            span = 1
+            while (x + span < layout.WIDTH
+                   and previous[x + span] == amplitude
+                   and span < DASH_MAX):
+                span += 1
+        else:
+            span = rng.randrange(DASH_MIN, DASH_MAX)
+            amplitude = rng.gauss(0.0, 1.0)
+        for k in range(span):
+            if x + k < layout.WIDTH:
+                row[x + k] = amplitude
+        x += span
+    return row
+
+
 def _surface(canvas: IndexedCanvas, ctx: layout.Ctx, centres, ladders):
     """Layers 1-3 in one pass: value field, rut fan, mud grain.
 
@@ -612,18 +773,27 @@ def _surface(canvas: IndexedCanvas, ctx: layout.Ctx, centres, ladders):
     rng = ctx.stream("road.grain")
     trough_rows: dict[int, list[tuple[int, int]]] = {}
 
+    previous: list[float] | None = None
+
     for y in range(FIELD_TOP, layout.HEIGHT):
         base = layout.road_luminance(y)
         near = y >= 132
         hint = 0
-        # §9: 3-4 px wide, 1 px tall dashes, scattered, never stacked into
-        # blocks. One amplitude per dash, redrawn every row.
-        dash_end, dash = -1, 0.0
+        # §9's grain is ANISOTROPIC, and both numbers matter. Same-sign
+        # residual runs average 3.5 px horizontally against 2.0 px
+        # VERTICALLY, and lag-1 autocorrelation is +0.46..+0.69 in x against
+        # −0.09..+0.26 in y. The first build honoured the first number and
+        # rolled a fresh dash every row, which gives a vertical run of
+        # exactly 1: at 4x that reads as scan lines over the mud rather than
+        # as mud. So a dash carries down into the next row half the time,
+        # which lands the vertical run on 2 and the y autocorrelation inside
+        # the measured range without ever building a block — a carried dash
+        # is one dash deep, not a column.
+        row = _grain_row(rng, previous)
+        previous = row
         for x in range(layout.WIDTH):
             lit, measured, applied = _pool_factor(x, y, drift)
-            if x > dash_end:
-                dash_end = x + rng.randrange(DASH_MIN, DASH_MAX)
-                dash = rng.gauss(0.0, 1.0)
+            dash = row[x]
 
             drop = _verge_drop(x, y)
             # THE ZONES MUST NOT HAVE EDGES. §9 counts exactly two hard edges
@@ -634,7 +804,7 @@ def _surface(canvas: IndexedCanvas, ctx: layout.Ctx, centres, ladders):
             # by how deep §4.3's falloff already is at this pixel, which is a
             # smooth function, and the boundary lands wherever the shading
             # has already put it.
-            if drop > 7.0:
+            if drop > 11.0:
                 zone = "verge"
             elif x > layout.ROAD_RIGHT_EDGE:
                 zone = "right"
@@ -837,6 +1007,61 @@ def _trace(u: float) -> list[tuple[int, int]]:
     return chain
 
 
+#: THICKNESS, MEASURED, because "1-2 px wide" is the one number in §5 that
+#: does not survive contact with the bar. Run lengths through the bar's water
+#: mask, counted down each column:
+#:
+#:     1 px: 257 runs   2 px: 198   3 px: 93   4 px: 30   5 px: 12   6 px: 3
+#:     mean 1.92, median 2. Across each row instead: mean 3.47, median 3.
+#:
+#: The first build measured 1.23 / median 1 — a one-pixel staircase — and at
+#: 4x that is the difference between a puddle and a pencil line. §9 is still
+#: right that a thread of constant three turns the road into a river; what
+#: the bar actually does is TAPER. A piece is one pixel at each end, swells
+#: to two or three across its middle, and the swell grows toward the viewer
+#: with the trough it is lying in. That taper is why the reference water
+#: reads as lens-shaped pools strung along a rut and the first build read as
+#: a dashed line ruled along one.
+SWELL_NEAR = 1.9          # extra pixels at the bottom edge, before wetness
+SWELL_FAR = 0.55          # and at the top of the band
+SWELL_WET = (0.55, 0.65)  # a dry rut holds a thinner film than a wet one
+
+
+def _lay(wet, ink, segment, wetness: float, rng) -> None:
+    """Paint one piece with a body: 1 px at the ends, 2-3 px at the middle.
+
+    The thickening goes ACROSS the rut, and which screen axis that is depends
+    on where in the fan the rut lies — §3.4 has them within 20 deg of
+    horizontal at the bottom left and within 20 deg of vertical at the bottom
+    right. So the local direction is read off the chain itself and the swell
+    is laid perpendicular to it. Thickening in a fixed axis puts the extra
+    pixels ALONG the steep ruts on the right, which lengthens them instead of
+    widening them and is invisible except as a longer line.
+
+    It grows on one side only, the near side. §3.5's cross-section is
+    asymmetric — crest, trough, water line, next crest — so the water sits
+    against the near wall of its rut rather than centred in it, and a
+    symmetric swell reads as a tube.
+    """
+    count = len(segment)
+    if not count:
+        return
+    for i, (x, y) in enumerate(segment):
+        nxt = segment[min(i + 1, count - 1)]
+        prv = segment[max(i - 1, 0)]
+        steep = abs(nxt[1] - prv[1]) > abs(nxt[0] - prv[0])
+        bulge = math.sin(math.pi * (i + 0.5) / count) ** 0.45
+        near = layout.depth_scale(y)
+        swell = (SWELL_FAR + (SWELL_NEAR - SWELL_FAR) * near) * (
+            SWELL_WET[0] + SWELL_WET[1] * wetness)
+        thick = 1 + int(bulge * swell + rng.random() * 0.6)
+        for k in range(thick):
+            if steep:
+                wet(x + k, y, ink(x + k, y))
+            else:
+                wet(x, y + k, ink(x, y + k))
+
+
 def _water(canvas: IndexedCanvas, ctx: layout.Ctx, troughs) -> None:
     """§5. In the troughs, following the rut's curve, 1-2 px wide.
 
@@ -860,8 +1085,10 @@ def _water(canvas: IndexedCanvas, ctx: layout.Ctx, troughs) -> None:
     dry_x, dry_y, dry_w, dry_h = DRY_CORE
     bounds_x, bounds_y, bounds_w, bounds_h = layout.PUDDLE_BOUNDS
 
+    painted: set[tuple[int, int]] = set()
+
     def wet(x: int, y: int, index: int) -> int:
-        if y < WATER_TOP or x < 0 or x >= layout.WIDTH:
+        if y < WATER_TOP or x < 0 or x >= WATER_RIGHT_EDGE:
             return 0
         if dry_x <= x < dry_x + dry_w and dry_y <= y < dry_y + dry_h:
             return 0
@@ -869,42 +1096,92 @@ def _water(canvas: IndexedCanvas, ctx: layout.Ctx, troughs) -> None:
                 and bounds_y <= y < bounds_y + bounds_h):
             return 0
         canvas.put(x, y, index)
+        painted.add((x, y))
         return 1
 
-    # §5.2's two largest are hand-placed on DIFFERENT band entries and every
-    # other streak draws its size from the measured tail. Spending the sizes
-    # in descending order instead — the obvious reading — gives the first two
-    # lanes one unbroken ribbon each and the last four a dotted line, because
-    # the order of the list is not a property of any rut.
-    tail = STREAK_SIZES[2:]
+    def piece() -> int:
+        """One unbroken run, to the bar's measured piece distribution."""
+        roll = rng.random()
+        if roll < 0.42:
+            lo, hi = SEG_SHORT
+        elif roll < 0.80:
+            lo, hi = SEG_MID
+        elif roll < 0.95:
+            lo, hi = SEG_LONG
+        else:
+            lo, hi = SEG_CHAIN
+        return rng.randrange(lo, hi)
 
     slot = 0
-    for lane, start in enumerate(WATER_RUTS):
+    for start, wetness, stretch in WATER_LANES:
         chain = _trace(float(start))
-        cursor = rng.randrange(0, 16)
-        first = True
+        cursor = rng.randrange(0, 10)
         while cursor < len(chain):
-            if lane < 2 and first:
-                size = STREAK_SIZES[lane]
-            else:
-                size = tail[rng.randrange(len(tail))]
-            first = False
-            # A streak's SIZE is its pixel count and its LENGTH is how far it
-            # runs; a 2 px wide streak covers half the distance for the same
-            # count, which is why the two are not the same number.
-            run = max(3, int(size * (0.9 + 0.7 * rng.random())))
-            index = band[slot % len(band)]
-            for x, y in chain[cursor:cursor + run]:
-                wet(x, y, index)
-                # §9: 1-2 px wide over its whole length. Widening it to 3
-                # turns the road into a river. The second pixel goes on the
-                # near side only, where the trough itself is 3 px across.
-                if layout.depth_scale(y) > 0.68 and (x + y) % 3:
-                    wet(x + 1, y, index)
-            cursor += run + rng.randrange(5, 26)
+            # A CHAIN, not a ribbon: two to six pieces with nothing or a few
+            # pixels of dry trough between them, and then a long dry run
+            # before the rut is wet again. Both spacings scale with the
+            # lane's wetness, and that is what makes §5.2's two largest
+            # streaks CHAINS spanning 60-80 px of x while a rut §5.3 does not
+            # name carries one burst and then nothing: on the wettest lanes
+            # the inner gap closes to nothing and the pieces fuse, on the
+            # driest it opens to four and they read as separate dashes.
+            primary = BAND_PATTERN[slot % len(BAND_PATTERN)]
+            index = band[primary]
+            other = band[BAND_PARTNER[primary]]
+
+            def ink(x: int, y: int) -> int:
+                return other if (x * 3 + y * 5) % 10 < BAND_MIX else index
+
+            for _ in range(rng.randrange(*CHAIN_LENGTH)):
+                run = int(piece() * stretch)
+                if wetness > 0.8:
+                    run += rng.randrange(0, 14)
+                segment = chain[cursor:cursor + run]
+                _lay(wet, ink, segment, wetness, rng)
+                cursor += run + int(rng.randrange(*CHAIN_GAP)
+                                    * (1.15 - wetness) / stretch)
+                if cursor >= len(chain):
+                    break
+            gap_lo, gap_hi = LANE_GAP
+            cursor += int(rng.randrange(gap_lo, gap_hi) / max(0.24, wetness))
             slot += 1
-        if lane >= 12:
+
+    # §5.2's ~35 flecks of 1-3 px. Drawn from the trough register the surface
+    # pass built, so every one of them lies in the bottom of a rut — which is
+    # what separates a fleck of standing water from a speck of noise. They
+    # are half of the bar's piece count and 5% of its water mass, and they
+    # are what stops the wet ruts reading as the only wet thing in the frame.
+    seats: list[tuple[int, int]] = []
+    for run in troughs.values():
+        seats.extend(p for p in run if p[1] >= WATER_TOP)
+    rng.shuffle(seats)
+
+    def lonely(x: int, y: int) -> bool:
+        """A fleck has to be ISOLATED or it is not a fleck, it is a gap that
+        got filled in. Half the bar's water pieces are 1-3 px and they are
+        what says the whole surface is wet rather than four ruts being wet;
+        dropped next to an existing thread they merge into it and the count
+        does not move."""
+        for dy in range(-3, 4):
+            for dx in range(-4, 5):
+                if (x + dx, y + dy) in painted:
+                    return False
+        return True
+
+    placed = 0
+    for x, y in seats:
+        if placed >= FLECKS:
             break
+        if not lonely(x, y):
+            continue
+        index = band[BAND_PATTERN[(slot + placed) % len(BAND_PATTERN)]]
+        if not wet(x, y, index):
+            continue
+        placed += 1
+        if rng.random() < 0.5:
+            wet(x + 1, y, index)
+        if rng.random() < 0.2:
+            wet(x + 2, y, index)
 
     # §5.3: two or three lone flecks out on the dark left verge — enough to
     # say the ground is wet everywhere, not enough to draw the eye.

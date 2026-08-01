@@ -227,11 +227,17 @@ INKS: dict[str, tuple[str, int]] = {
     "tyre_top": ("pine_weathered", 6),  # L 59; the crown, warm-neutral
     "tyre_top_dim": ("dust", 3),        # L 46
     "tyre_left": ("mud", 6),            # L 44; measured 40-44 at 180 degrees
-    "tyre_left_dim": ("mud", 4),        # L 35
-    "tyre_foot": ("mud", 3),            # L 27; the bottom, and it is the dimmest
-    "tyre_foot_lit": ("grey", 3),       # L 41; the near-side contact quarter
-    "spoke": ("mud", 6),                # L 44; measured 39-52 against a disc of 15
-    "disc": ("umber", 2),               # L 18; the interior the spokes sit in
+    "tyre_left_dim": ("mud", 5),        # L 39
+    "tyre_foot": ("mud", 6),            # L 44; sampled 43-63 across the bottom
+    "tyre_foot_lit": ("grey", 4),       # L 53; the near-side contact quarter
+    "spoke": ("mud", 7),                # L 49; measured 38-52 against the disc
+    # The disc is not black. Sampled inside r=8 the bar's median is 26 and
+    # ours was 18 — eight luminance points of the wheel reading as a hole in
+    # the road rather than as the far felloe and the daylight-side of the
+    # nave. §5.1's twenty-four-point spoke separation is measured FROM HERE,
+    # so raising the field and the spoke together keeps the step and fixes
+    # the mass.
+    "disc": ("umber", 3),               # L 25; the interior the spokes sit in
     "hub": ("mud", 4),                  # L 35
     "hub_core": ("umber", 1),           # L 14; the darker centre
     "axle": ("mud", 6),                 # L 44; y 95-96, right past the rim
@@ -293,7 +299,17 @@ del _name, _shared
 #: §2.17 and §5.5. The rail is ONE ROW and it is NOT FLAT: L 82 at x 239-240
 #: falling monotonically to 26 at x=279. That falloff IS the light direction,
 #: and drawing it at a constant value costs the coach its light source.
-RAIL_LEFT_L, RAIL_RIGHT_L = 82.0, 26.0
+#:
+#: AND IT IS NOT A STRAIGHT LINE EITHER. Measured column by column on the bar,
+#: row 49 drops 82 -> 58 in the first seven pixels, then holds a long plateau
+#: at 47-56 across the middle twenty, then falls away to 26. A ruled line from
+#: 82 to 26 runs SEVENTEEN luminance points hot at x 243-256 and its row mean
+#: comes out at 52.5 against the measured 46.8 -- which is the difference
+#: between a rail lit from the left and a rail lit from everywhere. The
+#: control points below are the monotone envelope of the measurement.
+RAIL_PROFILE = ((239, 82.0), (242, 68.0), (246, 58.0), (252, 52.0),
+                (259, 47.0), (263, 40.0), (270, 35.0), (275, 32.0),
+                (279, 26.0))
 
 #: §2.14. The deck's bottom row carries the same left key the rail does, but
 #: it dies much faster: measured 58 at x=238, 40 by x=242, 28 by x=256 and 12
@@ -330,13 +346,23 @@ SPOKE_INNER = 5.0
 #: Sampled around the annulus: the right flank quantises into `grey`, the
 #: crown into `pine_weathered` / `dust`, the left into `mud`, and the foot
 #: sits lowest of all. (upper bound, outer ink, inner ink).
+#:
+#: AND THE RING IS CONTINUOUS. The earlier version took the foot down to
+#: mud[3] at L 27 on the strength of §3.3's "bottoms at 29", but that number
+#: is the mean of the whole annulus SECTOR and the annulus includes the disc
+#: behind it. Sampled pixel by pixel the bar's tyre never goes below about
+#: L 32 anywhere on the circle and runs 43-63 across the bottom — so what the
+#: reference actually has is an unbroken bright ring that varies by twenty
+#: luminance points, not a ring that disappears for a quarter of its length.
+#: A wheel whose rim dies at the bottom does not read as a wheel; it reads as
+#: an arc with some sticks under it, which is the front wheel's job.
 RIM_BANDS = (
     (35.0, "tyre_cool", "tyre_cool_dim"),     # 0-35, the sky-lit right flank
-    (70.0, "tyre_lit", "tyre_top_dim"),       # the bright top-right corner
+    (70.0, "tyre_lit", "tyre_cool_dim"),      # the bright top-right corner
     (135.0, "tyre_top", "tyre_top_dim"),      # the crown
-    (205.0, "tyre_left", "tyre_left_dim"),    # the left, warm
-    (255.0, "tyre_foot", "tyre_foot"),        # the foot, dimmest
-    (300.0, "tyre_foot_lit", "tyre_foot"),    # the near-side contact quarter
+    (205.0, "tyre_left", "tyre_left_dim"),    # the left, warm and the dimmest
+    (255.0, "tyre_foot", "tyre_left_dim"),    # the foot
+    (300.0, "tyre_foot_lit", "tyre_top_dim"),  # the near-side contact quarter
     (360.0, "tyre_cool", "tyre_cool_dim"),    # back onto the right flank
 )
 
@@ -399,6 +425,25 @@ def _falloff_row(canvas: IndexedCanvas, ctx: layout.Ctx, x0: int, x1: int,
         canvas.put(x, y, _at_luminance(ctx.palette, family, target))
 
 
+def _profile(points: tuple[tuple[int, float], ...], x: int) -> float:
+    """Piecewise-linear through measured control points, exactly as `layout`
+    reads the mountain crests. A fitted falloff wants to land wherever the
+    measurement puts it, not wherever a straight line would."""
+    if x <= points[0][0]:
+        return points[0][1]
+    for (x0, v0), (x1, v1) in zip(points, points[1:]):
+        if x <= x1:
+            return v0 + (v1 - v0) * (x - x0) / max(1, x1 - x0)
+    return points[-1][1]
+
+
+def _profile_row(canvas: IndexedCanvas, ctx: layout.Ctx, y: int, family: str,
+                 points: tuple[tuple[int, float], ...]) -> None:
+    for x in range(points[0][0], points[-1][0] + 1):
+        canvas.put(x, y, _at_luminance(ctx.palette, family,
+                                       _profile(points, x)))
+
+
 # ---------------------------------------------------------------------------
 
 
@@ -415,6 +460,7 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # a vehicle instead of about the composition.
     with ctx.track(canvas, "the coach"):
         _boot(canvas, ctx)
+        _rear_underframe(canvas, ctx)
         _shell(canvas, ctx)
         _doorway(canvas, ctx)
         _door_leaf(canvas, ctx)
@@ -444,8 +490,13 @@ def _fence(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     """
     x0, y0, width, height = layout.COACH_FENCE
     right = x0 + width - 1
-    canvas.hline(x0 + 4, y0 + 6, width - 4, _ink(ctx, "fence_rail"))
-    canvas.hline(x0 + 4, y0 + 9, width - 4, _ink(ctx, "fence_rail", -2))
+    # THE ROWS ARE MEASURED, y=68 AND y=74. The lower rail was at y=71, which
+    # is the first row of the keg stack — so half the fence was being drawn
+    # underneath the kegs and the region had one rail instead of two. On the
+    # bar both runs sit at L 29-44 against a backdrop of 16-24: faint, but
+    # faint over eighteen pixels is a fence, and one rail is a scratch.
+    canvas.hline(x0 + 4, y0 + 6, width - 4, _ink(ctx, "fence_rail", 1))
+    canvas.hline(x0 + 4, y0 + 12, width - 4, _ink(ctx, "fence_rail"))
     # One post, and it is the only vertical. The near end is cut by the frame.
     canvas.vline(right - 2, y0, height, _ink(ctx, "fence_post", 1))
     canvas.vline(x0 + 4, y0 + 1, height - 1, _ink(ctx, "fence_post"))
@@ -469,11 +520,27 @@ def _kegs(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # No courses, no rhythm, no seams. A regular horizontal beat at this
     # scale reads as masonry, and a stack of barrels that reads as anything
     # in particular has already broken §10.14.
+    #
+    # BUT THE AMPLITUDE IS MEASURED AND IT IS WIDER THAN THIS WAS. The bar's
+    # stack runs p10 13.1 to p90 31.6 with pixel extremes of 8 and 44, and
+    # ours ran 14 to 29 — two thirds of the range, which at this size is the
+    # difference between "a heap of something" and a flat brown wall twenty
+    # pixels from the frame edge. §10.14 forbids LEGIBLE kegs, not textured
+    # ones, and the region's own p50 stays at 25 either way. The dark specks
+    # are the shadowed gaps between barrel ends and the pale ones are their
+    # chimes; neither is drawn as a circle and none of them lines up.
     for _ in range(190):
         x = x0 + rng.randrange(width)
         y = y0 + rng.randrange(height)
         canvas.rect(x, y, 1 + (rng.random() < 0.35), 1,
                     inks[rng.randrange(len(inks))])
+    for _ in range(64):
+        x = x0 + rng.randrange(width)
+        y = y0 + rng.randrange(height)
+        deep = rng.random() < 0.5
+        canvas.rect(x, y, 1 + (rng.random() < 0.4), 1,
+                    _ink(ctx, "keg_dark", -1) if deep
+                    else _ink(ctx, "keg_lit", 2))
 
 
 # ---------------------------------------------------------------------------
@@ -539,6 +606,45 @@ def _boot(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     canvas.rect(x0, sy + 1, 14, 5, _ink(ctx, "void"))
     canvas.hline(x0, sy + 1, 14, _ink(ctx, "rear_darkest"))
     canvas.put(right, sy, _ink(ctx, "boot_body"))
+
+
+def _rear_underframe(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
+    """The perch and reach carrying the boot back over the rear axle.
+
+    NOT A CAST SHADOW — §10.13 is right that somebody will bake one and this
+    is not it. Measured on the bar behind the rear wheel, x 283-299: rows
+    84-85 sit at L 8-16 and rows 86-96 at L 8-42 with a median near 20, while
+    the open road either side of the coach at the same rows measures 28-32
+    and rising. That is a solid object between the viewer and the ground, and
+    it goes when the coach goes.
+
+    IT IS ALSO WHAT MAKES THE REAR WHEEL A WHEEL. The tyre's bright quadrant
+    is L 55-62; drawn against road at 44 it is a four-step edge and the ring
+    dissolves, and drawn against this it is fifteen steps and the ring is the
+    first thing you see. §3.3 says the upper-right sector is the only part of
+    either wheel that clears its background — it can only do that if there is
+    a background dark enough to clear.
+    """
+    # The near-black immediately under the boot, carried two rows past the
+    # shelf's own shadow: measured L 8-16 solid across x 283-297.
+    canvas.rect(283, 84, 15, 2, _ink(ctx, "undercarriage"))
+    canvas.rect(285, 84, 11, 2, _ink(ctx, "rear_darkest"))
+
+    # Then the reach itself, mottled rather than flat because at this size it
+    # is ironwork and daylight between ironwork. No ordered matrix (§5.2):
+    # the coach is a removable layer and a dither keyed to the road behind it
+    # tears the moment the vehicle leaves.
+    rng = ctx.stream("coach underframe")
+    canvas.rect(283, 86, 19, 11, _ink(ctx, "undercarriage"))
+    for _ in range(150):
+        x = 283 + rng.randrange(19)
+        y = 86 + rng.randrange(11)
+        canvas.put(x, y, _ink(ctx, "undercarriage", rng.randrange(-1, 4)))
+    # its lower edge feathers into the road rather than ending on a line.
+    for x in range(283, 302):
+        canvas.put(x, 97, _ink(ctx, "undercarriage", rng.randrange(0, 3)))
+        if rng.random() < 0.45:
+            canvas.put(x, 98, _ink(ctx, "undercarriage", 2))
 
 
 def _shell(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -643,48 +749,98 @@ def _lamp(canvas: IndexedCanvas, ctx: layout.Ctx, at: tuple[int, int],
     the ground.
     """
     x, y = at
-    canvas.rect(x - 2, y - 2, core + 3, 5, _ink(ctx, "lamp_spill"))
-    canvas.rect(x - 1, y - 1, core + 1, 3, _ink(ctx, "lamp_fringe"))
-    canvas.rect(x - 1, y - 1, core, 2, _ink(ctx, "lamp_ring"))
-    # Lamp A is three pixels and lamp B is two, and they are shaped the way
-    # the bar shapes them: two across, and a third below only on lamp A.
-    canvas.hline(x, y, 2, _ink(ctx, "lamp_core"))
+    # THE FOOTPRINT IS THE WHOLE ARGUMENT. §7.1 gives the lantern a 4.5x and
+    # 4.1x advantage in warm ENERGY and 7.3x and 11x on peak-value pixels, and
+    # energy is area times value. A 6 x 5 halo around a three-pixel core is
+    # twenty warm pixels where the bar has nine; the peak obeys §7.2 and the
+    # energy quietly doubles, which is the same failure §7 is written to
+    # prevent arriving by the back door. Measured on the bar, each lamp dies
+    # from 123 to under 20 in two to three pixels and there is nothing at
+    # radius 3 at all.
+    #
+    # Offsets are (dx, dy) about the core, in one falling order: core, ring,
+    # fringe, last pixel. Lamp A leans down-left into the doorway; lamp B
+    # leans UP, which is how §2.13b measures it — its ring is the row above.
     if core > 2:
-        canvas.put(x, y + 1, _ink(ctx, "lamp_core"))
+        rings = (((0, 0), (1, 0), (0, 1)),
+                 ((1, 1), (0, -1)),
+                 ((-1, 0), (-1, 1), (1, -1), (0, 2)),
+                 ((-1, -1), (0, -2), (1, -2), (1, 2)))
+    else:
+        rings = (((0, 0), (1, 0)),
+                 ((-1, -1), (0, -1), (1, -1), (-1, 0)),
+                 ((1, 1), (-2, -1), (-2, 0), (0, 1)),
+                 ((-1, 1), (-2, -2), (1, -2)))
+    for ink, offsets in zip(("lamp_core", "lamp_ring", "lamp_fringe",
+                             "lamp_spill"), rings):
+        for dx, dy in offsets:
+            canvas.put(x + dx, y + dy, _ink(ctx, ink))
 
 
 def _door_leaf(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     """§2.13. Swung open toward us on its rear hinge, so it reads face-on."""
     lx, ly, lwidth, lheight = layout.COACH_DOOR_LEAF
-    canvas.rect(lx, ly, lwidth, lheight, _ink(ctx, "leaf"))
-    canvas.rect(lx, ly, 3, lheight, _ink(ctx, "leaf_dark"))
+    rng = ctx.stream("coach door leaf")
 
-    # The two stiles. The hinge stile takes the warm key and is the brighter;
-    # the far one, six inches deeper into the night, is two steps down.
+    # THE LEAF IS NOT DARK. Measured column by column on the bar it runs
+    # L 19-56 everywhere it is not window, with a median near 30 — §4 puts
+    # its lower panel at Lmed 28.5 and §3.2's event band at 24-40. It was
+    # being drawn at a flat mud[3] with two lit rows on it, which is nine
+    # points under the measurement across a 15 x 31 panel and reads as a
+    # black door on a brown coach. Base it at the measured median and let the
+    # frame members carry the light.
+    canvas.rect(lx, ly, lwidth, lheight, _ink(ctx, "leaf", 1))
+    for _ in range(90):
+        canvas.put(lx + rng.randrange(lwidth), ly + rng.randrange(lheight),
+                   _ink(ctx, "leaf", rng.randrange(-1, 2)))
+
+    # The two stiles. The hinge stile takes the warm key and is the brighter,
+    # sustained down the FULL height at L 46-76 — it is the leaf's own version
+    # of the front corner post and it is what stands the door away from the
+    # doorway's black. The far stile, six inches deeper into the night, is
+    # two steps down.
+    canvas.vline(lx, ly + 1, lheight - 2, _ink(ctx, "leaf", -1))
+    canvas.vline(lx + 1, ly + 1, lheight - 2, _ink(ctx, "leaf"))
+    canvas.vline(lx + 2, ly + 1, lheight - 2, _ink(ctx, "leaf", 1))
     canvas.vline(lx + 3, ly + 1, lheight - 3, _ink(ctx, "leaf_frame"))
-    canvas.vline(lx + 3, ly + 3, 10, _ink(ctx, "leaf_frame_hot"))
+    canvas.vline(lx + 3, ly + 3, 12, _ink(ctx, "leaf_frame_hot"))
+    canvas.vline(lx + 4, ly + 1, lheight - 3, _ink(ctx, "leaf", -1))
     canvas.vline(lx + 15, ly, lheight - 4, _ink(ctx, "leaf_edge"))
+    canvas.vline(lx + 16, ly, lheight - 4, _ink(ctx, "leaf"))
 
     # §2.13a. In image A this opening has a rounded top corner; AT THIS SIZE
     # IT IS A PLAIN RECTANGLE, and its left column runs the full height as
-    # the darkest thing in the leaf.
+    # the darkest thing in the leaf. It is a RECESS and not a hole: the bar
+    # keeps the far side of the glass at L 8-26 rather than at void, so that
+    # the doorway beside it stays the only true black in the object.
     gx, gy, gwidth, gheight = layout.COACH_DOOR_WINDOW
-    canvas.rect(gx + 2, gy + 1, gwidth - 2, gheight - 1, _ink(ctx, "glass"))
-    canvas.rect(gx + 2, gy + 1, 2, gheight - 1, _ink(ctx, "glass_black"))
-    canvas.hline(gx + 2, gy + gheight - 1, gwidth - 2, _ink(ctx, "leaf_dark"))
+    canvas.rect(gx + 2, gy + 1, gwidth - 2, gheight - 2, _ink(ctx, "glass"))
+    canvas.rect(gx + 2, gy + 1, 2, gheight - 2, _ink(ctx, "glass_black"))
+    for _ in range(28):
+        canvas.put(gx + 4 + rng.randrange(gwidth - 4),
+                   gy + 1 + rng.randrange(gheight - 3),
+                   _ink(ctx, "glass", rng.randrange(0, 3)))
     _lamp(canvas, ctx, layout.COACH_LAMP_B, core=2)
+    # the sill: the window's bottom two rows come back up to L 26-46, and it
+    # is what gives the opening a bottom edge without a frame being drawn.
+    canvas.hline(gx + 2, gy + gheight - 1, gwidth - 2, _ink(ctx, "leaf", 1))
+    canvas.hline(gx + 2, gy + gheight, gwidth - 2, _ink(ctx, "leaf_edge"))
+    canvas.hline(gx + 5, gy + gheight, 5, _ink(ctx, "leaf_edge", 1))
 
-    # §2.13c. The kick moulding: one bright row and two studs, L 40-59.
-    canvas.hline(lx + 3, ly + 19, 11, _ink(ctx, "moulding"))
-    canvas.hline(lx + 3, ly + 18, 4, _ink(ctx, "moulding", -2))
+    # §2.13c. The kick moulding: one bright row and two studs, L 40-59, with
+    # a second, shorter lit run two rows under it where the panel's bottom
+    # rail catches the same light.
+    canvas.hline(lx + 3, ly + 19, 12, _ink(ctx, "moulding"))
+    canvas.hline(lx + 3, ly + 18, 5, _ink(ctx, "moulding", -2))
     canvas.put(lx + 4, ly + 18, _ink(ctx, "brass", 1))
     canvas.put(lx + 7, ly + 18, _ink(ctx, "brass"))
+    canvas.hline(lx + 5, ly + 22, 4, _ink(ctx, "leaf_frame"))
 
     # §2.13d. In image A this is a legible brass curl. IN THE BAR IT SURVIVES
     # AS A 2-3 px LIGHTER SMUDGE. Draw the smudge; do not draw the curl.
-    canvas.hline(lx + 5, ly + 22, 4, _ink(ctx, "scroll"))
-    canvas.put(lx + 5, ly + 23, _ink(ctx, "scroll", 1))
-    canvas.put(lx + 6, ly + 23, _ink(ctx, "scroll", -2))
+    canvas.put(lx + 5, ly + 23, _ink(ctx, "scroll", 2))
+    canvas.hline(lx + 6, ly + 23, 2, _ink(ctx, "scroll", -2))
+    canvas.put(lx + 9, ly + 23, _ink(ctx, "scroll", -1))
 
     # The leaf's foot, and the dark it stands against.
     canvas.hline(lx + 1, ly + 28, lwidth - 3, _ink(ctx, "leaf_dark"))
@@ -717,20 +873,26 @@ def _roof(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # luggage. Each bundle is three to six columns wide, takes one ink and
     # one top offset, and the gap between two of them is where
     # `accent_indigo[0]` shows through (§4).
-    inks = ("cargo_dim", "cargo", "cargo_dim", "cargo_dark")
+    # AND IT IS LIT ON TOP. §3.1 measures the cargo at a mean of 36.7 against
+    # a sky of 26.0 and the whole coach's separation from the night is that
+    # eleven points; drawn at the sacking's own body value the bundles come
+    # out at 20-27, BELOW the sky, and the roof reads as a second notch
+    # instead of as luggage. Every bundle therefore gets its top row a step
+    # or two up — it is a horizontal surface under an open sky, the same
+    # argument as the rail above it and the hat brim below.
+    inks = ("cargo", "cargo", "cargo_dim", "cargo_dark")
     x = cx
     while x < cx + cwidth:
         run = min(3 + rng.randrange(4), cx + cwidth - x)
-        ink = _ink(ctx, inks[rng.randrange(len(inks))])
+        ink = inks[rng.randrange(len(inks))]
         drop = rng.randrange(2)
         for column in range(x, x + run):
             crest = _cargo_crest(column) + drop
-            canvas.vline(column, crest, 49 - crest, ink)
+            canvas.vline(column, crest, 49 - crest, _ink(ctx, ink))
+            canvas.put(column, crest, _ink(ctx, ink, 2))
+            canvas.put(column, crest + 1, _ink(ctx, ink, 1))
             if column in (x, x + run - 1) and rng.random() < 0.45:
                 canvas.put(column, crest, _ink(ctx, "cargo_gap"))
-        if rng.random() < 0.5:
-            canvas.hline(x, _cargo_crest(x) + drop + 1, run,
-                         _ink(ctx, "cargo", 1))
         x += run
 
     # §2.18a. The left crate's lit top face, five pixels, and it is the only
@@ -776,9 +938,8 @@ def _roof(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # §2.17 and the draw-order note: THE RAIL GOES ON LAST OF THE ROOF GROUP,
     # over the cargo, because it is a single row and any cargo drawn over it
     # breaks the line. §5.5 — its falloff is the light direction.
-    rx, ry, rwidth, _ = layout.COACH_ROOF_RAIL
-    _falloff_row(canvas, ctx, rx, rx + rwidth - 1, ry, "dust",
-                 RAIL_LEFT_L, RAIL_RIGHT_L)
+    _, ry, _, _ = layout.COACH_ROOF_RAIL
+    _profile_row(canvas, ctx, ry, "dust", RAIL_PROFILE)
     # §6: the rail's stanchions are not drawn. It is one continuous row.
 
 
@@ -802,7 +963,15 @@ def _driver(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     canvas.rect(x0 + 12, y0, 5, 3, _ink(ctx, "hat"))
     canvas.put(x0 + 12, y0 + 1, _ink(ctx, "hat_lit"))
     canvas.rect(x0 + 11, y0 + 2, 6, 1, _ink(ctx, "hat", -1))
+    # The brim is not one value either: measured at y=46 it runs 32, 31, 24,
+    # 28 across its near half and drops to 12 only under the crown. A brim is
+    # a disc seen almost edge-on, so its near edge turns up toward the sky
+    # and its far side is under the hat — one flat dark run says "a bar", and
+    # this is the only mark separating his head from the sky.
     canvas.rect(x0 + 10, y0 + 3, 9, 1, _ink(ctx, "brim"))
+    canvas.hline(x0 + 10, y0 + 3, 3, _ink(ctx, "hat", -1))
+    canvas.put(x0 + 13, y0 + 3, _ink(ctx, "hat", -2))
+    canvas.put(x0 + 18, y0 + 3, _ink(ctx, "hat", -3))
 
     # face: 4 × 5 and NO MORE — §10.10, eyes at this size produce a skull.
     # One lit column down the middle, two pixels at the ceiling, the far side
@@ -825,16 +994,37 @@ def _driver(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # coat: a warm mass sloping down-left as his arms reach for the reins.
     # It runs from the shoulder at x=226 out to the coach's own corner post,
     # and its left edge falling one pixel a row IS the reach.
+    # HIS SHOULDERS START AT y=49, UNDER THE BRIM, not at y=52. Measured
+    # x 233-237 at rows 49-51 runs L 19-49; ours ran flat 16, which is the
+    # background value — so three rows of the man were being drawn as
+    # nothing, his head sat on air, and the face read as a lit object rather
+    # than as a face because there was no body under it to belong to.
+    canvas.hline(x0 + 16, y0 + 6, 5, _ink(ctx, "driver_coat_dark"))
+    canvas.hline(x0 + 15, y0 + 7, 6, _ink(ctx, "driver_coat", -1))
+    canvas.hline(x0 + 17, y0 + 7, 3, _ink(ctx, "driver_coat"))
+    canvas.hline(x0 + 13, y0 + 8, 8, _ink(ctx, "driver_coat"))
     for row in range(7):
         left = x0 + 10 - row
         canvas.hline(left, y0 + 9 + row, x0 + 23 - left,
                      _ink(ctx, "driver_coat"))
-    canvas.hline(x0 + 13, y0 + 9, 4, _ink(ctx, "driver_coat_lit"))
-    canvas.hline(x0 + 12, y0 + 11, 3, _ink(ctx, "driver_coat_lit"))
-    canvas.hline(x0 + 17, y0 + 10, 4, _ink(ctx, "driver_coat_lit"))
-    canvas.hline(x0 + 9, y0 + 12, 4, _ink(ctx, "driver_coat_dark"))
-    canvas.hline(x0 + 10, y0 + 13, 3, _ink(ctx, "driver_coat_dark"))
-    canvas.hline(x0 + 14, y0 + 14, 6, _ink(ctx, "driver_coat_dark"))
+    # THE LIT MARKS FOLLOW THE ARM, NOT THE ROWS. Three flat horizontal runs
+    # across a coat read as shelving — the eye takes a repeated horizontal at
+    # this size as structure belonging to the vehicle, and the driver stopped
+    # being a man and became part of the box he sits on. The bar's lit
+    # values here lie along the shoulder and down the sleeve: a diagonal from
+    # the collar out to the hands, which is the reach, and it is the only
+    # thing saying he is holding something.
+    canvas.put(x0 + 13, y0 + 8, _ink(ctx, "driver_coat_lit"))
+    canvas.line(x0 + 12, y0 + 9, x0 + 8, y0 + 13,
+                _ink(ctx, "driver_coat_lit"))
+    canvas.line(x0 + 13, y0 + 10, x0 + 10, y0 + 13,
+                _ink(ctx, "driver_coat", 1))
+    canvas.line(x0 + 17, y0 + 9, x0 + 19, y0 + 12,
+                _ink(ctx, "driver_coat_lit"))
+    canvas.put(x0 + 16, y0 + 10, _ink(ctx, "driver_coat", 2))
+    canvas.hline(x0 + 9, y0 + 12, 3, _ink(ctx, "driver_coat_dark"))
+    canvas.line(x0 + 14, y0 + 14, x0 + 18, y0 + 13,
+                _ink(ctx, "driver_coat_dark"))
 
     # hands on the reins: two clusters at L 62-97, and they are the brightest
     # thing on him after his face.
@@ -845,13 +1035,18 @@ def _driver(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     canvas.put(x0 + 11, y0 + 15, _ink(ctx, "hand_hot"))
 
     # trousers: COOL, two legs, and they are what stop him joining the coach.
-    canvas.rect(x0 + 4, y0 + 16, 8, 9, _ink(ctx, "trouser"))
+    canvas.rect(x0 + 3, y0 + 16, 9, 9, _ink(ctx, "trouser", 1))
     canvas.vline(x0 + 5, y0 + 17, 8, _ink(ctx, "trouser_lit"))
+    canvas.vline(x0 + 4, y0 + 18, 7, _ink(ctx, "trouser_lit", 1))
     canvas.vline(x0 + 9, y0 + 17, 5, _ink(ctx, "trouser_lit"))
     canvas.vline(x0 + 11, y0 + 17, 7, _ink(ctx, "trouser_dark"))
     canvas.vline(x0 + 12, y0 + 16, 8, _ink(ctx, "trouser_dark"))
-    canvas.rect(x0, y0 + 23, 8, 4, _ink(ctx, "leather"))
-    canvas.hline(x0 + 2, y0 + 23, 4, _ink(ctx, "trouser_dark"))
+    # boots. §2.23 calls them near-black and they are — but near-black here
+    # measures L 22-27, not 9: they sit on a lit footboard with the town
+    # behind them, and at umber[0] the whole bottom of the figure fell off.
+    canvas.rect(x0 + 1, y0 + 23, 7, 4, _ink(ctx, "leather", 2))
+    canvas.hline(x0 + 2, y0 + 23, 5, _ink(ctx, "trouser"))
+    canvas.hline(x0 + 1, y0 + 26, 4, _ink(ctx, "leather"))
 
     # §8.2 and §6. The reins are drawn, but at L 22-32 over a sky of 21-35 —
     # about ±5 — so they read as texture rather than as lines. THEY BELONG TO
@@ -897,6 +1092,12 @@ def _front_boot(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                      _ink(ctx, "pillar_reveal"))
     canvas.line(x0 + 2, y0 + 10, x0 + 8, y0 + 14, _ink(ctx, "boot_corner"))
     canvas.line(x0 + 7, y0 + 15, x0 + 11, y0 + 17, _ink(ctx, "boot_strap"))
+    # The footboard the driver's boots sit on: a lit run at y 69-70, x 216-221,
+    # measured L 36-51. It is the one horizontal in this corner and without it
+    # his feet end in the dark and he reads as floating on the box.
+    canvas.hline(x0 + 2, y0 + 10, 6, _ink(ctx, "step"))
+    canvas.hline(x0 + 3, y0 + 11, 4, _ink(ctx, "boot_corner"))
+    canvas.put(x0 + 3, y0 + 10, _ink(ctx, "step_hot"))
 
 
 def _standing_man(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -913,14 +1114,20 @@ def _standing_man(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     x0, y0, _, _ = layout.COACH_STANDING_MAN
     fx, fy, fwidth, _ = layout.COACH_STANDING_FACE
 
-    # hat: eight pixels wide, four rows, L 2-24 and COOL. It is the darker
-    # half of the 100-point jump that makes his head read, and it is doing
-    # more work than the face is.
-    canvas.rect(x0 + 4, y0, 7, 4, _ink(ctx, "felt"))
-    canvas.hline(x0 + 5, y0, 5, _ink(ctx, "felt", 1))
-    canvas.hline(x0 + 4, y0 + 2, 7, _ink(ctx, "felt_dark"))
-    canvas.hline(x0 + 3, y0 + 3, 9, _ink(ctx, "felt_dark"))
-    canvas.hline(x0 + 4, y0 + 4, 7, _ink(ctx, "felt"))
+    # hat: eight pixels wide, four rows. The CROWN is the near-black — L 2-8
+    # across y 61-62 — and it is the darker half of the 100-point jump that
+    # makes his head read. THE BRIM IS NOT. Measured at y 63-64 it runs
+    # L 27-52: it is a horizontal surface a foot below an open sky and it
+    # catches the same cool light the roof rail does, and drawing it black
+    # welds the crown to the face and loses the one edge that says "hat".
+    canvas.rect(x0 + 4, y0, 7, 2, _ink(ctx, "felt_dark"))
+    canvas.hline(x0 + 5, y0, 5, _ink(ctx, "void"))
+    canvas.hline(x0 + 3, y0 + 2, 9, _ink(ctx, "coat_lit"))
+    canvas.put(x0 + 3, y0 + 2, _ink(ctx, "felt"))
+    canvas.hline(x0 + 8, y0 + 2, 2, _ink(ctx, "coat"))
+    canvas.hline(x0 + 4, y0 + 3, 8, _ink(ctx, "coat"))
+    canvas.hline(x0 + 9, y0 + 3, 2, _ink(ctx, "coat_lit"))
+    canvas.put(x0 + 4, y0 + 3, _ink(ctx, "felt"))
 
     # face: five wide, five tall, one hot row at y=67, and NOTHING ELSE.
     # §10.10 — eyes at this size produce a skull.
@@ -933,24 +1140,19 @@ def _standing_man(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     canvas.put(fx, fy + 4, _ink(ctx, "face", -10))
     canvas.put(fx + 4, fy, _ink(ctx, "face", -7))
 
-    # neckcloth: four more pixels at the ceiling. §2.24 — A CREAM CLOTH, NOT
-    # SKIN, which is why it sits a step above the face it hangs under.
-    canvas.rect(fx + 1, fy + 5, 3, 3, _ink(ctx, "face", 1))
-    canvas.put(fx + 3, fy + 5, _ink(ctx, "face_hot"))
-    canvas.put(fx + 1, fy + 6, _ink(ctx, "face_hot"))
-    canvas.put(fx + 2, fy + 6, _ink(ctx, "face_hot"))
-    canvas.put(fx + 1, fy + 7, _ink(ctx, "face_hot"))
-    canvas.put(fx + 3, fy + 7, _ink(ctx, "face", -5))
-    canvas.put(fx + 4, fy + 5, _ink(ctx, "face", -5))
-
     # coat: COOL, and it is NOT dark — measured L 36-59 across its lit front,
     # against warm body panels at 25-40. As a mass he does not contrast with
     # the coach at all (Michelson 0.003); the temperature split is the entire
     # separation, and §3.6 says take it out and both men dissolve.
-    canvas.rect(x0 + 3, y0 + 10, 10, 2, _ink(ctx, "coat", 1))
-    canvas.rect(x0 + 2, y0 + 11, 12, 2, _ink(ctx, "coat", 1))
-    canvas.rect(x0 + 1, y0 + 12, 14, 8, _ink(ctx, "coat", 1))
-    canvas.vline(x0 + 9, y0 + 11, 9, _ink(ctx, "coat_lit"))
+    #
+    # IT STARTS AT y=73, NOT AT y=71. The shoulders were being laid across
+    # rows 71-72 and painting out the neckcloth under them — four of the
+    # region's ceiling-value pixels, §2.24's "cream cloth, not skin", gone
+    # under a grey rectangle. That is a nine-point hole in the row mean at
+    # exactly the row §3.2 calls the event band, and it is invisible in the
+    # code because both statements are correct on their own.
+    canvas.rect(x0 + 1, y0 + 12, 14, 7, _ink(ctx, "coat", 1))
+    canvas.vline(x0 + 9, y0 + 12, 8, _ink(ctx, "coat_lit"))
     canvas.vline(x0 + 12, y0 + 12, 8, _ink(ctx, "coat_lit"))
     canvas.vline(x0 + 1, y0 + 12, 8, _ink(ctx, "coat_dark"))
     canvas.vline(x0 + 4, y0 + 12, 8, _ink(ctx, "coat"))
@@ -980,9 +1182,27 @@ def _standing_man(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     canvas.put(x0, y0 + 16, _ink(ctx, "face", -2))
     canvas.put(x0, y0 + 17, _ink(ctx, "face", -4))
 
-    # legs: `grey[0..1]` / `umber[0]` / `void[0]`, Lmed 22, and they are the
-    # last thing between the man and the road.
-    canvas.rect(x0 + 3, y0 + 20, 10, 10, _ink(ctx, "coat", -1))
+    # neckcloth: four more pixels at the ceiling, and they go on LAST of the
+    # head group because the collar of the coat is behind them, not over
+    # them. §2.24 — A CREAM CLOTH, NOT SKIN, which is why it sits a step
+    # above the face it hangs under. Face and neckcloth together are the 5x8
+    # mass at p50 46.3 that §3.6 says is where the eye lands after the
+    # lantern, and it only reaches that median if all eight rows survive.
+    canvas.rect(fx + 1, fy + 5, 3, 3, _ink(ctx, "face", 1))
+    canvas.put(fx + 3, fy + 5, _ink(ctx, "face_hot"))
+    canvas.put(fx + 1, fy + 6, _ink(ctx, "face_hot"))
+    canvas.put(fx + 2, fy + 6, _ink(ctx, "face_hot"))
+    canvas.put(fx + 1, fy + 7, _ink(ctx, "face_hot"))
+    canvas.put(fx + 3, fy + 7, _ink(ctx, "face", -5))
+    canvas.put(fx, fy + 5, _ink(ctx, "face", -6))
+    canvas.put(fx + 4, fy + 5, _ink(ctx, "face", -5))
+    canvas.put(fx, fy + 6, _ink(ctx, "coat_lit"))
+    canvas.put(fx + 4, fy + 6, _ink(ctx, "coat_lit"))
+
+    # legs: `grey[0..1]` / `umber[0]` / `void[0]`, Lmed 22 — not L 16. They
+    # are trousers standing in front of a black doorway, and at the coat's
+    # darkest step they merge with it and he ends at the waist.
+    canvas.rect(x0 + 3, y0 + 20, 10, 10, _ink(ctx, "coat"))
     canvas.vline(x0 + 8, y0 + 20, 10, _ink(ctx, "void"))
     canvas.vline(x0 + 3, y0 + 21, 9, _ink(ctx, "legs"))
     canvas.vline(x0 + 12, y0 + 21, 8, _ink(ctx, "legs"))
@@ -1012,29 +1232,49 @@ def _rear_wheel(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     centre_x, centre_y = int(cx), int(cy)
     radius_x, radius_y = int(rx), int(ry)
 
-    # the disc the spokes are read against. Not flat: measured L 6-50, and
-    # the mottle is what stops twelve clean radii on a clean field.
+    # The disc the spokes are read against, and it is NEARLY FLAT. Measured
+    # troughs between the reference's spokes run L 8-19 with no structure in
+    # them; the earlier per-pixel scatter across the whole disc put a random
+    # step under every spoke pixel and the twelve radii stopped being radii.
+    # A spoke that is one step above a field that is itself one step either
+    # way is not a spoke, it is grain — and §5.2 measures the disc's ABAB
+    # rate at 1.6% / 1.0%, a noise floor and not a pattern.
     disc = ctx.stream("coach disc")
     for dy in range(-radius_y, radius_y + 1):
         for dx in range(-radius_x, radius_x + 1):
             if (dx / rx) ** 2 + (dy / ry) ** 2 <= 1.0:
+                grain = -1 if disc.random() < 0.16 else 0
                 canvas.put(centre_x + dx, centre_y + dy,
-                           _ink(ctx, "disc", disc.randrange(-1, 2)))
+                           _ink(ctx, "disc", grain))
 
-    # Twelve radii drawn cleanly are a pinwheel, and a pinwheel at 320×144
-    # reads as MOTION (§10.2). What stops it is that the reference's spokes
-    # are BROKEN and UNEQUAL: alternate ones sit two steps down, and a third
-    # of every spoke's length is simply not there.
+    # Twelve radii drawn AT FULL CONTRAST are a pinwheel, and a pinwheel at
+    # 320×144 reads as MOTION (§10.2). What stops that is NOT breaking them
+    # into confetti — it is the separation: the reference draws them at L 39
+    # against a disc at L 15, three or four ramp steps, and lets the modesty
+    # of that step do the work. §5.1 is explicit that they are one pixel wide
+    # and CONTINUOUS OUTSIDE r=5, merging into the hub inside it.
+    #
+    # They are "broken" in the reference in the sense that a spoke passing
+    # behind the far felloe drops out for two or three pixels, not in the
+    # sense that a tenth of every pixel is missing. So: one gap per spoke, at
+    # a radius the stream picks, and the rest of the run continuous. Drawn at
+    # half-pixel radial steps because a whole-pixel walk at r=9 leaves holes
+    # in a 30° line and holes are what turned this into noise.
     rng = ctx.stream("coach spokes")
     for index in range(SPOKES):
         angle = math.tau * index / SPOKES
+        # Alternate spokes one step down: the wheel is lit from up and to the
+        # right, so the six pointing that way catch a little more.
         bright = _ink(ctx, "spoke", 0 if index % 2 else -1)
-        for radius in range(int(SPOKE_INNER), radius_x + 1):
-            if rng.random() < 0.09:
+        gap = SPOKE_INNER + 1.5 + rng.random() * (radius_x - SPOKE_INNER - 4)
+        steps = int((radius_x - SPOKE_INNER) * 2) + 1
+        for step in range(steps):
+            radius = SPOKE_INNER + step * 0.5
+            if gap <= radius < gap + 1.5:
                 continue
             x = centre_x + int(round(math.cos(angle) * radius))
             y = centre_y + int(round(math.sin(angle) * radius * ry / rx))
-            canvas.put(x, y, bright if radius % 4 else _ink(ctx, "spoke", -3))
+            canvas.put(x, y, bright)
 
     # the rim, two pixels thick, valued AND COLOURED by angle. §5.5's two
     # keys meet on this one object and nowhere else: the COOL key from up and
@@ -1054,9 +1294,13 @@ def _rear_wheel(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # §2.19c. A 3 × 3 hub, slightly lighter, with a darker centre.
     canvas.rect(centre_x - 1, centre_y - 1, 3, 3, _ink(ctx, "hub"))
     canvas.put(centre_x, centre_y, _ink(ctx, "hub_core"))
-    # §2.19d. The axle runs right past the rim to about x=284.
-    canvas.hline(centre_x + 3, centre_y, 13, _ink(ctx, "axle"))
-    canvas.hline(centre_x + 6, centre_y + 1, 9, _ink(ctx, "axle", -2))
+    # §2.19d. The axle continues right PAST THE RIM to about x=284 — measured
+    # L 38-50 for two or three pixels beyond the tyre and then nothing. It is
+    # what the wheel is hung on, not a bar laid across it: run it through the
+    # disc and it reads as a thirteenth spoke twice the width of the others,
+    # which is what it was doing.
+    canvas.hline(centre_x + radius_x, centre_y, 4, _ink(ctx, "axle"))
+    canvas.hline(centre_x + radius_x + 1, centre_y + 1, 3, _ink(ctx, "axle", -2))
 
 
 def _front_wheel(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:

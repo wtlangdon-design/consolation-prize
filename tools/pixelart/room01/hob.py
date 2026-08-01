@@ -31,11 +31,17 @@ and must STAY there while the ground behind it climbs past 86. Everything
 goes through `_Brush`, which puts and shields in the same call, so it is not
 possible to author a value here and forget to defend it.
 
-WHAT IS *NOT* PAINTED IS AS DELIBERATE AS WHAT IS. The contact row at y=106
-and the occlusion notch behind him are left untouched, because hob.md §6 is
-explicit that they are SUBTRACTIONS FROM THE POOL and not painted shapes —
-`lightpass` attenuates the field there. Paint them and they stop tracking
-the pool; the man acquires a shadow that does not move when the lamp does.
+THE OCCLUSION NOTCH IS NOT PAINTED AND THE CONTACT ROW NOW IS. hob.md §6
+calls both subtractions from the pool, and for the notch that is exactly
+right: his body blocks the lamp, the ground behind him sits a step below its
+neighbours, and `lightpass` scales the field there so it tracks the light
+instead of being a shape drawn beside him. The contact row at y=106 was left
+to the same mechanism and the mechanism cannot reach it. A multiplier on the
+lamp's EXCESS can take a pixel down to the bare road and no further, and the
+bare road under his boots is not dark enough — the row composited at a mean
+of 66 against the bar's 37, lighter in places than the lit ground two rows
+in front of it. So it is authored here, at the values the bar carries, and
+shielded. See §9 below, which is where the reasoning lives.
 
 THE MEASUREMENTS. Everything below is taken off the bar at native
 320x144 with L = 0.299R + 0.587G + 0.114B, and every table says which rows
@@ -64,9 +70,13 @@ band is genuinely the brightest thing in the palette and it MOVES. §7: size
 is the only control we have over how loud it is. Twenty-two to twenty-eight
 pixels, total, inside x 82-89 / y 85-90 — a forty-pixel flame pulls the eye
 off the man it is supposed to introduce and the cycle reads as a fault
-light. This build spends twenty-three. The hardware around it takes
+light. This build spends twenty-one, on the reference's own map of where the
+top value falls, and the shape of that map is the point: a flame body at
+x 83-86 that widens downward, a frame post at x=87 that stays DARK, and a
+separate lit pane at x=88 seen past it. The hardware around it takes
 accent_gold 0-3, the same family one band below the reserve, so the object
-holds together and only the flame moves.
+holds together and only the flame moves — including the base plate's lit
+strip, which is why this is twenty-one and not the reference's twenty-two.
 
 AND THE HALO IS TIGHT AND IT IS WARM. §4 measures the airborne glow against
 the backdrop at r = 4…9: 79, 69, 55, 44, 39, 37, against a backdrop ambient
@@ -149,6 +159,7 @@ _MUD_ANCHOR = layout.MATERIALS["hob_coat_lit"][1]        # mud 8, L 55
 _GREY_ANCHOR = layout.MATERIALS["hob_coat"][1]           # grey 0, L 16
 _OCHRE_ANCHOR = layout.MATERIALS["hob_face"][1]          # ochre 10, L 101
 _GOLD_ANCHOR = layout.MATERIALS["lamp_hardware"][1]      # accent_gold 2, L 89
+_UMBER_ANCHOR = layout.MATERIALS["dark_pocket"][1]       # umber 1, L 14
 
 
 def _mud(ctx: layout.Ctx, step: int) -> int:
@@ -159,6 +170,12 @@ def _mud(ctx: layout.Ctx, step: int) -> int:
 def _grey(ctx: layout.Ctx, step: int) -> int:
     """grey, the cold family his far side melts into. 0:15 … 4:53."""
     return ctx.ink("hob_coat", step - _GREY_ANCHOR)
+
+
+def _umber(ctx: layout.Ctx, step: int) -> int:
+    """umber, the darkest warm ramp. 0:9 1:14 3:26 4:30 — the trousers and
+    the boots, which are lit by bounce off the pool rather than by the lamp."""
+    return ctx.ink("dark_pocket", step - _UMBER_ANCHOR)
 
 
 def _ochre(ctx: layout.Ctx, step: int) -> int:
@@ -503,9 +520,22 @@ LEG_EDGE = {"near": (4, 2), "far": (2, 1)}
 
 #: Trousers take the deep tier, boots take the black one, and the join is a
 #: row rather than a fade: measured, the trouser at y=102 runs L 15-29 and the
-#: boot at y=104 runs L 7-13. (row from, grey step). The lamp-side column of
-#: each leg keeps one warm step so the boots do not read as holes.
-LEG_BANDS = ((98, 1), (100, 1), (103, 0))
+#: boot at y=104 runs L 7-13. (row from, umber step).
+#:
+#: UMBER AND NOT GREY, WHICH IS WHERE HIS COAT STOPS. The study's cold below
+#: the ground line is the wet ruts and THE COAT; it is not the trousers. On
+#: the bar, x 95-107 across y 98-102 measures R-B +26.5 — as warm as the road
+#: he is standing on — against the coat's own +6.5 twenty rows above. He is
+#: knee-deep in the pool and the light comes back up off it, which is the one
+#: place on the whole figure the lamp reaches by bouncing. Drawn in grey these
+#: rows measured +15.6, and at L 15-30 that is the difference between black
+#: boots on brown ground and a pair of blue-grey posts.
+#:
+#: The steps are chosen at MATCHED VALUE, so this is a hue change and nothing
+#: else: umber 3 is L 25.5 against grey 1's 24.5, umber 1 is L 14.4 against
+#: grey 0's 16.0. The lamp-side column of each leg keeps one warm mud step on
+#: top of that so the boots do not read as holes.
+LEG_BANDS = ((98, 3), (100, 3), (103, 1))
 BOOT_CORE_FROM = 103
 #: Each leg carries a dark seam and it is what stops the trousers reading as
 #: two grey posts. On the near leg it is the edge facing the lit wedge, two
@@ -518,15 +548,27 @@ LEG_SEAM = {
     "far": ((98, 104, 105), (99, 105, 105), (100, 105, 105), (101, 106, 107),
             (102, 106, 107)),
 }
-#: The boots' true black, measured at L 7-13 and nowhere else on the legs.
-#: (row, x from, x to). Thirteen pixels; §1 of the whole-frame study is
-#: explicit that near-black is scarce and placed.
+#: The boots' darkest, and it is NOT the frame's black. Measured pixel by
+#: pixel at those thirteen positions the bar reads 8, 8, 11, 12, 12, 15, 11,
+#: 12, 14, 8, 12, 11, 8, 12 — every one of them in 8-15, which is `umber` 0
+#: at L 9.2 and not `void` at L 0. §7 offers either and the bar picks; the
+#: whole-frame study §1 is the reason it matters, because true near-black
+#: (Y < 6) is 1.73% of the frame in components whose largest is the coach
+#: doorway, and thirteen pixels of it spent on a pair of boots is thirteen
+#: pixels the doorway no longer owns. This was drawn at L 0 and read 8 to 15
+#: luminance under the bar the whole way across.
+#:
+#: The black that IS here is x=99's coat opening, which the bar measures at
+#: L 1-6, and the far leg's seam below. (row, x from, x to).
 BOOT_CORE = ((103, 97, 97), (104, 96, 97), (105, 93, 97),
              (103, 106, 106), (104, 106, 107), (105, 105, 107))
 
 
 def _legs(brush: _Brush, ctx: layout.Ctx) -> None:
-    black = ctx.ink("shadow_slot")
+    # umber 0, L 9.2 — the bottom of a warm ramp rather than the absence of
+    # one. `dark_pocket` is the material this file already steps for the
+    # hood's shadow; one step under it is the darkest warm entry there is.
+    boot_black = _umber(ctx, 0)
     for rows, side in ((LEFT_LEG, "near"), (RIGHT_LEG, "far")):
         above, below = LEG_EDGE[side]
         for y, left, right in rows:
@@ -535,18 +577,24 @@ def _legs(brush: _Brush, ctx: layout.Ctx) -> None:
                 if y >= band_y:
                     step = band_step
             for x in range(left, right + 1):
-                brush.put(x, y, _grey(ctx, step))
+                brush.put(x, y, _umber(ctx, step))
             # One warm pixel down the lamp side of each leg. The deep tier,
             # not the mid one: it is a turn toward the light, not a highlight.
             brush.put(left, y, _mud(ctx, above if y < BOOT_CORE_FROM else below))
+        # The far leg's seam is the one true dark on this half of him: the bar
+        # measures it 2, 3, 3, 8, 8, 9, 12, 14 down x 104-107 where the near
+        # leg's own seam sits at 12-20. The near seam is grey 0 and reads; the
+        # far one at grey 0 was eight luminance light along its whole length,
+        # which is the gap between boot and hem going missing.
+        seam = _umber(ctx, 1) if side == "near" else boot_black
         for y, x_from, x_to in LEG_SEAM[side]:
-            brush.run(y, x_from, x_to, _grey(ctx, 0))
+            brush.run(y, x_from, x_to, seam)
     # §1's third job. These thirteen pixels sit against road the lamp has
     # taken to L 86-122, a separation of seventy to a hundred and fifteen
     # points. It is the largest contrast anywhere on the figure and it is
     # what plants him.
     for y, x_from, x_to in BOOT_CORE:
-        brush.run(y, x_from, x_to, black)
+        brush.run(y, x_from, x_to, boot_black)
 
 
 # ---------------------------------------------------------------------------
@@ -585,6 +633,57 @@ def _wedge(brush: _Brush, ctx: layout.Ctx) -> None:
 
 
 # ---------------------------------------------------------------------------
+# 9. THE CONTACT ROW
+# ---------------------------------------------------------------------------
+#
+# ONE ROW, y=106, x 94-108, and §9 assigns it to this region. It measures
+# L 25-48 on the bar where the pool model wants 77 — about four ramp steps
+# down, the width of both boots, and gone by y=107 which comes straight back
+# to L 86 across the whole width. There is no other shadow anywhere near him
+# (§6): no directional cast, no silhouette wedge, nothing right of him but the
+# occlusion notch, which stays a subtraction.
+#
+# THIS WAS LEFT TO `lightpass` AND `lightpass` CANNOT DO IT. That pass scales
+# the pool's EXCESS by a quarter across this span, which is the right physical
+# model and the right thing for the notch — but the excess is what the lamp
+# ADDS, and the road underneath is already authored at its own depth value. A
+# multiplier on the increment can take the row down to the bare road and no
+# further, and the bare road there is not dark enough: measured on the
+# composite the row came out at a mean of 66 against the bar's 37, brighter
+# than the lit ground two rows below it in places. A contact shadow that is
+# lighter than what it sits on is not a contact shadow.
+#
+# So the row is authored, at the values the bar has, and shielded — which also
+# takes it out of `lightpass`'s reach so the two are not fighting over it.
+# Measured x 94→108: 32 36 42 38 41 38 41 49 41 35 26 24 36 38 42, which is
+# mud 4 5 6 5 6 5 6 7 6 4 3 2 5 5 6 to within two luminance everywhere.
+#
+# It is a BAND, not a boot sole. The reference's darkest pixels in the feet
+# are a row higher, at y 103-105; this row is the ground the boots meet, and
+# it runs three pixels wider than they do on each side.
+
+#: §2.9 gives the span as x 94-108; the bar carries it two pixels further
+#: left, under the near boot's toe, which runs three columns out past the
+#: trouser above it — x=93 measures 39 and x=92 measures 59 against a pool
+#: that is at 97 by x=91. Those two are the band's shoulder and without them
+#: the row starts with a 60-point step.
+CONTACT_Y = layout.HOB_CONTACT_ROW
+CONTACT_X = 92
+CONTACT = (9, 5, 4, 5, 6, 5, 6, 5, 6, 7, 6, 4, 3, 2, 5, 5, 6)
+
+
+def _contact(brush: _Brush, ctx: layout.Ctx) -> None:
+    for offset, step in enumerate(CONTACT):
+        x = CONTACT_X + offset
+        # The road's standing water is `road`'s cycling element and its
+        # bounds start at y=96, so it can reach this row. A reserved index is
+        # never repainted, here or anywhere.
+        if layout.keep(brush.canvas.get(x, CONTACT_Y)):
+            continue
+        brush.put(x, CONTACT_Y, _mud(ctx, step))
+
+
+# ---------------------------------------------------------------------------
 # 12-16. The lantern
 # ---------------------------------------------------------------------------
 #
@@ -619,11 +718,22 @@ HOOD_DARK = (85, 86)
 #: only in the ring the flame actually lights.
 GLOBE_ROWS = (85, 89)
 GLOBE_X = (82, 89)
-#: The glass frame's corner posts, where the panes stop. Measured L 66-75 at
-#: x 83 and 87 on the globe's top row and at x 87 and 89 on its bottom one —
-#: four pixels, and they are the whole reason the globe reads as a made thing
-#: with a frame rather than as a hole cut in the night. (row, x, gold step).
-GLOBE_CORNERS = ((85, 83, 1), (85, 87, 1), (89, 87, 1), (89, 89, 1))
+#: THE FRAME IS A POST, NOT FOUR CORNERS. Measured down x=87 through the
+#: globe's own rows, the bar reads 67, 76, 87, 123, 76 — dark on four rows out
+#: of five, with only the flame's widest row crossing it. That single column
+#: is the whole reason the reference's lantern is a made thing with a wire
+#: cage and a pane behind it rather than a lit ball: right of it, x=88 comes
+#: back to the top value on three rows, so the eye gets glass, post, glass.
+#: Four corner pixels do not do that, and this had four corner pixels while
+#: the flame band ran straight through x=87 at 136-156 — the post was not
+#: dark, it was the second-brightest thing in the region.
+#:
+#: x=89 is the globe's own right edge and reads one step under the post
+#: (76, 97, 87, 76 down y 86-89). (x, y, gold step).
+GLOBE_FRAME = ((83, 85, 1), (87, 85, 1),
+               (87, 86, 1), (89, 86, 1),
+               (87, 87, 2), (89, 87, 2),
+               (87, 89, 1), (89, 89, 1))
 #: (row from, row to, x from, x to). The lit panes bulge out to the frame on
 #: the flame's own two rows — measured, x=82 runs 86, 86, 96, 122, 86 down
 #: y 85-89, so the widest part of the glass is exactly level with the fire.
@@ -640,17 +750,40 @@ BASE = (
 
 #: §7's pixel budget, calibrated against the reference's 22 top-value globe
 #: pixels: 10-14 px at accent_gold 4, 6-8 at step 5, 3-5 at step 6, 1-2 at
-#: step 7. Painted outermost band first so each hotter one bites out of the
-#: one under it — which is how a flame is shaped, and which lands the counts
-#: at 10 / 8 / 4 / 1, twenty-three pixels in all, inside x 83-88 and y 85-89.
-#: (band position, row, x from, x to), inclusive.
+#: step 7. This build spends 10 / 6 / 4 / 1 — twenty-one, one under the
+#: reference's twenty-two because the reference's last three are the base
+#: plate's lit strip at y=90 and this build keeps the base in unreserved gold
+#: (§7 puts the hardware at steps 0-3, and the strip is 10 L short rather
+#: than absent). The ration is by COUNT, which is the only control §7 gives
+#: us over how loud a band brighter than the whole frame is allowed to be.
+#:
+#: THE FOOTPRINT IS THE REFERENCE'S OWN TOP-VALUE MAP, not an ellipse:
+#:
+#:     x:  82 83 84 85 86 87 88 89
+#:     y85  .  .  .  #  #  .  .  .
+#:     y86  .  #  #  #  #  .  #  .
+#:     y87  #  #  #  #  #  .  #  .
+#:     y88  #  #  #  #  #  #  #  .
+#:     y89  .  .  .  #  .  .  .  .
+#:
+#: A flame body at x 83-86 widening downward, a SEPARATE lit pane at x=88
+#: seen past the frame post, the widest row at y=88 where the light spreads
+#: across the base of the glass, and a single pixel at y=89. An ellipse was
+#: drawn here before and it filled the post, closed the gap at x=87 and put
+#: three pixels across y=89 — which is a glowing ball, and a lantern is not
+#: one. (band position, x, y).
 FLAME = (
-    (0, 85, 84, 86), (0, 86, 83, 87), (0, 87, 83, 88), (0, 88, 83, 88),
-    (0, 89, 84, 86),
-    (1, 85, 85, 85), (1, 86, 84, 86), (1, 87, 84, 87), (1, 88, 84, 87),
-    (1, 89, 85, 85),
-    (2, 86, 85, 85), (2, 87, 85, 86), (2, 88, 85, 86),
-    (3, 87, 85, 85),
+    # step 7, L 204. One pixel, on the flame's own centre.
+    (3, 85, 87),
+    # step 6, L 181. Four, the core's cross.
+    (2, 85, 86), (2, 84, 87), (2, 86, 87), (2, 85, 88),
+    # step 5, L 156. Six.
+    (1, 86, 86), (1, 83, 87), (1, 83, 88), (1, 84, 88), (1, 86, 88),
+    (1, 85, 89),
+    # step 4, L 136. Ten, and they carry the shape's outline — the pane at
+    # x=88, the left edge at x=82, and the row that crosses the post at y=88.
+    (0, 85, 85), (0, 86, 85), (0, 83, 86), (0, 84, 86), (0, 88, 86),
+    (0, 82, 87), (0, 88, 87), (0, 82, 88), (0, 87, 88), (0, 88, 88),
 )
 
 
@@ -671,7 +804,9 @@ def _lantern(brush: _Brush, ctx: layout.Ctx) -> None:
     for y_from, y_to, x_from, x_to in GLOBE_LIT:
         for y in range(y_from, y_to + 1):
             brush.run(y, x_from + swing, x_to + swing, _gold(ctx, 3))
-    for y, x, step in GLOBE_CORNERS:
+    # The post goes down AFTER the panes it divides, and before the flame,
+    # which crosses it on one row only.
+    for x, y, step in GLOBE_FRAME:
         brush.put(x + swing, y, _gold(ctx, step))
 
     for y, x_from, steps in BASE:
@@ -679,8 +814,8 @@ def _lantern(brush: _Brush, ctx: layout.Ctx) -> None:
             brush.put(x_from + offset + swing, y, _gold(ctx, step))
 
     band = layout.LAMP_BAND
-    for position, y, x_from, x_to in FLAME:
-        brush.run(y, x_from + swing, x_to + swing, band[position])
+    for position, x, y in FLAME:
+        brush.put(x + swing, y, band[position])
 
 
 # ---------------------------------------------------------------------------
@@ -704,6 +839,17 @@ HALO_ASPECT = 1.15                        # slightly wide, as the rings measure
 #: the air alone, beside and above the globe, the same radii measure 75, 55,
 #: 40 and 37 rather than 79, 69, 55 and 44. The air gets the air's numbers;
 #: the ground is `lightpass`'s pool and arrives from underneath.
+#:
+#: AND THE RINGS DO NOT GO UP. Re-measured per radius over air and taken at
+#: face value they read 72 / 65 / 55 / 47 out to r=8, which is a step and a
+#: ring more than these — but that measurement is contaminated and raising
+#: them to it is worse, tested pixel by pixel against the bar: +168 luminance
+#: of error over the 85 pixels it moves. The reason is that the glow ISN'T
+#: CONCENTRIC. Up and to the left of the flame the bar is genuinely at 62-82
+#: — but that is `left_yard`'s lit rail top and its post catching the lamp,
+#: objects and not air. Down and to the right it is at 29-47, which is
+#: ambient. A ring set fitted to the average of the two overshoots the whole
+#: right half of the glow, and the right half is the half the man stands in.
 HALO_RINGS = ((4.6, 11), (5.6, 8), (6.6, 6), (7.6, 4))
 
 
@@ -712,7 +858,8 @@ def _halo(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     cx += ctx.swing
     palette = ctx.palette
     reach = int(HALO_RINGS[-1][0] * HALO_ASPECT) + 1
-    for y in range(max(HALO_FLOOR_Y, cy - reach), cy + reach + 1):
+    bottom = min(cy + reach, layout.ROAD_TOP - 1)
+    for y in range(max(HALO_FLOOR_Y, cy - reach), bottom + 1):
         for x in range(cx - reach, cx + reach + 1):
             dx = (x - cx) / HALO_ASPECT
             dy = y - cy
@@ -754,4 +901,7 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         # The ground between his legs goes down AFTER the legs, because it is
         # the hole they leave and not a shape beside them.
         _wedge(brush, ctx)
+        # ...and the row he meets it on goes down after both, because it is
+        # the ground the boots stand on and not a shape drawn beside them.
+        _contact(brush, ctx)
         _lantern(brush, ctx)

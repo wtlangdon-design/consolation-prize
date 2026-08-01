@@ -633,7 +633,20 @@ POOL_CENTRE = (86, 107)
 #: Horizontal-to-vertical, measured consistently across six contours. A
 #: circular pool turns the road into a vertical wall.
 POOL_ASPECT = 2.4
-POOL_AMBIENT = 27.0       # the road just outside the pool
+#: The road just outside the pool.
+#:
+#: LEFT AT 27.0, AND TESTED. §7 above has re-fitted the plane this sits on to
+#: 43.5 at the pool's own rows, which makes this fit's ambient 16 L below its
+#: own floor, and `pool_excess` clips to zero as soon as the absolute falls
+#: under the plane -- so on paper the whole outer shoulder is being thrown
+#: away. It is not: `road`'s §4.2 fit is an EXCESS and its horizontal
+#: half-distance is 45 px against this fit's 15, so the broad shoulder the
+#: bar has out to x=140 is already drawn, by the region, before this pass
+#: runs. Raising the ambient to meet the plane adds it a second time.
+#: Measured over x 104-180, y 104-120: +4.1 at 27, +5.1 at 32, +6.7 at 37,
+#: +9.7 at 43. Recorded because the argument for raising it is a good one
+#: and the next reader will make it again.
+POOL_AMBIENT = 27.0
 POOL_EXCESS = 97.0        # peak above ambient
 POOL_HALF = 6.2           # the excess HALVES every 6.2 rho-units
 POOL_PLATEAU_RHO = 3.0    # clamped flat inside this
@@ -670,8 +683,51 @@ def pool_luminance(x: float, y: float) -> float:
 #: road.md §4.2's hard left cut. The pool is at full strength right of the
 #: sign post and gone by the time it clears it; left of the post it drops
 #: 25-38 L within 15 px. Lived in `lightpass` and, separately, in `road`.
+#:
+#: AND IT SHEARS RIGHT AS IT COMES FORWARD, because the thing making it is a
+#: POST STANDING BETWEEN THE LAMP AND THE NEAR GROUND, and the shadow of a
+#: near-vertical object standing in a low light widens toward the viewer.
+#: Held as a column at x=50-62 it was right at the pool's own rows and wrong
+#: below them: measured against the re-fitted plane the bar runs -1 to -9 at
+#: x 62-74 by y=111 and -4 to -22 at x 44-74 by y=116, where an x-only cut
+#: was still handing those pixels +15 to +29. That is the residual `road`
+#: reported as "§4.2's own excess table goes NEGATIVE there and no ellipse
+#: centred at POOL_CENTRE can produce it" -- it is not a fault in the
+#: ellipse, it is an occluder the contract had not declared.
 POOL_CUT_FULL_X = 62.0
 POOL_CUT_DEAD_X = 50.0
+#: The row the shear starts from, the columns per row it opens at, and WHERE
+#: IT STOPS. Fitted to the dead line's own position, read off the bar's
+#: excess field: x 50 at y 106, x 64 at y 111, x 74 at y 116, x 76 at y 121,
+#: x 72 at y 126. It opens for about six rows and then holds.
+#:
+#: THE CAP IS NOT A DETAIL. Uncapped at 2 px/row the dead line reaches x=94
+#: by y=126 and cuts the pool's own near edge off: the bar has +12 to +19
+#: there, directly in front of the lamp, and the block diff went to -16
+#: across x 80-103. A shadow that keeps widening forever is a wedge, and the
+#: thing casting this one is eight px wide.
+POOL_CUT_SHEAR_FROM_Y = 104.0
+POOL_CUT_SHEAR = 2.0
+POOL_CUT_SHEAR_MAX = 26.0
+
+#: THE POOL HAS A TOP EDGE AND THE ELLIPSE DOES NOT GIVE IT ONE.
+#:
+#: The rows above the road's near plane are the valley floor BEHIND the road,
+#: not the road plane, and the lamp does not reach them: measured on the bar
+#: at columns clear of Hob and of the lantern, rows 92-96 are cold (warmth
+#: -20 to 0) at L 23-29 and the warm lit plane does not begin until y 99-100.
+#: The ellipse, which knows only screen rows, was lighting them anyway, and
+#: two authors reported the same band independently -- hob's "the biggest
+#: single error left in my rect", left_yard's "the pool is reaching about
+#: eight rows too high and too bright at its left end".
+#:
+#: It is a knee rather than a step: quadratic from dead at y=92 to full at
+#: y=102, which lands +7 / +18 / +36 / +64 at y 96 / 98 / 100 / 102 against a
+#: measured +6 / +18 / +40 / +58. A hard step would put a ruled horizontal
+#: line across the brightest part of the frame, which is the one thing §9 of
+#: road.md counts as a hard edge and does not have.
+POOL_TOP_DEAD_Y = 92.0
+POOL_TOP_FULL_Y = 102.0
 
 
 def pool_excess(x: float, y: float, drift: float = 0.0) -> float:
@@ -711,27 +767,73 @@ def pool_excess(x: float, y: float, drift: float = 0.0) -> float:
     excess = pool_luminance(x - drift, y) - road_luminance(y)
     if excess <= 0.0:
         return 0.0
-    if x < POOL_CUT_FULL_X:
-        if x <= POOL_CUT_DEAD_X:
+    # The top edge, above the road's near plane. See POOL_TOP_DEAD_Y.
+    if y < POOL_TOP_FULL_Y:
+        if y <= POOL_TOP_DEAD_Y:
             return 0.0
-        excess *= (x - POOL_CUT_DEAD_X) / (POOL_CUT_FULL_X - POOL_CUT_DEAD_X)
+        walk = (y - POOL_TOP_DEAD_Y) / (POOL_TOP_FULL_Y - POOL_TOP_DEAD_Y)
+        excess *= walk * walk
+    # The post's cut, sheared right as it comes forward. See POOL_CUT_SHEAR.
+    shear = min(POOL_CUT_SHEAR_MAX,
+                POOL_CUT_SHEAR * max(0.0, y - POOL_CUT_SHEAR_FROM_Y))
+    dead = POOL_CUT_DEAD_X + shear + drift
+    full = POOL_CUT_FULL_X + shear + drift
+    if x < full:
+        if x <= dead:
+            return 0.0
+        excess *= (x - dead) / (full - dead)
     return excess
 
 
-# -- the road's own unlit value field. road.md §4.1, measured on mud only in
-#    the column band x 175-300 where the lamp contributes nothing.
+# -- the road's own unlit value field.
 #
-#    THE ROAD GETS DARKER AS IT COMES TOWARD THE VIEWER. Total fall from the
-#    top of the band to the bottom edge is 10.8 L, about two ramp steps, and
-#    it is gentle. It is not what makes the region recede; the rut fan is.
+#    RE-FITTED, AND IT IS THE LARGEST SINGLE CORRECTION IN THE LOWER HALF OF
+#    THE FRAME. This was road.md §4.1's single line, L(y) = 75.4 - 0.291y,
+#    stated as "the road gets darker as it comes toward the viewer" with a
+#    total fall of 10.8 L. Re-measured on the composite's own terms -- median
+#    luminance per row over the three genuinely open, lamp-free column bands
+#    x 145-175, x 240-268 and x 286-302 -- the bar does something else
+#    entirely:
+#
+#        y  88-98   flat at 23.0        the far end of the plane, in shadow
+#        y  99-103  climbs 23 -> 43     a five-row shoulder
+#        y 104-143  43.5 falling to 36.6 at -0.178/row
+#
+#    §4.1's own note says it was measured over x 175-300, and rows 94-105 of
+#    that band are the team's legs, the strongbox and the coach's
+#    undercarriage rather than mud -- which is how a rising shoulder got
+#    fitted as a falling line. The old model was 25 L HOT at y=94 and about
+#    right from y=115 down, and three region authors reported the same error
+#    from three different rects without being able to reach it: coach's
+#    "+12 to +28 everywhere under and right of the coach", left_yard's
+#    "x 56-87 y 100-121 runs +24 to +30 over the bar", team's "take the road
+#    under the team down about 15 L".
+#
+#    IT IS STILL A FIT, NOT A TABLE. Three segments and four constants, the
+#    same shape the sky's gradient is declared in at §2. Max residual against
+#    the measured profile is 4.8 L and the mean is 1.4, against 25.
+#
+#    AND IT IS READ TWICE. `road` authors the surface from it and
+#    `pool_excess` below subtracts it to turn hob.md §5's absolute into an
+#    increment, so both the ground and the light standing on it move
+#    together. That is the whole reason this number is in this file.
 
-ROAD_DEPTH_A = 75.4
-ROAD_DEPTH_B = 0.291
+ROAD_DEPTH_FAR_L = 23.0        # rows at and above the shoulder's top
+ROAD_SHOULDER_ROWS = (98, 104)  # the climb, exclusive of the flat above it
+ROAD_DEPTH_A = 62.07           # the tail, L = A - B*y, least squares y 104-143
+ROAD_DEPTH_B = 0.178
 
 
 def road_luminance(y: float) -> float:
-    """L(y) = 75.4 - 0.291 y. The ground's unlit value at a row."""
-    return ROAD_DEPTH_A - ROAD_DEPTH_B * y
+    """The ground plane's unlit value at a row. Three segments, see above."""
+    top, base = ROAD_SHOULDER_ROWS
+    if y <= top:
+        return ROAD_DEPTH_FAR_L
+    near = ROAD_DEPTH_A - ROAD_DEPTH_B * base
+    if y >= base:
+        return ROAD_DEPTH_A - ROAD_DEPTH_B * y
+    walk = (y - top) / float(base - top)
+    return ROAD_DEPTH_FAR_L + (near - ROAD_DEPTH_FAR_L) * walk
 
 
 # ---------------------------------------------------------------------------
@@ -820,7 +922,16 @@ CRATE_LOWER = (33, 85, 9, 11)
 OPEN_BARREL = (38, 95, 11, 9)
 PLANK_LID = (30, 103, 13, 4)
 SMALL_KEG = (28, 111, 9, 6)
-WAGON_WHEEL_FAR = (23, 104, 11, 11)    # centre + radii; TYRE ARC ONLY, x 12-21
+#: Centre + radii; TYRE ARC ONLY, x 12-21.
+#:
+#: RECONCILED to the arc left_yard fitted to the bar. This constant said
+#: (23, 104) and left_yard.md's fit says (26, 103) -- three pixels apart, so
+#: the region drew the fit and `_void_pools` protected a box three pixels
+#: left of it, which is the exact shape of bug that pass exists to prevent:
+#: the far wheel is "the only evidence there are two wheels" and a shadow
+#: pool aligned to the wrong centre eats its right-hand columns. The fit
+#: wins, because it is a measurement and this was a guess.
+WAGON_WHEEL_FAR = (26, 103, 11, 11)
 WAGON_WHEEL_NEAR = (28, 103, 9, 10)    # centre + rx, ry; warm rim, dark disc
 
 # -- hob.md §2 --------------------------------------------------------------
@@ -882,7 +993,16 @@ TERRET = (195, 73, 2, 4)               # the only cool object standing above the
 TRACE_1 = ((196, 71), (219, 59))       # 27 degrees
 TRACE_2 = ((206, 71), (219, 61))       # 38 degrees; they converge at x 219-220
 TRACE_CONVERGE = (219, 60)
-TEAM_SHADOW = (178, 99, 45, 7)         # ONE pooled shadow. No per-leg shadows.
+#: ONE pooled shadow. No per-leg shadows.
+#:
+#: RECONCILED to y=90. This said (178, 99, 45, 7) -- the pool's own measured
+#: bbox -- and `team` drew from a local SHADOW_TOP of 90, so the shared
+#: anchor and the drawing disagreed by five rows and only the region knew.
+#: team.md's measurement is the one that decides: the ground between the legs
+#: at x 196-215 runs L 20-31 from y=90 down, against an unlit road of 47-50
+#: in the same columns, and nine legs have to be told apart against it. The
+#: rect now says what is drawn; the bottom edge is unchanged at y=105.
+TEAM_SHADOW = (178, 90, 45, 16)
 
 # -- coach.md §2 ------------------------------------------------------------
 COACH_ROOF_RAIL = (239, 49, 41, 1)     # ONE row. L 82 at x 239-240 falling to 26 at 279.
@@ -932,7 +1052,18 @@ COACH_TEAM_SEAM = (222, 4)
 
 # -- town.md §2 -------------------------------------------------------------
 TOWN_MASS = (62, 50, 89, 19)           # visible portion; enters the rect in progress
-TOWN_WINDOW_FIELD = (74, 44, 92, 25)   # ~60 lights, x 74-165, y 44-68
+#: ~60 lights, y 44-68.
+#:
+#: SETTLED AT x 74-174. town.md §4 states the field's measured extent as
+#: x 74-165 and then, three paragraphs later, names the town's last light at
+#: x=174; this anchor carried the first number and `town` unioned in the
+#: second locally, so the two documents disagreed by nine columns and the
+#: disagreement lived in two files. Layout is where that is settled and the
+#: wider number is the one with a consequence: SKY_CEILING_EXEMPT quotes this
+#: rect, so at 92 wide errata 33b crushed the five east lights the town's
+#: thinning is made of. The field is a bounds, not a density -- nothing
+#: scatters out there, BAND_COUNTS gives x 170-179 exactly one light.
+TOWN_WINDOW_FIELD = (74, 44, 101, 25)
 TOWN_SADDLE = (115, 42, 7, 1)          # sky visible down to y=42 in this gap and nowhere else
 TOWN_DARK_TROUGH = (88, 45, 65, 5)     # an ELEMENT, not an absence
 HEADFRAME = (82, 42, 8, 12)            # no silhouette contrast at all: dark on dark
@@ -1131,4 +1262,18 @@ SKY_CEILING_EXEMPT = (
     # about them. Crushed, the crate loses its top edge and the post loses
     # the polarity change at the bar that is the region's depth read.
     (126, 69, 26, 11),
+    # rail.md §7, the same case one object further back and one row tall.
+    # enforce_sky_ceiling covers rows 44-79; the exemption above begins at
+    # x=126, so row 79 of the BACK fence post composited 33/28/21 against a
+    # measured 53/59/41 and the post lost its cap. Three columns, one row:
+    # BACK_FENCE_POST's top edge and nothing else.
+    (114, 79, 3, 1),
+    # left_yard.md §2: the tread caps at rows 45-48 measure L 35-59 and the
+    # two stack cap rows at y 53-54 measure L 47-59, against a sky p90 of
+    # 33.8 -- 1040 px of the timber mass were being stepped down by 33b.
+    # Same case as the rail exemption above, and not the case 33b is about:
+    # the timber is a near-plane object six feet from the viewer, seen
+    # against the valley floor rather than against the dome. Crushed, the
+    # left structure loses every lit edge it has.
+    (0, 44, 29, 12),
 )

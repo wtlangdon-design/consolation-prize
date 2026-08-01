@@ -84,9 +84,17 @@ from . import layout
 #: town.md §2.3. Top edge nearly flat at y = 51 ± 2 from x=89 to x=140, then
 #: falling away to y≈57 at x=148 and y≈62 at x=152. It enters the rect
 #: already in progress at x=60 and continues left behind the foreground.
+#:
+#: MEASURED AGAIN OFF THE PROOF, because the old profile ran two rows low
+#: through the middle and the mass then had nothing on its top three rows.
+#: Scanning the locked-palette proof for the first row at L >= 28 in each
+#: column gives 52, 51, 52, 50, 51, 51, 50, 55, 53, 54, 52, 52, 51, 54, 51,
+#: 52, 52 across x 94-136 -- mean 51.9, and the two rows above it already
+#: carry the mass. So the ridge is 51 from x=94 to x=136, not 51 at x=105
+#: sagging to 54 by x=140, and the fall east starts at 138 rather than 120.
 MASS_LEFT, MASS_RIGHT = 62, 152
-ROOF_PROFILE = ((62, 53), (89, 52), (105, 51), (120, 52), (140, 54),
-                (148, 58), (152, 62))
+ROOF_PROFILE = ((62, 53), (89, 52), (100, 51), (124, 51), (138, 52),
+                (146, 56), (152, 62))
 
 #: §6, and it is the whole east end: "the town has no right-hand edge; it has
 #: a thinning." Roughness falls from 14 to 4.5 across x 138-152 while five
@@ -99,14 +107,41 @@ DISSOLVE_FROM, DISSOLVE_TO = 142, 155
 #: near-nothing, mean L 15-16, and it is what makes the roofline read. Its
 #: right edge is not straight -- at y 45-47 the range's lit face comes down
 #: to x≈146 and the trough stops short of it; by y 49 it runs to x≈150.
-TROUGH_ROWS = (45, 50)
+TROUGH_ROWS = (45, 51)
 TROUGH_LEFT = 88
 TROUGH_RIGHT = ((45, 143), (50, 150))
+
+#: THE TROUGH IS A RAMP, NOT A PLATE, and this is the measurement that says
+#: so. Counted in the locked-palette proof over x 88-150, the fraction of
+#: each row that is `grey` 0 against `accent_indigo` 0:
+#:
+#:     row 45   grey 0 = 11%   indigo 0 = 78%    mean L 21.5
+#:     row 46             29%              57%          20.4
+#:     row 47             42%              51%          19.7
+#:     row 48             57%              33%          18.8
+#:     row 49             70%              24%          17.9
+#:     row 50             63%              16%          20.5  (town starting)
+#:
+#: So the band does not begin; it DARKENS INTO EXISTENCE over five rows,
+#: starting as the hill's own colour with a few grey pixels in it and ending
+#: as grey with a few hill pixels in it. Drawn as one value from row 45 the
+#: top edge is a ruled horizontal line sixty columns long -- which is what
+#: this was, at 76% grey 0 on every row, mean L 17.5 flat -- and it read as a
+#: printed bar rather than as the foot of a range. The floor is right; the
+#: entrance was not. `grey` 1 holds a steady 6-14% throughout and is what
+#: keeps the mix from reading as two colours.
+TROUGH_GREY = ((45, 0.11), (46, 0.29), (47, 0.42), (48, 0.57), (49, 0.70),
+               (50, 0.63))
+TROUGH_WALL = 0.09
 
 #: §4. Lights per 10-px column band from x=70 to x=179. Uniform at 7-9 from
 #: x=80 to x=139, then 5, then 3, then singles. East of x=150 there are five
 #: isolated lights and the town has no right-hand edge, only a thinning.
-BAND_COUNTS = (3, 8, 7, 9, 9, 6, 9, 5, 3, 1, 1)
+#:
+#: x 140-149 IS A SIX-PIXEL STOREFRONT AND LITTLE ELSE. The proof puts 18
+#: warm pixels in that band, and twelve of them are §4's one 6x2 strip; five
+#: scattered lights on top of it measured 32. Three.
+BAND_COUNTS = (3, 8, 7, 9, 9, 6, 9, 3, 3, 1, 1)
 BAND_FROM = 70
 
 #: §4: median nearest-neighbour distance 3.2 px, hard minimum 2. No two
@@ -263,14 +298,24 @@ def _trough(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     rng = ctx.stream("town.trough")
     deep = ctx.ink("town_trough")
     dark = _mass_dark(ctx)
+    wall = ctx.ink("town_wall")
     face = {ctx.ink("near_rock_lit"), ctx.ink("near_rock_lit_mid")}
+    grey_share = dict(TROUGH_GREY)
     low, high = TROUGH_ROWS
     for y in range(low, high):
         right = _trough_right(y)
+        share = grey_share.get(y, 0.70)
         for x in range(TROUGH_LEFT, right + 1):
             if canvas.get(x, y) in face:
                 continue
-            _put(canvas, x, y, dark if rng.random() < 0.14 else deep)
+            roll = rng.random()
+            if roll < TROUGH_WALL:
+                ink = wall
+            elif roll < TROUGH_WALL + share * (1.0 - TROUGH_WALL):
+                ink = deep
+            else:
+                ink = dark
+            _put(canvas, x, y, ink)
 
 
 #: §5's six-value cool structure, dark to light, with the luminance each one
@@ -278,9 +323,32 @@ def _trough(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 #: and §9.9 is explicit about what happens if it does not: reaching for
 #: `grey` 5-7 to "make the roofs read" blows the town forward in depth and
 #: puts it in the same plane as the coach.
-COOL_LADDER = ((16.0, "town_trough"), (24.5, "town_wall"),
-               (32.5, "town_wall_lit"), (40.6, "town_roof"),
-               (53.5, "town_roof_bright"))
+#:
+#: AND TWO OF ITS RUNGS ARE BLUE. The ladder was five grey steps, so
+#: everything drawn through it -- §2.14's whole foot band, sixty pixels wide
+#: and two rows deep -- came out neutral. Counted in the locked-palette proof
+#: at x 88-150, row 67 is 29% `accent_indigo` 0 against 21% `grey` 1, and the
+#: same rung of the mass above it runs 35-40% indigo. This region's cool
+#: structure is a blue thing with grey in it, not a grey thing; a rung with
+#: no blue on it cannot draw that, and the grey accumulates where nobody is
+#: looking at a single element.
+#:
+#: `accent_indigo` 0 at L 21.7 is its own rung between `grey` 0 and `grey` 1.
+#: The 32.5 rung takes a same-value alternate instead -- `accent_indigo` 1 at
+#: L 35.0 against `grey` 2 at L 32.5, one and a half luminance apart -- which
+#: is layout's own matched-value pairing: two entries that differ in hue and
+#: not in value, which is the one case the two-adjacent-steps dither rule is
+#: not about.
+COOL_LADDER = ((16.0, "town_trough", None),
+               (21.7, "town_mass_dark", None),
+               (24.5, "town_wall", "town_mass_dark"),
+               (32.5, "town_wall_lit", "town_roof_sky"),
+               (40.6, "town_roof", None),
+               (53.5, "town_roof_bright", None))
+
+#: How often a rung takes its same-value blue alternate rather than its own
+#: neutral. The proof's own ratio on the rungs that have one.
+COOL_BLUE_SHARE = 0.45
 
 
 def _cool_at(ctx: layout.Ctx, rng, target: float) -> int:
@@ -292,10 +360,15 @@ def _cool_at(ctx: layout.Ctx, rng, target: float) -> int:
     it is two colours in a proportion, which is the only kind of in-between
     an indexed palette has.
     """
-    for (low, dark_name), (high, lit_name) in zip(COOL_LADDER, COOL_LADDER[1:]):
+    for (low, dark_name, dark_alt), (high, lit_name, lit_alt) in \
+            zip(COOL_LADDER, COOL_LADDER[1:]):
         if target <= high:
             share = (target - low) / (high - low)
-            return ctx.ink(lit_name if rng.random() < share else dark_name)
+            name, alt = ((lit_name, lit_alt) if rng.random() < share
+                         else (dark_name, dark_alt))
+            if alt is not None and rng.random() < COOL_BLUE_SHARE:
+                name = alt
+            return ctx.ink(name)
     return ctx.ink(COOL_LADDER[-1][1])
 
 
@@ -306,49 +379,6 @@ def _at(profile: tuple[tuple[int, float], ...], x: int) -> float:
             t = (x - x0) / max(1, x1 - x0)
             return v0 + (v1 - v0) * t
     return profile[-1][1]
-
-
-def _blocks(rng) -> dict[int, tuple[float, float, bool]]:
-    """A column partition, and it is the only structure under the texture.
-
-    Randomising every row independently gives a field with the right run
-    lengths, the right value histogram and the right roughness that still
-    reads as television static, because nothing in it survives from one row
-    to the next. The reference's mass has vertical coherence: a roof plane is
-    two or three rows of similar value in the same columns, which is what
-    lets five buildings resolve out of a texture that is not drawing any.
-
-    So the mass is partitioned into irregular column blocks of 2-7 px, each
-    with its own density bias and its own preferred stipple colour. It is a
-    weighting, not a stencil -- a block has no edges, no top and no bottom,
-    and nothing in it is filled. §9.3's toy village comes from drawing forty
-    little 3×4 houses; this draws none, it only makes the noise lean.
-    """
-    coarse: dict[int, float] = {}
-    x = MASS_LEFT
-    while x <= MASS_RIGHT:
-        width = 8 + int(rng.random() * 13)
-        bias = -0.20 + rng.random() * 0.40
-        for step in range(width):
-            coarse[x + step] = bias
-        x += width
-
-    out: dict[int, tuple[float, float, bool]] = {}
-    x = MASS_LEFT
-    while x <= MASS_RIGHT:
-        width = 2 + int(rng.random() * 6)
-        bias = -0.22 + rng.random() * 0.42
-        choice = rng.random()
-        # A sixth of the blocks are in shade all the way down -- the alley,
-        # and the wall with a lit one opposite. They are what supplies the
-        # near-black the mass needs, and scattering single dark pixels
-        # instead gives a value histogram that matches and a picture that
-        # does not: the dark has to be in slots you can see between things.
-        shaded = rng.random() < 0.09
-        for step in range(width):
-            out[x + step] = (bias + coarse.get(x + step, 0.0), choice, shaded)
-        x += width
-    return out
 
 
 def _roof_ink(ctx: layout.Ctx, rng, roll: float | None = None) -> int:
@@ -370,11 +400,28 @@ def _roof_ink(ctx: layout.Ctx, rng, roll: float | None = None) -> int:
     a roof plane is a mirror of the sky above it. layout carries it under the
     town's own name, `town_roof_sky`. Step 1 and never step 2: the puddles
     hold `accent_indigo` 2-4 and layout.keep() protects them.
+
+    AND THE NEUTRALS LIVE HERE RATHER THAN ON THE PLATES. Horizontal run
+    lengths per colour in the locked-palette proof, x 88-150, y 50-68:
+
+        accent_indigo 1   112 px   53 runs   mean 2.11   five runs of 6
+        grey 2            . 82 px   75 runs   mean 1.09   69 of 75 SINGLE
+        grey 3            . 79 px   50 runs   mean 1.58   37 of 50 single
+        grey 1             133 px   92 runs   mean 1.45   64 of 92 single
+
+    Two colours a luminance and a half apart, and one of them is drawn as
+    planes while the other is drawn as dust. That is the whole technique:
+    the roof PLANE is blue and contiguous, and the roof HIGHLIGHT is neutral
+    and one pixel. Putting `grey` 2 and 3 into the plate mixes instead gave
+    them mean runs of 1.35 and 2.58 with grey 3 reaching nine, and 134 px of
+    a colour the proof spends 79 on -- which reads at 320x144 as slabs of
+    concrete laid across a hillside, and is §9.4's drawn roofline arriving by
+    the back door.
     """
     roll = rng.random() if roll is None else roll
-    if roll < 0.48:
-        return ctx.ink("town_roof_sky")                    # L 33.8, sky-lit
-    if roll < 0.72:
+    if roll < 0.12:
+        return ctx.ink("town_roof_sky")                    # L 35.0, sky-lit
+    if roll < 0.62:
         return ctx.ink("town_wall_lit")                    # grey 2, L 32.5
     if roll < 0.94:
         return ctx.ink("town_roof")                        # grey 3, L 40.6
@@ -452,11 +499,40 @@ def _storey_y(x: int, storey: int) -> int:
 #: terrace gets broken without being left out. Skipping the frontage instead
 #: breaks the roofline AND removes the wall under it, and §4 needs 102 warm
 #: pixels on rows 53-57 -- which have to be cut into something.
-ROOF_MIX_FAR = (("town_roof_sky", 0.32), ("town_wall_lit", 0.24),
-                ("town_wall", 0.20), ("town_mass_dark", 0.16),
-                ("town_roof", 0.08))
-ROOF_MIX_NEAR = (("town_roof_sky", 0.36), ("town_wall_lit", 0.32),
-                 ("town_roof", 0.20), ("town_wall", 0.12))
+#:
+#: THE TOP TERRACE HAS TO READ, AND IT WAS NOT READING. The two darkest
+#: entries carried 36% of ROOF_MIX_FAR between them, and because a frontage
+#: is 3-12 columns wide that landed as CONTIGUOUS invisible stretches: x
+#: 108-115 took `town_wall` and x 116-131 took `town_mass_dark`, so
+#: twenty-four columns of the town's top edge were the same value as the hill
+#: and the first mark at or above L 28 fell to rows 55-63. Measured against
+#: the locked-palette proof, whose top edge sits at row 51-52 for x 94-136
+#: with only about one column in five dark down to 55, the mass began three
+#: to eleven rows late and the dark trough above it read as nine rows of
+#: black rather than five.
+#:
+#: So the dark entries are rationed to about one frontage in six between
+#: them, which is the proof's own proportion, and the raggedness comes from
+#: where §2.3 measures it -- the eave jitter and the gaps between frontages,
+#: both of which move the edge without deleting it.
+#:
+#: AND A PLATE IS BLUE OR IT IS DARK -- IT IS NEVER NEUTRAL. See `_roof_ink`
+#: for the run-length measurement this comes out of: `accent_indigo` 1 is
+#: drawn in runs averaging 2.11 px and reaching six, `grey` 2 in runs
+#: averaging 1.09 with 69 of its 75 runs a single pixel. A plate is by
+#: definition a run of four to twelve, so a plate painted in `grey` 2 or 3
+#: draws a colour the proof only ever dusts.
+#: `grey` 3 is not in either mix at all: the proof draws it in runs averaging
+#: 1.58 with three-quarters of its pixels in runs of one or two, and every
+#: pixel of it a plate spends is a run of four or more. It arrives through
+#: the stipple pass and through §2.5's seven measured ridges, and nowhere else.
+#: `grey` 2 is not in them either, and for the same reason one step further:
+#: 69 of its 75 runs in the proof are a single pixel and its longest is three.
+#: A plate is a run of four to twelve by definition.
+ROOF_MIX_FAR = (("town_roof_sky", 0.56), ("town_wall", 0.24),
+                ("town_mass_dark", 0.20))
+ROOF_MIX_NEAR = (("town_roof_sky", 0.54), ("town_wall", 0.30),
+                 ("town_mass_dark", 0.16))
 
 #: Wall planes. `None` is the hill's own colour showing through, and it is
 #: the commonest wall in the town: §5 gives `accent_indigo` 0 to "hill
@@ -483,11 +559,34 @@ ROOF_MIX_NEAR = (("town_roof_sky", 0.36), ("town_wall_lit", 0.32),
 #: for all five terraces put rows 52-53 four points dark and row 66 seven
 #: points dark, which reads as a shadowed gully across the top of the town
 #: and a black line under its feet.
-WALL_MIX_FAR = ((None, 0.40), ("town_wall", 0.26),
-                ("town_wall_lit", 0.16), ("town_trough", 0.18))
-WALL_MIX_MID = ((None, 0.50), ("town_trough", 0.30), ("town_wall", 0.20))
-WALL_MIX_NEAR = ((None, 0.34), ("town_wall", 0.30),
-                 ("town_wall_lit", 0.20), ("town_trough", 0.16))
+#:
+#: AND `grey` 0 IS RATIONED HARDER THAN ANY OF THEM. Counted in the
+#: locked-palette proof over x 88-150, rows 54-67 -- the body of the mass,
+#: below the trough and above the bank -- `grey` 0 holds a mean of 2.4
+#: columns per row, 3.8%, and on five of those fourteen rows it holds NONE.
+#: `accent_indigo` 0 holds 23.4, 37%. These mixes were spending 16-30% of
+#: every wall on `grey` 0 and the deep-slot pass spent twenty-six more, which
+#: came out at 11.7% -- three times the proof -- and it is visible as exactly
+#: what it is: holes. A wall in shade is a slot you can see between two
+#: things, and there are a few of them; it is not the material the town is
+#: made of. The night is.
+#:
+#: AND A WALL IS NEVER `grey` 2. Same measurement as the roof mixes: 69 of
+#: the proof's 75 `grey` 2 runs are one pixel long and none exceeds three, so
+#: every wall plate painted in it is a run the reference does not contain.
+#: With it in these three mixes the colour measured 127 px at a mean run of
+#: 1.90 and a longest of seven against the proof's 82 px at 1.09 -- which is
+#: what put the neutral grey slabs across the hillside that no light source
+#: in this scene accounts for. It reaches the mass through the stipple pass
+#: and only through the stipple pass, one pixel at a time.
+#: The `grey` 1 share is what `grey` 2 used to hold plus what it already had,
+#: and that was too much of it: the proof runs three pixels of the hill's own
+#: colour for every one of `grey` 1 -- 405 against 133 -- and the first draft
+#: of this rebalance ran 1.9 to 1, which lifts the whole mass off the hill it
+#: is supposed to be indistinguishable from in value.
+WALL_MIX_FAR = ((None, 0.60), ("town_wall", 0.32), ("town_trough", 0.08))
+WALL_MIX_MID = ((None, 0.72), ("town_wall", 0.20), ("town_trough", 0.08))
+WALL_MIX_NEAR = ((None, 0.54), ("town_wall", 0.40), ("town_trough", 0.06))
 
 
 def _pick(rng, mix):
@@ -669,13 +768,23 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     for x in range(MASS_LEFT, MASS_RIGHT + 1):
         top = tops[x]
         for y in range(top, base + 1):
-            if rng.random() < 0.10 * min(1.0, _density(x, y) + 0.35):
+            # THE RATE IS WHAT THE ROUGHNESS IS. §3's signature number is a
+            # mean absolute neighbour-pixel ΔL of 14.29 inside the mass
+            # against 1.35 on the hill behind it, and it is measured to be
+            # the thing -- not the silhouette and not the brightness -- that
+            # says "town". The plates supply contiguity and this supplies the
+            # frequency; at 0.10 the composite measured 11.0 against the
+            # bar's 14.9, which is a town three-quarters resolved.
+            if rng.random() < 0.15 * min(1.0, _density(x, y) + 0.35):
                 _put(canvas, x, y, _roof_ink(ctx, rng))
 
     # 4. The deepest slots. §5 gives `grey` 0 to "the dark trough, deepest
     #    gaps between buildings" -- the alleys, and the shaded side of a wall
     #    that has a lit one opposite. Placed AFTER the walls so they cut.
-    for _ in range(26):
+    #    TEN, NOT TWENTY-SIX. See WALL_MIX_*: the proof spends 3.8% of the
+    #    mass on this colour and twenty-six slots plus a 16-30% wall share
+    #    was spending 11.7%.
+    for _ in range(10):
         x = rng.randrange(MASS_LEFT, MASS_RIGHT + 1)
         y = rng.randrange(tops.get(x, base), base + 1)
         if rng.random() > _density(x, y) + 0.25:
@@ -793,7 +902,21 @@ def _window_ramp(ctx: layout.Ctx) -> tuple[int, ...]:
 #: count is the binding one -- it is the number §7 uses to rank the town
 #: against the lantern, and it is the number that keeps a hot window from
 #: pooling. Eighteen lights at one hot pixel each, with a few taking two.
-PEAK_MIX = ((7, 20), (6, 12), (5, 11), (4, 7), (3, 5), (2, 4), (1, 1), (0, 1))
+#:
+#: AND THE MEDIAN WAS A STEP AND A HALF HIGH. Measured on the render against
+#: the locked-palette proof, per warm component's peak: the proof runs min 44
+#: / q1 70 / median 85 / q3 126, which is §4's own spread, and this mix
+#: produced min 44 / q1 79 / median 98. Twenty lights of sixty-one at the
+#: ceiling against §4's fourteen is the whole error -- it pushes the second
+#: quartile up a step as well, and a town whose median light is `umber` 14
+#: rather than `ochre` 8 is a town of sixty identical lamps with the variation
+#: squeezed into the bottom third of the ramp.
+#: EIGHTEEN AT THE CEILING, NOT FOURTEEN AND NOT TWENTY. Fourteen measured
+#: 12 ceiling pixels in 11 blobs against §7's 24 in 21 -- the ration is a
+#: FLOOR as well as a cap, and half of it spent is a town that has given the
+#: lantern more room than the reference does. Eighteen lights, a few of them
+#: taking their permitted pair, is 21 blobs and 24 pixels: §7 exactly.
+PEAK_MIX = ((7, 18), (6, 5), (5, 12), (4, 10), (3, 8), (2, 5), (1, 3), (0, 2))
 
 #: §4's footprint census, as (width, height) with its measured count. Nothing
 #: larger, and horizontal and vertical pairs are used almost equally -- there
@@ -827,8 +950,16 @@ class _Field:
         self.cores: set[tuple[int, int]] = set()
         self.per_row: dict[int, int] = {}
         self.hot_left = HOT_PIXEL_BUDGET
+        # layout.TOWN_WINDOW_FIELD is §4's measured extent, x 74-165, and it
+        # is a shared anchor. §4 then names the town's last light at x=174 --
+        # the two sentences are three paragraphs apart and they disagree by
+        # nine columns. The anchor is not moved; the field's own bounds simply
+        # take in whichever of EAST_LIGHTS falls outside it, so the declared
+        # outliers can place. Nothing scattered ever reaches out there:
+        # BAND_COUNTS gives x 170-179 exactly one light and this is it.
         fx, fy, fw, fh = layout.TOWN_WINDOW_FIELD
-        self.bounds = (fx, fy, fx + fw - 1, fy + fh - 1)
+        right = max([fx + fw - 1] + [ex + ew - 1 for ex, _, ew, _ in EAST_LIGHTS])
+        self.bounds = (fx, fy, right, fy + fh - 1)
 
     # -- tests ------------------------------------------------------------
 
@@ -911,7 +1042,7 @@ class _Field:
             # never close a square. The shuffle would otherwise put them on a
             # diagonal, which is a 2×2 with two corners lit and reads -- and
             # box-blurs -- as a four-pixel pool.
-            pair = height == 1 and width >= 2 and rng.random() < 0.4
+            pair = height == 1 and width >= 2 and rng.random() < 0.6
             if pair:
                 cells.sort()
             core = min(HOT_BLOB_MAX if pair else 1, max(0, self.hot_left))
@@ -931,7 +1062,14 @@ class _Field:
         # background. That is not a halo -- it is one or two lit pixels
         # leaning off a bright window, and then nothing. A full 3×3 on every
         # window builds the collective glow §6 spends a paragraph forbidding.
-        if peak < 4:
+        # §7 budgets the whole town 227 warm pixels and §4's footprint census
+        # only accounts for about 122 of them: 57 cores averaging two pixels
+        # each. The other hundred are this -- the one pixel of bleed, counted
+        # across sixty lights. Spilling only from the top half of the ramp
+        # measured 165 against 207 in the locked-palette proof, a quarter
+        # short, and the shortfall does not read as dimmer windows; it reads
+        # as a town with fewer of them.
+        if peak < 2:
             return
         neighbours = [(x - 1, y), (x + width, y), (x, y - 1), (x, y + height),
                       (x - 1, y + height - 1), (x + width, y + height - 1),
@@ -943,8 +1081,41 @@ class _Field:
         # lights are one or two pixels with nothing at all around them.
         # Spilling from all of them merges the field into a single warm
         # crust and loses the sixty separate lamps that are the point.
-        budget = (1 if rng.random() < 0.6 else 0) if peak < 6 \
-            else 2 + (rng.random() < 0.45)
+        #
+        # AND ONE PIXEL MEANS ONE PIXEL. Counted as warm connected components
+        # in the locked-palette proof over x 70-179: 17 singles and 23 pairs
+        # out of 65, so 62% of the town's lights are one or two pixels and
+        # nothing else. Spilling two or three from every bright window gave
+        # 8 singles and 16 pairs out of 63, with eleven components of four
+        # and six of five -- the same warm pixel count (324 against 316)
+        # gathered into fewer, fatter marks. §7.3's ration is about the
+        # ceiling colour; this is the same failure one step down the ramp,
+        # and it is what turns sixty lamps into thirty smudges.
+        #
+        # ...AND THE NEAR EDGE BLEEDS MORE THAN THE UPPER TERRACES. §4's
+        # density gradient is not only a count: warm pixels per row in the
+        # proof run 9 at row 55 and 34 at row 66, and the bottom of the town
+        # holds three components of 35, 12 and 10 px where lights and their
+        # spill have run together. Nothing up the hill does that. The bleed
+        # is still §3's one pixel per window -- what changes is how many
+        # windows are close enough for their one pixel to meet.
+        near = y >= layout.TOWN_BASE_Y - 6
+        # AND THE TWO BUDGETS PULL AGAINST EACH OTHER. The proof holds 17
+        # single-pixel components and 23 pairs out of 65 -- 62% of the town's
+        # lights are one or two pixels with nothing around them -- AND 207
+        # warm pixels, which needs about 1.4 spill pixels a light. Spend the
+        # spill evenly and it buys the pixel count at the cost of the
+        # singles: at 0.8/0.6 this measured 285 warm pixels in 55 components
+        # with FOUR singles left. So it is spent unevenly, which is also what
+        # the reference does -- the near rows cluster and the terraces above
+        # keep their isolated lamps.
+        if peak >= 6:
+            budget = 1 + (rng.random() < 0.35)
+        elif peak >= 4:
+            budget = 1 if rng.random() < 0.55 else 0
+        else:
+            budget = 1 if rng.random() < 0.25 else 0
+        budget += near and rng.random() < 0.55
         for cx, cy in neighbours[:budget]:
             if self.vacant(cx, cy):
                 self.taken.add((cx, cy))
@@ -990,8 +1161,15 @@ def _weighted_row(rng, rows: list[int], top: int, base: int) -> int:
     §4's measured gradient, as a straight line in depth rather than as a
     shaped draw. The constant is the ratio the bar has and nothing else: 102
     warm pixels on rows 53-57 against 272 on rows 62-68.
+
+    2.7 WAS TOO SHALLOW ONCE THE LIGHTS WERE ON WALLS. Warm pixels per row
+    in the locked-palette proof put 54% of the town's light on rows 62-67 and
+    24% on rows 55-61; at 2.7 this put 39% and 37%, which flattens the one
+    thing that says the near terraces are nearer. 4.5 to 1 restores the
+    measured split without reaching §4's forbidden max-of-two draw, whose
+    effective ratio at the ends is about twenty to one.
     """
-    weights = [0.30 + 0.70 * (row - top) / max(1, base - top) for row in rows]
+    weights = [0.18 + 0.82 * (row - top) / max(1, base - top) for row in rows]
     pick = rng.random() * sum(weights)
     for row, weight in zip(rows, weights):
         pick -= weight
@@ -1075,8 +1253,39 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                     if rng.random() < 0.5:
                         reach = max(reach, rng.random())
                     y = top + int(span * reach + 0.5)
-                width, height = shapes[slot % len(shapes)]
-                reach = WINDOW_SPACING if _attempt < 40 else 1
+                # THE SHAPE IS DRAWN FRESH EACH ATTEMPT, NOT CYCLED. Taking
+                # `shapes[slot]` and retrying the same footprint eighty times
+                # sorts the census by crowding: a 2x2 that cannot fit in the
+                # middle of town keeps failing until the walk wanders to the
+                # thin east end, so the big footprints all end up out there.
+                # Measured, that put 32 warm pixels in x 140-149 against the
+                # proof's 18 while x 100-129 held 49 against its 93 -- the
+                # right footprint census in the wrong half of the town. A
+                # fresh draw lets a crowded column take the 1x1 that is 42%
+                # of the census anyway and leaves the shape where the light is.
+                width, height = shapes[rng.randrange(len(shapes))]
+                # §4 gives a median nearest-neighbour of 3.2 px and a HARD
+                # MINIMUM of 2, and the minimum is not spread evenly: the
+                # near edge of town is where the buildings are closest
+                # together, which is what "brighter and busier than its upper
+                # terraces" measures as. So the bottom six rows ask for the
+                # minimum from the start and the terraces above ask for the
+                # median first. Enforcing the median everywhere left x
+                # 120-139 with 28 warm pixels against the proof's 65 -- the
+                # right number of lights, evenly spread, in a band the
+                # reference packs.
+                #
+                # THE MINIMUM STILL HAS TO BE ASKED FOR SECOND, though. Made
+                # unconditional on the near rows, the lights there packed at
+                # two and their spill ran together: 57 warm components with
+                # SEVEN singles against the proof's 65 with seventeen. §4's
+                # census is a distribution -- median 3.2, minimum 2 -- and a
+                # region that draws the minimum every time has drawn a
+                # different distribution with the same floor. So the near rows
+                # retreat to it after ten attempts rather than forty, which
+                # is the pressure without the collapse.
+                relax = 10 if y >= layout.TOWN_BASE_Y - 6 else 40
+                reach = WINDOW_SPACING if _attempt < relax else 1
                 if not field.fits(x, y, width, height, reach):
                     continue
                 peak = peaks[slot % len(peaks)]

@@ -106,17 +106,39 @@ INKS: dict[str, tuple[str, int]] = {
     "back_rail": ("grey", 4),               # L 53; flattest, coolest timber
     "back_rail_2": ("dust", 2),             # L 41; meant to be almost invisible
     "back_post_lit": ("dust", 3),           # L 46; layout `back_post_lit`
-    "back_post_cap": ("dusk", 1),  # step 1, not 0: ruling 21b -- the moonlit cap on the back post
-                                            # is not a shadow, but a pale family on its
-                                            # own floor reads as one to the audit           # L 50; y 79-81 only
+    # The cap is `dust`, not `dusk`. Ruling 21b's objection is to a pale
+    # family sitting on its own floor, and `dusk` has no entry under L 50 at
+    # all -- so the cheapest legal step of it was L 63 against a measured
+    # 53-59, one step over an object whose whole job (§8.4) is to have
+    # nineteen luminance points of range where the near post has forty-six.
+    # `dust` 4 is 53 with the same coolness and eight steps of headroom
+    # underneath it, which is what the shade band below wants.
+    "back_post_cap": ("dust", 4),           # L 53; y 79-81 only
     "back_post_mid": ("pine_fresh", 1),     # L 37
     "back_post_dark": ("pine_weathered", 0),  # L 21
 
     # -- near post, above the bar. A DARK SILHOUETTE against the pale
     #    distance: lit left edge, then a genuinely dark column.
-    "near_top_lit": ("pine_fresh", 3),      # L 54; x=126, measured 38-58
-    "near_top_mid": ("pine_fresh", 1),      # L 37; x=127
-    "near_top_dark": ("umber", 2),          # L 18; x=128, measured 14-23
+    #
+    #    AND ABOVE THE BAR THE POST IS COOL. §5's rule is that verticals are
+    #    warm because the lantern is on them -- but hob.md §4 has the lamp
+    #    throwing its light DOWN, with nothing at all above the hand, and the
+    #    top eight rows of this post stand above that throw. Measured, x=126
+    #    runs saturation 0.07-0.29 for its whole height above the bar and
+    #    x=128 measures 0.00 exactly: grey, not umber. Two rows lower the same
+    #    post measures 0.62. The polarity change §2.5 describes is therefore a
+    #    change of LIGHT SOURCE as well as of contrast -- sky above the rail,
+    #    lantern below it -- and drawing the upper half warm makes one post
+    #    lit by one lamp from two directions at once.
+    "near_top_cap": ("grey", 4),            # L 53; the sawn top, row 73
+    "near_top_cap_hi": ("pine_weathered", 6),  # L 59
+    "near_top_cap_far": ("grey", 3),        # L 41; even the dark column caps
+    "near_top_lit": ("grey", 3),            # L 41; x=126 body, COOL
+    "near_top_mid": ("umber", 4),           # L 29; x=127, in the post's shade
+    "near_top_walk": ("dust", 3),           # L 46; where the lit face turns
+    "near_top_walk_hi": ("pine_weathered", 6),  # L 59
+    "near_top_flank_end": ("dust", 2),      # L 41; the last row before the bar
+    "near_top_dark": ("grey", 0),           # L 16; x=128, and saturation 0.00
 
     # -- near post, below the bar. The brightest sustained mark in the region.
     "post_lit": ("pine_fresh", 5),          # L 70; layout `post_lit`, sat 0.62
@@ -144,6 +166,8 @@ INKS: dict[str, tuple[str, int]] = {
     "pocket": ("umber", 3),                 # L 25; measured floor 17-31
     "pocket_deep": ("umber", 2),            # L 18
     "pocket_foot": ("umber", 4),            # L 29; the ground coming under
+    "pocket_lip": ("mud", 7),               # L 49; the last row before the road
+    "pocket_toe": ("umber", 5),             # L 35; the corner the step leaves behind
     "bench_light": ("umber", 5),            # L 35; rows 90 and 92
     "bench_dark": ("umber", 3),             # L 25; row 91
     "bench_deep": ("mud", 2),               # L 23; rows 93-94
@@ -152,9 +176,13 @@ INKS: dict[str, tuple[str, int]] = {
 
     # -- bucket. The same cool-horizontal / warm-vertical split as the rest
     #    of the region, inside one 13 x 8 object.
-    "bucket_rim": ("dusk", 1),  # step 1, not 0: ruling 21b -- the bucket rim
-                                            # is not a shadow, but a pale family on its
-                                            # own floor reads as one to the audit              # L 50; cool, like the bars
+    # The rim was `dusk` 1 at L 63 -- one step over the measured 49-59 for the
+    # same reason the back post's cap was, because `dusk` has nothing under
+    # L 50 and ruling 21b will not allow its floor. `dust` 4 is 53 at the same
+    # coolness, dips to 46, and lands the run on its measured mean instead of
+    # six above it. The rim is the ONE lit edge this object has (§2.9) and an
+    # object whose only light is over-bright reads as tin rather than as wood.
+    "bucket_rim": ("dust", 4),              # L 53; cool, like the bars
     "bucket_rim_far": ("grey", 3),          # L 41
     "bucket_lit": ("mud", 7),               # L 49; warm, like the posts
     "bucket_face": ("mud", 4),              # L 35
@@ -163,10 +191,28 @@ INKS: dict[str, tuple[str, int]] = {
     "bucket_foot": ("umber", 4),            # L 29
 
     # -- crate. Twelve indices inside ten by seven pixels, almost all of them
-    #    within +/-2 ramp steps of each other (§6).
+    #    within +/-2 ramp steps of each other (§6) -- EXCEPT its frame, which
+    #    is where the object's whole 6-to-59 internal range lives.
+    #
+    #    THE FRAME OBEYS §5 INSIDE ONE THIRTEEN-PIXEL OBJECT. The left stile
+    #    is a VERTICAL and it takes the lantern: measured L 61 at its top,
+    #    saturation 0.53, and it is the warmest bright pixel in the region
+    #    outside the posts. The batten's top face is a HORIZONTAL and it takes
+    #    the sky: measured 59/59/59/53 at saturation 0.18-0.07 across its
+    #    right half against 37-48 at saturation 0.47-0.62 across its left. So
+    #    the batten is not "brighter on the right" because of an arbitrary
+    #    gradient -- it is brighter on the right because the right of it has
+    #    turned toward the valley and the left of it is still in the box's own
+    #    shade. Author the two halves in different families and the batten
+    #    reads as a lid; author both in one and it reads as a bar of paint.
+    "crate_cap": ("mud", 9),                # L 61; the left stile's top, WARM
     "crate_frame": ("pine_weathered", 6),   # L 59; the batten's right half
+    "crate_frame_end": ("grey", 4),         # L 53; its last, flattest pixel
+    "crate_arris": ("dust", 4),             # L 53; two cool pixels on row 71
+    "crate_arris_dim": ("grey", 3),         # L 41; the arris either side of them
     "crate_stile": ("umber", 6),            # L 40; left and right uprights
     "crate_batten": ("mud", 5),             # L 39; the batten's left half
+    "crate_batten_lit": ("mud", 7),         # L 49; where that half turns up
     "crate_inner": ("umber", 3),            # L 25; ONE column, ONE value
     "crate_face": ("umber", 4),             # L 29; +/-1 step of stipple
     "crate_edge": ("umber", 3),             # L 25; the dark edge at x=149
@@ -221,6 +267,11 @@ if HOT_PIXELS != 7:
 LOWER_BAR_Y = layout.RAIL_LOWER_BAR[1] + 1      # y=88
 LOWER_BAR_FLAT = (130, 146)
 
+#: §2.11's end of the lower bar, at row 86: measured 46, 65, 65, 47 -- up two
+#: ramp steps and straight back down again over four pixels. (offset from
+#: x=130, ramp step off `bar_flat`).
+LOWER_BAR_SHOULDER = ((0, -3), (1, 1), (2, 1), (3, -2))
+
 #: §7. The top bar dies at x≈154, swallowed by the horse's head. The lower
 #: bar survives in the gap under the jaw and is handed to `team` at y 87-88.
 LOWER_BAR_GAP = (154, 155)                      # the right post's dark columns
@@ -238,9 +289,70 @@ LOWER_BAR_TAIL = (156, 163)
 #: x≈124. The last entry is the deepest corner, which holds one row longer
 #: than the rest before the ground takes over.
 #: (row from, row to, x from, x to). `None` means the anchor's right edge.
-POCKET_BANDS = ((85, 92, 128, None), (93, 102, 122, None), (103, 103, 128, 137))
-POCKET_DEEP_ROWS = frozenset((89, 93, 94, 95))
+#:
+#: AND THE LEFT EDGE STEPS BACK AGAIN AT ROW 102. The shade reaches out to
+#: x=122 under the bar's end cap and holds there for nine rows, and then the
+#: lamp-lit ground arrives underneath it from the left: measured, x 122-127
+#: runs L 16-29 at rows 96-97, 29-44 through rows 98-101 and 49-70 by rows
+#: 102-103 -- a ramp, over six rows, and not an edge. The lantern is at
+#: x=85, so light gets under this fence from the side long before it gets
+#: under it from the front. Held dark all the way down, the pocket becomes a
+#: rectangle -- and a rectangle of shade with a straight left edge reads as a
+#: hole cut in the road rather than as the space under a fence.
+#:
+#: AND IT STARTS AT ROW 86, NOT 85. Row 85 is the one row of daylight-side
+#: backdrop the fence lets through: measured L 24-38 across x 132-147, a mean
+#: of 31 against the pocket's 21 one row below it, and it is the valley floor
+#: seen in the gap between the top bar's cast shadow and the lower bar's top
+#: face. Painted as pocket it closes the gap, the two bars fuse into one
+#: five-row block of timber, and the fence stops being something with air in
+#: it. Row 86 is the opposite case and the pocket's deepest band: 13-25.
+POCKET_BANDS = ((86, 92, 128, None), (93, 101, 122, None),
+                (102, 102, 128, None), (103, 103, 128, 137))
+POCKET_DEEP_ROWS = frozenset((86, 89, 93, 94, 95))
 POCKET_FOOT_ROWS = frozenset((101, 102, 103))
+
+#: §2.7's floor is not one value. The lamp reaches under the boarding at ONE
+#: row -- measured, x 128-137 at row 101 runs L 44-54 against 16-29 at row 99
+#: and 29-39 at row 102 -- because that is the row the gap between the bench's
+#: bottom board and the ground lines up with the light. It is the only thing
+#: that stops sixteen rows of pocket being a flat plate, and it is what the
+#: bucket's dark body is seen against.
+#: (row, x from, x to, ink).
+POCKET_FLOOR = ((98, 130, 137, "pocket_foot"),
+                (99, 122, 127, "pocket_foot"), (100, 122, 127, "pocket_foot"),
+                (101, 122, 137, "pocket_lip"))
+
+#: §2.14, AND IT IS A STEP, NOT A LINE. The lit road's near edge runs at y≈96
+#: under the back fence and drops to y≈104 under the hitching rail, and the
+#: step is caused by the fence's own shade rather than by the ground. `road`
+#: cannot know that -- it authors one continuous plane and this region is what
+#: occludes it -- so the two rows the step costs are drawn here.
+#:
+#: WITHOUT THEM THE POCKET IS SHORT BY A ROW AND THE FENCE STOPS BEING SEATED.
+#: Measured, row 103 under the rail runs L 25-35 on the left and 39-54 on the
+#: right; the open road one row lower is 54-70. Left undrawn it comes out at
+#: 70-79 -- the road's own value, four to five ramp steps too bright -- and
+#: the bright band arrives level with the posts' feet instead of below them,
+#: which reads as the fence floating on a lit strip.
+#: (row, x from, x to, ink).
+#: The step is a DIAGONAL, not a cut: row 103 is shaded from x=128 to x=151
+#: and row 104 only from x=130 to x=134, so the shade runs out to the right as
+#: the ground comes forward past it. Drawn as a straight edge instead it is a
+#: horizontal band the width of the fence, and a horizontal band is exactly
+#: what §6 spends the region's whole discipline avoiding.
+ROAD_EDGE_STEP = ((94, 117, 121, "pocket"), (95, 117, 121, "pocket"),
+                  (103, 138, 151, "pocket_lip"), (104, 130, 134, "pocket_toe"))
+
+#: §2.5, the near post above the bar, measured. The arris at x=126 is a ramp
+#: off `near_top_lit` (`grey` 3, L 41) for rows 74-81; the flank at x=127 is
+#: named per row because its last two rows are a different event from the six
+#: above them. Eight entries each, y 74 to y 81.
+NEAR_POST_CAP = ("near_top_cap", "near_top_cap_hi", "near_top_cap_far")
+NEAR_POST_ARRIS = (2, 1, 0, 0, 0, 0, 0, -1)
+NEAR_POST_FLANK = ("near_top_mid", "near_top_mid", "near_top_mid",
+                   "near_top_mid", "near_top_mid", "near_top_walk",
+                   "near_top_walk_hi", "near_top_flank_end")
 
 #: §2.10. A short brace projecting left and down from the near post, two
 #: pixels wide, measured 47-72. Its only job is to stop the ground between
@@ -248,6 +360,40 @@ POCKET_FOOT_ROWS = frozenset((101, 102, 103))
 BRACKET_RUNS = ((91, 124, 125), (92, 123, 126), (93, 122, 123), (93, 125, 126),
                 (94, 122, 123), (95, 122, 123))
 BRACKET_LIT = ((91, 124), (92, 124), (92, 125), (94, 122))
+
+#: §2.13 and §3. THE CRATE'S ONLY LIGHT IS ITS FRAME, and the frame is these
+#: two rows. Measured, the object runs L 6.1 to 59.3 and its face holds none
+#: of that: rows 73-79 sit at 25-41 and never leave umber. So both extremes
+#: are one row apart at the top and one row at the bottom, and if either row
+#: is drawn flat the crate loses the only thing it has instead of a
+#: silhouette.
+#:
+#: Row y=71 is the batten's upper arris and IT IS BROKEN. Two pixels of it
+#: are lit -- the left stile's head at x=136 and the cleat at x=146, both at
+#: L 53 -- and between them the top edge is the face's own value, because
+#: nothing there stands proud enough to catch the sky. A continuous lit top
+#: edge here would give the crate the silhouette §8.6 spends a paragraph
+#: saying it must not have.
+#: (column offset from the crate's left edge, ink).
+CRATE_ARRIS = ((0, "crate_arris"), (1, "crate_arris_dim"),
+               (8, "crate_batten"), (9, "crate_arris_dim"),
+               (10, "crate_arris"), (11, "crate_batten"),
+               (12, "crate_arris_dim"))
+
+#: Row y=72, the batten's top face, left to right. The families change halfway
+#: along it and that is §5 working inside one thirteen-pixel object: the warm
+#: half is still in the box's own shade with only the lantern on it, the cool
+#: half has turned up toward the valley sky. Measured 37-48 at saturation
+#: 0.47-0.62, then 59/59/59/53 at 0.18-0.07.
+#: (from, to, ink, ramp offset, grain amount).
+CRATE_BATTEN = ((0, 0, "crate_cap", 0, 0.0),
+                (1, 3, "crate_batten", 0, 0.26),
+                (4, 4, "crate_batten", 1, 0.0),
+                (5, 6, "crate_batten", 0, 0.26),
+                (7, 7, "crate_batten_lit", 0, 0.0),
+                (8, 10, "crate_frame", 0, 0.16),
+                (11, 11, "crate_frame_end", 0, 0.0),
+                (12, 12, "crate_batten_lit", 0, 0.0))
 
 #: §5. The contact shadow under the crate, as four zones left to right:
 #: mud 3 -> grey 0 -> umber 0 and back up. L 27 down to 6.1 and it is the
@@ -275,16 +421,72 @@ def _hash(seed: int, x: int, y: int) -> float:
     return ((value ^ (value >> 15)) & 0xFFFF) / 65535.0
 
 
-def _grain(seed: int, x: int, y: int, amount: float = 0.26) -> int:
-    """An unstructured +/-1 ramp step. §6: mean horizontal neighbour step is
+def _grain(seed: int, x: int, y: int, amount: float = 0.26,
+           wide: float = 0.0) -> int:
+    """An unstructured ramp step. §6: mean horizontal neighbour step is
     2.8-4.3 luminance on man-made surfaces, which is a little over half a
-    ramp step, so a little over half the neighbour pairs differ by one."""
+    ramp step, so a little over half the neighbour pairs differ by one.
+
+    `wide` adds a rarer second tier at +/-2. It exists for the crate face and
+    the bucket, the two surfaces §2.13 measures as holding TWELVE DISTINCT
+    INDICES inside ten by seven pixels: a pure +/-1 scatter can only ever
+    produce three, and three values on the one object that has no silhouette
+    and no lit face of its own is what "essentially flat" means. The tier is
+    rare on purpose -- an eighth of the pixels, not a third -- because at
+    +/-2 in `umber` it is a fourteen-luminance jump and a face full of those
+    stops being timber and starts being a stencil, which §8.5 forbids
+    outright.
+    """
     sample = _hash(seed, x, y)
+    if sample < wide:
+        return -2
+    if sample > 1.0 - wide:
+        return 2
     if sample < amount:
         return -1
     if sample > 1.0 - amount:
         return 1
     return 0
+
+
+#: §7. THE LANTERN IS OFF THIS REGION'S LEFT EDGE AND ITS POOL ROLLS OFF
+#: ACROSS IT. The road measures mean L 78 at x 116-123 and 47 by x 164-171 --
+#: about two luminance points every three pixels -- and §7 requires that
+#: roll-off to be continuous across both of this region's edges.
+#:
+#: The bars carry it explicitly, zone by zone, because they are one pixel tall
+#: and every zone of them is measured. EVERYTHING INSIDE THE POCKET WAS
+#: MISSING IT. Measured on the bench, whose four rows are the longest runs in
+#: the region: row 91 holds L 26 at x 130-140 and 21 at x 141-151, row 93
+#: holds 26 and then 17, and row 90 falls from a lit lead-in of 40-44 at
+#: x 132-135 to a flat 35 that gives way at x=151. Those three crossings
+#: average x=144, which is where the pitch below puts the first step; one
+#: more lands by the far end of the pocket.
+#:
+#: Left out, the pocket is evenly lit from a lamp that is thirty pixels to its
+#: left, and the region's whole right half sits one step too bright -- which
+#: is the same failure as §8.1's uniform bar, one plane down: the eye stops
+#: travelling right because nothing tells it the light is behind it.
+LANTERN_ORIGIN = 126
+LANTERN_PITCH = 16
+
+
+#: ...AND THE ROLL-OFF SUBTRACTS LIGHT, WHICH A SURFACE AT AMBIENT HAS NONE
+#: OF. The pocket's deep rows are already at the night's floor -- measured,
+#: row 86 holds L 22 from x=134 to x=151 and row 89 holds 19 across the same
+#: run, both dead flat -- so they roll off by nothing at all, while the seat
+#: above them loses a step and the lit floor below loses two. Applied blind,
+#: the roll-off takes `umber` 2 down to `umber` 0 at the right-hand end and
+#: the pocket goes to L 9 where the reference is 22: thirteen units of black
+#: spent on the one part of the frame study §7 says has no black to spare.
+LANTERN_FLOOR = 2
+
+
+def _lantern(x: int) -> int:
+    """Ramp steps to subtract at column x for the pool's lateral roll-off."""
+    if x <= LANTERN_ORIGIN:
+        return 0
+    return -((x - LANTERN_ORIGIN) // LANTERN_PITCH)
 
 
 def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -315,7 +517,16 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # because that is the road and the road is lit; the two posts ARE
     # shielded to their feet, because a post standing IN the pool still
     # measures 51-67 at its base and an unshielded one climbs to 88.
-    ctx.shield_rect(122, 85, 43, 103 - 85 + 1)
+    # The shield follows the pocket's own left edge rather than a rectangle:
+    # from row 99 down, x 122-127 is lamp-lit ground and the pass is what
+    # lights it. Shielded flat to x=122 it stays at the pocket's value and the
+    # fence sits in a dark notch cut out of a lit road.
+    ctx.shield_rect(122, 85, 43, 102 - 85)
+    ctx.shield_rect(128, 102, 37, 103 - 102 + 1)
+    # ...and §2.14's step, which is shade rather than ground and would be lit
+    # straight back to the road's own value by a pass that cannot see a fence.
+    for _y, _left, _right, _ in ROAD_EDGE_STEP:
+        ctx.shield_rect(_left, _y, _right - _left + 1, 1)
     ctx.shield_rect(layout.RAIL_NEAR_POST[0], 85, 4, 104 - 85 + 1)
     ctx.shield_rect(layout.RAIL_RIGHT_POST[0], 84, 4, 103 - 84 + 1)
     # And the back fence's post, whose foot stands eight rows higher than the
@@ -340,26 +551,36 @@ def _ink(ctx: layout.Ctx, name: str, offset: int = 0) -> int:
 def _stipple_row(canvas: IndexedCanvas, ctx: layout.Ctx, seed: int,
                  x0: int, x1: int, y: int, name: str,
                  amount: float = 0.26, offset: int = 0,
-                 dip_only: bool = False) -> None:
+                 dip_only: bool = False, lantern: bool = False,
+                 wide: float = 0.0) -> None:
     """One row of an ink with unstructured grain on it.
 
     `dip_only` keeps the grain below the named step, for the two runs the
     spec measures as having a ceiling rather than a spread -- the lower bar's
     highlight tops out at 62 and the crate's batten at 59, and a symmetric
     grain on either of them spends light the region has not got.
+
+    `lantern` adds §7's lateral roll-off. It is opt-in rather than automatic
+    because the bars and the crate carry their own measured zones and would
+    otherwise be graded twice.
     """
     for x in range(x0, x1 + 1):
-        step = _grain(seed, x, y, amount)
+        step = _grain(seed, x, y, amount, wide)
         if dip_only:
             step = min(0, step)
+        if lantern:
+            base = INKS[name][1] + offset + step
+            step += min(0, max(_lantern(x), LANTERN_FLOOR - base))
         canvas.put(x, y, _ink(ctx, name, offset + step))
 
 
 def _stipple_rect(canvas: IndexedCanvas, ctx: layout.Ctx, seed: int,
                   x0: int, y0: int, x1: int, y1: int, name: str,
-                  amount: float = 0.26, offset: int = 0) -> None:
+                  amount: float = 0.26, offset: int = 0,
+                  wide: float = 0.0) -> None:
     for y in range(y0, y1 + 1):
-        _stipple_row(canvas, ctx, seed, x0, x1, y, name, amount, offset)
+        _stipple_row(canvas, ctx, seed, x0, x1, y, name, amount, offset,
+                     wide=wide)
 
 
 # ---------------------------------------------------------------------------
@@ -400,12 +621,31 @@ def _back_fence(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # timber is 95 and row 96 belongs to `road`. Eight rows higher than the
     # near posts, and that eight rows is the depth read.
     bottom = py + height - 2
+    # THE RAIL CASTS ON THE POST EVEN THOUGH IT CASTS NOWHERE ELSE. §2.2 is
+    # right that the back rail is one row with no shadow row under it -- there
+    # is nothing behind it but distance. Where it crosses its own post there
+    # is something to fall on, and the reference has it: all three columns dip
+    # for three rows below the rail, measured 27/24/33 on the lit column,
+    # 35/28/28 on the mid and 27/25/25 on the dark, against 46-50 / 37 / 21
+    # for the ten rows below that. Without it the post is a stick passing
+    # behind a line; with it, the two are joined.
+    # EVERY COLUMN'S GRAIN IS ASYMMETRIC, AND FOR THE SAME REASON EACH TIME:
+    # this post's whole range is nineteen luminance points (§8.4) and each of
+    # its three inks sits at one end of that range rather than in the middle,
+    # so a symmetric +/-1 walks it off the measurement. The cap is 53-59 and
+    # lifts; the mid column is 35-39 and barely moves; the dark column is
+    # 21-27 and can only lift, because `pine_weathered` 0 is already the
+    # bottom of the coolest family the far fence is allowed.
     for y in range(py, bottom + 1):
         cap = y <= py + 2
+        shade = -2 if py + 4 <= y <= py + 6 else 0
+        lit = max(0, _grain(seed, px, y, 0.40)) if cap else _grain(seed, px, y)
         canvas.put(px, y, _ink(ctx, "back_post_cap" if cap else "back_post_lit",
-                               _grain(seed, px, y)))
-        canvas.put(px + 1, y, _ink(ctx, "back_post_mid", _grain(seed, px + 1, y)))
-        canvas.put(px + 2, y, _ink(ctx, "back_post_dark", _grain(seed, px + 2, y)))
+                               lit + shade))
+        canvas.put(px + 1, y, _ink(ctx, "back_post_mid",
+                                   _grain(seed, px + 1, y, 0.18) + shade))
+        canvas.put(px + 2, y, _ink(ctx, "back_post_dark",
+                                   max(0, _grain(seed, px + 2, y, 0.40)) + shade))
 
 
 # ---------------------------------------------------------------------------
@@ -434,7 +674,18 @@ def _dark_pocket(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
             else:
                 name = "pocket"
             _stipple_row(canvas, ctx, seed, left,
-                         anchor_right if right is None else right, y, name)
+                         anchor_right if right is None else right, y, name,
+                         lantern=True)
+
+    # The one lit row of floor. See POCKET_FLOOR.
+    for y, left, right, name in POCKET_FLOOR:
+        _stipple_row(canvas, ctx, seed, left, right, y, name, lantern=True)
+
+    # §2.14's step in the road edge. See ROAD_EDGE_STEP: two rows of shade the
+    # road region cannot know to leave, one behind the back fence and one
+    # under the near rail, and they are what the posts' feet stand on.
+    for y, left, right, name in ROAD_EDGE_STEP:
+        _stipple_row(canvas, ctx, seed, left, right, y, name)
 
 
 # ---------------------------------------------------------------------------
@@ -453,12 +704,25 @@ def _bench(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     seed = 0x4BE07
     x0, y0, width, _ = layout.RAIL_BENCH
     x1 = x0 + width - 1
-    for row, name, offset in ((0, "bench_light", 0), (1, "bench_dark", 0),
-                              (2, "bench_light", 0), (3, "bench_deep", 0),
-                              # The last board is a step darker again --
-                              # measured 22.0 and then 19.5.
-                              (4, "bench_deep", -1)):
-        _stipple_row(canvas, ctx, seed, x0, x1, y0 + row, name, offset=offset)
+    # Row 90 is the SEAT, and it is milled: measured, L=35 for fifteen
+    # consecutive pixels from x=136 to x=150 with a lit lead-in of 40-44 over
+    # x 132-135 where it comes out from under the near post's shade. Its grain
+    # is turned nearly off for that reason and no other -- it is the only
+    # board in the stack that reads as a single sawn plank, and a scattered
+    # one reads as more of the same rubbish the pocket is full of. The three
+    # boards below it keep their scatter; §2.8 calls them texture.
+    # (row offset, ink, ramp offset, grain).
+    for row, name, offset, amount in ((0, "bench_light", 0, 0.08),
+                                      (1, "bench_dark", 0, 0.26),
+                                      (2, "bench_light", 0, 0.26),
+                                      (3, "bench_deep", 0, 0.26),
+                                      # The last board is a step darker again
+                                      # -- measured 22.0 and then 19.5.
+                                      (4, "bench_deep", -1, 0.26)):
+        _stipple_row(canvas, ctx, seed, x0, x1, y0 + row, name,
+                     amount=amount, offset=offset, lantern=True)
+    _stipple_row(canvas, ctx, seed, 131, 135, y0, "bench_light",
+                 amount=0.20, offset=1, dip_only=True)
 
 
 def _bracket(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -489,16 +753,25 @@ def _bucket(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     for y in range(y0 + 1, y1):
         # Two pixels of the left face carry nearly all of the object's light.
-        _stipple_row(canvas, ctx, seed, x0, x0 + 1, y, "bucket_lit")
-        _stipple_row(canvas, ctx, seed, x0 + 2, lit_to, y, "bucket_face")
+        _stipple_row(canvas, ctx, seed, x0, x0 + 1, y, "bucket_lit", wide=0.10)
+        _stipple_row(canvas, ctx, seed, x0 + 2, lit_to, y, "bucket_face",
+                     wide=0.10)
         _stipple_row(canvas, ctx, seed, lit_to + 1, x1, y, "bucket_body")
         # The far corner is the deepest thing in the object.
         canvas.put(x1 - 1, y, _ink(ctx, "bucket_body_deep",
                                    _grain(seed, x1 - 1, y)))
 
     # The rim is ONE row and it is cool, like every other top surface here.
-    _stipple_row(canvas, ctx, seed, x0, x0 + 4, y0, "bucket_rim")
-    _stipple_row(canvas, ctx, seed, x0 + 5, x1, y0, "bucket_rim_far")
+    # Measured across its thirteen pixels: 49, 50, 44, 48, 59 over the lit
+    # half and 50, 41, 50, 41, 41, 41, 33, 39 over the far half -- so the near
+    # half only ever dips off its step and the far half only ever lifts. A
+    # symmetric grain on both put a 32 in the middle of the run, and a hole in
+    # the middle of a rim is a hole in the object.
+    _stipple_row(canvas, ctx, seed, x0, x0 + 4, y0, "bucket_rim",
+                 amount=0.50, dip_only=True)
+    for x in range(x0 + 5, x1 + 1):
+        canvas.put(x, y0, _ink(ctx, "bucket_rim_far",
+                               max(0, _grain(seed, x, y0, 0.30))))
     # And the foot merges rather than ending.
     _stipple_row(canvas, ctx, seed, x0, x1, y1, "bucket_foot")
 
@@ -521,23 +794,32 @@ def _lower_bar(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     x1 = x0 + width - 1
     ambient_y, highlight_y, shadow_y = y0, y0 + 1, y0 + 2
 
-    # y=86 -- two short runs where the top face shows a SECOND row, measured
-    # at 46-65 over x 130-133 and 52-56 over x 148-149 against a pocket of
-    # 14-25 either side. They are four and two pixels; they are the only
-    # thing that stops rows 85-86 being a dead band, and they are the lower
-    # bar's own version of what row 81 does for the top bar.
-    _stipple_row(canvas, ctx, seed, 130, 133, ambient_y - 1, "bar_flat",
-                 amount=0.30, offset=-1)
-    _stipple_row(canvas, ctx, seed, 148, 149, ambient_y - 1, "bar_flat",
-                 amount=0.30, offset=-2)
+    # y=86 -- FOUR PIXELS, and only four. Where the bar's near end swings
+    # closest to the viewer its top face shows a second row: measured 46, 65,
+    # 65, 47 across x 130-133 against a pocket of 13-25 for the whole rest of
+    # the row. The pair of steps up and back down is the end of a round rail
+    # turning away, and it is the only thing that stops rows 85-86 being a
+    # dead band.
+    #
+    # THERE IS NO SECOND RUN AT x 148-149. That was a mis-indexed measurement
+    # of the right post's own lit columns two pixels further right; the
+    # reference has 16 and 16 there, and a lit pair in the middle of the
+    # pocket reads as a floating splinter.
+    for dx, offset in LOWER_BAR_SHOULDER:
+        canvas.put(130 + dx, ambient_y - 1, _ink(ctx, "bar_flat", offset))
 
     # y=87 -- the ambient top, mean 44.9. Brighter at the left, where more of
     # the bar's top face is turned toward the viewer, and again where it
     # passes the right post. (x from, x to, steps off `bar_flat`).
-    for left, right, offset in ((125, 129, -3), (130, 137, -1), (138, 147, -3),
-                                (148, 153, -1), (156, 163, -5)):
+    # It falls in FOUR steps, not two: measured 41 at x 138-142 and 32-33 at
+    # x 143-147, then back up to 53 where the bar crosses the right post. The
+    # dip in the middle is the bar's own top face turning away between two
+    # bearings, and flattened out it takes the last piece of shape off the one
+    # element §1 says has to carry the eye all the way to the horses.
+    for left, right, offset in ((125, 129, -3), (130, 137, -1), (138, 142, -3),
+                                (143, 147, -4), (148, 153, -1), (156, 163, -5)):
         _stipple_row(canvas, ctx, seed, left, right, ambient_y,
-                     "bar_flat", amount=0.22, offset=offset)
+                     "bar_flat", amount=0.18, offset=offset)
 
     # y=88 -- THE HIGHLIGHT. One row. §2.11 measures it as the flattest run of
     # value in the region, sd 6.6 across twenty-two pixels, so the stipple is
@@ -548,14 +830,25 @@ def _lower_bar(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     flat0, flat1 = LOWER_BAR_FLAT
     _stipple_row(canvas, ctx, seed, flat0, flat1, highlight_y,
                  "bar_flat", amount=0.12, dip_only=True)
+    # ...and then it falls, measured 48, 50, 48, 46, 35 across x 147-151. The
+    # first step is immediate: the flat run ENDS at x=146 and there is no
+    # pixel of it at full value beyond that. Held one step high the highlight
+    # runs bright into the horse's head instead of dying before it.
     for step, x in enumerate(range(flat1 + 1, LOWER_BAR_GAP[0])):
-        canvas.put(x, highlight_y, _ink(ctx, "bar_flat", -(step // 2)))
+        canvas.put(x, highlight_y, _ink(ctx, "bar_flat", -(1 + step // 2)))
     # The tail under the horse's jaw, handed to `team` at y 87-88.
     _stipple_row(canvas, ctx, seed, LOWER_BAR_TAIL[0], LOWER_BAR_TAIL[1],
                  highlight_y, "bar_flat", amount=0.30, offset=-2)
 
-    # y=89 -- the shadow, and it goes all the way to the tail.
+    # y=89 -- the shadow, and it goes all the way to the tail. ONE PIXEL OF IT
+    # IS NOT SHADOW: x=125 measures 44 where the rest of the row is 9-26,
+    # because the bar's end cap projects past its own post and there is
+    # nothing behind it to cast onto. It is the bottom corner of the same end
+    # grain the highlight row lights at 70, and without it the cap has a lit
+    # top and a black underside and reads as a stub rather than as a rail
+    # running on past the frame.
     _stipple_row(canvas, ctx, seed, x0, x1, shadow_y, "bar_shadow")
+    canvas.put(x0, shadow_y, _ink(ctx, "bar_face", -1))
 
 
 def _top_bar(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -637,21 +930,35 @@ def _near_post(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     bottom = y0 + height - 1                            # y=104, the contact
     bar = layout.RAIL_TOP_BAR[1]                        # y=81
 
-    # ABOVE the bar: nine rows standing proud of the rail. The lit edge is
-    # one column left of the bright column below, because above the rail we
-    # are seeing the post's left arris and below it the whole lit face. It
-    # runs to y=81 inclusive: the bar's own second top-face row does not
-    # reach this far left, so the post is what fills row 81 here.
-    for y in range(y0, bar + 1):
-        # Over its last three rows the lit column walks from x=126 to x=127
-        # -- measured 42/49, 42/58, 29/40 -- which is the post's lit face
-        # turning into view as it comes down to meet the bright column below
-        # the rail. It is three pixels and it is the whole reason the
-        # polarity change reads as one post rather than as two sticks.
-        lit, mid = (x0, x0 + 1) if y < bar - 2 else (x0 + 1, x0)
-        canvas.put(lit, y, _ink(ctx, "near_top_lit", _grain(seed, lit, y)))
-        canvas.put(mid, y, _ink(ctx, "near_top_mid", _grain(seed, mid, y)))
-        canvas.put(x0 + 2, y, _ink(ctx, "near_top_dark", _grain(seed, x0 + 2, y)))
+    # y=73 -- THE SAWN TOP, and it is the one row where all three columns are
+    # lit: measured 53 / 59 / 41 across x 126-128 against 16-17 for the dark
+    # column everywhere below it. It is an end grain facing straight up at the
+    # only thing above this post, which is sky. Without it the post has no
+    # top; with it, eight rows of near-black underneath read as a shadowed
+    # face rather than as a gap in the drawing.
+    for dx, name in enumerate(NEAR_POST_CAP):
+        canvas.put(x0 + dx, y0, _ink(ctx, name))
+
+    # y=74..81 -- eight rows standing proud of the rail.
+    #
+    # x=126 is the lit arris and it FALLS: 59, 53, then 41 for five rows and
+    # 32 at the last. It is brightest where it meets its own sawn top and
+    # settles two steps down within three rows, which is what an edge does
+    # when the only light on it is a sky gradient.
+    #
+    # x=127 is the shaded flank, 25-35, until the last two rows before the
+    # bar, where it goes 46 and 59 -- the post's lit face turning into view as
+    # it comes down to meet the bright column below the rail. Those two pixels
+    # are the whole reason the polarity change reads as one post rather than
+    # as two sticks stacked end to end.
+    for row, (arris, flank) in enumerate(zip(NEAR_POST_ARRIS, NEAR_POST_FLANK)):
+        y = y0 + 1 + row
+        canvas.put(x0, y, _ink(ctx, "near_top_lit",
+                               arris + min(0, _grain(seed, x0, y, 0.18))))
+        canvas.put(x0 + 1, y, _ink(ctx, flank, _grain(seed, x0 + 1, y)
+                                   if flank == "near_top_mid" else 0))
+        canvas.put(x0 + 2, y, _ink(ctx, "near_top_dark",
+                                   max(0, _grain(seed, x0 + 2, y, 0.22))))
 
     # BELOW the bar, from y=85: light, mid, dark, and nothing else.
     for y in range(bar + 4, bottom + 1):
@@ -673,11 +980,24 @@ def _right_post(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     top = layout.RAIL_TOP_BAR[1] + 3                    # y=84
     bottom = layout.ground_y(x0 + 1)                    # y=103
 
+    # THE TWO LIT COLUMNS ARE NOT THE SAME COLUMN TWICE. §2.6 measures x=152
+    # at mean 55.0 and x=153 at 57.3 -- a third of a ramp step apart, which is
+    # not something a viewer reads as a number but is what stops a four-pixel
+    # post reading as a two-pixel one with a border. x=152 is the arris and
+    # its grain is symmetric; x=153 is the face proper, one step up with a
+    # dip-only grain, so it sits between its neighbour and the ceiling instead
+    # of straddling it. Measured range on both is 39-70, which is why the
+    # grain is wide here and nearly off on the bars.
     for y in range(top, bottom + 1):
-        canvas.put(x0, y, _ink(ctx, "right_lit", _grain(seed, x0, y, 0.2)))
-        canvas.put(x0 + 1, y, _ink(ctx, "right_lit", _grain(seed, x0 + 1, y, 0.2)))
+        canvas.put(x0, y, _ink(ctx, "right_lit", _grain(seed, x0, y, 0.30)))
+        canvas.put(x0 + 1, y, _ink(ctx, "right_lit",
+                                   1 + min(0, _grain(seed, x0 + 1, y, 0.55))))
         canvas.put(x0 + 2, y, _ink(ctx, "right_mid", _grain(seed, x0 + 2, y)))
-        canvas.put(x0 + 3, y, _ink(ctx, "right_dark", _grain(seed, x0 + 3, y)))
+        # The dark column measures 17-25 and its floor is 17, not 13: it is
+        # the post's shaded side, not a hole. A symmetric grain on `mud` 1
+        # spends a step it has not got downward.
+        canvas.put(x0 + 3, y, _ink(ctx, "right_dark",
+                                   max(0, _grain(seed, x0 + 3, y, 0.34))))
 
 
 # ---------------------------------------------------------------------------
@@ -711,18 +1031,28 @@ def _crate(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     # The face. Twelve indices, all within +/-2 steps, longest same-value
     # horizontal run five pixels and vertical run three.
+    # The face. §2.13: TWELVE DISTINCT INDICES in ten by seven pixels, all
+    # within +/-2 ramp steps, longest same-value horizontal run five pixels
+    # and vertical run three. Measured, it goes 18, 21, 25, 29, 33, 35, 39,
+    # 40, 41 -- so the rare +/-2 tier is not decoration, it is four of the
+    # nine values the face actually has.
     _stipple_rect(canvas, ctx, seed, x0 + 2, y0 + 2, x1 - 1, y1, "crate_face",
-                  amount=0.34)
+                  amount=0.34, wide=0.12)
 
-    # The top edge and the batten. The batten is brighter over its right half
-    # because that half turns toward the sky over the valley.
-    _stipple_row(canvas, ctx, seed, x0, x0 + 1, y0, "crate_batten")
-    _stipple_row(canvas, ctx, seed, x0 + 2, x0 + 7, y0, "crate_face")
-    _stipple_row(canvas, ctx, seed, x0 + 8, x1, y0, "crate_batten")
-    _stipple_row(canvas, ctx, seed, x0 + 1, x0 + 6, y0 + 1, "crate_batten")
-    _stipple_row(canvas, ctx, seed, x0 + 7, x0 + 10, y0 + 1, "crate_frame")
-    canvas.put(x0, y0 + 1, _ink(ctx, "crate_frame"))
-    _stipple_row(canvas, ctx, seed, x0 + 11, x1, y0 + 1, "bucket_lit")
+    # ROW y=71 -- the arris, broken. See CRATE_ARRIS: two lit pixels and no
+    # more, laid over the face's own scatter, because a continuous lit top
+    # edge would hand the crate the silhouette §8.6 forbids it.
+    _stipple_row(canvas, ctx, seed, x0, x1, y0, "crate_face", amount=0.34)
+    for dx, name in CRATE_ARRIS:
+        canvas.put(x0 + dx, y0, _ink(ctx, name))
+
+    # ROW y=72 -- the batten's top face, warm half then cool half. The two
+    # offsets are the places the warm half turns up into the light; they are
+    # not a gradient across it, and the cool run is dip-only because
+    # `pine_weathered` 7 is L 66 and the crate's measured ceiling is 59.3.
+    for dx0, dx1, name, offset, amount in CRATE_BATTEN:
+        _stipple_row(canvas, ctx, seed, x0 + dx0, x0 + dx1, y0 + 1, name,
+                     amount=amount, offset=offset, dip_only=True)
 
     # The stiles, and the one column that is a dead-flat single value.
     for y in range(y0 + 2, y1 + 1):

@@ -186,7 +186,7 @@ TIMBER_CEILING = 60.0
 #: wire X-brace across this face and AT 320×144 THE X DOES NOT SURVIVE — two
 #: clean diagonals would be the only diagonal lines in the region and would
 #: cut the anchor mass in half. What is left of it is this.
-TIMBER_RAILS = ((71, 9, 24, 1), (84, 0, 24, 2), (89, 0, 24, 1))
+TIMBER_RAILS = ((71, 9, 24, 2), (84, 1, 24, 3), (89, 0, 24, 2))
 
 #: The two moonlit cap rows where the stack's top timbers lie across it. The
 #: left cap is a row higher than the right, which is what stops the top of
@@ -237,6 +237,66 @@ BOARD_FOOT_STEP_X = 48
 #: construction showing rather than a rule.
 BOARD_SEAM_ROWS = (71, 72)
 
+#: THE BOARD IS NOT ONE FAMILY EITHER, and §4 says so in its own row: the
+#: face is `umber` 10, `dust` 8, `pine_fresh` 5-6 and `mud` 9-10 — four
+#: families inside eight luminance of each other. Drawn out of `umber` alone
+#: the face came back as one flat orange plate with a gradient across it, the
+#: same failure the timber mass had and for the same reason: every pixel in
+#: it was a neighbour of every other. The entries below agree on value to
+#: within five points (69 / 66 / 70 / 74) and disagree on hue, which at
+#: 320×144 is the difference between a painted board and a fill. Repeats are
+#: weights, and the base entry keeps the majority so the board still reads as
+#: one object.
+#: `dust` is the one entry here that is not warm — warmth +16 against the
+#: bar's own face colours, which run +38 to +58 across every one of its
+#: dozen most common entries. §4 lists it and the bar holds twenty pixels of
+#: it in 731, so it is ONE part in twelve and not one in eight: at an eighth
+#: it speckles the face grey and the board stops being wood.
+BOARD_GRAIN = (("umber", 10), ("umber", 10), ("umber", 10), ("umber", 10),
+               ("umber", 10), ("mud", 10), ("mud", 10), ("mud", 10),
+               ("mud", 9), ("pine_fresh", 5), ("pine_fresh", 5), ("dust", 7))
+
+# ---------------------------------------------------------------------------
+# THE WHEELS. §2.13 and §7.5-6, re-fitted to the bar's own pixels.
+# ---------------------------------------------------------------------------
+
+#: THE FAR TYRE IS AN ARC, NOT A FLANK. §2.13 gives it as "a cool 1-px arc
+#: down the outer left, x 12-21, y 95-113", and drawn as a flank — one pixel
+#: per row on the leftmost column of a circle — it comes out as a short soft
+#: vertical smudge that says nothing. Selecting the bar's cool pixels
+#: (blue >= red, L >= 22) over x 8-42 / y 88-122 gives an unmistakable arc:
+#:
+#:   (23,93) (24,93) (21,94) (22,94) (19,95) (20,95) (18,96) (17,97)
+#:   (16,98) (16,99) (16,100) (15,101) ... (15,104) (15,107) (15,108) (17,112)
+#:
+#: which fits centre (26,103), radius 11, swept from 135 deg to 256 deg —
+#: from lower-left, round the flank, to upper-left. THE LEFTMOST COLUMN IS
+#: x=15, not x=12: layout.WAGON_WHEEL_FAR's centre is three pixels left of
+#: the fit, and three pixels is a third of the gap between the two wheels at
+#: this size. The arc stays inside layout's protected box either way, so the
+#: void pass still spares it; the box is a guard, not a placement.
+FAR_TYRE = (26.0, 103.0, 11.0)
+FAR_TYRE_SWEEP = (2.36, 4.47)
+
+#: The near wheel's own rim, measured the same way (red − blue >= 12):
+#: a warm column at x=21 from y=96 to y=108, a top arc across x 25-33 at
+#: y 93-95, and a right flank around x 34-35 at y 95-100. Against
+#: layout.WAGON_WHEEL_NEAR — centre (28,103), rx 9, ry 10 — the left rim
+#: lands at 19 and measures 21, so the disc is drawn one step tighter
+#: horizontally than the box allows and the box keeps its clearance.
+NEAR_TYRE_SQUEEZE = 1.5
+
+#: §7.5's warning and what the bar actually holds, which are not the same
+#: thing. "A clean spoked hub produces a bicycle wheel and a moiré at
+#: integer scaling" is true and the bar still shows spokes — eight or nine
+#: warm streaks in the upper half and the left horizontal, each a different
+#: length and a different value, most of them broken somewhere along their
+#: run, and nothing at all in the lower right. So: real radii, jittered off
+#: the even pitch so no ring sample finds a period, and a dropout that rises
+#: with radius and with how far the spoke has turned away from the light.
+SPOKE_COUNT = 11
+SPOKE_JITTER = 0.14
+
 
 def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # SIX TAGGED OBJECTS, and the grouping is the answer to errata 32a's
@@ -254,13 +314,18 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         _gantry_lamp(canvas, ctx)
     with ctx.track(canvas, "corral panel"):
         _corral(canvas, ctx)
-    with ctx.track(canvas, "sign post"):
-        _sign_post(canvas, ctx)
     # §5's occlusion order: THE WHEELS CROSS IN FRONT OF THE TIMBER MASS'S
     # LOWER BODY, AND THE CRATES CROSS IN FRONT OF THE NEAR WHEEL'S LOWER
     # RIGHT. So the yard floor goes down first, the wheels stand on it, and
     # the heap goes down after them.
+    #
+    # AND IT GOES DOWN BEFORE THE POST, not after. The floor now reaches
+    # x=53 to cover the yard behind the heap, and the post is x 50-56: drawn
+    # in the old order the floor was scattering dirt over the near-black core
+    # of the one unbroken dark vertical the region's depth read depends on.
     _yard_floor(canvas, ctx)
+    with ctx.track(canvas, "sign post"):
+        _sign_post(canvas, ctx)
     with ctx.track(canvas, "wheel pair"):
         _wheels(canvas, ctx)
     with ctx.track(canvas, "crate stack"):
@@ -427,18 +492,56 @@ def _timber(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
             canvas.put(x, row, ctx.ink("timber_cap",
                                        2 if stream.random() < 0.5 else 1))
 
-    # §2.9's near-horizontal pale runs at y 70-71, 84 and 89.
+    # §2.9's near-horizontal pale runs at y 70-71, 84 and 89 — and they are
+    # RUNS, not rules. Drawn as one index across all twenty-five columns they
+    # came out as two mechanical lines ruled across the anchor mass, which is
+    # §7.7's failure arriving by the other door: the X-brace was not drawn
+    # and its replacement was. Thresholding the bar at L 45 over the same rows
+    # gives broken segments — y=84 reads `.---xxxx.xxxx..xxx--XXx-XX`, y=89
+    # `..----xx---xxxxxx----------x` — short bright lengths where a
+    # cross-member's top face is square to the sky, dropping to the body
+    # where a pole stands in front of it. So each rail is walked in segments
+    # with gaps, and the brightest lengths go two steps over the body.
     for row, left, right, lift in TIMBER_RAILS:
-        for x in range(left, right + 1):
-            canvas.put(x, row, ctx.ink("timber_body", lift))
+        x = left
+        while x <= right:
+            run = 2 + int(stream.random() * 5)
+            if stream.random() < 0.24:
+                x += 1 + int(stream.random() * 2)
+                continue
+            crown = lift + (1 if stream.random() < 0.38 else 0)
+            for step in range(run):
+                if x + step > right:
+                    break
+                if stream.random() < 0.14:
+                    continue
+                canvas.put(x + step, row,
+                           _plank_ink(ctx, "face",
+                                      crown - (1 if stream.random() < 0.3 else 0),
+                                      stream))
+            x += run
 
     # §5: the lit right edge at x 23-24 is WHAT KEEPS THE MASS FROM BLEEDING
     # INTO THE SHADOW SLOT BESIDE IT, and it is warm where the rest is not.
     # It is measured at L 43 above the y=71 rail and L 35 below it, the same
     # break the poles behind it take: the edge is the corner of the upper
     # gate face, and below the rail there is no gate, only stacked timber.
-    canvas.vline(24, 60, 12, ctx.ink("dry_mud"))
-    canvas.vline(24, 72, 17, ctx.ink("dry_mud", -2))
+    # AND IT IS THE REGION'S BRIGHTEST TIMBER, at its foot rather than its
+    # top. The bar reads x=24 at L 28-49 through rows 62-79 and L 30-52 from
+    # y=80 down, with a single pixel at 80.3 at (24,83) — the whole region's
+    # maximum outside the lamps, and the one the critic named as the reason
+    # the timber's range was reading compressed. §1's ceiling is on the
+    # leftmost 24 COLUMNS, x 0-23; this is the twenty-fifth and it is
+    # entitled to the 80. One pixel, and it is not repeated.
+    for y in range(60, 92):
+        roll = stream.random()
+        step = 0 if y < 72 else -2
+        if y >= 80:
+            step = -1
+        canvas.put(24, y, ctx.ink("dry_mud",
+                                  step + (1 if roll < 0.3 else (-1 if roll < 0.5 else 0))))
+    canvas.put(24, 83, ctx.ink("dry_mud", 4))
+    canvas.put(24, 84, ctx.ink("dry_mud", 1))
     # And the near-black column at x=0: column mean L 10.8, the darkest column
     # in the region by a wide margin (§3).
     canvas.vline(0, 55, foot - 55, ctx.ink("shadow_slot"))
@@ -469,10 +572,17 @@ def _lower_timber(canvas: IndexedCanvas, ctx: layout.Ctx, stream) -> None:
     # study §1's 171-px dark component at x 8-24, y 92-122, the largest in the
     # frame's left half. It is DARK, not void — measured L 11-16 — and the
     # difference is the whole distinction between a shadow and a hole.
+    # ITS FLOOR IS L 9-16, NOT L 18-23. The bar reads x 16-19 across rows
+    # 104-115 at L 2-22 with a mean near 11, and drawn out of `rail_shadow`
+    # it came back a flat 17-24 — seven luminance over the bar in the one
+    # place the region is supposed to bottom out, and flat where the bar
+    # scatters across twenty. This is the pool the far tyre's arc is seen
+    # against and the arc is only 20 luminance above it.
     for y in range(96, 122):
         for x in range(9, 20):
-            canvas.put(x, y, ctx.ink("rail_shadow",
-                                     1 if stream.random() < 0.3 else 0))
+            roll = stream.random()
+            canvas.put(x, y, ctx.ink("dark_pocket",
+                                     1 if roll < 0.28 else (-1 if roll < 0.55 else 0)))
 
 
 def _shadow_slot(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -483,12 +593,38 @@ def _shadow_slot(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     L 20 "so the timber's edge shows", the board's left end loses forty
     luminance points of separation and starts to look glued to the lumber.
     """
+    stream = ctx.stream("left_yard.slot")
     x0, y0, width, height = layout.SHADOW_SLOT
     for x in range(x0, x0 + width):
         canvas.vline(x, y0, height, ctx.ink("rail_shadow", -1))
     # The core. It starts a few rows below the beam, because the top of the
     # slot still carries the beam's own end and the timber's junction with it.
-    canvas.rect(x0 + 3, y0 + 8, 2, height - 8, ctx.ink("shadow_slot"))
+    #
+    # AND IT ENDS AT y=90, WHERE THE SIGNBOARD IT SEPARATES ENDED ELEVEN
+    # ROWS AGO. §3.1's sixty-point step is the board's face against this gap,
+    # and the board's foot is y 77-78: below y≈90 there is no board left for
+    # the slot to be the dark side of, and the bar agrees — x 28-29 measures
+    # L 8-38 across rows 90-96 against L 2-11 above them. Run to the bottom
+    # of the rect the channel became a black stripe past the object that
+    # justified it, in the middle of the region's darkest quarter, where the
+    # study's near-black budget is 1.7% of the frame.
+    core_bottom = 90
+    canvas.rect(x0 + 3, y0 + 8, 2, core_bottom - (y0 + 8),
+                ctx.ink("shadow_slot"))
+    for y in range(core_bottom, y0 + height):
+        for x in range(x0, x0 + width):
+            roll = stream.random()
+            canvas.put(x, y, ctx.ink("dark_pocket",
+                                     1 if roll < 0.35 else (-1 if roll < 0.6 else 0)))
+    # §2.9's lit right edge does not stop where the board does either: the
+    # bar carries L 21-39 down x 25-26 across the same rows, which is the
+    # timber's corner still catching what the corral post catches.
+    for y in range(core_bottom, y0 + height):
+        for x in (x0, x0 + 1):
+            if stream.random() < 0.3:
+                continue
+            canvas.put(x, y, ctx.ink("timber_body",
+                                     1 if stream.random() < 0.4 else 0))
 
 
 def _gantry(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -552,7 +688,8 @@ def _signboard(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         for y in range(top, foot + 1):
             roll = stream.random()
             grain = 1 if roll < 0.16 else (-1 if roll < 0.24 else 0)
-            canvas.put(x, y, ctx.ink("sign_board", lift + grain + _plank_grain(y)))
+            canvas.put(x, y, _board_ink(ctx, stream,
+                                        lift + grain + _plank_grain(y)))
         # §5: the top of the board is a CONTINUOUS pale run at L 69-95 and it
         # is one of only three hard edges in the region. Where the hand-cut
         # edge lifts a row, the run lifts with it and stays continuous —
@@ -565,7 +702,7 @@ def _signboard(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     # §6: the plank seam between the two lines, running brighter than the
     # field either side. It is the board's construction showing, not a rule.
-    for row, step in zip(BOARD_SEAM_ROWS, (1, 2)):
+    for row, step in zip(BOARD_SEAM_ROWS, (0, 1)):
         for column in range(face_w):
             canvas.put(face_x + column, row,
                        ctx.ink("sign_board", _board_lift(column, face_w) + step))
@@ -580,6 +717,17 @@ def _signboard(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     _lettering(canvas, ctx)
 
 
+def _board_ink(ctx: layout.Ctx, stream, lift: int) -> int:
+    """One pixel of the board's face. Four families, one value. See BOARD_GRAIN.
+
+    The step is applied to whichever family the pixel landed in, so the hue
+    rule survives the lateral gradient: a pixel that came out `mud` is lit as
+    `mud`, exactly as the timber's grain works.
+    """
+    family, step = BOARD_GRAIN[int(stream.random() * len(BOARD_GRAIN))]
+    return ctx.palette.family(family).at(step + lift)
+
+
 def _board_lift(column: int, face_w: int) -> int:
     """The board's lateral gradient as a ramp step. §3: +13 L, left to right."""
     return -3 + (4 * column) // face_w
@@ -590,7 +738,7 @@ def _board_lift(column: int, face_w: int) -> int:
 #: the smudge. Each shows its own edge, which is why the face measures a row
 #: of horizontal steps rather than an even field. Row -> ramp step against
 #: the board's own field, from the measured row medians across x 31-73.
-BOARD_ROWS = {62: 4, 63: 1, 64: 2, 71: 1, 72: 2, 73: 1, 77: 1, 78: -3}
+BOARD_ROWS = {62: 2, 63: 1, 64: 2, 71: 0, 72: 1, 73: 1, 77: 1, 78: -3}
 
 
 def _plank_grain(y: int) -> int:
@@ -642,14 +790,10 @@ def _lettering(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 if not mask & (0b100 >> column):
                     continue
                 x = left + column
-                # Worn paint: about one pixel in sixteen is simply not there.
-                # It is what stops eleven marks reading as eleven stamps —
-                # and it is the whole budget, because a glyph three pixels
-                # wide loses its identity at two dropouts.
-                if stream.random() < 0.06:
+                ink = _letter_ink(ctx, stream, x - face_x, face_w)
+                if ink is None:
                     continue
-                lift = _board_lift(x - face_x, face_w)
-                canvas.put(x, y0 + row, ctx.ink("sign_letter", max(-1, lift + 2)))
+                canvas.put(x, y0 + row, ink)
 
     # §6 and §7.2: "2 MILES" is 4 px tall and 20 px wide and it is SUPPOSED
     # to be a smudge — a shorter, fainter row of ticks under the main word,
@@ -660,7 +804,7 @@ def _lettering(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     for position in range(7):
         x = lx + int(round(position * 2.9))
         lift = _board_lift(x - face_x, face_w)
-        ink = ctx.ink("sign_letter", max(0, lift + 3))
+        ink = ctx.ink("sign_letter", max(0, (lift * 2) // 3 + 3))
         # Every mark a different height and a different width, because seven
         # identical marks at an even pitch is a comb and reads as ornament.
         top = ly + (1 if stream.random() < 0.35 else 0)
@@ -668,6 +812,39 @@ def _lettering(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         for offset, chance in ((1, 0.8), (-1, 0.25)):
             if stream.random() < chance:
                 canvas.put(x + offset, ly + lheight - 1 - int(stream.random() * 2), ink)
+
+
+def _letter_ink(ctx: layout.Ctx, stream, column: int, face_w: int):
+    """One pixel of paint on a weathered board, or none. §6, and the note.
+
+    PAINT WEARS, IT DOES NOT SWITCH OFF. Thresholding the bar's face at
+    L 28 and L 42 over the letter rows gives 121 marks in two tiers mixed
+    together across the whole word — no glyph is solid, every one is eaten
+    into somewhere, and the darkest and lightest marks sit side by side. The
+    same threshold over a version drawn at one ink per column with a 6%
+    dropout gave 123 marks in two clean blocks: a black word on the left half
+    of the board and a faint one on the right, which is what a per-column
+    ramp does when it is the only thing varying. Same count, and it read as a
+    decal because the wear was missing rather than because the values were.
+
+    So there are three outcomes per pixel and not two: gone, worn — one or
+    two steps back toward the board it sits on — or paint. And the column
+    ramp is carried at two thirds strength, because the board under the
+    letters climbs +13 L and the paint on it does not climb with it.
+    """
+    lift = (_board_lift(column, face_w) * 2) // 3
+    roll = stream.random()
+    if roll < 0.08:
+        return None                                 # the paint is simply gone
+    if roll < 0.30:
+        # Worn through to the grain: still a mark, but nearer the board than
+        # the ink. This is the tier the bar has that a dropout cannot give,
+        # and it is a THIRD of the word at most — past that the eleven marks
+        # stop being eleven marks and the rhythm §6 is built on goes with
+        # them. Measured against the bar: two tiers either side of L 28, both
+        # present in every glyph, neither of them the majority anywhere.
+        return ctx.ink("sign_letter", lift + 3)
+    return ctx.ink("sign_letter", max(-2, lift + int(stream.random() * 2)))
 
 
 def _gantry_lamp(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -733,42 +910,94 @@ def _corral(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     panel goes near-black below the fourth. Four equal rails read as a
     graphic; these read as timber with the moon on one of them.
     """
-    left, run = 58, 12
+    left, right = 57, 69
     stream = ctx.stream("left_yard.corral")
 
-    # The panel's own ground first. §2.4: the gaps fall to L 12.7-14.7 and
-    # below y=93 the panel goes near-black. It is authored here rather than
-    # left to the road, because a rail IS its lit edge and an edge needs
-    # something to be an edge against.
-    for y in range(80, 96):
-        for x in range(left, left + run):
-            canvas.put(x, y, ctx.ink("rail_shadow",
-                                     -1 if stream.random() < 0.55 else 0))
+    # THE GAPS ARE COOL AND THAT IS WHY THE RAILS READ. §4's row for this
+    # material is "corral rails, lit edges `mud` 7-9, `pine_weathered` 6 OVER
+    # `grey` 0-1 GAPS", and the bar bears it out: measured warmth across
+    # x 57-70 runs -22 to +10 on every gap row and reaches +10 to +30 only on
+    # the two lit rails. Authored warm at `mud` 1 the panel came out as one
+    # warm mass with bright bars on it — §7.13's striped block, arrived at
+    # from the other side, because the thing the rail is an edge AGAINST was
+    # the same hue as the rail. Cool gaps give the four edges forty degrees
+    # of hue to work with on top of their eighteen luminance.
+    #
+    # AND THE BASE RUNS TO y=99. §2.14's band table gives rows 92-99 as
+    # "base shadow ~25 — where the fence, post and clutter stand", and the
+    # panel's own footing is part of it: §2.4 has the panel going near-black
+    # below y=93 and it does not stop there, it stands in something.
+    for y in range(79, 100):
+        for x in range(left, right + 1):
+            roll = stream.random()
+            if y >= 94:
+                # The footing, and it is NOT the panel's own near-black:
+                # §2.14 measures rows 92-99 at about 25 and the bar reads
+                # L 19-26 at warmth -22 to +5 right across it. Taken down to
+                # the gap value it was eleven luminance under the band and
+                # the fence stopped standing on anything.
+                ink = ctx.ink("verge_mud", 1 if roll < 0.55 else 0)
+            elif y >= 93 or roll < 0.22:
+                ink = ctx.ink("dark_pocket", -1 if roll < 0.4 else 0)
+            else:
+                ink = ctx.ink("verge_mud", 1 if roll < 0.6 else 0)
+            canvas.put(x, y, ink)
 
-    # Four rails, and THEY ARE NOT A LADDER OF EQUAL LIGHTS. Measured means
-    # 32.7 / 48.9 / 36.7 / 27.8 top to bottom: the second is the bright one.
-    # Under each, two rows down, the gap the rail is read against.
-    rails = ((81, "weathered_rail", -4), (85, "dry_mud", 1),
-             (89, "dry_mud", -1), (92, "weathered_rail", -5))
-    for (row, material, offset) in rails:
-        for x in range(left, left + run):
-            canvas.put(x, row, ctx.ink(material,
-                                       offset - (1 if stream.random() < 0.3 else 0)))
-        canvas.hline(left, row + 1, run, ctx.ink("rail_shadow", 1))
+    # FOUR RAILS, AND THEY ARE NOT A LADDER OF EQUAL LIGHTS. Measured means
+    # 32.7 / 48.9 / 36.7 / 27.8 top to bottom, and measured peaks 36 / 61 /
+    # 44 / 36: the second rail is the bright warm one, the first and last are
+    # neutral, and the panel goes near-black below the fourth. Four equal
+    # rails read as a graphic; these read as timber with the moon on one.
+    #
+    # THE THIRD RAIL STEPS A ROW. Thresholding the bar, its lit run is at
+    # y=88 across x 57-61 and at y=89 across x 62-69 — one pixel of downhill,
+    # which is the rail running away from the eye. It is the only thing in
+    # the panel that is not parallel to the frame edge, and four rails all
+    # dead level is the other half of why the panel read as a graphic.
+    rails = (
+        ((81, 57, 69),), ((85, 57, 69),), ((88, 57, 61), (89, 62, 69)),
+        ((92, 57, 69),),
+    )
+    tones = (("stone", 0, 0.45), ("dry_mud", 2, 0.55),
+             ("dry_mud", 0, 0.5), ("stone", 0, 0.35))
+    for segments, (material, lift, sparkle) in zip(rails, tones):
+        for row, run_left, run_right in segments:
+            for x in range(run_left, run_right + 1):
+                # The lit rows fall away toward the post: the bar's second
+                # rail runs L 51-61 to x=66 and 35-25 over its last three
+                # columns, which is the panel turning out of what light there
+                # is rather than the rail ending.
+                fall = max(0, (x - 65)) // 2
+                step = lift - fall - (0 if stream.random() < sparkle else 1)
+                canvas.put(x, row, ctx.ink(material, step))
+            # The row under each rail is what the rail is READ against and it
+            # is not a rule either: the bar gives it at L 13-29 with three or
+            # four luminance of scatter, and drawn at one index it puts a
+            # second straight line under every straight line in the panel.
+            for x in range(run_left, run_right + 1):
+                canvas.put(x, row + 1,
+                           ctx.ink("dark_pocket", 1 if stream.random() < 0.5 else 0))
 
     px, py, pwidth, pheight = layout.CORRAL_POST
     # §2.4: "brightening on its right face toward the lantern" — the post is
     # split, x=70 in shade and x 71-72 lit, and that split is the only thing
     # saying the panel ends at an upright rather than running out of frame.
-    canvas.vline(px, py, pheight, ctx.ink("post_dark"))
-    canvas.vline(px + 1, py, pheight, ctx.ink("post_mid", 1))
-    canvas.vline(px + 2, py, pheight, ctx.ink("post_mid"))
+    # The bar reads x 71-72 at L 41-52 with excursions to 70 and down to 27,
+    # so the lit face is scattered inside a two-step band rather than ruled:
+    # a flat vline here is the one place in the panel a straight edge shows.
+    for row in range(py, py + pheight + 2):
+        canvas.put(px, row, ctx.ink("post_dark",
+                                    1 if stream.random() < 0.3 else 0))
+        canvas.put(px + 1, row, ctx.ink("post_mid",
+                                        1 if stream.random() < 0.45 else 0))
+        canvas.put(px + 2, row, ctx.ink("post_mid",
+                                        0 if stream.random() < 0.6 else -1))
     canvas.hline(px, py, pwidth, ctx.ink("timber_cap"))
     # §7.13 and §8: THE PANEL ENDS AT THAT POST. It is shielded along with
     # the panel because §2.4 measures both directly and the pool's own left
     # cut runs through them — letting the lamp lift a rail four steps turns
     # four measured means into one striped block.
-    ctx.shield_rect(left, 79, run + 5, 21)
+    ctx.shield_rect(left, 79, (px + pwidth) - left, 23)
 
 
 def _sign_post(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -815,24 +1044,40 @@ def _clutter(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     the heap at L 57-69 and the barrel's rim the weakest at L 30-52.
     """
     stream = ctx.stream("left_yard.clutter")
+    #: box, lit-edge row, inset, run, edge material, edge lift, and the two
+    #: columns of its LAMP SIDE. §7.12 forbids modelling and the bar still
+    #: holds sustained vertical runs at L 30-54 down x 38-39 and x 46-47
+    #: across rows 85-101 — one lit column pair per box, on the side the
+    #: lantern is, is not a side plane with a hoop and a stave on it. Left
+    #: out, the whole heap measured p75 = 18 against the bar's 36 and read as
+    #: five bright rules floating on black.
     boxes = (
-        (layout.CRATE_UPPER, 83, -4, 10, "dry_mud", 2),
-        (layout.CRATE_LOWER, 85, 0, 7, "dry_mud", 0),
-        (layout.OPEN_BARREL, 95, -12, 10, "dry_mud", -1),
-        (layout.PLANK_LID, 103, 0, 11, "dry_mud", 3),
-        (layout.SMALL_KEG, 113, 0, 9, "dry_mud", 2),
+        (layout.CRATE_UPPER, 83, -4, 10, "dry_mud", 2, (46, 47)),
+        (layout.CRATE_LOWER, 85, 0, 7, "dry_mud", 0, (39, 40)),
+        (layout.OPEN_BARREL, 95, -12, 10, "dry_mud", -1, (46, 47)),
+        (layout.PLANK_LID, 103, 0, 11, "dry_mud", 3, (41, 42)),
+        (layout.SMALL_KEG, 113, 0, 9, "dry_mud", 2, (34, 35)),
     )
-    for (x0, y0, width, height), row, inset, run, material, lift in boxes:
+    for (x0, y0, width, height), row, inset, run, material, lift, lamp in boxes:
         for y in range(row, y0 + height):
             for x in range(x0, x0 + width):
-                # §7.12: below each edge the body is a BODY, not a modelled
-                # box — no side plane, no hoop, no stave, and nothing that
-                # would put six small objects at L 30-45 in the region's
-                # darkest quarter. It sits a step under the yard floor it
-                # stands on and that step is the entire modelling.
+                # The body is a BODY, not a modelled box — no hoop, no stave,
+                # no cast shadow. It sits under the yard floor it stands on
+                # and that step is the whole of it. The BAND was the error:
+                # §2.12 gives it as L 8-25 and it was drawn at L 13-23 with
+                # the mean at the bottom of that, so the heap composited nine
+                # luminance under the bar across the region's darkest quarter.
                 roll = stream.random()
                 canvas.put(x, y, ctx.ink("rail_shadow",
-                                         1 if roll < 0.35 else (-1 if roll < 0.55 else 0)))
+                                         2 if roll < 0.30 else (1 if roll < 0.62 else 0)))
+        for x in lamp:
+            if not x0 <= x < x0 + width:
+                continue
+            for y in range(row + 1, y0 + height):
+                if stream.random() < 0.22:
+                    continue
+                canvas.put(x, y, ctx.ink("dry_mud",
+                                         -2 if stream.random() < 0.55 else -3))
         for step in range(run):
             x = x0 + inset + step
             canvas.put(x, row, ctx.ink(material,
@@ -850,6 +1095,28 @@ def _yard_floor(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     difference between those two is the difference between a yard and a hole.
     """
     stream = ctx.stream("left_yard.floor")
+
+    # THE YARD BEHIND THE HEAP, AND IT IS A HOLE. Study §1 lists a 100-px
+    # dark component at x 25-37, y 64-92 and the bar measures x 26-49 across
+    # rows 79-95 at L 2-16 — near-black, with only the crates' lit top edges
+    # coming out of it. This band was left to the mid-ground plane, which is
+    # drawn across the whole frame width at L 21-33 on an ordered 4x4, so
+    # twenty columns of the yard composited as a visible blue checkerboard
+    # under the signboard: nine luminance too light, and carrying the one
+    # thing §5 measures at zero everywhere in this rect. It is also the
+    # ground the crates are read against, and §3.4's "highlight with darkness
+    # under it" needs the darkness to exist before the highlight is drawn.
+    for y in range(79, 96):
+        for x in range(30, 54):
+            # The right edge dissolves into the sign post's own shade rather
+            # than stopping: x 50-56 is the post and it is drawn after this.
+            roll = stream.random()
+            if roll < 0.10:
+                ink = ctx.ink("shadow_slot")
+            else:
+                ink = ctx.ink("dark_pocket", 1 if roll < 0.45 else 0)
+            canvas.put(x, y, ink)
+
     for y in range(95, 119):
         for x in range(20, 53):
             # NO EDGE ON ANY SIDE. A rectangle of dirt is a rectangle, and
@@ -863,11 +1130,25 @@ def _yard_floor(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 continue
             if y < 97 + (x % 3):
                 continue
-            # Two steps, not three. §5's texture is scatter inside a NARROW
-            # band; open a third step and the dirt starts to read as noise,
-            # which is the one thing invariant 9 is there to keep out.
+            # AND IT RAMPS. §1's column table climbs 21.1 → 50.0 left to
+            # right and this is the surface carrying that climb in the
+            # bottom left: the bar reads L 8-22 at x 20-30 and L 30-45 at
+            # x 44-52 across the same rows, because the lantern pool is
+            # dying out on it rather than because the dirt changes. Drawn at
+            # one value the yard was a flat plate eleven luminance under the
+            # bar at its right end and it took the monotonic ramp with it.
+            #
+            # Two steps at any given column, not three. §5's texture is
+            # scatter inside a NARROW band; open a third and the dirt reads
+            # as noise, which is what invariant 9 exists to keep out.
+            # ...and it ramps back DOWN below y=113. §2.14's band table has
+            # the lit road at rows 100-114 and "foreground shade" at rows
+            # 115-124 at about 23: the near strip is in front of the light,
+            # not in it, and a ramp that only climbs runs the yard's right
+            # end ten luminance over the bar across the bottom eight rows.
+            lift = 1 + max(0, x - 30) // 7 - max(0, (y - 111)) // 3
             canvas.put(x, y, ctx.ink("rail_shadow",
-                                     2 if stream.random() < 0.4 else 1))
+                                     max(0, lift) + (1 if stream.random() < 0.4 else 0)))
 
 
 def _wheels(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -884,76 +1165,151 @@ def _wheels(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     handful of warm accents where a spoke catches.
     """
     stream = ctx.stream("left_yard.wheels")
-    far_x, far_y, far_r, _ = layout.WAGON_WHEEL_FAR
     near_x, near_y, near_rx, near_ry = layout.WAGON_WHEEL_NEAR
+    near_rx -= NEAR_TYRE_SQUEEZE
 
-    # The far tyre. Cool, one pixel, outer left only — a predicate rather than
-    # an angle range, because a quadrant test is exact at integer resolution
-    # and an angle test rounds and nicks the ends. It fades downward: the top
-    # of the arc is against the timber's foot and the bottom is in the verge.
-    for y in range(far_y - far_r, far_y + far_r + 1):
-        dy = y - far_y
-        span = far_r * far_r - dy * dy
-        if span < 0:
-            continue
-        x = far_x - int(round(span ** 0.5))
-        if x > far_x - 3:
-            continue
-        fade = 1 if y > far_y + 3 else 0
-        canvas.put(x, y, ctx.ink("stone", -fade))
+    _far_tyre(canvas, ctx, stream)
 
-    # The near wheel: a dark disc first, then its rim, then the spoke accents.
+    # The near wheel's disc. §2.13: sampled on rings at radius 4-8 the
+    # interior gives mean L 21, sd 13-17, MINIMUM 2.4 AND MAXIMUM 69. The
+    # minimum is the point — it is near-black between the spokes, not a mid
+    # mush at the mean, and the mean only arrives because the spokes are in
+    # the same sample. Drawn as an even scatter around L 21 the disc came
+    # back as a soft grey blob with a rim on it, which is the one shape §7.5
+    # says the object must not be.
     for dy in range(-near_ry, near_ry + 1):
-        for dx in range(-near_rx, near_rx + 1):
+        for dx in range(-int(near_rx) - 1, int(near_rx) + 2):
             if (dx / near_rx) ** 2 + (dy / near_ry) ** 2 > 1.0:
                 continue
-            # §2.13: sampled on rings at radius 4-8 the interior gives mean
-            # L 21, sd 13-17, MINIMUM 2.4 AND MAXIMUM 69, with no angular
-            # periodicity at any radius. So it is near-black with warm
-            # pixels scattered through it — not a black disc, which is what
-            # a filled ellipse gives and which reads as a hole.
             roll = stream.random()
             if roll < 0.10:
-                ink = ctx.ink("dry_mud", -1)
-            elif roll < 0.20:
-                ink = ctx.ink("rail_shadow", 2)
+                ink = ctx.ink("shadow_slot")     # the measured minimum, 2.4
             else:
-                ink = ctx.ink("dark_pocket", -1 if roll < 0.72 else 0)
+                ink = ctx.ink("dark_pocket", -1 if roll < 0.55 else 0)
             canvas.put(near_x + dx, near_y + dy, ink)
 
-    # The tyre. ONE PIXEL, all the way round, because at this size a two-pixel
-    # rim on a nine-pixel radius is a doughnut. It is warm — `pine_fresh` 2
-    # and `umber` 6, L 39-43 — and it dims as it goes into the dirt.
+    _spokes(canvas, ctx, stream, near_x, near_y, near_rx, near_ry)
+
+    # The tyre, ONE PIXEL all the way round, because at this size a two-pixel
+    # rim on a nine-pixel radius is a doughnut. Warm — §4 gives `pine_fresh` 2
+    # and `umber` 6 at L 39-43 — and it is not the same brightness all the way
+    # round: the bar's rim runs L 30-45 across the top and the left flank and
+    # falls into the dirt at the bottom, where the measured pixels stop.
     for dy in range(-near_ry, near_ry + 1):
         span = 1.0 - (dy / near_ry) ** 2
-        if span < 0:
+        if span <= 0:
             continue
         reach = near_rx * span ** 0.5
-        for dx in (int(round(-reach)), int(round(reach))):
+        for dx in (-int(round(reach)), int(round(reach))):
+            # The left flank is the lit one: it is the edge turned toward the
+            # road, and it is the run the bar measures from y=96 to y=108.
+            lit = dx < 0 and dy < 5
+            if not lit and stream.random() < 0.35:
+                continue
             canvas.put(near_x + dx, near_y + dy,
-                       ctx.ink("post_mid", 0 if dy < 2 else -1))
-    for dx in range(-near_rx, near_rx + 1):
+                       ctx.ink("post_mid", 0 if lit else -2))
+    for dx in range(-int(near_rx), int(near_rx) + 1):
         span = 1.0 - (dx / near_rx) ** 2
-        if span < 0:
+        if span <= 0:
             continue
         reach = near_ry * span ** 0.5
-        canvas.put(near_x + dx, near_y - int(round(reach)), ctx.ink("post_mid"))
-        if stream.random() < 0.45:
+        # The bar's top arc is its brightest run — row 95 reads L 42-52
+        # across x 25-31 — and it is the edge the whole object hangs off at
+        # native size. A rim drawn at one step under the left flank loses it.
+        canvas.put(near_x + dx, near_y - int(round(reach)),
+                   ctx.ink("post_mid", 1 if stream.random() < 0.45 else 0))
+        if stream.random() < 0.3:
             canvas.put(near_x + dx, near_y + int(round(reach)),
-                       ctx.ink("post_mid", -2))
+                       ctx.ink("post_mid", -3))
 
-    # Twelve spokes, and NOT ONE OF THEM IS DRAWN. What the reference has is
-    # scattered single warm pixels where a spoke catches, all in the upper
-    # half, with no angular periodicity a ring sample can find. So the
-    # accents are placed by the stream, in the half where light could reach
-    # them, and the hub is two pixels.
-    for _ in range(16):
-        angle = stream.random() * math.pi
-        radius = 0.3 + stream.random() * 0.55
-        dx = int(round(-near_rx * radius * math.cos(angle)))
-        dy = int(round(-near_ry * radius * math.sin(angle)))
-        canvas.put(near_x + dx, near_y + dy,
-                   ctx.ink("dry_mud", -1 if stream.random() < 0.5 else -2))
-    for dy in (-1, 0):
-        canvas.put(near_x, near_y + dy, ctx.ink("dry_mud"))
-        canvas.put(near_x - 1, near_y + dy, ctx.ink("dry_mud", -2))
+    # The hub: three pixels, and it is the only place in the disc where two
+    # lit pixels touch. Anything larger reads as a boss on a ship's wheel.
+    canvas.put(near_x, near_y - 1, ctx.ink("post_mid", -1))
+    canvas.put(near_x + 1, near_y - 1, ctx.ink("dry_mud", -2))
+    canvas.put(near_x, near_y, ctx.ink("dry_mud", -1))
+
+
+def _far_tyre(canvas: IndexedCanvas, ctx: layout.Ctx, stream) -> None:
+    """§2.13 and §7.6. The only evidence there are two wheels.
+
+    A cool 1-px arc and nothing else — no spokes, no felloe, no interior.
+    Omitting it makes the near wheel look like it is leaning on nothing;
+    drawing it properly puts two competing circles in a 16-pixel span. So it
+    is drawn ONCE, at one pixel, in `stone` — the region's cool mid step —
+    and it is the only cool note in the bottom-left quarter.
+    """
+    cx, cy, radius = FAR_TYRE
+    start, end = FAR_TYRE_SWEEP
+    seen = set()
+    steps = int((end - start) * radius * 3)
+    for index in range(steps + 1):
+        angle = start + (end - start) * index / steps
+        x = int(round(cx + radius * math.cos(angle)))
+        y = int(round(cy + radius * math.sin(angle)))
+        if (x, y) in seen:
+            continue
+        seen.add((x, y))
+        # It is iron, out in the weather, half in the timber's shadow: the
+        # measured run is L 19-36 rather than one value, and the dimmer
+        # pixels cluster at the two ends where the arc turns out of the sky.
+        edge = min(index, steps - index) / steps
+        fade = 1 if edge < 0.18 or stream.random() < 0.25 else 0
+        canvas.put(x, y, ctx.ink("stone", -fade))
+
+
+def _spokes(canvas: IndexedCanvas, ctx: layout.Ctx, stream,
+            cx: int, cy: int, rx: float, ry: int) -> None:
+    """§7.5, honoured rather than obeyed literally.
+
+    "The wheel will be drawn as a wheel" is the failure it names, and the
+    failure is a CLEAN hub: twelve identical radii at an even pitch, which
+    moirés at integer upscale and puts a mechanically regular object in the
+    darkest corner of the frame. The bar is not empty there — it holds eight
+    or nine warm streaks, every one a different length and a different value,
+    most of them broken somewhere along the run, and NOTHING in the lower
+    right where the wheel has turned away from the road.
+
+    So the spokes are real radii and nothing about them is regular: the pitch
+    is jittered off even, each one gets its own value and its own reach, and
+    the dropout rises with radius and with how far round the rim it has gone.
+    A ring sample at radius 4-8 finds no period in that, which is what §2.13
+    measured; what the eye finds is a wheel.
+    """
+    for spoke in range(SPOKE_COUNT):
+        angle = (spoke / SPOKE_COUNT) * 2.0 * math.pi
+        angle += (stream.random() - 0.5) * SPOKE_JITTER * 2.0
+        # How far this spoke has turned away from the light. The road is to
+        # the right and a little below; the run that catches is the upper
+        # half and the left horizontal, exactly as measured.
+        turn = math.sin(angle)
+        lit = turn < 0.3
+        if not lit and stream.random() < 0.35:
+            continue
+        # THIRTY-ONE PER CENT OF THE DISC IS OVER L 30 IN THE BAR, and that
+        # number is what says wheel. Sampled inside the same ellipse the bar
+        # gives median 20 / p75 32 / max 69 against a first pass at median 14
+        # / p75 26 / 15% over L 30 — the spokes were there, they were half as
+        # many and two steps too dim, and the object came back as a dark disc
+        # with a rim, which §7.5 rules out exactly as firmly as a bicycle
+        # wheel. The spoke is walked in ELLIPSE FRACTION rather than in
+        # pixels: at rx 7.5 against ry 9.5 a circular radius reaches the rim
+        # at twelve o'clock and is still two pixels short at nine, so a
+        # radius-based walk with an ellipse gate on the end silently deleted
+        # the outer third of every horizontal spoke.
+        reach = (0.80 + stream.random() * 0.19) * (1.0 if lit else 0.8)
+        bright = 0 if stream.random() < 0.25 else -1
+        steps = int(rx + ry)
+        for index in range(steps + 1):
+            # AND THEY DO NOT MEET AT THE HUB. Walked from a fifth of the
+            # radius out, eleven spokes converge on four pixels and the disc
+            # gets a bright star in the middle of it -- §7.5's bicycle wheel
+            # arriving as a hub rather than as a rim. The bar's own centre,
+            # x 26-30 by y 100-104, is mid-to-dark with no convergence in it
+            # at all: what catches is the OUTER half of a spoke, where the
+            # face has turned toward the road.
+            fraction = 0.40 + (reach - 0.40) * index / steps
+            if stream.random() < 0.10 + 0.34 * fraction:
+                continue
+            x = cx + int(round(rx * fraction * math.cos(angle)))
+            y = cy + int(round(ry * fraction * math.sin(angle)))
+            canvas.put(x, y, ctx.ink("post_mid", bright - (0 if lit else 1)))
