@@ -1199,3 +1199,48 @@ Doc 30 governs presentation and pacing. **It does not touch what characters say*
 Where doc 30 conflicts with an earlier errata ruling on presentation or timing, doc 30 wins. Errata 37 is preserved intact and doc 30 implements it.
 
 Its numeric defaults — the 0.45s + 0.055s/glyph hold, the 150ms input guard, the 240px speech width — are stated as Consolation starting values to tune at native resolution, not historical measurements.
+
+
+---
+
+# 46 · THE REFERENCE'S OWN FAMILY USE IS THE CHECK — and ruling 41 caused the defect it catches
+
+## What happened
+
+Room 1's night sky was painted with 1,089 pixels of `accent_teal` and all four critics independently called it **green speckle**.
+
+**Ruling 41 asked for it.** I wrote "every luminance check gains a saturation companion." **Saturation is a magnitude and carries no hue.** An author closing a genuine chroma gap reached for the most saturated cold entry in the locked 256, the number moved the right way, and the sky went green. They even rendered both densities and looked — judging 0.20 invisible and 0.22 "plainly green," which is one notch past where an eye that has been staring at a trade-off can still see it.
+
+**My instrument caused it. This is the sixth instance of the pattern and the first where the pattern was my own ruling.**
+
+## The first fix was the same error one level up
+
+A mean green-minus-magenta axis scored the sky **+9.0 with the teal in and +8.0 with it entirely removed** — a threshold nothing could reach, measuring a palette limit rather than the defect.
+
+**Eleven hundred pixels cannot move a region mean by one unit while being plainly wrong to look at.** That is ruling 42 arriving from the other direction: a mean cannot see a localised wrong hue any more than it can see a bimodal distribution.
+
+## The ruling — and it needs no threshold
+
+> **Quantise the reference into our own locked palette and record which families it reaches for, per region. A region that paints in a family the reference never uses there fails.**
+
+The re-quantised reference is the best this exact 256 can do with this exact picture. If it reaches for `accent_teal` in the sky **zero times out of 15,360 pixels**, neither may we.
+
+- **No threshold, no axis, no tuned constant.** The bar answers the question.
+- Foreign pixels at adoption: sky 1,089, range 792, town 79. Now zero.
+- **The cost is recorded rather than hidden:** sky saturation 0.70 → 0.65, range 0.66 → 0.60. **A slightly dull blue sky is a smaller error than a green one.**
+- **This generalises to every room with a reference**, and it is the first check in the project that needs no number chosen by a person.
+
+## Ruling 41 is amended
+
+Its rule 1 stands — saturation must be reported beside luminance. **But saturation may never be used as a target to close.** A chroma gap is closed by choosing the right family, and the reference's own family use decides which family that is.
+
+---
+
+# 47 · TWO PALETTE LIMITS, RECORDED SO THEY ARE NOT RE-LITIGATED
+
+Surfaced by Room 1's sky work. **These are facts about the locked 256, not defects in the drawing, and no amount of composition fixes them.**
+
+1. **The night sky's second luminance bucket stays hollow.** The only cold entry in that window carries no chroma at all, so the bucket can be filled with grey or left empty, and grey is worse.
+2. **The near range wants luminance 13 with blue in it. The palette does not contain it.** `accent_indigo`'s floor is 21.7 and `sky`'s is 52.7.
+
+**The palette is not reopened.** It is locked, six other rooms depend on it, and both gaps are narrow. They are recorded so that a future pass reads this instead of rediscovering them, and so that a room failing ruling 42's shape test in those specific buckets is understood as constrained rather than badly drawn.
