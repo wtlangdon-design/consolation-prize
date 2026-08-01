@@ -33,9 +33,10 @@ Study images — look at these, they carry more than the tables:
 
 Three harnessed horses standing still with their heads down, drawn as **one
 horizontal dark mass 69 px long and 36 px tall** whose only strong internal
-information is a **flat topline, a straight belly line, nine legs and four
-warm sparks of bridle metal** — and which is separated from the sky behind it
-not by value but by *hue and by two one-pixel rims of opposite polarity*.
+information is a **flat topline, a straight belly line, nine hooves on two ground
+lines, and four warm sparks of bridle metal** — and which is separated from the
+sky behind it not by value but by *hue and by two one-pixel rims of opposite
+polarity*.
 
 ---
 
@@ -53,7 +54,7 @@ Three things must survive at 320×144:
 1. **Horse, not dog.** This is the whole difficulty. See §4 — the ratios, not the
    outline, are what does it.
 2. **Team, not horse.** More than one animal, standing in a stack that recedes to
-   the left. Three heads, three toplines' worth of stagger.
+   the left. Three heads, two toplines 5 px apart.
 3. **Harnessed, not loose.** Two traces running up to the driver and a straight
    pole line under the barrels. Four pixels of lit buckle.
 
@@ -90,8 +91,9 @@ match the draw order: C first.
 
 0. **Sky / far hillside / town lights**, y 54–68 above the mass and visible in
    every gap through it. L median 23.2, warmth −13 to −26, `accent_indigo@0` 47%
-   with `grey@0–3` 42%. The single brightest pixel anywhere in the rect —
-   L = 121.9 at **(164, 60)** — is a town window, not part of the team.
+   with `grey@0–3` 42%. The brightest pixels anywhere in the rect — three at
+   **L = 121.9**, at (164, 60), (143, 67) and (145, 67) — are town windows, not
+   part of the team.
 
 ### C — far horse (dark bay). Draw first, entirely in shadow.
 
@@ -129,11 +131,13 @@ match the draw order: C first.
     `ochre@8`. **This is the brightest thing in the team and the brightest thing
     in the rect that is not a town light or a coach lamp.** Bit mark at (172, 92)
     L 61 and (176, 92) L 50.
-12. **Neck with standing mane.** A band of ~6 vertical highlight strokes running
-    from the poll at (177, 84) up to the withers at (194, 75) — a 19 px axis at
-    **28° above horizontal**. Strokes peak L 50–70 (max 70.4 at (186, 79) and
-    (188, 78)), troughs L 30–44, **pitch ≈ 3 px**. Family `pine_fresh@2–3` over
-    `mud@2–4`. This is the highest-contrast texture in the region.
+12. **Neck with standing mane.** A band of vertical highlight strokes running from
+    the poll at (177, 84) up to the withers at (194, 75) — a 19 px axis at
+    **28° above horizontal**. **Six highlight peaks between x 180 and x 195**
+    (at x ≈ 181, 183, 186, 188, 190, 194), so **pitch 2–4 px, mean 3**. Peaks
+    L 50–70 (max 70.4 at (186, 79) and (188, 78)), troughs L 30–44. Family
+    `pine_fresh@2–3` over `mud@2–4`. This is the highest-contrast texture in the
+    region.
 13. **Back.** y 75–76, x 194–218 — **24 px, dead flat.** See §5 for the rim.
 14. **Barrel.** x 194–218, y 76–86. L 34 at the top falling to L 27.5 by y 83.
     Warmth constant at +26 to +28. There is **no left-to-right lighting gradient**
@@ -144,9 +148,9 @@ match the draw order: C first.
 16. **Tail.** x 219–220, y 78–96 — a **1–2 px near-black vertical stroke, 19 px
     long**, L median 7.1, `umber@0` 34% + `void@0` 21%, ending 5 px above the
     hoof line. It is the only tail drawn. Do not add a second.
-17. **Underline.** y 86–88 from x 200 to x 220, L 6–16. Straight. To its left it
+17. **Underline.** y 86–88 from x 202 to x 220, L 6–16. Straight. To its left it
     thickens into item 18.
-18. **Chest / forearm shadow.** x 181–190, y 84–91. L median **8.6**, `umber@0`
+18. **Chest / forearm shadow.** x 181–188, y 84–91. L median **8.6**, `umber@0`
     31% + `void@0` 20%. **The darkest mass in the region** and the anchor that
     holds the front of the animal down.
 
@@ -180,17 +184,24 @@ match the draw order: C first.
 ### Tack
 
 21. **Pole (coach tongue).** A single lit row at **y = 85, x 195–212**, L 30–37,
-    `mud@4` + `pine_fresh@1`. It is measurably **smoother than anything else in
-    the region** (row sd ≈ 3 against ≈ 10 for the hide above it) and it is the
-    only straight line inside the animals. Directly beneath it is the near-black
-    underline. In image A this is a distinct timber bar with a brass ferrule; at
-    320×144 it is one row and it must stay one row.
+    `mud@4` + `pine_fresh@1`. It is the **flattest lit row in the barrel** —
+    x 195–204 holds L 30–36 unbroken for ten pixels, and the mean absolute step
+    between adjacent pixels is 5.3 L against 6.7–8.9 for every hide row above it.
+    It is the only straight line inside the animals. Directly beneath it is the
+    near-black underline. In image A this is a distinct timber bar with a brass
+    ferrule; at 320×144 it is one row and it must stay one row.
 22. **Terret / hame top.** (195–196, 73–76). A pale cool 4-px vertical fleck,
     L 51, `grey@4`. The only cool object standing *above* the near horse's back.
-23. **Two traces / reins.** Stepped 1-px diagonals climbing right at ≈ 32°
-    (about 1.5 px across per 1 px up):
-    - upper: (196, 71) → (224, 55)
-    - lower: (203, 75) → (222, 58)
+23. **Two traces / reins.** Stepped 1-px diagonals. They become separable from the
+    hide at y = 71 and below that they cross A's back and cannot be told from it —
+    do not try to draw them there.
+    - **Trace 1:** (196, 71) → (219, 59). 23 across, 12 up — **≈ 27°.**
+    - **Trace 2:** (206, 71) → (219, 61). 13 across, 10 up — **≈ 38°.**
+    - They **converge** at x 219–220, y 59–60 and run on as one warm thread into
+      the driver's hands at (222–224, 55–58).
+
+    Stepping is 1–2 px of horizontal run per 1 px of rise; the line is 1 px thick
+    except at the steps, where it is 2.
 
     Measured over the sky the traces are **L 25.9 against sky L 23.6 — a
     difference of 2.3, which is nothing — but warmth +10.8 against sky −6.2.**
@@ -221,7 +232,7 @@ they are what stops the animal reading as a large dog.
 | Head length, poll to muzzle | 13 | **0.48** |
 | Head depth across the jowl | 7 | 0.26 |
 | Neck, poll to withers (along its axis) | 19 | 0.70 |
-| Chest to point of buttock | 31 | 1.15 |
+| Point of shoulder to point of buttock (±2) | 31 | 1.15 |
 
 Read those as five rules:
 
@@ -234,21 +245,39 @@ Read those as five rules:
 3. **Head length : head depth = 13 : 7, near enough 2 : 1.** A 7 px wide head is
    already generous. Anything wider is a donkey; anything narrower is a bird.
 4. **The back is a level straight line 0.89 as long as the horse is tall, and it
-   does not sag.** Measured across x 194–218 it varies by *one pixel*. The dip
-   between withers and croup that reads as "horse" in a big drawing is below the
-   resolution here, and faking it produces a swayback nag.
+   does not sag.** Measured across x 197–218 it varies by *one pixel* (y 75 or 76);
+   including the withers ramp at x 194–196 the whole 24-px run varies by two. The
+   dip between withers and croup that reads as "horse" in a big drawing is below
+   the resolution here, and faking it produces a swayback nag.
 5. **The neck leaves the body at the withers, at the top of the back, and rises
    at 28°.** Not from the chest. The 5-px step between C's topline (y 70) and A's
    (y 75) exists precisely so the eye can find two withers.
 
 Head-down posture, which all three animals share: the **head axis is within 15°
-of vertical**, and the muzzle stops **14–16 px above the ground** — roughly one
-head-length short of the road. Not grazing. Standing with the head dropped.
+of vertical**. None of them is grazing. Measured against each animal's own feet:
+
+- **C's muzzle bottom is y = 81, about 18 px above its own ground contacts** (y 99–100).
+  Its head is dropped, not down.
+- **B's and A's bit marks sit at y = 92, 8–11 px above their ground contacts**
+  (y 100–104) — about two-thirds of a head-length short of the road.
+
+That difference is deliberate and it is what stops the three heads reading as a
+stamped repeat.
 
 Stagger between the animals, which is what makes it a team rather than one horse
-drawn thick: **each animal sits ~9 px to the right of and ~6 px below the one
-behind it** (heads at x 153 / 161 / 171, y 69 / 82 / 82; toplines at y 70 and
-y 75). Three offsets, one direction, no exceptions.
+drawn thick. It is **not** a uniform three-step recession, and copying it as one
+will look wrong:
+
+- **Horizontally, three even steps.** Heads begin at x 153, 161, 171 — **+8, +10**.
+- **Vertically, one big step and then none.** C's head occupies y 69–81; B's and
+  A's occupy y 82–95 — B and A are **exactly level with each other**, and both sit
+  **13 px below C**.
+- **Toplines: two, 5 px apart.** C at y 70, A at y 75. B has none of its own.
+
+Which is to say: C is the odd one out — set back, and standing with its head less
+far down. B and A read as a pair at the same depth, separated only sideways. That
+asymmetry is the reason the group looks like animals rather than like a
+repeating stamp, and it is worth preserving exactly.
 
 ---
 
@@ -259,26 +288,28 @@ Region percentiles: p10 = 11.8, p50 = 26.2, p90 = 49.5.
 
 ### The measured ladder
 
-| Material | L (median / mean) | warmth |
+Ascending. Median L unless a range is given.
+
+| Material | L | warmth |
 |---|---|---|
+| C's crest, and the tail | 7.1 | +5 |
 | Chest / forearm shadow (darkest mass) | **8.6** | +2 |
-| C's crest, tail | 7.1 | +5 |
-| Underline / belly | 6–16 | +7 |
+| Underline / belly, dark core | 6–16 | +7 |
 | C's neck and back (far hide, shadow) | 17.9 | +14 |
 | Legs, shadow side | 19.6 | +5 |
 | Sky / hillside directly behind the mass | **23.2** | −13 |
 | Cast shadow on the road | 24.2 | +11 |
+| Traces over the sky | 25.9 | +11 |
 | Legs, lit side | 27.0 | +15 |
 | A's barrel, lower | 27.5 | +27 |
-| Traces over the sky | 25.9 | +11 |
-| A's mane strokes / barrel, upper | 31.7 | +26 |
+| A's mane band / barrel, upper | 31.7 | +26 |
 | Pole line at y=85 | 33.0 | +25 |
 | **A's back rim, y=75** | **41.9** | **−7** |
 | Road under the team | 42.7 | +27 |
 | Mane stroke peaks | 50–70 | +30 |
-| A's bridle spark | 61 → **85** | +40 |
-| Open road, left of the team | 53.8 | +42 |
 | Hitching rail top (left neighbour) | 51.1 | +30 |
+| Open road, left of the team | 53.8 | +42 |
+| A's bridle spark | 61 → **85** | +40 |
 
 ### The three facts that carry the region
 
@@ -313,9 +344,10 @@ Not a drawn outline. Three devices, in this order of importance:
 
 - **Value step at the toplines** — 5 px of vertical offset between C's y 70 and
   A's y 75, described above.
-- **Near-black seams**, 1–2 px wide, where one animal's edge crosses another:
-  the strongest is **x 183–185, y 84–94** (column mean L 12.3 against 17–24 either
-  side), which is the gap between A's foreleg and B behind it.
+- **Near-black seams**, 1–2 px wide, where one animal's edge crosses another. The
+  strongest is at **x = 184**: averaged over y 70–96 that column is **L 12.3**
+  against 17–24 in the columns either side, and from y 84 to y 94 it is a solid
+  1-px run of L 1–9. That is the gap between A's foreleg and B behind it.
 - **Nothing at all** across the top of the mass. From x 160 to x 193 the far
   horse's back and the middle horse's back merge into one continuous silhouette
   with no seam. **This is correct.** Do not draw a line there.
@@ -394,7 +426,7 @@ lost the region fails:
   two different heights are what make three heads count as three.
 - **The pole row at y = 85.** One straight, smooth row. It is the only thing that
   says "hitched to something" rather than "standing loose".
-- **The six background holes between the legs (§3.20).** Nine legs are drawn;
+- **The six background holes between the legs (§3.20).** Nine hooves are drawn;
   without the holes they are one dark skirt.
 
 **Legs, exactly.** 2–3 px of hide across, lit on the leading (left) edge with 1 px
@@ -416,16 +448,17 @@ L 80). C's muzzle bottom row is **y = 81** and its left edge is **x = 153** — 
 muzzle abuts the end of the rail exactly, with no gap and no overlap. The dark
 muzzle (L 24–36) against the bright rail (L 51–80) is the strongest local contrast
 at the left end of the region. The vertical post at x 152–153, L 47–65, runs
-y 84–101 and passes in front of nothing; it starts 3 rows below the muzzle. **The
+y 85–101 and passes in front of nothing; it starts 4 rows below the muzzle. **The
 fence and the team meet, they do not overlap.** If the rail moves, C's head moves
 with it.
 
 **Right — the coach (x ≥ 219).**
 The near horse's tail at x 219–220 is the last column of this region; the coach's
 front boot begins immediately at x 219–225, topline y 66–67. The two traces
-terminate at the driver's hands at (224, 55) and (222, 58) — **the traces leave
-this region and their far ends belong to the coach region.** Whoever draws either
-side must agree on those two endpoints and on the 32° slope.
+converge at (219–220, 59–60) and run on into the driver's hands at (222–224,
+55–58) — **the traces leave this region and their far ends belong to the coach
+region.** Whoever draws either side must agree on the convergence point and on
+the two slopes (27° and 38°), or the reins will kink at the seam.
 
 **Below — the road.**
 Ground contacts fall 5 px from back to front (y 99 at x 186, y 104 at x 196). That
