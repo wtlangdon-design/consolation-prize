@@ -204,10 +204,11 @@ hard-edged object with a bright interior, not a soft blob. Rows r ≤ 3 are the 
 r = 4 is already the hood, the base and the air.
 
 **There is almost no glow in the air.** The airborne halo is back to backdrop
-ambient (33–37) by r = 8–9. Straight up from the flame it is gone by four rows —
-the raised hand cuts it. The lamp throws its light *down*, onto the road, and
-barely into the night at all. A soft radial bloom around the lantern is the single
-easiest way to make this region look wrong.
+ambient (33–37) by r = 8–9. Straight up the column is interrupted rather than
+graded — dark hood at y 83–84 (L 26–61), the lit hand at y 78–81, and by **y=77 the
+backdrop is already at ambient, L 29.** The lamp throws its light *down*, onto the
+road, and barely into the night at all. A soft radial bloom around the lantern is
+the single easiest way to make this region look wrong.
 
 **Construction, top to bottom:** bare hand gripping (x 84–87, y 78–81) → wire bail,
 2 px (x 85–86, y 81–82) → dark hood (x 83–88, y 82–84) → glass globe, brightest

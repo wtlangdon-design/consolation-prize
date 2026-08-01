@@ -7,7 +7,7 @@
   "background": "art/backgrounds/room-01-stage-road.png",
   "foreground": "art/foregrounds/room-01-stage-road.png",
   "colours": {
-    "sky": 240,
+    "sky": 237,
     "ground": 181
   },
   "horizon": 58,
@@ -32,13 +32,13 @@
     },
     {
       "id": "puddles",
-      "note": "Doc 18: moonlight on standing water shifting as air moves over it, barely perceptible. The phase offset is per puddle and costs no extra entries -- each streak is painted with a different one of the three reserved indices, so the same rotation shows each of them a different part of the cycle. That is how the technique did it in 1990.",
+      "note": "Doc 18: moonlight on standing water shifting as air moves over it, barely perceptible. The phase offset is per puddle and costs no extra entries -- each streak is painted with a different one of the three reserved indices, so the same rotation shows each of them a different part of the cycle. That is how the technique did it in 1990. The ramp was sky 7-9 until the road was measured against the reference: those three are luminance 107, 115 and 123 against standing water at 50 and mud at 32-40, which would have made the puddles the second-brightest thing in the frame and broken ruling 18b. accent_indigo 2-4 are 44, 61 and 74, and are used essentially nowhere else -- safe only because the sky is drawn flat at step 0 of the same family and never reaches step 2.",
       "mode": "pingpong",
       "rate": 0.25,
       "phase": 0,
       "ramp": {
-        "family": "sky",
-        "start": 7,
+        "family": "accent_indigo",
+        "start": 2,
         "count": 3
       },
       "bounds": [

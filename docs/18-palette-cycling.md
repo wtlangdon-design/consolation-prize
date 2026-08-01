@@ -53,9 +53,13 @@ The most important cycling in the game, because it is the first screen anyone pl
 | Element | Ramp | Mode | Rate | Note |
 |---|---|---|---|---|
 | **Hob's lamp** | warm, 4 entries | `pulse` | 0.6 Hz | Very slight. A carried flame in still air, not a torch. It is the brightest and only warm object in the frame and it must not draw more attention than a lamp deserves. |
-| **The puddles** | sky family, 3 entries | `pingpong` | 0.25 Hz | Barely perceptible. Moonlight on standing water shifting as air moves over it. Phase-offset per puddle so they do not breathe together. |
+| **The puddles** | accent_indigo, 3 entries (steps 2–4) | `pingpong` | 0.25 Hz | Barely perceptible. Moonlight on standing water shifting as air moves over it. Phase-offset per puddle so they do not breathe together. |
 
 *The coach lantern does **not** cycle. Ruling 18b established that the lamp is the uniquely brightest object in this room; a cycling lantern would compete for it.*
+
+*The puddles were a **sky** ramp until the road was measured against the reference. Sky steps 7–9 are luminance 107, 115 and 123; the reference's standing water is 50 and the mud around it is 32–40. The band was chosen soundly against the road as it was then composited, which sat at 65–85 — a road that was itself the error. On the road the reference asks for, sky 7–9 would make the puddles the second-brightest thing in the frame after the lamp, which ruling 18b exists to prevent.*
+
+*accent_indigo steps 2–4 are luminance 44, 61 and 74 and are used essentially nowhere else. Steps 0 and 1 of the same family are seventeen thousand pixels of night sky, so the reservation is deliberately taken in the middle of a family whose bottom is the most-used range in the room; that is safe only because the sky is drawn flat at step 0 and never reaches step 2. Anything that later wants a mid-indigo in Room 1 has to use a different family.*
 
 ## Room 3 · The Bountiful Nugget — **two elements**
 
