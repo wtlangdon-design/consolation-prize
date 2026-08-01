@@ -81,5 +81,15 @@
       "town": "unchanged this round \u2014 still lights with no host geometry. The region authors could not run.",
       "foreground": "the black post at x 63-70 is still standing in the road."
     }
+  },
+  {
+    "round": 6,
+    "title": "The town's missing mid-tone, and the post cropped",
+    "note": "The town measured quieter than the reference on every instrument we had, and read as confetti anyway. It was bimodal \u2014 near-black with bright marks and nothing between, so the windows had nothing to be holes IN. The mid-tone band is 2/3 recovered. The foreground post goes from 32 rows to 12.",
+    "status": "town diagnosed and partly closed; the read has not turned yet",
+    "verdicts": {},
+    "gaps": {
+      "town": "the mid-tone is measurably closer but the mass still reads as marks on night rather than as buildings. The texture-field architecture resists it."
+    }
   }
 ]

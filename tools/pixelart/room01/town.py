@@ -584,9 +584,39 @@ ROOF_MIX_NEAR = (("town_roof_sky", 0.54), ("town_wall", 0.30),
 #: colour for every one of `grey` 1 -- 405 against 133 -- and the first draft
 #: of this rebalance ran 1.9 to 1, which lifts the whole mass off the hill it
 #: is supposed to be indistinguishable from in value.
-WALL_MIX_FAR = ((None, 0.60), ("town_wall", 0.32), ("town_trough", 0.08))
-WALL_MIX_MID = ((None, 0.72), ("town_wall", 0.20), ("town_trough", 0.08))
-WALL_MIX_NEAR = ((None, 0.54), ("town_wall", 0.40), ("town_trough", 0.06))
+#: AND THE MID-TONE THAT WAS MISSING, which is what made three separate blind
+#: critics call this region "windows with no host geometry" in three separate
+#: rounds while every number in town.md came out right.
+#:
+#: The histogram, over the town core, x 66-149 / y 52-69:
+#:
+#:                     <18     18-26    26-34    34-45     45+
+#:     ours           11.1%    46.1%     6.7%    18.9%    17.1%
+#:     reference      12.8%    28.8%    16.6%    20.4%    21.4%
+#:
+#: A quarter of the reference's mass sat in a band we had almost nothing in.
+#: Everything else agreed -- mean luminance within 1.4, saturation LOWER than
+#: the bar, roughness lower, warm pixel count lower, per-row distribution
+#: within a few pixels, run anisotropy closer to isotropic than the bar's. By
+#: every instrument we had, the town was quieter than the thing it was copying.
+#:
+#: It was BIMODAL. Near-black mass with bright marks on it and nothing in
+#: between, so the windows had nothing to be holes IN -- they were dots on the
+#: night. The reference punches its windows into a wall you can already see.
+#: That is the whole difference between a town and a starfield, and no
+#: single-number check in this project could have found it: it is a shape in
+#: the histogram, not a value of it. Errata 41's general form, a third time.
+#:
+#: So `town_wall_lit` enters the wall mix. At L 32.5 it stands ELEVEN
+#: luminance above the hill behind it, which is a plane the eye can see --
+#: unlike `town_wall` at 24.5, which the note above correctly rations because
+#: two and a half luminance is not a plane, it is a rounding error.
+WALL_MIX_FAR = ((None, 0.40), ("town_wall", 0.26), ("town_wall_lit", 0.26),
+                ("town_trough", 0.08))
+WALL_MIX_MID = ((None, 0.46), ("town_wall", 0.16), ("town_wall_lit", 0.30),
+                ("town_trough", 0.08))
+WALL_MIX_NEAR = ((None, 0.30), ("town_wall", 0.32), ("town_wall_lit", 0.32),
+                 ("town_trough", 0.06))
 
 
 def _pick(rng, mix):

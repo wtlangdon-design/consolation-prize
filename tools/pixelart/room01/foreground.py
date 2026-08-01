@@ -98,6 +98,26 @@ TRANSPARENT = 255
 #: plane is for; a corner it disappears into is not.
 POST = (63, 112, 8)
 
+#: AND IT IS TOO TALL, WHICH IS THE THING THAT WAS ACTUALLY WRONG WITH IT.
+#:
+#: Everything argued above is correct and the object it produced still read as
+#: a fault: a black bar standing in the middle of the road, thirty-two rows
+#: high, in the one part of the frame the lamp has lit. The reasoning optimised
+#: the SILHOUETTE CONTRAST -- 39 luminance against the pool's left edge, the
+#: best in the corner -- and a foreground plane's job is not to win a contrast
+#: measurement. It is to sit in front of things without being looked at.
+#:
+#: A porch post four feet from the camera is cropped by the bottom of the frame
+#: AND by the left of it. Ours was cropped only at the bottom, standing free in
+#: open road with lit ground on both sides, which is not where a porch post can
+#: be: there is no porch. Held to twelve rows it reads as the near end of the
+#: yard's timber running out of frame, which is what the reference has in that
+#: corner and what left_yard is already drawing the far end of.
+#:
+#: 21a still gets its near plane and its occlusion. 32d still gets a nameable
+#: object. The road gets the twenty rows back.
+POST_ROWS = 12
+
 #: THE TWO RAILS ARE GONE, AND THAT IS THIS ROUND'S FIX.
 #:
 #: This module carried two 3 px members running from the left edge up to the
@@ -135,10 +155,13 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     post_x, post_y, post_w = POST
 
-    canvas.rect(post_x, post_y, post_w, layout.HEIGHT - post_y, dark)
+    post_h = min(POST_ROWS, layout.HEIGHT - post_y)
+    post_top = layout.HEIGHT - post_h
+
+    canvas.rect(post_x, post_top, post_w, post_h, dark)
     # One pixel of umber's floor around the standing edges -- 21b's rule, a
     # family floor rather than void, so the object has an edge rather than
     # being a hole cut in the picture.
-    canvas.hline(post_x, post_y, post_w, rim)
-    canvas.vline(post_x, post_y, layout.HEIGHT - post_y, rim)
-    canvas.vline(post_x + post_w - 1, post_y, layout.HEIGHT - post_y, rim)
+    canvas.hline(post_x, post_top, post_w, rim)
+    canvas.vline(post_x, post_top, post_h, rim)
+    canvas.vline(post_x + post_w - 1, post_top, post_h, rim)
