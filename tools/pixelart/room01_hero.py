@@ -39,10 +39,16 @@ WHAT DELIBERATELY DOES NOT TRANSFER, per the brief: faces, horse anatomy, the
 lantern's panes, individually lit windows at the reference's density. At this
 width the town is forty pixels of suggestion.
 
-ERRATA 40 IS UNCHANGED. This is composition, not value. The reference itself,
-re-framed to 320x144 and quantised to our locked palette, measures median
-35.0, p10 16.0, 44.4% below luminance 30 -- which is the interior band. None
-of what follows lightens the room to make it prettier.
+TONE COMES FROM THE REFERENCE, NOT FROM THE BAND. Errata 40's numbers were
+measured off MI's SCUMM Bar, which is a windowless night INTERIOR, and this is
+an open road under an open sky. Under a sky there is no black: the sky is a
+light source and it reaches everything. The reference re-framed to 320x144 and
+quantised to our palette measures median 35.0, p10 16.0, 44.4% below 30, p90
+53.7, and ONE PER CENT pure black. The first version of this file was built to
+the interior band instead and shipped 19.7% pure black at a sixth of the
+reference's colour saturation -- a brown-and-black picture where the reference
+is a blue one. Nothing here lightens the room; it stops pretending the road is
+a cellar.
 """
 
 from __future__ import annotations
@@ -107,25 +113,25 @@ GRASS = 18
 #: solid object being shaded, 0.0 is something that emits and is therefore the
 #: same brightness whichever way it faces.
 MATERIALS = {
-    SKY:         ("accent_gold", "accent_indigo", 0.62, 0.16, 1.0),
+    SKY:         ("accent_gold", "accent_indigo", 0.62, 0.42, 1.0),
     STARS:       ("bone", "bone", 0.55, 0.55, 0.0),
-    RANGE_FAR:   ("accent_indigo", "accent_indigo", 0.13, 0.13, 0.5),
-    RANGE_NEAR:  ("accent_indigo", "accent_indigo", 0.05, 0.05, 0.5),
-    TOWN:        ("umber", "umber", 0.13, 0.13, 0.7),
+    RANGE_FAR:   ("accent_indigo", "accent_indigo", 0.34, 0.34, 0.5),
+    RANGE_NEAR:  ("accent_indigo", "accent_indigo", 0.20, 0.20, 0.5),
+    TOWN:        ("umber", "umber", 0.22, 0.22, 0.7),
     TOWN_LIT:    ("accent_gold", "accent_gold", 0.90, 0.90, 0.0),
-    GROUND:      ("ochre", "grey", 0.60, 0.26, 1.0),
-    RUT:         ("umber", "grey", 0.40, 0.10, 1.0),
-    PUDDLE:      ("accent_gold", "sky", 0.55, 0.13, 0.8),
-    TIMBER:      ("umber", "pine_weathered", 0.66, 0.24, 1.0),
-    TIMBER_PALE: ("ochre", "pine_weathered", 0.80, 0.22, 1.0),
-    IRON:        ("umber", "grey", 0.34, 0.14, 1.0),
-    HORSE:       ("umber", "grey", 0.62, 0.30, 1.0),
-    COAT:        ("umber", "accent_indigo", 0.62, 0.16, 1.0),
-    FLESH:       ("dust", "grey", 0.52, 0.28, 1.0),
+    GROUND:      ("ochre", "mud", 0.62, 0.36, 1.0),
+    RUT:         ("umber", "mud", 0.44, 0.16, 1.0),
+    PUDDLE:      ("accent_gold", "sky", 0.55, 0.16, 0.8),
+    TIMBER:      ("umber", "umber", 0.66, 0.30, 1.0),
+    TIMBER_PALE: ("ochre", "dust", 0.80, 0.34, 1.0),
+    IRON:        ("umber", "umber", 0.34, 0.26, 1.0),
+    HORSE:       ("umber", "mud", 0.62, 0.34, 1.0),
+    COAT:        ("umber", "accent_indigo", 0.62, 0.30, 1.0),
+    FLESH:       ("dust", "dust", 0.52, 0.34, 1.0),
     LAMP_CORE:   ("accent_gold", "accent_gold", 1.00, 1.00, 0.0),
-    COACH_BODY:  ("accent_rust", "grey", 0.52, 0.24, 1.0),
+    COACH_BODY:  ("accent_rust", "umber", 0.52, 0.32, 1.0),
     COACH_LIT:   ("accent_gold", "accent_gold", 0.80, 0.80, 0.0),
-    GRASS:       ("sage", "grey", 0.34, 0.14, 1.0),
+    GRASS:       ("sage", "sage", 0.34, 0.24, 1.0),
 }
 
 EMPTY = 255
@@ -231,7 +237,7 @@ def sky_and_ranges(scene: Scene, rng: random.Random) -> None:
         t = y / HORIZON
         # Nothing at all for the top third, then a long slow lift toward the
         # ranges. A short steep one leaves a dithered seam across the frame.
-        scene.hline(0, y, WIDTH, SKY, max(0.0, (t - 0.30) / 0.70) ** 1.9)
+        scene.hline(0, y, WIDTH, SKY, 0.62 + 0.38 * t ** 1.4)
     for _ in range(120):
         x, y = rng.randrange(WIDTH), rng.randrange(0, HORIZON - 10)
         scene.put(x, y, STARS, 0.4 + 0.6 * rng.random())
@@ -310,7 +316,7 @@ def ground(scene: Scene, rng: random.Random) -> None:
         t = (y - HORIZON) / (HEIGHT - HORIZON)
         for x in range(WIDTH):
             edge = abs(x - lx) / WIDTH
-            scene.put(x, y, GROUND, (0.12 + 0.74 * t ** 0.85) * (1.0 - 0.78 * edge ** 1.15))
+            scene.put(x, y, GROUND, (0.26 + 0.74 * t ** 0.95) * (1.0 - 0.46 * edge ** 1.15))
 
     # Eight ruts, all aimed at one vanishing point up the road so they read as
     # one set of tracks rather than eight lines. They STOP well short of it:
@@ -547,7 +553,7 @@ def coach(scene: Scene) -> None:
         for y in range(top, bottom):
             down = (y - top) / max(1, bottom - top)
             scene.put(238 + col, y, COACH_BODY,
-                      (0.56 - 0.32 * t) * (1.0 - 0.48 * down))
+                      (0.74 - 0.34 * t) * (1.0 - 0.42 * down))
         scene.put(238 + col, top, COACH_BODY, 0.95 - 0.35 * t)
         scene.put(238 + col, top + 1, COACH_BODY, 0.62 - 0.24 * t)
     scene.rect(238, 40, 58, 7, COACH_BODY, 0.26)            # roof rack
@@ -611,18 +617,18 @@ def foreground(scene: Scene, rng: random.Random) -> None:
     # camera and every light in the picture, so there is no surface of either
     # of them that anything reaches, and the light pass writes index 0. That
     # is the scale anchor and it is also the frame's largest black.
-    scene.rect(0, 90, 10, HEIGHT - 90, TIMBER, 0.0)
+    scene.rect(0, 90, 10, HEIGHT - 90, TIMBER, 0.22)
     scene.hline(0, 90, 10, TIMBER, 0.30)                    # one moonlit edge
-    scene.line(10, 99, 23, 95, TIMBER, 0.0)                 # a rail off it
+    scene.line(10, 99, 23, 95, TIMBER, 0.20)                 # a rail off it
     scene.line(10, 98, 23, 94, TIMBER, 0.16)
-    scene.line(10, 108, 25, 105, TIMBER, 0.0)
+    scene.line(10, 108, 25, 105, TIMBER, 0.18)
 
     cx, cy, r = 30, 126, 27
     for a in range(0, 360, 3):
         rad = math.radians(a)
         for ring in (r, r - 1, r - 2):
             scene.put(cx + round(ring * math.cos(rad)), cy + round(ring * math.sin(rad)),
-                      TIMBER, 0.0)
+                      TIMBER, 0.26)
     # The one lit thing about it: the top-left of the rim, where the sky is.
     for a in range(186, 262, 2):
         rad = math.radians(a)
@@ -630,10 +636,10 @@ def foreground(scene: Scene, rng: random.Random) -> None:
     for a in range(0, 360, 30):
         rad = math.radians(a)
         scene.line(cx, cy, cx + round((r - 3) * math.cos(rad)),
-                   cy + round((r - 3) * math.sin(rad)), TIMBER, 0.0)
-    scene.disc(cx, cy, 4, 4, TIMBER, 0.0)
+                   cy + round((r - 3) * math.sin(rad)), TIMBER, 0.22)
+    scene.disc(cx, cy, 4, 4, TIMBER, 0.28)
     for _ in range(40):
-        scene.put(rng.randrange(0, 48), rng.randrange(128, 144), GRASS, 0.0)
+        scene.put(rng.randrange(0, 48), rng.randrange(128, 144), GRASS, 0.30)
 
 
 def shadows(scene: Scene) -> None:
@@ -693,7 +699,7 @@ def pick(steps: list[tuple[float, int]], lum: float, x: int, y: int) -> int:
 
 
 #: Below this luminance a pixel is not dark, it is BLACK.
-VOID_LUM = 15.0
+VOID_LUM = 6.0
 #: How the lantern's reach turns into brightness. Under 1.0 the pool has a
 #: broad shoulder; over it, a bright core and a fast fall. A lamp is the
 #: second thing.

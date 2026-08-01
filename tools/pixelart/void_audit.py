@@ -109,12 +109,18 @@ BANDS = {
     "interior": {"median": (25.0, 35.0), "p10": (0.0, 8.0), "below30": (45.0, 60.0)},
     "day": {"median": (45.0, 60.0), "p10": (0.0, 15.0), "below30": (20.0, 30.0)},
     "monochrome": {"median": (80.0, 100.0), "p10": (0.0, 40.0), "below30": (15.0, 20.0)},
+    # NIGHT EXTERIOR. Not a fourth guess -- these are the reference for Room 1
+    # measured at our own spec, and the point of the band is that an open sky
+    # is a light source. A night road cannot be 55% under luminance 30 and it
+    # cannot have a fifth of its frame at index 0, because there is nothing in
+    # frame for the sky not to reach. AWAITING TYLER'S RULING.
+    "night_exterior": {"median": (32.0, 40.0), "p10": (10.0, 20.0), "below30": (36.0, 48.0)},
 }
 
 #: Which band each composed room answers to. Night exteriors take the interior
 #: band -- Room 1 is a night road and it landed inside it.
 BAND_OF = {
-    "ROOM 1": "interior", "ROOM 3": "interior", "ROOM 5": "interior",
+    "ROOM 1": "night_exterior", "ROOM 3": "interior", "ROOM 5": "interior",
     "ROOM 18": "interior", "ROOM 19": "interior",
     "ROOM 2": "day", "ROOM 29": "day", "ROOM 36": "day",
     "ROOM 13": "monochrome",
