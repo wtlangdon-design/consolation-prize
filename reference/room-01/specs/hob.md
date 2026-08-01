@@ -66,14 +66,17 @@ Back to front. Bounding boxes native and inclusive.
    `left_yard`, but it lands inside this rect and its ceiling is this region's
    problem — see §7. It is the same object as Hob's lamp, one size smaller.
 
-4. **Fence, left.** Post at x 68–71, y 79–101; two rails crossing at y 86–88 and
-   y 93–95, running out of the rect at x=64. Lit faces reach L 60–82 because they
-   are 10–18 px from the flame. Passes **behind** the lantern; its right end stops
-   at about x=80, one pixel clear of the lantern's hood.
+4. **Fence, left.** Post at **x 71–72, y 79–99**, lit down its right edge (mean
+   L 48, peaks 65–72 at the cap and where the rail meets it). Its rail leaves the
+   rect at x=64; the rail's lit top is the single row **y=84**, L 58–82 across
+   x 69–82, with a second and much weaker rail around y 90–91. Passes **behind**
+   the lantern; the rail's right end runs into the lantern's glow at about x=80.
+   Owned by `left_yard`.
 
-5. **Fence post, right.** x 111–118, y 78–101, with a rail crossing at y 84–86.
-   Owned by `rail`. It is the only vertical the eye finds on the man's dark side and
-   it must not compete: lit face L 47–63, no more.
+5. **Fence post, right.** x 114–116, y 79–96 — three columns, lit / mid / dark left
+   to right — with its top rail a **single row at y=82** running out of the rect.
+   Owned by `rail` and specified there. It is the only vertical the eye finds on the
+   man's dark side and it must not compete: lit column mean L ≈ 42.
 
 6. **Road plane.** y ≥ 100 across the rect. Owned by `road`. Warm, 95 % of it in
    warm hue. The pool is painted into it, not on top of it.
@@ -104,7 +107,7 @@ Back to front. Bounding boxes native and inclusive.
     | 10h | right hand, hanging | x 105–107, y 89–91 | 2 px at L 123 |
     | 10i | left forearm / sleeve | x 88–93, y 81–84 | 2 rows, diagonal, the only thing joining man to lamp |
     | 10j | trousers | x 95–98 and x 103–107, y 100–104 | |
-    | 10k | boots | x 94–98 and x 102–108, y 103–106 | right boot 1 px wider and 1 px lower |
+    | 10k | boots | x 94–98 and x 102–108, y 103–106 | right boot 1 px wider and set forward; both bottom out at y=106 |
 
 11. **Hand on the bail.** x 84–87, y 78–81. Bare skin, brightest 2 px at L 123.
     Sits **above** the lantern and slightly above the shoulder — the arm is out and
@@ -256,16 +259,16 @@ is every 15 px horizontally, every 6 px vertically.
 
 **Measured contours,** as semi-axes from centre (a = horizontal, b = vertical):
 
-| L | a | b | reached at |
-|---|---|---|---|
-| 123 (plateau) | 7 | 3 | x 79–93, y 104–110 |
-| 100 | 7 | 4 | |
-| 86 | 9 | 5 | |
-| 72 | 15 | 7 | |
-| 60 | 20 | 9 | |
-| 50 | 27 | 10 | |
-| 42 | 32 | 11 | |
-| 27 (ambient) | ~36 | ~13 | x 50–122, y 94–120 |
+| L | a | b | mud step | reached at |
+|---|---|---|---|---|
+| 123 (plateau) | 7 | 3 | 18 | x 79–93, y 104–110 |
+| 100 | 7 | 4 | 15 | |
+| 86 | 9 | 5 | 13 | |
+| 72 | 15 | 7 | 11 | |
+| 60 | 20 | 9 | 9 | |
+| 50 | 27 | 10 | 7 | |
+| 42 | 32 | 11 | 6 | |
+| 27 (ambient) | ~36 | ~13 | 3 | x 50–122, y 94–120 |
 
 The upper half is slightly shorter than the lower half (b_up ≈ 11, b_down ≈ 13 at
 the outermost contour) — the ground recedes, so the pool is a squashed ellipse
@@ -350,24 +353,28 @@ moves.
 
 ### Everything else
 
+Steps are ramp positions as `palette.family(name).at(step)` takes them — step 0 is
+the darkest entry of the family.
+
 | material | family | steps | measured L |
 |---|---|---|---|
-| road / the whole pool | **mud** | 3 → 19 | 23 → 123 |
+| road / the whole pool | **mud** | 3 → 18 | 27 → 123 |
 | pool core, if a more golden note is wanted | ochre | 12–13 | 117–126 |
 | face and hand | **ochre** | 2 → 12 | 40 → 117 |
-| shirt collar (1 px) | dust | 8 | 81 — the one cool-neutral pixel on him |
+| shirt collar (1 px) | dust | 8 | 82 — the one cool-neutral pixel on him |
 | coat body, far side | **grey** | 0 → 3 | 16 → 41 |
 | coat's blackest (opening, hat crown, boot cores) | void 0 / umber 0 | — | 0 / 9 |
-| coat's lamp-side rim | **mud** | 8 → 11 | 49 → 66 |
-| hat brim, lit tip | mud | 5–7 | 35 → 44 |
+| coat's lamp-side rim | **mud** | 7 → 10 | 49 → 66 |
+| hat brim, lit tip | mud | 4 → 6 | 35 → 44 |
 | brass patch (1 px) | accent_gold | 3 | 113 |
-| fence rails, lit faces | **mud** or umber | 10 → 14 | 60 → 85 |
+| fence rails, lit faces | **mud** or umber | 9 → 13 | 61 → 85 |
 | fence rails, far faces | pine_weathered | 0 → 3 | 21 → 41 |
 | sign's lantern | accent_gold | **≤ 3** | ≤ 113 — must sit below Hob's |
 
-The pool maps to `mud` almost exactly: mud[19] is (150,117,81), L 122.8, which is
-the reference's pool core to within a point, and the ladder runs about one mud step
-per six luminance points from there down to mud[3] at ambient. Eight visible bands.
+The pool maps to `mud` almost exactly: `mud.at(18)` is (150,117,81), L 122.8, which
+is the reference's pool core to within a point, and the ladder runs about one mud
+step per six luminance points down to `mud.at(3)` at ambient. The full ladder, core
+outward: **18, 15, 13, 11, 9, 7, 6, 4, 3** — nine steps, eight visible bands.
 
 ### What must be warm-family from the start
 

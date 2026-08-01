@@ -177,8 +177,11 @@ this size — the spokes exist as scattered single warm pixels among near-black.
 region and it belongs to the man to the right**; it enters at the rect's edge and must be
 continuous with whatever the neighbouring region draws.
 
-**16. Man's hand-held lantern.** Its source sits at x 83–87, y 84–91 — 21 pixels above L 110
-inside this rect. The man himself begins at about x=88 and is not ours.
+**16. Man's hand-held lantern.** Body x 80–89, y 78–92: a hanger loop at x 84–87, y 78–81, then
+the flame core at x 81–89, y 84–91, reaching L 122 across roughly eighteen pixels. **It straddles
+the seam** — about two-thirds of it falls inside this rect. The man's own silhouette does not
+begin until x≈92, so the lantern reads as held out at arm's length, clear of him, and its light
+is unobstructed on our side. He is not ours; the lantern is.
 
 **17. Puddles.** Isolated cool marks in the mud, `sky` 3 (L 76) against L 20–40 road: around
 (65–68, 110), (73–77, 110–111), (84–87, 120–121) and (79–87, 126–127). Four small clusters, all
@@ -419,7 +422,7 @@ Specific to this region, in roughly the order it will happen.
 
 10. **The lantern will throw a pool.** The gantry lantern is 12 pixels of `ochre` 13 and its
     influence dies within four pixels — it lights the board's right end and stops. The big warm
-    pool at bottom right comes from the *man's* lantern at x 83–87. Giving the gantry lamp its
+    pool at bottom right comes from the *man's* lantern at x 81–89. Giving the gantry lamp its
     own ground pool puts two light sources in the left third and destroys the reason the road
     brightens to the right.
 
@@ -454,13 +457,14 @@ Specific to this region, in roughly the order it will happen.
 Things in this rect that only work if the neighbouring region agrees.
 
 - **Nothing structural crosses the right seam.** Both the corral fence (ends x=72) and the gantry
-  beam (ends x≈82) terminate inside this rect. The next region starts clean at x=88 with open
-  ground and the man. Do not draw either element as if it continued — and check that neither has
-  been *extended* to the edge to "meet" a neighbour that is not expecting it.
-- **The man's lantern is a shared light and it is ours to draw.** Its source sits at x 80–88,
-  y 78–95 with the flame core at x 83–87, y 84–91 — inside this rect. The man holds it out to
-  his right, well clear of his body; **he** begins at about x=93 and is not ours, so the lantern
-  must be authored here and must not be duplicated next door.
+  beam (ends x≈82) terminate inside this rect. The next region starts clean at x=88 with open lit
+  ground; the man does not begin until x≈92. Do not draw either element as if it continued, and
+  check that neither has been *extended* to the edge to meet a neighbour that is not expecting it.
+- **The man's lantern straddles the seam and is ours to draw.** Body x 80–89, y 78–92, flame core
+  x 81–89, y 84–91 — two-thirds inside this rect. The man holds it out well clear of his body and
+  **he** does not begin until x≈92. The lantern must be authored once, here, and must not be
+  duplicated next door; the two-column overhang past x=87 has to match exactly or the flame will
+  read as two lamps.
 - **The lantern pool is continuous across the seam.** x 74–87, y 100–115, mean L 79. It is the
   brightest sustained area we own and it keeps brightening rightward.
 - **The lit ground ramps across the seam.** Mean L climbs 42.5 → 50.0 across the last two column
