@@ -1164,3 +1164,38 @@ Doc 29 §13.1 is stronger than doc 17 on the arrival and doc 17 yields to it:
 Doc 29 governs movement, transitions, entrances, exits and room-authoring data. Where it conflicts with an earlier errata ruling on those subjects, **doc 29 wins** unless named above.
 
 Its authoring defaults — approach distances, egress endpoints, ingress walks, turn holds — are explicitly project starting points, not historical measurements. Tune them at native scale.
+
+
+---
+
+# 45 · DOC 30 IS BINDING — and it caught a data-model failure that would have deleted written content
+
+`docs/30-dialogue-presentation.md` is adopted. It governs dialogue presentation, pacing, barks, comic timing and the sentence line.
+
+## The finding, and it is serious
+
+**`DialogueOption.repeat` is a single string. Doc 04's Winnie tree needs five.**
+
+Ask her about the raccoon and she refuses. Ask again and she refuses differently. On the fifth she cracks — *"What's its name."* — and it is one of the best beats in the game, reachable only by a player being persistent. **The runtime can hold one repeat response and the other three are unrepresentable.**
+
+Errata 37 ruled which options survive exhaustion. **Nobody checked whether their repeat responses could exist at all.** Boolean exhaustion becomes per-option selection counts, with repeat exchanges clamping at the last authored variant.
+
+This would have shipped as content silently missing rather than as a failure. It is the sixth instance of an instrument being correct while not measuring the thing that was wrong — and this time the instrument was my own ruling.
+
+## Three things it corrects that I had wrong
+
+1. **Selecting an option must make Thad SAY it**, over his own head, before the reply. Ours sends the selection silently. The manual is literal: the player chooses what the protagonist says.
+2. **Speech is anchored over the speaker in that speaker's colour**, following actor position and scale — not a top-centre subtitle band, which is what ours is.
+3. **`DialogueTransaction`.** State writes are reserved on selection and committed only when the exchange drains. Without it the coach begins departing underneath *"Wasn't for you."* — a bug we would have shipped and blamed on timing.
+
+## The one exception
+
+**45a · Speaker name labels stay off by default**, as doc 30 already specifies, and the accessibility option that enables them must not become the default answer to a contrast problem. Doc 30 says this; it is restated because it is the rule most likely to be relaxed by someone trying to fix legibility quickly.
+
+## Precedence
+
+Doc 30 governs presentation and pacing. **It does not touch what characters say** — doc 04, doc 05 and the room content documents are unaffected, and doc 30 says so.
+
+Where doc 30 conflicts with an earlier errata ruling on presentation or timing, doc 30 wins. Errata 37 is preserved intact and doc 30 implements it.
+
+Its numeric defaults — the 0.45s + 0.055s/glyph hold, the 150ms input guard, the 240px speech width — are stated as Consolation starting values to tune at native resolution, not historical measurements.
