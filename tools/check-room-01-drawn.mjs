@@ -39,6 +39,19 @@ const SHIM = join(ROOT, 'tools/pixelart/room01_stage_road.py');
  *
  * 3. No base64, and no compressed byte strings. Rule 2 counts integers, so the
  *    obvious way around it is to stop writing integers.
+ *
+ * 4. NO GLYPHS. Signage is blank geometry; the engine renders sign text in the
+ *    game font at runtime. buildings.py::signboard has said so since long
+ *    before this rebuild, and every other sign in every other room obeys it.
+ *
+ *    This one needs a check rather than a comment, because the pressure to
+ *    break it is structural and permanent. The reference image is 34x our
+ *    resolution, so its board is legibly lettered; ours cannot be, at a 3.45
+ *    pixel pitch. A blind critic shown both will prefer the reference's board
+ *    every round for ever, and it will be right about the picture and wrong
+ *    about the game -- painting the word in fixes the crop and ships a second,
+ *    frozen copy of a string that lives in content. It was drawn in for four
+ *    rounds on exactly that pressure.
  */
 
 //: Largest run of comma-separated numeric literals any single expression may
@@ -50,6 +63,16 @@ const FORBIDDEN_READS = [
   /reference\s*\//,
   /image-[AB]-/,
   /image-B-in-locked-palette/,
+];
+
+//: Glyph tables, however they are spelled. The lettering that had to come out
+//: was a dict of six-row binary masks keyed by capital letter, which is what
+//: anybody would reach for next time.
+const FORBIDDEN_GLYPHS = [
+  { pattern: /\bGLYPHS?\b\s*[:=]/, why: 'a glyph table' },
+  { pattern: /\bLETTERS?\b\s*[:=]/, why: 'a letter table' },
+  { pattern: /["']([A-Z])["']\s*:\s*\(\s*0b/, why: 'letterform bitmasks' },
+  { pattern: /\bALPHABET\b/, why: 'an alphabet' },
 ];
 
 const FORBIDDEN_ENCODINGS = [
@@ -123,6 +146,15 @@ export function check() {
     for (const { pattern, why } of FORBIDDEN_ENCODINGS) {
       if (pattern.test(code)) {
         report.fail(`${shown} contains ${why}`);
+      }
+    }
+
+    for (const { pattern, why } of FORBIDDEN_GLYPHS) {
+      if (pattern.test(code)) {
+        report.fail(
+          `${shown} contains ${why} -- signage is blank geometry, and the engine ` +
+            'renders sign text in the game font at runtime',
+        );
       }
     }
 

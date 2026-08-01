@@ -217,8 +217,6 @@ LOWER_RAILS = ((98, 1, 7, 2), (101, 3, 8, 2))
 #: reader gets is a RHYTHM: round shapes at 1, 2, 5 and 10 (C O O O), a
 #: single stem at 9 (I), a centre stem at 8 (T), paired stems at 3 and 11
 #: (N N). At 1× the word is recognised by silhouette and length.
-GLYPH_RHYTHM = ("C", "O", "N", "S", "O", "L", "A", "T", "I", "O", "N")
-GLYPH_PITCH = 3.45
 
 #: §6. "Do not straighten the board." The top edge is level at y=62 with
 #: ±1 px of hand-cut wobble — it lifts to y=61 over two short runs and the
@@ -714,8 +712,6 @@ def _signboard(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         canvas.vline(face_x + offset, face_y + 1, BOARD_FOOT_LEFT - face_y,
                      ctx.ink("sign_board", lift))
 
-    _lettering(canvas, ctx)
-
 
 def _board_ink(ctx: layout.Ctx, stream, lift: int) -> int:
     """One pixel of the board's face. Four families, one value. See BOARD_GRAIN.
@@ -745,187 +741,29 @@ def _plank_grain(y: int) -> int:
     return BOARD_ROWS.get(y, 0)
 
 
-# §6. Three pixels wide, six tall, EVERY STROKE ONE PIXEL. Rows are given as
-# a 3-bit mask per row, most significant bit on the left, which is how a
-# letter this small is actually described: which of the three columns is
-# inked on each of the six rows. A 2-px stroke at this cap height turns the
-# word into a solid bar, and a wider glyph turns a weathered painted board
-# into a signpost decal (§7.1).
+# ---------------------------------------------------------------------------
+# WHY THE BOARD IS BLANK
+# ---------------------------------------------------------------------------
 #
-# NO MASK ROW IS 0b111, AND THAT IS THE FIX OF THIS ROUND. The strokes were
-# already one pixel and the values were already right; the weight was not.
-# Every full-width row -- C's and O's caps, N's and A's crossbars, S's three
-# bars, T's head -- is a three-pixel ink run on its own, and at 3.45 px pitch
-# five of the ten letter pairs abut, so two of them in a row make six. Ink
-# runs measured over rows 65-70: max 6, mean 1.48, four runs of 4 and one of
-# 6, against a bar that measures max 3, mean 1.22, and 62 of its 74 runs a
-# single pixel. The counters filled in, the pairs welded, and the word
-# stopped being eleven marks and became a bar with notches -- which is
-# exactly §7.1's failure, arrived at from the weight rather than the width.
+# It carried the word CONSOLATION for four rounds and it should never have.
 #
-# So the caps and bars are BROKEN: two pixels of a three-pixel bar, on
-# alternating sides where the letterform allows, and the counter of every
-# round shape left open. The rhythm §6 is built on survives intact -- round
-# at 1, 2, 5 and 10, a single stem at 9, a centre stem at 8, paired stems at
-# 3 and 11 -- and no glyph carries a run over two. It is LESS legible than it
-# was, which is the direction §6 asks for: the player is told what it says by
-# being able to LOOK at it.
-GLYPHS = {
-    "C": (0b011, 0b100, 0b100, 0b100, 0b100, 0b011),
-    "O": (0b010, 0b101, 0b101, 0b101, 0b101, 0b010),
-    "N": (0b101, 0b101, 0b110, 0b011, 0b101, 0b101),
-    "S": (0b011, 0b100, 0b010, 0b001, 0b001, 0b110),
-    "L": (0b100, 0b100, 0b100, 0b100, 0b100, 0b110),
-    "A": (0b010, 0b101, 0b101, 0b110, 0b101, 0b101),
-    "T": (0b110, 0b010, 0b010, 0b010, 0b010, 0b010),
-    "I": (0b010, 0b010, 0b010, 0b010, 0b010, 0b010),
-}
-
-#: The longest ink run the legend rows may carry. §6 measures the bar at a
-#: maximum of 3 with 84% of its runs a single pixel; two is inside that and
-#: is reachable by construction, which three is not -- a glyph pair that
-#: abuts can always make one more than either glyph holds.
-MAX_INK_RUN = 2
-
-
-def _lettering(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
-    """§6. Draw the word, not the letters.
-
-    Eleven marks on their rhythm, one-pixel stems, half the pairs touching.
-    §7.1: the instinct on the one piece of type in the frame is to make sure
-    the player can read it, and widening, spacing or squaring the glyphs
-    turns a weathered painted board into a signpost decal. The player is
-    TOLD what it says by being able to LOOK at it.
-
-    THE LETTERS RIDE THE BOARD'S RAMP. §6: their pixels vary from L 22 to
-    L 45 across the word because the board under them climbs +13 L left to
-    right. Flat black letters on a flat board would be the same drawing with
-    all the age taken out — so the ink is stepped by column, exactly as the
-    field behind it is, and a few pixels of each glyph are dropped where the
-    paint has worn off the grain.
-    """
-    stream = ctx.stream("left_yard.lettering")
-    face_x, _, face_w, _ = layout.SIGN_BOARD_FACE
-    x0, y0, width, height = layout.SIGN_LINE_1
-
-    # Set the eleven marks on their rhythm FIRST, as a set of inked columns
-    # per row, and only then decide what each pixel is. §6 in as many words:
-    # draw the word, not the letters. It also puts the whole row in hand at
-    # once, which is what the run limit below needs -- a weld is a property
-    # of a PAIR of glyphs and neither of them can see it.
-    inked: dict[int, set[int]] = {row: set() for row in range(height)}
-    for position, letter in enumerate(GLYPH_RHYTHM):
-        left = x0 + int(round(position * GLYPH_PITCH))
-        for row, mask in enumerate(GLYPHS[letter]):
-            for column in range(3):
-                if mask & (0b100 >> column):
-                    inked[row].add(left + column)
-
-    for row in range(height):
-        _paint_row(canvas, ctx, stream, y0 + row, inked[row], face_x, face_w)
-
-    # §6 and §7.2: "2 MILES" is 4 px tall and 20 px wide and it is SUPPOSED
-    # to be a smudge — a shorter, fainter row of ticks under the main word,
-    # never legible, and it must not be made legible. So it is drawn as its
-    # rhythm and nothing else: seven marks on a 2.9 px pitch, each one or two
-    # pixels wide, each a different height, none of them a glyph.
-    #
-    # IT MUST STILL BE TWENTY PIXELS LONG. It was a comb of four: every mark
-    # took the same three-step lift off the board's own ramp, so the ramp's
-    # +13 L to the right carried the right-hand three marks up to the board's
-    # own value and the line stopped at x=53. Measured against the bar, which
-    # puts ink in all twenty columns and 35% of the rect, that is a smudge
-    # half the length of the one that is there — and a short even smudge
-    # reads as ornament rather than as a second line. The ink comes off
-    # _letter_ink now, the same as the word above, so it rides the ramp
-    # instead of being lifted clear of it.
-    lx, ly, lwidth, lheight = layout.SIGN_LINE_2
-    smudge: dict[int, set[int]] = {row: set() for row in range(lheight)}
-    for position in range(7):
-        x = lx + int(round(position * 2.9))
-        # Every mark a different height and a different width, because seven
-        # identical marks at an even pitch is a comb and reads as ornament.
-        top = 1 if stream.random() < 0.35 else 0
-        for row in range(top, lheight):
-            smudge[row].add(x)
-        for offset, chance in ((1, 0.8), (-1, 0.35)):
-            if stream.random() < chance:
-                smudge[lheight - 1 - int(stream.random() * 2)].add(
-                    min(lx + lwidth - 1, x + offset))
-    for row in range(lheight):
-        _paint_row(canvas, ctx, stream, ly + row, smudge[row], face_x, face_w)
-
-
-def _paint_row(canvas: IndexedCanvas, ctx: layout.Ctx, stream, y: int,
-               inked: set[int], face_x: int, face_w: int) -> None:
-    """One row of the legend, with the weld limit applied across the row.
-
-    WHERE THE STROKES CROWD, THE PAINT IS WORN. Two glyphs that abut are two
-    glyphs whose paint has been rubbed at the join -- which is both what the
-    bar shows and the only way to hold MAX_INK_RUN at 3.45 px pitch, because
-    a weld is a property of a PAIR of glyphs and neither of them can see it.
-    A worn pixel is still a mark; it is nearer the board than the ink, so it
-    does not extend the run.
-    """
-    run = 0
-    for x in range(min(inked, default=0), max(inked, default=0) + 1):
-        if x not in inked:
-            run = 0
-            continue
-        ink = _letter_ink(ctx, stream, x - face_x, face_w,
-                          crowded=run >= MAX_INK_RUN)
-        if ink is None:
-            run = 0
-            continue
-        canvas.put(x, y, ink)
-        run = 0 if run >= MAX_INK_RUN else run + 1
-
-
-def _letter_ink(ctx: layout.Ctx, stream, column: int, face_w: int,
-                crowded: bool = False):
-    """One pixel of paint on a weathered board, or none. §6, and the note.
-
-    PAINT WEARS, IT DOES NOT SWITCH OFF. Thresholding the bar's face at
-    L 28 and L 42 over the letter rows gives 121 marks in two tiers mixed
-    together across the whole word — no glyph is solid, every one is eaten
-    into somewhere, and the darkest and lightest marks sit side by side. The
-    same threshold over a version drawn at one ink per column with a 6%
-    dropout gave 123 marks in two clean blocks: a black word on the left half
-    of the board and a faint one on the right, which is what a per-column
-    ramp does when it is the only thing varying. Same count, and it read as a
-    decal because the wear was missing rather than because the values were.
-
-    So there are three outcomes per pixel and not two: gone, worn — one or
-    two steps back toward the board it sits on — or paint. And the column
-    ramp is carried at two thirds strength, because the board under the
-    letters climbs +13 L and the paint on it does not climb with it.
-    """
-    lift = (_board_lift(column, face_w) * 2) // 3
-    roll = stream.random()
-    if crowded:
-        # The join between two abutting glyphs. Worn, never gone: dropping it
-        # would open a clean one-pixel gutter at every weld and the eleven
-        # marks would come back as eleven CLEAN marks, which is the decal
-        # §7.1 warns about reached from the other side.
-        #
-        # One step further back than the ordinary worn tier below, so that a
-        # weld is separated from the paint either side of it by a full step
-        # everywhere on the board and not only at its lit right end: the
-        # board's ramp is +13 L and the worn tier rides two thirds of it,
-        # which at the left of the word leaves a join a single step off the
-        # paint -- visibly a mark, and measurably still part of the run.
-        return ctx.ink("sign_letter", lift + 4)
-    if roll < 0.08:
-        return None                                 # the paint is simply gone
-    if roll < 0.30:
-        # Worn through to the grain: still a mark, but nearer the board than
-        # the ink. This is the tier the bar has that a dropout cannot give,
-        # and it is a THIRD of the word at most — past that the eleven marks
-        # stop being eleven marks and the rhythm §6 is built on goes with
-        # them. Measured against the bar: two tiers either side of L 28, both
-        # present in every glyph, neither of them the majority anywhere.
-        return ctx.ink("sign_letter", lift + 3)
-    return ctx.ink("sign_letter", max(-2, lift + int(stream.random() * 2)))
+# buildings.py::signboard has said the rule since long before this rebuild:
+# "No glyphs anywhere -- lettering is rendered by the engine in the game font
+# at runtime, so a painted-in word here would be a second, wrong copy that
+# could never be edited without touching art." Every other sign in every other
+# room is blank geometry. Room 1's was the exception, and it was an accident of
+# working from a reference rather than from the project.
+#
+# THE REFERENCE CANNOT BE FOLLOWED HERE AND THE CRITIC CANNOT KNOW THAT. The
+# reference is 34x our pixel count, so its lettering is legible; at 320 wide,
+# eleven capitals across 38 pixels is a 3.45 px pitch and six-pixel caps, which
+# is not type, it is a rhythm of marks pretending to be type. A blind critic
+# shown our board and the reference's will prefer the reference every round,
+# for ever, and it will be right about the image and wrong about the game --
+# painting the word in would fix the crop and break the room.
+#
+# So the board is drawn: face, grain, seam, frame, the lit top edge, the hard
+# right end and the ramped left one. What sits on it arrives at runtime.
 
 
 def _gantry_lamp(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
