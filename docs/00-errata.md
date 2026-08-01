@@ -1277,3 +1277,39 @@ Its section 14 order stands: resolver, schema, permission validator, transaction
 ## Precedence
 
 Doc 31 governs what the player perceives when the puzzle systems run. **It does not change any puzzle solution or any written line** — docs 02, 13, 14, 24 and the room content documents are unaffected, and doc 31 says so. Where it conflicts with an earlier ruling on feedback or performance, doc 31 wins.
+
+
+---
+
+# 49 · AUDIO — RENDERED STEMS, LIVE SYNTHESIS WHERE IT MUST BE CONTINUOUS, THEMES COMMISSIONED AS MIDI
+
+Doc 28 left the build method open. The feasibility proof settles it, and the recommendation is adopted whole.
+
+## What the proof established, measured rather than asserted
+
+**The tuning conceit is built, not bought.** One `ConstantSourceNode.offset`, exact, free, and linear in cents. Verified by autocorrelation on the rendered waveform: −35.47 cents on the piano and −35.16 on the fiddle from the same parameter; the C♯ rule at −100.52 stacking to −135.11 with the global offset while D moves 1.86 cents, so it is genuinely per-note-class; the ninety-second arc exact at every quartile, landing on 0.000.
+
+**Two numbers decide the rest:**
+
+| | cost |
+|---|---|
+| The theme alone, live, 14 notes/sec | **12.9% of one core** — and a Chromebook is 2–4× slower, so 25–50% for music before SFX or Phaser, against a 60fps budget |
+| A decoded stem | **~1%** |
+
+**And samples do not make the detune hard.** A global −35 cents is a 2.04% `playbackRate` change. All stems drift together so they stay in sync; 2% of tempo drift across ninety seconds is imperceptible; **a whole town's music running slightly slow is arguably more period-correct than a synth being flat.** Still one parameter, no pitch-shifter, no granular artefacts.
+
+## Canonical
+
+1. **Render stems offline at build time from the same synthesis path.** None of the proof's code is wasted — it becomes the renderer.
+2. **Keep live synthesis only where audio must be continuous rather than a clip.** The F2 tap gradient above all: doc 28 makes tail length the puzzle's entire interface and it cannot be a fixed clip.
+3. **Commission the themes as MIDI, not audio.** This engine plays them, the character stays ours, and the tuning arc stays one parameter. Six short themes on four instruments remains a small, well-specified job.
+
+## The caveat, which is binding on me and not on the builder
+
+**The agent that built and verified this cannot hear.** Every character claim in it is measured, not listened to, and it said so. **Tyler must audition the fiddle and the held final C♯ before any commission is placed** — the fiddle conclusion is the one the recommendation turns on, and neither the builder nor I can check it.
+
+**Recorded as a general rule: an agent that cannot perceive the output must state so and name the specific human check its conclusion depends on.** This one did, unprompted, and it is the right shape for every judgment of this kind.
+
+## One bug worth carrying forward
+
+`connect(osc.detune)` holds a strong reference to every oscillator forever. Sixty seconds of music left **799 live note-graphs and climbing**; with explicit teardown, 27. Anyone building "one parameter threaded through every voice" hits this.
