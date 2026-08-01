@@ -1313,3 +1313,36 @@ Doc 28 left the build method open. The feasibility proof settles it, and the rec
 ## One bug worth carrying forward
 
 `connect(osc.detune)` holds a strong reference to every oscillator forever. Sixty seconds of music left **799 live note-graphs and climbing**; with explicit teardown, 27. Anyone building "one parameter threaded through every voice" hits this.
+
+
+---
+
+# 50 · DOC 32 IS BINDING — and it found three live bugs
+
+`docs/32-animation.md` is adopted. It governs chores, arbitration, interruption, idles, direction and scale, talk, comic reaction and NPC performance.
+
+**The gap it fills:** doc 22 says a chore plays during an interaction and doc 31 makes it step two of every successful action. **Nothing ever said what a chore is.** It is now a named authored timeline with frames, holds, anchoring, markers, an interrupt policy, a skip policy and a deterministic settle pose — not a clip name plus a guessed duration.
+
+## Three live bugs on main
+
+1. **Thad's idle may not be redrawing.** `Actor.update` reports no change for clock-derived idle turnover, so `GameScene` may not repaint him until some unrelated cycling or ambient event happens. **Errata 35b's breath is implemented and may be invisible**, depending on what else in the room happens to move. Fix before judging any idle art.
+2. **`SequenceRunner.cancel()` does not cancel animation.** Clearing the runner leaves `Actor.special` owning the body until its timer expires, so a cancelled cutscene keeps performing.
+3. **`ActorSprite` falls back to the first available clip when one is missing** — a broken build displays an unrelated front idle and looks plausible. Same family as the render nothing regenerated and the check that validated its own assumptions. **Missing required performance becomes a build error.**
+
+## The rules that govern the remaining 26 characters
+
+**"A room satisfies the motion rule with one or more calm, persistent, compositionally appropriate performances. It does not need every figure to loop, and adding more motion can weaken deadpan staging."**
+
+That corrects the direction errata 35a could be read as pointing. 35a stands — every room has at least one animated sprite — but it is a floor, not a target.
+
+**The foot-plant rule:** a transition from locomotion to acting may not freeze a splayed stride, slide the feet into pose, or rotate and change scale in one rendered frame. Reach a planted frame, then turn, then act.
+
+**No runtime mirroring.** Frame-left lighting, costume asymmetry, props and comic eye direction make left-into-right visibly dishonest. Four authored facings.
+
+**Deadpan:** *"Do not fill the reply pause with random flapping. Stillness is a performance state."*
+
+## Precedence
+
+Doc 32 governs animation and performance. It changes no written line, no puzzle solution and no room composition. It upholds errata 35e — motion is never information — and restates it as non-negotiable in its opening.
+
+It also marks doc 15's "three sizes, three views" as stale: errata 24's four directions and two drawn sizes govern, and the current Thad data already follows that structure.
