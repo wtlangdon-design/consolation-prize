@@ -490,13 +490,28 @@ def roadside(canvas: IndexedCanvas, palette: Palette, rng, ground_y: int,
         sack(canvas, 25, ground_y - 7, 11, 12, dust, rng, tone=0.13)
 
     # -- 96 to 150: what was bare. Feed trough, lumber, a leaning crate.
-    with tag("feed trough"):
-        canvas.rect(98, ground_y - 15, 30, 6, pine.frac(0.11))
-        canvas.hline(98, ground_y - 15, 30, pine.frac(0.20))
-        canvas.vline(100, ground_y - 9, 8, pine.frac(0.09))
-        canvas.vline(125, ground_y - 9, 8, pine.frac(0.09))
+    # ERRATA 36 / M: "I can't tell what is to the right of Hob." It was the
+    # FEED TROUGH, and it was unreadable for two reasons at once.
+    #
+    # DEPTH INVERSION. The lumber was drawn AFTER the trough and painted over
+    # 53% of it -- what survived was a 14x6 slab on one 1-pixel leg, a shape
+    # with no name. But the trough's ground contact is y94 and the lumber's is
+    # y92, and lower on screen is nearer in this room, so the trough is the
+    # NEARER object and must be drawn last. The order was backwards, not the
+    # geometry. Swapping them takes the trough from 47% visible to 97%.
+    #
+    # AND IT TOUCHED HIM. Hob's coat ends at x97 and the trough began at x98:
+    # two dark masses 8.6 luminance points apart, sharing a one-pixel seam, on
+    # a verge running 73 to 105. At 320x200 that is one 22-pixel dark mass
+    # with a head on its left third. It starts at x102 now, which puts four
+    # columns of lit ground between them and moves nothing else in the band.
     with tag("lumber"):
         lumber_stack(canvas, palette, 112, ground_y - 4, 22, 5, pine, rng, tone=0.11)
+    with tag("feed trough"):
+        canvas.rect(102, ground_y - 15, 26, 6, pine.frac(0.11))
+        canvas.hline(102, ground_y - 15, 26, pine.frac(0.20))
+        canvas.vline(104, ground_y - 9, 8, pine.frac(0.09))
+        canvas.vline(125, ground_y - 9, 8, pine.frac(0.09))
     with tag("trough crate"):
         crate(canvas, 116, ground_y - 26, 12, 10, pine, rng, base=0.13)
 

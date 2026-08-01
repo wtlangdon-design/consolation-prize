@@ -44,7 +44,7 @@ def load(room_id: str) -> tuple[dict, list[dict]]:
     raise KeyError(f"no room declares id {room_id!r}")
 
 
-def sheet(room_id: str, palette: Palette, rng) -> IndexedCanvas:
+def sheet(room_id: str, palette: Palette, rng, seed_base: int = 0) -> IndexedCanvas:
     """Both frames of every idle figure, laid out as the room JSON declares.
 
     Each figure gets two cells side by side. The cell rects are declared in
@@ -59,7 +59,16 @@ def sheet(room_id: str, palette: Palette, rng) -> IndexedCanvas:
     height = max(frame[1] + frame[3] for figure in figures for frame in figure["frames"])
     canvas = IndexedCanvas(width, height, fill=TRANSPARENT)
 
-    for figure in figures:
+    # THE SEED CONTINUES THE ROOM'S COUNTER. It was never passed at all, so
+    # all four of the Nugget's ANIMATED men were _build(0) -- one hat, one
+    # posture, one girth, one stoop, four times over, and they are the four a
+    # player's eye goes to because they are the ones that move.
+    #
+    # An offset rather than a hash: the painted seven take 0..6 and these take
+    # 7..10, so the room's eleven men occupy eleven consecutive seeds and no
+    # two share a build. Hashing the id would be tidier and it collides --
+    # crc32 % 97 puts two of these four on the same number.
+    for index, figure in enumerate(figures):
         for pose, frame in enumerate(figure["frames"]):
             fx, fy, fw, fh = frame
             # Feet on the cell's bottom row, centred. The engine places the
@@ -67,9 +76,11 @@ def sheet(room_id: str, palette: Palette, rng) -> IndexedCanvas:
             # `at` says on screen.
             if figure["kind"] == "seated":
                 crowd.seated(canvas, palette, fx + fw // 2, fy + fh - 1,
-                             figure["height"], rng, pose=pose)
+                             figure["height"], rng, pose=pose,
+                             seed=seed_base + index)
             else:
                 crowd.standing(canvas, palette, fx + fw // 2, fy + fh - 1,
                                figure["height"], rng, pose=pose,
-                               glass=bool(figure.get("glass")))
+                               glass=bool(figure.get("glass")),
+                               seed=seed_base + index)
     return canvas

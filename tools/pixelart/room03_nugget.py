@@ -255,6 +255,11 @@ BAR_PATRONS = ((235, 116, 24), (266, 117, 25), (292, 115, 23))
 #: the far side rather than standing behind it, because a standing man there
 #: lands in front of the stove and the stove is the one lit thing on that wall.
 TABLE_PATRONS = ((152, 0, 15), (95, 1, 16), (131, 1, 15), (113, 1, 14))
+#: How many seeds the PAINTED men consume, so the animated four can carry on
+#: from there instead of all starting at zero. Derived, not written down: a
+#: literal here would be a second copy of a number that already exists three
+#: lines up and would stop agreeing with it on the first edit.
+#: (assigned below the tables it counts)
 #: Doc 16's man beside the stove, who has not taken his coat off since Thad
 #: arrived in the territory. Doc 19 makes him one of the eleven, not a twelfth.
 #: Left of the stove, not right: the coat hooks are on the right and a man
@@ -264,6 +269,10 @@ FLOOR_PATRONS = ()
 #: landing." Seventh tread of nine, which is as near the top as the frame
 #: has -- the stairs climb out of it and so does the landing.
 LANDING_MAN = (207, 47, 20)
+
+#: The painted seven's seeds are 0..6, so the animated four take 7..10 and the
+#: room's eleven men occupy eleven consecutive seeds with no repeated build.
+PAINTED_SEEDS = len(BAR_PATRONS) + len(TABLE_PATRONS) + len(FLOOR_PATRONS)
 #: Deke Vessel, doc 27, mid-floor in front of the stair's foot. He OPENS the
 #: scene, so he stands clear of the furniture and of the vacated table -- a
 #: man who speaks first has to be the man the eye lands on first.
@@ -494,7 +503,8 @@ def main() -> None:
     canvas.save(OUT / "room-03-nugget.png", palette)
     canvas.save(OUT / "room-03-nugget@4x.png", palette, scale=4)
     FOREGROUND.save_rgba(FOREGROUNDS / "room-03-nugget.png", palette)
-    sheet = idles.sheet("nugget", palette, random.Random(SEED ^ 0x20))
+    sheet = idles.sheet("nugget", palette, random.Random(SEED ^ 0x20),
+                        seed_base=PAINTED_SEEDS)
     sheet.save_rgba(idles.SHEETS / "room-03-nugget.png", palette)
     sheet.save(OUT / "room-03-idle-sheet@6x.png", palette, scale=6)
     print(f"wrote {(OUT / 'room-03-nugget@4x.png').relative_to(ROOT)}")

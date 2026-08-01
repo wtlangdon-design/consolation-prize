@@ -36,7 +36,8 @@ def frame_index(figure: dict, when: Fraction) -> int:
 def main() -> None:
     palette = Palette.load()
     base, _, _ = room03_nugget.compose()
-    sheet = idles.sheet(ROOM_ID, palette, random.Random(room03_nugget.SEED ^ 0x20))
+    sheet = idles.sheet(ROOM_ID, palette, random.Random(room03_nugget.SEED ^ 0x20),
+                        seed_base=room03_nugget.PAINTED_SEEDS)
     _, figures = idles.load(ROOM_ID)
 
     # Every instant any figure changes pose.

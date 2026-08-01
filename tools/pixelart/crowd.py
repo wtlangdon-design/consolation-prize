@@ -246,11 +246,20 @@ def standing(
     arm_len = max(4, torso_h - 2)
     near = x + side * (shoulder_w // 2) + lean
     far = x - side * (shoulder_w // 2) + lean
-    if posture == "bar_lean" and rail_y is not None:
-        # Forearm ON the rail. The horizontal is the most legible thing a
-        # figure this size can do, and it is what says "leaning on the bar"
-        # rather than "standing near the bar".
-        elbow = min(rail_y - 1, arm_top + arm_len // 2)
+    if posture == "bar_lean":
+        # Forearm out and down, and ON the rail when there is one. The
+        # horizontal is the most legible thing a figure this size can do.
+        #
+        # THE GUARD USED TO BE `and rail_y is not None`, which meant every
+        # bar_lean figure with nothing to lean on fell through to the `else`
+        # branch and got the turned man's single hidden arm. The body commits
+        # to the posture unconditionally -- the lean, the stride and the
+        # crossed ankle are all drawn above -- so the arm was disagreeing with
+        # the body it is attached to, on every standing call in the game
+        # except the three at the Nugget's bar. Posture 0 of 4 is a quarter of
+        # every cast, and it was the one that looked deliberate.
+        elbow = (min(rail_y - 1, arm_top + arm_len // 2) if rail_y is not None
+                 else arm_top + arm_len // 2)
         canvas.vline(near, arm_top, max(2, elbow - arm_top), cloth.frac(max(0.04, base - 0.05)))
         canvas.hline(min(near, near + side * 4), elbow, 5, cloth.frac(max(0.04, base - 0.02)))
         canvas.put(near + side * 4, elbow, skin.frac(0.26))
