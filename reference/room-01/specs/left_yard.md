@@ -453,14 +453,16 @@ Specific to this region, in roughly the order it will happen.
 
 Things in this rect that only work if the neighbouring region agrees.
 
-- **The corral fence continues right.** Rails at y ≈ 81, 85, 89, 92–93 exit at x=87 and must
-  arrive at the same rows in the next region. The capped post at x 70–72 is the last one that is
-  ours.
-- **The gantry beam continues right.** Three rows, y 54–56, lit face at y 55–56, unbroken across
-  x=87.
-- **The man's lantern is a shared light.** Its source is at x 83–87, y 84–91 — inside this rect —
-  and the pool it throws at x 74–87, y 100–115 is the brightest sustained area we own. Both must
-  be authored once and match across the seam. The man himself begins at about x=88.
+- **Nothing structural crosses the right seam.** Both the corral fence (ends x=72) and the gantry
+  beam (ends x≈82) terminate inside this rect. The next region starts clean at x=88 with open
+  ground and the man. Do not draw either element as if it continued — and check that neither has
+  been *extended* to the edge to "meet" a neighbour that is not expecting it.
+- **The man's lantern is a shared light and it is ours to draw.** Its source sits at x 80–88,
+  y 78–95 with the flame core at x 83–87, y 84–91 — inside this rect. The man holds it out to
+  his right, well clear of his body; **he** begins at about x=93 and is not ours, so the lantern
+  must be authored here and must not be duplicated next door.
+- **The lantern pool is continuous across the seam.** x 74–87, y 100–115, mean L 79. It is the
+  brightest sustained area we own and it keeps brightening rightward.
 - **The lit ground ramps across the seam.** Mean L climbs 42.5 → 50.0 across the last two column
   bands and keeps climbing to the right. Terminating the ramp at the rect edge will show.
 - **The ridge crest passes through the top of the rect** at y=34, x 26–28. It belongs to `range`;
