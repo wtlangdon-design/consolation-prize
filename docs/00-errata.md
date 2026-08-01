@@ -1244,3 +1244,36 @@ Surfaced by Room 1's sky work. **These are facts about the locked 256, not defec
 2. **The near range wants luminance 13 with blue in it. The palette does not contain it.** `accent_indigo`'s floor is 21.7 and `sky`'s is 52.7.
 
 **The palette is not reopened.** It is locked, six other rooms depend on it, and both gaps are narrow. They are recorded so that a future pass reads this instead of rediscovering them, and so that a room failing ruling 42's shape test in those specific buckets is understood as constrained rather than badly drawn.
+
+
+---
+
+# 48 · DOC 31 IS BINDING — the order of a successful action is inverted
+
+`docs/31-puzzle-feel.md` is adopted. It governs puzzle advertisement, response gradients, success performance, near misses, Act II pacing, recoverability and tension.
+
+## The two findings, neither of which any ruling here caught
+
+**1. The visible order is backwards.** The build writes flags inside resolution and applies object state and inventory **before the line finishes**. A puzzle is therefore mechanically solved before it has been performed, and the player sees consequence before cause.
+
+**Canonical order, binding:** stage · chore · sound · line · object state · flags · inventory · settle. The player sees the physical act, hears it, hears what Thad makes of it, and *then* the world changes.
+
+**2. There are six outcome classes and we have two.** Ours are "authored response" and "pool." Doc 31 distinguishes `COMIC_NOOP`, `WRONG`, `PLAUSIBLE_WRONG`, `RIGHT_TOO_EARLY`, `NEAR_MISS` and `SUCCESS`.
+
+**This is what makes doc 02's A5 work.** Bait, smoke and Pratt are not three refusals — they are three different kinds of wrong, and the current engine can only render them identically. A near miss confirms a hypothesis without naming the answer; a comic dead end rewards curiosity without implying progress; and nothing in the interface distinguishes them, which is the point.
+
+## What it protects, correctly
+
+Doc 31 opens by naming the two invariants I most feared an outside document would erode: **there is no hint system and never will be**, and **roughly forty percent of selectable options and many authored combinations do nothing on purpose and are the product.** It forbids labelling, highlighting, scoring or "fixing" either. It also upholds errata 35e — motion is never information — and doc 05's rule that the three load-bearing LISTEN lines carry no emphasis.
+
+**Its audit verdict is accepted:** the content layer already values specific jokes and safe structure; the engine is the blocker, not the prose.
+
+## Migration
+
+Its section 14 order stands: resolver, schema, permission validator, transaction and trace first — then **A5 as the reference vertical slice**, then the five tagged combinations, then the 45-puzzle manifest.
+
+**Do not populate the manifest before the resolver exists.** A graph that passes reachability while every success falls through a pool is the exact false pass doc 31 warns about, and the existing checker's honesty about being inert must survive.
+
+## Precedence
+
+Doc 31 governs what the player perceives when the puzzle systems run. **It does not change any puzzle solution or any written line** — docs 02, 13, 14, 24 and the room content documents are unaffected, and doc 31 says so. Where it conflicts with an earlier ruling on feedback or performance, doc 31 wins.
