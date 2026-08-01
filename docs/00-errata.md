@@ -1083,3 +1083,164 @@ A mean cannot see this. Two distributions with identical means, identical varian
 This is the fifth time this project has been bitten by a measurement that looked like a finding — the keyline anchor, the contaminated samples, the control that was not a control, luminance parity across a hue difference, and now five agreeing statistics over a hollow distribution. **The instrument was correct every time. It was not measuring the thing that was wrong, every time.**
 
 The practical consequence, for anybody adding a check: *state what shape of failure your check cannot see, in the check.* Every instrument in this project now carries that note, because the fifth instance was found by eye after three critics had already found it, and only then explained by a measurement nobody had thought to take.
+
+
+---
+
+# 43 · CONSOLATION GETS THREE STREET SCREENS, NOT ONE
+
+Doc 20 gave the town **one** street. Everything not on it — the Registrar, the livery, the church, Ozymandia's tent, the undertaker's, the six ancillary interiors — was reached through the map screen.
+
+**That was solving a problem that should not have existed.** The map was introduced because I had let the town outgrow its one street, and a menu is a weaker answer than walking. Monkey Island had four or five outdoor screens on Mêlée and you walked between them; that is a large part of why it feels like a place.
+
+**Room 2's approved composition has also overtaken the decision** — it has a road running off toward the lower right and an alley you can see through. Both promise a town that continues.
+
+## Canonical
+
+**Three connected street screens. Consolation is walked, not selected.**
+
+| # | Screen | Off it |
+|---|---|---|
+| **2** | **Main Street** — the hub, unchanged | The Nugget · the Clarion · the Improvement Company · the mercantile · the hotel · the assay office |
+| **2b** | **Lower Street** — east end of Main Street, through the receding road | The Claims Registrar · the livery stable · the church & meeting hall · the back alley |
+| **2c** | **The Lane** — off Main Street's alley, a narrower back street | The undertaker's · Ozymandia's tent · the photographer's · the barber's · the empty storefront |
+
+**Walking order, west to east: Room 1 · Main Street · Lower Street.** The Lane runs off Main Street's alley, perpendicular, and connects through to Lower Street at its far end — so the three form a loop rather than a corridor, and a player can go round rather than back.
+
+## What the map keeps
+
+**Long-distance travel only, which is what MI's map was for:**
+
+- The road to the claims and everything beyond it — Prosperity, Pratt's claim, the creek, the abandoned row, the ridge, Mott's site, Sheng's laundry
+- Boot Hill
+- The remaining ancillary interiors that sit on no street — the boarding house parlour, the bakehouse, the schoolhouse
+
+**Everything in town is now walkable.** Doc 20's rule 3 still governs what appears on the map; it simply has far less to hold.
+
+## Consequences
+
+- **Room 2's east exit goes to Lower Street**, not to a map entry. It is the receding road at frame right in the approved composition.
+- **Room 2's alley is a real exit**, to the Lane. It is already drawn as a slot you can see through.
+- **Room 20, the back alley, moves** — it opens off Lower Street rather than Main Street's east end.
+- **Errata 31c is amended.** "Everything visible from Main Street appears on the map the first time Thad stands on Main Street" now covers far fewer locations, because most of them are reachable on foot and need no map entry at all.
+- **Two more composed screens**, both exteriors, both day. They inherit Room 2's palette script, camera relationship and material identity — they are the same street, further along.
+
+## Why this is worth two rooms
+
+A town you walk through has elsewhere in it. A town with a menu has a list. Forty-two screens becomes forty-four, and the two added are the cheapest kind — same time of day, same materials, same camera, and the component library already draws everything they need.
+
+
+---
+
+# 44 · DOC 29 IS BINDING — with two exceptions
+
+`docs/29-movement.md` is adopted. It identifies a gap nothing in this errata named, and its section 12 is the finding:
+
+> **Exits still end too early.** Thad walks to the exit, faces it, and the room changes. He never *crosses* anything, and at the destination he is placed rather than revealed.
+
+Everything ruled here about geography — 20, 31c, 43 — concerned **where** rooms connect. Doc 29 is about **how**, and the missing egress and ingress beats are why a transition reads as swapping paintings under a stationary man rather than a man walking through a door.
+
+**The four-point separation is the core of it and is adopted whole:** approach, threshold, egress and settle are four different coordinates and one cannot do all four jobs.
+
+## The two exceptions
+
+**44a · The map stays an instant menu with no actor token.** Doc 29 correctly frames this as a tradeoff rather than an error. Errata 43 has just reduced the map to long-distance travel only — the diggings, Boot Hill, and the few interiors on no street — because the town is now walked across three connected street screens. A four-pixel token needs paths, discovery gates, destination triggers and a travel speed, to compress a journey the player now makes on foot everywhere it matters.
+
+**Doc 29's condition is accepted with it:** if the map stays instant, local street-to-street and door transitions must carry more continuity work. That is exactly what the rest of this ruling requires.
+
+**44b · Section 13.2's note on the alley is superseded by errata 43.** Doc 29 says the alley "need not be an exit" and warns against a misleading hotspot. It **is** an exit — to Room 2c, the Lane — and it needs a real walk lane, a paired entrance and enough width for Thad's far-scale silhouette. Doc 29's requirements for a traversable alley apply in full.
+
+## What this changes about Room 1
+
+Doc 29 §13.1 is stronger than doc 17 on the arrival and doc 17 yields to it:
+
+- Thad must be **visibly associated with the coach** — seated, descending, or standing beside it as the case comes down. Doc 17 v3 already asks for this and the current build does not do it.
+- **The coach must not be deleted on the frame of the final dialogue click.** It moves far enough that departure is understood, then `T_COACH_DEPARTED` commits. Errata 38's `move` step exists for this.
+- **The act card waits** until the arrival blocking has established place and character.
+- **The exit to Main Street uses the road's real perspective lane** — Thad walks into depth, scales down, reaches an occluded bend, and Main Street receives him at its west entrance.
+
+## Precedence
+
+Doc 29 governs movement, transitions, entrances, exits and room-authoring data. Where it conflicts with an earlier errata ruling on those subjects, **doc 29 wins** unless named above.
+
+Its authoring defaults — approach distances, egress endpoints, ingress walks, turn holds — are explicitly project starting points, not historical measurements. Tune them at native scale.
+
+
+---
+
+# 45 · DOC 30 IS BINDING — and it caught a data-model failure that would have deleted written content
+
+`docs/30-dialogue-presentation.md` is adopted. It governs dialogue presentation, pacing, barks, comic timing and the sentence line.
+
+## The finding, and it is serious
+
+**`DialogueOption.repeat` is a single string. Doc 04's Winnie tree needs five.**
+
+Ask her about the raccoon and she refuses. Ask again and she refuses differently. On the fifth she cracks — *"What's its name."* — and it is one of the best beats in the game, reachable only by a player being persistent. **The runtime can hold one repeat response and the other three are unrepresentable.**
+
+Errata 37 ruled which options survive exhaustion. **Nobody checked whether their repeat responses could exist at all.** Boolean exhaustion becomes per-option selection counts, with repeat exchanges clamping at the last authored variant.
+
+This would have shipped as content silently missing rather than as a failure. It is the sixth instance of an instrument being correct while not measuring the thing that was wrong — and this time the instrument was my own ruling.
+
+## Three things it corrects that I had wrong
+
+1. **Selecting an option must make Thad SAY it**, over his own head, before the reply. Ours sends the selection silently. The manual is literal: the player chooses what the protagonist says.
+2. **Speech is anchored over the speaker in that speaker's colour**, following actor position and scale — not a top-centre subtitle band, which is what ours is.
+3. **`DialogueTransaction`.** State writes are reserved on selection and committed only when the exchange drains. Without it the coach begins departing underneath *"Wasn't for you."* — a bug we would have shipped and blamed on timing.
+
+## The one exception
+
+**45a · Speaker name labels stay off by default**, as doc 30 already specifies, and the accessibility option that enables them must not become the default answer to a contrast problem. Doc 30 says this; it is restated because it is the rule most likely to be relaxed by someone trying to fix legibility quickly.
+
+## Precedence
+
+Doc 30 governs presentation and pacing. **It does not touch what characters say** — doc 04, doc 05 and the room content documents are unaffected, and doc 30 says so.
+
+Where doc 30 conflicts with an earlier errata ruling on presentation or timing, doc 30 wins. Errata 37 is preserved intact and doc 30 implements it.
+
+Its numeric defaults — the 0.45s + 0.055s/glyph hold, the 150ms input guard, the 240px speech width — are stated as Consolation starting values to tune at native resolution, not historical measurements.
+
+
+---
+
+# 46 · THE REFERENCE'S OWN FAMILY USE IS THE CHECK — and ruling 41 caused the defect it catches
+
+## What happened
+
+Room 1's night sky was painted with 1,089 pixels of `accent_teal` and all four critics independently called it **green speckle**.
+
+**Ruling 41 asked for it.** I wrote "every luminance check gains a saturation companion." **Saturation is a magnitude and carries no hue.** An author closing a genuine chroma gap reached for the most saturated cold entry in the locked 256, the number moved the right way, and the sky went green. They even rendered both densities and looked — judging 0.20 invisible and 0.22 "plainly green," which is one notch past where an eye that has been staring at a trade-off can still see it.
+
+**My instrument caused it. This is the sixth instance of the pattern and the first where the pattern was my own ruling.**
+
+## The first fix was the same error one level up
+
+A mean green-minus-magenta axis scored the sky **+9.0 with the teal in and +8.0 with it entirely removed** — a threshold nothing could reach, measuring a palette limit rather than the defect.
+
+**Eleven hundred pixels cannot move a region mean by one unit while being plainly wrong to look at.** That is ruling 42 arriving from the other direction: a mean cannot see a localised wrong hue any more than it can see a bimodal distribution.
+
+## The ruling — and it needs no threshold
+
+> **Quantise the reference into our own locked palette and record which families it reaches for, per region. A region that paints in a family the reference never uses there fails.**
+
+The re-quantised reference is the best this exact 256 can do with this exact picture. If it reaches for `accent_teal` in the sky **zero times out of 15,360 pixels**, neither may we.
+
+- **No threshold, no axis, no tuned constant.** The bar answers the question.
+- Foreign pixels at adoption: sky 1,089, range 792, town 79. Now zero.
+- **The cost is recorded rather than hidden:** sky saturation 0.70 → 0.65, range 0.66 → 0.60. **A slightly dull blue sky is a smaller error than a green one.**
+- **This generalises to every room with a reference**, and it is the first check in the project that needs no number chosen by a person.
+
+## Ruling 41 is amended
+
+Its rule 1 stands — saturation must be reported beside luminance. **But saturation may never be used as a target to close.** A chroma gap is closed by choosing the right family, and the reference's own family use decides which family that is.
+
+---
+
+# 47 · TWO PALETTE LIMITS, RECORDED SO THEY ARE NOT RE-LITIGATED
+
+Surfaced by Room 1's sky work. **These are facts about the locked 256, not defects in the drawing, and no amount of composition fixes them.**
+
+1. **The night sky's second luminance bucket stays hollow.** The only cold entry in that window carries no chroma at all, so the bucket can be filled with grey or left empty, and grey is worse.
+2. **The near range wants luminance 13 with blue in it. The palette does not contain it.** `accent_indigo`'s floor is 21.7 and `sky`'s is 52.7.
+
+**The palette is not reopened.** It is locked, six other rooms depend on it, and both gaps are narrow. They are recorded so that a future pass reads this instead of rediscovering them, and so that a room failing ruling 42's shape test in those specific buckets is understood as constrained rather than badly drawn.
