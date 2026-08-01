@@ -90,10 +90,11 @@ LUMINANCE_PER_STEP = 6.0
 #: pass produces may cross it.
 CEILING = 126.0
 
-#: road.md §4.2's hard left cut. The pool is at full strength right of the
-#: post and gone by the time it clears it.
-CUT_FULL_X = 62
-CUT_DEAD_X = 50
+#: road.md §4.2's hard left cut, and the falloff itself, now live in
+#: layout.pool_excess -- ONE number in ONE place, because `road` reads the
+#: same fit to author the pool at the value that survives this pass, and the
+#: two files had drifted into meaning different things by it. See that
+#: function; the whole of what used to be `_excess` is in it.
 
 #: hob.md §6. The contact row loses about four ramp steps; the occlusion
 #: notch loses about one. Both are declared as attenuations of the field,
@@ -122,7 +123,7 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
 
     for y in range(top, bottom):
         for x in range(left, right):
-            excess = _excess(x, y, pool_x, pool_y)
+            excess = layout.pool_excess(x, y, drift)
             if excess <= 0.0:
                 continue
             if notch_x <= x < notch_x + notch_w and notch_y <= y < notch_y + notch_h:
@@ -146,22 +147,6 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
             if steps <= 0:
                 continue
             canvas.put(x, y, _lift(palette, index, steps))
-
-
-def _excess(x: int, y: int, pool_x: int, pool_y: int) -> float:
-    """Luminance above the road's own ambient at a point, after the left cut."""
-    dx = (x - pool_x) / layout.POOL_ASPECT
-    dy = y - pool_y
-    rho = (dx * dx + dy * dy) ** 0.5
-    if rho <= layout.POOL_PLATEAU_RHO:
-        excess = layout.POOL_PLATEAU_L - layout.POOL_AMBIENT
-    else:
-        excess = layout.POOL_EXCESS / (1.0 + (rho / layout.POOL_HALF) ** 2)
-    if x < CUT_FULL_X:
-        if x <= CUT_DEAD_X:
-            return 0.0
-        excess *= (x - CUT_DEAD_X) / (CUT_FULL_X - CUT_DEAD_X)
-    return excess
 
 
 def _lift(palette, index: int, steps: int) -> int:

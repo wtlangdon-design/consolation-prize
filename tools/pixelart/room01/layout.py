@@ -144,9 +144,17 @@ FAR_CREST = ((0, 31), (4, 30), (12, 35), (27, 29), (40, 29), (49, 31),
 #: The vertical gap between the two crests averages 6.7 px and widens from
 #: about 4 on the left to about 10 on the right. THAT GAP IS THE ENTIRE DEPTH
 #: CUE. The lit face's apex at (157, 42) is on this crest.
+#:
+#: THE x 182-260 RUN IS NOT DEAD FLAT. It was: two control points 40 px
+#: apart both at y=47, which drew a ruled line across the one stretch of the
+#: near crest the coach does not hide. The bar wanders +/-3 px across
+#: x 176-215 -- y 44-45 at x 178-190, y 49-50 at x 200-215 -- and that
+#: wander is the only thing telling a viewer the ridge is ground rather than
+#: a card. Two points restore it without moving the run's mean.
 NEAR_CREST = ((0, 44), (14, 39), (27, 35), (44, 40), (60, 44), (85, 46),
               (110, 45), (130, 44), (145, 44), (157, 42), (170, 45),
-              (182, 47), (222, 47), (260, 47), (300, 48), (319, 48))
+              (182, 47), (188, 45), (208, 49), (222, 47), (260, 47),
+              (300, 48), (319, 48))
 
 
 def _crest(points: tuple[tuple[int, int], ...], x: int) -> int:
@@ -352,6 +360,20 @@ MATERIALS: dict[str, tuple[str, int]] = {
     "star_bright": ("umber", 14),               # L 98
     "star_mid": ("dust", 5),                    # L 61
     "star_faint": ("dust", 1),                  # L 33
+    # ...and about one star in twenty is COOL, in the mid tiers only.
+    # sky.md §5. Six of them. The whole-frame study §7 says there is no cold
+    # or neutral star in the frame and it is right about the TIERS -- every
+    # star shares a lamp's palette entry -- but the bar still puts a handful
+    # of blue-greys in the field, at 52.7 and 61.2, sitting on the warm mid
+    # tiers `dust` 4 and 5 at 53.3 and 61.3. Same value, different family:
+    # the ONE place in the sky where hue does the work value cannot.
+    # `sky` 0 and 1 are the two entries; the region reads them as steps of
+    # this material, so all three star tiers are named and none is a naked
+    # index. sky.md §4 also offers accent_indigo 2 for faint stars and that
+    # one is REFUSED here rather than named: 239 is the first entry of the
+    # puddles' reserved band (§5), and a star drawn in it would join the
+    # road's cycle.
+    "star_cool": ("sky", 0),                    # L 52.7, and step 1 at 61.2
 
     # -- ranges. range.md §4. The near range must be EXPLICITLY grey 0: left
     #    to a nearest-colour pass, half of it lands on accent_indigo 0 and the
@@ -364,6 +386,14 @@ MATERIALS: dict[str, tuple[str, int]] = {
     # -- town. town.md §5. The town is a GREY thing standing on a BLUE thing
     #    at nearly the same value, which is why it reads as material rather
     #    than as atmosphere. Author it cold and punch warm holes.
+    # The two most-used cool colours in the whole band, per the locked-palette
+    # proof, and neither had a name: `town` was stepping accent_indigo
+    # directly in _mass_dark and _roof_ink with the citation in a comment.
+    # A cited naked family step is still a naked family step -- the audit
+    # below cannot see it, temperature() cannot classify it, and the next
+    # author to read the table will not know the entries are spoken for.
+    "town_mass_dark": ("accent_indigo", 0),     # L 21.0; the mass behind the roofs
+    "town_roof_sky": ("accent_indigo", 1),      # L 33.8; roof planes facing the dome
     "town_trough": ("grey", 0),                 # L 16; the darkest band above the road
     "town_wall": ("grey", 1),                   # L 24.5; walls in shade
     "town_wall_lit": ("grey", 2),               # L 32.5
@@ -384,6 +414,29 @@ MATERIALS: dict[str, tuple[str, int]] = {
     "pool_core": ("mud", 18),                   # L 123; x 79-93, y 104-110 only
     "road_ambient": ("mud", 3),                 # L 27; the road just outside the pool
     "verge_mud": ("grey", 0),                   # L 16; x < 60, near-black
+    # -- the mid-ground plane, and it is COLD. §8's ladder puts the valley
+    #    floor and the mid-ground between the near range and the road, and
+    #    they take the cold side of the ground line: measured on the bar's
+    #    open ground at x 105-135, rows 70-81 run L 29-40 at warmth -19 to
+    #    -20, and the backdrop above the team at x 196-233 runs L 13-29 at
+    #    warmth -21 to 0. Authored warm it is the same hue AND the same value
+    #    as the hide, the rails and the coach standing on it, and §9's whole
+    #    separation scheme -- 40 units of hue across a 7-unit value step --
+    #    has nothing left to work with.
+    #
+    #    TWO ENTRIES, DITHERED AT VALUE. dither.py's rule is two adjacent
+    #    steps of one ramp, and the reason is speckle: mixing distant steps
+    #    scatters. These two are mixed at MATCHED VALUE and differ only in
+    #    hue -- grey 2 at L 32.3 against accent_indigo 1 at L 33.8, one and a
+    #    half luminance apart -- which is the one case the rule is not about.
+    #    The palette holds exactly one blue-dominant entry below L 40 and it
+    #    is accent_indigo 0; there is no single index anywhere in the locked
+    #    256 at L 30 and warmth -19, so the blueness has to be mixed or given
+    #    up. The pairing is EXPLICIT rather than nearest-in-family, because
+    #    nearest-in-family for grey 3 is accent_indigo 2 -- the first entry
+    #    of the puddles' reserved band (§5).
+    "valley_floor": ("grey", 1),                # L 24.3; the neutral half
+    "valley_floor_blue": ("accent_indigo", 0),  # L 21.0; the blue half
     "stone": ("grey", 2),                       # sat 0.20 against mud's 0.48
     "stone_top": ("grey", 4),                   # the 1 px pale top edge IS the stone
     # standing_water has no entry here on purpose. It is PUDDLE_BAND and
@@ -467,9 +520,15 @@ WARM_MATERIALS = frozenset({
 #: characterful thing about the foreground.
 COLD_MATERIALS = frozenset({
     "night_sky", "night_sky_horizon",
+    # The cold counterpart to the three warm star tiers. WARM_MATERIALS is
+    # not the whole star field: about one in twenty is a blue-grey at the
+    # same value as the warm mid tier it sits beside. See MATERIALS.
+    "star_cool",
     "far_rock", "near_rock", "near_rock_lit_mid", "near_rock_lit",
+    "town_mass_dark", "town_roof_sky",
     "town_trough", "town_wall", "town_wall_lit", "town_roof", "town_roof_bright",
-    "verge_mud", "stone", "stone_top", "timber_cap",
+    "verge_mud", "valley_floor", "valley_floor_blue",
+    "stone", "stone_top", "timber_cap",
     "weathered_rail", "rail_highlight", "back_post_lit",
     # The roof rail is a horizontal top surface and the only light reaching it
     # is the sky, exactly like the hitching rail's top face two regions left --
@@ -606,6 +665,57 @@ def pool_luminance(x: float, y: float) -> float:
     if rho <= POOL_PLATEAU_RHO:
         return POOL_PLATEAU_L
     return POOL_AMBIENT + POOL_EXCESS / (1.0 + (rho / POOL_HALF) ** 2)
+
+
+#: road.md §4.2's hard left cut. The pool is at full strength right of the
+#: sign post and gone by the time it clears it; left of the post it drops
+#: 25-38 L within 15 px. Lived in `lightpass` and, separately, in `road`.
+POOL_CUT_FULL_X = 62.0
+POOL_CUT_DEAD_X = 50.0
+
+
+def pool_excess(x: float, y: float, drift: float = 0.0) -> float:
+    """WHAT THE LIGHTING PASS ADDS AT A GROUND PIXEL. One number, one place.
+
+    THIS FUNCTION EXISTS BECAUSE TWO REGIONS READ THE SAME CONSTANT AND MEANT
+    DIFFERENT THINGS BY IT, which is the failure mode a shared contract is
+    supposed to make impossible and this one did not.
+
+    `pool_luminance` above is hob.md §5's fit and it is an ABSOLUTE ground
+    luminance -- L = 27 + 97/(1+(rho/6.2)^2) -- because that is what the
+    lamp's author needed and what the reference was measured as. But the
+    lighting pass ADDS, and by the time it runs `road` has already authored
+    the same pixels at road.md §4.1's depth model, which puts the open road
+    at 48 at the top of the band and 34 at the bottom edge. Adding 97 to a
+    road already at 44 reaches 141 where the reference reaches 122; road.md
+    §4.2 fits the same light as an excess and peaks at +51, not +97.
+
+    Measured on the composite before this function existed, the pool was
+    +27 to +37 L over the bar along its whole upper edge (x 76-95, y 94-99)
+    and its core was 17 L SHORT, because the fringe was double-counted and
+    the core then saturated against the ceiling. Both errors are the same
+    error: an absolute used as an increment.
+
+    So the increment is derived rather than declared -- the absolute the
+    reference was fitted at, less the value the road is already authored at,
+    at that row. Nothing is added where the road already stands above the
+    fit, which is what "the pool has an edge" means in a frame whose road is
+    lit from behind as well.
+
+    AND THE PER-PIXEL TEXTURE SURVIVES, which the alternative loses. Lifting
+    each pixel TO the absolute would flatten every rut trough inside the pool
+    to one plateau; subtracting the row's MODEL and adding the difference
+    keeps each pixel's own deviation from that model -- §3.5's two-step rut
+    amplitude, §9's grain, §2's scatter -- intact and simply lit.
+    """
+    excess = pool_luminance(x - drift, y) - road_luminance(y)
+    if excess <= 0.0:
+        return 0.0
+    if x < POOL_CUT_FULL_X:
+        if x <= POOL_CUT_DEAD_X:
+            return 0.0
+        excess *= (x - POOL_CUT_DEAD_X) / (POOL_CUT_FULL_X - POOL_CUT_DEAD_X)
+    return excess
 
 
 # -- the road's own unlit value field. road.md §4.1, measured on mud only in
@@ -1012,4 +1122,13 @@ SKY_CEILING_EXEMPT = (
     # L 27.5, and it is the entire depth read between the near and far
     # animals. The bridle spark is L 85 in three pixels.
     (152, 69, 70, 11),
+    # rail.md §7: the crate and the near post stand ABOVE the bar, inside
+    # SKYLINE_ROWS, and the bar measures them at L 40-59 against a sky p90 of
+    # 33.8 -- so 68 px of lit timber were being stepped down by 33b. They are
+    # neither a hill nor a building meeting the sky: they are near-plane
+    # objects six feet from the viewer, seen against the valley floor rather
+    # than against the dome, and the rule 33b enforces has nothing to say
+    # about them. Crushed, the crate loses its top edge and the post loses
+    # the polarity change at the bar that is the region's depth read.
+    (126, 69, 26, 11),
 )

@@ -14,5 +14,29 @@
     "status": "graybox composed; nine authors next",
     "verdicts": {},
     "gaps": {}
+  },
+  {
+    "round": 2,
+    "title": "Nine authors, nine regions, drawn",
+    "note": "Every region rewritten from graybox by its own author, seven to fifteen render-look-revise cycles each, then judged blind by a fresh critic that never saw the project. Median perceptual luminance 24.5 against the reference's 26.1.",
+    "status": "held 2 of 9 regions blind",
+    "verdicts": {
+      "sky": "ours",
+      "hob": "ours",
+      "range": "bar",
+      "town": "bar",
+      "left_yard": "bar",
+      "rail": "bar",
+      "team": "bar",
+      "coach": "bar",
+      "road": "bar"
+    },
+    "gaps": {
+      "town": "no building silhouettes \u2014 a per-pixel random field where the reference has hard contiguous rooflines with windows aligned in storey rows.",
+      "road": "the standing water reads as bright blue dashes rather than water lying in ruts.",
+      "range": "the near range carries no lit form \u2014 flat masses, a dead-straight roofline, no light information.",
+      "rail": "the crate has no lit frame; the sky ceiling is crushing its internal range.",
+      "team": "no figure-ground separation \u2014 the animals do not read as three."
+    }
   }
 ]

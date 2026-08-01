@@ -181,19 +181,63 @@ def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # those pixels -- which is why every function in void.py takes a `keep`.
     keep = lambda x, y: layout.keep_at(canvas, x, y)      # noqa: E731
 
-    # The timber's base. It runs off the bottom of the mass into the corner
-    # and is the near plane's own shadow before the near plane exists.
-    void.smear(canvas, 6, 96, 20, 14, keep=keep)
-    void.smear(canvas, 8, 108, 17, 12, keep=keep)
+    # ...AND NEVER OVER THE TWO WAGON WHEELS. This pass runs last, so it
+    # stamps over finished drawing, and left_yard.md §7.6 makes the far
+    # wheel's tyre arc at x 12-21 "the only evidence there are two wheels".
+    # A shadow pool that deletes the object it is the shadow OF is the one
+    # failure mode a whole-frame pass has that no region can see: the region
+    # renders correctly on its own and is gone in the composite.
+    fx, fy, frx, fry = layout.WAGON_WHEEL_FAR
+    nx, ny, nrx, nry = layout.WAGON_WHEEL_NEAR
+    wheels = (
+        (fx - frx, fy - fry, frx * 2 + 1, fry * 2 + 1),
+        (nx - nrx, ny - nry, nrx * 2 + 1, nry * 2 + 1),
+    )
+
+    def clear_of_wheels(x: int, y: int) -> bool:
+        if keep(x, y):
+            return True
+        return any(x0 <= x < x0 + w and y0 <= y < y0 + h
+                   for x0, y0, w, h in wheels)
+
+    # The timber's base, study §1's 171 px component at x 8-24, y 92-122. It
+    # runs off the bottom of the mass into the corner and is the near plane's
+    # own shadow before the near plane exists.
+    #
+    # ITS FLOOR IS THE VERGE, NOT INDEX 0. The reference measures this
+    # component at L 11-16 (block mean 18.3) and road.md §8 asks that neither
+    # side of the bottom-left corner carry a visible edge. At index 0 it was
+    # 15 luminance below the reference, it was the only place road's measured
+    # verge value became invisible, and the 4x4 rim -- a 30-point checker
+    # against ground at L 25-40 -- read as noise rather than as dark.
+    # `verge_mud` is grey 0 at L 16.0 and warmth 0 against the reference's
+    # 15.1 and +0.2: the same pool, at the value the frame actually has, and
+    # its rim now dithers across about ten luminance instead of thirty.
+    floor = ctx.ink("verge_mud")
+    void.smear(canvas, 6, 96, 20, 14, keep=clear_of_wheels, floor=floor)
+    void.smear(canvas, 8, 108, 17, 12, keep=clear_of_wheels, floor=floor)
     # The gantry upright's channel, continuous with the shadow slot above it.
-    void.smear(canvas, 25, 66, 12, 10, keep=keep)
-    void.smear(canvas, 25, 78, 12, 12, keep=keep)
+    #
+    # FLAT, AND IT STOPS AT x=30. layout.SHADOW_SLOT is x 25-29 and nothing
+    # wider: x 31-36 is the signboard's lit face, and left_yard.md §3.1 makes
+    # the board's left edge the single most important edge in the region.
+    # These two pools were twelve wide and dithered, so they put an ordered
+    # checkerboard across six columns of that face -- §5 measures zero
+    # checkerboard content anywhere in the rect -- and softened the one edge
+    # the region is built on. The slot's core measures flat near-black; a
+    # gap between two solids has no floor to dissolve into.
+    slot_x, _, slot_w, _ = layout.SHADOW_SLOT
+    void.smear(canvas, slot_x, 66, slot_w, 10, keep=keep, solid=True)
+    void.smear(canvas, slot_x, 78, slot_w, 12, keep=keep, solid=True)
     # The left structure read against the sky, from the top tread down.
     void.smear(canvas, 11, 43, 14, 5, keep=keep)
     # rail.md §2.7's pocket is the ground both bright bars are read against,
     # and its floor is what makes them read. It is a POCKET, not a hole:
-    # measured mean L 28.4, so only its deepest corner goes to void.
-    void.smear(canvas, 130, 96, 26, 6, keep=keep)
+    # measured mean L 28.4, so ONLY ITS DEEPEST CORNER goes to void. The
+    # rect was 26 x 6 and took 60-90% of x 130-155 / y 96-101 -- the bucket
+    # and the pocket floor -- to index 0, against a measured mean of 28.4,
+    # and rail.md §8.11 forbids ordered dither in this region outright.
+    void.smear(canvas, 130, 99, 8, 4, keep=keep)
     # NO POOL UNDER THE COACH. It is the obvious place for one and it is
     # wrong twice over. road.md §4.4: after [depth + lamp pool + left
     # falloff] the residual is within −8…+3 L everywhere in the open road --
