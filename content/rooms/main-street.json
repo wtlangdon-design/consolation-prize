@@ -60,12 +60,12 @@
     },
     {
       "from": "stage_road",
-      "note": "West, into town, and the first time the player sees this screen. Facing east down the street he has just walked into.",
+      "note": "Item 4a. Room 1's exit is road_west, on ITS left edge, so Thad walks west out of the stage road and reaches Consolation from the east. He therefore arrives at THIS street's east end, walking in off the road, and looks west down it. He was placed at x=14 -- the WEST end -- facing east, which put him on the far side of a town he had not crossed yet and made the first screen of the game contradict the second. stub_claims_road enters at the same end for the same reason: east is where the roads are. Doc 29 will give this entrance its four-point approach, threshold, egress and settle; this fixes only WHICH END.",
       "at": [
-        14,
+        308,
         128
       ],
-      "facing": "right"
+      "facing": "left"
     }
   ],
   "staging": [
