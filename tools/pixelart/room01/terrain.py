@@ -401,14 +401,18 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # shipped as the canvas's initial fill. A hole that is one row tall and
     # the colour of the void reads as a hard black rule across the valley,
     # and it is invisible to every region author because it is nobody's row.
-    # ...and the skip yields to a hole. `town` leaves one pixel of its own
-    # rect unpainted at (81, 68), and one pixel of index 0 in the middle of a
-    # lit valley is exactly the kind of thing that survives every check and
-    # is visible at 1x. The town has no `void` material anywhere in its
-    # table, so index 0 inside its rect on this row cannot be anything it
-    # meant.
+    # THE SKIP NO LONGER YIELDS TO A HOLE, because there is no longer a hole
+    # for it to yield to. `town` was leaving (81, 68) unpainted -- its
+    # occlusion rect for the hanging lamp claimed two columns wider than
+    # `left_yard` actually covers -- and this loop grew an escape hatch that
+    # filled any pixel in the town's columns still holding the void index.
+    # That is a repair keyed on THE CANVAS FILL rather than on the drawing:
+    # it made the compose depend on what the canvas started as, so
+    # room01_seams.py -- which composes twice over two fills and diffs --
+    # went on reporting the pixel as unwritten while the render looked fine.
+    # The over-claim is fixed in `town.OCCLUDED`, where it was, and the skip
+    # here is unconditional again.
     town_x, _, town_w, _ = layout.TOWN_MASS
-    hole = ctx.palette.family("void").at(0)
 
     # The row's target luminance, and the two spans it can be reached by.
     # PER ROW, but the value the pixel chases is per pixel: PATCH_L wanders
@@ -468,8 +472,7 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         row_share = warm_share[y]
         for x in range(layout.WIDTH):
             share = row_share[x]
-            if (y < top and town_x <= x < town_x + town_w
-                    and canvas.get(x, y) != hole):
+            if y < top and town_x <= x < town_x + town_w:
                 continue
             # A patch of ground is a little darker or lighter than the row it
             # is in, and it is patches wide rather than pixels wide. One

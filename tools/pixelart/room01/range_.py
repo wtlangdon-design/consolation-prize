@@ -16,15 +16,17 @@ why layout makes the near range EXPLICITLY grey[0] -- range.md §7.10 records
 that a nearest-colour pass splits the near range 44/42 between grey[0] and
 accent_indigo[0] and merges the two layers into one shapeless mass.
 
-THE CREST IS SMOOTH, NOT JAGGED, and layout's `far_crest`/`near_crest` are
-where that lives: piecewise-linear through measured summits and saddles,
-rounded to a row. Rounding a shallow line produces the measured cadence by
-itself -- a step, then a flat run of about two, then a step. No noise is
-added and none is wanted: a DFT of the reference crest has nothing above
-0.8 px amplitude at any wavelength shorter than 36 px, and 63% of adjacent
-column pairs are dead flat. Sawtooth peaks at 4-8 px spacing are the default
-mental image of a pixel-art mountain and at 320×144 they degrade into what
-looks like dither noise.
+THE CREST IS SMOOTH, NOT JAGGED, BUT IT IS NOT RULED EITHER. A DFT of the
+reference crest has nothing above 0.8 px amplitude at any wavelength shorter
+than 36 px, and 63% of adjacent column pairs are dead flat -- so sawtooth
+peaks at 4-8 px spacing, which are the default mental image of a pixel-art
+mountain, degrade at 320×144 into what looks like dither noise. What the
+measured polyline in layout carries is the long half of that spectrum and
+nothing between 40 and 70 px, which left the near crest 86% flat with one
+ruled run 61 columns long. `CREST_WANDER` puts the missing band back, added
+in float and rounded exactly once, and the whole argument is written out
+there because a previous pass tried it, produced a sawtooth by rounding
+twice, and reverted.
 
 THE BASE IS NOT A LINE. range.md §7.9: the near range is cut by the town
 roofline at y≈51 on the left, runs down behind the town to y≈62 in the
@@ -44,14 +46,21 @@ sees three depths at once. See `_lit_face`.
 completely. Nothing is shaped for that span and nothing should be.
 
 THREE LIT THINGS, NOT ONE, AND THEY ARE ALL THE SAME LIGHT. §2 counts one
-lit FACE and that count is right -- the central cone is the only triangular
-plane with two values inside it. But the bar has two smaller lit incidents
-besides, both measured, both eight rows or fewer, both mid-step: the rim of
-a spur under the left summit (`SPUR_APEX`) and the ground on the far side of
-the right-hand crossing ridge (`BEYOND_TOP`). Every one of them is lit from
-up and to the left, and the whole point of drawing them is that without them
-the near range is a black wall with a stepped top edge across two-thirds of
-the frame. They total about sixty pixels between them.
+lit FACE and that count is right. But the bar has two smaller lit incidents
+besides, both measured, both eight rows or fewer: the rim of a spur under the
+left summit (`SPUR_APEX`) and the ground on the far side of the right-hand
+crossing ridge (`BEYOND_TOP`). Every one of them is lit from up and to the
+left, and without them the near range is a black wall with a stepped top edge
+across two-thirds of the frame. They total about sixty pixels between them.
+
+AND THE SLOPE BREAKS UP AS IT COMES FORWARD. §2 calls layer 2's body flat and
+for the top of the mass it is: measured on the bar over the one clean column
+band, the near range's standard deviation is 0.8 four rows under its own
+crest. Seven rows under it, the same measurement is 4.6, and by seventeen the
+median has climbed from 12.8 to 23.2. That is layout.DEPTH_LADDER's own two
+near-range rows and the whole-frame study's monotonic texture-with-depth, and
+without it the region ends as "sky steps once to the range colour and holds
+flat for eighteen rows", which is what a blind critic called it. See `_scree`.
 
 WHAT THIS REGION KNOWS IT IS SHORT OF, and cannot fix from inside this file:
   - The near range is grey[0] at L 16.0 and blueness 0 against a bar that
@@ -59,9 +68,19 @@ WHAT THIS REGION KNOWS IT IS SHORT OF, and cannot fix from inside this file:
     explains why nothing else will do -- accent_indigo[0] is nearer in RGB
     and would merge layers 1 and 2 into one shapeless mass. The 20 points of
     lost blue are a palette fact on the frame's largest single mass, and it
-    is why the mass reads as a hole rather than as a dark hill.
-  - `layout.NEAR_CREST` and `layout.FAR_CREST` are polylines and rule
-    straight through wander the bar has. See the note above `near_crest`.
+    is the whole of this region's saturation shortfall: measured over the
+    terrain below `layout.far_crest`, ours is 0.58 of the bar's mean chroma,
+    and the far range on its own is within a tenth of it. There is no entry
+    in the locked 256 at L 13 with blue in it -- `pine_green` 0 is the only
+    dark with chroma and it is a third hue family in a frame the study
+    measures as strictly bimodal, so it is refused rather than borrowed.
+  - `layout.FAR_CREST` is a polyline and rules straight through wander the
+    bar has: 78% of columns flat, one flat run 25 columns long. The near
+    crest's version of that is fixed here; the far crest's cannot be,
+    because `sky` cuts its own fill at the same line.
+  - The lit face's two measured steps are 23.7 and 20.4, and the palette has
+    grey 1 at 24.3 and then nothing until grey 0 at 16.0. The face is drawn
+    at one value for the reason written out above `LIT_BRIGHT_SLOPE`.
   - `town`'s dark trough is drawn after this region and takes 28 pixels off
     the lit face's left flank at x 146-152, y 45-49, where the bar has the
     face's bright step.
@@ -69,13 +88,14 @@ WHAT THIS REGION KNOWS IT IS SHORT OF, and cannot fix from inside this file:
 
 from __future__ import annotations
 
+import math
+
 from canvas import IndexedCanvas
 
 from . import layout
 
 
-#: THE CREST CADENCE IS LAYOUT'S AND IT IS LEFT ALONE. Recorded here because
-#: it was tried and reverted, and the next author will have the same idea.
+#: THE CREST CADENCE, AND THE ONE WAY OF ADDING IT THAT DOES NOT SAWTOOTH.
 #:
 #: §2 gives the crest's spectrum -- 2.9 px at wavelength 320, 2.8 at 107, 1.9
 #: at 160, 1.3 at 64, 1.0 at 53, nothing above 0.8 below 36 -- and the mean
@@ -83,28 +103,61 @@ from . import layout
 #: wavelength L contributes 4A/L. Summing gives 0.35, which is §2's measured
 #: 63%-flat / 34%-one-step cadence. `layout.NEAR_CREST` is a polyline through
 #: measured summits and saddles, so it carries the long components and none of
-#: the 53-64 px ones: 0.12 steps per column, 88% of columns dead flat, one
-#: flat run 61 columns long. A ruled line, and "a dead-straight roofline" is
-#: what a blind critic named here.
+#: the 40-70 px ones: 0.13 steps per column, 86% of columns dead flat, one
+#: flat run 61 COLUMNS LONG. That run is a ruled line nineteen per cent of the
+#: frame wide, and "a mechanically regular staircase" is what a blind critic
+#: named here two rounds running.
 #:
-#: Adding the missing components back as sinusoids DOES fix the statistic --
-#: flat 0.88 -> 0.79, worst run 61 -> 18 -- and it makes the picture worse.
-#: Measured against the bar's own near crest over every column the foreground
-#: does not hide, mean absolute error goes 1.14 -> 1.17 px, because a
-#: synthetic wobble has the right amplitude and the wrong phase. Worse, adding
-#: a continuous offset to an ALREADY-ROUNDED polyline double-rounds: where the
-#: two disagree by about half a pixel the sum alternates, and x 156-172 came
-#: out as 43/42/43/42 one-pixel teeth -- a 2 px sawtooth, in front of the lit
-#: face, which is the exact failure §7.4 spends a paragraph on.
+#: A PREVIOUS PASS ADDED THE MISSING COMPONENTS AND REVERTED, and its reason
+#: was right about the symptom and wrong about the cause. It added a
+#: continuous offset to `layout.near_crest`, which has ALREADY ROUNDED to a
+#: row -- so where offset and polyline disagreed by about half a pixel the sum
+#: alternated, and x 156-172 came out as 43/42/43/42 one-pixel teeth. A 2 px
+#: sawtooth, in front of the lit face, which is the exact failure §7.4 spends
+#: a paragraph on. That is a double-rounding artifact, not a fact about
+#: sinusoids: quantising twice on the way to one integer is what makes a teeth
+#: pattern out of a smooth curve.
 #:
-#: The cadence is real and it is missing, but it is missing FROM THE MEASURED
-#: LINE, and the fix is control points in `layout.NEAR_CREST` at the places
-#: the bar wanders and the polyline rules straight through. Those columns are
-#: reported rather than reached for. The far crest is doubly not ours: `sky`
-#: cuts its own fill at `layout.far_crest(x)` and this region fills from the
-#: same row down, so any range-side wobble would tear that seam open.
+#: So the crest is built ONCE, in float, and rounded ONCE at the end --
+#: `layout.NEAR_CREST` interpolated without rounding, the wander added to it,
+#: `round()` applied to the sum and to nothing before it. Rounding a shallow
+#: line is itself what produces the measured cadence: a step, a flat run of
+#: about two, a step. Nothing is added below wavelength 40, because §7.4 is
+#: emphatic that sawtooth peaks at 4-8 px spacing degrade into dither noise at
+#: 320x144 and drag the eye up to a horizon this shot wants ignored.
+#:
+#: The wander is also TAPERED TO ZERO across the cone (`CONE_CREST_SPAN`),
+#: because the cone's outline is measured column by column off the bar and a
+#: synthetic wobble on top of a measurement is strictly worse than the
+#: measurement.
+#:
+#: THE FAR CREST IS NOT OURS AND CANNOT BE DONE THIS WAY. `sky` cuts its own
+#: fill at `layout.far_crest(x)` and this region fills from the same row down,
+#: so a range-side wobble tears that seam open. It has the same defect --
+#: 78% flat, one flat run 25 columns long -- and fixing it means moving
+#: `layout.FAR_CREST`, which is two regions' business. Reported, not reached
+#: for.
 NEAR_CREST_MIN = layout.NEAR_RANGE_CREST_HIGH
 NEAR_CREST_LOW = layout.NEAR_RANGE_CREST_LOW
+
+#: (wavelength px, amplitude px, phase turns). The three components the
+#: polyline is missing, taken off §2's spectrum: 64 px at 1.3, 53 px at 1.0,
+#: and one at 41 px held under §2's 0.8 ceiling for anything shorter than 36.
+#: Amplitudes are trimmed a little from the far range's measured figures
+#: because §2 measures the NEAR crest as the smoother of the two -- mean step
+#: 0.27 px per column against the far range's 0.35, max step 3.
+#:
+#: Phases are irrational multiples of each other so the three never re-align
+#: inside 320 px and the eye cannot find the period. They are not a fit to the
+#: bar and are not claimed to be: §2 measures the crest's amplitude spectrum
+#: and says nothing about its phase, so what is reproduced here is the
+#: cadence, not the mountain.
+#: Measured on the drawn line: 77% of adjacent columns flat, 22% stepping
+#: one, 1% stepping two, none more; mean step 0.24 px per column against §2's
+#: 0.27; longest flat run 19 columns, down from 61; and ZERO single-column
+#: teeth, which is the artifact the previous attempt produced and the reason
+#: the rounding happens exactly once.
+CREST_WANDER = ((67.0, 1.80, 0.19), (53.0, 1.40, 0.63), (43.0, 1.00, 0.31))
 
 
 #: WHERE THE CONE STANDS, THE CONE IS THE CREST. The lit face is not painted
@@ -139,9 +192,45 @@ def _cone_top(x: int) -> float:
     return apex_y + (x - apex_x - 1) / LIT_RIGHT_SLOPE
 
 
+def _polyline(points: tuple[tuple[int, int], ...], x: float) -> float:
+    """layout's piecewise-linear crest, WITHOUT the rounding.
+
+    `layout._crest` rounds to a row because that is what its callers want.
+    This region needs the un-rounded line so the wander can be added before
+    the single rounding rather than after it -- see CREST_WANDER.
+    """
+    x = max(0.0, min(layout.WIDTH - 1.0, x))
+    for (x0, y0), (x1, y1) in zip(points, points[1:]):
+        if x <= x1:
+            t = (x - x0) / max(1, x1 - x0)
+            return y0 + (y1 - y0) * t
+    return float(points[-1][1])
+
+
+def _wander(x: int) -> float:
+    """The 40-70 px content the measured polyline does not carry. Float."""
+    lo, hi = CONE_CREST_SPAN
+    if lo - 4 <= x <= hi + 4:
+        # Tapered out over four columns each side, so the cone's measured
+        # outline is joined rather than stepped into.
+        if x < lo:
+            weight = (lo - x) / 4.0
+        elif x > hi:
+            weight = (x - hi) / 4.0
+        else:
+            weight = 0.0
+    else:
+        weight = 1.0
+    total = 0.0
+    for length, amplitude, phase in CREST_WANDER:
+        total += amplitude * math.sin(math.tau * (x / length + phase))
+    return total * weight
+
+
 def near_crest(x: int) -> int:
     """Top of the near range's mass, in this region's own drawing order."""
-    y = max(NEAR_CREST_MIN, min(NEAR_CREST_LOW, layout.near_crest(x)))
+    y = _polyline(layout.NEAR_CREST, x) + _wander(x)
+    y = round(max(float(NEAR_CREST_MIN), min(float(NEAR_CREST_LOW), y)))
     lo, hi = CONE_CREST_SPAN
     if lo <= x <= hi:
         y = max(y, min(round(_cone_top(x)), CONE_CREST_CAP))
@@ -200,13 +289,40 @@ LIT_BASE_Y = 52
 #: and then walks back one pixel a row as the face turns away. Left of it the
 #: bright step runs all the way out to the cone's left edge.
 #:
-#: That is 64 pixels of bright against 85 of mid -- the counts measured on
-#: the bar. An earlier pass here capped the bright step at three rows (20 px)
-#: out of a fear that a grey[2] patch at L 32.3 would lift the frame median
-#: and turn the night into dusk. Sixty-four pixels is 0.14% of the frame and
-#: moves the median by nothing; what it does move is whether the near range
-#: has any lit form at all. It did not, and the flat dead mass that resulted
-#: was the one thing a blind critic named in this region.
+#: WHAT CHANGED, AND IT IS THE LARGEST SINGLE ERROR THIS REGION HAD. The two
+#: steps were drawn one ramp notch too high each -- bright as `near_rock_lit`
+#: (grey 2, L 32.3) and mid as `near_rock_lit_mid` (grey 1, L 24.3). Sampled
+#: over the cone's own footprint the bar gives 263 px running min 11.7, mean
+#: 19.4, MAX 27.6, with quintiles 15.4 / 20.4 / 20.4 / 23.7 and exactly ONE
+#: pixel at or above 24. So the reference's brightest face pixel is 23.7 and
+#: the mass around it is 12: the face is a soft L-20 cone, and grey 2 at 32.3
+#: is eight and a half luminance ABOVE anything the bar has anywhere in this
+#: region except the left spur. Rendered, sixty-four pixels of it read as a
+#: glowing lens in the middle of the frame -- the one thing on the near range
+#: that pulls the eye, in the region whose whole brief is "nothing up here
+#: should attract the eye".
+#:
+#: So both steps come down one notch. The bright step is `near_rock_lit_mid`
+#: (grey 1, L 24.3) against a measured 23.7 -- within half a luminance point,
+#: the closest the locked palette comes to anything in this region. The mid
+#: step at a measured 20.4 has NO entry: grey 0 is 16.0 and grey 1 is 24.3,
+#: and the two nearest colours in the whole locked 256 -- accent_indigo 0 at
+#: L 21.0, blueness +29 against the measured +23 -- are the far range's own
+#: index, which §7.10 spends a paragraph forbidding here. Painting the right
+#: flank in it would put a patch of far-range colour inside the near range
+#: two rows under the far range's own band, and the cone would read as a hole
+#: through the near mass rather than as a summit in front of it.
+#:
+#: The mid step therefore MERGES INTO THE BRIGHT STEP rather than into the
+#: mass, which is the choice that keeps the shape. Bright-versus-mid is 3.3 L
+#: on the bar -- under one palette step at this end of the ramp, and below
+#: what the eye resolves at these luminances -- while face-versus-mass is 8,
+#: which is exactly what grey 1 over grey 0 gives us (8.3). We keep the gap
+#: that carries the form and give up the gap that does not.
+#:
+#: The constants below are kept, and the classification with them, because
+#: they are a measurement of the bar and the next author will want them
+#: whether or not this pass can spend them.
 LIT_BRIGHT_SLOPE = 2.5
 LIT_BRIGHT_RIGHT = 163
 LIT_BRIGHT_HOLD_ROW = 45
@@ -273,6 +389,100 @@ BEYOND_RIGHT_X, BEYOND_RIGHT_SLOPE, BEYOND_RIGHT_HOLD = 182, 1.4, 46
 MASS_BASE = layout.TOWN_BASE_Y
 
 
+# ---------------------------------------------------------------------------
+# THE SLOPE BREAKS UP AS IT COMES DOWN, AND THAT IS MEASURED
+# ---------------------------------------------------------------------------
+#
+# §2 says layer 2's body is "flat, same as layer 1, with one exception", and
+# for the top of the mass that is exactly right. It is not right for the
+# bottom of it, and the difference is the eighteen dead rows a blind critic
+# named -- "sky steps once to the range colour and holds flat for eighteen
+# rows".
+#
+# Measured on the bar over x 182-215, the one column band with no town, no
+# coach and no team in it, as a function of ROWS BELOW THAT COLUMN'S OWN NEAR
+# CREST (median luminance, then the standard deviation across the band):
+#
+#     +0   13.5  sd 3.3      +9   15.4  sd 2.7      +17  23.2  sd 4.1
+#     +2   12.8  sd 2.5     +11   15.4  sd 3.6      +18  23.4  sd 4.2
+#     +4   12.8  sd 0.8     +13   18.3  sd 3.9      +19  23.9  sd 4.5
+#     +6   12.8  sd 1.4     +14   19.9  sd 4.5      +20  23.7  sd 4.4
+#     +7   12.8  sd 4.6     +16   19.2  sd 6.0      +21  27.8  sd 4.6
+#
+# Two things happen at once and both are in layout.DEPTH_LADDER already:
+# "near range +11 -> L 16.23, sd 4.11" and "near range base +17 -> L 21.75,
+# sd 5.86". The mass is DARKEST AND FLATTEST at its crest -- sd 0.8 at +4 --
+# and then breaks up and lifts as it comes forward, which is the same
+# monotonic texture-with-depth the whole-frame study §6 measures across every
+# plane in the frame: "local sd by plane runs 0.37 -> 2.43 -> 4.11 -> 5.86 ->
+# 4.28 -> 6.08 -> 7.33 from far to near, monotonic with distance. Texture
+# density in this frame is a DEPTH CUE." §6 puts the ranges band at median
+# local sd 7.29 and 12.3% flat; ours was 100% flat.
+#
+# WHAT THE TEXTURE IS MADE OF. The bar's p90 at +7 is 23.7 against a median of
+# 12.8 -- so the variation is not a small wobble on many pixels, it is a large
+# step on a few. `grey` 1 at L 24.3 over `grey` 0 at 16.0 is that step, and it
+# is the same pair the lit face is drawn from, because it is the same light on
+# the same rock. Nothing new enters the palette.
+#
+# WHY IT IS CLUSTERED AND NOT A MATRIX. §5 measures zero dithering in this
+# region and §7.6 is explicit that a dithered crest reads as a rendering fault
+# at 320x144 and introduces the pseudo-motion texture invariant 9 exists to
+# keep out of backgrounds. A Bayer field would do exactly that. This is
+# clusters instead -- short horizontal runs of two to four pixels, the shape
+# scree makes on a slope and the shape the bar's own rows make ("+", "**",
+# "++") -- placed from a named, stable stream. The study says the same thing
+# from the other end: the reference's noise is broadband and unstructured,
+# phase score 0.10-0.20 where a Bayer matrix scores over 0.5, so what is
+# reproduced is the AMPLITUDE per plane and not the pattern.
+#
+# AND THE TOP OF THE MASS STAYS CLEAN. Nothing is placed within SCREE_FLAT_TOP
+# rows of the crest, so the silhouette is 1-bit against the far range for its
+# whole length. A crest with speckle under it is the failure this is trying to
+# avoid, not a milder version of it.
+
+#: Rows below the local near crest that stay dead flat. The bar's sd is 0.8 to
+#: 3.3 across +0 to +6 and jumps to 4.6 at +7.
+SCREE_FLAT_TOP = 7
+#: Rows below the crest at which the break-up reaches full density.
+SCREE_FULL_AT = 14
+#: Share of pixels taking the mid step at full density. The bar's median
+#: crosses 19.2 -- half way between grey 0 and grey 1 -- at +14 to +16 and
+#: reaches 23.7 by +19, so at the bottom of the visible slope rather more than
+#: half of it is lit. Held at 0.44 rather than 0.5 because our grey 0 is
+#: already 3 L above the bar's body and the plane must not out-run the town
+#: lights immediately below it.
+SCREE_DENSITY = 0.85
+#: Share at the FIRST row that is allowed any. The bar does not ease into this
+#: -- sd goes 1.4 at +6 to 4.6 at +7 in one row, with p90 jumping 16.2 to 23.7
+#: while the median does not move at all. That is a slope that has started to
+#: break up, not a slope that is getting lighter, and a density ramping from
+#: zero draws the first one instead of the second: the break-up did not appear
+#: until eight rows further down, and the crest sat on top of an unrelieved
+#: ten-row plate.
+SCREE_MIN_DENSITY = 0.20
+#: Cluster length, in pixels. Runs, not points.
+SCREE_RUN = (2, 4)
+#: AND THE PATCHES ARE PATCHY. A run-and-gap generator with one density per
+#: row lays an even stipple across all 320 columns, which is a texture with a
+#: constant grain -- and constant grain is exactly what reads as an applied
+#: effect rather than as ground. The bar does not do that: read along its rows
+#: at x 176-215 and it goes twenty columns of unbroken dark, then six columns
+#: of "++**++", then dark again. Two slow multipliers over x, at wavelengths
+#: far longer than a cluster, put the clusters where the slope faces the light
+#: and leave the stretches between them alone. (wavelength px, depth, phase).
+SCREE_PATCH = ((97.0, 0.55, 0.21), (43.0, 0.30, 0.68))
+#: WHERE IT STOPS, and this is a contract with `terrain`. That module opens
+#: its band at y=68 and its docstring names the seam explicitly: "`range`
+#: fills its near mass at `near_rock`, L 16.0, down to its own base at y=67".
+#: It has already fitted its easing to a flat grey 0 arriving at row 67, so
+#: the scree fades back out over SCREE_FADE rows and the last rows of the mass
+#: are the flat value terrain is expecting. Lifting them is a better picture
+#: and a worse seam, and the seam is not this region's to move.
+SCREE_LAST_ROW = 62
+SCREE_FADE = 2
+
+
 def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     far = ctx.ink("far_rock")
     near = ctx.ink("near_rock")
@@ -294,9 +504,59 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         for y in range(below, min(MASS_BASE, layout.HEIGHT)):
             canvas.put(x, y, near)
 
+    _scree(canvas, ctx)
     _lit_face(canvas, ctx)
     _beyond_the_cut(canvas, ctx)
     _left_spur(canvas, ctx)
+
+
+def _scree_density(x: int, y: int) -> float:
+    """How much of this row's slope is lit, 0 at the crest and rising forward.
+
+    Linear in rows-below-crest from SCREE_FLAT_TOP to SCREE_FULL_AT, then held,
+    then faded back to nothing over the last rows before `terrain`'s seam.
+    """
+    depth = y - near_crest(x)
+    if depth < SCREE_FLAT_TOP or y > SCREE_LAST_ROW:
+        return 0.0
+    walk = min(1.0, (depth - SCREE_FLAT_TOP) / float(SCREE_FULL_AT - SCREE_FLAT_TOP))
+    density = SCREE_MIN_DENSITY + (SCREE_DENSITY - SCREE_MIN_DENSITY) * walk
+    fade = SCREE_LAST_ROW - y
+    if fade < SCREE_FADE:
+        density *= (fade + 1) / float(SCREE_FADE + 1)
+    for length, depth_, phase in SCREE_PATCH:
+        density *= 1.0 - depth_ * (0.5 + 0.5 * math.sin(math.tau * (x / length + phase)))
+    return density
+
+
+def _scree(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
+    """The near range's slope breaking up as it comes forward. See above.
+
+    Drawn BEFORE the face, the beyond band and the spur, so that the three
+    measured lit shapes are laid over it rather than eaten by it: they are
+    modelling and this is material, and material never overwrites modelling.
+    """
+    mid = ctx.ink("near_rock_lit_mid")
+    rng = ctx.stream("range-scree")
+    low, high = SCREE_RUN
+    for y in range(min(MASS_BASE, SCREE_LAST_ROW + 1)):
+        if y < NEAR_CREST_MIN + SCREE_FLAT_TOP:
+            continue
+        x = 0
+        while x < layout.WIDTH:
+            run = rng.randint(low, high)
+            if rng.random() < _scree_density(x, y):
+                for step in range(run):
+                    column = x + step
+                    if column >= layout.WIDTH:
+                        break
+                    if y - near_crest(column) < SCREE_FLAT_TOP:
+                        continue
+                    canvas.put(column, y, mid)
+            # A gap of its own, so the runs never tile edge to edge into a
+            # solid row. Two to five: at 320 px that is 60-odd incidents in a
+            # row at full density, which is scree rather than a stripe.
+            x += run + rng.randint(2, 5)
 
 
 def _beyond_the_cut(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -359,8 +619,7 @@ def _lit_face(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     with two nearer ridges standing in front of it -- which is what it is,
     and which is why it reads as depth instead of as a blotch.
     """
-    bright = ctx.ink("near_rock_lit")
-    mid = ctx.ink("near_rock_lit_mid")
+    face = ctx.ink("near_rock_lit_mid")
     apex_x, apex_y = LIT_APEX
 
     for y in range(apex_y, LIT_BASE_Y + 1):
@@ -372,14 +631,9 @@ def _lit_face(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         # wide at the shoulders and pinched at the foot.
         left = max(left, round(_line_x(LIT_CUT_LEFT, y)))
         right = min(right, round(_line_x(LIT_CUT_RIGHT, y)))
-        # The bright step opens along its own slope, holds at 163, then walks
-        # back a pixel a row from y=45 as the face turns away from the light.
-        bright_edge = min(LIT_BRIGHT_RIGHT - max(0, y - LIT_BRIGHT_HOLD_ROW),
-                          round(apex_x + 1 + LIT_BRIGHT_SLOPE * drop))
         for x in range(left, right + 1):
             # Never above the near crest: the face is modelling ON layer 2,
             # not a shape floating in front of layer 1.
             if y < near_crest(x):
                 continue
-            lit = y <= LIT_BRIGHT_LAST_ROW and x <= bright_edge
-            canvas.put(x, y, bright if lit else mid)
+            canvas.put(x, y, face)

@@ -113,5 +113,17 @@
       "town": "90.5% of non-window pixels are three neutral greys, so every building shares a value with the one behind it and the windows float on an undifferentiated field. No lit roof planes.",
       "range": "the masses are two colours with no internal form; the ridgeline is a mechanically regular two-pixel staircase."
     }
+  },
+  {
+    "round": 8,
+    "title": "The far field \u2014 and a green sky the instrument asked for",
+    "note": "Four regions redrawn against measured briefs. Sky shape 0.548 to 0.397, range 0.348 to 0.210, team 0.121 to 0.087. Then all four critics independently called the sky green speckle \u2014 1,089 pixels of accent_teal that ruling 41's saturation test had actively rewarded. Removed, and the check rebuilt so it cannot be gamed that way again.",
+    "status": "sky, range, team improved; town unmoved; teal out",
+    "verdicts": {},
+    "gaps": {
+      "town": "shape 0.391 unmoved, buckets 2 and 4 still hollow \u2014 the one region of four that did not improve.",
+      "sky": "bucket 2 is hollow and stays hollow: the palette's only cold entry in that luminance window carries no chroma at all.",
+      "range": "saturation 0.60 \u2014 the near range wants luminance 13 with blue in it, and the locked 256 has no such entry."
+    }
   }
 ]

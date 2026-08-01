@@ -92,9 +92,19 @@ from . import layout
 #: 52, 52 across x 94-136 -- mean 51.9, and the two rows above it already
 #: carry the mass. So the ridge is 51 from x=94 to x=136, not 51 at x=105
 #: sagging to 54 by x=140, and the fall east starts at 138 rather than 120.
+#:
+#: AND IT SITS ONE ROW LOWER THAN THAT SCAN SAID, because the scan was for the
+#: first row at L >= 28 and the mass's own top row does not reach 28. Measured
+#: on the bar, cool pixels only over x 88-150: row 51 is 18.3 and row 52 is
+#: 25.4 -- a seven-point step, and that step IS the roofline. With the profile
+#: at 51 this region's row 51 came out at 23.1 and its row 52 at 24.9, an
+#: edge of one and a half points, so the town had no top and the dark trough
+#: above it read as eleven rows of nothing instead of six. §2.3 says y = 51
+#: +/- 2 and the proof's own mean is 51.9; 52 is inside both and it is the
+#: only value that puts the step where the bar has it.
 MASS_LEFT, MASS_RIGHT = 62, 152
-ROOF_PROFILE = ((62, 53), (89, 52), (100, 51), (124, 51), (138, 52),
-                (146, 56), (152, 62))
+ROOF_PROFILE = ((62, 54), (89, 53), (100, 52), (124, 52), (138, 53),
+                (146, 57), (152, 62))
 
 #: §6, and it is the whole east end: "the town has no right-hand edge; it has
 #: a thinning." Roughness falls from 14 to 4.5 across x 138-152 while five
@@ -107,7 +117,7 @@ DISSOLVE_FROM, DISSOLVE_TO = 142, 155
 #: near-nothing, mean L 15-16, and it is what makes the roofline read. Its
 #: right edge is not straight -- at y 45-47 the range's lit face comes down
 #: to x≈146 and the trough stops short of it; by y 49 it runs to x≈150.
-TROUGH_ROWS = (45, 51)
+TROUGH_ROWS = (45, 52)
 TROUGH_LEFT = 88
 TROUGH_RIGHT = ((45, 143), (50, 150))
 
@@ -130,8 +140,20 @@ TROUGH_RIGHT = ((45, 143), (50, 150))
 #: printed bar rather than as the foot of a range. The floor is right; the
 #: entrance was not. `grey` 1 holds a steady 6-14% throughout and is what
 #: keeps the mix from reading as two colours.
-TROUGH_GREY = ((45, 0.11), (46, 0.29), (47, 0.42), (48, 0.57), (49, 0.70),
-               (50, 0.63))
+#:
+#: AND THE FLOOR WAS FOUR POINTS HIGH. Measured per row over x 88-150, the bar
+#: runs 17.8 / 16.7 / 15.9 / 15.1 / 14.5 / 17.0 across rows 45-50 and this
+#: pass ran 21.7 / 20.7 / 20.5 / 20.1 / 19.0 / 19.4. The trough is not a
+#: decorative band -- §2.2 says it is what makes the roofline read -- and the
+#: step from its floor to the town's top edge is the measurement that matters:
+#: the bar climbs from 14.5 at row 49 to 34.6 at row 53, twenty points, and
+#: this climbed nine. Half of that was the trough sitting too high. The shares
+#: below are the proof's own ratio (45% `grey` 0 against 43% `accent_indigo`
+#: 0 over the whole band) redistributed down the ramp the bar measures.
+#: Row 51 is the sixth: the bar has it at 18.3, still trough, and the town
+#: begins on 52. See ROOF_PROFILE.
+TROUGH_GREY = ((45, 0.26), (46, 0.42), (47, 0.55), (48, 0.66), (49, 0.74),
+               (50, 0.66), (51, 0.52))
 TROUGH_WALL = 0.09
 
 #: §4. Lights per 10-px column band from x=70 to x=179. Uniform at 7-9 from
@@ -141,7 +163,22 @@ TROUGH_WALL = 0.09
 #: x 140-149 IS A SIX-PIXEL STOREFRONT AND LITTLE ELSE. The proof puts 18
 #: warm pixels in that band, and twelve of them are §4's one 6x2 strip; five
 #: scattered lights on top of it measured 32. Three.
-BAND_COUNTS = (3, 8, 7, 9, 9, 6, 9, 3, 3, 1, 1)
+#:
+#: AND THE COUNTS ARE LIGHTS WHILE THE MEASUREMENT IS PIXELS. Warm pixels per
+#: ten-column band over y 44-68, bar against this region:
+#:
+#:     bar    97  41  30  35  38  36  34  19   8   3   1
+#:     ours   65  42  33  20  39  21  26  28  11   6   2
+#:
+#: The middle of the town was a third short and the thinning east end was half
+#: again over -- and the east end is where §6 says the town DISSOLVES, so
+#: light spent out there does not read as more town, it reads as a second,
+#: smaller town. §4's own outliers already cover x 140-179: the 6x2 storefront
+#: strip is twelve warm pixels on its own and EAST_LIGHTS places five more
+#: lights, all before the scatter runs. The scatter's job out there is nearly
+#: finished before it starts, so its counts come down and the middle takes
+#: what they had.
+BAND_COUNTS = (3, 8, 7, 11, 9, 8, 9, 1, 2, 0, 0)
 BAND_FROM = 70
 
 #: §4: median nearest-neighbour distance 3.2 px, hard minimum 2. No two
@@ -196,10 +233,22 @@ FOOT_LOWER = ((62, 24.0), (100, 28.0), (110, 27.8), (120, 36.0), (130, 40.8),
 #: Occluded by the foreground and therefore not drawn (§2). The bar simply
 #: has no town behind the signboard and the rail; painting it and then
 #: covering it wastes the pass and risks a pixel surviving at the edges.
+#:
+#: AND EVERY RECT HERE IS A CLAIM ABOUT ANOTHER REGION'S DRAWING. The lamp
+#: rect was (75, 62, 7, 7) and `left_yard` actually covers x 75-79, never 80
+#: or 81 -- so this region skipped two columns nobody else drew. At y 62-67
+#: `range`'s near mass happened to be underneath and the over-claim was
+#: invisible; at y=68 the near mass has ended and `terrain` starts at y=69,
+#: so (81, 68) was a hole with nothing in it at all. room01_seams.py found
+#: it, `terrain` grew a patch that filled any pixel still holding the void
+#: index -- which is a fix keyed on the CANVAS FILL rather than on the
+#: drawing, so it worked in the render and left the seam check failing.
+#: Narrowed to what the occluder occupies. An occlusion rect that is too
+#: small costs a few covered pixels; one that is too large costs a hole.
 OCCLUDED = (
     (0, 53, 85, 6),      # the gantry beam and its crossbeam, x <= 84
     (0, 60, 79, 9),      # the signboard, x <= 78 below y=60
-    (75, 62, 7, 7),      # the hanging lamp and its post
+    (75, 62, 5, 7),      # the hanging lamp and its post, x 75-79
 )
 
 
@@ -419,11 +468,11 @@ def _roof_ink(ctx: layout.Ctx, rng, roll: float | None = None) -> int:
     the back door.
     """
     roll = rng.random() if roll is None else roll
-    if roll < 0.12:
+    if roll < 0.10:
         return ctx.ink("town_roof_sky")                    # L 35.0, sky-lit
-    if roll < 0.62:
+    if roll < 0.48:
         return ctx.ink("town_wall_lit")                    # grey 2, L 32.5
-    if roll < 0.94:
+    if roll < 0.88:
         return ctx.ink("town_roof")                        # grey 3, L 40.6
     return ctx.ink("town_roof_bright")                     # grey 4, L 53.5
 
@@ -457,6 +506,12 @@ class _Building:
     wall_rows: int
     roof: str
     wall: str | None
+    #: Which terrace it stands on, 0 at the skyline. Only the eave-shade pass
+    #: reads it: the top terrace's wall rows are the two the bar loads with
+    #: light (rows 52-53 measure L 27.9 and 34.6 against a trough at 14.5),
+    #: and darkening them is how the roofline's twenty-point step became a
+    #: nine-point one.
+    storey: int = 0
 
     @property
     def right(self) -> int:
@@ -529,10 +584,53 @@ def _storey_y(x: int, storey: int) -> int:
 #: `grey` 2 is not in them either, and for the same reason one step further:
 #: 69 of its 75 runs in the proof are a single pixel and its longest is three.
 #: A plate is a run of four to twelve by definition.
-ROOF_MIX_FAR = (("town_roof_sky", 0.56), ("town_wall", 0.24),
-                ("town_mass_dark", 0.20))
-ROOF_MIX_NEAR = (("town_roof_sky", 0.54), ("town_wall", 0.30),
-                 ("town_mass_dark", 0.16))
+#:
+#: AND A ROOF IS LIT. This is the round's named gap and it was the mix's
+#: fault: 44% of ROOF_MIX_FAR and 46% of ROOF_MIX_NEAR were `town_wall` at
+#: L 24.5 and `town_mass_dark` at L 21.7 -- one and three luminance off the
+#: background -- so nearly half the roofs in the town were the same value as
+#: the hill behind them and the sky was not a light source. The measured
+#: consequence, cool pixels only over x 88-150 / y 52-68: 17.2% of the mass in
+#: `grey` 2 against the locked-palette proof's 9.0%, and 8.2% in `grey` 3
+#: against 8.7% with 1.8% in `grey` 4 against 3.7%. Half the mid-tone was
+#: sitting on WALLS, at a value a roof one row above shared, which is the
+#: mechanical form of "every structure shares a value with the one behind it".
+#:
+#: So the dark entries come down to about one plate in eight -- enough that the
+#: skyline is not a ruled line, and §2.3's eave jitter and the alleys between
+#: frontages already carry most of that job -- and the rest of the roof budget
+#: goes to `accent_indigo` 1 at L 35.0. Blue-shifted, not neutral: it is the
+#: sky's own horizon colour and the sky is the only thing lighting a roof
+#: here, at +13 over the wall beneath it, which is a plane the eye can read.
+ROOF_MIX_FAR = (("town_roof_sky", 0.74), ("town_wall", 0.14),
+                ("town_mass_dark", 0.12))
+
+#: AND THE SKYLINE TERRACE IS NOT SAMPLED FROM THAT. There are only twelve
+#: frontages on it across ninety columns, so a mix holding 26% dark entries
+#: does not land as 26% -- it landed as SIX lit and SIX dark, and the four
+#: buildings covering x 96-127 came out dark, wall, wall, dark. Twenty-four
+#: columns of the town's top edge at the value of the hill behind it, which is
+#: this round's named gap surviving the fix that was supposed to remove it,
+#: because the fix was a proportion and the sample is twelve.
+#:
+#: The top terrace's eave IS the silhouette and the silhouette is the plane
+#: turned furthest toward the dome; there is nothing in front of it to shade
+#: it. So it is lit, and §2.3's raggedness comes from the eave jitter and the
+#: alleys, both of which move the edge without putting it in shadow.
+ROOF_MIX_TOP = (("town_roof_sky", 0.90), ("town_wall", 0.10))
+ROOF_MIX_NEAR = (("town_roof_sky", 0.76), ("town_wall", 0.14),
+                 ("town_mass_dark", 0.10))
+
+#: The moonlit ridge, and it is why the plate can be blue and still sparkle.
+#: §2.4 measures the roof-highlight stipple at a mean run of 2.06 px with 106
+#: of 157 runs a single pixel, and `_roof_ink`'s run-length table says `grey` 3
+#: is drawn in runs averaging 1.58 and `grey` 4 shorter still -- so a plate
+#: painted in either is a run the reference does not contain. The plate is
+#: therefore `accent_indigo` 1 across its whole width, and one to three pixels
+#: of neutral highlight land on its eave row where the ridge tiles catch the
+#: dome. Same read, right statistics.
+RIDGE_CHANCE = 0.70
+RIDGE_BRIGHT = 0.32
 
 #: Wall planes. `None` is the hill's own colour showing through, and it is
 #: the commonest wall in the town: §5 gives `accent_indigo` 0 to "hill
@@ -611,12 +709,41 @@ ROOF_MIX_NEAR = (("town_roof_sky", 0.54), ("town_wall", 0.30),
 #: luminance above the hill behind it, which is a plane the eye can see --
 #: unlike `town_wall` at 24.5, which the note above correctly rations because
 #: two and a half luminance is not a plane, it is a rounding error.
-WALL_MIX_FAR = ((None, 0.40), ("town_wall", 0.26), ("town_wall_lit", 0.26),
-                ("town_trough", 0.08))
-WALL_MIX_MID = ((None, 0.46), ("town_wall", 0.16), ("town_wall_lit", 0.30),
-                ("town_trough", 0.08))
-WALL_MIX_NEAR = ((None, 0.30), ("town_wall", 0.32), ("town_wall_lit", 0.32),
+#:
+#: AND IT BELONGS ON THE ROOF, NOT ON THE WALL. `town_wall_lit` held 26-32% of
+#: all three mixes and that is where the mid-tone went: at L 32.5 it sits two
+#: and a half luminance under `town_roof_sky` at 35.0, so a wall painted in it
+#: is the same value as the roof plate directly above it and the eave line
+#: stops existing. The band was filled and the FORM was not, which is the
+#: exact failure ruling 42 exists for -- the histogram moved and the picture
+#: did not. The mid-tone now comes from the roof plates, where a light source
+#: accounts for it, and the wall keeps a small share for a gable end catching
+#: the street below it.
+#:
+#: AND THE SHARE `town_wall_lit` GAVE UP WENT TO THE WRONG PLACE. Counted as
+#: cool pixels over x 88-150 / y 52-68 against the locked-palette proof:
+#: `grey` 1 came out at 18.1% against its 10.6% because it absorbed the whole
+#: of the mid-tone the roofs were supposed to take. It is the one entry in
+#: this region that cannot carry a plane -- 2.8 luminance over the background,
+#: a quarter of a ramp step -- so a wall painted in it neither reads as lit
+#: nor reads as dark; it just lowers the contrast of everything around it.
+#: The night takes the share back, and `town_wall_lit` returns at about half
+#: what it held before this round: enough for a gable end catching the street,
+#: not enough to be the value a roof shares.
+WALL_MIX_FAR = ((None, 0.52), ("town_wall", 0.22), ("town_wall_lit", 0.18),
+                ("town_trough", 0.06))
+WALL_MIX_MID = ((None, 0.54), ("town_wall", 0.22), ("town_wall_lit", 0.18),
+                ("town_trough", 0.06))
+WALL_MIX_NEAR = ((None, 0.46), ("town_wall", 0.26), ("town_wall_lit", 0.22),
                  ("town_trough", 0.06))
+
+#: One pixel of dark under an eave, and at 320x144 it is the whole difference
+#: between a roof standing on a wall and a roof lying on one. The first wall
+#: row of a frontage takes the hill's own colour or a slot of `grey` 0 about
+#: half the time, so the lit plate above it has something to be an edge
+#: against. It is not drawn as a line -- it is the top of the plane in front,
+#: in shade, which is what a line under an eave actually is.
+EAVE_SHADE = 0.55
 
 
 def _pick(rng, mix):
@@ -707,28 +834,44 @@ def _buildings(ctx: layout.Ctx) -> list[_Building]:
             roll = rng.random()
             eave += -1 if roll < 0.20 else (1 if roll > 0.82 else 0)
             if storey == 0:
-                if rng.random() < 0.12:
-                    eave -= 1
-                eave = min(max(eave, _roof_y(centre) - 2), _roof_y(centre) + 1)
+                # THE SKYLINE IS FLAT WITH POKES IN IT, NOT RAGGED. §2.3:
+                # "nearly flat at y = 51 +/- 2 ... ragged by two or three
+                # pixels where chimneys and gable peaks poke up". At a fifth
+                # up and a fifth down the top terrace's eaves spread over four
+                # rows and only about half of them landed on the profile, so
+                # the seven-point step the bar has between rows 51 and 52 came
+                # out at under three and the town had no top edge to be the
+                # top edge of.
+                roll = rng.random()
+                eave = _roof_y(centre) + (-1 if roll < 0.16
+                                          else (1 if roll > 0.90 else 0))
             else:
                 eave = max(eave, _roof_y(centre) - 2)
             eave = min(eave, layout.TOWN_BASE_Y - 1)
             floor = (_storey_y(centre, storey + 1) + wander.get(centre, 0)
                      if storey + 1 < STOREYS else layout.TOWN_BASE_Y + 1)
-            roof_rows = 1 if rng.random() < 0.74 else 2
+            # TWO ROWS OF ROOF, MORE OFTEN THAN NOT ON THE NEAR
+            # TERRACES. §1: the town is seen from two miles out and several
+            # hundred feet ABOVE, so what a building presents to this camera
+            # is mostly roof and only a strip of frontage. At one row in four
+            # the plates carried 9.3% of the mass against the proof's 12.9%
+            # and the whole 33-56 band came out three points light of it,
+            # which is the lit-plane deficit measured rather than seen.
+            roof_rows = 1 if rng.random() < (0.40 if near else 0.56) else 2
             wall_rows = max(1, floor - eave - roof_rows)
             out.append(_Building(
-                x=x, width=width, eave=eave,
+                storey=storey, x=x, width=width, eave=eave,
                 roof_rows=roof_rows, wall_rows=wall_rows,
-                roof=_pick(rng, ROOF_MIX_NEAR if near else ROOF_MIX_FAR),
+                roof=_pick(rng, ROOF_MIX_TOP if storey == 0
+                           else ROOF_MIX_NEAR if near else ROOF_MIX_FAR),
                 wall=_pick(rng, WALL_MIX_NEAR if storey == STOREYS - 1
                            else WALL_MIX_MID if near else WALL_MIX_FAR)))
             # The gap between frontages. §4's dark pixel between two lights
             # is a spacing rule about windows; this is the alley, and it is
             # what the hill is seen through. Wider up the hill, where the
             # terraces are further apart than the buildings are wide.
-            gap = 1 + (rng.random() < (0.30 if near else 0.55)) \
-                + (rng.random() < (0.08 if near else 0.22))
+            gap = 1 + (rng.random() < (0.18 if near else 0.40)) \
+                + (rng.random() < (0.05 if near else 0.14))
             x += width + gap
     return out
 
@@ -764,6 +907,11 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     #    next. The bar's mass is the opposite: long flat runs of one value --
     #    eight pixels of `accent_indigo` 1 at y=60, seven of `grey` 2 at
     #    y 62-63 -- with hard steps between them. Contiguity IS the subject.
+    #: Which cells a roof plate ended up on, in draw order, so the stipple
+    #: pass can put its high frequency where a roof is instead of spraying it
+    #: over the walls as well. See step 3.
+    roofs: set[tuple[int, int]] = set()
+
     for building in _buildings(ctx):
         roof_ink = ctx.ink(building.roof)
         wall_ink = ctx.ink(building.wall) if building.wall else None
@@ -775,17 +923,48 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 # turning away, or the next building standing in front of it.
                 _put(canvas, col, row,
                      dark if rng.random() < 0.08 else roof_ink)
+                roofs.add((col, row))
+
+        # The moonlit ridge. One to three pixels of neutral highlight along
+        # the eave row of a plate that is catching the dome at all, placed at
+        # one end rather than across the plate: see RIDGE_CHANCE for why the
+        # plate itself must stay blue. It is the mark that says a roof has a
+        # ridge line and a pitch, and it is what §2.4's stipple is made of.
+        if building.roof == "town_roof_sky" and rng.random() < RIDGE_CHANCE:
+            run = 1 + int(rng.random() * 4)
+            span = max(1, building.width - run + 1)
+            start = building.x + int(rng.random() * span)
+            ink = bright if rng.random() < RIDGE_BRIGHT else roof
+            for col in range(start, min(start + run, building.right + 1)):
+                if building.eave >= tops.get(col, base + 1):
+                    _put(canvas, col, building.eave, ink)
+
+        shade = building.storey > 0
         if wall_ink is None:
+            shade_row = building.wall_top
+            if shade and shade_row <= base and rng.random() < EAVE_SHADE:
+                for col in range(building.x, building.right + 1):
+                    if shade_row >= tops.get(col, base + 1):
+                        _put(canvas, col, shade_row,
+                             deep if rng.random() < 0.16 else dark)
             continue
         for row in building.wall_rows_range():
             if row < tops.get(building.x, base + 1) or row > base:
                 continue
+            # EAVE_SHADE: the first row of wall under a lit plate drops away,
+            # so the plate has an edge to be the top of.
+            eave_row = shade and row == building.wall_top
             for col in range(building.x, building.right + 1):
                 if row < tops.get(col, base + 1):
                     continue
                 # An alley, or a shutter, or the shaded return of a wall that
                 # has a lit one opposite. Vertical, one or two columns, and
                 # it is what stops a wall plate reading as a painted plank.
+                roofs.discard((col, row))
+                if eave_row and rng.random() < EAVE_SHADE:
+                    _put(canvas, col, row,
+                         deep if rng.random() < 0.12 else dark)
+                    continue
                 _put(canvas, col, row,
                      dark if rng.random() < 0.18 else wall_ink)
 
@@ -805,7 +984,15 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
             # says "town". The plates supply contiguity and this supplies the
             # frequency; at 0.10 the composite measured 11.0 against the
             # bar's 14.9, which is a town three-quarters resolved.
-            if rng.random() < 0.15 * min(1.0, _density(x, y) + 0.35):
+            # ...AND IT GOES WHERE A ROOF IS. Sprayed over the whole mass at
+            # one rate it lands as often on a wall as on a roof, and a wall
+            # carrying `grey` 2 and `accent_indigo` 1 singles is a wall the
+            # same value as the plate above it -- the round's named gap
+            # arriving by the back door, one pixel at a time, after the mixes
+            # had been fixed. A chimney, a ridge tile and a gable peak are
+            # roof furniture; they stand on the plate, not on the frontage.
+            rate = 0.16 if (x, y) in roofs else 0.09
+            if rng.random() < rate * min(1.0, _density(x, y) + 0.35):
                 _put(canvas, x, y, _roof_ink(ctx, rng))
 
     # 4. The deepest slots. §5 gives `grey` 0 to "the dark trough, deepest
@@ -946,7 +1133,13 @@ def _window_ramp(ctx: layout.Ctx) -> tuple[int, ...]:
 #: FLOOR as well as a cap, and half of it spent is a town that has given the
 #: lantern more room than the reference does. Eighteen lights, a few of them
 #: taking their permitted pair, is 21 blobs and 24 pixels: §7 exactly.
-PEAK_MIX = ((7, 18), (6, 5), (5, 12), (4, 10), (3, 8), (2, 5), (1, 3), (0, 2))
+#: AND THE STEP BELOW THE CEILING WAS EMPTY. Warm pixels binned by luminance
+#: over x 88-179 / y 44-68: the bar puts 36 in 86-100 and this put 10. That is
+#: `umber` 14 at L 98.2, the step §5 calls "near-hot", and it is the one the
+#: bar spends on the lights that are bright but not at the ceiling -- which is
+#: most of the ones a player would call bright. Five lights of sixty-three
+#: could not carry it.
+PEAK_MIX = ((7, 17), (6, 11), (5, 10), (4, 9), (3, 7), (2, 4), (1, 3), (0, 2))
 
 #: §4's footprint census, as (width, height) with its measured count. Nothing
 #: larger, and horizontal and vertical pairs are used almost equally -- there
@@ -1139,15 +1332,46 @@ class _Field:
         # with FOUR singles left. So it is spent unevenly, which is also what
         # the reference does -- the near rows cluster and the terraces above
         # keep their isolated lamps.
+        #
+        # AND THE WHOLE FIELD WAS A THIRD SHORT. Counted as warm pixels over
+        # x 88-179 / y 44-68, which is the town clear of the gantry lamp: the
+        # bar holds 210 and the locked-palette proof 179, against 127 here.
+        # §7's own table says 227 for the whole town and this was at 56% of
+        # it. The component census says where the missing light went -- the
+        # bar has twelve components of five pixels or more and a largest of
+        # 29, this had five and a largest of 13. So the shortfall is not
+        # missing lamps (49 components against the bar's 54) and it is not
+        # dim lamps (peak median 85 against 87); it is that the bar's lights
+        # sit close enough for their one pixel of bleed to MEET, and a town
+        # where no two lights touch reads as a field of separate specks
+        # rather than as streets with buildings on them.
+        # ...AND THE BLEED IS BOUGHT FROM THE BRIGHT LIGHTS, NOT SPREAD. Spent
+        # evenly, +35 warm pixels took the single-pixel components from ten to
+        # TWO against the bar's eleven and piled 24 components into the 3-4 px
+        # bin against its thirteen: the right amount of light, gathered into
+        # one wrong size of mark. §3's ring measurement is a ratio to the
+        # window's own brightness -- r=1 averages L 40.5 around the HOTTEST
+        # pixels -- so a dim lamp throws nothing you can see and a hot one
+        # throws two pixels. Which is also what leaves a third of the town as
+        # isolated specks, because a third of the town's lamps are dim.
         if peak >= 6:
-            budget = 1 + (rng.random() < 0.35)
+            budget = 1 + (rng.random() < 0.75)
         elif peak >= 4:
             budget = 1 if rng.random() < 0.55 else 0
         else:
-            budget = 1 if rng.random() < 0.25 else 0
-        budget += near and rng.random() < 0.55
-        for cx, cy in neighbours[:budget]:
+            budget = 1 if rng.random() < 0.15 else 0
+        budget += near and rng.random() < 0.60
+        # The budget is spent on vacant neighbours, not on the first `budget`
+        # entries of a shuffled list -- which is what it was, and about half of
+        # every light's allowance was being handed to a pixel another window
+        # had already taken and then silently dropped. It measured as a spill
+        # rate of 0.45 pixels a light against §7's implied 1.75, and no amount
+        # of raising the budget fixed it because the failures scale with it.
+        for cx, cy in neighbours:
+            if budget <= 0:
+                break
             if self.vacant(cx, cy):
+                budget -= 1
                 self.taken.add((cx, cy))
                 roll = rng.random()
                 _put(self.canvas, cx, cy,
@@ -1199,7 +1423,7 @@ def _weighted_row(rng, rows: list[int], top: int, base: int) -> int:
     measured split without reaching §4's forbidden max-of-two draw, whose
     effective ratio at the ends is about twenty to one.
     """
-    weights = [0.18 + 0.82 * (row - top) / max(1, base - top) for row in rows]
+    weights = [0.55 + 0.45 * (row - top) / max(1, base - top) for row in rows]
     pick = rng.random() * sum(weights)
     for row, weight in zip(rows, weights):
         pick -= weight
@@ -1294,6 +1518,19 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 # fresh draw lets a crowded column take the 1x1 that is 42%
                 # of the census anyway and leaves the shape where the light is.
                 width, height = shapes[rng.randrange(len(shapes))]
+                # AND THE NEAR EDGE TAKES THE BIGGER WINDOW. §4's footprint
+                # census is a count of the whole town and §4's own density
+                # note says the bottom of it is "brighter and busier than its
+                # upper terraces" -- so the census is not uniform in depth,
+                # and drawing from it uniformly puts the same 1.93-px average
+                # light on the near frontages as on the far ridge. Measured,
+                # the bar carries 19-24 warm pixels on each of rows 62-67 and
+                # this carried 9-14, with rows 63 and 67 -- the two brightest
+                # rows in the reference -- ten luminance points dark.
+                if y >= layout.TOWN_BASE_Y - 6 and rng.random() < 0.55:
+                    alt = shapes[rng.randrange(len(shapes))]
+                    if alt[0] * alt[1] > width * height:
+                        width, height = alt
                 # §4 gives a median nearest-neighbour of 3.2 px and a HARD
                 # MINIMUM of 2, and the minimum is not spread evenly: the
                 # near edge of town is where the buildings are closest
@@ -1323,4 +1560,32 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                     peak = 6
                 field.place(x, y, width, height, peak, rng)
                 slot += 1
+                # A LIT FRONTAGE AT THE NEAR EDGE. §4: "windows within the
+                # four or five legible buildings loosely share an edge", and
+                # that is the only alignment the reference contains. Measured
+                # as warm connected components over x 88-179, the bar holds
+                # twelve of five pixels or more and a largest of 29 -- at
+                # x 127-132 / y 61-67, which is one building with its whole
+                # front lit, and a fifteen at x 111-113 / y 62-68 which is a
+                # narrower one. Scattering sixty lights on the minimum spacing
+                # cannot make those: it made five, and the largest was 13.
+                #
+                # So a light on the near terraces brings a neighbour on the
+                # same frontage about half the time -- one bay along, or one
+                # floor down -- and the two of them plus their bleed run
+                # together into the mark the bar has. §9.2's hotel is two ROWS
+                # of four aligned windows across the town; two windows on one
+                # building at the bottom of the hill is what a building is.
+                if y >= layout.TOWN_BASE_Y - 6 and rng.random() < 0.62:
+                    for _sib in range(2):
+                        sx2 = x + (width + 2 if rng.random() < 0.5 else -2)
+                        sy2 = y + (2 if rng.random() < 0.45 else 0)
+                        sw, sh = shapes[rng.randrange(len(shapes))]
+                        if not field.fits(sx2, sy2, sw, sh, 1):
+                            continue
+                        sib = max(0, peak - (rng.random() < 0.5))
+                        if sib == 7 and field.hot_left <= 0:
+                            sib = 6
+                        field.place(sx2, sy2, sw, sh, sib, rng)
+                        break
                 break

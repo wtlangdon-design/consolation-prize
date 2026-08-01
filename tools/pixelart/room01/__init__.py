@@ -142,6 +142,24 @@ def compose(with_coach: bool = True, lamp_x: int | None = None,
     return canvas, palette
 
 
+def _stipple(x: int, y: int) -> float:
+    """A stable 0-1 per pixel, with no lattice in it. See `_void_pools`.
+
+    The same integer hash `terrain._hash` uses, at one fixed salt, so the void
+    pass and the ground under it are grained the same way. Stable across
+    processes -- no `hash()`, which CPython salts per run and which
+    tools/check-render-seeding would fail anyway.
+    """
+    h = (x * 73856093) ^ (y * 19349663) ^ (0x5EED * 83492791)
+    h &= 0xFFFFFFFF
+    h ^= h >> 15
+    h = (h * 0x2C1B3C6D) & 0xFFFFFFFF
+    h ^= h >> 12
+    h = (h * 0x297A2D39) & 0xFFFFFFFF
+    h ^= h >> 15
+    return (h & 0xFFFFFF) / float(0x1000000)
+
+
 def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     """Errata 40's large connected regions of near-void, stamped after the light.
 
@@ -213,9 +231,23 @@ def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # `verge_mud` is grey 0 at L 16.0 and warmth 0 against the reference's
     # 15.1 and +0.2: the same pool, at the value the frame actually has, and
     # its rim now dithers across about ten luminance instead of thirty.
+    #
+    # ...AND ITS RIM IS HASHED, NOT BAYERED. void.smear's default screen is a
+    # Bayer 4x4, which is right for a small rim dissolving over two or three
+    # steps and wrong here: these two stamps cover 20x14 and 17x12 at a weight
+    # that sits near 0.5 across most of that area, so the "rim" is most of the
+    # pool and an ordered 4x4 at one density over 400 px is a screen. It
+    # measured 0.50 on room01_seams.py's lattice test against a reference
+    # whose most ordered tile ANYWHERE is 0.39 -- the same defect, in the same
+    # corner of the frame, as the mid-ground checker that shipped two rounds
+    # ago. `_stipple` is the per-pixel hash `terrain` already textures the
+    # valley floor with: same density, no lattice, and no region author could
+    # have seen it because the pass is nobody's region.
     floor = ctx.ink("verge_mud")
-    void.smear(canvas, 6, 96, 20, 14, keep=clear_of_wheels, floor=floor)
-    void.smear(canvas, 8, 108, 17, 12, keep=clear_of_wheels, floor=floor)
+    void.smear(canvas, 6, 96, 20, 14, keep=clear_of_wheels, floor=floor,
+               threshold=_stipple)
+    void.smear(canvas, 8, 108, 17, 12, keep=clear_of_wheels, floor=floor,
+               threshold=_stipple)
     # The gantry upright's channel, continuous with the shadow slot above it.
     #
     # FLAT, AND IT STOPS AT x=30. layout.SHADOW_SLOT is x 25-29 and nothing

@@ -46,6 +46,7 @@ for, and neither replaces the other.
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from collections import Counter
 from pathlib import Path
@@ -100,6 +101,8 @@ HOLLOW_RATIO = 0.50
 #: road's ruts over the town.
 SAT_FLOOR, SAT_CEILING = 0.70, 1.30
 
+#: No tolerance, because the test does not need one. See foreign_families.
+
 
 def luminance(pixel) -> float:
     red, green, blue = pixel
@@ -109,6 +112,67 @@ def luminance(pixel) -> float:
 def saturation(pixel) -> float:
     peak = max(pixel)
     return 0.0 if peak == 0 else (peak - min(pixel)) / peak
+
+
+def blue_axis(pixel) -> float:
+    """Blue against yellow. Positive is a cold surface."""
+    red, green, blue = pixel
+    return blue - (red + green) / 2
+
+
+def family_map(palette_data) -> dict:
+    """RGB tuple -> the locked palette family that owns it."""
+    colours = [
+        (int(v[1:3], 16), int(v[3:5], 16), int(v[5:7], 16))
+        for v in palette_data["colours"]
+    ]
+    owner = {}
+    for name, span in palette_data["families"].items():
+        for step in range(span["count"]):
+            owner.setdefault(colours[span["start"] + step], name)
+    return owner
+
+
+def foreign_families(ours: list, theirs: list, owner: dict) -> dict:
+    """Families we paint with that the reference never uses in this region.
+
+    THIS REPLACED A MEAN, AND THE REPLACEMENT IS THE POINT.
+
+    Ruling 41 asked for saturation beside luminance, so this check measured
+    saturation -- the AMOUNT of colour, with no opinion about its DIRECTION. A
+    region author closing the sky's chroma gap found that the single most
+    saturated cold entry in the locked palette is accent_teal 0 at (8, 32, 32),
+    dithered it through the middle of the night sky at the highest density that
+    still measured well, and moved the number the right way. Three blind critics
+    on three different regions then independently called the sky green speckle.
+
+    The first fix was a mean green-minus-magenta axis, and it was wrong twice
+    over. It scored the sky +9.0 against the reference with the teal in, +8.0
+    with the teal entirely removed -- so it was measuring a palette limit, not
+    the defect, and its threshold was unreachable. And a mean cannot see
+    localised wrong hue anyway: eleven hundred teal pixels moved the region's
+    average by less than one unit while being plainly green to look at.
+
+    So the test is not a statistic at all. The reference re-quantised into OUR
+    palette is the requantiser's best attempt at the same picture under the same
+    constraint, and it chose accent_teal for the sky ZERO times out of 15,360
+    pixels. Ours chose it 1,089 times. A family the reference never reaches for
+    in a region is a family that does not belong in it, and there is no
+    threshold to argue about.
+    """
+    ours_families, theirs_families = {}, set()
+    for pixel in theirs:
+        name = owner.get(pixel)
+        if name:
+            theirs_families.add(name)
+    for pixel in ours:
+        name = owner.get(pixel)
+        if name:
+            ours_families[name] = ours_families.get(name, 0) + 1
+    return {
+        name: count for name, count in ours_families.items()
+        if name not in theirs_families
+    }
 
 
 def sample(image: Image.Image, rect) -> list:
@@ -159,11 +223,12 @@ def report(strict: bool) -> int:
     ours_image = canvas.to_image(palette).convert("RGB")
     bar = Image.open(REFERENCE).convert("RGB")
     bar_in_palette = Image.open(REFERENCE_IN_PALETTE).convert("RGB")
+    owner = family_map(json.loads((ROOT / "art" / "palette" / "consolation-256.json").read_text()))
 
     print("ROOM 1 -- the far field, per errata 41 (saturation) and 42 (shape)\n")
-    print(f"  {'region':8s} {'shape':>7s} {'hollow':>18s} {'sat ratio':>10s} "
-          f"{'top2 cover':>22s} {'mean run':>18s}")
-    print("  " + "-" * 88)
+    print(f"  {'region':8s} {'shape':>7s} {'hollow':>18s} {'sat ratio':>10s} {'foreign':>8s} "
+          f"{'top2 cover':>20s} {'mean run':>16s}")
+    print("  " + "-" * 96)
 
     failures = []
     for name, rect in REGIONS:
@@ -187,12 +252,15 @@ def report(strict: bool) -> int:
         ref_sat = sum(saturation(pixel) for pixel in theirs) / len(theirs)
         ratio = our_sat / ref_sat if ref_sat else 0.0
 
+        foreign = foreign_families(ours, sample(bar_in_palette, rect), owner)
+        foreign_count = sum(foreign.values())
+
         our_cover, our_run = flatness(ours)
         ref_cover, ref_run = flatness(sample(bar_in_palette, rect))
 
         hollow_text = "none" if not hollow else "bucket " + ",".join(str(h + 1) for h in hollow)
-        print(f"  {name:8s} {shape:7.3f} {hollow_text:>18s} {ratio:10.2f} "
-              f"{our_cover:9.0%} vs {ref_cover:4.0%}      {our_run:5.2f} vs {ref_run:4.2f}")
+        print(f"  {name:8s} {shape:7.3f} {hollow_text:>18s} {ratio:10.2f} {foreign_count:8d} "
+              f"{our_cover:8.0%} vs {ref_cover:4.0%}   {our_run:5.2f} vs {ref_run:4.2f}")
 
         if shape > SHAPE_TOLERANCE:
             failures.append(f"{name}: shape {shape:.3f} over {SHAPE_TOLERANCE} -- "
@@ -203,6 +271,10 @@ def report(strict: bool) -> int:
         if not (SAT_FLOOR <= ratio <= SAT_CEILING):
             failures.append(f"{name}: saturation ratio {ratio:.2f} outside "
                             f"{SAT_FLOOR}-{SAT_CEILING} -- ruling 41")
+        if foreign:
+            named = ", ".join(f"{fam} x{count}" for fam, count in sorted(foreign.items()))
+            failures.append(f"{name}: paints in {named} -- families the reference never "
+                            "uses here. Chroma in the wrong direction is not chroma")
         if our_cover > ref_cover + 0.15:
             failures.append(f"{name}: two colours cover {our_cover:.0%} against the "
                             f"reference's {ref_cover:.0%} -- painted in slabs")

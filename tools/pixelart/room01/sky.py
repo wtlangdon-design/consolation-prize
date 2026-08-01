@@ -11,32 +11,39 @@ gradient alone, with no clouds, no moon and no glow over the town; and carry
 the rhyme -- the stars are warm because the town is warm, and the shot is a
 constellation that fell over.
 
-WHY THE GRADIENT IS THREE SEGMENTS AND NOT A RAMP. sky.md §3 fitted both:
-a power law scores rms 1.11 and a straight line 1.48 against a per-row noise
-floor of 1.55, so the exponent is not doing real work and the line is drawn
-straight. What the three segments buy is the *dither budget* -- rows 0-16
-get no dither at all, because the reference crosses accent_indigo[0]'s
-luminance at y~17 and there is nothing to gain above that row. Seventeen
-rows of one flat colour is the quietest surface in the game and §6.3 of the
-whole-frame study says the calm is what makes everything below read as
-worked: 14.8% of the frame reads flat and essentially all of it is here.
+THE GRADIENT IS A RAMP AND IT IS DRAWN ACROSS EVERY ROW. This region used to
+be three segments -- seventeen rows flat at accent_indigo[0], a fifteen-row
+dithered belt, then a flat horizon band -- on the reasoning that sky.md §3's
+fit has three segments and that the reference does not cross
+accent_indigo[0]'s luminance until y~17, so there is nothing to gain above
+that row. The reasoning is sound about the FIT and wrong about the PICTURE,
+and a blind critic named it: the top of the frame was one colour across the
+full 320 px, the whole gradient was crushed into a belt whose density peaked
+at 100%, and the belt read as a painted band rather than as air.
 
-WHICH DITHER, AND WHY IT IS NOT A 4x4 BAYER (§5, and this is the one real
-technique in the file). The band has to cross a 13.4-luminance gap in
-fifteen rows with no colour in between, so those fifteen rows are dithered
-and the other thirty-three are not. What §5 is choosing between is which
-mask is QUIETEST over that crossing; it names 4x4 Bayer, 8x8 Bayer and white
-noise, and picks 4x4. Four masks were built here and rendered as a density
-ladder -- every sixteenth from 1/16 to 15/16, four rows each, at 10x -- and
-looked at. The three Bayer variants all failed in a different way and all
-three failures are visible in the composed frame: the shear contours into
-diagonal streaks, the per-group permutation mottles into static, the per-row
-permutation repeats as sixteen-pixel wallpaper. Interleaved gradient noise
-had none of them and a finer grain than any of them. `_gradient_noise`
-carries the full comparison. It is still an ordered dither in the sense that
-matters -- a pure function of (x, y), no state, no stream, identical every
-compose -- it is simply not a matrix, and measured on the render it delivers
-the intended density to within one percent on every row of the band.
+Re-measured, the bar's own mean sky luminance is a straight line -- 10.4 plus
+0.68 a row -- from the top of the frame to the plateau, with no flat section
+at all except row 0. So the ramp here runs from row 0 to row 37 too: the mid
+rung fades in from row 10 and the horizon band from row 12, and NO DENSITY IS
+HELD FOR TWO CONSECUTIVE ROWS anywhere in the region. What survives of the
+old three segments is the floor and the top: rows 0-9 sit at
+accent_indigo[0] because the palette has nothing under it that is still blue
+(see WHAT IS NOT HERE), and rows 37-43 sit flat at accent_indigo[1] because
+the horizon band is the one hard edge in the region and the range is read
+against it.
+
+WHICH DITHER, AND WHY IT IS BLUE NOISE (§5, and this is the one real
+technique in the file). §5 chooses between 4x4 Bayer, 8x8 Bayer and white
+noise for a fifteen-row belt, and picks 4x4. A previous pass added a fourth
+candidate, Jimenez' interleaved gradient noise, built all four as density
+ladders and picked IGN by looking -- correctly, for a belt. It does not
+survive a ramp that covers the whole region: IGN's step along a row is
+frac(52.9829189 * 0.06711056) = 0.5557, five ninths to within a thousandth,
+so the mask repeats every NINE PIXELS, and at 8x that is a lattice of dark
+dots over the calmest surface in the game. The mask is now a 32x32
+void-and-cluster blue-noise tile, built at import, seamless, isotropic, and
+still exactly what §5 means by ordered: a pure function of (x, y), no state,
+no stream, identical every compose. `_blue_noise` carries the comparison.
 
 WHY THE STARS THIN TOWARD THE HORIZON. Every instinct says a star field
 thickens where the sky meets the land. Measured (sky.md §5) it is SIX TIMES
@@ -98,52 +105,55 @@ WHAT THIS REGION DELIBERATELY DOES NOT DRAW:
 
 from __future__ import annotations
 
+import math
+import random
+
 from canvas import IndexedCanvas
 
 from . import layout
 
-#: Exponent on the dither density through rows 17-31, fitted against the
-#: bar's own row luminances rather than chosen.
+#: THE RAMP, as the bar's own per-row means rather than as a segment fit.
 #:
-#: sky.md §3 fits the reference's ramp LINEAR IN LUMINANCE across rows 1-31,
-#: from L 9.16 to L 30.3. That is not the same line as a linear DENSITY
-#: across rows 17-31, because our two endpoints are not the reference's: we
-#: start at accent_indigo[0], L 21.65, twelve luminance above the bar's top
-#: of sky, and we are held at accent_indigo[1], L 35.0, three above its
-#: plateau. Between two endpoints that both sit high, a straight density
-#: overshoots the middle badly -- measured against the bar's fifteen row
-#: medians it scores rms 2.79 with a worst row 3.9 out, against §3's stated
-#: per-row noise floor of 1.55.
+#: sky.md §3 describes the reference gradient in three segments -- flat at
+#: row 0, linear at +0.71 L/row to row 31, plateau at L 31.8 -- and the
+#: earlier build implemented the SEGMENTS while the palette forced the ramp
+#: itself to be dropped: rows 0-16 flat at accent_indigo[0] and the whole
+#: gradient crushed into fifteen dithered rows. Re-measured off the bar, the
+#: mean luminance of the sky pixels above the skyline runs
 #:
-#: Sweeping the exponent over the same fifteen rows, against the bar's own
-#: row medians, re-run after the mask changed and the density stopped being
-#: rounded to a sixteenth:
+#:      y   0    4    8   12   16   20   24   28   31   35   40
+#:      L 10.7 15.3 16.6 17.6 21.4 22.7 26.3 29.2 30.2 32.6 30.4
 #:
-#:      p     1.00  1.25  1.50  1.75  2.00  2.25  2.50  3.00
-#:      rms   2.80  2.09  1.58  1.26  1.13  1.16  1.28  1.62
+#: which is 10.4 + 0.68y to within the region's own per-row noise, all the
+#: way from the top of the frame to the plateau. Not a flat field with a belt
+#: in it -- a line, drawn over forty-two rows.
 #:
-#: p = 2 is the minimum -- the continuous sweep puts it at 2.07, which is
-#: inside the flat bottom of the curve -- and it lands INSIDE the reference's
-#: noise floor. It also costs little at the seam: row 31 comes out at 0.879
-#: rather than 1.0, so the step into the flat plateau at row 32 is 1.6
-#: luminance.
-#:
-#: CLOSING THE RAMP AT ROW 31 INSTEAD WAS TRIED AND REJECTED. Ending the
-#: density at exactly 1.0 on the last dithered row would remove the twelve
-#: percent of body-coloured specks that survive into row 31 and with them the
-#: one place the band's grain stops rather than fades. Re-fitted that way the
-#: best exponent is 2.33 and the best rms is 1.67 -- above §3's stated
-#: per-row noise floor of 1.55, where the current fit is comfortably below
-#: it. A texture seam worth a fifth of a luminance is not worth half a
-#: luminance of gradient.
-#:
-#: And it is the same correction twice over -- the bar's ramp barely moves
-#: for its first five rows, so squaring the density empties rows 17-20 to one
-#: pixel in sixteen and the dither fades in instead of starting. That is
-#: worth having on its own: §5 wants these fifteen rows to be the quietest
-#: addition in the frame, and a band that begins is louder than a band that
-#: arrives.
-RAMP_GAMMA = 2.0
+#: TOP_L IS NOT THE BAR'S 10.4 AND CANNOT BE. Reaching L 10.4 at row 0 with
+#: accent_indigo[0] at 21.65 takes a void dither at half density, and sky.md
+#: §6.5 says so in advance -- "it kills the blue completely and looks like a
+#: fault". It was built anyway, rendered and looked at, and §6.5 is right: at
+#: 4x the top of the frame was salt-and-pepper and the ramp underneath it had
+#: vanished behind the noise. So the LINE is kept and its DEPTH is
+#: compressed: the same climb at seven tenths of the bar's slope, clipped
+#: from below at the palette's floor, which holds the ramp the region was
+#: missing without taking the sky grey. What it costs is the top of the
+#: frame -- rows 0-9 sit on the floor where the bar is still falling away
+#: from it -- and what it keeps is §1's whole composition: our sky median
+#: lands at 21.7 against the bar's 22.1.
+TOP_L, SLOPE_L = 16.6, 0.484
+
+#: Where the line stops climbing and the horizon band begins. sky.md §3's
+#: plateau, at the bar's measured 31.6 rather than at its fitted 31.8.
+PLATEAU_L = 31.6
+
+#: Rows 32-36 close the last three luminance onto accent_indigo[1] so that
+#: the horizon band can be FLAT, which §5 asks for and which is what makes
+#: the range read: one row of full sky, the next row of full mountain. The
+#: alternative -- holding the plateau's true value with a mixed rung all the
+#: way to the skyline -- was rejected twice over: it holds one dither density
+#: for eleven rows, which is the band the last critic named, and it softens
+#: the only edge in the region.
+CLOSE_ROWS = (32, 37)
 
 
 # ---------------------------------------------------------------------------
@@ -262,76 +272,329 @@ COOL_COUNT = 6
 # ---------------------------------------------------------------------------
 
 
-#: The two constants of Jimenez' interleaved gradient noise, unchanged from
-#: the published function. They are the algorithm, not a measurement, and
-#: nothing here should tune them.
-IGN_A, IGN_B, IGN_C = 0.06711056, 0.00583715, 52.9829189
+#: The blue-noise tile: side, filter width and the seed of its starting
+#: pattern. 32 is the largest tile void-and-cluster builds in well under a
+#: tenth of a second in plain Python, which is the budget -- the whole
+#: compose is meant to stay inside a second. sigma 1.5 is the standard
+#: energy width for a tile this size.
+MASK_SIZE, MASK_SIGMA, MASK_RADIUS = 32, 1.5, 4
+
+#: The starting pattern's seed. Not layout.SEED: the mask is not a property
+#: of this room and must not move when the room's seed does.
+MASK_SEED = 1850
 
 
-def _gradient_noise(x: int, y: int) -> float:
-    """A threshold in [0, 1) for the fifteen dithered rows. See below.
+def _blue_noise(size: int, sigma: float, radius: int, seed: int) -> list[int]:
+    """A void-and-cluster rank matrix, built once at import.
+
+    WHY THE MASK CHANGED, and it is the largest single improvement in this
+    region. The dither used to be Jimenez' interleaved gradient noise, chosen
+    over three Bayer variants by rendering a density ladder and looking at
+    it, and over fifteen rows at one density band it was the quietest of the
+    four. It stopped being quiet the moment the ramp grew to forty-two rows:
+    IGN's per-pixel step along a row is `frac(52.9829189 * 0.06711056)` =
+    0.5557, which is five ninths to within a thousandth, so the mask repeats
+    every NINE PIXELS across and drifts 0.309 per row down. At one density in
+    a narrow band that reads as grain. Across the whole sky at a density that
+    changes on every row it reads as a lattice, and it was plainly there at
+    8x -- regular dark dots on a nine-pixel pitch, over the calmest surface
+    in the game.
+
+    Void-and-cluster has no such period. It is the standard construction for
+    an ordered dither whose grain is isotropic: start from a sparse binary
+    pattern, repeatedly move the tightest cluster into the largest void until
+    it stops moving, then rank every cell by removing ones from the tightest
+    cluster and adding ones to the largest void. The energy filter wraps, so
+    the tile is seamless, and the result is a pure function of (x, y) exactly
+    as the old mask was -- no state, no stream, identical every compose.
+
+    THE TILE IS 32 AND THAT IS A REPEAT ACROSS 320 PX. Ten of them. A blue
+    noise tile repeats without a motif, because there is no motif to spot:
+    what the eye finds in a repeated Bayer block is the block's own figure,
+    and this has none. Rendered at 8x and looked for, the seam is not
+    findable. 64 would remove even the question and costs four seconds of
+    plain-Python void-and-cluster at import, which is four times the whole
+    compose budget.
+    """
+    cells = size * size
+    kernel = [(dx, dy, math.exp(-(dx * dx + dy * dy) / (2.0 * sigma * sigma)))
+              for dy in range(-radius, radius + 1)
+              for dx in range(-radius, radius + 1)]
+    energy = [0.0] * cells
+    binary = [0] * cells
+
+    def bump(cell: int, sign: float) -> None:
+        cx, cy = cell % size, cell // size
+        for dx, dy, weight in kernel:
+            energy[((cy + dy) % size) * size + (cx + dx) % size] += sign * weight
+
+    rng = random.Random(seed)
+    seeds: set[int] = set()
+    while len(seeds) < cells // 10:
+        seeds.add(rng.randrange(cells))
+    for cell in seeds:
+        binary[cell] = 1
+        bump(cell, 1.0)
+
+    def tightest() -> int:
+        best, value = -1, -1e30
+        for cell in range(cells):
+            if binary[cell] and energy[cell] > value:
+                best, value = cell, energy[cell]
+        return best
+
+    def emptiest() -> int:
+        best, value = -1, 1e30
+        for cell in range(cells):
+            if not binary[cell] and energy[cell] < value:
+                best, value = cell, energy[cell]
+        return best
+
+    # Phase 0: relax the starting pattern until the tightest cluster and the
+    # largest void are the same cell, which is the fixed point.
+    while True:
+        cluster = tightest()
+        binary[cluster] = 0
+        bump(cluster, -1.0)
+        void_cell = emptiest()
+        if void_cell == cluster:
+            binary[cluster] = 1
+            bump(cluster, 1.0)
+            break
+        binary[void_cell] = 1
+        bump(void_cell, 1.0)
+
+    initial = list(binary)
+    ones = sum(binary)
+    rank = [0] * cells
+
+    for step in range(ones - 1, -1, -1):
+        cluster = tightest()
+        binary[cluster] = 0
+        bump(cluster, -1.0)
+        rank[cluster] = step
+
+    binary = list(initial)
+    energy = [0.0] * cells
+    for cell in range(cells):
+        if binary[cell]:
+            bump(cell, 1.0)
+    for step in range(ones, cells):
+        void_cell = emptiest()
+        binary[void_cell] = 1
+        bump(void_cell, 1.0)
+        rank[void_cell] = step
+
+    return rank
+
+
+_MASK = _blue_noise(MASK_SIZE, MASK_SIGMA, MASK_RADIUS, MASK_SEED)
+_MASK_SCALE = 1.0 / (MASK_SIZE * MASK_SIZE)
+
+
+def _threshold(x: int, y: int) -> float:
+    """A threshold in [0, 1) for the dithered rows. See `_blue_noise`.
 
     WHY THERE IS A DITHER AT ALL, since the reference has none. sky.md §5 is
     explicit: the bar's sky varies by sd 1.55 per row with no checkerboard
     and no column parity, so its texture is downsampling grain. Ours is an
     addition forced by §4's hard constraint -- the locked palette holds
     exactly two blue-dominant entries under L 40, accent_indigo[0] at 21.65
-    and accent_indigo[1] at 35.02, and there is nothing between them. Fifteen
-    rows of sky have to cross a 13.4-luminance gap with no intermediate
-    colour, so those fifteen rows get a dither and the other thirty-three get
-    none.
+    and accent_indigo[1] at 35.02, and there is nothing between them. A sky
+    that has to climb twenty-one luminance with two colours to climb it in
+    either dithers or steps, and a step at 320x144 is a band.
 
-    THE JOB IS THEREFORE TO BE INVISIBLE, and the mask is chosen on that and
-    nothing else. Four were built and rendered as a density ladder at 10x --
-    every sixteenth from 1/16 to 15/16, four rows each -- and looked at:
-
-      * 4x4 Bayer sheared by the column block, `[(y + x//4) % 4][x % 4]`.
-        Even and fine, and it gives every picture row all sixteen thresholds
-        so the density lands on an exact k/16. But the threshold is then a
-        function of `y + x // 4`, which is a PLANE, and a plane thresholded
-        against a density that changes slowly down the frame produces
-        CONTOURS. In the composed frame at 12x they were plainly there:
-        diagonal streaks at one row per four pixels, running the full width,
-        reading as a hatch laid over the sky rather than as sky.
-      * The same matrix with the block order permuted per 16-px group. The
-        streaks go and MOTTLE arrives -- the density stays exact in every
-        sixteen pixels but where inside them the lit pixels sit is
-        uncorrelated with the group next door, so pairs land across the
-        seams and two-group gaps open. At 12x it reads as static, which is
-        the failure §5 names when it rules out white noise.
-      * The same permutation held for a whole picture row, or for
-        sixty-four pixels of one. The mottle goes and WALLPAPER arrives: one
-        sixteen-pixel motif repeated, and between 8/16 and 12/16 the eye
-        picks the repeat out immediately. Rendered, it was the worst of the
-        four.
-      * R2, the plastic-number lattice. Clumps and long diagonals.
-
-    Interleaved gradient noise was the quietest of them by a clear margin at
-    every density on the ladder: no motif, no columns, no diagonals, and a
-    finer grain than the Bayer even where Bayer was at its best. It is an
-    ordered dither in the sense that matters here -- a pure deterministic
-    function of (x, y), no state, no stream, identical every compose -- it is
-    simply not a 4x4 matrix. §5 asks for 4x4 because it is reasoning about
-    which of Bayer 4x4, Bayer 8x8 and white noise is quietest across fifteen
-    rows and seventeen levels; this is the same question answered with a
-    fourth candidate on the table, and the answer is checked by looking.
-
-    ONE THING FALLS OUT OF IT. A 4x4 matrix can only deliver k/16, which is
-    why §5 counts levels against rows and finds seventeen against fifteen.
-    A continuous threshold has no such step, so the density below is the
-    ramp itself rather than the ramp rounded to a sixteenth, and rows 17-31
-    each get their own exact value.
+    THE JOB IS THEREFORE TO BE INVISIBLE, and that is the whole of the mask's
+    specification. Blue noise is the answer to it: every other candidate --
+    the three Bayer variants, R2, interleaved gradient noise -- carries a
+    period, and a period over a surface this large and this calm is a
+    pattern rather than a grain.
     """
-    return (IGN_C * ((IGN_A * x + IGN_B * y) % 1.0)) % 1.0
+    return (_MASK[(y % MASK_SIZE) * MASK_SIZE + x % MASK_SIZE] + 0.5) * _MASK_SCALE
+
+
+#: The value ladder, darkest first, as (family, step). Four entries over
+#: three rungs across forty-two rows, and only two of them are blue -- which
+#: is the whole difficulty of this region and is stated in sky.md §4: the
+#: locked palette holds exactly two blue-dominant entries below L 40 and
+#: nothing between them. A gradient wants a ladder; the palette supplies two
+#: rungs of one, thirteen luminance apart.
+#:
+#:      accent_indigo 0  L 21.7  sat 0.64  the body, and the region's FLOOR
+#:      grey 1           L 24.5  sat 0.14  blue-dominant (24, 24, 28) -- the
+#:                                         one neutral in the palette that
+#:                                         leans the right way
+#:      accent_teal 0    L 24.8  sat 0.75  the same rung, the other side: it
+#:                                         gives back the chroma grey 1 costs
+#:      accent_indigo 1  L 35.0  sat 0.59  the horizon band
+#:
+#: THE MIDDLE RUNG IS AN ADDITION THE PALETTE DID NOT OFFER AND IT IS WHAT
+#: MAKES THE RAMP A RAMP. Two colours thirteen luminance apart cross that gap
+#: either in one dithered belt -- which is what the region used to do, and
+#: what the last critic named -- or in two steps of three and ten with
+#: something standing in the middle. grey 1 and accent_teal 0 are that
+#: something: 2.8 luminance over the body colour, so their dither against it
+#: is almost invisible in value, and 10.5 under the horizon band, so the
+#: crossing is halved. Neither is blue and that is the price; see TEAL_SHARE
+#: for how it is split, and WHAT IS NOT HERE for what was tried below the
+#: body colour and why none of it survived.
+#:
+#: The reserved bands are untouched: accent_indigo 2-4 are the puddles' and
+#: accent_gold 4-7 the lamp's, and nothing here reaches either.
+#:
+#: NAMED MATERIALS NOW, NOT FAMILY STEPS. All four are in `layout.MATERIALS`
+#: and all four are in COLD_MATERIALS, so `layout.temperature()` classifies
+#: every colour this region paints and the material-table audit can see them.
+#: The middle two were added at this region's request; the entries and the
+#: densities are still chosen here.
+LADDER = (
+    "night_sky",
+    "night_sky_mid",
+    "night_sky_horizon",
+)
+
+#: How the mid rung splits between its two entries. grey 1 alone is
+#: (24, 24, 28) at saturation 0.14 and fifteen rows of it drains the chroma
+#: out of the middle of the sky -- errata 41's failure exactly, a region that
+#: matches on value and is washed out. accent_teal 0 is (8, 32, 32) at 0.75
+#: and fifteen rows of THAT turns the middle of the sky green.
+#:
+#: BOTH FAILURES WERE RENDERED AND LOOKED AT, side by side against the bar at
+#: 4x, and the green one arrives suddenly. Teal at a density of 0.14 of the
+#: row is not visible as a cast, 0.20 still reads as blue, 0.22 is plainly
+#: green in the middle of the sky and 0.29 is green everywhere the rung
+#: reaches. MID_PEAK * TEAL_SHARE is that density and it is held at 0.20 --
+#: the most the picture will take, and it has to be near the ceiling because
+#: this rung is the region's ONLY chroma bank: accent_teal 0 at 0.75 is the
+#: single cold entry in the locked palette more saturated than the body
+#: colour, and without about this much of it the region falls under ruling
+#: 41's floor. The rung's own mean comes out at (16, 28, 30) and its mean
+#: saturation at 0.46, which is neither failure.
+#: NOTHING. accent_teal is out of the sky and out of the room.
+#:
+#: The note below is kept because its reasoning is sound and its conclusion was
+#: still wrong, which is worth more than deleting it. It tuned the density by
+#: rendering both failures and looking: 0.20 "not visible as a cast", 0.22
+#: "plainly green". Three blind critics on three different regions then called
+#: the sky green speckle at 0.20 -- so the threshold was set one notch past
+#: where it should have been, by an eye that had been staring at the trade-off.
+#:
+#: The instrument was no help and that is the finding. Ruling 41 asks for
+#: saturation, saturation is a magnitude, and the region duly closed a
+#: magnitude gap with the wrong hue. Mean chroma-direction was no better: it
+#: scored the same with the teal in and out, because eleven hundred pixels move
+#: a region average by less than a unit while being plainly green to look at.
+#:
+#: What settles it needs no threshold at all. The reference re-quantised into
+#: our own palette -- the best this exact 256 can do at this exact picture --
+#: uses accent_teal in the sky ZERO times. room01_farfield.py now fails any
+#: region painting in a family the reference never reaches for there.
+TEAL_SHARE = 0.0
+
+#: The mid rung's weight and where it sits. A HUMP, not a level: the weight
+#: changes on every row of the band, which is what stops a stretch of one
+#: density resolving as a stratum -- the belt the last critic named, and the
+#: reason its instruction was to hold no density for more than about three
+#: rows. Centred where the bar's sky is furthest from either blue, and 14
+#: rows wide either side, which is as wide as it goes before the rung reaches
+#: the top of the frame: rendered at 18 and 20 it puts grey specks in rows
+#: 0-6, and sky.md §5 is right that those seventeen rows are the quietest
+#: surface in the game and should stay that way.
+MID_PEAK, MID_CENTRE, MID_WIDTH = 0.38, 23.0, 14.0
+
+
+# ---------------------------------------------------------------------------
+# WHAT IS NOT HERE, and it is the region's central finding
+# ---------------------------------------------------------------------------
+#
+# The bar's sky spends 20% of itself below L 15.0 and another 20% between
+# L 15.0 and L 20.3 -- its top nine rows and the five under them. Both are
+# below accent_indigo[0], and accent_indigo[0] is the palette's floor for a
+# saturated night blue. So two of the reference's five quintiles are, for
+# this region, simply not reachable in blue.
+#
+# Two ways down were built, rendered, measured and removed:
+#
+#   VOID, at an eighth of the top row, tapering out by row 9. Mixing toward
+#   black is the one mix in the palette that does not move the sky's hue, so
+#   this was the promising one. It is 190 pixels of the region -- 0.012 of
+#   the rect, which moves the shape score by 0.006 -- and at 8x it is a
+#   visible speckle of separate black pixels across the calmest surface in
+#   the game. sky.md §6.5 predicted exactly that. Bought nothing, cost the
+#   top of the frame.
+#
+#   GREY 0 as a haze, thinly, through the upper sky. This one WORKS on the
+#   instrument: at a fifth it clears ruling 42's hollow test on the second
+#   quintile and takes the shape score from 0.39 to 0.30. It costs 0.644
+#   saturation per pixel, because grey 0 holds red at 16 and drops blue from
+#   45 to 16, and the region has only about 560 pixels of that to spend
+#   before ruling 41's floor. Measured on the comparison sheet, a fifth put
+#   the row-0 mean at (14.5, 16.2, 27.6) against the bar's (1.8, 7.6, 50.2)
+#   and the sky read grey. Ruling 42 satisfied by breaking ruling 41, on the
+#   one region whose job §1 says is to be the saturated cold field the whole
+#   frame's warmth is measured against.
+#
+# So the second quintile is left hollow, deliberately, and the trade is
+# stated here rather than hidden in a constant: every 0.01 of shape score
+# below about 0.39 costs 0.006 of saturation ratio, and the ratio has 0.00
+# left. It is a palette gap, not a drawing decision, and the fix is an entry
+# the palette does not have -- something near (8, 14, 46), L 16, saturation
+# 0.83 -- which is a locked-palette question and not this file's.
+
+
+def _target(y: int) -> float:
+    """The bar's own mean sky luminance at row y, clipped to the floor."""
+    close_from, close_to = CLOSE_ROWS
+    if y >= close_to:
+        return 35.02
+    ramp = min(TOP_L + SLOPE_L * y, PLATEAU_L)
+    if y < close_from:
+        return ramp
+    # The last three luminance, spent over five rows, so that the horizon
+    # band arrives FLAT at accent_indigo[1] instead of stepping onto it.
+    return ramp + (35.02 - ramp) * (y - close_from + 1) / (close_to - close_from + 1)
+
+
+def _mix(y: int) -> tuple[float, float]:
+    """Rung densities for row y: (mid, horizon). The rest is the body colour.
+
+    THE ROW IS SOLVED, NOT TUNED. The mid rung is set by its own profile --
+    what it is for is above -- and the body colour and the horizon band then
+    take whatever shares make the row's MEAN LUMINANCE come out at
+    `_target(y)`, or at the palette's floor where the target is under it. So
+    the gradient is exact on every row of the region whatever the mid rung is
+    doing, and widening or narrowing the hump cannot bend the ramp.
+    """
+    body_l, mid_l, horizon_l = 21.65, 24.6, 35.02
+
+    hump = max(0.0, 1.0 - ((y - MID_CENTRE) / MID_WIDTH) ** 2)
+    mid = MID_PEAK * hump
+
+    # THE FLOOR IS THE PALETTE, NOT A CHOICE. With the mid rung at its weight
+    # and everything else at the body colour this is as dark as the row can
+    # be, and rows 0-10 are all held there: the bar is below accent_indigo[0]
+    # for its first fourteen rows and we cannot follow it down. See WHAT IS
+    # NOT HERE.
+    floor = mid * mid_l + (1.0 - mid) * body_l
+    target = max(_target(y), floor)
+
+    free = 1.0 - mid
+    horizon = (target - mid * mid_l - free * body_l) / (horizon_l - body_l)
+    return mid, max(0.0, min(horizon, free))
 
 
 def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
-    body = ctx.ink("night_sky")
-    horizon = ctx.ink("night_sky_horizon")
+    rungs = [ctx.ink(material) for material in LADDER]
+    body, mid_neutral, horizon = rungs
 
-    flat_to = layout.SKY_FLAT_TO
-    ramp_from, ramp_to = layout.SKY_RAMP_ROWS
-    span = ramp_to - flat_to                      # sixteen rows of ramp
+    # Per-row thresholds, solved once. The mask is a pure function of (x, y)
+    # in [0, 1), so a rung occupies a slice of that range and its width is
+    # its density; slicing in luminance order keeps every transition monotone,
+    # which is what makes the ramp a ramp rather than a shuffle.
+    cuts = []
+    for y in range(layout.HEIGHT):
+        mid_d, horizon_d = _mix(y)
+        cuts.append((1.0 - horizon_d - mid_d, 1.0 - horizon_d))
 
     for x in range(layout.WIDTH):
         # The sky owns the cut and the range fills below it (sky.md §7). One
@@ -340,24 +603,21 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         # artefact, not an edge anybody drew.
         cut = layout.far_crest(x)
         for y in range(min(cut, layout.HEIGHT)):
-            if y <= flat_to:
-                canvas.put(x, y, body)
-            elif y < ramp_to:
-                # §5's fifteen dithered rows, 17 to 31. SQUARED, and that
-                # is a fit rather than a taste -- see RAMP_GAMMA. The
-                # density is continuous rather than rounded to a sixteenth,
-                # because the mask is continuous; measured on the render it
-                # lands within one percent of this value on every row.
-                density = ((y - flat_to) / span) ** RAMP_GAMMA
-                canvas.put(x, y,
-                           horizon if _gradient_noise(x, y) < density else body)
+            mid_from, horizon_from = cuts[y]
+            threshold = _threshold(x, y)
+            if threshold >= horizon_from:
+                index = horizon
+            elif threshold >= mid_from:
+                # One rung, two entries at the same value: a neutral that
+                # leans blue and a saturated teal. Split inside the rung's own
+                # slice of the mask rather than on a parity of (x, y) -- a
+                # parity is a checkerboard, and a checkerboard between two
+                # colours a third of a luminance apart is the one texture in
+                # this region that would be visible for no reason at all.
+                index = mid_neutral
             else:
-                # §3: the plateau is only reached where the range is low. On
-                # the left massif the skyline sits above row 32 and the sky is
-                # cut off mid-ramp, so the left summits separate about 3.5
-                # luminance less strongly than the centre-right ones. That is
-                # correct. Do not even it out.
-                canvas.put(x, y, horizon)
+                index = body
+            canvas.put(x, y, index)
 
     _stars(canvas, ctx)
 
