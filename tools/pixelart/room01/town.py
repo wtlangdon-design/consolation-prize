@@ -153,7 +153,7 @@ TROUGH_RIGHT = ((45, 143), (50, 150))
 #: Row 51 is the sixth: the bar has it at 18.3, still trough, and the town
 #: begins on 52. See ROOF_PROFILE.
 TROUGH_GREY = ((45, 0.26), (46, 0.42), (47, 0.55), (48, 0.66), (49, 0.74),
-               (50, 0.66), (51, 0.52))
+               (50, 0.62), (51, 0.30))
 TROUGH_WALL = 0.09
 
 #: §4. Lights per 10-px column band from x=70 to x=179. Uniform at 7-9 from
@@ -178,7 +178,20 @@ TROUGH_WALL = 0.09
 #: lights, all before the scatter runs. The scatter's job out there is nearly
 #: finished before it starts, so its counts come down and the middle takes
 #: what they had.
-BAND_COUNTS = (3, 8, 7, 11, 9, 8, 9, 1, 2, 0, 0)
+#:
+#: AND SEVENTEEN OF THEM ARE SPOKEN FOR NOW. LANDMARKS puts two or three
+#: lights into each of §2.5's seven buildings, which is the alignment §4
+#: allows and the scatter cannot produce; the bands they stand in give up the
+#: same number, so the census is unchanged and only its arrangement moves.
+#: Warm pixels per ten-column band over y 44-68, locked-palette proof against
+#: this region, after that trade:
+#:
+#:     proof  91  37  24  31  30  30  32  18   7   1   1
+#:     ours   68  45  26  36  30  32  28  19   3   6   1
+#:
+#: The first band is the gantry lamp's, which belongs to `left_yard`; every
+#: band this region actually draws is within a light or two of the proof.
+BAND_COUNTS = (3, 8, 5, 3, 8, 5, 9, 1, 2, 0, 0)
 BAND_FROM = 70
 
 #: §4: median nearest-neighbour distance 3.2 px, hard minimum 2. No two
@@ -199,6 +212,60 @@ HEADFRAME_WINDOWS = ((87, 43, 2, 2), (83, 46, 2, 2), (83, 50, 2, 1),
 #: as an individual building's ridge. Everything else is 5 px or shorter.
 #: Every additional long run costs a building's worth of ambiguity.
 ROOF_STROKES = layout.TOWN_ROOF_STROKES
+
+#: THE SEVEN STROKES ARE BUILDINGS, NOT LINES -- and this is the round's
+#: named gap, which has not turned in three attempts because it was being
+#: read as a colour problem when it is a geometry one.
+#:
+#: §2.5 measures the strokes on the BAR, which is a 256-free-colour painting,
+#: and calls them "highlight runs". Read at the same coordinates in the
+#: locked-palette proof they are not highlights at all -- five of the seven
+#: are solid plates of `accent_indigo` 1:
+#:
+#:     x107-112 y55   ? ? + = + +          grey 2/3 -- a real neutral stroke
+#:     x102-109 y58   b b B B B B B B      accent_indigo, eight wide
+#:     x110-116 y59   + + B B B B b        grey 3 cap, then the plate
+#:     x122-130 y60   b ? B b b b B ? B    accent_indigo, nine wide
+#:     x 92- 97 y62   B B B B B B          and y61 above it, x92-95
+#:     x121-126 y62   B B B B B B          and y61 above it, all six
+#:     x140-145 y64   B B B B B B          and y63 above it, x141-142
+#:
+#: So the "ridge" a stroke draws is the LIT TOP PLANE of a roof, one or two
+#: rows deep, and what makes it read is what is stacked around it. Taking
+#: x121-126 as the proof draws it, top to bottom:
+#:
+#:     y60   . . . . . .    the hill, dark: the eave gap above the roof
+#:     y61   B B B B B B    the roof plane, the sky's own colour
+#:     y62   B B B B B B
+#:     y63   + + + + + -    the fascia under the eave, `grey` 3
+#:     y64   = ? o @ * ?    the wall, with the windows cut into it
+#:     y65   = ? o @ ? =
+#:
+#: That stack is a building. Six pixels of one blue value with darkness above
+#: it and a lit fascia under it is a roof; the same six pixels stippled with
+#: neutrals -- which is what this region was drawing -- is a texture. Measured
+#: against the proof over x 88-150 / y 50-68, `accent_indigo` 1 came out at
+#: 105 px in 61 runs (mean 1.72) against its 112 px in 53 (mean 2.11): the
+#: right amount of the right colour, cut into a third more pieces.
+#:
+#: Each entry is (x, width, plate_top, plate_rows, plate ink, fascia ink,
+#: wall rows). Drawn LAST in the mass so the stipple pass cannot break them,
+#: and read again by `_windows` so the lights land in the wall rather than
+#: beside it.
+LANDMARKS = (
+    (107, 6, 55, 1, "town_roof", None, 2),
+    # ONE ROW, not two: x110-116 is the NEXT roof down the hill and it sits on
+    # y59, so a second row here welds the two plates into a fifteen-pixel run
+    # and the pair reads as one long shed. The proof steps them -- eight
+    # pixels at y58, seven at y59, offset by one row, which is what a terrace
+    # of two buildings on a slope looks like from above.
+    (102, 8, 58, 1, "town_roof_sky", None, 3),
+    (110, 7, 59, 1, "town_roof_sky", "town_roof", 2),
+    (122, 9, 60, 1, "town_roof_sky", None, 3),
+    (92, 6, 61, 2, "town_roof_sky", None, 3),
+    (121, 6, 61, 2, "town_roof_sky", "town_roof", 2),
+    (140, 6, 63, 2, "town_roof_sky", None, 2),
+)
 
 #: §7.3's ration, in pixels rather than in lights, because pixels are what
 #: the lantern is outweighed in. Twenty-four of the ceiling colour, in blobs
@@ -354,17 +421,32 @@ def _trough(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     for y in range(low, high):
         right = _trough_right(y)
         share = grey_share.get(y, 0.70)
-        for x in range(TROUGH_LEFT, right + 1):
-            if canvas.get(x, y) in face:
-                continue
-            roll = rng.random()
-            if roll < TROUGH_WALL:
-                ink = wall
-            elif roll < TROUGH_WALL + share * (1.0 - TROUGH_WALL):
-                ink = deep
-            else:
-                ink = dark
-            _put(canvas, x, y, ink)
+        # THE MIX IS COHERENT, NOT DITHERED, and this is what "near-nothing"
+        # means at 320x144. `grey` 0 and `accent_indigo` 0 are 5.7 luminance
+        # apart, which is nothing as a mean and a great deal as a checker:
+        # rolled per pixel, the band came out as visible salt-and-pepper right
+        # where §2.2 wants four rows of nothing at all, and §6 is explicit
+        # that the reference has no dither anywhere in this region.
+        #
+        # Measured on the proof over x 88-150, `grey` 0 in the trough runs in
+        # patches -- fourteen and fifteen columns unbroken on row 49 -- while
+        # this region was placing it one pixel at a time. So the walk is in
+        # runs of two to seven, and each run leans toward whatever the row
+        # above it did: that is the same ratio arriving as a MATERIAL rather
+        # than as a screen, and the band reads as the foot of a range.
+        x = TROUGH_LEFT
+        while x <= right:
+            run = 2 + int(rng.random() * 4)
+            above = sum(canvas.get(col, y - 1) == deep
+                        for col in range(x, min(x + run, right + 1)))
+            lean = above / max(1, min(x + run, right + 1) - x)
+            ink = deep if rng.random() < 0.74 * share + 0.26 * lean else dark
+            for col in range(x, min(x + run, right + 1)):
+                if canvas.get(col, y) in face:
+                    continue
+                _put(canvas, col, y,
+                     wall if rng.random() < TROUGH_WALL else ink)
+            x += run
 
 
 #: §5's six-value cool structure, dark to light, with the luminance each one
@@ -730,10 +812,24 @@ RIDGE_BRIGHT = 0.32
 #: The night takes the share back, and `town_wall_lit` returns at about half
 #: what it held before this round: enough for a gable end catching the street,
 #: not enough to be the value a roof shares.
-WALL_MIX_FAR = ((None, 0.52), ("town_wall", 0.22), ("town_wall_lit", 0.18),
-                ("town_trough", 0.06))
-WALL_MIX_MID = ((None, 0.54), ("town_wall", 0.22), ("town_wall_lit", 0.18),
-                ("town_trough", 0.06))
+#:
+#: AND THE FAR TERRACES DO NOT GET A `grey` 0 WALL AT ALL. A wall entry is a
+#: whole frontage -- three to twelve columns by two or three rows -- so a 6%
+#: share is not 6% of pixels scattered, it is one building in sixteen painted
+#: at L 16 in the band the roofline lives in. Measured over x 88-152 / rows
+#: 52-59 that colour came out at 17.1% against the proof's 6.4%, and the band
+#: read three luminance points dark with holes punched in its skyline.
+#:
+#: AND `grey` 1 IS RATIONED HARDEST OF ALL ON THE FAR TERRACES, where the note
+#: three paragraphs up already says it cannot carry a plane. Counted over
+#: x 88-131 -- the town's own columns at rows 52-59, clear of the hill the
+#: range draws east of the roofline -- it came out at 19.0% against the
+#: proof's 8.5%, while `grey` 3 ran 6.0% against 8.5% and `grey` 2 7.1%
+#: against 8.2%. Two and a half luminance over the background, spent a whole
+#: frontage at a time, is the single largest wrong entry left in the band.
+WALL_MIX_FAR = ((None, 0.54), ("town_wall", 0.09), ("town_wall_lit", 0.37))
+WALL_MIX_MID = ((None, 0.54), ("town_wall", 0.13), ("town_wall_lit", 0.29),
+                ("town_trough", 0.04))
 WALL_MIX_NEAR = ((None, 0.46), ("town_wall", 0.26), ("town_wall_lit", 0.22),
                  ("town_trough", 0.06))
 
@@ -882,6 +978,7 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     deep = ctx.ink("town_trough")       # grey 0, L 16.0
     roof = ctx.ink("town_roof")         # grey 3, L 40.6
     bright = ctx.ink("town_roof_bright")  # grey 4, L 53.5
+    lit_wall = ctx.ink("town_wall_lit")   # grey 2, L 32.5
     base = layout.TOWN_BASE_Y
 
     # 1. The silhouette, filled with the colour of the hill behind it. §9.6's
@@ -946,7 +1043,7 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 for col in range(building.x, building.right + 1):
                     if shade_row >= tops.get(col, base + 1):
                         _put(canvas, col, shade_row,
-                             deep if rng.random() < 0.16 else dark)
+                             deep if rng.random() < 0.07 else dark)
             continue
         for row in building.wall_rows_range():
             if row < tops.get(building.x, base + 1) or row > base:
@@ -963,10 +1060,18 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 roofs.discard((col, row))
                 if eave_row and rng.random() < EAVE_SHADE:
                     _put(canvas, col, row,
-                         deep if rng.random() < 0.12 else dark)
+                         deep if rng.random() < 0.06 else dark)
                     continue
+                # AND A `grey` 2 WALL IS BROKEN HARDER THAN A `grey` 1 ONE.
+                # The proof's `grey` 2 runs are 69 of 75 a single pixel and
+                # none longer than three, so a nine-column frontage painted in
+                # it end to end is a run the reference does not contain -- and
+                # it is the wall entry this region leans on most. Half of it
+                # falls back to the night, which is also what a frontage with
+                # a gable on one end and a shed roof on the other looks like.
+                broken = 0.42 if wall_ink == lit_wall else 0.18
                 _put(canvas, col, row,
-                     dark if rng.random() < 0.18 else wall_ink)
+                     dark if rng.random() < broken else wall_ink)
 
     # 3. Chimneys, gable ends and ridge tiles: single pixels of a roof value
     #    standing on a wall. §6 -- two-thirds of all roof highlights in the
@@ -991,7 +1096,19 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
             # arriving by the back door, one pixel at a time, after the mixes
             # had been fixed. A chimney, a ridge tile and a gable peak are
             # roof furniture; they stand on the plate, not on the frontage.
-            rate = 0.16 if (x, y) in roofs else 0.09
+            # ...AND THE UPPER TERRACES CARRY MORE OF IT, NOT LESS. Counted as
+            # index shares over x 88-152, rows 52-59, against the
+            # locked-palette proof: `grey` 3 at 3.7% against its 7.3% and
+            # `grey` 2 at 4.0% against its 7.1%, with `grey` 0 at 17.1%
+            # against its 6.4%. The whole band came out mean L 29.2 against
+            # 32.3 -- three luminance points dark across the top eight rows of
+            # the town, which is where the roofline is and where a viewer
+            # looks first. §1's own reading is why: the town is seen from
+            # several hundred feet ABOVE, so the far terraces present almost
+            # nothing but roof, and roof is the only plane the dome lights.
+            upper = y < layout.TOWN_ROOF_Y + 8
+            rate = (0.34 if upper else 0.14) if (x, y) in roofs else \
+                   (0.20 if upper else 0.07)
             if rng.random() < rate * min(1.0, _density(x, y) + 0.35):
                 _put(canvas, x, y, _roof_ink(ctx, rng))
 
@@ -1001,9 +1118,13 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     #    TEN, NOT TWENTY-SIX. See WALL_MIX_*: the proof spends 3.8% of the
     #    mass on this colour and twenty-six slots plus a 16-30% wall share
     #    was spending 11.7%.
-    for _ in range(10):
+    #    AND NOT ON THE TOP TERRACES AT ALL. The proof puts `grey` 0 at 6.4%
+    #    of rows 52-59 and 2.6% of rows 60-68; a slot up there is a hole in
+    #    the skyline, and the skyline is the one edge this region has.
+    for _ in range(8):
         x = rng.randrange(MASS_LEFT, MASS_RIGHT + 1)
-        y = rng.randrange(tops.get(x, base), base + 1)
+        y = rng.randrange(max(tops.get(x, base), layout.TOWN_ROOF_Y + 6),
+                          base + 1)
         if rng.random() > _density(x, y) + 0.25:
             continue
         height = 1 + (rng.random() < 0.45)
@@ -1011,10 +1132,105 @@ def _mass(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
             _put(canvas, x, y + step, deep)
 
     # 5. §2.5's seven legible ridges, and they are the entire budget of "this
-    #    is a specific roof". Six at the roof highlight, one at the top cool
-    #    value -- the brightest single roof pixel in the reference is L=52.
-    for index, (sx, sy, length) in enumerate(ROOF_STROKES):
-        canvas.hline(sx, sy, length, bright if index == 3 else roof)
+    #    is a specific roof". Drawn as the buildings the locked-palette proof
+    #    reads them as rather than as the highlight lines the bar's soft
+    #    quantisation makes them look like -- see LANDMARKS. Last, so nothing
+    #    above sprays over them: a plate that has been stippled is a texture.
+    _landmarks(canvas, ctx)
+
+
+def _landmarks(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
+    """§2.5's seven, as the four-part stacks the proof draws them as.
+
+    Dark eave over lit plate over fascia over wall. Nothing here is a house --
+    there is no gable, no chimney and no door at six pixels wide -- but the
+    four bands are what the eye assembles into one, and they are the only
+    place in the region where a value change is allowed to run six pixels.
+    """
+    rng = ctx.stream("town.landmarks")
+    dark = _mass_dark(ctx)
+    deep = ctx.ink("town_trough")
+    base = layout.TOWN_BASE_Y
+    for x, width, top, rows, plate, fascia, wall_rows in LANDMARKS:
+        # The eave gap. One row of the hill's own colour above the plate, so
+        # the plate has darkness to be an edge against; §2.2's dark trough is
+        # the same device at the scale of the whole town.
+        for col in range(x, x + width):
+            if top - 1 >= _roof_y(col):
+                _put(canvas, col, top - 1,
+                     deep if rng.random() < 0.10 else dark)
+        plate_ink = ctx.ink(plate)
+        for row in range(top, top + rows):
+            for col in range(x, x + width):
+                if row <= base:
+                    _put(canvas, col, row, plate_ink)
+        # One or two pixels of the far end turning away. The plate keeps its
+        # run -- it is shortened, never broken.
+        if rng.random() < 0.55:
+            _put(canvas, x + width - 1, top, dark)
+        if fascia is not None:
+            row = top + rows
+            fascia_ink = ctx.ink(fascia)
+            for col in range(x, x + width - 1):
+                if row <= base:
+                    _put(canvas, col, row, fascia_ink)
+        # The wall the windows are cut into, and it is READ RATHER THAN
+        # PAINTED. Under x121-126 the proof runs `= ? o @ * ?` -- a couple of
+        # `grey` 2 pixels and then windows -- not a plate of `grey` 1. At
+        # L 24.5 against the hill's 21.7 a grey-1 wall is not a plane, it is
+        # the whole width of a building lifted by a quarter of a ramp step;
+        # painted at seven buildings by three rows it put 187 px of it in the
+        # mass against the proof's 133, in runs averaging 2.01 against 1.45.
+        # What the eye reads as the wall is the DARK the plate stands on with
+        # the window cluster cut into it, and a few pixels of the frontage
+        # catching the street.
+        wall_mix = (("town_wall_lit", 0.20), ("town_wall", 0.16))
+        for row in range(top + rows + (fascia is not None),
+                         top + rows + (fascia is not None) + wall_rows):
+            if row > base:
+                break
+            for col in range(x, x + width):
+                roll = rng.random()
+                name = None
+                for candidate, weight in wall_mix:
+                    if roll < weight:
+                        name = candidate
+                        break
+                    roll -= weight
+                _put(canvas, col, row, ctx.ink(name) if name else dark)
+
+
+def _landmark_cells() -> set[tuple[int, int]]:
+    """Every pixel of eave, plate and fascia in §2.5's seven.
+
+    Handed to the window field as already-spent, because the round's named
+    gap is that these plates do not read, and a warm pixel dropped into the
+    middle of a six-pixel run is exactly what stops one reading. A window
+    belongs in the wall the building has for it; the roof is not a wall.
+    """
+    out: set[tuple[int, int]] = set()
+    for x, width, top, rows, _plate, fascia, _wall_rows in LANDMARKS:
+        for row in range(top - 1, top + rows + (1 if fascia else 0)):
+            for col in range(x, x + width):
+                out.add((col, row))
+    return out
+
+
+def _landmark_walls() -> dict[int, list[int]]:
+    """Column -> the wall rows of the landmark standing at it.
+
+    §4: "windows within the four or five legible buildings loosely share an
+    edge; everywhere else they are placed individually." This is the four or
+    five, and it is the only alignment the reference contains.
+    """
+    out: dict[int, list[int]] = {}
+    for x, width, top, rows, _plate, fascia, wall_rows in LANDMARKS:
+        first = top + rows + (fascia is not None)
+        span = [row for row in range(first, first + wall_rows)
+                if row <= layout.TOWN_BASE_Y]
+        for col in range(x, x + width):
+            out.setdefault(col, []).extend(span)
+    return out
 
 
 def _headframe(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -1360,7 +1576,7 @@ class _Field:
             budget = 1 if rng.random() < 0.55 else 0
         else:
             budget = 1 if rng.random() < 0.15 else 0
-        budget += near and rng.random() < 0.60
+        budget += near and rng.random() < 0.50
         # The budget is spent on vacant neighbours, not on the first `budget`
         # entries of a shuffled list -- which is what it was, and about half of
         # every light's allowance was being handed to a pixel another window
@@ -1409,21 +1625,47 @@ def _wall_rows(ctx: layout.Ctx) -> dict[int, list[int]]:
     return rows
 
 
+#: WARM PIXELS PER ROW, counted in the locked-palette proof over x 88-179.
+#: This is §4's "density rises toward the bottom" as the measurement rather
+#: than as a slope, and the difference between the two is the whole reason it
+#: is here: the profile is NOT monotone.
+#:
+#:     y  50  51  52  53  54  55  56  57  58  59  60  61  62 ...  67  68
+#:         4   1   3   9   9   2   7  12   7   2   4   7  18 ...  18   5
+#:
+#: There is a peak at 57 and then a HOLE at 59-61, and the hole is not noise:
+#: those three rows are where the near terraces present their roofs, so they
+#: are almost all `accent_indigo` plate and almost no window. A straight line
+#: in depth cannot produce that -- run as one it put 13 / 7 / 12 warm pixels
+#: on rows 59-61 against the proof's 2 / 4 / 7, filling in the one dark band
+#: that separates the upper town from the dense near town and flattening the
+#: hillside into a single lit slope.
+#:
+#: Read as relative weights, not as a target: the placement pass draws bigger
+#: footprints near the base and spends more spill there, so the pixels a row
+#: ends up with are the weight times the footprint. The near rows are
+#: therefore entered flatter than the count, and y=68 is entered at 1 rather
+#: than 5 -- it is the second row of §2.14's moonlit bank, the lights on it
+#: are the ones that have run down onto it, and weighted at its own count it
+#: took twenty-one warm pixels against the proof's five.
+ROW_LIGHT = {50: 4, 51: 2, 52: 3, 53: 8, 54: 8, 55: 3, 56: 7, 57: 10, 58: 6,
+             59: 2, 60: 3, 61: 6, 62: 13, 63: 14, 64: 11, 65: 11, 66: 13,
+             67: 12, 68: 1}
+
+
+def _row_weight(row: int) -> float:
+    """ROW_LIGHT, clamped, as a weight. Rows off the table get its floor."""
+    return float(ROW_LIGHT.get(row, 2))
+
+
 def _weighted_row(rng, rows: list[int], top: int, base: int) -> int:
-    """One of `rows`, with the near ones 2.7 times likelier than the far.
+    """One of `rows`, weighted by ROW_LIGHT -- the proof's own row profile.
 
-    §4's measured gradient, as a straight line in depth rather than as a
-    shaped draw. The constant is the ratio the bar has and nothing else: 102
-    warm pixels on rows 53-57 against 272 on rows 62-68.
-
-    2.7 WAS TOO SHALLOW ONCE THE LIGHTS WERE ON WALLS. Warm pixels per row
-    in the locked-palette proof put 54% of the town's light on rows 62-67 and
-    24% on rows 55-61; at 2.7 this put 39% and 37%, which flattens the one
-    thing that says the near terraces are nearer. 4.5 to 1 restores the
-    measured split without reaching §4's forbidden max-of-two draw, whose
-    effective ratio at the ends is about twenty to one.
+    §4's measured gradient, taken from the reference row by row rather than
+    fitted as a slope. See ROW_LIGHT: the profile has a peak at y=57 and a
+    hole at y 59-61, and a monotone weighting fills the hole in.
     """
-    weights = [0.55 + 0.45 * (row - top) / max(1, base - top) for row in rows]
+    weights = [_row_weight(row) for row in rows]
     pick = rng.random() * sum(weights)
     for row, weight in zip(rows, weights):
         pick -= weight
@@ -1442,6 +1684,7 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     """
     rng = ctx.stream("town.windows")
     field = _Field(canvas, ctx)
+    field.taken.update(_landmark_cells())
     walls = _wall_rows(ctx)
 
     # The headframe stack first: it is the region's one deliberate vertical
@@ -1454,6 +1697,28 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # §4's outliers, before the scatter can take their ground.
     sx, sy, sw, sh = STOREFRONT
     field.place(sx, sy, sw, sh, 2, rng)
+
+    # §2.5's seven, whose walls were drawn to be cut into. Two or three lights
+    # each, sharing an edge -- §4's "windows within the four or five legible
+    # buildings loosely share an edge" is the entire alignment budget of the
+    # region and this is where it is spent. Placed before the scatter, because
+    # a landmark whose wall is blank is a plate with nothing under it.
+    for lx, width, top, rows, _plate, fascia, wall_rows in LANDMARKS:
+        first = top + rows + (fascia is not None)
+        lit = 2 + (rng.random() < 0.45)
+        for _ in range(lit):
+            for _attempt in range(24):
+                wx = lx + rng.randrange(max(1, width - 1))
+                wy = first + rng.randrange(max(1, wall_rows))
+                shape = (1, 1) if rng.random() < 0.55 else (
+                    (2, 1) if rng.random() < 0.5 else (1, 2))
+                if not field.fits(wx, wy, shape[0], shape[1], 1):
+                    continue
+                peak = 5 + int(rng.random() * 3)
+                if peak == 7 and field.hot_left <= 0:
+                    peak = 6
+                field.place(wx, wy, shape[0], shape[1], peak, rng)
+                break
     for ex, ey, ew, eh in EAST_LIGHTS:
         if field.fits(ex, ey, ew, eh):
             field.place(ex, ey, ew, eh, 6 if ew * eh > 1 else 4, rng)
@@ -1503,10 +1768,14 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                     y = _weighted_row(rng, storeys, top - 1,
                                       layout.TOWN_BASE_Y)
                 else:
-                    reach = rng.random()
-                    if rng.random() < 0.5:
-                        reach = max(reach, rng.random())
-                    y = top + int(span * reach + 0.5)
+                    # Same profile, over the whole depth of the mass rather
+                    # than over a building's wall rows. A column with no wall
+                    # standing at it -- an alley, a gap, the thinning east
+                    # end -- still belongs to the same hillside and its lights
+                    # sit at the same heights as its neighbours'.
+                    y = _weighted_row(
+                        rng, list(range(top, layout.TOWN_BASE_Y + 1)),
+                        top, layout.TOWN_BASE_Y)
                 # THE SHAPE IS DRAWN FRESH EACH ATTEMPT, NOT CYCLED. Taking
                 # `shapes[slot]` and retrying the same footprint eighty times
                 # sorts the census by crowding: a 2x2 that cannot fit in the
@@ -1576,7 +1845,7 @@ def _windows(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 # together into the mark the bar has. §9.2's hotel is two ROWS
                 # of four aligned windows across the town; two windows on one
                 # building at the bottom of the hill is what a building is.
-                if y >= layout.TOWN_BASE_Y - 6 and rng.random() < 0.62:
+                if y >= layout.TOWN_BASE_Y - 6 and rng.random() < 0.55:
                     for _sib in range(2):
                         sx2 = x + (width + 2 if rng.random() < 0.5 else -2)
                         sy2 = y + (2 if rng.random() < 0.45 else 0)

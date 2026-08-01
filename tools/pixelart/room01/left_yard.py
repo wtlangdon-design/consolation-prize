@@ -250,9 +250,34 @@ BOARD_SEAM_ROWS = (71, 72)
 #: dozen most common entries. §4 lists it and the bar holds twenty pixels of
 #: it in 731, so it is ONE part in twelve and not one in eight: at an eighth
 #: it speckles the face grey and the board stops being wood.
-BOARD_GRAIN = (("umber", 10), ("umber", 10), ("umber", 10), ("umber", 10),
-               ("umber", 10), ("mud", 10), ("mud", 10), ("mud", 10),
-               ("mud", 9), ("pine_fresh", 5), ("pine_fresh", 5), ("dust", 7))
+#:
+#: AND THE MIX IS NOT THE SAME AT BOTH ENDS. §3 gives the board a lateral
+#: gradient "of about +13 L from its left sixth to its right end, because
+#: the lantern hangs at its right end" — and the bar delivers that as a
+#: WARMTH ramp at least as much as a value one. Measured on the bar's own
+#: non-letter rows (62-64, 71-73, 77), in sixths across the face:
+#:
+#:      L     52.0  59.0  58.8  62.7  66.0  65.7  72.4  66.4
+#:      r−b    +37   +39   +43   +43   +46   +50   +58   +60
+#:
+#: Value climbs 14 points; warmth climbs 23. Drawn out of one mix the face
+#: came back at r−b 34 → 45 — the right half a good ten points of warmth
+#: short of the bar, and the whole board reading as pale grey plank rather
+#: than as wood with a lamp on one end. So the mix is drawn as a blend
+#: between two, by column: `dust`'s cool sixth belongs at the shadow-slot
+#: end only, and `pine_fresh` — §4's family for LIT near timber — takes the
+#: majority under the lamp. Neither mix moves the value; the two agree to
+#: within a luminance point (69.4 against 68.6) and disagree only on hue,
+#: so the ramp stays the business of `_board_lift` and the light stays the
+#: business of the step.
+BOARD_GRAIN_COOL = (("umber", 10), ("umber", 10), ("umber", 10),
+                    ("umber", 10), ("umber", 10), ("umber", 10),
+                    ("mud", 10), ("mud", 10), ("mud", 10), ("mud", 9),
+                    ("dust", 7), ("dust", 7))
+BOARD_GRAIN_WARM = (("pine_fresh", 5), ("pine_fresh", 5), ("pine_fresh", 5),
+                    ("pine_fresh", 5), ("pine_fresh", 5), ("pine_fresh", 5),
+                    ("pine_fresh", 5), ("mud", 10), ("mud", 10),
+                    ("mud", 10), ("mud", 9), ("umber", 10))
 
 # ---------------------------------------------------------------------------
 # THE WHEELS. §2.13 and §7.5-6, re-fitted to the bar's own pixels.
@@ -450,13 +475,41 @@ def _timber(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # else in the rect. So the cap is grey 4 with grey 5 on the pixels that
     # catch: the run reads as a lit edge with a sparkle in it rather than as
     # a grey line.
+    #
+    # AND THE THREE TREADS ARE NOT THE SAME BRIGHTNESS. Drawn at one lift
+    # they were, and the bar steps them DOWN as the stack recedes:
+    #
+    #   tread 1  y=42  x 3-9   L 29-59, mean 48   grey 4-5
+    #   tread 2  y=45  x 10-13 L 22-59, mean 40   grey 3-4
+    #   tread 3  y=46  x 14-21 L 36-44, mean 40   grey 3
+    #
+    # A stack whose every cap is L 53-61 is a stack lit from directly above
+    # with no depth in it; the near tread catches the sky squarely and the
+    # ones behind it are turned further off it every step. It also put the
+    # region's brightest cool marks eighteen luminance over the bar at the
+    # exact rows the whole-frame void pass screens, so what read at native
+    # size was not a lit edge but a black-and-white checker.
+    #
+    # THE THIRD TREAD ALSO STOPS AT x=21, not x=24: the bar reads y=46 as
+    # 44, 39, 36, 41, 44, 38, 44, 23 across x 14-21 and then 8, 8, 8 — the
+    # top face has run out and the corner has turned down into the shadow
+    # slot. Run to x=24 the cap crossed the mass's lit right edge and the
+    # two brightest marks in the left half met at a corner.
+    tread_lift = {42: 1, 45: 0, 46: 0}
+    tread_right = {46: 21}
     for left, right, row in TIMBER_TOP[1:]:
-        for x in range(left, right + 1):
+        lift = tread_lift.get(row, 0)
+        for x in range(left, min(right, tread_right.get(row, right)) + 1):
             canvas.put(x, row, ctx.ink("timber_cap",
-                                       2 if stream.random() < 0.4 else 1))
+                                       lift + (1 if stream.random() < 0.4
+                                               else 0)))
     # The third tread carries a second, dimmer line a row down as the stack
     # steps back: the measured run at y=47 reaches x=24 where y=46 stops at 21.
-    canvas.hline(16, 47, 9, cap)
+    # It is a top face and not a rule — the bar runs 33, 33, 38, 35, 39, 39,
+    # 35, 41, 44 across it, five luminance of scatter along nine pixels.
+    for x in range(16, 25):
+        canvas.put(x, 47, ctx.ink("timber_cap",
+                                  1 if stream.random() < 0.3 else 0))
 
     # THE OPEN FRAME ABOVE THE BODY. Between the treads and the body the mass
     # is a gate rather than a wall: two posts standing in front of the range
@@ -593,8 +646,43 @@ def _shadow_slot(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     """
     stream = ctx.stream("left_yard.slot")
     x0, y0, width, height = layout.SHADOW_SLOT
+
+    # THE SLOT IS NOT ONE COLOUR. It was laid in as a flat `rail_shadow` −1
+    # across all five columns — L 12.7, the same index in every one of the
+    # four hundred pixels — and the bar's x 25-27 over the same rows runs
+    # L 11 to 61 with a mean near 20. Two errors at once: seven luminance
+    # under the bar in a place that is supposed to be dark but not empty,
+    # and DEAD FLAT in the one region of the frame that measures 0% flat
+    # (study §6: below the ridge line the reference is flat nowhere, and the
+    # mid-ground is 0.0%). §2.10 says the average over the slot is 18.8 and
+    # that the average is misleading because the CORE is void — which means
+    # the shoulder either side of the core is not void and must not read as
+    # it. So the shoulder scatters across mud 0-2, and about one pixel in
+    # twenty catches the same light the timber's corner at x 23-24 catches.
+    #
+    # AND THE SHOULDER FALLS ACROSS IT. Column means over y 56-95 in the
+    # bar: x25 25.7, x26 20.7, x27 19.8, x28 15.1, x29 16.9. The slot is not
+    # a channel of one darkness with a hole in it — it is the timber's own
+    # corner turning away, five columns at a time, and x=25 is still part of
+    # the lumber pile. Drawn flat, the shoulder measured 18-20 in all three
+    # columns and the whole strip came in five luminance under the bar.
+    shoulder = {x0: 1, x0 + 1: 0, x0 + 2: 0, x0 + 3: -1, x0 + 4: -1}
     for x in range(x0, x0 + width):
-        canvas.vline(x, y0, height, ctx.ink("rail_shadow", -1))
+        base = shoulder.get(x, 0)
+        catch = 0.07 if x <= x0 + 1 else 0.03
+        for y in range(y0, y0 + height):
+            roll = stream.random()
+            if roll < catch:
+                # The bar puts L 41-61 on this shoulder half a dozen times
+                # over forty rows — the corral post's light reaching round
+                # the corner of the stack. Not a rim: single pixels, and
+                # only on the two columns that can see it.
+                canvas.put(x, y, ctx.ink("timber_body",
+                                         3 if stream.random() < 0.4 else 2))
+            else:
+                canvas.put(x, y, ctx.ink("rail_shadow",
+                                         base + (1 if roll < 0.32 else
+                                                 (-1 if roll < 0.66 else 0))))
     # The core. It starts a few rows below the beam, because the top of the
     # slot still carries the beam's own end and the timber's junction with it.
     #
@@ -606,7 +694,19 @@ def _shadow_slot(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # of the rect the channel became a black stripe past the object that
     # justified it, in the middle of the region's darkest quarter, where the
     # study's near-black budget is 1.7% of the frame.
-    core_bottom = 90
+    # AND THE NUMBER WAS TEN ROWS OUT. It was set to 90 on a reading of
+    # "x 28-29 measures L 8-38 across rows 90-96 against L 2-11 above them";
+    # column by column the bar actually reads
+    #
+    #   x=28  y64-79 L 1-8   y80-89 L 8-24   y90-95 L 11-43
+    #   x=29  y64-79 L 1-8   y80-89 L 8-18   y90-95 L 22-41
+    #
+    # so the void ends at y=79, one row under the board's foot at y 77-78,
+    # which is the reason it exists — §3.1's sixty-point step is the board's
+    # face against this gap and there is no board below it. Run to 90 the
+    # channel took ten extra rows of absolute black, and those ten rows are
+    # most of why the two columns came in eight luminance under the bar.
+    core_bottom = 80
     canvas.rect(x0 + 3, y0 + 8, 2, core_bottom - (y0 + 8),
                 ctx.ink("shadow_slot"))
     for y in range(core_bottom, y0 + height):
@@ -642,12 +742,49 @@ def _gantry(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     x0, y0, width, _ = layout.GANTRY_BEAM
     right = x0 + width - 1                          # x=82, and it STOPS there
     step = 57                                       # where the lit face drops
+    stream = ctx.stream("left_yard.beam")
 
-    canvas.hline(x0, y0, width, ctx.ink("timber_far", -1))
-    canvas.hline(35, y0, 16, ctx.ink("timber_body", 1))
-    canvas.hline(x0, y0 + 1, right - x0 + 1, ctx.ink("post_mid"))
-    canvas.hline(x0 + 2, y0 + 2, step - x0 - 2, ctx.ink("rail_shadow", 1))
-    canvas.hline(step, y0 + 2, right - step + 1, ctx.ink("dry_mud", 1))
+    # IT WAS THREE RULED LINES. Four `hline` calls put one index in every
+    # pixel of a fifty-four-pixel run — y=55 was `post_mid` from x=29 to
+    # x=82 without a single break — and at native size that is not a beam,
+    # it is a rule. The bar's beam over the same rows:
+    #
+    #   y54  x31-50  L 33-50   x51-56  L 8-33   x57+   L 12-21
+    #   y55  x31-49  L 33-54   x50-53  L 20-29  x54-65 L 25-61  x66+ L 18-33
+    #   y56  x29-37  L 14-61   x38-53  L 12-23  x57-65 L 41-51  x66+ L 29-45
+    #
+    # which is a beam whose LIT PAIR OF ROWS DESCENDS as it runs right — 54
+    # and 55 at the timber end, a dim junction across x 50-56, then 55 and
+    # 56 out to the lantern — and which scatters five to six luminance from
+    # column to column all the way along. §4's lit face is `pine_fresh` 1-3,
+    # `dust` 3 and `mud` 6 at L 36-53, four families inside eighteen
+    # luminance, so the scatter is a change of material along a sawn face
+    # and not a gradient.
+    for x in range(x0, right + 1):
+        if x < 50:
+            lit = (y0, y0 + 1)
+        elif x < step:
+            lit = ()                       # the junction: three dim rows
+        elif x < 66:
+            lit = (y0 + 1, y0 + 2)
+        else:
+            # Past the sign's right chain only the underside is still turned
+            # to the sky: the bar's y=55 falls to L 18-33 from x=66 while
+            # y=56 carries the lit face on out to where the beam stops.
+            lit = (y0 + 2,)
+        for row in range(3):
+            y = y0 + row
+            if y in lit:
+                canvas.put(x, y, _beam_ink(ctx, stream))
+            else:
+                canvas.put(x, y, ctx.ink("rail_shadow",
+                                         1 if stream.random() < 0.3 else
+                                         (-1 if stream.random() < 0.4 else 0)))
+        if not lit:
+            # x 50-56 is where the beam turns away and it never goes black:
+            # the bar holds L 20-33 there, one step over the dark rows.
+            canvas.put(x, y0 + 1, ctx.ink("timber_body",
+                                          1 if stream.random() < 0.4 else 0))
     # §2.5: its junction with the timber falls away as a short diagonal from
     # about (24,54) to (29,61), which is what stops the beam looking pushed
     # through the lumber pile.
@@ -657,6 +794,21 @@ def _gantry(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                                 (layout.SIGN_CHAIN_RIGHT, "rail_shadow", -1),
                                 (layout.LANTERN_HOOK, "timber_far", 0)):
         canvas.vline(x, 57, 5, ctx.ink(material, offset))
+
+
+#: §4's gantry beam, lit face: `pine_fresh` 1-3, `dust` 3, `mud` 6, L 36-53.
+#: Four families inside eighteen luminance, weighted so the beam still reads
+#: as one piece of timber — `dust` is the cool one and it is one part in
+#: eight, which is where the bar's own occasional grey pixel on the top face
+#: comes from.
+BEAM_GRAIN = (("pine_fresh", 1), ("pine_fresh", 2), ("pine_fresh", 2),
+              ("pine_fresh", 3), ("mud", 6), ("mud", 7), ("mud", 6),
+              ("dust", 3))
+
+
+def _beam_ink(ctx: layout.Ctx, stream) -> int:
+    family, step = BEAM_GRAIN[int(stream.random() * len(BEAM_GRAIN))]
+    return ctx.palette.family(family).at(step)
 
 
 def _signboard(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -683,11 +835,20 @@ def _signboard(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         # Five steps of umber across 43 columns is the measured +13 L, and it
         # is the reason the right end of the word sits paler than the left.
         lift = _board_lift(column, face_w)
+        warmth = column / (face_w - 1)
         for y in range(top, foot + 1):
             roll = stream.random()
             grain = 1 if roll < 0.16 else (-1 if roll < 0.24 else 0)
+            # The face's own first column is the last tread of §3.1's ramp,
+            # not the first of the field: the bar reads x=31 at L 14-30 and
+            # only x=32 at 41-64. The top row is exempt, because the pale run
+            # along y=62 is continuous to the board's left corner in the bar
+            # (L 58 there) and breaking it is how the board stops reading as
+            # one plank.
+            edge = -5 if column == 0 and y > face_y else 0
             canvas.put(x, y, _board_ink(ctx, stream,
-                                        lift + grain + _plank_grain(y)))
+                                        lift + grain + edge + _plank_grain(y),
+                                        warmth))
         # §5: the top of the board is a CONTINUOUS pale run at L 69-95 and it
         # is one of only three hard edges in the region. Where the hand-cut
         # edge lifts a row, the run lifts with it and stays continuous —
@@ -708,25 +869,48 @@ def _signboard(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # §5: the board's RIGHT end is a hard edge, L 74.6 to 18.3 in one pixel;
     # its LEFT end ramps instead, over three columns, which is what stops the
     # board looking pasted on against the void of the shadow slot.
-    for offset, lift in ((-2, -6), (-1, -4)):
+    #
+    # AND THE RAMP IS MUCH DEEPER THAN IT WAS DRAWN. §3.1 gives it exactly:
+    # "the board's own shadowed left edge ramps 5 → 20 → 25 → 55 across
+    # x 29–32". Drawn at −6 / −4 the two ramp columns landed at L 29 and
+    # L 40 and the face went to full value at x=31, so the sixty-point step
+    # §3.1 calls the single most important edge in the region arrived as a
+    # thirty-point one over two pixels. The bar's own columns read x=29 at
+    # L 1-11, x=30 at L 14-21, x=31 at L 14-30 and only x=32 at L 41-64 —
+    # THE FACE STARTS AT x=32, and x=31 belongs to the ramp. So the ramp
+    # takes three columns, the last of them the face's own first column.
+    for offset, lift in ((-2, -10), (-1, -8)):
         canvas.vline(face_x + offset, face_y + 1, BOARD_FOOT_LEFT - face_y,
                      ctx.ink("sign_board", lift))
 
 
-def _board_ink(ctx: layout.Ctx, stream, lift: int) -> int:
-    """One pixel of the board's face. Four families, one value. See BOARD_GRAIN.
+def _board_ink(ctx: layout.Ctx, stream, lift: int, warmth: float = 0.0) -> int:
+    """One pixel of the board's face. Four families, one value.
+
+    See BOARD_GRAIN_COOL and BOARD_GRAIN_WARM. `warmth` is the pixel's
+    position across the face, 0 at the shadow-slot end and 1 under the lamp,
+    and it chooses WHICH of the two mixes this pixel is drawn from — not a
+    blend of two colours, which would be a dither, but a blend of two
+    probabilities, which is a change of material along the board.
 
     The step is applied to whichever family the pixel landed in, so the hue
     rule survives the lateral gradient: a pixel that came out `mud` is lit as
     `mud`, exactly as the timber's grain works.
     """
-    family, step = BOARD_GRAIN[int(stream.random() * len(BOARD_GRAIN))]
+    mix = BOARD_GRAIN_WARM if stream.random() < warmth else BOARD_GRAIN_COOL
+    family, step = mix[int(stream.random() * len(mix))]
     return ctx.palette.family(family).at(step + lift)
 
 
 def _board_lift(column: int, face_w: int) -> int:
-    """The board's lateral gradient as a ramp step. §3: +13 L, left to right."""
-    return -3 + (4 * column) // face_w
+    """The board's lateral gradient as a ramp step. §3: +13 L, left to right.
+
+    THREE POSITIONS, NOT FOUR. Four steps of `umber` across the face is
+    twenty-odd luminance and the bar measures fourteen: drawn at four the
+    right end came out at L 78 against the bar's 66, which puts the board's
+    lit corner within a step of the lamp that is supposed to be lighting it.
+    """
+    return -3 + (3 * column) // face_w
 
 
 #: The board is THREE PLANKS, not a panel: the top one carries the word, a
@@ -810,8 +994,22 @@ def _gantry_lamp(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # The one thing it does light: the board's right end, x 71-73 at y 66-68,
     # which jumps to L 75-85 and nothing beyond. §7.10: give this lamp a
     # ground pool and there are two light sources in the left third.
-    canvas.rect(71, 66, 3, 3, ctx.ink("sign_board_lit"))
-    canvas.put(72, 65, ctx.ink("sign_board_lit"))
+    #
+    # AND IT IS THE WARMEST PLACE ON THE BOARD, not the palest. It was drawn
+    # from `sign_board_lit` — `dust` 8, L 82 at warmth +16 — which is the
+    # right value and the wrong light: the bar reads x 71-73 / y 65-68 at
+    # L 65-95 and warmth +50 to +78, the warmest face pixels anywhere on the
+    # board. A cool near-neutral patch under a lamp is a highlight from some
+    # other light source, and at native size it read as a paint blister
+    # rather than as the one thing the gantry lamp exists to do. `pine_fresh`
+    # is §4's family for LIT near timber and it lands at warmth +57-61 at
+    # these values, which is the measurement.
+    lit = ctx.palette.family("pine_fresh").at(6)
+    lit_edge = ctx.palette.family("pine_fresh").at(5)
+    canvas.rect(71, 66, 3, 3, lit)
+    canvas.put(72, 65, lit)
+    canvas.put(70, 66, lit_edge)
+    canvas.put(70, 68, lit_edge)
     ctx.shield_rect(x0 - 4, y0 - 2, width + 6, height + 4)
 
 
@@ -995,13 +1193,37 @@ def _clutter(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
             for y in range(row + 1, y0 + height):
                 if stream.random() < 0.22:
                     continue
+                # THE LAMP SIDE WAS TWO STEPS UNDER THE LAMP. Drawn at
+                # `dry_mud` −2/−3 the pair came out at L 27-34 and the bar's
+                # own x=46 over rows 85-95 reads 37, 45, 61, 37, 30, 58, 54,
+                # 50, 57 — L 30-61, a mean near 45. That is the difference
+                # between a corner turned toward the light and a corner that
+                # merely is not black: at native size the heap read as flat
+                # rules on a wash because its one vertical had no value to
+                # be a vertical WITH. Hob's pool reaches x=44 (study §2.1,
+                # visible influence ±47 px of centre (91,108)), so this pair
+                # is the leftmost thing in the frame his lantern touches and
+                # it is entitled to the value.
+                roll = stream.random()
                 canvas.put(x, y, ctx.ink("dry_mud",
-                                         -2 if stream.random() < 0.55 else -3))
+                                         2 if roll < 0.18 else
+                                         (0 if roll < 0.62 else -1)))
         for step in range(run):
             x = x0 + inset + step
             canvas.put(x, row, ctx.ink(material,
                                        lift - (1 if stream.random() < 0.35 else 0)))
         ctx.shield_rect(x0, row, width, y0 + height - row)
+
+    # §2.12's table gives the upper crate's lit edge as y=84, x 43-47 at
+    # L 45-70 — a SECOND row, on the lamp half only, under the y=83 run the
+    # loop above draws across the whole heap. The bar carries both (y83
+    # x38-47 at L 30-69, y84 x43-47 at L 45-70) and it is what makes the top
+    # crate read as a box with a top face rather than as one more rule: the
+    # top is two pixels deep where it turns to the light and one where it
+    # does not.
+    for x in range(43, 48):
+        canvas.put(x, 84, ctx.ink("dry_mud",
+                                  3 if stream.random() < 0.4 else 2))
 
 
 def _yard_floor(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -1215,7 +1437,7 @@ def _spokes(canvas: IndexedCanvas, ctx: layout.Ctx, stream,
         # at twelve o'clock and is still two pixels short at nine, so a
         # radius-based walk with an ellipse gate on the end silently deleted
         # the outer third of every horizontal spoke.
-        reach = (0.80 + stream.random() * 0.19) * (1.0 if lit else 0.8)
+        reach = (0.62 + stream.random() * 0.37) * (1.0 if lit else 0.8)
         bright = 0 if stream.random() < 0.25 else -1
         steps = int(rx + ry)
         for index in range(steps + 1):
@@ -1227,8 +1449,46 @@ def _spokes(canvas: IndexedCanvas, ctx: layout.Ctx, stream,
             # at all: what catches is the OUTER half of a spoke, where the
             # face has turned toward the road.
             fraction = 0.40 + (reach - 0.40) * index / steps
-            if stream.random() < 0.10 + 0.34 * fraction:
+            # AND THE DROPOUT HAS TO RISE FASTER THAN LINEARLY. §7.5 asks
+            # for "a dropout that rises with radius and with how far the
+            # spoke has turned away from the light" and the whole point of
+            # it is that the bar has NO ANGULAR PERIODICITY AT ANY RADIUS.
+            # Sampling a ring of 36 angles and taking the largest harmonic
+            # between k=3 and k=12, the bar scores 3.5 at radius 7 — noise.
+            # At a linear 0.10 + 0.34f dropout this drew 9.3, peaking at
+            # exactly k=11, which is SPOKE_COUNT: the outer half of every
+            # spoke survived and eleven of them at a fixed pitch is the
+            # bicycle wheel and the integer-scaling moiré §7.5 rules out.
+            # Squared, the inner half is untouched and the rim ends up 70%
+            # gone, which is what leaves "a handful of warm accents where a
+            # spoke catches" instead of eleven spokes.
+            if stream.random() < 0.08 + 0.62 * fraction * fraction:
                 continue
             x = cx + int(round(rx * fraction * math.cos(angle)))
             y = cy + int(round(ry * fraction * math.sin(angle)))
-            canvas.put(x, y, ctx.ink("post_mid", bright - (0 if lit else 1)))
+            # Each streak is a different value along its own length: the bar
+            # holds "eight or nine warm streaks, each a different length and
+            # a different value, most of them broken somewhere along the run".
+            step = bright - (0 if lit else 1)
+            if stream.random() < 0.30:
+                step -= 1
+            canvas.put(x, y, ctx.ink("post_mid", step))
+
+    # AND THE LIGHT THE SPOKES LOST HAS TO COME BACK OFF THE RAYS. §2.13
+    # measures the disc at mean L 21 with 29% of it over L 30 and no angular
+    # period; taking the outer dropout up far enough to kill the period took
+    # the ring to mean 18 and 19% over L 30, because everything bright in
+    # there was ON a spoke. §7.5 says what the rest is: "the spokes exist as
+    # scattered single warm pixels among near-black" — nail heads, the felloe
+    # joints, the boss, a bit of the far rim seen through the wheel. Placed
+    # at free angles they add value where the eye reads iron and they cannot
+    # add a period, because they are not on a ray.
+    for _ in range(22):
+        angle = stream.random() * 2.0 * math.pi
+        fraction = 0.35 + stream.random() * 0.62
+        if math.sin(angle) > 0.3 and stream.random() < 0.55:
+            continue                       # nothing in the lower right
+        x = cx + int(round(rx * fraction * math.cos(angle)))
+        y = cy + int(round(ry * fraction * math.sin(angle)))
+        canvas.put(x, y, ctx.ink("post_mid",
+                                 0 if stream.random() < 0.35 else -1))
