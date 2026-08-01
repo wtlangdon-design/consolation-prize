@@ -33,6 +33,7 @@ from components import crate, distant_hills
 from dither import BAYER2, BAYER4, dither_pixel
 from lighting import Lamp, LightField, collar, lamp_core
 from palette import Palette
+import void
 from primitives import (
     barrel, catenary, ellipse_outline, ellipse_shaded, enforce_sky_ceiling,
     ground_objects, organic_mass, rope, sack, spoked_wheel,
@@ -95,7 +96,15 @@ def compose(with_coach: bool = True, lamp_x: int | None = None,
     for y in range(HORIZON):
         height = 1.0 - (y / HORIZON)
         for x in range(WIDTH):
-            dither_pixel(canvas, x, y, indigo, max(0.04, 0.10 + 0.34 * (1 - height)), BAYER4)
+            # ERRATA 40. The gradient ran 0.10 to 0.44 of indigo, which put a
+            # THIRD of the frame in the forties -- a dusk sky, not a night
+            # one, and the single largest reason Room 1's median measured 44
+            # against the reference's 27. Overhead is now near-void and the
+            # lift is kept for the last few rows above the hills, where a sky
+            # actually is lighter. The stars gain from it: they are drawn at
+            # bone 0.30 to 0.70 and were competing with their own background.
+            dither_pixel(canvas, x, y, indigo, max(0.02, 0.02 + 0.30 * (1 - height) ** 2),
+                         BAYER4)
     for _ in range(90):
         x, y = rng.randrange(WIDTH), rng.randrange(0, HORIZON - 14)
         canvas.put(x, y, bone.frac(0.30 + 0.40 * rng.random()))
@@ -242,7 +251,12 @@ def compose(with_coach: bool = True, lamp_x: int | None = None,
     field.add_lamp(Lamp(x=24, y=HORIZON + 6, radius=70, intensity=0.26, squash=2.2))
     # Moonlight: very broad, weak, cool, and from high frame right. It is not
     # a lamp in the fiction -- it is why the ground is visible at all.
-    field.add_lamp(Lamp(x=250, y=40, radius=340, intensity=0.30, squash=0.8))
+    # ERRATA 40. The moon was 0.30 over a radius of 340, which is the whole
+    # frame lit evenly -- and an evenly lit night is a grey day. Dropped to
+    # 0.16: the ground away from the lamp falls away, which is what leaves
+    # the lamp as the only warm thing in the picture and is the reason doc 17
+    # put a man carrying one on this road.
+    field.add_lamp(Lamp(x=250, y=40, radius=340, intensity=0.16, squash=0.8))
     # Sky is not lit by lamps.
     for y in range(HORIZON - 8):
         for x in range(WIDTH):
@@ -283,6 +297,56 @@ def compose(with_coach: bool = True, lamp_x: int | None = None,
     # At this distance the lit windows are one source, which is also what
     # doc 17's line calls them -- "lamps on in about a third of it".
     collar(canvas, palette, 30, ROAD_Y - 30, 22, 40, steps=2)
+
+    # -- ERRATA 40: the void ----------------------------------------------
+    #
+    # Measured before this: median 44.4, p10 21.2, 17.8% below luminance 30 --
+    # against the reference's 27.3 / 1.9 / 55.0%. And the frame's ONE region
+    # of near-void was 8.0% of it, which is the foreground plane and exactly
+    # what the ruling predicted: a near plane cannot carry this.
+    #
+    # A NIGHT EXTERIOR'S BLACK IS UNDER THINGS AND BEHIND THEM. There is no
+    # roof here, so the regions are the ones a low moon and a single lamp
+    # leave: under the coach body between its wheels, under the team's
+    # bellies, the far side of the treeline, and the stretches of verge the
+    # lamp does not reach. Every one is bounded by something already drawn.
+    #
+    # Stamped AFTER the field, and never over the lamp: doc 18 reserves four
+    # entries for it and the pulse depends on those pixels being exactly
+    # those.
+    reserved = set(LAMP_BAND)
+    keep_lamp = lambda cx, cy: canvas.get(cx, cy) in reserved
+
+    if with_coach:
+        # Under the body, between the wheels. The largest single region a
+        # stage coach has and ours was lit ground.
+        # A SMEAR, NOT A RECTANGLE. The first version stamped a hard-edged
+        # black box on the road and it read as a hole, which is the same
+        # mistake the Nugget's ellipses made and the reason both were looked
+        # at rather than only measured.
+        void.smear(canvas, COACH_X + 4, ROAD_Y - 7, 48, 9, keep=keep_lamp)
+        # Under the team: two bellies and the ground between eight legs.
+        void.smear(canvas, COACH_X - 84, ROAD_Y - 2, 62, 6, keep=keep_lamp)
+
+    # NO BAND AT FRAME LEFT. A void band along the horizon there sat straight
+    # over the town's lit windows -- which is errata 36.1 all over again, and
+    # it was caught the same way: by looking at the picture after the numbers
+    # came out right. The town is the only warm thing on that horizon and
+    # nothing may stand in front of it, including darkness.
+    #
+    # It runs from x=88 instead, which is clear of town_glow's last roof: the
+    # hills east of the town have nothing lit on them and no reason to be
+    # visible at all.
+    void.band(canvas, 88, HORIZON - 4, WIDTH - 88, 12, feather=5, keep=keep_lamp)
+
+    # The verge, in the stretches between the lamp and the coach lantern. Not
+    # one bar: the gaps are where the two sources do not overlap.
+    for vx, vw in ((112, 42), (168, 30)):
+        void.smear(canvas, vx, ROAD_Y - 14, vw, 5, keep=keep_lamp)
+
+    # The freight heap's interior -- the gaps between a butt, two barrels and
+    # a crate stacked against each other.
+    void.smear(canvas, 6, ROAD_Y - 10, 50, 6, keep=keep_lamp)
 
     # -- the foreground plane, ruling 21a ----------------------------------
     #

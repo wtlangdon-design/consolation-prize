@@ -45,6 +45,7 @@ const SCRIPTS = [
   ['room01_stage_road.py', 'Room 1, the stage road at night'],
   ['cycling_render.py', 'Room 1 palette cycling -- GIF at real rates, plus the states'],
   ['room01_ambient.py', "Room 1 ambient motion -- errata 35d's lamp swing and grazing team"],
+  ['void_audit.py', "errata 40's four numbers, every composed room"],
   ['room00_map.py', 'Room 0, the town map -- doc 20. A plan, not a place'],
   ['room29_ridge.py', 'Room 29, the high ridge (also the title image)'],
   ['title_screen.py', 'Title screen -- doc 17 revised: hierarchy, night, overlap'],

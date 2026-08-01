@@ -21,10 +21,12 @@ import random
 from pathlib import Path
 
 import crowd
+import cycling
 import furniture
 import idles
 import interior
 import lighting
+import void
 from canvas import IndexedCanvas
 from interior import Box
 from lighting import Lamp, LightField, Shaft
@@ -88,9 +90,24 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     # wood warm; it can only make it lighter grey. The temperature of the
     # room is decided by which family the wood is, not by the lamps.
     interior.ceiling(canvas, BOX, umber, rng, base=0.13, beams=5)
-    interior.side_walls(canvas, BOX, umber, rng, base=0.44)
+    # ERRATA 40. The side walls were 0.44 and they are the frame's two largest
+    # uninterrupted surfaces. In the reference the wall away from the window is
+    # nearly black; ours was a lit mid-brown on both sides at once, which is a
+    # room with no direction to its light.
+    interior.side_walls(canvas, BOX, umber, rng, base=0.32)
     interior.back_wall(canvas, BOX, fresh, rng, base=0.34, board=7, wainscot=0.18)
-    interior.dirt_floor(canvas, BOX, mud, rng, grit=ochre, base=0.46)
+    # ERRATA 40. The floor was 0.46 and it is most of the lower half of the
+    # frame, which is the whole of why the median measured 44.5 against the
+    # reference's 27.3. The reference's floor is dark and its light is POOLED;
+    # ours was evenly lit boards at a mid tone. Dropped to 0.30 -- this is
+    # darkening, not the brightening the ruling forbids, and the legibility
+    # gate is re-run against it because Thad stands here -- and 0.30 measures
+    # BETTER than 0.36 on that gate, not worse: his boot is luminance 27, so
+    # a floor at 0.36 sits 4 points from it and a floor at 0.30 sits 9 the
+    # other side. Moving the floor towards the character is what closes a
+    # separation. The near floor is the surface to watch and it is the one
+    # errata 40's numbers push hardest on.
+    interior.dirt_floor(canvas, BOX, mud, rng, grit=ochre, base=0.30)
 
     # -- openings ----------------------------------------------------------
     win_x, win_y, win_w, win_h = WINDOW
@@ -218,6 +235,7 @@ def compose() -> tuple[IndexedCanvas, Palette, LightField]:
     for shaft in shafts():
         lighting.dust_motes(canvas, palette, shaft, rng, density=0.6)
 
+    void_regions(canvas, palette)
     return canvas, palette, field
 
 
@@ -250,6 +268,78 @@ LANDING_MAN = (207, 47, 20)
 #: scene, so he stands clear of the furniture and of the vacated table -- a
 #: man who speaks first has to be the man the eye lands on first.
 VESSEL = (180, 124, 26)
+
+
+def void_regions(canvas: IndexedCanvas, palette: Palette) -> None:
+    """ERRATA 40. The black this room is seen against.
+
+    Measured before any of this: median 49.5, p10 9.2, 22.7% below luminance
+    30 -- and 13.1% of the frame already under luminance 12, in ONE THOUSAND
+    TWO HUNDRED AND TWENTY separate components with the largest at 4.4%. The
+    darkness was there and it was dust. Nothing was seen against anything,
+    because no region was big enough to be seen against.
+
+    THE FIRST ATTEMPT STAMPED ELLIPSES AND IT WAS WORSE THAN NOTHING. Free
+    pools of void centred in mid-air read as holes punched in the picture --
+    a black oval on the back wall is not a shadow, it is damage. The numbers
+    moved a long way and the room got worse, which is the whole argument for
+    looking at it.
+
+    The shapes here come from the ROOM's geometry, because that is what
+    darkness is: not a thing added on top, but the places the window and the
+    chandelier do not reach. Every region below is bounded by something
+    already drawn -- a ceiling, a counter front, a table top, a doorway, the
+    underside of a stair.
+
+    STAMPED AFTER THE FIELD, and never over a reserved band: doc 18 gives the
+    chandelier, the stove door and the candles their own palette entries, and
+    the whole cycling scheme depends on those pixels being exactly those.
+    """
+    reserved = set()
+    for element in cycling.load("nugget", palette):
+        reserved.update(element.indices)
+    keep = (lambda x, y: canvas.get(x, y) in reserved) if reserved else None
+
+    # -- ROOF SPACE, the largest region in the reference and the one we had
+    #    none of. Our ceiling was umber 0.13 with lit beams, which is a dark
+    #    ceiling rather than an unlit one. A room this height in 1858 has a
+    #    roof nobody has ever seen.
+    void.band(canvas, 0, 0, WIDTH, BOX.back_top - 6, feather=6, keep=keep)
+
+    # -- THE CEILING/WALL JUNCTION down both sides. The line where a roof
+    #    meets a wall is the darkest line in any room and ours was a beam.
+    void.wedge(canvas, 0, BOX.back_top - 6, BOX.back_left, BOX.back_top, 7, keep=keep)
+    void.wedge(canvas, WIDTH - 1, BOX.back_top - 6, BOX.back_right, BOX.back_top, 7, keep=keep)
+
+    # -- THE DOORWAY. Behind an open door is outside, at night, and it is a
+    #    rectangle because a doorway is.
+    door_x, door_w = 62, 22
+    void.rect(canvas, door_x, BOX.back_bottom - 40, door_w, 38, feather=2, keep=keep)
+
+    # -- UNDER THE BAR COUNTER. A counter with a solid front has nothing
+    #    under it and no light reaches the floor behind it. Clipped to below
+    #    the counter's own bottom edge rather than centred on it.
+    void.rect(canvas, 216, BAR_TOP + 24, WIDTH - 216, 12, feather=3, keep=keep)
+
+    # -- UNDER THE STAIR. The treads are lit; what is beneath them is not,
+    #    and a staircase with a lit underside is a ramp.
+    void.wedge(canvas, 166, BOX.back_bottom - 2, 222, BOX.back_top + 22, 9, keep=keep)
+
+    # -- UNDER EVERY TABLE. The reference's own instance of this, and the
+    #    shape is a flat smear at the table's foot, not a circle beneath it.
+    for tx, ty, tw in TABLES:
+        base = ty + 11 + (ty - 90) // 5
+        void.smear(canvas, tx - 3, base - 2, tw + 6, 5, keep=keep)
+
+    # -- UNDER THE PIANO, which is a large solid object standing on a floor.
+    void.smear(canvas, 24, 100, 44, 5, keep=keep)
+
+    # -- THE FLOOR AT THE BACK WALL. The junction again. NOT one bar across
+    #    the room: a continuous line of void at a constant height reads as a
+    #    black stripe, which is what the first version drew. Broken into the
+    #    stretches the window shaft and the chandelier do not reach.
+    for jx, jw in ((BOX.back_left, 52), (128, 40), (196, 60)):
+        void.smear(canvas, jx, BOX.back_bottom - 1, jw, 4, keep=keep)
 
 
 def patrons(canvas: IndexedCanvas, palette: Palette, rng) -> None:
