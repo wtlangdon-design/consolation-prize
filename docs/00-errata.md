@@ -1083,3 +1083,48 @@ A mean cannot see this. Two distributions with identical means, identical varian
 This is the fifth time this project has been bitten by a measurement that looked like a finding — the keyline anchor, the contaminated samples, the control that was not a control, luminance parity across a hue difference, and now five agreeing statistics over a hollow distribution. **The instrument was correct every time. It was not measuring the thing that was wrong, every time.**
 
 The practical consequence, for anybody adding a check: *state what shape of failure your check cannot see, in the check.* Every instrument in this project now carries that note, because the fifth instance was found by eye after three critics had already found it, and only then explained by a measurement nobody had thought to take.
+
+
+---
+
+# 43 · CONSOLATION GETS THREE STREET SCREENS, NOT ONE
+
+Doc 20 gave the town **one** street. Everything not on it — the Registrar, the livery, the church, Ozymandia's tent, the undertaker's, the six ancillary interiors — was reached through the map screen.
+
+**That was solving a problem that should not have existed.** The map was introduced because I had let the town outgrow its one street, and a menu is a weaker answer than walking. Monkey Island had four or five outdoor screens on Mêlée and you walked between them; that is a large part of why it feels like a place.
+
+**Room 2's approved composition has also overtaken the decision** — it has a road running off toward the lower right and an alley you can see through. Both promise a town that continues.
+
+## Canonical
+
+**Three connected street screens. Consolation is walked, not selected.**
+
+| # | Screen | Off it |
+|---|---|---|
+| **2** | **Main Street** — the hub, unchanged | The Nugget · the Clarion · the Improvement Company · the mercantile · the hotel · the assay office |
+| **2b** | **Lower Street** — east end of Main Street, through the receding road | The Claims Registrar · the livery stable · the church & meeting hall · the back alley |
+| **2c** | **The Lane** — off Main Street's alley, a narrower back street | The undertaker's · Ozymandia's tent · the photographer's · the barber's · the empty storefront |
+
+**Walking order, west to east: Room 1 · Main Street · Lower Street.** The Lane runs off Main Street's alley, perpendicular, and connects through to Lower Street at its far end — so the three form a loop rather than a corridor, and a player can go round rather than back.
+
+## What the map keeps
+
+**Long-distance travel only, which is what MI's map was for:**
+
+- The road to the claims and everything beyond it — Prosperity, Pratt's claim, the creek, the abandoned row, the ridge, Mott's site, Sheng's laundry
+- Boot Hill
+- The remaining ancillary interiors that sit on no street — the boarding house parlour, the bakehouse, the schoolhouse
+
+**Everything in town is now walkable.** Doc 20's rule 3 still governs what appears on the map; it simply has far less to hold.
+
+## Consequences
+
+- **Room 2's east exit goes to Lower Street**, not to a map entry. It is the receding road at frame right in the approved composition.
+- **Room 2's alley is a real exit**, to the Lane. It is already drawn as a slot you can see through.
+- **Room 20, the back alley, moves** — it opens off Lower Street rather than Main Street's east end.
+- **Errata 31c is amended.** "Everything visible from Main Street appears on the map the first time Thad stands on Main Street" now covers far fewer locations, because most of them are reachable on foot and need no map entry at all.
+- **Two more composed screens**, both exteriors, both day. They inherit Room 2's palette script, camera relationship and material identity — they are the same street, further along.
+
+## Why this is worth two rooms
+
+A town you walk through has elsewhere in it. A town with a menu has a list. Forty-two screens becomes forty-four, and the two added are the cheapest kind — same time of day, same materials, same camera, and the component library already draws everything they need.
