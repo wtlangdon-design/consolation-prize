@@ -1002,3 +1002,36 @@ The frame does not fill a browser window, and the analysis is correct: at 1920×
 - A fullscreen control in the menu overlay, and in the verb panel per the mouse-only requirement.
 - The game remains correct windowed. Fullscreen is better, not required.
 - **Never break the integer rule to fill a window.** A fractionally scaled frame is not this game.
+
+
+---
+
+# 41 · LUMINANCE PARITY IS NOT PARITY WHEN THE HUE DIFFERS
+
+**Every automated check in this project measures luminance. This ruling exists because that is not sufficient, and a room passed every one of them while being visibly wrong.**
+
+## The case
+
+Room 1's moonlit ruts took over the lower half of the frame and outcompeted the town, which is the room's focal point. Measured against the reference:
+
+| | pixels | median luminance |
+|---|---|---|
+| Ours | 1,272 | 44.4 |
+| Reference | 1,144 | 49.8 |
+
+**Fewer pixels than the bar, and darker than the bar.** Correct on both measured axes, and wrong on the screen.
+
+**The difference was saturation.** The reference's water is a blue-grey at 0.46. Our reserved cycling band sits at 0.55–0.60 — chosen because three entries could be reserved there without colliding, not because it is the colour of water. About a fifth more chroma per pixel, and a thousand of them compounding across the lower half into blue corduroy.
+
+## The rulings
+
+1. **Every luminance check gains a saturation companion.** A surface that matches on luminance and exceeds on chroma is not a match. Report both.
+2. **Where a family's saturation is fixed and cannot be lowered — a reserved cycling band, an accent family — the only control is HOW MANY PIXELS TAKE IT.** Area is the lever when chroma is not. That is the correct fix and it is what was applied here.
+3. **Cycling bands are chosen for colour, not for convenience.** This band was reserved where three entries happened to be free. Any future reservation states what colour the thing is meant to be first.
+4. **Every entry in a reserved band must be painted by something.** An entry nothing paints is an entry that cannot animate.
+
+## The general form
+
+**A measurement that agrees with you on every axis it measures is not a result. It is a result on those axes.**
+
+This is the fourth time this project has been bitten by a measurement that looked like a finding — the keyline anchor, the contaminated samples, the control that was not a control, and now luminance parity across a hue difference. **The pattern is always the same: the instrument was correct and it was not measuring the thing that was wrong.**
