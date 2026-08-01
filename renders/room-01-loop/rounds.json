@@ -91,5 +91,27 @@
     "gaps": {
       "town": "the mid-tone is measurably closer but the mass still reads as marks on night rather than as buildings. The texture-field architecture resists it."
     }
+  },
+  {
+    "round": 7,
+    "title": "Final blind judging \u2014 the bar still wins",
+    "note": "Nine fresh region critics and a three-lens whole-frame panel, all blind. Ours held one region of nine (Hob and his lantern) and none of the three panel lenses. Every loss decisive. Recorded as the honest state at merge.",
+    "status": "held 1 of 9 regions, 0 of 3 panel lenses",
+    "verdicts": {
+      "hob": "ours",
+      "sky": "bar",
+      "range": "bar",
+      "town": "bar",
+      "left_yard": "bar",
+      "rail": "bar",
+      "team": "bar",
+      "coach": "bar",
+      "road": "bar"
+    },
+    "gaps": {
+      "sky": "no vertical value ramp \u2014 rows 0-17 are one flat colour across the full width, and the whole gradient is dumped into a hard-edged checker belt whose density peaks mid-band and then falls, making the horizon the darkest sky in the picture.",
+      "town": "90.5% of non-window pixels are three neutral greys, so every building shares a value with the one behind it and the windows float on an undifferentiated field. No lit roof planes.",
+      "range": "the masses are two colours with no internal form; the ridgeline is a mechanically regular two-pixel staircase."
+    }
   }
 ]
