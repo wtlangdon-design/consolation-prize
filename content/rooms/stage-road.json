@@ -52,31 +52,34 @@
     {
       "id": "road_far",
       "zone": 2,
+      "surface": "mud",
       "rect": [
         0,
-        576,
+        660,
         1920,
-        72
+        68
       ]
     },
     {
       "id": "road_mid",
       "zone": 1,
+      "surface": "mud",
       "rect": [
         0,
-        648,
+        728,
         1920,
-        84
+        68
       ]
     },
     {
       "id": "road_near",
       "zone": 0,
+      "surface": "mud",
       "rect": [
         0,
-        732,
+        796,
         1920,
-        132
+        68
       ]
     }
   ],
@@ -539,5 +542,6 @@
       ]
     }
   ],
-  "foregroundNote": "NO NEAR PLANE, AS RULED UNDER Q20. art/foregrounds/room-01-stage-road.png was ruling 21a's near plane, cut from the composed Room 1, and errata 53 discarded that picture. Unlike the ten backgrounds it does not resolve when the room is regenerated: a foreground is cut FROM a plate rather than produced BY one, so it needs cutting from the approved plate. Until then the room has no plane drawn over the actor, and in the near mud he passes in front of everything instead of behind it."
+  "foregroundNote": "NO NEAR PLANE, AS RULED UNDER Q20. art/foregrounds/room-01-stage-road.png was ruling 21a's near plane, cut from the composed Room 1, and errata 53 discarded that picture. Unlike the ten backgrounds it does not resolve when the room is regenerated: a foreground is cut FROM a plate rather than produced BY one, so it needs cutting from the approved plate. Until then the room has no plane drawn over the actor, and in the near mud he passes in front of everything instead of behind it.",
+  "walkableNote": "Q4, MEASURED AGAINST THE APPROVED PLATE AND APPROVED ON SIGHT. What was here was the composed room's geometry multiplied by six, and errata 53 discarded that picture: three full-width bands covering the bottom third of the frame, so the player walked through the fence, the sign and the shack. Measured on art/backgrounds/room-01-stage-road.png, open mud runs from 7% of the row at y=640 to 41% at y=700 and becomes the surface at y=660 — that is the back edge of where a man can stand, and the band runs 660 to 864. THESE ARE EXTENTS, NOT POLYGONS: the room declares no walk boxes, so nothing here makes the fence, the sign or the shack solid. That is polygon work and a judgement about what is solid in this picture."
 }

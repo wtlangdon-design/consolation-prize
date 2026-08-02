@@ -1,10 +1,22 @@
 {
   "schema": 3,
   "note": "ERRATA 54, and Q9 as ruled. ONE DRAWN SIZE, so ruling 24's two-tier table and the decimation threshold that switched between them are gone rather than migrated -- filtered resampling has nothing for a threshold to choose. What remains is the depth-zone table the room schema samples by index.",
-  "provisional": "EVERY ZONE HOLDS THE SAME HEIGHT, AND THAT IS THE PLACEHOLDER, NOT THE DESIGN. Q21 measured Room 1's fence and put a figure at that depth near 205px; it is an anchor at ONE depth. Q6's per-room scale curve is what turns an anchor into a height per zone and it does not exist yet, so rather than keep the old 240/192/156 -- which are errata 24's proportions multiplied by six, aimed at a 233px figure that measurement has since disproved -- every zone reads the one number that was actually measured. He is therefore the same size up the road as in the near mud, which is visibly wrong and is meant to be: a flat table is a curve nobody has drawn yet, where a plausible-looking gradient would be a curve someone guessed.",
+  "provisional": "Q4/Q6: ROOM 1'S CURVE, measured against its own final art, and nobody else's. Q21 measured the fence and put a figure at that depth near 205px; that is the ONE measured point, with a shallow gradient either side — 190 at the back of the band, 225 at the front. The band is 204px deep against a 205px character, about one body-depth, so the falloff is small and being slightly wrong costs little. EVERY OTHER ROOM STILL NEEDS ITS OWN, measured against its own final art, which is Q4's whole point: this table is per-room in intent and global in structure, and the structure is what has to change when the second room is measured.",
   "zones": [
-    { "index": 0, "name": "near", "height": 205 },
-    { "index": 1, "name": "mid", "height": 205 },
-    { "index": 2, "name": "far", "height": 205 }
+    {
+      "index": 0,
+      "name": "near",
+      "height": 225
+    },
+    {
+      "index": 1,
+      "name": "mid",
+      "height": 205
+    },
+    {
+      "index": 2,
+      "name": "far",
+      "height": 190
+    }
   ]
 }
