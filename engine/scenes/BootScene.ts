@@ -43,7 +43,10 @@ export class BootScene extends Phaser.Scene {
     }
     // Character sheets, keyed by their content path so the renderer can ask
     // for one by the same string the content used to name it.
-    const sheets = new Set<string>([bundle.actor.sizes.near.sheet, bundle.actor.sizes.far.sheet]);
+    // SCHEMA 2: the protagonist is 124 individual frame files across twenty
+    // clip directories, not two sheets. Listed by the record, so a clip that
+    // is declared is loaded and one that is not is neither loaded nor drawn.
+    const sheets = new Set<string>(bundle.actor.clips.flatMap((clip) => clip.frames));
     for (const npc of bundle.ambient.values()) {
       if (npc.sprite) sheets.add(npc.sprite.sheet);
     }

@@ -1,10 +1,10 @@
 {
   "schema": 1,
   "note": "Errata 29, which overturns 26 on the inventory. Verbs stay three columns of four on the left; the inventory is now a GRID OF ICONS on the right where the text list was, scroll arrows at the right edge, sentence line full width above. Geometry lives here rather than in Screen.ts because two things read it: the engine, and the Python that renders the panel for review.",
-  "errata54": "PROVISIONAL -- see Q16. Errata 54 moved the panel from 320x56 to 1920x216, which is NOT the play area's exact 6x: 56 x 6 = 336 and would not fit. So these numbers could not be migrated and had to be re-authored. What is preserved is the SHAPE errata 26 and 29 specify and nothing more -- three columns of four verb cells, MENU and the map in the fourth row, a four-by-two inventory grid on the right, arrows at the right edge, sentence line full width above. What is NOT settled is any height here, because a button's height is a property of the text inside it and the font is void under errata 54 with no replacement ruled. Re-author these rows the day the font lands. Until then this is a layout that fits and holds its shape, not a specification.",
+  "errata54": "PROVISIONAL -- see Q16. Errata 54 moved the panel from 320x56 to 1920x216, which is NOT the play area's exact 6x: 56 x 6 = 336 and would not fit. So these numbers could not be migrated and had to be re-authored. What is preserved is the SHAPE errata 26 and 29 specify and nothing more -- three columns of four verb cells, MENU and the map in the fourth row, a four-by-two inventory grid on the right, arrows at the right edge, sentence line full width above. What is NOT settled is any height here, because a button's height is a property of the text inside it and the font is void under errata 54 with no replacement ruled. Re-author these rows the day the font lands. Until then this is a layout that fits and holds its shape, not a specification. Corrected once already after looking at it: the first version overlapped the sentence line through the verb grid, because the row pitch was authored before the font was scaled and 42 units of glyph do not fit in 48 units of pitch with a line above them. That is the whole reason every height here is provisional.",
   "sentence": {
     "x": 36,
-    "y": 868
+    "y": 866
   },
   "verbs": {
     "note": "SCUMM had twelve verbs in three columns of four. We have nine, per Bible v2, so the fourth row carries the MENU button instead of three more verbs -- the grid is the reference's shape and no cell is left empty.",
@@ -14,13 +14,13 @@
       720
     ],
     "rows": [
-      888,
-      936,
-      984,
-      1032
+      908,
+      951,
+      994,
+      1037
     ],
     "width": 336,
-    "height": 46
+    "height": 43
   },
   "menuButton": {
     "col": 0,
@@ -29,10 +29,10 @@
   "inventory": {
     "note": "Eight visible, the top of ruling 29's six-to-eight. Four columns across the right-hand block, two rows. The ITEM NAME still draws in the sentence line on hover and on selection -- ruling 29 condition 1, and it is not optional: an icon must never be the only way an item is identified, which is also why ruling 26's authored display names stand unchanged.",
     "x": 1092,
-    "y": 888,
+    "y": 908,
     "cell": [
       180,
-      92
+      86
     ],
     "cols": 4,
     "rows": 2,

@@ -8,7 +8,7 @@ import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
-import { BitmapFont } from '../render/BitmapFont.ts';
+import { BitmapFont, GLYPH_SCALE } from '../render/BitmapFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
 import { Renderer } from '../render/Renderer.ts';
@@ -37,7 +37,8 @@ import {
 } from './keys.ts';
 
 const NOTICE_MS = 1200;
-const TEXT_MARGIN = 6;
+// Glyph pixels, like the renderer's copy: x GLYPH_SCALE with the face.
+const TEXT_MARGIN = 6 * GLYPH_SCALE;
 
 /**
  * Draws the whole 320x200 frame into one canvas texture and routes input.
@@ -569,19 +570,19 @@ export class GameScene extends Phaser.Scene {
     const facing = mover.facing;
     const surface = mover.surfaceHere();
     const found = mover.id === record.id
-      ? record.sizes.near.clips.find(
+      ? record.clips.find(
         (candidate) => candidate.id === clip && candidate.facing === facing)
       : undefined;
     assertRequiredClip(found, clip, facing, surface);
     if (!found) {
       throw new Error(`No declared clip "${clip}" (${facing}) for mover "${mover.id}"`);
     }
-    return found.frames / record.reactRate;
+    return found.frames.length / record.reactRate;
   }
 
   /** Whether the protagonist's record declares a clip. Never a substitution. */
   private spriteDeclares(clip: string): boolean {
-    return this.state.content.actor.sizes.near.clips
+    return this.state.content.actor.clips
       .some((candidate) => candidate.id === clip);
   }
 

@@ -674,7 +674,7 @@ export class GameState {
    * name in this file. No .ts file gets to know that mud is called mud.
    */
   surfaceAt(x: number, y: number): string {
-    const fallback = this.content.actor.sizes.near.clips[0]?.surface ?? '';
+    const fallback = this.content.actor.clips[0]?.surface ?? '';
     const boxes = this.boxes;
     if (boxes) return boxes.boxAt(x, y)?.surface ?? fallback;
     return this.regionAt(x, y)?.surface ?? fallback;

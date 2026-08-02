@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
-import { BitmapFont } from '../engine/render/BitmapFont.ts';
+import { BitmapFont, GLYPH_SCALE } from '../engine/render/BitmapFont.ts';
 import {
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
@@ -123,11 +123,18 @@ test('the sentence line is assembled from templates, not built in code', async (
   assert.ok(!sentence.includes('{'), 'every placeholder should be filled');
 });
 
-test('the font is 1-bit, 5x7, and covers every character the harness uses', async () => {
+test('the font is 1-bit, 5x7 in data, drawn six units per glyph pixel', async () => {
   const content = await loadContent(fsReader);
   const font = new BitmapFont(content.font);
 
-  assert.equal(font.height, 7);
+  // Q6, PARTIAL: the ruling scales the face and does not replace it. So the
+  // GLYPH DATA is still strictly 5x7 -- asserted below, unchanged -- and only
+  // the drawn size moved. Both halves are asserted because getting either one
+  // alone is a way for this to go wrong quietly: a scaled face with edited
+  // glyphs is a typeface decision nobody made, and unscaled glyph data is the
+  // sixth-of-the-size bug this ruling exists to fix.
+  assert.equal(GLYPH_SCALE, 6, 'the same integer the play-area geometry migrated by');
+  assert.equal(font.height, 7 * GLYPH_SCALE);
   for (const rows of Object.values(content.font.glyphs)) {
     assert.equal(rows.length, 7, 'every glyph is seven rows tall');
     for (const row of rows) {
@@ -144,7 +151,9 @@ test('the font is 1-bit, 5x7, and covers every character the harness uses', asyn
 test('word wrap keeps every line inside the play area', async () => {
   const content = await loadContent(fsReader);
   const font = new BitmapFont(content.font);
-  const maxWidth = 308;
+  // The play area less a margin either side, in the frame the text is now
+  // actually drawn in. Was 308 of 320.
+  const maxWidth = NATIVE_WIDTH - 72;
 
   for (const room of content.rooms.values()) {
     for (const target of [...room.hotspots, ...room.exits]) {
@@ -190,20 +199,22 @@ test('a double-click is two rapid clicks on the same target, not just two rapid 
 });
 
 
-test('height is continuous within the drawn range, and never leaves it', async () => {
+test('every walkable point resolves to a height, and to the one measured anchor', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
-  const { near, far } = content.scaling.drawn;
+  const anchor = content.actor.height;
 
-  // Errata ruling 24 voided ruling 15's three-size table. What is asserted
-  // now is the range, not membership of it: every walkable point resolves to
-  // a height between the two DRAWN sizes, and the sprite decides which of
-  // them serves it.
-  assert.ok(near > far, 'the near drawn size is the taller one');
-  assert.ok(content.scaling.threshold > far && content.scaling.threshold < near,
-    'the measured threshold falls between the two drawn sizes');
-  assert.equal(content.scaling.threshold, content.actor.threshold,
-    'the scaling file and the actor sheet were measured from the same sprite');
+  // ERRATA 54 / Q9: one drawn size. The old version of this asserted a RANGE
+  // between two drawn sizes and a threshold sitting inside it, which was
+  // ruling 24's model; there is no second size and no threshold now.
+  //
+  // What is asserted instead is what the flat table actually claims -- that
+  // the floor resolves everywhere, and resolves to the height somebody
+  // measured. It will need rewriting the day Q6's curve lands, and it should:
+  // a test that still passed once heights varied by depth would be asserting
+  // nothing at all.
+  assert.ok(content.scaling.zones.every((zone) => zone.height === anchor),
+    'the placeholder table and the actor record agree on the one measured height');
 
   for (const room of content.rooms.values()) {
     state.enterRoom(room.id);
@@ -211,22 +222,33 @@ test('height is continuous within the drawn range, and never leaves it', async (
       const [x, y, w, h] = region.rect;
       const height = state.actorHeightAt(x + Math.floor(w / 2), y + h - 1);
       assert.ok(height !== null, `${room.id}/${region.id} should be walkable at its own centre`);
-      assert.ok(height! <= near && height! >= far,
-        `${room.id}/${region.id} resolved to ${height}, outside the drawn range`);
+      assert.equal(height, anchor,
+        `${room.id}/${region.id} resolved to ${height}, not the one anchor`);
     }
   }
 });
 
-test('the one scaling snap in Room 2 lands at the boardwalk lip', async () => {
+test('Room 2 declares one fixed box at the lip, and no step until Q6 draws one', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
   state.enterRoom('main_street');
 
-  // Errata 28a: continuous within a box, and ONE source swap in the room, at
-  // the only real horizontal interruption in the band. The earlier version of
-  // this test asserted a maximum step of one row everywhere, which was right
-  // for the old single-curve model and would now forbid the snap the ruling
-  // exists to place.
+  // WHAT THIS USED TO ASSERT AND WHY IT CANNOT. Errata 28a placed ONE source
+  // swap in the room, at the boardwalk lip: the fixed box drew at ruling 24's
+  // far sheet and the mud below it at the near one, so there was a measurable
+  // step. Errata 54 left one drawn size, Q9 removed the threshold that chose
+  // between them, and Q6's per-room curve does not exist -- so there is
+  // nothing to swap and no step to find. Asserting a step here would be a
+  // test that cannot pass.
+  //
+  // What is still binding is 28a's GEOMETRY, and that is asserted instead:
+  // exactly one box is fixed and it is the lip. It stays true when Q6 puts a
+  // real step back, and this test grows the step assertion back with it.
+  const room = content.rooms.get('main_street')!;
+  const fixed = room.walkBoxes!.filter((box) => box.scaleMode.kind === 'fixed');
+  assert.equal(fixed.length, 1, 'exactly one fixed box in the room');
+  assert.equal(fixed[0]!.id, 'boardwalk', 'and it is the lip');
+
   const jumps: { y: number; from: number; to: number }[] = [];
   let previous: number | null = null;
   for (let y = 468; y < 864; y += 1) {
@@ -237,17 +259,7 @@ test('the one scaling snap in Room 2 lands at the boardwalk lip', async () => {
     }
     previous = height;
   }
-
-  assert.equal(jumps.length, 1, 'exactly one snap in the room');
-  const snap = jumps[0]!;
-  const lip = content.rooms.get('main_street')!.walkBoxes!
-    .find((box) => box.scaleMode.kind === 'fixed')!;
-  const lipBottom = Math.max(...lip.points.map((point) => point.y));
-  assert.equal(snap.y, lipBottom + 1, 'the snap is the first row off the fixed box');
-  assert.ok(snap.from <= content.scaling.threshold,
-    'the box above the lip draws at or below the threshold -- the far sprite');
-  assert.ok(snap.to > content.scaling.threshold,
-    'the first row of mud is above it -- decimated');
+  assert.deepEqual(jumps, [], 'a flat placeholder table has no step anywhere');
 });
 
 test('a point off the floor has no actor height at all', async () => {

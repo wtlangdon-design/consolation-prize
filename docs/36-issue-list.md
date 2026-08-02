@@ -476,6 +476,22 @@ Raised rather than fixed again, because renumbering the symptom is what happened
 
 **Not proposing the scheme.** Sequential integers assigned at write time require a global view that a branch does not have, and that is the whole of it. What replaces them — per-branch prefixes, dates, initials, content hashes — is a convention question with real trade-offs for how the document reads, and it belongs to Tyler along with everything else in this list. What is now established is that the current scheme has failed twice in one session, both times for the same reason, and that the next failure may not announce itself.
 
+## Q25 · The opening never ends, so the panel is unreachable without a dev handle
+
+Found by looking, after the three rulings landed. Not caused by them.
+
+`content/sequences/opening.json` has eleven beats. Clicking through them stalls: forty clicks over thirty-six seconds leaves `GameScene.opening` non-null, the last line still on screen, and the sequence still running. Because `showPanel` is `this.opening === null`, **the verb panel never appears** — the bottom 216 rows stay pure black, a single colour, no fill at all.
+
+It is consistent with what the validators already report: *"gated on but written by no content: `T_HOB_GONE` — engine:opening-sequence:beat10 must exist for it to fire."* Beat 10 is unbuilt, so nothing ends the sequence. That is Phase 1 being Phase 1 rather than a defect in anything shipped, but the consequence is worth stating plainly: **a person opening the game today cannot reach the interface at all.** Everything below the opening — the panel, the verbs, the inventory, hotspots, LOOK and LISTEN — was reachable for verification only by calling `finishOpening()` from the dev-build handle, which is what was done.
+
+## Q26 · At ×6 the face does not comfortably fit errata 54's panel
+
+The panel went from 56 rows to 216 — 3.86×, not the play area's 6× — and the face is now 42 units tall. Errata 26 and 29's layout is a sentence line plus four verb rows, which at the face's own proportions wants 5 × 66 = 330 units. It has 216.
+
+It fits, and the fit is tight rather than comfortable: sentence at 866, four rows of 43 from 908, the bottom row's ink ending at y=1078 of 1080. **Measured rather than judged — the last row is complete, with two rows of margin under it.** Button labels are now centred in their buttons rather than inset by a fixed count, because a two-glyph-pixel inset is twelve units at this scale and put the bottom row off the frame.
+
+Nothing here is broken. It is recorded because it is the first hard evidence for Q6 that the 5 × 7 does not merely look wrong at this size: the panel errata 54 specifies cannot hold it at its intended proportions, so whatever replaces it carries a size constraint the old face never had.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
