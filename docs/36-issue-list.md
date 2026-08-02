@@ -610,6 +610,51 @@ Caught by `check-actor-clips` within minutes of the art landing, which is the ch
 
 **What is needed is a decision about shape**, and it is small but not mine: whether the manifest grows an actor *list*, whether records are discovered by convention from `content/actors/*.json`, and whether `scaling.json`'s one zone table is per-character or shared. Hob is also **right-facing only**, four clips against Thad's twenty, so whatever loads him has to tolerate a character who cannot turn — which is correct for a man who crosses the road once and never comes back.
 
+## Q30 · The game is black for fifteen seconds because boot waits for 70 MB
+
+Reported as "opens black and needs about five clicks before anything appears." Instrumented rather than guessed at, and the guess in the report — the title sequence — was not it.
+
+**There is no title screen to blame.** `beginOpening` consumes the `control: menu` beat before the first frame, so the game opens directly into the opening's first automatic segment. Once drawing starts, the first frame is the room, fully composed, 2,947 distinct colours, Thad at 240 px. Nothing is black about it.
+
+**What is black is everything before drawing starts.** `BootScene.create` awaits every asset the manifest declares before starting `GameScene`, and that is now **70.1 MB across 170 PNGs** — 124 frames for Thad at 54.4 MB, 27 for Hob at 14.1 MB, and 1.7 MB of backgrounds. Until that promise resolves nothing is drawn at all.
+
+| | time to first drawn frame | downloaded |
+|---|---|---|
+| **localhost, unthrottled** | **14.9 s** | 70.1 MB |
+| 20 Mbps | not within 30 s | 65.1 MB |
+| 5 Mbps | not within 30 s | 12.7 MB of 70 |
+
+Fifteen seconds on a machine serving from its own disk. The five clicks are not advancing anything — they are what a person does while waiting.
+
+**Two separate problems, and they need different people.**
+
+**1. Boot blocks on everything, which is an engine decision.** The room's background is enough to draw the first frame; an actor's frames are needed when he is first drawn, not before the scene starts. Even at a tenth the size, awaiting 151 files before anything appears is the wrong shape.
+
+**2. The frames are ~50× the pixels they are drawn at, which is the pipeline.** Each is about 450 KB at 1105 × 1702, and the game draws them at 240 px tall — roughly 7× linear. `ActorSprite` resamples every one down on first use and caches the result, so the full-size pixels are paid for on the wire, in memory, and once in CPU, and then never used again. That is `tools/rig/` territory and not mine to change.
+
+**Neither is fixed.** The instruction was to instrument and report, and the fix for the first is a decision about what must exist before the first frame.
+
+## Q31 · The dialogue trees are consistent. Errata 37 is what reads as inconsistent.
+
+Reported as "some options vanish after use, some stay, no visible rule." Read against the content before touching the runner, as instructed, and the answer is neither of the two possibilities the report offered.
+
+**The content is perfectly consistent.** All 45 options across 8 trees carry exactly one of four tags — TOPIC 14, COMIC 9, EXIT 9, PROGRESS 13 — and **zero are untagged.** There is no drift to find.
+
+**The runner implements errata 37 exactly.** PROGRESS is removed once used; TOPIC, COMIC and EXIT grey and remain selectable. Simulated on the driver's tree, which is the first conversation every player has:
+
+```
+fresh                 drv1[PROGRESS]  drv2[PROGRESS]  drv3[COMIC]  drv4[EXIT]
+after drv1            drv2[PROGRESS]  drv3[COMIC]  drv4[EXIT]
+after drv2            drv3[COMIC]  drv4[EXIT]
+after drv3            drv3[COMIC](grey)  drv4[EXIT]
+```
+
+**So the appearance of inconsistency is produced by the ruling, not by a defect.** Two rows vanish and a third greys, inside one four-option conversation, and the property that decides which — the tag — is invisible to the player. Errata 37's own premise is that both behaviours are right for different options; what it did not weigh is that the player cannot see which option is which, so the rule cannot be learned.
+
+**And it diverges from the convention it was measured against.** Monkey Island's rule includes *the list never silently reshuffles*. Removal reshuffles: **6 of 9 nodes mix PROGRESS with non-PROGRESS**, so a used row vanishes and everything under it moves up. That is in errata 37, not in the code.
+
+**Not fixed, and it should not be fixed here.** Errata 37 is a design ruling, amending doc 04 rule 4 by name, and the three ways out — keep it, drop the removal, or mark PROGRESS visibly so the rule becomes learnable — are all design decisions.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
