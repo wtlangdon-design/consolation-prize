@@ -5,6 +5,16 @@
 
 ---
 
+# WHAT WE LEARNED ACQUIRING THESE
+
+**Attach ONE image, not two.** Held three times now. Talk on the right and front came back clean with a single reference — 1,757px and 1,124px changed, nothing below the neck. The left with two references came back a redraw. Every pickup attempt used two, and all five were rebuilt characters. `shrug` and `use_near` with one reference are the closest proportional matches of any pose acquired.
+
+**A pose that keeps him upright works; one that bends him does not.** `shrug`, `use_near` and `talk` move an arm or a face and hold the build within a few percent. `pickup` moves his whole body and produced a different man every time — hatted, then squat, then squatter, then narrow. It took six attempts and the accepted one is 1182px against a 1616px master.
+
+**Ask for the smallest change that carries the idea.**
+
+**The margin clause does not work.** Two poses in a row put the reaching hand exactly on the frame edge — `use_near` at x=654 of 655, `give_offer` at x=720 of 721 — despite the prompt asking for a clear margin on all four sides. The generator crops to the figure and ignores it. Nothing has been lost yet, but there is no headroom, and a pose reaching further would lose fingers. Check the margin on every reaching pose rather than trusting the clause.
+
 # HOW TO RUN THIS
 
 ## Attach two images, always
