@@ -8,7 +8,13 @@
 
 A 2D point-and-click comedy adventure game in the tradition of *The Secret of Monkey Island*. Frontier gold rush town, 1850s. Dry, deadpan. Ten-to-twelve hours, 45 puzzles, 42 screens, ~3,850 written lines.
 
-**`docs/00-errata.md` overrides every other document on every point it addresses. Read it first.** The design documents were written in sequence and contradict each other in thirteen places; the errata resolves all of them.
+**`docs/00-errata.md` overrides every other document on every point it addresses. Read it first.**
+
+> **STOP — READ ERRATA 54 BEFORE WRITING ANY RENDERING, SCALING, PALETTE, FONT OR BACKGROUND-ANIMATION CODE.**
+> The presentation layer was replaced wholesale. Docs 11 and 18 are void, doc 06's presentation section is void, and errata 24's decimation scaler no longer applies. Work built against 320×144 or the locked 256 is wasted work.
+>
+> New: `docs/38-character-pipeline.md` and `tools/rig/character.py` — how characters are made now.
+> Open issues, including what errata 54 leaves unspecified: `docs/36-issue-list.md`. The design documents were written in sequence and contradict each other in thirteen places; the errata resolves all of them.
 
 The design is complete and lives in `/docs`. **Do not invent content.** Every line of dialogue, every examine line, every bark already exists in those documents. If something is missing, say so and stop — do not fill the gap.
 
@@ -25,9 +31,9 @@ There is another project, `wtlangdon-design/anchorage`. It is a completely diffe
 ## Stack
 
 - **Phaser 3 + TypeScript + Vite.** Not ThreeJS. Not a 3D engine.
-- Native **320×200**, play area 320×144, verb panel occupying the bottom 56px natively.
+- **Window 1920×1080, play area 1920×864, verb panel 216px.** Errata 54 — supersedes the former 320×200 / 320×144 / 56px spec entirely.
 - `pixelArt: true`, `roundPixels: true`, `antialias: false`. Integer upscale, nearest-neighbour. **Never smooth or anti-alias anything.**
-- 256-colour locked palette, VGA-style. Character sprites ~40px tall.
+- **Full RGB. There is no locked palette.** `art/palette/consolation-256.json` is reference only. Character sprites **~233px** at mid-depth, scaled per room by depth. Errata 54.
 - Must run at 60fps in Chrome on a Chromebook.
 
 ## The one architecture rule
@@ -58,7 +64,7 @@ A line that needs changing is changed in `/docs` and re-extracted. Never edited 
 
 ## Typography
 
-Text renders through a hand-authored 1-bit 5×7 font. Rasterised system fonts anti-alias at 320×200 and are forbidden.
+**The 5×7 font is void under errata 54** — it was sized for 320×200 and is unusable at 1920×1080. No replacement is specified yet; do not pick one without a ruling.
 
 **The design documents were written in prose typography** — curly quotes, em dashes, en dashes, ellipsis characters. The glyph set must cover, at minimum: `' ' " " — – …`
 
@@ -133,7 +139,7 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 | `docs/11-art-revision-pixel.md` | Pixel-art direction — supersedes art in 01 and 06 |
 | `docs/12-art-prompts.md` | Source-generation art prompts — superseded as final spec by 11 |
 | `docs/13-17` | Room content, opening sequence, road to done |
-| `docs/18-palette-cycling.md` | Background animation — the only non-sprite motion in the game |
+| `docs/18-palette-cycling.md` | **VOID — errata 54.** Palette cycling requires an index palette. All room `cycling` declarations are dead data |
 | `docs/19-19b-resolutions.md` | Resolutions for the 21 unrendered-figure hotspots |
 | `docs/20-room-map.md` | Room connectivity and the town map screen |
 | `docs/21-dossier-audit.md` | Audit against the Monkey Island design dossier |

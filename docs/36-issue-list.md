@@ -188,6 +188,20 @@ Every rectangle in `stage-road.json` — `walkable`, `hotspots`, `exits`, `cycli
 
 **Awaiting a decision on:** which rooms get act variants beyond 36, and whether the room schema gains a declarative gate or continues to duplicate ids. The second is an engine question and belongs with doc 34's coordinator work rather than ahead of it.
 
+## Q6 · What errata 54 leaves unspecified
+
+The presentation ruling replaced the spec but did not supply everything the old one provided. Each of these is open and none is mine to settle.
+
+**The font.** The 1-bit 5 × 7 was sized for 320 × 200 and is unusable at 1920 × 1080. Nothing replaces it. Doc 06 forbade rasterised system fonts because they anti-alias at 320 × 200 — that objection dies with the resolution, so a system or webfont is now viable, but the choice is a look decision.
+
+**Depth scaling.** 233 px is a character's height *at a stated depth*, not their size. Every room needs a scale curve. Doc 29's walk-box zones survive; the numbers in them do not.
+
+**How anything in a room moves.** Palette cycling was the only non-sprite motion and it is void. Room 1's puddles and Hob's flame both relied on it. Errata 35a's floor — every room has at least one animated element — now costs sprite frames everywhere, in 44 rooms. This may warrant revisiting 35a.
+
+**Room 1's plate is 1870 × 841 against a 1920 × 864 target.** A 2.7% upscale is accepted rather than regenerating an approved plate. Future rooms should be generated at play-area size, though the generator does not honour exact sizes and rescaling a painting is nearly free.
+
+**Whether Main Street scrolls.** Unchanged by errata 54 and still open under D7.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
