@@ -346,6 +346,73 @@ Errata 54 says `art/palette/consolation-256.json` "ceases to be authoritative. R
 
 **A suggested order once this and Q6 are ruled, and it is a suggestion.** Proposed during the session that found this, by someone who does not hold rulings on this project: the colour model first, then the font, then Q9's schema so the twenty per-clip directories can reach the screen. **Recorded as one opinion about what to do first, not as a decision.** Errata 52's stop condition exists because design rulings here belong to one person, and a sequencing preference written down as though it carried his authority is the drift that condition guards against — six months from now it would read as settled.
 
+## Q20 · Every asset path in every room points at composed art
+
+**Filed, not fixed.** Each entry below is a decision about what a room looks like, and those belong to Tyler.
+
+The coach found it. `stage-road.json`'s `coach` hotspot — id `coach`, rect `[1152, 360, 480, 252]`, gated `T_COACH_DEPARTED: false` — declares `states.halted.image: art/objects/room-01-coach.png`, and its own note says exactly why it exists:
+
+> *ERRATA 31d: the coach is an object state, not background art. The shipping background is the DEPARTED composition and this layer is the difference between the two composes — the coach, the team, and the light its lantern throws on the road, which is exactly the set that leaves with it.*
+
+That was right under the composed pipeline and three things now stack against it: the background is the approved **generated** plate; errata 53 discarded the composed art the layer was differenced against; and it is 320 × 144 drawn over a 1920 × 864 painting, so `drawPlate` magnifies it six times.
+
+**The hotspot is not the problem and must not be removed.** Its written lines are canon under errata 19a and its state gating is the mechanism the departure needs. What is stale is the image it points at.
+
+### The full extent, so it is visible at once
+
+Nineteen asset paths are declared across all 17 room files. Every one is written by a `tools/pixelart/` compositor — **19 of 19 are composed art.** Traced by matching each shipping filename against the modules that write it.
+
+| | size | room | field | asset | compositor |
+|---|---|---|---|---|---|
+| | **1920×864** | stage-road | `.background` | `room-01-stage-road.png` | *hand-replaced with the approved plate* |
+| | 320×144 | main-street | `.background` | `room-02-main-street.png` | `room02_main_street.py` |
+| | 320×144 | nugget | `.background` | `room-03-nugget.png` | `room03_nugget.py` |
+| | 320×144 | assay-office | `.background` | `room-05-assay-office.png` | `room05_assay.py` |
+| | 320×144 | undertaker | `.background` | `room-13-undertakers.png` | `rooms_batch_a.py` |
+| | 320×144 | hotel-lobby | `.background` | `room-18-hotel-lobby.png` | `rooms_batch_a.py` |
+| | 320×144 | thads-room | `.background` | `room-19-thads-room.png` | `rooms_batch_a.py` |
+| | 320×144 | town-map | `.background` | `room-00-town-map.png` | `room00_map.py` |
+| | 320×144 | stage-road | `.foreground` | `room-01-stage-road.png` | `room01_stage_road.py` |
+| | 320×144 | main-street | `.foreground` | `room-02-main-street.png` | `room02_main_street.py` |
+| | 320×144 | nugget | `.foreground` | `room-03-nugget.png` | `room03_nugget.py` |
+| | 320×144 | undertaker | `.foreground` | `room-13-undertakers.png` | `rooms_batch_a.py` |
+| | 320×144 | hotel-lobby | `.foreground` | `room-18-hotel-lobby.png` | `rooms_batch_a.py` |
+| | 320×144 | thads-room | `.foreground` | `room-19-thads-room.png` | `rooms_batch_a.py` |
+| | 320×144 | main-street | `.occlusionPlanes[0].mask` | `room-02-plane-1.png` | `room02_main_street.py` |
+| | 320×144 | main-street | `.occlusionPlanes[1].mask` | `room-02-plane-2.png` | `room02_main_street.py` |
+| | 320×144 | **stage-road** | `.hotspots[4].states.halted.image` | **`room-01-coach.png`** | `room01_stage_road.py` |
+| | 320×144 | main-street | `.exits[4].states.open.image` | `room-02-assay-door-open.png` | `room02_main_street.py` |
+| | 144×36 | nugget | `.idles.sheet` | `room-03-nugget.png` | `room03_nugget.py` |
+
+**The split was stated the wrong way round when this entry was first filed, and the corrected version is worse.** It said eleven resolve and eight do not. The counts are **8 and 11**, and it is the larger number that does not resolve.
+
+**Eight resolve: the backgrounds.** Regenerating a room at play-area size produces a new background, and that is Q17 — a quality gap rather than a defect.
+
+**Eleven do not**, because each was cut from, or differenced against, a specific composed picture, and regenerating the room does not produce them. **Six of the eleven are the foreground planes**, which have to be cut from the new plate by hand; only Room 1's was previously recorded, in Q17's closing paragraph, and the other five are the same case:
+
+- **Six foreground planes** — Rooms 1, 2, 3, 13, 18 and 19. Each is the near plane that draws *over* the actor, cut from its composed room.
+- **`room-01-coach.png`** — the difference between two composed versions of a plate that no longer exists.
+- **`room-02-plane-1.png` / `plane-2.png`** — occlusion masks cut to Room 2's composed geometry.
+- **`room-02-assay-door-open.png`** — a door state cut from the composed facade.
+- **`room-03-nugget.png` (idle sheet)** — figures cut from the composed interior.
+
+**There is nothing to replace the coach with yet.** `docs/37`'s chain has the plate as generation A and *A + coach + two horses* as generation B, and `reference/casting/` holds the plate, the casting master, Hob's profile source and Thad's four views — **no coach generation exists.** So the two available moves are: remove the image and the coach is invisible through beats 1–6 of the opening, or generate it against the approved plate, which is doc 42's territory. Both are decisions about what Room 1 looks like during the opening.
+
+**And that chain is not a procedure anyone should follow as written today.** `docs/37` describes generation B as an *additive edit against a byte-identical plate*, and the method has failed repeatedly in practice — five consecutive attempts at a single Thad pose came back as redrawn characters rather than edits. Noted here rather than in `docs/37` itself, because amending that document is an art-pipeline decision and not this list's to make. It means the second of the two moves above is not simply "run D5 step B"; how the coach is obtained at all is part of what has to be decided.
+
+### The hazard, which is guarded rather than filed
+
+`npm run renders` destroyed two committed things, and following the documentation was enough to do it. This part is fixed, because stopping a documented command from silently overwriting approved work decides nothing about what any room looks like.
+
+- `room01_stage_road.py` writes `art/backgrounds/room-01-stage-road.png` — **the path the approved plate now occupies.**
+- `actor_export.py` rewrites `content/actors/thad.json` **wholesale**, from measurements taken on the composed 320 × 144 sheet. Running it reverted errata 54's ×6 migration — threshold 180 → 30, near height 240 → 40, far 156 → 26 — and re-derived the threshold from `eye_death_row`, which measures decimation, which errata 54 voids. Found by running the command and diffing, not by reading it.
+
+**Guarded at the writers, not by editing the list.** `tools/pixelart/superseded.py` holds the paths and the reason for each; `canvas.save`, `canvas.save_rgba` and `actor_export` refuse and raise, naming the path and this entry. `npm run renders` now exits non-zero and prints the refusals. A module quietly dropped from `render-all.mjs` would be invisible — the next person adds it back and nothing says why it went.
+
+**Room 2's masks and door state and Room 3's idle sheet are deliberately not guarded.** They are equally stale under errata 53, but those rooms have no approved plate, their composed output *is* the shipping art, and refusing to write it would remove working assets with nothing to replace them. That would be a decision about what those rooms look like. Room 1 and `thad.json` are guarded because they were superseded in fact rather than in doctrine.
+
+`CLAUDE.md`'s "One command regenerates everything" is annotated, because it was no longer true as written.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

@@ -27,6 +27,7 @@ from pathlib import Path
 
 import actor
 from canvas import IndexedCanvas
+from superseded import refuse_if_superseded
 from palette import Palette
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -169,6 +170,7 @@ def main() -> None:
         "idleRate": 2.4,
         "sizes": sizes,
     }
+    refuse_if_superseded(TABLE)
     TABLE.write_text(json.dumps(table, indent=2) + "\n")
     print(f"wrote {TABLE.relative_to(ROOT)}  threshold {table['threshold']}")
 

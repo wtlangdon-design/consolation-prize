@@ -158,8 +158,23 @@ composites, character sheets, scale checks, inspection crops — all of it.
 - Descriptive filenames. `room-05-assay-office-with-thad@4x.png`, not `r5b.png`.
 - **Overwrite in place. Never version in the filename.** Git is the
   versioning system; a second one in the filenames would only disagree with it.
-- One command regenerates everything: `npm run renders`.
+- One command regenerates everything: `npm run renders`. **It no longer
+  regenerates *everything*, and it exits non-zero on purpose.** Three composers
+  now refuse to write outputs that errata 53 and 54 took away from them, and
+  say so by name. Read the refusals; do not delete the modules from
+  `tools/render-all.mjs`. A module removed from a list is invisible to the next
+  person, which is the whole reason the refusal exists. Details in
+  `docs/36-issue-list.md` Q20; the list itself is `tools/pixelart/superseded.py`.
 - Push after each pass, so what is on `main` is what was last looked at.
+
+**Two things `npm run renders` would have destroyed, and this is why the
+refusals are there.** `room01_stage_road.py` writes
+`art/backgrounds/room-01-stage-road.png` — the path Room 1's **approved
+generated plate** now occupies — and `actor_export.py` rewrites
+`content/actors/thad.json` wholesale from measurements taken on the composed
+320×144 sheet, silently reverting errata 54's ×6 migration and re-deriving a
+threshold from decimation, which errata 54 voids. Following the instruction as
+it was written undid committed work in both cases.
 
 `art/backgrounds/*.png` are **not** renders — they are shipping assets the
 engine loads and room JSON references by path. They live apart and keep

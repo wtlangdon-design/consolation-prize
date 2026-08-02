@@ -18,6 +18,7 @@ from pathlib import Path
 from PIL import Image
 
 from palette import Palette
+from superseded import refuse_if_superseded
 
 
 class IndexedCanvas:
@@ -124,6 +125,7 @@ class IndexedCanvas:
         return image
 
     def save(self, path: Path, palette: Palette, scale: int = 1) -> Path:
+        refuse_if_superseded(path)
         image = self.to_image(palette)
         if scale != 1:
             # NEAREST only. Any other filter would resample the pixel grid,
@@ -145,6 +147,7 @@ class IndexedCanvas:
         on for a different reason: an index nothing draws with is an index
         nothing can lose to a key.
         """
+        refuse_if_superseded(path)
         pixels = []
         for row in self.pixels:
             for index in row:
