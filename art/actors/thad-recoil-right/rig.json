@@ -1,0 +1,15 @@
+{
+  "source": "/tmp/thad.png",
+  "key": "magenta",
+  "clip": "recoil",
+  "view": "profile",
+  "facing": "right",
+  "figure": [
+    678,
+    1616
+  ],
+  "hem_row": 1055,
+  "padding": 260,
+  "motion": "lean-back",
+  "frames": 4
+}

@@ -1,0 +1,14 @@
+{
+  "source": "/tmp/thad-front.png",
+  "key": "magenta",
+  "clip": "stand",
+  "view": "headon",
+  "facing": "right",
+  "figure": [
+    585,
+    1637
+  ],
+  "hem_row": 938,
+  "padding": 260,
+  "frames": 1
+}

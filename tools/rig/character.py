@@ -18,6 +18,7 @@ IDLE_BREATH = [0.0, 0.45, 0.85, 1.0, 0.7, 0.3]   # 6 frames, doc 22's rest state
 DISPLAY_H = 233          # the height a character is shown at, errata 54
 LOOK  = [0, -1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0]   # head-on break: glance aside
 SHRUG = [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]      # profile break: shoulders rise and settle
+RECOIL = [0.0, 1.0, 0.75, 0.3]                    # 4 frames, thad.json's rate 7.0/s
 ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
 ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
@@ -296,7 +297,8 @@ def main():
                          "reads as the hand stretching.")
     ap.add_argument("--near-mask", help="ARMMASK code or file for the near arm")
     ap.add_argument("--far-mask", help="ARMMASK code or file for the far arm")
-    ap.add_argument("--clip", default="walk", choices=["walk", "idle", "idle-break"],
+    ap.add_argument("--clip", default="walk",
+                    choices=["walk", "idle", "idle-break", "recoil", "stand"],
                     help="idle is the rest state every chore settles into (doc 22)")
     ap.add_argument("--breath", type=float, default=1.0,
                     help="scales the idle breath; 1.0 is about one display pixel")
@@ -413,6 +415,50 @@ def main():
     # blends neighbouring colours differently every frame. On Thad that made
     # the pale collar take on skin tone beside his neck.
     step = max(1, int(round(fig_h / DISPLAY_H)))
+
+    if args.clip == "stand":
+        # The return pose. One frame, and it is idle's rest frame by
+        # construction so a chore settling into stand cannot pop.
+        f = np.zeros((H, W, 4))
+        f = over(far_leg, f); f = over(near_leg, f)
+        if far_am is not None: f = over(as_layer(far_am), f)
+        f = over(coat, f)
+        if near_am is not None: f = over(as_layer(near_am), f)
+        Image.fromarray(f.astype(np.uint8)).save(out / "stand-00.png")
+        (out / "rig.json").write_text(json.dumps(dict(
+            source=args.source, key=args.key, clip="stand", view=args.view,
+            facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
+            padding=P, frames=1), indent=2))
+        print("stand: 1 frame, identical to idle frame 0")
+        return
+
+    if args.clip == "recoil":
+        # A startle is the upper body pulling BACK over planted feet. In
+        # profile that is a rotation about the hips away from the facing
+        # direction; head-on there is nowhere to lean, so the shoulders rise
+        # and the whole torso pulls up and back instead.
+        away = -1 if args.facing == "right" else 1
+        upper_m = coat_m.copy()
+        if near_am is not None:
+            upper_m = upper_m | near_am | far_am
+        upper = as_layer(upper_m)
+        base = np.zeros((H, W, 4))
+        base = over(far_leg, base); base = over(near_leg, base)
+        for i, t in enumerate(RECOIL):
+            f = base.copy()
+            if args.view == "headon":
+                f = over(np.roll(upper, -int(round(2 * step * t)), axis=0), f)
+            else:
+                f = over(rot(upper, 7.0 * t * away, float(np.nonzero(upper_m.any(0))[0].mean()), hem), f)
+            Image.fromarray(f.astype(np.uint8)).save(out / f"recoil-{i:02d}.png")
+        (out / "rig.json").write_text(json.dumps(dict(
+            source=args.source, key=args.key, clip="recoil", view=args.view,
+            facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P,
+            motion=("pull-up" if args.view == "headon" else "lean-back"),
+            frames=len(RECOIL)), indent=2))
+        print(f"recoil: {len(RECOIL)} frames, "
+              f"{'pull up and back' if args.view=='headon' else f'lean back {7.0:.0f} deg about the hips'}")
+        return
 
     if args.clip == "idle-break":
         # Head only. The body stays in its idle rest pose and he glances aside.

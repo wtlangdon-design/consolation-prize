@@ -13,7 +13,7 @@
 |---|---|---|---|---|
 | **walk** | 8 | 8.0/s | Locomotion | ✅ four facings |
 | **idle** | 6 | 2.4/s | Standing, breathing. The rest state | ✅ four facings |
-| **recoil** | 4 | 7.0/s | Reacting to something | ❌ |
+| **recoil** | 4 | 7.0/s | Reacting to something. Profile leans back 7° about the hips; head-on pulls up and back, since there is nowhere to lean facing the viewer | ✅ four facings |
 | **idle-break** | 12 | ~2/s | A glance left then right, played occasionally | ✅ four facings |
 
 **idle-break is view-dependent.** Head-on it is a glance aside; in profile it is a **shoulder shrug**. The same horizontal head move that reads as a glance facing the viewer slides the head forward and off the neck in profile, which nobody does. A profile head *turn* would need art that does not exist.
@@ -62,13 +62,15 @@ One-shot staging, not loops. These are Thad's alone and no other character needs
 |---|---|---|
 | walk × 4 | 4 | ✅ 4 |
 | idle × 4 | 4 | ✅ 4 |
-| recoil × 4 | 4 | ❌ 0 |
+| recoil × 4 | 4 | ✅ 4 |
+| stand × 4 | 4 | ✅ 4 |
+| idle-break × 4 | 4 | ✅ 4 |
 | pickup | 1–4 | ❌ 0 |
 | reach | 1–4 | ❌ 0 |
 | talk | 0–4 | unresolved |
 | **one-shot staging** | 0 | ❌ 2 (climb down, straighten coat) |
 
-**Thad: 8 of roughly 20 done.** Background characters need far fewer — errata 50 says a room is satisfied by one or more calm persistent performances, not by every figure looping.
+**Thad: 24 frames-worth of clips across 5 clip types, all four facings. What remains needs new POSES, not new rig operations** — see Part Seven. Background characters need far fewer — errata 50 says a room is satisfied by one or more calm persistent performances, not by every figure looping.
 
 ---
 
@@ -84,6 +86,25 @@ One-shot staging, not loops. These are Thad's alone and no other character needs
 
 ---
 
+# PART SEVEN — WHAT THE RIG CANNOT MAKE
+
+The rig transforms art that exists. It cannot invent a pose. Everything below needs a **new generation**, because no amount of rotating a standing figure produces a man bending down.
+
+| Clip | Why the rig cannot derive it |
+|---|---|
+| `talk` | Needs an open mouth. No mouth-open art exists in any facing |
+| `pickup_low` | A bend at the waist. Nothing in a standing pose supplies a folded torso |
+| `use_near` | An arm extended forward at chest height, foreshortened |
+| `give_offer` | As above, hand open and forward |
+| `shrug` | Shoulders up *and* hands turned palm-up — the hands are the point |
+| `alight_coach` | A whole scripted descent, Room 1 only |
+
+**What the rig CAN still do once those exist:** derive the in-betweens. A generated key pose plus the neutral stand gives every frame between them. That is the division of labour — generation proposes key poses, the rig supplies the frames.
+
+Prompts for these: `docs/42-thad-chore-poses.md`.
+
+---
+
 # PART SIX — THE COSTUME CONTRACT
 
 *Folded in from an external costume specification. **Its technical art contract is discarded** — 320 × 144, 40px actors, 200 source pixels at 5×, the five-pixel grid, nearest-neighbour only, the locked 256-colour palette, and the two drawn tiers with a 32px switch are all voided by errata 54. What follows is what survives that, plus reconciliation with what is already built.*
@@ -94,7 +115,7 @@ Three documents used three sets of words for the same things. This is the set:
 
 | Term | What it is | Frames | Status |
 |---|---|---|---|
-| `stand` | The return pose. Indefinite hold. Every clip resolves to it | 1 | **free — frame 0 of idle** |
+| `stand` | The return pose. Indefinite hold. Every clip resolves to it | 1 | ✅ four facings — identical to idle frame 0 by construction, so a chore settling into stand cannot pop |
 | `idle` | A breathing loop, played while standing | 6 | ✅ four facings |
 | `idle-break` | An occasional one-shot: glance head-on, shrug in profile | 12 | ✅ four facings |
 | `walk` | Locomotion | 8 | ✅ four facings |

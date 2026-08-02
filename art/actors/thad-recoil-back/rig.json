@@ -1,0 +1,15 @@
+{
+  "source": "/tmp/thad-back.png",
+  "key": "magenta",
+  "clip": "recoil",
+  "view": "headon",
+  "facing": "right",
+  "figure": [
+    569,
+    1565
+  ],
+  "hem_row": 977,
+  "padding": 260,
+  "motion": "pull-up",
+  "frames": 4
+}
