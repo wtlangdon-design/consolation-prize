@@ -484,7 +484,30 @@ Raised rather than fixed again, because renumbering the symptom is what happened
 
 **So the defect is not that the opening cannot finish; it is that a player who clicks cannot finish it.** A player will click. It is the first thing anybody does at a screen holding a line of text, and doing it once during an eight-second automatic beat costs them the entire game with no feedback.
 
-**Mechanism: not established.** The likely shape is that a click ends the running sequence outside the update loop, so the `wasRunning && !isRunning` transition that calls `advanceOpening` is never observed on a tick — but attempts to instrument `GameScene.update` from the page did not take effect (Phaser does not dispatch through the overridden instance property), and no mechanism should be recorded here on the strength of a hypothesis that could not be tested. What *is* recorded is the behaviour, reproduced on demand in both directions.
+**Mechanism: located, at `engine/scenes/GameScene.ts:401`.**
+
+```
+    if (this.sequence.isRunning) {
+      this.sequence.cancel();
+      this.world.abandonActor(this.actors.playerId);
+    }
+```
+
+`SequenceRunner.cancel()` sets `started = false`, so `isRunning` goes false **inside the click handler**. The next tick then reads:
+
+```
+    const wasRunning = this.sequence.isRunning;              // already false
+    ...
+    if (this.opening && wasRunning && !this.sequence.isRunning) this.advanceOpening();
+```
+
+`wasRunning` is false, the running → stopped transition is never observed, `advanceOpening` is never called, and `openingAt` never increments. That is the frozen counter, and it is why there is no error: nothing went wrong, the loop simply never saw the thing it was watching for.
+
+**Proved in both directions rather than argued.** Guarding the cancel with `&& !this.opening` as a throwaway patch, the same click-every-700ms pattern that wedges the opening **completes it after 26 clicks**. Reverted immediately; it is a diagnostic and not a proposal.
+
+**The cancel is right and the comment above it is right.** Doc 22's deterministic cancellation — a staged interaction the player has changed their mind about stops where it is rather than finishing a walk they no longer want. What the line cannot know is whether an *opening* is running. Ordinary play and a cutscene are two different things sharing one runner.
+
+**The fix is not filed here, because it is not an engineering choice.** At least two shapes are visible from this line and choosing between them decides what a click during a cutscene *means* — skip this beat, skip the whole opening, or do nothing at all — and doc 17 does not say. That is Tyler's, it is one sentence, and the consequence of the sentence is that the game is playable.
 
 **Not related to beat 10.** The validators' note — *"gated on but written by no content: `T_HOB_GONE`"* — is about a flag nothing writes, not about the sequence's ability to end. It ends at `at = 4`.
 
