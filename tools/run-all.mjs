@@ -24,6 +24,7 @@ import { check as glyphCoverage } from './check-glyph-coverage.mjs';
 import { check as puzzleGraph } from './check-puzzle-graph.mjs';
 import { check as roomOneDrawn } from './check-room-01-drawn.mjs';
 import { check as stableSeeds } from './check-stable-seeds.mjs';
+import { check as assetPaths } from './check-asset-paths.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -54,6 +55,7 @@ const CHECKS = [
   puzzleGraph,
   roomOneDrawn,
   stableSeeds,
+  assetPaths,
 ];
 
 let failed = 0;

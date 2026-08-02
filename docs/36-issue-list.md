@@ -272,17 +272,21 @@ Sharper than Q9, and the reason Q9 is blocking rather than tidy-up.
 
 **The consequence is visible rather than silent.** Until the schema can address a clip directory, nothing renders the new art. Every non-player mover draws as a graybox as well — correct size, position, depth and occlusion — because `content/actors/` holds exactly one actor record. No renderer change alters either.
 
-*History, recorded because the near-miss is the useful part.* The two sheets were genuinely absent from this branch when the finding was written, and the finding said so. They had been deleted on main by an `rm -rf art/actors/thad-*` clearing old rig output before a regeneration — the glob took the two sheets `thad.json` loads, the deployed page rendered black, and the project owner reported it. Restored at `2fe1021` with an asset-reference check that would have caught it at commit time. This branch predated the restore by four commits, so the graybox was real here and disappeared on merge. **The schema gap is what survives, and it is not affected by the sheets existing.**
+*History, recorded because the near-miss is the useful part.* The two sheets were genuinely absent from this branch when the finding was written, and the finding said so. They had been deleted on main by an `rm -rf art/actors/thad-*` clearing old rig output before a regeneration — the glob took the two sheets `thad.json` loads, the deployed page rendered black, and the project owner reported it. Restored at `2fe1021` — the sheets only; the check that would have caught it did not arrive until `f736152`, which is Q15. This branch predated the restore by four commits, so the graybox was real here and disappeared on merge. **The schema gap is what survives, and it is not affected by the sheets existing.**
 
-## Q15 · The asset-reference check does not exist
+## Q15 · Asset-path validation — **CLOSED, and worth reading anyway**
 
-Recorded because it is believed to exist, and a check believed to exist is worse than a check known to be missing.
+**The failure.** `rm -rf art/actors/thad-*`, run to clear stale rig output, took `thad-near.png` and `thad-far.png` with it. `content/actors/thad.json` still named both. The deletion was committed, the protagonist had no art, and the deployed page rendered black. **The full suite passed** — twenty-four checks green on a tree where the player character could not be drawn.
 
-The `thad-near.png` / `thad-far.png` deletion was restored at `2fe1021` "with an asset-reference check that would have caught it at commit time." **`2fe1021` contains two PNGs and nothing else.** The only `tools/` change on main since this branch's merge-base is `tools/rig/character.py` (+47), which is the rig. No validator resolves asset paths declared in content against the filesystem, and `npm run validate` runs 24 checks, none of them that one.
+**The worse part.** The restore commit was described as arriving *"with an asset-reference check that would have caught it at commit time."* It contained two PNGs and nothing else. The check had been run once as an ad-hoc command in a shell and reported as if committed. **A gap believed to be closed is worse than a gap known to be open**, because the belief stops anyone looking.
 
-**Verified empirically rather than by reading the list.** Moved `art/actors/thad-near.png` aside, ran `npm run validate`: *All 24 checks passed.* Moved it back — byte-identical to `origin/main`. The exact failure that rendered the deployed page black passes the full suite today.
+**How it was caught.** Not by reading the validator list — by moving `thad-near.png` aside and running the suite. It passed. That is one command, and it is the only kind of confirmation that would have worked.
 
-**What it needs to cover, since the near-miss shows the shape:** every path any content record declares — actor sheets and clip directories, `art/backgrounds/*.png` referenced by room JSON, audio, fonts — resolved against the filesystem, failing with the declaring file and the missing path. It is the cheapest check in the repository and the only one whose absence is invisible until something ships black.
+**Closed by** `tools/check-asset-paths.mjs`, registered in `run-all.mjs`. Walks every content record generically rather than naming fields, since the next field nobody thought of is what it is for. 25 asset paths declared on main, all resolving. **Verified by re-running the exact deletion:** fails with `manifest.actor/sizes/near/sheet declares art/actors/thad-near.png -- no such file`, passes again on restore.
+
+**It fails on zero, not passes.** Finding no asset paths at all would mean the content shape changed and the check had quietly stopped checking — the same failure one level up.
+
+**Not covered:** clip directories. The ActorFile schema cannot address `thad-recoil-left/` at all, which is Q14 and a schema question rather than a missing-file one.
 
 ---
 
