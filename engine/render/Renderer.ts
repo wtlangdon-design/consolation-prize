@@ -349,7 +349,7 @@ export class Renderer {
     const room = this.state.room;
     const image = this.background(room.id);
     if (image) {
-      this.screen.context.drawImage(image, 0, 0);
+      this.drawPlate(image);
       return;
     }
 
@@ -365,6 +365,26 @@ export class Renderer {
   }
 
   /**
+   * A room-sized plate, drawn to fill the play area whatever size it is.
+   *
+   * ERRATA 54 MADE THIS NECESSARY AND IT USED TO BE `drawImage(image, 0, 0)`.
+   * That was right while every plate was exactly 320x144 and the play area was
+   * too. The play area is 1920x864 now and one plate has been regenerated for
+   * it; the other ten backgrounds, all six foreground planes and both occlusion
+   * masks are still 320x144, and drawn at their own size they would occupy the
+   * top-left thirty-sixth of the frame with the room's flat fill around them.
+   *
+   * Stretching to the play area is not a compromise for the legacy assets and
+   * a no-op for the new ones -- it is 1:1 for anything already play-area sized,
+   * and for a 320-native plate it is exactly the 6x the geometry took. Every
+   * asset therefore lands where its own coordinates say it should, and a plate
+   * regenerated at 1920x864 later changes nothing here.
+   */
+  private drawPlate(image: CanvasImageSource): void {
+    this.screen.context.drawImage(image, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+  }
+
+  /**
    * Doc 22 item 9. Whatever each object's current state draws, over the room.
    *
    * Before the people, because a state image is room geometry -- an open door
@@ -377,7 +397,7 @@ export class Renderer {
       const shown = this.state.presentation(target);
       if (!shown?.image) continue;
       const image = this.sheet(shown.image);
-      if (image) this.screen.context.drawImage(image, 0, 0);
+      if (image) this.drawPlate(image);
     }
   }
 
@@ -395,7 +415,7 @@ export class Renderer {
     // back in front of an actor the plane deliberately let through.
     if (this.state.room.occlusionPlanes?.length) return;
     const image = this.foreground(this.state.room.id);
-    if (image) this.screen.context.drawImage(image, 0, 0);
+    if (image) this.drawPlate(image);
   }
 
   /**
@@ -508,8 +528,8 @@ export class Renderer {
       this.screen.borrow(screenContext);
     }
     scratch.globalCompositeOperation = 'destination-out';
-    if (mask) scratch.drawImage(mask, 0, 0);
-    for (const extra of stateMasks) scratch.drawImage(extra, 0, 0);
+    if (mask) scratch.drawImage(mask, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    for (const extra of stateMasks) scratch.drawImage(extra, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
     scratch.globalCompositeOperation = 'source-over';
     screenContext.drawImage(scratch.canvas, 0, 0);
   }

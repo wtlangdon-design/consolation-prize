@@ -65,7 +65,7 @@ async function stage(extra = 'a_second_mover'): Promise<Stage> {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
   state.enterRoom(openingRoom(content));
-  const player = new Actor(state, content.actor.id, 160, 130, { routed: true });
+  const player = new Actor(state, content.actor.id, 960, 780, { routed: true });
   const actors = new RoomActors(state, player);
   actors.place(extra, 240, 118, { height: 30 });
   const bodies = new BodyOwners();
@@ -258,7 +258,7 @@ test('a staged move drives the named mover and nobody else', async () => {
 
   actors.update(1);
   assert.equal(coach.x, 250, 'halfway there at half the stated duration');
-  assert.equal(player.x, 160, 'and the protagonist is where he was');
+  assert.equal(player.x, 960, 'and the protagonist is where he was');
   assert.equal(runner.isRunning, true, 'the waitForActor is still holding');
 
   actors.update(2);
@@ -498,18 +498,18 @@ test('doc 40\'s idle-break plays only where the record declares it', async () =>
   // Q9: `thad.json` does not declare it, and rewriting that file is not this
   // work's call. A character with no idle-break clip simply does not glance
   // aside -- nothing is substituted, and nothing pretends to be it.
-  const without = new Actor(state, content.actor.id, 160, 130, { routed: true });
+  const without = new Actor(state, content.actor.id, 960, 780, { routed: true });
   without.update(0);
   without.update(60);
   assert.equal(without.clip, 'idle');
 
   // The mechanism is real and starts working the day the clip is declared.
-  const with_ = new Actor(state, content.actor.id, 160, 130,
+  const with_ = new Actor(state, content.actor.id, 960, 780,
     { routed: true, hasIdleBreak: true });
   with_.update(0);
   with_.update(60);
   assert.equal(with_.clip, 'idle-break');
-  with_.walkTo(60, 130);
+  with_.walkTo(360, 780);
   with_.update(60.1);
   assert.equal(with_.clip, 'walk', 'and it gives the body back the moment he moves');
 });

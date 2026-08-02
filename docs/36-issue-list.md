@@ -288,6 +288,22 @@ Sharper than Q9, and the reason Q9 is blocking rather than tidy-up.
 
 **Not covered:** clip directories. The ActorFile schema cannot address `thad-recoil-left/` at all, which is Q14 and a schema question rather than a missing-file one.
 
+## Q16 · The panel layout is provisional and needs the font
+
+The play area migrated to errata 54 by multiplication — 1920 ÷ 320 = 6 and 864 ÷ 144 = 6, and all 140 rects across 17 rooms were integers inside the old frame, so every coordinate moved losslessly. **The panel could not.** 56 × 6 = 336 against errata 54's 216: the panel was re-proportioned, not scaled, which is how 1080 works at all — it is 5.4× of 200, and errata 54 resolves that by shrinking the panel rather than stretching it.
+
+So `content/ui/panel.json` was **re-authored rather than migrated**, and what it preserves is the shape errata 26 and 29 specify and nothing else: three columns of four verb cells, MENU and the map in the fourth row, a four-by-two inventory grid on the right, arrows at the right edge, sentence line full width above.
+
+**Every height in it is a guess, and it is marked as one in the file.** A button's height is a property of the text inside it, and the font is void with no replacement ruled (Q6). The numbers fit the band and hold the shape; they are not a specification. Re-author them the day the font lands.
+
+## Q17 · Ten backgrounds, six foreground planes and two masks are still 320-native
+
+Room 1's plate was promoted to `art/backgrounds/room-01-stage-road.png` at 1920 × 864, upscaled 2.7% from the approved 1870 × 841 by Lanczos. **It is the only play-area-sized plate in the repository.** The other ten backgrounds, all six foreground planes, both of Room 2's occlusion masks and the title screen are 320 × 144.
+
+`Renderer.drawPlate` now stretches any plate to the play area, so each of them lands where its own coordinates say it should — 1:1 for anything already play-area sized, and exactly the 6× the geometry took for anything that is not. **Nothing is mispositioned; the legacy assets are simply six-times-magnified versions of themselves** until they are regenerated. That is a visible quality gap and not a geometry error, and it resolves per room as each plate is generated at play-area size under errata 54's amended gate section 6.
+
+**Room 1's foreground plane is a different case and does not resolve by regeneration alone.** It was cut from the *composed* room, which errata 53 replaced with the traced plate, so it belongs to a picture that is no longer the room. It needs cutting from the approved plate.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

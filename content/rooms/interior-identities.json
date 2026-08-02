@@ -13,39 +13,6 @@
         "accent": "accent_gold 0.6"
       }
     },
-    "13": {
-      "name": "THE UNDERTAKER'S",
-      "materialIdentity": "Scrubbed bone-white and pine, near-monochrome, deliberately (17b) -- errata 23's named exception to the palette proportions",
-      "paletteScript": {
-        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
-        "dominant": "bone 0.85",
-        "shadow": "dust 0.45",
-        "secondary": "pine_fresh 0.8",
-        "accent": "bone 0.6"
-      }
-    },
-    "15": {
-      "name": "LIVERY STABLE",
-      "materialIdentity": "Straw, leather and warm dark (17b)",
-      "paletteScript": {
-        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
-        "dominant": "ochre 0.42",
-        "shadow": "umber 0.22",
-        "secondary": "mud 0.42",
-        "accent": "accent_rust 0.5"
-      }
-    },
-    "16": {
-      "name": "OZYMANDIA'S TENT",
-      "materialIdentity": "Fabric: indigo and teal, saturated by having many colours at once rather than one strong one, so it is the most saturated room without spending Fanshawe's card",
-      "paletteScript": {
-        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
-        "dominant": "accent_indigo 0.5",
-        "shadow": "accent_indigo 0.25",
-        "secondary": "accent_teal 0.55",
-        "accent": "accent_gold 0.85"
-      }
-    },
     "10": {
       "name": "IMPROVEMENT CO.",
       "materialIdentity": "New pine, varnished and too orange, with whitewash and gilt -- new money pretending to be old, and the step into Fanshawe's deep red is the Fanshawe rule in the walls",
@@ -77,6 +44,39 @@
         "shadow": "umber 0.28",
         "secondary": "accent_teal 0.5",
         "accent": "accent_red 0.55"
+      }
+    },
+    "13": {
+      "name": "THE UNDERTAKER'S",
+      "materialIdentity": "Scrubbed bone-white and pine, near-monochrome, deliberately (17b) -- errata 23's named exception to the palette proportions",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "bone 0.85",
+        "shadow": "dust 0.45",
+        "secondary": "pine_fresh 0.8",
+        "accent": "bone 0.6"
+      }
+    },
+    "15": {
+      "name": "LIVERY STABLE",
+      "materialIdentity": "Straw, leather and warm dark (17b)",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "ochre 0.42",
+        "shadow": "umber 0.22",
+        "secondary": "mud 0.42",
+        "accent": "accent_rust 0.5"
+      }
+    },
+    "16": {
+      "name": "OZYMANDIA'S TENT",
+      "materialIdentity": "Fabric: indigo and teal, saturated by having many colours at once rather than one strong one, so it is the most saturated room without spending Fanshawe's card",
+      "paletteScript": {
+        "note": "ERRATA 23's proportions and 30f's step 0, committed from renders/interior-identity-plan. Dominant 55-70%, structural shadow 15-25%, secondary local colour 10-15%, narrative accent 3-8%.",
+        "dominant": "accent_indigo 0.5",
+        "shadow": "accent_indigo 0.25",
+        "secondary": "accent_teal 0.55",
+        "accent": "accent_gold 0.85"
       }
     },
     "18": {

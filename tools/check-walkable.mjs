@@ -1,7 +1,7 @@
 import { loadContent, Report, runCheck } from './lib/content.mjs';
 
-const PLAY_WIDTH = 320;
-const PLAY_HEIGHT = 144;
+const PLAY_WIDTH = 1920;
+const PLAY_HEIGHT = 864;
 
 /**
  * Errata ruling 15: every walkable region must declare a zone, and a region

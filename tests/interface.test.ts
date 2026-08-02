@@ -10,6 +10,7 @@ import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import { BitmapFont } from '../engine/render/BitmapFont.ts';
 import {
   NATIVE_HEIGHT,
+  NATIVE_WIDTH,
   PANEL_HEIGHT,
   PLAY_HEIGHT,
   pointInRect,
@@ -34,10 +35,19 @@ import {
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
 
-test('the panel occupies the bottom 56px of a 320x200 screen', () => {
-  assert.equal(NATIVE_HEIGHT, 200);
-  assert.equal(PLAY_HEIGHT, 144);
-  assert.equal(PANEL_HEIGHT, 56);
+test('errata 54: the panel occupies the bottom 216px of a 1920x1080 screen', () => {
+  assert.equal(NATIVE_HEIGHT, 1080);
+  assert.equal(PLAY_HEIGHT, 864);
+  assert.equal(PANEL_HEIGHT, 216);
+
+  // The play area is an exact 6x of the old one and the panel is not. That
+  // asymmetry is the whole reason 1080 works: it is 5.4x of 200, and errata
+  // 54 resolves it by shrinking the panel rather than stretching it. Asserted
+  // because a later 'tidy-up' that made the panel 336 to match the 6x would
+  // look consistent and would be wrong.
+  assert.equal(PLAY_HEIGHT, 144 * 6);
+  assert.equal(NATIVE_WIDTH, 320 * 6);
+  assert.notEqual(PANEL_HEIGHT, 56 * 6);
 });
 
 test('all nine verbs are selectable, and every written examine line answers', async () => {
@@ -219,8 +229,8 @@ test('the one scaling snap in Room 2 lands at the boardwalk lip', async () => {
   // exists to place.
   const jumps: { y: number; from: number; to: number }[] = [];
   let previous: number | null = null;
-  for (let y = 78; y < 144; y += 1) {
-    const height = state.actorHeightAt(160, y);
+  for (let y = 468; y < 864; y += 1) {
+    const height = state.actorHeightAt(960, y);
     if (height === null) continue;
     if (previous !== null && Math.abs(height - previous) > 1) {
       jumps.push({ y, from: previous, to: height });

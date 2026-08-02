@@ -7,16 +7,16 @@
     "sky": 152,
     "ground": 12
   },
-  "horizon": 88,
+  "horizon": 528,
   "hotspots": [
     {
       "id": "hs_delta",
       "name": "DELTA CRATE",
       "rect": [
-        40,
-        48,
-        48,
-        40
+        240,
+        288,
+        288,
+        240
       ],
       "colour": 48,
       "responses": {
@@ -55,10 +55,10 @@
       "id": "hs_epsilon",
       "name": "EPSILON DIAL",
       "rect": [
-        120,
-        40,
-        40,
-        40
+        720,
+        240,
+        240,
+        240
       ],
       "colour": 70,
       "responses": {
@@ -100,10 +100,10 @@
       "id": "hs_zeta",
       "name": "ZETA MARK",
       "rect": [
-        192,
-        64,
-        56,
-        24
+        1152,
+        384,
+        336,
+        144
       ],
       "colour": 124,
       "responses": {
@@ -134,10 +134,10 @@
       "id": "exit_b_to_a",
       "name": "WEST DOORWAY",
       "rect": [
-        8,
-        40,
-        32,
-        64
+        48,
+        240,
+        192,
+        384
       ],
       "colour": 104,
       "to": "harness_a",
@@ -165,9 +165,9 @@
       "zone": 1,
       "rect": [
         0,
-        88,
-        320,
-        56
+        528,
+        1920,
+        336
       ]
     }
   ],
