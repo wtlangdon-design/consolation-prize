@@ -1,0 +1,17 @@
+{
+  "clip": "talk",
+  "view": "front",
+  "kind": "head-overlay",
+  "overlay_rect": [
+    266,
+    227,
+    66,
+    34
+  ],
+  "figure": [
+    585,
+    1637
+  ],
+  "frames": 2,
+  "note": "Composite over stand at overlay_rect. Frame 0 is the closed mouth and is identical to stand there, so a talk loop that ends on 0 restores stand exactly. Body pixels never change."
+}

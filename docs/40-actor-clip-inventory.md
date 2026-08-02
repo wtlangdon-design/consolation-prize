@@ -15,6 +15,7 @@
 | **idle** | 6 | 2.4/s | Standing, breathing. The rest state | ✅ four facings |
 | **recoil** | 4 | 7.0/s | Reacting to something. Profile leans back 7° about the hips; head-on pulls up and back, since there is nowhere to lean facing the viewer | ✅ four facings |
 | **idle-break** | 12 | ~2/s | A glance left then right, played occasionally | ✅ four facings |
+| **talk** | 2–3 | irregular | A head overlay, not a body clip. Frame 0 is the closed mouth and is identical to `stand` there, so a loop ending on 0 restores `stand` exactly | ✅ right, left, front |
 
 **idle-break is view-dependent.** Head-on it is a glance aside; in profile it is a **shoulder shrug**. The same horizontal head move that reads as a glance facing the viewer slides the head forward and off the neck in profile, which nobody does. A profile head *turn* would need art that does not exist.
 
