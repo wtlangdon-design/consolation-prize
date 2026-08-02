@@ -108,8 +108,17 @@ INKS: dict[str, tuple[str, int]] = {
     # -- the rear boot. §2.4: 23 indices, the flattest large element here.
     #    `mud[0..2]` is 66% of it and §10.8 says straps at readable contrast
     #    turn the tail of the coach into the busiest object in the frame.
-    "boot_body": ("mud", 1),            # L 18; the flat slab
+    # Counted on the bar, the boot is `umber[0]` 16%, `mud[1]` 14%,
+    # `mud[2]` 13%, `mud[0]` 12%, `pine_fresh[0]` 7%, `umber[1]` 5% — six
+    # steps within eighteen luminance points, no one of them over a sixth.
+    # Ours was `mud[2]` 33% and `umber[0]` 29%: two colours covering
+    # sixty-two per cent of a face the reference covers thirty-one with.
+    # That is §10.8's failure arriving from the opposite direction — not
+    # straps at readable contrast, but no surface for a strap to lie on.
+    "boot_body": ("mud", 1),            # L 18; the field
+    "boot_deep": ("mud", 0),            # L 13; the step under it
     "boot_face": ("mud", 2),            # L 23; measured face mean 18-24
+    "boot_warm": ("pine_fresh", 0),     # L 28; where the left face turns
     "boot_top": ("mud", 4),             # L 35; lit top edge, y 56-57
     "boot_top_hot": ("mud", 8),         # L 55; x 289-291 only
     "boot_corner": ("mud", 6),          # L 44; the lit left column x=291
@@ -131,6 +140,26 @@ INKS: dict[str, tuple[str, int]] = {
     "body": ("mud", 3),                 # L 27; layout `coach_body`
     "body_dark": ("mud", 2),            # L 23
     "body_lit": ("mud", 5),             # L 39
+    # THE MAHOGANY IS TWO INTERLEAVED RAMPS, NOT ONE. §4 puts the front
+    # panels in `mud[0..5]` AND `pine_fresh[0..3]`, and counting the bar's
+    # own indices says which of the two carries the mass: `pine_fresh[0]` is
+    # the single commonest ink in every body zone of the reference — 24% of
+    # the upper panel, 23% of the door leaf, 14% of the door zone — against
+    # the 4% of `mud[3]` this file was leaning on. The two families interleave
+    #
+    #     mud   13  18  23  27      35  39  44      49  55
+    #     pine          28      37      44      54
+    #
+    # into a fifteen-step ladder where `mud` alone gives eight, and the eight
+    # points between mud[3] and mud[4] are exactly the bucket the region
+    # measures hollow. A panel turning away from the light needs a step to
+    # turn through; without one it is a flat patch with an outline on it.
+    "body_mid": ("pine_fresh", 0),      # L 28; the body's true median ink
+    "body_warm": ("pine_fresh", 1),     # L 37; one plane up
+    "body_warm_lit": ("pine_fresh", 2),  # L 44
+    "body_hot": ("pine_fresh", 3),      # L 54; framing members only
+    "body_deep": ("mud", 1),            # L 18; the plane turned away
+    "body_shadow": ("umber", 1),        # L 14; and the one behind that
     "belt": ("mud", 4),                 # L 35; the moulding row y=54
     "cornice_shadow": ("mud", 0),       # L 13; the darkest upper row, y=53
     "deck": ("mud", 3),                 # L 27; roof deck y 50-51
@@ -152,10 +181,15 @@ INKS: dict[str, tuple[str, int]] = {
     "sill_lit": ("mud", 8),             # L 55; the lit head of the opening
 
     # -- the door pillar. Four columns: lit, shadow, face, dark reveal.
-    "pillar_lit": ("mud", 5),           # L 39; x=248, measured mean 35
-    "pillar_shadow": ("umber", 2),      # L 18; x=249 and x=251
-    "pillar_face": ("mud", 3),          # L 27; x=250
-    "pillar_reveal": ("umber", 2),      # L 18; x 252-253
+    # Six columns, and their CHROMA is as measured as their value. The bar's
+    # door zone is 14% `pine_fresh[0]` at a saturation of 0.60; ours was
+    # `mud` and `umber` at 0.33-0.50 and came out at 0.68 of the reference's
+    # mean chroma, under ruling 41's floor. Same luminance, warmer family:
+    # the pillar is mahogany with a lamp behind it, not iron.
+    "pillar_lit": ("pine_fresh", 1),    # L 37; x=248, measured mean 35
+    "pillar_shadow": ("mud", 1),        # L 18; x=249 and x=251
+    "pillar_face": ("pine_fresh", 0),   # L 28; x=250
+    "pillar_reveal": ("mud", 1),        # L 18; x 252-253, measured 19-22
 
     # -- the doorway. §3.4: Lmed 2.6, 60% void, and its left edge dead
     #    vertical at x=254 for 22 unbroken rows.
@@ -170,15 +204,28 @@ INKS: dict[str, tuple[str, int]] = {
     "lamp_spill": ("pine_fresh", 2),    # L 45; the last pixel before void
 
     # -- the door leaf, swung open toward us so it reads nearly face-on.
-    "leaf": ("mud", 3),                 # L 27; lower panel, Lmed 28.5
+    # -- the door leaf. Counted off the bar, its fifteen-by-thirty-one panel
+    #    is `pine_fresh[0]` 23%, `mud[2]` 10%, `mud[4]` 8%, `pine_fresh[1]`
+    #    8%, `pine_fresh[2]` 6%, `pine_fresh[3]` 5%, `mud[1]` 5%, `umber[0]`
+    #    5% — nine steps, none of them over a quarter, and NOTHING ABOVE
+    #    L 54. The leaf was being drawn at `mud[4]` for a third of its area
+    #    with `mud[8]` and `mud[11]` stiles on top, which is a bright slab
+    #    with two brighter lines ruled down it and reads as a door-shaped
+    #    decal rather than as a panel turning in the dark.
+    "leaf": ("pine_fresh", 0),          # L 28; the base, Lmed 28.5
+    "leaf_mid": ("mud", 2),             # L 23; the panel field turning away
     "leaf_dark": ("mud", 1),            # L 18
-    "leaf_frame": ("mud", 8),           # L 55; the lit hinge column x=266
-    "leaf_frame_hot": ("mud", 11),      # L 73; its top third
-    "leaf_edge": ("mud", 5),            # L 39; the far stile x=278
+    "leaf_deep": ("umber", 1),          # L 14; the foot and the hinge shadow
+    "leaf_step": ("mud", 4),            # L 35; between the two ramps
+    "leaf_lit": ("pine_fresh", 1),      # L 37
+    "leaf_frame": ("pine_fresh", 2),    # L 44; the lit hinge column x=266
+    "leaf_frame_hot": ("pine_fresh", 3),  # L 54; its top third, AND THE CEILING
+    "leaf_edge": ("mud", 4),            # L 35; the far stile x=278
     "glass": ("umber", 0),              # L 9; the window's dark
+    "glass_lit": ("mud", 0),            # L 13; the far side of the glass
     "glass_black": ("void", 0),         # x 268-269, darkest and full height
-    "moulding": ("mud", 9),             # L 61; the kick moulding, y=75
-    "scroll": ("mud", 8),               # L 55; §2.13d — a SMUDGE, not a curl
+    "moulding": ("mud", 7),             # L 49; the kick moulding, y=75
+    "scroll": ("mud", 6),               # L 44; §2.13d — a SMUDGE, not a curl
 
     # -- the roof cargo. §4: sacking and canvas.
     "cargo": ("pine_fresh", 1),         # L 37; layout `coach_cargo`
@@ -329,6 +376,17 @@ CARGO_CREST = ((239, 47), (241, 45), (244, 44), (248, 43), (255, 43),
                (256, 44), (275, 44), (276, 46), (279, 46), (280, 48),
                (292, 48))
 
+#: §2.4. The rear boot's face, measured as a ROW PROFILE across x 292-303 —
+#: the flat part of it, clear of the lit corner and clear of the buckle. It is
+#: the same kind of fit as RAIL_PROFILE above and for the same reason: what
+#: §2.4 calls "flat, mean 18-24" is a mean, and a fill at the mean is the
+#: flattest large element in the region drawn flatter still. Lit lid at the
+#: top, a settle to about 22, and three darker bands where straps cross.
+BOOT_ROW_L = ((56, 17.0), (57, 30.0), (58, 35.0), (59, 26.0), (60, 22.0),
+              (61, 19.0), (62, 22.0), (63, 18.0), (64, 15.0), (65, 24.0),
+              (66, 22.0), (67, 22.0), (68, 22.0), (69, 10.0), (70, 21.0),
+              (71, 24.0), (72, 23.0), (73, 16.0), (74, 16.0), (78, 16.0))
+
 #: §2.6. The body's panels stop here and the rear quarter takes over at
 #: near-black. Measured: x 278-279 sit at L 23-38 and x 280-285 at L 9-12,
 #: a six-column drop that is the reason the boot beyond it reads as a
@@ -397,6 +455,32 @@ def _ink(ctx: layout.Ctx, name: str, offset: int = 0) -> int:
     """
     family, step = INKS[name]
     return ctx.palette.family(family).at(step + offset)
+
+
+#: Families this file must never step INTO. `accent_gold[4..7]` is Hob's
+#: lantern flame and `accent_indigo[2..4]` is the road's puddles; both are
+#: reserved cycling bands. `accent_indigo[0]` is legitimately in this region
+#: (§4 — the sky showing through the cargo gaps) and one careless step up
+#: from it lands in the puddle band, so the guard is on the family and not
+#: on the index.
+_RESERVED_FAMILIES = frozenset({"accent_gold", "accent_indigo"})
+
+
+def _step(ctx: layout.Ctx, index: int, delta: int) -> int:
+    """An already-placed colour, moved `delta` steps along its OWN family.
+
+    This is how a shaded plane is drawn without a second ink table: lay the
+    material down, then walk it up or down for the planes that turn. It steps
+    one at a time so `Palette.darken` never reaches its shadow-tint branch,
+    and it refuses to move anything in a reserved cycling family.
+    """
+    for family in _RESERVED_FAMILIES:
+        ramp = ctx.palette.family(family)
+        if ramp.start <= index < ramp.start + ramp.count:
+            return index
+    for _ in range(abs(delta)):
+        index = ctx.palette.darken(index, -1 if delta > 0 else 1)
+    return index
 
 
 def _at_luminance(palette: Palette, family: str, target: float) -> int:
@@ -562,21 +646,60 @@ def _boot(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # The roof's rear overhang shadows the gap above the boot: measured
     # x 280-305, y 52-55 at L 2-12, and it is what makes the boot sit UNDER
     # the roof rather than beside it.
-    canvas.rect(x0 - 6, y0 - 4, width + 6, 4, _ink(ctx, "rear_darkest"))
-
-    canvas.rect(x0, y0, width, height, _ink(ctx, "boot_face"))
     rng = ctx.stream("coach boot")
-    for _ in range(70):
-        canvas.put(x0 + rng.randrange(width), y0 + rng.randrange(height),
-                   _ink(ctx, "boot_body"))
+    canvas.rect(x0 - 6, y0 - 4, width + 6, 4, _ink(ctx, "rear_darkest"))
+    # and even THAT is not one value. Measured across y 52-55 the overhang
+    # runs 1, 6, 8, 11, 12, 13, 15, 16, 19, 21, 23 — eleven values in a band
+    # a reader would call black. Ours was 9 for every pixel of it, and a
+    # perfectly flat shadow under an eave is the one thing that tells the eye
+    # it is looking at a fill rather than at a dark.
+    deep = ("void", "rear_darkest", "rear_darkest", "rear_darkest",
+            "boot_deep", "body_shadow", "boot_deep", "boot_body", "boot_body",
+            "boot_face")
+    for x in range(x0 - 6, x0 + width):
+        for y in range(y0 - 4, y0):
+            canvas.put(x, y, _ink(ctx, deep[rng.randrange(len(deep))]))
+
+    # THE FACE IS A ROW PROFILE, NOT A FILL. Sampled column by column across
+    # x 292-303 the bar's row means run
+    #
+    #     56:17  57:30  58:35  59:26  60:22  61:19  62:22  63:18  64:15
+    #     65:24  66:22  67:22  68:22  69:10  70:21  71:24  72:23  73:16  74:16
+    #
+    # — a lit lid at the top, a settle to about 22, and three darker bands
+    # where the straps cross. §2.4's "flat, mean 18-24" is the mean; it is
+    # not one value, and the twelve steps between 10 and 35 are what make
+    # twenty pixels of brown a lashed trunk rather than a brown rectangle.
+    # Column modulation is almost nothing: the whole face sits within two
+    # points of 21 except the lit corner at x=291, which sits at 38.
+    # AND THE MOTTLE IS IN CELLS, NOT IN PIXELS. Measured, the bar's boot
+    # face runs at a mean same-value run of 1.68 along a row; per-pixel noise
+    # gave 1.35, and the difference between those two numbers is the
+    # difference between canvas and static. Two-wide cells, a gentler
+    # scatter, and the surface holds together while still carrying its steps.
+    canvas.rect(x0, y0, width, height, _ink(ctx, "boot_body"))
+    for y in range(y0, y0 + height):
+        target = _profile(BOOT_ROW_L, y)
+        for cell in range(0, width, 2):
+            level = target
+            if cell < 3:
+                level -= 3.0
+            level += rng.random() * 5.0 - 2.5
+            roll = rng.random()
+            ink = (_at_luminance(ctx.palette, "mud", level) if roll < 0.70
+                   else (_at_luminance(ctx.palette, "pine_fresh", level)
+                         if roll < 0.86
+                         else _at_luminance(ctx.palette, "umber", level)))
+            for x in range(x0 + cell, min(x0 + cell + 2, x0 + width)):
+                canvas.put(x, y, ink)
 
     # THE LID IS THE READ. Two rows across the whole width at L 26-39 — the
     # top face of the trunk seen from very slightly above — over a front face
     # at 12-32. That step is what makes twenty pixels of flat brown a box,
     # and it is worth more than every strap on it.
-    canvas.hline(x0, y0, width, _ink(ctx, "boot_body"))
-    canvas.hline(x0, y0 + 1, width - 2, _ink(ctx, "boot_top"))
-    canvas.hline(x0, y0 + 2, width - 2, _ink(ctx, "boot_top", -1))
+    # — and the profile above already carries it, so what is left here is the
+    # near corner where the lid's top face meets its left face, which is a
+    # local event and not a row.
     canvas.hline(x0 + 1, y0, 3, _ink(ctx, "boot_top"))
     canvas.put(x0 + 2, y0, _ink(ctx, "boot_top", 1))
     # its lit near corner, three pixels, where the lid meets the left face.
@@ -600,11 +723,23 @@ def _boot(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # The dark under the boot, then the one lighter shelf row at y=78. The
     # dark stops short of the frame edge: measured, x 300-305 comes back up
     # to L 13-35 below y=80 where the keg stack stands behind it.
-    canvas.rect(x0, y0 + height - 4, width, 4, _ink(ctx, "rear_darkest"))
+    # rows 75-77, and they are not black either: measured 6-26, centred on 10.
+    for x in range(x0, x0 + width):
+        for y in range(y0 + height - 4, y0 + height - 1):
+            canvas.put(x, y, _ink(ctx, deep[rng.randrange(len(deep))]))
     sx, sy, swidth, _ = layout.COACH_BOOT_SHELF
     canvas.hline(sx, sy, swidth, _ink(ctx, "boot_shelf"))
+    # the shelf row itself falls off toward the frame edge, 33 down to 21,
+    # which is the same left key the rail states forty rows above it.
+    for x in range(sx, sx + swidth):
+        canvas.put(x, sy, _at_luminance(ctx.palette, "mud",
+                                        32.0 - 11.0 * (x - sx) / swidth
+                                        + rng.random() * 4.0 - 2.0))
     canvas.rect(x0, sy + 1, 14, 5, _ink(ctx, "void"))
     canvas.hline(x0, sy + 1, 14, _ink(ctx, "rear_darkest"))
+    for _ in range(18):
+        canvas.put(x0 + rng.randrange(14), sy + 1,
+                   _ink(ctx, "boot_deep" if rng.random() < 0.5 else "keg_dark"))
     canvas.put(right, sy, _ink(ctx, "boot_body"))
 
 
@@ -658,18 +793,87 @@ def _shell(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     #    quarter owns everything beyond, and it owns it at near-black.
     ux, uy, _, _ = layout.COACH_UPPER_PANEL
     uwidth = BODY_RIGHT - ux + 1
+    shell = ctx.stream("coach shell")
     canvas.hline(ux, uy + 1, uwidth, _ink(ctx, "body_dark"))
     canvas.hline(ux, uy + 2, uwidth, _ink(ctx, "body_dark"))
-    canvas.hline(ux, uy + 3, uwidth, _ink(ctx, "body"))
+    canvas.hline(ux, uy + 3, uwidth, _ink(ctx, "body_mid"))
     canvas.hline(ux, uy + 4, uwidth, _ink(ctx, "belt"))
+    # §2.7's row means climb 31.0 -> 21.5 -> 25.8 -> 31.2 -> 35.1, and each
+    # of those is a MEAN. The bar's own row 55 runs 12-37 across the same
+    # forty-four columns. Four ruled lines reproduce the ladder and nothing
+    # else, and a panel with a perfect value ladder and no variation inside
+    # any rung is the flat-patch-with-an-outline read one axis at a time.
+    for x in range(ux, ux + uwidth):
+        for row in range(uy + 1, uy + 5):
+            if shell.random() < 0.42:
+                canvas.put(x, row, _step(ctx, canvas.get(x, row),
+                                         shell.randrange(-1, 2)))
+    # THE PANEL FALLS AWAY TO THE RIGHT, IN STEPS. §5.5: the warm key is on
+    # the left, and between the front post at Lmed 31 and the rear quarter at
+    # 12.1 the reference does not cut — it walks down the interleaved ladder.
+    # Drawn as one value per row it was a striped slab; drawn as a ladder the
+    # same four rows describe a long panel turning out of the light.
+    for x in range(ux, ux + uwidth):
+        reach = (x - ux) / max(1, uwidth - 1)
+        if reach > 0.55 + shell.random() * 0.20:
+            canvas.put(x, uy + 3, _ink(ctx, "body_dark"))
+            canvas.put(x, uy + 4, _ink(ctx, "body"))
+        elif reach > 0.30 + shell.random() * 0.18:
+            canvas.put(x, uy + 3, _ink(ctx, "body"))
+        if reach > 0.72 + shell.random() * 0.16:
+            canvas.put(x, uy + 2, _ink(ctx, "body_shadow"))
+            canvas.put(x, uy + 4, _ink(ctx, "body_mid"))
 
-    # -- the window band, §3.2's darkest body band at 13.5-19.4.
+    # -- the window band, §3.2's darkest body band at 13.5-19.4. Its own two
+    #    rows differ: the head of the band is the deeper of them, and the
+    #    sill under it comes back a step because the panel below throws.
     wx, wy, _, wheight = layout.COACH_WINDOW_BAND
     wwidth = BODY_RIGHT - wx + 1
     canvas.rect(wx, wy, wwidth, wheight, _ink(ctx, "recess"))
-    # and the lower panels, 20-33, running down to the undercarriage.
-    canvas.rect(wx, wy + wheight, wwidth, 15, _ink(ctx, "body"))
+    canvas.hline(wx, wy, wwidth, _ink(ctx, "rear_darkest"))
+    canvas.hline(wx, wy + wheight - 1, wwidth, _ink(ctx, "body_deep"))
+    # and the lower panels, 20-33, running down to the undercarriage. Three
+    # steps, not one flat rectangle: the panel's own top is nearest the belt
+    # and catches most, its middle is the field, and its bottom turns under
+    # toward the undercarriage. Then the same left-to-right falloff again,
+    # because it is the same light on the same side of the same box.
+    canvas.rect(wx, wy + wheight, wwidth, 15, _ink(ctx, "body_mid"))
+    canvas.hline(wx, wy + wheight, wwidth, _ink(ctx, "body_warm"))
+    canvas.hline(wx, wy + wheight + 1, wwidth, _ink(ctx, "body"))
+    canvas.rect(wx, wy + wheight + 11, wwidth, 4, _ink(ctx, "body_dark"))
+    canvas.hline(wx, wy + wheight + 14, wwidth, _ink(ctx, "body_deep"))
+    # AND THE JITTER IS PER PIXEL, NOT PER COLUMN. A falloff computed once
+    # for a column and applied down it produces rows that are byte-identical
+    # to each other — which is what this panel was: seven consecutive rows
+    # repeating one sequence. The row-run test cannot see that and the eye
+    # sees nothing else, because a surface with no variation along the axis
+    # the light does not travel is a printed stripe.
+    for x in range(wx, wx + wwidth):
+        reach = (x - wx) / max(1, wwidth - 1)
+        for row in range(wy + wheight, wy + wheight + 15):
+            here = canvas.get(x, row)
+            drop = reach + shell.random() * 0.30 - 0.15
+            if drop > 0.80:
+                shade = -2
+            elif drop > 0.54:
+                shade = -1
+            elif drop < 0.16:
+                shade = 1
+            else:
+                shade = 0
+            if shade:
+                canvas.put(x, row, _step(ctx, here, shade))
+    # §3.2's undercarriage shadow, rows 81-85 at 16-19 — and the bar puts
+    # eight values in it, not one. It is the coach's floor timbers seen edge
+    # on with road light under them, not a bar of shade.
     canvas.rect(wx, 81, wwidth, 5, _ink(ctx, "undercarriage"))
+    for x in range(wx, wx + wwidth):
+        for row in range(81, 86):
+            if shell.random() < 0.55:
+                canvas.put(x, row, _ink(ctx, "undercarriage"
+                                        if shell.random() < 0.45
+                                        else "body_deep",
+                                        shell.randrange(-1, 3)))
 
     # -- the rear quarter, §2.6, and it goes on AFTER the panels because it
     #    is where they stop. Lmed 12.1, the darkest large panel in the coach:
@@ -680,14 +884,42 @@ def _shell(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     canvas.rect(BODY_RIGHT + 1, ry - 7, 6, rheight + 7, _ink(ctx, "rear_dark"))
     canvas.rect(BODY_RIGHT + 2, ry - 3, 4, rheight + 2,
                 _ink(ctx, "rear_darkest"))
-    canvas.vline(rx, ry - 3, rheight + 3, _ink(ctx, "rear_edge_lit"))
-    canvas.vline(rx + 1, ry - 3, rheight + 3, _ink(ctx, "rear_edge"))
+    # Counted on the bar this panel is `mud[0]` 33%, `umber[0]` 24%,
+    # `void[0]` 8%, `pine_fresh[0]` 8%, `umber[1]` 6%, `pine_fresh[1]` 5%.
+    # Ours was `umber[0]` 47% and `mud[0]` 25% — two blacks where the
+    # reference has a dark panel with four steps in it and the last of the
+    # warm key still crawling down its leading edge.
+    for row in range(ry - 3, ry + rheight):
+        near = 1.0 - (row - ry + 3) / (rheight + 3)
+        if shell.random() < 0.45 + near * 0.3:
+            canvas.put(BODY_RIGHT + 1, row, _ink(ctx, "body_deep"))
+        if shell.random() < 0.30 * near + 0.10:
+            canvas.put(BODY_RIGHT + 2, row, _ink(ctx, "rear_dark"))
+        if shell.random() < 0.22:
+            canvas.put(BODY_RIGHT + 3 + shell.randrange(3), row,
+                       _ink(ctx, "rear_dark"))
+    canvas.vline(rx, ry - 3, rheight + 3, _ink(ctx, "body_warm"))
+    canvas.vline(rx + 1, ry - 3, rheight + 3, _ink(ctx, "body_mid"))
+    for row in range(ry - 3, ry + rheight):
+        if shell.random() < 0.35:
+            canvas.put(rx, row, _ink(ctx, "rear_edge"))
+        if shell.random() < 0.30:
+            canvas.put(rx + 1, row, _ink(ctx, "body_dark"))
 
     # -- the front quarter opening, §2.9. A dark recess, L 3-29, with a
     #    dead-black column at x=239. IT IS NOT A GLAZED WINDOW — no frame,
     #    no glass event, nothing but a hole.
     fx, fy, fwidth, fheight = layout.COACH_FRONT_QUARTER
     canvas.rect(fx, fy, fwidth, fheight + 3, _ink(ctx, "recess"))
+    # A hole is not a fill. Sampled at x 240-247 the bar's recess runs 1, 2,
+    # 6, 7, 11, 13, 15, 18, 19, 22, 23, 26 — twelve values, because a recess
+    # is a volume with a far wall in it and the far wall catches something.
+    for x in range(fx, fx + fwidth):
+        for y in range(fy, fy + fheight + 3):
+            roll = shell.random() + (x - fx) / fwidth * 0.25
+            canvas.put(x, y, _ink(ctx, "recess_black" if roll > 1.05
+                                  else "recess", 0 if roll > 0.62
+                                  else (1 if roll > 0.32 else 2)))
     canvas.vline(fx, fy, fheight + 3, _ink(ctx, "recess_black"))
     # its lit head: three rows at y 58-60, x 238-245, measured L 33-67. It is
     # the only thing that says the opening has a top.
@@ -714,6 +946,21 @@ def _shell(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     canvas.vline(px + 1, py, pheight - 1, _ink(ctx, "pillar_shadow"))
     canvas.vline(px + 2, py, pheight - 1, _ink(ctx, "pillar_reveal"))
     canvas.vline(px + 3, py, pheight - 1, _ink(ctx, "pillar_reveal"))
+    # AND IT IS TWENTY-NINE ROWS LONG, so it has to turn along its length.
+    # Sampled down x 248-253 the bar runs 11 to 59: brightest where the belt
+    # moulding crosses it, dimmest at the waist where the man's shoulder
+    # shadows it, and back up over the step board. Six one-pixel columns held
+    # at one value each for twenty-nine rows is the same defect as a flat
+    # panel, turned ninety degrees, and it is the more visible of the two
+    # because the eye reads a vertical at this size as an edge.
+    for row in range(py, py + pheight - 1):
+        along = (row - py) / max(1, pheight - 2)
+        lift = 1 if along < 0.18 else (-1 if 0.55 < along < 0.80 else 0)
+        for column in range(px - 2, px + 4):
+            if shell.random() < 0.42:
+                here = canvas.get(column, row)
+                canvas.put(column, row,
+                           _step(ctx, here, lift + shell.randrange(-1, 2)))
 
 
 def _doorway(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
@@ -789,48 +1036,97 @@ def _door_leaf(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # points under the measurement across a 15 x 31 panel and reads as a
     # black door on a brown coach. Base it at the measured median and let the
     # frame members carry the light.
-    canvas.rect(lx, ly, lwidth, lheight, _ink(ctx, "leaf", 1))
-    for _ in range(90):
+    canvas.rect(lx, ly, lwidth, lheight, _ink(ctx, "leaf"))
+    # FIVE STEPS IN THE FIELD, NOT ONE. Sampled column by column the bar's
+    # panel between the window and the kick runs 19-46 and never repeats a
+    # value for more than three pixels: mud[1], mud[2], pine_fresh[0],
+    # mud[4], pine_fresh[1]. A flat base with a highlight ruled on it is the
+    # flat-patch-with-an-outline read; the field itself has to turn.
+    field = ("leaf_dark", "leaf_mid", "leaf", "leaf", "leaf_step",
+             "leaf_step", "leaf_lit", "leaf_mid")
+    for _ in range(150):
         canvas.put(lx + rng.randrange(lwidth), ly + rng.randrange(lheight),
-                   _ink(ctx, "leaf", rng.randrange(-1, 2)))
+                   _ink(ctx, field[rng.randrange(len(field))]))
+    # and the panel is a panel: its top rail catches, its middle is the
+    # field, its bottom rail turns under. Three horizontals, one step apart,
+    # which is what makes fifteen pixels of width read as a surface.
+    canvas.hline(lx + 4, ly + 17, 11, _ink(ctx, "leaf_step"))
+    canvas.hline(lx + 4, ly + 26, 11, _ink(ctx, "leaf_mid"))
+    canvas.hline(lx + 4, ly + 27, 11, _ink(ctx, "leaf_dark"))
 
     # The two stiles. The hinge stile takes the warm key and is the brighter,
     # sustained down the FULL height at L 46-76 — it is the leaf's own version
     # of the front corner post and it is what stands the door away from the
     # doorway's black. The far stile, six inches deeper into the night, is
     # two steps down.
-    canvas.vline(lx, ly + 1, lheight - 2, _ink(ctx, "leaf", -1))
-    canvas.vline(lx + 1, ly + 1, lheight - 2, _ink(ctx, "leaf"))
-    canvas.vline(lx + 2, ly + 1, lheight - 2, _ink(ctx, "leaf", 1))
+    #
+    # FIVE COLUMNS AND FIVE VALUES, in the order the bar measures them at
+    # x 263-267: 27, 35, a shadow at 19, THE STILE at 44-54, and a dark
+    # reveal at 14 before the glass. The pair of one-step columns either side
+    # of the bright one are what make it a moulding standing off the panel
+    # instead of a stripe painted on it.
+    canvas.vline(lx, ly + 1, lheight - 2, _ink(ctx, "leaf_mid"))
+    canvas.vline(lx + 1, ly + 1, lheight - 2, _ink(ctx, "leaf_step"))
+    canvas.vline(lx + 2, ly + 1, lheight - 2, _ink(ctx, "leaf_dark"))
     canvas.vline(lx + 3, ly + 1, lheight - 3, _ink(ctx, "leaf_frame"))
     canvas.vline(lx + 3, ly + 3, 12, _ink(ctx, "leaf_frame_hot"))
-    canvas.vline(lx + 4, ly + 1, lheight - 3, _ink(ctx, "leaf", -1))
+    canvas.vline(lx + 4, ly + 1, lheight - 3, _ink(ctx, "leaf_deep"))
+    for row in range(ly + 2, ly + lheight - 3):
+        if rng.random() < 0.30:
+            canvas.put(lx + 3, row, _step(ctx, canvas.get(lx + 3, row), -1))
+        if rng.random() < 0.25:
+            canvas.put(lx + 1, row, _ink(ctx, "leaf"))
     canvas.vline(lx + 15, ly, lheight - 4, _ink(ctx, "leaf_edge"))
-    canvas.vline(lx + 16, ly, lheight - 4, _ink(ctx, "leaf"))
+    canvas.vline(lx + 16, ly, lheight - 4, _ink(ctx, "leaf_mid"))
+    canvas.vline(lx + 14, ly + 1, lheight - 5, _ink(ctx, "leaf"))
 
     # §2.13a. In image A this opening has a rounded top corner; AT THIS SIZE
     # IT IS A PLAIN RECTANGLE, and its left column runs the full height as
     # the darkest thing in the leaf. It is a RECESS and not a hole: the bar
     # keeps the far side of the glass at L 8-26 rather than at void, so that
     # the doorway beside it stays the only true black in the object.
+    # THE GLASS IS EIGHT COLUMNS, NOT TEN. §2.13a gives the opening as
+    # x 266-277, and the opening includes its frame: sampled row by row the
+    # bar's dark runs x 268-275 and stops, x=276 is a LIT MEMBER at 42-55 for
+    # the window's whole height, and x 277-279 is the far stile at 27-34.
+    # Filling 268-277 with glass ate the right-hand frame member and put a
+    # two-pixel black margin between the lamp and the stile, which is why the
+    # opening read as a hole rather than as a window — the same failure the
+    # doorway beside it is *supposed* to have, spent twice.
     gx, gy, gwidth, gheight = layout.COACH_DOOR_WINDOW
-    canvas.rect(gx + 2, gy + 1, gwidth - 2, gheight - 2, _ink(ctx, "glass"))
-    canvas.rect(gx + 2, gy + 1, 2, gheight - 2, _ink(ctx, "glass_black"))
-    for _ in range(28):
-        canvas.put(gx + 4 + rng.randrange(gwidth - 4),
-                   gy + 1 + rng.randrange(gheight - 3),
-                   _ink(ctx, "glass", rng.randrange(0, 3)))
+    canvas.rect(gx + 2, gy + 1, gwidth - 4, gheight - 3, _ink(ctx, "glass"))
+    canvas.rect(gx + 2, gy + 1, 2, gheight - 3, _ink(ctx, "glass_black"))
+    canvas.vline(gx + 10, gy + 1, gheight - 3, _ink(ctx, "leaf_frame"))
+    canvas.vline(gx + 11, gy + 1, gheight - 3, _ink(ctx, "leaf_step"))
+    for row in range(gy + 1, gy + gheight - 2):
+        if rng.random() < 0.45:
+            canvas.put(gx + 10, row, _ink(ctx, "leaf_lit"))
+        if rng.random() < 0.35:
+            canvas.put(gx + 11, row, _ink(ctx, "leaf"))
+    # AND THE DARK HAS STEPS IN IT TOO. Sampled at x 268-276 the bar's window
+    # runs 1, 2, 7, 8, 11, 13, 16, 20, 26, 31 — ten values inside thirty
+    # luminance points, brightening toward the lamp in the corner. A window
+    # filled at one dark value is a rectangular hole, and the leaf already
+    # has a hole beside it that is meant to be the only one.
+    for _ in range(46):
+        x = gx + 4 + rng.randrange(gwidth - 6)
+        y = gy + 1 + rng.randrange(gheight - 4)
+        near = 1.0 - (abs(x - (gx + 9)) + abs(y - (gy + 7))) / 14.0
+        canvas.put(x, y, _ink(ctx, "glass_lit" if rng.random() < near
+                              else "glass", 1 if rng.random() < near else 0))
     _lamp(canvas, ctx, layout.COACH_LAMP_B, core=2)
     # the sill: the window's bottom two rows come back up to L 26-46, and it
     # is what gives the opening a bottom edge without a frame being drawn.
-    canvas.hline(gx + 2, gy + gheight - 1, gwidth - 2, _ink(ctx, "leaf", 1))
-    canvas.hline(gx + 2, gy + gheight, gwidth - 2, _ink(ctx, "leaf_edge"))
-    canvas.hline(gx + 5, gy + gheight, 5, _ink(ctx, "leaf_edge", 1))
+    canvas.hline(gx + 2, gy + gheight - 1, gwidth - 2, _ink(ctx, "leaf"))
+    canvas.hline(gx + 2, gy + gheight, gwidth - 2, _ink(ctx, "leaf_step"))
+    canvas.hline(gx + 5, gy + gheight, 5, _ink(ctx, "leaf_frame"))
 
     # §2.13c. The kick moulding: one bright row and two studs, L 40-59, with
     # a second, shorter lit run two rows under it where the panel's bottom
     # rail catches the same light.
-    canvas.hline(lx + 3, ly + 19, 12, _ink(ctx, "moulding"))
+    canvas.hline(lx + 3, ly + 19, 12, _ink(ctx, "moulding", 1))
+    canvas.put(lx + 3, ly + 19, _ink(ctx, "moulding", 3))
+    canvas.hline(lx + 12, ly + 19, 3, _ink(ctx, "moulding"))
     canvas.hline(lx + 3, ly + 18, 5, _ink(ctx, "moulding", -2))
     canvas.put(lx + 4, ly + 18, _ink(ctx, "brass", 1))
     canvas.put(lx + 7, ly + 18, _ink(ctx, "brass"))
@@ -920,10 +1216,22 @@ def _roof(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     dx, dy, dwidth, _ = layout.COACH_ROOF_DECK
     canvas.hline(dx, dy, dwidth, _ink(ctx, "deck"))
     canvas.hline(dx, dy + 1, dwidth, _ink(ctx, "deck", 1))
+    # THE DECK IS NOT TWO RULED LINES. Sampled across x 238-282 the bar's
+    # rows 50 and 51 run 11-62 and 7-57 — the deck boards seen almost edge-on
+    # with the cargo's lashings crossing them, forty pixels of mottle around
+    # a mean near 28. Ours were one value each, and two ruled lines under the
+    # rail turn the roof into a shelf: the rail's falloff is then the only
+    # thing in five rows that is doing anything, and it has to carry the
+    # whole roof by itself.
+    for x in range(dx, dx + dwidth):
+        for row in (dy, dy + 1):
+            if rng.random() < 0.62:
+                canvas.put(x, row, _ink(ctx, "deck", rng.randrange(-3, 4)))
     for x in range(dx, dx + dwidth):
         target = DECK_EDGE_FLOOR + (DECK_EDGE_L - DECK_EDGE_FLOOR) * \
             0.5 ** ((x - dx) / DECK_EDGE_HALF)
-        canvas.put(x, dy + 2, _at_luminance(ctx.palette, "mud", target))
+        canvas.put(x, dy + 2, _at_luminance(ctx.palette, "mud",
+                                            target + rng.random() * 7.0 - 3.5))
 
     # §2.15. One row tall, the full width, and the darkest horizontal in the
     # upper body. It is not level: measured L 10 under the lit front half and
@@ -932,14 +1240,42 @@ def _roof(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     sx, sy, swidth, _ = layout.COACH_CORNICE_SHADOW
     canvas.hline(sx, sy, swidth, _ink(ctx, "cornice_shadow"))
     canvas.hline(sx + 18, sy, swidth - 18, _ink(ctx, "pillar_reveal"))
+    for x in range(sx, sx + swidth):
+        if rng.random() < 0.22:
+            canvas.put(x, sy, _ink(ctx, "cornice_shadow", rng.randrange(1, 3)))
+    # The belt moulding is a moulding, so it has a top and a face: measured
+    # 26-42 across its length with the light leaning on the front half.
     mx, my, mwidth, _ = layout.COACH_BELT_MOULDING
     canvas.hline(mx, my, mwidth, _ink(ctx, "belt"))
+    for x in range(mx, mx + mwidth):
+        reach = (x - mx) / max(1, mwidth - 1)
+        if rng.random() < 0.55:
+            canvas.put(x, my, _ink(ctx, "belt",
+                                   1 if rng.random() > reach + 0.35 else -1))
 
     # §2.17 and the draw-order note: THE RAIL GOES ON LAST OF THE ROOF GROUP,
     # over the cargo, because it is a single row and any cargo drawn over it
     # breaks the line. §5.5 — its falloff is the light direction.
     _, ry, _, _ = layout.COACH_ROOF_RAIL
     _profile_row(canvas, ctx, ry, "dust", RAIL_PROFILE)
+    # AND IT IS WEATHERED TIMBER, NOT A TUBE. §4 gives the rail three
+    # families — `dust[3..8]`, `pine_weathered[6]` AND `umber[5..10]` — and
+    # drawn in `dust` alone it comes out at a saturation of 0.18 against a
+    # body at 0.50, which at 320x144 reads as a strip lamp lying along the
+    # roof. Every third column takes the warm family at the same measured
+    # luminance, and the value jitters +/-6 the way the bar's own row does
+    # (81, 81, 65, 70, 57, 57, 57, 57, 70, 59, 42) rather than descending
+    # smoothly. The falloff of §5.5 is in the envelope, not in each pixel.
+    for x in range(RAIL_PROFILE[0][0], RAIL_PROFILE[-1][0] + 1):
+        level = _profile(RAIL_PROFILE, x) + rng.random() * 12.0 - 6.0
+        roll = rng.random()
+        if roll < 0.34:
+            canvas.put(x, ry, _at_luminance(ctx.palette, "umber", level))
+        elif roll < 0.48:
+            canvas.put(x, ry, _at_luminance(ctx.palette, "pine_weathered",
+                                            level))
+        else:
+            canvas.put(x, ry, _at_luminance(ctx.palette, "dust", level))
     # §6: the rail's stanchions are not drawn. It is one continuous row.
 
 
@@ -1239,13 +1575,27 @@ def _rear_wheel(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # A spoke that is one step above a field that is itself one step either
     # way is not a spoke, it is grain — and §5.2 measures the disc's ABAB
     # rate at 1.6% / 1.0%, a noise floor and not a pattern.
+    # AND "NEARLY FLAT" WAS TAKEN TOO FAR. Sampled inside r=0.9R the bar's
+    # disc runs p10 12, p25 17, p50 26, p75 38, p90 43 — a broad smooth
+    # spread over forty luminance points, because the interior of a wheel is
+    # the far felloe, the nave, the daylight side of six spokes and the gaps
+    # between all of them. Ours put 61% of the disc on ONE index at its
+    # median, which is the same error as filling a bimodal histogram with its
+    # mean: both tails gone, and §5.1's twenty-four-point spoke separation
+    # measured against a field that no longer varies. The gradient is radial
+    # — dark at the nave, lifting toward the felloe — because that is where
+    # the road light gets in.
     disc = ctx.stream("coach disc")
     for dy in range(-radius_y, radius_y + 1):
         for dx in range(-radius_x, radius_x + 1):
-            if (dx / rx) ** 2 + (dy / ry) ** 2 <= 1.0:
-                grain = -1 if disc.random() < 0.16 else 0
-                canvas.put(centre_x + dx, centre_y + dy,
-                           _ink(ctx, "disc", grain))
+            reach = (dx / rx) ** 2 + (dy / ry) ** 2
+            if reach > 1.0:
+                continue
+            level = 13.0 + 17.0 * math.sqrt(reach) + disc.random() * 16.0 - 8.0
+            canvas.put(centre_x + dx, centre_y + dy,
+                       _at_luminance(ctx.palette, "umber", level)
+                       if disc.random() < 0.55
+                       else _at_luminance(ctx.palette, "mud", level))
 
     # Twelve radii drawn AT FULL CONTRAST are a pinwheel, and a pinwheel at
     # 320×144 reads as MOTION (§10.2). What stops that is NOT breaking them

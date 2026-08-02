@@ -125,5 +125,23 @@
       "sky": "bucket 2 is hollow and stays hollow: the palette's only cold entry in that luminance window carries no chroma at all.",
       "range": "saturation 0.60 \u2014 the near range wants luminance 13 with blue in it, and the locked 256 has no such entry."
     }
+  },
+  {
+    "round": 9,
+    "title": "Saturation closed \u2014 and the shape metric had no floor under it",
+    "note": "Hob held. Saturation moved everywhere: sky 0.65 to 0.74, range 0.60 to 0.72, town 0.65 to 0.74, team 0.72 to 0.84. Median 24.5 to 25.5 against the bar's 26.1. Then two authors independently reported that the shape score was measuring the locked palette rather than the drawing \u2014 and they were right.",
+    "status": "held 1 of 5; the instrument was wrong a third time",
+    "verdicts": {
+      "hob": "ours",
+      "town": "bar",
+      "team": "bar",
+      "coach": "bar",
+      "left_yard": "bar"
+    },
+    "gaps": {
+      "town": "still reads as lights rather than buildings to a blind critic. The shape number never could have told us \u2014 our render beats the re-quantised bar on that rect, 0.445 against 0.505.",
+      "coach": "no undercarriage \u2014 the body never terminates, so it reads as a building rather than a suspended box.",
+      "team": "the near horse's head is still an undifferentiated blur against the sky."
+    }
   }
 ]

@@ -500,7 +500,37 @@ TEAL_SHARE = 0.0
 #: the top of the frame: rendered at 18 and 20 it puts grey specks in rows
 #: 0-6, and sky.md §5 is right that those seventeen rows are the quietest
 #: surface in the game and should stay that way.
-MID_PEAK, MID_CENTRE, MID_WIDTH = 0.38, 23.0, 14.0
+#:
+#: AND IT IS NOW ZERO, WHICH IS THE SAME MISTAKE THE TEAL WAS. The note
+#: above ends by saying the teal was set "one notch past where it should
+#: have been, by an eye that had been staring at the trade-off"; the grey
+#: that replaced it is the same error with the chroma taken out instead of
+#: put in the wrong direction, and it is nine times the pixel count. At 0.38
+#: this rung put 2,152 px of `grey` 1 -- (24, 24, 28), saturation 0.14 --
+#: across rows 14-39, 34% of rows 14-27 and 14% of rows 28-39. The
+#: locked-palette proof puts ZERO grey in rows 14-27 and 18 px in 28-39. A
+#: blind critic on a neighbouring region named it without being asked about
+#: the sky at all: "an ordered cross-hatch dithering the sky blue against the
+#: neutral terrain greys, producing dark speckle over the entire upper
+#: third... never reuse a terrain grey inside the sky region."
+#:
+#: WHAT THE INSTRUMENT WAS ACTUALLY SAYING, and this is the finding. The rung
+#: exists to buy ruling 42's shape score, and it does buy it: 0.536 at zero
+#: against 0.396 at 0.38. But the PROOF -- the reference re-quantised into
+#: this exact palette, which is by construction the best score reachable --
+#: scores 0.560 on the same rect, with hollow buckets 2 and 4, and `range`
+#: scores 0.418 and `town` 0.505. SHAPE_TOLERANCE is 0.20. So the shape test
+#: is unreachable in the far field on this palette, this region had been
+#: tuned PAST the proof on a number nothing can pass, and the currency it
+#: paid in was the one number the proof does reach: saturation 0.74, ours
+#: 0.65, ruling 41's floor 0.70. At zero the region lands on 0.536 / 0.74 --
+#: the proof's own pair, to two decimal places on the chroma.
+#:
+#: The ramp does not stop being a ramp. It is still solved per row by `_mix`,
+#: and the crossing is still made by the horizon rung dithering into the body
+#: colour, which is exactly the belt the proof itself uses. What goes is the
+#: neutral standing in the middle of it.
+MID_PEAK, MID_CENTRE, MID_WIDTH = 0.0, 23.0, 14.0
 
 
 # ---------------------------------------------------------------------------

@@ -120,8 +120,25 @@ BOTTOM_L = 33.0
 #: off it. See the comment at the lead-in in draw(): this is the rung between
 #: `range`'s mass and this band's own top, and without it the two met at a
 #: fourteen-luminance step in a single row.
-FOOT_L = 21.75
-FOOT_ROWS = 5
+#:
+#: RE-FITTED, BECAUSE THE THING IT LEADS IN FROM MOVED. These two numbers are
+#: a pair with `range_.SCREE_LAST_ROW` and `range_.BASE_DEPTH` and neither
+#: half means anything alone. `range` used to arrive at row 67 as a flat slab
+#: of grey 0 at L 16.0, and 21.75 with a five-row climb was the right lead-in
+#: FROM 16. Three regions then reported that slab as 7-9 L under the bar and
+#: the integrator lifted it: the mass now goes cold at BASE_DEPTH and breaks
+#: up to its base, and arrives at 20.9-22.4 instead of 16.0.
+#:
+#: So the step this lead-in exists to soften is no longer there, and holding
+#: the old opening turned it inside out: measured on row 68 at x 180-219,
+#: which is the stretch with no town above it and no coach on it, ours 21.7
+#: against the bar's 27.0-29.9. The bar steps UP about five luminance from
+#: the range's base into the valley and is at its plateau within two rows --
+#: it does not ease at all out there. Opening five over the arrival value and
+#: closing the climb in three rows is that, and it leaves rows 70+ where they
+#: already measured.
+FOOT_L = 26.0
+FOOT_ROWS = 3
 
 #: THE TOWN'S SPILL, and it is the other end of the same seam.
 #:
@@ -413,6 +430,17 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # The over-claim is fixed in `town.OCCLUDED`, where it was, and the skip
     # here is unconditional again.
     town_x, _, town_w, _ = layout.TOWN_MASS
+    # ...AND THE FOOT BAND IS WIDER THAN THE TOWN, which is the other half of
+    # the same row and was reported by `town` and by `team` independently.
+    # layout.TOWN_FOOT_BAND is rows 67-68 and layout.TOWN_FOOT_SPILL runs it
+    # out to x=179, thirty columns past layout.TOWN_MASS. So on row 68 those
+    # thirty columns have the town's moonlit foot band directly above them,
+    # not `range`'s mass, and taking `foot_target` there dropped them to the
+    # range lead-in: measured 21.7 against the bar's 31.9 on that stretch,
+    # an 10 L rule one row tall, immediately under the row the town stands
+    # on. THE SKIP IS UNCHANGED -- only the target is. Nothing else writes
+    # these columns and a wider skip would put the hole back.
+    spill_x, _, spill_w, _ = layout.TOWN_FOOT_SPILL
 
     # The row's target luminance, and the two spans it can be reached by.
     # PER ROW, but the value the pixel chases is per pixel: PATCH_L wanders
@@ -489,7 +517,10 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
                 continue
             # Outside the town's columns this row meets `range`'s mass, not
             # the town's foot band, and takes the lead-in target.
-            base = target_row[y] if town_x <= x < town_x + town_w else foot_target[y]
+            under_foot_band = (town_x <= x < town_x + town_w
+                               or (y == layout.TOWN_BASE_Y
+                                   and spill_x <= x < spill_x + spill_w))
+            base = target_row[y] if under_foot_band else foot_target[y]
             step = _step_at(grey_ladder, base + wander, _hash(x, y, 19))
             if y < layout.SKYLINE_ROWS[1] and not _in(layout.TOWN_FOOT_SPILL, x, y):
                 step = min(step, CEILING_MAX_STEP)

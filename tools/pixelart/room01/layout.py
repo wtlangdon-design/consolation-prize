@@ -464,6 +464,20 @@ MATERIALS: dict[str, tuple[str, int]] = {
     "near_rock": ("grey", 0),                   # L 16.0 against a measured 13.2
     "near_rock_lit_mid": ("grey", 1),           # L 24.3; the lit face's right flank
     "near_rock_lit": ("grey", 2),               # L 32.3; apex pixels only
+    # THE BASE OF THE NEAR MASS IS COLD, and the note above is about its
+    # CREST. Added by the integrator against three regions' reports of one
+    # rect: over the range-owned pixels of rows 61-67 the locked-palette
+    # proof is 51% accent_indigo 0, 14% grey 2, 13% grey 1 and only 2% grey
+    # 0, while we were 78% grey 0 -- a flat neutral slab where the reference
+    # has the same blue the far range and the valley floor are already
+    # painted in, which is why it read as a hole punched out beside the town
+    # rather than as the hill the town stands on.
+    #
+    # It does not touch the silhouette. The crest keeps `near_rock`, so the
+    # 5 L grey-0-against-indigo-0 step this table's note is protecting is
+    # unchanged for its whole length; the handover is fifteen-odd rows below
+    # it, at range_.BASE_DEPTH, where the mass has already broken up.
+    "near_rock_base": ("accent_indigo", 0),     # L 21.7; the proof's 51%
 
     # -- town. town.md §5. The town is a GREY thing standing on a BLUE thing
     #    at nearly the same value, which is why it reads as material rather
@@ -574,6 +588,18 @@ MATERIALS: dict[str, tuple[str, int]] = {
     "hob_brim": ("mud", 5),                     # L 39; lit tip only; the far tip is L 4
     "hob_face": ("ochre", 10),                  # L 102; five pixels reach ochre 12
     "hob_collar": ("dust", 8),                  # L 82; ONE pixel, the only cool-neutral on him
+    # ASKED FOR BY `hob` AND GRANTED. His chroma ladder runs grey -> dust ->
+    # umber -> mud -> ??? -> ochre, and the rung between mud and ochre is
+    # where hob.md §3 puts about a third of the bar's face. `pine_fresh` is
+    # the family that sits there and the only entry in this whole table
+    # anchored on it was `lit_mud` -- the ROAD's lit fringe -- so the figure
+    # was reaching a rung through another region's material. Legal, since
+    # hob._turn indexes the family and never the step, and it does not say
+    # what is meant; the next author to read either table would have had to
+    # work out that the man's cheekbone and the verge of the road are the
+    # same entry by coincidence. The step is 3 rather than lit_mud's 4 for
+    # the same reason it does not matter: nothing reads it.
+    "hob_skin_turn": ("pine_fresh", 3),         # L 54; the rung between mud and ochre
     # The lantern's hardware sits in the same family as its flame, one band
     # BELOW the reserve, so the object holds together and only the flame moves.
     "lamp_hardware": ("accent_gold", 2),        # L 90; hood, bail, frame, base plate
@@ -591,7 +617,7 @@ WARM_MATERIALS = frozenset({
     "coach_lamp", "coach_lamp_ring",
     "horse_hide", "horse_hide_mid", "horse_hide_shadow", "horse_mane",
     "bridle_spark",
-    "hob_coat_lit", "hob_brim", "hob_face",
+    "hob_coat_lit", "hob_brim", "hob_face", "hob_skin_turn",
     "lamp_hardware", "lamp_glass",
 })
 
@@ -607,7 +633,7 @@ COLD_MATERIALS = frozenset({
     # not the whole star field: about one in twenty is a blue-grey at the
     # same value as the warm mid tier it sits beside. See MATERIALS.
     "star_cool",
-    "far_rock", "near_rock", "near_rock_lit_mid", "near_rock_lit",
+    "far_rock", "near_rock", "near_rock_base", "near_rock_lit_mid", "near_rock_lit",
     "town_mass_dark", "town_roof_sky",
     "town_trough", "town_wall", "town_wall_lit", "town_roof", "town_roof_bright",
     "verge_mud", "valley_floor", "valley_floor_blue",

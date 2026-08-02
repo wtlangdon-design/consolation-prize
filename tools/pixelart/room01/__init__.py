@@ -267,12 +267,37 @@ def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # thing that made it read as a gap between two solids rather than as a
     # painted black bar. left_yard reported 1040 px of its rect over the
     # ceiling here and this is the other half of the same rect.
+    #
+    # ...AND IT STOPS AT y=79, which is where the bar stops it. `left_yard`
+    # reported this and it is the same class of defect as the wheels above:
+    # a whole-frame pass stamping over finished drawing that the region
+    # cannot see from inside its own render. Read down x 28-29 the bar is
+    # 2.6-9.0 for every row of y 64-79 and then LIFTS -- 8.4, 11.2, 13.1,
+    # 17.6, 19.9, 23.9 -- across y 80-89, because the slot is a gap between
+    # two solids and the ground at the bottom of it is lit. The two stamps
+    # were y 66-75 and y 78-89 and took all twenty-four of those rows to
+    # index 0, which is why the region's own core composited at 6.8/7.1
+    # against the bar's 15.1/16.9 no matter what it drew: it was not drawing
+    # them. One stamp now, over the rows the reference actually has, and
+    # y 80-89 is `left_yard`'s to draw.
     slot_x, _, slot_w, _ = layout.SHADOW_SLOT
     core_x, core_w = slot_x + slot_w - 2, 2
-    void.smear(canvas, core_x, 66, core_w, 10, keep=keep, solid=True)
-    void.smear(canvas, core_x, 78, core_w, 12, keep=keep, solid=True)
-    # The left structure read against the sky, from the top tread down.
-    void.smear(canvas, 11, 43, 14, 5, keep=keep)
+    void.smear(canvas, core_x, 66, core_w, 14, keep=keep, solid=True)
+    # NO STAMP ON THE TREADS, and this is the second half of the same report.
+    # `void.smear(canvas, 11, 43, 14, 5)` screened a Bayer checker across
+    # x 11-24 / y 43-47, which is exactly where left_yard.md §2.9's third
+    # moonlit tread lives -- §5 calls those caps load-bearing, because they
+    # are what separates the timber silhouette from a range 5-10 L behind
+    # it, and §5 measures zero checkerboard content anywhere in this rect.
+    #
+    # IT WAS ALSO NET DARKENING, not net pooling. Measured across x 11-24:
+    # rows 33-42, which this pass never touched, sit at +1.4 to +2.6 against
+    # the bar already -- the pool study §1 asks for at x 11-31 / y 35-47 is
+    # THERE, drawn, without help. The five rows the stamp did cover ran
+    # -3.4, -10.6, -6.5, -4.9 and -19.3. So it deepened the one part of the
+    # component the reference lights and left the part that is genuinely
+    # near-black alone, and it put an ordered lattice on the region's most
+    # important edge doing it.
     # rail.md §2.7's pocket is the ground both bright bars are read against,
     # and its floor is what makes them read. It is a POCKET, not a hole:
     # measured mean L 28.4, so ONLY ITS DEEPEST CORNER goes to void. The

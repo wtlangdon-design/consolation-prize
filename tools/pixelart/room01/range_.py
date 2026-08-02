@@ -479,13 +479,41 @@ SCREE_PATCH = ((97.0, 0.55, 0.21), (43.0, 0.30, 0.68))
 #: the scree fades back out over SCREE_FADE rows and the last rows of the mass
 #: are the flat value terrain is expecting. Lifting them is a better picture
 #: and a worse seam, and the seam is not this region's to move.
-SCREE_LAST_ROW = 62
-SCREE_FADE = 2
+#:
+#: THE SEAM HAS NOW BEEN MOVED, BY THE INTEGRATOR, AND THIS IS WHY. Three
+#: regions independently reported the same rect and all three correctly
+#: declined to touch it: `town` ("range paints x 139-179 / y 52-67 in
+#: near_rock, grey 0, L 16, where the locked-palette proof has L 21.7-27.9;
+#: town.md §2.1 assigns that hill to the range region so I have not touched
+#: it"), `team` ("the sky/town band immediately above the mass runs 5-11 L
+#: dark against the bar for the full width of my rect"), and this file's own
+#: note above. It is the definition of a seam: every region is right about
+#: its own rect and the picture is wrong between them.
+#:
+#: MEASURED, over the range-owned pixels of rows 61-67: ours 16.0-18.1
+#: against the bar's 22.8-25.3 and the proof's 22.7-27.0 -- a flat unbroken
+#: slab of one index, 470 px wide, which is the darkest thing in the upper
+#: half of the frame and reads as a hole punched out beside the town. The
+#: mass now breaks up all the way to its base, which is what §2's own depth
+#: table asks for ("+17 23.2, +19 23.9, +21 27.8" against a crest of 12.8),
+#: and `terrain.FOOT_L` has been re-fitted to the value it now arrives at
+#: rather than to the flat grey 0 it used to. The two constants are a pair
+#: and neither is meaningful without the other; see terrain.FOOT_L.
+SCREE_LAST_ROW = MASS_BASE - 1
+SCREE_FADE = 0
+
+
+#: Rows below the local near crest at which the mass's body goes cold. See
+#: layout.MATERIALS["near_rock_base"] for the measurement and for why the
+#: crest is untouched. Twelve because the bar holds 15.9-16.9 at +8 to +11 --
+#: which grey 0 matches to half a luminance -- and steps to 22.3 at +12.
+BASE_DEPTH = 12
 
 
 def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     far = ctx.ink("far_rock")
     near = ctx.ink("near_rock")
+    base = ctx.ink("near_rock_base")
 
     for x in range(layout.WIDTH):
         crest = layout.far_crest(x)
@@ -501,8 +529,13 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         # from about 4 on the left to about 10 on the right. THAT GAP IS THE
         # ENTIRE DEPTH CUE; both crests are in layout so nobody can move one
         # without the other noticing.
+        #
+        # ...AND THE BODY GOES COLD AT BASE_DEPTH. The contour runs parallel
+        # to the crest rather than horizontally, because it is the same slope
+        # seen further down and the crest is the only line in this region
+        # that is allowed to be a shape.
         for y in range(below, min(MASS_BASE, layout.HEIGHT)):
-            canvas.put(x, y, near)
+            canvas.put(x, y, near if y - below < BASE_DEPTH else base)
 
     _scree(canvas, ctx)
     _lit_face(canvas, ctx)
