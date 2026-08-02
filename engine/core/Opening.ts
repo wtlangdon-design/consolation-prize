@@ -193,6 +193,43 @@ export function writesOf(segment: Segment): Record<string, boolean | number> {
   return out;
 }
 
+/**
+ * What a play-area click may do to a running performance. Q25, as ruled.
+ *
+ * THE RULING: a click during a cutscene advances the pending line and nothing
+ * else. Doc 17 decides it three ways over. The opening IS the tutorial and
+ * every affordance is learned by using it, so a stray first click must not
+ * skip it. Beat 6b's coach departure is three seconds BECAUSE errata found
+ * that a coach vanishing on a click is not a coach leaving, so a click must
+ * not cut it short either. And errata 30a's own reasoning is that an authored
+ * duration IS the content, which leaves the beat's length untouchable.
+ *
+ * WHY IT IS A FUNCTION AND NOT AN `if`. The bug this replaces was invisible
+ * from the update loop -- `cancel()` clears `started`, so `isRunning` went
+ * false INSIDE the click handler, the next tick's `wasRunning` read false, the
+ * running-to-stopped transition was never observed, and the opening's segment
+ * counter froze with no error. Nothing in the loop could see it. Pulling the
+ * decision out gives it a name and a test that does not need a browser, which
+ * is the only reason the regression is now catchable.
+ *
+ * `cancel` remains right for ordinary play -- doc 22's deterministic
+ * cancellation, a staged interaction the player has changed their mind about
+ * stopping where it is. What the call site could not know is whether a
+ * cutscene is running. They are two different things sharing one runner.
+ */
+export type ClickVerdict = 'consume' | 'cancel' | 'pass';
+
+export function playfieldClick(
+  options: { sequenceRunning: boolean; openingActive: boolean },
+): ClickVerdict {
+  // A cutscene beat is playing. The click is spent: it neither ends the beat
+  // nor starts a walk underneath it. Any pending line has already been taken
+  // by the caller before this is reached.
+  if (options.openingActive && options.sequenceRunning) return 'consume';
+  if (options.sequenceRunning) return 'cancel';
+  return 'pass';
+}
+
 /** The act card a segment raises, if it raises one. */
 export function actCardOf(segment: Segment): string | null {
   for (const beat of segment.beats) {

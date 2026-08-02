@@ -476,13 +476,54 @@ Raised rather than fixed again, because renumbering the symptom is what happened
 
 **Not proposing the scheme.** Sequential integers assigned at write time require a global view that a branch does not have, and that is the whole of it. What replaces them — per-branch prefixes, dates, initials, content hashes — is a convention question with real trade-offs for how the document reads, and it belongs to Tyler along with everything else in this list. What is now established is that the current scheme has failed twice in one session, both times for the same reason, and that the next failure may not announce itself.
 
-## Q25 · The opening never ends, so the panel is unreachable without a dev handle
+## Q25 · Clicking during the opening wedges it permanently — **RULED AND FIXED**
 
-Found by looking, after the three rulings landed. Not caused by them.
+**CORRECTED. As first filed this entry said "the opening never ends" and that is wrong.** The opening ends. Twice measured, identically: play it without clicking except on the driver's dialogue options and it **completes at t = 21s**, `GameScene.opening` goes null, and the panel appears. The original claim came from a session where the opening was clicked through, and the conclusion drawn from it — that the game is unreachable — did not survive being checked patiently.
 
-`content/sequences/opening.json` has eleven beats. Clicking through them stalls: forty clicks over thirty-six seconds leaves `GameScene.opening` non-null, the last line still on screen, and the sequence still running. Because `showPanel` is `this.opening === null`, **the verb panel never appears** — the bottom 216 rows stay pure black, a single colour, no fill at all.
+**What is true, and it is still serious.** Clicking during the opening's *automatic* segments stops it advancing, permanently. Measured: clicks at 700–900 ms intervals leave `openingAt` frozen — at 0 in one run, at 2 in another after the driver's tree was answered — and it never moves again. No error, no console output, nothing on screen to say anything is wrong. Because `showPanel` is `this.opening === null`, the panel never appears and the bottom 216 rows stay a single flat colour.
 
-It is consistent with what the validators already report: *"gated on but written by no content: `T_HOB_GONE` — engine:opening-sequence:beat10 must exist for it to fire."* Beat 10 is unbuilt, so nothing ends the sequence. That is Phase 1 being Phase 1 rather than a defect in anything shipped, but the consequence is worth stating plainly: **a person opening the game today cannot reach the interface at all.** Everything below the opening — the panel, the verbs, the inventory, hotspots, LOOK and LISTEN — was reachable for verification only by calling `finishOpening()` from the dev-build handle, which is what was done.
+**So the defect is not that the opening cannot finish; it is that a player who clicks cannot finish it.** A player will click. It is the first thing anybody does at a screen holding a line of text, and doing it once during an eight-second automatic beat costs them the entire game with no feedback.
+
+**Mechanism: located, at `engine/scenes/GameScene.ts:401`.**
+
+```
+    if (this.sequence.isRunning) {
+      this.sequence.cancel();
+      this.world.abandonActor(this.actors.playerId);
+    }
+```
+
+`SequenceRunner.cancel()` sets `started = false`, so `isRunning` goes false **inside the click handler**. The next tick then reads:
+
+```
+    const wasRunning = this.sequence.isRunning;              // already false
+    ...
+    if (this.opening && wasRunning && !this.sequence.isRunning) this.advanceOpening();
+```
+
+`wasRunning` is false, the running → stopped transition is never observed, `advanceOpening` is never called, and `openingAt` never increments. That is the frozen counter, and it is why there is no error: nothing went wrong, the loop simply never saw the thing it was watching for.
+
+**Proved in both directions rather than argued.** Guarding the cancel with `&& !this.opening` as a throwaway patch, the same click-every-700ms pattern that wedges the opening **completes it after 26 clicks**. Reverted immediately; it is a diagnostic and not a proposal.
+
+**The cancel is right and the comment above it is right.** Doc 22's deterministic cancellation — a staged interaction the player has changed their mind about stops where it is rather than finishing a walk they no longer want. What the line cannot know is whether an *opening* is running. Ordinary play and a cutscene are two different things sharing one runner.
+
+**RULED, AND FIXED: a click during a cutscene advances the pending line and nothing else.** Doc 17 decides it three ways over. The opening *is* the tutorial and every affordance is learned by using it, so a stray first click must not skip it. Beat 6b's coach departure is three seconds **because** errata found that a coach vanishing on a click is not a coach leaving, so a click must not cut it short either. And errata 30a's own reasoning is that an authored duration *is* the content.
+
+The verdict lives in `Opening.playfieldClick` rather than in an `if` at the call site, because a decision with a name has a test and an event handler does not. `cancel` is untouched for ordinary play — doc 22's deterministic cancellation is right, and what the call site could not know is whether a cutscene is running.
+
+**Checked by playing, not by tests passing.**
+
+| | measured |
+|---|---|
+| click every 700 ms, title to control | opening **completes at 21.3 s** after 27 clicks; panel reachable |
+| beat 6b untouched | 5.13 s |
+| beat 6b with a click landing mid-beat | 4.96 s |
+
+The 0.17 s between the last two is inside the 100 ms polling granularity: **the click does not shorten the departure.** The segment runs longer than its authored 3 s because it also plays its line, which is `stepsFor`'s existing behaviour and not this ruling's.
+
+**And a regression test that fails against the old code before it passes** — `tests/opening.test.ts`. It is a miniature of the two pieces that disagreed: a loop that samples `isRunning` before ticking and advances on the transition, and a click that asks for a verdict. Neither piece shows the defect alone. A second test reinstates the pre-fix verdict and asserts the opening **wedges**, so the first cannot pass vacuously if the click ever stops reaching the runner. Neither asserts a segment index — the first draft did, and failed at 1 instead of 0 because the harness steps past the menu segment, which was a number about the beat sheet rather than about the defect.
+
+**Not related to beat 10.** The validators' note — *"gated on but written by no content: `T_HOB_GONE`"* — is about a flag nothing writes, not about the sequence's ability to end. It ends at `at = 4`.
 
 ## Q26 · At ×6 the face does not comfortably fit errata 54's panel
 

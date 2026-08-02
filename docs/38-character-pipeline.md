@@ -162,6 +162,24 @@ GIF carries **256 colours for the whole frame**. A character on a full-colour pl
 
 The collar was declared unrecoverable at 233px on the strength of counting threshold hits across four resize filters. It is **14 × 17 display pixels with strokes up to 4.7 wide** — not remotely sub-pixel, and perfectly legible in PNG. Measure the feature before concluding the resolution cannot hold it.
 
+## R5d · THE CAPTURE IS NOT THE RENDER
+
+The general rule the other three are instances of. **Before reporting anything about a frame, verify the capture path independently of the frame's content.**
+
+**The case that produced it.** A headless screenshot of the running game came back **pure black** — every pixel, 1920 × 1080. No console error, no page error, and every piece of state correct: room `stage_road`, actor height 205, canvas 1920 × 1080, textures loaded, the plate reporting its real size. The obvious report was *the game renders black*, and every decision after it would have been made against that.
+
+It was a **WebGL capture artifact**. A Phaser canvas runs without `preserveDrawingBuffer`, so the drawing buffer is cleared once composited and reads back empty. The game was drawing correctly the whole time.
+
+**The check that caught it, and it is the pattern.** Sample the thing the renderer actually writes into, not the thing the browser hands back. The engine composes every frame into one canvas texture; reading it gave **1,662 of 2,079 sampled pixels carrying Room 1's night blues** — (2,12,56), (1,11,61), (0,12,63) — against a capture that claimed the frame was empty. Two sources disagreeing is the finding; one source agreeing with itself is not evidence.
+
+Frames for review are therefore dumped from the screen texture rather than screenshotted, and a frame is sanity-checked by **distinct colour count** before anything is concluded from it: 83,802 for a real Room 1 render, 1 for a black one.
+
+**Why this is Part Two and not a footnote.** It is the third time a preview format has been mistaken for the thing it previews. GIF's 1-bit alpha produced a dark rim that cost two rounds inside a sprite that was correct (R5). GIF's 256-colour palette turned a collar to skin and produced a statement to the project owner that the collar could not survive at that resolution (R5b). Both times the art was right and the viewer was wrong. **The failure mode is not GIF. It is trusting a rendering of a rendering.**
+
+**And the apparatus is a thing that can silently not run.** The same session produced the rule at one remove. A defect's mechanism was declared "not established" after instrumenting the game loop from the page and observing nothing — but the instrumentation had never executed, because Phaser does not dispatch through an overridden instance property. **An experiment that did not happen returns "no effect", and "no effect" is indistinguishable from a real null.** The conclusion drawn was that the cause could not be found; the cause was four lines away and the wrapper was simply never called.
+
+> **Verify the apparatus before trusting the null.** Make the instrument prove it fired — a counter, a marker, a deliberately-triggered positive — before any absence it reports is treated as a finding. A measurement that reports nothing has two explanations and only one of them is about the thing being measured.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.
