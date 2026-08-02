@@ -48,9 +48,27 @@ The driver is separate from the coach because doc 17 beats 2 and 6 have him clim
 
 Prompts: `docs/37-room-01-generation-prompts.md`.
 
+## D8 · No mover layer may contain light cast on the ground
+
+**Corrects D6 as originally written.** A layer recovered by subtraction is not light — it is **the lit pixels of the specific ground that was beneath the object at generation time.** Translating Hob's pool would carry that mud, those ruts and those puddles across whatever it passed over. The same applies to the coach lamps' glow on the road.
+
+**The separation required:** Hob's opaque body · the lantern and flame · the lantern's ground-light mask · the coach and team · the coach lamps · the coach lamps' ground-light masks. The first two travel with the figure. The masks alter whatever background pixels are beneath them at the moment they are drawn, and therefore cannot be baked into a sprite.
+
+Generations B and D are amended to carry light **on the object only** — the globe, the lamp housings, the warm rim on a coat. Ground light is the runtime's job: doc 15's P5 radial pass, or an authored additive mask applied at native.
+
+*Found in review of `docs/37`. The error was in switching between authored art and differenced art without noticing they behave differently under translation.*
+
+## D9 · One design per object; every pose authored from it
+
+The generations acquire **reference art**, not animation. Hob needs a walk cycle with a synchronised lantern swing; the driver needs seated, standing, climbing, reaching, case-handling and return; the case needs roof, mud and carried states. All are authored at native from a single generated design. The case is generated **once** — two generations of a 22 × 12 object produce two different cases.
+
+## D10 · The coach layer is cut into components before it moves
+
+A flat coach-and-team layer translated rightward reads as a cardboard cutout. Before the departure is authored the recovered layer is separated into coach body, near and far wheels, two horses, each horse's head, legs, harness and traces, the lamps, and the driver's attachment point. Root motion moves the assembly; components animate against it.
+
 ## D6 · Hob's lantern rides in his sprite
 
-Doc 17 note 0: *"He does not stop walking."* The light travels with him as part of his sprite layer, which the D generation produces directly — figure and pool recovered together. Nothing is baked into the plate. The interim plate has no role as a plate and is discardable; its only residual value is as the single authored sample of what that ground looks like lit, should a runtime radial pass ever want a lookup table.
+**Amended by D8.** Doc 17 note 0: *"He does not stop walking."* The figure and his lantern travel together as one sprite layer, and nothing is baked into the plate. **But the ground pool does not travel with him** — it is a runtime mask, not part of the sprite. The D generation produces the figure and the lit lantern only. The interim plate has no role as a plate and is discardable; its only residual value is as the single authored sample of what that ground looks like lit, should a runtime radial pass ever want a lookup table.
 
 ## D7 · Scrolling and errata 43's topology are orthogonal
 
@@ -88,19 +106,33 @@ Measured on the plate: a plain quantiser put **408 pixels into 239–241, boundi
 
 For Room 1 this is structural rather than incidental, and errata 53 condition 1's check must run on every generation for this room, not once.
 
+## X4 · The runtime cannot move any of these movers, and the opening executes none of its own descriptions
+
+Verified against `Renderer.ts`, `GameScene.ts` and `Opening.ts`.
+
+**No general room mover exists.** `Renderer.drawPeople` builds its drawable list from the ambient NPC set plus the single player actor. There is no path for Hob, the driver, the horses or the coach.
+
+**The opening emits two step kinds.** `Opening.stepsFor` produces `say` and `wait` and nothing else. Doc 17's visual descriptions — the coach arriving, Thad climbing down, the case landing in the mud, the coach departing with wheels turning, Hob crossing — are prose that never lowers to anything executable. The runtime can wait eight seconds while a beat says the coach arrives, and no coach moves.
+
+*One correction to the review that raised this: it reports that GameScene ignores the actor named by a sequence step. It does not — `say` carries an actor and honours it. There are no `walk`, `face` or `chore` steps to ignore.*
+
+**Beat 9 additionally has no carrier.** Hob's crossing is a player-control beat, and the opening runner completes before anything schedules it.
+
+**Not a blocker on art acquisition.** This is doc 34's integrated proof, which errata 52's stop condition is already waiting on and which step B is building toward. The generations and the runtime work do not block each other and should proceed in parallel.
+
 ---
 
 # PART THREE — OPEN, AWAITING A DECISION
 
-## Q1 · Two horses or three
+## Q1 · Two horses or three — **RULED: two**
 
 Doc 05's written LOOK line: *"Two horses I can see and I am told there are four more. They have their heads down and they have earned it."*
 
 `tools/pixelart/room01/team.py` draws **three**, justified by counting nine hoof contacts in the original generated image. Errata 53 changes no written line, so the line is canon and the procedural art disagrees with it.
 
-`docs/37-room-01-generation-prompts.md` specifies **two**, pending confirmation.
+**Ruled by the project owner: two.** `docs/37` specifies two. `tools/pixelart/room01/team.py` disagrees with canon and is superseded.
 
-## Q2 · Which way is Main Street
+## Q2 · Which way is Main Street — **RULED, but not yet reconciled**
 
 Three sources disagree.
 
@@ -112,13 +144,17 @@ Three sources disagree.
 | Doc 17 beats 6b, 7 | The coach departs **frame right** and recedes **east** |
 | Doc 35 worked example | Noticed half of this; ruled the art fine and the doc in need of correction |
 
+**Ruled by the project owner:** Thad leaves frame right toward town, and the stale `road_west` data is corrected rather than a new into-depth exit invented.
+
+**Two things the ruling does not yet resolve, recorded so they are not lost.** The coach also departs frame right, receding *east* per doc 17 beats 6b and 7, which makes one road simultaneously the way to town at two hundred yards and the way home at eleven hundred miles — `road_east`'s written LOOK line is *"Home is that way. It is eleven hundred miles that way."* And the plate places the town visibly in the middle distance centre-left, so under this ruling Thad walks away from a town the player can see. Either the written lines move between hotspots, or the coach departs the other way, or the town's position in the composition is accepted as unrelated to the exit. None of the three has been chosen.
+
 **Does not affect the Room 1 generations** — the coach departs frame right under every reading.
 
 **Does affect** where Thad walks to reach town. The plate places the town in the middle distance, centre-left. Doc 29 already supports a road-into-depth transition — the actor walks away from camera, scales down, passes behind architecture, and the next room opens at a far-depth entrance — which would fit the picture without contradicting the coach's departure. That is a topology ruling and belongs to the project owner.
 
-## Q3 · The second signboard
+## Q3 · The second signboard — **RULED: remove the mark**
 
-A small placard on the fence, roughly x 115–165, y 68–100 at native, carries an illegible mark. Doc 17's hotspot set has one sign. Either it receives a LOOK line, or it is painted out — small enough to remove by hand at native, no regeneration required.
+A small placard on the fence, roughly x 115–165, y 68–100 at native, carries an illegible mark. Doc 17's hotspot set has one sign. **Ruled by the project owner:** remove the mark so the board reads as ordinary scrap, not a second sign or a false hotspot. Hand-removed at native, no regeneration.
 
 ## Q4 · Room 1's hotspot and walkable geometry must be re-derived
 

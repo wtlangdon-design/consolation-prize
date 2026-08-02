@@ -27,17 +27,49 @@ A  PLATE                        (done — room01-room-blank-sign-open-road-1600x
 │  ├─ C = B + driver on the box         attach B
 │  └─ E = B + case on the roof rack     attach B
 │
-├─ D  = A + Hob crossing with lantern   attach A
-└─ F  = A + case in the mud             attach A
+└─ D  = A + Hob crossing with lantern   attach A
 ```
 
-Layers recovered by subtraction: **B−A** = coach and team · **C−B** = driver · **D−A** = Hob with his light · **E−B** = case on roof · **F−A** = case in mud.
+*There is no F. The case is generated once, at E.*
+
+Layers recovered by subtraction: **B−A** = coach and team · **C−B** = driver · **D−A** = Hob and his lantern · **E−B** = the case.
 
 **If C is generated from A rather than from B, its coach will differ from B's coach and C−B is garbage.** Do not shortcut the chain.
 
 ## Priority
 
-B and D are required. C is required before the opening sequence can play. E and F are small and can wait — the case is 22×12 at native and may end up hand-drawn.
+B and D are required. C is required before the opening sequence can play. E is small and can wait — the case is 22 × 12 at native and may end up hand-drawn instead.
+
+## No mover layer may contain light cast on the ground
+
+**Added after review. This corrects an error in the first version of this document.**
+
+A layer recovered by subtraction is not light — it is **the lit pixels of the specific ground that was under the object.** Move Hob's pool and it carries that patch of mud, those ruts and those puddles across whatever it passes over. It does not illuminate new ground; it transports old ground.
+
+So every generation below must keep light **on the object itself** and off everything else:
+
+| Legal in the layer | Illegal in the layer |
+|---|---|
+| The lantern globe and flame | Any pool, patch or wash of light on the mud |
+| Warm rim light on Hob's coat, hand and hat | Any glow on fences, posts, the sign or the shack |
+| The coach lamp housings, lit | Any glow on the ground beneath the coach |
+| Warm light on the coach body near its own lamps | Any cast shadow on the ground |
+
+Light on the object travels correctly with the object, because it *is* the object. Light on the ground does not.
+
+**Ground light is the runtime's job** — doc 15's P5 radial pass, or an authored additive mask applied at native. Either way it is authored against the ground it falls on at the moment it falls there. It is never baked into a mover.
+
+## One design per object, then author every pose from it
+
+The generations produce **one canonical design each**, not a pose library. Everything else is authored from that design at native resolution:
+
+- **Hob** needs a walk cycle with the lantern swing synchronised to it. The generation gives one mid-stride figure to build it from.
+- **The driver** needs seated, standing, climbing the wheel, reaching the rack, handling the case, and returning to the box. The generation gives the seated pose.
+- **The case** is generated **once** and its roof, mud and carried states are authored from that single asset. Two generations of a 22 × 12 object produce two different cases.
+
+## The coach layer is cut into components before anything moves
+
+A single flat coach-and-team layer slid rightward is a cardboard cutout. Before authoring the departure, the recovered layer is separated into: coach body, near and far wheels, the two horses, each horse's head, legs, harness and traces, the lamps, and the driver's attachment point. Root motion moves the assembly; the components animate against it.
 
 ## Never ask for a second frame
 
@@ -83,11 +115,11 @@ The player character stands **200 pixels tall** in this 1600 × 720 image (40px 
 >
 > Add a halted stagecoach and its team to the road, standing on the open mud in the middle-right of the frame, positioned so it has clear unobstructed ground to drive off the right-hand edge of the picture. The coach faces frame right.
 >
-> **The coach.** A frontier mail and passenger stagecoach that has come four hundred miles and looks it. Heavy, dusty, boxy body on leather thoroughbraces, side-on to the viewer and angled very slightly toward the frame right. A luggage rack on the roof with a low rail around it, empty. Two lamps mounted at the front corners, lit, small and dim — a low warm glow that reaches the coach itself and about a foot of ground beneath it and no further. Iron-tyred wooden wheels, the rear pair noticeably larger than the front. **The near rear wheel has been repaired with two different woods and the repair is visible** — the replacement spokes are a paler timber than the rest. Dust over everything, and the dust is a different colour from this ground because it came from somewhere else. Doors, a small window, no lettering of any kind anywhere on the coach.
+> **The coach.** A frontier mail and passenger stagecoach that has come four hundred miles and looks it. Heavy, dusty, boxy body on leather thoroughbraces, side-on to the viewer and angled very slightly toward the frame right. A luggage rack on the roof with a low rail around it, empty. Two lamps mounted at the front corners, lit, small and dim. **The lamps light only the coach itself** — a little warmth on the bodywork immediately around each lamp. **They cast no light whatsoever on the ground, the mud, the horses or anything else in the picture.** Iron-tyred wooden wheels, the rear pair noticeably larger than the front. **The near rear wheel has been repaired with two different woods and the repair is visible** — the replacement spokes are a paler timber than the rest. Dust over everything, and the dust is a different colour from this ground because it came from somewhere else. Doors, a small window, no lettering of any kind anywhere on the coach.
 >
 > **The team.** **Exactly two horses visible**, harnessed in front of the coach, standing still with their heads down and their necks low — tired, patient, not unhitched. Working animals, not cavalry horses: deep chest, short back, heavy legs, plain harness with a few small points of dull metal on the bridles. They read as one dark warm mass against the cold ground, separated from it by hue rather than by being darker. Two horses only. Do not add more.
 >
-> **Do not add:** any person, any driver, any passenger, any luggage or case or trunk on the roof or on the ground, any reins held by anyone, any lantern other than the two coach lamps.
+> **Do not add:** any person, any driver, any passenger, any luggage or case or trunk on the roof or on the ground, any reins held by anyone, any lantern other than the two coach lamps, **any pool or glow of light on the ground, any cast shadow on the ground.** The mud under and around the coach must remain exactly as it is in the attached image.
 >
 > A man 200 pixels tall would stand beside this coach with the roof rack well above his head.
 
@@ -115,29 +147,22 @@ The player character stands **200 pixels tall** in this 1600 × 720 image (40px 
 >
 > A night watchman in his sixties, walking steadily from one side of the road toward the other, **in profile, mid-stride, not looking toward the viewer**. Long coat, brimmed hat. He carries an oil lantern low in one hand, out a little from his body. He is unhurried and entirely uninterested in anything else in the picture.
 >
-> **The lantern is the only bright warm thing in the frame.** It casts a small pool of warm ochre and gold light on the mud directly beneath and around him — no wider than about one and a half times his own height, falling off quickly to nothing. The light warms him and the ground at his feet and nothing else: it does not reach the fences, the sign, the shack, or the far side of the road. It is a lamp, not a torch.
+> **The lantern is lit and is the only warm thing in the frame — but its light must fall on him and nothing else.** The globe glows warm ochre and gold. That warmth reaches his hand, his sleeve, the near side of his coat and the underside of his hat brim, and stops there.
 >
-> **The pool of light must be attached to him** — centred on him and moving with him, not a patch of lit ground he happens to be standing near.
+> **Do not draw any light on the ground.** No pool, no patch, no wash, no glow, no cast shadow on the mud. The road beneath and around him must remain exactly the cold moonlit mud that is in the attached image, unchanged, right up to the edge of his boots. The ground light is added later by the game engine and must not be present here.
 >
 > A standing man in this picture is 200 pixels tall. Draw him at that height.
 >
-> **Do not add:** the coach, horses, any second figure, any other light source, any change to the distant town's windows.
+> **Do not add:** the coach, horses, any second figure, any other light source, any change to the distant town's windows, **any light or shadow on the ground.**
 
-## E · THE CASE ON THE ROOF *(low priority)*
+## E · THE CASE — generated once *(low priority)*
 
-*Attach: **B**.*
+*Attach: **B**. **There is no F.** The case is generated in one state only and its mud and carried states are authored from this single asset — two generations of a 22 × 12 object produce two different cases.*
 
 > [TECHNICAL BLOCK]
 >
 > Add one small piece of luggage to the luggage rack on the roof of the coach, and change nothing else. A modest travelling case — leather or canvas over a wooden frame, a single handle, plain metal clasps, worn but cared for. It belongs to someone with very little, packed carefully. It sits alone on the rack, not strapped down. **No lettering, no monogram, no labels.** Nothing else in the image changes.
 
-## F · THE CASE IN THE MUD *(low priority)*
-
-*Attach: the plate.*
-
-> [TECHNICAL BLOCK]
->
-> Add one small travelling case standing in the mud in the near foreground, set down flat and upright as if placed rather than dropped. Same case as described for the roof rack: leather or canvas over a wooden frame, single handle, plain clasps, worn, no lettering or monogram of any kind. It is not open. Nothing else in the image changes — no figure, no coach, no light on it beyond the moonlight already in the picture.
 
 ---
 
@@ -153,15 +178,26 @@ Run before anything is traced or animated. Each is a one-line pass or fail.
 6. **Canon** — two horses, not three. No lettering anywhere. No case in B. No driver in B. No coach in D.
 7. **Ground contact** — wheels and feet land on ground that exists, at a depth consistent with their size.
 8. **Departure path** — B leaves clear mud between the coach and the right edge of the frame, wide enough for it to drive off.
+9. **No ground light** — the changed-pixel mask contains no mud, road, fence or ground pixels that were merely re-lit rather than covered. A recovered layer whose alpha includes lit ground is rejected and regenerated. This is the check that the first version of this document was missing.
+
+## Deterministic processing, because prompting cannot enforce format
+
+The checks above catch failures; they do not prevent them. Everything after acceptance happens at native resolution under code, not under instruction:
+
+- Decimate 5 → 1 and do all final work at **320 × 144**.
+- Quantise **only the new sprite pixels**; plate pixels are copied, never requantised.
+- Assign reserved indices explicitly. `accent_gold` 225–228 belongs to Hob's flame and to nothing else in Room 1.
+- Any upscale is nearest-neighbour only.
+- Reject any edit that changed a plate pixel outside its permitted mask.
 
 ---
 
-# PART FIVE — THREE THINGS YOU SHOULD RULE ON
+# PART FIVE — RULINGS RECEIVED
 
-**1. Two horses, not three.** Doc 05's written LOOK line is *"Two horses I can see and I am told there are four more."* The existing procedural team draws **three**, with a long justification derived from counting nine hooves in the original ChatGPT image. Errata 53 changes no written line, so the line wins and the art was wrong. The prompt above says two. Confirm.
+**1. Two horses.** Confirmed. Doc 05's written line governs; the procedural team's three horses were derived from counting hooves in a discarded image.
 
-**2. The road-direction contradiction is live.** Errata 43 sets the walking order west-to-east as Room 1 · Main Street · Lower Street, which puts Main Street *east* of Room 1. But the room record's exit `road_west` goes to Main Street, `road_east`'s LOOK line is *"Home is that way. It is eleven hundred miles that way"* — home being Rhode Island, i.e. east — and doc 17 beat 6b has the coach depart **frame right** and beat 7 has it recede **east**. Doc 35's worked example noticed half of this and ruled the art fine.
+**2. Road direction.** Ruled: Thad leaves frame right toward town, and the stale `road_west` data is corrected rather than a new into-depth exit invented.
 
-It does not affect these prompts: the coach departs frame right either way. It does affect where Thad walks to reach town. The picture puts the town in the middle distance centre-left, which doc 29 already supports as a road-into-depth transition — the actor walks away from camera and the next room opens at a far-depth entrance. That would resolve it cleanly, but it's a topology ruling and errata 52's stop condition means it's yours, not mine.
+*One conflict this leaves open, recorded rather than resolved.* The coach also departs frame right, receding **east** per doc 17 beats 6b and 7, and `road_east`'s written LOOK line is *"Home is that way. It is eleven hundred miles that way."* Under this ruling the same road is both home-at-eleven-hundred-miles and town-at-two-hundred-yards, and the plate puts the town visibly in the middle distance centre-left, so Thad walks away from a town the player can see. Neither the written lines nor the coach's departure direction has been reconciled to the ruling yet. Tracked as Q2 in `docs/36-issue-list.md`.
 
-**3. The placard.** There is a second small signboard on the fence carrying an illegible mark. Doc 17's hotspot set has one sign. Either it gets a LOOK line or it gets painted out. It is small enough to remove by hand at native — it does not need a regeneration.
+**3. The placard.** Ruled: remove the mark so the board reads as ordinary scrap, not a second sign or a false hotspot. Removed by hand at native — no regeneration.
