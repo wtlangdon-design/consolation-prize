@@ -1,0 +1,10 @@
+{
+  "states": {
+    "closed": "reference/casting/coach-team-driver-case-right.png",
+    "open": "reference/casting/coach-team-driver-door-open-right.png"
+  },
+  "alignment": "ground line and the coach's rear edge",
+  "verified": "Aligned on those two features, the states differ on 13,739px, ALL of them in the door region: zero in the rear wheel, zero at the driver and box, zero across the horses. They swap without anything jumping.",
+  "note": "Q28: two full coach states, not a swinging door. A door in profile foreshortens, so a hinged sprite needs several drawn angles each matching the body's shading at that angle; two full states have nothing between them to be wrong.\n\nDO NOT COMPARE THESE BY CROPPING TO CONTENT. The case on the closed state's roof rack is the topmost thing in the frame, so removing it shrinks the bounding box from 703 to 685 and a crop-aligned diff reports 156,792px changed across the whole assembly, including horses and wheels that are byte-identical. Align on features present in both.",
+  "beats": "closed + case on the rack = beats 1-2, the coach arrived. open + rack empty = beat 3 onward, Thad has stepped down and his case has come off."
+}
