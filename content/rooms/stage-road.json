@@ -463,7 +463,8 @@
       "overrides": {
         "PICK_UP": "I have enough on my boots. I am carrying a quantity of this town already."
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "WALK_TO",
+      "defaultVerbNote": "RULED, AND IT MATCHES ROOM 2. Clicking the ground should walk. This rect is [0, 660, 1920, 204] -- EXACTLY the walkable band Q4 measured -- so with LOOK_AT as the default there was no bare ground left anywhere in the room and no way to move at all: WALK TO is not one of the nine panel verbs, so a click on the floor examined the mud and the player stood still. Measured before the change: a click at (960, 665) resolved to this hotspot and left the walk target where the actor already was. It was invisible before Q4 only because the old band overhung this rect by 84 rows and those rows were bare ground. The three written LOOK lines are untouched and are reached by selecting Look at first, which is how every other examinable thing in the game already works."
     }
   ],
   "exits": [
