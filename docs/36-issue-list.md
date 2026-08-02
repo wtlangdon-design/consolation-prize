@@ -476,13 +476,17 @@ Raised rather than fixed again, because renumbering the symptom is what happened
 
 **Not proposing the scheme.** Sequential integers assigned at write time require a global view that a branch does not have, and that is the whole of it. What replaces them — per-branch prefixes, dates, initials, content hashes — is a convention question with real trade-offs for how the document reads, and it belongs to Tyler along with everything else in this list. What is now established is that the current scheme has failed twice in one session, both times for the same reason, and that the next failure may not announce itself.
 
-## Q25 · The opening never ends, so the panel is unreachable without a dev handle
+## Q25 · Clicking during the opening wedges it permanently
 
-Found by looking, after the three rulings landed. Not caused by them.
+**CORRECTED. As first filed this entry said "the opening never ends" and that is wrong.** The opening ends. Twice measured, identically: play it without clicking except on the driver's dialogue options and it **completes at t = 21s**, `GameScene.opening` goes null, and the panel appears. The original claim came from a session where the opening was clicked through, and the conclusion drawn from it — that the game is unreachable — did not survive being checked patiently.
 
-`content/sequences/opening.json` has eleven beats. Clicking through them stalls: forty clicks over thirty-six seconds leaves `GameScene.opening` non-null, the last line still on screen, and the sequence still running. Because `showPanel` is `this.opening === null`, **the verb panel never appears** — the bottom 216 rows stay pure black, a single colour, no fill at all.
+**What is true, and it is still serious.** Clicking during the opening's *automatic* segments stops it advancing, permanently. Measured: clicks at 700–900 ms intervals leave `openingAt` frozen — at 0 in one run, at 2 in another after the driver's tree was answered — and it never moves again. No error, no console output, nothing on screen to say anything is wrong. Because `showPanel` is `this.opening === null`, the panel never appears and the bottom 216 rows stay a single flat colour.
 
-It is consistent with what the validators already report: *"gated on but written by no content: `T_HOB_GONE` — engine:opening-sequence:beat10 must exist for it to fire."* Beat 10 is unbuilt, so nothing ends the sequence. That is Phase 1 being Phase 1 rather than a defect in anything shipped, but the consequence is worth stating plainly: **a person opening the game today cannot reach the interface at all.** Everything below the opening — the panel, the verbs, the inventory, hotspots, LOOK and LISTEN — was reachable for verification only by calling `finishOpening()` from the dev-build handle, which is what was done.
+**So the defect is not that the opening cannot finish; it is that a player who clicks cannot finish it.** A player will click. It is the first thing anybody does at a screen holding a line of text, and doing it once during an eight-second automatic beat costs them the entire game with no feedback.
+
+**Mechanism: not established.** The likely shape is that a click ends the running sequence outside the update loop, so the `wasRunning && !isRunning` transition that calls `advanceOpening` is never observed on a tick — but attempts to instrument `GameScene.update` from the page did not take effect (Phaser does not dispatch through the overridden instance property), and no mechanism should be recorded here on the strength of a hypothesis that could not be tested. What *is* recorded is the behaviour, reproduced on demand in both directions.
+
+**Not related to beat 10.** The validators' note — *"gated on but written by no content: `T_HOB_GONE`"* — is about a flag nothing writes, not about the sequence's ability to end. It ends at `at = 4`.
 
 ## Q26 · At ×6 the face does not comfortably fit errata 54's panel
 
