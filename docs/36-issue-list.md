@@ -54,7 +54,23 @@ Prompts: `docs/37-room-01-generation-prompts.md`.
 
 **The separation required:** Hob's opaque body · the lantern and flame · the lantern's ground-light mask · the coach and team · the coach lamps · the coach lamps' ground-light masks. The first two travel with the figure. The masks alter whatever background pixels are beneath them at the moment they are drawn, and therefore cannot be baked into a sprite.
 
-Generations B and D are amended to carry light **on the object only** — the globe, the lamp housings, the warm rim on a coat. Ground light is the runtime's job: doc 15's P5 radial pass, or an authored additive mask applied at native.
+Generations B and D are amended to carry light **on the object only** — the globe, the lamp housings, the warm rim on a coat.
+
+**Ground light is the runtime's job, and errata 54 changed what that job is.**
+
+*This paragraph has been wrong twice. It first said "an authored additive mask," which was ambiguous — a translucent RGB overlay would have produced colours outside the locked 256. It was then narrowed to index remapping through authored warm ramps, the mechanism doc 18's cycling used. **Errata 54 voids that too**: there are no indices any more.*
+
+**The mechanism now:** a soft radial glow texture, additively blended, anchored to the lantern and drawn as its own sprite. In full RGB that is one texture and a blend mode, native to Phaser. It travels with the carrier, scales with his depth zone, and never touches the plate.
+
+Everything D6 and D8 were working around dissolves:
+
+- **The flame.** Issue X5 found palette cycling was background-only, so a sprite lantern could never have flickered under the old spec. Flicker is now modulation of the glow's alpha or tint over time. No frames.
+- **The interim plate is useful again.** It remains the single authored sample of what Room 1's mud looks like lit, so it is the reference for the glow's colour and falloff — not a discarded asset.
+- **Hob's own warmth is already right.** The lantern's light on his coat, hand, sleeve and hat brim is painted into the sprite and travels with him correctly. That was always the right place for it.
+
+**What is lost, and it is accepted:** an additive glow does not respond per-material. Wet ruts and dry mud brighten identically, where genuinely lit art would differ. Index remapping would have preserved that and is no longer available.
+
+**Unchanged and still binding:** no mover layer contains light cast on the ground. The glow is a separate sprite, never part of the figure.
 
 *Found in review of `docs/37`. The error was in switching between authored art and differenced art without noticing they behave differently under translation.*
 
@@ -68,7 +84,7 @@ A flat coach-and-team layer translated rightward reads as a cardboard cutout. Be
 
 ## D6 · Hob's lantern rides in his sprite
 
-**Amended by D8.** Doc 17 note 0: *"He does not stop walking."* The figure and his lantern travel together as one sprite layer, and nothing is baked into the plate. **But the ground pool does not travel with him** — it is a runtime mask, not part of the sprite. The D generation produces the figure and the lit lantern only. The interim plate has no role as a plate and is discardable; its only residual value is as the single authored sample of what that ground looks like lit, should a runtime radial pass ever want a lookup table.
+**Amended by D8, and again by errata 54.** Doc 17 note 0: *"He does not stop walking."* The figure and his lantern travel together as one sprite layer, and nothing is baked into the plate. **But the ground pool does not travel with him** — it is a separate additive glow sprite anchored to the lantern, per D8 as revised. The D generation produces the figure and the lit lantern only. The interim plate is **retained**, not discarded: it is the single authored sample of what that ground looks like lit, and therefore the reference for the glow's colour and falloff.
 
 ## D7 · Scrolling and errata 43's topology are orthogonal
 
