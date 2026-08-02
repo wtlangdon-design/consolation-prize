@@ -5,6 +5,16 @@
 
 ---
 
+# BATCHING WORKS
+
+The driver came back as **four poses in one generation** — seated, standing, climbing, reaching — with 476–522px of magenta between them. They split unambiguously.
+
+**Split on the magenta columns, not by connected component.** Component labelling found the four figures and silently dropped five small pieces, which were his raised fingers. Column splitting keeps them.
+
+Sizes vary with the pose rather than with the build: 960px seated, 1160 standing, 1166 climbing, 1246 reaching with his arms up. That is the same man in four positions.
+
+Generating at ~1600px for a character shown at 205 is 8× more resolution than the screen can use, so a four-up sheet at 400px each is still nearly double what is needed. **Batching costs nothing real.**
+
 # WHAT WE LEARNED ACQUIRING THESE
 
 **Attach ONE image, not two.** Held three times now. Talk on the right and front came back clean with a single reference — 1,757px and 1,124px changed, nothing below the neck. The left with two references came back a redraw. Every pickup attempt used two, and all five were rebuilt characters. `shrug` and `use_near` with one reference are the closest proportional matches of any pose acquired.

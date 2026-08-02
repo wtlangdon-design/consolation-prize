@@ -1,0 +1,14 @@
+{
+  "source": "reference/casting/hob-walk-right.png",
+  "key": "magenta",
+  "clip": "stand",
+  "view": "profile",
+  "facing": "right",
+  "figure": [
+    740,
+    1517
+  ],
+  "hem_row": 1086,
+  "padding": 260,
+  "frames": 1
+}
