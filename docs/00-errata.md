@@ -1159,16 +1159,6 @@ Doc 29 §13.1 is stronger than doc 17 on the arrival and doc 17 yields to it:
 - **The act card waits** until the arrival blocking has established place and character.
 - **The exit to Main Street uses the road's real perspective lane** — Thad walks into depth, scales down, reaches an occluded bend, and Main Street receives him at its west entrance.
 
-## Correction: the character height
-
-**This ruling originally said ~233px at mid-depth. That number was wrong.**
-
-It was derived from Monkey Island's proportions — 27% of play height — and never checked against Room 1's plate once the plate existed. Measured against the picture instead: the fence's far-left post runs from row 520 to row 680, 160px, and the project owner reads its top as chest-to-shoulder height on a man. That gives **~205px at that depth**, and cross-checks — the fence then works out to 4.5 feet, right for a frontier rail fence.
-
-**205 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, which is roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
-
-Recorded in full as Q21 in `docs/36-issue-list.md`.
-
 ## Precedence
 
 Doc 29 governs movement, transitions, entrances, exits and room-authoring data. Where it conflicts with an earlier errata ruling on those subjects, **doc 29 wins** unless named above.
@@ -1284,16 +1274,6 @@ Its section 14 order stands: resolver, schema, permission validator, transaction
 
 **Do not populate the manifest before the resolver exists.** A graph that passes reachability while every success falls through a pool is the exact false pass doc 31 warns about, and the existing checker's honesty about being inert must survive.
 
-## Correction: the character height
-
-**This ruling originally said ~233px at mid-depth. That number was wrong.**
-
-It was derived from Monkey Island's proportions — 27% of play height — and never checked against Room 1's plate once the plate existed. Measured against the picture instead: the fence's far-left post runs from row 520 to row 680, 160px, and the project owner reads its top as chest-to-shoulder height on a man. That gives **~205px at that depth**, and cross-checks — the fence then works out to 4.5 feet, right for a frontier rail fence.
-
-**205 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, which is roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
-
-Recorded in full as Q21 in `docs/36-issue-list.md`.
-
 ## Precedence
 
 Doc 31 governs what the player perceives when the puzzle systems run. **It does not change any puzzle solution or any written line** — docs 02, 13, 14, 24 and the room content documents are unaffected, and doc 31 says so. Where it conflicts with an earlier ruling on feedback or performance, doc 31 wins.
@@ -1361,16 +1341,6 @@ That corrects the direction errata 35a could be read as pointing. 35a stands —
 
 **Deadpan:** *"Do not fill the reply pause with random flapping. Stillness is a performance state."*
 
-## Correction: the character height
-
-**This ruling originally said ~233px at mid-depth. That number was wrong.**
-
-It was derived from Monkey Island's proportions — 27% of play height — and never checked against Room 1's plate once the plate existed. Measured against the picture instead: the fence's far-left post runs from row 520 to row 680, 160px, and the project owner reads its top as chest-to-shoulder height on a man. That gives **~205px at that depth**, and cross-checks — the fence then works out to 4.5 feet, right for a frontier rail fence.
-
-**205 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, which is roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
-
-Recorded in full as Q21 in `docs/36-issue-list.md`.
-
 ## Precedence
 
 Doc 32 governs animation and performance. It changes no written line, no puzzle solution and no room composition. It upholds errata 35e — motion is never information — and restates it as non-negotiable in its opening.
@@ -1412,16 +1382,6 @@ Composed from an authored room `saveLabel` and a stable `saveLandmark`, using **
 - **`SaveCoordinator` is the only write gate.** No scene, dialogue runner, puzzle action, transition, chore, shortcut or menu writes storage directly. `enterRoom()` currently writes during a state change and must stop owning persistence.
 - **No resumable mid-transaction save in the first release.** A queued request waits for the next declared checkpoint or final settle.
 - **No HINTS, DIFFICULTY, PUZZLE ASSIST, OBJECT HIGHLIGHT, QUEST LOG, TIMER or completion setting** exists in options now or later without a new binding ruling.
-
-## Correction: the character height
-
-**This ruling originally said ~233px at mid-depth. That number was wrong.**
-
-It was derived from Monkey Island's proportions — 27% of play height — and never checked against Room 1's plate once the plate existed. Measured against the picture instead: the fence's far-left post runs from row 520 to row 680, 160px, and the project owner reads its top as chest-to-shoulder height on a man. That gives **~205px at that depth**, and cross-checks — the fence then works out to 4.5 feet, right for a frontier rail fence.
-
-**205 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, which is roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
-
-Recorded in full as Q21 in `docs/36-issue-list.md`.
 
 ## Precedence
 
@@ -1580,9 +1540,9 @@ Doc 29's movement, occlusion and camera rules stand; only the pixel figures in t
 
 **This ruling originally said ~233px at mid-depth. That number was wrong.**
 
-It was derived from Monkey Island's proportions — 27% of play height — and never checked against Room 1's plate once the plate existed. Measured against the picture instead: the fence's far-left post runs from row 520 to row 680, 160px, and the project owner reads its top as chest-to-shoulder height on a man. That gives **~205px at that depth**, and cross-checks — the fence then works out to 4.5 feet, right for a frontier rail fence.
+It was derived from Monkey Island's proportions — 27% of play height — and never checked against Room 1's plate once the plate existed. Measured against the picture instead: the fence's far-left post runs from row 520 to row 680, 160px, and the project owner reads its top as chest-to-shoulder height on a man. That gives **~205px at that depth**, and it cross-checks — the fence then works out to 4.5 feet, right for a frontier rail fence.
 
-**205 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, which is roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
+**205 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
 
 Recorded in full as Q21 in `docs/36-issue-list.md`.
 
