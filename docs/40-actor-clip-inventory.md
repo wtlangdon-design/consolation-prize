@@ -14,6 +14,9 @@
 | **walk** | 8 | 8.0/s | Locomotion | ✅ four facings |
 | **idle** | 6 | 2.4/s | Standing, breathing. The rest state | ✅ four facings |
 | **recoil** | 4 | 7.0/s | Reacting to something | ❌ |
+| **idle-break** | 12 | ~2/s | A glance left then right, played occasionally | ✅ four facings |
+
+**idle-break is not in the actor record.** It was added because pure breathing reads as *too* still — a character who stands perfectly motionless for more than a few seconds looks switched off. It plays on a timer while idle and returns to it. The record needs a clip entry for it.
 
 **Four facings each: front, back, left, right.** Errata 50 forbids runtime mirroring — costume asymmetry and lighting make a flipped sprite dishonest.
 
@@ -89,5 +92,11 @@ One-shot staging, not loops. These are Thad's alone and no other character needs
 ```
 
 Idle amplitude is 0.5% of figure height — about 8px at source, **1.2px on screen** at 233px. Smaller than that and it vanishes entirely.
+
+## Two rules idle taught
+
+**Never move anything by less than one DISPLAY pixel.** A sub-display-pixel shift is not a small motion, it is a resampling artifact: the downscale blends neighbouring colours differently every frame. On Thad it put skin tone on his pale collar. Quantise every offset to multiples of `figure_height / 233`.
+
+**The head does not move when breathing.** Raising the chest is right; bobbing the head is not, and it smears any small high-contrast feature near the face — a collar, a badge, an earring — against skin. Split at 30% of figure height and hold everything above it still.
 
 **Verify with the skin-pixel count.** If any skin-coloured region changes shape between frames the spread is non-zero; a correct clip reads 0. That check is what finally caught the hands being assigned to the leg layer.

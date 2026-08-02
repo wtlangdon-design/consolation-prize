@@ -15,6 +15,8 @@ from scipy import ndimage
 
 HIP_SWING = [14, 10, 0, -10, -14, -10, 0, 10]
 IDLE_BREATH = [0.0, 0.45, 0.85, 1.0, 0.7, 0.3]   # 6 frames, doc 22's rest state
+DISPLAY_H = 233          # the height a character is shown at, errata 54
+LOOK = [0, -1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0]   # idle break: glance left, then right
 ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
 ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
@@ -293,7 +295,7 @@ def main():
                          "reads as the hand stretching.")
     ap.add_argument("--near-mask", help="ARMMASK code or file for the near arm")
     ap.add_argument("--far-mask", help="ARMMASK code or file for the far arm")
-    ap.add_argument("--clip", default="walk", choices=["walk", "idle"],
+    ap.add_argument("--clip", default="walk", choices=["walk", "idle", "idle-break"],
                     help="idle is the rest state every chore settles into (doc 22)")
     ap.add_argument("--breath", type=float, default=1.0,
                     help="scales the idle breath; 1.0 is about one display pixel")
@@ -404,29 +406,81 @@ def main():
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     travel = 0
 
+    # A move smaller than one DISPLAY pixel is not a small move -- it is a
+    # resampling artifact. The figure is scaled to 233px, so a source shift
+    # that is not a multiple of fig_h/233 lands sub-pixel, and the downscale
+    # blends neighbouring colours differently every frame. On Thad that made
+    # the pale collar take on skin tone beside his neck.
+    step = max(1, int(round(fig_h / DISPLAY_H)))
+
+    if args.clip == "idle-break":
+        # Head only. The body stays in its idle rest pose and he glances aside.
+        head_rows = np.nonzero(mask.any(1))[0]
+        top = int(head_rows.min())
+        widths = mask.sum(1)
+        shoulder_row = top + int(0.10 * fig_h)
+        for y in range(top + int(0.04 * fig_h), int(fig_h * 0.35)):
+            if widths[y] > 1.9 * max(widths[top:top + int(0.05 * fig_h)].max(), 1):
+                shoulder_row = y
+                break
+        # In profile a wide hat brim is as broad as the shoulders, so the
+        # width jump fires at the brim -- 10% down, which is hat and nothing
+        # else. A head is not less than about a fifth of a standing figure.
+        if shoulder_row < 0.15 * fig_h:
+            shoulder_row = int(0.20 * fig_h)
+        head_m = np.zeros((H, W), bool); head_m[:shoulder_row] = mask[:shoulder_row]
+        head = as_layer(head_m)
+        body_m = mask.copy(); body_m[:shoulder_row] = False
+        body = as_layer(body_m)
+        for i, k in enumerate(LOOK):
+            f = np.zeros((H, W, 4))
+            f = over(body, f)
+            f = over(np.roll(head, k * step, axis=1), f)
+            Image.fromarray(f.astype(np.uint8)).save(out / f"idle-break-{i:02d}.png")
+        meta = dict(source=args.source, key=args.key, clip="idle-break",
+                    view=args.view, facing=args.facing, figure=[fig_w, fig_h],
+                    shoulder_row=int(shoulder_row), padding=P, step_px=step,
+                    frames=len(LOOK))
+        (out / "rig.json").write_text(json.dumps(meta, indent=2))
+        print(f"idle-break: {len(LOOK)} frames, head above row {shoulder_row} "
+              f"({shoulder_row/fig_h*100:.0f}%), glance +/-{step}px = 1 display px")
+        return
+
     if args.clip == "idle":
         # BREATHING. The legs are planted; everything above the hem rises and
         # settles. Amplitude is set as a fraction of figure height so it lands
         # at roughly one pixel once scaled to 233px -- at full resolution that
         # is ~8px, and anything smaller vanishes entirely on screen.
         amp = 0.005 * fig_h * args.breath
+        # THE HEAD DOES NOT MOVE. Breathing raises the chest; the head stays.
+        # Moving it bobs a small pale collar against skin one display pixel at
+        # a time, and the downscale smears the two together -- which is what
+        # put skin tone on Thad's collar. Split below the collar and hold
+        # everything above it still.
+        breath_row = int(0.30 * fig_h)
+        still_m = np.zeros((H, W), bool); still_m[:breath_row] = mask[:breath_row]
+        still = as_layer(still_m)
+        chest_m = coat_m.copy(); chest_m[:breath_row] = False
+        chest = as_layer(chest_m)
         for i, t in enumerate(IDLE_BREATH):
-            dy = -int(round(amp * t))
+            dy = -int(round(amp * t / step)) * step      # whole display pixels only
             f = np.zeros((H, W, 4))
             f = over(far_leg, f)
             f = over(near_leg, f)
             if far_am is not None:
                 f = over(np.roll(as_layer(far_am), dy, axis=0), f)
-            f = over(np.roll(coat, dy, axis=0), f)
+            f = over(np.roll(chest, dy, axis=0), f)
             if near_am is not None:
                 f = over(np.roll(as_layer(near_am), dy, axis=0), f)
+            f = over(still, f)                            # head and collar, static
             Image.fromarray(f.astype(np.uint8)).save(out / f"idle-{i:02d}.png")
         meta = dict(source=args.source, key=args.key, clip="idle", view=args.view,
                     facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
                     padding=P, breath_px=round(amp, 1), frames=len(IDLE_BREATH))
         (out / "rig.json").write_text(json.dumps(meta, indent=2))
-        print(f"idle: {len(IDLE_BREATH)} frames, breath {amp:.0f}px at source "
-              f"(~{amp*233/fig_h:.1f}px on screen)")
+        used = sorted({-int(round(amp * t / step)) * step for t in IDLE_BREATH})
+        print(f"idle: {len(IDLE_BREATH)} frames, breath quantised to {step}px steps "
+              f"-> offsets {used} = {[abs(u)//step for u in used]} display px")
         return
     for i, s in enumerate(HIP_SWING):
         s *= args.swing
