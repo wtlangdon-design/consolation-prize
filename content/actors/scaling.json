@@ -1,22 +1,22 @@
 {
   "schema": 3,
   "note": "ERRATA 54, and Q9 as ruled. ONE DRAWN SIZE, so ruling 24's two-tier table and the decimation threshold that switched between them are gone rather than migrated -- filtered resampling has nothing for a threshold to choose. What remains is the depth-zone table the room schema samples by index.",
-  "provisional": "Q4/Q6: ROOM 1'S CURVE, measured against its own final art, and nobody else's. Q21 measured the fence and put a figure at that depth near 205px; that is the ONE measured point, with a shallow gradient either side — 190 at the back of the band, 225 at the front. The band is 204px deep against a 205px character, about one body-depth, so the falloff is small and being slightly wrong costs little. EVERY OTHER ROOM STILL NEEDS ITS OWN, measured against its own final art, which is Q4's whole point: this table is per-room in intent and global in structure, and the structure is what has to change when the second room is measured.",
+  "provisional": "Q4/Q6: ROOM 1'S CURVE, measured against its own final art, and nobody else's. Anchored at 240px in the mid zone -- Monkey Island's proportion, Guybrush at 40px in a 144px play area being 27.8%, and 240/864 the same. It REPLACES 205, which came from reading the fence as chest-to-shoulder: an eye judgement treated as a measurement, which left the protagonist 15% smaller than the character this game is modelled on. The wagon wheel at bottom left was the second anchor that exposed it -- two independent references disagreeing is the check that should have run first. The gradient's shape is unchanged, only its scale.",
   "zones": [
     {
       "index": 0,
       "name": "near",
-      "height": 225
+      "height": 263
     },
     {
       "index": 1,
       "name": "mid",
-      "height": 205
+      "height": 240
     },
     {
       "index": 2,
       "name": "far",
-      "height": 190
+      "height": 222
     }
   ]
 }

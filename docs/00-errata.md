@@ -1492,7 +1492,7 @@ The second argument is the metric problem. Every instrument in the Room 1 run ex
 | Play area | 320 × 144 | **1920 × 864** |
 | Verb panel | 56 px | **216 px** |
 | Colour | 256-entry locked indexed palette | **Full RGB. No index palette.** |
-| Character height | ~40 px, two drawn sizes | **~205 px at the Room 1 fence's depth**, scaled by depth from there — corrected below |
+| Character height | ~40 px, two drawn sizes | **240 px**, Monkey Island's 27.8% of the play area, scaled by depth from there — corrected below |
 | Scaling | Decimation, errata 24 | **Ordinary filtered resampling** |
 | Font | 1-bit hand-authored 5 × 7 | **Replacement required — unspecified** |
 | Background animation | Palette cycling, doc 18 | **None. Mechanism removed.** |
@@ -1531,7 +1531,7 @@ Doc 29's movement, occlusion and camera rules stand; only the pixel figures in t
 ## Consequences that are now open work
 
 - **The 5 × 7 font is unusable at 1920 × 1080** and has no replacement specified.
-- **Sprite scaling by depth** needs a per-room scale curve; 205 px is a height at a stated depth — the Room 1 fence — not a character's size.
+- **Sprite scaling by depth** needs a per-room scale curve; 240 px is a reference height at the curve's mid zone, not a character's size.
 - **Room 1's plate is 1870 × 841** against a 1920 × 864 target. A 2.7% upscale is accepted rather than regenerating a plate the project owner has approved.
 - **The character pipeline is `docs/38`**, and it exists because of this ruling.
 - **Animation replaces palette cycling** as the only way anything in a room moves. Every room's motion floor under errata 35a now costs sprite frames.
@@ -1542,7 +1542,9 @@ Doc 29's movement, occlusion and camera rules stand; only the pixel figures in t
 
 It was derived from Monkey Island's proportions — 27% of play height — and never checked against Room 1's plate once the plate existed. Measured against the picture instead: the fence's far-left post runs from row 520 to row 680, 160px, and the project owner reads its top as chest-to-shoulder height on a man. That gives **~205px at that depth**, and it cross-checks — the fence then works out to 4.5 feet, right for a frontier rail fence.
 
-**205 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
+**CORRECTED AGAIN: 205 became 240.** The fence reading was circular — "the top reads as chest-to-shoulder" was an eye judgement, and deriving a height from it dressed an intuition as a measurement. The wagon wheel at bottom left is a second, independent anchor, and checking the two against each other is what exposed it. At 205 the protagonist was 23.7% of the play area against Monkey Island's 27.8%; 240 matches the reference this game is built on.
+
+**240 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
 
 Recorded in full as Q21 in `docs/36-issue-list.md`.
 
