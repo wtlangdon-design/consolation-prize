@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
-import { BitmapFont, GLYPH_SCALE } from '../engine/render/BitmapFont.ts';
+import { BitmapFont, GLYPH_SCALE, PANEL_GLYPH_SCALE } from '../engine/render/BitmapFont.ts';
 import {
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
@@ -111,6 +111,51 @@ test('every verb button is hit-testable and none overlap', async () => {
     assert.equal(hits.length, 1, `a click at the centre of ${id} must select exactly one verb`);
     assert.equal(hits[0]!.id, id);
   }
+});
+
+test('Q35: every line of panel text clears the line below it and the frame edge', async () => {
+  const content = await loadContent(fsReader);
+  const panel = new PanelLayout(content.panel);
+  const font = new BitmapFont(content.font, PANEL_GLYPH_SCALE);
+
+  // FOUR IS DERIVED, AND THIS IS THE DERIVATION. The play area migrated by six
+  // because it IS six. The panel is 216 against the old 56, which is 3.857 --
+  // errata 54 re-proportioned it rather than scaling it -- and the face came
+  // along at six anyway. Asserted against the geometry rather than written
+  // down, so the number cannot drift from the thing it came from.
+  assert.equal(PANEL_GLYPH_SCALE, Math.round(PANEL_HEIGHT / 56));
+  assert.notEqual(PANEL_GLYPH_SCALE, GLYPH_SCALE);
+
+  // Every line of ink in the panel, top to bottom, at the y a label is really
+  // drawn at rather than the y of the box around it.
+  const labelY = (rect: { y: number; height: number }) => rect.y
+    + Math.max(0, Math.floor((rect.height - font.height) / 2));
+  const lines = [
+    { id: 'sentence line', top: panel.sentence.y },
+    ...[0, 1, 2, 3].map((row) => ({ id: `verb row ${row}`, top: labelY(panel.verbButton(0, row)) })),
+  ];
+
+  // ONE GLYPH PIXEL OF LEADING, MINIMUM. Not an arbitrary threshold: it is the
+  // font's own unit of space, and at six the panel had less. TALK TO and MENU
+  // had NONE -- one unbroken 83-row run of ink, which is what "printed on top
+  // of each other" looks like when you measure it.
+  for (let index = 1; index < lines.length; index += 1) {
+    const above = lines[index - 1]!;
+    const below = lines[index]!;
+    const gap = below.top - (above.top + font.height);
+    assert.ok(gap >= font.scale,
+      `${above.id} leaves ${gap} units above ${below.id}, less than one glyph pixel`);
+  }
+
+  // AND THE LAST LINE MUST NOT SIT ON THE FRAME EDGE. At six it ended one unit
+  // from the bottom, which is inside the frame at 1:1 and gone the moment the
+  // canvas is FIT-scaled -- on a 1366x768 Chromebook, 0.711, MENU and MAP and
+  // FULL were visibly cut off. This is the machine the game is played on, so
+  // "technically inside the frame" is not the property worth asserting.
+  const last = lines[lines.length - 1]!;
+  const margin = NATIVE_HEIGHT - (last.top + font.height);
+  assert.ok(margin >= font.scale,
+    `${last.id} ends ${margin} units from the frame bottom, less than one glyph pixel`);
 });
 
 test('the sentence line is assembled from templates, not built in code', async () => {

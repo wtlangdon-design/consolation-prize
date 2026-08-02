@@ -5,7 +5,7 @@ import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import type { AmbientFile, Interactable } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
-import { GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
+import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
 import {
   NATIVE_HEIGHT,
@@ -154,6 +154,14 @@ const MENU_ROW = 12 * GLYPH_SCALE;
 export class Renderer {
   private readonly screen: Screen;
   private readonly font: BitmapFont;
+  /**
+   * The panel's own face, at Q35's derived scale. Same glyph data, same file,
+   * a different multiplier -- because the panel is the one region errata 54
+   * re-proportioned instead of scaling, and text sized for the play area's
+   * factor does not fit in it. Built here rather than passed in, like
+   * PanelLayout beside it: it is a property of the panel, not of the caller.
+   */
+  private readonly panelFont: BitmapFont;
   private readonly state: GameState;
 
   /**
@@ -210,6 +218,7 @@ export class Renderer {
     this.sheet = sheet;
     this.sprite = new ActorSprite(state.content.actor, sheet);
     this.panel = new PanelLayout(state.content.panel);
+    this.panelFont = new BitmapFont(state.content.font, PANEL_GLYPH_SCALE);
   }
 
   /** The animation clock, in seconds. Set once per frame by the scene. */
@@ -706,7 +715,7 @@ export class Renderer {
    * re-authored the day Q6's font lands, which a constant would not.
    */
   private labelY(button: Rect): number {
-    return button.y + Math.max(0, Math.floor((button.height - this.font.height) / 2));
+    return button.y + Math.max(0, Math.floor((button.height - this.panelFont.height) / 2));
   }
 
   private drawPanel(frame: Frame): void {
@@ -721,7 +730,7 @@ export class Renderer {
       ? format(words.travelTemplate, { target: frame.hoveredTargetName as string })
       : (this.state.isMap ? '' : this.sentenceText(frame.hoveredTarget, frame.hoveredTargetName)));
     const { x: sx, y: sy } = this.panel.sentence;
-    this.font.draw(ctx, sentence, sx, sy, this.screen.roleColour('inkBright'));
+    this.panelFont.draw(ctx, sentence, sx, sy, this.screen.roleColour('inkBright'));
 
     // On the map every verb is inert -- doc 20 rule 5, a click travels and
     // there is nothing to look at, pull or open. They draw dim rather than
@@ -733,11 +742,11 @@ export class Renderer {
       const rect = this.panel.verbButton(verb.col, verb.row);
       const active = !inert && verb.id === this.state.verbs.selectedVerb;
       this.screen.fill(rect.x, rect.y, rect.width, rect.height, this.screen.role(active ? 'buttonBgActive' : 'buttonBg'));
-      this.font.draw(
+      this.panelFont.draw(
         ctx,
         verb.label,
         rect.x + 3,
-        rect.y + 2,
+        this.labelY(rect),
         this.screen.roleColour(inert ? 'inkDim' : (active ? 'inkBright' : 'ink')),
       );
     }
@@ -751,8 +760,8 @@ export class Renderer {
     this.screen.fill(button.x, button.y, button.width, button.height,
       this.screen.role(menu.isOpen ? 'buttonBgActive' : 'buttonBg'));
     const label = menu.buttonLabel;
-    const labelX = button.x + Math.floor((button.width - this.font.measure(label)) / 2);
-    this.font.draw(ctx, label, labelX, this.labelY(button), this.screen.roleColour('ink'));
+    const labelX = button.x + Math.floor((button.width - this.panelFont.measure(label)) / 2);
+    this.panelFont.draw(ctx, label, labelX, this.labelY(button), this.screen.roleColour('ink'));
 
     // Doc 20 rule 2. Beside MENU, and it says BACK while the map is open --
     // the same button, because a screen you can enter and not leave by the
@@ -763,8 +772,8 @@ export class Renderer {
       this.screen.fill(map.x, map.y, map.width, map.height,
         this.screen.role(open ? 'buttonBgActive' : 'buttonBg'));
       const text = open ? words.back : words.button;
-      const x = map.x + Math.floor((map.width - this.font.measure(text)) / 2);
-      this.font.draw(ctx, text, x, this.labelY(map), this.screen.roleColour('ink'));
+      const x = map.x + Math.floor((map.width - this.panelFont.measure(text)) / 2);
+      this.panelFont.draw(ctx, text, x, this.labelY(map), this.screen.roleColour('ink'));
     }
 
     // ERRATA 39's fullscreen toggle, in the panel because the ruling says the
@@ -776,8 +785,8 @@ export class Renderer {
       this.screen.fill(full.x, full.y, full.width, full.height,
         this.screen.role(this.fullscreen ? 'buttonBgActive' : 'buttonBg'));
       const text = this.fullscreen ? fullWords.back : fullWords.button;
-      const x = full.x + Math.floor((full.width - this.font.measure(text)) / 2);
-      this.font.draw(ctx, text, x, this.labelY(full), this.screen.roleColour('ink'));
+      const x = full.x + Math.floor((full.width - this.panelFont.measure(text)) / 2);
+      this.panelFont.draw(ctx, text, x, this.labelY(full), this.screen.roleColour('ink'));
     }
   }
 
@@ -852,8 +861,9 @@ export class Renderer {
         // an empty one is an item the player cannot see they are carrying.
         this.screen.outline(slot.x, slot.y, slot.width, slot.height,
           this.screen.role('inkDim'));
-        this.font.draw(this.screen.context, this.state.itemLabel(slot.id).slice(0, 4),
-          slot.x + 2 * GLYPH_SCALE, slot.y + 2 * GLYPH_SCALE, this.screen.roleColour('inkDim'));
+        this.panelFont.draw(this.screen.context, this.state.itemLabel(slot.id).slice(0, 4),
+          slot.x + 2 * PANEL_GLYPH_SCALE, slot.y + 2 * PANEL_GLYPH_SCALE,
+          this.screen.roleColour('inkDim'));
       }
       if (held) this.screen.outline(slot.x, slot.y, slot.width, slot.height,
         this.screen.role('inkBright'));

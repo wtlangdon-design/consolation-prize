@@ -24,32 +24,71 @@ type Ctx = CanvasRenderingContext2D;
 export const GLYPH_SCALE = 6;
 
 /**
+ * The VERB PANEL's glyph scale. Q35, as ruled.
+ *
+ * DERIVED, NOT CHOSEN, and that is the whole argument. The play area migrated
+ * by six because it IS six -- 1920/320 and 864/144 both. The panel did not:
+ * 216/56 is 3.857, because errata 54 re-proportioned the panel rather than
+ * scaling it, which is how 1080 works at all. The face came along at six
+ * anyway, into the one region where six is provably the wrong factor. Four is
+ * 3.857 rounded to an integer, the same operation six came from.
+ *
+ * WHAT IT COST TO FIND OUT. At six, five lines of 42-unit glyphs need 210 of
+ * the panel's 216 rows before a single gap. TALK TO and MENU were one
+ * unbroken 83-row run of ink -- their glyphs touching -- and the last row
+ * ended one pixel from the frame. At 1:1 nothing was technically clipped; on
+ * a 1366x768 Chromebook, where the canvas is FIT-scaled to 0.711, that one
+ * row is spent and MENU, MAP and FULL are cut off. Which is the machine this
+ * is played on.
+ *
+ * At four the same five lines take 140 of 216, leaving 35.2% of the panel as
+ * leading against the original 320x56 panel's 37.5%. The proportion the
+ * reference had is restored rather than approximated.
+ *
+ * THIS IS A SECOND SCALE, NOT A REPLACEMENT. Play-area text -- speech,
+ * dialogue options, the act cards -- stays at six, because the play area
+ * genuinely is six times what it was. Q6 is still open and this closes none
+ * of it: the 5x7 face is untouched and what eventually replaces it is
+ * unchanged by which integer multiplies it.
+ */
+export const PANEL_GLYPH_SCALE = 4;
+
+/**
  * 1-bit glyph renderer. Every lit pixel is written as an exact square at
  * integer coordinates, so nothing is ever rasterised through a system font
  * and nothing is ever anti-aliased.
  */
 export class BitmapFont {
   readonly height: number;
+  /**
+   * Units per glyph pixel FOR THIS FACE. An instance, not a module constant,
+   * because the panel and the play area are two different regions that scaled
+   * by two different factors -- Q35 -- and a module constant cannot be two
+   * things at once. Everything in this class reads it, so a second instance
+   * at another scale is correct everywhere or nowhere.
+   */
+  readonly scale: number;
   private readonly advance: number;
   private readonly spaceAdvance: number;
   private readonly onChar: string;
   private readonly glyphs: Map<string, string[]>;
   private readonly advances: Map<string, number>;
 
-  constructor(file: FontFile) {
+  constructor(file: FontFile, scale: number = GLYPH_SCALE) {
+    this.scale = scale;
     // Scaled ONCE, here. Everything downstream -- measure, wrap, the panel's
     // line heights, the renderer's margins -- reads these and therefore needs
     // no knowledge of the scale at all. A second multiplication anywhere else
     // would double it somewhere and not everywhere.
-    this.height = file.height * GLYPH_SCALE;
-    this.advance = file.advance * GLYPH_SCALE;
-    this.spaceAdvance = file.spaceAdvance * GLYPH_SCALE;
+    this.height = file.height * this.scale;
+    this.advance = file.advance * this.scale;
+    this.spaceAdvance = file.spaceAdvance * this.scale;
     this.onChar = file.on;
     this.glyphs = new Map(Object.entries(file.glyphs));
     // Per-glyph advance overrides. An em dash has to be wider than the cell
     // to read as an em dash rather than as a hyphen someone leaned on.
     this.advances = new Map(
-      Object.entries(file.advances ?? {}).map(([char, width]) => [char, width * GLYPH_SCALE]),
+      Object.entries(file.advances ?? {}).map(([char, width]) => [char, width * this.scale]),
     );
   }
 
@@ -79,7 +118,7 @@ export class BitmapFont {
     }
     // The trailing inter-glyph gap, which is one glyph pixel and therefore
     // one scale unit -- not one screen unit.
-    return width > 0 ? width - GLYPH_SCALE : 0;
+    return width > 0 ? width - this.scale : 0;
   }
 
   draw(ctx: Ctx, text: string, x: number, y: number, colour: string): number {
@@ -92,8 +131,8 @@ export class BitmapFont {
           const line = rows[row] as string;
           for (let col = 0; col < line.length; col += 1) {
             if (line[col] === this.onChar) {
-              ctx.fillRect(cursor + col * GLYPH_SCALE, y + row * GLYPH_SCALE,
-                GLYPH_SCALE, GLYPH_SCALE);
+              ctx.fillRect(cursor + col * this.scale, y + row * this.scale,
+                this.scale, this.scale);
             }
           }
         }
@@ -120,7 +159,7 @@ export class BitmapFont {
       [0, -1],
       [0, 1],
     ] as const) {
-      this.draw(ctx, text, x + dx * GLYPH_SCALE, y + dy * GLYPH_SCALE, outline);
+      this.draw(ctx, text, x + dx * this.scale, y + dy * this.scale, outline);
     }
     this.draw(ctx, text, x, y, colour);
   }

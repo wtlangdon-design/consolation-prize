@@ -752,7 +752,7 @@ That is the box curve doing precisely what it declares. `boxAt` takes precedence
 
 **R5e's shape again, and this is the third time.** Every existing check passed: the record parsed, every frame resolved on disk, every clip directory was declared, the boot lists partitioned, the depth curve returned the right number. Nothing compared the record to the pictures. The new check asks the **PNG header** rather than `rig.json` on purpose — asking the generator's own source whether the generator ran is a check sharing its subject's assumptions.
 
-## Q35 · The panel cannot hold five lines of 42-px type, and its font is scaled by the wrong factor
+## Q35 · The panel cannot hold five lines of 42-px type, and its font is scaled by the wrong factor — **RULED: ×4. Done.**
 
 Confirmed exactly as reported, measured off the running game with the opening finished. Ink extents in the verb block, `x 24–1056`:
 
@@ -796,6 +796,29 @@ The panel is the one region errata 54 did *not* scale by six — it re-proportio
 3. **A taller panel.** **This one is a second migration.** The play area shrinks, and every room's walkable band, walk box, entrance and hotspot rect moves with it. It should not happen as a side effect of a typography problem.
 
 Recommended: **1**. Stated, not taken.
+
+**RULING: ×4, panel only.** Taken on the derivation rather than on the slack table — ×4 is the panel's own migration factor rounded to an integer, the same operation the play area's 6 came from, which makes it a derived number rather than a chosen one.
+
+**Done.** `PANEL_GLYPH_SCALE = 4` in `BitmapFont.ts`, which now carries the scale **per instance** rather than as a module constant — the panel and the play area are two regions that migrated by two different factors, and a module constant cannot be two things at once. `Renderer` builds a second face from the same glyph data and uses it for the sentence line, the verb labels, MENU/MAP/FULL and the inventory's fallback text. Play-area text — speech, dialogue options, the act cards — is untouched at ×6, because the play area genuinely is six times what it was.
+
+`content/ui/panel.json` re-authored for a 28-unit glyph: sentence at 872, verb rows at 911 / 953 / 995 / 1037 on a 42-unit pitch, 33-unit cells, inventory rows at 911 on 80-unit cells.
+
+**Measured off the running game, same method as the defect:**
+
+| | before | after |
+|---|---|---|
+| glyph height | 42 | 28 |
+| leading between the five lines | 2, 2, 2, **0** | 13, 14, 14, 14 |
+| below the last line | **1** | **13** |
+| one glyph pixel | 6 | 4 |
+
+The five ink runs are now 872–899, 913–940, 955–982, 997–1024, 1039–1066. Nothing touches anything.
+
+**Verified at 1366 × 768**, which is the machine this is played on: MENU, MAP and FULL are fully inside the frame with clear space below them, where before the 0.711 downscale cut them off.
+
+**And it is a test.** `tests/interface.test.ts` asserts every line of panel text leaves at least **one glyph pixel** above the next and below the frame — the font's own unit of space, not a chosen threshold. It also asserts `PANEL_GLYPH_SCALE === Math.round(PANEL_HEIGHT / 56)`, so the constant is tied to the geometry it was derived from and cannot drift from it. Against the old layout every one of those gaps fails: 2, 2, 2, 0 and 1, against a required 6.
+
+**Q6 is not closed and this closes none of it.** The 5×7 face is untouched, the glyph data is unchanged, and which integer multiplies it says nothing about what eventually replaces it.
 
 ---
 
