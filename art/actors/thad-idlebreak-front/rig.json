@@ -5,12 +5,13 @@
   "view": "headon",
   "facing": "right",
   "figure": [
-    585,
-    1637
+    188,
+    526
   ],
-  "shoulder_row": 386,
-  "padding": 260,
-  "step_px": 7,
+  "shoulder_row": 124,
+  "padding": 84,
+  "step_px": 2,
   "motion": "glance",
-  "frames": 12
+  "frames": 12,
+  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1637px, which is 6x linear and 39x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
 }

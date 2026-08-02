@@ -9,9 +9,10 @@
     70
   ],
   "figure": [
-    709,
-    1620
+    230,
+    526
   ],
   "frames": 2,
-  "note": "Composite over stand at overlay_rect. Frame 0 is the closed mouth and is identical to stand there, so a talk loop that ends on 0 restores stand exactly. Body pixels never change."
+  "note": "Composite over stand at overlay_rect. Frame 0 is the closed mouth and is identical to stand there, so a talk loop that ends on 0 restores stand exactly. Body pixels never change.",
+  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1620px, which is 6x linear and 38x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
 }

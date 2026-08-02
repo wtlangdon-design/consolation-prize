@@ -5,13 +5,13 @@
   "facing": "right",
   "walk_dx": 1,
   "figure": [
-    740,
-    1517
+    257,
+    526
   ],
-  "hem_row": 1086,
+  "hem_row": 377,
   "hem_pct": 71.6,
   "pivot_row": 873,
-  "padding": 260,
+  "padding": 90,
   "rows_legs_separate": 348,
   "near_leg_px": 54816,
   "far_leg_px": 49809,
@@ -32,5 +32,6 @@
     10
   ],
   "arm_ratio": 0.55,
-  "frames": 8
+  "frames": 8,
+  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1517px, which is 6x linear and 33x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
 }
