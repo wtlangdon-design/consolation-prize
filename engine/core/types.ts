@@ -811,7 +811,56 @@ export interface SequenceBeat {
   set?: Record<string, boolean | number>;
   /** The dialogue tree that carries this beat's lines. Errata 30b. */
   carriedBy?: string;
+  /**
+   * WHAT THE BEAT DOES, as opposed to what it says. Issue X4 defect 2.
+   *
+   * A beat's `description` is prose out of doc 17 -- "The coach arrives and
+   * halts with Thad visibly aboard" -- and prose does not execute. Before
+   * this field existed the lowering emitted `say` and `wait` and nothing
+   * else, so the runtime held for eight seconds while a beat announced an
+   * arrival and not one thing on screen moved.
+   *
+   * THIS IS DECLARED, NEVER PARSED. Reading a mark out of an English sentence
+   * would be guessing at the geometry, and Q4 has already ruled that Room 1's
+   * numbers are not a specification until they are re-derived from the new
+   * plate. So the marks are data an author supplies, the engine lowers them,
+   * and a beat that declares none stages nothing -- visibly, rather than by
+   * appearing to work.
+   */
+  staging?: SequenceStagingStep[];
 }
+
+/**
+ * One staged action inside a beat. Lowered by `Opening.stepsFor` into the
+ * runner's own step kinds, in doc 22 section 6's order.
+ *
+ * The vocabulary is deliberately the runner's and nothing more: errata 28a
+ * cut the step kinds to five, 30a added `wait` and 38 added `move`, and
+ * anything outside that set would be a seventh kind arriving through a side
+ * door. `walk` and `move` are followed by a `waitForActor` when they are
+ * lowered, so an author never writes the wait and can never forget it.
+ */
+export type SequenceStagingStep =
+  /** Routed across the room's walk boxes, like a click. Characters only. */
+  | { do: 'walk'; actor: string; to: [number, number] }
+  | { do: 'face'; actor: string; facing: Facing }
+  /**
+   * A named one-shot clip. There is NO fallback for a clip that does not
+   * exist: doc 34 step C removes the last one, and a substitution here would
+   * hide missing coverage behind something that looks like it works.
+   */
+  | { do: 'chore'; actor: string; clip: string }
+  /**
+   * ERRATA 38. "`move` translates a named object from one position to another
+   * over a duration" -- the coach's departure, and the reason the ruling
+   * exists. Legal only inside a beat whose control is `none`, the same fence
+   * `wait` carries and for the same reason.
+   *
+   * `from` places the mover before it travels, which is how anything that is
+   * not the player gets into the room at all: a coach arriving starts off
+   * frame and a coach departing starts on its mark.
+   */
+  | { do: 'move'; actor: string; from?: [number, number]; to: [number, number]; seconds: number };
 
 
 /** content/ui/menu.json -- every string the pause menu can draw. */
