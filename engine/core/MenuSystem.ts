@@ -12,7 +12,7 @@ export interface MenuRow {
 }
 
 export interface MenuAction {
-  kind: 'none' | 'resume' | 'save' | 'load' | 'quit';
+  kind: 'none' | 'resume' | 'save' | 'load' | 'quit' | 'fullscreen';
   slot?: number;
 }
 
@@ -192,6 +192,11 @@ export class MenuSystem {
       case 'options':
         this.current = rowId;
         return { kind: 'none' };
+      // ERRATA 39's second place. It does NOT close the menu: the player is
+      // looking at the thing that changed size, and closing would make the
+      // toggle feel like a command rather than a switch.
+      case 'fullscreen':
+        return { kind: 'fullscreen' };
       case 'quit':
         this.current = 'closed';
         return { kind: 'quit' };

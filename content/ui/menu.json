@@ -24,6 +24,10 @@
         "label": "Options"
       },
       {
+        "id": "fullscreen",
+        "label": "Fullscreen"
+      },
+      {
         "id": "quit",
         "label": "Quit to Title"
       }
@@ -77,5 +81,6 @@
     "saved": "SAVED",
     "restored": "RESTORED",
     "noSave": "NO SAVE IN THAT SLOT"
-  }
+  },
+  "fullscreenNote": "ERRATA 39 names the menu overlay and the verb panel, and this is the first. It sits above Quit to Title because it is the only root item that changes nothing about the game -- leaving it beside Resume would read as a state change and leaving it below Quit would put it after the exit."
 }

@@ -675,6 +675,13 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onPanelClick(x: number, y: number): void {
+    // ERRATA 39's toggle, checked BEFORE the verbs: it shares the verb grid's
+    // geometry and a cell that answered both would select a verb underneath it.
+    const full = this.panel.fullscreenButton;
+    if (full && pointInRect(x, y, full)) {
+      this.toggleFullscreen();
+      return;
+    }
     for (const verb of this.state.content.verbs.verbs) {
       if (pointInRect(x, y, this.panel.verbButton(verb.col, verb.row))) {
         this.state.verbs.selectVerb(verb.id);
@@ -682,6 +689,22 @@ export class GameScene extends Phaser.Scene {
         return;
       }
     }
+  }
+
+  /**
+   * ERRATA 39, as ruled. Fullscreen is better and never required -- the game
+   * stays correct windowed, and errata 54 superseded the integer rule that
+   * once made a fractionally scaled window wrong.
+   *
+   * Driven from a CLICK and nowhere else, because browsers only grant
+   * fullscreen inside a user gesture. A call from a timer or from restored
+   * save state is refused, silently, which is why this is not something the
+   * menu remembers and reapplies.
+   */
+  private toggleFullscreen(): void {
+    if (this.scale.isFullscreen) this.scale.stopFullscreen();
+    else this.scale.startFullscreen();
+    this.markDirty();
   }
 
   private onDialogueClick(y: number): void {
@@ -879,6 +902,8 @@ export class GameScene extends Phaser.Scene {
       this.state.save(action.slot ?? QUICK_SLOT);
     } else if (action.kind === 'load') {
       if (this.state.load(action.slot ?? QUICK_SLOT)) this.afterLoad();
+    } else if (action.kind === 'fullscreen') {
+      this.toggleFullscreen();
     } else if (action.kind === 'quit') {
       // No title scene is wired in yet, so quitting resets to the start
       // room. Marked here because it is the one menu route that does not

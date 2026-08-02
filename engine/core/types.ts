@@ -388,6 +388,12 @@ export interface PanelFile {
   menuButton: { col: number; row: number };
   /** Doc 20 rule 2. Optional so a panel without one still loads. */
   mapButton?: { note?: string; col: number; row: number };
+  /**
+   * ERRATA 39's fullscreen toggle. Optional for the same reason the map is,
+   * and it takes the verb grid's LAST free cell -- nine verbs fill three rows
+   * of three, and the fourth row now holds MENU, MAP and this.
+   */
+  fullscreenButton?: { note?: string; col: number; row: number };
   inventory: {
     note?: string;
     x: number;
@@ -717,6 +723,13 @@ export interface UiFile {
   hud: { hintTemplate: string };
   /** Doc 20's map screen. Interface grammar, of a class with the templates. */
   map?: { note?: string; button: string; back: string; travelTemplate: string };
+  /**
+   * ERRATA 39's fullscreen toggle. Two words rather than one because the
+   * button says which way it goes -- FULL while windowed, WINDOW while full --
+   * and a control that only names itself leaves the player guessing which
+   * state they are in.
+   */
+  fullscreen?: { note?: string; button: string; back: string };
   /**
    * How long a line stays up. Not written content and not in any document:
    * doc 17 states seconds for BEATS, and a line's duration is a property of
