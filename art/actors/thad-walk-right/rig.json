@@ -1,0 +1,34 @@
+{
+  "source": "/tmp/thad.png",
+  "key": "magenta",
+  "facing": "right",
+  "walk_dx": 1,
+  "figure": [
+    678,
+    1616
+  ],
+  "hem_row": 1077,
+  "hem_pct": 66.6,
+  "pivot_row": 850,
+  "padding": 260,
+  "rows_legs_separate": 492,
+  "near_leg_px": 73288,
+  "far_leg_px": 69252,
+  "arms_rigged": true,
+  "shoulder_row": 538,
+  "near_arm_px": 31302,
+  "far_arm_px": 27535,
+  "measured_foot_travel": 168,
+  "hip_swing": [
+    14,
+    10,
+    0,
+    -10,
+    -14,
+    -10,
+    0,
+    10
+  ],
+  "arm_ratio": 0.55,
+  "frames": 8
+}
