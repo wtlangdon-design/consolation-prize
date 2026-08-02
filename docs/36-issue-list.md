@@ -240,6 +240,18 @@ Two binding options, and the choice cannot be deferred past the case pickup bein
 
 The case is on screen through most of Room 1's opening, which argues for visible carry. It is also 36 extra frames for one prop.
 
+## Q12 · Does Thad's appearance change after the Act III coffin?
+
+Act III nails him into a coffin and lowers him into the ground — the sequence the bible calls the only one where the player can believe the game has broken.
+
+**If he looks different afterward, that is a second complete character.** A new identity master and every clip regenerated against it: four facings × walk, idle, idle-break, stand, recoil, and every chore. Not a variant — a full second costume.
+
+**The cost is asymmetric in time, not just in frames.** Acquired now, while the character is established in the generator's context, it is one session. Acquired in six months it means re-establishing him from scratch and hoping the result matches art already shipped in Acts I and II.
+
+A prompt is written and held in `docs/42-thad-chore-poses.md` Part Three. **It is not to be run until this is ruled.**
+
+Related: whether any other character changes across acts, and whether Q5's act-variation schema needs to cover costumes as well as rooms.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

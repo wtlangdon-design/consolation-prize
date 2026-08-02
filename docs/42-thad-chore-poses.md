@@ -134,6 +134,90 @@ Every prompt below carries these, and none is negotiable:
 
 ---
 
+# PART TWO — THREE MORE, WHILE THE CHARACTER IS WARM
+
+*Not chores. These exist because doc 17 needs them and because acquiring a pose later, out of context, means re-establishing the character and hoping it matches.*
+
+# 7 · ABOARD THE COACH — the arrival must be seen
+
+*Doc 17 beat 2 is emphatic: **"Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen."** So he has to be visible at the coach before `alight_coach` begins.*
+
+> [Attach the approved Thad and the profile matching the coach's side]
+>
+> Same man, same everything, on solid pure magenta (#FF00FF), nothing else in frame — **no coach, no door, no step, no window frame.** Those are separate room objects.
+>
+> **He is standing in a narrow doorway, about to step down, having just arrived somewhere after a long journey.** Full side profile, upright but slightly stooped as though under a low frame. One hand rests at about shoulder height on a frame that is not drawn; the other holds the edge of his coat. His weight is on his back foot, the front foot just starting forward. He is looking out and slightly down at ground he has not seen before.
+>
+> He has been travelling four hundred miles. He is stiff, a little rumpled, and entirely hopeful.
+>
+> **No part of the figure overlaps any other part.** The raised arm is clear of his head and coat with magenta visible between them; his legs are clear of each other.
+>
+> Neutral even daylight, no coloured light. He fills the frame vertically.
+
+# 8 · HOLDING THE CASE — insurance against Q11
+
+*If visible carry wins, every frame of a 36-frame locomotion family derives from this one pose. If inventory abstraction wins, one generation is wasted. That asymmetry decides it.*
+
+> [Attach the approved Thad and the profile wanted]
+>
+> Same man, same everything, on solid pure magenta (#FF00FF), nothing else in frame.
+>
+> **He is standing holding a small travelling case in one hand, down at his side.** Full side profile, upright, weight even. The near arm hangs straight down, the hand closed around the case's handle, the case hanging just clear of his leg. The far arm hangs at his side, clear of his body.
+>
+> The case is a modest leather-and-canvas travelling case over a wooden frame, single handle, plain metal clasps, worn but cared for. **No lettering, no monogram.** It belongs to someone with very little who packed carefully.
+>
+> **The case must not touch his leg or coat** — magenta visible between them, so it can be separated as its own sprite.
+>
+> **No part of the figure overlaps any other part.** Both arms clear of the torso.
+>
+> Neutral even daylight. He fills the frame vertically.
+
+# 9 · STRAIGHTENING HIS COAT
+
+*Doc 17 beat 2. Small, and it is the gesture that establishes the sort of man who tidies himself before walking into a gold camp.*
+
+> [Attach the approved Thad and the profile wanted]
+>
+> Same man, same everything, on solid pure magenta (#FF00FF), nothing else in frame.
+>
+> **He is straightening his coat.** Full side profile, standing upright. Both hands are at the front edges of his coat at about chest height, gripping the lapels and giving them a small downward tug to settle the garment. Elbows out and bent. His chin is slightly down as he glances at what he is doing.
+>
+> The gesture is brief and unselfconscious — a tidy man setting himself straight, not preening.
+>
+> **Both hands and both forearms must be clearly visible and clear of the torso**, with magenta between each arm and his body. The gesture is unreadable if the arms merge into the coat.
+>
+> Neutral even daylight. He fills the frame vertically.
+
+---
+
+# PART THREE — THE POST-COFFIN THAD *(conditional)*
+
+**This is a second complete character and it is not mine to authorise.**
+
+Act III nails Thad into a coffin and lowers him into the ground. The bible calls it the only sequence where the player can genuinely believe the game has broken — no music, no verb panel, no jokes, just the sound of dirt.
+
+**If he looks different afterward, that is a new identity master and every clip regenerates against it.** Four facings, walk, idle, idle-break, stand, recoil, and every chore. Acquired now while the character is established it costs one session; acquired in six months it means rebuilding him from scratch and hoping he matches.
+
+**Tracked as Q12 in `docs/36-issue-list.md`. Do not run this prompt until it is ruled.**
+
+> [Attach the approved Thad — the right-facing master]
+>
+> Draw THAT EXACT CHARACTER again on solid pure magenta (#FF00FF), nothing else in frame.
+>
+> **Same man, same face, same clothes, same coat, same waistcoat, same shoes — but he has been through something.** The coat is caked with dry earth down one side and along the hem. There is soil in his hair and on his face, dried rather than wet. His collar is filthy. A seam at one shoulder has given. He is not injured and there is no blood — he is *dirty*, thoroughly and unglamorously, the way a man is dirty after being underground.
+>
+> His expression is unchanged: still level, still earnest. **He has not become a different person and this is not a joke about his appearance.**
+>
+> Same painting style, same stylisation, same neutral even daylight, no coloured light.
+>
+> **POSE — identical to the attached image.** Full side profile facing frame right, mid-stride, legs clearly apart with magenta between them up to the coat hem, both arms hanging down and clear of the torso. **No part of the figure overlaps any other part.** This must be the same pose so it can be measured against the clean master.
+>
+> He fills the frame vertically.
+
+**If this is run, the other three facings follow with the same treatment**, each attaching both this dirty master and the corresponding clean facing.
+
+---
+
 # WHAT I DO WITH EACH ONE
 
 1. Key the magenta, despill, bleed the edges.
@@ -147,6 +231,6 @@ Every prompt below carries these, and none is negotiable:
 
 # WHAT IS STILL NOT COVERED AFTER ALL SIX
 
-- **Carrying the case** — Q11. Visible carry is a whole extra locomotion family: stand plus walk in four facings, 36 frames, with the case on a hand socket. It cannot be faked with the ordinary walk.
+- **Carrying the case** — Q11, though prompt 8 above acquires the pose it needs. Visible carry is a whole extra locomotion family: stand plus walk in four facings, 36 frames, with the case on a hand socket. It cannot be faked with the ordinary walk.
 - **Straightening his coat** — doc 17 beat 2. One-shot, one facing, and small enough that it may not deserve a generation.
 - **The far tier** — voided. Errata 54 replaced two drawn sizes with one scaled by depth.
