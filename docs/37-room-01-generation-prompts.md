@@ -131,7 +131,7 @@ The player character stands **200 pixels tall** in this 1600 × 720 image (40px 
 >
 > Add a single figure to the attached image: the stage driver, **seated on the driver's box** at the front of the coach, above and slightly behind the team. Nothing else in the picture changes — the coach, the horses, the lamps, the ground and everything behind them stay exactly as they are.
 >
-> A working stage driver in his fifties. Long coat, brimmed hat, gloves. Sitting square and settled, forearms on his knees or holding slack reins, facing forward over the team, **not looking toward the viewer**. Unhurried. He has done this run many times and is waiting rather than resting.
+> A working stage driver in his fifties. Long coat, brimmed hat, gloves. If he sits close enough to a coach lamp to catch it, a slight warm rim on the lamp-facing side of his coat and hat is correct — **on him only, never on the box, the coach or the ground.** Sitting square and settled, forearms on his knees or holding slack reins, facing forward over the team, **not looking toward the viewer**. Unhurried. He has done this run many times and is waiting rather than resting.
 >
 > Drawn at the same 5× pixel grid as the rest of the image, hard-edged, no anti-aliasing. A standing man in this picture would be 200 pixels tall; seated on the box he occupies proportionally less.
 >
@@ -147,7 +147,7 @@ The player character stands **200 pixels tall** in this 1600 × 720 image (40px 
 >
 > A night watchman in his sixties, walking steadily from one side of the road toward the other, **in profile, mid-stride, not looking toward the viewer**. Long coat, brimmed hat. He carries an oil lantern low in one hand, out a little from his body. He is unhurried and entirely uninterested in anything else in the picture.
 >
-> **The lantern is lit and is the only warm thing in the frame — but its light must fall on him and nothing else.** The globe glows warm ochre and gold. That warmth reaches his hand, his sleeve, the near side of his coat and the underside of his hat brim, and stops there.
+> **The lantern is the only NEW warm source near the viewer, and its light must fall on him and nothing else.** The distant town's existing lit windows stay exactly as they are — do not cool them, darken them, or remove them in order to make the lantern the brightest thing. The globe glows warm ochre and gold. That warmth reaches his hand, his sleeve, the near side of his coat and the underside of his hat brim, and stops there.
 >
 > **Do not draw any light on the ground.** No pool, no patch, no wash, no glow, no cast shadow on the mud. The road beneath and around him must remain exactly the cold moonlit mud that is in the attached image, unchanged, right up to the edge of his boots. The ground light is added later by the game engine and must not be present here.
 >
@@ -155,7 +155,9 @@ The player character stands **200 pixels tall** in this 1600 × 720 image (40px 
 >
 > **Do not add:** the coach, horses, any second figure, any other light source, any change to the distant town's windows, **any light or shadow on the ground.**
 
-## E · THE CASE — generated once *(low priority)*
+## E · THE CASE — hand-drawn, not generated *(low priority)*
+
+*At 22 × 12 native a canonical case is faster and more consistent to draw by hand than to generate, and hand-drawing removes the difference-isolation risk entirely. The prompt below is retained only if a generated reference is wanted first.*
 
 *Attach: **B**. **There is no F.** The case is generated in one state only and its mud and carried states are authored from this single asset — two generations of a 22 × 12 object produce two different cases.*
 
@@ -192,12 +194,10 @@ The checks above catch failures; they do not prevent them. Everything after acce
 
 ---
 
-# PART FIVE — RULINGS RECEIVED
+# PART FIVE — RULINGS
 
-**1. Two horses.** Confirmed. Doc 05's written line governs; the procedural team's three horses were derived from counting hooves in a discarded image.
+**1. Two horses.** Confirmed and closed. Doc 05's written line governs; `team.py`'s three horses were derived from counting hooves in a discarded image.
 
-**2. Road direction.** Ruled: Thad leaves frame right toward town, and the stale `road_west` data is corrected rather than a new into-depth exit invented.
+**2. Road direction. THE FRAME-RIGHT RULING IS RETRACTED — Q2 IS OPEN.** It was made without reconciling the visible town, the written lines and the coach's direction. A coherent resolution is proposed in `docs/36-issue-list.md` Q2: frame right stays the coach's departure and the road home, and Thad reaches Main Street by walking into depth toward the town he can see. It amends errata 43 and awaits the project owner. **No effect on these prompts** — the coach departs frame right under every reading.
 
-*One conflict this leaves open, recorded rather than resolved.* The coach also departs frame right, receding **east** per doc 17 beats 6b and 7, and `road_east`'s written LOOK line is *"Home is that way. It is eleven hundred miles that way."* Under this ruling the same road is both home-at-eleven-hundred-miles and town-at-two-hundred-yards, and the plate puts the town visibly in the middle distance centre-left, so Thad walks away from a town the player can see. Neither the written lines nor the coach's departure direction has been reconciled to the ruling yet. Tracked as Q2 in `docs/36-issue-list.md`.
-
-**3. The placard.** Ruled: remove the mark so the board reads as ordinary scrap, not a second sign or a false hotspot. Removed by hand at native — no regeneration.
+**3. The placard.** Ruled and closed: remove the mark so the board reads as ordinary scrap, not a second sign or a false hotspot. Hand-removed at native, no regeneration.

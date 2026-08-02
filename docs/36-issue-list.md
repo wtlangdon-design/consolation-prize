@@ -106,19 +106,29 @@ Measured on the plate: a plain quantiser put **408 pixels into 239–241, boundi
 
 For Room 1 this is structural rather than incidental, and errata 53 condition 1's check must run on every generation for this room, not once.
 
-## X4 · The runtime cannot move any of these movers, and the opening executes none of its own descriptions
+## X4 · The step grammar exists; the host ignores the actor and the opening emits no choreography
 
-Verified against `Renderer.ts`, `GameScene.ts` and `Opening.ts`.
+*Corrected. The first version of this entry said `walk`, `face` and `chore` steps do not exist. **They do.** The error and how it was made are recorded below, because the method that produced it will produce others.*
 
-**No general room mover exists.** `Renderer.drawPeople` builds its drawable list from the ambient NPC set plus the single player actor. There is no path for Hob, the driver, the horses or the coach.
+**What exists.** `Sequence.ts` defines six step kinds — `walk`, `waitForActor`, `face`, `chore`, `say`, `wait` — each carrying an `actor` id, with a `SequenceHost` interface whose `walk`, `face` and `chore` all take an actor argument. The grammar is complete and does not need inventing.
 
-**The opening emits two step kinds.** `Opening.stepsFor` produces `say` and `wait` and nothing else. Doc 17's visual descriptions — the coach arriving, Thad climbing down, the case landing in the mud, the coach departing with wheels turning, Hob crossing — are prose that never lowers to anything executable. The runtime can wait eight seconds while a beat says the coach arrives, and no coach moves.
+**Three defects, all in the layers around it.**
 
-*One correction to the review that raised this: it reports that GameScene ignores the actor named by a sequence step. It does not — `say` carries an actor and honours it. There are no `walk`, `face` or `chore` steps to ignore.*
+1. **The host discards the actor.** `GameScene.host()` implements every motion method as `(_actor, …) => { this.actor.… }`. The argument is received, named to silence the linter, and never used. **Every `walk`, `face` and `chore` drives Thad**, whichever actor the step names. A driver chore today animates Thad.
+2. **`Opening.stepsFor` emits only `say` and `wait`.** Doc 17's visual descriptions — the coach arriving, Thad climbing down, the case landing in the mud, the departure with wheels turning, Hob crossing — never lower to anything executable. The runtime waits eight seconds while a beat says the coach arrives, and no coach moves.
+3. **`say` carries a speaker the host does not use.** The id is in the data and reaches the host, which displays the line and nothing else — no speaker position, colour or performance.
 
-**Beat 9 additionally has no carrier.** Hob's crossing is a player-control beat, and the opening runner completes before anything schedules it.
+**Beat 9 additionally has no carrier.** Hob's crossing is a player-control beat and the opening runner completes before anything schedules it.
 
-**Not a blocker on art acquisition.** This is doc 34's integrated proof, which errata 52's stop condition is already waiting on and which step B is building toward. The generations and the runtime work do not block each other and should proceed in parallel.
+**How the wrong version was reached, recorded as a method note.** The claim rested on a grep of `GameScene.ts` for `step.actor` and `case 'walk'` that returned nothing. It returned nothing because the host is written as arrow functions with a `_actor` parameter, not as a switch over step kinds. **Absence of a grep match was treated as absence of the feature.** A failed search is evidence about the search.
+
+**Not a blocker on art acquisition.** This is doc 34's integrated proof, which errata 52's stop condition already waits on. Generations and runtime work proceed in parallel.
+
+## X5 · Palette cycling is background-only, so Hob's flame cannot use it
+
+`PaletteCycling.ts` states it is the only background animation the game has, and `CyclingBackground` builds its element list from `room.cycling`. Sprites are never cycled.
+
+`stage-road.json` declares `hobs_lamp` as a cycling element over `accent_gold` — a **room** element, from when the lamp was painted into the plate. Under D6 the lamp is a sprite, so **the flame must be authored as sprite frames** unless sprite cycling is added. The declaration is stale and will silently animate nothing.
 
 ---
 
@@ -132,25 +142,25 @@ Doc 05's written LOOK line: *"Two horses I can see and I am told there are four 
 
 **Ruled by the project owner: two.** `docs/37` specifies two. `tools/pixelart/room01/team.py` disagrees with canon and is superseded.
 
-## Q2 · Which way is Main Street — **RULED, but not yet reconciled**
+## Q2 · Which way is Main Street — **RULING RETRACTED, OPEN AGAIN**
 
-Three sources disagree.
+The frame-right ruling was withdrawn by its author on the grounds that it was made without reconciling the visible town, the written lines and the coach's direction.
 
-| Source | Says |
+**The proposed resolution, coherent but not yet adopted:**
+
+| | |
 |---|---|
-| Errata 43 | Walking order west to east: **Room 1 · Main Street · Lower Street** — Main Street is *east* of Room 1 |
-| `stage-road.json` | Exit `road_west` → `main_street`; its LOOK line describes the town with lamps on in about a third of it |
-| `stage-road.json` | Hotspot `road_east` LOOK: *"Home is that way. It is eleven hundred miles that way"* — home is Rhode Island, i.e. east |
-| Doc 17 beats 6b, 7 | The coach departs **frame right** and recedes **east** |
-| Doc 35 worked example | Noticed half of this; ruled the art fine and the doc in need of correction |
+| Frame right / east | The coach's departure, and the road toward Thad's distant home. `road_east`'s written line — *"Home is that way. It is eleven hundred miles that way"* — stands unaltered |
+| Into depth, toward the visible town | Thad's route to Main Street. Doc 29 already supports this as a road-into-depth transition: the actor walks away from camera, scales down, and the next room opens at a far-depth entrance |
+| `road_west → main_street` | Conceptually correct; the exit rect is re-derived from the new plate per Q4 |
+| Errata 43 | Its west-to-east ordering either inverts to Lower Street · Main Street · Room 1, or drops the cardinal wording, which was never load-bearing |
+| Main Street | Receives Thad at a far-depth entrance |
 
-**Ruled by the project owner:** Thad leaves frame right toward town, and the stale `road_west` data is corrected rather than a new into-depth exit invented.
+This fits the picture, the coach's departure and every written line without moving any of them, which is the strongest thing that can be said for it.
 
-**Two things the ruling does not yet resolve, recorded so they are not lost.** The coach also departs frame right, receding *east* per doc 17 beats 6b and 7, which makes one road simultaneously the way to town at two hundred yards and the way home at eleven hundred miles — `road_east`'s written LOOK line is *"Home is that way. It is eleven hundred miles that way."* And the plate places the town visibly in the middle distance centre-left, so under this ruling Thad walks away from a town the player can see. Either the written lines move between hotspots, or the coach departs the other way, or the town's position in the composition is accepted as unrelated to the exit. None of the three has been chosen.
+**It amends errata 43 and therefore is not mine to adopt.** Recorded and awaiting the project owner.
 
 **Does not affect the Room 1 generations** — the coach departs frame right under every reading.
-
-**Does affect** where Thad walks to reach town. The plate places the town in the middle distance, centre-left. Doc 29 already supports a road-into-depth transition — the actor walks away from camera, scales down, passes behind architecture, and the next room opens at a far-depth entrance — which would fit the picture without contradicting the coach's departure. That is a topology ruling and belongs to the project owner.
 
 ## Q3 · The second signboard — **RULED: remove the mark**
 
