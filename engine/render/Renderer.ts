@@ -251,8 +251,8 @@ export class Renderer {
     return this.state.mapLocations.map(({ location, label, built }) => {
       const [x, y] = location.at;
       const width = this.font.measure(label);
-      const fits = x + MAP_MARKER + 2 + width <= NATIVE_WIDTH - 2;
-      const labelX = fits ? x + MAP_MARKER + 2 : x - 2 - width;
+      const fits = x + MAP_MARKER + GLYPH_SCALE * 2 + width <= NATIVE_WIDTH - GLYPH_SCALE * 2;
+      const labelX = fits ? x + MAP_MARKER + GLYPH_SCALE * 2 : x - GLYPH_SCALE * 2 - width;
       const left = Math.min(x, labelX);
       const right = Math.max(x + MAP_MARKER, labelX + width);
       return {
@@ -260,7 +260,8 @@ export class Renderer {
         label,
         built,
         labelX,
-        rect: { x: left - 1, y: y - 2, width: (right - left) + 2, height: MAP_LABEL_HEIGHT },
+        rect: { x: left - GLYPH_SCALE, y: y - GLYPH_SCALE * 2,
+          width: (right - left) + GLYPH_SCALE * 2, height: MAP_LABEL_HEIGHT },
       };
     });
   }
@@ -351,10 +352,11 @@ export class Renderer {
       } else {
         this.screen.outline(x, y, MAP_MARKER, MAP_MARKER, this.screen.role('inkDim'));
       }
-      this.screen.outline(x - 1, y - 1, MAP_MARKER + 2, MAP_MARKER + 2,
+      this.screen.outline(x - GLYPH_SCALE, y - GLYPH_SCALE,
+        MAP_MARKER + GLYPH_SCALE * 2, MAP_MARKER + GLYPH_SCALE * 2,
         this.screen.role('overlayBg'));
       this.font.drawOutlined(
-        this.screen.context, label, labelX, y - 2, ink,
+        this.screen.context, label, labelX, y - GLYPH_SCALE * 2, ink,
         this.screen.roleColour('overlayBg'),
       );
     }
@@ -620,7 +622,8 @@ export class Renderer {
     lines.forEach((line, index) => {
       const y = at.y - (lines.length - index) * DIALOGUE_LINE_HEIGHT;
       const width = this.font.measure(line);
-      const x = Math.max(2, Math.min(NATIVE_WIDTH - width - 2, at.x - Math.round(width / 2)));
+      const x = Math.max(GLYPH_SCALE * 2,
+        Math.min(NATIVE_WIDTH - width - GLYPH_SCALE * 2, at.x - Math.round(width / 2)));
       this.font.drawOutlined(
         this.screen.context,
         line,
@@ -848,7 +851,9 @@ export class Renderer {
 
   /** A solid triangle, point up or down, centred in its button. */
   private drawTriangle(arrow: { direction: 'up' | 'down' } & Rect, index: number): void {
-    const rows = 4;
+    // Glyph pixels: a four-row arrow was right beside a seven-row face and
+    // is a speck beside a forty-two-row one.
+    const rows = 4 * GLYPH_SCALE;
     const centre = arrow.x + Math.floor(arrow.width / 2);
     const top = arrow.y + Math.floor((arrow.height - rows) / 2);
     for (let row = 0; row < rows; row += 1) {

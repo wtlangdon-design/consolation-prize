@@ -323,6 +323,26 @@ So this is not a dangling reference to remove. **The engine's entire colour mode
 
 **The 5 × 7 font — live and load-bearing.** `art/ui/font-5x7.json` is in the manifest, `BitmapFont` renders it by writing each lit pixel as an exact 1 × 1 rect, and `check-glyph-coverage.mjs` validates 505 content strings against 102 glyphs. Because the glyphs are literal 1 × 1 rects, **text did not scale with the migration**: it draws at the same pixel size in a frame six times larger, so every line is now a sixth of its former relative size. This is Q6 and it is the most visible unruled item in the build.
 
+### A SIXTH CATEGORY, ADDED AFTER THREE INSTANCES: 320-SPACE CONSTANTS IN CODE
+
+Errata 54's own supersession list names five voided *specs*. This is not one of them. It is the class of thing the ruling did not void and could not reach: **numbers authored as lengths in a 320 × 200 frame, living in `.ts` files rather than in content.** `tools/migrate-play-area-x6.mjs` moved 775 values and every one of them was in JSON, by construction — a migration over content cannot see a constant in code.
+
+Three surfaced one at a time, each while something else was being measured, and each looked like a defect in the thing being measured:
+
+- **The panel metrics.** `DIALOGUE_LINE_HEIGHT`, `SAY_TOP`, `TEXT_MARGIN`, `MENU_X/WIDTH/TOP/ROW`, the act-card and map-label metrics. Two spoken lines drew on top of each other and the menu overlay sat in a corner.
+- **The font's 1 × 1 rects.** Every glyph pixel was one screen unit, so text drew at a sixth of its relative size in a frame six times larger.
+- **`WALK_SPEED = 0.9`.** Crossing Room 1 took thirty-five seconds. **Its real cost was not slowness.** Boundary walks timed out mid-stride and reported x=596 and x=896 as walk-box edges — plausible numbers, wrong for a reason entirely outside what was being measured, and nearly filed as geometry.
+
+**Swept rather than waited for.** Grepped `engine/` for module-level numeric constants and for bare integers in draw and geometry calls. What was left and is now scaled: the arrow triangle's four rows, the map label's padding and marker outline, the bark clamp margins, the protagonist's initial y offset of 14, and the bark's 30-unit rise above a speaker's head.
+
+**What was deliberately NOT scaled, and this is the harder half:**
+
+- `NOTICE_MS`, `TURN_SECONDS`, `IDLE_BREAK_AFTER`, every rate — **times, not lengths.** A second is a second at any resolution.
+- `Renderer.drawFigure`'s `unit = height / 40` and its block table — **proportions, not lengths.** Its own comment already said so: everything there is a fraction of whatever height it is handed, so a mover asking to be 233 tall gets a 233-tall placeholder. Multiplying it would have been the mirror-image error.
+- `Decimation.TABLE_SIZE = 256` — a table size in a module with zero importers.
+
+**The rule this leaves.** A length in code is a bug waiting for a resolution change; a time or a proportion is not. The distinction is not visible in the number, which is why three of these shipped, and it is why they are scaled by `GLYPH_SCALE` — one named migration factor — rather than by a literal 6 in each place.
+
 **Palette cycling — live in the engine, not dead code.** `GameScene.ts:253` constructs a `CyclingBackground` for any room declaring `cycling`, `check-palette-cycling.mjs` is a registered validator, and `tests/interface.test.ts` imports `PaletteCycling`. One room still declares it: `stage-road.json`, `hobs_lamp` and `puddles` — precisely the two errata 54 names as void.
 
 **Measured rather than assumed, because the plate changed underneath it.** The cycler recovers indices by matching exact palette RGB in the background. Against the new full-RGB plate: `accent_gold` 225–228 match **0 pixels**, `accent_indigo` 239–241 match **1**. So it does not crash and it does not flicker — it rotates a single pixel at 0.25 Hz in a 1,658,880-pixel frame. What it does cost is a 6.6 MB `getImageData` readback and a 1.66-million-iteration scan at Room 1 load, to find that one pixel.
