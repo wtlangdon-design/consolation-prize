@@ -553,6 +553,35 @@ It fits, and the fit is tight rather than comfortable: sentence at 866, four row
 
 Nothing here is broken. It is recorded because it is the first hard evidence for Q6 that the 5 × 7 does not merely look wrong at this size: the panel errata 54 specifies cannot hold it at its intended proportions, so whatever replaces it carries a size constraint the old face never had.
 
+## Q27 · Thad is not drawing at 133px. The whole frame is being shown at two-thirds size.
+
+Investigated because it was reported as the last thing keeping Room 1 from looking right. **It is not a sprite defect and there is nothing wrong with the actor record.** It is worth an entry anyway, because the thing that IS wrong is real and is not what it looks like.
+
+**Measured in isolation.** Every clip drawn at a requested 205, alpha bbox measured on a blank canvas:
+
+| clip | front | back | left | right |
+|---|---|---|---|---|
+| stand / idle / idle-break / recoil | 206 | 206 | 205 | 205 |
+| walk | 195 | 214 | 203 | 203 |
+
+The ±1 is rounding. Walk varies because a walk frame genuinely changes the figure's extent — a raised knee and a leaned torso are not the same height as a stand — and that is the art, not the scaler.
+
+**Measured in the running game**, by wrapping `ActorSprite.draw` and reading the height it is actually handed:
+
+| viewport | canvas | shown at | asked in-frame | ON THE PHYSICAL SCREEN |
+|---|---|---|---|---|
+| 1920 × 1080 | 1920 × 1080 | 1920 × 1080 (×1.00) | 225 | **225** |
+| 1366 × 768 | 1920 × 1080 | 1365 × 768 (×0.711) | 225 | **160** |
+| 1280 × 720 | 1920 × 1080 | 1280 × 720 (×0.667) | 225 | **150** |
+
+`Phaser.Scale.FIT` letterboxes the 1920 × 1080 frame into the window. **133px on screen from a 205 figure is a display scale of 0.649 — a window about 700px tall. From a 225 figure it is 0.591, about 638px tall.** Both are a Chromebook with browser chrome, which is the target machine.
+
+**So the proportions are exactly right and everything shrinks together** — the plate, the panel, the text, the man. Room 1 looks correct; it is being viewed at about two-thirds of full size.
+
+**What is actually open, and it is Q6's problem restated.** At 0.667 the 42-unit glyph displays at 28 physical pixels and stays readable, but every hairline in the plate and every glyph edge is resampled by a non-integer factor. The old spec avoided that with an integer upscale; errata 54 superseded that rule and nothing replaced it.
+
+**And there is no way to reach 1:1.** `grep -rni fullscreen` over `engine/` and `content/` returns nothing — there is no fullscreen affordance anywhere in the build. Errata 54 says errata 39's "fullscreen and mouse-completeness rulings stand", so one is specified and not implemented. That is the entry.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
