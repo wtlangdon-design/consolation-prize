@@ -15,6 +15,8 @@ Sizes vary with the pose rather than with the build: 960px seated, 1160 standing
 
 Generating at ~1600px for a character shown at 205 is 8× more resolution than the screen can use, so a four-up sheet at 400px each is still nearly double what is needed. **Batching costs nothing real.**
 
+**For an overlay, attach ONE EXTRACTED FIGURE on its own canvas — not the sheet it came from.** The driver's glance was asked for twice. From a three-up sheet it came back on a different canvas, 884×1114 against 786×1140, differing on 116,784px across the whole body. Asked again with the extracted neutral head attached, it came back on the identical canvas differing on 68,573px of which only 2,202 were below the collar. A fixed canvas with one figure on it is something the generator can match; a sheet is not.
+
 # WHAT WE LEARNED ACQUIRING THESE
 
 **Attach ONE image, not two.** Held three times now. Talk on the right and front came back clean with a single reference — 1,757px and 1,124px changed, nothing below the neck. The left with two references came back a redraw. Every pickup attempt used two, and all five were rebuilt characters. `shrug` and `use_near` with one reference are the closest proportional matches of any pose acquired.
