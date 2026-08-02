@@ -81,6 +81,21 @@ export function dialogueTop(count: number): number {
   return DIALOGUE_BOTTOM - count * DIALOGUE_LINE_HEIGHT;
 }
 
+/**
+ * Everyone in the room, BACK TO FRONT BY FEET-Y. Doc 22 section 5, step 3.
+ *
+ * Exported and pure so the ordering can be tested without a canvas: it is the
+ * whole depth cue in a lateral room, it now has to settle the player against
+ * a coach and a watchman as well as against the ambient set, and getting it
+ * wrong looks like a drawing bug rather than a sorting one.
+ *
+ * `sort` is stable in every engine this runs on, so figures sharing a row
+ * keep the order they were added in and a tie does not flicker.
+ */
+export function depthOrder<T extends { feetY: number }>(figures: T[]): T[] {
+  return [...figures].sort((a, b) => a.feetY - b.feetY);
+}
+
 /** Fills `{name}` placeholders from the supplied map. */
 export function format(template: string, vars: Record<string, string>): string {
   return template.replace(/\{(\w+)\}/g, (whole, key: string) => vars[key] ?? whole);
@@ -392,10 +407,7 @@ export class Renderer {
       drawables.push({ feetX, feetY, draw: () => this.drawMover(mover, feetX, feetY) });
     }
 
-    // Stable by construction: ambient characters keep their declared order
-    // among themselves when they share a row, so a tie does not flicker.
-    drawables.sort((a, b) => a.feetY - b.feetY);
-    for (const drawable of drawables) {
+    for (const drawable of depthOrder(drawables)) {
       this.masked(drawable.feetX, drawable.feetY, drawable.draw);
     }
   }

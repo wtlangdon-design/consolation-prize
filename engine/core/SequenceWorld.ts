@@ -170,11 +170,23 @@ export class SequenceWorld implements SequenceHost {
    * fix; suppressing the assertion would have been the bug.
    */
   abandon(): void {
-    for (const mover of this.actors.all()) {
-      mover.settle();
-      this.bodies.releaseBody(mover.id, WALK_OWNER);
-      this.bodies.releaseBody(mover.id, CHORE_OWNER);
-    }
+    for (const mover of this.actors.all()) this.abandonActor(mover.id);
+  }
+
+  /**
+   * The same, for one mover.
+   *
+   * A click in the play area abandons the interaction the player has changed
+   * their mind about -- and ONLY that. Hob is crossing the road on his own
+   * runner while the player is in charge, and a click meant to stop Thad
+   * walking to a trough must not stop Hob.
+   */
+  abandonActor(id: string): void {
+    const mover = this.actors.get(id);
+    if (!mover) return;
+    mover.settle();
+    this.bodies.releaseBody(id, WALK_OWNER);
+    this.bodies.releaseBody(id, CHORE_OWNER);
   }
 
   /** A player-driven walk, claiming the body the same way a scripted one does. */

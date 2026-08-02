@@ -136,7 +136,8 @@ export class DialogueExchange {
    * assertion 2 for no reason.
    */
   abandon(reason: FinishReason): void {
-    if (this.settled) return;
+    if (this.settled || this.finished !== null) return;
+    this.runner.dropPending(this);
     this.tx.journal.release();
     this.finished = reason;
   }
@@ -369,7 +370,7 @@ export class DialogueRunner {
    * inventory would be.
    */
   applyExchange(exchange: DialogueExchange): void {
-    if (this.pending === exchange) this.pending = null;
+    this.dropPending(exchange);
     commitBundle(exchange.tx.effects, this.dialogueWorld(), exchange.tx.journal);
 
     const { resolution } = exchange;
@@ -379,6 +380,11 @@ export class DialogueRunner {
       return;
     }
     if (resolution.goto) this.activeNodeId = resolution.goto;
+  }
+
+  /** Forgets an exchange, settled or abandoned. Called by the exchange itself. */
+  dropPending(exchange: DialogueExchange): void {
+    if (this.pending === exchange) this.pending = null;
   }
 
   private dialogueWorld(): DurableWorld {

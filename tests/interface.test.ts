@@ -806,7 +806,7 @@ test('a multi-speaker response plays one line at a time', async () => {
 test('errata 30a: a trailing wait takes its stated time', () => {
   const runner = new SequenceRunner();
   const host: SequenceHost = {
-    walk: () => {}, isWalking: () => false, face: () => {},
+    walk: () => {}, move: () => {}, isWalking: () => false, face: () => {},
     isTurning: () => false, chore: () => 0, say: () => 0,
   };
 
