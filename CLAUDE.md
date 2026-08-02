@@ -14,7 +14,11 @@ A 2D point-and-click comedy adventure game in the tradition of *The Secret of Mo
 > The presentation layer was replaced wholesale. Docs 11 and 18 are void, doc 06's presentation section is void, and errata 24's decimation scaler no longer applies. Work built against 320×144 or the locked 256 is wasted work.
 >
 > New: `docs/38-character-pipeline.md` and `tools/rig/character.py` — how characters are made now.
-> Open issues, including what errata 54 leaves unspecified: `docs/36-issue-list.md`. The design documents were written in sequence and contradict each other in thirteen places; the errata resolves all of them.
+> `docs/40-actor-clip-inventory.md` — every clip every character needs.
+> **`docs/41-claude-code-redirect.md` — read this before resuming work.**
+> Open issues, including what errata 54 leaves unspecified: `docs/36-issue-list.md`.
+>
+> **Doc 34's preserve list is partly void.** It says to preserve decimation, the locked palette and integer scaling. Errata 54 removed all three and is more recent. `engine/core/Decimation.ts` and `engine/core/PaletteCycling.ts` implement voided specs. The design documents were written in sequence and contradict each other in thirteen places; the errata resolves all of them.
 
 The design is complete and lives in `/docs`. **Do not invent content.** Every line of dialogue, every examine line, every bark already exists in those documents. If something is missing, say so and stop — do not fill the gap.
 
