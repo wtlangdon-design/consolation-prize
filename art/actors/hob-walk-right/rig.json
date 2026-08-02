@@ -1,0 +1,36 @@
+{
+  "source": "reference/casting/hob-walk-right.png",
+  "key": "magenta",
+  "view": "profile",
+  "facing": "right",
+  "walk_dx": 1,
+  "figure": [
+    740,
+    1517
+  ],
+  "hem_row": 1086,
+  "hem_pct": 71.6,
+  "pivot_row": 873,
+  "padding": 260,
+  "rows_legs_separate": 348,
+  "near_leg_px": 54816,
+  "far_leg_px": 49809,
+  "arms_rigged": true,
+  "shoulder_near": 556,
+  "shoulder_far": 489,
+  "near_arm_px": 26895,
+  "far_arm_px": 25849,
+  "measured_foot_travel": 130,
+  "hip_swing": [
+    14,
+    10,
+    0,
+    -10,
+    -14,
+    -10,
+    0,
+    10
+  ],
+  "arm_ratio": 0.55,
+  "frames": 8
+}

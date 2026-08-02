@@ -1,0 +1,22 @@
+{
+  "source": "reference/casting/driver-four-poses.png",
+  "poses": {
+    "seated": [
+      606,
+      960
+    ],
+    "standing": [
+      334,
+      1160
+    ],
+    "climbing": [
+      532,
+      1166
+    ],
+    "reaching": [
+      444,
+      1246
+    ]
+  },
+  "note": "Four poses in one generation, split on the magenta columns between them rather than by connected component -- component labelling dropped five small pieces, which are his raised fingers. Column splitting keeps them."
+}
