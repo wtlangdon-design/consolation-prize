@@ -1202,16 +1202,6 @@ This would have shipped as content silently missing rather than as a failure. It
 
 **45a · Speaker name labels stay off by default**, as doc 30 already specifies, and the accessibility option that enables them must not become the default answer to a contrast problem. Doc 30 says this; it is restated because it is the rule most likely to be relaxed by someone trying to fix legibility quickly.
 
-## Correction: the character height
-
-**This ruling originally said ~233px at mid-depth. That number was wrong.**
-
-It was derived from Monkey Island's proportions — 27% of play height — and never checked against Room 1's plate once the plate existed. Measured against the picture instead: the fence's far-left post runs from row 520 to row 680, 160px, and the project owner reads its top as chest-to-shoulder height on a man. That gives **~205px at that depth**, and cross-checks — the fence then works out to 4.5 feet, right for a frontier rail fence.
-
-**205 is an anchor, not a fixed height.** Characters scale with depth; 205 is the height where the fence stands, which is roughly where Thad talks to the driver. It is the first real data point for the per-room scale curve, which had none.
-
-Recorded in full as Q21 in `docs/36-issue-list.md`.
-
 ## Precedence
 
 Doc 30 governs presentation and pacing. **It does not touch what characters say** — doc 04, doc 05 and the room content documents are unaffected, and doc 30 says so.
