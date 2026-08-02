@@ -46,6 +46,15 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
 
   const menu = (await read(manifest.menu)) as MenuFile;
   const actor = (await read(manifest.actor)) as ActorFile;
+  // EVERY declared record, keyed by its own id. The list is explicit in the
+  // manifest rather than discovered from the directory -- a directory listing
+  // loads whatever happens to be on disk, and that is not a decision anybody
+  // made. The protagonist is in here too; `actor` says which one he is.
+  const actorFiles = await Promise.all(
+    (manifest.actors ?? [manifest.actor]).map((path) => read(path) as Promise<ActorFile>),
+  );
+  const actors = new Map(actorFiles.map((file) => [file.id, file]));
+  if (!actors.has(actor.id)) actors.set(actor.id, actor);
   const panel = (await read(manifest.panel)) as PanelFile;
   const combinations = (await read(manifest.combinations)) as CombinationsFile;
   const itemIcons = (await read(manifest.itemIcons)) as ItemIconsFile;
@@ -103,7 +112,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
 
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
-    verbFallbacks, ambient, rooms, dialogue, actor, items, panel, combinations, itemIcons,
+    verbFallbacks, ambient, rooms, dialogue, actor, actors, items, panel, combinations, itemIcons,
     sequences,
   };
 }

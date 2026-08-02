@@ -815,8 +815,8 @@
       "surface": "boardwalk",
       "scaleMode": {
         "kind": "fixed",
-        "height": 205,
-        "provisional": "Q6/Q9: flattened to the one measured anchor. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve exists."
+        "height": 240,
+        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
       }
     },
     {
@@ -850,10 +850,10 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 528,
-        "farHeight": 205,
+        "farHeight": 240,
         "nearY": 863,
-        "nearHeight": 205,
-        "provisional": "Q6/Q9: flattened to the one measured anchor. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve exists."
+        "nearHeight": 240,
+        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
       }
     },
     {
@@ -886,10 +886,10 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 528,
-        "farHeight": 205,
+        "farHeight": 240,
         "nearY": 863,
-        "nearHeight": 205,
-        "provisional": "Q6/Q9: flattened to the one measured anchor. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve exists."
+        "nearHeight": 240,
+        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
       }
     },
     {
@@ -922,10 +922,10 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 528,
-        "farHeight": 205,
+        "farHeight": 240,
         "nearY": 863,
-        "nearHeight": 205,
-        "provisional": "Q6/Q9: flattened to the one measured anchor. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve exists."
+        "nearHeight": 240,
+        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
       }
     },
     {
@@ -957,10 +957,10 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 528,
-        "farHeight": 205,
+        "farHeight": 240,
         "nearY": 863,
-        "nearHeight": 205,
-        "provisional": "Q6/Q9: flattened to the one measured anchor. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve exists."
+        "nearHeight": 240,
+        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
       }
     }
   ],

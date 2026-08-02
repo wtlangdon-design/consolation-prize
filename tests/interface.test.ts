@@ -497,7 +497,15 @@ test('every menu route is reachable by mouse, and load greys out with no save', 
 
   const root = state.menu.rows();
   const ids = root.map((row) => row.id);
-  assert.deepEqual(ids, ['resume', 'save', 'load', 'options', 'quit']);
+  // ERRATA 39's fullscreen sits above Quit to Title: it is the only root item
+  // that changes nothing about the game, so beside Resume it would read as a
+  // state change and below Quit it would come after the exit.
+  assert.deepEqual(ids, ['resume', 'save', 'load', 'options', 'fullscreen', 'quit']);
+  assert.equal(state.menu.select('fullscreen').kind, 'fullscreen',
+    'and it is reachable by mouse, which is the whole of the mouse-only requirement');
+  assert.equal(state.menu.isOpen, true,
+    'and it does not close the menu -- the player is looking at the thing that resized');
+  state.menu.open();
   assert.equal(root.find((row) => row.id === 'load')!.enabled, false,
     'Load is dim with nothing saved, but still present');
 

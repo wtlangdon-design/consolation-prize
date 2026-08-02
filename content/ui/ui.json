@@ -32,7 +32,12 @@
     "note": "How long a line stays up. Interface grammar of the same class as the sentence templates -- no document specifies it because no document specifies '{verb} {target}' either. It is HERE rather than in a .ts file because it is a number a person will want to change after watching the opening, and because menu.json already declares an unimplemented OPTIONS item called 'Text speed': when that is built, this is the value it scales, and a rate buried in the engine could not be.",
     "lineSecondsPerGlyph": 0.045,
     "lineSecondsMinimum": 1.6,
-    "actCardExtraSeconds": 2.0,
+    "actCardExtraSeconds": 2,
     "actCardNote": "Added to doc 17 beat 7's stated ~3s, so the card holds about five seconds. The doc's number is how long the BEAT lasts; this is how long two lines of a 5x7 font take to read, which is interface timing and not something doc 17 should have to state. Reported as 'too fast' from the deployed build, where the card had exactly the beat's three seconds and one line of text."
+  },
+  "fullscreen": {
+    "note": "Interface grammar, the same class as the map's. Two words rather than one because the button is a TOGGLE and has to say which way it goes -- 'FULL' when windowed, 'WINDOW' when full. Both fit the 336-unit cell at the scaled face: six glyphs is 216 units.",
+    "button": "FULL",
+    "back": "WINDOW"
   }
 }

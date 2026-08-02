@@ -33,9 +33,19 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
-const ACTOR = 'thad';
 const ART = 'art/actors';
-const OUT = `content/actors/${ACTOR}.json`;
+
+/**
+ * EVERY CHARACTER IS NAMED HERE, and the manifest names every record this
+ * writes. Neither end discovers anything from a directory listing.
+ *
+ * The ruling is explicit-list-not-convention, and the reason is that
+ * convention picks up a half-written file or something copied in to look at,
+ * silently, and then the game either loads it or does not depending on what
+ * happened to be on disk. A list is checkable; a directory is a fact about
+ * someone's afternoon.
+ */
+const CHARACTERS = ['thad', 'hob'];
 
 /** clip id -> the frame-file prefix the rig wrote, and the directory infix. */
 const CLIPS = [
@@ -47,74 +57,159 @@ const CLIPS = [
 ];
 const FACINGS = ['front', 'back', 'left', 'right'];
 
-const clips = [];
-for (const clip of CLIPS) {
+/**
+ * A CHARACTER IS DRAWN IN THE FACINGS HE HAS AND NO OTHERS, and the record
+ * says which. Hob is right-facing only -- four clips against Thad's twenty --
+ * because he crosses the road once and never comes back, and that is the art
+ * being right rather than the art being short.
+ *
+ * Declared rather than inferred at the draw call, so that asking Hob to face
+ * left is answered by data instead of by a guard. Q20's ruling still holds
+ * underneath it: no silent substitution, ever. A facing he does not have draws
+ * nothing; a clip he SHOULD have and does not is still named.
+ */
+function facingsOf(id) {
+  const found = new Set();
   for (const facing of FACINGS) {
-    const dir = `${ART}/${ACTOR}-${clip.dir}-${facing}`;
-    const rigPath = join(dir, 'rig.json');
-    if (!existsSync(rigPath)) throw new Error(`${rigPath} does not exist`);
-    const rig = JSON.parse(readFileSync(rigPath, 'utf8'));
-
-    const files = readdirSync(dir).filter((f) => f.endsWith('.png')).sort();
-    const expected = files.map((_, i) => `${clip.prefix}-${String(i).padStart(2, '0')}.png`);
-    if (files.join() !== expected.join()) {
-      throw new Error(`${dir}: frames are ${files.join(', ')}, expected ${expected.join(', ')}`);
+    for (const clip of CLIPS) {
+      if (existsSync(join(ART, `${id}-${clip.dir}-${facing}`))) found.add(facing);
     }
-    if (rig.frames !== files.length) {
-      throw new Error(`${dir}: rig says ${rig.frames} frames, directory has ${files.length}`);
-    }
+  }
+  return FACINGS.filter((facing) => found.has(facing));
+}
 
-    const [figureWidth, figureHeight] = rig.figure;
-    clips.push({
-      id: clip.id,
-      facing,
-      frames: files.map((f) => `${dir}/${f}`),
-      // The figure's own height in source pixels. Every clip of one facing
-      // shares it, which is what keeps him the same size between standing
-      // and walking rather than resizing to each clip's bounding box.
-      figureHeight,
-      // Where the soles and the centre line sit on the padded canvas.
-      anchor: [rig.padding + Math.round(figureWidth / 2), figureHeight],
-      // Only the walk clips carry one. Written through, never inferred.
-      ...(rig.walk_dx === undefined || rig.walk_dx === null ? {} : { walkDx: rig.walk_dx }),
-    });
+/**
+ * OVERLAYS ARE NOT BODY CLIPS AND THE GENERATOR REFUSES TO CONFUSE THEM.
+ *
+ * `art/actors/` holds two kinds of directory that look identical from outside:
+ * RGBA frames with a rig.json. A body clip is scaled to a character height
+ * against its `figure`. A head overlay composites into a body frame at
+ * `overlay_rect` -- and it carries a `figure` too, because the rig records
+ * which body it belongs to. Scaling one by that figure produces a sprite four
+ * to eight pixels tall. Thad's three `talk` directories do exactly that.
+ *
+ * So every directory is accounted for here, and anything that is neither a
+ * listed body clip nor a marked overlay stops the build. `check-actor-clips`
+ * asserts the same thing against the shipped record, for the case where this
+ * is not re-run.
+ */
+const OVERLAY_KIND = 'head-overlay';
+const wantedDirs = new Set(
+  CHARACTERS.flatMap((id) => CLIPS.flatMap((clip) =>
+    FACINGS.map((facing) => `${id}-${clip.dir}-${facing}`))),
+);
+for (const name of readdirSync(ART, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory()).map((entry) => entry.name)) {
+  const rigPath = join(ART, name, 'rig.json');
+  if (!existsSync(rigPath)) throw new Error(`${ART}/${name} has no rig.json`);
+  const rig = JSON.parse(readFileSync(rigPath, 'utf8'));
+  const overlay = rig.kind === OVERLAY_KIND || rig.overlay_rect !== undefined;
+  if (overlay && wantedDirs.has(name)) {
+    throw new Error(`${name} is a ${OVERLAY_KIND}; it cannot be a body clip`);
+  }
+  if (!overlay && !wantedDirs.has(name)) {
+    throw new Error(
+      `${name} is neither a listed body clip of a listed character nor marked `
+      + `"kind": "${OVERLAY_KIND}". Add its character to CHARACTERS, add its clip to `
+      + 'CLIPS, or mark it in its rig.',
+    );
   }
 }
 
-const previous = JSON.parse(readFileSync(OUT, 'utf8'));
-const record = {
-  schema: 2,
-  id: ACTOR,
-  note:
-    'ERRATA 54, and Q9 and Q14 as ruled. ONE DRAWN SIZE. Errata 24\'s two tiers, its '
-    + 'decimation threshold and the eye_death_row measurement behind it are all void: '
-    + 'errata 54 replaced decimation with ordinary filtered resampling, so there is '
-    + 'nothing for a threshold to switch between. Frames are individual RGBA files in '
-    + 'the per-clip directories under art/actors/, which is what the old sheet-and-cell '
-    + 'schema could not address -- that was the blocking half of Q14. Generated by '
-    + 'tools/build-actor-record.mjs from each directory\'s rig.json; do not hand-edit.',
-  height: 205,
-  heightNote:
-    'PROVISIONAL, and an ANCHOR rather than a fixed height. Q21 measured Room 1\'s '
-    + 'fence at 160px from top rail to ground and the project owner reads that as '
-    + 'chest-to-shoulder on a man, which puts a figure at that depth near 205px; it '
-    + 'cross-checks at 4.5 feet for a frontier rail fence. It is the height AT THE '
-    + 'FENCE and nowhere else. Q6\'s per-room scale curve does not exist yet, so until '
-    + 'it does he is drawn at this one height everywhere -- which is wrong up the road '
-    + 'and wrong in the near mud, and is the honest placeholder for a curve rather than '
-    + 'a guess at one. Errata 54\'s original ~233px was arithmetic from Monkey Island\'s '
-    + 'proportions and was never checked against the plate.',
-  walkRate: previous.walkRate,
-  reactRate: previous.reactRate,
-  idleRate: previous.idleRate,
-  idleBreakRate: 2.0,
-  idleBreakNote:
-    'Doc 40\'s idle-break, which the old record could not declare because it had no '
-    + 'clip for it. Played on a timer while he is idle and returning to stand '
-    + 'afterwards, never looped. 2/s over twelve frames is a six-second gesture.',
-  clips,
-};
+function recordFor(id) {
+  const facings = facingsOf(id);
+  if (facings.length === 0) throw new Error(`${id} has no clip directories`);
+  const clips = [];
+  for (const clip of CLIPS) {
+    for (const facing of facings) {
+      const dir = `${ART}/${id}-${clip.dir}-${facing}`;
+      // A character need not have every clip. Hob has no recoil because
+      // nothing ever makes him flinch.
+      if (!existsSync(dir)) continue;
+      const rig = JSON.parse(readFileSync(join(dir, 'rig.json'), 'utf8'));
 
-writeFileSync(OUT, `${JSON.stringify(record, null, 2)}\n`);
-const frames = clips.reduce((n, c) => n + c.frames.length, 0);
-console.log(`wrote ${OUT}: ${clips.length} clips, ${frames} frames, height ${record.height}`);
+      const files = readdirSync(dir).filter((f) => f.endsWith('.png')).sort();
+      const expected = files.map((_, i) => `${clip.prefix}-${String(i).padStart(2, '0')}.png`);
+      if (files.join() !== expected.join()) {
+        throw new Error(`${dir}: frames are ${files.join(', ')}, expected ${expected.join(', ')}`);
+      }
+      if (rig.frames !== files.length) {
+        throw new Error(`${dir}: rig says ${rig.frames} frames, directory has ${files.length}`);
+      }
+
+      const [figureWidth, figureHeight] = rig.figure;
+      clips.push({
+        id: clip.id,
+        facing,
+        frames: files.map((f) => `${dir}/${f}`),
+        // The figure's own height in source pixels. Every clip of one facing
+        // shares it, which is what keeps him the same size between standing
+        // and walking rather than resizing to each clip's bounding box.
+        figureHeight,
+        // Where the soles and the centre line sit on the padded canvas.
+        anchor: [rig.padding + Math.round(figureWidth / 2), figureHeight],
+        // Only the walk clips carry one. Written through, never inferred.
+        ...(rig.walk_dx === undefined || rig.walk_dx === null ? {} : { walkDx: rig.walk_dx }),
+      });
+    }
+  }
+  return { facings, clips };
+}
+
+const HEIGHT_NOTE =
+  'MEASURED, and it replaces 205. That number came from reading Room 1\'s fence as '
+  + 'chest-to-shoulder on a man -- an eye judgement treated as a measurement -- and it '
+  + 'left the protagonist at 23.7% of the play area against Monkey Island\'s 27.8%. '
+  + 'The wagon wheel is a second independent anchor and the two disagreeing is what '
+  + 'exposed it. 240/864 matches. The room\'s curve is rescaled with its shape '
+  + 'unchanged. Errata 54\'s original ~233 was arithmetic from Monkey Island\'s '
+  + 'proportions and was never checked against the plate at all.';
+
+for (const id of CHARACTERS) {
+  const out = `content/actors/${id}.json`;
+  const { facings, clips } = recordFor(id);
+  // Rates are authored, not measured, so they survive a regeneration. A
+  // character with no record yet takes the protagonist's until someone times
+  // his own -- and the note says so rather than the numbers pretending.
+  const previous = existsSync(out) ? JSON.parse(readFileSync(out, 'utf8')) : null;
+  const base = previous ?? JSON.parse(readFileSync(`content/actors/${CHARACTERS[0]}.json`, 'utf8'));
+
+  const record = {
+    schema: 2,
+    id,
+    note:
+      'ERRATA 54, and Q9 and Q14 as ruled. ONE DRAWN SIZE. Errata 24\'s two tiers, its '
+      + 'decimation threshold and the eye_death_row measurement behind it are all void: '
+      + 'errata 54 replaced decimation with ordinary filtered resampling, so there is '
+      + 'nothing for a threshold to switch between. Frames are individual RGBA files in '
+      + 'the per-clip directories under art/actors/, which is what the old sheet-and-cell '
+      + 'schema could not address -- that was the blocking half of Q14. Generated by '
+      + 'tools/build-actor-record.mjs from each directory\'s rig.json; do not hand-edit.',
+    height: 240,
+    heightNote: HEIGHT_NOTE,
+    /**
+     * The facings this character is DRAWN in. Asking for another is answered
+     * by data rather than by a guard -- see facingsOf.
+     */
+    facings,
+    ...(previous ? {} : {
+      ratesNote:
+        `Taken from ${CHARACTERS[0]}'s record because nobody has timed ${id} separately. `
+        + 'Stated rather than left to look measured.',
+    }),
+    walkRate: base.walkRate,
+    reactRate: base.reactRate,
+    idleRate: base.idleRate,
+    idleBreakRate: base.idleBreakRate ?? 2.0,
+    idleBreakNote:
+      'Doc 40\'s idle-break, which the old record could not declare because it had no '
+      + 'clip for it. Played on a timer while he is idle and returning to stand '
+      + 'afterwards, never looped. 2/s over twelve frames is a six-second gesture.',
+    clips,
+  };
+
+  writeFileSync(out, `${JSON.stringify(record, null, 2)}\n`);
+  const frames = clips.reduce((n, c) => n + c.frames.length, 0);
+  console.log(`wrote ${out}: ${clips.length} clips, ${frames} frames, `
+    + `facings ${facings.join('/')}, height ${record.height}`);
+}

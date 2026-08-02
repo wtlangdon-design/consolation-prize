@@ -85,6 +85,20 @@ export class PanelLayout {
     return this.verbButton(col, row);
   }
 
+  /**
+   * Errata 39's fullscreen toggle, beside MENU and MAP.
+   *
+   * In the PANEL and not only in the menu, because errata 39 says both "per
+   * the mouse-only requirement": a control reachable only through another
+   * control is one indirection away from mouse-complete, and the ruling names
+   * the two places on purpose. This is the verb grid's last free cell.
+   */
+  get fullscreenButton(): Rect | null {
+    if (!this.file.fullscreenButton) return null;
+    const { col, row } = this.file.fullscreenButton;
+    return this.verbButton(col, row);
+  }
+
   /** Icons visible at once. Errata 29: six to eight, and this is eight. */
   get visibleRows(): number {
     const { cols, rows } = this.file.inventory;

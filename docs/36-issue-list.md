@@ -553,6 +553,63 @@ It fits, and the fit is tight rather than comfortable: sentence at 866, four row
 
 Nothing here is broken. It is recorded because it is the first hard evidence for Q6 that the 5 × 7 does not merely look wrong at this size: the panel errata 54 specifies cannot hold it at its intended proportions, so whatever replaces it carries a size constraint the old face never had.
 
+**AND THE PANEL IS NOW OUT OF CELLS. That is the same constraint seen twice, and the two should not be discovered separately.** Errata 39's fullscreen toggle took the verb grid's last free cell — nine verbs fill three rows of three, and the fourth row now holds MENU, MAP and FULL. `panel.json` records it, so the next thing that wants a cell finds out from the file rather than from a collision.
+
+But there is no next cell. **Doc 40's contract still has a talk overlay, the case, and chore markers to surface**, and if any of them needs a control the answer is a new row or a different panel shape — which is a layout decision, in a panel already measured at 216 units against errata 26 and 29's 330. **Too short for its authored layout and out of cells are not two problems.** They are one panel that was re-proportioned by 3.86× while the play area grew by 6×, and any fix for either is a fix for both.
+
+## Q27 · Thad is not drawing at 133px. The whole frame is being shown at two-thirds size.
+
+Investigated because it was reported as the last thing keeping Room 1 from looking right. **It is not a sprite defect and there is nothing wrong with the actor record.** It is worth an entry anyway, because the thing that IS wrong is real and is not what it looks like.
+
+**Measured in isolation.** Every clip drawn at a requested 205, alpha bbox measured on a blank canvas:
+
+| clip | front | back | left | right |
+|---|---|---|---|---|
+| stand / idle / idle-break / recoil | 206 | 206 | 205 | 205 |
+| walk | 195 | 214 | 203 | 203 |
+
+The ±1 is rounding. Walk varies because a walk frame genuinely changes the figure's extent — a raised knee and a leaned torso are not the same height as a stand — and that is the art, not the scaler.
+
+**Measured in the running game**, by wrapping `ActorSprite.draw` and reading the height it is actually handed:
+
+| viewport | canvas | shown at | asked in-frame | ON THE PHYSICAL SCREEN |
+|---|---|---|---|---|
+| 1920 × 1080 | 1920 × 1080 | 1920 × 1080 (×1.00) | 225 | **225** |
+| 1366 × 768 | 1920 × 1080 | 1365 × 768 (×0.711) | 225 | **160** |
+| 1280 × 720 | 1920 × 1080 | 1280 × 720 (×0.667) | 225 | **150** |
+
+`Phaser.Scale.FIT` letterboxes the 1920 × 1080 frame into the window. **133px on screen from a 205 figure is a display scale of 0.649 — a window about 700px tall. From a 225 figure it is 0.591, about 638px tall.** Both are a Chromebook with browser chrome, which is the target machine.
+
+**So the proportions are exactly right and everything shrinks together** — the plate, the panel, the text, the man. Room 1 looks correct; it is being viewed at about two-thirds of full size.
+
+**What is actually open is NOT a font question, and the entry should not be read as one.** At 0.667 the 42-unit glyph displays at 28 physical pixels and stays perfectly readable. The problem is underneath that: **every hairline in the plate and every glyph edge is resampled by a non-integer factor.** The old spec forbade exactly this — errata 39's *"never break the integer rule to fill a window; a fractionally scaled frame is not this game"* — and errata 54 superseded the integer-scaling rule without putting anything in its place.
+
+**That gap survives whatever font is chosen.** A face drawn for 1920 × 1080 is still resampled by 0.667 on a 700-pixel window, and so is the art beside it. Choosing a typeface answers a different question. This one is about what happens between the frame and the glass, and it has been open since errata 54 and unnamed until now.
+
+**And there is no way to reach 1:1.** `grep -rni fullscreen` over `engine/` and `content/` returns nothing. Errata 54 preserves errata 39's fullscreen and mouse-completeness rulings by name, so the fix errata 39 adopted for this exact problem is specified and unbuilt. **It is not a Q-number** — it is a specified feature nobody wrote, and it has gone to the project owner as that rather than as a list entry.
+
+**One more thing this investigation surfaced, now guarded.** `art/actors/` holds three `talk` directories that are `kind: head-overlay` — heads composited into a body frame at `overlay_rect`, not bodies. They carry a `figure` too, because the rig records which body they belong to, so anything iterating the directory and scaling by figure height draws them at 4, 7 and 8 px: absurd, silent, and produced by code doing nothing obviously wrong. `tools/check-actor-clips.mjs` now fails on an overlay declared as a body clip **and** on any clip directory that is neither declared nor marked — the second being the case that catches new art nobody wired, which is otherwise invisible because the game simply never asks for it.
+
+## Q28 · The coach was generated with its door closed, and Thad steps out of it
+
+Art-side, recorded here because the shape of the answer is an engine one and errata 31d already set it.
+
+Doc 17 beat 3 has Thad step out of the coach. The coach was generated with its **door closed**, so there is no state in which it is open.
+
+**The answer is a second coach state, not a swinging door.** A door in profile foreshortens as it opens, so animating it needs several drawn angles, and each one has to match the body's shading at that angle — a door caught halfway that is lit like a door fully open reads as a mistake before anyone can say why. Two full states cannot drift out of alignment with each other, because there is nothing between them to be wrong.
+
+**Errata 31d already made the coach an object state**, so this is the existing pattern rather than a new mechanism: `coach` gates on `T_COACH_DEPARTED`, and a door state gates the same way on whatever flag beat 3 sets. Q20 removed the coach's stale image and kept its state and gating for exactly this reason — when the coach is generated against the approved plate, it drops back into the hotspot that is already there.
+
+## Q29 · Hob's art has arrived and there is nowhere to declare it
+
+Caught by `check-actor-clips` within minutes of the art landing, which is the check working rather than the check being wrong.
+
+`art/actors/` now holds `hob-stand-right`, `hob-idle-right`, `hob-idlebreak-right` and `hob-walk-right`. **There is no actor record for Hob and nowhere to put one.** `content/manifest.json` declares a single `actor` — `content/actors/thad.json` — and `ContentLoader` loads exactly that one. So the art is invisible: the game never asks for it, and until this check existed nothing said so.
+
+**This is not a missing clip and re-running the generator will not fix it.** `build-actor-record.mjs` is written for one character by name. It is a second character arriving ahead of the plumbing that would load one, which is the ordinary and healthy order — art batches independently, per CLAUDE.md — but it means the check now fails on `main` until the plumbing exists.
+
+**What is needed is a decision about shape**, and it is small but not mine: whether the manifest grows an actor *list*, whether records are discovered by convention from `content/actors/*.json`, and whether `scaling.json`'s one zone table is per-character or shared. Hob is also **right-facing only**, four clips against Thad's twenty, so whatever loads him has to tolerate a character who cannot turn — which is correct for a man who crosses the road once and never comes back.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

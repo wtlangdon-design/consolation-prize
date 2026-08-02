@@ -388,6 +388,12 @@ export interface PanelFile {
   menuButton: { col: number; row: number };
   /** Doc 20 rule 2. Optional so a panel without one still loads. */
   mapButton?: { note?: string; col: number; row: number };
+  /**
+   * ERRATA 39's fullscreen toggle. Optional for the same reason the map is,
+   * and it takes the verb grid's LAST free cell -- nine verbs fill three rows
+   * of three, and the fourth row now holds MENU, MAP and this.
+   */
+  fullscreenButton?: { note?: string; col: number; row: number };
   inventory: {
     note?: string;
     x: number;
@@ -417,6 +423,18 @@ export interface ActorFile {
    */
   height: number;
   heightNote?: string;
+  /**
+   * The facings this character is DRAWN in, and no others.
+   *
+   * Hob is right-facing only -- he crosses the road once and never comes back,
+   * so four clips is the art being right rather than the art being short.
+   * Declared so that asking for a facing he has not got is answered by DATA
+   * instead of by a guard firing. Q20 still holds underneath: no silent
+   * substitution. A facing he does not have draws nothing; a clip he should
+   * have and does not is still named.
+   */
+  facings?: Facing[];
+  ratesNote?: string;
   /** Walk-cycle frames per second. */
   walkRate: number;
   /** Reaction frames per second. */
@@ -718,6 +736,13 @@ export interface UiFile {
   /** Doc 20's map screen. Interface grammar, of a class with the templates. */
   map?: { note?: string; button: string; back: string; travelTemplate: string };
   /**
+   * ERRATA 39's fullscreen toggle. Two words rather than one because the
+   * button says which way it goes -- FULL while windowed, WINDOW while full --
+   * and a control that only names itself leaves the player guessing which
+   * state they are in.
+   */
+  fullscreen?: { note?: string; button: string; back: string };
+  /**
    * How long a line stays up. Not written content and not in any document:
    * doc 17 states seconds for BEATS, and a line's duration is a property of
    * the line rather than of the beat that contains it.
@@ -777,6 +802,9 @@ export interface ManifestFile {
   openingSequence?: string;
   /** The player character's sheet and clip table. */
   actor: string;
+  /** Every actor record, named explicitly. Never discovered from a directory. */
+  actors?: string[];
+  actorsNote?: string;
   items: string[];
   /** Verb panel and inventory geometry. Errata ruling 26. */
   panel: string;
@@ -802,6 +830,8 @@ export interface ContentBundle {
   rooms: Map<string, RoomFile>;
   dialogue: Map<string, DialogueFile>;
   actor: ActorFile;
+  /** Every declared record by id, the protagonist among them. */
+  actors: Map<string, ActorFile>;
   items: Map<string, ItemFile>;
   panel: PanelFile;
   combinations: CombinationsFile;

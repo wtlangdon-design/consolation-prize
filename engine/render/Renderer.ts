@@ -766,6 +766,32 @@ export class Renderer {
       const x = map.x + Math.floor((map.width - this.font.measure(text)) / 2);
       this.font.draw(ctx, text, x, this.labelY(map), this.screen.roleColour('ink'));
     }
+
+    // ERRATA 39's fullscreen toggle, in the panel because the ruling says the
+    // panel AND the menu "per the mouse-only requirement". It says which way
+    // it goes rather than what it is: FULL while windowed, WINDOW while full.
+    const full = this.panel.fullscreenButton;
+    const fullWords = this.state.content.ui.fullscreen;
+    if (full && fullWords) {
+      this.screen.fill(full.x, full.y, full.width, full.height,
+        this.screen.role(this.fullscreen ? 'buttonBgActive' : 'buttonBg'));
+      const text = this.fullscreen ? fullWords.back : fullWords.button;
+      const x = full.x + Math.floor((full.width - this.font.measure(text)) / 2);
+      this.font.draw(ctx, text, x, this.labelY(full), this.screen.roleColour('ink'));
+    }
+  }
+
+  /**
+   * Whether the game is currently filling the screen.
+   *
+   * Read from the DOM rather than from a flag this class keeps, because the
+   * browser owns the state and can leave fullscreen without asking -- Escape,
+   * a window manager, a tab switch. A cached boolean would go stale in exactly
+   * the case where the button is the only thing telling the player where they
+   * are.
+   */
+  private get fullscreen(): boolean {
+    return typeof document !== 'undefined' && document.fullscreenElement !== null;
   }
 
   /**
