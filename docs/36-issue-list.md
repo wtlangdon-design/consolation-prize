@@ -553,6 +553,10 @@ It fits, and the fit is tight rather than comfortable: sentence at 866, four row
 
 Nothing here is broken. It is recorded because it is the first hard evidence for Q6 that the 5 × 7 does not merely look wrong at this size: the panel errata 54 specifies cannot hold it at its intended proportions, so whatever replaces it carries a size constraint the old face never had.
 
+**AND THE PANEL IS NOW OUT OF CELLS. That is the same constraint seen twice, and the two should not be discovered separately.** Errata 39's fullscreen toggle took the verb grid's last free cell — nine verbs fill three rows of three, and the fourth row now holds MENU, MAP and FULL. `panel.json` records it, so the next thing that wants a cell finds out from the file rather than from a collision.
+
+But there is no next cell. **Doc 40's contract still has a talk overlay, the case, and chore markers to surface**, and if any of them needs a control the answer is a new row or a different panel shape — which is a layout decision, in a panel already measured at 216 units against errata 26 and 29's 330. **Too short for its authored layout and out of cells are not two problems.** They are one panel that was re-proportioned by 3.86× while the play area grew by 6×, and any fix for either is a fix for both.
+
 ## Q27 · Thad is not drawing at 133px. The whole frame is being shown at two-thirds size.
 
 Investigated because it was reported as the last thing keeping Room 1 from looking right. **It is not a sprite defect and there is nothing wrong with the actor record.** It is worth an entry anyway, because the thing that IS wrong is real and is not what it looks like.
@@ -585,6 +589,26 @@ The ±1 is rounding. Walk varies because a walk frame genuinely changes the figu
 **And there is no way to reach 1:1.** `grep -rni fullscreen` over `engine/` and `content/` returns nothing. Errata 54 preserves errata 39's fullscreen and mouse-completeness rulings by name, so the fix errata 39 adopted for this exact problem is specified and unbuilt. **It is not a Q-number** — it is a specified feature nobody wrote, and it has gone to the project owner as that rather than as a list entry.
 
 **One more thing this investigation surfaced, now guarded.** `art/actors/` holds three `talk` directories that are `kind: head-overlay` — heads composited into a body frame at `overlay_rect`, not bodies. They carry a `figure` too, because the rig records which body they belong to, so anything iterating the directory and scaling by figure height draws them at 4, 7 and 8 px: absurd, silent, and produced by code doing nothing obviously wrong. `tools/check-actor-clips.mjs` now fails on an overlay declared as a body clip **and** on any clip directory that is neither declared nor marked — the second being the case that catches new art nobody wired, which is otherwise invisible because the game simply never asks for it.
+
+## Q28 · The coach was generated with its door closed, and Thad steps out of it
+
+Art-side, recorded here because the shape of the answer is an engine one and errata 31d already set it.
+
+Doc 17 beat 3 has Thad step out of the coach. The coach was generated with its **door closed**, so there is no state in which it is open.
+
+**The answer is a second coach state, not a swinging door.** A door in profile foreshortens as it opens, so animating it needs several drawn angles, and each one has to match the body's shading at that angle — a door caught halfway that is lit like a door fully open reads as a mistake before anyone can say why. Two full states cannot drift out of alignment with each other, because there is nothing between them to be wrong.
+
+**Errata 31d already made the coach an object state**, so this is the existing pattern rather than a new mechanism: `coach` gates on `T_COACH_DEPARTED`, and a door state gates the same way on whatever flag beat 3 sets. Q20 removed the coach's stale image and kept its state and gating for exactly this reason — when the coach is generated against the approved plate, it drops back into the hotspot that is already there.
+
+## Q29 · Hob's art has arrived and there is nowhere to declare it
+
+Caught by `check-actor-clips` within minutes of the art landing, which is the check working rather than the check being wrong.
+
+`art/actors/` now holds `hob-stand-right`, `hob-idle-right`, `hob-idlebreak-right` and `hob-walk-right`. **There is no actor record for Hob and nowhere to put one.** `content/manifest.json` declares a single `actor` — `content/actors/thad.json` — and `ContentLoader` loads exactly that one. So the art is invisible: the game never asks for it, and until this check existed nothing said so.
+
+**This is not a missing clip and re-running the generator will not fix it.** `build-actor-record.mjs` is written for one character by name. It is a second character arriving ahead of the plumbing that would load one, which is the ordinary and healthy order — art batches independently, per CLAUDE.md — but it means the check now fails on `main` until the plumbing exists.
+
+**What is needed is a decision about shape**, and it is small but not mine: whether the manifest grows an actor *list*, whether records are discovered by convention from `content/actors/*.json`, and whether `scaling.json`'s one zone table is per-character or shared. Hob is also **right-facing only**, four clips against Thad's twenty, so whatever loads him has to tolerate a character who cannot turn — which is correct for a man who crosses the road once and never comes back.
 
 ---
 

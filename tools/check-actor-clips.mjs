@@ -44,8 +44,16 @@ export function check() {
     }
   }
 
+  // The manifest declares ONE actor record, so anything under a different
+  // character's prefix has no record to be declared in. That is still a real
+  // gap -- the art is invisible and the game never asks for it -- but it is a
+  // DIFFERENT gap from a missing clip, and reporting it as the same one sends
+  // the next person to re-run a generator that does not know the character.
+  const known = content.actor.id;
+
   let bodies = 0;
   let overlays = 0;
+  const unrecorded = new Map();
   const directories = readdirSync(ART, { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name)
@@ -79,8 +87,13 @@ export function check() {
       continue;
     }
     if (!clip) {
+      const character = name.split('-')[0];
+      if (character !== known) {
+        unrecorded.set(character, (unrecorded.get(character) ?? 0) + 1);
+        continue;
+      }
       report.fail(
-        `art/actors/${name} is neither declared in content/actors/ nor marked `
+        `art/actors/${name} is neither declared in content/actors/${known}.json nor marked `
         + `"kind": "${OVERLAY_KIND}". New art nobody wired is invisible -- the game `
         + `never asks for it and nothing says so. Re-run tools/build-actor-record.mjs, `
         + `or mark it as an overlay.`,
@@ -88,6 +101,16 @@ export function check() {
       continue;
     }
     bodies += 1;
+  }
+
+  for (const [character, count] of [...unrecorded].sort()) {
+    report.fail(
+      `${character} has ${count} clip directory/ies under art/actors/ and NO ACTOR RECORD. `
+      + `content/manifest.json declares one actor ("${known}") and content/actors/ holds `
+      + `one record, so there is nowhere for these to be declared and the game cannot ask `
+      + `for them. This is not a missing clip and re-running the generator will not fix it: `
+      + `it is a second character arriving ahead of the plumbing that would load one.`,
+    );
   }
 
   report.note(`${bodies} body clip directory/ies declared, ${overlays} overlay(s) marked`);
