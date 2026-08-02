@@ -1,0 +1,18 @@
+{
+  "sprite": "art/objects/thads-case.png",
+  "source": "reference/casting/thad-carry-case-right.png",
+  "mask": "reference/masks/thad-carry-case.txt",
+  "size": [
+    304,
+    310
+  ],
+  "socket_in_source": [
+    151,
+    1173
+  ],
+  "figure": [
+    807,
+    2107
+  ],
+  "note": "Cut from the carry pose with a hand-painted mask. Auto-detection failed three ways -- colour took his boots, silhouette took his coat, a tight leather threshold left the case hollow. The handle's opening is a real hole and must not be filled; filling it put background inside the sprite. socket_in_source is where the handle met his hand, in the source figure's own coordinates."
+}
