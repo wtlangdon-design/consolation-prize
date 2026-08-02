@@ -26,6 +26,7 @@ import { check as roomOneDrawn } from './check-room-01-drawn.mjs';
 import { check as stableSeeds } from './check-stable-seeds.mjs';
 import { check as assetPaths } from './check-asset-paths.mjs';
 import { check as actorClips } from './check-actor-clips.mjs';
+import { check as bootAssets } from './check-boot-assets.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -58,13 +59,17 @@ const CHECKS = [
   stableSeeds,
   assetPaths,
   actorClips,
+  bootAssets,
 ];
 
 let failed = 0;
 for (const check of CHECKS) {
   let report;
   try {
-    report = check();
+    // Awaited: a check may load content through the ENGINE's own async loader
+    // rather than the tools' parallel one, which is the only way to assert
+    // something about the bundle the game actually builds.
+    report = await check();
   } catch (error) {
     console.log(`FAIL  ${check.name} threw`);
     console.log(`      x ${error instanceof Error ? error.message : String(error)}`);

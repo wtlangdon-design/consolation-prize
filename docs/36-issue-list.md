@@ -655,6 +655,61 @@ after drv3            drv3[COMIC](grey)  drv4[EXIT]
 
 **Not fixed, and it should not be fixed here.** Errata 37 is a design ruling, amending doc 04 rule 4 by name, and the three ways out — keep it, drop the removal, or mark PROGRESS visibly so the rule becomes learnable — are all design decisions.
 
+## Q32 · Boot now waits on the first frame, not on the game — Q30's first half, closed
+
+Q30 named two problems. The pipeline's half is fixed on `main` at `f8699d36`, which took `art/actors/` from 71.8 MB to 12.6 MB. This is the engine's half.
+
+**`engine/core/BootAssets.ts` decides what the first frame needs, and boot awaits only that.** The start room's images, and the protagonist's `stand`, `idle` and `walk`. Everything else — every other room, every other character, item icons, and Thad's own `idle-break` and `recoil` — is loaded by `GameScene` after it is already drawing.
+
+The split is worth more than it looks, because the heaviest thing Thad owns cannot possibly be on screen at second zero:
+
+| clip | Thad | on screen at t=0? |
+|---|---|---|
+| stand | 0.31 MB | yes |
+| idle | 1.86 MB | yes — he breathes while he stands |
+| walk | 2.63 MB | yes — the first thing anyone does is move him |
+| idle-break | **3.68 MB** | no — needs seconds of stillness by definition |
+| recoil | 1.29 MB | no — needs a beat or an interaction |
+
+**61 files / 6.49 MB required, 109 files / 7.85 MB deferred.**
+
+**Measured, production build, cache disabled, first frame counted as >100 distinct colours in the play area:**
+
+| | await everything | split | |
+|---|---|---|---|
+| unthrottled | 3.9 s | **3.2 s** | |
+| 20 Mbps | 8.4 s | **5.7 s** | |
+| 5 Mbps | 27.3 s | **14.6 s** | 46% of the wait removed |
+
+The dev server, same harness, shows the same shape at higher absolute numbers — 3.0 → 1.9 s, 10.7 → 7.4 s, 37.7 → 25.0 s — because it serves ~100 unbundled modules and the production build serves one.
+
+**The frame you get is the whole frame.** Captured at 5 Mbps at the instant it appears: the composed Room 1 plate, Thad at 240 px with his back turned, no graybox anywhere. The split does not trade a black screen for a broken one.
+
+**What it really buys is that the wait no longer grows with the cast.** Hob's 27 frames blocked a frame he is not in; the next character's will not either.
+
+**AND IT IS NOW A CHECK, NOT A CONVENTION.** `tools/check-boot-assets.mjs` walks the content records independently — generically, by regex, the way `check-asset-paths` does — and asserts every declared image is in exactly one of the two lists. That closes the category this session produced three times over and could not see: **declared and never loaded.** Hob's record parsed, his art was on disk, `check-actor-clips` passed, `check-asset-paths` passed, and he drew nothing, because the loader asked for the protagonist's frames and no others. Reverting the loader to that state now fails the check by name on all 13 of his frames — verified by doing it.
+
+The check walks the records independently *on purpose*. Enumerating assets by calling `planBoot`'s own helper would make it agree with itself about a field neither of them knows exists, which is exactly how Hob was missed.
+
+**Two things the apparatus got wrong first, both caught by checking it before trusting it** — R5d, and both worth recording because both produced a confident wrong number:
+
+- **A "not black" predicate fired at 0.2 s.** The page is *white* until the JS bundle loads the stylesheet that makes it black, so brightness measured the blank page. A drawn room has hundreds of distinct colours and a flat page of any colour has one; the count is the honest test.
+- **The production harness read `>60 s` at every bandwidth.** `window.__game` is stripped from production builds by an `import.meta.env.DEV` guard, so the probe was asking a question the page could not answer. An experiment that did not happen returns "never", which looks exactly like a real failure.
+
+## Q33 · `npm run preview` cannot serve `npm run build`
+
+Found while measuring Q32 and unrelated to it.
+
+`vite.config.ts` sets `base: command === 'build' ? '/consolation-prize/' : '/'`. Vite's preview server runs under `command === 'serve'`, so it resolves `base` to `/` — while the `index.html` it is serving was written with `/consolation-prize/` baked into every asset URL. The result is a 200 on the page and a 404 on the bundle:
+
+```
+404 http://localhost:4173/consolation-prize/assets/index-UlDnmjwO.js
+```
+
+The deployed site is fine — GitHub Pages genuinely serves under `/consolation-prize/`. It is only local preview that cannot work, and the workaround is `BASE_PATH=/ npm run build`, which the config already supports.
+
+**Not fixed.** The conditional base is what makes the Pages deploy work and the fix is a one-line change to a file that decides where the game is published from. That is worth someone saying yes to rather than a passing tidy-up during a performance measurement.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

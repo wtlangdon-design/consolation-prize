@@ -3,6 +3,7 @@ import Phaser from 'phaser';
 import type { GameState } from '../core/GameState.ts';
 import type { Exit, Interactable } from '../core/types.ts';
 import { Actor, IDLE_BREAK } from '../core/Actor.ts';
+import { planBoot } from '../core/BootAssets.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
@@ -161,6 +162,31 @@ export class GameScene extends Phaser.Scene {
 
     this.beginOpening();
     this.markDirty();
+    this.loadDeferred();
+  }
+
+  /**
+   * Everything boot did not wait for, fetched while the game is already on
+   * screen. `planBoot` decides the split; this half only has to not block.
+   *
+   * Each arrival marks the frame dirty, because the renderer redraws on change
+   * and a texture appearing is a change it cannot otherwise see -- Hob would
+   * finish downloading into a frame that had already been drawn without him
+   * and stay invisible until something else happened to move.
+   *
+   * Until a frame arrives the renderer draws the graybox it already falls back
+   * to for an absent texture. That is deliberate and it is Q20's rule: a
+   * missing sprite looks missing, and nothing is quietly substituted for it.
+   */
+  private loadDeferred(): void {
+    let queued = 0;
+    for (const { key, path } of planBoot(this.state.content).deferred) {
+      if (this.textures.exists(key)) continue;
+      this.load.image(key, new URL(path, document.baseURI).toString());
+      this.load.once(`filecomplete-image-${key}`, () => this.markDirty());
+      queued += 1;
+    }
+    if (queued > 0) this.load.start();
   }
 
   update(): void {
