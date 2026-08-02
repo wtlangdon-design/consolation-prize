@@ -74,6 +74,13 @@ export type SequenceStep =
 /** What the runner needs the world to be able to do. */
 export interface SequenceHost {
   walk(actor: string, x: number, y: number): void;
+  /**
+   * ERRATA 38. Translates a named mover, placing it at `from` first when the
+   * step says where from. `isWalking` reports on it, so a `waitForActor`
+   * after a `move` waits for the arrival exactly as it does after a walk.
+   */
+  move(actor: string, from: { x: number; y: number } | undefined,
+       x: number, y: number, seconds: number): void;
   isWalking(actor: string): boolean;
   face(actor: string, facing: Facing): void;
   isTurning(actor: string): boolean;
@@ -165,6 +172,12 @@ export class SequenceRunner {
 
       if (step.kind === 'walk') {
         host.walk(step.actor, step.x, step.y);
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'move') {
+        host.move(step.actor, step.from, step.x, step.y, step.seconds);
         this.index += 1;
         moved = true;
         continue;

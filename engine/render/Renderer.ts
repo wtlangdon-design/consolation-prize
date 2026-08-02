@@ -1,6 +1,7 @@
 import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
 import type { Actor } from '../core/Actor.ts';
+import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import type { AmbientFile, Interactable } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
@@ -96,7 +97,15 @@ export class Renderer {
   private readonly font: BitmapFont;
   private readonly state: GameState;
 
-  private readonly actor: Actor;
+  /**
+   * Every named mover in the room, the player among them. Issue X4 defect 3.
+   *
+   * This was a single `Actor`, and that was the defect: the draw list was the
+   * ambient set plus one protagonist, so Hob, the driver, the horses and the
+   * coach had nowhere to be drawn even though every sequence step had carried
+   * an actor id since the runner was written.
+   */
+  private readonly actors: RoomActors;
   private readonly ambient: AmbientLayer;
   private readonly background: BackgroundSource;
   /**
@@ -123,7 +132,7 @@ export class Renderer {
     screen: Screen,
     font: BitmapFont,
     state: GameState,
-    actor: Actor,
+    actors: RoomActors,
     ambient: AmbientLayer,
     background: BackgroundSource,
     foreground: BackgroundSource = () => null,
@@ -133,7 +142,7 @@ export class Renderer {
     this.screen = screen;
     this.font = font;
     this.state = state;
-    this.actor = actor;
+    this.actors = actors;
     this.ambient = ambient;
     this.background = background;
     this.foreground = foreground;
@@ -373,9 +382,15 @@ export class Renderer {
       });
     }
 
-    const feetX = Math.round(this.actor.x);
-    const feetY = Math.round(this.actor.y);
-    drawables.push({ feetX, feetY, draw: () => this.drawActor(feetX, feetY) });
+    // EVERY MOVER, not just the protagonist. Depth sorting settles them
+    // against each other and against the ambient set in one pass, so a driver
+    // standing further up the road is drawn behind a man standing nearer it
+    // for the same reason and by the same rule.
+    for (const mover of this.actors.all()) {
+      const feetX = Math.round(mover.x);
+      const feetY = Math.round(mover.y);
+      drawables.push({ feetX, feetY, draw: () => this.drawMover(mover, feetX, feetY) });
+    }
 
     // Stable by construction: ambient characters keep their declared order
     // among themselves when they share a row, so a tie does not flicker.
@@ -385,16 +400,30 @@ export class Renderer {
     }
   }
 
-  private drawActor(feetX: number, feetY: number): void {
-    const surface = this.actor.surfaceHere();
-    const clip = this.actor.clip;
+  /**
+   * One named mover, drawn at its own depth height with its soles on its feet.
+   *
+   * Only the protagonist has a sprite record: `content/actors/` holds one
+   * actor file and the sheets it names, and no other character has one yet.
+   * Everyone else draws the graybox figure -- VISIBLY a placeholder, at the
+   * right size, in the right place, at the right depth. That is a gap you can
+   * see, which is the point: a mover borrowing the protagonist's sheet would
+   * be defect 1 again, wearing a costume.
+   */
+  private drawMover(mover: Actor, feetX: number, feetY: number): void {
+    if (mover.id !== this.actors.playerId) {
+      this.drawFigure(feetX, feetY, mover.height, this.screen.role('outline'));
+      return;
+    }
+    const surface = mover.surfaceHere();
+    const clip = mover.clip;
     const { walkRate, reactRate, idleRate } = this.state.content.actor;
-    const frames = this.sprite?.frameCount(clip, this.actor.facing, surface, this.actor.height) ?? 1;
-    const frame = this.actor.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0);
-    const drawn = this.sprite?.draw(this.screen.context, clip, this.actor.facing, surface,
-      frame, feetX, feetY, this.actor.height);
+    const frames = this.sprite?.frameCount(clip, mover.facing, surface, mover.height) ?? 0;
+    const frame = mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0);
+    const drawn = frames > 0 && this.sprite?.draw(this.screen.context, clip, mover.facing, surface,
+      frame, feetX, feetY, mover.height);
     if (!drawn) {
-      this.drawFigure(feetX, feetY, this.actor.height, this.screen.role('overlayBg'));
+      this.drawFigure(feetX, feetY, mover.height, this.screen.role('overlayBg'));
     }
   }
 
