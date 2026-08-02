@@ -327,6 +327,25 @@ So this is not a dangling reference to remove. **The engine's entire colour mode
 
 **Measured rather than assumed, because the plate changed underneath it.** The cycler recovers indices by matching exact palette RGB in the background. Against the new full-RGB plate: `accent_gold` 225–228 match **0 pixels**, `accent_indigo` 239–241 match **1**. So it does not crash and it does not flicker — it rotates a single pixel at 0.25 Hz in a 1,658,880-pixel frame. What it does cost is a 6.6 MB `getImageData` readback and a 1.66-million-iteration scan at Room 1 load, to find that one pixel.
 
+## Q19 · Errata 54 retired a thing the engine cannot start without
+
+**This is a correction to errata 54 and only Tyler can make it. Filed, not proposed.** Nothing here is changed and nothing here suggests what to change it to.
+
+Errata 54 says `art/palette/consolation-256.json` "ceases to be authoritative. Retained for reference only." The sweep in Q18 found that the engine's entire colour model is index-addressed into that file, and confirmed in source rather than by report:
+
+- `Screen.ts` constructor: `throw new Error(\`Palette ${palette.id} is not locked\`)`. The engine refuses to start on a palette whose `locked` flag is false.
+- `Screen.colour(index)` is the only route any colour takes.
+- Every room stores `colours.sky`, `colours.ground` and `hotspots[].colour` as **indices**. They were deliberately not migrated with the ×6, because they are not geometry.
+- `check-palette.mjs` is a registered validator asserting locked, 256 entries, 6-bit, fully referenced.
+
+**So the ruling described an outcome and not a path**, and the gap has been in place since it was written. It is not a cleanup item and it does not resolve by deleting a reference.
+
+**What errata 54 established is true and is working.** Backgrounds are full RGB. Room 1's promoted plate reaches the screen untouched, because a background is drawn and never indexed — that half of the ruling is live on `main` today.
+
+**What it did not account for is that everything the engine draws *itself* still needs a colour source**: stub-room fills, hotspot blocks, outlines, and all interface chrome. Those need a palette. Having one is not the same as being bound to the old one, and which of those two the ruling meant is exactly what is unresolved.
+
+**A suggested order once this and Q6 are ruled, and it is a suggestion.** Proposed during the session that found this, by someone who does not hold rulings on this project: the colour model first, then the font, then Q9's schema so the twenty per-clip directories can reach the screen. **Recorded as one opinion about what to do first, not as a decision.** Errata 52's stop condition exists because design rulings here belong to one person, and a sequencing preference written down as though it carried his authority is the drift that condition guards against — six months from now it would read as settled.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
