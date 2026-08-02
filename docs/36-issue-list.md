@@ -230,6 +230,16 @@ Raised in `docs/40-actor-clip-inventory.md`, which lists every clip every charac
 
 **Q10 · Surface variants.** The record declares mud and boardwalk variants of every clip, doubling the count. That was a footstep-appearance decision under the old spec. Whether it survives errata 54 is the difference between 12 and 24 clips per character.
 
+## Q11 · Does Thad visibly carry the case?
+
+Two binding options, and the choice cannot be deferred past the case pickup being staged.
+
+**Inventory abstraction** — the case vanishes into inventory on pickup. No extra art.
+
+**Visible carry** — a separate `carry` locomotion family: stand plus walk in all four facings, with the case as a prop on a hand socket. **A full extra locomotion set**, and the ordinary walk cannot be silently reused for it.
+
+The case is on screen through most of Room 1's opening, which argues for visible carry. It is also 36 extra frames for one prop.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
