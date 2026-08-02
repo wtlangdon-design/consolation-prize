@@ -413,6 +413,20 @@ Nineteen asset paths are declared across all 17 room files. Every one is written
 
 `CLAUDE.md`'s "One command regenerates everything" is annotated, because it was no longer true as written.
 
+## Q21 · Character scale measured against the plate — errata 54's 233px is too tall
+
+**Measured, not derived, and approved on sight by the project owner.**
+
+Errata 54 states characters are "~233px at mid-depth." That number came from Monkey Island's proportions — 27% of play height — and was never checked against Room 1's plate once the plate existed.
+
+**The measurement.** Against the fence's far-left post in `art/backgrounds/room-01-stage-road.png`: top rail at row 520, posts meeting ground at row 680, so 160px tall. The project owner's anchor: the top of that fence reads as chest-to-shoulder height on a man.
+
+That gives **~205px at the fence's depth**. It cross-checks: at that scale the fence works out to 4.5 feet, which is right for a frontier rail fence. Two independent readings agreeing.
+
+**205 is not a replacement for 233 — it is an anchor.** Character height varies with depth. 205 is the height *at the fence*, which is roughly where Thad talks to the driver. Nearer the camera he is larger; up the road, smaller. This is the first real data point for Q6's per-room scale curve, which has had none.
+
+**Correcting errata 54 is the project owner's.** Recorded here; not changed there.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
