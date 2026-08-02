@@ -1386,3 +1386,45 @@ Composed from an authored room `saveLabel` and a stable `saveLandmark`, using **
 ## Precedence
 
 Doc 33 governs persistence and the shell. It changes no written line, no puzzle, no room composition. Where it conflicts with an earlier ruling on saving or the shell, doc 33 wins; errata 39's integer-scaling and fullscreen rules and 28b's click model are upheld by it, not replaced.
+
+
+---
+
+# 52 · DOC 34 IS BINDING — the five guides do not compose, and the errata's precedence rule is broken
+
+`docs/34-architecture-audit.md` is adopted **whole**, including its section 10 directive and its stop condition.
+
+## The verdict, and it overrides my queue
+
+**Do not implement docs 29–33 in sequence.** Each is correct in its own domain. Implemented one after another, the **order would decide semantics accidentally** — dialogue committing before puzzles, saving pausing the clock it is waiting on, loading cancelling work another guide calls irreversible. Five correct local systems owning the same moment independently.
+
+**One cross-system `RuntimeCoordinator` comes first**, then one integrated vertical proof. Not five horizontal frameworks.
+
+**And it corrects the question I asked.** A chore handle held by a dialogue transaction inside a room transition during an autosave **should not be supported as four nested owners. That shape is illegal.** One root operation, optional child presentation handles, and a save request observing the next stable checkpoint.
+
+## Three findings I own
+
+**1. This errata's precedence rule is broken.** It opens with "errata always wins," and then rulings 44, 45, 48, 50 and 51 adopt guides that win within their own domains. **Linear "latest wins" is unsafe, and the numbering skips 40**, so number order cannot serve as precedence. Doc 34's domain matrix governs, and a consolidation pass with a supersession index is now required rather than optional.
+
+**2. The scope verdict, quoted because it is correct:** *"The project has enough specification to build the same two proof rooms several more times on paper. It does not yet have Act I."* Fifty-one rulings and thirty-four documents against two finished rooms. **From this point more global rules are more likely to create conflicts than quality.**
+
+**3. The coffin is a requirements impossibility.** A three-minute no-interface scene cannot also be mouse-only accessible. Not an engine limitation — a contradiction between doc 05's staging and errata 39/28b's access rules, both of which I wrote. **Doc 34's reveal-on-intent overlay is adopted**, along with its four-minutes-sealed / three-minutes-black reconciliation of Hob's line.
+
+## Amendments doc 34 makes, all adopted
+
+- **Ruling 35e is narrowed.** "Motion is never information" governs **ambient and relevance** motion. **Direct action feedback is legal** — F2's ripple is the sound drawn, not a hint. **Room 33's puzzle-gated lamp stop is struck** (doc 18 and errata 35e's item 8). **Room 32 is exempt from the animated-sprite floor.**
+- **The F2 tuning arc moves to the confirmed-void reveal.** Elapsed time would make waiting advance the dramatic state; proximity would turn the music into a hidden meter. Doc 28 is amended.
+- **Errata 43's topology is adopted now:** 44 screens. Stale 42 and 41 literals are replaced everywhere.
+- **Doc 03's "Duel Four" and its four-duels header** need one canonical migration to errata 4's three duels and two sparrings before implementation.
+
+## The stop condition, and it binds me
+
+> **No new global design ruling until the integrated proof action, the canonical street loop and a safe save/load/title flow are executable.** New findings enter a finite issue list unless they expose data loss, unwinnability, inaccessible control, or a direct canon contradiction.
+
+I have written fifty-two rulings in two days. **This is the last one until that condition is met.**
+
+## What doc 34 says is already right — and to stop refining
+
+The title and premise; the no-death/no-hint covenant; the wasted-option doctrine; text-only speaker-aware dialogue; 320×200 with the locked palette and integer scaling; walk boxes, feet anchoring, decimation and clip planes; the procedural art pipeline; the validators' honesty; Main Street's spatial premise; Room 1's dramatic beats.
+
+**Stop revisiting all of it.**
