@@ -54,6 +54,18 @@ const CLIPS = [
   { id: 'idle-break', dir: 'idlebreak', prefix: 'idle-break' },
   { id: 'walk', dir: 'walk', prefix: 'walk' },
   { id: 'recoil', dir: 'recoil', prefix: 'recoil' },
+  // CHORES. Doc 40's contract: each is stand -> key pose -> stand, with
+  // begin/contact/commit/recover/complete on named frames rather than magic
+  // numbers, and frames 0 and 4 byte-identical to `stand` so it cannot pop on
+  // either end. Right-facing only: every one was drawn as a right profile, and
+  // a missing facing is data rather than a defect.
+  { id: 'use-near', dir: 'use-near', prefix: 'use-near' },
+  { id: 'give-offer', dir: 'give-offer', prefix: 'give-offer' },
+  { id: 'shrug', dir: 'shrug', prefix: 'shrug' },
+  { id: 'pickup-low', dir: 'pickup-low', prefix: 'pickup-low' },
+  { id: 'alight-coach', dir: 'alight-coach', prefix: 'alight-coach' },
+  { id: 'aboard-coach', dir: 'aboard-coach', prefix: 'aboard-coach' },
+  { id: 'carry', dir: 'carry', prefix: 'carry' },
 ];
 const FACINGS = ['front', 'back', 'left', 'right'];
 

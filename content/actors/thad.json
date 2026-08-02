@@ -363,6 +363,118 @@
         196,
         526
       ]
+    },
+    {
+      "id": "use-near",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-use-near-right/use-near-00.png",
+        "art/actors/thad-use-near-right/use-near-01.png",
+        "art/actors/thad-use-near-right/use-near-02.png",
+        "art/actors/thad-use-near-right/use-near-03.png",
+        "art/actors/thad-use-near-right/use-near-04.png"
+      ],
+      "figureHeight": 547,
+      "anchor": [
+        null,
+        547
+      ]
+    },
+    {
+      "id": "give-offer",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-give-offer-right/give-offer-00.png",
+        "art/actors/thad-give-offer-right/give-offer-01.png",
+        "art/actors/thad-give-offer-right/give-offer-02.png",
+        "art/actors/thad-give-offer-right/give-offer-03.png",
+        "art/actors/thad-give-offer-right/give-offer-04.png"
+      ],
+      "figureHeight": 547,
+      "anchor": [
+        null,
+        547
+      ]
+    },
+    {
+      "id": "shrug",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-shrug-right/shrug-00.png",
+        "art/actors/thad-shrug-right/shrug-01.png",
+        "art/actors/thad-shrug-right/shrug-02.png",
+        "art/actors/thad-shrug-right/shrug-03.png",
+        "art/actors/thad-shrug-right/shrug-04.png"
+      ],
+      "figureHeight": 547,
+      "anchor": [
+        null,
+        547
+      ]
+    },
+    {
+      "id": "pickup-low",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-pickup-low-right/pickup-low-00.png",
+        "art/actors/thad-pickup-low-right/pickup-low-01.png",
+        "art/actors/thad-pickup-low-right/pickup-low-02.png",
+        "art/actors/thad-pickup-low-right/pickup-low-03.png",
+        "art/actors/thad-pickup-low-right/pickup-low-04.png"
+      ],
+      "figureHeight": 547,
+      "anchor": [
+        null,
+        547
+      ]
+    },
+    {
+      "id": "alight-coach",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-alight-coach-right/alight-coach-00.png",
+        "art/actors/thad-alight-coach-right/alight-coach-01.png",
+        "art/actors/thad-alight-coach-right/alight-coach-02.png",
+        "art/actors/thad-alight-coach-right/alight-coach-03.png",
+        "art/actors/thad-alight-coach-right/alight-coach-04.png"
+      ],
+      "figureHeight": 547,
+      "anchor": [
+        null,
+        547
+      ]
+    },
+    {
+      "id": "aboard-coach",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-aboard-coach-right/aboard-coach-00.png",
+        "art/actors/thad-aboard-coach-right/aboard-coach-01.png",
+        "art/actors/thad-aboard-coach-right/aboard-coach-02.png",
+        "art/actors/thad-aboard-coach-right/aboard-coach-03.png",
+        "art/actors/thad-aboard-coach-right/aboard-coach-04.png"
+      ],
+      "figureHeight": 547,
+      "anchor": [
+        null,
+        547
+      ]
+    },
+    {
+      "id": "carry",
+      "facing": "right",
+      "frames": [
+        "art/actors/thad-carry-right/carry-00.png",
+        "art/actors/thad-carry-right/carry-01.png",
+        "art/actors/thad-carry-right/carry-02.png",
+        "art/actors/thad-carry-right/carry-03.png",
+        "art/actors/thad-carry-right/carry-04.png"
+      ],
+      "figureHeight": 547,
+      "anchor": [
+        null,
+        547
+      ]
     }
   ]
 }

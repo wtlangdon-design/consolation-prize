@@ -1,0 +1,18 @@
+{
+  "clip": "shrug",
+  "facing": "right",
+  "figure": [
+    390,
+    547
+  ],
+  "frames": 5,
+  "markers": {
+    "begin": 0,
+    "contact": 1,
+    "commit": 2,
+    "recover": 3,
+    "complete": 4
+  },
+  "returns_to": "stand",
+  "note": "Doc 40's chore contract. Frame 0 and frame 4 ARE the stand frame, byte for byte, so the chore cannot pop on either end. The key pose is drawn and held for contact, commit and recover.\n\nNo in-betweens: a rigid-segment rig cannot interpolate between two different drawings, and cross-fading them looks worse than a clean cut. At 7fps a one-frame transition reads as a fast movement, which is how the reference games did it.\n\nPlaced by FEET and stance centre onto the stand's own canvas, so the anchor never moves."
+}
