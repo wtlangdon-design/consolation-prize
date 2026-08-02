@@ -61,37 +61,49 @@ def runs(row):
 
 
 def find_hem(mask: np.ndarray, fig_h: int) -> int:
-    """R1: the hem is just below the last sustained block of SINGLE-RUN rows.
+    """R1: the hem is where a sustained band of TWO SIMILAR-WIDTH runs begins.
 
-    Width drop was the original rule and it is wrong. It assumes a standing
-    pose where the coat is wider than the legs; in the mid-stride pose the
-    pipeline now requires, the leg span is as wide as the coat and there is no
-    drop at all -- measured 1.54 standing, 1.09 striding.
+    Two earlier rules each worked on the view they were derived from and broke
+    on the next one:
 
-    What holds for both: the coat is one continuous shape and below it there
-    are two. So find the lowest sustained stretch of single-run rows; the hem
-    is immediately below it. This also steps over the gap a carried lantern
-    opens higher up, which defeated two earlier attempts.
+      width drop        -- assumes the coat is wider than the legs. In the
+                           mid-stride pose this pipeline requires, the leg span
+                           equals the coat: 1.54 standing, 1.09 striding.
+      end of the last
+      single-run block  -- assumes the coat reads as ONE run. True in profile,
+                           where the far arm hides behind the body. Head-on
+                           with both arms clear it reads as three, and the rule
+                           found the feet crossing at 90% instead.
+
+    What survives all four views: below the hem there are two legs of roughly
+    equal width, and that persists. The similar-width test is what rejects a
+    carried lantern beside the body, which is a 2-run row with a ratio near
+    0.13 rather than near 1.
     """
-    nruns = [len(runs(mask[y])) for y in range(fig_h)]
-    min_block = max(6, int(fig_h * 0.02))
-    hem, streak = None, 0
-    for y in range(int(fig_h * 0.35), fig_h):
-        if nruns[y] == 1:
-            streak += 1
-        else:
-            if streak >= min_block:
-                hem = y
-            streak = 0
-    if hem is None:
-        raise SystemExit("no hem found -- need a continuous coat above and two legs below")
-    below = list(range(hem, fig_h))
-    share = sum(1 for y in below if nruns[y] == 2) / max(len(below), 1)
-    if share < 0.55:
-        raise SystemExit(
-            f"hem at {hem} but only {share:.0%} of rows below show two legs -- "
-            "regenerate with a wider stride (doc 38 part one section 2)")
-    return hem
+    widest = max(int(mask[y].sum()) for y in range(fig_h)) or 1
+
+    def legs_row(y):
+        rr = runs(mask[y])
+        if len(rr) != 2:
+            return False
+        w1, w2 = rr[0][1] - rr[0][0], rr[1][1] - rr[1][0]
+        if not 0.4 < w1 / max(w2, 1) < 2.5:
+            return False
+        # AND both must be NARROW. Without this, an arm held out beside the
+        # torso is a 2-run row of acceptable ratio and Hob's hem was found at
+        # 45.8% instead of 72%. A leg is a small fraction of the figure's
+        # widest row; a torso is most of it.
+        return max(w1, w2) < 0.45 * widest
+
+    flags = [legs_row(y) for y in range(fig_h)]
+    window = max(10, int(fig_h * 0.05))
+    for y in range(int(fig_h * 0.35), fig_h - window):
+        tail = flags[y:]
+        if sum(flags[y:y + window]) >= window * 0.7 and sum(tail) >= len(tail) * 0.55:
+            return y
+    raise SystemExit(
+        "no hem found -- below the coat there must be two legs of roughly equal "
+        "width, sustained. Regenerate with a wider stride (doc 38 part one 2).")
 
 
 def split_legs(mask, hem, fig_h):
@@ -207,6 +219,31 @@ def rot(layer, ang, cx, cy):
     return out
 
 
+def shift_scale(layer, dy, scale, cx, cy):
+    """Move a limb TOWARD or AWAY from the camera, for head-on views.
+
+    Rotation is the wrong operation facing the viewer. A leg swinging forward
+    does not move sideways -- it moves closer, which projects as a downward
+    shift and a slight enlargement, and a leg swinging back does the reverse.
+    Applying the profile rig head-on made the legs cross and the arms bounce
+    out to the sides.
+    """
+    al = layer[..., 3:] / 255.0
+    inv = 1.0 / scale
+    # affine about (cx, cy), then translate by dy
+    a, e = inv, inv
+    c = cx - inv * cx
+    f = cy - inv * (cy + dy)
+    def xf(img):
+        return img.transform(img.size, Image.AFFINE, (a, 0, c, 0, e, f), Image.BICUBIC)
+    pm = np.array(xf(Image.fromarray((layer[..., :3] * al).astype(np.uint8)))).astype(float)
+    aa = np.array(xf(Image.fromarray(layer[..., 3].astype(np.uint8)))).astype(float)
+    out = np.zeros_like(layer); nz = aa > 2
+    out[..., :3][nz] = np.clip(pm[nz] / (aa[nz][:, None] / 255.0), 0, 255)
+    out[..., 3] = aa
+    return out
+
+
 def over(top, base):
     at = top[..., 3:] / 255.0
     return np.dstack([top[..., :3] * at + base[..., :3] * (1 - at),
@@ -243,6 +280,9 @@ def main():
     ap.add_argument("--arm-swing", type=float, default=ARM_RATIO)
     ap.add_argument("--near-mask", help="ARMMASK code or file for the near arm")
     ap.add_argument("--far-mask", help="ARMMASK code or file for the far arm")
+    ap.add_argument("--view", default="profile", choices=["profile", "headon"],
+                    help="headon = front or back. Limbs shift and scale toward "
+                         "the camera instead of rotating.")
     ap.add_argument("--facing", default="right", choices=["left", "right"],
                     help="which way the source looks; recorded so callers "
                          "translate the right way. Got this backwards twice by hand.")
@@ -280,9 +320,15 @@ def main():
         near_am = pm_near
     if near_am is not None and far_am is not None:
         near_am = near_am & ~far_am             # a pixel belongs to one arm only
-        ys_all = np.nonzero((near_am | far_am).any(1))[0]
-        if len(ys_all):
-            shoulder = int(ys_all.min())
+        # EACH ARM PIVOTS FROM ITS OWN SHOULDER. A shared pivot taken from the
+        # higher of the two masks swings the other arm about a point well above
+        # its own top -- on Thad's left profile that was 213px of false radius.
+        def top_of(m):
+            ys = np.nonzero(m.any(1))[0]
+            return int(ys.min()) if len(ys) else shoulder
+        sh_near, sh_far = top_of(near_am), top_of(far_am)
+    else:
+        sh_near = sh_far = shoulder
 
     def as_layer(m):
         L = np.zeros_like(canvas); L[..., :3] = canvas[..., :3]; L[..., 3] = m * 255.0
@@ -317,31 +363,44 @@ def main():
         s *= args.swing
         a = s * args.arm_swing
         f = np.zeros((H, W, 4))
-        f = over(rot(far_leg, -s, cxf, pivot), f)
-        f = over(rot(near_leg, s, cxn, pivot), f)
-        # FAR arm, then coat over it: it swings behind the body and is meant to
-        # pass out of sight. Barely any elbow -- it is mostly occluded anyway.
-        if far_am is not None:
-            arm = swing_arm(far_am, canvas, shoulder, -a, elbow_frac=0.15, fore_lead=0.25)
-            if arm is not None:
-                f = over(arm, f)
-        f = over(coat, f)
-        # NEAR arm last, in front of the coat, with a full elbow.
-        if near_am is not None:
-            arm = swing_arm(near_am, canvas, shoulder, a)
-            if arm is not None:
-                f = over(arm, f)
+        if args.view == "headon":
+            k = s / max(HIP_SWING)                      # -1 .. 1
+            dy = 0.030 * fig_h * k                      # forward limb drops
+            sc = 1.0 + 0.045 * k                        # and enlarges slightly
+            # legs alternate: one forward, one back
+            f = over(shift_scale(far_leg, -dy, 2 - sc, cxf, pivot), f)
+            f = over(shift_scale(near_leg, dy, sc, cxn, pivot), f)
+            if far_am is not None:
+                f = over(shift_scale(as_layer(far_am), dy * 0.55, 1.0,
+                                     float(np.nonzero(far_am.any(0))[0].mean()), sh_far), f)
+            f = over(coat, f)
+            if near_am is not None:
+                f = over(shift_scale(as_layer(near_am), -dy * 0.55, 1.0,
+                                     float(np.nonzero(near_am.any(0))[0].mean()), sh_near), f)
+        else:
+            f = over(rot(far_leg, -s, cxf, pivot), f)
+            f = over(rot(near_leg, s, cxn, pivot), f)
+            if far_am is not None:
+                arm = swing_arm(far_am, canvas, sh_far, -a, elbow_frac=0.15, fore_lead=0.25)
+                if arm is not None:
+                    f = over(arm, f)
+            f = over(coat, f)
+            if near_am is not None:
+                arm = swing_arm(near_am, canvas, sh_near, a)
+                if arm is not None:
+                    f = over(arm, f)
         cols = np.nonzero((f[..., 3] > 90).any(0))[0]
         travel = max(travel, int(cols.max()) - (P + fig_w), P - int(cols.min()))
         Image.fromarray(f.astype(np.uint8)).save(out / f"walk-{i:02d}.png")
 
-    meta = dict(source=args.source, key=args.key, facing=args.facing,
+    meta = dict(source=args.source, key=args.key, view=args.view, facing=args.facing,
                 walk_dx=(1 if args.facing == "right" else -1),
                 figure=[fig_w, fig_h], hem_row=hem,
                 hem_pct=round(hem / fig_h * 100, 1), pivot_row=pivot, padding=P,
                 rows_legs_separate=sep_rows,
                 near_leg_px=int(near_lm.sum()), far_leg_px=int(far_lm.sum()),
-                arms_rigged=near_am is not None, shoulder_row=shoulder,
+                arms_rigged=near_am is not None,
+                shoulder_near=int(sh_near), shoulder_far=int(sh_far),
                 near_arm_px=int(near_am.sum()) if near_am is not None else 0,
                 far_arm_px=int(far_am.sum()) if far_am is not None else 0,
                 measured_foot_travel=travel, hip_swing=HIP_SWING,

@@ -87,6 +87,35 @@ Draw order follows from the assignment: **far arm → coat → near arm.** The f
 
 **`tools/rig/mark-the-arm.html`** loads the figure on a canvas, the limb is painted by hand, and it emits an `ARMMASK` code that `character.py` takes via `--near-mask` / `--far-mask`. Thirty seconds of painting beats any amount of detection, and it will under-capture on every character whose arm rests near their coat.
 
+## R3d · Head-on views need a different operation, not different numbers
+
+**Rotation is wrong facing the viewer.** A leg swinging forward does not move sideways — it moves closer, which projects as a downward shift and a slight enlargement. Applying the profile rig head-on made the legs cross and the arms bounce out to the sides.
+
+`--view headon` shifts and scales limbs toward and away from the camera instead of rotating them. Arms shift only — **do not scale them**, it distorts the hands.
+
+**The hem rule broke three times, once per view it had not seen:**
+
+| Rule | Assumed | Broke on |
+|---|---|---|
+| sharpest width drop | the coat is wider than the legs | a mid-stride pose: 1.54 standing, **1.09 striding** |
+| end of the last single-run block | the coat reads as ONE run | head-on, where both arms clear the body and it reads arm-coat-arm — found the **feet crossing at 90%** |
+| sustained band of two similar-width runs | — | a **lantern beside the torso** is also two runs of acceptable ratio |
+
+What holds for all five sources: two runs, **similar width, and both narrow** relative to the figure's widest row. 57.3 / 62.4 / 65.3 / 64.3 / 70.6%.
+
+**Each rule looked correct on the character it was derived from.** Test a new detection rule against every source before believing it.
+
+## R3e · Do not invent what is not in the source art
+
+Cutting the arms out of the coat leaves a hole; a shifted arm does not fully cover its own hole, so an edge shows behind it and the elbow gap opens. **Two attempts to fill that hole both made it worse:**
+
+- nearest-colour fill — smeared the whole region flat
+- row-wise copy from the nearest coat pixel — pulled dark pixels into rectangular blocks
+
+They fail for the same reason: **there is no coat behind the arm in the source image.** Anything invented there is a guess, and a wrong guess is more visible than the gap.
+
+**The fix is upstream.** Generate head-on views with the arms held further out from the body, so real coat exists behind them and nothing needs inventing. One regeneration beats any amount of inpainting.
+
 ## R4 · Premultiply before every rotate, resize and composite
 
 **Three separate defects had this one cause.** Transparent pixels are stored as black, so any interpolation near an edge averages visible colour toward black — or, with a green backdrop, toward green.
