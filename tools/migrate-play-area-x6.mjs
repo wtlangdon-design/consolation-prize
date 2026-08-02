@@ -156,9 +156,12 @@ function migrateRoom(room, file) {
 /**
  * Drawn heights are play-area geometry in the same units as everything above,
  * so they migrate with it. THIS IS A CHANGE OF UNITS AND NOT AN ANSWER TO Q9.
- * The two-drawn-sizes shape is untouched and 40 x 6 = 240 against errata 54's
- * ~233 is a 3% difference that Q6's per-room scale curve settles, not this
- * script.
+ * The two-drawn-sizes shape is untouched. 40 x 6 = 240 was compared here against
+ * errata 54's "~233px at mid-depth" and called a 3% difference; Q21 has since
+ * MEASURED the plate and put the anchor at ~205px at the fence, so 240 is about
+ * 17% over it rather than 3%. Neither number is settled by this script: 205 is
+ * an anchor at one depth and Q6's per-room scale curve is what turns it into a
+ * height. The migration changed units and nothing else.
  *
  * `threshold` MOVES WITH THEM, and the reason is worth stating because the
  * first pass left it behind. Errata 54 voids DECIMATION, which is what the

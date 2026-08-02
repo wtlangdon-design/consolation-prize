@@ -413,6 +413,69 @@ Nineteen asset paths are declared across all 17 room files. Every one is written
 
 `CLAUDE.md`'s "One command regenerates everything" is annotated, because it was no longer true as written.
 
+## Q21 · Character scale measured against the plate — errata 54's 233px is too tall
+
+**Measured, not derived, and approved on sight by the project owner.**
+
+Errata 54 states characters are "~233px at mid-depth." That number came from Monkey Island's proportions — 27% of play height — and was never checked against Room 1's plate once the plate existed.
+
+**The measurement.** Against the fence's far-left post in `art/backgrounds/room-01-stage-road.png`: top rail at row 520, posts meeting ground at row 680, so 160px tall. The project owner's anchor: the top of that fence reads as chest-to-shoulder height on a man.
+
+That gives **~205px at the fence's depth**. It cross-checks: at that scale the fence works out to 4.5 feet, which is right for a frontier rail fence. Two independent readings agreeing.
+
+**205 is not a replacement for 233 — it is an anchor.** Character height varies with depth. 205 is the height *at the fence*, which is roughly where Thad talks to the driver. Nearer the camera he is larger; up the road, smaller. This is the first real data point for Q6's per-room scale curve, which has had none.
+
+**Correcting errata 54 is the project owner's.** Recorded here; not changed there.
+## Q22 · `atmospheric_audit.py` has been failing since before errata 54
+
+**Filed on its own so it is not attributed to whoever touched the render pipeline last**, which is exactly what happens to pre-existing breakage found during unrelated work.
+
+`npm run renders` exits non-zero. Three modules fail. Two of them are the Q20 refusals and are deliberate. The third is not:
+
+`atmospheric_audit.py` — errata 33b, *no scenery lighter than the sky* — fails on `stage_road`. **It was failing before the errata 54 migration and before the plate was promoted**, verified by running it in a throwaway checkout of `c4e333c^`:
+
+| | rows measured | sky p90 | result |
+|---|---|---|---|
+| before the migration | 0–44 | 33.8 | **FAIL** 571 px over the sky, worst 125.1 at (107, 53) |
+| on `main` today | 0–264 | 141.8 | **FAIL** 41,185 px over the sky, worst 174.5 at (244, 268) |
+
+Same verdict on both sides, so the migration did not cause it. **The numbers are not comparable, though, and the second set should not be read as the first getting 72× worse.** The row band moved with the ×6 and the picture underneath changed from the composed 320 × 144 room to the 1920 × 864 plate, which has 36× the pixels — so both the sky's own p90 and the count of pixels over it are measurements of a different image against a different band.
+
+**The audit is not measuring the plate.** It reports offenders as palette indices — `idx 75 L 174.5` — so before it can name anything it quantises the full-RGB plate into the locked 256. Errata 54 makes that palette reference-only, and errata 54's own measurements are why: quantising this art into `consolation-256` introduced a mean error of 5.69 and collapsed 46% of the frame into one eight-entry family.
+
+**So the numbers above describe a picture that does not exist.** Not a stale reference to tidy up — a check whose output is a report on a quantised fiction. Whether errata 33b's rule survives against generated art, and what it would measure against if it does, is Tyler's and not this list's.
+
+**`rooms_batch_a.py` is not failing.** It was named in Q20's first report as the pre-existing failure; that was a misread of `grep -B` context spanning a module boundary. Run directly it exits 0 and writes Rooms 18, 19 and 13.
+
+## Q23 · A command's call list does not tell you what it writes
+
+Recorded as a method note, because it is the only reason the second `npm run renders` casualty was found at all.
+
+`tools/render-all.mjs` was read carefully. It names `room01_stage_road.py`, which writes Room 1's shipping background, and reading stopped there — by two people independently. **What reading the list could not show is that it also runs `actor_export.py`, which rewrites `content/actors/thad.json` wholesale.** That was found by running the command in a throwaway tree and diffing the result.
+
+> **A call list is a claim about invocation, not about effect, and the difference is only visible by running it.** When a command is suspected of writing something it should not, run it in a throwaway tree and diff. Do not read its call list.
+
+The general form is worth more than the instance. `render-all.mjs` names each module and describes it in a comment — *"Thad's two shipping sheets and his clip table"* — and that description is accurate. It still does not say that the clip table **is** `content/actors/thad.json`, or that it is rewritten wholesale rather than appended to. Every layer of the reading was correct and the conclusion was still wrong, because effect is one indirection below the list and no amount of careful reading crosses it.
+
+**And the two casualties are not equally serious, which is the part worth keeping.** An overwritten background is visible the moment anyone opens the room. **Silently reverted content is not.** `thad.json` would have gone from threshold 180 back to 30 and near height 240 back to 40, with the threshold re-derived from `eye_death_row` — a decimation measurement errata 54 voids. **Every validator would still have passed.** Nothing would look wrong until Thad was 40 px tall in a 1920 × 864 frame and nobody could say when it happened.
+
+That is the same shape as the sprite-sheet deletion that rendered the deployed page black: a correct-looking command producing a change nobody would attribute to it.
+
+## Q24 · Integer numbering collides while branches are live, twice in one session
+
+Raised rather than fixed again, because renumbering the symptom is what happened both times.
+
+| | main appended | a branch appended | resolved by |
+|---|---|---|---|
+| first | Q11 · does Thad visibly carry the case?<br>Q12 · does his appearance change after the coffin? | Q11 · the inventory examine path drops effects<br>Q12 · the ActorFile schema can't address a clip directory | branch renumbered to Q13 / Q14 |
+| second | Q21 · character scale measured against the plate | Q21 · the pre-existing render failure<br>Q22 · a call list is not an effect list | branch renumbered to Q22 / Q23 |
+
+**Both collisions were caught by git, and that is luck rather than design.** A conflict appears only because two trees edited adjacent lines of the same file. Append far enough apart — a new entry at the end of a document while someone else edits the middle — and git merges both cleanly, leaving two entries with the same number and no marker anywhere. The first collision was noticed because `docs/42` referenced Q12 by number and the reference would have gone to the wrong entry.
+
+**The failure is not the duplicate, it is the reference.** `docs/40` cites Q11, `docs/42` cites Q11, `panel.json` cites Q16, `superseded.py` cites Q20, and `thad.json`'s neighbours cite Q9. A citation to a number that later means something else is a wrong pointer that reads as a correct one.
+
+**Not proposing the scheme.** Sequential integers assigned at write time require a global view that a branch does not have, and that is the whole of it. What replaces them — per-branch prefixes, dates, initials, content hashes — is a convention question with real trade-offs for how the document reads, and it belongs to Tyler along with everything else in this list. What is now established is that the current scheme has failed twice in one session, both times for the same reason, and that the next failure may not announce itself.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
