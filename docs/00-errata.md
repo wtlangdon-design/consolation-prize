@@ -1492,7 +1492,7 @@ The second argument is the metric problem. Every instrument in the Room 1 run ex
 | Play area | 320 × 144 | **1920 × 864** |
 | Verb panel | 56 px | **216 px** |
 | Colour | 256-entry locked indexed palette | **Full RGB. No index palette.** |
-| Character height | ~40 px, two drawn sizes | **~233 px at mid-depth** |
+| Character height | ~40 px, two drawn sizes | **~205 px at the Room 1 fence's depth**, scaled by depth from there — corrected below |
 | Scaling | Decimation, errata 24 | **Ordinary filtered resampling** |
 | Font | 1-bit hand-authored 5 × 7 | **Replacement required — unspecified** |
 | Background animation | Palette cycling, doc 18 | **None. Mechanism removed.** |
@@ -1531,7 +1531,7 @@ Doc 29's movement, occlusion and camera rules stand; only the pixel figures in t
 ## Consequences that are now open work
 
 - **The 5 × 7 font is unusable at 1920 × 1080** and has no replacement specified.
-- **Sprite scaling by depth** needs a per-room scale curve; 233 px is a height at a stated depth, not a character's size.
+- **Sprite scaling by depth** needs a per-room scale curve; 205 px is a height at a stated depth — the Room 1 fence — not a character's size.
 - **Room 1's plate is 1870 × 841** against a 1920 × 864 target. A 2.7% upscale is accepted rather than regenerating a plate the project owner has approved.
 - **The character pipeline is `docs/38`**, and it exists because of this ruling.
 - **Animation replaces palette cycling** as the only way anything in a room moves. Every room's motion floor under errata 35a now costs sprite frames.
