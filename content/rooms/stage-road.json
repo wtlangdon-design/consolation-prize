@@ -544,5 +544,76 @@
     }
   ],
   "foregroundNote": "NO NEAR PLANE, AS RULED UNDER Q20. art/foregrounds/room-01-stage-road.png was ruling 21a's near plane, cut from the composed Room 1, and errata 53 discarded that picture. Unlike the ten backgrounds it does not resolve when the room is regenerated: a foreground is cut FROM a plate rather than produced BY one, so it needs cutting from the approved plate. Until then the room has no plane drawn over the actor, and in the near mud he passes in front of everything instead of behind it.",
-  "walkableNote": "Q4, MEASURED AGAINST THE APPROVED PLATE AND APPROVED ON SIGHT. What was here was the composed room's geometry multiplied by six, and errata 53 discarded that picture: three full-width bands covering the bottom third of the frame, so the player walked through the fence, the sign and the shack. Measured on art/backgrounds/room-01-stage-road.png, open mud runs from 7% of the row at y=640 to 41% at y=700 and becomes the surface at y=660 — that is the back edge of where a man can stand, and the band runs 660 to 864. THESE ARE EXTENTS, NOT POLYGONS: the room declares no walk boxes, so nothing here makes the fence, the sign or the shack solid. That is polygon work and a judgement about what is solid in this picture."
+  "walkableNote": "Q4, MEASURED AGAINST THE APPROVED PLATE AND APPROVED ON SIGHT. What was here was the composed room's geometry multiplied by six, and errata 53 discarded that picture: three full-width bands covering the bottom third of the frame, so the player walked through the fence, the sign and the shack. Measured on art/backgrounds/room-01-stage-road.png, open mud runs from 7% of the row at y=640 to 41% at y=700 and becomes the surface at y=660 — that is the back edge of where a man can stand, and the band runs 660 to 864. THESE ARE EXTENTS, NOT POLYGONS: the room declares no walk boxes, so nothing here makes the fence, the sign or the shack solid. That is polygon work and a judgement about what is solid in this picture.",
+  "walkBoxes": [
+    {
+      "id": "road_back",
+      "note": "The strip above the two blocked corners. Both obstructions start at y690, so the 30 rows above them run the full width and this box exists to say so rather than to notch the main one -- `inside()` is a convex-quad winding test and a T is not convex.",
+      "points": [
+        {
+          "x": 0,
+          "y": 660
+        },
+        {
+          "x": 1920,
+          "y": 660
+        },
+        {
+          "x": 1920,
+          "y": 689
+        },
+        {
+          "x": 0,
+          "y": 689
+        }
+      ],
+      "neighbours": [
+        "road_open"
+      ],
+      "clipPlane": 0,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 694,
+        "farHeight": 190,
+        "nearY": 830,
+        "nearHeight": 225
+      }
+    },
+    {
+      "id": "road_open",
+      "note": "Everything between the two obstructions. DERIVED BY MEASURING WHICH COLUMNS INSIDE THE BAND ARE PERSISTENTLY NOT-MUD ACROSS MULTIPLE ROWS, not by eye: the left structure — shack base, wagon wheel, barrels — is solid x0-255 from y690 down, persistent on every sampled row from 694 to 814, and the woodpile is solid x1630-1920 from y690 down, persistent 694 to 790. Walkable runs 256 to 1629 between them.",
+      "points": [
+        {
+          "x": 256,
+          "y": 690
+        },
+        {
+          "x": 1629,
+          "y": 690
+        },
+        {
+          "x": 1629,
+          "y": 863
+        },
+        {
+          "x": 256,
+          "y": 863
+        }
+      ],
+      "neighbours": [
+        "road_back"
+      ],
+      "clipPlane": 0,
+      "surface": "mud",
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 694,
+        "farHeight": 190,
+        "nearY": 830,
+        "nearHeight": 225
+      }
+    }
+  ],
+  "walkBoxesNote": "TWO BOXES, AND NOTHING NEEDS A CLIP PLANE. The fence, the bench and the sign all have their feet ABOVE y660 — the band's back edge — so they sit behind the walkable area and the player always passes in front of them. He can never get level with the fence, so it neither stops him nor occludes him, and the collision-or-occlusion question answers itself. Two numbers carry the risk and are recorded here so a wrong one is looked for in the right place. FIRST: the obstacle measurement flags the mud's own ruts and puddles at y838 and y862 as solid across nearly the full width; they were discarded as texture on the grounds that they do not persist upward, but a rut is exactly what reads as an obstacle to a threshold and as ground to a person. SECOND: the left box's top edge at 690 is the least certain figure — below it the left structure is continuous and above it the rows break up."
 }
