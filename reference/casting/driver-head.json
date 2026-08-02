@@ -1,0 +1,22 @@
+{
+  "source": "reference/casting/driver-head-three-states.png",
+  "states": {
+    "neutral": [
+      786,
+      1140
+    ],
+    "speaking": [
+      786,
+      1140
+    ],
+    "looking-down": [
+      884,
+      1114
+    ]
+  },
+  "usable": [
+    "neutral",
+    "speaking"
+  ],
+  "note": "An OVERLAY on the driver baked into the coach, not a body sprite. Only 55% of him separates from the coach -- below 27% of the assembly he is fused into the seat, footboard and reins -- so the head swaps and the body holds, the same shape as Thad's talk. neutral and speaking share an identical 786x1140 box and differ on 1,240px confined to the mouth, rows 36-48%. looking-down is 884x1114 and differs on 116,784px across the whole figure: the head turn dragged the shoulders, coat and hat brim with it, so it would shift his body rather than his head. Not usable as an overlay."
+}
