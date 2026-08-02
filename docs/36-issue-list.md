@@ -476,7 +476,7 @@ Raised rather than fixed again, because renumbering the symptom is what happened
 
 **Not proposing the scheme.** Sequential integers assigned at write time require a global view that a branch does not have, and that is the whole of it. What replaces them — per-branch prefixes, dates, initials, content hashes — is a convention question with real trade-offs for how the document reads, and it belongs to Tyler along with everything else in this list. What is now established is that the current scheme has failed twice in one session, both times for the same reason, and that the next failure may not announce itself.
 
-## Q25 · Clicking during the opening wedges it permanently
+## Q25 · Clicking during the opening wedges it permanently — **RULED AND FIXED**
 
 **CORRECTED. As first filed this entry said "the opening never ends" and that is wrong.** The opening ends. Twice measured, identically: play it without clicking except on the driver's dialogue options and it **completes at t = 21s**, `GameScene.opening` goes null, and the panel appears. The original claim came from a session where the opening was clicked through, and the conclusion drawn from it — that the game is unreachable — did not survive being checked patiently.
 
@@ -507,7 +507,21 @@ Raised rather than fixed again, because renumbering the symptom is what happened
 
 **The cancel is right and the comment above it is right.** Doc 22's deterministic cancellation — a staged interaction the player has changed their mind about stops where it is rather than finishing a walk they no longer want. What the line cannot know is whether an *opening* is running. Ordinary play and a cutscene are two different things sharing one runner.
 
-**The fix is not filed here, because it is not an engineering choice.** At least two shapes are visible from this line and choosing between them decides what a click during a cutscene *means* — skip this beat, skip the whole opening, or do nothing at all — and doc 17 does not say. That is Tyler's, it is one sentence, and the consequence of the sentence is that the game is playable.
+**RULED, AND FIXED: a click during a cutscene advances the pending line and nothing else.** Doc 17 decides it three ways over. The opening *is* the tutorial and every affordance is learned by using it, so a stray first click must not skip it. Beat 6b's coach departure is three seconds **because** errata found that a coach vanishing on a click is not a coach leaving, so a click must not cut it short either. And errata 30a's own reasoning is that an authored duration *is* the content.
+
+The verdict lives in `Opening.playfieldClick` rather than in an `if` at the call site, because a decision with a name has a test and an event handler does not. `cancel` is untouched for ordinary play — doc 22's deterministic cancellation is right, and what the call site could not know is whether a cutscene is running.
+
+**Checked by playing, not by tests passing.**
+
+| | measured |
+|---|---|
+| click every 700 ms, title to control | opening **completes at 21.3 s** after 27 clicks; panel reachable |
+| beat 6b untouched | 5.13 s |
+| beat 6b with a click landing mid-beat | 4.96 s |
+
+The 0.17 s between the last two is inside the 100 ms polling granularity: **the click does not shorten the departure.** The segment runs longer than its authored 3 s because it also plays its line, which is `stepsFor`'s existing behaviour and not this ruling's.
+
+**And a regression test that fails against the old code before it passes** — `tests/opening.test.ts`. It is a miniature of the two pieces that disagreed: a loop that samples `isRunning` before ticking and advances on the transition, and a click that asks for a verdict. Neither piece shows the defect alone. A second test reinstates the pre-fix verdict and asserts the opening **wedges**, so the first cannot pass vacuously if the click ever stops reaching the runner. Neither asserts a segment index — the first draft did, and failed at 1 instead of 0 because the harness steps past the menu segment, which was a number about the beat sheet rather than about the defect.
 
 **Not related to beat 10.** The validators' note — *"gated on but written by no content: `T_HOB_GONE`"* — is about a flag nothing writes, not about the sequence's ability to end. It ends at `at = 4`.
 

@@ -176,6 +176,10 @@ Frames for review are therefore dumped from the screen texture rather than scree
 
 **Why this is Part Two and not a footnote.** It is the third time a preview format has been mistaken for the thing it previews. GIF's 1-bit alpha produced a dark rim that cost two rounds inside a sprite that was correct (R5). GIF's 256-colour palette turned a collar to skin and produced a statement to the project owner that the collar could not survive at that resolution (R5b). Both times the art was right and the viewer was wrong. **The failure mode is not GIF. It is trusting a rendering of a rendering.**
 
+**And the apparatus is a thing that can silently not run.** The same session produced the rule at one remove. A defect's mechanism was declared "not established" after instrumenting the game loop from the page and observing nothing — but the instrumentation had never executed, because Phaser does not dispatch through an overridden instance property. **An experiment that did not happen returns "no effect", and "no effect" is indistinguishable from a real null.** The conclusion drawn was that the cause could not be found; the cause was four lines away and the wrapper was simply never called.
+
+> **Verify the apparatus before trusting the null.** Make the instrument prove it fired — a counter, a marker, a deliberately-triggered positive — before any absence it reports is treated as a finding. A measurement that reports nothing has two explanations and only one of them is about the thing being measured.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.

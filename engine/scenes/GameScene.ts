@@ -23,7 +23,7 @@ import {
 import { SequenceRunner, type SequenceStep } from '../core/Sequence.ts';
 import { CarriedBeats } from '../core/CarriedBeats.ts';
 import {
-  actCardOf, segmentsOf, stepsFor, writesOf, type Segment,
+  actCardOf, playfieldClick, segmentsOf, stepsFor, writesOf, type Segment,
 } from '../core/Opening.ts';
 import {
   CYCLING_OPTION,
@@ -398,7 +398,24 @@ export class GameScene extends Phaser.Scene {
     // staged interaction the player has changed their mind about should stop
     // where it is rather than finish walking somewhere they no longer want to
     // be -- doc 22's deterministic cancellation, applied to ordinary play.
-    if (this.sequence.isRunning) {
+    //
+    // UNLESS AN OPENING IS RUNNING, which is Q25 as ruled. `cancel()` clears
+    // `started`, so this made `isRunning` false inside the click handler; the
+    // next tick's `wasRunning` then read false, the transition that calls
+    // `advanceOpening` was never observed, and the opening froze forever with
+    // no error and nothing on screen to say so. The verdict is decided in
+    // `playfieldClick` rather than here, because a decision with a name has a
+    // test and an `if` in an event handler does not.
+    const verdict = playfieldClick({
+      sequenceRunning: this.sequence.isRunning,
+      openingActive: this.opening !== null,
+    });
+    // A cutscene beat is playing. Any pending line was taken by `advanceSay`
+    // above; with none left the click is spent, and it must not fall through
+    // to the walk and interact code either -- control is `none` during an
+    // automatic beat and a click cannot start the player moving under it.
+    if (verdict === 'consume') return;
+    if (verdict === 'cancel') {
       this.sequence.cancel();
       // The PLAYER's performance, and nobody else's: beat 9's carrier is
       // running Hob across the road on its own runner and a change of mind
