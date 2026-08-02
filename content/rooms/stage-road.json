@@ -281,11 +281,26 @@
       },
       "defaultVerb": "LOOK_AT",
       "state": "halted",
-      "states": {
-        "halted": {
-          "note": "ERRATA 31d, AS RULED UNDER Q20 — THE IMAGE IS GONE AND THE STATE IS NOT. 31d made the coach an object state rather than background art because the shipping background was the DEPARTED composition and this layer was the difference between the two composes: the coach, the team, and the light its lantern throws on the road, which is exactly the set that leaves with it. Errata 53 discarded both composes and the background is now the approved generated plate, so the layer was a picture cut from art that no longer exists, drawn six times magnified over a painting. It is removed. THE COACH IS THEREFORE INVISIBLE THROUGH BEATS 1–6, which is the ruling: honestly absent beats visibly wrong. The state, the gate and every written line stay — the lines are canon under errata 19a and the gate is the mechanism the departure needs, so when the coach is generated against the approved plate, which is doc 42's territory, it drops back in here and nothing else changes."
+      "states": [
+        {
+          "id": "arrived",
+          "gate": {
+            "T_CASE_DOWN": false
+          },
+          "image": "art/objects/coach/body-closed.png",
+          "note": "Beats 1-2. Door shut, the case still strapped to the roof rack."
+        },
+        {
+          "id": "unloaded",
+          "gate": {
+            "T_CASE_DOWN": true
+          },
+          "image": "art/objects/coach/body-open.png",
+          "note": "Beat 6 onward. Door open, rack empty."
         }
-      }
+      ],
+      "wheels": "art/objects/coach/coach.json",
+      "stateNote": "ERRATA 31d and Q28: the coach is an object state, not background art. TWO FULL STATES rather than a swinging door -- a door in profile foreshortens, so a hinged sprite needs several drawn angles each matching the body’s shading at that angle, while two full states have nothing between them to be wrong. Verified interchangeable: aligned on the ground line and the coach’s rear edge they differ on 13,739px, ALL in the door region -- zero in the rear wheel, zero at the driver and box, zero across the horses.\n\nTHE WHEELS ARE NOT IN THESE IMAGES. Both discs are cut out of both bodies and ride as separate sprites behind them, rotating by DISTANCE TRAVELLED -- one revolution per 2*pi*r, so rear and front turn at different rates and both stop when the coach does. See art/objects/coach/coach.json.\n\nGAP, RECORDED RATHER THAN PAPERED OVER: doc 17 has Thad step down at beat 3 and the case come off at beat 6, but the flag vocabulary has nothing between them, so the door opens at beat 6 with the case. For three beats he stands beside a shut coach he has just got out of. Closing it needs a THIRD generation -- door open, case still on the rack -- and a flag written when he alights. Both are small; neither is mine to add."
     },
     {
       "id": "team",
@@ -321,7 +336,8 @@
         ]
       },
       "defaultVerb": "LOOK_AT",
-      "note": "The horses are drawn INSIDE the coach layer (errata 31d): they belong to the same departure and splitting them into a second image would put a seam down the middle of the harness."
+      "note": "The horses are drawn INSIDE the coach layer (errata 31d): they belong to the same departure and splitting them into a second image would put a seam down the middle of the harness. The team has no image of its own: it is drawn inside the coach body images, which is errata 31d’s reason for generating them together.",
+      "drawnWithCoach": true
     },
     {
       "id": "coach_gone",

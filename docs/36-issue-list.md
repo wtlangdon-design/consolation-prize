@@ -846,6 +846,20 @@ That is the same shape as the finding this document opens with: a check believed
 
 **Deliberately NOT gating the deploy.** `pages.yml` publishes on every push to main and states its reason — "a half-published Pages site is worse than a slightly stale one". The deployed build is how the project owner looks at the game, and a red check that also took the game away would cost more than it caught. The new workflow reports; it does not block. **That is a policy choice and it is worth someone confirming rather than inheriting** — if a broken deploy is worse than no deploy, `checks` becomes a `needs:` on the build job and this is a two-line change.
 
+## Q37 · Nothing marks the moment Thad steps down from the coach
+
+Doc 17 has him alight at **beat 3** and the case come off the roof at **beat 6**. The flag vocabulary Room 1 shares with the opening is `T_CASE_DOWN`, `T_COACH_DEPARTED`, `T_HOB_CROSSING`, `T_HOB_GONE`, `T_OPENING_DONE`, `T_OPENING_SAID` — **there is nothing between those two moments.**
+
+So the coach's two states are gated on `T_CASE_DOWN`, and the door opens at beat 6 along with the case. **For three beats Thad stands beside a shut coach he has just climbed out of.**
+
+Closing it needs two small things, neither of which is a technical decision:
+
+**A third coach state** — door open, case still on the rack. One generation, and it must align with the other two the same way they align with each other.
+
+**A flag written when he alights**, which is a name and a beat.
+
+Recorded rather than papered over, because the alternative was gating the door on something that does not mean what the door means.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
