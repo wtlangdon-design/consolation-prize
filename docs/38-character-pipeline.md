@@ -150,6 +150,16 @@ Always: multiply RGB by alpha → transform → divide back. And **bleed the edg
 
 `rig.json` carries `facing` and `walk_dx`. Translating a character the wrong way was got wrong on **both** characters — a figure walking backwards through the scene, twice. Anything that is got wrong twice belongs in the data, not in someone's head.
 
+## R5a · Write frames at twice the drawn size, not at source size
+
+The rig wrote frames at full generation resolution — figures around 1580px, drawn at 240. **Six times linear, thirty-six times the pixels anything can ever show.** `art/actors/` reached 71.8 MB, all of it downloaded before the first frame renders and resampled away on first use.
+
+Measured on the deployed build: 15 seconds to first draw from local disk, and nothing within 30 seconds at 20 Mbps.
+
+**Write at 2× the largest drawn height** — 263px in Room 1's near zone, so 526. That is 12.6 MB, 82% smaller, and every clip still draws at 240 exactly. The 2× is resampling headroom, not detail nobody sees.
+
+Full-resolution generations stay in `reference/casting/` where the rig can re-derive from them.
+
 ## R5b · GIF is not evidence about colour either
 
 GIF carries **256 colours for the whole frame**. A character on a full-colour plate leaves nothing for small features: Thad's collar is 109 pixels out of 360,000, so the encoder spends no palette entry on it and merges it into the nearest frequent colour — **his face**. Measured: cream (211,197,156) in the PNG, skin (209,153,96) in the GIF, same frame.

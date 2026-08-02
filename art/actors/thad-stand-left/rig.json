@@ -5,10 +5,11 @@
   "view": "profile",
   "facing": "left",
   "figure": [
-    709,
-    1620
+    230,
+    526
   ],
-  "hem_row": 1041,
-  "padding": 260,
-  "frames": 1
+  "hem_row": 338,
+  "padding": 84,
+  "frames": 1,
+  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1620px, which is 6x linear and 38x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
 }
