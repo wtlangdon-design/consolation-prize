@@ -1,0 +1,15 @@
+{
+  "source": "/tmp/thad-left.png",
+  "key": "magenta",
+  "clip": "recoil",
+  "view": "profile",
+  "facing": "left",
+  "figure": [
+    709,
+    1620
+  ],
+  "hem_row": 1041,
+  "padding": 260,
+  "motion": "lean-back",
+  "frames": 4
+}

@@ -226,11 +226,33 @@ Raised in `docs/40-actor-clip-inventory.md`, which lists every clip every charac
 
 **Q8 · Do `pickup` and `reach` need all four facings?** A pickup seen from behind is nearly invisible. Two facings may serve, which halves the work across 27 characters.
 
-**Q9 · `thad.json` describes the voided spec.** Two drawn sizes, a decimation threshold of 30, a 40px character height — all voided by errata 54. The file needs rewriting for 233px and depth scaling regardless of any new clip.
+**Q9 · `thad.json` describes the voided spec.** Measured on main: `threshold 30`, near height `40`, far height `26`. Two drawn sizes, a decimation threshold of 30, a 40px character height — all voided by errata 54. The file needs rewriting for 233px and depth scaling regardless of any new clip.
 
 **Q10 · Surface variants.** The record declares mud and boardwalk variants of every clip, doubling the count. That was a footstep-appearance decision under the old spec. Whether it survives errata 54 is the difference between 12 and 24 clips per character.
 
-## Q11 · The inventory examine path drops reserved effects
+## Q11 · Does Thad visibly carry the case?
+
+Two binding options, and the choice cannot be deferred past the case pickup being staged.
+
+**Inventory abstraction** — the case vanishes into inventory on pickup. No extra art.
+
+**Visible carry** — a separate `carry` locomotion family: stand plus walk in all four facings, with the case as a prop on a hand socket. **A full extra locomotion set**, and the ordinary walk cannot be silently reused for it.
+
+The case is on screen through most of Room 1's opening, which argues for visible carry. It is also 36 extra frames for one prop.
+
+## Q12 · Does Thad's appearance change after the Act III coffin?
+
+Act III nails him into a coffin and lowers him into the ground — the sequence the bible calls the only one where the player can believe the game has broken.
+
+**If he looks different afterward, that is a second complete character.** A new identity master and every clip regenerated against it: four facings × walk, idle, idle-break, stand, recoil, and every chore. Not a variant — a full second costume.
+
+**The cost is asymmetric in time, not just in frames.** Acquired now, while the character is established in the generator's context, it is one session. Acquired in six months it means re-establishing him from scratch and hoping the result matches art already shipped in Acts I and II.
+
+A prompt is written and held in `docs/42-thad-chore-poses.md` Part Three. **It is not to be run until this is ruled.**
+
+Related: whether any other character changes across acts, and whether Q5's act-variation schema needs to cover costumes as well as rooms.
+
+## Q13 · The inventory examine path drops reserved effects
 
 Found during step B, verified independently against the combined tree.
 
@@ -242,13 +264,25 @@ Step B made `VerbSystem.resolve()` **return** effects rather than apply them, so
 
 **The fix is step E's:** route the inventory examine through `GameState` like every other interaction rather than calling `VerbSystem` directly. Recorded here rather than fixed now because step E owns that call site and is rewriting it.
 
-## Q12 · `thad.json` names two files that do not exist
+## Q14 · The `ActorFile` schema cannot address a clip directory
 
-Sharper than Q9, and verified: `content/actors/thad.json` declares `art/actors/thad-near.png` and `art/actors/thad-far.png`. **Neither file is in the repository.** What `art/actors/` actually holds is twelve per-clip frame directories — `thad-idle-*`, `thad-idlebreak-*`, `thad-walk-*`, four facings each — which the current `ActorFile` schema has no way to reference.
+Sharper than Q9, and the reason Q9 is blocking rather than tidy-up.
 
-**The consequence is visible rather than silent.** The protagonist draws as a graybox in the real game, at correct size, position, depth and occlusion, and no renderer change can alter that. Every other named mover draws as a graybox too, because `content/actors/` holds exactly one actor record.
+`content/actors/thad.json` declares two sprite sheets, `art/actors/thad-near.png` and `art/actors/thad-far.png`. What `art/actors/` holds *besides* them is per-clip frame directories — `thad-idle-*`, `thad-idlebreak-*`, `thad-walk-*`, `thad-recoil-*`, `thad-stand-*`, four facings each, every one with its own `rig.json`. **The schema has no way to reference any of them.** It knows sheets and it knows a `threshold`, both of which errata 54 voided.
 
-This is the same file Q9 already says needs rewriting, so it is not a new decision — it is the reason Q9 is blocking rather than tidy-up. Nothing renders the new art until the schema can address a clip directory.
+**The consequence is visible rather than silent.** Until the schema can address a clip directory, nothing renders the new art. Every non-player mover draws as a graybox as well — correct size, position, depth and occlusion — because `content/actors/` holds exactly one actor record. No renderer change alters either.
+
+*History, recorded because the near-miss is the useful part.* The two sheets were genuinely absent from this branch when the finding was written, and the finding said so. They had been deleted on main by an `rm -rf art/actors/thad-*` clearing old rig output before a regeneration — the glob took the two sheets `thad.json` loads, the deployed page rendered black, and the project owner reported it. Restored at `2fe1021` with an asset-reference check that would have caught it at commit time. This branch predated the restore by four commits, so the graybox was real here and disappeared on merge. **The schema gap is what survives, and it is not affected by the sheets existing.**
+
+## Q15 · The asset-reference check does not exist
+
+Recorded because it is believed to exist, and a check believed to exist is worse than a check known to be missing.
+
+The `thad-near.png` / `thad-far.png` deletion was restored at `2fe1021` "with an asset-reference check that would have caught it at commit time." **`2fe1021` contains two PNGs and nothing else.** The only `tools/` change on main since this branch's merge-base is `tools/rig/character.py` (+47), which is the rig. No validator resolves asset paths declared in content against the filesystem, and `npm run validate` runs 24 checks, none of them that one.
+
+**Verified empirically rather than by reading the list.** Moved `art/actors/thad-near.png` aside, ran `npm run validate`: *All 24 checks passed.* Moved it back — byte-identical to `origin/main`. The exact failure that rendered the deployed page black passes the full suite today.
+
+**What it needs to cover, since the near-miss shows the shape:** every path any content record declares — actor sheets and clip directories, `art/backgrounds/*.png` referenced by room JSON, audio, fonts — resolved against the filesystem, failing with the declaring file and the missing path. It is the cheapest check in the repository and the only one whose absence is invisible until something ships black.
 
 ---
 
