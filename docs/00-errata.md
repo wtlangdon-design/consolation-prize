@@ -1244,3 +1244,187 @@ Surfaced by Room 1's sky work. **These are facts about the locked 256, not defec
 2. **The near range wants luminance 13 with blue in it. The palette does not contain it.** `accent_indigo`'s floor is 21.7 and `sky`'s is 52.7.
 
 **The palette is not reopened.** It is locked, six other rooms depend on it, and both gaps are narrow. They are recorded so that a future pass reads this instead of rediscovering them, and so that a room failing ruling 42's shape test in those specific buckets is understood as constrained rather than badly drawn.
+
+
+---
+
+# 48 · DOC 31 IS BINDING — the order of a successful action is inverted
+
+`docs/31-puzzle-feel.md` is adopted. It governs puzzle advertisement, response gradients, success performance, near misses, Act II pacing, recoverability and tension.
+
+## The two findings, neither of which any ruling here caught
+
+**1. The visible order is backwards.** The build writes flags inside resolution and applies object state and inventory **before the line finishes**. A puzzle is therefore mechanically solved before it has been performed, and the player sees consequence before cause.
+
+**Canonical order, binding:** stage · chore · sound · line · object state · flags · inventory · settle. The player sees the physical act, hears it, hears what Thad makes of it, and *then* the world changes.
+
+**2. There are six outcome classes and we have two.** Ours are "authored response" and "pool." Doc 31 distinguishes `COMIC_NOOP`, `WRONG`, `PLAUSIBLE_WRONG`, `RIGHT_TOO_EARLY`, `NEAR_MISS` and `SUCCESS`.
+
+**This is what makes doc 02's A5 work.** Bait, smoke and Pratt are not three refusals — they are three different kinds of wrong, and the current engine can only render them identically. A near miss confirms a hypothesis without naming the answer; a comic dead end rewards curiosity without implying progress; and nothing in the interface distinguishes them, which is the point.
+
+## What it protects, correctly
+
+Doc 31 opens by naming the two invariants I most feared an outside document would erode: **there is no hint system and never will be**, and **roughly forty percent of selectable options and many authored combinations do nothing on purpose and are the product.** It forbids labelling, highlighting, scoring or "fixing" either. It also upholds errata 35e — motion is never information — and doc 05's rule that the three load-bearing LISTEN lines carry no emphasis.
+
+**Its audit verdict is accepted:** the content layer already values specific jokes and safe structure; the engine is the blocker, not the prose.
+
+## Migration
+
+Its section 14 order stands: resolver, schema, permission validator, transaction and trace first — then **A5 as the reference vertical slice**, then the five tagged combinations, then the 45-puzzle manifest.
+
+**Do not populate the manifest before the resolver exists.** A graph that passes reachability while every success falls through a pool is the exact false pass doc 31 warns about, and the existing checker's honesty about being inert must survive.
+
+## Precedence
+
+Doc 31 governs what the player perceives when the puzzle systems run. **It does not change any puzzle solution or any written line** — docs 02, 13, 14, 24 and the room content documents are unaffected, and doc 31 says so. Where it conflicts with an earlier ruling on feedback or performance, doc 31 wins.
+
+
+---
+
+# 49 · AUDIO — RENDERED STEMS, LIVE SYNTHESIS WHERE IT MUST BE CONTINUOUS, THEMES COMMISSIONED AS MIDI
+
+Doc 28 left the build method open. The feasibility proof settles it, and the recommendation is adopted whole.
+
+## What the proof established, measured rather than asserted
+
+**The tuning conceit is built, not bought.** One `ConstantSourceNode.offset`, exact, free, and linear in cents. Verified by autocorrelation on the rendered waveform: −35.47 cents on the piano and −35.16 on the fiddle from the same parameter; the C♯ rule at −100.52 stacking to −135.11 with the global offset while D moves 1.86 cents, so it is genuinely per-note-class; the ninety-second arc exact at every quartile, landing on 0.000.
+
+**Two numbers decide the rest:**
+
+| | cost |
+|---|---|
+| The theme alone, live, 14 notes/sec | **12.9% of one core** — and a Chromebook is 2–4× slower, so 25–50% for music before SFX or Phaser, against a 60fps budget |
+| A decoded stem | **~1%** |
+
+**And samples do not make the detune hard.** A global −35 cents is a 2.04% `playbackRate` change. All stems drift together so they stay in sync; 2% of tempo drift across ninety seconds is imperceptible; **a whole town's music running slightly slow is arguably more period-correct than a synth being flat.** Still one parameter, no pitch-shifter, no granular artefacts.
+
+## Canonical
+
+1. **Render stems offline at build time from the same synthesis path.** None of the proof's code is wasted — it becomes the renderer.
+2. **Keep live synthesis only where audio must be continuous rather than a clip.** The F2 tap gradient above all: doc 28 makes tail length the puzzle's entire interface and it cannot be a fixed clip.
+3. **Commission the themes as MIDI, not audio.** This engine plays them, the character stays ours, and the tuning arc stays one parameter. Six short themes on four instruments remains a small, well-specified job.
+
+## The caveat, which is binding on me and not on the builder
+
+**The agent that built and verified this cannot hear.** Every character claim in it is measured, not listened to, and it said so. **Tyler must audition the fiddle and the held final C♯ before any commission is placed** — the fiddle conclusion is the one the recommendation turns on, and neither the builder nor I can check it.
+
+**Recorded as a general rule: an agent that cannot perceive the output must state so and name the specific human check its conclusion depends on.** This one did, unprompted, and it is the right shape for every judgment of this kind.
+
+## One bug worth carrying forward
+
+`connect(osc.detune)` holds a strong reference to every oscillator forever. Sixty seconds of music left **799 live note-graphs and climbing**; with explicit teardown, 27. Anyone building "one parameter threaded through every voice" hits this.
+
+
+---
+
+# 50 · DOC 32 IS BINDING — and it found three live bugs
+
+`docs/32-animation.md` is adopted. It governs chores, arbitration, interruption, idles, direction and scale, talk, comic reaction and NPC performance.
+
+**The gap it fills:** doc 22 says a chore plays during an interaction and doc 31 makes it step two of every successful action. **Nothing ever said what a chore is.** It is now a named authored timeline with frames, holds, anchoring, markers, an interrupt policy, a skip policy and a deterministic settle pose — not a clip name plus a guessed duration.
+
+## Three live bugs on main
+
+1. **Thad's idle may not be redrawing.** `Actor.update` reports no change for clock-derived idle turnover, so `GameScene` may not repaint him until some unrelated cycling or ambient event happens. **Errata 35b's breath is implemented and may be invisible**, depending on what else in the room happens to move. Fix before judging any idle art.
+2. **`SequenceRunner.cancel()` does not cancel animation.** Clearing the runner leaves `Actor.special` owning the body until its timer expires, so a cancelled cutscene keeps performing.
+3. **`ActorSprite` falls back to the first available clip when one is missing** — a broken build displays an unrelated front idle and looks plausible. Same family as the render nothing regenerated and the check that validated its own assumptions. **Missing required performance becomes a build error.**
+
+## The rules that govern the remaining 26 characters
+
+**"A room satisfies the motion rule with one or more calm, persistent, compositionally appropriate performances. It does not need every figure to loop, and adding more motion can weaken deadpan staging."**
+
+That corrects the direction errata 35a could be read as pointing. 35a stands — every room has at least one animated sprite — but it is a floor, not a target.
+
+**The foot-plant rule:** a transition from locomotion to acting may not freeze a splayed stride, slide the feet into pose, or rotate and change scale in one rendered frame. Reach a planted frame, then turn, then act.
+
+**No runtime mirroring.** Frame-left lighting, costume asymmetry, props and comic eye direction make left-into-right visibly dishonest. Four authored facings.
+
+**Deadpan:** *"Do not fill the reply pause with random flapping. Stillness is a performance state."*
+
+## Precedence
+
+Doc 32 governs animation and performance. It changes no written line, no puzzle solution and no room composition. It upholds errata 35e — motion is never information — and restates it as non-negotiable in its opening.
+
+It also marks doc 15's "three sizes, three views" as stale: errata 24's four directions and two drawn sizes govern, and the current Thad data already follows that structure.
+
+
+---
+
+# 51 · DOC 33 IS BINDING — load is not atomic, and there is no title flow
+
+`docs/33-save-shell.md` is adopted. It governs save, load, slots, title, pause, options, restart and return-to-title, and it coordinates docs 29–32 rather than replacing them.
+
+**It exists because all four previous bibles introduced transactional state** — dialogue transactions, puzzle transactions, chore handles, committed-versus-cancellable transitions — and nothing specified what a save means during one.
+
+## Two live bugs
+
+1. **LOAD IS NOT ATOMIC.** The current implementation restores flags and dialogue **before** assigning the room and collections. An error partway leaves the running game half old and half loaded. **This is the corrupted-save class, and it is the one bug that permanently destroys trust in a game whose entire premise is that experimentation is safe.** Candidate construction off the live state, deep validation, then one swap.
+
+2. **`BootScene` AUTO-LOADS THE AUTOSAVE AND STARTS `GameScene`.** There is no real title flow — the title screen we composed is decorative rather than the entry point. CONTINUE, NEW GAME, OPTIONS and CREDITS do not lead anywhere yet.
+
+## The insight I had not reached
+
+**Saving is a mouse-only problem.** MI1 asked the player to type a save name. Errata 39 and 28b make this game mouse-complete, so **the game must name saves for the player** — and the constraint produces something better than typing:
+
+```
+1  MAIN STREET
+BY THE HOTEL  ·  1H 42M  ·  20M AGO
+```
+
+Composed from an authored room `saveLabel` and a stable `saveLandmark`, using **the place the player can already see** — never an act title, chapter name, objective, puzzle count, reputation reading or completion percentage.
+
+**A save label is not a hint.** That is the same discipline doc 31 applies to puzzle feedback and doc 05 applies to the three load-bearing LISTEN lines, arriving in a third place independently.
+
+**All 42 rooms must declare a `saveLabel`, and large or revisited rooms declare landmarks by anchor.** Validation rejects a reachable stable checkpoint carrying only an internal room id. That is authoring work and it lands on the room content documents.
+
+## Three rules worth restating
+
+- **`SaveCoordinator` is the only write gate.** No scene, dialogue runner, puzzle action, transition, chore, shortcut or menu writes storage directly. `enterRoom()` currently writes during a state change and must stop owning persistence.
+- **No resumable mid-transaction save in the first release.** A queued request waits for the next declared checkpoint or final settle.
+- **No HINTS, DIFFICULTY, PUZZLE ASSIST, OBJECT HIGHLIGHT, QUEST LOG, TIMER or completion setting** exists in options now or later without a new binding ruling.
+
+## Precedence
+
+Doc 33 governs persistence and the shell. It changes no written line, no puzzle, no room composition. Where it conflicts with an earlier ruling on saving or the shell, doc 33 wins; errata 39's integer-scaling and fullscreen rules and 28b's click model are upheld by it, not replaced.
+
+
+---
+
+# 52 · DOC 34 IS BINDING — the five guides do not compose, and the errata's precedence rule is broken
+
+`docs/34-architecture-audit.md` is adopted **whole**, including its section 10 directive and its stop condition.
+
+## The verdict, and it overrides my queue
+
+**Do not implement docs 29–33 in sequence.** Each is correct in its own domain. Implemented one after another, the **order would decide semantics accidentally** — dialogue committing before puzzles, saving pausing the clock it is waiting on, loading cancelling work another guide calls irreversible. Five correct local systems owning the same moment independently.
+
+**One cross-system `RuntimeCoordinator` comes first**, then one integrated vertical proof. Not five horizontal frameworks.
+
+**And it corrects the question I asked.** A chore handle held by a dialogue transaction inside a room transition during an autosave **should not be supported as four nested owners. That shape is illegal.** One root operation, optional child presentation handles, and a save request observing the next stable checkpoint.
+
+## Three findings I own
+
+**1. This errata's precedence rule is broken.** It opens with "errata always wins," and then rulings 44, 45, 48, 50 and 51 adopt guides that win within their own domains. **Linear "latest wins" is unsafe, and the numbering skips 40**, so number order cannot serve as precedence. Doc 34's domain matrix governs, and a consolidation pass with a supersession index is now required rather than optional.
+
+**2. The scope verdict, quoted because it is correct:** *"The project has enough specification to build the same two proof rooms several more times on paper. It does not yet have Act I."* Fifty-one rulings and thirty-four documents against two finished rooms. **From this point more global rules are more likely to create conflicts than quality.**
+
+**3. The coffin is a requirements impossibility.** A three-minute no-interface scene cannot also be mouse-only accessible. Not an engine limitation — a contradiction between doc 05's staging and errata 39/28b's access rules, both of which I wrote. **Doc 34's reveal-on-intent overlay is adopted**, along with its four-minutes-sealed / three-minutes-black reconciliation of Hob's line.
+
+## Amendments doc 34 makes, all adopted
+
+- **Ruling 35e is narrowed.** "Motion is never information" governs **ambient and relevance** motion. **Direct action feedback is legal** — F2's ripple is the sound drawn, not a hint. **Room 33's puzzle-gated lamp stop is struck** (doc 18 and errata 35e's item 8). **Room 32 is exempt from the animated-sprite floor.**
+- **The F2 tuning arc moves to the confirmed-void reveal.** Elapsed time would make waiting advance the dramatic state; proximity would turn the music into a hidden meter. Doc 28 is amended.
+- **Errata 43's topology is adopted now:** 44 screens. Stale 42 and 41 literals are replaced everywhere.
+- **Doc 03's "Duel Four" and its four-duels header** need one canonical migration to errata 4's three duels and two sparrings before implementation.
+
+## The stop condition, and it binds me
+
+> **No new global design ruling until the integrated proof action, the canonical street loop and a safe save/load/title flow are executable.** New findings enter a finite issue list unless they expose data loss, unwinnability, inaccessible control, or a direct canon contradiction.
+
+I have written fifty-two rulings in two days. **This is the last one until that condition is met.**
+
+## What doc 34 says is already right — and to stop refining
+
+The title and premise; the no-death/no-hint covenant; the wasted-option doctrine; text-only speaker-aware dialogue; 320×200 with the locked palette and integer scaling; walk boxes, feet anchoring, decimation and clip planes; the procedural art pipeline; the validators' honesty; Main Street's spatial premise; Room 1's dramatic beats.
+
+**Stop revisiting all of it.**
