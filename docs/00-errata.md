@@ -1428,3 +1428,51 @@ I have written fifty-two rulings in two days. **This is the last one until that 
 The title and premise; the no-death/no-hint covenant; the wasted-option doctrine; text-only speaker-aware dialogue; 320×200 with the locked palette and integer scaling; walk boxes, feet anchoring, decimation and clip planes; the procedural art pipeline; the validators' honesty; Main Street's spatial premise; Room 1's dramatic beats.
 
 **Stop revisiting all of it.**
+
+
+---
+
+# 53 · TRACE, DO NOT COMPOSE — supersedes errata 14
+
+*Permitted under errata 52's stop condition as a direct canon contradiction: errata 14 and docs 11 and 12 make procedural composition canonical, and it is now the wrong method. No other global ruling follows until doc 34's condition is met.*
+
+## The ruling
+
+**The remaining 40 rooms are TRACED from a quantised reference, not composed procedurally.**
+
+A high-resolution composition brief is generated per room, downsampled to 320×144 and quantised into the locked 256. **That quantised image is a finished, legal, on-palette room** — 54 indices, zero unmapped pixels — and it is traced and hand-corrected at native scale rather than reconstructed region by region.
+
+**Errata 14 is superseded.** Procedural composition was correct when the alternative was an anchor-image method that drifted; it is not correct now that the reference itself lands on-palette.
+
+## Why, and it is not the obvious reason
+
+**Reconstruction converges on tone and composition first — those are global and measurable — and runs out of budget on object interiors, which are local and are the actual craft.**
+
+Room 1's final gaps were all objects correctly placed, correctly lit, at the right value, with less drawn inside them: a coach body that never terminates, four horses reading as one shape, a flat panel where a shack should have planks. **That is reconstruction's failure mode, and tracing starts where reconstruction ran out.**
+
+The second argument is the metric problem. Every instrument in the Room 1 run existed to answer *is this close enough to the reference*. **If the source is the reference, that is a pixel diff** — and four rounds were spent arguing with instruments that were wrong three separate times.
+
+## Three conditions, all binding
+
+**1. A quantised image is not a legal asset until its reserved bands are corrected.** A quantiser optimises colour distance and knows nothing about which palette entries mean *this pixel animates*. Measured on Room 1's bar:
+
+| Reserved band | Purpose | What the quantised bar contains |
+|---|---|---|
+| `accent_gold` 225–228 | The lantern flame, cycled at 0.6 Hz | **0 pixels** |
+| `accent_indigo` 239–241 | The road puddles, cycled at 0.25 Hz | **486 px, bbox (15,8)–(318,143)** |
+
+**The lantern would be dead and the sky would shimmer with the puddles.** Both failures are silent. **This is a build check before it is a workflow.**
+
+**2. Movable objects come from companion generations, not from cutting.** Cutting a layer out of a trace leaves a hole with nothing behind it — Room 1's coach is 5,959 px and the engine needs the hillside, road and fence when it departs. **Ask the generator for the same scene without the object, quantise both, and the layer is a difference between two images** — the current technique with the generator in place of the composer. This is the rule, not an optimisation.
+
+**3. Composition and hotspot geometry are decided BEFORE tracing.** A composed room can be told to move a sign four pixels; a traced one needs a regeneration that will not reproduce the rest of the frame. With 45 puzzles needing hotspots aligned to art, **that cost is felt during puzzle work rather than art work.**
+
+## What this changes about the audits
+
+**The audits become acceptance tools rather than construction tools**, which is a better job for them. Rulings 16, 17c, 18, 41, 42 and 46 still govern — they now verify a trace rather than steer a composition.
+
+**Docs 11 and 12 are revived and inverted:** doc 12's subject blocks become the per-room generation briefs, and doc 11's downsampling pipeline becomes the tracing input rather than a fallback.
+
+## Scope
+
+**This changes nothing today.** Doc 34's stop condition holds, Act I comes first, and Rooms 1, 2, 3, 5, 13, 18, 19, 29 and 36 stay as composed. It governs the remaining 40 when room art resumes.
