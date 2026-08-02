@@ -957,7 +957,7 @@ Reported from the deployed build.
 
 ---
 
-# 37 · EXHAUSTED DIALOGUE OPTIONS — progress goes, topic and comic stay
+# 37 · EXHAUSTED DIALOGUE OPTIONS — **REVOKED, see the correction below**
 
 From a player audit: Monkey Island removes an option once it has been asked, and ours grey out and remain. Both behaviours are right, for different options.
 
@@ -970,7 +970,29 @@ From a player audit: Monkey Island removes an option once it has been asked, and
 
 **Why topic and comic must stay:** doc 04's Winnie tree turns on asking her about the raccoon five times until she cracks — "What's its name." — and that arc is one of the best things in the game. Removing exhausted options would delete it silently.
 
-**Doc 04 rule 4 is amended accordingly.** It said all exhausted options grey and remain; only `[PROGRESS]` changes.
+**REVOKED. Doc 04 rule 4 stands unamended: every used option greys and stays.**
+
+## Why this ruling was wrong
+
+**Its premise is a factual claim about Monkey Island, and the claim is backwards.** Errata 37 opens "Monkey Island removes an option once it has been asked." What Monkey Island actually did is remove an option **when the branch it led to was unimportant to the player's progress**. Flavour vanished; the things a player needed stayed.
+
+So this ruling removed `[PROGRESS]` — the options that matter — and kept the jokes. That is the opposite of the game it cites.
+
+## Why the fix is revocation and not inversion
+
+**A rule where some options vanish cannot be learned, whichever ones they are.** The property deciding it — the tag — is invisible. Measured on the driver's tree, the first conversation any player has: four options, two rows vanish and a third greys, and nothing on screen says why.
+
+**Removal reshuffles.** Six of nine nodes mix `PROGRESS` with other tags, so a used row disappears and everything below it jumps up. That is what reads as clunky, and it happens whichever tag is removed.
+
+**Nothing in this game is long enough to need pruning.** The largest node is seven options; the distribution is 4, 4, 4, 4, 5, 5, 6, 6, 7. Monkey Island pruned because its trees ran long on a 200-pixel screen. That problem does not exist here.
+
+**And it keeps the Winnie arc for free.** Doc 04's raccoon — asked five times until she cracks — needs the option present on the fifth ask. This ruling preserved it by special-casing `[COMIC]`; revocation preserves it by default.
+
+## What survives
+
+**The tags stay.** `[PROGRESS]`, `[TOPIC]`, `[COMIC]` and `[EXIT]` still mark what an option is for, which is useful to authors and to checks. They no longer control visibility.
+
+*Recorded as Q31. The premise was checkable and nobody checked it — the same failure as the character height, where a number derived from Monkey Island's proportions was never held against the actual picture.*
 
 
 ---
