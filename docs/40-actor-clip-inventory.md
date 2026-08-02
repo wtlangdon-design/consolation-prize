@@ -16,6 +16,8 @@
 | **recoil** | 4 | 7.0/s | Reacting to something | ❌ |
 | **idle-break** | 12 | ~2/s | A glance left then right, played occasionally | ✅ four facings |
 
+**idle-break is view-dependent.** Head-on it is a glance aside; in profile it is a **shoulder shrug**. The same horizontal head move that reads as a glance facing the viewer slides the head forward and off the neck in profile, which nobody does. A profile head *turn* would need art that does not exist.
+
 **idle-break is not in the actor record.** It was added because pure breathing reads as *too* still — a character who stands perfectly motionless for more than a few seconds looks switched off. It plays on a timer while idle and returns to it. The record needs a clip entry for it.
 
 **Four facings each: front, back, left, right.** Errata 50 forbids runtime mirroring — costume asymmetry and lighting make a flipped sprite dishonest.

@@ -11,5 +11,6 @@
   "shoulder_row": 382,
   "padding": 260,
   "step_px": 7,
+  "motion": "glance",
   "frames": 12
 }

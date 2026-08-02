@@ -16,7 +16,8 @@ from scipy import ndimage
 HIP_SWING = [14, 10, 0, -10, -14, -10, 0, 10]
 IDLE_BREATH = [0.0, 0.45, 0.85, 1.0, 0.7, 0.3]   # 6 frames, doc 22's rest state
 DISPLAY_H = 233          # the height a character is shown at, errata 54
-LOOK = [0, -1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0]   # idle break: glance left, then right
+LOOK  = [0, -1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0]   # head-on break: glance aside
+SHRUG = [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]      # profile break: shoulders rise and settle
 ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
 ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
@@ -428,22 +429,55 @@ def main():
         # else. A head is not less than about a fifth of a standing figure.
         if shoulder_row < 0.15 * fig_h:
             shoulder_row = int(0.20 * fig_h)
-        head_m = np.zeros((H, W), bool); head_m[:shoulder_row] = mask[:shoulder_row]
-        head = as_layer(head_m)
-        body_m = mask.copy(); body_m[:shoulder_row] = False
-        body = as_layer(body_m)
-        for i, k in enumerate(LOOK):
-            f = np.zeros((H, W, 4))
-            f = over(body, f)
-            f = over(np.roll(head, k * step, axis=1), f)
-            Image.fromarray(f.astype(np.uint8)).save(out / f"idle-break-{i:02d}.png")
+        # In profile a wide hat brim is as broad as the shoulders, so the
+        # width jump fires at the brim -- 10% down, which is hat and nothing
+        # else. A head is not less than about a fifth of a standing figure.
+        if shoulder_row < 0.15 * fig_h:
+            shoulder_row = int(0.20 * fig_h)
+
+        if args.view == "headon":
+            # A glance aside. Only legible facing the viewer -- in profile the
+            # same horizontal move slides the head forward and back off the
+            # neck, which nobody does.
+            head_m = np.zeros((H, W), bool); head_m[:shoulder_row] = mask[:shoulder_row]
+            head = as_layer(head_m)
+            body_m = mask.copy(); body_m[:shoulder_row] = False
+            body = as_layer(body_m)
+            seq = LOOK
+            for i, k in enumerate(LOOK):
+                f = np.zeros((H, W, 4))
+                f = over(body, f)
+                f = over(np.roll(head, k * step, axis=1), f)
+                Image.fromarray(f.astype(np.uint8)).save(out / f"idle-break-{i:02d}.png")
+        else:
+            # A shrug. Shoulders and arms rise and settle; head and legs hold.
+            # This reads from any angle, which a head turn does not -- turning
+            # a profile head would need art that does not exist.
+            torso_top = shoulder_row
+            torso_bot = hem
+            shrug_m = np.zeros((H, W), bool)
+            shrug_m[torso_top:torso_bot] = mask[torso_top:torso_bot]
+            if near_am is not None:
+                shrug_m |= (near_am | far_am)
+            shrug_m[:torso_top] = False
+            rest_m = mask & ~shrug_m
+            shrug, rest = as_layer(shrug_m), as_layer(rest_m)
+            seq = SHRUG
+            for i, k in enumerate(SHRUG):
+                f = np.zeros((H, W, 4))
+                f = over(rest, f)
+                f = over(np.roll(shrug, -k * step, axis=0), f)
+                Image.fromarray(f.astype(np.uint8)).save(out / f"idle-break-{i:02d}.png")
         meta = dict(source=args.source, key=args.key, clip="idle-break",
                     view=args.view, facing=args.facing, figure=[fig_w, fig_h],
                     shoulder_row=int(shoulder_row), padding=P, step_px=step,
-                    frames=len(LOOK))
+                    motion=("glance" if args.view == "headon" else "shrug"),
+                    frames=len(seq))
         (out / "rig.json").write_text(json.dumps(meta, indent=2))
-        print(f"idle-break: {len(LOOK)} frames, head above row {shoulder_row} "
-              f"({shoulder_row/fig_h*100:.0f}%), glance +/-{step}px = 1 display px")
+        print(f"idle-break: {len(seq)} frames, "
+              f"{'glance' if args.view == 'headon' else 'shrug'}, "
+              f"shoulder row {shoulder_row} ({shoulder_row/fig_h*100:.0f}%), "
+              f"{step}px = 1 display px")
         return
 
     if args.clip == "idle":
