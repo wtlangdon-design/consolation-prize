@@ -14,6 +14,7 @@ from PIL import Image
 from scipy import ndimage
 
 HIP_SWING = [14, 10, 0, -10, -14, -10, 0, 10]
+IDLE_BREATH = [0.0, 0.45, 0.85, 1.0, 0.7, 0.3]   # 6 frames, doc 22's rest state
 ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
 ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
@@ -292,6 +293,10 @@ def main():
                          "reads as the hand stretching.")
     ap.add_argument("--near-mask", help="ARMMASK code or file for the near arm")
     ap.add_argument("--far-mask", help="ARMMASK code or file for the far arm")
+    ap.add_argument("--clip", default="walk", choices=["walk", "idle"],
+                    help="idle is the rest state every chore settles into (doc 22)")
+    ap.add_argument("--breath", type=float, default=1.0,
+                    help="scales the idle breath; 1.0 is about one display pixel")
     ap.add_argument("--view", default="profile", choices=["profile", "headon"],
                     help="headon = front or back. Limbs shift and scale toward "
                          "the camera instead of rotating.")
@@ -398,6 +403,31 @@ def main():
 
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     travel = 0
+
+    if args.clip == "idle":
+        # BREATHING. The legs are planted; everything above the hem rises and
+        # settles. Amplitude is set as a fraction of figure height so it lands
+        # at roughly one pixel once scaled to 233px -- at full resolution that
+        # is ~8px, and anything smaller vanishes entirely on screen.
+        amp = 0.005 * fig_h * args.breath
+        for i, t in enumerate(IDLE_BREATH):
+            dy = -int(round(amp * t))
+            f = np.zeros((H, W, 4))
+            f = over(far_leg, f)
+            f = over(near_leg, f)
+            if far_am is not None:
+                f = over(np.roll(as_layer(far_am), dy, axis=0), f)
+            f = over(np.roll(coat, dy, axis=0), f)
+            if near_am is not None:
+                f = over(np.roll(as_layer(near_am), dy, axis=0), f)
+            Image.fromarray(f.astype(np.uint8)).save(out / f"idle-{i:02d}.png")
+        meta = dict(source=args.source, key=args.key, clip="idle", view=args.view,
+                    facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
+                    padding=P, breath_px=round(amp, 1), frames=len(IDLE_BREATH))
+        (out / "rig.json").write_text(json.dumps(meta, indent=2))
+        print(f"idle: {len(IDLE_BREATH)} frames, breath {amp:.0f}px at source "
+              f"(~{amp*233/fig_h:.1f}px on screen)")
+        return
     for i, s in enumerate(HIP_SWING):
         s *= args.swing
         a = s * args.arm_swing
