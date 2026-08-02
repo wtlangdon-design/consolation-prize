@@ -3,7 +3,16 @@ import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene.ts';
 import { GameScene } from './scenes/GameScene.ts';
 import { NATIVE_HEIGHT, NATIVE_WIDTH } from './render/Screen.ts';
+import { setAssertionChecking } from './core/Assertions.ts';
 import './style.css';
+
+// Doc 34 section 4.6's illegal-state assertions run in development and fold
+// away in the production bundle: Vite resolves import.meta.env.DEV to a
+// literal, so every guard's body becomes unreachable and each call site is
+// left with one dead boolean test. They are programming-error guards, never
+// content or player errors, so shipping them live would only convert an
+// engine bug into a crash in front of a player.
+setAssertionChecking(import.meta.env.DEV);
 
 const MAX_ZOOM = 6;
 
