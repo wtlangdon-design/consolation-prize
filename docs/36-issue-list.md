@@ -413,6 +413,37 @@ Nineteen asset paths are declared across all 17 room files. Every one is written
 
 `CLAUDE.md`'s "One command regenerates everything" is annotated, because it was no longer true as written.
 
+## Q21 · `atmospheric_audit.py` has been failing since before errata 54
+
+**Filed on its own so it is not attributed to whoever touched the render pipeline last**, which is exactly what happens to pre-existing breakage found during unrelated work.
+
+`npm run renders` exits non-zero. Three modules fail. Two of them are the Q20 refusals and are deliberate. The third is not:
+
+`atmospheric_audit.py` — errata 33b, *no scenery lighter than the sky* — fails on `stage_road`. **It was failing before the errata 54 migration and before the plate was promoted**, verified by running it in a throwaway checkout of `c4e333c^`:
+
+| | rows measured | sky p90 | result |
+|---|---|---|---|
+| before the migration | 0–44 | 33.8 | **FAIL** 571 px over the sky, worst 125.1 at (107, 53) |
+| on `main` today | 0–264 | 141.8 | **FAIL** 41,185 px over the sky, worst 174.5 at (244, 268) |
+
+Same verdict on both sides, so the migration did not cause it. **The numbers are not comparable, though, and the second set should not be read as the first getting 72× worse.** The row band moved with the ×6 and the picture underneath changed from the composed 320 × 144 room to the 1920 × 864 plate, which has 36× the pixels — so both the sky's own p90 and the count of pixels over it are measurements of a different image against a different band.
+
+**What is actually unknown is whether the audit still means anything.** It reports offenders as palette indices — `idx 75 L 174.5` — so it is quantising a full-RGB plate into the locked 256 in order to name them, and errata 54 makes that palette reference-only. Whether errata 33b's rule survives against generated art, and what it would be measured against if it does, is not something this list can settle.
+
+**`rooms_batch_a.py` is not failing.** It was named in Q20's first report as the pre-existing failure; that was a misread of `grep -B` context spanning a module boundary. Run directly it exits 0 and writes Rooms 18, 19 and 13.
+
+## Q22 · A command's call list does not tell you what it writes
+
+Recorded as a method note, because it is the only reason the second `npm run renders` casualty was found at all.
+
+`tools/render-all.mjs` was read carefully. It names `room01_stage_road.py`, which writes Room 1's shipping background, and reading stopped there — by two people independently. **What reading the list could not show is that it also runs `actor_export.py`, which rewrites `content/actors/thad.json` wholesale.** That was found by running the command in a throwaway tree and diffing the result.
+
+> **When a command is suspected of writing something it should not, run it in a throwaway tree and diff. Do not read its call list.** A call list tells you what it invokes. It does not tell you what those things write.
+
+**And the two casualties are not equally serious, which is the part worth keeping.** An overwritten background is visible the moment anyone opens the room. **Silently reverted content is not.** `thad.json` would have gone from threshold 180 back to 30 and near height 240 back to 40, with the threshold re-derived from `eye_death_row` — a decimation measurement errata 54 voids. **Every validator would still have passed.** Nothing would look wrong until Thad was 40 px tall in a 1920 × 864 frame and nobody could say when it happened.
+
+That is the same shape as the sprite-sheet deletion that rendered the deployed page black: a correct-looking command producing a change nobody would attribute to it.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
