@@ -27,6 +27,7 @@ import { check as stableSeeds } from './check-stable-seeds.mjs';
 import { check as assetPaths } from './check-asset-paths.mjs';
 import { check as actorClips } from './check-actor-clips.mjs';
 import { check as bootAssets } from './check-boot-assets.mjs';
+import { check as actorFrames } from './check-actor-frames.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -60,6 +61,7 @@ const CHECKS = [
   assetPaths,
   actorClips,
   bootAssets,
+  actorFrames,
 ];
 
 let failed = 0;

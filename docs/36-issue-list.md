@@ -714,6 +714,89 @@ The deployed site is fine — GitHub Pages genuinely serves under `/consolation-
 
 Verified by looking, not by the config reading correctly: the built `index.html` still names `/consolation-prize/assets/index-UlDnmjwO.js` — the same bundle, unchanged — and `npm run preview` now announces `http://localhost:4173/consolation-prize/`, redirects the root to it, serves the bundle 200, and paints Room 1 in 3.1 s with no 4xx and no page errors.
 
+## Q34 · Thad drew at a third of his size and floated 175 px above his feet — **FIXED**
+
+Reported as "roughly 196–198 game px against a zone table of 263/240/222". Instrumented by the Q27 method rather than reasoned about, and the measurement separates the three candidate causes cleanly.
+
+**The zone resolution is not the problem and never was.** The draw call is handed exactly the right number. Probed down Room 1's band at x960:
+
+| y | height handed |
+|---|---|
+| 660 | 222 |
+| 694 | 222 |
+| 728 | 232 |
+| 762 | 243 |
+| 796 | 253 |
+| 830 | 263 |
+| 863 | 263 |
+
+That is the box curve doing precisely what it declares. `boxAt` takes precedence over the zone table, the curve runs 222 at y694 to 263 at y830, and standing at y863 he is handed **263**.
+
+**What the draw call then wrote was 88 pixels.** Wrapping `ActorSprite.draw` and spying on the `drawImage` it issues: handed `height: 263`, drew a canvas `88` tall at destination `[871, 600]`. His soles landed at y=688 against a foot position of y=863 — **175 px in the air, up against the fence, at a third of his size.**
+
+**The cause is a generated file that was not regenerated.** `f8699d3` rewrote `art/actors/` from 71.8 MB to 12.6 MB — frames written at twice the drawn size instead of at source size — and updated each `rig.json` to match. `content/actors/*.json` is generated *from* those rig files by `tools/build-actor-record.mjs`, and it was not re-run. So the records went on declaring the old source space:
+
+| | before `f8699d3` | after | record said |
+|---|---|---|---|
+| `thad-stand-back` frame | 1229 × 1702 | 366 × 548 | — |
+| `rig.figure` | [569, 1565] | [191, 526] | — |
+| `figureHeight` | 1565 | **should be 526** | 1565 |
+
+`ActorSprite` scales by `height / figureHeight`. With a divisor three times too large, everything downstream is three times too small — and because the anchor is scaled by the same factor, he lifts off the ground by it too.
+
+**Fixed by re-running the generator**, which is what the record's own note says to do and what nothing had done. Every clip now declares `figureHeight: 526`, and 263/526 is exactly 0.5 at the near zone. Verified by instrumenting again — handed 263, draws a 274-px canvas holding a 263-px figure, soles at y864 — and by looking at the frame.
+
+**The reported 196–198 matches neither state**, which means the deployed build measured is not `f8699d3`. Worth knowing which commit is live before reading anything else off it; the local defect was three times worse than the report and is the one that is fixed.
+
+**And it is a check now.** `tools/check-actor-frames.mjs` reads each frame's PNG header and asserts the declared figure and anchor fit inside it. On the stale record it fails **302 times** with the factor named. Containment needs no tolerance — a figure cannot be taller than its canvas — where the tighter test would need one and would be wrong: a walk frame's alpha runs 500 to 548 rows against a 526 figure, and those frames are correct.
+
+**R5e's shape again, and this is the third time.** Every existing check passed: the record parsed, every frame resolved on disk, every clip directory was declared, the boot lists partitioned, the depth curve returned the right number. Nothing compared the record to the pictures. The new check asks the **PNG header** rather than `rig.json` on purpose — asking the generator's own source whether the generator ran is a check sharing its subject's assumptions.
+
+## Q35 · The panel cannot hold five lines of 42-px type, and its font is scaled by the wrong factor
+
+Confirmed exactly as reported, measured off the running game with the opening finished. Ink extents in the verb block, `x 24–1056`:
+
+| element | rows | gap below |
+|---|---|---|
+| sentence line | 866–907 | 2 |
+| LOOK AT / OPEN / PUSH | 910–950 | 2 |
+| PICK UP / CLOSE / PULL | 953–993 | 2 |
+| TALK TO / USE / LISTEN TO | 996–1036 | **0** |
+| MENU / MAP / FULL | 1037–1078 | 1 to the frame edge |
+
+Rows 2 and 3 are one unbroken 83-row run of ink: their glyphs touch, which is the "printed on top of" in the report. And at 1:1 nothing is technically cut — but **Tyler is not looking at 1:1.** Captured at 1366 × 768, a Chromebook resolution, the canvas is FIT-scaled to 0.711 and the bottom glyph rows fall off: MENU, MAP and FULL are visibly clipped. The one spare pixel row is what the whole layout has, and any downscale spends it.
+
+**THE ROOT CAUSE IS NOT THAT THE PANEL IS SHORT. IT IS THAT ITS TYPE WAS MIGRATED BY THE PLAY AREA'S FACTOR.**
+
+| | old | new | factor |
+|---|---|---|---|
+| play area | 320 × 144 | 1920 × 864 | **× 6 exactly** |
+| panel | 320 × 56 | 1920 × 216 | **× 3.857** |
+| glyph height | 7 | 42 | × 6 |
+
+The panel is the one region errata 54 did *not* scale by six — it re-proportioned it, which is how 1080 works at all. The font came along at six anyway. That is Q18's sixth category exactly: a length authored in 320-space migrated by a factor that does not apply where it landed.
+
+**The arithmetic, which is the whole argument:**
+
+| | glyph | 5 lines | of 216 | slack | as % |
+|---|---|---|---|---|---|
+| old panel at ×1 | 7 | 35 | of 56 | 21 | **37.5%** |
+| today at ×6 | 42 | 210 | of 216 | 6 | **2.8%** |
+| ×5 | 35 | 175 | of 216 | 41 | 19.0% |
+| **×4** | 28 | 140 | of 216 | 76 | **35.2%** |
+
+**No layout inside 216 px works at 42-px glyphs.** Five lines need 210 of 216 rows before a single gap; redistributing six spare rows across six gaps buys one row each. This is arithmetic, not taste.
+
+**×4 restores the panel's original proportion almost exactly** — 35.2% against 37.5% — and it is not an arbitrary pick: it is the panel's own migration factor, 3.857, rounded to an integer, in the same way the play area's 6 was.
+
+**NOT DONE, because three routes are open and all three are somebody's decision:**
+
+1. **Panel type at ×4.** No geometry migration, no design change, restores the reference proportion. **Costs: two glyph scales in the game**, panel type smaller than play-area type. CLAUDE.md gates font sizing behind a ruling and this is a font sizing decision.
+2. **Three verb rows instead of four**, moving MENU / MAP / FULL elsewhere. Contradicts errata 26's three-columns-of-four and errata 39's "in the panel".
+3. **A taller panel.** **This one is a second migration.** The play area shrinks, and every room's walkable band, walk box, entrance and hotspot rect moves with it. It should not happen as a side effect of a typography problem.
+
+Recommended: **1**. Stated, not taken.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
