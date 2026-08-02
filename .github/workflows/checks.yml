@@ -1,0 +1,53 @@
+name: Checks
+
+# WHY THIS EXISTS SEPARATELY FROM THE DEPLOY. pages.yml ran `npm run build`,
+# which is `tsc --noEmit && vite build` -- a type error failed the deploy and
+# NOTHING ELSE DID. None of the validation suite ran in CI at any point: not
+# the 29 checks, not the tests. Every green run this project has reported was
+# somebody running it on their own machine and saying so.
+#
+# That is the same failure the suite itself keeps finding. A check believed to
+# run is worse than a check known not to, because the belief closes the
+# question.
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # typecheck, then the validation suite, then the tests. One command
+      # because that is the one a person runs locally -- a CI job that ran a
+      # different set would drift from it, and the drift would be invisible
+      # until the day they disagreed.
+      - name: npm run check
+        run: npm run check
+
+      # DELIBERATELY NOT GATING THE DEPLOY. pages.yml publishes on every push
+      # to main and says why: "a half-published Pages site is worse than a
+      # slightly stale one". The deployed build is how the project owner looks
+      # at the game, and a red check that also took the game away would cost
+      # more than it caught. This reports; it does not block.
+      #
+      # No step here writes. check-generated runs every generator in --check
+      # mode, which builds and compares, so the tree it validates is the tree
+      # that was pushed.
+      - name: Confirm the suite wrote nothing
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "The validation suite modified the working tree:"
+            git status --porcelain
+            echo "A check that writes is unsafe to run on a dirty branch."
+            exit 1
+          fi
+          echo "clean"

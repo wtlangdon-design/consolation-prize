@@ -165,6 +165,16 @@ const HEIGHT_NOTE =
   + 'unchanged. Errata 54\'s original ~233 was arithmetic from Monkey Island\'s '
   + 'proportions and was never checked against the plate at all.';
 
+/**
+ * Build and compare instead of writing. THE RECORDS ARE GENERATED AND A
+ * GENERATED FILE CAN BE STALE, which is not a hypothetical: `f8699d3`
+ * rewrote every frame and every rig.json and did not re-run this, so the
+ * records went on declaring figure heights in the old source space and the
+ * protagonist drew at a third of his size. Q34.
+ */
+const CHECK = process.argv.includes('--check');
+let stale = 0;
+
 for (const id of CHARACTERS) {
   const out = `content/actors/${id}.json`;
   const { facings, clips } = recordFor(id);
@@ -208,8 +218,26 @@ for (const id of CHARACTERS) {
     clips,
   };
 
-  writeFileSync(out, `${JSON.stringify(record, null, 2)}\n`);
+  const wanted = `${JSON.stringify(record, null, 2)}\n`;
   const frames = clips.reduce((n, c) => n + c.frames.length, 0);
-  console.log(`wrote ${out}: ${clips.length} clips, ${frames} frames, `
-    + `facings ${facings.join('/')}, height ${record.height}`);
+  const summary = `${out}: ${clips.length} clips, ${frames} frames, `
+    + `facings ${facings.join('/')}, height ${record.height}`;
+
+  // --check builds the record and COMPARES rather than writing, so a
+  // validation pass never mutates the tree. Same convention and same output
+  // grammar as tools/extract-content.mjs, because tools/check-generated.mjs
+  // reads both the same way.
+  if (CHECK) {
+    if (!previous || readFileSync(out, 'utf8') !== wanted) {
+      console.log(`stale: ${out}`);
+      stale += 1;
+    } else {
+      console.log(`current: ${summary}`);
+    }
+    continue;
+  }
+  writeFileSync(out, wanted);
+  console.log(`wrote ${summary}`);
 }
+
+if (CHECK && stale > 0) process.exit(1);

@@ -820,6 +820,32 @@ The five ink runs are now 872–899, 913–940, 955–982, 997–1024, 1039–10
 
 **Q6 is not closed and this closes none of it.** The 5×7 face is untouched, the glyph data is unchanged, and which integer multiplies it says nothing about what eventually replaces it.
 
+## Q36 · Generated files could go stale silently, and the suite never ran in CI at all — **BOTH CLOSED**
+
+Two findings, and the second was found while fixing the first.
+
+**1. "Generated and not regenerated" was detectable but not impossible.** Q34's defect — the actor records left behind by `f8699d3` — is caught after the fact by `check-actor-frames`, which compares the record to the PNG headers. That catches the version that hurt. It does not catch the larger class: **a rig change that alters `walkDx`, or a facing, or adds a clip directory, changes no frame's dimensions at all** and would pass every header check ever written.
+
+`tools/check-generated.mjs` runs each registered generator in a `--check` mode that builds its output and compares. Proved on exactly that case: `walk_dx` flipped from 1 to −1 in one `rig.json`, no PNG touched —
+
+```
+check-actor-frames : PASS  (blind to it, as expected)
+check-generated    : FAIL (caught it)
+   x content/actors/hob.json is NOT what build-actor-record produces today ... RUN: node tools/build-actor-record.mjs
+```
+
+**It names the command**, because Q34 took forty minutes to find partly because nothing connected "Thad draws at a third of his size" to "`build-actor-record.mjs` was not run".
+
+`tools/lib/generators.mjs` is the inventory: every generator with a checked-in output, plus a `NOT_GENERATORS` list saying why three tools that write into the same directories are excluded — `migrate-play-area-x6` most of all, which multiplies geometry by six and would multiply by thirty-six if run twice. A list rather than a convention scan, because a scan cannot tell a generator from a one-shot migration.
+
+**A registered generator must have a `--check` mode**, and one that does not fails the check with instructions. Proved by registering a generator that exits non-zero without reporting staleness. **Nothing in the suite writes**, which is the property that keeps it safe to run on a dirty branch — and a check that is unsafe to run is a check that stops being run.
+
+**2. THE VALIDATION SUITE HAS NEVER RUN IN CI.** `pages.yml` was the only workflow. It runs `npm run build` — `tsc --noEmit && vite build` — so a type error failed the deploy and **nothing else did**. Not the 29 checks, not the 119 tests. Every green run this project has reported was somebody running it on their own machine and saying so.
+
+That is the same shape as the finding this document opens with: a check believed to run is worse than a check known not to, because the belief closes the question. `.github/workflows/checks.yml` now runs `npm run check` on every push and pull request, and asserts afterwards that the working tree is unchanged.
+
+**Deliberately NOT gating the deploy.** `pages.yml` publishes on every push to main and states its reason — "a half-published Pages site is worse than a slightly stale one". The deployed build is how the project owner looks at the game, and a red check that also took the game away would cost more than it caught. The new workflow reports; it does not block. **That is a policy choice and it is worth someone confirming rather than inheriting** — if a broken deploy is worse than no deploy, `checks` becomes a `needs:` on the build job and this is a two-line change.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
