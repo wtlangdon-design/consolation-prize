@@ -1,0 +1,31 @@
+{
+  "body": {
+    "closed": "art/objects/coach/body-closed.png",
+    "open": "art/objects/coach/body-open.png"
+  },
+  "wheels": [
+    {
+      "id": "rear",
+      "centre": [
+        146,
+        542
+      ],
+      "radius": 144,
+      "sprite": "art/objects/coach/wheel-rear.png"
+    },
+    {
+      "id": "front",
+      "centre": [
+        692,
+        572
+      ],
+      "radius": 114,
+      "sprite": "art/objects/coach/wheel-front.png"
+    }
+  ],
+  "figure": [
+    1728,
+    703
+  ],
+  "note": "Wheels cut as DISCS found by circular fit -- 98% and 97% ring solidity. Colour detection fragmented every time because the tyres are shaded rather than flat, and it never found a whole rim. The body has both discs removed, so a rotating wheel drawn behind it shows through the hole rather than over the axle.\n\nRotate about `centre` in the assembly's own coordinates. Rotation rate follows DISTANCE TRAVELLED, not time: a wheel of radius r turns one revolution per 2*pi*r of ground covered, so the rear and front turn at different rates and both stop when the coach does."
+}
