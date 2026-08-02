@@ -1476,3 +1476,66 @@ The second argument is the metric problem. Every instrument in the Room 1 run ex
 ## Scope
 
 **This changes nothing today.** Doc 34's stop condition holds, Act I comes first, and Rooms 1, 2, 3, 5, 13, 18, 19, 29 and 36 stay as composed. It governs the remaining 40 when room art resumes.
+
+
+---
+
+# 54 · THE PRESENTATION SPEC IS REPLACED — 1920×1080, no locked palette
+
+*Permitted under errata 52's stop condition as a direct canon contradiction: the presentation layer specified across docs 06, 11 and 18 describes art the project no longer produces and can no longer produce. Nothing else follows until doc 34's condition is met.*
+
+## The ruling
+
+| | Was | Is |
+|---|---|---|
+| Window | 320 × 200 | **1920 × 1080** |
+| Play area | 320 × 144 | **1920 × 864** |
+| Verb panel | 56 px | **216 px** |
+| Colour | 256-entry locked indexed palette | **Full RGB. No index palette.** |
+| Character height | ~40 px, two drawn sizes | **~233 px at mid-depth** |
+| Scaling | Decimation, errata 24 | **Ordinary filtered resampling** |
+| Font | 1-bit hand-authored 5 × 7 | **Replacement required — unspecified** |
+| Background animation | Palette cycling, doc 18 | **None. Mechanism removed.** |
+| Generation size, gate section 6 | 1600 × 720 exactly | **5× the room's authored width — void under this ruling; generate at play-area size** |
+
+## Why, and it was measured rather than argued
+
+The project owner supplied a generated Room 1 plate and stated it was the target quality. Three measurements decided it:
+
+**1. Resolution was costing almost nothing.** Downsampling that plate from 1870 × 841 to 320 × 144 introduced a mean error of **2.99** out of 255. The dithered texture that makes the art look rich is high-frequency noise, not information.
+
+**2. The locked palette was costing nearly twice as much.** Quantising the same image to `consolation-256` introduced a mean error of **5.69** — mean per-pixel distance 11.0, p90 23.6. **46% of the frame collapsed into `accent_indigo`**, an eight-entry family, because nothing else in the palette fit the sky or the wet mud.
+
+**3. A palette refitted to the art removed 80% of that.** Same 256 indices, same resolution, entries derived from the actual art: error fell from 5.69 to **1.13**.
+
+So the argument that this look required abandoning 320 × 144 was **wrong**. The resolution was nearly free; the palette was the damage. But the palette was tuned against composed art that errata 53 discarded, and the project owner has confirmed no finished room or character survives — so there is nothing left for a refitted palette to stay consistent with, and indexed colour buys nothing it does not also cost.
+
+**Full RGB is therefore chosen not because 320 × 144 failed, but because the constraint it existed to serve no longer exists.**
+
+## What this supersedes
+
+- **Doc 11 in full.** The pixel-art direction, the resolution table, the downsampling pipeline, the 5× integer display rule.
+- **Doc 18 in full.** Palette cycling requires an index palette. **Room 1's `hobs_lamp` and `puddles` cycling declarations are void** — see also issue X5, which found the mechanism was background-only and could never have animated a sprite lamp.
+- **Doc 06's presentation section.** Resolution, palette, font.
+- **Errata 24's decimation scaler.** Its two-drawn-sizes finding was about a 40 px character and a mechanism that no longer applies. Characters now scale by ordinary resampling.
+- **Errata 39's integer-scaling rule.** Its fullscreen and mouse-completeness rulings stand.
+- **Doc 35 gate section 6's size clause**, already amended once by issue X2.
+- **`art/palette/consolation-256.json`** ceases to be authoritative. Retained for reference only.
+
+## What it does NOT touch
+
+Every written line. Every puzzle. Every dialogue tree. The reveal schedule. The room topology. The verb model and errata 28b's click rules. Doc 33's save and shell architecture. Doc 34's coordinator verdict and its stop condition. **This is a presentation ruling and nothing else.**
+
+Doc 29's movement, occlusion and camera rules stand; only the pixel figures in them are restated at the new scale.
+
+## Consequences that are now open work
+
+- **The 5 × 7 font is unusable at 1920 × 1080** and has no replacement specified.
+- **Sprite scaling by depth** needs a per-room scale curve; 233 px is a height at a stated depth, not a character's size.
+- **Room 1's plate is 1870 × 841** against a 1920 × 864 target. A 2.7% upscale is accepted rather than regenerating a plate the project owner has approved.
+- **The character pipeline is `docs/38`**, and it exists because of this ruling.
+- **Animation replaces palette cycling** as the only way anything in a room moves. Every room's motion floor under errata 35a now costs sprite frames.
+
+## Precedence
+
+This ruling governs presentation. Where any document conflicts with it on resolution, palette, scaling, font or background animation, this wins. It is the last global ruling until doc 34's stop condition is met.

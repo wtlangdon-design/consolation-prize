@@ -1,0 +1,36 @@
+{
+  "source": "/tmp/thad-left.png",
+  "key": "magenta",
+  "view": "profile",
+  "facing": "left",
+  "walk_dx": -1,
+  "figure": [
+    709,
+    1620
+  ],
+  "hem_row": 1041,
+  "hem_pct": 64.3,
+  "pivot_row": 814,
+  "padding": 260,
+  "rows_legs_separate": 517,
+  "near_leg_px": 74825,
+  "far_leg_px": 78824,
+  "arms_rigged": true,
+  "shoulder_near": 298,
+  "shoulder_far": 511,
+  "near_arm_px": 66093,
+  "far_arm_px": 26398,
+  "measured_foot_travel": 180,
+  "hip_swing": [
+    14,
+    10,
+    0,
+    -10,
+    -14,
+    -10,
+    0,
+    10
+  ],
+  "arm_ratio": 0.55,
+  "frames": 8
+}
