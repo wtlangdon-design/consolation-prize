@@ -41,7 +41,7 @@ Nine verbs are live. They do not each need their own clip, but they do not colla
 | `PUSH` / `PULL` | **reach** | Same clip, probably |
 | — | **recoil** | Declared in the record, driven by content rather than a verb |
 
-**Minimum additional set: recoil, pickup, reach.** Plus talk, once the contradiction is settled.
+**Minimum additional set: `pickup` and `reach`.** Plus `talk`, once Q7 is settled. `recoil` is built.
 
 ---
 
@@ -119,7 +119,7 @@ Three documents used three sets of words for the same things. This is the set:
 | `idle` | A breathing loop, played while standing | 6 | ✅ four facings |
 | `idle-break` | An occasional one-shot: glance head-on, shrug in profile | 12 | ✅ four facings |
 | `walk` | Locomotion | 8 | ✅ four facings |
-| `recoil` | Startle, declared by the actor record | 4 | ❌ |
+| `recoil` | Startle, declared by the actor record | 4 | ✅ four facings |
 
 The external spec had `stand` as an indefinite hold and `idle` as an occasional one-shot, with nothing between. **At 233px a completely static figure reads as switched off** — the project owner said so directly. So the breathing loop stays as the ordinary standing state, and `idle-break` is the occasional one-shot. `stand` remains as the single settled frame every chore returns to.
 

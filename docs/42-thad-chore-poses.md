@@ -1,7 +1,7 @@
 # THAD — THE CHORE POSES
 ## Stacked prompt set for everything the rig cannot derive
 
-*Five clips need new generated poses. The rig transforms art that exists; it cannot fold a standing man at the waist. Once a key pose exists the rig supplies every frame between it and `stand`.*
+*Six chore poses plus three more from doc 17 need new generation. The rig transforms art that exists; it cannot fold a standing man at the waist. Once a key pose exists the rig supplies every frame between it and `stand`.*
 
 ---
 
@@ -232,5 +232,4 @@ Act III nails Thad into a coffin and lowers him into the ground. The bible calls
 # WHAT IS STILL NOT COVERED AFTER ALL SIX
 
 - **Carrying the case** — Q11, though prompt 8 above acquires the pose it needs. Visible carry is a whole extra locomotion family: stand plus walk in four facings, 36 frames, with the case on a hand socket. It cannot be faked with the ordinary walk.
-- **Straightening his coat** — doc 17 beat 2. One-shot, one facing, and small enough that it may not deserve a generation.
 - **The far tier** — voided. Errata 54 replaced two drawn sizes with one scaled by depth.
