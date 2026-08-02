@@ -15,7 +15,9 @@
 
 **A bend works if the legs carry it and the spine does not.** `alight_coach` bends him — leading foot down, trailing leg behind and above — and came back at 1665px against a 1616px master, widest 506 vs 515, the closest width match of any chore pose. `pickup` bends him at the waist and took six attempts. The difference is which joint does the work.
 
-**The margin clause does not work.** Two poses in a row put the reaching hand exactly on the frame edge — `use_near` at x=654 of 655, `give_offer` at x=720 of 721 — despite the prompt asking for a clear margin on all four sides. The generator crops to the figure and ignores it. Nothing has been lost yet, but there is no headroom, and a pose reaching further would lose fingers. Check the margin on every reaching pose rather than trusting the clause.
+**Give the generator a NUMBER, not an adjective.** "Leave a clear margin on all four sides" was ignored three poses running — `use_near` at x=654 of 655, `give_offer` at x=720 of 721, `alight_coach` at x=722 of 723, every one of them a hand exactly on the frame edge. "Leave at least twenty pixels of magenta between the figure and every edge" produced 13px of clearance on the first attempt. Same for size: "roughly two and a half times taller than he is wide" was reinvented repeatedly, while "at least 1500 pixels tall" landed.
+
+**The old margin clause, for the record.** Two poses in a row put the reaching hand exactly on the frame edge — `use_near` at x=654 of 655, `give_offer` at x=720 of 721 — despite the prompt asking for a clear margin on all four sides. The generator crops to the figure and ignores it. Nothing has been lost yet, but there is no headroom, and a pose reaching further would lose fingers. Check the margin on every reaching pose rather than trusting the clause.
 
 # HOW TO RUN THIS
 
