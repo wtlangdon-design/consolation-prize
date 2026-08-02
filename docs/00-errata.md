@@ -1346,3 +1346,43 @@ That corrects the direction errata 35a could be read as pointing. 35a stands —
 Doc 32 governs animation and performance. It changes no written line, no puzzle solution and no room composition. It upholds errata 35e — motion is never information — and restates it as non-negotiable in its opening.
 
 It also marks doc 15's "three sizes, three views" as stale: errata 24's four directions and two drawn sizes govern, and the current Thad data already follows that structure.
+
+
+---
+
+# 51 · DOC 33 IS BINDING — load is not atomic, and there is no title flow
+
+`docs/33-save-shell.md` is adopted. It governs save, load, slots, title, pause, options, restart and return-to-title, and it coordinates docs 29–32 rather than replacing them.
+
+**It exists because all four previous bibles introduced transactional state** — dialogue transactions, puzzle transactions, chore handles, committed-versus-cancellable transitions — and nothing specified what a save means during one.
+
+## Two live bugs
+
+1. **LOAD IS NOT ATOMIC.** The current implementation restores flags and dialogue **before** assigning the room and collections. An error partway leaves the running game half old and half loaded. **This is the corrupted-save class, and it is the one bug that permanently destroys trust in a game whose entire premise is that experimentation is safe.** Candidate construction off the live state, deep validation, then one swap.
+
+2. **`BootScene` AUTO-LOADS THE AUTOSAVE AND STARTS `GameScene`.** There is no real title flow — the title screen we composed is decorative rather than the entry point. CONTINUE, NEW GAME, OPTIONS and CREDITS do not lead anywhere yet.
+
+## The insight I had not reached
+
+**Saving is a mouse-only problem.** MI1 asked the player to type a save name. Errata 39 and 28b make this game mouse-complete, so **the game must name saves for the player** — and the constraint produces something better than typing:
+
+```
+1  MAIN STREET
+BY THE HOTEL  ·  1H 42M  ·  20M AGO
+```
+
+Composed from an authored room `saveLabel` and a stable `saveLandmark`, using **the place the player can already see** — never an act title, chapter name, objective, puzzle count, reputation reading or completion percentage.
+
+**A save label is not a hint.** That is the same discipline doc 31 applies to puzzle feedback and doc 05 applies to the three load-bearing LISTEN lines, arriving in a third place independently.
+
+**All 42 rooms must declare a `saveLabel`, and large or revisited rooms declare landmarks by anchor.** Validation rejects a reachable stable checkpoint carrying only an internal room id. That is authoring work and it lands on the room content documents.
+
+## Three rules worth restating
+
+- **`SaveCoordinator` is the only write gate.** No scene, dialogue runner, puzzle action, transition, chore, shortcut or menu writes storage directly. `enterRoom()` currently writes during a state change and must stop owning persistence.
+- **No resumable mid-transaction save in the first release.** A queued request waits for the next declared checkpoint or final settle.
+- **No HINTS, DIFFICULTY, PUZZLE ASSIST, OBJECT HIGHLIGHT, QUEST LOG, TIMER or completion setting** exists in options now or later without a new binding ruling.
+
+## Precedence
+
+Doc 33 governs persistence and the shell. It changes no written line, no puzzle, no room composition. Where it conflicts with an earlier ruling on saving or the shell, doc 33 wins; errata 39's integer-scaling and fullscreen rules and 28b's click model are upheld by it, not replaced.
