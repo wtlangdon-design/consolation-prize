@@ -1,4 +1,4 @@
-import type { SequenceFile, SequenceBeat } from './types.ts';
+import type { SequenceFile, SequenceBeat, SequenceStagingStep } from './types.ts';
 import type { SequenceStep } from './Sequence.ts';
 
 /**
@@ -59,17 +59,34 @@ export function segmentsOf(file: SequenceFile): Segment[] {
 }
 
 /**
- * The steps for one automatic segment, in order: each beat's lines, then its
- * stated duration.
+ * The steps for one automatic segment, in order: each beat's STAGING, then
+ * its lines, then its stated duration.
+ *
+ * ISSUE X4 DEFECT 2 LIVED HERE. This emitted `say` and `wait` and nothing
+ * else, so doc 17's visual descriptions -- the coach arriving, Thad climbing
+ * down, the case landing in the mud, the departure, Hob crossing -- never
+ * lowered to anything executable. The runtime held for eight seconds while a
+ * beat announced an arrival and not one thing on screen moved.
+ *
+ * STAGING COMES FIRST because doc 22 section 6 puts the walk and the chore
+ * ahead of the line: a man says "my name is Thaddeus Grubb" having got down
+ * off the coach, not while still on it.
+ *
+ * THE STATED DURATION IS ONLY EMITTED FOR A BEAT THAT STAGES NOTHING. Doc
+ * 17's seconds are how long the beat LASTS, and where the beat's action is
+ * executable the action is what lasts -- a staged arrival that also waited
+ * its eight seconds afterwards would play the arrival and then stand there
+ * for the length of it again. An unstaged beat keeps the pause, because
+ * something has to hold the screen while the thing the beat describes fails
+ * to happen, and that pause is the visible shape of the gap.
  *
  * The duration comes AFTER the lines rather than before, because doc 17's
  * seconds are how long the beat lasts, not how long the game waits before
- * starting it -- beat 2's six seconds are Thad stepping down, straightening
- * his coat and looking at the town, and none of that happens during a pause
- * that precedes it.
+ * starting it.
  */
 export function stepsFor(segment: Segment): SequenceStep[] {
-  if (segment.kind !== 'automatic') {
+  const automatic = segment.kind === 'automatic';
+  if (!automatic) {
     for (const beat of segment.beats) {
       if (beat.seconds !== undefined) {
         throw new Error(
@@ -78,17 +95,93 @@ export function stepsFor(segment: Segment): SequenceStep[] {
         );
       }
     }
+    // An interactive segment's lines and staging belong to whatever carries
+    // it -- errata 30b's tree, or `carriedStepsFor` below -- and a runner
+    // playing them here as a cutscene would offer them twice.
     return [];
   }
 
   const steps: SequenceStep[] = [];
   for (const beat of segment.beats) {
+    // ERRATA 38's fence needs no test here: this branch IS `control: none`,
+    // which is the only place a `move` is legal. `carriedStepsFor` refuses
+    // one, and that is the other side of the same rule.
+    for (const staged of beat.staging ?? []) steps.push(...lower(staged));
     for (const spoken of beat.lines ?? []) {
       steps.push({ kind: 'say', actor: spoken.speaker, line: spoken.line });
     }
-    if (beat.seconds !== undefined) {
+    if (beat.seconds !== undefined && !(beat.staging?.length)) {
       steps.push({ kind: 'wait', seconds: beat.seconds });
     }
+  }
+  return steps;
+}
+
+/**
+ * One staged action, as steps.
+ *
+ * THE WAIT IS ADDED HERE AND NOT BY THE AUTHOR. Doc 22 section 6's chain is
+ * walk -> waitForActor -> face -> waitForActor -> chore -> say, and every
+ * step of it that can be forgotten will be. A `chore` issued on the same
+ * tick as the `walk` before it also claims a body the walk still owns, so
+ * the omission does not merely look wrong -- it trips assertion 6.
+ */
+function lower(staged: SequenceStagingStep): SequenceStep[] {
+  switch (staged.do) {
+    case 'walk':
+      return [
+        { kind: 'walk', actor: staged.actor, x: staged.to[0], y: staged.to[1] },
+        { kind: 'waitForActor', actor: staged.actor },
+      ];
+    case 'move':
+      return [
+        {
+          kind: 'move',
+          actor: staged.actor,
+          from: staged.from ? { x: staged.from[0], y: staged.from[1] } : undefined,
+          x: staged.to[0],
+          y: staged.to[1],
+          seconds: staged.seconds,
+        },
+        { kind: 'waitForActor', actor: staged.actor },
+      ];
+    case 'face':
+      return [
+        { kind: 'face', actor: staged.actor, facing: staged.facing },
+        { kind: 'waitForActor', actor: staged.actor },
+      ];
+    default:
+      return [{ kind: 'chore', actor: staged.actor, chore: staged.clip }];
+  }
+}
+
+/**
+ * The lines and staging of a run of PLAYER beats nobody else carries.
+ *
+ * Doc 17 beat 9 -- Hob's lamp crosses -- is a player-control beat with three
+ * lines, a flag write and a crossing, and it had no carrier at all: the
+ * opening runner reached beat 8, found a player segment with no tree, and
+ * finished. Its lines were never delivered, `T_HOB_CROSSING` was never set,
+ * and the watchman's lamp hotspot that gate opens could not appear in the
+ * game. See `GameScene.armPlayerBeats`, which is what carries it.
+ *
+ * It is NOT the same as an automatic segment: no `wait` may be emitted --
+ * errata 30a forbids it outside `control: none` -- and it plays alongside
+ * the player rather than instead of him.
+ */
+export function carriedStepsFor(beat: SequenceBeat): SequenceStep[] {
+  const steps: SequenceStep[] = [];
+  for (const staged of beat.staging ?? []) {
+    if (staged.do === 'move') {
+      throw new Error(
+        `Beat ${beat.beat} stages a move but its control is ${beat.control}. `
+        + 'Errata 38: move is legal only inside a beat whose control is none.',
+      );
+    }
+    steps.push(...lower(staged));
+  }
+  for (const spoken of beat.lines ?? []) {
+    steps.push({ kind: 'say', actor: spoken.speaker, line: spoken.line });
   }
   return steps;
 }

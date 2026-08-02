@@ -23,8 +23,8 @@
       "id": "loc_main_street",
       "room": "main_street",
       "at": [
-        148,
-        78
+        888,
+        468
       ],
       "note": "ERRATA 30c, first state: he is standing on it. Ungated -- with the road below it this is the floor of two the map may never go under."
     },
@@ -32,8 +32,8 @@
       "id": "loc_claims_road",
       "room": "stub_claims_road",
       "at": [
-        240,
-        118
+        1440,
+        708
       ],
       "note": "ERRATA 30c, first state: seeing counts, and he can see it from the street. This is the amendment to doc 20 rule 3 -- a player who takes the driver's EXIT option immediately hears nothing, and an empty map on first opening is a broken screen."
     },
@@ -41,8 +41,8 @@
       "id": "loc_undertaker",
       "room": "undertaker",
       "at": [
-        162,
-        96
+        972,
+        576
       ],
       "when": {
         "T_UNDERTAKER_NAMED": true
@@ -55,8 +55,8 @@
       "label": "BOOT HILL",
       "unbuilt": true,
       "at": [
-        286,
-        74
+        1716,
+        444
       ],
       "when": {
         "T_PIKE_DEAD": true
@@ -67,8 +67,8 @@
       "id": "loc_registrar",
       "room": "claims_registrar",
       "at": [
-        96,
-        60
+        576,
+        360
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -78,8 +78,8 @@
       "id": "loc_livery",
       "room": "livery",
       "at": [
-        204,
-        106
+        1224,
+        636
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -91,8 +91,8 @@
       "id": "loc_tent",
       "room": "ozymandias_tent",
       "at": [
-        148,
-        44
+        888,
+        264
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -104,8 +104,8 @@
       "id": "loc_church",
       "room": "church",
       "at": [
-        58,
-        44
+        348,
+        264
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -117,8 +117,8 @@
       "id": "loc_back_alley",
       "room": "back_alley",
       "at": [
-        278,
-        62
+        1668,
+        372
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -130,8 +130,8 @@
       "id": "loc_barber",
       "room": "barber",
       "at": [
-        70,
-        90
+        420,
+        540
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -143,8 +143,8 @@
       "id": "loc_boarding_house",
       "room": "boarding_house",
       "at": [
-        34,
-        106
+        204,
+        636
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -156,8 +156,8 @@
       "id": "loc_photographer",
       "room": "photographer",
       "at": [
-        116,
-        120
+        696,
+        720
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -169,8 +169,8 @@
       "id": "loc_bakehouse",
       "room": "bakehouse",
       "at": [
-        186,
-        126
+        1116,
+        756
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -182,8 +182,8 @@
       "id": "loc_storefront",
       "room": "empty_storefront",
       "at": [
-        242,
-        92
+        1452,
+        552
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true
@@ -195,8 +195,8 @@
       "id": "loc_schoolhouse",
       "room": "schoolhouse",
       "at": [
-        26,
-        64
+        156,
+        384
       ],
       "when": {
         "T_SEEN_MAIN_STREET": true

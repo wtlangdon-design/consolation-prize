@@ -91,8 +91,17 @@ MASS_LEFT, MASS_STEP, MASS_RIGHT = 160, 194, 221
 #: become a plank, drawn with a curve they become one animal with a
 #: swayback. Left of x=170 the crest is a solid black bar and its top row is
 #: CREST_TOP.
-TOPLINE = (69, 69, 69, 70, 70, 71, 71, 69, 68, 71, 71, 72,
-           71, 70, 70, 70, 70, 68, 69, 70, 70, 71, 71, 72)
+#: CLAMPED AT 70, and the clamp is a measurement rather than a smoothing.
+#: §3.5's row lists five columns at 68 or 69, and at those columns the bar's
+#: own pixels say the mass has not started: averaged over x 172-193 the bar
+#: runs L 30.1 at y=69 and 25.1 at y=70, against a far hide §5 measures at a
+#: median of 17.9 and a crest at 7.1. Nothing on this animal is L 30. Those
+#: two rows are the town showing over its back, and drawing them as hide put
+#: a two-pixel dark lip along the whole top of the mass — which is what the
+#: silhouette was catching on above the middle horse.
+TOPLINE = tuple(max(70, row) for row in
+                (69, 69, 69, 70, 70, 71, 71, 69, 68, 71, 71, 72,
+                 71, 70, 70, 70, 70, 68, 69, 70, 70, 71, 71, 72))
 TOPLINE_FROM = 170
 CREST_TOP = 69
 
@@ -101,6 +110,13 @@ CREST_TOP = 69
 #: L 8-20 — one is a cut-out and the other is an edge, and drawing thirty-four
 #: columns of the first is what turned three animals into a building.
 CREST_RIGHT = 171
+
+#: §3.4, measured across the bar's three crest rows. The bar is SOLID out to
+#: x=169 and gone by x=171, and its top row only reaches black between x=161
+#: and x=166 — the mane stands highest in the middle of the crest, which is
+#: where a mane does stand highest.
+CREST_SOLID = 169
+CREST_CORE = (161, 166)
 
 #: §3.3, measured. Six cool pixels widening downward from 2 px to 6 px, per
 #: row y 77-81 as (left, right) inclusive. THE SINGLE MOST LOAD-BEARING
@@ -115,7 +131,30 @@ JAW_WEDGE = ((162, 163), (162, 163), (160, 163), (159, 163), (159, 164))
 #: far each stroke stands proud of the crest line, and it varies too.
 MANE_POLL = (177, 84)
 MANE_WITHERS = (194, 75)
-MANE_PEAKS = ((181, 3), (183, 4), (186, 4), (188, 3), (190, 4), (194, 3))
+#: Re-measured as column means over y 76-85, which is where the mane band
+#: actually crosses those columns. The bright columns come out at 180, 182,
+#: 185, 188, 190 and 192-193 against §3.12's "≈ 181, 183, 186, 188, 190, 194" —
+#: within the ± the spec's own "≈" allows, and the beat matters more than the
+#: absolute position: drawn a column off, the peaks landed on the reference's
+#: TROUGHS and the mane read as an inverted comb.
+MANE_PEAKS = ((180, 3), (182, 4), (185, 4), (188, 3), (190, 4), (193, 3))
+
+#: §3.12's three levels. Peaks L 50-70, troughs L 30-44 by the spec's summary
+#: and L 8-24 where the strokes are widest apart; the lit ridge they stand on
+#: runs L 30-40. The swing per stroke is the 20-40 L §3.12 asks for and no
+#: more: at a 50 L swing the strokes stop being hair and become a comb.
+#:
+#: RAISED, AND THE TROUGH MOST OF ALL. The 3x3 difference map put the whole
+#: mane band 17 L under the bar — the worst block error left in the rect
+#: after the topline — and it was the trough doing it: a column one away from
+#: a peak took MANE_TROUGH, and the bar's columns one away from a peak are
+#: (186, 78) at L 30, (186, 79) at L 70, (187, 79) at L 45. The band the
+#: strokes stand on is bright HIDE, not a gap; only the columns two and three
+#: away fall to L 21-33. Held at 18 the six strokes stood alone on a dark
+#: neck, which is exactly the picket fence §7 warns about, arrived at from
+#: the other side: the strokes were right and the ground between them was
+#: black.
+MANE_PEAK, MANE_BAND, MANE_TROUGH = 64.0, 42.0, 30.0
 
 #: §4.5. The neck leaves the body at the withers and rises at 28°, and it is
 #: NOT a constant thickness: measured on the bar the lit plane under the
@@ -125,23 +164,35 @@ MANE_PEAKS = ((181, 3), (183, 4), (186, 4), (188, 3), (190, 4), (194, 3))
 NECK_FROM, NECK_TO = 175, 197
 
 #: The lit ridge the six strokes stand on, measured x 178-196.
-MANE_BAND_FROM, MANE_BAND_TO = 178, 196
+MANE_BAND_FROM, MANE_BAND_TO = 176, 196
 NECK_DEPTH_POLL, NECK_DEPTH_SHOULDER = 4, 12
 
-#: §4. C's head is the only one with a top edge — B's and A's merge upward
-#: into the mass with no seam at all — so the brow curve is fitted to C's
-#: measured tops (11, 10, 7, 5, 3, 0, 1 rows below its own top row across
-#: seven columns). A power curve, because a straight ramp gives a wedge and
-#: a wedge is a beak.
-HEAD_BROW_POWER = 1.35
+#: HEAD_BROW_POWER, HEAD_CHIN, HEAD_MUZZLE_LIFT and HEAD_THROAT_LIFT were
+#: here, and between them they described ONE head shape — a power-curve brow
+#: and a chin thirty per cent along — which all three animals then took. Two
+#: of the three came out as the same rectangle nine columns apart, and at
+#: 320x144 that is not a team, it is a stamp. Replaced by HEAD_EDGES above:
+#: three measured outlines, one per animal. Nothing else read them.
 
-#: The chin, as a fraction along the head. The muzzle is the lowest point and
-#: it is NOT in the middle: it sits about a third of the way back, and behind
-#: it the jaw and throat climb away steeply. §4's 13 : 7 is the head's
-#: bounding box; this is its shape inside it.
-HEAD_CHIN = 0.30
-HEAD_MUZZLE_LIFT = 3.0     # rows the nose rises in front of the chin
-HEAD_THROAT_LIFT = 7.0     # rows the throat rises behind it
+#: `_face_light`'s four numbers for B then A — (rim, face, poll, nasal) —
+#: fitted to the two measured column profiles quoted there. A carries a 32 L
+#: hump on a 15 L poll and B carries 14 on 16: the near head is modelled and
+#: the middle one is nearly flat, which is what puts them at different depths
+#: without moving either of them. Both peaks sit a fifth to a third of the way
+#: back from the muzzle, never at the muzzle itself.
+#:
+#: AND THE FIRST NUMBER IS NEAR-BLACK, NOT MID. B's leading rim was 26 — the
+#: same value as the sky it stands against — and the bar puts it at L 1-11:
+#: (164, 84) and (164, 85) are 1, (163, 85) is 11, (163, 86) is 6. That rim
+#: is not shading, it is the CONTINUATION of §3.5's gullet: dark-pool census
+#: over the region finds one connected near-black mass of 34 px running from
+#: (161, 73) diagonally down to (164, 86), the front edge of C's neck handing
+#: over to the front edge of B's face. Ours broke it into singles, and a
+#: 34-px pool broken into singles is invisible two steps down the squint
+#: ladder — which is where the head stopped reading. The poll end comes down
+#: with it: measured x 169-170 runs L 6-16 where this said 15-18.
+HEAD_PLANES = ((5.0, 34.0, 10.0, 0.33),       # B, the middle horse
+               (12.0, 46.0, 12.0, 0.22))      # A, the near horse
 
 #: §5. The hide ladder. Each rung is TWO entries at the SAME luminance, one
 #: warm-chestnut `pine_fresh` and one `mud`, because §7 is explicit that the
@@ -150,27 +201,57 @@ HEAD_THROAT_LIFT = 7.0     # rows the throat rises behind it
 #: nothing here names an index and every step is a move along a family the
 #: shared material table already chose.
 #:
-#: AND THE RUNGS ARE THREE LUMINANCE APART WHERE THE ANIMALS LIVE. The ladder
-#: was nine rungs with an 8-luminance gap either side of L 27, so the barrel,
-#: which the reference draws between 25 and 41, had three values to say it in
-#: and came out in bands. The locked-palette proof of the bar uses eleven
-#: entries in this region and its three commonest are `pine_fresh` 0 and 1 and
-#: `mud` 4 — 27.9, 36.9, 34.5 — which the old ladder could not tell apart.
+#: AND ABOVE L 26 EVERY RUNG IS LED BY `pine_fresh`. This is a census, not a
+#: taste. Counting the locked-palette proof of the bar over A's barrel
+#: (x 196-218, y 76-86) the four commonest entries are
+#:
+#:     pine_fresh@1  22%      pine_fresh@0  15%
+#:     mud@4         13%      mud@1         12%
+#:
+#: — the lit plane is pine at L 26.8 and 35.6 with mud@4 beside it, and the
+#: only dark entry is the harness. The old ladder put `umber` 4-5 and `mud` 2-3
+#: on the rungs the barrel actually lives on, and those carry warmth +16 to
+#: +21 against a measured +26 to +28. That six-unit hue error is the whole of
+#: §5's "40-unit hue swing across a 7-unit value step" being quietly spent:
+#: the animals came out the right VALUE and the wrong COLOUR, and a warmth
+#: deficit at matched luminance is exactly what a saturation ratio of 0.72
+#: measures.
+#:
+#: Note the deliberate hole between L 28.0 and L 34.7. The reference has the
+#: same one — it owns nothing between pine_fresh@0 and mud@4 in this region
+#: and dithers the two — so a rung fitted into the gap would be a value our
+#: source does not use.
+#:
 #: Every entry below is inside §6's twenty: `pine_fresh` 0-4, `mud` 0-7,
 #: `umber` 0-5, `void` 0.
 HIDE_TONES = (
-    (("horse_black", 0), ("horse_hide_shadow", 0)),       # L 0.0  / 9.2
-    (("horse_hide_shadow", 0), ("horse_hide_mid", -3)),   # L 9.2  / 12.7
-    (("horse_hide_shadow", 1), ("horse_hide_mid", -2)),   # L 14.4 / 17.9
-    (("horse_hide_mid", -1), ("horse_hide_shadow", 3)),   # L 23.1 / 25.5
-    (("horse_hide_mid", 0), ("horse_hide", -1)),          # L 27.1 / 27.9
-    (("horse_hide_mid", 1), ("horse_hide_shadow", 5)),    # L 34.5 / 35.0
-    (("horse_hide", 0), ("horse_hide_mid", 2)),           # L 36.9 / 38.5
-    (("horse_hide_mid", 3), ("horse_hide", 1)),           # L 43.7 / 44.5
-    (("horse_hide_mid", 4), ("horse_hide", 2)),           # L 49.5 / 53.8
-    (("horse_hide", 3), ("horse_hide", 3)),               # L 62.5
+    (("horse_black", 0), ("horse_hide_shadow", 0)),       # void 0    / umber 0
+    (("horse_hide_shadow", 0), ("horse_hide_mid", -3)),   # umber 0   / mud 0
+    (("horse_hide_shadow", 1), ("horse_hide_mid", -2)),   # umber 1   / mud 1
+    (("horse_hide_mid", -1), ("horse_hide_shadow", 3)),   # mud 2     / umber 3
+    (("horse_hide", -1), ("horse_hide_mid", 0)),          # pine 0    / mud 3
+    (("horse_hide_mid", 1), ("horse_hide_shadow", 5)),    # mud 4     / umber 5
+    (("horse_hide", 0), ("horse_hide_mid", 2)),           # pine 1    / mud 5
+    (("horse_hide", 1), ("horse_hide_mid", 3)),           # pine 2    / mud 6
+    (("horse_hide", 2), ("horse_hide_mid", 4)),           # pine 3    / mud 7
+    (("horse_hide", 3), ("horse_hide", 2)),               # pine 4    / pine 3
 )
-TONE_LUMINANCE = (4.6, 11.0, 16.2, 24.3, 27.5, 34.8, 37.7, 44.1, 51.7, 62.5)
+TONE_LUMINANCE = (4.5, 10.8, 15.6, 23.7, 26.5, 34.0, 36.7, 43.0, 50.5, 56.9)
+
+#: §3.5, THE FAR ANIMAL IN SECTION. Row means over x 161-177 — the columns
+#: that are C and nothing else — from its own topline down:
+#:
+#:   14  12  18  21  17  15  14  14  18  24  20  21
+#:
+#: which is not a ramp and is not flat. It is four things: the near-black two
+#: rows under the crest, a lit strip where the top of the neck turns up to the
+#: sky, the shadowed body of the neck (the darkest part of the far animal, and
+#: §5's L 17.9 median lives here), and then a lift through the lower neck and
+#: the chest where the road throws light back up. The old model capped at 20
+#: from the fourth row down, which is the same value for two thirds of the
+#: animal, and no amount of stipple makes one value into a neck.
+FAR_PROFILE = (5.0, 10.0, 17.0, 20.0, 17.0, 15.0, 14.0, 14.0, 18.0, 23.0,
+               20.0, 21.0)
 
 #: The floor the STIPPLE may reach. `void@0` is 21-31% of the crest, the tail
 #: and the chest shadow and is used NOWHERE ELSE in the region (§6) — so the
@@ -180,27 +261,59 @@ TONE_LUMINANCE = (4.6, 11.0, 16.2, 24.3, 27.5, 34.8, 37.7, 44.1, 51.7, 62.5)
 #: ones, and a plane with black speckle through it reads as sawn timber.
 STIPPLE_FLOOR = 10.0
 
-#: §7's measured run lengths, as flip probabilities. A first-order Markov
-#: chain that changes state with probability p has mean run 1/p, so these ARE
-#: the table: mane 1.27 px, legs 1.35 px, lit hide 1.65 px.
-RUN_MANE = 1.0 / 1.27
-RUN_LEG = 1.0 / 1.35
-RUN_HIDE = 1.0 / 1.65
+#: §7's measured run lengths, as MEAN RUNS, one pair per surface: how long the
+#: warm member holds and how long the cool one does. A first-order Markov chain
+#: whose two states have mean runs (w, c) spends w/(w+c) of its length warm, so
+#: the asymmetry is the chroma control and the mean of the pair is §7's
+#: statistic: mane 1.27 px, legs 1.35 px, lit hide 1.65 px.
+#:
+#: WHY IT IS ASYMMETRIC. A symmetric chain gives the two families equal area,
+#: which averages their warmth — and the two families are not equally warm at
+#: matched value: `pine_fresh` runs +24 to +45 where `mud` runs +16 to +33. The
+#: reference's barrel does not split evenly either; it is 37% pine_fresh
+#: against 25% mud (see HIDE_TONES), so pine holds the longer run and mud is
+#: the interruption. Same statistic, right colour.
+RUN_MANE = (1.45, 1.10)
+RUN_LEG = (1.55, 1.15)
+RUN_HIDE = (1.95, 1.40)
 
-#: §3.19, measured. Where each cannon stands relative to its own ground
-#: contact. It is NOT zero and it is not constant: a standing horse's toe
-#: points forward, so the hoof reaches past the leg on the near side, and the
-#: two hind pairs stand a further two pixels back again. Measured cannons on
-#: the bar: 172-174, 178-180, 181-183, 185-187, 190-192, 194-196, 199-201,
-#: 209-211, 215-217 against the nine contacts in layout.HOOVES.
-CANNON_OFFSET = (0, 1, -1, -1, -1, -1, -2, -2, 0)
+#: §3.19 AND §9.7, RE-MEASURED COLUMN BY COLUMN. Nine legs and eight gaps,
+#: as (first lit column, lit columns, dark columns behind, which lit column
+#: is brightest). The last number is why this is a table and not an offset:
+#: §9.7 refuses a comb, and a comb is what four identical columns stamped
+#: nine times is — the light does not sit in the same place on every leg.
+#:
+#: WHERE THE NUMBERS CAME FROM. Column means over the nine rows above each
+#: contact, taken off the bar and set beside the same means taken off this
+#: module's own render. The bar has an unmistakable rhythm across x 170-219:
+#:
+#:   lit  171-173  176-178  181-182  185-187  190-192  195-197  199-202
+#:        207-211  215-218
+#:   dark 174      179-180  183      188-189  193      198      203-206
+#:        212-214
+#:
+#: — lit columns at L 23-41, dark at L 8-20, and the alternation NEVER pauses.
+#: Ours ran the same nine legs one and two columns to the left of every one of
+#: them, so every dark trailing edge landed on hide and every lit column
+#: landed in a gap. The distribution was right — the same count of light and
+#: dark pixels in the same rect — and the drawing was a picket fence out of
+#: phase with its own posts, which is the exact failure §9.7 names and the
+#: exact failure a summary statistic cannot see.
+#:
+#: The two wide entries are measured too and are not slips: leg 7 is §3.19's
+#: "two legs merged into one 6-px mass", and the four dark columns behind it
+#: are the daylight between A's foreleg and its hind leg, which the bar runs
+#: at L 1-12 for eight rows. Leg 8 is five columns because the gaskin stands
+#: in front of it (§3.19's item 8 reads as the back rank).
+LEGS = ((171, 3, 1, 2), (176, 3, 2, 0), (181, 2, 1, 0), (185, 3, 2, 1),
+        (190, 3, 1, 2), (195, 3, 1, 1), (199, 4, 4, 0), (207, 5, 3, 1),
+        (215, 4, 0, 1))
 
-#: The three columns of a cannon, front to back. §7: 2-3 px of hide across,
-#: LIT ON THE LEADING EDGE with 1 px of `umber@0` behind it. That last column
-#: is the whole reason nine legs read as nine — measured, the lit columns run
-#: L 30-51 and the column behind each one drops to L 1-11, and it is the hard
-#: black line rather than the light that separates them.
-CANNON_PLANES = (46.0, 30.0, 4.0)
+#: The lit plane at its peak, how far it falls per column away from the peak,
+#: and the dark column behind. §7: 2-3 px of hide across, LIT ON THE LEADING
+#: EDGE with 1 px of `umber@0` behind it — and it is the hard black line
+#: rather than the light that separates nine legs into nine.
+LEG_PEAK, LEG_FALL, LEG_DARK = 42.0, 5.0, 5.0
 
 #: §3.20, measured, and §7 calls them as load-bearing as the legs: six cool
 #: BACKGROUND holes between the legs, L 18-29 at warmth −7 to +2. They are the
@@ -215,30 +328,97 @@ CANNON_PLANES = (46.0, 30.0, 4.0)
 #: animal read as a table. Measured, the reference has exactly that gap: holes
 #: 5 and 6 are the daylight between A's foreleg and its hind leg, and closing
 #: them is what turned nine legs into one dark skirt.
+#:
+#: AND THE LAST TWO ARE SHORTER THAN §3.20's BOUNDING BOXES. §3.20 gives them
+#: as (198-202, 91-95) and (204-209, 90-93); measured cell by cell, only the
+#: top of each is cold. x 199-202 is cold at warmth −12 to −30 on y 91-92 and
+#: WARM at +15 to +48 on y 93-95, where it is the lit front of leg 7 — so the
+#: box, drawn out in full, painted three rows of cold grey straight down the
+#: middle of a leg. Same at x 204-205, which is warm and near-black from y=93
+#: down: that is the shadow between A's fore and hind legs, not sky through
+#: it, and LEGS above draws it as the dark side of leg 7.
 HOLES = ((170, 172, 89, 97), (178, 179, 91, 96), (185, 187, 88, 96),
-         (190, 192, 92, 95), (198, 202, 91, 95), (204, 209, 90, 93))
+         (190, 192, 92, 95), (199, 202, 91, 92), (206, 209, 90, 92))
 
 #: §3.17 exactly: the underline is ONE dark row. Measured across x 202-215 it
 #: runs L 4-14 at y=86 and is back to L 16-32 by y=87 — the rows under it are
 #: the stifle, the gaskin and the gap between them, not more shadow.
 UNDERLINE_Y = 86
+#: ...and it starts at x=202, not at the pole's left end. See `_tack`.
+UNDERLINE_FROM = 202
 
 #: §5.2's rim, measured end to end: it starts at the withers ramp and runs to
 #: the far side of the croup, x 195-221, not the 22 px the summary quotes.
 RIM_FROM, RIM_TO = 195, 221
 
 #: The trace strap across the barrel, measured (see `_strap_x`).
-STRAP_TOP, STRAP_LEAN = 204.5, 0.45
+STRAP_TOP, STRAP_LEAN = 205.0, 0.30
+
+#: §3.14, THE LIGHT ON THE BARREL, measured as a cylinder rather than as a
+#: ramp. Row means across x 196-218 run 38, 34, 32, 30, 30, 30, 28, 28, 25
+#: from y=76 to y=84: a fall of thirteen luminance that is steepest in the
+#: first two rows and flattens through the middle, which is what the side of a
+#: barrel does under a light directly above it. §5.3 says there is no
+#: left-to-right LIGHTING gradient, so this profile is the whole of the light
+#: on this plane and every deviation across it below is harness or bone.
+BARREL_TOP, BARREL_FALL, BARREL_CURVE = 38.0, 13.5, 0.75
+
+#: §3.14, THE ANIMAL UNDER IT. Measured column means over y 76-85, x 194-218:
+#:
+#:   31 27 32 33 29 28 27 34 36 37 35 30 27 24 32 28 32 35 34 34 26 26 27 26 25
+#:
+#: — thirteen luminance of swing across a plane the spec calls unlit sideways,
+#: which is the point: it is not light, it is five objects. Named here as the
+#: planes they are, offsets from the row mean, so that the profile stays a
+#: description of an animal rather than a row of numbers. Each is inclusive.
+#:
+#: THIS IS THE MODELLING THAT WAS MISSING. Without it the barrel is one flat
+#: plate twenty-four pixels wide with a gradient down it, and a flat plate
+#: with a gradient down it is a bale of hay. The ribs and the loin are what
+#: make it a body, and the two dark verticals between them are what make it a
+#: harnessed one.
+BARREL_PLANES = (
+    (194, 195, -1.0),   # the shoulder blade, turning away behind the neck
+    (196, 197, +2.5),   # the point of the shoulder, catching the sky
+    (198, 200, -3.0),   # the collar strap, crossing in front of the ribs
+    (201, 204, +5.5),   # the sprung ribs — the widest part of the animal
+    (205, 207, -5.0),   # the hame strap and the girth behind it
+    (208, 209, -1.5),
+    (210, 213, +4.0),   # the loin, the second lit plane
+    (214, 218, -4.5),   # the point of the hip, falling into the flank
+)
 
 #: Where the flank starts losing light into the point of the hip. Measured,
 #: columns 214-218 run four to eight luminance under 210-213 at every row
 #: below y=82.
 HIP_FROM = 214
-#: The hind quarter under the barrel, measured at y 87-91: a lit gaskin at
-#: x 212-218 (L 24-40), a dark gap at x 208-211 (L 0-8) and the flank and
-#: stifle at x 202-207 (L 16-28). Three masses, not one band.
-GASKIN = (211, 218)
+#: The hind quarter under the barrel, RE-MEASURED row by row rather than as
+#: three bands at one value each. The bar over x 202-218, y 87-91:
+#:
+#:   y87  21 26 33 26 14 30 | 23  6  1 | 14 32 33 26 32 31 26 | 11
+#:   y88  25 26 32 18 25 20 |  6  1  1 |  8 37 41 26 26 26 18 |  1
+#:   y89  21 25 11  6  8  4 |  6 11  1 |  1 11 41 37 32 31 21 |  6
+#:   y90   8  8  1  8 12 15 | 19 14 11 |  6  1  8 41 41 26 25 | 11
+#:   y91   4  1  1  8 21 24 | 21 20 19 |  8 14  6  6 32 31 21 | 25
+#:
+#: Three things this says that three flat bands did not. The stifle FALLS —
+#: L 26 at y=87 to L 4 by y=91, a five-luminance-a-row collapse into the
+#: shadow the forelegs stand in. The gaskin is x 213-217 and not x 211-218:
+#: 211-212 are the dark gap's own columns and 218 is the outside of the hock,
+#: near-black at L 1-11. And the dark gap between them LIFTS as it comes
+#: down, 1 at y=88 and 19 by y=91.
+#:
+#: WHY IT MATTERS MORE THAN IT LOOKS. The dark-pool census puts the bar's
+#: single largest near-black mass in this region at 63 px, x 199-214,
+#: y 86-101 — the underline, the collapse under the stifle and the gap
+#: between A's fore and hind legs, all ONE connected shape. Held at 16-27 the
+#: band never joined up and ours came out as four separate pools of under 20
+#: px each. §7 lists the underline among the four hard edges in the region;
+#: this is the mass it is the top of.
+GASKIN = (213, 217)
+GASKIN_GAP = (208, 212)
 STIFLE = (202, 207)
+HOCK_X = 218
 
 #: The hame strap, measured: one column about four L under its neighbours.
 HAME_X = 198
@@ -246,18 +426,78 @@ HAME_X = 198
 #: §3.18's darkest mass, as a centre rather than as a rectangle.
 CHEST_CORE = (184, 87)
 
-#: Where the pooled shadow begins. See `_cast_shadow`.
+#: Where the pooled shadow begins, and where it doubles. See `_cast_shadow`.
+#: §3.24 puts the pool at y 99-105; it starts higher than that because the
+#: body blocks the sky from y=90 down, but only at half the depth until
+#: the feet are in it.
 SHADOW_TOP = 90
+HOOF_LINE = 100
 
 #: §3.2. C's head, measured as an AXIS rather than as a box. The row the
-#: measurements are anchored on, the left edge of the head on that row, the
-#: centre of the lit nasal plane on that row, and how far both walk left per
-#: row down. Left edge: 156 at y=71 falling to 153 by y=81. Nasal centre:
-#: 158.8 at y=71 falling to 153.8 by y=81.
+#: measurements are anchored on, the centre of the lit nasal plane on that
+#: row, and how far it walks left per row down: 158.8 at y=71 falling to
+#: 153.8 by y=81. The left EDGE is no longer derived from this — see
+#: HEAD_EDGES, which measures it.
 HEAD_AXIS_ROW = 71
-HEAD_LEFT_AT_71 = 156.0
 HEAD_NASAL_AT_71 = 158.8
 HEAD_LEAN = -0.5
+
+#: THE THREE HEADS ARE THREE OUTLINES, AND THE OUTLINE IS THE WHOLE READ.
+#:
+#: At 320x144 a horse's head is six to ten pixels across, and at that size an
+#: object reads by SILHOUETTE before it reads by shading — the taper from
+#: jaw to muzzle, the break at the poll, the angle the neck leaves at.
+#: Interior modelling cannot rescue a wrong shape and adding it to one makes
+#: the shape worse, so nothing below is shading: it is the measured first and
+#: last row of every column of every head, and three heads at three depths
+#: get three different profiles rather than one stamp moved twice.
+#:
+#: What each one is, and where it came from — warm/cold and value read off
+#: the bar column by column, hide against the cold hillside behind it:
+#:
+#:   C  Two pixels of ear at x 157-158 on y=69 and NOTHING ELSE on that row;
+#:      the head widens to six by y=73 and steps one column LEFT at y=80;
+#:      the muzzle bottom is flat at y=81 against the rail, and the throat
+#:      column at x=159 stops two rows short of it (§8: the muzzle abuts the
+#:      end of the rail exactly). The ear is the top of the whole group and
+#:      §7 says without it C's head is a post.
+#:
+#:   B  TEN columns wide at the poll and SIX below it. x 161-162 exist for
+#:      one and two rows and then stop: measured, x 158-162 on y 84-86 is
+#:      COLD at L 18-35 — background, the same channel the sky wedge above it
+#:      opens, and the reason B's head is a head rather than the left end of
+#:      a wall. Below the jowl the jaw falls away to x 163-168 with the chin
+#:      at the FRONT (x 163-165, to y=95, where §3.8's bit mark sits) and the
+#:      throat climbing behind it to x 170 at y=88.
+#:
+#:   A  Nine columns at the poll narrowing to seven, and its far cheek stops
+#:      five rows above its muzzle. B and A are EXACTLY LEVEL (§4) and
+#:      separated only sideways, so the only thing that can put A in front is
+#:      the shape of its own outline against B's — a different taper on a
+#:      different rhythm. Drawn as B's rectangle moved nine columns right,
+#:      which is what it was, the two are one object.
+#:
+#: Each entry is (first row, last row) inclusive for one column, left to right.
+C_HEAD_X = 153
+C_HEAD_EDGES = ((80, 81), (73, 81), (70, 81), (71, 81),
+                (69, 81), (69, 81), (70, 79))
+
+B_HEAD_X = 161
+B_HEAD_EDGES = ((82, 82), (82, 83), (82, 95), (82, 95), (83, 94),
+                (83, 93), (83, 92), (82, 91), (82, 93), (82, 88))
+
+A_HEAD_X = 172
+A_HEAD_EDGES = ((82, 95), (82, 95), (82, 94), (82, 93),
+                (82, 93), (82, 92), (82, 90), (82, 92), (82, 92))
+
+#: The leading edge of B's face, as (row, column). It LEANS FORWARD, which is
+#: down and to the left, at about three quarters of a pixel a row — the same
+#: fifteen degrees off vertical §4 gives all three head axes. See `_heads`.
+B_FACE_RIM = ((82, 166), (83, 165), (84, 164), (85, 164), (86, 163))
+
+#: The near-black seam between B's head and A's, as (column, first, last).
+#: Three columns, not one, and it steps forward as it descends.
+HEAD_SEAM = ((171, 83, 88), (170, 85, 88), (169, 87, 92))
 
 #: §3.5's gullet — the near-black diagonal down the front of C's neck.
 #: Measured dark cells: (161, 74), (162, 76), (162, 77), (163, 78), (164, 78),
@@ -323,19 +563,21 @@ class _Hide:
         self.fine = self._uniform("team hide rung")
         self.wobble = self._levels("team hide wobble", RUN_HIDE)
 
-    def _markov(self, name: str, flip: float) -> dict[tuple[int, int], bool]:
+    def _markov(self, name: str, runs: tuple[float, float]) -> dict[tuple[int, int], bool]:
+        warm_run, cool_run = runs
+        leaving = (1.0 / warm_run, 1.0 / cool_run)
         rng = self.ctx.stream(name)
         x0, y0, width, height = RECT
         field: dict[tuple[int, int], bool] = {}
         for y in range(y0, y0 + height):
-            state = rng.random() < 0.5
+            state = rng.random() < warm_run / (warm_run + cool_run)
             for x in range(x0, x0 + width):
-                if rng.random() < flip:
+                if rng.random() < leaving[0 if state else 1]:
                     state = not state
                 field[(x, y)] = state
         return field
 
-    def _levels(self, name: str, flip: float) -> dict[tuple[int, int], float]:
+    def _levels(self, name: str, runs: tuple[float, float]) -> dict[tuple[int, int], float]:
         """A −1…+1 field with the same run statistic as the family stipple.
 
         The value wobble has to CLUSTER. Drawn from an uncorrelated field it
@@ -345,6 +587,7 @@ class _Hide:
         actually has — p10 to p90 across the far animals spans L 8 to 45, and
         no amount of a single flat value gets there.
         """
+        flip = 2.0 / (runs[0] + runs[1])
         rng = self.ctx.stream(name)
         x0, y0, width, height = RECT
         field: dict[tuple[int, int], float] = {}
@@ -449,6 +692,7 @@ def draw(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         _far_horse(canvas, ctx, hide)
         _near_horse(canvas, ctx, hide)
         _heads(canvas, ctx, hide)
+        _holes(canvas, ctx, hide)
         _legs(canvas, ctx, hide)
         _tack(canvas, ctx, hide)
         _sparks(canvas, ctx)
@@ -483,17 +727,15 @@ def _belly(x: int) -> int:
     at 85 by the tail. A single belly line across the whole mass is what
     turns three animals into one dark skirt.
 
-    The first step is the important one. C's throat stops at y=76 — the five
-    columns behind its jaw are BACKGROUND all the way down to where B's head
-    starts, and that column of night is what §3.3's wedge opens into. Carry
-    the mass down through it and the three heads become one curtain.
+    The first step is the important one, and it now runs from x=160 rather
+    than from x=161. C's chest used to be carried down to y=92 at x=160 on
+    the reading that the far animal stands behind the middle one's head;
+    measured, it does not. x 158-162 on y 84-86 is COLD on the bar at
+    L 18-35, warmth −9 to −30 — the hillside, not hide — and it is the same
+    channel §3.3's wedge opens four rows above it. Filled with hide it welded
+    C's throat to B's jowl and the left third of the team became one curtain,
+    which is exactly what §7's "six cool pixels" exist to prevent.
     """
-    if x <= 160:
-        # C's throat and chest, which run all the way down BEHIND the middle
-        # horse's head. Measured, x=160 carries L 11-43 from y 84 to 93; cut
-        # it off at the rail and the wedge stops being a hole in an animal
-        # and becomes a two-pixel channel of night straight through the team.
-        return 92
     if x <= 164:
         return 81               # the wedge is carved out of these five rows
     if x <= 180:
@@ -513,51 +755,34 @@ def _belly(x: int) -> int:
     return 85                   # flank and croup
 
 
-def _head_top(column: int, width: int, height: int) -> int:
-    """Rows below the head's own top row that this column starts at.
-
-    §4: the head axis stays within 15° of vertical and the poll is at the
-    back. So the brow climbs from the muzzle end to the poll end along a
-    power curve — a straight ramp here gives a wedge, and a wedge is a beak.
-    """
-    position = column / max(1, width - 1)
-    return int(round((height - 2) * (1.0 - position) ** HEAD_BROW_POWER))
-
-
-def _head_bottom(column: int, width: int) -> int:
-    """Rows above the head's last row that this column stops at.
-
-    A muzzle is NARROW. The chin is the lowest point of the animal, it sits
-    about a third of the way back along the head, the nose falls away in
-    front of it and the jaw and throat climb steeply behind. Drawn flat this
-    is a boot; drawn symmetrically it is a hoof.
-    """
-    position = column / max(1, width - 1)
-    if position < HEAD_CHIN:
-        return int(round(HEAD_MUZZLE_LIFT
-                         * ((HEAD_CHIN - position) / HEAD_CHIN) ** 1.4))
-    return int(round(HEAD_THROAT_LIFT
-                     * ((position - HEAD_CHIN) / (1.0 - HEAD_CHIN)) ** 1.4))
-
-
-def _face_light(column: int, width: int, face: float, poll: float) -> float:
+def _face_light(column: int, width: int, rim: float, face: float,
+                poll: float, nasal: float) -> float:
     """The luminance across a lowered head, front to back.
 
     THE HEADS ARE LIT ACROSS, NOT DOWN, and it is the one place in this
-    region where that is true. Measured column means on the bar: C runs
-    39, 33, 24, 25, 23, 24, 17 from muzzle to poll and A runs 15, 30, 50, 35,
-    40, 35, 30, 22, 18, 16 — a bright nasal plane a third of the way back,
-    with a one-pixel dark rim in front of it and the whole poll end falling
-    away into the mane. Model it as a top-down fall and the head becomes a
-    brick with a light top.
+    region where that is true. Measured column means on the bar, muzzle to
+    poll, over the fourteen rows each head occupies:
+
+      A (x 171-180)   14  27  46  35  36  35  28  24  18  18
+      B (x 161-170)   26  26  27  30  25  23  21  16  16  20
+
+    — which is A HUMP, not a fall. There is a one-pixel dark rim on the
+    outside of the nose, then the nasal plane a fifth of the way back
+    catching the sky, then a long decline into the poll and the mane. Drawn
+    as a monotonic fall from the muzzle the bright end came out four columns
+    wide instead of one, and four bright columns on a ten-column head is not
+    a head, it is a wedge of light with a horse behind it. The two heads are
+    also not the same shape: A's hump is +32 over its poll and B's is +14,
+    which is §9.12's depth stagger carried by the hide instead of by the
+    sparks.
     """
     position = column / max(1, width - 1)
-    plane = poll + (face - poll) * (1.0 - position) ** 0.8
-    if column == 0 and width > 7:
-        # The leading rim. On the two near heads the outer edge of the nose
-        # turns away from the sky before the face does.
-        return poll + (plane - poll) * 0.4
-    return plane
+    if position < nasal:
+        # The leading rim and the climb up the nose. The outer edge turns
+        # away from the sky before the face does.
+        return rim + (face - rim) * position / nasal
+    fall = (position - nasal) / max(1e-6, 1.0 - nasal)
+    return poll + (face - poll) * (1.0 - fall) ** 0.85
 
 
 def _in_jaw_wedge(x: int, y: int) -> bool:
@@ -569,14 +794,27 @@ def _in_jaw_wedge(x: int, y: int) -> bool:
     return left <= x <= right
 
 
-def _rim_lit(x: int) -> bool:
-    """§5.2's cool rim, and the three places it dips.
+def _rim_step(x: int) -> int:
+    """§5.2's cool rim, as a step off `horse_rim`, column by column.
 
-    Measured on the bar at y=75: the run is bright except at x 203-204,
-    x 207 and x 215-217, where the back turns under the harness saddle and
-    over the point of the hip and loses a step.
+    Measured on the bar along y=75, x 195 to 221:
+
+      45 43 43 41 44 49 51 44 26 21 48 46 29 38 41 49 57 51 51 51 33 38 28 44 47 49 49
+
+    — a swing of THIRTY-SIX luminance along one row. Drawn at one index, or at
+    two a step apart, it is a ruled line, and a ruled pale line twenty-seven
+    pixels long across the top of a warm mass reads as the edge of a shelf,
+    which is exactly what it looked like. The swing is not noise: it is the
+    back turning under three things and standing proud of four.
     """
-    return not (203 <= x <= 204 or x == 207 or 215 <= x <= 217)
+    if 203 <= x <= 204 or 215 <= x <= 217:
+        return -2                   # under the harness saddle; over the hip
+    if x == 207 or x == 214:
+        return -1                   # the girth, and the front of the hip
+    if (200 <= x <= 201 or 205 <= x <= 206
+            or 210 <= x <= 213 or x >= 219):
+        return +1                   # withers crest, saddle, loin, croup
+    return 0
 
 
 def _strap_x(y: int) -> float:
@@ -588,6 +826,19 @@ def _strap_x(y: int) -> float:
     what makes the near horse read as harnessed rather than as a shape.
     """
     return STRAP_TOP + STRAP_LEAN * (y - 76)
+
+
+def _far_level(depth: int) -> float:
+    """The far animal's value, that many rows below its own topline."""
+    return FAR_PROFILE[min(depth, len(FAR_PROFILE) - 1)]
+
+
+def _barrel_plane(x: int) -> float:
+    """How far this column of the barrel sits off the row mean (§3.14)."""
+    for left, right, offset in BARREL_PLANES:
+        if left <= x <= right:
+            return offset
+    return 0.0
 
 
 def _in_hole(x: int, y: int) -> bool:
@@ -647,29 +898,64 @@ def _far_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
                 # the animals stopped being animals and became a roof.
                 hide.put(canvas, x, y, 2.0 + 4.0 * depth, "flat")
             elif depth < 2:
-                # Right of the crest the top edge is a SOFT dark, not a wall.
-                # Measured across x 172-193: y+0 runs L 8-20 and y+1 runs
-                # L 4-12, mottled, with no two adjacent columns alike. This is
-                # where B's back merges into C's with no seam (§9.3) and the
-                # merge is only invisible if the edge is broken.
+                # Right of the crest the top edge is a SOFT dark, not a wall —
+                # AND IT IS NOT DARK AT ALL ON ITS FIRST ROW. Re-measured
+                # across x 172-193, the bar's y=70 runs
+                #
+                #   35 23 23 33 33 34 29 29 29 29 24 24 21 23 21 16 16 16 16 24 29 24
+                #
+                # at warmth +7 to +34 for two thirds of it and −9 to −30 for
+                # the other third: a LIT strip where the top of the neck turns
+                # up to the sky, broken by columns where the sky comes through
+                # it. y=71 is the first genuinely dark row, at L 8-21, and
+                # y=72 the darkest, at L 6-25.
+                #
+                # This branch had it at 11 and 8 — near-black, twenty-two
+                # columns wide, immediately under a crest that is also
+                # near-black. That put a two-row black lip along the entire
+                # top of the mass where the bar has its lit edge, and it is
+                # the largest single block error left in the rect: −8 to −13 L
+                # across x 171-190 on the 3x3 difference map, in the one place
+                # a silhouette is decided. A dark line under a dark line does
+                # not read as an edge, it reads as thickness, and thickness
+                # along the top of three animals is a roof.
                 hide.put(canvas, x, y,
-                         11.0 - 3.0 * depth + hide.grain(x, y) * 10.0)
+                         24.0 - 9.0 * depth + hide.grain(x, y) * 7.0)
             else:
-                # Mottled, not flat, AND THE MOTTLE IS WIDE. Measured, this
-                # whole plane runs L 1-33 about a median of 17.9 — the same
-                # busy 1.5 px surface as the lit hide, just at a sixth of the
-                # light, and it reaches umber 0 and void 0 in single pixels
-                # all through. Held inside ±7 of the median it stops being
-                # hide and becomes a flat brown card, which is exactly the
-                # complaint that the animals do not read as three.
+                # Mottled, not flat — and MODELLED, which is a different
+                # claim. Held at one value from the fourth row down (which is
+                # what `min(20, 5 + 4*depth)` did) the far animal was a flat
+                # brown card with noise on it, and a card is what the critics
+                # kept seeing. It has a neck: FAR_PROFILE is its section.
                 hide.put(canvas, x, y,
-                         min(20.0, 5.0 + 4.0 * depth) + hide.grain(x, y) * 26.0)
+                         _far_level(depth) + hide.grain(x, y) * 11.0)
 
-    # §3.4. A 12 x 3 near-black bar at the crest, x 160-171. `void@0` 31% +
-    # `umber@0` 29%, and §7 says it takes no dither into the sky at all.
+    # §3.4. The near-black bar at the crest. `void@0` 31% + `umber@0` 29%, and
+    # §7 says it takes no dither into the sky at all.
+    #
+    # BUT ITS TOP ROW IS BROKEN AND ITS RIGHT END IS NOT BLACK. Measured, three
+    # rows of the bar read:
+    #
+    #   y69   22  6  1  6 16  6  1 | 19 24 12  6 16
+    #   y70    1  1  1  1  1  1  1 |  1  1  1  6 37
+    #   y71    1  6  1  6 11 11  1 |  8  6  6 31 32
+    #
+    # — one solid row and one nearly solid row, with a top row that only
+    # reaches black in its middle six columns and a right end that is already
+    # back at sky value by x=171. Stamped as twelve columns of `void` two rows
+    # deep it was a ruled black rectangle, and a ruled black rectangle sitting
+    # on top of a warm mass is a roof, not a mane. The crest carries thirty
+    # per cent of the region's `void` and it is the hardest edge in the frame:
+    # it has to be hard, and it has to end.
     cx, cy, cwidth, cheight = layout.HORSE_C_CREST
     for x in range(cx, cx + cwidth):
-        canvas.vline(x, _topline(x), cheight - 2, black)
+        top = _topline(x)
+        hide.put(canvas, x, top, 3.0 if CREST_CORE[0] <= x <= CREST_CORE[1]
+                 else 15.0, "flat")
+        for row in (1, 2):
+            hide.put(canvas, x, top + row,
+                     1.0 if x <= CREST_SOLID else 8.0 + 11.0 * (x - CREST_SOLID),
+                     "flat")
 
     # §3.2. 7 x 13, hanging almost vertically, the axis leaning ~15° forward.
     # The muzzle bottom row is y=81, which is EXACTLY the top rail of the
@@ -688,24 +974,42 @@ def _far_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
     # down and the cheek falling off to L 13-18 behind it. That is a lit
     # NASAL STRIPE two pixels wide on a 13-px head: model it column by column
     # and every row gets the same value, which is a post with a light side.
-    hx, hy, hwidth, hheight = C_HEAD
-    for y in range(hy + 1, hy + hheight):
-        row = y - HEAD_AXIS_ROW
-        left = int(round(HEAD_LEFT_AT_71 + HEAD_LEAN * row))
-        nose = HEAD_NASAL_AT_71 + HEAD_LEAN * row
-        for x in range(max(hx, left), hx + hwidth):
+    # AND ITS EDGE IS MEASURED, NOT DERIVED. See C_HEAD_EDGES: the head is
+    # narrow at the poll, six wide through the face, and steps a column left
+    # at y=80. Walked out from one left edge and one lean it reached x=151 by
+    # the muzzle — two columns over the top rail, which §8 says the muzzle
+    # ABUTS with no overlap — and the widening that produced was the whole
+    # difference between a head and a wedge of neck.
+    for column, (first, last) in enumerate(C_HEAD_EDGES):
+        x = C_HEAD_X + column
+        for y in range(first, last + 1):
             if _in_jaw_wedge(x, y):
                 continue
+            nose = HEAD_NASAL_AT_71 + HEAD_LEAN * (y - HEAD_AXIS_ROW)
             offset = x - nose
             if offset < -1.5:
-                level = 5.0                 # the outside rim, against the sky
+                # The outside rim, against the sky. Measured it is L 1-11 and
+                # BROKEN — (155,73) (156,73) (155,74) (154,76) are near-black
+                # and the rows between them are 6-12 — so it takes the grain
+                # like everything else. A dead-level dark edge thirteen rows
+                # tall is a drawn outline, and §5 is explicit that there is no
+                # drawn outline anywhere on these animals.
+                level = 6.0
             elif offset <= 0.5:
-                level = 39.0                # the lit nasal plane
+                level = 38.0                # the lit nasal plane
             elif offset <= 1.5:
-                level = 24.0
+                # THE CHEEK IS PART OF THE LIGHT, not the far side of it.
+                # Measured along y=77 the head runs 8, 41, 37, 32, 30, 13
+                # across x 154-159: FOUR columns above L 30, not two. Held at
+                # 24 and 14 the lit plane was two pixels wide on a seven-pixel
+                # head, which is a stripe down a post — and a stripe down a
+                # post is what the far head kept reading as.
+                level = 30.0
+            elif offset <= 2.5:
+                level = 22.0                # the jaw, turning away
             else:
-                level = 14.0                # the cheek, turning into the jaw
-            hide.put(canvas, x, y, level + hide.grain(x, y) * 16.0)
+                level = 15.0                # the throat, running into the neck
+            hide.put(canvas, x, y, level + hide.grain(x, y) * 9.0)
 
     # §3.5's gullet. A dark diagonal from (161, 73) down to (168, 82),
     # L 1-11 against a neck at 18-26 either side: the front edge of C's neck,
@@ -717,8 +1021,26 @@ def _far_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
         y = GULLET_FROM[1] + step
         if _in_jaw_wedge(x, y):
             continue
-        hide.put(canvas, x, y, 5.0, "flat")
-        hide.put(canvas, x + 1, y, 11.0)
+        # ONE PIXEL, AND IT BREAKS. Measured, the gullet's dark cells are
+        # (161,74) (162,76) (162,77) (164,78) (165,80) (166,81) (167,81) at
+        # L 1-8 — seven pixels over nine rows, not eighteen. Drawn as a solid
+        # two-pixel diagonal it was a black slash across the far animal's
+        # throat, and a slash that hard reads as a strap rather than as the
+        # groove in front of a neck.
+        # AND IT TAKES NO RUNG DITHER. `hide.put` on a stippled plane is
+        # floored at STIPPLE_FLOOR and then rounded to a rung, so a target of
+        # 6 came out alternating L 9 and L 13 down the chain — and L 13 is
+        # over the dark census's own threshold, which broke a mass the bar
+        # holds as ONE 34-px pool into eleven singles. The pool is the point:
+        # singles at this size vanish one step down the squint ladder, which
+        # is precisely where §4's "horse, not dog" is decided.
+        hide.put(canvas, x, y, 5.0 + hide.grain(x, y) * 4.0, "flat")
+        # ...and the column beside it goes dark on about half the rows. The
+        # bar's chain is one pixel wide in places and two in others — (161,74)
+        # with (162,74), (163,75) with (163,76) — which is what makes ten
+        # rows of a leaning diagonal touch at all instead of being ten
+        # corner-to-corner cells that no eye and no census reads as a line.
+        hide.put(canvas, x + 1, y, 8.0 + hide.grain(x + 1, y) * 8.0, "flat")
 
     # §3.1. Two pixels, and the top of the whole group. §7: without the ear,
     # C's head is a post — AND A BLACK EAR IS NOT AN EAR. Measured at
@@ -757,7 +1079,7 @@ def _near_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
         reach = (x - NECK_FROM) / max(1, NECK_TO - NECK_FROM)
         bottom = top + int(round(NECK_DEPTH_POLL
                                  + (NECK_DEPTH_SHOULDER - NECK_DEPTH_POLL) * reach))
-        hide.column(canvas, x, top, min(bottom, _belly(x)), 44.0, 27.0, jitter=10.0)
+        hide.column(canvas, x, top, min(bottom, _belly(x)), 44.0, 27.0, jitter=6.0)
 
     # §3.12. Six strokes across 19 px, each 1-2 px wide with a 1-2 px dark
     # trough beside it and a swing of 20-40 L. THE HIGHEST-CONTRAST TEXTURE
@@ -777,33 +1099,33 @@ def _near_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
         # along y=78, x 184-194 runs 8, 32, 28, 28, 68, 40, 48, 52, 32, 24, 44.
         # The troughs reach L 8. A band with no troughs in it is a stripe.
         near = min(abs(x - peak_x) for peak_x, _ in MANE_PEAKS)
-        ridge = 56.0 if near == 0 else (19.0 if near == 1 else 40.0)
-        # Three rows, not two. The measured mane box runs a p90 of 49.5 over
-        # fifteen rows, which two rows of ridge and six two-pixel strokes
-        # cannot reach: the reference's bright hair is spread from y=75 to
-        # y=84 along the axis, not concentrated on one line of it.
-        hide.put(canvas, x, crest, ridge - 14.0, "mane")
+        ridge = (MANE_PEAK if near == 0
+                 else (MANE_TROUGH if near == 1 else MANE_BAND))
+        # TWO ROWS, NOT THREE, AND THE STROKES ON TOP ARE TWO PIXELS, NOT SIX.
+        # Three rows of ridge with four-pixel spikes standing on them made a
+        # band six rows deep whose bright columns held their value for four or
+        # five rows each — which at the half-squint is a row of teeth, exactly
+        # §7's picket fence and exactly what the eye read. Measured, the bar's
+        # bright mane pixels are ISOLATED: along y 78-82 the values over
+        # x 180-193 are 25,16,58,25,8,34,30,30,70,43,50,54,33,25 and no
+        # column above L 50 is above L 50 in the row beneath it. The mane is
+        # sparks along a lit ridge, not columns standing on one.
+        hide.put(canvas, x, crest, ridge - 10.0, "mane")
         hide.put(canvas, x, crest - 1, ridge, "mane")
-        hide.put(canvas, x, crest - 2, ridge - 6.0, "mane")
 
     for index, (x, height) in enumerate(MANE_PEAKS):
-        # Each stroke starts from its own root, a row either side of the
-        # axis. Rooted on one line they comb into a picket fence, which is
-        # the failure §7 names by refusing to let the pitch be even.
-        crest = int(round(_mane_crest(x))) - 2 + (1 if index % 3 == 1 else 0)
-        peak = 68.0 if index % 2 else 56.0
-        for step in range(height):
-            hide.put(canvas, x, crest - step, peak - 11.0 * step, "mane")
-        # The trough is what makes the stroke a stroke. One column behind,
-        # because the mane falls to the near side, and it goes to near-black:
-        # §3.12 measures a swing of 20-40 L per stroke and a trough at L 20 on
-        # a peak of 54 is half of one.
-        for step in range(max(1, height - 2)):
-            # L 17, not 11. Measured, the troughs between the strokes run
-            # L 8-24 against peaks of 48-68; at 11 for three rows they became
-            # a row of black teeth hanging off the crest, which is a comb
-            # rather than hair.
-            hide.put(canvas, x + 1, crest - step, 17.0, "mane")
+        # Each stroke is one or two pixels standing proud of the ridge, and
+        # half of them stand a column back from their own root so the six do
+        # not line up on one edge. §7 refuses to let the pitch be even and
+        # that applies to the phase as much as to the spacing.
+        crest = int(round(_mane_crest(x)))
+        lean = index % 2
+        for step in range(max(1, min(2, height - 2))):
+            hide.put(canvas, x + lean, crest - 2 - step,
+                     MANE_PEAK - 14.0 * step, "mane")
+        # The trough is what makes the stroke a stroke — one column behind,
+        # because the mane falls to the near side.
+        hide.put(canvas, x + 1 - lean, crest - 1, MANE_TROUGH, "mane")
 
     # -- the back, and the one row that carries the whole depth read -------
     #
@@ -812,15 +1134,9 @@ def _near_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
     # records that it looks like an error in the data. Draw it warm and the
     # near horse falls back into the far one.
     bx, by, _, _ = layout.HORSE_A_BACK
-    rim = ctx.ink("horse_rim")
     for x in range(RIM_FROM, RIM_TO + 1):
-        # One unbroken row (§7), but NOT one flat colour. Measured along y=75
-        # the rim runs 45, 43, 43, 41, 44, 49, 51, 44, 26, 21, 48, 46, 29, 38,
-        # 41, 49, 57, 51, 51, 51, 33, 38, 28, 44, 47, 49, 49 — three dips to
-        # L 21-33 where the back turns under a strap or a hip, and a peak of
-        # 57 over the loin. Drawn flat it is a ruled line and reads as the top
-        # of a crate; the dips are where it becomes a back.
-        canvas.put(x, by, rim if _rim_lit(x) else ctx.ink("horse_rim", -1))
+        # One unbroken row (§7), but FOUR VALUES ALONG IT. See `_rim_step`.
+        canvas.put(x, by, ctx.ink("horse_rim", _rim_step(x)))
 
     # -- the barrel --------------------------------------------------------
     #
@@ -831,22 +1147,22 @@ def _near_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
     # right LIGHTING gradient and that is true — but it is not the same claim
     # as no structure, and modelled as a pure top-to-bottom fall the barrel
     # came out a flat plate twenty-four pixels wide, which at the squint is a
-    # crate. Measured column means over y 76-86 run 31, 32, 28, 27, 33, 35,
-    # 35, 33, 28, 25, 23, 31, 27, 30, 32, 32, 32, 25, 25, 26, 26, 24 across
-    # x 196-217: a bright loin, a DARK STRAP two pixels wide leaning back from
-    # (204, 76) to (209, 85), and a flank that loses five luminance into the
-    # hip. Three objects, all of them harness or bone, none of them light.
+    # crate. The fall down is the light (BARREL_FALL); the deviation across is
+    # the animal and the harness (BARREL_PLANES), and the two are added rather
+    # than multiplied because one of them is illumination and the other is not.
     bxx, byy, bwidth, _ = layout.HORSE_A_BARREL
     for x in range(bxx, bxx + bwidth):
         bottom = _belly(x)
+        across = _barrel_plane(x)
         for y in range(byy, bottom + 1):
             fall = (y - byy) / max(1, bottom - byy)
-            level = 42.0 - 15.0 * fall
-            if abs(x - _strap_x(y)) <= 1:
-                level = 20.0                       # the trace strap
-            elif x >= HIP_FROM:
-                level -= 3.0 + 6.0 * fall          # the hip and the flank
-            hide.put(canvas, x, y, level + hide.grain(x, y) * 9.0)
+            level = BARREL_TOP - BARREL_FALL * fall ** BARREL_CURVE + across
+            if abs(x - _strap_x(y)) <= 0.6:
+                # The hame strap leans back across the ribs as it descends and
+                # it is the darkest vertical on the animal: measured, the
+                # column it is on runs L 14-24 against 33-41 either side.
+                level = min(level, 17.0)
+            hide.put(canvas, x, y, level + hide.grain(x, y) * 5.0)
 
     # §3.15. The topline drops from y 76 to y 80 over 3 px and the croup is
     # the last of the animal; behind it is the coach's front boot.
@@ -854,7 +1170,7 @@ def _near_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
     for column in range(cwidth):
         x = cx + column
         top = cy + min(cheight - 2, column + column // 2)
-        hide.column(canvas, x, top, _belly(x), 30.0, 18.0, jitter=9.0)
+        hide.column(canvas, x, top, _belly(x), 30.0, 18.0, jitter=5.0)
 
     # §3.18. THE DARKEST MASS IN THE REGION, Lmed 8.6, `umber@0` 31% +
     # `void@0` 20%, and the anchor that holds the front of the animal down.
@@ -873,7 +1189,7 @@ def _near_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
             near = 0.9 * abs(x - CHEST_CORE[0]) + 0.75 * abs(y - CHEST_CORE[1])
             hide.put(canvas, x, y,
                      min(22.0, 2.0 + 4.5 * max(0.0, near - 1.5))
-                     + hide.grain(x, y) * 6.0, "flat")
+                     + hide.grain(x, y) * 4.0, "flat")
 
     # §3.17. Straight, and ONE ROW. §9.11 — the curve happens only at the front
     # end, where it thickens into the chest mass; curving the middle produces a
@@ -892,24 +1208,41 @@ def _near_horse(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
     # a lit gaskin, a dark gap and a lit stifle, in that order right to left.
     # Filled solid these become an apron, the daylight between the fore and
     # hind legs closes, and holes 5 and 6 of §3.20 stop existing.
-    for x in range(STIFLE[0], GASKIN[1] + 1):
+    # AND THE STIFLE COLLAPSES. See GASKIN: L 26 at y=87 and L 4 by y=91, not
+    # a 1.4-a-row drift — it is the top of the 63-px near-black mass the
+    # forelegs stand in, and drawn as a drift it stayed at hide value and the
+    # mass never formed.
+    for x in range(STIFLE[0], HOCK_X + 1):
         for y in range(UNDERLINE_Y + 1, 92):
             if _in_hole(x, y):
                 continue
-            if GASKIN[0] <= x <= GASKIN[1]:
-                level = 27.0 - 1.6 * (y - UNDERLINE_Y)      # the gaskin, lit
+            row = y - UNDERLINE_Y
+            if x == HOCK_X:
+                level = 6.0                                 # outside of the hock
+            elif GASKIN[0] <= x <= GASKIN[1]:
+                level = 34.0 - 1.5 * row                    # the gaskin, lit
             elif x <= STIFLE[1]:
-                level = 22.0 - 1.4 * (y - UNDERLINE_Y)      # flank and stifle
+                level = 28.0 - 6.0 * row                    # flank and stifle
             else:
-                level = 4.0                                 # the gap between
-            hide.put(canvas, x, y, level + hide.grain(x, y) * 8.0)
+                # The gap between them, and it LIFTS as it comes down: L 1 at
+                # y=88 against L 19 by y=91, because the road behind it is
+                # brighter than the barrel is.
+                level = 2.0 + 4.5 * row
+            hide.put(canvas, x, y, level + hide.grain(x, y) * 5.0)
 
     # §3.16. THE ONLY TAIL. 1-2 px, near-black, 19 px long, ending 5 px above
     # the hoof line. §9.9: three horses, one visible tail, and that is
     # correct — the other two are behind bodies.
+    # AND IT IS NOT NINETEEN PIXELS OF `void`. Measured down x=220 from y=78:
+    # 14, 8, 6, 6, 6, 2, 2, 1, 11, 14, 18, 11, 6, 6 — near-black at the dock
+    # where it comes off the croup, deepest a third of the way down, and
+    # lifting again through the switch. Nineteen rows of one index is a fence
+    # post, and a fence post is what stood at the back of this animal.
     tx, ty, twidth, theight = layout.HORSE_TAIL
     for y in range(ty, ty + theight):
-        canvas.put(tx + 1, y, black)
+        run = (y - ty) / max(1, theight - 1)
+        hide.put(canvas, tx + 1, y,
+                 12.0 - 22.0 * run + 26.0 * run * run, "flat")
         if y >= ty + 6:
             canvas.put(tx, y, ctx.ink("horse_hide_shadow"))
 
@@ -926,25 +1259,50 @@ def _heads(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
     C is the odd one out, and that asymmetry is the reason the group looks
     like animals rather than like a repeating stamp.
     """
-    for index, (x0, y0, width, height) in enumerate((B_HEAD, A_HEAD)):
+    # AND THEY ARE NOT THE SAME SHAPE. B_HEAD_EDGES and A_HEAD_EDGES carry
+    # each head's own measured outline: B is ten columns at the jowl and six
+    # below it, with the chin at the front and the throat climbing behind;
+    # A is nine narrowing to seven, with its far cheek stopping five rows
+    # above its muzzle. Drawn as one 10 x 14 rectangle stamped twice — which
+    # is what this was — the two heads have the same top edge, the same
+    # bottom edge and the same width at every row, and two identical
+    # rectangles nine columns apart are not two animals, they are a pattern.
+    for index, (x0, edges) in enumerate(((B_HEAD_X, B_HEAD_EDGES),
+                                         (A_HEAD_X, A_HEAD_EDGES))):
         lift = ctx.graze[index] * GRAZE_LIFT if index < len(ctx.graze) else 0
         # A is in front and catches more light than B. §9.12's depth stagger
-        # is carried by the bridle sparks; the hide follows it quietly.
-        # Measured column means, muzzle to poll: B runs 41, 44, 61, 50, 31, 26,
-        # 21, 8, 6 and A runs 15, 30, 50, 35, 40, 35, 30, 22, 18, 16 — a bright
-        # nasal plane a third of the way back and a poll end that falls away
-        # into near-black. Forty-five luminance across ten pixels; drawn at
-        # half that swing both heads dissolve into the mass behind them.
-        face, poll = (52.0, 12.0) if index else (44.0, 10.0)
-        for column in range(width):
+        # is carried by the bridle sparks; the hide follows it quietly, and
+        # the four parameters are `_face_light`'s measured hump: outside rim,
+        # nasal peak, poll, and how far back along the head the peak sits.
+        rim, face, poll, nasal = HEAD_PLANES[index]
+        width = len(edges)
+        for column, (first, last) in enumerate(edges):
             x = x0 + column
-            top = y0 - lift
-            bottom = y0 - lift + height - 1 - _head_bottom(column, width)
+            top = first - lift
+            if index and x >= MANE_POLL[0]:
+                # A's head hangs FROM the poll, and behind the poll is neck,
+                # not head. Drawn as a full rectangle it painted over the
+                # bottom three columns of the mane band — which is why the
+                # near horse's neck went dark exactly where the reference has
+                # it brightest, and why the head and the body stopped being
+                # joined by anything.
+                top = max(top, int(round(_mane_crest(x))))
+            bottom = last - lift
             for y in range(top, bottom + 1):
                 hide.put(canvas, x, y,
-                         _face_light(column, width, face, poll)
+                         _face_light(column, width, rim, face, poll, nasal)
                          - 7.0 * (y - top) / max(1, bottom - top)
-                         + hide.grain(x, y) * 18.0)
+                         + hide.grain(x, y) * 10.0)
+
+    # §3.5's GULLET DOES NOT STOP AT C'S THROAT. `_far_horse` runs the dark
+    # diagonal from (161, 73) down to (167, 82); the bar runs it on, leaning
+    # the other way, down the front of B's face to (163, 86) — and the two
+    # halves are ONE connected 34-px near-black pool in the dark census,
+    # x 159-167, y 73-86. Measured cells: (165, 83) and (164, 84) and
+    # (164, 85) at L 1, (163, 86) at L 6. Left out, B's leading edge sat at
+    # the same value as the sky behind it and the middle head had no front.
+    for y, x in B_FACE_RIM:
+        hide.put(canvas, x, y, 4.0, "flat")
 
     # §5. The strongest of the near-black seams, at x=184: averaged over
     # y 70-96 that column measures L 12.3 against 17-24 either side, and from
@@ -953,12 +1311,73 @@ def _heads(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
     # only place one animal's edge is allowed to cut another.
     for y in range(84, 95):
         hide.put(canvas, 184, y, 5.0, "flat")
-    # The same device, weaker, between B's head and A's.
-    for y in range(83, 92):
-        hide.put(canvas, 171, y, 7.0, "flat")
+    # The same device between B's head and A's — AND IT LEANS. Held in one
+    # column at x=171 it was a plumb line beside two heads that both hang
+    # fifteen degrees off vertical, which is the one direction nothing else
+    # in this region goes. The bar puts it at x 171 on y 83-88, x 170 on
+    # y 85-88 and x 169 on y 87-92, all at L 1-8: a 25-px pool leaning down
+    # and forward with the faces it separates.
+    for x, first, last in HEAD_SEAM:
+        for y in range(first, last + 1):
+            hide.put(canvas, x, y, 6.0, "flat")
 
 
 # ---------------------------------------------------------------------------
+
+
+def _holes(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
+    """§3.20. The six cool background gaps between the legs, and they are COLD.
+
+    They used to be drawn by not being drawn, on §3.20's word that they are
+    background and not this region's to paint. Measured, that does not
+    survive contact with the composition. Over the six holes the bar runs
+    **L 25.6 at warmth −0.4**; ours, with nothing at all drawn in them, runs
+    L 26.4 at warmth **+13.4** — the right value and the wrong family, because
+    what is behind the team in OUR frame at those rows is the road, and the
+    road is warm. In the bar it is the hillside, seen under the barrel and
+    between the legs, and §3.20 says so in as many words: *the hillside seen
+    through the team, not the animals' own shade.*
+
+    §9.8 names the consequence and it is the one this region kept failing:
+    painting them warm and dark closes the silhouette and loses every leg. A
+    hole at the same hue as the leg beside it is not a hole. So the team
+    draws them, because the team is the only region that knows they exist —
+    §7 lists them with the ear and the back rim among the six places where
+    one pixel is doing structural work, and calls them as important as the
+    legs.
+
+    Cold, at value, and NOT flat: `grey` 0-2 stippled on the leg field, which
+    puts them at L 16-32 about a mean of 24 against a measured 25.6, and
+    keeps the busy 1.35 px surface the rest of this zone has.
+    """
+    # AND THE TWO UNDER THE BARREL ARE A STEP DARKER THAN THE FOUR BESIDE THE
+    # LEGS. Measured, holes 1-4 run a mean of L 25 and holes 5 and 6 run
+    # L 18 — because the four are hillside seen BETWEEN the animals and the
+    # two are hillside seen UNDER one, with a barrel's worth of body between
+    # them and the sky glow that lights everything in this frame. Drawn at one
+    # value the pair under A read as two pale panes let into the shadow, which
+    # is the "windows cut in a wall" failure below arrived at by value instead
+    # of by edge.
+    bright = tuple(ctx.ink("horse_rim", offset) for offset in (-3, -2, -1))
+    shaded = tuple(ctx.ink("horse_rim", offset) for offset in (-3, -3, -2))
+    for index, (x0, x1, y0, y1) in enumerate(HOLES):
+        steps = shaded if index >= 4 else bright
+        for y in range(y0, y1 + 1):
+            edge_y = y in (y0, y1)
+            for x in range(x0, x1 + 1):
+                if layout.keep_at(canvas, x, y):
+                    continue
+                # A hole is a gap between two curved legs, so its corners are
+                # hide and its edges are ragged. Stamped as six rectangles the
+                # cool patches read as windows cut in a wall, which is the same
+                # failure as the ruled rim one row up: the value was right and
+                # the EDGE was a straight line nothing in an animal makes.
+                edge = edge_y + (x in (x0, x1))
+                if edge == 2 or (edge and hide.grain(x, y) < -0.15):
+                    continue
+                level = hide.grain(x, y)
+                canvas.put(x, y, steps[0 if level < -0.22
+                                       else (2 if level > 0.22 else 1)])
 
 
 def _legs(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
@@ -972,17 +1391,24 @@ def _legs(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
     1 px of `umber@0` behind. Hooves are 3-4 px wide and 2-3 px tall and are
     NOT pure black — the near ones catch a little road bounce.
 
-    And the six holes between them (§3.20) are as important as the legs. They
-    are cool background at L 18-29, not shadow: §9.8, painting them warm and
-    dark closes the silhouette and loses every leg. They exist here because
-    nothing is drawn in them.
+    And the six holes between them (§3.20) are as important as the legs, and
+    `_holes` above draws them cold immediately before this runs. Nothing here
+    may enter one.
     """
     hoof = ctx.ink("horse_hide_shadow")
     bounce = ctx.ink("horse_hide_shadow", 5)
     for index, (left, right, ground) in enumerate(layout.HOOVES):
-        cannon = left + CANNON_OFFSET[index]
+        cannon, lit, dark, peak = LEGS[index]
         top = LEG_TOP[index]
-        for column, luminance in enumerate(CANNON_PLANES):
+        # THE LIGHT DOES NOT SIT IN THE SAME PLACE ON EVERY LEG. See LEGS:
+        # the bar's peak column is the third on leg 1, the first on legs 2, 3
+        # and 7, the second on legs 4, 6, 8 and 9. Stamped from one profile
+        # the nine legs shared one highlight position, which at the squint is
+        # a repeat and reads as railings — §9.7's fence by a different route
+        # from the one it warns about.
+        planes = [LEG_PEAK - LEG_FALL * abs(column - peak)
+                  for column in range(lit)] + [LEG_DARK] * dark
+        for column, luminance in enumerate(planes):
             x = cannon + column
             for y in range(top, ground - 1):
                 if _in_hole(x, y):
@@ -996,7 +1422,7 @@ def _legs(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
                 # value, which is where nine legs became one dark skirt.
                 emerge = min(1.0, (y - top) / 2.0)
                 hide.put(canvas, x, y, 9.0 + (luminance - 9.0) * emerge
-                         + hide.grain(x, y) * 7.0, "leg")
+                         + hide.grain(x, y) * 5.0, "leg")
         # The hoof is wider than the cannon and its toe points FORWARD, which
         # is left: the ground contact reaches past the leg on the near side
         # and stops level with it behind. Two rows, and the front one takes a
@@ -1025,9 +1451,16 @@ def _tack(canvas: IndexedCanvas, ctx: layout.Ctx, hide: _Hide) -> None:
         # edge, and a shelf edge under a slab is a table.
         hide.put(canvas, x, py, 33.0 + hide.grain(x, py) * 7.0)
     # §3.21: directly beneath it is the near-black underline. One dark row is
-    # what lifts a flat lit row off the hide it crosses.
+    # what lifts a flat lit row off the hide it crosses — BUT ONLY WHERE THE
+    # UNDERLINE IS. Measured along y=86 the bar runs 24, 24, 24, 24, 24, 21
+    # across x 196-201 and only then drops to 16, 11, 14, 11, 6, 8 from x=202
+    # on: §3.17 puts the belly at x 202-220 and the six columns in front of it
+    # are the girth, still lit. Carried the whole length of the pole this row
+    # welded the underline into one ruled black line twenty-five pixels wide,
+    # which under a flat lit row is a shelf with a shadow under it.
     for x in range(px, px + plength):
-        hide.put(canvas, x, py + 1, 12.0)
+        hide.put(canvas, x, py + 1,
+                 12.0 if x >= UNDERLINE_FROM else 22.0)
 
     # §3.22. The only cool object standing ABOVE the near horse's back.
     tx, ty, twidth, theight = layout.TERRET
@@ -1090,7 +1523,13 @@ def _sparks(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         x = ax + 3 - row // 3
         canvas.put(x, ay + row - lift_a, ctx.ink("horse_mane", 1))
         canvas.put(x - 1, ay + row - lift_a, dim)
-    canvas.rect(173, 86 - lift_a, 2, 3, ctx.ink("bridle_spark"))
+    # THREE PIXELS (§3.11), and they are not a block: measured, `ochre@8`
+    # lands at (174, 86), (173, 87) and (173, 88) — a spark running down and
+    # forward with the strap, not a domino stamped on the jaw.
+    spark = ctx.ink("bridle_spark")
+    canvas.put(174, 86 - lift_a, spark)
+    canvas.put(173, 87 - lift_a, spark)
+    canvas.put(173, 88 - lift_a, spark)
     canvas.put(175, 87 - lift_a, ctx.ink("horse_mane", 1))
     canvas.put(172, 92 - lift_a, ctx.ink("horse_mane"))
     canvas.put(176, 92 - lift_a, ctx.ink("horse_mane", -1))
@@ -1132,7 +1571,17 @@ def _cast_shadow(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
         # three steps of darkening now lands the ground between the legs at
         # 18.6 against a measured 28.7. Same shadow, same measurement, on a
         # plane that moved 24 luminance underneath it.
-        depth = 2 if y < y0 + height - 3 else 1
+        # ONE STEP UNDER THE ANIMAL, TWO AT THE FEET. The pool is deepest
+        # where the body blocks the sky and thins toward its front edge --
+        # but the rows the LEGS stand in are also the rows the nine feet
+        # are told apart in, and two steps there took the ground between
+        # them from a measured 30-38 down to 17-21 and the lit fronts of
+        # the cannons with it. Measured on the bar, x 196-218 runs L 29.6
+        # at y 92-99 and L 24.4 only from y=100 down; ours ran 18.4 across
+        # the whole of it. §5.3's whole point is that the animals are dark
+        # objects ON A BRIGHT FLOOR, and a floor darkened to hide value is
+        # not a floor, it is more horse.
+        depth = 1 if y < HOOF_LINE else (2 if y < y0 + height - 3 else 1)
         for x in range(x0, x0 + width):
             if layout.keep_at(canvas, x, y):
                 continue

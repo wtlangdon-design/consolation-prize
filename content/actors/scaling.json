@@ -2,14 +2,26 @@
   "schema": 2,
   "note": "Errata ruling 24, which voids ruling 15's three-size table. TWO drawn sizes. Above the threshold the near sprite is decimated continuously -- whole rows and columns dropped by a bit-reversal distribution, nothing blended, which is what SCUMM did and what keeps it crisp. At or below the threshold the drawn far sprite is used, snapped. Zone heights below are depth references the room schema samples, not drawn sizes: the drawn height is interpolated continuously between them.",
   "drawn": {
-    "near": 40,
-    "far": 26
+    "near": 240,
+    "far": 156
   },
-  "threshold": 30,
+  "threshold": 180,
   "thresholdNote": "MEASURED per character, not chosen. Thad: tools/pixelart/actor.py:eye_death_row decimates the near sprite one row at a time and counts the eyes that survive. They survive to 31 rows and are gone at 30, so 30 is where the drawn far sprite takes over. A character with a wider face will measure lower.",
   "zones": [
-    { "index": 0, "name": "near", "height": 40 },
-    { "index": 1, "name": "mid", "height": 32 },
-    { "index": 2, "name": "far", "height": 26 }
+    {
+      "index": 0,
+      "name": "near",
+      "height": 240
+    },
+    {
+      "index": 1,
+      "name": "mid",
+      "height": 192
+    },
+    {
+      "index": 2,
+      "name": "far",
+      "height": 156
+    }
   ]
 }

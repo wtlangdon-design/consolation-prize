@@ -13,13 +13,13 @@
         "id": "bar_near",
         "note": "At the bar, near end. Weight shift.",
         "at": [
-          226,
-          120
+          1356,
+          720
         ],
-        "height": 27,
+        "height": 162,
         "kind": "standing",
         "rate": 0.34,
-        "phase": 0.0,
+        "phase": 0,
         "frames": [
           [
             0,
@@ -39,10 +39,10 @@
         "id": "bar_mid",
         "note": "At the bar, middle. Lifts a glass.",
         "at": [
-          252,
-          122
+          1512,
+          732
         ],
-        "height": 29,
+        "height": 174,
         "kind": "standing",
         "rate": 0.52,
         "phase": 0.4,
@@ -66,10 +66,10 @@
         "id": "far_table",
         "note": "Seated at the far table. Leans back.",
         "at": [
-          180,
-          90
+          1080,
+          540
         ],
-        "height": 14,
+        "height": 84,
         "kind": "seated",
         "rate": 0.41,
         "phase": 0.7,
@@ -92,10 +92,10 @@
         "id": "stove_man",
         "note": "Doc 16's man beside the stove, who has not taken his coat off. Shifts.",
         "at": [
-          99,
-          88
+          594,
+          528
         ],
-        "height": 24,
+        "height": 144,
         "kind": "standing",
         "rate": 0.66,
         "phase": 0.2,
@@ -120,36 +120,36 @@
     "sky": 0,
     "ground": 6
   },
-  "horizon": 82,
+  "horizon": 492,
   "walkable": [
     {
       "id": "floor_far",
       "zone": 2,
       "rect": [
-        44,
-        82,
-        170,
-        17
+        264,
+        492,
+        1020,
+        102
       ]
     },
     {
       "id": "floor_mid",
       "zone": 1,
       "rect": [
-        32,
-        99,
-        182,
-        19
+        192,
+        594,
+        1092,
+        114
       ]
     },
     {
       "id": "floor_near",
       "zone": 0,
       "rect": [
-        18,
-        118,
-        284,
-        26
+        108,
+        708,
+        1704,
+        156
       ]
     }
   ],
@@ -158,10 +158,10 @@
       "id": "deke_vessel",
       "name": "DEKE VESSEL",
       "rect": [
-        174,
-        96,
-        15,
-        30
+        1044,
+        576,
+        90,
+        180
       ],
       "colour": 30,
       "stub": true,
@@ -179,10 +179,10 @@
       "id": "handbill",
       "name": "THE HANDBILL",
       "rect": [
-        88,
-        40,
-        16,
-        20
+        528,
+        240,
+        96,
+        120
       ],
       "colour": 203,
       "responses": {
@@ -214,10 +214,10 @@
       "id": "cards",
       "name": "THE HAND OF CARDS",
       "rect": [
-        104,
-        90,
-        18,
-        12
+        624,
+        540,
+        108,
+        72
       ],
       "colour": 202,
       "responses": {
@@ -250,10 +250,10 @@
       "id": "piano",
       "name": "THE PIANO",
       "rect": [
-        26,
-        64,
-        42,
-        38
+        156,
+        384,
+        252,
+        228
       ],
       "colour": 105,
       "responses": {
@@ -286,10 +286,10 @@
       "id": "portrait",
       "name": "THE FADED PORTRAIT",
       "rect": [
-        126,
-        32,
-        18,
-        22
+        756,
+        192,
+        108,
+        132
       ],
       "colour": 172,
       "responses": {
@@ -318,10 +318,10 @@
       "id": "chandelier",
       "name": "THE CHANDELIER",
       "rect": [
-        120,
-        26,
-        60,
-        32
+        720,
+        156,
+        360,
+        192
       ],
       "colour": 226,
       "responses": {
@@ -353,10 +353,10 @@
       "id": "mirror",
       "name": "THE MIRROR",
       "rect": [
-        265,
-        38,
-        52,
-        20
+        1590,
+        228,
+        312,
+        120
       ],
       "colour": 186,
       "responses": {
@@ -385,10 +385,10 @@
       "id": "bar",
       "name": "THE BAR",
       "rect": [
-        216,
-        86,
-        104,
-        32
+        1296,
+        516,
+        624,
+        192
       ],
       "colour": 108,
       "responses": {
@@ -421,10 +421,10 @@
       "id": "stairs",
       "name": "THE STAIRS",
       "rect": [
-        166,
-        30,
-        56,
-        52
+        996,
+        180,
+        336,
+        312
       ],
       "colour": 104,
       "responses": {
@@ -456,10 +456,10 @@
       "id": "spittoon",
       "name": "THE SPITTOON",
       "rect": [
-        196,
-        124,
-        16,
-        14
+        1176,
+        744,
+        96,
+        84
       ],
       "colour": 224,
       "responses": {
@@ -491,10 +491,10 @@
       "id": "stove",
       "name": "THE STOVE",
       "rect": [
-        104,
-        54,
-        20,
-        30
+        624,
+        324,
+        120,
+        180
       ],
       "colour": 183,
       "responses": {
@@ -526,10 +526,10 @@
       "id": "window",
       "name": "THE WINDOW",
       "rect": [
-        6,
-        30,
-        34,
-        32
+        36,
+        180,
+        204,
+        192
       ],
       "colour": 204,
       "responses": {
@@ -558,10 +558,10 @@
       "id": "patrons",
       "name": "THE PATRONS",
       "rect": [
-        128,
-        84,
-        38,
-        30
+        768,
+        504,
+        228,
+        180
       ],
       "colour": 170,
       "responses": {
@@ -595,10 +595,10 @@
       "id": "front_doors",
       "name": "THE FRONT DOORS",
       "rect": [
-        58,
-        36,
-        30,
-        46
+        348,
+        216,
+        180,
+        276
       ],
       "colour": 198,
       "to": "main_street",
@@ -628,10 +628,10 @@
       "id": "back_room_door",
       "name": "THE BACK ROOM DOOR",
       "rect": [
-        230,
-        34,
-        30,
-        48
+        1380,
+        204,
+        180,
+        288
       ],
       "colour": 110,
       "to": "stub_nugget_back",

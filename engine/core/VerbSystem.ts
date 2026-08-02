@@ -2,6 +2,8 @@ import type {
   CombinationsFile, Interactable, ResponseRule, VerbFallbacksFile, VerbsFile,
 } from './types.ts';
 import type { FlagStore } from './FlagStore.ts';
+import { flagEffects } from './Commit.ts';
+import type { DurableEffect } from './runtime-types.ts';
 
 export interface ResolvedAction {
   say: string | null;
@@ -11,6 +13,19 @@ export interface ResolvedAction {
   state?: string;
   /** Ownership passes to the actor. */
   take?: boolean;
+  /**
+   * The flag writes this response WOULD make, reserved rather than applied.
+   *
+   * Doc 34 section 1.2's second defect: "Item/verb resolution writes flags
+   * during resolveWith()/resolve()". They are described here and committed by
+   * whoever owns the transaction, in section 9.1's phase order.
+   *
+   * Only flags. Object state, ownership and the room are on the fields above,
+   * because turning them into effects needs the room key and the target's
+   * item, and this class knows neither -- GameState does, and it is the one
+   * that reserves the bundle.
+   */
+  effects: readonly DurableEffect[];
 }
 
 /**
@@ -114,6 +129,11 @@ export class VerbSystem {
    * in for it is a gap that reads as content. check-combinations fails the
    * build on one, so this branch should be unreachable in a shipped build --
    * it is here so that if it ever is reached, it is obvious.
+   *
+   * PURE as of step B. The precedence above is untouched -- doc 34 section 8
+   * lists it among the things that are already right -- and the only change is
+   * that `pair.set` comes back as a reserved effect instead of being written
+   * on the way past.
    */
   resolveWith(
     _verbId: string, itemId: string, target: Interactable, roomId: string,
@@ -125,14 +145,23 @@ export class VerbSystem {
         && candidate.target === target.id,
     );
     if (pair) {
-      this.flags.applyWrites(pair.set);
-      return { say: pair.say ?? null, dialogue: null, goto: null, state: pair.setState };
+      return {
+        say: pair.say ?? null,
+        dialogue: null,
+        goto: null,
+        state: pair.setState,
+        effects: flagEffects(`with/${roomId}/${target.id}/${itemId}`, pair.set),
+      };
     }
     const own = table?.itemPools[itemId];
-    if (own?.length) return { say: this.rotate(`item:${itemId}`, own), dialogue: null, goto: null };
+    if (own?.length) {
+      return { say: this.rotate(`item:${itemId}`, own), dialogue: null, goto: null, effects: [] };
+    }
     const global = table?.globalPool ?? [];
-    if (global.length) return { say: this.rotate('combination', global), dialogue: null, goto: null };
-    return { say: null, dialogue: null, goto: null };
+    if (global.length) {
+      return { say: this.rotate('combination', global), dialogue: null, goto: null, effects: [] };
+    }
+    return { say: null, dialogue: null, goto: null, effects: [] };
   }
 
   /**
@@ -179,6 +208,22 @@ export class VerbSystem {
    *
    * Found by driving the second room rather than by reading the first: with
    * one room in the game the key was unique and the bug did not exist yet.
+   *
+   * PURE as of step B, in the sense doc 34 section 9.1 defines: it leaves
+   * flags, room, objects, inventory, ownership and dialogue counts
+   * byte-identical. What it does still advance is the LINE CURSORS, and that
+   * is deliberate --
+   *
+   *   the chosen line IS the resolution. Doc 05's repeat variants and doc
+   *   13's rotating pools are content selected here and nowhere else; a
+   *   cursor is not durable, never reaches a save file, and is not in section
+   *   9.1's list. Deferring it to commit would mean the inventory-examine
+   *   path in the scene, which resolves a line and commits nothing, showed
+   *   the establishing line forever and the written variants never appeared.
+   *
+   * The contract that keeps that honest is one resolve per interaction. There
+   * is no speculative resolution anywhere in the engine, and adding one would
+   * silently spend a written line.
    */
   resolve(verbId: string, target: Interactable, scope = ''): ResolvedAction {
     const rules = target.responses?.[verbId];
@@ -186,14 +231,13 @@ export class VerbSystem {
     const matched = index >= 0 ? rules?.[index] : undefined;
 
     if (matched) {
-      this.flags.applyWrites(matched.set);
-      this.flags.applyAdds(matched.add);
       return {
         say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
         state: matched.setState,
         take: matched.take,
+        effects: flagEffects(`act/${scope}/${target.id}/${verbId}#${index}`, matched.set, matched.add),
       };
     }
 
@@ -202,12 +246,13 @@ export class VerbSystem {
     // time; a pool rotates. Two different behaviours, both deliberate.
     const override = target.overrides?.[verbId];
     if (override) {
-      return { say: override, dialogue: null, goto: null };
+      return { say: override, dialogue: null, goto: null, effects: [] };
     }
     return {
       say: this.nextFallback(target) ?? this.nextFromPool(verbId),
       dialogue: null,
       goto: null,
+      effects: [],
     };
   }
 

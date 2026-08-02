@@ -76,11 +76,14 @@ SEED = 18580412
 #: Sky band. Study §1, "Sky, rows 0-37, 26.4% of frame".
 SKY_ROWS = (0, 38)
 
-#: The sky's own three-segment gradient. sky.md §3: flat at row 0, a linear
-#: ramp to row 31 at +0.71 L/row, then a plateau from row 32 to the skyline.
-SKY_FLAT_TO = 16          # rows 0-16 are one flat colour, no dither at all
-SKY_RAMP_ROWS = (17, 32)  # fifteen rows of ordered 4x4, 1/16 per row
-SKY_PLATEAU_FROM = 32     # flat, and only reached where the range is low
+# SKY_FLAT_TO, SKY_RAMP_ROWS and SKY_PLATEAU_FROM were here, and they
+# described a three-segment gradient -- flat to row 16, ordered 4x4 ramp to
+# 32, plateau after -- that `sky` no longer draws. Nothing else in the tree
+# read them (grep: three hits, all three the definitions themselves), so a
+# reader checking the sky against the contract was checking it against a
+# shape it does not have. Removed at the region author's request rather than
+# updated, because the sky's own module documents its ladder in one place and
+# a second, stale copy of it in the shared contract is worse than none.
 
 #: Far range. range.md §2: mean crest y=38.0, highest y=29 at x=27, lowest
 #: y=43 at x=195-210, amplitude 14, sd 3.7.
@@ -157,6 +160,49 @@ NEAR_CREST = ((0, 44), (14, 39), (27, 35), (44, 40), (60, 44), (85, 46),
               (300, 48), (319, 48))
 
 
+#: The 40-70 px content `FAR_CREST` does not carry, as
+#: (wavelength px, amplitude px, phase turns). range.md §2's DFT of the far
+#: crest gives 2.9 px at wavelength 320, 2.8 at 107, 1.9 at 160 -- which the
+#: polyline's own control points already are -- then 1.3 at 64, 1.0 at 53,
+#: and nothing above 0.8 px below 36 px. The polyline carries the three long
+#: components and none of the short ones, so drawn straight it measured 78%
+#: of columns flat with ONE FLAT RUN 25 COLUMNS LONG against §2's measured
+#: 63% / 34% / 1% cadence and flat runs of median 2, max 8. A twenty-five
+#: column ruled line is 8% of the frame width, it is the crest the whole sky
+#: is cut against, and it was the last mechanical staircase in the region.
+#:
+#: IT LIVES HERE AND NOT IN `range_` BECAUSE IT IS TWO REGIONS' BUSINESS.
+#: `sky` fills down to far_crest(x) and `range_` fills from the same row: a
+#: wobble added on the range side and not the sky side tears the seam open a
+#: pixel at a time along its whole length. Both regions call this function,
+#: so they cannot disagree about where the mountain starts. This is the same
+#: treatment `range_.CREST_WANDER` gives the NEAR crest, which that region
+#: may do alone precisely because nothing else reads it.
+#:
+#: Amplitudes are §2's own figures at 64 and 53 and sit under §2's 0.8 px
+#: ceiling at 44 and 37. Phases were searched for cadence, not fitted to the
+#: bar: §2 measures the crest's amplitude spectrum and says nothing about its
+#: phase, so what is reproduced is the character, not the mountain.
+#:
+#: Measured on the drawn line: 70% of adjacent columns flat, 30% stepping
+#: one, no step above one anywhere, mean |step| 0.30 px per column against
+#: §2's 0.35, longest flat run 9 columns down from 25, median run 3. The
+#: residual 70/30 against 63/34 is the polyline's, not the wander's -- §2's
+#: 1% of two-pixel steps needs a slope this spectrum cannot reach without
+#: breaking the 0.8 px ceiling, and a sawtooth is the failure §7.4 forbids.
+FAR_CREST_WANDER = ((64.0, 1.20, 0.4988),
+                    (53.0, 1.00, 0.9211),
+                    (44.0, 0.70, 0.8053),
+                    (37.0, 0.80, 0.4880))
+
+#: The wandered crest's own bounds. §2 measures the far crest's highest point
+#: at y=29 and its lowest at y=43; the wander is allowed one row outside each
+#: because clamping it AT the measurement is what produces flat runs -- every
+#: column the sum pushes past the limit lands on the same row, and the clamp
+#: manufactures exactly the ruled line the wander exists to remove.
+FAR_CREST_BOUNDS = (28, 44)
+
+
 def _crest(points: tuple[tuple[int, int], ...], x: int) -> int:
     """Piecewise-linear through measured control points, rounded to a row.
 
@@ -172,9 +218,35 @@ def _crest(points: tuple[tuple[int, int], ...], x: int) -> int:
     return points[-1][1]
 
 
+def _crest_float(points: tuple[tuple[int, int], ...], x: float) -> float:
+    """`_crest` without the rounding, so a wander can be added before it.
+
+    ROUNDED ONCE, AT THE END, AND NEVER TWICE. `range_.CREST_WANDER` records
+    what happens otherwise: a continuous offset added to an already-rounded
+    row alternates wherever the two disagree by about half a pixel, and the
+    line comes out as one-column teeth -- a 2 px sawtooth, which is the one
+    thing §7.4 says degrades into dither noise at this resolution.
+    """
+    x = max(0.0, min(WIDTH - 1.0, x))
+    for (x0, y0), (x1, y1) in zip(points, points[1:]):
+        if x <= x1:
+            t = (x - x0) / max(1, x1 - x0)
+            return y0 + (y1 - y0) * t
+    return float(points[-1][1])
+
+
 def far_crest(x: int) -> int:
-    """Topmost terrain row at column x. The sky owns this cut; range fills it."""
-    return _crest(FAR_CREST, x)
+    """Topmost terrain row at column x. The sky owns this cut; range fills it.
+
+    See FAR_CREST_WANDER: the polyline plus its missing mid-frequency
+    content, summed in float and rounded exactly once.
+    """
+    x = max(0, min(WIDTH - 1, x))
+    y = _crest_float(FAR_CREST, x)
+    for length, amplitude, phase in FAR_CREST_WANDER:
+        y += amplitude * math.sin(math.tau * (x / length + phase))
+    low, high = FAR_CREST_BOUNDS
+    return int(round(max(float(low), min(float(high), y))))
 
 
 def near_crest(x: int) -> int:
@@ -353,6 +425,16 @@ MATERIALS: dict[str, tuple[str, int]] = {
     #    is nothing between them. Chase the relationships, not the absolutes.
     "night_sky": ("accent_indigo", 0),          # L 21.7 against a measured 22.7
     "night_sky_horizon": ("accent_indigo", 1),  # L 35.0; the step to the range is 13.4
+    # The rung BETWEEN those two, which the palette does not offer and the
+    # region has to build. `sky` was reaching both of these through
+    # ctx.palette.family() with the citation in a comment, so temperature()
+    # could not classify either -- and accent_teal had no material anywhere in
+    # this table, which meant the one saturated cold entry in the palette was
+    # invisible to the audit that exists to catch exactly that. Named at the
+    # region's request; the choice of entries and the density they are laid at
+    # remain sky.md §4's and the region's, not this file's.
+    "night_sky_mid": ("grey", 1),               # L 24.5, (24,24,28): blue-leaning
+    "night_sky_mid_chroma": ("accent_teal", 0),  # L 24.8, sat 0.75: the chroma bank
     # Stars are WARM, never white, never cool at the bright end. Capped one
     # step below ochre 13 on purpose (sky.md §6.2): the bar ties its brightest
     # star to the lamp and errata 18b protects the lamp's status as the
@@ -382,6 +464,20 @@ MATERIALS: dict[str, tuple[str, int]] = {
     "near_rock": ("grey", 0),                   # L 16.0 against a measured 13.2
     "near_rock_lit_mid": ("grey", 1),           # L 24.3; the lit face's right flank
     "near_rock_lit": ("grey", 2),               # L 32.3; apex pixels only
+    # THE BASE OF THE NEAR MASS IS COLD, and the note above is about its
+    # CREST. Added by the integrator against three regions' reports of one
+    # rect: over the range-owned pixels of rows 61-67 the locked-palette
+    # proof is 51% accent_indigo 0, 14% grey 2, 13% grey 1 and only 2% grey
+    # 0, while we were 78% grey 0 -- a flat neutral slab where the reference
+    # has the same blue the far range and the valley floor are already
+    # painted in, which is why it read as a hole punched out beside the town
+    # rather than as the hill the town stands on.
+    #
+    # It does not touch the silhouette. The crest keeps `near_rock`, so the
+    # 5 L grey-0-against-indigo-0 step this table's note is protecting is
+    # unchanged for its whole length; the handover is fifteen-odd rows below
+    # it, at range_.BASE_DEPTH, where the mass has already broken up.
+    "near_rock_base": ("accent_indigo", 0),     # L 21.7; the proof's 51%
 
     # -- town. town.md §5. The town is a GREY thing standing on a BLUE thing
     #    at nearly the same value, which is why it reads as material rather
@@ -492,6 +588,18 @@ MATERIALS: dict[str, tuple[str, int]] = {
     "hob_brim": ("mud", 5),                     # L 39; lit tip only; the far tip is L 4
     "hob_face": ("ochre", 10),                  # L 102; five pixels reach ochre 12
     "hob_collar": ("dust", 8),                  # L 82; ONE pixel, the only cool-neutral on him
+    # ASKED FOR BY `hob` AND GRANTED. His chroma ladder runs grey -> dust ->
+    # umber -> mud -> ??? -> ochre, and the rung between mud and ochre is
+    # where hob.md §3 puts about a third of the bar's face. `pine_fresh` is
+    # the family that sits there and the only entry in this whole table
+    # anchored on it was `lit_mud` -- the ROAD's lit fringe -- so the figure
+    # was reaching a rung through another region's material. Legal, since
+    # hob._turn indexes the family and never the step, and it does not say
+    # what is meant; the next author to read either table would have had to
+    # work out that the man's cheekbone and the verge of the road are the
+    # same entry by coincidence. The step is 3 rather than lit_mud's 4 for
+    # the same reason it does not matter: nothing reads it.
+    "hob_skin_turn": ("pine_fresh", 3),         # L 54; the rung between mud and ochre
     # The lantern's hardware sits in the same family as its flame, one band
     # BELOW the reserve, so the object holds together and only the flame moves.
     "lamp_hardware": ("accent_gold", 2),        # L 90; hood, bail, frame, base plate
@@ -509,7 +617,7 @@ WARM_MATERIALS = frozenset({
     "coach_lamp", "coach_lamp_ring",
     "horse_hide", "horse_hide_mid", "horse_hide_shadow", "horse_mane",
     "bridle_spark",
-    "hob_coat_lit", "hob_brim", "hob_face",
+    "hob_coat_lit", "hob_brim", "hob_face", "hob_skin_turn",
     "lamp_hardware", "lamp_glass",
 })
 
@@ -520,11 +628,12 @@ WARM_MATERIALS = frozenset({
 #: characterful thing about the foreground.
 COLD_MATERIALS = frozenset({
     "night_sky", "night_sky_horizon",
+    "night_sky_mid", "night_sky_mid_chroma",
     # The cold counterpart to the three warm star tiers. WARM_MATERIALS is
     # not the whole star field: about one in twenty is a blue-grey at the
     # same value as the warm mid tier it sits beside. See MATERIALS.
     "star_cool",
-    "far_rock", "near_rock", "near_rock_lit_mid", "near_rock_lit",
+    "far_rock", "near_rock", "near_rock_base", "near_rock_lit_mid", "near_rock_lit",
     "town_mass_dark", "town_roof_sky",
     "town_trough", "town_wall", "town_wall_lit", "town_roof", "town_roof_bright",
     "verge_mud", "valley_floor", "valley_floor_blue",

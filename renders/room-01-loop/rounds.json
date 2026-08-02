@@ -113,5 +113,35 @@
       "town": "90.5% of non-window pixels are three neutral greys, so every building shares a value with the one behind it and the windows float on an undifferentiated field. No lit roof planes.",
       "range": "the masses are two colours with no internal form; the ridgeline is a mechanically regular two-pixel staircase."
     }
+  },
+  {
+    "round": 8,
+    "title": "The far field \u2014 and a green sky the instrument asked for",
+    "note": "Four regions redrawn against measured briefs. Sky shape 0.548 to 0.397, range 0.348 to 0.210, team 0.121 to 0.087. Then all four critics independently called the sky green speckle \u2014 1,089 pixels of accent_teal that ruling 41's saturation test had actively rewarded. Removed, and the check rebuilt so it cannot be gamed that way again.",
+    "status": "sky, range, team improved; town unmoved; teal out",
+    "verdicts": {},
+    "gaps": {
+      "town": "shape 0.391 unmoved, buckets 2 and 4 still hollow \u2014 the one region of four that did not improve.",
+      "sky": "bucket 2 is hollow and stays hollow: the palette's only cold entry in that luminance window carries no chroma at all.",
+      "range": "saturation 0.60 \u2014 the near range wants luminance 13 with blue in it, and the locked 256 has no such entry."
+    }
+  },
+  {
+    "round": 9,
+    "title": "Saturation closed \u2014 and the shape metric had no floor under it",
+    "note": "Hob held. Saturation moved everywhere: sky 0.65 to 0.74, range 0.60 to 0.72, town 0.65 to 0.74, team 0.72 to 0.84. Median 24.5 to 25.5 against the bar's 26.1. Then two authors independently reported that the shape score was measuring the locked palette rather than the drawing \u2014 and they were right.",
+    "status": "held 1 of 5; the instrument was wrong a third time",
+    "verdicts": {
+      "hob": "ours",
+      "town": "bar",
+      "team": "bar",
+      "coach": "bar",
+      "left_yard": "bar"
+    },
+    "gaps": {
+      "town": "still reads as lights rather than buildings to a blind critic. The shape number never could have told us \u2014 our render beats the re-quantised bar on that rect, 0.445 against 0.505.",
+      "coach": "no undercarriage \u2014 the body never terminates, so it reads as a building rather than a suspended box.",
+      "team": "the near horse's head is still an undifferentiated blur against the sky."
+    }
   }
 ]

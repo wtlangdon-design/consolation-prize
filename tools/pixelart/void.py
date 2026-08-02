@@ -166,7 +166,8 @@ def rect(canvas: IndexedCanvas, x: int, y: int, width: int, height: int,
 
 
 def smear(canvas: IndexedCanvas, x: int, y: int, width: int, height: int,
-          keep=None, floor: int = VOID, solid: bool = False) -> int:
+          keep=None, floor: int = VOID, solid: bool = False,
+          threshold=None) -> int:
     """A flat pool at an object's foot: wide, shallow, and thinning outwards.
 
     The shadow a table casts on a floor is not a circle under the table, it is
@@ -190,8 +191,18 @@ def smear(canvas: IndexedCanvas, x: int, y: int, width: int, height: int,
     x 28-29 gap behind the signboard, measured flat at L 1.4 -- has no floor
     to dissolve into, and an ordered checkerboard across it reads as texture
     on the object beside it rather than as a gap behind it.
+
+    `threshold` replaces BAYER4 with any (x, y) -> 0..1 screen. It defaults to
+    BAYER4 so nothing that already calls this changes, and it exists because a
+    smear whose `weight` hovers near 0.5 over a wide area is a Bayer 4x4 at
+    one density -- which is the exact defect room01_seams.py's lattice test
+    exists to catch, and it caught this one at 0.50 against a reference whose
+    worst tile anywhere is 0.39. Rule 3 asks for a rim that dissolves; it does
+    not ask for an ordered screen, and at 320x144 the two are not the same
+    thing. A caller covering a large flat area should pass a hashed screen.
     """
     stamped = 0
+    screen = threshold if threshold is not None else BAYER4.threshold
     for py in range(y, y + height):
         fall = (py - y + 1) / (height + 1)
         for px in range(x, x + width):
@@ -203,7 +214,7 @@ def smear(canvas: IndexedCanvas, x: int, y: int, width: int, height: int,
                 continue
             edge = min(px - x, x + width - 1 - px) / max(1, width * 0.22)
             weight = min(1.0, edge) * (1.0 - fall * 0.7)
-            if BAYER4.threshold(px, py) < weight:
+            if screen(px, py) < weight:
                 canvas.put(px, py, floor)
                 stamped += 1
     return stamped

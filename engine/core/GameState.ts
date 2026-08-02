@@ -4,14 +4,131 @@ import type {
 import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
-import { VerbSystem } from './VerbSystem.ts';
+import { VerbSystem, type ResolvedAction } from './VerbSystem.ts';
 import { SaveManager, type StorageLike } from './SaveManager.ts';
 import { MenuSystem } from './MenuSystem.ts';
+import { pureResolution } from './Assertions.ts';
+import { commitBundle, localJournals, type DurableWorld, type JournalSource } from './Commit.ts';
+import type { ActionTransaction, DurableEffect, FinishReason } from './runtime-types.ts';
 
 export interface InteractionResult {
   say: string | null;
   enteredDialogue: boolean;
   changedRoom: boolean;
+}
+
+/**
+ * What a verb on a target WOULD do. Produced without touching anything.
+ *
+ * Doc 34 section 1.2's third defect: "Object state/take/room change occurs
+ * before the response line finishes." Everything that used to happen inside
+ * interact() before the line is described here instead.
+ */
+export interface InteractionResolution {
+  readonly target: Interactable;
+  readonly verb: string;
+  /** The room the interaction was resolved in. Effect keys are scoped to it. */
+  readonly room: string;
+  /** The room key of the target, captured before any room change. */
+  readonly objectKey: string;
+  readonly action: ResolvedAction;
+  /** True when this is a doorway being walked through rather than asked about. */
+  readonly transit: boolean;
+  /** Where the player ends up, from transit or from the response's goto. */
+  readonly destination: string | null;
+  /** The tree this response opens once it has finished performing. */
+  readonly dialogue: string | null;
+  readonly say: string | null;
+  readonly effects: readonly DurableEffect[];
+}
+
+/**
+ * One interaction, from reservation to settle.
+ *
+ * ERRATA 48, which is what this class exists for: "The build writes flags
+ * inside resolution and applies object state and inventory BEFORE the line
+ * finishes. A puzzle is therefore mechanically solved before it has been
+ * performed, and the player sees consequence before cause. Canonical order,
+ * binding: stage · chore · sound · line · object state · flags · inventory ·
+ * settle."
+ *
+ * Staging, chore and sound belong to the scene and to step C; the four this
+ * owns are line, object state, flags and inventory, and it owns them in that
+ * order because the journal will not let it emit them in any other.
+ */
+export class Interaction {
+  readonly resolution: InteractionResolution;
+  readonly tx: ActionTransaction;
+
+  private readonly state: GameState;
+  private finished: FinishReason | null = null;
+
+  constructor(state: GameState, resolution: InteractionResolution, tx: ActionTransaction) {
+    this.state = state;
+    this.resolution = resolution;
+    this.tx = tx;
+  }
+
+  get settled(): boolean {
+    return this.finished === 'settled';
+  }
+
+  /**
+   * Hands the response line to the presentation and marks the line phase.
+   *
+   * Returns the line rather than drawing it: nothing in engine/core may know
+   * what a screen is. A silent action -- a doorway walked through, a
+   * combination with no written pair -- has no line and marks no line phase.
+   */
+  presentLine(): string | null {
+    if (this.resolution.say !== null && !this.tx.journal.has('line')) {
+      this.tx.journal.mark('line');
+      this.tx.phase = 'line';
+    }
+    return this.resolution.say;
+  }
+
+  /** The line is over, by reading or by skip. Section 9.1's sixth marker. */
+  lineSettled(): void {
+    if (this.tx.journal.has('line') && !this.tx.journal.has('lineSettle')) {
+      this.tx.journal.mark('lineSettle');
+    }
+  }
+
+  /**
+   * Applies the reserved bundle in phase order and releases the transaction.
+   *
+   * Doc 31 section 5.1's settle step: "apply downstream availability, clear
+   * the transaction, persist at the stable state, then return control."
+   * Skipping the line "commits steps 5-8 exactly once; it never cancels or
+   * doubles the result" -- which here is free, because the journal refuses a
+   * second worldState marker.
+   */
+  settle(): InteractionResult {
+    if (this.finished !== null) throw new Error(`Interaction already finished: ${this.tx.id}`);
+    this.lineSettled();
+    this.state.applyInteraction(this);
+    this.tx.phase = 'settling';
+    this.tx.journal.mark('stable');
+    this.tx.journal.release();
+    this.finished = 'settled';
+    return {
+      say: this.resolution.say,
+      enteredDialogue: this.resolution.dialogue !== null,
+      changedRoom: this.resolution.destination !== null,
+    };
+  }
+
+  /** Drops the interaction without applying it, and hands its ids back. */
+  abandon(reason: FinishReason): void {
+    if (this.finished) return;
+    this.tx.journal.release();
+    this.finished = reason;
+  }
+
+  finishedWith(): FinishReason | null {
+    return this.finished;
+  }
 }
 
 /**
@@ -42,13 +159,26 @@ export class GameState {
   private objectStates = new Map<string, string>();
   /** Objects whose ownership has passed to the actor. Saved. */
   private taken = new Set<string>();
+  /**
+   * Where transactions get their journals, and therefore which EffectOwnership
+   * registry they claim into.
+   *
+   * One per GameState by default. Step D hands the live RuntimeCoordinator in
+   * here instead -- it satisfies JournalSource structurally -- and every
+   * journal in the session then shares the coordinator's one registry, which
+   * is what doc 34 section 4.6's second assertion needs to be able to fire
+   * across systems rather than only within one.
+   */
+  private readonly journals: JournalSource;
+  private serial = 0;
 
-  constructor(content: ContentBundle, storage: StorageLike) {
+  constructor(content: ContentBundle, storage: StorageLike, journals?: JournalSource) {
     this.content = content;
+    this.journals = journals ?? localJournals();
     this.flags = new FlagStore(content.flags);
     this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks,
       content.combinations);
-    this.dialogue = new DialogueRunner(content.dialogue, this.flags);
+    this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals);
     this.saves = new SaveManager(storage);
     this.menu = new MenuSystem(content.menu, this.saves,
       (id) => content.rooms.get(id)?.name ?? id);
@@ -252,7 +382,23 @@ export class GameState {
     });
   }
 
+  /**
+   * Walks into a room and saves on arrival.
+   *
+   * The autosave here is doc 34 section 1.2's FOURTH defect -- "enterRoom()
+   * applies onEnter and autosaves immediately", where D29/D33 permit an
+   * autosave only after destination ingress settles. That is step D's, and it
+   * is left exactly as it was found. What step B does change is that an
+   * interaction no longer arrives through this door: it arrives through
+   * `arrive()` and saves once at its own settle, so a save can no longer land
+   * between a response's room change and its flags.
+   */
   enterRoom(roomId: string): void {
+    this.arrive(roomId);
+    this.autosave();
+  }
+
+  private arrive(roomId: string): void {
     if (!this.content.rooms.has(roomId)) {
       throw new Error(`Unknown room: ${roomId}`);
     }
@@ -263,56 +409,194 @@ export class GameState {
     // and no hotspot response can observe it. Applied before the autosave so
     // a save taken on arrival already knows where he has been.
     this.flags.applyWrites(this.content.rooms.get(roomId)?.onEnter?.set);
-    this.autosave();
   }
 
   /**
-   * Applies a verb to a target and resolves what follows.
+   * What a verb on a target would do, without doing any of it.
+   *
+   * Wrapped in pureResolution over the whole durable world -- flags, room,
+   * objects, inventory, ownership and dialogue counts, which is doc 34
+   * section 9.1's list -- so assertion 7 runs against real content on every
+   * interaction in a dev build.
    *
    * The verb is passed IN rather than read from the selection, because errata
    * 28b's table decides it: the selection, or the object's own defaultVerb, or
    * the object's default regardless of selection on a right click. One place
    * works that out and this is not it.
    */
-  interact(target: Interactable, verb: string): InteractionResult {
+  resolveInteraction(target: Interactable, verb: string): InteractionResolution {
+    return pureResolution(() => this.signature(), () => this.resolvePure(target, verb));
+  }
+
+  private resolvePure(target: Interactable, verb: string): InteractionResolution {
+    const room = this.currentRoomId;
+    const objectKey = this.key(target.id);
+
     // Going through a door is not a question about the door. Checked before
     // the verb resolves, so no line is produced and no pool is consumed --
     // otherwise OPEN on an exit would spend a fallback line on its way out.
     const transit = this.transitDestination(target, verb);
     if (transit) {
-      // A door that has been gone through is a door that is open. Applied
+      // A door that has been gone through is a door that is open. Reserved
       // here rather than through a response rule because doc 14 is explicit
       // that transit produces no line -- and a state change is not a line.
-      if (target.stateOnTransit) this.setState(target, target.stateOnTransit);
-      this.enterRoom(transit);
-      return { say: null, enteredDialogue: false, changedRoom: true };
+      const effects: DurableEffect[] = [];
+      if (target.stateOnTransit) {
+        effects.push({
+          id: `act/${objectKey}/${verb}#transit:state`,
+          kind: 'objectState',
+          object: objectKey,
+          state: target.stateOnTransit,
+        });
+      }
+      effects.push({ id: `act/${objectKey}/${verb}#transit:room`, kind: 'room', room: transit });
+      return {
+        target, verb, room, objectKey,
+        action: { say: null, dialogue: null, goto: null, effects: [] },
+        transit: true,
+        destination: transit,
+        dialogue: null,
+        say: null,
+        effects,
+      };
     }
 
     // With an item held the verb applies WITH it, which is a different
     // question and draws on a different source. Checked after transit, so
     // walking through a door while carrying something still walks.
     const action = this.held
-      ? this.verbs.resolveWith(verb, this.held, target, this.currentRoomId)
-      : this.verbs.resolve(verb, target, this.currentRoomId);
+      ? this.verbs.resolveWith(verb, this.held, target, room)
+      : this.verbs.resolve(verb, target, room);
 
-    if (action.state) this.setState(target, action.state);
-    if (action.take && target.item) {
-      this.taken.add(this.key(target.id));
-      if (!this.inventory.includes(target.item)) this.inventory.push(target.item);
+    // World state first, then flags, then inventory -- errata 48's order, as
+    // the order the bundle is built in. Commit.ts groups by phase, so this is
+    // legibility rather than mechanism, but the two agreeing is the point.
+    const effects: DurableEffect[] = [];
+    if (action.state) {
+      effects.push({
+        id: `act/${objectKey}/${verb}#state`,
+        kind: 'objectState',
+        object: objectKey,
+        state: action.state,
+      });
     }
-
-    if (action.dialogue) {
-      this.dialogue.start(action.dialogue);
-      return { say: action.say, enteredDialogue: true, changedRoom: false };
-    }
-
     const destination = action.goto ?? null;
     if (destination) {
-      this.enterRoom(destination);
-      return { say: action.say, enteredDialogue: false, changedRoom: true };
+      effects.push({ id: `act/${objectKey}/${verb}#room`, kind: 'room', room: destination });
+    }
+    effects.push(...action.effects);
+    if (action.take && target.item) {
+      // Doc 22 item 9's ownership half. It rides on the inventory effect
+      // rather than on a second one because DurableEffect has no ownership
+      // member: the object leaving the room and the item arriving in the
+      // inventory are one transfer, and doc 31 groups ownership with pickup.
+      effects.push({ id: `act/${objectKey}/${verb}#take`, kind: 'inventoryAdd', item: target.item });
     }
 
-    return { say: action.say, enteredDialogue: false, changedRoom: false };
+    return {
+      target, verb, room, objectKey, action,
+      transit: false,
+      destination,
+      dialogue: action.dialogue,
+      say: action.say,
+      effects,
+    };
+  }
+
+  /**
+   * Resolves and reserves. Nothing durable has happened when this returns.
+   *
+   * THE SEAM FOR STEP E. The integrated proof presents the chore, the sound
+   * and the line between this call and settle(); interact() below is the same
+   * sequence with the performance collapsed to nothing.
+   */
+  beginInteraction(target: Interactable, verb: string): Interaction {
+    const resolution = this.resolveInteraction(target, verb);
+    this.serial += 1;
+    const id = `act:${resolution.room}:${target.id}:${verb}#${this.serial}`;
+    const journal = this.journals.newJournal(id);
+    const tx: ActionTransaction = {
+      id,
+      phase: 'reserved',
+      effects: journal.reserve(`${id}/bundle`, resolution.effects),
+      journal,
+    };
+    return new Interaction(this, resolution, tx);
+  }
+
+  /**
+   * Applies a verb to a target: resolve, reserve, perform, commit.
+   *
+   * The performance is empty for a caller that draws the line itself the
+   * moment it is handed one, which every current caller does. What changed is
+   * that the object no longer opens, the item no longer arrives and the room
+   * no longer changes before the line exists.
+   */
+  interact(target: Interactable, verb: string): InteractionResult {
+    const interaction = this.beginInteraction(target, verb);
+    interaction.presentLine();
+    return interaction.settle();
+  }
+
+  /**
+   * Commits a settled interaction. Called by Interaction.settle() and by
+   * nothing else.
+   */
+  applyInteraction(interaction: Interaction): void {
+    const { resolution } = interaction;
+    commitBundle(interaction.tx.effects, this.interactionWorld(resolution), interaction.tx.journal);
+
+    // A response that opens a tree hands control over AFTER its own line and
+    // its own writes, never during them.
+    if (resolution.dialogue) this.dialogue.start(resolution.dialogue);
+    // One save, at the stable state, carrying the whole result. Doc 31
+    // section 5.1's settle step -- "persist at the stable state".
+    if (resolution.destination) this.autosave();
+  }
+
+  /**
+   * The world a reserved bundle is applied into, bound to the interaction
+   * that reserved it.
+   *
+   * `objectKey` is captured at resolution and used here, so an interaction
+   * that changes both an object's state and the room writes the state against
+   * the room it happened in rather than the room it ended in.
+   */
+  private interactionWorld(resolution: InteractionResolution): DurableWorld {
+    return {
+      setFlag: (flag, value) => { this.flags.set(flag, value); },
+      addFlag: (flag, delta) => { this.flags.set(flag, this.flags.getNumber(flag) + delta); },
+      setObjectState: (object, state) => { this.objectStates.set(object, state); },
+      enterRoom: (room) => { this.arrive(room); },
+      addInventory: (item) => {
+        this.taken.add(resolution.objectKey);
+        if (!this.inventory.includes(item)) this.inventory.push(item);
+      },
+      removeInventory: (item) => {
+        this.inventory = this.inventory.filter((carried) => carried !== item);
+      },
+      markDialogueTaken: () => {
+        throw new Error('An action may not write dialogue counts');
+      },
+    };
+  }
+
+  /**
+   * The deep state snapshot doc 34 section 4.6 row 7 compares before and
+   * after a resolution. Section 9.1 names its members: flags, room, objects,
+   * inventory, ownership and dialogue counts.
+   */
+  private signature(): string {
+    return JSON.stringify({
+      room: this.currentRoomId,
+      inventory: this.inventory,
+      ownership: [...this.taken].sort(),
+      objects: [...this.objectStates].sort(),
+      flags: this.flags.snapshot(),
+      counts: this.dialogue.progressSnapshot(),
+      position: this.dialogue.positionSnapshot(),
+      reputation: this.reputation,
+    });
   }
 
   /**

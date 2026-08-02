@@ -9,7 +9,7 @@
     "sky": 158,
     "ground": 8
   },
-  "horizon": 32,
+  "horizon": 192,
   "ambient": [
     "letter_writer",
     "pie_woman",
@@ -20,32 +20,32 @@
       "from": "nugget",
       "note": "Doc 21 gap 7. Out of the batwing doors onto the boardwalk in front of them, facing the street. Before this he arrived in the middle of the road with his back to the building he had just left.",
       "at": [
-        131,
-        86
+        786,
+        516
       ],
       "facing": "front"
     },
     {
       "from": "stub_clarion",
       "at": [
-        88,
-        86
+        528,
+        516
       ],
       "facing": "front"
     },
     {
       "from": "stub_company",
       "at": [
-        191,
-        86
+        1146,
+        516
       ],
       "facing": "front"
     },
     {
       "from": "assay_office",
       "at": [
-        302,
-        86
+        1812,
+        516
       ],
       "facing": "front"
     },
@@ -53,19 +53,19 @@
       "from": "stub_claims_road",
       "note": "The east end. He comes up out of the road, so he is already looking back down the street.",
       "at": [
-        306,
-        130
+        1836,
+        780
       ],
       "facing": "left"
     },
     {
       "from": "stage_road",
-      "note": "West, into town, and the first time the player sees this screen. Facing east down the street he has just walked into.",
+      "note": "Item 4a. Room 1's exit is road_west, on ITS left edge, so Thad walks west out of the stage road and reaches Consolation from the east. He therefore arrives at THIS street's east end, walking in off the road, and looks west down it. He was placed at x=14 -- the WEST end -- facing east, which put him on the far side of a town he had not crossed yet and made the first screen of the game contradict the second. stub_claims_road enters at the same end for the same reason: east is where the roads are. Doc 29 will give this entrance its four-point approach, threshold, egress and settle; this fixes only WHICH END.",
       "at": [
-        14,
-        128
+        1848,
+        768
       ],
-      "facing": "right"
+      "facing": "left"
     }
   ],
   "staging": [
@@ -73,64 +73,64 @@
       "id": "outside_nugget",
       "note": "Errata ruling 23. These are the positions the composition has to hold a character at -- one in front of each enterable facade, one at each end. Checked for reach and legibility at graybox rather than discovered in a cutscene.",
       "at": [
-        131,
-        86
+        786,
+        516
       ],
       "facing": "front"
     },
     {
       "id": "outside_clarion",
       "at": [
-        88,
-        86
+        528,
+        516
       ],
       "facing": "front"
     },
     {
       "id": "outside_company",
       "at": [
-        191,
-        86
+        1146,
+        516
       ],
       "facing": "front"
     },
     {
       "id": "outside_assay",
       "at": [
-        302,
-        86
+        1812,
+        516
       ],
       "facing": "front"
     },
     {
       "id": "at_notices",
       "at": [
-        76,
-        86
+        456,
+        516
       ],
       "facing": "back"
     },
     {
       "id": "at_trough",
       "at": [
-        234,
-        122
+        1404,
+        732
       ],
       "facing": "back"
     },
     {
       "id": "street_west",
       "at": [
-        14,
-        128
+        84,
+        768
       ],
       "facing": "right"
     },
     {
       "id": "street_east",
       "at": [
-        306,
-        130
+        1836,
+        780
       ],
       "facing": "left"
     }
@@ -142,9 +142,9 @@
       "surface": "boardwalk",
       "rect": [
         0,
-        78,
-        320,
-        9
+        468,
+        1920,
+        54
       ]
     },
     {
@@ -153,9 +153,9 @@
       "surface": "mud",
       "rect": [
         0,
-        88,
-        320,
-        16
+        528,
+        1920,
+        96
       ]
     },
     {
@@ -164,9 +164,9 @@
       "surface": "mud",
       "rect": [
         0,
-        104,
-        320,
-        18
+        624,
+        1920,
+        108
       ]
     },
     {
@@ -175,9 +175,9 @@
       "surface": "mud",
       "rect": [
         0,
-        122,
-        320,
-        22
+        732,
+        1920,
+        132
       ]
     }
   ],
@@ -186,10 +186,10 @@
       "id": "company_sign",
       "name": "THE IMPROVEMENT COMPANY SIGN",
       "rect": [
-        174,
-        32,
-        30,
-        12
+        1044,
+        192,
+        180,
+        72
       ],
       "colour": 226,
       "responses": {
@@ -218,8 +218,8 @@
       },
       "defaultVerb": "LOOK_AT",
       "walkTo": {
-        "x": 189,
-        "y": 86,
+        "x": 1134,
+        "y": 516,
         "facing": "back"
       }
     },
@@ -227,10 +227,10 @@
       "id": "church_steeple",
       "name": "THE CHURCH STEEPLE",
       "rect": [
-        134,
-        18,
-        22,
-        16
+        804,
+        108,
+        132,
+        96
       ],
       "colour": 70,
       "responses": {
@@ -263,10 +263,10 @@
       "id": "posted_notices",
       "name": "POSTED NOTICES",
       "rect": [
-        64,
-        50,
-        24,
-        20
+        384,
+        300,
+        144,
+        120
       ],
       "colour": 200,
       "responses": {
@@ -295,8 +295,8 @@
       },
       "defaultVerb": "LOOK_AT",
       "walkTo": {
-        "x": 76,
-        "y": 86,
+        "x": 456,
+        "y": 516,
         "facing": "back"
       }
     },
@@ -304,10 +304,10 @@
       "id": "dog",
       "name": "A DOG",
       "rect": [
-        87,
-        73,
-        20,
-        14
+        522,
+        438,
+        120,
+        84
       ],
       "colour": 30,
       "responses": {
@@ -337,8 +337,8 @@
       },
       "defaultVerb": "LOOK_AT",
       "walkTo": {
-        "x": 97,
-        "y": 88,
+        "x": 582,
+        "y": 528,
         "facing": "back"
       }
     },
@@ -346,10 +346,10 @@
       "id": "water_trough",
       "name": "THE WATER TROUGH",
       "rect": [
-        212,
-        104,
-        44,
-        16
+        1272,
+        624,
+        264,
+        96
       ],
       "colour": 150,
       "responses": {
@@ -382,8 +382,8 @@
       "reactionNote": "The one bespoke reaction in the slice, on the one line that is physically a flinch. Doc 15's short comic reaction, built the way the dossier says to build it -- he leans away two pixels, his eyes go with him, and he comes back. No step and no arm. The line is doc 13's and is unchanged; the animation is not content and can be dropped without touching a word.",
       "defaultVerb": "LOOK_AT",
       "walkTo": {
-        "x": 234,
-        "y": 128,
+        "x": 1404,
+        "y": 768,
         "facing": "back"
       }
     },
@@ -392,9 +392,9 @@
       "name": "THE BOARDWALK",
       "rect": [
         0,
-        77,
-        320,
-        11
+        462,
+        1920,
+        66
       ],
       "colour": 90,
       "responses": {
@@ -428,9 +428,9 @@
       "name": "THE FALSE FRONTS",
       "rect": [
         0,
-        20,
-        320,
-        57
+        120,
+        1920,
+        342
       ],
       "colour": 88,
       "responses": {
@@ -464,9 +464,9 @@
       "name": "THE HILLS",
       "rect": [
         0,
-        4,
-        320,
-        16
+        24,
+        1920,
+        96
       ],
       "colour": 124,
       "responses": {
@@ -501,9 +501,9 @@
       "name": "THE MUD",
       "rect": [
         0,
-        88,
-        320,
-        56
+        528,
+        1920,
+        336
       ],
       "colour": 8,
       "responses": {
@@ -538,10 +538,10 @@
       "id": "to_nugget",
       "name": "THE NUGGET'S DOORS",
       "rect": [
-        121,
-        45,
-        20,
-        32
+        726,
+        270,
+        120,
+        192
       ],
       "colour": 40,
       "to": "nugget",
@@ -572,8 +572,8 @@
       },
       "defaultVerb": "OPEN",
       "walkTo": {
-        "x": 131,
-        "y": 86,
+        "x": 786,
+        "y": 516,
         "facing": "back"
       }
     },
@@ -581,10 +581,10 @@
       "id": "to_company",
       "name": "THE IMPROVEMENT COMPANY",
       "rect": [
-        182,
-        43,
-        18,
-        34
+        1092,
+        258,
+        108,
+        204
       ],
       "colour": 200,
       "to": "stub_company",
@@ -615,8 +615,8 @@
       },
       "defaultVerb": "OPEN",
       "walkTo": {
-        "x": 191,
-        "y": 86,
+        "x": 1146,
+        "y": 516,
         "facing": "back"
       }
     },
@@ -624,10 +624,10 @@
       "id": "to_clarion",
       "name": "THE CLARION OFFICE",
       "rect": [
-        81,
-        41,
-        14,
-        36
+        486,
+        246,
+        84,
+        216
       ],
       "colour": 30,
       "to": "stub_clarion",
@@ -657,8 +657,8 @@
       },
       "defaultVerb": "OPEN",
       "walkTo": {
-        "x": 88,
-        "y": 86,
+        "x": 528,
+        "y": 516,
         "facing": "back"
       }
     },
@@ -666,10 +666,10 @@
       "id": "to_claims_road",
       "name": "THE ROAD TO THE CLAIMS",
       "rect": [
-        300,
-        100,
-        20,
-        44
+        1800,
+        600,
+        120,
+        264
       ],
       "colour": 12,
       "to": "stub_claims_road",
@@ -701,8 +701,8 @@
       },
       "defaultVerb": "WALK_TO",
       "walkTo": {
-        "x": 306,
-        "y": 130,
+        "x": 1836,
+        "y": 780,
         "facing": "right"
       }
     },
@@ -711,10 +711,10 @@
       "name": "THE ASSAY OFFICE",
       "note": "Doc 20's graph: the sixth enterable facade. Room 5 was composed, wired with sixteen lines and audited three times while nothing on Main Street opened onto it. Marked stub because doc 05's Room 2 does not script this door and its examine lines are not written; inventing them would be worse than the honest gap. The rect is the door and its step. The lot was drawn BOARDED with tools leaning across it, which is ruling 19b in the other direction -- art asserting a building this exit contradicts -- and it now has a door, clean glass and a worn step, and nothing else. It is still the plainest front on the street.",
       "rect": [
-        292,
-        54,
-        20,
-        28
+        1752,
+        324,
+        120,
+        168
       ],
       "colour": 26,
       "to": "assay_office",
@@ -741,8 +741,8 @@
       "fallback": [],
       "defaultVerb": "OPEN",
       "walkTo": {
-        "x": 302,
-        "y": 86,
+        "x": 1812,
+        "y": 516,
         "facing": "back"
       },
       "state": "shut",
@@ -755,10 +755,10 @@
           "note": "Doc 22 item 9, and the appearance change that does NOT change identity: it is still THE ASSAY OFFICE, so it is one object with two states rather than the coach's two hotspots with opposite gates. The bounds widen by the swung leaf, which is why per-state bounds exist -- hit-testing the shut door's rect after it opens is the kind of wrongness nobody reports because it nearly works.",
           "image": "art/objects/room-02-assay-door-open.png",
           "bounds": [
-            292,
-            50,
-            20,
-            32
+            1752,
+            300,
+            120,
+            192
           ]
         }
       },
@@ -772,10 +772,10 @@
       "id": "to_hotel",
       "name": "THE HOTEL",
       "rect": [
-        218,
-        52,
-        56,
-        50
+        1308,
+        312,
+        336,
+        300
       ],
       "colour": 96,
       "to": "hotel_lobby",
@@ -793,29 +793,29 @@
       "points": [
         {
           "x": 0,
-          "y": 78
+          "y": 468
         },
         {
-          "x": 320,
-          "y": 78
+          "x": 1925,
+          "y": 468
         },
         {
-          "x": 320,
-          "y": 87
+          "x": 1925,
+          "y": 527
         },
         {
           "x": 0,
-          "y": 87
+          "y": 527
         }
       ],
       "neighbours": [
         "mud_far"
       ],
-      "clipPlane": 2,
+      "clipPlane": 12,
       "surface": "boardwalk",
       "scaleMode": {
         "kind": "fixed",
-        "height": 26
+        "height": 156
       }
     },
     {
@@ -824,19 +824,19 @@
       "points": [
         {
           "x": 0,
-          "y": 88
+          "y": 528
         },
         {
-          "x": 320,
-          "y": 88
+          "x": 1925,
+          "y": 528
         },
         {
-          "x": 320,
-          "y": 104
+          "x": 1925,
+          "y": 629
         },
         {
           "x": 0,
-          "y": 104
+          "y": 629
         }
       ],
       "neighbours": [
@@ -844,14 +844,14 @@
         "mud_mid_west",
         "mud_mid_east"
       ],
-      "clipPlane": 2,
+      "clipPlane": 12,
       "surface": "mud",
       "scaleMode": {
         "kind": "curve",
-        "farY": 88,
-        "farHeight": 31,
-        "nearY": 143,
-        "nearHeight": 40
+        "farY": 528,
+        "farHeight": 186,
+        "nearY": 863,
+        "nearHeight": 240
       }
     },
     {
@@ -860,33 +860,33 @@
       "points": [
         {
           "x": 0,
-          "y": 104
+          "y": 624
         },
         {
-          "x": 212,
-          "y": 104
+          "x": 1277,
+          "y": 624
         },
         {
-          "x": 210,
-          "y": 122
+          "x": 1260,
+          "y": 737
         },
         {
           "x": 0,
-          "y": 122
+          "y": 737
         }
       ],
       "neighbours": [
         "mud_far",
         "mud_near"
       ],
-      "clipPlane": 2,
+      "clipPlane": 12,
       "surface": "mud",
       "scaleMode": {
         "kind": "curve",
-        "farY": 88,
-        "farHeight": 31,
-        "nearY": 143,
-        "nearHeight": 40
+        "farY": 528,
+        "farHeight": 186,
+        "nearY": 863,
+        "nearHeight": 240
       }
     },
     {
@@ -894,34 +894,34 @@
       "note": "East of the trough, and the reason routing is provable rather than asserted: it does NOT touch mud_mid_west, so crossing the street at this depth has to go round the trough by way of the far mud or the near mud. Four full-width rectangles had nothing to route around.",
       "points": [
         {
-          "x": 256,
-          "y": 104
+          "x": 1536,
+          "y": 624
         },
         {
-          "x": 320,
-          "y": 104
+          "x": 1925,
+          "y": 624
         },
         {
-          "x": 320,
-          "y": 122
+          "x": 1925,
+          "y": 737
         },
         {
-          "x": 278,
-          "y": 122
+          "x": 1668,
+          "y": 737
         }
       ],
       "neighbours": [
         "mud_far",
         "mud_near"
       ],
-      "clipPlane": 2,
+      "clipPlane": 12,
       "surface": "mud",
       "scaleMode": {
         "kind": "curve",
-        "farY": 88,
-        "farHeight": 31,
-        "nearY": 143,
-        "nearHeight": 40
+        "farY": 528,
+        "farHeight": 186,
+        "nearY": 863,
+        "nearHeight": 240
       }
     },
     {
@@ -929,33 +929,33 @@
       "points": [
         {
           "x": 0,
-          "y": 122
+          "y": 732
         },
         {
-          "x": 320,
-          "y": 122
+          "x": 1925,
+          "y": 732
         },
         {
-          "x": 320,
-          "y": 143
+          "x": 1925,
+          "y": 863
         },
         {
           "x": 0,
-          "y": 143
+          "y": 863
         }
       ],
       "neighbours": [
         "mud_mid_west",
         "mud_mid_east"
       ],
-      "clipPlane": 1,
+      "clipPlane": 6,
       "surface": "mud",
       "scaleMode": {
         "kind": "curve",
-        "farY": 88,
-        "farHeight": 31,
-        "nearY": 143,
-        "nearHeight": 40
+        "farY": 528,
+        "farHeight": 186,
+        "nearY": 863,
+        "nearHeight": 240
       }
     }
   ],
@@ -977,11 +977,11 @@
     "note": "ERRATA 33b. Rows 0-20 only: the false fronts reach into the top third, so measuring 'above the horizon' would grade the facades against themselves.",
     "skyRows": [
       0,
-      20
+      120
     ],
     "skylineRows": [
-      20,
-      80
+      120,
+      480
     ],
     "skylineNote": "The terrace, the ridges and the steeple -- everything that meets the sky. The mud below the boardwalk is ground, not skyline."
   },

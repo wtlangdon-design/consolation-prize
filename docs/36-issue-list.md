@@ -252,6 +252,28 @@ A prompt is written and held in `docs/42-thad-chore-poses.md` Part Three. **It i
 
 Related: whether any other character changes across acts, and whether Q5's act-variation schema needs to cover costumes as well as rooms.
 
+## Q13 · The inventory examine path drops reserved effects
+
+Found during step B, verified independently against the combined tree.
+
+Step B made `VerbSystem.resolve()` **return** effects rather than apply them, so every caller must now hand what it gets to a transaction. One caller does not: `GameScene.onInventoryClick` calls `this.state.verbs.resolve(verb, target, 'inventory').say` and takes only the line. The `effects` array is discarded.
+
+**Nothing is broken today, and that is the whole problem.** A scan of all of `/content` finds sixteen objects carrying a durable effect key, and every one of them is a dialogue option, a room hotspot response, a room `onEnter`, or a sequence beat. `content.items` — the records `itemTarget()` reads — carry none. So the path drops an empty array and behaves exactly as before.
+
+**But the pattern it would break already exists elsewhere.** `harness-a.json` has a `LOOK_AT` response carrying a flag write, so an examine verb with a durable effect is authored content, not a hypothetical. The first item response to gain one will write nothing, produce its correct line, and pass every check.
+
+**The fix is step E's:** route the inventory examine through `GameState` like every other interaction rather than calling `VerbSystem` directly. Recorded here rather than fixed now because step E owns that call site and is rewriting it.
+
+## Q14 · The `ActorFile` schema cannot address a clip directory
+
+Sharper than Q9, and the reason Q9 is blocking rather than tidy-up.
+
+`content/actors/thad.json` declares two sprite sheets, `art/actors/thad-near.png` and `art/actors/thad-far.png`. What `art/actors/` holds *besides* them is per-clip frame directories — `thad-idle-*`, `thad-idlebreak-*`, `thad-walk-*`, `thad-recoil-*`, `thad-stand-*`, four facings each, every one with its own `rig.json`. **The schema has no way to reference any of them.** It knows sheets and it knows a `threshold`, both of which errata 54 voided.
+
+**The consequence is visible rather than silent.** Until the schema can address a clip directory, nothing renders the new art. Every non-player mover draws as a graybox as well — correct size, position, depth and occlusion — because `content/actors/` holds exactly one actor record. No renderer change alters either.
+
+*History, recorded because the near-miss is the useful part.* The two sheets were genuinely absent from this branch when the finding was written, and the finding said so. They had been deleted on main by an `rm -rf art/actors/thad-*` clearing old rig output before a regeneration — the glob took the two sheets `thad.json` loads, the deployed page rendered black, and the project owner reported it. Restored at `2fe1021` — the sheets only; the check that would have caught it did not arrive until `f736152`, which is Q15. This branch predated the restore by four commits, so the graybox was real here and disappeared on merge. **The schema gap is what survives, and it is not affected by the sheets existing.**
+
 ## Q15 · Asset-path validation — **CLOSED, and worth reading anyway**
 
 **The failure.** `rm -rf art/actors/thad-*`, run to clear stale rig output, took `thad-near.png` and `thad-far.png` with it. `content/actors/thad.json` still named both. The deletion was committed, the protagonist had no art, and the deployed page rendered black. **The full suite passed** — twenty-four checks green on a tree where the player character could not be drawn.
@@ -265,6 +287,45 @@ Related: whether any other character changes across acts, and whether Q5's act-v
 **It fails on zero, not passes.** Finding no asset paths at all would mean the content shape changed and the check had quietly stopped checking — the same failure one level up.
 
 **Not covered:** clip directories. The ActorFile schema cannot address `thad-recoil-left/` at all, which is Q14 and a schema question rather than a missing-file one.
+
+## Q16 · The panel layout is provisional and needs the font
+
+The play area migrated to errata 54 by multiplication — 1920 ÷ 320 = 6 and 864 ÷ 144 = 6, and all 140 rects across 17 rooms were integers inside the old frame, so every coordinate moved losslessly. **The panel could not.** 56 × 6 = 336 against errata 54's 216: the panel was re-proportioned, not scaled, which is how 1080 works at all — it is 5.4× of 200, and errata 54 resolves that by shrinking the panel rather than stretching it.
+
+So `content/ui/panel.json` was **re-authored rather than migrated**, and what it preserves is the shape errata 26 and 29 specify and nothing else: three columns of four verb cells, MENU and the map in the fourth row, a four-by-two inventory grid on the right, arrows at the right edge, sentence line full width above.
+
+**Every height in it is a guess, and it is marked as one in the file.** A button's height is a property of the text inside it, and the font is void with no replacement ruled (Q6). The numbers fit the band and hold the shape; they are not a specification. Re-author them the day the font lands.
+
+## Q17 · Ten backgrounds, six foreground planes and two masks are still 320-native
+
+Room 1's plate was promoted to `art/backgrounds/room-01-stage-road.png` at 1920 × 864, upscaled 2.7% from the approved 1870 × 841 by Lanczos. **It is the only play-area-sized plate in the repository.** The other ten backgrounds, all six foreground planes, both of Room 2's occlusion masks and the title screen are 320 × 144.
+
+`Renderer.drawPlate` now stretches any plate to the play area, so each of them lands where its own coordinates say it should — 1:1 for anything already play-area sized, and exactly the 6× the geometry took for anything that is not. **Nothing is mispositioned; the legacy assets are simply six-times-magnified versions of themselves** until they are regenerated. That is a visible quality gap and not a geometry error, and it resolves per room as each plate is generated at play-area size under errata 54's amended gate section 6.
+
+**Room 1's foreground plane is a different case and does not resolve by regeneration alone.** It was cut from the *composed* room, which errata 53 replaced with the traced plate, so it belongs to a picture that is no longer the room. It needs cutting from the approved plate.
+
+## Q18 · What still implements the five things errata 54 voided
+
+Done as a deliberate sweep of the ruling's own supersession list rather than by finding consumers one at a time. Two were already handled; the other three are reported and **not changed**, because each is a ruling and not a cleanup.
+
+**Integer scaling — errata 39's rule. Fixed.** It was `main.ts`, and at a 1920 × 1080 native frame it cropped rather than shrank. Errata 54 supersedes it by name.
+
+**Decimation — errata 24's scaler. Orphaned.** `engine/core/Decimation.ts` has **zero importers** across `engine/` and `tests/`; the last call site left `ActorSprite` when the sprite stopped decimating. It compiles and reaches no bundle path. Seven `tools/pixelart/` modules still use its Python counterpart, which is the art pipeline and not engine work. Residual prose: `scaling.json`'s own note and `types.ts:288` still describe the threshold as the height at which decimation stops leaving eyes, which is no longer what it selects.
+
+**The locked palette — enforced, not merely referenced, and this is the sharp one.** Errata 54 says `consolation-256.json` "ceases to be authoritative. Retained for reference only." Today:
+
+- `Screen.ts:144` **throws** on a palette whose `locked` flag is false. The engine refuses to start without it.
+- `check-palette.mjs` is a registered validator asserting locked, 256 entries, 6-bit, fully referenced.
+- `manifest.json` declares it as the palette.
+- `Screen.colour(index)` is the only route any colour takes, and every room still stores `colours.sky`, `colours.ground` and `hotspots[].colour` as **indices** — deliberately not migrated, because they are not geometry.
+
+So this is not a dangling reference to remove. **The engine's entire colour model is index-addressed** and errata 54 specifies full RGB. Room 1's promoted plate is already full-RGB and reaches the screen untouched, because a background is drawn and never indexed; everything the engine *draws itself* — stub-room fills, hotspot blocks, outlines, all interface chrome — still resolves through the locked 256.
+
+**The 5 × 7 font — live and load-bearing.** `art/ui/font-5x7.json` is in the manifest, `BitmapFont` renders it by writing each lit pixel as an exact 1 × 1 rect, and `check-glyph-coverage.mjs` validates 505 content strings against 102 glyphs. Because the glyphs are literal 1 × 1 rects, **text did not scale with the migration**: it draws at the same pixel size in a frame six times larger, so every line is now a sixth of its former relative size. This is Q6 and it is the most visible unruled item in the build.
+
+**Palette cycling — live in the engine, not dead code.** `GameScene.ts:253` constructs a `CyclingBackground` for any room declaring `cycling`, `check-palette-cycling.mjs` is a registered validator, and `tests/interface.test.ts` imports `PaletteCycling`. One room still declares it: `stage-road.json`, `hobs_lamp` and `puddles` — precisely the two errata 54 names as void.
+
+**Measured rather than assumed, because the plate changed underneath it.** The cycler recovers indices by matching exact palette RGB in the background. Against the new full-RGB plate: `accent_gold` 225–228 match **0 pixels**, `accent_indigo` 239–241 match **1**. So it does not crash and it does not flicker — it rotates a single pixel at 0.25 Hz in a 1,658,880-pixel frame. What it does cost is a 6.6 MB `getImageData` readback and a 1.66-million-iteration scan at Room 1 load, to find that one pixel.
 
 ---
 

@@ -8,16 +8,16 @@
     "sky": 0,
     "ground": 6
   },
-  "horizon": 60,
+  "horizon": 360,
   "walkable": [
     {
       "id": "floor",
       "zone": 1,
       "rect": [
         0,
-        96,
-        320,
-        48
+        576,
+        1920,
+        288
       ]
     }
   ],
@@ -28,10 +28,10 @@
       "name": "THE BOUNTIFUL NUGGET",
       "stub": true,
       "rect": [
-        128,
-        60,
-        64,
-        44
+        768,
+        360,
+        384,
+        264
       ],
       "colour": 90,
       "to": "nugget",

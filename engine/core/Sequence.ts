@@ -4,12 +4,19 @@ import type { Facing } from './types.ts';
  * SCUMM choreography: a script that sleeps and waits. Doc 22 section 7,
  * errata 28a item 3.
  *
- * SIX STEP KINDS AND NO MORE. Errata 28a strikes `parallel`, `sound`,
+ * SEVEN STEP KINDS AND NO MORE. Errata 28a strikes `parallel`, `sound`,
  * `musicTransition` and `setObjectState` from the first cut, and errata 27c
  * strikes `camera` entirely. What is left is exactly the chain doc 22 section
- * 6 describes, plus errata 30a's timed wait, and nothing speculative:
+ * 6 describes, plus errata 30a's timed wait and errata 38's `move`, and
+ * nothing speculative:
  *
  *     walk -> waitForActor -> face -> waitForActor -> chore -> say
+ *
+ * ERRATA 38 granted the seventh, `move`, for the coach's departure: "a coach
+ * that vanishes on a click is not a coach leaving". It is fenced exactly as
+ * `wait` is -- legal only inside a beat whose control is `none` -- because in
+ * a cutscene the movement IS the content, and in ordinary interaction `walk`
+ * and `waitForActor` already do this properly.
  *
  * ERRATA 30a. `wait` was excluded from the first cut to stop "sleep 400ms and
  * hope" becoming a substitute for `waitForActor` in ordinary interaction.
@@ -35,6 +42,17 @@ export type SequenceStep =
   | { kind: 'face'; actor: string; facing: Facing }
   | { kind: 'chore'; actor: string; chore: string }
   /**
+   * ERRATA 38. Translates a named mover from where it is -- or from `from`,
+   * which places it first -- to a point, over a stated duration.
+   *
+   * It is NOT a walk. A walk is routed across the room's boxes and belongs to
+   * somebody standing on the floor; a coach leaving frame right crosses no
+   * walk box at all and the last thing it should do is take the long way
+   * round a trough.
+   */
+  | { kind: 'move'; actor: string; from?: { x: number; y: number };
+      x: number; y: number; seconds: number }
+  /**
    * A line, or the interaction that produces one.
    *
    * `interact` defers resolution to the moment the step runs, which matters:
@@ -56,6 +74,13 @@ export type SequenceStep =
 /** What the runner needs the world to be able to do. */
 export interface SequenceHost {
   walk(actor: string, x: number, y: number): void;
+  /**
+   * ERRATA 38. Translates a named mover, placing it at `from` first when the
+   * step says where from. `isWalking` reports on it, so a `waitForActor`
+   * after a `move` waits for the arrival exactly as it does after a walk.
+   */
+  move(actor: string, from: { x: number; y: number } | undefined,
+       x: number, y: number, seconds: number): void;
   isWalking(actor: string): boolean;
   face(actor: string, facing: Facing): void;
   isTurning(actor: string): boolean;
@@ -147,6 +172,12 @@ export class SequenceRunner {
 
       if (step.kind === 'walk') {
         host.walk(step.actor, step.x, step.y);
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'move') {
+        host.move(step.actor, step.from, step.x, step.y, step.seconds);
         this.index += 1;
         moved = true;
         continue;

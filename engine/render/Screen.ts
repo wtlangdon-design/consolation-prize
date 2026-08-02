@@ -1,9 +1,23 @@
 import type { PaletteFile, PanelFile } from '../core/types.ts';
 
-/** Native SCUMM-style geometry. Play area on top, verb panel below. */
-export const NATIVE_WIDTH = 320;
-export const NATIVE_HEIGHT = 200;
-export const PLAY_HEIGHT = 144;
+/**
+ * ERRATA 54's geometry. Play area on top, verb panel below.
+ *
+ * THE PLAY AREA IS AN EXACT 6x OF THE OLD ONE. 1920/320 = 6 and 864/144 = 6,
+ * so every coordinate the content declared migrated by multiplication --
+ * losslessly, because all 140 rects across 17 rooms were integers inside
+ * 320x144. `tools/migrate-play-area-x6.mjs` is the record of what moved.
+ *
+ * THE PANEL IS NOT. 56 x 6 = 336 against errata 54's 216: the panel was
+ * re-proportioned rather than scaled, which is how 1080 works at all -- it is
+ * 5.4x of 200, and errata 54's own note that 1920x1080 "is not an integer
+ * multiple of 320x200" is resolved by shrinking the panel, not by stretching
+ * it. So panel geometry could not be migrated and is authored fresh in
+ * content/ui/panel.json.
+ */
+export const NATIVE_WIDTH = 1920;
+export const NATIVE_HEIGHT = 1080;
+export const PLAY_HEIGHT = 864;
 export const PANEL_Y = PLAY_HEIGHT;
 export const PANEL_HEIGHT = NATIVE_HEIGHT - PLAY_HEIGHT;
 

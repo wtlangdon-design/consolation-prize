@@ -2,7 +2,10 @@ import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
 import type { Exit, Interactable } from '../core/types.ts';
-import { Actor } from '../core/Actor.ts';
+import { Actor, IDLE_BREAK } from '../core/Actor.ts';
+import { RoomActors } from '../core/RoomActors.ts';
+import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
+import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont } from '../render/BitmapFont.ts';
@@ -17,7 +20,8 @@ import {
   Screen,
   pointInRect,
 } from '../render/Screen.ts';
-import { SequenceRunner, type SequenceHost, type SequenceStep } from '../core/Sequence.ts';
+import { SequenceRunner, type SequenceStep } from '../core/Sequence.ts';
+import { CarriedBeats } from '../core/CarriedBeats.ts';
 import {
   actCardOf, segmentsOf, stepsFor, writesOf, type Segment,
 } from '../core/Opening.ts';
@@ -46,6 +50,12 @@ export class GameScene extends Phaser.Scene {
   private font!: BitmapFont;
   private view!: Renderer;
   private actor!: Actor;
+  /** Every named mover in the room, the player among them. Issue X4 defect 3. */
+  private actors!: RoomActors;
+  /** Doc 34 assertion 6's register. Step E swaps a RuntimeCoordinator in. */
+  private readonly bodies = new BodyOwners();
+  /** The one thing allowed to drive a mover from a script. Issue X4 defect 1. */
+  private world!: SequenceWorld;
   private ambient!: AmbientLayer;
   private panel!: PanelLayout;
   private texture!: Phaser.Textures.CanvasTexture;
@@ -82,6 +92,17 @@ export class GameScene extends Phaser.Scene {
   private opening: Segment[] | null = null;
   private openingAt = 0;
   private openingDoneFlag: string | null = null;
+  /**
+   * Doc 17 beat 9's carrier, and the beats after it. Issue X4's fourth
+   * finding: "beat 9 additionally has no carrier".
+   *
+   * It is a SECOND runner, deliberately. The opening runner plays instead of
+   * the player; this one plays alongside him. Hob crosses the road while the
+   * panel is up and the player may walk, look and listen throughout -- which
+   * is what doc 17 means by putting `yes` in beat 9's interactive column.
+   */
+  private readonly carried = new CarriedBeats(
+    (writes) => this.state.flags.applyWrites(writes));
   private actCard: string | null = null;
   private hoveredLocation: string | null = null;
 
@@ -103,11 +124,28 @@ export class GameScene extends Phaser.Scene {
     context.imageSmoothingEnabled = false;
     this.screen = new Screen(context, this.state.content.palette);
     this.font = new BitmapFont(this.state.content.font);
-    this.actor = new Actor(this.state, 160, 130);
+    // The protagonist's id comes from content. No .ts file names him, and
+    // the registry does not know which of its movers he is beyond holding it.
+    this.actor = new Actor(this.state, this.state.content.actor.id,
+      NATIVE_WIDTH / 2, PLAY_HEIGHT - 14, {
+        routed: true,
+        // Doc 40's idle break plays only where the record declares the clip.
+        // `thad.json` does not -- that is Q9 -- so today he breathes and does
+        // not glance aside, and NOTHING IS SUBSTITUTED for the clip he has
+        // not got. It starts working the day the record grows one.
+        hasIdleBreak: this.spriteDeclares(IDLE_BREAK),
+      });
     this.actor.placeIn(this.state.roomId);
+    this.actors = new RoomActors(this.state, this.actor);
+    this.world = new SequenceWorld({
+      actors: this.actors,
+      bodies: this.bodies,
+      choreSeconds: (mover, clip) => this.choreSeconds(mover, clip),
+      say: (step) => this.saySequenceStep(step),
+    });
     this.ambient = new AmbientLayer(this.state);
     this.panel = new PanelLayout(this.state.content.panel);
-    this.view = new Renderer(this.screen, this.font, this.state, this.actor, this.ambient,
+    this.view = new Renderer(this.screen, this.font, this.state, this.actors, this.ambient,
       (roomId) => this.backgroundFor(roomId),
       (roomId) => this.foregroundFor(roomId),
       (roomId) => this.imageFor(roomId, 'idle', this.state.content.rooms.get(roomId)?.idles?.sheet),
@@ -134,9 +172,16 @@ export class GameScene extends Phaser.Scene {
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
     const wasRunning = this.sequence.isRunning;
-    if (this.sequence.update(now, this.host())) this.markDirty();
-    if (this.actor.update(now)) this.markDirty();
-    if (this.sequence.isRunning) this.markDirty();
+    if (this.sequence.update(now, this.world)) this.markDirty();
+    // Beat 9's carrier runs alongside the player rather than instead of him,
+    // so it is ticked whether or not the opening runner is.
+    if (this.carried.update(now, this.world)) this.markDirty();
+    if (this.actors.update(now)) this.markDirty();
+    // Every body whose walk or chore has finished is handed back HERE, once a
+    // tick and in one place. A claim that outlives its motion is what makes
+    // the next one trip assertion 6.
+    this.world.settleBodies();
+    if (this.sequence.isRunning || this.carried.isRunning) this.markDirty();
     // The opening's automatic segment has played out. Bank its flag writes
     // and move on -- to the driver's tree, or to control.
     if (this.opening && wasRunning && !this.sequence.isRunning) this.advanceOpening();
@@ -354,7 +399,10 @@ export class GameScene extends Phaser.Scene {
     // be -- doc 22's deterministic cancellation, applied to ordinary play.
     if (this.sequence.isRunning) {
       this.sequence.cancel();
-      this.actor.halt();
+      // The PLAYER's performance, and nobody else's: beat 9's carrier is
+      // running Hob across the road on its own runner and a change of mind
+      // about a trough is not a change of mind about him.
+      this.world.abandonActor(this.actors.playerId);
     }
 
     // An ambient character is talked to, never examined -- they are not
@@ -390,7 +438,7 @@ export class GameScene extends Phaser.Scene {
     // whole street and declares WALK TO as its default, so clicking the road
     // moves the player rather than examining the ground they are standing on.
     if (!target || verb === this.state.verbs.walkVerbId) {
-      if (this.actor.walkTo(x, y)) this.markDirty();
+      if (this.world.walkPlayer(x, y)) this.markDirty();
       return;
     }
 
@@ -449,39 +497,40 @@ export class GameScene extends Phaser.Scene {
     if (result.changedRoom) {
       this.hovered = null;
       this.hoveredName = null;
-      this.sequence.cancel();
-      this.actor.placeIn(this.state.roomId, this.state.previousRoomId);
+      this.enterRoomPerformance();
     }
     this.markDirty();
   }
 
   /**
-   * What the sequence runner is allowed to do to the world.
+   * Everything a change of room does to what is performing in it.
    *
-   * Built per tick rather than held, because it closes over nothing but the
-   * scene and the runner must not outlive a room change.
+   * Doc 22's deterministic cancellation, and it now has more to cancel: both
+   * runners stop, every body claim is handed back, and every mover but the
+   * player is dropped. A mover surviving a transition would be a coach
+   * standing in an assay office, and a body claim surviving one would trip
+   * assertion 6 on the first thing the next room tried to animate.
    */
-  private host(): SequenceHost {
-    return {
-      walk: (_actor, x, y) => { this.actor.walkTo(x, y); },
-      isWalking: () => this.actor.isWalking,
-      face: (_actor, facing) => { this.actor.setFacing(facing); },
-      isTurning: () => this.actor.isTurning,
-      chore: (_actor, clip) => {
-        const seconds = this.choreSeconds(clip);
-        this.actor.react(clip, seconds);
-        return seconds;
-      },
-      say: (step) => {
-        if (step.interact) {
-          const target = this.state.findTarget(step.interact.target);
-          if (target) this.applyInteraction(target, step.interact.verb);
-          return 0;
-        }
-        this.setSay(step.line ?? null);
-        return this.lineSeconds(step.line ?? '');
-      },
-    };
+  private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
+    this.sequence.cancel();
+    this.carried.cancel();
+    this.world.abandon();
+    this.actors.clearRoom();
+    this.actor.placeIn(this.state.roomId, from);
+  }
+
+  /**
+   * A line, or the interaction that produces one. Handed to `SequenceWorld`,
+   * which owns everything the runner may do to a BODY; this owns the words.
+   */
+  private saySequenceStep(step: Extract<SequenceStep, { kind: 'say' }>): number {
+    if (step.interact) {
+      const target = this.state.findTarget(step.interact.target);
+      if (target) this.applyInteraction(target, step.interact.verb);
+      return 0;
+    }
+    this.setSay(step.line ?? null);
+    return this.lineSeconds(step.line ?? '');
   }
 
   /**
@@ -500,11 +549,40 @@ export class GameScene extends Phaser.Scene {
     return Math.max(minimum, line.length * perGlyph);
   }
 
-  /** How long a clip runs, from its own frame count. */
-  private choreSeconds(clip: string): number {
-    const { reactRate, sizes } = this.state.content.actor;
-    const frames = sizes.near.clips.find((candidate) => candidate.id === clip)?.frames ?? 1;
-    return frames / reactRate;
+  /**
+   * How long a clip runs on this mover, from its own frame count.
+   *
+   * THERE IS NO FALLBACK, AND A MISSING CLIP IS NAMED. It used to end
+   * `?? 1`, so a chore nobody had drawn ran for one frame's worth of time and
+   * the actor played whatever `ActorSprite` fell through to -- coverage that
+   * did not exist, reported as working.
+   *
+   * Two things are missing today and both are named rather than papered over:
+   * only the protagonist has an actor record at all, so any chore naming
+   * another mover throws with its id in the message; and doc 40 lists
+   * `recoil`, `pickup` and `reach` as undrawn, so a chore naming one of those
+   * throws with the clip in the message. Assertion 14 fires first in dev with
+   * the code doc 34 gave it.
+   */
+  private choreSeconds(mover: Actor, clip: string): number {
+    const record = this.state.content.actor;
+    const facing = mover.facing;
+    const surface = mover.surfaceHere();
+    const found = mover.id === record.id
+      ? record.sizes.near.clips.find(
+        (candidate) => candidate.id === clip && candidate.facing === facing)
+      : undefined;
+    assertRequiredClip(found, clip, facing, surface);
+    if (!found) {
+      throw new Error(`No declared clip "${clip}" (${facing}) for mover "${mover.id}"`);
+    }
+    return found.frames / record.reactRate;
+  }
+
+  /** Whether the protagonist's record declares a clip. Never a substitution. */
+  private spriteDeclares(clip: string): boolean {
+    return this.state.content.actor.sizes.near.clips
+      .some((candidate) => candidate.id === clip);
   }
 
   /**
@@ -549,8 +627,7 @@ export class GameScene extends Phaser.Scene {
     this.hoveredName = null;
     this.hoveredLocation = null;
     this.setSay(null);
-    this.sequence.cancel();
-    this.actor.placeIn(this.state.roomId, this.state.previousRoomId);
+    this.enterRoomPerformance();
     this.markDirty();
   }
 
@@ -574,8 +651,7 @@ export class GameScene extends Phaser.Scene {
     this.hoveredName = null;
     this.hoveredLocation = null;
     this.setSay(null);
-    this.sequence.cancel();
-    this.actor.placeIn(this.state.roomId, this.state.previousRoomId);
+    this.enterRoomPerformance();
     this.markDirty();
   }
 
@@ -671,7 +747,21 @@ export class GameScene extends Phaser.Scene {
       // A player segment nobody carries is beat 8 onwards: control, Hob's
       // crossing, and the walk west. The opening is over and the game has
       // started; there is no announcement, per doc 17 v3.1.
+      //
+      // IT USED TO END HERE AND THAT WAS THE FOURTH X4 FINDING. Beats 8, 9
+      // and 10 are one uncarried player segment, so reaching beat 8 dropped
+      // beat 9 with it: Hob's three lines were never delivered, his flag was
+      // never written, and the watchman's lamp hotspot that flag gates could
+      // not appear in the game at all. Control is handed over AND the rest of
+      // the segment is armed, which is what doc 17's `yes` in beat 9's
+      // interactive column actually means.
+      //
+      // CONTROL FIRST, THEN THE CROSSING: `finishOpening` autosaves, and that
+      // save should record a game that has just begun rather than one three
+      // words into a conversation with a man who is not in the save file.
       this.finishOpening();
+      this.carried.arm(segment.beats);
+      this.markDirty();
       return;
     }
     this.finishOpening();
@@ -750,8 +840,7 @@ export class GameScene extends Phaser.Scene {
     this.hoveredName = null;
     this.sayLines = [];
     this.pendingSay = [];
-    this.sequence.cancel();
-    this.actor.placeIn(this.state.roomId);
+    this.enterRoomPerformance(null);
   }
 
   private afterMenu(): void {

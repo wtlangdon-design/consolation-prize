@@ -1,6 +1,7 @@
 import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
 import type { Actor } from '../core/Actor.ts';
+import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import type { AmbientFile, Interactable } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
@@ -80,6 +81,50 @@ export function dialogueTop(count: number): number {
   return DIALOGUE_BOTTOM - count * DIALOGUE_LINE_HEIGHT;
 }
 
+/** One figure standing in the room, whatever kind of thing it is. */
+export interface RoomFigure {
+  id: string;
+  feetX: number;
+  feetY: number;
+  /** Exactly one of these is set. */
+  npc?: AmbientFile;
+  mover?: Actor;
+}
+
+/**
+ * EVERYONE STANDING IN THE ROOM. Issue X4 defect 3, and the whole of it.
+ *
+ * This list used to be built inline as "the ambient set, plus the player",
+ * which is why Hob, the driver, the horses and the coach had no path to being
+ * drawn: not because anything refused them, but because nothing ever asked.
+ *
+ * Exported and pure so it can be tested without a canvas -- a renderer that
+ * quietly went back to drawing one protagonist would look identical in every
+ * screenshot of a room nobody had staged yet.
+ */
+export function roomFigures(ambient: AmbientFile[], movers: Actor[]): RoomFigure[] {
+  return [
+    ...ambient.map((npc) => ({ id: npc.id, feetX: npc.x, feetY: npc.y, npc })),
+    ...movers.map((mover) => ({
+      id: mover.id, feetX: Math.round(mover.x), feetY: Math.round(mover.y), mover,
+    })),
+  ];
+}
+
+/**
+ * BACK TO FRONT BY FEET-Y. Doc 22 section 5, step 3.
+ *
+ * Feet-Y is the whole depth cue in a lateral room -- whoever is standing
+ * lower is nearer -- and it now has to settle the player against a coach and
+ * a watchman as well as against the ambient crowd.
+ *
+ * `sort` is stable in every engine this runs on, so figures sharing a row
+ * keep the order they were added in and a tie does not flicker.
+ */
+export function depthOrder<T extends { feetY: number }>(figures: T[]): T[] {
+  return [...figures].sort((a, b) => a.feetY - b.feetY);
+}
+
 /** Fills `{name}` placeholders from the supplied map. */
 export function format(template: string, vars: Record<string, string>): string {
   return template.replace(/\{(\w+)\}/g, (whole, key: string) => vars[key] ?? whole);
@@ -96,7 +141,15 @@ export class Renderer {
   private readonly font: BitmapFont;
   private readonly state: GameState;
 
-  private readonly actor: Actor;
+  /**
+   * Every named mover in the room, the player among them. Issue X4 defect 3.
+   *
+   * This was a single `Actor`, and that was the defect: the draw list was the
+   * ambient set plus one protagonist, so Hob, the driver, the horses and the
+   * coach had nowhere to be drawn even though every sequence step had carried
+   * an actor id since the runner was written.
+   */
+  private readonly actors: RoomActors;
   private readonly ambient: AmbientLayer;
   private readonly background: BackgroundSource;
   /**
@@ -123,7 +176,7 @@ export class Renderer {
     screen: Screen,
     font: BitmapFont,
     state: GameState,
-    actor: Actor,
+    actors: RoomActors,
     ambient: AmbientLayer,
     background: BackgroundSource,
     foreground: BackgroundSource = () => null,
@@ -133,7 +186,7 @@ export class Renderer {
     this.screen = screen;
     this.font = font;
     this.state = state;
-    this.actor = actor;
+    this.actors = actors;
     this.ambient = ambient;
     this.background = background;
     this.foreground = foreground;
@@ -296,7 +349,7 @@ export class Renderer {
     const room = this.state.room;
     const image = this.background(room.id);
     if (image) {
-      this.screen.context.drawImage(image, 0, 0);
+      this.drawPlate(image);
       return;
     }
 
@@ -312,6 +365,26 @@ export class Renderer {
   }
 
   /**
+   * A room-sized plate, drawn to fill the play area whatever size it is.
+   *
+   * ERRATA 54 MADE THIS NECESSARY AND IT USED TO BE `drawImage(image, 0, 0)`.
+   * That was right while every plate was exactly 320x144 and the play area was
+   * too. The play area is 1920x864 now and one plate has been regenerated for
+   * it; the other ten backgrounds, all six foreground planes and both occlusion
+   * masks are still 320x144, and drawn at their own size they would occupy the
+   * top-left thirty-sixth of the frame with the room's flat fill around them.
+   *
+   * Stretching to the play area is not a compromise for the legacy assets and
+   * a no-op for the new ones -- it is 1:1 for anything already play-area sized,
+   * and for a 320-native plate it is exactly the 6x the geometry took. Every
+   * asset therefore lands where its own coordinates say it should, and a plate
+   * regenerated at 1920x864 later changes nothing here.
+   */
+  private drawPlate(image: CanvasImageSource): void {
+    this.screen.context.drawImage(image, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+  }
+
+  /**
    * Doc 22 item 9. Whatever each object's current state draws, over the room.
    *
    * Before the people, because a state image is room geometry -- an open door
@@ -324,7 +397,7 @@ export class Renderer {
       const shown = this.state.presentation(target);
       if (!shown?.image) continue;
       const image = this.sheet(shown.image);
-      if (image) this.screen.context.drawImage(image, 0, 0);
+      if (image) this.drawPlate(image);
     }
   }
 
@@ -342,7 +415,7 @@ export class Renderer {
     // back in front of an actor the plane deliberately let through.
     if (this.state.room.occlusionPlanes?.length) return;
     const image = this.foreground(this.state.room.id);
-    if (image) this.screen.context.drawImage(image, 0, 0);
+    if (image) this.drawPlate(image);
   }
 
   /**
@@ -358,43 +431,53 @@ export class Renderer {
    * actor, and the plane settles actor against room geometry.
    */
   private drawPeople(): void {
-    const drawables: { feetX: number; feetY: number; draw: () => void }[] = [];
-
-    for (const npc of this.ambient.present) {
-      drawables.push({
-        feetX: npc.x,
-        feetY: npc.y,
-        draw: () => {
-          if (!this.drawAmbient(npc)) {
-            this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
-              this.screen.role('outline'));
-          }
-        },
+    // EVERY MOVER, not just the protagonist, sorted against the ambient set
+    // in one pass -- so a driver standing further up the road is drawn behind
+    // a man standing nearer it for the same reason and by the same rule.
+    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all()))) {
+      this.masked(figure.feetX, figure.feetY, () => {
+        if (figure.mover) {
+          this.drawMover(figure.mover, figure.feetX, figure.feetY);
+          return;
+        }
+        const npc = figure.npc as AmbientFile;
+        if (!this.drawAmbient(npc)) {
+          this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
+            this.screen.role('outline'));
+        }
       });
-    }
-
-    const feetX = Math.round(this.actor.x);
-    const feetY = Math.round(this.actor.y);
-    drawables.push({ feetX, feetY, draw: () => this.drawActor(feetX, feetY) });
-
-    // Stable by construction: ambient characters keep their declared order
-    // among themselves when they share a row, so a tie does not flicker.
-    drawables.sort((a, b) => a.feetY - b.feetY);
-    for (const drawable of drawables) {
-      this.masked(drawable.feetX, drawable.feetY, drawable.draw);
     }
   }
 
-  private drawActor(feetX: number, feetY: number): void {
-    const surface = this.actor.surfaceHere();
-    const clip = this.actor.clip;
+  /**
+   * One named mover, drawn at its own depth height with its soles on its feet.
+   *
+   * Only the protagonist has a sprite record: `content/actors/` holds one
+   * actor file and the sheets it names, and no other character has one yet.
+   * Everyone else draws the graybox figure -- VISIBLY a placeholder, at the
+   * right size, in the right place, at the right depth. That is a gap you can
+   * see, which is the point: a mover borrowing the protagonist's sheet would
+   * be defect 1 again, wearing a costume.
+   */
+  private drawMover(mover: Actor, feetX: number, feetY: number): void {
+    if (mover.id !== this.actors.playerId) {
+      this.drawFigure(feetX, feetY, mover.height, this.screen.role('outline'));
+      return;
+    }
+    const surface = mover.surfaceHere();
+    const clip = mover.clip;
     const { walkRate, reactRate, idleRate } = this.state.content.actor;
-    const frames = this.sprite?.frameCount(clip, this.actor.facing, surface, this.actor.height) ?? 1;
-    const frame = this.actor.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0);
-    const drawn = this.sprite?.draw(this.screen.context, clip, this.actor.facing, surface,
-      frame, feetX, feetY, this.actor.height);
+    // Zero frames means the record does not declare this clip, and there is
+    // no substitute for one. The graybox below is a placeholder, not a
+    // stand-in animation: it is visibly not the character.
+    const frames = this.sprite?.frameCount(clip, mover.facing, surface, mover.height) ?? 0;
+    const drawn = frames > 0 && this.sprite?.draw(
+      this.screen.context, clip, mover.facing, surface,
+      mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0),
+      feetX, feetY, mover.height,
+    );
     if (!drawn) {
-      this.drawFigure(feetX, feetY, this.actor.height, this.screen.role('overlayBg'));
+      this.drawFigure(feetX, feetY, mover.height, this.screen.role('overlayBg'));
     }
   }
 
@@ -445,8 +528,8 @@ export class Renderer {
       this.screen.borrow(screenContext);
     }
     scratch.globalCompositeOperation = 'destination-out';
-    if (mask) scratch.drawImage(mask, 0, 0);
-    for (const extra of stateMasks) scratch.drawImage(extra, 0, 0);
+    if (mask) scratch.drawImage(mask, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    for (const extra of stateMasks) scratch.drawImage(extra, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
     scratch.globalCompositeOperation = 'source-over';
     screenContext.drawImage(scratch.canvas, 0, 0);
   }
@@ -481,6 +564,14 @@ export class Renderer {
     return true;
   }
 
+  /**
+   * The graybox figure: a visible placeholder at the right size and depth.
+   *
+   * The 40 is the height the block coordinates below were authored against,
+   * not a drawn size -- errata 54 did not make it stale, because everything
+   * here is a PROPORTION of whatever height it is handed. A mover asking to
+   * be 233 tall gets a 233-tall placeholder.
+   */
   private drawFigure(centreX: number, feetY: number, height: number, index: number): void {
     const unit = height / 40;
     const px = (value: number) => Math.max(1, Math.round(value * unit));

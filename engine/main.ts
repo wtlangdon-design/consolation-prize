@@ -3,32 +3,48 @@ import Phaser from 'phaser';
 import { BootScene } from './scenes/BootScene.ts';
 import { GameScene } from './scenes/GameScene.ts';
 import { NATIVE_HEIGHT, NATIVE_WIDTH } from './render/Screen.ts';
+import { setAssertionChecking } from './core/Assertions.ts';
 import './style.css';
 
-const MAX_ZOOM = 6;
+// Doc 34 section 4.6's illegal-state assertions run in development and fold
+// away in the production bundle: Vite resolves import.meta.env.DEV to a
+// literal, so every guard's body becomes unreachable and each call site is
+// left with one dead boolean test. They are programming-error guards, never
+// content or player errors, so shipping them live would only convert an
+// engine bug into a crash in front of a player.
+setAssertionChecking(import.meta.env.DEV);
 
 /**
- * Largest whole-number upscale that fits the window. Never fractional --
- * a non-integer scale reintroduces the resampling the art direction forbids.
- * At 4x this is 1280x800, the target in errata ruling 12.
+ * ERRATA 54 VOIDS THE INTEGER UPSCALE, and this file cannot keep it.
+ *
+ * The old rule took the largest whole-number multiple of 320x200 that fit the
+ * window. At a 1920x1080 native frame there is nothing to multiply: the first
+ * multiple is the frame itself, and on any window smaller than 1920x1080 --
+ * a Chromebook at 1366x768, or a browser with a bookmarks bar -- the integer
+ * calculation returns zero and clamps to 1, which does not shrink the canvas.
+ * It crops it. The panel goes off the bottom of the screen and the game is
+ * unplayable while every test still passes.
+ *
+ * So the frame FITS instead: scaled down to the window, aspect preserved,
+ * letterboxed. Errata 54 supersedes errata 39's integer-scaling rule by name
+ * and replaces decimation with "ordinary filtered resampling", so a fractional
+ * display scale is no longer the thing the art direction forbade -- it is the
+ * mechanism the ruling chose.
+ *
+ * `pixelArt`, `roundPixels` and `antialias: false` stay. They govern how
+ * TEXTURES are sampled when the engine draws them, which errata 54 did not
+ * revisit and CLAUDE.md still states after it.
  */
-function integerZoom(): number {
-  const byWidth = Math.floor(window.innerWidth / NATIVE_WIDTH);
-  const byHeight = Math.floor(window.innerHeight / NATIVE_HEIGHT);
-  return Phaser.Math.Clamp(Math.min(byWidth, byHeight), 1, MAX_ZOOM);
-}
-
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   parent: 'game',
   width: NATIVE_WIDTH,
   height: NATIVE_HEIGHT,
-  zoom: integerZoom(),
   pixelArt: true,
   roundPixels: true,
   antialias: false,
   scale: {
-    mode: Phaser.Scale.NONE,
+    mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
   },
   scene: [BootScene, GameScene],
@@ -48,8 +64,8 @@ if (import.meta.env.DEV) {
   (window as unknown as { __game: Phaser.Game }).__game = game;
 }
 
+// Phaser.Scale.FIT handles the resize itself; refresh so a window change that
+// does not fire the scale manager's own listener still re-letterboxes.
 window.addEventListener('resize', () => {
-  const zoom = integerZoom();
-  game.scale.setZoom(zoom);
   game.scale.refresh();
 });

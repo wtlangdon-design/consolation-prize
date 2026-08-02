@@ -15,7 +15,7 @@
     "sky": 0,
     "ground": 6
   },
-  "horizon": 60,
+  "horizon": 360,
   "background": "art/backgrounds/room-19-thads-room.png",
   "foreground": "art/foregrounds/room-19-thads-room.png",
   "walkable": [
@@ -23,30 +23,30 @@
       "id": "floor_far",
       "zone": 2,
       "rect": [
-        86,
-        88,
-        24,
-        12
+        516,
+        528,
+        144,
+        72
       ]
     },
     {
       "id": "floor_mid",
       "zone": 1,
       "rect": [
-        64,
-        100,
-        82,
-        16
+        384,
+        600,
+        492,
+        96
       ]
     },
     {
       "id": "floor_near",
       "zone": 0,
       "rect": [
-        40,
-        116,
-        160,
-        20
+        240,
+        696,
+        960,
+        120
       ]
     }
   ],
@@ -55,10 +55,10 @@
       "id": "mothers_letters",
       "name": "HIS MOTHER'S LETTERS",
       "rect": [
-        149,
-        89,
-        15,
-        8
+        894,
+        534,
+        90,
+        48
       ],
       "colour": 34,
       "defaultVerb": "LOOK_AT",
@@ -90,10 +90,10 @@
       "id": "outgoing_letter",
       "name": "THE OUTGOING LETTER",
       "rect": [
-        164,
-        87,
-        14,
-        10
+        984,
+        522,
+        84,
+        60
       ],
       "colour": 38,
       "defaultVerb": "LOOK_AT",
@@ -122,10 +122,10 @@
       "id": "fork_case",
       "name": "THE TUNING FORK CASE",
       "rect": [
-        177,
-        87,
-        26,
-        10
+        1062,
+        522,
+        156,
+        60
       ],
       "colour": 42,
       "defaultVerb": "LOOK_AT",
@@ -154,10 +154,10 @@
       "id": "desk",
       "name": "THE DESK",
       "rect": [
-        148,
-        96,
-        54,
-        34
+        888,
+        576,
+        324,
+        204
       ],
       "colour": 46,
       "defaultVerb": "LOOK_AT",
@@ -186,10 +186,10 @@
       "id": "washstand",
       "name": "THE WASHSTAND",
       "rect": [
-        104,
-        64,
-        36,
-        48
+        624,
+        384,
+        216,
+        288
       ],
       "colour": 50,
       "defaultVerb": "LOOK_AT",
@@ -221,10 +221,10 @@
       "id": "coat",
       "name": "THE COAT ON THE DOOR",
       "rect": [
-        81,
-        42,
-        16,
-        34
+        486,
+        252,
+        96,
+        204
       ],
       "colour": 54,
       "defaultVerb": "LOOK_AT",
@@ -256,10 +256,10 @@
       "id": "window",
       "name": "THE WINDOW",
       "rect": [
-        166,
-        32,
-        30,
-        34
+        996,
+        192,
+        180,
+        204
       ],
       "colour": 58,
       "defaultVerb": "LOOK_AT",
@@ -288,10 +288,10 @@
       "id": "wall",
       "name": "THE WALL",
       "rect": [
-        196,
-        32,
-        18,
-        24
+        1176,
+        192,
+        108,
+        144
       ],
       "colour": 62,
       "defaultVerb": "LOOK_AT",
@@ -323,10 +323,10 @@
       "id": "bed",
       "name": "THE BED",
       "rect": [
-        200,
-        56,
-        114,
-        58
+        1200,
+        336,
+        684,
+        348
       ],
       "colour": 66,
       "defaultVerb": "LOOK_AT",
@@ -360,10 +360,10 @@
       "id": "down_to_lobby",
       "name": "THE DOOR",
       "rect": [
-        98,
-        38,
-        12,
-        48
+        588,
+        228,
+        72,
+        288
       ],
       "colour": 90,
       "to": "hotel_lobby",
@@ -394,8 +394,8 @@
     {
       "from": "hotel_lobby",
       "at": [
-        104,
-        116
+        624,
+        696
       ],
       "facing": "front",
       "note": "In at the door on the back wall, with the desk under the window to the right and the bed beyond it."

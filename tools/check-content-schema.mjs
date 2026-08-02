@@ -1,7 +1,7 @@
 import { allDialogueOptions, allInteractables, loadContent, Report, runCheck } from './lib/content.mjs';
 
-const PLAY_WIDTH = 320;
-const PLAY_HEIGHT = 144;
+const PLAY_WIDTH = 1920;
+const PLAY_HEIGHT = 864;
 const EXPECTED_VERB_COUNT = 9;
 
 /**
@@ -75,7 +75,7 @@ export function check() {
   // missed -- and under-reporting is the right way for a build-failing check
   // to be wrong.
   //
-  // Brute force over the rect. A room has a dozen targets in a 320x144 frame,
+  // Brute force over the rect. A room has a dozen targets in a 1920x864 frame,
   // and being exactly right about this is worth more than being quick.
   for (const { data } of content.rooms) {
     const targets = [...(data.exits ?? []), ...(data.hotspots ?? [])];

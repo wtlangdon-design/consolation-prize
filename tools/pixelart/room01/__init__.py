@@ -142,6 +142,24 @@ def compose(with_coach: bool = True, lamp_x: int | None = None,
     return canvas, palette
 
 
+def _stipple(x: int, y: int) -> float:
+    """A stable 0-1 per pixel, with no lattice in it. See `_void_pools`.
+
+    The same integer hash `terrain._hash` uses, at one fixed salt, so the void
+    pass and the ground under it are grained the same way. Stable across
+    processes -- no `hash()`, which CPython salts per run and which
+    tools/check-render-seeding would fail anyway.
+    """
+    h = (x * 73856093) ^ (y * 19349663) ^ (0x5EED * 83492791)
+    h &= 0xFFFFFFFF
+    h ^= h >> 15
+    h = (h * 0x2C1B3C6D) & 0xFFFFFFFF
+    h ^= h >> 12
+    h = (h * 0x297A2D39) & 0xFFFFFFFF
+    h ^= h >> 15
+    return (h & 0xFFFFFF) / float(0x1000000)
+
+
 def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     """Errata 40's large connected regions of near-void, stamped after the light.
 
@@ -213,9 +231,23 @@ def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # `verge_mud` is grey 0 at L 16.0 and warmth 0 against the reference's
     # 15.1 and +0.2: the same pool, at the value the frame actually has, and
     # its rim now dithers across about ten luminance instead of thirty.
+    #
+    # ...AND ITS RIM IS HASHED, NOT BAYERED. void.smear's default screen is a
+    # Bayer 4x4, which is right for a small rim dissolving over two or three
+    # steps and wrong here: these two stamps cover 20x14 and 17x12 at a weight
+    # that sits near 0.5 across most of that area, so the "rim" is most of the
+    # pool and an ordered 4x4 at one density over 400 px is a screen. It
+    # measured 0.50 on room01_seams.py's lattice test against a reference
+    # whose most ordered tile ANYWHERE is 0.39 -- the same defect, in the same
+    # corner of the frame, as the mid-ground checker that shipped two rounds
+    # ago. `_stipple` is the per-pixel hash `terrain` already textures the
+    # valley floor with: same density, no lattice, and no region author could
+    # have seen it because the pass is nobody's region.
     floor = ctx.ink("verge_mud")
-    void.smear(canvas, 6, 96, 20, 14, keep=clear_of_wheels, floor=floor)
-    void.smear(canvas, 8, 108, 17, 12, keep=clear_of_wheels, floor=floor)
+    void.smear(canvas, 6, 96, 20, 14, keep=clear_of_wheels, floor=floor,
+               threshold=_stipple)
+    void.smear(canvas, 8, 108, 17, 12, keep=clear_of_wheels, floor=floor,
+               threshold=_stipple)
     # The gantry upright's channel, continuous with the shadow slot above it.
     #
     # FLAT, AND IT STOPS AT x=30. layout.SHADOW_SLOT is x 25-29 and nothing
@@ -235,12 +267,37 @@ def _void_pools(canvas: IndexedCanvas, ctx: layout.Ctx) -> None:
     # thing that made it read as a gap between two solids rather than as a
     # painted black bar. left_yard reported 1040 px of its rect over the
     # ceiling here and this is the other half of the same rect.
+    #
+    # ...AND IT STOPS AT y=79, which is where the bar stops it. `left_yard`
+    # reported this and it is the same class of defect as the wheels above:
+    # a whole-frame pass stamping over finished drawing that the region
+    # cannot see from inside its own render. Read down x 28-29 the bar is
+    # 2.6-9.0 for every row of y 64-79 and then LIFTS -- 8.4, 11.2, 13.1,
+    # 17.6, 19.9, 23.9 -- across y 80-89, because the slot is a gap between
+    # two solids and the ground at the bottom of it is lit. The two stamps
+    # were y 66-75 and y 78-89 and took all twenty-four of those rows to
+    # index 0, which is why the region's own core composited at 6.8/7.1
+    # against the bar's 15.1/16.9 no matter what it drew: it was not drawing
+    # them. One stamp now, over the rows the reference actually has, and
+    # y 80-89 is `left_yard`'s to draw.
     slot_x, _, slot_w, _ = layout.SHADOW_SLOT
     core_x, core_w = slot_x + slot_w - 2, 2
-    void.smear(canvas, core_x, 66, core_w, 10, keep=keep, solid=True)
-    void.smear(canvas, core_x, 78, core_w, 12, keep=keep, solid=True)
-    # The left structure read against the sky, from the top tread down.
-    void.smear(canvas, 11, 43, 14, 5, keep=keep)
+    void.smear(canvas, core_x, 66, core_w, 14, keep=keep, solid=True)
+    # NO STAMP ON THE TREADS, and this is the second half of the same report.
+    # `void.smear(canvas, 11, 43, 14, 5)` screened a Bayer checker across
+    # x 11-24 / y 43-47, which is exactly where left_yard.md §2.9's third
+    # moonlit tread lives -- §5 calls those caps load-bearing, because they
+    # are what separates the timber silhouette from a range 5-10 L behind
+    # it, and §5 measures zero checkerboard content anywhere in this rect.
+    #
+    # IT WAS ALSO NET DARKENING, not net pooling. Measured across x 11-24:
+    # rows 33-42, which this pass never touched, sit at +1.4 to +2.6 against
+    # the bar already -- the pool study §1 asks for at x 11-31 / y 35-47 is
+    # THERE, drawn, without help. The five rows the stamp did cover ran
+    # -3.4, -10.6, -6.5, -4.9 and -19.3. So it deepened the one part of the
+    # component the reference lights and left the part that is genuinely
+    # near-black alone, and it put an ordered lattice on the region's most
+    # important edge doing it.
     # rail.md §2.7's pocket is the ground both bright bars are read against,
     # and its floor is what makes them read. It is a POCKET, not a hole:
     # measured mean L 28.4, so ONLY ITS DEEPEST CORNER goes to void. The

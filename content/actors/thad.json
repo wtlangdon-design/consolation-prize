@@ -2,15 +2,15 @@
   "schema": 1,
   "id": "thad",
   "note": "Errata ruling 24. Two drawn sizes and nothing between them: the engine decimates the near sheet for every height above the threshold and swaps to the far sheet at it. Frame rects are row * cell height, column * cell width -- declared here so the exporter and the engine cannot disagree about where a frame is. Anchor is the bottom centre of a cell: the figure's soles.",
-  "threshold": 30,
+  "threshold": 180,
   "thresholdNote": "The height at which decimation stops leaving him eyes. Measured by tools/pixelart/actor.py:eye_death_row, not chosen.",
-  "walkRate": 8.0,
-  "reactRate": 7.0,
+  "walkRate": 8,
+  "reactRate": 7,
   "idleRate": 2.4,
   "sizes": {
     "near": {
       "sheet": "art/actors/thad-near.png",
-      "height": 40,
+      "height": 240,
       "cell": [
         20,
         42
@@ -188,7 +188,7 @@
     },
     "far": {
       "sheet": "art/actors/thad-far.png",
-      "height": 26,
+      "height": 156,
       "cell": [
         14,
         28

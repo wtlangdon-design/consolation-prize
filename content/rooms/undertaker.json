@@ -15,7 +15,7 @@
     "sky": 0,
     "ground": 6
   },
-  "horizon": 60,
+  "horizon": 360,
   "background": "art/backgrounds/room-13-undertakers.png",
   "foreground": "art/foregrounds/room-13-undertakers.png",
   "walkable": [
@@ -23,30 +23,30 @@
       "id": "floor_far",
       "zone": 2,
       "rect": [
-        110,
-        84,
-        70,
-        10
+        660,
+        504,
+        420,
+        60
       ]
     },
     {
       "id": "floor_mid",
       "zone": 1,
       "rect": [
-        40,
-        112,
-        220,
-        12
+        240,
+        672,
+        1320,
+        72
       ]
     },
     {
       "id": "floor_near",
       "zone": 0,
       "rect": [
-        28,
-        124,
-        264,
-        14
+        168,
+        744,
+        1584,
+        84
       ]
     }
   ],
@@ -55,10 +55,10 @@
       "id": "the_undertaker",
       "name": "THE UNDERTAKER",
       "rect": [
-        143,
-        66,
-        15,
-        36
+        858,
+        396,
+        90,
+        216
       ],
       "colour": 30,
       "stub": true,
@@ -76,10 +76,10 @@
       "id": "good_suit",
       "name": "THE GOOD SUIT",
       "rect": [
-        74,
-        30,
-        22,
-        34
+        444,
+        180,
+        132,
+        204
       ],
       "colour": 34,
       "defaultVerb": "LOOK_AT",
@@ -111,10 +111,10 @@
       "id": "price_list",
       "name": "THE PRICE LIST",
       "rect": [
-        166,
-        28,
-        22,
-        28
+        996,
+        168,
+        132,
+        168
       ],
       "colour": 38,
       "defaultVerb": "LOOK_AT",
@@ -146,10 +146,10 @@
       "id": "jar_of_teeth",
       "name": "THE JAR OF TEETH",
       "rect": [
-        256,
-        74,
-        22,
-        26
+        1536,
+        444,
+        132,
+        156
       ],
       "colour": 42,
       "defaultVerb": "LOOK_AT",
@@ -181,10 +181,10 @@
       "id": "window",
       "name": "THE WINDOW",
       "rect": [
-        186,
-        24,
-        42,
-        42
+        1116,
+        144,
+        252,
+        252
       ],
       "colour": 46,
       "defaultVerb": "LOOK_AT",
@@ -213,10 +213,10 @@
       "id": "tools",
       "name": "THE TOOLS",
       "rect": [
-        176,
-        62,
-        82,
-        24
+        1056,
+        372,
+        492,
+        144
       ],
       "colour": 50,
       "defaultVerb": "LOOK_AT",
@@ -248,10 +248,10 @@
       "id": "ledger",
       "name": "THE LEDGER",
       "rect": [
-        104,
-        82,
-        30,
-        40
+        624,
+        492,
+        180,
+        240
       ],
       "colour": 54,
       "defaultVerb": "LOOK_AT",
@@ -280,10 +280,10 @@
       "id": "coffins",
       "name": "THE COFFINS",
       "rect": [
-        88,
-        22,
-        86,
-        60
+        528,
+        132,
+        516,
+        360
       ],
       "colour": 58,
       "defaultVerb": "LOOK_AT",
@@ -316,10 +316,10 @@
       "id": "waiting_bench",
       "name": "THE WAITING BENCH",
       "rect": [
-        32,
-        96,
-        72,
-        36
+        192,
+        576,
+        432,
+        216
       ],
       "colour": 62,
       "defaultVerb": "LOOK_AT",
@@ -351,10 +351,10 @@
       "id": "table",
       "name": "THE TABLE",
       "rect": [
-        186,
-        86,
-        108,
-        40
+        1116,
+        516,
+        648,
+        240
       ],
       "colour": 66,
       "defaultVerb": "LOOK_AT",
@@ -385,10 +385,10 @@
       "id": "back_to_street",
       "name": "THE STREET DOOR",
       "rect": [
-        6,
-        40,
-        24,
-        52
+        36,
+        240,
+        144,
+        312
       ],
       "colour": 90,
       "to": "town_map",
@@ -419,8 +419,8 @@
     {
       "from": "town_map",
       "at": [
-        46,
-        128
+        276,
+        768
       ],
       "facing": "right",
       "note": "Doc 20: reached from the map, and doc 26 gives the room a street door back out to it -- it opens onto a lane rather than Main Street."
@@ -430,10 +430,10 @@
     {
       "note": "The window: north light, and the 33b exemption is DECLARED here rather than inferred from brightness, per the correction to that ruling. The blind is half down and left that way so a visitor can see Boot Hill before he has to say it.",
       "rect": [
-        186,
-        24,
-        42,
-        42
+        1116,
+        144,
+        252,
+        252
       ]
     }
   ]

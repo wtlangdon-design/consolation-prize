@@ -10,7 +10,7 @@
     "sky": 237,
     "ground": 181
   },
-  "horizon": 58,
+  "horizon": 348,
   "cycling": [
     {
       "id": "hobs_lamp",
@@ -55,9 +55,9 @@
       "zone": 2,
       "rect": [
         0,
-        96,
-        320,
-        12
+        576,
+        1920,
+        72
       ]
     },
     {
@@ -65,9 +65,9 @@
       "zone": 1,
       "rect": [
         0,
-        108,
-        320,
-        14
+        648,
+        1920,
+        84
       ]
     },
     {
@@ -75,9 +75,9 @@
       "zone": 0,
       "rect": [
         0,
-        122,
-        320,
-        22
+        732,
+        1920,
+        132
       ]
     }
   ],
@@ -86,10 +86,10 @@
       "id": "case_roof",
       "name": "HIS CASE",
       "rect": [
-        206,
-        56,
-        22,
-        12
+        1236,
+        336,
+        132,
+        72
       ],
       "colour": 28,
       "when": {
@@ -125,10 +125,10 @@
       "id": "case_mud",
       "name": "HIS CASE",
       "rect": [
-        146,
-        122,
-        24,
-        16
+        876,
+        732,
+        144,
+        96
       ],
       "colour": 28,
       "when": {
@@ -170,10 +170,10 @@
       "id": "lamp",
       "name": "THE WATCHMAN'S LAMP",
       "rect": [
-        80,
-        74,
-        20,
-        28
+        480,
+        444,
+        120,
+        168
       ],
       "colour": 226,
       "when": {
@@ -209,10 +209,10 @@
       "id": "lamp_gone",
       "name": "THE WATCHMAN'S LAMP",
       "rect": [
-        80,
-        74,
-        20,
-        28
+        480,
+        444,
+        120,
+        168
       ],
       "colour": 226,
       "when": {
@@ -244,10 +244,10 @@
       "id": "coach",
       "name": "THE COACH",
       "rect": [
-        192,
-        60,
-        80,
-        42
+        1152,
+        360,
+        480,
+        252
       ],
       "colour": 30,
       "when": {
@@ -290,10 +290,10 @@
       "id": "team",
       "name": "THE TEAM",
       "rect": [
-        152,
-        74,
-        40,
-        28
+        912,
+        444,
+        240,
+        168
       ],
       "colour": 30,
       "when": {
@@ -326,10 +326,10 @@
       "id": "coach_gone",
       "name": "THE ROAD WEST OUT",
       "rect": [
-        192,
-        60,
-        80,
-        42
+        1152,
+        360,
+        480,
+        252
       ],
       "colour": 30,
       "when": {
@@ -361,10 +361,10 @@
       "id": "town_sign",
       "name": "THE TOWN SIGN",
       "rect": [
-        34,
-        60,
-        32,
-        40
+        204,
+        360,
+        192,
+        240
       ],
       "colour": 199,
       "responses": {
@@ -397,10 +397,10 @@
       "id": "road_east",
       "name": "THE ROAD EAST",
       "rect": [
-        276,
-        88,
-        44,
-        26
+        1656,
+        528,
+        264,
+        156
       ],
       "colour": 10,
       "responses": {
@@ -434,9 +434,9 @@
       "name": "THE MUD",
       "rect": [
         0,
-        110,
-        320,
-        34
+        660,
+        1920,
+        204
       ],
       "colour": 6,
       "responses": {
@@ -471,9 +471,9 @@
       "name": "THE ROAD WEST",
       "rect": [
         0,
-        86,
-        34,
-        58
+        516,
+        204,
+        348
       ],
       "colour": 198,
       "to": "main_street",
@@ -504,11 +504,11 @@
     "note": "ERRATA 33b. Declared rather than derived from `horizon`: the sky is measured over these rows and nothing below them may be lighter than its p90. Rows 0-40 are sky and only sky -- the hills start at 42.",
     "skyRows": [
       0,
-      44
+      264
     ],
     "skylineRows": [
-      44,
-      80
+      264,
+      480
     ],
     "skylineNote": "The hills and the town downhill -- everything that meets the night sky. NOT the road: a moonlit ground plane in front of the viewer is not seen against the sky, and grading it against one failed twenty thousand pixels for no reason."
   },
@@ -516,28 +516,28 @@
     {
       "note": "Hob's lamp. The brightest thing in Room 1 at 205 against a night sky p90 of 42.7, and it is SUPPOSED to be -- a source out-blazes a night sky, and errata 33a is about to widen that gap by darkening the collar. Declared, not inferred: a brightness test would excuse the Company facade too.",
       "rect": [
-        64,
-        66,
-        46,
-        42
+        384,
+        396,
+        276,
+        252
       ]
     },
     {
       "note": "The coach lantern, dimmer on purpose -- doc 17 allows one bright warm point on this road and Hob has it.",
       "rect": [
-        180,
-        76,
-        34,
-        30
+        1080,
+        456,
+        204,
+        180
       ]
     },
     {
       "note": "The town downhill, west: lit windows and nothing else. Doc 17's road west LOOK line is 'There are lamps on in about a third of it.'",
       "rect": [
         0,
-        56,
-        74,
-        22
+        336,
+        444,
+        132
       ]
     }
   ]
