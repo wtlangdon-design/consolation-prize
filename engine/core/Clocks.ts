@@ -5,7 +5,7 @@ import type { ClockDomain, GameplayClock } from './runtime-types.ts';
  * The five logical clocks. Doc 34 section 4.5, adopted by errata 52.
  *
  * Section 5 lists "Logical clocks" as one of the undefined contracts: "Pause,
- * manual text, hidden coffin transport, palette cycling and save age require
+ * manual text, hidden coffin transport, sprite animation and save age require
  * different time semantics. Name clocks and define pause ownership; forbid raw
  * wall time in gameplay." Section 4.5 names them. This holds them.
  *
@@ -23,7 +23,7 @@ import type { ClockDomain, GameplayClock } from './runtime-types.ts';
  *                   under shell.
  *   presentation    speech holds, comedy pauses, chore timelines. Pauses
  *                   under shell; text speed scales reading holds only.
- *   ambient         idles and palette cycling. Pauses under shell, never
+ *   ambient         idles and ambient sprite motion. Pauses under shell, never
  *                   changes story state.
  *   audioTransport  room/grid position. Usually pauses under shell. During
  *                   the coffin it continues silently so the score can resume
@@ -67,7 +67,9 @@ const POLICY: Readonly<Record<ClockDomain, ClockPolicy>> = {
   simulation: { pausesUnderShell: true, scalesWithReadingSpeed: false },
   // Speech holds, comedy pauses, chore timelines.
   presentation: { pausesUnderShell: true, scalesWithReadingSpeed: true },
-  // Idles and palette cycling. Never changes story state -- invariant 9.
+  // Idles and ambient sprite motion -- errata 54 voided palette cycling, so
+  // animation is now the only way anything in a room moves. Never changes
+  // story state: invariant 9.
   ambient: { pausesUnderShell: true, scalesWithReadingSpeed: false },
   // Room and grid position. See the coffin note above.
   audioTransport: { pausesUnderShell: true, scalesWithReadingSpeed: false },

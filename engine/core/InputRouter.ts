@@ -47,7 +47,7 @@ export interface RouterGeometry {
   choiceList(): Rect | null;
   /** Verb panel, inventory and map button. */
   panel(): Rect | null;
-  /** The 320x144 play area. */
+  /** The play area. 1920x864 under errata 54. */
   playfield(): Rect;
 }
 
