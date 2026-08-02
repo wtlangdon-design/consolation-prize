@@ -86,6 +86,15 @@ export class ActorSprite {
    * declares a surface, so this only ever takes the second branch.
    */
   private clipOf(clip: string, facing: Facing, surface: string): ActorClip | undefined {
+    // A FACING THE CHARACTER IS NOT DRAWN IN IS DATA, NOT A GAP. Hob is
+    // right-facing only, and asking him to face left must neither substitute
+    // another facing nor fail -- it draws nothing, and the caller falls back
+    // to a visible placeholder. Declared in the record rather than inferred
+    // from what happens to be missing, so a character who SHOULD have four
+    // facings and has three still trips the guard below.
+    const facings = this.table.facings;
+    if (facings && !facings.includes(facing)) return undefined;
+
     const found = this.table.clips.find(
       (candidate) => candidate.id === clip && candidate.facing === facing
         && candidate.surface === surface,

@@ -37,19 +37,27 @@ export function check() {
   const report = new Report('Every clip directory is a declared body clip or a marked overlay');
   const content = loadContent();
 
+  // Every declared record, read from the MANIFEST'S OWN LIST rather than from
+  // whatever the tools loader happens to expose. The list is the thing being
+  // checked -- a character absent from it is exactly the gap -- so reading it
+  // at the source keeps this check honest about what the game will load.
+  const manifest = JSON.parse(readFileSync(join(ROOT, 'content', 'manifest.json'), 'utf8'));
+  const paths = manifest.actors ?? [manifest.actor];
+  const records = new Map();
+  for (const path of paths) {
+    const record = JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
+    records.set(record.id, record);
+  }
+  if (!records.has(content.actor.id)) records.set(content.actor.id, content.actor);
   const declared = new Map();
-  for (const clip of content.actor.clips ?? []) {
-    for (const frame of clip.frames ?? []) {
-      declared.set(frame.split('/').slice(0, -1).join('/'), clip);
+  for (const record of records.values()) {
+    for (const clip of record.clips ?? []) {
+      for (const frame of clip.frames ?? []) {
+        declared.set(frame.split('/').slice(0, -1).join('/'), { clip, record });
+      }
     }
   }
-
-  // The manifest declares ONE actor record, so anything under a different
-  // character's prefix has no record to be declared in. That is still a real
-  // gap -- the art is invisible and the game never asks for it -- but it is a
-  // DIFFERENT gap from a missing clip, and reporting it as the same one sends
-  // the next person to re-run a generator that does not know the character.
-  const known = content.actor.id;
+  const known = new Set(records.keys());
 
   let bodies = 0;
   let overlays = 0;
@@ -67,9 +75,10 @@ export function check() {
     }
     const rig = JSON.parse(readFileSync(rigPath, 'utf8'));
     const isOverlay = rig.kind === OVERLAY_KIND || rig.overlay_rect !== undefined;
-    const clip = declared.get(`art/actors/${name}`);
+    const found = declared.get(`art/actors/${name}`);
+    const clip = found?.clip;
 
-    if (isOverlay && clip) {
+    if (isOverlay && found) {
       report.fail(
         `art/actors/${name} is a ${OVERLAY_KIND} and the actor record declares it as the `
         + `body clip "${clip.id}/${clip.facing}". Scaled to its figure height of `
@@ -88,12 +97,12 @@ export function check() {
     }
     if (!clip) {
       const character = name.split('-')[0];
-      if (character !== known) {
+      if (!known.has(character)) {
         unrecorded.set(character, (unrecorded.get(character) ?? 0) + 1);
         continue;
       }
       report.fail(
-        `art/actors/${name} is neither declared in content/actors/${known}.json nor marked `
+        `art/actors/${name} is neither declared in ${found?.record.id ?? character}'s record nor marked `
         + `"kind": "${OVERLAY_KIND}". New art nobody wired is invisible -- the game `
         + `never asks for it and nothing says so. Re-run tools/build-actor-record.mjs, `
         + `or mark it as an overlay.`,
@@ -106,10 +115,11 @@ export function check() {
   for (const [character, count] of [...unrecorded].sort()) {
     report.fail(
       `${character} has ${count} clip directory/ies under art/actors/ and NO ACTOR RECORD. `
-      + `content/manifest.json declares one actor ("${known}") and content/actors/ holds `
-      + `one record, so there is nowhere for these to be declared and the game cannot ask `
-      + `for them. This is not a missing clip and re-running the generator will not fix it: `
-      + `it is a second character arriving ahead of the plumbing that would load one.`,
+      + `content/manifest.json's \`actors\` list names ${[...known].join(', ')} and nothing `
+      + `else, so there is nowhere for these to be declared and the game cannot ask for `
+      + `them. This is not a missing clip and re-running the generator alone will not fix `
+      + `it: add the character to CHARACTERS in tools/build-actor-record.mjs AND to the `
+      + `manifest's list.`,
     );
   }
 

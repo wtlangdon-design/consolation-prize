@@ -423,6 +423,18 @@ export interface ActorFile {
    */
   height: number;
   heightNote?: string;
+  /**
+   * The facings this character is DRAWN in, and no others.
+   *
+   * Hob is right-facing only -- he crosses the road once and never comes back,
+   * so four clips is the art being right rather than the art being short.
+   * Declared so that asking for a facing he has not got is answered by DATA
+   * instead of by a guard firing. Q20 still holds underneath: no silent
+   * substitution. A facing he does not have draws nothing; a clip he should
+   * have and does not is still named.
+   */
+  facings?: Facing[];
+  ratesNote?: string;
   /** Walk-cycle frames per second. */
   walkRate: number;
   /** Reaction frames per second. */
@@ -790,6 +802,9 @@ export interface ManifestFile {
   openingSequence?: string;
   /** The player character's sheet and clip table. */
   actor: string;
+  /** Every actor record, named explicitly. Never discovered from a directory. */
+  actors?: string[];
+  actorsNote?: string;
   items: string[];
   /** Verb panel and inventory geometry. Errata ruling 26. */
   panel: string;
@@ -815,6 +830,8 @@ export interface ContentBundle {
   rooms: Map<string, RoomFile>;
   dialogue: Map<string, DialogueFile>;
   actor: ActorFile;
+  /** Every declared record by id, the protagonist among them. */
+  actors: Map<string, ActorFile>;
   items: Map<string, ItemFile>;
   panel: PanelFile;
   combinations: CombinationsFile;

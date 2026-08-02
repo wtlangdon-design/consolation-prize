@@ -573,9 +573,10 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 694,
-        "farHeight": 190,
+        "farHeight": 222,
         "nearY": 830,
-        "nearHeight": 225
+        "nearHeight": 263,
+        "note": "RESCALED WITH ITS SHAPE UNCHANGED. The anchors were 190 and 225 under the 205 figure; the measured height is 240, so the same curve between the same two rows now runs 222 to 263. farY and nearY are the band's own sample rows and did not move -- only the heights did, which is what 'shape unchanged' means. The box governs, not the zone table: boxAt takes precedence, so a curve left at the old numbers would have quietly overridden scaling.json and drawn him short in the one room that has boxes."
       }
     }
   ],

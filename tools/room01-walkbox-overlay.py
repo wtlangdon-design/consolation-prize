@@ -35,7 +35,7 @@ OUT = ROOT / "renders"
 BAND_TOP = 660
 BAND_BOTTOM = 864
 BANDS = [("road_far", 660, 728), ("road_mid", 728, 796), ("road_near", 796, 864)]
-HEIGHTS = {"road_far": 190, "road_mid": 205, "road_near": 225}
+HEIGHTS = {"road_far": 222, "road_mid": 240, "road_near": 263}
 
 # x0, y0, x1, y1, label, what it is
 CANDIDATES = [
