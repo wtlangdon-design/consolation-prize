@@ -39,21 +39,22 @@ Green keys cleanly against a coach. Against **dark blue wool it sits too close t
 
 # PART TWO — THE FIVE RULES THAT COST A ROUND EACH
 
-## R1 · The rig line is the coat hem, and it is found by WIDTH
+## R1 · The rig line is the coat hem, found by where the SINGLE-RUN block ends
 
-Two detection attempts failed:
+Three detection attempts failed before one worked:
 
 | Attempt | Found | Actually |
 |---|---|---|
-| "first row where the mask splits into 2 runs" | 60% down | The gap between the **lantern and the body** |
-| "lowest row where 2 leg-width runs exist" | 84% down | **Mid-shin** — cut the leg in half |
-| **row width profile** | **72% down** | **The coat hem** ✓ |
+| first row where the mask splits into 2 runs | 60% | the gap between the **lantern and the body** |
+| lowest row with 2 leg-width runs | 84% | **mid-shin** — cut the leg in half |
+| sharpest width drop | 66% | the **lantern arm ending** |
+| **end of the last sustained single-run block** | **72%** | **the coat hem** ✓ |
 
-The silhouette narrows sharply where the coat ends — on Hob, 349px to 227px. That transition is unambiguous. Leg separation is not: it finds arm gaps above and shin gaps below.
+**Width drop is not the signal, and the doc said it was for a day.** It assumes a standing pose where the coat is wider than the legs. In the mid-stride pose this pipeline *requires*, the leg span is as wide as the coat and there is no drop at all — measured **1.54 standing, 1.09 striding**. The rule worked on the character it was derived from and failed on the very next one.
 
-**Detect the hem as the width drop below which the mask is predominantly TWO RUNS.** Width drop alone is not enough — an arm leaving the silhouette looks identical to a hem, and a sustained-narrowing test still picked the arm. What distinguishes the hem is that *below it you can see two legs*. Requiring more than 55% of rows below the candidate to contain exactly two runs separates 72% (coat) from 66% (lantern arm) and 84% (mid-shin) on the first try.
+**What holds for both:** the coat is one continuous shape, and below it there are two. Find the lowest sustained stretch of single-run rows; the hem is immediately below it. This also steps over the gap a carried lantern opens higher up, which is what defeated the first two attempts.
 
-*This was got wrong twice by hand and once more in the script, after the doc describing it had already been written.*
+Verify by requiring that more than half the rows below the candidate contain exactly two runs. If they do not, the legs are not separated enough to rig and the character needs regenerating.
 
 ## R2 · Pivot above the hem; draw the coat over the joint
 
@@ -72,6 +73,20 @@ The legs merge into one connected component near the hem even when they separate
 - **Then** reassign stray components **below 10% of leg mass** whole, to clean up boots the straight seam cut through. Hob had two, 1,255px and 3,020px — the *"small remnants of shoes between the shoes."*
 - Applying the whole-component rule without the size limit sends the entire leg mass to one side and leaves the other empty.
 
+## R3b · Which arm is NEAR is decided by MASS, not by side
+
+Both arms hang clear of the torso, so across a band of rows the silhouette reads arm | coat | arm. The widest run is the coat; a narrow run outside it is an arm.
+
+**Assigning near and far by which side of the coat a run sits on is wrong.** The near arm is drawn whole; the far one is partly behind the body and carries far less — on Thad, **31,302px against 11,748**. Assigning by side inverted them, so the fully drawn arm went behind the coat and the half-hidden one in front of it.
+
+Draw order follows from the assignment: **far arm → coat → near arm.** The far arm then passes out of sight at the back of the stride, which is what it should do. Give it almost no elbow — it is mostly occluded anyway — and the near arm a full one.
+
+## R3c · Auto-detection under-captures limbs. Paint the mask.
+
+**This is the rule that closed the longest failure of the session.** Automatic segmentation can only see the part of a limb that clears the torso as its own run. On Thad that was **11,748px of a 27,535px arm — 43%**. Rotating that sliver while the rest stayed welded to the coat is exactly what reads as a hinge at the wrist, and three attempts at moving the joint could not fix it because the joint was never the problem.
+
+**`tools/rig/mark-the-arm.html`** loads the figure on a canvas, the limb is painted by hand, and it emits an `ARMMASK` code that `character.py` takes via `--near-mask` / `--far-mask`. Thirty seconds of painting beats any amount of detection, and it will under-capture on every character whose arm rests near their coat.
+
 ## R4 · Premultiply before every rotate, resize and composite
 
 **Three separate defects had this one cause.** Transparent pixels are stored as black, so any interpolation near an edge averages visible colour toward black — or, with a green backdrop, toward green.
@@ -83,6 +98,10 @@ dark edge on paste               -> composited with a hard alpha threshold
 ```
 
 Always: multiply RGB by alpha → transform → divide back. And **bleed the edge colour a few pixels outward past the silhouette** before any transform, so the interpolator never samples empty space at all.
+
+## R4b · Record the facing; do not remember it
+
+`rig.json` carries `facing` and `walk_dx`. Translating a character the wrong way was got wrong on **both** characters — a figure walking backwards through the scene, twice. Anything that is got wrong twice belongs in the data, not in someone's head.
 
 ## R5 · Never preview through GIF with alpha
 
@@ -132,6 +151,13 @@ With the prompt corrected and the script written:
 
 1. Point at the character in the composition master. **One generation.**
 2. Run `tools/rig/character.py`. Key, despill, bleed, find hem, split legs, extend under the coat, emit eight frames.
-3. Inspect and adjust the hip angles.
+3. Paint the arms in `mark-the-arm.html` and re-run with `--near-mask` / `--far-mask`. Assume this is needed; auto-detection under-captures.
+4. Inspect and adjust the hip and arm angles.
+
+## A process note, recorded because it cost more than any single bug
+
+The script was edited through a dozen fragile string-replacement passes. By the end it carried **178 lines of uncommitted divergence** and constants that had no business existing, and I could no longer tell what was in it — briefly believing another author had touched the file. It was reset to the last commit and rewritten once, deliberately, after reading it.
+
+**Edit this file by reading it, not by pattern-matching into it.** Two separate string replacements also failed silently on mismatched anchors earlier in the same session and were reported as successful.
 
 The fifteen rounds were: two style failures, three hem-detection failures, one leg-split failure, one knee experiment, one direction error, and two preview-encoding failures. **Every one of them is closed by a rule above.**
