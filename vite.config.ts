@@ -34,11 +34,22 @@ function copyDataDirs(): Plugin {
  *
  * BASE_PATH overrides it, so the same build can be pointed at a custom
  * domain or a preview host without editing this file.
+ *
+ * PREVIEW SERVES WHAT BUILD EMITTED, which is why `isPreview` is here.
+ * Vite runs the preview server under command "serve", so this used to resolve
+ * to "/" while the index.html it was serving had /consolation-prize/ baked
+ * into every asset URL -- a 200 on the page and a 404 on the bundle, and
+ * `npm run preview` could never work. Q33.
+ *
+ * The fix is on the PREVIEW side on purpose. Making build emit "/" instead
+ * would fix preview by breaking Pages, which serves a project site under
+ * /<repo>/ and is where the game is actually looked at. A local inconvenience
+ * is not worth a broken live game.
  */
 const PAGES_BASE = process.env.BASE_PATH ?? '/consolation-prize/';
 
-export default defineConfig(({ command }) => ({
-  base: command === 'build' ? PAGES_BASE : '/',
+export default defineConfig(({ command, isPreview }) => ({
+  base: command === 'build' || isPreview ? PAGES_BASE : '/',
   plugins: [copyDataDirs()],
   resolve: {
     alias: {

@@ -190,6 +190,20 @@ Frames for review are therefore dumped from the screen texture rather than scree
 
 > **Verify the apparatus before trusting the null.** Make the instrument prove it fired — a counter, a marker, a deliberately-triggered positive — before any absence it reports is treated as a finding. A measurement that reports nothing has two explanations and only one of them is about the thing being measured.
 
+## R5e · A CHECK MUST NOT SHARE ITS SUBJECT'S ASSUMPTIONS
+
+R5d is about not trusting a rendering of a rendering. This is the same error one level up: **do not trust a check that was written from the same understanding as the thing it checks.**
+
+**A check that shares its subject's field knowledge agrees with it about a field neither of them knows exists.**
+
+**The case that produced it.** Hob's actor record parsed. His art was on disk. `check-actor-clips` passed, `check-asset-paths` passed, the record's clips and facings and figure heights were all correct — and he drew nothing, because the loader asked for the protagonist's frames and no others. Every artefact any check looked at was right. The gap was in what nothing looked at: **declared, valid, and never loaded.** Three separate checks, all green, on a tree where a character could not appear.
+
+**The fix is enumerate independently.** `tools/check-boot-assets.mjs` finds every declared image by walking the content records generically — a regex for anything shaped like an asset path — rather than by calling the loader's own field-by-field helper. The next `"image"` somebody adds to a schema is found by the regex, not by anybody remembering to update two places. Had it asked the loader what images exist, it would have been told exactly what the loader already knew, which was the bug.
+
+**And a check is not proven by passing.** It is proven by being made to fail on the real defect. Reverting the loader to load only the protagonist made it fail **by name, on all 13 of Hob's frames**. A check nobody has watched fail is a check nobody has tested — the same rule as R5d's apparatus clause, applied to validation instead of instrumentation.
+
+> **Enumerate from a different direction than the code you are checking, then break the code and watch the check catch it.** A green check that has only ever been green is an assertion about nothing.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.

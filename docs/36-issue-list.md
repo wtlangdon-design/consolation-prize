@@ -696,7 +696,7 @@ The check walks the records independently *on purpose*. Enumerating assets by ca
 - **A "not black" predicate fired at 0.2 s.** The page is *white* until the JS bundle loads the stylesheet that makes it black, so brightness measured the blank page. A drawn room has hundreds of distinct colours and a flat page of any colour has one; the count is the honest test.
 - **The production harness read `>60 s` at every bandwidth.** `window.__game` is stripped from production builds by an `import.meta.env.DEV` guard, so the probe was asking a question the page could not answer. An experiment that did not happen returns "never", which looks exactly like a real failure.
 
-## Q33 · `npm run preview` cannot serve `npm run build`
+## Q33 · `npm run preview` cannot serve `npm run build` — **RULED: fix preview, not build. Done.**
 
 Found while measuring Q32 and unrelated to it.
 
@@ -708,7 +708,11 @@ Found while measuring Q32 and unrelated to it.
 
 The deployed site is fine — GitHub Pages genuinely serves under `/consolation-prize/`. It is only local preview that cannot work, and the workaround is `BASE_PATH=/ npm run build`, which the config already supports.
 
-**Not fixed.** The conditional base is what makes the Pages deploy work and the fix is a one-line change to a file that decides where the game is published from. That is worth someone saying yes to rather than a passing tidy-up during a performance measurement.
+**RULING: preview serves the base the bundle was built with. What build emits does not change.** The direction matters more than the fix does — making build emit `/` would repair local preview by breaking the live game, which is where the project owner has been looking at this all evening. A broken local convenience is not worth trading for a broken deploy.
+
+**Done.** `vite.config.ts` now reads `base: command === 'build' || isPreview ? PAGES_BASE : '/'`. Vite passes `isPreview` alongside `command`, so preview is distinguishable from dev without touching the build branch.
+
+Verified by looking, not by the config reading correctly: the built `index.html` still names `/consolation-prize/assets/index-UlDnmjwO.js` — the same bundle, unchanged — and `npm run preview` now announces `http://localhost:4173/consolation-prize/`, redirects the root to it, serves the bundle 200, and paints Room 1 in 3.1 s with no 4xx and no page errors.
 
 ---
 
