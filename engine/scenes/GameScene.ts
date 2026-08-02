@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { Exit, Interactable, SequenceBeat } from '../core/types.ts';
+import type { Exit, Interactable } from '../core/types.ts';
 import { Actor, IDLE_BREAK } from '../core/Actor.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
@@ -21,8 +21,9 @@ import {
   pointInRect,
 } from '../render/Screen.ts';
 import { SequenceRunner, type SequenceStep } from '../core/Sequence.ts';
+import { CarriedBeats } from '../core/CarriedBeats.ts';
 import {
-  actCardOf, carriedStepsFor, segmentsOf, stepsFor, writesOf, type Segment,
+  actCardOf, segmentsOf, stepsFor, writesOf, type Segment,
 } from '../core/Opening.ts';
 import {
   CYCLING_OPTION,
@@ -100,9 +101,8 @@ export class GameScene extends Phaser.Scene {
    * panel is up and the player may walk, look and listen throughout -- which
    * is what doc 17 means by putting `yes` in beat 9's interactive column.
    */
-  private readonly carried = new SequenceRunner();
-  private carriedBeats: SequenceBeat[] = [];
-  private carriedAt = 0;
+  private readonly carried = new CarriedBeats(
+    (writes) => this.state.flags.applyWrites(writes));
   private actCard: string | null = null;
   private hoveredLocation: string | null = null;
 
@@ -172,7 +172,6 @@ export class GameScene extends Phaser.Scene {
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
     const wasRunning = this.sequence.isRunning;
-    const wasCarrying = this.carried.isRunning;
     if (this.sequence.update(now, this.world)) this.markDirty();
     // Beat 9's carrier runs alongside the player rather than instead of him,
     // so it is ticked whether or not the opening runner is.
@@ -186,7 +185,6 @@ export class GameScene extends Phaser.Scene {
     // The opening's automatic segment has played out. Bank its flag writes
     // and move on -- to the driver's tree, or to control.
     if (this.opening && wasRunning && !this.sequence.isRunning) this.advanceOpening();
-    if (wasCarrying && !this.carried.isRunning) this.advanceCarried();
     // Ambient idles are two-frame and slow, so the scene redraws on the frame
     // one of them turns over rather than every frame. Same rule as ruling
     // 20's crowds: the room is still, and then it is very slightly not.
@@ -516,8 +514,6 @@ export class GameScene extends Phaser.Scene {
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
     this.sequence.cancel();
     this.carried.cancel();
-    this.carriedBeats = [];
-    this.carriedAt = 0;
     this.world.abandon();
     this.actors.clearRoom();
     this.actor.placeIn(this.state.roomId, from);
@@ -759,60 +755,16 @@ export class GameScene extends Phaser.Scene {
       // not appear in the game at all. Control is handed over AND the rest of
       // the segment is armed, which is what doc 17's `yes` in beat 9's
       // interactive column actually means.
-      // Control first, then the crossing: `finishOpening` autosaves, and that
+      //
+      // CONTROL FIRST, THEN THE CROSSING: `finishOpening` autosaves, and that
       // save should record a game that has just begun rather than one three
       // words into a conversation with a man who is not in the save file.
       this.finishOpening();
-      this.armCarriedBeats(segment);
-      return;
-    }
-    this.finishOpening();
-  }
-
-  /**
-   * Arms the beats of an uncarried player segment, one at a time.
-   *
-   * They play on their own runner while the player is in charge -- the panel
-   * is up, every verb works, and Hob crosses the road regardless, which is
-   * doc 17 note 0's "he does not stop walking" taken literally.
-   */
-  private armCarriedBeats(segment: Segment): void {
-    this.carriedBeats = segment.beats;
-    this.carriedAt = 0;
-    this.playCarriedBeat();
-  }
-
-  /**
-   * The next beat with anything in it, or nothing at all.
-   *
-   * A beat's flag writes land as the beat BEGINS rather than when it ends.
-   * `T_HOB_CROSSING` means "Hob is on screen", and the lamp hotspot it gates
-   * carries lines about a man who is still crossing -- writing it after his
-   * last line would put the hotspot in the room only once its subject had
-   * gone.
-   */
-  private playCarriedBeat(): void {
-    while (this.carriedAt < this.carriedBeats.length) {
-      const beat = this.carriedBeats[this.carriedAt] as SequenceBeat;
-      this.state.flags.applyWrites(beat.set ?? {});
-      const steps = carriedStepsFor(beat);
-      if (steps.length === 0) {
-        this.carriedAt += 1;
-        continue;
-      }
-      this.carried.start(steps);
+      this.carried.arm(segment.beats);
       this.markDirty();
       return;
     }
-    this.carriedBeats = [];
-    this.carriedAt = 0;
-  }
-
-  /** The carried beat that just finished, and on to the next. */
-  private advanceCarried(): void {
-    if (this.carriedBeats.length === 0) return;
-    this.carriedAt += 1;
-    this.playCarriedBeat();
+    this.finishOpening();
   }
 
   /** The automatic segment that just ran, banked, and on to the next. */

@@ -11,9 +11,10 @@ import { MemoryStorage } from '../engine/core/SaveManager.ts';
 import { Actor } from '../engine/core/Actor.ts';
 import { RoomActors } from '../engine/core/RoomActors.ts';
 import { BodyOwners, SequenceWorld } from '../engine/core/SequenceWorld.ts';
-import { SequenceRunner, type SequenceStep } from '../engine/core/Sequence.ts';
+import { SequenceRunner, type SequenceHost, type SequenceStep } from '../engine/core/Sequence.ts';
+import { CarriedBeats } from '../engine/core/CarriedBeats.ts';
 import { carriedStepsFor, segmentsOf, stepsFor } from '../engine/core/Opening.ts';
-import { depthOrder } from '../engine/render/Renderer.ts';
+import { depthOrder, roomFigures } from '../engine/render/Renderer.ts';
 import { ActorSprite } from '../engine/render/ActorSprite.ts';
 import { IllegalStateError } from '../engine/core/Assertions.ts';
 import type { ContentBundle, SequenceBeat, SequenceStagingStep } from '../engine/core/types.ts';
@@ -143,9 +144,9 @@ test('a step naming an actor with no mover is a named error, never the player', 
   // The fallback that WOULD have hidden this is the defect itself: silently
   // driving the protagonist is exactly what the old host did, and it looked
   // like it worked because a man moved.
+  runner.start([{ kind: 'walk', actor: 'nobody_here', x: 10, y: 130 }]);
   assert.throws(
-    () => runner.start([{ kind: 'walk', actor: 'nobody_here', x: 10, y: 130 }])
-      || runner.update(0, world),
+    () => runner.update(0, world),
     /nobody_here/,
     'the error names the actor that was asked for',
   );
@@ -170,6 +171,22 @@ function beat(overrides: Partial<SequenceBeat> = {}): SequenceBeat {
 }
 
 const kinds = (steps: SequenceStep[]) => steps.map((step) => step.kind);
+
+/** A host that records what was said and answers every question flatly. */
+function recordingHost(said: string[]): SequenceHost {
+  return {
+    walk: () => {},
+    move: () => {},
+    isWalking: () => false,
+    face: () => {},
+    isTurning: () => false,
+    chore: () => 0,
+    say: (step) => {
+      if (step.line !== undefined) said.push(step.line);
+      return 1;
+    },
+  };
+}
 
 test('a beat\'s staging lowers into real walk, face and chore steps', () => {
   const staging: SequenceStagingStep[] = [
@@ -274,15 +291,16 @@ test('a named mover other than the player is positioned, sized and animated', as
   assert.equal(player.clip, 'idle');
 });
 
-test('movers are depth-sorted against the player and the ambient set', () => {
-  // Feet-Y is the whole depth cue in a lateral room, and it now has to settle
-  // a coach against a protagonist as well as a protagonist against a crowd.
-  const order = depthOrder([
-    { id: 'player', feetY: 130 },
-    { id: 'coach', feetY: 100 },
-    { id: 'pie_woman', feetY: 118 },
-  ]).map((entry) => entry.id);
-  assert.deepEqual(order, ['coach', 'pie_woman', 'player']);
+test('every mover reaches the draw list, depth-sorted against the ambient set', async () => {
+  const { actors, player } = await stage('the_coach');
+  actors.get('the_coach')!.placeAt(240, 100);
+  const crowd = [{ id: 'pie_woman', x: 80, y: 118, zone: 1 }] as never[];
+
+  // The list used to be "the ambient set, plus the player". A coach further
+  // up the road draws first, the crowd next, the protagonist last -- and the
+  // coach being in the list at all is the defect this is here for.
+  const order = depthOrder(roomFigures(crowd, actors.all())).map((figure) => figure.id);
+  assert.deepEqual(order, ['the_coach', 'pie_woman', player.id]);
 });
 
 test('every mover but the player is dropped when the room changes', async () => {
@@ -326,13 +344,18 @@ test('the canonical chain never trips it, and the body is handed back', async ()
     { kind: 'waitForActor', actor: 'the_driver' },
     { kind: 'chore', actor: 'the_driver', chore: 'recoil' },
   ]);
-  for (let tick = 0; tick < 40; tick += 1) {
-    runner.update(tick / 60, world);
-    actors.update(tick / 60);
+  // Advanced until the chore actually starts, rather than for a fixed number
+  // of frames: the walk takes as long as it takes, and a loop that overshot
+  // would run past the end of the clip and report a body nobody owns.
+  let seconds = 0;
+  while (bodies.bodyOwner('the_driver') !== 'chore' && seconds < 2) {
+    seconds += 1 / 60;
+    runner.update(seconds, world);
+    actors.update(seconds);
     world.settleBodies();
   }
+  assert.equal(bodies.bodyOwner('the_driver'), 'chore', 'the walk finished and the chore began');
   assert.equal(actors.get('the_driver')!.clip, 'recoil');
-  assert.equal(bodies.bodyOwner('the_driver'), 'chore');
 
   // And the claim is released once the clip is over, rather than held for the
   // rest of the session -- which is what makes the NEXT chore legal.
@@ -357,19 +380,23 @@ test('abandoning one performance releases that body and no other', async () => {
  * BEAT 9 HAD NO CARRIER
  * ====================================================================== */
 
-test('doc 17 beat 9 is in an uncarried player segment, and something carries it', async () => {
+/** The beats after control: one player segment nobody else carries. */
+async function uncarriedSegment() {
   const content = await loadContent(fsReader);
   const opening = content.sequences.get(content.manifest.openingSequence as string)!;
-
-  // The shape of the defect: the beats after control are ONE player segment
-  // with no `carriedBy`, so the runner that reached it finished, and every
-  // beat in it -- lines, staging and flag writes alike -- went with it.
-  const uncarried = segmentsOf(opening)
+  const found = segmentsOf(opening)
     .filter((segment) => segment.kind === 'player' && segment.carriedBy === null);
-  assert.equal(uncarried.length, 1, 'one uncarried player segment, after control');
+  assert.equal(found.length, 1, 'one uncarried player segment, after control');
+  return found[0]!;
+}
 
-  const withLines = (uncarried[0]!).beats.filter((entry) => (entry.lines ?? []).length > 0);
-  assert.ok(withLines.length > 0, 'and it contains a beat with lines that were never delivered');
+test('doc 17\'s beats after control carry lines and flags that were being dropped', async () => {
+  // The shape of the defect: beats 8, 9 and 10 are ONE player segment with no
+  // `carriedBy`, so the runner that reached it handed over control and
+  // finished, and every beat in it went with it.
+  const segment = await uncarriedSegment();
+  const withLines = segment.beats.filter((entry) => (entry.lines ?? []).length > 0);
+  assert.ok(withLines.length > 0, 'a beat with lines that were never delivered');
 
   for (const carried of withLines) {
     const steps = carriedStepsFor(carried);
@@ -379,6 +406,46 @@ test('doc 17 beat 9 is in an uncarried player segment, and something carries it'
       'errata 30a: and no wait, because the player is in control');
     assert.ok(Object.keys(carried.set ?? {}).length > 0,
       'the beat writes at least one flag, which was also being dropped');
+  }
+});
+
+test('the carrier delivers every line and every flag write of those beats', async () => {
+  const segment = await uncarriedSegment();
+  const written: Record<string, boolean | number> = {};
+  const said: string[] = [];
+  const carrier = new CarriedBeats((writes) => Object.assign(written, writes));
+  const host = recordingHost(said);
+
+  carrier.arm(segment.beats);
+  // Advanced by hand for a generous stretch of game time: every line holds
+  // for its own reading time, and the point is that they all land, not how
+  // long they take.
+  for (let seconds = 0; seconds < 60 && (carrier.isRunning || seconds === 0); seconds += 0.25) {
+    carrier.update(seconds, host);
+  }
+
+  const expectedLines = segment.beats.flatMap((beat) => (beat.lines ?? []).map((l) => l.line));
+  const expectedFlags = segment.beats.flatMap((beat) => Object.keys(beat.set ?? {}));
+  assert.deepEqual(said, expectedLines, 'every line, in the order the beat sheet writes them');
+  assert.deepEqual(Object.keys(written).sort(), [...expectedFlags].sort(),
+    'and every flag the beats write');
+  assert.equal(carrier.isRunning, false, 'and then it is done and the player is simply playing');
+});
+
+test('a carried beat\'s flags are written as it begins, not once its subject has gone', async () => {
+  const segment = await uncarriedSegment();
+  const written: Record<string, boolean | number> = {};
+  const carrier = new CarriedBeats((writes) => Object.assign(written, writes));
+  const said: string[] = [];
+  carrier.arm(segment.beats);
+  carrier.update(0, recordingHost(said));
+
+  // The hotspot the first of these flags gates carries written lines about a
+  // man who is STILL crossing. Written at the end of his lines it would have
+  // arrived describing an empty road.
+  const first = segment.beats.find((beat) => Object.keys(beat.set ?? {}).length > 0)!;
+  for (const flag of Object.keys(first.set ?? {})) {
+    assert.ok(flag in written, `${flag} is set as its beat begins`);
   }
 });
 

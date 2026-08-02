@@ -230,6 +230,26 @@ Raised in `docs/40-actor-clip-inventory.md`, which lists every clip every charac
 
 **Q10 · Surface variants.** The record declares mud and boardwalk variants of every clip, doubling the count. That was a footstep-appearance decision under the old spec. Whether it survives errata 54 is the difference between 12 and 24 clips per character.
 
+## Q11 · The inventory examine path drops reserved effects
+
+Found during step B, verified independently against the combined tree.
+
+Step B made `VerbSystem.resolve()` **return** effects rather than apply them, so every caller must now hand what it gets to a transaction. One caller does not: `GameScene.onInventoryClick` calls `this.state.verbs.resolve(verb, target, 'inventory').say` and takes only the line. The `effects` array is discarded.
+
+**Nothing is broken today, and that is the whole problem.** A scan of all of `/content` finds sixteen objects carrying a durable effect key, and every one of them is a dialogue option, a room hotspot response, a room `onEnter`, or a sequence beat. `content.items` — the records `itemTarget()` reads — carry none. So the path drops an empty array and behaves exactly as before.
+
+**But the pattern it would break already exists elsewhere.** `harness-a.json` has a `LOOK_AT` response carrying a flag write, so an examine verb with a durable effect is authored content, not a hypothetical. The first item response to gain one will write nothing, produce its correct line, and pass every check.
+
+**The fix is step E's:** route the inventory examine through `GameState` like every other interaction rather than calling `VerbSystem` directly. Recorded here rather than fixed now because step E owns that call site and is rewriting it.
+
+## Q12 · `thad.json` names two files that do not exist
+
+Sharper than Q9, and verified: `content/actors/thad.json` declares `art/actors/thad-near.png` and `art/actors/thad-far.png`. **Neither file is in the repository.** What `art/actors/` actually holds is twelve per-clip frame directories — `thad-idle-*`, `thad-idlebreak-*`, `thad-walk-*`, four facings each — which the current `ActorFile` schema has no way to reference.
+
+**The consequence is visible rather than silent.** The protagonist draws as a graybox in the real game, at correct size, position, depth and occlusion, and no renderer change can alter that. Every other named mover draws as a graybox too, because `content/actors/` holds exactly one actor record.
+
+This is the same file Q9 already says needs rewriting, so it is not a new decision — it is the reason Q9 is blocking rather than tidy-up. Nothing renders the new art until the schema can address a clip directory.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

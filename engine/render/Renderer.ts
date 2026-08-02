@@ -81,13 +81,42 @@ export function dialogueTop(count: number): number {
   return DIALOGUE_BOTTOM - count * DIALOGUE_LINE_HEIGHT;
 }
 
+/** One figure standing in the room, whatever kind of thing it is. */
+export interface RoomFigure {
+  id: string;
+  feetX: number;
+  feetY: number;
+  /** Exactly one of these is set. */
+  npc?: AmbientFile;
+  mover?: Actor;
+}
+
 /**
- * Everyone in the room, BACK TO FRONT BY FEET-Y. Doc 22 section 5, step 3.
+ * EVERYONE STANDING IN THE ROOM. Issue X4 defect 3, and the whole of it.
  *
- * Exported and pure so the ordering can be tested without a canvas: it is the
- * whole depth cue in a lateral room, it now has to settle the player against
- * a coach and a watchman as well as against the ambient set, and getting it
- * wrong looks like a drawing bug rather than a sorting one.
+ * This list used to be built inline as "the ambient set, plus the player",
+ * which is why Hob, the driver, the horses and the coach had no path to being
+ * drawn: not because anything refused them, but because nothing ever asked.
+ *
+ * Exported and pure so it can be tested without a canvas -- a renderer that
+ * quietly went back to drawing one protagonist would look identical in every
+ * screenshot of a room nobody had staged yet.
+ */
+export function roomFigures(ambient: AmbientFile[], movers: Actor[]): RoomFigure[] {
+  return [
+    ...ambient.map((npc) => ({ id: npc.id, feetX: npc.x, feetY: npc.y, npc })),
+    ...movers.map((mover) => ({
+      id: mover.id, feetX: Math.round(mover.x), feetY: Math.round(mover.y), mover,
+    })),
+  ];
+}
+
+/**
+ * BACK TO FRONT BY FEET-Y. Doc 22 section 5, step 3.
+ *
+ * Feet-Y is the whole depth cue in a lateral room -- whoever is standing
+ * lower is nearer -- and it now has to settle the player against a coach and
+ * a watchman as well as against the ambient crowd.
  *
  * `sort` is stable in every engine this runs on, so figures sharing a row
  * keep the order they were added in and a tie does not flicker.
@@ -382,33 +411,21 @@ export class Renderer {
    * actor, and the plane settles actor against room geometry.
    */
   private drawPeople(): void {
-    const drawables: { feetX: number; feetY: number; draw: () => void }[] = [];
-
-    for (const npc of this.ambient.present) {
-      drawables.push({
-        feetX: npc.x,
-        feetY: npc.y,
-        draw: () => {
-          if (!this.drawAmbient(npc)) {
-            this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
-              this.screen.role('outline'));
-          }
-        },
+    // EVERY MOVER, not just the protagonist, sorted against the ambient set
+    // in one pass -- so a driver standing further up the road is drawn behind
+    // a man standing nearer it for the same reason and by the same rule.
+    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all()))) {
+      this.masked(figure.feetX, figure.feetY, () => {
+        if (figure.mover) {
+          this.drawMover(figure.mover, figure.feetX, figure.feetY);
+          return;
+        }
+        const npc = figure.npc as AmbientFile;
+        if (!this.drawAmbient(npc)) {
+          this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
+            this.screen.role('outline'));
+        }
       });
-    }
-
-    // EVERY MOVER, not just the protagonist. Depth sorting settles them
-    // against each other and against the ambient set in one pass, so a driver
-    // standing further up the road is drawn behind a man standing nearer it
-    // for the same reason and by the same rule.
-    for (const mover of this.actors.all()) {
-      const feetX = Math.round(mover.x);
-      const feetY = Math.round(mover.y);
-      drawables.push({ feetX, feetY, draw: () => this.drawMover(mover, feetX, feetY) });
-    }
-
-    for (const drawable of depthOrder(drawables)) {
-      this.masked(drawable.feetX, drawable.feetY, drawable.draw);
     }
   }
 
@@ -430,10 +447,15 @@ export class Renderer {
     const surface = mover.surfaceHere();
     const clip = mover.clip;
     const { walkRate, reactRate, idleRate } = this.state.content.actor;
+    // Zero frames means the record does not declare this clip, and there is
+    // no substitute for one. The graybox below is a placeholder, not a
+    // stand-in animation: it is visibly not the character.
     const frames = this.sprite?.frameCount(clip, mover.facing, surface, mover.height) ?? 0;
-    const frame = mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0);
-    const drawn = frames > 0 && this.sprite?.draw(this.screen.context, clip, mover.facing, surface,
-      frame, feetX, feetY, mover.height);
+    const drawn = frames > 0 && this.sprite?.draw(
+      this.screen.context, clip, mover.facing, surface,
+      mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0),
+      feetX, feetY, mover.height,
+    );
     if (!drawn) {
       this.drawFigure(feetX, feetY, mover.height, this.screen.role('overlayBg'));
     }
@@ -522,6 +544,14 @@ export class Renderer {
     return true;
   }
 
+  /**
+   * The graybox figure: a visible placeholder at the right size and depth.
+   *
+   * The 40 is the height the block coordinates below were authored against,
+   * not a drawn size -- errata 54 did not make it stale, because everything
+   * here is a PROPORTION of whatever height it is handed. A mover asking to
+   * be 233 tall gets a 233-tall placeholder.
+   */
   private drawFigure(centreX: number, feetY: number, height: number, index: number): void {
     const unit = height / 40;
     const px = (value: number) => Math.max(1, Math.round(value * unit));
