@@ -281,30 +281,56 @@ export interface ScalingZone {
 export interface ScalingFile {
   schema: number;
   /**
-   * Ruling 24's two drawn sizes. Zone heights are depth samples the drawn
-   * height interpolates between; only these two are ever drawn.
+   * SCHEMA 3, Q9 as ruled. `drawn` and `threshold` are gone: they were ruling
+   * 24's two-tier table and the decimation switch between them, and errata 54
+   * replaced decimation with filtered resampling, which has nothing to choose.
+   *
+   * What is left is the depth-zone table the room schema samples by index.
+   * Every zone currently holds the same height, which is a placeholder for
+   * Q6's per-room scale curve rather than a curve -- see the file's own
+   * `provisional` note.
    */
-  drawn: { near: number; far: number };
-  /** The measured height at which decimation stops leaving eyes. */
-  threshold: number;
   zones: ScalingZone[];
+  provisional?: string;
 }
 
-/** One animation in an actor sheet: a row of frames at a constant stride. */
+/**
+ * One animation, as ONE DIRECTORY OF FRAMES. Schema 2, Q9 and Q14 as ruled.
+ *
+ * The old shape was a row index and a cell stride into a single sheet, which
+ * could not name `art/actors/thad-recoil-left/` at all -- the blocking half
+ * of Q14. Frames are now individual RGBA files, listed by path so that
+ * check-asset-paths validates every one of the 124 rather than the two sheets
+ * that used to stand for them.
+ */
 export interface ActorClip {
   id: string;
   facing: Facing;
-  surface: string;
-  row: number;
-  frames: number;
-}
-
-export interface ActorSize {
-  sheet: string;
-  height: number;
-  /** Cell width and height. Frames stride by these; the anchor is bottom centre. */
-  cell: [number, number];
-  clips: ActorClip[];
+  /** Frame image paths, in play order. */
+  frames: string[];
+  /**
+   * The figure's own height in source pixels, shared by every clip of one
+   * facing. Scaling is taken against THIS and never against the canvas or a
+   * per-frame bounding box: the canvas carries padding for a swinging limb,
+   * and a bounding box changes shape every frame, so either would resize him
+   * as he walked.
+   */
+  figureHeight: number;
+  /**
+   * Where the soles and the centre line sit on the padded canvas, [x, y].
+   * Measured by the rig, not inferred: the figure's top is canvas row 0, its
+   * soles are at `figureHeight`, and there are 65 rows below them and 260
+   * columns either side that a walk frame genuinely uses.
+   */
+  anchor: [number, number];
+  /**
+   * ERRATA-RULED: read from the clip's own rig.json rather than inferred from
+   * the facing. Present on walk clips only. A validator checks the two agree;
+   * nothing derives one from the other.
+   */
+  walkDx?: number;
+  /** Q10's mud and boardwalk variants, if they survive errata 54 at all. */
+  surface?: string;
 }
 
 /**
@@ -379,14 +405,28 @@ export interface ActorFile {
   schema: number;
   id: string;
   note?: string;
-  threshold: number;
+  /**
+   * ONE DRAWN SIZE. Errata 54 replaced decimation with ordinary filtered
+   * resampling, so `threshold` and the near/far pair it switched between are
+   * gone rather than migrated -- there is nothing left for a threshold to
+   * choose. Q9, as ruled.
+   *
+   * This is an ANCHOR at one depth and not a fixed height; Q6's per-room
+   * scale curve is what will turn it into one. Until that exists he is drawn
+   * at this height everywhere. The record's own `heightNote` carries why.
+   */
+  height: number;
+  heightNote?: string;
   /** Walk-cycle frames per second. */
   walkRate: number;
   /** Reaction frames per second. */
   reactRate: number;
   /** Errata 35b: the idle cycle's rate. Slower than the walk, on purpose. */
   idleRate?: number;
-  sizes: { near: ActorSize; far: ActorSize };
+  /** Doc 40's idle-break: played on a timer, never looped, back to stand. */
+  idleBreakRate?: number;
+  idleBreakNote?: string;
+  clips: ActorClip[];
 }
 
 /**

@@ -99,7 +99,7 @@ export class Actor {
     this.targetY = y;
     this.height = options.height
       ?? (this.routed ? state.actorHeightAt(x, y) : null)
-      ?? state.content.scaling.drawn.near;
+      ?? state.content.actor.height;
   }
 
   private get routed(): boolean {

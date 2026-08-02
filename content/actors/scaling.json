@@ -1,27 +1,10 @@
 {
-  "schema": 2,
-  "note": "Errata ruling 24, which voids ruling 15's three-size table. TWO drawn sizes. Above the threshold the near sprite is decimated continuously -- whole rows and columns dropped by a bit-reversal distribution, nothing blended, which is what SCUMM did and what keeps it crisp. At or below the threshold the drawn far sprite is used, snapped. Zone heights below are depth references the room schema samples, not drawn sizes: the drawn height is interpolated continuously between them.",
-  "drawn": {
-    "near": 240,
-    "far": 156
-  },
-  "threshold": 180,
-  "thresholdNote": "MEASURED per character, not chosen. Thad: tools/pixelart/actor.py:eye_death_row decimates the near sprite one row at a time and counts the eyes that survive. They survive to 31 rows and are gone at 30, so 30 is where the drawn far sprite takes over. A character with a wider face will measure lower.",
+  "schema": 3,
+  "note": "ERRATA 54, and Q9 as ruled. ONE DRAWN SIZE, so ruling 24's two-tier table and the decimation threshold that switched between them are gone rather than migrated -- filtered resampling has nothing for a threshold to choose. What remains is the depth-zone table the room schema samples by index.",
+  "provisional": "EVERY ZONE HOLDS THE SAME HEIGHT, AND THAT IS THE PLACEHOLDER, NOT THE DESIGN. Q21 measured Room 1's fence and put a figure at that depth near 205px; it is an anchor at ONE depth. Q6's per-room scale curve is what turns an anchor into a height per zone and it does not exist yet, so rather than keep the old 240/192/156 -- which are errata 24's proportions multiplied by six, aimed at a 233px figure that measurement has since disproved -- every zone reads the one number that was actually measured. He is therefore the same size up the road as in the near mud, which is visibly wrong and is meant to be: a flat table is a curve nobody has drawn yet, where a plausible-looking gradient would be a curve someone guessed.",
   "zones": [
-    {
-      "index": 0,
-      "name": "near",
-      "height": 240
-    },
-    {
-      "index": 1,
-      "name": "mid",
-      "height": 192
-    },
-    {
-      "index": 2,
-      "name": "far",
-      "height": 156
-    }
+    { "index": 0, "name": "near", "height": 205 },
+    { "index": 1, "name": "mid", "height": 205 },
+    { "index": 2, "name": "far", "height": 205 }
   ]
 }

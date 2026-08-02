@@ -5,7 +5,6 @@
   "materialIdentity": "cold indigo, grey and sky, with warm ochre and gold only where the lamp and the windows reach -- ruling 17a. The only night exterior in the game.",
   "note": "Doc 05 Room 1 plus doc 17 v2, with errata ruling 19a's canonical per-state line sets. Doc 17 note 3: THE ROAD EAST's LISTEN variants 2 and 3 are identical to each other AND to the line at the high ridge in Act IV -- three uses of 'Nothing coming', a hundred yards and fifteen hours apart. Do not vary them. THE COACH, THE TEAM and THE WATCHMAN'S LAMP are state-gated: the coach becomes THE ROAD WEST OUT once it has gone, the team exists only while it is here, and there is no lamp at all until Hob walks onto the road.",
   "background": "art/backgrounds/room-01-stage-road.png",
-  "foreground": "art/foregrounds/room-01-stage-road.png",
   "colours": {
     "sky": 237,
     "ground": 181
@@ -281,8 +280,7 @@
       "state": "halted",
       "states": {
         "halted": {
-          "note": "ERRATA 31d: the coach is an object state, not background art. The shipping background is the DEPARTED composition and this layer is the difference between the two composes -- the coach, the team, and the light its lantern throws on the road, which is exactly the set that leaves with it. When T_COACH_DEPARTED flips, this hotspot's gate fails, it drops out of the room, and its image goes with it.",
-          "image": "art/objects/room-01-coach.png"
+          "note": "ERRATA 31d, AS RULED UNDER Q20 — THE IMAGE IS GONE AND THE STATE IS NOT. 31d made the coach an object state rather than background art because the shipping background was the DEPARTED composition and this layer was the difference between the two composes: the coach, the team, and the light its lantern throws on the road, which is exactly the set that leaves with it. Errata 53 discarded both composes and the background is now the approved generated plate, so the layer was a picture cut from art that no longer exists, drawn six times magnified over a painting. It is removed. THE COACH IS THEREFORE INVISIBLE THROUGH BEATS 1–6, which is the ruling: honestly absent beats visibly wrong. The state, the gate and every written line stay — the lines are canon under errata 19a and the gate is the mechanism the departure needs, so when the coach is generated against the approved plate, which is doc 42's territory, it drops back in here and nothing else changes."
         }
       }
     },
@@ -540,5 +538,6 @@
         132
       ]
     }
-  ]
+  ],
+  "foregroundNote": "NO NEAR PLANE, AS RULED UNDER Q20. art/foregrounds/room-01-stage-road.png was ruling 21a's near plane, cut from the composed Room 1, and errata 53 discarded that picture. Unlike the ten backgrounds it does not resolve when the room is regenerated: a foreground is cut FROM a plate rather than produced BY one, so it needs cutting from the approved plate. Until then the room has no plane drawn over the actor, and in the near mud he passes in front of everything instead of behind it."
 }

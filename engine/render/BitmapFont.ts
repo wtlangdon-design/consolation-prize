@@ -3,7 +3,28 @@ import type { FontFile } from '../core/types.ts';
 type Ctx = CanvasRenderingContext2D;
 
 /**
- * 1-bit glyph renderer. Every lit pixel is written as an exact 1x1 rect at
+ * How many screen units one glyph pixel occupies. ERRATA 54 / Q6, PARTIAL.
+ *
+ * Every lit pixel used to be an exact 1x1 rect, which was right at 320x200
+ * and became a bug the moment the frame did not move with it: the play area
+ * went to 1920x864 and the text did not, so a line drew at a sixth of the
+ * relative size it was designed at and the project owner could not read the
+ * game. The ruling is to SCALE THE FACE, not to replace it.
+ *
+ * This is not a typeface decision and does not close Q6. The 5x7 stays, the
+ * glyph data is untouched, and choosing what eventually replaces it -- a face
+ * actually drawn for 1920x864, with the prose typography CLAUDE.md requires
+ * covered -- is still open. Six is the same integer the geometry migrated by,
+ * so a line occupies exactly the fraction of the frame it always did.
+ *
+ * Kept as whole units on purpose. A glyph pixel is still a rect on integer
+ * coordinates and nothing is rasterised or anti-aliased; it is six units wide
+ * instead of one.
+ */
+export const GLYPH_SCALE = 6;
+
+/**
+ * 1-bit glyph renderer. Every lit pixel is written as an exact square at
  * integer coordinates, so nothing is ever rasterised through a system font
  * and nothing is ever anti-aliased.
  */
@@ -16,14 +37,20 @@ export class BitmapFont {
   private readonly advances: Map<string, number>;
 
   constructor(file: FontFile) {
-    this.height = file.height;
-    this.advance = file.advance;
-    this.spaceAdvance = file.spaceAdvance;
+    // Scaled ONCE, here. Everything downstream -- measure, wrap, the panel's
+    // line heights, the renderer's margins -- reads these and therefore needs
+    // no knowledge of the scale at all. A second multiplication anywhere else
+    // would double it somewhere and not everywhere.
+    this.height = file.height * GLYPH_SCALE;
+    this.advance = file.advance * GLYPH_SCALE;
+    this.spaceAdvance = file.spaceAdvance * GLYPH_SCALE;
     this.onChar = file.on;
     this.glyphs = new Map(Object.entries(file.glyphs));
     // Per-glyph advance overrides. An em dash has to be wider than the cell
     // to read as an em dash rather than as a hyphen someone leaned on.
-    this.advances = new Map(Object.entries(file.advances ?? {}));
+    this.advances = new Map(
+      Object.entries(file.advances ?? {}).map(([char, width]) => [char, width * GLYPH_SCALE]),
+    );
   }
 
   supports(char: string): boolean {
@@ -50,7 +77,9 @@ export class BitmapFont {
     for (const char of text) {
       width += this.advanceFor(char);
     }
-    return width > 0 ? width - 1 : 0;
+    // The trailing inter-glyph gap, which is one glyph pixel and therefore
+    // one scale unit -- not one screen unit.
+    return width > 0 ? width - GLYPH_SCALE : 0;
   }
 
   draw(ctx: Ctx, text: string, x: number, y: number, colour: string): number {
@@ -63,7 +92,8 @@ export class BitmapFont {
           const line = rows[row] as string;
           for (let col = 0; col < line.length; col += 1) {
             if (line[col] === this.onChar) {
-              ctx.fillRect(cursor + col, y + row, 1, 1);
+              ctx.fillRect(cursor + col * GLYPH_SCALE, y + row * GLYPH_SCALE,
+                GLYPH_SCALE, GLYPH_SCALE);
             }
           }
         }
@@ -74,20 +104,23 @@ export class BitmapFont {
   }
 
   /**
-   * Draws with a hard 1px outline, so text stays legible over any artwork.
+   * Draws with a hard one-glyph-pixel outline, so text stays legible over any
+   * artwork.
    *
    * Speech is drawn straight over the background with no plate, the way SCUMM
    * does it. Without the outline a pale line vanishes against a pale building,
    * which it did over the Improvement Company on the first run.
    */
   drawOutlined(ctx: Ctx, text: string, x: number, y: number, colour: string, outline: string): void {
+    // The offsets are in GLYPH pixels, so the outline stays one glyph pixel
+    // thick at any scale. At one screen unit it would vanish at this size.
     for (const [dx, dy] of [
       [-1, 0],
       [1, 0],
       [0, -1],
       [0, 1],
     ] as const) {
-      this.draw(ctx, text, x + dx, y + dy, outline);
+      this.draw(ctx, text, x + dx * GLYPH_SCALE, y + dy * GLYPH_SCALE, outline);
     }
     this.draw(ctx, text, x, y, colour);
   }

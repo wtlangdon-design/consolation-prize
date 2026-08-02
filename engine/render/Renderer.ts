@@ -5,7 +5,7 @@ import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import type { AmbientFile, Interactable } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
-import { BitmapFont } from './BitmapFont.ts';
+import { GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
 import {
   NATIVE_HEIGHT,
@@ -56,20 +56,35 @@ export type BackgroundSource = (roomId: string) => CanvasImageSource | null;
  * options than the panel holds spills into the play area by exactly what it
  * needs rather than by a fixed seventy-four.
  */
-const DIALOGUE_BOTTOM = NATIVE_HEIGHT - 3;
-const DIALOGUE_LINE_HEIGHT = 10;
-const SAY_TOP = 8;
-const TEXT_MARGIN = 6;
+/*
+ * TEXT AND OVERLAY METRICS, x GLYPH_SCALE. The other half of Q6's partial
+ * ruling, and it was only visible by looking.
+ *
+ * Every number in this block was authored in GLYPH PIXELS against a 320x200
+ * frame -- a line step of 10 for a 7-row face, a margin of 6, an overlay 152
+ * wide. The x6 content migration could not reach them because they are code,
+ * not content, and scaling the face without them put two spoken lines on top
+ * of each other at the top of the screen and left the menu overlay in a
+ * corner of the play area. Screenshot, not test: all 115 passed either way.
+ *
+ * They are multiplied rather than re-chosen. A re-chosen number would be a
+ * layout decision, and the ruling was to scale the face and not to redesign
+ * around it.
+ */
+const DIALOGUE_BOTTOM = NATIVE_HEIGHT - 3 * GLYPH_SCALE;
+const DIALOGUE_LINE_HEIGHT = 10 * GLYPH_SCALE;
+const SAY_TOP = 8 * GLYPH_SCALE;
+const TEXT_MARGIN = 6 * GLYPH_SCALE;
 /**
  * Doc 17 beat 7's card, on the view rather than across the man standing
  * in it. At 118 it crossed Thad's chest; the band above the horizon is the
  * shot the card is commenting on.
  */
-const ACT_CARD_Y = 66;
+const ACT_CARD_Y = 66 * GLYPH_SCALE;
 //: Doc 17 writes the card on two lines. 11 rows apart for a 7-row font.
-const ACT_CARD_LINE_HEIGHT = 11;
-const MAP_MARKER = 3;
-const MAP_LABEL_HEIGHT = 11;
+const ACT_CARD_LINE_HEIGHT = 11 * GLYPH_SCALE;
+const MAP_MARKER = 3 * GLYPH_SCALE;
+const MAP_LABEL_HEIGHT = 11 * GLYPH_SCALE;
 
 /**
  * Where the first option row sits, for a node with this many options.
@@ -131,10 +146,10 @@ export function format(template: string, vars: Record<string, string>): string {
 }
 
 /** Overlay geometry. Sits over the play area, clear of the verb panel. */
-const MENU_X = 84;
-const MENU_WIDTH = 152;
-const MENU_TOP = 18;
-const MENU_ROW = 12;
+const MENU_X = 84 * GLYPH_SCALE;
+const MENU_WIDTH = 152 * GLYPH_SCALE;
+const MENU_TOP = 18 * GLYPH_SCALE;
+const MENU_ROW = 12 * GLYPH_SCALE;
 
 export class Renderer {
   private readonly screen: Screen;
@@ -470,7 +485,7 @@ export class Renderer {
     // Zero frames means the record does not declare this clip, and there is
     // no substitute for one. The graybox below is a placeholder, not a
     // stand-in animation: it is visibly not the character.
-    const frames = this.sprite?.frameCount(clip, mover.facing, surface, mover.height) ?? 0;
+    const frames = this.sprite?.frameCount(clip, mover.facing, surface) ?? 0;
     const drawn = frames > 0 && this.sprite?.draw(
       this.screen.context, clip, mover.facing, surface,
       mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0),
@@ -635,14 +650,14 @@ export class Renderer {
 
     this.screen.fill(MENU_X, MENU_TOP, MENU_WIDTH, height, this.screen.role('overlayBg'));
     this.screen.outline(MENU_X, MENU_TOP, MENU_WIDTH, height, this.screen.role('outline'));
-    this.font.draw(ctx, menu.title(), MENU_X + 6, MENU_TOP + 3, this.screen.roleColour('inkBright'));
+    this.font.draw(ctx, menu.title(), MENU_X + 6 * GLYPH_SCALE, MENU_TOP + 3 * GLYPH_SCALE, this.screen.roleColour('inkBright'));
 
     for (const [index, row] of rows.entries()) {
       const y = MENU_TOP + MENU_ROW * (index + 1);
       // A disabled row is drawn dim and still drawn: a menu that changes
       // length depending on whether a save exists is harder to learn.
       const colour = this.screen.roleColour(row.enabled ? 'ink' : 'inkDim');
-      this.font.draw(ctx, row.label, MENU_X + 8, y + 3, colour);
+      this.font.draw(ctx, row.label, MENU_X + 8 * GLYPH_SCALE, y + 3 * GLYPH_SCALE, colour);
     }
   }
 
@@ -656,8 +671,8 @@ export class Renderer {
     const top = dialogueTop(options.length);
     // Backing over the panel always, and over the play area only by however
     // much the options actually overflow it.
-    this.screen.fill(0, Math.min(top - 2, PANEL_Y), NATIVE_WIDTH,
-      NATIVE_HEIGHT - Math.min(top - 2, PANEL_Y), this.screen.role('overlayBg'));
+    this.screen.fill(0, Math.min(top - 2 * GLYPH_SCALE, PANEL_Y), NATIVE_WIDTH,
+      NATIVE_HEIGHT - Math.min(top - 2 * GLYPH_SCALE, PANEL_Y), this.screen.role('overlayBg'));
 
     // The prompt goes in the sentence line's slot. Nothing else is using it:
     // there is no hovering during a conversation.
@@ -673,10 +688,22 @@ export class Renderer {
         ctx,
         `${prefix}${presented.option.text}`,
         TEXT_MARGIN,
-        top + index * DIALOGUE_LINE_HEIGHT + 1,
+        top + index * DIALOGUE_LINE_HEIGHT + GLYPH_SCALE,
         colour,
       );
     });
+  }
+
+  /**
+   * A label's baseline inside a button, CENTRED rather than inset.
+   *
+   * It was `button.y + 2` -- two glyph pixels -- which at x GLYPH_SCALE is
+   * twelve units, and the bottom verb row's text then ran off the bottom of
+   * the frame. Looked at, not tested. Centring also survives the panel being
+   * re-authored the day Q6's font lands, which a constant would not.
+   */
+  private labelY(button: Rect): number {
+    return button.y + Math.max(0, Math.floor((button.height - this.font.height) / 2));
   }
 
   private drawPanel(frame: Frame): void {
@@ -722,7 +749,7 @@ export class Renderer {
       this.screen.role(menu.isOpen ? 'buttonBgActive' : 'buttonBg'));
     const label = menu.buttonLabel;
     const labelX = button.x + Math.floor((button.width - this.font.measure(label)) / 2);
-    this.font.draw(ctx, label, labelX, button.y + 2, this.screen.roleColour('ink'));
+    this.font.draw(ctx, label, labelX, this.labelY(button), this.screen.roleColour('ink'));
 
     // Doc 20 rule 2. Beside MENU, and it says BACK while the map is open --
     // the same button, because a screen you can enter and not leave by the
@@ -734,7 +761,7 @@ export class Renderer {
         this.screen.role(open ? 'buttonBgActive' : 'buttonBg'));
       const text = open ? words.back : words.button;
       const x = map.x + Math.floor((map.width - this.font.measure(text)) / 2);
-      this.font.draw(ctx, text, x, map.y + 2, this.screen.roleColour('ink'));
+      this.font.draw(ctx, text, x, this.labelY(map), this.screen.roleColour('ink'));
     }
   }
 
@@ -778,15 +805,26 @@ export class Renderer {
         this.screen.role(held ? 'buttonBgActive' : 'panelBg'));
       const cell = table.icons[slot.id];
       if (sheet && cell) {
+        // FITTED TO THE SLOT, not drawn at its own size. The icon sheet is
+        // 320-era art and a 20x20 cell in a 180x84 slot reads as a speck --
+        // looked at on screen, the inventory was three faint marks. Same
+        // reasoning as drawPlate: a legacy asset lands where its geometry says
+        // and is magnified until it is redrawn, rather than sitting in the
+        // corner of the space it is supposed to fill. Aspect is preserved and
+        // it is centred, so a redrawn icon at slot size is a no-op here.
+        const fit = Math.min(slot.width / cell[2], slot.height / cell[3]);
+        const width = Math.round(cell[2] * fit);
+        const height = Math.round(cell[3] * fit);
         this.screen.context.drawImage(sheet, cell[0], cell[1], cell[2], cell[3],
-          slot.x, slot.y, cell[2], cell[3]);
+          Math.round(slot.x + (slot.width - width) / 2),
+          Math.round(slot.y + (slot.height - height) / 2), width, height);
       } else {
         // No icon drawn for this item yet. A labelled box is a visible gap;
         // an empty one is an item the player cannot see they are carrying.
         this.screen.outline(slot.x, slot.y, slot.width, slot.height,
           this.screen.role('inkDim'));
         this.font.draw(this.screen.context, this.state.itemLabel(slot.id).slice(0, 4),
-          slot.x + 2, slot.y + 2, this.screen.roleColour('inkDim'));
+          slot.x + 2 * GLYPH_SCALE, slot.y + 2 * GLYPH_SCALE, this.screen.roleColour('inkDim'));
       }
       if (held) this.screen.outline(slot.x, slot.y, slot.width, slot.height,
         this.screen.role('inkBright'));

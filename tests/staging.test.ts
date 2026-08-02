@@ -472,15 +472,15 @@ test('errata 54: the sprite no longer decimates, and asks for the height it is g
 test('a clip nobody has drawn is named, never substituted', async () => {
   const content = await loadContent(fsReader);
   const sprite = new ActorSprite(content.actor, () => null);
-  const declared = content.actor.sizes.near.clips[0]!;
+  const declared = content.actor.clips[0]!;
 
-  assert.ok(sprite.frameCount(declared.id, declared.facing, declared.surface, 40) > 0);
+  assert.ok(sprite.frameCount(declared.id, declared.facing, declared.surface ?? '') > 0);
 
   // Two fallbacks used to stand here: keep the facing and give up the clip,
   // then `clips[0]`. Both drew a frame of something and reported success, and
   // doc 34 step C is commissioned to remove exactly this.
   assert.throws(
-    () => sprite.frameCount('a_clip_nobody_drew', declared.facing, declared.surface, 40),
+    () => sprite.frameCount('a_clip_nobody_drew', declared.facing, declared.surface ?? ''),
     (error: unknown) => {
       assert.ok(error instanceof IllegalStateError);
       assert.equal(error.code, 'CLIP_FALLBACK');

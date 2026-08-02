@@ -1,31 +1,33 @@
-import type { ActorClip, ActorFile, ActorSize, Facing } from '../core/types.ts';
+import type { ActorClip, ActorFile, Facing } from '../core/types.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 
-/** A loaded sheet, or null while it is still loading. */
+/** A loaded frame image, or null while it is still loading. */
 export type SheetSource = (path: string) => CanvasImageSource | null;
 
 /**
- * Draws a character. ERRATA 54 lives here now, and ruling 24 does not.
+ * Draws a character. ERRATA 54 lives here, and ruling 24 does not.
  *
- * WHAT CHANGED. Ruling 24 scaled by DECIMATION -- whole rows and columns
- * dropped, nothing blended -- because a 40px figure quantised to a locked
- * 256-entry palette cannot survive an interpolating filter. Errata 54 removed
- * both the 40px figure and the locked palette: characters are ~233px at
- * mid-depth in full RGB, and its table replaces "decimation, errata 24" with
- * "ordinary filtered resampling" in as many words. `Decimation.ts` implements
- * a voided spec and is no longer imported here.
+ * WHAT CHANGED, TWICE. Ruling 24 scaled by DECIMATION -- whole rows and
+ * columns dropped, nothing blended -- because a 40px figure quantised to a
+ * locked 256-entry palette cannot survive an interpolating filter. Errata 54
+ * removed both the 40px figure and the locked palette, and replaced the
+ * scaler with "ordinary filtered resampling" in as many words.
  *
- * Scaled frames are cached by (sheet, clip, frame, height), so a walk across
- * a depth band resamples each height once and every frame after the first is
- * a plain blit. That was worth doing when the scale was a decimation table
- * and it is still worth doing when it is a filter.
+ * THE TWO DRAWN SIZES ARE GONE TOO, which is the part this file was waiting
+ * on. They survived here as a source choice while `thad.json` still declared
+ * two and rewriting it was open question Q9. Q9 is ruled: one drawn size, and
+ * frames come from the twenty per-clip directories the old sheet-and-cell
+ * schema could not name. `sizeFor` and the threshold it consulted are gone
+ * rather than kept as a branch nothing takes.
  *
- * TWO DRAWN SIZES SURVIVE HERE AS A SOURCE CHOICE, NOT AS A SCALER. Errata 54
- * says one drawn size; `content/actors/thad.json` still declares two, and
- * rewriting it is open question Q9 and not this file's to answer. So the
- * threshold still picks WHICH sheet to sample and no longer decides how the
- * sampling is done. When Q9 lands with one size the branch stops being taken
- * and nothing else here changes.
+ * ANCHORING IS THE DELICATE PART AND IT IS DATA, NOT MEASUREMENT. Each frame
+ * is a padded RGBA canvas: 260 columns either side and 65 rows below the
+ * soles, so a swung arm or a trailing leg is not clipped. A walk frame's
+ * alpha genuinely runs from x=79 to x=1146 in a 1229-wide canvas. So the
+ * renderer must NOT take a bounding box -- that box changes every frame and
+ * he would jitter and resize as he walked. The record carries one anchor and
+ * one figure height per clip, both measured off the rig, and every frame of
+ * a facing shares them.
  */
 export class ActorSprite {
   private readonly cache = new Map<string, HTMLCanvasElement>();
@@ -40,25 +42,25 @@ export class ActorSprite {
     this.sheets = sheets;
   }
 
-  /** Which drawn sheet serves a height, per the measured threshold. */
-  private sizeFor(height: number): ActorSize {
-    return height > this.table.threshold ? this.table.sizes.near : this.table.sizes.far;
-  }
-
   /** Whether the record declares a clip at all. Never a substitution. */
   declares(clip: string): boolean {
-    return this.table.sizes.near.clips.some((candidate) => candidate.id === clip);
+    return this.table.clips.some((candidate) => candidate.id === clip);
+  }
+
+  /** Every frame path the record names, for a loader to fetch up front. */
+  framePaths(): string[] {
+    return this.table.clips.flatMap((clip) => clip.frames);
   }
 
   /**
-   * Frames in a clip, so the caller can pick one without knowing the sheet.
+   * Frames in a clip, so the caller can pick one without knowing the record.
    *
    * Returns 0 for a clip that is not declared, rather than 1: a caller that
    * gets 1 draws frame 0 of something, which is the fallback this file has
-   * just stopped doing.
+   * stopped doing.
    */
-  frameCount(clip: string, facing: Facing, surface: string, height: number): number {
-    return this.clipOf(this.sizeFor(height), clip, facing, surface)?.frames ?? 0;
+  frameCount(clip: string, facing: Facing, surface: string): number {
+    return this.clipOf(clip, facing, surface)?.frames.length ?? 0;
   }
 
   /**
@@ -80,15 +82,14 @@ export class ActorSprite {
    * DROPPING THE SURFACE IS NOT A FALLBACK OF THE SAME KIND and is kept: doc
    * 40's Q10 asks whether the mud and boardwalk variants survive errata 54 at
    * all, and until that is answered a character with one surface variant has
-   * the clip -- he does not have two footfall treatments. The clip asked for
-   * is the clip drawn either way.
+   * the clip -- he does not have two footfall treatments. Today no clip
+   * declares a surface, so this only ever takes the second branch.
    */
-  private clipOf(size: ActorSize, clip: string, facing: Facing, surface: string):
-  ActorClip | undefined {
-    const found = size.clips.find(
+  private clipOf(clip: string, facing: Facing, surface: string): ActorClip | undefined {
+    const found = this.table.clips.find(
       (candidate) => candidate.id === clip && candidate.facing === facing
         && candidate.surface === surface,
-    ) ?? size.clips.find(
+    ) ?? this.table.clips.find(
       (candidate) => candidate.id === clip && candidate.facing === facing,
     );
     assertRequiredClip(found, clip, facing, surface);
@@ -98,7 +99,7 @@ export class ActorSprite {
   /**
    * Draws the figure with its soles on (feetX, feetY) at a drawn height.
    *
-   * Returns false if the sheet has not loaded or the clip is not declared, so
+   * Returns false if the frame has not loaded or the clip is not declared, so
    * the caller can fall back to a graybox rather than leave a hole where a
    * character should be. That is a fallback to a VISIBLE PLACEHOLDER, which
    * is the opposite of substituting a clip nobody asked for.
@@ -113,46 +114,47 @@ export class ActorSprite {
     feetY: number,
     height: number,
   ): boolean {
-    const size = this.sizeFor(height);
-    const image = this.sheets(size.sheet);
-    if (!image) return false;
-    const found = this.clipOf(size, clip, facing, surface);
+    const found = this.clipOf(clip, facing, surface);
     if (!found) return false;
+    const count = found.frames.length;
+    if (count === 0) return false;
+    const index = ((frame % count) + count) % count;
+    const path = found.frames[index] as string;
+    const image = this.sheets(path);
+    if (!image) return false;
 
-    const [cellW, cellH] = size.cell;
-    const column = ((frame % found.frames) + found.frames) % found.frames;
-    const sx = column * cellW;
-    const sy = found.row * cellH;
+    // Scale is taken against the FIGURE, not the canvas: the canvas is padded
+    // and scaling to it would draw him short by the padding's share.
+    const scale = height / found.figureHeight;
+    const source = sizeOf(image);
+    if (!source) return false;
+    const drawnW = Math.max(1, Math.round(source.width * scale));
+    const drawnH = Math.max(1, Math.round(source.height * scale));
 
-    // The cell is cellH tall and the figure occupies all of it, so the scale
-    // is taken against the CELL rather than against the nominal height --
-    // scaling to `height` rows would silently crop the keyline and headroom
-    // the exporter allows above the figure.
-    const scale = height / size.height;
-    const drawnH = Math.max(1, Math.round(cellH * scale));
-    const drawnW = Math.max(1, Math.round(cellW * scale));
+    // The anchor is a point ON the padded canvas. Scaled by the same factor,
+    // it says how far the soles sit from that canvas's top-left -- so the
+    // figure lands with its soles on (feetX, feetY) and the padding hangs off
+    // wherever it needs to, rather than the canvas being centred and the man
+    // drifting inside it.
+    const anchorX = Math.round((found.anchor[0] / source.width) * drawnW);
+    const anchorY = Math.round((found.anchor[1] / source.height) * drawnH);
+    const destX = Math.round(feetX - anchorX);
+    const destY = Math.round(feetY - anchorY);
 
-    // Drawn at its own size, which is the common case once one drawn size
-    // exists: no resample at all, so nothing is filtered that need not be.
-    if (drawnH === cellH && drawnW === cellW) {
-      context.drawImage(image, sx, sy, cellW, cellH,
-        Math.round(feetX - cellW / 2), Math.round(feetY - cellH + 1), cellW, cellH);
+    if (drawnW === source.width && drawnH === source.height) {
+      context.drawImage(image, destX, destY);
       return true;
     }
 
-    const key = `${size.sheet}:${found.row}:${column}:${drawnW}x${drawnH}`;
+    const key = `${path}:${drawnW}x${drawnH}`;
     let scaled = this.cache.get(key);
     if (!scaled) {
-      const made = this.resample(image, sx, sy, cellW, cellH, drawnW, drawnH);
+      const made = this.resample(image, source.width, source.height, drawnW, drawnH);
       if (!made) return false;
       scaled = made;
       this.cache.set(key, scaled);
     }
-    // ANCHORED AT THE FEET, always: the soles land on (feetX, feetY) whatever
-    // the figure is scaled to, which is what keeps a character standing on
-    // the road rather than hovering over it as he walks up it.
-    context.drawImage(scaled,
-      Math.round(feetX - scaled.width / 2), Math.round(feetY - scaled.height + 1));
+    context.drawImage(scaled, destX, destY);
     return true;
   }
 
@@ -162,11 +164,12 @@ export class ActorSprite {
    * Smoothing is turned on HERE and nowhere else. The screen context and the
    * occlusion scratch both keep it off, so nothing else in the frame is
    * filtered; this is one offscreen canvas per (frame, drawn size), made once
-   * and blitted thereafter.
+   * and blitted thereafter. A 1105x1702 source down to a 205px figure is an
+   * 8x reduction, which is precisely the case a filter exists for and
+   * nearest-neighbour would shred.
    */
   private resample(
-    image: CanvasImageSource, sx: number, sy: number, sw: number, sh: number,
-    width: number, height: number,
+    image: CanvasImageSource, sw: number, sh: number, width: number, height: number,
   ): HTMLCanvasElement | null {
     if (typeof document === 'undefined') return null;
     const canvas = document.createElement('canvas');
@@ -176,7 +179,7 @@ export class ActorSprite {
     if (!context) return null;
     context.imageSmoothingEnabled = true;
     context.imageSmoothingQuality = 'high';
-    context.drawImage(image, sx, sy, sw, sh, 0, 0, width, height);
+    context.drawImage(image, 0, 0, sw, sh, 0, 0, width, height);
     return canvas;
   }
 
@@ -192,4 +195,12 @@ export class ActorSprite {
   drawnHeight(height: number): number {
     return Math.max(1, Math.round(height));
   }
+}
+
+/** Width and height of anything canvas can draw, or null if it has none. */
+function sizeOf(image: CanvasImageSource): { width: number; height: number } | null {
+  const source = image as { width?: number; height?: number };
+  if (typeof source.width !== 'number' || typeof source.height !== 'number') return null;
+  if (source.width === 0 || source.height === 0) return null;
+  return { width: source.width, height: source.height };
 }
