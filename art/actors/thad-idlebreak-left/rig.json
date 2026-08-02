@@ -1,0 +1,16 @@
+{
+  "source": "/tmp/thad-left.png",
+  "key": "magenta",
+  "clip": "idle-break",
+  "view": "profile",
+  "facing": "left",
+  "figure": [
+    709,
+    1620
+  ],
+  "shoulder_row": 324,
+  "padding": 260,
+  "step_px": 7,
+  "motion": "shrug",
+  "frames": 12
+}

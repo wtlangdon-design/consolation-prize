@@ -150,6 +150,18 @@ Always: multiply RGB by alpha → transform → divide back. And **bleed the edg
 
 `rig.json` carries `facing` and `walk_dx`. Translating a character the wrong way was got wrong on **both** characters — a figure walking backwards through the scene, twice. Anything that is got wrong twice belongs in the data, not in someone's head.
 
+## R5b · GIF is not evidence about colour either
+
+GIF carries **256 colours for the whole frame**. A character on a full-colour plate leaves nothing for small features: Thad's collar is 109 pixels out of 360,000, so the encoder spends no palette entry on it and merges it into the nearest frequent colour — **his face**. Measured: cream (211,197,156) in the PNG, skin (209,153,96) in the GIF, same frame.
+
+**PNG contact sheets for anything where colour matters. GIF only for motion.**
+
+*This is the second preview artifact diagnosed as an art problem in one session — the first was GIF's 1-bit alpha producing a dark rim. Both times the sprite was correct and the preview was not.*
+
+## R5c · Check geometry before declaring something impossible
+
+The collar was declared unrecoverable at 233px on the strength of counting threshold hits across four resize filters. It is **14 × 17 display pixels with strokes up to 4.7 wide** — not remotely sub-pixel, and perfectly legible in PNG. Measure the feature before concluding the resolution cannot hold it.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.
