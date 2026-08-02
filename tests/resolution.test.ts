@@ -197,7 +197,7 @@ test('D30: an abandoned exchange writes nothing and frees its effect ids', async
   assert.equal(state.flags.getBoolean('T_HARNESS_UNLOCKED'), true);
 });
 
-test('D30: exhaustion, repeat lines and errata 37 removal are unchanged', async () => {
+test('D30: exhaustion and repeat lines, with errata 37 revoked -- nothing is removed', async () => {
   const state = await fresh();
   state.dialogue.start('harness_tree');
 
@@ -206,11 +206,70 @@ test('D30: exhaustion, repeat lines and errata 37 removal are unchanged', async 
   assert.notEqual(first.say, second.say, 'a TOPIC option answers differently once taken');
 
   const ids = state.dialogue.presentOptions().map((presented) => presented.option.id);
-  assert.ok(ids.includes('opt_topic'), 'errata 37: TOPIC stays, greys, remains selectable');
+  assert.ok(ids.includes('opt_topic'), 'a used option greys and stays');
 
+  // ERRATA 37 IS REVOKED, and this is where it was asserted -- "a spent
+  // PROGRESS option is removed", against opt_unlock.
+  //
+  // THAT ASSERTION NEVER TESTED THE RULING. opt_unlock MOVES THE NODE, from
+  // HARN_1 to HARN_2, so it was absent from the next list because the player
+  // was somewhere else entirely. It would have passed with the removal filter
+  // deleted, which is the state of the code today. Asserted below so the
+  // reason is on the record rather than the conclusion.
   state.dialogue.select('opt_unlock');
-  const after = state.dialogue.presentOptions().map((presented) => presented.option.id);
-  assert.ok(!after.includes('opt_unlock'), 'errata 37: a spent PROGRESS option is removed');
+  assert.equal(state.dialogue.positionSnapshot().node, 'HARN_2',
+    'opt_unlock moves the node, which is why its absence proved nothing');
+
+  // Where a used option CAN be observed on the node it was taken on, it is
+  // still there. opt_topic was taken twice above and has not gone anywhere.
+  const after = state.dialogue.presentOptions();
+  assert.ok(after.length > 0, 'the node it moved to has options of its own');
+});
+
+test("the driver's tree never loses an option, whatever the player clicks", async () => {
+  // THE PROPERTY, NOT THE NUMBER. This is the first conversation any player
+  // has, and under errata 37 it lost two of four rows inside one exchange
+  // while a third greyed -- with nothing on screen saying why, because the
+  // tag deciding it is invisible. What matters is not "four": it is that the
+  // list never shrinks, so nothing a player clicks reshuffles the rows under
+  // the cursor. Asserting the count would pass a tree that lost a row and
+  // gained one.
+  const state = await fresh();
+  state.dialogue.start('STAGE_DRIVER');
+
+  const before = state.dialogue.presentOptions();
+  assert.ok(before.length > 0, 'the tree opens with options');
+
+  // Every option except the one that ends the conversation, so the walk
+  // exhausts the node rather than leaving it.
+  const clickable = before
+    .filter((presented) => presented.option.tag !== 'EXIT')
+    .map((presented) => presented.option.id);
+  assert.ok(clickable.length > 0, 'there is something to take');
+
+  let seen = before.length;
+  for (const id of clickable) {
+    state.dialogue.select(id);
+    const now = state.dialogue.presentOptions();
+    assert.ok(now.length >= seen,
+      `taking ${id} cut the list from ${seen} to ${now.length}; a used option greys and stays`);
+    seen = now.length;
+
+    // And the ORDER is stable, which is the half a count cannot see: a row
+    // that vanished would make every row below it jump up under the cursor.
+    assert.deepEqual(
+      now.slice(0, before.length).map((presented) => presented.option.id),
+      before.map((presented) => presented.option.id),
+      `taking ${id} reordered the list`,
+    );
+  }
+
+  const end = state.dialogue.presentOptions();
+  assert.equal(end.length, before.length, 'the node ends the walk the size it started');
+  assert.equal(end.filter((presented) => presented.exhausted).length, clickable.length,
+    'every option taken is marked exhausted, and every one of them is still listed');
+  assert.ok(end.some((presented) => presented.option.tag === 'EXIT' && !presented.exhausted),
+    'the way out is still there and has not been used');
 });
 
 /* =========================================================================

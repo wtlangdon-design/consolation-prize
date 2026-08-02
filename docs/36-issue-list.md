@@ -634,7 +634,7 @@ Fifteen seconds on a machine serving from its own disk. The five clicks are not 
 
 **Neither is fixed.** The instruction was to instrument and report, and the fix for the first is a decision about what must exist before the first frame.
 
-## Q31 · The dialogue trees are consistent. Errata 37 is what reads as inconsistent.
+## Q31 · The dialogue trees are consistent. Errata 37 is what reads as inconsistent. — **RULED: errata 37 REVOKED. Done.**
 
 Reported as "some options vanish after use, some stay, no visible rule." Read against the content before touching the runner, as instructed, and the answer is neither of the two possibilities the report offered.
 
@@ -654,6 +654,36 @@ after drv3            drv3[COMIC](grey)  drv4[EXIT]
 **And it diverges from the convention it was measured against.** Monkey Island's rule includes *the list never silently reshuffles*. Removal reshuffles: **6 of 9 nodes mix PROGRESS with non-PROGRESS**, so a used row vanishes and everything under it moves up. That is in errata 37, not in the code.
 
 **Not fixed, and it should not be fixed here.** Errata 37 is a design ruling, amending doc 04 rule 4 by name, and the three ways out — keep it, drop the removal, or mark PROGRESS visibly so the rule becomes learnable — are all design decisions.
+
+**RULING: errata 37 is REVOKED. Doc 04 rule 4 stands unamended — every used option greys and stays.** Its premise was a factual claim about Monkey Island and the claim is backwards: MI removed an option when the branch it led to was *unimportant* to progress, so flavour vanished and what a player needed stayed. Errata 37 removed `[PROGRESS]` and kept the jokes. Revoked rather than inverted, because a rule where *some* options vanish cannot be learned whichever ones they are — the property deciding it is invisible.
+
+**Done.** `DialogueRunner.presentOptions` no longer filters and `SPENT_TAG` is gone. **The tags survive and stop controlling visibility.** `EXIT` still ends the conversation, which is the option's function and not an exemption from a rule that no longer exists — errata 37's "EXIT is always present" is now true of everything and needs no code to make it so.
+
+**Two special cases survived the revocation, which is exactly what the ruling said to look for.**
+
+**1. A CHECK THAT OUTLIVED ITS REASON.** `check-dialogue-nodes` failed a node whose every option was `PROGRESS`, because errata 37 would have emptied it and stranded the player. Nothing is removed now, so a tag can no longer strand anybody — but the rule would have gone on constraining authoring for a revoked mechanism. The guarantee it existed for is real and the remaining mechanism is **gates**, so it asks about those instead: every node must carry at least one option gated on nothing, present whatever the flags say. Measured against the content before asserting it — 9 nodes, 1 gated option, no node lacking an ungated one — so it is a rule the trees already meet rather than one imposed on them.
+
+**2. A TEST THAT NEVER TESTED THE RULING.** `tests/resolution.test.ts` asserted `!after.includes('opt_unlock')` — "a spent PROGRESS option is removed". **`opt_unlock` moves the node**, HARN_1 to HARN_2, so it was absent from the next list because the player was somewhere else entirely. It passes identically with the removal filter deleted. A green assertion about a mechanism it never touched: R5e in its purest form, a test written from the same understanding as the code it was holding to account.
+
+**The property, not the number.** The new test walks the driver's tree from fresh through every option and asserts the count **never decreases** and the order never changes — a count alone would pass a list that lost a row and gained one. Against errata 37's code it fails by name: `taking drv1 cut the list from 4 to 3`.
+
+**Played, not inferred:**
+
+```
+AT THE START -- 4 options
+   live  [PROGRESS] Where can I find Ezra Pike?
+   live  [PROGRESS] Where am I supposed to sleep?
+   live  [COMIC] You don't think much of my chances.
+   live  [EXIT] Thank you for the ride.
+
+AT THE END -- 4 options
+   grey  [PROGRESS] Where can I find Ezra Pike?
+   grey  [PROGRESS] Where am I supposed to sleep?
+   grey  [COMIC] You don't think much of my chances.
+   live  [EXIT] Thank you for the ride.
+```
+
+Same four rows, same order, three dimmed, the way out still bright. The COMIC option was clicked three times over — it answers again rather than going anywhere, which is doc 04's Winnie arc working by default instead of by special case.
 
 ## Q32 · Boot now waits on the first frame, not on the game — Q30's first half, closed
 

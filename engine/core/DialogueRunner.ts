@@ -48,9 +48,10 @@ export interface DialogueResolution {
 /** Serialised exhaustion state, so a save restores partial trees exactly. */
 export type DialogueProgress = Record<string, string[]>;
 
+//: EXIT ENDS THE CONVERSATION. That is the tag's function, not an exemption
+//: from a removal rule -- errata 37 is revoked and nothing is removed, so
+//: "EXIT is always present" is true of every option and needs no code.
 const EXIT_TAG = 'EXIT';
-//: Errata 37: the one tag that is removed once taken rather than greyed.
-const SPENT_TAG = 'PROGRESS';
 
 /**
  * One selection, from reservation to settle.
@@ -211,20 +212,34 @@ export class DialogueRunner {
 
   /** Options whose gate currently holds, in authored order. */
   /**
-   * ERRATA 37. An exhausted [PROGRESS] option is REMOVED; every other tag
-   * stays, greys, and remains selectable.
+   * DOC 04 RULE 4, UNAMENDED: every used option greys and stays. Nothing is
+   * ever removed from a node.
    *
-   * The two behaviours are both right and they are right for different
-   * options. A progress question has been answered and leaving it in the
-   * list invites the player to ask it again. A topic or comic option's
-   * REPEAT RESPONSES ARE WRITTEN CONTENT -- doc 04's Winnie tree turns on
-   * asking her about the raccoon five times until she cracks, and removing
-   * exhausted options would delete that arc without a word.
+   * ERRATA 37 IS REVOKED and this is where it lived. It removed an exhausted
+   * [PROGRESS] option and kept the rest, on the stated premise that "Monkey
+   * Island removes an option once it has been asked". The premise is
+   * backwards. Monkey Island removed an option when the branch it led to was
+   * UNIMPORTANT to the player's progress -- flavour vanished and the things a
+   * player needed stayed -- so the ruling removed exactly the options that
+   * matter and kept the jokes.
    *
-   * EXIT is never removed. It carries no tag exemption of its own here
-   * because it is not PROGRESS, but the guarantee is worth stating: the way
-   * out of a tree cannot be consumed, and a node whose every option has been
-   * taken still lists it.
+   * REVOKED RATHER THAN INVERTED, because removing the other tag would have
+   * been just as unlearnable: the property deciding it is the tag, and the
+   * tag is invisible. Removal also reshuffles -- six of nine nodes mix
+   * PROGRESS with other tags, so a used row disappears and everything below
+   * it jumps up. And nothing here is long enough to need pruning: the largest
+   * node is seven options against a distribution of 4, 4, 4, 4, 5, 5, 6, 6, 7,
+   * where Monkey Island pruned because its trees ran long on a 200px screen.
+   *
+   * THE TAGS SURVIVE AND STOP CONTROLLING VISIBILITY. PROGRESS, TOPIC, COMIC
+   * and EXIT still say what an option is for, to authors and to checks. EXIT
+   * still ends the conversation, which is what EXIT means -- that is the
+   * option's function and not an exemption from a removal rule that no longer
+   * exists. Errata 37's "EXIT is always present" is now true of everything,
+   * and needs no code to make it so.
+   *
+   * Doc 04's Winnie arc -- the raccoon, asked five times until she cracks --
+   * is kept by default rather than by special-casing [COMIC].
    *
    * It reads committed state only. An option reserved and not yet drained is
    * not yet taken, which is doc 30's "the node must not visibly advance"
@@ -240,8 +255,7 @@ export class DialogueRunner {
       .map((option) => ({
         option,
         exhausted: this.hasTaken(treeId, nodeId, option.id),
-      }))
-      .filter((presented) => !(presented.exhausted && presented.option.tag === SPENT_TAG));
+      }));
   }
 
   /**

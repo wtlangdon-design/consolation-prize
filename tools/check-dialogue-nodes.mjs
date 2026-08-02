@@ -42,15 +42,20 @@ export function check() {
         report.fail(`${where}: ${options.length} option(s), minimum is ${MIN_OPTIONS}`);
       }
 
-      // ERRATA 37 removes an exhausted [PROGRESS] option from the list. That
-      // is only safe if something always survives: a node whose every option
-      // is PROGRESS would empty itself and strand the player inside the tree
-      // with nothing to click. The >=1 COMIC rule below already guarantees it
-      // today, and this asks the question directly rather than relying on one
-      // rule to protect another.
-      if (options.length > 0 && options.every((option) => option.tag === 'PROGRESS')) {
-        report.fail(`${where}: every option is PROGRESS -- errata 37 removes them all once `
-          + 'taken and leaves the player with nothing to click');
+      // THE PLAYER CAN ALWAYS CLICK SOMETHING. This asked "is every option
+      // PROGRESS", because errata 37 removed those once taken and a node of
+      // nothing else would empty itself. ERRATA 37 IS REVOKED -- nothing is
+      // removed now, so a tag can no longer strand anybody and that rule
+      // would have outlived its reason while still constraining authoring.
+      //
+      // The guarantee it existed for is real and the remaining mechanism is
+      // GATES, so this asks about those instead: at least one option that is
+      // not gated on anything, present whatever the flags say. Design
+      // invariant 6 -- the player cannot make the game unwinnable -- reaches
+      // inside a conversation too.
+      if (options.length > 0 && options.every((option) => option.when !== undefined)) {
+        report.fail(`${where}: every option is gated, so a flag state exists where this `
+          + 'node presents nothing and the player is stranded inside the tree');
       }
 
       const comics = options.filter((option) => option.tag === COMIC);
