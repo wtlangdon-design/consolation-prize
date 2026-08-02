@@ -116,6 +116,24 @@ They fail for the same reason: **there is no coat behind the arm in the source i
 
 **The fix is upstream.** Generate head-on views with the arms held further out from the body, so real coat exists behind them and nothing needs inventing. One regeneration beats any amount of inpainting.
 
+## R3f · A limb belongs to exactly ONE layer, and the subtraction must run FIRST
+
+A painted arm mask reaches below the coat hem — Thad's hands by 22px — so **1,576 hand pixels were being assigned to the near leg**. They moved with the stride, and `extend_up` replicated those skin-coloured rows upward. That was the hand stretching and the colour flashing, through five attempted fixes aimed at the arms, the resampling and the coat.
+
+**Subtract the arms from the leg masks before the leg layers are built.** Doing it afterwards changes nothing and looks exactly like a fix.
+
+**Verification that actually works:** count skin-coloured pixels per frame. If any skin changes shape, the spread is non-zero. It went 33,897–36,359 broken, and **0 across all eight frames** correct. One command, and it should have been written at the first report of flashing rather than the fifth.
+
+## R3g · Verify that a change TOOK EFFECT, not that it exists
+
+Three separate failures in one session, all the same shape:
+
+- the arm subtraction ran *after* the layers were built
+- the head-on branch moved arms by the leg's displacement and never read `--arm-swing`, so setting it to zero did nothing
+- a filmstrip was regenerated and then the *stale* one presented alongside it
+
+Each was reported as fixed on the strength of reading the code. **Measure the output.**
+
 ## R4 · Premultiply before every rotate, resize and composite
 
 **Three separate defects had this one cause.** Transparent pixels are stored as black, so any interpolation near an edge averages visible colour toward black — or, with a green backdrop, toward green.
@@ -156,6 +174,9 @@ Starting points for the next character, not laws.
 | Hip swing, 8 frames | 14, 10, 0, −10, −14, −10, 0, 10 degrees |
 | Leg mass after split | 46,445 / 42,343 px — should be roughly symmetric |
 | Final height on the plate | **233px**, ≈27% of an 864-tall play area |
+| Arm swing, profile | **0.55** of the hip angle |
+| Arm swing, head-on | **0.20** — a front-view arm barely moves at this size |
+| Head-on limb travel | 3% of figure height, no scaling on arms |
 
 **Measure the foot travel and set the padding from it.** Guessing at 70px sheared the heel off at full extension.
 

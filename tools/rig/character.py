@@ -14,7 +14,8 @@ from PIL import Image
 from scipy import ndimage
 
 HIP_SWING = [14, 10, 0, -10, -14, -10, 0, 10]
-ARM_RATIO = 0.55      # arms swing less than legs; past ~0.7 it reads as marching
+ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
+ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
 
 
@@ -227,10 +228,17 @@ def shift_scale(layer, dy, scale, cx, cy):
     shift and a slight enlargement, and a leg swinging back does the reverse.
     Applying the profile rig head-on made the legs cross and the arms bounce
     out to the sides.
+
+    WHEN THERE IS NO SCALING, TRANSLATE BY WHOLE PIXELS AND DO NOT RESAMPLE.
+    A fractional shift through a bicubic filter rings along the hard edge of a
+    hand and drags colour downward -- the smear grows and shrinks with the
+    step, which reads as the hand stretching. An integer roll cannot do that
+    because it touches no pixel values at all.
     """
+    if abs(scale - 1.0) < 1e-6:
+        return np.roll(layer, int(round(dy)), axis=0)
     al = layer[..., 3:] / 255.0
     inv = 1.0 / scale
-    # affine about (cx, cy), then translate by dy
     a, e = inv, inv
     c = cx - inv * cx
     f = cy - inv * (cy + dy)
@@ -277,7 +285,11 @@ def main():
     ap.add_argument("--key", default="magenta", choices=["green", "magenta"])
     ap.add_argument("--pad", type=int, default=260)
     ap.add_argument("--swing", type=float, default=1.0)
-    ap.add_argument("--arm-swing", type=float, default=ARM_RATIO)
+    ap.add_argument("--arm-swing", type=float, default=None,
+                    help="0 for headon. An arm swinging toward the camera "
+                         "foreshortens, it does not travel down the frame; "
+                         "translating it opens a gap at the shoulder that "
+                         "reads as the hand stretching.")
     ap.add_argument("--near-mask", help="ARMMASK code or file for the near arm")
     ap.add_argument("--far-mask", help="ARMMASK code or file for the far arm")
     ap.add_argument("--view", default="profile", choices=["profile", "headon"],
@@ -288,6 +300,8 @@ def main():
                          "translate the right way. Got this backwards twice by hand.")
     args = ap.parse_args()
 
+    if args.arm_swing is None:
+        args.arm_swing = ARM_RATIO_HEADON if args.view == "headon" else ARM_RATIO
     core = key_out(Path(args.source), args.key)
     fig_h, fig_w = core.shape[:2]
     P = args.pad
@@ -334,25 +348,50 @@ def main():
         L = np.zeros_like(canvas); L[..., :3] = canvas[..., :3]; L[..., 3] = m * 255.0
         return L
 
-    def extend_up(seg):
+    def extend_up(seg, limit=None):
+        """Extend a leg upward under the coat so rotation opens no gap at the hem.
+
+        LIMIT IT. Extending all the way to the pivot puts ~230px of replicated
+        leg above the hem, and because the arms are cut out of the coat, those
+        holes look straight through onto it. The strip then slides with the
+        legs, which reads as colour bleeding around the hands. Extend only as
+        far as the limb can actually move.
+        """
         mm = seg[..., 3] > 128
         if not mm.any():
             return seg
         top = int(np.nonzero(mm.any(1))[0].min())
+        stop = top - int(limit) if limit is not None else pivot
+        stop = max(stop, pivot)
         strip = seg[top:top + 6].copy()
-        for y in range(pivot, top):
-            seg[y] = strip[(y - pivot) % 6]
+        for y in range(stop, top):
+            seg[y] = strip[(y - stop) % 6]
         return seg
 
-    near_leg = extend_up(as_layer(near_lm))
-    far_leg = extend_up(as_layer(far_lm))
     coat_m = np.zeros((H, W), bool); coat_m[:hem] = mask[:hem]
     if near_am is not None:
-        coat_m &= ~(near_am | far_am)          # arms come OUT of the coat layer
-        print(f"arms: near {int(near_am.sum())}px, far {int(far_am.sum())}px, "
-              f"shoulder row {shoulder}")
+        arms_all = near_am | far_am
+        # ARMS MUST NOT BE PART OF THE LEGS, AND THIS MUST HAPPEN BEFORE THE
+        # LEG LAYERS ARE BUILT. A painted arm mask runs below the hem --
+        # Thad's hands reach 22px past it -- so 1,576 hand pixels were being
+        # assigned to the near leg, moving with the stride while extend_up
+        # replicated those skin rows upward. That is the hand stretching and
+        # the colour flashing. Subtracting after the layers exist changes
+        # nothing, which is how this survived a round.
+        below = int((arms_all[hem:]).sum())
+        if below:
+            near_lm = near_lm & ~arms_all
+            far_lm = far_lm & ~arms_all
+            print(f"removed {below}px of arm from the leg layers "
+                  f"(arm masks reach below the hem)")
+        coat_m &= ~arms_all
+        print(f"arms: near {int(near_am.sum())}px, far {int(far_am.sum())}px")
     else:
         print("arms: not separable -- they must hang clear of the torso (doc 38)")
+
+    leg_reach = int(0.030 * fig_h) + 12 if args.view == "headon" else None
+    near_leg = extend_up(as_layer(near_lm), leg_reach)
+    far_leg = extend_up(as_layer(far_lm), leg_reach)
     coat = as_layer(coat_m)
     cxn = float(np.nonzero(near_lm.any(0))[0].mean())
     cxf = float(np.nonzero(far_lm.any(0))[0].mean())
@@ -371,11 +410,11 @@ def main():
             f = over(shift_scale(far_leg, -dy, 2 - sc, cxf, pivot), f)
             f = over(shift_scale(near_leg, dy, sc, cxn, pivot), f)
             if far_am is not None:
-                f = over(shift_scale(as_layer(far_am), dy * 0.55, 1.0,
+                f = over(shift_scale(as_layer(far_am), dy * args.arm_swing, 1.0,
                                      float(np.nonzero(far_am.any(0))[0].mean()), sh_far), f)
             f = over(coat, f)
             if near_am is not None:
-                f = over(shift_scale(as_layer(near_am), -dy * 0.55, 1.0,
+                f = over(shift_scale(as_layer(near_am), -dy * args.arm_swing, 1.0,
                                      float(np.nonzero(near_am.any(0))[0].mean()), sh_near), f)
         else:
             f = over(rot(far_leg, -s, cxf, pivot), f)
