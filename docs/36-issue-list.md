@@ -329,7 +329,7 @@ So this is not a dangling reference to remove. **The engine's entire colour mode
 
 ## Q19 · Errata 54 retired a thing the engine cannot start without
 
-**This is a correction to errata 54 and it belongs to the project owner. Filed, not proposed.** Nothing here is changed and nothing here suggests what to change it to.
+**This is a correction to errata 54 and only Tyler can make it. Filed, not proposed.** Nothing here is changed and nothing here suggests what to change it to.
 
 Errata 54 says `art/palette/consolation-256.json` "ceases to be authoritative. Retained for reference only." The sweep in Q18 found that the engine's entire colour model is index-addressed into that file, and confirmed in source rather than by report:
 
@@ -344,7 +344,7 @@ Errata 54 says `art/palette/consolation-256.json` "ceases to be authoritative. R
 
 **What it did not account for is that everything the engine draws *itself* still needs a colour source**: stub-room fills, hotspot blocks, outlines, and all interface chrome. Those need a palette. Having one is not the same as being bound to the old one, and which of those two the ruling meant is exactly what is unresolved.
 
-**The stated order once this and Q6 are ruled** — the project owner's, recorded so it is not re-derived: the colour model first, then the font, then Q9's schema so the twenty per-clip directories can reach the screen.
+**A suggested order once this and Q6 are ruled, and it is a suggestion.** Proposed during the session that found this, by someone who does not hold rulings on this project: the colour model first, then the font, then Q9's schema so the twenty per-clip directories can reach the screen. **Recorded as one opinion about what to do first, not as a decision.** Errata 52's stop condition exists because design rulings here belong to one person, and a sequencing preference written down as though it carried his authority is the drift that condition guards against — six months from now it would read as settled.
 
 ---
 
