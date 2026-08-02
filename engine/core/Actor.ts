@@ -1,8 +1,25 @@
 import type { Facing } from './types.ts';
 import type { GameState } from './GameState.ts';
+import { GLYPH_SCALE } from '../render/BitmapFont.ts';
 
-/** Pixels moved per frame at 60fps. Slow enough to read as walking. */
-const WALK_SPEED = 0.9;
+/**
+ * Pixels moved per frame at 60fps. Slow enough to read as walking.
+ *
+ * x GLYPH_SCALE FOR THE SAME REASON THE TEXT METRICS WERE. 0.9 was authored
+ * against a 320-wide room, where it crosses the screen in about six seconds.
+ * The play area went to 1920 and this did not, so the same 0.9 took THIRTY-FIVE
+ * seconds to cross Room 1 -- found while trying to walk to a walk-box boundary
+ * and watching him not reach it inside a fifteen-second timeout.
+ *
+ * Multiplied, not re-chosen: 5.4 px/frame covers the same FRACTION of the
+ * screen per second that 0.9 covered before, so the authored pace is preserved
+ * exactly rather than re-decided. It is a change of units, and if the pace is
+ * ever wrong it was wrong at 320 too.
+ *
+ * Named from the font's constant because there is one migration factor in this
+ * project and a second copy of the number would drift from it.
+ */
+const WALK_SPEED = 0.9 * GLYPH_SCALE;
 
 /**
  * A turn on the spot is a hold, not an instant. Two tenths is long enough to

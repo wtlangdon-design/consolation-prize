@@ -199,31 +199,54 @@ test('a double-click is two rapid clicks on the same target, not just two rapid 
 });
 
 
-test('every walkable point resolves to a height, and to the one measured anchor', async () => {
+test('the floor resolves everywhere, and a nearer point is never a smaller man', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
-  const anchor = content.actor.height;
+  const heights = content.scaling.zones.map((zone) => zone.height);
+  const tallest = Math.max(...heights);
+  const shortest = Math.min(...heights);
 
-  // ERRATA 54 / Q9: one drawn size. The old version of this asserted a RANGE
-  // between two drawn sizes and a threshold sitting inside it, which was
-  // ruling 24's model; there is no second size and no threshold now.
+  // THIS TEST HAS NOW BEEN WRITTEN THREE TIMES AND THE HISTORY IS THE POINT.
+  // Ruling 24's version asserted a RANGE between two drawn sizes with a
+  // decimation threshold inside it; errata 54 removed both. The version after
+  // it asserted every point resolved to ONE height, which was true only while
+  // the zone table was a flat placeholder and would have gone on passing while
+  // saying nothing the moment a real curve landed. Q4's measured curve is that
+  // moment.
   //
-  // What is asserted instead is what the flat table actually claims -- that
-  // the floor resolves everywhere, and resolves to the height somebody
-  // measured. It will need rewriting the day Q6's curve lands, and it should:
-  // a test that still passed once heights varied by depth would be asserting
-  // nothing at all.
-  assert.ok(content.scaling.zones.every((zone) => zone.height === anchor),
-    'the placeholder table and the actor record agree on the one measured height');
+  // So what is asserted now is the PROPERTY a depth curve has to have, in any
+  // room, at any scale, however it is measured: the floor resolves wherever
+  // the content says it is walkable, the answer stays inside the declared
+  // range, and WALKING TOWARD THE CAMERA NEVER MAKES THE MAN SMALLER. A
+  // sign-flipped curve, a zone table entered back to front, or a band whose
+  // index does not match its depth all fail it, and none of them fails a test
+  // that checks a number.
+  assert.ok(tallest > shortest, 'the zone table describes a depth range at all');
 
   for (const room of content.rooms.values()) {
     state.enterRoom(room.id);
     for (const region of room.walkable ?? []) {
       const [x, y, w, h] = region.rect;
-      const height = state.actorHeightAt(x + Math.floor(w / 2), y + h - 1);
+      const middle = x + Math.floor(w / 2);
+      const height = state.actorHeightAt(middle, y + h - 1);
       assert.ok(height !== null, `${room.id}/${region.id} should be walkable at its own centre`);
-      assert.equal(height, anchor,
-        `${room.id}/${region.id} resolved to ${height}, not the one anchor`);
+      assert.ok(height! <= tallest && height! >= shortest,
+        `${room.id}/${region.id} resolved to ${height}, outside the declared range`);
+    }
+
+    // Sampled down the whole floor rather than per band, so a discontinuity at
+    // a band edge is caught as well as a wrong gradient inside one.
+    let previous: number | null = null;
+    let previousY = 0;
+    for (let y = 0; y < PLAY_HEIGHT; y += 4) {
+      const height = state.actorHeightAt(NATIVE_WIDTH / 2, y);
+      if (height === null) continue;
+      if (previous !== null) {
+        assert.ok(height >= previous,
+          `${room.id}: y ${previousY} -> ${y} took the man from ${previous} to ${height}`);
+      }
+      previous = height;
+      previousY = y;
     }
   }
 });

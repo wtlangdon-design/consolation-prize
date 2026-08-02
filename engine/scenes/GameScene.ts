@@ -128,7 +128,7 @@ export class GameScene extends Phaser.Scene {
     // The protagonist's id comes from content. No .ts file names him, and
     // the registry does not know which of its movers he is beyond holding it.
     this.actor = new Actor(this.state, this.state.content.actor.id,
-      NATIVE_WIDTH / 2, PLAY_HEIGHT - 14, {
+      NATIVE_WIDTH / 2, PLAY_HEIGHT - 14 * GLYPH_SCALE, {
         routed: true,
         // Doc 40's idle break plays only where the record declares the clip.
         // `thad.json` does not -- that is Q9 -- so today he breathes and does
@@ -193,7 +193,8 @@ export class GameScene extends Phaser.Scene {
     if (this.actor.isWalking) {
       this.markDirty();
       const fired = this.ambient.checkApproach(this.actor.x, this.actor.y);
-      if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x, fired.npc.y - 30);
+      if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x,
+        fired.npc.y - 30 * GLYPH_SCALE);
     }
     if (!this.dirty) return;
     this.dirty = false;
