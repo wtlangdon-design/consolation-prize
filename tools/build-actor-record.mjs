@@ -47,6 +47,42 @@ const CLIPS = [
 ];
 const FACINGS = ['front', 'back', 'left', 'right'];
 
+/**
+ * OVERLAYS ARE NOT BODY CLIPS AND THE GENERATOR REFUSES TO CONFUSE THEM.
+ *
+ * `art/actors/` holds two kinds of directory that look identical from outside:
+ * RGBA frames with a rig.json. A body clip is scaled to a character height
+ * against its `figure`. A head overlay composites into a body frame at
+ * `overlay_rect` -- and it carries a `figure` too, because the rig records
+ * which body it belongs to. Scaling one by that figure produces a sprite four
+ * to eight pixels tall. Thad's three `talk` directories do exactly that.
+ *
+ * So every directory is accounted for here, and anything that is neither a
+ * listed body clip nor a marked overlay stops the build. `check-actor-clips`
+ * asserts the same thing against the shipped record, for the case where this
+ * is not re-run.
+ */
+const OVERLAY_KIND = 'head-overlay';
+const wantedDirs = new Set(
+  CLIPS.flatMap((clip) => FACINGS.map((facing) => `${ACTOR}-${clip.dir}-${facing}`)),
+);
+for (const name of readdirSync(ART, { withFileTypes: true })
+  .filter((entry) => entry.isDirectory()).map((entry) => entry.name)) {
+  const rigPath = join(ART, name, 'rig.json');
+  if (!existsSync(rigPath)) throw new Error(`${ART}/${name} has no rig.json`);
+  const rig = JSON.parse(readFileSync(rigPath, 'utf8'));
+  const overlay = rig.kind === OVERLAY_KIND || rig.overlay_rect !== undefined;
+  if (overlay && wantedDirs.has(name)) {
+    throw new Error(`${name} is a ${OVERLAY_KIND}; it cannot be a body clip`);
+  }
+  if (!overlay && !wantedDirs.has(name)) {
+    throw new Error(
+      `${name} is neither a listed body clip nor marked "kind": "${OVERLAY_KIND}". `
+      + 'Add it to CLIPS, or mark it in its rig.',
+    );
+  }
+}
+
 const clips = [];
 for (const clip of CLIPS) {
   for (const facing of FACINGS) {

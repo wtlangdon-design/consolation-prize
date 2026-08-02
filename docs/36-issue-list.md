@@ -578,9 +578,13 @@ The ±1 is rounding. Walk varies because a walk frame genuinely changes the figu
 
 **So the proportions are exactly right and everything shrinks together** — the plate, the panel, the text, the man. Room 1 looks correct; it is being viewed at about two-thirds of full size.
 
-**What is actually open, and it is Q6's problem restated.** At 0.667 the 42-unit glyph displays at 28 physical pixels and stays readable, but every hairline in the plate and every glyph edge is resampled by a non-integer factor. The old spec avoided that with an integer upscale; errata 54 superseded that rule and nothing replaced it.
+**What is actually open is NOT a font question, and the entry should not be read as one.** At 0.667 the 42-unit glyph displays at 28 physical pixels and stays perfectly readable. The problem is underneath that: **every hairline in the plate and every glyph edge is resampled by a non-integer factor.** The old spec forbade exactly this — errata 39's *"never break the integer rule to fill a window; a fractionally scaled frame is not this game"* — and errata 54 superseded the integer-scaling rule without putting anything in its place.
 
-**And there is no way to reach 1:1.** `grep -rni fullscreen` over `engine/` and `content/` returns nothing — there is no fullscreen affordance anywhere in the build. Errata 54 says errata 39's "fullscreen and mouse-completeness rulings stand", so one is specified and not implemented. That is the entry.
+**That gap survives whatever font is chosen.** A face drawn for 1920 × 1080 is still resampled by 0.667 on a 700-pixel window, and so is the art beside it. Choosing a typeface answers a different question. This one is about what happens between the frame and the glass, and it has been open since errata 54 and unnamed until now.
+
+**And there is no way to reach 1:1.** `grep -rni fullscreen` over `engine/` and `content/` returns nothing. Errata 54 preserves errata 39's fullscreen and mouse-completeness rulings by name, so the fix errata 39 adopted for this exact problem is specified and unbuilt. **It is not a Q-number** — it is a specified feature nobody wrote, and it has gone to the project owner as that rather than as a list entry.
+
+**One more thing this investigation surfaced, now guarded.** `art/actors/` holds three `talk` directories that are `kind: head-overlay` — heads composited into a body frame at `overlay_rect`, not bodies. They carry a `figure` too, because the rig records which body they belong to, so anything iterating the directory and scaling by figure height draws them at 4, 7 and 8 px: absurd, silent, and produced by code doing nothing obviously wrong. `tools/check-actor-clips.mjs` now fails on an overlay declared as a body clip **and** on any clip directory that is neither declared nor marked — the second being the case that catches new art nobody wired, which is otherwise invisible because the game simply never asks for it.
 
 ---
 
