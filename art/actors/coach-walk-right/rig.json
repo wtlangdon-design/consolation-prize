@@ -7,6 +7,6 @@
     389
   ],
   "padding": 0,
-  "note": "The coach departing. THE SAME FRAME AS `idle`, deliberately: a coach leaves with its door shut, and `walk` had been the door-OPEN body, which is 379 tall against idle's 389 because the case is off the rack. Same canvas, so the coach grew 2.6% the instant it started moving -- 956x389 to 981x389. The rig's two figure measurements disagreeing, not the art.\n\nWhen the wheels are driven this clip becomes the animated one and idle stays still.",
-  "frames": 1
+  "note": "The coach DEPARTING, with its wheels turning. Eight frames: each wheel rotated by the fraction of a revolution that its own radius makes over the same ground, so the rear (r144) and front (r114) turn at DIFFERENT rates. That difference is what makes it read as rolling rather than spinning.\n\nIt was one frame identical to `idle`, so the coach slid off frame with its wheels frozen. The wheels were cut and rotatable in art/objects/coach/ the whole time and nothing drove them.\n\nTHE HORSES' LEGS STILL DO NOT MOVE. They are drawn inside the body and overlap each other, so a leg cycle needs painted masks or new art. Recorded rather than hidden.",
+  "frames": 8
 }
