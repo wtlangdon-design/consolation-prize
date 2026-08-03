@@ -1184,6 +1184,44 @@ So the despill was complete to any threshold that means "visible", and the check
 
 **32 checks.**
 
+## Q48 · Room 1 played end to end: it works, and the player's position is not state
+
+Played from a fresh save at `70e4db1f`: the whole opening, then every hotspot with every examine verb, then the interface. **No errors anywhere.**
+
+**THE OPENING RUNS CLEAN.** `aboard-coach → alight-coach → walk → idle` at the coach, the driver's four options, the coach away, Hob in and across and out, control at beat 8. Nothing thrown, nothing skipped, nothing drawn as a placeholder.
+
+**ALL ELEVEN TARGETS ANSWER, AND ALL ELEVEN ARE DISTINCT.** Seven are live at the start; four are gated and were reached by setting the flags their own `when` clauses name:
+
+| gated on | LOOK | LISTEN |
+|---|---|---|
+| `case_mud` · `T_CASE_DOWN` | *My case, in the mud, where it was put.* | *Nothing.* |
+| `lamp` · `T_HOB_CROSSING` | *A lamp, crossing the road. There is a man behind it and he has not looked at me.* | *Footsteps. Even ones. He is counting them.* |
+| `lamp_gone` · `T_HOB_GONE` | *The lamp, away up the street. It has not once looked back at me.* | *Nothing. He has taken the sound with him too.* |
+| `coach_gone` · `T_COACH_DEPARTED` | *Gone. It made very good time on the way out.* | *The near axle, going away. It will fail on somebody else's stretch.* |
+
+Two things I checked before reporting and neither is a defect: `case_roof` and `case_mud` both answer LISTEN with *"Nothing."*, which is in `duplicateAllowlist` because doc 05's LISTEN layer says most objects are silent; and `coach_gone` displays as **THE ROAD WEST OUT**, which is its authored name.
+
+**THE INTERFACE WORKS.** Walking, verb selection, PICK UP refused with a written line, an item taken into the hand from the inventory, item-on-target (*"I have struck it against it. The fork is still A."*), the map opening and closing, the menu opening and closing on Escape, Ctrl+S, Ctrl+L, and the west exit into `main_street` at the declared entrance.
+
+**AND ONE FAULT, WITH ONE ROOT CAUSE UNDER BOTH HALVES.**
+
+```
+A. walked to               x691 y839  stage_road
+B. map open                x686 y838  town_map      (his position survives the map)
+C. map closed              x960 y863  stage_road    <-- moved
+D. fork in hand at         x700 y830
+E. saved, then dropped it  x700 y830
+F. loaded                  x960 y863  hand empty    <-- moved, and the hand is empty
+```
+
+**THE PLAYER'S POSITION IS NOT PART OF STATE.** The save payload has eight fields — room, inventory, reputation, object states, taken, flags, dialogue progress, dialogue position — and **not where he is standing.** The map is a room (`kind: 'map'`, doc 20 rule 5's "a menu that looks like a place"), so closing it re-enters `stage_road` and room entry places him at the entrance. Both symptoms are that one absence.
+
+**Against a stated acceptance criterion:** CLAUDE.md's list says *save/load restores exact state including partial dialogue trees*. It restores the room and not the yard of road.
+
+**The map half is the one a player meets first**, and it is worse than it sounds: doc 20 rule 2 makes the map always reachable, so checking where you are moves you. Opening a menu should not be a move.
+
+**NOT FIXED, and the boundary is deliberate.** The fix is a `position` field in the save payload plus restoring it on load and on map return — but adding a field to the save format is a compatibility decision about every save already written, and it lands next to doc 34 section 1.2's fourth defect, which is about when `enterRoom` is allowed to autosave. The held item is a separate question with a real answer either way: it is the middle of an action rather than a possession, and the fork was still in `carrying` throughout.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
