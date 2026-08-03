@@ -106,6 +106,10 @@
       },
       "staging": [
         {
+          "do": "say",
+          "line": 0
+        },
+        {
           "do": "chore",
           "actor": "thad",
           "clip": "alight-coach"
@@ -122,6 +126,10 @@
           "do": "face",
           "actor": "thad",
           "facing": "right"
+        },
+        {
+          "do": "say",
+          "line": 1
         }
       ],
       "lines": [

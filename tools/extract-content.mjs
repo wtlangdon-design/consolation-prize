@@ -286,10 +286,16 @@ function opening() {
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
-      // THEN he climbs down, after he has spoken, and crosses to the box.
+      // HE SPEAKS FROM THE STEP, THEN CLIMBS DOWN. Without the staged `say`
+      // the lines played AFTER the staging, so he climbed down, crossed the
+      // road, and only then announced himself -- which is not the picture and
+      // not what beat 2 holding him in the doorway was for.
+      { do: 'say', line: 0 },
       { do: 'chore', actor: 'thad', clip: 'alight-coach' },
       { do: 'walk', actor: 'thad', to: [1330, 812] },
       { do: 'face', actor: 'thad', facing: 'right' },
+      // and the driver answers him once he is down
+      { do: 'say', line: 1 },
     ],
     6: [
       { do: 'face', actor: 'thad', facing: 'right' },
@@ -1457,8 +1463,27 @@ function openingCase() {
       // kind of thing and doc 17 marks it as one. "takes it" is the flag.
       const takes = entry[1].match(/^\*\*(\w[\w ]*?) — takes it\.\*\*\s*\*"(.+?)"\*/);
       if (takes) {
+        // `take: true` ALONE TAKES NOTHING. It is a claim that something was
+        // taken, not an instruction to take anything -- so PICK UP said "I
+        // have it", the inventory stayed empty and the case stayed on the
+        // ground. The three items and the flag are what actually happens.
+        //
+        // THE CASE IS A CONTAINER, NOT AN ITEM. Its CONTENTS enter the
+        // inventory and the case itself does not, so Thad never carries it
+        // around town -- which is Q11 answered by there being nothing to
+        // carry. The letter, the tuning fork and four dollars: what a piano
+        // tuner arriving to make his fortune has, and the driver's tree turns
+        // on him having exactly four.
+        //
+        // T_CASE_TAKEN gates this hotspot, so the write removes the case from
+        // the ground.
         target.responses[takes[1].trim().replace(/ /g, '_')] = [
-          { say: takes[2], take: true },
+          {
+            say: takes[2],
+            take: true,
+            items: ['letter', 'tuning_fork', 'four_dollars'],
+            set: { T_CASE_TAKEN: true },
+          },
         ];
         continue;
       }

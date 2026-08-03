@@ -120,7 +120,15 @@
         "PICK_UP": [
           {
             "say": "I have it.",
-            "take": true
+            "take": true,
+            "items": [
+              "letter",
+              "tuning_fork",
+              "four_dollars"
+            ],
+            "set": {
+              "T_CASE_TAKEN": true
+            }
           }
         ]
       },
