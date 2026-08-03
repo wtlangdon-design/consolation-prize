@@ -284,16 +284,25 @@ function opening() {
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
-      // He stops, looks at the town, and says who he is -- to us.
+      // A BEAT BEFORE HE SPEAKS. He walks forward in beat 2 and the line
+      // arrived the instant he stopped, which reads as hurried -- and this is
+      // the first line in the game.
+      { do: 'wait', seconds: 1.4 },
       { do: 'say', line: 0 },
-      // a beat, then he crosses to the driver's right and looks up at him
+      // then a moment, then he crosses to the driver's right
       { do: 'wait', seconds: 1.2 },
       { do: 'walk', actor: 'thad', to: [1420, 830] },
       { do: 'face', actor: 'thad', facing: 'left' },
-      { do: 'chore', actor: 'thad', clip: 'lookup' },
+      // THE LOOK-UP IS A STATE, NOT A CHORE. `chore lookup` named a clip id
+      // that stopped existing when the pose was made holdable -- it became
+      // idle/left/lookup -- so the step asked for a clip nothing declares and
+      // the opening froze here, on the first line of the game.
+      { do: 'setState', object: 'thad', state: 'lookup' },
       { do: 'say', line: 1 },
     ],
     6: [
+      // he stops looking up when the driver has finished with him
+      { do: 'setState', object: 'thad' },
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],
