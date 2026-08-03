@@ -286,10 +286,16 @@ function opening() {
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
-      // THEN he climbs down, after he has spoken, and crosses to the box.
+      // HE SPEAKS FROM THE STEP, THEN CLIMBS DOWN. Without the staged `say`
+      // the lines played AFTER the staging, so he climbed down, crossed the
+      // road, and only then announced himself -- which is not the picture and
+      // not what beat 2 holding him in the doorway was for.
+      { do: 'say', line: 0 },
       { do: 'chore', actor: 'thad', clip: 'alight-coach' },
       { do: 'walk', actor: 'thad', to: [1330, 812] },
       { do: 'face', actor: 'thad', facing: 'right' },
+      // and the driver answers him once he is down
+      { do: 'say', line: 1 },
     ],
     6: [
       { do: 'face', actor: 'thad', facing: 'right' },
