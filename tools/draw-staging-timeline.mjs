@@ -182,7 +182,11 @@ function drawTimeline(sequence) {
                     // The ninth. Named with its verb, because "interact" alone
                     // does not say which of nine it is.
                     : s.do === 'interact' ? `${s.verb} ${s.target}`
-                      : `UNDRAWN: ${s.do}`;
+                      // The tenth. Named with its duration, because a wait
+                      // whose length is invisible is the one step you cannot
+                      // read the timing of from the picture.
+                      : s.do === 'wait' ? `wait ${s.seconds}s`
+                        : `UNDRAWN: ${s.do}`;
         parts.push(`<circle cx="${x + 14}" cy="${y}" r="7" fill="${places && k === 0 ? colour : '#14141c'}"`
           + ` stroke="${colour}" stroke-width="3"/>`);
         parts.push(`<text x="${x + 28}" y="${y + 6 + k * 20 - (here.length - 1) * 10}" fill="${colour}"`
