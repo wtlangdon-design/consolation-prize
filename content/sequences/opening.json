@@ -296,6 +296,22 @@
       "description": "He walks away up the road toward the town, and the title comes up over the mountains as he goes. He does not shrink out of sight; he is still walking when Main Street arrives",
       "control": "none",
       "note": "This is the descent, and it is not one more screen — see below",
+      "staging": [
+        {
+          "do": "move",
+          "actor": "thad",
+          "to": [
+            575,
+            500
+          ],
+          "seconds": 6
+        },
+        {
+          "do": "interact",
+          "target": "road_west",
+          "verb": "WALK_TO"
+        }
+      ],
       "awaitFlag": "T_THAD_LEAVING"
     }
   ]

@@ -534,7 +534,12 @@
           }
         ]
       },
-      "defaultVerb": "WALK_TO"
+      "defaultVerb": "WALK_TO",
+      "setOnTransit": {
+        "T_THAD_LEAVING": true
+      },
+      "travelWhenTold": true,
+      "endingNote": "Doc 17 beat 11. Taking this writes T_THAD_LEAVING and goes nowhere; the beat that flag releases walks him through the gap and travels at its end. setOnTransit exists because doc 14 says transit produces no line -- and a flag write is not a line, which is the same argument stateOnTransit is made from."
     }
   ],
   "atmosphere": {

@@ -518,6 +518,7 @@ export class GameState {
     // otherwise OPEN on an exit would spend a fallback line on its way out.
     const transit = this.transitDestination(target, verb);
     if (transit) {
+      const exit = target as Partial<Exit>;
       // A door that has been gone through is a door that is open. Reserved
       // here rather than through a response rule because doc 14 is explicit
       // that transit produces no line -- and a state change is not a line.
@@ -530,12 +531,33 @@ export class GameState {
           state: target.stateOnTransit,
         });
       }
-      effects.push({ id: `act/${objectKey}/${verb}#transit:room`, kind: 'room', room: transit });
+      // DOC 14: TRANSIT PRODUCES NO LINE, and a flag write is not a line --
+      // the same argument `stateOnTransit` above is made from. Without this an
+      // exit can write nothing at all: this branch returns before the response
+      // resolves, so `set` on a response never fires for the verb that
+      // actually goes through the door.
+      for (const [flag, value] of Object.entries(exit.setOnTransit ?? {})) {
+        effects.push({
+          id: `act/${objectKey}/${verb}#transit:flag:${flag}`, kind: 'flag', flag, value,
+        });
+      }
+      // AN EXIT THAT TRAVELS WHEN TOLD DOES NOT TRAVEL NOW. Doc 17's ending is
+      // a departure the player watches; an exit that moves you the instant you
+      // touch it cannot also be one. The flag above releases the beat, and the
+      // beat travels when it ends.
+      if (!exit.travelWhenTold) {
+        effects.push({ id: `act/${objectKey}/${verb}#transit:room`, kind: 'room', room: transit });
+      }
       return {
         target, verb, room, objectKey,
         action: { say: null, dialogue: null, goto: null, effects: [] },
         transit: true,
-        destination: transit,
+        // NOT REPORTED WHEN THE TRAVEL IS HELD. `destination` is what the
+        // caller reads to know the room changed -- it drives the autosave and
+        // the scene's own room-change bookkeeping -- and claiming a
+        // destination nobody went to would autosave a move that did not
+        // happen.
+        destination: exit.travelWhenTold ? null : transit,
         dialogue: null,
         say: null,
         effects,

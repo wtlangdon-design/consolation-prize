@@ -375,6 +375,38 @@ function opening() {
     ],
     // BEAT 10 STAGES NOTHING, deliberately. Going west is the player's move to
     // make; it previously walked the protagonist during a player-control beat.
+    //
+    // BEAT 11 IS THE ENDING. It waits on T_THAD_LEAVING, which road_west
+    // writes when the player takes it, and it does the travel itself at the
+    // end -- which is why road_west declares `travelWhenTold` and does not go
+    // anywhere on its own. An exit that moves you the instant you touch it
+    // cannot also be a departure you watch.
+    //
+    // THE ROUTE LEAVES THE WALK BOX, so it is a `move` and not a `walk`:
+    // errata 38's own case, a mover crossing no walk box at all. `move`
+    // already plays the walk cycle -- `glideTo` sets the glide, `isWalking` is
+    // true while it holds, and `clip` returns `walk` whenever `isWalking` --
+    // and it faces toward the destination first, which up the hill is
+    // dominant-vertical and resolves to `back`. thad-walk-back exists in all
+    // four facings. No new step kind, and the gait advances from distance now,
+    // which is why that fix came first.
+    //
+    // x575 IS THE GAP IN THE FENCE, measured off the plate with a ruler:
+    // x500-650, centre 575. y500 is where the depth curve's third sample puts
+    // him at 98px -- a man well up the road, still walking when Main Street
+    // arrives rather than shrunk to nothing.
+    //
+    // SIX SECONDS. The title comes up over the mountains while he goes, and
+    // the walk is what the credits are authored to rather than the other way
+    // round.
+    11: [
+      { do: 'move', actor: 'thad', to: [575, 500], seconds: 6 },
+      // AND THEN THE TRAVEL, through the exit that declined to do it itself.
+      // `interact` lowers to the `say`-with-interact step the runner has
+      // always had, which resolves the verb where it stands -- room change
+      // included -- and produces no words.
+      { do: 'interact', target: 'road_west', verb: 'WALK_TO' },
+    ],
   };
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];
@@ -1437,6 +1469,22 @@ function openingCase() {
   // IT LIVES IN THE EXTRACTOR because the room file is regenerated whole. Hand
   // -editing it survives until the next extraction and then vanishes silently,
   // which is the same trap the speakers table sets for a colour.
+  // THE WEST EXIT STARTS THE ENDING RATHER THAN TAKING IT. Taking it writes
+  // T_THAD_LEAVING, which releases doc 17 beat 11; the beat walks him through
+  // the gap and does the travel itself when it ends. An exit that moves you
+  // the instant you touch it cannot also be a departure you watch.
+  //
+  // Both here rather than hand-edited into the room, because the room file is
+  // regenerated whole and a hand edit survives until the next extraction.
+  const west = room.exits.find((entry) => entry.id === 'road_west');
+  if (!west) throw new Error('stage road has no "road_west" exit to start the ending from');
+  west.setOnTransit = { T_THAD_LEAVING: true };
+  west.travelWhenTold = true;
+  west.endingNote = 'Doc 17 beat 11. Taking this writes T_THAD_LEAVING and goes nowhere; '
+    + 'the beat that flag releases walks him through the gap and travels at its end. '
+    + 'setOnTransit exists because doc 14 says transit produces no line -- and a flag write '
+    + 'is not a line, which is the same argument stateOnTransit is made from.';
+
   const lamp = room.hotspots.find((entry) => entry.id === 'lamp');
   if (!lamp) throw new Error('stage road has no "lamp" hotspot for Hob to be spoken to through');
   const speaking = ['LOOK_AT', 'LISTEN_TO'];
