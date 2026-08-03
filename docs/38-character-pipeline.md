@@ -168,6 +168,20 @@ GIF carries **256 colours for the whole frame**. A character on a full-colour pl
 
 *This is the second preview artifact diagnosed as an art problem in one session — the first was GIF's 1-bit alpha producing a dark rim. Both times the sprite was correct and the preview was not.*
 
+## R5b2 · A THUMBNAIL IS NOT EVIDENCE ABOUT FACING, AND NEITHER IS A METRIC INVENTED TO REPLACE THE EYEBALL
+
+R5b says GIF is not evidence about colour. This is the same failure at a different variable, and it happened twice in five minutes on the same question: **which way is this sprite facing?**
+
+**First, a four-up thumbnail sheet** of `stand-left`, `stand-right`, `walk-right`, `walk-left`, each about 230px tall, read as *all four face left* — which would have meant every right-facing directory in the repository held mirrored art, and would have sent two people into the rig pipeline for nothing. At that size the head is roughly 14 × 17 display pixels and the hair mass reads as the silhouette. **The face is the evidence and it is a dozen pixels wide.**
+
+**Then a metric invented on the spot to settle it** — the horizontal offset between the head band's alpha centroid and the torso's — agreed with the directory names for Thad and disagreed for Hob, and reported the coach as facing left, which is not a thing a coach does. It was measuring coat and limb mass, not a face. **A number is not more trustworthy than an eyeball merely because it is a number**; it is more trustworthy when it has been shown to separate the cases you care about, and this one never was.
+
+**What settled it** was cropping the head band and magnifying it 3×, on screen and from the file, side by side. Unambiguous in one look: hair left and face right in `thad-idle-right`, hair right and face left in `thad-idle-left`, and the on-screen figure matching the first exactly.
+
+> **Magnify the feature you are judging, and put the candidates next to each other.** A whole figure at draw size answers "does this look right"; it does not answer "which of these two is it". And a metric written to replace a judgement must be validated against known cases before it is believed — R5c's rule about measuring the feature, pointed at your own instrument.
+
+*The third preview artifact diagnosed as an art problem, after GIF's 1-bit alpha and GIF's 256 colours. Every time, the art was correct and the way it was being looked at was not.*
+
 ## R5c · Check geometry before declaring something impossible
 
 The collar was declared unrecoverable at 233px on the strength of counting threshold hits across four resize filters. It is **14 × 17 display pixels with strokes up to 4.7 wide** — not remotely sub-pixel, and perfectly legible in PNG. Measure the feature before concluding the resolution cannot hold it.
