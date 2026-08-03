@@ -313,8 +313,12 @@ function opening() {
     // No `from` here: beat 2 placed it, and repeating the placement would
     // teleport it back to its mark if anything had nudged it.
     '6b': [
-      { do: 'face', actor: 'thad', facing: 'right' },
-      { do: 'chore', actor: 'thad', clip: 'carry' },
+      // THE DRIVER SHUTS THE DOOR BEFORE HE PULLS AWAY. Authored, not
+      // inherited: the walk clip has no door-open variant, so without this the
+      // door snapped shut the instant the coach started moving -- the state
+      // unsetting itself because a sibling clip does not declare it. A door
+      // closing is a thing a driver does; a door vanishing is a defect.
+      { do: 'setState', object: 'coach' },
       { do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 },
     ],
     // BEAT 7 NO LONGER TOUCHES HIM -- he has stood at the roadside since beat

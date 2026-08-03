@@ -229,14 +229,8 @@
       "note": "Player-audit fix. A coach that disappears on a click is not a coach leaving",
       "staging": [
         {
-          "do": "face",
-          "actor": "thad",
-          "facing": "right"
-        },
-        {
-          "do": "chore",
-          "actor": "thad",
-          "clip": "carry"
+          "do": "setState",
+          "object": "coach"
         },
         {
           "do": "move",

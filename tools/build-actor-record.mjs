@@ -79,7 +79,12 @@ const CLIPS = [
   // Standing still, LOOKING UP at the driver's box. Left only: he stands to
   // the driver's right, and the driver's own looking-down turns toward frame
   // right, so they face each other.
-  { id: 'lookup', dir: 'lookup', prefix: 'lookup' },
+  // Standing still, LOOKING UP at the driver's box, registered as a STATE of
+  // idle so it can be held by setState rather than played as a one-shot chore.
+  { id: 'idle', dir: 'lookup', prefix: 'lookup', state: 'lookup' },
+  // And its shrug. Without this his head came down for six seconds every time
+  // the break fired, because a state on one clip and not another unsets itself.
+  { id: 'idle-break', dir: 'idlebreak-lookup', prefix: 'idle-break', state: 'lookup' },
   // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
   // named mover; a hotspot's state image is drawn by drawPlate and cannot be
   // translated at all, so beat 6b could never have worked from one. Its two
