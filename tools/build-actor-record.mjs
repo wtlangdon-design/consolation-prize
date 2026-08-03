@@ -73,6 +73,10 @@ const CLIPS = [
   { id: 'alight-coach', dir: 'alight-coach', prefix: 'alight-coach' },
   { id: 'aboard-coach', dir: 'aboard-coach', prefix: 'aboard-coach' },
   { id: 'carry', dir: 'carry', prefix: 'carry' },
+  // Standing still, LOOKING UP at the driver's box. Left only: he stands to
+  // the driver's right, and the driver's own looking-down turns toward frame
+  // right, so they face each other.
+  { id: 'lookup', dir: 'lookup', prefix: 'lookup' },
   // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
   // named mover; a hotspot's state image is drawn by drawPlate and cannot be
   // translated at all, so beat 6b could never have worked from one. Its two
