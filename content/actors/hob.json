@@ -76,18 +76,13 @@
         "art/actors/hob-walk-right/walk-00.png",
         "art/actors/hob-walk-right/walk-01.png",
         "art/actors/hob-walk-right/walk-02.png",
-        "art/actors/hob-walk-right/walk-03.png",
-        "art/actors/hob-walk-right/walk-04.png",
-        "art/actors/hob-walk-right/walk-05.png",
-        "art/actors/hob-walk-right/walk-06.png",
-        "art/actors/hob-walk-right/walk-07.png"
+        "art/actors/hob-walk-right/walk-03.png"
       ],
       "figureHeight": 526,
       "anchor": [
-        219,
+        202,
         526
-      ],
-      "walkDx": 1
+      ]
     }
   ]
 }

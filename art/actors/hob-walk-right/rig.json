@@ -1,37 +1,12 @@
 {
-  "source": "reference/casting/hob-walk-right.png",
-  "key": "magenta",
-  "view": "profile",
+  "clip": "walk",
   "facing": "right",
-  "walk_dx": 1,
+  "view": "profile",
   "figure": [
-    257,
+    404,
     526
   ],
-  "hem_row": 377,
-  "hem_pct": 71.6,
-  "pivot_row": 873,
-  "padding": 90,
-  "rows_legs_separate": 348,
-  "near_leg_px": 54816,
-  "far_leg_px": 49809,
-  "arms_rigged": true,
-  "shoulder_near": 556,
-  "shoulder_far": 489,
-  "near_arm_px": 26895,
-  "far_arm_px": 25849,
-  "measured_foot_travel": 130,
-  "hip_swing": [
-    14,
-    10,
-    0,
-    -10,
-    -14,
-    -10,
-    0,
-    10
-  ],
-  "arm_ratio": 0.55,
-  "frames": 8,
-  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1517px, which is 6x linear and 33x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
+  "padding": 0,
+  "frames": 4,
+  "note": "A REAL CYCLE AT LAST: contact, passing, the OPPOSITE contact, the opposite passing. Four key poses from one generation, so they are the same man by construction rather than by four negotiations.\n\nIT WAS A PING-PONG. The old eight frames were 1=7, 2=6, 3=5 -- the second half was the first played backwards, so THE SAME LEG LED EVERY STEP: one leg swung out and came back and the other never passed it. Tyler called it galloping and that is exactly what it was. Measured: contacts 31% leg overlap, passings 26% -- against 100% for the pair the first sheet returned.\n\nFOUR SINGLE-IMAGE ATTEMPTS FAILED FIRST, each fixing the stride or the lantern and breaking the other. The casting-sheet method is what worked, as it did for the facings.\n\nONE CYCLE IS NOW TWO STEPS, NOT ONE, so his stride length doubles. Do not compensate walkSpeed for it -- the stride changes and the speed should not, and the legs halving their rate at the same speed is the correct outcome.\n\nAligned on the ground line and the TORSO's centre of mass in the upper half, which does not swing the way the legs do, so the figure does not hop between frames."
 }
