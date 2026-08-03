@@ -295,7 +295,8 @@
       "beat": "11",
       "description": "He walks away up the road toward the town, and the title comes up over the mountains as he goes. He does not shrink out of sight; he is still walking when Main Street arrives",
       "control": "none",
-      "note": "This is the descent, and it is not one more screen — see below"
+      "note": "This is the descent, and it is not one more screen — see below",
+      "awaitFlag": "T_THAD_LEAVING"
     }
   ]
 }

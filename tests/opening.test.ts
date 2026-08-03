@@ -117,12 +117,31 @@ test('Q25: clicking through every beat still lets the opening finish', async () 
   const harness = new OpeningHarness(segments, playfieldClick);
   // A click on every single tick -- harsher than any player, and the pattern
   // that wedged the real game at 700ms intervals.
-  for (let i = 0; i < 4000 && !harness.finished; i += 1) {
+  //
+  // IT NO LONGER RUNS TO EXHAUSTION, AND THAT IS CORRECT. Beats 9 and 11 hold
+  // on a flag a player action writes -- Hob's exchange and the departure -- so
+  // a harness that never speaks to Hob and never takes the exit legitimately
+  // stops there. finishOpening runs before the carrier is armed, so the opening
+  // is OVER at control and everything after it is ordinary play the carrier
+  // happens to be driving.
+  //
+  // What Q25 was about is the wedge: a click during an automatic beat freezing
+  // the sequence with no error and no way out. So the assertion is that every
+  // AUTOMATIC segment is consumed, not that the carried ones are.
+  // An AUTOMATIC segment can now await a flag too -- beat 11 is `control: none`
+  // and holds until the player takes the exit -- so the last one that must be
+  // consumed is the last automatic segment that does NOT await.
+  const lastAutomatic = segments.reduce(
+    (best, segment, i) => (segment.kind === 'automatic'
+      && !segment.beats.some((beat) => beat.awaitFlag) ? i : best), -1,
+  );
+  for (let i = 0; i < 4000 && !harness.finished && harness.at <= lastAutomatic; i += 1) {
     harness.click();
     harness.tick();
   }
-  assert.ok(harness.finished,
-    `the opening stalled at segment ${harness.at} of ${segments.length}`);
+  assert.ok(harness.at > lastAutomatic,
+    `the opening stalled at segment ${harness.at}, before clearing the last `
+    + `automatic segment at ${lastAutomatic} of ${segments.length}`);
 });
 
 test('Q25: and it stalls with the pre-fix verdict, so the test can fail', async () => {

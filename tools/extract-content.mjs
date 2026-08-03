@@ -222,7 +222,16 @@ function opening() {
   // opening is genuinely over at beat 8; 9 and 10 are ordinary play that the
   // carrier happens to be driving. A player who never speaks to him leaves a
   // man standing at the roadside with his lamp, which is the truthful state.
-  const awaits = { '9': 'T_HOB_SPOKEN' };
+  // A beat that holds until a player action writes a flag. Beat 9 is Hob's
+  // exchange; beat 11 is the departure, which waits on the player taking the
+  // west exit -- an exit that no longer travels, because one that moves you the
+  // instant you touch it cannot also be a departure you watch.
+  //
+  // NOTHING WRITES T_THAD_LEAVING YET. Beat 11 therefore holds forever, which
+  // is the truthful state of an unbuilt beat rather than a stall: the opening
+  // is over at beat 8 and everything after it is ordinary play the carrier
+  // happens to be driving.
+  const awaits = { '9': 'T_HOB_SPOKEN', '11': 'T_THAD_LEAVING' };
 
   /**
    * WHERE THE BEATS HAPPEN. Doc 17 says what occurs; these say where, and they
