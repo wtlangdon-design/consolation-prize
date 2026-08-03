@@ -2074,7 +2074,7 @@ SequenceWorld.setState → RoomActors.setMoverState → GameState.setMoverState
 
 ---
 
-## Q77 · `character.py` cannot rig a standing pose, and four more are coming
+## Q77 · `character.py` cannot rig a standing pose, and four more are coming — **BUILT**
 
 **Not a defect until this week, and now it is a bottleneck.**
 
@@ -2087,6 +2087,40 @@ The breath on `thad-lookup-left` was applied by hand as a result: a transform ra
 **This is a decision about the pipeline and the pipeline is not mine** — `tools/rig/` is out of bounds by standing instruction, and this is recorded rather than acted on. What is worth having in the ruling: **the refusal is correct behaviour for a walking-pose detector and wrong behaviour for a rig that must now handle both.** Teaching it a standing pose means giving it a second hem strategy and a way to choose, not relaxing the first one — a detector that accepts legs together *and* legs apart under one rule would accept anything.
 
 **Related, and the reason it surfaced now:** every one of Thad's `stand` clips is derived from a walking source, so the frozen stride and Q73's ping-pong are one fault with two symptoms. Nine generations replace both at once. The mirror check lands with them.
+
+### BUILT — `--pose standing`, declared, plus the amplitude floor
+
+**Three barriers, all of them rules written for a striding pose.**
+
+**1 — the hem.** `find_hem` gained a second predicate and `--pose {striding,standing}` to choose it. **The threshold is not invented: doc 38's own docstring already measured it.** The width-drop rule was abandoned because *"in the mid-stride pose this pipeline requires, the leg span equals the coat"* — and recorded the numbers, **1.54 standing, 1.09 striding**. The drop is real for a standing figure and absent for a striding one, which is exactly why one rule cannot serve both. The cut sits between the two measured ratios, nearer the striding one so a mid-stride source is refused rather than mis-hemmed: **1.3**.
+
+Absolute narrowness cannot do this job, which was the first thing tried. A profile standing figure is **one run from hat to shoe** — measured on the lookup pose: 99px widest, 95 through the coat, 64 through the legs — so the legs are 0.65 of the widest row and every absolute cut admitting them admits the coat too.
+
+**The two predicates are complementary, proven both ways:**
+
+| source | `--pose striding` | `--pose standing` |
+|---|---|---|
+| `thad-lookup-left` (legs together) | refused | **hem at row 354, 67%** |
+| `thad-idle-right` (from a walking source) | hem at row 343, 65% | refused |
+
+**And the rig lands 3px from the hand.** The breath was applied by hand at **y357**; taught the standing strategy, the detector finds **354** on its own, from the pixels, with no knowledge of that number.
+
+**2 — `split_legs`.** Refuses when fewer than twelve rows have the legs apart, which for legs together is every row. **A standing pose has nothing to split and needs no split**: the only clip such a source can produce is a held pose that breathes, and the breath plants the legs, so they take no offset and are one static layer. Guarded on `--pose`.
+
+**3 — the empty far-leg centroid.** `float(np.nonzero(far_lm.any(0))[0].mean())` on an empty mask is **NaN, silently**, and NaN compares false against everything downstream. Answered with the near leg's centroid — which is the truthful answer for legs that are together, and not R5f, because it is the same entity.
+
+### And the amplitude floor, with an assertion behind it
+
+`amp = 0.005 * fig_h` gives 2.6 against a step of 2 at `fig_h` 526, so three points of the curve round to the same offset. **Floored at `3 × step`.** Measured before and after:
+
+| clip | before | after |
+|---|---|---|
+| Hob idle (striding, step 6) | 2 distinct | **4 distinct** |
+| Thad lookup (standing, step 7) | — | **4 distinct**, offsets 0 −7 −14 −21 |
+
+**And the rig now refuses to emit a two-picture breath**, by name, at the moment it would. The floor should make it unreachable; it is asserted anyway, because the collapse was silent for the whole life of the tool and what found it was somebody hashing the output files months later. **A generator that can emit a two-picture animation should say so rather than leave it to be discovered downstream.**
+
+**What was not exercised:** the rig writes at source resolution — 869×1720 for this source against the shipped 279×610 — so the downscale stage was not run. Regenerating the sixteen existing clips remains a separate decision and Tyler's.
 
 ---
 

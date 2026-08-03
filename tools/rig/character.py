@@ -66,8 +66,29 @@ def runs(row):
     return out
 
 
-def find_hem(mask: np.ndarray, fig_h: int) -> int:
-    """R1: the hem is where a sustained band of TWO SIMILAR-WIDTH runs begins.
+def find_hem(mask: np.ndarray, fig_h: int, pose: str = "striding") -> int:
+    """R1: the hem is where a sustained band of LEG-SHAPED rows begins.
+
+    TWO STRATEGIES, CHOSEN BY DECLARATION AND NEVER BY INSPECTION.
+
+    The striding rule below requires two legs of roughly equal width. A
+    STANDING pose has them together -- which is the whole point of a standing
+    pose -- so the rule refused it outright, and every standing frame this
+    project has was either derived from a walking source or had its breath
+    applied by hand.
+
+    THE RELAXED-RULE VERSION OF THIS FIX IS WRONG. A detector that accepts
+    legs-together AND legs-apart under one rule accepts anything: the test
+    that rejects a carried lantern beside the body, and the one that rejects
+    an arm held out, are exactly the tests that a one-run row would have to be
+    let through. So there are two predicates, and `--pose` says which -- an
+    explicit flag rather than a guess from leg separation, because guessing is
+    how one rule comes to accept anything.
+
+    What the two share: below the hem, the rows are NARROW relative to the
+    figure's widest row, and that persists to the feet. A leg is a small
+    fraction of the widest row; a torso is most of it. Only the run COUNT
+    differs, and only the caller knows which to expect.
 
     Two earlier rules each worked on the view they were derived from and broke
     on the next one:
@@ -101,15 +122,49 @@ def find_hem(mask: np.ndarray, fig_h: int) -> int:
         # widest row; a torso is most of it.
         return max(w1, w2) < 0.45 * widest
 
-    flags = [legs_row(y) for y in range(fig_h)]
+    def standing_row(y):
+        """One run, clearly NARROWER than the coat: the legs together.
+
+        THIS IS THE WIDTH-DROP RULE, RESTORED FOR THE POSE IT WORKS ON. The
+        docstring above records why it was abandoned -- "assumes the coat is
+        wider than the legs. In the mid-stride pose this pipeline requires,
+        the leg span equals the coat" -- and it records the measurement that
+        makes it the right rule here: **1.54 standing, 1.09 striding**. The
+        drop is real for a standing figure and absent for a striding one,
+        which is precisely why one rule cannot serve both and why `--pose`
+        exists.
+
+        SO THE THRESHOLD IS NOT INVENTED. It sits between the two measured
+        ratios, nearer the striding one so a mid-stride source is refused
+        rather than mis-hemmed: 1.3, against 1.09 and 1.54.
+
+        Absolute narrowness cannot do this job. A profile standing figure is
+        ONE run from hat to shoe -- measured on the lookup pose: 99px at the
+        widest, 95 through the coat, 64 through the legs -- so the legs are
+        0.65 of the widest row and every absolute cut that admits them admits
+        the coat too. Only the drop distinguishes them.
+        """
+        rr = runs(mask[y])
+        if len(rr) != 1:
+            return False
+        return (rr[0][1] - rr[0][0]) < widest / 1.3
+
+    row = legs_row if pose == "striding" else standing_row
+    flags = [row(y) for y in range(fig_h)]
     window = max(10, int(fig_h * 0.05))
     for y in range(int(fig_h * 0.35), fig_h - window):
         tail = flags[y:]
         if sum(flags[y:y + window]) >= window * 0.7 and sum(tail) >= len(tail) * 0.55:
             return y
+    if pose == "striding":
+        raise SystemExit(
+            "no hem found -- below the coat there must be two legs of roughly equal "
+            "width, sustained. Regenerate with a wider stride (doc 38 part one 2), "
+            "or pass --pose standing if this is meant to be a standing pose.")
     raise SystemExit(
-        "no hem found -- below the coat there must be two legs of roughly equal "
-        "width, sustained. Regenerate with a wider stride (doc 38 part one 2).")
+        "no hem found -- below the coat there must be ONE narrow run, sustained, "
+        "which is what legs together look like. If the legs are apart this is a "
+        "striding pose and wants the default --pose striding.")
 
 
 def split_legs(mask, hem, fig_h):
@@ -302,6 +357,12 @@ def main():
                     help="idle is the rest state every chore settles into (doc 22)")
     ap.add_argument("--breath", type=float, default=1.0,
                     help="scales the idle breath; 1.0 is about one display pixel")
+    ap.add_argument("--pose", default="striding", choices=["striding", "standing"],
+                    help="which hem strategy to use. DECLARED, never inferred: a "
+                         "detector that accepts legs-together and legs-apart under "
+                         "one rule accepts anything, so the caller says which pose "
+                         "the source is rather than the rig guessing from leg "
+                         "separation")
     ap.add_argument("--view", default="profile", choices=["profile", "headon"],
                     help="headon = front or back. Limbs shift and scale toward "
                          "the camera instead of rotating.")
@@ -320,9 +381,24 @@ def main():
     H, W = canvas.shape[:2]
     mask = canvas[..., 3] > 128
 
-    hem = find_hem(mask, fig_h)
+    hem = find_hem(mask, fig_h, args.pose)
     pivot = int(hem - 0.14 * fig_h)
-    near_lm, far_lm, sep_rows = split_legs(mask, hem, fig_h)
+    if args.pose == "standing":
+        # A STANDING POSE HAS NOTHING TO SPLIT, and asking is the same mistake
+        # as the hem rule made: `split_legs` fits a seam to the rows where the
+        # legs are apart and refuses when fewer than twelve are, which for
+        # legs together is every row. It is not a fault in the source.
+        #
+        # NOR IS A SPLIT NEEDED. The only clip a standing source can produce is
+        # a held pose that breathes, and doc 38's breath plants the legs: they
+        # take no offset, so they are one static layer whether or not the rig
+        # can tell which pixel belongs to which leg. The far layer is empty and
+        # the near one is everything below the hem.
+        near_lm = mask.copy(); near_lm[:hem] = False
+        far_lm = np.zeros_like(mask)
+        sep_rows = 0
+    else:
+        near_lm, far_lm, sep_rows = split_legs(mask, hem, fig_h)
     near_am, far_am, shoulder = split_arms(mask, hem, fig_h)
 
     def painted(arg):
@@ -404,7 +480,14 @@ def main():
     far_leg = extend_up(as_layer(far_lm), leg_reach)
     coat = as_layer(coat_m)
     cxn = float(np.nonzero(near_lm.any(0))[0].mean())
-    cxf = float(np.nonzero(far_lm.any(0))[0].mean())
+    # A STANDING POSE HAS NO FAR LEG LAYER, so its centroid is the mean of an
+    # empty slice -- NaN, silently, and NaN compares false against everything
+    # it is later tested against. Answered with the near leg's centroid, which
+    # is the truthful answer for legs that are together: the far leg is where
+    # the near one is. Not a fallback to another entity's data (R5f) -- it is
+    # the same entity, and the standing branch above is what made them one.
+    cxf = (cxn if not far_lm.any()
+           else float(np.nonzero(far_lm.any(0))[0].mean()))
 
     out = Path(args.out); out.mkdir(parents=True, exist_ok=True)
     travel = 0
@@ -531,7 +614,21 @@ def main():
         # settles. Amplitude is set as a fraction of figure height so it lands
         # at roughly one pixel once scaled to 233px -- at full resolution that
         # is ~8px, and anything smaller vanishes entirely on screen.
-        amp = 0.005 * fig_h * args.breath
+        # AND IT COLLAPSED TO TWO PICTURES AT EVERY SIZE. `dy` quantises to
+        # whole display pixels, so the curve only survives if its intermediate
+        # values land on different steps. At fig_h 526 the fraction below gives
+        # amp 2.6 against step 2, so t=0.45, 0.85 and 1.0 ALL round to one step
+        # and the six-frame breath is 0 -2 -2 -2 -2 0 -- two distinct pictures.
+        # The comment above said "at full resolution that is ~8px", and it was:
+        # at 1600 it gives amp 8 against step 7, which rounds to 0 -7 -7 -7 -7 0.
+        # The same collapse at every size. It never had three real offsets, and
+        # sixteen clips in the game are two-picture animations because of it.
+        #
+        # THREE DISTINCT OFFSETS NEED AMPLITUDE OF AT LEAST 2 * step * 1.5.
+        # Below that the rounding eats the middle of the curve whatever the
+        # curve is, so the floor is on the amplitude rather than on the shape.
+        floor = 3.0 * step
+        amp = max(0.005 * fig_h * args.breath, floor)
         # THE HEAD DOES NOT MOVE. Breathing raises the chest; the head stays.
         # Moving it bobs a small pale collar against skin one display pixel at
         # a time, and the downscale smears the two together -- which is what
@@ -559,8 +656,20 @@ def main():
                     padding=P, breath_px=round(amp, 1), frames=len(IDLE_BREATH))
         (out / "rig.json").write_text(json.dumps(meta, indent=2))
         used = sorted({-int(round(amp * t / step)) * step for t in IDLE_BREATH})
+        # AND IT SAYS SO WHEN IT HAPPENS. The floor above should make this
+        # unreachable; it is asserted anyway because the collapse was silent
+        # for the whole life of this tool and the only thing that found it was
+        # somebody hashing the output files months later. A generator that can
+        # emit a two-picture animation should refuse to, by name, at the moment
+        # it would -- not leave it to be discovered downstream.
+        if len(used) < 3:
+            raise SystemExit(
+                f"the breath collapsed to {len(used)} distinct offset(s) {used} at step "
+                f"{step}px -- a six-frame clip with two pictures is a two-frame clip with "
+                f"padding. Raise --breath: amplitude must exceed {3.0 * step:.1f} at this size.")
         print(f"idle: {len(IDLE_BREATH)} frames, breath quantised to {step}px steps "
-              f"-> offsets {used} = {[abs(u)//step for u in used]} display px")
+              f"-> offsets {used} = {[abs(u)//step for u in used]} display px, "
+              f"{len(used)} distinct")
         return
     for i, s in enumerate(HIP_SWING):
         s *= args.swing
