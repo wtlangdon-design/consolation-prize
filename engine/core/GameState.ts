@@ -638,7 +638,32 @@ export class GameState {
   interact(target: Interactable, verb: string): InteractionResult {
     const interaction = this.beginInteraction(target, verb);
     interaction.presentLine();
-    return interaction.settle();
+    const result = interaction.settle();
+    // ERRATA 28b AS AMENDED (Q74): A VERB CLEARS ON USE.
+    //
+    // 28b used to say "a selected verb persists until another is chosen. It is
+    // not cleared by use". That sentence is void. Persisting is what made the
+    // mud problem permanent: `resetToDefault` ran only on a new game and no
+    // deselect existed, so the no-verb state could be left exactly once per
+    // playthrough and never returned to -- taking a third of 28b's own table
+    // with it, and with that every object's `defaultVerb`, "the verb a player
+    // would try first", live for one click each.
+    //
+    // HERE, AND NOT IN THE SCENE. It was written in `GameScene` first, where
+    // it worked and where NO TEST COULD REACH IT: 132 tests passed without one
+    // of them being able to see a change to how every click in the game
+    // behaves. A rule about what the game does when a verb is used belongs to
+    // the game.
+    //
+    // A BARE WALK STILL CONSUMES NOTHING -- 28b row 1, untouched. A click on
+    // ground never reaches here.
+    //
+    // AND THE TWO-CLICK SENTENCE SURVIVES: USE on an inventory item HOLDS it
+    // rather than resolving it (`carryVerbs`, doc 24's USE X ON Y), and that
+    // path returns before this one. The verb clears when the sentence
+    // finishes, not halfway through.
+    this.verbs.resetToDefault();
+    return result;
   }
 
   /**

@@ -675,8 +675,35 @@ Double-click-to-walk was specified in the Phase 1 brief and it was wrong. It is 
 | **Double click** | **Nothing. Remove it entirely.** |
 
 - **Every object declares a `defaultVerb`.** Most are LOOK AT. Doors and exits are OPEN or WALK TO. It is the verb a player would try first, and getting it right is a small authoring decision per object rather than an engine default.
-- A selected verb **persists** until another is chosen. It is not cleared by use.
+- ~~A selected verb **persists** until another is chosen. It is not cleared by use.~~ **VOID — corrected below.**
 - The game remains fully playable with left click alone. Right click is never the only route to anything, per the mouse-only requirement.
+
+### 28b-i · CORRECTION — a verb CLEARS ON USE
+
+**The struck sentence above is void. A selected verb is cleared the moment it is used, and the selection returns to nothing.**
+
+**Why the original was wrong, and it is not a matter of taste.** Persisting made the table above self-defeating. `resetToDefault` runs only on a new game and no deselect exists, so **the no-verb state could be left exactly once per playthrough and never returned to** — and row 3, *"left click on an object, no verb selected → perform the object's `defaultVerb`"*, became unreachable the first time anybody touched the panel. One third of this table, dead after one click.
+
+**And with it, every authoring decision the first bullet describes.** `defaultVerb` is *"the verb a player would try first"*, declared per object across the whole game and enforced by `check-default-verbs`. Under the struck rule each one was live for a single click per playthrough.
+
+**The symptom that found it** was reported as *"Thad examines mud everywhere instead of walking"*. Room 1's `mud` spans the entire walkable band, so once LOOK AT was selected every click on the ground was an examine, permanently. The mud's own `defaultVerb` is WALK TO and was already correct; nothing could reach it.
+
+**This also settles the row 1 / row 2 conflict without a further ruling.** The two rows disagreed for any object that *is* the ground — row 1 says walkable ground walks always, row 2 says a selected verb performs. With the selection cleared after every action, the next click on the mud carries no verb and walks. **The contradiction had a lifetime, not a logic: it required a selection that outlived its use.**
+
+**What this does NOT change, so nobody has to re-derive it:**
+
+| | |
+|---|---|
+| `defaultVerb` | still the **per-target fallback**, never the resting selection |
+| the file-level `defaultVerb: LOOK_AT` | still the fallback's fallback, for an object declaring none |
+| the resting selection | still **null**, and now reachable again after every action |
+| `WALK_TO` | still outside the nine, still not a panel button |
+| row 1's *"no verb consumed"* | **unchanged** — a bare walk clears nothing, because it uses nothing |
+| the two-click USE sentence | **unchanged** — `carryVerbs` HOLDS an item rather than resolving it, so the verb survives to the second click and clears when the sentence finishes |
+
+> **Changing the file-level default to WALK TO would have fixed nothing.** The floor already walked when nothing was selected. The fault was never which verb was the fallback; it was that a selection, once made, was permanent.
+
+**One consequence worth stating, because it is a real cost.** Doc 13's repeat variants are reached by asking the same question repeatedly, and that now costs a re-selection each time. For most objects it is invisible — their `defaultVerb` is LOOK AT, so a second bare click gives the second variant anyway. It shows on the objects whose default is something else: the mud, the case, every exit. Four tests asserted the old behaviour by clicking three times after selecting once, and all four had to be rewritten to re-select — which is exactly what a player must now do.
 
 ---
 

@@ -579,6 +579,33 @@ export class GameScene extends Phaser.Scene {
 
   private applyInteraction(target: Interactable, verb: string): void {
     const result = this.state.interact(target, verb);
+    // ERRATA 28b AS AMENDED (Q74): A VERB CLEARS ON USE.
+    //
+    // 28b used to say "a selected verb persists until another is chosen. It is
+    // not cleared by use", and that sentence is void. Persisting is what made
+    // the mud problem permanent: `resetToDefault` ran only on a new game and
+    // no deselect existed, so the no-verb state could be left exactly once per
+    // playthrough and never returned to -- taking a third of 28b's own table
+    // with it, and with that every object's `defaultVerb`, "the verb a player
+    // would try first", live for one click each.
+    //
+    // HERE BECAUSE THIS IS THE ONE PLACE A VERB IS ACTUALLY USED. The
+    // immediate branch, the tail of a staged chain (`say` + `interact`), and
+    // an inventory click all arrive at this line, and nothing else resolves a
+    // verb against a target.
+    //
+    // A BARE WALK STILL CONSUMES NOTHING, which is 28b row 1 and is untouched:
+    // a click on ground never reaches here.
+    //
+    // AND THE TWO-CLICK SENTENCE SURVIVES. USE on an inventory item HOLDS it
+    // rather than resolving it -- `carryVerbs`, doc 24's USE X ON Y -- and
+    // that path returns before this one, so the verb is still selected for the
+    // second click. It clears when the sentence finishes, not halfway through.
+    //
+    // THE CLEAR ITSELF IS IN `GameState.interact`, not here. A rule about what
+    // the game does when a verb is used is a rule about the game, and putting
+    // it in the scene put it where no test could reach it: the change passed
+    // 132 tests without one of them being able to see it.
     this.setSay(result.say);
     if (result.changedRoom) {
       this.hovered = null;

@@ -1892,7 +1892,7 @@ The surviving sentence sits at the end of the section on **what the town says ab
 
 ---
 
-## Q74 · The mud problem: three questions answered, and the fix proposed would not have fixed it
+## Q74 · The mud problem: three questions answered, and the fix proposed would not have fixed it — **RULED: a verb clears on use**
 
 **Reported: Thad examines mud everywhere instead of walking. Confirmed, and the cause is not where it looks.**
 
@@ -2010,7 +2010,7 @@ The door-open clip was found because *"none of the lamps are glowing brighter th
 
 ---
 
-## Q76 · Holding the driver's `looking-down`: the state is already writable and nothing reads it
+## Q76 · Holding the driver's `looking-down`: the state is already writable and nothing reads it — **RULED: no held state. Not built.**
 
 **Same question as Q75 from the other side, and it does share an answer — but not the one that looks obvious.**
 
@@ -2063,6 +2063,30 @@ SequenceWorld.setState → RoomActors.setMoverState → GameState.setMoverState
 **And the taste question underneath it is Tyler's, unchanged:** a man who glances down when addressed and back out over his horses otherwise may well be more alive than one staring fixedly. What has changed is only that Thad now holds a look upward beside him, so the mismatch is visible where it was not before. **Both readings are buildable and neither needs a new mechanism.**
 
 **Nothing invented and nothing changed.**
+
+### RULED — the driver glances on Thad's lines only. No held state.
+
+`overlayState()` stays exactly as it is: speaker match or default, two lines out of seven. **A man who looks down when addressed and back out over his horses otherwise is more like a person and less like a diagram.**
+
+**The `setState`-on-a-non-mover route is AVAILABLE, not pending.** It has been shown to work — the write path is complete, saved and restored — and nothing needs it. It is recorded here so that the next person who wants a held overlay state does not rediscover it, and it is not on anybody's list.
+
+**The consequence, accepted, and written down so it is not rediscovered as a bug:** Thad holds a look upward through the whole conversation while the driver only glances. **That asymmetry is deliberate.** If it reads wrong when watched, the fix is to give *Thad* the glancing rather than the driver the holding — his lookup becomes occasional and his ordinary stand the default.
+
+---
+
+## Q77 · `character.py` cannot rig a standing pose, and four more are coming
+
+**Not a defect until this week, and now it is a bottleneck.**
+
+The hem detector requires *"two legs of roughly equal width, sustained"* and refuses outright when it does not find them. **A standing pose has the legs together, which is the whole point of a standing pose** — so the rig declines exactly the class of art it is about to be asked for four times.
+
+The breath on `thad-lookup-left` was applied by hand as a result: a transform rather than a generation, above 30% of figure height held still so the head and collar never move, the coat rising and settling to the hem at y357, the legs planted. Six frames, no new art.
+
+**The four standing poses from the casting sheet will each need that.** Doing it by hand four more times is four opportunities for the numbers to differ between facings, in a way nothing checks — the hem row, the still fraction, and the settle are per-pose constants that would exist only in whoever applied them.
+
+**This is a decision about the pipeline and the pipeline is not mine** — `tools/rig/` is out of bounds by standing instruction, and this is recorded rather than acted on. What is worth having in the ruling: **the refusal is correct behaviour for a walking-pose detector and wrong behaviour for a rig that must now handle both.** Teaching it a standing pose means giving it a second hem strategy and a way to choose, not relaxing the first one — a detector that accepts legs together *and* legs apart under one rule would accept anything.
+
+**Related, and the reason it surfaced now:** every one of Thad's `stand` clips is derived from a walking source, so the frozen stride and Q73's ping-pong are one fault with two symptoms. Nine generations replace both at once. The mirror check lands with them.
 
 ---
 

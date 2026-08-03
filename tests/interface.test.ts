@@ -458,9 +458,18 @@ test("the mud's first LISTEN stands alone, and the last one repeats forever", as
   const mud = state.findTarget('mud')!;
   state.verbs.selectVerb('LISTEN_TO');
 
-  const first = state.interact(mud, state.verbs.verbFor(mud)).say;
-  const second = state.interact(mud, state.verbs.verbFor(mud)).say;
-  const third = state.interact(mud, state.verbs.verbFor(mud)).say;
+  // ERRATA 28b AS AMENDED (Q74): THE VERB CLEARS ON USE, so a player hearing
+  // three variants re-selects LISTEN TO three times. This test used to select
+  // once and click three times, which is what the old rule allowed -- and the
+  // mud is the object where the difference shows, because its own defaultVerb
+  // is WALK TO, so an unselected second click walks instead of listening.
+  const listen = () => {
+    state.verbs.selectVerb('LISTEN_TO');
+    return state.interact(mud, state.verbs.verbFor(mud)).say;
+  };
+  const first = listen();
+  const second = listen();
+  const third = listen();
 
   // Doc 13, reordered: variant 1 has to work cold, because most players
   // listen once and never again. It used to be a bare "Nothing new.", which
@@ -470,7 +479,14 @@ test("the mud's first LISTEN stands alone, and the last one repeats forever", as
   // needs a guard and the tail of it is unchanged.
   assert.notEqual(second, first, 'variant 1 no longer leans on a look the player has not taken');
   assert.notEqual(third, second, 'variant 3 does move on');
-  assert.equal(state.interact(mud, state.verbs.verbFor(mud)).say, third, 'and the third repeats indefinitely thereafter');
+  assert.equal(listen(), third, 'and the third repeats indefinitely thereafter');
+  // AND THE RULE ITSELF, asserted where the behaviour actually lives. The
+  // change passed 132 tests when it was wired in the scene; nothing could see
+  // it until it moved into the model.
+  state.verbs.selectVerb('LOOK_AT');
+  state.interact(mud, 'LOOK_AT');
+  assert.equal(state.verbs.selectedVerb, null,
+    'a verb clears on use, so the no-verb state is reachable after the first click of the game');
 });
 
 test('object overrides repeat; global pools rotate', async () => {
@@ -480,8 +496,12 @@ test('object overrides repeat; global pools rotate', async () => {
 
   // Doc 13 note 4. Two different behaviours, both correct.
   const dog = state.findTarget('dog')!;
-  state.verbs.selectVerb('PUSH');
-  const override = [state.interact(dog, state.verbs.verbFor(dog)).say, state.interact(dog, state.verbs.verbFor(dog)).say, state.interact(dog, state.verbs.verbFor(dog)).say];
+  // Q74: re-selected per click, because the verb now clears on use.
+  const push = () => {
+    state.verbs.selectVerb('PUSH');
+    return state.interact(dog, state.verbs.verbFor(dog)).say;
+  };
+  const override = [push(), push(), push()];
   assert.equal(override[0], 'I will not.');
   assert.ok(
     override.every((line) => line === override[0]),
@@ -573,13 +593,15 @@ test('exits carry three LOOK and three LISTEN variants from doc 14', async () =>
   for (const exit of content.rooms.get('main_street')!.exits) {
     if (exit.stub) continue;
     for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
-      state.verbs.selectVerb(verb);
-      const seen = [
-        state.interact(exit, state.verbs.verbFor(exit)).say,
-        state.interact(exit, state.verbs.verbFor(exit)).say,
-        state.interact(exit, state.verbs.verbFor(exit)).say,
-        state.interact(exit, state.verbs.verbFor(exit)).say,
-      ];
+      // Q74: the verb clears on use, so each repeat re-selects -- which is
+      // what a player now does. An exit's own defaultVerb is OPEN or WALK TO,
+      // so an unselected second click would go THROUGH the door rather than
+      // look at it again, and the third variant would never be reached.
+      const ask = () => {
+        state.verbs.selectVerb(verb);
+        return state.interact(exit, state.verbs.verbFor(exit)).say;
+      };
+      const seen = [ask(), ask(), ask(), ask()];
       assert.equal(new Set(seen.slice(0, 3)).size, 3, `${exit.id}/${verb} needs three distinct variants`);
       assert.equal(seen[3], seen[2], 'the third repeats indefinitely thereafter');
     }
@@ -708,13 +730,24 @@ test('repeat variants cycle FORWARD, then hold on the last one', async () => {
         const rule = target.responses?.[verb]?.[0];
         if (!rule?.say) continue;
         const expected = [rule.say, ...(rule.repeat ?? [])];
-        state.verbs.selectVerb(verb);
-        const got = expected.map(() => state.interact(target, state.verbs.verbFor(target)).say);
+        // Q74: the verb clears on use, so it is re-selected per repeat. The
+        // targets that expose the difference are the ones whose own
+        // defaultVerb is not the verb under test -- the mud, the case, every
+        // exit -- where an unselected second click does something else
+        // entirely instead of giving the next variant.
+        const got = expected.map(() => {
+          state.verbs.selectVerb(verb);
+          return state.interact(target, state.verbs.verbFor(target)).say;
+        });
         assert.deepEqual(
           got, expected,
           `${room.id}/${target.id}/${verb} did not return its variants in written order`,
         );
         // And the last one repeats indefinitely rather than wrapping round.
+        // Re-selected, like the others: this line asked with NOTHING selected
+        // and so asked the target's own defaultVerb -- which for the case is
+        // LOOK AT, so the LISTEN sequence was checked for a LOOK line.
+        state.verbs.selectVerb(verb);
         assert.equal(state.interact(target, state.verbs.verbFor(target)).say, expected[expected.length - 1]);
         sequences += 1;
       }
