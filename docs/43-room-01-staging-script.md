@@ -74,6 +74,8 @@ Title over the ridge. Consolation below as scattered lamps in a great deal of da
 | 6 | thad | chore **`straighten-coat`** | — | **DOES NOT EXIST.** Doc 17 asks for it and the clip was never generated — the one prompt in doc 42 we skipped. Either generate it or cut the line from doc 17 |
 | 7 | thad | face | right | Looking up at the box |
 
+**A MOVER WITH NO PLACEMENT IS NOT AT THE ORIGIN.** It is wherever the last thing to touch it left it, which is worse than the origin because it looks deliberate. Anything that must be somewhere needs a `move` that puts it there, in the earliest beat it is seen.
+
 **Open question:** should the coach *arrive*, or be halted when the beat opens? Doc 17 says "arrives and halts". Arriving means a `move` from off-frame right, which costs two of the eight seconds and makes the halt visible. Currently it is simply there.
 
 ---
@@ -307,7 +309,8 @@ Going west is the player's move to make. This beat previously walked Thad west d
 | Beat | Actor | Clip / asset | Facing | Duration | Notes |
 |---|---|---|---|---|---|
 | 1 | — | — | — | menu | Title. Nothing staged |
-| 2 | coach | `idle` | right | held | At **x1390 y742** — see the correction in part one |
+| 2 | **coach** | *placed* at **1390, 742** | right | 0.1s | **The only place it is placed.** It was previously placed by beat 6b's `from` — the beat where it *leaves* — so through beats 2–6 it stood wherever the mover happened to be created, and Thad alighted at the door's correct coordinates while the coach was elsewhere |
+| 2 | coach | `idle` | right | held | Door shut, case on the rack, driver on the box |
 | 2 | thad | *placed* at 1290, 742 | — | 0.1s | A chore plays where the actor is |
 | 2 | thad | `face` | **right** | — | **Before any chore, or it throws** |
 | 2 | thad | `aboard-coach` | right | 5f @ 7/s ≈ **0.7s** | |

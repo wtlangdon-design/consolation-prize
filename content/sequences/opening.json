@@ -39,6 +39,19 @@
       "staging": [
         {
           "do": "move",
+          "actor": "coach",
+          "from": [
+            1390,
+            742
+          ],
+          "to": [
+            1390,
+            742
+          ],
+          "seconds": 0.1
+        },
+        {
+          "do": "move",
           "actor": "thad",
           "from": [
             1170,
@@ -190,10 +203,6 @@
         {
           "do": "move",
           "actor": "coach",
-          "from": [
-            1390,
-            742
-          ],
           "to": [
             3000,
             742
