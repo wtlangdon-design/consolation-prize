@@ -74,6 +74,8 @@ Title over the ridge. Consolation below as scattered lamps in a great deal of da
 | 6 | thad | chore **`straighten-coat`** | — | **DOES NOT EXIST.** Doc 17 asks for it and the clip was never generated — the one prompt in doc 42 we skipped. Either generate it or cut the line from doc 17 |
 | 7 | thad | face | right | Looking up at the box |
 
+**FEET Y IS DEPTH, SO TWO MOVERS MUST NOT SHARE ONE.** Thad was placed at the coach's own y742 and drew *behind* it — `depthOrder` sorts by feet Y, correctly, and a stable sort keeps insertion order on a tie. The protagonist is constructed in `create()` and everyone else is placed by a beat, so he draws first and anything placed later draws over him. The only part of him clearing the coach body was his legs between the wheels: two dark bars, which at a glance is a black figure standing under a stagecoach. **He steps down out of a coach, so his feet land nearer than its wheels** — 794 against 742.
+
 **A MOVER WITH NO PLACEMENT IS NOT AT THE ORIGIN.** It is wherever the last thing to touch it left it, which is worse than the origin because it looks deliberate. Anything that must be somewhere needs a `move` that puts it there, in the earliest beat it is seen.
 
 **Open question:** should the coach *arrive*, or be halted when the beat opens? Doc 17 says "arrives and halts". Arriving means a `move` from off-frame right, which costs two of the eight seconds and makes the halt visible. Currently it is simply there.

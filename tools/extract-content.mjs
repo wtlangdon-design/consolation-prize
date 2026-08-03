@@ -218,7 +218,7 @@ function opening() {
       // At the DOORWAY, on the coach's own ground line. A chore plays wherever
       // the actor is; without this he climbed down out of thin air at the
       // frame's bottom centre.
-      { do: 'move', actor: 'thad', from: [1170, 742], to: [1170, 742], seconds: 0.1 },
+      { do: 'move', actor: 'thad', from: [1170, 794], to: [1170, 794], seconds: 0.1 },
       // FACE FIRST: the chore clips are right-facing only and he starts facing
       // front, so a chore before the face asks for aboard-coach/front and
       // throws. Nothing is substituted, by design.
@@ -228,14 +228,14 @@ function opening() {
       // Clear of the door and a little NEARER THE CAMERA, so depth sorting has
       // something true to sort. He used to stand at (820, 760) -- inside the
       // vehicle's own span, eighteen pixels in front of it, among the horses.
-      { do: 'walk', actor: 'thad', to: [1240, 780] },
+      { do: 'walk', actor: 'thad', to: [1240, 802] },
       { do: 'face', actor: 'thad', facing: 'right' },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
-      { do: 'walk', actor: 'thad', to: [1330, 800] },
+      { do: 'walk', actor: 'thad', to: [1330, 812] },
       { do: 'face', actor: 'thad', facing: 'right' },
     ],
     6: [

@@ -15,14 +15,14 @@
 <line x1="1390" y1="742" x2="1896" y2="742" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
 <circle cx="1896" cy="742" r="11" fill="none" stroke="#ff6f8f" stroke-width="4"/>
 <text x="1918" y="748" fill="#ff6f8f" font-size="22" font-family="monospace">coach b6b (off frame)</text>
-<circle cx="1170" cy="742" r="16" fill="#6fb3ff" stroke="#6fb3ff" stroke-width="4"/>
-<text x="1192" y="748" fill="#6fb3ff" font-size="22" font-family="monospace">thad b2</text>
-<line x1="1170" y1="742" x2="1240" y2="780" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
-<circle cx="1240" cy="780" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
-<text x="1262" y="786" fill="#6fb3ff" font-size="22" font-family="monospace">thad b2</text>
-<line x1="1240" y1="780" x2="1330" y2="800" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
-<circle cx="1330" cy="800" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
-<text x="1352" y="806" fill="#6fb3ff" font-size="22" font-family="monospace">thad b3</text>
+<circle cx="1170" cy="794" r="16" fill="#6fb3ff" stroke="#6fb3ff" stroke-width="4"/>
+<text x="1192" y="800" fill="#6fb3ff" font-size="22" font-family="monospace">thad b2</text>
+<line x1="1170" y1="794" x2="1240" y2="802" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
+<circle cx="1240" cy="802" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
+<text x="1262" y="808" fill="#6fb3ff" font-size="22" font-family="monospace">thad b2</text>
+<line x1="1240" y1="802" x2="1330" y2="812" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
+<circle cx="1330" cy="812" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
+<text x="1352" y="818" fill="#6fb3ff" font-size="22" font-family="monospace">thad b3</text>
 <circle cx="60" cy="700" r="16" fill="#ffb454" stroke="#ffb454" stroke-width="4"/>
 <text x="82" y="706" fill="#ffb454" font-size="22" font-family="monospace">hob b7</text>
 <line x1="60" y1="700" x2="1080" y2="700" stroke="#ffb454" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>

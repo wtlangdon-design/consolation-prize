@@ -40,6 +40,8 @@ import { loadContent, Report } from './lib/content.mjs';
 /** The play area, and how far past its edge still counts as "in frame". */
 const PLAY_WIDTH = 1920;
 const PLAY_MARGIN = 200;
+/** How close in x two movers must be for a shared feet Y to actually overlap. */
+const TIE_SPAN = 700;
 
 const NEEDS_A_MOVER = new Set(['walk', 'face', 'chore']);
 
@@ -118,6 +120,44 @@ export function check() {
             + 'in the earliest beat it is seen, and drop the `from` here.',
           );
         }
+      }
+    }
+
+    // NO TWO MOVERS MAY STAND AT THE SAME FEET Y WITH OVERLAPPING X.
+    //
+    // depthOrder sorts by feet Y, correctly -- doc 22 section 5 step 3 -- and
+    // a stable sort keeps insertion order on a tie. Insertion order is
+    // arbitrary and invisible: the protagonist is constructed in create() and
+    // everyone else is placed by a beat, so he draws FIRST and anything placed
+    // later draws OVER him.
+    //
+    // That is how the black figure happened. He was placed at the coach's own
+    // y742 and drew behind it; the only part of him clearing the body was his
+    // legs between the wheels, two dark bars, which at a glance is a figure
+    // standing under a stagecoach.
+    //
+    // The engine cannot fix a true tie and should not try. Equal feet Y means
+    // equal depth and the answer is genuinely undefined -- so it is caught
+    // here instead, where a person can move one of them.
+    const standing = new Map();
+    for (const beat of data.beats ?? []) {
+      for (const staged of beat.staging ?? []) {
+        const at = staged.to ?? staged.from;
+        if (!staged.actor || !at) continue;
+        const [x, y] = at;
+        for (const [other, spot] of standing) {
+          if (other === staged.actor) continue;
+          if (spot.y !== y) continue;
+          if (Math.abs(spot.x - x) > TIE_SPAN) continue;
+          report.fail(
+            `${path} beat ${beat.beat}: ${staged.actor} stands at the same feet Y as `
+            + `${other} (y${y}, ${Math.abs(spot.x - x)}px apart). Feet Y is depth, so a `
+            + 'tie is a draw order nobody chose -- whoever was constructed first draws '
+            + 'behind. Move one of them nearer or further; the difference does not have '
+            + 'to be large, only real.',
+          );
+        }
+        standing.set(staged.actor, { x, y });
       }
     }
 
