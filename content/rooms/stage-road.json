@@ -88,10 +88,10 @@
       "id": "case_mud",
       "name": "HIS CASE",
       "rect": [
-        938,
-        714,
+        1002,
+        745,
         105,
-        94
+        98
       ],
       "colour": 28,
       "when": {
@@ -140,7 +140,7 @@
       "states": {
         "there": {
           "image": "art/objects/room-01-case-mud.png",
-          "note": "ON THE GROUND FROM THE FIRST FRAME, beside the coach door, its feet at y800 -- nearer the camera than the coach wheels at 742, so it sorts in front.\n\nSIZED AGAINST THE MAN: a gladstone case is about 22 inches tall, and Thad is 240px for 5'10\", so the case is 31% of him -- 89x75. It was 126x128 and read as a trunk.\n\nPICK UP takes it: the case leaves the ground and its CONTENTS enter the inventory. He never carries it around town, which is what Q11 was asking and this answers -- the case is a container, not an item.\n\nMOVED LEFT to x946 because Thad now stands at x1170 for his opening line, facing the camera in front of the open door -- and he was standing ON his own luggage. It sits left of the coach’s doorway now with 135px of clearance, and the hotspot moved with it. A rect authored for one arrangement, still valid-looking after the arrangement changed: R5k."
+          "note": "ON THE GROUND FROM THE FIRST FRAME, beside the coach door, its feet at y800 -- nearer the camera than the coach wheels at 742, so it sorts in front.\n\nSIZED AGAINST THE MAN: a gladstone case is about 22 inches tall, and Thad is 240px for 5'10\", so the case is 31% of him -- 89x75. It was 126x128 and read as a trunk.\n\nPICK UP takes it: the case leaves the ground and its CONTENTS enter the inventory. He never carries it around town, which is what Q11 was asking and this answers -- the case is a container, not an item.\n\nMOVED DOWN AND RIGHT to (1010, 747), feet at y838. At x946 it sat BEHIND and UNDER the coach’s rear wheel -- the vehicle appeared to be standing on it, because the coach’s wheels are at y742 and the case was at y800, only 58px nearer. It is 96px nearer now, so it sorts clearly in front, and 71px from where Thad stands at x1170 rather than 135."
         }
       }
     },

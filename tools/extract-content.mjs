@@ -284,9 +284,12 @@ function opening() {
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
-      // He stops, looks at the town, and says who he is -- to us.
+      // A BEAT BEFORE HE SPEAKS. He walks forward in beat 2 and the line
+      // arrived the instant he stopped, which reads as hurried -- and this is
+      // the first line in the game.
+      { do: 'wait', seconds: 1.4 },
       { do: 'say', line: 0 },
-      // a beat, then he crosses to the driver's right and looks up at him
+      // then a moment, then he crosses to the driver's right
       { do: 'wait', seconds: 1.2 },
       { do: 'walk', actor: 'thad', to: [1420, 830] },
       { do: 'face', actor: 'thad', facing: 'left' },
@@ -302,15 +305,22 @@ function opening() {
       // is registered as a STATE of the clip he is already playing rather
       // than as its own clip id, so it is the idle he stands in, at the
       // raised head, breathing.
+      //
+      // AND LEAVING THE OLD `chore lookup` HERE FROZE THE OPENING ON ITS
+      // FIRST LINE. The step named a clip id that stopped existing the moment
+      // the pose was made holdable: `lookup` became idle/left/lookup, and a
+      // chore asking for it asked for a clip nothing declares. R5k in the
+      // staging rather than in a coordinate -- a NAME that was correct when
+      // written and stopped being correct when something else moved.
       { do: 'setState', object: 'thad', state: 'lookup' },
       { do: 'say', line: 1 },
     ],
     6: [
-      // AND IT CLEARS HERE, at the end of the conversation it was raised for.
+      // AND IT CLEARS HERE, at the end of the conversation it was raised for
+      // -- he stops looking up when the driver has finished with him.
       // Omitting `state` clears, which is how the coach's door shuts: back to
       // the declared clip rather than to a state called "down" that nothing
-      // declares. He looks up for exactly as long as somebody is talking to
-      // him from a coach box, because a beat says so.
+      // declares.
       { do: 'setState', object: 'thad' },
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },

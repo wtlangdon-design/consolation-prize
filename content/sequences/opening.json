@@ -114,6 +114,10 @@
       },
       "staging": [
         {
+          "do": "wait",
+          "seconds": 1.4
+        },
+        {
           "do": "say",
           "line": 0
         },
