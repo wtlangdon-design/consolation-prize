@@ -1492,6 +1492,45 @@ Q3 ruled that the placard's **MARK** comes off. Whether the sign **carries text 
 
 ---
 
+## Q59 · The title art exists, is unusable, and would have been regenerated at the void resolution — **now guarded**
+
+**Two files, both 320×144**, which is the resolution errata 54 voided:
+
+| | | |
+|---|---|---|
+| `art/backgrounds/title-screen.png` | 320 × 144 | referenced by no content |
+| `art/backgrounds/room-29-high-ridge.png` | 320 × 144 | referenced by no content |
+
+**And the title render has its lettering AND its whole menu painted into the image** — THE LAST CLAIM IN CONSOLATION, and NEW GAME · CONTINUE · OPTIONS · CREDITS, all baked pixels. That makes it **a picture of a title screen rather than a title screen**: no hover, no greyed-out CONTINUE when there is no save, and typography that is not the game's own face at ×6.
+
+**Neither was on `superseded.py`, so `npm run renders` would have regenerated both at 320×144.** That is the same footgun Q20 guarded for Room 1's plate and `thad.json` — following the documented instruction destroying committed work. **Both are now on the list and the refusal is verified: `npm run renders` stops on `room29_ridge.py` by name and neither file changes.**
+
+### THEY ARE TWO DIFFERENT THINGS AND WILL BE CONFLATED OTHERWISE
+
+**1. A TITLE SCREEN — art plus an interface.**
+
+*What it needs:*
+- A plate at **1920 × 864**. Doc 17 says "over the ridge", Room 29 IS the high ridge, and `room29_ridge.py` already composes it — at the wrong size. Whether the ridge plate is regenerated at 1920×864 or the approved-plate route is used (as Room 1's was) is an art decision.
+- **The title drawn, not painted.** The game's own face, so it matches everything else, and so it can be laid out rather than re-rendered.
+- **Live menu items**: NEW GAME always; CONTINUE greyed with no save — `MenuSystem` already does exactly this greying for the in-game menu; OPTIONS; CREDITS.
+- **A scene.** `main.ts` registers `BootScene` and `GameScene` and nothing else, and `beginOpening` filters beat 1 out with a comment saying the title "is its own scene and has already happened". Somebody has to build the scene that comment refers to.
+
+*What it does NOT need:* any change to the opening. Beat 1 stays filtered; the title screen precedes Room 1 entirely.
+
+**2. THE CREDITS OVER THE WALK — no art and no interface.**
+
+*What it needs:*
+- **Text and timing only.** It is drawn over live gameplay while Thad walks away through the fence gap. There is no screen, no plate and nothing to click.
+- **The words are Tyler's.** Not invented here.
+- **The timing fits the walk, not the other way round.** The walk's length is a `move` over a stated duration; the credits must be authored to that number and not the reverse.
+- The act-card drawer is nearly the mechanism already: centred, outlined, over the play area, wrapped as of this session. What it lacks is a sequence of cards rather than one.
+
+### WHAT IS ALREADY TRUE AND WORTH KNOWING
+
+**The exit walk needs no new step kind.** `move` already plays the walk cycle — `glideTo` sets `glide`, `isWalking` is true while it holds, and `Actor.clip` returns `walk` whenever `isWalking`. Errata 38 says so in as many words: "it carries the object's own animation while it travels." And `glideTo` calls `faceToward` first, so a move up the hill is dominant-vertical and resolves to **`back`** under the facing rule ruled this session. `thad-walk-back` exists in the record.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

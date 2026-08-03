@@ -187,7 +187,16 @@ export interface Point {
  */
 export type ScaleMode =
   | { kind: 'fixed'; height: number }
-  | { kind: 'curve'; farY: number; farHeight: number; nearY: number; nearHeight: number };
+  /**
+   * `beyondY`/`beyondHeight` are a third sample ABOVE the band, for ground the
+   * walk box does not cover. A staged mover may leave the box -- errata 38's
+   * own case -- and without them the curve CLAMPS, so a man walking away up a
+   * hill holds `farHeight` exactly and never shrinks at all. Optional: a box
+   * that has not been asked about ground it does not cover should not invent
+   * an answer for it.
+   */
+  | { kind: 'curve'; farY: number; farHeight: number; nearY: number; nearHeight: number;
+      beyondY?: number; beyondHeight?: number };
 
 /** A convex quadrilateral of floor, with adjacency, scale and clip level. */
 export interface WalkBox {
@@ -474,6 +483,17 @@ export interface ActorFile {
   ratesNote?: string;
   /** Walk-cycle frames per second. */
   walkRate: number;
+  /**
+   * How far one full walk cycle carries him, in DRAWN pixels at this record's
+   * own `height`. Scaled with the drawn height at use, like everything else.
+   *
+   * MEASURED FROM THE FRAMES, not chosen: the widest separation between the
+   * two ground contacts across the cycle, which is one step heel to heel.
+   * Absent keeps the old clock-driven advance, which is right for anything
+   * with no gait -- the coach's walk is a single frame.
+   */
+  strideLength?: number;
+  strideNote?: string;
   /** Reaction frames per second. */
   reactRate: number;
   /** Errata 35b: the idle cycle's rate. Slower than the walk, on purpose. */

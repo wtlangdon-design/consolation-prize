@@ -202,6 +202,24 @@ export class WalkBoxes {
 export function heightIn(box: WalkBox, y: number): number {
   const mode = box.scaleMode;
   if (mode.kind === 'fixed') return mode.height;
+  // ABOVE THE BAND, IF THE CURVE SAYS WHAT HAPPENS THERE.
+  //
+  // IT CLAMPED, AND THAT IS WORSE THAN EXTRAPOLATING BADLY. A staged crossing
+  // can leave the walk box -- errata 38's own case -- and above `farY` every
+  // height came back as `farHeight` exactly. A man walking away up the road
+  // would not shrink at all: he would slide into the distance at the size of a
+  // man standing at the back of the band, forever.
+  //
+  // The third sample is optional and covers ground the walkable band does not,
+  // which is unusual enough that the room file says so in its own note. A box
+  // without one still clamps, which is right: a curve that has not been asked
+  // about ground it does not cover should not invent an answer for it.
+  if (mode.beyondY !== undefined && mode.beyondHeight !== undefined && y < mode.farY) {
+    const up = mode.farY - mode.beyondY;
+    if (up <= 0) return mode.beyondHeight;
+    const walk = Math.max(0, Math.min(1, (y - mode.beyondY) / up));
+    return Math.round(mode.beyondHeight + (mode.farHeight - mode.beyondHeight) * walk);
+  }
   const span = mode.nearY - mode.farY;
   if (span === 0) return mode.nearHeight;
   const walk = Math.max(0, Math.min(1, (y - mode.farY) / span));

@@ -8,6 +8,8 @@
     "right"
   ],
   "walkRate": 5,
+  "strideLength": 105,
+  "strideNote": "MEASURED FROM HIS OWN FRAMES, never taken from Thad's -- R5f. The widest separation across his cycle is 230px in a 526px figure, which is 105 drawn pixels at height 240, or 0.44 of his height. His walk has the same structure as Thad's: eight frames, five distinct, ping-ponged.",
   "reactRate": 7,
   "idleRate": 2.4,
   "idleBreakRate": 2,

@@ -151,6 +151,22 @@ export class Actor {
   private clock = 0;
   /** When the character last became perfectly still, for the idle break. */
   private stillSince = 0;
+  /**
+   * How far he has actually moved, in world pixels, ever.
+   *
+   * DOC 43 AND DOC 40 BOTH SAY THE GAIT ADVANCES FROM DISTANCE TRAVELLED, NOT
+   * TIME, and doc 40 says it twice -- "one full cycle corresponds to one
+   * declared stride length". It advanced from the clock, which at walking
+   * speed nobody notices and on a slow glide is moonwalking: the feet cycle
+   * at full rate while the man barely moves. It would have been the most
+   * visible thing in a shot of him walking away into the distance.
+   *
+   * Cumulative and never reset, which is doc 43's other half: the phase is
+   * PRESERVED across a facing change, so he does not restart mid-stride at a
+   * corner. A placement does not add to it -- being put somewhere is not
+   * walking there.
+   */
+  private travelled = 0;
   private readonly state: GameState;
   private readonly options: MoverOptions;
 
@@ -463,7 +479,7 @@ export class Actor {
    * three and comes from content.
    */
   frameAt(seconds: number, walkRate: number, reactRate: number, frames: number,
-          idleRate = 0): number {
+          idleRate = 0, stride = 0): number {
     if (this.special) {
       const elapsed = seconds - this.special.startedAt;
       return Math.min(frames - 1, Math.floor(elapsed * reactRate));
@@ -472,7 +488,21 @@ export class Actor {
       if (idleRate <= 0 || frames <= 1) return 0;
       return Math.floor(seconds * idleRate) % frames;
     }
-    return Math.floor(seconds * walkRate) % Math.max(1, frames);
+    // THE WALK CYCLE ADVANCES FROM DISTANCE. `stride` is how far one full
+    // cycle carries him, already scaled to his drawn height by the caller, so
+    // one frame is one stride divided by the frame count.
+    //
+    // AN IDLE STILL BREATHES ON A CLOCK, correctly, and so does a chore: those
+    // are timed animations and the branches above are untouched. This is the
+    // walk cycle specifically.
+    //
+    // A CHARACTER WITH NO DECLARED STRIDE KEEPS THE CLOCK. That is the
+    // conservative default rather than a guessed distance -- the coach's walk
+    // is one frame and has no gait at all, and inventing a stride for it would
+    // be inventing a fact about a vehicle.
+    const count = Math.max(1, frames);
+    if (stride > 0) return Math.floor(this.travelled / (stride / count)) % count;
+    return Math.floor(seconds * walkRate) % count;
   }
 
   /** Returns true if anything that affects the drawn frame changed. */
@@ -487,8 +517,11 @@ export class Actor {
     // A one-shot clip owns the body until it is done. Walking through a
     // reaction would play the recoil sliding down the street.
     if (!this.special) {
+      const wasX = this.x;
+      const wasY = this.y;
       if (this.glide) this.advanceGlide(seconds);
       else this.advanceWalk();
+      this.travelled += Math.hypot(this.x - wasX, this.y - wasY);
     }
     if (this.options.height === undefined && this.scalesWithDepth) {
       const here = this.sampleDepth(this.state, this.x, this.y);

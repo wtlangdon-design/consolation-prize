@@ -253,6 +253,14 @@ for (const id of CHARACTERS) {
         + 'Stated rather than left to look measured.',
     }),
     walkRate: base.walkRate,
+    // MEASURED FROM THE FRAMES AND AUTHORED, like the rates: it survives a
+    // regeneration because it is a fact about the walk cycle rather than about
+    // the directory listing. Omitted where a record has none -- the coach's
+    // walk is one frame and has no gait -- and an absent stride keeps the
+    // clock-driven advance rather than taking somebody else's number.
+    ...(base.strideLength !== undefined
+      ? { strideLength: base.strideLength, strideNote: base.strideNote }
+      : {}),
     reactRate: base.reactRate,
     idleRate: base.idleRate,
     idleBreakRate: base.idleBreakRate ?? 2.0,

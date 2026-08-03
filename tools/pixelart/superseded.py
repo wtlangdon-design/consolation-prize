@@ -48,6 +48,17 @@ SUPERSEDED = {
         "sheet -- so running it silently reverts the migration. It also derives "
         "`threshold` from eye_death_row, which measures decimation, and errata 54 "
         "voids decimation. Q9 owns rewriting this file and has not been ruled",
+    "art/backgrounds/title-screen.png":
+        "320x144, the resolution errata 54 voided, AND its lettering and its whole "
+        "menu -- NEW GAME, CONTINUE, OPTIONS, CREDITS -- are painted into the image. "
+        "That makes it a picture of a title screen rather than a title screen: no "
+        "hover, no greyed-out CONTINUE with no save, and typography that is not the "
+        "game's own face. Regenerating it would write a 320-wide picture over the "
+        "path a real one has to occupy. Q59",
+    "art/backgrounds/room-29-high-ridge.png":
+        "320x144, the resolution errata 54 voided. Doc 17 beat 1 puts the title "
+        "'over the ridge', so this is the plate a title screen would be built on and "
+        "it has to exist at 1920x864 first. Q59",
 }
 
 

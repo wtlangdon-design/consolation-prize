@@ -4,19 +4,19 @@
   "whyNotInTheSpeakersTable": "The speakers table lives in content/sequences/opening.json, which is EXTRACTED from doc 17 by tools/extract-content.mjs and rewritten whole on every run -- a colour edited there would survive until the next extraction and then vanish, silently, which is the worst way for a value to be lost. This file is hand-authored for the same reason ui.timing is: it is a number somebody will want to change after watching a scene.",
   "keyedBy": "Speaker id, the same id the sequence's speakers table and a dialogue exchange both use. Not the character's name -- a name is content and changes; an id is structure and does not.",
   "fallback": "A speaker with no colour here draws in the default, which is the ink every line used before this existed. Absent is legible rather than invisible, so adding a character does not require remembering this file.",
-  "provisional": "THESE ARE PLACEHOLDERS AND HAVE NOT BEEN CHOSEN. They exist so the mechanism can be seen working and a rendered sample can be looked at. Every colour proposed in the abstract this session has been wrong; these are proposed on a picture instead. Tyler picks.",
+  "chosen": "OPTION D, ruled by Tyler from a rendered sample on the actual plate at the actual size. Four candidates were drawn on room-01-stage-road.png with the game's own face at x6 -- not proposed as hex values, because every colour proposed in the abstract this session has been wrong.",
   "speakers": {
     "thad": {
-      "colour": "#f0e4c0",
-      "note": "PLACEHOLDER. Warm off-white -- he is the one talking most, so his is the one that must not tire the eye."
+      "colour": "#f4ecd8",
+      "note": "The warm off-white every line used to be drawn in. He talks most, so his is the one that must not tire the eye, and leaving him where he was means the change reads as the OTHERS being marked rather than everybody being recoloured."
     },
     "stage_driver": {
-      "colour": "#c8b088",
-      "note": "PLACEHOLDER. Duller and warmer than Thad's. He is a working man on a box in the dark and he is gone in four beats."
+      "colour": "#a8b8a0",
+      "note": "Cool and desaturated, against Thad's warm. He is a stranger on a box in the dark and he is gone in four beats; the cool reads as distance rather than as a second protagonist."
     },
     "hob": {
-      "colour": "#e8c070",
-      "note": "PLACEHOLDER. Lamplight. He carries the only lit thing on the road and it is the one visual fact the player has about him."
+      "colour": "#d8a860",
+      "note": "Lamplight. He carries the only lit thing on the road and it is the one visual fact the player has about him, so his lines are the colour of the thing he is holding."
     }
   }
 }

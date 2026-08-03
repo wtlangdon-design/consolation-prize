@@ -599,6 +599,12 @@ export class Renderer {
     // reading one character's timing off another is the same mistake in
     // miniature as drawing him with another's sheet.
     const { walkRate, reactRate, idleRate } = record;
+    // Doc 40: one full cycle is one declared stride. Declared at the record's
+    // own drawn height, so it scales with his height like everything else --
+    // a man drawn smaller up the road takes proportionally shorter steps.
+    const stride = record.strideLength
+      ? record.strideLength * (mover.height / record.height)
+      : 0;
     // Zero frames means the record does not declare this clip, and there is
     // no substitute for one. The graybox below is a placeholder, not a
     // stand-in animation: it is visibly not the character.
@@ -608,7 +614,7 @@ export class Renderer {
     const frames = sprite.frameCount(clip, mover.facing, surface, state);
     const drawn = frames > 0 && sprite.draw(
       this.screen.context, clip, mover.facing, surface,
-      mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0),
+      mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0, stride),
       feetX, feetY, mover.height, state,
     );
     if (!drawn) {
