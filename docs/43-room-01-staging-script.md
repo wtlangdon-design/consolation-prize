@@ -189,3 +189,150 @@ Going west is the player's move to make. This beat previously walked Thad west d
 **Then it becomes the staging table** in `tools/extract-content.mjs`, which is where the marks live so that no `.ts` carries a coordinate and no prose document carries a pixel.
 
 **Then it is played, and the numbers are corrected against what is seen** — because being right in a document is not the same as being right on screen, and this project has been reminded of that all night.
+
+---
+---
+
+# PART TWO — EVERY ASSET, BY PATH, WITH ITS TIMING
+
+*Part one says where people stand. This says **which file plays, for how long, at what size, drawn in what order**. Nothing below is a description: every row names a thing that exists on disk.*
+
+---
+
+# THE COMPLETE INVENTORY
+
+## Thad — `content/actors/thad.json`, height **240**, facings front/back/left/right
+
+| Clip | Facings | Frames | Rate | Purpose |
+|---|---|---:|---|---|
+| `stand` | 4 | 1 | — | The return pose. Every clip resolves to it |
+| `idle` | 4 | 6 | 2.4/s | Breathing. The ordinary standing state |
+| `idle-break` | 4 | 12 | 2/s | Occasional. Glance aside head-on, shoulder shrug in profile |
+| `walk` | 4 | 8 | 8/s | Phase advances from **distance travelled**, not time |
+| `recoil` | 4 | 4 | 7/s | Startle |
+| `use-near` | right | 5 | 7/s | Reaching at chest height |
+| `give-offer` | right | 5 | 7/s | Palm up, offering |
+| `shrug` | right | 5 | 7/s | Both palms up |
+| `pickup-low` | right | 5 | 7/s | Stooping to the ground |
+| `alight-coach` | right | 5 | 7/s | Stepping down, leading foot landed |
+| `aboard-coach` | right | 5 | 7/s | In the doorway, hand on a rail |
+| `carry` | right | 5 | 7/s | Standing holding the case |
+
+**Every clip declares `figureHeight` 526 and its facing's anchor.** They are all on the same canvas at the same scale, so a bent pose is shorter because the *pose* is shorter.
+
+**The seven chores are RIGHT-FACING ONLY.** `face right` before any of them or it throws `CLIP_FALLBACK`. Nothing is substituted, by design.
+
+**Chore markers, identical on all seven:** `begin 0 · contact 1 · commit 2 · recover 3 · complete 4`. Frames 0 and 4 **are** the stand frame byte for byte, so a chore cannot pop on either end.
+
+## Thad's talk — head overlays, NOT body clips
+
+| Facing | Overlay rect on the figure | Frames |
+|---|---|---:|
+| right | x383 y207, 64 × 68 | 3 — closed, half, open |
+| left | x252 y192, 70 × 70 | 2 — closed, open |
+| front | x266 y227, 66 × 34 | 2 — closed, open |
+| back | — | **None. His mouth is not visible; reuse `stand`** |
+
+**Composite at `overlay_rect` over whatever body clip is playing.** Frame 0 is the closed mouth taken from the master, so a loop ending on 0 restores the face exactly. **The body never swaps.** Loop irregularly — `0,1,0,2,1` — and **talk timing never controls line duration.**
+
+## Hob — `content/actors/hob.json`, height **240**, facing **right only**
+
+`stand` 1f · `idle` 6f · `idle-break` 12f · `walk` 8f.
+
+**He cannot turn.** A left-facing request draws nothing and does not throw — that is data, not a defect. **He must always walk rightward.**
+
+## The coach — `content/actors/coach.json`, height **389**, facing right
+
+| Clip | Frames | Draws |
+|---|---:|---|
+| `idle` | 1 | Standing: door shut, case on the rack, driver on the box |
+| `walk` | 1 | Departing: same, door shut |
+
+**389 is its own art, NOT a point on the depth curve.** The curve runs 222–263 and describes how tall a *man* is at a depth; handing a coach to it drew it at 590 × 240, roof at head height.
+
+**The driver and the team are drawn INSIDE these frames.** Errata 31d: splitting the team out puts a seam down the harness.
+
+## The driver's head — `reference/casting/driver-head-*.png`, 786 × 1140 each
+
+| State | Use |
+|---|---|
+| `neutral` | Default, looking out over the team |
+| `speaking` | **Only while he speaks.** Differs from neutral by 1,240px, all mouth |
+| `looking-down` | While Thad speaks up at him. Differs by 68,573px, of which only 2,202 below the collar |
+
+**All three share one canvas**, so they swap without the body moving. Composite over the coach's own driver, at the coach's scale.
+
+## Props and effects
+
+| File | Size | Use |
+|---|---:|---|
+| `art/objects/thads-case.png` | 304 × 310 | The case, its own sprite. Socket on his hand |
+| `art/effects/lantern-glow.png` | 512 × 512 | **ADDITIVE.** Intensity 0.85 |
+| `art/objects/coach/wheel-rear.png` | 296 × 296 | Rotates about its centre, radius 144 |
+| `art/objects/coach/wheel-front.png` | 236 × 236 | Radius 114 |
+| `art/backgrounds/room-01-stage-road.png` | 1920 × 864 | The plate |
+
+**The lantern glow is drawn AFTER the plate and BEFORE the characters**, anchored to the flame in Hob's own frames — at Thad's scale that is x658 y969 of a 740 × 1517 figure — and sized **2.6 × the drawn character height**. Baked into his sprite it would be a hard patch of lit ground moving with him; painted into the plate it would stay after he had gone.
+
+**The wheels rotate by DISTANCE TRAVELLED**, one revolution per 2πr — so rear and front turn at different rates and both stop when the coach does. Currently composited into the body because nothing drives them.
+
+**`art/objects/room-01-coach.png` (320 × 144) IS DEAD ART.** Errata 53 discarded it. Do not use it.
+
+---
+
+# DRAW ORDER, EVERY FRAME
+
+1. The plate
+2. **The lantern glow**, additive, if Hob is in the room
+3. Movers, **sorted by feet Y** — the anchor is the only depth key. Never the sprite's top, centre or rectangle
+4. **Head overlays** over their own bodies: Thad's talk, the driver's head
+5. Foreground planes *(Room 1's does not exist — cut from art errata 53 discarded)*
+6. The verb panel, 216 units, glyphs at **×4**
+
+---
+
+# BEAT BY BEAT, WITH ASSETS AND TIMINGS
+
+| Beat | Actor | Clip / asset | Facing | Duration | Notes |
+|---|---|---|---|---|---|
+| 1 | — | — | — | menu | Title. Nothing staged |
+| 2 | coach | `idle` | right | held | At **x1390 y742** — see the correction in part one |
+| 2 | thad | *placed* at 1290, 742 | — | 0.1s | A chore plays where the actor is |
+| 2 | thad | `face` | **right** | — | **Before any chore, or it throws** |
+| 2 | thad | `aboard-coach` | right | 5f @ 7/s ≈ **0.7s** | |
+| 2 | thad | `alight-coach` | right | 5f @ 7/s ≈ **0.7s** | |
+| 2 | thad | `walk` → 1180, 754 | right | ~110px @ 8/s | |
+| 2 | thad | **`straighten-coat`** | right | — | **DOES NOT EXIST** |
+| 3 | thad | `walk` → 1120, 762 | right | | |
+| 3 | thad | talk overlay, right | — | line duration | Body holds `stand`/`idle` |
+| 3 | driver | `looking-down` | — | while Thad speaks | |
+| 3 | driver | `speaking` | — | on his line | Back to `neutral` after |
+| 4–6 | thad | `idle` + talk overlay | right | player-paced | Four options, all four present at the end |
+| 6 | case | roof → mud | — | ~1s | **Nothing moves it today** |
+| 6 | thad | `pickup-low` | right | ≈0.7s | Only if he picks it up — see Q11 |
+| 6 | driver | *climbs aboard* | — | — | **CANNOT HAPPEN** — head overlay only |
+| 6b | coach | `walk`, move → 2600, 742 | right | **3s** | Wheels should turn |
+| 7 | hob | *placed* −260 → 60, 700 | right | 2s | Off frame **left** |
+| 8 | — | — | — | — | Panel appears |
+| 9 | hob | `walk` → ~700 | right | | **Then STOPS** |
+| 9 | hob | `idle` + lines | right | line duration | Three-line exchange |
+| 9 | hob | `walk` → 2100 | right | | Off frame right |
+| 10 | — | — | — | — | **Nothing staged.** The player walks west |
+
+---
+
+# THE RULES THAT ARE EASY TO BREAK
+
+**`face` before any chore.** Seven right-facing clips and he starts facing front.
+
+**`move` places a mover; `walk` never does.** And `move` is legal only in a beat whose `control` is `none` — which is why Hob is placed in beat 7 and used in beat 9.
+
+**A newly placed mover must be seeded with the current clock.** `Actor`'s clock starts at zero; a mover placed and glided on the same tick records `startedAt: 0` against a scene clock already twenty-five seconds old, and the glide is over before its first frame. They appear at their destinations having never been seen to move.
+
+**Feet anchor is position and z-sort.** Never the sprite rectangle.
+
+**Frames never supply root motion.** Translation comes from the movement system.
+
+**Gait phase advances from distance travelled** and is **preserved across a facing change**. Do not reset it at a corner.
+
+**No substitution, ever.** A missing clip throws `CLIP_FALLBACK` naming clip/facing/surface. That is Q20 as ruled and it is how three faults were found tonight.
