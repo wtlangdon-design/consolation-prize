@@ -3,7 +3,6 @@
   "sequence": "opening",
   "room": "stage-road",
   "source": "docs/43-room-01-staging-script.md",
-
   "note": [
     "THIS IS A SKELETON AND IT ASSERTS NOTHING YET. Every beat is present, in",
     "order, with its control -- which is the structural half, and the harness",
@@ -25,18 +24,20 @@
     "Fill a beat in by deleting its `unscripted` and adding `marks`. The run",
     "prints how many beats assert something out of how many exist, every time."
   ],
-
   "defaults": {
     "position": 24,
     "height": 8,
-    "slack": 3.0
+    "slack": 3
   },
-
-  "band": [660, 864],
+  "band": [
+    660,
+    864
+  ],
   "bandExempt": [],
-
-  "until": { "beat": "9", "on": "leave" },
-
+  "until": {
+    "beat": "9",
+    "on": "leave"
+  },
   "beats": [
     {
       "beat": "1",
@@ -58,15 +59,42 @@
       "beat": "4",
       "control": "player",
       "input": [
-        { "do": "wait", "seconds": 1.5 },
-        { "do": "choose", "option": 1 },
-        { "do": "wait", "seconds": 4 },
-        { "do": "choose", "option": 2 },
-        { "do": "wait", "seconds": 4 },
-        { "do": "choose", "option": 3 },
-        { "do": "wait", "seconds": 4 },
-        { "do": "choose", "option": 4 },
-        { "do": "wait", "seconds": 3 }
+        {
+          "do": "wait",
+          "seconds": 1.5
+        },
+        {
+          "do": "choose",
+          "option": 1
+        },
+        {
+          "do": "wait",
+          "seconds": 4
+        },
+        {
+          "do": "choose",
+          "option": 2
+        },
+        {
+          "do": "wait",
+          "seconds": 4
+        },
+        {
+          "do": "choose",
+          "option": 3
+        },
+        {
+          "do": "wait",
+          "seconds": 4
+        },
+        {
+          "do": "choose",
+          "option": 4
+        },
+        {
+          "do": "wait",
+          "seconds": 3
+        }
       ],
       "unscripted": "beats 4, 5 and 6 are ONE dialogue tree under errata 30b. Which of doc 17's three beats an option belongs to is not a fact the engine holds, so nothing here can be attributed to a beat. The `input` drives the whole run: all four options, the fourth being the exit"
     },
@@ -108,6 +136,11 @@
       "beat": "10",
       "control": "player",
       "unscripted": "nothing is staged, deliberately -- going west is the player's move to make. There is no beat to observe entering, which is why `until` names beat 9"
+    },
+    {
+      "beat": "11",
+      "control": "none",
+      "unscripted": "NOT YET BUILT. Doc 17 beat 11 is the departure: he walks away through the gap in the fence at x575, up the road toward the town, with his back to us, and the title comes up over the mountains in the 700x320 the walk leaves clear. It awaits a flag written by taking the west exit -- which no longer travels, because an exit that moves you the instant you touch it cannot also be a departure you watch. Nothing writes that flag today."
     }
   ]
 }
