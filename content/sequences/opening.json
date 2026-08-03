@@ -285,6 +285,11 @@
           "line": 2
         },
         {
+          "do": "face",
+          "actor": "hob",
+          "facing": "right"
+        },
+        {
           "do": "walk",
           "actor": "hob",
           "to": [

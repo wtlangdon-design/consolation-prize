@@ -385,6 +385,18 @@ function opening() {
       { do: 'say', line: 0 },
       { do: 'say', line: 1 },
       { do: 'say', line: 2 },
+      // HE TURNS BEFORE HE WALKS, and this is the cheap half of a two-part
+      // problem. His `stand` is a THREE-QUARTER pose and his `walk` is a right
+      // PROFILE, so going straight from one to the other is a turn and a step
+      // in the same frame -- reported as a snap. `setFacing` holds
+      // TURN_SECONDS before a turn resolves, so a `face` here buys a fifth of
+      // a second of standing in the new direction before the profile appears.
+      //
+      // TRIED FIRST BECAUSE IT IS FREE AND REVERSIBLE. One staged step, no
+      // engine change, no art. If a fifth of a second is not enough the answer
+      // is a three-quarter-to-profile turn frame, which is a generation --
+      // so this is the thing to watch before commissioning that.
+      { do: 'face', actor: 'hob', facing: 'right' },
       { do: 'walk', actor: 'hob', to: [2100, 700] },
     ],
     // BEAT 10 STAGES NOTHING, deliberately. Going west is the player's move to
