@@ -1,15 +1,16 @@
 {
-  "source": "reference/casting/hob-walk-right.png",
+  "source": "reference/casting/hob-stand-right.png",
   "key": "magenta",
   "clip": "stand",
   "view": "profile",
   "facing": "right",
   "figure": [
-    257,
-    526
+    632,
+    1365
   ],
-  "hem_row": 377,
-  "padding": 90,
+  "hem_row": 963,
+  "padding": 260,
+  "breath_px": 6.8,
   "frames": 1,
-  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1517px, which is 6x linear and 33x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
+  "note": "Hob standing still. Frame 0 of his idle, so a clip settling into stand cannot pop.\n\nHE WAS FROZEN MID-STRIDE until now: his stand was frame 0 of a clip derived from the WALK source, so a man who had stopped stood with one foot forward. This is a generated standing pose -- three-quarter toward the viewer, feet level, lantern held out clear of his coat so it can still be cut and so the glow anchors to the same flame. The WALK keeps its own profile source: he stops and looks at you, then turns and walks off."
 }

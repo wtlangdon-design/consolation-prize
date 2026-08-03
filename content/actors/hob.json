@@ -23,10 +23,10 @@
       "frames": [
         "art/actors/hob-stand-right/stand-00.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 1365,
       "anchor": [
-        219,
-        526
+        576,
+        1365
       ]
     },
     {
@@ -40,10 +40,10 @@
         "art/actors/hob-idle-right/idle-04.png",
         "art/actors/hob-idle-right/idle-05.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 1365,
       "anchor": [
-        219,
-        526
+        576,
+        1365
       ]
     },
     {

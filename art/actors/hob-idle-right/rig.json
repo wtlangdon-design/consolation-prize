@@ -1,16 +1,16 @@
 {
-  "source": "reference/casting/hob-walk-right.png",
+  "source": "reference/casting/hob-stand-right.png",
   "key": "magenta",
   "clip": "idle",
   "view": "profile",
   "facing": "right",
   "figure": [
-    257,
-    526
+    632,
+    1365
   ],
-  "hem_row": 377,
-  "padding": 90,
-  "breath_px": 7.6,
+  "hem_row": 963,
+  "padding": 260,
+  "breath_px": 6.8,
   "frames": 6,
-  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1517px, which is 6x linear and 33x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
+  "note": "Hob standing, breathing, and HIS LANTERN FLICKERING. The breath is the rig's ordinary idle -- chest rises, head held still. The flicker multiplies only the flame and a soft halo around it, so the light varies and the man does not: multiplying the whole sprite would pulse his coat.\n\nThe sequence is irregular -- 1.00, 1.09, 0.94, 1.06, 0.97, 1.03 -- because a flame is not a sine wave and a regular one reads as a machine.\n\nTHE GROUND POOL MUST FLICKER WITH IT. art/effects/lantern-glow.json carries intensity 0.85; multiply it by the same sequence in step with this clip, or the lamp brightens while the light it casts does not."
 }
