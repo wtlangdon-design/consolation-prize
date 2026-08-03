@@ -140,12 +140,85 @@ export function check() {
         compared += 1;
         const { differing, box } = disagreement(loaded.get(members[i]), loaded.get(members[j]));
         if (differing <= ALLOWED) continue;
+        // WORDED FOR BOTH CASES, because the first reading of this was wrong.
+        // "They depict different objects" is one explanation -- the luggage
+        // flash -- and "one of them holds a pose throughout that the other
+        // never takes" is the other, which is what Thad's profile break turned
+        // out to be. The check cannot tell them apart and should not pretend
+        // to: it reports the disagreement and clause two says whether the
+        // clip at least starts and stops in the right place.
         report.fail(`${members[i]} and ${members[j]} disagree on ${differing} pixel(s) that `
-          + `NEITHER of them animates, in ${box.join(',')}. Both clips are well-formed and they `
-          + 'depict different objects -- this is the luggage flash, whatever it is this time');
+          + `NEITHER of them animates, in ${box.join(',')}. Either they depict different things, `
+          + 'or one holds a pose for its whole length that the other never takes');
       }
     }
   }
+
+  // CLAUSE TWO: A CLIP THAT RETURNS TO THE IDLE BEGINS AND ENDS AT IT.
+  //
+  // Doc 22: "every chore must settle cleanly into a directional idle." Doc 40,
+  // of the break: "it plays on a timer while idle and RETURNS TO IT." Returning
+  // to a pose requires the last frame to BE that pose, and starting from it
+  // requires the same of the first.
+  //
+  // THIS IS THE CLAUSE THAT SAYS WHAT CLAUSE ONE ONLY HINTED AT. Clause one
+  // reported that Thad's hand sits in a different place in `idle` and
+  // `idle-break`, and the obvious reading -- the two clips disagree about what
+  // he looks like -- was WRONG. Doc 40 says the profile break is a shoulder
+  // shrug, so a moving arm is the animation, not a defect. What is a defect is
+  // that the profile breaks are ALREADY SHRUGGED in frame 0 and STILL SHRUGGED
+  // in frame 11: they neither begin nor end where they must, so the arm
+  // teleports on the way in and again on the way out.
+  //
+  // Head-on it is a glance rather than a shrug, and those two clips are
+  // correct: `back` frame 0 is byte-identical to the idle base and `front` is
+  // within 35 pixels of it. Two facings honour the contract and two do not,
+  // which is why this is worth a clause rather than a note.
+  const idleOf = new Map();
+  for (const dir of loaded.keys()) {
+    const parts = dir.split('-');
+    if (parts[1] === 'idle' && parts.length === 3) idleOf.set(`${parts[0]}/${parts[2]}`, dir);
+  }
+  let settled = 0;
+  for (const [dir, image] of loaded) {
+    const parts = dir.split('-');
+    const rest = idleOf.get(`${parts[0]}/${parts[parts.length - 1]}`);
+    // Only clips doc 22 and doc 40 say return to the idle. `walk` does not
+    // return to anything, `stand` IS the settled frame, and the idle is itself.
+    if (!rest || rest === dir || parts[1] === 'walk' || parts[1] === 'stand') continue;
+    const idle = loaded.get(rest);
+    if (idle.width !== image.width || idle.height !== image.height) continue;
+    const frames = framesOf(dir);
+    settled += 1;
+    for (const [where, frame] of [['first', frames[0]], ['last', frames[frames.length - 1]]]) {
+      let differing = 0;
+      for (let i = 0; i < image.width * image.height; i += 1) {
+        const at = i * 4;
+        if (frame.pixels[at + 3] === 0 && idle.data[at + 3] === 0) continue;
+        if (frame.pixels[at] !== idle.data[at] || frame.pixels[at + 1] !== idle.data[at + 1]
+          || frame.pixels[at + 2] !== idle.data[at + 2]
+          || frame.pixels[at + 3] !== idle.data[at + 3]) differing += 1;
+      }
+      if (differing <= ALLOWED) continue;
+      const said = `${dir}: its ${where} frame is ${differing} pixel(s) away from ${rest}'s `
+        + `settled frame, so the body jumps on the way ${where === 'first' ? 'in' : 'out'}`;
+      // ONLY THE BREAK IS ASSERTED. Doc 40 says of it, in those words, that it
+      // "plays on a timer while idle and RETURNS TO IT" -- a clip that must
+      // return has to end on the thing it returns to, and that is not an
+      // interpretation. Doc 22's "every chore must settle cleanly into a
+      // directional idle" is a statement about the ENGINE returning the body,
+      // and whether a recoil's last frame must also BE the idle is a reading
+      // of it rather than a quotation. All four recoils end far from the idle;
+      // that is reported with its number and left to somebody watching it.
+      if (parts[1] === 'idlebreak') {
+        report.fail(`${said}. Doc 40: the break "plays on a timer while idle and returns to it"`);
+      } else {
+        report.note(`${said} -- reported, not asserted: doc 22's settle contract is about the `
+          + 'engine handing the body back, and whether the clip must also end there is a reading');
+      }
+    }
+  }
+  report.note(`${settled} clip(s) checked for beginning and ending at their idle`);
 
   // NO SILENT CAPS. What was not compared is named, because a check that
   // covers half the art and reports a clean pass is worse than one that says

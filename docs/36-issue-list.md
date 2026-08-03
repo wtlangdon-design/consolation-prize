@@ -2112,9 +2112,28 @@ That is what keeps it quiet on correct work: walk and idle animate entirely diff
 | `thad-idlebreak-left` / `thad-stand-left` | 797 | 158,262,98,78 |
 | `thad-idlebreak-left` / `thad-recoil-left` | 150 | 158,270,98,70 |
 
-`renders/thad-idlebreak-static-disagreement@3x.png` is the crop, at 3×, idle | idle-break | stand. **The hand is at a different x in each.** So when the idle break fires — which, since Q69, it now actually does — his hand jumps, holds for six seconds, and jumps back. It is the luggage flash on Thad's arm.
+`renders/thad-idlebreak-static-disagreement@3x.png` is the crop, at 3×, idle | idle-break | stand. The hand is at a different x in each.
+
+### CORRECTION — the measurement was right and the reading was wrong
+
+**It is not that the clips disagree about what Thad looks like.** Doc 40: *"idle-break is view-dependent. Head-on it is a glance aside; in profile it is a **shoulder shrug**."* A shrug moves the shoulder, which moves the arm, which moves the hand. **A moving arm in profile is the animation, not a defect** — and the tell was in the failure list all along: only `left` and `right` failed. `front` and `back`, which are glances, agree about the hand exactly.
+
+**What is actually wrong is that the profile breaks never pass through the unshrugged pose.** Measured against each idle's settled frame:
+
+| break | frame 0 vs idle | frame 11 vs idle |
+|---|---|---|
+| `back` | **0 px** — byte-identical | 0 px |
+| `front` | 35 px | 35 px |
+| `right` | **850 px** | 850 px |
+| `left` | **1437 px** | 1437 px |
+
+Head-on, the break begins and ends *on* the idle, which is correct. **In profile it begins already shrugged and ends still shrugged** — so the arm teleports on the way in and teleports back on the way out, twice per break, every time one fires. Doc 40 says the break *"plays on a timer while idle and **returns to it**"*, and returning to a pose means ending on it.
+
+**Which makes it clause two of the check rather than clause one**, and clause two states it without interpretation: a clip that must return has to end on the thing it returns to.
 
 **The idle break was unreachable for every mover but one until this session**, which is why nobody has seen it: the fault has been in the art the whole time and there was no code path that could play it.
+
+**Four recoils end far from the idle too** — 35,000 to 40,500 pixels — and that is **reported, not asserted**. Doc 22's *"every chore must settle cleanly into a directional idle"* is a statement about the engine handing the body back; whether a recoil's last frame must also *be* the idle is a reading of it rather than a quotation, and a lean-back that holds and releases may be exactly what was wanted. It is recorded with its number for somebody watching it.
 
 ### Finding 2 — sixteen clips are two-picture animations padded to five, six or twelve frames
 
