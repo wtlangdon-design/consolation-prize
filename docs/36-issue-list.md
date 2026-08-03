@@ -1960,6 +1960,56 @@ The mud's own `defaultVerb: WALK_TO` is right and already does its job. `GameSce
 
 ---
 
+## Q75 · The held pose is expressible today, and the cheap way to express it reproduces the door-open fault
+
+**The fear is correct and the number is 0.143 seconds.**
+
+`chore` is a one-shot whose length is `frames.length / reactRate`. `lookup` has **one** frame and Thad's `reactRate` is **7**, so `chore lookup` raises his head for **one seventh of a second** and drops it — before the driver has begun answering, and quite possibly inside a single sampled frame of a play-through.
+
+### The vocabulary can already express it, and it is doing this exact job in this exact scene
+
+**Fourth of the same shape, and the answer this time is that nothing is missing.** `state` on `ActorClip`, `setState` and `interact` were each a capability the engine had before the vocabulary named it. This one the vocabulary *does* name:
+
+```
+{ kind: 'setState', object: string, state?: string }
+```
+
+`state` is optional, and omitting it **clears**, which is how the coach's door shuts — back to the declared clip rather than to a state called "shut" that nothing declares.
+
+**And the coach's door is a held pose across a conversation.** `content/sequences/opening.json`, beat 2:
+
+```json
+{ "do": "setState", "object": "coach", "state": "door-open" }
+```
+
+Set at beat 2, never cleared, held through beat 6 — the whole driver's tree. **The thing being asked for is already running, on the object standing next to him, in the same beats.**
+
+### What it needs is a registration, not a mechanism
+
+`thad.json` declares the frame as its own clip: `{ "id": "lookup", "facing": "left" }`. Nothing plays a clip called `lookup` except a chore, and a chore is a one-shot.
+
+Held instead, it is a **state of a clip he is already playing**: `{ "id": "idle", "facing": "left", "state": "lookup" }`. The renderer asks `sprite.frameCount(clip, facing, surface, state)` with `state` from `moverState`, and `clipOf` is exact-match-then-fall-back — so the variant answers while the state is set, the plain clip answers when it is cleared, and every other clip he plays falls back untouched. `objectStates` is already saved and restored, so it survives a save for free.
+
+### AND THE CHEAP VERSION REPRODUCES THE FAULT THAT WAS JUST FIXED
+
+**A state variant replaces the whole animated clip, not one frame of it.** So `idle/lookup` with **one frame** means Thad **stops breathing for the entire conversation** — head up, perfectly still, for the longest-held pose in the scene.
+
+That is the door-open fault exactly, one object over:
+
+| | frames | on screen for |
+|---|---|---|
+| coach `idle/door-open` **before** | 1 | beats 2–6, the whole conversation |
+| coach `idle/door-open` **now** | 24 | beats 2–6 |
+| thad `idle/lookup` **if registered as one frame** | 1 | beats 3–6, looking up at the driver |
+
+The door-open clip was found because *"none of the lamps are glowing brighter then dimmer"* — a still picture noticed by its stillness. A man holding his head up and not breathing, at 233px, in the foreground, is the same thing at closer range.
+
+> **The lookup pose needs a breathing loop, not a frame** — the same six frames the idle has, generated at the raised head. Doing it with one frame will work, will pass every check, and will look like a photograph of him.
+
+**Nothing invented and nothing changed.** The step exists, the store exists, the fall-back exists, and the coach proves the whole path in the same sequence. What is needed is a clip registration and, to avoid shipping the fault that was fixed this morning, six frames rather than one.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
