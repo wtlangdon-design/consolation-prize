@@ -70,6 +70,8 @@
     "content/actors/hob.json",
     "content/actors/coach.json"
   ],
+  "speechColours": "content/ui/speech-colours.json",
+  "speechColoursNote": "A colour per speaker for spoken lines. Hand-authored, and NOT in the extracted speakers table: that file is rewritten whole on every extraction, so a colour edited there would vanish silently at the next run.",
   "overlays": [
     "content/actors/driver-head.json"
   ],

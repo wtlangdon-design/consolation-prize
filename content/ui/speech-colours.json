@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "note": "A colour per speaker for spoken lines. Monkey Island did this and it is how a player tells who is talking without an attribution line.",
+  "whyNotInTheSpeakersTable": "The speakers table lives in content/sequences/opening.json, which is EXTRACTED from doc 17 by tools/extract-content.mjs and rewritten whole on every run -- a colour edited there would survive until the next extraction and then vanish, silently, which is the worst way for a value to be lost. This file is hand-authored for the same reason ui.timing is: it is a number somebody will want to change after watching a scene.",
+  "keyedBy": "Speaker id, the same id the sequence's speakers table and a dialogue exchange both use. Not the character's name -- a name is content and changes; an id is structure and does not.",
+  "fallback": "A speaker with no colour here draws in the default, which is the ink every line used before this existed. Absent is legible rather than invisible, so adding a character does not require remembering this file.",
+  "provisional": "THESE ARE PLACEHOLDERS AND HAVE NOT BEEN CHOSEN. They exist so the mechanism can be seen working and a rendered sample can be looked at. Every colour proposed in the abstract this session has been wrong; these are proposed on a picture instead. Tyler picks.",
+  "speakers": {
+    "thad": {
+      "colour": "#f0e4c0",
+      "note": "PLACEHOLDER. Warm off-white -- he is the one talking most, so his is the one that must not tire the eye."
+    },
+    "stage_driver": {
+      "colour": "#c8b088",
+      "note": "PLACEHOLDER. Duller and warmer than Thad's. He is a working man on a box in the dark and he is gone in four beats."
+    },
+    "hob": {
+      "colour": "#e8c070",
+      "note": "PLACEHOLDER. Lamplight. He carries the only lit thing on the road and it is the one visual fact the player has about him."
+    }
+  }
+}

@@ -846,16 +846,39 @@ export class Renderer {
   }
 
   private drawSay(lines: string[]): void {
+    const ink = this.speechColour();
     lines.forEach((line, index) => {
       this.font.drawCentredOutlined(
         this.screen.context,
         line,
         NATIVE_WIDTH / 2,
         SAY_TOP + index * DIALOGUE_LINE_HEIGHT,
-        this.screen.roleColour('inkBright'),
+        ink,
         this.screen.roleColour('overlayBg'),
       );
     });
+  }
+
+  /**
+   * The colour the current speaker's lines are drawn in.
+   *
+   * A FACT ABOUT A CHARACTER, LOOKED UP BY ID. Monkey Island gave each speaker
+   * a colour and it is how a player tells who is talking without an
+   * attribution line -- and this game had one ink for everybody, so the
+   * driver, Hob and Thad were typographically the same person.
+   *
+   * THE OUTLINE DOES NOT CHANGE. It is what keeps a line legible over a night
+   * plate, and varying it too would make one speaker harder to read than
+   * another for a reason nobody chose.
+   *
+   * Absent falls back to the default ink, so a character nobody has coloured
+   * is legible rather than invisible.
+   */
+  private speechColour(): string {
+    const declared = this.speaker
+      ? this.state.content.speechColours?.speakers[this.speaker]?.colour
+      : undefined;
+    return declared ?? this.screen.roleColour('inkBright');
   }
 
   /** A bark sits over the character who said it, not at the top of the screen. */

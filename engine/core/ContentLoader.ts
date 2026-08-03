@@ -1,6 +1,7 @@
 import type {
   ActorFile,
   OverlayFile,
+  SpeechColoursFile,
   AmbientFile,
   ContentBundle,
   CombinationsFile,
@@ -62,6 +63,11 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     (manifest.overlays ?? []).map((path) => read(path) as Promise<OverlayFile>),
   );
   const overlays = new Map(overlayFiles.map((file) => [file.id, file]));
+  // Optional: a game with no colours declared draws every line in the default
+  // ink, which is what it did before this existed.
+  const speechColours = manifest.speechColours
+    ? (await read(manifest.speechColours)) as SpeechColoursFile
+    : null;
   const panel = (await read(manifest.panel)) as PanelFile;
   const combinations = (await read(manifest.combinations)) as CombinationsFile;
   const itemIcons = (await read(manifest.itemIcons)) as ItemIconsFile;
@@ -119,7 +125,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
 
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
-    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, items, panel,
+    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, speechColours, items, panel,
     combinations, itemIcons,
     sequences,
   };

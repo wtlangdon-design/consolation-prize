@@ -847,6 +847,9 @@ export interface ManifestFile {
   actorsNote?: string;
   /** Head overlays -- a head composited over a body that never swaps. */
   overlays?: string[];
+  /** A colour per speaker for spoken lines. Absent draws in the default ink. */
+  speechColours?: string;
+  speechColoursNote?: string;
   items: string[];
   /** Verb panel and inventory geometry. Errata ruling 26. */
   panel: string;
@@ -905,6 +908,28 @@ export interface OverlayFile {
   states: Record<string, OverlayState>;
 }
 
+/**
+ * content/ui/speech-colours.json -- who is speaking, in colour.
+ *
+ * FULL RGB, NOT A PALETTE INDEX. Errata 54 removed the locked palette and
+ * `art/palette/consolation-256.json` is reference only, so a speaker's colour
+ * is the colour and not a number that has to be looked up in a table nobody
+ * is bound by any more.
+ *
+ * NOT KEYED BY NAME. A name is content and changes; an id is structure and
+ * does not, and the same id already identifies a speaker in the sequence's
+ * table and in a dialogue exchange.
+ */
+export interface SpeechColoursFile {
+  schema: number;
+  note?: string;
+  whyNotInTheSpeakersTable?: string;
+  keyedBy?: string;
+  fallback?: string;
+  provisional?: string;
+  speakers: Record<string, { colour: string; note?: string }>;
+}
+
 export interface ContentBundle {
   menu: MenuFile;
   manifest: ManifestFile;
@@ -929,6 +954,8 @@ export interface ContentBundle {
   sequences: Map<string, SequenceFile>;
   /** Head overlays by id. Empty until something declares one. */
   overlays: Map<string, OverlayFile>;
+  /** A colour per speaker, or null where none is declared. */
+  speechColours: SpeechColoursFile | null;
 }
 
 /**
