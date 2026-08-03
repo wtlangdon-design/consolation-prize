@@ -45,7 +45,8 @@ That is the whole engine of the game in two exchanges: Thad believes he has arri
 | 7 | The coach recedes east. A badly tuned piano, faint, from the town. **ACT CARD** | no · ~3s | **PART ONE — In Which Our Hero Is Robbed, and Enjoys It** |
 | 8 | **Control.** Verb panel appears | **yes** | ~60–70 seconds elapsed |
 | 9 | Hob's lamp crosses. *"Wouldn't stand there." / "Why not?" / "No reason."* | yes | Now the **second** strange encounter, carrying no exposition |
-| 10 | West, toward town | yes | See the descent, below |
+| 10 | West, toward town | yes | **The exit is the gap in the fence right of the sign**, not frame left. Taking it does not travel — it arms beat 11 |
+| 11 | **He walks away up the road toward the town, and the title comes up over the mountains as he goes.** He does not shrink out of sight; he is still walking when Main Street arrives | no · awaits beat 10 | **This is the descent, and it is not one more screen** — see below |
 
 ## The driver's tree — restored at four options (v3.1)
 
@@ -109,7 +110,15 @@ Monkey Island shows Guybrush descending toward the lit town: a visual promise th
 
 Consolation's equivalent would be one transitional composition, tiny Thad on the ridge road above the lamps. **It is one more screen and it contradicts doc 20's "travel is instant, no transition screens."**
 
-**Deferred, not rejected.** Build the opening without it. If the walk from Room 1 to Main Street reads as flat, this is the fix, and it is a deliberate single exception rather than a general transition system.
+**~~Deferred, not rejected.~~ BUILT, AS BEAT 11, AND THE COST IT WAS DEFERRED OVER DOES NOT ARISE.**
+
+It is not one more screen. **It is Room 1 continuing** — the same plate, the same walkable ground extended up the hill, Thad walking away through the gap in the fence at x575 with his back to us. Doc 20's "travel is instant, no transition screens" is untouched, because nothing transitions until he has gone.
+
+**The title comes up over the mountains, top right**, in the 700×320 the walk leaves clear. Not a centred card and not a separate scene. The player's last act in Room 1 is to leave it, and the game names itself over his shoulder while he does.
+
+**Taking the west exit no longer travels.** It writes the flag beat 11 waits on, and the transit happens when the beat ends. An exit that moves you the instant you touch it cannot also be a departure you watch.
+
+*Errata 55. Doc 17's own instinct was right and only its costing was wrong.*
 
 ## What the opening must end on
 

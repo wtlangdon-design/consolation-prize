@@ -286,10 +286,16 @@
       "beat": "10",
       "description": "West, toward town",
       "control": "player",
-      "note": "See the descent, below",
+      "note": "The exit is the gap in the fence right of the sign, not frame left. Taking it does not travel — it arms beat 11",
       "set": {
         "T_HOB_GONE": true
       }
+    },
+    {
+      "beat": "11",
+      "description": "He walks away up the road toward the town, and the title comes up over the mountains as he goes. He does not shrink out of sight; he is still walking when Main Street arrives",
+      "control": "none",
+      "note": "This is the descent, and it is not one more screen — see below"
     }
   ]
 }
