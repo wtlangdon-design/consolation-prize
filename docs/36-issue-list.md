@@ -1531,6 +1531,62 @@ Q3 ruled that the placard's **MARK** comes off. Whether the sign **carries text 
 
 ---
 
+## Q60 · No character in the game can be clicked, and that is not a fact about Hob
+
+**Hob is reached through his lamp, and that works because he happens to carry something.** The undertaker, the hotel clerk, Deke Vessel and the rest do not.
+
+**A MOVER HAS NO CLICKABLE EXTENT AT ALL.** `GameState.targetAt` searches hotspots and exits, both of which are rectangles declared in room JSON. `RoomActors` holds the movers and nothing in the input path consults it. So `TALK_TO` cannot reach any of them — not Hob, not the driver, not anybody.
+
+**The scale of it:** doc 07 has 18 ambient characters, doc 04 has 8 character trees, doc 40's contract gives the protagonist `talk` overlays in four facings. **None of the people those were written for can be clicked.**
+
+**IT WILL BLOCK ROOM 2 THE MOMENT THERE IS SOMEBODY TO TALK TO**, which is the next room with a character in it.
+
+### WHAT IT NEEDS — a mechanism, not a room detail
+
+A mover needs a hit extent, and the obvious candidate is **its drawn bounds at its drawn scale**, hit-tested in the same depth order the renderer draws in — feet Y, nearest first, so clicking two overlapping characters picks the one in front. `ActorSprite.placement` already returns the drawn origin and scale for exactly this reason, and `drawnHalfWidth` already measures the extent for the depth-tie check. The pieces exist; nothing assembles them.
+
+**Three things it must settle, none of them obvious:**
+
+1. **The padded canvas is not the character.** Frames carry 260 columns either side so a swung arm is not clipped, so the drawn bounds are much wider than the man. A hit box taken from them would catch clicks a foot to his left. The record's `anchor` and `figureHeight` describe the FIGURE, and a hit extent probably has to come from those rather than from the canvas.
+2. **Which verb a mover answers.** An ambient NPC already has `verbs.npcVerb` as its default; a mover has no equivalent, and doc 13's fallbacks are keyed on targets.
+3. **Where the response lives.** A hotspot carries its lines in room JSON. A character's lines are in his tree, or in a beat, or in doc 07's barks — three different homes, and a click has to resolve to one of them.
+
+**Not attempted.** Filed because it is the shape of the next blocker rather than a defect in what exists, and because "use the thing he is carrying" only worked once.
+
+---
+
+## Q61 · The walk speed and the stride disagreed by a factor of three, and lowering Hob's `walkRate` did nothing
+
+**Reported as "his legs move far too fast".** The suspicion offered was that a diagonal covers √2 times the ground and the phase outruns the eye. **Measured, and that is not it:**
+
+| | frame changes | cycles | speed |
+|---|---:|---:|---:|
+| horizontal | 25.8 /s | 2.90 /s | 323 px/s |
+| 45 degrees | 25.8 /s | 2.63 /s | 322 px/s |
+| vertical | 28.0 /s | 2.00 /s | 320 px/s |
+
+**The phase rate is the same in every direction**, because `advanceWalk` steps a constant distance along the direction vector. Diagonal routing is not the fault and nothing about it needs changing — doc 29 line 35 stands: the route may be diagonal, only the facing is cardinal.
+
+**THE FAULT IS THAT THE SPEED AND THE STRIDE WERE NEVER RECONCILED.** 323 px/s against a measured 102px stride is **3.2 strides a second**; a person walks about two. Under the old clock-driven phase the legs ran at the record's 8 frames/s — one cycle a second — while he covered 323px, which implies a **323px stride, 1.35× his own height per step**. Slow legs and fast travel is a glide, and it read as one. Making the gait honest about distance made the speed visible.
+
+**AND LOWERING HOB'S `walkRate` FROM 8 TO 5 DID NOTHING.** That is the frame rate of his cycle, not his speed — so he covered ground exactly as fast as Thad with slower legs, which is a man skating. Since the gait advances from distance, `walkRate` no longer governs walking at all, and the change now does nothing whatever.
+
+**`walkSpeed` is a fact about a character**, like a stride or a height, so it is on the record: Thad 245 px/s (2.4 strides a second, a purposeful walk), Hob 170 (1.6, a slow old man). **Both are taste.** The arithmetic only says which numbers have to agree; it does not say what pace suits a man who has just arrived somewhere he means to make his fortune.
+
+---
+
+## Q62 · The walkable band's back edge stands level with the furniture's feet
+
+**Reported as "he walks across boxes and the fence in the background".**
+
+The band's back edge is **y660**, taken from where the mud becomes the surface — from what the ground is, not from what stands on it. The bench, its rail and the crate beneath it have their bases between roughly **y630 and y660**, so he may stand level with them or sixteen pixels in front, and at 222px tall he is drawn straight over them. Standing in front of something and being drawn over it are the same picture when there is no depth between you.
+
+**Two ways, and the difference is not measurement.** Bringing the back edge down is one number; walk boxes that exclude the furniture is more correct and much more work. The band is 204 rows deep against a 240px character, so 40 rows at the back costs almost nothing — at y700 the depth curve still gives him 224.
+
+**y700 clears every base by 40 to 70 pixels. y680 clears the bench legs and not the crate.** A rendered overlay with 660, 680, 700 and 720 drawn across the walk box is the thing to look at; the number is Tyler's off that picture, not off this paragraph.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

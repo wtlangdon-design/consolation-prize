@@ -8,6 +8,8 @@
     "right"
   ],
   "walkRate": 5,
+  "walkSpeed": 170,
+  "walkSpeedNote": "170 px/s against his own 105px stride is 1.6 strides a second -- slower than Thad by design, for a man who has walked this street for years. HIS walkRate WAS LOWERED FOR THIS AND IT DID NOTHING: that is the frame rate of his cycle, not his speed, so he covered ground exactly as fast as Thad with slower legs. Since the gait advances from distance, walkRate no longer governs walking at all. TASTE, like Thad's.",
   "strideLength": 105,
   "strideNote": "MEASURED FROM HIS OWN FRAMES, never taken from Thad's -- R5f. The widest separation across his cycle is 230px in a 526px figure, which is 105 drawn pixels at height 240, or 0.44 of his height. His walk has the same structure as Thad's: eight frames, five distinct, ping-ponged.",
   "reactRate": 7,

@@ -258,6 +258,9 @@ for (const id of CHARACTERS) {
     // the directory listing. Omitted where a record has none -- the coach's
     // walk is one frame and has no gait -- and an absent stride keeps the
     // clock-driven advance rather than taking somebody else's number.
+    ...(base.walkSpeed !== undefined
+      ? { walkSpeed: base.walkSpeed, walkSpeedNote: base.walkSpeedNote }
+      : {}),
     ...(base.strideLength !== undefined
       ? { strideLength: base.strideLength, strideNote: base.strideNote }
       : {}),

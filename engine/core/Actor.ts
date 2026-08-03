@@ -19,6 +19,19 @@ import { GLYPH_SCALE } from '../render/BitmapFont.ts';
  * Named from the font's constant because there is one migration factor in this
  * project and a second copy of the number would drift from it.
  */
+/**
+ * How fast a mover walks, in pixels per TICK, when its record does not say.
+ *
+ * IT DISAGREED WITH THE STRIDE BY A FACTOR OF THREE and nothing could see it
+ * until the gait started advancing from distance. 0.9 x 6 is 5.4px a tick,
+ * which at 60fps is 323 px/s; against a measured stride of 102px that is 3.2
+ * strides a second, and a person walks about two. Under the old clock-driven
+ * phase the legs ran at the record's 8 frames/s -- one cycle a second -- while
+ * he covered 323px, which implies a 323px stride, or 1.35 times his own
+ * height per step. Slow legs and fast travel is a glide, and it read as one.
+ *
+ * The legs now tell the truth about the speed, and the speed is a sprint.
+ */
 const WALK_SPEED = 0.9 * GLYPH_SCALE;
 
 /**
@@ -169,11 +182,24 @@ export class Actor {
   private travelled = 0;
   private readonly state: GameState;
   private readonly options: MoverOptions;
+  /** Pixels per tick. From the record where it declares one. */
+  private readonly speed: number;
 
   constructor(state: GameState, id: string, x: number, y: number, options: MoverOptions = {}) {
     this.state = state;
     this.id = id;
     this.options = options;
+    // A CHARACTER'S OWN PACE, where the record states one. Hob is a slow old
+    // man who has walked this street for years and Thad has just got off a
+    // coach; that is a fact about each of them, like a stride or a height.
+    //
+    // AND LOWERING HOB'S `walkRate` DID NOT DO IT. That is the frame rate of
+    // his cycle, not his speed -- so he moved exactly as fast as Thad with
+    // slower legs, which is a man skating. Since the gait advances from
+    // distance, `walkRate` no longer governs walking at all and the change
+    // does nothing whatever.
+    const declared = state.content.actors.get(id)?.walkSpeed;
+    this.speed = declared !== undefined ? declared / 60 : WALK_SPEED;
     this.x = x;
     this.y = y;
     this.targetX = x;
@@ -559,7 +585,7 @@ export class Actor {
     const dx = this.targetX - this.x;
     const dy = this.targetY - this.y;
     const distance = Math.hypot(dx, dy);
-    const step = Math.min(WALK_SPEED, distance);
+    const step = Math.min(this.speed, distance);
     this.x += (dx / distance) * step;
     this.y += (dy / distance) * step;
   }

@@ -494,6 +494,20 @@ export interface ActorFile {
    */
   strideLength?: number;
   strideNote?: string;
+  /**
+   * How fast he walks, in pixels per SECOND, on screen.
+   *
+   * A pace and a stride have to agree or the feet lie about the speed:
+   * `walkSpeed / strideLength` is how many strides a second he takes, and a
+   * person walks about two. The engine's default was 323 px/s against a
+   * measured 102px stride -- 3.2 strides a second, a sprint, invisible only
+   * because the gait used to run on a clock.
+   *
+   * Absent keeps the engine default, so a character nobody has timed walks as
+   * everything did before.
+   */
+  walkSpeed?: number;
+  walkSpeedNote?: string;
   /** Reaction frames per second. */
   reactRate: number;
   /** Errata 35b: the idle cycle's rate. Slower than the walk, on purpose. */
