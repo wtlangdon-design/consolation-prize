@@ -18,12 +18,17 @@
       "id": "idle",
       "facing": "right",
       "frames": [
-        "art/actors/coach-idle-right/idle-00.png"
+        "art/actors/coach-idle-right/idle-00.png",
+        "art/actors/coach-idle-right/idle-01.png",
+        "art/actors/coach-idle-right/idle-02.png",
+        "art/actors/coach-idle-right/idle-03.png",
+        "art/actors/coach-idle-right/idle-04.png",
+        "art/actors/coach-idle-right/idle-05.png"
       ],
-      "figureHeight": 389,
+      "figureHeight": 778,
       "anchor": [
-        478,
-        389
+        956,
+        778
       ]
     },
     {
@@ -32,10 +37,10 @@
       "frames": [
         "art/actors/coach-idle-door-open-right/idle-door-open-00.png"
       ],
-      "figureHeight": 389,
+      "figureHeight": 778,
       "anchor": [
-        478,
-        389
+        982,
+        778
       ],
       "state": "door-open"
     },

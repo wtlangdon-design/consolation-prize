@@ -205,23 +205,37 @@ test('a staged say places one of the beat\'s own lines, and never duplicates it'
 test('Q38: a clip may be chosen by object state, and no state behaves as before', async () => {
   const content = await loadContent(fsReader);
   const record = content.actors.get('coach')!;
-  const table = new ActorSprite(record, () => null);
+  // STRIPPED OF ITS STATE CLIPS for the first half. The coach now DECLARES a
+  // door-open idle, so it is no longer an example of "a record with no state"
+  // -- and this test's whole first premise was that. Building the stateless
+  // case explicitly says what is being tested instead of relying on the art
+  // not to change, which it did.
+  const plain = { ...record, clips: record.clips.filter((c) => !c.state) };
+  const table = new ActorSprite(plain, () => null);
 
   // A record that declares no state resolves exactly as it always did. This
   // is the property that makes the second discriminator free: every character
   // in the game has no `state` on any clip.
-  assert.equal(table.frameCount('idle', 'right', ''), 1);
-  assert.equal(table.frameCount('idle', 'right', '', 'door-open'), 1,
+  // ASSERTED AGAINST THE RECORD, NOT AGAINST A NUMBER. This used to say 1,
+  // which was a fact about the coach's art rather than about the rule -- and
+  // it broke the day its lamps were given a flicker and idle went to six
+  // frames. R5e: a check written from the same understanding as the thing it
+  // checks catches nothing.
+  const stateless = plain.clips.find((c) => c.id === 'idle' && !c.state)!;
+  assert.equal(table.frameCount('idle', 'right', ''), stateless.frames.length);
+  assert.equal(table.frameCount('idle', 'right', '', 'door-open'), stateless.frames.length,
     'an unknown state falls back to the stateless clip, it does not vanish');
 
   // And with a state declared, the state wins and the stateless clip remains
   // the fallback -- the same exact-match-then-fall-back the surface variant
   // already used, which is why this adds no mechanism.
-  const open = { ...record.clips.find((c) => c.id === 'idle' && !c.state)!, state: 'door-open' };
-  const both = new ActorSprite({ ...record, clips: [...record.clips, open] }, () => null);
+  const open = { ...stateless, state: 'door-open' };
+  const both = new ActorSprite({ ...plain, clips: [...plain.clips, open] }, () => null);
   assert.equal(both.frameCount('idle', 'right', '', 'door-open'), open.frames.length);
-  assert.equal(both.frameCount('idle', 'right', ''), 1, 'no state still finds the stateless clip');
-  assert.equal(both.frameCount('idle', 'right', '', 'no-such-state'), 1, 'and so does an unknown one');
+  assert.equal(both.frameCount('idle', 'right', ''), stateless.frames.length,
+    'no state still finds the stateless clip');
+  assert.equal(both.frameCount('idle', 'right', '', 'no-such-state'), stateless.frames.length,
+    'and so does an unknown one');
 });
 
 test('the sentence line is assembled from templates, not built in code', async () => {
