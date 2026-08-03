@@ -926,6 +926,22 @@ PAGEERROR Sequence step names an actor with no mover in this room: hob
 
 **The check caught it and nobody was watching yet.** `checks.yml` had been live for one commit. It went red on the next one, correctly, and the deploy went red with it — which is the first real data for Q36's second half, and it argues the way it was ruled: the deploy failing did not tell anybody anything the check had not already said.
 
+## Q38 · A mover has clips, not states — so the coach cannot open its door
+
+The coach is a mover now, because errata 38's `move` translates a named mover and a hotspot's state image is drawn by `drawPlate` and cannot be translated at all. Beat 6b could never have worked from a state image.
+
+But **a mover has clips, not states.** `Actor.clip` returns `walk` while it is moving and `idle` when it is still, whatever the mover is, so the coach's two clips carry those names. There is no third thing for it to be.
+
+**The door-open body therefore cannot be shown.** Doc 17 has Thad step out at beat 3, and the coach stands with its door shut until it leaves. The art exists at `art/objects/room-01-coach-unloaded.png` and nothing can reach it.
+
+Two ways out, and both are decisions rather than fixes:
+
+**Movers gain states**, the way hotspots have them — a general mechanism, and the coach is unlikely to be the only thing that ever needs one.
+
+**Or the door stays shut** and beat 3's staging says so. Not absurd: a man who climbs down and closes the door behind him is a man exactly like Thaddeus Grubb.
+
+Related to Q37, which is the same gap seen from the content side: nothing marks the moment he steps down.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
