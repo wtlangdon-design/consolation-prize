@@ -3,10 +3,9 @@
   "glow": "art/objects/room-01-lantern-glow.png",
   "blend_glow": "ADD",
   "flame": [
-    479,
-    374
+    478,
+    379
   ],
   "drawn_height": 90,
-  "hook_cut": 5,
-  "note": "HUNG ON THE SIGN'S BEAM at x480, its hook CUT at the beam line so it reads as hooked over the timber rather than floating below it.\n\nWHY IT EXISTS: every foreground light in Room 1 left with somebody. The coach's two lamps depart at beat 6b and Hob's lantern goes with him, so after beat 9 the near half of the frame was lit by nothing -- and the title plays over a walk through that mud.\n\nThe pool is ADDITIVE and drawn after the plate, before the characters, like Hob's -- but FIXED, because this lamp does not travel. Wider than his (3.4x rather than 2.6x) and dimmer (0.72 against 0.85), because a lamp on a beam is higher up and further off than one carried at hip height."
+  "note": "HUNG ON THE SIGN'S BEAM at x480. THE HOOK IS REMOVED ENTIRELY -- the lantern's own collar and finial meet the timber directly, which reads as fixed to the beam. A drawn hook cut off at the beam line still read as a lantern with a piece missing.\n\nevery foreground light in Room 1 left with somebody. The coach's two lamps depart at beat 6b and Hob's lantern goes with him, so after beat 9 the near half of the frame was lit by nothing -- and the title plays over a walk through that mud.\n\nThe pool is ADDITIVE and drawn after the plate, before the characters, like Hob's -- but FIXED, because this lamp does not travel. Wider than his (3.4x rather than 2.6x) and dimmer (0.72 against 0.85), because a lamp on a beam is higher up and further off than one carried at hip height."
 }
