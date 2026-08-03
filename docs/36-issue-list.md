@@ -1708,6 +1708,166 @@ Hob has moved twice since. He stands at `600,700` now, the flame was re-measured
 
 ---
 
+## Q68 · The gauntlet's R5h comparison was a coin toss on beat 9, and it had already failed once
+
+**Found by chasing a regression that did not exist, which is the only reason it was found at all.**
+
+Beat 9 measured **42.73s**, then **32.66s** after a merge. That looked like a ten-second regression, and the merge was small enough to bisect by reading: only `content/actors/coach.json` had changed, and nothing in it plausibly touches a beat that plays after the coach has gone.
+
+**So the tree that produced 42.73s was re-run, in a worktree, on the same machine.** It produced **32.83s armed and 37.02s bare — and failed**, on a 4.2s drift against 3s of slack. Same commit. Nothing about the game different.
+
+| tree | armed | bare | verdict |
+|---|---|---|---|
+| `a7e3d7b` (first run) | 43.95s | 44.55s | pass |
+| `a7e3d7b` + sign | 42.73s | 43.02s | pass |
+| after main's merge | 32.66s | 33.32s | pass |
+| after main's merge, again | 34.24s | 34.60s | pass |
+| **`a7e3d7b` re-run** | **32.83s** | **37.02s** | **FAIL** |
+
+**There was no regression. There is a measurement that does not measure the game.**
+
+Beat 9 holds on `T_HOB_SPOKEN`, and nothing writes that flag until the harness clicks the lamp. Its duration is therefore **the harness's own latency in noticing the segment, plus the game's response to one click** — and the first term is scheduling, which is free to vary by ten seconds under a browser starting up, a dev server compiling, and a 50ms sample loop.
+
+**This is R5h pointed at R5h.** The rule says an instrument can change the system and not merely report on it. Here the instrument does not perturb the number, it *is* the number. "A timing that only holds while it is being measured is not a timing" was the right rule and the wrong application: this timing is manufactured by the measurement, so comparing two samples of it compares two draws from the same noise.
+
+**And a flaky red is Q66/R5j, at the worst possible site.** It fails on correct work, in the file whose entire purpose is to be believed, and what it teaches is *a red gauntlet can be re-run until it goes away*. That habit ends the gauntlet as anything but decoration — and it had **already produced one such failure tonight**, on a tree that had passed twice.
+
+**Fixed by excluding driven beats from the drift comparison, and saying so out loud:**
+
+```
+R5h: beat(s) 9 not compared -- this harness ended them, so their duration is
+     mostly its own latency, not the game's
+R5h: 4 beat(s) timed with and without the instrument, all within slack
+```
+
+The duration is **still reported** — a beat that stops ending at all is worth seeing — and still held to a ceiling if the script states one. What is gone is the comparison that could not mean anything. Note the count changed from 5 to 4: the exclusion is visible in the pass line as well as in the reason.
+
+**The honest limit.** R5h now covers four beats, not five, and beat 9's timing is unguarded. Guarding it properly would mean measuring from the flag write rather than from beat entry, which needs the probe to report flags. Not built.
+
+**And the general form, which is the part worth keeping:** *a number the apparatus determines cannot be used to check the apparatus.* Every timing R5h compares must be one the game would have produced whether or not anybody was watching. Beat 9's was not, and it took a regression hunt to notice, because a wrong number that is usually within slack looks exactly like a right one.
+
+---
+
+## Q69 · Idle breaks: one mover could reach them, and for that one it was a latch, not a timer — **BUILT**
+
+**Three faults, and the art was innocent of all of them.** Thad has 12-frame idle-breaks in four facings, Hob has one, the coach has one. Every record carries `idleBreakRate: 2`. Doc 40 specifies the behaviour exactly: *"12 frames, ~2/s, a glance left then right, played occasionally"*, and *"it plays on a timer while idle and returns to it."*
+
+**1 — Only the protagonist could ever play one.** `hasIdleBreak` was a `MoverOptions` field, and `GameScene` set it in exactly one place: on `this.actor`, from `content.actor.clips`. Every other mover in the game arrives through `RoomActors.place()`, which passes no options at all. **Hob's declared idle-break and the coach's were unreachable by construction** — the records right, the art on disk, and no code path in existence that could ask for them. R5f: the decision now traces to a field on the thing it is deciding about, so `place()` cannot forget it.
+
+**2 — For Thad it was a latch, not a timer.** `clip` returned `idle-break` once `clock - stillSince >= 7` and **never returned anything else again**. A character who stood still for seven seconds switched permanently into the glance and looped it until something moved him. Doc 40 calls it an occasional one-shot; nothing about that was occasional and nothing about it was a shot.
+
+**3 — And it played at the wrong speed.** `frameAt` uses `idleRate` for every non-walking clip, so the glance ran at the breathing rate. `idleBreakRate` was written into every record by `build-actor-record.mjs`, declared in `types.ts`, and **read by no code at all** — the fourth unused-field position of the session, and the same lesson: *an unused field is not safe, it is untested.*
+
+**Built as doc 40 specifies.** One shot, from its own start, holding its last frame, at its own rate: 12 frames ÷ 2/s = **6 seconds**. Then back to idle. The gap is randomised above a floor — `7 + u × 11`, so **7–18 seconds** — because a fixed interval is the other wrong answer and reads as a tic, which is worse than standing still.
+
+**Deterministically randomised, from the mover's id.** `Math.random()` would make two play-throughs of one save differ and would make any clip a script asserts a coin toss — Q68's flaky red arriving by a different road. A plain LCG seeded by the id means two characters standing together never sync, and the same run always plays the same way.
+
+**A fourth fault surfaced while tracing it, and it was mine.** Arming the schedule in the constructor sets an *absolute* time about twelve seconds after zero — so a mover created later is already overdue and glances **on its first drawn frame**. Hob is placed at beat 7, a minute in. Same family as R5g: a quantity meaning *twelve seconds from the start* used where the meaning needed was *twelve seconds from now*. Armed on first update instead; a late arrival now waits its full gap.
+
+**Traced, not assumed** (`X` = breaking, one character per half-second, 60s standing still):
+
+```
+thad   .........................XXXXXXXXXXXX.........................XXXXXXXXXXXX....
+hob    ......................XXXXXXXXXXXX...........................XXXXXXXXXXXX.....
+coach  ..........................XXXXXXXXXXXXXXXX..................................XX
+```
+
+**TWO NUMBERS FOR AN EYE, NOT A CHECK.** Both are doc 40's own and neither was re-decided here:
+
+1. **Six seconds is a long glance.** 12 frames at 2/s is what the table says, and at 233px it is a slow, deliberate movement — which may be exactly right for this character, or may read as sleepy. It is a taste call and it needs looking at.
+2. **Thad's first three gaps come out at 12.1s, 12.2s and 11.5s** — genuine draws that happen to cluster for his seed. A minute of watching him would show three evenly spaced glances and read more regular than the mechanism is. Hob's do not cluster. Nothing is wrong; the spread may want widening if it reads as a rhythm.
+
+---
+
+## Q70 · `case_roof` was not unreachable. It was live, and wrong, over empty sky
+
+**Reported as "unreachable — gated on `T_CASE_DOWN`, which nothing writes". Both halves are false, and the truth is worse.**
+
+`tools/extract-content.mjs` puts `T_CASE_DOWN: true` on beat 6 and says why: *"THE CASE COMES DOWN AT BEAT 6, and the write is honest again."* And `case_roof`'s gate is `{ T_CASE_DOWN: true }`. So from beat 6 onward **the roof hotspot switches ON** — at x1078 y341, eight feet up, with the coach already departed — and answers:
+
+> *"My case, still up on the roof, under the driver's hand."*
+
+Two live hotspots named **HIS CASE** for the rest of the game, one of them describing a driver who has gone. Anyone examining the sky above where the coach used to be is told his case is still up there.
+
+**The gate had been inverted** at some point, from *while the case is not down* to *while it is*. Inverting a gate does not remove a state; it moves it.
+
+**Retired, not re-gated.** The design has two states and the extractor now builds one hotspot. Doc 17's state A prose is untouched and reports as an orphan, awaiting the revision that is the writer's.
+
+### The shape the extractor accepts — the question as asked
+
+**It already tolerates a state the room does not build.** That is how state C — *"the hotspot is gone"* — has always worked: its lines are reported by name on stderr and dropped, non-fatally.
+
+`const STATES = { B: 'case_mud' }` **is the list of states that have a hotspot.** Doc 17 may describe as many as the writing needs.
+
+| The doc has | The room has | What happens |
+|---|---|---|
+| a state in `STATES` | that hotspot | wired |
+| a state in `STATES` | **no** such hotspot | **throws**, by name — a typo stays fatal |
+| a state not in `STATES` | — | reported as an orphan, dropped |
+
+**What a wired state must contain**, or the extractor throws and names the state:
+
+1. a heading `**State X — <label>**`
+2. a `**LOOK**` run and a `**LISTEN**` run, each with **exactly three** variants
+3. every `> ` override in one of two forms — refusal `VERB — "line"`, or the one that takes it, `**VERB — takes it.** *"line"*`
+
+**So: write the states the design has. Tell me which have hotspots.** Today that is one.
+
+**And a bug the retirement exposed immediately.** The orphan message said *"state C"* for every orphan regardless of letter — correct exactly as long as there was one thing to label, and the moment state A joined it began reporting A's lines under C's name. It names the letter now. R5k in miniature, with prose instead of a coordinate.
+
+---
+
+## Q71 · Doc 45's OQ-01 and OQ-15 are not contradictions. Both are settled inside doc 17
+
+**OQ-01 — doc 17 both restores a four-option driver tree and says "four beats, no tree".**
+
+Not a live disagreement. **It is stranded v3 text, and v3.1 struck it in the document's own words:**
+
+> *"v3 cut the tree to zero. That was an over-correction and it is reversed."*
+
+The surviving sentence sits at the end of the section on **what the town says about Mott**, and its list — *"Course you have," the four dollars, the undertaker, the hotel's five* — is beats 3, 4, 5 and 6 of the beat sheet. It reads as though it were scoped to Mott, and the neighbouring ruling *"Mott stays out"* is the part of it that survived. But beats 5 and 6 **are** the tree under v3.1, so *"no tree"* cannot be read as Mott-only without also being wrong.
+
+**Ruling: v3.1 governs. The sentence is v3 residue.** A version-stamped reversal beats an unstamped sentence in an earlier section. Nothing is built against it — the engine, the content and the gauntlet all run the four-option tree — so this costs one struck line in doc 17 and no code.
+
+**OQ-15 — the beat table says Room 1 is not interactive before beat 8, and the case carries LOOK/LISTEN/PICK UP for beats 1–5.**
+
+**A hotspot being live is not the same as a hotspot being reachable.** There is no verb panel and no control before beat 8, so nothing in the room can be addressed however many hotspots are gated on. `case_mud` is live from the first frame and simply cannot be clicked until control arrives — at which point it can, and its lines are reachable for as long as the case is on the ground.
+
+**The doc's state labels are prose, not gates.** *"beats 1–5"* and *"from beat 6"* describe *where the case is*, and the actual gates are flags. Nothing reads the beat numbers.
+
+**Which leaves exactly one real defect inside OQ-15, and it is state A.** Its window — beats 1 to 5 — lay **entirely inside the non-interactive stretch**, so its LOOK, LISTEN and PICK UP lines were unreachable by construction: three lines that could never be said by anyone. Q70 retires that state on other grounds, and retiring it is also the answer here.
+
+**Ruling: OQ-15 is closed by Q70.** Once state A is gone, no case line is gated to a stretch of the game in which no line can be asked for.
+
+---
+
+## Q72 · Beat 2 no longer contains an arrival, and the eight seconds are the measurement of that
+
+**Doc 17 beat 2: "The coach ARRIVES and halts with Thad visibly aboard."** Stated at ~8s. It holds **0.86s**.
+
+**Every step in it is a placement.** Read out of `content/sequences/opening.json`:
+
+| step | actor | from → to | seconds |
+|---|---|---|---|
+| `move` | hob | [600, 720] → [600, 720] | 0.1 |
+| `move` | coach | [1390, 742] → [1390, 742] | 0.1 |
+| `setState` | — | the door opens | — |
+| `move` | thad | [1170, 794] → [1170, 794] | 0.1 |
+| `face` | thad | right | — |
+| `chore` | thad | `aboard-coach` | held |
+
+**Three moves of zero distance.** `stagingTakesTime` returns false for a `move` whose `from` equals its `to` — correctly, that is a placement and not a journey — so the beat has nothing in it that takes time, and it ends as soon as the pose is struck. **The coach does not arrive. It is simply there.** The eight seconds were budgeted for something that no longer happens.
+
+**Doc 43 asked this months of work ago and nobody answered it:** should the coach arrive on screen, or be halted when the beat opens? The player-audit fix — *"we never saw Thad arrive, so there was no reason to think the man he is talking to drove him"* — is the argument for arriving, and holding him in the doorway helps without settling it.
+
+**What is new is that it is measurable rather than theoretical.** It is not an opinion that the beat is thin; it is 0.86 seconds against a written 8, and the harness prints both side by side on every run.
+
+**Deliberately not a failure.** A floor on beat duration would go red here, and beat 2 is short for reasons everybody already knows — `straighten-coat` is unbuilt, the driver cannot climb aboard, and main has since moved Thad's walk into beat 3 on purpose. That is R5j: a red on incompleteness that is not news teaches people that reds are ignorable. The number is reported next to the claim and the judgement is a person's.
+
+**This one is the project owner's**, and it is the only item tonight whose answer changes what the opening *is* rather than how it is checked.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

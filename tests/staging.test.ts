@@ -522,23 +522,53 @@ test('doc 40\'s idle-break plays only where the record declares it', async () =>
   const state = new GameState(content, new MemoryStorage());
   state.enterRoom(openingRoom(content));
 
-  // Q9: `thad.json` does not declare it, and rewriting that file is not this
-  // work's call. A character with no idle-break clip simply does not glance
-  // aside -- nothing is substituted, and nothing pretends to be it.
-  const without = new Actor(state, content.actor.id, 960, 780, { routed: true });
-  without.update(0);
-  without.update(60);
+  // A MOVER WITH NO RECORD DOES NOT GLANCE ASIDE. Nothing is substituted for
+  // a clip a character has not got. `hasIdleBreak` used to be an option and
+  // GameScene set it in one place -- on the protagonist -- so Hob and the
+  // coach declared the clip and could never reach it. It comes from each
+  // mover's own record now (R5f), which is why this asks for an id that has
+  // none rather than passing a flag.
+  const without = new Actor(state, 'nobody_has_this_record', 960, 780, { routed: true });
+  for (let t = 0; t <= 60; t += 0.5) without.update(t);
   assert.equal(without.clip, 'idle');
 
-  // The mechanism is real and starts working the day the clip is declared.
-  const with_ = new Actor(state, content.actor.id, 960, 780,
-    { routed: true, hasIdleBreak: true });
-  with_.update(0);
-  with_.update(60);
-  assert.equal(with_.clip, 'idle-break');
-  with_.walkTo(360, 780);
-  with_.update(60.1);
-  assert.equal(with_.clip, 'walk', 'and it gives the body back the moment he moves');
+  // AND IT IS A ONE-SHOT ON A TIMER, NOT A STATE. Doc 40: "played
+  // occasionally", "plays on a timer while idle and returns to it". It used
+  // to latch after seven seconds and never come back, which this test could
+  // not see because it sampled once at t=60 and found what it expected.
+  const man = new Actor(state, content.actor.id, 960, 780, { routed: true });
+  const seen = new Set<string>();
+  let breaks = 0;
+  let wasBreaking = false;
+  for (let t = 0; t <= 120; t += 0.25) {
+    man.update(t);
+    seen.add(man.clip);
+    const breaking = man.clip === 'idle-break';
+    if (breaking && !wasBreaking) breaks += 1;
+    wasBreaking = breaking;
+  }
+  assert.ok(seen.has('idle-break'), 'it fires at all');
+  assert.ok(seen.has('idle'), 'and it returns to idle, which the latch never did');
+  assert.ok(breaks >= 2, `it fires repeatedly over two minutes, not once (${breaks})`);
+
+  // THE GAP IS RANDOMISED ABOVE A FLOOR, so it never reads as a tic -- and it
+  // is randomised DETERMINISTICALLY from the id, so a replay of the same save
+  // plays the same way and no clip a script asserts becomes a coin toss.
+  const twin = new Actor(state, content.actor.id, 960, 780, { routed: true });
+  const other = new Actor(state, 'hob', 960, 780, { routed: true });
+  const trace = (mover: Actor): string => {
+    let out = '';
+    for (let t = 0; t <= 60; t += 0.25) { mover.update(t); out += mover.clip === 'idle-break' ? 'x' : '.'; }
+    return out;
+  };
+  const first = trace(twin);
+  const again = trace(new Actor(state, content.actor.id, 960, 780, { routed: true }));
+  assert.equal(first, again, 'the same character always breaks at the same moments');
+  assert.notEqual(first, trace(other), 'and two characters do not glance in unison');
+
+  man.walkTo(360, 780);
+  man.update(120.1);
+  assert.equal(man.clip, 'walk', 'and it gives the body back the moment he moves');
 });
 
 /* =========================================================================

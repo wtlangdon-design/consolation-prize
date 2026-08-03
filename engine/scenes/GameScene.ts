@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
 import type { Exit, Interactable } from '../core/types.ts';
-import { Actor, IDLE_BREAK } from '../core/Actor.ts';
+import { Actor } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import type { FrameReport, MoverReport } from '../dev/Probe.ts';
@@ -143,12 +143,12 @@ export class GameScene extends Phaser.Scene {
     // the registry does not know which of its movers he is beyond holding it.
     this.actor = new Actor(this.state, this.state.content.actor.id,
       NATIVE_WIDTH / 2, PLAY_HEIGHT - 14 * GLYPH_SCALE, {
+        // NO `hasIdleBreak` HERE ANY MORE, and its absence is the fix. This
+        // was the only place it was ever set, so the protagonist was the only
+        // mover that could break -- every other one arrives through
+        // RoomActors.place() with no options. Hob and the coach declare the
+        // clip and could not reach it. Actor asks each record for itself now.
         routed: true,
-        // Doc 40's idle break plays only where the record declares the clip.
-        // `thad.json` does not -- that is Q9 -- so today he breathes and does
-        // not glance aside, and NOTHING IS SUBSTITUTED for the clip he has
-        // not got. It starts working the day the record grows one.
-        hasIdleBreak: this.spriteDeclares(IDLE_BREAK),
       });
     this.actor.placeIn(this.state.roomId);
     this.actors = new RoomActors(this.state, this.actor);
@@ -676,12 +676,6 @@ export class GameScene extends Phaser.Scene {
       throw new Error(`No declared clip "${clip}" (${facing}) for mover "${mover.id}"`);
     }
     return found.frames.length / record.reactRate;
-  }
-
-  /** Whether the protagonist's record declares a clip. Never a substitution. */
-  private spriteDeclares(clip: string): boolean {
-    return this.state.content.actor.clips
-      .some((candidate) => candidate.id === clip);
   }
 
   /**

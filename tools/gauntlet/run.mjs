@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import { chromium } from 'playwright';
 
 import { readJson, ROOT } from '../lib/content.mjs';
-import { validateScript } from './schema.mjs';
+import { clickPoint, validateScript } from './schema.mjs';
 
 /**
  * THE GAUNTLET. Doc 44.
@@ -244,6 +244,8 @@ async function play(engine, url, script, armed) {
     fired: new Set(),
     missed: [],
     timings: [],
+    // Beats whose end THIS HARNESS caused. See timingDrift.
+    driven: new Set(),
   };
   await sample(page, script, state, armed);
 
@@ -288,7 +290,7 @@ async function sample(page, script, state, armed) {
   let enteredAt = 0;
   let lastClips = new Map();
   let moved = new Set();
-  const driven = new Set();
+  const driven = state.driven;
   /** The input script in flight, if one is. Kept so the run can await it. */
   let driving = null;
   const started = Date.now();
@@ -341,7 +343,7 @@ async function sample(page, script, state, armed) {
       // both from being played twice.
       if (spec?.input?.length && !driven.has(spec.beat)) {
         driven.add(spec.beat);
-        driving = drive(page, spec.input).catch(() => {});
+        driving = drive(page, spec.input, script).catch(() => {});
       }
     }
 
@@ -364,7 +366,7 @@ async function sample(page, script, state, armed) {
           // was blind for exactly as long as it had told itself to be patient.
           // Playwright serialises calls on a page, so the two interleave
           // safely.
-          driving = drive(page, owner.input).catch((error) => {
+          driving = drive(page, owner.input, script).catch((error) => {
             state.failures.push({ beat: id, who: '-', field: 'input',
               expected: 'the input script to run', got: String(error.message ?? error),
               note: '' });
@@ -403,14 +405,22 @@ async function sample(page, script, state, armed) {
 }
 
 /** Runs a beat's input list against the page. */
-async function drive(page, input) {
+async function drive(page, input, script) {
   for (const action of input) {
     if (action.do === 'wait') {
       await page.waitForTimeout(action.seconds * 1000);
       continue;
     }
     if (action.do === 'click') {
-      await clickPlayArea(page, action.at[0], action.at[1]);
+      // `on` READS THE RECT; `at` RESTATES ONE. Beat 9's click was the literal
+      // centre of the lamp as it stood two moves of Hob ago, and when he moved
+      // it landed on nothing, wrote no flag, and held the beat to its 180s
+      // deadline -- twice, one merge apart. The rect is the thing; the number
+      // beside it was a copy, and a copy of something that moves goes wrong
+      // silently. R5k.
+      const { point, error } = clickPoint(script, action);
+      if (error) throw new Error(`input: ${error}`);
+      await clickPlayArea(page, point[0], point[1]);
       continue;
     }
     // A LINE ON SCREEN TAKES THE CLICK BEFORE THE OPTION LIST DOES, and it
@@ -560,6 +570,25 @@ function checkLeaving(spec, state, held, script) {
     state.failures.push({ beat: spec.beat, who: '-', field: 'duration',
       expected: `<= ${ceiling}s`, got: `${held.toFixed(2)}s`, note: '' });
   }
+  // A CEILING CATCHES A BEAT THAT WILL NOT END. NOTHING CAUGHT A BEAT THAT
+  // STOPPED DOING ANYTHING, and that is the direction faults have actually
+  // come from: beat 7 collapsed 2.14s to 0.12s when `stagingTakesTime` was
+  // wrong, and beat 2 -- doc 17's "he climbs down, straightens his coat,
+  // looks at the town", stated at ~8s -- now holds 0.87s and passed in
+  // silence, because an eighth of its time is comfortably under the ceiling.
+  //
+  // REPORTED AND NOT ASSERTED, DELIBERATELY. Beat 2 is short for reasons
+  // everybody knows: straighten-coat is unbuilt, the driver cannot climb
+  // aboard, and main has since moved his walk into beat 3 on purpose. A floor
+  // would go red on a tree whose incompleteness is not news, which is R5j --
+  // and a red that everyone knows to ignore is worse than no red at all. So
+  // it says what it measured, next to what the script claimed, and lets a
+  // person decide whether a beat has gone hollow or is merely not finished.
+  if (spec.seconds !== undefined && held < spec.seconds / 2) {
+    state.timings.push(`beat ${spec.beat} held ${held.toFixed(2)}s against a stated `
+      + `${spec.seconds}s -- not asserted, but that is ${Math.round(held / spec.seconds * 100)}% `
+      + 'of the beat somebody wrote down');
+  }
   for (const [index, mark] of (spec.marks ?? []).entries()) {
     if (state.fired.has(`${spec.beat}#${index}`)) continue;
     if (mark.when.leave !== undefined) continue;
@@ -610,12 +639,39 @@ function report(state) {
  * The instrument agreeing with itself proves nothing, so it is compared
  * against its own absence: every beat both runs measured must agree on how
  * long it took, within the same slack the beats themselves use.
+ *
+ * EXCEPT A BEAT THIS HARNESS ENDED ITSELF, and leaving those in made the
+ * comparison a coin toss. Beat 9 holds on a flag that nothing writes until
+ * the harness clicks the lamp, so its measured duration is the harness's own
+ * latency in noticing the segment plus the game's response to a click. On one
+ * tree it measured 42.7s, 43.9s, 32.7s and 34.2s -- and on a SECOND run of a
+ * tree that had already passed, 32.8s armed against 37.0s bare, which is a
+ * 4.2s drift and a failure. Nothing about the game changed between any of
+ * them.
+ *
+ * That is not a timing that only holds while it is being measured. It is a
+ * timing MANUFACTURED by the measurement, which is R5h's own subject pointed
+ * at R5h: the apparatus is part of the system while it is attached, and here
+ * the apparatus is most of what the number describes.
+ *
+ * A FLAKY RED IS R5j. It fails on correct work, at people who know it is
+ * correct, and what it teaches them is that a red gauntlet can be re-run
+ * until it goes away -- which is the end of the gauntlet as anything but
+ * decoration. So driven beats are excluded from the drift comparison, and
+ * PRINTED as excluded: their duration is still reported, because a beat that
+ * stops ending at all is still worth seeing, and it is still held to its own
+ * ceiling if the script states one.
  */
 function timingDrift(armed, bare, script) {
   const lines = [];
   let ok = true;
   const slack = script.defaults.slack;
+  const manufactured = [];
   for (const [beat, held] of armed.beats) {
+    if (armed.driven.has(beat) || bare.driven.has(beat)) {
+      manufactured.push(beat);
+      continue;
+    }
     const without = bare.beats.get(beat);
     if (without === undefined) {
       lines.push(`FAIL beat ${beat} was seen with the watch on and not with it off`);
@@ -630,8 +686,14 @@ function timingDrift(armed, bare, script) {
       ok = false;
     }
   }
+  // NO SILENT CAPS: what was left out of the comparison is named, with why.
+  if (manufactured.length) {
+    lines.push(`    R5h: beat(s) ${manufactured.join(', ')} not compared -- this harness `
+      + 'ended them, so their duration is mostly its own latency, not the game\'s');
+  }
   if (ok) {
-    lines.push(`    R5h: ${armed.beats.size} beat(s) timed with and without the `
+    const compared = armed.beats.size - manufactured.length;
+    lines.push(`    R5h: ${compared} beat(s) timed with and without the `
       + 'instrument, all within slack');
   }
   return { ok, lines };

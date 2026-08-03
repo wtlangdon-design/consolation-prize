@@ -85,46 +85,6 @@
   ],
   "hotspots": [
     {
-      "id": "case_roof",
-      "name": "HIS CASE",
-      "rect": [
-        1078,
-        341,
-        116,
-        64
-      ],
-      "colour": 28,
-      "when": {
-        "T_CASE_DOWN": true
-      },
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "My case, still up on the roof, under the driver's hand.",
-            "repeat": [
-              "Everything I own is up there and a stranger is holding it.",
-              "He has not dropped it. I have been watching to see whether he would."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing.",
-            "repeat": [
-              "Nothing.",
-              "The fork against the clasp, faintly, when he shifts it."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "It is eight feet up and it is not mine to reach for yet."
-      },
-      "note": "Doc 17, state A: on the coach, beats 1–5",
-      "state": "there"
-    },
-    {
       "id": "case_mud",
       "name": "HIS CASE",
       "rect": [
