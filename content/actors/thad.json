@@ -496,7 +496,8 @@
       "anchor": [
         140,
         526
-      ]
+      ],
+      "state": "lookup"
     },
     {
       "id": "idle-break",
