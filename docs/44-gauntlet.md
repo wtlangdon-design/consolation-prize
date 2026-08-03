@@ -219,11 +219,20 @@ A beat whose `control` is `player` does not end on its own. The gauntlet's termi
 "input": [
   { "do": "choose", "option": 1 },      // 1-based, as a player sees them
   { "do": "wait", "seconds": 1.5 },
-  { "do": "click", "at": [900, 780] }   // play-area coordinates
+  { "do": "click", "on": "lamp" },      // the centre of that target's rect
+  { "do": "click", "at": [900, 780] }   // a literal, in play-area coordinates
 ]
 ```
 
 Actions run **after every mark in the beat has fired**, in order. A beat with `control: "player"` and no `input` is a failure at check time, not a hang at run time — with one exception: the beat named by `until`.
+
+**Click by NAME where there is a name.** `on` takes a target id in the script's `room` and clicks the centre of its rect; `at` is a literal for a click that lands on nothing in particular. Exactly one of the two, and **prefer `on`** — R5k.
+
+The reason is a fault this file's own script produced twice, one merge apart. Beat 9's click was `540,528`, the centre of the lamp when the lamp was there. Hob moved, the hotspot moved with him, the click stayed — and it landed on nothing, wrote no flag, and held the beat to its 180s deadline. Correct behaviour, from a beat working as designed, for a coordinate describing a world that had been edited. **A coordinate is the only thing in this file that names the world by position, so it is the only thing that rots without saying so.**
+
+**It is aim, not assertion, and the distinction is what keeps honesty 3 intact.** Reading a rect to decide *where to click* is the harness standing in for a hand, and a hand finds the lamp by looking at it. Reading a rect to decide *what to expect* would be the staging table compared with itself. Every mark stays a number a person wrote down; only the aim is derived.
+
+**And the derivation reads the CONTENT, not the running game.** Asking the engine where its lamp is would click exactly where the engine believes it to be, and pass however wrong that belief was — R5i. The resolver parses the room JSON itself, so a click that misses is a real disagreement.
 
 **Choosing by index, not by text.** Errata 37 is revoked and the tags survive, so all four of the driver's options are present at the end and three are dimmed; an index is stable under that and a text match would not be.
 

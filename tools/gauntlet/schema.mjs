@@ -1,3 +1,5 @@
+import { readJson } from '../lib/content.mjs';
+
 /**
  * The gauntlet script's schema, as a validator. Doc 44 part one.
  *
@@ -16,6 +18,12 @@
  * with itself, and would pass whatever the staging said. R5i. The structural
  * agreement is which beats exist, in what order, under what control; the
  * numbers are the independent half and stay independent.
+ *
+ * WITH ONE EXCEPTION, AND THE DISTINCTION IS THE POINT: a click's `on` names
+ * a hotspot and takes its rect from the room. That is NOT an assertion, it is
+ * AIM -- the harness standing in for a hand, and a hand finds the lamp by
+ * looking at it. Every mark the script asserts stays a number a person wrote
+ * down. R5k, and doc 44 part one says the same in longer form.
  */
 
 const FACINGS = ['left', 'right', 'front', 'back'];
@@ -27,6 +35,48 @@ const INPUT_KINDS = ['choose', 'click', 'wait'];
 const isObject = (value) => typeof value === 'object' && value !== null && !Array.isArray(value);
 const isPoint = (value) => Array.isArray(value) && value.length === 2
   && value.every((n) => typeof n === 'number' && Number.isFinite(n));
+
+/**
+ * Every target in a room, by id, read from the room JSON.
+ *
+ * FROM THE CONTENT AND NOT FROM THE ENGINE, deliberately. Asking the running
+ * game where its lamp is would click exactly where the engine believes the
+ * lamp to be, and would therefore pass however wrong that belief was -- a
+ * mechanism agreeing with itself, R5i. Reading the room's own JSON with a
+ * different parser means a click that misses is a real disagreement between
+ * the content and what the game does with it.
+ */
+function roomTargets(roomId) {
+  const manifest = readJson('content/manifest.json');
+  for (const path of manifest.rooms) {
+    const room = readJson(path);
+    if (room.id !== roomId) continue;
+    return new Map([...(room.exits ?? []), ...(room.hotspots ?? [])]
+      .map((target) => [target.id, target]));
+  }
+  return null;
+}
+
+/**
+ * Where a `click` action lands, in play-area coordinates.
+ *
+ * `at: [x, y]` is a literal. `on: "<target id>"` is the centre of that
+ * target's rect in the script's room -- R5k, a coordinate derived from the
+ * thing it describes rather than restated beside it. Returns
+ * { point } or { error }.
+ */
+export function clickPoint(script, action) {
+  if (action.at) return { point: action.at };
+  const targets = roomTargets(script.room);
+  if (!targets) return { error: `no room "${script.room}" in the manifest` };
+  const target = targets.get(action.on);
+  if (!target) {
+    return { error: `no target "${action.on}" in room "${script.room}". `
+      + `It holds: ${[...targets.keys()].join(', ')}` };
+  }
+  const [x, y, w, h] = target.rect;
+  return { point: [Math.round(x + w / 2), Math.round(y + h / 2)] };
+}
 
 /**
  * Validates a script, on its own and against the sequence it scripts.
@@ -52,6 +102,17 @@ export function validateScript(script, sequence) {
     if (typeof script[field] !== 'string' || script[field].length === 0) {
       at(field, 'must be a non-empty string');
     }
+  }
+  // DOC 44 SAID THIS AND NOTHING ENFORCED IT: "room -- must equal
+  // manifest.startRoom". It said `stage-road`, the file's stem, where the room
+  // calls itself `stage_road`, and it had been wrong since the day it was
+  // written. Nothing noticed because nothing read the field -- an unused value
+  // is never wrong about anything. It became wrong the moment a click resolved
+  // through it. R5k again: a restated identifier, drifting from the thing it
+  // names, in silence.
+  const startRoom = readJson('content/manifest.json').startRoom;
+  if (typeof script.room === 'string' && script.room !== startRoom) {
+    at('room', `is "${script.room}" and the manifest starts at "${startRoom}"`);
   }
 
   const defaults = script.defaults;
@@ -88,7 +149,7 @@ export function validateScript(script, sequence) {
 
   const declared = script.beats.map((beat) => beat?.beat);
   script.beats.forEach((beat, index) => {
-    checkBeat(beat, `beats[${index}]`, errors, warnings);
+    checkBeat(beat, `beats[${index}]`, errors, warnings, script);
   });
 
   // Structure against the content, and structure only.
@@ -209,7 +270,7 @@ function checkPlayerRuns(script, sequence, errors) {
   finish();
 }
 
-function checkBeat(beat, where, errors, warnings) {
+function checkBeat(beat, where, errors, warnings, script) {
   const at = (message) => errors.push(`${where}: ${message}`);
   if (!isObject(beat)) {
     at('must be an object');
@@ -238,7 +299,7 @@ function checkBeat(beat, where, errors, warnings) {
     checkMark(mark, `${where}.marks[${index}]`, errors, warnings);
   }
   for (const [index, action] of (beat.input ?? []).entries()) {
-    checkInput(action, `${where}.input[${index}]`, errors);
+    checkInput(action, `${where}.input[${index}]`, errors, script);
   }
 }
 
@@ -326,7 +387,7 @@ function checkMark(mark, where, errors, warnings) {
   }
 }
 
-function checkInput(action, where, errors) {
+function checkInput(action, where, errors, script) {
   const at = (message) => errors.push(`${where}: ${message}`);
   if (!isObject(action) || !INPUT_KINDS.includes(action.do)) {
     at(`must be an object with do: ${INPUT_KINDS.join(' | ')}`);
@@ -336,8 +397,16 @@ function checkInput(action, where, errors) {
     && !(Number.isInteger(action.option) && action.option >= 1)) {
     at('choose needs option: a 1-based index, as a player sees them');
   }
-  if (action.do === 'click' && !isPoint(action.at)) {
-    at('click needs at: [x, y] in play-area coordinates');
+  if (action.do === 'click') {
+    const named = typeof action.on === 'string' && action.on.length > 0;
+    if (isPoint(action.at) === named) {
+      at('click needs exactly one of `on`: a target id, or `at`: [x, y]. '
+        + 'PREFER `on` -- a literal beside a rect goes stale the moment the rect '
+        + 'moves, and says nothing when it does. R5k');
+    } else if (named && script) {
+      const { error } = clickPoint(script, action);
+      if (error) at(`click on: ${error}`);
+    }
   }
   if (action.do === 'wait' && !(typeof action.seconds === 'number' && action.seconds > 0)) {
     at('wait needs seconds: a positive number');

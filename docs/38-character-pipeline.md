@@ -277,6 +277,74 @@ The same shape as R5f, and found by playing rather than by reading.
 
 > **Anything that must be somewhere needs a `move` in the EARLIEST beat it is seen, not the one where it happens to be needed.** A `from` on the beat that uses a mover says when it arrives; it says nothing about where it stood before.
 
+## R5j · A CHECK THAT FAILS ON CORRECT WORK IS WORSE THAN NO CHECK
+
+**R5e is the quiet error. This is the loud one, and it is the more dangerous of the two.**
+
+R5e says a check written from its subject's understanding catches nothing — it passes, everyone believes it, and the belief closes the question. **This is the opposite failure: a check that goes red on work that is right.** It does not fail silently. It fails constantly, at people who know it is wrong, and what it teaches them is *this red line does not mean anything*. A check nobody believes has been switched off whether or not anybody edited the file, and a switched-off check catches nothing either — but it does it while still appearing in the suite.
+
+**The case.** The exit-collision check was written as *no exit shares a rectangle with anything live at the same time*. It failed **seventeen times across six rooms** on a completely correct tree:
+
+| Room | Exit | Overlaps |
+|---|---|---|
+| main_street | `to_hotel` | `boardwalk`, `false_fronts`, `mud` |
+| main_street | `to_clarion` | `posted_notices`, `dog`, `false_fronts` |
+| main_street | `to_assay_office` | `boardwalk`, `false_fronts` |
+| main_street | `to_company` | `company_sign`, `false_fronts` |
+| main_street | `to_nugget` | `false_fronts` |
+| main_street | `to_claims_road` | `mud` |
+| nugget, assay_office ×2, claims_registrar, thads_room | five more | scenery |
+
+**Overlap is the composition, and the engine says so in its own words.** `GameState.targets` is `[...room.exits, ...room.hotspots]` and the comment above it reads *"scenery first made every exit in the room unclickable."* A door painted on the front of a building **belongs** inside `false_fronts`. The boardwalk and the mud run the full 1920 underneath everything. The check had mistaken the room's construction for a defect in it.
+
+**The tell is the count.** Seventeen failures and no defects is not a check finding a lot of problems; it is a check that has misunderstood its subject. One or two would have been worth reading. Seventeen means the rule is wrong, and **a rule that is wrong seventeen times will be wrong about the eighteenth thing too — the real one.**
+
+**What survived is narrower and both clauses are true**: a target with no pixels left after subtracting everything that answers before it, and *any* overlap where the exit carries `travelWhenTold` — because that one does not open a wrong door, it starts the closing shot. Both pass on the tree as built, and both fail on the defect that shipped.
+
+> **Before writing a check, name the correct work it must stay quiet on.** If you cannot, you do not yet know what the rule is. And when a new check fails in bulk on existing work, the first hypothesis is that the check is wrong — not the work. R5e's remedy applies here too and in reverse: **make it fail on the real defect, then make sure it is silent on the real tree.** Neither half alone is evidence.
+
+## R5k · A NUMBER THAT DESCRIBES SOMETHING THAT MOVED
+
+**Derive the coordinate from the thing. Do not restate it beside the thing.**
+
+Everything else in this project is named — beats by number, actors by id, clips by name, targets by id — and **a name survives the thing moving.** A coordinate does not. It is the only kind of value that refers to the world by position, and it is therefore the only kind that goes wrong when the world is edited, in silence, while remaining perfectly well-formed.
+
+**Five in one session, all the same shape:**
+
+| The number | Described | Which had |
+|---|---|---|
+| the gauntlet's beat-9 click | the lamp's centre | moved twice with Hob |
+| `case_roof`'s rect | the case on the roof | moved with the coach |
+| the `lamp` rect | Hob's lantern | stopped crossing and stood still |
+| doc 43's staging tables | Thad's walk in beats 2–3 | been reversed |
+| `road_west`'s note, "narrowed to 90" | the exit's width | been 150 for two changes |
+
+**Not one of them failed a check.** Every one stayed a valid number of the right type in the right range. The gauntlet's click is the only one that produced a symptom at all, and the symptom was a beat holding to its deadline — which is that beat working exactly as designed, for a click that arrived nowhere.
+
+**And note what the symptom was NOT.** Hob moved for good reasons both times. The content was right and the harness went red at it: **R5j's failure mode, inside the apparatus built to catch things.** A number that rots does not announce a defect when it rots. It announces one when somebody does correct work.
+
+> **The mitigation is derivation, and it is usually cheap.** The lamp's rect is now measured from Hob's standing frame by the extractor and says so, so moving him moves it. The gauntlet's click is now `on: "lamp"` and reads that rect's centre, so it cannot miss a lamp that has moved. **A literal beside a rect is a copy, and a copy of something that moves is wrong from the first edit onward.**
+
+**Derive from the CONTENT, not from the engine** — `clickPoint` reads the room JSON with its own parser rather than asking the running game where its lamp is. Asking the engine would click exactly where the engine believes the lamp to be and pass however wrong that belief was, which is R5i.
+
+**And an unused field is never wrong about anything.** The gauntlet script's `room` said `stage-road` where the room calls itself `stage_road`. Doc 44 had specified *"must equal `manifest.startRoom`"* from the beginning. It had been wrong since the day it was written and nothing noticed, because nothing read it — it became wrong the moment a click resolved through it. **A restated identifier that nothing consumes is not safe; it is untested.**
+
+### The limit, and it is not a small one
+
+**This rule does not say derive every number. It says derive AIM, and never derive JUDGEMENT.**
+
+The same gauntlet script carries `band: [660, 864]`, which restates Room 1's walkable band — a duplicated number by exactly the definition above. **It must stay duplicated.** `engine/dev/Watch.ts` takes the band from the harness and not from the room's own walk boxes precisely so that "is this mover outside the band" is not answered using the data that decided where the band is. Deriving it would make the check agree with its subject: R5i, R5e, and a green light that means nothing.
+
+The two are told apart by one question: **if the content were wrong, would this number make the harness notice or make it agree?**
+
+| | derived | restated |
+|---|---|---|
+| where to click | ✔ the hand goes where the object is | ✘ a copy that rots |
+| the walkable band | ✘ the check would pass on any band | ✔ an independent second opinion |
+| an expected position | ✘ the staging compared with itself | ✔ written by hand from doc 43 |
+
+**Aim is where the harness reaches. Judgement is what it concludes.** Derive the first so a moving world cannot break it; write the second by hand so a wrong world cannot hide behind it.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.

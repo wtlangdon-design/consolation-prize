@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 import { chromium } from 'playwright';
 
 import { readJson, ROOT } from '../lib/content.mjs';
-import { validateScript } from './schema.mjs';
+import { clickPoint, validateScript } from './schema.mjs';
 
 /**
  * THE GAUNTLET. Doc 44.
@@ -341,7 +341,7 @@ async function sample(page, script, state, armed) {
       // both from being played twice.
       if (spec?.input?.length && !driven.has(spec.beat)) {
         driven.add(spec.beat);
-        driving = drive(page, spec.input).catch(() => {});
+        driving = drive(page, spec.input, script).catch(() => {});
       }
     }
 
@@ -364,7 +364,7 @@ async function sample(page, script, state, armed) {
           // was blind for exactly as long as it had told itself to be patient.
           // Playwright serialises calls on a page, so the two interleave
           // safely.
-          driving = drive(page, owner.input).catch((error) => {
+          driving = drive(page, owner.input, script).catch((error) => {
             state.failures.push({ beat: id, who: '-', field: 'input',
               expected: 'the input script to run', got: String(error.message ?? error),
               note: '' });
@@ -403,14 +403,22 @@ async function sample(page, script, state, armed) {
 }
 
 /** Runs a beat's input list against the page. */
-async function drive(page, input) {
+async function drive(page, input, script) {
   for (const action of input) {
     if (action.do === 'wait') {
       await page.waitForTimeout(action.seconds * 1000);
       continue;
     }
     if (action.do === 'click') {
-      await clickPlayArea(page, action.at[0], action.at[1]);
+      // `on` READS THE RECT; `at` RESTATES ONE. Beat 9's click was the literal
+      // centre of the lamp as it stood two moves of Hob ago, and when he moved
+      // it landed on nothing, wrote no flag, and held the beat to its 180s
+      // deadline -- twice, one merge apart. The rect is the thing; the number
+      // beside it was a copy, and a copy of something that moves goes wrong
+      // silently. R5k.
+      const { point, error } = clickPoint(script, action);
+      if (error) throw new Error(`input: ${error}`);
+      await clickPlayArea(page, point[0], point[1]);
       continue;
     }
     // A LINE ON SCREEN TAKES THE CLICK BEFORE THE OPTION LIST DOES, and it
