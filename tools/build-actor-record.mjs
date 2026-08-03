@@ -97,6 +97,11 @@ const CLIPS = [
 ];
 const FACINGS = ['front', 'back', 'left', 'right'];
 
+/** Per actor, per state: the clip ids that deliberately have no variant. */
+const PARTIAL_STATES = {
+  thad: { lookup: ['walk', 'recoil', 'stand'] },
+};
+
 /**
  * A CHARACTER IS DRAWN IN THE FACINGS HE HAS AND NO OTHERS, and the record
  * says which. Hob is right-facing only -- four clips against Thad's twenty --
@@ -283,6 +288,22 @@ for (const id of CHARACTERS) {
       'Doc 40\'s idle-break, which the old record could not declare because it had no '
       + 'clip for it. Played on a timer while he is idle and returning to stand '
       + 'afterwards, never looped. 2/s over twelve frames is a six-second gesture.',
+    // WHICH CLIPS DELIBERATELY LACK A STATE VARIANT, and why each one is a
+    // decision rather than a gap. check-state-coverage reads this: a state
+    // declared on one clip and absent from another UNSETS ITSELF whenever the
+    // other plays, which is how the coach's door flashed shut every time the
+    // horse pawed.
+    //
+    // Thad's `lookup` is genuinely partial for three of them. He does not
+    // walk, recoil or settle to `stand` while he is looking up at the driver
+    // -- beat 3 sets it after he has arrived and beat 6 clears it before
+    // anything else moves him -- and turning him is meant to drop it, which
+    // clipOf's fallback does for free.
+    //
+    // `idle-break` IS NOT LISTED, and that absence is the point: it fires on
+    // its own timer while he stands through the whole conversation, so it is
+    // the one clip that will actually play while the state is held.
+    ...(PARTIAL_STATES[id] ? { partialStates: PARTIAL_STATES[id] } : {}),
     clips,
   };
 

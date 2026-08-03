@@ -19,6 +19,13 @@
   "idleRate": 2.4,
   "idleBreakRate": 2,
   "idleBreakNote": "Doc 40's idle-break, which the old record could not declare because it had no clip for it. Played on a timer while he is idle and returning to stand afterwards, never looped. 2/s over twelve frames is a six-second gesture.",
+  "partialStates": {
+    "lookup": [
+      "walk",
+      "recoil",
+      "stand"
+    ]
+  },
   "clips": [
     {
       "id": "stand",
