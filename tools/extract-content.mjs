@@ -494,6 +494,12 @@ function stageDriver() {
     schema: 1,
     id: 'STAGE_DRIVER',
     name: 'THE STAGE DRIVER',
+    // WHO ANSWERS, by speaker id. An option's `exchange` names a speaker per
+    // line; its own `say` and `repeat` do not, and reported null -- so every
+    // line in this tree drew in the fallback ink, which is Thad's. The tree
+    // is the driver's and the answers are his; this says so once rather than
+    // being inferred at each option.
+    speaker: 'stage_driver',
     note: 'EXTRACTED from docs/17-opening-sequence.md by tools/extract-content.mjs. Do not edit: '
       + 'change doc 17 and re-run. v3.1 restores the tree at FOUR options after v3 cut it to '
       + 'zero -- one of each kind, teaching that dialogue branches, that the comic option costs '

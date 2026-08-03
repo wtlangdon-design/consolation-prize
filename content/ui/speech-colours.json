@@ -3,12 +3,13 @@
   "note": "A colour per speaker for spoken lines. Monkey Island did this and it is how a player tells who is talking without an attribution line.",
   "whyNotInTheSpeakersTable": "The speakers table lives in content/sequences/opening.json, which is EXTRACTED from doc 17 by tools/extract-content.mjs and rewritten whole on every run -- a colour edited there would survive until the next extraction and then vanish, silently, which is the worst way for a value to be lost. This file is hand-authored for the same reason ui.timing is: it is a number somebody will want to change after watching a scene.",
   "keyedBy": "Speaker id, the same id the sequence's speakers table and a dialogue exchange both use. Not the character's name -- a name is content and changes; an id is structure and does not.",
-  "fallback": "A speaker with no colour here draws in the default, which is the ink every line used before this existed. Absent is legible rather than invisible, so adding a character does not require remembering this file.",
+  "fallback": "A speaker with no colour here draws in the default -- the palette role inkBright, #efe7d7, the ink every line used before this existed. Absent is legible rather than invisible, so adding a character does not require remembering this file.",
+  "fallbackMustNotCollide": "AND NO DECLARED COLOUR MAY EQUAL THE FALLBACK, which tools/check-speech-colours.mjs asserts. Thad was #f4ecd8 against a fallback of #efe7d7 -- a difference of five in each channel, invisible on screen -- so a line that failed to find its speaker drew in Thad's colour and looked exactly like a line that had found him. That is unfalsifiable by looking, and it hid the driver's whole tree drawing as though Thad said it. An uncoloured line must be VISIBLY uncoloured rather than convincingly wrong.",
   "chosen": "OPTION D, ruled by Tyler from a rendered sample on the actual plate at the actual size. Four candidates were drawn on room-01-stage-road.png with the game's own face at x6 -- not proposed as hex values, because every colour proposed in the abstract this session has been wrong.",
   "speakers": {
     "thad": {
-      "colour": "#f4ecd8",
-      "note": "The warm off-white every line used to be drawn in. He talks most, so his is the one that must not tire the eye, and leaving him where he was means the change reads as the OTHERS being marked rather than everybody being recoloured."
+      "colour": "#f6ecc4",
+      "note": "Option D's warm off-white, WARMED UNTIL IT IS NOT THE FALLBACK. He talks most, so his is the one that must not tire the eye -- but at #f4ecd8 he sat five units from inkBright in every channel, and a fallback that equals a real speaker's colour cannot be told from a lookup that worked. The hue is option D's; the distance from #efe7d7 is the requirement. Adjust freely, as long as the check still passes."
     },
     "stage_driver": {
       "colour": "#a8b8a0",

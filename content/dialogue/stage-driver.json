@@ -2,6 +2,7 @@
   "schema": 1,
   "id": "STAGE_DRIVER",
   "name": "THE STAGE DRIVER",
+  "speaker": "stage_driver",
   "note": "EXTRACTED from docs/17-opening-sequence.md by tools/extract-content.mjs. Do not edit: change doc 17 and re-run. v3.1 restores the tree at FOUR options after v3 cut it to zero -- one of each kind, teaching that dialogue branches, that the comic option costs nothing and answers, and that one option ends a scene. v2's nine exchanges are void: Mott stays out, and the premise is redistributed into town where the sources disagree.",
   "nodes": {
     "root": {

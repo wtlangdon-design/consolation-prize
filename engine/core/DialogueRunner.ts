@@ -20,12 +20,19 @@ export interface SelectionResult {
    */
   rest: { speaker: string; line: string }[];
   /**
-   * Who says `say`, when the line records it.
+   * Who says `say`.
    *
-   * An exchange names a speaker per line; an option's own `say` or `repeat`
-   * does not, and reports null rather than being attributed by inference. Doc
-   * 44's probe reports this and the gauntlet asserts on it -- an attribution
-   * guessed here would be a guess asserted as a fact there.
+   * An exchange names a speaker per line and keeps it. An option's own `say`
+   * or `repeat` names none, and that used to report NULL -- which meant both
+   * "nobody said this" and "the character whose tree this is said it". Two
+   * different facts down one wire, and the second is far more common: every
+   * line in the driver's tree came back unattributed, drew in the fallback
+   * ink, and the fallback ink is the colour Thad speaks in. The whole
+   * conversation looked like Thad talking to himself.
+   *
+   * An unattributed answer is now the TREE'S OWNER, which the tree declares.
+   * That is not an inference: the answers in a character's tree are that
+   * character's. Null now means only what it says.
    */
   sayer: string | null;
   /** True once the conversation has closed. */
@@ -311,6 +318,12 @@ export class DialogueRunner {
     } else {
       say = option.say ?? null;
     }
+    // AN UNATTRIBUTED ANSWER IS THE TREE'S OWNER, NOT NOBODY. An exchange
+    // names its own speakers and keeps them; a plain `say` or `repeat` is the
+    // character whose tree this is, and the tree says which. Applied after the
+    // branches rather than inside each, so a line that DID name a speaker
+    // keeps the one it named.
+    if (say !== null && sayer === null) sayer = this.activeTree.speaker ?? null;
 
     const ends = option.tag === EXIT_TAG;
     const goto = !ends && option.goto ? option.goto : null;

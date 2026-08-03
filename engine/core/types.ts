@@ -742,6 +742,16 @@ export interface DialogueFile {
   schema: number;
   id: string;
   note?: string;
+  /**
+   * Who answers, by speaker id.
+   *
+   * An option's `exchange` names a speaker per line and an option's own `say`
+   * or `repeat` does not -- so those reported null, and null meant BOTH
+   * "nobody said this" and "the speaker is the tree's owner". Two different
+   * facts down one wire: every line in the driver's tree drew as though Thad
+   * had said it, because the fallback ink is the colour Thad speaks in.
+   */
+  speaker?: string;
   start: string;
   nodes: Record<string, DialogueNode>;
 }

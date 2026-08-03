@@ -34,6 +34,7 @@ import { check as entityFallback } from './check-entity-fallback.mjs';
 import { check as drawerCoverage } from './check-drawer-coverage.mjs';
 import { check as keyFringe } from './check-key-fringe.mjs';
 import { check as gauntletScript } from './check-gauntlet-script.mjs';
+import { check as speechColours } from './check-speech-colours.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -73,6 +74,7 @@ const CHECKS = [
   drawerCoverage,
   keyFringe,
   gauntletScript,
+  speechColours,
 ];
 
 let failed = 0;
