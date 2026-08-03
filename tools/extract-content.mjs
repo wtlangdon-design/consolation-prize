@@ -174,8 +174,61 @@ function opening() {
   // doc so the correction is one ruling in one place.
   const carried = { '4': 'STAGE_DRIVER', '5': 'STAGE_DRIVER', '6': 'STAGE_DRIVER' };
 
+  /**
+   * WHERE THE BEATS HAPPEN. Doc 17 says what occurs; these say where, and they
+   * live here for the same reason `doneFlag` does -- so no .ts file carries a
+   * coordinate and no prose document carries a pixel.
+   *
+   * Every beat carried NO staging until now, so the opening played as spoken
+   * lines over a still picture: Thad never climbed down, the driver never
+   * moved, Hob never crossed, and the coach vanished rather than leaving. The
+   * mechanism was complete and tested the whole time. The marks were never
+   * written.
+   *
+   * The numbers are measured, not invented. The walkable band is 660-864 and
+   * the walk box x256-1629, both approved on sight. The coach is 956x389 at
+   * x190 with its wheels on the road at y742, derived from 240px per man. The
+   * depth curve runs 222 at y660 to 263 at y830. Q4 ruled Room 1's ORIGINAL
+   * numbers not a specification; these are not those numbers.
+   */
+  const staging = {
+    // Beat 2: he arrives ABOARD and gets down. The player-audit fix was that
+    // nobody saw him arrive, so there was no reason to think the man he talks
+    // to drove him.
+    2: [
+      { do: 'chore', actor: 'thad', clip: 'aboard-coach' },
+      { do: 'chore', actor: 'thad', clip: 'alight-coach' },
+      { do: 'walk', actor: 'thad', to: [600, 742] },
+      { do: 'face', actor: 'thad', facing: 'right' },
+    ],
+    // Beat 3: he crosses to where he can speak up at the box.
+    3: [
+      { do: 'walk', actor: 'thad', to: [820, 760] },
+      { do: 'face', actor: 'thad', facing: 'right' },
+    ],
+    // Beat 6: the case comes off the roof and into the mud, and he stoops to it.
+    6: [
+      { do: 'face', actor: 'thad', facing: 'right' },
+      { do: 'chore', actor: 'thad', clip: 'pickup-low' },
+    ],
+    // Beat 6b: ERRATA 38's entire reason for existing. THE COACH LEAVES. A
+    // coach that vanishes on a click is not a coach leaving.
+    '6b': [{ do: 'move', actor: 'coach', to: [2400, 742], seconds: 3 }],
+    // Beat 9: Hob crosses the road with his lamp and is gone. Right-facing
+    // only, so he walks the way he is drawn.
+    9: [
+      { do: 'walk', actor: 'hob', to: [1560, 700] },
+      { do: 'walk', actor: 'hob', to: [420, 700] },
+    ],
+    // Beat 10: west, toward town.
+    10: [
+      { do: 'walk', actor: 'thad', to: [300, 800] },
+      { do: 'face', actor: 'thad', facing: 'left' },
+    ],
+  };
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];
+    if (staging[entry.beat]) entry.staging = staging[entry.beat];
     if (carried[entry.beat]) {
       entry.carriedBy = carried[entry.beat];
       entry.control = 'player';

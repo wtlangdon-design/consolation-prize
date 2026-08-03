@@ -35,7 +35,32 @@
       "description": "The coach arrives and halts with Thad visibly aboard. He climbs down, straightens his coat, looks at the town. The driver gets up on the wheel to reach the roof rack",
       "control": "none",
       "seconds": 8,
-      "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen"
+      "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen",
+      "staging": [
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "aboard-coach"
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "alight-coach"
+        },
+        {
+          "do": "walk",
+          "actor": "thad",
+          "to": [
+            600,
+            742
+          ]
+        },
+        {
+          "do": "face",
+          "actor": "thad",
+          "facing": "right"
+        }
+      ]
     },
     {
       "beat": "3",
@@ -45,6 +70,21 @@
       "set": {
         "T_OPENING_SAID": true
       },
+      "staging": [
+        {
+          "do": "walk",
+          "actor": "thad",
+          "to": [
+            820,
+            760
+          ]
+        },
+        {
+          "do": "face",
+          "actor": "thad",
+          "facing": "right"
+        }
+      ],
       "lines": [
         {
           "speaker": "thad",
@@ -98,6 +138,18 @@
       "set": {
         "T_CASE_DOWN": true
       },
+      "staging": [
+        {
+          "do": "face",
+          "actor": "thad",
+          "facing": "right"
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "pickup-low"
+        }
+      ],
       "carriedBy": "STAGE_DRIVER",
       "lines": [
         {
@@ -115,7 +167,18 @@
       "description": "The coach DEPARTS — it does not vanish. Team walks, wheels turn, it leaves frame right over two or three seconds and the sound goes with it",
       "control": "none",
       "seconds": 3,
-      "note": "Player-audit fix. A coach that disappears on a click is not a coach leaving"
+      "note": "Player-audit fix. A coach that disappears on a click is not a coach leaving",
+      "staging": [
+        {
+          "do": "move",
+          "actor": "coach",
+          "to": [
+            2400,
+            742
+          ],
+          "seconds": 3
+        }
+      ]
     },
     {
       "beat": "7",
@@ -139,6 +202,24 @@
       "set": {
         "T_HOB_CROSSING": true
       },
+      "staging": [
+        {
+          "do": "walk",
+          "actor": "hob",
+          "to": [
+            1560,
+            700
+          ]
+        },
+        {
+          "do": "walk",
+          "actor": "hob",
+          "to": [
+            420,
+            700
+          ]
+        }
+      ],
       "lines": [
         {
           "speaker": "hob",
@@ -158,7 +239,22 @@
       "beat": "10",
       "description": "West, toward town",
       "control": "player",
-      "note": "See the descent, below"
+      "note": "See the descent, below",
+      "staging": [
+        {
+          "do": "walk",
+          "actor": "thad",
+          "to": [
+            300,
+            800
+          ]
+        },
+        {
+          "do": "face",
+          "actor": "thad",
+          "facing": "left"
+        }
+      ]
     }
   ]
 }

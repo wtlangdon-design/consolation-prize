@@ -936,11 +936,31 @@ test('errata 30a: a duration on a beat the player controls is refused', async ()
     /control is player/,
   );
 
-  // And an automatic segment lowers its stated seconds into a wait step.
-  const automatic = segmentsOf(opening)
-    .find((segment) => segment.kind === 'automatic' && segment.beats.some((b) => b.seconds));
-  const steps = stepsFor(automatic!);
-  assert.ok(steps.some((step) => step.kind === 'wait'), 'the duration became a wait');
+  // And an automatic segment lowers its stated seconds into a wait step --
+  // asserted against a CONSTRUCTED beat, not one found in the content.
+  //
+  // It used to search the opening for a beat with `seconds`, which passed only
+  // while some beat had a duration and no staging. Authoring the opening's
+  // staging removed the last such beat and this failed, reporting a broken
+  // rule when the rule was working: a beat that stages something does not need
+  // a dead hold, which is exactly what Opening.ts asserts.
+  const automatic = segmentsOf(opening).find((segment) => segment.kind === 'automatic')!;
+  const held = { ...automatic, beats: [{ ...automatic.beats[0], seconds: 3, staging: [] }] };
+  assert.ok(stepsFor(held).some((step) => step.kind === 'wait'), 'the duration became a wait');
+
+  // And a beat that stages something does NOT get one.
+  const staged = {
+    ...automatic,
+    beats: [{
+      ...automatic.beats[0],
+      seconds: 3,
+      staging: [{ do: 'face' as const, actor: automatic.beats[0].actor ?? 'player', facing: 'right' as const }],
+    }],
+  };
+  assert.ok(
+    !stepsFor(staged).some((step) => step.kind === 'wait'),
+    'staging replaces the hold rather than adding to it',
+  );
 });
 
 test('two rooms may share an exit id without sharing its repeat cursor', async () => {
