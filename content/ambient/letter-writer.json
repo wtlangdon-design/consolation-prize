@@ -4,8 +4,8 @@
   "name": "THE LETTER-WRITER",
   "note": "Doc 07 #1. Writes letters home for men who can't. Charges by the page. Resolves the notice board hotspot. Doing better than anyone, because he sells the one thing that never runs out.",
   "room": "main_street",
-  "x": 30,
-  "y": 112,
+  "x": 180,
+  "y": 672,
   "zone": 1,
   "approachRadius": 40,
   "tree": "amb_letter_writer",
@@ -13,12 +13,12 @@
     "R_NOBODY": "Letters home. Ten cents the page.",
     "R_SWINDLED": "Letters home. Might want to leave a bit out.",
     "R_RACCOON": "I could make the raccoon sound better.",
-    "R_SURVEYED": "‘Had my land surveyed by a professional.’ See? Free of charge.",
-    "R_BORDERS_MOTT": "Now you’ve got something to write about. Twenty cents.",
-    "R_LOST_DUEL": "I’d leave the duel out entirely.",
-    "R_WON_DUEL": "Beat Deke Vessel. That’s a page and a half right there.",
+    "R_SURVEYED": "\u2018Had my land surveyed by a professional.\u2019 See? Free of charge.",
+    "R_BORDERS_MOTT": "Now you\u2019ve got something to write about. Twenty cents.",
+    "R_LOST_DUEL": "I\u2019d leave the duel out entirely.",
+    "R_WON_DUEL": "Beat Deke Vessel. That\u2019s a page and a half right there.",
     "R_DEAD": "Do you want me to write to her, or would that be strange?",
-    "R_TRUTH": "Twelve years I’ve been making things up on this street and you did it in one afternoon."
+    "R_TRUTH": "Twelve years I\u2019ve been making things up on this street and you did it in one afternoon."
   },
   "sprite": {
     "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
@@ -39,5 +39,6 @@
     ],
     "rate": 0.31,
     "phase": 0.0
-  }
+  },
+  "migrationNote": "ERRATA 54, x6. Was (30, 112) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there."
 }

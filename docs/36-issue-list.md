@@ -2394,6 +2394,48 @@ Q60's other two questions are untouched: which verb a mover answers, and where i
 
 ---
 
+## Q85 · The ambient layer migrated, and the map seller lands in a hole
+
+**Ruled: mechanical ×6, verified per character rather than assumed.**
+
+| | was | now | lands in |
+|---|---|---|---|
+| `letter_writer` | 30, 112 | **180, 672** | `mud_mid_west` ✔ |
+| `pie_woman` | 150, 126 | **900, 756** | `mud_near` ✔ |
+| `map_seller` | 250, 116 | **1500, 696** | **outside every walk box** |
+
+**The map seller falls in the gap between `mud_mid_west` and `mud_mid_east`** — at y696 those boxes end at x≈1266 and begin at x≈1620, and he lands at 1500. That gap is the mouth of the claims road.
+
+**Not moved.** The ×6 is arithmetically exactly right and the ruling was mechanical; *where a character stands* is authored content, and picking a new spot for him would be inventing placement under cover of a migration. He draws and clicks correctly either way — `heightForZone` reads his `zone`, not the boxes — so this is a composition question, not a fault. **A map seller standing at the mouth of the road to the claims may well be where he belongs.** Tyler's call.
+
+### The half-width is proportional, and the two answers agreed today
+
+`NPC_HALF_WIDTH = 0.2` of drawn height. At 240 that is 48, which is exactly ×6 of the old flat 8 — so **the mechanical answer and the proportional answer are the same number today**, and storing the ratio records where the number came from rather than re-choosing it.
+
+**The reason to store it is depth, not the next zone change.** Drawn height already varies inside one room: 222 at the back of Room 1's band against 98 up the road. A fixed 48 would be a 96px box on a man drawn 98 tall — **wider than he is tall** — swallowing whatever stood beside him. The ambient three sit at fixed positions so it would not bite today; the mover hit path crosses depth by definition and is built on top of this.
+
+---
+
+## Q86 · The legibility ladder: the gait dies before the silhouette does
+
+`renders/thad-back-walk-legibility-ladder.png` at 1:1 and `…@3x-small-end.png` magnified. Room 1's night ground (#353539), common ground line, `thad-walk-back` through `downscale.py` at one scale factor per clip.
+
+**AN OBJECTIVE NUMBER, WHICH IS BETTER THAN MY EYE.** `downscale.py` reports distinct pictures at every rung, and the clip holds **5 of 8** all the way down to 22 — then drops to **4 at 16 and 12**.
+
+| height | 120 | 90 | 70 | 55 | 45 | 35 | 28 | 22 | 16 | 12 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| distinct | 5 | 5 | 5 | 5 | 5 | 5 | 5 | 5 | **4** | **4** |
+
+**So the WALK stops being a walk between 22 and 16** — two of its eight frames become the same picture, which is a gait losing a position, and that happens before anybody has to judge a silhouette.
+
+**What I see, offered as observation and not as the ruling:** at 45 and 35 he is plainly a man in a coat and hat; at 28 the coat and hat still read and the legs are merging; at 22 the hat is a bump and the legs a stub; at 16 he is a dark blob; at 12 a smudge.
+
+**And R5b2 applies to my own sheet.** The 3× magnification is not how this will be seen — it is there to make the small end examinable at all. **The 1:1 sheet is the honest one** and it is the one to rule from.
+
+**The number to carry forward: 22.** Below it the animation loses a picture, which is measurable, rather than a silhouette losing legibility, which is taste. If Tyler wants him smaller than that, the answer is purpose-drawn far-distance art with a handoff — which is what Monkey Island's dot was, different art rather than Guybrush scaled down.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
