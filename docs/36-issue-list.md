@@ -1623,6 +1623,91 @@ That is a constraint, not an omission. It was proposed that Hob carry exposition
 
 ---
 
+## Q65 · The case cannot enter the panel: doc 17 points at doc 23 for its lines and doc 23 has no case
+
+**Q11 is ruled and two thirds of it are built.** The case comes down at beat 6 — it is its own drawn layer, gated on `T_CASE_DOWN`, so writing the flag *is* the case moving — Thad stoops to it with `pickup-low`, and beat 6b holds him in `carry` while the coach leaves. That last one is the bible's opening image: *"a stage coach pulls away, revealing a young man in a good coat standing in mud, holding a case."*
+
+**The third part cannot be built, and the reason is a document pointing at another document that does not answer.**
+
+`case_mud`'s PICK UP already carries `take: true` — doc 17 calls it *"the first PICK UP in the game and it teaches the verb"* — but the hotspot has **no `item`**, and `resolvePure` only moves something into inventory when `action.take && target.item`. So the case is picked up and goes nowhere.
+
+**An item needs a record**, and `content/items/` has nine and not this one. Doc 17 state C says where its words live:
+
+> **State C — carried.** The hotspot is gone and the case is inventory. **It has no LOOK or LISTEN lines of its own** — an object that does not exist cannot answer. *Its inventory lines are doc 23's.*
+
+**Doc 23 has nine entries — the tuning fork, the letter, four dollars, the deed, the company map, the horse blanket, the pickaxe, the filing fee — and no case.** It mentions the case twice, both times inside the fork's lines: *"My father put this in the case first"*. The case's own inventory lines were never written.
+
+**Two ways out, and both are Tyler's:**
+
+1. **Doc 23 gains a case entry**, and the item is extracted from it like the other nine.
+2. **The case answers from doc 13's fallback pools**, which is a legitimate design — an item with no authored lines gets the generic ones — but it would be the only Act I item that does, and the case is the one the opening teaches PICK UP on.
+
+**A third thing is worth noting for whichever is chosen:** doc 17 still carries two LISTEN variants under state C, left over from the single-state version. The extractor reports them as orphans and drops them, correctly, because doc 17's own text says state C has no lines of its own. They are duplicates of state B's second and third. If doc 23 gains an entry they are not it.
+
+**Nothing invented.** `name` would be "HIS CASE", which the hotspots already carry, but a name without lines is half an item and which half is missing is a decision about the writing.
+
+---
+
+## Q66 · The overlap check failed seventeen times on a correct tree, and overlap was never the rule
+
+**Not a defect in the content. A defect in the check, caught before it was believed.**
+
+The check argued for in Q63 — *"two targets whose rects intersect, where one carries `travelWhenTold`, is a defect by construction"* — was first written as *no exit shares a rectangle with anything live at the same time*. It failed **seventeen times across six rooms**, none of them defects:
+
+| Room | Exit | Overlaps |
+|---|---|---|
+| main_street | `to_hotel` | `boardwalk`, `false_fronts`, `mud` |
+| main_street | `to_clarion` | `posted_notices`, `dog`, `false_fronts` |
+| main_street | `to_assay_office` | `boardwalk`, `false_fronts` |
+| main_street | `to_company` | `company_sign`, `false_fronts` |
+| main_street | `to_nugget` | `false_fronts` |
+| main_street | `to_claims_road` | `mud` |
+| nugget, assay_office ×2, claims_registrar, thads_room | five more | scenery |
+
+**Overlap is the design, and the engine says so in its own words.** `GameState.targets` is `[...room.exits, ...room.hotspots]`, and the comment above it reads *"scenery first made every exit in the room unclickable."* A door painted on the front of a building is **supposed** to sit inside `false_fronts`; the boardwalk and the mud run the full 1920 of Room 2 underneath everything. Ordering is how the room is composed, not an accident the check should police.
+
+**A check that fails on the design teaches people to ignore it**, and an ignored check is worse than no check — it is a green square that means nothing. This one would have been switched off or `expected`-listed within a day, and the day after that it would have stopped catching the thing it was built for.
+
+**What is actually wrong is one of two things, and neither of them is "overlap":**
+
+1. **A target with no pixels left.** Measured by subtracting every simultaneously-live target that answers *before* it and asking whether anything remains — not by counting intersections. Half-covered is still clickable. Entirely covered is not in the room.
+2. **Any overlap at all where the exit declares `travelWhenTold`.** That exit does not walk anywhere: it writes a flag and hands a beat its cue. A stray click on it does not open a wrong door, it **begins the game's closing shot**. It is the one target where "the other one is still mostly clickable" is not a defence.
+
+Rewritten to those two, plus Q63's writer clause, it passes: **107 target presentations checked for total occlusion, 1 `travelWhenTold` exit for any overlap, 1 exit gate for a writer.**
+
+**And it was made to fail on purpose before being believed** (R5e — a check must not share its subject's assumptions, and a check nobody has seen fail is a check nobody has tested). Putting `road_west` back over the lamp where the defect shipped produces all three of:
+
+```
+"lamp_gone" has no clickable pixels left. Every part of 610,586,60,73 is covered by
+  targets that answer before it
+exit "road_west" declares travelWhenTold and overlaps "lamp_gone" by 60x73px
+exit "road_west" declares travelWhenTold and overlaps "mud" by 180x30px
+```
+
+**Per-state bounds are handled on both sides, and asymmetrically on purpose.** A target hit-tests as any rect it can present (`to_assay_office` is 120×168 shut and 120×192 open), so every presentation is checked as a subject. But a target *covers* only where it covers in **every** state — the intersection, not the union — because something that hides you in one state and not another has not made you unreachable, it has made you conditional, and conditional is what `when` is for.
+
+**What it still does not check: whether a rect sits on the thing it names.** A hotspot 200px from its object passes every clause. That is a picture question and it belongs to a person looking at an overlay.
+
+---
+
+## Q67 · The gauntlet's click coordinates rot, and only a failing run says so
+
+**Second time, same direction, one merge apart.**
+
+Beat 9's input clicks the watchman's lamp, because clicking the lamp is how you speak to Hob (Q60: no mover can be clicked, so the lamp he carries is the only part of him a player can address). The click was `540,528` — dead centre of the lamp **when the lamp was x480–600 y444–612**.
+
+Hob has moved twice since. He stands at `600,700` now, the flame was re-measured at that position, and the hotspot moved with him to **x610–670 y586–659**. The old coordinate landed on nothing, wrote no flag, and the beat that waits on that flag held to its deadline — a 180s timeout, exactly as designed. Corrected to `640,622`.
+
+**The beat number survived the move. The rect did not.** Everything else in the script is named — actors by id, clips by name, beats by number — and names survive things moving. A coordinate is the one thing in the file that refers to the world by position, and it is therefore the one thing that goes silently wrong.
+
+**Nothing static caught it, and the run catching it is honesty 3 working**: *a green gauntlet against a wrong script is worse than none*. The script was wrong and the gauntlet went red, which is the correct outcome and the second time this beat has produced it (the first was when beat 9 became a response and the script had no input at all).
+
+**A check is possible and is not built.** It would need each `click` to declare which room it is in — the script does not carry that today, and the schema is the project owner's. Given a room, the check is one line: the point must fall inside some target that can be live. Independent of the run in the R5e sense, since it reads the room JSON and never starts a browser.
+
+**Filed, not built.** Two rots is a pattern; three would be a reason.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

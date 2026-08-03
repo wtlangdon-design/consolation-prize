@@ -174,6 +174,12 @@ function opening() {
   // never leaving the roof, which is a separate and larger gap.
   const flags = {
     '3': { T_OPENING_SAID: true },
+    // THE CASE COMES DOWN AT BEAT 6, and the write is honest again. It was
+    // removed because nothing moved the case and a flag must not claim what
+    // the picture does not show; the case is its own drawn layer now, gated on
+    // this, so writing it IS the case moving. Q11 as ruled: roof to mud to
+    // hand, and then it is inventory.
+    '6': { T_CASE_DOWN: true },
     // HOB IS ON SCREEN FROM THE END OF BEAT 7, so the flag that says so is
     // written there rather than at beat 9. It was on beat 9 because he used to
     // walk in during it; he now stands at the roadside before the player is
@@ -325,11 +331,26 @@ function opening() {
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],
+    // BEAT 6b HOLDS HIM IN `carry` WHILE THE COACH GOES, and that one moment
+    // is the whole reason the clip exists. Q11 ruled the case is an inventory
+    // abstraction -- no carry locomotion, because that is 36 frames of stand
+    // and walk in four facings and the next thing he does is walk away from us
+    // at 98px tall where none of it would be seen -- with ONE exception, and
+    // this is it.
+    //
+    // The bible's opening image is "a stage coach pulls away, revealing a
+    // young man in a good coat standing in mud, holding a case." That is this
+    // beat. `carry` is a single held pose and serves it exactly: he holds it
+    // while the coach leaves, and it is in the panel afterwards.
     // BEAT 6b: errata 38's whole reason for existing. It LEAVES; it does not
     // vanish. `from` places the mover -- `walk` never places, only `move` does.
     // No `from` here: beat 2 placed it, and repeating the placement would
     // teleport it back to its mark if anything had nudged it.
-    '6b': [{ do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 }],
+    '6b': [
+      { do: 'face', actor: 'thad', facing: 'right' },
+      { do: 'chore', actor: 'thad', clip: 'carry' },
+      { do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 },
+    ],
     // BEAT 7 NO LONGER TOUCHES HIM -- he has stood at the roadside since beat
     // 2. Kept as an EMPTY list rather than deleted so the beat still lasts as
     // long as doc 17 says: `stagingTakesTime` is false for an empty list, so
@@ -375,6 +396,38 @@ function opening() {
     ],
     // BEAT 10 STAGES NOTHING, deliberately. Going west is the player's move to
     // make; it previously walked the protagonist during a player-control beat.
+    //
+    // BEAT 11 IS THE ENDING. It waits on T_THAD_LEAVING, which road_west
+    // writes when the player takes it, and it does the travel itself at the
+    // end -- which is why road_west declares `travelWhenTold` and does not go
+    // anywhere on its own. An exit that moves you the instant you touch it
+    // cannot also be a departure you watch.
+    //
+    // THE ROUTE LEAVES THE WALK BOX, so it is a `move` and not a `walk`:
+    // errata 38's own case, a mover crossing no walk box at all. `move`
+    // already plays the walk cycle -- `glideTo` sets the glide, `isWalking` is
+    // true while it holds, and `clip` returns `walk` whenever `isWalking` --
+    // and it faces toward the destination first, which up the hill is
+    // dominant-vertical and resolves to `back`. thad-walk-back exists in all
+    // four facings. No new step kind, and the gait advances from distance now,
+    // which is why that fix came first.
+    //
+    // x575 IS THE GAP IN THE FENCE, measured off the plate with a ruler:
+    // x500-650, centre 575. y500 is where the depth curve's third sample puts
+    // him at 98px -- a man well up the road, still walking when Main Street
+    // arrives rather than shrunk to nothing.
+    //
+    // SIX SECONDS. The title comes up over the mountains while he goes, and
+    // the walk is what the credits are authored to rather than the other way
+    // round.
+    11: [
+      { do: 'move', actor: 'thad', to: [575, 500], seconds: 6 },
+      // AND THEN THE TRAVEL, through the exit that declined to do it itself.
+      // `interact` lowers to the `say`-with-interact step the runner has
+      // always had, which resolves the verb where it stands -- room change
+      // included -- and produces no words.
+      { do: 'interact', target: 'road_west', verb: 'WALK_TO' },
+    ],
   };
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];
@@ -1437,8 +1490,96 @@ function openingCase() {
   // IT LIVES IN THE EXTRACTOR because the room file is regenerated whole. Hand
   // -editing it survives until the next extraction and then vanishes silently,
   // which is the same trap the speakers table sets for a colour.
+  // THE WEST EXIT STARTS THE ENDING RATHER THAN TAKING IT. Taking it writes
+  // T_THAD_LEAVING, which releases doc 17 beat 11; the beat walks him through
+  // the gap and does the travel itself when it ends. An exit that moves you
+  // the instant you touch it cannot also be a departure you watch.
+  //
+  // Both here rather than hand-edited into the room, because the room file is
+  // regenerated whole and a hand edit survives until the next extraction.
+  const west = room.exits.find((entry) => entry.id === 'road_west');
+  if (!west) throw new Error('stage road has no "road_west" exit to start the ending from');
+  // THE GAP IS THE OPENING IN THE FENCE, WHICH IS ABOVE THE BAND. The rect ran
+  // y480-700 and reached down into the walkable ground, where it sat on top of
+  // THE WATCHMAN'S LAMP -- and `targetAt` returned the exit, so clicking Hob's
+  // lantern started the ending instead of speaking to him. Found by the
+  // gauntlet: its lamp click wrote no flag and beat 9 held until the deadline.
+  //
+  // MEASURED: Hob stands at (475, 700) drawn 224 tall, and the flame in his own
+  // frames lands at world x510-517, y595-615 -- inside the gap's x500-650.
+  // They are in the same column of the picture, so the fix is the exit's
+  // HEIGHT: the fence's opening is what you walk through, and the lantern
+  // hangs below it.
+  west.rect = [500, 470, 150, 110];
+  west.when = { T_HOB_GONE: true };
+  west.rectNote = 'THE FULL GAP, x500-650, measured off the plate with a ruler. It was narrowed '
+    + 'to x500-590 so it could coexist with the lamp, which left Hob NEITHER BLOCKING NOR CLEAR '
+    + '-- a man in a doorway you walk around. Q63: he blocks it, and clearing him is the way '
+    + 'out.\n\ny470-580 IS THE OPENING IN THE FENCE and stops above the lantern, which is the '
+    + 'separation that survives him leaving. The gate closes the exit while he is there, so the '
+    + 'two are never live together WHILE HE STANDS -- but lamp_gone is live at exactly the same '
+    + "time as the exit, at the lamp's own rect, and it would inherit the collision. Splitting "
+    + 'them VERTICALLY is what makes that impossible: the fence opening is what you walk '
+    + 'through and the lantern hangs below it, and no sideways nudge is honest because they '
+    + 'share a column.';
+  // SET HERE RATHER THAN LEFT WHERE IT WAS. `note` said "NARROWED FROM 150
+  // WIDE TO 90 BECAUSE HOB STANDS IN THIS GAP", which stopped being true when
+  // the separation went vertical and the width went back to 150. Nothing in
+  // this file was setting it, so it survived two rect changes describing
+  // neither -- a field the generator does not own cannot be kept honest by
+  // the generator, and the extractor merges into the room rather than writing
+  // it fresh, so a stranded string stays stranded forever.
+  west.note = 'THE FULL WIDTH OF THE GAP, x500-650. It was cut to 90 wide to dodge the lamp '
+    + 'sideways; that is not the shape of the problem. Hob and the lantern are in the SAME '
+    + 'COLUMN of the picture as the way out, so the only honest separation is vertical: the '
+    + 'opening in the fence is what you walk through and the lantern hangs below it.\n\n'
+    + 'Thad walks through at 575. Q63 gates it on T_HOB_GONE so it is shut while he stands '
+    + 'there -- but lamp_gone is live at the same time as the exit, so the geometry has to '
+    + 'hold on its own and not lean on the gate. tools/check-exit-collisions.mjs asserts that '
+    + 'it does.';
+  west.setOnTransit = { T_THAD_LEAVING: true };
+  west.travelWhenTold = true;
+  west.endingNote = 'Doc 17 beat 11. Taking this writes T_THAD_LEAVING and goes nowhere; '
+    + 'the beat that flag releases walks him through the gap and travels at its end. '
+    + 'setOnTransit exists because doc 14 says transit produces no line -- and a flag write '
+    + 'is not a line, which is the same argument stateOnTransit is made from.';
+
   const lamp = room.hotspots.find((entry) => entry.id === 'lamp');
   if (!lamp) throw new Error('stage road has no "lamp" hotspot for Hob to be spoken to through');
+  // AND IT IS WHERE THE LANTERN ACTUALLY IS. The rect was x480-600 y444-612,
+  // authored for a man CROSSING the road; he stands still at (475, 700) now
+  // and the flame in his own idle frames lands at world x510-517, y595-615 at
+  // his drawn 224. The old rect was mostly empty sky above it.
+  // MEASURED AT HIS CURRENT POSITION, NOT RECONCILED WITH AN OLD ONE. He was at
+  // (475, 700) when the last rect was derived and he is at (600, 720) now; the
+  // depth curve puts him at 230 tall there and the flame in his own idle frames
+  // lands at world x636-643, y612-632. Both rects came from where he stood, and
+  // he moved, so both were re-measured rather than argued about.
+  for (const target of [lamp, room.hotspots.find((entry) => entry.id === 'lamp_gone')]) {
+    if (!target) continue;
+    target.rect = [610, 586, 60, 73];
+    target.rectNote = 'Around the lantern: the flame in his own idle frames is at world '
+      + 'x636-643 y612-632 with him at (600, 720) drawn 230 tall, plus 26px of grab. It must '
+      + 'clear road_west, which stops at y580 -- lamp_gone especially, because that one is live '
+      + 'at the same time as the exit and would otherwise take a click meant for the lamp and '
+      + 'start the ending.';
+    // THREE READINGS OF THE SAME LANTERN, AND THE RECT HOLDS ALL THREE.
+    // x626-653 y593-618 was the lantern housing; x636-643 y612-632 was the
+    // flame at a loose threshold. They do not nest -- the second runs 14px
+    // below the first, which cannot be true of a flame inside a lamp -- so
+    // rather than pick one, it was measured a third time from something
+    // neither used: the rig's own `figure` box, [632, 1365], scaled by
+    // 230/1365 about the feet at (600, 720), taking the brightest 0.05% of
+    // opaque pixels in idle-00. That lands at world x638-643, y612-624.
+    // It agrees with the flame reading on x and on its top edge, and says
+    // the loose one over-ran at the bottom. x610-670 y586-659 contains all
+    // three, so no reading changes the rect -- which is why this is a note
+    // and not a correction.
+    target.rectMeasuredNote = 'Third reading, from the rig rather than from a composed frame: '
+      + 'brightest 0.05% of opaque pixels in hob-idle-right/idle-00.png, mapped through '
+      + "rig.figure [632, 1365] at scale 230/1365 about the feet, is world x638-643 y612-624. "
+      + 'The rect contains this, the flame reading and the housing reading alike.';
+  }
   const speaking = ['LOOK_AT', 'LISTEN_TO'];
   for (const verb of speaking) {
     const said = lamp.responses?.[verb];

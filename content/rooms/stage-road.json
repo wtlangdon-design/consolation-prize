@@ -187,10 +187,10 @@
       "id": "lamp",
       "name": "THE WATCHMAN'S LAMP",
       "rect": [
-        598,
-        565,
-        86,
-        86
+        610,
+        586,
+        60,
+        73
       ],
       "colour": 226,
       "when": {
@@ -228,16 +228,18 @@
       },
       "defaultVerb": "LOOK_AT",
       "setNote": "EVERY RESPONSE HERE WRITES T_HOB_SPOKEN, which is what holds doc 17 beat 9. Hob is a MOVER and not a target -- there is no rect on him and TALK_TO cannot reach him -- so the lamp he carries is the only part of him a player can address, and this hotspot already sits where he now stands. Looking at it or listening to it is speaking to him, and the exchange follows. Added by tools/extract-content.mjs: the lines are the document's, the write is routing.",
-      "note": "RECT MEASURED FROM HIS STANDING FRAME, not authored. He stands at (600, 720) drawn 230 tall, and the lantern falls at world x626-653 y593-618. It was [480,444,120,168] -- authored for a man CROSSING the road, and when he was moved to stand it missed him by 26px. Nothing would have failed: the hotspot would simply have answered about empty air while the only way to speak to him stopped working.\n\nQ60: this is the only way to address him at all. He is a mover, movers carry no rect, and targetAt never returns one. IF HE MOVES AGAIN THIS MOVES WITH HIM."
+      "note": "RECT MEASURED FROM HIS STANDING FRAME, not authored. He stands at (600, 720) drawn 230 tall, and the lantern falls at world x626-653 y593-618. It was [480,444,120,168] -- authored for a man CROSSING the road, and when he was moved to stand it missed him by 26px. Nothing would have failed: the hotspot would simply have answered about empty air while the only way to speak to him stopped working.\n\nQ60: this is the only way to address him at all. He is a mover, movers carry no rect, and targetAt never returns one. IF HE MOVES AGAIN THIS MOVES WITH HIM.",
+      "rectNote": "Around the lantern: the flame in his own idle frames is at world x636-643 y612-632 with him at (600, 720) drawn 230 tall, plus 26px of grab. It must clear road_west, which stops at y580 -- lamp_gone especially, because that one is live at the same time as the exit and would otherwise take a click meant for the lamp and start the ending.",
+      "rectMeasuredNote": "Third reading, from the rig rather than from a composed frame: brightest 0.05% of opaque pixels in hob-idle-right/idle-00.png, mapped through rig.figure [632, 1365] at scale 230/1365 about the feet, is world x638-643 y612-624. The rect contains this, the flame reading and the housing reading alike."
     },
     {
       "id": "lamp_gone",
       "name": "THE WATCHMAN'S LAMP",
       "rect": [
-        598,
-        565,
-        86,
-        86
+        610,
+        586,
+        60,
+        73
       ],
       "colour": 226,
       "when": {
@@ -263,7 +265,9 @@
           }
         ]
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "rectNote": "Around the lantern: the flame in his own idle frames is at world x636-643 y612-632 with him at (600, 720) drawn 230 tall, plus 26px of grab. It must clear road_west, which stops at y580 -- lamp_gone especially, because that one is live at the same time as the exit and would otherwise take a click meant for the lamp and start the ending.",
+      "rectMeasuredNote": "Third reading, from the rig rather than from a composed frame: brightest 0.05% of opaque pixels in hob-idle-right/idle-00.png, mapped through rig.figure [632, 1365] at scale 230/1365 about the feet, is world x638-643 y612-624. The rect contains this, the flame reading and the housing reading alike."
     },
     {
       "id": "coach",
@@ -509,11 +513,11 @@
       "name": "THE ROAD WEST",
       "rect": [
         500,
-        480,
-        90,
-        220
+        470,
+        150,
+        110
       ],
-      "rectNote": "THE GAP IN THE FENCE, right of the Consolation sign, measured off the plate with a ruler: x500-650, centre 575. It was x0-204 at the frame's left edge -- he walked OFF the side of the picture, away from the town, while the lamps he is walking toward are up the hill through this gap. The written lines were always about the town: \"Consolation. There are lamps on in about a third of it.\" They describe what you see through here.",
+      "rectNote": "THE FULL GAP, x500-650, measured off the plate with a ruler. It was narrowed to x500-590 so it could coexist with the lamp, which left Hob NEITHER BLOCKING NOR CLEAR -- a man in a doorway you walk around. Q63: he blocks it, and clearing him is the way out.\n\ny470-580 IS THE OPENING IN THE FENCE and stops above the lantern, which is the separation that survives him leaving. The gate closes the exit while he is there, so the two are never live together WHILE HE STANDS -- but lamp_gone is live at exactly the same time as the exit, at the lamp's own rect, and it would inherit the collision. Splitting them VERTICALLY is what makes that impossible: the fence opening is what you walk through and the lantern hangs below it, and no sideways nudge is honest because they share a column.",
       "walkTo": {
         "x": 575,
         "y": 710,
@@ -543,7 +547,15 @@
         ]
       },
       "defaultVerb": "WALK_TO",
-      "note": "NARROWED FROM 150 WIDE TO 90 BECAUSE HOB STANDS IN THIS GAP. He is at (600, 720) and his lantern falls at world x626-653, inside the old rect -- and that lamp is the only way to address him at all, since he is a mover and movers carry no rect (Q60). An exit and a character competing for the same click would have cost the character.\n\nThe gap itself is x500-650, read off a ruler over the plate. Thad walks through at 575, which is still inside this rect. If Hob ever moves out of the gap, this can go back to the full width."
+      "note": "THE FULL WIDTH OF THE GAP, x500-650. It was cut to 90 wide to dodge the lamp sideways; that is not the shape of the problem. Hob and the lantern are in the SAME COLUMN of the picture as the way out, so the only honest separation is vertical: the opening in the fence is what you walk through and the lantern hangs below it.\n\nThad walks through at 575. Q63 gates it on T_HOB_GONE so it is shut while he stands there -- but lamp_gone is live at the same time as the exit, so the geometry has to hold on its own and not lean on the gate. tools/check-exit-collisions.mjs asserts that it does.",
+      "when": {
+        "T_HOB_GONE": true
+      },
+      "setOnTransit": {
+        "T_THAD_LEAVING": true
+      },
+      "travelWhenTold": true,
+      "endingNote": "Doc 17 beat 11. Taking this writes T_THAD_LEAVING and goes nowhere; the beat that flag releases walks him through the gap and travels at its end. setOnTransit exists because doc 14 says transit produces no line -- and a flag write is not a line, which is the same argument stateOnTransit is made from."
     }
   ],
   "atmosphere": {

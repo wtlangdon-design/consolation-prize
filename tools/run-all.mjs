@@ -35,6 +35,7 @@ import { check as drawerCoverage } from './check-drawer-coverage.mjs';
 import { check as keyFringe } from './check-key-fringe.mjs';
 import { check as gauntletScript } from './check-gauntlet-script.mjs';
 import { check as speechColours } from './check-speech-colours.mjs';
+import { check as exitCollisions } from './check-exit-collisions.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -75,6 +76,7 @@ const CHECKS = [
   keyFringe,
   gauntletScript,
   speechColours,
+  exitCollisions,
 ];
 
 let failed = 0;

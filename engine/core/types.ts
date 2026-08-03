@@ -147,6 +147,36 @@ export interface Exit extends Interactable {
   to: string;
   /** A destination that exists but has no written examine layer yet. */
   stub?: boolean;
+  /**
+   * Flags written when this exit is TAKEN, not when it is asked about.
+   *
+   * DOC 14'S OWN ARGUMENT, EXTENDED TO A DIFFERENT KIND OF CONSEQUENCE.
+   * `stateOnTransit` exists because "a door that has been gone through is a
+   * door that is open", and it is reserved in the transit branch rather than
+   * through a response rule because transit produces NO LINE and a state
+   * change is not a line. A FLAG WRITE IS NOT A LINE EITHER.
+   *
+   * Without it an exit can write nothing at all: the transit branch returns
+   * before the response resolves, with `effects: []`, so `set` on a response
+   * never fires for the verb that actually goes through the door.
+   */
+  setOnTransit?: Record<string, boolean | number>;
+  /**
+   * This exit does not travel when it is taken. Something else says when.
+   *
+   * NAMED FOR WHAT IT MEANS. Doc 17's ending is a departure the player
+   * WATCHES -- he walks through the gap in the fence and up the road while
+   * the title comes up over the mountains -- and an exit that moves you the
+   * instant you touch it cannot also be a departure. Taking it writes its
+   * flag, the beat that flag releases plays, and the travel happens at the
+   * end of the beat through a staged `interact`.
+   *
+   * THE DESTINATION STAYS HERE, with the exit that goes there. An exit that
+   * dropped its `to` and named the room in a beat instead would be the same
+   * fact in two files, which is the shape that produced doc 43's stale tables
+   * and a rect authored for a coach that had moved.
+   */
+  travelWhenTold?: boolean;
 }
 
 /**
@@ -1118,6 +1148,21 @@ export type SequenceStagingStep =
    * means back to the declared default -- shut, for the coach's door.
    */
   | { do: 'setState'; object: string; state?: string }
+  /**
+   * A verb applied to a target, from a beat. NOT A NEW STEP KIND.
+   *
+   * `SequenceStep.say` has carried `interact` since errata 28a -- "a line, or
+   * the interaction that produces one" -- and `saySequenceStep` resolves it
+   * through the ordinary interaction path, effects and room change included.
+   * THE RUNNER COULD ALWAYS TRAVEL; the staging vocabulary could not reach it,
+   * because `do: 'say'` takes a line index and nothing else.
+   *
+   * This exposes a capability rather than adding one, which is the third time
+   * that has been the answer -- `state` on ActorClip, `setState`, and now
+   * this. Worth noticing as a pattern: the engine is usually further along
+   * than the vocabulary that addresses it.
+   */
+  | { do: 'interact'; target: string; verb: string }
   /**
    * ERRATA 38. "`move` translates a named object from one position to another
    * over a duration" -- the coach's departure, and the reason the ruling

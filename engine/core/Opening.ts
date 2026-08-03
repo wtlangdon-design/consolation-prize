@@ -219,6 +219,10 @@ function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] 
         { kind: 'face', actor: staged.actor, facing: staged.facing },
         { kind: 'waitForActor', actor: staged.actor },
       ];
+    case 'interact':
+      // Straight to the step the runner already has. `say` with an `interact`
+      // and no line resolves the verb where it stands and produces no words.
+      return [{ kind: 'say', interact: { target: staged.target, verb: staged.verb } }];
     case 'setState':
       return [{ kind: 'setState', object: staged.object, state: staged.state }];
     case 'say': {

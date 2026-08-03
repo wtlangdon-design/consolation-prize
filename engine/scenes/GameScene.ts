@@ -908,6 +908,12 @@ export class GameScene extends Phaser.Scene {
       // CONTROL FIRST, THEN THE CROSSING: `finishOpening` autosaves, and that
       // save should record a game that has just begun rather than one three
       // words into a conversation with a man who is not in the save file.
+      // TAKEN BEFORE `finishOpening`, WHICH SETS `this.opening` TO NULL. Reading
+      // it afterwards threw on the null and killed the scene at the moment
+      // control was handed over -- every check and every test passed, because
+      // nothing outside a browser reaches this line. The gauntlet found it on
+      // the next run.
+      const remaining = this.opening.slice(this.openingAt).flatMap((rest) => rest.beats);
       this.finishOpening();
       // EVERY REMAINING BEAT, NOT THIS SEGMENT'S. `segmentsOf` splits on a
       // change of control, so a `control: none` beat after the hand-over is a
@@ -919,7 +925,7 @@ export class GameScene extends Phaser.Scene {
       // remainder. Each beat keeps its own control, which is what the lowering
       // now tests: an interactive beat still refuses cutscene movement, and a
       // `control: none` beat held on a flag is a cutscene the player started.
-      this.carried.arm(this.opening.slice(this.openingAt).flatMap((rest) => rest.beats));
+      this.carried.arm(remaining);
       this.markDirty();
       return;
     }

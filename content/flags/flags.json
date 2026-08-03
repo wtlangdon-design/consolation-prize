@@ -71,6 +71,15 @@
       ]
     },
     {
+      "id": "T_THAD_LEAVING",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has taken the road west and the ending has begun. Doc 17 beat 11 waits on it: he walks through the gap in the fence at x575 and up the road while the title comes up over the mountains, and the travel to Main Street happens when the beat ends rather than when the exit is clicked. Written by road_west's setOnTransit, which fires on the verb that goes through the door -- transit produces no line, and a flag write is not a line, which is the argument stateOnTransit is already made from. THE EXIT ITSELF DOES NOT TRAVEL: it declares travelWhenTold, because an exit that moves you the instant you touch it cannot also be a departure you watch.",
+      "writtenBy": [
+        "room:stage_road:road_west"
+      ]
+    },
+    {
       "id": "T_HOB_SPOKEN",
       "type": "bool",
       "initial": false,
@@ -137,11 +146,9 @@
       "id": "T_CASE_DOWN",
       "type": "bool",
       "initial": false,
-      "note": "The case is off the coach and in the mud, and it gates HIS CASE's two drawn states: on the roof while false, in the mud while true. Doc 17 beat 6 -- 'The case goes in the mud' -- says so in its own words, and beat 6 wrote it. NOTHING MOVES THE CASE. There is no mover for it and no state swap; it sits on the roof through the whole opening, so the write was a claim about something that had not happened. case_mud became interactable where there is no suitcase, and case_roof -- gated on this being false -- vanished from under the case that is actually there. Reported from a play-through as 'the case is interactable where it is not'. The write is removed until something moves the case: a flag must not claim what the picture does not show.",
-      "pending": true,
-      "pendingNote": "Designed and not built. The writer is whatever puts the case in the mud -- a mover for it, or a state swap -- and until that exists case_mud is correctly unreachable. Listed on every run rather than exempted quietly.",
+      "note": "The case is off the coach and in the mud, and it gates HIS CASE's two drawn states: on the roof while false, in the mud while true. Doc 17 beat 6 -- 'The case goes in the mud' -- says so in its own words, and beat 6 wrote it. NOTHING MOVES THE CASE. There is no mover for it and no state swap; it sits on the roof through the whole opening, so the write was a claim about something that had not happened. case_mud became interactable where there is no suitcase, and case_roof -- gated on this being false -- vanished from under the case that is actually there. Reported from a play-through as 'the case is interactable where it is not'. The write was removed until something moved the case, because a flag must not claim what the picture does not show. THE CASE IS ITS OWN DRAWN LAYER NOW, gated on this, so writing it IS the case moving -- roof to mud, and beat 6b holds Thad in `carry` while the coach goes, which is the bible's opening image. Restored to beat 6. Q11 as ruled.",
       "writtenBy": [
-        "unbuilt:the-case-coming-off-the-roof"
+        "sequence:opening:6"
       ]
     }
   ]

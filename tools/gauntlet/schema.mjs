@@ -133,6 +133,34 @@ export function validateScript(script, sequence) {
       if (!beat.unscripted) checked += 1;
     }
     checkPlayerRuns(script, sequence, errors);
+
+    // A BEAT THAT WAITS FOR THE PLAYER NEEDS THE PLAYER TO DO SOMETHING.
+    //
+    // `awaitFlag` holds a beat until a flag is written, and only an action can
+    // write it -- so a script with no `input` on that beat holds forever and
+    // the run dies on its own deadline three minutes later. That is what
+    // happened the first time beat 9 became a response: the script was written
+    // when the beat was on a clock, and nothing said it had stopped being.
+    //
+    // The run-level rule above does not cover it, because the run containing
+    // `until` is exempt -- the harness stops there, so nothing has to get it
+    // out. A held beat is the exception: it has to be got INTO.
+    //
+    // AND ONLY UP TO WHERE THE RUN STOPS. A beat past `until` is never
+    // reached, so it can hold forever without costing anything -- and
+    // requiring input for it would be requiring the harness to drive a scene
+    // it has already stopped watching.
+    const stopsAfter = isObject(script.until)
+      ? sequence.beats.findIndex((beat) => beat.beat === script.until.beat) : -1;
+    for (const [index, beat] of sequence.beats.entries()) {
+      if (!beat.awaitFlag) continue;
+      if (stopsAfter >= 0 && index > stopsAfter) continue;
+      const scripted = script.beats.find((entry) => isObject(entry) && entry.beat === beat.beat);
+      if (Array.isArray(scripted?.input) && scripted.input.length > 0) continue;
+      at(`beat ${beat.beat}`,
+        `waits on ${beat.awaitFlag} and the script gives it no \`input\`. A held beat needs `
+        + 'an action to release it, or the run waits until its own deadline.');
+    }
   } else {
     checked = script.beats.filter((beat) => isObject(beat) && !beat.unscripted).length;
   }
