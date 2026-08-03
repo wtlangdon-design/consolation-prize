@@ -75,14 +75,27 @@
           "do": "move",
           "actor": "thad",
           "from": [
-            1170,
-            800
+            1180,
+            762
           ],
           "to": [
-            1170,
-            800
+            1180,
+            762
           ],
           "seconds": 0.1
+        },
+        {
+          "do": "face",
+          "actor": "thad",
+          "facing": "front"
+        },
+        {
+          "do": "walk",
+          "actor": "thad",
+          "to": [
+            1170,
+            812
+          ]
         },
         {
           "do": "face",
@@ -103,6 +116,10 @@
         {
           "do": "say",
           "line": 0
+        },
+        {
+          "do": "wait",
+          "seconds": 1.2
         },
         {
           "do": "walk",

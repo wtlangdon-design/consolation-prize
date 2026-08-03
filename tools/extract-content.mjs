@@ -271,23 +271,23 @@ function opening() {
       { do: 'move', actor: 'hob', from: [600, 720], to: [600, 720], seconds: 0.1 },
       { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
       { do: 'setState', object: 'coach', state: 'door-open' },
-      // HE STANDS IN FRONT OF THE OPEN DOOR AND FACES US.
-      //
-      // The step was abandoned: `aboard-coach` is a there-and-back chore --
-      // A B B B A with A byte-identical to idle frame 0 -- so held it loops him
-      // in and out of the doorway, and played as a chore it lasts 0.71s, gone
-      // before his line arrives. A man announcing himself to a town while
-      // facing the camera is the stronger image anyway.
-      { do: 'move', actor: 'thad', from: [1170, 800], to: [1170, 800], seconds: 0.1 },
+      // HE WALKS A FEW STEPS FORWARD BEFORE HE SPEAKS. Placed at the door and
+      // then coming toward us gives the beat something to be -- it held 0.86s
+      // of nothing while the player waited for a line, which is the first thing
+      // anybody sees in the whole game.
+      { do: 'move', actor: 'thad', from: [1180, 762], to: [1180, 762], seconds: 0.1 },
+      { do: 'face', actor: 'thad', facing: 'front' },
+      { do: 'walk', actor: 'thad', to: [1170, 812] },
       { do: 'face', actor: 'thad', facing: 'front' },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
-      // He says who he is TO US, facing front, before he moves.
+      // He stops, looks at the town, and says who he is -- to us.
       { do: 'say', line: 0 },
-      // then crosses to the driver's right and looks up at him
+      // a beat, then he crosses to the driver's right and looks up at him
+      { do: 'wait', seconds: 1.2 },
       { do: 'walk', actor: 'thad', to: [1420, 830] },
       { do: 'face', actor: 'thad', facing: 'left' },
       { do: 'chore', actor: 'thad', clip: 'lookup' },

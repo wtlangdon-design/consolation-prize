@@ -89,6 +89,34 @@
       "id": "idle-break",
       "facing": "right",
       "frames": [
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-00.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-01.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-02.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-03.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-04.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-05.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-06.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-07.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-08.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-09.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-10.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-11.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-12.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-13.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-14.png",
+        "art/actors/coach-idlebreak-door-open-right/idle-break-door-open-15.png"
+      ],
+      "figureHeight": 447,
+      "anchor": [
+        565,
+        447
+      ],
+      "state": "door-open"
+    },
+    {
+      "id": "idle-break",
+      "facing": "right",
+      "frames": [
         "art/actors/coach-idlebreak-right/idle-break-00.png",
         "art/actors/coach-idlebreak-right/idle-break-01.png",
         "art/actors/coach-idlebreak-right/idle-break-02.png",

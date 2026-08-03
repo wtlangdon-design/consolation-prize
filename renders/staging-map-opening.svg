@@ -10,25 +10,25 @@
 <rect x="0" y="796" width="1920" height="68" fill="#4f8" opacity="0.10"/>
 <line x1="0" y1="796" x2="1920" y2="796" stroke="#4f8" stroke-opacity="0.5"/>
 <text x="8" y="816" fill="#9fe" font-size="16" font-family="monospace">y796 · road_near</text>
+<circle cx="600" cy="720" r="16" fill="#ffb454" stroke="#ffb454" stroke-width="4"/>
+<text x="622" y="726" fill="#ffb454" font-size="22" font-family="monospace">hob b2</text>
+<line x1="600" y1="720" x2="1896" y2="700" stroke="#ffb454" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
+<circle cx="1896" cy="700" r="11" fill="none" stroke="#ffb454" stroke-width="4"/>
+<text x="1918" y="706" fill="#ffb454" font-size="22" font-family="monospace">hob b9 (off frame)</text>
 <circle cx="1390" cy="742" r="16" fill="#ff6f8f" stroke="#ff6f8f" stroke-width="4"/>
 <text x="1412" y="748" fill="#ff6f8f" font-size="22" font-family="monospace">coach b2</text>
 <line x1="1390" y1="742" x2="1896" y2="742" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
 <circle cx="1896" cy="742" r="11" fill="none" stroke="#ff6f8f" stroke-width="4"/>
 <text x="1918" y="748" fill="#ff6f8f" font-size="22" font-family="monospace">coach b6b (off frame)</text>
-<circle cx="1170" cy="794" r="16" fill="#6fb3ff" stroke="#6fb3ff" stroke-width="4"/>
-<text x="1192" y="800" fill="#6fb3ff" font-size="22" font-family="monospace">thad b2</text>
-<line x1="1170" y1="794" x2="1240" y2="802" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
-<circle cx="1240" cy="802" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
-<text x="1262" y="808" fill="#6fb3ff" font-size="22" font-family="monospace">thad b2</text>
-<line x1="1240" y1="802" x2="1330" y2="812" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
-<circle cx="1330" cy="812" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
-<text x="1352" y="818" fill="#6fb3ff" font-size="22" font-family="monospace">thad b3</text>
-<circle cx="60" cy="700" r="16" fill="#ffb454" stroke="#ffb454" stroke-width="4"/>
-<text x="82" y="706" fill="#ffb454" font-size="22" font-family="monospace">hob b7</text>
-<line x1="60" y1="700" x2="1080" y2="700" stroke="#ffb454" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
-<circle cx="1080" cy="700" r="11" fill="none" stroke="#ffb454" stroke-width="4"/>
-<text x="1102" y="706" fill="#ffb454" font-size="22" font-family="monospace">hob b9</text>
-<line x1="1080" y1="700" x2="1896" y2="700" stroke="#ffb454" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
-<circle cx="1896" cy="700" r="11" fill="none" stroke="#ffb454" stroke-width="4"/>
-<text x="1918" y="706" fill="#ffb454" font-size="22" font-family="monospace">hob b9 (off frame)</text>
+<circle cx="1180" cy="762" r="16" fill="#6fb3ff" stroke="#6fb3ff" stroke-width="4"/>
+<text x="1202" y="768" fill="#6fb3ff" font-size="22" font-family="monospace">thad b2</text>
+<line x1="1180" y1="762" x2="1170" y2="812" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
+<circle cx="1170" cy="812" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
+<text x="1192" y="818" fill="#6fb3ff" font-size="22" font-family="monospace">thad b2</text>
+<line x1="1170" y1="812" x2="1420" y2="830" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
+<circle cx="1420" cy="830" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
+<text x="1442" y="836" fill="#6fb3ff" font-size="22" font-family="monospace">thad b3</text>
+<line x1="1420" y1="830" x2="575" y2="500" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.55" stroke-dasharray="10 8"/>
+<circle cx="575" cy="500" r="11" fill="none" stroke="#6fb3ff" stroke-width="4"/>
+<text x="597" y="506" fill="#6fb3ff" font-size="22" font-family="monospace">thad b11</text>
 </svg>

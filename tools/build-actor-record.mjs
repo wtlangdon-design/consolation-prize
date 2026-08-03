@@ -58,6 +58,9 @@ const CLIPS = [
   // Resolved by ActorClip's `state`, the same discriminator as `surface`: a
   // mover with no state gets the stateless clip, which is the shut door.
   { id: 'idle', dir: 'idle-door-open', prefix: 'idle-door-open', state: 'door-open' },
+  // The paw, with the door open. Without it the break falls back to the
+  // stateless clip -- the closed door -- and takes the driver's rect with it.
+  { id: 'idle-break', dir: 'idlebreak-door-open', prefix: 'idle-break-door-open', state: 'door-open' },
   { id: 'idle-break', dir: 'idlebreak', prefix: 'idle-break' },
   { id: 'walk', dir: 'walk', prefix: 'walk' },
   { id: 'recoil', dir: 'recoil', prefix: 'recoil' },

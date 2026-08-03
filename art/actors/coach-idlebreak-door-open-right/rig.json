@@ -1,0 +1,13 @@
+{
+  "clip": "idle-break",
+  "facing": "right",
+  "view": "profile",
+  "state": "door-open",
+  "figure": [
+    1129,
+    447
+  ],
+  "padding": 0,
+  "frames": 16,
+  "note": "The front horse pawing the ground WITH THE DOOR OPEN.\n\nWithout this the idle-break had no door-open variant, so every time it fired the coach fell back to the STATELESS clip -- the closed door -- and the driver's overlay rect fell back with it. The door slammed shut and open again, and a second driver appeared at the closed clip's rect. One fault, two symptoms, both reported by watching.\n\nA STATE THAT EXISTS ON ONE CLIP AND NOT ANOTHER IS A STATE THAT UNSETS ITSELF whenever the other plays."
+}
