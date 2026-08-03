@@ -2348,6 +2348,52 @@ It is the galloping Tyler reported, arriving from the other side: the ping-pong 
 
 ---
 
+## Q84 · Q60 diagnosed: three faults, and the one blocking Main Street is not the one Q60 describes
+
+**Q60 says no character can be clicked and treats it as one problem needing a new mechanism. It is three, they are independent, and the mechanism already exists for the case that matters.**
+
+### 1 · The ambient click path is COMPLETE, end to end
+
+`AmbientLayer.npcAt(x, y)` → `GameScene.onPointerMove` names them on the sentence line → `onPointerDown` calls `dialogue.start(npc.tree)`. Hover, name, click, tree. **Nothing needs building.** Q60's "a mover has no clickable extent at all" is true of movers and was never true of ambient characters, and the three people standing in Main Street are ambient.
+
+### 2 · THE AMBIENT LAYER WAS NEVER MIGRATED TO ERRATA 54
+
+`content/ambient/*.json` carries **320×200-era coordinates**:
+
+| | x | y |
+|---|---|---|
+| `letter_writer` | 30 | 112 |
+| `pie_woman` | 150 | 126 |
+| `map_seller` | 250 | 116 |
+
+The play area is **1920×864**. So the furthest-right character stands **13% across** the screen and all three float at **13–15% down** — in the sky, above the horizon, nowhere near the walkable band. ×6 gives 180/900/1500 and 672/756/696, which are on the ground and spread across the street.
+
+**And the hit box is 320-era too.** `npcAt` tests `x ± 8`. A character drawn at zone height **240** gets a **16-pixel-wide** hit box — 7% of a man's width. At 320, where a figure was ~40px tall and ~18 wide, ±8 was right.
+
+**WHY IT WAS MISSED, and it is the migration's own stated virtue.** `tools/migrate-play-area-x6.mjs`: *"ALLOWLIST, NOT HEURISTIC. Every field scaled is named below… Anything not on the list is left exactly as it was."* It measured **"17 rooms, 140 rects"** — and ambient characters are not rooms, so nothing named them and nothing touched them.
+
+> **An allowlist is safe against over-scaling and silent about under-scaling.** It reports what it changed; it cannot report what it never considered. The one-shot's caution is exactly the mechanism by which a whole content directory stayed at 320 — and unlike a wrong value, an unmigrated one produces a game that loads, validates and draws.
+
+**This is what blocks Main Street**, and it is a data migration rather than a mechanism.
+
+### 3 · Movers genuinely have no hit path, and the record cannot supply one
+
+For Hob, the driver and the coach, Q60's diagnosis stands. And its first open question has a measurable answer:
+
+`ActorSprite.drawnHalfWidth` exists but is **the padded canvas**, and its own comment says over-reporting is correct for the depth-tie check it was written for. Measured on Hob: canvas **1152** columns, figure **632** — **the canvas is 1.82× the man.** A hit box from it catches clicks half a body away.
+
+**The figure width is not on the clip record and is not derivable from it.** The record carries `figureHeight` and `anchor`; `rig.json` carries `figure: [632, 1365]` and `padding: 260`. `anchor[0]` is 576, which is exactly half of 1152 — the canvas centre — so it carries no independent information about how wide the man is. **`build-actor-record.mjs` would need to write `figureWidth`** (or `padding`) through from the rig, the same way `figureHeight` and `state` already are.
+
+Q60's other two questions are untouched: which verb a mover answers, and where its response lives.
+
+### What this changes about the order
+
+**Fixing the mover hit path does not unblock Main Street.** Migrating the ambient layer does. They were filed as one item and only one of them is on the critical path — and it is the one that needs no new mechanism, no ruling, and no art.
+
+**Nothing changed.** The ±8 is a judgement — the migration precedent says *multiplied, not re-chosen*, which gives ±48, while a half-width proportional to drawn height would survive the next zone change. That wants a ruling rather than my preference.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
