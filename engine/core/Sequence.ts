@@ -72,6 +72,19 @@ export type SequenceStep =
   | { kind: 'wait'; seconds: number };
 
 /** What the runner needs the world to be able to do. */
+/**
+ * WHICH BEAT A STEP CAME FROM. Set by the lowering, read by anything that has
+ * to say where in a scene something happened.
+ *
+ * Every diagnosis tonight had to reconstruct this from timings and positions:
+ * the coach facing front, the chore clips arriving late, two movers at one
+ * depth. The runner knew which beat it was playing and threw the fact away at
+ * the moment it flattened beats into steps.
+ *
+ * It is not content -- a beat number is structure, and doc 17 authored it.
+ */
+export type BeatTag = string | undefined;
+
 export interface SequenceHost {
   walk(actor: string, x: number, y: number): void;
   /**
@@ -112,6 +125,22 @@ export interface SequenceHost {
 export class SequenceRunner {
   private steps: SequenceStep[] = [];
   private index = 0;
+  /**
+   * The beat the step now playing came from.
+   *
+   * THE LAST STEP DISPATCHED, NOT `steps[index]`. A chore, a wait and a say
+   * all advance the index BEFORE they hold, so for the whole of the hold --
+   * which is nearly all of a cutscene's wall-clock -- `steps[index]` is the
+   * step that has not started yet, and at a beat boundary that is the NEXT
+   * beat. Reading it would have reported beat 3 for the seven seconds of beat
+   * 2 that anybody could see.
+   */
+  private playing: BeatTag;
+
+  get beat(): BeatTag {
+    return this.playing;
+  }
+
   private waitUntil = 0;
   private started = false;
   /**
@@ -138,6 +167,10 @@ export class SequenceRunner {
     this.waitUntil = 0;
     this.waiting = false;
     this.started = true;
+    // Before the first tick, the beat about to play is the one that owns the
+    // first step -- otherwise anything sampling on the frame a segment starts
+    // sees no beat at all.
+    this.playing = (steps[0] as { beat?: string } | undefined)?.beat;
   }
 
   /** Deterministic cancellation, per doc 22's list. Used on room change. */
@@ -147,6 +180,7 @@ export class SequenceRunner {
     this.waitUntil = 0;
     this.waiting = false;
     this.started = false;
+    this.playing = undefined;
   }
 
   /**
@@ -175,6 +209,9 @@ export class SequenceRunner {
     for (let guard = 0; guard < this.steps.length + 1; guard += 1) {
       if (this.waiting || this.index >= this.steps.length) break;
       const step = this.steps[this.index] as SequenceStep;
+      // Recorded on dispatch, not on completion: a step that holds is the one
+      // on screen for the length of its hold.
+      this.playing = (step as { beat?: string }).beat;
 
       if (step.kind === 'walk') {
         host.walk(step.actor, step.x, step.y);

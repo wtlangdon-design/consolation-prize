@@ -103,6 +103,7 @@ export function stepsFor(segment: Segment): SequenceStep[] {
 
   const steps: SequenceStep[] = [];
   for (const beat of segment.beats) {
+    const from = steps.length;
     // ERRATA 38's fence needs no test here: this branch IS `control: none`,
     // which is the only place a `move` is legal. `carriedStepsFor` refuses
     // one, and that is the other side of the same rule.
@@ -112,6 +113,11 @@ export function stepsFor(segment: Segment): SequenceStep[] {
     }
     if (beat.seconds !== undefined && !(beat.staging?.length)) {
       steps.push({ kind: 'wait', seconds: beat.seconds });
+    }
+    // Tagged once, here, rather than threaded through `lower`: every step this
+    // beat produced, whatever kind, carries the beat it came from.
+    for (let at = from; at < steps.length; at += 1) {
+      (steps[at] as { beat?: string }).beat = beat.beat;
     }
   }
   return steps;
@@ -219,6 +225,7 @@ export function carriedStepsFor(beat: SequenceBeat): SequenceStep[] {
   for (const spoken of unplacedLines(beat)) {
     steps.push({ kind: 'say', actor: spoken.speaker, line: spoken.line });
   }
+  for (const step of steps) (step as { beat?: string }).beat = beat.beat;
   return steps;
 }
 
