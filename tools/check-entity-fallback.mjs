@@ -30,14 +30,40 @@ import { ROOT, Report } from './lib/content.mjs';
  * `content.actor` -- singular -- is the protagonist, and in a codebase with one
  * well-populated actor record he is the most plausible thing to fill any
  * character-shaped hole. Reading him to answer a question about a mover that is
- * not him is the defect, every time. `content.actors.get(id)` is not flagged
- * and must not be: it is keyed by the identity of the thing being decided
- * about, which is the whole difference.
+ * not him is the defect, every time.
+ *
+ * THE RULE IS `content.actors.get(id)`, NOT AN EXEMPTION FROM ONE. A lookup
+ * KEYED BY THE IDENTITY OF THE THING BEING DECIDED ABOUT is what a correct
+ * answer looks like; that key is the entire difference between a lookup and a
+ * borrow, and all three findings were borrows.
+ *
+ * WHY THIS IS MORE COMPLICATED THAN IT LOOKS, AND IT HAS TO BE. Two shapes hid
+ * the protagonist's record from an operand-only reading, and NEITHER WAS
+ * WRITTEN TO EVADE ANYTHING -- both are ordinary tidy code that happens to be
+ * shaped like the exception, which is how a rule like this dies. Not to
+ * somebody working around it. To somebody being neat.
+ *
+ *   A BARE IDENTIFIER HIDES EVERYTHING. `GameState.surfaceAt` read the
+ *   protagonist's first clip into a local called `fallback` and wrote
+ *   `?? fallback`. The operand is an identifier and a check that stops there
+ *   shrugs. So this follows one hop to a same-file `const` initialiser.
+ *
+ *   A TIDY LITTLE DEFAULT HIDES THE REST. That same local was
+ *   `content.actor.clips[0]?.surface ?? ''` -- the borrowed field already
+ *   wrapped in its own fallback, so the thing being read is no longer the
+ *   operand of anything. So this looks through the left side of a nested
+ *   fallback too.
+ *
+ * Both were live in the tree when the check was written.
  *
  * THE GENERAL RULE IS WIDER THAN THIS SCRIPT: an engine decision must trace to
  * a field on the thing it is deciding about, or to a named constant, and
- * nothing else. That is a review rule. This is the part of it a machine can
- * hold, and it would have caught the coach.
+ * nothing else. That is a review rule. Its first catch had no `??` in it at
+ * all -- `GameScene.choreSeconds` read `content.actor` and guarded with
+ * `mover.id === record.id`, which was CORRECT while he was the only record and
+ * became wrong the moment Hob's landed: a defect created by a different file
+ * being added, in code nobody touched. This is the part a machine can hold,
+ * and it would have caught the coach.
  */
 const SINGLETON = 'actor';
 

@@ -216,6 +216,16 @@ A fallback to a literal says *nobody told me, here is the standard answer*. A fa
 
 > **Enforced as far as a machine can hold it** by `tools/check-entity-fallback.mjs`, which flags any fallback reading the singular `content.actor`. It had to learn two evasions to be worth anything: a bare identifier assigned from that record, and a read already wrapped in its own tidy `?? ''`. Both were live in the tree.
 
+## R5g · A MOVER WITH NO PLACEMENT IS NOT AT THE ORIGIN
+
+The same shape as R5f, and found by playing rather than by reading.
+
+**The coach was only ever placed by beat 6b's `from` — the beat where it LEAVES.** Through beats 2 to 6 it stood wherever the mover happened to have been created. Thad alighted at the doorway's correct coordinates, measured against a coach at x1390, while the coach was somewhere else entirely.
+
+**An unplaced mover is not at (0,0). It is wherever the last thing to touch it left it** — which is worse than the origin, because the origin looks like a bug and a plausible position looks deliberate. It is a **position borrowed from whatever ran last**, filled in by the most plausible thing to hand, which is R5f exactly.
+
+> **Anything that must be somewhere needs a `move` in the EARLIEST beat it is seen, not the one where it happens to be needed.** A `from` on the beat that uses a mover says when it arrives; it says nothing about where it stood before.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.
