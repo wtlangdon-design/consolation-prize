@@ -1,0 +1,12 @@
+{
+  "clip": "idle-break",
+  "facing": "right",
+  "view": "profile",
+  "figure": [
+    1912,
+    778
+  ],
+  "padding": 0,
+  "frames": 16,
+  "note": "THE FRONT HORSE PAWS THE GROUND. Its near foreleg lifts back and up from the KNEE -- a horse kicks from the knee, not the shoulder -- holds a moment, and sets down. Twice across sixteen frames, the second smaller than the first, because an animal that repeats itself identically is a machine.\n\nAN IDLE BREAK, NOT PART OF THE LOOP. It fires occasionally against the idle's own 24 frames, which is the point: the horses breathe constantly and one of them shifts its weight every so often. Baked into the loop it would be a tic.\n\nNothing else moves in these frames -- no nod, no tails, no lamps. The runner returns to idle after, and idle frame 0 is this frame 0, so it cannot pop."
+}

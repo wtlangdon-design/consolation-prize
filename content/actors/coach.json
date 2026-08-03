@@ -23,7 +23,25 @@
         "art/actors/coach-idle-right/idle-02.png",
         "art/actors/coach-idle-right/idle-03.png",
         "art/actors/coach-idle-right/idle-04.png",
-        "art/actors/coach-idle-right/idle-05.png"
+        "art/actors/coach-idle-right/idle-05.png",
+        "art/actors/coach-idle-right/idle-06.png",
+        "art/actors/coach-idle-right/idle-07.png",
+        "art/actors/coach-idle-right/idle-08.png",
+        "art/actors/coach-idle-right/idle-09.png",
+        "art/actors/coach-idle-right/idle-10.png",
+        "art/actors/coach-idle-right/idle-11.png",
+        "art/actors/coach-idle-right/idle-12.png",
+        "art/actors/coach-idle-right/idle-13.png",
+        "art/actors/coach-idle-right/idle-14.png",
+        "art/actors/coach-idle-right/idle-15.png",
+        "art/actors/coach-idle-right/idle-16.png",
+        "art/actors/coach-idle-right/idle-17.png",
+        "art/actors/coach-idle-right/idle-18.png",
+        "art/actors/coach-idle-right/idle-19.png",
+        "art/actors/coach-idle-right/idle-20.png",
+        "art/actors/coach-idle-right/idle-21.png",
+        "art/actors/coach-idle-right/idle-22.png",
+        "art/actors/coach-idle-right/idle-23.png"
       ],
       "figureHeight": 778,
       "anchor": [
@@ -43,6 +61,33 @@
         778
       ],
       "state": "door-open"
+    },
+    {
+      "id": "idle-break",
+      "facing": "right",
+      "frames": [
+        "art/actors/coach-idlebreak-right/idle-break-00.png",
+        "art/actors/coach-idlebreak-right/idle-break-01.png",
+        "art/actors/coach-idlebreak-right/idle-break-02.png",
+        "art/actors/coach-idlebreak-right/idle-break-03.png",
+        "art/actors/coach-idlebreak-right/idle-break-04.png",
+        "art/actors/coach-idlebreak-right/idle-break-05.png",
+        "art/actors/coach-idlebreak-right/idle-break-06.png",
+        "art/actors/coach-idlebreak-right/idle-break-07.png",
+        "art/actors/coach-idlebreak-right/idle-break-08.png",
+        "art/actors/coach-idlebreak-right/idle-break-09.png",
+        "art/actors/coach-idlebreak-right/idle-break-10.png",
+        "art/actors/coach-idlebreak-right/idle-break-11.png",
+        "art/actors/coach-idlebreak-right/idle-break-12.png",
+        "art/actors/coach-idlebreak-right/idle-break-13.png",
+        "art/actors/coach-idlebreak-right/idle-break-14.png",
+        "art/actors/coach-idlebreak-right/idle-break-15.png"
+      ],
+      "figureHeight": 778,
+      "anchor": [
+        956,
+        778
+      ]
     },
     {
       "id": "walk",
