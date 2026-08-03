@@ -1096,6 +1096,22 @@ Cost: **63 files / 6.49 MB → 65 / 7.93 MB.** Two frames, 1.44 MB, because the 
 
 **What this says about the earlier dismissal.** "Only appears with the instrument attached" was a correct observation. "Therefore it is the instrument" was a conclusion the evidence did not support — a defect that needs load is still a defect, and R5d's own warning about an apparatus that perturbs its subject cuts the other way too. The apparatus can create the CONDITIONS for a real failure as easily as it can create a false one, and the two look identical from a single run.
 
+## Q45 · The drawer was leaving three steps off the picture, and the label branch for them was unreachable
+
+Regenerated both views after the merge, which is the instruction, and the timeline was wrong in a way only the timeline could show.
+
+**HOB'S BEAT 9 READ `walk / walk`.** The staging is `walk → say 0 → say 1 → say 2 → walk`. Three steps missing from a drawing whose entire job is to be looked at before the thing is played — and it was **the exact shape the say-step was added to fix**, so the picture agreed with the defect rather than with the code.
+
+**A staged `say` carries no `actor`** — it names one of the beat's own lines by index, which is the constraint that keeps dialogue out of the tool — so `staged.actor` was undefined and `timeline()` dropped it at the grouping step. The label branch for `say` existed and was **unreachable**, which is the worst state a drawing can be in: it looks like the tool handles the step.
+
+**The speaker is the row.** `beat.lines[i].speaker` is an entity id, so a line now lands on the row of whoever says it. Beat 9 draws as `walk / "Wouldn't stand there." / "No reason." / walk` on Hob's row with `"Why not?"` on Thad's — the exchange visible as an exchange, between the two walks, which is what being able to place a line was for.
+
+**And the rows overlapped.** Labels are stacked and centred on the row line, so Thad's six steps in beat 2 ran fifty units either side and printed through the coach's row above — two `PLACED` labels on top of each other. Each row is now as tall as its busiest cell.
+
+**One thing that was NOT a tool defect, and I nearly reported it as one.** The map came back with a flat grey background and no plate. The SVG references it as `href="../art/backgrounds/..."`, and I had loaded the file through `setContent`, which has no base URL for a relative href to resolve against. Loading it from `file://` renders it correctly. **My viewer, not the drawer** — R5d, and the check took thirty seconds against a report that would have cost somebody an afternoon.
+
+**The instruction holds and is worth restating as the reason:** a check knows *"placed before used"* is violated; only a drawing tells you a man is standing among the horses. It also tells you when the drawing itself has stopped keeping up with the vocabulary — which is what this was.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

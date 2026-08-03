@@ -41,15 +41,31 @@ function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-/** Everything that happens to one actor, in order, with the beat it happens in. */
+/**
+ * Everything that happens to one actor, in order, with the beat it happens in.
+ *
+ * A STAGED `say` CARRIES NO ACTOR -- it names one of the beat's own lines by
+ * index -- so `staged.actor` is undefined and it was being dropped. The label
+ * branch for it existed and was unreachable, which is the worst state for a
+ * drawing to be in: the tool looked like it handled the step and silently left
+ * three of them off Hob's row. His beat 9 read `walk / walk`, the exact shape
+ * the say-step was added to fix.
+ *
+ * THE SPEAKER IS THE ROW. `beat.lines[i].speaker` is an entity id, so a line
+ * lands on the row of whoever says it, between the two walks -- which is the
+ * whole point of being able to place one.
+ */
 function timeline(sequence) {
   const rows = new Map();
+  const push = (who, entry) => {
+    if (!who) return;
+    if (!rows.has(who)) rows.set(who, []);
+    rows.get(who).push(entry);
+  };
   for (const beat of sequence.beats ?? []) {
     for (const staged of beat.staging ?? []) {
-      const who = staged.actor;
-      if (!who) continue;
-      if (!rows.has(who)) rows.set(who, []);
-      rows.get(who).push({ beat: String(beat.beat), ...staged });
+      const spoken = staged.do === 'say' ? (beat.lines ?? [])[staged.line] : undefined;
+      push(staged.actor ?? spoken?.speaker, { beat: String(beat.beat), ...staged, spoken });
     }
   }
   return rows;
@@ -103,9 +119,18 @@ function drawTimeline(sequence) {
   const rows = timeline(sequence);
   const beats = (sequence.beats ?? []).map((b) => String(b.beat));
   const COL = 150;
-  const ROW = 64;
   const LEFT = 150;
   const TOP = 90;
+  // THE ROW IS AS TALL AS ITS BUSIEST CELL. A cell's labels are stacked and
+  // centred on the row line, so Thad's six steps in beat 2 ran fifty units
+  // either side of it and printed through the coach's row above -- two
+  // "PLACED" labels overlapping on a picture whose only job is to be read.
+  const stack = Math.max(1, ...[...rows.values()].flatMap((steps) => {
+    const per = new Map();
+    for (const step of steps) per.set(step.beat, (per.get(step.beat) ?? 0) + 1);
+    return [...per.values()];
+  }));
+  const ROW = Math.max(64, stack * 20 + 28);
   const w = LEFT + beats.length * COL + 40;
   const h = TOP + rows.size * ROW + 60;
   const parts = [`<rect x="0" y="0" width="${w}" height="${h}" fill="#14141c"/>`];
@@ -139,7 +164,7 @@ function drawTimeline(sequence) {
       }
       here.forEach((s, k) => {
         const label = s.do === 'move' && s.from ? 'PLACED'
-          : s.do === 'say' ? `say ${s.line}`
+          : s.do === 'say' ? `"${(s.spoken?.line ?? `say ${s.line}`).slice(0, 22)}"`
             : s.do === 'chore' ? s.clip
               : s.do === 'face' ? `face ${s.facing}`
                 : s.do;
