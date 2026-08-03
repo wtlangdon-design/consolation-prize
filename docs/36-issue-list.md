@@ -1841,6 +1841,33 @@ The surviving sentence sits at the end of the section on **what the town says ab
 
 ---
 
+## Q72 · Beat 2 no longer contains an arrival, and the eight seconds are the measurement of that
+
+**Doc 17 beat 2: "The coach ARRIVES and halts with Thad visibly aboard."** Stated at ~8s. It holds **0.86s**.
+
+**Every step in it is a placement.** Read out of `content/sequences/opening.json`:
+
+| step | actor | from → to | seconds |
+|---|---|---|---|
+| `move` | hob | [600, 720] → [600, 720] | 0.1 |
+| `move` | coach | [1390, 742] → [1390, 742] | 0.1 |
+| `setState` | — | the door opens | — |
+| `move` | thad | [1170, 794] → [1170, 794] | 0.1 |
+| `face` | thad | right | — |
+| `chore` | thad | `aboard-coach` | held |
+
+**Three moves of zero distance.** `stagingTakesTime` returns false for a `move` whose `from` equals its `to` — correctly, that is a placement and not a journey — so the beat has nothing in it that takes time, and it ends as soon as the pose is struck. **The coach does not arrive. It is simply there.** The eight seconds were budgeted for something that no longer happens.
+
+**Doc 43 asked this months of work ago and nobody answered it:** should the coach arrive on screen, or be halted when the beat opens? The player-audit fix — *"we never saw Thad arrive, so there was no reason to think the man he is talking to drove him"* — is the argument for arriving, and holding him in the doorway helps without settling it.
+
+**What is new is that it is measurable rather than theoretical.** It is not an opinion that the beat is thin; it is 0.86 seconds against a written 8, and the harness prints both side by side on every run.
+
+**Deliberately not a failure.** A floor on beat duration would go red here, and beat 2 is short for reasons everybody already knows — `straighten-coat` is unbuilt, the driver cannot climb aboard, and main has since moved Thad's walk into beat 3 on purpose. That is R5j: a red on incompleteness that is not news teaches people that reds are ignorable. The number is reported next to the claim and the judgement is a person's.
+
+**This one is the project owner's**, and it is the only item tonight whose answer changes what the opening *is* rather than how it is checked.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
