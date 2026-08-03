@@ -249,6 +249,13 @@ function opening() {
       // front, so a chore before the face asks for aboard-coach/front and
       // throws. Nothing is substituted, by design.
       { do: 'face', actor: 'thad', facing: 'right' },
+      // THE DOOR IS OPEN WHILE HE CLIMBS OUT OF IT. Q38, and the half that
+      // could not be written before: object state had no writer that a
+      // cutscene could reach. It opens before the descent and shuts once he
+      // is clear of it -- doc 43, "the door is shut while he stands outside
+      // it, and shut as it leaves, which is correct: a driver closes the
+      // door".
+      { do: 'setState', object: 'coach', state: 'door-open' },
       // ONE CHORE, NOT TWO. alight-coach now covers the whole descent --
       // doorway then foot down -- because every chore begins and ends on the
       // stand frame, so chaining two of them made him straighten up mid-
@@ -258,6 +265,11 @@ function opening() {
       // something true to sort. He used to stand at (820, 760) -- inside the
       // vehicle's own span, eighteen pixels in front of it, among the horses.
       { do: 'walk', actor: 'thad', to: [1240, 802] },
+      // And shut behind him. No state, rather than a state called "shut": the
+      // record declares one variant and the plain clip IS the shut door, so
+      // clearing resolves to it by the same exact-match-then-fall-back that a
+      // mover which never had a state uses.
+      { do: 'setState', object: 'coach' },
       { do: 'face', actor: 'thad', facing: 'right' },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than

@@ -69,7 +69,31 @@ export type SequenceStep =
    * steps, and again by the build check, which is the only place that can see
    * a beat's `control` at all.
    */
-  | { kind: 'wait'; seconds: number };
+  | { kind: 'wait'; seconds: number }
+  /**
+   * ERRATA 28a STRUCK `setObjectState` FROM THE FIRST CUT, AND THIS IS IT
+   * BACK. Flagged rather than slipped in: it is an EIGHTH kind and the
+   * decision is not the engine's.
+   *
+   * The shape is errata 38's exactly. A cutscene has to be able to change
+   * what an object IS, not only where it stands: the coach's door is open
+   * while Thad climbs out of it and shut while he stands beside it, and no
+   * player action opens or closes it. Nothing else in the vocabulary can say
+   * so -- `set` on a beat writes flags, and object state is not a flag; a
+   * response rule's `state` needs a verb and a target, which would mean
+   * inventing a hotspot nobody may click purely to hold a state change.
+   *
+   * FENCED LIKE `wait` AND `move`, to beats whose control is `none`. In
+   * ordinary interaction a state change belongs to the verb that caused it,
+   * which is where doc 22 item 9 already puts it. In a cutscene there is no
+   * verb, and the change is the content.
+   *
+   * `state` ABSENT MEANS BACK TO THE DECLARED DEFAULT -- shut, in the coach's
+   * case. Absent rather than null for the reason `ActorClip.state` gives:
+   * `clipOf` is exact-match-then-fall-back and a null is a state nobody can
+   * ask for.
+   */
+  | { kind: 'setState'; object: string; state?: string };
 
 /** What the runner needs the world to be able to do. */
 /**
@@ -120,6 +144,8 @@ export interface SequenceHost {
    * line and of whoever is reading it, and neither is the runner's business.
    */
   say(step: Extract<SequenceStep, { kind: 'say' }>): number;
+  /** Doc 22 item 9's state, set from a cutscene. See the step's own note. */
+  setState(object: string, state: string | undefined): void;
 }
 
 export class SequenceRunner {
@@ -256,6 +282,12 @@ export class SequenceRunner {
       if (step.kind === 'chore') {
         this.waitUntil = seconds + host.chore(step.actor, step.chore);
         this.waiting = true;
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'setState') {
+        host.setState(step.object, step.state);
         this.index += 1;
         moved = true;
         continue;

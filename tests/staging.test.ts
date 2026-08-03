@@ -187,6 +187,7 @@ function recordingHost(said: string[]): SequenceHost {
       if (step.line !== undefined) said.push(step.line);
       return 1;
     },
+    setState: () => {},
   };
 }
 

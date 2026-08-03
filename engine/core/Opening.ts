@@ -108,6 +108,7 @@ export function segmentsOf(file: SequenceFile): Segment[] {
 function stagingTakesTime(beat: SequenceBeat): boolean {
   return (beat.staging ?? []).some((staged) => {
     if (staged.do === 'walk' || staged.do === 'chore') return true;
+    // A `setState` swaps a picture. Like a `face`, it is instantaneous.
     if (staged.do !== 'move') return false;
     return !staged.from
       || staged.from[0] !== staged.to[0] || staged.from[1] !== staged.to[1];
@@ -218,6 +219,8 @@ function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] 
         { kind: 'face', actor: staged.actor, facing: staged.facing },
         { kind: 'waitForActor', actor: staged.actor },
       ];
+    case 'setState':
+      return [{ kind: 'setState', object: staged.object, state: staged.state }];
     case 'say': {
       const spoken = placedLine(beat, staged.line);
       return [{ kind: 'say', actor: spoken.speaker, line: spoken.line }];
@@ -248,6 +251,15 @@ export function carriedStepsFor(beat: SequenceBeat): SequenceStep[] {
       throw new Error(
         `Beat ${beat.beat} stages a move but its control is ${beat.control}. `
         + 'Errata 38: move is legal only inside a beat whose control is none.',
+      );
+    }
+    // The eighth kind is fenced exactly as `move` and `wait` are. Under player
+    // control a state change belongs to the verb that caused it, which is
+    // where doc 22 item 9 already puts it.
+    if (staged.do === 'setState') {
+      throw new Error(
+        `Beat ${beat.beat} stages a setState but its control is ${beat.control}. `
+        + 'A state change under player control belongs to the verb that causes it.',
       );
     }
     steps.push(...lower(staged, beat));

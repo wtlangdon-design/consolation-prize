@@ -107,6 +107,18 @@ export class RoomActors {
   }
 
   /** Everyone on stage, in insertion order. The renderer sorts by feet. */
+  /**
+   * Doc 22 item 9's state for a mover. Written by a cutscene, read by the
+   * renderer through `GameState.moverState`.
+   *
+   * Routed through `GameState` rather than held on the Actor: object state is
+   * SAVED, and a resting field on a mover would be a second home for a fact
+   * that already has one. The renderer asks GameState; so does this.
+   */
+  setMoverState(id: string, state: string | undefined): void {
+    this.state.setMoverState(id, state);
+  }
+
   all(): Actor[] {
     return [...this.movers.values()];
   }

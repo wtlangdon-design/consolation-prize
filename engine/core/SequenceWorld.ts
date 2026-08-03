@@ -141,6 +141,18 @@ export class SequenceWorld implements SequenceHost {
     return seconds;
   }
 
+  /**
+   * Doc 22 item 9's object state, set from a cutscene. The eighth step kind.
+   *
+   * It goes through `RoomActors`' own state, not through a target: a mover is
+   * not a hotspot and has no rect, and `moverState` already reads exactly this
+   * key. The seam was built when the coach's door became a clip with a state;
+   * this is the half that could not be written from a beat.
+   */
+  setState(object: string, state: string | undefined): void {
+    this.actors.setMoverState(object, state);
+  }
+
   say(step: Extract<SequenceStep, { kind: 'say' }>): number {
     return this.speak(step);
   }

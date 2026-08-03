@@ -56,6 +56,7 @@ class OpeningHarness {
       isTurning: () => false,
       chore: () => 0.5,
       isChoring: () => false,
+      setState: () => {},
     } as unknown as SequenceHost;
     this.play();
   }

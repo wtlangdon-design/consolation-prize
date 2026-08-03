@@ -361,6 +361,23 @@ export class GameState {
     this.objectStates.set(this.key(target.id), state);
   }
 
+  /**
+   * The same store, keyed by a MOVER id rather than by a target.
+   *
+   * A mover has no rect and is not an Interactable, so it cannot go through
+   * `setState` above -- but it is the same fact in the same map under the same
+   * key, which is what makes it save and restore for free.
+   *
+   * `undefined` CLEARS it, which is how the coach's door shuts: back to the
+   * declared default rather than to a state called "shut" that no clip
+   * declares. `clipOf` is exact-match-then-fall-back, so a cleared state
+   * resolves to the plain clip exactly as a mover that never had one does.
+   */
+  setMoverState(moverId: string, state: string | undefined): void {
+    if (state === undefined) this.objectStates.delete(this.key(moverId));
+    else this.objectStates.set(this.key(moverId), state);
+  }
+
   /** Every object in the current room that draws something for its state. */
   get statefulTargets(): Interactable[] {
     return this.targets.filter((target) => this.presentation(target)?.image);

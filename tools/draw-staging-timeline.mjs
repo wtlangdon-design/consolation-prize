@@ -175,7 +175,11 @@ function drawTimeline(sequence) {
             : s.do === 'chore' ? s.clip
               : s.do === 'face' ? `face ${s.facing}`
                 : s.do === 'walk' ? 'walk'
-                  : `UNDRAWN: ${s.do}`;
+                  // The eighth kind. A cleared state reads as the default
+                  // rather than as a blank, because "setState" with nothing
+                  // after it looks like a truncation.
+                  : s.do === 'setState' ? `${s.object} -> ${s.state ?? 'default'}`
+                    : `UNDRAWN: ${s.do}`;
         parts.push(`<circle cx="${x + 14}" cy="${y}" r="7" fill="${places && k === 0 ? colour : '#14141c'}"`
           + ` stroke="${colour}" stroke-width="3"/>`);
         parts.push(`<text x="${x + 28}" y="${y + 6 + k * 20 - (here.length - 1) * 10}" fill="${colour}"`

@@ -1013,6 +1013,12 @@ export type SequenceStagingStep =
    */
   | { do: 'chore'; actor: string; clip: string }
   /**
+   * ERRATA 28a's STRUCK `setObjectState`, BACK AS AN EIGHTH KIND. Doc 22 item
+   * 9's state, changed by a cutscene rather than by a verb. `state` absent
+   * means back to the declared default -- shut, for the coach's door.
+   */
+  | { do: 'setState'; object: string; state?: string }
+  /**
    * ERRATA 38. "`move` translates a named object from one position to another
    * over a duration" -- the coach's departure, and the reason the ruling
    * exists. Legal only inside a beat whose control is `none`, the same fence

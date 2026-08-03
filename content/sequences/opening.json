@@ -69,6 +69,11 @@
           "facing": "right"
         },
         {
+          "do": "setState",
+          "object": "coach",
+          "state": "door-open"
+        },
+        {
           "do": "chore",
           "actor": "thad",
           "clip": "alight-coach"
@@ -80,6 +85,10 @@
             1240,
             802
           ]
+        },
+        {
+          "do": "setState",
+          "object": "coach"
         },
         {
           "do": "face",
