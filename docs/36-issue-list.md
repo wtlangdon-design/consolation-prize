@@ -2209,6 +2209,49 @@ Measured by SHA-256 over the frame files:
 
 ---
 
+## Q79 · The downscale stage is not in this repository, and that is why the assertion moved
+
+**Asked: "assert the frame count survives the downscale before regenerating sixteen of anything."** It cannot be asked that way from here.
+
+`tools/rig/character.py` writes at **source resolution** — 869×1720 for the lookup source. The shipped frames are **279×610**. **Nothing in `tools/` resizes actor art.** The step between them exists only in somebody's hands, which makes it the one part of the pipeline no check can reach and no reader can find. Same family as R5l, one level up: not a field nobody reads, a *stage* nobody can see.
+
+**So clause three asserts on the output instead, which is stronger.** Whatever the downscale is and wherever it lives, the property that matters is a fact about the shipped bytes: **a six-frame clip must contain six frames' worth of pictures.** Measured there, it holds however the art was made and cannot be satisfied by a stage agreeing with itself.
+
+**Three is the threshold** — the fewest that can rise and settle, and the number `character.py`'s amplitude floor now guarantees. Clause three is the downstream half of that refusal: the generator declines to emit two pictures, and the check declines to ship them.
+
+**Fifteen clips fail it today**, which is the same list as the padding scan minus `thad-idlebreak-front` and `-back`, which have three and pass. `thad-lookup-left` is among the fifteen at 2 distinct — the rebuild at amp 6 is not on `main` yet, and clause three will pass it when it lands.
+
+**Still not registered in `run-all.mjs`**: 24 failures across three clauses, no fix in flight for most. Registers when the art agrees.
+
+---
+
+## Q80 · RULED — regenerate the idles and idle-breaks, not the walks
+
+**The project owner's call, recorded with its reasoning so it is not relitigated:**
+
+| | | why |
+|---|---|---|
+| idles, idle-breaks | **regenerate** | the amplitude floor fixes them and nothing else about them changes |
+| walks | **do not** | they need contralateral sources — one in flight for Hob, four unwritten for Thad. Regenerating now means doing it twice, and the mirror check lands with that art anyway |
+
+**A man who steps between two postures every 1.7 seconds rather than breathing is visible**, so leaving sixteen clips wrong to avoid churn is the wrong trade — but the two groups have different blockers and only one of them is unblocked.
+
+**And the two profile idle-breaks that never unshrug are NOT covered by this.** An amplitude fix touches intermediates; clause two's fault is endpoints, and a clip can have four real offsets and still teleport if none of them is zero. Whether those two are regenerated or re-authored is an art decision to be made watching one, since a shrug that holds may be what was wanted.
+
+---
+
+## Q81 · The lantern glow must anchor per clip, not per character — a constraint on unbuilt work
+
+**Recorded before the work starts rather than found afterwards.**
+
+Hob's standing pose holds the lantern **at his side**; his walk holds it **forward**, because a man carrying a lamp holds it out ahead to see by rather than swinging it. So the lamp changes position when he starts or stops walking — **which is real behaviour, not a fault.**
+
+**The consequence for `art/effects/lantern-glow.json`, which is fully specified and referenced by nothing:** the glow anchors to the flame, so the light pool moves with the lamp. **The anchor must be read per clip.** A single anchor per character would pin the pool to one of the two positions and let the lamp walk out of its own light.
+
+This is a constraint on unbuilt work, not a defect in it. It is written here because the alternative is discovering it after the glow is built against a per-character anchor — which is the cheaper thing to get right first and the expensive thing to find later.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

@@ -220,6 +220,46 @@ export function check() {
   }
   report.note(`${settled} clip(s) checked for beginning and ending at their idle`);
 
+  // CLAUSE THREE: A CLIP'S FRAMES ARE PICTURES, NOT PADDING.
+  //
+  // ASKED FOR AS "assert the frame count survives the downscale". IT CANNOT BE
+  // ASKED THAT WAY FROM HERE, and the reason is worth more than the check:
+  // THE DOWNSCALE STAGE IS NOT IN THIS REPOSITORY. `character.py` writes at
+  // source resolution -- 869x1720 for the lookup source -- and the shipped
+  // frames are 279x610. Nothing in tools/ resizes actor art. The step between
+  // them exists only in somebody's hands, which makes it the one part of the
+  // pipeline no check can reach and no reader can find.
+  //
+  // SO IT ASSERTS ON THE OUTPUT INSTEAD, which is stronger. Whatever the
+  // downscale is and wherever it lives, the property that matters is a fact
+  // about the shipped bytes: a six-frame clip must contain six frames' worth
+  // of pictures. Measured on what ships, this holds however the art was made,
+  // and it cannot be satisfied by a stage agreeing with itself (R5e).
+  //
+  // WHY THREE. Two distinct pictures is a step between two postures, not a
+  // movement: at 2.4/s that is a pop every 1.7 seconds. Three is the fewest
+  // that can rise and settle, and it is the number the amplitude floor in
+  // `character.py` now guarantees -- so this is the downstream half of that
+  // refusal, checking the artefact rather than the generator.
+  let padded = 0;
+  for (const dir of [...loaded.keys()].sort()) {
+    const frames = framesOf(dir);
+    if (frames.length < 4) continue;
+    const seen = new Set(frames.map((frame) => {
+      let hash = 2166136261;
+      for (let i = 0; i < frame.pixels.length; i += 997) {
+        hash = Math.imul(hash ^ frame.pixels[i], 16777619);
+      }
+      return `${hash}/${frame.pixels.length}`;
+    }));
+    padded += 1;
+    if (seen.size >= 3) continue;
+    report.fail(`${dir}: ${frames.length} frames but only ${seen.size} distinct picture(s). `
+      + 'That is a two-frame clip with padding -- a step between postures rather than a '
+      + 'movement. Three is the fewest that can rise and settle');
+  }
+  report.note(`${padded} clip(s) of four frames or more checked for distinct pictures`);
+
   // NO SILENT CAPS. What was not compared is named, because a check that
   // covers half the art and reports a clean pass is worse than one that says
   // which half.

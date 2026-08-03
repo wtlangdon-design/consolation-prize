@@ -317,6 +317,22 @@ R5e says a check written from its subject's understanding catches nothing — it
 
 > **Before writing a check, name the correct work it must stay quiet on.** If you cannot, you do not yet know what the rule is. And when a new check fails in bulk on existing work, the first hypothesis is that the check is wrong — not the work. R5e's remedy applies here too and in reverse: **make it fail on the real defect, then make sure it is silent on the real tree.** Neither half alone is evidence.
 
+### R5j's second half — a CONCLUSION failing on correct work
+
+**A check failing on correct work and a conclusion failing on correct work are the same error at different altitudes, and the second is the more dangerous of the two.**
+
+A red check announces itself. Somebody has to look at it, and the argument about whether it is right happens in the open. **A wrong reading gets agreed with** — it arrives already phrased as a finding, with a number attached, and the natural response to a colleague's measurement is to accept it.
+
+**The case.** A clip-agreement check reported that Thad's hand sits in a different place in `idle`, `idle-break` and `stand`, and the conclusion drawn was *"the clips disagree about what he looks like — this is the luggage flash on his arm."* Wrong. Doc 40: *"idle-break is view-dependent. Head-on it is a glance aside; in profile it is a **shoulder shrug**."* **A moving arm in profile is the animation working.** The reading described a defect where the design was.
+
+**And the disconfirming evidence was already on the page.** The failure list had four entries and every one was `left` or `right`. `front` and `back` — the glances — agreed about the hand exactly. **A rule that fires on precisely the two facings where the thing is supposed to move is describing the design, not a defect**, and both people looking at that list read past it.
+
+**What was actually wrong turned out to be sharper and needed a different measurement**: the profile breaks begin already shrugged and end still shrugged — 850px and 1437px from their idles at both ends, against 0px and 35px head-on — so the arm teleports in and teleports back rather than never moving. Neighbouring fault, opposite explanation.
+
+> **When a finding fires on a subset, ask what the subset has in common before asking what is wrong with it.** If the answer is "exactly the cases where this is supposed to happen", the reading is wrong and the evidence for that is already in front of you.
+
+**The two halves of R5j share a remedy and it is the same one:** name the correct work the rule must stay quiet on. For a check that means the tree it must not fail. For a conclusion it means *what would this look like if nothing were wrong* — and if the answer resembles the evidence, stop.
+
 ## R5k · A NUMBER THAT DESCRIBES SOMETHING THAT MOVED
 
 **Derive the coordinate from the thing. Do not restate it beside the thing.**
