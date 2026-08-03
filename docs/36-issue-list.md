@@ -926,6 +926,39 @@ PAGEERROR Sequence step names an actor with no mover in this room: hob
 
 **The check caught it and nobody was watching yet.** `checks.yml` had been live for one commit. It went red on the next one, correctly, and the deploy went red with it — which is the first real data for Q36's second half, and it argues the way it was ruled: the deploy failing did not tell anybody anything the check had not already said.
 
+## Q38 · The opening, played end to end: one engine defect fixed, four faults left, and where the coordinates are wrong
+
+Run from a fresh load, clicking only dialogue options, with the drawn size of every mover read out of `ActorSprite`'s resample cache rather than by instrumenting the draw path.
+
+**FIXED, AND IT WAS ENGINE: A PLACED MOVER TELEPORTED.** `Actor`'s clock starts at zero and only advances in `update`. `SequenceWorld.move` places a mover and glides it **on the same tick**, so the glide recorded `startedAt: 0` against a scene clock already twenty-five seconds old, and its first frame found a three-second glide long finished. The coach and Hob did not cross — they appeared at their destinations. Nothing threw, nothing looked wrong in a still frame, and they were simply never seen to move. `RoomActors` now remembers the clock it last advanced everyone to and seeds a new mover with it. The coach was measured mid-crossing at x1666 afterwards, where before it was at x2600 on first sight.
+
+The same zero would have made a chore on a freshly placed mover finish before its first frame.
+
+**FOUR FAULTS REMAIN AND THEY ARE ALL YOURS.**
+
+**1. The coach has no `idle` or `walk` clip, and the opening stops there.**
+
+```
+PAGEERROR CLIP_FALLBACK: idle/right/
+```
+
+`Actor.clip` returns `walk` while moving and `idle` when still — those are the two clips ANY mover is asked for, whatever it is. The record declares `halted` and `unloaded`. This is correct Q20 behaviour, naming the gap rather than substituting, and it is the first thing that stops the run. **I gave the record scratch `idle`/`walk` aliases to see what lay beyond it, and reverted them** — everything below was found through that patch and none of it is in the tree.
+
+**2. THE COACH DRAWS AT 590 × 240. Its art is 956 × 389.** Measured from the resample cache, not inferred. Sixty-two per cent, and it reads exactly that way on screen: the coach roof sits at Thad's head height where a stagecoach should stand half again over a man. The cause is that a mover's height comes from the room's DEPTH CURVE — 222 to 263, a scale for *people* — and `ActorSprite` scales by `height / figureHeight`. A vehicle is not a person and its height is not a point on that curve. It needs an authored height, or an opt-out from the curve.
+
+**3. HOB IS NEVER DRAWN. Not once, in the whole run.** The resample cache has no `hob` entry at all. He is declared right-facing only, and he crosses **right to left** — placed at 2100, moved to 1820, walked to 300 — so `facing` is `left` from his first frame to his last and `clipOf` correctly returns nothing. He crosses the road as a graybox. The staging note says "right-facing only, so he walks the way he is drawn", and the direction is the opposite of the one he is drawn in.
+
+**4. Beat 9 holds beat 10 for sixteen seconds.** `lower('walk')` appends a `waitForActor`, so beat 10 waits for Hob to finish crossing — 1520 px at walking pace. Control passes to the player at beat 8, and then **twenty-four seconds later Thad walks himself across the screen** to (300, 800) while the player is holding the mouse. Beat 10's staging walking the player character during a player-control beat is the part worth a second look; the sixteen-second wait is just what a 1520 px crossing costs.
+
+**WHERE THE COORDINATES ARE WRONG.**
+
+- **He does not get out at the coach.** Beat 2 plays `alight-coach` at **(960, 863)** — the bottom centre of the frame, which is where the actor starts. The coach is at **(646, 742)**. He climbs down 314 px to the right of it and 121 px in front of it, with the coach behind his shoulder.
+- **Then he walks the wrong way and comes back.** Beat 2 walks him to **600** — past the coach, to its far side — and beat 3 walks him back **right** to **820**. Measured: 960 → 616 → 820. On screen it is a wobble with no reason in it. If 820 is where he speaks up at the box, beat 2's target wants to be short of it, not past it.
+- **Hob's entry and exit are sound.** 2100 is genuinely off-frame right and 300 is clear of the left edge; his path is the only one that does what its note says.
+- **The coach's exit is sound.** 646 → 2600 clears the frame at 1920 with its own width to spare.
+
+**One false lead, named so nobody chases it.** An early run threw `BODY_ONE_OWNER: thad@chore+walk` at beat 2. It does not reproduce without the instrument: wrapping `drawImage` to measure sizes slowed the frame enough to trip the guard. R5d — the apparatus perturbed the thing it was measuring, and the second measurement was built to touch nothing.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

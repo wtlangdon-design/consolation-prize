@@ -24,6 +24,19 @@ export class RoomActors {
   private readonly state: GameState;
   private readonly player: Actor;
   private readonly movers = new Map<string, Actor>();
+  /**
+   * The clock every mover was last advanced to, so a NEW ONE STARTS NOW.
+   *
+   * An Actor's clock begins at zero and only moves in `update`. A mover
+   * placed mid-scene and given a glide on the same tick therefore recorded
+   * `startedAt: 0` against a scene clock already twenty-five seconds old, and
+   * its first update found the glide long finished: the coach and Hob
+   * TELEPORTED to their destinations instead of crossing. Nothing threw and
+   * nothing looked broken in a still frame -- they were simply never seen to
+   * move. The same zero would have made a chore on a freshly placed mover
+   * finish before its first frame.
+   */
+  private now = 0;
 
   constructor(state: GameState, player: Actor) {
     this.state = state;
@@ -75,6 +88,9 @@ export class RoomActors {
       return existing;
     }
     const mover = new Actor(this.state, id, x, y, { routed: false, ...options });
+    // Its clock starts where everyone else's already is. A glide or a chore
+    // issued on this same tick then measures from now rather than from zero.
+    mover.update(this.now);
     this.movers.set(id, mover);
     return mover;
   }
@@ -97,6 +113,7 @@ export class RoomActors {
 
   /** Advances every mover, and reports whether any drawn frame changed. */
   update(seconds: number): boolean {
+    this.now = seconds;
     let changed = false;
     for (const mover of this.movers.values()) {
       if (mover.update(seconds)) changed = true;
