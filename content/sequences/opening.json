@@ -182,6 +182,9 @@
       "description": "The case goes in the mud. \"Hotel's five dollars.\" — \"I have four.\" The driver climbs aboard",
       "control": "player",
       "note": "The material problem. He leaves before Thad can ask anything more",
+      "set": {
+        "T_CASE_DOWN": true
+      },
       "staging": [
         {
           "do": "face",
@@ -213,6 +216,16 @@
       "seconds": 3,
       "note": "Player-audit fix. A coach that disappears on a click is not a coach leaving",
       "staging": [
+        {
+          "do": "face",
+          "actor": "thad",
+          "facing": "right"
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "carry"
+        },
         {
           "do": "move",
           "actor": "coach",

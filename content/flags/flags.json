@@ -146,11 +146,9 @@
       "id": "T_CASE_DOWN",
       "type": "bool",
       "initial": false,
-      "note": "The case is off the coach and in the mud, and it gates HIS CASE's two drawn states: on the roof while false, in the mud while true. Doc 17 beat 6 -- 'The case goes in the mud' -- says so in its own words, and beat 6 wrote it. NOTHING MOVES THE CASE. There is no mover for it and no state swap; it sits on the roof through the whole opening, so the write was a claim about something that had not happened. case_mud became interactable where there is no suitcase, and case_roof -- gated on this being false -- vanished from under the case that is actually there. Reported from a play-through as 'the case is interactable where it is not'. The write is removed until something moves the case: a flag must not claim what the picture does not show.",
-      "pending": true,
-      "pendingNote": "Designed and not built. The writer is whatever puts the case in the mud -- a mover for it, or a state swap -- and until that exists case_mud is correctly unreachable. Listed on every run rather than exempted quietly.",
+      "note": "The case is off the coach and in the mud, and it gates HIS CASE's two drawn states: on the roof while false, in the mud while true. Doc 17 beat 6 -- 'The case goes in the mud' -- says so in its own words, and beat 6 wrote it. NOTHING MOVES THE CASE. There is no mover for it and no state swap; it sits on the roof through the whole opening, so the write was a claim about something that had not happened. case_mud became interactable where there is no suitcase, and case_roof -- gated on this being false -- vanished from under the case that is actually there. Reported from a play-through as 'the case is interactable where it is not'. The write was removed until something moved the case, because a flag must not claim what the picture does not show. THE CASE IS ITS OWN DRAWN LAYER NOW, gated on this, so writing it IS the case moving -- roof to mud, and beat 6b holds Thad in `carry` while the coach goes, which is the bible's opening image. Restored to beat 6. Q11 as ruled.",
       "writtenBy": [
-        "unbuilt:the-case-coming-off-the-roof"
+        "sequence:opening:6"
       ]
     }
   ]

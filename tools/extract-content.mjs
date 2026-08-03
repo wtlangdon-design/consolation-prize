@@ -174,6 +174,12 @@ function opening() {
   // never leaving the roof, which is a separate and larger gap.
   const flags = {
     '3': { T_OPENING_SAID: true },
+    // THE CASE COMES DOWN AT BEAT 6, and the write is honest again. It was
+    // removed because nothing moved the case and a flag must not claim what
+    // the picture does not show; the case is its own drawn layer now, gated on
+    // this, so writing it IS the case moving. Q11 as ruled: roof to mud to
+    // hand, and then it is inventory.
+    '6': { T_CASE_DOWN: true },
     // HOB IS ON SCREEN FROM THE END OF BEAT 7, so the flag that says so is
     // written there rather than at beat 9. It was on beat 9 because he used to
     // walk in during it; he now stands at the roadside before the player is
@@ -325,11 +331,26 @@ function opening() {
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],
+    // BEAT 6b HOLDS HIM IN `carry` WHILE THE COACH GOES, and that one moment
+    // is the whole reason the clip exists. Q11 ruled the case is an inventory
+    // abstraction -- no carry locomotion, because that is 36 frames of stand
+    // and walk in four facings and the next thing he does is walk away from us
+    // at 98px tall where none of it would be seen -- with ONE exception, and
+    // this is it.
+    //
+    // The bible's opening image is "a stage coach pulls away, revealing a
+    // young man in a good coat standing in mud, holding a case." That is this
+    // beat. `carry` is a single held pose and serves it exactly: he holds it
+    // while the coach leaves, and it is in the panel afterwards.
     // BEAT 6b: errata 38's whole reason for existing. It LEAVES; it does not
     // vanish. `from` places the mover -- `walk` never places, only `move` does.
     // No `from` here: beat 2 placed it, and repeating the placement would
     // teleport it back to its mark if anything had nudged it.
-    '6b': [{ do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 }],
+    '6b': [
+      { do: 'face', actor: 'thad', facing: 'right' },
+      { do: 'chore', actor: 'thad', clip: 'carry' },
+      { do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 },
+    ],
     // BEAT 7 NO LONGER TOUCHES HIM -- he has stood at the roadside since beat
     // 2. Kept as an EMPTY list rather than deleted so the beat still lasts as
     // long as doc 17 says: `stagingTakesTime` is false for an empty list, so

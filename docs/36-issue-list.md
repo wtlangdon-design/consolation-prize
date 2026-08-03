@@ -1587,6 +1587,31 @@ The band's back edge is **y660**, taken from where the mud becomes the surface �
 
 ---
 
+## Q63 · The case cannot enter the panel: doc 17 points at doc 23 for its lines and doc 23 has no case
+
+**Q11 is ruled and two thirds of it are built.** The case comes down at beat 6 — it is its own drawn layer, gated on `T_CASE_DOWN`, so writing the flag *is* the case moving — Thad stoops to it with `pickup-low`, and beat 6b holds him in `carry` while the coach leaves. That last one is the bible's opening image: *"a stage coach pulls away, revealing a young man in a good coat standing in mud, holding a case."*
+
+**The third part cannot be built, and the reason is a document pointing at another document that does not answer.**
+
+`case_mud`'s PICK UP already carries `take: true` — doc 17 calls it *"the first PICK UP in the game and it teaches the verb"* — but the hotspot has **no `item`**, and `resolvePure` only moves something into inventory when `action.take && target.item`. So the case is picked up and goes nowhere.
+
+**An item needs a record**, and `content/items/` has nine and not this one. Doc 17 state C says where its words live:
+
+> **State C — carried.** The hotspot is gone and the case is inventory. **It has no LOOK or LISTEN lines of its own** — an object that does not exist cannot answer. *Its inventory lines are doc 23's.*
+
+**Doc 23 has nine entries — the tuning fork, the letter, four dollars, the deed, the company map, the horse blanket, the pickaxe, the filing fee — and no case.** It mentions the case twice, both times inside the fork's lines: *"My father put this in the case first"*. The case's own inventory lines were never written.
+
+**Two ways out, and both are Tyler's:**
+
+1. **Doc 23 gains a case entry**, and the item is extracted from it like the other nine.
+2. **The case answers from doc 13's fallback pools**, which is a legitimate design — an item with no authored lines gets the generic ones — but it would be the only Act I item that does, and the case is the one the opening teaches PICK UP on.
+
+**A third thing is worth noting for whichever is chosen:** doc 17 still carries two LISTEN variants under state C, left over from the single-state version. The extractor reports them as orphans and drops them, correctly, because doc 17's own text says state C has no lines of its own. They are duplicates of state B's second and third. If doc 23 gains an entry they are not it.
+
+**Nothing invented.** `name` would be "HIS CASE", which the hotspots already carry, but a name without lines is half an item and which half is missing is a decision about the writing.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
