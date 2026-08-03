@@ -503,7 +503,7 @@
       "rect": [
         500,
         480,
-        150,
+        90,
         220
       ],
       "rectNote": "THE GAP IN THE FENCE, right of the Consolation sign, measured off the plate with a ruler: x500-650, centre 575. It was x0-204 at the frame's left edge -- he walked OFF the side of the picture, away from the town, while the lamps he is walking toward are up the hill through this gap. The written lines were always about the town: \"Consolation. There are lamps on in about a third of it.\" They describe what you see through here.",
@@ -535,7 +535,8 @@
           }
         ]
       },
-      "defaultVerb": "WALK_TO"
+      "defaultVerb": "WALK_TO",
+      "note": "NARROWED FROM 150 WIDE TO 90 BECAUSE HOB STANDS IN THIS GAP. He is at (600, 720) and his lantern falls at world x626-653, inside the old rect -- and that lamp is the only way to address him at all, since he is a mover and movers carry no rect (Q60). An exit and a character competing for the same click would have cost the character.\n\nThe gap itself is x500-650, read off a ruler over the plate. Thad walks through at 575, which is still inside this rect. If Hob ever moves out of the gap, this can go back to the full width."
     }
   ],
   "atmosphere": {
