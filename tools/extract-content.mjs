@@ -241,6 +241,10 @@ function opening() {
       // x1390 is where its hotspot (1152-1632) and case_roof (1236) have
       // always said it stands.
       { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
+      // OPEN FROM THE FIRST FRAME. He arrives inside it and climbs out, so a
+      // shut door is only correct before the coach has stopped -- which the
+      // player never sees. It stays open until the coach leaves.
+      { do: 'setState', object: 'coach', state: 'door-open' },
       // At the DOORWAY, on the coach's own ground line. A chore plays wherever
       // the actor is; without this he climbed down out of thin air at the
       // frame's bottom centre.
@@ -255,7 +259,6 @@ function opening() {
       // is clear of it -- doc 43, "the door is shut while he stands outside
       // it, and shut as it leaves, which is correct: a driver closes the
       // door".
-      { do: 'setState', object: 'coach', state: 'door-open' },
       // ONE CHORE, NOT TWO. alight-coach now covers the whole descent --
       // doorway then foot down -- because every chore begins and ends on the
       // stand frame, so chaining two of them made him straighten up mid-
@@ -269,7 +272,6 @@ function opening() {
       // record declares one variant and the plain clip IS the shut door, so
       // clearing resolves to it by the same exact-match-then-fall-back that a
       // mover which never had a state uses.
-      { do: 'setState', object: 'coach' },
       { do: 'face', actor: 'thad', facing: 'right' },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than

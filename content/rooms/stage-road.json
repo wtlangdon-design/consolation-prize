@@ -88,10 +88,10 @@
       "id": "case_roof",
       "name": "HIS CASE",
       "rect": [
-        1236,
-        336,
-        132,
-        72
+        1078,
+        341,
+        116,
+        64
       ],
       "colour": 28,
       "when": {
@@ -121,7 +121,14 @@
       "overrides": {
         "PICK_UP": "It is eight feet up and it is not mine to reach for yet."
       },
-      "note": "Doc 17, state A: on the coach, beats 1–5"
+      "note": "Doc 17, state A: on the coach, beats 1–5",
+      "state": "there",
+      "states": {
+        "there": {
+          "image": "art/objects/room-01-case-roof.png",
+          "note": "THE CASE IS ITS OWN LAYER, not part of the coach. That is why the door-open coach has an EMPTY rack and why the case can come off without the vehicle changing at all. Its position is measured -- the difference between the two coach frames IS the case, at sprite x178-269 y0-39, which is world x1090-1181 y353-392 once the coach is placed at 1390 with anchor 478.\n\nThe rect was [1236,336,132,72], authored when the coach stood elsewhere."
+        }
+      }
     },
     {
       "id": "case_mud",
@@ -166,7 +173,14 @@
       "overrides": {
         "OPEN": "A shirt, a razor, three letters, and a tuning fork. I have checked it four times since Sacramento and the contents have been consistent."
       },
-      "note": "Doc 17, state B: in the mud, from beat 6"
+      "note": "Doc 17, state B: in the mud, from beat 6",
+      "state": "there",
+      "states": {
+        "there": {
+          "image": "art/objects/room-01-case-mud.png",
+          "note": "The case where it lands. Gated on T_CASE_DOWN, whose writer is not built -- the check names that gap on every run rather than letting the flag claim what the picture does not show."
+        }
+      }
     },
     {
       "id": "lamp",
