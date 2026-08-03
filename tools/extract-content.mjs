@@ -192,58 +192,60 @@ function opening() {
    * numbers not a specification; these are not those numbers.
    */
   const staging = {
-    // BEAT 2. He arrives ABOARD and climbs down AT THE COACH.
+    // THE COACH STANDS AT x1390, not 646. Its hotspot is x1152-1632 and
+    // case_roof is at x1236; at 646 the sprite sat on the left of the frame
+    // while clicking it targeted empty road on the right. Placed at 1390 with
+    // anchor[0] 478 it spans world x912-1868, and its own features fall at:
     //
-    // The first step PLACES him. A chore plays wherever the actor is, and the
-    // player starts at the frame's bottom centre (960, 863) -- so without this
-    // he climbed down 314px to the coach's right and 121px in front of it,
-    // out of thin air. `move` on the player is legal here: beat 2's control is
-    // `none`.
+    //    doorway   x1008 - 1341
+    //    driver    x1332 - 1364
+    //    horses    x1485 - 1866
+    //
+    // Every position below is measured against those, not guessed.
     2: [
-      { do: 'move', actor: 'thad', from: [700, 742], to: [700, 742], seconds: 0.1 },
-      // FACE FIRST: the chore clips are drawn right-facing only and he starts
-      // facing front, so a chore before the face asks for aboard-coach/front
-      // and throws. Nothing is substituted, by design.
+      // At the DOORWAY, on the coach's own ground line. A chore plays wherever
+      // the actor is; without this he climbed down out of thin air at the
+      // frame's bottom centre.
+      { do: 'move', actor: 'thad', from: [1170, 742], to: [1170, 742], seconds: 0.1 },
+      // FACE FIRST: the chore clips are right-facing only and he starts facing
+      // front, so a chore before the face asks for aboard-coach/front and
+      // throws. Nothing is substituted, by design.
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'aboard-coach' },
       { do: 'chore', actor: 'thad', clip: 'alight-coach' },
-      // Clear of the door, moving TOWARD where he will speak. He used to walk
-      // to 600 -- past the coach to its far side -- and then back to 820, a
-      // wobble with no reason in it.
-      { do: 'walk', actor: 'thad', to: [760, 750] },
+      // Clear of the door and a little NEARER THE CAMERA, so depth sorting has
+      // something true to sort. He used to stand at (820, 760) -- inside the
+      // vehicle's own span, eighteen pixels in front of it, among the horses.
+      { do: 'walk', actor: 'thad', to: [1240, 780] },
       { do: 'face', actor: 'thad', facing: 'right' },
     ],
-    // BEAT 3: the last of the way to where he can speak up at the box.
+    // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than
+    // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
+    // there is no room to stand between them, so he stands ahead of both.
     3: [
-      { do: 'walk', actor: 'thad', to: [820, 760] },
+      { do: 'walk', actor: 'thad', to: [1330, 800] },
       { do: 'face', actor: 'thad', facing: 'right' },
     ],
-    // BEAT 6: the case goes in the mud and he stoops to it.
     6: [
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],
-    // BEAT 6b: errata 38's whole reason for existing. It leaves; it does not
+    // BEAT 6b: errata 38's whole reason for existing. It LEAVES; it does not
     // vanish. `from` places the mover -- `walk` never places, only `move` does.
-    '6b': [{ do: 'move', actor: 'coach', from: [646, 742], to: [2600, 742], seconds: 3 }],
-    // BEAT 7 places Hob, off frame LEFT, while the coach recedes.
-    //
-    // LEFT, because he is drawn right-facing only and a right-facing man walks
-    // to the right. He used to be placed at 2100 and walked to 300, so his
-    // facing was `left` from first frame to last, clipOf correctly returned
-    // nothing, and he was never drawn at all -- not one frame in a whole run.
-    //
-    // He is placed here rather than in beat 9 because `walk` requires a mover
-    // and never creates one, only `move` places, and errata 38 fences `move`
-    // to beats whose control is `none`. Beat 9's control is `player`.
+    '6b': [{ do: 'move', actor: 'coach', from: [1390, 742], to: [3000, 742], seconds: 3 }],
+    // BEAT 7 places Hob off frame LEFT, because he is drawn right-facing only
+    // and a right-facing man walks rightward. He is placed here rather than in
+    // beat 9 because `walk` never creates a mover, only `move` places, and
+    // errata 38 fences `move` to beats whose control is `none`.
     7: [{ do: 'move', actor: 'hob', from: [-260, 700], to: [60, 700], seconds: 2 }],
-    // BEAT 9: he crosses the road, left to right, and is gone.
-    9: [{ do: 'walk', actor: 'hob', to: [2100, 700] }],
-    // BEAT 10 STAGES NOTHING. It used to walk Thad west -- during a beat whose
-    // control is `player`, so the game walked the protagonist across the
-    // screen while the player was holding the mouse. Going west is the
-    // player's move to make; the beat is a description of what is available,
-    // not an instruction.
+    // BEAT 9: he crosses, STOPS to speak, and goes on. Three lines from a man
+    // who never breaks stride is not the beat.
+    9: [
+      { do: 'walk', actor: 'hob', to: [1080, 700] },
+      { do: 'walk', actor: 'hob', to: [2100, 700] },
+    ],
+    // BEAT 10 STAGES NOTHING, deliberately. Going west is the player's move to
+    // make; it previously walked the protagonist during a player-control beat.
   };
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];

@@ -41,11 +41,11 @@
           "do": "move",
           "actor": "thad",
           "from": [
-            700,
+            1170,
             742
           ],
           "to": [
-            700,
+            1170,
             742
           ],
           "seconds": 0.1
@@ -69,8 +69,8 @@
           "do": "walk",
           "actor": "thad",
           "to": [
-            760,
-            750
+            1240,
+            780
           ]
         },
         {
@@ -93,8 +93,8 @@
           "do": "walk",
           "actor": "thad",
           "to": [
-            820,
-            760
+            1330,
+            800
           ]
         },
         {
@@ -191,11 +191,11 @@
           "do": "move",
           "actor": "coach",
           "from": [
-            646,
+            1390,
             742
           ],
           "to": [
-            2600,
+            3000,
             742
           ],
           "seconds": 3
@@ -240,6 +240,14 @@
         "T_HOB_CROSSING": true
       },
       "staging": [
+        {
+          "do": "walk",
+          "actor": "hob",
+          "to": [
+            1080,
+            700
+          ]
+        },
         {
           "do": "walk",
           "actor": "hob",

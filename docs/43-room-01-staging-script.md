@@ -35,6 +35,17 @@
 
 **The coach stands at x 1390, wheels on the road at y 742.** That centres its 956px width on the hotspot's 1152–1632.
 
+**Its own features, in world coordinates, measured from the sprite:**
+
+| | World x |
+|---|---|
+| The whole assembly | 912 – 1868 |
+| The doorway | **1008 – 1341** |
+| The driver on the box | **1332 – 1364** |
+| The horses | **1485 – 1866** |
+
+**There is no room to stand between the driver and the horses.** Thad speaks from *in front of* the box, nearer the camera, not beside it. He previously stood at (820, 760) — inside the vehicle's own span, eighteen pixels ahead of it, among the horses.
+
 Everything below assumes that. **It is the single largest correction in this document.**
 
 ---
