@@ -163,11 +163,19 @@ function drawTimeline(sequence) {
           + ' stroke-width="3" stroke-opacity="0.35"/>');
       }
       here.forEach((s, k) => {
-        const label = s.do === 'move' && s.from ? 'PLACED'
+        // EVERY STEP KIND IS NAMED HERE, INCLUDING THE ONES WHOSE LABEL IS
+        // THEIR OWN NAME. `walk` is the commonest step in the file and it used
+        // to reach the drawing through the default branch -- correct by
+        // accident, and the same latent shape that left `say` unreachable: the
+        // next kind added would also fall through, silently, and look drawn.
+        // `tools/check-drawer-coverage.mjs` fails the build if a kind appears
+        // in a staging table and is not named on one of these lines.
+        const label = s.do === 'move' ? (s.from ? 'PLACED' : 'move')
           : s.do === 'say' ? `"${(s.spoken?.line ?? `say ${s.line}`).slice(0, 22)}"`
             : s.do === 'chore' ? s.clip
               : s.do === 'face' ? `face ${s.facing}`
-                : s.do;
+                : s.do === 'walk' ? 'walk'
+                  : `UNDRAWN: ${s.do}`;
         parts.push(`<circle cx="${x + 14}" cy="${y}" r="7" fill="${places && k === 0 ? colour : '#14141c'}"`
           + ` stroke="${colour}" stroke-width="3"/>`);
         parts.push(`<text x="${x + 28}" y="${y + 6 + k * 20 - (here.length - 1) * 10}" fill="${colour}"`

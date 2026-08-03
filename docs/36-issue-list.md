@@ -1112,6 +1112,33 @@ Regenerated both views after the merge, which is the instruction, and the timeli
 
 **The instruction holds and is worth restating as the reason:** a check knows *"placed before used"* is violated; only a drawing tells you a man is standing among the horses. It also tells you when the drawing itself has stopped keeping up with the vocabulary — which is what this was.
 
+## Q46 · `walk` was drawn by accident, and the vocabulary is now checked against the drawing
+
+Your coverage question, run: `chore` named, `face` named, `move` named, `say` named, **`walk` not named.** The commonest step in the file reached the drawing through a default branch — correct today, and the same latent shape that left `say` unreachable. The next kind added would have fallen through the same way and looked drawn.
+
+`tools/check-drawer-coverage.mjs` reads the `do` values out of every staging table in the content, parses `draw-staging-timeline.mjs` for the string literals compared against `.do`, and requires the first set to be covered by the second. **31 checks.**
+
+```
+staging uses "walk" (content/sequences/opening.json beat 2) and
+tools/draw-staging-timeline.mjs never names it. It reaches the drawing through a
+default branch, which is correct by accident: the label is whatever the step
+happens to look like, and nothing says so. Name it, even if the label is its own name.
+```
+
+`walk` is named now, and the default branch says `UNDRAWN: <kind>` rather than guessing — so if the check is ever bypassed the picture says so in the picture.
+
+**THIS IS THE THIRD TIME TODAY THE ANSWER HAS BEEN THE SAME SHAPE**, and it is worth putting the three together because the family is now clear:
+
+| | agreed with itself | nothing checked it against |
+|---|---|---|
+| the stale actor record | `rig.json`, which the generator had just written | the frames on disk |
+| the boot split | its own field-by-field helper | every declared image, found generically |
+| the drawer | the steps it happened to know | the vocabulary the content actually uses |
+
+Each time a mechanism was internally consistent and correct about everything it looked at. Each time the check that fixed it **enumerated from a different direction** — the PNG header, a regex over the records, the content's own `do` values — rather than asking the mechanism to confirm itself.
+
+**And a fourth thing, on the apparatus.** My first negative test for this check reported PASS with the `walk` branch removed, which would have meant the check did not work. It had not run: shell quoting swallowed the edit and the file was never modified. Rewritten with `assert s.count(old) == 1, 'the experiment would not have happened'`, and it then failed correctly. R5d's clause, on the check written to enforce R5e's — an experiment that did not happen returns the answer you were hoping for just as readily as the one you feared.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

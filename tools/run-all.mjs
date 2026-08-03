@@ -31,6 +31,7 @@ import { check as bootAssets } from './check-boot-assets.mjs';
 import { check as actorFrames } from './check-actor-frames.mjs';
 import { check as generated } from './check-generated.mjs';
 import { check as entityFallback } from './check-entity-fallback.mjs';
+import { check as drawerCoverage } from './check-drawer-coverage.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -67,6 +68,7 @@ const CHECKS = [
   actorFrames,
   generated,
   entityFallback,
+  drawerCoverage,
 ];
 
 let failed = 0;
