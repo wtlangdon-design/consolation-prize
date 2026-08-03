@@ -2,7 +2,14 @@ import type { FlagValue } from './types.ts';
 import type { DialogueProgress } from './DialogueRunner.ts';
 
 export const SAVE_KEY = 'consolation.save.v1';
-export const SAVE_VERSION = 1;
+/**
+ * BUMPED TO 2 FOR `position`. A v1 save is rejected outright by `validate`,
+ * which is the right cost: every save in existence was written while testing
+ * in the hours before the field was added, so weighing the format against
+ * them was weighing it against nothing -- and CLAUDE.md's own criterion,
+ * "save/load restores exact state", was false in the document that states it.
+ */
+export const SAVE_VERSION = 2;
 
 export interface SaveFile {
   version: number;
@@ -24,6 +31,16 @@ export interface SaveFile {
   flags: Record<string, FlagValue>;
   dialogueProgress: DialogueProgress;
   dialoguePosition: { tree: string | null; node: string | null };
+  /**
+   * Where he was standing, in the room named above.
+   *
+   * OPTIONAL, and the absence is meaningful rather than legacy: a save taken
+   * by the autosave at the instant of arrival is written before the scene has
+   * placed him, so there is nothing to record and the entrance is where he is
+   * anyway. Loading one falls through to the entrance, which is the behaviour
+   * this field was added to stop being the ONLY behaviour.
+   */
+  position?: [number, number];
 }
 
 /** The subset of the Web Storage API the save system uses. */
@@ -166,6 +183,11 @@ export class SaveManager {
       return null;
     }
     if (typeof candidate.dialoguePosition !== 'object' || candidate.dialoguePosition === null) {
+      return null;
+    }
+    if (candidate.position !== undefined
+      && !(Array.isArray(candidate.position) && candidate.position.length === 2
+        && candidate.position.every((n) => typeof n === 'number' && Number.isFinite(n)))) {
       return null;
     }
     return candidate as SaveFile;

@@ -184,3 +184,45 @@ test('an unhandled verb draws from the target fallback pool, rotating', async ()
   assert.ok(first, 'fallback produces a line rather than nothing');
   assert.notEqual(first, second, 'the pool rotates instead of repeating');
 });
+
+
+test('save and load restore where he was standing, not where the door is', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  // THE CRITERION IS CLAUDE.md's OWN: save/load restores exact state. The
+  // payload had eight fields and not one of them was his position, so loading
+  // put him back at the entrance -- measured in play as x700 saved, x960
+  // restored.
+  state.rememberStanding(700, 830);
+  state.save();
+  state.rememberStanding(120, 700);
+
+  assert.equal(state.load(), true);
+  assert.deepEqual(state.resumeStanding(null), [700, 830]);
+});
+
+test('coming back from the map resumes; coming through a door does not', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  const map = [...content.rooms.values()].find((room) => room.kind === 'map');
+  assert.ok(map, 'the town map is a room, doc 20 rule 5');
+
+  const here = state.roomId;
+  state.rememberStanding(691, 839);
+  state.enterRoom(map.id);
+  state.enterRoom(here);
+
+  // OPENING A MENU IS NOT A MOVE. Doc 20 rule 2 makes the map always
+  // reachable, so under the old behaviour checking where you are relocated
+  // you: he walked to x691 and came back at x960.
+  assert.deepEqual(state.resumeStanding(map.id), [691, 839]);
+
+  // And an arrival is still an arrival. Walking in through an exit resumes
+  // nothing, because the entrance is what a door is for.
+  const other = [...content.rooms.values()]
+    .find((room) => room.id !== here && room.kind !== 'map');
+  assert.ok(other);
+  assert.equal(state.resumeStanding(other.id), undefined);
+});

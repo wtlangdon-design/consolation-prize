@@ -218,6 +218,8 @@ export class GameScene extends Phaser.Scene {
     // issued now records the same `now` the runner waits from -- and
     // guarantees that whatever finished has let go before anything asks.
     if (this.actors.update(now)) this.markDirty();
+    // Where he is standing is state, and this is the only place that knows it.
+    this.state.rememberStanding(this.actor.x, this.actor.y);
     // Every body whose walk or chore has finished is handed back HERE, once a
     // tick and in one place. A claim that outlives its motion is what makes
     // the next one trip assertion 6.
@@ -580,7 +582,13 @@ export class GameScene extends Phaser.Scene {
     this.carried.cancel();
     this.world.abandon();
     this.actors.clearRoom();
-    this.actor.placeIn(this.state.roomId, from);
+    // A RETURN PUTS HIM BACK; AN ARRIVAL USES THE DOOR. Coming back from the
+    // map or from a load resumes where he stood, which is what stops opening a
+    // menu being a move; walking through an exit is an arrival and still lands
+    // on the entrance, because that is what an entrance is for.
+    const resume = this.state.resumeStanding(from);
+    if (resume) this.actor.placeAt(resume[0], resume[1]);
+    else this.actor.placeIn(this.state.roomId, from);
   }
 
   /**

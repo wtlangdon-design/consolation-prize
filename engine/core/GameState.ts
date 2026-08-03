@@ -348,6 +348,39 @@ export class GameState {
   }
 
   /**
+   * Where he is standing, per room, so a RETURN is not an arrival.
+   *
+   * OPENING A MENU SHOULD NOT BE A MOVE, and it was one. The map is a room --
+   * doc 20 rule 5's "a menu that looks like a place" -- so closing it
+   * re-entered the road, and room entry places him at the entrance. He walked
+   * to x691 and came back at x960. Doc 20 rule 2 makes the map always
+   * reachable, so under that bug CHECKING WHERE YOU ARE RELOCATED YOU.
+   *
+   * Loading a save did the same thing for the same reason: the payload had
+   * eight fields and not one of them was where he was standing.
+   */
+  private standing = new Map<string, [number, number]>();
+
+  /** Called every frame by the scene. Never while the map is up. */
+  rememberStanding(x: number, y: number): void {
+    if (this.isMap) return;
+    this.standing.set(this.currentRoomId, [Math.round(x), Math.round(y)]);
+  }
+
+  /**
+   * Where to put him on entering, when this is a RETURN rather than an
+   * arrival: back from the map, or back from a load. Walking through a door
+   * is an arrival and still uses the entrance, because coming in through a
+   * door is exactly what an entrance is for.
+   *
+   * The map is recognised by its own `kind`, so no `.ts` file names Room 0.
+   */
+  resumeStanding(from: string | null): [number, number] | undefined {
+    const returning = from === null || this.content.rooms.get(from)?.kind === 'map';
+    return returning ? this.standing.get(this.currentRoomId) : undefined;
+  }
+
+  /**
    * Map destinations Thad currently knows about.
    *
    * A location whose room is not in the manifest still appears: doc 20 rule 3
@@ -794,6 +827,7 @@ export class GameState {
       flags: this.flags.snapshot(),
       dialogueProgress: this.dialogue.progressSnapshot(),
       dialoguePosition: this.dialogue.positionSnapshot(),
+      position: this.standing.get(this.currentRoomId),
     }, slot);
   }
 
@@ -817,10 +851,15 @@ export class GameState {
     this.scroll = 0;
     this.objectStates = new Map(Object.entries(save.objectStates ?? {}));
     this.taken = new Set(save.taken ?? []);
+    // Only the saved room's position survives a load. Anywhere else he stood
+    // this session belongs to a game that is being put away.
+    this.standing.clear();
+    if (save.position) this.standing.set(save.room, save.position);
     return true;
   }
 
   reset(): void {
+    this.standing.clear();
     this.flags.reset();
     this.dialogue.restore({}, { tree: null, node: null });
     this.currentRoomId = this.content.manifest.startRoom;

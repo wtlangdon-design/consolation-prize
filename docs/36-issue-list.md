@@ -1222,6 +1222,45 @@ F. loaded                  x960 y863  hand empty    <-- moved, and the hand is e
 
 **NOT FIXED, and the boundary is deliberate.** The fix is a `position` field in the save payload plus restoring it on load and on map return — but adding a field to the save format is a compatibility decision about every save already written, and it lands next to doc 34 section 1.2's fourth defect, which is about when `enterRoom` is allowed to autosave. The held item is a separate question with a real answer either way: it is the middle of an action rather than a possession, and the fork was still in `carrying` throughout.
 
+## Q49 · Position is state now, and the black figure does not reproduce on the deployed build
+
+**1. THE BLACK FIGURE IS GONE, AND WHEN IT WENT IS DATABLE.** I could not fetch the live page — the agent proxy denies `github.io` with a 403 on CONNECT, so this is not a reading of the site itself and should not be quoted as one. What I did instead is build the deployed sha exactly as `pages.yml` does, `BASE_PATH=/consolation-prize/ npm run build`, and serve and play the artifact.
+
+**Clean.** Four captures across thirteen seconds: the coach draws, Thad draws, the driver's tree opens. No 4xx, no console errors, no page errors, no rectangle.
+
+The Pages deployment history dates it:
+
+| deployed | sha | |
+|---|---|---|
+| 01:31 | `9a686a75` | coach facing `front` — **the black figure** |
+| 01:57 | `70e4db1f` | the facing fix |
+| 02:05 | `c38536cd` | current |
+
+**A screenshot taken before ~01:57 shows it and a screenshot after does not.** That is the whole of it: the black figure WAS the coach, and it was fixed twenty-six minutes later.
+
+**2. POSITION IS PART OF STATE.** Both halves, one mechanism.
+
+`SAVE_VERSION` goes 1 → 2 and the payload carries `position`. A v1 save is rejected outright, which costs nothing: every save in existence was written while testing in the hours before the field existed, and the alternative was leaving CLAUDE.md's own criterion — *save/load restores exact state* — false in the document that states it. The version marker was already there; it just had nothing to mark.
+
+`position` is **optional on purpose**, and the absence is meaningful rather than legacy: the autosave fires on arrival, before the scene has placed him, so there is nothing to record and the entrance is where he is anyway.
+
+**A RETURN PUTS HIM BACK; AN ARRIVAL USES THE DOOR.** `resumeStanding(from)` answers only when `from` is null (a load) or a room whose `kind` is `map` — so no `.ts` file names Room 0, and walking through an exit still lands on the entrance, because that is what an entrance is for.
+
+**Measured in play:**
+
+```
+A. walked to               x616 y832 stage_road
+B. map open                x610 y831 town_map
+C. map closed              x610 y831 stage_road   <-- was x960
+D. saved there, walked to  x934 y831 stage_road
+E. loaded                  x610 y831 stage_road   <-- was x960
+F. walked out west         x1848 y768 main_street  <-- still the entrance
+```
+
+Two tests carry it: one that a save round trip restores the position, one that a map round trip resumes while a door does not. **123 tests.**
+
+The held item stays as it is, as ruled. It is the middle of an action rather than a possession, and the fork stayed in `carrying` throughout.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
