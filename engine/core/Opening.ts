@@ -229,8 +229,14 @@ function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] 
       const spoken = placedLine(beat, staged.line);
       return [{ kind: 'say', actor: spoken.speaker, line: spoken.line }];
     }
-    default:
+    case 'chore':
       return [{ kind: 'chore', actor: staged.actor, chore: staged.clip }];
+    // A pause between two steps of one beat. See SequenceStagingStep.
+    case 'wait':
+      return [{ kind: 'wait', seconds: staged.seconds }];
+    // NOT A FALLBACK TO CHORE. See SequenceStagingStep for what that cost.
+    default:
+      throw new Error('STAGING_UNLOWERED: ' + (staged as { do: string }).do);
   }
 }
 

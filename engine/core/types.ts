@@ -1164,6 +1164,24 @@ export type SequenceStagingStep =
    */
   | { do: 'interact'; target: string; verb: string }
   /**
+   * A PAUSE BETWEEN TWO STEPS OF ONE BEAT, distinct from the beats own
+   * stated seconds -- that is one duration for the whole beat, and this is a
+   * gap inside it. Doc 17 beat 3 wants a moment after Thad says who he is
+   * before he crosses to the driver.
+   *
+   * Fenced exactly as the beats own wait is: errata 30a excluded it to stop
+   * a bare timed sleep replacing waitForActor in ordinary interaction, and
+   * that reasoning holds there and not in a cutscene where the duration IS
+   * the content. stepsFor is reached only for automatic segments.
+   *
+   * ADDED AFTER IT WAS ALREADY IN USE. It was authored into beat 3; the
+   * drawer check caught that nothing DREW it; nothing caught that nothing
+   * LOWERED it. It fell through stepsFor default branch to chore, became a
+   * chore with an undefined actor, and killed the opening at beat 3 with a
+   * missing-mover error about a step that never named one.
+   */
+  | { do: 'wait'; seconds: number }
+  /**
    * ERRATA 38. "`move` translates a named object from one position to another
    * over a duration" -- the coach's departure, and the reason the ruling
    * exists. Legal only inside a beat whose control is `none`, the same fence
