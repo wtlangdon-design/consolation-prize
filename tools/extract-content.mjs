@@ -192,51 +192,58 @@ function opening() {
    * numbers not a specification; these are not those numbers.
    */
   const staging = {
-    // Beat 2: he arrives ABOARD and gets down. The player-audit fix was that
-    // nobody saw him arrive, so there was no reason to think the man he talks
-    // to drove him.
+    // BEAT 2. He arrives ABOARD and climbs down AT THE COACH.
     //
-    // FACING COMES FIRST. The seven chore clips are drawn RIGHT-FACING ONLY,
-    // and he starts the scene facing front, so asking for aboard-coach before
-    // turning him asks for a clip that does not exist -- which threw
-    // CLIP_FALLBACK: aboard-coach/front/mud and stopped the opening dead at
-    // beat 2, before any later beat ran at all. Nothing is substituted for a
-    // missing clip, by design, so the ordering is load-bearing. Beat 6 below
-    // already had it in this order.
+    // The first step PLACES him. A chore plays wherever the actor is, and the
+    // player starts at the frame's bottom centre (960, 863) -- so without this
+    // he climbed down 314px to the coach's right and 121px in front of it,
+    // out of thin air. `move` on the player is legal here: beat 2's control is
+    // `none`.
     2: [
+      { do: 'move', actor: 'thad', from: [700, 742], to: [700, 742], seconds: 0.1 },
+      // FACE FIRST: the chore clips are drawn right-facing only and he starts
+      // facing front, so a chore before the face asks for aboard-coach/front
+      // and throws. Nothing is substituted, by design.
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'aboard-coach' },
       { do: 'chore', actor: 'thad', clip: 'alight-coach' },
-      { do: 'walk', actor: 'thad', to: [600, 742] },
+      // Clear of the door, moving TOWARD where he will speak. He used to walk
+      // to 600 -- past the coach to its far side -- and then back to 820, a
+      // wobble with no reason in it.
+      { do: 'walk', actor: 'thad', to: [760, 750] },
+      { do: 'face', actor: 'thad', facing: 'right' },
     ],
-    // Beat 3: he crosses to where he can speak up at the box.
+    // BEAT 3: the last of the way to where he can speak up at the box.
     3: [
       { do: 'walk', actor: 'thad', to: [820, 760] },
       { do: 'face', actor: 'thad', facing: 'right' },
     ],
-    // Beat 6: the case comes off the roof and into the mud, and he stoops to it.
+    // BEAT 6: the case goes in the mud and he stoops to it.
     6: [
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],
-    // Beat 6b: ERRATA 38's entire reason for existing. THE COACH LEAVES. A
-    // coach that vanishes on a click is not a coach leaving.
+    // BEAT 6b: errata 38's whole reason for existing. It leaves; it does not
+    // vanish. `from` places the mover -- `walk` never places, only `move` does.
     '6b': [{ do: 'move', actor: 'coach', from: [646, 742], to: [2600, 742], seconds: 3 }],
-    // Beat 9: Hob crosses the road with his lamp and is gone. Right-facing
-    // only, so he walks the way he is drawn.
-    // Beat 7 PLACES HOB, off frame right, while the coach recedes. He cannot
-    // be placed in beat 9 where he is used: `walk` requires a mover and never
-    // creates one, only `move` places, and errata 38 fences `move` to beats
-    // whose control is `none`. Beat 9's control is `player`. So the placement
-    // goes in the last automatic beat before it.
-    7: [{ do: 'move', actor: 'hob', from: [2100, 700], to: [1820, 700], seconds: 2 }],
-    // Beat 9: he crosses the road and is gone.
-    9: [{ do: 'walk', actor: 'hob', to: [300, 700] }],
-    // Beat 10: west, toward town.
-    10: [
-      { do: 'walk', actor: 'thad', to: [300, 800] },
-      { do: 'face', actor: 'thad', facing: 'left' },
-    ],
+    // BEAT 7 places Hob, off frame LEFT, while the coach recedes.
+    //
+    // LEFT, because he is drawn right-facing only and a right-facing man walks
+    // to the right. He used to be placed at 2100 and walked to 300, so his
+    // facing was `left` from first frame to last, clipOf correctly returned
+    // nothing, and he was never drawn at all -- not one frame in a whole run.
+    //
+    // He is placed here rather than in beat 9 because `walk` requires a mover
+    // and never creates one, only `move` places, and errata 38 fences `move`
+    // to beats whose control is `none`. Beat 9's control is `player`.
+    7: [{ do: 'move', actor: 'hob', from: [-260, 700], to: [60, 700], seconds: 2 }],
+    // BEAT 9: he crosses the road, left to right, and is gone.
+    9: [{ do: 'walk', actor: 'hob', to: [2100, 700] }],
+    // BEAT 10 STAGES NOTHING. It used to walk Thad west -- during a beat whose
+    // control is `player`, so the game walked the protagonist across the
+    // screen while the player was holding the mouse. Going west is the
+    // player's move to make; the beat is a description of what is available,
+    // not an instruction.
   };
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];

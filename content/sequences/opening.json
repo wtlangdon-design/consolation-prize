@@ -38,6 +38,19 @@
       "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen",
       "staging": [
         {
+          "do": "move",
+          "actor": "thad",
+          "from": [
+            700,
+            742
+          ],
+          "to": [
+            700,
+            742
+          ],
+          "seconds": 0.1
+        },
+        {
           "do": "face",
           "actor": "thad",
           "facing": "right"
@@ -56,9 +69,14 @@
           "do": "walk",
           "actor": "thad",
           "to": [
-            600,
-            742
+            760,
+            750
           ]
+        },
+        {
+          "do": "face",
+          "actor": "thad",
+          "facing": "right"
         }
       ]
     },
@@ -195,11 +213,11 @@
           "do": "move",
           "actor": "hob",
           "from": [
-            2100,
+            -260,
             700
           ],
           "to": [
-            1820,
+            60,
             700
           ],
           "seconds": 2
@@ -226,7 +244,7 @@
           "do": "walk",
           "actor": "hob",
           "to": [
-            300,
+            2100,
             700
           ]
         }
@@ -250,22 +268,7 @@
       "beat": "10",
       "description": "West, toward town",
       "control": "player",
-      "note": "See the descent, below",
-      "staging": [
-        {
-          "do": "walk",
-          "actor": "thad",
-          "to": [
-            300,
-            800
-          ]
-        },
-        {
-          "do": "face",
-          "actor": "thad",
-          "facing": "left"
-        }
-      ]
+      "note": "See the descent, below"
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "clip": "walk",
+  "facing": "right",
+  "view": "profile",
+  "figure": [
+    956,
+    379
+  ],
+  "padding": 0,
+  "note": "The coach as a MOVER. Actor.clip asks for `walk` while moving and `idle` when still, WHATEVER the mover is -- a vehicle is not exempt, so the two clips carry those names. `idle` is the coach standing with its door shut and the case on the rack; `walk` is it leaving with the door shut, which is also what a driver would do.\n\nTHE DOOR-OPEN BODY IS NOT REACHABLE FROM A MOVER. A mover has clips, not states, so the coach cannot show its open door while Thad is outside it. The art exists at art/objects/room-01-coach-unloaded.png. Filed.\n\nCropped from the full-frame state layer: same pixels, same scale, 956 wide at 240px per man. Anchor is its wheels on the road.",
+  "frames": 1
+}
