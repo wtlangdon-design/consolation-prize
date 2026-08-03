@@ -299,9 +299,25 @@ export class Actor {
    * routinely outside the boxes and asks the curve by Y regardless.
    */
   private sampleDepth(state: GameState, x: number, y: number): number | null {
-    return this.routed
-      ? state.actorHeightAt(Math.round(x), Math.round(y))
-      : state.stagedHeightAt(Math.round(x), Math.round(y));
+    // A GLIDE IS STAGED BY DEFINITION, WHOEVER IS GLIDING, and that is the
+    // whole of beat 11's fault. `actorHeightAt` asks `boxAt`, which answers
+    // only inside the walkable band; `stagedHeightAt` falls back to the
+    // NEAREST box, which is what lets `heightIn` extrapolate above it.
+    //
+    // Choosing between them by `routed` was right for every case that existed
+    // when it was written -- the player walks, everything else is staged --
+    // and wrong the moment errata 38's `move` translated the PLAYER outside
+    // the boxes. Thad walks away up the road in beat 11, leaves the band, and
+    // from that pixel on `boxAt` returns nothing, `sampleDepth` returns null,
+    // and his height simply stops changing: he floats into the town at the
+    // size of a man standing at the back of the band.
+    //
+    // `heightIn`'s own comment describes this exact picture and fixed the
+    // clamp one layer down. The clamp was gone and nothing reached it.
+    const staged = this.glide !== null || !this.routed;
+    return staged
+      ? state.stagedHeightAt(Math.round(x), Math.round(y))
+      : state.actorHeightAt(Math.round(x), Math.round(y));
   }
 
   private get routed(): boolean {

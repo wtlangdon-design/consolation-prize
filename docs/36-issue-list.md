@@ -2316,6 +2316,38 @@ This is a constraint on unbuilt work, not a defect in it. It is written here bec
 
 ---
 
+## Q83 · Thad floats into the town at full size — **FIXED** — and Hob's stride is shipped WRONG, not pending
+
+### Beat 11: the clamp was gone and nothing reached it
+
+`heightIn` was fixed to extrapolate above the band, with its own comment describing this exact picture: *"a man walking away up the road would not shrink at all: he would slide into the distance at the size of a man standing at the back of the band, forever."* **That fix was correct and unreachable.**
+
+`Actor.sampleDepth` chose between two callers by `routed`:
+
+```
+routed  -> actorHeightAt   -- asks boxAt, which answers only INSIDE the band
+staged  -> stagedHeightAt  -- falls back to the NEAREST box, which is what lets
+                              heightIn extrapolate
+```
+
+**Thad is routed.** So the moment beat 11's `move` carries him above the band, `boxAt` finds no box, `actorHeightAt` returns null, and his height simply stops changing at 222.
+
+**Choosing by `routed` was right for every case that existed when it was written** — the player walks, everything else is staged — and wrong the moment errata 38's `move` translated the *player* outside the boxes. It is now chosen by whether the mover is **gliding**, which is staged by definition whoever is doing it.
+
+**The shape is worth the entry on its own: a fix one layer down, correct, with nothing routing to it.** Neither half looked wrong. `heightIn` extrapolates and says why; `sampleDepth` picks a caller and says why. The fault is only visible with both open at once, which is the clip-agreement family in code rather than in art.
+
+### And Hob's legs are running at double rate on main RIGHT NOW
+
+**Flagged as wrong, not filed as pending, because "pending" reads as *not yet right* and this is *currently wrong*.**
+
+`frameAt` advances one frame per `stride / count` pixels. `strideLength` is **105**, measured on a cycle that contained **one** step. The cycle now contains two. So the legs cycle once every 105px where they should cycle once every ~210 — **double rate, at the same walking speed.**
+
+It is the galloping Tyler reported, arriving from the other side: the ping-pong made one leg lead every step, and the fix for that made the remaining number describe half a cycle.
+
+**Do not double it by assumption.** It wants measuring off the frames the way 102 and 105 were — foot travel past the standing silhouette — and it should wait for the arm correction, since replacing the four frames invalidates the measurement. **But it is shipped wrong in the meantime and should be read that way.**
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
