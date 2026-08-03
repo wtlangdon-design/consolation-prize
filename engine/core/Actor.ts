@@ -66,6 +66,15 @@ export const IDLE_BREAK = 'idle-break';
 const PLACEHOLDER_HEIGHT = 240;
 
 /** How long a character stands perfectly still before glancing aside. */
+/**
+ * How much the other axis must beat the current one by before he turns.
+ *
+ * Doc 32's "directional threshold", as a proportion rather than a pixel count
+ * so it holds at any distance: near a target every difference is small, and
+ * far from one every difference is large.
+ */
+const FACING_HYSTERESIS = 0.25;
+
 const IDLE_BREAK_AFTER = 7;
 
 /**
@@ -366,15 +375,38 @@ export class Actor {
     if (Math.abs(x - this.x) < 4 && (y === undefined || Math.abs(y - this.y) < 4)) {
       return this.facing;
     }
-    // A target directly above him at close range is something he turns his
-    // back to the camera for; anything to either side is a side view. The
-    // dead band is deliberately wide, because a one-pixel horizontal
-    // difference flipping him round is worse than not turning at all.
-    if (y !== undefined && Math.abs(x - this.x) < 8) {
-      return y < this.y - 8 ? 'back' : 'front';
+    const dx = x - this.x;
+    if (y === undefined) return dx < 0 ? 'left' : 'right';
+    const dy = y - this.y;
+
+    // THE DOMINANT SCREEN AXIS, WITH HYSTERESIS. Doc 40 line 163 -- "diagonals
+    // use the dominant screen axis. No diagonal art exists." -- doc 32 line
+    // 112, which adds that the cardinal facing is RETAINED "until the movement
+    // logic crosses its directional threshold", and doc 29 line 35, which says
+    // the route may be diagonal while the animation resolves to a cardinal.
+    //
+    // WHAT WAS HERE INSTEAD was an 8px dead band on the horizontal alone: any
+    // target more than eight pixels to the side was a side view, whatever the
+    // vertical. A walk of dx 20 and dy 200 -- almost straight up the road --
+    // drew him in profile walking away from the camera, and a path that
+    // wandered either side of that band flipped him left and right as he went.
+    // That is the unnatural diagonal: not the route, the facing.
+    //
+    // THE THRESHOLD IS A MARGIN, NOT A DEAD BAND. A path at almost exactly 45
+    // degrees is the case that flickers, and a dead band cannot help there --
+    // both axes are large. What helps is making the OTHER axis win by a
+    // margin before he turns, so the facing he already has is the one he
+    // keeps. 25% is wide enough that ordinary path noise cannot cross it and
+    // narrow enough that a genuine change of direction still reads.
+    const facingSideways = this.facing === 'left' || this.facing === 'right';
+    const sideways = facingSideways
+      ? Math.abs(dx) * (1 + FACING_HYSTERESIS) >= Math.abs(dy)
+      : Math.abs(dx) >= Math.abs(dy) * (1 + FACING_HYSTERESIS);
+    if (sideways) {
+      if (Math.abs(dx) < 4) return this.facing;
+      return dx < 0 ? 'left' : 'right';
     }
-    if (Math.abs(x - this.x) < 4) return this.facing;
-    return x < this.x ? 'left' : 'right';
+    return dy < 0 ? 'back' : 'front';
   }
 
   /** Plays a one-shot clip. Returns false if the character is already busy. */

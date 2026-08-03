@@ -65,18 +65,18 @@
       "id": "T_HOB_CROSSING",
       "type": "bool",
       "initial": false,
-      "note": "Hob is on screen. Doc 17 v3 beat 9 -- renumbered from beat 8 by the act card moving in ahead of it. Now the second strange encounter rather than the first, and it carries no exposition.",
+      "note": "Hob is on screen. Doc 17 v3 beat 9 -- renumbered from beat 8 by the act card moving in ahead of it. Now the second strange encounter rather than the first, and it carries no exposition. WRITTEN AT BEAT 7, NOT 9: he is staged STANDING at the roadside before control is handed over rather than walking in during beat 9, so the flag that says he is on screen has to be true for as long as he is. It gates THE WATCHMAN'S LAMP, and while the window was the few seconds of a crossing that hotspot existed for less time than it takes to choose a verb.",
       "writtenBy": [
-        "sequence:opening:9"
+        "sequence:opening:7"
       ]
     },
     {
       "id": "T_HOB_GONE",
       "type": "bool",
       "initial": false,
-      "note": "Hob has left frame. Doc 17 beat 10, which is an animation finishing rather than anything the player does, so nothing in content can write it and the opening-sequence driver must.",
+      "note": "Hob has left frame. Doc 17 beat 10. IT WAS WRITTEN NOWHERE AT ALL, which is why THE WATCHMAN'S LAMP stayed interactable after he had gone and lamp_gone -- the response written for exactly that moment -- could never appear. The declaration said the engine must write it, the engine never did, and the check reported that as a note on every run while nothing failed. Beat 10 is content and can carry it: the carrier applies a beat's writes as it reaches it, and it reaches beat 10 when beat 9's last walk has taken him off frame right.",
       "writtenBy": [
-        "engine:opening-sequence:beat10"
+        "sequence:opening:10"
       ]
     },
     {
@@ -128,9 +128,11 @@
       "id": "T_CASE_DOWN",
       "type": "bool",
       "initial": false,
-      "note": "The case is off the coach and in the mud. Doc 17 beat 6 -- 'The case goes in the mud' -- is the writer, and the beat says so in its own words, so this is routing rather than a decision. It gates HIS CASE's two drawn states: on the roof while it is false, in the mud while it is true, and gone once he picks it up, which is an ownership change rather than a third flag.",
+      "note": "The case is off the coach and in the mud, and it gates HIS CASE's two drawn states: on the roof while false, in the mud while true. Doc 17 beat 6 -- 'The case goes in the mud' -- says so in its own words, and beat 6 wrote it. NOTHING MOVES THE CASE. There is no mover for it and no state swap; it sits on the roof through the whole opening, so the write was a claim about something that had not happened. case_mud became interactable where there is no suitcase, and case_roof -- gated on this being false -- vanished from under the case that is actually there. Reported from a play-through as 'the case is interactable where it is not'. The write is removed until something moves the case: a flag must not claim what the picture does not show.",
+      "pending": true,
+      "pendingNote": "Designed and not built. The writer is whatever puts the case in the mud -- a mover for it, or a state swap -- and until that exists case_mud is correctly unreachable. Listed on every run rather than exempted quietly.",
       "writtenBy": [
-        "sequence:opening:6"
+        "unbuilt:the-case-coming-off-the-roof"
       ]
     }
   ]

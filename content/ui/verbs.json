@@ -73,6 +73,10 @@
   ],
   "npcVerb": "TALK_TO",
   "npcVerbNote": "What a click on an ambient character does. Errata 28b makes the sentence line show the verb a click would perform, and an ambient is always talked to -- so the verb has to be nameable from content rather than assumed in the scene.",
+  "carryVerbs": [
+    "USE"
+  ],
+  "carryVerbsNote": "The verbs that pick an inventory item UP to apply it to something else, rather than resolving on the item where it stands. USE is the only one: doc 24's combinations are all USE X ON Y, and the other eight verbs are complete sentences about the item alone. Everything not named here answers in the inventory, which is what OPEN THE LETTER failing to say anything was -- the panel treated every verb but LOOK and LISTEN as a request to hold the item, so eight of the nine verbs produced no response at all and the interface read as broken. Named in content because everything else about a verb is.",
   "examineVerbs": [
     "LOOK_AT",
     "LISTEN_TO"

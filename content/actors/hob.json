@@ -7,7 +7,7 @@
   "facings": [
     "right"
   ],
-  "walkRate": 8,
+  "walkRate": 5,
   "reactRate": 7,
   "idleRate": 2.4,
   "idleBreakRate": 2,

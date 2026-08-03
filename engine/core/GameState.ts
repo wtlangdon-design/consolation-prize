@@ -315,7 +315,20 @@ export class GameState {
   }
 
   private key(objectId: string): string {
-    return `${this.currentRoomId}/${objectId}`;
+    return `${this.scopeOf(objectId)}/${objectId}`;
+  }
+
+  /**
+   * Which scope an object's keys belong to: the room, or the inventory.
+   *
+   * AN ITEM IS NOT IN A ROOM. Its response index, its taken-once record and
+   * its state all belong to the item, so keying them to wherever the player
+   * happened to be standing would reset a letter's repeat lines every time he
+   * walked through a door -- and would give one letter as many independent
+   * histories as there are rooms.
+   */
+  private scopeOf(objectId: string): string {
+    return this.content.items.has(objectId) ? 'inventory' : this.currentRoomId;
   }
 
   /** The object's current state, or its declared initial one. */

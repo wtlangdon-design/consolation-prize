@@ -744,6 +744,9 @@ export interface VerbsFile {
   transitVerbs?: string[];
   /** Verbs that ask about a held item rather than picking it up to use with. */
   examineVerbs?: string[];
+  /** Verbs that pick an item up to use on something else. Doc 24's USE. */
+  carryVerbs?: string[];
+  carryVerbsNote?: string;
   /** What a click on an ambient character performs. */
   npcVerb?: string;
   defaultVerb: string;

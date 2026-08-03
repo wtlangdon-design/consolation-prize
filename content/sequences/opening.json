@@ -166,9 +166,6 @@
       "description": "The case goes in the mud. \"Hotel's five dollars.\" — \"I have four.\" The driver climbs aboard",
       "control": "player",
       "note": "The material problem. He leaves before Thad can ask anything more",
-      "set": {
-        "T_CASE_DOWN": true
-      },
       "staging": [
         {
           "do": "face",
@@ -217,19 +214,22 @@
       "control": "none",
       "seconds": 3,
       "note": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It",
+      "set": {
+        "T_HOB_CROSSING": true
+      },
       "staging": [
         {
           "do": "move",
           "actor": "hob",
           "from": [
-            -260,
+            1080,
             700
           ],
           "to": [
-            60,
+            1080,
             700
           ],
-          "seconds": 2
+          "seconds": 0.1
         }
       ],
       "actCard": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It"
@@ -245,18 +245,7 @@
       "description": "Hob's lamp crosses. \"Wouldn't stand there.\" / \"Why not?\" / \"No reason.\"",
       "control": "player",
       "note": "Now the second strange encounter, carrying no exposition",
-      "set": {
-        "T_HOB_CROSSING": true
-      },
       "staging": [
-        {
-          "do": "walk",
-          "actor": "hob",
-          "to": [
-            1080,
-            700
-          ]
-        },
         {
           "do": "say",
           "line": 0
@@ -297,7 +286,10 @@
       "beat": "10",
       "description": "West, toward town",
       "control": "player",
-      "note": "See the descent, below"
+      "note": "See the descent, below",
+      "set": {
+        "T_HOB_GONE": true
+      }
     }
   ]
 }

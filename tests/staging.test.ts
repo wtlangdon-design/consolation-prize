@@ -406,9 +406,14 @@ test('doc 17\'s beats after control carry lines and flags that were being droppe
       'every line of the beat is emitted');
     assert.ok(!steps.some((step) => step.kind === 'wait'),
       'errata 30a: and no wait, because the player is in control');
-    assert.ok(Object.keys(carried.set ?? {}).length > 0,
-      'the beat writes at least one flag, which was also being dropped');
   }
+  // AND THE SEGMENT'S FLAG WRITES SURVIVE, which is the other half of the
+  // same defect. Asserted of the SEGMENT and not of each beat with lines: the
+  // beat that speaks and the beat that writes need not be the same one, and
+  // are not any more -- beat 9 is Hob's exchange and beat 10 is the write
+  // that says he has gone.
+  assert.ok(segment.beats.some((entry) => Object.keys(entry.set ?? {}).length > 0),
+    'the segment writes at least one flag, which was also being dropped');
 });
 
 test('the carrier delivers every line and every flag write of those beats', async () => {
@@ -434,7 +439,7 @@ test('the carrier delivers every line and every flag write of those beats', asyn
   assert.equal(carrier.isRunning, false, 'and then it is done and the player is simply playing');
 });
 
-test('a carried beat\'s flags are written as it begins, not once its subject has gone', async () => {
+test('a carried beat\'s flags are written when the carrier REACHES it, not before', async () => {
   const segment = await uncarriedSegment();
   const written: Record<string, boolean | number> = {};
   const carrier = new CarriedBeats((writes) => Object.assign(written, writes));
@@ -442,12 +447,28 @@ test('a carried beat\'s flags are written as it begins, not once its subject has
   carrier.arm(segment.beats);
   carrier.update(0, recordingHost(said));
 
-  // The hotspot the first of these flags gates carries written lines about a
-  // man who is STILL crossing. Written at the end of his lines it would have
-  // arrived describing an empty road.
-  const first = segment.beats.find((beat) => Object.keys(beat.set ?? {}).length > 0)!;
-  for (const flag of Object.keys(first.set ?? {})) {
-    assert.ok(flag in written, `${flag} is set as its beat begins`);
+  // WHICH WAY THIS CUTS CHANGED WITH THE STAGING, and the mechanism did not.
+  // It used to guard an OPEN -- a hotspot describing a man who is still
+  // crossing, written at the end of his lines would have arrived describing an
+  // empty road. That flag has moved out of this segment entirely; he stands at
+  // the roadside from beat 7 now.
+  //
+  // What is left here is a CLOSE, and it must not land early: the flag saying
+  // he has gone belongs to the beat after the one where he goes. So at t=0,
+  // with the first beat still playing, it is NOT yet written -- and by the end
+  // of the run it is. A carrier that applied every beat's writes up front
+  // would pass the old test and fail this one.
+  const later = segment.beats.filter((beat) => Object.keys(beat.set ?? {}).length > 0);
+  assert.ok(later.length > 0, 'the segment writes something');
+  const last = later[later.length - 1]!;
+  for (const flag of Object.keys(last.set ?? {})) {
+    assert.ok(!(flag in written), `${flag} is not written before its beat is reached`);
+  }
+  for (let seconds = 0; seconds < 60 && (carrier.isRunning || seconds === 0); seconds += 0.25) {
+    carrier.update(seconds, recordingHost(said));
+  }
+  for (const flag of Object.keys(last.set ?? {})) {
+    assert.ok(flag in written, `${flag} is written once the carrier reaches its beat`);
   }
 });
 

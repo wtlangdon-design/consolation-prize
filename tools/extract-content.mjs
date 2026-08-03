@@ -158,12 +158,38 @@ function opening() {
   // departure on its EXIT option in so many words -- "He climbs aboard. The
   // coach goes. Beat 7." -- so the write belongs to the option and a second
   // writer on the beat would be a race with it.
+  //
+  // T_CASE_DOWN IS NOT HERE, AND ITS ABSENCE IS THE FIX. Doc 17 beat 6 opens
+  // "The case goes in the mud", so the write was put on the beat -- but
+  // NOTHING MOVES THE CASE. There is no mover for it and no state swap; it
+  // sits on the roof through the whole opening. The flag gates `case_mud`, so
+  // writing it made a suitcase in the mud interactable where there is no
+  // suitcase, and `case_roof` -- gated on the same flag being false --
+  // disappear from under the case that is actually there. Reported from a
+  // play-through as "the case is interactable where it is not".
+  //
+  // A FLAG MUST NOT CLAIM SOMETHING THAT HAS NOT HAPPENED. The write belongs
+  // to whatever puts the case in the mud, on the day something does; until
+  // then the truthful state is the one the picture shows. Filed as the case
+  // never leaving the roof, which is a separate and larger gap.
   const flags = {
     '3': { T_OPENING_SAID: true },
-    // Doc 17 beat 6 opens "The case goes in the mud." The beat says it in its
-    // own words, so the write belongs to the beat and not to anything else.
-    '6': { T_CASE_DOWN: true },
-    '9': { T_HOB_CROSSING: true },
+    // HOB IS ON SCREEN FROM THE END OF BEAT 7, so the flag that says so is
+    // written there rather than at beat 9. It was on beat 9 because he used to
+    // walk in during it; he now stands at the roadside before the player is
+    // given control, and `lamp` -- gated on this being true and T_HOB_GONE
+    // false -- has to be live for as long as he is standing in the picture.
+    //
+    // An automatic segment's writes land when the segment COMPLETES, so this
+    // arrives exactly as beat 8 hands over control.
+    '7': { T_HOB_CROSSING: true },
+    // AND T_HOB_GONE WAS WRITTEN NOWHERE AT ALL, which is why the lamp stayed
+    // interactable after he had left and `lamp_gone` -- the response written
+    // for exactly that moment -- could never appear. Beat 10 is where he has
+    // gone: the carrier applies a beat's writes as it reaches it, and it
+    // reaches beat 10 when beat 9's last walk has finished carrying him off
+    // frame right. The flag's lifetime now matches the object's.
+    '10': { T_HOB_GONE: true },
   };
 
   // v3.1 restored the tree without rewriting the beat sheet around it, so the
@@ -247,11 +273,24 @@ function opening() {
     // No `from` here: beat 2 placed it, and repeating the placement would
     // teleport it back to its mark if anything had nudged it.
     '6b': [{ do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 }],
-    // BEAT 7 places Hob off frame LEFT, because he is drawn right-facing only
-    // and a right-facing man walks rightward. He is placed here rather than in
-    // beat 9 because `walk` never creates a mover, only `move` places, and
-    // errata 38 fences `move` to beats whose control is `none`.
-    7: [{ do: 'move', actor: 'hob', from: [-260, 700], to: [60, 700], seconds: 2 }],
+    // BEAT 7 STANDS HIM AT THE ROADSIDE. He does not walk in.
+    //
+    // He used to be placed off frame left and glide to x60, then cross to
+    // x1080 during beat 9 to speak. That put him on screen for about four
+    // seconds around a three-line exchange, and a man who arrives, says three
+    // sentences and leaves is an event rather than a neighbour. Ruled from a
+    // play-through: he is part of the picture BEFORE he speaks.
+    //
+    // It also fixes the lamp. `lamp` is gated on T_HOB_CROSSING true and
+    // T_HOB_GONE false, and while that window was the few seconds of a
+    // crossing it was unreachable in practice -- the object existed for less
+    // time than it takes to choose a verb.
+    //
+    // from == to PLACES HIM WITHOUT MOVING HIM, the same shape beat 2 uses for
+    // the coach: `walk` never creates a mover, only `move` places one, and
+    // errata 38 fences `move` to beats whose control is `none`. Beat 7 is the
+    // last such beat before control, which is why it is here and not beat 8.
+    7: [{ do: 'move', actor: 'hob', from: [1080, 700], to: [1080, 700], seconds: 0.1 }],
     // BEAT 9: he crosses, STOPS to speak, and goes on. Three lines from a man
     // who never breaks stride is not the beat -- and until `say` could be
     // STAGED, neither was this: a beat's lines were appended after all of its
@@ -263,7 +302,8 @@ function opening() {
     // only when each lands. An index with no line behind it throws at
     // extraction rather than playing silence.
     9: [
-      { do: 'walk', actor: 'hob', to: [1080, 700] },
+      // NO WALK IN. He is already standing at 1080 from beat 7; the beat is
+      // now what it says it is -- an exchange, and then he goes on.
       { do: 'say', line: 0 },
       { do: 'say', line: 1 },
       { do: 'say', line: 2 },

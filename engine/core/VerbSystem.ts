@@ -111,6 +111,22 @@ export class VerbSystem {
   }
 
   /**
+   * True if this verb picks an inventory item UP to apply it to something
+   * else, rather than resolving on the item where it stands.
+   *
+   * THE PANEL USED TO ASK `examines` AND TREAT EVERY OTHER ANSWER AS "HOLD
+   * IT". LOOK and LISTEN answered; the other seven silently became a request
+   * to carry the item, so OPEN THE LETTER produced no response of any kind and
+   * the only way to get an answer out of an item was to click it and then
+   * click Thad. That is the interface reading as broken, and it is one
+   * inverted question: the small set is the one that CARRIES, not the one that
+   * answers.
+   */
+  carries(verbId: string): boolean {
+    return (this.file.carryVerbs ?? []).includes(verbId);
+  }
+
+  /**
    * A verb applied WITH an item TO a target. Doc 24's three tiers, resolved
    * most specific first.
    *

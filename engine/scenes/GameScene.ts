@@ -701,11 +701,29 @@ export class GameScene extends Phaser.Scene {
     if (!slot) return false;
     const target = this.state.itemTarget(slot.id);
     const verb = this.state.verbs.selectedVerb;
-    if (target && verb && this.state.verbs.examines(verb)) {
-      this.setSay(this.state.verbs.resolve(verb, target, 'inventory').say);
-    } else {
-      this.state.holdItem(slot.id);
+    // AN ITEM-DIRECTED VERB RESOLVES WHERE IT STANDS. Only the verbs content
+    // names as CARRYING an item -- doc 24's USE -- pick it up to apply to
+    // something else; the other eight are complete sentences about the item
+    // alone and must answer here.
+    //
+    // THIS ASKED `examines` AND HELD THE ITEM FOR EVERY OTHER ANSWER, so OPEN
+    // THE LETTER produced nothing at all: no line, no flag, no refusal. The
+    // only way to get a response out of an item was to click it and then click
+    // Thad, which is the interface reading as broken. The question was
+    // inverted -- the small named set is the one that carries.
+    //
+    // AND IT WENT THROUGH `verbs.resolve(...).say` RATHER THAN `interact`,
+    // WHICH IS Q13. That call returns the line and the effects side by side
+    // and this took only the line, so an item response's flag writes and state
+    // changes were dropped on the floor -- silently, because the line still
+    // appeared and nothing downstream could tell. `interact` is the same path
+    // a room object takes: resolve, reserve, perform, commit, in errata 48's
+    // order. Q13 was filed as a dropped write; it was also a missing response.
+    if (target && verb && !this.state.verbs.carries(verb)) {
+      this.applyInteraction(target, verb);
+      return true;
     }
+    this.state.holdItem(slot.id);
     this.markDirty();
     return true;
   }

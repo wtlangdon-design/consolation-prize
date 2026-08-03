@@ -206,6 +206,12 @@ Frames for review are therefore dumped from the screen texture rather than scree
 
 ## R5e · A CHECK MUST NOT SHARE ITS SUBJECT'S ASSUMPTIONS
 
+> **Every one of them was a mechanism that agreed with itself until something outside it asked.**
+
+That is the whole section in one line, and it was arrived at by counting. In a single session: a loader and three checks that all knew the same set of fields and all missed a character who was declared, valid and never loaded. A drawer that was wrong about its own vocabulary. A facing metric that disagreed with itself on two characters and was believed anyway. A beat tag that went on answering "3" after the runner had stopped, because "the last beat that played" is a defensible meaning for the field right up until something asks what is on screen now. A gauntlet whose schema, validator and engine all agreed that beats 4 to 6 were observable, and all three were wrong about the same thing. A clock divided by a thousand twice, which nothing would ever have failed on because every consumer compares it against itself.
+
+None of those is a mistake in reasoning. Each is a closed loop that is internally consistent and has no contact with the outside. **The defect is never in the mechanism; it is in the absence of anything that could disagree with it.**
+
 R5d is about not trusting a rendering of a rendering. This is the same error one level up: **do not trust a check that was written from the same understanding as the thing it checks.**
 
 **A check that shares its subject's field knowledge agrees with it about a field neither of them knows exists.**

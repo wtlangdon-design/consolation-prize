@@ -384,7 +384,16 @@ export class Renderer {
    */
   private drawActCard(text: string): void {
     const parts = text.split('\u2014').map((part) => part.trim()).filter(Boolean);
-    const lines = parts.length > 1 ? [parts[0] as string, parts.slice(1).join(' — ')] : parts;
+    const split = parts.length > 1 ? [parts[0] as string, parts.slice(1).join(' — ')] : parts;
+    // AND THEN WRAPPED, because the em dash is where the DOCUMENT breaks the
+    // card and not where the screen does. "In Which Our Hero Is Robbed, and
+    // Enjoys It" is one authored half and it is wider than the frame; the
+    // split gave it a line of its own and then let it run off both edges.
+    //
+    // Same margin as a spoken line, and the same wrap: a card is text on the
+    // play area like any other, and the one that already fits is the one to
+    // agree with.
+    const lines = split.flatMap((line) => this.font.wrap(line, NATIVE_WIDTH - TEXT_MARGIN * 2));
     const top = ACT_CARD_Y - (lines.length - 1) * ACT_CARD_LINE_HEIGHT / 2;
     for (const [index, line] of lines.entries()) {
       this.font.drawCentredOutlined(

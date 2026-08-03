@@ -165,18 +165,24 @@ test('a staged say places one of the beat\'s own lines, and never duplicates it'
   const beat = opening.beats.find((b) => b.beat === '9')!;
 
   // THE DEFECT: a beat's lines were appended after ALL of its staging, so
-  // "walk here, speak, walk on" could not be written. Hob touched his mark
-  // for one tick and spoke all three lines from x2100 -- 180 units past the
-  // right edge of a 1920-wide frame, with the words on screen and the man who
-  // says them off it.
+  // "speak, then walk on" could not be written. Hob spoke all three lines
+  // from x2100 -- 180 units past the right edge of a 1920-wide frame, with
+  // the words on screen and the man who says them off it.
+  //
+  // THE SHAPE CHANGED AND THE INVARIANT DID NOT. He no longer walks in: he is
+  // staged STANDING at the roadside in beat 7, because a man who arrives,
+  // says three sentences and leaves is an event rather than a neighbour, and
+  // because the lamp he carries was gated on a window a few seconds wide. So
+  // the test is no longer "he walks and then walks again" -- there is one
+  // walk now, the one that takes him away. What must still hold is the thing
+  // the defect broke: EVERY LINE LANDS BEFORE HE LEAVES.
   const kinds = carriedStepsFor(beat).map((step) => step.kind);
-  const firstWalk = kinds.indexOf('walk');
-  const lastWalk = kinds.lastIndexOf('walk');
+  const leaves = kinds.indexOf('walk');
   const said = kinds.map((k, i) => (k === 'say' ? i : -1)).filter((i) => i >= 0);
   assert.ok(said.length > 0, 'the beat speaks');
-  assert.ok(firstWalk < lastWalk, 'he walks, and then walks again');
+  assert.ok(leaves >= 0, 'and he leaves at the end of it');
   for (const at of said) {
-    assert.ok(at > firstWalk && at < lastWalk, `a line at step ${at} falls outside the walks`);
+    assert.ok(at < leaves, `a line at step ${at} is spoken after he has started to go`);
   }
 
   // AND EACH LINE ONCE. A beat that places any of its lines places all of
@@ -935,9 +941,14 @@ test('doc 17 v3.1: one automatic opening line, a four-option driver tree, a late
   assert.equal(carded[0]!.beat, '7');
   assert.equal(opening.beats.find((beat) => beat.beat === '1')!.control, 'menu');
 
-  // Room 1 gates hotspots on Hob's crossing, which the act card pushed from
-  // beat 8 to beat 9. Without that write those gates are unreachable.
-  assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!.beat, '9');
+  // Room 1 gates hotspots on Hob being on screen, and BOTH ENDS OF THAT
+  // WINDOW ARE NOW WRITTEN. The open was on beat 9, when he walked in; he is
+  // staged standing from beat 7 instead, so the gate has to open there or the
+  // lamp exists for less time than it takes to choose a verb. The close was
+  // written nowhere at all, which is why the lamp stayed interactable after he
+  // had gone and the response written for that moment could never appear.
+  assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!.beat, '7');
+  assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_GONE)!.beat, '10');
 });
 
 test('a multi-speaker response plays one line at a time', async () => {
