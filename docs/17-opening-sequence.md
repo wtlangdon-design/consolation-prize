@@ -131,9 +131,9 @@ Not a task list. Not a map marker. One name, one destination, and a reason to wa
 Six hotspots from doc 05, now with variants, overrides and the exit.
 
 ## THE TOWN SIGN
-**Reordered — supersedes doc 05's Room 1 sign entry.** Variant 1 must read the sign; the original opened on repainting before the player had been told what was painted.
+**Reordered — supersedes doc 05's Room 1 sign entry.** **And corrected against the lettering as drawn:** variants 2 and 3 said the old numbers were painted over and showing through *underneath*. The sign that was made shows them STRUCK OUT AND LEFT IN A ROW — 200, 500, 1000, 1500 each crossed through, with 2,000 standing. The lines now describe the sign the player is looking at. Variant 1 must read the sign; the original opened on repainting before the player had been told what was painted.
 
-**LOOK** 1 "CONSOLATION — POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later." · 2 "The number has been repainted four times. You can see the smaller ones underneath, each of them once true." · 3 "The smallest number underneath is two hundred. Somebody was pleased with two hundred once."
+**LOOK** 1 "CONSOLATION — POP. 2,000 AND CLIMBING. The 'and climbing' is in a different hand, and was added later." · 2 "The number has been struck out and rewritten four times. They are all still there in a row, each of them once true." · 3 "The first one, crossed out at the far left, is two hundred. Somebody was pleased with two hundred once."
 **LISTEN** 1 "It creaks. It would like to be taken down." · 2 "Creaking. It would still like to be taken down." · 3 "Nothing. The wind has dropped and it has stopped complaining."
 
 ## THE MUD
