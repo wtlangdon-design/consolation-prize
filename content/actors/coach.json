@@ -45,7 +45,7 @@
       ],
       "figureHeight": 447,
       "anchor": [
-        550,
+        564,
         447
       ]
     },
@@ -116,14 +116,7 @@
       "id": "walk",
       "facing": "right",
       "frames": [
-        "art/actors/coach-walk-right/walk-00.png",
-        "art/actors/coach-walk-right/walk-01.png",
-        "art/actors/coach-walk-right/walk-02.png",
-        "art/actors/coach-walk-right/walk-03.png",
-        "art/actors/coach-walk-right/walk-04.png",
-        "art/actors/coach-walk-right/walk-05.png",
-        "art/actors/coach-walk-right/walk-06.png",
-        "art/actors/coach-walk-right/walk-07.png"
+        "art/actors/coach-walk-right/walk-00.png"
       ],
       "figureHeight": 224,
       "anchor": [
