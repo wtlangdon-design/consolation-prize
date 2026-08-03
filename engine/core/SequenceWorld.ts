@@ -127,6 +127,10 @@ export class SequenceWorld implements SequenceHost {
     return this.actors.require(actor).isTurning;
   }
 
+  isChoring(actor: string): boolean {
+    return this.actors.require(actor).isChoring;
+  }
+
   chore(actor: string, clip: string): number {
     const mover = this.actors.require(actor);
     // The duration is asked for BEFORE the claim, so a clip nobody has drawn

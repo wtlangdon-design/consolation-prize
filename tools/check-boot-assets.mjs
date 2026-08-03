@@ -140,8 +140,15 @@ export async function check() {
       + `${plan.required.length} required (${megabytes(plan.required)} MB), `
       + `${plan.deferred.length} deferred (${megabytes(plan.deferred)} MB)`,
     );
+    // WHO, not just what. The cast is derived from the opening's staging, so
+    // adding a mover to an early beat silently grows the blocking set -- and
+    // the coach's two frames cost 1.44 MB. Printed every run so that growth is
+    // something somebody sees rather than discovers by waiting for a screen.
+    const cast = [...new Set(plan.required
+      .map((asset) => asset.path.match(/^art\/actors\/([^-/]+)-/)?.[1])
+      .filter(Boolean))].sort();
     report.note(`the first frame waits on ${bundle.manifest.startRoom} and `
-      + `${bundle.actor.id}'s ${FIRST_FRAME_CLIPS.join(', ')}`);
+      + `${cast.join(', ')} -- ${FIRST_FRAME_CLIPS.join(', ')} each`);
   }
   return report;
 }

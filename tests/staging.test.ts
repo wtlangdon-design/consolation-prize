@@ -180,6 +180,7 @@ function recordingHost(said: string[]): SequenceHost {
     isWalking: () => false,
     face: () => {},
     isTurning: () => false,
+    isChoring: () => false,
     chore: () => 0,
     say: (step) => {
       if (step.line !== undefined) said.push(step.line);

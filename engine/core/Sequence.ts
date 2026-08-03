@@ -84,6 +84,12 @@ export interface SequenceHost {
   isWalking(actor: string): boolean;
   face(actor: string, facing: Facing): void;
   isTurning(actor: string): boolean;
+  /**
+   * Whether a one-shot clip is still running, and therefore still owns the
+   * body. THE ACTOR IS THE AUTHORITY ON HIS OWN CHORE, not a deadline the
+   * runner computed when it started one.
+   */
+  isChoring(actor: string): boolean;
   /** Starts a one-shot clip and returns how long it runs, in seconds. */
   chore(actor: string, chore: string): number;
   /**
@@ -183,7 +189,8 @@ export class SequenceRunner {
         continue;
       }
       if (step.kind === 'waitForActor') {
-        if (host.isWalking(step.actor) || host.isTurning(step.actor)) break;
+        if (host.isWalking(step.actor) || host.isTurning(step.actor)
+          || host.isChoring(step.actor)) break;
         this.index += 1;
         moved = true;
         continue;

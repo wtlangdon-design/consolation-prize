@@ -974,6 +974,8 @@ PAGEERROR CLIP_FALLBACK: idle/right/
 
 **One false lead, named so nobody chases it.** An early run threw `BODY_ONE_OWNER: thad@chore+walk` at beat 2. It does not reproduce without the instrument: wrapping `drawImage` to measure sizes slowed the frame enough to trip the guard. R5d — the apparatus perturbed the thing it was measuring, and the second measurement was built to touch nothing.
 
+> **THIS WAS WRONG AND Q44 CORRECTS IT.** The instrument did trigger it, and that is not the same as causing it. It is a real race between two clocks, and any long frame trips it — 5 Mbps throttling reproduces it every run with nothing instrumented at all. "Only appears with the instrument attached" was the right observation and "therefore it is the instrument" was a conclusion the evidence did not support: an instrument that slows a frame is a load generator, and a defect that needs load is still a defect.
+
 ## Q40 · Second play-through: the coach is full size now, and Thad is standing in it
 
 Run again from a fresh load after `f6d14ff5`. **No errors, start to finish.** All four of the previous faults are gone: the coach crosses, Hob is drawn and walks the way he is drawn, beat 2 places Thad at the coach before he climbs down, and beat 10 stages nothing.
@@ -1071,6 +1073,28 @@ The third is silent **by construction**, because somebody else's answer is alway
 **This is the part the script cannot hold.** The general rule reaches anything that answers a question about one entity out of another's data, in any syntax. The greppable subset is most of its value and is now enforced; the rest is a review rule, and finding number 3 came from reading rather than running.
 
 **30 checks.** Played afterwards to confirm the chore path still works — beat 2's `aboard-coach` and `alight-coach` and beat 6's `pickup-low` all play, no errors start to finish.
+
+## Q44 · The graybox coach, and the BODY_ONE_OWNER I wrongly dismissed
+
+Both found by playing `6e225e7a`, and both mine.
+
+**1. THE COACH DREW AS A BLACK RECTANGLE BESIDE THAD, half a second into a new game.** Now that it is placed in beat 2 it is on screen from the first frame — and its frames were in the DEFERRED half of the boot split. The graybox was the fallback working exactly as designed, which is why nothing threw and nothing was red.
+
+`planBoot`'s required set was "the start room and the protagonist", and that word was an assumption rather than a fact. It is now **the start room and everyone the opening stages before it asks the player for anything.**
+
+**The line is the first player-control beat**, not "everything the opening stages". Hob is placed in beat 7, on the far side of the driver's entire conversation — a player-paced event of no fixed length, and always at least one interaction away. There is time for him to arrive; there is none for the coach. Nothing else about them is statically distinguishable, and counting seconds is not available at boot.
+
+Cost: **63 files / 6.49 MB → 65 / 7.93 MB.** Two frames, 1.44 MB, because the coach's are 956 × 389. `check-boot-assets` now prints the cast by name — *"the first frame waits on stage_road and coach, thad"* — so the next mover added to an early beat is a number somebody sees rather than one they discover by watching a rectangle.
+
+**2. `BODY_ONE_OWNER: thad@chore+walk` IS REAL, AND I TOLD YOU IT WAS NOT.** In Q39 I recorded it as an artefact of my draw-spy because it vanished when the spy came off. It reproduces on every run at 5 Mbps with nothing instrumented. The spy was a load generator; removing the load hid the defect rather than disproving it.
+
+**It is a race between two clocks.** A chore's end is computed twice — the runner waits `now + duration` from the tick it issued one, and the `Actor` ends it from its own clock — and the frame ran `sequence → carried → actors → settleBodies`. With the sequence first, the actor's clock was a frame BEHIND the runner's, so the actor finished at `now(N−1) + d` against the runner's `now(N) + d`, and the release at the end of the tick normally landed a frame before the next claim at the start of one. **On a long frame both deadlines fall inside the same tick**: the runner advances, claims the body for the walk, and the chore still holds it because `settleBodies` has not run yet.
+
+**The frame now advances and settles BEFORE the script decides:** `actors.update → settleBodies → sequence → carried`. That puts the clocks in phase — a chore issued now records the same `now` the runner waits from — and guarantees that whatever finished has let go before anything asks for it. Proved both ways: three clean runs at 5 Mbps, then the old order restored for two runs that both threw.
+
+**My first fix was wrong and a test caught it.** I made `lower('chore')` append a `waitForActor`, which works — and contradicts doc 22 section 6's chain, `walk → waitForActor → face → waitForActor → chore → say`, asserted verbatim in `staging.test.ts`. The wait after a chore is not in that chain because `say` claims nothing. Reverted; the race was never in the lowering.
+
+**What this says about the earlier dismissal.** "Only appears with the instrument attached" was a correct observation. "Therefore it is the instrument" was a conclusion the evidence did not support — a defect that needs load is still a defect, and R5d's own warning about an apparatus that perturbs its subject cuts the other way too. The apparatus can create the CONDITIONS for a real failure as easily as it can create a false one, and the two look identical from a single run.
 
 ---
 

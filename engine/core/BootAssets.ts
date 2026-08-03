@@ -1,4 +1,5 @@
-import type { ContentBundle, RoomFile } from './types.ts';
+import type { ActorFile, ContentBundle, RoomFile, SequenceFile } from './types.ts';
+import { segmentsOf } from './Opening.ts';
 
 /**
  * What must exist before the first frame, and what may arrive after it.
@@ -60,6 +61,46 @@ export interface BootPlan {
  */
 export const FIRST_FRAME_CLIPS = ['stand', 'idle', 'walk'];
 
+/**
+ * Everyone the opening puts on screen BEFORE IT ASKS THE PLAYER FOR ANYTHING.
+ *
+ * The protagonist is not the only thing in the first frame, and assuming he
+ * was put a black rectangle beside him: the coach became a mover staged in
+ * beat 2, its frames were in the deferred half, and for the second or two
+ * before they landed a stagecoach drew as a graybox at half a second into a
+ * new game. Working exactly as designed, and wrong.
+ *
+ * THE LINE IS THE FIRST PLAYER-CONTROL BEAT, not "everything the opening
+ * stages". Hob is placed in beat 7, which is on the far side of the driver's
+ * entire conversation -- a player-paced event of no fixed length, and always
+ * at least one interaction away. There is time for him to arrive. There is
+ * none for the coach, and no way to tell them apart by counting seconds,
+ * because the only thing known statically is what happens before the player
+ * is first asked to do something.
+ *
+ * Read from the manifest's named opening, like `beginOpening` does, so a
+ * sequence belonging to some other room cannot drag its cast into boot.
+ */
+function firstFrameActors(bundle: ContentBundle): ActorFile[] {
+  const id = bundle.manifest.openingSequence;
+  const file: SequenceFile | undefined = id ? bundle.sequences.get(id) : undefined;
+  if (!file) return [];
+
+  const named = new Set<string>();
+  for (const segment of segmentsOf(file)) {
+    if (segment.kind === 'menu') continue;
+    if (segment.kind !== 'automatic') break;
+    for (const beat of segment.beats) {
+      for (const staged of beat.staging ?? []) {
+        if ('actor' in staged) named.add(staged.actor);
+      }
+    }
+  }
+  return [...named]
+    .map((who) => bundle.actors.get(who))
+    .filter((record): record is ActorFile => record !== undefined);
+}
+
 function roomImages(room: RoomFile): BootAsset[] {
   const out: BootAsset[] = [];
   if (room.background) out.push({ key: `bg:${room.id}`, path: room.background });
@@ -78,13 +119,18 @@ function roomImages(room: RoomFile): BootAsset[] {
 }
 
 /**
- * REQUIRED is the smallest set that draws the opening frame correctly:
- * the room the game starts in, and the protagonist standing and moving in it.
+ * REQUIRED is the smallest set that draws the opening frame correctly: the
+ * room the game starts in, and everyone standing in it before the player is
+ * asked for anything.
  *
- * Everything else waits. Other rooms are not on screen. Other characters are
- * not either -- Hob crosses the road in beat 9, a good half-minute after the
- * first frame, and his 27 frames blocking it bought nothing. Item icons draw
- * in a panel that is hidden until the opening hands over control.
+ * "Everyone" was "the protagonist" and that was an assumption, not a fact. The
+ * coach is staged in beat 2 and drew as a black rectangle beside him for the
+ * second its frames took to arrive.
+ *
+ * Everything else waits. Other rooms are not on screen. Hob is placed in beat
+ * 7, on the far side of the driver's whole conversation, so his 27 frames
+ * blocking the first frame buy nothing. Item icons draw in a panel that is
+ * hidden until the opening hands over control.
  *
  * A deferred frame asked for before it arrives draws the graybox placeholder
  * the renderer already falls back to when a texture is absent, which is a
@@ -97,9 +143,16 @@ export function planBoot(bundle: ContentBundle): BootPlan {
 
   const start = bundle.rooms.get(bundle.manifest.startRoom);
   for (const asset of start ? roomImages(start) : []) required.set(asset.key, asset);
-  for (const clip of bundle.actor.clips) {
-    if (!FIRST_FRAME_CLIPS.includes(clip.id)) continue;
-    for (const frame of clip.frames) required.set(frame, { key: frame, path: frame });
+
+  // The protagonist, and anyone else standing beside him before the player is
+  // asked for anything. Same clip rule for all of them: what can play with
+  // nothing having happened yet.
+  const cast = [bundle.actor, ...firstFrameActors(bundle)];
+  for (const record of cast) {
+    for (const clip of record.clips) {
+      if (!FIRST_FRAME_CLIPS.includes(clip.id)) continue;
+      for (const frame of clip.frames) required.set(frame, { key: frame, path: frame });
+    }
   }
 
   const later = (asset: BootAsset) => {

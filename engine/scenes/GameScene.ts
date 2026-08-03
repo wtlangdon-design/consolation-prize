@@ -198,16 +198,35 @@ export class GameScene extends Phaser.Scene {
     this.lastFrameAt = now;
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
-    const wasRunning = this.sequence.isRunning;
-    if (this.sequence.update(now, this.world)) this.markDirty();
-    // Beat 9's carrier runs alongside the player rather than instead of him,
-    // so it is ticked whether or not the opening runner is.
-    if (this.carried.update(now, this.world)) this.markDirty();
+    // THE WORLD MOVES, THEN SETTLES, THEN THE SCRIPT DECIDES. This order is
+    // load-bearing and it used to be the other way round.
+    //
+    // A chore's end is computed twice: the runner waits `now + duration` from
+    // the tick it issued one, and the Actor ends it from its OWN clock. With
+    // the sequence first, the actor's clock was a frame behind the runner's,
+    // so the actor finished at `now(N-1) + d` against the runner's
+    // `now(N) + d` -- and the release, which happened at the END of the tick,
+    // normally landed a frame before the next claim, at the START of one.
+    //
+    // ON A LONG FRAME BOTH DEADLINES FALL IN THE SAME TICK. The runner then
+    // advanced and claimed the body while the chore still held it and had not
+    // been settled: `BODY_ONE_OWNER: thad@chore+walk`, reproducible at 5 Mbps
+    // and under anything else that stretches a frame. It is a race, so it
+    // looked like an instrument artefact the first time it appeared.
+    //
+    // Advancing and settling FIRST puts the two clocks in phase -- a chore
+    // issued now records the same `now` the runner waits from -- and
+    // guarantees that whatever finished has let go before anything asks.
     if (this.actors.update(now)) this.markDirty();
     // Every body whose walk or chore has finished is handed back HERE, once a
     // tick and in one place. A claim that outlives its motion is what makes
     // the next one trip assertion 6.
     this.world.settleBodies();
+    const wasRunning = this.sequence.isRunning;
+    if (this.sequence.update(now, this.world)) this.markDirty();
+    // Beat 9's carrier runs alongside the player rather than instead of him,
+    // so it is ticked whether or not the opening runner is.
+    if (this.carried.update(now, this.world)) this.markDirty();
     if (this.sequence.isRunning || this.carried.isRunning) this.markDirty();
     // The opening's automatic segment has played out. Bank its flag writes
     // and move on -- to the driver's tree, or to control.
