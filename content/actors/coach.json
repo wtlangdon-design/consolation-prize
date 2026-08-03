@@ -27,6 +27,19 @@
       ]
     },
     {
+      "id": "idle",
+      "facing": "right",
+      "frames": [
+        "art/actors/coach-idle-door-open-right/idle-door-open-00.png"
+      ],
+      "figureHeight": 389,
+      "anchor": [
+        478,
+        389
+      ],
+      "state": "door-open"
+    },
+    {
       "id": "walk",
       "facing": "right",
       "frames": [
