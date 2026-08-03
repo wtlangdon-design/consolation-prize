@@ -312,7 +312,7 @@ function opening() {
       // PLACED LAST IN THE BEAT so the coach and Thad are staged first. The
       // frame's subject is a man getting off a stagecoach; the watchman is
       // scenery until he is not.
-      { do: 'move', actor: 'hob', from: [475, 700], to: [475, 700], seconds: 0.1 },
+      { do: 'move', actor: 'hob', from: [600, 720], to: [600, 720], seconds: 0.1 },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
