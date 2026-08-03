@@ -1424,8 +1424,27 @@ function openingCase() {
       // kind of thing and doc 17 marks it as one. "takes it" is the flag.
       const takes = entry[1].match(/^\*\*(\w[\w ]*?) — takes it\.\*\*\s*\*"(.+?)"\*/);
       if (takes) {
+        // `take: true` ALONE TAKES NOTHING. It is a claim that something was
+        // taken, not an instruction to take anything -- so PICK UP said "I
+        // have it", the inventory stayed empty and the case stayed on the
+        // ground. The three items and the flag are what actually happens.
+        //
+        // THE CASE IS A CONTAINER, NOT AN ITEM. Its CONTENTS enter the
+        // inventory and the case itself does not, so Thad never carries it
+        // around town -- which is Q11 answered by there being nothing to
+        // carry. The letter, the tuning fork and four dollars: what a piano
+        // tuner arriving to make his fortune has, and the driver's tree turns
+        // on him having exactly four.
+        //
+        // T_CASE_TAKEN gates this hotspot, so the write removes the case from
+        // the ground.
         target.responses[takes[1].trim().replace(/ /g, '_')] = [
-          { say: takes[2], take: true },
+          {
+            say: takes[2],
+            take: true,
+            items: ['letter', 'tuning_fork', 'four_dollars'],
+            set: { T_CASE_TAKEN: true },
+          },
         ];
         continue;
       }
