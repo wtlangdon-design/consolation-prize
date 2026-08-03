@@ -1892,6 +1892,74 @@ The surviving sentence sits at the end of the section on **what the town says ab
 
 ---
 
+## Q74 · The mud problem: three questions answered, and the fix proposed would not have fixed it
+
+**Reported: Thad examines mud everywhere instead of walking. Confirmed, and the cause is not where it looks.**
+
+### 1 · What is `defaultVerb` for?
+
+**It is the per-target fallback. It is not, and never was, the resting selection.** The two are separate mechanisms and only one of them is called `defaultVerb`.
+
+```
+verbFor(target) = selected ?? (target.defaultVerb ?? file.defaultVerb)
+```
+
+The resting selection is `null`, set in `VerbSystem`'s constructor, with errata 28b cited in the comment: *"nothing is selected until the player selects something. With a verb always pre-selected there is no 'no verb' state, and the ruling's third row could never happen."*
+
+`verbs.json`'s top-level `defaultVerb: "LOOK_AT"` is the fallback's fallback — what an object that declares none answers with. Errata 28b in its own words: *"Perform the object's `defaultVerb` — **LOOK AT unless the object declares otherwise**."*
+
+> **So changing it to `WALK_TO` would not fix the reported symptom.** The floor already walks when nothing is selected: the mud declares `WALK_TO`, `verbFor` returns it, and `GameScene` walks. The proposed change would only alter what objects that declare no default do — which is every object the `check-default-verbs` report is about, and none of them are the ground.
+
+### 2 · Does the selection reset after an action?
+
+**No — and errata 28b specifies that it must not.**
+
+> *"A selected verb **persists** until another is chosen. **It is not cleared by use.**"*
+
+`resetToDefault()` exists and has exactly one caller: `GameState.reset()`, a new game. **The code matches the ruling.** This is not drift.
+
+**Which makes the proposed behaviour a change to errata 28b, not a bug fix** — and worth ruling as one, with its cost visible: a verb that clears on use costs a second click for every repeated action, and doc 22's own reading of the original manual says the sentence line and the persistent verb are one interface.
+
+### 3 · Is `WALK_TO` deliberately absent from the panel?
+
+**Yes, and coherently.** `verbs.json` carries it as `walkVerb`, deliberately outside the nine; the grid is 3×3 and Bible v2 Part Two specifies nine verbs. Errata 28b row 1 is what makes a tenth button unnecessary: *"Left click on walkable ground → walk there. **Always.** No verb required and no verb consumed."*
+
+**Its absence is only coherent as long as row 1 holds. Row 1 does not hold.**
+
+### THE ACTUAL DEFECT, and it is a contradiction inside errata 28b
+
+The mud is a hotspot spanning `[0, 660, 1920, 204]` — **the entire walkable band**. So every click on walkable ground is also a click on an object, and 28b's first two rows give opposite answers:
+
+| 28b row | Says | For a click on the mud |
+|---|---|---|
+| 1 | walkable ground walks **always**, no verb consumed | walk |
+| 2 | object + selected verb → perform that verb | examine |
+
+The code implements row 2, with one exception: it walks when the resolved verb *is* `WALK_TO`. So:
+
+| Selection | Click on the mud | Correct per 28b? |
+|---|---|---|
+| nothing | walks (mud's own `WALK_TO`) | ✔ both rows agree |
+| `LOOK_AT` | **examines the mud** | ✘ row 1 says walk, always |
+
+**The ruling contradicts itself for any object that IS the ground, and the mud is the only such object in the game so far.** Room 2's `mud` and `boardwalk` run the full 1920 as well, so Main Street will have it twice over.
+
+### AND THE PART THAT MAKES IT PERMANENT
+
+**There is no way to deselect a verb.** `selectVerb` is the only path from the panel, `resetToDefault` is only called on a new game, and clicking the selected verb again re-selects it. So the no-verb state exists **only before the player's first verb click of the entire game**, and once left, it can never be returned to.
+
+> **One third of errata 28b's table becomes permanently unreachable the first time a player touches the panel** — and with it, every object's `defaultVerb`, which the authoring rule calls *"the verb a player would try first"* and which `check-default-verbs` exists to enforce. Every one of those authoring decisions is live for exactly one click per playthrough.
+
+That is the resting-state fault, stated exactly: **the game has a resting state that a player can leave and never return to.**
+
+### What is NOT wrong
+
+The mud's own `defaultVerb: WALK_TO` is right and already does its job. `GameScene`'s walk shortcut is right and already carries the comment explaining it. `check-default-verbs` is right. Nothing has drifted from a written rule — **the written rule disagrees with itself**, and the disagreement was invisible until one object grew to the size of the floor.
+
+**Nothing changed. This is a report.** Three things need ruling and they are separable: whether row 1 beats row 2 for ground-sized objects; whether a verb clears on use (a change to 28b); and whether a deselect exists at all, which is the smallest of the three and the one that restores the table without touching the ruling.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
