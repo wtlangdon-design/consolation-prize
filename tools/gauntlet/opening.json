@@ -48,12 +48,51 @@
       "beat": "2",
       "control": "none",
       "seconds": 8,
-      "unscripted": "NOT YET WRITTEN. This is the beat most worth writing first: the coach is placed, Thad is placed, faces right, plays two chores and walks. Every fault found by playing so far lived in it"
+      "markNote": "THE FIRST MARK IN THIS SCRIPT ABOUT THE SCENE RATHER THAN THE CLOCK, and it asserts a RELATION rather than a position. Doc 44's third honesty forbids writing expectations out of the staging table -- that would be the staging compared with itself -- so this copies no coordinate from anywhere. It says only that Thad's body is MOVING at the moment his walk clip starts, which is a fact about the scene that no staging file can make true by asserting it.\n\nWHY IT IS NEEDED. Beat 2 has been measured at 0.86s, 7.36s, 1.20s and 1.87s across four stagings and NONE OF THEM WAS THE COACH ARRIVING (Q72). Duration cannot tell those apart: a beat that waits eight seconds and a beat in which something happens for eight seconds are the same number. This asks whether anything happens.\n\nThe cast is exhaustive by schema, so the other two are named with `present` alone -- their positions belong to a person who has watched the beat, and nobody has written them yet.",
+      "marks": [
+        {
+          "note": "he comes forward a few steps before he speaks. Doc 17 beat 2",
+          "when": {
+            "clip": "walk",
+            "who": "thad"
+          },
+          "cast": {
+            "thad": {
+              "moving": true
+            },
+            "coach": {
+              "present": true
+            },
+            "hob": {
+              "present": true
+            }
+          }
+        }
+      ]
     },
     {
       "beat": "3",
       "control": "none",
-      "unscripted": "NOT YET WRITTEN. Thad walks to the talking spot and speaks; the driver's head should be looking-down while he does and speaking on the reply"
+      "markNote": "AN `enter` MARK, AND IT ASSERTS ALMOST NOTHING ON PURPOSE. Its whole job is that beat 3 BEGINS.\n\nA MARK THAT ASSERTS WHAT HAPPENS CANNOT CATCH A THING THAT NEVER HAPPENS. Every other mark in this file describes a beat's contents; none said that the next beat starts -- and the failure that shipped was exactly that. A staged `wait` fell through stepsFor's default to a chore with no actor, the opening threw at beat 3, and beat 2's own numbers were fine. A movement mark on beat 2 would have passed while the game was already dead one beat later.\n\nSo this is the half that catches a beat never arriving, and it is deliberately empty of content: the moment it needs numbers it needs somebody to have watched it.",
+      "marks": [
+        {
+          "note": "beat 3 begins at all -- the beat the opening froze before",
+          "when": {
+            "enter": true
+          },
+          "cast": {
+            "thad": {
+              "present": true
+            },
+            "coach": {
+              "present": true
+            },
+            "hob": {
+              "present": true
+            }
+          }
+        }
+      ]
     },
     {
       "beat": "4",

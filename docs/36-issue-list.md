@@ -2274,6 +2274,29 @@ This is a constraint on unbuilt work, not a defect in it. It is written here bec
 
 ---
 
+## Q82 · R5h's slack is absolute and beat 3 has doubled, so its comparison is now flaky
+
+**One run failed and the next passed, on identical trees.**
+
+| run | armed | bare | drift |
+|---|---|---|---|
+| a | 14.85s | 11.53s | **3.32s** — fails, slack is 3s |
+| b | 11.61s | 11.71s | 0.10s — passes |
+
+**Not caused by the two new marks**, which fired correctly in both runs. It is the R5h comparison itself.
+
+**Two things have changed under a constant.** `defaults.slack` is **3 seconds, absolute**, and it was chosen when beat 3 held 6.5s. Beat 3 now holds about 12: it gained 1.4s before Thad's line and 1.2s after, and a walk to the driver's box. **Three seconds was 46% of the old beat and is 25% of the new one** — the tolerance did not move when the beat did.
+
+**And beat 3 now contains distance-driven motion, which is the one thing the instrument genuinely stretches.** Doc 43's gait advances from distance travelled, so a walk's WALL-CLOCK length is distance ÷ (speed × frame rate). Slow the frames — which arming the watch and polling the probe twenty times a second does — and the same walk takes longer in real time by construction. That is not the instrument perturbing a measurement; **it is the instrument changing the thing measured**, which is R5h's own subject arriving inside R5h.
+
+**Nothing changed, deliberately.** Loosening a tolerance to make a red go away is the move this whole file argues against, and one failure in two runs is not enough to say whether 3.32s was that mechanism or ordinary variance. **What is certain is that an absolute slack cannot serve beats of 2s and 12s equally**, and that beat 9 is already excluded from this comparison for a related reason (Q68).
+
+**The shape of the answer, when somebody rules on it:** slack proportional to the measured duration, with an absolute floor for short beats — or excluding beats containing a walk, the way driven beats are already excluded. The first is better because it keeps the comparison; the second is what Q68 did and is easier to defend.
+
+**Q68's warning applies to this one too:** a red that passes on re-run teaches that reds are re-runnable. This is the second beat in that condition, and it is the reason to fix it rather than re-run it.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
