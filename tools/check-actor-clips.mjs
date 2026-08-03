@@ -123,6 +123,32 @@ export function check() {
     );
   }
 
+  // AN OVERLAY'S PER-FRAME RECTS MUST NAME FRAMES THAT EXIST. `rectFor` is
+  // keyed `clip` or `clip/state` against the BODY's record, and a key that
+  // names nothing is a rect that silently never applies -- which is exactly
+  // the failure it was added to fix, one layer along: the overlay would go on
+  // drawing at the default position and look like a rect that was simply
+  // wrong.
+  for (const path of manifest.overlays ?? []) {
+    const overlay = JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
+    const body = records.get(overlay.over);
+    if (!body) {
+      report.fail(`${path}: composites over "${overlay.over}", which has no actor record`);
+      continue;
+    }
+    const declaredFrames = new Set();
+    for (const clip of body.clips ?? []) {
+      declaredFrames.add(clip.id);
+      if (clip.state) declaredFrames.add(`${clip.id}/${clip.state}`);
+    }
+    for (const key of Object.keys(overlay.rectFor ?? {})) {
+      if (declaredFrames.has(key)) continue;
+      report.fail(`${path}: rectFor names "${key}" and ${overlay.over} declares no such `
+        + `clip -- it has ${[...declaredFrames].sort().join(', ')}. A rect keyed to nothing `
+        + 'never applies, and the overlay goes on drawing at the default position');
+    }
+  }
+
   report.note(`${bodies} body clip directory/ies declared, ${overlays} overlay(s) marked`);
   if (bodies + overlays !== directories.length) {
     report.note(`${directories.length - bodies - overlays} unaccounted for`);

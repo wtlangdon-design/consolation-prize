@@ -3,13 +3,22 @@
   "id": "driver",
   "over": "coach",
   "note": "The stage driver's head, composited over the coach. Doc 43 part one line 97 and part two's driver-head row; Q55, as unblocked. He is NOT a mover -- he is baked into the coach's own frames, and only his head separates -- so this is an overlay at a rect over a body that never swaps, exactly the shape doc 43 gives Thad's talk.",
-  "rectNote": "In the coach body frame's own 956x389 pixels, scaled with the mover's drawn height like the body is. Measured twice by methods that share no assumption -- normalised cross-correlation over an unconstrained search, and a masked absolute-difference minimum that is sharp to a pixel -- and the origin agrees with the separable region measured off the 1728-wide body art. art/actors/driver-head-right/rig.json carries the working.",
+  "rectNote": "IT WAS [407, 11, 55, 80] AND THE HEIGHT WAS WRONG BY THIRTY-FIVE ROWS, which drew a second driver. x and width were right; the height came from the SOURCE portrait, which is 786x1140 and includes shoulders and chest that are FUSED INTO THE SEAT in the coach art. The whole portrait was being squeezed into the rect, so it repainted his body a second time, offset, over the one already painted. Reported from a play-through as two drivers overlapping on the box. THE HEAD ALONE IS THE TOP 55% OF THE PORTRAIT -- crop x48 y0, 732x622, found by normalised cross-correlation against the coach's own head at 0.913 with the top eight candidates clustered there, and 55% is the number this file's own note already carried: \"only 55% of him separates\". Two routes, one answer. Composited now, the picture changes only inside x409-461 y10-54 and nowhere else. In the coach body frame's own 956x389 pixels, scaled with the mover's drawn height like the body is. Measured twice by methods that share no assumption -- normalised cross-correlation over an unconstrained search, and a masked absolute-difference minimum that is sharp to a pixel -- and the origin agrees with the separable region measured off the 1728-wide body art. art/actors/driver-head-right/rig.json carries the working.",
   "rect": [
-    407,
-    11,
-    55,
-    80
+    409,
+    10,
+    53,
+    45
   ],
+  "rectFor": {
+    "idle/door-open": [
+      421,
+      1,
+      53,
+      45
+    ]
+  },
+  "rectForNote": "ONE RECT CANNOT SERVE EVERY FRAME, and this is why the two heads survived a rect fix. The coach's door-open frame is a SEPARATE GENERATION, not the same picture with a door swapped: it differs from the plain idle on 162,227 pixels across the whole 956x389 canvas, and its driver sits twelve pixels right and nine up. Matching the neutral overlay into each frame by cross-correlation: idle x409 y10 at 0.873, idle/door-open x421 y1 at 0.908, walk x409 y10 at 0.892. The door is open for the whole of beats 2 to 6 -- the entire conversation -- so the overlay drew at the shut-door position over open-door art for every frame that matters, which is two heads side by side.",
   "figureHeight": 389,
   "default": "neutral",
   "statesNote": "WHICH STATE, AND WHEN, IS DOC 43 LINE 97 AND IT IS CONTENT. `looking-down` while Thad speaks up at him, `speaking` on his own lines, `neutral` otherwise. Written as a speaker per state rather than as a rule in the engine, because it is a fact about this character in this scene: the driver looks down at the man addressing him, and nothing general follows from that.\n\nIT ANSWERED A QUESTION THAT WAS ASKED WRONG. This looked like a facing problem -- Thad speaks to a driver 300px above him and the four-direction sprite set has no pose that looks up. It is not. `facingToward` already returns `right` for that geometry, which is the only right answer the art can give, and the man who moves is the driver. Q53.",

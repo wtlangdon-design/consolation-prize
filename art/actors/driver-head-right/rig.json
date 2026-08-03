@@ -5,11 +5,18 @@
   "kind": "head-overlay",
   "over": "coach",
   "overlay_rect": [
-    407,
-    11,
-    55,
-    80
+    409,
+    10,
+    53,
+    45
   ],
+  "source_crop": [
+    48,
+    0,
+    780,
+    622
+  ],
+  "source_crop_note": "The head alone, out of the 786x1140 portrait -- the top 55% of it. The rest is shoulders and chest that are FUSED into the seat in the coach art and must not be drawn a second time. Found by normalised cross-correlation against the coach's own head: 0.913, with the top eight candidates all in the top 51-55%. 55% is also what driver-head.json's note already said separates.",
   "rect_space": "body-frame",
   "figure": [
     956,

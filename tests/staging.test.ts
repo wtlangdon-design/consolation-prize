@@ -14,7 +14,7 @@ import { BodyOwners, SequenceWorld } from '../engine/core/SequenceWorld.ts';
 import { SequenceRunner, type SequenceHost, type SequenceStep } from '../engine/core/Sequence.ts';
 import { CarriedBeats } from '../engine/core/CarriedBeats.ts';
 import { carriedStepsFor, segmentsOf, stepsFor } from '../engine/core/Opening.ts';
-import { depthOrder, roomFigures } from '../engine/render/Renderer.ts';
+import { depthOrder, overlayRect, roomFigures } from '../engine/render/Renderer.ts';
 import { depthTies } from '../engine/dev/Watch.ts';
 import { ActorSprite } from '../engine/render/ActorSprite.ts';
 import { IllegalStateError } from '../engine/core/Assertions.ts';
@@ -680,4 +680,40 @@ test('and it begins the moment the flag is written, without re-arming', async ()
   assert.deepEqual(said, (awaited.lines ?? []).map((spoken) => spoken.line),
     'every line of the beat, in the order the beat sheet writes them');
   assert.equal(carrier.isRunning, false, 'and then it is done');
+});
+
+
+/* =========================================================================
+ * AN OVERLAY'S RECT IS PER BODY FRAME
+ *
+ * One rect could not serve every frame, and believing it could survived a
+ * correction: the height was fixed and there were still two heads. The
+ * coach's door-open frame is a SEPARATE GENERATION -- 162,227 pixels differ
+ * from the plain idle across the whole 956x389 canvas -- and its driver sits
+ * twelve pixels right and nine up. The door is open for the whole of beats 2
+ * to 6, which is the entire conversation, so the overlay drew at the
+ * shut-door position over open-door art for every frame that mattered.
+ * ====================================================================== */
+
+test('an overlay rect resolves clip/state, then clip, then the default', () => {
+  const overlay = {
+    rect: [409, 10, 53, 45] as [number, number, number, number],
+    rectFor: {
+      'idle/door-open': [421, 1, 53, 45] as [number, number, number, number],
+      walk: [400, 12, 53, 45] as [number, number, number, number],
+    },
+  };
+  assert.deepEqual(overlayRect(overlay, 'idle', 'door-open'), [421, 1, 53, 45]);
+  assert.deepEqual(overlayRect(overlay, 'walk'), [400, 12, 53, 45]);
+  // A state with no entry of its own falls back to the clip's, then to the
+  // default -- the same exact-match-then-fall-back `clipOf` uses.
+  assert.deepEqual(overlayRect(overlay, 'walk', 'door-open'), [400, 12, 53, 45]);
+  assert.deepEqual(overlayRect(overlay, 'idle'), [409, 10, 53, 45]);
+  assert.deepEqual(overlayRect(overlay, 'idle', 'nonesuch'), [409, 10, 53, 45]);
+});
+
+test('a body with one frame needs no entries at all', () => {
+  const overlay = { rect: [1, 2, 3, 4] as [number, number, number, number] };
+  assert.deepEqual(overlayRect(overlay, 'idle'), [1, 2, 3, 4]);
+  assert.deepEqual(overlayRect(overlay, 'idle', 'anything'), [1, 2, 3, 4]);
 });

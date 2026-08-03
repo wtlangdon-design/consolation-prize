@@ -157,6 +157,31 @@ export function depthOrder<T extends { feetY: number }>(figures: T[]): T[] {
   return [...figures].sort((a, b) => a.feetY - b.feetY);
 }
 
+/**
+ * Where an overlay sits on a particular body frame.
+ *
+ * A HEAD IS NOT IN THE SAME PLACE IN EVERY FRAME OF ITS BODY. The coach's
+ * door-open frame is a separate generation -- 162,227 pixels differ from the
+ * plain idle across the whole canvas -- and its driver sits 12px right and
+ * 9px up. Drawing at one rect over all of them put the overlay head beside
+ * the painted one for the whole of the driver's conversation.
+ *
+ * `clip/state`, then `clip`, then the default: the same
+ * exact-match-then-fall-back `clipOf` uses, so a body with one frame needs no
+ * entries at all.
+ */
+export function overlayRect(overlay: OverlayFor, clip: string,
+                            state?: string): [number, number, number, number] {
+  const table = overlay.rectFor ?? {};
+  return (state ? table[`${clip}/${state}`] : undefined) ?? table[clip] ?? overlay.rect;
+}
+
+/** Just enough of an overlay to place it. Kept narrow so the test needs no bundle. */
+export interface OverlayFor {
+  rect: [number, number, number, number];
+  rectFor?: Record<string, [number, number, number, number]>;
+}
+
 /** Fills `{name}` placeholders from the supplied map. */
 export function format(template: string, vars: Record<string, string>): string {
   return template.replace(/\{(\w+)\}/g, (whole, key: string) => vars[key] ?? whole);
@@ -679,7 +704,7 @@ export class Renderer {
       const place = sprite.placement(mover.clip, mover.facing, surface, feetX, feetY,
         mover.height, state);
       if (!place) continue;
-      const [rx, ry, rw, rh] = overlay.rect;
+      const [rx, ry, rw, rh] = overlayRect(overlay, mover.clip, state);
       const scale = mover.height / overlay.figureHeight;
       this.screen.context.drawImage(
         image,

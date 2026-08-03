@@ -909,7 +909,17 @@ export class GameScene extends Phaser.Scene {
       // save should record a game that has just begun rather than one three
       // words into a conversation with a man who is not in the save file.
       this.finishOpening();
-      this.carried.arm(segment.beats);
+      // EVERY REMAINING BEAT, NOT THIS SEGMENT'S. `segmentsOf` splits on a
+      // change of control, so a `control: none` beat after the hand-over is a
+      // SEPARATE segment -- and `finishOpening` has just set `this.opening` to
+      // null, so the loop exits and that segment is never reached. It would
+      // never play at all.
+      //
+      // The carrier is what runs alongside the player, so it carries the whole
+      // remainder. Each beat keeps its own control, which is what the lowering
+      // now tests: an interactive beat still refuses cutscene movement, and a
+      // `control: none` beat held on a flag is a cutscene the player started.
+      this.carried.arm(this.opening.slice(this.openingAt).flatMap((rest) => rest.beats));
       this.markDirty();
       return;
     }

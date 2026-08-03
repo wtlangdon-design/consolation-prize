@@ -246,8 +246,27 @@ function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] 
  */
 export function carriedStepsFor(beat: SequenceBeat): SequenceStep[] {
   const steps: SequenceStep[] = [];
+  // THE FENCE TESTS CONTROL, NOT CARRIAGE, and it used to test carriage.
+  //
+  // Errata 38 fences `move` to beats whose control is `none`, and its reason is
+  // about CONTROL: "in a cutscene the movement IS the content, and in ordinary
+  // interaction `walk` and `waitForActor` already do this properly". It has
+  // nothing to say about who started the beat.
+  //
+  // Refusing it for every CARRIED beat conflated two different things -- a
+  // beat the player controls, and a beat this carrier happens to be driving.
+  // Since `finishOpening` runs before the carrier is armed, EVERY beat after 8
+  // is carried, so the fence meant "no cutscene movement after control is
+  // handed over". That is not what it was written to mean, and it is exactly
+  // what the ending needs.
+  //
+  // A beat that declares `control: none` is a cutscene. That a player action
+  // triggered it changes nothing about what happens once it starts: the player
+  // is not in control during it, which is the whole of the rule. `awaitFlag`
+  // holding it until that action is the correct trigger.
+  const interactive = beat.control === 'player';
   for (const staged of beat.staging ?? []) {
-    if (staged.do === 'move') {
+    if (interactive && staged.do === 'move') {
       throw new Error(
         `Beat ${beat.beat} stages a move but its control is ${beat.control}. `
         + 'Errata 38: move is legal only inside a beat whose control is none.',
@@ -256,7 +275,7 @@ export function carriedStepsFor(beat: SequenceBeat): SequenceStep[] {
     // The eighth kind is fenced exactly as `move` and `wait` are. Under player
     // control a state change belongs to the verb that caused it, which is
     // where doc 22 item 9 already puts it.
-    if (staged.do === 'setState') {
+    if (interactive && staged.do === 'setState') {
       throw new Error(
         `Beat ${beat.beat} stages a setState but its control is ${beat.control}. `
         + 'A state change under player control belongs to the verb that causes it.',

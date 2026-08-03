@@ -945,6 +945,21 @@ export interface OverlayFile {
   statesNote?: string;
   /** [x, y, w, h] in the BODY FRAME'S OWN PIXELS, scaled with the drawn height. */
   rect: [number, number, number, number];
+  /**
+   * A rect for a particular body clip, keyed `clip` or `clip/state`.
+   *
+   * ONE RECT CANNOT SERVE EVERY FRAME. The coach's door-open frame is a
+   * separate generation, not the same picture with a door swapped -- it
+   * differs from the plain idle on 162,227 pixels across the whole 956x389
+   * canvas -- and its driver sits twelve pixels right and nine pixels up. The
+   * overlay drew at the shut-door position over the open-door art for the
+   * whole of beats 2 to 6, which is the entire conversation, and that is two
+   * heads side by side.
+   *
+   * Resolved `clip/state` first, then `clip`, then `rect` -- the same
+   * exact-match-then-fall-back `clipOf` uses, for the same reason.
+   */
+  rectFor?: Record<string, [number, number, number, number]>;
   /** The body's figure height, so the rect scales exactly as the body does. */
   figureHeight: number;
   /** The state drawn when no speaker selects another. */
