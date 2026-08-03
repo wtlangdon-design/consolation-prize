@@ -45,7 +45,7 @@ const ART = 'art/actors';
  * happened to be on disk. A list is checkable; a directory is a fact about
  * someone's afternoon.
  */
-const CHARACTERS = ['thad', 'hob'];
+const CHARACTERS = ['thad', 'hob', 'coach'];
 
 /** clip id -> the frame-file prefix the rig wrote, and the directory infix. */
 const CLIPS = [
@@ -66,6 +66,13 @@ const CLIPS = [
   { id: 'alight-coach', dir: 'alight-coach', prefix: 'alight-coach' },
   { id: 'aboard-coach', dir: 'aboard-coach', prefix: 'aboard-coach' },
   { id: 'carry', dir: 'carry', prefix: 'carry' },
+  // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
+  // named mover; a hotspot's state image is drawn by drawPlate and cannot be
+  // translated at all, so beat 6b could never have worked from one. Its two
+  // clips are its two states -- one frame each, no animation, because the
+  // wheels are separate sprites and nothing drives them yet.
+  { id: 'halted', dir: 'halted', prefix: 'halted' },
+  { id: 'unloaded', dir: 'unloaded', prefix: 'unloaded' },
 ];
 const FACINGS = ['front', 'back', 'left', 'right'];
 

@@ -38,6 +38,11 @@
       "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen",
       "staging": [
         {
+          "do": "face",
+          "actor": "thad",
+          "facing": "right"
+        },
+        {
           "do": "chore",
           "actor": "thad",
           "clip": "aboard-coach"
@@ -172,8 +177,12 @@
         {
           "do": "move",
           "actor": "coach",
+          "from": [
+            646,
+            742
+          ],
           "to": [
-            2400,
+            2600,
             742
           ],
           "seconds": 3
@@ -186,6 +195,21 @@
       "control": "none",
       "seconds": 3,
       "note": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It",
+      "staging": [
+        {
+          "do": "move",
+          "actor": "hob",
+          "from": [
+            2100,
+            700
+          ],
+          "to": [
+            1820,
+            700
+          ],
+          "seconds": 2
+        }
+      ],
       "actCard": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It"
     },
     {
@@ -207,15 +231,7 @@
           "do": "walk",
           "actor": "hob",
           "to": [
-            1560,
-            700
-          ]
-        },
-        {
-          "do": "walk",
-          "actor": "hob",
-          "to": [
-            420,
+            300,
             700
           ]
         }
