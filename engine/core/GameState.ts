@@ -8,6 +8,9 @@ import { VerbSystem, type ResolvedAction } from './VerbSystem.ts';
 import { SaveManager, type StorageLike } from './SaveManager.ts';
 import { MenuSystem } from './MenuSystem.ts';
 import { pureResolution } from './Assertions.ts';
+
+/** A point that declares no surface has none. Not a name, and not anybody's. */
+const NO_SURFACE = '';
 import { commitBundle, localJournals, type DurableWorld, type JournalSource } from './Commit.ts';
 import type { ActionTransaction, DurableEffect, FinishReason } from './runtime-types.ts';
 
@@ -670,14 +673,21 @@ export class GameState {
   /**
    * The surface a point stands on, for the walk cycle and the standing sink.
    *
-   * Falls back to the actor sheet's first declared surface rather than to a
-   * name in this file. No .ts file gets to know that mud is called mud.
+   * A POINT WITH NO DECLARED SURFACE HAS NO SURFACE. This used to fall back to
+   * `content.actor.clips[0]?.surface` -- the protagonist's first clip -- to
+   * avoid writing a surface name in a `.ts`, and it is the same defect as the
+   * coach's height one indirection along: a question about the GROUND answered
+   * out of a CHARACTER's record. It happened to be harmless only because no
+   * clip declares a surface today, so it evaluated to the empty string anyway.
+   *
+   * NO_SURFACE keeps what that fallback was really for -- no .ts file gets to
+   * know that mud is called mud -- without borrowing anybody's data to do it.
+   * An empty string names nothing, which is the honest answer here.
    */
   surfaceAt(x: number, y: number): string {
-    const fallback = this.content.actor.clips[0]?.surface ?? '';
     const boxes = this.boxes;
-    if (boxes) return boxes.boxAt(x, y)?.surface ?? fallback;
-    return this.regionAt(x, y)?.surface ?? fallback;
+    if (boxes) return boxes.boxAt(x, y)?.surface ?? NO_SURFACE;
+    return this.regionAt(x, y)?.surface ?? NO_SURFACE;
   }
 
   /**

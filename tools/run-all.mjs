@@ -29,6 +29,7 @@ import { check as actorClips } from './check-actor-clips.mjs';
 import { check as bootAssets } from './check-boot-assets.mjs';
 import { check as actorFrames } from './check-actor-frames.mjs';
 import { check as generated } from './check-generated.mjs';
+import { check as entityFallback } from './check-entity-fallback.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -64,6 +65,7 @@ const CHECKS = [
   bootAssets,
   actorFrames,
   generated,
+  entityFallback,
 ];
 
 let failed = 0;

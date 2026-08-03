@@ -1041,6 +1041,37 @@ Proved by writing 7 and watching it fail.
 
 **One thing the check caught on the way.** The engine's error message for a bad index was written as a full English sentence and `check-no-content-in-code` flagged it as player-facing prose. It was right to: a paragraph in an engine `.ts` is indistinguishable from a line of the game. Shortened to `Beat 9 stages say 7 of 3 line(s)`; the explanation lives in the extractor, which is a tool and not scanned.
 
+## Q43 · A fallback to a literal is fine; a fallback to another entity's data is not — **now a check**
+
+The rule, as ruled: **an engine decision must trace to a field on the thing it is deciding about, or to a named constant, and nothing else.**
+
+```
+?? 240                     fine -- "nobody told me, here is the standard answer"
+?? PLACEHOLDER_HEIGHT      fine -- the same, with a name to grep for
+?? content.actor.height    THE DEFECT -- "nobody told me, I will use HIS answer"
+```
+
+The third is silent **by construction**, because somebody else's answer is always plausible: right type, right magnitude, and it comes from a record that is correct about itself. The coach asked how tall it was, its own record was never consulted, and the engine answered with the protagonist's 240 against art of 389. Record correct, generator correct, every check green, stagecoach with its roof at a man's head height.
+
+**`tools/check-entity-fallback.mjs` parses `engine/**/*.ts` with the TypeScript compiler and flags any `??`/`||` whose right side reads `content.actor` — the singular, the protagonist.** `content.actors.get(id)` is not flagged and must not be: it is keyed by the identity of the thing being decided about, which is the entire difference between the two lines.
+
+**It found three, not one.**
+
+**1. `Actor.ts:131` — the known one.** `?? state.content.actor.height`, now `?? PLACEHOLDER_HEIGHT`, a named constant that is deliberately read from nobody. The only mover reaching it has no record at all and draws a placeholder meant to be seen.
+
+**2. `GameState.ts:679` and `:680` — laundered through a local, and the check nearly missed it.** `surfaceAt` read `this.content.actor.clips[0]?.surface` into a variable called `fallback` and wrote `?? fallback`. A question about the GROUND answered out of a CHARACTER's record, one indirection along. Harmless only by accident — no clip declares a surface today, so it evaluated to `''` anyway. Now `NO_SURFACE`, which keeps what the old line was really for (no `.ts` file gets to know that mud is called mud) without borrowing anybody's data to do it.
+
+**The check had to grow twice to see it**, and both gaps are worth recording because both are how a rule like this dies:
+
+- **a bare identifier hides everything.** It now follows one hop to a same-file `const` initialiser. Scope-naive on purpose, and it names both lines in the message.
+- **a tidy little default hides the rest.** `x.y ?? ''` wrapped the protagonist's field in its own fallback, and a check reading only the operand saw a `??` and stopped. It now looks through the left side of a nested fallback.
+
+**3. `GameScene.choreSeconds` — the same rule, and no `??` in sight.** It read `content.actor` and guarded with `mover.id === record.id`, so a chore staged for anyone else resolved to `undefined` and threw. That guard was correct when he was the only record and is wrong now: **it would refuse a clip Hob genuinely declares**, and if it had not thrown, the duration would have come off Thad's `reactRate`. Now keyed by the mover's own id. A mover with no record still throws, by name.
+
+**This is the part the script cannot hold.** The general rule reaches anything that answers a question about one entity out of another's data, in any syntax. The greppable subset is most of its value and is now enforced; the rest is a review rule, and finding number 3 came from reading rather than running.
+
+**30 checks.** Played afterwards to confirm the chore path still works — beat 2's `aboard-coach` and `alight-coach` and beat 6's `pickup-low` all play, no errors start to finish.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

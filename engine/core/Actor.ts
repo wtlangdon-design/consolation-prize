@@ -47,6 +47,24 @@ export const WALK = 'walk';
  */
 export const IDLE_BREAK = 'idle-break';
 
+/**
+ * The size of a graybox for a mover with NO RECORD AT ALL.
+ *
+ * It was `state.content.actor.height` -- the protagonist's -- and that is the
+ * whole shape of the defect the coach found: a thing asked how tall it was,
+ * its own record could not answer, and the engine answered with somebody
+ * else's number. 240 was right for a man and 62% of a stagecoach, and nothing
+ * anywhere was wrong.
+ *
+ * A LITERAL IS FINE AND ANOTHER ENTITY'S FIELD IS NOT. This says "nobody told
+ * me, here is the standard answer"; the old line said "nobody told me, I will
+ * use his answer", which is silent by construction because his answer is
+ * always plausible. Deliberately not read from any character: the only mover
+ * that reaches this has no record, draws a placeholder, and is meant to be
+ * seen.
+ */
+const PLACEHOLDER_HEIGHT = 240;
+
 /** How long a character stands perfectly still before glancing aside. */
 const IDLE_BREAK_AFTER = 7;
 
@@ -128,7 +146,7 @@ export class Actor {
     this.height = options.height
       ?? (this.scalesWithDepth ? this.sampleDepth(state, x, y) : null)
       ?? state.content.actors.get(id)?.height
-      ?? state.content.actor.height;
+      ?? PLACEHOLDER_HEIGHT;
   }
 
   /**

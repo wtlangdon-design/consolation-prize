@@ -610,15 +610,22 @@ export class GameScene extends Phaser.Scene {
    * the code doc 34 gave it.
    */
   private choreSeconds(mover: Actor, clip: string): number {
-    const record = this.state.content.actor;
+    // HIS OWN RECORD AND HIS OWN RATE. This read `content.actor` -- the
+    // protagonist -- and guarded it with `mover.id === record.id`, so a chore
+    // staged for anyone else resolved to `undefined` and threw. That guard was
+    // right when he was the only record and is wrong now that Hob and the
+    // coach have their own: it would refuse a clip Hob genuinely declares, and
+    // the duration would have come off Thad's reactRate if it had not.
+    //
+    // The lookup is keyed by the MOVER'S id, so the answer traces to the thing
+    // being asked about. A mover with no record still throws, by name.
+    const record = this.state.content.actors.get(mover.id);
     const facing = mover.facing;
     const surface = mover.surfaceHere();
-    const found = mover.id === record.id
-      ? record.clips.find(
-        (candidate) => candidate.id === clip && candidate.facing === facing)
-      : undefined;
+    const found = record?.clips.find(
+      (candidate) => candidate.id === clip && candidate.facing === facing);
     assertRequiredClip(found, clip, facing, surface);
-    if (!found) {
+    if (!found || !record) {
       throw new Error(`No declared clip "${clip}" (${facing}) for mover "${mover.id}"`);
     }
     return found.frames.length / record.reactRate;

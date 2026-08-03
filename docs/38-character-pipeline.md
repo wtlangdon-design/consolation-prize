@@ -204,6 +204,18 @@ R5d is about not trusting a rendering of a rendering. This is the same error one
 
 > **Enumerate from a different direction than the code you are checking, then break the code and watch the check catch it.** A green check that has only ever been green is an assertion about nothing.
 
+## R5f · A FALLBACK TO ANOTHER ENTITY'S DATA IS ALWAYS A BUG
+
+R5e is about a check sharing its subject's assumptions. This is the same error inside the code itself: **an engine decision must trace to a field on the thing it is deciding about, or to a named constant. Nothing else.**
+
+A fallback to a literal says *nobody told me, here is the standard answer*. A fallback to another entity's field says *nobody told me, I will use somebody else's answer* — and that is **silent by construction**, because somebody else's answer always has the right type, the right magnitude, and comes from a record that is correct about itself.
+
+**The case.** `Actor`'s height fell through to `state.content.actor.height`. The coach asked how tall it was, its own record was never consulted, and the engine answered with the protagonist's 240 against art of 389. The record was right. The generator was right. Every check was green. A stagecoach drew with its roof at a man's head height and nothing anywhere was wrong.
+
+**The same shape, three times in one session:** a stale actor record answered for frames it no longer described; `FIXED_HEIGHT` was correct and unreachable because the engine had no field to ask; and `scalesWithDepth` did not exist, so *unrouted* stood in for *not a person*. Each time a generator knew something the engine could not, and each time the hole was filled by the most plausible thing to hand.
+
+> **Enforced as far as a machine can hold it** by `tools/check-entity-fallback.mjs`, which flags any fallback reading the singular `content.actor`. It had to learn two evasions to be worth anything: a bare identifier assigned from that record, and a read already wrapped in its own tidy `?? ''`. Both were live in the tree.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.
