@@ -221,13 +221,17 @@ function opening() {
     ],
     // Beat 6b: ERRATA 38's entire reason for existing. THE COACH LEAVES. A
     // coach that vanishes on a click is not a coach leaving.
-    '6b': [{ do: 'move', actor: 'coach', to: [2400, 742], seconds: 3 }],
+    '6b': [{ do: 'move', actor: 'coach', from: [646, 742], to: [2600, 742], seconds: 3 }],
     // Beat 9: Hob crosses the road with his lamp and is gone. Right-facing
     // only, so he walks the way he is drawn.
-    9: [
-      { do: 'walk', actor: 'hob', to: [1560, 700] },
-      { do: 'walk', actor: 'hob', to: [420, 700] },
-    ],
+    // Beat 7 PLACES HOB, off frame right, while the coach recedes. He cannot
+    // be placed in beat 9 where he is used: `walk` requires a mover and never
+    // creates one, only `move` places, and errata 38 fences `move` to beats
+    // whose control is `none`. Beat 9's control is `player`. So the placement
+    // goes in the last automatic beat before it.
+    7: [{ do: 'move', actor: 'hob', from: [2100, 700], to: [1820, 700], seconds: 2 }],
+    // Beat 9: he crosses the road and is gone.
+    9: [{ do: 'walk', actor: 'hob', to: [300, 700] }],
     // Beat 10: west, toward town.
     10: [
       { do: 'walk', actor: 'thad', to: [300, 800] },

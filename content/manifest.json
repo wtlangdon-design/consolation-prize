@@ -67,7 +67,8 @@
   "itemIcons": "content/ui/item-icons.json",
   "actors": [
     "content/actors/thad.json",
-    "content/actors/hob.json"
+    "content/actors/hob.json",
+    "content/actors/coach.json"
   ],
   "actorsNote": "EXPLICIT, AS RULED, and not convention discovery from content/actors/*.json. A directory listing silently picks up whatever happens to be on disk -- a half-written record, something copied in to look at -- and then the game loads it or does not depending on somebody's afternoon. A list is checkable, and check-asset-paths already earned that argument by failing loudly on a path nobody declared. `actor` below stays: it names which of these is the protagonist, which is a different fact from which records exist."
 }
