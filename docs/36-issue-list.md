@@ -2090,6 +2090,72 @@ The breath on `thad-lookup-left` was applied by hand as a result: a transform ra
 
 ---
 
+## Q78 · Nothing compared two clips to each other. It does now, and it found three things on its first run
+
+**`tools/check-clip-agreement.mjs`.** Built as asked. **Not registered in `run-all.mjs`** — it fails on five pairs that need an art decision, and no fix is in flight for them, so registering it would put a standing red in front of everybody. Same disposition as Q73's mirror check and for the same reason (R5j). It registers the day those five are resolved.
+
+### The rule, narrower than "the clips should look alike"
+
+A pixel that **moves** inside a clip is that clip animating, which is the point of it. A pixel that is **still in both** clips is the character's fixed appearance, and the two must agree about it. So each clip is reduced to its **static image** — the pixels identical across all of its own frames — and the comparison happens only where both are static.
+
+That is what keeps it quiet on correct work: walk and idle animate entirely different regions and pass, because their disagreement is confined to pixels one of them is deliberately moving.
+
+**99 pairs compared, across 14 groups of matching actor, facing and canvas size.** Seven clips have no same-size sibling and are named in the report rather than silently skipped — the door-open coach among them, because it is 1129px wide against the plain idle's 1128.
+
+### Finding 1 — Thad's hand is in a different place in three clips, statically
+
+| pair | pixels | box |
+|---|---|---|
+| `thad-idle-right` / `thad-idlebreak-right` | 496 | 128,267,113,40 |
+| `thad-idlebreak-right` / `thad-stand-right` | 554 | 128,267,113,41 |
+| `thad-idle-left` / `thad-idlebreak-left` | 688 | 158,262,98,78 |
+| `thad-idlebreak-left` / `thad-stand-left` | 797 | 158,262,98,78 |
+| `thad-idlebreak-left` / `thad-recoil-left` | 150 | 158,270,98,70 |
+
+`renders/thad-idlebreak-static-disagreement@3x.png` is the crop, at 3×, idle | idle-break | stand. **The hand is at a different x in each.** So when the idle break fires — which, since Q69, it now actually does — his hand jumps, holds for six seconds, and jumps back. It is the luggage flash on Thad's arm.
+
+**The idle break was unreachable for every mover but one until this session**, which is why nobody has seen it: the fault has been in the art the whole time and there was no code path that could play it.
+
+### Finding 2 — sixteen clips are two-picture animations padded to five, six or twelve frames
+
+Measured by SHA-256 over the frame files:
+
+| clip | frames | distinct pictures |
+|---|---|---|
+| `thad-idle-*` (all four) | 6 | **2** |
+| `thad-idlebreak-left` / `-right` | 12 | **2** |
+| `thad-idlebreak-front` / `-back` | 12 | **3** |
+| `hob-idlebreak-right` | 12 | **2** |
+| every Thad chore (`aboard-coach`, `alight-coach`, `carry`, `give-offer`, `pickup-low`, `shrug`, `use-near`) | 5–6 | **2** |
+| `coach-idlebreak-right` | 16 | **8** |
+| `thad-recoil-*`, `thad-talk-*`, `coach-idle-door-open-right` | 4 / 2–3 / 24 | **all distinct** |
+
+**The breath does not rise and settle. It pops.** `thad-idle-right` is `A B B B B A` — one picture for a frame, a second for four, back for one. At 2.4/s that is a step every 1.7 seconds, not a breath. Doc 40 says *"6 frames"* and the table's rate column assumes six pictures.
+
+**The clips that were generated as art are fully distinct; the clips the breath transform was applied to are two.** That is the tell, and it says the finding is about the transform rather than about any one pose.
+
+**Not asserted, and no check added for it.** Whether a two-position breath reads as breathing at 233px is a watching question, and sixteen clips is a regeneration decision. It is recorded because it is measurable and nobody had measured it.
+
+### Finding 3 — and it changes the answer to Q75's open question
+
+**Asked: does `aboard-coach` need the same treatment as `lookup` before it can be a held state? Yes, and more of it.**
+
+`thad-aboard-coach-right` is 5 frames and **2 distinct pictures**, in the order `A B B B A` — and **`A` is byte-identical to `thad-idle-right`'s first frame.** So the clip is *the ordinary standing pose*, then the aboard pose held for three frames, then *back to standing*. It is a there-and-back gesture, which is right for a one-shot chore and wrong for a held pose: set as a state variant it would loop, and he would flicker in and out of the doorway forever.
+
+`thad-lookup-left` is also 2 distinct pictures, but **both of them are the raised-head pose** — its own base and its own breath. That is a coherent held pose; `aboard-coach` is not.
+
+> **What `aboard` needs is a clip that is the aboard pose in every frame, with the breath applied to that pose** — exactly what was done for `lookup`, and it cannot be got by re-registering the existing five frames.
+
+**One correction to the proposed staging, so it is not typed twice.** The step's field is `object`, not `actor`:
+
+```json
+{ "do": "setState", "object": "thad", "state": "lookup" }
+```
+
+`SequenceStep` is `{ kind: 'setState'; object: string; state?: string }`, and the extractor lowers `do`/`object` straight onto it. Omitting `state` clears, which is how both of these end.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

@@ -383,6 +383,22 @@ The two are told apart by one question: **if the content were wrong, would this 
 
 **A check is possible and is not built.** The shape: a name that appears only in its declaration and its generator, and in nothing that reads. A plain identifier grep over `engine/` and `tools/` gets close — of 41 keys across the actor records, only three are named nowhere in code today, and two of those are state *values* rather than fields. What that heuristic misses is exactly the `idleBreakRate` case, where the name does appear twice, in the two places that do not count. Distinguishing *declares* and *writes* from *reads* is the work, and it is the difference between a useful check and a noisy one.
 
+## R5m · A RULE PLACED WHERE NOTHING CAN TEST IT
+
+**R5l is a field nobody reads. This is a rule nobody can reach — and the tell is identical: everything looks finished, every artefact is correct, and the missing thing is invisible in all of them.**
+
+**The case.** Errata 28b-i changed what happens after *every click in the game*: a verb now clears on use. It was written into `GameScene.applyInteraction`, where it worked. **All 132 tests passed.** Not one of them could see it, because the scene needs Phaser and the tests do not build one — so the rule sat behind a wall the test suite does not cross.
+
+Moved one layer down into `GameState.interact`, **four tests failed immediately** — and all four were asserting the old rule, encoded as a habit: *select a verb once, click three times.* They re-select now, which is what a player must do.
+
+> **If a change to behaviour breaks no test, that is evidence about where you put it, not about the change.**
+
+That is the prescription, and it is sharper than R5l's. R5l needs a judgement about whether a field ought to have a reader. This needs none: a behaviour change that nothing notices has been placed out of reach, and the response is to move it, not to write a new test where it currently sits. A test written to reach the scene would have proved the rule works in the scene — which is exactly the wrong question, and R5e's error.
+
+**Where a rule belongs is decided by what it is about.** "What the game does when a verb is used" is a fact about the game, so it lives in the model. The scene routes clicks; it does not decide what a click means.
+
+**And the four failures were the good kind.** They did not fail because they were wrong when written — they were right, under the old rule, and they encoded it faithfully enough that changing the rule broke them. **A test that survives a genuine change of behaviour was not testing that behaviour.**
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.
