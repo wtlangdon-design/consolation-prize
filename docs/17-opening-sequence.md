@@ -141,7 +141,7 @@ Six hotspots from doc 05, now with variants, overrides and the exit.
 **LISTEN** 2 "Nothing. It is entirely uninterested." · 3 "Nothing. I am going to stop asking it things."
 
 ## THE COACH
-**LOOK** 2 *(after departure)* "Gone. It made very good time on the way out." · 3 "There is not another one for four days. I have checked twice and the answer did not improve."
+**LOOK** 2 *(after departure)* "Gone. It made very good time on the way out." · 3 "The next coach out of Consolation is in four days. I have checked twice and the answer did not improve."
 **LISTEN** 2 "The near axle, going away. It will fail on somebody else's stretch." · 3 "Nothing. It is a long way off now."
 
 ## HIS CASE — **two states, and the game's first PICK UP**
