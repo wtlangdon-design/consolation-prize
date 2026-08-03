@@ -78,10 +78,10 @@
         "art/actors/hob-walk-right/walk-02.png",
         "art/actors/hob-walk-right/walk-03.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 668,
       "anchor": [
-        202,
-        526
+        178,
+        668
       ]
     }
   ]
