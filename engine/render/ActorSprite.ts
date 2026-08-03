@@ -59,8 +59,8 @@ export class ActorSprite {
    * gets 1 draws frame 0 of something, which is the fallback this file has
    * stopped doing.
    */
-  frameCount(clip: string, facing: Facing, surface: string): number {
-    return this.clipOf(clip, facing, surface)?.frames.length ?? 0;
+  frameCount(clip: string, facing: Facing, surface: string, state?: string): number {
+    return this.clipOf(clip, facing, surface, state)?.frames.length ?? 0;
   }
 
   /**
@@ -85,7 +85,8 @@ export class ActorSprite {
    * the clip -- he does not have two footfall treatments. Today no clip
    * declares a surface, so this only ever takes the second branch.
    */
-  private clipOf(clip: string, facing: Facing, surface: string): ActorClip | undefined {
+  private clipOf(clip: string, facing: Facing, surface: string,
+                 state?: string): ActorClip | undefined {
     // A FACING THE CHARACTER IS NOT DRAWN IN IS DATA, NOT A GAP. Hob is
     // right-facing only, and asking him to face left must neither substitute
     // another facing nor fail -- it draws nothing, and the caller falls back
@@ -95,12 +96,17 @@ export class ActorSprite {
     const facings = this.table.facings;
     if (facings && !facings.includes(facing)) return undefined;
 
-    const found = this.table.clips.find(
-      (candidate) => candidate.id === clip && candidate.facing === facing
-        && candidate.surface === surface,
-    ) ?? this.table.clips.find(
-      (candidate) => candidate.id === clip && candidate.facing === facing,
-    );
+    // TWO DISCRIMINATORS, ONE LOOKUP. State first, because it is the coarser
+    // fact -- a shut door and an open one are different pictures of the same
+    // clip -- then surface, then neither. Each step is the same
+    // exact-match-then-fall-back the surface variant already used, so a record
+    // that declares no state behaves exactly as it did.
+    const of = (id: string, want: string | undefined, wantSurface: boolean) => this.table.clips
+      .find((candidate) => candidate.id === id && candidate.facing === facing
+        && candidate.state === want
+        && (!wantSurface || candidate.surface === surface));
+    const found = of(clip, state, true) ?? of(clip, state, false)
+      ?? of(clip, undefined, true) ?? of(clip, undefined, false);
     assertRequiredClip(found, clip, facing, surface);
     return found;
   }
@@ -122,8 +128,9 @@ export class ActorSprite {
     feetX: number,
     feetY: number,
     height: number,
+    state?: string,
   ): boolean {
-    const found = this.clipOf(clip, facing, surface);
+    const found = this.clipOf(clip, facing, surface, state);
     if (!found) return false;
     const count = found.frames.length;
     if (count === 0) return false;

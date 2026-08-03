@@ -1261,6 +1261,48 @@ Two tests carry it: one that a save round trip restores the position, one that a
 
 The held item stays as it is, as ruled. It is the middle of an action rather than a possession, and the fork stayed in `carrying` throughout.
 
+## Q50 · The black figure IS still there, and it is Thad behind the coach
+
+**YOUR CAUTION WAS THE FINDING.** "Clean when played" and "absent in the first hundred milliseconds" are different claims, and my play-through answered only the first: it waits for `__game` and for the scene, which is exactly the apparatus that cannot observe a defect living in the opening frames. R5d, on the instrument that would have had to catch it.
+
+**Rerun with CDP `Page.startScreencast` from navigation** — every frame the compositor presents, 115 of them over 12 seconds on the deployed artifact, no polling and no waiting for readiness. **It is there, in every frame from the first painted one.**
+
+```
+first painted frame   2080 ms
+2080 ms   a dark angular shape under the coach body
+2210 ms   two vertical black bars, between the wheels
+2307 ms   the same
+...       through the whole of beat 2
+```
+
+**IT IS NOT A GRAYBOX AND NOT A MISSING SPRITE. IT IS THAD, DRAWN BEHIND THE COACH.**
+
+```
+t=2.06s  insertion order: thad@y742(aboard-coach)  ->  coach@y742(idle)
+```
+
+**Both are at y742.** `depthOrder` sorts by feet Y — doc 22 section 5 step 3, and correctly — and `Array.prototype.sort` is stable, so a tie keeps insertion order. Thad is constructed in `create()` and the coach is placed at beat 2, so **thad is first in the map, draws first, and the coach draws on top of him.** He climbs out of the coach from behind it and the only part of him that clears the body is his legs between the wheels — two dark bars, which at a glance is a black figure standing under a stagecoach.
+
+**Three of my earlier readings were wrong on the way to this**, and all three for the same reason: a metric found the darkest column in the play area and returned the plate's own timber at x48, constant in every frame, because a dark blob detector cannot tell a figure from a water tower. What settled it was the contact sheet — R5b2, on the third occasion in one session.
+
+**THE FIX IS A COORDINATE AND IT IS YOURS.** He steps DOWN out of a coach, toward the camera, so his feet land nearer than its wheels. Doc 43 already uses exactly this reasoning for the talking spot — *"(1330, 800) — nearer the camera, so depth sorting has something true to sort"* — and beat 2's alighting spot is at the coach's own y742, where there is nothing true to sort. Any y greater than 742 puts him in front; how much greater is a look, not a calculation.
+
+**The engine cannot fix a true tie and should not try.** Equal feet Y means equal depth, and insertion order is the only thing left — arbitrary, invisible, and not something content should be able to depend on silently. If you want it caught rather than noticed, a check that no two movers are staged at the same feet Y with overlapping x is cheap and I will write it on a word.
+
+## Q51 · The coach's third clip: `state` on `ActorClip`, as ruled
+
+Shape (b). **It adds no mechanism** — `ActorClip` already carried an optional discriminator, `surface`, and `clipOf` already did exact-match-then-fall-back on it. `state` is the same field with the same lookup:
+
+```
+state + surface  →  state  →  surface  →  neither
+```
+
+A record that declares no state resolves exactly as it did, which is every character in the game. **The state itself is not stored on the clip or on the mover:** `GameState.moverState(id)` reads `objectStates`, keyed `"room/object"` — already saved, already doc 22 item 9's mechanism, and already what the coach used while it was a hotspot. A resting-clip override on `Actor` would have made a second place object state lives.
+
+Tested three ways: no state resolves as before; an unknown state falls back to the stateless clip rather than vanishing; a declared state wins while the stateless clip stays the fallback. **124 tests.**
+
+**Recorded, not hidden, per your ruling:** the departing coach keeps the case on its rack, and strictly the rack is empty after beat 6. It is on screen for three seconds, receding, and a fourth generation would have to align pixel-for-pixel with three others. If it ever reads wrong, that is why.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

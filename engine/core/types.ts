@@ -329,6 +329,27 @@ export interface ActorClip {
    * nothing derives one from the other.
    */
   walkDx?: number;
+  /**
+   * WHICH STATE OF THE OBJECT THIS CLIP DRAWS. Q38, as ruled.
+   *
+   * The same shape as `surface` below and resolved by the same
+   * exact-match-then-fall-back lookup, so this adds no mechanism: it adds a
+   * second discriminator to a lookup that already discriminates. A clip with
+   * no state is what every character has today and what every mover without
+   * states resolves to.
+   *
+   * IT EXISTS BECAUSE THE COACH NEEDS BOTH HALVES OF THE ENGINE. It must MOVE,
+   * which made it a mover, and it must show a shut door in beats 1-2 and an
+   * open one in 3-6, which is object STATE -- doc 22 item 9's mechanism, which
+   * it used while it was a hotspot. `Actor.clip` chooses between walk and idle
+   * by whether the thing is moving and nothing selects between two idles.
+   *
+   * The state itself is not stored here or on the mover: it is read from
+   * `objectStates`, keyed "room/object", which is already saved and already
+   * the one place object state lives. A resting-clip override on `Actor` would
+   * have made a second one.
+   */
+  state?: string;
   /** Q10's mud and boardwalk variants, if they survive errata 54 at all. */
   surface?: string;
 }

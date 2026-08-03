@@ -524,11 +524,14 @@ export class Renderer {
     // Zero frames means the record does not declare this clip, and there is
     // no substitute for one. The graybox below is a placeholder, not a
     // stand-in animation: it is visibly not the character.
-    const frames = sprite.frameCount(clip, mover.facing, surface);
+    // Q38: a mover's clip may be chosen by its object state as well as its
+    // surface -- the coach's shut door and open one are one clip, two states.
+    const state = this.state.moverState(mover.id);
+    const frames = sprite.frameCount(clip, mover.facing, surface, state);
     const drawn = frames > 0 && sprite.draw(
       this.screen.context, clip, mover.facing, surface,
       mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0),
-      feetX, feetY, mover.height,
+      feetX, feetY, mover.height, state,
     );
     if (!drawn) {
       this.drawFigure(feetX, feetY, mover.height, this.screen.role('overlayBg'));

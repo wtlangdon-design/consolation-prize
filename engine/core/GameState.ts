@@ -323,6 +323,21 @@ export class GameState {
     return this.objectStates.get(this.key(target.id)) ?? target.state;
   }
 
+  /**
+   * The state of a MOVER, from the same store a hotspot's comes from.
+   *
+   * Q38: the coach must show a shut door and an open one, and a mover has
+   * clips rather than states. This is the seam -- `objectStates` is keyed
+   * "room/object", is already saved, and is doc 22 item 9's mechanism; the
+   * clip lookup consults it and nothing new stores anything.
+   *
+   * A mover with no entry answers undefined, which is what every character
+   * answers and what a clip with no `state` matches.
+   */
+  moverState(moverId: string): string | undefined {
+    return this.objectStates.get(this.key(moverId));
+  }
+
   /** What this object looks like and covers right now. */
   presentation(target: Interactable) {
     const state = this.stateOf(target);
