@@ -268,40 +268,28 @@ function opening() {
     //
     // Every position below is measured against those, not guessed.
     2: [
-      // HOB IS PLACED FIRST, so he stands in the road from the first drawn
-      // frame rather than appearing partway through. He was placed LAST, after
-      // Thad's chore and walk, so he popped in.
       { do: 'move', actor: 'hob', from: [600, 720], to: [600, 720], seconds: 0.1 },
       { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
       { do: 'setState', object: 'coach', state: 'door-open' },
-      // HE SPEAKS FROM THE STEP, held in 'aboard-coach'. A man announcing
-      // himself to a town from the step of the coach that brought him is the
-      // picture doc 01 opens on -- and it solves the facing, because up there
-      // he is level with the driver's box instead of 300px below it.
-      { do: 'move', actor: 'thad', from: [1170, 794], to: [1170, 794], seconds: 0.1 },
-      { do: 'face', actor: 'thad', facing: 'right' },
-      { do: 'chore', actor: 'thad', clip: 'aboard-coach' },
+      // HE STANDS IN FRONT OF THE OPEN DOOR AND FACES US.
+      //
+      // The step was abandoned: `aboard-coach` is a there-and-back chore --
+      // A B B B A with A byte-identical to idle frame 0 -- so held it loops him
+      // in and out of the doorway, and played as a chore it lasts 0.71s, gone
+      // before his line arrives. A man announcing himself to a town while
+      // facing the camera is the stronger image anyway.
+      { do: 'move', actor: 'thad', from: [1170, 800], to: [1170, 800], seconds: 0.1 },
+      { do: 'face', actor: 'thad', facing: 'front' },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
-      // He speaks his first line FROM THE STEP, then climbs down.
+      // He says who he is TO US, facing front, before he moves.
       { do: 'say', line: 0 },
-      { do: 'chore', actor: 'thad', clip: 'alight-coach' },
-      // TO THE DRIVER'S RIGHT, not under his box. The box is x1332-1364 and
-      // the horses begin at 1485, so there are 121px of gap and he is about
-      // 100 wide at this depth. Nearer the camera at y830 than the coach's
-      // wheels at 742, so he sorts in front of the team.
+      // then crosses to the driver's right and looks up at him
       { do: 'walk', actor: 'thad', to: [1420, 830] },
-      // FACING LEFT, because the driver's own `looking-down` turns toward
-      // frame RIGHT -- 107k changed pixels right of his head's centre against
-      // 51k left. Thad on his right, facing left, and they face each other,
-      // which no previous arrangement did.
       { do: 'face', actor: 'thad', facing: 'left' },
-      // AND HE LOOKS UP. He has no facing that does -- four facings, three
-      // talk overlays, none tilted -- so a figure in profile looks at the
-      // horizon wherever he stands. This is the clip that fixes it.
       { do: 'chore', actor: 'thad', clip: 'lookup' },
       { do: 'say', line: 1 },
     ],

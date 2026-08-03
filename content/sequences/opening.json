@@ -76,23 +76,18 @@
           "actor": "thad",
           "from": [
             1170,
-            794
+            800
           ],
           "to": [
             1170,
-            794
+            800
           ],
           "seconds": 0.1
         },
         {
           "do": "face",
           "actor": "thad",
-          "facing": "right"
-        },
-        {
-          "do": "chore",
-          "actor": "thad",
-          "clip": "aboard-coach"
+          "facing": "front"
         }
       ]
     },
@@ -108,11 +103,6 @@
         {
           "do": "say",
           "line": 0
-        },
-        {
-          "do": "chore",
-          "actor": "thad",
-          "clip": "alight-coach"
         },
         {
           "do": "walk",
