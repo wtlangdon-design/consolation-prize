@@ -1868,6 +1868,30 @@ The surviving sentence sits at the end of the section on **what the town says ab
 
 ---
 
+## Q73 · The ping-pong walk is every walk clip in the game, not two
+
+**Reported from watching Hob: frames 1≡7, 2≡6, 3≡5, byte-identical — the second half is the first played backwards, so the same leg leads every step.** One leg swings out and comes back; the other never passes it. Described as galloping, which is what it is.
+
+**Measured across every walk clip on disk, by SHA-256 of the file bytes:**
+
+| Clip | Frames | Identical pairs |
+|---|---|---|
+| `thad-walk-right` | 8 | 1=7, 2=6, 3=5 |
+| `thad-walk-left` | 8 | 1=7, 2=6, 3=5 |
+| `thad-walk-front` | 8 | 1=7, 2=6, 3=5 |
+| `thad-walk-back` | 8 | 1=7, 2=6, 3=5 |
+| `hob-walk-right` | 8 | 1=7, 2=6, 3=5 |
+
+**Five clips, one signature.** It is not a fault in a generation, it is the shape of the generation step — so a fix to one facing fixes one facing, and the other four keep galloping until they are regenerated too. Worth knowing before the contralateral source lands: **the thing to check when it arrives is the count, not the clip.**
+
+**It was recorded as a note and became a defect by being watched.** The stride measurement found the identical frames and filed them; nothing was wrong with that reading and nothing acted on it. What changed is that Hob now crosses the whole screen, so there is time to see the leg that never leads. **A static fact about eight files became a visible fault when the distance travelled grew** — and no check that reads the files could have told anybody that, because the files did not change.
+
+**The consequence, predicted and deliberately not pre-compensated:** the cycle becomes two steps rather than one, so **the declared stride doubles**. `strideLength` is 102 for Thad and 105 for Hob today; both describe a cycle that contains one real step. Since doc 43's gait advances from distance travelled, doubling the stride halves the frame rate of the legs at the same walking speed — which is the correct outcome and will look like it. **`walkSpeed` should not move**: the stride changes, the speed does not, and the fallout is worth seeing rather than cancelling out in advance.
+
+**A check is one line and belongs with the art, not before it.** A walk cycle must not be its own mirror: `frame[i] === frame[n - i]` for any `i`. It would fail on all five clips today, which is correct and also unmergeable — a red the whole team must work around while the fix is in flight is R5j regardless of being right. It lands the day the art does, and it will say immediately whether all five were replaced or one.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
