@@ -316,12 +316,6 @@ function opening() {
       { do: 'say', line: 1 },
     ],
     6: [
-      // AND IT CLEARS HERE, at the end of the conversation it was raised for
-      // -- he stops looking up when the driver has finished with him.
-      // Omitting `state` clears, which is how the coach's door shuts: back to
-      // the declared clip rather than to a state called "down" that nothing
-      // declares.
-      { do: 'setState', object: 'thad' },
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],
@@ -341,11 +335,12 @@ function opening() {
     // No `from` here: beat 2 placed it, and repeating the placement would
     // teleport it back to its mark if anything had nudged it.
     '6b': [
-      // THE DRIVER SHUTS THE DOOR BEFORE HE PULLS AWAY. Authored, not
-      // inherited: the walk clip has no door-open variant, so without this the
-      // door snapped shut the instant the coach started moving -- the state
-      // unsetting itself because a sibling clip does not declare it. A door
-      // closing is a thing a driver does; a door vanishing is a defect.
+      // HE STOPS LOOKING UP WHEN THE COACH LEAVES. This clear was on beat 6
+      // and could never fire: setState is fenced to beats whose control is
+      // `none` and beat 6 is `player`, so the state was set and never unset.
+      // He looked up permanently -- and because it lives on idle/left, it came
+      // back every time he turned left for the rest of the game.
+      { do: 'setState', object: 'thad' },
       { do: 'setState', object: 'coach' },
       { do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 },
     ],

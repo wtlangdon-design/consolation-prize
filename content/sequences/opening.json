@@ -203,10 +203,6 @@
       },
       "staging": [
         {
-          "do": "setState",
-          "object": "thad"
-        },
-        {
           "do": "face",
           "actor": "thad",
           "facing": "right"
@@ -236,6 +232,10 @@
       "seconds": 3,
       "note": "Player-audit fix. A coach that disappears on a click is not a coach leaving",
       "staging": [
+        {
+          "do": "setState",
+          "object": "thad"
+        },
         {
           "do": "setState",
           "object": "coach"
