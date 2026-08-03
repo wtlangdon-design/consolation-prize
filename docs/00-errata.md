@@ -1011,6 +1011,21 @@ Errata 28a cut the sequence runner to five kinds and 30a added `wait` as a sixth
 
 ---
 
+
+---
+
+# 55 · THE TITLE PLAYS OVER THE WALK. DOC 17 BEAT 1 IS VOID.
+
+**Doc 17 beat 1 — "Title over the ridge at night. Consolation below as scattered lamps in a great deal of darkness. Longing, not comedy" — described a separate scene, and it was never built.** `beginOpening` has always filtered the menu segment out of the opening with a comment saying the title "is its own scene and has already happened by the time anyone is standing on a road". That scene does not exist. `main.ts` registers `BootScene` and `GameScene` and nothing else.
+
+**It will not be built. The title appears IN THE MOUNTAINS, TOP RIGHT OF THE FRAME, while Thad walks away up the hill toward the town**, in an arrangement of the words made to fit that space rather than a centred card. Recorded here rather than deleted quietly, because a beat's description is content and this replaces it.
+
+**IT ALSO SETTLES DOC 17'S OWN DEFERRED QUESTION, in a way doc 17 did not consider.** "The descent — optional, and flagged as a cost" proposes exactly this shot — *"one transitional composition, tiny Thad on the ridge road above the lamps"* — and defers it because *"it is one more screen and it contradicts doc 20's 'travel is instant, no transition screens'."* **This is not one more screen.** It is Room 1 continuing, so doc 20's rule is untouched and the cost the descent was deferred over does not arise.
+
+**The 320×144 art stays superseded.** `art/backgrounds/title-screen.png` and `room-29-high-ridge.png` are both at the resolution errata 54 voided, and the title render has its lettering and its whole menu baked into the image. Both are on `tools/pixelart/superseded.py` so `npm run renders` refuses to rewrite them. Q59.
+
+**WHAT THE LAUNCH SCREEN IS HAS NOT BEEN ASKED AND IS NOT ANSWERED HERE.** If the title plays over gameplay, a player opening the game currently goes straight into Room 1 and the opening starts: there is no menu, no title and no way to choose CONTINUE. `content/ui/menu.json`'s root is the PAUSE menu — Resume, Save, Load, Options, Fullscreen, Quit — reachable only from the verb panel, so a returning player must play the opening's first moments before they can load. NEW GAME / CONTINUE / OPTIONS / CREDITS exist nowhere but as painted pixels in the superseded title art. That is a separate ruling.
+
 # 39 · NATIVE RESOLUTION STAYS 320×200 — the fix is fullscreen
 
 The frame does not fill a browser window, and the analysis is correct: at 1920×1080 the canvas is 1600×1000, which is already the largest integer multiple. The binding dimension is the 200-row native height — 5× needs 1000px of usable viewport, and browser chrome plus the Chromebook shelf takes you under it.
