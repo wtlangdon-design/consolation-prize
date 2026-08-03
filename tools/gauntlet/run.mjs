@@ -36,7 +36,11 @@ import { validateScript } from './schema.mjs';
  */
 
 const SAMPLE_MS = 50;
-const BOOT_TIMEOUT_MS = 30_000;
+const BOOT_TIMEOUT_MS = 45_000;
+// Fixed and out of the way of anything a person has open, with --strictPort so
+// a clash fails loudly instead of landing on a port nobody is watching.
+const DEV_PORT = 5199;
+const PREVIEW_PORT = 4199;
 
 const args = process.argv.slice(2);
 const SMOKE = args.includes('--smoke');
@@ -76,21 +80,60 @@ async function main() {
 
 /* ------------------------------------------------------------------ server */
 
-/** `npm run dev`, or `npm run preview` for the built artifact. */
-async function serve(mode) {
-  const child = spawn('npm', ['run', mode], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
-  const url = await new Promise((done, fail) => {
-    const timer = setTimeout(() => fail(new Error(`${mode} did not print a URL`)), BOOT_TIMEOUT_MS);
-    const read = (chunk) => {
-      const found = /(http:\/\/(?:localhost|127\.0\.0\.1):\d+)\/?/.exec(String(chunk));
-      if (!found) return;
-      clearTimeout(timer);
-      done(found[1]);
-    };
-    child.stdout.on('data', read);
-    child.stderr.on('data', read);
-    child.on('exit', (code) => fail(new Error(`${mode} exited with ${code}`)));
-  });
+/**
+ * `npm run dev`, or `npm run preview` for the built artifact.
+ *
+ * A FIXED PORT, POLLED -- NOT THE SERVER'S OWN OUTPUT, PARSED.
+ *
+ * THIS IS WHY THE GAUNTLET NEVER ONCE RAN IN CI. It used to read the URL out
+ * of vite's banner with a regex. GitHub Actions sets CI=true, vite then emits
+ * colour, and it BOLDS THE PORT:
+ *
+ *     http://localhost:\x1b[1m5173\x1b[22m/
+ *
+ * so the escape sequence sits between the colon and the digits and
+ * `:\d+` can never match. Locally CI is unset, vite emits no colour, the URL
+ * is contiguous and the regex matches every time. Ten consecutive CI runs
+ * failed in thirty seconds with "dev did not print a URL" while every local
+ * run was green -- which is exactly what checks.yml's own header describes and
+ * exists to prevent, reproduced one job over.
+ *
+ * Asking the SERVER whether it is up removes the parse entirely. Nothing about
+ * how vite decorates its banner can break it, and `--strictPort` makes it fail
+ * loudly rather than quietly landing somewhere else.
+ *
+ * AND IT KEEPS WHAT THE SERVER SAID. The old failure reported only that no URL
+ * appeared, so diagnosing it needed the run log, the job id and three tool
+ * calls. This prints the output, which is where the answer was the whole time.
+ */
+async function serve(mode, port) {
+  const child = spawn('npm', ['run', mode, '--', '--port', String(port), '--strictPort'],
+    { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
+  let said = '';
+  const keep = (chunk) => { said += String(chunk); };
+  child.stdout.on('data', keep);
+  child.stderr.on('data', keep);
+
+  let exited = null;
+  child.on('exit', (code) => { exited = code; });
+
+  const url = `http://127.0.0.1:${port}`;
+  const deadline = Date.now() + BOOT_TIMEOUT_MS;
+  for (;;) {
+    if (exited !== null) {
+      throw new Error(`${mode} exited with ${exited}\n--- what it said ---\n${said}`);
+    }
+    try {
+      const answer = await fetch(`${url}/`, { signal: AbortSignal.timeout(2000) });
+      if (answer.ok) break;
+    } catch { /* not listening yet */ }
+    if (Date.now() > deadline) {
+      child.kill('SIGTERM');
+      throw new Error(`${mode} never answered on ${url} within ${BOOT_TIMEOUT_MS}ms`
+        + `\n--- what it said ---\n${said}`);
+    }
+    await new Promise((wake) => setTimeout(wake, 250));
+  }
   return { url, stop: () => child.kill('SIGTERM') };
 }
 
@@ -133,7 +176,7 @@ async function browser() {
 /* -------------------------------------------------------------- the script */
 
 async function runScript(name, script, coverage) {
-  const server = await serve('dev');
+  const server = await serve('dev', DEV_PORT);
   const engine = await browser();
   try {
     console.log(`\n=== ${name} -- ${coverage.checked} of ${coverage.total} beats assert something`);
@@ -606,7 +649,7 @@ function timingDrift(armed, bare, script) {
  * that much and no more.
  */
 async function smoke() {
-  const server = await serve('preview');
+  const server = await serve('preview', PREVIEW_PORT);
   const engine = await browser();
   const failures = [];
   try {
