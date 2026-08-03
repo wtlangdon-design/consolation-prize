@@ -2,8 +2,8 @@
   "clip": "aboard-coach",
   "facing": "right",
   "figure": [
-    390,
-    547
+    221,
+    526
   ],
   "frames": 5,
   "markers": {
@@ -14,5 +14,6 @@
     "complete": 4
   },
   "returns_to": "stand",
-  "note": "Doc 40's chore contract. Frame 0 and frame 4 ARE the stand frame, byte for byte, so the chore cannot pop on either end. The key pose is drawn and held for contact, commit and recover.\n\nNo in-betweens: a rigid-segment rig cannot interpolate between two different drawings, and cross-fading them looks worse than a clean cut. At 7fps a one-frame transition reads as a fast movement, which is how the reference games did it.\n\nPlaced by FEET and stance centre onto the stand's own canvas, so the anchor never moves."
+  "note": "Doc 40's chore contract. Frame 0 and frame 4 ARE the stand frame, byte for byte, so the chore cannot pop on either end. The key pose is drawn and held for contact, commit and recover.\n\nNo in-betweens: a rigid-segment rig cannot interpolate between two different drawings, and cross-fading them looks worse than a clean cut. At 7fps a one-frame transition reads as a fast movement, which is how the reference games did it.\n\nPlaced by FEET and stance centre onto the stand's own canvas, so the anchor never moves.\n\nFIGURE AND PADDING ARE THE STAND'S, because these frames sit on the stand's own canvas at the stand's scale. Declaring the CANVAS size instead made them 547 against the stand's 526 -- every chore drawn 4% small -- and left the anchor x undefined. A bent pose is shorter because the POSE is shorter, not because its declared figure differs.",
+  "padding": 85
 }

@@ -374,10 +374,10 @@
         "art/actors/thad-use-near-right/use-near-03.png",
         "art/actors/thad-use-near-right/use-near-04.png"
       ],
-      "figureHeight": 547,
+      "figureHeight": 526,
       "anchor": [
-        null,
-        547
+        196,
+        526
       ]
     },
     {
@@ -390,10 +390,10 @@
         "art/actors/thad-give-offer-right/give-offer-03.png",
         "art/actors/thad-give-offer-right/give-offer-04.png"
       ],
-      "figureHeight": 547,
+      "figureHeight": 526,
       "anchor": [
-        null,
-        547
+        196,
+        526
       ]
     },
     {
@@ -406,10 +406,10 @@
         "art/actors/thad-shrug-right/shrug-03.png",
         "art/actors/thad-shrug-right/shrug-04.png"
       ],
-      "figureHeight": 547,
+      "figureHeight": 526,
       "anchor": [
-        null,
-        547
+        196,
+        526
       ]
     },
     {
@@ -422,10 +422,10 @@
         "art/actors/thad-pickup-low-right/pickup-low-03.png",
         "art/actors/thad-pickup-low-right/pickup-low-04.png"
       ],
-      "figureHeight": 547,
+      "figureHeight": 526,
       "anchor": [
-        null,
-        547
+        196,
+        526
       ]
     },
     {
@@ -438,10 +438,10 @@
         "art/actors/thad-alight-coach-right/alight-coach-03.png",
         "art/actors/thad-alight-coach-right/alight-coach-04.png"
       ],
-      "figureHeight": 547,
+      "figureHeight": 526,
       "anchor": [
-        null,
-        547
+        196,
+        526
       ]
     },
     {
@@ -454,10 +454,10 @@
         "art/actors/thad-aboard-coach-right/aboard-coach-03.png",
         "art/actors/thad-aboard-coach-right/aboard-coach-04.png"
       ],
-      "figureHeight": 547,
+      "figureHeight": 526,
       "anchor": [
-        null,
-        547
+        196,
+        526
       ]
     },
     {
@@ -470,10 +470,10 @@
         "art/actors/thad-carry-right/carry-03.png",
         "art/actors/thad-carry-right/carry-04.png"
       ],
-      "figureHeight": 547,
+      "figureHeight": 526,
       "anchor": [
-        null,
-        547
+        196,
+        526
       ]
     }
   ]
