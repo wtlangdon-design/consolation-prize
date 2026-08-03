@@ -95,8 +95,7 @@
       ],
       "colour": 28,
       "when": {
-        "T_CASE_DOWN": false,
-        "T_COACH_DEPARTED": false
+        "T_CASE_DOWN": true
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -123,26 +122,20 @@
         "PICK_UP": "It is eight feet up and it is not mine to reach for yet."
       },
       "note": "Doc 17, state A: on the coach, beats 1–5",
-      "state": "there",
-      "states": {
-        "there": {
-          "image": "art/objects/room-01-case-roof.png",
-          "note": "THE CASE IS ITS OWN LAYER, not part of the coach. That is why the door-open coach has an EMPTY rack and why the case can come off without the vehicle changing at all. Its position is measured -- the difference between the two coach frames IS the case, at sprite x178-269 y0-39, which is world x1090-1181 y353-392 once the coach is placed at 1390 with anchor 478.\n\nThe rect was [1236,336,132,72], authored when the coach stood elsewhere.\n\nGATED ON THE COACH STILL BEING HERE, because a state image is a static full-frame layer and cannot travel with a mover. Without this the coach departed and the case hung in the sky where the rack had been. That is a stopgap and not the fix: Q37 is that the case must come DOWN at beat 6, and nothing writes T_CASE_DOWN or moves it. The right answer is probably to draw this layer FROM THE COACH so it travels for free and goes when the coach goes."
-        }
-      }
+      "state": "there"
     },
     {
       "id": "case_mud",
       "name": "HIS CASE",
       "rect": [
-        876,
-        732,
-        144,
-        96
+        1112,
+        714,
+        105,
+        94
       ],
       "colour": 28,
       "when": {
-        "T_CASE_DOWN": true
+        "T_CASE_TAKEN": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -179,7 +172,7 @@
       "states": {
         "there": {
           "image": "art/objects/room-01-case-mud.png",
-          "note": "The case where it lands. Gated on T_CASE_DOWN, whose writer is not built -- the check names that gap on every run rather than letting the flag claim what the picture does not show."
+          "note": "ON THE GROUND FROM THE FIRST FRAME, beside the coach door, its feet at y800 -- nearer the camera than the coach wheels at 742, so it sorts in front.\n\nSIZED AGAINST THE MAN: a gladstone case is about 22 inches tall, and Thad is 240px for 5'10\", so the case is 31% of him -- 89x75. It was 126x128 and read as a trunk.\n\nPICK UP takes it: the case leaves the ground and its CONTENTS enter the inventory. He never carries it around town, which is what Q11 was asking and this answers -- the case is a container, not an item."
         }
       }
     },
