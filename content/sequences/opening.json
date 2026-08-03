@@ -249,6 +249,18 @@
           ]
         },
         {
+          "do": "say",
+          "line": 0
+        },
+        {
+          "do": "say",
+          "line": 1
+        },
+        {
+          "do": "say",
+          "line": 2
+        },
+        {
           "do": "walk",
           "actor": "hob",
           "to": [

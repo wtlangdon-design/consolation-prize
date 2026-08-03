@@ -23,7 +23,7 @@ import {
   recordClick,
 } from '../engine/core/ClickTracker.ts';
 import { SequenceRunner, type SequenceHost } from '../engine/core/Sequence.ts';
-import { segmentsOf, stepsFor } from '../engine/core/Opening.ts';
+import { carriedStepsFor, segmentsOf, stepsFor } from '../engine/core/Opening.ts';
 import {
   mappingAt,
   offsetAt,
@@ -156,6 +156,43 @@ test('Q35: every line of panel text clears the line below it and the frame edge'
   const margin = NATIVE_HEIGHT - (last.top + font.height);
   assert.ok(margin >= font.scale,
     `${last.id} ends ${margin} units from the frame bottom, less than one glyph pixel`);
+});
+
+test('a staged say places one of the beat\'s own lines, and never duplicates it', async () => {
+  const content = await loadContent(fsReader);
+  const opening = content.sequences.get('opening')!;
+  const beat = opening.beats.find((b) => b.beat === '9')!;
+
+  // THE DEFECT: a beat's lines were appended after ALL of its staging, so
+  // "walk here, speak, walk on" could not be written. Hob touched his mark
+  // for one tick and spoke all three lines from x2100 -- 180 units past the
+  // right edge of a 1920-wide frame, with the words on screen and the man who
+  // says them off it.
+  const kinds = carriedStepsFor(beat).map((step) => step.kind);
+  const firstWalk = kinds.indexOf('walk');
+  const lastWalk = kinds.lastIndexOf('walk');
+  const said = kinds.map((k, i) => (k === 'say' ? i : -1)).filter((i) => i >= 0);
+  assert.ok(said.length > 0, 'the beat speaks');
+  assert.ok(firstWalk < lastWalk, 'he walks, and then walks again');
+  for (const at of said) {
+    assert.ok(at > firstWalk && at < lastWalk, `a line at step ${at} falls outside the walks`);
+  }
+
+  // AND EACH LINE ONCE. A beat that places any of its lines places all of
+  // them -- appending the rest would play a scheduled line beside an
+  // unscheduled one in an order nobody chose.
+  assert.equal(said.length, beat.lines!.length);
+  const spoken = carriedStepsFor(beat)
+    .filter((step) => step.kind === 'say')
+    .map((step) => (step as { line?: string }).line);
+  assert.deepEqual(spoken, beat.lines!.map((l) => l.line));
+
+  // The staging carries NO TEXT. The words live in doc 17; the step says only
+  // when one of them lands, and an index is checkable where a string is not.
+  for (const staged of beat.staging ?? []) {
+    if (staged.do !== 'say') continue;
+    assert.equal(typeof (staged as { line: unknown }).line, 'number');
+  }
 });
 
 test('the sentence line is assembled from templates, not built in code', async () => {

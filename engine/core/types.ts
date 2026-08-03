@@ -946,7 +946,32 @@ export type SequenceStagingStep =
    * not the player gets into the room at all: a coach arriving starts off
    * frame and a coach departing starts on its mark.
    */
-  | { do: 'move'; actor: string; from?: [number, number]; to: [number, number]; seconds: number };
+  | { do: 'move'; actor: string; from?: [number, number]; to: [number, number]; seconds: number }
+  /**
+   * ONE OF THE BEAT'S OWN LINES, BY INDEX. It carries no text.
+   *
+   * NOT A NEW STEP KIND. `SequenceStep` has had `say` since it was written;
+   * this exposes it to authors. Errata 28a cut the kinds to five, 30a added
+   * `wait`, 38 added `move` -- this adds none. What it adds is the ability to
+   * PLACE one, which is the gap: doc 22 section 6's chain is
+   * `walk -> waitForActor -> face -> waitForActor -> chore -> say`, and a
+   * line was the only thing in it an author could not put anywhere. A beat's
+   * lines were appended after all of its staging, so "walk here, speak, walk
+   * on" was inexpressible -- Hob touched his mark for one tick and spoke his
+   * three lines 180px past the right edge of the frame.
+   *
+   * THE INDEX IS THE WHOLE POINT. A `say` carrying a string would put
+   * dialogue in `tools/extract-content.mjs`, where the staging table lives so
+   * that no `.ts` holds a coordinate and no prose document holds a pixel. The
+   * words stay in doc 17; this says only WHEN one of them lands. An index with
+   * no line behind it fails at extraction, which is checkable in a way a
+   * string is not.
+   *
+   * A beat that places any of its lines places ALL of them: its lines are no
+   * longer appended, so a beat cannot half-schedule itself and play the
+   * remainder twice.
+   */
+  | { do: 'say'; line: number };
 
 
 /** content/ui/menu.json -- every string the pause menu can draw. */

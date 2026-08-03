@@ -1016,6 +1016,31 @@ walk->1080  waitForActor  walk->2100  waitForActor  say  say  say
 
 **This is structural, not a wrong number.** A beat's lines always follow all of its staging, so *walk here, speak, walk on* cannot be expressed in one beat however the coordinates are written. Two ways out, both yours: split beat 9 so the lines fall in a beat of their own between two walking beats, or give staging a `say` step so a line can sit between two walks. The second is the smaller change and the one that generalises — doc 22 section 6's chain already interleaves `walk → waitForActor → face → waitForActor → chore → say`, and a line is the only thing in that chain that cannot yet be placed.
 
+## Q42 · A staged `say`, so a line can sit between two movements — **RULED and done**
+
+Q41's remaining fault: Hob touched his mark for one tick and spoke his three lines from x2100, 180 units past the right edge of a 1920-wide frame. Structural, not a coordinate — `carriedStepsFor` pushed **all** of a beat's staging and **then** all of its lines, so *walk here, speak, walk on* could not be written however the numbers were chosen.
+
+**IT IS NOT A NEW STEP KIND, AND THAT IS WORTH SAYING PLAINLY.** `SequenceStep` has carried `say` since it was written. Errata 28a cut the kinds to five, 30a added `wait`, 38 added `move`; **this adds none.** What it adds is the ability to PLACE one. Doc 22 section 6's chain is `walk → waitForActor → face → waitForActor → chore → say`, and a line was the only thing in it an author could not put anywhere.
+
+**A STAGED `say` CARRIES AN INDEX, NEVER A STRING.** The staging table lives in `tools/extract-content.mjs` so that no `.ts` holds a coordinate and no prose document holds a pixel. A `say` with text in it inverts that exactly: dialogue would live in a tool, and doc 17 would stop being the only place the words are. Two places holding one fact is how every pair of documents in this project has drifted.
+
+So beat 9 is now `walk → say 0 → say 1 → say 2 → walk`, where 0, 1 and 2 are the lines doc 17 already gives that beat — Hob, Thad, Hob. **An index with no line behind it throws at extraction**, which is checkable in a way a string is not:
+
+```
+doc 17 beat 9: staging says "say 7" and the beat has 3 line(s). A staged say names
+one of the beat's OWN lines by index and carries no text -- the words stay in doc 17.
+```
+
+Proved by writing 7 and watching it fail.
+
+**A beat that places any of its lines places all of them.** `unplacedLines` returns nothing once a beat schedules one, so a beat cannot half-schedule itself and play the remainder twice — which would have put a line the author had placed beside one they had not, in an order nobody chose.
+
+**Played: all three lines land while he is stopped at x1080.** Captured one frame per line.
+
+**And the test asserts the property, not the shape.** Every `say` step falls strictly between the first and last `walk`, each line appears exactly once, in authored order, and every staged `say` carries a number rather than a string. It fails against the old lowering, where all three sat after the last walk.
+
+**One thing the check caught on the way.** The engine's error message for a bad index was written as a full English sentence and `check-no-content-in-code` flagged it as player-facing prose. It was right to: a paragraph in an engine `.ts` is indistinguishable from a line of the game. Shortened to `Beat 9 stages say 7 of 3 line(s)`; the explanation lives in the extractor, which is a tool and not scanned.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

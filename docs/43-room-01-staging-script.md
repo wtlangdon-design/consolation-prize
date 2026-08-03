@@ -155,15 +155,21 @@ The verb panel appears. No announcement. The game has started.
 
 | # | Who | Does | Where |
 |---|---|---|---|
-| 1 | hob | walk | 60 → **around 700**, and STOPS |
-| 2 | hob | says his line, Thad answers, Hob answers | — |
-| 3 | hob | walk | → 2100, off frame right |
+| 1 | hob | walk | 60 → **1080**, and STOPS |
+| 2 | — | `say 0` | Hob: *Wouldn't stand there.* |
+| 3 | — | `say 1` | Thad: *Why not?* |
+| 4 | — | `say 2` | Hob: *No reason.* |
+| 5 | hob | walk | → 2100, off frame right |
 
-**He currently walks straight across while the lines play.** An exchange needs him to stop, speak, and go on — three lines from a man who does not break stride is not the beat.
+**He stops, speaks, and goes on.** This is the beat that made `say` a staged step. A beat's lines used to be appended after **all** of its staging, so the shape above was inexpressible: he touched his mark for one tick, walked to 2100, and spoke all three lines from 180 units past the right edge of the frame — the words on screen and the man who says them off it. Played and captured before the fix.
+
+**`say` NAMES ONE OF THE BEAT'S OWN LINES BY INDEX AND CARRIES NO TEXT.** 0, 1 and 2 are the lines doc 17 gives this beat, in its order: Hob, Thad, Hob. The words stay in the document; the staging says only when each lands. An index with no line behind it throws at extraction. A `say` holding a string would put dialogue in `tools/extract-content.mjs` and leave doc 17 as one of two places the words live.
+
+**A beat that places any of its lines places all of them.** The rest are not appended, so a beat cannot half-schedule itself and play the remainder twice.
 
 **His lantern glow travels with him**, additive, anchored to the flame in his own frames.
 
-**Where does he stop?** 700 is a guess: near enough to Thad to be talking to him, far enough not to overlap. It wants a number from someone who has watched it.
+**Where does he stop?** **1080**, watched rather than guessed: he is drawn at h224 at y700 against Thad at h254 at y800, clear of him and near enough to be talking to him.
 
 ---
 
@@ -325,8 +331,8 @@ Going west is the player's move to make. This beat previously walked Thad west d
 | 6b | coach | `walk`, move → 2600, 742 | right | **3s** | Wheels should turn |
 | 7 | hob | *placed* −260 → 60, 700 | right | 2s | Off frame **left** |
 | 8 | — | — | — | — | Panel appears |
-| 9 | hob | `walk` → ~700 | right | | **Then STOPS** |
-| 9 | hob | `idle` + lines | right | line duration | Three-line exchange |
+| 9 | hob | `walk` → 1080 | right | | **Then STOPS** |
+| 9 | — | `say 0` · `say 1` · `say 2` | — | line duration | The beat's own lines, by index. No text in the staging |
 | 9 | hob | `walk` → 2100 | right | | Off frame right |
 | 10 | — | — | — | — | **Nothing staged.** The player walks west |
 
@@ -347,3 +353,7 @@ Going west is the player's move to make. This beat previously walked Thad west d
 **Gait phase advances from distance travelled** and is **preserved across a facing change**. Do not reset it at a corner.
 
 **No substitution, ever.** A missing clip throws `CLIP_FALLBACK` naming clip/facing/surface. That is Q20 as ruled and it is how three faults were found tonight.
+
+**A staged `say` carries an INDEX, never a string.** It names one of its own beat's lines. The words live in doc 17 and nowhere else; a string here would make the staging table a second home for dialogue, and two places holding one fact is how every pair of documents in this project has drifted. An index out of range throws at extraction.
+
+**The depth curve governs anyone it is true of, routed or not.** A staged crossing is a man walking, not a composition, so it samples the curve at its feet Y like everything else. The exemption is declared in the RECORD -- `scalesWithDepth: false` -- and not inferred from how a mover is being driven. The coach carries it; nothing else does.

@@ -106,8 +106,8 @@ export function stepsFor(segment: Segment): SequenceStep[] {
     // ERRATA 38's fence needs no test here: this branch IS `control: none`,
     // which is the only place a `move` is legal. `carriedStepsFor` refuses
     // one, and that is the other side of the same rule.
-    for (const staged of beat.staging ?? []) steps.push(...lower(staged));
-    for (const spoken of beat.lines ?? []) {
+    for (const staged of beat.staging ?? []) steps.push(...lower(staged, beat));
+    for (const spoken of unplacedLines(beat)) {
       steps.push({ kind: 'say', actor: spoken.speaker, line: spoken.line });
     }
     if (beat.seconds !== undefined && !(beat.staging?.length)) {
@@ -126,7 +126,39 @@ export function stepsFor(segment: Segment): SequenceStep[] {
  * tick as the `walk` before it also claims a body the walk still owns, so
  * the omission does not merely look wrong -- it trips assertion 6.
  */
-function lower(staged: SequenceStagingStep): SequenceStep[] {
+/**
+ * The beat's lines that its staging did not place, in authored order.
+ *
+ * A beat that places ANY of its lines places all of them. Appending the rest
+ * would put a line the author had scheduled next to one they had not, in an
+ * order nobody chose -- and a beat that placed only its first line would play
+ * the other two after everything had finished moving, which is the defect
+ * this whole mechanism exists to remove.
+ */
+function unplacedLines(beat: SequenceBeat): { speaker: string; line: string }[] {
+  const places = (beat.staging ?? []).some((staged) => staged.do === 'say');
+  return places ? [] : (beat.lines ?? []);
+}
+
+/**
+ * The line a staged `say` names, or a hard error naming the beat.
+ *
+ * An index with nothing behind it is a staging table that has drifted from
+ * the document it is scheduling -- a line renumbered, removed, or never
+ * written. It fails here rather than playing silence, because silence in a
+ * cutscene looks exactly like a beat that had no line in the first place.
+ */
+function placedLine(beat: SequenceBeat, index: number): { speaker: string; line: string } {
+  const found = (beat.lines ?? [])[index];
+  if (!found) {
+    throw new Error(
+      `Beat ${beat.beat} stages say ${index} of ${(beat.lines ?? []).length} line(s)`,
+    );
+  }
+  return found;
+}
+
+function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] {
   switch (staged.do) {
     case 'walk':
       return [
@@ -150,6 +182,10 @@ function lower(staged: SequenceStagingStep): SequenceStep[] {
         { kind: 'face', actor: staged.actor, facing: staged.facing },
         { kind: 'waitForActor', actor: staged.actor },
       ];
+    case 'say': {
+      const spoken = placedLine(beat, staged.line);
+      return [{ kind: 'say', actor: spoken.speaker, line: spoken.line }];
+    }
     default:
       return [{ kind: 'chore', actor: staged.actor, chore: staged.clip }];
   }
@@ -178,9 +214,9 @@ export function carriedStepsFor(beat: SequenceBeat): SequenceStep[] {
         + 'Errata 38: move is legal only inside a beat whose control is none.',
       );
     }
-    steps.push(...lower(staged));
+    steps.push(...lower(staged, beat));
   }
-  for (const spoken of beat.lines ?? []) {
+  for (const spoken of unplacedLines(beat)) {
     steps.push({ kind: 'say', actor: spoken.speaker, line: spoken.line });
   }
   return steps;

@@ -239,9 +239,20 @@ function opening() {
     // errata 38 fences `move` to beats whose control is `none`.
     7: [{ do: 'move', actor: 'hob', from: [-260, 700], to: [60, 700], seconds: 2 }],
     // BEAT 9: he crosses, STOPS to speak, and goes on. Three lines from a man
-    // who never breaks stride is not the beat.
+    // who never breaks stride is not the beat -- and until `say` could be
+    // STAGED, neither was this: a beat's lines were appended after all of its
+    // staging, so he touched his mark for one tick, walked to 2100, and spoke
+    // all three from 180px beyond the right edge of the frame.
+    //
+    // THE INDICES ARE THE LINES DOC 17 GIVES THIS BEAT, in its order: Hob,
+    // Thad, Hob. No text here -- the words stay in the document, this says
+    // only when each lands. An index with no line behind it throws at
+    // extraction rather than playing silence.
     9: [
       { do: 'walk', actor: 'hob', to: [1080, 700] },
+      { do: 'say', line: 0 },
+      { do: 'say', line: 1 },
+      { do: 'say', line: 2 },
       { do: 'walk', actor: 'hob', to: [2100, 700] },
     ],
     // BEAT 10 STAGES NOTHING, deliberately. Going west is the player's move to
@@ -264,6 +275,31 @@ function opening() {
       if (!spoken.line) throw new Error(`doc 17 beat ${entry.beat}: a line went missing in extraction`);
     }
   }
+  // A STAGED `say` NAMES ONE OF ITS OWN BEAT'S LINES BY INDEX, and this is
+  // where that stops being a convention. The staging table lives in this file
+  // so that no .ts holds a coordinate and no prose document holds a pixel; a
+  // `say` carrying a string would invert it exactly, putting dialogue in a
+  // tool and leaving doc 17 as one of two places the words live. Two places
+  // holding the same fact is how every pair of documents in this project has
+  // drifted.
+  //
+  // So the step holds a number, and a number can be checked. Run after the
+  // lines are attached, because until then there is nothing to check against.
+  for (const entry of beats) {
+    for (const staged of entry.staging ?? []) {
+      if (staged.do !== 'say') continue;
+      const count = (entry.lines ?? []).length;
+      if (!Number.isInteger(staged.line) || staged.line < 0 || staged.line >= count) {
+        throw new Error(
+          `doc 17 beat ${entry.beat}: staging says "say ${staged.line}" and the beat has `
+          + `${count} line(s). A staged say names one of the beat's OWN lines by index and `
+          + 'carries no text -- the words stay in doc 17. Renumber the staging, or write the '
+          + 'line in the document.',
+        );
+      }
+    }
+  }
+
   const card = beats.find((entry) => entry.description.includes('ACT CARD'));
   if (!card) throw new Error('doc 17: no beat carries the act card');
   card.actCard = card.note;
