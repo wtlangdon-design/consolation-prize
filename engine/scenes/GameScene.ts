@@ -1003,7 +1003,10 @@ export class GameScene extends Phaser.Scene {
     }
     return {
       frame: this.frameCount,
-      clock: this.lastFrameAt / 1000,
+      // ALREADY SECONDS. `lastFrameAt` is `time.now / 1000` and dividing again
+      // reported 0.002 for a scene two seconds old -- which nothing would have
+      // failed on, because every consumer compares it against itself.
+      clock: this.lastFrameAt,
       beat: this.playingBeat(),
       control: this.openingControl(),
       movers,
