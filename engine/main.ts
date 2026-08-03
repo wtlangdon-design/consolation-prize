@@ -4,6 +4,7 @@ import { BootScene } from './scenes/BootScene.ts';
 import { GameScene } from './scenes/GameScene.ts';
 import { NATIVE_HEIGHT, NATIVE_WIDTH } from './render/Screen.ts';
 import { setAssertionChecking } from './core/Assertions.ts';
+import { installGauntlet, type Probeable } from './dev/Probe.ts';
 import './style.css';
 
 // Doc 34 section 4.6's illegal-state assertions run in development and fold
@@ -62,6 +63,11 @@ const game = new Phaser.Game(config);
 // by the import.meta.env.DEV guard, which Vite resolves at build time.
 if (import.meta.env.DEV) {
   (window as unknown as { __game: Phaser.Game }).__game = game;
+  // Doc 44's gauntlet handle, beside it and under the same guard. The scene is
+  // fetched per call rather than captured: a scene captured at boot is the one
+  // a load restarted out from under the harness.
+  installGauntlet(window as unknown as Record<string, unknown>,
+    () => (game.scene.getScene('game') as unknown as Probeable | null) ?? null);
 }
 
 // Phaser.Scale.FIT handles the resize itself; refresh so a window change that

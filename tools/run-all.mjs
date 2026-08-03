@@ -33,6 +33,7 @@ import { check as generated } from './check-generated.mjs';
 import { check as entityFallback } from './check-entity-fallback.mjs';
 import { check as drawerCoverage } from './check-drawer-coverage.mjs';
 import { check as keyFringe } from './check-key-fringe.mjs';
+import { check as gauntletScript } from './check-gauntlet-script.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -71,6 +72,7 @@ const CHECKS = [
   entityFallback,
   drawerCoverage,
   keyFringe,
+  gauntletScript,
 ];
 
 let failed = 0;

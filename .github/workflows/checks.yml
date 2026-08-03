@@ -51,3 +51,51 @@ jobs:
             exit 1
           fi
           echo "clean"
+
+  # THE GAUNTLET. Doc 44. It plays the opening in a browser and compares what
+  # the game does against what a person wrote down that it should do.
+  #
+  # A SEPARATE JOB because it is the slow half: two full play-throughs of the
+  # opening plus a build, against a headless Chromium. Keeping it out of
+  # `check` means the fast suite stays fast and a person running `npm run
+  # check` locally is not made to wait for a browser.
+  #
+  # IT RUNS ON EVERY PUSH AND IT IS NOT SILENT ABOUT ITS COVERAGE. The script
+  # is written by hand and starts out asserting nothing; the run prints how
+  # many beats assert something out of how many exist, every time, pass or
+  # fail. Doc 44's third honesty is that a green gauntlet against a wrong or
+  # empty script is worse than none, and the only defence against that is
+  # saying out loud how much is actually covered.
+  gauntlet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # The build this version of playwright expects, put where it looks. The
+      # harness falls back to a pre-provisioned image's own chromium when this
+      # is absent, which is what makes it runnable off CI too.
+      - name: Install chromium
+        run: npx playwright install --with-deps chromium
+
+      # The state assertions, against the dev server. `import.meta.env.DEV`
+      # strips the probe from the production bundle, so this is the only place
+      # they can run -- doc 44 part three states that rather than implying the
+      # deployed build is under the same scrutiny.
+      - name: Gauntlet
+        run: npm run gauntlet
+
+      # The built artifact, screencast from navigation, no state assertions.
+      # It catches a build that does not boot, which is the one class of fault
+      # only the artifact has.
+      - name: Build
+        run: npm run build
+
+      - name: Smoke the built artifact
+        run: npm run gauntlet -- --smoke

@@ -211,6 +211,35 @@ export class ActorSprite {
   drawnHeight(height: number): number {
     return Math.max(1, Math.round(height));
   }
+
+  /**
+   * Half the drawn width of the canvas this clip lands on, or null.
+   *
+   * Doc 44 part two #4 asks whether two figures at one feet-Y overlap in x,
+   * and that question needs a real extent: the coach is 956 wide at 389 tall
+   * and a person is roughly a third as wide as tall, so any single ratio is
+   * wrong for one of them by a factor of three.
+   *
+   * IT IS THE PADDED CANVAS, NOT THE FIGURE. That over-reports -- the frames
+   * carry 260 columns of padding either side so a swung arm is not clipped --
+   * and over-reporting is the right direction for an overlap test whose whole
+   * purpose is to catch a pair that MIGHT be ambiguous. A bounding box of the
+   * alpha would be tighter and would change every frame, which is the thing
+   * `draw` is careful never to do.
+   *
+   * Null when the clip is not declared or its frame has not loaded, because
+   * then there is nothing drawn to overlap with.
+   */
+  drawnHalfWidth(clip: string, facing: Facing, surface: string, height: number,
+                 state?: string): number | null {
+    const found = this.clipOf(clip, facing, surface, state);
+    if (!found || found.frames.length === 0) return null;
+    const image = this.sheets(found.frames[0] as string);
+    if (!image) return null;
+    const source = sizeOf(image);
+    if (!source) return null;
+    return (source.width * (height / found.figureHeight)) / 2;
+  }
 }
 
 /** Width and height of anything canvas can draw, or null if it has none. */

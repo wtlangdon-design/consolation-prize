@@ -5,6 +5,7 @@ import type { Exit, Interactable } from '../core/types.ts';
 import { Actor, IDLE_BREAK } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
 import { RoomActors } from '../core/RoomActors.ts';
+import type { FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
@@ -66,13 +67,24 @@ export class GameScene extends Phaser.Scene {
   private hoveredName: string | null = null;
   private sayLines: string[] = [];
   /** Lines still to come in a multi-speaker response, in order. */
-  private pendingSay: string[] = [];
+  private pendingSay: { speaker: string | null; line: string }[] = [];
+  /**
+   * Who is saying the line on screen, when the line records it.
+   *
+   * Doc 44's probe reports this so the gauntlet can assert that beat 3's
+   * first line is Thad's and its second is the driver's -- WITHOUT either
+   * file quoting the words, which live in doc 17 and are extracted from it.
+   * Null for a line that carries no attribution; never inferred.
+   */
+  private sayingActor: string | null = null;
   private notice: string | null = null;
   private barkLines: string[] = [];
   private barkAt: { x: number; y: number } | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
   private noticeTimer?: Phaser.Time.TimerEvent;
   private dirty = true;
+  /** Drawn frames, for the probe. Counted here because the scene decides. */
+  private frameCount = 0;
   private readonly cyclers = new Map<string, CyclingBackground>();
   private lastCycle: Map<number, number> | null = null;
   private lastFrameAt = 0;
@@ -245,6 +257,7 @@ export class GameScene extends Phaser.Scene {
     }
     if (!this.dirty) return;
     this.dirty = false;
+    this.frameCount += 1;
     this.view.drawFrame({
       hoveredTarget: this.hovered,
       hoveredTargetName: this.hoveredName,
@@ -256,6 +269,9 @@ export class GameScene extends Phaser.Scene {
       // Doc 17 beat 8: the panel appears when control does, and not before.
       showPanel: this.opening === null,
       hoveredLocation: this.hoveredLocation,
+      // Doc 44: the beat travels with the frame so a violation recorded
+      // while it is drawn can name it. Undefined outside a performance.
+      beat: this.playingBeat(),
     });
     this.texture.refresh();
   }
@@ -601,7 +617,7 @@ export class GameScene extends Phaser.Scene {
       if (target) this.applyInteraction(target, step.interact.verb);
       return 0;
     }
-    this.setSay(step.line ?? null);
+    this.setSay(step.line ?? null, step.actor ?? null);
     return this.lineSeconds(step.line ?? '');
   }
 
@@ -775,8 +791,9 @@ export class GameScene extends Phaser.Scene {
     if (!hit) return;
 
     const result = this.state.dialogue.select(hit.id);
-    this.setSay(result.say);
-    this.pendingSay = result.rest.map((spoken) => spoken.line);
+    this.setSay(result.say, result.sayer);
+    this.pendingSay = result.rest.map((spoken) => (
+      { speaker: spoken.speaker, line: spoken.line }));
     if (result.ended) {
       this.state.autosave();
       // A tree that was carrying a run of beats hands the sheet back when it
@@ -901,13 +918,14 @@ export class GameScene extends Phaser.Scene {
   private advanceSay(): boolean {
     const next = this.pendingSay.shift();
     if (next === undefined) return false;
-    this.setSay(next);
+    this.setSay(next.line, next.speaker);
     this.markDirty();
     return true;
   }
 
-  private setSay(text: string | null): void {
+  private setSay(text: string | null, speaker: string | null = null): void {
     this.sayLines = text ? this.font.wrap(text, NATIVE_WIDTH - TEXT_MARGIN * 2) : [];
+    this.sayingActor = text ? speaker : null;
   }
 
   private onMenuKey(): void {
@@ -934,6 +952,87 @@ export class GameScene extends Phaser.Scene {
     } else {
       this.showNotice(this.state.content.menu.notices.noSave);
     }
+  }
+
+  /**
+   * Which beat is playing, from whichever runner is playing it.
+   *
+   * TWO RUNNERS, ONE ANSWER. The opening runner plays instead of the player
+   * and the carrier plays alongside him, and only one of them is ever running
+   * -- but a caller that asked the wrong one would get null and report "no
+   * beat" through the whole of Hob's crossing.
+   *
+   * BEAT 10 CANNOT BE SEEN HERE and doc 44 says so rather than pretending
+   * otherwise: it stages nothing, deliberately, so no runner ever holds it
+   * and the carrier has emptied its list by the time it is reached. What is
+   * observable is that beat 9 finished and control is the player's, which is
+   * `handedOver` in the probe.
+   */
+  private playingBeat(): string | null {
+    return this.sequence.beat ?? this.carried.current?.beat ?? null;
+  }
+
+  /**
+   * Doc 44's frame report. Everything the gauntlet compares against a script.
+   *
+   * Assembled on demand, never per frame: the harness asks about twenty times
+   * a second and the game draws sixty, so building this in `update` would put
+   * the instrument's cost into every frame whether or not anybody was
+   * reading it. R5h -- an instrument can change the system, not only report
+   * on it.
+   */
+  get probeReady(): boolean {
+    return this.view !== undefined && this.actors !== undefined;
+  }
+
+  report(): FrameReport {
+    const drawn = this.view.lastDrawn();
+    const movers: Record<string, MoverReport> = {};
+    for (const mover of this.actors.all()) {
+      movers[mover.id] = {
+        at: [Math.round(mover.x), Math.round(mover.y)],
+        facing: mover.facing,
+        clip: mover.clip,
+        height: Math.round(mover.height),
+        moving: mover.isWalking,
+        drawn: drawn[mover.id] ?? 'not-drawn',
+      };
+    }
+    return {
+      frame: this.frameCount,
+      clock: this.lastFrameAt / 1000,
+      beat: this.playingBeat(),
+      control: this.openingControl(),
+      movers,
+      // The driver's head is the only overlay with states and it is not wired
+      // yet. Reported as an empty map rather than omitted, so a script that
+      // asserts one fails by NAMING it instead of quietly matching nothing.
+      overlays: {},
+      says: this.sayLines.length > 0 ? this.sayingActor : null,
+      options: this.state.dialogue.isActive
+        ? this.state.dialogue.presentOptions().length : 0,
+      handedOver: this.opening === null,
+      segment: this.playingSegment(),
+    };
+  }
+
+  /** The opening segment now playing, without claiming which beat of it is. */
+  private playingSegment(): { kind: string; beats: string[]; carriedBy: string | null } | null {
+    const segment = this.opening?.[this.openingAt];
+    if (!segment) return null;
+    return {
+      kind: segment.kind,
+      beats: segment.beats.map((beat) => beat.beat),
+      carriedBy: segment.carriedBy,
+    };
+  }
+
+  /** The control of the opening segment now playing, or null once it is over. */
+  private openingControl(): string | null {
+    if (!this.opening) return null;
+    const segment = this.opening[this.openingAt];
+    if (!segment) return null;
+    return segment.kind === 'automatic' ? 'none' : segment.kind;
   }
 
   /** Clears anything that referred to the room we are no longer in. */

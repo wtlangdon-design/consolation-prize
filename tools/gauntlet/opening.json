@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "sequence": "opening",
+  "room": "stage-road",
+  "source": "docs/43-room-01-staging-script.md",
+
+  "note": [
+    "THIS IS A SKELETON AND IT ASSERTS NOTHING YET. Every beat is present, in",
+    "order, with its control -- which is the structural half, and the harness",
+    "checks it. Not one coordinate has been written, and that is deliberate.",
+    "",
+    "Doc 44's third honesty: a green gauntlet against a wrong script is worse",
+    "than none, because it converts an error into an invariant defended on",
+    "every push. So the marks are written BY HAND from doc 43, by somebody who",
+    "has looked at the game, and never generated from content/sequences/ or",
+    "from the staging table -- a script generated from the staging would be the",
+    "staging compared with itself and would pass whatever it said (R5i).",
+    "",
+    "BEFORE WRITING ANY MARK, READ Q54 IN docs/36-issue-list.md. Doc 43's",
+    "part-one and part-two TABLES disagree with doc 43's own PROSE and with",
+    "the shipped content about where Thad stands in beats 2 and 3, and the",
+    "tables are the stale half. Writing marks from them would pin the game to",
+    "the numbers the prose corrected.",
+    "",
+    "Fill a beat in by deleting its `unscripted` and adding `marks`. The run",
+    "prints how many beats assert something out of how many exist, every time."
+  ],
+
+  "defaults": {
+    "position": 24,
+    "height": 8,
+    "slack": 3.0
+  },
+
+  "band": [660, 864],
+  "bandExempt": [],
+
+  "until": { "beat": "9", "on": "leave" },
+
+  "beats": [
+    {
+      "beat": "1",
+      "control": "menu",
+      "unscripted": "the title screen. Nothing is staged and no mover exists yet"
+    },
+    {
+      "beat": "2",
+      "control": "none",
+      "seconds": 8,
+      "unscripted": "NOT YET WRITTEN. This is the beat most worth writing first: the coach is placed, Thad is placed, faces right, plays two chores and walks. Every fault found by playing so far lived in it"
+    },
+    {
+      "beat": "3",
+      "control": "none",
+      "unscripted": "NOT YET WRITTEN. Thad walks to the talking spot and speaks; the driver's head should be looking-down while he does and speaking on the reply"
+    },
+    {
+      "beat": "4",
+      "control": "player",
+      "input": [
+        { "do": "wait", "seconds": 1.5 },
+        { "do": "choose", "option": 1 },
+        { "do": "wait", "seconds": 4 },
+        { "do": "choose", "option": 2 },
+        { "do": "wait", "seconds": 4 },
+        { "do": "choose", "option": 3 },
+        { "do": "wait", "seconds": 4 },
+        { "do": "choose", "option": 4 },
+        { "do": "wait", "seconds": 3 }
+      ],
+      "unscripted": "beats 4, 5 and 6 are ONE dialogue tree under errata 30b. Which of doc 17's three beats an option belongs to is not a fact the engine holds, so nothing here can be attributed to a beat. The `input` drives the whole run: all four options, the fourth being the exit"
+    },
+    {
+      "beat": "5",
+      "control": "player",
+      "unscripted": "carried by the same tree as beat 4. See there"
+    },
+    {
+      "beat": "6",
+      "control": "player",
+      "unscripted": "carried by the same tree as beat 4. Also: the case never comes off the roof and the driver cannot climb aboard, so two of its three staged things do not happen at all"
+    },
+    {
+      "beat": "6b",
+      "control": "none",
+      "seconds": 3,
+      "unscripted": "NOT YET WRITTEN. The coach departs east over three seconds. A `leave` mark asserting it is off frame, and an `enter` mark asserting it has not moved yet, would cover it"
+    },
+    {
+      "beat": "7",
+      "control": "none",
+      "seconds": 3,
+      "unscripted": "NOT YET WRITTEN. Hob is placed off frame left and glides to his entry mark"
+    },
+    {
+      "beat": "8",
+      "control": "player",
+      "unscripted": "the panel appears and nothing is staged, so no runner holds this beat and the probe reports no beat during it. `handedOver` is what changes"
+    },
+    {
+      "beat": "9",
+      "control": "player",
+      "unscripted": "NOT YET WRITTEN. Hob walks to his mark, STOPS, speaks three lines by index, and walks off frame right. The `say`-between-two-walks shape this beat is the reason for"
+    },
+    {
+      "beat": "10",
+      "control": "player",
+      "unscripted": "nothing is staged, deliberately -- going west is the player's move to make. There is no beat to observe entering, which is why `until` names beat 9"
+    }
+  ]
+}

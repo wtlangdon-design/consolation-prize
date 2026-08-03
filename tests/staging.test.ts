@@ -15,6 +15,7 @@ import { SequenceRunner, type SequenceHost, type SequenceStep } from '../engine/
 import { CarriedBeats } from '../engine/core/CarriedBeats.ts';
 import { carriedStepsFor, segmentsOf, stepsFor } from '../engine/core/Opening.ts';
 import { depthOrder, roomFigures } from '../engine/render/Renderer.ts';
+import { depthTies } from '../engine/dev/Watch.ts';
 import { ActorSprite } from '../engine/render/ActorSprite.ts';
 import { IllegalStateError } from '../engine/core/Assertions.ts';
 import type { ContentBundle, SequenceBeat, SequenceStagingStep } from '../engine/core/types.ts';
@@ -546,4 +547,52 @@ test('every walk clip\'s facing agrees with its own walk_dx', () => {
       `${entry.name}: the directory name disagrees with the rig's own facing`);
   }
   assert.ok(profiles >= 2, 'both profile walks were checked');
+});
+
+
+/*
+ * DOC 44 PART TWO #4. Two movers at one feet Y with overlapping x is the one
+ * ordering the depth sort genuinely leaves undefined: a stable sort keeps
+ * insertion order, the protagonist is constructed in create() and everyone
+ * else is placed by a beat, so he draws first and anything staged later draws
+ * over him. That is a fact about construction order and not about the picture.
+ *
+ * TESTED WITHOUT A BROWSER, deliberately. The gauntlet needs a browser to see
+ * this happen; the rule about when it counts as a tie is arithmetic, and
+ * arithmetic that only runs inside a headless Chromium is arithmetic nobody
+ * checks.
+ */
+test('depth ties: exactly equal feet Y with overlapping x is a tie', () => {
+  const ties = depthTies([
+    { id: 'a', feetX: 1000, feetY: 742, halfWidth: 40 },
+    { id: 'b', feetX: 1030, feetY: 742, halfWidth: 40 },
+  ]);
+  assert.deepEqual(ties, [['a', 'b']]);
+});
+
+test('depth ties: near-equal feet Y is NOT a tie -- whoever is lower is nearer', () => {
+  assert.deepEqual(depthTies([
+    { id: 'a', feetX: 1000, feetY: 742, halfWidth: 40 },
+    { id: 'b', feetX: 1030, feetY: 745, halfWidth: 40 },
+  ]), []);
+});
+
+test('depth ties: one feet Y, no x overlap, is not a tie', () => {
+  assert.deepEqual(depthTies([
+    { id: 'a', feetX: 300, feetY: 742, halfWidth: 40 },
+    { id: 'b', feetX: 1400, feetY: 742, halfWidth: 40 },
+  ]), []);
+});
+
+test('depth ties: the real one -- a walker at a vehicle\'s own feet Y', () => {
+  // The black figure, as it stood: the protagonist placed at the vehicle's
+  // y742, inside its 956px span. Only his legs cleared the body, which at a
+  // glance is a black figure standing underneath it. The ids here are
+  // deliberately generic -- the engine must not name the fiction, and this
+  // rule is arithmetic about two numbers, not about who they belong to.
+  const ties = depthTies([
+    { id: 'vehicle', feetX: 1390, feetY: 742, halfWidth: 478 },
+    { id: 'walker', feetX: 1290, feetY: 742, halfWidth: 42 },
+  ]);
+  assert.deepEqual(ties, [['vehicle', 'walker']]);
 });

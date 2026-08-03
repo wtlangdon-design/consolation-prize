@@ -19,6 +19,15 @@ export interface SelectionResult {
    * of them; these are shown one at a time after it.
    */
   rest: { speaker: string; line: string }[];
+  /**
+   * Who says `say`, when the line records it.
+   *
+   * An exchange names a speaker per line; an option's own `say` or `repeat`
+   * does not, and reports null rather than being attributed by inference. Doc
+   * 44's probe reports this and the gauntlet asserts on it -- an attribution
+   * guessed here would be a guess asserted as a fact there.
+   */
+  sayer: string | null;
   /** True once the conversation has closed. */
   ended: boolean;
 }
@@ -291,11 +300,13 @@ export class DialogueRunner {
     // answer with something.
     const exchange = option.exchange ?? [];
     let say: string | null;
+    let sayer: string | null = null;
     let rest: { speaker: string; line: string }[] = [];
     if (!firstTime && option.repeat) {
       say = option.repeat;
     } else if (exchange.length > 0) {
       say = exchange[0]!.line;
+      sayer = exchange[0]!.speaker;
       rest = exchange.slice(1);
     } else {
       say = option.say ?? null;
@@ -319,7 +330,7 @@ export class DialogueRunner {
       optionId: option.id,
       tree: treeId,
       node: nodeId,
-      presentation: { say, rest, ended: ends },
+      presentation: { say, sayer, rest, ended: ends },
       goto,
       ends,
       effects,

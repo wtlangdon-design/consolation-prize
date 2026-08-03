@@ -151,6 +151,8 @@ So the unit of positive assertion is a **mark**: a stated moment inside a beat, 
 }
 ```
 
+**`note` is REQUIRED and the check refuses a mark without one.** It is not decoration: it is the only thing on the page that helps whoever reads a failure decide whether the game is wrong or the script is. *"measured against the deployed build, 2026-08-03"* and *"guess, nobody has looked"* produce identical behaviour and completely different decisions.
+
 ### `when` — exactly one of these
 
 | Form | Fires on the first frame at which… |
@@ -223,6 +225,20 @@ Actions run **after every mark in the beat has fired**, in order. A beat with `c
 
 **Choosing by index, not by text.** Errata 37 is revoked and the tags survive, so all four of the driver's options are present at the end and three are dimmed; an index is stable under that and a text match would not be.
 
+**Input belongs to a RUN of player beats, not to each of them.** Beats 4, 5 and 6 are one dialogue tree; beats 8, 9 and 10 are one uncarried run. Input on any beat of a run drives that run, and the check requires it once per run — requiring it per beat would be requiring an answer to the question below, which has none.
+
+## WHAT CANNOT BE ATTRIBUTED TO A BEAT
+
+*Three places where the probe reports `beat: null`, honestly, and a mark could not fire. Each is `unscripted` in the script with this as its reason.*
+
+| Beats | Why |
+|---|---|
+| **4, 5, 6** | Errata 30b makes them one dialogue tree. Which of doc 17's three beats a given option belongs to is not a fact the engine holds — a tree is a graph and the beats are a list, and no mapping between them was ever authored |
+| **8** | Nothing is staged. No runner holds it; what changes is `handedOver` |
+| **10** | Nothing is staged, deliberately — going west is the player's move to make. There is nothing to observe entering it |
+
+**Which is why `until` names beat 9, not beat 10.** The observable end of the opening is beat 9 completing: Hob has crossed, spoken and gone, and control is the player's. Naming beat 10 would be naming a moment nothing reports.
+
 ---
 
 # PART TWO — WHAT THE HARNESS ASSERTS WITHOUT BEING TOLD
@@ -267,9 +283,19 @@ Actions run **after every mark in the beat has fired**, in order. A beat with `c
   },
   "overlays": { "driver": "neutral" },
   "says": "thad",                     // speaker id, or null
-  "options": 4                        // dialogue options on offer, or 0
+  "options": 4,                       // dialogue options on offer, or 0
+  "handedOver": false,                // true once the opening has handed over control
+  "segment": {                        // the opening segment playing, or null
+    "kind": "player",
+    "beats": ["4", "5", "6"],
+    "carriedBy": "STAGE_DRIVER"
+  }
 }
 ```
+
+**`segment` exists because the first version of this harness hung on its own deadline**, and the reason is worth keeping. `beat` is null for the whole of the driver's conversation — no runner holds beats 4, 5 or 6 while the tree is up — so a harness waiting for beat 4 to appear was waiting for something that never happens. It sat at beat 3 for its full 180 seconds and reported a timeout.
+
+The fix is not to guess a beat. The segment says which beats it covers and does **not** claim which of them is playing, and the harness drives a player run's input when its *segment* starts. **Found by running it**, which is the only way it was ever going to be found — the schema, the validator and the engine all agreed with each other and all of them were wrong about the same thing.
 
 **`__game` is stripped from the production bundle** by `import.meta.env.DEV`, and so is the probe. That is not an oversight to work around: the probe reads private engine state and the watch costs work per frame, and neither belongs in what a player runs.
 

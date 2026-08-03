@@ -5,6 +5,7 @@ import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import type { AmbientFile, Interactable } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
+import { depthTies, watch } from '../dev/Watch.ts';
 import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
 import {
@@ -34,6 +35,15 @@ export interface Frame {
   showPanel?: boolean;
   /** The map location under the pointer, so it can draw as the live one. */
   hoveredLocation?: string | null;
+  /**
+   * Which beat is playing, so a violation can name it. Doc 44.
+   *
+   * Carried on the frame rather than fetched, because the renderer must not
+   * reach into the sequence runner: a diagnostic that went looking for its own
+   * context would be a second mechanism, and R5i is about what happens when a
+   * mechanism agrees with itself.
+   */
+  beat?: string | null;
 }
 
 /** Composed room images, keyed by room id. Used for both planes. */
@@ -245,6 +255,21 @@ export class Renderer {
     this.clock = seconds;
   }
 
+  /**
+   * What each mover last drew as, for the probe. Doc 44 part three.
+   *
+   * Only maintained while the watch is on: a map write per mover per frame is
+   * small, and R5h says the instrument is part of the system, so it is not
+   * paid for when nobody is reading it.
+   */
+  private readonly drawnAs = new Map<string, string>();
+  private frameIndex = 0;
+
+  /** How every mover drew on the last composed frame. Doc 44's `drawn`. */
+  lastDrawn(): Record<string, string> {
+    return Object.fromEntries(this.drawnAs);
+  }
+
   /** Options currently drawn, so the scene can hit-test them. */
   dialogueHitboxes(options: PresentedOption[]): { id: string; y: number; height: number }[] {
     const top = dialogueTop(options.length);
@@ -295,6 +320,16 @@ export class Renderer {
   }
 
   drawFrame(frame: Frame): void {
+    // THE COUNTER COUNTS DRAWN FRAMES, NOT TICKS. The scene redraws only when
+    // something changed, which is what keeps 60fps affordable -- so "every
+    // frame" here means every frame that was composed, and a still screen
+    // contributes none. That is the right denominator for a check about what
+    // is DRAWN, and it is written down because a frame number in a failure
+    // report will otherwise be read as a tick number.
+    if (watch.enabled) {
+      this.frameIndex += 1;
+      watch.frame(this.frameIndex, this.clock, frame.beat ?? null);
+    }
     if (this.state.isMap) {
       this.drawRoom();
       this.drawMap(frame);
@@ -479,10 +514,17 @@ export class Renderer {
     // EVERY MOVER, not just the protagonist, sorted against the ambient set
     // in one pass -- so a driver standing further up the road is drawn behind
     // a man standing nearer it for the same reason and by the same rule.
+    // Doc 44 part two #4 needs the DRAWN extent of everything on the floor,
+    // which is only knowable as each figure is drawn. Collected here and
+    // judged once at the end rather than compared pairwise inside the loop.
+    const spans: { id: string; feetX: number; feetY: number; halfWidth: number }[] = [];
     for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all()))) {
       this.masked(figure.feetX, figure.feetY, () => {
         if (figure.mover) {
-          this.drawMover(figure.mover, figure.feetX, figure.feetY);
+          const halfWidth = this.drawMover(figure.mover, figure.feetX, figure.feetY);
+          if (watch.enabled) {
+            spans.push({ id: figure.id, feetX: figure.feetX, feetY: figure.feetY, halfWidth });
+          }
           return;
         }
         const npc = figure.npc as AmbientFile;
@@ -491,6 +533,11 @@ export class Renderer {
             this.screen.role('outline'));
         }
       });
+    }
+    if (!watch.enabled) return;
+    for (const [one, two] of depthTies(spans)) {
+      watch.record('depth-tie', `${one} ${two}`,
+        `both at feet y ${spans.find((s) => s.id === one)?.feetY}, overlapping in x`);
     }
   }
 
@@ -504,16 +551,28 @@ export class Renderer {
    * see, which is the point: a mover borrowing the protagonist's sheet would
    * be defect 1 again, wearing a costume.
    */
-  private drawMover(mover: Actor, feetX: number, feetY: number): void {
+  private drawMover(mover: Actor, feetX: number, feetY: number): number {
+    // The graybox's own width, exactly: its blocks run from -7 to +7 units of
+    // height/40, so it is 0.35 of its height wide and half of that either
+    // side of the anchor. Taken from the drawing below rather than estimated,
+    // because a tie check with a guessed extent is a check with a guessed
+    // answer.
+    const grayHalfWidth = mover.height * (7 / 40);
     // A mover with no actor record draws the graybox -- the coach, the horses,
     // anything staged before its art exists. Distinguished from the failure
     // below: this one has nothing to draw at all, that one has a record that
     // does not cover the clip being asked for.
     const record = this.state.content.actors.get(mover.id);
     const sprite = this.sprites.get(mover.id);
+    if (watch.enabled) this.watchMover(mover, feetY);
     if (!record || !sprite) {
       this.drawFigure(feetX, feetY, mover.height, this.screen.role('outline'));
-      return;
+      if (watch.enabled) {
+        this.drawnAs.set(mover.id, 'graybox:no-record');
+        watch.record('graybox:no-record', mover.id,
+          `no actor record, drawn as a placeholder ${mover.height}px tall`);
+      }
+      return grayHalfWidth;
     }
     const surface = mover.surfaceHere();
     const clip = mover.clip;
@@ -535,6 +594,63 @@ export class Renderer {
     );
     if (!drawn) {
       this.drawFigure(feetX, feetY, mover.height, this.screen.role('overlayBg'));
+    }
+    if (!watch.enabled) return drawn ? this.spanOf(sprite, mover, state, grayHalfWidth)
+      : grayHalfWidth;
+
+    // TWO FAULTS, NOT ONE, AND THE PLACEHOLDER LOOKS IDENTICAL FOR BOTH. Zero
+    // frames means the record does not cover this clip at this facing on this
+    // surface in this state -- a coverage gap. Frames but no draw means the
+    // record covers it, the file is named, and the texture has not arrived --
+    // a LOADING gap, which is what put a placeholder in the protagonist's
+    // place for the whole of beat 2 while the boot split held his chore clips
+    // in the deferred half. Merging them costs a session either way round.
+    if (drawn) {
+      this.drawnAs.set(mover.id, 'sprite');
+    } else if (frames === 0) {
+      this.drawnAs.set(mover.id, 'graybox:no-clip');
+      watch.record('graybox:no-clip', mover.id,
+        `${clip}/${mover.facing}${surface ? `/${surface}` : ''}`
+        + `${state ? ` state=${state}` : ''} is not declared`);
+    } else {
+      this.drawnAs.set(mover.id, 'graybox:not-loaded');
+      watch.record('graybox:not-loaded', mover.id,
+        `${clip}/${mover.facing} has ${frames} frame(s) and none has loaded`);
+    }
+    return drawn ? this.spanOf(sprite, mover, state, grayHalfWidth) : grayHalfWidth;
+  }
+
+  /**
+   * Half the drawn width, from the sheet, for the tie check.
+   *
+   * Falls back to the graybox's own extent when the frame is not measurable,
+   * which is honest: a span nobody can measure is not a span to assert on.
+   */
+  private spanOf(sprite: ActorSprite, mover: Actor, state: string | undefined,
+                 fallback: number): number {
+    const span = sprite.drawnHalfWidth(mover.clip, mover.facing, mover.surfaceHere(),
+      mover.height, state);
+    return span ?? fallback;
+  }
+
+  /**
+   * The two negatives that need no drawing to see. Doc 44 part two #5 and #6.
+   *
+   * #6 cannot fire today through the ordinary path -- `Actor.clip` returns
+   * `walk` only while `isWalking` is true, so the two agree by construction --
+   * and it is here anyway, for the case that construction stops holding and
+   * for a chore that happens to be NAMED walk. A guard that cannot currently
+   * fire is cheap; the version of this bug that shipped was a walk cycle
+   * playing on a man standing still at the end of a glide.
+   */
+  private watchMover(mover: Actor, feetY: number): void {
+    const band = watch.band;
+    if (band && !watch.bandExempt(mover.id) && (feetY < band[0] || feetY > band[1])) {
+      watch.record('off-band', mover.id,
+        `feet y ${Math.round(feetY)} is outside the walkable band ${band[0]}-${band[1]}`);
+    }
+    if (mover.clip === 'walk' && !mover.isWalking) {
+      watch.record('walk-while-still', mover.id, 'walk clip on a mover that is not moving');
     }
   }
 

@@ -55,7 +55,12 @@ function stripComments(source) {
 function stripDeveloperMessages(source) {
   return source
     .replace(/Error\(([\s\S]*?)\)/g, 'Error()')
-    .replace(/console\.\w+\(([\s\S]*?)\)/g, 'console.log()');
+    .replace(/console\.\w+\(([\s\S]*?)\)/g, 'console.log()')
+    // Doc 44's violation log. Same category as a throw and a console call:
+    // developer text, never drawn, and read only by whoever is diagnosing a
+    // failure. Narrowly matched on the exact call so it cannot become a
+    // general-purpose way to smuggle a drawn string past this check.
+    .replace(/watch\.record\(([\s\S]*?)\);/g, 'watch.record();');
 }
 
 function stringLiterals(source) {
