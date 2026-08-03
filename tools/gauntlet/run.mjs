@@ -570,6 +570,25 @@ function checkLeaving(spec, state, held, script) {
     state.failures.push({ beat: spec.beat, who: '-', field: 'duration',
       expected: `<= ${ceiling}s`, got: `${held.toFixed(2)}s`, note: '' });
   }
+  // A CEILING CATCHES A BEAT THAT WILL NOT END. NOTHING CAUGHT A BEAT THAT
+  // STOPPED DOING ANYTHING, and that is the direction faults have actually
+  // come from: beat 7 collapsed 2.14s to 0.12s when `stagingTakesTime` was
+  // wrong, and beat 2 -- doc 17's "he climbs down, straightens his coat,
+  // looks at the town", stated at ~8s -- now holds 0.87s and passed in
+  // silence, because an eighth of its time is comfortably under the ceiling.
+  //
+  // REPORTED AND NOT ASSERTED, DELIBERATELY. Beat 2 is short for reasons
+  // everybody knows: straighten-coat is unbuilt, the driver cannot climb
+  // aboard, and main has since moved his walk into beat 3 on purpose. A floor
+  // would go red on a tree whose incompleteness is not news, which is R5j --
+  // and a red that everyone knows to ignore is worse than no red at all. So
+  // it says what it measured, next to what the script claimed, and lets a
+  // person decide whether a beat has gone hollow or is merely not finished.
+  if (spec.seconds !== undefined && held < spec.seconds / 2) {
+    state.timings.push(`beat ${spec.beat} held ${held.toFixed(2)}s against a stated `
+      + `${spec.seconds}s -- not asserted, but that is ${Math.round(held / spec.seconds * 100)}% `
+      + 'of the beat somebody wrote down');
+  }
   for (const [index, mark] of (spec.marks ?? []).entries()) {
     if (state.fired.has(`${spec.beat}#${index}`)) continue;
     if (mark.when.leave !== undefined) continue;

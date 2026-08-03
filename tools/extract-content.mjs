@@ -1380,7 +1380,39 @@ function openingCase() {
   const section = doc.split(/^## HIS CASE.*$/m)[1]?.split(/^## /m)[0];
   if (!section) throw new Error('doc 17: no HIS CASE section');
 
-  const STATES = { A: 'case_roof', B: 'case_mud' };
+  // THE DOCUMENT MAY DESCRIBE MORE STATES THAN THE ROOM BUILDS, and this map
+  // is the list of the ones it builds. Nothing else here needs to change when
+  // doc 17 gains or loses a state: a letter that is not here has its lines
+  // reported by name and dropped, which is exactly how state C -- "the hotspot
+  // is gone" -- has always worked.
+  //
+  // A IS GONE BECAUSE THE CASE NO LONGER STARTS ON THE ROOF. The ruling is
+  // that it is on the ground from the first frame, so "still up on the roof,
+  // under the driver's hand" describes a place the case is never in.
+  //
+  // AND IT WAS NOT MERELY UNREACHABLE, IT WAS LIVE AND WRONG. `case_roof` was
+  // gated `T_CASE_DOWN: true` and beat 6 writes that flag, so from beat 6
+  // onward the roof hotspot switched ON -- at x1078 y341, eight feet up, with
+  // the coach already gone -- and answered about a driver who had left. Two
+  // hotspots named HIS CASE, live together, one of them over empty sky. The
+  // gate had been inverted at some point from "while the case is NOT down" to
+  // "while it is", and inverting a gate does not remove a state, it moves it.
+  //
+  // A STATE IS REMOVED BY REMOVING IT. Doc 17's state A prose is untouched and
+  // is now a reported orphan, awaiting the revision that is the writer's.
+  const STATES = { B: 'case_mud' };
+
+  // AND THE HOTSPOT IS DELETED HERE RATHER THAN BY HAND, so it cannot come
+  // back. Removing a letter from STATES stops the extractor WRITING to a
+  // hotspot; it does not remove one already in the room, and a target nothing
+  // writes to is a target nothing corrects either. Retiring it in the
+  // generator makes the deletion idempotent and leaves a name to search for.
+  const RETIRED = ['case_roof'];
+  const before = room.hotspots.length;
+  room.hotspots = room.hotspots.filter((entry) => !RETIRED.includes(entry.id));
+  for (let gone = before - room.hotspots.length; gone > 0; gone -= 1) {
+    process.stderr.write(`  doc 17 RETIRED: a case hotspot the design no longer has\n`);
+  }
   const VERBS = { LOOK: 'LOOK_AT', LISTEN: 'LISTEN_TO' };
   const orphans = [];
 
@@ -1389,11 +1421,18 @@ function openingCase() {
     const [, letter, label, tail, body] = block;
     const id = STATES[letter];
     if (!id) {
-      // State C is "the hotspot is gone". Doc 17 still carries two LISTEN
-      // variants under that heading, left over from the single-state version,
-      // and they belong to nothing: a hotspot that does not exist cannot
-      // answer LISTEN. Reported rather than wired to the nearest thing.
-      for (const line of quoted(body)) orphans.push(line);
+      // A STATE THE ROOM DOES NOT BUILD. Its lines belong to nothing -- a
+      // hotspot that does not exist cannot answer LISTEN -- so they are
+      // reported by name and dropped, never wired to the nearest thing.
+      //
+      // State C has always been one of these: "the hotspot is gone", carrying
+      // two leftover LISTEN variants from the single-state version. State A
+      // is one now. THE MESSAGE NAMES THE LETTER because it used to say
+      // "state C" for every orphan regardless, and the moment a second state
+      // was retired it began reporting A's lines under C's name -- a label
+      // that was correct exactly as long as there was only one thing to
+      // label, which is the whole R5k family in miniature.
+      for (const line of quoted(body)) orphans.push({ letter, line });
       continue;
     }
     const target = room.hotspots.find((entry) => entry.id === id);
@@ -1432,9 +1471,9 @@ function openingCase() {
       .replace(/\s+/g, ' ').trim();
   }
 
-  for (const line of orphans) {
-    process.stderr.write(`  doc 17 ORPHAN: state C is "the hotspot is gone" and still `
-      + `carries a line -- "${line.slice(0, 52)}..."\n`);
+  for (const { letter, line } of orphans) {
+    process.stderr.write(`  doc 17 ORPHAN: state ${letter} has no hotspot in the room and `
+      + `still carries a line -- "${line.slice(0, 52)}..."\n`);
   }
 
   // THE LAMP IS HOW YOU SPEAK TO HOB, so every response on it writes the flag

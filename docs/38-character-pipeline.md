@@ -160,6 +160,20 @@ Measured on the deployed build: 15 seconds to first draw from local disk, and no
 
 Full-resolution generations stay in `reference/casting/` where the rig can re-derive from them.
 
+### 2× IS A CEILING, NOT A TARGET — the coach broke it and reproduced the fault
+
+**R5a is a rule about total bytes in the boot set, and it was written as a rule about a multiplier.** For a 240px man those are the same rule. For a 956px stagecoach they are not, and following the multiplier reproduced exactly the problem the multiplier exists to prevent.
+
+The coach's idle went to 24 frames when the door-open clip turned out to have **one** — see below — and at 2× that is a 1912px-wide sheet: **26 MB a clip, ~70 MB across three, all of it in the REQUIRED boot set.** That is the 71.8 MB this rule was written to fix, arrived at by obeying it.
+
+**The bound is the budget, and the multiplier is how you usually hit it.** The coach is at **1.15×** now — still resampled, still nothing sharpened out of nothing, at a third of the pixels. Nothing about the drawn image changed.
+
+Why a wide object can afford less headroom: resampling headroom guards against *upscaling* at the largest size an object is ever drawn, and a stagecoach is drawn once, at one depth, at a size fixed by the room. A man is drawn at every depth in the band, from far up the road to the front of frame, and 2× is protecting the near end of that range. **Headroom scales with how much an object's drawn size varies, not with how big it is.**
+
+> **Write at 2× the largest drawn height, or as much less as the boot budget requires — whichever binds first.** A clip that is only ever drawn at one size needs almost none. State the actual multiplier next to the art, because the next person will read "2×" as the rule and reproduce the 70 MB.
+
+**And the fault that surfaced it is worth its own line: THE DOOR-OPEN CLIP HAD ONE FRAME.** The door opens at beat 2 and stays open through beat 6, so the coach was a **still photograph for the entire conversation** — no lamps, no horses, no driver's hands. Every frame of animation was on the shut-door clip, which is on screen for about a tenth of a second. **Animation lives on the clip that is on screen, and which clip that is is a question about the script, not about which one is the default.**
+
 ## R5b · GIF is not evidence about colour either
 
 GIF carries **256 colours for the whole frame**. A character on a full-colour plate leaves nothing for small features: Thad's collar is 109 pixels out of 360,000, so the encoder spends no palette entry on it and merges it into the nearest frequent colour — **his face**. Measured: cream (211,197,156) in the PNG, skin (209,153,96) in the GIF, same frame.

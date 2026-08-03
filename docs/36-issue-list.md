@@ -1748,6 +1748,99 @@ The duration is **still reported** — a beat that stops ending at all is worth 
 
 ---
 
+## Q69 · Idle breaks: one mover could reach them, and for that one it was a latch, not a timer — **BUILT**
+
+**Three faults, and the art was innocent of all of them.** Thad has 12-frame idle-breaks in four facings, Hob has one, the coach has one. Every record carries `idleBreakRate: 2`. Doc 40 specifies the behaviour exactly: *"12 frames, ~2/s, a glance left then right, played occasionally"*, and *"it plays on a timer while idle and returns to it."*
+
+**1 — Only the protagonist could ever play one.** `hasIdleBreak` was a `MoverOptions` field, and `GameScene` set it in exactly one place: on `this.actor`, from `content.actor.clips`. Every other mover in the game arrives through `RoomActors.place()`, which passes no options at all. **Hob's declared idle-break and the coach's were unreachable by construction** — the records right, the art on disk, and no code path in existence that could ask for them. R5f: the decision now traces to a field on the thing it is deciding about, so `place()` cannot forget it.
+
+**2 — For Thad it was a latch, not a timer.** `clip` returned `idle-break` once `clock - stillSince >= 7` and **never returned anything else again**. A character who stood still for seven seconds switched permanently into the glance and looped it until something moved him. Doc 40 calls it an occasional one-shot; nothing about that was occasional and nothing about it was a shot.
+
+**3 — And it played at the wrong speed.** `frameAt` uses `idleRate` for every non-walking clip, so the glance ran at the breathing rate. `idleBreakRate` was written into every record by `build-actor-record.mjs`, declared in `types.ts`, and **read by no code at all** — the fourth unused-field position of the session, and the same lesson: *an unused field is not safe, it is untested.*
+
+**Built as doc 40 specifies.** One shot, from its own start, holding its last frame, at its own rate: 12 frames ÷ 2/s = **6 seconds**. Then back to idle. The gap is randomised above a floor — `7 + u × 11`, so **7–18 seconds** — because a fixed interval is the other wrong answer and reads as a tic, which is worse than standing still.
+
+**Deterministically randomised, from the mover's id.** `Math.random()` would make two play-throughs of one save differ and would make any clip a script asserts a coin toss — Q68's flaky red arriving by a different road. A plain LCG seeded by the id means two characters standing together never sync, and the same run always plays the same way.
+
+**A fourth fault surfaced while tracing it, and it was mine.** Arming the schedule in the constructor sets an *absolute* time about twelve seconds after zero — so a mover created later is already overdue and glances **on its first drawn frame**. Hob is placed at beat 7, a minute in. Same family as R5g: a quantity meaning *twelve seconds from the start* used where the meaning needed was *twelve seconds from now*. Armed on first update instead; a late arrival now waits its full gap.
+
+**Traced, not assumed** (`X` = breaking, one character per half-second, 60s standing still):
+
+```
+thad   .........................XXXXXXXXXXXX.........................XXXXXXXXXXXX....
+hob    ......................XXXXXXXXXXXX...........................XXXXXXXXXXXX.....
+coach  ..........................XXXXXXXXXXXXXXXX..................................XX
+```
+
+**TWO NUMBERS FOR AN EYE, NOT A CHECK.** Both are doc 40's own and neither was re-decided here:
+
+1. **Six seconds is a long glance.** 12 frames at 2/s is what the table says, and at 233px it is a slow, deliberate movement — which may be exactly right for this character, or may read as sleepy. It is a taste call and it needs looking at.
+2. **Thad's first three gaps come out at 12.1s, 12.2s and 11.5s** — genuine draws that happen to cluster for his seed. A minute of watching him would show three evenly spaced glances and read more regular than the mechanism is. Hob's do not cluster. Nothing is wrong; the spread may want widening if it reads as a rhythm.
+
+---
+
+## Q70 · `case_roof` was not unreachable. It was live, and wrong, over empty sky
+
+**Reported as "unreachable — gated on `T_CASE_DOWN`, which nothing writes". Both halves are false, and the truth is worse.**
+
+`tools/extract-content.mjs` puts `T_CASE_DOWN: true` on beat 6 and says why: *"THE CASE COMES DOWN AT BEAT 6, and the write is honest again."* And `case_roof`'s gate is `{ T_CASE_DOWN: true }`. So from beat 6 onward **the roof hotspot switches ON** — at x1078 y341, eight feet up, with the coach already departed — and answers:
+
+> *"My case, still up on the roof, under the driver's hand."*
+
+Two live hotspots named **HIS CASE** for the rest of the game, one of them describing a driver who has gone. Anyone examining the sky above where the coach used to be is told his case is still up there.
+
+**The gate had been inverted** at some point, from *while the case is not down* to *while it is*. Inverting a gate does not remove a state; it moves it.
+
+**Retired, not re-gated.** The design has two states and the extractor now builds one hotspot. Doc 17's state A prose is untouched and reports as an orphan, awaiting the revision that is the writer's.
+
+### The shape the extractor accepts — the question as asked
+
+**It already tolerates a state the room does not build.** That is how state C — *"the hotspot is gone"* — has always worked: its lines are reported by name on stderr and dropped, non-fatally.
+
+`const STATES = { B: 'case_mud' }` **is the list of states that have a hotspot.** Doc 17 may describe as many as the writing needs.
+
+| The doc has | The room has | What happens |
+|---|---|---|
+| a state in `STATES` | that hotspot | wired |
+| a state in `STATES` | **no** such hotspot | **throws**, by name — a typo stays fatal |
+| a state not in `STATES` | — | reported as an orphan, dropped |
+
+**What a wired state must contain**, or the extractor throws and names the state:
+
+1. a heading `**State X — <label>**`
+2. a `**LOOK**` run and a `**LISTEN**` run, each with **exactly three** variants
+3. every `> ` override in one of two forms — refusal `VERB — "line"`, or the one that takes it, `**VERB — takes it.** *"line"*`
+
+**So: write the states the design has. Tell me which have hotspots.** Today that is one.
+
+**And a bug the retirement exposed immediately.** The orphan message said *"state C"* for every orphan regardless of letter — correct exactly as long as there was one thing to label, and the moment state A joined it began reporting A's lines under C's name. It names the letter now. R5k in miniature, with prose instead of a coordinate.
+
+---
+
+## Q71 · Doc 45's OQ-01 and OQ-15 are not contradictions. Both are settled inside doc 17
+
+**OQ-01 — doc 17 both restores a four-option driver tree and says "four beats, no tree".**
+
+Not a live disagreement. **It is stranded v3 text, and v3.1 struck it in the document's own words:**
+
+> *"v3 cut the tree to zero. That was an over-correction and it is reversed."*
+
+The surviving sentence sits at the end of the section on **what the town says about Mott**, and its list — *"Course you have," the four dollars, the undertaker, the hotel's five* — is beats 3, 4, 5 and 6 of the beat sheet. It reads as though it were scoped to Mott, and the neighbouring ruling *"Mott stays out"* is the part of it that survived. But beats 5 and 6 **are** the tree under v3.1, so *"no tree"* cannot be read as Mott-only without also being wrong.
+
+**Ruling: v3.1 governs. The sentence is v3 residue.** A version-stamped reversal beats an unstamped sentence in an earlier section. Nothing is built against it — the engine, the content and the gauntlet all run the four-option tree — so this costs one struck line in doc 17 and no code.
+
+**OQ-15 — the beat table says Room 1 is not interactive before beat 8, and the case carries LOOK/LISTEN/PICK UP for beats 1–5.**
+
+**A hotspot being live is not the same as a hotspot being reachable.** There is no verb panel and no control before beat 8, so nothing in the room can be addressed however many hotspots are gated on. `case_mud` is live from the first frame and simply cannot be clicked until control arrives — at which point it can, and its lines are reachable for as long as the case is on the ground.
+
+**The doc's state labels are prose, not gates.** *"beats 1–5"* and *"from beat 6"* describe *where the case is*, and the actual gates are flags. Nothing reads the beat numbers.
+
+**Which leaves exactly one real defect inside OQ-15, and it is state A.** Its window — beats 1 to 5 — lay **entirely inside the non-interactive stretch**, so its LOOK, LISTEN and PICK UP lines were unreachable by construction: three lines that could never be said by anyone. Q70 retires that state on other grounds, and retiring it is also the answer here.
+
+**Ruling: OQ-15 is closed by Q70.** Once state A is gone, no case line is gated to a stretch of the game in which no line can be asked for.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

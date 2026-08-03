@@ -1,6 +1,6 @@
 import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
-import type { Actor } from '../core/Actor.ts';
+import { IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import type { AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
@@ -639,7 +639,14 @@ export class Renderer {
     const frames = sprite.frameCount(clip, mover.facing, surface, state);
     const drawn = frames > 0 && sprite.draw(
       this.screen.context, clip, mover.facing, surface,
-      mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0, stride),
+      // THE BREAK HAS ITS OWN RATE AND NOTHING HAD EVER READ IT. Doc 40 gives
+      // idle 2.4/s and idle-break ~2/s, and `idleBreakRate` sits on every
+      // actor record -- written there by build-actor-record.mjs, declared in
+      // types.ts, and consumed by no code at all until this line. A glance
+      // played at the breathing rate is not the animation the rate was chosen
+      // for; it is the same frames at somebody else's tempo.
+      mover.frameAt(this.clock, walkRate, reactRate, frames,
+        (clip === IDLE_BREAK ? record.idleBreakRate ?? idleRate : idleRate) ?? 0, stride),
       feetX, feetY, mover.height, state,
     );
     if (!drawn) {

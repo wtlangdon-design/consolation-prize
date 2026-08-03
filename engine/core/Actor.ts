@@ -52,11 +52,14 @@ export const WALK = 'walk';
  * long enough to glance aside, and content decides whether such a clip
  * exists at all.
  *
- * It is not declared in `content/actors/thad.json`, which is open question
- * Q9 and not this task's to answer, so `hasIdleBreak` is false today and the
- * schedule below never fires. NOTHING IS SUBSTITUTED FOR IT. The moment the
- * record declares the clip the timer starts working and no engine change is
- * needed; until then a character simply does not glance aside.
+ * DECLARED NOW, BY THREE RECORDS -- thad, hob and the coach -- and this
+ * comment said it was declared by none of them. Q9 was answered by whoever
+ * added the clips, and nothing that read this file afterwards was told. A
+ * comment describing a record that has changed is R5k with prose instead of
+ * a coordinate: still a copy, still silently wrong.
+ *
+ * NOTHING IS SUBSTITUTED WHERE A RECORD DOES NOT DECLARE IT. A character with
+ * no `idle-break` clip simply does not glance aside.
  */
 export const IDLE_BREAK = 'idle-break';
 
@@ -78,7 +81,6 @@ export const IDLE_BREAK = 'idle-break';
  */
 const PLACEHOLDER_HEIGHT = 240;
 
-/** How long a character stands perfectly still before glancing aside. */
 /**
  * How much the other axis must beat the current one by before he turns.
  *
@@ -88,7 +90,31 @@ const PLACEHOLDER_HEIGHT = 240;
  */
 const FACING_HYSTERESIS = 0.25;
 
-const IDLE_BREAK_AFTER = 7;
+/**
+ * The idle break's schedule. Doc 40: "played occasionally", "plays on a timer
+ * while idle and returns to it".
+ *
+ * IT WAS A LATCH, NOT A TIMER, and that is the whole of the fault. `clip`
+ * returned `idle-break` once `clock - stillSince >= 7` and never again
+ * returned anything else, so a character who stood still for seven seconds
+ * switched permanently into the glance and looped it at his BREATHING rate
+ * until something moved him. Doc 40 calls it an occasional one-shot. Nothing
+ * about that was occasional and nothing about it was a shot.
+ *
+ * A FIXED INTERVAL WOULD HAVE BEEN THE OTHER WRONG ANSWER. The same lesson as
+ * the horse pawing on a loop: a body doing a thing every N seconds exactly
+ * reads as a tic, which is worse than standing still, because standing still
+ * at least reads as a person waiting. So the gap is randomised above a floor.
+ *
+ * DETERMINISTICALLY RANDOM, from the mover's id. `Math.random()` would make
+ * two play-throughs of the same save differ, and it would make any clip a
+ * script asserts a coin toss -- which is Q68's flaky red, arriving by a
+ * different road. The sequence is a plain LCG seeded by the id, so two
+ * characters standing together never sync up and the same run always plays
+ * the same way.
+ */
+const IDLE_BREAK_MIN_GAP = 7;
+const IDLE_BREAK_SPREAD = 11;
 
 /**
  * How a mover is governed. The player is routed across the room's walk boxes
@@ -100,8 +126,6 @@ export interface MoverOptions {
   routed?: boolean;
   /** Drawn height, for a mover the room's depth bands do not govern. */
   height?: number;
-  /** Whether the character has an `idle-break` clip to play on the timer. */
-  hasIdleBreak?: boolean;
 }
 
 /**
@@ -162,8 +186,17 @@ export class Actor {
   private glide: { fromX: number; fromY: number; startedAt: number; seconds: number } | null = null;
   private turningUntil = 0;
   private clock = 0;
-  /** When the character last became perfectly still, for the idle break. */
-  private stillSince = 0;
+  /** The idle break in flight: when it started, and when it is over. */
+  private breakStartedAt = 0;
+  private breakEndsAt = 0;
+  /** When the next one is due. Infinity while he is moving. */
+  private nextBreakAt = Infinity;
+  /** The LCG's state, seeded from the id so two movers never march together. */
+  private breakSeed = 0;
+  /** Whether this mover's own record declares an `idle-break` clip. */
+  private readonly breakClip: boolean;
+  /** How long one break lasts: its frame count over its own rate. */
+  private readonly breakSeconds: number;
   /**
    * How far he has actually moved, in world pixels, ever.
    *
@@ -200,6 +233,32 @@ export class Actor {
     // does nothing whatever.
     const declared = state.content.actors.get(id)?.walkSpeed;
     this.speed = declared !== undefined ? declared / 60 : WALK_SPEED;
+    // FROM HIS OWN RECORD, WHICH IS WHY HOB AND THE COACH NEVER BROKE. This
+    // was `MoverOptions.hasIdleBreak`, and GameScene set it in exactly one
+    // place: on the protagonist, from `content.actor.clips`. Every other mover
+    // arrives through `RoomActors.place()`, which passes no options at all, so
+    // Hob's declared idle-break and the coach's were unreachable BY
+    // CONSTRUCTION -- the records were right, the art was on disk, and no
+    // code path existed that could ask for them. R5f: an engine decision
+    // traces to a field on the thing it is deciding about.
+    this.breakClip = (state.content.actors.get(id)?.clips ?? [])
+      .some((clip) => clip.id === IDLE_BREAK);
+    // Doc 40's own numbers, not new ones: 12 frames at ~2/s. Both are on the
+    // record already -- `idleBreakRate` has been generated into every actor
+    // by build-actor-record.mjs and read by NOTHING until now.
+    const record = state.content.actors.get(id);
+    const shot = (record?.clips ?? []).find((clip) => clip.id === IDLE_BREAK);
+    this.breakSeconds = shot && record?.idleBreakRate
+      ? shot.frames.length / record.idleBreakRate
+      : 0;
+    for (const letter of id) this.breakSeed = (this.breakSeed * 31 + letter.charCodeAt(0)) >>> 0;
+    // THE SCHEDULE IS ARMED ON THE FIRST UPDATE, NOT HERE. Arming it in the
+    // constructor sets an ABSOLUTE time about twelve seconds after zero -- and
+    // a mover created later than that is already overdue, so it glances the
+    // instant it appears. Hob is placed at beat 7, a minute in, and would have
+    // broken on his first drawn frame every time. Same family as R5g: a
+    // quantity that means "twelve seconds from the start" used where the
+    // meaning needed was "twelve seconds from now".
     this.x = x;
     this.y = y;
     this.targetX = x;
@@ -284,11 +343,10 @@ export class Actor {
   get clip(): string {
     if (this.special) return this.special.clip;
     if (this.isWalking) return WALK;
-    // Doc 40: idle-break plays on a timer WHILE IDLE and returns to it. It is
-    // offered only where the record declares it -- see IDLE_BREAK.
-    if (this.options.hasIdleBreak && this.clock - this.stillSince >= IDLE_BREAK_AFTER) {
-      return IDLE_BREAK;
-    }
+    // Doc 40: idle-break plays on a timer WHILE IDLE and RETURNS TO IT. The
+    // window is closed by `breakEndsAt`, which is what makes it a one-shot
+    // rather than the state change it used to be.
+    if (this.clock < this.breakEndsAt) return IDLE_BREAK;
     return IDLE;
   }
 
@@ -510,6 +568,16 @@ export class Actor {
       const elapsed = seconds - this.special.startedAt;
       return Math.min(frames - 1, Math.floor(elapsed * reactRate));
     }
+    // AN IDLE BREAK RUNS ONCE, FROM ITS OWN START, AND HOLDS ITS LAST FRAME.
+    // The branch below loops on the wall clock, which for a 12-frame glance
+    // means it restarts halfway through and glances again -- and the caller
+    // hands it this clip's own rate, so the loop would run at the break's
+    // speed rather than the breathing one. `seconds - breakStartedAt` is what
+    // makes it a shot: a clip that begins when it begins.
+    if (seconds < this.breakEndsAt) {
+      if (idleRate <= 0 || frames <= 1) return 0;
+      return Math.min(frames - 1, Math.floor((seconds - this.breakStartedAt) * idleRate));
+    }
     if (!this.isWalking) {
       if (idleRate <= 0 || frames <= 1) return 0;
       return Math.floor(seconds * idleRate) % frames;
@@ -556,9 +624,38 @@ export class Actor {
     // The idle break is measured from the moment everything stopped, so a
     // character who has just arrived breathes for a while before glancing
     // aside rather than glancing the instant his feet land.
-    if (this.isWalking || this.isBusy) this.stillSince = seconds;
+    //
+    // `stillSince` used to be kept here and read by `clip`. The schedule
+    // replaced it: the question is no longer "how long has he been still",
+    // which only ever supported a latch, but "when is the next one due".
+    if (this.nextBreakAt === Infinity) this.nextBreakAt = seconds + this.breakGap();
+    if (this.isWalking || this.isBusy) {
+      // MOVING CANCELS IT AND RE-ARMS IT. A break interrupted mid-glance is
+      // not resumed -- he did the thing that mattered more -- and the next one
+      // is a fresh gap from now, so a character who is walked about
+      // constantly never glances aside at all, which is correct.
+      this.breakEndsAt = 0;
+      this.nextBreakAt = seconds + this.breakGap();
+    } else if (this.breakClip && this.breakSeconds > 0 && seconds >= this.nextBreakAt) {
+      this.breakStartedAt = seconds;
+      this.breakEndsAt = seconds + this.breakSeconds;
+      this.nextBreakAt = this.breakEndsAt + this.breakGap();
+    }
     return this.height !== wasHeight || this.isWalking !== wasWalking || this.isBusy
       || this.glide !== null;
+  }
+
+  /**
+   * Seconds until the next idle break: a floor plus a spread.
+   *
+   * THE FLOOR IS THE POINT. Without one, two draws in a row can be short and
+   * the character glances twice in three seconds, which reads as a nervous
+   * tic rather than as a man waiting -- the failure a fixed interval produces
+   * every time, arrived at by accident.
+   */
+  private breakGap(): number {
+    this.breakSeed = (this.breakSeed * 1664525 + 1013904223) >>> 0;
+    return IDLE_BREAK_MIN_GAP + (this.breakSeed / 4294967296) * IDLE_BREAK_SPREAD;
   }
 
   /** Errata 38's translation: a fraction of the way there, by the clock. */
