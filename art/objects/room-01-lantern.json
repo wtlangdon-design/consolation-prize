@@ -3,9 +3,9 @@
   "glow": "art/objects/room-01-lantern-glow.png",
   "blend_glow": "ADD",
   "flame": [
-    478,
-    379
+    476,
+    378
   ],
-  "drawn_height": 90,
-  "note": "HUNG ON THE SIGN'S BEAM at x480. THE HOOK IS REMOVED ENTIRELY -- the lantern's own collar and finial meet the timber directly, which reads as fixed to the beam. A drawn hook cut off at the beam line still read as a lantern with a piece missing.\n\nevery foreground light in Room 1 left with somebody. The coach's two lamps depart at beat 6b and Hob's lantern goes with him, so after beat 9 the near half of the frame was lit by nothing -- and the title plays over a walk through that mud.\n\nThe pool is ADDITIVE and drawn after the plate, before the characters, like Hob's -- but FIXED, because this lamp does not travel. Wider than his (3.4x rather than 2.6x) and dimmer (0.72 against 0.85), because a lamp on a beam is higher up and further off than one carried at hip height."
+  "drawn_height": 82,
+  "note": "HANGS FROM THE UNDERSIDE OF THE SIGN'S BEAM. The beam is y324-335 in the plate, measured by scanning its own columns; the lantern's collar starts at 333, two pixels into the timber so there is no gap between iron and wood.\n\nIt was hung at y322, ABOVE the beam's top edge, which read as stuck to the side of the pole rather than hanging from it. And its drawn hook was removed entirely -- the curl was y0-47 of the source, and cutting it AT the beam line still read as a lantern with a piece missing.\n\nWHY IT EXISTS: every foreground light in Room 1 left with somebody. The coach's two lamps depart at beat 6b and Hob's goes with him, so after beat 9 the near half of the frame was lit by nothing -- and the title plays over a walk through that mud.\n\nThe pool is ADDITIVE, drawn after the plate and before the characters, and FIXED because this lamp does not travel. Wider than Hob's at 3.6x and dimmer at 0.72, because a lamp on a beam is higher and further off than one carried at hip height.\n\nBAKED INTO A STATIC LAYER, not drawn by the engine. If a glow layer is ever built, this should move into it -- a fixed lamp is the easy case and the one worth building against."
 }
