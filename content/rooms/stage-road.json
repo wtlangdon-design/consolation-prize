@@ -95,7 +95,8 @@
       ],
       "colour": 28,
       "when": {
-        "T_CASE_DOWN": false
+        "T_CASE_DOWN": false,
+        "T_COACH_DEPARTED": false
       },
       "defaultVerb": "LOOK_AT",
       "responses": {
@@ -126,7 +127,7 @@
       "states": {
         "there": {
           "image": "art/objects/room-01-case-roof.png",
-          "note": "THE CASE IS ITS OWN LAYER, not part of the coach. That is why the door-open coach has an EMPTY rack and why the case can come off without the vehicle changing at all. Its position is measured -- the difference between the two coach frames IS the case, at sprite x178-269 y0-39, which is world x1090-1181 y353-392 once the coach is placed at 1390 with anchor 478.\n\nThe rect was [1236,336,132,72], authored when the coach stood elsewhere."
+          "note": "THE CASE IS ITS OWN LAYER, not part of the coach. That is why the door-open coach has an EMPTY rack and why the case can come off without the vehicle changing at all. Its position is measured -- the difference between the two coach frames IS the case, at sprite x178-269 y0-39, which is world x1090-1181 y353-392 once the coach is placed at 1390 with anchor 478.\n\nThe rect was [1236,336,132,72], authored when the coach stood elsewhere.\n\nGATED ON THE COACH STILL BEING HERE, because a state image is a static full-frame layer and cannot travel with a mover. Without this the coach departed and the case hung in the sky where the rack had been. That is a stopgap and not the fix: Q37 is that the case must come DOWN at beat 6, and nothing writes T_CASE_DOWN or moves it. The right answer is probably to draw this layer FROM THE COACH so it travels for free and goes when the coach goes."
         }
       }
     },
