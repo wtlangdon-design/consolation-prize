@@ -480,6 +480,18 @@
         196,
         526
       ]
+    },
+    {
+      "id": "lookup",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-lookup-left/lookup-00.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        140,
+        526
+      ]
     }
   ]
 }
