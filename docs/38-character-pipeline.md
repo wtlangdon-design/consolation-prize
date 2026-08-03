@@ -216,6 +216,23 @@ A fallback to a literal says *nobody told me, here is the standard answer*. A fa
 
 > **Enforced as far as a machine can hold it** by `tools/check-entity-fallback.mjs`, which flags any fallback reading the singular `content.actor`. It had to learn two evasions to be worth anything: a bare identifier assigned from that record, and a read already wrapped in its own tidy `?? ''`. Both were live in the tree.
 
+## R5i · A MECHANISM AGREEING WITH ITSELF IS THE FAILURE, AND IT HAS HAPPENED FOUR TIMES
+
+Every fault below was found a different way and they are all one shape. Verbatim, because the value is in the third column being different every time:
+
+| | agreed with itself | nothing checked it against |
+|---|---|---|
+| the stale actor record | `rig.json`, which the generator had just written | the frames on disk |
+| the boot split | its own field-by-field helper | every declared image, found generically |
+| the drawer | the steps it happened to know | the vocabulary the content actually uses |
+| the key fringe | every frame the rig had ever written | the colour of the backdrop it keyed against |
+
+Each was internally consistent and correct about everything it looked at. Each fix **enumerated from a different direction** — the PNG header, a regex over the records, the content's own `do` values, the pixels themselves.
+
+**AND ONE OF THEM WAS CAUSED BY A GOOD RULE.** A staged `say` carries no `actor` *because* it names its line by index, which is exactly what keeps dialogue out of the staging table. The rule is right. Nobody traced what grouped-by-actor code would do with a step that has no actor, and the drawer silently dropped three of them.
+
+> **Every constraint removes a field from somewhere, and something downstream was keying on it.** That is a different failure from an oversight, and it has a specific tell: the instinct after imposing a good rule is to feel finished. That is precisely the moment to ask what just stopped being available, and who was reading it.
+
 ## R5h · AN INSTRUMENT CAN CHANGE THE SYSTEM, NOT ONLY REPORT ON IT
 
 R5d says the capture is not the render, and its apparatus clause says an experiment that did not happen returns "no effect". **This is the third position, and it is the one that reads as the opposite of the second.**

@@ -1139,6 +1139,51 @@ Each time a mechanism was internally consistent and correct about everything it 
 
 **And a fourth thing, on the apparatus.** My first negative test for this check reported PASS with the `walk` branch removed, which would have meant the check did not work. It had not run: shell quoting swallowed the edit and the file was never modified. Rewritten with `assert s.count(old) == 1, 'the experiment would not have happened'`, and it then failed correctly. R5d's clause, on the check written to enforce R5e's — an experiment that did not happen returns the answer you were hoping for just as readily as the one you feared.
 
+## Q47 · The coach was facing front; the fringe check found nothing; and I misread the art twice
+
+**1. THE COACH WAS FACING `front`, AND IT IS DRAWN RIGHT-ONLY.** Not surface, not a missing sprite. Instrumented by asking `drawMover`'s two predicates directly from the page rather than wrapping the draw path — R5h, since a wrapper is a load generator:
+
+```
+coach: branch=FRAMES 0  clip=idle/front  surface="mud"  frames=0
+       clipIds=["idle/right","walk/right"]  textureLoaded=true
+```
+
+`clipOf` refuses a facing a character is not drawn in — Q20, by design — so `front` resolved to no clip and the renderer drew the placeholder. **Two causes, both fixed, and both were needed:**
+
+- **`Actor`'s initial facing was a flat `'front'`.** Nothing had ever chosen it for the coach. A character drawn in exactly one direction has exactly one possible facing, so the RECORD answers this now and a module default does not. Where a record declares several, `front` stands — that is a real choice among real options.
+- **A zero-distance `move` turned it to face the camera.** Staging places a mover with `move` from a point to the *same* point; `glideTo` asked `facingToward` which way to turn and got `front`, because a dx of zero is inside the vertical branch's dead band and a dy of zero is not above. **A point he is already standing on names no direction**, so it now changes nothing. Thad survived the identical call only because beat 2 follows it with an explicit `face right`.
+
+**And the same zero-distance move was playing a WALK CYCLE.** `isWalking` is true for any glide, so the opening's first tenth of a second was Thad walking on the spot facing the camera before turning side-on. A move to where you already are now places, and does not walk.
+
+**2. FAULT 3 IS NOT WHAT EITHER OF US GUESSED, and I have not reproduced it.** Traced on the game's own frames rather than by polling:
+
+```
+before:  walk/front(0.1s) → idle/right(0.28s) → aboard-coach → alight-coach → walk/right → idle/right
+after:   aboard-coach/right → alight-coach/right → walk/right → idle/right
+```
+
+The facing is right, the clip selection is right, and the sprite drawn is the right-facing art — **verified by putting the on-screen head beside `thad-idle-right` and `thad-idle-left` at magnification.** The only anomaly the trace contains is the `walk/front` placement artifact above, which is now gone. If the oddity survives, it is at a moment this trace does not distinguish, and the timestamps above are the places to point at.
+
+**I MISREAD THE ART TWICE ON THE WAY THERE.** A four-up thumbnail sheet read as "every right-facing directory contains left-facing art" — which would have sent you into the rig for nothing. A head-centroid metric then said the opposite, and disagreed with itself on Hob. Only the magnified side-by-side settled it, and it settled it against both of my earlier readings. **Small pixel-art thumbnails are not evidence about facing**, and a metric invented on the spot to replace an eyeball is not either.
+
+**3. THE FRINGE CHECK IS IN, AND IT FOUND NOTHING — after first appearing to find everything.** `tools/check-key-fringe.mjs` decodes every actor PNG with `zlib` alone, because Pillow is not installable on a CI runner by a check's authority. 195 frames, 40 megapixels, **two seconds**.
+
+Its first run reported 187 frames still carrying fringe, worst 127, on Thad and Hob alike — which would have meant the despill had missed almost everything. **It had not. The threshold was mine.** Every remaining fringe pixel sits at alpha 8–32 and there are none above:
+
+| alpha band | fringe px | worst |
+|---|---:|---:|
+| 8–32 | 1298 | 127 |
+| 32–64 | 0 | 0 |
+| 64–128 | 0 | 0 |
+| 128–255 | 0 | 0 |
+| 255 | 0 | 0 |
+
+So the despill was complete to any threshold that means "visible", and the check's line is where the evidence already put it. **The number below the line is reported every run rather than hidden**, so it is a line somebody can disagree with.
+
+**The threshold sits in a measured gap**: real art tops out at **22** (the coach's maroon), the line is **30**, key fringe reached **127**. `min(r,b) − g` was tried as a tighter alternative and separates worse — 96 against the same 22 — so the average is kept. Proved by lowering the line to 15 and watching it name the coach.
+
+**32 checks.**
+
 ---
 
 # HOW THIS DOCUMENT WORKS

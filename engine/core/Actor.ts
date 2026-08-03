@@ -102,6 +102,27 @@ export class Actor {
   x: number;
   y: number;
   height: number;
+  /**
+   * Set from the RECORD when it declares exactly one facing, and only then.
+   *
+   * It was a flat `'front'`, and the coach drew as a graybox for the whole
+   * opening because of it. The coach is drawn RIGHT ONLY; `clipOf` correctly
+   * refuses a facing the character is not drawn in -- Q20, and the reason Hob
+   * asked to face left draws nothing rather than substituting -- so `front`
+   * resolved to no clip and the renderer fell back to the placeholder. Its
+   * frames were loaded, its record was right, and the branch taken was
+   * `frames === 0`.
+   *
+   * Nothing had ever CHOSEN front for it. `move` places by gliding, and beat
+   * 2 places the coach from a point to the same point, so `faceToward` had no
+   * direction to take and left the default standing.
+   *
+   * A CHARACTER DRAWN IN ONE DIRECTION HAS ONE POSSIBLE FACING, so the record
+   * answers this and a module default should not. Where a record declares
+   * several, `front` stands: that is a real choice among real options.
+   * Asking a one-facing character to face elsewhere still draws nothing --
+   * this sets the starting value, it substitutes nothing.
+   */
   facing: Facing = 'front';
 
   private targetX: number;
@@ -143,6 +164,8 @@ export class Actor {
     // same size at different depths, which is precisely what the curve exists
     // to prevent. Choreography does not suspend perspective. The coach is
     // exempt because it says so in its own record, not because of how it moves.
+    const facings = state.content.actors.get(id)?.facings;
+    if (facings?.length === 1) this.facing = facings[0] as Facing;
     this.height = options.height
       ?? (this.scalesWithDepth ? this.sampleDepth(state, x, y) : null)
       ?? state.content.actors.get(id)?.height
@@ -292,7 +315,15 @@ export class Actor {
     this.faceToward(x, y);
     this.targetX = x;
     this.targetY = y;
-    if (seconds <= 0) {
+    // A MOVE TO WHERE HE ALREADY IS PLACES HIM. It does not walk.
+    //
+    // Staging places a mover with `move` from a point to the SAME point, and
+    // a glide -- however short -- makes `isWalking` true, so `clip` returned
+    // `walk`. The opening's first tenth of a second was Thad walking on the
+    // spot facing the camera before he turned side-on to climb down. Nothing
+    // was moving and a walk cycle was playing.
+    if (seconds <= 0
+      || (Math.abs(x - this.x) < 4 && Math.abs(y - this.y) < 4)) {
       this.glide = null;
       this.placeAt(x, y);
       return;
@@ -320,6 +351,21 @@ export class Actor {
   }
 
   private facingToward(x: number, y?: number): Facing {
+    // A POINT HE IS ALREADY STANDING ON NAMES NO DIRECTION, so it changes
+    // nothing. Without this the vertical branch below fired -- dx of zero is
+    // inside its dead band, dy of zero is not above him -- and answered
+    // `front`.
+    //
+    // THAT IS HOW THE COACH BECAME A BLACK RECTANGLE. Staging places a mover
+    // with `move` from a point to the SAME point, so `glideTo` asked which way
+    // to face and was told to turn and look at the camera. The coach is drawn
+    // right-only; `clipOf` refuses a facing a character is not drawn in, by
+    // design, so `front` resolved to no clip and the renderer drew the
+    // placeholder. Thad survived the same call only because beat 2 follows it
+    // with an explicit `face right`.
+    if (Math.abs(x - this.x) < 4 && (y === undefined || Math.abs(y - this.y) < 4)) {
+      return this.facing;
+    }
     // A target directly above him at close range is something he turns his
     // back to the camera for; anything to either side is a side view. The
     // dead band is deliberately wide, because a one-pixel horizontal
