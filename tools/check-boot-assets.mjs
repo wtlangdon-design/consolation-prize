@@ -147,8 +147,17 @@ export async function check() {
     const cast = [...new Set(plan.required
       .map((asset) => asset.path.match(/^art\/actors\/([^-/]+)-/)?.[1])
       .filter(Boolean))].sort();
+    // The clips too, because the list is DERIVED from the staging now: a chore
+    // added to an early beat pulls its frames into the blocking half, and that
+    // should be a line somebody reads rather than a thing they find by
+    // watching a placeholder.
+    const clips = [...new Set(plan.required
+      .map((asset) => asset.path.match(/^art\/actors\/[^-/]+-(.+?)\//)?.[1])
+      .filter(Boolean))].sort();
     report.note(`the first frame waits on ${bundle.manifest.startRoom} and `
-      + `${cast.join(', ')} -- ${FIRST_FRAME_CLIPS.join(', ')} each`);
+      + `${cast.join(', ')} -- clips: ${clips.join(', ')}`);
+    report.note(`(${FIRST_FRAME_CLIPS.join(', ')} always, plus every clip the opening `
+      + `stages before the first player beat)`);
   }
   return report;
 }

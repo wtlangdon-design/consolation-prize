@@ -1303,6 +1303,48 @@ Tested three ways: no state resolves as before; an unknown state falls back to t
 
 **Recorded, not hidden, per your ruling:** the departing coach keeps the case on its rack, and strictly the rack is empty after beat 6. It is on screen for three seconds, receding, and a fourth generation would have to align pixel-for-pixel with three others. If it ever reads wrong, that is why.
 
+## Q52 · The chore clips were deferred, and it was live — confirmed, then derived
+
+**YOUR DIAGNOSIS WAS RIGHT AND IT WAS LIVE.** Asked the game directly rather than reading pixels, on the game's own frames, at the moment each chore played:
+
+```
+--- unthrottled, cache disabled ---
+  t=7.47s aboard-coach   frames=5 textureLoaded=false
+  t=8.17s alight-coach   frames=5 textureLoaded=false
+--- 5 Mbps, cache disabled ---
+  t=26.85s aboard-coach  frames=5 textureLoaded=false
+  t=27.53s alight-coach  frames=5 textureLoaded=false
+```
+
+**`frames=5` and `textureLoaded=false` is the exact signature.** The record declares the clip, so `frameCount` answers 5 and `drawMover` takes neither the no-record branch nor the zero-frames branch — it calls `draw`, which returns false because the frame has not arrived, and falls to the graybox. **Unthrottled too**, which is the part I would not have guessed: at 7.5 seconds on localhost with the cache disabled it still had not landed, because the deferred half is 146 files served one at a time.
+
+So Q50 and this are two faults in one picture. The depth tie explained where the shape stood; this explains why it was a flat shape at all.
+
+**And a pixel test I ran first was not decisive, which is worth recording.** The dark bars held 2,064 pure-black pixels where the plate has none — which looked conclusive until I checked the coach's own art and found 2,997 pure-black pixels in it. A placeholder and a stagecoach's undercarriage are both black. The question was only answerable by asking the game.
+
+**DERIVED, NOT AUTHORED, as ruled.** `firstFrameStaging` now returns each early actor's staged clip names alongside the actor itself, and `planBoot` requires `FIRST_FRAME_CLIPS` **plus every clip a `chore` names before the first player-control beat**. A chore names its own clip, so the list does not have to guess.
+
+- `pickup-low` stays deferred, correctly — beat 6 is past the driver's whole conversation.
+- The idle-break argument is untouched, because **nothing stages an idle break**. It is a thing that happens when nothing else is.
+
+**65 files / 7.93 MB → 73 / 8.21 MB.** Ten frames, 280 KB, for a placeholder that was on screen at a tenth of a second in.
+
+`check-boot-assets` now prints the **clips** as well as the cast, so a chore added to an early beat is a line somebody reads rather than a thing they find by watching a placeholder.
+
+**Verified after: `textureLoaded=true` at both chores, unthrottled and at 5 Mbps.**
+
+## Q53 · Facing toward a point: the runner has it, staging cannot reach it, and it would not help
+
+**`Actor.faceToward(x, y)` exists** and is used by walking — `facingToward` resolves a point to a compass facing. **Staging cannot call it:** the vocabulary is `{ do: 'face', actor, facing }`, a compass direction, and there is no step that names a target.
+
+**But adding one would change nothing here, and this is the part worth having before you move him.** `facingToward` can only ever answer one of four facings, because that is all the art has. Work it for the driver: he sits at x1332–1364, Thad stands at 1330, so `|dx|` is about 18 — outside the ±8 dead band that produces `back`/`front`, so it returns **`right`**. The same answer beat 3 already sets by hand.
+
+**There is no facing that looks up.** The driver is roughly 300 px above him on the box, and the four-direction sprite set has no such pose; a fifth would be a generation for one line.
+
+**THE ART ALREADY ANTICIPATED THIS AND IT IS NOT THAD'S FACING.** Doc 43 part two lists `reference/casting/driver-head-looking-down.png`, and part one says it in words: *"He should be `speaking` on his line and `looking-down` while Thad talks up at him."* Part two's beat table has the row — `| 3 | driver | looking-down | — | while Thad speaks |`. **The man who moves is the driver, not Thad.** Nothing wires the head overlays yet, which is why he speaks to nobody: it is not a facing bug, it is an unwired overlay.
+
+So: no positional fix is needed for the facing, because `right` is already the only right answer. What is missing is the driver's head.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

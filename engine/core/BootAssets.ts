@@ -1,4 +1,4 @@
-import type { ActorFile, ContentBundle, RoomFile, SequenceFile } from './types.ts';
+import type { ContentBundle, RoomFile, SequenceFile } from './types.ts';
 import { segmentsOf } from './Opening.ts';
 
 /**
@@ -62,7 +62,8 @@ export interface BootPlan {
 export const FIRST_FRAME_CLIPS = ['stand', 'idle', 'walk'];
 
 /**
- * Everyone the opening puts on screen BEFORE IT ASKS THE PLAYER FOR ANYTHING.
+ * Everyone the opening puts on screen BEFORE IT ASKS THE PLAYER FOR ANYTHING,
+ * AND EVERY CLIP IT NAMES FOR THEM.
  *
  * The protagonist is not the only thing in the first frame, and assuming he
  * was put a black rectangle beside him: the coach became a mover staged in
@@ -81,24 +82,32 @@ export const FIRST_FRAME_CLIPS = ['stand', 'idle', 'walk'];
  * Read from the manifest's named opening, like `beginOpening` does, so a
  * sequence belonging to some other room cannot drag its cast into boot.
  */
-function firstFrameActors(bundle: ContentBundle): ActorFile[] {
+function firstFrameStaging(bundle: ContentBundle): Map<string, Set<string>> {
+  const cast = new Map<string, Set<string>>();
   const id = bundle.manifest.openingSequence;
   const file: SequenceFile | undefined = id ? bundle.sequences.get(id) : undefined;
-  if (!file) return [];
+  if (!file) return cast;
 
-  const named = new Set<string>();
   for (const segment of segmentsOf(file)) {
     if (segment.kind === 'menu') continue;
     if (segment.kind !== 'automatic') break;
     for (const beat of segment.beats) {
       for (const staged of beat.staging ?? []) {
-        if ('actor' in staged) named.add(staged.actor);
+        if (!('actor' in staged)) continue;
+        const clips = cast.get(staged.actor) ?? new Set<string>();
+        // A CHORE NAMES ITS OWN CLIP, so the list does not have to guess.
+        // `aboard-coach` and `alight-coach` play a tenth of a second in and
+        // were in the deferred half: the record declared them, `frameCount`
+        // answered 5, `draw` returned false because the frame had not
+        // arrived, and the protagonist was a placeholder for the whole of
+        // beat 2 -- unthrottled, with the cache disabled, textureLoaded=false
+        // at the moment each one played.
+        if (staged.do === 'chore') clips.add(staged.clip);
+        cast.set(staged.actor, clips);
       }
     }
   }
-  return [...named]
-    .map((who) => bundle.actors.get(who))
-    .filter((record): record is ActorFile => record !== undefined);
+  return cast;
 }
 
 function roomImages(room: RoomFile): BootAsset[] {
@@ -145,12 +154,22 @@ export function planBoot(bundle: ContentBundle): BootPlan {
   for (const asset of start ? roomImages(start) : []) required.set(asset.key, asset);
 
   // The protagonist, and anyone else standing beside him before the player is
-  // asked for anything. Same clip rule for all of them: what can play with
-  // nothing having happened yet.
-  const cast = [bundle.actor, ...firstFrameActors(bundle)];
-  for (const record of cast) {
+  // asked for anything -- plus every clip the staging NAMES for them, which is
+  // derived rather than authored. `FIRST_FRAME_CLIPS` covers what can play
+  // with nothing having happened; a staged chore is something that WILL play,
+  // and the staging already says which and when.
+  //
+  // `pickup-low` stays deferred, correctly: beat 6 is on the far side of the
+  // driver's whole conversation. And the idle-break argument is untouched,
+  // because nothing stages an idle break -- it is a thing that happens when
+  // nothing else is.
+  const staged = firstFrameStaging(bundle);
+  const cast = new Map<string, Set<string>>([[bundle.actor.id, new Set()], ...staged]);
+  for (const [who, extra] of cast) {
+    const record = bundle.actors.get(who);
+    if (!record) continue;
     for (const clip of record.clips) {
-      if (!FIRST_FRAME_CLIPS.includes(clip.id)) continue;
+      if (!FIRST_FRAME_CLIPS.includes(clip.id) && !extra.has(clip.id)) continue;
       for (const frame of clip.frames) required.set(frame, { key: frame, path: frame });
     }
   }
