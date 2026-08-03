@@ -245,12 +245,19 @@ export function check() {
   for (const dir of [...loaded.keys()].sort()) {
     const frames = framesOf(dir);
     if (frames.length < 4) continue;
+    // EVERY BYTE, NOT A SAMPLE. This hashed one byte in 997, which is a
+    // metric invented to stand in for the exact answer -- R5b2 -- and the
+    // exact answer is cheap here. A sampled hash can call two frames the same
+    // when they differ in a region it skipped, and this clause exists
+    // precisely to be believed against byte-equality: the first thing anybody
+    // will do with a disagreement is check it with sha256sum, and the clause
+    // has to be the thing that agrees rather than the thing that is checked.
     const seen = new Set(frames.map((frame) => {
       let hash = 2166136261;
-      for (let i = 0; i < frame.pixels.length; i += 997) {
+      for (let i = 0; i < frame.pixels.length; i += 1) {
         hash = Math.imul(hash ^ frame.pixels[i], 16777619);
       }
-      return `${hash}/${frame.pixels.length}`;
+      return `${hash >>> 0}/${frame.pixels.length}`;
     }));
     padded += 1;
     if (seen.size >= 3) continue;

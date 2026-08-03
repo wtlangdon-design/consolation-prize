@@ -2209,7 +2209,7 @@ Measured by SHA-256 over the frame files:
 
 ---
 
-## Q79 · The downscale stage is not in this repository, and that is why the assertion moved
+## Q79 · The downscale stage was not in this repository — **BUILT: `tools/rig/downscale.py`**
 
 **Asked: "assert the frame count survives the downscale before regenerating sixteen of anything."** It cannot be asked that way from here.
 
@@ -2222,6 +2222,20 @@ Measured by SHA-256 over the frame files:
 **Fifteen clips fail it today**, which is the same list as the padding scan minus `thad-idlebreak-front` and `-back`, which have three and pass. `thad-lookup-left` is among the fifteen at 2 distinct — the rebuild at amp 6 is not on `main` yet, and clause three will pass it when it lands.
 
 **Still not registered in `run-all.mjs`**: 24 failures across three clauses, no fix in flight for most. Registers when the art agrees.
+
+### BUILT — the stage now leaves an artefact
+
+`tools/rig/downscale.py`. Takes a rigged clip and a figure height, writes the frames the game loads, and refuses when the result collapses.
+
+**Premultiply, resample, unpremultiply.** Resampling RGBA directly averages the colour of *transparent* pixels into their opaque neighbours, and at a 3× reduction every output pixel draws on nine inputs. Premultiplying makes the weight correct; skipping it is what puts a halo on every edge, and it is the class of thing that was being re-derived from memory each time.
+
+**One scale factor for the whole clip, from the tallest frame.** A breath raises the chest, so the figure is a few rows taller mid-cycle — scaling each frame to its own height would make him grow and shrink instead of breathe.
+
+**AND THE REFUSAL MEASURES THE SHAPE, NOT THE BYTES — which is the opposite of clause three, for a reason.** Byte-equality is the honest measure *upstream*, where frames are composites of the same layers at whole-pixel offsets. **After a resample it is the wrong measure**: LANCZOS turns a sub-pixel offset into slightly different values everywhere, so every frame stays byte-distinct however little the figure moved. Tested — a 4-picture clip reduced to a 62px figure, where the breath is a fifth of a pixel, still reported four. **A refusal that cannot fire is not a refusal.** The thresholded alpha mask asks the question the eye asks: did the shape move.
+
+**Watched failing, per R5e.** Reducing the lookup clip to successively smaller figures: 4 distinct at 526, 4 at 200, 3 at 60, 3 at 30, and at 16 it refuses — *"6 frames reduce to 1 distinct picture. Nothing written."* The frames on disk were still 869×1720 afterwards, so the refusal happens before the write and not after it.
+
+**Two guards on one failure, from different directions.** `character.py` floors the amplitude so the clip does not collapse at source resolution; `downscale.py` refuses if it collapses at the shipped one; `check-clip-agreement` clause three refuses to ship it if it somehow arrives anyway. The middle one is the stage where the arithmetic actually decides, and it did not exist.
 
 ---
 
