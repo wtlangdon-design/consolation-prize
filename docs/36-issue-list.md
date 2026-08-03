@@ -1868,6 +1868,148 @@ The surviving sentence sits at the end of the section on **what the town says ab
 
 ---
 
+## Q73 · The ping-pong walk is every walk clip in the game, not two
+
+**Reported from watching Hob: frames 1≡7, 2≡6, 3≡5, byte-identical — the second half is the first played backwards, so the same leg leads every step.** One leg swings out and comes back; the other never passes it. Described as galloping, which is what it is.
+
+**Measured across every walk clip on disk, by SHA-256 of the file bytes:**
+
+| Clip | Frames | Identical pairs |
+|---|---|---|
+| `thad-walk-right` | 8 | 1=7, 2=6, 3=5 |
+| `thad-walk-left` | 8 | 1=7, 2=6, 3=5 |
+| `thad-walk-front` | 8 | 1=7, 2=6, 3=5 |
+| `thad-walk-back` | 8 | 1=7, 2=6, 3=5 |
+| `hob-walk-right` | 8 | 1=7, 2=6, 3=5 |
+
+**Five clips, one signature.** It is not a fault in a generation, it is the shape of the generation step — so a fix to one facing fixes one facing, and the other four keep galloping until they are regenerated too. Worth knowing before the contralateral source lands: **the thing to check when it arrives is the count, not the clip.**
+
+**It was recorded as a note and became a defect by being watched.** The stride measurement found the identical frames and filed them; nothing was wrong with that reading and nothing acted on it. What changed is that Hob now crosses the whole screen, so there is time to see the leg that never leads. **A static fact about eight files became a visible fault when the distance travelled grew** — and no check that reads the files could have told anybody that, because the files did not change.
+
+**The consequence, predicted and deliberately not pre-compensated:** the cycle becomes two steps rather than one, so **the declared stride doubles**. `strideLength` is 102 for Thad and 105 for Hob today; both describe a cycle that contains one real step. Since doc 43's gait advances from distance travelled, doubling the stride halves the frame rate of the legs at the same walking speed — which is the correct outcome and will look like it. **`walkSpeed` should not move**: the stride changes, the speed does not, and the fallout is worth seeing rather than cancelling out in advance.
+
+**A check is one line and belongs with the art, not before it.** A walk cycle must not be its own mirror: `frame[i] === frame[n - i]` for any `i`. It would fail on all five clips today, which is correct and also unmergeable — a red the whole team must work around while the fix is in flight is R5j regardless of being right. It lands the day the art does, and it will say immediately whether all five were replaced or one.
+
+---
+
+## Q74 · The mud problem: three questions answered, and the fix proposed would not have fixed it
+
+**Reported: Thad examines mud everywhere instead of walking. Confirmed, and the cause is not where it looks.**
+
+### 1 · What is `defaultVerb` for?
+
+**It is the per-target fallback. It is not, and never was, the resting selection.** The two are separate mechanisms and only one of them is called `defaultVerb`.
+
+```
+verbFor(target) = selected ?? (target.defaultVerb ?? file.defaultVerb)
+```
+
+The resting selection is `null`, set in `VerbSystem`'s constructor, with errata 28b cited in the comment: *"nothing is selected until the player selects something. With a verb always pre-selected there is no 'no verb' state, and the ruling's third row could never happen."*
+
+`verbs.json`'s top-level `defaultVerb: "LOOK_AT"` is the fallback's fallback — what an object that declares none answers with. Errata 28b in its own words: *"Perform the object's `defaultVerb` — **LOOK AT unless the object declares otherwise**."*
+
+> **So changing it to `WALK_TO` would not fix the reported symptom.** The floor already walks when nothing is selected: the mud declares `WALK_TO`, `verbFor` returns it, and `GameScene` walks. The proposed change would only alter what objects that declare no default do — which is every object the `check-default-verbs` report is about, and none of them are the ground.
+
+### 2 · Does the selection reset after an action?
+
+**No — and errata 28b specifies that it must not.**
+
+> *"A selected verb **persists** until another is chosen. **It is not cleared by use.**"*
+
+`resetToDefault()` exists and has exactly one caller: `GameState.reset()`, a new game. **The code matches the ruling.** This is not drift.
+
+**Which makes the proposed behaviour a change to errata 28b, not a bug fix** — and worth ruling as one, with its cost visible: a verb that clears on use costs a second click for every repeated action, and doc 22's own reading of the original manual says the sentence line and the persistent verb are one interface.
+
+### 3 · Is `WALK_TO` deliberately absent from the panel?
+
+**Yes, and coherently.** `verbs.json` carries it as `walkVerb`, deliberately outside the nine; the grid is 3×3 and Bible v2 Part Two specifies nine verbs. Errata 28b row 1 is what makes a tenth button unnecessary: *"Left click on walkable ground → walk there. **Always.** No verb required and no verb consumed."*
+
+**Its absence is only coherent as long as row 1 holds. Row 1 does not hold.**
+
+### THE ACTUAL DEFECT, and it is a contradiction inside errata 28b
+
+The mud is a hotspot spanning `[0, 660, 1920, 204]` — **the entire walkable band**. So every click on walkable ground is also a click on an object, and 28b's first two rows give opposite answers:
+
+| 28b row | Says | For a click on the mud |
+|---|---|---|
+| 1 | walkable ground walks **always**, no verb consumed | walk |
+| 2 | object + selected verb → perform that verb | examine |
+
+The code implements row 2, with one exception: it walks when the resolved verb *is* `WALK_TO`. So:
+
+| Selection | Click on the mud | Correct per 28b? |
+|---|---|---|
+| nothing | walks (mud's own `WALK_TO`) | ✔ both rows agree |
+| `LOOK_AT` | **examines the mud** | ✘ row 1 says walk, always |
+
+**The ruling contradicts itself for any object that IS the ground, and the mud is the only such object in the game so far.** Room 2's `mud` and `boardwalk` run the full 1920 as well, so Main Street will have it twice over.
+
+### AND THE PART THAT MAKES IT PERMANENT
+
+**There is no way to deselect a verb.** `selectVerb` is the only path from the panel, `resetToDefault` is only called on a new game, and clicking the selected verb again re-selects it. So the no-verb state exists **only before the player's first verb click of the entire game**, and once left, it can never be returned to.
+
+> **One third of errata 28b's table becomes permanently unreachable the first time a player touches the panel** — and with it, every object's `defaultVerb`, which the authoring rule calls *"the verb a player would try first"* and which `check-default-verbs` exists to enforce. Every one of those authoring decisions is live for exactly one click per playthrough.
+
+That is the resting-state fault, stated exactly: **the game has a resting state that a player can leave and never return to.**
+
+### What is NOT wrong
+
+The mud's own `defaultVerb: WALK_TO` is right and already does its job. `GameScene`'s walk shortcut is right and already carries the comment explaining it. `check-default-verbs` is right. Nothing has drifted from a written rule — **the written rule disagrees with itself**, and the disagreement was invisible until one object grew to the size of the floor.
+
+**Nothing changed. This is a report.** Three things need ruling and they are separable: whether row 1 beats row 2 for ground-sized objects; whether a verb clears on use (a change to 28b); and whether a deselect exists at all, which is the smallest of the three and the one that restores the table without touching the ruling.
+
+---
+
+## Q75 · The held pose is expressible today, and the cheap way to express it reproduces the door-open fault
+
+**The fear is correct and the number is 0.143 seconds.**
+
+`chore` is a one-shot whose length is `frames.length / reactRate`. `lookup` has **one** frame and Thad's `reactRate` is **7**, so `chore lookup` raises his head for **one seventh of a second** and drops it — before the driver has begun answering, and quite possibly inside a single sampled frame of a play-through.
+
+### The vocabulary can already express it, and it is doing this exact job in this exact scene
+
+**Fourth of the same shape, and the answer this time is that nothing is missing.** `state` on `ActorClip`, `setState` and `interact` were each a capability the engine had before the vocabulary named it. This one the vocabulary *does* name:
+
+```
+{ kind: 'setState', object: string, state?: string }
+```
+
+`state` is optional, and omitting it **clears**, which is how the coach's door shuts — back to the declared clip rather than to a state called "shut" that nothing declares.
+
+**And the coach's door is a held pose across a conversation.** `content/sequences/opening.json`, beat 2:
+
+```json
+{ "do": "setState", "object": "coach", "state": "door-open" }
+```
+
+Set at beat 2, never cleared, held through beat 6 — the whole driver's tree. **The thing being asked for is already running, on the object standing next to him, in the same beats.**
+
+### What it needs is a registration, not a mechanism
+
+`thad.json` declares the frame as its own clip: `{ "id": "lookup", "facing": "left" }`. Nothing plays a clip called `lookup` except a chore, and a chore is a one-shot.
+
+Held instead, it is a **state of a clip he is already playing**: `{ "id": "idle", "facing": "left", "state": "lookup" }`. The renderer asks `sprite.frameCount(clip, facing, surface, state)` with `state` from `moverState`, and `clipOf` is exact-match-then-fall-back — so the variant answers while the state is set, the plain clip answers when it is cleared, and every other clip he plays falls back untouched. `objectStates` is already saved and restored, so it survives a save for free.
+
+### AND THE CHEAP VERSION REPRODUCES THE FAULT THAT WAS JUST FIXED
+
+**A state variant replaces the whole animated clip, not one frame of it.** So `idle/lookup` with **one frame** means Thad **stops breathing for the entire conversation** — head up, perfectly still, for the longest-held pose in the scene.
+
+That is the door-open fault exactly, one object over:
+
+| | frames | on screen for |
+|---|---|---|
+| coach `idle/door-open` **before** | 1 | beats 2–6, the whole conversation |
+| coach `idle/door-open` **now** | 24 | beats 2–6 |
+| thad `idle/lookup` **if registered as one frame** | 1 | beats 3–6, looking up at the driver |
+
+The door-open clip was found because *"none of the lamps are glowing brighter then dimmer"* — a still picture noticed by its stillness. A man holding his head up and not breathing, at 233px, in the foreground, is the same thing at closer range.
+
+> **The lookup pose needs a breathing loop, not a frame** — the same six frames the idle has, generated at the raised head. Doing it with one frame will work, will pass every check, and will look like a photograph of him.
+
+**Nothing invented and nothing changed.** The step exists, the store exists, the fall-back exists, and the coach proves the whole path in the same sequence. What is needed is a clip registration and, to avoid shipping the fault that was fixed this morning, six frames rather than one.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

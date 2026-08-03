@@ -359,6 +359,30 @@ The two are told apart by one question: **if the content were wrong, would this 
 
 **Aim is where the harness reaches. Judgement is what it concludes.** Derive the first so a moving world cannot break it; write the second by hand so a wrong world cannot hide behind it.
 
+## R5l · AN UNUSED FIELD IS NOT SAFE, IT IS UNTESTED
+
+**Everything else in this section is about a mechanism that agrees with itself. This is about several mechanisms agreeing that something EXISTS while none of them agrees what it is FOR.**
+
+`idleBreakRate` is the clean specimen. `tools/build-actor-record.mjs` wrote it into every actor record. `engine/core/types.ts` declared it, with a doc comment explaining it. `docs/40` specified its value. Three layers, in agreement, on a field **read by no code at all** — so the glance played at the breathing rate, and the number that was supposed to govern it sat one property away, correct, and inert.
+
+**That is a different failure from a stale value.** A stale value is a right answer to a question that has changed. This is a value nobody ever asked for: it cannot go stale, because staleness requires a reader to be misled, and there was no reader.
+
+**The tell is that everything looks finished.** The generator emits it, the type documents it, the schema validates it, the record shows it in every diff. Every artefact anybody inspects is present and correct. What is missing is the only thing that would have mattered — somebody consuming it — and absence of a consumer is invisible in every artefact.
+
+**Verified positions in one session:**
+
+| Field | Declared by | Written by | Read by |
+|---|---|---|---|
+| `idleBreakRate` | `types.ts`, doc 40 | `build-actor-record.mjs` | **nothing** |
+| the gauntlet script's `room` | doc 44, *"must equal `manifest.startRoom`"* | by hand | **nothing** — and its value was wrong from the day it was typed |
+| `art/effects/lantern-glow.json` | doc spec, in full | the art pipeline | **nothing** in `engine/`, `tools/` or `content/` |
+
+**`room` is the sharpest of the three, because it was WRONG.** It said `stage-road` where the room calls itself `stage_road`, and doc 44 had specified the constraint from the beginning. It stayed wrong through every validation run this project has ever had, and it became wrong — detectably, instantly — the moment one line resolved a click through it. **A field acquires correctness the day something depends on it, and not before.**
+
+> **When you add a field, name its reader in the same change.** If there is not one yet, the field is a plan and belongs in a document, not in a record — because in a record it will be indistinguishable from a working feature, to every check, in every diff, indefinitely.
+
+**A check is possible and is not built.** The shape: a name that appears only in its declaration and its generator, and in nothing that reads. A plain identifier grep over `engine/` and `tools/` gets close — of 41 keys across the actor records, only three are named nowhere in code today, and two of those are state *values* rather than fields. What that heuristic misses is exactly the `idleBreakRate` case, where the name does appear twice, in the two places that do not count. Distinguishing *declares* and *writes* from *reads* is the work, and it is the difference between a useful check and a noisy one.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.
