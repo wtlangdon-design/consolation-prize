@@ -203,6 +203,18 @@ function opening() {
     //
     // Every position below is measured against those, not guessed.
     2: [
+      // THE COACH IS PLACED FIRST, and this is the only place it is placed.
+      //
+      // It was previously placed by beat 6b's `from` -- the beat where it
+      // LEAVES -- so for beats 2 through 6 it stood wherever the mover
+      // happened to be created, and Thad alighted at the door's correct
+      // coordinates while the coach was somewhere else entirely. A mover with
+      // no placement is not at the origin; it is at whatever the last thing to
+      // touch it left it at, which is worse because it looks deliberate.
+      //
+      // x1390 is where its hotspot (1152-1632) and case_roof (1236) have
+      // always said it stands.
+      { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
       // At the DOORWAY, on the coach's own ground line. A chore plays wherever
       // the actor is; without this he climbed down out of thin air at the
       // frame's bottom centre.
@@ -232,7 +244,9 @@ function opening() {
     ],
     // BEAT 6b: errata 38's whole reason for existing. It LEAVES; it does not
     // vanish. `from` places the mover -- `walk` never places, only `move` does.
-    '6b': [{ do: 'move', actor: 'coach', from: [1390, 742], to: [3000, 742], seconds: 3 }],
+    // No `from` here: beat 2 placed it, and repeating the placement would
+    // teleport it back to its mark if anything had nudged it.
+    '6b': [{ do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 }],
     // BEAT 7 places Hob off frame LEFT, because he is drawn right-facing only
     // and a right-facing man walks rightward. He is placed here rather than in
     // beat 9 because `walk` never creates a mover, only `move` places, and
