@@ -415,6 +415,24 @@ That is the prescription, and it is sharper than R5l's. R5l needs a judgement ab
 
 **And the four failures were the good kind.** They did not fail because they were wrong when written — they were right, under the old rule, and they encoded it faithfully enough that changing the rule broke them. **A test that survives a genuine change of behaviour was not testing that behaviour.**
 
+## R5n · WORK THAT EXISTS IN ONE PLACE DOES NOT EXIST
+
+**The third of this shape, and it completes the set.** R5l is a field nobody reads. R5m is a rule nobody can test. **This is work nobody else can see** — and the tell is the same one a third time: everything looks finished to the person holding it, and there is no artefact anywhere that says otherwise.
+
+**Three in one session, each correct and each invisible:**
+
+| | what existed | who could see it |
+|---|---|---|
+| a branch green in CI and never merged | the fix | its author |
+| a hand edit to a generated file | the fix, until the extractor next ran | nobody, afterwards |
+| a rebuilt clip written to disk and never `git add`ed | the fix | its author's working tree |
+
+**The third is the sharpest because it produced a disagreement about fact.** One party read `origin/main` and measured two distinct pictures; the other read their own working tree and reported four. Both were looking honestly and both were right about what they could see. **An uncommitted fix is indistinguishable from no fix to everybody except the person holding it** — and the only reason it resolved quickly is that the measurement was reproducible from a named ref (`git show origin/main:...`) rather than from a working directory.
+
+> **When reporting a measurement of the tree, name the ref you measured.** "It is 4 distinct" and "it is 4 distinct on `origin/main`" are different claims, and only the second can be checked by the person you are telling.
+
+**And it argues for the same remedy as R5l and R5m: give the work an artefact somebody else can reach.** Commit the branch, put the hand edit in the generator, `git add` the file — and, one level up, put the pipeline stage in `tools/` rather than in a conversation, which is what `downscale.py` is for.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.
