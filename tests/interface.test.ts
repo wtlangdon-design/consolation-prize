@@ -1023,20 +1023,50 @@ test('errata 30a: a duration on a beat the player controls is refused', async ()
   const held = { ...automatic, beats: [{ ...first, seconds: 3, staging: [] }] };
   assert.ok(stepsFor(held).some((step) => step.kind === 'wait'), 'the duration became a wait');
 
-  // And a beat that stages something does NOT get one. The actor is the
+  // And a beat whose staging TAKES TIME does not get one. The actor is the
   // protagonist by id from content -- a beat carries no `actor` of its own,
   // its STAGING STEPS do, which is the whole point of naming one per step.
-  const staged = {
+  const walking = {
     ...automatic,
     beats: [{
       ...first,
       seconds: 3,
-      staging: [{ do: 'face' as const, actor: content.actor.id, facing: 'right' as const }],
+      staging: [{ do: 'walk' as const, actor: content.actor.id, to: [900, 800] as [number, number] }],
     }],
   };
   assert.ok(
-    !stepsFor(staged).some((step) => step.kind === 'wait'),
-    'staging replaces the hold rather than adding to it',
+    !stepsFor(walking).some((step) => step.kind === 'wait'),
+    'timed staging replaces the hold rather than adding to it',
+  );
+
+  // BUT STAGING THAT TAKES NO TIME DOES NOT REPLACE IT, and the coarse rule
+  // that said otherwise cost a beat. "Any staging at all" was near enough
+  // while beat 7 glided Hob in from off frame over two seconds; the moment he
+  // was placed standing instead -- a tenth of a second -- the beat collapsed
+  // from three seconds to 0.12, taking the coach's recede, the piano and the
+  // act card's own beat with it. Found by the gauntlet's timings.
+  //
+  // A `face` and a placement put something somewhere. They are not durations.
+  const placed = {
+    ...automatic,
+    beats: [{
+      ...first,
+      seconds: 3,
+      staging: [
+        { do: 'face' as const, actor: content.actor.id, facing: 'right' as const },
+        {
+          do: 'move' as const,
+          actor: content.actor.id,
+          from: [900, 800] as [number, number],
+          to: [900, 800] as [number, number],
+          seconds: 0.1,
+        },
+      ],
+    }],
+  };
+  assert.ok(
+    stepsFor(placed).some((step) => step.kind === 'wait'),
+    'a beat that only places things still lasts as long as the document says',
   );
 });
 

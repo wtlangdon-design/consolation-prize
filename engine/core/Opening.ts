@@ -84,6 +84,36 @@ export function segmentsOf(file: SequenceFile): Segment[] {
  * seconds are how long the beat lasts, not how long the game waits before
  * starting it.
  */
+/**
+ * Whether a beat's staging consumes time of its own.
+ *
+ * THE RULE WAS "ANY STAGING AT ALL" AND THAT WAS TOO COARSE. Doc 17's seconds
+ * are how long a beat LASTS, and where the beat's action is executable the
+ * action is what lasts -- a staged arrival that also waited its eight seconds
+ * afterwards would play the arrival and then stand there for the length of it
+ * again. That reasoning is right and it only applies to staging that TAKES
+ * time.
+ *
+ * BEAT 7 IS THE CASE THAT BROKE IT. It used to glide Hob in from off frame
+ * over two seconds, which is a duration, so dropping its stated three was
+ * near enough. He is now placed standing -- `move` from a point to the same
+ * point, a tenth of a second -- and the beat collapsed to 0.12s: the coach
+ * receding, the piano and the act card's own beat, gone in a frame. Caught by
+ * the gauntlet's timings, which is what they are for.
+ *
+ * A PLACEMENT IS NOT A DURATION. `move` from a point to itself puts a mover
+ * somewhere; a walk, a chore, or a `move` that actually travels are the three
+ * things that take a stated length of time.
+ */
+function stagingTakesTime(beat: SequenceBeat): boolean {
+  return (beat.staging ?? []).some((staged) => {
+    if (staged.do === 'walk' || staged.do === 'chore') return true;
+    if (staged.do !== 'move') return false;
+    return !staged.from
+      || staged.from[0] !== staged.to[0] || staged.from[1] !== staged.to[1];
+  });
+}
+
 export function stepsFor(segment: Segment): SequenceStep[] {
   const automatic = segment.kind === 'automatic';
   if (!automatic) {
@@ -111,7 +141,7 @@ export function stepsFor(segment: Segment): SequenceStep[] {
     for (const spoken of unplacedLines(beat)) {
       steps.push({ kind: 'say', actor: spoken.speaker, line: spoken.line });
     }
-    if (beat.seconds !== undefined && !(beat.staging?.length)) {
+    if (beat.seconds !== undefined && !stagingTakesTime(beat)) {
       steps.push({ kind: 'wait', seconds: beat.seconds });
     }
     // Tagged once, here, rather than threaded through `lower`: every step this

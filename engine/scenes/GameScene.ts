@@ -874,7 +874,15 @@ export class GameScene extends Phaser.Scene {
         this.actCard = card;
         const steps = stepsFor(segment);
         const extra = this.state.content.ui.timing?.actCardExtraSeconds ?? 0;
-        if (card && extra > 0) steps.push({ kind: 'wait', seconds: extra });
+        if (card && extra > 0) {
+          // TAGGED WITH THE BEAT THAT RAISED THE CARD. Doc 44: a step with no
+          // beat makes the runner report no beat, so the four seconds the
+          // card holds read as time belonging to nothing -- the gauntlet
+          // timed beat 7 at a tenth of a second and the card's own hold
+          // vanished from the record.
+          const holder = segment.beats.find((entry) => entry.actCard)?.beat;
+          steps.push({ kind: 'wait', seconds: extra, beat: holder } as SequenceStep);
+        }
         this.sequence.start(steps);
         this.markDirty();
         return;
