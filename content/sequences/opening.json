@@ -118,14 +118,19 @@
           "do": "walk",
           "actor": "thad",
           "to": [
-            1330,
-            812
+            1420,
+            830
           ]
         },
         {
           "do": "face",
           "actor": "thad",
-          "facing": "right"
+          "facing": "left"
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "lookup"
         },
         {
           "do": "say",

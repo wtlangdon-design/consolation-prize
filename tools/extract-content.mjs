@@ -286,15 +286,23 @@ function opening() {
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
-      // HE SPEAKS FROM THE STEP, THEN CLIMBS DOWN. Without the staged `say`
-      // the lines played AFTER the staging, so he climbed down, crossed the
-      // road, and only then announced himself -- which is not the picture and
-      // not what beat 2 holding him in the doorway was for.
+      // He speaks his first line FROM THE STEP, then climbs down.
       { do: 'say', line: 0 },
       { do: 'chore', actor: 'thad', clip: 'alight-coach' },
-      { do: 'walk', actor: 'thad', to: [1330, 812] },
-      { do: 'face', actor: 'thad', facing: 'right' },
-      // and the driver answers him once he is down
+      // TO THE DRIVER'S RIGHT, not under his box. The box is x1332-1364 and
+      // the horses begin at 1485, so there are 121px of gap and he is about
+      // 100 wide at this depth. Nearer the camera at y830 than the coach's
+      // wheels at 742, so he sorts in front of the team.
+      { do: 'walk', actor: 'thad', to: [1420, 830] },
+      // FACING LEFT, because the driver's own `looking-down` turns toward
+      // frame RIGHT -- 107k changed pixels right of his head's centre against
+      // 51k left. Thad on his right, facing left, and they face each other,
+      // which no previous arrangement did.
+      { do: 'face', actor: 'thad', facing: 'left' },
+      // AND HE LOOKS UP. He has no facing that does -- four facings, three
+      // talk overlays, none tilted -- so a figure in profile looks at the
+      // horizon wherever he stands. This is the clip that fixes it.
+      { do: 'chore', actor: 'thad', clip: 'lookup' },
       { do: 'say', line: 1 },
     ],
     6: [
