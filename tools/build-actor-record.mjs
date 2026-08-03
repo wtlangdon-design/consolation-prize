@@ -76,7 +76,12 @@ const CLIPS = [
   // Standing still, LOOKING UP at the driver's box. Left only: he stands to
   // the driver's right, and the driver's own looking-down turns toward frame
   // right, so they face each other.
-  { id: 'lookup', dir: 'lookup', prefix: 'lookup' },
+  // A STATE OF `idle`, NOT A CLIP OF ITS OWN -- the same shape the coach's
+  // open door uses above. As `{id: 'lookup'}` nothing but a chore could ever
+  // play it, and a chore is a one-shot; as a state of the clip he already
+  // stands in, `setState` holds it for as long as a beat says and every frame
+  // of it breathes.
+  { id: 'idle', dir: 'lookup', prefix: 'lookup', state: 'lookup' },
   // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
   // named mover; a hotspot's state image is drawn by drawPlate and cannot be
   // translated at all, so beat 6b could never have worked from one. Its two

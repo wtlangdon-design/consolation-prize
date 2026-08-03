@@ -482,7 +482,7 @@
       ]
     },
     {
-      "id": "lookup",
+      "id": "idle",
       "facing": "left",
       "frames": [
         "art/actors/thad-lookup-left/lookup-00.png",
@@ -496,7 +496,8 @@
       "anchor": [
         140,
         526
-      ]
+      ],
+      "state": "lookup"
     }
   ]
 }

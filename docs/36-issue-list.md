@@ -1866,6 +1866,14 @@ The surviving sentence sits at the end of the section on **what the town says ab
 
 **This one is the project owner's**, and it is the only item tonight whose answer changes what the opening *is* rather than how it is checked.
 
+### UPDATE — the number moved to 7.36s and the question did not
+
+`327f615` removed the `aboard-coach` chore from beat 2. That leaves the beat with nothing in its staging that takes time — three zero-distance moves, a `setState` and a `face` — so `stagingTakesTime` returns false and `stepsFor` emits the beat's written `wait` instead. **Beat 2 now holds 7.36s against its stated 8**, up from 0.86s, and the harness's shortfall line no longer fires.
+
+**Nothing arrived.** The beat holds its eight seconds because it *waits* for them, not because anything happens during them. It went from a beat that was too short for its content to a beat that is the right length and empty — which is a different state, arguably a worse one to look at, and **not** an answer to doc 43's question.
+
+**The measurement that made this visible has therefore stopped making it visible**, which is worth knowing before the shortfall line is trusted as coverage: it catches a beat that ends early, and cannot catch a beat that fills its time with a pause. What would catch it is a mark asserting that something MOVES during beat 2, and there is nothing to assert yet.
+
 ---
 
 ## Q73 · The ping-pong walk is every walk clip in the game, not two

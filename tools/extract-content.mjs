@@ -290,10 +290,28 @@ function opening() {
       // then crosses to the driver's right and looks up at him
       { do: 'walk', actor: 'thad', to: [1420, 830] },
       { do: 'face', actor: 'thad', facing: 'left' },
-      { do: 'chore', actor: 'thad', clip: 'lookup' },
+      // A HELD POSE, NOT A CHORE, and the difference is the whole beat. A
+      // chore is a one-shot of frames/reactRate: `lookup` is 6 frames at 7,
+      // so it raised his head for 0.86s and dropped it BEFORE THE DRIVER
+      // ANSWERED. He has to still be looking up while the man he is looking
+      // up at replies.
+      //
+      // Q75. The mechanism was already here and already proven one object
+      // over: the coach's door is `setState` at beat 2, never cleared, held
+      // through beat 6 -- a held pose across this same conversation. `lookup`
+      // is registered as a STATE of the clip he is already playing rather
+      // than as its own clip id, so it is the idle he stands in, at the
+      // raised head, breathing.
+      { do: 'setState', object: 'thad', state: 'lookup' },
       { do: 'say', line: 1 },
     ],
     6: [
+      // AND IT CLEARS HERE, at the end of the conversation it was raised for.
+      // Omitting `state` clears, which is how the coach's door shuts: back to
+      // the declared clip rather than to a state called "down" that nothing
+      // declares. He looks up for exactly as long as somebody is talking to
+      // him from a coach box, because a beat says so.
+      { do: 'setState', object: 'thad' },
       { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'pickup-low' },
     ],

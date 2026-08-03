@@ -118,9 +118,9 @@
           "facing": "left"
         },
         {
-          "do": "chore",
-          "actor": "thad",
-          "clip": "lookup"
+          "do": "setState",
+          "object": "thad",
+          "state": "lookup"
         },
         {
           "do": "say",
@@ -181,6 +181,10 @@
         "T_CASE_DOWN": true
       },
       "staging": [
+        {
+          "do": "setState",
+          "object": "thad"
+        },
         {
           "do": "face",
           "actor": "thad",

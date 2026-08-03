@@ -517,6 +517,33 @@ test('a clip nobody has drawn is named, never substituted', async () => {
   );
 });
 
+test('Q75: lookup is a HELD state of the left idle, and a turn drops it silently', async () => {
+  const content = await loadContent(fsReader);
+  const sprite = new ActorSprite(content.actor, () => null);
+
+  // A CHORE COULD NOT DO THIS. `lookup` was its own clip id, so only a chore
+  // could play it -- a one-shot of frames/reactRate, 6/7 = 0.86s, over before
+  // the driver answered. As a STATE of the clip he already stands in, setState
+  // holds it for as long as a beat says. Same mechanism as the coach's door.
+  assert.equal(sprite.frameCount('idle', 'left', '', 'lookup'), 6);
+  const plain = content.actor.clips.find(
+    (clip) => clip.id === 'idle' && clip.facing === 'left' && !clip.state);
+  const held = content.actor.clips.find(
+    (clip) => clip.id === 'idle' && clip.facing === 'left' && clip.state === 'lookup');
+  assert.ok(plain && held, 'both the plain left idle and its lookup variant are declared');
+  assert.notEqual(plain.frames[0], held.frames[0], 'and they are different pictures');
+
+  // AND A TURN DROPS IT RATHER THAN THROWING, which is what makes it need no
+  // special case. He is placed facing FRONT in beat 2 and turns left in beat
+  // 3; `lookup` exists in left only. clipOf is exact-match-then-fall-back, so
+  // any other facing answers with the stateless clip -- he simply stops
+  // looking up if anything ever turns him, which is correct.
+  for (const facing of ['front', 'back', 'right'] as const) {
+    assert.equal(sprite.frameCount('idle', facing, '', 'lookup'), 6,
+      `${facing} falls back to the plain idle rather than failing`);
+  }
+});
+
 test('doc 40\'s idle-break plays only where the record declares it', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());

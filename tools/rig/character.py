@@ -357,6 +357,13 @@ def main():
                     help="idle is the rest state every chore settles into (doc 22)")
     ap.add_argument("--breath", type=float, default=1.0,
                     help="scales the idle breath; 1.0 is about one display pixel")
+    ap.add_argument("--state", default=None,
+                    help="ActorClip's state discriminator, written through to rig.json. "
+                         "A clip with a state is a VARIANT of the clip it names -- the "
+                         "coach's open door is idle/door-open -- and clipOf does "
+                         "exact-match-then-fall-back, so a mover with no state gets the "
+                         "stateless clip. This is what lets a pose be HELD by setState "
+                         "rather than played once as a chore")
     ap.add_argument("--pose", default="striding", choices=["striding", "standing"],
                     help="which hem strategy to use. DECLARED, never inferred: a "
                          "detector that accepts legs-together and legs-apart under "
@@ -511,7 +518,7 @@ def main():
         (out / "rig.json").write_text(json.dumps(dict(
             source=args.source, key=args.key, clip="stand", view=args.view,
             facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
-            padding=P, frames=1), indent=2))
+            padding=P, **({} if args.state is None else {"state": args.state}), frames=1), indent=2))
         print("stand: 1 frame, identical to idle frame 0")
         return
 
@@ -536,7 +543,7 @@ def main():
             Image.fromarray(f.astype(np.uint8)).save(out / f"recoil-{i:02d}.png")
         (out / "rig.json").write_text(json.dumps(dict(
             source=args.source, key=args.key, clip="recoil", view=args.view,
-            facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P,
+            facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P, **({} if args.state is None else {"state": args.state}),
             motion=("pull-up" if args.view == "headon" else "lean-back"),
             frames=len(RECOIL)), indent=2))
         print(f"recoil: {len(RECOIL)} frames, "
@@ -599,7 +606,7 @@ def main():
                 Image.fromarray(f.astype(np.uint8)).save(out / f"idle-break-{i:02d}.png")
         meta = dict(source=args.source, key=args.key, clip="idle-break",
                     view=args.view, facing=args.facing, figure=[fig_w, fig_h],
-                    shoulder_row=int(shoulder_row), padding=P, step_px=step,
+                    shoulder_row=int(shoulder_row), padding=P, **({} if args.state is None else {"state": args.state}), step_px=step,
                     motion=("glance" if args.view == "headon" else "shrug"),
                     frames=len(seq))
         (out / "rig.json").write_text(json.dumps(meta, indent=2))
@@ -653,7 +660,7 @@ def main():
             Image.fromarray(f.astype(np.uint8)).save(out / f"idle-{i:02d}.png")
         meta = dict(source=args.source, key=args.key, clip="idle", view=args.view,
                     facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
-                    padding=P, breath_px=round(amp, 1), frames=len(IDLE_BREATH))
+                    padding=P, **({} if args.state is None else {"state": args.state}), breath_px=round(amp, 1), frames=len(IDLE_BREATH))
         (out / "rig.json").write_text(json.dumps(meta, indent=2))
         used = sorted({-int(round(amp * t / step)) * step for t in IDLE_BREATH})
         # AND IT SAYS SO WHEN IT HAPPENS. The floor above should make this
@@ -708,7 +715,7 @@ def main():
     meta = dict(source=args.source, key=args.key, view=args.view, facing=args.facing,
                 walk_dx=(1 if args.facing == "right" else -1),
                 figure=[fig_w, fig_h], hem_row=hem,
-                hem_pct=round(hem / fig_h * 100, 1), pivot_row=pivot, padding=P,
+                hem_pct=round(hem / fig_h * 100, 1), pivot_row=pivot, padding=P, **({} if args.state is None else {"state": args.state}),
                 rows_legs_separate=sep_rows,
                 near_leg_px=int(near_lm.sum()), far_leg_px=int(far_lm.sum()),
                 arms_rigged=near_am is not None,
