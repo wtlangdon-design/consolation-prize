@@ -3,7 +3,7 @@ import type { PresentedOption } from '../core/DialogueRunner.ts';
 import type { Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
-import type { AmbientFile, Interactable } from '../core/types.ts';
+import type { AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
@@ -35,6 +35,13 @@ export interface Frame {
   showPanel?: boolean;
   /** The map location under the pointer, so it can draw as the live one. */
   hoveredLocation?: string | null;
+  /**
+   * Who is speaking, so a head overlay can answer to it. Doc 43 line 97.
+   *
+   * The overlay's states name their own speaker; this is the fact they are
+   * matched against. Null when nobody is talking, which selects the default.
+   */
+  speaker?: string | null;
   /**
    * Which beat is playing, so a violation can name it. Doc 44.
    *
@@ -263,6 +270,8 @@ export class Renderer {
    * paid for when nobody is reading it.
    */
   private readonly drawnAs = new Map<string, string>();
+  private readonly shownOverlays = new Map<string, string>();
+  private speaker: string | null = null;
   private frameIndex = 0;
 
   /** How every mover drew on the last composed frame. Doc 44's `drawn`. */
@@ -330,6 +339,7 @@ export class Renderer {
       this.frameIndex += 1;
       watch.frame(this.frameIndex, this.clock, frame.beat ?? null);
     }
+    this.speaker = frame.speaker ?? null;
     if (this.state.isMap) {
       this.drawRoom();
       this.drawMap(frame);
@@ -595,6 +605,10 @@ export class Renderer {
     if (!drawn) {
       this.drawFigure(feetX, feetY, mover.height, this.screen.role('overlayBg'));
     }
+    // THE OVERLAY GOES ON ONLY IF THE BODY WENT ON. A head composited over a
+    // graybox is a head floating beside a placeholder, which reads as two
+    // faults rather than the one that is actually there.
+    if (drawn) this.drawOverlays(sprite, mover, surface, state, feetX, feetY);
     if (!watch.enabled) return drawn ? this.spanOf(sprite, mover, state, grayHalfWidth)
       : grayHalfWidth;
 
@@ -618,6 +632,68 @@ export class Renderer {
         `${clip}/${mover.facing} has ${frames} frame(s) and none has loaded`);
     }
     return drawn ? this.spanOf(sprite, mover, state, grayHalfWidth) : grayHalfWidth;
+  }
+
+  /**
+   * Every head overlay that belongs to this mover, over the body just drawn.
+   *
+   * Doc 43's draw order puts these at step 4, after the depth-sorted movers
+   * and before the foreground -- but each goes on ITS OWN body immediately,
+   * not in a later pass, because a head that waits for a second pass is a head
+   * drawn over whoever happened to be standing in front of its owner.
+   */
+  private drawOverlays(sprite: ActorSprite, mover: Actor, surface: string,
+                       state: string | undefined, feetX: number, feetY: number): void {
+    for (const overlay of this.state.content.overlays.values()) {
+      if (overlay.over !== mover.id) continue;
+      const shown = this.overlayState(overlay);
+      this.shownOverlays.set(overlay.id, shown);
+      const declared = overlay.states[shown];
+      if (!declared) continue;
+      const image = this.sheet(declared.image);
+      // No substitution, and no silent skip either: an overlay whose image has
+      // not arrived draws nothing THIS frame and the watch says so, exactly as
+      // a body clip does.
+      if (!image) {
+        if (watch.enabled) {
+          watch.record('graybox:not-loaded', overlay.id,
+            `overlay ${shown} has not loaded`);
+        }
+        continue;
+      }
+      const place = sprite.placement(mover.clip, mover.facing, surface, feetX, feetY,
+        mover.height, state);
+      if (!place) continue;
+      const [rx, ry, rw, rh] = overlay.rect;
+      const scale = mover.height / overlay.figureHeight;
+      this.screen.context.drawImage(
+        image,
+        Math.round(place.x + rx * scale), Math.round(place.y + ry * scale),
+        Math.max(1, Math.round(rw * scale)), Math.max(1, Math.round(rh * scale)),
+      );
+    }
+  }
+
+  /**
+   * Which state an overlay is in, from who is speaking. Doc 43 line 97.
+   *
+   * The rule is in the DATA -- each state names the speaker that selects it --
+   * so the engine matches a string and knows nothing about a driver looking
+   * down at a man on the road.
+   */
+  private overlayState(overlay: OverlayFile): string {
+    const speaker = this.speaker;
+    if (speaker) {
+      for (const [id, declared] of Object.entries(overlay.states)) {
+        if (declared.whenSpeaker === speaker) return id;
+      }
+    }
+    return overlay.default;
+  }
+
+  /** The state each overlay drew in, for the probe. Doc 44 part three. */
+  shownOverlayStates(): Record<string, string> {
+    return Object.fromEntries(this.shownOverlays);
   }
 
   /**

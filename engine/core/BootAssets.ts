@@ -174,6 +174,21 @@ export function planBoot(bundle: ContentBundle): BootPlan {
     }
   }
 
+  // A HEAD OVERLAY IS REQUIRED IF ITS BODY IS. The driver rides in on the
+  // coach in beat 2; a head that arrives late is a stagecoach whose driver
+  // appears a second after the coach does, which is worse than one who was
+  // never drawn -- the second reads as unfinished and the first as broken.
+  //
+  // Every state, not just the default: they swap on a spoken line, which is
+  // beat 3, and a state fetched at the moment it is first needed is a state
+  // that is not there when it is needed.
+  for (const overlay of bundle.overlays.values()) {
+    if (!cast.has(overlay.over)) continue;
+    for (const state of Object.values(overlay.states)) {
+      required.set(state.image, { key: state.image, path: state.image });
+    }
+  }
+
   const later = (asset: BootAsset) => {
     if (!required.has(asset.key)) deferred.set(asset.key, asset);
   };
@@ -187,6 +202,11 @@ export function planBoot(bundle: ContentBundle): BootPlan {
   }
   for (const npc of bundle.ambient.values()) {
     if (npc.sprite) later({ key: npc.sprite.sheet, path: npc.sprite.sheet });
+  }
+  for (const overlay of bundle.overlays.values()) {
+    for (const state of Object.values(overlay.states)) {
+      later({ key: state.image, path: state.image });
+    }
   }
   later({ key: bundle.itemIcons.sheet, path: bundle.itemIcons.sheet });
 

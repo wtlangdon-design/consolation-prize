@@ -842,6 +842,8 @@ export interface ManifestFile {
   /** Every actor record, named explicitly. Never discovered from a directory. */
   actors?: string[];
   actorsNote?: string;
+  /** Head overlays -- a head composited over a body that never swaps. */
+  overlays?: string[];
   items: string[];
   /** Verb panel and inventory geometry. Errata ruling 26. */
   panel: string;
@@ -852,6 +854,54 @@ export interface ManifestFile {
 }
 
 /** Everything the engine needs, resolved from the manifest. */
+/**
+ * content/actors/<id>-head.json -- A HEAD COMPOSITED OVER A BODY THAT DOES NOT
+ * MOVE. Doc 43 part two's draw order step 4, and Q55.
+ *
+ * IT IS NOT A MOVER AND MUST NOT BECOME ONE. The stage driver is drawn inside
+ * the coach's own frames: only 55% of him separates, and below 27% of the
+ * assembly he is fused into the seat, footboard and reins. Splitting him out
+ * as a character would put a seam down the harness, which is errata 31d's
+ * ruling about the team and holds for him for the same reason.
+ *
+ * IT IS NOT A CLIP EITHER, and `tools/check-actor-clips.mjs` exists to keep
+ * the two apart: an overlay carries a `figure` because the rig records the
+ * body it belongs to, and a record that declared it as a body clip would scale
+ * it to that figure and draw a sprite four to eight pixels tall. Absurd,
+ * silent, and produced by code that did nothing obviously wrong.
+ */
+export interface OverlayState {
+  image: string;
+  /**
+   * The speaker that selects this state, if one does.
+   *
+   * DOC 43 LINE 97 IS CONTENT, NOT A RULE IN THE ENGINE: `looking-down` while
+   * Thad speaks up at him, `speaking` on the driver's own lines, `neutral`
+   * otherwise. A fact about one character in one scene, and nothing general
+   * follows from it -- so it is authored per state rather than inferred from
+   * who is talking to whom.
+   */
+  whenSpeaker?: string;
+}
+
+export interface OverlayFile {
+  schema: number;
+  /** The overlay's own name, which is what the probe and the gauntlet call it. */
+  id: string;
+  /** The mover whose body it composites onto. */
+  over: string;
+  note?: string;
+  rectNote?: string;
+  statesNote?: string;
+  /** [x, y, w, h] in the BODY FRAME'S OWN PIXELS, scaled with the drawn height. */
+  rect: [number, number, number, number];
+  /** The body's figure height, so the rect scales exactly as the body does. */
+  figureHeight: number;
+  /** The state drawn when no speaker selects another. */
+  default: string;
+  states: Record<string, OverlayState>;
+}
+
 export interface ContentBundle {
   menu: MenuFile;
   manifest: ManifestFile;
@@ -874,6 +924,8 @@ export interface ContentBundle {
   combinations: CombinationsFile;
   itemIcons: ItemIconsFile;
   sequences: Map<string, SequenceFile>;
+  /** Head overlays by id. Empty until something declares one. */
+  overlays: Map<string, OverlayFile>;
 }
 
 /**

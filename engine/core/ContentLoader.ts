@@ -1,5 +1,6 @@
 import type {
   ActorFile,
+  OverlayFile,
   AmbientFile,
   ContentBundle,
   CombinationsFile,
@@ -55,6 +56,12 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   );
   const actors = new Map(actorFiles.map((file) => [file.id, file]));
   if (!actors.has(actor.id)) actors.set(actor.id, actor);
+  // Head overlays, by their own id. Named in the manifest like everything
+  // else: an overlay discovered from a directory is an overlay nobody chose.
+  const overlayFiles = await Promise.all(
+    (manifest.overlays ?? []).map((path) => read(path) as Promise<OverlayFile>),
+  );
+  const overlays = new Map(overlayFiles.map((file) => [file.id, file]));
   const panel = (await read(manifest.panel)) as PanelFile;
   const combinations = (await read(manifest.combinations)) as CombinationsFile;
   const itemIcons = (await read(manifest.itemIcons)) as ItemIconsFile;
@@ -112,7 +119,8 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
 
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
-    verbFallbacks, ambient, rooms, dialogue, actor, actors, items, panel, combinations, itemIcons,
+    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, items, panel,
+    combinations, itemIcons,
     sequences,
   };
 }

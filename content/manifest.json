@@ -70,5 +70,9 @@
     "content/actors/hob.json",
     "content/actors/coach.json"
   ],
+  "overlays": [
+    "content/actors/driver-head.json"
+  ],
+  "overlaysNote": "A head composited over a body that never swaps -- doc 43 part two's draw order step 4. Named here like every other record: an overlay discovered from a directory is an overlay nobody chose.",
   "actorsNote": "EXPLICIT, AS RULED, and not convention discovery from content/actors/*.json. A directory listing silently picks up whatever happens to be on disk -- a half-written record, something copied in to look at -- and then the game loads it or does not depending on somebody's afternoon. A list is checkable, and check-asset-paths already earned that argument by failing loudly on a path nobody declared. `actor` below stays: it names which of these is the protagonist, which is a different fact from which records exist."
 }

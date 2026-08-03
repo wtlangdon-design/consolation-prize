@@ -272,6 +272,9 @@ export class GameScene extends Phaser.Scene {
       // Doc 44: the beat travels with the frame so a violation recorded
       // while it is drawn can name it. Undefined outside a performance.
       beat: this.playingBeat(),
+      // Doc 43 line 97: the driver's head answers to who is speaking. Null
+      // when nobody is, which selects the overlay's default.
+      speaker: this.sayLines.length > 0 ? this.sayingActor : null,
     });
     this.texture.refresh();
   }
@@ -1004,10 +1007,11 @@ export class GameScene extends Phaser.Scene {
       beat: this.playingBeat(),
       control: this.openingControl(),
       movers,
-      // The driver's head is the only overlay with states and it is not wired
-      // yet. Reported as an empty map rather than omitted, so a script that
-      // asserts one fails by NAMING it instead of quietly matching nothing.
-      overlays: {},
+      // What each overlay actually DREW in, not what the rule says it should
+      // -- an overlay whose image had not loaded drew nothing, and reporting
+      // the intended state there would tell the gauntlet a head was on screen
+      // that was not.
+      overlays: this.view.shownOverlayStates(),
       says: this.sayLines.length > 0 ? this.sayingActor : null,
       options: this.state.dialogue.isActive
         ? this.state.dialogue.presentOptions().length : 0,

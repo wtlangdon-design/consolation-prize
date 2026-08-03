@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "id": "driver",
+  "over": "coach",
+  "note": "The stage driver's head, composited over the coach. Doc 43 part one line 97 and part two's driver-head row; Q55, as unblocked. He is NOT a mover -- he is baked into the coach's own frames, and only his head separates -- so this is an overlay at a rect over a body that never swaps, exactly the shape doc 43 gives Thad's talk.",
+  "rectNote": "In the coach body frame's own 956x389 pixels, scaled with the mover's drawn height like the body is. Measured twice by methods that share no assumption -- normalised cross-correlation over an unconstrained search, and a masked absolute-difference minimum that is sharp to a pixel -- and the origin agrees with the separable region measured off the 1728-wide body art. art/actors/driver-head-right/rig.json carries the working.",
+  "rect": [
+    407,
+    11,
+    55,
+    80
+  ],
+  "figureHeight": 389,
+  "default": "neutral",
+  "statesNote": "WHICH STATE, AND WHEN, IS DOC 43 LINE 97 AND IT IS CONTENT. `looking-down` while Thad speaks up at him, `speaking` on his own lines, `neutral` otherwise. Written as a speaker per state rather than as a rule in the engine, because it is a fact about this character in this scene: the driver looks down at the man addressing him, and nothing general follows from that.\n\nIT ANSWERED A QUESTION THAT WAS ASKED WRONG. This looked like a facing problem -- Thad speaks to a driver 300px above him and the four-direction sprite set has no pose that looks up. It is not. `facingToward` already returns `right` for that geometry, which is the only right answer the art can give, and the man who moves is the driver. Q53.",
+  "states": {
+    "neutral": {
+      "image": "art/actors/driver-head-right/head-00.png"
+    },
+    "speaking": {
+      "image": "art/actors/driver-head-right/head-01.png",
+      "whenSpeaker": "stage_driver"
+    },
+    "looking-down": {
+      "image": "art/actors/driver-head-right/head-02.png",
+      "whenSpeaker": "thad"
+    }
+  }
+}

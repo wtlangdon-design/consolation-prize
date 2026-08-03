@@ -213,6 +213,36 @@ export class ActorSprite {
   }
 
   /**
+   * Where a clip's canvas lands on screen, and at what scale.
+   *
+   * THE OVERLAY MUST USE THE BODY'S OWN ARITHMETIC, not a copy of it. A head
+   * composited a pixel off its neck is a head that twitches when the body
+   * does, and the two would drift the moment either anchor changed. This
+   * returns exactly what `draw` computes and nothing else does the sum twice.
+   *
+   * Null when the clip does not resolve or its frame has not loaded -- there
+   * is then no body to composite onto, which is the right answer rather than
+   * an overlay floating where a character is not.
+   */
+  placement(clip: string, facing: Facing, surface: string, feetX: number, feetY: number,
+            height: number, state?: string): { x: number; y: number; scale: number } | null {
+    const found = this.clipOf(clip, facing, surface, state);
+    if (!found || found.frames.length === 0) return null;
+    const image = this.sheets(found.frames[0] as string);
+    if (!image) return null;
+    const source = sizeOf(image);
+    if (!source) return null;
+    const scale = height / found.figureHeight;
+    const drawnW = Math.max(1, Math.round(source.width * scale));
+    const drawnH = Math.max(1, Math.round(source.height * scale));
+    return {
+      x: Math.round(feetX - Math.round((found.anchor[0] / source.width) * drawnW)),
+      y: Math.round(feetY - Math.round((found.anchor[1] / source.height) * drawnH)),
+      scale,
+    };
+  }
+
+  /**
    * Half the drawn width of the canvas this clip lands on, or null.
    *
    * Doc 44 part two #4 asks whether two figures at one feet-Y overlap in x,
