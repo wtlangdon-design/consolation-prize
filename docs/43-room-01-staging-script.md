@@ -5,6 +5,14 @@
 
 ---
 
+# THE TABLES WERE STALE AND ARE NOW CORRECTED
+
+**Doc 43's tables and its prose disagreed, and the tables were the wrong half.** They walked Thad LEFT — 1290 → 1180 → 1120 — where the content walks him RIGHT: 1170 → 1240 → 1330. The prose had already corrected both the y (794 against the coach's 742, because a shared feet Y draws him *behind* it) and the x ("in front of the box", and the box is at 1332–1364).
+
+I corrected the positions in `tools/extract-content.mjs` and never came back to the tables. **The content is authoritative; these tables now match it.**
+
+*Recorded rather than quietly fixed, because a document that contradicts itself is worse than one that is wrong — a reader has no way to tell which half to trust, and the gauntlet script would have been written from the stale one.*
+
 # READ THIS FIRST
 
 **Every number here is measured or corrected, and the ones that are guesses say so.** Four faults in the last two sessions came from coordinates invented in a commit message that nothing could check against.
@@ -66,11 +74,11 @@ Title over the ridge. Consolation below as scattered lamps in a great deal of da
 
 | # | Who | Does | Where | Why |
 |---|---|---|---|---|
-| 1 | thad | **placed** | 1290, 742 | At the coach's door, on its near side. A chore plays wherever the actor is; without this he climbs down out of thin air at the frame's bottom centre |
+| 1 | thad | **placed** | **1170, 794** | At the doorway (1008–1341), and **nearer the camera than the coach's wheels at y742**. A chore plays wherever the actor is; and a shared feet Y is a depth tie that draws him *behind* the coach |
 | 2 | thad | face | right | The chore clips are drawn right-facing only. A chore before the face asks for `aboard-coach/front` and throws |
 | 3 | thad | chore `aboard-coach` | — | Standing in the doorway, one hand on a rail that is not drawn |
 | 4 | thad | chore `alight-coach` | — | Leading foot down, trailing leg still up behind |
-| 5 | thad | walk | 1180, 754 | Clear of the door, a step forward and slightly nearer the camera |
+| 5 | thad | walk | **1240, 802** | Clear of the door, moving **toward** where he will speak — not past the coach and back |
 | 6 | thad | chore **`straighten-coat`** | — | **DOES NOT EXIST.** Doc 17 asks for it and the clip was never generated — the one prompt in doc 42 we skipped. Either generate it or cut the line from doc 17 |
 | 7 | thad | face | right | Looking up at the box |
 
@@ -90,7 +98,7 @@ Title over the ridge. Consolation below as scattered lamps in a great deal of da
 
 | # | Who | Does | Where |
 |---|---|---|---|
-| 1 | thad | walk | 1120, 762 |
+| 1 | thad | walk | **1330, 812** |
 | 2 | thad | face | right |
 | 3 | driver | head overlay `speaking` | — |
 
@@ -319,13 +327,13 @@ Going west is the player's move to make. This beat previously walked Thad west d
 | 1 | — | — | — | menu | Title. Nothing staged |
 | 2 | **coach** | *placed* at **1390, 742** | right | 0.1s | **The only place it is placed.** It was previously placed by beat 6b's `from` — the beat where it *leaves* — so through beats 2–6 it stood wherever the mover happened to be created, and Thad alighted at the door's correct coordinates while the coach was elsewhere |
 | 2 | coach | `idle` | right | held | Door shut, case on the rack, driver on the box |
-| 2 | thad | *placed* at 1290, 742 | — | 0.1s | A chore plays where the actor is |
+| 2 | thad | *placed* at **1170, 794** | — | 0.1s | At the doorway, nearer than the coach's y742 |
 | 2 | thad | `face` | **right** | — | **Before any chore, or it throws** |
 | 2 | thad | `aboard-coach` | right | 5f @ 7/s ≈ **0.7s** | |
 | 2 | thad | `alight-coach` | right | 5f @ 7/s ≈ **0.7s** | |
-| 2 | thad | `walk` → 1180, 754 | right | ~110px @ 8/s | |
+| 2 | thad | `walk` → **1240, 802** | right | | |
 | 2 | thad | **`straighten-coat`** | right | — | **DOES NOT EXIST** |
-| 3 | thad | `walk` → 1120, 762 | right | | |
+| 3 | thad | `walk` → **1330, 812** | right | | |
 | 3 | thad | talk overlay, right | — | line duration | Body holds `stand`/`idle` |
 | 3 | driver | `looking-down` | — | while Thad speaks | |
 | 3 | driver | `speaking` | — | on his line | Back to `neutral` after |
