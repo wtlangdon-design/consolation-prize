@@ -1708,6 +1708,46 @@ Hob has moved twice since. He stands at `600,700` now, the flame was re-measured
 
 ---
 
+## Q68 · The gauntlet's R5h comparison was a coin toss on beat 9, and it had already failed once
+
+**Found by chasing a regression that did not exist, which is the only reason it was found at all.**
+
+Beat 9 measured **42.73s**, then **32.66s** after a merge. That looked like a ten-second regression, and the merge was small enough to bisect by reading: only `content/actors/coach.json` had changed, and nothing in it plausibly touches a beat that plays after the coach has gone.
+
+**So the tree that produced 42.73s was re-run, in a worktree, on the same machine.** It produced **32.83s armed and 37.02s bare — and failed**, on a 4.2s drift against 3s of slack. Same commit. Nothing about the game different.
+
+| tree | armed | bare | verdict |
+|---|---|---|---|
+| `a7e3d7b` (first run) | 43.95s | 44.55s | pass |
+| `a7e3d7b` + sign | 42.73s | 43.02s | pass |
+| after main's merge | 32.66s | 33.32s | pass |
+| after main's merge, again | 34.24s | 34.60s | pass |
+| **`a7e3d7b` re-run** | **32.83s** | **37.02s** | **FAIL** |
+
+**There was no regression. There is a measurement that does not measure the game.**
+
+Beat 9 holds on `T_HOB_SPOKEN`, and nothing writes that flag until the harness clicks the lamp. Its duration is therefore **the harness's own latency in noticing the segment, plus the game's response to one click** — and the first term is scheduling, which is free to vary by ten seconds under a browser starting up, a dev server compiling, and a 50ms sample loop.
+
+**This is R5h pointed at R5h.** The rule says an instrument can change the system and not merely report on it. Here the instrument does not perturb the number, it *is* the number. "A timing that only holds while it is being measured is not a timing" was the right rule and the wrong application: this timing is manufactured by the measurement, so comparing two samples of it compares two draws from the same noise.
+
+**And a flaky red is Q66/R5j, at the worst possible site.** It fails on correct work, in the file whose entire purpose is to be believed, and what it teaches is *a red gauntlet can be re-run until it goes away*. That habit ends the gauntlet as anything but decoration — and it had **already produced one such failure tonight**, on a tree that had passed twice.
+
+**Fixed by excluding driven beats from the drift comparison, and saying so out loud:**
+
+```
+R5h: beat(s) 9 not compared -- this harness ended them, so their duration is
+     mostly its own latency, not the game's
+R5h: 4 beat(s) timed with and without the instrument, all within slack
+```
+
+The duration is **still reported** — a beat that stops ending at all is worth seeing — and still held to a ceiling if the script states one. What is gone is the comparison that could not mean anything. Note the count changed from 5 to 4: the exclusion is visible in the pass line as well as in the reason.
+
+**The honest limit.** R5h now covers four beats, not five, and beat 9's timing is unguarded. Guarding it properly would mean measuring from the flag write rather than from beat entry, which needs the probe to report flags. Not built.
+
+**And the general form, which is the part worth keeping:** *a number the apparatus determines cannot be used to check the apparatus.* Every timing R5h compares must be one the game would have produced whether or not anybody was watching. Beat 9's was not, and it took a regression hunt to notice, because a wrong number that is usually within slack looks exactly like a right one.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

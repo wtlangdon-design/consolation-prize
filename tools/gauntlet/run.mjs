@@ -244,6 +244,8 @@ async function play(engine, url, script, armed) {
     fired: new Set(),
     missed: [],
     timings: [],
+    // Beats whose end THIS HARNESS caused. See timingDrift.
+    driven: new Set(),
   };
   await sample(page, script, state, armed);
 
@@ -288,7 +290,7 @@ async function sample(page, script, state, armed) {
   let enteredAt = 0;
   let lastClips = new Map();
   let moved = new Set();
-  const driven = new Set();
+  const driven = state.driven;
   /** The input script in flight, if one is. Kept so the run can await it. */
   let driving = null;
   const started = Date.now();
@@ -618,12 +620,39 @@ function report(state) {
  * The instrument agreeing with itself proves nothing, so it is compared
  * against its own absence: every beat both runs measured must agree on how
  * long it took, within the same slack the beats themselves use.
+ *
+ * EXCEPT A BEAT THIS HARNESS ENDED ITSELF, and leaving those in made the
+ * comparison a coin toss. Beat 9 holds on a flag that nothing writes until
+ * the harness clicks the lamp, so its measured duration is the harness's own
+ * latency in noticing the segment plus the game's response to a click. On one
+ * tree it measured 42.7s, 43.9s, 32.7s and 34.2s -- and on a SECOND run of a
+ * tree that had already passed, 32.8s armed against 37.0s bare, which is a
+ * 4.2s drift and a failure. Nothing about the game changed between any of
+ * them.
+ *
+ * That is not a timing that only holds while it is being measured. It is a
+ * timing MANUFACTURED by the measurement, which is R5h's own subject pointed
+ * at R5h: the apparatus is part of the system while it is attached, and here
+ * the apparatus is most of what the number describes.
+ *
+ * A FLAKY RED IS R5j. It fails on correct work, at people who know it is
+ * correct, and what it teaches them is that a red gauntlet can be re-run
+ * until it goes away -- which is the end of the gauntlet as anything but
+ * decoration. So driven beats are excluded from the drift comparison, and
+ * PRINTED as excluded: their duration is still reported, because a beat that
+ * stops ending at all is still worth seeing, and it is still held to its own
+ * ceiling if the script states one.
  */
 function timingDrift(armed, bare, script) {
   const lines = [];
   let ok = true;
   const slack = script.defaults.slack;
+  const manufactured = [];
   for (const [beat, held] of armed.beats) {
+    if (armed.driven.has(beat) || bare.driven.has(beat)) {
+      manufactured.push(beat);
+      continue;
+    }
     const without = bare.beats.get(beat);
     if (without === undefined) {
       lines.push(`FAIL beat ${beat} was seen with the watch on and not with it off`);
@@ -638,8 +667,14 @@ function timingDrift(armed, bare, script) {
       ok = false;
     }
   }
+  // NO SILENT CAPS: what was left out of the comparison is named, with why.
+  if (manufactured.length) {
+    lines.push(`    R5h: beat(s) ${manufactured.join(', ')} not compared -- this harness `
+      + 'ended them, so their duration is mostly its own latency, not the game\'s');
+  }
   if (ok) {
-    lines.push(`    R5h: ${armed.beats.size} beat(s) timed with and without the `
+    const compared = armed.beats.size - manufactured.length;
+    lines.push(`    R5h: ${compared} beat(s) timed with and without the `
       + 'instrument, all within slack');
   }
   return { ok, lines };
