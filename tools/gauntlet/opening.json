@@ -90,7 +90,9 @@
       "beat": "7",
       "control": "none",
       "seconds": 3,
-      "unscripted": "NOT YET WRITTEN. Hob is placed off frame left and glides to his entry mark"
+      "within": 12,
+      "withinNote": "THE SCRIPT WAS WRONG HERE AND THE GAME WAS RIGHT. Doc 17 states 3s and the default ceiling made that 6; the beat actually holds about 7.2, because it is the one that raises the ACT CARD and the card's reading time is added on top. That number lives in content/ui/ui.json as actCardExtraSeconds -- it is interface timing, it has been tuned twice from watching it, and it will be tuned again. So the ceiling is deliberately loose: it is here to catch a beat that never ends, not to pin a number somebody is still choosing.",
+      "unscripted": "NOT YET WRITTEN. Hob is placed STANDING at the roadside here -- he no longer walks in -- and the act card holds over the coach receding"
     },
     {
       "beat": "8",
@@ -100,7 +102,7 @@
     {
       "beat": "9",
       "control": "player",
-      "unscripted": "NOT YET WRITTEN. Hob walks to his mark, STOPS, speaks three lines by index, and walks off frame right. The `say`-between-two-walks shape this beat is the reason for"
+      "unscripted": "NOT YET WRITTEN. He is already standing at 1080,700 from beat 7; the beat is now the exchange -- three lines by index -- and then he walks off frame right"
     },
     {
       "beat": "10",
