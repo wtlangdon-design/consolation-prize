@@ -130,7 +130,25 @@
     {
       "beat": "9",
       "control": "player",
-      "unscripted": "NOT YET WRITTEN. He is already standing at 1080,700 from beat 7; the beat is now the exchange -- three lines by index -- and then he walks off frame right"
+      "unscripted": "NOT YET WRITTEN. He is already standing at 1080,700 from beat 7; the beat is now the exchange -- three lines by index -- and then he walks off frame right",
+      "inputNote": "CLICKING THE LAMP IS SPEAKING TO HOB. Beat 9 waits on T_HOB_SPOKEN now -- he stands at the roadside from beat 2 and speaks when he is spoken to -- and he is a MOVER, so there is no rect on him and TALK_TO cannot reach him. The lamp he carries is the only part of him a player can address, and its hotspot is x480-600 y444-612. Without this the beat holds forever, correctly, and the run times out at 180s: THE GAUNTLET REPORTED ITS OWN SCRIPT AS STALE the first time beat 9 became a response, which is honesty 3 arriving from the same direction as beat 7's ceiling.",
+      "input": [
+        {
+          "do": "wait",
+          "seconds": 1.0
+        },
+        {
+          "do": "click",
+          "at": [
+            540,
+            528
+          ]
+        },
+        {
+          "do": "wait",
+          "seconds": 1.0
+        }
+      ]
     },
     {
       "beat": "10",
@@ -140,7 +158,7 @@
     {
       "beat": "11",
       "control": "none",
-      "unscripted": "NOT YET BUILT. Doc 17 beat 11 is the departure: he walks away through the gap in the fence at x575, up the road toward the town, with his back to us, and the title comes up over the mountains in the 700x320 the walk leaves clear. It awaits a flag written by taking the west exit -- which no longer travels, because an exit that moves you the instant you touch it cannot also be a departure you watch. Nothing writes that flag today."
+      "unscripted": "NOT YET WATCHED. Doc 17 beat 11 is the departure: he walks away through the gap in the fence at x575, up the road toward the town, with his back to us, and the title comes up over the mountains in the 700x320 the walk leaves clear. It is BUILT now -- road_west writes T_THAD_LEAVING on transit and declines to travel, the beat moves him and does the travel itself at its end -- but nobody has looked at it, and `until` stops this run at beat 9. Extending the run to cover it needs an input that takes the exit, and marks written from a play-through rather than from the staging."
     }
   ]
 }
