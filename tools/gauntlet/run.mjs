@@ -665,7 +665,26 @@ function report(state) {
 function timingDrift(armed, bare, script) {
   const lines = [];
   let ok = true;
-  const slack = script.defaults.slack;
+  // Q82, RULED: PROPORTIONAL WITH AN ABSOLUTE FLOOR. `defaults.slack` is 3
+  // seconds and was chosen when beat 3 held 6.5s; it now holds about 12, so a
+  // constant that was 46% of the beat became 25% of it without anybody
+  // deciding that. And beat 3 now contains DISTANCE-DRIVEN MOTION, whose
+  // wall-clock length is distance over speed times FRAME RATE -- so arming the
+  // watch genuinely lengthens the walk, the error scales with the beat, and no
+  // absolute tolerance can be right for it.
+  //
+  // AGAINST THE BARE MEASUREMENT, NOT THE ARMED ONE. The bare run is the
+  // duration with no instrument in it, which is the thing the armed run is
+  // supposed to reproduce. Taking the fraction of the ARMED number would grow
+  // the tolerance in proportion to the error it is measuring, which is a
+  // window that widens to admit whatever it finds.
+  //
+  // STRICTER, NOT LOOSER, WHERE IT MATTERS: at 25% this is tighter than 3s
+  // absolute on every beat under 6 seconds -- beat 2 at 1.5s gets 1.5s rather
+  // than 3 -- and it only relaxes on beats long enough for 3s to have been
+  // meaningless.
+  const floor = script.defaults.driftFloor ?? 1.5;
+  const fraction = script.defaults.driftFraction ?? 0.25;
   const manufactured = [];
   for (const [beat, held] of armed.beats) {
     if (armed.driven.has(beat) || bare.driven.has(beat)) {
@@ -679,9 +698,11 @@ function timingDrift(armed, bare, script) {
       continue;
     }
     const drift = Math.abs(held - without);
-    if (drift > slack) {
+    const tolerance = Math.max(floor, fraction * without);
+    if (drift > tolerance) {
       lines.push(`FAIL beat ${beat} took ${held.toFixed(2)}s with the instrument `
-        + `and ${without.toFixed(2)}s without it (drift ${drift.toFixed(2)}s > ${slack}s)`);
+        + `and ${without.toFixed(2)}s without it (drift ${drift.toFixed(2)}s > `
+        + `${tolerance.toFixed(2)}s: max of ${floor}s and ${fraction * 100}% of ${without.toFixed(2)}s)`);
       lines.push('     A timing that only holds while it is being measured is not a timing.');
       ok = false;
     }
@@ -693,8 +714,8 @@ function timingDrift(armed, bare, script) {
   }
   if (ok) {
     const compared = armed.beats.size - manufactured.length;
-    lines.push(`    R5h: ${compared} beat(s) timed with and without the `
-      + 'instrument, all within slack');
+    lines.push(`    R5h: ${compared} beat(s) timed with and without the instrument, all `
+      + `within max(${floor}s, ${fraction * 100}% of the bare measurement)`);
   }
   return { ok, lines };
 }

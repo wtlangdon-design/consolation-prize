@@ -2295,6 +2295,25 @@ This is a constraint on unbuilt work, not a defect in it. It is written here bec
 
 **Q68's warning applies to this one too:** a red that passes on re-run teaches that reds are re-runnable. This is the second beat in that condition, and it is the reason to fix it rather than re-run it.
 
+### RULED AND BUILT — `max(1.5s, 25% of the bare measurement)`
+
+**Against the BARE measurement, not the armed one**, and the distinction is not cosmetic: taking the fraction of the armed number would grow the tolerance in proportion to the error it is measuring — a window that widens to admit whatever it finds. The bare run is the duration with no instrument in it, which is the thing the armed run is supposed to reproduce.
+
+**Stricter where it matters.** At 25% this is *tighter* than 3s absolute on every beat under six seconds — beat 2 at 1.5s gets 1.5s rather than 3 — and relaxes only on beats long enough for 3s to have been meaningless.
+
+**AND IT DOES NOT PASS BOTH SAMPLES, WHICH THE RULING EXPECTED IT TO.** Measured:
+
+| | drift | tolerance | 3s absolute |
+|---|---|---|---|
+| run a | 3.32s | 2.88s → **fails** | fails |
+| run b | 0.10s | 2.93s → passes | passes |
+| beat 2 | 0.46s | **1.50s** → passes | passes |
+| beat 7 | 0.15s | 1.77s → passes | passes |
+
+25% of run a's bare 11.53s is 2.88s, and its drift was 3.32s. It would have passed against 25% of the *armed* 14.85s — 3.71s — which is the formulation rejected above.
+
+**Left as ruled rather than adjusted to fit the sample.** Run a may be the real perturbation: beat 3 contains a distance-driven walk, and a 3.3s stretch on a 11.5s beat is 29%, which is a large thing for an instrument to do and arguably worth failing on. **Tuning the constant until the one observation that failed stops failing is how a tolerance stops meaning anything** — and the sample is one run. If it recurs, the number to move is the fraction, with the recurrence as the evidence rather than the inconvenience.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
