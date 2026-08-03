@@ -990,6 +990,32 @@ Run again from a fresh load after `f6d14ff5`. **No errors, start to finish.** Al
 
 **What the second run did not find.** No `CLIP_FALLBACK`, no `BODY_ONE_OWNER`, no missing mover, nothing undrawn: `thad`, `hob` and `coach` all have resample-cache entries, which is the first time every figure in the opening has been drawn from its own art.
 
+## Q41 · Third play-through: the depth ruling is in, and Hob speaks his line from off the frame
+
+Run again from a fresh load after `b29842a5`, with doc 43 part two read first. **No errors, start to finish.** Thad alights at the doorway and speaks from in front of the box, the coach is at its own size and stops growing, Hob walks the way he is drawn.
+
+**THE DEPTH RULING, IMPLEMENTED — and it needed something the record did not carry.** "An unrouted mover samples the curve at its current feet Y" and "the coach takes no scaling from the curve" are both true, and **nothing in the data told the engine which was which.** `FIXED_HEIGHT` lived in `build-actor-record.mjs`; the record it wrote carried the number and not the fact. So the engine could not distinguish a coach from a man without asking a tool that is not running.
+
+`scalesWithDepth` is now in the record, written by the generator from the same `FIXED_HEIGHT` table. A fact about a character belongs to the character. Absent means yes, because everything that walks is a person until it says otherwise.
+
+**And the curve had to be askable off the walk boxes.** Hob crosses **x−260 to 2100** against a box of 256–1629, so `actorHeightAt` — which returns null outside a box, correctly, because null means "there is no floor here" — would have answered for barely half his crossing and left him stepping from 240 to 224 at x256 in full view. `stagedHeightAt` asks the same curve by Y, falling back to the nearest box, which is the pattern `clipPlaneAt` already uses. `actorHeightAt` is deliberately unchanged: a test asserts its null for a point in the sky, and that assertion is worth keeping.
+
+**Measured after: Hob crosses at h224 at y700 while Thad stands at h254 at y800.** Two men, sixty pixels apart in depth, thirty pixels apart in height. Before, both were 240.
+
+**The coach has no entry in the resample cache at all now, and that is the result rather than a gap.** At height 389 against `figureHeight` 389 the scale is exactly 1.0, so `ActorSprite` takes the blit path and never resamples. The absence IS the confirmation.
+
+**ONE THING LEFT, AND IT IS THE BEAT ITSELF: HOB DOES NOT STOP, AND HE SPEAKS FROM OFF THE FRAME.**
+
+Beat 9 lowers to:
+
+```
+walk->1080  waitForActor  walk->2100  waitForActor  say  say  say
+```
+
+`carriedStepsFor` pushes **all** of a beat's staging and **then** all of its lines. So the stop at 1080 lasts exactly one tick — he touches it and walks on — and "Wouldn't stand there." / "Why not?" / "No reason." play once he has reached 2100, which is 180 px beyond the right edge of a 1920-wide frame. Captured: the line is on screen and the man who says it is not.
+
+**This is structural, not a wrong number.** A beat's lines always follow all of its staging, so *walk here, speak, walk on* cannot be expressed in one beat however the coordinates are written. Two ways out, both yours: split beat 9 so the lines fall in a beat of their own between two walking beats, or give staging a `say` step so a line can sit between two walks. The second is the smaller change and the one that generalises — doc 22 section 6's chain already interleaves `walk → waitForActor → face → waitForActor → chore → say`, and a line is the only thing in that chain that cannot yet be placed.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

@@ -117,13 +117,40 @@ export class Actor {
     // HIS OWN RECORD, not the protagonist's. The last fallback was
     // `state.content.actor.height`, so every unrouted mover was drawn at the
     // height of a man: the coach's record says 389 and it drew at 240, which
-    // is 62% and reads as a stagecoach whose roof reaches Thad's head. A
-    // vehicle is not a point on a curve for people, and it is not the
-    // protagonist's height either.
+    // is 62% and reads as a stagecoach whose roof reaches Thad's head.
+    //
+    // AND THE CURVE GOVERNS ANYONE IT IS TRUE OF, routed or not. It used to
+    // be sampled only for a routed mover, so a staged crossing held one flat
+    // height: Hob walked at 240 sixty pixels behind Thad at 242, two men the
+    // same size at different depths, which is precisely what the curve exists
+    // to prevent. Choreography does not suspend perspective. The coach is
+    // exempt because it says so in its own record, not because of how it moves.
     this.height = options.height
-      ?? (this.routed ? state.actorHeightAt(x, y) : null)
+      ?? (this.scalesWithDepth ? this.sampleDepth(state, x, y) : null)
       ?? state.content.actors.get(id)?.height
       ?? state.content.actor.height;
+  }
+
+  /**
+   * Whether the room's depth curve decides how tall this mover is drawn.
+   *
+   * A property of the CHARACTER, read from his record -- not of how he is
+   * being moved. A man is a man whether he is walking to a click or crossing
+   * on a script.
+   */
+  private get scalesWithDepth(): boolean {
+    return this.state.content.actors.get(this.id)?.scalesWithDepth !== false;
+  }
+
+  /**
+   * The curve at these feet. A routed mover is inside a box by construction,
+   * so a miss means "no floor here" and it keeps what it had; a staged one is
+   * routinely outside the boxes and asks the curve by Y regardless.
+   */
+  private sampleDepth(state: GameState, x: number, y: number): number | null {
+    return this.routed
+      ? state.actorHeightAt(Math.round(x), Math.round(y))
+      : state.stagedHeightAt(Math.round(x), Math.round(y));
   }
 
   private get routed(): boolean {
@@ -326,8 +353,8 @@ export class Actor {
     this.glide = null;
     this.special = null;
     if (this.options.height !== undefined) return;
-    if (!this.routed) return;
-    this.height = this.state.actorHeightAt(Math.round(x), Math.round(y)) ?? this.height;
+    if (!this.scalesWithDepth) return;
+    this.height = this.sampleDepth(this.state, x, y) ?? this.height;
   }
 
   /**
@@ -367,8 +394,8 @@ export class Actor {
       if (this.glide) this.advanceGlide(seconds);
       else this.advanceWalk();
     }
-    if (this.options.height === undefined && this.routed) {
-      const here = this.state.actorHeightAt(Math.round(this.x), Math.round(this.y));
+    if (this.options.height === undefined && this.scalesWithDepth) {
+      const here = this.sampleDepth(this.state, this.x, this.y);
       if (here !== null) this.height = here;
     }
     // The idle break is measured from the moment everything stopped, so a

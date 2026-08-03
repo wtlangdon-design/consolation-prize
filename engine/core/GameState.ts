@@ -693,16 +693,39 @@ export class GameState {
    * a snap survives is its threshold.
    */
   actorHeightAt(x: number, y: number): number | null {
+    return this.heightAt(x, y, false);
+  }
+
+  /**
+   * The same curve, for a mover whose path is NOT confined to a walk box.
+   *
+   * A staged crossing deliberately leaves the boxes -- Hob enters at x-260 and
+   * exits at 2100 against a box of 256 to 1629 -- and the box's x extent is a
+   * statement about where a player may WALK, not about where the ground is.
+   * The curve itself is a function of Y alone. Asking `actorHeightAt` would
+   * have returned null for two thirds of his crossing and left him holding
+   * whatever height he had, so he would have stepped from 240 to 224 at x256
+   * in full view.
+   *
+   * `actorHeightAt` is deliberately NOT changed to do this. Its null means
+   * "there is no floor here", which is a true and useful answer for the
+   * routed player and is asserted as such.
+   */
+  stagedHeightAt(x: number, y: number): number | null {
+    return this.heightAt(x, y, true);
+  }
+
+  private heightAt(x: number, y: number, staged: boolean): number | null {
     // A room with boxes gets its height from the box the actor is in. That is
     // errata 28a's whole point: the boardwalk is `fixed` at the far drawn
     // size and the mud is a `curve` starting above the threshold, so the
     // sprite swap happens at the lip rather than in open mud.
     const boxes = this.boxes;
     if (boxes) {
-      const box = boxes.boxAt(x, y);
+      const box = boxes.boxAt(x, y) ?? (staged ? boxes.nearest(x, y)?.box : undefined);
       return box ? heightIn(box, y) : null;
     }
-    if (!this.isWalkable(x, y)) return null;
+    if (!staged && !this.isWalkable(x, y)) return null;
     const samples = this.depthSamples();
     if (samples.length === 0) return null;
     if (samples.length === 1) return (samples[0] as [number, number])[1];

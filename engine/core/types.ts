@@ -424,6 +424,22 @@ export interface ActorFile {
   height: number;
   heightNote?: string;
   /**
+   * Whether the room's depth curve governs this mover's drawn height.
+   *
+   * Absent means yes, because everything that walks is a person until it says
+   * otherwise. The coach says otherwise: 389 is its own art at the scale the
+   * room was measured for, and the curve -- 222 to 263 -- describes how tall a
+   * MAN is at a depth. Handing a coach to it drew it at 590 x 240 with its
+   * roof at head height.
+   *
+   * IT HAS TO BE IN THE RECORD. `tools/build-actor-record.mjs` knew the coach
+   * was not a person and the engine could not tell: the generator wrote 389
+   * into a field the renderer never consulted for an unrouted mover, and the
+   * right value sat there unreachable. A fact about a character belongs to the
+   * character, not to the tool that wrote him down.
+   */
+  scalesWithDepth?: boolean;
+  /**
    * The facings this character is DRAWN in, and no others.
    *
    * Hob is right-facing only -- he crosses the road once and never comes back,

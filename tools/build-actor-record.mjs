@@ -226,6 +226,9 @@ for (const id of CHARACTERS) {
     // a man. A mover that is not a person carries its own drawn height and
     // takes no scaling from the curve.
     height: FIXED_HEIGHT[id] ?? 240,
+    // Declared in the RECORD, not just known here. The engine had no way to
+    // tell a coach from a man, so it applied the protagonist's height to both.
+    ...(FIXED_HEIGHT[id] ? { scalesWithDepth: false } : {}),
     heightNote: FIXED_HEIGHT[id]
       ? `${id} is not a person: its height is its own art at the scale the room `
         + 'was measured for, and it is NOT a point on the depth curve.'
