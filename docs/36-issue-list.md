@@ -1587,7 +1587,43 @@ The band's back edge is **y660**, taken from where the mud becomes the surface �
 
 ---
 
-## Q63 · The case cannot enter the panel: doc 17 points at doc 23 for its lines and doc 23 has no case
+## Q63 · Hob stands in the gap, and clearing him is the way out — RULED
+
+**`road_west` is gated on `T_HOB_GONE`.** Until Thad has spoken to Hob, the gap in the fence is not an exit: clicking it gets a line and nothing else. Speaking to him — through his lamp, which is the only part of him a click can reach — sends him on his way and opens the road.
+
+**This is a puzzle and it belongs in the graph**, not only in the room file. One node: *the watchman is in the way; address him and he moves.* It is the smallest possible puzzle and that is the point — it teaches the player, in the first room, that people are obstacles you resolve by talking rather than scenery you walk past.
+
+**The softer version was wrong.** The exit was first narrowed to x500–590 so it could coexist with his lantern, which meant he was neither blocking nor clear — a man standing in a doorway you could simply walk around. Under this ruling the exit returns to the full gap, x500–650, because there is nothing left to compete with once he is gone.
+
+**Two things this creates and one it does not.**
+
+**The only way out of Room 1 now depends on one interaction.** If the lamp's response ever stops writing `T_HOB_GONE`, the game is unfinishable from its first room. That wants a check, not trust: an exit gated on a flag must have a writer that is built, and doc 36's `pending` mechanism already names unwritten flags on every run.
+
+**And it makes the lamp load-bearing rather than decorative**, which is what it should be if it is the only address a mover has (Q60).
+
+**What it must NOT create is a talkative Hob.** See below.
+
+---
+
+## Q64 · Hob's silence is the mechanism, not a gap — DO NOT GIVE HIM LINES
+
+Doc 01 is specific: **"Speaks maybe forty words in the first two acts, all useless. He is Obadiah Mott. The game's best reveal is that the player walked past him in the opening scene and he had a line."**
+
+That is a constraint, not an omission. It was proposed that Hob carry exposition about the town, or comic lines, since he is the first character the player meets and currently says almost nothing.
+
+**Both would cost the game its best reveal.**
+
+**Exposition is the direct contradiction.** Hob is the man who knows everything — twelve years watching the town search for him. A watchman who explains Consolation is Mott explaining Consolation, one act early, to a player who has no idea what he is being told.
+
+**Comic lines are the subtler cost.** The reveal works because the player does not remember him. A character with good jokes is a character you remember as a character; the turn in Act III depends on the player realising they walked past somebody, not that a memorable minor character was secretly important.
+
+**What he may have:** a handful more words that read as nothing and only mean something on a second playthrough. Weather. The mud. Not looking at you. The three he has — *"Wouldn't stand there." / "Why not?" / "No reason."* — are the model: refusals that sound like an old man being unhelpful and are, on reflection, a man declining to explain how he knows.
+
+**The budget is forty words across two acts and he has spent about twelve.** Whatever is added comes out of that.
+
+---
+
+## Q65 · The case cannot enter the panel: doc 17 points at doc 23 for its lines and doc 23 has no case
 
 **Q11 is ruled and two thirds of it are built.** The case comes down at beat 6 — it is its own drawn layer, gated on `T_CASE_DOWN`, so writing the flag *is* the case moving — Thad stoops to it with `pickup-low`, and beat 6b holds him in `carry` while the coach leaves. That last one is the bible's opening image: *"a stage coach pulls away, revealing a young man in a good coat standing in mud, holding a case."*
 
@@ -1609,6 +1645,66 @@ The band's back edge is **y660**, taken from where the mud becomes the surface �
 **A third thing is worth noting for whichever is chosen:** doc 17 still carries two LISTEN variants under state C, left over from the single-state version. The extractor reports them as orphans and drops them, correctly, because doc 17's own text says state C has no lines of its own. They are duplicates of state B's second and third. If doc 23 gains an entry they are not it.
 
 **Nothing invented.** `name` would be "HIS CASE", which the hotspots already carry, but a name without lines is half an item and which half is missing is a decision about the writing.
+
+---
+
+## Q66 · The overlap check failed seventeen times on a correct tree, and overlap was never the rule
+
+**Not a defect in the content. A defect in the check, caught before it was believed.**
+
+The check argued for in Q63 — *"two targets whose rects intersect, where one carries `travelWhenTold`, is a defect by construction"* — was first written as *no exit shares a rectangle with anything live at the same time*. It failed **seventeen times across six rooms**, none of them defects:
+
+| Room | Exit | Overlaps |
+|---|---|---|
+| main_street | `to_hotel` | `boardwalk`, `false_fronts`, `mud` |
+| main_street | `to_clarion` | `posted_notices`, `dog`, `false_fronts` |
+| main_street | `to_assay_office` | `boardwalk`, `false_fronts` |
+| main_street | `to_company` | `company_sign`, `false_fronts` |
+| main_street | `to_nugget` | `false_fronts` |
+| main_street | `to_claims_road` | `mud` |
+| nugget, assay_office ×2, claims_registrar, thads_room | five more | scenery |
+
+**Overlap is the design, and the engine says so in its own words.** `GameState.targets` is `[...room.exits, ...room.hotspots]`, and the comment above it reads *"scenery first made every exit in the room unclickable."* A door painted on the front of a building is **supposed** to sit inside `false_fronts`; the boardwalk and the mud run the full 1920 of Room 2 underneath everything. Ordering is how the room is composed, not an accident the check should police.
+
+**A check that fails on the design teaches people to ignore it**, and an ignored check is worse than no check — it is a green square that means nothing. This one would have been switched off or `expected`-listed within a day, and the day after that it would have stopped catching the thing it was built for.
+
+**What is actually wrong is one of two things, and neither of them is "overlap":**
+
+1. **A target with no pixels left.** Measured by subtracting every simultaneously-live target that answers *before* it and asking whether anything remains — not by counting intersections. Half-covered is still clickable. Entirely covered is not in the room.
+2. **Any overlap at all where the exit declares `travelWhenTold`.** That exit does not walk anywhere: it writes a flag and hands a beat its cue. A stray click on it does not open a wrong door, it **begins the game's closing shot**. It is the one target where "the other one is still mostly clickable" is not a defence.
+
+Rewritten to those two, plus Q63's writer clause, it passes: **107 target presentations checked for total occlusion, 1 `travelWhenTold` exit for any overlap, 1 exit gate for a writer.**
+
+**And it was made to fail on purpose before being believed** (R5e — a check must not share its subject's assumptions, and a check nobody has seen fail is a check nobody has tested). Putting `road_west` back over the lamp where the defect shipped produces all three of:
+
+```
+"lamp_gone" has no clickable pixels left. Every part of 610,586,60,73 is covered by
+  targets that answer before it
+exit "road_west" declares travelWhenTold and overlaps "lamp_gone" by 60x73px
+exit "road_west" declares travelWhenTold and overlaps "mud" by 180x30px
+```
+
+**Per-state bounds are handled on both sides, and asymmetrically on purpose.** A target hit-tests as any rect it can present (`to_assay_office` is 120×168 shut and 120×192 open), so every presentation is checked as a subject. But a target *covers* only where it covers in **every** state — the intersection, not the union — because something that hides you in one state and not another has not made you unreachable, it has made you conditional, and conditional is what `when` is for.
+
+**What it still does not check: whether a rect sits on the thing it names.** A hotspot 200px from its object passes every clause. That is a picture question and it belongs to a person looking at an overlay.
+
+---
+
+## Q67 · The gauntlet's click coordinates rot, and only a failing run says so
+
+**Second time, same direction, one merge apart.**
+
+Beat 9's input clicks the watchman's lamp, because clicking the lamp is how you speak to Hob (Q60: no mover can be clicked, so the lamp he carries is the only part of him a player can address). The click was `540,528` — dead centre of the lamp **when the lamp was x480–600 y444–612**.
+
+Hob has moved twice since. He stands at `600,700` now, the flame was re-measured at that position, and the hotspot moved with him to **x610–670 y586–659**. The old coordinate landed on nothing, wrote no flag, and the beat that waits on that flag held to its deadline — a 180s timeout, exactly as designed. Corrected to `640,622`.
+
+**The beat number survived the move. The rect did not.** Everything else in the script is named — actors by id, clips by name, beats by number — and names survive things moving. A coordinate is the one thing in the file that refers to the world by position, and it is therefore the one thing that goes silently wrong.
+
+**Nothing static caught it, and the run catching it is honesty 3 working**: *a green gauntlet against a wrong script is worse than none*. The script was wrong and the gauntlet went red, which is the correct outcome and the second time this beat has produced it (the first was when beat 9 became a response and the script had no input at all).
+
+**A check is possible and is not built.** It would need each `click` to declare which room it is in — the script does not carry that today, and the schema is the project owner's. Given a room, the check is one line: the point must fall inside some target that can be live. Independent of the run in the R5e sense, since it reads the room JSON and never starts a browser.
+
+**Filed, not built.** Two rots is a pattern; three would be a reason.
 
 ---
 

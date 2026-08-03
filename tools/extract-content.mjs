@@ -318,7 +318,7 @@ function opening() {
       // PLACED LAST IN THE BEAT so the coach and Thad are staged first. The
       // frame's subject is a man getting off a stagecoach; the watchman is
       // scenery until he is not.
-      { do: 'move', actor: 'hob', from: [475, 700], to: [475, 700], seconds: 0.1 },
+      { do: 'move', actor: 'hob', from: [600, 720], to: [600, 720], seconds: 0.1 },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
@@ -1510,12 +1510,33 @@ function openingCase() {
   // They are in the same column of the picture, so the fix is the exit's
   // HEIGHT: the fence's opening is what you walk through, and the lantern
   // hangs below it.
-  west.rect = [500, 470, 150, 90];
-  west.rectNote = 'x500-650 is the gap, measured off the plate with a ruler. y470-560 is the '
-    + 'opening in the FENCE and stops above the band: it used to run to y700 and covered the '
-    + "watchman's lamp, whose flame is at y595-615, so clicking Hob's lantern took the exit. "
-    + 'Both rects are measured and both are adjustable; what is not adjustable is that they '
-    + 'must not overlap, because one of them starts the ending.';
+  west.rect = [500, 470, 150, 110];
+  west.when = { T_HOB_GONE: true };
+  west.rectNote = 'THE FULL GAP, x500-650, measured off the plate with a ruler. It was narrowed '
+    + 'to x500-590 so it could coexist with the lamp, which left Hob NEITHER BLOCKING NOR CLEAR '
+    + '-- a man in a doorway you walk around. Q63: he blocks it, and clearing him is the way '
+    + 'out.\n\ny470-580 IS THE OPENING IN THE FENCE and stops above the lantern, which is the '
+    + 'separation that survives him leaving. The gate closes the exit while he is there, so the '
+    + 'two are never live together WHILE HE STANDS -- but lamp_gone is live at exactly the same '
+    + "time as the exit, at the lamp's own rect, and it would inherit the collision. Splitting "
+    + 'them VERTICALLY is what makes that impossible: the fence opening is what you walk '
+    + 'through and the lantern hangs below it, and no sideways nudge is honest because they '
+    + 'share a column.';
+  // SET HERE RATHER THAN LEFT WHERE IT WAS. `note` said "NARROWED FROM 150
+  // WIDE TO 90 BECAUSE HOB STANDS IN THIS GAP", which stopped being true when
+  // the separation went vertical and the width went back to 150. Nothing in
+  // this file was setting it, so it survived two rect changes describing
+  // neither -- a field the generator does not own cannot be kept honest by
+  // the generator, and the extractor merges into the room rather than writing
+  // it fresh, so a stranded string stays stranded forever.
+  west.note = 'THE FULL WIDTH OF THE GAP, x500-650. It was cut to 90 wide to dodge the lamp '
+    + 'sideways; that is not the shape of the problem. Hob and the lantern are in the SAME '
+    + 'COLUMN of the picture as the way out, so the only honest separation is vertical: the '
+    + 'opening in the fence is what you walk through and the lantern hangs below it.\n\n'
+    + 'Thad walks through at 575. Q63 gates it on T_HOB_GONE so it is shut while he stands '
+    + 'there -- but lamp_gone is live at the same time as the exit, so the geometry has to '
+    + 'hold on its own and not lean on the gate. tools/check-exit-collisions.mjs asserts that '
+    + 'it does.';
   west.setOnTransit = { T_THAD_LEAVING: true };
   west.travelWhenTold = true;
   west.endingNote = 'Doc 17 beat 11. Taking this writes T_THAD_LEAVING and goes nowhere; '
@@ -1529,10 +1550,36 @@ function openingCase() {
   // authored for a man CROSSING the road; he stands still at (475, 700) now
   // and the flame in his own idle frames lands at world x510-517, y595-615 at
   // his drawn 224. The old rect was mostly empty sky above it.
-  lamp.rect = [484, 569, 60, 72];
-  lamp.rectNote = 'Around the lantern, measured from the flame in his own frames at his own '
-    + 'drawn height, with 26px of grab either side. It must clear road_west, which starts at '
-    + 'y470 and stops at y560 -- the two overlapped, and clicking the lamp took the exit.';
+  // MEASURED AT HIS CURRENT POSITION, NOT RECONCILED WITH AN OLD ONE. He was at
+  // (475, 700) when the last rect was derived and he is at (600, 720) now; the
+  // depth curve puts him at 230 tall there and the flame in his own idle frames
+  // lands at world x636-643, y612-632. Both rects came from where he stood, and
+  // he moved, so both were re-measured rather than argued about.
+  for (const target of [lamp, room.hotspots.find((entry) => entry.id === 'lamp_gone')]) {
+    if (!target) continue;
+    target.rect = [610, 586, 60, 73];
+    target.rectNote = 'Around the lantern: the flame in his own idle frames is at world '
+      + 'x636-643 y612-632 with him at (600, 720) drawn 230 tall, plus 26px of grab. It must '
+      + 'clear road_west, which stops at y580 -- lamp_gone especially, because that one is live '
+      + 'at the same time as the exit and would otherwise take a click meant for the lamp and '
+      + 'start the ending.';
+    // THREE READINGS OF THE SAME LANTERN, AND THE RECT HOLDS ALL THREE.
+    // x626-653 y593-618 was the lantern housing; x636-643 y612-632 was the
+    // flame at a loose threshold. They do not nest -- the second runs 14px
+    // below the first, which cannot be true of a flame inside a lamp -- so
+    // rather than pick one, it was measured a third time from something
+    // neither used: the rig's own `figure` box, [632, 1365], scaled by
+    // 230/1365 about the feet at (600, 720), taking the brightest 0.05% of
+    // opaque pixels in idle-00. That lands at world x638-643, y612-624.
+    // It agrees with the flame reading on x and on its top edge, and says
+    // the loose one over-ran at the bottom. x610-670 y586-659 contains all
+    // three, so no reading changes the rect -- which is why this is a note
+    // and not a correction.
+    target.rectMeasuredNote = 'Third reading, from the rig rather than from a composed frame: '
+      + 'brightest 0.05% of opaque pixels in hob-idle-right/idle-00.png, mapped through '
+      + "rig.figure [632, 1365] at scale 230/1365 about the feet, is world x638-643 y612-624. "
+      + 'The rect contains this, the flame reading and the housing reading alike.';
+  }
   const speaking = ['LOOK_AT', 'LISTEN_TO'];
   for (const verb of speaking) {
     const said = lamp.responses?.[verb];

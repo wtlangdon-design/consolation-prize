@@ -131,7 +131,7 @@
       "beat": "9",
       "control": "player",
       "unscripted": "NOT YET WRITTEN. He is already standing at 1080,700 from beat 7; the beat is now the exchange -- three lines by index -- and then he walks off frame right",
-      "inputNote": "CLICKING THE LAMP IS SPEAKING TO HOB. Beat 9 waits on T_HOB_SPOKEN now -- he stands at the roadside from beat 2 and speaks when he is spoken to -- and he is a MOVER, so there is no rect on him and TALK_TO cannot reach him. The lamp he carries is the only part of him a player can address, and its hotspot is x480-600 y444-612. Without this the beat holds forever, correctly, and the run times out at 180s: THE GAUNTLET REPORTED ITS OWN SCRIPT AS STALE the first time beat 9 became a response, which is honesty 3 arriving from the same direction as beat 7's ceiling.",
+      "inputNote": "CLICKING THE LAMP IS SPEAKING TO HOB. Beat 9 waits on T_HOB_SPOKEN now -- he stands at the roadside from beat 2 and speaks when he is spoken to -- and he is a MOVER, so there is no rect on him and TALK_TO cannot reach him. The lamp he carries is the only part of him a player can address. Without this the beat holds forever, correctly, and the run times out at 180s: THE GAUNTLET REPORTED ITS OWN SCRIPT AS STALE the first time beat 9 became a response, which is honesty 3 arriving from the same direction as beat 7's ceiling.\n\nAND IT SAID IT A SECOND TIME, FOR THE SAME REASON, ONE MERGE LATER. This click was x540 y528, the centre of the lamp when the lamp was x480-600 y444-612. Hob has moved twice since -- he stands at 600,700 now and the flame was re-measured at his new position -- and the hotspot with him: it is x610-670 y586-659, so the old click landed on nothing, wrote no flag, and the beat held to its deadline exactly as designed. THE COORDINATE IS THE PART OF THIS SCRIPT THAT ROTS. A beat number survives a move and a rect does not, and there is no mechanism that would have told us: the run failing IS the mechanism. Centre of the lamp as it stands: 640,622.",
       "input": [
         {
           "do": "wait",
@@ -140,8 +140,8 @@
         {
           "do": "click",
           "at": [
-            540,
-            528
+            640,
+            622
           ]
         },
         {
