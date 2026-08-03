@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1840" height="342" viewBox="0 0 1840 342">
+<rect x="0" y="0" width="1840" height="342" fill="#14141c"/>
+<rect x="150" y="40" width="144" height="252" fill="#181822"/>
+<text x="158" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 1</text>
+<text x="158" y="52" fill="#7f7f96" font-size="15" font-family="monospace">menu</text>
+<rect x="300" y="40" width="144" height="252" fill="#181822"/>
+<text x="308" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 2</text>
+<text x="308" y="52" fill="#7f7f96" font-size="15" font-family="monospace">none</text>
+<rect x="450" y="40" width="144" height="252" fill="#181822"/>
+<text x="458" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 3</text>
+<text x="458" y="52" fill="#7f7f96" font-size="15" font-family="monospace">none</text>
+<rect x="600" y="40" width="144" height="252" fill="#1e2430"/>
+<text x="608" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 4</text>
+<text x="608" y="52" fill="#7f7f96" font-size="15" font-family="monospace">player</text>
+<rect x="750" y="40" width="144" height="252" fill="#1e2430"/>
+<text x="758" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 5</text>
+<text x="758" y="52" fill="#7f7f96" font-size="15" font-family="monospace">player</text>
+<rect x="900" y="40" width="144" height="252" fill="#1e2430"/>
+<text x="908" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 6</text>
+<text x="908" y="52" fill="#7f7f96" font-size="15" font-family="monospace">player</text>
+<rect x="1050" y="40" width="144" height="252" fill="#181822"/>
+<text x="1058" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 6b</text>
+<text x="1058" y="52" fill="#7f7f96" font-size="15" font-family="monospace">none</text>
+<rect x="1200" y="40" width="144" height="252" fill="#181822"/>
+<text x="1208" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 7</text>
+<text x="1208" y="52" fill="#7f7f96" font-size="15" font-family="monospace">none</text>
+<rect x="1350" y="40" width="144" height="252" fill="#1e2430"/>
+<text x="1358" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 8</text>
+<text x="1358" y="52" fill="#7f7f96" font-size="15" font-family="monospace">player</text>
+<rect x="1500" y="40" width="144" height="252" fill="#1e2430"/>
+<text x="1508" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 9</text>
+<text x="1508" y="52" fill="#7f7f96" font-size="15" font-family="monospace">player</text>
+<rect x="1650" y="40" width="144" height="252" fill="#1e2430"/>
+<text x="1658" y="26" fill="#e8e8f4" font-size="22" font-family="monospace">beat 10</text>
+<text x="1658" y="52" fill="#7f7f96" font-size="15" font-family="monospace">player</text>
+<text x="12" y="126" fill="#ff6f8f" font-size="24" font-family="monospace">coach</text>
+<line x1="300" y1="120" x2="444" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<circle cx="314" cy="120" r="7" fill="#ff6f8f" stroke="#ff6f8f" stroke-width="3"/>
+<text x="328" y="126" fill="#ff6f8f" font-size="15" font-family="monospace">PLACED</text>
+<line x1="450" y1="120" x2="594" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="600" y1="120" x2="744" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="750" y1="120" x2="894" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="900" y1="120" x2="1044" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1050" y1="120" x2="1194" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<circle cx="1064" cy="120" r="7" fill="#14141c" stroke="#ff6f8f" stroke-width="3"/>
+<text x="1078" y="126" fill="#ff6f8f" font-size="15" font-family="monospace">move</text>
+<line x1="1200" y1="120" x2="1344" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1350" y1="120" x2="1494" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1500" y1="120" x2="1644" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1650" y1="120" x2="1794" y2="120" stroke="#ff6f8f" stroke-width="3" stroke-opacity="0.35"/>
+<text x="12" y="190" fill="#6fb3ff" font-size="24" font-family="monospace">thad</text>
+<line x1="300" y1="184" x2="444" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<circle cx="314" cy="184" r="7" fill="#6fb3ff" stroke="#6fb3ff" stroke-width="3"/>
+<text x="328" y="140" fill="#6fb3ff" font-size="15" font-family="monospace">PLACED</text>
+<circle cx="314" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="328" y="160" fill="#6fb3ff" font-size="15" font-family="monospace">face right</text>
+<circle cx="314" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="328" y="180" fill="#6fb3ff" font-size="15" font-family="monospace">aboard-coach</text>
+<circle cx="314" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="328" y="200" fill="#6fb3ff" font-size="15" font-family="monospace">alight-coach</text>
+<circle cx="314" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="328" y="220" fill="#6fb3ff" font-size="15" font-family="monospace">walk</text>
+<circle cx="314" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="328" y="240" fill="#6fb3ff" font-size="15" font-family="monospace">face right</text>
+<line x1="450" y1="184" x2="594" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<circle cx="464" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="478" y="180" fill="#6fb3ff" font-size="15" font-family="monospace">walk</text>
+<circle cx="464" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="478" y="200" fill="#6fb3ff" font-size="15" font-family="monospace">face right</text>
+<line x1="600" y1="184" x2="744" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="750" y1="184" x2="894" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="900" y1="184" x2="1044" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<circle cx="914" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="928" y="180" fill="#6fb3ff" font-size="15" font-family="monospace">face right</text>
+<circle cx="914" cy="184" r="7" fill="#14141c" stroke="#6fb3ff" stroke-width="3"/>
+<text x="928" y="200" fill="#6fb3ff" font-size="15" font-family="monospace">pickup-low</text>
+<line x1="1050" y1="184" x2="1194" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1200" y1="184" x2="1344" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1350" y1="184" x2="1494" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1500" y1="184" x2="1644" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1650" y1="184" x2="1794" y2="184" stroke="#6fb3ff" stroke-width="3" stroke-opacity="0.35"/>
+<text x="12" y="254" fill="#ffb454" font-size="24" font-family="monospace">hob</text>
+<line x1="1200" y1="248" x2="1344" y2="248" stroke="#ffb454" stroke-width="3" stroke-opacity="0.35"/>
+<circle cx="1214" cy="248" r="7" fill="#ffb454" stroke="#ffb454" stroke-width="3"/>
+<text x="1228" y="254" fill="#ffb454" font-size="15" font-family="monospace">PLACED</text>
+<line x1="1350" y1="248" x2="1494" y2="248" stroke="#ffb454" stroke-width="3" stroke-opacity="0.35"/>
+<line x1="1500" y1="248" x2="1644" y2="248" stroke="#ffb454" stroke-width="3" stroke-opacity="0.35"/>
+<circle cx="1514" cy="248" r="7" fill="#14141c" stroke="#ffb454" stroke-width="3"/>
+<text x="1528" y="244" fill="#ffb454" font-size="15" font-family="monospace">walk</text>
+<circle cx="1514" cy="248" r="7" fill="#14141c" stroke="#ffb454" stroke-width="3"/>
+<text x="1528" y="264" fill="#ffb454" font-size="15" font-family="monospace">walk</text>
+<line x1="1650" y1="248" x2="1794" y2="248" stroke="#ffb454" stroke-width="3" stroke-opacity="0.35"/>
+</svg>
