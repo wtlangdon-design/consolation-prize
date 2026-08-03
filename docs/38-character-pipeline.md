@@ -216,6 +216,20 @@ A fallback to a literal says *nobody told me, here is the standard answer*. A fa
 
 > **Enforced as far as a machine can hold it** by `tools/check-entity-fallback.mjs`, which flags any fallback reading the singular `content.actor`. It had to learn two evasions to be worth anything: a bare identifier assigned from that record, and a read already wrapped in its own tidy `?? ''`. Both were live in the tree.
 
+## R5h · AN INSTRUMENT CAN CHANGE THE SYSTEM, NOT ONLY REPORT ON IT
+
+R5d says the capture is not the render, and its apparatus clause says an experiment that did not happen returns "no effect". **This is the third position, and it is the one that reads as the opposite of the second.**
+
+**A defect that disappears when the instrument comes off has TWO explanations, and only one of them is "the instrument caused it".** The other is that the instrument was a **load generator**, and removing it removed the load.
+
+**The case.** `BODY_ONE_OWNER: thad@chore+walk` appeared while a wrapper around `drawImage` was measuring sprite sizes, and vanished when the wrapper came off. That was recorded as an artefact and reported as one. It reproduces on **every run at 5 Mbps with nothing instrumented at all** — a race between two clocks that needs one long frame, which the wrapper supplied by slowing the frame and throttling supplies by slowing the frame.
+
+*"Only appears with the instrument attached"* was a correct observation. *"Therefore it is the instrument"* was a conclusion the evidence did not support.
+
+> **Distinguish them by reproducing the CONDITION by other means.** Not the instrument — the condition it happened to create. A long frame, a slow disk, a cold cache, a full queue. If the defect survives a different cause of the same condition, the instrument was never the subject.
+
+The two halves of this rule pull in opposite directions on purpose. R5d's is *do not trust a null the apparatus may have manufactured*. This one is *do not trust a null the apparatus may have manufactured by being removed*. Both are the same underlying caution: the apparatus is part of the system while it is attached, and its absence is a change too.
+
 ## R5g · A MOVER WITH NO PLACEMENT IS NOT AT THE ORIGIN
 
 The same shape as R5f, and found by playing rather than by reading.
