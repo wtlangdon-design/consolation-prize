@@ -200,6 +200,7 @@ async function play(engine, url, script, armed) {
     beats: new Map(),
     fired: new Set(),
     missed: [],
+    timings: [],
   };
   await sample(page, script, state, armed);
 
@@ -245,6 +246,8 @@ async function sample(page, script, state, armed) {
   let lastClips = new Map();
   let moved = new Set();
   const driven = new Set();
+  /** The input script in flight, if one is. Kept so the run can await it. */
+  let driving = null;
   const started = Date.now();
   const deadline = started + 180_000;
 
@@ -275,7 +278,10 @@ async function sample(page, script, state, armed) {
           checkLeaving(spec, state, held, script);
           if (armed) fireMarks(spec, 'leave', frame, state, script, now - enteredAt);
         }
-        if (stop && stop.beat === previous && stop.on === 'leave') return;
+        if (stop && stop.beat === previous && stop.on === 'leave') {
+          await driving;
+          return;
+        }
       }
       previous = frame.beat;
       enteredAt = now;
@@ -283,13 +289,16 @@ async function sample(page, script, state, armed) {
       moved = new Set();
       const spec = frame.beat !== null ? byBeat.get(frame.beat) : undefined;
       if (spec && armed) fireMarks(spec, 'enter', frame, state, script, 0);
-      if (stop && stop.beat === frame.beat && stop.on === 'enter') return;
+      if (stop && stop.beat === frame.beat && stop.on === 'enter') {
+        await driving;
+        return;
+      }
       // An observable beat with its own input drives it here; an unobservable
       // one is driven by its segment above. `driven` stops a beat that is
       // both from being played twice.
       if (spec?.input?.length && !driven.has(spec.beat)) {
         driven.add(spec.beat);
-        await drive(page, spec.input);
+        driving = drive(page, spec.input).catch(() => {});
       }
     }
 
@@ -305,7 +314,18 @@ async function sample(page, script, state, armed) {
         const owner = byBeat.get(id);
         if (owner?.input?.length && !driven.has(id)) {
           driven.add(id);
-          await drive(page, owner.input);
+          // NOT AWAITED, AND THAT IS THE FIX FOR A BEAT NOBODY SAW. The last
+          // action of the driver's tree is a three-second wait, and beat 6b --
+          // the coach's whole departure -- plays inside it. Awaiting the input
+          // script stopped the sampler for its entire length, so the harness
+          // was blind for exactly as long as it had told itself to be patient.
+          // Playwright serialises calls on a page, so the two interleave
+          // safely.
+          driving = drive(page, owner.input).catch((error) => {
+            state.failures.push({ beat: id, who: '-', field: 'input',
+              expected: 'the input script to run', got: String(error.message ?? error),
+              note: '' });
+          });
           break;
         }
       }
@@ -478,7 +498,21 @@ function compare(spec, index, mark, frame, state, script) {
 
 /** A beat that overran, and any mark of its that never fired. */
 function checkLeaving(spec, state, held, script) {
-  const ceiling = spec.within ?? ((spec.seconds ?? 0) + script.defaults.slack);
+  // A BEAT THAT STATES NO DURATION GETS NO CEILING. `seconds + slack` with no
+  // seconds is `slack`, which handed every unstated beat a three-second limit
+  // nobody wrote: beat 3 is two lines and holds 6.5s, beat 9 is a crossing and
+  // three lines and holds 39s, and both were reported as overruns against a
+  // number the script had never claimed. An assertion invented on the reader's
+  // behalf is the same fault as a mark written from a stale table.
+  //
+  // What it does instead is TELL THE AUTHOR WHAT IT MEASURED, so the number
+  // that goes into the script is one somebody watched rather than guessed.
+  if (spec.within === undefined && spec.seconds === undefined) {
+    state.timings.push(`beat ${spec.beat} held ${held.toFixed(2)}s -- no duration stated, `
+      + 'so none was asserted');
+    return;
+  }
+  const ceiling = spec.within ?? (spec.seconds + script.defaults.slack);
   if (ceiling > 0 && held > ceiling) {
     state.failures.push({ beat: spec.beat, who: '-', field: 'duration',
       expected: `<= ${ceiling}s`, got: `${held.toFixed(2)}s`, note: '' });
@@ -502,6 +536,9 @@ function report(state) {
   if (state.droppedViolations) {
     console.log(`     (${state.droppedViolations} further violation(s) counted and not kept)`);
   }
+  // Printed before the failures: these are measurements offered to whoever is
+  // writing the script, not complaints about the game.
+  for (const line of state.timings) console.log(`     ${line}`);
   for (const miss of state.missed) {
     console.log(`FAIL beat ${miss.beat} · mark ${miss.mark} never fired`);
     console.log(`     when ${miss.when}`);

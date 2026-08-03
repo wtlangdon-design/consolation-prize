@@ -126,7 +126,9 @@ A beat number is structure, not content: doc 17 authored it and the extractor al
 
 **`unscripted` is how a beat is left out honestly.** A beat absent from `beats` entirely is a failure — the harness compares the beat list against the sequence file and refuses a script with holes in it. A beat present with an `unscripted` string is skipped, and the run prints *"beat 6 not checked: the case never comes off the roof, so there is nothing to assert"* in its summary. **No silent caps.** A partial script that says which parts are partial is useful; one that quietly covers half the opening reads as covering all of it.
 
-**`within` is asserted for every beat, scripted or not.** A beat that never ends is the one failure mode that costs a CI run rather than reporting one.
+**A beat that states neither `seconds` nor `within` has NO duration asserted, and the run says what it measured instead.** The first version defaulted to `seconds + slack` with no seconds, which is just `slack` — so every unstated beat was handed a three-second ceiling nobody had written, and beat 3 (two lines, 6.5s) and beat 9 (a crossing and three lines, 39s) were both reported as overruns against a number the script never claimed. An assertion invented on the author's behalf is the same fault as a mark copied from a stale table.
+
+What it does instead is print `beat 3 held 6.51s — no duration stated, so none was asserted`, so the number that goes into the script is one somebody watched.
 
 **`control` is asserted against `content/sequences/opening.json`.** This is the whole of the structural agreement between the two files, and it catches the drift that matters: a beat whose control changed in doc 17 and whose expectations did not.
 
