@@ -182,7 +182,11 @@ function opening() {
     //
     // An automatic segment's writes land when the segment COMPLETES, so this
     // arrives exactly as beat 8 hands over control.
-    '7': { T_HOB_CROSSING: true },
+    // HE IS ON SCREEN FROM BEAT 2, so the flag that says so is written there.
+    // Beat 1 is the title screen and `beginOpening` filters the menu segment
+    // out of the opening entirely, so BEAT 2 IS THE FIRST BEAT THAT PLAYS and
+    // "place him in the first beat" means this one.
+    '2': { T_HOB_CROSSING: true },
     // AND T_HOB_GONE WAS WRITTEN NOWHERE AT ALL, which is why the lamp stayed
     // interactable after he had left and `lamp_gone` -- the response written
     // for exactly that moment -- could never appear. Beat 10 is where he has
@@ -199,6 +203,26 @@ function opening() {
   // annotation, and beat 3 stays automatic. Applied here rather than in the
   // doc so the correction is one ruling in one place.
   const carried = { '4': 'STAGE_DRIVER', '5': 'STAGE_DRIVER', '6': 'STAGE_DRIVER' };
+
+  // WHICH BEATS WAIT FOR THE PLAYER RATHER THAN FOR A CLOCK.
+  //
+  // Doc 17 beat 9 is Hob's exchange, and he no longer crosses the road saying
+  // it at whoever happens to be standing there. He waits at the roadside and
+  // speaks when he is SPOKEN TO, so the beat is a response.
+  //
+  // THE WORDS DO NOT MOVE. They stay in doc 17 beat 9 where the beat sheet has
+  // them, and only WHEN the beat begins changes. A dialogue tree on Hob would
+  // have been the cheaper mechanism and would have moved three lines out of
+  // the document that owns the opening -- a content decision, not an
+  // implementation one.
+  //
+  // HOLDING IT FOREVER BREAKS NOTHING, checked before it was built.
+  // `playOpeningSegment` calls `finishOpening` -- control handed over, the
+  // done flag written, autosaved -- and only THEN arms the carrier. The
+  // opening is genuinely over at beat 8; 9 and 10 are ordinary play that the
+  // carrier happens to be driving. A player who never speaks to him leaves a
+  // man standing at the roadside with his lamp, which is the truthful state.
+  const awaits = { '9': 'T_HOB_SPOKEN' };
 
   /**
    * WHERE THE BEATS HAPPEN. Doc 17 says what occurs; these say where, and they
@@ -268,11 +292,18 @@ function opening() {
       // something true to sort. He used to stand at (820, 760) -- inside the
       // vehicle's own span, eighteen pixels in front of it, among the horses.
       { do: 'walk', actor: 'thad', to: [1240, 802] },
-      // And shut behind him. No state, rather than a state called "shut": the
-      // record declares one variant and the plain clip IS the shut door, so
-      // clearing resolves to it by the same exact-match-then-fall-back that a
-      // mover which never had a state uses.
       { do: 'face', actor: 'thad', facing: 'right' },
+      // HOB IS ALREADY THERE. He used to be placed off frame and glide in
+      // during beat 7, then cross the road during beat 9 -- four seconds on
+      // screen around a three-line exchange, which is an event rather than a
+      // neighbour. He now stands at the roadside from the first beat that
+      // plays, a little to the right of the Consolation sign (x204-396) where
+      // the light is strongest, and does not move until he is spoken to.
+      //
+      // PLACED LAST IN THE BEAT so the coach and Thad are staged first. The
+      // frame's subject is a man getting off a stagecoach; the watchman is
+      // scenery until he is not.
+      { do: 'move', actor: 'hob', from: [475, 700], to: [475, 700], seconds: 0.1 },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
@@ -290,7 +321,13 @@ function opening() {
     // No `from` here: beat 2 placed it, and repeating the placement would
     // teleport it back to its mark if anything had nudged it.
     '6b': [{ do: 'move', actor: 'coach', to: [3000, 742], seconds: 3 }],
-    // BEAT 7 STANDS HIM AT THE ROADSIDE. He does not walk in.
+    // BEAT 7 NO LONGER TOUCHES HIM -- he has stood at the roadside since beat
+    // 2. Kept as an EMPTY list rather than deleted so the beat still lasts as
+    // long as doc 17 says: `stagingTakesTime` is false for an empty list, so
+    // the stated three seconds are emitted and the act card holds over them.
+    //
+    // WHAT WAS HERE, for the next person: he was placed off frame LEFT and
+    // glided in.
     //
     // He used to be placed off frame left and glide to x60, then cross to
     // x1080 during beat 9 to speak. That put him on screen for about four
@@ -307,7 +344,7 @@ function opening() {
     // the coach: `walk` never creates a mover, only `move` places one, and
     // errata 38 fences `move` to beats whose control is `none`. Beat 7 is the
     // last such beat before control, which is why it is here and not beat 8.
-    7: [{ do: 'move', actor: 'hob', from: [1080, 700], to: [1080, 700], seconds: 0.1 }],
+    7: [],
     // BEAT 9: he crosses, STOPS to speak, and goes on. Three lines from a man
     // who never breaks stride is not the beat -- and until `say` could be
     // STAGED, neither was this: a beat's lines were appended after all of its
@@ -319,8 +356,9 @@ function opening() {
     // only when each lands. An index with no line behind it throws at
     // extraction rather than playing silence.
     9: [
-      // NO WALK IN. He is already standing at 1080 from beat 7; the beat is
-      // now what it says it is -- an exchange, and then he goes on.
+      // NO WALK IN, AND IT DOES NOT BEGIN UNTIL HE IS SPOKEN TO. He has been
+      // standing since beat 2; the beat is what it says it is -- an exchange,
+      // and then he goes on. See `awaits`.
       { do: 'say', line: 0 },
       { do: 'say', line: 1 },
       { do: 'say', line: 2 },
@@ -332,6 +370,7 @@ function opening() {
   for (const entry of beats) {
     if (flags[entry.beat]) entry.set = flags[entry.beat];
     if (staging[entry.beat]) entry.staging = staging[entry.beat];
+    if (awaits[entry.beat]) entry.awaitFlag = awaits[entry.beat];
     if (carried[entry.beat]) {
       entry.carriedBy = carried[entry.beat];
       entry.control = 'player';
@@ -1371,6 +1410,39 @@ function openingCase() {
     process.stderr.write(`  doc 17 ORPHAN: state C is "the hotspot is gone" and still `
       + `carries a line -- "${line.slice(0, 52)}..."\n`);
   }
+
+  // THE LAMP IS HOW YOU SPEAK TO HOB, so every response on it writes the flag
+  // that lets doc 17 beat 9 begin.
+  //
+  // HE IS A MOVER AND NOT A TARGET. There is no rect on him, `targetAt` never
+  // returns him, and TALK_TO cannot reach him at all -- so the lamp he is
+  // carrying is the only part of him a player can address. Its hotspot already
+  // sits at x480-600, which is where he now stands: it was authored for a man
+  // crossing the road and it lands on a man standing still.
+  //
+  // ON BOTH VERBS RATHER THAN ONE, because which of LOOK and LISTEN a player
+  // tries first is not something to be right about. The LINES are untouched --
+  // they are doc 05's and doc 17's, extracted above; this adds only the write,
+  // which is routing and not writing.
+  //
+  // IT LIVES IN THE EXTRACTOR because the room file is regenerated whole. Hand
+  // -editing it survives until the next extraction and then vanishes silently,
+  // which is the same trap the speakers table sets for a colour.
+  const lamp = room.hotspots.find((entry) => entry.id === 'lamp');
+  if (!lamp) throw new Error('stage road has no "lamp" hotspot for Hob to be spoken to through');
+  const speaking = ['LOOK_AT', 'LISTEN_TO'];
+  for (const verb of speaking) {
+    const said = lamp.responses?.[verb];
+    if (!said?.length) throw new Error(`the lamp has no ${verb} response to carry the write`);
+    for (const rule of said) rule.set = { ...(rule.set ?? {}), T_HOB_SPOKEN: true };
+  }
+  lamp.setNote = 'EVERY RESPONSE HERE WRITES T_HOB_SPOKEN, which is what holds doc 17 beat 9. '
+    + 'Hob is a MOVER and not a target -- there is no rect on him and TALK_TO cannot reach him -- '
+    + 'so the lamp he carries is the only part of him a player can address, and this hotspot '
+    + 'already sits where he now stands. Looking at it or listening to it is speaking to him, and '
+    + 'the exchange follows. Added by tools/extract-content.mjs: the lines are the document\'s, '
+    + 'the write is routing.';
+
   return write(path, room);
 }
 

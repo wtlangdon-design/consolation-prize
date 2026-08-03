@@ -116,7 +116,8 @@ export class GameScene extends Phaser.Scene {
    * is what doc 17 means by putting `yes` in beat 9's interactive column.
    */
   private readonly carried = new CarriedBeats(
-    (writes) => this.state.flags.applyWrites(writes));
+    (writes) => this.state.flags.applyWrites(writes),
+    (flag) => this.state.flags.get(flag));
   private actCard: string | null = null;
   private hoveredLocation: string | null = null;
 

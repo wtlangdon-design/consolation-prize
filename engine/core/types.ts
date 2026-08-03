@@ -1047,6 +1047,20 @@ export interface SequenceBeat {
    * appearing to work.
    */
   staging?: SequenceStagingStep[];
+  /**
+   * A flag this beat waits for before it begins.
+   *
+   * Doc 17 beat 9 is Hob's exchange. He no longer crosses the road saying it
+   * at whoever is standing there: he waits at the roadside and speaks when he
+   * is SPOKEN TO, so the beat is a response rather than a moment on a clock.
+   *
+   * ONLY THE CARRIER HONOURS THIS, and only it can: an automatic segment plays
+   * instead of the player, so a cutscene beat waiting on a player action would
+   * wait forever with no way to act. The carrier plays ALONGSIDE the player,
+   * after control has been handed over, which is the only place a beat can
+   * sensibly wait for one.
+   */
+  awaitFlag?: string;
 }
 
 /**

@@ -203,7 +203,10 @@
             "repeat": [
               "Still crossing. He is in no hurry and he is not lost.",
               "The only lit thing on this road, and it is going the other way."
-            ]
+            ],
+            "set": {
+              "T_HOB_SPOKEN": true
+            }
           }
         ],
         "LISTEN_TO": [
@@ -212,14 +215,18 @@
             "repeat": [
               "Still even.",
               "He has not broken stride once. Not once, in the whole length of the road."
-            ]
+            ],
+            "set": {
+              "T_HOB_SPOKEN": true
+            }
           }
         ]
       },
       "overrides": {
         "TALK_TO": "He is walking. I shall let him walk."
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "setNote": "EVERY RESPONSE HERE WRITES T_HOB_SPOKEN, which is what holds doc 17 beat 9. Hob is a MOVER and not a target -- there is no rect on him and TALK_TO cannot reach him -- so the lamp he carries is the only part of him a player can address, and this hotspot already sits where he now stands. Looking at it or listening to it is speaking to him, and the exchange follows. Added by tools/extract-content.mjs: the lines are the document's, the write is routing."
     },
     {
       "id": "lamp_gone",

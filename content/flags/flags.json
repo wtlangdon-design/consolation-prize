@@ -71,6 +71,15 @@
       ]
     },
     {
+      "id": "T_HOB_SPOKEN",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has spoken to the watchman -- or, since Hob is a mover and not a target, has interacted with the LAMP he is holding, which is the only part of him the player can click. It holds doc 17 beat 9: the beat does not begin until this is true, so Hob stands at the roadside from the first beat that plays and speaks when he is spoken to rather than saying three lines at whoever happens to be there. A player who never speaks to him leaves a man standing with his lamp, which is the truthful state and breaks nothing: the opening is over at beat 8 and beats 9 and 10 are ordinary play.",
+      "writtenBy": [
+        "room:stage_road:lamp"
+      ]
+    },
+    {
       "id": "T_HOB_GONE",
       "type": "bool",
       "initial": false,

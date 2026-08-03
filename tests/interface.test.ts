@@ -947,8 +947,14 @@ test('doc 17 v3.1: one automatic opening line, a four-option driver tree, a late
   // lamp exists for less time than it takes to choose a verb. The close was
   // written nowhere at all, which is why the lamp stayed interactable after he
   // had gone and the response written for that moment could never appear.
-  assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!.beat, '7');
+  assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_CROSSING)!.beat, '2');
   assert.equal(opening.beats.find((beat) => beat.set?.T_HOB_GONE)!.beat, '10');
+
+  // AND THE BEAT BETWEEN THEM WAITS FOR THE PLAYER. He stands at the roadside
+  // from the first beat that plays and speaks when he is SPOKEN TO, so beat 9
+  // is a response rather than a moment on a clock. The words stay in doc 17
+  // where the beat sheet has them; only when the beat begins changed.
+  assert.equal(opening.beats.find((beat) => beat.awaitFlag)!.beat, '9');
 });
 
 test('a multi-speaker response plays one line at a time', async () => {

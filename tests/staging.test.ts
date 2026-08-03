@@ -421,7 +421,10 @@ test('the carrier delivers every line and every flag write of those beats', asyn
   const segment = await uncarriedSegment();
   const written: Record<string, boolean | number> = {};
   const said: string[] = [];
-  const carrier = new CarriedBeats((writes) => Object.assign(written, writes));
+  // EVERY AWAITED FLAG ALREADY TRUE, so this stays a test about DELIVERY. The
+  // hold has its own test below; conflating them would make this one fail for
+  // a reason that has nothing to do with what it is checking.
+  const carrier = new CarriedBeats((writes) => Object.assign(written, writes), () => true);
   const host = recordingHost(said);
 
   carrier.arm(segment.beats);
@@ -443,7 +446,7 @@ test('the carrier delivers every line and every flag write of those beats', asyn
 test('a carried beat\'s flags are written when the carrier REACHES it, not before', async () => {
   const segment = await uncarriedSegment();
   const written: Record<string, boolean | number> = {};
-  const carrier = new CarriedBeats((writes) => Object.assign(written, writes));
+  const carrier = new CarriedBeats((writes) => Object.assign(written, writes), () => true);
   const said: string[] = [];
   carrier.arm(segment.beats);
   carrier.update(0, recordingHost(said));
@@ -617,4 +620,64 @@ test('depth ties: the real one -- a walker at a vehicle\'s own feet Y', () => {
     { id: 'walker', feetX: 1290, feetY: 742, halfWidth: 42 },
   ]);
   assert.deepEqual(ties, [['vehicle', 'walker']]);
+});
+
+
+/* =========================================================================
+ * A BEAT THAT WAITS FOR THE PLAYER
+ *
+ * Doc 17 beat 9 is Hob's exchange. He no longer crosses the road saying it at
+ * whoever happens to be standing there: he stands at the roadside from the
+ * first beat that plays and speaks when he is SPOKEN TO. The words did not
+ * move -- they are still doc 17's, in beat 9, where the beat sheet has them.
+ * Only when the beat begins changed.
+ * ====================================================================== */
+
+test('a beat that awaits a flag does not begin, and nothing after it lands', async () => {
+  const segment = await uncarriedSegment();
+  const awaited = segment.beats.find((beat) => beat.awaitFlag);
+  assert.ok(awaited, 'the segment has a beat that waits');
+
+  const written: Record<string, boolean | number> = {};
+  const said: string[] = [];
+  const flags: Record<string, boolean> = {};
+  const carrier = new CarriedBeats(
+    (writes) => Object.assign(written, writes), (flag) => flags[flag]);
+
+  carrier.arm(segment.beats);
+  for (let seconds = 0; seconds < 30; seconds += 0.25) carrier.update(seconds, recordingHost(said));
+
+  assert.deepEqual(said, [], 'not one of its lines has been spoken');
+  // AND THE BEATS AFTER IT HAVE NOT RUN EITHER, which is the half that makes
+  // the flag mean what it says: T_HOB_GONE belongs to the beat after he goes,
+  // and he has not gone.
+  const later = segment.beats.slice(segment.beats.indexOf(awaited!));
+  for (const beat of later) {
+    for (const flag of Object.keys(beat.set ?? {})) {
+      assert.ok(!(flag in written), `${flag} has not been written while the beat waits`);
+    }
+  }
+});
+
+test('and it begins the moment the flag is written, without re-arming', async () => {
+  const segment = await uncarriedSegment();
+  const awaited = segment.beats.find((beat) => beat.awaitFlag)!;
+  const written: Record<string, boolean | number> = {};
+  const said: string[] = [];
+  const flags: Record<string, boolean> = {};
+  const carrier = new CarriedBeats(
+    (writes) => Object.assign(written, writes), (flag) => flags[flag]);
+
+  carrier.arm(segment.beats);
+  for (let seconds = 0; seconds < 5; seconds += 0.25) carrier.update(seconds, recordingHost(said));
+  assert.deepEqual(said, [], 'still waiting');
+
+  // Written by something the player did -- a response on the lamp, in the
+  // game. The carrier is not told; it asks, every tick.
+  flags[awaited.awaitFlag as string] = true;
+  for (let seconds = 5; seconds < 60; seconds += 0.25) carrier.update(seconds, recordingHost(said));
+
+  assert.deepEqual(said, (awaited.lines ?? []).map((spoken) => spoken.line),
+    'every line of the beat, in the order the beat sheet writes them');
+  assert.equal(carrier.isRunning, false, 'and then it is done');
 });

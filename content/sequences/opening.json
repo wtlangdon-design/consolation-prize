@@ -36,6 +36,9 @@
       "control": "none",
       "seconds": 8,
       "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen",
+      "set": {
+        "T_HOB_CROSSING": true
+      },
       "staging": [
         {
           "do": "move",
@@ -90,6 +93,19 @@
           "do": "face",
           "actor": "thad",
           "facing": "right"
+        },
+        {
+          "do": "move",
+          "actor": "hob",
+          "from": [
+            475,
+            700
+          ],
+          "to": [
+            475,
+            700
+          ],
+          "seconds": 0.1
         }
       ]
     },
@@ -214,24 +230,7 @@
       "control": "none",
       "seconds": 3,
       "note": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It",
-      "set": {
-        "T_HOB_CROSSING": true
-      },
-      "staging": [
-        {
-          "do": "move",
-          "actor": "hob",
-          "from": [
-            1080,
-            700
-          ],
-          "to": [
-            1080,
-            700
-          ],
-          "seconds": 0.1
-        }
-      ],
+      "staging": [],
       "actCard": "PART ONE — In Which Our Hero Is Robbed, and Enjoys It"
     },
     {
@@ -267,6 +266,7 @@
           ]
         }
       ],
+      "awaitFlag": "T_HOB_SPOKEN",
       "lines": [
         {
           "speaker": "hob",

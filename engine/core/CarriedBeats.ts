@@ -29,13 +29,19 @@ import type { SequenceBeat } from './types.ts';
  * cutscene that has taken the panel away without saying so.
  */
 export class CarriedBeats {
+  /** Reads a flag, for a beat that waits on one. */
+  private readonly reads: (flag: string) => boolean | number | undefined;
   private readonly runner = new SequenceRunner();
   private readonly applyWrites: (writes: Record<string, boolean | number>) => void;
   private beats: SequenceBeat[] = [];
   private at = 0;
 
-  constructor(applyWrites: (writes: Record<string, boolean | number>) => void) {
+  constructor(applyWrites: (writes: Record<string, boolean | number>) => void,
+              reads: (flag: string) => boolean | number | undefined = () => undefined) {
     this.applyWrites = applyWrites;
+    // A carrier with no reader can hold nothing, which is the right default:
+    // the only beats that wait are the ones a document says wait.
+    this.reads = reads;
   }
 
   get isRunning(): boolean {
@@ -61,6 +67,19 @@ export class CarriedBeats {
 
   update(seconds: number, host: SequenceHost): boolean {
     if (this.beats.length === 0) return false;
+    // A HELD BEAT IS RE-ASKED EVERY TICK, and this is the whole of the hold.
+    //
+    // `play` returns without starting anything when the beat it has reached is
+    // waiting on a flag -- so once it has done that, NOTHING WOULD EVER CALL
+    // IT AGAIN. The flag went true and the beat stayed held forever, which the
+    // hold's own test caught: three lines expected, none spoken. The release
+    // has to be asked for on the tick, because nobody tells the carrier that a
+    // flag was written.
+    if (!this.runner.isRunning) {
+      if (this.held()) return false;
+      this.play();
+      if (!this.runner.isRunning) return false;
+    }
     const was = this.runner.isRunning;
     const moved = this.runner.update(seconds, host);
     if (was && !this.runner.isRunning) {
@@ -81,9 +100,33 @@ export class CarriedBeats {
    * last line would put the hotspot in the room only once its subject had
    * left it, and the lines would be describing nothing.
    */
+  /** Whether the beat next in line is waiting on a flag nobody has written. */
+  private held(): boolean {
+    const beat = this.beats[this.at];
+    if (!beat?.awaitFlag) return false;
+    return this.reads(beat.awaitFlag) !== true;
+  }
+
   private play(): void {
     while (this.at < this.beats.length) {
       const beat = this.beats[this.at] as SequenceBeat;
+      // A BEAT MAY WAIT FOR THE PLAYER. Doc 17 beat 9 is Hob's exchange, and
+      // he no longer crosses the road and says it at whoever is there -- he
+      // stands at the roadside and speaks when he is spoken to. So the beat
+      // holds until something writes its flag.
+      //
+      // NOTHING IS BLOCKED BY HOLDING IT FOREVER, and that was worth checking
+      // before building it. `playOpeningSegment` calls `finishOpening` --
+      // control handed over, the done flag written, autosaved -- and only THEN
+      // arms this carrier. The opening is genuinely over at beat 8; beats 9
+      // and 10 are ordinary play that this happens to be driving. A player who
+      // never speaks to him leaves a man standing at the roadside with his
+      // lamp, which is the truthful state and not a stall.
+      //
+      // The flag writes wait with the beat. A beat that has not begun has not
+      // written anything, which is what makes `T_HOB_GONE` on beat 10 mean
+      // what it says.
+      if (beat.awaitFlag && this.reads(beat.awaitFlag) !== true) return;
       this.applyWrites(beat.set ?? {});
       const steps = carriedStepsFor(beat);
       if (steps.length === 0) {
