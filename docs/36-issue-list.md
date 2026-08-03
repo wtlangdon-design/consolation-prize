@@ -2010,6 +2010,62 @@ The door-open clip was found because *"none of the lamps are glowing brighter th
 
 ---
 
+## Q76 · Holding the driver's `looking-down`: the state is already writable and nothing reads it
+
+**Same question as Q75 from the other side, and it does share an answer — but not the one that looks obvious.**
+
+`overlayState()` has exactly one selector and one fallback:
+
+```ts
+if (speaker) { for (const [id, s] of states) if (s.whenSpeaker === speaker) return id; }
+return overlay.default;
+```
+
+Speaker, or default. Nothing else. So `looking-down` shows on Thad's spoken lines — **two of seven across beats 3–6** — and `neutral` for everything between, which is the whole time the player is reading four options.
+
+### The three things already held, and none of them has the right extent
+
+| Candidate | What it would hold for | Against the conversation, beats 3–6 |
+|---|---|---|
+| set `default` to `looking-down` | forever | he looks down at an empty road for the rest of the game |
+| the coach's `door-open` state | beat 2 → off frame | too wide at both ends |
+| the driver's dialogue tree running | beats 4–6 | misses beat 3, which is automatic and has no tree |
+
+**The coach's state is the tempting one and it is wrong by more than it looks.** `door-open` is set at beat 2 and **never cleared** — the opening contains exactly one `setState` — so the coach departs with the door open, and a head tied to it would look down while Thad climbs out, and go on looking down while the coach drives away east.
+
+It is also the wrong *fact*. The door being open is not the driver looking at somebody; the two coincide in this scene and nothing makes them coincide in the next.
+
+### What the engine nearly does — the fourth of this shape, and the fifth time it has been true
+
+`setState` does not check that its object is a mover:
+
+```
+SequenceWorld.setState → RoomActors.setMoverState → GameState.setMoverState
+  → objectStates.set(`${scope}/${id}`, state)
+```
+
+**The id is an arbitrary string.** So this, written today, in a beat, with no engine change at all:
+
+```json
+{ "do": "setState", "object": "driver", "state": "looking-down" }
+```
+
+…already **writes** a state under `stage_road/driver`. It saves. It restores. Omitting `state` clears it, exactly as it does for the coach's door.
+
+**Nothing reads it.** `overlayState()` never consults `objectStates`. The whole of the gap is one lookup by `overlay.id`, and then the extent is authored rather than inherited: set at the start of beat 3, cleared at the end of beat 6 — **exactly the conversation, because a beat says so, rather than approximately the conversation because a door happens to be open.**
+
+> The recurring sentence, a fifth time: **the engine is usually further along than the vocabulary that addresses it.** Here it is further along than the *reader* — the write path is complete, tested by the coach, and saved for free; only the consult is missing.
+
+### The decision that is not implementation
+
+**Precedence.** Doc 43 line 97 gives the driver `speaking` on his own lines. A held `looking-down` must not take those, so `whenSpeaker` has to win over a held state — which means the held state is a *replacement for the default*, not an override of the speaker rule. That is a design choice and it belongs in the ruling, not in the code.
+
+**And the taste question underneath it is Tyler's, unchanged:** a man who glances down when addressed and back out over his horses otherwise may well be more alive than one staring fixedly. What has changed is only that Thad now holds a look upward beside him, so the mismatch is visible where it was not before. **Both readings are buildable and neither needs a new mechanism.**
+
+**Nothing invented and nothing changed.**
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
