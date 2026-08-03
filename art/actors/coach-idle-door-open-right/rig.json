@@ -3,11 +3,11 @@
   "facing": "right",
   "view": "profile",
   "figure": [
-    1963,
-    778
+    1129,
+    447
   ],
   "padding": 0,
-  "note": "The coach standing with its DOOR OPEN -- beats 3 to 6, after Thad has climbed out. Resolved by ActorClip's `state` discriminator, the same field and the same exact-match-then-fall-back as `surface`; a mover with no state gets the stateless clip, which is the shut door.\n\nTHE ROOF RACK IS EMPTY IN THIS ART AND THAT IS CORRECT. The case is its own sprite at art/objects/thads-case.png and is drawn ON the rack until T_CASE_DOWN, then in the mud -- which is why no fourth coach variant is needed and why the case can come off without the vehicle changing at all.\n\nR5a: WRITTEN AT 2x THE DRAWN HEIGHT (778 for a 389 draw). It was stored at 1.00x -- every stored pixel a screen pixel, no resampling at all -- so the coach read visibly crisper than Thad at 2.19x and Hob at 5.93x, and looked pasted in.",
-  "frames": 1,
+  "note": "The coach standing with its DOOR OPEN -- beats 3 to 6, after Thad has climbed out. Resolved by ActorClip's `state` discriminator, the same field and the same exact-match-then-fall-back as `surface`; a mover with no state gets the stateless clip, which is the shut door.\n\nTHE ROOF RACK IS EMPTY IN THIS ART AND THAT IS CORRECT. The case is its own sprite at art/objects/thads-case.png and is drawn ON the rack until T_CASE_DOWN, then in the mud -- which is why no fourth coach variant is needed and why the case can come off without the vehicle changing at all.\n\nR5a: WRITTEN AT 2x THE DRAWN HEIGHT (778 for a 389 draw). It was stored at 1.00x -- every stored pixel a screen pixel, no resampling at all -- so the coach read visibly crisper than Thad at 2.19x and Hob at 5.93x, and looked pasted in.\n\nTHE SAME LIFE AS THE CLOSED CLIP. It was ONE FRAME, so the instant the door opened at beat 2 the coach became a still picture -- no lamp flicker, no head nods, no tails, no driver's hands -- for the whole of beats 2 to 6, which is every frame anyone looks at. Reported as 'none of the lamps are glowing brighter then dimmer', and they were not: the animated clip was the one nobody sees.\n\nLAMP FLICKER DOUBLED to 1.00, 1.16, 0.88, 1.12, 0.93, 1.05. At 7% on a lamp a few pixels across it was invisible in the room.\n\nSTORED AT 1.15x THE DRAWN HEIGHT, NOT 2x. R5a's 2x is right for a character; applied to a 956-wide coach across 24 frames it produced 26MB a clip and 70MB across the three, in the REQUIRED boot set because beat 2 stages it -- which is the exact problem R5a was written to prevent. 1.15x is still RESAMPLED at draw time, which was the whole reason 1.00x read wrong, at a third of the pixels.",
+  "frames": 24,
   "state": "door-open"
 }

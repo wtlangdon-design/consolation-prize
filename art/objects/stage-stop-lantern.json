@@ -1,0 +1,13 @@
+{
+  "sprite": "art/objects/stage-stop-lantern.png",
+  "stored": [
+    65,
+    180
+  ],
+  "drawn_height": 90,
+  "flame": [
+    29,
+    119
+  ],
+  "note": "A HANGING LANTERN AT THE STAGE STOP, so Room 1 still has a foreground light after the coach and Hob have both gone. Until this, every near light left with somebody -- and the title plays over a walk through unlit mud.\n\nStored at 2x its 90px drawn height, per R5a. Its glow is an ADDITIVE sprite anchored to the flame, exactly like Hob's, but fixed rather than travelling."
+}

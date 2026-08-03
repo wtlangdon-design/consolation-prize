@@ -268,62 +268,26 @@ function opening() {
     //
     // Every position below is measured against those, not guessed.
     2: [
-      // THE COACH IS PLACED FIRST, and this is the only place it is placed.
-      //
-      // It was previously placed by beat 6b's `from` -- the beat where it
-      // LEAVES -- so for beats 2 through 6 it stood wherever the mover
-      // happened to be created, and Thad alighted at the door's correct
-      // coordinates while the coach was somewhere else entirely. A mover with
-      // no placement is not at the origin; it is at whatever the last thing to
-      // touch it left it at, which is worse because it looks deliberate.
-      //
-      // x1390 is where its hotspot (1152-1632) and case_roof (1236) have
-      // always said it stands.
-      { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
-      // OPEN FROM THE FIRST FRAME. He arrives inside it and climbs out, so a
-      // shut door is only correct before the coach has stopped -- which the
-      // player never sees. It stays open until the coach leaves.
-      { do: 'setState', object: 'coach', state: 'door-open' },
-      // At the DOORWAY, on the coach's own ground line. A chore plays wherever
-      // the actor is; without this he climbed down out of thin air at the
-      // frame's bottom centre.
-      { do: 'move', actor: 'thad', from: [1170, 794], to: [1170, 794], seconds: 0.1 },
-      // FACE FIRST: the chore clips are right-facing only and he starts facing
-      // front, so a chore before the face asks for aboard-coach/front and
-      // throws. Nothing is substituted, by design.
-      { do: 'face', actor: 'thad', facing: 'right' },
-      // THE DOOR IS OPEN WHILE HE CLIMBS OUT OF IT. Q38, and the half that
-      // could not be written before: object state had no writer that a
-      // cutscene could reach. It opens before the descent and shuts once he
-      // is clear of it -- doc 43, "the door is shut while he stands outside
-      // it, and shut as it leaves, which is correct: a driver closes the
-      // door".
-      // ONE CHORE, NOT TWO. alight-coach now covers the whole descent --
-      // doorway then foot down -- because every chore begins and ends on the
-      // stand frame, so chaining two of them made him straighten up mid-
-      // descent between the halves of one movement.
-      { do: 'chore', actor: 'thad', clip: 'alight-coach' },
-      // Clear of the door and a little NEARER THE CAMERA, so depth sorting has
-      // something true to sort. He used to stand at (820, 760) -- inside the
-      // vehicle's own span, eighteen pixels in front of it, among the horses.
-      { do: 'walk', actor: 'thad', to: [1240, 802] },
-      { do: 'face', actor: 'thad', facing: 'right' },
-      // HOB IS ALREADY THERE. He used to be placed off frame and glide in
-      // during beat 7, then cross the road during beat 9 -- four seconds on
-      // screen around a three-line exchange, which is an event rather than a
-      // neighbour. He now stands at the roadside from the first beat that
-      // plays, a little to the right of the Consolation sign (x204-396) where
-      // the light is strongest, and does not move until he is spoken to.
-      //
-      // PLACED LAST IN THE BEAT so the coach and Thad are staged first. The
-      // frame's subject is a man getting off a stagecoach; the watchman is
-      // scenery until he is not.
+      // HOB IS PLACED FIRST, so he stands in the road from the first drawn
+      // frame rather than appearing partway through. He was placed LAST, after
+      // Thad's chore and walk, so he popped in.
       { do: 'move', actor: 'hob', from: [600, 720], to: [600, 720], seconds: 0.1 },
+      { do: 'move', actor: 'coach', from: [1390, 742], to: [1390, 742], seconds: 0.1 },
+      { do: 'setState', object: 'coach', state: 'door-open' },
+      // HE SPEAKS FROM THE STEP, held in 'aboard-coach'. A man announcing
+      // himself to a town from the step of the coach that brought him is the
+      // picture doc 01 opens on -- and it solves the facing, because up there
+      // he is level with the driver's box instead of 300px below it.
+      { do: 'move', actor: 'thad', from: [1170, 794], to: [1170, 794], seconds: 0.1 },
+      { do: 'face', actor: 'thad', facing: 'right' },
+      { do: 'chore', actor: 'thad', clip: 'aboard-coach' },
     ],
     // BEAT 3: forward and right, to IN FRONT OF the driver's box rather than
     // beside it. The driver sits at x1332-1364 and the horses begin at 1485;
     // there is no room to stand between them, so he stands ahead of both.
     3: [
+      // THEN he climbs down, after he has spoken, and crosses to the box.
+      { do: 'chore', actor: 'thad', clip: 'alight-coach' },
       { do: 'walk', actor: 'thad', to: [1330, 812] },
       { do: 'face', actor: 'thad', facing: 'right' },
     ],
