@@ -114,8 +114,15 @@ export class Actor {
     this.y = y;
     this.targetX = x;
     this.targetY = y;
+    // HIS OWN RECORD, not the protagonist's. The last fallback was
+    // `state.content.actor.height`, so every unrouted mover was drawn at the
+    // height of a man: the coach's record says 389 and it drew at 240, which
+    // is 62% and reads as a stagecoach whose roof reaches Thad's head. A
+    // vehicle is not a point on a curve for people, and it is not the
+    // protagonist's height either.
     this.height = options.height
       ?? (this.routed ? state.actorHeightAt(x, y) : null)
+      ?? state.content.actors.get(id)?.height
       ?? state.content.actor.height;
   }
 

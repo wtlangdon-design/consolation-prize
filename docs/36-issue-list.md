@@ -974,6 +974,22 @@ PAGEERROR CLIP_FALLBACK: idle/right/
 
 **One false lead, named so nobody chases it.** An early run threw `BODY_ONE_OWNER: thad@chore+walk` at beat 2. It does not reproduce without the instrument: wrapping `drawImage` to measure sizes slowed the frame enough to trip the guard. R5d — the apparatus perturbed the thing it was measuring, and the second measurement was built to touch nothing.
 
+## Q40 · Second play-through: the coach is full size now, and Thad is standing in it
+
+Run again from a fresh load after `f6d14ff5`. **No errors, start to finish.** All four of the previous faults are gone: the coach crosses, Hob is drawn and walks the way he is drawn, beat 2 places Thad at the coach before he climbs down, and beat 10 stages nothing.
+
+**FIXED, AND IT WAS ENGINE AGAIN: every unrouted mover drew at the PROTAGONIST'S height.** `Actor`'s height fell back through `options.height → the depth curve if routed → state.content.actor.height`. The coach is unrouted, so it skipped the curve and took the last branch — **Thad's 240** — and its own record's 389 was never read by anything. The generator's `FIXED_HEIGHT` was correct and unreachable. One line: the mover's own record comes before the protagonist's. Measured from the resample cache, **590 × 240 → 981 × 389**, and it now reads as a stagecoach rather than a cart.
+
+**THREE THINGS LEFT, AND THE FIRST IS ONLY VISIBLE NOW THAT THE COACH IS THE RIGHT SIZE.**
+
+**1. Thad's talking position is inside the coach.** The idle frame is 956 × 389 with `anchor[0]` 478, drawn at scale 1.0 from x646 — so the coach and its team occupy **x 168 to 1124**, soles at y742. Thad stands at **(820, 760)**: inside that span, eighteen pixels in front of it. Depth sorting puts him in front, correctly, so he is not hidden — he is standing among the horses. That position was chosen when the coach drew 590 px wide; at 956 it is inside the vehicle. To speak up at the box he wants to be clear of the team, either right of x≈1124 or a good deal further forward than 18 px.
+
+**2. The coach grows 2.6% when it starts moving.** `idle` is 956 × 389 with `figureHeight` 389; `walk` is 956 × **379**. At a drawn height of 389 that is scale 1.000 halted and 1.026 moving, so the departing coach measures 981 × 389 against 956 × 389 at rest. A stagecoach that gets bigger as it pulls away. Both frames are the same 956-wide canvas, so this is the rig's two figure measurements disagreeing rather than the art.
+
+**3. Hob crosses at 240 px, the same height as Thad, sixty pixels further back.** He is unrouted, so he never takes a depth height at all — his record's flat 240 is used from first frame to last. At y700 the curve says 222; Thad at y760 is 242. The two men therefore read as the same size at different depths, which flattens the cue the whole room is built on. Not a break and not obviously wrong to fix here: whether a staged crossing should sample the curve as it goes, or hold one authored height because it is choreography rather than walking, is a question about what staging IS.
+
+**What the second run did not find.** No `CLIP_FALLBACK`, no `BODY_ONE_OWNER`, no missing mover, nothing undrawn: `thad`, `hob` and `coach` all have resample-cache entries, which is the first time every figure in the opening has been drawn from its own art.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
