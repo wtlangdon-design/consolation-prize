@@ -485,7 +485,12 @@
       "id": "lookup",
       "facing": "left",
       "frames": [
-        "art/actors/thad-lookup-left/lookup-00.png"
+        "art/actors/thad-lookup-left/lookup-00.png",
+        "art/actors/thad-lookup-left/lookup-01.png",
+        "art/actors/thad-lookup-left/lookup-02.png",
+        "art/actors/thad-lookup-left/lookup-03.png",
+        "art/actors/thad-lookup-left/lookup-04.png",
+        "art/actors/thad-lookup-left/lookup-05.png"
       ],
       "figureHeight": 526,
       "anchor": [
