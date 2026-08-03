@@ -1587,6 +1587,42 @@ The band's back edge is **y660**, taken from where the mud becomes the surface �
 
 ---
 
+## Q63 · Hob stands in the gap, and clearing him is the way out — RULED
+
+**`road_west` is gated on `T_HOB_GONE`.** Until Thad has spoken to Hob, the gap in the fence is not an exit: clicking it gets a line and nothing else. Speaking to him — through his lamp, which is the only part of him a click can reach — sends him on his way and opens the road.
+
+**This is a puzzle and it belongs in the graph**, not only in the room file. One node: *the watchman is in the way; address him and he moves.* It is the smallest possible puzzle and that is the point — it teaches the player, in the first room, that people are obstacles you resolve by talking rather than scenery you walk past.
+
+**The softer version was wrong.** The exit was first narrowed to x500–590 so it could coexist with his lantern, which meant he was neither blocking nor clear — a man standing in a doorway you could simply walk around. Under this ruling the exit returns to the full gap, x500–650, because there is nothing left to compete with once he is gone.
+
+**Two things this creates and one it does not.**
+
+**The only way out of Room 1 now depends on one interaction.** If the lamp's response ever stops writing `T_HOB_GONE`, the game is unfinishable from its first room. That wants a check, not trust: an exit gated on a flag must have a writer that is built, and doc 36's `pending` mechanism already names unwritten flags on every run.
+
+**And it makes the lamp load-bearing rather than decorative**, which is what it should be if it is the only address a mover has (Q60).
+
+**What it must NOT create is a talkative Hob.** See below.
+
+---
+
+## Q64 · Hob's silence is the mechanism, not a gap — DO NOT GIVE HIM LINES
+
+Doc 01 is specific: **"Speaks maybe forty words in the first two acts, all useless. He is Obadiah Mott. The game's best reveal is that the player walked past him in the opening scene and he had a line."**
+
+That is a constraint, not an omission. It was proposed that Hob carry exposition about the town, or comic lines, since he is the first character the player meets and currently says almost nothing.
+
+**Both would cost the game its best reveal.**
+
+**Exposition is the direct contradiction.** Hob is the man who knows everything — twelve years watching the town search for him. A watchman who explains Consolation is Mott explaining Consolation, one act early, to a player who has no idea what he is being told.
+
+**Comic lines are the subtler cost.** The reveal works because the player does not remember him. A character with good jokes is a character you remember as a character; the turn in Act III depends on the player realising they walked past somebody, not that a memorable minor character was secretly important.
+
+**What he may have:** a handful more words that read as nothing and only mean something on a second playthrough. Weather. The mud. Not looking at you. The three he has — *"Wouldn't stand there." / "Why not?" / "No reason."* — are the model: refusals that sound like an old man being unhelpful and are, on reflection, a man declining to explain how he knows.
+
+**The budget is forty words across two acts and he has spent about twelve.** Whatever is added comes out of that.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
