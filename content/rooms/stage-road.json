@@ -421,7 +421,14 @@
         "PULL": "It is nailed to a post, in the ground, at the edge of a town. I have been here two minutes and I am already vandalising the place.",
         "TALK_TO": "Good evening. I am new."
       },
-      "defaultVerb": "LOOK_AT"
+      "defaultVerb": "LOOK_AT",
+      "state": "lettered",
+      "states": {
+        "lettered": {
+          "image": "art/objects/room-01-sign-lettering.png",
+          "note": "THE PAINT ONLY, NOT THE BOARD. The approved plate already holds the sign; this layer holds what is written on it, extracted as the pixels LIGHTER than the original inside the board face -- paint added on top of bare wood -- so nothing outside the board could drift and the plate itself is untouched.\n\nA lettering layer rather than a regenerated plate, because generation is not reproducible pixel-for-pixel and a fresh plate would risk everything else in an approved picture to change one board.\n\nIt reads CONSOLATION / POP. and then four numbers each struck through -- 200, 500, 1000, 1500 -- with 2,000 standing, and AND CLIMBING squeezed in after it in a worse hand. Doc 17’s TOWN SIGN lines describe exactly that and would have been contradicted by lettering it with the town name alone."
+        }
+      }
     },
     {
       "id": "road_east",
