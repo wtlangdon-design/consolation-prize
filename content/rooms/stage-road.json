@@ -187,10 +187,10 @@
       "id": "lamp",
       "name": "THE WATCHMAN'S LAMP",
       "rect": [
-        480,
-        444,
-        120,
-        168
+        484,
+        569,
+        60,
+        72
       ],
       "colour": 226,
       "when": {
@@ -227,7 +227,8 @@
         "TALK_TO": "He is walking. I shall let him walk."
       },
       "defaultVerb": "LOOK_AT",
-      "setNote": "EVERY RESPONSE HERE WRITES T_HOB_SPOKEN, which is what holds doc 17 beat 9. Hob is a MOVER and not a target -- there is no rect on him and TALK_TO cannot reach him -- so the lamp he carries is the only part of him a player can address, and this hotspot already sits where he now stands. Looking at it or listening to it is speaking to him, and the exchange follows. Added by tools/extract-content.mjs: the lines are the document's, the write is routing."
+      "setNote": "EVERY RESPONSE HERE WRITES T_HOB_SPOKEN, which is what holds doc 17 beat 9. Hob is a MOVER and not a target -- there is no rect on him and TALK_TO cannot reach him -- so the lamp he carries is the only part of him a player can address, and this hotspot already sits where he now stands. Looking at it or listening to it is speaking to him, and the exchange follows. Added by tools/extract-content.mjs: the lines are the document's, the write is routing.",
+      "rectNote": "Around the lantern, measured from the flame in his own frames at his own drawn height, with 26px of grab either side. It must clear road_west, which starts at y470 and stops at y560 -- the two overlapped, and clicking the lamp took the exit."
     },
     {
       "id": "lamp_gone",
@@ -501,11 +502,11 @@
       "name": "THE ROAD WEST",
       "rect": [
         500,
-        480,
+        470,
         150,
-        220
+        90
       ],
-      "rectNote": "THE GAP IN THE FENCE, right of the Consolation sign, measured off the plate with a ruler: x500-650, centre 575. It was x0-204 at the frame's left edge -- he walked OFF the side of the picture, away from the town, while the lamps he is walking toward are up the hill through this gap. The written lines were always about the town: \"Consolation. There are lamps on in about a third of it.\" They describe what you see through here.",
+      "rectNote": "x500-650 is the gap, measured off the plate with a ruler. y470-560 is the opening in the FENCE and stops above the band: it used to run to y700 and covered the watchman's lamp, whose flame is at y595-615, so clicking Hob's lantern took the exit. Both rects are measured and both are adjustable; what is not adjustable is that they must not overlap, because one of them starts the ending.",
       "walkTo": {
         "x": 575,
         "y": 710,

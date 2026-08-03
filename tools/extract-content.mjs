@@ -1499,6 +1499,23 @@ function openingCase() {
   // regenerated whole and a hand edit survives until the next extraction.
   const west = room.exits.find((entry) => entry.id === 'road_west');
   if (!west) throw new Error('stage road has no "road_west" exit to start the ending from');
+  // THE GAP IS THE OPENING IN THE FENCE, WHICH IS ABOVE THE BAND. The rect ran
+  // y480-700 and reached down into the walkable ground, where it sat on top of
+  // THE WATCHMAN'S LAMP -- and `targetAt` returned the exit, so clicking Hob's
+  // lantern started the ending instead of speaking to him. Found by the
+  // gauntlet: its lamp click wrote no flag and beat 9 held until the deadline.
+  //
+  // MEASURED: Hob stands at (475, 700) drawn 224 tall, and the flame in his own
+  // frames lands at world x510-517, y595-615 -- inside the gap's x500-650.
+  // They are in the same column of the picture, so the fix is the exit's
+  // HEIGHT: the fence's opening is what you walk through, and the lantern
+  // hangs below it.
+  west.rect = [500, 470, 150, 90];
+  west.rectNote = 'x500-650 is the gap, measured off the plate with a ruler. y470-560 is the '
+    + 'opening in the FENCE and stops above the band: it used to run to y700 and covered the '
+    + "watchman's lamp, whose flame is at y595-615, so clicking Hob's lantern took the exit. "
+    + 'Both rects are measured and both are adjustable; what is not adjustable is that they '
+    + 'must not overlap, because one of them starts the ending.';
   west.setOnTransit = { T_THAD_LEAVING: true };
   west.travelWhenTold = true;
   west.endingNote = 'Doc 17 beat 11. Taking this writes T_THAD_LEAVING and goes nowhere; '
@@ -1508,6 +1525,14 @@ function openingCase() {
 
   const lamp = room.hotspots.find((entry) => entry.id === 'lamp');
   if (!lamp) throw new Error('stage road has no "lamp" hotspot for Hob to be spoken to through');
+  // AND IT IS WHERE THE LANTERN ACTUALLY IS. The rect was x480-600 y444-612,
+  // authored for a man CROSSING the road; he stands still at (475, 700) now
+  // and the flame in his own idle frames lands at world x510-517, y595-615 at
+  // his drawn 224. The old rect was mostly empty sky above it.
+  lamp.rect = [484, 569, 60, 72];
+  lamp.rectNote = 'Around the lantern, measured from the flame in his own frames at his own '
+    + 'drawn height, with 26px of grab either side. It must clear road_west, which starts at '
+    + 'y470 and stops at y560 -- the two overlapped, and clicking the lamp took the exit.';
   const speaking = ['LOOK_AT', 'LISTEN_TO'];
   for (const verb of speaking) {
     const said = lamp.responses?.[verb];
