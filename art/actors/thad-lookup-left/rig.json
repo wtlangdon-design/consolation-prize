@@ -1,0 +1,13 @@
+{
+  "clip": "lookup",
+  "facing": "left",
+  "kind": "head-overlay",
+  "frames": 1,
+  "overlay_rect": [
+    156,
+    -8,
+    91,
+    92
+  ],
+  "note": "THAD LOOKING UP AT THE DRIVER'S BOX. A HEAD OVERLAY, not a body clip -- the same mechanism as his talk mouths, composited at a rect over whatever body is playing, so the body never swaps.\n\nTHAT IS WHY THE GENERATION'S BODY DRIFT DOES NOT MATTER. The returned figure overlapped the stand clip on only 41% of its silhouette below the collar -- it redrew him much narrower rather than tilting a head on the existing drawing, the third generation in a row to do so. Only the head is taken, cut at the NECK: the narrowest row after the head, y260 of 1655.\n\nHe has no facing that looks up -- four facings, three talk overlays, none tilted. A figure in profile looks at the horizon wherever he stands, which is why four rounds of 'the fix is positional' could never have worked.\n\nLEFT, because the driver's own looking-down turns toward frame RIGHT: 107k changed pixels right of his head's centre against 51k left. So Thad belongs to the driver's RIGHT, facing left, looking up-left while the driver looks down-right."
+}
