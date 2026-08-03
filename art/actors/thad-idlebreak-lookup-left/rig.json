@@ -1,0 +1,15 @@
+{
+  "clip": "idle-break",
+  "facing": "left",
+  "view": "profile",
+  "figure": [
+    111,
+    526
+  ],
+  "padding": 84,
+  "frames": 12,
+  "note": "THE SHOULDER SHRUG, WITH HIS HEAD STILL UP. Doc 40: the break is a glance head-on and a shrug in profile.\n\nWithout this variant his head came down for six seconds every time the break fired -- he stands at the driver's box through beats 3 to 6, minutes, with hasIdleBreak true since Q69. A STATE THAT EXISTS ON ONE CLIP AND NOT ANOTHER UNSETS ITSELF whenever the other plays: the door flash, in the held pose.\n\nThe shrug is a transform on the raised-head base, not a regeneration -- the pose is the art and the shrug is a shift, feathered across a shoulder band so the neck carries it.\n\nFRAMES 0 AND 11 ARE THE IDLE'S SETTLED FRAME, BYTE FOR BYTE. The first build had frame 0 differing by 2,093px -- the same endpoint fault as the two profile breaks that never unshrug, arriving in new art an hour after it was named. A clip that returns to the idle begins and ends at it.\n\nThe breath continues underneath throughout.",
+  "breath_px": 6.0,
+  "hem_row": 357,
+  "state": "lookup"
+}

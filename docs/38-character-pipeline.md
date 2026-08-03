@@ -431,6 +431,10 @@ That is the prescription, and it is sharper than R5l's. R5l needs a judgement ab
 
 > **When reporting a measurement of the tree, name the ref you measured.** "It is 4 distinct" and "it is 4 distinct on `origin/main`" are different claims, and only the second can be checked by the person you are telling.
 
+**A fourth, and the first where what stopped existing belonged to somebody else.** A `rig.json` was rewritten wholesale to record new work, and the two fields another party had added to it — `clip: idle` and `state: lookup` — went with it. **The held pose silently became a clip nothing plays.** Nothing failed; the record was valid, the frames were on disk, the staging still asked for a state, and `clipOf` answered with the stateless clip exactly as it is supposed to.
+
+> **A file rewritten wholesale loses whatever it gained since you last read it.** The three earlier instances were work that never left one person's hands. This one is the same failure from the other side: work that had left, and was overwritten by somebody who had not read it recently. Both are one artefact holding facts from two authors and only one of them present at the write.
+
 **And it argues for the same remedy as R5l and R5m: give the work an artefact somebody else can reach.** Commit the branch, put the hand edit in the generator, `git add` the file — and, one level up, put the pipeline stage in `tools/` rather than in a conversation, which is what `downscale.py` is for.
 
 ## R5 · Never preview through GIF with alpha

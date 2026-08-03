@@ -505,6 +505,30 @@
         526
       ],
       "state": "lookup"
+    },
+    {
+      "id": "idle-break",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-idlebreak-lookup-left/idle-break-00.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-01.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-02.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-03.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-04.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-05.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-06.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-07.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-08.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-09.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-10.png",
+        "art/actors/thad-idlebreak-lookup-left/idle-break-11.png"
+      ],
+      "figureHeight": 526,
+      "anchor": [
+        140,
+        526
+      ],
+      "state": "lookup"
     }
   ]
 }

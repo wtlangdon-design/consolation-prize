@@ -3,6 +3,7 @@ import { runCheck } from './lib/content.mjs';
 import { check as noContentInCode } from './check-no-content-in-code.mjs';
 import { check as contentSchema } from './check-content-schema.mjs';
 import { check as extraction } from './check-extraction.mjs';
+import { check as stateCoverage } from './check-state-coverage.mjs';
 import { check as sequences } from './check-sequences.mjs';
 import { check as townMap } from './check-map.mjs';
 import { check as paletteLocked } from './check-palette.mjs';
@@ -45,6 +46,7 @@ const CHECKS = [
   noContentInCode,
   contentSchema,
   extraction,
+  stateCoverage,
   sequences,
   townMap,
   paletteLocked,

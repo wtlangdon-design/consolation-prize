@@ -82,9 +82,12 @@ const CLIPS = [
   // A STATE OF `idle`, NOT A CLIP OF ITS OWN -- the same shape the coach's
   // open door uses above. As `{id: 'lookup'}` nothing but a chore could ever
   // play it, and a chore is a one-shot; as a state of the clip he already
-  // stands in, `setState` holds it for as long as a beat says and every frame
-  // of it breathes.
+  // stands in, `setState` holds it for as long as a beat says.
   { id: 'idle', dir: 'lookup', prefix: 'lookup', state: 'lookup' },
+  // AND ITS SHRUG, which check-state-coverage asked for by name. Without it
+  // his head came down for six seconds every time the break fired: a state on
+  // one clip and not another unsets itself whenever the other plays.
+  { id: 'idle-break', dir: 'idlebreak-lookup', prefix: 'idle-break', state: 'lookup' },
   // THE COACH IS A MOVER, not a room layer. errata 38's `move` translates a
   // named mover; a hotspot's state image is drawn by drawPlate and cannot be
   // translated at all, so beat 6b could never have worked from one. Its two
@@ -99,7 +102,16 @@ const FACINGS = ['front', 'back', 'left', 'right'];
 
 /** Per actor, per state: the clip ids that deliberately have no variant. */
 const PARTIAL_STATES = {
+  // He does not walk, recoil or settle to `stand` while looking up: beat 3
+  // sets the state after he has arrived and beat 6 clears it before anything
+  // moves him. Turning him is MEANT to drop it, which clipOf does for free.
   thad: { lookup: ['walk', 'recoil', 'stand'] },
+  // THE DOOR IS CLOSED BY THE STAGING, NOT BY A MISSING VARIANT. Beat 6b
+  // clears `door-open` BEFORE the move, so the driver shuts the door and then
+  // pulls away, and the coach never plays `walk` with the state set. A door
+  // closing is a thing a driver does; a door vanishing is a defect, and
+  // generating a door-open walk would have shipped the second one.
+  coach: { 'door-open': ['walk'] },
 };
 
 /**
