@@ -1423,6 +1423,75 @@ With those, it is a content schema addition and one composite step, and the gaun
 
 ---
 
+## Q56 · "Steps forward then backward" is not the staging. Every chore is one pose held between two hard cuts
+
+**The staging is correct and I would have been fixing the wrong thing.** Traced from the running game, every sample through beats 2 and 3, position and clip:
+
+```
+t 2.11  beat 2  1170, 794  idle           <- the first drawn frame; already on his mark
+t 2.46  beat 2  1170, 794  aboard-coach
+t 3.26  beat 2  1170, 794  alight-coach
+t 4.10  beat 2  1170, 794  walk
+        ...     1175, 795 · 1186, 796 · 1197, 797 · 1208, 798 · 1218, 800 · 1229, 801
+t 5.31  beat 3  1240, 802  walk
+        ...     1250, 803 · 1261, 804 · 1272, 806 · 1283, 807 · 1293, 808 · 1310, 810
+t 6.93  beat 3  1330, 812  idle
+```
+
+**Every sample increases in x and in y. There is no backward step and no jump** — he is already standing at 1170, 794 on the first frame that is drawn, so even the placement is invisible.
+
+### WHAT HE SAW IS IN THE CHORE FRAMES
+
+Comparing each chore's frames against `stand`, and against each other:
+
+| | vs `stand` | |
+|---|---|---|
+| `aboard-coach-00` | **identical** | |
+| `aboard-coach-01` | 96,735 px differ | |
+| `aboard-coach-02` | 96,735 px differ | **0 px differ from -01** |
+| `aboard-coach-03` | 96,735 px differ | **0 px differ from -02** |
+| `aboard-coach-04` | **identical** | |
+
+`alight-coach` and `pickup-low` are the same shape — 80,616 and 65,598, with frames 1, 2 and 3 byte-identical to each other.
+
+**So a chore is not an animation. It is ONE POSE, held for three frames, with a hard cut in and a hard cut out.** The rig note says frames 0 and 4 are the stand frame byte for byte "so a chore cannot pop on either end", and that is doing exactly what it says — but there is nothing between the ends.
+
+**Beat 2 plays two chores back to back, so what is on screen is:**
+
+> stand → *in the doorway* → **stand** → *leading foot down* → stand
+
+He straightens up, in the middle of climbing out of a coach, between the two halves of one continuous descent. **That is the forward-then-backward.** It is not a coordinate; no staging change can remove it, because the return to stand is in the clips.
+
+### WHAT WOULD FIX IT — not mine to choose
+
+1. **One clip for the whole descent** rather than two poses that each return to stand.
+2. **Chained chores**: a way to run a run of chores without the stand frame between them — play 0–3 of the first and 1–4 of the last. Cheap, and it makes any two-pose action read as one.
+3. **Leave it**, and accept that a chore is a held pose. That is a legible convention if every chore is a single beat of action; it only fails where two are meant to be one.
+
+**The wider fact is worth having on its own:** all seven of Thad's chores are three identical frames between two stand frames, so nothing he does with his hands is animated yet. Doc 42's poses are poses. That belongs to the rig, and I have not touched it.
+
+---
+
+## Q57 · Three questions answered from the code, not decided
+
+**11. DOES SPEECH USE PER-CHARACTER COLOURS? No, and nothing carries one.** The opening's `speakers` table has `name` and a note and no colour; no dialogue file declares one; `drawSay` draws every line with a single `inkBright` role and one outline. Monkey Island did do this. It would need a colour per speaker in content and a lookup where the line is drawn — the speaker is already known at that point, because the probe reports it.
+
+**12. THE ROAD WEST IS AN IMMEDIATE TRANSITION, and the engine already supports the other thing.** `road_west` is an exit hotspot with **no `walkTo`**. `GameScene.beginInteraction` reads exactly that field: a target with `walkTo` gets walk → waitForActor → face → then the interaction; a target without one resolves where the player stands. So this is a one-line content addition and not an engine change. **Where he should stand before taking it is a design call and I have not made it.**
+
+**13. THERE IS NO TITLE SCREEN.** `beginOpening` filters the menu segment out of the opening with the comment *"Beat 1 is the title screen, which is its own scene and has already happened by the time anyone is standing on a road."* That scene does not exist: `main.ts` registers `BootScene` and `GameScene` and nothing else. **Beat 1 draws nothing.** The game boots into Room 1 and starts at beat 2, and doc 17's "Title over the ridge at night. Consolation below as scattered lamps in a great deal of darkness" — the one moment the document asks for longing rather than comedy — has never been on screen.
+
+---
+
+## Q58 · Is there supposed to be writing on the Consolation sign? — UNASKED, and raised rather than invented
+
+Q3 ruled that the placard's **MARK** comes off. Whether the sign **carries text at all** is a different question and no document answers it.
+
+**Raised rather than settled, because lettering is writing.** Putting words on a sign in a comedy adventure is authoring a line — the name of the town, in the town's own hand, is the first thing a player reads and it sets a voice. CLAUDE.md's rule is that every written line already exists in the documents and a missing one is reported, not filled in. This one is missing.
+
+**What is checkable:** the sign is in the plate. There is no text layer, no glyph draw over it, and nothing in content declares one. If the answer is that it should carry the town's name, that is art — a new plate or a decal — and not something the font can be asked to draw over a painting at a believable angle.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
