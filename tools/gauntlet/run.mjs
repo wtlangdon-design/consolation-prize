@@ -350,6 +350,19 @@ async function drive(page, input) {
       await clickPlayArea(page, action.at[0], action.at[1]);
       continue;
     }
+    // A LINE ON SCREEN TAKES THE CLICK BEFORE THE OPTION LIST DOES, and it
+    // must: the player has to see "Hotel's five." land before "I have four."
+    // does. So a queued response is flushed first, one click each, or the
+    // click meant to choose an option is spent advancing a line and the
+    // conversation never moves. Bounded, so a queue that will not drain
+    // reports rather than spins.
+    for (let guard = 0; guard < 12; guard += 1) {
+      const queued = await page.evaluate(() => window.__gauntlet?.probe()?.pending ?? 0);
+      if (queued === 0) break;
+      await clickPlayArea(page, NATIVE.width / 2, NATIVE.height / 2);
+      await page.waitForTimeout(120);
+    }
+
     // Errata 37 is revoked and the tags survive, so all four options are
     // present at the end and three are dimmed. An INDEX is stable under that;
     // a text match would not be, and would also put dialogue in this file.

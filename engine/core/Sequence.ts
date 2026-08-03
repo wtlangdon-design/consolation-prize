@@ -137,8 +137,23 @@ export class SequenceRunner {
    */
   private playing: BeatTag;
 
+  /**
+   * AND IT IS UNDEFINED WHEN NOTHING IS RUNNING, which is not a detail.
+   *
+   * `playing` is cleared by `cancel` and replaced by `start`, and neither
+   * happens when a sequence simply reaches its end -- so a runner that had
+   * finished beat 3 went on answering "3" for as long as it sat idle. The
+   * gauntlet read that as beat 3 never ending, waited for a boundary that
+   * could not arrive, and timed out through the driver's whole conversation
+   * and everything after it.
+   *
+   * The stale answer was ALSO the plausible one, which is why it survived a
+   * reading: 3 is the last beat that played, and "the last beat that played"
+   * is a defensible thing for a field called `beat` to mean, right up until
+   * something asks it what is on screen now.
+   */
   get beat(): BeatTag {
-    return this.playing;
+    return this.isRunning ? this.playing : undefined;
   }
 
   private waitUntil = 0;

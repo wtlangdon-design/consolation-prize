@@ -1011,6 +1011,7 @@ export class GameScene extends Phaser.Scene {
       says: this.sayLines.length > 0 ? this.sayingActor : null,
       options: this.state.dialogue.isActive
         ? this.state.dialogue.presentOptions().length : 0,
+      pending: this.pendingSay.length,
       handedOver: this.opening === null,
       segment: this.playingSegment(),
     };

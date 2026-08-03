@@ -46,6 +46,16 @@ export interface FrameReport {
   says: string | null;
   /** How many dialogue options are on offer. Errata 37 is revoked: none vanish. */
   options: number;
+  /**
+   * Lines queued behind the one on screen.
+   *
+   * A multi-speaker response lands ONE LINE AT A TIME and each needs a click:
+   * the player has to see "Hotel's five." before "I have four." A harness that
+   * clicked an option row while a line was still queued had its click taken by
+   * the queue instead, chose nothing, and waited for a conversation that could
+   * not advance. This is what tells it to flush first.
+   */
+  pending: number;
   /** True once the opening has handed control to the player. */
   handedOver: boolean;
   /**
