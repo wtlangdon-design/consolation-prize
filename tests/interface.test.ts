@@ -945,16 +945,22 @@ test('errata 30a: a duration on a beat the player controls is refused', async ()
   // rule when the rule was working: a beat that stages something does not need
   // a dead hold, which is exactly what Opening.ts asserts.
   const automatic = segmentsOf(opening).find((segment) => segment.kind === 'automatic')!;
-  const held = { ...automatic, beats: [{ ...automatic.beats[0], seconds: 3, staging: [] }] };
+  // Narrowed once, here. Spreading `beats[0]` directly spreads a possibly
+  // undefined value, and the result carries `beat?: string` where a
+  // SequenceBeat requires one -- which is what broke the build.
+  const first = automatic.beats[0]!;
+  const held = { ...automatic, beats: [{ ...first, seconds: 3, staging: [] }] };
   assert.ok(stepsFor(held).some((step) => step.kind === 'wait'), 'the duration became a wait');
 
-  // And a beat that stages something does NOT get one.
+  // And a beat that stages something does NOT get one. The actor is the
+  // protagonist by id from content -- a beat carries no `actor` of its own,
+  // its STAGING STEPS do, which is the whole point of naming one per step.
   const staged = {
     ...automatic,
     beats: [{
-      ...automatic.beats[0],
+      ...first,
       seconds: 3,
-      staging: [{ do: 'face' as const, actor: automatic.beats[0].actor ?? 'player', facing: 'right' as const }],
+      staging: [{ do: 'face' as const, actor: content.actor.id, facing: 'right' as const }],
     }],
   };
   assert.ok(

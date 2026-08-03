@@ -195,11 +195,19 @@ function opening() {
     // Beat 2: he arrives ABOARD and gets down. The player-audit fix was that
     // nobody saw him arrive, so there was no reason to think the man he talks
     // to drove him.
+    //
+    // FACING COMES FIRST. The seven chore clips are drawn RIGHT-FACING ONLY,
+    // and he starts the scene facing front, so asking for aboard-coach before
+    // turning him asks for a clip that does not exist -- which threw
+    // CLIP_FALLBACK: aboard-coach/front/mud and stopped the opening dead at
+    // beat 2, before any later beat ran at all. Nothing is substituted for a
+    // missing clip, by design, so the ordering is load-bearing. Beat 6 below
+    // already had it in this order.
     2: [
+      { do: 'face', actor: 'thad', facing: 'right' },
       { do: 'chore', actor: 'thad', clip: 'aboard-coach' },
       { do: 'chore', actor: 'thad', clip: 'alight-coach' },
       { do: 'walk', actor: 'thad', to: [600, 742] },
-      { do: 'face', actor: 'thad', facing: 'right' },
     ],
     // Beat 3: he crosses to where he can speak up at the box.
     3: [

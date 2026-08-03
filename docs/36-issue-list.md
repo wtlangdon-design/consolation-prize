@@ -890,6 +890,42 @@ Closing it needs two small things, neither of which is a technical decision:
 
 Recorded rather than papered over, because the alternative was gating the door on something that does not mean what the door means.
 
+## Q37 · Beat 6b's coach: the name is fine, the mechanism is not — and beat 2 stopped the opening before 6b ever ran
+
+Asked as "does a MOVER resolve under the same name as the hotspot?" The answer is yes and it does not help, and three things were found on the way to it. All measured by playing, not read off the source.
+
+**THE OPENING NEVER REACHED BEAT 6B.** It threw at **beat 2**:
+
+```
+PAGEERROR CLIP_FALLBACK: aboard-coach/front/mud
+```
+
+The seven chore clips are drawn **right-facing only**, and Thad starts the scene facing front. Beat 2 ordered `chore aboard-coach` *before* `face right`, so it asked for a clip that does not exist — and nothing is substituted for a missing clip, by design, so it stopped dead. Beat 6 already had the two in the right order. **Fixed**: the `face` moves to the front of beat 2. The opening now plays through beats 2 and 3 and hands over at the driver's tree with Thad at (820, 760).
+
+**BEAT 6B THEN THROWS, AND NOT ABOUT THE NAME:**
+
+```
+PAGEERROR Sequence step names an actor with no mover in this room: coach
+```
+
+`RoomActors` is keyed by mover id and knows nothing about hotspots — the two live in different namespaces and `coach` is free. What is missing is the mover itself. **`SequenceWorld.move` places a mover only when the step carries `from`** — errata 38, in its own words: "Places the mover first when the step says where from, which is how anything that is not the player arrives in the room at all." Beat 6b has no `from`, so it takes the `require` branch and there is nothing to require.
+
+**BEAT 9 FAILS IDENTICALLY.** Measured by emptying 6b's staging and letting the opening run on:
+
+```
+PAGEERROR Sequence step names an actor with no mover in this room: hob
+```
+
+`walk` calls `require` unconditionally and never places. Hob's first step has to be a `move` carrying `from`, exactly like the coach's.
+
+**AND `from` ALONE WILL NOT GIVE YOU A COACH.** A mover draws from an **actor record**, and the coach has none — it is room art: two 1920 × 864 state layers and its wheels as separate PNGs. Placed, it would draw as a graybox figure at `mover.height`, which is a person-sized rectangle sliding off frame right. **That is a decision, not a bug to fix here:** either the coach gets an actor record with frames, or beat 6b needs a mechanism that moves a room layer rather than an actor. Both are yours.
+
+**What is fixed, because it is engine and it was mine.** `Renderer.drawMover` opened with `if (mover.id !== this.actors.playerId) → graybox`. True when `content/actors/` held one file; false since Hob's record landed, and nothing noticed. **Hob would have crossed the road as a rectangle** with his record parsed, his 27 frames loaded and every check green — present, valid, declared, LOADED, and still not drawn, which is a fifth position on that list. The renderer now holds one `ActorSprite` per declared record and looks up by mover id, and reads each character's **own** rates rather than the protagonist's. A mover with no record still draws the graybox, which is correct and visible.
+
+**Also fixed: `main` was red.** `8111e88e` failed both workflows — four TypeScript errors in `tests/interface.test.ts`, from spreading `automatic.beats[0]` (possibly undefined, and carrying `beat?: string` where `SequenceBeat` requires one) and reading a `.actor` that a beat does not have. The staging steps carry actors; the beat does not. Fixed by narrowing once and naming the protagonist from content.
+
+**The check caught it and nobody was watching yet.** `checks.yml` had been live for one commit. It went red on the next one, correctly, and the deploy went red with it — which is the first real data for Q36's second half, and it argues the way it was ruled: the deploy failing did not tell anybody anything the check had not already said.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

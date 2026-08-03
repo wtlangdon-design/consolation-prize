@@ -38,6 +38,11 @@
       "note": "Player-audit fix: we never saw Thad arrive, so there was no reason to think the man he is talking to drove him. The arrival must be seen",
       "staging": [
         {
+          "do": "face",
+          "actor": "thad",
+          "facing": "right"
+        },
+        {
           "do": "chore",
           "actor": "thad",
           "clip": "aboard-coach"
@@ -54,11 +59,6 @@
             600,
             742
           ]
-        },
-        {
-          "do": "face",
-          "actor": "thad",
-          "facing": "right"
         }
       ]
     },

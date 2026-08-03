@@ -188,7 +188,22 @@ export class Renderer {
   private clock = 0;
 
   /** The player's drawn sprite. Null only before the sheets have loaded. */
-  private readonly sprite: ActorSprite | null;
+  /**
+   * ONE SPRITE PER DECLARED RECORD, keyed by character id.
+   *
+   * It was a single `sprite` built from the protagonist's record, and
+   * `drawMover` handed the graybox to everyone else by testing
+   * `mover.id !== playerId`. That was true when `content/actors/` held one
+   * file. It stopped being true when Hob's record was added and nothing
+   * noticed: his record parsed, his 27 frames loaded, every check passed, and
+   * he would have crossed the road as a rectangle. Present, valid, declared,
+   * loaded -- and still not drawn.
+   *
+   * A mover with NO record still gets the graybox, which is the right answer
+   * and a visible one: a gap you can see rather than a character wearing
+   * somebody else's costume.
+   */
+  private readonly sprites: Map<string, ActorSprite>;
   /** Any loaded image by content path, for ambient sheets. */
   private readonly sheet: (path: string) => CanvasImageSource | null;
   /** Errata ruling 26's geometry, resolved from content. */
@@ -216,7 +231,11 @@ export class Renderer {
     this.idleSheet = idleSheet;
     this.idles = new IdleLayer(screen.context);
     this.sheet = sheet;
-    this.sprite = new ActorSprite(state.content.actor, sheet);
+    // EVERY declared record, from the manifest's own list rather than the one
+    // the protagonist happens to be.
+    this.sprites = new Map(
+      [...state.content.actors].map(([id, record]) => [id, new ActorSprite(record, sheet)]),
+    );
     this.panel = new PanelLayout(state.content.panel);
     this.panelFont = new BitmapFont(state.content.font, PANEL_GLYPH_SCALE);
   }
@@ -486,18 +505,27 @@ export class Renderer {
    * be defect 1 again, wearing a costume.
    */
   private drawMover(mover: Actor, feetX: number, feetY: number): void {
-    if (mover.id !== this.actors.playerId) {
+    // A mover with no actor record draws the graybox -- the coach, the horses,
+    // anything staged before its art exists. Distinguished from the failure
+    // below: this one has nothing to draw at all, that one has a record that
+    // does not cover the clip being asked for.
+    const record = this.state.content.actors.get(mover.id);
+    const sprite = this.sprites.get(mover.id);
+    if (!record || !sprite) {
       this.drawFigure(feetX, feetY, mover.height, this.screen.role('outline'));
       return;
     }
     const surface = mover.surfaceHere();
     const clip = mover.clip;
-    const { walkRate, reactRate, idleRate } = this.state.content.actor;
+    // HIS OWN RATES, not the protagonist's. Every record carries them, and
+    // reading one character's timing off another is the same mistake in
+    // miniature as drawing him with another's sheet.
+    const { walkRate, reactRate, idleRate } = record;
     // Zero frames means the record does not declare this clip, and there is
     // no substitute for one. The graybox below is a placeholder, not a
     // stand-in animation: it is visibly not the character.
-    const frames = this.sprite?.frameCount(clip, mover.facing, surface) ?? 0;
-    const drawn = frames > 0 && this.sprite?.draw(
+    const frames = sprite.frameCount(clip, mover.facing, surface);
+    const drawn = frames > 0 && sprite.draw(
       this.screen.context, clip, mover.facing, surface,
       mover.frameAt(this.clock, walkRate, reactRate, frames, idleRate ?? 0),
       feetX, feetY, mover.height,
