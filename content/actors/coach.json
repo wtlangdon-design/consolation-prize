@@ -43,22 +43,45 @@
         "art/actors/coach-idle-right/idle-22.png",
         "art/actors/coach-idle-right/idle-23.png"
       ],
-      "figureHeight": 778,
+      "figureHeight": 447,
       "anchor": [
-        956,
-        778
+        550,
+        447
       ]
     },
     {
       "id": "idle",
       "facing": "right",
       "frames": [
-        "art/actors/coach-idle-door-open-right/idle-door-open-00.png"
+        "art/actors/coach-idle-door-open-right/idle-door-open-00.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-01.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-02.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-03.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-04.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-05.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-06.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-07.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-08.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-09.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-10.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-11.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-12.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-13.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-14.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-15.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-16.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-17.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-18.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-19.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-20.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-21.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-22.png",
+        "art/actors/coach-idle-door-open-right/idle-door-open-23.png"
       ],
-      "figureHeight": 778,
+      "figureHeight": 447,
       "anchor": [
-        982,
-        778
+        565,
+        447
       ],
       "state": "door-open"
     },
@@ -83,10 +106,10 @@
         "art/actors/coach-idlebreak-right/idle-break-14.png",
         "art/actors/coach-idlebreak-right/idle-break-15.png"
       ],
-      "figureHeight": 778,
+      "figureHeight": 447,
       "anchor": [
-        956,
-        778
+        550,
+        447
       ]
     },
     {
@@ -102,10 +125,10 @@
         "art/actors/coach-walk-right/walk-06.png",
         "art/actors/coach-walk-right/walk-07.png"
       ],
-      "figureHeight": 389,
+      "figureHeight": 224,
       "anchor": [
-        478,
-        389
+        275,
+        224
       ]
     }
   ]

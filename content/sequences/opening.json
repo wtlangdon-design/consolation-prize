@@ -42,6 +42,19 @@
       "staging": [
         {
           "do": "move",
+          "actor": "hob",
+          "from": [
+            600,
+            720
+          ],
+          "to": [
+            600,
+            720
+          ],
+          "seconds": 0.1
+        },
+        {
+          "do": "move",
           "actor": "coach",
           "from": [
             1390,
@@ -79,33 +92,7 @@
         {
           "do": "chore",
           "actor": "thad",
-          "clip": "alight-coach"
-        },
-        {
-          "do": "walk",
-          "actor": "thad",
-          "to": [
-            1240,
-            802
-          ]
-        },
-        {
-          "do": "face",
-          "actor": "thad",
-          "facing": "right"
-        },
-        {
-          "do": "move",
-          "actor": "hob",
-          "from": [
-            600,
-            720
-          ],
-          "to": [
-            600,
-            720
-          ],
-          "seconds": 0.1
+          "clip": "aboard-coach"
         }
       ]
     },
@@ -118,6 +105,11 @@
         "T_OPENING_SAID": true
       },
       "staging": [
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "alight-coach"
+        },
         {
           "do": "walk",
           "actor": "thad",

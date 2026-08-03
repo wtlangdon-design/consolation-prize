@@ -3,10 +3,10 @@
   "facing": "right",
   "view": "profile",
   "figure": [
-    1912,
-    778
+    1099,
+    447
   ],
   "padding": 0,
   "frames": 16,
-  "note": "THE FRONT HORSE PAWS THE GROUND. Its near foreleg bends BACK ABOUT THE KNEE at (1757, 655) -- a rotation, not a translation. The first version shifted the whole limb sideways, which slides a leg away from the body instead of bending it, and reads as wrong immediately.\n\nThe lower leg is measured, not guessed: row profiles find it as a 26px column at x1747-1773 at y680, widening to the hoof by y720. Only the mass BELOW the knee rotates, feathered at the joint so the bend is not a hinge.\n\n0, -4, -9, -12, -9, -4, -1, 0 and then a smaller repeat, because an animal that repeats itself identically is a machine. Negative is backward for a horse facing right.\n\nAN IDLE BREAK, NOT PART OF THE LOOP: the horses breathe constantly and one of them paws every so often. Baked into the loop it would be a tic. Nothing else moves in these frames, and frame 0 is idle frame 0, so it cannot pop."
+  "note": "THE FRONT HORSE PAWS THE GROUND. Its near foreleg bends BACK ABOUT THE KNEE at (1757, 655) -- a rotation, not a translation. The first version shifted the whole limb sideways, which slides a leg away from the body instead of bending it, and reads as wrong immediately.\n\nThe lower leg is measured, not guessed: row profiles find it as a 26px column at x1747-1773 at y680, widening to the hoof by y720. Only the mass BELOW the knee rotates, feathered at the joint so the bend is not a hinge.\n\n0, -4, -9, -12, -9, -4, -1, 0 and then a smaller repeat, because an animal that repeats itself identically is a machine. Negative is backward for a horse facing right.\n\nAN IDLE BREAK, NOT PART OF THE LOOP: the horses breathe constantly and one of them paws every so often. Baked into the loop it would be a tic. Nothing else moves in these frames, and frame 0 is idle frame 0, so it cannot pop.\n\nSTORED AT 1.15x THE DRAWN HEIGHT, NOT 2x. R5a's 2x is right for a character; applied to a 956-wide coach across 24 frames it produced 26MB a clip and 70MB across the three, in the REQUIRED boot set because beat 2 stages it -- which is the exact problem R5a was written to prevent. 1.15x is still RESAMPLED at draw time, which was the whole reason 1.00x read wrong, at a third of the pixels."
 }
