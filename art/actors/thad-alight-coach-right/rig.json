@@ -5,15 +5,15 @@
     221,
     526
   ],
-  "frames": 5,
+  "frames": 6,
   "markers": {
     "begin": 0,
     "contact": 1,
-    "commit": 2,
-    "recover": 3,
-    "complete": 4
+    "commit": 3,
+    "recover": 4,
+    "complete": 5
   },
   "returns_to": "stand",
-  "note": "Doc 40's chore contract. Frame 0 and frame 4 ARE the stand frame, byte for byte, so the chore cannot pop on either end. The key pose is drawn and held for contact, commit and recover.\n\nNo in-betweens: a rigid-segment rig cannot interpolate between two different drawings, and cross-fading them looks worse than a clean cut. At 7fps a one-frame transition reads as a fast movement, which is how the reference games did it.\n\nPlaced by FEET and stance centre onto the stand's own canvas, so the anchor never moves.\n\nFIGURE AND PADDING ARE THE STAND'S, because these frames sit on the stand's own canvas at the stand's scale. Declaring the CANVAS size instead made them 547 against the stand's 526 -- every chore drawn 4% small -- and left the anchor x undefined. A bent pose is shorter because the POSE is shorter, not because its declared figure differs.",
+  "note": "THE WHOLE DESCENT, one clip: stand, in the doorway, leading foot down, stand.\n\nIt was two chores back to back and they played stand -> doorway -> stand -> foot down -> stand, because every chore begins and ends on the stand frame so it cannot pop. Chained, that rule made him STRAIGHTEN UP MID-DESCENT, between the two halves of one continuous movement -- which read as a glitch and was reported as one.\n\nA chore is a held pose between two hard cuts, not an animation. That is fine for a shrug and wrong for a descent, and the answer is not a mechanism but a clip that covers the whole motion.\n\n`contact` is the doorway, `commit` is the foot landing. Frames 0 and 5 are still the stand frame byte for byte.",
   "padding": 85
 }

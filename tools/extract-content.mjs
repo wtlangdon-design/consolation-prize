@@ -249,7 +249,10 @@ function opening() {
       // front, so a chore before the face asks for aboard-coach/front and
       // throws. Nothing is substituted, by design.
       { do: 'face', actor: 'thad', facing: 'right' },
-      { do: 'chore', actor: 'thad', clip: 'aboard-coach' },
+      // ONE CHORE, NOT TWO. alight-coach now covers the whole descent --
+      // doorway then foot down -- because every chore begins and ends on the
+      // stand frame, so chaining two of them made him straighten up mid-
+      // descent between the halves of one movement.
       { do: 'chore', actor: 'thad', clip: 'alight-coach' },
       // Clear of the door and a little NEARER THE CAMERA, so depth sorting has
       // something true to sort. He used to stand at (820, 760) -- inside the

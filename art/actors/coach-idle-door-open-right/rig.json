@@ -1,0 +1,13 @@
+{
+  "clip": "idle",
+  "facing": "right",
+  "view": "profile",
+  "figure": [
+    956,
+    389
+  ],
+  "padding": 0,
+  "note": "The coach standing with its DOOR OPEN -- beats 3 to 6, after Thad has climbed out. Resolved by ActorClip's `state` discriminator, the same field and the same exact-match-then-fall-back as `surface`; a mover with no state gets the stateless clip, which is the shut door.\n\nTHE ROOF RACK IS EMPTY IN THIS ART AND THAT IS CORRECT. The case is its own sprite at art/objects/thads-case.png and is drawn ON the rack until T_CASE_DOWN, then in the mud -- which is why no fourth coach variant is needed and why the case can come off without the vehicle changing at all.",
+  "frames": 1,
+  "state": "door-open"
+}

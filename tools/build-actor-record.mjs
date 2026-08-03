@@ -54,6 +54,10 @@ const FIXED_HEIGHT = { coach: 389 };
 const CLIPS = [
   { id: 'stand', dir: 'stand', prefix: 'stand' },
   { id: 'idle', dir: 'idle', prefix: 'idle' },
+  // The coach with its door open -- beats 3 to 6, after Thad has climbed out.
+  // Resolved by ActorClip's `state`, the same discriminator as `surface`: a
+  // mover with no state gets the stateless clip, which is the shut door.
+  { id: 'idle', dir: 'idle-door-open', prefix: 'idle-door-open', state: 'door-open' },
   { id: 'idle-break', dir: 'idlebreak', prefix: 'idle-break' },
   { id: 'walk', dir: 'walk', prefix: 'walk' },
   { id: 'recoil', dir: 'recoil', prefix: 'recoil' },
@@ -174,6 +178,11 @@ function recordFor(id) {
         anchor: [rig.padding + Math.round(figureWidth / 2), figureHeight],
         // Only the walk clips carry one. Written through, never inferred.
         ...(rig.walk_dx === undefined || rig.walk_dx === null ? {} : { walkDx: rig.walk_dx }),
+        // ActorClip's `state` discriminator, from the rig. Written through the
+        // same way, and ABSENT rather than null when there is none -- clipOf
+        // does exact-match-then-fall-back, so a stateless clip is the fallback
+        // and a null would be a state nobody can ask for.
+        ...(rig.state === undefined || rig.state === null ? {} : { state: rig.state }),
       });
     }
   }
