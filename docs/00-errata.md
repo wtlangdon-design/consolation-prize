@@ -1727,3 +1727,22 @@ the tree, node and option.
 The performance loop's step 8 was withheld as Tyler's; it is now ruled. The rebuild's CHOOSING
 phase rebuilds the list from `afterUse` rather than from the universal grey rule. Until W1
 content lands, every existing option behaves as `retain`, which is bit-identical to today.
+
+---
+
+# 58 · MAIN STREET IS INTO DEPTH — Q2 RULED, ERRATA 43 AMENDED
+
+Tyler adopts the resolution recorded in doc 36 Q2, unchanged: **frame right stays east** — the
+coach's departure and the road home, so `road_east`'s line ("Home is that way. It is eleven
+hundred miles that way") stands unaltered — and **the route to Main Street is into depth,
+toward the visible town**, with Main Street receiving Thad at a far-depth entrance per doc 29's
+road-into-depth transition. Errata 43's west-to-east ordering drops its cardinal wording, which
+was never load-bearing.
+
+**The ruling ratifies the game as shipped.** Beat 11's traced path already walks him into depth
+toward the town lights, back to camera, out the exit named CONSOLATION — the mud beat and the
+title were built on this reading. `road_west → main_street` is conceptually correct as wired;
+the exit rect's re-derivation remains Q4's, unchanged by this.
+
+**Room 2's plate brief follows directly:** the player arrives from depth at the far end; the
+street runs toward camera; east — frame right — is the way back toward the stage road.

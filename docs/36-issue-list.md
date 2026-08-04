@@ -158,7 +158,7 @@ Doc 05's written LOOK line: *"Two horses I can see and I am told there are four 
 
 **Ruled by the project owner: two.** `docs/37` specifies two. `tools/pixelart/room01/team.py` disagrees with canon and is superseded.
 
-## Q2 · Which way is Main Street — **RULING RETRACTED, OPEN AGAIN**
+## Q2 · Which way is Main Street — **RULED: errata 58 adopts the resolution below**
 
 The frame-right ruling was withdrawn by its author on the grounds that it was made without reconciling the visible town, the written lines and the coach's direction.
 
