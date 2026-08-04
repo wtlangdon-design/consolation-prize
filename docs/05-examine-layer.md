@@ -1301,6 +1301,96 @@ The only prose line in the entire room, on the correct spot:
 
 ---
 
+# PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*
+
+**Doctrine:** a hotspot re-answers when the town's knowledge changes what Thad sees — not every
+hotspot, every act, which would be bloat. A variant replaces the base pair for its range; a
+single-verb variant replaces only that verb. Per-act *barks* belong to Part Four's separate
+bark budget, not here.
+
+## ROOM 2 — MAIN STREET
+
+**THE FALSE FRONTS** *(act: 2)*
+> **LOOK:** "Two storeys in front, one behind, same as ever — but now every doorway says good morning to me by name. Approximately by name."
+> **LISTEN:** "Wind behind them, and under it, my own name being discussed. Approximately my name."
+
+**POSTED NOTICES** *(act: 3)*
+> **LOOK:** "My funeral notice, prominently posted. 'THE PIANO MAN, MOURNED BY ALL.' Frame has finally found a spelling he cannot get wrong."
+> **LISTEN:** "Paper in wind. One of those sheets is my whole official existence, flapping."
+
+**THE IMPROVEMENT COMPANY SIGN** *(act: 3)*
+> **LOOK:** "Fresh gilt on the lettering. Business is good. Business, for the Company, is always the search, and the search just outlived its most annoying obstacle. Me."
+
+**A DOG** *(act: 3)*
+> **LISTEN:** "He knows me. Tail, twice. The one resident who never read a word of paper in his life, and therefore the one resident I am still alive to."
+
+## ROOM 3 — THE BOUNTIFUL NUGGET
+
+**THE BAR** *(act: 3)*
+> **LOOK:** "They drank to my memory on Tuesday. I attended. I am told I was well spoken of, briefly, between rounds."
+> **LISTEN:** "My name — one of its spellings — in a toast. It is a strange vintage, hearing yourself remembered at cost price."
+
+**THE PIANO** *(act: 2)*
+> **LOOK:** "I tune it Thursdays now. It is the only thing in Consolation that is more honest when I finish with it."
+
+**THE PIANO** *(act: 4)*
+> **LOOK:** "Tuned, and staying tuned. The room plays it differently now — softer, like the instrument earned something."
+> **LISTEN:** "A. Four hundred and forty. In this town, at last, that is not a foreign language."
+
+## ROOM 5 — ASSAY OFFICE, FRONT
+
+**THE QUEUE BENCH** *(act: "2-4")*
+> **LOOK:** "The bench seats nine and holds two. The queue has been on a diet since a certain log was read aloud."
+
+## ROOM 7 — CLAIMS REGISTRAR
+
+**THE COUNTER** *(act: 3)*
+> **LOOK:** "Somewhere behind that partition is a certificate asserting my death, filed correctly, in perfect order. It is the best-organised thing that has ever happened to me."
+> **LISTEN:** "Sump, stamping. Every third document is somebody becoming official. I know the weight of it now."
+
+## ROOM 12 — THE MERCANTILE
+
+**THE CREDIT LEDGER** *(act: 3)*
+> **LOOK:** "My account is ruled off and marked DECEASED. Cleanest my finances have ever looked."
+
+**THE DYNAMITE CRATE** *(act: "3-4")*
+> **LOOK:** "Still beside the stove. The town has survived twelve years of lies and one crate of dynamite, and I no longer know which is the greater miracle."
+
+## ROOM 14 — BOOT HILL
+
+**MY OWN PLOT** *(act: "3-4")*
+> **LOOK:** "My plot, my headboard, HE TUNED. I visit. It is restful, in the way of problems that have been filed."
+> **LISTEN:** "Wind in the oats. My grave is the only one here whose tenant can review the accommodations, and I give it high marks."
+
+## ROOM 18 — HOTEL LOBBY
+
+**THE REGISTER** *(act: 3)*
+> **LOOK:** "My line is ruled through, respectfully. The clerk did it with a straightedge. In this town even the erasures are filed."
+
+## ROOM 23 & 24 — PROSPERITY, AND THE HOLE
+
+**THE HOLE** *(act: 3)*
+> **LOOK:** "The hole. The warm air. I evicted a raccoon from the front door of a fortune and apologised to neither of us."
+> **LISTEN:** "Air. Moving. Warmer than the day. The same words as always; I am only now hearing what they were saying."
+
+**THE CLAIM MARKER (MINE)** *(act: 4)*
+> **LOOK:** "Prosperity. Named by a liar, bought by a fool, and correct the entire time. There is a sermon in that and Sowerby cannot have it."
+
+## ROOM 30 — MOTT'S SUPPOSED SITE
+
+**THE SITE ENTIRE** *(act: 4)*
+> **LOOK:** "The famous nothing, resting. The pilgrims have stopped coming — the gold has an address now, and it was never this one. The moon can have its claim back."
+> **LISTEN:** "Wind in the workings, same as ever. It sounds different when it is no longer lying to anyone."
+
+## ROOM 10 — IMPROVEMENT COMPANY LOBBY
+
+**THE PROSPECTUS RACK** *(act: 4)*
+> **LOOK:** "The rack is empty. TERRITORY OF TOMORROW went out of print somewhere between the filing and the morning after."
+> **LISTEN:** "The draught, unemployed."
+
+**THE CHAIRS** *(act: 4)*
+> **LOOK:** "Six chairs, and for the first time in Company history, nobody waiting in any of them. Comfort with no takers. It is the saddest furniture in the territory and I cannot spare it a full minute."
+
 # PART THREE — MANIFEST, REMAINING ROOMS
 
 Every room is now scripted above; this table survives as the index of the W3 pass and the record of each room's hotspot budget. Every hotspot needs both verbs. Calibrate against the twelve above.
@@ -1342,7 +1432,7 @@ Every room is now scripted above; this table survives as the index of the W3 pas
 | Scripted above (35 rooms — the full game) | ~610 |
 | Manifest rooms | 0 — the W3 pass scripted them all |
 | Room 36 rewrite | ~18 |
-| Act-state variants (rooms that change between acts) | ~140 |
+| Act-state variants (rooms that change between acts) | ~140 — **W4: the load-bearing turns written above (~60); the remainder is per-act bark volume, owned with the bark budget below** |
 | Barks and repeat-selection variants | ~120 |
 | **Examine total** | **~890** |
 
