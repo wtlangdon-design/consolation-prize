@@ -1615,3 +1615,56 @@ Recorded in full as Q21 in `docs/36-issue-list.md`.
 ## Precedence
 
 This ruling governs presentation. Where any document conflicts with it on resolution, palette, scaling, font or background animation, this wins. It is the last global ruling until doc 34's stop condition is met.
+
+---
+
+# 56 · THADDEUS IS WRITTEN, AND THE VOICE IS LA-FLAVOURED. ERRATA 49'S MECHANISM STANDS; ITS REASONING IS FOOTNOTED.
+
+Two rulings by Tyler, from listening, which is the only way either could have been settled.
+
+## 1 · The THADDEUS melody
+
+Doc 28 describes the theme and nobody had written it, so Room 1's bed — cue `O-02-M` — did not exist and could not be produced. It exists now, in the proof, and every choice answers a sentence of the brief.
+
+**Four bars of 3/4 at 76, G major, solo fiddle, unaccompanied.**
+
+| The brief | The setting |
+|---|---|
+| *"in a different metre from everything else in the score"* | CONSOLATION is 4/4 at 152 with a jaw harp on the offbeats — a town dancing at itself. THADDEUS is 3/4 at 76: half the speed, in a bar that will not fit inside the town's. A waltz among reels is foreign before a word is spoken |
+| *"Thad is not from here"* | G major, not the town's D. G is its subdominant — related, plainer, and where a New England hymn tune sits. In D he would have been a variation on Consolation |
+| *"earnest, plain"* | Stepwise throughout except one rise to the fifth in bar two, held. It is the only ambitious thing he does and he comes straight back down from it |
+| *"He does not get to finish a thought in his own game"* | It ends on the third, not the tonic. A tune that has stopped rather than finished, wanting a fifth bar it does not get |
+
+He plays at the town's −35 cents. **The flat is the place, not the man** — he is not from here, but he is here.
+
+**It is a placeholder in the same sense CONSOLATION's melody is**, and both are now equally canonical: written against doc 28 because no notated score exists there, and replaceable by anyone who writes a better one.
+
+## 2 · The voice: LA-flavoured, not bowed and not FM
+
+Three 1990s were on the table and they are not the same sound. **AdLib/OPL2** is FM — buzzy, metallic, the sound most people mean by "PC game music." **The Roland MT-32** is LA synthesis — warmer, rounder, and what LucasArts composers actually wrote for. The proof's original voices were neither: summed partials, quantised to 10 bits and rolled off at 11 kHz, an evocation of the era by a third route.
+
+Auditioned against each other on the same tune and the same tuning. **The LA-flavoured voice is canon.**
+
+**IT IS A MANNER, NOT AN EMULATION, and the difference is stated so nobody later mistakes it for one.** LA synthesis pairs a very short *sampled attack transient* held in the unit's ROM with a synthesised sustain. Those samples are hardware ROM — emulators require them supplied separately and this project has none. The transient here is **constructed**: bandpassed noise plus a high inharmonic ping, gone inside 40ms.
+
+The structure is the real borrowing, and it is what makes LA timbres warmer than FM or than summed partials:
+
+1. a hard inharmonic transient, gone before the ear has decided what it is hearing;
+2. **one** filtered sawtooth, not three detuned ones;
+3. a **resonant low-pass whose cutoff is the envelope** — open on the attack, closing through the note.
+
+Item 3 is the whole character. Putting the envelope on the *filter* rather than only on the amplitude is what the ear reads as an instrument rather than an oscillator.
+
+## 3 · Errata 49 is not reversed
+
+Its mechanism stands unchanged: **render stems offline at build time from the same synthesis path**, because live synthesis costs 12.9% of a core for one theme — 25–50% on a Chromebook — against a decoded stem's ~1%.
+
+What is footnoted is its *reasoning*. Errata 49 argued for stems partly because "a synthesised solo fiddle is the most recognisable *this is a computer* sound in game audio, and it would be playing during the moment the game is about." **Tyler has ruled that sound the goal rather than the problem.** The conclusion is unaffected — the stems are rendered from this synthesis either way — but no future reader should cite that sentence as a reason to commission recorded instruments.
+
+Errata 49 item 3, "commission the themes as MIDI, not audio", is likewise satisfied rather than superseded: the themes are note data in the proof, which is what a MIDI commission would have delivered.
+
+## Outstanding
+
+**The other three instruments are still the old voices.** Piano, jaw harp and harmonica are summed partials; only the fiddle is LA-flavoured. CONSOLATION is piano-led, so as it stands the town and its protagonist are two different machines. Either the remaining three are rebuilt in the same manner or the ruling is scoped to Thad deliberately — and it should be a decision rather than an oversight.
+
+**The offline renderer is unbuilt.** Errata 49 item 1 names it and nothing does it yet, so no stem exists and `manifest.music.rooms` is still empty.

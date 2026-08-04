@@ -55,6 +55,8 @@ Web Audio only. Nothing here is a shipping asset.</p>
 <div class="row">
   <button id="b-flat">theme at &minus;35 cents</button>
   <button id="b-tuned">theme in tune</button>
+  <button id="b-thad">THADDEUS &mdash; bowed fiddle (as before)</button>
+  <button id="b-thadla">THADDEUS &mdash; LA-flavoured (MT-32 manner)</button>
   <button id="b-arc">the 90-second resolution</button>
   <button id="b-stop" class="stop">stop</button>
 </div>
@@ -474,18 +476,112 @@ const ConsolationAudio = (function () {
       retire(v, t + durS + 0.35, last);
     }
 
-    const voices = { piano, fiddle, jawHarp, harmonica };
+
+    /* ---------------------------------------------------------------- *
+     * FIDDLE, LA-FLAVOURED  —  the Roland MT-32's manner, not its ROM
+     *
+     * WHAT AN MT-32 ACTUALLY DOES, and why this is a manner rather than
+     * an emulation: LA synthesis pairs a very short SAMPLED ATTACK
+     * TRANSIENT held in the unit's ROM with a synthesised sustain -- a
+     * filtered saw through a resonant low-pass and an envelope. The
+     * attacks are what make a bowed note sound bowed. Those samples are
+     * hardware ROM; emulators need them supplied separately, and nothing
+     * here has them. So the transient below is CONSTRUCTED, not sampled.
+     *
+     * The structure is the real borrowing, and it is the part that makes
+     * LA timbres warmer and rounder than FM or than summed partials:
+     *
+     *   1. a hard, inharmonic transient, gone inside 40ms
+     *   2. one filtered sawtooth, not three detuned ones
+     *   3. a RESONANT low-pass that opens on the attack and closes
+     *      through the note -- the envelope is on the FILTER, which is
+     *      the thing the ear reads as "an instrument" rather than "an
+     *      oscillator"
+     *
+     * The global detune reaches it the same way it reaches everything
+     * else: through osc(), one parameter, unchanged.
+     * ---------------------------------------------------------------- */
+    function fiddleLA(ev) {
+      const t = ev.time, vel = ev.vel == null ? 0.7 : ev.vel;
+      const f = midiToFreq(ev.midi);
+      const durS = Math.max(0.12, (ev.dur || 1) * pieceBeat);
+      const v = scope();
+      const last = [];
+
+      // 1. the transient. Bandpassed noise plus a high inharmonic ping,
+      //    both gone before the ear has decided what it is hearing.
+      const n = noise(v), nb = filt(v, 'bandpass'), ng = gain(v);
+      nb.frequency.value = clamp(f * 4.5, 900, 6000); nb.Q.value = 1.4;
+      ng.gain.setValueAtTime(0, t);
+      ng.gain.linearRampToValueAtTime(0.30 * vel, t + 0.006);
+      ng.gain.exponentialRampToValueAtTime(0.0003, t + 0.040);
+      n.connect(nb); nb.connect(ng);
+      n.start(t); n.stop(t + 0.06); last.push(n);
+
+      const ping = osc(v, 'triangle', f * 2.76, 0);   // inharmonic on purpose
+      const pg = gain(v);
+      pg.gain.setValueAtTime(0.22 * vel, t);
+      pg.gain.exponentialRampToValueAtTime(0.0003, t + 0.055);
+      ping.connect(pg);
+      ping.start(t); ping.stop(t + 0.07); last.push(ping);
+
+      // 2 & 3. one saw through a resonant filter whose cutoff is the
+      //        envelope. This is the whole character.
+      const o = osc(v, 'sawtooth', f, 0);
+      const lp = filt(v, 'lowpass');
+      lp.Q.value = 6.5;
+      lp.frequency.setValueAtTime(clamp(f * 1.4, 200, 7000), t);
+      lp.frequency.linearRampToValueAtTime(clamp(f * 7.5, 900, 9000), t + 0.045);
+      lp.frequency.exponentialRampToValueAtTime(clamp(f * 2.2, 300, 7000),
+        t + Math.min(0.6, durS));
+      o.connect(lp);
+      o.start(t); o.stop(t + durS + 0.25); last.push(o);
+
+      // a slow vibrato, shallower than the bowed voice: LA patches sing
+      // rather than scrape.
+      const vibOsc = lfo(v, 4.6);
+      const vib = gain(v);
+      vib.gain.setValueAtTime(0, t);
+      vib.gain.linearRampToValueAtTime(11, t + Math.min(0.32, durS * 0.7));
+      vibOsc.connect(vib); vib.connect(o.detune);
+      vibOsc.start(t); vibOsc.stop(t + durS + 0.3);
+
+      const amp = gain(v);
+      amp.gain.setValueAtTime(0.0001, t);
+      amp.gain.linearRampToValueAtTime(vel * 0.34, t + 0.03);
+      amp.gain.linearRampToValueAtTime(vel * 0.26, t + Math.min(0.18, durS * 0.5));
+      amp.gain.setValueAtTime(vel * 0.26, t + Math.max(0.18, durS - 0.05));
+      amp.gain.exponentialRampToValueAtTime(0.0001, t + durS + 0.12);
+
+      lp.connect(amp); ng.connect(amp); pg.connect(amp);
+      const near = gain(v, 0.30); amp.connect(near); near.connect(dry);
+      const far  = gain(v, 0.70); amp.connect(far);  far.connect(dist);
+      retire(v, t + durS + 0.35, last);
+    }
+
+    const voices = { piano, fiddle, fiddleLA, jawHarp, harmonica };
 
     /* ---------------- scheduling ------------------------------------ */
+    // WHICH THEME, AND AT WHAT TEMPO. It was closed over one; a second
+    // theme in a different metre needs its own bar length and its own
+    // beat, so both travel with it.
+    let piece = THEME, pieceLoop = LOOP_BEATS, pieceBeat = BEAT;
+    function setPiece(p) {
+      piece = p;
+      pieceLoop = p.loopBeats;
+      pieceBeat = 60 / p.tempo;
+    }
+    function beatSeconds() { return pieceBeat; }
+
     function scheduleBeat(absBeat, time) {
-      const loop = Math.floor(absBeat / LOOP_BEATS);
-      const local = absBeat - loop * LOOP_BEATS;
-      for (const part of THEME.parts) {
+      const loop = Math.floor(absBeat / pieceLoop);
+      const local = absBeat - loop * pieceLoop;
+      for (const part of piece.parts) {
         if ((part.fromLoop || 0) > loop) continue;
         const v = voices[part.inst];
         for (const e of part.events) {
           if (Math.floor(e.b) !== local) continue;
-          v({ midi: e.m, time: time + (e.b - local) * BEAT, dur: e.d,
+          v({ midi: e.m, time: time + (e.b - local) * pieceBeat, dur: e.d,
               vel: (e.v == null ? 0.7 : e.v) * (part.gain == null ? 1 : part.gain),
               sweepFrom: e.sf, sweepTo: e.st });
         }
@@ -518,6 +614,7 @@ const ConsolationAudio = (function () {
       ctx, opts, voices, master,
       detuneParam: detuneSource.offset,
       detuneSource, scheduleBeat, scheduleSpan, open, close, collect,
+      setPiece, beatSeconds,
       liveCount: () => pending.length
     };
   }
@@ -608,6 +705,65 @@ const ConsolationAudio = (function () {
     }
   }
 
+
+  /* ================================================================ *
+   * THE THADDEUS THEME  —  PLACEHOLDER MELODY
+   * Written against doc 28 theme 2, the same way CONSOLATION above was
+   * and with the same warning: no notated score exists in the docs, and
+   * this is expected to be replaced. The brief is unusually exact and
+   * the tune is built to it rather than around it.
+   *
+   *   "Earnest, plain, and in a different metre from everything else in
+   *    the score. Thad is not from here and the music says so before
+   *    anyone does. Solo fiddle, unaccompanied, four bars."
+   *
+   * THE METRE IS THE POINT AND IT IS THE FIRST DECISION. CONSOLATION is
+   * 4/4 at 152 with a jaw harp on the offbeats -- a town dancing at
+   * itself. THADDEUS is 3/4 at 76: half the speed and a bar that will
+   * not fit inside the town's. A waltz among reels is foreign before a
+   * word is spoken, which is what the brief asks the music to do.
+   *
+   * G MAJOR, NOT D. CONSOLATION is in D, and putting Thad in the town's
+   * own key would make him a variation on it. G is its subdominant --
+   * related, plainer, and the key a New England hymn tune sits in.
+   *
+   * FOUR BARS, STEPWISE, ONE REACH. Everything moves by step except a
+   * rise to the fifth in bar two, which is the only ambitious thing he
+   * does and he comes straight back down from it.
+   *
+   * IT ENDS ON THE THIRD. Not the tonic -- a tune that has stopped
+   * rather than finished, wanting a fifth bar it does not get. Doc 28:
+   * "He does not get to finish a thought in his own game."
+   * ================================================================ */
+  const THAD_TEMPO = 76;
+  const THAD_LOOP  = 12;                // 4 bars of 3/4
+  const THAD_MEL = [
+    // bar 1 -- plain rise from the tonic
+    {b:0.0, m:67, d:1.0},{b:1.0, m:69, d:1.0},{b:2.0, m:71, d:1.0},
+    // bar 2 -- the reach, held, and it is the only one
+    {b:3.0, m:74, d:2.0},{b:5.0, m:71, d:1.0},
+    // bar 3 -- back down by step
+    {b:6.0, m:72, d:1.0},{b:7.0, m:71, d:1.0},{b:8.0, m:69, d:1.0},
+    // bar 4 -- settles to the tonic, then lifts to the third and stops
+    {b:9.0, m:67, d:1.5},{b:10.5, m:69, d:0.5},{b:11.0, m:71, d:1.0}
+  ];
+
+  const THADDEUS_LA = {
+    name: 'THADDEUS (LA)',
+    tempo: THAD_TEMPO, loopBeats: THAD_LOOP,
+    parts: [ { inst: 'fiddleLA', role: 'melody', gain: 1.00, fromLoop: 0, events: THAD_MEL } ]
+  };
+
+  const THADDEUS = {
+    name: 'THADDEUS',
+    tempo: THAD_TEMPO, loopBeats: THAD_LOOP,
+    parts: [
+      // Solo, unaccompanied, and that is the arrangement rather than a
+      // simplification of one: doc 28 gives him no accompaniment at all.
+      { inst: 'fiddle', role: 'melody', gain: 1.00, fromLoop: 0, events: THAD_MEL }
+    ]
+  };
+
   const THEME = {
     name: 'CONSOLATION',
     tempo: TEMPO, loopBeats: LOOP_BEATS,
@@ -633,7 +789,7 @@ const ConsolationAudio = (function () {
 
   return {
     TEMPO, BEAT, LOOP_BEATS, LOOP_SECONDS, ARC_SECONDS, LEAD_SECONDS,
-    DETUNE_START, PIANO_CLASS_CENTS, THEME, AUDITIONS,
+    DETUNE_START, PIANO_CLASS_CENTS, THEME, THADDEUS, THADDEUS_LA, AUDITIONS,
     midiToFreq, createEngine, automateArc
   };
 })();
@@ -645,7 +801,8 @@ window.ConsolationAudio = ConsolationAudio;
 (function () {
   const CA = window.ConsolationAudio;
   const $ = id => document.getElementById(id);
-  const btn = { flat: $('b-flat'), tuned: $('b-tuned'), arc: $('b-arc'), stop: $('b-stop') };
+  const btn = { flat: $('b-flat'), tuned: $('b-tuned'), arc: $('b-arc'),
+                thad: $('b-thad'), thadla: $('b-thadla'), stop: $('b-stop') };
   const cbFlat = $('cb-flat');
   const out = { detune: $('r-detune'), state: $('r-state'), arc: $('r-arc'), bar: $('r-bar'), fill: $('r-fill') };
 
@@ -675,6 +832,7 @@ window.ConsolationAudio = ConsolationAudio;
   function playTheme(which) {
     stop();
     const e = newEngine(which === 'tuned' ? 0 : CA.DETUNE_START);
+    e.setPiece(CA.THEME);
     mode = which;
     startTime = e.ctx.currentTime + 0.14;
     nextBeat = 0;
@@ -689,8 +847,9 @@ window.ConsolationAudio = ConsolationAudio;
   function tick() {
     if (!engine) return;
     const c = engine.ctx;
-    while (startTime + nextBeat * CA.BEAT < c.currentTime + 0.25) {
-      engine.scheduleBeat(nextBeat, startTime + nextBeat * CA.BEAT);
+    const bt = engine.beatSeconds();
+    while (startTime + nextBeat * bt < c.currentTime + 0.25) {
+      engine.scheduleBeat(nextBeat, startTime + nextBeat * bt);
       nextBeat++;
     }
     engine.collect();   // finished notes are taken back out of the graph
@@ -710,6 +869,25 @@ window.ConsolationAudio = ConsolationAudio;
     setTimeout(() => { if (mode === 'audition:' + name) stop(); }, 6500);
   }
 
+  /* THADDEUS, at the tuning the town is at. He is not from here, but he is
+     HERE -- the flat is the place, not the man, so he plays under it too. */
+  function playThaddeus(which) {
+    stop();
+    const e = newEngine(CA.DETUNE_START);
+    e.setPiece(which === 'la' ? CA.THADDEUS_LA : CA.THADDEUS);
+    mode = which === 'la' ? 'thadla' : 'thad';
+    startTime = e.ctx.currentTime + 0.14;
+    nextBeat = 0;
+    e.open(startTime);
+    timer = setInterval(tick, 25);
+    tick();
+    btn[which === 'la' ? 'thadla' : 'thad'].classList.add('on');
+    out.state.textContent = which === 'la'
+      ? 'THADDEUS — LA-flavoured fiddle (MT-32 manner)'
+      : 'THADDEUS — the bowed fiddle, as before';
+  }
+  btn.thad.onclick   = () => playThaddeus('bowed');
+  btn.thadla.onclick = () => playThaddeus('la');
   btn.flat.onclick  = () => playTheme('flat');
   btn.tuned.onclick = () => playTheme('tuned');
   btn.arc.onclick   = () => playTheme('arc');
