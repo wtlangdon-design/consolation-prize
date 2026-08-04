@@ -14,6 +14,44 @@ from PIL import Image
 from scipy import ndimage
 
 HIP_SWING = [14, 10, 0, -10, -14, -10, 0, 10]
+
+# THE KNEE, AND IT IS WHAT MAKES EIGHT FRAMES HOLD EIGHT PICTURES.
+#
+# HIP_SWING IS CORRECT AND SO ARE THE SIGNS. It is 14 x [1,.71,0,-.71,-1,-.71,
+# 0,.71] -- one full sine at eight even phases -- and the legs have alternated
+# since 1c63132, `rot(far,-s)` against `rot(near,s)`. Neither is the bug.
+#
+# THE BUG IS THAT EVERY FRAME WAS A PURE FUNCTION OF `s`. A sine visits every
+# non-extreme magnitude twice per cycle, so equal angles produced byte-identical
+# frames: 1==7, 2==6, 3==5, five pictures out of eight. Measured from the other
+# end, `art/actors/thad-walk-*/walk-02.png` and `walk-06.png` are the same FILE.
+# No drive array fixes that. A rigid leg cannot tell the two halves apart,
+# because at equal hip angles there is nothing left to differ.
+#
+# KNEE FLEXION IS A FUNCTION OF PHASE, NOT OF HIP ANGLE, and that is the whole
+# of the fix. A walking leg is near straight through stance and folds hard
+# through swing, peaking just after toe-off. Indexed against HIP_SWING, whose
+# +14 is the leg at its most forward:
+#
+#     0  contact, leg forward, heel about to land          6
+#     1  loading response, taking the weight               4
+#     2  mid-stance, leg under the body                    4
+#     3  terminal stance, heel rising                      8
+#     4  toe-off, leg fully back                          40
+#     5  early swing, peak flexion, heel toward the seat  60
+#     6  mid-swing, knee unfolding, foot passing          34
+#     7  late swing, leg reaching forward, near straight  10
+#
+# Pairs at equal |hip| now differ: 4 against 10 at index 1/7, 4 against 34 at
+# 2/6, 8 against 60 at 3/5. The palindrome cannot survive that.
+#
+# DEGREES OF FLEXION, and the numbers are gait-clinical rather than invented:
+# a walking knee runs about 5 degrees at heel strike, a first wave near 18 in
+# loading, back to 5 in terminal stance, then 40 at toe-off and 60-65 peak in
+# swing. Scaled by --knee, and --knee 0 reproduces the rigid leg exactly.
+KNEE_FLEX = [6, 4, 4, 8, 40, 60, 34, 10]
+KNEE_FRAC = 0.52      # the knee, as a fraction of hip-to-sole. Anatomy is ~0.5
+KNEE_OVERLAP = 0.06   # of leg length: how far the shin reaches ABOVE the knee
 IDLE_BREATH = [0.0, 0.45, 0.85, 1.0, 0.7, 0.3]   # 6 frames, doc 22's rest state
 DISPLAY_H = 233          # the height a character is shown at, errata 54
 LOOK  = [0, -1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0]   # head-on break: glance aside
@@ -339,12 +377,72 @@ def swing_arm(seg_mask, canvas, shoulder, ang, elbow_frac=0.45, fore_lead=FORE_L
     return rot(over(fore, upper), ang, cx, shoulder)
 
 
+def swing_leg(layer, hip_row, hip_cx, hip_ang, knee_ang):
+    """One leg, hinged twice: the shin about the knee, the whole about the hip.
+
+    A ROW SPLIT CANNOT DO THIS, and that is worth stating because it is the
+    obvious construction and it is what `swing_arm` uses. Cut the limb on a
+    horizontal line and rotate the lower half about a point on that line: the
+    tilted top edge dips below the cut on one side, and the gap it opens is
+    half the limb's width times tan(angle). At 60 degrees on a 40px leg that is
+    35 pixels of hole. Extending the shin upward to cover it needs `d >= w *
+    tan(angle)` -- 35px of shin above the knee -- and that strip then swings 30
+    pixels clear of the thigh and reads as a spur.
+
+    THE ARM GETS AWAY WITH THE ROW SPLIT because it never has to. `elbow_frac`
+    0.45 puts the near elbow inside a sleeve, the far arm runs at 0.15 with a
+    0.25 lead, and the forearm turns through single digits. A knee folds sixty
+    degrees in open air over bare trouser, with nothing over the joint. It is
+    the same operation at an angle the trick does not survive.
+
+    SO THE JOINT IS A DISC. Everything within half a leg-width of the knee goes
+    with the SHIN, and the thigh has that bite taken out of it. A disc rotated
+    about its own centre is the same disc, so the joint's silhouette cannot
+    change however far the knee folds -- there is no edge to open and no corner
+    to swing clear. The thigh's bottom and the shin's top are the same curve by
+    construction rather than by a tolerance.
+    """
+    if abs(knee_ang) < 1e-6:
+        return rot(layer, hip_ang, hip_cx, hip_row)
+    mask = layer[..., 3] > 128
+    ys = np.nonzero(mask.any(1))[0]
+    if not len(ys):
+        return rot(layer, hip_ang, hip_cx, hip_row)
+    top, bot = int(ys.min()), int(ys.max())
+    knee = int(top + KNEE_FRAC * (bot - top))
+    cols = np.nonzero(mask[knee])[0]
+    if not len(cols):
+        return rot(layer, hip_ang, hip_cx, hip_row)
+    knee_cx = float(cols.mean())
+    # A SHADE OVER HALF THE WIDTH. Exactly half leaves the disc tangent to the
+    # silhouette and a pixel of rounding puts a notch at the tangent point.
+    radius = max(2.0, 0.58 * len(cols))
+    H, W = mask.shape
+    yy = np.arange(H)[:, None] - knee
+    xx = np.arange(W)[None, :] - knee_cx
+    disc = (xx * xx + yy * yy) <= radius * radius
+    rows = np.arange(H)[:, None]
+    thigh = layer.copy()
+    thigh[..., 3] = np.where((rows < knee) & ~disc, layer[..., 3], 0)
+    shin = layer.copy()
+    shin[..., 3] = np.where((rows >= knee) | disc, layer[..., 3], 0)
+    return rot(over(thigh, rot(shin, knee_ang, knee_cx, knee)), hip_ang, hip_cx, hip_row)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("source"); ap.add_argument("--out", required=True)
     ap.add_argument("--key", default="magenta", choices=["green", "magenta"])
     ap.add_argument("--pad", type=int, default=260)
     ap.add_argument("--swing", type=float, default=1.0)
+    ap.add_argument("--knee", type=float, default=1.0,
+                    help="scales KNEE_FLEX. 0 gives the rigid leg the rig had "
+                         "before -- byte-identical, which is how the change was "
+                         "checked -- and that is a PING-PONG: eight frames, five "
+                         "pictures, because a rigid leg makes every frame a pure "
+                         "function of the hip angle and a sine repeats every "
+                         "magnitude. Profile views only; head-on takes the "
+                         "shift_scale path, where a knee does not project")
     ap.add_argument("--arm-swing", type=float, default=None,
                     help="0 for headon. An arm swinging toward the camera "
                          "foreshortens, it does not travel down the frame; "
@@ -727,8 +825,27 @@ def main():
                 f = over(shift_scale(as_layer(near_am), -dy * args.arm_swing, 1.0,
                                      float(np.nonzero(near_am.any(0))[0].mean()), sh_near), f)
         else:
-            f = over(rot(far_leg, -s, cxf, pivot), f)
-            f = over(rot(near_leg, s, cxn, pivot), f)
+            # THE FAR LEG IS HALF A CYCLE BEHIND, AND NOW IT IS INDEXED THAT
+            # WAY RATHER THAN NEGATED. For a sine those are the same thing --
+            # HIP[i+4] == -HIP[i] -- which is exactly why negating was enough
+            # for as long as the leg was rigid. The knee curve is asymmetric,
+            # so half a cycle behind has to mean the OTHER PHASE, not the
+            # opposite angle, and there is no sign that expresses it.
+            #
+            # `face` carries which way forward is. +14 rotates a hanging leg
+            # counter-clockwise, which swings the foot to frame right: forward
+            # for a right-facing man, backward for a left-facing one. The hip
+            # alone never cared, because reversing a symmetric cycle gives the
+            # same cycle. The knee cares: flexion always folds the heel toward
+            # the seat, which is the opposite of forward, in both facings.
+            far_i = (i + len(HIP_SWING) // 2) % len(HIP_SWING)
+            face = 1 if args.facing == "right" else -1
+            hip_far = face * HIP_SWING[far_i] * args.swing
+            hip_near = face * HIP_SWING[i] * args.swing
+            knee_far = -face * KNEE_FLEX[far_i] * args.knee
+            knee_near = -face * KNEE_FLEX[i] * args.knee
+            f = over(swing_leg(far_leg, pivot, cxf, hip_far, knee_far), f)
+            f = over(swing_leg(near_leg, pivot, cxn, hip_near, knee_near), f)
             if far_am is not None:
                 arm = swing_arm(far_am, canvas, sh_far, -a, elbow_frac=0.15, fore_lead=0.25)
                 if arm is not None:
@@ -753,6 +870,9 @@ def main():
                 near_arm_px=int(near_am.sum()) if near_am is not None else 0,
                 far_arm_px=int(far_am.sum()) if far_am is not None else 0,
                 measured_foot_travel=travel, hip_swing=HIP_SWING,
+                **({} if args.view == "headon" else dict(
+                    knee_flex=KNEE_FLEX, knee_ratio=args.knee,
+                    knee_frac=KNEE_FRAC)),
                 arm_ratio=args.arm_swing, frames=len(HIP_SWING))
     (out / "rig.json").write_text(json.dumps(meta, indent=2))
 

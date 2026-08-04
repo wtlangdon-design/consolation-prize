@@ -2556,6 +2556,72 @@ Clause four of `check-clip-agreement.mjs`. Below the hem, silhouette intersectio
 
 **What is still Tyler's here, unchanged:** where the path ends, whether credits exist, and every waypoint in it. `beatSeconds` is one field that can absorb credits; there is no credits roll.
 
+## Q93 · The knee is built, and the wedge did not happen because the joint is not a cut
+
+Doc 38 R4c carries the mechanism. The results, measured on Hob's rigged cycle:
+
+| | frames | distinct | contact pair | passing pair |
+|---|---|---|---|---|
+| rigid (`--knee 0`) | 8 | **5** | 1% | **100%** |
+| with the knee | 8 | **8** | 1% | **36%** |
+
+**`--knee 0` is byte-identical to the previous rig** — all eight frame hashes unchanged — which is how the change was checked before anything was believed about it.
+
+**THE WEDGE WAS THE THING TO REPORT, AND IT IS SOLVED RATHER THAN TOLERATED.** A row split at the knee opens a gap of half the limb's width times tan(angle): **35 pixels at 60 degrees on a 40px leg**, in open air, with no coat over it. Extending the shin to cover it needs 35px of shin above the knee, which then swings 30px clear of the thigh and reads as a spur. **So the joint is a disc instead** — everything within 0.58 of a leg-width of the knee travels with the shin, and a disc rotated about its own centre is the same disc. There is no edge to open.
+
+**Measured for holes rather than eyeballed.** Counting enclosed transparent regions below the hem: the knee frames show 323px and 2,621px on frames 4 and 5, and the **rigid** version shows 9,487px on frame 4. **The largest enclosed area is in the version with no knee at all**, so what the metric is finding is the background between a straddled pair of legs, not a joint hole. Confirmed by looking: `renders/hob-knee-vs-rigid@3x.png`.
+
+**AND THE AMPLITUDE LADDER IS THE OVERLAP CHECK'S WHOLE ARGUMENT IN ONE TABLE.**
+
+| `--knee` | distinct | passing pair |
+|---|---|---|
+| 0.3 | **8 of 8** | 72% |
+| 0.5 | **8 of 8** | 60% |
+| 0.7 | **8 of 8** | 49% |
+| 1.0 | **8 of 8** | **36%** |
+
+**Any knee at all gives eight distinct pictures; it takes 0.7 before the legs stop being the same stride.** At `--knee 0.3` every byte-level check passes and the walk still gallops.
+
+**NO COMMITTED ART WAS REGENERATED.** The standing instruction against regenerating art has not been lifted, Hob's clip is ruled in as authored, and `thad-walk-back` is the blob's source. Everything above is scratch output; the change is to the tool.
+
+## Q94 · Clause four still cannot be asserted, and the reason is a ruling
+
+Measured on the current tip, after `9c84012` and `636b174`:
+
+| clip | contact | passing |
+|---|---|---|
+| `hob-walk-right` | 89% | 69% |
+| `thad-walk-back` | 52% | **100%** |
+| `thad-walk-front` | 49% | **100%** |
+| `thad-walk-left` | 0% | **100%** |
+| `thad-walk-right` | 0% | **100%** |
+
+**All five fail. Registering clause four today is seven standing failures**, which is R5j. The knee landing in the tool does not change this, because no clip in `art/actors/` was produced by the tool since.
+
+**TWO THINGS HAVE TO HAPPEN FIRST, AND ONE OF THEM IS TYLER'S.**
+
+**The profile walks need re-rigging with the knee** — `thad-walk-left`, `thad-walk-right`, and whatever Hob would become. That is art regeneration and it is not mine.
+
+**And the assertion needs a ruling on authored clips.** `hob-walk-right` carries `authored: true` and a note recording the accepted fault. Either the assertion skips clips carrying that flag — which makes `authored: true` an opt-out any future clip can claim, and the check then cannot see the next Hob — or Hob is re-rigged and the exception disappears. **Put to Tyler rather than chosen.** My reading, offered as reading: an exemption that a file can grant itself is the weaker of the two, and Hob crossing Room 1 once is exactly the case where re-rigging is cheap.
+
+**`thad-walk-front` and `thad-walk-back` cannot pass however the ruling goes.** They take the head-on `shift_scale` path, which is also a pure function of `s`, and a knee facing the camera projects as foreshortening rather than as an angle. **Their fix is a different per-phase quantity — a foot that lifts in swing and plants in stance — and it is not built.** Costing it: the same shape as the knee, roughly 20 lines, no joint geometry because nothing rotates; the risk is that a vertical lift at 240px head-on is two or three pixels and may read as a limp rather than a gait. Worth building only if somebody watching says the head-on walks look wrong.
+
+## Q95 · The arm-mask symmetry retraction is in doc 38, and doc 38 did not carry the claim
+
+Struck and recorded as instructed. **Doc 38 never carried the arm metric**, so the section is preventative plus the record — but the audit found the neighbouring claim in Part Three, *"leg mass after split … should be roughly symmetric"*, which has the same standing: one observation from one character, never established as a threshold. Softened rather than struck, because `split_legs` fits a seam rather than ordering by mass, so its two numbers *can* differ meaningfully — unlike the arms, where the larger mask is called near by definition and the ratio cannot fall below 1:1.
+
+**The `--pose standing` quirk is recorded in doc 38 too.** The message is the urgent half: telling the next person their source is a striding pose sends them to regenerate art that is fine.
+
+## Q96 · The four-days line is not a stale build
+
+`content/rooms/stage-road.json`, hotspot `coach_gone`, on the current tip:
+
+> LOOK 1 "Gone. It made very good time on the way out." · 2 "Not another one for four days. I have checked twice and the answer did not improve." · 3 "The ruts are still filling in…"
+
+**That is `docs/00-errata.md` line 329 verbatim**, and `check-extraction` is green, so the shipped line is the errata's line and the build is current. **Not the stale-build cause, and therefore content and Tyler's.**
+
+**One thing that may be what "reads wrong" means.** `docs/17-opening-sequence.md` line 144 words the same beat differently — *"The next coach out of Consolation is in four days. I have checked twice and the answer did not improve."* — and the errata overrides doc 17, so the shipped version is the compressed one. If the fuller wording is the one wanted, it is a one-line change in the errata and a re-extract. **Named rather than changed: it is a line of dialogue.**
+
 ---
 
 # HOW THIS DOCUMENT WORKS
