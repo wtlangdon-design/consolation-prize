@@ -35,6 +35,36 @@ import { GLYPH_SCALE } from '../render/BitmapFont.ts';
 const WALK_SPEED = 0.9 * GLYPH_SCALE;
 
 /**
+ * The fastest the legs may cycle, in strides a second.
+ *
+ * WALKING AWAY MADE HIM SCISSOR. `walkSpeed` is constant in screen pixels
+ * while `stride` is scaled to his DRAWN height, so a figure at the back of
+ * the band covers the same screen distance per second on strides less than
+ * half as long. Measured on Thad, whose declared pace is 245px/s over a 102px
+ * stride: 2.6 strides a second at the front of the walkable band, 4.1 halfway
+ * up, and 5.9 at a drawn height of 98. A walking man does about 1.9.
+ *
+ * THE CADENCE WAS NOT LYING. It was animating a man who really was sprinting
+ * -- he shrinks without slowing, so he covers ever more of his own body
+ * lengths per second. The honest fix is to scale his SPEED with depth the way
+ * his stride already is, which is also the rule beat 11's path uses. That
+ * retimes every walk in the game, and the pace was calibrated deliberately
+ * after a crossing that took thirty-five seconds, so it is a ruling rather
+ * than a repair.
+ *
+ * Tyler ruled for the cheap fix: cap the cadence and leave the movement
+ * alone. 2.6 is the value at the front of the walkable band, where the pace
+ * was authored and reads correctly, so nothing visible today changes and only
+ * the receding case is caught.
+ *
+ * THE COST IS FOOT SLIDE, and it is paid where it is least visible. Above the
+ * cap the feet no longer travel exactly one stride per cycle; at a drawn
+ * height of 98 the figure is 40% of full size and the slip is a fraction of a
+ * pixel per frame.
+ */
+const MAX_STRIDES_PER_SECOND = 2.6;
+
+/**
  * A turn on the spot is a hold, not an instant. Two tenths is long enough to
  * read as a decision and short enough that nobody waits for it -- the dossier
  * lists face-direction-change-without-walking as a required animation for a
@@ -611,7 +641,16 @@ export class Actor {
     // is one frame and has no gait at all, and inventing a stride for it would
     // be inventing a fact about a vehicle.
     const count = Math.max(1, frames);
-    if (stride > 0) return Math.floor(this.travelled / (stride / count)) % count;
+    // THE CEILING IS A MINIMUM STRIDE, because this branch is driven by
+    // distance and not by the clock: there is no elapsed time here to cap a
+    // rate against. Strides a second is speed divided by stride, so bounding
+    // the rate from above is bounding the stride from below. `speed` is per
+    // frame at sixty, hence the sixty.
+    if (stride > 0) {
+      const floor = (this.speed * 60) / MAX_STRIDES_PER_SECOND;
+      const paced = Math.max(stride, floor);
+      return Math.floor(this.travelled / (paced / count)) % count;
+    }
     return Math.floor(seconds * walkRate) % count;
   }
 
