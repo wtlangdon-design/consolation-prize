@@ -146,6 +146,8 @@ function opening() {
     5: [[DRIVER, 0]],
     6: [[DRIVER, 0], [THAD, 1]],
     9: [[HOB, 0], [THAD, 1], [HOB, 2]],
+    // The mud beat. Both his, and both quoted in the doc's own beat 11 row.
+    11: [[THAD, 0], [THAD, 1], [THAD, 2], [THAD, 3]],
   };
 
   // Which beat sets which flag. This is routing, not writing, and it is not
@@ -426,12 +428,58 @@ function opening() {
     // the walk is what the credits are authored to rather than the other way
     // round.
     11: [
+      // THE MUD BEAT, AND IT IS WHY THE PROLOGUE HAS AN ENDING RATHER THAN A
+      // FADE. Tyler played the opening and reported that Thad simply drifts
+      // off toward the town; there was no moment of setting out.
+      //
+      // He faces the road, says the earnest thing, tries to take the first
+      // step of the rest of his life, and the mud has his boot.
+      //
+      // HE KEEPS HIS BACK TO US AND ROCKS, and it took three versions. Head-on
+      // the first strain SANK him -- 8 source pixels, three at his drawn
+      // height -- and read as nothing, because a man facing away has no
+      // forward to lean into that a camera behind him can see. In profile it
+      // read perfectly and looked wrong in the game: he turned away from the
+      // town to get stuck, then turned back to leave.
+      //
+      // Working a boot free SIDEWAYS is the same action from the one angle
+      // that shows it. 9 degrees each way about the hips, 107 source pixels of
+      // head travel, 45 drawn, crossing centre both ways -- a rock that only
+      // goes one way is a lean.
+      //
+      // He is already facing back when the beat starts, from the exit's own
+      // walkTo, and the `face back` below is what holds him there.
+      //
+      // THE PHYSICAL ATTEMPT IS THE POINT. A pause with no movement in it
+      // reads as the game having frozen, and that failure costs more than the
+      // joke earns.
+      // FACING FIRST, because `strain` is drawn back-facing only. He already
+      // arrives this way from the exit's own walkTo, and leaving it implicit
+      // would make the beat depend on a coordinate in another file.
+      { do: 'face', actor: 'thad', facing: 'back' },
+      { do: 'say', actor: 'thad', line: 0 },
+      // A discreet one, which a man would rather nobody saw. 23 drawn pixels.
+      { do: 'chore', actor: 'thad', clip: 'tug' },
+      // THE SILENCES ARE THE CONTENT, which is errata 30a's own argument for
+      // granting `wait` at all -- and beat 11's control is `none`, which is
+      // the fence that makes it legal here. Without them the three attempts
+      // run together into one animation and none of them is a decision.
+      { do: 'wait', seconds: 0.7 },
+      { do: 'say', actor: 'thad', line: 1 },
+      // Determined, and still preserving his dignity. 45.
+      { do: 'chore', actor: 'thad', clip: 'strain' },
+      // Longer: this is the one where he looks down at it.
+      { do: 'wait', seconds: 1.1 },
+      { do: 'say', actor: 'thad', line: 2 },
+      // Inelegant, and it works. 76 drawn pixels against the tug's 23.
+      { do: 'chore', actor: 'thad', clip: 'wrench' },
+      { do: 'say', actor: 'thad', line: 3 },
+
       // HE FACES AWAY AND STAYS THAT WAY. Errata 55: "with his back to us."
       // The path wanders left and right up the road -- x goes 575, 581, 537,
       // 464, 517, 598, 704, 772, 826 -- so a walk that re-faced itself on each
       // leg would turn him side-on four times on the way out of the game.
       // `path` never re-faces; this sets it once.
-      { do: 'face', actor: 'thad', facing: 'back' },
       // THE TRACED PATH, replacing a six-second glide to one fixed point.
       // The move took him to [575,500] at whatever height the depth curve's
       // provisional third sample gave, and stopped him in the field.

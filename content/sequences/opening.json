@@ -325,14 +325,57 @@
     },
     {
       "beat": "11",
-      "description": "He walks away up the road toward the town, and the title comes up over the mountains as he goes. He does not shrink out of sight; he is still walking when Main Street arrives",
+      "description": "\"Well. Consolation. A fresh beginning.\" He steps toward town and his boot stays planted. A discreet tug. Nothing. \"I appear to be stuck.\" A determined pull, still preserving his dignity. Nothing. He looks down at it. \"Quite securely.\" One final inelegant wrench and it comes free. \"A firm welcome.\" Then he walks away up the road toward the town, and the title comes up over the mountains as he goes. He does not shrink out of sight; he is still walking when Main Street arrives",
       "control": "none",
-      "note": "This is the descent, and it is not one more screen — see below",
+      "note": "This is the descent, and it is not one more screen — see below. The mud beat closes the prologue: without it he simply drifts off, and there is no moment of setting out. Three attempts, and the sizes are the joke — equal ones make the pauses between them read as animation lag rather than as a man deciding to try harder. He keeps his back to us: from behind he rocks the boot free sideways, because a man facing away has no forward to lean into that the camera can see. He does not pick his case up here — he is carrying it, and the exit will not open without it",
       "staging": [
         {
           "do": "face",
           "actor": "thad",
           "facing": "back"
+        },
+        {
+          "do": "say",
+          "actor": "thad",
+          "line": 0
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "tug"
+        },
+        {
+          "do": "wait",
+          "seconds": 0.7
+        },
+        {
+          "do": "say",
+          "actor": "thad",
+          "line": 1
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "strain"
+        },
+        {
+          "do": "wait",
+          "seconds": 1.1
+        },
+        {
+          "do": "say",
+          "actor": "thad",
+          "line": 2
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "clip": "wrench"
+        },
+        {
+          "do": "say",
+          "actor": "thad",
+          "line": 3
         },
         {
           "do": "path",
@@ -344,7 +387,25 @@
           "through": "road_west"
         }
       ],
-      "awaitFlag": "T_THAD_LEAVING"
+      "awaitFlag": "T_THAD_LEAVING",
+      "lines": [
+        {
+          "speaker": "thad",
+          "line": "Well. Consolation. A fresh beginning."
+        },
+        {
+          "speaker": "thad",
+          "line": "I appear to be stuck."
+        },
+        {
+          "speaker": "thad",
+          "line": "Quite securely."
+        },
+        {
+          "speaker": "thad",
+          "line": "A firm welcome."
+        }
+      ]
     }
   ]
 }

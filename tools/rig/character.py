@@ -57,6 +57,32 @@ DISPLAY_H = 233          # the height a character is shown at, errata 54
 LOOK  = [0, -1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0]   # head-on break: glance aside
 SHRUG = [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]      # profile break: shoulders rise and settle
 RECOIL = [0.0, 1.0, 0.75, 0.3]                    # 4 frames, thad.json's rate 7.0/s
+# A STRAIN IS A RECOIL WITH THE SIGN REVERSED AND NO RECOVERY. He leans INTO a
+# step his foot does not take, holds against it, and gives up. The curve rises
+# and stays up rather than springing back, because the thing stopping him has
+# not let go -- that hold is the whole read, and a recoil's bounce would say
+# the opposite.
+STRAIN = [0.0, 0.55, 1.0, 1.0, 0.85, 1.0, 0.4]    # 7 frames
+STRAIN_DEGREES = 11.0   # more than a startle's 7: he is putting his back into it
+# HEAD-ON HE ROCKS INSTEAD, and the sign alternating is the whole of it. A man
+# facing away has no forward to lean into that a camera behind him can see --
+# the first version sank him 8 source pixels, about three at his drawn height,
+# and read as nothing. Working a boot free sideways is the same action seen
+# from the one angle that shows it. The curve crosses zero because a rock that
+# only goes one way is a lean.
+STRAIN_ROCK = [0.0, -0.75, 0.95, -0.95, 0.8, -0.55, 0.2]
+STRAIN_ROCK_DEGREES = 9.0
+# THE WRENCH IS THE ONE THAT WORKS, so it does not simply stop rocking. It
+# builds, and then the boot GIVES: the rock unwinds through centre in one
+# frame instead of easing, and the whole figure -- legs and all -- comes up
+# out of the mud and drops back.
+#
+# The lift is what says it. A rotation alone stopping is a man giving up; a
+# man leaving the ground is a boot letting go, and it is the only part of this
+# beat the camera behind him can read as release rather than as effort.
+WRENCH_ROCK = [0.0, -0.8, 1.0, -1.0, 0.95, -0.15, 0.05, 0.0]
+#              build ...................  gives  settle
+WRENCH_LIFT = [0, 0, 0, 0, 0, 26, 10, 0]   # source px, whole figure
 ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
 ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
@@ -451,7 +477,8 @@ def main():
     ap.add_argument("--near-mask", help="ARMMASK code or file for the near arm")
     ap.add_argument("--far-mask", help="ARMMASK code or file for the far arm")
     ap.add_argument("--clip", default="walk",
-                    choices=["walk", "idle", "idle-break", "recoil", "stand"],
+                    choices=["walk", "idle", "idle-break", "recoil", "strain", "tug",
+                             "wrench", "stand"],
                     help="idle is the rest state every chore settles into (doc 22)")
     ap.add_argument("--breath", type=float, default=1.0,
                     help="scales the idle breath; 1.0 is about one display pixel")
@@ -648,6 +675,67 @@ def main():
             facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
             padding=P, **({} if args.state is None else {"state": args.state}), frames=1), indent=2))
         print("stand: 1 frame, identical to idle frame 0")
+        return
+
+    if args.clip in ("tug", "strain", "wrench"):
+        # DOC 17'S MUD BEAT. He tries to step off toward the town and only his
+        # upper body goes. Built on recoil's geometry because it is the same
+        # question asked the other way round -- a torso rotating about the hips
+        # over feet that do not move -- with the sign reversed so he pitches
+        # INTO the step rather than away from it.
+        #
+        # The physical attempt is the point. A pause with no movement in it
+        # reads as the game having frozen, which is the failure this beat has
+        # to avoid more than it has to be funny.
+        # SIGN VERIFIED BY MEASUREMENT, NOT BY REASONING. The first version had
+        # him leaning AWAY from his facing -- a recoil with extra degrees --
+        # and it took measuring the head's travel to see it: facing left, the
+        # head moved RIGHT. rot() is positive-clockwise, so leaning into a
+        # left-facing step is a POSITIVE angle.
+        toward = -1 if args.facing == "right" else 1
+        upper_m = coat_m.copy()
+        if near_am is not None:
+            upper_m = upper_m | near_am | far_am
+        upper = as_layer(upper_m)
+        base = np.zeros((H, W, 4))
+        base = over(far_leg, base); base = over(near_leg, base)
+        # THREE ATTEMPTS, AND THE SIZES ARE THE JOKE. A discreet tug that a
+        # man would rather nobody saw, a determined pull, and finally an
+        # undignified wrench. Same geometry three times: if the amplitudes
+        # were equal the pauses between them would read as animation lag
+        # rather than as a man deciding to try harder.
+        scale = {"tug": 0.5, "strain": 1.0, "wrench": 1.7}[args.clip]
+        rock = args.view == "headon"
+        curve = (WRENCH_ROCK if args.clip == "wrench" else STRAIN_ROCK) if rock else STRAIN
+        pivot = float(np.nonzero(upper_m.any(0))[0].mean())
+        for i, t in enumerate(curve):
+            f = base.copy()
+            if rock:
+                # Side to side about the same hips. From behind this is the
+                # only rotation with anywhere to go.
+                f = over(rot(upper, STRAIN_ROCK_DEGREES * scale * t, pivot, hem), f)
+                lift = WRENCH_LIFT[i] if args.clip == "wrench" else 0
+                if lift:
+                    # EVERYTHING, not just the torso. A coat rising off its own
+                    # legs is a costume glitch; a man coming out of the mud is
+                    # the whole of him leaving the ground at once.
+                    f = np.roll(f, -lift, axis=0)
+                    f[-lift:, :, :] = 0
+            else:
+                f = over(rot(upper, STRAIN_DEGREES * scale * t * toward, pivot, hem), f)
+            Image.fromarray(f.astype(np.uint8)).save(out / f"{args.clip}-{i:02d}.png")
+        (out / "rig.json").write_text(json.dumps(dict(
+            source=args.source, key=args.key, clip=args.clip, view=args.view,
+            facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P,
+            **({} if args.state is None else {"state": args.state}),
+            motion=("rock" if rock else "lean-into"),
+            frames=len(curve),
+            note=("Doc 17's mud beat: he leans into a step his foot does not take. "
+                  "Recoil's geometry with the sign reversed, and the curve HOLDS at the top "
+                  "rather than springing back -- what is stopping him has not let go. "
+                  f"{STRAIN_DEGREES:.0f} degrees against a startle's 7.")), indent=2))
+        print(f"{args.clip}: {len(curve)} frames, "
+              f"{f'rock +-{STRAIN_ROCK_DEGREES * scale:.1f} deg' if rock else f'{STRAIN_DEGREES * scale:.1f} deg'}")
         return
 
     if args.clip == "recoil":
