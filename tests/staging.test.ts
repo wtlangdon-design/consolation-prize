@@ -776,70 +776,219 @@ test('a body with one frame needs no entries at all', () => {
 });
 
 /**
- * ERRATA: the legs scissored when he walked away.
+ * THE GAIT IS AN INTEGRAL, NOT A QUOTIENT OF TOTAL DISTANCE.
  *
- * `walkSpeed` is constant in screen pixels and `stride` is scaled to the
- * DRAWN height, so a receding figure covers the same ground per second on
- * ever-shorter strides. Reported from a play-through as a sharp diagonal
- * making the legs cycle absurdly fast. Measured on Thad -- 245px/s over a
- * 102px stride -- the cadence ran 2.6 strides a second at the front of the
- * band and 5.9 at a drawn height of 98.
+ * It was `floor(travelled / (paced / count))` -- every pixel he had ever
+ * walked, over the stride he happens to be at RIGHT NOW. `paced` moves
+ * whenever his drawn height does, so stepping toward or away from the camera
+ * re-divided his entire history and the frame index jumped several positions
+ * in one update. Reported from playing as the legs scissoring on a diagonal.
  *
- * The cap is a MINIMUM STRIDE rather than a maximum rate because the walk
- * branch is driven by distance and has no elapsed time to bound.
+ * The 2.6 strides/second ceiling did not fix it. Flooring the DENOMINATOR
+ * held it constant for every drawn height below 222, which hid the jump
+ * across most of the band; above 222 it still moved.
  *
- * This asserts the property rather than the constant: whatever the ceiling
- * is, a figure drawn small must not cycle faster than one drawn large. A
- * test naming 2.6 would pass on a build that had lost the cap and kept the
- * number.
+ * These assert PROPERTIES of the accumulator, not its constants. A build that
+ * lost the ceiling and kept the number would pass a test naming 2.6.
  */
-test('the walk cycle does not speed up as the figure shrinks', async () => {
+/**
+ * A room, and a factory for movers WITH THE PROTAGONIST'S RECORD.
+ *
+ * `RoomActors.place('thad2')` looked like a second walker and was not: an id
+ * with no record has no `strideLength`, so it takes the clock fallback and
+ * accumulates nothing. The first run of these tests reported a diagonal
+ * advancing 0.000 against an axial 2.779, which is that and not the geometry.
+ */
+function walkersIn(content: Awaited<ReturnType<typeof loadContent>>) {
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom(openingRoom(content));
+  return (x: number, y: number, options: Record<string, unknown> = {}) =>
+    new Actor(state, content.actor.id, x, y, { routed: false, ...options });
+}
+
+/** Drive one mover along a straight line, one tick at a time. */
+function marchTo(walker: Actor, x: number, y: number, ticks: number, from = 0): number {
+  walker.walkTo(x, y);
+  for (let tick = 1; tick <= ticks; tick += 1) walker.update(from + tick / 60);
+  return from + ticks / 60;
+}
+
+test('equal distances advance the gait equally, axial or diagonal', async () => {
+  const content = await loadContent(fsReader);
+  const walker = walkersIn(content);
+  const reach = 300 / Math.SQRT2;
+
+  // Both at a FIXED drawn height, so the only difference is the direction.
+  const axial = walker(600, 800, { height: 240 });
+  marchTo(axial, 900, 800, 200);
+  const diagonal = walker(600, 800, { height: 240 });
+  marchTo(diagonal, 600 + reach, 800 - reach, 200);
+
+  const phaseOf = (mover: Actor) => (mover as unknown as { gaitPhase: number }).gaitPhase;
+  // Both walked 300px at the same drawn height. Hypot is hypot; the point is
+  // that nothing splits the step into axes and advances them separately.
+  assert.ok(Math.abs(phaseOf(axial) - phaseOf(diagonal)) < 0.02,
+    `axial advanced ${phaseOf(axial).toFixed(3)} and diagonal ${phaseOf(diagonal).toFixed(3)}`);
+});
+
+test('turning, re-aiming and stopping do not disturb the gait', async () => {
+  const content = await loadContent(fsReader);
+  const walker = walkersIn(content)(600, 800, { height: 240 });
+  const phaseOf = () => (walker as unknown as { gaitPhase: number }).gaitPhase;
+
+  let clock = marchTo(walker, 900, 800, 60);
+  // STOP HIM FIRST. He is still en route after 60 ticks, and an update while
+  // walking advances the gait because he is walking -- which is the feature.
+  walker.walkTo(walker.x, walker.y);
+  walker.update((clock += 1 / 60));
+  const afterWalking = phaseOf();
+
+  // A FACING CHANGE IS FREE. Turning a corner must not restart the cycle.
+  walker.faceToward(600, 800);
+  walker.update((clock += 1 / 60));
+  assert.equal(phaseOf(), afterWalking, 'a turn on the spot advances nothing');
+
+  // A NEW WAYPOINT IS FREE BEYOND THE DISTANCE IT MOVES.
+  walker.walkTo(600, 800);
+  assert.equal(phaseOf(), afterWalking, 'aiming somewhere else advances nothing by itself');
+
+  // STOPPING AND STANDING IS FREE.
+  walker.walkTo(walker.x, walker.y);
+  for (let tick = 0; tick < 30; tick += 1) walker.update((clock += 1 / 60));
+  assert.ok(Math.abs(phaseOf() - afterWalking) < 0.05,
+    'standing still does not walk on the spot');
+});
+
+test('a height change without movement changes neither phase nor frame', async () => {
+  const content = await loadContent(fsReader);
+  const walker = walkersIn(content)(600, 800, { height: 240 });
+  let clock = marchTo(walker, 900, 800, 60);
+  walker.walkTo(walker.x, walker.y);
+  for (let tick = 0; tick < 5; tick += 1) walker.update((clock += 1 / 60));
+
+  const phaseOf = () => (walker as unknown as { gaitPhase: number }).gaitPhase;
+  const before = phaseOf();
+  const frameBefore = walker.frameAt(clock, 8, 8, 8, 0);
+  walker.height = Math.round(walker.height * 0.4);
+  walker.update((clock += 1 / 60));
+  assert.equal(phaseOf(), before, 'resizing him is not walking');
+  assert.equal(walker.frameAt(clock, 8, 8, 8, 0), frameBefore, 'and the frame holds');
+});
+
+test('history is not recalculated when the stride changes', async () => {
+  const content = await loadContent(fsReader);
+  const make = walkersIn(content);
+  const phaseOf = (m: Actor) => (m as unknown as { gaitPhase: number }).gaitPhase;
+
+  // Walk at full size, note the phase, then walk the same ground at 40% and
+  // check that ONLY the second leg was divided by the second stride.
+  const walker = make(600, 800, { height: 240 });
+  let clock = marchTo(walker, 900, 800, 60);
+  const afterFirst = phaseOf(walker);
+
+  (walker as unknown as { options: { height: number } }).options.height = 96;
+  walker.height = 96;
+  clock = marchTo(walker, 1200, 800, 60, clock);
+  const secondLeg = phaseOf(walker) - afterFirst;
+
+  // A control that walks the SECOND leg only, at the same size. Updated once
+  // before it sets off so both have a previous clock and neither gets a
+  // free first tick.
+  const control = make(600, 800, { height: 96 });
+  control.update(0);
+  marchTo(control, 900, 800, 60);
+
+  assert.ok(Math.abs(secondLeg - phaseOf(control)) < 0.05,
+    `the second leg advanced ${secondLeg.toFixed(3)} and the same walk alone `
+    + `advanced ${phaseOf(control).toFixed(3)} -- if the first leg had been `
+    + 're-divided these would differ');
+});
+
+test('the cadence ceiling bounds the rate, and a small figure does not scissor', async () => {
+  const content = await loadContent(fsReader);
+  const make = walkersIn(content);
+  const phaseOf = (m: Actor) => (m as unknown as { gaitPhase: number }).gaitPhase;
+  const seconds = 1;
+  const ticks = 60;
+
+  const near = make(600, 800, { height: 240 });
+  marchTo(near, 600 + 10000, 800, ticks);
+  const far = make(600, 800, { height: 96 });
+  marchTo(far, 600 + 10000, 800, ticks);
+
+  assert.ok(phaseOf(near) > 0, 'the near figure cycles at all');
+
+  // THE CEILING IS A BOUND, NOT AN EQUALITY, and asserting `far <= near` is
+  // wrong for the reason the constant's own rationale gives: 2.6 is the
+  // cadence at the FRONT OF THE WALKABLE BAND, where the figure is drawn
+  // taller than 240, so a full-size walker sits naturally BELOW it. The two
+  // properties that matter are that the small figure is nowhere near its
+  // uncapped rate, and that nobody exceeds the ceiling.
+  const uncapped = phaseOf(near) / 0.4;
+  assert.ok(phaseOf(far) < uncapped * 0.6,
+    `at 40% size the gait advanced ${phaseOf(far).toFixed(2)} cycles where uncapped `
+    + `it would advance about ${uncapped.toFixed(2)}`);
+  for (const [who, mover] of [['near', near], ['far', far]] as const) {
+    assert.ok(phaseOf(mover) <= 2.6 * seconds + 0.01,
+      `${who} advanced ${phaseOf(mover).toFixed(2)} cycles in ${seconds}s, over the ceiling`);
+  }
+});
+
+test('the frame never jumps, however far he has already walked', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom(content.manifest.startRoom);
+  const walker = new Actor(state, content.actor.id, 960, 850, { routed: true });
+  walker.update(0);
+
+  // TWO MINUTES OF WALKING FIRST, and that is the whole point of this test.
+  // The old calculation was total historical distance over the CURRENT
+  // depth-scaled stride, so its error grew with history: measured on this
+  // trajectory it jumped ONE frame with no history, and FOUR of eight -- half
+  // the cycle -- after five thousand pixels. Starting from zero is why it
+  // survived every observation until somebody played for a while.
+  let clock = 0;
+  for (let leg = 0; leg < 12; leg += 1) {
+    walker.walkTo(leg % 2 === 0 ? 1500 : 400, 850);
+    for (let tick = 0; tick < 120; tick += 1) walker.update((clock += 1 / 60));
+  }
+
+  // Now walk up the road, where his drawn height changes on every update.
+  walker.walkTo(960, 705);
+  let previous: number | null = null;
+  let worst = 0;
+  const heights = new Set<number>();
+  for (let tick = 0; tick < 240; tick += 1) {
+    walker.update((clock += 1 / 60));
+    if (!walker.isWalking) break;
+    heights.add(walker.height);
+    const frame = walker.frameAt(clock, 8, 8, 8, 0);
+    if (previous !== null) {
+      const gap = Math.abs(frame - previous);
+      worst = Math.max(worst, Math.min(gap, 8 - gap));
+    }
+    previous = frame;
+  }
+  assert.ok(heights.size > 5, `he changed drawn height ${heights.size} time(s); the test needs him to`);
+  assert.equal(worst, 1,
+    `the walk frame moved by ${worst} in a single update while his height was changing`);
+});
+
+test('a mover with no declared stride keeps the clock', async () => {
   const content = await loadContent(fsReader);
   const state = new GameState(content, new MemoryStorage());
   state.enterRoom(openingRoom(content));
-  const walker = new Actor(state, content.actor.id, 960, 780, { routed: true });
-  const record = content.actors.get(content.actor.id);
-  assert.ok(record?.strideLength, 'the protagonist declares a stride');
-  const strideLength = record.strideLength as number;
-  const full = record.height;
-
-  const frames = 8;
-  // Frames advance with distance, so ask the same question of one journey at
-  // two drawn sizes: how many cycles does a fixed distance buy?
-  const cyclesOver = (drawn: number): number => {
-    const stride = strideLength * (drawn / full);
-    const distance = 400;
-    let last = 0;
-    let cycles = 0;
-    for (let step = 1; step <= distance; step += 1) {
-      // frameAt returns the idle branch unless he is walking, and `isWalking`
-      // is "not arrived". Hold the target away from him for the whole run.
-      const inner = walker as unknown as { travelled: number; targetX: number };
-      inner.targetX = 100000;
-      inner.travelled = step;
-      const frame = walker.frameAt(step / 60, 8, 8, frames, 0, stride);
-      if (frame < last) cycles += 1;
-      last = frame;
-    }
-    return cycles;
-  };
-
-  const near = cyclesOver(full);
-  const far = cyclesOver(Math.round(full * 0.4));
-  assert.ok(near > 0, 'the near figure cycles at all');
-
-  // Uncapped, the cycle count is inversely proportional to drawn size, so a
-  // figure at 40% cycles 2.5x as often over the same ground. That is the
-  // defect, and it is what this number would be without the ceiling.
-  const uncapped = near / 0.4;
-  assert.ok(far < uncapped * 0.6,
-    `a figure at 40% size took ${far} cycles where uncapped it would take about ${Math.round(uncapped)}`);
-
-  // The ceiling sits slightly above the cadence at full height -- it is the
-  // value at the FRONT OF THE BAND, so that nothing already on screen
-  // changes -- which is why this is a bound and not an equality.
-  assert.ok(far <= near + 1,
-    `a figure at 40% size took ${far} cycles over the same ground where a full-size one took ${near}`);
+  // The coach declares no strideLength; its walk is one frame and it has no
+  // gait at all. Inventing a stride for it would be inventing a fact about a
+  // vehicle, so it stays on the wall clock.
+  const coach = new Actor(state, 'coach', 600, 800, { routed: false, height: 389 });
+  marchTo(coach, 2000, 800, 60);
+  assert.equal((coach as unknown as { gaitPhase: number }).gaitPhase, 0,
+    'nothing accumulated');
+  // A quarter of a second at 8 frames a second is two frames along, which is
+  // a time the modulo does not fold back onto zero.
+  assert.notEqual(coach.frameAt(0.25, 8, 8, 8, 0), coach.frameAt(0, 8, 8, 8, 0),
+    'and the clock still drives its frames');
 });
 
 /* ======================================================================

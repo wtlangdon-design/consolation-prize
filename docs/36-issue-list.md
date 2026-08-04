@@ -2738,6 +2738,40 @@ Checked against `tools/gauntlet/opening.json` before filling anything in, as ask
 
 **The two coach fixes compose rather than collide.** Theirs stops the overlay applying to `walk` at all; mine gives `walk` the same resolution as every other coach clip. The record now reads **447 across all five clips** where it read 447/447/447/447/**224**, so the departing coach is scaled *down* from 447 to 389 instead of *up* from 224 — and their observation that the walk frame already contains its driver stays true, because the frame it now holds is the closed-door idle, which is where the baked driver has always been.
 
+## Q103 · The gait is an integral now, and the defect only appears after you have played for a while
+
+**The finding handed over is right and the arithmetic confirms it.** `frameAt` computed `floor(travelled / (paced / count))` — **total historical distance over the current depth-scaled stride.** `travelled` is every pixel he has ever walked; `paced` moves whenever his drawn height does. So stepping toward or away from the camera **re-divided his entire history** and the frame index jumped several positions in one update.
+
+**Measured on the same trajectory, old formula against new, at three amounts of prior walking:**
+
+| prior walking | old, worst frame jump | new |
+|---|---|---|
+| 0px | **1** | 1 |
+| 5,000px | **4 of 8** | 1 |
+| 20,000px | **4 of 8** | 1 |
+
+**Four frames of eight is half the cycle, in one update.** And at zero history the old code is clean — **which is why every observation until somebody played for a couple of minutes came back green, including my own first pass at this.** I ran the spoke pattern, got `maxJump 1` from both formulas, and had to go back and add the history before the difference existed. That is the shape of the thing: the error is proportional to `travelled`, so a fresh save cannot show it.
+
+**The cadence cap did not fix it and could not.** It floors the *denominator* at `speed × 60 / 2.6 = 94.2px`, which pins it constant for every drawn height below 222 — hiding the jump across most of the band rather than removing it. Room 1's band runs 222–263, i.e. **entirely in the range where it still varied.**
+
+**The fix.** One normalised phase, accumulated once per update: this update's actual displacement, divided by the stride that was true for it, using the **average of the drawn heights at each end** so crossing a depth boundary is continuous. Nothing ever revisits an earlier contribution.
+
+**The ceiling survives, applied to the increment rather than the denominator** — `min(raw, 2.6 × elapsed)` — which bounds the rate without distorting the distance-to-frame relationship, so the foot-slide is paid only where the cap actually bites.
+
+**Correction 1, the stride plumbing, decided: the actor reads its own record.** The constructor already does exactly this for `walkSpeed`, the idle-break clip and `idleBreakRate`, and the comment beside them gives the reason — **R5f, an engine decision traces to a field on the thing it is deciding about.** Stored as a *ratio* (`strideLength / height`) rather than a length, so it needs no height passed with it; doc 40 measured the same number from the other end at "0.42 of his height". The renderer no longer computes or passes a stride, because the division now has to happen at the moment the displacement does, and a caller cannot reach that moment.
+
+**Correction 2 taken as stated.** The X-only `faceToward` is in the fallback after routing fails, reachable only when `routeTo` returns undefined and the destination is still walkable — and `WalkBoxes.route` returns a route whenever `nearest()` finds a box at both ends, so in a one-box room it is likely unreachable. **Fixed because it is wrong and free. No test claims to exercise it**, because I have not established it can be reached.
+
+**Correction 3 taken: `FACING_HYSTERESIS` is untouched at 0.25**, and no test hardcodes a percentage.
+
+**Observed running.** Spokes at 0/22/44/46/68/90/112/136/158/180/202/248/292/338 degrees, plus a long diagonal into the distance across **87 distinct drawn heights** and one into the foreground: **worst frame jump 1, everywhere, at every history length.** Sequences read `00011122233334445556667777` — one frame at a time.
+
+**One edge the observation found on its own: a first update with no previous clock had no duration to bound a rate against, so it took its raw advance uncapped.** For a figure drawn at 96px that is 0.100 cycles against a capped 0.043, and it made a one-second march measure 2.657 cycles against a ceiling of 2.6. `RoomActors.place` happens to update once on arrival while stationary, so in the running game nobody ever saw it. A missing previous clock is now assumed to be one tick.
+
+**And one of my assertions was wrong in the ceiling's own terms.** I asserted a small figure must never cycle faster than a large one; 2.6 is the cadence at the **front of the walkable band**, where the figure is drawn taller than 240, so a full-size walker sits naturally *below* it at 2.40. The assertions are now the two that are actually true: the small figure is nowhere near its uncapped rate, and nobody exceeds the ceiling.
+
+**Seven property tests plus the regression, 143 total.** The gauntlet is green and **that is not evidence** — it is a skeleton and would be green whatever this change did.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

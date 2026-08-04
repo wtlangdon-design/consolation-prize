@@ -597,11 +597,15 @@ export class Renderer {
    */
   private frameFor(mover: Actor, record: ActorFile, frames: number): number {
     const { walkRate, reactRate, idleRate } = record;
-    const stride = record.strideLength
-      ? record.strideLength * (mover.height / record.height)
-      : 0;
+    // THE STRIDE IS NO LONGER PASSED IN, and that is the point of the change
+    // rather than a tidy-up. It was computed here as `strideLength * (height /
+    // record.height)` and handed over for `frameAt` to divide TOTAL distance
+    // by -- so every pixel he had ever walked was re-divided the moment his
+    // drawn height moved. The gait is integrated inside `Actor.update` now,
+    // against the stride that was true for each step, and the actor reads its
+    // own ratio from its own record.
     return mover.frameAt(this.clock, walkRate, reactRate, frames,
-      (mover.clip === IDLE_BREAK ? record.idleBreakRate ?? idleRate : idleRate) ?? 0, stride);
+      (mover.clip === IDLE_BREAK ? record.idleBreakRate ?? idleRate : idleRate) ?? 0);
   }
 
   /**
