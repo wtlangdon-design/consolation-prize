@@ -1,0 +1,58 @@
+{
+ "room": "room1",
+ "beat": 11,
+ "playArea": [
+  1920,
+  864
+ ],
+ "beatSeconds": 40,
+ "waypoints": [
+  {
+   "x": 575,
+   "y": 710,
+   "figureHeight": 222
+  },
+  {
+   "x": 581,
+   "y": 578,
+   "figureHeight": 182
+  },
+  {
+   "x": 537,
+   "y": 548,
+   "figureHeight": 164
+  },
+  {
+   "x": 464,
+   "y": 521,
+   "figureHeight": 117
+  },
+  {
+   "x": 517,
+   "y": 487,
+   "figureHeight": 76
+  },
+  {
+   "x": 598,
+   "y": 469,
+   "figureHeight": 55
+  },
+  {
+   "x": 704,
+   "y": 457,
+   "figureHeight": 49
+  },
+  {
+   "x": 772,
+   "y": 431,
+   "figureHeight": 40
+  },
+  {
+   "x": 826,
+   "y": 409,
+   "figureHeight": 29
+  }
+ ],
+ "farClipHandoff": -1,
+ "note": "TRACED BY TYLER against the plate with tools/beat11/trace-path.html, ghosting the back-walk frame at each waypoint's height. The recession is his eye, not a curve.\n\nONE COORDINATE MOVED FROM THE TRACE, and only the first: 575,655 -> 575,710. check-beat11-path refused the original because road_open runs y700-863 and he would have begun the beat standing on nothing. 710 is not an invention -- it is the road_west exit's own walkTo, which is where he is standing when the beat starts. Mechanical, not a judgement.\n\nfarClipHandoff is -1: the path bottoms out at 29px and the derived blob takes over below 22, so thad-farwalk-back is unused by this trace and he stays the real sprite the whole way. That is a look decision and it is Tyler's -- two or three more waypoints below 22 is what puts him into the blob."
+}

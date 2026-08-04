@@ -326,7 +326,7 @@ Doc 17 v1 had the coach depart on a timer at beat 5. Doc 17 v2 has it stand ther
 > LISTEN 1 "The team, shifting. The near axle is dry — it has been dry a long time." · 2 "Still dry. It will be heard from." · 3 "Somebody up top is rearranging the load and swearing about it."
 
 **THE COACH — state B, departed** *(hotspot becomes THE ROAD WEST OUT)*
-> LOOK 1 "Gone. It made very good time on the way out." · 2 "Not another one for four days. I have checked twice and the answer did not improve." · 3 "The ruts are still filling in. That is the whole of my connection to the rest of the world, filling in."
+> LOOK 1 "Gone. It made very good time on the way out." · 2 "The next coach out of Consolation is in four days. I have checked twice and the answer did not improve." · 3 "The ruts are still filling in. That is the whole of my connection to the rest of the world, filling in."
 > LISTEN 1 "The near axle, going away. It will fail on somebody else's stretch." · 2 "Faint now." · 3 "Nothing. It is a long way off."
 
 **THE TEAM — state A only** *(new hotspot; see the wheel-pair art)*

@@ -1574,7 +1574,65 @@ function openingCase() {
   // HEIGHT: the fence's opening is what you walk through, and the lantern
   // hangs below it.
   west.rect = [500, 470, 150, 110];
-  west.when = { T_HOB_GONE: true };
+  // GATED ON THE CASE AS WELL AS ON HOB. He could walk out of Room 1 leaving
+  // his letter, his tuning fork and his four dollars in the mud -- everything
+  // he owns -- and nothing stopped him.
+  //
+  // A GATE CANNOT SPEAK: a `when` that fails removes the target entirely. So
+  // the refusal is a second target over the same rect with the opposite gate,
+  // ruling 19a's pattern, as coach/coach_gone and lamp/lamp_gone already do.
+  //
+  // AND IT COULD NOT BE A GATED RESPONSE ON THE EXIT ITSELF. resolveExit
+  // returns before the response resolves -- its own comment says so, which is
+  // why `set` on an exit response never fires -- so a WALK_TO branch carrying
+  // `when` here would never be reached.
+  west.when = { T_HOB_GONE: true, T_CASE_TAKEN: true };
+  // The sentence line should say where he is going. Its own LOOK line is
+  // "Consolation. There are lamps on in about a third of it": what is at the
+  // end of that road is the town, not a compass point.
+  west.name = 'CONSOLATION';
+  room.hotspots = room.hotspots.filter((entry) => entry.id !== 'road_west_blocked');
+  room.hotspots.push({
+    id: 'road_west_blocked',
+    name: 'CONSOLATION',
+    rect: west.rect,
+    colour: west.colour,
+    when: { T_HOB_GONE: true, T_CASE_TAKEN: false },
+    defaultVerb: 'WALK_TO',
+    note: 'THE ROAD WEST BEFORE HE HAS HIS CASE. Same rect and name as the exit, opposite '
+      + 'gate, and it does not travel. The refusal does not reuse the case\'s own joke -- '
+      + 'case_mud\'s LOOK already carries "Everything I own. It is not heavy and that is the '
+      + 'whole difficulty" -- and it counts, because he counts: the case grants exactly three '
+      + 'items.',
+    responses: {
+      WALK_TO: [{
+        say: 'The case first. I own three things and they are all in it.',
+        repeat: [
+          'It is still in the mud, and it is still all of it.',
+          'I would rather arrive poor than arrive poor and without luggage.',
+        ],
+      }],
+      LOOK_AT: [{
+        say: 'Consolation, and my case still behind me in the mud.',
+        repeat: [
+          'The lamps are not going to wait up on my account.',
+          'Two hundred yards, and one errand first.',
+        ],
+      }],
+      LISTEN_TO: [{
+        say: 'Nothing from down there. They have all gone in.',
+        repeat: [
+          'Still nothing. A town at this hour is only lamps.',
+          'The wind, and my own delay.',
+        ],
+      }],
+    },
+    fallback: [
+      'That can wait until I am carrying my own belongings.',
+      'Not before the case.',
+      'There is an order to these things and the case is first in it.',
+    ],
+  });
   west.rectNote = 'THE FULL GAP, x500-650, measured off the plate with a ruler. It was narrowed '
     + 'to x500-590 so it could coexist with the lamp, which left Hob NEITHER BLOCKING NOR CLEAR '
     + '-- a man in a doorway you walk around. Q63: he blocks it, and clearing him is the way '

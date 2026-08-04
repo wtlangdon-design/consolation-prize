@@ -341,7 +341,7 @@
           {
             "say": "Gone. It made very good time on the way out.",
             "repeat": [
-              "Not another one for four days. I have checked twice and the answer did not improve.",
+              "The next coach out of Consolation is in four days. I have checked twice and the answer did not improve.",
               "The ruts are still filling in. That is the whole of my connection to the rest of the world, filling in."
             ]
           }
@@ -472,12 +472,63 @@
       },
       "defaultVerb": "WALK_TO",
       "defaultVerbNote": "RULED, AND IT MATCHES ROOM 2. Clicking the ground should walk. This rect is [0, 660, 1920, 204] -- EXACTLY the walkable band Q4 measured -- so with LOOK_AT as the default there was no bare ground left anywhere in the room and no way to move at all: WALK TO is not one of the nine panel verbs, so a click on the floor examined the mud and the player stood still. Measured before the change: a click at (960, 665) resolved to this hotspot and left the walk target where the actor already was. It was invisible before Q4 only because the old band overhung this rect by 84 rows and those rows were bare ground. The three written LOOK lines are untouched and are reached by selecting Look at first, which is how every other examinable thing in the game already works."
+    },
+    {
+      "id": "road_west_blocked",
+      "name": "CONSOLATION",
+      "rect": [
+        500,
+        470,
+        150,
+        110
+      ],
+      "colour": 198,
+      "when": {
+        "T_HOB_GONE": true,
+        "T_CASE_TAKEN": false
+      },
+      "defaultVerb": "WALK_TO",
+      "note": "THE ROAD WEST BEFORE HE HAS HIS CASE. Same rect and name as the exit, opposite gate, and it does not travel. The refusal does not reuse the case's own joke -- case_mud's LOOK already carries \"Everything I own. It is not heavy and that is the whole difficulty\" -- and it counts, because he counts: the case grants exactly three items.",
+      "responses": {
+        "WALK_TO": [
+          {
+            "say": "The case first. I own three things and they are all in it.",
+            "repeat": [
+              "It is still in the mud, and it is still all of it.",
+              "I would rather arrive poor than arrive poor and without luggage."
+            ]
+          }
+        ],
+        "LOOK_AT": [
+          {
+            "say": "Consolation, and my case still behind me in the mud.",
+            "repeat": [
+              "The lamps are not going to wait up on my account.",
+              "Two hundred yards, and one errand first."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing from down there. They have all gone in.",
+            "repeat": [
+              "Still nothing. A town at this hour is only lamps.",
+              "The wind, and my own delay."
+            ]
+          }
+        ]
+      },
+      "fallback": [
+        "That can wait until I am carrying my own belongings.",
+        "Not before the case.",
+        "There is an order to these things and the case is first in it."
+      ]
     }
   ],
   "exits": [
     {
       "id": "road_west",
-      "name": "THE ROAD WEST",
+      "name": "CONSOLATION",
       "rect": [
         500,
         470,
@@ -516,7 +567,8 @@
       "defaultVerb": "WALK_TO",
       "note": "THE FULL WIDTH OF THE GAP, x500-650. It was cut to 90 wide to dodge the lamp sideways; that is not the shape of the problem. Hob and the lantern are in the SAME COLUMN of the picture as the way out, so the only honest separation is vertical: the opening in the fence is what you walk through and the lantern hangs below it.\n\nThad walks through at 575. Q63 gates it on T_HOB_GONE so it is shut while he stands there -- but lamp_gone is live at the same time as the exit, so the geometry has to hold on its own and not lean on the gate. tools/check-exit-collisions.mjs asserts that it does.",
       "when": {
-        "T_HOB_GONE": true
+        "T_HOB_GONE": true,
+        "T_CASE_TAKEN": true
       },
       "setOnTransit": {
         "T_THAD_LEAVING": true
