@@ -1,28 +1,28 @@
 {
-  "schema": 1,
-  "id": "four_dollars",
-  "name": "Four dollars",
-  "short": "FOUR DOLLARS",
-  "note": "Doc 23. Depleting, and gone after puzzle A3 -- doc 02 has Vessel take it along with the watch.",
-  "startsHeld": true,
-  "responses": {
-    "LOOK_AT": [
-      {
-        "say": "Four dollars. It was eleven when I left Providence and the difference is entirely the fault of a coach line.",
-        "repeat": [
-          "Four dollars. A room is five.",
-          "Four dollars. I have counted it twice and it has not improved."
-        ]
-      }
-    ],
-    "LISTEN_TO": [
-      {
-        "say": "Coin, in a pocket. Not a great deal of it.",
-        "repeat": [
-          "Less than it sounds.",
-          "Nothing. It is four dollars and it is being quiet about it."
-        ]
-      }
+ "schema": 1,
+ "id": "four_dollars",
+ "name": "Four dollars",
+ "short": "FOUR DOLLARS",
+ "note": "Doc 23. Depleting, and gone after puzzle A3 -- doc 02 has Vessel take it along with the watch.",
+ "responses": {
+  "LOOK_AT": [
+   {
+    "say": "Four dollars. It was eleven when I left Providence and the difference is entirely the fault of a coach line.",
+    "repeat": [
+     "Four dollars. A room is five.",
+     "Four dollars. I have counted it twice and it has not improved."
     ]
-  }
+   }
+  ],
+  "LISTEN_TO": [
+   {
+    "say": "Coin, in a pocket. Not a great deal of it.",
+    "repeat": [
+     "Less than it sounds.",
+     "Nothing. It is four dollars and it is being quiet about it."
+    ]
+   }
+  ]
+ },
+ "startsHeldNote": "REMOVED. This item is granted by the case's PICK UP in Room 1 -- stage-road.json case_mud gives letter, tuning_fork and four_dollars -- so startsHeld put it in the inventory a second time, before the case had been lifted. Reported from a play-through as the case's contents already being carried. The inventory is EMPTY until the case is picked up; the case is the only thing that grants these."
 }
