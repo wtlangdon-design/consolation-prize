@@ -543,6 +543,21 @@ export class Renderer {
       this.screen.outline(x - GLYPH_SCALE, y - GLYPH_SCALE,
         MAP_MARKER + GLYPH_SCALE * 2, MAP_MARKER + GLYPH_SCALE * 2,
         this.screen.role('overlayBg'));
+      // THE NAME BELONGS TO THE POINTER, NOT TO THE MAP.
+      //
+      // Every label used to be drawn at once and they cannot fit: at the map
+      // font a name runs 330 to 726 pixels, the town is about 580 across, and
+      // fifteen of them overlap 21 ways. THE UNDERTAKER'S, MAIN STREET and
+      // THE ROAD TO THE CLAIMS -- the three doc 20 puts on the map from the
+      // first opening -- landed on top of each other in the first minute of
+      // the game.
+      //
+      // Nothing is lost by holding them back, because the name was always
+      // drawn TWICE: onPointerMove puts the hovered location in the sentence
+      // line for exactly the reason a marker needs one -- "a marker must
+      // never be the only way a place is identified". So the sentence line
+      // names it, and the map names the one being pointed at.
+      if (frame.hoveredLocation !== location.id) continue;
       this.font.drawOutlined(
         this.screen.context, label, labelX, y - GLYPH_SCALE * 2, ink,
         this.screen.roleColour('overlayBg'),
