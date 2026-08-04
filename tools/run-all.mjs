@@ -11,6 +11,10 @@ import { check as walkableZones } from './check-walkable.mjs';
 import { check as roomEntries } from './check-room-entries.mjs';
 import { check as staging } from './check-staging.mjs';
 import { check as walkBoxes } from './check-walk-boxes.mjs';
+// IN THE SUITE FROM THE CHANGE THAT COMMITS A PATH, as its own header says:
+// until then it passed because its subject did not exist, which is the same
+// green as a check that passed on real work.
+import { check as beat11Path } from './check-beat11-path.mjs';
 import { check as itemNames } from './check-item-names.mjs';
 import { check as combinations } from './check-combinations.mjs';
 import { check as paletteCycling } from './check-palette-cycling.mjs';
@@ -54,6 +58,7 @@ const CHECKS = [
   roomEntries,
   staging,
   walkBoxes,
+  beat11Path,
   itemNames,
   combinations,
   paletteCycling,
