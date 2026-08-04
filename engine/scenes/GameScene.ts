@@ -4,6 +4,7 @@ import type { GameState } from '../core/GameState.ts';
 import type { Exit, Facing, Interactable } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
+import { Music } from '../core/Music.ts';
 import { RoomActors } from '../core/RoomActors.ts';
 import type { FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
@@ -29,6 +30,7 @@ import {
 } from '../core/Opening.ts';
 import {
   CYCLING_OPTION,
+  MUSIC_OPTION,
   GAME_SCENE,
   KEY_LOAD_MODIFIED,
   KEY_MENU,
@@ -55,6 +57,7 @@ export class GameScene extends Phaser.Scene {
   private actor!: Actor;
   /** Every named mover in the room, the player among them. Issue X4 defect 3. */
   private actors!: RoomActors;
+  private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
   /** Doc 34 assertion 6's register. Step E swaps a RuntimeCoordinator in. */
   private readonly bodies = new BodyOwners();
   /** The one thing allowed to drive a mover from a script. Issue X4 defect 1. */
@@ -423,6 +426,11 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onPointerDown(pointer: Phaser.Input.Pointer): void {
+    // A BROWSER WILL NOT PLAY AUDIO BEFORE A GESTURE, so every click is one,
+    // and this runs before any of the early returns below -- a click that
+    // opens the menu unlocks as well as a click on the road.
+    this.music.unlock();
+    this.applyMusic();
     const { x, y } = this.nativePoint(pointer);
     const secondary = pointer.rightButtonDown();
 
@@ -708,7 +716,20 @@ export class GameScene extends Phaser.Scene {
    * standing in an assay office, and a body claim surviving one would trip
    * assertion 6 on the first thing the next room tried to animate.
    */
+  /**
+   * The bed for wherever he is now. Doc 45's O-01-M while the title menu is
+   * up, the room's own track otherwise, and silence for a room that names
+   * none -- which is every room today, because THADDEUS has not been written.
+   */
+  private applyMusic(): void {
+    const declared = this.state.content.manifest.music;
+    if (!declared) return;
+    const room = declared.rooms?.[this.state.room.id];
+    this.music.play(room ?? declared.title ?? null);
+  }
+
   private enterRoomPerformance(from: string | null = this.state.previousRoomId): void {
+    this.applyMusic();
     this.sequence.cancel();
     this.carried.cancel();
     this.world.abandon();

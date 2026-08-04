@@ -15,7 +15,7 @@ import { defineConfig, type Plugin } from 'vite';
  * R5o, applied before it could happen: a fix is not finished until something
  * reaches it, and neither is a tool.
  */
-const DATA_DIRS = ['content', 'art', 'tools/beat11'];
+const DATA_DIRS = ['content', 'art', 'audio', 'tools/beat11'];
 
 /**
  * Content and art stay at the repository root, as the technical spec lays

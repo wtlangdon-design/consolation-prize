@@ -30,3 +30,10 @@ export const QUICK_SLOT = 0;
  * and this names the row the way SCREEN_TEXTURE names a texture.
  */
 export const CYCLING_OPTION = 'cycling';
+
+/**
+ * The music bed's own toggle. Doc 18 note 2's argument for the cycling switch
+ * applies unchanged: it is continuous, it is not information, and a player who
+ * wants it off must be able to turn it off without leaving the game.
+ */
+export const MUSIC_OPTION = 'music';

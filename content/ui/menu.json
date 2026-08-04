@@ -1,86 +1,95 @@
 {
-  "schema": 1,
-  "note": "Every string the menu can draw. The target machine is a Chromebook, whose top row is browser keys, so no F-key appears anywhere in this file or in the engine. The game is fully playable with a mouse and no keyboard at all: the panel button opens this menu, and every route through it is clickable. Ctrl+S and Ctrl+L are convenience only and are never the only way to reach anything.",
-  "button": {
-    "label": "MENU"
-  },
-  "root": {
-    "title": "MENU",
-    "items": [
-      {
-        "id": "resume",
-        "label": "Resume"
-      },
-      {
-        "id": "save",
-        "label": "Save"
-      },
-      {
-        "id": "load",
-        "label": "Load"
-      },
-      {
-        "id": "options",
-        "label": "Options"
-      },
-      {
-        "id": "fullscreen",
-        "label": "Fullscreen"
-      },
-      {
-        "id": "quit",
-        "label": "Quit to Title"
-      }
-    ]
-  },
-  "save": {
-    "title": "SAVE",
-    "back": "Back"
-  },
-  "load": {
-    "title": "LOAD",
-    "back": "Back"
-  },
-  "options": {
-    "title": "OPTIONS",
-    "back": "Back",
-    "items": [
-      {
-        "id": "cycling",
-        "label": "Background motion",
-        "type": "toggle",
-        "on": "On",
-        "off": "Off",
-        "default": true
-      },
-      {
-        "id": "textSpeed",
-        "label": "Text speed"
-      },
-      {
-        "id": "scale",
-        "label": "Window scale"
-      }
-    ],
-    "valueTemplate": "{label}  {value}"
-  },
-  "slots": {
-    "count": 3,
-    "nameTemplate": "Slot {number}",
-    "emptyLabel": "- empty -",
-    "usedTemplate": "{room} - {when}",
-    "overwriteNote": "Saving overwrites this slot.",
-    "time": {
-      "justNow": "just now",
-      "minutes": "{n}m ago",
-      "hours": "{n}h ago",
-      "days": "{n}d ago"
-    }
-  },
-  "notices": {
-    "saved": "SAVED",
-    "restored": "RESTORED",
-    "noSave": "NO SAVE IN THAT SLOT"
-  },
-  "fullscreenNote": "ERRATA 39 names the menu overlay and the verb panel, and this is the first. It sits above Quit to Title because it is the only root item that changes nothing about the game -- leaving it beside Resume would read as a state change and leaving it below Quit would put it after the exit."
+ "schema": 1,
+ "note": "Every string the menu can draw. The target machine is a Chromebook, whose top row is browser keys, so no F-key appears anywhere in this file or in the engine. The game is fully playable with a mouse and no keyboard at all: the panel button opens this menu, and every route through it is clickable. Ctrl+S and Ctrl+L are convenience only and are never the only way to reach anything.",
+ "button": {
+  "label": "MENU"
+ },
+ "root": {
+  "title": "MENU",
+  "items": [
+   {
+    "id": "resume",
+    "label": "Resume"
+   },
+   {
+    "id": "save",
+    "label": "Save"
+   },
+   {
+    "id": "load",
+    "label": "Load"
+   },
+   {
+    "id": "options",
+    "label": "Options"
+   },
+   {
+    "id": "fullscreen",
+    "label": "Fullscreen"
+   },
+   {
+    "id": "quit",
+    "label": "Quit to Title"
+   }
+  ]
+ },
+ "save": {
+  "title": "SAVE",
+  "back": "Back"
+ },
+ "load": {
+  "title": "LOAD",
+  "back": "Back"
+ },
+ "options": {
+  "title": "OPTIONS",
+  "back": "Back",
+  "items": [
+   {
+    "id": "cycling",
+    "label": "Background motion",
+    "type": "toggle",
+    "on": "On",
+    "off": "Off",
+    "default": true
+   },
+   {
+    "id": "music",
+    "label": "Music",
+    "type": "toggle",
+    "on": "On",
+    "off": "Off",
+    "default": true
+   },
+   {
+    "id": "textSpeed",
+    "label": "Text speed"
+   },
+   {
+    "id": "scale",
+    "label": "Window scale"
+   }
+  ],
+  "valueTemplate": "{label}  {value}",
+  "musicNote": "Doc 18 note 2's argument for the cycling toggle applies to a music bed for the same reason: it is continuous, it is not information, and a player who wants it off must be able to turn it off without leaving the game. Held with the other display preferences rather than in the save file -- a preference belongs to the machine, not to the game."
+ },
+ "slots": {
+  "count": 3,
+  "nameTemplate": "Slot {number}",
+  "emptyLabel": "- empty -",
+  "usedTemplate": "{room} - {when}",
+  "overwriteNote": "Saving overwrites this slot.",
+  "time": {
+   "justNow": "just now",
+   "minutes": "{n}m ago",
+   "hours": "{n}h ago",
+   "days": "{n}d ago"
+  }
+ },
+ "notices": {
+  "saved": "SAVED",
+  "restored": "RESTORED",
+  "noSave": "NO SAVE IN THAT SLOT"
+ },
+ "fullscreenNote": "ERRATA 39 names the menu overlay and the verb panel, and this is the first. It sits above Quit to Title because it is the only root item that changes nothing about the game -- leaving it beside Resume would read as a state change and leaving it below Quit would put it after the exit."
 }

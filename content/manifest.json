@@ -1,86 +1,94 @@
 {
-  "schema": 1,
-  "note": "Index of every content file the engine loads. The engine resolves nothing by hard-coded path except this manifest.",
-  "font": "art/ui/font-5x7.json",
-  "palette": "art/palette/consolation-256.json",
-  "ui": "content/ui/ui.json",
-  "verbs": "content/ui/verbs.json",
-  "flags": "content/flags/flags.json",
-  "startRoom": "stage_road",
-  "rooms": [
-    "content/rooms/town-map.json",
-    "content/rooms/stage-road.json",
-    "content/rooms/main-street.json",
-    "content/rooms/nugget.json",
-    "content/rooms/stub-nugget-back.json",
-    "content/rooms/assay-office.json",
-    "content/rooms/stub-assay-records.json",
-    "content/rooms/claims-registrar.json",
-    "content/rooms/stub-company.json",
-    "content/rooms/stub-clarion.json",
-    "content/rooms/stub-claims-road.json",
-    "content/rooms/harness-a.json",
-    "content/rooms/harness-b.json",
-    "content/rooms/hotel-lobby.json",
-    "content/rooms/thads-room.json",
-    "content/rooms/undertaker.json"
-  ],
-  "dialogue": [
-    "content/dialogue/stage-driver.json",
-    "content/dialogue/amb-letter-writer.json",
-    "content/dialogue/amb-pie-woman.json",
-    "content/dialogue/amb-map-seller.json",
-    "content/dialogue/harness-tree.json",
-    "content/dialogue/undertaker.json",
-    "content/dialogue/hotel-clerk.json",
-    "content/dialogue/deke-vessel.json"
-  ],
-  "puzzles": [],
-  "sequences": [
-    "content/sequences/opening.json"
-  ],
-  "openingSequence": "opening",
-  "actor": "content/actors/thad.json",
-  "panel": "content/ui/panel.json",
-  "items": [
-    "content/items/tuning-fork.json",
-    "content/items/letter.json",
-    "content/items/four-dollars.json",
-    "content/items/deed.json",
-    "content/items/company-map.json",
-    "content/items/horse-blanket.json",
-    "content/items/pickaxe.json",
-    "content/items/filing-fee.json",
-    "content/items/harness-token.json"
-  ],
-  "scaling": "content/actors/scaling.json",
-  "ambient": [
-    "content/ambient/letter-writer.json",
-    "content/ambient/pie-woman.json",
-    "content/ambient/map-seller.json"
-  ],
-  "reputation": "content/reputation.json",
-  "verbFallbacks": "content/ui/verb-fallbacks.json",
-  "duplicateAllowlist": "content/ui/duplicate-allowlist.json",
-  "menu": "content/ui/menu.json",
-  "combinations": "content/combinations.json",
-  "itemIcons": "content/ui/item-icons.json",
-  "actors": [
-    "content/actors/thad.json",
-    "content/actors/hob.json",
-    "content/actors/coach.json"
-  ],
-  "speechColours": "content/ui/speech-colours.json",
-  "speechColoursNote": "A colour per speaker for spoken lines. Hand-authored, and NOT in the extracted speakers table: that file is rewritten whole on every extraction, so a colour edited there would vanish silently at the next run.",
-  "overlays": [
-    "content/actors/driver-head.json"
-  ],
-  "overlaysNote": "A head composited over a body that never swaps -- doc 43 part two's draw order step 4. Named here like every other record: an overlay discovered from a directory is an overlay nobody chose.",
-  "carriedLight": "art/effects/lantern-glow.json",
-  "carriedLightNote": "Errata D8's lantern pool. Named here rather than discovered, like every other record. The file was fully specified and referenced by nothing for as long as it went unnamed -- R5l -- and naming it is what gives it a reader.",
-  "paths": [
-    "content/sequences/beat11-path.json"
-  ],
-  "pathsNote": "Traced walk paths. Named here like every other record, and keyed by this path rather than by an id inside the file -- the trace is authored by hand against the plate and the loader's convenience does not belong in it.",
-  "actorsNote": "EXPLICIT, AS RULED, and not convention discovery from content/actors/*.json. A directory listing silently picks up whatever happens to be on disk -- a half-written record, something copied in to look at -- and then the game loads it or does not depending on somebody's afternoon. A list is checkable, and check-asset-paths already earned that argument by failing loudly on a path nobody declared. `actor` below stays: it names which of these is the protagonist, which is a different fact from which records exist."
+ "schema": 1,
+ "note": "Index of every content file the engine loads. The engine resolves nothing by hard-coded path except this manifest.",
+ "font": "art/ui/font-5x7.json",
+ "palette": "art/palette/consolation-256.json",
+ "ui": "content/ui/ui.json",
+ "verbs": "content/ui/verbs.json",
+ "flags": "content/flags/flags.json",
+ "startRoom": "stage_road",
+ "rooms": [
+  "content/rooms/town-map.json",
+  "content/rooms/stage-road.json",
+  "content/rooms/main-street.json",
+  "content/rooms/nugget.json",
+  "content/rooms/stub-nugget-back.json",
+  "content/rooms/assay-office.json",
+  "content/rooms/stub-assay-records.json",
+  "content/rooms/claims-registrar.json",
+  "content/rooms/stub-company.json",
+  "content/rooms/stub-clarion.json",
+  "content/rooms/stub-claims-road.json",
+  "content/rooms/harness-a.json",
+  "content/rooms/harness-b.json",
+  "content/rooms/hotel-lobby.json",
+  "content/rooms/thads-room.json",
+  "content/rooms/undertaker.json"
+ ],
+ "dialogue": [
+  "content/dialogue/stage-driver.json",
+  "content/dialogue/amb-letter-writer.json",
+  "content/dialogue/amb-pie-woman.json",
+  "content/dialogue/amb-map-seller.json",
+  "content/dialogue/harness-tree.json",
+  "content/dialogue/undertaker.json",
+  "content/dialogue/hotel-clerk.json",
+  "content/dialogue/deke-vessel.json"
+ ],
+ "puzzles": [],
+ "sequences": [
+  "content/sequences/opening.json"
+ ],
+ "openingSequence": "opening",
+ "actor": "content/actors/thad.json",
+ "panel": "content/ui/panel.json",
+ "items": [
+  "content/items/tuning-fork.json",
+  "content/items/letter.json",
+  "content/items/four-dollars.json",
+  "content/items/deed.json",
+  "content/items/company-map.json",
+  "content/items/horse-blanket.json",
+  "content/items/pickaxe.json",
+  "content/items/filing-fee.json",
+  "content/items/harness-token.json"
+ ],
+ "scaling": "content/actors/scaling.json",
+ "ambient": [
+  "content/ambient/letter-writer.json",
+  "content/ambient/pie-woman.json",
+  "content/ambient/map-seller.json"
+ ],
+ "reputation": "content/reputation.json",
+ "verbFallbacks": "content/ui/verb-fallbacks.json",
+ "duplicateAllowlist": "content/ui/duplicate-allowlist.json",
+ "menu": "content/ui/menu.json",
+ "combinations": "content/combinations.json",
+ "itemIcons": "content/ui/item-icons.json",
+ "actors": [
+  "content/actors/thad.json",
+  "content/actors/hob.json",
+  "content/actors/coach.json"
+ ],
+ "speechColours": "content/ui/speech-colours.json",
+ "speechColoursNote": "A colour per speaker for spoken lines. Hand-authored, and NOT in the extracted speakers table: that file is rewritten whole on every extraction, so a colour edited there would vanish silently at the next run.",
+ "overlays": [
+  "content/actors/driver-head.json"
+ ],
+ "overlaysNote": "A head composited over a body that never swaps -- doc 43 part two's draw order step 4. Named here like every other record: an overlay discovered from a directory is an overlay nobody chose.",
+ "carriedLight": "art/effects/lantern-glow.json",
+ "carriedLightNote": "Errata D8's lantern pool. Named here rather than discovered, like every other record. The file was fully specified and referenced by nothing for as long as it went unnamed -- R5l -- and naming it is what gives it a reader.",
+ "paths": [
+  "content/sequences/beat11-path.json"
+ ],
+ "pathsNote": "Traced walk paths. Named here like every other record, and keyed by this path rather than by an id inside the file -- the trace is authored by hand against the plate and the loader's convenience does not belong in it.",
+ "actorsNote": "EXPLICIT, AS RULED, and not convention discovery from content/actors/*.json. A directory listing silently picks up whatever happens to be on disk -- a half-written record, something copied in to look at -- and then the game loads it or does not depending on somebody's afternoon. A list is checkable, and check-asset-paths already earned that argument by failing loudly on a path nobody declared. `actor` below stays: it names which of these is the protagonist, which is a different fact from which records exist.",
+ "music": {
+  "title": {
+   "src": "audio/consolation-title.ogg",
+   "gain": 0.8
+  },
+  "rooms": {}
+ },
+ "musicNote": "DOC 45'S BEDS, AND ONLY THE BEDS. `title` is O-01-M -- CONSOLATION, full, piano-led, doc 28's title mix. `rooms` maps a room id to its own bed and is EMPTY on purpose: Room 1's is O-02-M, the THADDEUS fragment, and nobody has written THADDEUS. Adding a room here is how a bed reaches it.\n\nTHE FILE DOES NOT EXIST YET AND THAT IS FINE. Music.ts treats a missing file as silence rather than an error, so the game runs exactly as it does today and the day a stem lands it plays. The name is written down now so the thing being commissioned has somewhere to go.\n\nCONSOLATION EXISTS ONLY AS THE SYNTHESISED PROOF in proofs/audio/, which errata 49 rules out as a delivery method -- a synthesised solo fiddle is the most recognisable 'this is a computer' sound in game audio. The melody is approved; producing it as a rendered stem is what is outstanding."
 }

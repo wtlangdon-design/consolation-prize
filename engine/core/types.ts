@@ -1001,6 +1001,16 @@ export interface ManifestFile {
   combinations: string;
   /** Errata 29's inventory icon sheet. */
   itemIcons: string;
+  /**
+   * Doc 45's music beds. `title` is O-01-M; `rooms` maps a room id to its
+   * own bed. Absent or unnamed is silence, not an error -- no music has been
+   * written yet, and the game has to run without it.
+   */
+  music?: {
+    title?: { src: string; gain?: number };
+    rooms?: Record<string, { src: string; gain?: number }>;
+  };
+  musicNote?: string;
 }
 
 /** Everything the engine needs, resolved from the manifest. */
