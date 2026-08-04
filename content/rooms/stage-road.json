@@ -200,43 +200,6 @@
       "rectMeasuredNote": "Third reading, from the rig rather than from a composed frame: brightest 0.05% of opaque pixels in hob-idle-right/idle-00.png, mapped through rig.figure [632, 1365] at scale 230/1365 about the feet, is world x638-643 y612-624. The rect contains this, the flame reading and the housing reading alike."
     },
     {
-      "id": "lamp_gone",
-      "name": "THE WATCHMAN'S LAMP",
-      "rect": [
-        610,
-        586,
-        60,
-        73
-      ],
-      "colour": 226,
-      "when": {
-        "T_HOB_GONE": true
-      },
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "The lamp, away up the street. It has not once looked back at me.",
-            "repeat": [
-              "Small now.",
-              "Gone round the corner and taken the only light with it."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. He has taken the sound with him too.",
-            "repeat": [
-              "Nothing.",
-              "Nothing at all."
-            ]
-          }
-        ]
-      },
-      "defaultVerb": "LOOK_AT",
-      "rectNote": "Around the lantern: the flame in his own idle frames is at world x636-643 y612-632 with him at (600, 720) drawn 230 tall, plus 26px of grab. It must clear road_west, which stops at y580 -- lamp_gone especially, because that one is live at the same time as the exit and would otherwise take a click meant for the lamp and start the ending.",
-      "rectMeasuredNote": "Third reading, from the rig rather than from a composed frame: brightest 0.05% of opaque pixels in hob-idle-right/idle-00.png, mapped through rig.figure [632, 1365] at scale 230/1365 about the feet, is world x638-643 y612-624. The rect contains this, the flame reading and the housing reading alike."
-    },
-    {
       "id": "coach",
       "name": "THE COACH",
       "rect": [

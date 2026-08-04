@@ -447,8 +447,16 @@ test('a hotspot whose state gate fails is not there at all', async () => {
   // Both halves of a state change share a rect, so only one may ever answer.
   const crossing = state.targetAt(...centre);
   assert.equal(crossing?.id, 'lamp');
+  // AND WHEN HE HAS GONE THERE IS NOTHING THERE AT ALL. lamp_gone used to
+  // answer here -- a designed paired state with authored lines about watching
+  // the lantern recede -- but it sat on the LAMP'S OWN RECT, where Hob stood,
+  // not up the street where its lines look. So the empty fence went on saying
+  // THE WATCHMAN'S LAMP after he left, and a gate that was working perfectly
+  // read as one that had failed. Deleted by Tyler's ruling; the lines are in
+  // the history and in doc 36's table if the beat is ever wanted back.
   state.flags.set('T_HOB_GONE', true);
-  assert.equal(state.targetAt(...centre)?.id, 'lamp_gone');
+  assert.equal(state.targetAt(...centre), undefined);
+  assert.equal(state.findTarget('lamp_gone'), undefined);
 });
 
 test("the mud's first LISTEN stands alone, and the last one repeats forever", async () => {

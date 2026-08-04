@@ -1335,8 +1335,17 @@ export class Renderer {
     const verbLabel = this.state.verbs.labelFor(verb);
     // Walking is not a sentence about a thing. Doc 06's walk template is just
     // the verb, so the road does not read "Walk to THE MUD".
+    //
+    // A DEPARTURE IS THE EXCEPTION, AND IT IS THE ONE CASE THAT NEEDS THE
+    // NAME. Hovering the gap in the fence read "Walk to" with nothing after
+    // it, so the click that leaves the room looked exactly like a click on
+    // mud. An exit is a place; the ground is not. The rule was written about
+    // THE MUD and quietly covered CONSOLATION too.
     if (verb === this.state.verbs.walkVerbId) {
-      return format(ui.sentence.walkTemplate, { verb: verbLabel });
+      // An Exit is an Interactable that names a destination. Nothing else does.
+      const departure = targetName && target && 'to' in target;
+      if (!departure) return format(ui.sentence.walkTemplate, { verb: verbLabel });
+      return format(ui.sentence.template, { verb: verbLabel, target: targetName });
     }
     const held = this.state.heldItem;
     // With an item picked up the sentence gains a middle: the verb applies

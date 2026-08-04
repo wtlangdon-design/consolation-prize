@@ -1,12 +1,12 @@
 {
-  "clip": "walk",
-  "facing": "right",
-  "view": "profile",
-  "figure": [
-    1128,
-    447
-  ],
-  "padding": 0,
-  "note": "THE DEPARTING COACH, AT THE SAME RESOLUTION AS THE STANDING ONE.\n\nIT WAS 550x224 AND THE COACH DRAWS AT 389, so the walk frame was UPSCALED 74% the moment the coach started moving -- a soft, blurry coach for the whole of beat 6b -- while every idle clip was scaled DOWN from 447. And the driver's head overlay declares 447, so over this clip it composited at 447/224 = twice the scale it should have: a small head, displaced, on the departing coach, in every play-through.\n\n1bf5d41 rebuilt the closed clips from a source with the case painted out and said 'walk is the same frame'. It was -- and the pixels agree: idle-00 downscaled to 550x224 matches the old walk frame to a mean absolute error of 1.47 of 255, with the alphas disagreeing on 0.05% of pixels. So this is that same picture at full size, copied from art that already ships. No generation.\n\nTHE WHEELS ARE FROZEN AGAIN AND THAT IS NOT FIXED HERE. 2ab0616 gave this clip eight frames, each wheel rotated by the fraction of a revolution its own radius makes over the same ground, so the rear (r144) and front (r114) turn at DIFFERENT rates -- which is what makes it read as rolling rather than spinning. 1bf5d41 replaced all eight with one and the note describing them survived, describing frames that were no longer there. Restoring them means re-running the wheel rig over art/objects/coach/, which is art rather than a copy.\n\nTHE HORSES' LEGS STILL DO NOT MOVE. They are drawn inside the body and overlap each other, so a leg cycle needs painted masks or new art. Recorded rather than hidden.",
-  "frames": 1
+ "clip": "walk",
+ "facing": "right",
+ "view": "profile",
+ "figure": [
+  1128,
+  447
+ ],
+ "padding": 0,
+ "note": "The coach DEPARTING, with its wheels turning. Eight frames: each wheel rotated by the fraction of a revolution its own radius makes over the same ground, so the rear (r144) and the front (r114) turn at DIFFERENT rates. That difference is what reads as rolling rather than spinning.\n\nTURNED OFF TWICE AND BOTH TIMES BY ACCIDENT. 2ab0616 built these eight. 1bf5d41 painted the case off the closed-door rack and rebuilt both closed clips from the corrected source -- 'walk is the same frame' -- which collapsed eight frames to one and froze the wheels; the commit message says it plainly and nobody read it as a loss. Rebuilt here from what SHIPS: the full-res 447 body 4f9bcf6 installed, which already has the case off the rack, rather than from the source that predates both fixes.\n\nThe wheel sprites are authored against a 1728x703 body and the shipped one is 1128x447, so centres and radii are scaled on the way in. They were cut and rotatable in art/objects/coach/ the whole time, through both freezes.\n\nTHE HORSES' LEGS STILL DO NOT MOVE, and this does not change that. They are drawn inside the body and overlap each other, so a leg cycle needs painted masks or new art. Recorded rather than hidden.",
+ "frames": 8
 }

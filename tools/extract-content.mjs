@@ -1688,7 +1688,23 @@ function openingCase() {
   // depth curve puts him at 230 tall there and the flame in his own idle frames
   // lands at world x636-643, y612-632. Both rects came from where he stood, and
   // he moved, so both were re-measured rather than argued about.
-  for (const target of [lamp, room.hotspots.find((entry) => entry.id === 'lamp_gone')]) {
+  // LAMP_GONE IS DELETED, BY TYLER'S RULING, AND HE ASKED FOR IT REPEATEDLY.
+  //
+  // It was a designed paired state -- ruling 19a, the shape coach/coach_gone
+  // uses -- with authored lines about watching the lantern recede: "The lamp,
+  // away up the street. It has not once looked back at me."
+  //
+  // WHY IT READ AS A BUG ANYWAY. It sat on the SAME RECT as the lamp, which is
+  // where Hob stood, not up the street where the lines look. So after he left,
+  // hovering the empty fence still said THE WATCHMAN'S LAMP and the hotspot
+  // was indistinguishable from one that had failed to clear. The gate was
+  // working perfectly and the room read as though it were not.
+  //
+  // The lines are not lost -- they are in the history at this commit, and in
+  // doc 36's table -- and if the beat is wanted back it wants a rect where the
+  // lamp actually went, which is off frame right.
+  room.hotspots = room.hotspots.filter((entry) => entry.id !== 'lamp_gone');
+  for (const target of [lamp]) {
     if (!target) continue;
     target.rect = [610, 586, 60, 73];
     target.rectNote = 'Around the lantern: the flame in his own idle frames is at world '
