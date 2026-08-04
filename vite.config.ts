@@ -2,8 +2,20 @@ import { cpSync, existsSync } from 'node:fs';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, type Plugin } from 'vite';
 
-/** Directories served verbatim in dev and copied into the build unchanged. */
-const DATA_DIRS = ['content', 'art'];
+/**
+ * Directories served verbatim in dev and copied into the build unchanged.
+ *
+ * `tools/beat11` IS HERE SO SOMEBODY CAN OPEN IT. It is a standalone page with
+ * no bundle and no imports -- it does not need building -- but a tool that
+ * only exists on a developer's disk is a tool the person who has to use it
+ * cannot reach, and he works from a Chromebook. Copied, it lands at
+ * /consolation-prize/tools/beat11/trace-path.html on the Pages site, where its
+ * `../../art/...` paths resolve exactly as they do from a local checkout.
+ *
+ * R5o, applied before it could happen: a fix is not finished until something
+ * reaches it, and neither is a tool.
+ */
+const DATA_DIRS = ['content', 'art', 'tools/beat11'];
 
 /**
  * Content and art stay at the repository root, as the technical spec lays

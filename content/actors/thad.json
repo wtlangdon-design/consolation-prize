@@ -316,6 +316,20 @@
       "walkDx": 1
     },
     {
+      "id": "farwalk",
+      "facing": "back",
+      "frames": [
+        "art/actors/thad-farwalk-back/farwalk-00.png",
+        "art/actors/thad-farwalk-back/farwalk-01.png",
+        "art/actors/thad-farwalk-back/farwalk-02.png"
+      ],
+      "figureHeight": 46,
+      "anchor": [
+        8,
+        46
+      ]
+    },
+    {
       "id": "recoil",
       "facing": "front",
       "frames": [

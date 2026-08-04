@@ -63,6 +63,14 @@ const CLIPS = [
   { id: 'idle-break', dir: 'idlebreak-door-open', prefix: 'idle-break-door-open', state: 'door-open' },
   { id: 'idle-break', dir: 'idlebreak', prefix: 'idle-break' },
   { id: 'walk', dir: 'walk', prefix: 'walk' },
+  // BEAT 11'S FAR FIGURE, derived from the back walk's own alpha rather than
+  // drawn -- a flat silhouette in the room's darkest value with a two-pixel
+  // bob. It takes over below 22px, where the eight-frame walk drops from five
+  // distinct pictures to four and the animation has lost a position. A
+  // separate clip id rather than a `state`, because it is not a variant of the
+  // walk: it is different art with a different frame count, handed off to at a
+  // measured height. `tools/rig/far_blob.py`, doc 36 Q91.
+  { id: 'farwalk', dir: 'farwalk', prefix: 'farwalk' },
   { id: 'recoil', dir: 'recoil', prefix: 'recoil' },
   // CHORES. Doc 40's contract: each is stand -> key pose -> stand, with
   // begin/contact/commit/recover/complete on named frames rather than magic

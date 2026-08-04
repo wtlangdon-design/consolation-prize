@@ -1,0 +1,19 @@
+{
+  "clip": "farwalk",
+  "facing": "back",
+  "view": "headon",
+  "figure": [
+    15,
+    46
+  ],
+  "padding": 0,
+  "frames": 3,
+  "derivedFrom": "art/actors/thad-walk-back",
+  "sourceFrames": [
+    0,
+    2,
+    4
+  ],
+  "handoffHeight": 22,
+  "note": "DERIVED, NOT DRAWN. Beat 11's far-distance figure, thresholded out of thad-walk-back's own alpha and filled flat in the room's darkest value (0, 0, 0). Errata 55 keeps him walking until Main Street arrives, and the legibility ladder put the handoff at 22px: that is where the eight-frame back walk drops from 5 distinct pictures to 4, so the animation loses a position there. Measured, not judged.\n\nWRITTEN AT 44px = TWICE THE HANDOFF, which is R5a read correctly: 22 is the LARGEST this clip is ever drawn at, because it takes over at the handoff and only shrinks afterwards. The 2px bob is one drawn pixel there.\n\nFRAMES 0, 2 AND 4 OF THE SOURCE. The walk is a palindrome (Q88) -- 2 and 6 are the same file, as are 1/7 and 3/5 -- so those three are the widest-separated pictures it actually contains. Six frames would be three of them twice.\n\nIT CANNOT DRIFT FROM HIM, because it is made from him: regenerate the back walk, re-run tools/rig/far_blob.py, and the blob is the new man. That is the property a commissioned far sprite would not have.\n\nTHE WHOLE FIGURE BOBS, feet and all. At 22px there are no legs left to swing, so the bounce IS the walk -- lifting a body off stationary feet needs feet that read as feet. Contact frames sit on the anchor row and the passing frame rides 2px above it, which is where a walker actually is."
+}

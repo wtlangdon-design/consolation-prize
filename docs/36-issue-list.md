@@ -2512,6 +2512,50 @@ Clause four of `check-clip-agreement.mjs`. Below the hem, silhouette intersectio
 
 **What it unblocks, and this is why it is worth the rounds:** all four Thad walks, from the sources already in the repository, with no new generation. The contact pairs on the profile walks are already at 0% — the stride is right and only the passing pose is duplicated.
 
+## Q91 · Beat 11's far figure is derived, and it is 15×46 of flat black
+
+`tools/rig/far_blob.py`, and the whole tool is thirty lines of work over a rule.
+
+**The room's darkest value is `#000000`**, and it is not an outlier: **1,469 pixels** of the plate are exactly that, the first at (34, 228). Measured by luminance over `art/backgrounds/room-01-stage-road.png` rather than chosen. If it reads too hard against the road it is one constant in one file.
+
+**Written at 44px, which is R5a read correctly.** 22 is the *largest* this clip is ever drawn at — it takes over at the handoff and only shrinks afterwards — so twice the largest drawn size is 44, and the 2px bob is one drawn pixel at the handoff.
+
+**Source frames 0, 2 and 4.** The back walk is a palindrome (Q88): 2 and 6 are the same file, as are 1/7 and 3/5. Those three are contact, passing and opposite contact — the widest-separated pictures the clip actually contains. **Asking for six would have returned three of them twice**, which is how sixteen padded idles happened.
+
+**Area-averaged, then re-thresholded at half coverage.** Resampling a hard silhouette leaves a soft edge and the presentation spec forbids anti-aliasing anywhere; averaging coverage and cutting at 50% keeps the outline where the majority of the figure was and leaves every surviving pixel fully opaque. Result: **3 frames, 3 distinct**, and the tool refuses by name if the bob ever quantises away.
+
+**I FIRST DECIDED NOT TO DECLARE IT IN `content/actors/thad.json`, AND A CHECK ALREADY IN THE REPOSITORY SAID OTHERWISE.** My reasoning was R5l — a clip in a record that nothing plays is a plan in a record — and `check-actor-clips` failed the build by name with the better argument: *"new art nobody wired is invisible — the game never asks for it and nothing says so."* **Undeclared art is not a milder form of the same problem; it is the form where nothing can tell the art exists at all.** Declared, it is loaded, budgeted and in every diff. Its reader today is the trace tool; no sequence plays it until beat 11 has a path.
+
+**Two real defects surfaced by declaring it**, neither of which the eye would have caught:
+
+**One — the bob was a hop, and my own comment said otherwise.** The code lifted the whole figure off a fixed canvas bottom while the comment beside it read *"the bounce lifts the body off them rather than moving both."* The comment described an implementation that was not there — R5o's tell, in a file three hours old. **The whole-figure bob is the right answer at this size** (at 22px there are no legs left to swing, so the bounce *is* the walk), so the comment was corrected rather than the code — but the two disagreeing is the thing.
+
+**Two — the canvas convention was wrong and would have put him in the road.** `build-actor-record.mjs` writes `anchor: [padding + width/2, figureHeight]`, so the figure must occupy rows `0..figureHeight-1` at its lowest with the anchor row after it, which is how `character.py` writes every other clip. Mine was bottom-aligned with the bob going up, so the soles sat two rows low and the declared `figure` omitted the bob entirely. Now the two contact frames sit on the anchor row and the passing frame rides 2px above — **which is also where a walker actually is**, lowest at contact and highest at mid-stance. `figure` is the full 46-row extent, bob included, the same convention `thad-walk-back`'s 548 uses.
+
+**`build-actor-record.mjs --check` throws rather than reporting.** A new clip directory makes it exit through an uncaught `Error` before it compares anything, so `check-generators` reported *"exited 1 without reporting a stale output"* rather than naming the directory. The throw is informative to a person reading a terminal and invisible to the check that wraps it. **Not fixed here** — it is the generator's error contract rather than this change — and recorded so it is not rediscovered.
+
+`renders/thad-farwalk-back-derived-blob@8x.png`.
+
+## Q92 · The trace tool is built, published, and driven
+
+`tools/beat11/trace-path.html`. Standalone, no build, no imports. Click to append, drag the foot dot to move, drag the head dot to set `figureHeight`, Delete to remove, load a JSON back in, preview, download, copy.
+
+**Every waypoint ghosts Thad on the plate at the height set there**, and past 22px it ghosts the derived blob instead — because that is what will be on screen. `renders/beat11-trace-tool-three-waypoints.png`.
+
+**The runtime rule, implemented as specified.** `dw = ds / figureHeight(s)` over 2px steps, taking the height at each step's **midpoint** rather than its start — using the start biases every segment toward its larger end. Normalised to [0,1] so `beatSeconds` alone sets the rate. Cadence is a fixed frame rate off the wall clock, and the title's fade keys off the same `u`, so nothing about the path can change how long the title sits.
+
+**The cadence default is derived, not picked:** `walkSpeed 245 ÷ (strideLength 102 ÷ 8 frames) = 19.2 fps`, which is the rate his legs already run at on flat ground at full size. **Fetched from `content/actors/thad.json` when the page is served, baked as a fallback when it is not, and the status line says which** — because `file://` blocks the fetch and a number whose provenance is invisible is the one nobody re-derives.
+
+**PUBLISHED, and that is the part that was nearly missed.** `vite.config.ts` now copies `tools/beat11` into `dist`, so it lands at `/consolation-prize/tools/beat11/trace-path.html` on Pages, where its `../../art/...` paths resolve exactly as they do locally. **A tool the person who has to use it cannot open is R5o** — and he works from a Chromebook.
+
+**Driven headlessly in both modes before this was written.** Three waypoints appended by click; the height handle dragged 206px → 86px; `w` moved 1.59 → 1.93, which is the right direction — a smaller figure means more world travel for the same screen distance. Served, the status line reads *"cadence from content/actors/thad.json (245 px/s ÷ 102px ÷ 8 frames)"*. The only 404 in the served run is the browser's automatic `/favicon.ico`; every asset the page asks for returns 200.
+
+**`tools/check-beat11-path.mjs` is built and NOT registered.** Four rules — inside the play area, strictly decreasing height, first waypoint standing in a real walk box, `farClipHandoff` agreeing with the heights beside it. **It reads `content/rooms/stage-road.json` and is the authority on the band; the browser tool's copy of it is a drawing guide**, because a page opened from `file://` cannot fetch JSON.
+
+**Proved on a deliberately broken path** — a repeated height, a waypoint at x2000, and a handoff off by one — and all three fired by name, plus the walk-box test correctly placing (575, 700) in `road_open`. **With no path committed it prints "NOTHING WAS CHECKED" and exits 0**, which is why it stays out of `run-all.mjs`: a check that passes because its subject is absent reports the same green as one that passed on real work. It joins the suite in the change that commits a path.
+
+**What is still Tyler's here, unchanged:** where the path ends, whether credits exist, and every waypoint in it. `beatSeconds` is one field that can absorb credits; there is no credits roll.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

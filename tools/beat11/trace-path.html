@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beat 11 — trace the walk away</title>
+<!--
+  BEAT 11'S PATH, TRACED BY EYE AGAINST THE ACTUAL PLATE.
+
+  Doc 17 beat 11: "He walks away up the road toward the town, and the title
+  comes up over the mountains as he goes. He does not shrink out of sight; he
+  is still walking when Main Street arrives."
+
+  STANDALONE ON PURPOSE. No build, no bundler, no npm. Open it from the Pages
+  site or double-click the file; both resolve the art through the same
+  relative paths. The person who has to tune this works from a Chromebook.
+
+  WHAT IT IS FOR, AND IT IS NOT A COORDINATE EDITOR. Recession is judged
+  against mountains, not against numbers, so every waypoint ghosts Thad at the
+  height set there, composited on the plate. Past the handoff it ghosts the
+  derived blob instead, because that is what will actually be on screen.
+
+  THE RUNTIME RULE THAT MATTERS. Progress is linear in w, where dw = ds /
+  figureHeight(s) -- screen arc length over scale. A receding figure covers
+  less screen ground per second, and progressing at a constant rate in screen
+  pixels reads as him accelerating away. Cadence stays constant regardless:
+  a man walking away does not take slower steps, and because w is linear in
+  time, a fixed frame rate gives a constant stride in world terms.
+
+  AND beatSeconds DRIVES BOTH THE WALK AND THE TITLE. Do not derive the beat
+  length from path length and walk speed -- every later tweak to the path
+  would silently change how long the title sits on screen.
+-->
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #14141a; color: #e8e4dc; font: 13px/1.45 ui-monospace,
+    SFMono-Regular, Menlo, Consolas, monospace; display: flex; flex-direction: column;
+    height: 100vh; overflow: hidden;
+  }
+  header { padding: 8px 12px; background: #1d1d26; border-bottom: 1px solid #2e2e3a;
+    display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+  header h1 { font-size: 13px; margin: 0 8px 0 0; font-weight: 700; letter-spacing: .04em; }
+  button, input[type=number] {
+    font: inherit; background: #2a2a36; color: #e8e4dc; border: 1px solid #3c3c4c;
+    border-radius: 3px; padding: 4px 9px;
+  }
+  button:hover { background: #35354a; }
+  button.on { background: #6a5320; border-color: #a8842f; }
+  input[type=number] { width: 76px; }
+  label { display: flex; gap: 5px; align-items: center; white-space: nowrap; }
+  .grow { flex: 1; }
+  #stage { flex: 1; position: relative; min-height: 0; }
+  canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  footer { padding: 7px 12px; background: #1d1d26; border-top: 1px solid #2e2e3a;
+    max-height: 27vh; overflow: auto; }
+  .bad { color: #ff8f7a; }
+  .ok { color: #8fd48a; }
+  .dim { color: #8f8fa2; }
+  textarea { width: 100%; height: 100px; background: #101018; color: #cfe;
+    border: 1px solid #3c3c4c; font: inherit; display: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>BEAT 11 · trace the walk away</h1>
+  <label>beatSeconds <input id="secs" type="number" min="1" max="180" step="0.5" value="14"></label>
+  <label>cadence <input id="cad" type="number" min="1" max="60" step="0.1" value="19.2"> fps</label>
+  <button id="play">▶ preview</button>
+  <button id="del">delete point</button>
+  <button id="clear">clear</button>
+  <span class="grow"></span>
+  <button id="copy">copy JSON</button>
+  <button id="save">download</button>
+  <label>load <input id="load" type="file" accept="application/json,.json"></label>
+</header>
+<div id="stage"><canvas id="c"></canvas></div>
+<footer>
+  <div id="status" class="dim">loading art…</div>
+  <textarea id="out" readonly></textarea>
+</footer>
+<script>
+'use strict';
+
+/* ---------------------------------------------------------------- constants */
+
+const PLAY_W = 1920, PLAY_H = 864;         // errata 54
+
+// THE HANDOFF, AND IT IS A MEASUREMENT. The eight-frame back walk holds five
+// distinct pictures down to 22px and four at 16, so 22 is where the animation
+// loses a position -- a fact about bytes rather than a judgement about a
+// silhouette. Below it, the derived blob takes over. Doc 36 Q86.
+const HANDOFF = 22;
+
+// ROOM 1'S WALKABLE BAND, from content/rooms/stage-road.json's single walk box
+// `road_open`. COPIED, and the copy is the reason `check-beat11-path.mjs`
+// exists: a browser opened from file:// cannot fetch JSON, so this constant
+// cannot be read from the room -- and a constant that cannot be read from its
+// source is one edit away from disagreeing with it (R5k). The node checker
+// reads the room file itself and is the authority; this is a drawing guide.
+const BAND = { x: 256, y: 700, w: 1629 - 256, h: 863 - 700 };
+
+// "The title comes up over the mountains, TOP RIGHT, in the 700x320 the walk
+// leaves clear" -- doc 17, beat 11. Drawn as a guide because the walk has to
+// leave it clear, which is a property of the path and not of the title.
+const TITLE_BOX = { x: PLAY_W - 700, y: 0, w: 700, h: 320 };
+
+const ART = '../../art/';
+const PLATE_SRC = ART + 'backgrounds/room-01-stage-road.png';
+const WALK_SRC = [0, 1, 2, 3, 4, 5, 6, 7].map((i) =>
+  `${ART}actors/thad-walk-back/walk-0${i}.png`);
+const BLOB_SRC = [0, 1, 2].map((i) => `${ART}actors/thad-farwalk-back/farwalk-0${i}.png`);
+
+/* THE CADENCE DEFAULT IS DERIVED, NOT PICKED. content/actors/thad.json:
+   walkSpeed 245 px/s, strideLength 102px, eight frames to the cycle, so
+   245 / (102 / 8) = 19.2 frames a second is the rate his legs already run at
+   on flat ground at full size. Fetched from the record when the page is
+   served so it cannot drift; the baked value is the fallback for file://,
+   and the status line says which one is in use. */
+const CADENCE_FALLBACK = 19.2;
+
+/* ------------------------------------------------------------------- state */
+
+/** @type {{x:number,y:number,figureHeight:number}[]} */
+let waypoints = [];
+let selected = -1;
+let drag = null;             // {index, mode:'move'|'height', dx, dy}
+let playing = false;
+let playStart = 0;
+let cadenceSource = 'the baked fallback';
+
+const plate = new Image();
+const walk = WALK_SRC.map((src) => { const i = new Image(); i.src = src; return i; });
+const blob = BLOB_SRC.map((src) => { const i = new Image(); i.src = src; return i; });
+plate.src = PLATE_SRC;
+
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const secsEl = document.getElementById('secs');
+const cadEl = document.getElementById('cad');
+const statusEl = document.getElementById('status');
+const outEl = document.getElementById('out');
+
+/* ------------------------------------------------------- the w-parameter */
+
+/**
+ * Cumulative w along the path, dw = ds / figureHeight(s), normalised to [0,1].
+ *
+ * SCREEN ARC LENGTH OVER SCALE. Two waypoints the same number of screen pixels
+ * apart are further apart in the world if the figure is smaller between them,
+ * so w measures world distance in units of the man's own height. Progressing
+ * linearly in w is progressing at a constant speed in the world, which is what
+ * a man walking at a steady pace does.
+ *
+ * The height at the MIDPOINT of each step is what divides it -- using the step
+ * start biases every segment toward the larger end.
+ */
+function arc() {
+  if (waypoints.length < 2) return null;
+  const samples = [{ x: waypoints[0].x, y: waypoints[0].y, h: waypoints[0].figureHeight, w: 0 }];
+  let w = 0;
+  for (let i = 0; i < waypoints.length - 1; i += 1) {
+    const a = waypoints[i], b = waypoints[i + 1];
+    const dx = b.x - a.x, dy = b.y - a.y;
+    const len = Math.hypot(dx, dy);
+    const steps = Math.max(1, Math.ceil(len / 2));
+    const ds = len / steps;
+    for (let k = 1; k <= steps; k += 1) {
+      const t = k / steps;
+      const mid = t - 0.5 / steps;
+      const hMid = a.figureHeight + (b.figureHeight - a.figureHeight) * mid;
+      w += ds / Math.max(1, hMid);
+      samples.push({
+        x: a.x + dx * t,
+        y: a.y + dy * t,
+        h: a.figureHeight + (b.figureHeight - a.figureHeight) * t,
+        w,
+      });
+    }
+  }
+  if (w > 0) for (const s of samples) s.w /= w;
+  return { samples, total: w };
+}
+
+/** Position and height at normalised progress u. */
+function at(path, u) {
+  const s = path.samples;
+  const target = Math.max(0, Math.min(1, u));
+  let lo = 0, hi = s.length - 1;
+  while (lo < hi - 1) {
+    const mid = (lo + hi) >> 1;
+    if (s[mid].w <= target) lo = mid; else hi = mid;
+  }
+  const span = s[hi].w - s[lo].w;
+  const t = span > 0 ? (target - s[lo].w) / span : 0;
+  return {
+    x: s[lo].x + (s[hi].x - s[lo].x) * t,
+    y: s[lo].y + (s[hi].y - s[lo].y) * t,
+    h: s[lo].h + (s[hi].h - s[lo].h) * t,
+  };
+}
+
+/* ------------------------------------------------------------- the drawing */
+
+/** Play-area pixels per screen pixel, and the letterbox offset. */
+function view() {
+  const scale = Math.min(canvas.width / PLAY_W, canvas.height / PLAY_H);
+  return { scale, ox: (canvas.width - PLAY_W * scale) / 2, oy: (canvas.height - PLAY_H * scale) / 2 };
+}
+const toScreen = (v, p) => ({ x: v.ox + p.x * v.scale, y: v.oy + p.y * v.scale });
+const toPlay = (v, sx, sy) => ({ x: (sx - v.ox) / v.scale, y: (sy - v.oy) / v.scale });
+
+/** Which sprite set a figure of this drawn height uses. */
+const setFor = (h) => (h < HANDOFF ? blob : walk);
+
+/**
+ * Thad at (x, y) standing `h` play-area pixels tall, feet on the point.
+ *
+ * CENTRED HORIZONTALLY. thad-walk-back is 366px wide and its record's anchor
+ * sits at 183 -- the middle -- and the blob is cropped to the union box of the
+ * frames it came from, so its centre is the figure's too.
+ */
+function figure(v, img, x, y, h, alpha) {
+  if (!img || !img.complete || !img.naturalWidth) return;
+  const w = h * (img.naturalWidth / img.naturalHeight);
+  const p = toScreen(v, { x: x - w / 2, y: y - h });
+  ctx.globalAlpha = alpha;
+  ctx.drawImage(img, p.x, p.y, w * v.scale, h * v.scale);
+  ctx.globalAlpha = 1;
+}
+
+function guide(v, box, stroke, label) {
+  const a = toScreen(v, box);
+  ctx.strokeStyle = stroke;
+  ctx.setLineDash([6, 5]);
+  ctx.lineWidth = 1;
+  ctx.strokeRect(a.x, a.y, box.w * v.scale, box.h * v.scale);
+  ctx.setLineDash([]);
+  ctx.fillStyle = stroke;
+  ctx.font = '11px ui-monospace, monospace';
+  ctx.fillText(label, a.x + 5, a.y + 14);
+}
+
+function draw() {
+  const rect = canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = Math.round(rect.width * dpr);
+  canvas.height = Math.round(rect.height * dpr);
+  ctx.imageSmoothingEnabled = false;          // never smooth or anti-alias anything
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  const v = view();
+
+  if (plate.complete && plate.naturalWidth) {
+    ctx.drawImage(plate, v.ox, v.oy, PLAY_W * v.scale, PLAY_H * v.scale);
+  } else {
+    ctx.fillStyle = '#222'; ctx.fillRect(v.ox, v.oy, PLAY_W * v.scale, PLAY_H * v.scale);
+  }
+
+  guide(v, BAND, 'rgba(120,200,255,.55)', 'walkable band');
+  guide(v, TITLE_BOX, 'rgba(255,210,120,.55)', 'title 700×320, top right');
+
+  // The path itself.
+  if (waypoints.length > 1) {
+    ctx.strokeStyle = 'rgba(255,255,255,.75)';
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    waypoints.forEach((p, i) => {
+      const s = toScreen(v, p);
+      if (i === 0) ctx.moveTo(s.x, s.y); else ctx.lineTo(s.x, s.y);
+    });
+    ctx.stroke();
+  }
+
+  // A GHOST AT EVERY WAYPOINT, which is the whole point of the tool.
+  waypoints.forEach((p, i) => {
+    const past = p.figureHeight < HANDOFF;
+    figure(v, setFor(p.figureHeight)[0], p.x, p.y, p.figureHeight,
+      i === selected ? 0.95 : 0.7);
+    const foot = toScreen(v, p);
+    const head = toScreen(v, { x: p.x, y: p.y - p.figureHeight });
+    ctx.strokeStyle = i === selected ? '#ffd36a' : 'rgba(255,255,255,.5)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(foot.x, foot.y); ctx.lineTo(head.x, head.y); ctx.stroke();
+    ctx.fillStyle = i === selected ? '#ffd36a' : '#dfe4ea';
+    ctx.beginPath(); ctx.arc(head.x, head.y, 5, 0, 7); ctx.fill();   // height handle
+    ctx.beginPath(); ctx.arc(foot.x, foot.y, 4, 0, 7); ctx.fill();   // position handle
+    ctx.fillStyle = past ? '#ff9d6a' : '#fff';
+    ctx.font = '11px ui-monospace, monospace';
+    ctx.fillText(`${i}·${Math.round(p.figureHeight)}${past ? ' blob' : ''}`,
+      foot.x + 8, foot.y - 4);
+  });
+
+  // The preview walker.
+  const path = arc();
+  if (playing && path) {
+    const elapsed = (performance.now() - playStart) / 1000;
+    const seconds = Number(secsEl.value) || 1;
+    const u = elapsed / seconds;
+    if (u >= 1) { playing = false; document.getElementById('play').classList.remove('on'); }
+    const here = at(path, u);
+    const frames = setFor(here.h);
+    // CONSTANT CADENCE. Off the wall clock, not off distance travelled: the
+    // whole reason w exists is that screen distance is not world distance.
+    const idx = Math.floor(elapsed * (Number(cadEl.value) || CADENCE_FALLBACK)) % frames.length;
+    figure(v, frames[idx], here.x, here.y, here.h, 1);
+    // The title keys off the SAME clock, so it is drawn from u and nothing else.
+    ctx.globalAlpha = Math.max(0, Math.min(1, (u - 0.15) / 0.35));
+    ctx.fillStyle = '#f4ead6';
+    ctx.font = `${Math.round(46 * v.scale)}px Georgia, serif`;
+    ctx.textAlign = 'center';
+    const t = toScreen(v, { x: TITLE_BOX.x + TITLE_BOX.w / 2, y: TITLE_BOX.y + TITLE_BOX.h * 0.55 });
+    ctx.fillText('THE LAST CLAIM IN CONSOLATION', t.x, t.y);
+    ctx.textAlign = 'left';
+    ctx.globalAlpha = 1;
+  }
+  requestAnimationFrame(draw);
+}
+
+/* ---------------------------------------------------------- the path model */
+
+function handoffIndex() {
+  const i = waypoints.findIndex((p) => p.figureHeight < HANDOFF);
+  return i;
+}
+
+function asJSON() {
+  return {
+    room: 'room1',
+    beat: 11,
+    playArea: [PLAY_W, PLAY_H],
+    beatSeconds: Number(secsEl.value) || 0,
+    waypoints: waypoints.map((p) => ({
+      x: Math.round(p.x), y: Math.round(p.y), figureHeight: Math.round(p.figureHeight),
+    })),
+    farClipHandoff: handoffIndex(),
+  };
+}
+
+/** Live validation, in the same terms the node checker uses. */
+function validate() {
+  const bad = [];
+  const wp = asJSON().waypoints;
+  wp.forEach((p, i) => {
+    if (p.x < 0 || p.x > PLAY_W || p.y < 0 || p.y > PLAY_H) {
+      bad.push(`waypoint ${i} at ${p.x},${p.y} is outside the ${PLAY_W}×${PLAY_H} play area`);
+    }
+    if (i > 0 && p.figureHeight >= wp[i - 1].figureHeight) {
+      bad.push(`waypoint ${i} is ${p.figureHeight}px against ${i - 1}'s `
+        + `${wp[i - 1].figureHeight}px — height must strictly decrease, he is walking away`);
+    }
+  });
+  if (wp.length) {
+    const f = wp[0];
+    if (f.x < BAND.x || f.x > BAND.x + BAND.w || f.y < BAND.y || f.y > BAND.y + BAND.h) {
+      bad.push(`the first waypoint ${f.x},${f.y} is outside the walkable band `
+        + `— he has to start where he can stand`);
+    }
+  }
+  if (wp.length < 2) bad.push('a path needs at least two waypoints');
+  return bad;
+}
+
+function refresh() {
+  const json = asJSON();
+  const bad = validate();
+  const path = arc();
+  const parts = [
+    `${json.waypoints.length} waypoint(s)`,
+    json.farClipHandoff >= 0
+      ? `farClipHandoff ${json.farClipHandoff} (first below ${HANDOFF}px)`
+      : `farClipHandoff -1 — never drops below ${HANDOFF}px, so the blob never takes over`,
+    path ? `w total ${path.total.toFixed(2)} figure-heights of world travel` : '',
+    `cadence from ${cadenceSource}`,
+  ].filter(Boolean);
+  statusEl.className = bad.length ? 'bad' : 'ok';
+  statusEl.textContent = (bad.length ? `✗ ${bad.join(' · ')}\n` : '✓ valid · ')
+    + parts.join(' · ');
+  outEl.value = JSON.stringify(json, null, 2);
+}
+
+/* ---------------------------------------------------------------- the input */
+
+function hit(v, sx, sy) {
+  for (let i = waypoints.length - 1; i >= 0; i -= 1) {
+    const p = waypoints[i];
+    const head = toScreen(v, { x: p.x, y: p.y - p.figureHeight });
+    if (Math.hypot(sx - head.x, sy - head.y) < 10) return { index: i, mode: 'height' };
+    const foot = toScreen(v, p);
+    if (Math.hypot(sx - foot.x, sy - foot.y) < 10) return { index: i, mode: 'move' };
+  }
+  return null;
+}
+
+canvas.addEventListener('pointerdown', (e) => {
+  const r = canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  const sx = (e.clientX - r.left) * dpr, sy = (e.clientY - r.top) * dpr;
+  const v = view();
+  const got = hit(v, sx, sy);
+  if (got) {
+    selected = got.index;
+    drag = got;
+    canvas.setPointerCapture(e.pointerId);
+  } else {
+    const p = toPlay(v, sx, sy);
+    // A NEW POINT IS SMALLER THAN THE ONE BEFORE IT, because that is the only
+    // direction this path goes. Predictable beats clever: eight pixels down
+    // and drag the handle, rather than a guess at recession that has to be
+    // undone.
+    const prev = waypoints[waypoints.length - 1];
+    const h = prev ? Math.max(4, prev.figureHeight - 8) : 222;
+    waypoints.push({ x: p.x, y: p.y, figureHeight: h });
+    selected = waypoints.length - 1;
+  }
+  refresh();
+});
+
+canvas.addEventListener('pointermove', (e) => {
+  if (!drag) return;
+  const r = canvas.getBoundingClientRect();
+  const dpr = window.devicePixelRatio || 1;
+  const v = view();
+  const p = toPlay(v, (e.clientX - r.left) * dpr, (e.clientY - r.top) * dpr);
+  const wp = waypoints[drag.index];
+  if (drag.mode === 'move') { wp.x = p.x; wp.y = p.y; }
+  else wp.figureHeight = Math.max(4, wp.y - p.y);
+  refresh();
+});
+
+const endDrag = () => { drag = null; };
+canvas.addEventListener('pointerup', endDrag);
+canvas.addEventListener('pointercancel', endDrag);
+
+window.addEventListener('keydown', (e) => {
+  if (e.target instanceof HTMLInputElement) return;
+  if ((e.key === 'Delete' || e.key === 'Backspace') && selected >= 0) {
+    waypoints.splice(selected, 1);
+    selected = Math.min(selected, waypoints.length - 1);
+    refresh();
+    e.preventDefault();
+  }
+});
+
+document.getElementById('del').onclick = () => {
+  if (selected < 0) return;
+  waypoints.splice(selected, 1);
+  selected = Math.min(selected, waypoints.length - 1);
+  refresh();
+};
+document.getElementById('clear').onclick = () => {
+  waypoints = []; selected = -1; refresh();
+};
+document.getElementById('play').onclick = (e) => {
+  playing = !playing;
+  playStart = performance.now();
+  e.currentTarget.classList.toggle('on', playing);
+};
+document.getElementById('save').onclick = () => {
+  const blobUrl = URL.createObjectURL(
+    new Blob([JSON.stringify(asJSON(), null, 2) + '\n'], { type: 'application/json' }));
+  const a = document.createElement('a');
+  a.href = blobUrl; a.download = 'beat11-path.json'; a.click();
+  URL.revokeObjectURL(blobUrl);
+};
+document.getElementById('copy').onclick = async () => {
+  const text = JSON.stringify(asJSON(), null, 2);
+  try {
+    await navigator.clipboard.writeText(text);
+    statusEl.textContent = '✓ copied to the clipboard';
+    statusEl.className = 'ok';
+  } catch {
+    // file:// has no clipboard permission. Show it and select it rather than
+    // failing silently -- a copy button that does nothing is worse than none.
+    outEl.style.display = 'block';
+    outEl.value = text;
+    outEl.select();
+    statusEl.className = 'dim';
+    statusEl.textContent = 'the clipboard is blocked on file:// — the JSON is '
+      + 'selected below, press Ctrl+C';
+  }
+};
+document.getElementById('load').onchange = (e) => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    try {
+      const data = JSON.parse(String(reader.result));
+      waypoints = (data.waypoints || []).map((p) => ({
+        x: Number(p.x), y: Number(p.y), figureHeight: Number(p.figureHeight),
+      }));
+      if (data.beatSeconds) secsEl.value = data.beatSeconds;
+      selected = -1;
+      refresh();
+    } catch (error) {
+      statusEl.className = 'bad';
+      statusEl.textContent = `could not read that file — ${error.message}`;
+    }
+  };
+  reader.readAsText(file);
+};
+secsEl.oninput = refresh;
+cadEl.oninput = refresh;
+
+/* The record is the authority when it can be reached; the baked number is the
+   fallback and the status line always says which one is in play (R5p). */
+fetch('../../content/actors/thad.json')
+  .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+  .then((actor) => {
+    const frames = 8;
+    const derived = actor.walkSpeed / (actor.strideLength / frames);
+    cadEl.value = Math.round(derived * 10) / 10;
+    cadenceSource = `content/actors/thad.json (${actor.walkSpeed} px/s ÷ `
+      + `${actor.strideLength}px ÷ ${frames} frames)`;
+    refresh();
+  })
+  .catch(() => { cadenceSource = 'the baked fallback — thad.json is not reachable from file://'; refresh(); });
+
+plate.onload = refresh;
+refresh();
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
