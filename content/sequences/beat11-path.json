@@ -5,7 +5,7 @@
   1920,
   864
  ],
- "beatSeconds": 40,
+ "beatSeconds": 14,
  "waypoints": [
   {
    "x": 575,
@@ -54,5 +54,6 @@
   }
  ],
  "farClipHandoff": -1,
- "note": "TRACED BY TYLER against the plate with tools/beat11/trace-path.html, ghosting the back-walk frame at each waypoint's height. The recession is his eye, not a curve.\n\nONE COORDINATE MOVED FROM THE TRACE, and only the first: 575,655 -> 575,710. check-beat11-path refused the original because road_open runs y700-863 and he would have begun the beat standing on nothing. 710 is not an invention -- it is the road_west exit's own walkTo, which is where he is standing when the beat starts. Mechanical, not a judgement.\n\nfarClipHandoff is -1: the path bottoms out at 29px and the derived blob takes over below 22, so thad-farwalk-back is unused by this trace and he stays the real sprite the whole way. That is a look decision and it is Tyler's -- two or three more waypoints below 22 is what puts him into the blob."
+ "note": "TRACED BY TYLER against the plate with tools/beat11/trace-path.html, ghosting the back-walk frame at each waypoint's height. The recession is his eye, not a curve.\n\nONE COORDINATE MOVED FROM THE TRACE, and only the first: 575,655 -> 575,710. check-beat11-path refused the original because road_open runs y700-863 and he would have begun the beat standing on nothing. 710 is not an invention -- it is the road_west exit's own walkTo, which is where he is standing when the beat starts. Mechanical, not a judgement.\n\nfarClipHandoff is -1: the path bottoms out at 29px and the derived blob takes over below 22, so thad-farwalk-back is unused by this trace and he stays the real sprite the whole way. That is a look decision and it is Tyler's -- two or three more waypoints below 22 is what puts him into the blob.",
+ "beatSecondsNote": "14, RULED BY TYLER. The trace is 20.7 strides of world length, so the cadence is 20.7/beatSeconds: at the traced 40s that is 0.52 strides a second against a walking man's 1.9, which reads as slow motion. 14 gives 1.48 -- unhurried but unmistakably a man walking, which suits one arriving broke at night. 11 would be a brisk ordinary walk, 17 a trudge.\n\nIT ALSO SETS HOW LONG THE TITLE SITS OVER THE MOUNTAINS, which is why it is a ruling and not a tuning constant. If credits are ever added they must NOT be paid for by lengthening this beat: that drops the cadence again and puts him back in slow motion. They belong after he has gone, or over Main Street."
 }

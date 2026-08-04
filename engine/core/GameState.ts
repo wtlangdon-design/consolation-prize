@@ -564,10 +564,22 @@ export class GameState {
       };
     }
 
-    // With an item held the verb applies WITH it, which is a different
-    // question and draws on a different source. Checked after transit, so
-    // walking through a door while carrying something still walks.
-    const action = this.held
+    // WITH AN ITEM HELD, ONLY A CARRY VERB APPLIES IT. Doc 24's USE X ON Y is
+    // the two-click sentence; LOOK AT, OPEN, PULL and the rest are questions
+    // about the target and were never about what he happens to be holding.
+    //
+    // Without the `carries` test every verb went down the WITH path while
+    // anything was held, so LOOK AT on the letter while holding the letter
+    // resolved as LOOK AT THE LETTER ON THE LETTER -- a pair nobody authored,
+    // which fell through to a pool and then to nothing. Reported as the
+    // sentence repeating twice and doing nothing.
+    //
+    // VerbSystem.carries() already existed for exactly this distinction and
+    // its own comment names the inverted question -- "the small set is the one
+    // that CARRIES, not the one that answers" -- but only VerbSystem asked it.
+    // R5o: the predicate was written, correct, and unreached by the branch it
+    // was written for.
+    const action = this.held && this.verbs.carries(verb)
       ? this.verbs.resolveWith(verb, this.held, target, room)
       : this.verbs.resolve(verb, target, room);
 
