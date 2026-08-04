@@ -1046,6 +1046,17 @@ export interface OverlayFile {
   /** [x, y, w, h] in the BODY FRAME'S OWN PIXELS, scaled with the drawn height. */
   rect: [number, number, number, number];
   /**
+   * The body clips this overlay composites onto. Absent means all of them.
+   *
+   * SOME CLIPS ALREADY CARRY THE HEAD. The coach's `walk` frame is one drawn
+   * picture of a departing coach WITH ITS DRIVER IN IT, so compositing over it
+   * paints a second head on a man who has one -- reported as the driver's head
+   * reappearing and stuttering as he drove off. Whether a piece of art already
+   * contains the thing an overlay draws is not a question code can ask, so it
+   * is declared.
+   */
+  clips?: string[];
+  /**
    * A rect for a particular body clip, keyed `clip` or `clip/state`.
    *
    * ONE RECT CANNOT SERVE EVERY FRAME. The coach's door-open frame is a
@@ -1061,7 +1072,14 @@ export interface OverlayFile {
    */
   rectFor?: Record<string, [number, number, number, number]>;
   /** The body's figure height, so the rect scales exactly as the body does. */
-  figureHeight: number;
+  /**
+   * VOID. Removed from the data and read by nothing. A body's figure height
+   * is PER CLIP -- the coach is 447 standing and 224 walking -- so a single
+   * number here could never follow it, and four separate fixes were computed
+   * inside it before that was noticed. drawOverlays uses the drawn clip's own
+   * scale. Kept optional so an old file still loads.
+   */
+  figureHeight?: number;
   /** The state drawn when no speaker selects another. */
   default: string;
   states: Record<string, OverlayState>;

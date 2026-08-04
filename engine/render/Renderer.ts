@@ -789,8 +789,22 @@ export class Renderer {
       const place = sprite.placement(mover.clip, mover.facing, surface, feetX, feetY,
         mover.height, state);
       if (!place) continue;
+      // CLIPS THAT ALREADY CARRY THE HEAD GET NO OVERLAY. The departing coach
+      // is one drawn picture with its driver in it, head and all; compositing
+      // over it paints a second head on a man who has one. Declared in the
+      // overlay rather than inferred, because "does this art contain a head"
+      // is not a question code can ask.
+      if (overlay.clips && !overlay.clips.includes(mover.clip)) continue;
       const [rx, ry, rw, rh] = overlayRect(overlay, mover.clip, state);
-      const scale = mover.height / overlay.figureHeight;
+      // THE BODY'S OWN SCALE, NOT A SECOND ONE. This was
+      // `mover.height / overlay.figureHeight`, and a body's figure height is
+      // PER CLIP: the coach is 447 tall standing and 224 walking. One declared
+      // number cannot follow that, so the head was drawn at a scale the body
+      // was not using -- 1.149x adrift on the idle clips, 2x on the walk one,
+      // which is the two-drivers report and then its return on departure.
+      // `place.scale` is computed from the clip actually being drawn, so the
+      // overlay cannot disagree with what it sits on.
+      const scale = place.scale;
       this.screen.context.drawImage(
         image,
         Math.round(place.x + rx * scale), Math.round(place.y + ry * scale),
