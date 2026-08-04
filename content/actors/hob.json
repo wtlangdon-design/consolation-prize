@@ -63,10 +63,10 @@
         "art/actors/hob-idlebreak-right/idle-break-10.png",
         "art/actors/hob-idlebreak-right/idle-break-11.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 1365,
       "anchor": [
-        219,
-        526
+        576,
+        1365
       ]
     },
     {

@@ -48,6 +48,22 @@ export interface ResponseRule {
    * and its `item` appears in the inventory.
    */
   take?: boolean;
+  /**
+   * A CONTAINER's contents. `take` alone transfers the hotspot's own `item`,
+   * which is one item and is right for an object that IS the thing picked up.
+   * Room 1's case is not: doc 17 and its own hotspot note say the case is a
+   * container, its contents enter the inventory, and Thad never carries it
+   * around town. Three items, one pickup, no fourth item for the case itself.
+   *
+   * This existed in the content before it existed here. case_mud has carried
+   * `items` since it was written and nothing read it, so PICK UP granted
+   * nothing -- masked entirely by letter, tuning_fork and four_dollars each
+   * ALSO carrying startsHeld, which put them in the inventory before the case
+   * was lifted. ec553ef removed the duplicate on the strength of the grant
+   * existing in the content, without checking anything consumed it, and the
+   * inventory went empty. R5o: the grant was written and nothing reached it.
+   */
+  items?: string[];
   say?: string;
   /**
    * Lines for repeat selections, cycled in order. Doc 05 requires three

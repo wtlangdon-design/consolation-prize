@@ -588,6 +588,12 @@ export class GameState {
       effects.push({ id: `act/${objectKey}/${verb}#room`, kind: 'room', room: destination });
     }
     effects.push(...action.effects);
+    // A container's contents. Distinct from the ownership transfer below:
+    // nothing about the hotspot itself enters the inventory, so this does not
+    // require target.item and does not conflict with it.
+    for (const [n, item] of (action.items ?? []).entries()) {
+      effects.push({ id: `act/${objectKey}/${verb}#take${n}`, kind: 'inventoryAdd', item });
+    }
     if (action.take && target.item) {
       // Doc 22 item 9's ownership half. It rides on the inventory effect
       // rather than on a second one because DurableEffect has no ownership

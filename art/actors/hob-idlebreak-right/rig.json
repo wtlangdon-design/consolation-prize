@@ -1,17 +1,16 @@
 {
-  "source": "reference/casting/hob-walk-right.png",
+  "source": "reference/casting/hob-stand-right.png",
   "key": "magenta",
   "clip": "idle-break",
   "view": "profile",
   "facing": "right",
   "figure": [
-    257,
-    526
+    632,
+    1365
   ],
-  "shoulder_row": 176,
-  "padding": 90,
-  "step_px": 2,
+  "shoulder_row": 273,
+  "padding": 260,
+  "step_px": 6,
   "motion": "shrug",
-  "frames": 12,
-  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1517px, which is 6x linear and 33x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
+  "frames": 12
 }
