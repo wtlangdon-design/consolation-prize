@@ -1,209 +1,210 @@
 {
-  "schema": 1,
-  "id": "town_map",
-  "kind": "map",
-  "name": "THE DISTRICT",
-  "note": "Room 0, doc 20. Not a painted location -- a drawn plan of the district, clicked to travel. It has no floor, no actor and no hotspots, which is why it declares kind: map: the walk-box, staging and depth checks all reason about a room a person stands in, and this is a menu that looks like a place (doc 20 rule 5). Errata 25 withdrew the character token, so nothing on this screen moves. ERRATA 31b and 31c settle every location that was pending: Boot Hill gates on the undertaker naming Pike dead, and everything visible from Main Street appears the first time Thad stands on it -- two locations become twelve at the moment the town opens.",
-  "colours": {
-    "sky": 0,
-    "ground": 0
+ "schema": 1,
+ "id": "town_map",
+ "kind": "map",
+ "name": "THE DISTRICT",
+ "note": "Room 0, doc 20. Not a painted location -- a drawn plan of the district, clicked to travel. It has no floor, no actor and no hotspots, which is why it declares kind: map: the walk-box, staging and depth checks all reason about a room a person stands in, and this is a menu that looks like a place (doc 20 rule 5). Errata 25 withdrew the character token, so nothing on this screen moves. ERRATA 31b and 31c settle every location that was pending: Boot Hill gates on the undertaker naming Pike dead, and everything visible from Main Street appears the first time Thad stands on it -- two locations become twelve at the moment the town opens.",
+ "colours": {
+  "sky": 0,
+  "ground": 0
+ },
+ "horizon": 0,
+ "background": "art/backgrounds/room-00-town-map.png",
+ "hotspots": [],
+ "exits": [],
+ "entrances": [
+  {
+   "from": "*",
+   "note": "Doc 20 rule 2: the map is ALWAYS reachable. It is entered from the panel rather than from a doorway, which is why no room exits to it -- a hotspot is a claim about one room and 'always' is a claim about every room. Leaving it returns to whichever room it was opened from, so there is no arrival point and nothing to face."
+  }
+ ],
+ "locations": [
+  {
+   "id": "loc_main_street",
+   "room": "main_street",
+   "at": [
+    520,
+    458
+   ],
+   "note": "ERRATA 30c, first state: he is standing on it. Ungated -- with the road below it this is the floor of two the map may never go under."
   },
-  "horizon": 0,
-  "background": "art/backgrounds/room-00-town-map.png",
-  "hotspots": [],
-  "exits": [],
-  "entrances": [
-    {
-      "from": "*",
-      "note": "Doc 20 rule 2: the map is ALWAYS reachable. It is entered from the panel rather than from a doorway, which is why no room exits to it -- a hotspot is a claim about one room and 'always' is a claim about every room. Leaving it returns to whichever room it was opened from, so there is no arrival point and nothing to face."
-    }
-  ],
-  "locations": [
-    {
-      "id": "loc_main_street",
-      "room": "main_street",
-      "at": [
-        888,
-        468
-      ],
-      "note": "ERRATA 30c, first state: he is standing on it. Ungated -- with the road below it this is the floor of two the map may never go under."
-    },
-    {
-      "id": "loc_claims_road",
-      "room": "stub_claims_road",
-      "at": [
-        1440,
-        708
-      ],
-      "note": "ERRATA 30c, first state: seeing counts, and he can see it from the street. This is the amendment to doc 20 rule 3 -- a player who takes the driver's EXIT option immediately hears nothing, and an empty map on first opening is a broken screen."
-    },
-    {
-      "id": "loc_undertaker",
-      "room": "undertaker",
-      "at": [
-        972,
-        576
-      ],
-      "when": {
-        "T_UNDERTAKER_NAMED": true
-      },
-      "note": "ERRATA 31b and doc 20 rule 3: heard of, not visited. The driver names him and nobody else in Act I does. Room 13 is composed now, so the label comes from the room's own name."
-    },
-    {
-      "id": "loc_boot_hill",
-      "room": "boot_hill",
-      "label": "BOOT HILL",
-      "unbuilt": true,
-      "at": [
-        1716,
-        444
-      ],
-      "when": {
-        "T_PIKE_DEAD": true
-      },
-      "note": "ERRATA 31b. Doc 20's 'once Pike is mentioned' is VOID: Thad names Ezra Pike to the driver in the opening, and gating on that would put Boot Hill on the map at the coach stop and break 30c's floor of two. It gates on the undertaker saying he is dead."
-    },
-    {
-      "id": "loc_registrar",
-      "room": "claims_registrar",
-      "at": [
-        576,
-        360
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      }
-    },
-    {
-      "id": "loc_livery",
-      "room": "livery",
-      "at": [
-        1224,
-        636
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE LIVERY STABLE",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_tent",
-      "room": "ozymandias_tent",
-      "at": [
-        888,
-        264
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "OZYMANDIA'S TENT",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_church",
-      "room": "church",
-      "at": [
-        348,
-        264
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE CHURCH",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_back_alley",
-      "room": "back_alley",
-      "at": [
-        1668,
-        372
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE BACK ALLEY",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_barber",
-      "room": "barber",
-      "at": [
-        420,
-        540
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE BARBER'S",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_boarding_house",
-      "room": "boarding_house",
-      "at": [
-        204,
-        636
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE BOARDING HOUSE",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_photographer",
-      "room": "photographer",
-      "at": [
-        696,
-        720
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE PHOTOGRAPHER'S",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_bakehouse",
-      "room": "bakehouse",
-      "at": [
-        1116,
-        756
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE BAKEHOUSE",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_storefront",
-      "room": "empty_storefront",
-      "at": [
-        1452,
-        552
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE EMPTY STOREFRONT",
-      "unbuilt": true
-    },
-    {
-      "id": "loc_schoolhouse",
-      "room": "schoolhouse",
-      "at": [
-        156,
-        384
-      ],
-      "when": {
-        "T_SEEN_MAIN_STREET": true
-      },
-      "label": "THE SCHOOLHOUSE",
-      "unbuilt": true
-    }
-  ],
-  "pendingLocations": []
+  {
+   "id": "loc_claims_road",
+   "room": "stub_claims_road",
+   "at": [
+    1225,
+    445
+   ],
+   "note": "ERRATA 30c, first state: seeing counts, and he can see it from the street. This is the amendment to doc 20 rule 3 -- a player who takes the driver's EXIT option immediately hears nothing, and an empty map on first opening is a broken screen."
+  },
+  {
+   "id": "loc_undertaker",
+   "room": "undertaker",
+   "at": [
+    330,
+    345
+   ],
+   "when": {
+    "T_UNDERTAKER_NAMED": true
+   },
+   "note": "ERRATA 31b and doc 20 rule 3: heard of, not visited. The driver names him and nobody else in Act I does. Room 13 is composed now, so the label comes from the room's own name."
+  },
+  {
+   "id": "loc_boot_hill",
+   "room": "boot_hill",
+   "label": "BOOT HILL",
+   "unbuilt": true,
+   "at": [
+    1370,
+    95
+   ],
+   "when": {
+    "T_PIKE_DEAD": true
+   },
+   "note": "ERRATA 31b. Doc 20's 'once Pike is mentioned' is VOID: Thad names Ezra Pike to the driver in the opening, and gating on that would put Boot Hill on the map at the coach stop and break 30c's floor of two. It gates on the undertaker saying he is dead."
+  },
+  {
+   "id": "loc_registrar",
+   "room": "claims_registrar",
+   "at": [
+    700,
+    345
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   }
+  },
+  {
+   "id": "loc_livery",
+   "room": "livery",
+   "at": [
+    810,
+    472
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE LIVERY STABLE",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_tent",
+   "room": "ozymandias_tent",
+   "at": [
+    950,
+    585
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "OZYMANDIA'S TENT",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_church",
+   "room": "church",
+   "at": [
+    600,
+    350
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE CHURCH",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_back_alley",
+   "room": "back_alley",
+   "at": [
+    770,
+    500
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE BACK ALLEY",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_barber",
+   "room": "barber",
+   "at": [
+    350,
+    462
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE BARBER'S",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_boarding_house",
+   "room": "boarding_house",
+   "at": [
+    500,
+    535
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE BOARDING HOUSE",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_photographer",
+   "room": "photographer",
+   "at": [
+    570,
+    535
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE PHOTOGRAPHER'S",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_bakehouse",
+   "room": "bakehouse",
+   "at": [
+    640,
+    538
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE BAKEHOUSE",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_storefront",
+   "room": "empty_storefront",
+   "at": [
+    720,
+    462
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE EMPTY STOREFRONT",
+   "unbuilt": true
+  },
+  {
+   "id": "loc_schoolhouse",
+   "room": "schoolhouse",
+   "at": [
+    710,
+    540
+   ],
+   "when": {
+    "T_SEEN_MAIN_STREET": true
+   },
+   "label": "THE SCHOOLHOUSE",
+   "unbuilt": true
+  }
+ ],
+ "pendingLocations": [],
+ "locationsNote": "MARKERS RE-PLACED against the 1920x864 district map. The old positions were authored on the 320x144 plan errata 54 retired, so on the new drawing boot_hill sat out among the mine works while the graveyard is fenced at the top, back_alley and storefront were up on the diggings, and half the town stood in open grass. Every check passed on that: nothing can verify a marker lands on a building.\n\nPlaced from doc 20's graph and the drawing rather than by eye alone. The two that are not judgement calls: the church is the white steeple, and Boot Hill is the fenced graveyard. The rest follow the script -- the back alley is behind Main Street's EAST end because that is where doc 20 puts the back lots; the six ancillary interiors sit along the side lane south of the street; the empty storefront is at the street's end, which is where an empty one would be; the livery is at the road out, because horses need the road; Ozymandia's tent is on open flat outside town, because a showman pitches off the street; and the claims road is the fork where the road divides for the diggings.\n\nINFERRED, NOT AUTHORED. Which particular facade is the barber's is not written anywhere. tools/map/place-markers.html moves any of them."
 }
