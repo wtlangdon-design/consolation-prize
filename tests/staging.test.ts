@@ -775,6 +775,73 @@ test('a body with one frame needs no entries at all', () => {
   assert.deepEqual(overlayRect(overlay, 'idle', 'anything'), [1, 2, 3, 4]);
 });
 
+/**
+ * ERRATA: the legs scissored when he walked away.
+ *
+ * `walkSpeed` is constant in screen pixels and `stride` is scaled to the
+ * DRAWN height, so a receding figure covers the same ground per second on
+ * ever-shorter strides. Reported from a play-through as a sharp diagonal
+ * making the legs cycle absurdly fast. Measured on Thad -- 245px/s over a
+ * 102px stride -- the cadence ran 2.6 strides a second at the front of the
+ * band and 5.9 at a drawn height of 98.
+ *
+ * The cap is a MINIMUM STRIDE rather than a maximum rate because the walk
+ * branch is driven by distance and has no elapsed time to bound.
+ *
+ * This asserts the property rather than the constant: whatever the ceiling
+ * is, a figure drawn small must not cycle faster than one drawn large. A
+ * test naming 2.6 would pass on a build that had lost the cap and kept the
+ * number.
+ */
+test('the walk cycle does not speed up as the figure shrinks', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom(openingRoom(content));
+  const walker = new Actor(state, content.actor.id, 960, 780, { routed: true });
+  const record = content.actors.get(content.actor.id);
+  assert.ok(record?.strideLength, 'the protagonist declares a stride');
+  const strideLength = record.strideLength as number;
+  const full = record.height;
+
+  const frames = 8;
+  // Frames advance with distance, so ask the same question of one journey at
+  // two drawn sizes: how many cycles does a fixed distance buy?
+  const cyclesOver = (drawn: number): number => {
+    const stride = strideLength * (drawn / full);
+    const distance = 400;
+    let last = 0;
+    let cycles = 0;
+    for (let step = 1; step <= distance; step += 1) {
+      // frameAt returns the idle branch unless he is walking, and `isWalking`
+      // is "not arrived". Hold the target away from him for the whole run.
+      const inner = walker as unknown as { travelled: number; targetX: number };
+      inner.targetX = 100000;
+      inner.travelled = step;
+      const frame = walker.frameAt(step / 60, 8, 8, frames, 0, stride);
+      if (frame < last) cycles += 1;
+      last = frame;
+    }
+    return cycles;
+  };
+
+  const near = cyclesOver(full);
+  const far = cyclesOver(Math.round(full * 0.4));
+  assert.ok(near > 0, 'the near figure cycles at all');
+
+  // Uncapped, the cycle count is inversely proportional to drawn size, so a
+  // figure at 40% cycles 2.5x as often over the same ground. That is the
+  // defect, and it is what this number would be without the ceiling.
+  const uncapped = near / 0.4;
+  assert.ok(far < uncapped * 0.6,
+    `a figure at 40% size took ${far} cycles where uncapped it would take about ${Math.round(uncapped)}`);
+
+  // The ceiling sits slightly above the cadence at full height -- it is the
+  // value at the FRONT OF THE BAND, so that nothing already on screen
+  // changes -- which is why this is a bound and not an equality.
+  assert.ok(far <= near + 1,
+    `a figure at 40% size took ${far} cycles over the same ground where a full-size one took ${near}`);
+});
+
 /* ======================================================================
  * ERRATA D8 -- THE LANTERN'S GROUND LIGHT
  * ====================================================================== */

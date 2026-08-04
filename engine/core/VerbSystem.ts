@@ -14,6 +14,12 @@ export interface ResolvedAction {
   /** Ownership passes to the actor. */
   take?: boolean;
   /**
+   * A container's contents, if this response opens one. Separate from `take`:
+   * `take` transfers the hotspot's own `item` and there is exactly one of it,
+   * where a container hands over several and contributes none of itself.
+   */
+  items?: string[];
+  /**
    * The flag writes this response WOULD make, reserved rather than applied.
    *
    * Doc 34 section 1.2's second defect: "Item/verb resolution writes flags
@@ -253,6 +259,7 @@ export class VerbSystem {
         goto: matched.goto ?? null,
         state: matched.setState,
         take: matched.take,
+        items: matched.items,
         effects: flagEffects(`act/${scope}/${target.id}/${verbId}#${index}`, matched.set, matched.add),
       };
     }
