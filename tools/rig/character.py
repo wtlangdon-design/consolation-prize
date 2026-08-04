@@ -72,6 +72,17 @@ STRAIN_DEGREES = 11.0   # more than a startle's 7: he is putting his back into i
 # only goes one way is a lean.
 STRAIN_ROCK = [0.0, -0.75, 0.95, -0.95, 0.8, -0.55, 0.2]
 STRAIN_ROCK_DEGREES = 9.0
+# THE WRENCH IS THE ONE THAT WORKS, so it does not simply stop rocking. It
+# builds, and then the boot GIVES: the rock unwinds through centre in one
+# frame instead of easing, and the whole figure -- legs and all -- comes up
+# out of the mud and drops back.
+#
+# The lift is what says it. A rotation alone stopping is a man giving up; a
+# man leaving the ground is a boot letting go, and it is the only part of this
+# beat the camera behind him can read as release rather than as effort.
+WRENCH_ROCK = [0.0, -0.8, 1.0, -1.0, 0.95, -0.15, 0.05, 0.0]
+#              build ...................  gives  settle
+WRENCH_LIFT = [0, 0, 0, 0, 0, 26, 10, 0]   # source px, whole figure
 ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
 ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
@@ -695,7 +706,7 @@ def main():
         # rather than as a man deciding to try harder.
         scale = {"tug": 0.5, "strain": 1.0, "wrench": 1.7}[args.clip]
         rock = args.view == "headon"
-        curve = STRAIN_ROCK if rock else STRAIN
+        curve = (WRENCH_ROCK if args.clip == "wrench" else STRAIN_ROCK) if rock else STRAIN
         pivot = float(np.nonzero(upper_m.any(0))[0].mean())
         for i, t in enumerate(curve):
             f = base.copy()
@@ -703,6 +714,13 @@ def main():
                 # Side to side about the same hips. From behind this is the
                 # only rotation with anywhere to go.
                 f = over(rot(upper, STRAIN_ROCK_DEGREES * scale * t, pivot, hem), f)
+                lift = WRENCH_LIFT[i] if args.clip == "wrench" else 0
+                if lift:
+                    # EVERYTHING, not just the torso. A coat rising off its own
+                    # legs is a costume glitch; a man coming out of the mud is
+                    # the whole of him leaving the ground at once.
+                    f = np.roll(f, -lift, axis=0)
+                    f[-lift:, :, :] = 0
             else:
                 f = over(rot(upper, STRAIN_DEGREES * scale * t * toward, pivot, hem), f)
             Image.fromarray(f.astype(np.uint8)).save(out / f"{args.clip}-{i:02d}.png")
