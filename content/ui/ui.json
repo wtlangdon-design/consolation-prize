@@ -1,43 +1,43 @@
 {
-  "schema": 1,
-  "note": "Every string the engine can draw. If a string is not here or in a room, dialogue or menu file, the engine cannot render it. Harness values are placeholders, not written content.",
-  "sentence": {
-    "note": "itemTemplate and itemOnly are new with the inventory. They are interface grammar of the same class as the two above them, not written content -- no document specifies them because no document specifies '{verb} {target}' either.",
-    "template": "{verb} {target}",
-    "verbOnly": "{verb}",
-    "walkTemplate": "{verb}",
-    "itemTemplate": "{verb} {item} on {target}",
-    "itemOnly": "{verb} {item}"
-  },
-  "dialogue": {
-    "optionPrefix": "- ",
-    "optionPrefixSelected": "> ",
-    "exhaustedPrefix": "- "
-  },
-  "notices": {
-    "saved": "SAVED",
-    "restored": "RESTORED",
-    "reset": "RESET"
-  },
-  "hud": {
-    "note": "The key-hint line is gone. There are no required keys: the MENU button in the panel is the route to save, load, options and quit. Chromebook top-row keys are browser keys and never reached the game."
-  },
-  "map": {
-    "note": "Interface grammar, not written content -- the same class as the sentence templates. Doc 20 names the screen THE MAP and specifies that its labels are drawn by the engine in the game font.",
-    "button": "MAP",
-    "back": "BACK",
-    "travelTemplate": "Go to {target}"
-  },
-  "timing": {
-    "note": "How long a line stays up. Interface grammar of the same class as the sentence templates -- no document specifies it because no document specifies '{verb} {target}' either. It is HERE rather than in a .ts file because it is a number a person will want to change after watching the opening, and because menu.json already declares an unimplemented OPTIONS item called 'Text speed': when that is built, this is the value it scales, and a rate buried in the engine could not be.",
-    "lineSecondsPerGlyph": 0.045,
-    "lineSecondsMinimum": 1.6,
-    "actCardExtraSeconds": 4,
-    "actCardNote": "Added to doc 17 beat 7's stated ~3s, so the card holds about seven seconds. The doc's number is how long the BEAT lasts; this is how long two lines of a 5x7 font take to read, which is interface timing and not something doc 17 should have to state. Raised twice from watching it: 2 answered 'too fast' from the deployed build, where the card had exactly the beat's three seconds and one line of text, and 4 is the ruling after a proper play-through. It lives here so the next correction is a number in a content file rather than a rebuild."
-  },
-  "fullscreen": {
-    "note": "Interface grammar, the same class as the map's. Two words rather than one because the button is a TOGGLE and has to say which way it goes -- 'FULL' when windowed, 'WINDOW' when full. Both fit the 336-unit cell at the scaled face: six glyphs is 216 units.",
-    "button": "FULL",
-    "back": "WINDOW"
-  }
+ "schema": 1,
+ "note": "Every string the engine can draw. If a string is not here or in a room, dialogue or menu file, the engine cannot render it. Harness values are placeholders, not written content.",
+ "sentence": {
+  "note": "itemTemplate and itemOnly are new with the inventory. They are interface grammar of the same class as the two above them, not written content -- no document specifies them because no document specifies '{verb} {target}' either.",
+  "template": "{verb} {target}",
+  "verbOnly": "{verb}",
+  "walkTemplate": "{verb}",
+  "itemTemplate": "{verb} {item} on {target}",
+  "itemOnly": "{verb} {item}"
+ },
+ "dialogue": {
+  "optionPrefix": "- ",
+  "optionPrefixSelected": "> ",
+  "exhaustedPrefix": "- "
+ },
+ "notices": {
+  "saved": "SAVED",
+  "restored": "RESTORED",
+  "reset": "RESET"
+ },
+ "hud": {
+  "note": "The key-hint line is gone. There are no required keys: the MENU button in the panel is the route to save, load, options and quit. Chromebook top-row keys are browser keys and never reached the game."
+ },
+ "map": {
+  "note": "Interface grammar, not written content -- the same class as the sentence templates. Doc 20 names the screen THE MAP and specifies that its labels are drawn by the engine in the game font.",
+  "button": "MAP",
+  "back": "BACK",
+  "travelTemplate": "Go to {target}"
+ },
+ "timing": {
+  "note": "How long a line stays up. Interface grammar of the same class as the sentence templates -- no document specifies it because no document specifies '{verb} {target}' either. It is HERE rather than in a .ts file because it is a number a person will want to change after watching the opening, and because menu.json already declares an unimplemented OPTIONS item called 'Text speed': when that is built, this is the value it scales, and a rate buried in the engine could not be.",
+  "lineSecondsPerGlyph": 0.045,
+  "lineSecondsMinimum": 1.6,
+  "actCardExtraSeconds": 2,
+  "actCardNote": "Added to doc 17 beat 7's stated ~3s, so the card holds about seven seconds. The doc's number is how long the BEAT lasts; this is how long two lines of a 5x7 font take to read, which is interface timing and not something doc 17 should have to state. Raised twice from watching it: 2 answered 'too fast' from the deployed build, where the card had exactly the beat's three seconds and one line of text, and 4 is the ruling after a proper play-through. It lives here so the next correction is a number in a content file rather than a rebuild. LOWERED TO 2 after a further play-through: at 4 the card held about seven seconds and read as a pause rather than a title. Two puts it near five, which is still above the three the beat states and above the 2 that once answered 'too fast' -- the difference is that 2 was measured against ONE line of text and the card now carries two."
+ },
+ "fullscreen": {
+  "note": "Interface grammar, the same class as the map's. Two words rather than one because the button is a TOGGLE and has to say which way it goes -- 'FULL' when windowed, 'WINDOW' when full. Both fit the 336-unit cell at the scaled face: six glyphs is 216 units.",
+  "button": "FULL",
+  "back": "WINDOW"
+ }
 }

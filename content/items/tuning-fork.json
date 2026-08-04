@@ -1,28 +1,28 @@
 {
-  "schema": 1,
-  "id": "tuning_fork",
-  "name": "The tuning fork",
-  "short": "THE TUNING FORK",
-  "note": "Doc 23. Never leaves inventory -- doc 01 calls it the game's totem -- so it starts held and no puzzle grants it. Doc 23 note 4: the third LOOK is one of only two mentions of Thad's father in Act I; the other is Room 1's case. These lines SUPERSEDE the pair I wired from doc 10, which were the Room 34 hotspot's rather than the item's.",
-  "startsHeld": true,
-  "responses": {
-    "LOOK_AT": [
-      {
-        "say": "A tuning fork. Steel, A above middle C, and the only tool of my trade with any use out here.",
-        "repeat": [
-          "There is a small dent in one tine. It has not affected the pitch, which I have checked more often than is reasonable.",
-          "My father put this in the case first. He packed it before the shirts."
-        ]
-      }
-    ],
-    "LISTEN_TO": [
-      {
-        "say": "A. Four hundred and forty. Correct.",
-        "repeat": [
-          "Still correct.",
-          "Correct. It is the only thing I own that is."
-        ]
-      }
+ "schema": 1,
+ "id": "tuning_fork",
+ "name": "The tuning fork",
+ "short": "THE TUNING FORK",
+ "note": "Doc 23. Never leaves inventory -- doc 01 calls it the game's totem. IT IS NOT startsHeld AND A PUZZLE DOES GRANT IT: the case's PICK UP in Room 1 gives it, along with the letter and the four dollars. This note previously read 'it starts held and no puzzle grants it', which was true of neither -- the grant had been wired on the case and the note never re-checked against it, so both fired and the fork was carried before the case was lifted. Doc 23 note 4: the third LOOK is one of only two mentions of Thad's father in Act I; the other is Room 1's case. These lines SUPERSEDE the pair I wired from doc 10, which were the Room 34 hotspot's rather than the item's.",
+ "responses": {
+  "LOOK_AT": [
+   {
+    "say": "A tuning fork. Steel, A above middle C, and the only tool of my trade with any use out here.",
+    "repeat": [
+     "There is a small dent in one tine. It has not affected the pitch, which I have checked more often than is reasonable.",
+     "My father put this in the case first. He packed it before the shirts."
     ]
-  }
+   }
+  ],
+  "LISTEN_TO": [
+   {
+    "say": "A. Four hundred and forty. Correct.",
+    "repeat": [
+     "Still correct.",
+     "Correct. It is the only thing I own that is."
+    ]
+   }
+  ]
+ },
+ "startsHeldNote": "REMOVED. This item is granted by the case's PICK UP in Room 1 -- stage-road.json case_mud gives letter, tuning_fork and four_dollars -- so startsHeld put it in the inventory a second time, before the case had been lifted. Reported from a play-through as the case's contents already being carried. The inventory is EMPTY until the case is picked up; the case is the only thing that grants these."
 }
