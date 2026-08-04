@@ -1,4 +1,4 @@
-# 46 · THE ROOM FACTORY — how Room 3 through Room 42 get built without rebuilding Room 1
+# 46 · THE ROOM FACTORY — how every room after Room 1 gets built without rebuilding Room 1
 
 > **Status: proposed.** Commissioned by Tyler at the close of Room 1 — "I want things as perfect
 > as possible before I tweak and fine tune" — and written against doc 34's stop condition, which
@@ -175,15 +175,19 @@ design ruling doc 34 exists to gate. Errata 52 made doc 34 binding. So:
    dialogue; compiling it into a presentation that is about to change shape is waste.
 2. **Doc 34's stop condition is satisfied on the street loop.** Room 2 is the hub and is next
    regardless of anything in this document.
-3. **The compiler is built against Room 2 while Room 2 is built by hand** — every place the
-   hand-build makes a decision the compiler cannot, that is a schema gap found on the proving
-   room instead of on room 30. Doc 05 calls Room 2's lines the ones that must survive two
-   hundred selections; they can also survive being the test corpus.
+3. **Room 2 goes THROUGH the factory as the factory is built — it is not exempt from it.**
+   Tyler's ruling: the factory is for Room 2 too. So the compiler's first real output IS
+   Room 2's content files, and the annotator's first real use IS Room 2's geometry. Where a
+   tool does not exist yet, that piece is done by hand and the gap becomes the tool's next
+   feature — the factory is grown BY building Room 2, not proven afterward on it. Doc 05
+   calls Room 2's lines the ones that must survive two hundred selections; they are also the
+   compiler's first corpus.
 4. **The annotator absorbs the tracer and placer patterns** once the compiler knows what it
    needs from it. Tool before schema is backwards.
 5. **The gauntlet grows from CC's skeleton** as the checks it needs (frame-measuring 1–3) land.
-6. **Rooms 3+ go through Part Four's table.** The first one that does is the factory's real
-   acceptance test.
+6. **Every subsequent room goes through Part Four's table whole.** Room 2 will have gone
+   through it piecewise as the tools came up; Room 3 is the first to run it end to end, and
+   is therefore the factory's acceptance test.
 
 One more constraint, standing: **act variation (Q5) needs a gating field in the compiled
 output, not duplicated hotspot ids.** The compiler's schema should carry it from the start —
