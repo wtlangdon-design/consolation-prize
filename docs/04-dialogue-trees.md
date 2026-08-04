@@ -458,6 +458,41 @@ Each act offers three versions of the letter to his mother: **honest**, **flatte
 
 The player will notice, somewhere around Act III, that they have been doing at small scale exactly what Obadiah Mott did at large — inventing a strike to make a distant person proud. Nothing in the game ever says this.
 
+## The letters, written (W7 pass, doc 47)
+
+**ACT I — honest**
+> "Dear Mother — I have arrived. Consolation is smaller than its advertisements and deeper in mud. I have bought forty feet of the territory with nearly everything I had, and I am told this was foolish, chiefly by the people who sold it to me. I have my fork, my ear, and four dollars. — Your Thaddeus."
+
+**ACT I — flattering**
+> "Dear Mother — I have arrived safely in Consolation, a rising town of two thousand souls and considerable prospects. I have already acquired property and made the acquaintance of the leading men of the district. The air is very healthful. — Your Thaddeus."
+
+**ACT I — flattering, with a number in it**
+> "Dear Mother — Consolation prospers, and I with it. My holding adjoins the richest ground in the district, and men of experience assess my prospects at no less than $40,000. The air is very healthful. — Your Thaddeus."
+
+**ACT II — honest**
+> "Dear Mother — I must correct my last. The property was worthless and was sold to me as a joke I did not hear in time. I tune pianos to eat, there being one piano. I am well, which surprises everyone, including the mud. — Your Thaddeus."
+
+**ACT II — flattering**
+> "Dear Mother — My affairs advance on several fronts, chiefly of paper. I am much in demand at the registrar's, the assay office, and the newspaper, where my name appears with remarkable frequency. The air remains healthful. — Your Thaddeus."
+
+**ACT II — flattering, with a number in it**
+> "Dear Mother — I am engaged upon a matter of documents which, when concluded, will interest parties to the extent of $12,000. My standing grows daily; I was only yesterday the subject of the Clarion's front page. — Your Thaddeus."
+
+**ACT III — honest**
+> "Dear Mother — There has been a development which I am not, in the strictest legal sense, in a position to describe. Do not believe everything you may read of me — or, ideally, anything. I am in good health. This is truer than the town knows. — Your Thaddeus."
+
+**ACT III — flattering**
+> "Dear Mother — I write in haste; my affairs have taken a most exclusive turn, and I move now in circles so elevated I am scarcely seen in town at all. I am widely mour— ADMIRED. Widely admired. The air is healthful. — Your Thaddeus."
+
+**ACT III — flattering, with a number in it**
+> "Dear Mother — My estate — my SITUATION — is valued by knowledgeable men at $30,000 or better, and the whole town turned out on Tuesday to honour me. I could not be more warmly regarded if I were dead. — Your Thaddeus."
+
+**ACT IV — the only version offered. Four lines, entirely true.**
+> "Dear Mother.
+> I was robbed, and it was the making of me.
+> The gold is real. The story is better. I will tell you both in the spring.
+> — Your Thaddeus."
+
 ---
 
 # PART FOUR — VOLUME
