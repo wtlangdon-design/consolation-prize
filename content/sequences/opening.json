@@ -342,7 +342,7 @@
         {
           "do": "chore",
           "actor": "thad",
-          "chore": "strain"
+          "clip": "strain"
         },
         {
           "do": "say",
@@ -352,7 +352,7 @@
         {
           "do": "chore",
           "actor": "thad",
-          "chore": "strain"
+          "clip": "strain"
         },
         {
           "do": "face",

@@ -448,12 +448,12 @@ function opening() {
       // joke earns.
       { do: 'face', actor: 'thad', facing: 'left' },
       { do: 'say', actor: 'thad', line: 0 },
-      { do: 'chore', actor: 'thad', chore: 'strain' },
+      { do: 'chore', actor: 'thad', clip: 'strain' },
       { do: 'say', actor: 'thad', line: 1 },
       // The second one frees him: same clip, and the walk beginning is what
       // says it worked. A separate release pose would be a third piece of art
       // for a fifth of a second.
-      { do: 'chore', actor: 'thad', chore: 'strain' },
+      { do: 'chore', actor: 'thad', clip: 'strain' },
 
       // HE FACES AWAY AND STAYS THAT WAY. Errata 55: "with his back to us."
       // The path wanders left and right up the road -- x goes 575, 581, 537,

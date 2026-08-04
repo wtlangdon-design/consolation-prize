@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { loadContent, Report } from './lib/content.mjs';
 
 /**
@@ -53,6 +54,15 @@ export function check() {
   let sequences = 0;
   let placements = 0;
   let uses = 0;
+  let chores = 0;
+
+  // The actor records, read straight from the manifest: loadContent does not
+  // carry them and a chore's clip cannot be checked without them.
+  const actors = new Map();
+  for (const path of content.manifest.actors ?? []) {
+    const record = JSON.parse(readFileSync(path, 'utf8'));
+    if (record?.id) actors.set(record.id, record);
+  }
 
   for (const { path, data } of content.sequences ?? []) {
     sequences += 1;
@@ -64,6 +74,38 @@ export function check() {
       for (const staged of beat.staging ?? []) {
         const who = staged.actor;
         if (!who) continue;
+
+        // A CHORE NAMES A CLIP IN `clip`, AND NOTHING CHECKED THAT IT DOES.
+        //
+        // The mud beat shipped written as `{ do: 'chore', chore: 'strain' }`.
+        // Opening.ts reads `staged.clip`, so the step lowered with an
+        // undefined clip, choreSeconds looked one up by that name and threw
+        // inside the update loop -- the game froze on the frame after his
+        // line. Every one of 38 validators and 144 tests passed on it, and
+        // there was a correct example six lines away in the same file.
+        //
+        // Two halves, because either alone still ships a freeze: the field has
+        // to be there, and the clip it names has to be one the actor declares.
+        if (staged.do === 'chore') {
+          chores += 1;
+          if (typeof staged.clip !== 'string' || staged.clip.length === 0) {
+            report.fail(
+              `${path} beat ${beat.beat}: ${who}'s chore names no clip. The field is `
+              + '`clip`; a step carrying the clip under any other name lowers with `undefined` '
+              + 'and throws in the draw loop.',
+            );
+          } else {
+            const record = actors.get(who);
+            const declared = (record?.clips ?? []).some((clip) => clip.id === staged.clip);
+            if (record && !declared) {
+              report.fail(
+                `${path} beat ${beat.beat}: ${who} has no clip "${staged.clip}". A chore `
+                + 'staged for a clip nobody drew throws when the beat reaches it, not when '
+                + 'the content is loaded.',
+              );
+            }
+          }
+        }
 
         if (staged.do === 'move' && staged.from) {
           if (placed.has(who) && placed.get(who) !== 'the room entrance') {
@@ -181,7 +223,8 @@ export function check() {
   }
 
   report.note(
-    `${sequences} sequence(s): ${placements} placement(s), ${uses} use(s) of a placed mover`,
+    `${sequences} sequence(s): ${placements} placement(s), ${uses} use(s) of a placed mover, `
+    + `${chores} chore(s) checked against the clips their actor declares`,
   );
   return report;
 }
