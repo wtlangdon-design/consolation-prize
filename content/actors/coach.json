@@ -151,10 +151,10 @@
       "frames": [
         "art/actors/coach-walk-right/walk-00.png"
       ],
-      "figureHeight": 224,
+      "figureHeight": 447,
       "anchor": [
-        275,
-        224
+        564,
+        447
       ]
     }
   ]

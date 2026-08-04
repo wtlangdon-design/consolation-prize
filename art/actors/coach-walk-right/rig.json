@@ -3,10 +3,10 @@
   "facing": "right",
   "view": "profile",
   "figure": [
-    550,
-    224
+    1128,
+    447
   ],
   "padding": 0,
-  "note": "The coach DEPARTING, with its wheels turning. Eight frames: each wheel rotated by the fraction of a revolution that its own radius makes over the same ground, so the rear (r144) and front (r114) turn at DIFFERENT rates. That difference is what makes it read as rolling rather than spinning.\n\nIt was one frame identical to `idle`, so the coach slid off frame with its wheels frozen. The wheels were cut and rotatable in art/objects/coach/ the whole time and nothing drove them.\n\nTHE HORSES' LEGS STILL DO NOT MOVE. They are drawn inside the body and overlap each other, so a leg cycle needs painted masks or new art. Recorded rather than hidden.\n\nSTORED AT 1.15x THE DRAWN HEIGHT, NOT 2x. R5a's 2x is right for a character; applied to a 956-wide coach across 24 frames it produced 26MB a clip and 70MB across the three, in the REQUIRED boot set because beat 2 stages it -- which is the exact problem R5a was written to prevent. 1.15x is still RESAMPLED at draw time, which was the whole reason 1.00x read wrong, at a third of the pixels.",
+  "note": "THE DEPARTING COACH, AT THE SAME RESOLUTION AS THE STANDING ONE.\n\nIT WAS 550x224 AND THE COACH DRAWS AT 389, so the walk frame was UPSCALED 74% the moment the coach started moving -- a soft, blurry coach for the whole of beat 6b -- while every idle clip was scaled DOWN from 447. And the driver's head overlay declares 447, so over this clip it composited at 447/224 = twice the scale it should have: a small head, displaced, on the departing coach, in every play-through.\n\n1bf5d41 rebuilt the closed clips from a source with the case painted out and said 'walk is the same frame'. It was -- and the pixels agree: idle-00 downscaled to 550x224 matches the old walk frame to a mean absolute error of 1.47 of 255, with the alphas disagreeing on 0.05% of pixels. So this is that same picture at full size, copied from art that already ships. No generation.\n\nTHE WHEELS ARE FROZEN AGAIN AND THAT IS NOT FIXED HERE. 2ab0616 gave this clip eight frames, each wheel rotated by the fraction of a revolution its own radius makes over the same ground, so the rear (r144) and front (r114) turn at DIFFERENT rates -- which is what makes it read as rolling rather than spinning. 1bf5d41 replaced all eight with one and the note describing them survived, describing frames that were no longer there. Restoring them means re-running the wheel rig over art/objects/coach/, which is art rather than a copy.\n\nTHE HORSES' LEGS STILL DO NOT MOVE. They are drawn inside the body and overlap each other, so a leg cycle needs painted masks or new art. Recorded rather than hidden.",
   "frames": 1
 }

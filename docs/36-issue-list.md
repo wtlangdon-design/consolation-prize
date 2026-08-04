@@ -2652,6 +2652,44 @@ The pool is sized off the carrier's **drawn** height, so it recedes with him by 
 
 **Not built, and named rather than left to be found: flicker.** Doc 36 line 67 says flicker is now modulation of the glow's alpha or tint over time, no frames. Nothing modulates it — the pool is steady. **That is a one-line change against the clock and it should be a ruling, not a default**, because a flame's flicker rate is a look decision and a wrong one reads as a fault in the renderer.
 
+## Q98 · One check for the whole class: a record must be true of the pixels beside it
+
+`tools/check-rig-describes-frames.mjs`, **registered**, five clauses. Every bug it covers reached a play-through, and every one of them was invisible because **every existing check compared records with records.** Nothing opened a PNG and asked whether the number was true of it.
+
+**Proved by reintroducing the bugs**: 17 failures on the pre-fix tree, 0 after — and the numbers it reports are the ones already on the record. `thad-walk-left` at a declared 442 against 526px of frames reads **1.190x**, which is the 19% that shipped. `driver-head.json` at 389 against a 447 body reads **1.149x**, exactly the figure in its own `figureHeightNote`.
+
+| clause | what it asserts | bound, and where it came from |
+|---|---|---|
+| 1 | the figure's top is canvas row 0 | exact — true by construction for everything the rig writes, and all 39 clips sit at 0 today |
+| 2 | declared figure height is true of the alpha | ≤ **1.08×**. 35 of 39 clips are exactly 1.000; the four that are not are head-on walks and recoils where a leg drops below the soles — 1.042, 1.042, 1.040, **1.056** |
+| 3 | an overlay's figure height equals its body's | exact |
+| 4 | the art-side rig and the content record agree | exact |
+| 5 | a clip declaring `returns_to` begins and ends there | ≥ **0.95** silhouette agreement |
+
+**The bounds are measured, not chosen** (R5b2), the distribution is printed on every run, and a new clip that legitimately reaches further fails by name so the number moves once, visibly, instead of the check being loosened until it is quiet.
+
+### Two live faults it found on its first run, both on `main`
+
+**THE DEPARTING COACH WAS UPSCALED 74%, AND THE DRIVER'S HEAD WAS AT TWICE ITS SCALE.** `coach-walk-right` declared 550×224 while every coach idle declares 1128×447 and the coach *draws* at 389 — so the idles scaled **down** by 0.87 and the walk scaled **up** by 1.74 the instant the coach began to move. And because `driver-head.json` declares 447, the overlay composited over that clip at **447/224 — twice the scale it should be.** Beat 6b, every play-through.
+
+**Fixed from art that already ships, not by regenerating.** `1bf5d41` rebuilt the closed clips with the case painted out and said *"walk is the same frame"* — it was, and the pixels agree: `idle-00` downscaled to 550×224 matches the old walk frame to **a mean absolute error of 1.47 of 255**, alphas disagreeing on 0.05% of pixels. So the walk frame is now that same picture at full size, copied.
+
+**And `1bf5d41` silently undid `2ab0616`.** The wheel clip went from eight frames to one, and the note describing eight rotating wheels survived on a directory holding one still frame. **The wheels are frozen again.** Restoring them means re-running the wheel rig over `art/objects/coach/` — art, not a copy, and left.
+
+**THE DRIVER-HEAD RIG WAS STILL CARRYING BOTH ORIGINAL BUGS.** `art/actors/driver-head-right/rig.json` said `overlay_rect [409, 10]` and `figure [956, 389]`. The record was measured and corrected; **the rig was not, and the rig is what a regeneration reads.** Corrected to the record's verified values, with the derivation cited rather than re-derived. Clause four now asserts they agree.
+
+## Q99 · The seven chores are reseated, and byte equality could never have been the test
+
+**All seven fixed**, by `tools/rig/reseat_chore.py --all-returning`. Frames 0 and last of each are now the current `thad-stand-right`, resampled to the chore's figure height and seated on its anchor — soles on the sole row, centre line on the centre line, premultiplied before resampling (R4).
+
+**This is not a re-rig and the tool cannot become one.** The key poses in frames 1–3 come from art in `reference/casting/` that no rig.json names, and rebuilding those needs knowledge nobody wrote down. **Frames 0 and last need none of it, because the contract says exactly what they are.**
+
+**THE CONTRACT'S OWN WORDING IS UNTESTABLE AND THAT IS THE FINDING.** Seven rigs say *"Frame 0 and frame 4 ARE the stand frame, byte for byte."* A chore is 526px of figure on a 390×547 canvas; the stand is 625px on 648×690. **They can never be byte-equal.** Worse: **the two ends WERE byte-equal to each other throughout the bug** — both were the old stand — so the obvious test would have passed while the bug was live.
+
+So clause five compares silhouettes on a 64×64 grid over each figure's own bounding box, which is scale-free and reuses none of the seating arithmetic (R5e). **Measured: 57% before, 100% after, against key poses at 45–69%.** The bound is 0.95, which no key pose can reach and no correct end frame misses.
+
+**`carry` is played by nothing.** Its own generator comment says *"BEAT 6b HOLDS HIM IN `carry` WHILE THE COACH GOES, and that one moment is the whole reason the clip exists"* — and beat 6b's shipped staging is `setState thad`, `setState coach`, `move coach`. **A comment asserting behaviour the product does not have, which is R5o's exact tell**, in the file that generates the staging it describes. The bible's opening image — *"a stage coach pulls away, revealing a young man in a good coat standing in mud, holding a case"* — is not on screen. **Not added here: what plays in a beat is staging, and staging comes from doc 17.**
+
 ---
 
 # HOW THIS DOCUMENT WORKS

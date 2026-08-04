@@ -37,6 +37,7 @@ import { check as keyFringe } from './check-key-fringe.mjs';
 import { check as gauntletScript } from './check-gauntlet-script.mjs';
 import { check as speechColours } from './check-speech-colours.mjs';
 import { check as exitCollisions } from './check-exit-collisions.mjs';
+import { check as rigDescribesFrames } from './check-rig-describes-frames.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -79,6 +80,7 @@ const CHECKS = [
   gauntletScript,
   speechColours,
   exitCollisions,
+  rigDescribesFrames,
 ];
 
 let failed = 0;
