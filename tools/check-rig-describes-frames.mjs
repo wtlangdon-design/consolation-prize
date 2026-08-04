@@ -127,16 +127,21 @@ export function check() {
     + `the furthest any limb reaches below its sole line is ${worst.ratio.toFixed(3)}x `
     + `figure height (${worst.dir}), against a bound of ${BELOW_SOLE}`);
 
-  // CLAUSE THREE: AN OVERLAY SCALES BY THE BODY IT LANDS ON.
+  // CLAUSE THREE WAS "AN OVERLAY'S FIGURE HEIGHT EQUALS ITS BODY'S", AND IT IS
+  // GONE BECAUSE THE MECHANISM IT GUARDED IS.
   //
-  // `drawOverlays` scales an overlay by height/overlay.figureHeight and the
-  // body by height/clip.figureHeight. If those two numbers differ, the same
-  // picture is drawn at two scales and the head floats off the shoulders --
-  // and every rect measured afterwards is measured inside the wrong space.
+  // It shipped, caught the live fault it was written for, and was superseded
+  // within the hour by the better fix: `figureHeight` is removed from overlay
+  // data entirely and `drawOverlays` takes the scale of the clip actually being
+  // drawn. A body's figure height is PER CLIP -- the coach was 447 standing and
+  // 224 walking -- so ONE number on the overlay could never have followed it,
+  // and asserting the two agree only ever made one of the two clips right.
   //
-  // A ONE-LINE COMPARISON AGAINST DATA THAT ALREADY EXISTED. It would have
-  // turned four separate fixes into one, and three of those four could not
-  // have worked.
+  // KEPT AS A PARAGRAPH RATHER THAN DELETED, because the next person to see
+  // this shape will reach for the same check. The lesson is that a check
+  // defending an invariant somebody can delete is worth less than deleting the
+  // field: this clause would have gone on passing forever against a number
+  // nothing read (R5l), which is exactly the failure it was written to catch.
   const content = loadContent();
   // Every declared record, the protagonist included. `loadContent` exposes the
   // protagonist as `actor`; the rest are named in the manifest's `actors`.
@@ -145,23 +150,30 @@ export function check() {
   const overlays = (content.manifest.overlays ?? []).map((path) => ({
     path, data: readJson(path),
   }));
-  let checked = 0;
   for (const { path, data } of overlays) {
     const body = records.find((record) => record.id === data.over);
     if (!body) {
       report.fail(`${path}: composites over "${data.over}", which is not a declared actor`);
       continue;
     }
-    const heights = [...new Set(body.clips.map((clip) => clip.figureHeight))];
-    for (const height of heights) {
-      checked += 1;
-      if (data.figureHeight === height) continue;
-      report.fail(`${path}: declares figureHeight ${data.figureHeight} and ${data.over} `
-        + `draws at ${height}. The overlay would scale by ${(height / data.figureHeight).toFixed(3)}x `
-        + 'the body\'s factor, so it lands the wrong size in the wrong place');
+    if (data.figureHeight !== undefined) {
+      report.fail(`${path}: still declares figureHeight ${data.figureHeight}. It is VOID -- `
+        + 'a body\'s figure height is per clip and drawOverlays takes the drawn clip\'s own '
+        + 'scale, so a number here is read by nothing and will be believed by somebody');
     }
+    // WHICH BODY CLIPS IT LANDS ON MUST NAME CLIPS THAT EXIST. `clips` is how an
+    // overlay says it does not apply to art that already contains it -- the
+    // departing coach is one drawn picture with its driver in it -- and a
+    // misspelling there silently reinstates the second head.
+    const declared = new Set(body.clips.map((clip) => clip.id));
+    for (const id of data.clips ?? []) {
+      if (declared.has(id)) continue;
+      report.fail(`${path}: applies to body clip "${id}", which ${data.over} does not `
+        + `declare. It has ${[...declared].sort().join(', ')}`);
+    }
+    report.note(`${path}: over ${data.over}, on `
+      + `${data.clips ? `${data.clips.length} named clip(s)` : 'every clip'}`);
   }
-  report.note(`${overlays.length} overlay(s) checked against ${checked} body figure height(s)`);
 
   // CLAUSE FOUR: THE ART-SIDE RIG AND THE CONTENT-SIDE RECORD AGREE.
   //
@@ -180,7 +192,13 @@ export function check() {
       continue;
     }
     const { path, data } = record;
-    if (Array.isArray(rig.figure) && rig.figure[1] !== data.figureHeight) {
+    // THE FIGURE HEIGHTS ARE NO LONGER COMPARED. The record does not carry one
+    // any more -- see clause three -- so the rig's `figure` is now provenance
+    // only: it says which body space its rect was measured in. Asserting it
+    // against a field that no longer exists is a check failing on correct work,
+    // which is R5j and cost this file a red the hour the better fix landed.
+    if (Array.isArray(rig.figure) && data.figureHeight !== undefined
+      && rig.figure[1] !== data.figureHeight) {
       report.fail(`${dir}/rig.json says the body is ${rig.figure[1]}px and ${path} says `
         + `${data.figureHeight}px. The rig is what the next regeneration reads`);
     }

@@ -2726,6 +2726,18 @@ Checked against `tools/gauntlet/opening.json` before filling anything in, as ask
 
 **And the script is emptier than "2 of 12 beats" suggests**: beat 2 asserts a relation (`thad.moving` when the walk clip starts), beat 3 asserts only that it begins. Beat 7's `within` is the third assertion and it is a ceiling. **Everything else is structure.**
 
+## Q102 · Clause three shipped, caught its fault, and was obsolete within the hour — correctly
+
+**`b329dac` is the better fix and it supersedes the check I wrote for the same bug.** I asserted that an overlay's `figureHeight` must equal its body's. `b329dac` **removed `figureHeight` from overlay data entirely** and made `drawOverlays` take the scale of the clip actually being drawn.
+
+**That is strictly better and the reason is the one my own clause could not survive.** A body's figure height is **per clip** — the coach was 447 standing and 224 walking — so **one number on the overlay could never have followed it**, and asserting the two agree only ever made one of the two clips right. My check would have gone on passing forever against a number nothing read, which is R5l: **exactly the failure it was written to catch.**
+
+> **A check defending an invariant somebody can delete is worth less than deleting the field.** Recorded rather than quietly dropped, because the next person to meet this shape will reach for the same check.
+
+**And it went red the moment the two landed together** — `figureHeight` became `undefined`, the comparison produced `NaN`, and the check failed on correct work (R5j). Replaced with two assertions that survive the new shape: **`figureHeight` must be absent** (a void field left in place will be believed by somebody), and **`clips` must name body clips that exist** — a misspelling there silently reinstates the second head, since `clips` is how an overlay says it does not apply to art that already contains it.
+
+**The two coach fixes compose rather than collide.** Theirs stops the overlay applying to `walk` at all; mine gives `walk` the same resolution as every other coach clip. The record now reads **447 across all five clips** where it read 447/447/447/447/**224**, so the departing coach is scaled *down* from 447 to 389 instead of *up* from 224 — and their observation that the walk frame already contains its driver stays true, because the frame it now holds is the closed-door idle, which is where the baked driver has always been.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
