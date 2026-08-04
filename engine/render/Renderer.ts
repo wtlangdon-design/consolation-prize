@@ -43,6 +43,11 @@ export interface Frame {
    */
   speaker?: string | null;
   /**
+   * An exchange is being PERFORMED, so the choice list is neither drawn nor
+   * clickable. Doc 30 section 1.
+   */
+  performing?: boolean;
+  /**
    * Which beat is playing, so a violation can name it. Doc 44.
    *
    * Carried on the frame rather than fetched, because the renderer must not
@@ -107,6 +112,12 @@ const TEXT_MARGIN = 6 * GLYPH_SCALE;
 const ACT_CARD_Y = 66 * GLYPH_SCALE;
 //: Doc 17 writes the card on two lines. 11 rows apart for a 7-row font.
 const ACT_CARD_LINE_HEIGHT = 11 * GLYPH_SCALE;
+/**
+ * How far above a speaker's head his words sit, as a fraction of his DRAWN
+ * height. Doc 30 section 3.1's "authored offset", scaled: the anchor follows
+ * the actor's scale, so the gap must too.
+ */
+const SPEECH_GAP = 0.12;
 const MAP_MARKER = 3 * GLYPH_SCALE;
 const MAP_LABEL_HEIGHT = 11 * GLYPH_SCALE;
 
@@ -304,6 +315,14 @@ export class Renderer {
   private readonly drawnAs = new Map<string, string>();
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
+  /**
+   * Set from the frame, read by BOTH the draw and the hit test.
+   *
+   * One field rather than two readings of the same fact: a list that were
+   * hidden but still clickable would be worse than a visible one, because the
+   * player could not see what they had hit.
+   */
+  private performing = false;
   private frameIndex = 0;
 
   /** How every mover drew on the last composed frame. Doc 44's `drawn`. */
@@ -313,6 +332,11 @@ export class Renderer {
 
   /** Options currently drawn, so the scene can hit-test them. */
   dialogueHitboxes(options: PresentedOption[]): { id: string; y: number; height: number }[] {
+    // NOTHING IS CLICKABLE WHILE AN EXCHANGE PLAYS, and this is the half that
+    // makes doc 30 step 2 true rather than merely look true. The list is not
+    // drawn then either; both read `performing`, so there is no state in which
+    // a row can be hit without being visible.
+    if (this.performing) return [];
     const top = dialogueTop(options.length);
     return options.map((presented, index) => ({
       id: presented.option.id,
@@ -372,6 +396,7 @@ export class Renderer {
       watch.frame(this.frameIndex, this.clock, frame.beat ?? null);
     }
     this.speaker = frame.speaker ?? null;
+    this.performing = frame.performing === true;
     // THE PANEL BAND IS CLEARED EVERY FRAME, WHETHER OR NOT A PANEL GOES IN IT.
     //
     // Nothing else repaints it. `drawPlate` covers the PLAY AREA -- rows 0 to
@@ -422,7 +447,15 @@ export class Renderer {
     if (frame.barkAt) {
       this.drawBark(frame.barkLines, frame.barkAt);
     }
-    if (this.state.dialogue.isActive) {
+    // DOC 30 STEP 2: THE LIST IS NOT DRAWN WHILE AN EXCHANGE PLAYS. "While an
+    // exchange plays, choices are hidden and cannot receive clicks. They
+    // return only after the exchange is complete."
+    //
+    // `dialogueHitboxes` answers with nothing under the same condition, so the
+    // two cannot disagree -- a list that were hidden but still clickable would
+    // be worse than one that were visible, because the player could not see
+    // what they had hit.
+    if (this.state.dialogue.isActive && !frame.performing) {
       this.drawDialogue();
     }
     // Doc 17 beat 7. Over the room, not over black: the card lands on the
@@ -1081,18 +1114,122 @@ export class Renderer {
     block(1, 24, 4, 16);
   }
 
+  /**
+   * Speech, OVER THE SPEAKER. Doc 30 section 3.1.
+   *
+   * "Anchor at the speaker's current screen-space head position plus an
+   * authored offset. The anchor follows actor position and scale; it is not a
+   * room-global SAY_TOP constant." Doc 30 section 2 names the gap this closes
+   * in as many words: "Consolation currently treats most dialogue as a
+   * top-centred string."
+   *
+   * THE CLAMP IS WHAT MAKES IT SAFE. The block is positioned from its measured
+   * dimensions and then pushed inside the playfield -- margins at the sides,
+   * two pixels from the top, and clear of the panel -- so a speaker at the
+   * frame edge or drawn tall does not push his own words off the screen.
+   *
+   * A SPEAKER WITH NOWHERE TO STAND FALLS BACK TO THE TOP, and doc 30 forbids
+   * exactly that -- "a speaker who is offscreen must use an explicit fixed
+   * anchor or be staged onscreen. Do not silently fall back to top-centre." So
+   * it is not silent: the fallback is used only when the speaker is not a
+   * mover in this room at all, which today means an unattributed line, and the
+   * watch records it by name.
+   */
   private drawSay(lines: string[]): void {
     const ink = this.speechColour();
+    const anchor = this.speechAnchor(lines);
     lines.forEach((line, index) => {
       this.font.drawCentredOutlined(
         this.screen.context,
         line,
-        NATIVE_WIDTH / 2,
-        SAY_TOP + index * DIALOGUE_LINE_HEIGHT,
+        anchor.x,
+        anchor.y + index * DIALOGUE_LINE_HEIGHT,
         ink,
         this.screen.roleColour('overlayBg'),
       );
     });
+  }
+
+  /**
+   * Where a speech block's first line sits, clamped into the playfield.
+   *
+   * Measured, not estimated: doc 30 section 5 says "measure with
+   * BitmapFont.measure(); do not estimate from string length", and the block's
+   * width is the widest line in it.
+   */
+  private speechAnchor(lines: string[]): { x: number; y: number } {
+    const height = lines.length * DIALOGUE_LINE_HEIGHT;
+    const half = Math.max(...lines.map((line) => this.font.measure(line)), 0) / 2;
+    const at = this.speakerHead();
+    if (!at) {
+      if (watch.enabled && this.speaker !== null) {
+        watch.record('off-band', this.speaker,
+          'speaks but stands nowhere in this room, so the line falls back to top-centre');
+      }
+      return { x: NATIVE_WIDTH / 2, y: SAY_TOP };
+    }
+    // ABOVE HIS HEAD, BY A FRACTION OF HIS OWN DRAWN HEIGHT rather than a
+    // constant: the offset has to follow the scale for the same reason the
+    // anchor follows the position, or a man drawn small up the road wears his
+    // words as a hat while one at the front holds them at his knees.
+    const top = at.headY - SPEECH_GAP * at.height - height;
+    return {
+      x: Math.round(Math.max(TEXT_MARGIN + half,
+        Math.min(NATIVE_WIDTH - TEXT_MARGIN - half, at.x))),
+      // Two native pixels from the top, x GLYPH_SCALE, and never into the
+      // panel: doc 30 section 3.1's two clamps, in one expression.
+      y: Math.round(Math.max(2 * GLYPH_SCALE,
+        Math.min(PLAY_HEIGHT - height, top))),
+    };
+  }
+
+  /**
+   * Where the current speaker's head is, whatever KIND of thing he is.
+   *
+   * A SPEAKER NEED NOT BE A MOVER, and assuming he was is what put the
+   * driver's lines back at the top of the sky. He is not a mover at all -- he
+   * is baked into the coach's own frames with only his head separating, which
+   * is why he is an overlay -- so a search of the actor registry found
+   * nothing and the fallback fired for a man plainly on screen. Doc 30 section
+   * 3.1 forbids exactly that: "a speaker who is offscreen must use an explicit
+   * fixed anchor or be staged onscreen. Do not silently fall back to
+   * top-centre."
+   *
+   * THE LINK IS ALREADY IN THE CONTENT. An overlay's states name the speaker
+   * they answer to -- `whenSpeaker: 'stage_driver'` on the driver's `speaking`
+   * head -- so the overlay that draws a speaker's face is found by asking
+   * which overlay claims him, and his head is its rect on the body it sits on.
+   * Nothing new is declared and no id is named in code.
+   */
+  private speakerHead(): { x: number; headY: number; height: number } | null {
+    if (this.speaker === null) return null;
+    const mover = this.actors.all().find((each) => each.id === this.speaker);
+    if (mover) return { x: mover.x, headY: mover.y - mover.height, height: mover.height };
+
+    for (const overlay of this.state.content.overlays.values()) {
+      const claims = Object.values(overlay.states)
+        .some((shown) => shown.whenSpeaker === this.speaker);
+      if (!claims) continue;
+      const body = this.actors.all().find((each) => each.id === overlay.over);
+      const sprite = body ? this.sprites.get(body.id) : undefined;
+      if (!body || !sprite) continue;
+      const state = this.state.moverState(body.id);
+      const place = sprite.placement(body.clip, body.facing, body.surfaceHere(),
+        Math.round(body.x), Math.round(body.y), body.height, state);
+      if (!place) continue;
+      // The same rect the overlay is DRAWN at, resolved the same way, so the
+      // words cannot sit above a head that is somewhere else.
+      const [rx, ry, rw, rh] = overlayRect(overlay, body.clip, state);
+      // His own head's box, in play-area pixels: the block sits above THAT
+      // rather than above the coach he is sitting on, which is two metres of
+      // stagecoach further down.
+      return {
+        x: place.x + (rx + rw / 2) * place.scale,
+        headY: place.y + ry * place.scale,
+        height: rh * place.scale,
+      };
+    }
+    return null;
   }
 
   /**

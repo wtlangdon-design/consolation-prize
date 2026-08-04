@@ -6,7 +6,13 @@ import { fileURLToPath } from 'node:url';
 
 import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
+import {
+  DialoguePerformance, readingHold, type HoldTiming,
+} from '../engine/core/DialoguePerformance.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
+
+/** Doc 30 section 13's constants, as content declares them. */
+const TIMING: HoldTiming = { base: 0.45, perGlyph: 0.055, minimum: 1.8, maximum: 8.0 };
 import { IllegalStateError, pureResolution } from '../engine/core/Assertions.ts';
 import { EFFECT_PHASE } from '../engine/core/Commit.ts';
 import type { ContentBundle, Interactable } from '../engine/core/types.ts';
@@ -536,4 +542,140 @@ test('every authored line still answers, resolved rather than written', async ()
       }
     }
   }
+});
+
+/* ======================================================================
+ * DOC 30 -- A SELECTION IS PERFORMED, NOT RESOLVED
+ * ====================================================================== */
+
+test('D30: the echo is the protagonist speaking the wording he was made to choose', async () => {
+  const state = await fresh();
+  state.dialogue.start('STAGE_DRIVER');
+  const options = state.dialogue.presentOptions();
+  const chosen = options[0]!;
+  const exchange = state.dialogue.beginSelection(chosen.option.id);
+  const said = exchange.presentation;
+
+  const performance = new DialoguePerformance(
+    exchange,
+    { speaker: state.content.actor.id, line: chosen.option.text },
+    [
+      ...(said.say ? [{ speaker: said.sayer, line: said.say }] : []),
+      ...said.rest.map((each) => ({ speaker: each.speaker, line: each.line })),
+    ],
+    TIMING, 0,
+  );
+
+  // DOC 30 SECTION 6.2. The first utterance is the option's own words, in the
+  // protagonist's voice, before anybody answers.
+  assert.equal(performance.phase, 'thadLine');
+  assert.deepEqual(performance.current,
+    { speaker: state.content.actor.id, line: chosen.option.text });
+  assert.equal(exchange.tx.phase, 'echo', 'the exchange is in the phase it names');
+});
+
+test('D30: a line clears itself after its reading hold, and a click clears ONE', async () => {
+  const state = await fresh();
+  state.dialogue.start('STAGE_DRIVER');
+  // THE PROOF CASE, AND IT IS ALREADY AUTHORED. The hotel question carries a
+  // three-line `exchange` across two speakers precisely so it can be
+  // performed rather than flattened: the driver is interrupted, Thad replies,
+  // and the driver lands the joke. Nothing in the content needed writing.
+  const chosen = state.dialogue.presentOptions()
+    .find((each) => each.option.id === 'drv2')!;
+  const exchange = state.dialogue.beginSelection(chosen.option.id);
+  const said = exchange.presentation;
+  const replies = [
+    ...(said.say ? [{ speaker: said.sayer, line: said.say }] : []),
+    ...said.rest.map((each) => ({ speaker: each.speaker, line: each.line })),
+  ];
+  assert.ok(replies.length >= 2, 'the driver answers in more than one utterance');
+  const performance = new DialoguePerformance(
+    exchange, { speaker: state.content.actor.id, line: chosen.option.text },
+    replies, TIMING, 0);
+
+  // The hold is doc 30 section 4.1's formula, not a constant.
+  const echo = performance.current!;
+  const echoHold = readingHold(echo.line, TIMING);
+  assert.equal(performance.holdUntil, echoHold);
+  assert.equal(performance.tick(echoHold - 0.01), false, 'not yet');
+  assert.equal(performance.tick(echoHold), true, 'and then on its own');
+  assert.equal(performance.phase, 'replies');
+  assert.deepEqual(performance.current, replies[0]);
+
+  // A click advances EXACTLY ONE. Doc 30 4.2: "It does not jump to the end."
+  //
+  // THE GUARD IS MEASURED FROM WHEN THE LINE APPEARED, not from zero -- which
+  // is the whole reason it exists: the click that CHOSE the option is still in
+  // the player's hand when the echo comes up, and without the guard the same
+  // press picks the line and dismisses it.
+  assert.equal(performance.skip(echoHold + 0.05), false, 'the 150ms guard holds it');
+  assert.equal(performance.skip(echoHold + 0.2), true);
+  assert.deepEqual(performance.current, replies[1]);
+  assert.equal(performance.done, false, 'one utterance, not the exchange');
+});
+
+test('D30: the exchange settles on EXIT from the last reply, never before', async () => {
+  const state = await fresh();
+  state.dialogue.start('STAGE_DRIVER');
+  // "Thank you for the ride." -- errata 45's own example.
+  const exchange = state.dialogue.beginSelection('drv4');
+  const said = exchange.presentation;
+  const replies = [
+    ...(said.say ? [{ speaker: said.sayer, line: said.say }] : []),
+    ...said.rest.map((each) => ({ speaker: each.speaker, line: each.line })),
+  ];
+  // The echo is the option's own words -- read from content, never retyped.
+  const exiting = state.dialogue.presentOptions().find((each) => each.option.id === 'drv4')!;
+  const performance = new DialoguePerformance(
+    exchange, { speaker: state.content.actor.id, line: exiting.option.text },
+    replies, TIMING, 0);
+
+  // EVERY UTTERANCE, and nothing has committed at any point along the way.
+  let guard = 0;
+  while (!performance.done && guard < 20) {
+    assert.equal(state.flags.getBoolean('T_COACH_DEPARTED'), false,
+      `the coach must not depart under utterance ${guard}`);
+    assert.equal(state.dialogue.isActive, true, 'nor may the tree close under it');
+    performance.tick(performance.holdUntil);
+    guard += 1;
+  }
+  assert.ok(performance.done, 'the performance finished');
+  assert.equal(state.flags.getBoolean('T_COACH_DEPARTED'), true, 'and only then');
+  assert.equal(state.dialogue.isActive, false);
+  assert.equal(exchange.tx.phase, 'settled');
+});
+
+test('D30: skipping the whole thing lands on the same state as watching it', async () => {
+  const watched = await fresh();
+  watched.dialogue.start('STAGE_DRIVER');
+  const one = watched.dialogue.beginSelection('drv4');
+  const first = new DialoguePerformance(one, { speaker: watched.content.actor.id, line: 'x' },
+    [{ speaker: 'other', line: 'a' }, { speaker: 'other', line: 'b' }], TIMING, 0);
+  let guard = 0;
+  while (!first.done && guard++ < 20) first.tick(first.holdUntil);
+
+  const skipped = await fresh();
+  skipped.dialogue.start('STAGE_DRIVER');
+  const two = skipped.dialogue.beginSelection('drv4');
+  const second = new DialoguePerformance(two, { speaker: skipped.content.actor.id, line: 'x' },
+    [{ speaker: 'other', line: 'a' }, { speaker: 'other', line: 'b' }], TIMING, 0);
+  assert.equal(second.skipAll(0.5), true);
+
+  assert.equal(second.done, true);
+  assert.equal(skipped.flags.getBoolean('T_COACH_DEPARTED'),
+    watched.flags.getBoolean('T_COACH_DEPARTED'));
+  assert.equal(skipped.dialogue.isActive, watched.dialogue.isActive);
+  assert.deepEqual(two.tx.journal.trace, one.tx.journal.trace);
+});
+
+test('D30: the reading hold is the binding formula, clamped at both ends', () => {
+  // clamp(1.8, 8.0, 0.45 + glyphs x 0.055)
+  assert.equal(readingHold('', TIMING), 1.8, 'the floor holds for a short line');
+  assert.equal(readingHold('a'.repeat(24), TIMING), 1.8, '0.45 + 1.32 is still under it');
+  const mid = readingHold('a'.repeat(100), TIMING);
+  assert.ok(Math.abs(mid - (0.45 + 100 * 0.055)) < 1e-9, 'and linear between');
+  assert.equal(readingHold('a'.repeat(400), TIMING), 8.0, 'the ceiling holds for a long one');
+  // Text speed applies AFTER the calculation and clamps again. Doc 30 4.1.
+  assert.equal(readingHold('a'.repeat(100), { ...TIMING, speed: 0.1 }), 1.8);
 });

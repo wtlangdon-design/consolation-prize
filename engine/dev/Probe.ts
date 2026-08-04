@@ -56,6 +56,20 @@ export interface FrameReport {
    * not advance. This is what tells it to flush first.
    */
   pending: number;
+  /**
+   * An exchange is being PERFORMED, so the choice list is hidden and nothing
+   * in it can be clicked. Doc 30 section 1.
+   *
+   * THE HARNESS NEEDED THIS THE MOMENT THE PERFORMANCE EXISTED. It drove the
+   * driver's tree by clicking one option after another, which worked while a
+   * selection resolved in three lines and stopped working the instant it took
+   * seconds -- `dialogueHitboxes` answers with nothing while the list is
+   * hidden, so every subsequent click found no row and the run timed out at
+   * 180s having never left the tree. `options` cannot say it: `presentOptions`
+   * reports four throughout, because what changed is whether they are ON
+   * SCREEN, not whether they exist.
+   */
+  performing: boolean;
   /** True once the opening has handed control to the player. */
   handedOver: boolean;
   /**

@@ -400,6 +400,27 @@ async function drive(page, input, script) {
       await page.waitForTimeout(120);
     }
 
+    // A SELECTION IS NOW PERFORMED, SO THE LIST IS NOT ALWAYS THERE. Doc 30
+    // step 2 hides the choices while an exchange plays and takes their
+    // hitboxes with them, which is the whole point -- a click meant for the
+    // next question can no longer land on the answer to the last one.
+    //
+    // THIS IS WHAT THE HARNESS HAD TO LEARN, and the first run after the
+    // change is what taught it: every click after the first found no row,
+    // `continue`d, and the run timed out at 180s having never left the tree.
+    // `options` cannot answer it either -- `presentOptions` reports four
+    // throughout, because what changed is whether they are on SCREEN.
+    //
+    // It skips the click rather than advancing it: doc 30 4.2 gives a click
+    // during an exchange to the utterance, and a harness that clicked through
+    // one would be testing the skip path every time instead of the
+    // performance.
+    for (let guard = 0; guard < 400; guard += 1) {
+      const busy = await page.evaluate(() => window.__gauntlet?.probe()?.performing === true);
+      if (!busy) break;
+      await page.waitForTimeout(120);
+    }
+
     // Errata 37 is revoked and the tags survive, so all four options are
     // present at the end and three are dimmed. An INDEX is stable under that;
     // a text match would not be, and would also put dialogue in this file.

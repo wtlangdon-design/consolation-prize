@@ -10,6 +10,7 @@ import type { FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
+import { DialoguePerformance, type HoldTiming } from '../core/DialoguePerformance.ts';
 import { mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE } from '../render/BitmapFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
@@ -33,6 +34,7 @@ import {
   MUSIC_OPTION,
   GAME_SCENE,
   KEY_LOAD_MODIFIED,
+  KEY_ADVANCE_LINE,
   KEY_MENU,
   KEY_SAVE_MODIFIED,
   QUICK_SLOT,
@@ -71,6 +73,8 @@ export class GameScene extends Phaser.Scene {
   private sayLines: string[] = [];
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: { speaker: string | null; line: string }[] = [];
+  /** The selection being performed, or null while choices are up. */
+  private performance: DialoguePerformance | null = null;
   /**
    * Who is saying the line on screen, when the line records it.
    *
@@ -181,6 +185,11 @@ export class GameScene extends Phaser.Scene {
     this.input.on(Phaser.Input.Events.POINTER_MOVE, this.onPointerMove, this);
     this.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
     this.input.keyboard?.on(`keydown-${KEY_MENU}`, this.onMenuKey, this);
+    // Doc 30 section 4.2. The same one-utterance advance a click gives, so a
+    // player who is reading rather than clicking is not stuck at the mouse.
+    for (const key of KEY_ADVANCE_LINE) {
+      this.input.keyboard?.on(`keydown-${key}`, this.onAdvanceKey, this);
+    }
     // Ctrl+S and Ctrl+L, both preventDefault so the browser does not take
     // them. Convenience only -- everything they do is on the menu.
     this.input.keyboard?.on('keydown', this.onModifiedKey, this);
@@ -242,6 +251,10 @@ export class GameScene extends Phaser.Scene {
     // Advancing and settling FIRST puts the two clocks in phase -- a chore
     // issued now records the same `now` the runner waits from -- and
     // guarantees that whatever finished has let go before anything asks.
+    // A LINE CLEARS ITSELF. Doc 30 section 4.1's reading hold, and the build
+    // had none: interactive dialogue waited for a click forever, which is what
+    // made a conversation read as a menu of prompts rather than a performance.
+    if (this.performance?.tick(now)) this.showPerformance();
     if (this.actors.update(now)) this.markDirty();
     // Where he is standing is state, and this is the only place that knows it.
     this.state.rememberStanding(this.actor.x, this.actor.y);
@@ -288,6 +301,7 @@ export class GameScene extends Phaser.Scene {
       // Doc 43 line 97: the driver's head answers to who is speaking. Null
       // when nobody is, which selects the overlay's default.
       speaker: this.sayLines.length > 0 ? this.sayingActor : null,
+      performing: this.performance !== null,
     });
     this.texture.refresh();
   }
@@ -445,28 +459,25 @@ export class GameScene extends Phaser.Scene {
     // A click on a conversation must never reach the MENU or MAP button
     // underneath it.
     if (this.state.dialogue.isActive) {
-      if (this.advanceSay()) return;
-      // THE CLICK THAT CLEARS THE LAST LINE IS SPENT CLEARING IT, IN A
-      // CONVERSATION ONLY.
+      // A PERFORMANCE OWNS EVERY CLICK IN THE PLAYFIELD WHILE IT PLAYS. Doc 30
+      // section 4.2: "A click that advances speech must be consumed. It must
+      // not also select an option, click a hotspot, move Thad, or press the
+      // interface beneath the hidden list."
       //
-      // A reply is drawn ABOVE the option list rather than instead of it --
-      // otherwise picking an option appears to do nothing -- so the list is
-      // deliberately still under the pointer while the answer plays. A player
-      // clicking the question repeatedly to read a multi-line answer therefore
-      // re-selected that same question the instant the answer ran out, and the
-      // exchange started over. Reported as conversations looping back to the
-      // beginning.
-      //
-      // Not in advanceSay, and that distinction is the whole of it: say lines
-      // do not expire anywhere in this game -- they hold until a room change
-      // or the next line -- so consuming a click there would put a dead click
-      // in front of every examine response in every room. Here there is a list
-      // under the pointer waiting to be hit by accident. Nowhere else is.
-      if (this.sayLines.length > 0) {
-        this.setSay(null);
-        this.markDirty();
+      // THE WHOLE PARAGRAPH THAT USED TO BE HERE IS GONE, and it is worth
+      // recording what it defended. The reply was drawn ABOVE the option list
+      // rather than instead of it, so the list sat under the pointer while the
+      // answer played and a player reading a multi-line answer re-selected the
+      // same question the instant it ran out -- conversations looping back to
+      // the beginning. The fix was to spend the last click. Doc 30 step 2
+      // removes the cause instead: the list is not drawn and has no hitboxes
+      // while an exchange plays, so there is nothing under the pointer to hit
+      // by accident and no click to spend.
+      if (this.performance) {
+        if (this.performance.skip(this.lastFrameAt)) this.showPerformance();
         return;
       }
+      if (this.advanceSay()) return;
       this.onDialogueClick(y);
       return;
     }
@@ -931,18 +942,69 @@ export class GameScene extends Phaser.Scene {
     this.markDirty();
   }
 
+  /**
+   * A choice was clicked. Doc 30 section 6.2: hide the list, and make Thad
+   * speak the wording he was just made to choose.
+   *
+   * IT USED TO CALL `select()`, which is `beginSelection` + advance + advance +
+   * settle in one statement. Every phase boundary the exchange exists to
+   * create was crossed inside it, including the one named `echo`, and the
+   * player never heard Thad say a word he chose. R5o at the largest scale in
+   * this project: doc 30 specified it, errata 45 corrected it,
+   * `DialogueExchange` implements it, and the caller fast-forwarded.
+   */
   private onDialogueClick(y: number): void {
     const options = this.state.dialogue.presentOptions();
     const hit = this.view
       .dialogueHitboxes(options)
       .find((box) => y >= box.y && y < box.y + box.height);
     if (!hit) return;
+    const chosen = options.find((each) => each.option.id === hit.id);
+    if (!chosen) return;
 
-    const result = this.state.dialogue.select(hit.id);
-    this.setSay(result.say, result.sayer);
-    this.pendingSay = result.rest.map((spoken) => (
-      { speaker: spoken.speaker, line: spoken.line }));
-    if (result.ended) {
+    const exchange = this.state.dialogue.beginSelection(hit.id);
+    const said = exchange.presentation;
+    // THE ECHO IS THE OPTION'S OWN WORDING. Doc 30 section 6.2: "using
+    // option.echo when present, otherwise option.text". Spoken by whoever the
+    // manifest says the protagonist is -- no .ts file names him.
+    const echo = { speaker: this.state.content.actor.id, line: chosen.option.text };
+    const replies = [
+      ...(said.say ? [{ speaker: said.sayer, line: said.say }] : []),
+      ...said.rest.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })),
+    ];
+    this.performance = new DialoguePerformance(
+      exchange, echo, replies, this.holdTiming(), this.lastFrameAt);
+    this.showPerformance();
+  }
+
+  /** Doc 30 section 4.1's constants, from content. */
+  private holdTiming(): HoldTiming {
+    const timing = this.state.content.ui.timing;
+    return {
+      base: timing?.holdBaseSeconds ?? 0.45,
+      perGlyph: timing?.holdPerGlyphSeconds ?? 0.055,
+      minimum: timing?.holdMinimumSeconds ?? 1.8,
+      maximum: timing?.holdMaximumSeconds ?? 8.0,
+    };
+  }
+
+  /**
+   * Puts the performance's current utterance on the speech channel, and closes
+   * the exchange out when it has none left.
+   *
+   * THE TREE'S CONSEQUENCES LAND HERE AND NOT SOONER, which is step 7 and is
+   * also errata 45: the exchange settles on EXIT from its last reply, inside
+   * `DialoguePerformance.finish`, so by the time this sees `done` the writes
+   * have committed and `ended` is true if the tree closed.
+   */
+  private showPerformance(): void {
+    const live = this.performance;
+    if (!live) return;
+    const line = live.current;
+    this.setSay(line?.line ?? null, line?.speaker ?? null);
+    if (!live.done) { this.markDirty(); return; }
+    this.performance = null;
+    if (!this.state.dialogue.isActive) {
       this.state.autosave();
       // A tree that was carrying a run of beats hands the sheet back when it
       // closes. Doc 17's EXIT option is "Thank you for the ride." -- the
@@ -1100,6 +1162,12 @@ export class GameScene extends Phaser.Scene {
     this.sayingActor = text ? speaker : null;
   }
 
+  /** Space or Enter: one utterance, exactly as a click gives. Doc 30 4.2. */
+  private onAdvanceKey(): void {
+    if (!this.performance) return;
+    if (this.performance.skip(this.lastFrameAt)) this.showPerformance();
+  }
+
   private onMenuKey(): void {
     if (this.state.dialogue.isActive) return;
     this.state.menu.escape();
@@ -1188,6 +1256,7 @@ export class GameScene extends Phaser.Scene {
       options: this.state.dialogue.isActive
         ? this.state.dialogue.presentOptions().length : 0,
       pending: this.pendingSay.length,
+      performing: this.performance !== null,
       handedOver: this.opening === null,
       segment: this.playingSegment(),
     };

@@ -16,6 +16,17 @@ export const SCREEN_TEXTURE = 'screen';
  * route to anything.
  */
 export const KEY_MENU = 'ESC';
+/**
+ * Doc 30 section 4.2: Space or Enter advances exactly one utterance.
+ *
+ * ESCAPE IS NOT ONE OF THEM AND THAT IS THE DOCUMENT'S OWN RULE. It reserves
+ * Escape and a SKIP SCENE action for NON-INTERACTIVE cutscenes -- "interactive
+ * trees are never timed choices" -- and a dialogue tree is interactive. Escape
+ * stays the menu key it has always been. `DialoguePerformance.skipAll` exists
+ * for the cutscene case and nothing binds to it yet, because there is no
+ * cutscene-skip action in the build.
+ */
+export const KEY_ADVANCE_LINE = ['SPACE', 'ENTER'];
 export const KEY_SAVE_MODIFIED = 'S';
 export const KEY_LOAD_MODIFIED = 'L';
 
