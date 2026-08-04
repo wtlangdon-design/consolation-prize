@@ -505,7 +505,13 @@ export class Actor {
     return true;
   }
 
-  private facingToward(x: number, y?: number): Facing {
+  /**
+   * Which way he would face to look at a point. Public because the scene
+   * needs it for an approach it computed: he walks straight at the thing, so
+   * the direction from where he stands now is the direction from where he will
+   * stand, and this is the only place the dominant-axis rule lives.
+   */
+  facingToward(x: number, y?: number): Facing {
     // A POINT HE IS ALREADY STANDING ON NAMES NO DIRECTION, so it changes
     // nothing. Without this the vertical branch below fired -- dx of zero is
     // inside its dead band, dy of zero is not above him -- and answered

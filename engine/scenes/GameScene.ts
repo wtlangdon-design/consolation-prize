@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { Exit, Interactable } from '../core/types.ts';
+import type { Exit, Facing, Interactable } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
 import { RoomActors } from '../core/RoomActors.ts';
@@ -563,7 +563,7 @@ export class GameScene extends Phaser.Scene {
    * this verb, so the chain is as short as the object needs and no shorter.
    */
   private beginInteraction(target: Interactable, verb: string): void {
-    const staging = target.walkTo;
+    const staging = target.walkTo ?? this.approachPoint(target, verb);
     if (!staging) {
       this.faceTarget(target);
       this.applyInteraction(target, verb);
@@ -594,6 +594,59 @@ export class GameScene extends Phaser.Scene {
    * face-direction-change-without-walking doing its job rather than sitting
    * in an animation list.
    */
+  /**
+   * Where he has to stand before this verb may answer, or null if he is close
+   * enough already -- or if the object says distance is meaningless.
+   *
+   * HE WAS READING A SIGN FROM ACROSS THE ROOM. The staged chain that walks a
+   * man to a thing has existed since doc 22 and only fired for objects
+   * declaring a `walkTo`; in Room 1 that was the case and nothing else, so
+   * every other verb resolved from wherever he happened to be standing.
+   *
+   * AN AUTHORED walkTo STILL WINS -- the caller prefers it and only falls here
+   * when there is none. This is the floor, not the rule: geometry will stand
+   * him behind a fence post, and where the spot matters somebody should say
+   * so.
+   *
+   * THE RADIUS IS IN BODY HEIGHTS, resolved against his DRAWN height, so it
+   * means the same thing at the front of the band and at the back of it. See
+   * approachNote in content/ui/verbs.json.
+   */
+  private approachPoint(target: Interactable, verb: string):
+      { x: number; y: number; facing: Facing } | null {
+    if (target.distant) return null;
+    const ui = this.state.content.verbs;
+    const rules = ui.approach;
+    if (!rules) return null;
+    // WALK TO is the walk. Routing it through an approach radius would ask him
+    // to walk closer before he is allowed to walk.
+    if (verb === ui.walkVerb.id) return null;
+
+    const examine = new Set([...(ui.examineVerbs ?? []), ...(rules.conversationVerbs ?? [])]);
+    const heights = examine.has(verb) ? rules.examineHeights : rules.handsOnHeights;
+    const radius = heights * this.actor.height;
+
+    // TO THE NEAREST EDGE, NOT THE CENTRE. THE MUD is 1920 wide and the town
+    // sign is not; a centre measurement would send him to the middle of the
+    // road to look at the road.
+    const [tx, ty, tw, th] = target.rect;
+    if (tw <= 0 || th <= 0) return null;
+    const nearX = Math.min(Math.max(this.actor.x, tx), tx + tw);
+    const nearY = Math.min(Math.max(this.actor.y, ty), ty + th);
+    const gap = Math.hypot(nearX - this.actor.x, nearY - this.actor.y);
+    if (gap <= radius) return null;
+
+    // Straight at it, stopping a radius short, then snapped to ground he can
+    // actually stand on -- doc 22 step 1's rule for a click, applied to a
+    // destination the engine chose rather than the player.
+    const travel = gap - radius;
+    const wantX = this.actor.x + ((nearX - this.actor.x) / gap) * travel;
+    const wantY = this.actor.y + ((nearY - this.actor.y) / gap) * travel;
+    const stand = this.state.nearestFloor(Math.round(wantX), Math.round(wantY));
+    if (!stand) return null;
+    return { x: stand.x, y: stand.y, facing: this.actor.facingToward(nearX, nearY) };
+  }
+
   private faceTarget(target: Interactable): void {
     const [tx, ty, tw, th] = target.rect;
     if (tw > 0 && th > 0) this.actor.faceToward(tx + tw / 2, ty + th / 2);

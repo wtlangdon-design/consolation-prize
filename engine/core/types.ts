@@ -157,6 +157,13 @@ export interface Interactable {
    * dropped without touching a word of the script.
    */
   reactions?: Record<string, string>;
+  /**
+   * Walking closer to this is meaningless -- the town below, the mountains,
+   * the sky. The approach radius does not apply and the verb answers from
+   * wherever he stands. Without it a distance rule sends him trudging at the
+   * horizon to stop at an arbitrary spot.
+   */
+  distant?: boolean;
 }
 
 export interface Exit extends Interactable {
@@ -854,6 +861,23 @@ export interface VerbsFile {
   transitVerbs?: string[];
   /** Verbs that ask about a held item rather than picking it up to use with. */
   examineVerbs?: string[];
+  /**
+   * How close he must get before a verb answers, IN HIS OWN BODY HEIGHTS.
+   *
+   * Body heights rather than pixels because a pixel is a third of an inch at
+   * the front of the walkable band and nearly an inch at the back of it. A
+   * fixed radius would mean arm's reach near the camera and across the yard up
+   * the road. Stride already scales this way.
+   */
+  approach?: {
+    /** LOOK AT, LISTEN TO and the conversation verbs. About eleven feet. */
+    examineHeights: number;
+    /** Everything hands-on. About three feet -- arm's reach. */
+    handsOnHeights: number;
+    /** Verbs that want a talking distance rather than a touching one. */
+    conversationVerbs?: string[];
+  };
+  approachNote?: string;
   /** Verbs that pick an item up to use on something else. Doc 24's USE. */
   carryVerbs?: string[];
   carryVerbsNote?: string;
