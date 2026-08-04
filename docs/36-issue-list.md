@@ -2804,6 +2804,33 @@ Checked against `tools/gauntlet/opening.json` before filling anything in, as ask
 
 **Two new staging kinds, both named in the drawer**, which `check-drawer-coverage` demanded by name on its first run — `path` labelled with its file (the duration lives there, and a picture of the timing that omits it is useless) and `travel` labelled with its exit.
 
+## Q105 · The stems are rendered, and the tool had two faults and a leftover
+
+**It had never been run, and it stopped on the first line it executed.** `chromium.launch()` bare, with no fallback for a pre-provisioned browser — which the gauntlet had already solved and written down. **Extracted to `tools/lib/chromium.mjs` rather than copied**: two answers to "where is chromium" agree today, and the second consumer found the first one's answer by failing without it.
+
+**THE SECOND FAULT WAS IN THE PROOF, AND ONLY ONE OF THE TWO PIECES COULD SHOW IT.** `scheduleSpan` — the offline-only path, comment and all — laid every beat at the module-level `BEAT`, which is `60/152`. The live scheduler asks `beatSeconds()` for the piece's own beat and lays one beat at a time. **THEME is at 152, so the title stem was correct by coincidence. THADDEUS is at 76 — exactly half — so it rendered at double speed and stopped halfway through its buffer**: a 39-second file with 19.9 seconds of music in it.
+
+`pieceBeat` is computed by `setPiece` and read by `beatSeconds()`, which the live path uses, and *not* by `scheduleSpan`, which nothing had ever run. **Nothing Tyler has heard changes** — the audition path does not touch it.
+
+### The loop had a hole in it, and the tool's own comment said it should not
+
+`Music.ts` sets `element.loop = true`, restarting at sample zero the instant the file ends. The renderer appended a 1.2s release tail, so:
+
+| | before | after |
+|---|---|---|
+| `consolation-title.wav` | 26.46s, tail decaying 0.45 → **0.014** | **25.26s**, exactly 2 statements |
+| `thaddeus-room-01.wav` | 39.09s, **0.6s of digital silence** before the end | **37.89s**, exactly 4 statements |
+
+**A half-second hole in a 38-second bed, every time round, in the room the opening happens in.** The release is now **folded back over the start** — which is what continuous playing sounds like, since a note still ringing when the last beat ends is still ringing when the first beat comes round again.
+
+**Measured after: no silent run anywhere in either file, and the sample step across the loop point is smaller than the MEDIAN ordinary step** — 0.0116 against 0.0118 on the title, 0.0062 against 0.0089 on THADDEUS. There is no click to hear. `renders/music-stems-waveforms.png`.
+
+### Two things to know about the files
+
+**Two renders are never byte-identical.** Errata 56 builds the LA attack transient from bandpassed noise, so every render is a different performance: **0.9% RMS difference on the title, 0.1% on THADDEUS** across two consecutive runs. **Do not diff them to see whether the music changed** — a byte comparison says "different" every time and would say it just as loudly if nothing had been touched.
+
+**11 MB for the pair, and the `.ogg` naming was the residue of the plan to fix that.** The tool named its outputs `.ogg` and rewrote them to `.wav` at all three use sites — a name that had stopped being true (R5k), now `.wav`, which is what is written and what the manifest asks for. **Encoding is still worth having and is not cheap here: neither `ffmpeg` nor `oggenc` is on this machine**, and it would need a manifest change too.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

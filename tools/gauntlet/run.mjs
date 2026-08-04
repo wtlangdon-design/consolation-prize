@@ -2,7 +2,7 @@ import { spawn } from 'node:child_process';
 import { readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-import { chromium } from 'playwright';
+import { browser } from '../lib/chromium.mjs';
 
 import { readJson, ROOT } from '../lib/content.mjs';
 import { clickPoint, validateScript } from './schema.mjs';
@@ -135,42 +135,6 @@ async function serve(mode, port) {
     await new Promise((wake) => setTimeout(wake, 250));
   }
   return { url, stop: () => child.kill('SIGTERM') };
-}
-
-/**
- * A browser, from whichever chromium this machine has.
- *
- * PLAYWRIGHT'S OWN RESOLUTION IS TRIED FIRST and is what CI uses, because
- * `npx playwright install chromium` puts the build this version expects
- * exactly where it looks. It is tried first and not only: a pre-provisioned
- * image ships whatever build it shipped with, and a package bump then asks
- * for a revision that is not on disk -- which is a fault in nothing, and
- * would otherwise stop the harness on the machine it was written on.
- */
-async function browser() {
-  const attempts = [];
-  try {
-    return await chromium.launch();
-  } catch (error) {
-    attempts.push(String(error.message).split('\n')[0]);
-  }
-  const root = process.env.PLAYWRIGHT_BROWSERS_PATH || '/opt/pw-browsers';
-  let found = [];
-  try {
-    found = readdirSync(root)
-      .filter((name) => name.startsWith('chromium-'))
-      .sort()
-      .reverse()
-      .map((name) => resolve(root, name, 'chrome-linux/chrome'));
-  } catch { /* no such directory: the first attempt's message is the answer */ }
-  for (const executablePath of found) {
-    try {
-      return await chromium.launch({ executablePath });
-    } catch (error) {
-      attempts.push(String(error.message).split('\n')[0]);
-    }
-  }
-  throw new Error(`no chromium would launch:\n  ${attempts.join('\n  ')}`);
 }
 
 /* -------------------------------------------------------------- the script */

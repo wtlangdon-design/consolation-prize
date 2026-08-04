@@ -701,10 +701,26 @@ const ConsolationAudio = (function () {
       }
     }
 
-    // schedule a contiguous run of beats in one go (used by offline renders)
+    // SCHEDULE A CONTIGUOUS RUN OF BEATS IN ONE GO, used by offline renders.
+    //
+    // IT USED `BEAT` AND NOT `pieceBeat`, AND HAD NEVER BEEN EXECUTED. The
+    // live scheduler in `tick()` asks `beatSeconds()` for the piece's own beat
+    // and lays one beat at a time; this laid every beat at the THEME's 152bpm
+    // whatever piece was loaded. THADDEUS is 76 -- exactly half -- so an
+    // offline render of it played at double speed and stopped halfway through
+    // the buffer, which is what a 39-second file with 19.9 seconds of music in
+    // it looks like.
+    //
+    // THEME IS AT 152 ITSELF, so the title stem was correct by coincidence.
+    // One of the two pieces agreeing with a hard-coded constant is exactly the
+    // shape that survives a review.
+    //
+    // NOTHING TYLER HAS HEARD CHANGES. `scheduleSpan` has one caller,
+    // `tools/render-music.mjs`, which had never been run; the live audition
+    // path does not touch it.
     function scheduleSpan(t0, beats, startBeat) {
       const s = startBeat || 0;
-      for (let i = 0; i < beats; i++) scheduleBeat(s + i, t0 + i * BEAT);
+      for (let i = 0; i < beats; i++) scheduleBeat(s + i, t0 + i * pieceBeat);
     }
 
     function open(t) {

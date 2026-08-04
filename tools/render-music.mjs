@@ -27,23 +27,47 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { chromium } from 'playwright';
+import { browser as launch } from './lib/chromium.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PROOF = resolve(ROOT, 'proofs/audio/consolation-audio-proof.html');
 const OUT = resolve(ROOT, 'audio');
 const RATE = 44100;
+/**
+ * How much release to render past the last beat, and then FOLD BACK OVER THE
+ * START rather than leave hanging on the end.
+ *
+ * `Music.ts` sets `element.loop = true`, which restarts at sample zero the
+ * instant the file ends. An appended tail therefore plays out and then cuts to
+ * the top: measured on the first render, THADDEUS decayed to DIGITAL SILENCE
+ * 0.6s before the end, so a 39-second bed had a half-second hole in it every
+ * time round. The title's tail fell from 0.45 to 0.014 over the same 1.2s --
+ * quieter, and the same hole.
+ *
+ * Folding is what continuous playing actually sounds like: the release of the
+ * last statement carries over the first notes of the next, because that is
+ * where it would be if the piece had not stopped. The file is then exactly a
+ * whole number of statements long and loops without a seam, which is what this
+ * tool already claimed to do.
+ */
+const TAIL_SECONDS = 1.2;
 
 /**
  * WHAT GETS RENDERED, and each one is a doc 45 cue rather than a convenience.
  *
  * `loops` is whole statements, so the file ends where it began and the bed
  * loops without a seam. A stem cut mid-bar is audible on every repeat.
+ *
+ * NAMED `.wav`, WHICH IS WHAT IS WRITTEN AND WHAT THE MANIFEST ASKS FOR. They
+ * were named `.ogg` here and rewritten to `.wav` at all three use sites -- the
+ * residue of an intention to encode, carried by a name that had stopped being
+ * true (R5k). At 11 MB for the pair that intention is still worth having; it
+ * needs an encoder and a manifest change, and it is not this.
  */
 const STEMS = [
-  { file: 'consolation-title.ogg', piece: 'THEME_LA', loops: 2,
+  { file: 'consolation-title.wav', piece: 'THEME_LA', loops: 2,
     note: 'O-01-M — CONSOLATION, the title mix. Doc 28: full, piano-led.' },
-  { file: 'thaddeus-room-01.ogg', piece: 'THADDEUS_LA', loops: 4,
+  { file: 'thaddeus-room-01.wav', piece: 'THADDEUS_LA', loops: 4,
     note: 'O-02-M — THADDEUS, Room 1. Four bars of 3/4, solo, unaccompanied.' },
 ];
 
@@ -69,20 +93,37 @@ function wav(channels, rate) {
   return buf;
 }
 
-const browser = await chromium.launch();
+/**
+ * The body of the loop, with everything past it summed back into its head.
+ *
+ * A note that is still ringing when the last beat ends is still ringing when
+ * the first beat comes round again -- that is what a loop IS -- so the overflow
+ * belongs at the start, added to what is already there, and not on the end.
+ */
+function fold(data, bodyFrames) {
+  const body = Float32Array.from(data.slice(0, bodyFrames));
+  for (let i = bodyFrames; i < data.length; i += 1) {
+    const at = i - bodyFrames;
+    if (at >= body.length) break;
+    body[at] += data[i];
+  }
+  return body;
+}
+
+const browser = await launch();
 const page = await browser.newPage();
 await page.goto(pathToFileURL(PROOF).href);
 mkdirSync(OUT, { recursive: true });
 
 for (const stem of STEMS) {
-  const rendered = await page.evaluate(async ({ piece, loops, rate }) => {
+  const rendered = await page.evaluate(async ({ piece, loops, rate, tail }) => {
     const CA = window.ConsolationAudio;
     const music = CA[piece];
     const beat = 60 / music.tempo;
     const beats = music.loopBeats * loops;
-    // A tail, so the last note's release is inside the file rather than
-    // chopped off and clicking on the loop point.
-    const seconds = beats * beat + 1.2;
+    // Rendered WITH the tail; the caller folds it back over the start, so the
+    // release is present at the loop point rather than chopped off it.
+    const seconds = beats * beat + tail;
     const ctx = new OfflineAudioContext(2, Math.ceil(seconds * rate), rate);
     const engine = CA.createEngine(ctx, { detuneCents: CA.DETUNE_START, pianoCSharpFlat: true });
     engine.setPiece(music);
@@ -93,12 +134,16 @@ for (const stem of STEMS) {
       left: Array.from(buffer.getChannelData(0)),
       right: Array.from(buffer.getChannelData(1)),
       seconds: buffer.duration,
+      bodyFrames: Math.round(beats * beat * rate),
     };
-  }, { piece: stem.piece, loops: stem.loops, rate: RATE });
+  }, { piece: stem.piece, loops: stem.loops, rate: RATE, tail: TAIL_SECONDS });
 
-  const path = resolve(OUT, stem.file.replace(/\.ogg$/, '.wav'));
-  writeFileSync(path, wav([Float32Array.from(rendered.left), Float32Array.from(rendered.right)], RATE));
-  process.stdout.write(`${stem.file.replace(/\.ogg$/, '.wav')}  ${rendered.seconds.toFixed(2)}s  ${stem.note}\n`);
+  const channels = [rendered.left, rendered.right].map((data) => fold(data, rendered.bodyFrames));
+  const path = resolve(OUT, stem.file);
+  writeFileSync(path, wav(channels, RATE));
+  const held = rendered.bodyFrames / RATE;
+  process.stdout.write(`${stem.file}  ${held.toFixed(2)}s `
+    + `(${(rendered.seconds - held).toFixed(2)}s of release folded back)  ${stem.note}\n`);
 }
 
 await browser.close();
