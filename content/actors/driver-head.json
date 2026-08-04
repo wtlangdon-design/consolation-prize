@@ -11,7 +11,7 @@
   45
  ],
  "rectForNote": "REMOVED, AND THE MEASUREMENT SAYS WHY. rectFor carried an override [421, 1, 53, 45] for idle/door-open, 12px right and 9px up from the base rect. The driver's head does not move between the two states: matching the closed-door head against the open-door frame over a 51x51 search returns offset (0,0) at a mean absolute error of 0.40, and no other offset comes close. So the override painted a second head up and to the right of the one already there, which is the two-drivers report AGAIN -- this file's own rectNote records the first instance, where the HEIGHT was wrong by thirty-five rows.\n\nThat fix corrected the base rect and the override's height, and the base rect was then verified by cross-correlation. THE OVERRIDE'S POSITION WAS NEVER RE-MEASURED, because the bug it caused had been declared closed. One rect was checked, the other inherited the belief that it was fine.\n\nThe base rect is correct for both states. If a state ever genuinely does move the driver, measure the offset the way the base rect was measured and record the number here alongside it -- do not reintroduce an override from a drawing's appearance.",
- "figureHeight": 389,
+ "figureHeight": 447,
  "default": "neutral",
  "statesNote": "WHICH STATE, AND WHEN, IS DOC 43 LINE 97 AND IT IS CONTENT. `looking-down` while Thad speaks up at him, `speaking` on his own lines, `neutral` otherwise. Written as a speaker per state rather than as a rule in the engine, because it is a fact about this character in this scene: the driver looks down at the man addressing him, and nothing general follows from that.\n\nIT ANSWERED A QUESTION THAT WAS ASKED WRONG. This looked like a facing problem -- Thad speaks to a driver 300px above him and the four-direction sprite set has no pose that looks up. It is not. `facingToward` already returns `right` for that geometry, which is the only right answer the art can give, and the man who moves is the driver. Q53.",
  "states": {
@@ -26,5 +26,6 @@
    "image": "art/actors/driver-head-right/head-02.png",
    "whenSpeaker": "thad"
   }
- }
+ },
+ "figureHeightNote": "447, THE COACH'S OWN FIGURE HEIGHT. It was 389 and the body it composites into is drawn at height/447, so the head was scaled by height/389 -- a different scale for the same picture, 1.149x too large and displaced by the same factor. That is why the head floated clear of the shoulders.\n\n389 IS THE SIZE THE COACH USED TO BE. This file's rectNote still says the rect lives 'in the coach body frame's own 956x389 pixels'; the frames are 1129x447 now. The art was regenerated and this record was not, so every rect measured or corrected since -- the height wrong by thirty-five rows, the rectFor override, and [409,10] -> [488,6] -- was arithmetic inside a coordinate space that no longer existed. Three fixes, all reasoning from a stale scale, none of which could have worked.\n\nWhenever a body's art is regenerated at a new size, every overlay over it carries a figure height that must move with it. Nothing checks this today."
 }

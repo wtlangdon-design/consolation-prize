@@ -142,7 +142,13 @@
           "image": "art/objects/room-01-case-mud.png",
           "note": "ON THE GROUND FROM THE FIRST FRAME, beside the coach door, its feet at y800 -- nearer the camera than the coach wheels at 742, so it sorts in front.\n\nSIZED AGAINST THE MAN: a gladstone case is about 22 inches tall, and Thad is 240px for 5'10\", so the case is 31% of him -- 89x75. It was 126x128 and read as a trunk.\n\nPICK UP takes it: the case leaves the ground and its CONTENTS enter the inventory. He never carries it around town, which is what Q11 was asking and this answers -- the case is a container, not an item.\n\nMOVED DOWN AND RIGHT to (1010, 747), feet at y838. At x946 it sat BEHIND and UNDER the coach’s rear wheel -- the vehicle appeared to be standing on it, because the coach’s wheels are at y742 and the case was at y800, only 58px nearer. It is 96px nearer now, so it sorts clearly in front, and 71px from where Thad stands at x1170 rather than 135."
         }
-      }
+      },
+      "walkTo": {
+        "x": 1160,
+        "y": 838,
+        "facing": "left"
+      },
+      "walkToNote": "HE WALKS TO IT BEFORE HE TAKES IT. Reported from a play-through: PICK UP fired from wherever he was standing and the case simply left the ground. beginInteraction already builds walk -> waitForActor -> face -> waitForActor -> chore -> say for any object that declares where to stand, and NO HOTSPOT IN THIS ROOM DECLARED ONE, so every verb in Room 1 resolved on the spot. R5o: the staged chain was built, correct, and unreached.\n\nx1160 y838, facing left. The case occupies x1002-1107 with its feet at y838, so this stands him just clear of its right edge on the same ground -- y838 is inside road_near, which spans 796-864 -- and turns him toward it. It is also where he already stands after alighting, at x1170, so the walk is short rather than a march across the room."
     },
     {
       "id": "lamp",
