@@ -351,9 +351,88 @@ The only prose line in the entire room, on the correct spot:
 
 ---
 
+
+## ROOM 18 — HOTEL LOBBY
+*Act I onward. Eight hotspots. Scripted in the W3 volume pass (doc 47); calibrated against the twelve above.*
+
+**THE REGISTER**
+> **LOOK:** "There I am. 'Thadeus Grub.' The hotel has removed exactly the letters it considers extravagant."
+> **LISTEN:** "Pages settling. Mine has already been turned."
+
+**THE CLERK'S BELL**
+> **LOOK:** "A bell for summoning the clerk. The handle is worn to bare brass, which tells you how often the clerk is elsewhere."
+> **LISTEN:** "It wants ringing. I decline."
+
+**THE KEY RACK**
+> **LOOK:** "Forty hooks, three keys. Either the hotel is full, or the keys leave and do not write."
+> **LISTEN:** "Nothing. A key only speaks when dropped."
+
+**THE STAIRS**
+> **LOOK:** "Worn in the middle by men going up hopeful and coming down otherwise."
+> **LISTEN:** "The fourth step confesses under any weight at all."
+
+**THE SETTEE**
+> **LOOK:** "A settee in a colour that was once a decision. Someone has slept on it recently, and at length."
+> **LISTEN:** "Horsehair, resettling. It sighs longer than furniture should."
+
+**THE SPITTOON**
+> **LOOK:** "I will not be examining the spittoon closely. Some economies are false."
+> **LISTEN:** "No."
+
+**THE PAINTING**
+> **LOOK:** "A mountain scene, signed. It is not one of our mountains; the painter never came west of the frame shop."
+> **LISTEN:** "Canvas, ticking in a draught. The draught is real, at least."
+
+**THE FRONT WINDOW**
+> **LOOK:** "Main Street through glass with a wave in it. The town ripples, like it has not set yet."
+> **LISTEN:** "The street, muffled. The glass keeps out the words and lets the arguing through."
+
+---
+
+## ROOM 19 — THAD'S HOTEL ROOM
+*Act I onward. Nine hotspots. The letters home live here — their text is doc 04's; these are only the looking.*
+
+**THE BED**
+> **LOOK:** "A bed with a valley in it, shaped by predecessors. I sleep on one slope or the other."
+> **LISTEN:** "Springs. They report every intention before I have finished forming it."
+
+**THE WASHSTAND**
+> **LOOK:** "A basin, a pitcher, and a bar of soap worn to a wafer. Washing in the territory is devotional: brief, and mostly symbolic."
+> **LISTEN:** "A drip that keeps no rhythm. I have tried tuning it. It resists."
+
+**THE WINDOW**
+> **LOOK:** "It faces the street, which faces back. In the morning the false fronts glow like scenery, which is honest of the light."
+> **LISTEN:** "The town. All of it. The wall between us is a formality."
+
+**THE DESK**
+> **LOOK:** "One short leg, corrected with a folded claim notice. The most useful work a claim notice has done all year."
+> **LISTEN:** "Nothing. The drama is all in what gets written at it."
+
+**THE LETTERS HOME**
+> **LOOK:** "My letters, in draft. True in the way maps are true — accurate about everything except how it feels to stand here."
+> **LISTEN:** "Paper. It holds whatever you tell it. That is the entire trouble with paper."
+
+**THE WARDROBE**
+> **LOOK:** "A wardrobe for a man with wardrobe ambitions. My second shirt hangs in it with room to spread out."
+> **LISTEN:** "Empty hangers, touching. A small cold applause."
+
+**THE LAMP**
+> **LOOK:** "Trimmed low by management. Light is billed separately in spirit, if not on paper."
+> **LISTEN:** "The flame eats quietly. Good manners, in a fire."
+
+**THE FLOORBOARDS**
+> **LOOK:** "Gaps generous enough to bank coins in, which I would consider if I had coins to a degree worth hiding."
+> **LISTEN:** "The lobby, in outline. Mostly the bell."
+
+**THE DOOR**
+> **LOOK:** "The lock takes the key, considers it, and admits anyone regardless. It is ceremonial, like most security."
+> **LISTEN:** "The hallway. A man passes twice an hour, slower each time."
+
+---
+
 # PART THREE — MANIFEST, REMAINING ROOMS
 
-Hotspot inventories for the twenty-three rooms not scripted above. Every hotspot needs both verbs. Calibrate against the twelve above.
+Hotspot inventories for the rooms not scripted above. Rows marked → scripted have moved up; the table shrinks as the W3 pass proceeds. Every hotspot needs both verbs. Calibrate against the twelve above.
 
 | Room | Hotspots | Notes |
 |---|---|---|
@@ -366,8 +445,8 @@ Hotspot inventories for the twenty-three rooms not scripted above. Every hotspot
 | 15 · Livery stable | 8 | Grievance is 3 of them. |
 | 16 · Ozymandia's tent | 12 | The rod, the tassels, the price list. |
 | 17 · Church & meeting hall | 10 | The bell rope. The hymnal. |
-| 18 · Hotel lobby | 8 | The register, with Thad's misspelled name in it. |
-| 19 · Thad's room | 9 | **The letters home live here.** |
+| 18 · Hotel lobby | 8 | **→ scripted above** (W3 pass) |
+| 19 · Thad's room | 9 | **→ scripted above** (W3 pass) |
 | 20 · Back alley | 6 | |
 | 22 · Road to the claims | 5 | |
 | 25 · Pratt's claim | 8 | Immaculate. Worthless. Well-kept. |
@@ -389,8 +468,8 @@ Hotspot inventories for the twenty-three rooms not scripted above. Every hotspot
 
 | | Lines |
 |---|---|
-| Scripted above (12 rooms, fully or substantially) | ~190 |
-| Manifest rooms (23 rooms, ~210 hotspots × 2) | ~420 |
+| Scripted above (14 rooms, fully or substantially) | ~224 |
+| Manifest rooms (21 rooms, ~193 hotspots × 2) | ~386 |
 | Room 36 rewrite | ~18 |
 | Act-state variants (rooms that change between acts) | ~140 |
 | Barks and repeat-selection variants | ~120 |
