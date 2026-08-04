@@ -37,14 +37,14 @@
 
 ## ROOM 2 — MAIN STREET
 
-**THE FALSE FRONTS** · PUSH — "If one goes down they may all go, like cards. I am not ready to be the man who did that. Yet."
+**Doc 13 owns this room's layer** — it predates this document, runs deeper (overrides AND
+repeat variants), and is marked verbatim. This section contributes only what doc 13 lacks;
+where the two conflicted, the better line won and is noted in doc 13.
+
 **THE FALSE FRONTS** · OPEN — "The front is the part that doesn't open. That is its entire function and its entire biography."
-**THE WATER TROUGH** · USE — "I have drunk from it once. The once is doing a great deal of work in that sentence."
-**THE BOARDWALK** · PULL — "The loose board declines to come up. It is loose recreationally, not professionally."
-**A DOG** · TALK_TO — "I told him my situation. He rolled over. It is the most sensible advice I have received here."
-**A DOG** · PICK_UP — "He is heavier than he looks, and he looks like a barrel. We have agreed to forget the attempt."
-**POSTED NOTICES** · PICK_UP — "Removing a notice is a crime. Posting a false one, apparently, is commerce."
 **THE CHURCH STEEPLE** · USE — "It is a steeple. Its use is being seen from everywhere, and it is currently in use."
+**THE WATER TROUGH** · USE — "I have drunk from it once. The once is doing a great deal of work in that sentence." *(supersedes doc 13's trough USE — funnier, and it implies history)*
+**THE BOARDWALK** · PULL — "The loose board declines to come up. It is loose recreationally, not professionally." *(supersedes doc 13's PULL; its PUSH stands)*
 
 ## ROOM 3 — THE BOUNTIFUL NUGGET
 

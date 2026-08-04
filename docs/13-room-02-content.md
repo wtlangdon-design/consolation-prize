@@ -1,7 +1,7 @@
 # THE LAST CLAIM IN CONSOLATION
 ## Room 2 — Verb Fallbacks & Repeat Variants
 
-*Fills the two gaps blocking Phase 2 acceptance. Written content — use verbatim, do not generate around it.*
+*Fills the two gaps blocking Phase 2 acceptance. Written content — use verbatim, do not generate around it. **Owns Room 2's wrong-answer and repeat-variant layer**; doc 49 owns every other room and defers here, contributing only marked additions.*
 
 ---
 
@@ -61,11 +61,11 @@ Where a specific line exists it takes precedence over the pool.
 > TALK TO — "I have spoken to the building it is attached to. It went badly and I have not recovered."
 
 **THE WATER TROUGH**
-> USE — "I am not drinking from that. I have standards, and they are the last thing I own."
+> USE — "I have drunk from it once. The once is doing a great deal of work in that sentence." *(doc 49 supersedes the original line here)*
 > OPEN — "It is a trough. It is entirely open. It is nothing but open."
 
 **THE BOARDWALK**
-> PULL — "The third board from the end comes up an inch and goes back down."
+> PULL — "The loose board declines to come up. It is loose recreationally, not professionally." *(doc 49 supersedes)*
 > PUSH — "Third from the end. Up an inch, down an inch. Nobody has ever fixed it."
 
 **POSTED NOTICES**
