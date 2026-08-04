@@ -332,7 +332,7 @@
         {
           "do": "face",
           "actor": "thad",
-          "facing": "left"
+          "facing": "back"
         },
         {
           "do": "say",
@@ -353,11 +353,6 @@
           "do": "chore",
           "actor": "thad",
           "clip": "strain"
-        },
-        {
-          "do": "face",
-          "actor": "thad",
-          "facing": "back"
         },
         {
           "do": "path",

@@ -435,18 +435,28 @@ function opening() {
       // He faces the road, says the earnest thing, tries to take the first
       // step of the rest of his life, and the mud has his boot.
       //
-      // HE IS IN PROFILE FOR IT, DELIBERATELY, AND THAT WAS MEASURED RATHER
-      // THAN CHOSEN. The strain was built head-on first, facing the town the
-      // way he walks: 8 source pixels of sink, about three at his drawn
-      // height, which reads as nothing. Head-on there is nowhere to lean. In
-      // profile the same clip rotates 11 degrees about the hips and his head
-      // travels 72 source pixels -- 26 drawn -- which is unmistakably a man
-      // pulling against something.
+      // HE KEEPS HIS BACK TO US AND ROCKS, and it took three versions. Head-on
+      // the first strain SANK him -- 8 source pixels, three at his drawn
+      // height -- and read as nothing, because a man facing away has no
+      // forward to lean into that a camera behind him can see. In profile it
+      // read perfectly and looked wrong in the game: he turned away from the
+      // town to get stuck, then turned back to leave.
+      //
+      // Working a boot free SIDEWAYS is the same action from the one angle
+      // that shows it. 9 degrees each way about the hips, 107 source pixels of
+      // head travel, 45 drawn, crossing centre both ways -- a rock that only
+      // goes one way is a lean.
+      //
+      // He is already facing back when the beat starts, from the exit's own
+      // walkTo, and the `face back` below is what holds him there.
       //
       // THE PHYSICAL ATTEMPT IS THE POINT. A pause with no movement in it
       // reads as the game having frozen, and that failure costs more than the
       // joke earns.
-      { do: 'face', actor: 'thad', facing: 'left' },
+      // FACING FIRST, because `strain` is drawn back-facing only. He already
+      // arrives this way from the exit's own walkTo, and leaving it implicit
+      // would make the beat depend on a coordinate in another file.
+      { do: 'face', actor: 'thad', facing: 'back' },
       { do: 'say', actor: 'thad', line: 0 },
       { do: 'chore', actor: 'thad', clip: 'strain' },
       { do: 'say', actor: 'thad', line: 1 },
@@ -460,7 +470,6 @@ function opening() {
       // 464, 517, 598, 704, 772, 826 -- so a walk that re-faced itself on each
       // leg would turn him side-on four times on the way out of the game.
       // `path` never re-faces; this sets it once.
-      { do: 'face', actor: 'thad', facing: 'back' },
       // THE TRACED PATH, replacing a six-second glide to one fixed point.
       // The move took him to [575,500] at whatever height the depth curve's
       // provisional third sample gave, and stopped him in the field.

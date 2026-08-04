@@ -64,6 +64,14 @@ RECOIL = [0.0, 1.0, 0.75, 0.3]                    # 4 frames, thad.json's rate 7
 # the opposite.
 STRAIN = [0.0, 0.55, 1.0, 1.0, 0.85, 1.0, 0.4]    # 7 frames
 STRAIN_DEGREES = 11.0   # more than a startle's 7: he is putting his back into it
+# HEAD-ON HE ROCKS INSTEAD, and the sign alternating is the whole of it. A man
+# facing away has no forward to lean into that a camera behind him can see --
+# the first version sank him 8 source pixels, about three at his drawn height,
+# and read as nothing. Working a boot free sideways is the same action seen
+# from the one angle that shows it. The curve crosses zero because a rock that
+# only goes one way is a lean.
+STRAIN_ROCK = [0.0, -0.75, 0.95, -0.95, 0.8, -0.55, 0.2]
+STRAIN_ROCK_DEGREES = 9.0
 ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
 ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
@@ -679,29 +687,30 @@ def main():
         upper = as_layer(upper_m)
         base = np.zeros((H, W, 4))
         base = over(far_leg, base); base = over(near_leg, base)
-        for i, t in enumerate(STRAIN):
+        rock = args.view == "headon"
+        curve = STRAIN_ROCK if rock else STRAIN
+        pivot = float(np.nonzero(upper_m.any(0))[0].mean())
+        for i, t in enumerate(curve):
             f = base.copy()
-            if args.view == "headon":
-                # Nowhere to lean toward the camera, so he sinks: the torso
-                # drops into the shoulders the way a man's does when he pulls
-                # against something and it does not come.
-                f = over(np.roll(upper, int(round(2.5 * step * t)), axis=0), f)
+            if rock:
+                # Side to side about the same hips. From behind this is the
+                # only rotation with anywhere to go.
+                f = over(rot(upper, STRAIN_ROCK_DEGREES * t, pivot, hem), f)
             else:
-                f = over(rot(upper, STRAIN_DEGREES * t * toward,
-                             float(np.nonzero(upper_m.any(0))[0].mean()), hem), f)
+                f = over(rot(upper, STRAIN_DEGREES * t * toward, pivot, hem), f)
             Image.fromarray(f.astype(np.uint8)).save(out / f"strain-{i:02d}.png")
         (out / "rig.json").write_text(json.dumps(dict(
             source=args.source, key=args.key, clip="strain", view=args.view,
             facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P,
             **({} if args.state is None else {"state": args.state}),
-            motion=("sink" if args.view == "headon" else "lean-into"),
-            frames=len(STRAIN),
+            motion=("rock" if rock else "lean-into"),
+            frames=len(curve),
             note=("Doc 17's mud beat: he leans into a step his foot does not take. "
                   "Recoil's geometry with the sign reversed, and the curve HOLDS at the top "
                   "rather than springing back -- what is stopping him has not let go. "
                   f"{STRAIN_DEGREES:.0f} degrees against a startle's 7.")), indent=2))
-        print(f"strain: {len(STRAIN)} frames, "
-              f"{'sink' if args.view == 'headon' else f'{STRAIN_DEGREES} deg about the hips'}")
+        print(f"strain: {len(curve)} frames, "
+              f"{f'rock +-{STRAIN_ROCK_DEGREES:.0f} deg' if rock else f'{STRAIN_DEGREES:.0f} deg about the hips'}")
         return
 
     if args.clip == "recoil":

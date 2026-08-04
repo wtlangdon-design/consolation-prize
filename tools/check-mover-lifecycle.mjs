@@ -68,6 +68,10 @@ export function check() {
     sequences += 1;
     /** actor -> the beat that placed them. */
     const placed = new Map();
+    // actor -> the facing the staging has most recently set. A chore resolves
+    // its clip by id AND FACING, so a clip that exists at one facing and not
+    // another throws exactly as one that does not exist at all.
+    const facing = new Map();
     if (player) placed.set(player, 'the room entrance');
 
     for (const beat of data.beats ?? []) {
@@ -86,6 +90,8 @@ export function check() {
         //
         // Two halves, because either alone still ships a freeze: the field has
         // to be there, and the clip it names has to be one the actor declares.
+        if (staged.do === 'face' && staged.facing) facing.set(who, staged.facing);
+
         if (staged.do === 'chore') {
           chores += 1;
           if (typeof staged.clip !== 'string' || staged.clip.length === 0) {
@@ -96,12 +102,23 @@ export function check() {
             );
           } else {
             const record = actors.get(who);
-            const declared = (record?.clips ?? []).some((clip) => clip.id === staged.clip);
-            if (record && !declared) {
+            const clips = (record?.clips ?? []).filter((clip) => clip.id === staged.clip);
+            const way = facing.get(who);
+            if (record && clips.length === 0) {
               report.fail(
                 `${path} beat ${beat.beat}: ${who} has no clip "${staged.clip}". A chore `
                 + 'staged for a clip nobody drew throws when the beat reaches it, not when '
                 + 'the content is loaded.',
+              );
+            } else if (record && way && !clips.some((clip) => clip.facing === way)) {
+              // The facing half, and it is not the same question. `strain` is
+              // drawn back-facing only; staged while he faces any other way it
+              // throws in the draw loop exactly as a missing clip does, and
+              // the id check alone would have called it well-formed.
+              report.fail(
+                `${path} beat ${beat.beat}: ${who} has "${staged.clip}" but not facing `
+                + `"${way}", which is the facing this beat's staging last set. It is drawn `
+                + `${clips.map((clip) => clip.facing).join('/')}.`,
               );
             }
           }
