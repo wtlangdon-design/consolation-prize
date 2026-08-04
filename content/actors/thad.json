@@ -206,10 +206,10 @@
         "art/actors/thad-idlebreak-left/idle-break-10.png",
         "art/actors/thad-idlebreak-left/idle-break-11.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 624,
       "anchor": [
-        199,
-        526
+        325,
+        624
       ]
     },
     {
@@ -229,10 +229,10 @@
         "art/actors/thad-idlebreak-right/idle-break-10.png",
         "art/actors/thad-idlebreak-right/idle-break-11.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 625,
       "anchor": [
-        196,
-        526
+        324,
+        625
       ]
     },
     {
@@ -368,10 +368,10 @@
         "art/actors/thad-recoil-left/recoil-02.png",
         "art/actors/thad-recoil-left/recoil-03.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 624,
       "anchor": [
-        199,
-        526
+        325,
+        624
       ]
     },
     {
@@ -383,10 +383,10 @@
         "art/actors/thad-recoil-right/recoil-02.png",
         "art/actors/thad-recoil-right/recoil-03.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 625,
       "anchor": [
-        196,
-        526
+        324,
+        625
       ]
     },
     {

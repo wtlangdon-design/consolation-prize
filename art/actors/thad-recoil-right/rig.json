@@ -1,16 +1,15 @@
 {
-  "source": "/tmp/thad.png",
+  "source": "reference/casting/thad-stand-right-src.png",
   "key": "magenta",
   "clip": "recoil",
   "view": "profile",
   "facing": "right",
   "figure": [
-    221,
-    526
+    128,
+    625
   ],
-  "hem_row": 343,
-  "padding": 85,
+  "hem_row": 425,
+  "padding": 260,
   "motion": "lean-back",
-  "frames": 4,
-  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1616px, which is 6x linear and 38x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
+  "frames": 4
 }
