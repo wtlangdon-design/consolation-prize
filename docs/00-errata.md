@@ -1746,3 +1746,23 @@ the exit rect's re-derivation remains Q4's, unchanged by this.
 
 **Room 2's plate brief follows directly:** the player arrives from depth at the far end; the
 street runs toward camera; east — frame right — is the way back toward the stage road.
+
+---
+
+# 59 · `sound` RETURNS TO THE SEQUENCE RUNNER, FENCED — ERRATA 28a PARTIALLY REVERSED
+
+Tyler's ruling. Errata 28a struck `sound` and `musicTransition` from the first cut; three
+scripts now need the first of them — the case hitting the mud (O-06-S1), the Listening's
+score-state coupling, and the county seal at the filing — and the ruling reinstates it **on
+`wait`'s exact fence: legal only in beats whose control is `none`.** A cutscene may place a
+sound on a beat; gameplay may not, so the town never becomes a soundboard, which was 28a's
+whole fear and it stays answered.
+
+`musicTransition` stays struck — beds follow rooms (Music.ts) and layering is doc 45's next
+mechanism, not a sequence step. The Listening's coupling is score-*state*, driven by the puzzle
+rather than by staged steps, and will be specified with the mechanic; this errata only
+unblocks the two one-shots and the pattern.
+
+Implementation: an eighth step kind `{ do: 'sound', src, gain? }`, same missing-file-is-silence
+contract as the beds, same validator posture as `wait` — staged outside a control:none beat is
+a build failure naming the beat.
