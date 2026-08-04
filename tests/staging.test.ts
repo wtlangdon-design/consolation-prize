@@ -188,6 +188,8 @@ function recordingHost(said: string[]): SequenceHost {
       return 1;
     },
     setState: () => {},
+    followPath: () => 0,
+    travel: () => {},
   };
 }
 
@@ -972,6 +974,69 @@ test('the frame never jumps, however far he has already walked', async () => {
   assert.ok(heights.size > 5, `he changed drawn height ${heights.size} time(s); the test needs him to`);
   assert.equal(worst, 1,
     `the walk frame moved by ${worst} in a single update while his height was changing`);
+});
+
+test('beat 11 walks its traced path, at its own heights and a steady cadence', async () => {
+  const content = await loadContent(fsReader);
+  const traced = content.paths.get('content/sequences/beat11-path.json');
+  assert.ok(traced, 'the manifest names the trace, so the bundle has it');
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom(content.manifest.startRoom);
+  const first = traced!.waypoints[0]!;
+  const last = traced!.waypoints[traced!.waypoints.length - 1]!;
+  const walker = new Actor(state, content.actor.id, first.x, first.y, { routed: true });
+  walker.update(0);
+  const held = walker.followPath(traced!.waypoints, traced!.beatSeconds,
+    traced!.farClipHandoff ?? -1);
+  assert.equal(held, traced!.beatSeconds, 'the trace sets the duration, not the path length');
+
+  const phaseOf = () => (walker as unknown as { gaitPhase: number }).gaitPhase;
+  let previousFrame: number | null = null;
+  let previousPhase = 0;
+  let worstJump = 0;
+  const rates: number[] = [];
+  const ticks = Math.ceil(traced!.beatSeconds * 60);
+  for (let tick = 1; tick <= ticks; tick += 1) {
+    const clock = tick / 60;
+    walker.update(clock);
+    const frame = walker.frameAt(clock, 8, 8, 8, 0);
+    if (previousFrame !== null && walker.isWalking) {
+      const gap = Math.abs(frame - previousFrame);
+      worstJump = Math.max(worstJump, Math.min(gap, 8 - gap));
+    }
+    if (tick > 1 && tick < ticks) rates.push((phaseOf() - previousPhase) * 60);
+    previousFrame = frame;
+    previousPhase = phaseOf();
+  }
+
+  assert.equal(worstJump, 1, 'the frame never jumps along the path');
+  assert.equal(Math.round(walker.x), last.x, 'he ends where the trace ends');
+  assert.equal(Math.round(walker.y), last.y);
+  assert.equal(Math.round(walker.height), last.figureHeight,
+    'and at the height the trace gave, not the one the depth curve would');
+
+  // CONSTANT CADENCE FALLS OUT OF THE ARITHMETIC RATHER THAN BEING IMPOSED.
+  // Screen speed is `height * W / seconds` and the gait divides displacement
+  // by `strideRatio * height`; the heights cancel. So this asserts a property
+  // the implementation does not special-case, which is what makes it worth
+  // asserting: a path walk that grew its own animation clock would fail it.
+  //
+  // MEASURED PER SECOND, NOT PER TICK, and the reason is a real thing the
+  // per-tick version found: at the trace's two sharpest corners a single
+  // update's displacement is the CHORD across the turn rather than the path
+  // along it, so those ticks advance about half as far. That is geometry
+  // being honest -- a man cutting a corner covers less ground -- and it lasts
+  // a sixtieth of a second. Averaging over a second asks about the walk
+  // instead of about one frame.
+  const perSecond: number[] = [];
+  for (let start = 0; start + 60 <= rates.length; start += 60) {
+    perSecond.push(rates.slice(start, start + 60).reduce((sum, r) => sum + r, 0) / 60);
+  }
+  const slowest = Math.min(...perSecond);
+  const fastest = Math.max(...perSecond);
+  assert.ok(fastest - slowest < 0.05,
+    `the cadence ran ${slowest.toFixed(3)}..${fastest.toFixed(3)} strides/s over a path `
+    + `that shrinks him from ${first.figureHeight}px to ${last.figureHeight}px`);
 });
 
 test('a mover with no declared stride keeps the clock', async () => {

@@ -94,6 +94,16 @@ export const WALK = 'walk';
 export const IDLE_BREAK = 'idle-break';
 
 /**
+ * The far-distance clip a traced path hands off to. Doc 36 Q91.
+ *
+ * Named here for the same reason `IDLE_BREAK` is: WHEN to use it is a schedule
+ * the engine keeps -- below the path's declared handoff height -- and WHETHER
+ * such a clip exists at all is content's. A character without it never hands
+ * off, however small he gets.
+ */
+export const FAR_WALK = 'farwalk';
+
+/**
  * The size of a graybox for a mover with NO RECORD AT ALL.
  *
  * It was `state.content.actor.height` -- the protagonist's -- and that is the
@@ -214,6 +224,19 @@ export class Actor {
   private special: { clip: string; startedAt: number; seconds: number } | null = null;
   /** Errata 38's translation: a constant-rate glide with its own deadline. */
   private glide: { fromX: number; fromY: number; startedAt: number; seconds: number } | null = null;
+  /**
+   * A TRACED PATH, walked in w rather than in screen pixels.
+   *
+   * `samples` carries the waypoints densified along each leg, each with the
+   * drawn height traced for it and the cumulative parameter w at which it is
+   * reached, normalised so the last is 1.
+   */
+  private route: {
+    samples: { x: number; y: number; height: number; w: number }[];
+    startedAt: number;
+    seconds: number;
+    handoff: number;
+  } | null = null;
   private turningUntil = 0;
   private clock = 0;
   /** The idle break in flight: when it started, and when it is over. */
@@ -387,7 +410,22 @@ export class Actor {
   }
 
   get isWalking(): boolean {
-    return this.glide !== null || this.path.length > 0 || !this.arrived();
+    return this.route !== null || this.glide !== null
+      || this.path.length > 0 || !this.arrived();
+  }
+
+  /**
+   * True while a traced path is being walked BELOW its handoff height.
+   *
+   * The renderer asks this to swap to the derived far-distance clip. It is a
+   * question about the PATH rather than about the height, because the handoff
+   * is a property the trace declares -- a path whose `farClipHandoff` is -1
+   * never answers true however small he gets, which is Tyler's call and not
+   * a threshold the engine may apply on its own.
+   */
+  get isFarAway(): boolean {
+    return this.route !== null && this.route.handoff >= 0
+      && this.height < this.route.handoff;
   }
 
   /** At the current leg's end, within half a pixel. */
@@ -757,11 +795,16 @@ export class Actor {
     if (!this.special) {
       const wasX = this.x;
       const wasY = this.y;
-      if (this.glide) this.advanceGlide(seconds);
+      if (this.route) this.advancePath(seconds);
+      else if (this.glide) this.advanceGlide(seconds);
       else this.advanceWalk();
       moved = Math.hypot(this.x - wasX, this.y - wasY);
     }
-    if (this.options.height === undefined && this.scalesWithDepth) {
+    // A PATH SETS ITS OWN HEIGHT, so the depth sampler must not overwrite it
+    // the instant he leaves the band. `route` is cleared on the last update,
+    // and from the next one the curve takes him back -- which is right: he has
+    // arrived and is a mover in a room again.
+    if (this.route === null && this.options.height === undefined && this.scalesWithDepth) {
       const here = this.sampleDepth(this.state, this.x, this.y);
       if (here !== null) this.height = here;
     }
@@ -824,6 +867,97 @@ export class Actor {
   }
 
   /** Errata 38's translation: a fraction of the way there, by the clock. */
+  /**
+   * Walk a traced path over a stated duration. Doc 17 beat 11.
+   *
+   * PROGRESS IS LINEAR IN w, NOT IN SCREEN PIXELS, and that is the whole
+   * reason the path carries a height per waypoint. A receding figure covers
+   * less screen ground per second for the same world speed, so advancing at a
+   * constant rate in pixels reads as him ACCELERATING away. `dw = ds / height`
+   * is screen arc length over scale -- world distance in units of his own
+   * body -- and moving linearly in it is moving at a steady walk.
+   *
+   * NORMALISED TO [0,1], so `seconds` alone sets the rate and the path can be
+   * re-traced without retiming. The title keys off the same clock for the same
+   * reason: derive the beat's length from the path and every later tweak to
+   * the trace silently changes how long the title sits over the mountains.
+   *
+   * AND THE CADENCE COMES OUT CONSTANT FOR FREE. Screen speed is
+   * `height * W / seconds`, and the gait divides displacement by
+   * `strideRatio * height` -- the heights cancel, so the legs cycle at
+   * `W / (seconds * strideRatio)` strides a second from the first step to the
+   * last. Nothing here touches the animation clock, and nothing should: a beat
+   * with its own animation clock is a beat whose legs disagree with its feet.
+   */
+  followPath(points: { x: number; y: number; figureHeight: number }[],
+             seconds: number, handoff = -1): number {
+    this.path = [];
+    this.glide = null;
+    if (points.length < 2 || seconds <= 0) {
+      const last = points[points.length - 1];
+      if (last) this.placeAt(last.x, last.y);
+      return 0;
+    }
+    const samples: { x: number; y: number; height: number; w: number }[] = [
+      { x: points[0]!.x, y: points[0]!.y, height: points[0]!.figureHeight, w: 0 },
+    ];
+    let w = 0;
+    for (let leg = 0; leg < points.length - 1; leg += 1) {
+      const a = points[leg]!;
+      const b = points[leg + 1]!;
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const length = Math.hypot(dx, dy);
+      const steps = Math.max(1, Math.ceil(length / 2));
+      const ds = length / steps;
+      for (let step = 1; step <= steps; step += 1) {
+        const t = step / steps;
+        // THE HEIGHT AT THE STEP'S MIDPOINT divides it. Taking either end
+        // biases every segment toward that end, which over a path that halves
+        // in scale is not a rounding difference.
+        const mid = t - 0.5 / steps;
+        const middle = a.figureHeight + (b.figureHeight - a.figureHeight) * mid;
+        w += ds / Math.max(1, middle);
+        samples.push({
+          x: a.x + dx * t,
+          y: a.y + dy * t,
+          height: a.figureHeight + (b.figureHeight - a.figureHeight) * t,
+          w,
+        });
+      }
+    }
+    if (w > 0) for (const sample of samples) sample.w /= w;
+    this.route = { samples, startedAt: this.clock, seconds, handoff };
+    this.targetX = samples[samples.length - 1]!.x;
+    this.targetY = samples[samples.length - 1]!.y;
+    return seconds;
+  }
+
+  private advancePath(seconds: number): void {
+    const route = this.route;
+    if (!route) return;
+    const at = Math.max(0, Math.min(1, (seconds - route.startedAt) / route.seconds));
+    const samples = route.samples;
+    let low = 0;
+    let high = samples.length - 1;
+    while (low < high - 1) {
+      const mid = (low + high) >> 1;
+      if (samples[mid]!.w <= at) low = mid; else high = mid;
+    }
+    const a = samples[low]!;
+    const b = samples[high]!;
+    const span = b.w - a.w;
+    const t = span > 0 ? (at - a.w) / span : 0;
+    this.x = a.x + (b.x - a.x) * t;
+    this.y = a.y + (b.y - a.y) * t;
+    // THE HEIGHT COMES FROM THE PATH AND NOT FROM THE DEPTH CURVE. That is why
+    // it was traced: the curve is calibrated for the walkable band and this
+    // beat goes far above it, where the curve's third sample is provisional
+    // and nobody has ruled on it.
+    this.height = a.height + (b.height - a.height) * t;
+    if (at >= 1) this.route = null;
+  }
+
   private advanceGlide(seconds: number): void {
     const glide = this.glide;
     if (!glide) return;

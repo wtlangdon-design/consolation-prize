@@ -1031,6 +1031,8 @@ test('errata 30a: a trailing wait takes its stated time', () => {
     walk: () => {}, move: () => {}, isWalking: () => false, face: () => {},
     isTurning: () => false, isChoring: () => false, chore: () => 0, say: () => 0,
     setState: () => {},
+    followPath: () => 0,
+    travel: () => {},
   };
 
   // The shape that failed: the LAST step is a wait. It was consumed, the

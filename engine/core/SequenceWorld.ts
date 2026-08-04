@@ -2,7 +2,7 @@ import { assertBodyUnowned } from './Assertions.ts';
 import type { Actor } from './Actor.ts';
 import type { RoomActors } from './RoomActors.ts';
 import type { SequenceHost, SequenceStep } from './Sequence.ts';
-import type { Facing } from './types.ts';
+import type { Facing, PathFile } from './types.ts';
 
 /**
  * Doc 34 section 4.6 row 6: "one body owner; prop tracks share its clock
@@ -60,6 +60,14 @@ export interface SequenceWorldParts {
   choreSeconds: (mover: Actor, clip: string) => number;
   /** Shows a line and returns how long it holds. See `SequenceHost.say`. */
   say: (step: Extract<SequenceStep, { kind: 'say' }>) => number;
+  /** Traced paths by the content path that names them. */
+  paths?: Map<string, PathFile>;
+  /**
+   * Takes a named exit of the current room. INJECTED, like everything else
+   * here: this class deliberately holds no GameState, so that a defect which
+   * shipped for want of a test has one that runs without a browser.
+   */
+  travel?: (through: string) => void;
 }
 
 /**
@@ -85,12 +93,18 @@ export class SequenceWorld implements SequenceHost {
   private readonly bodies: BodyOwnership;
   private readonly choreSecondsFor: (mover: Actor, clip: string) => number;
   private readonly speak: (step: Extract<SequenceStep, { kind: 'say' }>) => number;
+  private readonly paths: Map<string, PathFile>;
+  private readonly travelThrough: (through: string) => void;
 
   constructor(parts: SequenceWorldParts) {
     this.actors = parts.actors;
     this.bodies = parts.bodies;
     this.choreSecondsFor = parts.choreSeconds;
     this.speak = parts.say;
+    this.paths = parts.paths ?? new Map();
+    this.travelThrough = parts.travel ?? (() => {
+      throw new Error('this world was built with no way to travel');
+    });
   }
 
   walk(actor: string, x: number, y: number): void {
@@ -110,6 +124,27 @@ export class SequenceWorld implements SequenceHost {
       : this.actors.require(actor);
     this.bodies.claimBody(actor, WALK_OWNER);
     mover.glideTo(x, y, seconds);
+  }
+
+  /**
+   * Doc 17 beat 11's departure, along the path Tyler traced against the plate.
+   *
+   * The waypoints and their drawn heights are content; the integration is
+   * `Actor.followPath`. Nothing here interpolates, because the gait has to see
+   * the displacement through the ordinary update and a world that moved him by
+   * hand would be a second mover mechanism.
+   */
+  followPath(actor: string, path: string): number {
+    const traced = this.paths.get(path);
+    if (!traced) throw new Error(`Unknown traced path: ${path}`);
+    const mover = this.actors.require(actor);
+    this.bodies.claimBody(actor, WALK_OWNER);
+    return mover.followPath(traced.waypoints, traced.beatSeconds,
+      traced.farClipHandoff ?? -1);
+  }
+
+  travel(through: string): void {
+    this.travelThrough(through);
   }
 
   isWalking(actor: string): boolean {

@@ -2772,6 +2772,38 @@ Checked against `tools/gauntlet/opening.json` before filling anything in, as ask
 
 **Seven property tests plus the regression, 143 total.** The gauntlet is green and **that is not evidence** — it is a skeleton and would be green whatever this change did.
 
+## Q104 · Beat 11 reads its path — and at 40 seconds his legs run at a quarter pace
+
+**Built: a `path` step kind, a `travel` step kind, and beat 11 using both.**
+
+`path` names a FILE rather than coordinates, because the trace was made by eye against the plate and re-tracing must not need an engine change. Progress is linear in `w` where `dw = ds / height` — screen arc length over scale — normalised to [0,1] so `beatSeconds` alone sets the rate. **Height comes from the trace, not the depth curve**, which is why it was traced: the curve is calibrated for the walkable band and this beat goes far above it.
+
+**`travel` replaces `interact road_west WALK_TO`, and that step was the bug.** `interact` resolves the verb where it stands, and doc 22 section 6 walks to a target's own `walkTo` first — road_west's is `[575, 710]`. **So the beat spent its whole length taking him up the road and then walked him back down to the fence before travelling.** `travel` names the exit rather than the room, because where road_west goes is on road_west and a destination repeated in the staging is a second copy that can disagree (R5k).
+
+**A `face back` goes in front of the path.** The trace wanders — x runs 575, 581, 537, 464, 517, 598, 704, 772, 826 — so a walk that re-faced on each leg would turn him side-on four times on the way out of the game. `path` never re-faces; the staging sets it once. Errata 55: *"with his back to us."*
+
+**Walked end to end and measured:**
+
+| | | | | |
+|---|---|---|---|---|
+| 0.0s | (575, 709) | 222px | | 5.0s · (516, 540) · 150px |
+| 10.0s | (519, 487) | 75px | | 20.0s · (649, 463) · 52px |
+| 30.0s | (752, 439) | 43px | | 40.0s · (826, 409) · **29px, arrived** |
+
+**Worst frame jump 1 for the whole forty seconds.** He ends exactly on the last waypoint at exactly its traced height, and the travel fires from there.
+
+### THE FINDING, AND IT IS TYLER'S TO RULE ON: the cadence is 0.52 strides a second
+
+**Constant, as the arithmetic says it must be** — screen speed is `height × W / seconds` and the gait divides by `strideRatio × height`, so the heights cancel and the legs cycle at `W / (beatSeconds × strideRatio)` from the first step to the last. Measured 0.515 → 0.525 across a path that shrinks him 222px → 29px.
+
+**But a walking man does about 1.9 strides a second, and 0.52 is a quarter of that.** It will read as slow motion. The number is not a defect in the mechanism — it is what 40 seconds over this trace's world length gives. **Two ways to move it, both content:** shorten `beatSeconds` (≈11s for a natural pace, ≈17s for a slow deliberate one), or extend the trace so there is more world to cross. **`beatSeconds` also sets how long the title sits over the mountains**, which is why this is a ruling and not an adjustment.
+
+**A second real thing the per-tick measurement found.** At the trace's two sharpest corners a single update's displacement is the **chord across the turn** rather than the path along it, so those ticks advance about half as far — 0.235 against 0.52. That is geometry being honest, it lasts a sixtieth of a second, and it is why the test asserts the cadence **per second** rather than per tick. Asserting per tick would have failed on correct work.
+
+**`farClipHandoff` is built and `-1` is honoured as declared.** `Actor.isFarAway` is a question about the *path*, not about the height: a trace whose handoff is -1 never answers true however small he gets. **The committed trace bottoms out at 29px and the blob takes over below 22, so `thad-farwalk-back` is unused by it and he stays the real sprite the whole way** — switching at 29 to make the feature visible would be the engine overruling a look decision.
+
+**Two new staging kinds, both named in the drawer**, which `check-drawer-coverage` demanded by name on its first run — `path` labelled with its file (the duration lives there, and a picture of the timing that omits it is useless) and `travel` labelled with its exit.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
