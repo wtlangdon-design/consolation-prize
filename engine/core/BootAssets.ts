@@ -146,12 +146,21 @@ function roomImages(room: RoomFile): BootAsset[] {
  * visible stand-in rather than a substituted clip -- Q20's distinction, and
  * the reason that fallback exists.
  */
+/** Doc 17 beat 11's wordmark. Named here and in Renderer, which draws it. */
+const TITLE_LOGO = 'art/ui/title-logo.png';
+
 export function planBoot(bundle: ContentBundle): BootPlan {
   const required = new Map<string, BootAsset>();
   const deferred = new Map<string, BootAsset>();
 
   const start = bundle.rooms.get(bundle.manifest.startRoom);
   for (const asset of start ? roomImages(start) : []) required.set(asset.key, asset);
+
+  // DOC 17 BEAT 11'S TITLE, deferred rather than required: it is wanted at the
+  // very end of the opening, so making the first frame wait for it would delay
+  // the thing the player is looking at for the sake of the thing they are not.
+  // Its key is its path, which is what Renderer asks the sheet loader for.
+  deferred.set(TITLE_LOGO, { key: TITLE_LOGO, path: TITLE_LOGO });
 
   // The protagonist, and anyone else standing beside him before the player is
   // asked for anything -- plus every clip the staging NAMES for them, which is

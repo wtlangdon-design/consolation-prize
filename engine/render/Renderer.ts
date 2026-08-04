@@ -88,6 +88,13 @@ export type BackgroundSource = (roomId: string) => CanvasImageSource | null;
  * layout decision, and the ruling was to scale the face and not to redesign
  * around it.
  */
+/** Doc 17 beat 11's title, and errata 55's corner for it. */
+const TITLE_LOGO = 'art/ui/title-logo.png';
+const TITLE_WIDTH = 680;
+const TITLE_X = 1180;
+const TITLE_Y = 60;
+/** How much of the walk it takes to arrive. The rest of the beat it holds. */
+const TITLE_FADE_FRACTION = 0.2;
 const DIALOGUE_BOTTOM = NATIVE_HEIGHT - 3 * GLYPH_SCALE;
 const DIALOGUE_LINE_HEIGHT = 10 * GLYPH_SCALE;
 const SAY_TOP = 8 * GLYPH_SCALE;
@@ -422,6 +429,7 @@ export class Renderer {
     // view of the town after the coach has gone, which is the shot it is
     // commenting on.
     if (frame.actCard) this.drawActCard(frame.actCard);
+    this.drawTitle();
     if (frame.showPanel !== false) this.drawPanel(frame);
     // Last, so it sits over everything including the panel.
     this.drawMenu();
@@ -439,6 +447,47 @@ export class Renderer {
    * The split is on the em dash, which is where the document puts it, so the
    * layout is the writing's own and not a rule invented here.
    */
+  /**
+   * DOC 17 BEAT 11: the title comes up over the mountains as he goes.
+   *
+   * Errata 55 places it TOP RIGHT, in the 700x320 the walk leaves clear --
+   * the trace runs up the left of the frame and bears right into the town
+   * along the bottom of the sky, so the upper right is the one large area no
+   * part of the departure crosses.
+   *
+   * IT KEYS OFF THE WALK'S OWN CLOCK, which is what followPath's note asks
+   * for: `pathProgress` is the beat's elapsed fraction, so re-tracing the
+   * path changes where he walks and never how long the title holds. Deriving
+   * it from distance instead would have every later tweak to the trace
+   * silently retime the title.
+   *
+   * IT FADES IN AND HOLDS. Doc 45 is explicit that nothing stings here --
+   * "existing Room 1 music continues under the title without a sting" -- so
+   * it arrives the way a thought does rather than the way a logo does. In by
+   * a fifth of the walk, held for the rest; the room change takes it away,
+   * which is errata 55's "he is still walking when Main Street arrives".
+   */
+  private drawTitle(): void {
+    const image = this.sheet(TITLE_LOGO);
+    if (!image) return;
+    const actor = this.actors.all().find((mover) => mover.pathProgress !== null);
+    const progress = actor?.pathProgress ?? null;
+    if (progress === null) return;
+    const alpha = Math.max(0, Math.min(1, progress / TITLE_FADE_FRACTION));
+    if (alpha <= 0) return;
+    // The logo's own proportions, read off the loaded image. A CanvasImageSource
+    // may be several things; every one the loader produces carries these.
+    const source = image as { width?: number; height?: number };
+    if (!source.width || !source.height) return;
+    const width = TITLE_WIDTH;
+    const height = Math.max(1, Math.round((source.height / source.width) * width));
+    const ctx = this.screen.context;
+    const was = ctx.globalAlpha;
+    ctx.globalAlpha = was * alpha;
+    ctx.drawImage(image, TITLE_X, TITLE_Y, width, height);
+    ctx.globalAlpha = was;
+  }
+
   private drawActCard(text: string): void {
     const parts = text.split('\u2014').map((part) => part.trim()).filter(Boolean);
     const split = parts.length > 1 ? [parts[0] as string, parts.slice(1).join(' — ')] : parts;

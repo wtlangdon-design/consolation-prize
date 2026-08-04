@@ -415,6 +415,21 @@ export class Actor {
   }
 
   /**
+   * How far through a traced path he is, 0..1, or null when none is running.
+   *
+   * THE TITLE KEYS OFF THIS, which is what followPath's own note asks for:
+   * derive the beat's length from the path and every later tweak to the trace
+   * silently changes how long the title sits over the mountains. It is the
+   * clock fraction rather than distance, so it is exactly `beatSeconds` and
+   * moves at a steady rate whatever the trace does.
+   */
+  get pathProgress(): number | null {
+    const route = this.route;
+    if (!route) return null;
+    return Math.max(0, Math.min(1, (this.clock - route.startedAt) / route.seconds));
+  }
+
+  /**
    * True while a traced path is being walked BELOW its handoff height.
    *
    * The renderer asks this to swap to the derived far-distance clip. It is a
