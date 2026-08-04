@@ -33,10 +33,10 @@
       "frames": [
         "art/actors/thad-stand-front/stand-00.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 626,
       "anchor": [
-        178,
-        526
+        371,
+        626
       ]
     },
     {
@@ -45,10 +45,10 @@
       "frames": [
         "art/actors/thad-stand-back/stand-00.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 625,
       "anchor": [
-        183,
-        526
+        370,
+        625
       ]
     },
     {
@@ -57,10 +57,10 @@
       "frames": [
         "art/actors/thad-stand-left/stand-00.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 624,
       "anchor": [
-        199,
-        526
+        325,
+        624
       ]
     },
     {
@@ -69,10 +69,10 @@
       "frames": [
         "art/actors/thad-stand-right/stand-00.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 625,
       "anchor": [
-        196,
-        526
+        324,
+        625
       ]
     },
     {
@@ -86,10 +86,10 @@
         "art/actors/thad-idle-front/idle-04.png",
         "art/actors/thad-idle-front/idle-05.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 626,
       "anchor": [
-        178,
-        526
+        371,
+        626
       ]
     },
     {
@@ -103,10 +103,10 @@
         "art/actors/thad-idle-back/idle-04.png",
         "art/actors/thad-idle-back/idle-05.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 625,
       "anchor": [
-        183,
-        526
+        370,
+        625
       ]
     },
     {
@@ -120,10 +120,10 @@
         "art/actors/thad-idle-left/idle-04.png",
         "art/actors/thad-idle-left/idle-05.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 624,
       "anchor": [
-        199,
-        526
+        325,
+        624
       ]
     },
     {
@@ -137,10 +137,10 @@
         "art/actors/thad-idle-right/idle-04.png",
         "art/actors/thad-idle-right/idle-05.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 625,
       "anchor": [
-        196,
-        526
+        324,
+        625
       ]
     },
     {
@@ -248,10 +248,10 @@
         "art/actors/thad-walk-front/walk-06.png",
         "art/actors/thad-walk-front/walk-07.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 630,
       "anchor": [
-        178,
-        526
+        385,
+        630
       ],
       "walkDx": 1
     },
