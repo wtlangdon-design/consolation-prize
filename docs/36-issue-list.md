@@ -2690,6 +2690,42 @@ So clause five compares silhouettes on a 64×64 grid over each figure's own boun
 
 **`carry` is played by nothing.** Its own generator comment says *"BEAT 6b HOLDS HIM IN `carry` WHILE THE COACH GOES, and that one moment is the whole reason the clip exists"* — and beat 6b's shipped staging is `setState thad`, `setState coach`, `move coach`. **A comment asserting behaviour the product does not have, which is R5o's exact tell**, in the file that generates the staging it describes. The bible's opening image — *"a stage coach pulls away, revealing a young man in a good coat standing in mud, holding a case"* — is not on screen. **Not added here: what plays in a beat is staging, and staging comes from doc 17.**
 
+## Q100 · The act card does not clip the dialogue. Nothing was drawing those options at all
+
+**Found in a real frame, as instructed, and it is neither the act card nor the layout.**
+
+The card draws glyphs and fills nothing. The layout was correct in every frame measured. **The diagnosis is one number from the probe: at the act-card frame it reports `options: 0` while four option rows are on screen.** They are not being drawn. **They were never erased.**
+
+**`drawPlate` covers the PLAY AREA — rows 0 to 864 — and the band below it has no owner.** It is written only by `drawPanel`, `drawDialogue`'s backing and `drawMenu`. `showPanel` is false for the whole opening, so on the frame the driver's conversation ends, the play area repaints over the top half of the dialogue backing and **the bottom half is simply left there**: three and a half option rows, still on screen, sliced exactly at the play area's lower edge because that is where the repaint stopped.
+
+**That is precisely the report — "the top option is half-covered by the play area, and the scene appears to extend lower than it does otherwise."** Both halves of it are literally true, and neither is about the card.
+
+**Measured, before and after:**
+
+| | backing band starts | option ink rows | non-black pixels in the panel band |
+|---|---|---|---|
+| mid-conversation (correct) | 810 | 828, 888, 948, 1008 | — |
+| act-card frame, before | **864** | 828 *(sliced)*, 888, 948, 1008 | **33,264** |
+| act-card frame, after | — | none | **0** |
+
+`renders/act-card-stale-panel-before-after.png`.
+
+**`Screen.clear` has existed since the file was written and is called by nothing** — R5l, and this is what it cost. The fix is the narrower version of it: clear the panel band every frame, because clearing the whole screen would blank the play area a moment before the plate covers it and the band is the only region with no owner.
+
+**Cleared to `overlayBg`, not `panelBg`, so this fixes the staleness and changes nothing else.** The band is black whenever it is empty today — untouched canvas before the first conversation, the dialogue's own backing after — and `panelBg` is a shade lighter, so clearing to it would have put a grey bar under the opening that nobody asked for.
+
+> **The general lesson, and it is the one Tyler's instruction is really about: a region nothing owns keeps whatever was last put there.** Every check in the suite reads records; this was visible only in a composited frame, and the probe could have named it at any point in the last four play-throughs by being asked what it thought was on screen.
+
+## Q101 · The two declared mark invalidations: checked, and neither invalidates a mark
+
+Checked against `tools/gauntlet/opening.json` before filling anything in, as asked.
+
+**`actCardExtraSeconds` 4 → 2 does not move an assertion.** Beat 7's only assertion is `within: 12`, an upper bound — and its own note says why it is loose: *"it is here to catch a beat that never ends, not to pin a number somebody is still choosing."* Shortening the beat from about 7.2s to about 5.2s stays under it. **What IS now stale is the note's "about 7.2"**, a number inside the script describing something that moved (R5k). **Measured by the gauntlet itself on this session's run: beat 7 held 5.20s armed and 5.14s bare** — which is what a two-second reduction from 7.2 looks like, and it confirms the change landed as well as leaving the ceiling intact.
+
+**`case_mud`'s `walkTo` touches nothing, because no beat in the script interacts with the case.** Beat 4's input chooses dialogue options by index; beat 9's clicks the lamp. The case is never clicked in the whole run.
+
+**And the script is emptier than "2 of 12 beats" suggests**: beat 2 asserts a relation (`thad.moving` when the walk clip starts), beat 3 asserts only that it begins. Beat 7's `within` is the third assertion and it is a ceiling. **Everything else is structure.**
+
 ---
 
 # HOW THIS DOCUMENT WORKS

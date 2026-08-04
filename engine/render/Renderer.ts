@@ -365,6 +365,34 @@ export class Renderer {
       watch.frame(this.frameIndex, this.clock, frame.beat ?? null);
     }
     this.speaker = frame.speaker ?? null;
+    // THE PANEL BAND IS CLEARED EVERY FRAME, WHETHER OR NOT A PANEL GOES IN IT.
+    //
+    // Nothing else repaints it. `drawPlate` covers the PLAY AREA -- rows 0 to
+    // PLAY_HEIGHT -- and the band below that is written only by `drawPanel`,
+    // `drawDialogue`'s backing and `drawMenu`. During the opening `showPanel`
+    // is false, so on the frame a conversation ENDS the play area is repainted
+    // over the top half of the dialogue backing and the bottom half is simply
+    // left there: three and a half option rows, still on screen, sliced exactly
+    // at the play area's lower edge because that is where the repaint stopped.
+    //
+    // REPORTED AS "THE ACT CARD CLIPS THE DIALOGUE", and it is neither. The
+    // card draws glyphs and fills nothing, the layout was correct in every
+    // frame, and the probe says `options: 0` while four rows are on screen --
+    // which is the whole diagnosis in one number. They are not being drawn.
+    // They were never erased.
+    //
+    // `Screen.clear` has existed since the file was written and is called by
+    // nothing (R5l). This is the narrower version of it: clearing the whole
+    // screen would also blank the play area a moment before the plate covers
+    // it, and the band is the only region that has no owner.
+    //
+    // CLEARED TO `overlayBg`, NOT `panelBg`, so this fixes the staleness and
+    // changes nothing else. The band is black whenever it is empty today --
+    // it is untouched canvas before the first conversation and the dialogue's
+    // own backing after -- and `panelBg` is a shade lighter, so clearing to it
+    // would have put a grey bar under the opening that nobody asked for.
+    // `drawPanel` paints `panelBg` over this the moment a panel exists.
+    this.screen.fill(0, PANEL_Y, NATIVE_WIDTH, PANEL_HEIGHT, this.screen.role('overlayBg'));
     if (this.state.isMap) {
       this.drawRoom();
       this.drawMap(frame);
