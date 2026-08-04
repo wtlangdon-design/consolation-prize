@@ -1,12 +1,32 @@
 {
-  "clip": "walk",
-  "facing": "right",
-  "view": "profile",
-  "figure": [
-    404,
-    526
+ "clip": "walk",
+ "facing": "right",
+ "view": "profile",
+ "figure": [
+  356,
+  668
+ ],
+ "padding": 0,
+ "frames": 4,
+ "source": "reference/casting/hob-walk-right-4frame.png",
+ "authored": true,
+ "lantern_anchor": [
+  [
+   317,
+   419
   ],
-  "padding": 0,
-  "frames": 4,
-  "note": "A REAL CYCLE AT LAST: contact, passing, the OPPOSITE contact, the opposite passing. Four key poses from one generation, so they are the same man by construction rather than by four negotiations.\n\nIT WAS A PING-PONG. The old eight frames were 1=7, 2=6, 3=5 -- the second half was the first played backwards, so THE SAME LEG LED EVERY STEP: one leg swung out and came back and the other never passed it. Tyler called it galloping and that is exactly what it was. Measured: contacts 31% leg overlap, passings 26% -- against 100% for the pair the first sheet returned.\n\nFOUR SINGLE-IMAGE ATTEMPTS FAILED FIRST, each fixing the stride or the lantern and breaking the other. The casting-sheet method is what worked, as it did for the facings.\n\nONE CYCLE IS NOW TWO STEPS, NOT ONE, so his stride length doubles. Do not compensate walkSpeed for it -- the stride changes and the speed should not, and the legs halving their rate at the same speed is the correct outcome.\n\nAligned on the ground line and the TORSO's centre of mass in the upper half, which does not swing the way the legs do, so the figure does not hop between frames."
+  [
+   297,
+   440
+  ],
+  [
+   311,
+   420
+  ],
+  [
+   288,
+   444
+  ]
+ ],
+ "note": "AUTHORED, NOT RIGGED. Four drawn key poses cut from one generation, aligned on the torso column with a shared ground line, and despilled by proportional scaling. The rig did not make these and cannot: character.py takes ONE source pose and synthesises a cycle from it, so there is no input path for a sheet of key poses.\n\nWHY THESE REPLACED THE RIGGED FOUR: the rigged frames grew a THIRD ARM. walk-02 and walk-03 each carried a raised fist on the far side in addition to both real hands -- the arm segmentation swung a limb it had already drawn, so the source arm and its swung copy both survived. Two hands became three.\n\nKNOWN FAULT, ACCEPTED: THE LEGS DO NOT ALTERNATE. The two striding frames are the same stride drawn twice -- leg silhouettes below the hem overlap 89% between walk-00 and walk-02 and 69% between walk-01 and walk-03, against 21%/27% for the rigged four they replace and 10% for two genuinely different poses. The same foot leads every step. This is the gallop 9ed3106 was written to fix, arriving this time from the generator rather than the rig.\n\nTAKEN KNOWINGLY. Hob crosses Room 1 for about three seconds as a background mover and never walks again. A phantom third hand is the more visible fault at that duration. DO NOT copy this clip as a reference for any character the player watches for longer, and do not treat its presence here as evidence the overlap test passes.\n\nlantern_anchor is the lantern's HANDLE, per frame, in canvas coordinates -- the point it hangs from, steadier than its centre. The lamp is drawn UNLIT: the additive glow is a separate sprite anchored here, and it composites BEHIND the coat, because the lantern is in the FAR hand."
 }
