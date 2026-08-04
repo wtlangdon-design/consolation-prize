@@ -85,10 +85,15 @@
  "actorsNote": "EXPLICIT, AS RULED, and not convention discovery from content/actors/*.json. A directory listing silently picks up whatever happens to be on disk -- a half-written record, something copied in to look at -- and then the game loads it or does not depending on somebody's afternoon. A list is checkable, and check-asset-paths already earned that argument by failing loudly on a path nobody declared. `actor` below stays: it names which of these is the protagonist, which is a different fact from which records exist.",
  "music": {
   "title": {
-   "src": "audio/consolation-title.ogg",
+   "src": "audio/consolation-title.wav",
    "gain": 0.8
   },
-  "rooms": {}
+  "rooms": {
+   "stage_road": {
+    "src": "audio/thaddeus-room-01.wav",
+    "gain": 0.7
+   }
+  }
  },
- "musicNote": "DOC 45'S BEDS, AND ONLY THE BEDS. `title` is O-01-M -- CONSOLATION, full, piano-led, doc 28's title mix. `rooms` maps a room id to its own bed and is EMPTY on purpose: Room 1's is O-02-M, the THADDEUS fragment, and nobody has written THADDEUS. Adding a room here is how a bed reaches it.\n\nTHE FILE DOES NOT EXIST YET AND THAT IS FINE. Music.ts treats a missing file as silence rather than an error, so the game runs exactly as it does today and the day a stem lands it plays. The name is written down now so the thing being commissioned has somewhere to go.\n\nCONSOLATION EXISTS ONLY AS THE SYNTHESISED PROOF in proofs/audio/, which errata 49 rules out as a delivery method -- a synthesised solo fiddle is the most recognisable 'this is a computer' sound in game audio. The melody is approved; producing it as a rendered stem is what is outstanding."
+ "musicNote": "DOC 45'S BEDS. `title` is O-01-M -- CONSOLATION, the title mix. `stage_road` is O-02-M -- THADDEUS, Room 1, four bars of 3/4 solo and unaccompanied. Both are named here and rendered by tools/render-music.mjs from the proof's own synthesis, which is errata 49 item 1.\n\nTHE FILES DO NOT EXIST UNTIL SOMEBODY RUNS THE RENDERER, and it has never been run: it needs Chromium and it was written where none could be installed. Music.ts treats a missing file as silence rather than an error, so the game runs exactly as it does today and the moment the stems are committed it plays. Nothing else has to change.\n\nWAV rather than OGG because the renderer writes PCM directly and encoding to Ogg needs a codec the repo does not carry. Converting later is one ffmpeg pass and one edit here; shipping a wrong extension that nothing can decode is worse.\n\nGAINS: the title is the loudest thing in the game and Room 1 is a man alone at night, so the bed sits under him. Both are look decisions and both are one number in a content file."
 }

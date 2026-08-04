@@ -55,6 +55,7 @@ Web Audio only. Nothing here is a shipping asset.</p>
 <div class="row">
   <button id="b-flat">theme at &minus;35 cents</button>
   <button id="b-tuned">theme in tune</button>
+  <button id="b-consla">CONSOLATION &mdash; LA-flavoured, all four voices</button>
   <button id="b-thad">THADDEUS &mdash; bowed fiddle (as before)</button>
   <button id="b-thadla">THADDEUS &mdash; LA-flavoured (MT-32 manner)</button>
   <button id="b-arc">the 90-second resolution</button>
@@ -559,7 +560,119 @@ const ConsolationAudio = (function () {
       retire(v, t + durS + 0.35, last);
     }
 
-    const voices = { piano, fiddle, fiddleLA, jawHarp, harmonica };
+
+    /* ---------------------------------------------------------------- *
+     * THE OTHER THREE, IN THE SAME MANNER
+     *
+     * Same three moves as fiddleLA: a constructed transient, ONE filtered
+     * oscillator rather than a stack, and a resonant low-pass whose
+     * CUTOFF is the envelope. What differs between instruments in LA is
+     * mostly the transient and how fast the filter shuts.
+     * ---------------------------------------------------------------- */
+
+    // The MT-32's pianos are famously not very piano. A hammer thock, one
+    // saw, and a filter that shuts fast -- struck rather than plucked.
+    function pianoLA(ev) {
+      const t = ev.time, vel = ev.vel == null ? 0.8 : ev.vel;
+      const cls = ((ev.midi % 12) + 12) % 12;
+      const classCents = opts.pianoCSharpFlat ? (PIANO_CLASS_CENTS[cls] || 0) : 0;
+      const f = midiToFreq(ev.midi);
+      const durS = (ev.dur || 1) * pieceBeat;
+      const decay = clamp(2.4 * Math.pow(261.63 / f, 0.45), 0.34, 3.0);
+      const v = scope(); const last = [];
+
+      const n = noise(v), nb = filt(v, 'bandpass'), ng = gain(v);
+      nb.frequency.value = clamp(f * 6, 1200, 7000); nb.Q.value = 0.9;
+      ng.gain.setValueAtTime(0, t);
+      ng.gain.linearRampToValueAtTime(0.34 * vel, t + 0.003);
+      ng.gain.exponentialRampToValueAtTime(0.0003, t + 0.030);
+      n.connect(nb); nb.connect(ng); n.start(t); n.stop(t + 0.05); last.push(n);
+
+      const o = osc(v, 'sawtooth', f, classCents);
+      const lp = filt(v, 'lowpass'); lp.Q.value = 4.0;
+      lp.frequency.setValueAtTime(clamp(f * 9 + 1800 * vel, 900, 11000), t);
+      lp.frequency.exponentialRampToValueAtTime(clamp(f * 1.8, 300, 5000), t + decay * 0.55);
+      o.connect(lp); o.start(t); o.stop(t + decay + 0.1); last.push(o);
+
+      const amp = gain(v);
+      amp.gain.setValueAtTime(0, t);
+      amp.gain.linearRampToValueAtTime(vel * 0.40, t + 0.004);
+      amp.gain.exponentialRampToValueAtTime(vel * 0.11, t + decay * 0.3);
+      amp.gain.exponentialRampToValueAtTime(0.0004, t + decay);
+      lp.connect(amp); ng.connect(amp);
+      const near = gain(v, 0.34); amp.connect(near); near.connect(dry);
+      const far  = gain(v, 0.66); amp.connect(far);  far.connect(dist);
+      retire(v, t + decay + 0.2, last);
+    }
+
+    // A twang is a transient with a formant falling off it, which is what
+    // LA does anyway. Here the sweep is the filter rather than a separate
+    // resonator.
+    function jawHarpLA(ev) {
+      const t = ev.time, vel = ev.vel == null ? 0.6 : ev.vel;
+      const f = midiToFreq(ev.midi);
+      const durS = Math.max(0.16, (ev.dur || 0.4) * pieceBeat);
+      const v = scope(); const last = [];
+
+      const n = noise(v), nb = filt(v, 'bandpass'), ng = gain(v);
+      nb.frequency.value = 3200; nb.Q.value = 1.2;
+      ng.gain.setValueAtTime(0, t);
+      ng.gain.linearRampToValueAtTime(0.26 * vel, t + 0.004);
+      ng.gain.exponentialRampToValueAtTime(0.0003, t + 0.035);
+      n.connect(nb); nb.connect(ng); n.start(t); n.stop(t + 0.05); last.push(n);
+
+      const o = osc(v, 'sawtooth', f, 0);
+      const lp = filt(v, 'lowpass'); lp.Q.value = 11.0;   // the twang lives in Q
+      const from = ev.sweepFrom || 2200, to = ev.sweepTo || 700;
+      lp.frequency.setValueAtTime(clamp(from, 300, 9000), t);
+      lp.frequency.exponentialRampToValueAtTime(clamp(to, 240, 9000), t + durS * 0.85);
+      o.connect(lp); o.start(t); o.stop(t + durS + 0.12); last.push(o);
+
+      const amp = gain(v);
+      amp.gain.setValueAtTime(0, t);
+      amp.gain.linearRampToValueAtTime(vel * 0.30, t + 0.005);
+      amp.gain.exponentialRampToValueAtTime(0.0004, t + durS);
+      lp.connect(amp); ng.connect(amp);
+      const near = gain(v, 0.30); amp.connect(near); near.connect(dry);
+      const far  = gain(v, 0.70); amp.connect(far);  far.connect(dist);
+      retire(v, t + durS + 0.25, last);
+    }
+
+    // A reed: breath in front, then a filter that opens slowly and stays.
+    // Doc 28 keeps the harmonica distant, so it leans on the far bus.
+    function harmonicaLA(ev) {
+      const t = ev.time, vel = ev.vel == null ? 0.7 : ev.vel;
+      const f = midiToFreq(ev.midi);
+      const durS = Math.max(0.2, (ev.dur || 1) * pieceBeat);
+      const v = scope(); const last = [];
+
+      const n = noise(v), nb = filt(v, 'bandpass'), ng = gain(v);
+      nb.frequency.value = clamp(f * 3, 700, 5000); nb.Q.value = 0.8;
+      ng.gain.setValueAtTime(0, t);
+      ng.gain.linearRampToValueAtTime(0.14 * vel, t + 0.03);
+      ng.gain.exponentialRampToValueAtTime(0.0003, t + 0.18);
+      n.connect(nb); nb.connect(ng); n.start(t); n.stop(t + 0.22); last.push(n);
+
+      const o = osc(v, 'square', f, 0);
+      const lp = filt(v, 'lowpass'); lp.Q.value = 5.0;
+      lp.frequency.setValueAtTime(clamp(f * 1.2, 250, 5000), t);
+      lp.frequency.linearRampToValueAtTime(clamp(f * 5.5, 700, 8000), t + 0.12);
+      lp.frequency.exponentialRampToValueAtTime(clamp(f * 3.0, 400, 7000), t + durS);
+      o.connect(lp); o.start(t); o.stop(t + durS + 0.2); last.push(o);
+
+      const amp = gain(v);
+      amp.gain.setValueAtTime(0.0001, t);
+      amp.gain.linearRampToValueAtTime(vel * 0.26, t + 0.06);
+      amp.gain.setValueAtTime(vel * 0.26, t + Math.max(0.06, durS - 0.08));
+      amp.gain.exponentialRampToValueAtTime(0.0001, t + durS + 0.16);
+      lp.connect(amp); ng.connect(amp);
+      const near = gain(v, 0.16); amp.connect(near); near.connect(dry);
+      const far  = gain(v, 0.84); amp.connect(far);  far.connect(dist);
+      retire(v, t + durS + 0.4, last);
+    }
+
+    const voices = { piano, pianoLA, fiddle, fiddleLA, jawHarp, jawHarpLA,
+                     harmonica, harmonicaLA };
 
     /* ---------------- scheduling ------------------------------------ */
     // WHICH THEME, AND AT WHAT TEMPO. It was closed over one; a second
@@ -748,6 +861,17 @@ const ConsolationAudio = (function () {
     {b:9.0, m:67, d:1.5},{b:10.5, m:69, d:0.5},{b:11.0, m:71, d:1.0}
   ];
 
+  const THEME_LA = {
+    name: 'CONSOLATION (LA)',
+    tempo: TEMPO, loopBeats: LOOP_BEATS,
+    parts: [
+      { inst: 'pianoLA',   role: 'melody',        gain: 1.00, fromLoop: 0, events: MEL },
+      { inst: 'pianoLA',   role: 'accompaniment', gain: 0.80, fromLoop: 0, events: ACC },
+      { inst: 'jawHarpLA', role: 'offbeats',      gain: 0.85, fromLoop: 0, events: JAW },
+      { inst: 'fiddleLA',  role: 'counter+tune',  gain: 0.95, fromLoop: 1, events: FID }
+    ]
+  };
+
   const THADDEUS_LA = {
     name: 'THADDEUS (LA)',
     tempo: THAD_TEMPO, loopBeats: THAD_LOOP,
@@ -789,7 +913,7 @@ const ConsolationAudio = (function () {
 
   return {
     TEMPO, BEAT, LOOP_BEATS, LOOP_SECONDS, ARC_SECONDS, LEAD_SECONDS,
-    DETUNE_START, PIANO_CLASS_CENTS, THEME, THADDEUS, THADDEUS_LA, AUDITIONS,
+    DETUNE_START, PIANO_CLASS_CENTS, THEME, THEME_LA, THADDEUS, THADDEUS_LA, AUDITIONS,
     midiToFreq, createEngine, automateArc
   };
 })();
@@ -802,7 +926,8 @@ window.ConsolationAudio = ConsolationAudio;
   const CA = window.ConsolationAudio;
   const $ = id => document.getElementById(id);
   const btn = { flat: $('b-flat'), tuned: $('b-tuned'), arc: $('b-arc'),
-                thad: $('b-thad'), thadla: $('b-thadla'), stop: $('b-stop') };
+                thad: $('b-thad'), thadla: $('b-thadla'),
+                consla: $('b-consla'), stop: $('b-stop') };
   const cbFlat = $('cb-flat');
   const out = { detune: $('r-detune'), state: $('r-state'), arc: $('r-arc'), bar: $('r-bar'), fill: $('r-fill') };
 
@@ -832,7 +957,7 @@ window.ConsolationAudio = ConsolationAudio;
   function playTheme(which) {
     stop();
     const e = newEngine(which === 'tuned' ? 0 : CA.DETUNE_START);
-    e.setPiece(CA.THEME);
+    e.setPiece(which === 'la' ? CA.THEME_LA : CA.THEME);
     mode = which;
     startTime = e.ctx.currentTime + 0.14;
     nextBeat = 0;
@@ -840,8 +965,12 @@ window.ConsolationAudio = ConsolationAudio;
     if (which === 'arc') arc = CA.automateArc(e.detuneParam, startTime);
     timer = setInterval(tick, 25);
     tick();
-    btn[which === 'flat' ? 'flat' : which === 'tuned' ? 'tuned' : 'arc'].classList.add('on');
-    out.state.textContent = which === 'arc' ? 'the resolution' : 'theme looping';
+    const key = which === 'flat' ? 'flat' : which === 'tuned' ? 'tuned'
+      : which === 'la' ? 'consla' : 'arc';
+    btn[key].classList.add('on');
+    out.state.textContent = which === 'arc' ? 'the resolution'
+      : which === 'la' ? 'CONSOLATION — all four voices in the LA manner'
+      : 'theme looping';
   }
 
   function tick() {
@@ -888,6 +1017,7 @@ window.ConsolationAudio = ConsolationAudio;
   }
   btn.thad.onclick   = () => playThaddeus('bowed');
   btn.thadla.onclick = () => playThaddeus('la');
+  btn.consla.onclick = () => playTheme('la');
   btn.flat.onclick  = () => playTheme('flat');
   btn.tuned.onclick = () => playTheme('tuned');
   btn.arc.onclick   = () => playTheme('arc');

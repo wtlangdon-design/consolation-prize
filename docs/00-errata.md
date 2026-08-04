@@ -1665,6 +1665,8 @@ Errata 49 item 3, "commission the themes as MIDI, not audio", is likewise satisf
 
 ## Outstanding
 
-**The other three instruments are still the old voices.** Piano, jaw harp and harmonica are summed partials; only the fiddle is LA-flavoured. CONSOLATION is piano-led, so as it stands the town and its protagonist are two different machines. Either the remaining three are rebuilt in the same manner or the ruling is scoped to Thad deliberately — and it should be a decision rather than an oversight.
+**RESOLVED, SAME SITTING: all four instruments are LA-flavoured.** Piano, jaw harp and harmonica were rebuilt in the same manner and CONSOLATION was auditioned entire against its original. Tyler took the LA version of both themes. The town and its protagonist are one machine.
 
-**The offline renderer is unbuilt.** Errata 49 item 1 names it and nothing does it yet, so no stem exists and `manifest.music.rooms` is still empty.
+Two findings from building the other three, worth keeping. **The MT-32's pianos are famously not very piano** — a hammer thock, one saw, a filter that shuts fast — and CONSOLATION is piano-led, so the piano carries the ruling rather than the fiddle that prompted it. And **the jaw harp barely changed**, which is informative rather than a failure: a twang IS a transient with a formant falling off it, so it was already built the way LA builds everything, and the LA version only moves the sweep into the filter's resonance.
+
+**The offline renderer is written and has never been run.** `tools/render-music.mjs` drives the proof itself in an `OfflineAudioContext` — the proof exports `createEngine(ctx, opts)` and takes any context, so there is no second copy of the synthesis, which matters because two synths agree today and drift a semitone apart in a month. It needs Chromium and was written where none could be installed, so it is unproven until somebody runs it. `manifest.music` names both stems; `Music.ts` treats a missing file as silence, so the game is unchanged until they exist and plays the moment they do.
