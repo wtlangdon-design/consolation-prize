@@ -927,6 +927,20 @@ export interface UiFile {
     lineSecondsMinimum: number;
     actCardExtraSeconds: number;
     actCardNote?: string;
+    /**
+     * Doc 30 section 4.1's binding formula for a DIALOGUE line:
+     * `clamp(1.8s, 8.0s, 0.45s + visibleGlyphs x 0.055s)`.
+     *
+     * Optional so a bundle without them performs at the defaults rather than
+     * failing to load -- but they are declared in `content/ui/ui.json`, and
+     * the note there says why they are content: the unbuilt "Text speed"
+     * option scales exactly these.
+     */
+    holdBaseSeconds?: number;
+    holdPerGlyphSeconds?: number;
+    holdMinimumSeconds?: number;
+    holdMaximumSeconds?: number;
+    holdNote?: string;
   };
 }
 

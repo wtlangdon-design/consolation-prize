@@ -2831,6 +2831,40 @@ Checked against `tools/gauntlet/opening.json` before filling anything in, as ask
 
 **11 MB for the pair, and the `.ogg` naming was the residue of the plan to fix that.** The tool named its outputs `.ogg` and rewrote them to `.wav` at all three use sites — a name that had stopped being true (R5k), now `.wav`, which is what is written and what the manifest asks for. **Encoding is still worth having and is not cheap here: neither `ffmpeg` nor `oggenc` is on this machine**, and it would need a manifest change too.
 
+## Q106 · Dialogue is performed. Steps 1–7 of doc 30, and the machine was already there
+
+**The diagnosis is exactly right and the repo agrees with it.** `DialogueRunner.select()` is `beginSelection` + `advance('echo')` + `advance('reply')` + `settle()` in four lines, and `GameScene` called that. **Every phase boundary `DialogueExchange` exists to create was crossed inside one statement** — including the one named `echo`, whose own comment cites errata 45's first correction. Doc 30 specified it, errata 45 corrected it, the exchange implements it, and the caller fast-forwarded. **R5o at the largest scale in this project.**
+
+**Built: `engine/core/DialoguePerformance.ts`**, a driver rather than a second machine. It holds a queue and a clock, calls `advance` at the boundaries the exchange already names, and calls `settle` **on exit from the last reply** — which is errata 45 itself. **It lives in the model**, because "what a conversation does over time" is a fact about the game and a driver written in the scene would work where no test could see it (R5m).
+
+| doc 30 section 1 | before | now |
+|---|---|---|
+| speech anchored over the speaker, following position and scale | top-centred at a fixed `SAY_TOP` | **anchored, clamped, and scaled** |
+| choices hidden while an exchange plays, unable to receive clicks | drawn throughout | **hidden, and `dialogueHitboxes` returns nothing** |
+| selecting a choice makes Thad speak the selected wording | never | **the echo, from `option.text`** |
+| `readingHold = clamp(1.8s, 8.0s, 0.45s + glyphs × 0.055s)` | no hold; a line waited for a click forever | **built, from content** |
+| per-speaker colour | live | live |
+
+**The timing constants are content**, beside `lineSecondsPerGlyph`, whose own note says why: menu.json's unbuilt "Text speed" scales exactly these. **The two sets are deliberately not reconciled** — 0.045/1.6 is what the opening was watched and tuned against, 0.055/1.8 is doc 30's binding number for dialogue, and merging them retimes the opening, which is a ruling.
+
+**Escape is NOT bound to skip.** Doc 30 4.2 reserves it for *non-interactive cutscenes* and says "interactive trees are never timed choices"; Escape is the menu key and stays it. `skipAll` is built and asserted to land on the same state as watching, and nothing binds to it, because there is no cutscene-skip action in the build.
+
+### Watched, and the proof case performs as written
+
+`renders/dialogue-performed-driver-hotel-exchange.png`. The hotel question: **choices vanish → "Where am I supposed to sleep?" over Thad → the driver answers → "I have four." over Thad → the driver lands "You've all got four." over the driver → choices return.** Nothing in the content was written for this.
+
+**One real fault the watching found, and it is the kind only a frame can show.** The driver's lines came back at the top of the sky. **He is not a mover** — he is baked into the coach with only his head separating, which is why he is an overlay — so a search of the actor registry found nothing and the fallback fired for a man plainly on screen, which doc 30 3.1 forbids by name. **The link was already in the content**: the overlay's states declare `whenSpeaker: 'stage_driver'`, so the overlay that draws a speaker's face is found by asking which one claims him, and his head is its rect on the body it sits on. No id is named in code.
+
+### And the gauntlet failed, correctly, on the first run
+
+**It timed out at 180s having never left the tree.** It drove the driver's conversation by clicking one option after another — which worked while a selection resolved in three lines and stops working the instant it takes seconds, because the hitboxes are gone with the list. **`options` cannot say so**: `presentOptions` reports four throughout, since what changed is whether they are on *screen*. The probe now reports `performing`, and the harness waits rather than clicking through — clicking through would test the skip path every time instead of the performance.
+
+### Step 8 is not carried, and neither is the exit fix
+
+**Step 8 amends doc 30 against a sentence doc 30 wrote to protect** — "Errata 37 is preserved exactly". Steps 1–7 make it *possible*: the reshuffle objection is that removing a used option moves rows under the cursor, and **with the list rebuilt offscreen it never can**. That is the whole of what these steps change about it. **Tyler's ruling.**
+
+**The exit fix is unblocked and not built.** With the list hidden and rebuilt, gating "Thank you for the ride." is a one-line `when` and nothing moves under anyone's cursor — no two-options-on-opposite-gates shape, no four test changes. **The stated shape is correct**: `Condition` is an AND, and `NumericTest` carries `atLeast`/`atMost`, so one counter expresses both "all asked" and "not yet all asked" where three booleans express only the first. **Authoring a flag and a gate is content.**
+
 ---
 
 # HOW THIS DOCUMENT WORKS
