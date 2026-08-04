@@ -16,7 +16,7 @@ import { CarriedBeats } from '../engine/core/CarriedBeats.ts';
 import { carriedStepsFor, segmentsOf, stepsFor } from '../engine/core/Opening.ts';
 import { depthOrder, overlayRect, roomFigures } from '../engine/render/Renderer.ts';
 import { depthTies } from '../engine/dev/Watch.ts';
-import { ActorSprite } from '../engine/render/ActorSprite.ts';
+import { ActorSprite, projectOnCanvas } from '../engine/render/ActorSprite.ts';
 import { IllegalStateError } from '../engine/core/Assertions.ts';
 import type { ContentBundle, SequenceBeat, SequenceStagingStep } from '../engine/core/types.ts';
 
@@ -773,4 +773,82 @@ test('a body with one frame needs no entries at all', () => {
   const overlay = { rect: [1, 2, 3, 4] as [number, number, number, number] };
   assert.deepEqual(overlayRect(overlay, 'idle'), [1, 2, 3, 4]);
   assert.deepEqual(overlayRect(overlay, 'idle', 'anything'), [1, 2, 3, 4]);
+});
+
+/* ======================================================================
+ * ERRATA D8 -- THE LANTERN'S GROUND LIGHT
+ * ====================================================================== */
+
+test('the lamp is projected through the SAME arithmetic that places the sprite', () => {
+  // A canvas point projected with the anchor itself must land on the feet,
+  // and the canvas origin must land where `draw` puts its top-left corner.
+  // Those two facts are what make one formula usable by both callers.
+  const source = { width: 356, height: 668 };
+  const drawn = { width: 128, height: 240 };
+  const anchor: [number, number] = [178, 668];
+
+  const feet = projectOnCanvas(anchor, anchor, source, drawn, 900, 700);
+  assert.deepEqual(feet, { x: 900, y: 700 },
+    'the anchor projects onto the feet, by construction');
+
+  const corner = projectOnCanvas([0, 0], anchor, source, drawn, 900, 700);
+  assert.equal(corner.x, 900 - Math.round((178 / 356) * 128));
+  assert.equal(corner.y, 900 - 900 + 700 - Math.round((668 / 668) * 240));
+
+  // And a point to the right of the anchor stays to the right of the feet,
+  // scaled down by exactly the figure's scale.
+  const lamp = projectOnCanvas([317, 419], anchor, source, drawn, 900, 700);
+  assert.ok(lamp.x > 900, 'the lamp hangs forward of him');
+  assert.ok(lamp.y < 700, 'and above his soles');
+  assert.equal(lamp.x - corner.x, Math.round((317 / 356) * 128));
+});
+
+test('errata D8: one record carries a lamp, per frame, and nothing else declares one', async () => {
+  const content = await loadContent(fsReader);
+  assert.ok(content.carriedLight, 'the manifest names the pool, so the bundle has it');
+  const spec = content.carriedLight!;
+  assert.ok(spec.widthPerHeight > 0 && spec.intensity > 0);
+
+  // FOUND BY ITS DATA, NOT BY ITS NAME. A test that reached for a character by
+  // id would be the engine knowing the fiction, which `check-no-content-in-code`
+  // forbids -- and it caught exactly that here. Searching for the declaration
+  // is also the stronger assertion: it says how many carriers there are.
+  const carrying = [...content.actors.values()]
+    .flatMap((record) => record.clips.map((clip) => ({ record, clip })))
+    .filter((each) => each.clip.lanternAnchor !== undefined);
+  assert.equal(carrying.length, 1,
+    'exactly one clip in the whole bundle declares a lamp today');
+
+  for (const { clip } of carrying) {
+    assert.equal(clip.lanternAnchor!.length, clip.frames.length,
+      'ONE POINT PER FRAME. Q81: the lamp moves, so a single anchor would let it '
+      + 'walk out of its own light');
+    for (const point of clip.lanternAnchor!) {
+      assert.equal(point.length, 2);
+      assert.ok(point.every((value) => Number.isFinite(value)));
+    }
+  }
+
+  // Q81's other half: it is per CLIP. The protagonist declares none anywhere,
+  // which is what makes `lanternAt` answer null rather than guess a position.
+  assert.ok(content.actor.clips.every((clip) => clip.lanternAnchor === undefined),
+    'the protagonist carries no lamp, so no clip of his declares one');
+});
+
+test('a lamp with no loaded frame lights nothing, rather than lighting a guess', async () => {
+  const content = await loadContent(fsReader);
+  const carrier = [...content.actors.values()]
+    .find((record) => record.clips.some((clip) => clip.lanternAnchor !== undefined));
+  assert.ok(carrier, 'somebody carries one');
+  const lit = carrier!.clips.find((clip) => clip.lanternAnchor !== undefined)!;
+  const dark = carrier!.clips.find((clip) => clip.lanternAnchor === undefined);
+  // `() => null` is the loader before any sheet has arrived. The projection
+  // needs the image's own pixel size, and a pool placed from `figureHeight`
+  // alone would sit under a graybox in the wrong spot.
+  const sprite = new ActorSprite(carrier!, () => null);
+  assert.equal(sprite.lanternAt(lit.id, lit.facing, 'mud', 0, 900, 700, 240), null);
+  if (dark) {
+    assert.equal(sprite.lanternAt(dark.id, dark.facing, 'mud', 0, 900, 700, 240), null,
+      'and a clip that declares no anchor is null whatever has loaded');
+  }
 });

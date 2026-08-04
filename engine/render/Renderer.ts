@@ -3,7 +3,7 @@ import type { PresentedOption } from '../core/DialogueRunner.ts';
 import { IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
-import type { AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
+import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
@@ -375,6 +375,10 @@ export class Renderer {
     this.drawRoom();
     this.drawObjectStates();
     this.idles.draw(this.state.room, this.idleSheet(this.state.room.id), this.clock);
+    // After the idles as well as the plate: the ambient background motion is
+    // on the ground too, and a pool that lit the mud but not the things on it
+    // would draw a hole around every one of them.
+    this.drawCarriedLight();
     this.drawPeople();
     this.drawForeground();
     // The response to an option is drawn above the option list, not instead
@@ -554,6 +558,84 @@ export class Renderer {
    * is the other half of the same question: sorting settles actor against
    * actor, and the plane settles actor against room geometry.
    */
+  /**
+   * The frame a mover is showing right now.
+   *
+   * PULLED OUT SO THE LIGHT AND THE LAMP CANNOT DISAGREE. The glow pass runs
+   * before the figure pass and has to pick the same frame the figure pass will
+   * pick; two copies of this expression would agree until one of them learned
+   * about a new rate, and the symptom would be a pool trailing the lamp by a
+   * frame -- which reads as the light lagging rather than as two functions.
+   */
+  private frameFor(mover: Actor, record: ActorFile, frames: number): number {
+    const { walkRate, reactRate, idleRate } = record;
+    const stride = record.strideLength
+      ? record.strideLength * (mover.height / record.height)
+      : 0;
+    return mover.frameAt(this.clock, walkRate, reactRate, frames,
+      (mover.clip === IDLE_BREAK ? record.idleBreakRate ?? idleRate : idleRate) ?? 0, stride);
+  }
+
+  /**
+   * Errata D8: the light a mover carries, on the ground, under its own flame.
+   *
+   * AFTER THE PLATE AND BEFORE THE CHARACTERS, which is the whole design.
+   * Baked into the carrier's sprite it would be a hard-edged patch of lit
+   * ground travelling with him; painted into the plate it would still be there
+   * after he had gone. Light that belongs to a mover leaves with the mover.
+   *
+   * ADDITIVE. `lighter` brightens the mud beneath rather than tinting it,
+   * which is what a flame does, and `globalAlpha` carries the intensity the
+   * spec calls a judgement to be re-checked in motion.
+   *
+   * IT IS DRAWN UNMASKED, and that is a decision rather than an oversight. The
+   * near plane goes on after the people and therefore over this too, so a
+   * foreground post still stands in front of the pool. What it does not do is
+   * respect a per-figure occlusion plane, because a ground pool is not a
+   * figure -- it lies on the floor and the figure stands in it, so clipping it
+   * to the carrier's own silhouette mask would cut the light to the shape of
+   * the man.
+   */
+  private drawCarriedLight(): void {
+    const spec = this.state.content.carriedLight;
+    if (!spec) return;
+    const image = this.sheet(spec.sprite);
+    if (!image) return;
+    const context = this.screen.context;
+    for (const figure of roomFigures(this.ambient.present, this.actors.all())) {
+      const mover = figure.mover;
+      if (!mover) continue;
+      const record = this.state.content.actors.get(mover.id);
+      const sprite = this.sprites.get(mover.id);
+      if (!record || !sprite) continue;
+      const surface = mover.surfaceHere();
+      const state = this.state.moverState(mover.id);
+      const frames = sprite.frameCount(mover.clip, mover.facing, surface, state);
+      if (frames === 0) continue;
+      const at = sprite.lanternAt(mover.clip, mover.facing, surface,
+        this.frameFor(mover, record, frames),
+        figure.feetX, figure.feetY, mover.height, state);
+      if (!at) continue;
+      // The pool is sized off the CARRIER's drawn height, so it recedes with
+      // him: a man further up the road throws a smaller pool, for the same
+      // reason and by the same number as he is drawn smaller.
+      const width = Math.max(1, Math.round(mover.height * spec.widthPerHeight));
+      const height = Math.max(1, Math.round(width * (spec.size[1] / spec.size[0])));
+      const x = at.x - Math.round((spec.flameAnchor[0] / spec.size[0]) * width);
+      const y = at.y - Math.round((spec.flameAnchor[1] / spec.size[1]) * height);
+      context.save();
+      context.globalCompositeOperation = 'lighter';
+      context.globalAlpha = Math.max(0, Math.min(1, spec.intensity));
+      context.drawImage(image, x, y, width, height);
+      context.restore();
+      // DELIBERATELY NOT RECORDED AS A WATCH VIOLATION. `ViolationKind` is a
+      // list of things that are WRONG, and a lamp lighting the ground is the
+      // feature working. A light in the wrong place is caught by the unit test
+      // on the projection, which can say where it should be; the watch can
+      // only say that it happened.
+    }
+  }
+
   private drawPeople(): void {
     // EVERY MOVER, not just the protagonist, sorted against the ambient set
     // in one pass -- so a driver standing further up the road is drawn behind
@@ -623,13 +705,10 @@ export class Renderer {
     // HIS OWN RATES, not the protagonist's. Every record carries them, and
     // reading one character's timing off another is the same mistake in
     // miniature as drawing him with another's sheet.
-    const { walkRate, reactRate, idleRate } = record;
     // Doc 40: one full cycle is one declared stride. Declared at the record's
     // own drawn height, so it scales with his height like everything else --
     // a man drawn smaller up the road takes proportionally shorter steps.
-    const stride = record.strideLength
-      ? record.strideLength * (mover.height / record.height)
-      : 0;
+    // Both of those now live in `frameFor`, which the light pass shares.
     // Zero frames means the record does not declare this clip, and there is
     // no substitute for one. The graybox below is a placeholder, not a
     // stand-in animation: it is visibly not the character.
@@ -642,11 +721,10 @@ export class Renderer {
       // THE BREAK HAS ITS OWN RATE AND NOTHING HAD EVER READ IT. Doc 40 gives
       // idle 2.4/s and idle-break ~2/s, and `idleBreakRate` sits on every
       // actor record -- written there by build-actor-record.mjs, declared in
-      // types.ts, and consumed by no code at all until this line. A glance
-      // played at the breathing rate is not the animation the rate was chosen
-      // for; it is the same frames at somebody else's tempo.
-      mover.frameAt(this.clock, walkRate, reactRate, frames,
-        (clip === IDLE_BREAK ? record.idleBreakRate ?? idleRate : idleRate) ?? 0, stride),
+      // types.ts, and consumed by no code at all until `frameFor` existed. A
+      // glance played at the breathing rate is not the animation the rate was
+      // chosen for; it is the same frames at somebody else's tempo.
+      this.frameFor(mover, record, frames),
       feetX, feetY, mover.height, state,
     );
     if (!drawn) {

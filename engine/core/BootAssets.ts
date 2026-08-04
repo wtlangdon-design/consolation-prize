@@ -209,6 +209,13 @@ export function planBoot(bundle: ContentBundle): BootPlan {
     }
   }
   later({ key: bundle.itemIcons.sheet, path: bundle.itemIcons.sheet });
+  // DEFERRED, because nobody carries a lamp in the first frame. Hob is placed
+  // at beat 7 and the pool simply does not draw until its sprite arrives --
+  // which is the right failure for a light: the road is unlit for a moment
+  // rather than a black square appearing where the glow should be.
+  if (bundle.carriedLight) {
+    later({ key: bundle.carriedLight.sprite, path: bundle.carriedLight.sprite });
+  }
 
   return { required: [...required.values()], deferred: [...deferred.values()] };
 }

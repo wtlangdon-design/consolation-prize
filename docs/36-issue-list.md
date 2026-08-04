@@ -2622,6 +2622,36 @@ Struck and recorded as instructed. **Doc 38 never carried the arm metric**, so t
 
 **One thing that may be what "reads wrong" means.** `docs/17-opening-sequence.md` line 144 words the same beat differently — *"The next coach out of Consolation is in four days. I have checked twice and the answer did not improve."* — and the errata overrides doc 17, so the shipped version is the compressed one. If the fuller wording is the one wanted, it is a one-line change in the errata and a re-extract. **Named rather than changed: it is a line of dialogue.**
 
+## Q97 · The lantern glow is built, and the spec that had no reader now has three
+
+**`art/effects/lantern-glow.json` was R5l's third instance — fully specified, referenced by nothing.** It is now named in the manifest as `carriedLight`, loaded by `ContentLoader`, deferred by `planBoot`, and drawn by `Renderer.drawCarriedLight` after the plate and the idles and before the people. Errata D8's rule holds: **light that belongs to a mover leaves with the mover.**
+
+**Q81's ruling is what the data shape follows.** `lantern_anchor` is per clip and per frame in `rig.json`, written through to the actor record as `lanternAnchor`, so the pool tracks the lamp between the stand (at his side) and the walk (held forward). `build-actor-record.mjs` refuses a list whose length does not match the frame count, by name — one short would light the wrong hand.
+
+**ONE PROJECTION, TWO CALLERS.** `projectOnCanvas` in `ActorSprite.ts` now computes both the frame's top-left corner and the lamp's position. Written out twice they would be two formulas that agree today; the anchor rounding is not obvious, and a glow that computed its own version would drift a pixel or two the first time either changed — **which looks like the light being loose on the lamp rather than like a bug** (R5i). `frameFor` in the renderer is the same move for the frame index: the light pass runs before the figure pass and has to pick the frame the figure pass will pick, or the pool trails the lamp by one.
+
+**Measured, at three depths, against the real plate:** `renders/room-01-lantern-glow-three-positions.png`.
+
+| feet | drawn height | lamp | pool |
+|---|---|---|---|
+| 760, 760 | 242 | 811, 670 | 629 × 629 |
+| 1080, 716 | 229 | 1121, 638 | 595 × 595 |
+| 1400, 700 | 224 | 1444, 617 | 582 × 582 |
+
+The pool is sized off the carrier's **drawn** height, so it recedes with him by the same number he does. The sprite's lit content runs y 20–328 of 512, so the ellipse sits above the sprite's own bottom third and the pool does not run off the play area even at the near edge.
+
+**Three deliberate nulls, each of which is the feature rather than a gap.** No anchor on a clip → no light. No loaded frame → no light, because the projection needs the image's own pixel size and a pool placed from `figureHeight` alone would sit under a graybox in the wrong spot. No `carriedLight` in the manifest → no light at all, which is what the game did before this existed.
+
+**Drawn UNMASKED, and that is a decision.** The near plane goes on after the people and therefore over the pool too, so a foreground post still stands in front of it. What it deliberately does not do is clip to the carrier's own occlusion mask — **a ground pool is not a figure**; it lies on the floor and the man stands in it, so masking it to his silhouette would cut the light to the shape of the man.
+
+**Two things changed in the spec file and both are recorded in it.** `scale_rule` was prose — *"width = 2.6 x the character's drawn height"* — which is a rule a renderer cannot parse, and it stayed prose for exactly as long as nothing read it. And `anchor_in_source` named a flame at [658, 969] on a figure of [740, 1517]; **that clip is 356 × 668 today and the point does not exist in it.** R5k. It is replaced by the per-frame anchors, not re-measured.
+
+**The anchor is the HANDLE, not the flame**, because the lamp is drawn unlit and there is no bright spot to measure from. The sprite's own `flameAnchor` sits a third of the way down its height, which absorbs the difference: a lantern body is about 5% of the pool's width.
+
+**And `check-no-content-in-code` caught my test.** The first version reached for the carrier by id — the engine knowing the fiction. Rewritten to find him by his data, which is also the stronger assertion: *exactly one clip in the whole bundle declares a lamp.* 136 tests.
+
+**Not built, and named rather than left to be found: flicker.** Doc 36 line 67 says flicker is now modulation of the glow's alpha or tint over time, no frames. Nothing modulates it — the pool is steady. **That is a one-line change against the clock and it should be a ruling, not a default**, because a flame's flicker rate is a look decision and a wrong one reads as a fault in the renderer.
+
 ---
 
 # HOW THIS DOCUMENT WORKS

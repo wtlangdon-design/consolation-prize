@@ -1,5 +1,6 @@
 import type {
   ActorFile,
+  CarriedLightFile,
   OverlayFile,
   SpeechColoursFile,
   AmbientFile,
@@ -63,6 +64,11 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     (manifest.overlays ?? []).map((path) => read(path) as Promise<OverlayFile>),
   );
   const overlays = new Map(overlayFiles.map((file) => [file.id, file]));
+  // Errata D8's lantern pool. Optional: a game that declares none draws none,
+  // which is what it did for as long as the spec sat in art/ with no reader.
+  const carriedLight = manifest.carriedLight
+    ? (await read(manifest.carriedLight)) as CarriedLightFile
+    : null;
   // Optional: a game with no colours declared draws every line in the default
   // ink, which is what it did before this existed.
   const speechColours = manifest.speechColours
@@ -125,7 +131,8 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
 
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
-    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, speechColours, items, panel,
+    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight,
+    speechColours, items, panel,
     combinations, itemIcons,
     sequences,
   };

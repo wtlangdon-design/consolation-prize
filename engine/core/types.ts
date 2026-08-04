@@ -369,6 +369,26 @@ export interface ActorClip {
    */
   walkDx?: number;
   /**
+   * WHERE THE LANTERN IS, ONE POINT PER FRAME, in the same padded-canvas space
+   * as `anchor`.
+   *
+   * PER CLIP, WHICH Q81 RULED BEFORE THE GLOW WAS BUILT. Hob's stand holds the
+   * lamp at his side and his walk holds it FORWARD, because a man carrying a
+   * lamp holds it out to see by. A single anchor per character would pin the
+   * light pool to one of those positions and let the lamp walk out of its own
+   * light.
+   *
+   * WRITTEN BY HAND INTO THE RIG, NOT FOUND IN THE PIXELS. The lamp is drawn
+   * UNLIT -- there is no bright spot to detect -- so this is the one measurement
+   * in the pipeline that cannot be re-derived from the art, which is exactly
+   * why it is recorded per frame rather than approximated from one.
+   *
+   * It is the HANDLE, not the flame. The glow sprite carries its own
+   * `flame_anchor` a third of the way down its height, which absorbs the
+   * difference: a lantern body is about 5% of the pool's width.
+   */
+  lanternAnchor?: [number, number][];
+  /**
    * WHICH STATE OF THE OBJECT THIS CLIP DRAWS. Q38, as ruled.
    *
    * The same shape as `surface` below and resolved by the same
@@ -921,6 +941,14 @@ export interface ManifestFile {
   actorsNote?: string;
   /** Head overlays -- a head composited over a body that never swaps. */
   overlays?: string[];
+  /**
+   * Light a mover carries and leaves with, drawn on the ground beneath it.
+   *
+   * Named here rather than discovered, like every other record. Optional: a
+   * game with no glow declared draws no glow, which is what it did before this
+   * existed.
+   */
+  carriedLight?: string;
   /** A colour per speaker for spoken lines. Absent draws in the default ink. */
   speechColours?: string;
   speechColoursNote?: string;
@@ -962,6 +990,32 @@ export interface OverlayState {
    * who is talking to whom.
    */
   whenSpeaker?: string;
+}
+
+/**
+ * A light one mover carries: an additive sprite on the ground, under its flame.
+ *
+ * ERRATA D8. It is drawn AFTER the plate and BEFORE the characters, and it is
+ * neither baked into the carrier's sprite nor painted into the plate. Baked in,
+ * it would travel as a hard-edged patch of lit ground moving with him; painted
+ * into the plate, it would stay after he had gone. **Light that belongs to a
+ * mover leaves with the mover.**
+ */
+export interface CarriedLightFile {
+  /** The additive sprite. RGB carries the intensity; alpha stays 255. */
+  sprite: string;
+  /** Its own pixel size, which is what `flameAnchor` is measured against. */
+  size: [number, number];
+  /**
+   * Where the flame sits IN THE SPRITE. The pool hangs below it, so this is
+   * well above the sprite's centre and the rest falls on the ground.
+   */
+  flameAnchor: [number, number];
+  /** Pool width as a multiple of the carrier's DRAWN height. */
+  widthPerHeight: number;
+  /** 0..1 multiplier on the additive blend. Doc's own value is a judgement. */
+  intensity: number;
+  note?: string;
 }
 
 export interface OverlayFile {
@@ -1043,6 +1097,8 @@ export interface ContentBundle {
   sequences: Map<string, SequenceFile>;
   /** Head overlays by id. Empty until something declares one. */
   overlays: Map<string, OverlayFile>;
+  /** The lamp's ground light, or null when the manifest declares none. */
+  carriedLight: CarriedLightFile | null;
   /** A colour per speaker, or null where none is declared. */
   speechColours: SpeechColoursFile | null;
 }
