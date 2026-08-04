@@ -188,7 +188,7 @@ Every rectangle in `stage-road.json` — `walkable`, `hotspots`, `exits`, `cycli
 
 **They are not a specification and new work must not be checked against them.** What survives is the hotspot *set* and its written lines, which come from docs 05 and 17 and which errata 53 explicitly does not change. Geometry is re-derived from the new plate once the mover layers exist; errata 53 condition 3 requires it settled before any tracing.
 
-## Q5 · Rooms are designed to change across acts, and the schema cannot express it
+## Q5 · Rooms are designed to change across acts — **RULED: errata 60, the act field**
 
 **The design assumes act variation.** Doc 20 declares Room 36, *Main Street, dawn*, as replacing Room 2 after F5 — a full act variant with its own background, already in `art/backgrounds/`. Doc 01's reveal schedule reframes rooms narratively rather than physically: *Hob is Mott* lands in Act III and, in the bible's own words, reframes the opening scene. And several rooms carry paired state hotspots with their own written lines — `coach` / `coach_gone`, `lamp` / `lamp_gone`, `case_roof` / `case_mud`.
 

@@ -314,7 +314,7 @@ Six options. **Five produce no response at all** — Hob keeps walking, and Thad
 **Option 3 is the whole game.** A player who tries it in Act I gets a four-second pause from an NPC and nothing else, and will not think about it again for fifteen hours.
 
 **Running:** every fourth night, unprompted, Hob says one of:
-> "Wouldn't stand there." · "It'll rain." *(it does not)* · "That's not yours." *(about nothing identifiable)* · "You're the piano man." · "It's a bad claim." *(pause)* "They're all bad claims."
+> "Wouldn't stand there." *(RULED, errata 60/R4: it is about the mud — a practical warning wearing gnomic clothes, paid off when the mud takes Thad's boot. It obligates nothing later.)* · "It'll rain." *(it does not)* · "That's not yours." *(about nothing identifiable)* · "You're the piano man." · "It's a bad claim." *(pause)* "They're all bad claims."
 
 ## ACT III — `HOB_C1`: after the coffin (E8)
 

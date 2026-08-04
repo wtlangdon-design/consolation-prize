@@ -1766,3 +1766,27 @@ unblocks the two one-shots and the pattern.
 Implementation: an eighth step kind `{ do: 'sound', src, gain? }`, same missing-file-is-silence
 contract as the beds, same validator posture as `wait` — staged outside a control:none beat is
 a build failure naming the beat.
+
+---
+
+# 60 · ACT IS A NUMBER — Q5 RULED
+
+Tyler adopts the act field as proposed. **`ACT` is a numeric counter in game state, written at
+exactly four places: the act turns in doc 48's scripts** (S1 sets 2, the funeral's opening sets
+3, S4's close sets 4). Nothing else writes it; content never reconstructs "which flags mean Act
+II" from constellations, which is how drift happens.
+
+**Authoring:** any hotspot, response, or staging step may carry `act: 2` or `act: "2-3"`,
+compiling to `when: { ACT: { atLeast, atMost } }` — sugar over the existing Condition machinery,
+constraining nothing. Visual state changes across acts compile to ruling 19a's paired gates, as
+they always have.
+
+**The part that earns the field is validation:** with explicit ranges the compiler checks
+*coverage* — a hotspot live in Acts I and III with nothing covering II is an authoring hole
+named at build time, not a hotspot that silently flickers out of existence for a third of the
+game. No flag-based scheme can ask that question.
+
+R4 is ruled in the same sitting: **Hob's "Wouldn't stand there." is about the mud**, recorded
+in doc 04 beside the line. It is a practical warning wearing gnomic clothes, paid off when the
+mud takes Thad's boot minutes later, and it obligates nothing in Act III. The handwriting
+option remains the game's only throwaway-that-mattered, by design.

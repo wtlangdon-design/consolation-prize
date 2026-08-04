@@ -59,7 +59,7 @@ is useful to use."
 
 ---
 
-# PART THREE — OPEN RULINGS, ALL TYLER'S, IN DEPENDENCY ORDER
+# PART THREE — OPEN RULINGS — **ALL FIVE RULED** (R1: errata 57 · R2/Q5: errata 60 · R3/Q2: errata 58 · R4: errata 60 · R5: doc 49) — retained as the record
 
 These block writing or building and cannot be resolved by any document:
 
