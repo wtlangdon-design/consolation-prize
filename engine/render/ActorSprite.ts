@@ -5,6 +5,34 @@ import { assertRequiredClip } from '../core/Assertions.ts';
 export type SheetSource = (path: string) => CanvasImageSource | null;
 
 /**
+ * Where a point on the padded canvas lands on screen, once the figure is drawn
+ * with its soles on (feetX, feetY) at `drawn` pixels.
+ *
+ * ONE FORMULA, TWO CALLERS, ON PURPOSE. `draw` uses it for the frame's own
+ * top-left corner and the lantern glow uses it for the lamp. Written out
+ * separately in both places it would be two formulas that agree today: the
+ * anchor rounding here is not obvious, and a glow that computes its own
+ * version drifts a pixel or two the first time either changes, in a way that
+ * looks like the light being slightly loose on the lamp rather than like a
+ * bug (R5i -- a mechanism agreeing with itself is the failure).
+ */
+export function projectOnCanvas(
+  point: readonly [number, number],
+  anchor: readonly [number, number],
+  source: { width: number; height: number },
+  drawn: { width: number; height: number },
+  feetX: number,
+  feetY: number,
+): { x: number; y: number } {
+  const anchorX = Math.round((anchor[0] / source.width) * drawn.width);
+  const anchorY = Math.round((anchor[1] / source.height) * drawn.height);
+  return {
+    x: Math.round(feetX - anchorX + (point[0] / source.width) * drawn.width),
+    y: Math.round(feetY - anchorY + (point[1] / source.height) * drawn.height),
+  };
+}
+
+/**
  * Draws a character. ERRATA 54 lives here, and ruling 24 does not.
  *
  * WHAT CHANGED, TWICE. Ruling 24 scaled by DECIMATION -- whole rows and
@@ -61,6 +89,46 @@ export class ActorSprite {
    */
   frameCount(clip: string, facing: Facing, surface: string, state?: string): number {
     return this.clipOf(clip, facing, surface, state)?.frames.length ?? 0;
+  }
+
+  /**
+   * Where this mover's lamp is on screen, or null if this clip has no lamp.
+   *
+   * NULL IS THE ANSWER FOR MOST CLIPS AND MOST CHARACTERS, and it is not a
+   * failure: Thad carries no lantern, Hob's `stand` has no anchor recorded
+   * yet, and both should draw no light rather than a light in a guessed place.
+   * A lamp whose position was inferred would be a lamp somewhere plausible,
+   * which is worse than none -- the pool would sit near his hand and never
+   * quite on it, and nothing would ever say why.
+   *
+   * The frame index is taken the same way `draw` takes it, so the light is on
+   * the lamp in the frame being drawn rather than in the one before it.
+   */
+  lanternAt(
+    clip: string, facing: Facing, surface: string, frame: number,
+    feetX: number, feetY: number, height: number, state?: string,
+  ): { x: number; y: number } | null {
+    const found = this.clipOf(clip, facing, surface, state);
+    const anchors = found?.lanternAnchor;
+    if (!found || !anchors || anchors.length === 0) return null;
+    const count = found.frames.length;
+    if (count === 0) return null;
+    const index = ((frame % count) + count) % count;
+    const point = anchors[Math.min(index, anchors.length - 1)];
+    if (!point) return null;
+    const image = this.sheets(found.frames[index] as string);
+    const source = image ? sizeOf(image) : null;
+    // NO LIGHT UNTIL THE FRAME HAS ARRIVED. The projection needs the image's
+    // own pixel size, and guessing it from `figureHeight` would put the pool
+    // in the wrong place for exactly as long as the sprite was a placeholder
+    // -- a glow under a graybox, which is the one combination that reads as
+    // the renderer having lost track of who is where.
+    if (!source) return null;
+    const scale = height / found.figureHeight;
+    return projectOnCanvas(point, found.anchor, source, {
+      width: Math.max(1, Math.round(source.width * scale)),
+      height: Math.max(1, Math.round(source.height * scale)),
+    }, feetX, feetY);
   }
 
   /**
@@ -152,10 +220,10 @@ export class ActorSprite {
     // figure lands with its soles on (feetX, feetY) and the padding hangs off
     // wherever it needs to, rather than the canvas being centred and the man
     // drifting inside it.
-    const anchorX = Math.round((found.anchor[0] / source.width) * drawnW);
-    const anchorY = Math.round((found.anchor[1] / source.height) * drawnH);
-    const destX = Math.round(feetX - anchorX);
-    const destY = Math.round(feetY - anchorY);
+    const dest = projectOnCanvas([0, 0], found.anchor, source,
+      { width: drawnW, height: drawnH }, feetX, feetY);
+    const destX = dest.x;
+    const destY = dest.y;
 
     if (drawnW === source.width && drawnH === source.height) {
       context.drawImage(image, destX, destY);

@@ -150,6 +150,77 @@ Always: multiply RGB by alpha → transform → divide back. And **bleed the edg
 
 `rig.json` carries `facing` and `walk_dx`. Translating a character the wrong way was got wrong on **both** characters — a figure walking backwards through the scene, twice. Anything that is got wrong twice belongs in the data, not in someone's head.
 
+## R4c · The knee is a function of PHASE, and its joint has to be a disc
+
+**Two wrong causes circulated before the right one, and both were about the drive array.** `HIP_SWING` is correct — 14 × `[1, .71, 0, −.71, −1, −.71, 0, .71]`, one full sine at eight even phases. The legs alternate, `rot(far, −s)` against `rot(near, s)`, and have since `1c63132`. **Neither is the bug.**
+
+**Every frame was a pure function of `s`.** A sine visits every non-extreme magnitude twice per cycle, so equal angles produced byte-identical output: 1 = 7, 2 = 6, 3 = 5. **Five pictures out of eight, and no drive array can change it** — a rigid leg has nothing left to differ with when the hip angle repeats. The same fact from the other end: `thad-walk-*/walk-02.png` and `walk-06.png` are the same *file*.
+
+**So the fix has to introduce something that varies with phase rather than with angle, and knee flexion is what a leg actually has.** Near straight through stance, folding hard through swing, peaking just after toe-off:
+
+| phase | hip | knee | |
+|---|---|---|---|
+| 0 | +14 | 6 | contact, leg forward |
+| 1 | +10 | 4 | loading response |
+| 2 | 0 | 4 | mid-stance |
+| 3 | −10 | 8 | terminal stance |
+| 4 | −14 | 40 | toe-off |
+| 5 | −10 | **60** | early swing, peak flexion |
+| 6 | 0 | 34 | mid-swing |
+| 7 | +10 | 10 | late swing, reaching |
+
+Pairs at equal |hip| now differ by 6, 30 and 52 degrees. **The palindrome cannot survive that**, and measured on Hob it does not: **5 distinct frames become 8, and the passing pair goes from 100% shared silhouette to 36%.**
+
+**AND THE FAR LEG IS INDEXED HALF A CYCLE BEHIND RATHER THAN NEGATED.** For a sine those are the same thing — `HIP[i+4] == −HIP[i]` — which is exactly why negating sufficed for as long as the leg was rigid. An asymmetric knee curve needs *the other phase*, and no sign expresses it.
+
+**A `face` term carries which way forward is,** because +14 rotates a hanging leg counter-clockwise and swings the foot to frame right: forward for a right-facing man, backward for a left-facing one. The hip never cared, since reversing a symmetric cycle gives the same cycle. **The knee cares** — flexion folds the heel toward the seat, which is the opposite of forward in both facings.
+
+### THE JOINT IS A DISC, AND A ROW SPLIT CANNOT DO THIS
+
+**`swing_arm`'s construction does not transfer, and this is the part worth reading before building any other two-segment limb.** Cut a limb on a horizontal line, rotate the lower half about a point on that line, and the tilted top edge dips below the cut on one side. **The gap is half the limb's width times tan(angle)** — at 60 degrees on a 40px leg, **35 pixels of hole**. Covering it by extending the shin upward needs `d ≥ w·tan θ`, which is 35px of shin above the knee, and that strip then swings 30px clear of the thigh and reads as a spur.
+
+**The arm escapes this by never testing it.** `elbow_frac` 0.45 puts the near elbow inside a sleeve, the far arm runs at 0.15 with a 0.25 lead, and the forearm turns through single digits. **A knee folds sixty degrees in open air over bare trouser with nothing over the joint.** Same operation, at an angle the trick does not survive.
+
+> **Everything within 0.58 of a leg-width of the knee goes with the SHIN, and the thigh has that bite taken out of it.** A disc rotated about its own centre is the same disc, so the joint's silhouette cannot change however far the knee folds. There is no edge to open and no corner to swing clear, and the thigh's bottom and the shin's top are the same curve by construction rather than by a tolerance.
+
+### AND THE AMPLITUDE IS WHERE DISTINCTNESS PROVES ITSELF USELESS
+
+Ladder on Hob, scaling `KNEE_FLEX` by `--knee`:
+
+| `--knee` | distinct frames | passing-pair overlap |
+|---|---|---|
+| 0 | 5 of 8 | 100% |
+| 0.3 | **8 of 8** | 72% |
+| 0.5 | **8 of 8** | 60% |
+| 0.7 | **8 of 8** | 49% |
+| 1.0 | **8 of 8** | **36%** |
+
+**Any knee at all gives eight distinct pictures. It takes 0.7 before the legs stop being the same stride.** At `--knee 0.3` the frames all differ, every byte-level check passes, and the walk still gallops. That is the whole argument for the overlap check in one table, and it is why the default is 1.0.
+
+**`--knee 0` reproduces the rigid leg byte-for-byte**, which is how the change was checked: all eight frame hashes unchanged.
+
+**What it does NOT reach: head-on walks.** `--view headon` takes the `shift_scale` path, where a limb moves toward the camera instead of rotating and a knee does not project as an angle. Those frames are still a pure function of `s`, so `thad-walk-front` and `thad-walk-back` remain palindromes at 100% on the passing pair. **Their fix is a different per-phase quantity — a foot that lifts in swing and plants in stance — and it is not built.**
+
+## RETRACTED · Arm-mask symmetry was never a measurement
+
+**An acceptance metric was invented, disproved, and then served anyway.** The claim: a rigged pose is good when the near and far arm masks come back within about 20% of each other. Its entire evidence was Hob measuring 26,895 against 25,849, and nothing else.
+
+**`split_arms`' own docstring says which arm is near is decided BY MASS.** The larger mask is *called* near by definition, so the ratio cannot fall below 1:1 and it measures nothing whatever about the drawing. That docstring was read, the metric was described as meaningless out loud — and the paint tool was built and painted to anyway.
+
+**The cost: Thad's left striding profile regenerated three times** — 66093/26398, then 4720/1297, then 8829/3437 — and then both arms hand-painted, chasing a number that could not have moved. **The drawing was never the problem.** Both arms separate from the body on the same 176 rows, 62% of the arm band, symmetrically about the torso.
+
+> **Do not use arm-mask symmetry as an acceptance test for any character.** And the neighbouring row in Part Three — *"leg mass after split … should be roughly symmetric"* — is weaker evidence than it reads: `split_legs` fits a seam rather than ordering by mass, so its two numbers *can* differ meaningfully, but nothing has ever established what "roughly" is or what an asymmetry would mean. It is a observation from one character, not a threshold.
+
+**This is the sharpest R5p instance in the set: a number that looked like a measurement, was inherited as one, and was never re-derived from the artefact it described.** The disconfirming evidence was in the function's own docstring, on the same screen, the whole time.
+
+**And the same shape reached a handoff brief.** "The rigged four scored 21% and 27%" was asserted from a pair of numbers without checking which artefact produced them; they were `9ed3106`'s *authored* frames. The rigged output scores 1% at contact and **100% at passing**, because frames 2 and 6 are the same file. **A number is not evidence about a thing until somebody has checked that it came from that thing.**
+
+## KNOWN · `--pose standing` refuses standing poses
+
+**The flag that names the pose cannot accept the pose.** `--pose standing`'s hem detector wants ONE narrow run below the coat, and a casting sheet drawn to spec has background between the legs on every row — which is the thing that makes the limbs separable at all. So a correct standing source is rejected and the default hem strategy has to be used instead, as the clips it replaces also did.
+
+**The error message is half right and half wrong.** It says to use `--pose striding`, which is the correct workaround, and it calls the source a striding pose, which is false and sends the next person to regenerate art that is fine. Either the flag or the message wants correcting; the message is the cheaper of the two and the more urgent, because it is the part that misdirects.
+
 ## R5a · Write frames at twice the drawn size, not at source size
 
 The rig wrote frames at full generation resolution — figures around 1580px, drawn at 240. **Six times linear, thirty-six times the pixels anything can ever show.** `art/actors/` reached 71.8 MB, all of it downloaded before the first frame renders and resampled away on first use.
@@ -521,7 +592,9 @@ Starting points for the next character, not laws.
 | Canvas padding | **260px** each side, **60px** below |
 | Measured foot travel past the standing silhouette | **116px** — *measure it, don't guess it* |
 | Hip swing, 8 frames | 14, 10, 0, −10, −14, −10, 0, 10 degrees |
-| Leg mass after split | 46,445 / 42,343 px — should be roughly symmetric |
+| Knee flexion, 8 frames | 6, 4, 4, 8, 40, 60, 34, 10 degrees — **profile only**, R4c |
+| Knee position | **52%** of hip-to-sole; joint disc at **0.58** of the leg's width there |
+| Leg mass after split | 46,445 / 42,343 px — *one observation, not a threshold* (see RETRACTED) |
 | Final height on the plate | **233px**, ≈27% of an 864-tall play area |
 | Arm swing, profile | **0.55** of the hip angle |
 | Arm swing, head-on | **0.20** — a front-view arm barely moves at this size |

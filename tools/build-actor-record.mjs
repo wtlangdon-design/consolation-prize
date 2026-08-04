@@ -220,7 +220,33 @@ function recordFor(id) {
         // does exact-match-then-fall-back, so a stateless clip is the fallback
         // and a null would be a state nobody can ask for.
         ...(rig.state === undefined || rig.state === null ? {} : { state: rig.state }),
+        // THE LANTERN, PER FRAME AND PER CLIP. Q81 ruled this before the work
+        // started: Hob's stand holds the lamp at his side and his walk holds it
+        // FORWARD, because a man carrying a lamp holds it out to see by. One
+        // anchor per character would pin the light pool to one of those and let
+        // the lamp walk out of its own light.
+        //
+        // Canvas coordinates, the same space as `anchor`, so the renderer
+        // projects it through exactly the arithmetic it uses for the sprite.
+        // Written through, never inferred -- the lamp is drawn UNLIT, so there
+        // is nothing in the pixels to find it by.
+        ...(rig.lantern_anchor === undefined ? {} : { lanternAnchor: rig.lantern_anchor }),
       });
+      const lantern = rig.lantern_anchor;
+      if (lantern !== undefined) {
+        if (!Array.isArray(lantern) || lantern.length !== files.length) {
+          throw new Error(`${dir}: lantern_anchor has `
+            + `${Array.isArray(lantern) ? lantern.length : 'no'} entries for ${files.length} `
+            + 'frames. It is a point PER FRAME; one short would light the wrong hand');
+        }
+        for (const [n, point] of lantern.entries()) {
+          if (!Array.isArray(point) || point.length !== 2
+            || !point.every((v) => Number.isFinite(v))) {
+            throw new Error(`${dir}: lantern_anchor[${n}] is ${JSON.stringify(point)}, `
+              + 'expected a [x, y] point on the padded canvas');
+          }
+        }
+      }
     }
   }
   return { facings, clips };

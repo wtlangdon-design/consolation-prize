@@ -5,21 +5,13 @@
     512,
     512
   ],
-  "flame_anchor": [
+  "flameAnchor": [
     256,
     174
   ],
-  "anchor_in_source": {
-    "hob-walk-right": [
-      658,
-      969
-    ],
-    "figure": [
-      740,
-      1517
-    ]
-  },
-  "scale_rule": "width = 2.6 x the character's drawn height, centred under the flame",
+  "widthPerHeight": 2.6,
+  "scaleRuleNote": "width = 2.6 x the character's drawn height, centred under the flame\n\nTHE NUMBER IS NOW A NUMBER. It was prose in this file for as long as nothing read it -- fully specified, referenced by nothing, which is R5l. A rule a renderer cannot parse is a rule the renderer does not have.",
+  "supersededAnchorNote": "REMOVED: anchor_in_source, which named a flame at [658,969] on a figure of [740,1517]. That clip is 356x668 today and the point does not exist in it -- R5k, a number that went on describing something after it moved. The anchor is now PER CLIP AND PER FRAME in each rig.json as `lantern_anchor`, written through to the actor record as `lanternAnchor`, because Q81 ruled that a single anchor per character pins the pool to one lamp position and lets the lamp walk out of its own light.\n\nIt is the HANDLE rather than the flame: the lamp is drawn UNLIT, so there is no bright spot to measure from. flameAnchor above sits a third of the way down this sprite, which absorbs the difference -- a lantern body is about 5% of the pool's width.",
   "note": "ERRATA D8. The lantern's ground light is an ADDITIVE sprite drawn BEFORE the characters and AFTER the plate, anchored to the flame in Hob's own frames -- not baked into his sprite and not painted into the plate.\n\nBaked into the sprite it would travel as a hard-edged patch of lit ground that moves with him. Painted into the plate it would stay after he has gone. Errata 31d's coach layer is the same lesson: light that belongs to a mover leaves with the mover.\n\nADDITIVE, so the RGB carries the intensity and the alpha stays 255. It brightens the mud beneath it rather than tinting it, which is what a flame does.\n\nWarm at 255/182/96 -- an oil lamp, not white. Falls off as an ELLIPSE wider than tall because the ground recedes, with a hot core under the flame and a finite edge rather than an infinite tail.",
   "intensity": 0.85,
   "intensityNote": "0.85 of a possible 0.6-1.2. Chosen rather than measured: the four strengths were indistinguishable to the project owner in stills, so this is a judgement and should be re-checked in motion in the running game. 0.6 barely lifts the mud; 1.2 starts washing out the ruts the plate spent detail on. TUNE THIS IN THE GAME, not in a still -- a moving light reads much stronger than a static one."

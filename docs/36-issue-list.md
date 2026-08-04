@@ -2556,6 +2556,102 @@ Clause four of `check-clip-agreement.mjs`. Below the hem, silhouette intersectio
 
 **What is still Tyler's here, unchanged:** where the path ends, whether credits exist, and every waypoint in it. `beatSeconds` is one field that can absorb credits; there is no credits roll.
 
+## Q93 · The knee is built, and the wedge did not happen because the joint is not a cut
+
+Doc 38 R4c carries the mechanism. The results, measured on Hob's rigged cycle:
+
+| | frames | distinct | contact pair | passing pair |
+|---|---|---|---|---|
+| rigid (`--knee 0`) | 8 | **5** | 1% | **100%** |
+| with the knee | 8 | **8** | 1% | **36%** |
+
+**`--knee 0` is byte-identical to the previous rig** — all eight frame hashes unchanged — which is how the change was checked before anything was believed about it.
+
+**THE WEDGE WAS THE THING TO REPORT, AND IT IS SOLVED RATHER THAN TOLERATED.** A row split at the knee opens a gap of half the limb's width times tan(angle): **35 pixels at 60 degrees on a 40px leg**, in open air, with no coat over it. Extending the shin to cover it needs 35px of shin above the knee, which then swings 30px clear of the thigh and reads as a spur. **So the joint is a disc instead** — everything within 0.58 of a leg-width of the knee travels with the shin, and a disc rotated about its own centre is the same disc. There is no edge to open.
+
+**Measured for holes rather than eyeballed.** Counting enclosed transparent regions below the hem: the knee frames show 323px and 2,621px on frames 4 and 5, and the **rigid** version shows 9,487px on frame 4. **The largest enclosed area is in the version with no knee at all**, so what the metric is finding is the background between a straddled pair of legs, not a joint hole. Confirmed by looking: `renders/hob-knee-vs-rigid@3x.png`.
+
+**AND THE AMPLITUDE LADDER IS THE OVERLAP CHECK'S WHOLE ARGUMENT IN ONE TABLE.**
+
+| `--knee` | distinct | passing pair |
+|---|---|---|
+| 0.3 | **8 of 8** | 72% |
+| 0.5 | **8 of 8** | 60% |
+| 0.7 | **8 of 8** | 49% |
+| 1.0 | **8 of 8** | **36%** |
+
+**Any knee at all gives eight distinct pictures; it takes 0.7 before the legs stop being the same stride.** At `--knee 0.3` every byte-level check passes and the walk still gallops.
+
+**NO COMMITTED ART WAS REGENERATED.** The standing instruction against regenerating art has not been lifted, Hob's clip is ruled in as authored, and `thad-walk-back` is the blob's source. Everything above is scratch output; the change is to the tool.
+
+## Q94 · Clause four still cannot be asserted, and the reason is a ruling
+
+Measured on the current tip, after `9c84012` and `636b174`:
+
+| clip | contact | passing |
+|---|---|---|
+| `hob-walk-right` | 89% | 69% |
+| `thad-walk-back` | 52% | **100%** |
+| `thad-walk-front` | 49% | **100%** |
+| `thad-walk-left` | 0% | **100%** |
+| `thad-walk-right` | 0% | **100%** |
+
+**All five fail. Registering clause four today is seven standing failures**, which is R5j. The knee landing in the tool does not change this, because no clip in `art/actors/` was produced by the tool since.
+
+**TWO THINGS HAVE TO HAPPEN FIRST, AND ONE OF THEM IS TYLER'S.**
+
+**The profile walks need re-rigging with the knee** — `thad-walk-left`, `thad-walk-right`, and whatever Hob would become. That is art regeneration and it is not mine.
+
+**And the assertion needs a ruling on authored clips.** `hob-walk-right` carries `authored: true` and a note recording the accepted fault. Either the assertion skips clips carrying that flag — which makes `authored: true` an opt-out any future clip can claim, and the check then cannot see the next Hob — or Hob is re-rigged and the exception disappears. **Put to Tyler rather than chosen.** My reading, offered as reading: an exemption that a file can grant itself is the weaker of the two, and Hob crossing Room 1 once is exactly the case where re-rigging is cheap.
+
+**`thad-walk-front` and `thad-walk-back` cannot pass however the ruling goes.** They take the head-on `shift_scale` path, which is also a pure function of `s`, and a knee facing the camera projects as foreshortening rather than as an angle. **Their fix is a different per-phase quantity — a foot that lifts in swing and plants in stance — and it is not built.** Costing it: the same shape as the knee, roughly 20 lines, no joint geometry because nothing rotates; the risk is that a vertical lift at 240px head-on is two or three pixels and may read as a limp rather than a gait. Worth building only if somebody watching says the head-on walks look wrong.
+
+## Q95 · The arm-mask symmetry retraction is in doc 38, and doc 38 did not carry the claim
+
+Struck and recorded as instructed. **Doc 38 never carried the arm metric**, so the section is preventative plus the record — but the audit found the neighbouring claim in Part Three, *"leg mass after split … should be roughly symmetric"*, which has the same standing: one observation from one character, never established as a threshold. Softened rather than struck, because `split_legs` fits a seam rather than ordering by mass, so its two numbers *can* differ meaningfully — unlike the arms, where the larger mask is called near by definition and the ratio cannot fall below 1:1.
+
+**The `--pose standing` quirk is recorded in doc 38 too.** The message is the urgent half: telling the next person their source is a striding pose sends them to regenerate art that is fine.
+
+## Q96 · The four-days line is not a stale build
+
+`content/rooms/stage-road.json`, hotspot `coach_gone`, on the current tip:
+
+> LOOK 1 "Gone. It made very good time on the way out." · 2 "Not another one for four days. I have checked twice and the answer did not improve." · 3 "The ruts are still filling in…"
+
+**That is `docs/00-errata.md` line 329 verbatim**, and `check-extraction` is green, so the shipped line is the errata's line and the build is current. **Not the stale-build cause, and therefore content and Tyler's.**
+
+**One thing that may be what "reads wrong" means.** `docs/17-opening-sequence.md` line 144 words the same beat differently — *"The next coach out of Consolation is in four days. I have checked twice and the answer did not improve."* — and the errata overrides doc 17, so the shipped version is the compressed one. If the fuller wording is the one wanted, it is a one-line change in the errata and a re-extract. **Named rather than changed: it is a line of dialogue.**
+
+## Q97 · The lantern glow is built, and the spec that had no reader now has three
+
+**`art/effects/lantern-glow.json` was R5l's third instance — fully specified, referenced by nothing.** It is now named in the manifest as `carriedLight`, loaded by `ContentLoader`, deferred by `planBoot`, and drawn by `Renderer.drawCarriedLight` after the plate and the idles and before the people. Errata D8's rule holds: **light that belongs to a mover leaves with the mover.**
+
+**Q81's ruling is what the data shape follows.** `lantern_anchor` is per clip and per frame in `rig.json`, written through to the actor record as `lanternAnchor`, so the pool tracks the lamp between the stand (at his side) and the walk (held forward). `build-actor-record.mjs` refuses a list whose length does not match the frame count, by name — one short would light the wrong hand.
+
+**ONE PROJECTION, TWO CALLERS.** `projectOnCanvas` in `ActorSprite.ts` now computes both the frame's top-left corner and the lamp's position. Written out twice they would be two formulas that agree today; the anchor rounding is not obvious, and a glow that computed its own version would drift a pixel or two the first time either changed — **which looks like the light being loose on the lamp rather than like a bug** (R5i). `frameFor` in the renderer is the same move for the frame index: the light pass runs before the figure pass and has to pick the frame the figure pass will pick, or the pool trails the lamp by one.
+
+**Measured, at three depths, against the real plate:** `renders/room-01-lantern-glow-three-positions.png`.
+
+| feet | drawn height | lamp | pool |
+|---|---|---|---|
+| 760, 760 | 242 | 811, 670 | 629 × 629 |
+| 1080, 716 | 229 | 1121, 638 | 595 × 595 |
+| 1400, 700 | 224 | 1444, 617 | 582 × 582 |
+
+The pool is sized off the carrier's **drawn** height, so it recedes with him by the same number he does. The sprite's lit content runs y 20–328 of 512, so the ellipse sits above the sprite's own bottom third and the pool does not run off the play area even at the near edge.
+
+**Three deliberate nulls, each of which is the feature rather than a gap.** No anchor on a clip → no light. No loaded frame → no light, because the projection needs the image's own pixel size and a pool placed from `figureHeight` alone would sit under a graybox in the wrong spot. No `carriedLight` in the manifest → no light at all, which is what the game did before this existed.
+
+**Drawn UNMASKED, and that is a decision.** The near plane goes on after the people and therefore over the pool too, so a foreground post still stands in front of it. What it deliberately does not do is clip to the carrier's own occlusion mask — **a ground pool is not a figure**; it lies on the floor and the man stands in it, so masking it to his silhouette would cut the light to the shape of the man.
+
+**Two things changed in the spec file and both are recorded in it.** `scale_rule` was prose — *"width = 2.6 x the character's drawn height"* — which is a rule a renderer cannot parse, and it stayed prose for exactly as long as nothing read it. And `anchor_in_source` named a flame at [658, 969] on a figure of [740, 1517]; **that clip is 356 × 668 today and the point does not exist in it.** R5k. It is replaced by the per-frame anchors, not re-measured.
+
+**The anchor is the HANDLE, not the flame**, because the lamp is drawn unlit and there is no bright spot to measure from. The sprite's own `flameAnchor` sits a third of the way down its height, which absorbs the difference: a lantern body is about 5% of the pool's width.
+
+**And `check-no-content-in-code` caught my test.** The first version reached for the carrier by id — the engine knowing the fiction. Rewritten to find him by his data, which is also the stronger assertion: *exactly one clip in the whole bundle declares a lamp.* 136 tests.
+
+**Not built, and named rather than left to be found: flicker.** Doc 36 line 67 says flicker is now modulation of the glow's alpha or tint over time, no frames. Nothing modulates it — the pool is steady. **That is a one-line change against the clock and it should be a ruling, not a default**, because a flame's flicker rate is a look decision and a wrong one reads as a fault in the renderer.
+
 ---
 
 # HOW THIS DOCUMENT WORKS
