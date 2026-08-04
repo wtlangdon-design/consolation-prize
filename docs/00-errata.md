@@ -1670,3 +1670,60 @@ Errata 49 item 3, "commission the themes as MIDI, not audio", is likewise satisf
 Two findings from building the other three, worth keeping. **The MT-32's pianos are famously not very piano** — a hammer thock, one saw, a filter that shuts fast — and CONSOLATION is piano-led, so the piano carries the ruling rather than the fiddle that prompted it. And **the jaw harp barely changed**, which is informative rather than a failure: a twang IS a transient with a formant falling off it, so it was already built the way LA builds everything, and the LA version only moves the sweep into the filter's resonance.
 
 **The offline renderer is written and has never been run.** `tools/render-music.mjs` drives the proof itself in an `OfflineAudioContext` — the proof exports `createEngine(ctx, opts)` and takes any context, so there is no second copy of the synthesis, which matters because two synths agree today and drift a semitone apart in a month. It needs Chromium and was written where none could be installed, so it is unproven until somebody runs it. `manifest.music` names both stems; `Music.ts` treats a missing file as silence, so the game is unchanged until they exist and plays the moment they do.
+
+---
+
+# 57 · EVERY DIALOGUE OPTION AUTHORS ITS OWN AFTERMATH — R1 RULED, ERRATA 37 SUPERSEDED
+
+Tyler's ruling, doc 47's R1, taken with the maximal option on the table: not a default with
+overrides, but **`afterUse`, authored, on every option in every tree.** There is no engine
+default to fall back on; an option without an aftermath is a build failure, the same way a
+hotspot without a LISTEN line is.
+
+## Why errata 37's revocation does not bar this
+
+The revocation stood on three legs and two are gone. **"Removal reshuffles rows"** died with
+doc 30's performance loop: the list is hidden during the exchange and rebuilt after, so nothing
+ever moves under a cursor. **"A rule where some options vanish cannot be learned"** argued
+against a universal *tag-based* rule and was right — but this is not a rule, it is authorship,
+which is what Monkey Island actually did: the script rebuilt the list, per conversation.
+**"Nothing here is long enough to need pruning"** still stands, and is why `afterUse` is about
+feel, not necessity — a conversation that can end differently than it began.
+
+## The vocabulary
+
+| `afterUse` | On rebuild, the option… |
+|---|---|
+| `retain` | stays, greys, remains selectable; its repeat responses are written content |
+| `remove` | is gone. Its work is done and the conversation has moved past it |
+| `rephrase` | stays but its text changes (`rephraseTo`), because the answer changed the question |
+| `replace` | is replaced by a different authored option (`replaceWith`), a new door where the old one was |
+| `counted-repeat` | stays at full weight, not greyed; tracks its count; responses are indexed by it. Winnie's raccoon is this, five deep |
+
+## Constraints that survive from errata 37 and doc 04
+
+- **A tree must always be leavable.** An option that ends the tree may not `remove` itself
+  unless another ender is live in every reachable state. Validator-enforced, not convention.
+- **`HOB_C1` option 4 authors `retain` and looks exactly like its neighbours.** The comic
+  option that solves the mystery must be indistinguishable in data-visible behaviour from the
+  comic options that don't. Doc 04 implementation warning 2, restated here because `afterUse`
+  is a new place to accidentally leak it.
+- **Doc 30 §1's "errata 37 is preserved exactly" is amended by this errata** — the preserved
+  part is the *content* obligation (repeat responses are written, spent options may remain
+  meaningful), not the universal mechanism.
+
+## Notation and enforcement
+
+In doc 04, the tag cell carries the aftermath: `[PROGRESS · remove]`, `[COMIC · retain]`,
+`[TOPIC · counted-repeat]`. The compiler emits it as `option.afterUse` (with `rephraseTo` /
+`replaceWith` where those verbs are used). **The existing spine tables are not retrofitted:**
+W1 rewrites every tree to full branches, and the aftermath is authored there, once, per option,
+as each tree is grown. `check-dialogue-afteruse` runs permissive (legal values, leavability)
+until the first W1 tree lands, then strict: every option declares, or the build fails naming
+the tree, node and option.
+
+## For the dialogue rebuild in flight
+
+The performance loop's step 8 was withheld as Tyler's; it is now ruled. The rebuild's CHOOSING
+phase rebuilds the list from `afterUse` rather than from the universal grey rule. Until W1
+content lands, every existing option behaves as `retain`, which is bit-identical to today.

@@ -28,6 +28,13 @@ Global boolean state. Learning a fact from one character opens options in anothe
 
 ## Node rules
 
+**ERRATA 57 (R1, ruled): every option authors its aftermath.** The tag cell carries it —
+`[PROGRESS · remove]`, `[COMIC · retain]`, `[TOPIC · counted-repeat]`, with `rephrase →` and
+`replace →` naming their targets inline. No default exists; an option without an aftermath
+fails the build. The spine tables below predate the ruling and are annotated as W1 grows each
+tree to full branches.
+
+
 Every conversation node obeys these. They are not stylistic preferences; they are the spec.
 
 1. **Minimum three options, target four.**
