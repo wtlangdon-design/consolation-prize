@@ -146,6 +146,8 @@ function opening() {
     5: [[DRIVER, 0]],
     6: [[DRIVER, 0], [THAD, 1]],
     9: [[HOB, 0], [THAD, 1], [HOB, 2]],
+    // The mud beat. Both his, and both quoted in the doc's own beat 11 row.
+    11: [[THAD, 0], [THAD, 1]],
   };
 
   // Which beat sets which flag. This is routing, not writing, and it is not
@@ -426,6 +428,33 @@ function opening() {
     // the walk is what the credits are authored to rather than the other way
     // round.
     11: [
+      // THE MUD BEAT, AND IT IS WHY THE PROLOGUE HAS AN ENDING RATHER THAN A
+      // FADE. Tyler played the opening and reported that Thad simply drifts
+      // off toward the town; there was no moment of setting out.
+      //
+      // He faces the road, says the earnest thing, tries to take the first
+      // step of the rest of his life, and the mud has his boot.
+      //
+      // HE IS IN PROFILE FOR IT, DELIBERATELY, AND THAT WAS MEASURED RATHER
+      // THAN CHOSEN. The strain was built head-on first, facing the town the
+      // way he walks: 8 source pixels of sink, about three at his drawn
+      // height, which reads as nothing. Head-on there is nowhere to lean. In
+      // profile the same clip rotates 11 degrees about the hips and his head
+      // travels 72 source pixels -- 26 drawn -- which is unmistakably a man
+      // pulling against something.
+      //
+      // THE PHYSICAL ATTEMPT IS THE POINT. A pause with no movement in it
+      // reads as the game having frozen, and that failure costs more than the
+      // joke earns.
+      { do: 'face', actor: 'thad', facing: 'left' },
+      { do: 'say', actor: 'thad', line: 0 },
+      { do: 'chore', actor: 'thad', chore: 'strain' },
+      { do: 'say', actor: 'thad', line: 1 },
+      // The second one frees him: same clip, and the walk beginning is what
+      // says it worked. A separate release pose would be a third piece of art
+      // for a fifth of a second.
+      { do: 'chore', actor: 'thad', chore: 'strain' },
+
       // HE FACES AWAY AND STAYS THAT WAY. Errata 55: "with his back to us."
       // The path wanders left and right up the road -- x goes 575, 581, 537,
       // 464, 517, 598, 704, 772, 826 -- so a walk that re-faced itself on each

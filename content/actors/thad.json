@@ -23,6 +23,7 @@
     "lookup": [
       "walk",
       "recoil",
+      "strain",
       "stand"
     ]
   },
@@ -387,6 +388,24 @@
       "anchor": [
         324,
         625
+      ]
+    },
+    {
+      "id": "strain",
+      "facing": "left",
+      "frames": [
+        "art/actors/thad-strain-left/strain-00.png",
+        "art/actors/thad-strain-left/strain-01.png",
+        "art/actors/thad-strain-left/strain-02.png",
+        "art/actors/thad-strain-left/strain-03.png",
+        "art/actors/thad-strain-left/strain-04.png",
+        "art/actors/thad-strain-left/strain-05.png",
+        "art/actors/thad-strain-left/strain-06.png"
+      ],
+      "figureHeight": 624,
+      "anchor": [
+        325,
+        624
       ]
     },
     {

@@ -57,6 +57,13 @@ DISPLAY_H = 233          # the height a character is shown at, errata 54
 LOOK  = [0, -1, -1, -1, 0, 0, 1, 1, 1, 0, 0, 0]   # head-on break: glance aside
 SHRUG = [0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]      # profile break: shoulders rise and settle
 RECOIL = [0.0, 1.0, 0.75, 0.3]                    # 4 frames, thad.json's rate 7.0/s
+# A STRAIN IS A RECOIL WITH THE SIGN REVERSED AND NO RECOVERY. He leans INTO a
+# step his foot does not take, holds against it, and gives up. The curve rises
+# and stays up rather than springing back, because the thing stopping him has
+# not let go -- that hold is the whole read, and a recoil's bounce would say
+# the opposite.
+STRAIN = [0.0, 0.55, 1.0, 1.0, 0.85, 1.0, 0.4]    # 7 frames
+STRAIN_DEGREES = 11.0   # more than a startle's 7: he is putting his back into it
 ARM_RATIO = 0.55      # profile: arms swing less than legs; past ~0.7 it reads as marching
 ARM_RATIO_HEADON = 0.20   # head-on: a front-view arm barely moves at 233px
 FORE_LEAD = 0.85      # forearm leads the upper arm -- this is what reads as an elbow
@@ -451,7 +458,7 @@ def main():
     ap.add_argument("--near-mask", help="ARMMASK code or file for the near arm")
     ap.add_argument("--far-mask", help="ARMMASK code or file for the far arm")
     ap.add_argument("--clip", default="walk",
-                    choices=["walk", "idle", "idle-break", "recoil", "stand"],
+                    choices=["walk", "idle", "idle-break", "recoil", "strain", "stand"],
                     help="idle is the rest state every chore settles into (doc 22)")
     ap.add_argument("--breath", type=float, default=1.0,
                     help="scales the idle breath; 1.0 is about one display pixel")
@@ -648,6 +655,53 @@ def main():
             facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
             padding=P, **({} if args.state is None else {"state": args.state}), frames=1), indent=2))
         print("stand: 1 frame, identical to idle frame 0")
+        return
+
+    if args.clip == "strain":
+        # DOC 17'S MUD BEAT. He tries to step off toward the town and only his
+        # upper body goes. Built on recoil's geometry because it is the same
+        # question asked the other way round -- a torso rotating about the hips
+        # over feet that do not move -- with the sign reversed so he pitches
+        # INTO the step rather than away from it.
+        #
+        # The physical attempt is the point. A pause with no movement in it
+        # reads as the game having frozen, which is the failure this beat has
+        # to avoid more than it has to be funny.
+        # SIGN VERIFIED BY MEASUREMENT, NOT BY REASONING. The first version had
+        # him leaning AWAY from his facing -- a recoil with extra degrees --
+        # and it took measuring the head's travel to see it: facing left, the
+        # head moved RIGHT. rot() is positive-clockwise, so leaning into a
+        # left-facing step is a POSITIVE angle.
+        toward = -1 if args.facing == "right" else 1
+        upper_m = coat_m.copy()
+        if near_am is not None:
+            upper_m = upper_m | near_am | far_am
+        upper = as_layer(upper_m)
+        base = np.zeros((H, W, 4))
+        base = over(far_leg, base); base = over(near_leg, base)
+        for i, t in enumerate(STRAIN):
+            f = base.copy()
+            if args.view == "headon":
+                # Nowhere to lean toward the camera, so he sinks: the torso
+                # drops into the shoulders the way a man's does when he pulls
+                # against something and it does not come.
+                f = over(np.roll(upper, int(round(2.5 * step * t)), axis=0), f)
+            else:
+                f = over(rot(upper, STRAIN_DEGREES * t * toward,
+                             float(np.nonzero(upper_m.any(0))[0].mean()), hem), f)
+            Image.fromarray(f.astype(np.uint8)).save(out / f"strain-{i:02d}.png")
+        (out / "rig.json").write_text(json.dumps(dict(
+            source=args.source, key=args.key, clip="strain", view=args.view,
+            facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P,
+            **({} if args.state is None else {"state": args.state}),
+            motion=("sink" if args.view == "headon" else "lean-into"),
+            frames=len(STRAIN),
+            note=("Doc 17's mud beat: he leans into a step his foot does not take. "
+                  "Recoil's geometry with the sign reversed, and the curve HOLDS at the top "
+                  "rather than springing back -- what is stopping him has not let go. "
+                  f"{STRAIN_DEGREES:.0f} degrees against a startle's 7.")), indent=2))
+        print(f"strain: {len(STRAIN)} frames, "
+              f"{'sink' if args.view == 'headon' else f'{STRAIN_DEGREES} deg about the hips'}")
         return
 
     if args.clip == "recoil":

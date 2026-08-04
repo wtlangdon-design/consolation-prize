@@ -1,0 +1,16 @@
+{
+  "source": "reference/casting/thad-stand-left-src.png",
+  "key": "magenta",
+  "clip": "strain",
+  "view": "profile",
+  "facing": "left",
+  "figure": [
+    129,
+    624
+  ],
+  "hem_row": 425,
+  "padding": 260,
+  "motion": "lean-into",
+  "frames": 7,
+  "note": "Doc 17's mud beat: he leans into a step his foot does not take. Recoil's geometry with the sign reversed, and the curve HOLDS at the top rather than springing back -- what is stopping him has not let go. 11 degrees against a startle's 7."
+}

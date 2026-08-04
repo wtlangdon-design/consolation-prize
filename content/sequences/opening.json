@@ -325,10 +325,35 @@
     },
     {
       "beat": "11",
-      "description": "He walks away up the road toward the town, and the title comes up over the mountains as he goes. He does not shrink out of sight; he is still walking when Main Street arrives",
+      "description": "\"Well. Consolation. A fresh beginning.\" He tries to step off and only his upper body goes. \"I appear to be stuck in the mud.\" A short, undignified tug frees him, and then he walks away up the road toward the town, and the title comes up over the mountains as he goes. He does not shrink out of sight; he is still walking when Main Street arrives",
       "control": "none",
-      "note": "This is the descent, and it is not one more screen — see below",
+      "note": "This is the descent, and it is not one more screen — see below. The mud beat closes the prologue: without it he simply drifts off, and there is no moment of setting out. He is in profile for it — head-on there is nowhere to lean and the attempt reads as the game freezing",
       "staging": [
+        {
+          "do": "face",
+          "actor": "thad",
+          "facing": "left"
+        },
+        {
+          "do": "say",
+          "actor": "thad",
+          "line": 0
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "chore": "strain"
+        },
+        {
+          "do": "say",
+          "actor": "thad",
+          "line": 1
+        },
+        {
+          "do": "chore",
+          "actor": "thad",
+          "chore": "strain"
+        },
         {
           "do": "face",
           "actor": "thad",
@@ -344,7 +369,17 @@
           "through": "road_west"
         }
       ],
-      "awaitFlag": "T_THAD_LEAVING"
+      "awaitFlag": "T_THAD_LEAVING",
+      "lines": [
+        {
+          "speaker": "thad",
+          "line": "Well. Consolation. A fresh beginning."
+        },
+        {
+          "speaker": "thad",
+          "line": "I appear to be stuck in the mud."
+        }
+      ]
     }
   ]
 }
