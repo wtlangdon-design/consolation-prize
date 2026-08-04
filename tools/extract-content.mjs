@@ -147,7 +147,7 @@ function opening() {
     6: [[DRIVER, 0], [THAD, 1]],
     9: [[HOB, 0], [THAD, 1], [HOB, 2]],
     // The mud beat. Both his, and both quoted in the doc's own beat 11 row.
-    11: [[THAD, 0], [THAD, 1]],
+    11: [[THAD, 0], [THAD, 1], [THAD, 2], [THAD, 3]],
   };
 
   // Which beat sets which flag. This is routing, not writing, and it is not
@@ -458,12 +458,22 @@ function opening() {
       // would make the beat depend on a coordinate in another file.
       { do: 'face', actor: 'thad', facing: 'back' },
       { do: 'say', actor: 'thad', line: 0 },
-      { do: 'chore', actor: 'thad', clip: 'strain' },
+      // A discreet one, which a man would rather nobody saw. 23 drawn pixels.
+      { do: 'chore', actor: 'thad', clip: 'tug' },
+      // THE SILENCES ARE THE CONTENT, which is errata 30a's own argument for
+      // granting `wait` at all -- and beat 11's control is `none`, which is
+      // the fence that makes it legal here. Without them the three attempts
+      // run together into one animation and none of them is a decision.
+      { do: 'wait', seconds: 0.7 },
       { do: 'say', actor: 'thad', line: 1 },
-      // The second one frees him: same clip, and the walk beginning is what
-      // says it worked. A separate release pose would be a third piece of art
-      // for a fifth of a second.
+      // Determined, and still preserving his dignity. 45.
       { do: 'chore', actor: 'thad', clip: 'strain' },
+      // Longer: this is the one where he looks down at it.
+      { do: 'wait', seconds: 1.1 },
+      { do: 'say', actor: 'thad', line: 2 },
+      // Inelegant, and it works. 76 drawn pixels against the tug's 23.
+      { do: 'chore', actor: 'thad', clip: 'wrench' },
+      { do: 'say', actor: 'thad', line: 3 },
 
       // HE FACES AWAY AND STAYS THAT WAY. Errata 55: "with his back to us."
       // The path wanders left and right up the road -- x goes 575, 581, 537,

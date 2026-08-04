@@ -72,8 +72,11 @@ const CLIPS = [
   // measured height. `tools/rig/far_blob.py`, doc 36 Q91.
   { id: 'farwalk', dir: 'farwalk', prefix: 'farwalk' },
   { id: 'recoil', dir: 'recoil', prefix: 'recoil' },
-  // Doc 17's mud beat: he leans into a step his boot does not take.
+  // Doc 17's mud beat, three attempts at one boot. The sizes are the joke:
+  // a discreet tug, a determined pull, and an undignified wrench.
+  { id: 'tug', dir: 'tug', prefix: 'tug' },
   { id: 'strain', dir: 'strain', prefix: 'strain' },
+  { id: 'wrench', dir: 'wrench', prefix: 'wrench' },
   // CHORES. Doc 40's contract: each is stand -> key pose -> stand, with
   // begin/contact/commit/recover/complete on named frames rather than magic
   // numbers, and frames 0 and 4 byte-identical to `stand` so it cannot pop on
@@ -117,7 +120,7 @@ const PARTIAL_STATES = {
   // anything moves him. Turning him is MEANT to drop it, which clipOf does for
   // free -- and `strain` is beat 11, long after beat 6 cleared it, reached
   // through a `face left` that would drop the state anyway.
-  thad: { lookup: ['walk', 'recoil', 'strain', 'stand'] },
+  thad: { lookup: ['walk', 'recoil', 'tug', 'strain', 'wrench', 'stand'] },
   // THE DOOR IS CLOSED BY THE STAGING, NOT BY A MISSING VARIANT. Beat 6b
   // clears `door-open` BEFORE the move, so the driver shuts the door and then
   // pulls away, and the coach never plays `walk` with the state set. A door

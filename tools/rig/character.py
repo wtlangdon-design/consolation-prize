@@ -466,7 +466,8 @@ def main():
     ap.add_argument("--near-mask", help="ARMMASK code or file for the near arm")
     ap.add_argument("--far-mask", help="ARMMASK code or file for the far arm")
     ap.add_argument("--clip", default="walk",
-                    choices=["walk", "idle", "idle-break", "recoil", "strain", "stand"],
+                    choices=["walk", "idle", "idle-break", "recoil", "strain", "tug",
+                             "wrench", "stand"],
                     help="idle is the rest state every chore settles into (doc 22)")
     ap.add_argument("--breath", type=float, default=1.0,
                     help="scales the idle breath; 1.0 is about one display pixel")
@@ -665,7 +666,7 @@ def main():
         print("stand: 1 frame, identical to idle frame 0")
         return
 
-    if args.clip == "strain":
+    if args.clip in ("tug", "strain", "wrench"):
         # DOC 17'S MUD BEAT. He tries to step off toward the town and only his
         # upper body goes. Built on recoil's geometry because it is the same
         # question asked the other way round -- a torso rotating about the hips
@@ -687,6 +688,12 @@ def main():
         upper = as_layer(upper_m)
         base = np.zeros((H, W, 4))
         base = over(far_leg, base); base = over(near_leg, base)
+        # THREE ATTEMPTS, AND THE SIZES ARE THE JOKE. A discreet tug that a
+        # man would rather nobody saw, a determined pull, and finally an
+        # undignified wrench. Same geometry three times: if the amplitudes
+        # were equal the pauses between them would read as animation lag
+        # rather than as a man deciding to try harder.
+        scale = {"tug": 0.5, "strain": 1.0, "wrench": 1.7}[args.clip]
         rock = args.view == "headon"
         curve = STRAIN_ROCK if rock else STRAIN
         pivot = float(np.nonzero(upper_m.any(0))[0].mean())
@@ -695,12 +702,12 @@ def main():
             if rock:
                 # Side to side about the same hips. From behind this is the
                 # only rotation with anywhere to go.
-                f = over(rot(upper, STRAIN_ROCK_DEGREES * t, pivot, hem), f)
+                f = over(rot(upper, STRAIN_ROCK_DEGREES * scale * t, pivot, hem), f)
             else:
-                f = over(rot(upper, STRAIN_DEGREES * t * toward, pivot, hem), f)
-            Image.fromarray(f.astype(np.uint8)).save(out / f"strain-{i:02d}.png")
+                f = over(rot(upper, STRAIN_DEGREES * scale * t * toward, pivot, hem), f)
+            Image.fromarray(f.astype(np.uint8)).save(out / f"{args.clip}-{i:02d}.png")
         (out / "rig.json").write_text(json.dumps(dict(
-            source=args.source, key=args.key, clip="strain", view=args.view,
+            source=args.source, key=args.key, clip=args.clip, view=args.view,
             facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P,
             **({} if args.state is None else {"state": args.state}),
             motion=("rock" if rock else "lean-into"),
@@ -709,8 +716,8 @@ def main():
                   "Recoil's geometry with the sign reversed, and the curve HOLDS at the top "
                   "rather than springing back -- what is stopping him has not let go. "
                   f"{STRAIN_DEGREES:.0f} degrees against a startle's 7.")), indent=2))
-        print(f"strain: {len(curve)} frames, "
-              f"{f'rock +-{STRAIN_ROCK_DEGREES:.0f} deg' if rock else f'{STRAIN_DEGREES:.0f} deg about the hips'}")
+        print(f"{args.clip}: {len(curve)} frames, "
+              f"{f'rock +-{STRAIN_ROCK_DEGREES * scale:.1f} deg' if rock else f'{STRAIN_DEGREES * scale:.1f} deg'}")
         return
 
     if args.clip == "recoil":

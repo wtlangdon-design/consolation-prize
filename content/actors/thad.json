@@ -23,7 +23,9 @@
     "lookup": [
       "walk",
       "recoil",
+      "tug",
       "strain",
+      "wrench",
       "stand"
     ]
   },
@@ -391,6 +393,24 @@
       ]
     },
     {
+      "id": "tug",
+      "facing": "back",
+      "frames": [
+        "art/actors/thad-tug-back/tug-00.png",
+        "art/actors/thad-tug-back/tug-01.png",
+        "art/actors/thad-tug-back/tug-02.png",
+        "art/actors/thad-tug-back/tug-03.png",
+        "art/actors/thad-tug-back/tug-04.png",
+        "art/actors/thad-tug-back/tug-05.png",
+        "art/actors/thad-tug-back/tug-06.png"
+      ],
+      "figureHeight": 625,
+      "anchor": [
+        370,
+        625
+      ]
+    },
+    {
       "id": "strain",
       "facing": "back",
       "frames": [
@@ -401,6 +421,24 @@
         "art/actors/thad-strain-back/strain-04.png",
         "art/actors/thad-strain-back/strain-05.png",
         "art/actors/thad-strain-back/strain-06.png"
+      ],
+      "figureHeight": 625,
+      "anchor": [
+        370,
+        625
+      ]
+    },
+    {
+      "id": "wrench",
+      "facing": "back",
+      "frames": [
+        "art/actors/thad-wrench-back/wrench-00.png",
+        "art/actors/thad-wrench-back/wrench-01.png",
+        "art/actors/thad-wrench-back/wrench-02.png",
+        "art/actors/thad-wrench-back/wrench-03.png",
+        "art/actors/thad-wrench-back/wrench-04.png",
+        "art/actors/thad-wrench-back/wrench-05.png",
+        "art/actors/thad-wrench-back/wrench-06.png"
       ],
       "figureHeight": 625,
       "anchor": [
