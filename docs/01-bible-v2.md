@@ -238,6 +238,8 @@ Core: **the tuning fork** (his one tool, the game's totem, never leaves inventor
 
 ## Music — the score is the arc
 
+> **Extended by docs 28 and 45, and by errata 56**, which fixes the voices (LA manner), the two written themes, and the rendered-stem mechanism. This section survives as intent; errata 56 governs delivery.
+
 A large share of what people mean by "the Monkey Island feeling" is Michael Land's score and iMUSE transitioning it seamlessly room to room. v1 didn't mention sound at all.
 
 **Do not write Morricone pastiche.** The point of view: **the entire score is performed on a badly tuned upright piano**, with fiddle, jaw harp, and a harmonica somewhere off in the dark. Consolation's theme drifts flat. Every room reharmonizes the same handful of melodies.
@@ -258,6 +260,8 @@ This will not survive being generated. It has to be written.
 
 ## The opening ninety seconds
 
+> **Superseded in detail by doc 17 v3.1**, which is the opening of record as built and shipped; this section survives as intent. Where they differ (Thad's first line, staging), doc 17 governs.
+
 Night. A stage coach pulls away, revealing a young man in a good coat standing in mud, holding a case.
 
 > **THAD:** "My name is Thaddeus Grubb. I have four dollars, a letter of introduction to a man who is dead, and a very good ear."
@@ -276,7 +280,7 @@ Goal, voice, joke, mechanic, and the entire solution to the mystery — in ninet
 
 Still to build before any engine work:
 
-1. **Puzzle dependency graph** — all ~40 puzzles, mapped, with item requirements and gating, verified for no dead ends
+1. **Puzzle dependency graph** — all the puzzles, mapped (doc 02's table is the count of record), with item requirements and gating, verified for no dead ends
 2. **Liar's Assay dialogue** — 20–24 boast/counter pairs
 3. **Full dialogue trees** — eight named characters, topic-gated
 4. **Room-by-room examine script** — the thousand lines

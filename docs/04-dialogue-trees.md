@@ -506,7 +506,7 @@ The player will notice, somewhere around Act III, that they have been doing at s
 | Barks, repeats, greetings, exits | ~300 |
 | **Dialogue total** | **~2,250 lines** |
 | Examine layer (separate document) | ~1,000 |
-| **Written total** | **~3,250 lines** |
+| **Written total** | **doc 05 Part Four is the count of record for the examine layer; this table owns dialogue only (~2,250)** |
 
 ## Implementation warnings
 
