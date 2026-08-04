@@ -267,6 +267,97 @@ export function check() {
   }
   report.note(`${padded} clip(s) of four frames or more checked for distinct pictures`);
 
+  // CLAUSE FOUR: A WALK'S TWO HALF-CYCLES MUST NOT BE THE SAME STRIDE.
+  //
+  // REPORTED, NOT ASSERTED, and the reason is on the record: `hob-walk-right`
+  // ships at 89% and Tyler ruled it in knowingly -- Hob crosses Room 1 for
+  // three seconds and never walks again, and a phantom third hand was the more
+  // visible fault at that duration. Asserting today is a standing red (R5j).
+  // This becomes a `fail` in the same change that fixes the rig, when the
+  // clips it judges can pass.
+  //
+  // WHY IT IS WORTH MORE THAN CLAUSE THREE. Clause three counts distinct
+  // pictures and PASSES EVERY WALK IN THE REPOSITORY, including the ones that
+  // do not walk: four frames can be four distinct pictures and still be two
+  // poses with the arms changed. Distinctness is about bytes; this is about
+  // the legs, which is the thing a walk is.
+  //
+  // THE MEASUREMENT. Half a cycle apart, the legs must have swapped. So mask
+  // the silhouette below the hem and take intersection-over-union of frame i
+  // against frame i + n/2 -- once at the contact pose and once at the passing
+  // pose. Genuinely opposite legs share almost nothing; the same stride drawn
+  // twice shares almost everything.
+  //
+  // THE HEM IS THIS CHECK'S OWN CONSTANT, NOT THE RIG'S. `rig.json` carries a
+  // measured `hem_pct` for the clips the rig made, and reading it would make
+  // this agree with the thing it is judging (R5e) -- and half the walks in the
+  // repository are authored and have no such field, so it would also be a
+  // fallback to a sibling's number (R5f). 0.72 is one figure measured by hand
+  // at 71.6%, and the answer is insensitive to it: across 0.66 to 0.75 the
+  // pairs below move by at most four points and no verdict changes.
+  const HEM_FRACTION = 0.72;
+  const STRIDE_OVERLAP = 0.50;
+  let walks = 0;
+  let loud = 0;
+  for (const dir of [...loaded.keys()].sort()) {
+    if (dir.split('-')[1] !== 'walk') continue;
+    const frames = framesOf(dir);
+    const n = frames.length;
+    if (n < 4 || n % 2 !== 0) continue;
+    const { width, height } = frames[0];
+    let top = height;
+    let bottom = -1;
+    for (const frame of frames) {
+      for (let y = 0; y < height; y += 1) {
+        let any = false;
+        for (let x = 0; x < width; x += 1) {
+          if (frame.pixels[(y * width + x) * 4 + 3] > 128) { any = true; break; }
+        }
+        if (!any) continue;
+        if (y < top) top = y;
+        if (y > bottom) bottom = y;
+      }
+    }
+    if (bottom < 0) continue;
+    const hem = top + Math.round(HEM_FRACTION * (bottom - top + 1));
+    const legOverlap = (a, b) => {
+      let both = 0;
+      let either = 0;
+      for (let y = hem; y <= bottom; y += 1) {
+        for (let x = 0; x < width; x += 1) {
+          const at = (y * width + x) * 4 + 3;
+          const p = a.pixels[at] > 128;
+          const q = b.pixels[at] > 128;
+          if (p && q) both += 1;
+          if (p || q) either += 1;
+        }
+      }
+      return either ? both / either : 1;
+    };
+    walks += 1;
+    const half = n / 2;
+    const quarter = Math.round(n / 4);
+    for (const [name, i] of [['contact', 0], ['passing', quarter]]) {
+      const j = i + half;
+      const share = legOverlap(frames[i], frames[j]);
+      const pct = (share * 100).toFixed(0);
+      const said = `${dir}: the ${name} pair (frames ${i} and ${j}, half a cycle apart) `
+        + `share ${pct}% of the silhouette below the hem`;
+      if (share < STRIDE_OVERLAP) {
+        report.note(`${said} -- the legs swap`);
+        continue;
+      }
+      loud += 1;
+      report.note(`${said}. Above ${STRIDE_OVERLAP * 100}% is the same stride drawn twice, `
+        + 'so that leg leads both halves of the cycle and the walk gallops. NOT ASSERTED '
+        + 'yet: hob-walk-right ships at 89% by ruling, so failing here today would be a '
+        + 'standing red');
+    }
+  }
+  report.note(`${walks} walk clip(s) measured for leg overlap at a hem of `
+    + `${HEM_FRACTION * 100}% of figure height; ${loud} pair(s) at or above `
+    + `${STRIDE_OVERLAP * 100}%`);
+
   // NO SILENT CAPS. What was not compared is named, because a check that
   // covers half the art and reports a clean pass is worse than one that says
   // which half.

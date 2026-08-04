@@ -2436,6 +2436,84 @@ Q60's other two questions are untouched: which verb a mover answers, and where i
 
 ---
 
+## Q87 · The phantom arm is not `character.py`'s, and the one that is has never fired
+
+**Reproduced first, as instructed, and the reproduction disagrees with the attribution.**
+
+`python3 tools/rig/character.py reference/casting/hob-walk-right.png --key magenta --pad 90 --arm-swing 0.55` returns, today, the same numbers `8a81342`'s `rig.json` recorded: `near 26895px, far 25849px`, `pivot 873`, `hem 1086 (71.6%)`. Same tool, same source, same output — so whatever the rigged frames contained is reproducible on demand.
+
+**They contain two hands.** Counting skin-toned connected components over each frame:
+
+| set | commit | third hand |
+|---|---|---|
+| the 8 **rigged** frames | `8a81342` | **no** — largest skin blobs at 40%, 49% and 58% of figure height, and nothing on the far side above 30% but the face |
+| the 4 frames that replaced them | `9ed3106` | **yes, in walk-02 and walk-03 only** — a 465px and a 461px skin blob at 23% and 19% of figure height on the far side, which is a raised fist at chest height |
+| the 4 frames on `main` | `19f934b` | no |
+
+**So the raised fist entered with `9ed3106`, which is authored from a casting sheet, and left with `19f934b`, which is authored from a different one.** `19f934b`'s own title says so — *"loses its third hand"*. The rig never drew it. `9ed3106` added no `reference/` file, so the sheet that carried the fist is not in the repository and cannot be re-examined; the frames are the only surviving evidence and they are conclusive.
+
+**This is R5p on the day it was written.** The attribution was inherited rather than re-derived, and one `git show` of the frames settles it.
+
+**THE MECHANISM IS REAL, THOUGH, AND IT IS ONE LINE FROM FIRING.** The reason the rig does not draw a limb twice is `coat_m &= ~arms_all`, which cuts the arms out of the coat before a swung copy is laid over. Disabling that single line and re-rigging Hob produces exactly the described artefact — the near hand's skin blob goes **4,035px → 5,678px** and the far hand's **3,955px → 4,611px**, each hand now being itself plus its own swung copy.
+
+**And that line was guarded on the wrong name.** It sat inside `if near_am is not None:` and did the work for *both* arms. `split_arms` returns both or neither, so the guard held — but a painted `--far-mask` over an auto pass that found nothing sets `far_am` alone, and then the subtraction is skipped entirely while the far arm is still swung. The same branch left `sh_far` as the auto `shoulder`, which in that case is `None`, and `None` reaches PIL's rotate centre.
+
+**Fixed:** the union is built from whichever arms exist and the guard is on the union; shoulders resolve per arm; an arm with a mask and no shoulder row is refused by name. **Output on the working path is byte-identical** — all eight frame hashes unchanged — which is the point: a hardening that changes a shipped picture is not a hardening.
+
+## Q88 · The palindrome, confirmed by construction, and it is not the worst of it
+
+**Confirmed arithmetically, from the array rather than from the frames.** `HIP_SWING = [14, 10, 0, -10, -14, -10, 0, 10]` has magnitudes `14 10 0 10 14 10 0 10`. Every frame is a pure function of `s`, so equal `s` gives byte-identical output: `1 == 7`, `2 == 6`, `3 == 5`, five distinct pictures from eight frames. The rigged Hob's frame hashes read `cf24f21b e0fd9080 99e47747 df1579a8 748312c9 df1579a8 99e47747 e0fd9080` — the palindrome, exactly.
+
+**`HIP_SWING` is not the bug and neither is the sign.** `rot(far, -s)` against `rot(near, s)` has been in the file since `1c63132`, its first commit. The legs alternate. **A sine visits every non-extreme magnitude twice per cycle**, and eight frames over a rigid leg can hold five pictures however the array is written.
+
+**AND SWAPPING THE DRIVE FOR AN ASYMMETRIC ONE DOES NOT FIX IT EITHER.** With no per-phase quantity anywhere in the leg, `HIP[i + 4] == -HIP[i]` for any odd-symmetric array, so driving the far leg from a phase-shifted *index* is arithmetically identical to negating the angle. **Fault 2 cannot be fixed without introducing something that is a function of phase rather than of angle**, which is what fault 3 is.
+
+## Q89 · Leg overlap: built, measured, and it is louder than reported
+
+Clause four of `check-clip-agreement.mjs`. Below the hem, silhouette intersection-over-union of frame `i` against frame `i + n/2`, at the contact pose and at the passing pose. **Out of `run-all.mjs`, reported not asserted**, because `hob-walk-right` ships at 89% by ruling and asserting today is a standing red (R5j).
+
+**The hem is the check's own constant, 0.72 of figure height, not the rig's `hem_pct`.** Reading the subject's own measurement would make the check agree with the thing it judges (R5e), and half the walks are authored and carry no such field, so it would also be a fallback to a sibling's number (R5f). The verdict is insensitive to it: across 0.66–0.75 no pair moves more than four points and no verdict changes.
+
+| clip | contact | passing |
+|---|---|---|
+| `hob-walk-right` (`main`, authored) | **89%** | **69%** |
+| `thad-walk-left` | 0% | **100%** |
+| `thad-walk-right` | 0% | **100%** |
+| `thad-walk-back` | **52%** | **100%** |
+| `thad-walk-front` | 47% | **100%** |
+| the 8 rigged Hob frames (`8a81342`) | 1% | **100%** |
+| the 4 frames `19f934b` replaced (`9ed3106`) | 22% | 27% |
+
+**89% and 69% reproduce the stated numbers exactly**, which is the check agreeing with the measurement it was specified from.
+
+**Two things the brief's table did not say, and both matter.**
+
+**The 21%/27% set is not the rigged one.** Those numbers belong to `9ed3106`'s frames, which are authored from a casting sheet — the ones carrying the third hand. The rigged output scores **1% on the contact pair and 100% on the passing pair**. Its stride is excellent and its passing pose is a duplicate frame.
+
+**Every walk in the repository is at 100% on the passing pair except the two authored sets.** That is the palindrome measured from the other end: frames 2 and 6 are not merely similar, they are the same file. **Clause three passes all of them** — 5 distinct pictures out of 8 clears its threshold of 3 — which is the brief's point about distinctness proving nothing, and now it has a number.
+
+**`thad-walk-back` at 52% and `thad-walk-front` at 47% are a separate finding.** Head-on views take the `shift_scale` path rather than `rot`, and translating a leg toward the camera barely changes the silhouette, so the two contacts nearly coincide. Whatever fixes the profile walks does not touch these.
+
+## Q90 · The knee, costed and not built
+
+**Requested as a cost, and the honest answer is that the code is small and the loop after it is not.**
+
+**What already exists.** `swing_arm` is the operation: split a limb at a fractional row, rotate the distal segment about the split, rotate the whole about the proximal joint. It is 14 lines. `split_legs` already separates near from far by a fitted seam, `find_hem` already gives the hem, `rot` already premultiplies, and `extend_up` already replicates rows under a joint so a rotation opens no gap. **A `swing_leg` is `swing_arm` with different defaults**, and the right shape is to rename it `swing_limb` and call it twice.
+
+**Code: about 40 lines.** A `KNEE_FLEX` drive of eight values, a `--knee-frac` flag defaulting to 0.5 of hip-to-sole (declared, never inferred, on the `--pose` precedent), the two call sites, and a shin variant of `extend_up`.
+
+**The two things that are not cheap, stated because nobody has established they are.**
+
+**One — the knee opens a gap in open air.** `extend_up` works because the thigh's replicated rows hide under the coat. A knee sits mid-shin over bare trouser, and rotating the shin about it opens a wedge with nothing over it. The arm gets away with this because the near elbow is inside a sleeve and the far arm runs at `elbow_frac=0.15, fore_lead=0.25` — small angles, high joint. A leg has neither. **This is the part that will need more than one round**, and it is the same class of problem as the coat gap, which made things worse twice.
+
+**Two — the drive array is a judgement nobody has ruled.** Knee flexion is asymmetric by nature — bent through swing, straight through stance — and that asymmetry is exactly what breaks the palindrome. But *how* bent is a picture question, it has to be judged at shipped size, and "until it looks right" has no exit condition.
+
+> **The recommendation: clause four is the exit condition, and it should land before the knee, not after.** A passing pair at 100% becoming a passing pair below 50% is a fact about the bytes that anybody can check in a second, and it is the difference between tuning a walk and looping on one. Clause four is built and reporting today; the knee change is the one that turns it into an assertion.
+
+**What it unblocks, and this is why it is worth the rounds:** all four Thad walks, from the sources already in the repository, with no new generation. The contact pairs on the profile walks are already at 0% — the stride is right and only the passing pose is duplicated.
+
+---
+
 # HOW THIS DOCUMENT WORKS
 
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.

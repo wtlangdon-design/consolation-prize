@@ -437,6 +437,68 @@ That is the prescription, and it is sharper than R5l's. R5l needs a judgement ab
 
 **And it argues for the same remedy as R5l and R5m: give the work an artefact somebody else can reach.** Commit the branch, put the hand edit in the generator, `git add` the file — and, one level up, put the pipeline stage in `tools/` rather than in a conversation, which is what `downscale.py` is for.
 
+## R5o · A FIX IS NOT FINISHED UNTIL SOMETHING REACHES IT
+
+**Checked against the three it sits next to before it was written. R5l is the nearest, and it does not cover this.**
+
+| | what was wrong | who could not see it |
+|---|---|---|
+| R5l | a field nobody reads | every check — there is no reader to disagree with |
+| R5m | a rule no **test** can reach; it works in the product | the suite |
+| R5n | work that runs, for one person | everybody but its author |
+| **R5o** | a fix nothing in the **product** routes to | **everybody, including its author, because the repository says it is fixed** |
+
+R5m is this letter's exact inversion and that is the reason to keep both: R5m is behaviour the product runs and the tests cannot see, R5o is behaviour the tests could see and the product never runs. Confusing them inverts the remedy — R5m says *move the code down a layer*, R5o says *go and look at what calls it*.
+
+**The case.** Thad's raised head is a state on the idle he is already standing in, so it persists until something clears it. The clearing step was written as `{ do: 'setState', object: 'thad' }` on beat 6. **`setState` is fenced to beats whose control is `none`, and beat 6 is `player`** — so the step was well-formed, correct in isolation, in the right sequence file, and unreachable. The state was set and never unset. He looked up permanently, and because the state lives on `idle/left` it came back **every time he turned left for the rest of the game**.
+
+The fix was one beat's difference: the same step, moved to 6b, which is staged.
+
+> **A function nothing calls is indistinguishable from no function — with one difference, and it is the damaging one: its comment asserts, in the present tense, behaviour the product does not have.** `// HE STOPS LOOKING UP WHEN THE COACH LEAVES` sat above a step that did not stop him. Anybody reading the repository, including its author a week later, reads that as a description of the shipped game.
+
+**That is what separates this from R5l.** R5l's unread field claims nothing; it is inert and honest. A fix claims something — that a known bug is gone — and it goes on claiming it to every future reader, from inside the file that would be edited to fix it. **The next person to hit the bug finds the fix already there and looks somewhere else.**
+
+**The tell, and it is available at zero cost:** the fix changed behaviour and nothing about the running product changed. Beat 6 came and went, the head stayed up, and no artefact registered a difference.
+
+> **When you fix something, establish what routes to it, in the same change.** Not that the code is right — that something arrives. For a step in a sequence: which beat, and does that beat's control permit this step kind. For a branch: what makes the predicate true. For a handler: who dispatches to it.
+
+**And a fence that silently drops what it excludes is half of this fault.** `setState` under `player` control is not an error, it is a no-op; the fence was written to keep staged-only steps out of interactive beats and it does that correctly, in silence. **A rule that refuses work should say which work it refused** — a fence that reported "beat 6: dropped setState(thad)" would have made this a one-line find instead of a play-through.
+
+## R5p · A RECORD IS NOT EVIDENCE
+
+**This is R5n's counterweight and the two have to be read together.** R5n says: give the work an artefact somebody else can reach. Taken alone that licenses exactly this failure — because the artefact somebody else can reach is then treated as the finding, and the finding is never re-derived from the thing it describes. **R5n is about producing records. R5p is about what a record is worth once produced.**
+
+The nearest existing letter is not R5l, R5m or R5n but **R5b2** — and they differ. R5b2 is a *measurement taken through a lying instrument*: a thumbnail, a metric invented to replace the eyeball. **R5p is a measurement never taken at all**, because a record made it look as though somebody else had already taken it.
+
+**Case one — a commit message that was never true of its own commit.**
+
+`9ed3106` says, in capitals: *"the second half was the first played backwards, so THE SAME LEG LED EVERY STEP. One leg swung out and came back and the other never passed it."*
+
+The first half is a measurement and it is correct: the frames are mirrored 1=7, 2=6, 3=5. **The second half is a diagnosis and it was never true of that code.** `character.py` has driven the legs in opposite directions since `1c63132`, its first commit:
+
+```python
+f = over(rot(far,  -s, cxf, pivot), f)
+f = over(rot(near,  s, cxn, pivot), f)
+```
+
+Opposite signs, from birth. The legs alternate. The mirror has a different cause entirely — each frame is a pure function of `s`, and a sine visits every non-extreme magnitude twice per cycle, so equal angles produce byte-identical frames. **Eight frames over a rigid leg can only ever hold five pictures**, and no drive array changes that.
+
+**The wrong diagnosis then outlived the commit that carried it.** It was inherited downstream as established fact by every later reader of that message, including me, and I repeated it in a readout as settled before checking the source. A correct observation and a false explanation travelled together in one sentence, and the observation lent the explanation its credibility.
+
+> **A commit message is testimony about work, written by the party with the most invested in it, at the moment of least distance from it.** The measurement in it is usually worth having. The *cause* in it is a hypothesis that happened to end the debugging session.
+
+**Case two — a clean report from a check that never looked.**
+
+`tools/migrate-play-area-x6.mjs` is deliberate, careful work: an allowlist rather than a heuristic, every scaled field named, a printed record of every value it touched. Its header states the reasoning — *"the report prints what was touched so the diff can be read rather than trusted."*
+
+It reads `content/rooms` and nothing else. `content/ambient/*.json` held six characters at 320-space coordinates, and the migration neither moved them nor mentioned them, **because they were never in scope to be reported on.** The report was complete and accurate about everything it considered, and a reader — including the person who wrote it — took a clean report as a clean system. Those six sat unmigrated through every validation run the project has had since, and would have been inherited by the Main Street rebuild as though authored.
+
+> **A check's silence is about its scope, not about the system.** State the scope beside the result: *"140 rects across 17 room files in `content/rooms`"* is a finding. *"Migration complete"* is not, and it is the shape every clean report takes by default.
+
+**Both remedies are one habit.** Before a claim from a record becomes a premise for the next piece of work, go to the artefact the record describes and re-derive it. `git show 1c63132:tools/rig/character.py` took under a minute and would have saved a wrong cause repeated across a session; `grep -l` for the migrated field names across all of `content/` would have taken less.
+
+**And the disconfirming evidence was on the page both times.** The sign lines, the frame counts, the `-s`/`s` — none of it required new measurement, only reading the thing rather than the note about the thing. That is R5j's second half arriving by another road: a conclusion, not a check, failing on correct work.
+
 ## R5 · Never preview through GIF with alpha
 
 GIF carries **1-bit** transparency. Every soft edge must snap to fully opaque or fully clear, and the ones that snap opaque keep whatever darkened colour they were blended toward.

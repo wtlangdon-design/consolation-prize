@@ -427,15 +427,27 @@ def main():
         near_am = pm_near
     if near_am is not None and far_am is not None:
         near_am = near_am & ~far_am             # a pixel belongs to one arm only
-        # EACH ARM PIVOTS FROM ITS OWN SHOULDER. A shared pivot taken from the
-        # higher of the two masks swings the other arm about a point well above
-        # its own top -- on Thad's left profile that was 213px of false radius.
-        def top_of(m):
-            ys = np.nonzero(m.any(1))[0]
-            return int(ys.min()) if len(ys) else shoulder
-        sh_near, sh_far = top_of(near_am), top_of(far_am)
-    else:
-        sh_near = sh_far = shoulder
+
+    # EACH ARM PIVOTS FROM ITS OWN SHOULDER. A shared pivot taken from the
+    # higher of the two masks swings the other arm about a point well above
+    # its own top -- on Thad's left profile that was 213px of false radius.
+    #
+    # AND THIS IS RESOLVED PER ARM, not only when both exist. `split_arms`
+    # returns both or neither, but a painted `--far-mask` can supply an arm the
+    # auto pass did not find, and the old both-or-nothing branch then left
+    # `sh_far` as the auto `shoulder` -- which in that case is None, and None
+    # reaches PIL's rotate centre.
+    def top_of(m):
+        ys = np.nonzero(m.any(1))[0]
+        return int(ys.min()) if len(ys) else shoulder
+    sh_near = top_of(near_am) if near_am is not None else shoulder
+    sh_far = top_of(far_am) if far_am is not None else shoulder
+    for name, seg, sh in (("near", near_am, sh_near), ("far", far_am, sh_far)):
+        if seg is not None and sh is None:
+            raise SystemExit(
+                f"the {name} arm has a mask but no shoulder row. Auto-detection found "
+                f"no arms at all, so there is nothing to take a pivot from -- paint "
+                f"BOTH arms with tools/rig/mark-the-arm.html, or neither.")
 
     def as_layer(m):
         L = np.zeros_like(canvas); L[..., :3] = canvas[..., :3]; L[..., 3] = m * 255.0
@@ -462,8 +474,24 @@ def main():
         return seg
 
     coat_m = np.zeros((H, W), bool); coat_m[:hem] = mask[:hem]
-    if near_am is not None:
-        arms_all = near_am | far_am
+    # EVERY ARM THAT EXISTS IS SUBTRACTED, AND THE GUARD IS ON THE UNION RATHER
+    # THAN ON `near_am`. R3f says a limb belongs to exactly one layer and the
+    # subtraction must run first; the branch that enforced it was keyed on the
+    # NEAR arm and did the work for BOTH, so an arm set without its partner --
+    # a painted `--far-mask` over an auto pass that found nothing -- skipped the
+    # subtraction entirely and left the far arm in the coat while a swung copy
+    # of it was laid over the top. That is a limb drawn twice: the phantom arm.
+    #
+    # MEASURED, by disabling this one line and re-rigging Hob: the near hand's
+    # skin blob goes 4,035px -> 5,678px and the far hand's 3,955px -> 4,611px,
+    # because each hand is now itself plus its own swung copy. The `if` is what
+    # was standing between the tool and that output, and it was guarding on the
+    # wrong name.
+    arms_all = None
+    for seg in (near_am, far_am):
+        if seg is not None:
+            arms_all = seg.copy() if arms_all is None else (arms_all | seg)
+    if arms_all is not None:
         # ARMS MUST NOT BE PART OF THE LEGS, AND THIS MUST HAPPEN BEFORE THE
         # LEG LAYERS ARE BUILT. A painted arm mask runs below the hem --
         # Thad's hands reach 22px past it -- so 1,576 hand pixels were being
@@ -478,7 +506,9 @@ def main():
             print(f"removed {below}px of arm from the leg layers "
                   f"(arm masks reach below the hem)")
         coat_m &= ~arms_all
-        print(f"arms: near {int(near_am.sum())}px, far {int(far_am.sum())}px")
+        print(f"arms: near {int(near_am.sum()) if near_am is not None else 0}px, "
+              f"far {int(far_am.sum()) if far_am is not None else 0}px, "
+              f"{int(arms_all.sum())}px cut from the coat")
     else:
         print("arms: not separable -- they must hang clear of the torso (doc 38)")
 
