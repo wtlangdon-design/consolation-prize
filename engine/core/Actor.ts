@@ -94,6 +94,16 @@ export const WALK = 'walk';
 export const IDLE_BREAK = 'idle-break';
 
 /**
+ * The far-distance clip a traced path hands off to. Doc 36 Q91.
+ *
+ * Named here for the same reason `IDLE_BREAK` is: WHEN to use it is a schedule
+ * the engine keeps -- below the path's declared handoff height -- and WHETHER
+ * such a clip exists at all is content's. A character without it never hands
+ * off, however small he gets.
+ */
+export const FAR_WALK = 'farwalk';
+
+/**
  * The size of a graybox for a mover with NO RECORD AT ALL.
  *
  * It was `state.content.actor.height` -- the protagonist's -- and that is the
@@ -214,6 +224,19 @@ export class Actor {
   private special: { clip: string; startedAt: number; seconds: number } | null = null;
   /** Errata 38's translation: a constant-rate glide with its own deadline. */
   private glide: { fromX: number; fromY: number; startedAt: number; seconds: number } | null = null;
+  /**
+   * A TRACED PATH, walked in w rather than in screen pixels.
+   *
+   * `samples` carries the waypoints densified along each leg, each with the
+   * drawn height traced for it and the cumulative parameter w at which it is
+   * reached, normalised so the last is 1.
+   */
+  private route: {
+    samples: { x: number; y: number; height: number; w: number }[];
+    startedAt: number;
+    seconds: number;
+    handoff: number;
+  } | null = null;
   private turningUntil = 0;
   private clock = 0;
   /** The idle break in flight: when it started, and when it is over. */
@@ -242,11 +265,35 @@ export class Actor {
    * corner. A placement does not add to it -- being put somewhere is not
    * walking there.
    */
-  private travelled = 0;
+  private gaitPhase = 0;
+  /** The clock the previous update ran at, so an increment has a duration. */
+  private lastGaitClock: number | null = null;
   private readonly state: GameState;
   private readonly options: MoverOptions;
   /** Pixels per tick. From the record where it declares one. */
   private readonly speed: number;
+  /**
+   * One full walk cycle, as a fraction of the character's DRAWN height.
+   *
+   * THE STRIDE HAS TO LIVE HERE, and the alternative was the renderer passing
+   * it in. It read `record.strideLength * (mover.height / record.height)` and
+   * handed the answer to `frameAt` -- which was workable while the gait was a
+   * pure function of total distance, and is not once the gait is INTEGRATED:
+   * the increment has to be divided at the moment the displacement happens,
+   * inside `update`, and a caller cannot reach that moment.
+   *
+   * A RATIO RATHER THAN A LENGTH, so it needs no height passed with it: the
+   * actor already knows its own drawn height and the stride is
+   * `strideRatio * height` at any instant. Doc 40 measured the same number
+   * from the other end -- 102px on a 240px man, "0.42 of his height", against
+   * a human step length of about 0.42 of stature.
+   *
+   * READ FROM THE RECORD IN THE CONSTRUCTOR, which is what the three fields
+   * above it already do: `walkSpeed`, the idle-break clip and
+   * `idleBreakRate`. The comment beside those says why, and it is R5f -- an
+   * engine decision traces to a field on the thing it is deciding about.
+   */
+  private readonly strideRatio: number;
 
   constructor(state: GameState, id: string, x: number, y: number, options: MoverOptions = {}) {
     this.state = state;
@@ -263,6 +310,14 @@ export class Actor {
     // does nothing whatever.
     const declared = state.content.actors.get(id)?.walkSpeed;
     this.speed = declared !== undefined ? declared / 60 : WALK_SPEED;
+    // A CHARACTER WITH NO DECLARED STRIDE KEEPS THE CLOCK, and that is the
+    // conservative answer rather than a guessed distance: the coach's walk is
+    // one frame and has no gait at all, so inventing a stride for it would be
+    // inventing a fact about a vehicle.
+    const paces = state.content.actors.get(id);
+    this.strideRatio = paces?.strideLength && paces.height
+      ? paces.strideLength / paces.height
+      : 0;
     // FROM HIS OWN RECORD, WHICH IS WHY HOB AND THE COACH NEVER BROKE. This
     // was `MoverOptions.hasIdleBreak`, and GameScene set it in exactly one
     // place: on the protagonist, from `content.actor.clips`. Every other mover
@@ -355,7 +410,22 @@ export class Actor {
   }
 
   get isWalking(): boolean {
-    return this.glide !== null || this.path.length > 0 || !this.arrived();
+    return this.route !== null || this.glide !== null
+      || this.path.length > 0 || !this.arrived();
+  }
+
+  /**
+   * True while a traced path is being walked BELOW its handoff height.
+   *
+   * The renderer asks this to swap to the derived far-distance clip. It is a
+   * question about the PATH rather than about the height, because the handoff
+   * is a property the trace declares -- a path whose `farClipHandoff` is -1
+   * never answers true however small he gets, which is Tyler's call and not
+   * a threshold the engine may apply on its own.
+   */
+  get isFarAway(): boolean {
+    return this.route !== null && this.route.handoff >= 0
+      && this.height < this.route.handoff;
   }
 
   /** At the current leg's end, within half a pixel. */
@@ -454,7 +524,17 @@ export class Actor {
     this.path = [];
     this.targetX = x;
     this.targetY = y;
-    this.faceToward(x);
+    // BOTH AXES, like every other branch. This one passed X alone, so a walk
+    // that got here would face left or right however vertical the path was.
+    //
+    // AND THE SYMPTOM ATTRIBUTED TO IT IS NOT ITS SYMPTOM. This is the
+    // fallback after ROUTING FAILS -- reached only when `routeTo` returns
+    // undefined and the destination is still walkable -- and `WalkBoxes.route`
+    // returns a route whenever `nearest()` finds a box at both ends, so in a
+    // room with one walk box it is likely unreachable. The unrouted branch
+    // above already passes both. Fixed because it is wrong and free, not
+    // because it explains anything.
+    this.faceToward(x, y);
     return true;
   }
 
@@ -615,7 +695,7 @@ export class Actor {
    * three and comes from content.
    */
   frameAt(seconds: number, walkRate: number, reactRate: number, frames: number,
-          idleRate = 0, stride = 0): number {
+          idleRate = 0): number {
     if (this.special) {
       const elapsed = seconds - this.special.startedAt;
       return Math.min(frames - 1, Math.floor(elapsed * reactRate));
@@ -647,17 +727,63 @@ export class Actor {
     // is one frame and has no gait at all, and inventing a stride for it would
     // be inventing a fact about a vehicle.
     const count = Math.max(1, frames);
-    // THE CEILING IS A MINIMUM STRIDE, because this branch is driven by
-    // distance and not by the clock: there is no elapsed time here to cap a
-    // rate against. Strides a second is speed divided by stride, so bounding
-    // the rate from above is bounding the stride from below. `speed` is per
-    // frame at sixty, hence the sixty.
-    if (stride > 0) {
-      const floor = (this.speed * 60) / MAX_STRIDES_PER_SECOND;
-      const paced = Math.max(stride, floor);
-      return Math.floor(this.travelled / (paced / count)) % count;
+    // THE PHASE IS ALREADY IN CYCLES, so a frame is a fraction of one. Nothing
+    // is divided here: the division happened once, per update, against the
+    // stride that was true while that displacement occurred.
+    if (this.strideRatio > 0) {
+      const cycles = this.gaitPhase % 1;
+      return Math.floor((cycles < 0 ? cycles + 1 : cycles) * count) % count;
     }
     return Math.floor(seconds * walkRate) % count;
+  }
+
+  /**
+   * Advance the walk cycle by one update's worth of walking.
+   *
+   * THIS REPLACES A CALCULATION THAT WAS NOT AN INTEGRAL. The frame used to be
+   * `floor(travelled / (paced / count))` -- TOTAL HISTORICAL DISTANCE over the
+   * CURRENT depth-scaled stride. `travelled` is every pixel he has ever
+   * walked and `paced` changes whenever his drawn height does, so the moment
+   * he moved toward or away from the camera EVERY PIXEL HE HAD EVER WALKED
+   * WAS RETROACTIVELY RE-DIVIDED and the frame index jumped several positions
+   * in one update. Reported from playing as the legs scissoring on a diagonal.
+   *
+   * THE 2.6 STRIDES/SECOND CEILING DID NOT FIX IT, and reading why is the
+   * whole of this change. It floored the DENOMINATOR at `speed*60/2.6`, which
+   * happens to hold it constant for every drawn height below 222 -- so it hid
+   * the jump across most of the band instead of removing it, and above 222 the
+   * denominator still moved and the quotient still jumped. A lid on a symptom.
+   *
+   * SO THE PHASE IS ACCUMULATED, not recomputed: each update contributes its
+   * own displacement divided by the stride that was true for it, and nothing
+   * ever revisits an earlier contribution. The ceiling survives, applied to
+   * the INCREMENT rather than the denominator, which bounds the rate without
+   * distorting the distance-to-frame relationship -- so the foot-slide is paid
+   * only where the cap actually bites.
+   *
+   * ONE PHASE FOR ALL FOUR CARDINAL WALKS. Not one per axis and not one per
+   * facing: turning a corner must not restart the cycle, so a facing change, a
+   * new waypoint and a switch between left/right/front/back all leave it
+   * exactly where it was. A placement does not advance it either -- being put
+   * somewhere is not walking there -- which falls out for free, because this
+   * measures what THIS update moved and `placeAt` happens between updates.
+   */
+  private advanceGait(distance: number, fromHeight: number, elapsed: number): void {
+    if (this.strideRatio <= 0 || distance <= 0) return;
+    // THE AVERAGE OF THE TWO HEIGHTS, so crossing a depth boundary is
+    // continuous. Dividing by the height he ended at would credit the whole
+    // step to the far end of it.
+    const height = (fromHeight + this.height) / 2;
+    const stride = this.strideRatio * height;
+    if (stride <= 0) return;
+    const raw = distance / stride;
+    // A ceiling in strides per second needs a duration to bound; without one
+    // -- the first update, or a clock that has not moved -- there is nothing
+    // to cap against and the raw advance stands.
+    const advance = elapsed > 0
+      ? Math.min(raw, MAX_STRIDES_PER_SECOND * elapsed)
+      : raw;
+    this.gaitPhase += advance;
   }
 
   /** Returns true if anything that affects the drawn frame changed. */
@@ -671,17 +797,44 @@ export class Actor {
     }
     // A one-shot clip owns the body until it is done. Walking through a
     // reaction would play the recoil sliding down the street.
+    let moved = 0;
     if (!this.special) {
       const wasX = this.x;
       const wasY = this.y;
-      if (this.glide) this.advanceGlide(seconds);
+      if (this.route) this.advancePath(seconds);
+      else if (this.glide) this.advanceGlide(seconds);
       else this.advanceWalk();
-      this.travelled += Math.hypot(this.x - wasX, this.y - wasY);
+      moved = Math.hypot(this.x - wasX, this.y - wasY);
     }
-    if (this.options.height === undefined && this.scalesWithDepth) {
+    // A PATH SETS ITS OWN HEIGHT, so the depth sampler must not overwrite it
+    // the instant he leaves the band. `route` is cleared on the last update,
+    // and from the next one the curve takes him back -- which is right: he has
+    // arrived and is a mover in a room again.
+    if (this.route === null && this.options.height === undefined && this.scalesWithDepth) {
       const here = this.sampleDepth(this.state, this.x, this.y);
       if (here !== null) this.height = here;
     }
+    // AFTER THE HEIGHT RESOLVES, so the stride can be averaged across the step
+    // rather than taken from either end of it. `wasHeight` is the height he
+    // set off at and `this.height` is where he arrived.
+    //
+    // A HEIGHT THAT CHANGES WITHOUT MOVEMENT CHANGES NOTHING. `moved` is zero
+    // then, and zero displacement advances zero -- which is also what a
+    // blocked actor gets, so nobody walks on the spot.
+    // A FIRST UPDATE WITH NO PREVIOUS CLOCK IS ASSUMED TO BE ONE TICK, not
+    // zero. Zero meant "no duration to bound a rate against", so the ceiling
+    // could not apply and the very first update took its RAW advance -- which
+    // for a figure drawn at 96px is 0.100 cycles against a capped 0.043, and
+    // it is what made a one-second march measure 2.657 cycles against a
+    // ceiling of 2.6. `RoomActors.place` happens to update once on arrival, so
+    // in the running game that tick was spent standing still and nobody saw
+    // it; an Actor built and marched directly does see it. Sixty is already
+    // this file's unit -- `speed` is pixels per tick at sixty.
+    const elapsed = this.lastGaitClock === null
+      ? 1 / 60
+      : seconds - this.lastGaitClock;
+    this.lastGaitClock = seconds;
+    this.advanceGait(moved, wasHeight, elapsed);
     // The idle break is measured from the moment everything stopped, so a
     // character who has just arrived breathes for a while before glancing
     // aside rather than glancing the instant his feet land.
@@ -720,6 +873,97 @@ export class Actor {
   }
 
   /** Errata 38's translation: a fraction of the way there, by the clock. */
+  /**
+   * Walk a traced path over a stated duration. Doc 17 beat 11.
+   *
+   * PROGRESS IS LINEAR IN w, NOT IN SCREEN PIXELS, and that is the whole
+   * reason the path carries a height per waypoint. A receding figure covers
+   * less screen ground per second for the same world speed, so advancing at a
+   * constant rate in pixels reads as him ACCELERATING away. `dw = ds / height`
+   * is screen arc length over scale -- world distance in units of his own
+   * body -- and moving linearly in it is moving at a steady walk.
+   *
+   * NORMALISED TO [0,1], so `seconds` alone sets the rate and the path can be
+   * re-traced without retiming. The title keys off the same clock for the same
+   * reason: derive the beat's length from the path and every later tweak to
+   * the trace silently changes how long the title sits over the mountains.
+   *
+   * AND THE CADENCE COMES OUT CONSTANT FOR FREE. Screen speed is
+   * `height * W / seconds`, and the gait divides displacement by
+   * `strideRatio * height` -- the heights cancel, so the legs cycle at
+   * `W / (seconds * strideRatio)` strides a second from the first step to the
+   * last. Nothing here touches the animation clock, and nothing should: a beat
+   * with its own animation clock is a beat whose legs disagree with its feet.
+   */
+  followPath(points: { x: number; y: number; figureHeight: number }[],
+             seconds: number, handoff = -1): number {
+    this.path = [];
+    this.glide = null;
+    if (points.length < 2 || seconds <= 0) {
+      const last = points[points.length - 1];
+      if (last) this.placeAt(last.x, last.y);
+      return 0;
+    }
+    const samples: { x: number; y: number; height: number; w: number }[] = [
+      { x: points[0]!.x, y: points[0]!.y, height: points[0]!.figureHeight, w: 0 },
+    ];
+    let w = 0;
+    for (let leg = 0; leg < points.length - 1; leg += 1) {
+      const a = points[leg]!;
+      const b = points[leg + 1]!;
+      const dx = b.x - a.x;
+      const dy = b.y - a.y;
+      const length = Math.hypot(dx, dy);
+      const steps = Math.max(1, Math.ceil(length / 2));
+      const ds = length / steps;
+      for (let step = 1; step <= steps; step += 1) {
+        const t = step / steps;
+        // THE HEIGHT AT THE STEP'S MIDPOINT divides it. Taking either end
+        // biases every segment toward that end, which over a path that halves
+        // in scale is not a rounding difference.
+        const mid = t - 0.5 / steps;
+        const middle = a.figureHeight + (b.figureHeight - a.figureHeight) * mid;
+        w += ds / Math.max(1, middle);
+        samples.push({
+          x: a.x + dx * t,
+          y: a.y + dy * t,
+          height: a.figureHeight + (b.figureHeight - a.figureHeight) * t,
+          w,
+        });
+      }
+    }
+    if (w > 0) for (const sample of samples) sample.w /= w;
+    this.route = { samples, startedAt: this.clock, seconds, handoff };
+    this.targetX = samples[samples.length - 1]!.x;
+    this.targetY = samples[samples.length - 1]!.y;
+    return seconds;
+  }
+
+  private advancePath(seconds: number): void {
+    const route = this.route;
+    if (!route) return;
+    const at = Math.max(0, Math.min(1, (seconds - route.startedAt) / route.seconds));
+    const samples = route.samples;
+    let low = 0;
+    let high = samples.length - 1;
+    while (low < high - 1) {
+      const mid = (low + high) >> 1;
+      if (samples[mid]!.w <= at) low = mid; else high = mid;
+    }
+    const a = samples[low]!;
+    const b = samples[high]!;
+    const span = b.w - a.w;
+    const t = span > 0 ? (at - a.w) / span : 0;
+    this.x = a.x + (b.x - a.x) * t;
+    this.y = a.y + (b.y - a.y) * t;
+    // THE HEIGHT COMES FROM THE PATH AND NOT FROM THE DEPTH CURVE. That is why
+    // it was traced: the curve is calibrated for the walkable band and this
+    // beat goes far above it, where the curve's third sample is provisional
+    // and nobody has ruled on it.
+    this.height = a.height + (b.height - a.height) * t;
+    if (at >= 1) this.route = null;
+  }
+
   private advanceGlide(seconds: number): void {
     const glide = this.glide;
     if (!glide) return;

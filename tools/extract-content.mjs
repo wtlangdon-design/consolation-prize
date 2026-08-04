@@ -426,12 +426,24 @@ function opening() {
     // the walk is what the credits are authored to rather than the other way
     // round.
     11: [
-      { do: 'move', actor: 'thad', to: [575, 500], seconds: 6 },
+      // HE FACES AWAY AND STAYS THAT WAY. Errata 55: "with his back to us."
+      // The path wanders left and right up the road -- x goes 575, 581, 537,
+      // 464, 517, 598, 704, 772, 826 -- so a walk that re-faced itself on each
+      // leg would turn him side-on four times on the way out of the game.
+      // `path` never re-faces; this sets it once.
+      { do: 'face', actor: 'thad', facing: 'back' },
+      // THE TRACED PATH, replacing a six-second glide to one fixed point.
+      // The move took him to [575,500] at whatever height the depth curve's
+      // provisional third sample gave, and stopped him in the field.
+      { do: 'path', actor: 'thad', path: 'content/sequences/beat11-path.json' },
       // AND THEN THE TRAVEL, through the exit that declined to do it itself.
-      // `interact` lowers to the `say`-with-interact step the runner has
-      // always had, which resolves the verb where it stands -- room change
-      // included -- and produces no words.
-      { do: 'interact', target: 'road_west', verb: 'WALK_TO' },
+      //
+      // IT WAS `interact road_west WALK_TO` AND THAT WALKED HIM BACK DOWN.
+      // `interact` resolves the verb where it stands, and doc 22 section 6
+      // walks to a target's own `walkTo` first -- road_west's is [575, 710],
+      // just inside the band. So the beat spent forty seconds taking him up
+      // the road and then walked him back to the fence before travelling.
+      { do: 'travel', through: 'road_west' },
     ],
   };
   for (const entry of beats) {

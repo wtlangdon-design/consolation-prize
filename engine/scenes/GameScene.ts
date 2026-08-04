@@ -157,6 +157,15 @@ export class GameScene extends Phaser.Scene {
       bodies: this.bodies,
       choreSeconds: (mover, clip) => this.choreSeconds(mover, clip),
       say: (step) => this.saySequenceStep(step),
+      paths: this.state.content.paths,
+      // THE TRAVEL, NAMED BY ITS EXIT. The scene owns the room change because
+      // it owns the bookkeeping around one -- the autosave and the actor
+      // registry -- exactly as it does for a transit the player causes.
+      travel: (through) => {
+        const exit = (this.state.room.exits ?? []).find((each) => each.id === through);
+        if (!exit) throw new Error(`No exit "${through}" in ${this.state.room.id}`);
+        this.state.enterRoom(exit.to);
+      },
     });
     this.ambient = new AmbientLayer(this.state);
     this.panel = new PanelLayout(this.state.content.panel);

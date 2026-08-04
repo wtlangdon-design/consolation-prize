@@ -1,6 +1,6 @@
 import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
-import { IDLE_BREAK, type Actor } from '../core/Actor.ts';
+import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
@@ -597,11 +597,15 @@ export class Renderer {
    */
   private frameFor(mover: Actor, record: ActorFile, frames: number): number {
     const { walkRate, reactRate, idleRate } = record;
-    const stride = record.strideLength
-      ? record.strideLength * (mover.height / record.height)
-      : 0;
+    // THE STRIDE IS NO LONGER PASSED IN, and that is the point of the change
+    // rather than a tidy-up. It was computed here as `strideLength * (height /
+    // record.height)` and handed over for `frameAt` to divide TOTAL distance
+    // by -- so every pixel he had ever walked was re-divided the moment his
+    // drawn height moved. The gait is integrated inside `Actor.update` now,
+    // against the stride that was true for each step, and the actor reads its
+    // own ratio from its own record.
     return mover.frameAt(this.clock, walkRate, reactRate, frames,
-      (mover.clip === IDLE_BREAK ? record.idleBreakRate ?? idleRate : idleRate) ?? 0, stride);
+      (mover.clip === IDLE_BREAK ? record.idleBreakRate ?? idleRate : idleRate) ?? 0);
   }
 
   /**
@@ -729,7 +733,6 @@ export class Renderer {
       return grayHalfWidth;
     }
     const surface = mover.surfaceHere();
-    const clip = mover.clip;
     // HIS OWN RATES, not the protagonist's. Every record carries them, and
     // reading one character's timing off another is the same mistake in
     // miniature as drawing him with another's sheet.
@@ -743,6 +746,17 @@ export class Renderer {
     // Q38: a mover's clip may be chosen by its object state as well as its
     // surface -- the coach's shut door and open one are one clip, two states.
     const state = this.state.moverState(mover.id);
+    // THE FAR-DISTANCE CLIP, WHERE A TRACED PATH SAYS SO. Below the trace's own
+    // `farClipHandoff` the walk is replaced by the derived blob -- three flat
+    // frames thresholded out of the back walk's alpha, so it cannot drift from
+    // the man it represents.
+    //
+    // THE PATH DECIDES, NOT THE HEIGHT. `farClipHandoff` is -1 on the committed
+    // trace and that is correct rather than an omission: it bottoms out at 29px
+    // and the blob takes over below 22, so this clip is unused by it and he
+    // stays the real sprite the whole way. Switching at 29 to make the feature
+    // visible would be the engine overruling a look decision.
+    const clip = mover.isFarAway && sprite.declares(FAR_WALK) ? FAR_WALK : mover.clip;
     const frames = sprite.frameCount(clip, mover.facing, surface, state);
     const drawn = frames > 0 && sprite.draw(
       this.screen.context, clip, mover.facing, surface,

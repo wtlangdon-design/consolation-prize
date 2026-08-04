@@ -107,7 +107,7 @@ export function segmentsOf(file: SequenceFile): Segment[] {
  */
 function stagingTakesTime(beat: SequenceBeat): boolean {
   return (beat.staging ?? []).some((staged) => {
-    if (staged.do === 'walk' || staged.do === 'chore') return true;
+    if (staged.do === 'walk' || staged.do === 'chore' || staged.do === 'path') return true;
     // A `setState` swaps a picture. Like a `face`, it is instantaneous.
     if (staged.do !== 'move') return false;
     return !staged.from
@@ -225,6 +225,15 @@ function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] 
       return [{ kind: 'say', interact: { target: staged.target, verb: staged.verb } }];
     case 'setState':
       return [{ kind: 'setState', object: staged.object, state: staged.state }];
+    case 'path':
+      // NO `waitForActor` AFTER IT. The path holds the runner for its own
+      // stated duration, which is the same number the title is keyed to, so a
+      // second wait on arrival would let the trace decide the beat's length --
+      // and then every re-trace would silently change how long the title sits
+      // over the mountains.
+      return [{ kind: 'path', actor: staged.actor, path: staged.path }];
+    case 'travel':
+      return [{ kind: 'travel', through: staged.through }];
     case 'say': {
       const spoken = placedLine(beat, staged.line);
       return [{ kind: 'say', actor: spoken.speaker, line: spoken.line }];

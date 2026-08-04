@@ -330,18 +330,18 @@
       "note": "This is the descent, and it is not one more screen — see below",
       "staging": [
         {
-          "do": "move",
+          "do": "face",
           "actor": "thad",
-          "to": [
-            575,
-            500
-          ],
-          "seconds": 6
+          "facing": "back"
         },
         {
-          "do": "interact",
-          "target": "road_west",
-          "verb": "WALK_TO"
+          "do": "path",
+          "actor": "thad",
+          "path": "content/sequences/beat11-path.json"
+        },
+        {
+          "do": "travel",
+          "through": "road_west"
         }
       ],
       "awaitFlag": "T_THAD_LEAVING"

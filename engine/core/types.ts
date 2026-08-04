@@ -981,6 +981,8 @@ export interface ManifestFile {
   actorsNote?: string;
   /** Head overlays -- a head composited over a body that never swaps. */
   overlays?: string[];
+  /** Traced walk paths, named so a `path` step can ask for one. */
+  paths?: string[];
   /**
    * Light a mover carries and leaves with, drawn on the ground beneath it.
    *
@@ -1055,6 +1057,31 @@ export interface CarriedLightFile {
   widthPerHeight: number;
   /** 0..1 multiplier on the additive blend. Doc's own value is a judgement. */
   intensity: number;
+  note?: string;
+}
+
+/**
+ * A path traced by eye against the plate, for a mover to walk. Doc 17 beat 11.
+ *
+ * THE HEIGHTS ARE THE POINT. The room's depth curve is calibrated for the
+ * walkable band and this path goes far above it, where the curve's third
+ * sample is provisional and nobody has ruled on it -- so the recession is
+ * traced rather than computed, and the trace is what the engine follows.
+ */
+export interface PathFile {
+  room: string;
+  beat: number;
+  playArea: [number, number];
+  /** Sets the rate AND the length of the title. One clock, both. */
+  beatSeconds: number;
+  waypoints: { x: number; y: number; figureHeight: number }[];
+  /**
+   * The waypoint index at which the derived far-distance clip takes over, or
+   * -1 when this trace never gets small enough to need it. Not a threshold the
+   * engine may apply on its own: whether a figure becomes a dot is a look
+   * decision.
+   */
+  farClipHandoff?: number;
   note?: string;
 }
 
@@ -1157,6 +1184,8 @@ export interface ContentBundle {
   overlays: Map<string, OverlayFile>;
   /** The lamp's ground light, or null when the manifest declares none. */
   carriedLight: CarriedLightFile | null;
+  /** Traced paths, keyed by the content path that names them. */
+  paths: Map<string, PathFile>;
   /** A colour per speaker, or null where none is declared. */
   speechColours: SpeechColoursFile | null;
 }
@@ -1262,6 +1291,34 @@ export type SequenceStagingStep =
    * means back to the declared default -- shut, for the coach's door.
    */
   | { do: 'setState'; object: string; state?: string }
+  /**
+   * Doc 17 beat 11. Walk a mover along a TRACED path over its own duration.
+   *
+   * A NINTH KIND, and it earns one for the reason `setState` did: nothing in
+   * the existing vocabulary can say it. A `walk` is routed across the room's
+   * boxes and this leaves them; a `move` is a straight glide at a constant
+   * rate in SCREEN pixels, and a receding figure moved at a constant screen
+   * rate reads as accelerating away.
+   *
+   * It names a FILE. The waypoints and their drawn heights were traced by eye
+   * against the plate, so re-tracing must not need an engine change -- and the
+   * duration comes from the trace too, because the title is keyed to the same
+   * number.
+   */
+  | { do: 'path'; actor: string; path: string }
+  /**
+   * The travel an exit declined to do for itself, when the beat says so.
+   *
+   * `travelWhenTold` exists so a departure can be WATCHED, and something has
+   * to do the travelling at the end. This used to be `interact <exit> WALK_TO`,
+   * which resolves the verb where it stands and therefore walks him to the
+   * exit's own `walkTo` first -- back down the road the beat had just spent
+   * forty seconds taking him up.
+   *
+   * Names the exit rather than the room: where it goes is on the exit, and a
+   * destination repeated in the staging is a second copy that can disagree.
+   */
+  | { do: 'travel'; through: string }
   /**
    * A verb applied to a target, from a beat. NOT A NEW STEP KIND.
    *

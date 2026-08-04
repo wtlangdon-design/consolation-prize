@@ -186,7 +186,16 @@ function drawTimeline(sequence) {
                       // whose length is invisible is the one step you cannot
                       // read the timing of from the picture.
                       : s.do === 'wait' ? `wait ${s.seconds}s`
-                        : `UNDRAWN: ${s.do}`;
+                        // The eleventh. Named with its FILE, because the
+                        // waypoints and the duration both live there: a `path`
+                        // labelled "path" tells you nothing about how long the
+                        // beat is, which is the one thing this picture is for.
+                        : s.do === 'path' ? `path ${s.path.split('/').pop()}`
+                          // The twelfth. Named with its exit, because that is
+                          // where the destination lives -- the step deliberately
+                          // does not repeat it.
+                          : s.do === 'travel' ? `travel via ${s.through}`
+                            : `UNDRAWN: ${s.do}`;
         parts.push(`<circle cx="${x + 14}" cy="${y}" r="7" fill="${places && k === 0 ? colour : '#14141c'}"`
           + ` stroke="${colour}" stroke-width="3"/>`);
         parts.push(`<text x="${x + 28}" y="${y + 6 + k * 20 - (here.length - 1) * 10}" fill="${colour}"`

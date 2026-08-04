@@ -93,7 +93,38 @@ export type SequenceStep =
    * `clipOf` is exact-match-then-fall-back and a null is a state nobody can
    * ask for.
    */
-  | { kind: 'setState'; object: string; state?: string };
+  | { kind: 'setState'; object: string; state?: string }
+  /**
+   * Doc 17 beat 11. Walk a mover along a TRACED path over its own duration.
+   *
+   * NOT A `move` AND NOT A `walk`. A walk is routed across the room's boxes
+   * and this leaves them entirely; a move is a straight glide to one point at
+   * a constant rate in SCREEN pixels, and a receding figure covered at a
+   * constant screen rate reads as accelerating away. The path carries a drawn
+   * height per waypoint because it goes far above the band the depth curve was
+   * calibrated for, and the engine progresses linearly in `ds / height` so the
+   * walk is steady in the world rather than on the glass.
+   *
+   * `path` names a file, not coordinates. The trace is content -- it was made
+   * by eye against the plate, and re-tracing it must not need an engine
+   * change.
+   */
+  | { kind: 'path'; actor: string; path: string }
+  /**
+   * The travel an exit declined to do for itself.
+   *
+   * `road_west` declares `travelWhenTold` precisely so the beat owns the
+   * departure -- an exit that moves you the instant you touch it cannot also
+   * be one you watch. It used to be spelled `interact road_west WALK_TO`,
+   * which resolves the verb where it stands and therefore WALKS HIM TO THE
+   * EXIT'S walkTo FIRST: back down the field to y710, after the beat had just
+   * spent forty seconds taking him up it.
+   *
+   * NAMES THE EXIT, NOT THE ROOM. Where road_west goes is on road_west, and a
+   * destination repeated in the staging is a second copy of a fact that can
+   * disagree with the first (R5k).
+   */
+  | { kind: 'travel'; through: string };
 
 /** What the runner needs the world to be able to do. */
 /**
@@ -116,6 +147,10 @@ export interface SequenceHost {
    * step says where from. `isWalking` reports on it, so a `waitForActor`
    * after a `move` waits for the arrival exactly as it does after a walk.
    */
+  /** Walk a mover along a traced path. Returns how long it will take. */
+  followPath(actor: string, path: string): number;
+  /** Take the exit that declined to travel when it was used. */
+  travel(through: string): void;
   move(actor: string, from: { x: number; y: number } | undefined,
        x: number, y: number, seconds: number): void;
   isWalking(actor: string): boolean;
@@ -262,6 +297,22 @@ export class SequenceRunner {
       }
       if (step.kind === 'move') {
         host.move(step.actor, step.from, step.x, step.y, step.seconds);
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'path') {
+        // HELD FOR ITS OWN DURATION, the way a chore is. The path knows how
+        // long it takes -- that is `beatSeconds`, and the title is keyed to
+        // the same number -- so there is nothing for a `waitForActor` to add.
+        this.waitUntil = seconds + host.followPath(step.actor, step.path);
+        this.waiting = true;
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'travel') {
+        host.travel(step.through);
         this.index += 1;
         moved = true;
         continue;

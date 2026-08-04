@@ -2,6 +2,7 @@ import type {
   ActorFile,
   CarriedLightFile,
   OverlayFile,
+  PathFile,
   SpeechColoursFile,
   AmbientFile,
   ContentBundle,
@@ -64,6 +65,13 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     (manifest.overlays ?? []).map((path) => read(path) as Promise<OverlayFile>),
   );
   const overlays = new Map(overlayFiles.map((file) => [file.id, file]));
+  // Traced paths, keyed BY THE PATH THAT NAMES THEM rather than by an id of
+  // their own. The trace is Tyler's file and adding a field to it to satisfy
+  // the loader would be the loader's convenience written into his data.
+  const pathFiles = await Promise.all(
+    (manifest.paths ?? []).map(async (each) => [each, await read(each) as PathFile] as const),
+  );
+  const paths = new Map<string, PathFile>(pathFiles);
   // Errata D8's lantern pool. Optional: a game that declares none draws none,
   // which is what it did for as long as the spec sat in art/ with no reader.
   const carriedLight = manifest.carriedLight
@@ -131,7 +139,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
 
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
-    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight,
+    verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, paths,
     speechColours, items, panel,
     combinations, itemIcons,
     sequences,
