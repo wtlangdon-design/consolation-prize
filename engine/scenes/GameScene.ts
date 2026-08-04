@@ -1185,10 +1185,15 @@ export class GameScene extends Phaser.Scene {
    * step. Nobody used it to take the words down. R5o: the calculation was
    * written, correct, and reached by one of its two consumers.
    *
-   * A DIALOGUE LINE IS EXEMPT and that is not an oversight. An exchange holds
-   * its line until the player clicks, which is the behaviour errata 45 and doc
-   * 30 both describe, and CC is rebuilding that half now; expiring one out
-   * from under a conversation would fight it.
+   * A DIALOGUE LINE IS EXEMPT and that is not an oversight -- BUT NO LONGER
+   * FOR THE REASON THIS COMMENT GAVE. It said an exchange holds its line until
+   * the player clicks, which was true when it was written and is not now:
+   * `DialoguePerformance` expires each utterance on doc 30 section 4.1's own
+   * formula, which is the 0.055/1.8 pair rather than the 0.045/1.6 this file
+   * uses. The exemption stands because the PERFORMANCE OWNS THE CLOCK during
+   * an exchange, and two timers on one line would race -- not because a
+   * dialogue line waits forever. R5k, in prose: a comment that went on
+   * describing behaviour after it moved.
    */
   private setSay(text: string | null, speaker: string | null = null): void {
     this.sayLines = text ? this.font.wrap(text, NATIVE_WIDTH - TEXT_MARGIN * 2) : [];
