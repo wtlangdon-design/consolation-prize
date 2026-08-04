@@ -26,6 +26,7 @@ This is why the protagonist is a piano tuner, why the score is flat, and why the
 3. **Never explain the joke across the pair.** LISTEN is not the punchline to LOOK. They are two different registers looking at the same object.
 4. **Silence is a valid response and should be used often** — but the *phrasing* of nothing must vary. "Nothing." / "Nothing at all." / "Nothing, and it's trying." / "Not a thing. Not even the wind bothers."
 5. **The three load-bearing LISTEN lines must be indistinguishable in tone from the five hundred that aren't.** No emphasis, no music sting, no highlighting. If the player can tell which lines matter, the entire design collapses.
+6. **The town cannot spell Thad's name, and only the town gets to misspell it.** Canonical is **Thaddeus Grubb** everywhere in his own voice, narration, and system text. Diegetic documents — the hotel register, the *Clarion*, forms, signage — misspell it **differently every time, never twice the same** (the bible's Frame gag, extended to all in-world paper). The game about paperwork ends with one document filed correctly, and thirty-five rooms of wrong spellings are what make it land.
 
 ## The three that matter
 
@@ -430,6 +431,76 @@ The only prose line in the entire room, on the correct spot:
 
 ---
 
+
+## ROOM 12 — THE MERCANTILE
+*Act I onward. Sixteen hotspots — the highest count in the game. The catalogue alone is six.*
+
+**THE COUNTER**
+> **LOOK:** "Scarred by forty years of coins pushed across it, most of them reluctantly."
+> **LISTEN:** "Wood. It has absorbed a great deal of haggling and repeats none of it."
+
+**THE SCALES**
+> **LOOK:** "Polished bright. They weigh dust honest and flour otherwise, or so the men at the Nugget say."
+> **LISTEN:** "A faint tick as they settle. Always to the same side."
+
+**THE CREDIT LEDGER**
+> **LOOK:** "Names, sums, and a column of small marks I decline to interpret. Half the town is in this book, and none of it gets out."
+> **LISTEN:** "Nothing. Debt is quiet until it isn't."
+
+**TINNED GOODS**
+> **LOOK:** "Tins from the East. The labels show harvests of implausible colour. One is marked simply MEAT, with confidence."
+> **LISTEN:** "One of them, very faintly, fizzes."
+
+**THE PICKLE JAR**
+> **LOOK:** "Pickled eggs in a jar the size of a christening font. The brine has opinions."
+> **LISTEN:** "The brine, working. I am not reassured."
+
+**DR. PURVIS'S TONIC**
+> **LOOK:** "Restorative Bile Tonic. Restores bile, presumably. The testimonials on the label are all in the same hand."
+> **LISTEN:** "It settles. Something in it is still deciding."
+
+**THE PICKAXES**
+> **LOOK:** "Picks, new. Heads tight, hafts bright. Optimism by the dozen, at a dollar ten."
+> **LISTEN:** "Nothing yet. A pick only learns to speak underground."
+
+**THE DYNAMITE CRATE**
+> **LOOK:** "Dynamite, stored beside the stove, which tells you everything about the proprietor's understanding of the product."
+> **LISTEN:** "Nothing. It is either perfectly safe or saving itself."
+
+**THE STOVE**
+> **LOOK:** "The stove around which the town's opinions are formed each evening. Stand close and you can feel yesterday's arguments."
+> **LISTEN:** "Iron, ticking as it cools. It talks most after everyone has gone."
+
+**THE CALICO**
+> **LOOK:** "A bolt of calico in a print called Prosperity. Small blue flowers. Nobody in this town has bought a dress in a year."
+> **LISTEN:** "Cloth. A held breath of a sound."
+
+**THE CATALOGUE**
+> **LOOK:** "Eleven hundred pages of the East, delivered to the edge of nowhere twice a year. The most-read book in the territory, scripture included."
+> **LISTEN:** "Pages easing. It exhales civilisation."
+
+**THE CATALOGUE — LADIES' NOTIONS**
+> **LOOK:** "Forty pages of buttons, ribbon, and collars. Someone has folded a corner down, and I hope they get their collar."
+> **LISTEN:** "Nothing. Longing is silent."
+
+**THE CATALOGUE — PATENT MACHINES**
+> **LOOK:** "Machines for washing, for churning, and for the improvement of posture. Every one endorsed by clergy."
+> **LISTEN:** "Nothing, and it's trying."
+
+**THE CATALOGUE — FIREARMS**
+> **LOOK:** "Two pages of revolvers, between the hymnals and the hair oil, which is about where they sit in life as well."
+> **LISTEN:** "Nothing. Paper guns. The safest kind."
+
+**THE CATALOGUE — MUSICAL INSTRUMENTS**
+> **LOOK:** "A parlour organ, freight paid, four months out. There is also an upright piano. I have read its description many times. It is spelled correctly and tuned by definition."
+> **LISTEN:** "I can nearly hear it. That is not the same as hearing it."
+
+**THE CATALOGUE — ORDER FORM**
+> **LOOK:** "The order form, in triplicate. Consolation's real currency is the promise of goods from elsewhere."
+> **LISTEN:** "Carbon paper, whispering everything twice."
+
+---
+
 # PART THREE — MANIFEST, REMAINING ROOMS
 
 Hotspot inventories for the rooms not scripted above. Rows marked → scripted have moved up; the table shrinks as the W3 pass proceeds. Every hotspot needs both verbs. Calibrate against the twelve above.
@@ -440,7 +511,7 @@ Hotspot inventories for the rooms not scripted above. Rows marked → scripted h
 | 6 · Assay records room | 11 | The nineteen names live here. |
 | 8 · Registrar's archive | 9 | **Contains the timesheet — load-bearing LISTEN.** |
 | 10 · Improvement Co. lobby | 10 | Every chair is comfortable. |
-| 12 · Mercantile | 16 | Highest hotspot count in the game. The catalogue alone is 6. |
+| 12 · Mercantile | 16 | **→ scripted above** (W3 pass) |
 | 13 · Undertaker's | 9 | The teeth. |
 | 15 · Livery stable | 8 | Grievance is 3 of them. |
 | 16 · Ozymandia's tent | 12 | The rod, the tassels, the price list. |
@@ -468,8 +539,8 @@ Hotspot inventories for the rooms not scripted above. Rows marked → scripted h
 
 | | Lines |
 |---|---|
-| Scripted above (14 rooms, fully or substantially) | ~224 |
-| Manifest rooms (21 rooms, ~193 hotspots × 2) | ~386 |
+| Scripted above (15 rooms, fully or substantially) | ~256 |
+| Manifest rooms (20 rooms, ~177 hotspots × 2) | ~354 |
 | Room 36 rewrite | ~18 |
 | Act-state variants (rooms that change between acts) | ~140 |
 | Barks and repeat-selection variants | ~120 |
