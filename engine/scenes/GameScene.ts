@@ -69,6 +69,8 @@ export class GameScene extends Phaser.Scene {
   private hovered: Interactable | null = null;
   private hoveredName: string | null = null;
   private sayLines: string[] = [];
+  /** When the line on screen has been up long enough. Null while none is. */
+  private sayUntil: number | null = null;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: { speaker: string | null; line: string }[] = [];
   /**
@@ -221,6 +223,16 @@ export class GameScene extends Phaser.Scene {
     const before = this.lastFrameAt;
     if (IdleLayer.changed(this.state.room, before, now)) this.markDirty();
     this.lastFrameAt = now;
+
+    // A LINE THAT HAS BEEN READ COMES DOWN. Its hold is doc 30 section 4.1's,
+    // computed by lineSeconds from the rate in ui.json -- the same number a
+    // cutscene already waits out before its next step, now also the number
+    // after which the words leave the screen rather than sitting there until
+    // something else happens to move them.
+    if (this.sayUntil !== null && now >= this.sayUntil) {
+      this.setSay(null);
+      this.markDirty();
+    }
     this.view.setClock(now);
     if (this.cycleChanged()) this.markDirty();
     // THE WORLD MOVES, THEN SETTLES, THEN THE SCRIPT DECIDES. This order is
@@ -1095,9 +1107,33 @@ export class GameScene extends Phaser.Scene {
     return true;
   }
 
+  /**
+   * Puts a line on screen, and decides when it comes off again.
+   *
+   * A LINE USED TO STAY UNTIL SOMETHING ELSE MOVED IT -- a room change or the
+   * next line, and nothing else. So the last line of any beat sat there for
+   * the whole of what followed: "A firm welcome" was still on screen while he
+   * walked up the road, competing with the title coming up over the mountains,
+   * and every examine response in the game held until the player looked at
+   * something else.
+   *
+   * `lineSeconds` already existed and already computed the right number --
+   * doc 30 section 4.1's reading hold, from the rate and floor in ui.json --
+   * and it was used ONLY to tell a cutscene how long to wait before its next
+   * step. Nobody used it to take the words down. R5o: the calculation was
+   * written, correct, and reached by one of its two consumers.
+   *
+   * A DIALOGUE LINE IS EXEMPT and that is not an oversight. An exchange holds
+   * its line until the player clicks, which is the behaviour errata 45 and doc
+   * 30 both describe, and CC is rebuilding that half now; expiring one out
+   * from under a conversation would fight it.
+   */
   private setSay(text: string | null, speaker: string | null = null): void {
     this.sayLines = text ? this.font.wrap(text, NATIVE_WIDTH - TEXT_MARGIN * 2) : [];
     this.sayingActor = text ? speaker : null;
+    this.sayUntil = text && !this.state.dialogue.isActive
+      ? this.time.now / 1000 + this.lineSeconds(text)
+      : null;
   }
 
   private onMenuKey(): void {
