@@ -428,7 +428,29 @@ export class GameScene extends Phaser.Scene {
     // A click on a conversation must never reach the MENU or MAP button
     // underneath it.
     if (this.state.dialogue.isActive) {
-      if (!this.advanceSay()) this.onDialogueClick(y);
+      if (this.advanceSay()) return;
+      // THE CLICK THAT CLEARS THE LAST LINE IS SPENT CLEARING IT, IN A
+      // CONVERSATION ONLY.
+      //
+      // A reply is drawn ABOVE the option list rather than instead of it --
+      // otherwise picking an option appears to do nothing -- so the list is
+      // deliberately still under the pointer while the answer plays. A player
+      // clicking the question repeatedly to read a multi-line answer therefore
+      // re-selected that same question the instant the answer ran out, and the
+      // exchange started over. Reported as conversations looping back to the
+      // beginning.
+      //
+      // Not in advanceSay, and that distinction is the whole of it: say lines
+      // do not expire anywhere in this game -- they hold until a room change
+      // or the next line -- so consuming a click there would put a dead click
+      // in front of every examine response in every room. Here there is a list
+      // under the pointer waiting to be hit by accident. Nowhere else is.
+      if (this.sayLines.length > 0) {
+        this.setSay(null);
+        this.markDirty();
+        return;
+      }
+      this.onDialogueClick(y);
       return;
     }
 
