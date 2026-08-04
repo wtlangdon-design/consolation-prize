@@ -1744,8 +1744,15 @@ toward the town lights, back to camera, out the exit named CONSOLATION — the m
 title were built on this reading. `road_west → main_street` is conceptually correct as wired;
 the exit rect's re-derivation remains Q4's, unchanged by this.
 
-**Room 2's plate brief follows directly:** the player arrives from depth at the far end; the
-street runs toward camera; east — frame right — is the way back toward the stage road.
+**Room 2's plate brief follows directly:** the player arrives from depth at the far end; east
+— frame right — is the way back toward the stage road.
+
+*Clarified same week, against doc 36 D7:* the street itself is **lateral and wide** — Main
+Street is authored wider than the viewport (3840×864, two screens) with the camera following,
+per D7's ruling that scrolling and errata 43's three-screen topology are orthogonal. Errata
+58's "into depth" governs the ARRIVAL: the stage-road connection enters as a road from depth
+at the street's east end, and Thad walks down it into the lateral street. The 320×144 room-02
+plate in the repo is retired-presentation placeholder art and is replaced by this generation.
 
 ---
 
