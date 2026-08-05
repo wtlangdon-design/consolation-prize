@@ -1,0 +1,125 @@
+#!/usr/bin/env node
+/**
+ * DOC 35'S GATE, EXECUTED RATHER THAN REMEMBERED.
+ *
+ * Doc 35 section 2 has classified objects correctly since the day it was
+ * written: a MOVER is "a person, animal, or vehicle that moves or departs --
+ * Sprite. Never in the plate." The dog in Room 2's plate is a MOVER by that
+ * table, and he got baked in anyway, because the gate was a document someone
+ * had to remember to open and nobody opened it. Eight companion generations
+ * later Tyler asked whether the dog should be a sprite. He was reading the
+ * rule off the picture; the rule was already written down.
+ *
+ * So the gate stops being prose. This derives each hotspot's class from what
+ * the documents already say about it, and emits the sprite manifest a plate
+ * brief must be written against. It answers four questions per hotspot:
+ *
+ *   1. Does doc 49 or doc 13 give it a REACTION verb? (talks, rolls over,
+ *      comes up an inch) -> it does something -> sprite.
+ *   2. Does doc 05 Part Two-B give it an ACT VARIANT? -> it changes across
+ *      acts -> sprite or state image.
+ *   3. Is it a door or window -- an opening? -> stateful, needs an open image.
+ *   4. Is it in doc 02's item ledger? -> takeable -> sprite.
+ *
+ * What it cannot do is see the future: a hotspot that becomes a sprite
+ * because a new beat gets invented later is nobody's validator's problem.
+ * What it guarantees is that every requirement ALREADY WRITTEN DOWN is
+ * honoured before a plate freezes, instead of discovered afterwards.
+ */
+import { readFileSync } from 'node:fs';
+
+const room = process.argv[2];
+if (!room) {
+  console.error('usage: node tools/room-gate.mjs <room number>');
+  process.exit(2);
+}
+
+const read = (p) => { try { return readFileSync(p, 'utf8'); } catch { return ''; } };
+const examine = read('docs/05-examine-layer.md');
+const wrong = read('docs/49-wrong-answers.md') + '\n' + read('docs/13-room-02-content.md');
+const puzzles = read('docs/02-puzzle-graph.md');
+
+/** The room's own section of a doc, from its heading to the next room heading. */
+function section(text, n) {
+  const re = new RegExp(`^## ROOM ${n}\\b[^\\n]*$`, 'mi');
+  const m = re.exec(text);
+  if (!m) return '';
+  const rest = text.slice(m.index + m[0].length);
+  const next = /^## ROOM \d/mi.exec(rest);
+  return next ? rest.slice(0, next.index) : rest;
+}
+
+const body = section(examine, room);
+if (!body) {
+  console.error(`doc 05 has no scripted section for room ${room}. Run the writing pass first.`);
+  process.exit(1);
+}
+
+// Hotspots are the bolded names in the room's own section.
+const hotspots = [...body.matchAll(/^\*\*([^*]+)\*\*/gm)].map((m) => m[1].trim());
+
+// Part Two-B's act variants, which name their hotspot the same way.
+const variants = new Set();
+const twoB = examine.slice(examine.indexOf('# PART TWO-B'));
+const vSection = section(twoB, room);
+for (const m of vSection.matchAll(/^\*\*([^*]+)\*\*\s*\*\(act:/gm)) variants.add(m[1].trim());
+
+// Doc 49/13's authored verbs, per hotspot.
+const reactions = new Map();
+const wBody = section(wrong, room) || wrong;
+for (const m of wBody.matchAll(/^\*\*([^*]+)\*\*\s*·\s*([A-Z_]+)/gm)) {
+  const k = m[1].trim();
+  if (!reactions.has(k)) reactions.set(k, new Set());
+  reactions.get(k).add(m[2]);
+}
+
+const ACTS_ON_ITS_OWN = /\b(dog|cat|raccoon|mule|horse|grievance|coach|wheel)\b/i;
+const OPENS = /\b(door|doors|window|gate|lid|drawer|flap|cabinet|box)\b/i;
+// Words in an act variant that mean the PICTURE changes, not just the line.
+// "Fresh gilt on the lettering" repaints a sign; "the dog knows me now"
+// changes only what Thad says about him.
+const VISIBLE = /\b(fresh|new|empty|gone|removed|posted|ruled through|repainted|paint|open|shut|lit|dark|filled)\b/i;
+
+const rows = [];
+for (const h of hotspots) {
+  const why = [];
+  let cls = 'PLATE';
+
+  // WHAT THE TOOL CAN KNOW ON ITS OWN.
+  if (ACTS_ON_ITS_OWN.test(h)) { cls = 'MOVER'; why.push('doc 35 §2: it is an animal or a vehicle'); }
+  if (OPENS.test(h)) { cls = 'STATEFUL'; why.push('it opens — needs an open image'); }
+  if (new RegExp(`\\|\\s*${h.replace(/^THE\s+/i, '')}\\s*\\|`, 'i').test(puzzles)) {
+    cls = 'TAKEABLE'; why.push("doc 02's item ledger");
+  }
+
+  // WHAT NEEDS A RULING. An act variant may repaint the object or may only
+  // change what Thad says about it, and only reading it decides which. The
+  // tool proposes; it does not classify. Guessing here would have cost five
+  // needless companion generations on Room 2 alone.
+  let ruling = null;
+  if (variants.has(h) && cls === 'PLATE') {
+    const text = vSection.slice(vSection.indexOf(`**${h}**`), vSection.indexOf(`**${h}**`) + 400);
+    ruling = VISIBLE.test(text)
+      ? 'act variant reads as a VISIBLE change — probably stateful'
+      : 'act variant may be words only — read it and rule';
+  }
+  rows.push({ h, cls, why, ruling });
+}
+
+const sprites = rows.filter((r) => r.cls !== 'PLATE');
+console.log(`\nROOM ${room} — GATE §2, derived from the documents\n`);
+for (const r of rows) {
+  const mark = r.cls === 'PLATE' ? (r.ruling ? ' ? ' : '   ') : ' ! ';
+  const note = r.why.length ? `  — ${r.why.join('; ')}` : (r.ruling ? `  — ${r.ruling}` : '');
+  console.log(`${mark}${r.cls.padEnd(9)} ${r.h}${note}`);
+}
+const undecided = rows.filter((r) => r.ruling);
+console.log(`\n${sprites.length} of ${rows.length} hotspots MUST NOT be baked into the plate.`);
+if (sprites.length) {
+  console.log('\nCompanion generations required, one per line:');
+  for (const r of sprites) console.log(`  · identical image without: ${r.h}`);
+}
+if (undecided.length) {
+  console.log(`\n${undecided.length} hotspot(s) marked ? need a ruling before the plate freezes.`);
+}
+console.log('\nThe plate brief is written from the PLATE rows only.\n');

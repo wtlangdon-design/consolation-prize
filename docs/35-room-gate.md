@@ -43,6 +43,54 @@ List every object the room contains. Each is exactly one of:
 
 **The test is not "does it move." The test is WHETHER IT IS EVER ABSENT.** Anything that can be missing, taken, opened, extinguished or departed is not plate.
 
+### THIS STEP IS EXECUTED, NOT REMEMBERED — `node tools/room-gate.mjs <room>`
+
+This table was correct from the day it was written and Room 2's dog got
+painted into the plate anyway, because the gate was a document somebody had
+to remember to open, and the plate brief got written straight from doc 05's
+hotspot list instead. Eight companion generations later Tyler asked whether
+the dog should be a sprite. He was reading the rule off the picture; the rule
+was already here.
+
+So the step runs. The tool derives each hotspot's class from what the
+documents already say — doc 05's sections, Part Two-B's act variants, doc
+49/13's authored verbs, doc 02's item ledger — and prints three marks:
+
+| Mark | Meaning |
+|---|---|
+| `!` | **Certain.** A mover, an opening, or a ledger item. Never plate. Companion generation required |
+| `?` | **Needs a ruling.** An act variant that may repaint the object or may only change what Thad SAYS about it. Only reading it decides |
+| ` ` | Plate |
+
+**The `?` mark is the honest part.** An earlier version of this tool guessed,
+classified every authored verb as stateful, and would have cost five needless
+generations on Room 2 alone — the trough has an authored USE, but "I have
+drunk from it once" does not change how a trough looks. A tool that cannot
+tell proposes; a person rules.
+
+**No plate brief may be written until every `?` is ruled**, and the brief is
+written from the PLATE rows only.
+
+## 2a · ROOM 2'S GATE, AS RUN (the worked example)
+
+```
+ ? THE FALSE FRONTS            act variant — RULED PLATE: Act II changes only
+                               what he says ("every doorway says good morning")
+ ? THE IMPROVEMENT COMPANY     act variant — RULED STATEFUL: Act III repaints
+   SIGN                        it, "fresh gilt on the lettering"
+ ? POSTED NOTICES              act variant — RULED STATEFUL: Act III posts the
+                               funeral notice; Room 36 adds the sealed one
+ ! A DOG                       MOVER. Reacts in doc 05 and doc 49, recognises
+                               Thad in Act III, and is the last image of the
+                               game on his back at dawn
+   THE WATER TROUGH · THE BOARDWALK · THE CHURCH STEEPLE · THE MUD · THE HILLS
+                               PLATE
+```
+
+Plus, from doc 13 rather than doc 05: **the assay office window** (ajar, and a
+puzzle route) and **six enterable doors** — all STATEFUL, all needing open
+images.
+
 ## 3 · HOTSPOTS AND THEIR LINES
 
 - Every hotspot doc 05 and its batches write for this room, listed by name.
