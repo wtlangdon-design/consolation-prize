@@ -307,7 +307,14 @@ async function sample(page, script, state, armed) {
       // both from being played twice.
       if (spec?.input?.length && !driven.has(spec.beat)) {
         driven.add(spec.beat);
-        driving = drive(page, spec.input, script).catch(() => {});
+        // ERRORS RECORDED, NOT SWALLOWED. This used to `.catch(() => {})`,
+        // so an input script that threw halfway left the run looking merely
+        // quiet -- the same silence the option-not-on-the-list skip had.
+        driving = drive(page, spec.input, script, spec.beat, state).catch((error) => {
+          state.failures.push({ beat: spec.beat, who: '-', field: 'input',
+            expected: 'the input script to run', got: String(error.message ?? error),
+            note: '' });
+        });
       }
     }
 
@@ -330,7 +337,7 @@ async function sample(page, script, state, armed) {
           // was blind for exactly as long as it had told itself to be patient.
           // Playwright serialises calls on a page, so the two interleave
           // safely.
-          driving = drive(page, owner.input, script).catch((error) => {
+          driving = drive(page, owner.input, script, id, state).catch((error) => {
             state.failures.push({ beat: id, who: '-', field: 'input',
               expected: 'the input script to run', got: String(error.message ?? error),
               note: '' });
@@ -368,8 +375,8 @@ async function sample(page, script, state, armed) {
   }
 }
 
-/** Runs a beat's input list against the page. */
-async function drive(page, input, script) {
+/** Runs a beat's input list against the page. `beat` and `state` are for reporting. */
+async function drive(page, input, script, beat, state) {
   for (const action of input) {
     if (action.do === 'wait') {
       await page.waitForTimeout(action.seconds * 1000);
@@ -408,8 +415,8 @@ async function drive(page, input, script) {
     // THIS IS WHAT THE HARNESS HAD TO LEARN, and the first run after the
     // change is what taught it: every click after the first found no row,
     // `continue`d, and the run timed out at 180s having never left the tree.
-    // `options` cannot answer it either -- `presentOptions` reports four
-    // throughout, because what changed is whether they are on SCREEN.
+    // `options` cannot answer it either -- what changed is whether the rows
+    // are on SCREEN, not whether the runner would list them.
     //
     // It skips the click rather than advancing it: doc 30 4.2 gives a click
     // during an exchange to the utterance, and a harness that clicked through
@@ -421,9 +428,15 @@ async function drive(page, input, script) {
       await page.waitForTimeout(120);
     }
 
-    // Errata 37 is revoked and the tags survive, so all four options are
-    // present at the end and three are dimmed. An INDEX is stable under that;
-    // a text match would not be, and would also put dialogue in this file.
+    // AN INDEX INTO WHAT IS ON THE LIST NOW, and the list can grow. Errata 37
+    // is revoked so nothing is ever removed and a used row dims and stays --
+    // but the stage driver's EXIT is gated on the other three having been
+    // asked, so his list is three rows and then four. An index is still stable
+    // under both, because nothing reorders and nothing disappears; a text
+    // match would not be, and would also put dialogue in this file.
+    //
+    // WHICH MAKES THE INPUT'S ORDER LOAD-BEARING. Choosing 4 before 1, 2 and 3
+    // asks for a row that is not there yet.
     const box = await page.evaluate((index) => {
       const scene = window.__game?.scene.getScene('game');
       const options = scene?.state?.dialogue?.presentOptions?.() ?? [];
@@ -432,7 +445,16 @@ async function drive(page, input, script) {
       const hit = boxes[index - 1];
       return hit ? { y: hit.y + hit.height / 2 } : null;
     }, action.option);
-    if (!box) continue;
+    // A SKIPPED CHOICE IS REPORTED, NOT SWALLOWED. This used to `continue` in
+    // silence, so an input asking for a row that is not on the list produced a
+    // run that simply did less -- and with a gated option that is the exact
+    // shape of the mistake: the tree never closes, the beats after it never
+    // arrive, and the report says nothing about why.
+    if (!box) {
+      state.timings.push(`beat ${beat}: option ${action.option} was not on the list -- `
+        + 'the click was skipped. A gated option needs the ones that open it asked first');
+      continue;
+    }
     await clickPlayArea(page, NATIVE.width / 2, box.y);
   }
 }

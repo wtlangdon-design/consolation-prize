@@ -22,7 +22,35 @@
     "the numbers the prose corrected.",
     "",
     "Fill a beat in by deleting its `unscripted` and adding `marks`. The run",
-    "prints how many beats assert something out of how many exist, every time."
+    "prints how many beats assert something out of how many exist, every time.",
+    "",
+    "DECLARED INVALIDATIONS. A change that moves what a mark measures is declared",
+    "here, so the next person reads it beside the mark rather than discovering it.",
+    "",
+    "1. THE DRIVER'S EXIT IS GATED. Option 4 is not on the list until options 1, 2",
+    "   and 3 have been asked, so beat 4's input is now ORDER-DEPENDENT rather than",
+    "   incidentally ordered. It already asks 1, 2, 3, 4 in that order and the run is",
+    "   green; reordering it, or losing one of the first three to a missed click,",
+    "   asks for a row that is not there. The harness now REPORTS a choice it could",
+    "   not find instead of skipping it in silence, which is exactly what that",
+    "   failure would have looked like -- a run that quietly did less.",
+    "",
+    "2. ONE READING HOLD. The scripted line formula was max(1.6s, glyphs x 0.045)",
+    "   and is now doc 30 section 4.1's clamp(1.8s, 8.0s, 0.45s + glyphs x 0.055),",
+    "   the same one dialogue already used. It adds time to a beat ONLY IF THAT BEAT",
+    "   SPEAKS, and here is every one that does:",
+    "",
+    "       beat 3   +1.38s      beat 4   +0.60s      beat 5   +0.84s",
+    "       beat 6   +0.40s      beat 9   +0.60s      beat 11  +1.42s",
+    "",
+    "   BEAT 2 IS THE ONLY BEAT IN THIS SCRIPT THAT STATES A DURATION AND IT HAS NO",
+    "   LINES, so its 8s is untouched. Nothing else here has a ceiling to threaten.",
+    "   But any duration MEASURED before this change is stale by the amounts above,",
+    "   and a mark written from one would pin the game to the old timing.",
+    "",
+    "3. THE CAMERA INVALIDATES NOTHING HERE. Room 1 declares no size, so its width",
+    "   is the window's, the scroll span is zero, and every coordinate in this file",
+    "   means what it meant. The band is a y range; the camera is horizontal."
   ],
   "defaults": {
     "position": 24,
@@ -174,7 +202,7 @@
       "input": [
         {
           "do": "wait",
-          "seconds": 1.0
+          "seconds": 1
         },
         {
           "do": "click",
@@ -182,7 +210,7 @@
         },
         {
           "do": "wait",
-          "seconds": 1.0
+          "seconds": 1
         }
       ]
     },
