@@ -21,20 +21,20 @@
   "R_TRUTH": "Twelve years I\u2019ve been making things up on this street and you did it in one afternoon."
  },
  "sprite": {
-  "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
+  "note": "Ruling 20: a two-frame idle that lives with the character, at its own rate and phase, because nothing on Main Street moves on the same beat as anything else. The second frame is a derived BREATH -- one pixel of chest lift above the hem, tools/rig/ambient-breath.py -- not a second generation, which would differ everywhere and read as a twitch.",
   "sheet": "art/actors/ambient-main-street.png",
   "frames": [
    [
-    0,
-    8,
-    20,
-    33
+    2,
+    2,
+    42,
+    131
    ],
    [
-    20,
-    8,
-    20,
-    33
+    46,
+    2,
+    42,
+    131
    ]
   ],
   "rate": 0.31,

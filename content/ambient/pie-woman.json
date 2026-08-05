@@ -21,24 +21,24 @@
   "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
  },
  "sprite": {
-  "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
+  "note": "Ruling 20: a two-frame idle that lives with the character, at its own rate and phase, because nothing on Main Street moves on the same beat as anything else. The second frame is a derived BREATH -- one pixel of chest lift above the hem, tools/rig/ambient-breath.py -- not a second generation, which would differ everywhere and read as a twitch.",
   "sheet": "art/actors/ambient-main-street.png",
   "frames": [
    [
-    80,
-    0,
-    24,
-    41
+    92,
+    2,
+    51,
+    132
    ],
    [
-    104,
-    0,
-    24,
-    41
+    145,
+    2,
+    51,
+    132
    ]
   ],
-  "rate": 0.37,
-  "phase": 0.28
+  "rate": 0.24,
+  "phase": 0.44
  },
  "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "In the lit mud in front of the batwings, selling to the same trade. Was (2120, 652)."
