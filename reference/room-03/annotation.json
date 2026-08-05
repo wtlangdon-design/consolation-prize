@@ -1,0 +1,20 @@
+{
+ "room": "nugget",
+ "plate": "art/backgrounds/room-03-nugget.png",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "note": "Room 3, the Bountiful Nugget. Its own depth curve, derived from its own architecture the way doc 36 Q10 did for Room 2 -- and it is a much closer view: the batwing doorway is 430px for about 2.0m and the near bar 220px for about 1.1m, which put a 1.75m man at 376 and 350 respectively. Two independent measurements agreeing means the plate is internally consistent, as Room 2\u2019s was. An interior is simply nearer than a street.",
+ "scaling": {
+  "far": {
+   "y": 620,
+   "height": 250
+  },
+  "near": {
+   "y": 830,
+   "height": 370
+  },
+  "note": "height = 0.611 x (y - 211), from the doorway and the bar"
+ }
+}
