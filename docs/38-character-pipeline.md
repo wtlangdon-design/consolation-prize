@@ -660,3 +660,21 @@ dark dog on lighter mud, which is what a dark dog on mud looks like.
 **And the general law: anything composited over a lifted plate is lifted with
 it, by the same numbers, or it does not belong there.** A sprite cut before a
 grade sits at the old darkness and reads as a hole in the picture.
+
+## STATE PATCHES ARE CUT AT THEIR ROW POSITION, NOT AS SPRITES
+
+A door, a sign, a notice board — anything that changes in place — is cut from
+a companion of the SAME plate and pasted at its own coordinates. Two rules,
+both learned on Room 2's Act III pair:
+
+**Grade and lift the WHOLE companion, then cut.** The far-plane protection is
+row-dependent: the Company sign sits at y=276, inside the protected band, and
+the notices at y=498, outside it. Lift a cut patch on its own with sprite mode
+and it takes the flat ground gamma, arrives brighter than the plate it lands
+on, and shows its own rectangle.
+
+**A truncated upload is often still usable.** This companion arrived with 653
+of 864 rows decoded and both changed regions were inside them. The missing
+tail was mud the companion never touched, so it was filled from the master and
+the full-size image reconstructed. Check what actually decoded before asking
+for a resend.
