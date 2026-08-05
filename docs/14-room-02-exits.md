@@ -49,7 +49,7 @@
 **LOOK**
 1. "CONSOLATION IMPROVEMENT COMPANY. The door is a great deal heavier than the building requires."
 2. "Everyone who goes in comes out pleased. I have watched eleven men do it."
-3. "Three storeys from here. I have been round the back and it is one."
+3. "Three stories from here. I have been round the back and it is one."
 
 **LISTEN**
 1. "Nothing. It is the quietest doorway on the street and it is never still."

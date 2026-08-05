@@ -253,7 +253,7 @@ Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that h
 | # | Option | Tag | Response | Rule ledger |
 |---|---|---|---|---|
 | 1 | "I need to see the Registrar about my boundary." | `[PROGRESS · remove]` | "Your *boundary*! A man who knows where he ends. Rare. Here is your note." *(The note is warm, correct, and mentions the boundary. By Thursday the Company has filed three priority submissions on the parcels beside Claim One.)* | receives: the note. gives up: contiguity |
-| 2 | "What do you want for it?" | `[TOPIC · retain]` | "Want? Mr. Grubb, a favour that costs something is a *transaction*. I deal only in favours." | — |
+| 2 | "What do you want for it?" | `[TOPIC · retain]` | "Want? Mr. Grubb, a favor that costs something is a *transaction*. I deal only in favours." | — |
 | 3 | "Your clock is slow." | `[COMIC · retain]` | "It is eleven minutes slow, and it has made me the most punctual man in the territory. Everyone else trusts it." | — |
 
 ## ACT II — `FAN_B2`: the index card *(W1 growth)*
@@ -688,7 +688,7 @@ The player will notice, somewhere around Act III, that they have been doing at s
 > "Dear Mother — I write in haste; my affairs have taken a most exclusive turn, and I move now in circles so elevated I am scarcely seen in town at all. I am widely mour— ADMIRED. Widely admired. The air is healthful. — Your Thaddeus."
 
 **ACT III — flattering, with a number in it**
-> "Dear Mother — My estate — my SITUATION — is valued by knowledgeable men at $30,000 or better, and the whole town turned out on Tuesday to honour me. I could not be more warmly regarded if I were dead. — Your Thaddeus."
+> "Dear Mother — My estate — my SITUATION — is valued by knowledgeable men at $30,000 or better, and the whole town turned out on Tuesday to honor me. I could not be more warmly regarded if I were dead. — Your Thaddeus."
 
 **ACT IV — the only version offered. Four lines, entirely true.**
 > "Dear Mother.

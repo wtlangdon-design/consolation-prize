@@ -80,7 +80,7 @@ Replace the art direction section. The palette intent survives — mud, ochre, d
 
 **Superseded as a final-art spec, retained as a source-generation spec.** The master style block and the 41 subject blocks are still how you produce the high-resolution inputs to the downsampling pipeline. Two amendments to the style block:
 
-- Add: *"Simplified shapes, minimal fine texture, strong clear silhouettes, flat areas of colour."* Detail that will not survive downsampling is wasted effort and actively harms the reduction.
+- Add: *"Simplified shapes, minimal fine texture, strong clear silhouettes, flat areas of color."* Detail that will not survive downsampling is wasted effort and actively harms the reduction.
 - Drop the palette-discipline paragraph that produced the monochrome result. Colour is re-imposed at the quantisation step against the locked palette, which is a far more reliable control than asking a model to restrain itself.
 
 ## What does not change

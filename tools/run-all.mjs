@@ -37,6 +37,7 @@ import { check as actorFrames } from './check-actor-frames.mjs';
 import { check as generated } from './check-generated.mjs';
 import { check as residualKey } from './check-residual-key.mjs';
 import { check as ambientLoaded } from './check-ambient-loaded.mjs';
+import { check as americanEnglish } from './check-american-english.mjs';
 import { check as entityFallback } from './check-entity-fallback.mjs';
 import { check as drawerCoverage } from './check-drawer-coverage.mjs';
 import { check as keyFringe } from './check-key-fringe.mjs';
@@ -51,6 +52,7 @@ import { check as cameraSpace } from './check-camera-space.mjs';
  * read the output of in under a minute -- no adjectives, no judgement calls.
  */
 const CHECKS = [
+  americanEnglish,
   ambientLoaded,
   residualKey,
   noContentInCode,

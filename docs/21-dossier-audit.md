@@ -52,7 +52,7 @@ Specifically corrected below: occlusion was **ruled**, implemented on a branch, 
 
 # GAP 2 · Thad has no colour cue at small scale — **severity: high**
 
-**Dossier:** *"Give the protagonist one persistent high-contrast colour cue. Do not rely on facial detail for identification."* Test every principal at portrait, room, silhouette-only, and **four-to-eight-pixel map-token** scale.
+**Dossier:** *"Give the protagonist one persistent high-contrast color cue. Do not rely on facial detail for identification."* Test every principal at portrait, room, silhouette-only, and **four-to-eight-pixel map-token** scale.
 
 **Ours:** Thad is carried by a pale face and a dull bottle-green coat at luminance 33. Ruling 16's two-anchor system works at 40px, 32px and 26px. **Below that it fails** — at 8px the face is one or two pixels and the coat is a dark smudge. Guybrush had a white shirt, unmistakable at any size.
 

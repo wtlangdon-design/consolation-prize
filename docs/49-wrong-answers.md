@@ -225,7 +225,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 26 — THE CREEK & SLUICE
 
-**THE CREEK** · USE — "I panned twice. Colour both times — four flakes, a day's wage in encouragement, a cent in gold. The creek's whole business model, in one pan."
+**THE CREEK** · USE — "I panned twice. Color both times — four flakes, a day's wage in encouragement, a cent in gold. The creek's whole business model, in one pan."
 **THE MERCURY FLASK** · OPEN — "Chained, stoppered, and right. Quicksilver in this town would end up in the whiskey inside a week, as medicine."
 **THE HEADGATE** · PULL — "It is not my week. The schedule is disputed hourly and enforced absolutely."
 **THE WILLOW** · TALK_TO — "The one resident with tenure. I paid my respects. It rustled: noted."
@@ -255,7 +255,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 30 — MOTT'S SUPPOSED SITE
 
-**THE BEDROCK** · USE — "Ten thousand men, with brushes. There is nothing left to do to this stone except apologise."
+**THE BEDROCK** · USE — "Ten thousand men, with brushes. There is nothing left to do to this stone except apologize."
 **THE SURVEY STAKE** · PICK_UP — "Whichever replica it is, taking it would make me the fourth thief of a fake of a lie. There are depths, and I have a claim in them already."
 **THE INITIALS** · USE — "There is no room left to carve. The proof is fully subscribed."
 **THE SITE ENTIRE** · TALK_TO — "'You could have been anywhere,' I told the famous nothing. The wind moved a sieve. I chose to hear an apology; nothing here corrects you."
@@ -282,7 +282,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE SEAM** · PICK_UP — "Not with my hands. This one goes through the window, into the book, past Winnie's scales — the whole liturgy. Some gold you take; this gold I intend to file."
 **THE OLD LANTERN** · USE — "Not mine to light. Its keeper knows where it hangs, and I find I want him to find it as he left it."
 **THE TIMBERING** · PULL — "The timber holds the mountain. I hold my curiosity. Everyone keeps their post."
-**THE WAY BACK UP** · TALK_TO — "I called up that I was all right. The grey coin of daylight did not answer, which is how daylight is."
+**THE WAY BACK UP** · TALK_TO — "I called up that I was all right. The gray coin of daylight did not answer, which is how daylight is."
 
 ## ROOM 35 — THE COMPANY VAULT
 

@@ -342,7 +342,7 @@
           {
             "say": "Mud, the full width of the street and six inches deep. The boardwalk is six inches high. Somebody worked that out.",
             "repeat": [
-              "The same mud. I have begun to recognise individual portions of it.",
+              "The same mud. I have begun to recognize individual portions of it.",
               "That portion I have named. I will not be sharing the name."
             ]
           }
@@ -376,9 +376,9 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Half this street is two storeys tall in front and one storey deep. The other half is genuinely two storeys, and is genuinely doing better. Consolation is a stage set that people have moved into, and some of them have started building.",
+            "say": "Half this street is two stories tall in front and one story deep. The other half is genuinely two stories, and is genuinely doing better. Consolation is a stage set that people have moved into, and some of them have started building.",
             "repeat": [
-              "Still two storeys of nothing. I keep hoping the back will have arrived.",
+              "Still two stories of nothing. I keep hoping the back will have arrived.",
               "I have counted. Six fronts, six sheds, one town."
             ]
           }
@@ -826,7 +826,7 @@
     "sayOnce": "T_SEEN_MAIN_STREET",
     "say": [
       "So this is Consolation.",
-      "Half of it is two storeys tall in front and one storey deep.",
+      "Half of it is two stories tall in front and one story deep.",
       "The other half is real, and is doing better."
     ]
   },

@@ -22,7 +22,7 @@ Resolution runs most specific first.
 | Puzzle | Combination | Response |
 |---|---|---|
 | **A2** | THE TUNING FORK on **the hotel parlour piano** | "Four minutes. It is the first honest work done in this building in some time." *(→ room for the night)* |
-| **A5** | HORSE BLANKET on **the hole** | "I have stopped the draught with a horse blanket. The hole has gone cold. We shall see what the raccoon makes of that." |
+| **A5** | HORSE BLANKET on **the hole** | "I have stopped the draft with a horse blanket. The hole has gone cold. We shall see what the raccoon makes of that." |
 | **A8** | THE TUNING FORK on **the Nugget's piano** | "Four minutes. C-sharp has come home, and nobody in this room has looked up." *(→ filing fee)* |
 | **A9** | THE DEED on **the Registrar's counter** | "Filed. Mr Sump has written a number in a book, and the number is mine." |
 | **A9** | THE FILING FEE on **Registrar Sump** | "Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure." |

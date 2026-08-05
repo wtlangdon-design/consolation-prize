@@ -79,7 +79,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 *The most-visited screen in the game. Nine hotspots. Lines must survive two hundred selections.*
 
 **THE FALSE FRONTS**
-> **LOOK:** "Half this street is two storeys tall in front and one storey deep. The other half is genuinely two storeys, and is genuinely doing better. Consolation is a stage set that people have moved into, and some of them have started building."
+> **LOOK:** "Half this street is two stories tall in front and one story deep. The other half is genuinely two stories, and is genuinely doing better. Consolation is a stage set that people have moved into, and some of them have started building."
 > **LISTEN:** "Wind. There is a great deal of nothing behind half of these."
 
 **THE IMPROVEMENT COMPANY SIGN**
@@ -107,7 +107,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LISTEN:** "Breathing. Contented. He is the only solvent resident of Consolation."
 
 **THE MUD** *(again)*
-> **LOOK:** "The same mud. I have begun to recognise individual portions of it."
+> **LOOK:** "The same mud. I have begun to recognize individual portions of it."
 > **LISTEN:** "Nothing new."
 
 **THE HILLS**
@@ -373,7 +373,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The fourth step confesses under any weight at all."
 
 **THE SETTEE**
-> **LOOK:** "A settee in a colour that was once a decision. Someone has slept on it recently, and at length."
+> **LOOK:** "A settee in a color that was once a decision. Someone has slept on it recently, and at length."
 > **LISTEN:** "Horsehair, resettling. It sighs longer than furniture should."
 
 **THE SPITTOON**
@@ -382,7 +382,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE PAINTING**
 > **LOOK:** "A mountain scene, signed. It is not one of our mountains; the painter never came west of the frame shop."
-> **LISTEN:** "Canvas, ticking in a draught. The draught is real, at least."
+> **LISTEN:** "Canvas, ticking in a draft. The draft is real, at least."
 
 **THE FRONT WINDOW**
 > **LOOK:** "Main Street through glass with a wave in it. The town ripples, like it has not set yet."
@@ -448,7 +448,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. Debt is quiet until it isn't."
 
 **TINNED GOODS**
-> **LOOK:** "Tins from the East. The labels show harvests of implausible colour. One is marked simply MEAT, with confidence."
+> **LOOK:** "Tins from the East. The labels show harvests of implausible color. One is marked simply MEAT, with confidence."
 > **LISTEN:** "One of them, very faintly, fizzes."
 
 **THE PICKLE JAR**
@@ -492,7 +492,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. Paper guns. The safest kind."
 
 **THE CATALOGUE — MUSICAL INSTRUMENTS**
-> **LOOK:** "A parlour organ, freight paid, four months out. There is also an upright piano. I have read its description many times. It is spelled correctly and tuned by definition."
+> **LOOK:** "A parlor organ, freight paid, four months out. There is also an upright piano. I have read its description many times. It is spelled correctly and tuned by definition."
 > **LISTEN:** "I can nearly hear it. That is not the same as hearing it."
 
 **THE CATALOGUE — ORDER FORM**
@@ -543,7 +543,7 @@ The only prose line in the entire room, on the correct spot:
 *Eleven hotspots. The nineteen names live here.*
 
 **THE REGISTER OF ASSAYS**
-> **LOOK:** "Every ounce of colour ever brought in, weighed and named. Nineteen names, twelve years. It is a shorter book than the town believes."
+> **LOOK:** "Every ounce of color ever brought in, weighed and named. Nineteen names, twelve years. It is a shorter book than the town believes."
 > **LISTEN:** "Pages. Very few of them turn."
 
 **THE NINETEEN NAMES**
@@ -616,7 +616,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Envelopes. Patience, in paper form."
 
 **THE DAMP CORNER**
-> **LOOK:** "The roof lets go here in the wet months, and the records of 1851 have paid for it. The town's third year is a soft grey brick."
+> **LOOK:** "The roof lets go here in the wet months, and the records of 1851 have paid for it. The town's third year is a soft gray brick."
 > **LISTEN:** "A drip, in season. Today it is only thinking about it."
 
 **THE CLERK'S DESK**
@@ -637,7 +637,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Upholstery, accepting someone's shape. It approves of everyone."
 
 **THE CARPET**
-> **LOOK:** "An actual carpet, red as a promise, freighted a thousand miles so that boots could apologise for themselves at the door."
+> **LOOK:** "An actual carpet, red as a promise, freighted a thousand miles so that boots could apologize for themselves at the door."
 > **LISTEN:** "Nothing. It swallows footsteps whole. You could be robbed here politely and not hear it coming."
 
 **THE PORTRAIT OF FANSHAWE**
@@ -646,7 +646,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE PROSPECTUS RACK**
 > **LOOK:** "Pamphlets: CONSOLATION — TERRITORY OF TOMORROW. The artist has drawn the town with a river it does not have, running gold it has not got."
-> **LISTEN:** "Paper, riffling in the door's draught. Optimism, ventilated."
+> **LISTEN:** "Paper, riffling in the door's draft. Optimism, ventilated."
 
 **THE CLOCK**
 > **LOOK:** "A fine clock, eleven minutes slow. In this building, your appointment is always slightly sooner than you think, and you are always slightly late."
@@ -737,7 +737,7 @@ The only prose line in the entire room, on the correct spot:
 
 **THE TACK WALL**
 > **LOOK:** "Harness, bridles, and collars, hung by size. A history of horses this town no longer has."
-> **LISTEN:** "Leather straps, touching in the draught. A dry conversation."
+> **LISTEN:** "Leather straps, touching in the draft. A dry conversation."
 
 **THE ANVIL**
 > **LOOK:** "A shoeing anvil, cold more days than not. The ring of it, they say, used to be the town's clock."
@@ -793,7 +793,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Paper, pinned and fluttering. A choir of the convinced."
 
 **THE LANTERN, RED**
-> **LOOK:** "A lantern with red glass, hung centre. It makes everyone's face look like a secret being kept."
+> **LOOK:** "A lantern with red glass, hung center. It makes everyone's face look like a secret being kept."
 > **LISTEN:** "The flame, steady. Red does not flicker, apparently. Ask her why."
 
 **THE MONEY BOX**
@@ -838,7 +838,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Ticking iron. It preaches in the cold months."
 
 **THE WINDOW GLASS**
-> **LOOK:** "Plain glass, no colours. The territory does its own stained glass at dawn and dusk, and the church accepts the donation."
+> **LOOK:** "Plain glass, no colors. The territory does its own stained glass at dawn and dusk, and the church accepts the donation."
 > **LISTEN:** "Wind. The glass thins it into something nearly sung."
 
 **THE COLLECTION PLATE**
@@ -859,7 +859,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The street, through two walls. All of the noise and none of the words."
 
 **THE CRATES**
-> **LOOK:** "Empty crates stacked into a geography. Stencilled from cities that would not recognise where they ended up."
+> **LOOK:** "Empty crates stacked into a geography. Stencilled from cities that would not recognize where they ended up."
 > **LISTEN:** "Hollow wood. A knock would echo, if anyone were knocking."
 
 **THE RAIN BARREL**
@@ -938,7 +938,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Tin, ticking in the sun. Ten o'clock is coming."
 
 **THE SIGN: NO COLOUR YET**
-> **LOOK:** "A small board, neatly lettered: NO COLOUR YET. The YET has been repainted more times than the rest. It is the most honest sign in the district and the most stubborn word in it."
+> **LOOK:** "A small board, neatly lettered: NO COLOR YET. The YET has been repainted more times than the rest. It is the most honest sign in the district and the most stubborn word in it."
 > **LISTEN:** "Nothing. The sign says everything it hears."
 
 ---
@@ -947,7 +947,7 @@ The only prose line in the entire room, on the correct spot:
 *Seven hotspots.*
 
 **THE CREEK**
-> **LOOK:** "The creek that talked a thousand men into staying. It carries just enough colour to be cruel."
+> **LOOK:** "The creek that talked a thousand men into staying. It carries just enough color to be cruel."
 > **LISTEN:** "Water over stone, saying the same encouraging thing it has said for twelve years."
 
 **THE SLUICE**
@@ -1086,7 +1086,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Everything, faint and mixed. The bell, the picks, a dog. The town's whole voice fits in a pocket up here."
 
 **THE WIND**
-> **LOOK:** "You cannot look at it, but up here you stand in it the way you stand in a river. It has been travelling for a week and stops for nobody's hat."
+> **LOOK:** "You cannot look at it, but up here you stand in it the way you stand in a river. It has been traveling for a week and stops for nobody's hat."
 > **LISTEN:** "It says the one long thing it always says."
 
 **THE CAIRN**
@@ -1198,7 +1198,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "The wood takes the mountain's weight and says so, once in a while, quietly."
 
 **THE SEAM**
-> **LOOK:** "The seam, where the lamp stops being casual. I have seen colour in a pan, in a bottle, on a scale. I have never seen it at home before. It is different at home."
+> **LOOK:** "The seam, where the lamp stops being casual. I have seen color in a pan, in a bottle, on a scale. I have never seen it at home before. It is different at home."
 > **LISTEN:** "Nothing. It has been keeping this quiet for longer than there have been ears."
 
 **THE OLD LANTERN**
@@ -1210,7 +1210,7 @@ The only prose line in the entire room, on the correct spot:
 > **LISTEN:** "Nothing. But the silence here is worn smooth, like a path."
 
 **THE WAY BACK UP**
-> **LOOK:** "The rope to the surface, and the coin of grey light at the top of it. Up there this is still the worthless claim. I am in no hurry to correct anyone."
+> **LOOK:** "The rope to the surface, and the coin of gray light at the top of it. Up there this is still the worthless claim. I am in no hurry to correct anyone."
 > **LISTEN:** "The surface, at a great distance: wind, and the suggestion of a town."
 
 ---
@@ -1264,7 +1264,7 @@ The only prose line in the entire room, on the correct spot:
 *The closing screen. Room 2's nine hotspots, rewritten. The score is in tune.*
 
 **THE FALSE FRONTS**
-> **LOOK:** "The same two-storey faces on the same one-storey buildings — but at dawn, with the light behind them, they look like what they always were: a promise somebody kept badly and everybody kept anyway."
+> **LOOK:** "The same two-story faces on the same one-story buildings — but at dawn, with the light behind them, they look like what they always were: a promise somebody kept badly and everybody kept anyway."
 > **LISTEN:** "Wind behind them, same as ever. It sounds less empty than it did. That may be me."
 
 **THE IMPROVEMENT COMPANY SIGN**
@@ -1311,7 +1311,7 @@ bark budget, not here.
 ## ROOM 2 — MAIN STREET
 
 **THE FALSE FRONTS** *(act: 2)*
-> **LOOK:** "Two storeys in front, one behind, same as ever — but now every doorway says good morning to me by name. Approximately by name."
+> **LOOK:** "Two stories in front, one behind, same as ever — but now every doorway says good morning to me by name. Approximately by name."
 > **LISTEN:** "Wind behind them, and under it, my own name being discussed. Approximately my name."
 
 **POSTED NOTICES** *(act: 3)*
@@ -1370,7 +1370,7 @@ bark budget, not here.
 ## ROOM 23 & 24 — PROSPERITY, AND THE HOLE
 
 **THE HOLE** *(act: 3)*
-> **LOOK:** "The hole. The warm air. I evicted a raccoon from the front door of a fortune and apologised to neither of us."
+> **LOOK:** "The hole. The warm air. I evicted a raccoon from the front door of a fortune and apologized to neither of us."
 > **LISTEN:** "Air. Moving. Warmer than the day. The same words as always; I am only now hearing what they were saying."
 
 **THE CLAIM MARKER (MINE)** *(act: 4)*
@@ -1386,7 +1386,7 @@ bark budget, not here.
 
 **THE PROSPECTUS RACK** *(act: 4)*
 > **LOOK:** "The rack is empty. TERRITORY OF TOMORROW went out of print somewhere between the filing and the morning after."
-> **LISTEN:** "The draught, unemployed."
+> **LISTEN:** "The draft, unemployed."
 
 **THE CHAIRS** *(act: 4)*
 > **LOOK:** "Six chairs, and for the first time in Company history, nobody waiting in any of them. Comfort with no takers. It is the saddest furniture in the territory and I cannot spare it a full minute."

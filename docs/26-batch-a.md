@@ -10,7 +10,7 @@
 ## Newly written
 
 ### THE SETTEE
-**LOOK** 1 "A settee in worn blue plush, gone shiny at both arms and nowhere in the middle." · 2 "Two men have sat at either end of this for years and neither has moved to the centre." · 3 "It is the only comfortable thing I have seen since the coach, and the coach was not comfortable."
+**LOOK** 1 "A settee in worn blue plush, gone shiny at both arms and nowhere in the middle." · 2 "Two men have sat at either end of this for years and neither has moved to the center." · 3 "It is the only comfortable thing I have seen since the coach, and the coach was not comfortable."
 **LISTEN** 1 "Nothing. Horsehair, settling." · 2 "Nothing." · 3 "Nothing. Nobody is sitting on it and nobody is going to."
 
 ### THE STAIRS
@@ -18,7 +18,7 @@
 **LISTEN** 1 "Somebody on the landing, not moving. There is always somebody on the landing not moving." · 2 "Still there." · 3 "Boards. Two rooms, both occupied, neither talking."
 
 ### THE STOVE
-**LOOK** 1 "A parlour stove with a nickel rail, polished. It is the only thing in this building anyone has spent an afternoon on." · 2 "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves." · 3 "The rail is for drying gloves. Nobody in Consolation owns gloves."
+**LOOK** 1 "A parlor stove with a nickel rail, polished. It is the only thing in this building anyone has spent an afternoon on." · 2 "Unlit. It has been unlit since I arrived, in a lobby with a rail for drying gloves." · 3 "The rail is for drying gloves. Nobody in Consolation owns gloves."
 **LISTEN** 1 "Nothing. Cold." · 2 "Nothing." · 3 "Nothing at all."
 
 ### THE SPITTOON
@@ -91,7 +91,7 @@
 
 **THE TUNING FORK CASE** — LOOK 2 "Velvet-lined, and worth more than the fork it was made for." · 3 "It is the most cared-for object I own and it is a box." | LISTEN 2 "Nothing, closed." · 3 "Nothing."
 
-**THE WINDOW** — LOOK 2 "The alley. A cat, some barrels, and the back of the Improvement Company." · 3 "One storey, from here. From the street it is three. I have checked from both." | LISTEN 2 "The cat is on the barrels again. She gets up there and then reconsiders." · 3 "Nothing. Whoever was unloading has stopped, and the quiet is worse." *(Both rewritten — the old 2 and 3 were doc 08's variant 1 cut in half.)*
+**THE WINDOW** — LOOK 2 "The alley. A cat, some barrels, and the back of the Improvement Company." · 3 "One story, from here. From the street it is three. I have checked from both." | LISTEN 2 "The cat is on the barrels again. She gets up there and then reconsiders." · 3 "Nothing. Whoever was unloading has stopped, and the quiet is worse." *(Both rewritten — the old 2 and 3 were doc 08's variant 1 cut in half.)*
 
 ## Overrides
 

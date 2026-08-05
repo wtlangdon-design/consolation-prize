@@ -97,7 +97,7 @@ Where a specific line exists it takes precedence over the pool.
 First selection, then second, then third. Third repeats indefinitely thereafter.
 
 ## THE FALSE FRONTS
-**LOOK** — 1 *(existing)* · 2 "Still two storeys of nothing. I keep hoping the back will have arrived." · 3 "I have counted. Six fronts, six sheds, one town."
+**LOOK** — 1 *(existing)* · 2 "Still two stories of nothing. I keep hoping the back will have arrived." · 3 "I have counted. Six fronts, six sheds, one town."
 **LISTEN** — 1 *(existing)* · 2 "The same nothing. It is a very consistent nothing." · 3 "Nothing. I have stopped expecting otherwise and I am the better for it."
 
 ## THE IMPROVEMENT COMPANY SIGN
@@ -127,7 +127,7 @@ First selection, then second, then third. Third repeats indefinitely thereafter.
 ## THE MUD
 **Reordered — supersedes doc 05's Room 2 mud entry.** The original variant 1 opened "The same mud" and "Nothing new", both of which assume a prior look. Doc 17's stand-alone rule applies.
 
-**LOOK** — 1 "Mud, the full width of the street and six inches deep. The boardwalk is six inches high. Somebody worked that out." · 2 "The same mud. I have begun to recognise individual portions of it." · 3 "That portion I have named. I will not be sharing the name."
+**LOOK** — 1 "Mud, the full width of the street and six inches deep. The boardwalk is six inches high. Somebody worked that out." · 2 "The same mud. I have begun to recognize individual portions of it." · 3 "That portion I have named. I will not be sharing the name."
 **LISTEN** — 1 "Nothing. It is mud, and it is being mud." · 2 "Nothing new." · 3 "Nothing new. I want that understood."
 
 ## THE HILLS
