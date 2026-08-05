@@ -678,3 +678,35 @@ of 864 rows decoded and both changed regions were inside them. The missing
 tail was mud the companion never touched, so it was filled from the master and
 the full-size image reconstructed. Check what actually decoded before asking
 for a resend.
+
+## GENERATE LARGE, SHRINK DOWN — and never the other way
+
+Tyler, on a figure cut from a casting sheet: *"Should we be creating these
+larger and then shrinking them down? This doesn't seem like it's working."*
+
+He was right, and the measurement is stark. Asking for a character "at the
+same scale as the attached scene" produced a subject **31x88 pixels in a
+1914x822 canvas** — 0.17% of the image, so essentially all of the generator's
+effort went into flat magenta. Reaching the room's 131px meant UPSCALING by
+1.49, which invents detail nobody drew.
+
+Asked instead for a LARGE PORTRAIT filling the frame, the same character came
+back at **971x1619** and came down to 131 — a **12.4x linear reduction**.
+
+**This is the same rule the plates already proved, in a different medium.**
+Errata 54 found resolution was nearly free and the locked palette was the
+enemy; here, resolution is nearly free and the SMALL SOURCE is the enemy.
+Thad's own source figures were 1565px. A smooth, high-detail portrait does
+not look "unpixelated" at target size — every drawn detail collapses into the
+pixel grid, which is what makes a pixel sprite. Judging the source by eye is
+judging the wrong image.
+
+**The prompt asks for: full height, filling the frame, head near the top edge
+and feet near the bottom, on flat magenta, nothing else.** The room's own
+depth curve decides the final height, and `tools/rig/cut-ambient.py` takes it
+as an argument, so the generator never needs to know how big the person is.
+
+*One difference worth knowing:* a figure cut today reads slightly crisper than
+Thad, who went through the decimation pipeline errata 54 retired. That is a
+Thad question, not a new-character question, and it will show on every
+character made from here.
