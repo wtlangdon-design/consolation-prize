@@ -10,16 +10,33 @@ A gamma curve on luminance, hue preserved, gain clamped. Gamma below 1 lifts
 shadows hardest and highlights least, so lamps and windows keep their punch
 instead of blooming, which a linear gain would not manage.
 
-Usage: python3 tools/grade/lift-shadows.py <in> <gamma> <out>
+TWO ZONES, because Tyler ruled 0.78 over 0.66 for a reason worth keeping:
+the stronger lifts "make the mountains look fake". They do -- distant haze is
+LOW CONTRAST, and lifting it adds contrast the distance should not have, so
+the range stops reading as far away and starts reading as a painted backdrop.
+Atmospheric perspective is a contrast effect and a global lift destroys it.
+
+So the far zone (sky and mountains) takes the ruled gamma, and the ground --
+where the mud is, where the player looks, where a dark coat has to read --
+takes a stronger one.
+
+Usage: python3 tools/grade/lift-shadows.py <in> <gamma> <out> [ground_gamma]
 """
 import sys
 import numpy as np
 from PIL import Image
 
 src, gamma, out = sys.argv[1], float(sys.argv[2]), sys.argv[3]
+ground_gamma = float(sys.argv[4]) if len(sys.argv) > 4 else gamma
+GROUND_TOP, GROUND_FEATHER = 570.0, 90.0
 a = np.array(Image.open(src).convert('RGB')).astype(float)
 l = 0.2126 * a[..., 0] + 0.7152 * a[..., 1] + 0.0722 * a[..., 2]
-lifted = 255.0 * np.power(np.clip(l, 0, 255) / 255.0, gamma)
+H0 = a.shape[0]
+# Per-row gamma: the ruled one up top, the ground one below, feathered across
+# the line where the buildings meet the mud so no band shows.
+mix = np.clip((np.arange(H0) - GROUND_TOP) / GROUND_FEATHER, 0, 1)[:, None]
+gam_row = gamma * (1 - mix) + ground_gamma * mix
+lifted = 255.0 * np.power(np.clip(l, 0, 255) / 255.0, gam_row)
 gain = np.clip(np.where(l > 1e-3, lifted / np.maximum(l, 1e-3), 1.0), 1.0, 4.0)
 # NO CHANNEL MAY OVERFLOW. The first version clipped 22% of the frame at
 # gamma 0.6, and the curve was not the culprit: a saturated lamp already at
@@ -34,13 +51,27 @@ gain = np.minimum(gain, headroom)
 # milky and takes the stars with it. The lift ramps in from SKY_KEEP at the
 # top of frame to full by SKY_FULL, so the street, the mud and the buildings
 # get all of it and the sky keeps its night.
-SKY_KEEP, SKY_FULL = 0.30, 380.0
+# THE FAR PLANE IS PROTECTED BY ROW, and a colour mask was tried first and
+# REJECTED BY MEASUREMENT. Masking by blueness protected the mountains but
+# lifted the warm pixels beside them, so contrast inside the band went UP --
+# 23.0 against the flat lift's 21.5 -- which is the exact opposite of haze.
+# Selective lifting within a distant plane manufactures detail that distance
+# is supposed to have taken away.
+#
+# Tyler ruled 0.78 over 0.66 because the stronger lifts "make the mountains
+# look fake". Haze is LOW CONTRAST; any lift on the far plane reads as the
+# distance coming closer. So the far plane simply keeps what it had, and the
+# upper storeys of the buildings share that restraint -- their windows are
+# already the brightest things in the frame and need nothing.
+FAR_KEEP, FAR_TOP, FAR_BOTTOM = 0.06, 300.0, 470.0
 H = a.shape[0]
-ramp = SKY_KEEP + (1 - SKY_KEEP) * np.clip(np.arange(H) / SKY_FULL, 0, 1)
-gain = (1.0 + (gain - 1.0) * ramp[:, None])[..., None]
+row = np.clip((np.arange(H) - FAR_TOP) / (FAR_BOTTOM - FAR_TOP), 0, 1)
+mask = FAR_KEEP + (1 - FAR_KEEP) * row
+gain = (1.0 + (gain - 1.0) * mask[:, None])[..., None]
 res = np.clip(a * gain, 0, 255)
 Image.fromarray(res.astype(np.uint8)).save(out)
 gl = 0.2126 * res[..., 0] + 0.7152 * res[..., 1] + 0.0722 * res[..., 2]
 print(f'gamma {gamma}: mean {l.mean():.1f} -> {gl.mean():.1f}, '
       f'ground median {np.median(l[600:]):.1f} -> {np.median(gl[600:]):.1f}, '
-      f'clipped {100 * (res.max(axis=2) >= 255).mean():.2f}%')
+      f'clipped {100 * (res.max(axis=2) >= 255).mean():.2f}%'
+      + (f' [ground gamma {ground_gamma}]' if ground_gamma != gamma else ''))
