@@ -1,5 +1,20 @@
 {
-  "source": "/tmp/thad-left.png",
+  "invocation": {
+    "source": "reference/casting/thad-profile-left.png",
+    "key": "magenta",
+    "view": "profile",
+    "facing": "left",
+    "clip": "walk",
+    "pose": "striding",
+    "pad": 260,
+    "swing": 1,
+    "knee": 0,
+    "breath": 1,
+    "near_mask": "reference/masks/thad-left-near-arm.txt",
+    "far_mask": "reference/masks/thad-left-far-arm.txt"
+  },
+  "invocationNote": "RECOVERED, PROVEN: all ten invariants reproduce exactly. Both arms are painted here, not one. The recorded `source` was \"/tmp/thad-left.png\", a path that has not existed for months. The frames here are the DOWNSAMPLED ones: run the invocation above, then python3 tools/rig/downscale.py art/actors/thad-walk-left --figure 526",
+  "source": "reference/casting/thad-profile-left.png",
   "key": "magenta",
   "view": "profile",
   "facing": "left",
