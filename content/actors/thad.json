@@ -11,8 +11,8 @@
     "right"
   ],
   "walkRate": 8,
-  "walkSpeed": 245,
-  "walkSpeedNote": "245 px/s against his measured 102px stride is 2.4 strides a second -- a purposeful walk. The engine default was 323, which is 3.2 a second and a jog. TASTE, and the one number to change by eye: the arithmetic only says which numbers have to agree, not which pace is right for a man who has just arrived somewhere he means to make his fortune.",
+  "walkSpeed": 194,
+  "walkSpeedNote": "194 px/s, DOWN FROM 245, and the change is a consequence of walking becoming time-based rather than a retune of taste. The gait advances from DISTANCE, so while movement was frame-locked at a fraction of its declared pace the legs barely turned over and it read as a glide. Fixed, he covered the declared 245 px/s -- which over his measured 102px stride is 2.4 strides a second. A walking man does about 1.9, and 194 is exactly that. Actor.ts predicted this in its own comment before anyone could see it: \"the legs now tell the truth about the speed, and the speed is a sprint.\" Hob keeps his ratio; he ambles on purpose. One number per actor if the pace wants changing again.",
   "strideLength": 102,
   "strideNote": "MEASURED, not chosen. The widest separation between his two ground contacts across the walk cycle is 223px in a 526px figure -- one step, heel to heel -- which is 102 drawn pixels at height 240, or 0.42 of his height. Human step length is about 0.42 of stature, so the art and the anatomy agree without either being fitted to the other. ONE FULL CYCLE IS ONE STEP AND NOT TWO, because the eight frames are five distinct poses ping-ponged: frames 1 and 7, 2 and 6, and 3 and 5 are byte-identical, so the second half of the cycle is the first half reversed and the same leg leads every time. If the walk is ever regenerated as a true eight-pose cycle with a contralateral half, this number doubles.",
   "reactRate": 7,
