@@ -1194,6 +1194,22 @@ export class Renderer {
   private speechAnchor(lines: string[]): { x: number; y: number } {
     const height = lines.length * DIALOGUE_LINE_HEIGHT;
     const half = Math.max(...lines.map((line) => this.font.measure(line)), 0) / 2;
+    // CUTSCENE CAPTIONS SIT AT THE TOP; ONLY AN EXCHANGE ANCHORS OVER A HEAD.
+    //
+    // Doc 30 governs DIALOGUE presentation. Anchoring every line over its
+    // speaker also moved the opening's captions into the middle of the frame,
+    // over the coach and the town, and that is the Room 1 Tyler signed off
+    // being changed by a rule written for conversations.
+    //
+    // It cannot be fixed by narrowing alone. Doc 30 section 5's "240 native
+    // pixels" was written when the play area was 320 wide -- three quarters of
+    // the screen -- and errata 54 made the screen 1920. Three quarters of 1920
+    // is 1440, so even at spec the block spans most of the frame and the
+    // clamp can shift it by at most 240px. A caption that wide has nowhere to
+    // be but the middle; the only real fix is to stop anchoring it.
+    if (!this.performing && !this.state.dialogue.isActive) {
+      return { x: NATIVE_WIDTH / 2, y: SAY_TOP };
+    }
     const at = this.speakerHead();
     if (!at) {
       if (watch.enabled && this.speaker !== null) {

@@ -69,8 +69,16 @@ export class GameScene extends Phaser.Scene {
 
   private hovered: Interactable | null = null;
   private hoveredName: string | null = null;
-  /** Doc 30 §5: 240 native pixels, at the play area's glyph scale. */
-  private static readonly SPEECH_BLOCK_WIDTH = 240 * GLYPH_SCALE;
+  /**
+   * Doc 30 §5's block width, translated rather than copied.
+   *
+   * The document says "240 native pixels" and was written when the play area
+   * was 320 wide -- three quarters of the screen. Errata 54 made the play area
+   * 1920, so the SPEC IS THE FRACTION, not the number: 240 out of 320. Copying
+   * 240 forward would have given a block the width of a postage stamp; reading
+   * it as a fraction gives 1440, which is what the rule always meant.
+   */
+  private static readonly SPEECH_BLOCK_WIDTH = Math.round(NATIVE_WIDTH * (240 / 320));
 
   private sayLines: string[] = [];
   /** When the line on screen has been up long enough. Null while none is. */
