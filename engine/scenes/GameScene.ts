@@ -44,7 +44,6 @@ import {
 
 const NOTICE_MS = 1200;
 // Glyph pixels, like the renderer's copy: x GLYPH_SCALE with the face.
-const TEXT_MARGIN = 6 * GLYPH_SCALE;
 
 /**
  * Draws the whole 320x200 frame into one canvas texture and routes input.
@@ -70,6 +69,9 @@ export class GameScene extends Phaser.Scene {
 
   private hovered: Interactable | null = null;
   private hoveredName: string | null = null;
+  /** Doc 30 §5: 240 native pixels, at the play area's glyph scale. */
+  private static readonly SPEECH_BLOCK_WIDTH = 240 * GLYPH_SCALE;
+
   private sayLines: string[] = [];
   /** When the line on screen has been up long enough. Null while none is. */
   private sayUntil: number | null = null;
@@ -1235,7 +1237,14 @@ export class GameScene extends Phaser.Scene {
    * describing behaviour after it moved.
    */
   private setSay(text: string | null, speaker: string | null = null): void {
-    this.sayLines = text ? this.font.wrap(text, NATIVE_WIDTH - TEXT_MARGIN * 2) : [];
+    // DOC 30 SECTION 5'S BLOCK WIDTH, WHICH NOTHING HAD EVER USED. "Spoken
+    // text uses a default maximum block width of 240 native pixels." This
+    // wrapped at NATIVE_WIDTH minus the margins -- 1856 -- so a two-line block
+    // was seventeen hundred pixels wide, and once the speech was anchored over
+    // the speaker the clamp had nowhere to put it but the middle of the
+    // screen. Anchoring only reads as anchoring if the block is narrow enough
+    // to sit somewhere. 240 native pixels is 240 x GLYPH_SCALE drawn.
+    this.sayLines = text ? this.font.wrap(text, GameScene.SPEECH_BLOCK_WIDTH) : [];
     this.sayingActor = text ? speaker : null;
     this.sayUntil = text && !this.state.dialogue.isActive
       ? this.time.now / 1000 + this.lineSeconds(text)
