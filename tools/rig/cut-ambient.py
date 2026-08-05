@@ -13,7 +13,14 @@ magenta background into every edge pixel and a despill afterwards is fighting
 the filter rather than the residue: the letter-writer came out at a worst
 residual of 170 that way, and 6 this way.
 
-Usage: python3 tools/rig/cut-ambient.py <magenta.png> <out.png> [sheet_width]
+THE TARGET HEIGHT IS THE ROOM'S, NOT THE SHEET'S. An earlier version scaled
+by the sheet width against the plate width, which assumes the generator drew
+the figure at exactly the right size -- and it does not. Two casting sheets
+came back at 2.0x and 1.2x the height doc 36 Q10's curve asks for. The room
+knows how tall a person is at a given depth; the sheet only knows how many
+pixels it used. So the caller passes the height and the cut lands on it.
+
+Usage: python3 tools/rig/cut-ambient.py <magenta.png> <out.png> <target_height>
 """
 import sys
 import numpy as np
@@ -24,8 +31,7 @@ PLATE_WIDTH = 3700
 GROUND_GAMMA = 0.62      # Room 2's, matching lift-shadows
 
 src, out = sys.argv[1], sys.argv[2]
-sheet = float(sys.argv[3]) if len(sys.argv) > 3 else 2048.0
-K = PLATE_WIDTH / sheet
+target = float(sys.argv[3])
 
 a = np.array(Image.open(src).convert('RGB')).astype(float)
 r, g, b = a[..., 0], a[..., 1], a[..., 2]
@@ -45,6 +51,7 @@ gain = np.clip(np.where(lum > 1e-3, lifted / np.maximum(lum, 1e-3), 1.0), 1.0, 4
 gain = np.minimum(gain, 255.0 / np.maximum(sub.max(axis=2), 1e-3))[..., None]
 sub = np.clip(sub * gain, 0, 255)
 
+K = target / sub.shape[0]
 width, height = round(sub.shape[1] * K), round(sub.shape[0] * K)
 premultiplied = sub * (alpha[..., None] / 255.0)
 pm = np.array(Image.fromarray(premultiplied.astype(np.uint8))
@@ -62,4 +69,5 @@ col[..., 2] = np.where(need, bb * scale, bb)
 result = np.dstack([col, al])
 Image.fromarray(np.clip(result, 0, 255).astype(np.uint8)).save(out)
 spill = (result[..., 0] + result[..., 2]) / 2 - result[..., 1]
-print(f'{out}: {width}x{height}, worst residual magenta {int(spill[result[..., 3] > 0].max())}')
+print(f'{out}: {width}x{height} (asked {target:.0f} tall), '
+      f'worst residual magenta {int(spill[result[..., 3] > 0].max())}')
