@@ -7,6 +7,13 @@ import type { DurableEffect } from './runtime-types.ts';
 
 export interface ResolvedAction {
   say: string | null;
+  /**
+   * Doc 30 §5's further utterances: the rest of what he says the first time,
+   * spoken one after another after `say`. Only on the FIRST selection -- a
+   * repeat variant is one line by design and a punchline does not want
+   * re-delivering every time the player clicks.
+   */
+  then?: string[];
   dialogue: string | null;
   goto: string | null;
   /** Doc 22 item 9: the state this response moves the object to. */
@@ -255,6 +262,12 @@ export class VerbSystem {
     if (matched) {
       return {
         say: this.nextLine(`${scope}/${target.id}#${index}`, verbId, matched),
+        // FIRST SELECTION ONLY. The cursor has not advanced yet when resolve
+        // runs, so zero means this is the first look. A punchline does not
+        // want re-delivering every time the player clicks; the repeat
+        // variants are what the second look is for.
+        then: (this.repeatCursor.get(`${scope}/${target.id}#${index}:${verbId}`) ?? 0) === 0
+          ? matched.then : undefined,
         dialogue: matched.dialogue ?? null,
         goto: matched.goto ?? null,
         state: matched.setState,

@@ -780,6 +780,13 @@ export class GameScene extends Phaser.Scene {
     // it in the scene put it where no test could reach it: the change passed
     // 132 tests without one of them being able to see it.
     this.setSay(result.say);
+    // DOC 30 §5's SPLIT UTTERANCES. The setup goes up now and the rest queue
+    // behind it on their own reading holds, which is the 1990 rhythm the
+    // presentation borrows: setup, beat, punchline.
+    if (result.then?.length) {
+      const who = this.state.content.actor.id;
+      this.pendingSay.push(...result.then.map((line) => ({ speaker: who, line })));
+    }
     if (result.changedRoom) {
       this.hovered = null;
       this.hoveredName = null;

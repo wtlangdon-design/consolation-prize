@@ -17,6 +17,8 @@ import type { ActionTransaction, DurableEffect, FinishReason } from './runtime-t
 
 export interface InteractionResult {
   say: string | null;
+  /** Doc 30 §5: further utterances after `say`, first selection only. */
+  then?: string[];
   enteredDialogue: boolean;
   changedRoom: boolean;
 }
@@ -43,6 +45,7 @@ export interface InteractionResolution {
   /** The tree this response opens once it has finished performing. */
   readonly dialogue: string | null;
   readonly say: string | null;
+  readonly then?: string[];
   readonly effects: readonly DurableEffect[];
 }
 
@@ -118,6 +121,7 @@ export class Interaction {
     this.finished = 'settled';
     return {
       say: this.resolution.say,
+      then: this.resolution.then,
       enteredDialogue: this.resolution.dialogue !== null,
       changedRoom: this.resolution.destination !== null,
     };
@@ -712,6 +716,7 @@ export class GameState {
       destination,
       dialogue: action.dialogue,
       say: action.say,
+      then: action.then,
       effects,
     };
   }

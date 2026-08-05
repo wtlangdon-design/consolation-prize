@@ -149,6 +149,55 @@ function repeatVariants(text) {
   return out;
 }
 
+/** How many lines a spoken block wraps to, at doc 30 section 5's block width. */
+const GLYPH_W = 8 * 6;
+const BLOCK = Math.round(1920 * (240 / 320));
+function wraps(line) {
+  let width = 0;
+  let count = 1;
+  for (const word of line.split(/\s+/)) {
+    const add = (word.length + (width ? 1 : 0)) * GLYPH_W;
+    if (width + add > BLOCK) { count += 1; width = word.length * GLYPH_W; }
+    else width += add;
+  }
+  return count;
+}
+
+/**
+ * DOC 30 SECTION 5, PERFORMED RATHER THAN ASKED FOR: "If wrapping would exceed
+ * three lines, fail the content check and split the writing into two utterances
+ * at a rhetorical break."
+ *
+ * The writing is not too wordy -- the median spoken line in the game is EIGHT
+ * words. It is that sixty-one lines are ONE utterance where they should be two,
+ * and every one has a period with a punchline after it. "Somebody carried this
+ * here on purpose" lands twice as hard after a beat as it does trailing off the
+ * end of a paragraph, and that beat is the rhythm the whole presentation is
+ * borrowed from.
+ *
+ * The split changes NO WORDS: cut at the sentence break that leaves both halves
+ * inside the ceiling, preferring the shortest tail, because the shortest tail
+ * is the punchline. A line with no such break is left alone and REPORTED --
+ * those want editing, which is a person's job.
+ */
+function splitUtterance(line) {
+  if (wraps(line) <= 3) return null;
+  const parts = line.split(/(?<=[.!?])\s+/);
+  if (parts.length < 2) return null;
+  let best = null;
+  for (let i = 1; i < parts.length; i += 1) {
+    const head = parts.slice(0, i).join(' ');
+    const tail = parts.slice(i).join(' ');
+    if (wraps(head) > 3 || wraps(tail) > 3) continue;
+    const score = tail.split(/\s+/).length;
+    if (!best || score < best.score) best = { head, tail, score };
+  }
+  return best ? { say: best.head, then: [best.tail] } : null;
+}
+
+let splits = 0;
+const unsplit = [];
+
 // ---- load ------------------------------------------------------------------
 const examine = section(read('docs/05-examine-layer.md'), room);
 if (!examine) fail('doc 05 has no scripted section. Run the writing pass first.');
@@ -318,7 +367,11 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     // Variant 1 is the base; everything after it repeats. `lines[0]` keeps any
     // fields doc 05 put on the response beyond the words themselves.
     const base = variants?.first ? { ...lines[0], say: variants.first } : lines[0];
-    responses[verb] = variants?.rest.length ? [{ ...base, repeat: variants.rest }] : [base];
+    const whole = variants?.rest.length ? { ...base, repeat: variants.rest } : base;
+    const split = splitUtterance(whole.say ?? '');
+    responses[verb] = [split ? { ...whole, ...split } : whole];
+    if (split) splits += 1;
+    else if (wraps(whole.say ?? '') > 3) unsplit.push(`${entry.docName}/${verb}`);
   }
   // DOC 13'S VERB ROWS ARE `overrides`, AND THEY ARE NOT `responses`. Doc 13
   // note 4 draws the line itself: "Global pools rotate; object overrides do

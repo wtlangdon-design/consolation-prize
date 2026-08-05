@@ -66,6 +66,19 @@ export interface ResponseRule {
   items?: string[];
   say?: string;
   /**
+   * Further utterances, spoken one after another after `say`.
+   *
+   * DOC 30 SECTION 5: a line that would wrap past three lines should "split
+   * the writing into two utterances at a rhetorical break". It is also the
+   * 1990 rhythm the whole presentation borrows -- the setup, a beat, then the
+   * punchline. "Somebody carried this here on purpose" lands twice as hard
+   * after a pause as it does trailing off the end of a paragraph.
+   *
+   * Not `repeat`, which is a different question: repeat is what he says the
+   * SECOND time you look, and this is the rest of what he says the first.
+   */
+  then?: string[];
+  /**
    * Lines for repeat selections, cycled in order. Doc 05 requires three
    * variants minimum on Room 2 hotspots -- the player will read them
    * hundreds of times and a hotspot that answers identically forever is the
