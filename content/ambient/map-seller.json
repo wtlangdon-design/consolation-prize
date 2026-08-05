@@ -21,24 +21,60 @@
   "R_TRUTH": "Map to Mott\u2019s strike! Dollar!"
  },
  "sprite": {
-  "note": "Ruling 20: a two-frame idle that lives with the character, at its own rate and phase, because nothing on Main Street moves on the same beat as anything else. The second frame is a derived BREATH -- one pixel of chest lift above the hem, tools/rig/ambient-breath.py -- not a second generation, which would differ everywhere and read as a twitch.",
+  "note": "Ruling 20, and a derived idle rather than a breath. A one-pixel breath on a 132px figure in a 3700px street is invisible; this is a WEIGHT SHIFT -- the body sways 1.6 degrees about the hips while the feet stay put and the head counters, derived at portrait scale by tools/rig/ambient-idle.py where a degree is fourteen pixels of shoulder. Head travel comes out at about 3px against the breath\u2019s 1. The dog does not sway, because he is asleep: his cycle is the ribcage.",
   "sheet": "art/actors/ambient-main-street.png",
   "frames": [
    [
-    200,
+    782,
     2,
     51,
     132
    ],
    [
-    253,
+    835,
+    2,
+    51,
+    132
+   ],
+   [
+    888,
+    2,
+    51,
+    132
+   ],
+   [
+    941,
+    2,
+    51,
+    132
+   ],
+   [
+    994,
+    2,
+    51,
+    132
+   ],
+   [
+    1047,
+    2,
+    51,
+    132
+   ],
+   [
+    1100,
+    2,
+    51,
+    132
+   ],
+   [
+    1153,
     2,
     51,
     132
    ]
   ],
-  "rate": 0.19,
-  "phase": 0.77
+  "rate": 0.8,
+  "phase": 0.62
  },
  "migrationNote": "ERRATA 54, x6. Was (250, 116) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "At the mouth of the diggings road, still catching men on their way out, still pitching to nobody. Was (3180, 648)."

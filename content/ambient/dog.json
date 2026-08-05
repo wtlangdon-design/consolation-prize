@@ -9,24 +9,36 @@
  "zone": 0,
  "approachRadius": 48,
  "sprite": {
-  "note": "Ruling 20's two-frame idle. The second frame is a derived breath -- the ribcage rises one pixel and nothing below the spine moves, because a sleeping dog is mostly not moving. Slower than any of the people: he is asleep and they are working.",
-  "sheet": "art/actors/ambient-dog.png",
+  "note": "Ruling 20, and a derived idle rather than a breath. A one-pixel breath on a 132px figure in a 3700px street is invisible; this is a WEIGHT SHIFT -- the body sways 1.6 degrees about the hips while the feet stay put and the head counters, derived at portrait scale by tools/rig/ambient-idle.py where a degree is fourteen pixels of shoulder. Head travel comes out at about 3px against the breath\u2019s 1. The dog does not sway, because he is asleep: his cycle is the ribcage.",
+  "sheet": "art/actors/ambient-main-street.png",
   "frames": [
    [
-    2,
+    1208,
     2,
     154,
     70
    ],
    [
-    158,
+    1364,
+    2,
+    154,
+    70
+   ],
+   [
+    1520,
+    2,
+    154,
+    70
+   ],
+   [
+    1676,
     2,
     154,
     70
    ]
   ],
-  "rate": 0.11,
-  "phase": 0.6
+  "rate": 0.35,
+  "phase": 0.15
  },
  "barks": {}
 }
