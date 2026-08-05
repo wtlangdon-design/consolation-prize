@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "room": "main_street",
+ "note": "A ROUTE, not a script. The gauntlet's scripts assert what a sequence does; this only gets somewhere, so that tools/gauntlet/contact-sheet.mjs can photograph a room the game does not hand you on boot. Every room past the first is behind the opening, and the opening is behind three questions and a suitcase.\n\nWritten in the gauntlet's own vocabulary -- wait, click on a target id, option by row -- so a coordinate is never restated beside the thing it describes (R5k). `on` resolves against the room the action happens in.\n\nWAITS ARE CONDITIONS, NOT DURATIONS. The first draft was timed in seconds and was stale before it ran twice: the reading-hold retune lengthened the opening by a fifth, the driver\u2019s tree opened at 26s where the route expected 16, and every action after it missed. A route in seconds records how long the game took on the afternoon it was written.",
+ "from": "stage_road",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2.5,
+   "why": "the title. It clears on any click."
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    430
+   ],
+   "why": "past the title into beat 2"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60,
+   "why": "beats 2 and 3 play themselves; the driver's tree opens when they are done"
+  },
+  {
+   "do": "option",
+   "option": "drv1",
+   "why": "Where can I find Ezra Pike?"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "drv2",
+   "why": "Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "drv3",
+   "why": "You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "drv4",
+   "why": "Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "do": "waitFor",
+   "control": "player",
+   "upTo": 45,
+   "why": "the coach pulls out and Hob crosses"
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP",
+   "why": "WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "do": "click",
+   "on": "case_mud",
+   "why": "the suitcase. The west exit will not open without it"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "click",
+   "on": "road_west",
+   "why": "the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60,
+   "why": "the mud beat, then the traced walk into town under the title"
+  }
+ ]
+}

@@ -1353,6 +1353,12 @@ export class GameScene extends Phaser.Scene {
       };
     }
     return {
+      // WHICH ROOM, AND IT WAS MISSING. A route that waits for a room could
+      // never match: `waitFor: { room: 'main_street' }` compared against
+      // undefined and timed out every time, sixty seconds after the game had
+      // already arrived. The harness reported 'room stage_road' from its own
+      // fallback and looked like a routing failure rather than a probe gap.
+      room: this.state.roomId,
       frame: this.frameCount,
       // ALREADY SECONDS. `lastFrameAt` is `time.now / 1000` and dividing again
       // reported 0.002 for a scene two seconds old -- which nothing would have

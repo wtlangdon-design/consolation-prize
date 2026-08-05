@@ -35,6 +35,8 @@ export interface MoverReport {
 }
 
 export interface FrameReport {
+  /** The room the game is in. A route that waits for one needs to see it. */
+  room: string;
   frame: number;
   clock: number;
   /** The beat playing, from whichever runner is playing it. Null if none. */
