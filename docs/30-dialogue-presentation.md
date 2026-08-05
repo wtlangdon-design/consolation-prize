@@ -56,7 +56,9 @@ An utterance renders its complete text immediately; there is no typewriter revea
 
 4. Reading duration and skip behavior
 
-## 4.1 Default hold calculation
+## **The reading hold below binds DIALOGUE ONLY. `GameScene.lineSeconds` is a separate, deliberately different constant for the opening and the examine layer — errata 61.**
+
+4.1 Default hold calculation
 Binding formula  readingHold = clamp(1.8s, 8.0s, 0.45s + visibleGlyphs x 0.055s). Count rendered glyphs, not markup or speaker IDs. Apply the user's text-speed multiplier after calculation, then clamp again.
 The current 0.045 seconds per glyph and 1.6-second floor are useful beginnings, but only scripted Sequence lines use them. Interactive dialogue can remain indefinitely and barks use a fixed 2.6 seconds. One timing service must own all three.
 

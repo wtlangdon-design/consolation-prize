@@ -1797,3 +1797,30 @@ R4 is ruled in the same sitting: **Hob's "Wouldn't stand there." is about the mu
 in doc 04 beside the line. It is a practical warning wearing gnomic clothes, paid off when the
 mud takes Thad's boot minutes later, and it obligates nothing in Act III. The handwriting
 option remains the game's only throwaway-that-mattered, by design.
+
+---
+
+# 61 · THE TWO READING HOLDS ARE DELIBERATE, NOT DRIFT
+
+Recorded because it has now been reported as a defect twice, both times by
+Claude, and both times it was not one.
+
+| Consumer | Formula | Tuned by |
+|---|---|---|
+| `GameScene.lineSeconds` — the opening, examine lines, cutscene says | `max(1.6, glyphs × 0.045)` | watching the opening |
+| `DialoguePerformance.readingHold` — utterances inside an exchange | `clamp(1.8, 8.0, 0.45 + glyphs × 0.055)` | doc 30 §4.1, binding for dialogue |
+
+**Merging them retimes the opening**, which is signed off. They are separate
+because they are answering different questions: how long a line hangs in a
+scene nobody is talking in, and how long a line hangs between two people who
+are. Doc 30 §4.1 binds the second and says nothing about the first.
+
+The one thing they must share is the EXEMPTION, and they do: `setSay` expires
+a line on the first formula unless `dialogue.isActive`, because during an
+exchange the performance owns the clock and two timers would race. That guard
+is why `01d353a` and the performance loop composed without a change — though
+`01d353a`'s stated reason ("an exchange holds its line until the player
+clicks") went stale the moment the performance landed, and is superseded here.
+
+**If a future pass wants one formula, it is a retune of the opening, watched,
+not a refactor.**
