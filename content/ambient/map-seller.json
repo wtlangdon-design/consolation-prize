@@ -4,8 +4,8 @@
  "name": "THE MAP SELLER",
  "note": "Doc 07 #16. Sells maps to Mott's strike. Unknowingly employed by the Improvement Company. Genuinely believes in them. The saddest character in the game and he is played entirely for laughs.",
  "room": "main_street",
- "x": 3120,
- "y": 658,
+ "x": 3140,
+ "y": 706,
  "zone": 1,
  "approachRadius": 40,
  "tree": "amb_map_seller",
@@ -77,5 +77,5 @@
   "phase": 0.62
  },
  "migrationNote": "ERRATA 54, x6. Was (250, 116) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
- "placeNote": "At the mouth of the diggings road, still catching men on their way out, still pitching to nobody. Was (3180, 648)."
+ "placeNote": "Clear of the small office\u2019s steps. Was (3120, 658)."
 }

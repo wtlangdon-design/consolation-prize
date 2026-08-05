@@ -4,8 +4,8 @@
  "name": "THE LETTER-WRITER",
  "note": "Doc 07 #1. Writes letters home for men who can't. Charges by the page. Resolves the notice board hotspot. Doing better than anyone, because he sells the one thing that never runs out.",
  "room": "main_street",
- "x": 2560,
- "y": 654,
+ "x": 2500,
+ "y": 712,
  "zone": 1,
  "approachRadius": 40,
  "tree": "amb_letter_writer",
@@ -77,5 +77,5 @@
   "phase": 0.0
  },
  "migrationNote": "ERRATA 54, x6. Was (30, 112) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
- "placeNote": "Off the notices board he was standing on, and into the saloon\u2019s light. He touts outside the one open door in town: his customers are the men coming out of it with money and a mother back east. Was (1268, 664)."
+ "placeNote": "Left of the saloon steps, which project to x2595, and well down into open mud: at y654 his feet were exactly on the boardwalk edge and he read as standing half on a step. Was (2560, 654)."
 }

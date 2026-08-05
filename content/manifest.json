@@ -55,9 +55,10 @@
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
+  "content/ambient/dog.json",
   "content/ambient/letter-writer.json",
-  "content/ambient/pie-woman.json",
-  "content/ambient/map-seller.json"
+  "content/ambient/map-seller.json",
+  "content/ambient/pie-woman.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",
