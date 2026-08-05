@@ -154,5 +154,69 @@
    320,
    190
   ]
+ },
+ "exitWalkTo": {
+  "to_company": {
+   "x": 689,
+   "y": 642,
+   "facing": "back"
+  },
+  "to_clarion": {
+   "x": 1097,
+   "y": 639,
+   "facing": "back"
+  },
+  "to_nugget": {
+   "x": 2317,
+   "y": 624,
+   "facing": "back"
+  },
+  "to_hotel": {
+   "x": 2707,
+   "y": 624,
+   "facing": "back"
+  },
+  "to_assay_office": {
+   "x": 3113,
+   "y": 627,
+   "facing": "back"
+  },
+  "to_claims_road": {
+   "x": 3477,
+   "y": 603,
+   "facing": "back"
+  }
+ },
+ "arrivalBySource": {
+  "company": {
+   "x": 689,
+   "y": 642,
+   "facing": "front"
+  },
+  "clarion": {
+   "x": 1097,
+   "y": 639,
+   "facing": "front"
+  },
+  "nugget": {
+   "x": 2317,
+   "y": 624,
+   "facing": "front"
+  },
+  "hotel": {
+   "x": 2707,
+   "y": 624,
+   "facing": "front"
+  },
+  "assay_office": {
+   "x": 3113,
+   "y": 627,
+   "facing": "front"
+  },
+  "claims_road": {
+   "x": 3477,
+   "y": 603,
+   "facing": "front"
+  }
  }
 }

@@ -15,41 +15,6 @@
     "pie_woman",
     "map_seller"
   ],
-  "walkable": [
-    {
-      "id": "mud_far",
-      "zone": 2,
-      "surface": "mud",
-      "rect": [
-        60,
-        584,
-        3630,
-        93
-      ]
-    },
-    {
-      "id": "mud_mid",
-      "zone": 1,
-      "surface": "mud",
-      "rect": [
-        60,
-        677,
-        3630,
-        90
-      ]
-    },
-    {
-      "id": "mud_near",
-      "zone": 0,
-      "surface": "mud",
-      "rect": [
-        60,
-        768,
-        3630,
-        90
-      ]
-    }
-  ],
   "hotspots": [
     {
       "id": "posted_notices",
@@ -415,7 +380,12 @@
         "TALK_TO": "I would have to go in. Going in costs money.",
         "PULL": "They swing outward, inward, and for some time afterwards."
       },
-      "defaultVerb": "OPEN"
+      "defaultVerb": "OPEN",
+      "walkTo": {
+        "x": 2317,
+        "y": 624,
+        "facing": "back"
+      }
     },
     {
       "id": "to_company",
@@ -453,7 +423,12 @@
         "TALK_TO": "I have spoken to the man behind that door. I came away with a map and I am no longer certain what I gave him.",
         "CLOSE": "It closes on its own, slowly, and without a sound. Somebody paid for that too."
       },
-      "defaultVerb": "OPEN"
+      "defaultVerb": "OPEN",
+      "walkTo": {
+        "x": 689,
+        "y": 642,
+        "facing": "back"
+      }
     },
     {
       "id": "to_clarion",
@@ -490,7 +465,12 @@
         "TALK_TO": "If I say anything within forty feet of that door it will be in print by four o'clock.",
         "CLOSE": "He would only open it again, and then write about it."
       },
-      "defaultVerb": "OPEN"
+      "defaultVerb": "OPEN",
+      "walkTo": {
+        "x": 1097,
+        "y": 639,
+        "facing": "back"
+      }
     },
     {
       "id": "to_claims_road",
@@ -529,7 +509,12 @@
         "TALK_TO": "There is nobody on it.",
         "CLOSE": "I have considered it. Several of us have."
       },
-      "defaultVerb": "WALK_TO"
+      "defaultVerb": "WALK_TO",
+      "walkTo": {
+        "x": 3477,
+        "y": 603,
+        "facing": "back"
+      }
     },
     {
       "id": "to_assay_office",
@@ -586,6 +571,11 @@
         "PUSH": "It opens inward, and it opens easily. Somebody has oiled it.",
         "CLOSE": "It closes itself, slowly, and latches. Somebody sees to that.",
         "TALK_TO": "I have tried talking to it. The building is not the problem."
+      },
+      "walkTo": {
+        "x": 3113,
+        "y": 627,
+        "facing": "back"
       }
     },
     {
@@ -603,188 +593,117 @@
       "responses": {},
       "fallback": [],
       "defaultVerb": "OPEN",
-      "note": "Doc 20: the hotel is one of the six facades. Stub until doc 14 covers it, as it did not cover the assay office until Room 5 was written."
+      "note": "Doc 20: the hotel is one of the six facades. Stub until doc 14 covers it, as it did not cover the assay office until Room 5 was written.",
+      "walkTo": {
+        "x": 2707,
+        "y": 624,
+        "facing": "back"
+      }
     }
   ],
   "walkBoxes": [
     {
-      "id": "boardwalk",
-      "note": "ERRATA 28a: fixed at the far drawn size, and that is where Room 2's scaling snap now lives. The boardwalk lip is the only real horizontal interruption in the walkable band -- measured at a mean luminance step of 64.5 against 16.3 for the next strongest row -- so stepping off it into the mud is where the sprite swaps from the drawn far sheet to a decimated one. Before boxes the height was one curve across the whole floor and the swap landed at y109, in open mud.",
-      "points": [
-        {
-          "x": 0,
-          "y": 468
-        },
-        {
-          "x": 1925,
-          "y": 468
-        },
-        {
-          "x": 1925,
-          "y": 527
-        },
-        {
-          "x": 0,
-          "y": 527
-        }
-      ],
-      "neighbours": [
-        "mud_far"
-      ],
-      "clipPlane": 12,
-      "surface": "boardwalk",
-      "scaleMode": {
-        "kind": "fixed",
-        "height": 240,
-        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
-      }
-    },
-    {
       "id": "mud_far",
-      "note": "Starts at 31, one row above the measured eye-death threshold of 30, so the first step off the boardwalk is already decimated. The whole mud shares one curve: it is one continuous surface and a seam between bands would put a scale kink on a line the art does not draw.",
       "points": [
         {
-          "x": 0,
-          "y": 528
+          "x": 60,
+          "y": 584
         },
         {
-          "x": 1925,
-          "y": 528
+          "x": 3690,
+          "y": 584
         },
         {
-          "x": 1925,
-          "y": 629
+          "x": 3690,
+          "y": 677
         },
         {
-          "x": 0,
-          "y": 629
+          "x": 60,
+          "y": 677
         }
       ],
-      "neighbours": [
-        "boardwalk",
-        "mud_mid_west",
-        "mud_mid_east"
-      ],
-      "clipPlane": 12,
       "surface": "mud",
+      "clipPlane": 12,
       "scaleMode": {
         "kind": "curve",
-        "farY": 528,
-        "farHeight": 240,
-        "nearY": 863,
-        "nearHeight": 240,
-        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
-      }
+        "farY": 620,
+        "farHeight": 138,
+        "nearY": 858,
+        "nearHeight": 240
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
     },
     {
-      "id": "mud_mid_west",
-      "note": "West of the water trough. A TRAPEZOID, not a rectangle: its inner edge follows the trough's silhouette, which is drawn wider at its near end than its far end -- x214 to x253 at y106 against x214 to x274 at y117.",
+      "id": "mud_mid",
       "points": [
         {
-          "x": 0,
-          "y": 624
+          "x": 60,
+          "y": 677
         },
         {
-          "x": 1277,
-          "y": 624
+          "x": 3690,
+          "y": 677
         },
         {
-          "x": 1260,
-          "y": 737
+          "x": 3690,
+          "y": 768
         },
         {
-          "x": 0,
-          "y": 737
+          "x": 60,
+          "y": 768
         }
       ],
+      "surface": "mud",
+      "clipPlane": 12,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 620,
+        "farHeight": 138,
+        "nearY": 858,
+        "nearHeight": 240
+      },
       "neighbours": [
         "mud_far",
         "mud_near"
-      ],
-      "clipPlane": 12,
-      "surface": "mud",
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 528,
-        "farHeight": 240,
-        "nearY": 863,
-        "nearHeight": 240,
-        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
-      }
-    },
-    {
-      "id": "mud_mid_east",
-      "note": "East of the trough, and the reason routing is provable rather than asserted: it does NOT touch mud_mid_west, so crossing the street at this depth has to go round the trough by way of the far mud or the near mud. Four full-width rectangles had nothing to route around.",
-      "points": [
-        {
-          "x": 1536,
-          "y": 624
-        },
-        {
-          "x": 1925,
-          "y": 624
-        },
-        {
-          "x": 1925,
-          "y": 737
-        },
-        {
-          "x": 1668,
-          "y": 737
-        }
-      ],
-      "neighbours": [
-        "mud_far",
-        "mud_near"
-      ],
-      "clipPlane": 12,
-      "surface": "mud",
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 528,
-        "farHeight": 240,
-        "nearY": 863,
-        "nearHeight": 240,
-        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
-      }
+      ]
     },
     {
       "id": "mud_near",
       "points": [
         {
-          "x": 0,
-          "y": 732
+          "x": 60,
+          "y": 768
         },
         {
-          "x": 1925,
-          "y": 732
+          "x": 3690,
+          "y": 768
         },
         {
-          "x": 1925,
-          "y": 863
+          "x": 3690,
+          "y": 858
         },
         {
-          "x": 0,
-          "y": 863
+          "x": 60,
+          "y": 858
         }
       ],
-      "neighbours": [
-        "mud_mid_west",
-        "mud_mid_east"
-      ],
-      "clipPlane": 6,
       "surface": "mud",
+      "clipPlane": 12,
       "scaleMode": {
         "kind": "curve",
-        "farY": 528,
-        "farHeight": 240,
-        "nearY": 863,
-        "nearHeight": 240,
-        "provisional": "Q6/Q9: still FLAT, and now flat at 240 rather than 205 -- the measured anchor moved and the placeholder moved with it. These were errata 24's two-sheet heights multiplied by six, and errata 54 removed the two sheets. The fixed/curve SHAPE is kept because it is this room's geometry and Q6's curve will need it; the numbers are placeholders until that curve is measured against Room 2's own final art, which is Q4's point and has not been done for this room."
-      }
+        "farY": 620,
+        "farHeight": 138,
+        "nearY": 858,
+        "nearHeight": 240
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
     }
   ],
-  "walkBoxNote": "Errata 28a item 1. These REPLACE the walkable rectangles below, which are kept only so the zone-model checks and the older room proofs keep resolving until every room is converted at ruling 22 step 2. The engine prefers walkBoxes wherever a room declares them.",
+  "walkBoxNote": "GENERATED from reference/room-02/annotation.json by tools/compile-room.mjs. walkableOutline keeps the annotation’s own polygon, which follows the boardwalk line and the rise to the road; the quads are its levelled bands.",
   "occlusionPlanes": [
     {
       "level": 1,
@@ -875,5 +794,72 @@
   "entrance": [
     3477,
     603
+  ],
+  "arrivalBySource": {
+    "company": {
+      "x": 689,
+      "y": 642,
+      "facing": "front"
+    },
+    "clarion": {
+      "x": 1097,
+      "y": 639,
+      "facing": "front"
+    },
+    "nugget": {
+      "x": 2317,
+      "y": 624,
+      "facing": "front"
+    },
+    "hotel": {
+      "x": 2707,
+      "y": 624,
+      "facing": "front"
+    },
+    "assay_office": {
+      "x": 3113,
+      "y": 627,
+      "facing": "front"
+    },
+    "claims_road": {
+      "x": 3477,
+      "y": 603,
+      "facing": "front"
+    }
+  },
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        60,
+        584,
+        3630,
+        93
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        60,
+        677,
+        3630,
+        91
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        60,
+        768,
+        3630,
+        90
+      ]
+    }
   ]
 }
