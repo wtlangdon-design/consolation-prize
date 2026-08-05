@@ -935,13 +935,18 @@ export interface UiFile {
    */
   timing?: {
     note?: string;
-    lineSecondsPerGlyph: number;
-    lineSecondsMinimum: number;
     actCardExtraSeconds: number;
     actCardNote?: string;
     /**
-     * Doc 30 section 4.1's binding formula for a DIALOGUE line:
+     * Doc 30 section 4.1's binding formula, and THE ONLY READING HOLD:
      * `clamp(1.8s, 8.0s, 0.45s + visibleGlyphs x 0.055s)`.
+     *
+     * `lineSecondsPerGlyph` and `lineSecondsMinimum` are gone. They were the
+     * scripted line's own `max(1.6, glyphs x 0.045)`, and errata 61 recorded
+     * the split as deliberate while naming its price -- "a retune of the
+     * opening, watched, not a refactor". Merged, the opening's speech runs a
+     * fifth longer. Doc 30 section 4.1 wants one timing service owning
+     * scripted, dialogue and bark alike, and these four are it.
      *
      * Optional so a bundle without them performs at the defaults rather than
      * failing to load -- but they are declared in `content/ui/ui.json`, and

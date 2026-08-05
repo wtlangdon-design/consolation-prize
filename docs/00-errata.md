@@ -1824,3 +1824,21 @@ clicks") went stale the moment the performance landed, and is superseded here.
 
 **If a future pass wants one formula, it is a retune of the opening, watched,
 not a refactor.**
+
+**SUPERSEDED — one formula, and the retune is owed.** Tyler's ruling: merge
+them. `GameScene.lineSeconds` now calls `readingHold`, `lineSecondsPerGlyph`
+and `lineSecondsMinimum` are gone from `ui.json` and from the schema, and doc
+30 §4.1's four constants are the only reading hold in the engine — which is
+also what §4.1 asks for, one timing service owning scripted, dialogue and bark
+alike.
+
+**What it cost, measured rather than estimated.** Every one of the opening's
+fifteen lines gets longer and none gets shorter. Its speech runs **25.9s →
+31.2s**, a fifth again. The longest line in it is 73 glyphs — 3.28s before,
+4.46s now — so the 8-second ceiling never fires in the opening and the whole
+difference is the base and the rate.
+
+**The watch is still owed.** This paragraph is the refactor; nobody has yet
+watched the opening at the new timing. If it drags, the four numbers in
+`ui.json` are where it is fixed, and lowering them retimes dialogue with it —
+which is the coupling this errata was recording in the first place.

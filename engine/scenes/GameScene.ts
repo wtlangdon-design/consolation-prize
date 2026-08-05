@@ -10,7 +10,7 @@ import type { FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
-import { DialoguePerformance, type HoldTiming } from '../core/DialoguePerformance.ts';
+import { DialoguePerformance, readingHold, type HoldTiming } from '../core/DialoguePerformance.ts';
 import { mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE } from '../render/BitmapFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
@@ -806,19 +806,33 @@ export class GameScene extends Phaser.Scene {
   }
 
   /**
-   * How long a line stays on screen, from its length and a rate in content.
+   * How long a line stays on screen. ONE FORMULA, AND THIS IS THE OTHER HALF
+   * OF ITS ONLY CALLER LIST.
+   *
+   * There were two. `max(1.6, glyphs x 0.045)` held a scripted line and
+   * `clamp(1.8, 8.0, 0.45 + glyphs x 0.055)` held a dialogue utterance, and
+   * errata 61 recorded the split as deliberate: a line in a scene nobody is
+   * talking in is a different question from a line between two people who
+   * are. That errata also said what merging them would cost -- "a retune of
+   * the opening, watched, not a refactor" -- and the ruling is to merge.
+   *
+   * IT IS A RETIME AND HERE IS ITS SIZE. Every one of the opening's fifteen
+   * lines gets longer, and none gets shorter: 25.9 seconds of speech becomes
+   * 31.2, a fifth again. The longest line in it is 73 glyphs, which is 3.28
+   * seconds under the old rate and 4.46 under this one -- nowhere near the
+   * 8-second ceiling, so the clamp changes nothing about the opening and the
+   * whole difference is the base and the rate. Somebody has to watch it.
    *
    * Doc 17 states seconds for BEATS and never for lines, which is correct --
-   * a line's duration is a property of the line. The rate and the floor live
-   * in content/ui/ui.json because menu.json already declares an OPTIONS item
-   * called "Text speed" that nothing implements yet: when it is built, this
-   * is the value it scales, and a rate written into this file could not be.
+   * a line's duration is a property of the line. The constants live in
+   * content/ui/ui.json because menu.json declares an unimplemented OPTIONS
+   * item called "Text speed": when it is built, these are the values it
+   * scales, and a rate written into this file could not be. Doc 30 section
+   * 4.1 asks for one timing service owning scripted, dialogue and bark alike,
+   * and this is now the whole of it.
    */
   private lineSeconds(line: string): number {
-    const timing = this.state.content.ui.timing;
-    const perGlyph = timing?.lineSecondsPerGlyph ?? 0.045;
-    const minimum = timing?.lineSecondsMinimum ?? 1.6;
-    return Math.max(minimum, line.length * perGlyph);
+    return readingHold(line, this.holdTiming());
   }
 
   /**

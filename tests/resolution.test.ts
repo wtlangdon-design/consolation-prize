@@ -769,3 +769,54 @@ test("the driver's exit cannot be locked away, however the player plays", async 
     'and the exit arrives even for a player who only ever clicks one row',
   );
 });
+
+test('there is one reading hold, and a scripted line gets the same one as an utterance', async () => {
+  const state = await fresh();
+  const timing = state.content.ui.timing;
+
+  // ERRATA 61, SUPERSEDED. There were two formulas -- max(1.6, glyphs x
+  // 0.045) for a scripted line and clamp(1.8, 8.0, 0.45 + glyphs x 0.055)
+  // for a dialogue utterance -- and the errata recorded the split as
+  // deliberate. The ruling is one formula, so the old constants must be gone
+  // from content rather than merely unread: a number still sitting in ui.json
+  // that nothing consumes is the next person's afternoon.
+  assert.equal((timing as Record<string, unknown> | undefined)?.lineSecondsPerGlyph, undefined,
+    'the scripted rate is gone from content, not just from the engine');
+  assert.equal((timing as Record<string, unknown> | undefined)?.lineSecondsMinimum, undefined,
+    'and so is its floor');
+
+  // And the surviving four are doc 30 section 4.1's, read from content rather
+  // than defaulted in code -- the unbuilt "Text speed" option scales exactly
+  // these, and a rate the engine substituted could not be scaled.
+  const hold: HoldTiming = {
+    base: timing!.holdBaseSeconds!,
+    perGlyph: timing!.holdPerGlyphSeconds!,
+    minimum: timing!.holdMinimumSeconds!,
+    maximum: timing!.holdMaximumSeconds!,
+  };
+  assert.deepEqual(hold, { base: 0.45, perGlyph: 0.055, minimum: 1.8, maximum: 8.0 });
+
+  // THE RETIME, AS A NUMBER. Every line in the opening gets longer under the
+  // merged formula and none gets shorter, and the total is what somebody has
+  // to watch. Asserted so a later tweak to the four constants says what it
+  // did to the opening rather than only to a conversation.
+  const opening = state.content.sequences.get(state.content.manifest.openingSequence as string)
+    ?? [...state.content.sequences.values()][0]!;
+  const lines = (opening.beats ?? []).flatMap((beat) => (beat.lines ?? []))
+    .map((spoken) => spoken.line).filter((line): line is string => !!line);
+  assert.ok(lines.length >= 15, `${lines.length} spoken lines in the opening`);
+
+  const was = (glyphs: number) => Math.max(1.6, glyphs * 0.045);
+  const total = (using: (glyphs: number) => number) =>
+    lines.reduce((sum, line) => sum + using(line.length), 0);
+  const before = total(was);
+  const after = total((glyphs) => readingHold('a'.repeat(glyphs), hold));
+
+  assert.ok(after > before, 'the merged hold is the longer of the two on this material');
+  assert.ok(Math.abs(before - 25.9) < 0.2, `the old opening held ${before.toFixed(1)}s of speech`);
+  assert.ok(Math.abs(after - 31.2) < 0.2, `and the merged one holds ${after.toFixed(1)}s`);
+  for (const line of lines) {
+    assert.ok(readingHold(line, hold) >= was(line.length),
+      'no line in the opening gets shorter, so nothing can be missed that was readable');
+  }
+});
