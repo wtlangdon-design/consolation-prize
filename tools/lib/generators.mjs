@@ -90,4 +90,14 @@ export const NOT_GENERATORS = [
     why: 'Writes review renders under renders/, which are looked at rather than loaded. '
       + 'It exits non-zero on purpose and three of its composers refuse to run at all.',
   },
+  {
+    id: 'render-music.mjs',
+    why: 'EVERY RENDER IS A DIFFERENT PERFORMANCE. The synthesis uses Math.random() twice on '
+      + 'purpose -- the noise source, and a per-note vibrato rate so two notes never line up '
+      + '-- so two runs give files of identical length differing in half their samples, about '
+      + '30 dB down. Byte comparison is the wrong question to ask of it. Seeding them would '
+      + 'make it reproducible and make every note vibrate identically, which is the sound the '
+      + 'jitter exists to avoid. It refuses to overwrite an existing stem without --force, '
+      + 'because a stem that exists has been listened to.',
+  },
 ];

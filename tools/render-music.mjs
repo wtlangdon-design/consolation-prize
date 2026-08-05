@@ -18,13 +18,34 @@
  * browser download to every deploy to regenerate files that change about once
  * a month is a poor trade. Run it when the music changes, commit the stems.
  *
- * NOBODY HAS RUN IT. It was written in an environment with no browser and no
- * way to fetch one -- `npx playwright install chromium` fails on the network
- * allowlist there. So this has never executed and should be treated as
- * unproven until it has. That is the honest state and it is written here
- * rather than discovered.
+ * IT HAS BEEN RUN NOW, and the stems in `audio/` came out of it.
+ *
+ * EVERY RENDER IS A DIFFERENT PERFORMANCE, AND THAT IS THE INSTRUMENT. Two
+ * runs of this tool produce files of identical length that differ in half
+ * their samples, peaking about 30 dB below full scale. It is not drift and it
+ * is not a bug: the synthesis uses `Math.random()` twice, deliberately, and
+ * both are load-bearing --
+ *
+ *   `noiseBuffer`  the noise source itself, which is what noise IS
+ *   `vibOsc`       5.0 + random x 0.7 Hz per note, so the vibrato of two
+ *                  notes never lines up, which is the whole reason it sounds
+ *                  like a hand and not an oscillator
+ *
+ * Seeding them would make this reproducible and would make every note's
+ * vibrato identical, which is the sound the jitter was put there to avoid.
+ *
+ * SO IT CAN NEVER BE A REGISTERED GENERATOR. `check-generated` proves an
+ * artefact is what its generator produces TODAY, by comparing bytes, and these
+ * bytes are different every time by design. It is a tool somebody runs and
+ * then LISTENS to, which is a different kind of thing, and it is in
+ * `NOT_GENERATORS` for that reason rather than by omission.
+ *
+ * AND IT REFUSES TO OVERWRITE. A stem that exists has been listened to; a
+ * casual re-run would replace an approved performance with an unheard one and
+ * the diff would say nothing but "4 MB changed". Pass --force when the music
+ * has actually changed and you mean to audition the result.
  */
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { browser as launch } from './lib/chromium.mjs';
@@ -108,6 +129,21 @@ function fold(data, bodyFrames) {
     body[at] += data[i];
   }
   return body;
+}
+
+const FORCE = process.argv.includes('--force');
+// CHECKED BEFORE THE BROWSER STARTS, so a refusal costs nothing and reads as a
+// refusal rather than as a slow failure.
+const existing = STEMS.filter((stem) => existsSync(resolve(OUT, stem.file)));
+if (existing.length && !FORCE) {
+  process.stderr.write(
+    `\nrender-music: ${existing.map((stem) => stem.file).join(', ')} already exist.\n\n`
+    + '  Every render is a different performance -- the noise source and the per-note\n'
+    + '  vibrato jitter are random by design -- so re-running replaces audio somebody\n'
+    + '  has listened to with audio nobody has, and the diff says only that 4 MB\n'
+    + '  changed. Pass --force when the music has actually changed, and listen to\n'
+    + '  what comes out.\n\n');
+  process.exit(1);
 }
 
 const browser = await launch();
