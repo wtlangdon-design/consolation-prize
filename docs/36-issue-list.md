@@ -2971,6 +2971,46 @@ reversible and costs no art; option 1 is what I would build if the size
 difference reads as wrong on screen, and the only way to know that is to
 watch Thad walk from the stage road into Main Street at both scales.
 
+
+### RESOLVED IN SHAPE: the plate is consistent, and the answer is a CURVE
+
+Tyler: 120px looks far too small — his head barely clears the saloon floor,
+which is a six-inch step.
+
+He was right to disbelieve it, and the reason is that **120 was never a
+figure height, it was one point on a curve, applied flat.** Two independent
+measurements of the plate agree exactly:
+
+| Measured | On the plate | Real size | Implies a 1.75m man is |
+|---|---|---|---|
+| Saloon porch deck above the mud | 40px | ~0.6m | **117px** |
+| Saloon batwing doorway | 134px | ~2.0m | **117px** |
+
+The plate is internally consistent to the pixel. What misled both of us was
+comparing across DEPTHS: the porch stands further back than the spot he was
+composited on, so it draws higher and a correctly-sized man looks stunted
+beside it.
+
+**The plate's own curve**, anchored on that architecture with the horizon
+where the mountains meet the town:
+
+    height = 0.369 × (y − 300)
+
+    at the building line (y 620): 118px
+    mid-street          (y 700): 148px
+    forward             (y 780): 177px
+    front of frame      (y 858): 206px
+
+So Room 2 is not a half-scale room. It is a DEEPER room: he arrives small at
+the far end and grows to 206 at the front — against Room 1's 222 near. **The
+seam beat 11 walks him across is between 222 and 206, not 222 and 120**, and
+the shrink happens gradually as he walks away up a road, which is what a road
+does.
+
+This costs no art. Room 2 declares `scaling` from its own architecture
+instead of the shared zones, and everything already made — the mud, the
+saloon, both act states, the dog, the ambient cast — stands.
+
 **Held meanwhile:** the room compiles and passes at CC's a078447 state.
 Approach points, the generated walk boxes and the depth curve are written and
 reverted, waiting on this ruling, because all three encode a figure scale.
