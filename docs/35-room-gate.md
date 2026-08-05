@@ -254,3 +254,44 @@ vehicles but not people. The pattern was never the problem. **The ruling was.**
   own rate and phase so no two move together.
 - A room that needs nine people needs nine sprites, and if that is too many
   for the schedule then the room has fewer people in it — not fake ones.
+
+---
+
+# THE GATE READS THE PUZZLE GRAPH NOW, AND LOOKS FOR LIGHT
+
+**Tyler: "how do we ensure you think of these things yourself for each room,
+so I do not have to ask?"** The answer is not that I promise to remember. It
+is that the gate reads the documents I was reading by hand.
+
+It read doc 05 and doc 49 and never doc 02, which is how the Nugget's piano
+got through. **A8 is "tune the Bountiful Nugget's piano for money"** — the
+payoff of the tuning fork that never leaves inventory, and a callback to A2 —
+and a man tuning a piano has its lid open. Doc 05 says only that a tuned piano
+*sounds* different, so the gate saw an act variant that changes words and
+ruled it plate. It was right about the variant and blind to the puzzle.
+
+Three sections were added, and each exists because something got past:
+
+**ACTED ON BY A PUZZLE.** Any hotspot a doc 02 row names, with the puzzle that
+names it. The question it asks is not "is this a sprite" but *does it look
+different while the puzzle happens* — which is a person's ruling, and now a
+prompted one.
+
+**CHARACTERS THE PUZZLE GRAPH PUTS IN THIS ROOM.** Deke Vessel is in the
+Nugget because A3 sells Thad a claim there, and no examine layer mentions him,
+because he is not scenery. Doc 35 recorded this as a known hole an hour before
+it was closed. The pattern is crude — two capitalised words — and catches
+"Met Vessel" and "Bountiful Nugget" alongside him. **Left noisy on purpose:**
+a false name costs a glance, a missed character costs a plate.
+
+**LIGHT SOURCES.** Doc 18's palette cycling is the only background animation
+the game has and Room 1 already uses it for Hob's lamp. A lit interior that
+does not breathe is a photograph of a warm room. The Nugget has a chandelier
+of seven candles and a stove with a fire in it, and both now get named before
+the plate freezes rather than after somebody notices the room is dead.
+
+**And the room-name matcher was broken when written:** it sliced the first 200
+characters of the whole document rather than the room's own heading, so it
+always read Room 1 or nothing, which is why the first run found the piano and
+not Vessel. Fixed, and worth recording — a check that silently matches nothing
+looks exactly like a check that passes.

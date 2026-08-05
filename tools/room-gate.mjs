@@ -38,6 +38,13 @@ const read = (p) => { try { return readFileSync(p, 'utf8'); } catch { return '';
 const examine = read('docs/05-examine-layer.md');
 const wrong = read('docs/49-wrong-answers.md') + '\n' + read('docs/13-room-02-content.md');
 const puzzles = read('docs/02-puzzle-graph.md');
+// THIS ROOM'S NAME, from this room's own heading. The first version sliced
+// the first 200 characters of the whole document, so it always read Room 1's
+// heading or nothing, and the puzzle rows never matched -- which is why the
+// gate found the piano but not Deke Vessel.
+const roomName = (new RegExp(`^## ROOM ${room}\\b[^\\n]*`, 'mi')
+  .exec(readFileSync('docs/05-examine-layer.md', 'utf8')) || [''])[0]
+  .replace(/^## ROOM \d+\s*[—-]\s*/i, '').replace(/\*.*$/, '').trim();
 
 /** The room's own section of a doc, from its heading to the next room heading. */
 function section(text, n) {
@@ -126,6 +133,49 @@ for (const h of hotspots) {
   rows.push({ h, cls, why, ruling });
 }
 
+
+// ---- what the puzzle graph does to this room -------------------------------
+//
+// THE GATE READ THE EXAMINE LAYER AND NEVER THE PUZZLES, and that is how it
+// passed the Nugget's piano. Doc 02's A8 is "tune the Bountiful Nugget's
+// piano for money" -- the payoff of the tuning fork and a callback to A2 --
+// and a man tuning a piano has its lid open. Doc 05 says only that a tuned
+// piano sounds different, so the gate saw an act variant that changes words
+// and ruled it plate. It was right about the variant and blind to the puzzle.
+//
+// Tyler asked how he stops having to ask. This is the answer: a hotspot a
+// PUZZLE acts on is a hotspot that may have to look different while it is
+// acted on, and the gate now says so rather than waiting to be asked.
+const words = (text) => text.toLowerCase().replace(/[^a-z ]+/g, ' ').split(/\s+/).filter(Boolean);
+const roomWords = new Set(words(roomName || ''));
+const puzzleRows = puzzles.split('\n').filter((line) => /^\|\s*\*\*[A-F]\d/.test(line));
+const acted = new Map();
+const cast = new Set();
+for (const row of puzzleRows) {
+  const id = (/\*\*([A-F]\d+[a-z]?)\*\*/.exec(row) || [])[1];
+  const lower = row.toLowerCase();
+  const mentionsRoom = [...roomWords].some((w) => w.length > 3 && lower.includes(w));
+  for (const { h: name } of rows) {
+    const noun = name.replace(/^(THE|A)\s+/i, '').toLowerCase();
+    if (!lower.includes(noun)) continue;
+    if (!mentionsRoom && !lower.includes(noun)) continue;
+    acted.set(name, `${id}: ${row.split('|')[2]?.trim().slice(0, 60)}`);
+  }
+  // A character named in a puzzle set in this room is IN this room, and no
+  // examine layer mentions them, because they are not scenery.
+  if (mentionsRoom) {
+    for (const m of row.matchAll(/\b([A-Z][a-z]+ [A-Z][a-z]+)\b/g)) cast.add(m[1]);
+  }
+}
+
+// ---- things that emit light -------------------------------------------------
+//
+// Doc 18's palette cycling is the only background animation the game has, and
+// Room 1 already uses it for Hob's lamp. A lit interior that does not breathe
+// is a still photograph of a warm room. Costs palette entries, not art.
+const LIGHT = /\b(lamp|lamps|candle|candles|chandelier|stove|fire|lantern|flame|hearth)\b/i;
+const lights = rows.filter((entry) => LIGHT.test(entry.h));
+
 const sprites = rows.filter((r) => r.cls !== 'PLATE');
 console.log(`\nROOM ${room} — GATE §2, derived from the documents\n`);
 for (const r of rows) {
@@ -141,5 +191,17 @@ if (sprites.length) {
 }
 if (undecided.length) {
   console.log(`\n${undecided.length} hotspot(s) marked ? need a ruling before the plate freezes.`);
+}
+if (acted.size) {
+  console.log('\nACTED ON BY A PUZZLE -- does it look different while it happens?');
+  for (const [name, why] of acted) console.log(`  · ${name} -- ${why}`);
+}
+if (cast.size) {
+  console.log('\nCHARACTERS the puzzle graph puts in this room (never in the plate):');
+  for (const who of cast) console.log(`  · ${who}`);
+}
+if (lights.length) {
+  console.log('\nLIGHT SOURCES -- declare `cycling` (doc 18) so the room breathes:');
+  for (const entry of lights) console.log(`  · ${entry.h}`);
 }
 console.log('\nThe plate brief is written from the PLATE rows only.\n');
