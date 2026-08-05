@@ -21,7 +21,7 @@
   "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
  },
  "sprite": {
-  "note": "Frames 0-1 are the idle: the pose and a one-pixel breath. Frames 2-4 are the three poses from her character sheet. `breaks` are SEPARATE actions, each leaving the idle and returning to it, chosen from a pool -- she resettles the basket, OR looks down the street, OR calls out, and not all three in order every time.",
+  "note": "Frames 0-1 are the idle: the pose and a one-pixel breath. Frames 2-4 are the three poses from her character sheet. `breaks` are SEPARATE actions, each leaving the idle and returning to it, chosen from a pool -- she resettles the basket, OR looks down the street, OR calls out, and not all three in order every time. Break 2 SPEAKS: it is the calling-out pose, and a mouth open in silence reads as a fault rather than as a pie seller. She says whatever her reputation table says today -- \"Pie.\" at worst, \"Pie. Half price for the newly poor.\" after the swindle, and \"Thought you\u2019d passed.\" once the town has buried him.",
   "sheet": "art/actors/ambient-pie-woman.png",
   "frames": [
    [
@@ -77,7 +77,10 @@
     4
    ]
   ],
-  "breakEvery": 26
+  "breakEvery": 26,
+  "breaksThatSpeak": [
+   2
+  ]
  },
  "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Forward into the lit mud, clear of the porch line. Was (2210, 657)."

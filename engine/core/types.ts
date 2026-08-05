@@ -336,6 +336,20 @@ export interface AmbientFile {
      * begins and ends there returns without a jump.
      */
     breaks?: number[][];
+    /**
+     * Which breaks SPEAK, by index into `breaks`.
+     *
+     * Tyler, on the pie woman calling out: without a line it just looks odd.
+     * He is right -- a mouth open and a raised hand is a person shouting, and
+     * a person shouting in silence reads as a fault rather than as a pie
+     * seller. The words already exist in doc 07, with a variant for every
+     * reputation state she can meet him in, and they stay there.
+     *
+     * The bark fires once as the break begins, not per frame, and it goes
+     * through the same showBark the approach uses -- one place where an
+     * ambient character speaks, whatever prompted it.
+     */
+    breaksThatSpeak?: number[];
     /** Seconds between breaks, before the per-character jitter. */
     breakEvery?: number;
   };

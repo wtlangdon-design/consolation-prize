@@ -3014,3 +3014,39 @@ saloon, both act states, the dog, the ambient cast — stands.
 **Held meanwhile:** the room compiles and passes at CC's a078447 state.
 Approach points, the generated walk boxes and the depth curve are written and
 reverted, waiting on this ruling, because all three encode a figure scale.
+
+---
+
+## Q11 · `check-no-content-in-code` strips `Error(...)` with a lazy match
+
+**Found by it blaming the wrong line.** The check reported player-facing prose
+at `GameScene.ts:914` — an error message that had been there for weeks and had
+passed every run — immediately after an edit six hundred lines below it.
+
+`stripDeveloperText` does `.replace(/Error\(([\s\S]*?)\)/g, 'Error()')`. The
+match is **lazy**, so an error message containing brackets of its own —
+
+    throw new Error(`No declared clip "${clip}" (${facing}) for mover ...`);
+
+— ends at the `)` inside `(${facing})`, leaving the rest of the template, and
+crucially **a dangling backtick**, in the scanned source. The next template
+literal added anywhere later in the file becomes that backtick's accidental
+partner, and everything between them is read as one enormous prose string.
+
+**Nothing is wrong with either piece of code. The scanner is.**
+
+### Why it is not fixed yet
+
+The obvious repair — count brackets instead of matching lazily — cannot be
+done with `String.replace`, because a replacement cannot remove text beyond
+its own match. A first attempt did exactly that and stopped stripping error
+messages altogether: 37 false positives, every one a legitimate throw. It was
+reverted rather than shipped half-working.
+
+The real fix is a small scanner that walks the source once, tracking bracket
+depth and quote state together. That is worth doing and is not worth doing in
+the middle of an art pass.
+
+**Meanwhile:** `GameScene.speakingBreaks` uses string concatenation where a
+template literal would read better, with a comment pointing here. That is the
+only place currently working around it, and the workaround is cheap.

@@ -70,6 +70,11 @@ export class AmbientLayer {
     return null;
   }
 
+  /** The line this character has for the reputation Thad currently carries. */
+  barkFor(npc: AmbientFile): string | null {
+    return npc.barks[this.reputationState] ?? null;
+  }
+
   npcAt(x: number, y: number): AmbientFile | undefined {
     return this.present.find((npc) => {
       const height = this.state.heightForZone(npc.zone);

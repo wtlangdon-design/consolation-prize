@@ -98,6 +98,8 @@ export class GameScene extends Phaser.Scene {
   private sayingActor: string | null = null;
   private notice: string | null = null;
   private barkLines: string[] = [];
+  /** The last break that spoke, so a clock-derived break fires its line once. */
+  private spokenBreak: string | null = null;
   private barkAt: { x: number; y: number } | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
   private noticeTimer?: Phaser.Time.TimerEvent;
@@ -330,6 +332,8 @@ export class GameScene extends Phaser.Scene {
       if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x,
         fired.npc.y - 30 * GLYPH_SCALE);
     }
+    this.speakingBreaks();
+
     if (!this.dirty) return;
     this.dirty = false;
     this.frameCount += 1;
@@ -1482,6 +1486,40 @@ export class GameScene extends Phaser.Scene {
       this.afterLoad();
     }
     this.afterMenu();
+  }
+
+  /**
+   * An ambient character whose break is a shout, shouting.
+   *
+   * Tyler: the calling-out pose looks odd without a line, and it does -- an
+   * open mouth and a raised hand in silence reads as a fault rather than as a
+   * pie seller. The words are already written -- doc 07 gives her a line and a
+   * variant for every reputation state -- and no line belongs in this file.
+   *
+   * Fired ONCE as the break begins, tracked by which cycle it was, because the
+   * break itself is derived from the clock and would otherwise re-fire on
+   * every frame of it. The line comes from the same reputation table the
+   * approach bark uses, so what she shouts across the street is what she would
+   * have said to his face.
+   */
+  private speakingBreaks(): void {
+    for (const npc of this.ambient.present) {
+      const speaks = npc.sprite?.breaksThatSpeak;
+      if (!speaks?.length) continue;
+      const playing = this.view.ambientBreak(npc);
+      if (!playing || playing.step !== 0 || !speaks.includes(playing.index)) continue;
+      // Concatenated rather than a template literal, deliberately. See doc 36
+      // Q11: check-no-content-in-code strips Error(...) with a lazy match, so
+      // an error message carrying its own brackets leaves a dangling backtick,
+      // and the next template literal ANYWHERE later in the file becomes its
+      // accidental partner. The check then reports prose hundreds of lines
+      // from the edit that caused it.
+      const token = npc.id + ':' + String(Math.floor(this.time.now / 1000));
+      if (this.spokenBreak === token) continue;
+      this.spokenBreak = token;
+      const line = this.ambient.barkFor(npc);
+      if (line) this.showBark(npc.name, line, npc.x, npc.y - 30 * GLYPH_SCALE);
+    }
   }
 
   private showBark(_name: string, line: string, x: number, y: number): void {

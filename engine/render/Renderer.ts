@@ -1174,6 +1174,19 @@ export class Renderer {
    * cycle picks the frame, so the same clock always gives the same picture --
    * which also means a save and load lands on the frame it left.
    */
+  /** Which break is playing for this character right now, and its step. */
+  ambientBreak(npc: AmbientFile): { index: number; step: number } | null {
+    const declared = npc.sprite;
+    if (!declared?.breaks?.length) return null;
+    const every = declared.breakEvery ?? 26;
+    const t = this.clock + (declared.phase ?? 0) * every;
+    const cycle = Math.floor(t / every);
+    const into = t - cycle * every;
+    const step = Math.floor(into / 0.34);
+    const index = Math.abs(cycle * 2654435761) % declared.breaks.length;
+    return step < (declared.breaks[index]?.length ?? 0) ? { index, step } : null;
+  }
+
   private ambientFrame(declared: NonNullable<AmbientFile['sprite']>, phase: number): number {
     const idleFrames = declared.breaks?.length
       ? Math.min(2, declared.frames.length) : declared.frames.length;
