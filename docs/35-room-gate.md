@@ -88,8 +88,18 @@ written from the PLATE rows only.
 ```
 
 Plus, from doc 13 rather than doc 05: **the assay office window** (ajar, and a
-puzzle route) and **six enterable doors** — all STATEFUL, all needing open
-images.
+puzzle route).
+
+**THE SIX DOORS WERE STATEFUL AND ARE NOW PLATE — a ruling, not an error.**
+The gate was right that a door which opens is stateful. Tyler's ruling removed
+the premise: in Monkey Island a lit doorway is not a state that toggles, it is
+how the street always looks, and it is what makes a building read as
+enterable. Consolation's doors stand open with warm interiors and light
+spilling onto the boardwalk, permanently, in every act. Nothing toggles, so
+nothing is stateful, and six state images leave the list.
+
+**The gate's classification is only ever as good as the design it is run
+against.** When a ruling changes what a thing DOES, re-run it.
 
 ## 3 · HOTSPOTS AND THEIR LINES
 
