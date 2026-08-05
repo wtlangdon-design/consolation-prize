@@ -4,8 +4,8 @@
  "name": "THE PIE WOMAN",
  "note": "Doc 07 #6. Pies of unstated provenance. Best R_DEAD bark in the game.",
  "room": "main_street",
- "x": 2120,
- "y": 652,
+ "x": 2210,
+ "y": 657,
  "zone": 0,
  "approachRadius": 40,
  "tree": "amb_pie_woman",
@@ -41,5 +41,5 @@
   "phase": 0.28
  },
  "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
- "placeNote": "Re-placed for the 3700-wide plate; was (900, 756), a coordinate from when Main Street was one 1920 screen. Between the trough and the saloon, on the one stretch of street with light on it. She sells to men coming out of the Nugget."
+ "placeNote": "In the lit mud in front of the batwings, selling to the same trade. Was (2120, 652)."
 }
