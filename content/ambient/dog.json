@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "id": "dog",
+ "name": "A DOG",
+ "note": "Doc 05 gives him LOOK and LISTEN, doc 13 a TALK TO he rolls over for, and doc 05 Part Two-B an Act III variant where he knows Thad while the town thinks him dead. He is also the last image of the game, on his back in the road at dawn. He was cut as a sprite and then not connected to anything for several hours -- the file existed, the room never mentioned it, and he did not appear.",
+ "room": "main_street",
+ "x": 2628,
+ "y": 765,
+ "zone": 0,
+ "approachRadius": 48,
+ "sprite": {
+  "note": "Ruling 20's two-frame idle. The second frame is a derived breath -- the ribcage rises one pixel and nothing below the spine moves, because a sleeping dog is mostly not moving. Slower than any of the people: he is asleep and they are working.",
+  "sheet": "art/actors/ambient-dog.png",
+  "frames": [
+   [
+    2,
+    2,
+    154,
+    70
+   ],
+   [
+    158,
+    2,
+    154,
+    70
+   ]
+  ],
+  "rate": 0.11,
+  "phase": 0.6
+ },
+ "barks": {}
+}

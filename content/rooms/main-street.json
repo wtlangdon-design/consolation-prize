@@ -11,9 +11,10 @@
   },
   "horizon": 192,
   "ambient": [
+    "dog",
     "letter_writer",
-    "pie_woman",
-    "map_seller"
+    "map_seller",
+    "pie_woman"
   ],
   "walkable": [
     {

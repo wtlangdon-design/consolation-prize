@@ -32,7 +32,7 @@
  * way, which is a fact this file has to keep true rather than one it can
  * assume. See the write at the bottom.
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { roomWidth } from './lib/content.mjs';
 
 const room = process.argv[2];
@@ -276,6 +276,22 @@ if (ann.entrances) {
   staleGeometry.push(`  ${live.entrances.length} per-source arrival(s): `
     + live.entrances.map((e) => `from ${e.from}@${e.at.join(',')}`).join(', '));
   delete built.entrances;
+}
+
+// THE ROOM'S AMBIENT CAST IS WHOEVER DECLARES THEMSELVES IN IT. Reading it
+// from content/ambient rather than restating it in the room file means a
+// character who exists is a character who appears -- which the dog was not.
+// He was cut as a sprite, composited into a picture by hand, shown, and never
+// connected to anything: the file existed, the room never mentioned him, and
+// he did not appear in the game for several hours while everyone believed he
+// had. R5k -- the list is derived from the thing it describes.
+{
+  const dir = 'content/ambient';
+  const cast = existsSync(dir)
+    ? readdirSync(dir).map((file) => JSON.parse(readFileSync(`${dir}/${file}`, 'utf8')))
+      .filter((npc) => npc.room === built.id).map((npc) => npc.id).sort()
+    : [];
+  if (cast.length) built.ambient = cast;
 }
 
 built.hotspots = [...byId.entries()].map(([id, entry]) => {
