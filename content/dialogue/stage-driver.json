@@ -15,6 +15,9 @@
           "say": "Ask the undertaker. He knows everybody.",
           "set": {
             "T_UNDERTAKER_NAMED": true
+          },
+          "add": {
+            "T_DRIVER_ASKED": 1
           }
         },
         {
@@ -34,13 +37,19 @@
               "speaker": "stage_driver",
               "line": "You've all got four."
             }
-          ]
+          ],
+          "add": {
+            "T_DRIVER_ASKED": 1
+          }
         },
         {
           "id": "drv3",
           "text": "You don't think much of my chances.",
           "tag": "COMIC",
-          "say": "I don't think about them at all."
+          "say": "I don't think about them at all.",
+          "add": {
+            "T_DRIVER_ASKED": 1
+          }
         },
         {
           "id": "drv4",
@@ -50,7 +59,12 @@
           "set": {
             "T_COACH_DEPARTED": true
           },
-          "ends": true
+          "ends": true,
+          "when": {
+            "T_DRIVER_ASKED": {
+              "atLeast": 3
+            }
+          }
         }
       ],
       "noPrompt": true,

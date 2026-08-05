@@ -656,6 +656,35 @@ function stageDriver() {
   exit.set = { T_COACH_DEPARTED: true };
   exit.ends = true;
 
+  // THE EXIT IS NOT THE FIRST THING YOU CAN CLICK. Doc 17 v3.1 gives this tree
+  // four options to teach four things -- that dialogue branches, that a comic
+  // option costs nothing and still answers, that one option ends a scene -- and
+  // the fourth taught alone. A player who takes the exit first has been taught
+  // that a conversation is a thing you leave, which is the opposite lesson, and
+  // it is the FIRST conversation in the game.
+  //
+  // SO IT ARRIVES WHEN THE OTHERS HAVE BEEN ASKED. A gated option is not drawn
+  // at all, so the list is three questions and then four; nothing greys, nothing
+  // reshuffles, and doc 04 rule 4 is untouched -- an option that has never been
+  // available is not an option that was removed.
+  //
+  // IT CANNOT STRAND HIM. Nothing removes an option once it is present (errata
+  // 37 revoked), so the three are always askable and the fourth always arrives.
+  // The count is the only reachability condition in the tree.
+  //
+  // AND THE COUNT IS A COUNT, NOT A SET. `add` applies on every selection --
+  // the runner says so, deliberately, so counter-style options keep counting --
+  // so asking one question three times opens the exit as surely as asking three
+  // once. That is a live consequence rather than an oversight: it costs the
+  // player nothing and it keeps this to one flag. Exactness here is three
+  // booleans and Tyler's call, not the extractor's.
+  const asked = options.filter((option) => option !== exit);
+  if (asked.length !== 3) {
+    throw new Error(`doc 17 v3.1: expected three options besides EXIT, found ${asked.length}`);
+  }
+  for (const option of asked) option.add = { ...option.add, T_DRIVER_ASKED: 1 };
+  exit.when = { T_DRIVER_ASKED: { atLeast: asked.length } };
+
   return write('content/dialogue/stage-driver.json', {
     schema: 1,
     id: 'STAGE_DRIVER',

@@ -1,164 +1,175 @@
 {
- "schema": 1,
- "note": "Flat key-value store: booleans and integers only. This is also the entire save file. Harness flags are engine-test fixtures, not design flags -- the ~40 real topic flags land with Act content.",
- "flags": [
-  {
-   "id": "T_HARNESS_EXAMINED",
-   "type": "boolean",
-   "initial": false,
-   "writtenBy": [
-    "room:harness_a:hs_alpha:LOOK_AT"
-   ]
-  },
-  {
-   "id": "T_HARNESS_UNLOCKED",
-   "type": "boolean",
-   "initial": false,
-   "writtenBy": [
-    "dialogue:harness_tree:HARN_1:opt_unlock"
-   ]
-  },
-  {
-   "id": "T_HARNESS_COMIC_SEEN",
-   "type": "boolean",
-   "initial": false,
-   "writtenBy": [
-    "dialogue:harness_tree:HARN_2:opt_comic_flag"
-   ]
-  },
-  {
-   "id": "HARNESS_PUSH_COUNT",
-   "type": "integer",
-   "initial": 0,
-   "writtenBy": [
-    "room:harness_a:hs_beta:PUSH"
-   ]
-  },
-  {
-   "id": "T_OPENING_SAID",
-   "type": "bool",
-   "initial": false,
-   "note": "Thad has said his opening line. Doc 17 v3 beat 3 -- one canonical line, played sincerely, not a choice. The three-option version and the flag's old writer are both void.",
-   "writtenBy": [
-    "sequence:opening:3"
-   ]
-  },
-  {
-   "id": "T_COACH_DEPARTED",
-   "type": "bool",
-   "initial": false,
-   "note": "The coach has gone. Doc 17 v3.1 restores the driver's tree, and its EXIT option says so in words: 'He climbs aboard. The coach goes. Beat 7.' Beat 7 does not write it -- two writers on the same fact is a race.",
-   "writtenBy": [
-    "dialogue:STAGE_DRIVER:root:drv4"
-   ]
-  },
-  {
-   "id": "T_UNDERTAKER_NAMED",
-   "type": "bool",
-   "initial": false,
-   "note": "Thad has been told to ask the undertaker. Doc 17 v3.1's first PROGRESS option, and the objective the whole opening runs to. Doc 20 rule 3 -- a location appears on the map when heard of, not when visited -- so this is what puts the undertaker's on the map, and the map cannot carry him until something sets it.",
-   "writtenBy": [
-    "dialogue:STAGE_DRIVER:root:drv1"
-   ]
-  },
-  {
-   "id": "T_HOB_CROSSING",
-   "type": "bool",
-   "initial": false,
-   "note": "Hob is on screen. Doc 17 v3 beat 9 -- renumbered from beat 8 by the act card moving in ahead of it. Now the second strange encounter rather than the first, and it carries no exposition. WRITTEN AT BEAT 7, NOT 9: he is staged STANDING at the roadside before control is handed over rather than walking in during beat 9, so the flag that says he is on screen has to be true for as long as he is. It gates THE WATCHMAN'S LAMP, and while the window was the few seconds of a crossing that hotspot existed for less time than it takes to choose a verb.",
-   "writtenBy": [
-    "sequence:opening:7"
-   ]
-  },
-  {
-   "id": "T_THAD_LEAVING",
-   "type": "bool",
-   "initial": false,
-   "note": "Thad has taken the road west and the ending has begun. Doc 17 beat 11 waits on it: he walks through the gap in the fence at x575 and up the road while the title comes up over the mountains, and the travel to Main Street happens when the beat ends rather than when the exit is clicked. Written by road_west's setOnTransit, which fires on the verb that goes through the door -- transit produces no line, and a flag write is not a line, which is the argument stateOnTransit is already made from. THE EXIT ITSELF DOES NOT TRAVEL: it declares travelWhenTold, because an exit that moves you the instant you touch it cannot also be a departure you watch.",
-   "writtenBy": [
-    "room:stage_road:road_west"
-   ]
-  },
-  {
-   "id": "T_HOB_SPOKEN",
-   "type": "bool",
-   "initial": false,
-   "note": "Thad has spoken to the watchman -- or, since Hob is a mover and not a target, has interacted with the LAMP he is holding, which is the only part of him the player can click. It holds doc 17 beat 9: the beat does not begin until this is true, so Hob stands at the roadside from the first beat that plays and speaks when he is spoken to rather than saying three lines at whoever happens to be there. A player who never speaks to him leaves a man standing with his lamp, which is the truthful state and breaks nothing: the opening is over at beat 8 and beats 9 and 10 are ordinary play.",
-   "writtenBy": [
-    "room:stage_road:lamp"
-   ]
-  },
-  {
-   "id": "T_HOB_GONE",
-   "type": "bool",
-   "initial": false,
-   "note": "Hob has left frame. Doc 17 beat 10. IT WAS WRITTEN NOWHERE AT ALL, which is why THE WATCHMAN'S LAMP stayed interactable after he had gone and lamp_gone -- the response written for exactly that moment -- could never appear. The declaration said the engine must write it, the engine never did, and the check reported that as a note on every run while nothing failed. Beat 10 is content and can carry it: the carrier applies a beat's writes as it reaches it, and it reaches beat 10 when beat 9's last walk has taken him off frame right.",
-   "writtenBy": [
-    "sequence:opening:10"
-   ]
-  },
-  {
-   "id": "T_PIKE_DEAD",
-   "type": "bool",
-   "initial": false,
-   "note": "Thad has learned that Ezra Pike, the man his letter of introduction is addressed to, has been dead six years. Gates the letter's second line set per ruling 19a and doc 23, and ERRATA 31b puts Boot Hill on the map on the strength of it -- not on Thad naming Pike to the driver, which happens at the coach stop and would break 30c's floor of two. Doc 27's undertaker option 2 is the writer, and it is built.",
-   "writtenBy": [
-    "dialogue:UNDERTAKER:root:undertaker2"
-   ]
-  },
-  {
-   "id": "T_OPENING_DONE",
-   "type": "bool",
-   "initial": false,
-   "note": "The opening sequence has handed over control -- doc 17 beat 8. Not a design flag: it exists so a save restored mid-game does not replay the opening, and so a player who has already been told the undertaker's name is not told again. The sequence file names it, so the engine hard-codes nothing.",
-   "writtenBy": [
-    "sequence:opening:complete"
-   ]
-  },
-  {
-   "id": "T_SEEN_MAIN_STREET",
-   "type": "bool",
-   "initial": false,
-   "note": "Thad has stood on Main Street. ERRATA 31c: seeing counts, so everything visible from the street goes on the map the first time he is on it -- the map jumps from two locations to twelve at the moment the town opens, which is the shape doc 20 wanted and could not express while the rule was 'heard of'.",
-   "writtenBy": [
-    "room:main_street:entry"
-   ]
-  },
-  {
-   "id": "T_TUNES_PIANOS",
-   "type": "bool",
-   "initial": false,
-   "note": "Thad has told somebody he tunes pianos. Doc 04 declares it an Act I topic flag and gates an option in Winnie's tree on it, which means something earlier has to set it; doc 02's A2 row states the topic as 'I tune pianos'; and doc 27's clerk option 4 is the only place in Act I where Thad says he can put a piano right. Doc 27 does not name the flag -- three documents between them leave exactly one writer, and this is the routing. IT DOES NOT COMPLETE A2. It grants permission; doc 24's pair -- the fork on the hotel parlour piano, in a room that is not built -- earns the room. A tree that resolved A2 would make the combination decorative.",
-   "writtenBy": [
-    "dialogue:HOTEL_CLERK:root:hotel_clerk4"
-   ]
-  },
-  {
-   "id": "T_SWINDLED",
-   "type": "bool",
-   "initial": false,
-   "note": "Thad has bought Claim Two from Deke Vessel for four dollars and his father's watch. Doc 27 names it on Vessel's option 6. The option carries NO LINE: doc 27 writes the beat as a stage direction -- 'The swindle. Four dollars and the watch for the deed.' -- and the item transfer that plays it is Act I puzzle machinery Phase 1 does not build. The flag is written and the beat is not.",
-   "writtenBy": [
-    "dialogue:DEKE_VESSEL:root:deke_vessel6"
-   ]
-  },
-  {
-   "id": "T_CASE_DOWN",
-   "type": "bool",
-   "initial": false,
-   "note": "The case is off the coach and in the mud, and it gates HIS CASE's two drawn states: on the roof while false, in the mud while true. Doc 17 beat 6 -- 'The case goes in the mud' -- says so in its own words, and beat 6 wrote it. NOTHING MOVES THE CASE. There is no mover for it and no state swap; it sits on the roof through the whole opening, so the write was a claim about something that had not happened. case_mud became interactable where there is no suitcase, and case_roof -- gated on this being false -- vanished from under the case that is actually there. Reported from a play-through as 'the case is interactable where it is not'. The write was removed until something moved the case, because a flag must not claim what the picture does not show. THE CASE IS ITS OWN DRAWN LAYER NOW, gated on this, so writing it IS the case moving -- roof to mud, and beat 6b holds Thad in `carry` while the coach goes, which is the bible's opening image. Restored to beat 6. Q11 as ruled.\n\nSUPERSEDED by T_CASE_TAKEN. The case no longer comes down from the roof during play -- it is on the ground from the first frame, because a case appearing as the coach pulls away reads as luggage materialising. Left declared rather than deleted until the puzzle graph is checked for readers.",
-   "writtenBy": [
-    "sequence:opening:6"
-   ]
-  },
-  {
-   "id": "T_CASE_TAKEN",
-   "type": "boolean",
-   "initial": false,
-   "writtenBy": [
-    "room:stage_road:case_mud:PICK_UP"
-   ],
-   "note": "The case is on the ground from the first frame and PICK UP takes it. It leaves the ground and its CONTENTS enter the inventory -- the case is a container, not an item, so Thad never carries it around town. That answers Q11: there is no visible carry because there is nothing to carry."
-  }
- ]
+  "schema": 1,
+  "note": "Flat key-value store: booleans and integers only. This is also the entire save file. Harness flags are engine-test fixtures, not design flags -- the ~40 real topic flags land with Act content.",
+  "flags": [
+    {
+      "id": "T_HARNESS_EXAMINED",
+      "type": "boolean",
+      "initial": false,
+      "writtenBy": [
+        "room:harness_a:hs_alpha:LOOK_AT"
+      ]
+    },
+    {
+      "id": "T_HARNESS_UNLOCKED",
+      "type": "boolean",
+      "initial": false,
+      "writtenBy": [
+        "dialogue:harness_tree:HARN_1:opt_unlock"
+      ]
+    },
+    {
+      "id": "T_HARNESS_COMIC_SEEN",
+      "type": "boolean",
+      "initial": false,
+      "writtenBy": [
+        "dialogue:harness_tree:HARN_2:opt_comic_flag"
+      ]
+    },
+    {
+      "id": "HARNESS_PUSH_COUNT",
+      "type": "integer",
+      "initial": 0,
+      "writtenBy": [
+        "room:harness_a:hs_beta:PUSH"
+      ]
+    },
+    {
+      "id": "T_OPENING_SAID",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has said his opening line. Doc 17 v3 beat 3 -- one canonical line, played sincerely, not a choice. The three-option version and the flag's old writer are both void.",
+      "writtenBy": [
+        "sequence:opening:3"
+      ]
+    },
+    {
+      "id": "T_DRIVER_ASKED",
+      "type": "integer",
+      "initial": 0,
+      "note": "How many questions Thad has put to the stage driver. Doc 17 v3.1's tree teaches four things and the fourth -- that an option ends a scene -- taught alone if the exit was clickable first. The EXIT option is gated on this reaching three, so the list is three questions and then four. Nothing greys and nothing reshuffles: an option that has never been available was never removed, so doc 04 rule 4 is untouched. It cannot strand him -- no option is ever removed, so the three stay askable. A counter rather than three booleans, which means asking one question three times opens the exit too; that is the cost of one flag and it is reversible.",
+      "writtenBy": [
+        "dialogue:STAGE_DRIVER:root:drv1",
+        "dialogue:STAGE_DRIVER:root:drv2",
+        "dialogue:STAGE_DRIVER:root:drv3"
+      ]
+    },
+    {
+      "id": "T_COACH_DEPARTED",
+      "type": "bool",
+      "initial": false,
+      "note": "The coach has gone. Doc 17 v3.1 restores the driver's tree, and its EXIT option says so in words: 'He climbs aboard. The coach goes. Beat 7.' Beat 7 does not write it -- two writers on the same fact is a race.",
+      "writtenBy": [
+        "dialogue:STAGE_DRIVER:root:drv4"
+      ]
+    },
+    {
+      "id": "T_UNDERTAKER_NAMED",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has been told to ask the undertaker. Doc 17 v3.1's first PROGRESS option, and the objective the whole opening runs to. Doc 20 rule 3 -- a location appears on the map when heard of, not when visited -- so this is what puts the undertaker's on the map, and the map cannot carry him until something sets it.",
+      "writtenBy": [
+        "dialogue:STAGE_DRIVER:root:drv1"
+      ]
+    },
+    {
+      "id": "T_HOB_CROSSING",
+      "type": "bool",
+      "initial": false,
+      "note": "Hob is on screen. Doc 17 v3 beat 9 -- renumbered from beat 8 by the act card moving in ahead of it. Now the second strange encounter rather than the first, and it carries no exposition. WRITTEN AT BEAT 7, NOT 9: he is staged STANDING at the roadside before control is handed over rather than walking in during beat 9, so the flag that says he is on screen has to be true for as long as he is. It gates THE WATCHMAN'S LAMP, and while the window was the few seconds of a crossing that hotspot existed for less time than it takes to choose a verb.",
+      "writtenBy": [
+        "sequence:opening:7"
+      ]
+    },
+    {
+      "id": "T_THAD_LEAVING",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has taken the road west and the ending has begun. Doc 17 beat 11 waits on it: he walks through the gap in the fence at x575 and up the road while the title comes up over the mountains, and the travel to Main Street happens when the beat ends rather than when the exit is clicked. Written by road_west's setOnTransit, which fires on the verb that goes through the door -- transit produces no line, and a flag write is not a line, which is the argument stateOnTransit is already made from. THE EXIT ITSELF DOES NOT TRAVEL: it declares travelWhenTold, because an exit that moves you the instant you touch it cannot also be a departure you watch.",
+      "writtenBy": [
+        "room:stage_road:road_west"
+      ]
+    },
+    {
+      "id": "T_HOB_SPOKEN",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has spoken to the watchman -- or, since Hob is a mover and not a target, has interacted with the LAMP he is holding, which is the only part of him the player can click. It holds doc 17 beat 9: the beat does not begin until this is true, so Hob stands at the roadside from the first beat that plays and speaks when he is spoken to rather than saying three lines at whoever happens to be there. A player who never speaks to him leaves a man standing with his lamp, which is the truthful state and breaks nothing: the opening is over at beat 8 and beats 9 and 10 are ordinary play.",
+      "writtenBy": [
+        "room:stage_road:lamp"
+      ]
+    },
+    {
+      "id": "T_HOB_GONE",
+      "type": "bool",
+      "initial": false,
+      "note": "Hob has left frame. Doc 17 beat 10. IT WAS WRITTEN NOWHERE AT ALL, which is why THE WATCHMAN'S LAMP stayed interactable after he had gone and lamp_gone -- the response written for exactly that moment -- could never appear. The declaration said the engine must write it, the engine never did, and the check reported that as a note on every run while nothing failed. Beat 10 is content and can carry it: the carrier applies a beat's writes as it reaches it, and it reaches beat 10 when beat 9's last walk has taken him off frame right.",
+      "writtenBy": [
+        "sequence:opening:10"
+      ]
+    },
+    {
+      "id": "T_PIKE_DEAD",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has learned that Ezra Pike, the man his letter of introduction is addressed to, has been dead six years. Gates the letter's second line set per ruling 19a and doc 23, and ERRATA 31b puts Boot Hill on the map on the strength of it -- not on Thad naming Pike to the driver, which happens at the coach stop and would break 30c's floor of two. Doc 27's undertaker option 2 is the writer, and it is built.",
+      "writtenBy": [
+        "dialogue:UNDERTAKER:root:undertaker2"
+      ]
+    },
+    {
+      "id": "T_OPENING_DONE",
+      "type": "bool",
+      "initial": false,
+      "note": "The opening sequence has handed over control -- doc 17 beat 8. Not a design flag: it exists so a save restored mid-game does not replay the opening, and so a player who has already been told the undertaker's name is not told again. The sequence file names it, so the engine hard-codes nothing.",
+      "writtenBy": [
+        "sequence:opening:complete"
+      ]
+    },
+    {
+      "id": "T_SEEN_MAIN_STREET",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has stood on Main Street. ERRATA 31c: seeing counts, so everything visible from the street goes on the map the first time he is on it -- the map jumps from two locations to twelve at the moment the town opens, which is the shape doc 20 wanted and could not express while the rule was 'heard of'.",
+      "writtenBy": [
+        "room:main_street:entry"
+      ]
+    },
+    {
+      "id": "T_TUNES_PIANOS",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has told somebody he tunes pianos. Doc 04 declares it an Act I topic flag and gates an option in Winnie's tree on it, which means something earlier has to set it; doc 02's A2 row states the topic as 'I tune pianos'; and doc 27's clerk option 4 is the only place in Act I where Thad says he can put a piano right. Doc 27 does not name the flag -- three documents between them leave exactly one writer, and this is the routing. IT DOES NOT COMPLETE A2. It grants permission; doc 24's pair -- the fork on the hotel parlour piano, in a room that is not built -- earns the room. A tree that resolved A2 would make the combination decorative.",
+      "writtenBy": [
+        "dialogue:HOTEL_CLERK:root:hotel_clerk4"
+      ]
+    },
+    {
+      "id": "T_SWINDLED",
+      "type": "bool",
+      "initial": false,
+      "note": "Thad has bought Claim Two from Deke Vessel for four dollars and his father's watch. Doc 27 names it on Vessel's option 6. The option carries NO LINE: doc 27 writes the beat as a stage direction -- 'The swindle. Four dollars and the watch for the deed.' -- and the item transfer that plays it is Act I puzzle machinery Phase 1 does not build. The flag is written and the beat is not.",
+      "writtenBy": [
+        "dialogue:DEKE_VESSEL:root:deke_vessel6"
+      ]
+    },
+    {
+      "id": "T_CASE_DOWN",
+      "type": "bool",
+      "initial": false,
+      "note": "The case is off the coach and in the mud, and it gates HIS CASE's two drawn states: on the roof while false, in the mud while true. Doc 17 beat 6 -- 'The case goes in the mud' -- says so in its own words, and beat 6 wrote it. NOTHING MOVES THE CASE. There is no mover for it and no state swap; it sits on the roof through the whole opening, so the write was a claim about something that had not happened. case_mud became interactable where there is no suitcase, and case_roof -- gated on this being false -- vanished from under the case that is actually there. Reported from a play-through as 'the case is interactable where it is not'. The write was removed until something moved the case, because a flag must not claim what the picture does not show. THE CASE IS ITS OWN DRAWN LAYER NOW, gated on this, so writing it IS the case moving -- roof to mud, and beat 6b holds Thad in `carry` while the coach goes, which is the bible's opening image. Restored to beat 6. Q11 as ruled.\n\nSUPERSEDED by T_CASE_TAKEN. The case no longer comes down from the roof during play -- it is on the ground from the first frame, because a case appearing as the coach pulls away reads as luggage materialising. Left declared rather than deleted until the puzzle graph is checked for readers.",
+      "writtenBy": [
+        "sequence:opening:6"
+      ]
+    },
+    {
+      "id": "T_CASE_TAKEN",
+      "type": "boolean",
+      "initial": false,
+      "writtenBy": [
+        "room:stage_road:case_mud:PICK_UP"
+      ],
+      "note": "The case is on the ground from the first frame and PICK UP takes it. It leaves the ground and its CONTENTS enter the inventory -- the case is a container, not an item, so Thad never carries it around town. That answers Q11: there is no visible carry because there is nothing to carry."
+    }
+  ]
 }

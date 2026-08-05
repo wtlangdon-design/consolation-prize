@@ -254,6 +254,14 @@ export class DialogueRunner {
    * exists. Errata 37's "EXIT is always present" is now true of everything,
    * and needs no code to make it so.
    *
+   * AN OPTION MAY STILL ARRIVE LATE, and that is not the same thing. The
+   * stage driver's EXIT is gated on the other three having been asked, so his
+   * list is three rows and then four. Nothing is removed and nothing
+   * reshuffles -- an option that has never been available was never taken away
+   * -- and the property this rule protects is that the list under the cursor
+   * does not SHRINK, which a `when` cannot do: `flags.test` is monotonic here
+   * because the gate is an `atLeast` on a counter nothing decrements.
+   *
    * Doc 04's Winnie arc -- the raccoon, asked five times until she cracks --
    * is kept by default rather than by special-casing [COMIC].
    *

@@ -71,6 +71,23 @@ function effectKinds(effects: readonly DurableEffect[]): string[] {
   return effects.map((effect) => effect.kind);
 }
 
+/**
+ * Opens the stage driver's tree with its EXIT reachable.
+ *
+ * THE EXIT IS GATED ON THE OTHER THREE HAVING BEEN ASKED, so a test that
+ * selects it on a fresh tree is testing a state no player can be in. This asks
+ * the three, in the order the document writes them, exactly as a player must.
+ * It commits as it goes -- that is the point, and it is why it cannot be a
+ * `restore` into the node.
+ */
+function driverTreeWithExit(state: GameState): void {
+  state.dialogue.start('STAGE_DRIVER');
+  for (const presented of state.dialogue.presentOptions()) {
+    if (presented.option.tag === 'EXIT') continue;
+    state.dialogue.select(presented.option.id);
+  }
+}
+
 /* =========================================================================
  * Defect 1 -- "Dialogue option selection immediately writes flags/additions
  * and may end/change node."   D30, adopted by errata 45.
@@ -111,9 +128,11 @@ test('D30: resolving a dialogue option over every authored tree writes nothing',
     }
   }
 
-  // 45 authored options, one of which (opt_gated) is behind a flag that is
-  // false on a fresh save and so is never offered by this sweep.
-  assert.ok(optionsResolved >= 44, `swept ${optionsResolved} options`);
+  // 45 authored options, TWO of which are behind a flag that is false on a
+  // fresh save and so are never offered by this sweep: the harness tree's
+  // opt_gated, and the stage driver's EXIT, which now waits for the other
+  // three to have been asked.
+  assert.ok(optionsResolved >= 43, `swept ${optionsResolved} options`);
   // Without this the sweep could pass by resolving nothing that writes.
   assert.ok(effectsSeen >= 4, `${effectsSeen} authored options carry writes and were resolved`);
 });
@@ -157,7 +176,7 @@ test('D30: a selection is reserved, and lands only when the exchange drains', as
 
 test('D30: EXIT does not close the tree under its own last line', async () => {
   const state = await fresh();
-  state.dialogue.start('STAGE_DRIVER');
+  driverTreeWithExit(state);
 
   // Errata 45's example, exactly: "Thank you for the ride." sets
   // T_COACH_DEPARTED and ends the tree, and the coach must not begin
@@ -271,7 +290,12 @@ test("the driver's tree never loses an option, whatever the player clicks", asyn
   }
 
   const end = state.dialogue.presentOptions();
-  assert.equal(end.length, before.length, 'the node ends the walk the size it started');
+  // NEVER SHORTER. It may be LONGER, and in this tree it is: the EXIT option
+  // is gated on the other three having been asked, so the list is three rows
+  // and then four. That is the property this test states in its own opening
+  // comment -- "the list never shrinks" -- and an equality here asserted the
+  // number instead, which is the thing that comment says not to do.
+  assert.ok(end.length >= before.length, 'the node never ends the walk shorter');
   assert.equal(end.filter((presented) => presented.exhausted).length, clickable.length,
     'every option taken is marked exhausted, and every one of them is still listed');
   assert.ok(end.some((presented) => presented.option.tag === 'EXIT' && !presented.exhausted),
@@ -508,7 +532,8 @@ test('the roughly forty percent of options that do nothing still do nothing', as
         // do is announce itself, and nothing here marks it.
         assert.equal(resolution.presentation.ended, false, 'a COMIC option is not an exit');
         assert.equal(
-          effectKinds(resolution.effects).filter((kind) => kind !== 'dialogueTaken' && kind !== 'flag')
+          effectKinds(resolution.effects)
+            .filter((kind) => kind !== 'dialogueTaken' && kind !== 'flag' && kind !== 'flagAdd')
             .length,
           0,
           'a COMIC option reserves nothing but its count and any authored flag',
@@ -617,7 +642,7 @@ test('D30: a line clears itself after its reading hold, and a click clears ONE',
 
 test('D30: the exchange settles on EXIT from the last reply, never before', async () => {
   const state = await fresh();
-  state.dialogue.start('STAGE_DRIVER');
+  driverTreeWithExit(state);
   // "Thank you for the ride." -- errata 45's own example.
   const exchange = state.dialogue.beginSelection('drv4');
   const said = exchange.presentation;
@@ -648,7 +673,7 @@ test('D30: the exchange settles on EXIT from the last reply, never before', asyn
 
 test('D30: skipping the whole thing lands on the same state as watching it', async () => {
   const watched = await fresh();
-  watched.dialogue.start('STAGE_DRIVER');
+  driverTreeWithExit(watched);
   const one = watched.dialogue.beginSelection('drv4');
   const first = new DialoguePerformance(one, { speaker: watched.content.actor.id, line: 'x' },
     [{ speaker: 'other', line: 'a' }, { speaker: 'other', line: 'b' }], TIMING, 0);
@@ -656,7 +681,7 @@ test('D30: skipping the whole thing lands on the same state as watching it', asy
   while (!first.done && guard++ < 20) first.tick(first.holdUntil);
 
   const skipped = await fresh();
-  skipped.dialogue.start('STAGE_DRIVER');
+  driverTreeWithExit(skipped);
   const two = skipped.dialogue.beginSelection('drv4');
   const second = new DialoguePerformance(two, { speaker: skipped.content.actor.id, line: 'x' },
     [{ speaker: 'other', line: 'a' }, { speaker: 'other', line: 'b' }], TIMING, 0);
@@ -678,4 +703,69 @@ test('D30: the reading hold is the binding formula, clamped at both ends', () =>
   assert.equal(readingHold('a'.repeat(400), TIMING), 8.0, 'the ceiling holds for a long one');
   // Text speed applies AFTER the calculation and clamps again. Doc 30 4.1.
   assert.equal(readingHold('a'.repeat(100), { ...TIMING, speed: 0.1 }), 1.8);
+});
+
+test("the driver's exit arrives when the other three have been asked", async () => {
+  const state = await fresh();
+  state.dialogue.start('STAGE_DRIVER');
+
+  // THE FIRST CONVERSATION IN THE GAME TEACHES FOUR THINGS and the fourth --
+  // that one option ends a scene -- taught alone if the exit was clickable
+  // first. A player who leaves immediately has learned that a conversation is
+  // a thing you get out of.
+  const shown = () => state.dialogue.presentOptions().map((each) => each.option);
+  const opening = shown();
+  assert.equal(opening.filter((option) => option.tag === 'EXIT').length, 0,
+    'the exit is not on the list before anything has been asked');
+  assert.equal(opening.length, 3, 'and the three questions are');
+
+  // Asked one at a time, the list does not move until the last one lands.
+  const questions = opening.map((option) => option.id);
+  state.dialogue.select(questions[0]!);
+  assert.equal(shown().length, 3, 'one question is not enough');
+  state.dialogue.select(questions[1]!);
+  assert.equal(shown().length, 3, 'nor two');
+  state.dialogue.select(questions[2]!);
+
+  const withExit = shown();
+  assert.equal(withExit.length, 4, 'the third puts it there');
+  assert.equal(withExit[3]!.tag, 'EXIT', 'and it arrives at the bottom, under the three');
+  assert.deepEqual(withExit.slice(0, 3).map((option) => option.id), questions,
+    'without moving any of them: a row that jumped would jump under the cursor');
+
+  // NOTHING ANNOUNCES IT. Invariant 3's rule about load-bearing LISTEN lines
+  // is the same rule: a player who can tell which click mattered is being
+  // told. The arriving option carries no marking of any kind -- it is an
+  // option like the three above it, and its tag is the tag EXIT always had.
+  const exit = withExit[3]!;
+  assert.equal(exit.tag, 'EXIT');
+  assert.deepEqual(Object.keys(exit).filter((key) => !(
+    ['id', 'text', 'tag', 'say', 'exchange', 'set', 'add', 'when', 'ends', 'goto', 'repeat']
+      .includes(key)
+  )), [], 'the exit carries no field the other options could not carry');
+});
+
+test("the driver's exit cannot be locked away, however the player plays", async () => {
+  // INVARIANT 6, ON THE ONE GATE THAT COULD BREAK IT. This is the only option
+  // in the game the player must earn before it appears, and it is the only way
+  // out of the first conversation -- so "the player cannot make the game
+  // unwinnable" rests here in a way it does not rest anywhere else.
+  //
+  // Nothing removes an option (doc 04 rule 4), so the three stay askable
+  // forever and the count only ever rises. Asserted by playing badly: the same
+  // question over and over, which is the worst a player can do.
+  const state = await fresh();
+  state.dialogue.start('STAGE_DRIVER');
+  const first = state.dialogue.presentOptions()[0]!.option.id;
+
+  for (let click = 0; click < 3; click += 1) {
+    assert.ok(state.dialogue.presentOptions().some((each) => each.option.id === first),
+      'an asked question is still askable');
+    state.dialogue.select(first);
+  }
+
+  assert.ok(
+    state.dialogue.presentOptions().some((each) => each.option.tag === 'EXIT'),
+    'and the exit arrives even for a player who only ever clicks one row',
+  );
 });
