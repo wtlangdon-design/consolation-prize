@@ -73,7 +73,13 @@ for (const m of wBody.matchAll(/^\*\*([^*]+)\*\*\s*·\s*([A-Z_]+)/gm)) {
   reactions.get(k).add(m[2]);
 }
 
-const ACTS_ON_ITS_OWN = /\b(dog|cat|raccoon|mule|horse|grievance|coach|wheel)\b/i;
+// PEOPLE TOO, WHICH THIS MISSED. It listed THE PATRONS as plate because it
+// knew about animals and vehicles and not about persons -- and ruling 20's
+// own words are "a person, animal, or vehicle". A crowd may still be drawn
+// into the plate, but that is a RULING about whether anyone in it moves, and
+// the gate's job is to make somebody make it rather than to assume.
+const ACTS_ON_ITS_OWN =
+  /\b(dog|cat|raccoon|mule|horse|grievance|coach|wheel|patrons|crowd|men|man|woman|people|barman|driver)\b/i;
 const OPENS = /\b(door|doors|window|gate|lid|drawer|flap|cabinet|box)\b/i;
 // Words in an act variant that mean the PICTURE changes, not just the line.
 // "Fresh gilt on the lettering" repaints a sign; "the dog knows me now"

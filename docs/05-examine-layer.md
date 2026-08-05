@@ -117,7 +117,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 ---
 
 ## ROOM 3 — THE BOUNTIFUL NUGGET
-*The social hub. Eleven hotspots. Contains Rule 3.*
+*The social hub. Twelve hotspots — eleven plus the raccoon from Act II. Contains Rule 3.*
 
 **THE HANDBILL** — ***critical, Act I, and nobody will read it***
 > **LOOK:** *(full text)*
@@ -140,7 +140,33 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LOOK:** "I look like a man who has recently been robbed and is being brave about it."
 > **LISTEN:** "Nothing. Mirrors are silent, which is the only restraint they show."
 
-**THE STAIRS** · **THE FADED PORTRAIT** · **THE SPITTOON** · **THE STOVE** · **THE WINDOW** · **THE PATRONS** — *(full lines in the working script; the spittoon's LISTEN line is "Regrettably, yes.")*
+**THE STAIRS**
+> **LOOK:** "Stairs to rooms nobody rents by the night. The Nugget's lodgers are the kind who arrive owing and leave owing."
+> **LISTEN:** "A board goes on the landing. There is always somebody up there not moving."
+
+**THE FADED PORTRAIT**
+> **LOOK:** "A gentleman in a high collar, hung where a mirror should be. Nobody knows who he is. Two men have claimed him as an uncle."
+> **LISTEN:** "Nothing. He has heard every lie told in this room and improved on none of them."
+
+**THE SPITTOON**
+> **LOOK:** "Brass, and emptied more diligently than anything else in the building, which tells you what the barman thinks the priorities are."
+> **LISTEN:** "Regrettably, yes."
+
+**THE STOVE**
+> **LOOK:** "Iron, black, and roaring in a room already full of men. In January it will be the most popular object in the territory. It is not January."
+> **LISTEN:** "It draws badly. The pipe was fitted by somebody who had seen a stove."
+
+**THE WINDOW**
+> **LOOK:** "Glass, which is rarer here than gold and considerably better looked after. Main Street through it looks like something happening to other people."
+> **LISTEN:** "The street, muffled. Every so often a horse disagrees with somebody."
+
+**THE PATRONS** *(they are people, and people are sprites — see the room gate)*
+> **LOOK:** "Nine men who have been here since the light was good and will be here after it goes. They are not drinking so much as waiting, at a bar, professionally."
+> **LISTEN:** "Talk that stops when I look at it and starts again at the same word."
+
+**THE RACCOON** *(Act II onward, after A5)*
+> **LOOK:** "He has taken up residence on the end of the bar and the room has taken his side. I evicted him from a hole and he has been promoted."
+> **LISTEN:** "He is eating something he was not given."
 
 ---
 

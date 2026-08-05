@@ -189,3 +189,39 @@ Everything not in the plate, listed, with what it needs: facings, sizes per erra
 **6 · Plate.** As above: no case, no coach, no team, no driver, no Hob, no lantern, no pool, no coach lamps. Blank sign. Road leaving frame right. 1600 × 720.
 
 **7 · Sprites.** Thad (four facings, two sizes, idles, walk, talk, pickup). Hob (crossing, lantern, carried light). The coach and team as one unit with a departure. The driver on the box, seated, with idles.
+
+## 2b · ROOM 3'S GATE, AS RUN AND RULED
+
+```
+ ? THE PIANO        act variant — RULED PLATE. Acts II and IV change only what
+                    he SAYS about it. A tuned piano looks like a piano.
+ ? THE BAR          act variant — RULED PLATE. Act III changes the line, not
+                    the furniture.
+ ! THE WINDOW       flagged STATEFUL by the word alone — RULED PLATE. It looks
+                    onto Main Street and never opens; doc 05's line is about
+                    glass being rarer than gold. The assay office's window is
+                    the one that is ajar, and that one IS stateful.
+ ! THE PATRONS      MOVER by the letter, RULED PLATE by ruling 20's own
+                    distinction: "a sprite rather than part of a drawn crowd."
+                    Nine men who have been here since the light was good are a
+                    drawn crowd. They are painted in, and NONE of them moves.
+                    If one ever needs to, he stops being a patron and becomes a
+                    character with a name.
+ ! THE RACCOON      MOVER, and correctly. Act II onward, after A5 — a sprite on
+                    the end of the bar with his own idle.
+   everything else  PLATE
+```
+
+**AND ONE THE GATE CANNOT SEE AT ALL: DEKE VESSEL.** Doc 02's A3 puts the
+swindle in this room — Vessel sells Thad the claim here — and he has a tree,
+a voice and two later appearances. He is not in doc 05's hotspot list because
+he is not scenery, and nothing in the gate reads doc 02. **A character who
+appears in a room by way of a PUZZLE is invisible to a check that reads the
+examine layer**, which is a real hole and is why the gate ends with a person
+reading the puzzle graph rather than with a green tick.
+
+**The gate itself was wrong here and was corrected:** it listed THE PATRONS as
+plate because its pattern knew animals and vehicles but not people, while
+ruling 20's own words are "a person, animal, or vehicle". A crowd may still be
+painted in — but that is a ruling, and the gate's job is to make somebody make
+it.
