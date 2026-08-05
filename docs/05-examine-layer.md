@@ -79,8 +79,8 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 *The most-visited screen in the game. Nine hotspots. Lines must survive two hundred selections.*
 
 **THE FALSE FRONTS**
-> **LOOK:** "Every building on this street is two storeys tall in front and one storey deep. Consolation is a stage set that people have moved into."
-> **LISTEN:** "Wind. There is a great deal of nothing behind these."
+> **LOOK:** "Half this street is two storeys tall in front and one storey deep. The other half is genuinely two storeys, and is genuinely doing better. Consolation is a stage set that people have moved into, and some of them have started building."
+> **LISTEN:** "Wind. There is a great deal of nothing behind half of these."
 
 **THE IMPROVEMENT COMPANY SIGN**
 > **LOOK:** "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. It is the only sign in town that has been painted twice."

@@ -315,9 +315,9 @@
   "sayOnce": "T_SEEN_MAIN_STREET",
   "say": [
    "So this is Consolation.",
-   "Every building is two storeys tall in front and one storey deep.",
-   "There is a great deal of nothing behind these."
+   "Half of it is two storeys tall in front and one storey deep.",
+   "The other half is real, and is doing better."
   ],
-  "note": "His first sight of the town, and the words are doc 05's own: THE FALSE FRONTS reads 'Every building on this street is two storeys tall in front and one storey deep' and its LISTEN is 'Wind. There is a great deal of nothing behind these.' Written a year ago as the examine layer and never staged, which is where the arrival line should come from -- he is not being given a new opinion, he is having the one he already has, out loud, at the moment he first has it. Gated on T_SEEN_MAIN_STREET, which onEnter sets, so it plays once."
+  "note": "His first sight of the town, and the words come from doc 05's THE FALSE FRONTS rather than being written fresh -- he has the opinion already; this is him having it out loud at the moment he first has it. AMENDED AFTER TYLER CHECKED IT AGAINST THE PLATE: the original said EVERY building was a false front, which the picture contradicts -- the saloon is a flat parapet with a low roof behind it, and the hotel beside it is genuinely two storeys with lit windows and real depth. The plate is signed off, so the writing yields, and the observation is better for it: the half that is real is the half with money, which is the town's whole economy in one line. Gated on T_SEEN_MAIN_STREET, which onEnter sets, so it plays once."
  }
 }
