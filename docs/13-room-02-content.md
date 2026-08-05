@@ -76,7 +76,7 @@ Where a specific line exists it takes precedence over the pool.
 > PICK UP — "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction."
 > TALK TO — "I am not going to shout at a church from a street."
 
-**THE DOG**
+**A DOG**
 > TALK TO — "Good morning." *(The dog does not respond. It is the most dignified exchange I have had in Consolation.)*
 > PICK UP — "I am not picking up a dog I have not been introduced to."
 > PUSH — "I will not."
@@ -120,7 +120,7 @@ First selection, then second, then third. Third repeats indefinitely thereafter.
 **LOOK** — 2 "Still the only honest building on the horizon." · 3 "Somebody built that properly. I should like to meet them and I suspect they have left."
 **LISTEN** — 2 "Half a step. Every time." · 3 "I have begun to hear it correctly in my head before it rings, which is the first sign of something."
 
-## THE DOG
+## A DOG
 **LOOK** — 2 "He has not moved. He has the air of a creature waiting for the town to finish." · 3 "He is looking at me. I have nothing to offer and he knows it."
 **LISTEN** — 2 "Still contented. Still solvent." · 3 "Nothing. He has gone to sleep in the middle of my attention."
 
