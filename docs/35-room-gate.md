@@ -90,16 +90,36 @@ written from the PLATE rows only.
 Plus, from doc 13 rather than doc 05: **the assay office window** (ajar, and a
 puzzle route).
 
-**THE SIX DOORS WERE STATEFUL AND ARE NOW PLATE — a ruling, not an error.**
-The gate was right that a door which opens is stateful. Tyler's ruling removed
-the premise: in Monkey Island a lit doorway is not a state that toggles, it is
-how the street always looks, and it is what makes a building read as
-enterable. Consolation's doors stand open with warm interiors and light
-spilling onto the boardwalk, permanently, in every act. Nothing toggles, so
-nothing is stateful, and six state images leave the list.
+**THE SIX DOORS: STATEFUL → PLATE-OPEN → CLOSED, in one sitting, and the last
+answer is the right one.** Worth recording in full because the reasoning is
+reusable.
+
+The gate called them stateful. Tyler observed that MI's lit doorways make
+buildings read as enterable, so they were regenerated permanently open and
+lit — which looked wonderful and was wrong, on three counts ChatGPT named:
+
+1. **It contradicts the room's own thesis.** Doc 05 calls Room 2 "the town
+   performing prosperity at itself, at night, to nobody." Six blazing
+   doorways is a street with something going on. The writing and the plate
+   would have been arguing.
+2. **Uniform invitation destroys the affordance.** If every door invites,
+   none does. The SCUMM Bar reads as *the* place to go because it is the
+   exception, not one of six.
+3. **It promises explorable rooms behind every door**, and Consolation has
+   six exits off this street, not sixteen.
+
+**RULED: the closed-door plate is canonical; the saloon is the one lit
+exception.** And the overlay recommendation is DECLINED — MI's doors do not
+animate. The player walks to the door and the game cuts to the interior.
+Three-state overlays for six doors is real art and engine work bought for a
+beat the genre skips.
+
+So the doors are neither plate-that-opens nor sprites: **they are exits with
+a walkbox**, and they leave this list entirely.
 
 **The gate's classification is only ever as good as the design it is run
-against.** When a ruling changes what a thing DOES, re-run it.
+against.** When a ruling changes what a thing DOES, re-run it — twice here,
+and the second run was the one that agreed with the writing.
 
 ## 3 · HOTSPOTS AND THEIR LINES
 
