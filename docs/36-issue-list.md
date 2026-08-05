@@ -2602,6 +2602,31 @@ Measured on the current tip, after `9c84012` and `636b174`:
 
 **The profile walks need re-rigging with the knee** — `thad-walk-left`, `thad-walk-right`, and whatever Hob would become. That is art regeneration and it is not mine.
 
+> **AND IT WAS BLOCKED ON PROVENANCE, NOT ON KNEES.** Seven rig records named a
+> source under `/tmp` that had been gone for months, `thad-walk-right` and
+> `thad-walk-left` among them — so the two clips this asks for could not be
+> re-rigged from what their own records said. Recovering `thad-walk-right` took
+> an afternoon: the source is `reference/casting/thad-profile-right-approved.png`,
+> and its far arm came from a **painted mask** that nothing recorded. Without
+> `--far-mask reference/masks/thad-right-far-arm.txt` the arm comes out 11,748px
+> against the recorded 27,535 — 43% of it, which is the number `character.py`'s
+> own `parse_mask_code` docstring names and the only trace that a mask existed.
+>
+> **All seven now carry an `invocation`, and five of them are proven** by
+> reproducing every comparable measurement exactly — ten for each profile walk,
+> eight for `thad-walk-back`, and the two head-on idle-breaks whose only
+> discrepancy is `step_px` 7 → 2, which is the 3.07× downsample and not a
+> different input. **The two `recoil` clips are marked UNPROVEN in their own
+> records**: a recoil rig carries no measurement two different sources could
+> disagree about, so they are inference from their proven siblings on the same
+> file, not a match.
+>
+> `character.py` now writes its own invocation, and clause six of
+> `check-rig-describes-frames` fails any rig naming a source outside the tree —
+> it reported exactly these seven before the fix. **Whoever does the re-rig runs
+> the invocation in the record, then `downscale.py --figure 526`.** The ruling
+> below is still Tyler's, and so is whether Room 1's signed-off walk may move.
+
 **And the assertion needs a ruling on authored clips.** `hob-walk-right` carries `authored: true` and a note recording the accepted fault. Either the assertion skips clips carrying that flag — which makes `authored: true` an opt-out any future clip can claim, and the check then cannot see the next Hob — or Hob is re-rigged and the exception disappears. **Put to Tyler rather than chosen.** My reading, offered as reading: an exemption that a file can grant itself is the weaker of the two, and Hob crossing Room 1 once is exactly the case where re-rigging is cheap.
 
 **`thad-walk-front` and `thad-walk-back` cannot pass however the ruling goes.** They take the head-on `shift_scale` path, which is also a pure function of `s`, and a knee facing the camera projects as foreshortening rather than as an angle. **Their fix is a different per-phase quantity — a foot that lifts in swing and plants in stance — and it is not built.** Costing it: the same shape as the knee, roughly 20 lines, no joint geometry because nothing rotates; the risk is that a vertical lift at 240px head-on is two or three pixels and may read as a limp rather than a gait. Worth building only if somebody watching says the head-on walks look wrong.

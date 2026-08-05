@@ -258,6 +258,41 @@ export function check() {
   }
   report.note(`${returning} clip(s) declaring returns_to checked against the pose they return to, `
     + `at ${RETURNS_TO * 100}% silhouette agreement`);
+
+  // CLAUSE SIX: A RIG NAMES A SOURCE THAT IS STILL THERE.
+  //
+  // Seven records named a file under /tmp that had been gone for months, and
+  // nothing noticed because nothing at runtime reads `source` -- it is pure
+  // provenance, which is exactly the kind of field that rots in silence. It
+  // cost an afternoon of archaeology to find that `thad-walk-right` came from
+  // `reference/casting/thad-profile-right-approved.png` with a painted far-arm
+  // mask, and the knee re-rig doc 36 Q93 asks for was blocked on that rather
+  // than on anything to do with knees.
+  //
+  // A path outside the repository is the failure, not merely a missing file:
+  // /tmp/thad.png could exist on somebody's machine this afternoon and be a
+  // different picture tomorrow. So the rule is that the source lives HERE.
+  let sourced = 0;
+  for (const dir of readdirSync(resolve(ROOT, 'art/actors'))) {
+    const rigPath = resolve(ROOT, 'art/actors', dir, 'rig.json');
+    if (!existsSync(rigPath)) continue;
+    const rig = readJson(`art/actors/${dir}/rig.json`);
+    const source = rig?.source;
+    if (!source) continue;
+    sourced += 1;
+    if (source.startsWith('/') || source.startsWith('..')) {
+      report.fail(`art/actors/${dir}: its rig names the source "${source}", which is outside `
+        + 'the repository. Nothing reads this field at runtime, so a path that stops being '
+        + 'true stays wrong until somebody needs to re-rig -- and then it is archaeology. '
+        + 'Point it at the file in reference/, and record the flags in `invocation`.');
+      continue;
+    }
+    if (!existsSync(resolve(ROOT, source))) {
+      report.fail(`art/actors/${dir}: its rig names the source "${source}" and no such file `
+        + 'exists. The clip cannot be re-rigged from what its own record says.');
+    }
+  }
+  report.note(`${sourced} rig(s) name a source, and every one of them is a file in this tree`);
   return report;
 }
 

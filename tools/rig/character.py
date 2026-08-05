@@ -503,6 +503,30 @@ def main():
                          "translate the right way. Got this backwards twice by hand.")
     args = ap.parse_args()
 
+    # THE RECIPE, NOT ONLY THE RESULT, AND THIS COST AN AFTERNOON TO RECOVER.
+    #
+    # rig.json recorded every MEASUREMENT the rig took -- hem, pivot, leg
+    # pixels, arm pixels -- and none of the INPUTS that produced them. Seven
+    # records named a source under /tmp that had been gone for months, and
+    # `thad-walk-right` could not be re-rigged without first working out, from
+    # a docstring in this file, that its far arm had come from a painted mask
+    # and which of the five in reference/masks it was. Every one of the ten
+    # invariants matched once the mask was found; none of them said it existed.
+    #
+    # That is R5k in its purest form: a record that describes an artefact it
+    # cannot reproduce. The knee re-rig the issue list asks for was blocked on
+    # provenance rather than on anything to do with knees.
+    #
+    # Omits --out, which is where it went rather than what it is.
+    invocation = {"invocation": {k: v for k, v in (
+        ("source", args.source), ("key", args.key), ("view", args.view),
+        ("facing", args.facing), ("clip", args.clip), ("pose", args.pose),
+        ("state", args.state), ("pad", args.pad), ("swing", args.swing),
+        ("knee", args.knee), ("arm_swing", args.arm_swing),
+        ("breath", args.breath), ("near_mask", args.near_mask),
+        ("far_mask", args.far_mask),
+    ) if v is not None}}
+
     if args.arm_swing is None:
         args.arm_swing = ARM_RATIO_HEADON if args.view == "headon" else ARM_RATIO
     core = key_out(Path(args.source), args.key)
@@ -671,6 +695,7 @@ def main():
         if near_am is not None: f = over(as_layer(near_am), f)
         Image.fromarray(f.astype(np.uint8)).save(out / "stand-00.png")
         (out / "rig.json").write_text(json.dumps(dict(
+            **invocation,
             source=args.source, key=args.key, clip="stand", view=args.view,
             facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
             padding=P, **({} if args.state is None else {"state": args.state}), frames=1), indent=2))
@@ -725,6 +750,7 @@ def main():
                 f = over(rot(upper, STRAIN_DEGREES * scale * t * toward, pivot, hem), f)
             Image.fromarray(f.astype(np.uint8)).save(out / f"{args.clip}-{i:02d}.png")
         (out / "rig.json").write_text(json.dumps(dict(
+            **invocation,
             source=args.source, key=args.key, clip=args.clip, view=args.view,
             facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P,
             **({} if args.state is None else {"state": args.state}),
@@ -758,6 +784,7 @@ def main():
                 f = over(rot(upper, 7.0 * t * away, float(np.nonzero(upper_m.any(0))[0].mean()), hem), f)
             Image.fromarray(f.astype(np.uint8)).save(out / f"recoil-{i:02d}.png")
         (out / "rig.json").write_text(json.dumps(dict(
+            **invocation,
             source=args.source, key=args.key, clip="recoil", view=args.view,
             facing=args.facing, figure=[fig_w, fig_h], hem_row=hem, padding=P, **({} if args.state is None else {"state": args.state}),
             motion=("pull-up" if args.view == "headon" else "lean-back"),
@@ -820,7 +847,7 @@ def main():
                 f = over(rest, f)
                 f = over(np.roll(shrug, -k * step, axis=0), f)
                 Image.fromarray(f.astype(np.uint8)).save(out / f"idle-break-{i:02d}.png")
-        meta = dict(source=args.source, key=args.key, clip="idle-break",
+        meta = dict(**invocation, source=args.source, key=args.key, clip="idle-break",
                     view=args.view, facing=args.facing, figure=[fig_w, fig_h],
                     shoulder_row=int(shoulder_row), padding=P, **({} if args.state is None else {"state": args.state}), step_px=step,
                     motion=("glance" if args.view == "headon" else "shrug"),
@@ -874,7 +901,7 @@ def main():
                 f = over(np.roll(as_layer(near_am), dy, axis=0), f)
             f = over(still, f)                            # head and collar, static
             Image.fromarray(f.astype(np.uint8)).save(out / f"idle-{i:02d}.png")
-        meta = dict(source=args.source, key=args.key, clip="idle", view=args.view,
+        meta = dict(**invocation, source=args.source, key=args.key, clip="idle", view=args.view,
                     facing=args.facing, figure=[fig_w, fig_h], hem_row=hem,
                     padding=P, **({} if args.state is None else {"state": args.state}), breath_px=round(amp, 1), frames=len(IDLE_BREATH))
         (out / "rig.json").write_text(json.dumps(meta, indent=2))
@@ -947,7 +974,7 @@ def main():
         travel = max(travel, int(cols.max()) - (P + fig_w), P - int(cols.min()))
         Image.fromarray(f.astype(np.uint8)).save(out / f"walk-{i:02d}.png")
 
-    meta = dict(source=args.source, key=args.key, view=args.view, facing=args.facing,
+    meta = dict(**invocation, source=args.source, key=args.key, view=args.view, facing=args.facing,
                 walk_dx=(1 if args.facing == "right" else -1),
                 figure=[fig_w, fig_h], hem_row=hem,
                 hem_pct=round(hem / fig_h * 100, 1), pivot_row=pivot, padding=P, **({} if args.state is None else {"state": args.state}),
