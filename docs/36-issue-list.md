@@ -2872,3 +2872,54 @@ Checked against `tools/gauntlet/opening.json` before filling anything in, as ask
 Entries are added, not rewritten. When the project owner rules on an open question it moves to Part One with the ruling recorded. When doc 34's stop condition lifts — integrated proof action, canonical street loop, safe save/load/title flow all executable — this list is reviewed in one pass and whatever still deserves to be global becomes errata.
 
 **Nothing in this file overrides anything. It records.**
+
+---
+
+## Q10 · ROOM 2'S PLATE IS DRAWN AT ROUGHLY HALF THE GAME'S FIGURE SCALE
+
+**Found by the compiler, and it is the largest open problem in the room.**
+
+Errata 54 fixes the drawn figure heights the whole game shares: far 222, mid
+240, near 263. Room 2's plate does not have room for them.
+
+| Doorway | Height on the plate | A man at 0.86 of it |
+|---|---|---|
+| The Nugget | 134px | 115 |
+| The Company | 124px | 107 |
+| The Clarion | 110px | 95 |
+| The hotel | 104px | 89 |
+| The assay office | 102px | 88 |
+
+**A 222px Thad standing at the boardwalk would be nearly twice the height of
+every door he is meant to walk through.** The annotation's measured 138px at
+the boardwalk was derived independently, from the sleeping dog, and lands in
+the same country as the doors — so the plate is internally consistent and
+consistently about half the scale the engine expects.
+
+**This is not an annotation error and cannot be fixed in the annotation.** The
+depth samples describe the picture correctly; the picture describes a town
+whose buildings are too small for its people.
+
+### The options, none of them free
+
+1. **Regenerate the plate at the right architectural scale** — buildings
+   roughly twice as tall relative to the frame. Truest, and it costs the
+   street we spent today converging on, including the saloon, the mud and
+   both act states.
+2. **Let a room declare its own figure heights**, with errata 54's numbers as
+   the default. Cheapest, keeps every pixel, and means Thad is visibly
+   smaller in Room 2 than in Room 1 — which a player crossing between them
+   in one walk would see, because beat 11 walks him straight from one to the
+   other.
+3. **Crop and rescale the plate** so the buildings meet the figure scale.
+   Loses roughly half the street's width and most of what makes it read as a
+   street.
+
+**Tyler's ruling.** Option 2 is what I would build first because it is
+reversible and costs no art; option 1 is what I would build if the size
+difference reads as wrong on screen, and the only way to know that is to
+watch Thad walk from the stage road into Main Street at both scales.
+
+**Held meanwhile:** the room compiles and passes at CC's a078447 state.
+Approach points, the generated walk boxes and the depth curve are written and
+reverted, waiting on this ruling, because all three encode a figure scale.

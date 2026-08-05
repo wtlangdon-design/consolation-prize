@@ -220,43 +220,22 @@ built.generated = {
   from: ['docs/05-examine-layer.md', ROOM_DOC ?? 'docs/49-wrong-answers.md', annPath],
   note: 'GENERATED. Edit the documents or the annotation, never this file.',
 };
-// TWO REPRESENTATIONS, BOTH REQUIRED, AND THAT IS NOT DUPLICATION. `walkable`
-// carries the DEPTH ZONES every room shares (near/mid/far, fixed drawn
-// heights); `walkBoxes` carries the ROUTING quads the walker actually walks.
-// An earlier pass here emitted only the first and every check passed while
-// the router still used the 1920-era boxes underneath -- two walk systems in
-// one file, one of them decorative.
-//
-// THE QUADS ARE LEVEL EVEN THOUGH THE POLYGON IS NOT. Boxes are quads by
-// rule, so the far band takes the polygon's HIGHEST point rather than
-// following its slope: a band that traced the boardwalk line would need ten
-// points, and a band that took the lowest would leave every door's approach
-// point outside the floor. Levelling upward includes a little ground he
-// cannot reach; levelling downward excludes ground he must.
+// THE WALK BOX IS BANDS, NOT A POLYGON. The engine wants zoned rects, and
+// the zones are the game's, not this room's: near/mid/far are fixed drawn
+// heights every room shares. The annotation's polygon is the human-readable
+// truth; this turns it into the bands the engine walks, by slicing the
+// polygon's vertical span into the zones the scaling samples imply.
 {
-  const pts = ann.walkable;
-  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
-  const left = Math.min(...xs), right = Math.max(...xs);
+  const ys = ann.walkable.map((p) => p[1]);
   const top = Math.min(...ys), bottom = Math.max(...ys);
-  const cut = (f) => Math.round(top + (bottom - top) * f);
-  const quad = (y0, y1) => [{ x: left, y: y0 }, { x: right, y: y0 },
-    { x: right, y: y1 }, { x: left, y: y1 }];
-  const scale = {
-    kind: 'curve',
-    farY: ann.scaling.far.y, farHeight: ann.scaling.far.height,
-    nearY: ann.scaling.near.y, nearHeight: ann.scaling.near.height,
-  };
-  const bands = [['mud_far', top, cut(0.34), 2], ['mud_mid', cut(0.34), cut(0.67), 1],
-    ['mud_near', cut(0.67), bottom, 0]];
-  built.walkBoxes = bands.map(([id, y0, y1], n) => ({
-    id, points: quad(y0, y1), surface: 'mud', clipPlane: 12, scaleMode: scale,
-    neighbours: [bands[n - 1]?.[0], bands[n + 1]?.[0]].filter(Boolean),
-  }));
-  built.walkable = bands.map(([id, y0, y1, zone]) =>
-    ({ id, zone, surface: 'mud', rect: [left, y0, right - left, y1 - y0] }));
-  built.walkBoxNote = 'GENERATED from reference/room-02/annotation.json by '
-    + 'tools/compile-room.mjs. walkableOutline keeps the annotation\u2019s own polygon, which '
-    + 'follows the boardwalk line and the rise to the road; the quads are its levelled bands.';
+  const xs = ann.walkable.map((p) => p[0]);
+  const left = Math.min(...xs), right = Math.max(...xs);
+  const cuts = [top, top + (bottom - top) * 0.34, top + (bottom - top) * 0.67, bottom];
+  built.walkable = [
+    { id: 'mud_far', zone: 2, surface: 'mud', rect: [left, Math.round(cuts[0]), right - left, Math.round(cuts[1] - cuts[0])] },
+    { id: 'mud_mid', zone: 1, surface: 'mud', rect: [left, Math.round(cuts[1]), right - left, Math.round(cuts[2] - cuts[1])] },
+    { id: 'mud_near', zone: 0, surface: 'mud', rect: [left, Math.round(cuts[2]), right - left, Math.round(cuts[3] - cuts[2])] },
+  ];
   built.walkableOutline = ann.walkable;
 }
 built.entrance = ann.entrance;
@@ -374,22 +353,8 @@ built.hotspots.sort((a, b) => (a.rect[2] * a.rect[3]) - (b.rect[2] * b.rect[3]))
 built.exits = (live.exits ?? []).map((e) => {
   const { walkTo, ...rest } = e;
   if (walkTo) staleWalkTo.push(`${e.id}@${walkTo.x},${walkTo.y}`);
-  // AND THE REPLACEMENT COMES FROM THE ANNOTATION. Stripping the stale point
-  // was right; leaving none is not, because an exit without a walkTo sends
-  // him to the rect's centre, and a door's centre is the middle of a wall.
-  // These are computed against the walk box's own upper edge with a margin,
-  // so he stands clear of the boardwalk lip rather than on it.
-  return {
-    ...rest,
-    ...(ann.exits[e.id] ? { rect: ann.exits[e.id] } : {}),
-    ...(ann.exitWalkTo?.[e.id] ? { walkTo: ann.exitWalkTo[e.id] } : {}),
-  };
+  return { ...rest, ...(ann.exits[e.id] ? { rect: ann.exits[e.id] } : {}) };
 });
-if (ann.arrivalBySource) built.arrivalBySource = ann.arrivalBySource;
-const noWalkTo = built.exits.filter((e) => !e.walkTo).map((e) => e.id);
-if (noWalkTo.length) {
-  fail(`no walkTo for exit(s): ${noWalkTo.join(', ')}. Add them to the annotation.`);
-}
 const exitsMissing = built.exits.filter((e) => !ann.exits[e.id]).map((e) => e.id);
 if (exitsMissing.length) fail(`no rect for exit(s): ${exitsMissing.join(', ')}.`);
 if (staleWalkTo.length) {
