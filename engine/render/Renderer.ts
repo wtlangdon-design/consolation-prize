@@ -887,14 +887,40 @@ export class Renderer {
       this.frameFor(mover, record, frames),
       feetX, feetY, mover.height, state,
     );
-    if (!drawn) {
+    // A CLIP THAT EXISTS AND HAS NOT ARRIVED FALLS BACK TO ONE THAT HAS.
+    //
+    // Tyler, on beat 3: after the driver says "Course you have", Hob and the
+    // coach flash off and a tall black figure replaces them, then they flash
+    // back. That is the graybox, and the cause is in BootAssets' own comment
+    // -- idle-break clips are deliberately deferred, "because nothing stages
+    // an idle break, it is a thing that happens when nothing else is". Beat
+    // 3's pause after a line is exactly when nothing else is. The break fires,
+    // its frames are still in flight, and the placeholder takes the stage.
+    //
+    // Loading them early is not the fix: the boot cast's break frames are
+    // 25.3 MB. The fix is that a graybox should mean NO CLIP EXISTS, not
+    // "this one is late". A character standing in his previous pose for half
+    // a second is invisible; a black rectangle where he was is the loudest
+    // thing on screen.
+    let shown = drawn;
+    if (!shown && frames > 0) {
+      for (const spare of ['idle', 'stand']) {
+        if (spare === clip || !sprite.declares(spare)) continue;
+        const spareFrames = sprite.frameCount(spare, mover.facing, surface, state);
+        if (spareFrames === 0) continue;
+        shown = sprite.draw(this.screen.context, spare, mover.facing, surface,
+          this.frameFor(mover, record, spareFrames), feetX, feetY, mover.height, state);
+        if (shown) break;
+      }
+    }
+    if (!shown) {
       this.drawFigure(feetX, feetY, mover.height, this.screen.role('overlayBg'));
     }
     // THE OVERLAY GOES ON ONLY IF THE BODY WENT ON. A head composited over a
     // graybox is a head floating beside a placeholder, which reads as two
     // faults rather than the one that is actually there.
-    if (drawn) this.drawOverlays(sprite, mover, surface, state, feetX, feetY);
-    if (!watch.enabled) return drawn ? this.spanOf(sprite, mover, state, grayHalfWidth)
+    if (shown) this.drawOverlays(sprite, mover, surface, state, feetX, feetY);
+    if (!watch.enabled) return shown ? this.spanOf(sprite, mover, state, grayHalfWidth)
       : grayHalfWidth;
 
     // TWO FAULTS, NOT ONE, AND THE PLACEHOLDER LOOKS IDENTICAL FOR BOTH. Zero
@@ -906,6 +932,13 @@ export class Renderer {
     // in the deferred half. Merging them costs a session either way round.
     if (drawn) {
       this.drawnAs.set(mover.id, 'sprite');
+    } else if (shown) {
+      // Recorded, not silent: the watch should see a late clip as a fault
+      // even though the picture no longer shows one.
+      this.drawnAs.set(mover.id, 'sprite:fallback');
+      watch.record('graybox:not-loaded', mover.id,
+        `${clip}/${mover.facing} has ${frames} frame(s) and none has loaded; `
+        + 'drew the previous pose instead of the placeholder');
     } else if (frames === 0) {
       this.drawnAs.set(mover.id, 'graybox:no-clip');
       watch.record('graybox:no-clip', mover.id,
