@@ -353,6 +353,17 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     rect: ann.hotspots[id],
     ...(old?.colour ? { colour: old.colour } : {}),
     ...(old?.defaultVerb ? { defaultVerb: old.defaultVerb } : {}),
+    // ACT VARIANTS THAT REPAINT SOMETHING ARE OBJECT STATES, NOT CONDITIONS.
+    // presentation() picks a state from objectStates or the declared default
+    // and nothing evaluates a `when` there -- and errata 60 is why that is
+    // right. ACT is written at exactly four places, so an act turn SETS these
+    // rather than the room asking every frame. Doc 48's S2, the funeral, sets
+    // both of Room 2's: the Company's gilt is repainted because the search
+    // just outlived its most annoying obstacle, and the notice board carries
+    // Thad's own funeral notice.
+    ...(ann.hotspotStates?.[id]
+      ? { state: ann.hotspotStates[id].default, states: ann.hotspotStates[id].states }
+      : {}),
     responses,
     ...(Object.keys(objectOverrides).length ? { overrides: objectOverrides } : {}),
   };

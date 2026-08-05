@@ -63,6 +63,16 @@
       ],
       "colour": 200,
       "defaultVerb": "LOOK_AT",
+      "state": "ordinary",
+      "states": {
+        "ordinary": {
+          "note": "Claims, disputes, and one advertisement for a patent hernia truss."
+        },
+        "funeral": {
+          "image": "art/objects/room-02/posted-notices-act3-overlay.png",
+          "note": "Act III. The clean white sheet is Thad's own funeral notice -- 'Frame has finally found a spelling he cannot get wrong.' Set by doc 48's S2."
+        }
+      },
       "responses": {
         "LOOK_AT": [
           {
@@ -208,6 +218,16 @@
       ],
       "colour": 226,
       "defaultVerb": "LOOK_AT",
+      "state": "weathered",
+      "states": {
+        "weathered": {
+          "note": "The plate as generated. Peeling gilt, and the only twice-painted sign in town."
+        },
+        "gilt": {
+          "image": "art/objects/room-02/company-sign-gilt-overlay.png",
+          "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering. Business is good. Business, for the Company, is always the search, and the search just outlived its most annoying obstacle. Me.' Set by doc 48's S2, the funeral, because errata 60 writes ACT at four places and this is one of them."
+        }
+      },
       "responses": {
         "LOOK_AT": [
           {
