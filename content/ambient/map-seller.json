@@ -1,44 +1,45 @@
 {
-  "schema": 1,
-  "id": "map_seller",
-  "name": "THE MAP SELLER",
-  "note": "Doc 07 #16. Sells maps to Mott's strike. Unknowingly employed by the Improvement Company. Genuinely believes in them. The saddest character in the game and he is played entirely for laughs.",
-  "room": "main_street",
-  "x": 1500,
-  "y": 696,
-  "zone": 1,
-  "approachRadius": 40,
-  "tree": "amb_map_seller",
-  "barks": {
-    "R_NOBODY": "Map to Mott\u2019s strike! Dollar!",
-    "R_SWINDLED": "Map, sir? Turn it round for you?",
-    "R_RACCOON": "Map! Dollar! Nothing about raccoons on it, I\u2019ll be honest.",
-    "R_SURVEYED": "You\u2019ve had a survey! Now you want a map.",
-    "R_BORDERS_MOTT": "Sir \u2014 sir \u2014 you\u2019ve land on it. You\u2019re on the map. You\u2019re on the map.",
-    "R_LOST_DUEL": "Map, sir. Cheer you up.",
-    "R_WON_DUEL": "Map for the champion. Ninety cents.",
-    "R_DEAD": "\u2026Do you want one for the road?",
-    "R_TRUTH": "Map to Mott\u2019s strike! Dollar!"
-  },
-  "sprite": {
-    "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
-    "sheet": "art/actors/ambient-main-street.png",
-    "frames": [
-      [
-        40,
-        8,
-        20,
-        33
-      ],
-      [
-        60,
-        8,
-        20,
-        33
-      ]
-    ],
-    "rate": 0.44,
-    "phase": 0.55
-  },
-  "migrationNote": "ERRATA 54, x6. Was (250, 116) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there."
+ "schema": 1,
+ "id": "map_seller",
+ "name": "THE MAP SELLER",
+ "note": "Doc 07 #16. Sells maps to Mott's strike. Unknowingly employed by the Improvement Company. Genuinely believes in them. The saddest character in the game and he is played entirely for laughs.",
+ "room": "main_street",
+ "x": 3180,
+ "y": 648,
+ "zone": 1,
+ "approachRadius": 40,
+ "tree": "amb_map_seller",
+ "barks": {
+  "R_NOBODY": "Map to Mott\u2019s strike! Dollar!",
+  "R_SWINDLED": "Map, sir? Turn it round for you?",
+  "R_RACCOON": "Map! Dollar! Nothing about raccoons on it, I\u2019ll be honest.",
+  "R_SURVEYED": "You\u2019ve had a survey! Now you want a map.",
+  "R_BORDERS_MOTT": "Sir \u2014 sir \u2014 you\u2019ve land on it. You\u2019re on the map. You\u2019re on the map.",
+  "R_LOST_DUEL": "Map, sir. Cheer you up.",
+  "R_WON_DUEL": "Map for the champion. Ninety cents.",
+  "R_DEAD": "\u2026Do you want one for the road?",
+  "R_TRUTH": "Map to Mott\u2019s strike! Dollar!"
+ },
+ "sprite": {
+  "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
+  "sheet": "art/actors/ambient-main-street.png",
+  "frames": [
+   [
+    40,
+    8,
+    20,
+    33
+   ],
+   [
+    60,
+    8,
+    20,
+    33
+   ]
+  ],
+  "rate": 0.44,
+  "phase": 0.55
+ },
+ "migrationNote": "ERRATA 54, x6. Was (250, 116) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
+ "placeNote": "Re-placed for the 3700-wide plate; was (1500, 696), a coordinate from when Main Street was one 1920 screen. At the mouth of the road to the diggings, catching everyone on their way out. He is unknowingly employed by the Company and believes in them entirely."
 }

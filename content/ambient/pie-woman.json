@@ -1,44 +1,45 @@
 {
-  "schema": 1,
-  "id": "pie_woman",
-  "name": "THE PIE WOMAN",
-  "note": "Doc 07 #6. Pies of unstated provenance. Best R_DEAD bark in the game.",
-  "room": "main_street",
-  "x": 900,
-  "y": 756,
-  "zone": 0,
-  "approachRadius": 40,
-  "tree": "amb_pie_woman",
-  "barks": {
-    "R_NOBODY": "Pie.",
-    "R_SWINDLED": "Pie. Half price for the newly poor.",
-    "R_RACCOON": "Heard about your animal. Pie?",
-    "R_SURVEYED": "That woman charged you two dollars to point at dirt. Pie.",
-    "R_BORDERS_MOTT": "Pie, Mr. Grubb. On the house. On the house today.",
-    "R_LOST_DUEL": "Pie. You\u2019ll want the big one.",
-    "R_WON_DUEL": "Beat Deke Vessel! Pie\u2019s still a nickel.",
-    "R_DEAD": "Thought you\u2019d passed.",
-    "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
-  },
-  "sprite": {
-    "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
-    "sheet": "art/actors/ambient-main-street.png",
-    "frames": [
-      [
-        80,
-        0,
-        24,
-        41
-      ],
-      [
-        104,
-        0,
-        24,
-        41
-      ]
-    ],
-    "rate": 0.37,
-    "phase": 0.28
-  },
-  "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there."
+ "schema": 1,
+ "id": "pie_woman",
+ "name": "THE PIE WOMAN",
+ "note": "Doc 07 #6. Pies of unstated provenance. Best R_DEAD bark in the game.",
+ "room": "main_street",
+ "x": 2120,
+ "y": 652,
+ "zone": 0,
+ "approachRadius": 40,
+ "tree": "amb_pie_woman",
+ "barks": {
+  "R_NOBODY": "Pie.",
+  "R_SWINDLED": "Pie. Half price for the newly poor.",
+  "R_RACCOON": "Heard about your animal. Pie?",
+  "R_SURVEYED": "That woman charged you two dollars to point at dirt. Pie.",
+  "R_BORDERS_MOTT": "Pie, Mr. Grubb. On the house. On the house today.",
+  "R_LOST_DUEL": "Pie. You\u2019ll want the big one.",
+  "R_WON_DUEL": "Beat Deke Vessel! Pie\u2019s still a nickel.",
+  "R_DEAD": "Thought you\u2019d passed.",
+  "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
+ },
+ "sprite": {
+  "note": "Ruling 20: this character is a sprite, not part of a drawn crowd, so the two-frame idle lives with the character rather than in the room. Rate and phase differ from every other person on this street -- nothing on Main Street moves on the same beat as anything else.",
+  "sheet": "art/actors/ambient-main-street.png",
+  "frames": [
+   [
+    80,
+    0,
+    24,
+    41
+   ],
+   [
+    104,
+    0,
+    24,
+    41
+   ]
+  ],
+  "rate": 0.37,
+  "phase": 0.28
+ },
+ "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
+ "placeNote": "Re-placed for the 3700-wide plate; was (900, 756), a coordinate from when Main Street was one 1920 screen. Between the trough and the saloon, on the one stretch of street with light on it. She sells to men coming out of the Nugget."
 }
