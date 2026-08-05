@@ -2940,21 +2940,31 @@ whose buildings are too small for its people.
    Loses roughly half the street's width and most of what makes it read as a
    street.
 
-### EVIDENCE, from the ambient casting sheet
+### EVIDENCE, from the ambient casting sheet — AND A CORRECTION
 
-Three people were generated INTO this plate, at whatever scale the picture
-implied, with no height specified. Measured back at plate scale: the pie woman
-in the middle distance comes out about **334px**, the letter-writer seated in
-the near-middle about **280**, the map seller far up the street about **172**.
+Three people were generated INTO this plate with no height specified.
+Measured back at plate scale: the pie woman about **334px**, the seated
+letter-writer about **280**, the map seller far up the street about **172**.
 
-**Errata 54's canon is 222 far / 240 mid / 263 near, and the generated figures
-straddle it** — larger in the near-middle, smaller at the far end. They do not
-sit at half the canon scale; they sit around it, on a steeper depth curve than
-Room 1's. And against the buildings they read correctly.
+**I first read that as evidence AGAINST regenerating, and it is the
+opposite.** I compared the figures to errata 54's canon numbers, saw them
+straddle it, and concluded the room merely wanted its own depth curve. The
+comparison should have been to the BUILDINGS BESIDE THEM.
 
-That materially weakens the case for regenerating the plate. The doorways are
-small, but a person drawn at the scale the picture implies looks right in it,
-which means the room wants **its own depth curve**, not new architecture.
+Composited at his placed position, the letter-writer stands next to the
+posted-notices board, which is 105px tall on the plate. A notice board is
+chest-to-eye height; against it a man should be about **122px**. He is 242.
+**Exactly twice.**
+
+So the generator drew people at roughly canon human scale, and they tower
+over the architecture — which is precisely what the doorway arithmetic
+predicted and what a person standing in the scene makes unmistakable. The
+casting sheet is CONFIRMATION, not doubt.
+
+**What that changes:** option 2 no longer costs "a field". It means Room 2's
+people are drawn at about 120px where Room 1's are 222 — and beat 11 walks
+the player from one directly into the other, so the size change happens in a
+single continuous move. That is the thing to look at before ruling.
 
 **Tyler's ruling.** Option 2 is what I would build first because it is
 reversible and costs no art; option 1 is what I would build if the size
