@@ -820,3 +820,63 @@ test('there is one reading hold, and a scripted line gets the same one as an utt
       'no line in the opening gets shorter, so nothing can be missed that was readable');
   }
 });
+
+test('errata 45: every utterance is read before anything commits, clock or click', async () => {
+  // WHAT THE EXISTING TEST CANNOT SEE. "the exchange settles on EXIT from the
+  // last reply, never before" walks the performance asserting the flag is
+  // false at the top of each pass and true at the end. Move the commit one
+  // utterance EARLIER -- settle on entry to the last reply rather than on exit
+  // from it -- and that test still passes: it runs one fewer iteration, the
+  // flag is false every time it looks, and the final assertions hold. The last
+  // line simply never reaches the screen, which is exactly the failure errata
+  // 45 is about, and nothing says so.
+  //
+  // So this counts the utterances instead. An exchange that commits early
+  // shows fewer lines than it was given, and that is a list mismatch rather
+  // than a timing subtlety.
+  const play = async (
+    advance: (performance: DialoguePerformance) => void,
+  ): Promise<{ seen: string[]; authored: string[]; committedWhileSpeaking: boolean }> => {
+    const state = await fresh();
+    driverTreeWithExit(state);
+    const exchange = state.dialogue.beginSelection('drv4');
+    const said = exchange.presentation;
+    const exiting = state.dialogue.presentOptions().find((each) => each.option.id === 'drv4')!;
+    const echo = { speaker: state.content.actor.id, line: exiting.option.text };
+    const replies = [
+      ...(said.say ? [{ speaker: said.sayer, line: said.say }] : []),
+      ...said.rest.map((each) => ({ speaker: each.speaker, line: each.line })),
+    ];
+    const performance = new DialoguePerformance(exchange, echo, replies, TIMING, 0);
+
+    const authored = [echo, ...replies].map((utterance) => utterance.line);
+    const seen: string[] = [];
+    let committedWhileSpeaking = false;
+    let guard = 0;
+    while (!performance.done && guard < 20) {
+      const current = performance.current;
+      if (current && current.line !== seen[seen.length - 1]) seen.push(current.line);
+      // The flag going true while a line still owns the channel is the coach
+      // departing under "Wasn't for you.", which is doc 30 6.2's own example.
+      if (current && state.flags.getBoolean('T_COACH_DEPARTED')) committedWhileSpeaking = true;
+      advance(performance);
+      guard += 1;
+    }
+    assert.equal(state.flags.getBoolean('T_COACH_DEPARTED'), true, 'and then it commits');
+    assert.equal(state.dialogue.isActive, false);
+    return { seen, authored, committedWhileSpeaking };
+  };
+
+  // Clock-driven: every line held its full reading time and then cleared.
+  const watched = await play((performance) => performance.tick(performance.holdUntil));
+  assert.ok(watched.authored.length >= 2, 'the exit is a multi-line exchange');
+  assert.deepEqual(watched.seen, watched.authored,
+    'every authored utterance owned the channel, in order, before anything committed');
+  assert.equal(watched.committedWhileSpeaking, false);
+
+  // Click-driven, past the input guard: doc 30 4.2 says a skip advances
+  // EXACTLY ONE utterance, so the same list must come out.
+  const clicked = await play((performance) => performance.skip(performance.holdUntil));
+  assert.deepEqual(clicked.seen, watched.seen, 'and clicking through shows the same lines');
+  assert.equal(clicked.committedWhileSpeaking, false);
+});
