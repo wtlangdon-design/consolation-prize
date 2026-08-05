@@ -26,16 +26,28 @@ import sys
 import numpy as np
 from PIL import Image
 
-src, gamma, out = sys.argv[1], float(sys.argv[2]), sys.argv[3]
-ground_gamma = float(sys.argv[4]) if len(sys.argv) > 4 else gamma
+# SPRITES TAKE THE GROUND GAMMA, FLAT, AND KEEP THEIR ALPHA. A row-based far
+# plane mask is meaningless on a 70-pixel dog: he is entirely ground. Cut
+# before the lift he sat at the plate's ORIGINAL darkness while the mud around
+# him went to 63 -- a hole in the street. Anything composited over a lifted
+# plate is lifted with it, by the same numbers, or it does not belong there.
+SPRITE = '--sprite' in sys.argv
+argv = [x for x in sys.argv if x != '--sprite']
+src, gamma, out = argv[1], float(argv[2]), argv[3]
+ground_gamma = float(argv[4]) if len(argv) > 4 else gamma
 GROUND_TOP, GROUND_FEATHER = 570.0, 90.0
-a = np.array(Image.open(src).convert('RGB')).astype(float)
+raw = Image.open(src)
+alpha = np.array(raw.convert('RGBA'))[..., 3] if SPRITE else None
+a = np.array(raw.convert('RGB')).astype(float)
 l = 0.2126 * a[..., 0] + 0.7152 * a[..., 1] + 0.0722 * a[..., 2]
 H0 = a.shape[0]
 # Per-row gamma: the ruled one up top, the ground one below, feathered across
 # the line where the buildings meet the mud so no band shows.
-mix = np.clip((np.arange(H0) - GROUND_TOP) / GROUND_FEATHER, 0, 1)[:, None]
-gam_row = gamma * (1 - mix) + ground_gamma * mix
+if SPRITE:
+    gam_row = np.full((H0, 1), ground_gamma)
+else:
+    mix = np.clip((np.arange(H0) - GROUND_TOP) / GROUND_FEATHER, 0, 1)[:, None]
+    gam_row = gamma * (1 - mix) + ground_gamma * mix
 lifted = 255.0 * np.power(np.clip(l, 0, 255) / 255.0, gam_row)
 gain = np.clip(np.where(l > 1e-3, lifted / np.maximum(l, 1e-3), 1.0), 1.0, 4.0)
 # NO CHANNEL MAY OVERFLOW. The first version clipped 22% of the frame at
@@ -66,10 +78,13 @@ gain = np.minimum(gain, headroom)
 FAR_KEEP, FAR_TOP, FAR_BOTTOM = 0.06, 300.0, 470.0
 H = a.shape[0]
 row = np.clip((np.arange(H) - FAR_TOP) / (FAR_BOTTOM - FAR_TOP), 0, 1)
-mask = FAR_KEEP + (1 - FAR_KEEP) * row
+mask = np.ones(H) if SPRITE else FAR_KEEP + (1 - FAR_KEEP) * row
 gain = (1.0 + (gain - 1.0) * mask[:, None])[..., None]
 res = np.clip(a * gain, 0, 255)
-Image.fromarray(res.astype(np.uint8)).save(out)
+if SPRITE:
+    Image.fromarray(np.dstack([res, alpha]).astype(np.uint8)).save(out)
+else:
+    Image.fromarray(res.astype(np.uint8)).save(out)
 gl = 0.2126 * res[..., 0] + 0.7152 * res[..., 1] + 0.0722 * res[..., 2]
 print(f'gamma {gamma}: mean {l.mean():.1f} -> {gl.mean():.1f}, '
       f'ground median {np.median(l[600:]):.1f} -> {np.median(gl[600:]):.1f}, '

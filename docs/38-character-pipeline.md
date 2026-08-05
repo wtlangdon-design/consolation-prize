@@ -633,3 +633,30 @@ The script was edited through a dozen fragile string-replacement passes. By the 
 **Edit this file by reading it, not by pattern-matching into it.** Two separate string replacements also failed silently on mismatched anchors earlier in the same session and were reported as successful.
 
 The fifteen rounds were: two style failures, three hem-detection failures, one leg-split failure, one knee experiment, one direction error, and two preview-encoding failures. **Every one of them is closed by a rule above.**
+
+---
+
+## THE ORDER OF OPERATIONS FOR ANYTHING CUT FROM A KEY (Room 2, ruled by a fringe)
+
+**Lift first. Despill last. Every time.**
+
+The dog was keyed, despilled, then lifted with the plate — and the lift
+multiplied the residual magenta the despill had left behind, into a visible
+purple fringe all round him. Nothing was wrong with either step; the ORDER
+was wrong. A despill only holds if nothing amplifies the picture afterwards.
+
+The full order for a sprite that will sit on a graded, lifted plate:
+
+1. **Cut** on the key colour.
+2. **Erode one pixel** — the outermost ring is half key by construction; it
+   becomes a soft rim at alpha 170 rather than a hard contaminated edge.
+3. **Lift** to the plate's GROUND gamma, flat. The far-plane row mask is
+   meaningless on a seventy-pixel subject: he is entirely ground.
+4. **Despill.**
+
+Result: worst residual magenta 6, dog median luma 55 against ground 63 — a
+dark dog on lighter mud, which is what a dark dog on mud looks like.
+
+**And the general law: anything composited over a lifted plate is lifted with
+it, by the same numbers, or it does not belong there.** A sprite cut before a
+grade sits at the old darkness and reads as a hole in the picture.
