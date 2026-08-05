@@ -1333,6 +1333,12 @@ export class GameScene extends Phaser.Scene {
     return this.view !== undefined && this.actors !== undefined;
   }
 
+  /** See Probeable.snapshot: the offscreen 2D canvas the renderer draws into. */
+  snapshot(): string | null {
+    const canvas = (this.texture as unknown as { canvas?: HTMLCanvasElement }).canvas;
+    return canvas ? canvas.toDataURL('image/png') : null;
+  }
+
   report(): FrameReport {
     const drawn = this.view.lastDrawn();
     const movers: Record<string, MoverReport> = {};

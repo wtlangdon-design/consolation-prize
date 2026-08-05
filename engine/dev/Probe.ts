@@ -100,6 +100,21 @@ export interface Probeable {
    * honest answer there; a thrown TypeError is not.
    */
   readonly probeReady: boolean;
+  /**
+   * The frame as a PNG data URL, or null before the scene exists.
+   *
+   * NOTHING IN THIS PROJECT HAD EVER CAPTURED A REAL FRAME HEADLESSLY, and
+   * the gauntlet's own smoke test says so: it checks that a JPEG exceeds four
+   * thousand bytes and admits "this does not claim the picture is right".
+   * Every other route returns black, because the game draws into a Phaser
+   * CanvasTexture -- an OFFSCREEN 2D canvas -- which Phaser blits to a WebGL
+   * canvas, and headless WebGL composites nothing.
+   *
+   * The 2D canvas is the picture. Reading it directly is the only capture
+   * that works, and it is also the truest one: it is the frame the renderer
+   * drew, before any scaling or presentation.
+   */
+  snapshot(): string | null;
   report(): FrameReport;
 }
 
@@ -111,6 +126,8 @@ export interface Gauntlet {
   reset(): void;
   /** Switches the watch off entirely, for the without-the-instrument run. */
   disarm(): void;
+  /** The current frame as a PNG data URL. See Probeable.snapshot. */
+  snapshot(): string | null;
 }
 
 /**
@@ -131,6 +148,10 @@ export function installGauntlet(target: Record<string, unknown>,
     violations: () => watch.report(),
     reset: () => watch.reset(),
     disarm: () => watch.enable(false),
+    snapshot: () => {
+      const live = scene();
+      return live?.probeReady ? live.snapshot() : null;
+    },
   };
   target.__gauntlet = handle;
 }
