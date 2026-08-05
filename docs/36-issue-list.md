@@ -2940,6 +2940,22 @@ whose buildings are too small for its people.
    Loses roughly half the street's width and most of what makes it read as a
    street.
 
+### EVIDENCE, from the ambient casting sheet
+
+Three people were generated INTO this plate, at whatever scale the picture
+implied, with no height specified. Measured back at plate scale: the pie woman
+in the middle distance comes out about **334px**, the letter-writer seated in
+the near-middle about **280**, the map seller far up the street about **172**.
+
+**Errata 54's canon is 222 far / 240 mid / 263 near, and the generated figures
+straddle it** — larger in the near-middle, smaller at the far end. They do not
+sit at half the canon scale; they sit around it, on a steeper depth curve than
+Room 1's. And against the buildings they read correctly.
+
+That materially weakens the case for regenerating the plate. The doorways are
+small, but a person drawn at the scale the picture implies looks right in it,
+which means the room wants **its own depth curve**, not new architecture.
+
 **Tyler's ruling.** Option 2 is what I would build first because it is
 reversible and costs no art; option 1 is what I would build if the size
 difference reads as wrong on screen, and the only way to know that is to
