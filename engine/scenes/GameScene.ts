@@ -193,6 +193,7 @@ export class GameScene extends Phaser.Scene {
         // the driver and Hob all standing in the middle of town, on a street
         // that declares none of them.
         this.enterRoomPerformance();
+    this.arrivalLines();
         this.setSay(null);
         this.markDirty();
       },
@@ -1232,6 +1233,23 @@ export class GameScene extends Phaser.Scene {
    * option list so a click meant to advance the exchange cannot select the
    * next option instead.
    */
+  /**
+   * What he says on walking into a room for the first time.
+   *
+   * Read BEFORE the room's onEnter writes land -- `sayOnce` names the flag
+   * onEnter sets, so testing it after would always be false and the lines
+   * would never play. Queued rather than spoken, so several arrive one after
+   * another on their own reading holds.
+   */
+  private arrivalLines(): void {
+    const entry = this.state.room.onEnter;
+    if (!entry?.say?.length) return;
+    if (entry.sayOnce && this.state.flags.get(entry.sayOnce) === true) return;
+    const who = this.state.content.actor.id;
+    this.pendingSay.push(...entry.say.map((line) => ({ speaker: who, line })));
+    this.advanceSay();
+  }
+
   private advanceSay(): boolean {
     const next = this.pendingSay.shift();
     if (next === undefined) return false;

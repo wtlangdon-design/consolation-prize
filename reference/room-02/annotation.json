@@ -245,5 +245,79 @@
     }
    }
   }
+ },
+ "entrances": [
+  {
+   "from": "stage_road",
+   "at": [
+    3477,
+    603
+   ],
+   "facing": "front",
+   "note": "Doc 20 and errata 58: the stage road comes down out of the hills at the street\u2019s east end, so he arrives at the top of it FACING THE TOWN -- front, toward the camera and the street he is about to walk down. He was starting mid-street with his back to us, because the compiler wrote `entrance` and the engine reads `entrances`."
+  },
+  {
+   "from": "default",
+   "at": [
+    3477,
+    603
+   ],
+   "facing": "front",
+   "note": "Anything without its own entrance lands where the road does."
+  },
+  {
+   "from": "company",
+   "at": [
+    689,
+    642
+   ],
+   "facing": "front",
+   "note": "Out of company\u2019s door, facing the street."
+  },
+  {
+   "from": "clarion",
+   "at": [
+    1097,
+    639
+   ],
+   "facing": "front",
+   "note": "Out of clarion\u2019s door, facing the street."
+  },
+  {
+   "from": "nugget",
+   "at": [
+    2317,
+    624
+   ],
+   "facing": "front",
+   "note": "Out of nugget\u2019s door, facing the street."
+  },
+  {
+   "from": "hotel",
+   "at": [
+    2707,
+    624
+   ],
+   "facing": "front",
+   "note": "Out of hotel\u2019s door, facing the street."
+  },
+  {
+   "from": "assay_office",
+   "at": [
+    3113,
+    627
+   ],
+   "facing": "front",
+   "note": "Out of assay_office\u2019s door, facing the street."
+  }
+ ],
+ "onEnterSay": {
+  "sayOnce": "T_SEEN_MAIN_STREET",
+  "say": [
+   "So this is Consolation.",
+   "Every building is two storeys tall in front and one storey deep.",
+   "There is a great deal of nothing behind these."
+  ],
+  "note": "His first sight of the town, and the words are doc 05's own: THE FALSE FRONTS reads 'Every building on this street is two storeys tall in front and one storey deep' and its LISTEN is 'Wind. There is a great deal of nothing behind these.' Written a year ago as the examine layer and never staged, which is where the arrival line should come from -- he is not being given a new opinion, he is having the one he already has, out loud, at the moment he first has it. Gated on T_SEEN_MAIN_STREET, which onEnter sets, so it plays once."
  }
 }

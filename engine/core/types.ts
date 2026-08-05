@@ -718,7 +718,22 @@ export interface RoomFile {
    * on entry and idempotent -- a flag already true stays true, so walking
    * in and out does not re-fire anything downstream.
    */
-  onEnter?: { note?: string; set?: FlagWrites };
+  onEnter?: {
+    note?: string;
+    set?: FlagWrites;
+    /**
+     * Lines Thad speaks on arriving, once, the first time only.
+     *
+     * A room can be worth remarking on, and Main Street is the case that
+     * proves it: he has come eleven hundred miles, been swindled without
+     * knowing it, and this is the town. Arriving in silence spends that.
+     *
+     * Gated by `sayOnce`, which names a flag that onEnter itself sets, so the
+     * lines play before the flag lands and never again after.
+     */
+    say?: string[];
+    sayOnce?: string;
+  };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
   pendingLocations?: { room: number | null; name: string; doc: string; missing: string }[];
   colours: { sky: number; ground: number };
