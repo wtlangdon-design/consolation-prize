@@ -49,13 +49,14 @@
  ],
  "scaling": {
   "far": {
-   "y": 620,
-   "height": 138
+   "y": 584,
+   "height": 105
   },
   "near": {
    "y": 858,
-   "height": 240
-  }
+   "height": 206
+  },
+  "note": "ROOM 2 DECLARES ITS OWN DEPTH, from its own architecture. height = 0.369 x (y - 300), anchored on two measurements of the plate that agree to the pixel: the saloon porch deck is 40px for about 0.6m and its batwing doorway 134px for about 2.0m, and both imply a 1.75m man at 117px at the building line. Errata 54\u2019s shared zones (222/240/263) belong to Room 1, whose street is shallower; applying them here puts a man at 1.66 times the height of the door he walks through. Doc 36 Q10."
  },
  "entrance": [
   3477,

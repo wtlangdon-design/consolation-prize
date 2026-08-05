@@ -365,13 +365,19 @@ built.exits = (live.exits ?? []).map((e) => {
 // of it, and an arrival at 3477 standing on nothing. These span the annotation
 // polygon's full width as levelled quads, because boxes are quads by rule.
 //
-// FIGURE HEIGHTS ARE ERRATA 54's 222/240/263 DELIBERATELY, not the
-// annotation's measured 138. Doc 36 Q10 is open: the plate's doorways are
-// 102-134px, so a canon-height Thad is nearly twice the height of every door
-// he walks through. Emitting the MEASURED heights would hide that by making
-// the room internally consistent and quietly different from every other room.
-// Emitting the canon ones makes the problem visible in the only place it can
-// be judged -- on screen, next to a door. When Q10 is ruled this is one edit.
+// FIGURE HEIGHTS COME FROM THE ANNOTATION, WHICH COMES FROM THE PLATE.
+//
+// These were errata 54's shared 222/240/263 while doc 36 Q10 was open, on
+// purpose: emitting the room's own smaller numbers would have made it
+// internally consistent and quietly different from every other room, hiding
+// the question instead of asking it. Q10 is ruled now.
+//
+// The ruling is that Room 2 is not a half-scale room but a DEEPER one. Two
+// measurements of the plate agree to the pixel -- the saloon porch deck is
+// 40px for about 0.6m, its batwing doorway 134px for about 2.0m -- and both
+// put a man at 117px at the building line. So he arrives small at the far end
+// and grows to 206 at the front of frame, against Room 1's 222 near, and beat
+// 11's seam is 222 to 206 rather than 222 to 120.
 {
   const pts = ann.walkable;
   const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
@@ -379,7 +385,11 @@ built.exits = (live.exits ?? []).map((e) => {
   const T = Math.min(...ys), B = Math.max(...ys);
   const quad = (y0, y1) => [{ x: L, y: y0 }, { x: R, y: y0 }, { x: R, y: y1 }, { x: L, y: y1 }];
   const c1 = Math.round(T + (B - T) * 0.34), c2 = Math.round(T + (B - T) * 0.67);
-  const scale = { kind: 'curve', farY: T, farHeight: 222, nearY: B, nearHeight: 263 };
+  const scale = {
+    kind: 'curve',
+    farY: ann.scaling.far.y, farHeight: ann.scaling.far.height,
+    nearY: ann.scaling.near.y, nearHeight: ann.scaling.near.height,
+  };
   const bands = [['mud_far', T, c1, 2], ['mud_mid', c1, c2, 1], ['mud_near', c2, B, 0]];
   const lip = (live.walkBoxes ?? []).find((w) => w.id === 'boardwalk');
   built.walkBoxes = [
@@ -389,7 +399,11 @@ built.exits = (live.exits ?? []).map((e) => {
     // NEARER -- shrink him, which is the one thing the floor may never do.
     ...(lip ? [{
       ...lip, points: quad(T - 52, T - 2), neighbours: ['mud_far'],
-      scaleMode: { kind: 'fixed', height: 222 },
+      // The lip is fixed at the FAR drawn size, errata 28a -- and 'far' is
+      // now this room's own far, not the shared zones'. It sits above
+      // mud_far, so a lip taller than the mud below it would shrink him for
+      // stepping down off the boardwalk, which a floor may never do.
+      scaleMode: { kind: 'fixed', height: ann.scaling.far.height },
     }] : []),
     ...bands.map(([id, y0, y1], n) => ({
       id, points: quad(y0, y1), surface: 'mud', clipPlane: 12, scaleMode: scale,

@@ -355,7 +355,19 @@ test('the floor resolves everywhere, and a nearer point is never a smaller man',
       const middle = x + Math.floor(w / 2);
       const height = state.actorHeightAt(middle, y + h - 1);
       assert.ok(height !== null, `${room.id}/${region.id} should be walkable at its own centre`);
-      assert.ok(height! <= tallest && height! >= shortest,
+      // A ROOM MAY DECLARE ITS OWN RANGE, and Room 2 does. The shared zone
+      // table is Room 1's street; doc 36 Q10 ruled that Main Street is a
+      // DEEPER room measured from its own architecture -- 105 at the building
+      // line to 206 at the front of frame -- so bounding every room by the
+      // shared numbers asserts a scale rather than the property this test is
+      // for. The property is unchanged: it resolves, it stays inside whatever
+      // range the room itself declares, and walking nearer never shrinks him.
+      const curve = room.walkBoxes
+        ?.map((box) => box.scaleMode)
+        .find((mode): mode is Extract<typeof mode, { kind: 'curve' }> => mode?.kind === 'curve');
+      const low = curve ? Math.min(curve.farHeight, curve.nearHeight) : shortest;
+      const high = curve ? Math.max(curve.farHeight, curve.nearHeight) : tallest;
+      assert.ok(height! <= high && height! >= low,
         `${room.id}/${region.id} resolved to ${height}, outside the declared range`);
     }
 

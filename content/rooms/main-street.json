@@ -665,7 +665,7 @@
       "surface": "boardwalk",
       "scaleMode": {
         "kind": "fixed",
-        "height": 222
+        "height": 105
       }
     },
     {
@@ -693,9 +693,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 584,
-        "farHeight": 222,
+        "farHeight": 105,
         "nearY": 858,
-        "nearHeight": 263
+        "nearHeight": 206
       },
       "neighbours": [
         "boardwalk",
@@ -727,9 +727,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 584,
-        "farHeight": 222,
+        "farHeight": 105,
         "nearY": 858,
-        "nearHeight": 263
+        "nearHeight": 206
       },
       "neighbours": [
         "mud_far",
@@ -761,9 +761,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 584,
-        "farHeight": 222,
+        "farHeight": 105,
         "nearY": 858,
-        "nearHeight": 263
+        "nearHeight": 206
       },
       "neighbours": [
         "mud_mid"
