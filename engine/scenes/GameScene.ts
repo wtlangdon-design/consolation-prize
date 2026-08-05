@@ -175,6 +175,13 @@ export class GameScene extends Phaser.Scene {
         if (!exit) throw new Error(`No exit "${through}" in ${this.state.room.id}`);
         this.state.enterRoom(exit.to);
       },
+      // The view, which is state and not a drawing. A `to` cuts immediately; a
+      // `follow` takes effect on the next tick's `followCamera`, which is
+      // where the mover's position is known.
+      camera: (to, follow) => {
+        this.state.moveCamera(to, follow);
+        this.markDirty();
+      },
     });
     this.ambient = new AmbientLayer(this.state);
     this.panel = new PanelLayout(this.state.content.panel);
@@ -270,6 +277,14 @@ export class GameScene extends Phaser.Scene {
     if (this.actors.update(now)) this.markDirty();
     // Where he is standing is state, and this is the only place that knows it.
     this.state.rememberStanding(this.actor.x, this.actor.y);
+    // And where the FOLLOWED mover is, which is usually but not always him.
+    // Resolved through the registry rather than assumed to be the player: a
+    // beat may hand the view to the coach, and a camera that silently tracked
+    // the protagonist instead would be issue X4's defect again -- an id that
+    // arrives on every call and is thrown away.
+    const followed = this.state.cameraFollowing;
+    const tracked = followed ? this.actors.get(followed) : undefined;
+    if (tracked) this.state.followCamera(tracked.id, tracked.x);
     // Every body whose walk or chore has finished is handed back HERE, once a
     // tick and in one place. A claim that outlives its motion is what makes
     // the next one trip assertion 6.
@@ -433,15 +448,20 @@ export class GameScene extends Phaser.Scene {
       }
       return;
     }
+    // WORLD SPACE FROM HERE DOWN. Everything above this line is furniture of
+    // the window -- the panel, the inventory, the map -- and is hit-tested
+    // where it is drawn, which is where it always was. The street is drawn
+    // shifted by the camera, so it is asked in its own coordinates.
+    const wx = this.state.toWorld(x);
     // Ambient characters stand in front of the scenery, so they take the
     // pointer first -- exactly as they take the click. Reading one name and
     // clicking another is worse than either alone.
-    const npc = y < PLAY_HEIGHT ? this.ambient.npcAt(x, y) : undefined;
+    const npc = y < PLAY_HEIGHT ? this.ambient.npcAt(wx, y) : undefined;
     const found = npc
       ? { id: npc.id, name: npc.name,
           defaultVerb: this.state.content.verbs.npcVerb }
       : y < PLAY_HEIGHT
-        ? (this.state.targetAt(x, y) ?? null)
+        ? (this.state.targetAt(wx, y) ?? null)
         : null;
     const changed = (found?.id ?? null) !== (this.hovered?.id ?? null);
     if (changed) {
@@ -553,9 +573,14 @@ export class GameScene extends Phaser.Scene {
       this.world.abandonActor(this.actors.playerId);
     }
 
+    // WORLD SPACE FROM HERE DOWN, for the reason given in `onPointerMove`:
+    // the street is drawn shifted by the camera and is asked in its own
+    // coordinates, so a hotspot is clicked exactly where it is drawn.
+    const wx = this.state.toWorld(x);
+
     // An ambient character is talked to, never examined -- they are not
     // hotspots and doc 07 is clear that none of them gates anything.
-    const npc = this.ambient.npcAt(x, y);
+    const npc = this.ambient.npcAt(wx, y);
     if (npc) {
       this.state.dialogue.start(npc.tree);
       this.markDirty();
@@ -570,7 +595,7 @@ export class GameScene extends Phaser.Scene {
     //   right button on an object  -> its defaultVerb, whatever is selected
     //
     // Double-click is gone entirely, along with the click tracker it needed.
-    const target = this.state.targetAt(x, y);
+    const target = this.state.targetAt(wx, y);
     const verb = this.state.verbs.verbFor(target, secondary);
 
     // A doorway asked for with a transit verb is walked through -- checked
@@ -586,7 +611,7 @@ export class GameScene extends Phaser.Scene {
     // whole street and declares WALK TO as its default, so clicking the road
     // moves the player rather than examining the ground they are standing on.
     if (!target || verb === this.state.verbs.walkVerbId) {
-      if (this.world.walkPlayer(x, y)) this.markDirty();
+      if (this.world.walkPlayer(wx, y)) this.markDirty();
       return;
     }
 

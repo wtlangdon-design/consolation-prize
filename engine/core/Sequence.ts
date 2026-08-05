@@ -124,7 +124,15 @@ export type SequenceStep =
    * destination repeated in the staging is a second copy of a fact that can
    * disagree with the first (R5k).
    */
-  | { kind: 'travel'; through: string };
+  | { kind: 'travel'; through: string }
+  /**
+   * Where the view looks. See `SequenceStagingStep`'s note for why errata 27c
+   * no longer strikes this and what the two forms mean.
+   *
+   * INSTANT, AND IT HOLDS NOTHING. A `to` is a cut, not a pan, so there is no
+   * duration for the runner to wait out and no `waitForActor` after it.
+   */
+  | { kind: 'camera'; to?: number; follow?: string };
 
 /** What the runner needs the world to be able to do. */
 /**
@@ -181,6 +189,13 @@ export interface SequenceHost {
   say(step: Extract<SequenceStep, { kind: 'say' }>): number;
   /** Doc 22 item 9's state, set from a cutscene. See the step's own note. */
   setState(object: string, state: string | undefined): void;
+  /**
+   * Points the view at a world x, or hands it back to a named mover.
+   *
+   * Returns nothing and holds nothing: a cut is over by the time the next step
+   * dispatches, and a hand-back takes effect on the following tick's follow.
+   */
+  camera(to: number | undefined, follow: string | undefined): void;
 }
 
 export class SequenceRunner {
@@ -313,6 +328,12 @@ export class SequenceRunner {
       }
       if (step.kind === 'travel') {
         host.travel(step.through);
+        this.index += 1;
+        moved = true;
+        continue;
+      }
+      if (step.kind === 'camera') {
+        host.camera(step.to, step.follow);
         this.index += 1;
         moved = true;
         continue;

@@ -432,6 +432,22 @@ export class Renderer {
       this.drawMenu();
       return;
     }
+    // THE WORLD PASS SCROLLS; EVERYTHING AFTER IT DOES NOT.
+    //
+    // One translate rather than a camera term threaded through every draw
+    // call. Every world drawing already takes world coordinates -- the plate,
+    // the object states, the idles, the figures, the near plane -- so shifting
+    // the context is the whole of it, and nothing below can forget to subtract.
+    // The panel, the speech, the dialogue, the act card and the menu are drawn
+    // AFTER the restore, in screen space, because they belong to the window
+    // rather than to the street.
+    //
+    // A ROOM THAT FITS TRANSLATES BY ZERO. `cameraX` is clamped to
+    // `roomWidth - NATIVE_WIDTH`, which is zero there, so Room 1 draws through
+    // exactly the same path it always did.
+    const camera = this.state.cameraX;
+    this.screen.context.save();
+    this.screen.context.translate(-camera, 0);
     this.drawRoom();
     this.drawObjectStates();
     this.idles.draw(this.state.room, this.idleSheet(this.state.room.id), this.clock);
@@ -441,6 +457,7 @@ export class Renderer {
     this.drawCarriedLight();
     this.drawPeople();
     this.drawForeground();
+    this.screen.context.restore();
     // The response to an option is drawn above the option list, not instead
     // of it -- otherwise picking an option appears to do nothing.
     this.drawSay(frame.sayLines);
@@ -608,8 +625,9 @@ export class Renderer {
 
     // No composed background yet: flat bands and blocked-out hotspots, which
     // is what a stub room looks like and should look like.
-    this.screen.fill(0, 0, NATIVE_WIDTH, room.horizon, room.colours.sky);
-    this.screen.fill(0, room.horizon, NATIVE_WIDTH, PLAY_HEIGHT - room.horizon, room.colours.ground);
+    const width = this.state.roomWidth;
+    this.screen.fill(0, 0, width, room.horizon, room.colours.sky);
+    this.screen.fill(0, room.horizon, width, PLAY_HEIGHT - room.horizon, room.colours.ground);
     for (const target of this.state.targets) {
       const [x, y, width, height] = target.rect;
       this.screen.fill(x, y, width, height, target.colour);
@@ -634,7 +652,10 @@ export class Renderer {
    * regenerated at 1920x864 later changes nothing here.
    */
   private drawPlate(image: CanvasImageSource): void {
-    this.screen.context.drawImage(image, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    // THE ROOM'S OWN WIDTH, not the window's. Main Street's plate is 3700
+    // across; stretched to 1920 it would be the whole street squeezed into the
+    // frame, which is a different picture rather than a scrolled one.
+    this.screen.context.drawImage(image, 0, 0, this.state.roomWidth, PLAY_HEIGHT);
   }
 
   /**
@@ -1047,7 +1068,15 @@ export class Renderer {
       draw();
       return;
     }
+    // THE SCRATCH SCROLLS WITH THE SCREEN. It stays window-sized -- a
+    // room-sized one would be 12MB for Main Street and reallocated per room --
+    // and takes the same translate, so a figure drawn at world x lands at the
+    // same place in it as it would on screen, and a room-wide occlusion mask
+    // punches through at its own world coordinates.
+    const camera = this.state.cameraX;
+    scratch.setTransform(1, 0, 0, 1, 0, 0);
     scratch.clearRect(0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    scratch.translate(-camera, 0);
     const screenContext = this.screen.borrow(scratch);
     try {
       draw();
@@ -1055,10 +1084,15 @@ export class Renderer {
       this.screen.borrow(screenContext);
     }
     scratch.globalCompositeOperation = 'destination-out';
-    if (mask) scratch.drawImage(mask, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
-    for (const extra of stateMasks) scratch.drawImage(extra, 0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    const width = this.state.roomWidth;
+    if (mask) scratch.drawImage(mask, 0, 0, width, PLAY_HEIGHT);
+    for (const extra of stateMasks) scratch.drawImage(extra, 0, 0, width, PLAY_HEIGHT);
     scratch.globalCompositeOperation = 'source-over';
-    screenContext.drawImage(scratch.canvas, 0, 0);
+    scratch.setTransform(1, 0, 0, 1, 0, 0);
+    // BLITTED AT WORLD X, because the screen context is itself translated by
+    // -camera: the scratch holds screen-space pixels, so it has to be placed
+    // where the translate will put it back at zero.
+    screenContext.drawImage(scratch.canvas, camera, 0);
   }
 
   /** One reusable offscreen canvas for masking. Made on first use. */

@@ -1,6 +1,7 @@
 import type {
   ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion,
 } from './types.ts';
+import { cameraAt, cameraFollow, roomWidth } from './Camera.ts';
 import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
@@ -405,11 +406,85 @@ export class GameState {
    * eight fields and not one of them was where he was standing.
    */
   private standing = new Map<string, [number, number]>();
+  /** How far the view has scrolled in the current room. Always 0 if it fits. */
+  private camera = 0;
+  /**
+   * Who the view is tracking, or null for nobody.
+   *
+   * NULL IS A PINNED VIEW, not a broken one: `{ do: 'camera', to: x }` sets
+   * it, and the view then stays where it was put until something hands it
+   * back. The player's id is the default and is restored on every room entry,
+   * so a beat that forgets to hand it back cannot strand a later room.
+   */
+  private cameraFollows: string | null = null;
+
+  /**
+   * Where the followed mover is standing, once a tick.
+   *
+   * SEPARATE FROM `rememberStanding` BECAUSE THEY ARE DIFFERENT FACTS. Where
+   * the PLAYER stands is saved and restored; what the VIEW tracks may be the
+   * coach, and a coach's position is not a resumed standing position.
+   */
+  followCamera(actor: string, x: number): void {
+    if (this.isMap || this.cameraFollows !== actor) return;
+    this.camera = cameraFollow(x, this.roomWidth, this.camera);
+  }
+
+  /** Who the view is tracking. The scene reads it to know whose x to send. */
+  get cameraFollowing(): string | null {
+    return this.cameraFollows;
+  }
 
   /** Called every frame by the scene. Never while the map is up. */
   rememberStanding(x: number, y: number): void {
     if (this.isMap) return;
     this.standing.set(this.currentRoomId, [Math.round(x), Math.round(y)]);
+  }
+
+  /** The room's whole width. Absent `size` means the window's. */
+  get roomWidth(): number {
+    return roomWidth(this.room.size);
+  }
+
+  /** How far the view has scrolled. Always 0 in a room that fits. */
+  get cameraX(): number {
+    return this.camera;
+  }
+
+  /**
+   * A point on the screen, as a point in the room.
+   *
+   * THE ONE PLACE THE TWO SPACES MEET. Everything drawn in the world pass is
+   * shifted by `-cameraX`, so everything hit-tested against the world has to
+   * be shifted back by `+cameraX`, and a hotspot is clickable exactly where it
+   * is drawn. y is untouched: the view scrolls sideways only.
+   *
+   * It lives here rather than in the scene because the renderer and the hit
+   * test must not each keep their own idea of where the view is -- that is
+   * R5i, two mechanisms agreeing until one of them changes.
+   */
+  toWorld(screenX: number): number {
+    return screenX + this.camera;
+  }
+
+  /**
+   * Doc 22 line 414's `camera` step, as the fenced minimum.
+   *
+   * `to` LOOKS AT a world x -- centred and then clamped, the same arithmetic
+   * an entry uses -- and stops the view following. `follow` gives it to a
+   * named mover. A beat that wants the view somewhere must be able to say so
+   * and then hand it back, or the next walk snaps it.
+   *
+   * BOTH TOGETHER ARE LEGAL and mean "look here, then track him from there",
+   * which is the only sensible reading. `to` is applied first, so the follow
+   * starts its dead zone from where the cut put it.
+   */
+  moveCamera(to: number | undefined, follow: string | undefined): void {
+    if (to !== undefined) {
+      this.cameraFollows = null;
+      this.camera = cameraAt(to, this.roomWidth);
+    }
+    if (follow !== undefined) this.cameraFollows = follow;
   }
 
   /**
@@ -486,6 +561,23 @@ export class GameState {
     this.cameFrom = this.currentRoomId;
     this.currentRoomId = roomId;
     this.boxCache = null;
+    // THE VIEW GOES BACK TO HIM ON EVERY ENTRY. A beat that pinned the camera
+    // and never handed it back can hold the view still for the rest of its own
+    // room, which is visible and recoverable; carrying that across a door is
+    // neither, and it would be a save-game state that looks like a dead engine.
+    this.cameraFollows = this.content.actor.id;
+    // CLAMPED BEFORE THE FIRST FRAME DRAWS, not after. Arriving at x=3200 with
+    // the camera still at 0 and correcting on frame two is a visible jolt on
+    // every entry, and it would look like the plate loading late.
+    //
+    // Wherever he will be standing: the resumed position if this is a return,
+    // else the entrance, else the middle. The scene places him from the same
+    // three, so the view starts where he does.
+    const resumed = this.standing.get(roomId);
+    const entrance = this.entranceInto(roomId, this.cameFrom)?.at;
+    const width = roomWidth(this.content.rooms.get(roomId)?.size);
+    const entryX = resumed?.[0] ?? entrance?.[0] ?? width / 2;
+    this.camera = cameraAt(entryX, width);
     // Errata 31c: standing somewhere is a thing that can happen to a player,
     // and no hotspot response can observe it. Applied before the autosave so
     // a save taken on arrival already knows where he has been.

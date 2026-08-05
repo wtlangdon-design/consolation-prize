@@ -1,7 +1,4 @@
-import { loadContent, Report, runCheck } from './lib/content.mjs';
-
-const PLAY_WIDTH = 1920;
-const PLAY_HEIGHT = 864;
+import { loadContent, PLAY_HEIGHT, Report, roomWidth, runCheck } from './lib/content.mjs';
 
 /**
  * Errata ruling 15: every walkable region must declare a zone, and a region
@@ -54,11 +51,14 @@ export function check() {
       if (seen.has(region.id)) report.fail(`${where}: duplicate region id`);
       seen.add(region.id);
 
+      // THE ROOM'S WIDTH, NOT THE WINDOW'S. Main Street's floor is 3700 wide
+      // and the window is 1920; the band is still bounded, by the room.
+      const width = roomWidth(data);
       const [x, y, w, h] = region.rect ?? [];
       if ([x, y, w, h].some((value) => typeof value !== 'number')) {
         report.fail(`${where}: rect must be four numbers`);
-      } else if (x < 0 || y < 0 || x + w > PLAY_WIDTH || y + h > PLAY_HEIGHT) {
-        report.fail(`${where}: rect leaves the ${PLAY_WIDTH}x${PLAY_HEIGHT} play area`);
+      } else if (x < 0 || y < 0 || x + w > width || y + h > PLAY_HEIGHT) {
+        report.fail(`${where}: rect leaves the ${width}x${PLAY_HEIGHT} room`);
       }
     }
   }

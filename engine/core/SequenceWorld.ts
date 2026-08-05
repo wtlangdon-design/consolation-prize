@@ -68,6 +68,13 @@ export interface SequenceWorldParts {
    * shipped for want of a test has one that runs without a browser.
    */
   travel?: (through: string) => void;
+  /**
+   * Points the view at a world x, or hands it back to a named mover.
+   *
+   * Injected for the same reason `travel` is: this class holds no GameState,
+   * so the step can be exercised without a browser.
+   */
+  camera?: (to: number | undefined, follow: string | undefined) => void;
 }
 
 /**
@@ -95,6 +102,7 @@ export class SequenceWorld implements SequenceHost {
   private readonly speak: (step: Extract<SequenceStep, { kind: 'say' }>) => number;
   private readonly paths: Map<string, PathFile>;
   private readonly travelThrough: (through: string) => void;
+  private readonly pointCamera: (to: number | undefined, follow: string | undefined) => void;
 
   constructor(parts: SequenceWorldParts) {
     this.actors = parts.actors;
@@ -105,6 +113,13 @@ export class SequenceWorld implements SequenceHost {
     this.travelThrough = parts.travel ?? (() => {
       throw new Error('this world was built with no way to travel');
     });
+    // A MISSING CAMERA IS A NO-OP, WHERE A MISSING TRAVEL THROWS, and the
+    // difference is what each one costs when it is absent. Travel is where a
+    // beat ends: swallowed, the game stops with nothing on screen to say why.
+    // The view is a composition choice on top of a room that is already
+    // playable, and every room but one fits the window and has nowhere to
+    // point it. A world built without one is a test that does not care.
+    this.pointCamera = parts.camera ?? (() => {});
   }
 
   walk(actor: string, x: number, y: number): void {
@@ -186,6 +201,10 @@ export class SequenceWorld implements SequenceHost {
    */
   setState(object: string, state: string | undefined): void {
     this.actors.setMoverState(object, state);
+  }
+
+  camera(to: number | undefined, follow: string | undefined): void {
+    this.pointCamera(to, follow);
   }
 
   say(step: Extract<SequenceStep, { kind: 'say' }>): number {

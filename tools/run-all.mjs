@@ -42,6 +42,7 @@ import { check as gauntletScript } from './check-gauntlet-script.mjs';
 import { check as speechColours } from './check-speech-colours.mjs';
 import { check as exitCollisions } from './check-exit-collisions.mjs';
 import { check as rigDescribesFrames } from './check-rig-describes-frames.mjs';
+import { check as cameraSpace } from './check-camera-space.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -86,6 +87,13 @@ const CHECKS = [
   speechColours,
   exitCollisions,
   rigDescribesFrames,
+  cameraSpace,
+  // IMPORTED SINCE IT WAS WRITTEN AND NEVER LISTED. `check-mover-lifecycle`
+  // has been at the top of this file and absent from this array the whole
+  // time, so the check that found the coach standing in the wrong place for
+  // five beats has never once run in the suite. R5o, exactly: a fix is not
+  // finished until something reaches it. It passes.
+  moverLifecycle,
 ];
 
 let failed = 0;

@@ -15,147 +15,16 @@
     "pie_woman",
     "map_seller"
   ],
-  "entrances": [
-    {
-      "from": "nugget",
-      "note": "Doc 21 gap 7. Out of the batwing doors onto the boardwalk in front of them, facing the street. Before this he arrived in the middle of the road with his back to the building he had just left.",
-      "at": [
-        786,
-        516
-      ],
-      "facing": "front"
-    },
-    {
-      "from": "stub_clarion",
-      "at": [
-        528,
-        516
-      ],
-      "facing": "front"
-    },
-    {
-      "from": "stub_company",
-      "at": [
-        1146,
-        516
-      ],
-      "facing": "front"
-    },
-    {
-      "from": "assay_office",
-      "at": [
-        1812,
-        516
-      ],
-      "facing": "front"
-    },
-    {
-      "from": "stub_claims_road",
-      "note": "The east end. He comes up out of the road, so he is already looking back down the street.",
-      "at": [
-        1836,
-        780
-      ],
-      "facing": "left"
-    },
-    {
-      "from": "stage_road",
-      "note": "Item 4a. Room 1's exit is road_west, on ITS left edge, so Thad walks west out of the stage road and reaches Consolation from the east. He therefore arrives at THIS street's east end, walking in off the road, and looks west down it. He was placed at x=14 -- the WEST end -- facing east, which put him on the far side of a town he had not crossed yet and made the first screen of the game contradict the second. stub_claims_road enters at the same end for the same reason: east is where the roads are. Doc 29 will give this entrance its four-point approach, threshold, egress and settle; this fixes only WHICH END.",
-      "at": [
-        1848,
-        768
-      ],
-      "facing": "left"
-    }
-  ],
-  "staging": [
-    {
-      "id": "outside_nugget",
-      "note": "Errata ruling 23. These are the positions the composition has to hold a character at -- one in front of each enterable facade, one at each end. Checked for reach and legibility at graybox rather than discovered in a cutscene.",
-      "at": [
-        786,
-        516
-      ],
-      "facing": "front"
-    },
-    {
-      "id": "outside_clarion",
-      "at": [
-        528,
-        516
-      ],
-      "facing": "front"
-    },
-    {
-      "id": "outside_company",
-      "at": [
-        1146,
-        516
-      ],
-      "facing": "front"
-    },
-    {
-      "id": "outside_assay",
-      "at": [
-        1812,
-        516
-      ],
-      "facing": "front"
-    },
-    {
-      "id": "at_notices",
-      "at": [
-        456,
-        516
-      ],
-      "facing": "back"
-    },
-    {
-      "id": "at_trough",
-      "at": [
-        1404,
-        732
-      ],
-      "facing": "back"
-    },
-    {
-      "id": "street_west",
-      "at": [
-        84,
-        768
-      ],
-      "facing": "right"
-    },
-    {
-      "id": "street_east",
-      "at": [
-        1836,
-        780
-      ],
-      "facing": "left"
-    }
-  ],
   "walkable": [
-    {
-      "id": "boardwalk",
-      "zone": 2,
-      "surface": "boardwalk",
-      "rect": [
-        0,
-        468,
-        1920,
-        54
-      ]
-    },
     {
       "id": "mud_far",
       "zone": 2,
       "surface": "mud",
       "rect": [
-        0,
-        528,
-        1920,
-        96
+        60,
+        584,
+        3630,
+        93
       ]
     },
     {
@@ -163,10 +32,10 @@
       "zone": 1,
       "surface": "mud",
       "rect": [
-        0,
-        624,
-        1920,
-        108
+        60,
+        677,
+        3630,
+        90
       ]
     },
     {
@@ -174,101 +43,25 @@
       "zone": 0,
       "surface": "mud",
       "rect": [
-        0,
-        732,
-        1920,
-        132
+        60,
+        768,
+        3630,
+        90
       ]
     }
   ],
   "hotspots": [
     {
-      "id": "company_sign",
-      "name": "THE IMPROVEMENT COMPANY SIGN",
-      "rect": [
-        1044,
-        192,
-        180,
-        72
-      ],
-      "colour": 226,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. It is the only sign in town that has been painted twice.",
-            "repeat": [
-              "Gilt. Actual gilt. In a town where the road is a suggestion.",
-              "Painted twice, and the second time by a better man than the first."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. It is the quietest building on the street and it is always full.",
-            "repeat": [
-              "Nothing. Still full.",
-              "Nothing at all. Whatever they do in there, they do it without raising their voices."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PULL": "It is screwed on. Thoroughly. Somebody paid for it to be screwed on.",
-        "TALK_TO": "I have spoken to the building it is attached to. It went badly and I have not recovered."
-      },
-      "defaultVerb": "LOOK_AT",
-      "walkTo": {
-        "x": 1134,
-        "y": 516,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "church_steeple",
-      "name": "THE CHURCH STEEPLE",
-      "rect": [
-        804,
-        108,
-        132,
-        96
-      ],
-      "colour": 70,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "The tallest thing in Consolation, and the only building that is as deep as it is tall.",
-            "repeat": [
-              "Still the only honest building on the horizon.",
-              "Somebody built that properly. I should like to meet them and I suspect they have left."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "The bell is a half-step flat. It has been struck by hand for six years by a man who does not care.",
-            "repeat": [
-              "Half a step. Every time.",
-              "I have begun to hear it correctly in my head before it rings, which is the first sign of something."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction.",
-        "TALK_TO": "I am not going to shout at a church from a street."
-      },
-      "defaultVerb": "LOOK_AT"
-    },
-    {
       "id": "posted_notices",
       "name": "POSTED NOTICES",
       "rect": [
-        384,
-        300,
-        144,
-        120
+        1150,
+        478,
+        85,
+        105
       ],
       "colour": 200,
+      "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
@@ -292,66 +85,19 @@
       "overrides": {
         "PICK_UP": "They belong to the town. I have read them four times, which I consider a form of ownership.",
         "OPEN": "They are already facing outward. That is the whole design."
-      },
-      "defaultVerb": "LOOK_AT",
-      "walkTo": {
-        "x": 456,
-        "y": 516,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "dog",
-      "name": "A DOG",
-      "rect": [
-        522,
-        438,
-        120,
-        84
-      ],
-      "colour": 30,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A dog with the settled look of an animal that has outlasted several owners.",
-            "repeat": [
-              "He has not moved. He has the air of a creature waiting for the town to finish.",
-              "He is looking at me. I have nothing to offer and he knows it."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Breathing. Contented. He is the only solvent resident of Consolation.",
-            "repeat": [
-              "Still contented. Still solvent.",
-              "Nothing. He has gone to sleep in the middle of my attention."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "TALK_TO": "\"Good morning.\" (The dog does not respond. It is the most dignified exchange I have had in Consolation.)",
-        "PICK_UP": "I am not picking up a dog I have not been introduced to.",
-        "PUSH": "I will not."
-      },
-      "defaultVerb": "LOOK_AT",
-      "walkTo": {
-        "x": 582,
-        "y": 528,
-        "facing": "back"
       }
     },
     {
       "id": "water_trough",
       "name": "THE WATER TROUGH",
       "rect": [
-        1272,
-        624,
-        264,
-        96
+        1862,
+        543,
+        155,
+        62
       ],
       "colour": 150,
+      "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
@@ -373,30 +119,130 @@
         ]
       },
       "overrides": {
-        "USE": "I am not drinking from that. I have standards, and they are the last thing I own.",
+        "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
         "OPEN": "It is a trough. It is entirely open. It is nothing but open."
-      },
-      "reactions": {
-        "USE": "recoil"
-      },
-      "reactionNote": "The one bespoke reaction in the slice, on the one line that is physically a flinch. Doc 15's short comic reaction, built the way the dossier says to build it -- he leans away two pixels, his eyes go with him, and he comes back. No step and no arm. The line is doc 13's and is unchanged; the animation is not content and can be dropped without touching a word.",
+      }
+    },
+    {
+      "id": "dog",
+      "name": "A DOG",
+      "rect": [
+        2553,
+        699,
+        150,
+        66
+      ],
+      "colour": 30,
       "defaultVerb": "LOOK_AT",
-      "walkTo": {
-        "x": 1404,
-        "y": 768,
-        "facing": "back"
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A dog with the settled look of an animal that has outlasted several owners.",
+            "repeat": [
+              "He has not moved. He has the air of a creature waiting for the town to finish.",
+              "He is looking at me. I have nothing to offer and he knows it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Breathing. Contented. He is the only solvent resident of Consolation.",
+            "repeat": [
+              "Still contented. Still solvent.",
+              "Nothing. He has gone to sleep in the middle of my attention."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "Good morning.",
+        "PICK_UP": "I am not picking up a dog I have not been introduced to.",
+        "PUSH": "I will not."
+      }
+    },
+    {
+      "id": "church_steeple",
+      "name": "THE CHURCH STEEPLE",
+      "rect": [
+        748,
+        22,
+        80,
+        205
+      ],
+      "colour": 70,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The tallest thing in Consolation, and the only building that is as deep as it is tall.",
+            "repeat": [
+              "Still the only honest building on the horizon.",
+              "Somebody built that properly. I should like to meet them and I suspect they have left."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The bell is a half-step flat. It has been struck by hand for six years by a man who does not care.",
+            "repeat": [
+              "Half a step. Every time.",
+              "I have begun to hear it correctly in my head before it rings, which is the first sign of something."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction.",
+        "TALK_TO": "I am not going to shout at a church from a street."
+      }
+    },
+    {
+      "id": "company_sign",
+      "name": "THE IMPROVEMENT COMPANY SIGN",
+      "rect": [
+        535,
+        268,
+        265,
+        80
+      ],
+      "colour": 226,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "CONSOLATION IMPROVEMENT COMPANY. Gilt lettering. It is the only sign in town that has been painted twice.",
+            "repeat": [
+              "Gilt. Actual gilt. In a town where the road is a suggestion.",
+              "Painted twice, and the second time by a better man than the first."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is the quietest building on the street and it is always full.",
+            "repeat": [
+              "Nothing. Still full.",
+              "Nothing at all. Whatever they do in there, they do it without raising their voices."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It is screwed on. Thoroughly. Somebody paid for it to be screwed on.",
+        "TALK_TO": "I have spoken to the building it is attached to. It went badly and I have not recovered."
       }
     },
     {
       "id": "boardwalk",
       "name": "THE BOARDWALK",
       "rect": [
-        0,
-        462,
-        1920,
-        66
+        95,
+        548,
+        1660,
+        70
       ],
       "colour": 90,
+      "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
@@ -418,57 +264,21 @@
         ]
       },
       "overrides": {
-        "PULL": "The third board from the end comes up an inch and goes back down.",
+        "PULL": "The loose board declines to come up. It is loose recreationally, not professionally.",
         "PUSH": "Third from the end. Up an inch, down an inch. Nobody has ever fixed it."
-      },
-      "defaultVerb": "LOOK_AT"
-    },
-    {
-      "id": "false_fronts",
-      "name": "THE FALSE FRONTS",
-      "rect": [
-        0,
-        120,
-        1920,
-        342
-      ],
-      "colour": 88,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Every building on this street is two storeys tall in front and one storey deep. Consolation is a stage set that people have moved into.",
-            "repeat": [
-              "Still two storeys of nothing. I keep hoping the back will have arrived.",
-              "I have counted. Six fronts, six sheds, one town."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Wind. There is a great deal of nothing behind these.",
-            "repeat": [
-              "The same nothing. It is a very consistent nothing.",
-              "Nothing. I have stopped expecting otherwise and I am the better for it."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PUSH": "I have pushed the front of a building. It did not fall over, which is more than I expected.",
-        "PULL": "If I pull hard enough the entire town comes down, and I have not settled how I feel about that."
-      },
-      "defaultVerb": "LOOK_AT"
+      }
     },
     {
       "id": "hills",
       "name": "THE HILLS",
       "rect": [
-        0,
-        24,
-        1920,
-        96
+        3180,
+        140,
+        520,
+        370
       ],
       "colour": 124,
+      "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
@@ -493,19 +303,19 @@
         "PICK_UP": "They are hills.",
         "TALK_TO": "No.",
         "USE": "I would not know where to begin, and neither would they."
-      },
-      "defaultVerb": "LOOK_AT"
+      }
     },
     {
       "id": "mud",
       "name": "THE MUD",
       "rect": [
-        0,
-        528,
-        1920,
-        336
+        60,
+        626,
+        3600,
+        232
       ],
       "colour": 8,
+      "defaultVerb": "WALK_TO",
       "responses": {
         "LOOK_AT": [
           {
@@ -529,8 +339,43 @@
       "overrides": {
         "PICK_UP": "I have picked up some mud. I am now a man holding mud, in a street, in daylight.",
         "USE": "On what."
+      }
+    },
+    {
+      "id": "false_fronts",
+      "name": "THE FALSE FRONTS",
+      "rect": [
+        60,
+        175,
+        3040,
+        290
+      ],
+      "colour": 88,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Every building on this street is two storeys tall in front and one storey deep. Consolation is a stage set that people have moved into.",
+            "repeat": [
+              "Still two storeys of nothing. I keep hoping the back will have arrived.",
+              "I have counted. Six fronts, six sheds, one town."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Wind. There is a great deal of nothing behind these.",
+            "repeat": [
+              "The same nothing. It is a very consistent nothing.",
+              "Nothing. I have stopped expecting otherwise and I am the better for it."
+            ]
+          }
+        ]
       },
-      "defaultVerb": "WALK_TO"
+      "overrides": {
+        "PUSH": "I have pushed the front of a building. It did not fall over, which is more than I expected.",
+        "PULL": "If I pull hard enough the entire town comes down, and I have not settled how I feel about that."
+      }
     }
   ],
   "exits": [
@@ -538,10 +383,10 @@
       "id": "to_nugget",
       "name": "THE NUGGET'S DOORS",
       "rect": [
-        726,
-        270,
-        120,
-        192
+        2268,
+        392,
+        98,
+        134
       ],
       "colour": 40,
       "to": "nugget",
@@ -570,21 +415,16 @@
         "TALK_TO": "I would have to go in. Going in costs money.",
         "PULL": "They swing outward, inward, and for some time afterwards."
       },
-      "defaultVerb": "OPEN",
-      "walkTo": {
-        "x": 786,
-        "y": 516,
-        "facing": "back"
-      }
+      "defaultVerb": "OPEN"
     },
     {
       "id": "to_company",
       "name": "THE IMPROVEMENT COMPANY",
       "rect": [
-        1092,
-        258,
-        108,
-        204
+        652,
+        402,
+        74,
+        124
       ],
       "colour": 200,
       "to": "stub_company",
@@ -613,21 +453,16 @@
         "TALK_TO": "I have spoken to the man behind that door. I came away with a map and I am no longer certain what I gave him.",
         "CLOSE": "It closes on its own, slowly, and without a sound. Somebody paid for that too."
       },
-      "defaultVerb": "OPEN",
-      "walkTo": {
-        "x": 1146,
-        "y": 516,
-        "facing": "back"
-      }
+      "defaultVerb": "OPEN"
     },
     {
       "id": "to_clarion",
       "name": "THE CLARION OFFICE",
       "rect": [
-        486,
-        246,
-        84,
-        216
+        1068,
+        412,
+        58,
+        110
       ],
       "colour": 30,
       "to": "stub_clarion",
@@ -655,21 +490,16 @@
         "TALK_TO": "If I say anything within forty feet of that door it will be in print by four o'clock.",
         "CLOSE": "He would only open it again, and then write about it."
       },
-      "defaultVerb": "OPEN",
-      "walkTo": {
-        "x": 528,
-        "y": 516,
-        "facing": "back"
-      }
+      "defaultVerb": "OPEN"
     },
     {
       "id": "to_claims_road",
       "name": "THE ROAD TO THE CLAIMS",
       "rect": [
-        1800,
-        600,
-        120,
-        264
+        3290,
+        372,
+        320,
+        190
       ],
       "colour": 12,
       "to": "stub_claims_road",
@@ -699,22 +529,17 @@
         "TALK_TO": "There is nobody on it.",
         "CLOSE": "I have considered it. Several of us have."
       },
-      "defaultVerb": "WALK_TO",
-      "walkTo": {
-        "x": 1836,
-        "y": 780,
-        "facing": "right"
-      }
+      "defaultVerb": "WALK_TO"
     },
     {
       "id": "to_assay_office",
       "name": "THE ASSAY OFFICE",
       "note": "Doc 20's graph: the sixth enterable facade. Room 5 was composed, wired with sixteen lines and audited three times while nothing on Main Street opened onto it. Marked stub because doc 05's Room 2 does not script this door and its examine lines are not written; inventing them would be worse than the honest gap. The rect is the door and its step. The lot was drawn BOARDED with tools leaning across it, which is ruling 19b in the other direction -- art asserting a building this exit contradicts -- and it now has a door, clean glass and a worn step, and nothing else. It is still the plainest front on the street.",
       "rect": [
-        1752,
-        324,
-        120,
-        168
+        3082,
+        428,
+        62,
+        102
       ],
       "colour": 26,
       "to": "assay_office",
@@ -740,11 +565,6 @@
       },
       "fallback": [],
       "defaultVerb": "OPEN",
-      "walkTo": {
-        "x": 1812,
-        "y": 516,
-        "facing": "back"
-      },
       "state": "shut",
       "stateOnTransit": "open",
       "states": {
@@ -772,10 +592,10 @@
       "id": "to_hotel",
       "name": "THE HOTEL",
       "rect": [
-        1308,
-        312,
-        336,
-        300
+        2676,
+        422,
+        62,
+        104
       ],
       "colour": 96,
       "to": "hotel_lobby",
@@ -996,5 +816,64 @@
     "set": {
       "T_SEEN_MAIN_STREET": true
     }
-  }
+  },
+  "size": [
+    3700,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "docs/05-examine-layer.md",
+      "docs/13-room-02-content.md",
+      "reference/room-02/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      60,
+      622
+    ],
+    [
+      900,
+      614
+    ],
+    [
+      1750,
+      610
+    ],
+    [
+      2100,
+      600
+    ],
+    [
+      2600,
+      596
+    ],
+    [
+      3050,
+      606
+    ],
+    [
+      3330,
+      584
+    ],
+    [
+      3690,
+      612
+    ],
+    [
+      3690,
+      858
+    ],
+    [
+      60,
+      858
+    ]
+  ],
+  "entrance": [
+    3477,
+    603
+  ]
 }

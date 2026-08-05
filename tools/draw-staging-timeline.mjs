@@ -195,7 +195,17 @@ function drawTimeline(sequence) {
                           // where the destination lives -- the step deliberately
                           // does not repeat it.
                           : s.do === 'travel' ? `travel via ${s.through}`
-                            : `UNDRAWN: ${s.do}`;
+                            // The thirteenth. Named with WHICHEVER FORM IT
+                            // TOOK, because a beat that pins the view and a
+                            // beat that hands it back are opposite acts, and a
+                            // bare "camera" would draw them identically -- a
+                            // hand-back that never happened being exactly the
+                            // fault this picture would be read to find.
+                            : s.do === 'camera'
+                              ? `camera ${[s.to !== undefined ? `to ${s.to}` : null,
+                                s.follow ? `follow ${s.follow}` : null]
+                                .filter(Boolean).join(' · ')}`
+                              : `UNDRAWN: ${s.do}`;
         parts.push(`<circle cx="${x + 14}" cy="${y}" r="7" fill="${places && k === 0 ? colour : '#14141c'}"`
           + ` stroke="${colour}" stroke-width="3"/>`);
         parts.push(`<text x="${x + 28}" y="${y + 6 + k * 20 - (here.length - 1) * 10}" fill="${colour}"`

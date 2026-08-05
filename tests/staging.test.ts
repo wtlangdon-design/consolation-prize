@@ -190,6 +190,7 @@ function recordingHost(said: string[]): SequenceHost {
     setState: () => {},
     followPath: () => 0,
     travel: () => {},
+    camera: () => {},
   };
 }
 

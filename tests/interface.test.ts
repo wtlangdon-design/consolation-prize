@@ -1041,6 +1041,7 @@ test('errata 30a: a trailing wait takes its stated time', () => {
     setState: () => {},
     followPath: () => 0,
     travel: () => {},
+    camera: () => {},
   };
 
   // The shape that failed: the LAST step is a wait. It was consumed, the
@@ -1156,4 +1157,126 @@ test('two rooms may share an exit id without sharing its repeat cursor', async (
   for (const line of registrar) {
     assert.ok(!assay.includes(line), 'and neither says the other room’s line');
   }
+});
+
+test('a room that fits the window has exactly one legal camera position', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+
+  // ROOM 1 MUST NOT MOVE BY A PIXEL. It declares no `size`, so its width is
+  // the window's, the scrollable span is zero, and the clamp pins the view at
+  // zero for every position an actor can be in. That is not a special case in
+  // the code and this is not a special case in the test: it is the same
+  // arithmetic, asked at both ends and past both ends.
+  state.enterRoom('stage_road');
+  assert.equal(state.roomWidth, NATIVE_WIDTH);
+  for (const x of [0, 1, 960, NATIVE_WIDTH - 1, NATIVE_WIDTH, NATIVE_WIDTH * 2, -500]) {
+    state.rememberStanding(x, 700);
+    state.followCamera(content.actor.id, x);
+    assert.equal(state.cameraX, 0, `a room that fits does not scroll at x${x}`);
+    assert.equal(state.toWorld(x), x, 'and screen space is world space in it');
+  }
+});
+
+test('the view follows a walker across a wide room, and holds inside the dead zone', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  const who = content.actor.id;
+
+  // Main Street is the room this exists for. Its plate is wider than the
+  // window, so it declares a size and the view has somewhere to go.
+  state.enterRoom('main_street');
+  assert.ok(state.roomWidth > NATIVE_WIDTH, 'main street is wider than the window');
+  const span = state.roomWidth - NATIVE_WIDTH;
+
+  // Pinned at the left edge, he crosses the middle third without moving the
+  // view. The dead zone is the whole reason the plate does not shimmer under a
+  // walk cycle, so "it did not move" is the assertion, not a tolerance.
+  state.moveCamera(0, who);
+  const inside = NATIVE_WIDTH / 2;
+  state.followCamera(who, inside);
+  assert.equal(state.cameraX, 0, 'the middle third moves nothing');
+
+  // Past the right of the zone it takes up exactly the slack -- it does not
+  // centre him, because centring after a dead zone lurches the moment he
+  // crosses the line.
+  const right = (NATIVE_WIDTH * 2) / 3;
+  state.followCamera(who, right + 100);
+  assert.equal(state.cameraX, 100, 'and outside it, exactly the overshoot');
+
+  // Walking to the far end pins it at the room's edge and no further: the
+  // clamp is what stops the plate running out and showing the page behind it.
+  state.followCamera(who, state.roomWidth);
+  assert.equal(state.cameraX, span, 'and it stops at the end of the room');
+  state.followCamera(who, state.roomWidth * 2);
+  assert.equal(state.cameraX, span, 'however far past the end he is asked to be');
+});
+
+test('a hotspot is clickable exactly where it is drawn', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  state.enterRoom('main_street');
+
+  // THE FAILURE THIS EXISTS FOR does not look like a camera bug. Every world
+  // drawing is shifted by -cameraX in one place; the hit test has to shift
+  // back by +cameraX, and where it does not, the names in the sentence line
+  // drift sideways from the things they name and the report that comes back
+  // is "the hotspot rects are wrong".
+  //
+  // So this asks the question the player asks: he can see a thing at a place
+  // on the glass -- does clicking there get him that thing?
+  const drawn = (worldX: number) => worldX - state.cameraX;
+  const targets = state.targets.filter((target) => target.rect[2] > 0);
+  assert.ok(targets.length > 5, 'main street has hotspots to click');
+
+  for (const camera of [0, 400, 1780, state.roomWidth]) {
+    state.moveCamera(camera, undefined);
+    for (const target of targets) {
+      const [x, y, w, h] = target.rect;
+      const centre: [number, number] = [x + Math.floor(w / 2), y + Math.floor(h / 2)];
+      const screenX = drawn(centre[0]);
+      // Only the ones actually on screen: a hotspot scrolled off the side is
+      // not clickable and should not be, which is the point of a camera.
+      if (screenX < 0 || screenX >= NATIVE_WIDTH) continue;
+      assert.equal(
+        state.targetAt(state.toWorld(screenX), centre[1])?.id,
+        state.targetAt(...centre)?.id,
+        `${target.id} at camera ${state.cameraX}: clicking where it is drawn must find `
+        + 'whatever a click in world space finds',
+      );
+    }
+  }
+});
+
+test('a beat may take the view and must hand it back, and a door always does', async () => {
+  const content = await loadContent(fsReader);
+  const state = new GameState(content, new MemoryStorage());
+  const who = content.actor.id;
+  state.enterRoom('main_street');
+
+  // `to` pins it. The follow stops, so walking no longer moves it -- which is
+  // the whole of what a cutscene wants when it looks at something.
+  state.moveCamera(600, undefined);
+  assert.equal(state.cameraFollowing, null);
+  const pinned = state.cameraX;
+  state.followCamera(who, 3000);
+  assert.equal(state.cameraX, pinned, 'a pinned view does not follow a walker');
+
+  // `follow` gives it back by name, and an id that is not the followed one is
+  // ignored rather than quietly accepted -- issue X4's defect was exactly an
+  // actor id arriving on every call and being thrown away.
+  state.moveCamera(undefined, who);
+  state.followCamera('somebody_else', 0);
+  assert.equal(state.cameraX, pinned, 'and it does not follow whoever asks');
+  state.followCamera(who, 3000);
+  assert.notEqual(state.cameraX, pinned, 'but it does follow the one it was given to');
+
+  // AND A DOOR ALWAYS HANDS IT BACK. A beat that pins the view and forgets can
+  // hold its own room still, which is visible and recoverable; carrying that
+  // across a room change would be a save-game state that looks like a dead
+  // engine.
+  state.moveCamera(600, undefined);
+  state.enterRoom('stage_road');
+  state.enterRoom('main_street');
+  assert.equal(state.cameraFollowing, who, 'every entry restores the follow');
 });

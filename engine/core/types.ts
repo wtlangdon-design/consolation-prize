@@ -685,6 +685,18 @@ export interface MapLocation {
 }
 
 export interface RoomFile {
+  /**
+   * The room's whole size in play-area pixels. Absent means the window's, and
+   * a room without it behaves exactly as it did before this field existed.
+   *
+   * MAIN STREET IS 3700 WIDE. The engine asserted a 1920x864 play area
+   * everywhere -- validators, hit-testing, the renderer's plate -- so a room
+   * bigger than the window could not be expressed, let alone drawn. This is
+   * what the camera scrolls across, and what the rect checks measure against
+   * instead of the constant: a rect outside the ROOM is still a failure, and
+   * still a loud one.
+   */
+  size?: [number, number];
   schema: number;
   id: string;
   name: string;
@@ -1343,6 +1355,34 @@ export type SequenceStagingStep =
    * destination repeated in the staging is a second copy that can disagree.
    */
   | { do: 'travel'; through: string }
+  /**
+   * Where the view looks, in a room wider than the window.
+   *
+   * ERRATA 27c STRUCK THIS STEP, AND ERRATA 58 UNSTRUCK ITS SUBJECT. The
+   * strike's whole reason was "this game has no camera -- rooms are fixed
+   * single-screen views at 320x144", and both halves of that are now false:
+   * the frame is 1920x864 and Main Street is authored 3700 wide with the view
+   * following. Doc 34's audit says the same thing conditionally -- "dormant
+   * schema until a specifically approved wider-than-viewport room exists" --
+   * and that room exists and is signed off.
+   *
+   * TWO FORMS AND NO THIRD. `to` looks at a world x and holds there; `follow`
+   * gives the view back to a named mover. There is no pan, no tween and no
+   * duration: a moving camera that is not following somebody is a camera move,
+   * which is direction this game has never asked for, and doc 31 forbids the
+   * one use it would otherwise find -- "future relevance never creates a
+   * glint, bob, outline, special animation, cursor, sound sting, or camera
+   * emphasis."
+   *
+   * LEGAL IN ANY BEAT, unlike `wait`, `move` and `setState`. Those three are
+   * fenced to `control: none` because in ordinary play the verb owns the
+   * change. Nothing about where the view is belongs to a verb, and a beat that
+   * plays alongside the player -- beat 9's carrier, say -- may legitimately
+   * want it somewhere. It cannot strand him either: `follow` is restored on
+   * every room entry, so the worst a missing hand-back can do is hold the view
+   * still until he leaves the room.
+   */
+  | { do: 'camera'; to?: number; follow?: string }
   /**
    * A verb applied to a target, from a beat. NOT A NEW STEP KIND.
    *

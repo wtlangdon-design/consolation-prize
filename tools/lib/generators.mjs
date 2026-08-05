@@ -40,11 +40,13 @@ export const GENERATORS = [
   },
   {
     id: 'compile-room-2',
-    command: ['node', 'tools/compile-room.mjs', '2'],
-    outputs: [],
-    coveredBy: 'Dry-run only until camera-follow lands: Room 2\u2019s plate is 3700 wide and '
-      + 'the engine asserts a 1920x864 play area, so the compiled room cannot be emitted '
-      + 'without weakening that assertion to let unplayable content through.',
+    command: ['node', 'tools/compile-room.mjs', '2', '--write'],
+    outputs: ['content/rooms/main-street.json'],
+    // CAMERA-FOLLOW LANDED, so the reason this was dry-run only is gone. The
+    // engine no longer asserts a 1920x864 room anywhere: the room declares its
+    // own `size`, the renderer draws the plate at it, the hit test converts
+    // into it and three validators measure rects against it. Room 2 is 3700
+    // wide and legal.
     why: 'Doc 46\u2019s room compiler. Room 2\u2019s hotspots, their LOOK/LISTEN lines, their '
       + 'verb overrides and repeat variants, and every rect and the walk box, come from '
       + 'docs 05 and 13 and reference/room-02/annotation.json. Editing the room file '

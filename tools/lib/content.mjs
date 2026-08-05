@@ -35,15 +35,40 @@ export function loadContent() {
   };
 }
 
+/**
+ * The window, in play-area pixels. Errata 54.
+ *
+ * IT IS NOT THE SIZE OF A ROOM, and three checks used to assume it was. Main
+ * Street is 3700 across with the view following, so a rect at x2900 is
+ * perfectly legal there and left the "play area" by 980 pixels according to
+ * every one of them. The constant still means something -- it is the default a
+ * room that declares no size falls back to -- but the question "is this rect
+ * inside the room" has to be asked of the ROOM.
+ */
+export const PLAY_WIDTH = 1920;
+export const PLAY_HEIGHT = 864;
+
+/**
+ * A room's whole width. Absent `size` means the window's.
+ *
+ * Deliberately the same fallback as `engine/core/Camera.ts`'s `roomWidth`, and
+ * deliberately the only copy on this side of the fence: three validators each
+ * carrying their own 1920 is three places to forget when a second wide room
+ * arrives (R5k).
+ */
+export function roomWidth(room) {
+  return room?.size?.[0] ?? PLAY_WIDTH;
+}
+
 /** Every hotspot and exit across every room, tagged with its room. */
 export function allInteractables(content) {
   const out = [];
   for (const { path, data } of content.rooms) {
     for (const hotspot of data.hotspots ?? []) {
-      out.push({ path, roomId: data.id, kind: 'hotspot', target: hotspot });
+      out.push({ path, roomId: data.id, kind: 'hotspot', room: data, target: hotspot });
     }
     for (const exit of data.exits ?? []) {
-      out.push({ path, roomId: data.id, kind: 'exit', target: exit });
+      out.push({ path, roomId: data.id, kind: 'exit', room: data, target: exit });
     }
   }
   return out;

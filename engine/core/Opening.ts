@@ -234,6 +234,11 @@ function lower(staged: SequenceStagingStep, beat: SequenceBeat): SequenceStep[] 
       return [{ kind: 'path', actor: staged.actor, path: staged.path }];
     case 'travel':
       return [{ kind: 'travel', through: staged.through }];
+    case 'camera':
+      // A cut, so nothing waits on it. Both fields pass through as authored:
+      // `to` and `follow` together are legal and mean "look here, then track
+      // him from there", which is the only sensible reading of both.
+      return [{ kind: 'camera', to: staged.to, follow: staged.follow }];
     case 'say': {
       const spoken = placedLine(beat, staged.line);
       return [{ kind: 'say', actor: spoken.speaker, line: spoken.line }];

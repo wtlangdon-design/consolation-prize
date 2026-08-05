@@ -20,15 +20,32 @@
  * 3. THE OUTPUT SAYS IT IS GENERATED, so nobody edits it and loses the edit on
  *    the next run.
  *
- * Usage: node tools/compile-room.mjs <room number> [--write]
+ * Usage: node tools/compile-room.mjs <room number> [--write|--check]
  * Without --write it prints a reconciliation against the live file and touches
- * nothing, which is how it was built and how it should be run first.
+ * nothing, which is how it was built and how it should be run first. --check
+ * is the registered-generator mode: build, compare, print `stale: <path>` and
+ * exit non-zero, never write.
+ *
+ * IT IS NOT THE ONLY WRITER OF ITS OUTPUT. `extract-content.mjs` carries doc
+ * 14's assay-office exit into the same room file, and the two compose because
+ * each preserves what it does not own -- and because they serialise the same
+ * way, which is a fact this file has to keep true rather than one it can
+ * assume. See the write at the bottom.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { roomWidth } from './lib/content.mjs';
 
 const room = process.argv[2];
-const WRITE = process.argv.includes('--write');
-if (!room) { console.error('usage: compile-room.mjs <room number> [--write]'); process.exit(2); }
+// --check OUTRANKS --write, so the registered command can carry both. It is
+// how `check-generated` runs every generator: it appends --check to whatever
+// the registration says, and a tool that wrote anyway would make a validation
+// pass unsafe to run on a dirty branch.
+const CHECKING = process.argv.includes('--check');
+const WRITE = process.argv.includes('--write') && !CHECKING;
+if (!room) {
+  console.error('usage: compile-room.mjs <room number> [--write|--check]');
+  process.exit(2);
+}
 
 const read = (p) => (existsSync(p) ? readFileSync(p, 'utf8') : '');
 const fail = (msg) => { console.error(`\ncompile-room ${room}: ${msg}\n`); process.exit(1); };
@@ -87,7 +104,28 @@ function verbOverrides(text) {
   return out;
 }
 
-/** Doc 13 Part Three: `**LOOK** — 1 ... · 2 "x" · 3 "y"`. */
+/**
+ * Doc 13 Part Three: `**LOOK** — 1 ... · 2 "x" · 3 "y"`.
+ *
+ * VARIANT 1 IS THE FIRST LOOK, NOT A REPEAT, and it is numbered alongside the
+ * repeats because a reader counting clicks does not care where the engine
+ * keeps them. Doc 13 writes it two ways: `1 *(existing)*` when doc 05 already
+ * has it, and spelled out when doc 13 is REPLACING it -- which THE MUD says in
+ * as many words, "Reordered — supersedes doc 05's Room 2 mud entry", because
+ * doc 05's Room 2 mud opens "The same mud" and Main Street may now be the
+ * first mud a player sees.
+ *
+ * READING ALL THREE AS REPEATS PUT THE SECOND CLICK'S LINE ON THE FIRST. The
+ * old parser took every quoted string in the row and left the base line as doc
+ * 05's, so THE MUD answered a first look with "The same mud. I have begun to
+ * recognise individual portions of it." -- about mud he had not yet seen --
+ * and the joke, which is that the second look is wearier than the first,
+ * played backwards. No line was missing. Every one was present, in the wrong
+ * order, which is the failure this project keeps saying is the expensive one.
+ *
+ * Returns `{ first, rest }` per verb: `first` is variant 1's text when it was
+ * spelled out and null when it was `*(existing)*`, `rest` is variants 2..N.
+ */
 function repeatVariants(text) {
   const out = new Map();
   const part = text.slice(text.indexOf('# PART THREE'));
@@ -97,10 +135,16 @@ function repeatVariants(text) {
     if (head) { current = head[1].trim(); continue; }
     const row = /^\*\*(LOOK|LISTEN)\*\*\s*—\s*(.+)$/.exec(line);
     if (!row || !current) continue;
-    const says = [...row[2].matchAll(/"([^"]+)"/g)].map((m) => m[1]);
-    if (!says.length) continue;
+    // Numbered, so variant 1 is identifiable whichever form it took. Splitting
+    // on the separator would break on a line containing one.
+    const numbered = [...row[2].matchAll(/(\d+)\s*(?:"([^"]*)"|\*\(existing\)\*)/g)]
+      .map((m) => ({ n: Number(m[1]), say: m[2] ?? null }));
+    if (!numbered.length) continue;
     if (!out.has(current)) out.set(current, {});
-    out.get(current)[VERBS[row[1]]] = says;
+    out.get(current)[VERBS[row[1]]] = {
+      first: numbered.find((v) => v.n === 1)?.say ?? null,
+      rest: numbered.filter((v) => v.n > 1).map((v) => v.say).filter((say) => say !== null),
+    };
   }
   return out;
 }
@@ -166,6 +210,11 @@ if (strayNames.length) {
 // ---- build -----------------------------------------------------------------
 
 const built = { ...live };
+// THE ROOM IS AS BIG AS ITS PLATE, and it is the annotation that knows how big
+// that is -- every rect below was drawn in the same coordinates. A room that
+// declared no size was assumed to be the window's 1920, which for Main Street
+// is not a smaller room but the same room squashed into half its width.
+if (Array.isArray(ann.plateSize)) built.size = ann.plateSize;
 built.generated = {
   by: 'tools/compile-room.mjs',
   from: ['docs/05-examine-layer.md', ROOM_DOC ?? 'docs/49-wrong-answers.md', annPath],
@@ -191,6 +240,44 @@ built.generated = {
 }
 built.entrance = ann.entrance;
 
+// ---- geometry the live file was carrying for a DIFFERENT ROOM ---------------
+//
+// EVERY COORDINATE IN THE OLD FILE WAS DRAWN AGAINST A 1920-WIDE MAIN STREET,
+// and the plate is 3700. `outside_nugget` sits at x786; the Nugget's door is at
+// x2268. That is not a mark six pixels out of place, it is a mark in front of a
+// different building -- and four of the six per-door arrivals were the same.
+//
+// THE ONES THAT SURVIVE A FLOOR TEST ARE THE DANGEROUS ONES. Five of these
+// stand on the new walk box by y and would have shipped: `street_east` at
+// x1836 is the middle of a 3700 street, and its own name says where it is
+// supposed to be. A validator that only asks "is it on the floor" cannot see
+// that, which is why the rule here is about PROVENANCE and not position.
+//
+// So the compiler carries none of it, and names all of it. Refusing to carry
+// geometry it cannot source is the same rule as refusing a hotspot the
+// annotation has no rect for -- the alternative is a room that looks composed
+// and puts the player in front of the wrong door.
+//
+// WHERE THEY COME BACK FROM: the annotator, into the annotation, as
+// `staging` and `entrances`. Read here the moment they exist.
+const staleGeometry = [];
+/** Every `walkTo` dropped for the same reason, collected as the hotspots build. */
+const staleWalkTo = [];
+if (ann.staging) {
+  built.staging = ann.staging;
+} else if ((live.staging ?? []).length) {
+  staleGeometry.push(`  ${live.staging.length} staging mark(s): `
+    + live.staging.map((m) => `${m.id}@${m.at.join(',')}`).join(', '));
+  delete built.staging;
+}
+if (ann.entrances) {
+  built.entrances = ann.entrances;
+} else if ((live.entrances ?? []).length) {
+  staleGeometry.push(`  ${live.entrances.length} per-source arrival(s): `
+    + live.entrances.map((e) => `from ${e.from}@${e.at.join(',')}`).join(', '));
+  delete built.entrances;
+}
+
 built.hotspots = [...byId.entries()].map(([id, entry]) => {
   const responses = {};
   for (const [verb, lines] of Object.entries(entry.responses)) {
@@ -199,13 +286,60 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     // variant unreachable -- the engine takes the first match, so a second
     // rule with no `when` is dead content the validator names on sight.
     const variants = repeats.get(entry.docName)?.[verb];
-    responses[verb] = variants ? [{ ...lines[0], repeat: variants }] : lines;
+    // A SPELLED-OUT VARIANT 1 REPLACES DOC 05'S LINE, and doc 05's must then
+    // still be reachable. Superseding is what doc 13 says it is doing; DROPPING
+    // is what it would be doing if the line it replaced appeared nowhere in the
+    // chain, and that is a line the writing pass would never see gone -- the
+    // hotspot still answers, in one fewer voice.
+    const chain = variants ? [variants.first, ...variants.rest].filter(Boolean) : [];
+    if (variants?.first && !chain.includes(lines[0].say)) {
+      fail(`"${entry.docName}" ${verb}: ${ROOM_DOC ?? 'doc 49'} replaces variant 1 and doc 05's `
+        + 'line survives nowhere in the chain.\n'
+        + `  doc 05: ${lines[0].say}\n`
+        + `  ${ROOM_DOC ?? 'doc 49'}: ${chain.map((s, i) => `${i + 1} ${s}`).join('\n              ')}\n`
+        + '  Carry it as a later variant, or strike it from doc 05.');
+    }
+    // Variant 1 is the base; everything after it repeats. `lines[0]` keeps any
+    // fields doc 05 put on the response beyond the words themselves.
+    const base = variants?.first ? { ...lines[0], say: variants.first } : lines[0];
+    responses[verb] = variants?.rest.length ? [{ ...base, repeat: variants.rest }] : [base];
   }
-  for (const [verb, say] of Object.entries(overrides.get(entry.docName) ?? {})) {
-    if (!responses[verb]) responses[verb] = [{ say }];
-  }
+  // DOC 13'S VERB ROWS ARE `overrides`, AND THEY ARE NOT `responses`. Doc 13
+  // note 4 draws the line itself: "Global pools rotate; object overrides do
+  // not. An override fires every time for that verb-object pair." A response
+  // goes through `nextLine`, which advances through repeat variants and then
+  // holds; an override is one line, forever, and `resolveWith` deliberately
+  // never falls back to it for a USE-with-item.
+  //
+  // WRITING THEM AS RESPONSES LOST BOTH HALVES AT ONCE. USE THE MUD became a
+  // rotating response, and `overrides` vanished from the file entirely -- so
+  // doc 24's rule that "On what." is not the answer to USE THE TUNING FORK ON
+  // THE MUD had nothing left to be true of. One field name, two mechanisms.
+  const objectOverrides = { ...(overrides.get(entry.docName) ?? {}) };
   const old = (live.hotspots ?? []).find((h) => h.id === id);
-  return { id, name: entry.docName, rect: ann.hotspots[id], ...(old?.colour ? { colour: old.colour } : {}), responses };
+  // THE DEFAULT VERB CARRIES OVER, FOR THE SAME REASON THE ID DOES. It is not
+  // in doc 05 and it is not in the annotation -- errata 28b makes it the verb
+  // a bare click resolves to, and a person chose it per hotspot: THE MUD is
+  // WALK_TO so clicking the road walks, everything else is LOOK_AT. Dropped,
+  // every hotspot in the room falls back to the global default and the street
+  // stops being walkable by clicking it, which is not a line of dialogue
+  // changing and so nothing about the writing pass would have caught it.
+  // `walkTo` DOES NOT CARRY OVER. See the stale-geometry block above: it is a
+  // coordinate, drawn against the old width, and doc 22's staged chain prefers
+  // an authored one over the fallback -- so a wrong one is used in preference
+  // to the right answer. Without it the object answers where the player
+  // stands, which is the documented fallback and is never in front of the
+  // wrong building.
+  if (old?.walkTo) staleWalkTo.push(`${id}@${old.walkTo.x},${old.walkTo.y}`);
+  return {
+    id,
+    name: entry.docName,
+    rect: ann.hotspots[id],
+    ...(old?.colour ? { colour: old.colour } : {}),
+    ...(old?.defaultVerb ? { defaultVerb: old.defaultVerb } : {}),
+    responses,
+    ...(Object.keys(objectOverrides).length ? { overrides: objectOverrides } : {}),
+  };
 });
 
 // SMALLEST RECT FIRST, because resolution takes the first hit and the writing
@@ -216,24 +350,76 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
 // hotspot inside a large one ever be reached.
 built.hotspots.sort((a, b) => (a.rect[2] * a.rect[3]) - (b.rect[2] * b.rect[3]));
 
-built.exits = (live.exits ?? []).map((e) => ({ ...e, ...(ann.exits[e.id] ? { rect: ann.exits[e.id] } : {}) }));
+built.exits = (live.exits ?? []).map((e) => {
+  const { walkTo, ...rest } = e;
+  if (walkTo) staleWalkTo.push(`${e.id}@${walkTo.x},${walkTo.y}`);
+  return { ...rest, ...(ann.exits[e.id] ? { rect: ann.exits[e.id] } : {}) };
+});
 const exitsMissing = built.exits.filter((e) => !ann.exits[e.id]).map((e) => e.id);
 if (exitsMissing.length) fail(`no rect for exit(s): ${exitsMissing.join(', ')}.`);
+if (staleWalkTo.length) {
+  staleGeometry.push(`  ${staleWalkTo.length} staged approach point(s): ${staleWalkTo.join(', ')}`);
+}
 
 // ---- report ----------------------------------------------------------------
-const counts = built.hotspots.map((h) => `${h.id}:${Object.keys(h.responses).length}`);
+// COUNT THE OVERRIDES TOO, or the tally silently halves the moment they move
+// into their own field -- which is exactly what happened, and 38 became 18
+// with no line lost. A number that only counts one of two places words live is
+// a number that reports a correct build as a regression and a real loss as
+// nothing at all.
+const verbsOn = (h) => Object.keys(h.responses).length + Object.keys(h.overrides ?? {}).length;
+const counts = built.hotspots.map((h) => `${h.id}:${verbsOn(h)}`);
 console.log(`\nROOM ${room} compiled from the documents\n`);
 console.log(`  ${built.hotspots.length} hotspots, verbs each: ${counts.join('  ')}`);
 console.log(`  ${built.exits.length} exits, all with rects`);
 console.log(`  walk box ${ann.walkable.length} points · depth ${ann.scaling.far.height}`
   + `→${ann.scaling.near.height}px · arrival ${ann.entrance.join(',')}`);
-const totalLines = built.hotspots.reduce((n, h) =>
-  n + Object.values(h.responses).reduce((m, r) => m + r.length, 0), 0);
+// AND COUNT THE REPEATS, which are a FIELD ON a rule and not rules of their
+// own. `Object.values(responses)` yields rule ARRAYS, so reading `.repeat` off
+// one is reading it off an array: undefined, every time, silently. Half the
+// words in the room -- 36 of 74 -- were invisible to the tally that exists to
+// notice words going missing.
+let totalLines = 0;
+for (const h of built.hotspots) {
+  for (const rules of Object.values(h.responses)) {
+    for (const rule of rules) totalLines += 1 + (rule.repeat?.length ?? 0);
+  }
+  totalLines += Object.keys(h.overrides ?? {}).length;
+}
 console.log(`  ${totalLines} authored lines carried\n`);
 
-if (WRITE) {
-  writeFileSync('content/rooms/main-street.json', `${JSON.stringify(built, null, 1)}\n`);
-  console.log('  written to content/rooms/main-street.json\n');
+// SAID EVERY RUN, NOT ONCE. A drop reported at the moment it happened and
+// never again is a drop nobody remembers by the time it matters, and this one
+// costs the player the ability to come out of a door in the right place.
+if (staleGeometry.length) {
+  console.log(`  DROPPED — drawn against a ${roomWidth(live)}-wide Main Street, and the plate `
+    + `is ${ann.plateSize?.[0]}:\n`);
+  for (const line of staleGeometry) console.log(line);
+  console.log('\n  Every one of these is a point on the OLD street. Some of them still land on'
+    + '\n  the new walk box, which makes them worse rather than better: street_east at x1836'
+    + '\n  is the middle of a 3700 street and no floor test can say so.'
+    + '\n\n  Re-draw them in tools/annotate/room.html as `staging` and `entrances`, and this'
+    + '\n  reads them instead. Until then the room has one arrival -- the annotation\'s --'
+    + '\n  and objects are approached from wherever the player is standing.\n');
+}
+
+// TWO SPACES, BECAUSE THIS FILE HAS A SECOND WRITER. `extract-content.mjs`
+// carries doc 14's assay-office exit into the same room file and serialises at
+// two, so a compiler emitting one would leave the two generators permanently
+// disagreeing about a file neither had anything wrong with -- each rewriting
+// the other's whitespace, and `check-generated` calling both stale forever.
+const OUT = 'content/rooms/main-street.json';
+const wanted = `${JSON.stringify(built, null, 2)}\n`;
+
+if (CHECKING) {
+  if (read(OUT) !== wanted) {
+    console.log(`stale: ${OUT}`);
+    process.exit(1);
+  }
+  console.log(`  ${OUT} is current\n`);
+} else if (WRITE) {
+  writeFileSync(OUT, wanted);
+  console.log(`  written to ${OUT}\n`);
 } else {
   console.log('  (dry run — pass --write to emit)\n');
 }

@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { loadContent, Report } from './lib/content.mjs';
+import { loadContent, Report, roomWidth } from './lib/content.mjs';
 
 /**
  * EVERY MOVER IS PLACED BEFORE IT IS USED.
@@ -38,8 +38,22 @@ import { loadContent, Report } from './lib/content.mjs';
  */
 
 /** Steps that need a mover to already exist. */
-/** The play area, and how far past its edge still counts as "in frame". */
-const PLAY_WIDTH = 1920;
+/**
+ * How far past a ROOM's edge still counts as "in frame".
+ *
+ * THE BOUND IS THE ROOM'S, NOT THE WINDOW'S, and that is a change. Main
+ * Street is 3700 across with the view following, so a mover sent to x2900 has
+ * gone nowhere -- he is in the middle of the street. Measured against the
+ * window he had left it by 980, and this check would have reported a
+ * departure that does not happen.
+ *
+ * WHICH ROOM A SEQUENCE PLAYS IN IS NOT IN THE SEQUENCE FILE. It is derived
+ * the way the engine derives it: the game's `startRoom`, then whatever a
+ * `travel` step's exit leads to. Exact for the opening, which is every
+ * sequence there is; a sequence that begins somewhere else would need to say
+ * so, and this notes the room it assumed so the assumption is visible rather
+ * than buried.
+ */
 const PLAY_MARGIN = 200;
 /** How close in x two movers must be for a shared feet Y to actually overlap. */
 const TIE_SPAN = 700;
@@ -52,6 +66,8 @@ export function check() {
   const player = content.actor?.id;
 
   let sequences = 0;
+  /** Which room each sequence was measured against, so the note can say. */
+  const rooms = [];
   let placements = 0;
   let uses = 0;
   let chores = 0;
@@ -165,11 +181,25 @@ export function check() {
     // outside the play area and its placement is in the SAME beat, it was
     // placed at the moment it left -- so for every beat before that it stood
     // wherever it happened to be created.
+    // The room this sequence is standing in, beat by beat. It starts where the
+    // game starts and changes only where a beat says it does.
+    let room = content.rooms.find(({ data: r }) => r.id === content.manifest.startRoom)?.data;
+    rooms.push(`${path}: ${room?.id ?? '(unknown)'} @ ${roomWidth(room)}px`);
     for (const beat of data.beats ?? []) {
       for (const staged of beat.staging ?? []) {
+        if (staged.do === 'travel') {
+          const exit = (room?.exits ?? []).find((each) => each.id === staged.through);
+          const next = content.rooms.find(({ data: r }) => r.id === exit?.to)?.data;
+          if (next) {
+            room = next;
+            rooms.push(`${path}: ${room.id} @ ${roomWidth(room)}px after travel via ${staged.through}`);
+          }
+          continue;
+        }
         if (staged.do !== 'move' || !staged.to) continue;
         const [x] = staged.to;
-        const leaves = x < -PLAY_MARGIN || x > PLAY_WIDTH + PLAY_MARGIN;
+        const width = roomWidth(room);
+        const leaves = x < -PLAY_MARGIN || x > width + PLAY_MARGIN;
         if (leaves && staged.from) {
           report.fail(
             `${path} beat ${beat.beat}: ${staged.actor} is placed and sent off frame `
@@ -239,6 +269,7 @@ export function check() {
     }
   }
 
+  for (const line of rooms) report.note(line);
   report.note(
     `${sequences} sequence(s): ${placements} placement(s), ${uses} use(s) of a placed mover, `
     + `${chores} chore(s) checked against the clips their actor declares`,

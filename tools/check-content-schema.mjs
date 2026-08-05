@@ -1,7 +1,7 @@
-import { allDialogueOptions, allInteractables, loadContent, Report, runCheck } from './lib/content.mjs';
+import {
+  allDialogueOptions, allInteractables, loadContent, PLAY_HEIGHT, Report, roomWidth, runCheck,
+} from './lib/content.mjs';
 
-const PLAY_WIDTH = 1920;
-const PLAY_HEIGHT = 864;
 const EXPECTED_VERB_COUNT = 9;
 
 /**
@@ -111,13 +111,16 @@ export function check() {
   }
 
   // --- targets -----------------------------------------------------------
-  for (const { roomId, kind, target } of allInteractables(content)) {
+  for (const { roomId, kind, room, target } of allInteractables(content)) {
     const where = `${roomId}/${target.id}`;
+    // THE ROOM'S WIDTH, NOT THE WINDOW'S. A rect outside the ROOM is still a
+    // failure and still a loud one -- what changed is which number that is.
+    const width = roomWidth(room);
     const [x, y, w, h] = target.rect ?? [];
     if ([x, y, w, h].some((value) => typeof value !== 'number')) {
       report.fail(`${where}: rect must be four numbers`);
-    } else if (x < 0 || y < 0 || x + w > PLAY_WIDTH || y + h > PLAY_HEIGHT) {
-      report.fail(`${where}: rect leaves the ${PLAY_WIDTH}x${PLAY_HEIGHT} play area`);
+    } else if (x < 0 || y < 0 || x + w > width || y + h > PLAY_HEIGHT) {
+      report.fail(`${where}: rect leaves the ${width}x${PLAY_HEIGHT} room`);
     }
 
     if (kind === 'exit' && !roomIds.has(target.to)) {
