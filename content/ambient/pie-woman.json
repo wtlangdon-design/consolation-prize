@@ -21,7 +21,7 @@
   "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
  },
  "sprite": {
-  "note": "Frames 0-1 are the idle: the pose and a one-pixel breath. Frames 2-4 are the three poses from her character sheet. `breaks` are SEPARATE actions, each leaving the idle and returning to it, chosen from a pool -- she resettles the basket, OR looks down the street, OR calls out, and not all three in order every time. Break 2 SPEAKS: it is the calling-out pose, and a mouth open in silence reads as a fault rather than as a pie seller. She says whatever her reputation table says today -- \"Pie.\" at worst, \"Pie. Half price for the newly poor.\" after the swindle, and \"Thought you\u2019d passed.\" once the town has buried him.",
+  "note": "Frames 0-1 are the idle: the pose and a derived one-pixel breath. Frames 2-4 are the three poses from the character sheet. `breaks` are SEPARATE actions chosen from a pool, each leaving the idle and returning to it -- not a routine played in order, which is what the eye catches.",
   "sheet": "art/actors/ambient-pie-woman.png",
   "frames": [
    [

@@ -21,60 +21,63 @@
   "R_TRUTH": "Twelve years I\u2019ve been making things up on this street and you did it in one afternoon."
  },
  "sprite": {
-  "note": "Ruling 20, and a derived idle rather than a breath. A one-pixel breath on a 132px figure in a 3700px street is invisible; this is a WEIGHT SHIFT -- the body sways 1.6 degrees about the hips while the feet stay put and the head counters, derived at portrait scale by tools/rig/ambient-idle.py where a degree is fourteen pixels of shoulder. Head travel comes out at about 3px against the breath\u2019s 1. The dog does not sway, because he is asleep: his cycle is the ribcage.",
-  "sheet": "art/actors/ambient-main-street.png",
+  "note": "Frames 0-1 are the idle: the pose and a derived one-pixel breath. Frames 2-4 are the three poses from the character sheet. `breaks` are SEPARATE actions chosen from a pool, each leaving the idle and returning to it -- not a routine played in order, which is what the eye catches.",
+  "sheet": "art/actors/ambient-letter-writer.png",
   "frames": [
    [
     2,
     2,
-    51,
+    60,
     152
    ],
    [
-    55,
+    64,
     2,
-    51,
+    60,
     152
    ],
    [
-    108,
+    126,
     2,
-    51,
+    60,
     152
    ],
    [
-    161,
+    188,
     2,
-    51,
+    60,
     152
    ],
    [
-    214,
+    250,
     2,
-    51,
-    152
-   ],
-   [
-    267,
-    2,
-    51,
-    152
-   ],
-   [
-    320,
-    2,
-    51,
-    152
-   ],
-   [
-    373,
-    2,
-    51,
+    60,
     152
    ]
   ],
   "rate": 0.9,
-  "phase": 0.0
+  "phase": 0.0,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3
+   ],
+   [
+    4,
+    4,
+    4,
+    4
+   ]
+  ],
+  "breakEvery": 29
  },
  "migrationNote": "ERRATA 54, x6. Was (30, 112) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Left of the saloon steps, which project to x2595, and well down into open mud: at y654 his feet were exactly on the boardwalk edge and he read as standing half on a step. Was (2560, 654)."
