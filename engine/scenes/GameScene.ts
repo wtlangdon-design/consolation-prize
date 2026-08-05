@@ -184,6 +184,17 @@ export class GameScene extends Phaser.Scene {
         const exit = (this.state.room.exits ?? []).find((each) => each.id === through);
         if (!exit) throw new Error(`No exit "${through}" in ${this.state.room.id}`);
         this.state.enterRoom(exit.to);
+        // AND THE ROOM MUST BE ENTERED, NOT MERELY SET. `enterRoom` changes
+        // which room the state points at; `enterRoomPerformance` is what
+        // clears the previous room's cast, cancels its sequences, abandons its
+        // world and places the actor. Every other way into a room calls both.
+        // This one called only the first, so beat 11 walked Thad into Main
+        // Street and the STAGE ROAD CAME WITH HIM -- the coach, its horses,
+        // the driver and Hob all standing in the middle of town, on a street
+        // that declares none of them.
+        this.enterRoomPerformance();
+        this.setSay(null);
+        this.markDirty();
       },
       // The view, which is state and not a drawing. A `to` cuts immediately; a
       // `follow` takes effect on the next tick's `followCamera`, which is
