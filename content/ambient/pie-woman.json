@@ -21,60 +21,63 @@
   "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
  },
  "sprite": {
-  "note": "Ruling 20, and a derived idle rather than a breath. A one-pixel breath on a 132px figure in a 3700px street is invisible; this is a WEIGHT SHIFT -- the body sways 1.6 degrees about the hips while the feet stay put and the head counters, derived at portrait scale by tools/rig/ambient-idle.py where a degree is fourteen pixels of shoulder. Head travel comes out at about 3px against the breath\u2019s 1. The dog does not sway, because he is asleep: his cycle is the ribcage.",
-  "sheet": "art/actors/ambient-main-street.png",
+  "note": "Frames 0-1 are the idle: the pose and a one-pixel breath. Frames 2-4 are the three poses from her character sheet. `breaks` are SEPARATE actions, each leaving the idle and returning to it, chosen from a pool -- she resettles the basket, OR looks down the street, OR calls out, and not all three in order every time.",
+  "sheet": "art/actors/ambient-pie-woman.png",
   "frames": [
    [
-    428,
     2,
-    60,
-    156
+    2,
+    75,
+    157
    ],
    [
-    490,
+    79,
     2,
-    60,
-    156
+    75,
+    157
    ],
    [
-    552,
+    156,
     2,
-    60,
-    156
+    75,
+    157
    ],
    [
-    614,
+    233,
     2,
-    60,
-    156
+    75,
+    157
    ],
    [
-    676,
+    310,
     2,
-    60,
-    156
-   ],
-   [
-    738,
-    2,
-    60,
-    156
-   ],
-   [
-    800,
-    2,
-    60,
-    156
-   ],
-   [
-    862,
-    2,
-    60,
-    156
+    75,
+    157
    ]
   ],
   "rate": 0.7,
-  "phase": 0.31
+  "phase": 0.31,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   [
+    4,
+    4,
+    4
+   ]
+  ],
+  "breakEvery": 26
  },
  "migrationNote": "ERRATA 54, x6. Was (150, 126) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
  "placeNote": "Forward into the lit mud, clear of the porch line. Was (2210, 657)."

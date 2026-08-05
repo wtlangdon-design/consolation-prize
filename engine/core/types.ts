@@ -320,6 +320,24 @@ export interface AmbientFile {
     rate: number;
     phase?: number;
     frames: [number, number, number, number][];
+    /**
+     * Idle BREAKS: separate one-off actions, each leaving the idle, doing one
+     * thing, and returning to it.
+     *
+     * SEPARATE, AND THAT IS THE WHOLE POINT. The first version of this was a
+     * single animation that played every pose in order, so the pie woman
+     * resettled her basket, looked down the street and called out, in that
+     * sequence, forever. A routine performed identically is worse than
+     * standing still, because repetition is what the eye catches. SCUMM's
+     * idle breaks are a POOL: one is chosen when a break fires, and the next
+     * time it is a different one.
+     *
+     * Each entry indexes `frames`. Index 0 is the idle pose, so a break that
+     * begins and ends there returns without a jump.
+     */
+    breaks?: number[][];
+    /** Seconds between breaks, before the per-character jitter. */
+    breakEvery?: number;
   };
 }
 

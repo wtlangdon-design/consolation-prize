@@ -1149,13 +1149,50 @@ export class Renderer {
     const image = this.sheet(declared.sheet);
     if (!image) return false;
     const phase = declared.phase ?? 0;
-    const index = Math.floor((this.clock * declared.rate + phase) * 2) % declared.frames.length;
+    const index = this.ambientFrame(declared, phase);
     const [sx, sy, width, height] = declared.frames[
       (index + declared.frames.length) % declared.frames.length
     ] as [number, number, number, number];
     this.screen.context.drawImage(image, sx, sy, width, height,
       npc.x - Math.floor(width / 2), npc.y - height + 1, width, height);
     return true;
+  }
+
+  /**
+   * Which frame an ambient character is on: the sway, or a break.
+   *
+   * A BREAK IS CHOSEN FROM A POOL, NOT PLAYED AS A ROUTINE. Tyler caught the
+   * first version doing every pose in one sequence -- resettle the basket,
+   * look down the street, call out, in that order, forever -- which is worse
+   * than standing still, because a routine performed identically is exactly
+   * what the eye catches. Each break is its own small animation that leaves
+   * the idle and returns to it, and which one plays is chosen fresh.
+   *
+   * DERIVED FROM THE CLOCK, NOT STORED. The renderer holds no per-character
+   * state and must not start: it is rebuilt on room entry and would forget
+   * mid-break. The cycle number picks the break and the position within the
+   * cycle picks the frame, so the same clock always gives the same picture --
+   * which also means a save and load lands on the frame it left.
+   */
+  private ambientFrame(declared: NonNullable<AmbientFile['sprite']>, phase: number): number {
+    const idleFrames = declared.breaks?.length
+      ? Math.min(2, declared.frames.length) : declared.frames.length;
+    const sway = Math.floor((this.clock * declared.rate + phase) * 2) % idleFrames;
+    const breaks = declared.breaks;
+    if (!breaks?.length) return sway;
+
+    const every = declared.breakEvery ?? 26;
+    // The phase spreads the characters apart, so nobody breaks in unison.
+    const t = this.clock + phase * every;
+    const cycle = Math.floor(t / every);
+    const into = t - cycle * every;
+    // A cheap deterministic shuffle of the cycle number: the same street, run
+    // twice, does the same thing, and it still does not repeat in a pattern
+    // a player can learn.
+    const pick = breaks[Math.abs(cycle * 2654435761) % breaks.length] ?? [];
+    const FRAME_SECONDS = 0.34;
+    const step = Math.floor(into / FRAME_SECONDS);
+    return step < pick.length ? (pick[step] ?? sway) : sway;
   }
 
   /**
