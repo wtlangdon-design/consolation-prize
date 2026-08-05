@@ -341,7 +341,18 @@ export class GameScene extends Phaser.Scene {
       barkAt: this.barkAt,
       actCard: this.actCard,
       // Doc 17 beat 8: the panel appears when control does, and not before.
-      showPanel: this.opening === null,
+      // DOC 30 SECTION 88: "Replace the verbs/inventory area while choosing."
+      // REPLACE, and the engine was drawing both. DIALOGUE_BOTTOM is 1062 and
+      // the play area ends at 864, so a three-option list runs 882 to 1062 --
+      // entirely inside the panel. The result is what Tyler photographed: "What
+      // is in the pie?" printed across "Talk to THE PIE WOMAN", two layers
+      // writing the same band.
+      //
+      // The router was already right -- `choicesActive` is tested before
+      // `panel`, so the clicks were going to the list all along. This was
+      // never a hit-testing bug; it only looked like one because the thing
+      // underneath was still visible and invited the click.
+      showPanel: this.opening === null && !this.choicesShowing(),
       hoveredLocation: this.hoveredLocation,
       // Doc 44: the beat travels with the frame so a violation recorded
       // while it is drawn can name it. Undefined outside a performance.
@@ -1255,6 +1266,15 @@ export class GameScene extends Phaser.Scene {
    * dialogue line waits forever. R5k, in prose: a comment that went on
    * describing behaviour after it moved.
    */
+  /**
+   * Whether the choice list is on screen, which is not the same as the tree
+   * being open: doc 30 step 2 hides the rows for the whole of an exchange, so
+   * the panel must come back while a line performs and go again after.
+   */
+  private choicesShowing(): boolean {
+    return this.state.dialogue.isActive && this.performance === null;
+  }
+
   private setSay(text: string | null, speaker: string | null = null): void {
     // DOC 30 SECTION 5'S BLOCK WIDTH, WHICH NOTHING HAD EVER USED. "Spoken
     // text uses a default maximum block width of 240 native pixels." This
