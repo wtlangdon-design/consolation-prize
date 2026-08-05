@@ -272,6 +272,8 @@ export class Actor {
   private readonly options: MoverOptions;
   /** Pixels per tick. From the record where it declares one. */
   private readonly speed: number;
+  /** When advanceWalk last ran, so the step can be a duration and not a frame. */
+  private lastWalkAt: number | null = null;
   /**
    * One full walk cycle, as a fraction of the character's DRAWN height.
    *
@@ -818,7 +820,7 @@ export class Actor {
       const wasY = this.y;
       if (this.route) this.advancePath(seconds);
       else if (this.glide) this.advanceGlide(seconds);
-      else this.advanceWalk();
+      else this.advanceWalk(seconds);
       moved = Math.hypot(this.x - wasX, this.y - wasY);
     }
     // A PATH SETS ITS OWN HEIGHT, so the depth sampler must not overwrite it
@@ -988,7 +990,27 @@ export class Actor {
     if (walked >= 1) this.glide = null;
   }
 
-  private advanceWalk(): void {
+  /**
+   * WALKING IS TIME-BASED, AND IT WAS FRAME-BASED, WHICH IS WHY IT CRAWLED.
+   *
+   * `speed` is `declared / 60` -- pixels per frame at an assumed sixty frames
+   * a second -- and this method stepped by it once per update with no regard
+   * for how long the frame took. On a machine holding 60fps that is exactly
+   * the declared speed. On anything slower it is proportionally slower, and
+   * nothing says so.
+   *
+   * Measured in the browser: 3 to 4 redraws a second, and Thad covering
+   * 109 pixels in 9.4 seconds -- about 12 px/s against a declared 245, five
+   * per cent of his own stated pace. Every actor in the game moves at the
+   * mercy of the frame rate, on every machine that is not a fast desktop.
+   *
+   * The clock was already being passed in and this method was the one mover
+   * that ignored it: `advancePath` and `advanceGlide` both take `seconds` and
+   * always have. R5o once more -- the right value, present, unread.
+   */
+  private advanceWalk(seconds: number): void {
+    const delta = this.lastWalkAt === null ? 1 / 60 : Math.min(seconds - this.lastWalkAt, 0.1);
+    this.lastWalkAt = seconds;
     // The leg is taken FIRST, before any movement. Moving first meant that
     // on the frame a leg completed, `isWalking` was still true because the
     // path was not empty, so the step ran with a distance of zero and put
@@ -1002,7 +1024,9 @@ export class Actor {
     const dx = this.targetX - this.x;
     const dy = this.targetY - this.y;
     const distance = Math.hypot(dx, dy);
-    const step = Math.min(this.speed, distance);
+    // Clamped at a tenth of a second so a stall -- a tab in the background,
+    // a long GC -- teleports nobody across a room on the frame it ends.
+    const step = Math.min(this.speed * 60 * delta, distance);
     this.x += (dx / distance) * step;
     this.y += (dy / distance) * step;
   }
