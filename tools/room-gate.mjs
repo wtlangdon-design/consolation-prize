@@ -80,6 +80,7 @@ for (const m of wBody.matchAll(/^\*\*([^*]+)\*\*\s*·\s*([A-Z_]+)/gm)) {
 // the gate's job is to make somebody make it rather than to assume.
 const ACTS_ON_ITS_OWN =
   /\b(dog|cat|raccoon|mule|horse|grievance|coach|wheel|patrons|crowd|men|man|woman|people|barman|driver)\b/i;
+const PEOPLE = /\b(patrons|crowd|men|man|woman|women|people|barman|driver|miners|customers|figures)\b/i;
 const OPENS = /\b(door|doors|window|gate|lid|drawer|flap|cabinet|box)\b/i;
 // Words in an act variant that mean the PICTURE changes, not just the line.
 // "Fresh gilt on the lettering" repaints a sign; "the dog knows me now"
@@ -92,7 +93,10 @@ for (const h of hotspots) {
   let cls = 'PLATE';
 
   // WHAT THE TOOL CAN KNOW ON ITS OWN.
-  if (ACTS_ON_ITS_OWN.test(h)) { cls = 'MOVER'; why.push('doc 35 §2: it is an animal or a vehicle'); }
+  if (ACTS_ON_ITS_OWN.test(h)) {
+    cls = 'MOVER';
+    why.push('doc 35 §2: a person, animal or vehicle');
+  }
   if (OPENS.test(h)) { cls = 'STATEFUL'; why.push('it opens — needs an open image'); }
   if (new RegExp(`\\|\\s*${h.replace(/^THE\s+/i, '')}\\s*\\|`, 'i').test(puzzles)) {
     cls = 'TAKEABLE'; why.push("doc 02's item ledger");
@@ -108,6 +112,16 @@ for (const h of hotspots) {
     ruling = VISIBLE.test(text)
       ? 'act variant reads as a VISIBLE change — probably stateful'
       : 'act variant may be words only — read it and rule';
+  }
+  // NO PERSON IS EVER PAINTED INTO A PLATE -- doc 35's standing rule, in
+  // capitals there because it was broken once. There is no crowd exception,
+  // no background-figure exception, and none for nine at a time. A person is
+  // a sprite, and it is not a `?` for anybody to rule on.
+  if (PEOPLE.test(h)) {
+    cls = 'MOVER';
+    why.length = 0;
+    why.push('A PERSON. Never plate -- doc 35, and there is no crowd exception');
+    ruling = null;
   }
   rows.push({ h, cls, why, ruling });
 }

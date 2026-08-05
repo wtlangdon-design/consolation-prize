@@ -201,12 +201,9 @@ Everything not in the plate, listed, with what it needs: facings, sizes per erra
                     onto Main Street and never opens; doc 05's line is about
                     glass being rarer than gold. The assay office's window is
                     the one that is ajar, and that one IS stateful.
- ! THE PATRONS      MOVER by the letter, RULED PLATE by ruling 20's own
-                    distinction: "a sprite rather than part of a drawn crowd."
-                    Nine men who have been here since the light was good are a
-                    drawn crowd. They are painted in, and NONE of them moves.
-                    If one ever needs to, he stops being a patron and becomes a
-                    character with a name.
+ ! THE PATRONS      MOVER. SPRITES, all nine. See the standing rule below --
+                    I ruled these plate to save nine sprites and Tyler
+                    overruled it.
  ! THE RACCOON      MOVER, and correctly. Act II onward, after A5 — a sprite on
                     the end of the bar with his own idle.
    everything else  PLATE
@@ -225,3 +222,35 @@ plate because its pattern knew animals and vehicles but not people, while
 ruling 20's own words are "a person, animal, or vehicle". A crowd may still be
 painted in — but that is a ruling, and the gate's job is to make somebody make
 it.
+
+---
+
+# NO PERSON IS EVER PAINTED INTO A PLATE. EVER.
+
+**Tyler's ruling, in capitals, after I broke it.** Every human figure in every
+room of this game is a sprite. There is no exception for a crowd, for a
+background figure, for someone who will never be spoken to, or for nine of
+them at once.
+
+I ruled the Nugget's patrons into the plate by quoting ruling 20's phrase "a
+sprite rather than part of a drawn crowd" — and that phrase is about how a
+figure is DRAWN, not permission to freeze people into a background. What it
+would have bought was nine fewer sprites. What it would have cost is nine men
+holding perfectly still, forever, in the room the same document calls "warm,
+crowded, smoky, loud", while three characters breathe and shift and call out
+on the street outside it. **An empty room reads better than a room full of
+statues**, because statues are a claim about life that the picture then fails.
+
+The gate's pattern was already corrected once for this — it knew animals and
+vehicles but not people. The pattern was never the problem. **The ruling was.**
+
+## What this means in practice
+
+- A plate brief never asks for people. Not "a crowd", not "figures in the
+  background", not "a few patrons at the bar". The room is furniture, light
+  and architecture, and nothing that could draw breath.
+- Crowds are built the way Main Street's three were: a casting sheet in the
+  room's own light, each figure cut individually, each with an idle and its
+  own rate and phase so no two move together.
+- A room that needs nine people needs nine sprites, and if that is too many
+  for the schedule then the room has fewer people in it — not fake ones.
