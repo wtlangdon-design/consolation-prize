@@ -355,6 +355,33 @@ export interface AmbientFile {
   };
 }
 
+/**
+ * A light that breathes: doc 18's intent, by a mechanism that survives errata 54.
+ *
+ * Palette cycling cannot animate a generated plate -- it recovers indices by
+ * matching exact band colours and errata 54's plates carry none (doc 36 Q13).
+ * This does the same job from the other side: a small additive glow over a
+ * lamp that is ALREADY PAINTED IN the plate, rising and falling a few per cent.
+ *
+ * IT MODULATES LIGHT RATHER THAN CREATING IT, which is the whole difference
+ * between this and the additive glow that failed on Room 2's doorways. That
+ * one tried to make a dark doorway look lit and read as fog, because a lit
+ * interior needs CONTENT. Here the lamp is drawn, the fire is drawn, and the
+ * glow only makes them flicker.
+ */
+export interface RoomLamp {
+  id: string;
+  /** Centre, in room coordinates. */
+  at: [number, number];
+  radius: number;
+  /** Peak added brightness, 0-1. Small: a flame in still air, not a beacon. */
+  amount: number;
+  /** Cycles per second, and an offset so no two lamps breathe together. */
+  rate: number;
+  phase?: number;
+  note?: string;
+}
+
 export interface VerbFallbacksFile {
   schema: number;
   pools: Record<string, string[]>;
@@ -773,6 +800,8 @@ export interface RoomFile {
    * on entry and idempotent -- a flag already true stays true, so walking
    * in and out does not re-fire anything downstream.
    */
+  /** Doc 18's flicker, by a mechanism that works on a generated plate. */
+  lamps?: RoomLamp[];
   onEnter?: {
     note?: string;
     set?: FlagWrites;

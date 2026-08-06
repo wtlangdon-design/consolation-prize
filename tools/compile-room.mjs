@@ -641,6 +641,8 @@ built.exits = (live.exits ?? []).map((e) => {
   // middle of Main Street with his back to the camera instead of walking in
   // off the road.
   built.entrances = ann.entrances ?? [];
+  // Doc 18's flicker, by the mechanism that works on a generated plate.
+  if (ann.lamps) built.lamps = ann.lamps;
   if (ann.onEnterSay) {
     built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
   }

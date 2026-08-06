@@ -201,5 +201,43 @@
   "patrons": "Placed over the tables where they will stand. THE PATRONS are sprites -- doc 35 forbids painting people into a plate -- so this rect is a guess until the casting sheet exists and they are positioned. Re-derive it from where they actually stand.",
   "deke_vessel": "At the bar, which is where a man selling a claim would be. Same caveat: he is a sprite and the rect follows him once he is placed."
  },
- "walkableNote": "The right edge follows the BAR FRONT, not the bar top: the floor runs to the foot rail, which is where a man stands to lean on it. The first draft cut through the spittoon, which sits on that floor -- it is an obstacle, and an obstacle has to be INSIDE the walkable area for carving it out to mean anything."
+ "walkableNote": "The right edge follows the BAR FRONT, not the bar top: the floor runs to the foot rail, which is where a man stands to lean on it. The first draft cut through the spittoon, which sits on that floor -- it is an obstacle, and an obstacle has to be INSIDE the walkable area for carving it out to mean anything.",
+ "lamps": [
+  {
+   "id": "chandelier",
+   "at": [
+    750,
+    110
+   ],
+   "radius": 300,
+   "amount": 0.1,
+   "rate": 0.23,
+   "phase": 0.0,
+   "note": "Seven candles over the middle of the room. The slowest and widest of the three."
+  },
+  {
+   "id": "stove",
+   "at": [
+    860,
+    330
+   ],
+   "radius": 170,
+   "amount": 0.14,
+   "rate": 0.41,
+   "phase": 0.37,
+   "note": "A fire in an iron box, and doc 05 says the pipe was fitted by somebody who had seen a stove. It flickers hardest and fastest."
+  },
+  {
+   "id": "bar_lamps",
+   "at": [
+    1500,
+    200
+   ],
+   "radius": 320,
+   "amount": 0.06,
+   "rate": 0.17,
+   "phase": 0.72,
+   "note": "The wall lamps behind the bar, together. Barely moving -- they are trimmed, because the barman is the only person in town who maintains anything."
+  }
+ ]
 }

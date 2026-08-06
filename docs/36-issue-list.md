@@ -3106,8 +3106,30 @@ options, none costed:
    Nugget has a seven-candle chandelier and a stove with fire in it, and a lit
    interior that does not move is a photograph of a warm room.
 
-**Tyler's ruling.** I would build option 1, because it is the only one that
-also lights the Nugget.
+**RULED AND BUILT: option 1.** `RoomLamp` declares a lamp already painted into
+the plate, and the renderer lays a small warm additive glow over it that rises
+and falls on two sines of different periods, so the flicker never ticks. It
+runs after the plate and before the people, because a lamp lights the room it
+hangs in and the figures are lit by `match-local` at cut time — a different
+job, done once rather than every frame.
+
+**It modulates light rather than creating any**, which is the whole difference
+between it and the additive glow that failed on Room 2's doorways. That one
+tried to make a dark doorway look lit and read as fog, because a lit interior
+needs *content*. Here the lamp is drawn, the fire is drawn, and the glow only
+makes them move.
+
+Measured on two settled frames: the saloon's pool changed by −0.96 with a warm
+bias, and a patch of dark mud in the same frames changed by 0.00. Light moves
+where there is a lamp and nowhere else.
+
+Six lamps declared — Main Street's saloon doorway, the office lantern hung for
+the map seller, and the Company's windows; the Nugget's chandelier, stove and
+bar lamps — each on its own rate and phase so no two breathe together. The
+stove flickers hardest because it is a fire in a box; the Company's windows
+barely move, because they can afford good oil.
+
+`hobs_lamp` stays dormant until Room 1 gets the same treatment.
 
 **And one thing was fixed on the way:** `tools/lib/png.mjs` could not open an
 RGB PNG at all — only RGBA — so every shipping plate was unreadable to every

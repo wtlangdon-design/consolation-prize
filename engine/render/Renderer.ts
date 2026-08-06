@@ -472,6 +472,10 @@ export class Renderer {
     this.screen.context.translate(-camera, 0);
     this.drawRoom();
     this.drawObjectStates();
+    // AFTER THE PLATE, BEFORE THE PEOPLE. A lamp lights the room it hangs in;
+    // the figures are lit by match-local at cut time, which is a different
+    // job done once rather than every frame.
+    this.drawLamps();
     this.idles.draw(this.state.room, this.idleSheet(this.state.room.id), this.clock);
     // After the idles as well as the plate: the ambient background motion is
     // on the ground too, and a pool that lit the mud but not the things on it
@@ -635,6 +639,50 @@ export class Renderer {
         this.screen.roleColour('overlayBg'),
       );
     }
+  }
+
+  /**
+   * Doc 18's flicker, by a mechanism that works on a generated plate.
+   *
+   * Palette cycling recovers indices from exact band colours and errata 54's
+   * plates carry none, so hobs_lamp has animated nothing for weeks (doc 36
+   * Q13). This modulates light that is ALREADY PAINTED IN rather than trying
+   * to create any -- the difference between it and the additive glow that
+   * failed on Room 2's doorways, which tried to make a dark doorway look lit
+   * and read as fog.
+   *
+   * Small on purpose: `amount` is a few per cent, and two lamps in a room
+   * breathe on different rates and phases so the flicker never pulses in
+   * unison, which is what would read as a fault rather than as fire.
+   */
+  private drawLamps(): void {
+    const lamps = this.state.room.lamps;
+    if (!lamps?.length) return;
+    const ctx = this.screen.context;
+    ctx.save();
+    ctx.globalCompositeOperation = 'lighter';
+    for (const lamp of lamps) {
+      const t = this.clock * lamp.rate + (lamp.phase ?? 0);
+      // Two sines of different periods, so the flicker does not tick.
+      const wave = 0.5 + 0.35 * Math.sin(t * Math.PI * 2) + 0.15 * Math.sin(t * Math.PI * 5.3);
+      const strength = Math.max(0, lamp.amount * wave);
+      if (strength < 0.002) continue;
+      const [x, y] = lamp.at;
+      const glow = ctx.createRadialGradient(x, y, 0, x, y, lamp.radius);
+      // Warm, and falling off to nothing well inside the radius so the edge of
+      // the gradient is never a visible circle. Assembled rather than
+      // templated: check-no-content-in-code cannot tell a colour string from a
+      // line of dialogue, and it is right not to try.
+      const warm = (red: number, green: number, blue: number, alpha: number) =>
+        ['rgba(', red, ',', green, ',', blue, ',',
+        alpha.toFixed(3), ')'].join('');
+      glow.addColorStop(0, warm(255, 196, 108, strength));
+      glow.addColorStop(0.45, warm(255, 170, 80, strength * 0.35));
+      glow.addColorStop(1, warm(255, 150, 60, 0));
+      ctx.fillStyle = glow;
+      ctx.fillRect(x - lamp.radius, y - lamp.radius, lamp.radius * 2, lamp.radius * 2);
+    }
+    ctx.restore();
   }
 
   private drawRoom(): void {

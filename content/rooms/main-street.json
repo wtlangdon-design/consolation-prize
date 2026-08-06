@@ -1113,5 +1113,43 @@
       "facing": "front",
       "note": "Out of assay_office’s door, facing the street."
     }
+  ],
+  "lamps": [
+    {
+      "id": "saloon_doorway",
+      "at": [
+        2320,
+        470
+      ],
+      "radius": 340,
+      "amount": 0.09,
+      "rate": 0.19,
+      "phase": 0,
+      "note": "The Nugget’s open doors, the brightest thing on the street."
+    },
+    {
+      "id": "office_lantern",
+      "at": [
+        3095,
+        470
+      ],
+      "radius": 190,
+      "amount": 0.11,
+      "rate": 0.33,
+      "phase": 0.51,
+      "note": "The lantern hung for the map seller. A single flame, so it moves more than a doorway."
+    },
+    {
+      "id": "company_windows",
+      "at": [
+        660,
+        470
+      ],
+      "radius": 240,
+      "amount": 0.05,
+      "rate": 0.13,
+      "phase": 0.28,
+      "note": "The Improvement Company’s windows. Steady: they can afford good oil."
+    }
   ]
 }
