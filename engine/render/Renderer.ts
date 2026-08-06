@@ -101,7 +101,17 @@ const TITLE_Y = 60;
 /** How much of the walk it takes to arrive. The rest of the beat it holds. */
 const TITLE_FADE_FRACTION = 0.2;
 const DIALOGUE_BOTTOM = NATIVE_HEIGHT - 3 * GLYPH_SCALE;
-const DIALOGUE_LINE_HEIGHT = 10 * GLYPH_SCALE;
+// THE OPTION LIST IS DRAWN AT THE PANEL'S SCALE, NOT THE PLAY AREA'S.
+//
+// At the speech scale a five-option tree plus its prompt is six lines of 60px
+// -- 360 of an 864-pixel play area, against a panel only 216 tall. Tyler:
+// "too many lines of dialogue all at once, which cuts off too much of the
+// actual game." It does, and the list is not speech: it is the interface,
+// and the interface already has a size. The verb grid beside it has been
+// drawn at PANEL_GLYPH_SCALE all along.
+//
+// Six lines now cost 240px rather than 360, which is the panel plus one row.
+const DIALOGUE_LINE_HEIGHT = 10 * PANEL_GLYPH_SCALE;
 const SAY_TOP = 8 * GLYPH_SCALE;
 const TEXT_MARGIN = 6 * GLYPH_SCALE;
 /**
@@ -1507,18 +1517,18 @@ export class Renderer {
       NATIVE_HEIGHT - backingTop, this.screen.role('overlayBg'));
 
     if (node.prompt) {
-      this.font.draw(ctx, node.prompt, TEXT_MARGIN, promptY,
+      this.panelFont.draw(ctx, node.prompt, TEXT_MARGIN, promptY,
         this.screen.roleColour('inkBright'));
     }
 
     options.forEach((presented, index) => {
       const prefix = presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix;
       const colour = this.screen.roleColour(presented.exhausted ? 'inkDim' : 'ink');
-      this.font.draw(
+      this.panelFont.draw(
         ctx,
         `${prefix}${presented.option.text}`,
         TEXT_MARGIN,
-        top + index * DIALOGUE_LINE_HEIGHT + GLYPH_SCALE,
+        top + index * DIALOGUE_LINE_HEIGHT + PANEL_GLYPH_SCALE,
         colour,
       );
     });

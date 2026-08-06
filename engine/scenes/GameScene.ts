@@ -650,7 +650,14 @@ export class GameScene extends Phaser.Scene {
     // her own approachRadius and the tree opens when he arrives.
     const npc = this.ambient.npcAt(wx, y);
     if (npc?.tree) {
-      const from = npc.x + (this.actor.x < npc.x ? -npc.approachRadius : npc.approachRadius);
+      // A CONVERSATIONAL DISTANCE, NOT THE APPROACH RADIUS. `approachRadius`
+      // is 40 world pixels and exists to decide when a bark fires; used as a
+      // stopping distance it walks Thad until the two figures touch, which
+      // Tyler called correctly -- nobody stands that close to a stranger
+      // selling maps. Two thirds of the character's own drawn height is about
+      // a metre at any depth, and scales with the room's curve for free.
+      const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
+      const from = npc.x + (this.actor.x < npc.x ? -gap : gap);
       this.pendingTree = npc.tree;
       this.actor.walkTo(from, npc.y);
       this.markDirty();
