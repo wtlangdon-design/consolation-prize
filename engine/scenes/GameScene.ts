@@ -227,6 +227,15 @@ export class GameScene extends Phaser.Scene {
     // them. Convenience only -- everything they do is on the menu.
     this.input.keyboard?.on('keydown', this.onModifiedKey, this);
 
+    // The warp happens BEFORE beginOpening, which is what makes it skip the
+    // opening rather than fight it: the opening declines to run anywhere but
+    // the manifest's start room.
+    const warp = this.warpRoom();
+    if (warp) {
+      this.state.enterRoom(warp);
+      this.enterRoomPerformance(null);
+    }
+
     this.beginOpening();
     this.markDirty();
     this.loadDeferred();
@@ -1117,6 +1126,38 @@ export class GameScene extends Phaser.Scene {
    * restored mid-opening does not replay it and a player who has already been
    * told the undertaker's name is not told again.
    */
+  /**
+   * `?room=<id>` — start in a room instead of at the beginning.
+   *
+   * Tyler: "give me links to test rooms room by room, otherwise I have to play
+   * the whole game every time." He is right, and it had been true for every
+   * judgement made about Room 2 — which is a long way behind an opening that
+   * now runs 31 seconds, a dialogue tree, a case to pick up and a mud beat.
+   *
+   * Everything else already works: `beginOpening` declines when the room is
+   * not the manifest's start room, so warping skips the opening for free, and
+   * `enterRoomPerformance` places the actor at the room's own entrance.
+   *
+   * LIVE IN THE PUBLISHED BUILD, DELIBERATELY, AND IT MUST NOT SHIP THAT WAY.
+   * The point of it is links Tyler can open on the deployed site from a
+   * Chromebook, and a dev-only warp gives him links that do nothing. The game
+   * is unreleased and he is its only player, so the cost is nil today and the
+   * benefit is that every room becomes reviewable in one click.
+   *
+   * Doc 36 Q12 records the debt: before release this returns to
+   * import.meta.env.DEV, or the first act is optional.
+   */
+  private warpRoom(): string | null {
+    const asked = new URLSearchParams(window.location.search).get('room');
+    if (!asked) return null;
+    if (!this.state.content.rooms.has(asked)) {
+      console.warn(`?room=${asked} is not a room. Known: `
+        + [...this.state.content.rooms.keys()].join(', '));
+      return null;
+    }
+    return asked;
+  }
+
   private beginOpening(): void {
     // Which sequence is the opening, and which flag records that it has run,
     // are both content. No .ts file names either.

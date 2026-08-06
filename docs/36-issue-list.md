@@ -3050,3 +3050,20 @@ the middle of an art pass.
 **Meanwhile:** `GameScene.speakingBreaks` uses string concatenation where a
 template literal would read better, with a comment pointing here. That is the
 only place currently working around it, and the workaround is cheap.
+
+---
+
+## Q12 · THE ROOM WARP IS LIVE IN THE PUBLISHED BUILD AND MUST NOT SHIP
+
+`?room=<id>` starts the game in any room, skipping the opening. It exists
+because every judgement about Room 2 was being made from stills — the room is
+behind a 31-second opening, a dialogue tree, a case to pick up and a mud beat,
+and reviewing it meant playing all of that first.
+
+**It is deliberately NOT gated on `import.meta.env.DEV`**, because the whole
+point is links that work on the deployed site from a Chromebook, and a
+dev-only warp gives links that do nothing.
+
+**Before release:** put the `import.meta.env.DEV` guard back, or the first act
+is optional and every reveal in the game is reachable by typing a room name.
+It is one line, and it is the kind of one line that ships by accident.

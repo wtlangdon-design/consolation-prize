@@ -209,8 +209,18 @@ export function planBoot(bundle: ContentBundle): BootPlan {
       for (const frame of clip.frames) later({ key: frame, path: frame });
     }
   }
+  // AMBIENT SHEETS ARE REQUIRED, NOT DEFERRED, AND THE ARITHMETIC SETTLES IT.
+  // Deferred, they sat at the back of a 206-file queue behind roughly two
+  // hundred actor frames, so a room's people did not appear for tens of
+  // seconds after arriving in it -- and on a `?room=` warp, which skips the
+  // opening entirely, the street was simply empty. It looked like a content
+  // fault and was a queue position.
+  //
+  // Every ambient sheet in the game is 206 KB against an art tree of 86 MB.
+  // That is a rounding error paid once at boot to make every populated room
+  // populated the moment it is entered.
   for (const npc of bundle.ambient.values()) {
-    if (npc.sprite) later({ key: npc.sprite.sheet, path: npc.sprite.sheet });
+    if (npc.sprite) required.set(npc.sprite.sheet, { key: npc.sprite.sheet, path: npc.sprite.sheet });
   }
   for (const overlay of bundle.overlays.values()) {
     for (const state of Object.values(overlay.states)) {

@@ -805,8 +805,23 @@ export class Renderer {
         }
         const npc = figure.npc as AmbientFile;
         if (!this.drawAmbient(npc)) {
-          this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
-            this.screen.role('outline'));
+          // A DECLARED SHEET THAT HAS NOT ARRIVED DRAWS NOTHING, NOT A SLAB.
+          // Ambient sheets are deferred assets, so for the first seconds in a
+          // room -- and for the whole of a warp straight into one -- three
+          // black rectangles stood on Main Street where three people should
+          // be. BootAssets already states the principle for the carried lamp:
+          // "the road is unlit for a moment rather than a black square
+          // appearing where the glow should be." The same is true of a person.
+          //
+          // The graybox stays for a character who declares NO sprite at all,
+          // because that is a content gap and should be loud.
+          if (!npc.sprite) {
+            this.drawFigure(npc.x, npc.y, this.state.heightForZone(npc.zone),
+              this.screen.role('outline'));
+          } else {
+            watch.record('graybox:not-loaded', npc.id,
+              `${npc.sprite.sheet} has not arrived; drew nothing rather than a placeholder`);
+          }
         }
       });
     }
