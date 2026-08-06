@@ -654,6 +654,24 @@ export class GameScene extends Phaser.Scene {
     // pie woman from wherever he was standing. He now walks to the edge of
     // her own approachRadius and the tree opens when he arrives.
     const npc = this.ambient.npcAt(wx, y);
+
+    // A PERSON IS NOT A LEVER. Every verb pointed at an ambient character used
+    // to open their tree, so Tyler clicked PUSH on the letter-writer and got a
+    // conversation. Only TALK_TO -- and a bare click, whose default verb for a
+    // person is TALK_TO -- starts one. Everything else gets doc 07's people
+    // pool: Thad's own lines, shared across everyone, because "I am not going
+    // to push a stranger" is the same sentiment whichever stranger it is.
+    const chosen = this.state.verbs.selectedVerb;
+    if (npc && chosen !== null && chosen !== 'TALK_TO') {
+      const pool = this.state.content.verbFallbacks?.people?.[chosen];
+      if (Array.isArray(pool) && pool.length) {
+        this.setSay(pool[0]!, this.state.content.actor.id);
+        this.state.verbs.resetToDefault();
+        this.markDirty();
+        return;
+      }
+    }
+
     if (npc?.tree) {
       // A CONVERSATIONAL DISTANCE, NOT THE APPROACH RADIUS. `approachRadius`
       // is 40 world pixels and exists to decide when a bark fires; used as a

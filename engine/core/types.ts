@@ -358,6 +358,16 @@ export interface AmbientFile {
 export interface VerbFallbacksFile {
   schema: number;
   pools: Record<string, string[]>;
+  /**
+   * Doc 07: verbs other than TALK TO, pointed at a PERSON.
+   *
+   * The object pools are written for objects -- "It does not move" -- which is
+   * the wrong answer for a human being. These are Thad's own lines and are
+   * shared across everyone in the game, because "I am not going to push a
+   * stranger" is the same sentiment whichever stranger it is. Keyed by verb;
+   * `note` is prose and is not a verb.
+   */
+  people?: Record<string, string[] | string>;
 }
 
 export interface ReputationFile {

@@ -21,11 +21,23 @@
      "id": "from_what",
      "text": "From what?",
      "tag": "TOPIC",
-     "say": "From the accounts. There\u2019s dozens of accounts. You put them together and a picture comes out.",
-     "repeat": "You put the accounts together and a picture comes out.",
      "when": {
       "T_MAPS_ASKED": true
-     }
+     },
+     "exchange": [
+      {
+       "speaker": "map_seller",
+       "line": "From the accounts. There\u2019s dozens of accounts."
+      },
+      {
+       "speaker": "thad",
+       "line": "Dozens."
+      },
+      {
+       "speaker": "map_seller",
+       "line": "You put them together and a picture comes out."
+      }
+     ]
     },
     {
      "id": "ever_dug",
@@ -51,5 +63,6 @@
  },
  "speaker": "map_seller",
  "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw.",
- "gateNote": "Doc 07\u2019s \u21b3 notation: \"from_what\" is a FOLLOW-UP, offered only once \"where_from\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given."
+ "gateNote": "Doc 07\u2019s \u21b3 notation: \"from_what\" is a FOLLOW-UP, offered only once \"where_from\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given.",
+ "exchangeNote": "Doc 30 section 5: a reply that would wrap past three lines is split at a rhetorical break. Tyler asked for the break-up to be back-and-forth with Thad rather than the same voice twice, and he is right -- an interjection makes the punchline land, where two consecutive lines from one man is just a paragraph with a pause in it."
 }

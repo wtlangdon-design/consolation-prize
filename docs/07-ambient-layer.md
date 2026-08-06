@@ -36,6 +36,35 @@ nobody had given.
 Three follow-ups exist, one per tree, and each is the same shape: a character
 gives a deflecting answer and the follow-up is Thad noticing.
 
+An indented ***Thad:*** line inside a reply is an INTERJECTION: the character
+stops, Thad says that, and the rest of the reply follows. Doc 30 §5 requires
+any reply over three wrapped lines to be split at a rhetorical break, and
+Tyler's ruling is that the break should be back-and-forth rather than the same
+voice twice — an interjection makes the punchline land, where two consecutive
+lines from one man is a paragraph with a pause in it.
+
+## VERBS OTHER THAN TALK TO, ON ANY PERSON
+
+Every verb in the panel can be pointed at a human being, and until now every
+one of them opened the conversation instead — Tyler clicked PUSH on the
+letter-writer and got his dialogue tree. A person is not a lever.
+
+These are Thad's, not the character's, and they are shared across everyone in
+the game, because *I am not going to push a stranger* is the same sentiment
+whichever stranger it is. The joke is that he considers it and declines, which
+is the whole of his character.
+
+| Verb | Line |
+|---|---|
+| `LOOK_AT` | "A person. I have decided to be polite about it." |
+| `PICK_UP` | "No. I have thought about it for exactly as long as it deserves." |
+| `PUSH` | "I have never pushed anybody. I am not starting on a street this muddy." |
+| `PULL` | "Pulling a stranger is how a man ends up known for something." |
+| `OPEN` | "They are already as open as they intend to be." |
+| `CLOSE` | "One does not close a person. One is closed *by* them, usually at cards." |
+| `USE` | "I would not know where to begin, and the beginning is the part people object to." |
+| `LISTEN_TO` | "Breathing, and the particular silence of somebody deciding whether I am worth their afternoon." |
+
 ---
 
 ## 1 · THE LETTER-WRITER
@@ -45,9 +74,13 @@ gives a deflecting answer and the follow-up is Thad noticing.
 
 **Micro-tree**
 > "What do you charge?" → "Ten cents the page. Fifteen if it's going well."
-> ↳ "Going well?" → "If a man's had a good week I write more. If he's had a bad week I write *much* more. Bad weeks are my living."
+> ↳ "Going well?" → "If a man's had a good week I write more."
+>   *Thad:* "And if he has had a bad one?"
+>   → "Much more. Bad weeks are my living."
 > "Do you ever write the truth?" → "Once. Fella insisted. I charged him double and he cried the whole time."
-> `[COMIC]` "I write my own." → "I know. I've read them over your shoulder. You're not bad. You're just honest, which is a phase."
+> `[COMIC]` "I write my own." → "I know. I've read them over your shoulder."
+>   *Thad:* "You have what?"
+>   → "You're not bad. You're just honest, which is a phase."
 
 **Barks**
 | State | Line |
@@ -346,7 +379,9 @@ gives a deflecting answer and the follow-up is Thad noticing.
 
 **Micro-tree**
 > "Where do the maps come from?" → "I draw them."
-> ↳ "From what?" → "From the *accounts*. There's dozens of accounts. You put them together and a picture comes out."
+> ↳ "From what?" → "From the *accounts*. There's dozens of accounts."
+>   *Thad:* "Dozens."
+>   → "You put them together and a picture comes out."
 > "Have you ever dug where a map says?" → "I'd not dig my own map, sir. That'd be like a man eating his own dinner." *(This makes no sense and he is very firm about it.)*
 > `[COMIC]` "Do they work?" → "They've not been *disproved*."
 

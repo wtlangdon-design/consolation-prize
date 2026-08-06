@@ -1,43 +1,70 @@
 {
-  "schema": 1,
-  "note": "Doc 13 Part One, verbatim. Used when an object has no written response and no object-specific override. Pools ROTATE and never repeat consecutively. Doc 06: an unhandled combination gets a Thad line, never a generic refusal -- the pool is itself comedy.",
-  "pools": {
-    "PICK_UP": [
-      "It stays where it is.",
-      "I have tried. It has views.",
-      "That is not mine, and more to the point it will not come.",
-      "No. It is part of the town."
-    ],
-    "USE": [
-      "I have no plan for it.",
-      "Not usefully.",
-      "I should want something first. I have not got a want to hand.",
-      "That would require a purpose."
-    ],
-    "OPEN": [
-      "It does not open. Very little here does.",
-      "There is no way into it.",
-      "It is not that kind of thing."
-    ],
-    "CLOSE": [
-      "It is already as closed as it intends to be.",
-      "It is not open.",
-      "There is nothing to close."
-    ],
-    "PUSH": [
-      "It does not move. I have committed to this now and it still does not move.",
-      "Nothing.",
-      "It stays."
-    ],
-    "PULL": [
-      "It stays where it is, and I look like a man pulling at a thing.",
-      "No.",
-      "It is not coming."
-    ],
-    "TALK_TO": [
-      "I have decided against it.",
-      "It has said nothing and I have said nothing and we are both content.",
-      "I would like it on record that I considered it."
-    ]
-  }
+ "schema": 1,
+ "note": "Doc 13 Part One, verbatim. Used when an object has no written response and no object-specific override. Pools ROTATE and never repeat consecutively. Doc 06: an unhandled combination gets a Thad line, never a generic refusal -- the pool is itself comedy.",
+ "pools": {
+  "PICK_UP": [
+   "It stays where it is.",
+   "I have tried. It has views.",
+   "That is not mine, and more to the point it will not come.",
+   "No. It is part of the town."
+  ],
+  "USE": [
+   "I have no plan for it.",
+   "Not usefully.",
+   "I should want something first. I have not got a want to hand.",
+   "That would require a purpose."
+  ],
+  "OPEN": [
+   "It does not open. Very little here does.",
+   "There is no way into it.",
+   "It is not that kind of thing."
+  ],
+  "CLOSE": [
+   "It is already as closed as it intends to be.",
+   "It is not open.",
+   "There is nothing to close."
+  ],
+  "PUSH": [
+   "It does not move. I have committed to this now and it still does not move.",
+   "Nothing.",
+   "It stays."
+  ],
+  "PULL": [
+   "It stays where it is, and I look like a man pulling at a thing.",
+   "No.",
+   "It is not coming."
+  ],
+  "TALK_TO": [
+   "I have decided against it.",
+   "It has said nothing and I have said nothing and we are both content.",
+   "I would like it on record that I considered it."
+  ]
+ },
+ "people": {
+  "note": "Doc 07: verbs other than TALK TO, pointed at a person. Thad's lines, not the character's, and shared across everyone -- 'I am not going to push a stranger' is the same sentiment whichever stranger it is. Before these existed, every verb on an ambient character opened their dialogue tree, so PUSH started a conversation.",
+  "LOOK_AT": [
+   "A person. I have decided to be polite about it."
+  ],
+  "PICK_UP": [
+   "No. I have thought about it for exactly as long as it deserves."
+  ],
+  "PUSH": [
+   "I have never pushed anybody. I am not starting on a street this muddy."
+  ],
+  "PULL": [
+   "Pulling a stranger is how a man ends up known for something."
+  ],
+  "OPEN": [
+   "They are already as open as they intend to be."
+  ],
+  "CLOSE": [
+   "One does not close a person. One is closed by them, usually at cards."
+  ],
+  "USE": [
+   "I would not know where to begin, and the beginning is the part people object to."
+  ],
+  "LISTEN_TO": [
+   "Breathing, and the particular silence of somebody deciding whether I am worth their afternoon."
+  ]
+ }
 }

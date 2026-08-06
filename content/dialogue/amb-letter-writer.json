@@ -21,11 +21,23 @@
      "id": "going_well",
      "text": "Going well?",
      "tag": "TOPIC",
-     "say": "If a man\u2019s had a good week I write more. If he\u2019s had a bad week I write much more. Bad weeks are my living.",
-     "repeat": "Bad weeks are my living.",
      "when": {
       "T_CHARGE_ASKED": true
-     }
+     },
+     "exchange": [
+      {
+       "speaker": "letter_writer",
+       "line": "If a man\u2019s had a good week I write more."
+      },
+      {
+       "speaker": "thad",
+       "line": "And if he has had a bad one?"
+      },
+      {
+       "speaker": "letter_writer",
+       "line": "Much more. Bad weeks are my living."
+      }
+     ]
     },
     {
      "id": "truth",
@@ -38,8 +50,20 @@
      "id": "own",
      "text": "I write my own.",
      "tag": "COMIC",
-     "say": "I know. I\u2019ve read them over your shoulder. You\u2019re not bad. You\u2019re just honest, which is a phase.",
-     "repeat": "Still honest, then."
+     "exchange": [
+      {
+       "speaker": "letter_writer",
+       "line": "I know. I\u2019ve read them over your shoulder."
+      },
+      {
+       "speaker": "thad",
+       "line": "You have what?"
+      },
+      {
+       "speaker": "letter_writer",
+       "line": "You\u2019re not bad. You\u2019re just honest, which is a phase."
+      }
+     ]
     },
     {
      "id": "exit",
@@ -51,5 +75,6 @@
  },
  "speaker": "letter_writer",
  "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw.",
- "gateNote": "Doc 07\u2019s \u21b3 notation: \"going_well\" is a FOLLOW-UP, offered only once \"charge\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given."
+ "gateNote": "Doc 07\u2019s \u21b3 notation: \"going_well\" is a FOLLOW-UP, offered only once \"charge\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given.",
+ "exchangeNote": "Doc 30 section 5: a reply that would wrap past three lines is split at a rhetorical break. Tyler asked for the break-up to be back-and-forth with Thad rather than the same voice twice, and he is right -- an interjection makes the punchline land, where two consecutive lines from one man is just a paragraph with a pause in it."
 }
