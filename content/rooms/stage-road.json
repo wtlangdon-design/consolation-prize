@@ -27,7 +27,9 @@
         76,
         16,
         16
-      ]
+      ],
+      "dormant": true,
+      "dormantNote": "DOES NOT ANIMATE, AND HAS NOT SINCE ERRATA 54. CyclingBackground recovers palette indices by matching exact band colours in the plate, which was exact while plates were exported from the locked 256-colour palette. Errata 54 replaced them with generated images, graded and shadow-lifted, and none of this element’s four band colours appears anywhere in room-01-stage-road.png -- measured, not assumed. Kept rather than deleted, because the intention is right: a carried flame in still air is the one thing in Room 1 that ought to move. It needs a mechanism that does not depend on an indexed plate. Doc 36 Q13."
     },
     {
       "id": "puddles",

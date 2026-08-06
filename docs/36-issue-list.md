@@ -3067,3 +3067,51 @@ dev-only warp gives links that do nothing.
 **Before release:** put the `import.meta.env.DEV` guard back, or the first act
 is optional and every reveal in the game is reachable by typing a room name.
 It is one line, and it is the kind of one line that ships by accident.
+
+---
+
+## Q13 · PALETTE CYCLING DOES NOT WORK ON ERRATA 54's PLATES
+
+**Doc 18's cycling is the only background animation the game has, and it has
+been animating nothing since the plates changed.**
+
+`CyclingBackground` recovers palette indices from the background image by
+matching exact band colours, and its own comment explains why that is exact:
+*"the pipeline stores indices and colour resolves at export... the reservation
+rule makes the recovery exact."* True while plates were exported from the
+locked 256-colour palette.
+
+Errata 54 retired that palette. Every shipping plate is now a generated image,
+graded to Room 1's levels and shadow-lifted. **Measured, not assumed:** of
+`hobs_lamp`'s four reserved band colours, **zero** pixels appear anywhere in
+`room-01-stage-road.png`. The element is declared, loaded, resolved, scanned
+for — and finds nothing.
+
+**Nothing failed, because a scan that finds nothing looks exactly like a room
+with nothing to cycle.** `check-cycling-lands` is now the difference, and
+`hobs_lamp` is marked `dormant` rather than deleted: the intention is right —
+a carried flame in still air is the one thing in Room 1 that ought to move.
+
+### What it would take
+
+Cycling needs a mechanism that does not depend on an indexed plate. The
+options, none costed:
+
+1. **A lamp-glow sprite**, additive, anchored to the lamp and pulsed — which
+   is what Room 2 already does for the saloon and the office lantern, except
+   those do not pulse. Cheapest, and it generalises to every lamp in the game.
+2. **Ship the index map** alongside each plate, so recovery does not depend on
+   colour uniqueness. Truest to doc 18 and costs a second file per room.
+3. **Accept still lamps.** Defensible — nobody has noticed for weeks — but the
+   Nugget has a seven-candle chandelier and a stove with fire in it, and a lit
+   interior that does not move is a photograph of a warm room.
+
+**Tyler's ruling.** I would build option 1, because it is the only one that
+also lights the Nugget.
+
+**And one thing was fixed on the way:** `tools/lib/png.mjs` could not open an
+RGB PNG at all — only RGBA — so every shipping plate was unreadable to every
+check. The first version of `check-cycling-lands` caught that as
+`catch { continue }` and reported "0 of 0 elements" and passed. The reader now
+handles colour type 2 and normalises to RGBA, and the check fails loudly when
+it cannot read its input.

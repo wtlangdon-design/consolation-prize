@@ -16,6 +16,7 @@ import { inflateSync } from 'node:zlib';
  * images and report them different.
  */
 export function readPng(bytes) {
+  let channels = 4;
   const signature = [137, 80, 78, 71, 13, 10, 26, 10];
   for (let index = 0; index < signature.length; index += 1) {
     if (bytes[index] !== signature[index]) throw new Error('not a PNG');
@@ -35,7 +36,14 @@ export function readPng(bytes) {
       const depth = body[8];
       const colour = body[9];
       const interlace = body[12];
-      if (depth !== 8 || colour !== 6 || interlace !== 0) {
+      // COLOUR TYPE 2 (RGB) AS WELL AS 6 (RGBA), because every shipping plate
+      // is type 2 and this reader could not open one. A check that tried
+      // therefore threw, and its author's `catch { continue }` turned "cannot
+      // read this file" into "nothing to report" -- which is the exact failure
+      // this codebase keeps finding: an instrument that is silent when it
+      // should be loud.
+      channels = colour === 6 ? 4 : 3;
+      if (depth !== 8 || (colour !== 6 && colour !== 2) || interlace !== 0) {
         throw new Error(`unsupported PNG: depth ${depth}, colour type ${colour}, interlace ${interlace}`);
       }
     } else if (type === 'IDAT') {
@@ -47,7 +55,7 @@ export function readPng(bytes) {
   }
 
   const raw = inflateSync(Buffer.concat(idat));
-  const bpp = 4;
+  const bpp = channels;
   const stride = width * bpp;
   const pixels = Buffer.alloc(height * stride);
 
@@ -76,6 +84,21 @@ export function readPng(bytes) {
       } else throw new Error(`unknown PNG filter ${filter}`);
       pixels[to + index] = out & 0xff;
     }
+  }
+
+  // NORMALISED TO RGBA WHATEVER CAME IN. Every consumer of this reader
+  // iterates four bytes at a time; an RGB file would silently shift every
+  // pixel by one channel and read colours that are not there. Expanding once
+  // here is the only place that has to know the difference.
+  if (channels === 3) {
+    const rgba = Buffer.alloc(width * height * 4);
+    for (let at = 0, to = 0; at < pixels.length; at += 3, to += 4) {
+      rgba[to] = pixels[at];
+      rgba[to + 1] = pixels[at + 1];
+      rgba[to + 2] = pixels[at + 2];
+      rgba[to + 3] = 255;
+    }
+    return { width, height, pixels: rgba };
   }
 
   return { width, height, pixels };
