@@ -12,14 +12,20 @@
      "text": "What do you charge?",
      "tag": "TOPIC",
      "say": "Ten cents the page. Fifteen if it\u2019s going well.",
-     "repeat": "Ten cents the page. Fifteen if it\u2019s going well."
+     "repeat": "Ten cents the page. Fifteen if it\u2019s going well.",
+     "set": {
+      "T_CHARGE_ASKED": true
+     }
     },
     {
      "id": "going_well",
      "text": "Going well?",
      "tag": "TOPIC",
      "say": "If a man\u2019s had a good week I write more. If he\u2019s had a bad week I write much more. Bad weeks are my living.",
-     "repeat": "Bad weeks are my living."
+     "repeat": "Bad weeks are my living.",
+     "when": {
+      "T_CHARGE_ASKED": true
+     }
     },
     {
      "id": "truth",
@@ -44,5 +50,6 @@
   }
  },
  "speaker": "letter_writer",
- "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw."
+ "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw.",
+ "gateNote": "Doc 07\u2019s \u21b3 notation: \"going_well\" is a FOLLOW-UP, offered only once \"charge\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given."
 }

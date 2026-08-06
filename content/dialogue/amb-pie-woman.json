@@ -12,14 +12,20 @@
      "text": "What\u2019s in the pie?",
      "tag": "TOPIC",
      "say": "Pie\u2019s a nickel.",
-     "repeat": "Pie\u2019s a nickel."
+     "repeat": "Pie\u2019s a nickel.",
+     "set": {
+      "T_PIE_ASKED": true
+     }
     },
     {
      "id": "not_asked",
      "text": "That isn\u2019t what I asked.",
      "tag": "TOPIC",
      "say": "Pie\u2019s a nickel.",
-     "repeat": "Pie\u2019s a nickel."
+     "repeat": "Pie\u2019s a nickel.",
+     "when": {
+      "T_PIE_ASKED": true
+     }
     },
     {
      "id": "take_one",
@@ -37,5 +43,6 @@
   }
  },
  "speaker": "pie_woman",
- "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw."
+ "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw.",
+ "gateNote": "Doc 07\u2019s \u21b3 notation: \"not_asked\" is a FOLLOW-UP, offered only once \"whats_in\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given."
 }

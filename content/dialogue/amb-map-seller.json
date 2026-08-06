@@ -12,14 +12,20 @@
      "text": "Where do the maps come from?",
      "tag": "TOPIC",
      "say": "I draw them.",
-     "repeat": "I draw them."
+     "repeat": "I draw them.",
+     "set": {
+      "T_MAPS_ASKED": true
+     }
     },
     {
      "id": "from_what",
      "text": "From what?",
      "tag": "TOPIC",
      "say": "From the accounts. There\u2019s dozens of accounts. You put them together and a picture comes out.",
-     "repeat": "You put the accounts together and a picture comes out."
+     "repeat": "You put the accounts together and a picture comes out.",
+     "when": {
+      "T_MAPS_ASKED": true
+     }
     },
     {
      "id": "ever_dug",
@@ -44,5 +50,6 @@
   }
  },
  "speaker": "map_seller",
- "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw."
+ "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw.",
+ "gateNote": "Doc 07\u2019s \u21b3 notation: \"from_what\" is a FOLLOW-UP, offered only once \"where_from\" has been asked. Without the gate every option is on the list from the first moment, which had the pie woman offering to argue with an answer nobody had given."
 }

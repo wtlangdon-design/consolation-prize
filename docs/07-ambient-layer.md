@@ -25,6 +25,19 @@ Ambient characters are built differently from the core cast, and confusing the t
 
 ---
 
+## NOTATION
+
+A micro-tree line beginning **↳** is a FOLLOW-UP: it is offered only once the
+line above it has been asked. Without it every option is on the list from the
+first moment, which is how the pie woman came to offer *"That isn't what I
+asked"* before Thad had asked anything — an option arguing with an answer
+nobody had given.
+
+Three follow-ups exist, one per tree, and each is the same shape: a character
+gives a deflecting answer and the follow-up is Thad noticing.
+
+---
+
 ## 1 · THE LETTER-WRITER
 *Main Street. Writes letters home for men who can't. Charges by the page. Resolves the notice board hotspot.*
 
@@ -32,7 +45,7 @@ Ambient characters are built differently from the core cast, and confusing the t
 
 **Micro-tree**
 > "What do you charge?" → "Ten cents the page. Fifteen if it's going well."
-> "Going well?" → "If a man's had a good week I write more. If he's had a bad week I write *much* more. Bad weeks are my living."
+> ↳ "Going well?" → "If a man's had a good week I write more. If he's had a bad week I write *much* more. Bad weeks are my living."
 > "Do you ever write the truth?" → "Once. Fella insisted. I charged him double and he cried the whole time."
 > `[COMIC]` "I write my own." → "I know. I've read them over your shoulder. You're not bad. You're just honest, which is a phase."
 
@@ -130,7 +143,7 @@ Ambient characters are built differently from the core cast, and confusing the t
 
 **Micro-tree**
 > "What's in the pie?" → "Pie's a nickel."
-> "That isn't what I asked." → "Pie's a nickel."
+> ↳ "That isn't what I asked." → "Pie's a nickel."
 > `[COMIC]` "I'll take a pie." → "Course you will."
 
 **Barks**
@@ -333,7 +346,7 @@ Ambient characters are built differently from the core cast, and confusing the t
 
 **Micro-tree**
 > "Where do the maps come from?" → "I draw them."
-> "From what?" → "From the *accounts*. There's dozens of accounts. You put them together and a picture comes out."
+> ↳ "From what?" → "From the *accounts*. There's dozens of accounts. You put them together and a picture comes out."
 > "Have you ever dug where a map says?" → "I'd not dig my own map, sir. That'd be like a man eating his own dinner." *(This makes no sense and he is very firm about it.)*
 > `[COMIC]` "Do they work?" → "They've not been *disproved*."
 
