@@ -198,8 +198,8 @@
   }
  ],
  "provisional": {
-  "patrons": "Placed over the tables where they will stand. THE PATRONS are sprites -- doc 35 forbids painting people into a plate -- so this rect is a guess until the casting sheet exists and they are positioned. Re-derive it from where they actually stand.",
-  "deke_vessel": "At the bar, which is where a man selling a claim would be. Same caveat: he is a sprite and the rect follows him once he is placed."
+  "patrons": "NINE MEN IN THREE SPRITES, not nine sprites and not a painted crowd. Doc 05 says nine and the line is good -- \"not drinking so much as waiting, at a bar, professionally\" -- but nine separately cut figures is nine idles to keep out of step. Grouped as three clusters, each one sprite with its own idle and rate, the count stays nine, nothing is painted into the plate, and three things move instead of one. Rects re-derived once they are placed.",
+  "deke_vessel": "ACT II, NOT ACT I. Doc 02 A3 puts the swindle in this room and the room gate flagged him for it, but doc 04 VES_A1 says the sale is \"staged in the opening\u2019s shadow: he is gone by the time the player can act\". His standing appearance is VES_B1, \"found again, Duel One\", in Act II. So he is act-gated like the raccoon, and this rect is where he will stand when he is here."
  },
  "walkableNote": "The right edge follows the BAR FRONT, not the bar top: the floor runs to the foot rail, which is where a man stands to lean on it. The first draft cut through the spittoon, which sits on that floor -- it is an obstacle, and an obstacle has to be INSIDE the walkable area for carving it out to mean anything.",
  "lamps": [
