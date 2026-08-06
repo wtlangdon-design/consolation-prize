@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "id": "patrons_cards",
+ "name": "THE PATRONS",
+ "room": "nugget",
+ "note": "One of the Nugget\u2019s nine. Doc 05 gives THE PATRONS its words as a single hotspot, so these carry no tree -- the dog\u2019s precedent. Four men at the card table, seated. The slowest of the five: a hand of cards is the stillest thing in the room.",
+ "x": 700,
+ "y": 470,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "Two-frame breath, on its own rate and phase.",
+  "sheet": "art/actors/ambient-patrons-cards.png",
+  "frames": [
+   [
+    2,
+    2,
+    183,
+    153
+   ],
+   [
+    187,
+    2,
+    183,
+    153
+   ]
+  ],
+  "rate": 0.29,
+  "phase": 0.18
+ }
+}

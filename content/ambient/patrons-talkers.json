@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "id": "patrons_talkers",
+ "name": "THE PATRONS",
+ "room": "nugget",
+ "note": "One of the Nugget\u2019s nine. Doc 05 gives THE PATRONS its words as a single hotspot, so these carry no tree -- the dog\u2019s precedent. Two men talking, one gesturing with a glass.",
+ "x": 470,
+ "y": 616,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "Two-frame breath, on its own rate and phase.",
+  "sheet": "art/actors/ambient-patrons-talkers.png",
+  "frames": [
+   [
+    2,
+    2,
+    164,
+    247
+   ],
+   [
+    168,
+    2,
+    164,
+    247
+   ]
+  ],
+  "rate": 0.55,
+  "phase": 0.81
+ }
+}

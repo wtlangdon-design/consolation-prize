@@ -1,0 +1,32 @@
+{
+ "schema": 1,
+ "id": "patrons_bar_c",
+ "name": "THE PATRONS",
+ "room": "nugget",
+ "note": "One of the Nugget\u2019s nine. Doc 05 gives THE PATRONS its words as a single hotspot, so these carry no tree of their own -- the dog\u2019s precedent: a figure that is drawn and breathes, with the words on the hotspot. Half-turned, nearest the front.",
+ "x": 1300,
+ "y": 648,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "Two-frame breath. Rates and phases are all different so no two groups in the room move together.",
+  "sheet": "art/actors/ambient-patrons-bar-c.png",
+  "frames": [
+   [
+    2,
+    2,
+    80,
+    271
+   ],
+   [
+    84,
+    2,
+    80,
+    271
+   ]
+  ],
+  "rate": 0.61,
+  "phase": 0.66
+ }
+}

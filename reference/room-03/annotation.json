@@ -5,7 +5,7 @@
   1920,
   864
  ],
- "note": "Room 3, the Bountiful Nugget. Derived by measurement from the gridded plate the way Room 2's was, for Tyler to confirm. The camera looks ALONG the room: the street wall with the batwing doors and window is on the left, the bar runs away down the right, and the back wall closes it about two-thirds up. TWO RECTS ARE PROVISIONAL: the patrons and Deke Vessel are sprites that do not exist yet, so their rects are placeholders and must be re-derived from where the figures actually stand.",
+ "note": "Room 3, the Bountiful Nugget. Derived by measurement from the gridded plate the way Room 2's was, for Tyler to confirm. The camera looks ALONG the room: the street wall with the batwing doors and window is on the left, the bar runs away down the right, and the back wall closes it about two-thirds up. TWO RECTS ARE PROVISIONAL: the patrons and Deke Vessel are sprites that do not exist yet, so their rects are placeholders and must be re-derived from where the figures actually stand. THE PATRONS RECT IS NO LONGER PROVISIONAL: derived from the bounding box of the five placed groups, which is the rule -- a rect for people follows the people.",
  "walkable": [
   [
    40,
@@ -119,10 +119,10 @@
    78
   ],
   "patrons": [
-   560,
-   280,
-   320,
-   130
+   388,
+   317,
+   952,
+   331
   ],
   "deke_vessel": [
    1180,
@@ -198,7 +198,6 @@
   }
  ],
  "provisional": {
-  "patrons": "NINE MEN IN THREE SPRITES, not nine sprites and not a painted crowd. Doc 05 says nine and the line is good -- \"not drinking so much as waiting, at a bar, professionally\" -- but nine separately cut figures is nine idles to keep out of step. Grouped as three clusters, each one sprite with its own idle and rate, the count stays nine, nothing is painted into the plate, and three things move instead of one. Rects re-derived once they are placed.",
   "deke_vessel": "ACT II, NOT ACT I. Doc 02 A3 puts the swindle in this room and the room gate flagged him for it, but doc 04 VES_A1 says the sale is \"staged in the opening\u2019s shadow: he is gone by the time the player can act\". His standing appearance is VES_B1, \"found again, Duel One\", in Act II. So he is act-gated like the raccoon, and this rect is where he will stand when he is here."
  },
  "walkableNote": "The right edge follows the BAR FRONT, not the bar top: the floor runs to the foot rail, which is where a man stands to lean on it. The first draft cut through the spittoon, which sits on that floor -- it is an obstacle, and an obstacle has to be INSIDE the walkable area for carving it out to mean anything.",
