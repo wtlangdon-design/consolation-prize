@@ -128,11 +128,17 @@ test('D30: resolving a dialogue option over every authored tree writes nothing',
     }
   }
 
-  // 45 authored options, TWO of which are behind a flag that is false on a
+  // 45 authored options, FIVE of which sit behind a flag that is false on a
   // fresh save and so are never offered by this sweep: the harness tree's
-  // opt_gated, and the stage driver's EXIT, which now waits for the other
-  // three to have been asked.
-  assert.ok(optionsResolved >= 43, `swept ${optionsResolved} options`);
+  // opt_gated; the stage driver's EXIT, which waits for the other three to
+  // have been asked; and one follow-up in each of the three ambient trees,
+  // which wait for their own setup question.
+  //
+  // THE FLOOR MOVING DOWN IS THE FEATURE WORKING. Every option this sweep
+  // stops seeing is an option a player also stops seeing until it makes
+  // sense -- the pie woman no longer offers to argue with an answer nobody
+  // gave. A floor that never moved would mean nothing was ever gated.
+  assert.ok(optionsResolved >= 40, `swept ${optionsResolved} options`);
   // Without this the sweep could pass by resolving nothing that writes.
   assert.ok(effectsSeen >= 4, `${effectsSeen} authored options carry writes and were resolved`);
 });
