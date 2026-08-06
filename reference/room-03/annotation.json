@@ -5,17 +5,145 @@
   1920,
   864
  ],
- "note": "Room 3, the Bountiful Nugget. Its own depth curve, derived from its own architecture the way doc 36 Q10 did for Room 2 -- and it is a much closer view: the batwing doorway is 430px for about 2.0m and the near bar 220px for about 1.1m, which put a 1.75m man at 376 and 350 respectively. Two independent measurements agreeing means the plate is internally consistent, as Room 2\u2019s was. An interior is simply nearer than a street.",
+ "note": "Room 3, the Bountiful Nugget. Derived by measurement from the gridded plate the way Room 2's was, for Tyler to confirm. The camera looks ALONG the room: the street wall with the batwing doors and window is on the left, the bar runs away down the right, and the back wall closes it about two-thirds up. TWO RECTS ARE PROVISIONAL: the patrons and Deke Vessel are sprites that do not exist yet, so their rects are placeholders and must be re-derived from where the figures actually stand.",
+ "walkable": [
+  [
+   40,
+   570
+  ],
+  [
+   300,
+   530
+  ],
+  [
+   700,
+   505
+  ],
+  [
+   980,
+   498
+  ],
+  [
+   1260,
+   630
+  ],
+  [
+   1500,
+   790
+  ],
+  [
+   1700,
+   864
+  ],
+  [
+   40,
+   864
+  ]
+ ],
  "scaling": {
   "far": {
-   "y": 620,
-   "height": 250
+   "y": 498,
+   "height": 175
   },
   "near": {
-   "y": 830,
-   "height": 370
+   "y": 858,
+   "height": 395
   },
-  "note": "height = 0.611 x (y - 211), from the doorway and the bar"
+  "note": "height = 0.611 x (y - 211), from the batwing doorway and the bar front"
+ },
+ "hotspots": {
+  "handbill": [
+   262,
+   248,
+   42,
+   66
+  ],
+  "window": [
+   318,
+   196,
+   154,
+   196
+  ],
+  "piano": [
+   428,
+   250,
+   156,
+   252
+  ],
+  "cards": [
+   598,
+   300,
+   190,
+   60
+  ],
+  "chandelier": [
+   656,
+   18,
+   190,
+   148
+  ],
+  "portrait": [
+   758,
+   188,
+   76,
+   104
+  ],
+  "stove": [
+   826,
+   244,
+   70,
+   160
+  ],
+  "stairs": [
+   938,
+   96,
+   156,
+   290
+  ],
+  "mirror": [
+   1128,
+   96,
+   380,
+   170
+  ],
+  "bar": [
+   952,
+   296,
+   930,
+   300
+  ],
+  "spittoon": [
+   1364,
+   740,
+   90,
+   78
+  ],
+  "patrons": [
+   560,
+   280,
+   320,
+   130
+  ],
+  "deke_vessel": [
+   1180,
+   330,
+   120,
+   300
+  ]
+ },
+ "exits": {
+  "front_doors": [
+   56,
+   336,
+   200,
+   290
+  ],
+  "back_room_door": [
+   602,
+   192,
+   92,
+   142
+  ]
  },
  "entrances": [
   {
@@ -25,7 +153,7 @@
     760
    ],
    "facing": "right",
-   "note": "Through the batwing doors on the left wall, facing right into the room. He was appearing in the middle of the floor because Room 3 declared no entrances at all -- the same fault Room 2 had, where the compiler wrote `entrance` and the engine reads `entrances`."
+   "note": "Through the batwing doors on the left wall, facing right into the room."
   },
   {
    "from": "default",
@@ -34,7 +162,44 @@
     760
    ],
    "facing": "right",
-   "note": "Anything else arrives by the door too."
+   "note": "Anything else arrives by the door."
   }
- ]
+ ],
+ "obstacles": [
+  {
+   "id": "piano_stool",
+   "rect": [
+    520,
+    430,
+    64,
+    70
+   ],
+   "note": "The stool in front of the piano. He walks round it, not through it."
+  },
+  {
+   "id": "card_table",
+   "rect": [
+    586,
+    352,
+    214,
+    110
+   ],
+   "note": "The table and its chairs. The only furniture standing in the walkable floor."
+  },
+  {
+   "id": "spittoon",
+   "rect": [
+    1364,
+    740,
+    90,
+    78
+   ],
+   "note": "Brass, on the floor, and emptied more diligently than anything else in the building. He walks round it. Same rect as the hotspot, so the thing you click and the thing you cannot walk through are one truth."
+  }
+ ],
+ "provisional": {
+  "patrons": "Placed over the tables where they will stand. THE PATRONS are sprites -- doc 35 forbids painting people into a plate -- so this rect is a guess until the casting sheet exists and they are positioned. Re-derive it from where they actually stand.",
+  "deke_vessel": "At the bar, which is where a man selling a claim would be. Same caveat: he is a sprite and the rect follows him once he is placed."
+ },
+ "walkableNote": "The right edge follows the BAR FRONT, not the bar top: the floor runs to the foot rail, which is where a man stands to lean on it. The first draft cut through the spittoon, which sits on that floor -- it is an obstacle, and an obstacle has to be INSIDE the walkable area for carving it out to mean anything."
 }
