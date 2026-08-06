@@ -16,5 +16,25 @@
    "height": 370
   },
   "note": "height = 0.611 x (y - 211), from the doorway and the bar"
- }
+ },
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    300,
+    760
+   ],
+   "facing": "right",
+   "note": "Through the batwing doors on the left wall, facing right into the room. He was appearing in the middle of the floor because Room 3 declared no entrances at all -- the same fault Room 2 had, where the compiler wrote `entrance` and the engine reads `entrances`."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    760
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door too."
+  }
+ ]
 }

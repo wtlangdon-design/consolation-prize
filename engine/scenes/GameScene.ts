@@ -85,6 +85,8 @@ export class GameScene extends Phaser.Scene {
   private sayUntil: number | null = null;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: { speaker: string | null; line: string }[] = [];
+  /** A tree to open when the walk that was started for it finishes. */
+  private pendingTree: string | null = null;
   /** The selection being performed, or null while choices are up. */
   private performance: DialoguePerformance | null = null;
   /**
@@ -341,6 +343,14 @@ export class GameScene extends Phaser.Scene {
       if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x,
         fired.npc.y - 30 * GLYPH_SCALE);
     }
+    // The tree opens when the walk that was started for it finishes.
+    if (this.pendingTree && !this.actor.isWalking) {
+      const tree = this.pendingTree;
+      this.pendingTree = null;
+      this.state.dialogue.start(tree);
+      this.markDirty();
+    }
+
     this.speakingBreaks();
 
     if (!this.dirty) return;
@@ -626,9 +636,23 @@ export class GameScene extends Phaser.Scene {
 
     // An ambient character is talked to, never examined -- they are not
     // hotspots and doc 07 is clear that none of them gates anything.
+    // AN AMBIENT CHARACTER WITH A TREE IS TALKED TO -- AND WALKED TO FIRST.
+    //
+    // Two faults Tyler found in one line. The dog is ambient and has NO tree,
+    // so clicking him started nothing and the click never reached his hotspot:
+    // he has LOOK, LISTEN and doc 13's TALK TO ("Good morning.") and none of
+    // them could be used. A character without a tree now falls through to the
+    // hotspot path, which is where his words live.
+    //
+    // And nobody walked. Doc 22's staged chain walks Thad to an object before
+    // acting on it, and this path bypassed it entirely -- he shouted at the
+    // pie woman from wherever he was standing. He now walks to the edge of
+    // her own approachRadius and the tree opens when he arrives.
     const npc = this.ambient.npcAt(wx, y);
-    if (npc) {
-      this.state.dialogue.start(npc.tree);
+    if (npc?.tree) {
+      const from = npc.x + (this.actor.x < npc.x ? -npc.approachRadius : npc.approachRadius);
+      this.pendingTree = npc.tree;
+      this.actor.walkTo(from, npc.y);
       this.markDirty();
       return;
     }

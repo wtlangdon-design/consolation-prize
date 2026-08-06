@@ -1321,9 +1321,14 @@ export class Renderer {
     // anchor follows the position, or a man drawn small up the road wears his
     // words as a hat while one at the front holds them at his knees.
     const top = at.headY - SPEECH_GAP * at.height - height;
+    // THE CAMERA, WHICH WAS MISSING. `at.x` is a WORLD coordinate and this is
+    // clamped against NATIVE_WIDTH in SCREEN space, because drawSay runs after
+    // the camera translate is restored. On a 3700-wide street that put every
+    // line at the right-hand clamp regardless of who was speaking.
+    const screenX = at.x - this.state.cameraX;
     return {
       x: Math.round(Math.max(TEXT_MARGIN + half,
-        Math.min(NATIVE_WIDTH - TEXT_MARGIN - half, at.x))),
+        Math.min(NATIVE_WIDTH - TEXT_MARGIN - half, screenX))),
       // Two native pixels from the top, x GLYPH_SCALE, and never into the
       // panel: doc 30 section 3.1's two clamps, in one expression.
       y: Math.round(Math.max(2 * GLYPH_SCALE,
@@ -1353,6 +1358,19 @@ export class Renderer {
     if (this.speaker === null) return null;
     const mover = this.actors.all().find((each) => each.id === this.speaker);
     if (mover) return { x: mover.x, headY: mover.y - mover.height, height: mover.height };
+
+    // AN AMBIENT CHARACTER IS A SPEAKER TOO, and this did not know it. Only
+    // movers and overlay faces were looked up, so the pie woman and the map
+    // seller fell through to the centre-top fallback -- which is exactly what
+    // Tyler saw: their dialogue printed at the top of the screen instead of
+    // over their heads. They are the only people in Room 2 and they were the
+    // ones this could not find.
+    const npc = [...this.state.content.ambient.values()]
+      .find((each) => each.id === this.speaker);
+    if (npc) {
+      const height = this.state.heightForZone(npc.zone);
+      return { x: npc.x, headY: npc.y - height, height };
+    }
 
     for (const overlay of this.state.content.overlays.values()) {
       const claims = Object.values(overlay.states)
@@ -1403,12 +1421,25 @@ export class Renderer {
   }
 
   /** A bark sits over the character who said it, not at the top of the screen. */
+  /**
+   * A bark, over the head of whoever said it.
+   *
+   * THE CAMERA IS APPLIED HERE, AND WAS NOT. `at.x` is the speaker's WORLD x
+   * -- 2180 on a 3700-wide street -- and this draws AFTER the camera translate
+   * has been restored, in screen space. So every bark on Main Street was
+   * clamped against NATIVE_WIDTH with a world coordinate, which pinned it to
+   * the right edge and clipped it: Tyler saw the pie woman's line appear on
+   * the side of the screen, cut off, nowhere near her.
+   *
+   * The clamp itself is right and now clamps the right number.
+   */
   private drawBark(lines: string[], at: { x: number; y: number }): void {
+    const screenX = at.x - this.state.cameraX;
     lines.forEach((line, index) => {
       const y = at.y - (lines.length - index) * DIALOGUE_LINE_HEIGHT;
       const width = this.font.measure(line);
       const x = Math.max(GLYPH_SCALE * 2,
-        Math.min(NATIVE_WIDTH - width - GLYPH_SCALE * 2, at.x - Math.round(width / 2)));
+        Math.min(NATIVE_WIDTH - width - GLYPH_SCALE * 2, screenX - Math.round(width / 2)));
       this.font.drawOutlined(
         this.screen.context,
         line,
