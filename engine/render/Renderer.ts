@@ -112,6 +112,18 @@ const DIALOGUE_BOTTOM = NATIVE_HEIGHT - 3 * GLYPH_SCALE;
 //
 // Six lines now cost 240px rather than 360, which is the panel plus one row.
 const DIALOGUE_LINE_HEIGHT = 10 * PANEL_GLYPH_SCALE;
+
+/**
+ * Line spacing for SPOKEN text, which is drawn at the play area's glyph scale.
+ *
+ * ONE CONSTANT WAS DOING TWO JOBS AND I MOVED IT. Dropping the option list to
+ * the panel's scale also dropped the spacing of every spoken line, because
+ * both read DIALOGUE_LINE_HEIGHT -- so a two-line examine response overlapped
+ * itself by twenty pixels, which is what Tyler photographed. The list and the
+ * speech are different sizes now and need different spacing; they were only
+ * ever the same by accident.
+ */
+const SPEECH_LINE_HEIGHT = 10 * GLYPH_SCALE;
 const SAY_TOP = 8 * GLYPH_SCALE;
 const TEXT_MARGIN = 6 * GLYPH_SCALE;
 /**
@@ -1285,7 +1297,7 @@ export class Renderer {
         this.screen.context,
         line,
         anchor.x,
-        anchor.y + index * DIALOGUE_LINE_HEIGHT,
+        anchor.y + index * SPEECH_LINE_HEIGHT,
         ink,
         this.screen.roleColour('overlayBg'),
       );
@@ -1300,7 +1312,7 @@ export class Renderer {
    * width is the widest line in it.
    */
   private speechAnchor(lines: string[]): { x: number; y: number } {
-    const height = lines.length * DIALOGUE_LINE_HEIGHT;
+    const height = lines.length * SPEECH_LINE_HEIGHT;
     const half = Math.max(...lines.map((line) => this.font.measure(line)), 0) / 2;
     // CUTSCENE CAPTIONS SIT AT THE TOP; ONLY AN EXCHANGE ANCHORS OVER A HEAD.
     //
@@ -1446,7 +1458,7 @@ export class Renderer {
   private drawBark(lines: string[], at: { x: number; y: number }): void {
     const screenX = at.x - this.state.cameraX;
     lines.forEach((line, index) => {
-      const y = at.y - (lines.length - index) * DIALOGUE_LINE_HEIGHT;
+      const y = at.y - (lines.length - index) * SPEECH_LINE_HEIGHT;
       const width = this.font.measure(line);
       const x = Math.max(GLYPH_SCALE * 2,
         Math.min(NATIVE_WIDTH - width - GLYPH_SCALE * 2, screenX - Math.round(width / 2)));

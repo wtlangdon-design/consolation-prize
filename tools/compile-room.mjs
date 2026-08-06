@@ -472,24 +472,106 @@ built.exits = (live.exits ?? []).map((e) => {
   };
   const bands = [['mud_far', T, c1, 2], ['mud_mid', c1, c2, 1], ['mud_near', c2, B, 0]];
   const lip = (live.walkBoxes ?? []).find((w) => w.id === 'boardwalk');
+  // OBSTACLES CARVE THE BANDS. A band is a quad by rule, so a thing standing on
+  // the floor cannot be a hole in one -- it has to become several quads around
+  // the gap. Thad walked straight through the water trough because nothing in
+  // a full-width band says a trough is there.
+  //
+  // Each obstacle splits any band it intrudes into: the piece left of it, the
+  // piece right of it, and -- where the obstacle stops short of the band's
+  // bottom -- the strip underneath, which is the mud in FRONT of the trough
+  // and is genuinely walkable. The rect is the trough's own hotspot rect, so
+  // the thing you can click and the thing you cannot walk through are one
+  // truth and not two.
+  const carve = (band) => {
+    let pieces = [band];
+    for (const obstacle of ann.obstacles ?? []) {
+      const [ox, oy, ow, oh] = obstacle.rect;
+      const next = [];
+      for (const piece of pieces) {
+        const [px, py, pw, ph] = piece;
+        const hits = ox < px + pw && ox + ow > px && oy < py + ph && oy + oh > py;
+        if (!hits) { next.push(piece); continue; }
+        if (ox > px) next.push([px, py, ox - px, ph]);
+        if (ox + ow < px + pw) next.push([ox + ow, py, px + pw - (ox + ow), ph]);
+        if (oy + oh < py + ph) {
+          const left = Math.max(px, ox);
+          const right = Math.min(px + pw, ox + ow);
+          next.push([left, oy + oh, right - left, py + ph - (oy + oh)]);
+        }
+      }
+      pieces = next;
+    }
+    return pieces;
+  };
+
   built.walkBoxes = [
     // ERRATA 28a: THE LIP IS FIXED AT THE FAR DRAWN SIZE, and 'far' is now
     // 222, not the 240 it carried. It sits ABOVE mud_far, so a lip taller
     // than the mud below it makes stepping down off the boardwalk -- moving
     // NEARER -- shrink him, which is the one thing the floor may never do.
     ...(lip ? [{
-      ...lip, points: quad(T - 52, T - 2), neighbours: ['mud_far'],
+      ...lip,
+      points: quad(T - 52, T - 2),
+      // NAMED AFTER CARVING, AND MUTUALLY. Carving mud_far into pieces around
+      // the trough left the lip pointing at a box that no longer existed, and
+      // the router requires neighbours to name each other both ways -- a
+      // one-way link is a floor he can leave and not return to.
+      neighbours: [],
       // The lip is fixed at the FAR drawn size, errata 28a -- and 'far' is
       // now this room's own far, not the shared zones'. It sits above
       // mud_far, so a lip taller than the mud below it would shrink him for
       // stepping down off the boardwalk, which a floor may never do.
       scaleMode: { kind: 'fixed', height: ann.scaling.far.height },
     }] : []),
-    ...bands.map(([id, y0, y1], n) => ({
-      id, points: quad(y0, y1), surface: 'mud', clipPlane: 12, scaleMode: scale,
-      neighbours: [n === 0 ? 'boardwalk' : bands[n - 1][0], bands[n + 1]?.[0]].filter(Boolean),
-    })),
+    ...bands.flatMap(([id, y0, y1], n) => {
+      const near = [n === 0 ? 'boardwalk' : bands[n - 1][0], bands[n + 1]?.[0]].filter(Boolean);
+      const pieces = carve([L, y0, R - L, y1 - y0]);
+      const name = (index) => (pieces.length === 1 ? id : `${id}_${index}`);
+      return pieces.map((piece, index) => ({
+        id: name(index),
+        points: [{ x: piece[0], y: piece[1] }, { x: piece[0] + piece[2], y: piece[1] },
+          { x: piece[0] + piece[2], y: piece[1] + piece[3] },
+          { x: piece[0], y: piece[1] + piece[3] }],
+        surface: 'mud',
+        clipPlane: 12,
+        scaleMode: scale,
+        neighbours: [...near, ...pieces.map((_, other) => (other === index ? null : name(other)))]
+          .filter(Boolean),
+      }));
+    }),
   ];
+  // NEIGHBOURS ARE DERIVED FROM THE GEOMETRY, NOT LISTED BY HAND.
+  //
+  // Carving broke the hand-written lists twice over: the lip named a mud_far
+  // that no longer existed, and the piece in front of the trough named the lip
+  // back across a trough. Two boxes are neighbours when their rectangles
+  // actually touch along an edge with real overlap -- which is symmetric by
+  // construction, so the router's requirement that a link be two-way cannot be
+  // violated by an edit.
+  {
+    const box = (each) => {
+      const xs = each.points.map((point) => point.x);
+      const ys = each.points.map((point) => point.y);
+      return [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)];
+    };
+    const TOUCH = 6;
+    for (const one of built.walkBoxes) one.neighbours = [];
+    for (let a = 0; a < built.walkBoxes.length; a += 1) {
+      for (let b = a + 1; b < built.walkBoxes.length; b += 1) {
+        const [ax0, ay0, ax1, ay1] = box(built.walkBoxes[a]);
+        const [bx0, by0, bx1, by1] = box(built.walkBoxes[b]);
+        const overlapX = Math.min(ax1, bx1) - Math.max(ax0, bx0);
+        const overlapY = Math.min(ay1, by1) - Math.max(ay0, by0);
+        const sideBySide = overlapY > TOUCH && Math.abs(ax1 - bx0) <= TOUCH;
+        const stacked = overlapX > TOUCH && Math.abs(ay1 - by0) <= TOUCH;
+        if (!sideBySide && !stacked && !(overlapX > TOUCH && overlapY > TOUCH)) continue;
+        built.walkBoxes[a].neighbours.push(built.walkBoxes[b].id);
+        built.walkBoxes[b].neighbours.push(built.walkBoxes[a].id);
+      }
+    }
+  }
+
   built.walkable = bands.map(([id, y0, y1, zone]) =>
     ({ id, zone, surface: 'mud', rect: [L, y0, R - L, y1 - y0] }));
   built.walkableOutline = ann.walkable;

@@ -698,7 +698,8 @@
         }
       ],
       "neighbours": [
-        "mud_far"
+        "mud_far_0",
+        "mud_far_1"
       ],
       "clipPlane": 12,
       "surface": "boardwalk",
@@ -708,18 +709,18 @@
       }
     },
     {
-      "id": "mud_far",
+      "id": "mud_far_0",
       "points": [
         {
           "x": 60,
           "y": 584
         },
         {
-          "x": 3690,
+          "x": 1862,
           "y": 584
         },
         {
-          "x": 3690,
+          "x": 1862,
           "y": 677
         },
         {
@@ -738,6 +739,75 @@
       },
       "neighbours": [
         "boardwalk",
+        "mud_far_2",
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_far_1",
+      "points": [
+        {
+          "x": 2017,
+          "y": 584
+        },
+        {
+          "x": 3690,
+          "y": 584
+        },
+        {
+          "x": 3690,
+          "y": 677
+        },
+        {
+          "x": 2017,
+          "y": 677
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 12,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "boardwalk",
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_far_2",
+      "points": [
+        {
+          "x": 1862,
+          "y": 605
+        },
+        {
+          "x": 2017,
+          "y": 605
+        },
+        {
+          "x": 2017,
+          "y": 677
+        },
+        {
+          "x": 1862,
+          "y": 677
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 12,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 584,
+        "farHeight": 105,
+        "nearY": 858,
+        "nearHeight": 206
+      },
+      "neighbours": [
+        "mud_far_0",
         "mud_mid"
       ]
     },
@@ -771,7 +841,9 @@
         "nearHeight": 206
       },
       "neighbours": [
-        "mud_far",
+        "mud_far_0",
+        "mud_far_1",
+        "mud_far_2",
         "mud_near"
       ]
     },

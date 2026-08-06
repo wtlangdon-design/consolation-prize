@@ -85,8 +85,8 @@ export class GameScene extends Phaser.Scene {
   private sayUntil: number | null = null;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: { speaker: string | null; line: string }[] = [];
-  /** A tree to open when the walk that was started for it finishes. */
-  private pendingTree: string | null = null;
+  /** A tree to open, and who to turn to, when the walk started for it ends. */
+  private pendingTree: { tree: string; at: { x: number; y: number } } | null = null;
   /** The selection being performed, or null while choices are up. */
   private performance: DialoguePerformance | null = null;
   /**
@@ -345,8 +345,13 @@ export class GameScene extends Phaser.Scene {
     }
     // The tree opens when the walk that was started for it finishes.
     if (this.pendingTree && !this.actor.isWalking) {
-      const tree = this.pendingTree;
+      const { tree, at } = this.pendingTree;
       this.pendingTree = null;
+      // HE TURNS TO WHOEVER HE IS TALKING TO. Walking to a point beside the
+      // map seller left Thad facing whichever way the walk happened to end --
+      // in Tyler's screenshot, squarely at the building behind him. A man
+      // stops, turns, and then speaks.
+      this.actor.faceToward(at.x, at.y);
       this.state.dialogue.start(tree);
       this.markDirty();
     }
@@ -658,7 +663,7 @@ export class GameScene extends Phaser.Scene {
       // a metre at any depth, and scales with the room's curve for free.
       const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
       const from = npc.x + (this.actor.x < npc.x ? -gap : gap);
-      this.pendingTree = npc.tree;
+      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y } };
       this.actor.walkTo(from, npc.y);
       this.markDirty();
       return;

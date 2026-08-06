@@ -319,5 +319,17 @@
    "The other half is real, and is doing better."
   ],
   "note": "His first sight of the town, and the words come from doc 05's THE FALSE FRONTS rather than being written fresh -- he has the opinion already; this is him having it out loud at the moment he first has it. AMENDED AFTER TYLER CHECKED IT AGAINST THE PLATE: the original said EVERY building was a false front, which the picture contradicts -- the saloon is a flat parapet with a low roof behind it, and the hotel beside it is genuinely two storeys with lit windows and real depth. The plate is signed off, so the writing yields, and the observation is better for it: the half that is real is the half with money, which is the town's whole economy in one line. Gated on T_SEEN_MAIN_STREET, which onEnter sets, so it plays once."
- }
+ },
+ "obstacles": [
+  {
+   "id": "water_trough",
+   "rect": [
+    1862,
+    543,
+    155,
+    62
+   ],
+   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough\u2019s own hotspot rect -- one truth, not two."
+  }
+ ]
 }
