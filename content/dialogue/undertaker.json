@@ -1,6 +1,7 @@
 {
   "schema": 1,
   "id": "UNDERTAKER",
+  "speaker": "undertaker",
   "name": "THE UNDERTAKER",
   "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are undertaker, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
   "nodes": {

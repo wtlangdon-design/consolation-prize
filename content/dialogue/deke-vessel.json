@@ -1,6 +1,7 @@
 {
   "schema": 1,
   "id": "DEKE_VESSEL",
+  "speaker": "deke_vessel",
   "name": "DEKE VESSEL",
   "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are deke_vessel, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
   "nodes": {

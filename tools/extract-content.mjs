@@ -1437,6 +1437,15 @@ function minorTrees() {
     written.push(write(`content/dialogue/${who.tree.toLowerCase().replace(/_/g, '-')}.json`, {
       schema: 1,
       id: who.tree,
+      // WHO SPEAKS THE REPLIES, AND IT WAS KNOWN AND NEVER WRITTEN. The WHO
+      // table above has carried a speaker id per tree all along; the emitted
+      // file did not. With no `speaker`, DialogueRunner leaves `sayer` null,
+      // so the renderer cannot find a head to put the words over and drops
+      // them to the top-centre fallback -- and colours them as unattributed,
+      // which is why Tyler saw the map seller's line at the top of the screen
+      // in Thad's colour. Only stage-driver declared one, so every other
+      // character in the game had this.
+      speaker: who.speaker,
       name: title,
       note: `EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not `
         + `edit: change doc 27 and re-run. Speakers come from the document's own `

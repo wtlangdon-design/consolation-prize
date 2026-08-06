@@ -1,39 +1,41 @@
 {
-  "schema": 1,
-  "id": "amb_pie_woman",
-  "note": "Doc 07 #6 micro-tree, verbatim. She answers the second question with the same line as the first. That is the joke and it must not be 'fixed'.",
-  "start": "N1",
-  "nodes": {
-    "N1": {
-      "prompt": "The pie woman does not look up.",
-      "options": [
-        {
-          "id": "whats_in",
-          "text": "What’s in the pie?",
-          "tag": "TOPIC",
-          "say": "Pie’s a nickel.",
-          "repeat": "Pie’s a nickel."
-        },
-        {
-          "id": "not_asked",
-          "text": "That isn’t what I asked.",
-          "tag": "TOPIC",
-          "say": "Pie’s a nickel.",
-          "repeat": "Pie’s a nickel."
-        },
-        {
-          "id": "take_one",
-          "text": "I’ll take a pie.",
-          "tag": "COMIC",
-          "say": "Course you will.",
-          "repeat": "Course you will."
-        },
-        {
-          "id": "exit",
-          "text": "I’ve taken enough of your time. I’ll be taking more later.",
-          "tag": "EXIT"
-        }
-      ]
+ "schema": 1,
+ "id": "amb_pie_woman",
+ "note": "Doc 07 #6 micro-tree, verbatim. She answers the second question with the same line as the first. That is the joke and it must not be 'fixed'.",
+ "start": "N1",
+ "nodes": {
+  "N1": {
+   "prompt": "The pie woman does not look up.",
+   "options": [
+    {
+     "id": "whats_in",
+     "text": "What\u2019s in the pie?",
+     "tag": "TOPIC",
+     "say": "Pie\u2019s a nickel.",
+     "repeat": "Pie\u2019s a nickel."
+    },
+    {
+     "id": "not_asked",
+     "text": "That isn\u2019t what I asked.",
+     "tag": "TOPIC",
+     "say": "Pie\u2019s a nickel.",
+     "repeat": "Pie\u2019s a nickel."
+    },
+    {
+     "id": "take_one",
+     "text": "I\u2019ll take a pie.",
+     "tag": "COMIC",
+     "say": "Course you will.",
+     "repeat": "Course you will."
+    },
+    {
+     "id": "exit",
+     "text": "I\u2019ve taken enough of your time. I\u2019ll be taking more later.",
+     "tag": "EXIT"
     }
+   ]
   }
+ },
+ "speaker": "pie_woman",
+ "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null, the renderer cannot find a head to put the words over, and they fall to the top-centre fallback in the wrong colour -- which is exactly what Tyler saw."
 }
