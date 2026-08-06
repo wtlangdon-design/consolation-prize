@@ -710,3 +710,37 @@ as an argument, so the generator never needs to know how big the person is.
 Thad, who went through the decimation pipeline errata 54 retired. That is a
 Thad question, not a new-character question, and it will show on every
 character made from here.
+
+## LIGHT A SPRITE BY WHERE IT STANDS, NOT BY A GLOBAL GRADE
+
+**Tyler: generated sprites "look like they jump out a bit."** He suspected he
+was overthinking it. He was not, and the measurement is unambiguous.
+
+Every sprite had been graded and lifted with the same numbers as the whole
+plate — and a plate's light is not the same along its length. Measured against
+the plate immediately surrounding each figure:
+
+| | sprite luma | plate around it |
+|---|---|---|
+| map seller | **111** | 49 |
+| letter-writer | 80 | 58 |
+| pie woman | 76 | 71 |
+
+The map seller stands at the dark east end of Main Street and was lit as
+though he were on the saloon porch. The pie woman, who genuinely is on the
+saloon porch, measured 76 against 71 and looked right — which is the control
+that proves the diagnosis.
+
+**So the fault was never that sprites have a look. They were lit for the wrong
+place.**
+
+`tools/grade/match-local.py` scales a sprite's luminance and warmth toward the
+plate in a ring around where it will stand. **Partially, at strength 0.7:** a
+person under a lamp genuinely is brighter than mud, and matching all the way
+would paint them into the background as surely as painting them in. The aim is
+a figure lit by this street's lamps, not a figure the same colour as the
+street. Map seller: 111 to 64, against a local 54.
+
+**This runs per figure, per room, after the cut and before the sheet.** A
+sprite moved to a new position must be relit for it — the light belongs to the
+place, not to the character.
