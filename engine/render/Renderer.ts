@@ -662,6 +662,8 @@ export class Renderer {
     ctx.save();
     ctx.globalCompositeOperation = 'lighter';
     for (const lamp of lamps) {
+      // A lamp that has left with the thing it hung on is not a lamp.
+      if (lamp.when && !this.state.flags.test(lamp.when)) continue;
       const t = this.clock * lamp.rate + (lamp.phase ?? 0);
       // Two sines of different periods, so the flicker does not tick.
       const wave = 0.5 + 0.35 * Math.sin(t * Math.PI * 2) + 0.15 * Math.sin(t * Math.PI * 5.3);
@@ -845,7 +847,16 @@ export class Renderer {
       const y = at.y - Math.round((spec.flameAnchor[1] / spec.size[1]) * height);
       context.save();
       context.globalCompositeOperation = 'lighter';
-      context.globalAlpha = Math.max(0, Math.min(1, spec.intensity));
+      // THE CARRIED FLAME FLICKERS, WHICH IS WHAT hobs_lamp WAS FOR. Doc 18
+      // called it "a carried flame in still air, not a torch", and the
+      // cycling element meant to do it has animated nothing since errata 54
+      // (doc 36 Q13). Same two-sine wobble the fixed lamps use, at a tenth of
+      // the amplitude: this is a lamp somebody is holding still, and the
+      // motion should be at the edge of noticing.
+      const wobble = 1
+        + 0.06 * Math.sin(this.clock * Math.PI * 2 * 0.7)
+        + 0.03 * Math.sin(this.clock * Math.PI * 2 * 1.9);
+      context.globalAlpha = Math.max(0, Math.min(1, spec.intensity * wobble));
       context.drawImage(image, x, y, width, height);
       context.restore();
       // DELIBERATELY NOT RECORDED AS A WATCH VIOLATION. `ViolationKind` is a

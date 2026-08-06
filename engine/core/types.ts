@@ -379,6 +379,14 @@ export interface RoomLamp {
   /** Cycles per second, and an offset so no two lamps breathe together. */
   rate: number;
   phase?: number;
+  /**
+   * When this light exists at all.
+   *
+   * A lamp bolted to a building is always there; one hanging on a coach leaves
+   * with the coach. Without this, Room 1's coach lantern would go on glowing
+   * over an empty road for the rest of the act.
+   */
+  when?: Condition;
   note?: string;
 }
 

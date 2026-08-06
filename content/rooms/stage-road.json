@@ -624,5 +624,35 @@
     }
   ],
   "backEdgeNote": "THE BACK EDGE IS y700 AND WAS y660, RULED after a play-through reported him walking through the furniture. 660 came from where the mud becomes the SURFACE -- what the ground is, not what stands on it -- and the bench, its rail and the crate beneath it have their bases between roughly y630 and y660. So he could stand level with them or sixteen pixels in front, and at 222px tall he was drawn straight over them: standing in front of something and being drawn over it are the same picture when there is no depth between you. y700 clears every base by 40 to 70 pixels and costs 40 rows of a 204-row band, which against a 240px character is nothing -- the depth curve still gives him 224 there. WALK BOXES THAT EXCLUDE THE STANDING FURNITURE ARE MORE CORRECT and can come later without undoing this: this moves one edge and takes no shape away that anything else depends on.",
-  "walkBoxesNote": "ONE BOX, AND NOTHING NEEDS A CLIP PLANE. The fence, the bench and the sign all have their feet ABOVE y660 -- the band's back edge -- so they sit behind the walkable area and the player always passes in front of them. He can never get level with the fence, so it neither stops him nor occludes him, and the collision-or-occlusion question answers itself. THE FIRST VERSION HAD TWO BOXES AND WAS WRONG, in a way worth keeping: the obstructions were measured as starting at y690, which forced a full-width strip above them, because `inside()` is a CONVEX-QUAD WINDING TEST and a T-shaped walkable region cannot be one quad. That strip handed both corners back and the player walked into the water tower's legs at the frame edge. The error was not the base's position -- it was proposing a shape without checking what the engine's containment test can express."
+  "walkBoxesNote": "ONE BOX, AND NOTHING NEEDS A CLIP PLANE. The fence, the bench and the sign all have their feet ABOVE y660 -- the band's back edge -- so they sit behind the walkable area and the player always passes in front of them. He can never get level with the fence, so it neither stops him nor occludes him, and the collision-or-occlusion question answers itself. THE FIRST VERSION HAD TWO BOXES AND WAS WRONG, in a way worth keeping: the obstructions were measured as starting at y690, which forced a full-width strip above them, because `inside()` is a CONVEX-QUAD WINDING TEST and a T-shaped walkable region cannot be one quad. That strip handed both corners back and the player walked into the water tower's legs at the frame edge. The error was not the base's position -- it was proposing a shape without checking what the engine's containment test can express.",
+  "lamps": [
+    {
+      "id": "coach_lantern",
+      "at": [
+        1182,
+        546
+      ],
+      "radius": 230,
+      "amount": 0.1,
+      "rate": 0.29,
+      "phase": 0,
+      "when": {
+        "T_COACH_DEPARTED": false
+      },
+      "note": "The coach lantern, from lightSources[1]. GATED ON THE COACH STILL BEING HERE: it hangs on a vehicle that leaves at beat 6, and an ungated lamp would go on glowing over an empty road for the rest of the act."
+    },
+    {
+      "id": "town_below",
+      "at": [
+        222,
+        402
+      ],
+      "radius": 420,
+      "amount": 0.04,
+      "rate": 0.11,
+      "phase": 0.44,
+      "note": "The town downhill, west -- lit windows and nothing else, from lightSources[2]. Doc 17’s LOOK line is \"There are lamps on in about a third of it.\" Slowest and faintest of any lamp in the game: it is a hundred windows a mile off, and what moves is the air between, not the flames."
+    }
+  ],
+  "lampsNote": "Doc 18's flicker by the mechanism that survives errata 54 -- doc 36 Q13. HOB'S LAMP IS NOT HERE, and that is deliberate: it is carried, so it moves with him, and the renderer's own carriedLight pass now flickers it at a tenth of this amplitude. A fixed glow at a fixed point would be a second lamp lying on the road."
 }
