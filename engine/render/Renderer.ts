@@ -1488,16 +1488,27 @@ export class Renderer {
 
     const options = this.state.dialogue.presentOptions();
     const top = dialogueTop(options.length);
-    // Backing over the panel always, and over the play area only by however
-    // much the options actually overflow it.
-    this.screen.fill(0, Math.min(top - 2 * GLYPH_SCALE, PANEL_Y), NATIVE_WIDTH,
-      NATIVE_HEIGHT - Math.min(top - 2 * GLYPH_SCALE, PANEL_Y), this.screen.role('overlayBg'));
 
-    // The prompt goes in the sentence line's slot. Nothing else is using it:
-    // there is no hovering during a conversation.
+    // THE PROMPT GOES ABOVE THE LIST, NOT IN THE SENTENCE SLOT.
+    //
+    // It used to go in the sentence line's slot, on the reasoning that nothing
+    // else is using it during a conversation. Nothing else is -- but the LIST
+    // is. The list is bottom-anchored and grows upward, so it reaches the
+    // sentence slot at 894 from three options up, and at four the stage
+    // direction printed straight across the third row. Tyler photographed it
+    // twice: "The map seller brightens considerably." overlaid on "Have you
+    // ever dug where a map says?", both legible, neither readable.
+    //
+    // Above the list is the only place that cannot collide with it, because
+    // the list's own height is what decides where that is.
+    const promptY = node.prompt ? top - DIALOGUE_LINE_HEIGHT : top;
+    const backingTop = Math.min(promptY - 2 * GLYPH_SCALE, PANEL_Y);
+    this.screen.fill(0, backingTop, NATIVE_WIDTH,
+      NATIVE_HEIGHT - backingTop, this.screen.role('overlayBg'));
+
     if (node.prompt) {
-      const { x: px, y: py } = this.panel.sentence;
-      this.font.draw(ctx, node.prompt, px, py, this.screen.roleColour('inkBright'));
+      this.font.draw(ctx, node.prompt, TEXT_MARGIN, promptY,
+        this.screen.roleColour('inkBright'));
     }
 
     options.forEach((presented, index) => {
