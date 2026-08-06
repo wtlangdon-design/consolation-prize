@@ -735,7 +735,20 @@ that proves the diagnosis.
 place.**
 
 `tools/grade/match-local.py` scales a sprite's luminance and warmth toward the
-plate in a ring around where it will stand. **Partially, at strength 0.7:** a
+**lit part** of the plate in a ring around where it will stand — the 70th
+percentile, not the mean.
+
+**AIMING AT THE MEAN WAS WRONG AND ONLY SHOWED ONCE A LAMP EXISTED.** Around
+the map seller the ring's mean is 59 while the lit ground he is standing on is
+79 to 87, because the ring also samples the dark mud beyond the pool of light.
+Averaging a lamplit patch with the night beside it produces a number that
+describes neither, and he came out at 59.9 — exactly as bright as the average,
+and therefore not lit by the lamp at all, which is what Tyler saw after a
+lantern had been hung specifically for him.
+
+A figure standing IN a pool of light is lit like the lit parts of it. The
+percentile degrades correctly too: on unlit ground the percentile and the mean
+sit close together, so nothing changes for a figure in the dark. **Partially, at strength 0.7:** a
 person under a lamp genuinely is brighter than mud, and matching all the way
 would paint them into the background as surely as painting them in. The aim is
 a figure lit by this street's lamps, not a figure the same colour as the

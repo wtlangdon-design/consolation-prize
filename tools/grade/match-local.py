@@ -53,11 +53,29 @@ if ring.size == 0:
 opaque = sprite[..., 3] > 200
 figure = sprite[opaque][:, :3]
 
-want_luma = luma(ring).mean()
+# THE LIT PART OF THE GROUND, NOT THE AVERAGE OF LIT AND UNLIT.
+#
+# The first version aimed at the ring's MEAN and it was wrong in a way that
+# only showed once a lamp was added. Around the map seller the mean is 59 while
+# the lit ground he is standing on is 79 to 87 -- because the ring also samples
+# the dark mud beyond the pool, and averaging a lamplit patch with the night
+# next to it produces a number that describes neither. He came out at 59.9:
+# exactly as bright as the average, and therefore not lit by the lamp at all.
+# Tyler: "we now have the lamp but it's not actually brightening him up."
+#
+# A figure standing IN a pool of light is lit like the LIT parts of it. The
+# 70th percentile is that, and it degrades correctly: on unlit ground the
+# percentile and the mean are close together, so nothing changes for a figure
+# in the dark.
+want_luma = float(np.percentile(luma(ring), 70))
 have_luma = luma(figure).mean()
 gain = 1.0 + ((want_luma / max(have_luma, 1e-3)) - 1.0) * strength
 
-want_warm = (ring[:, 0] - ring[:, 2]).mean()
+# Warmth from the same lit pixels, for the same reason: lamplight is warm and
+# the mud beyond it is blue, so their average is neither.
+lit = luma(ring) >= want_luma
+warm_from = ring[lit] if lit.any() else ring
+want_warm = (warm_from[:, 0] - warm_from[:, 2]).mean()
 have_warm = (figure[:, 0] - figure[:, 2]).mean()
 shift = (want_warm - have_warm) * strength
 
