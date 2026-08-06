@@ -510,9 +510,16 @@ built.exits = (live.exits ?? []).map((e) => {
     // 222, not the 240 it carried. It sits ABOVE mud_far, so a lip taller
     // than the mud below it makes stepping down off the boardwalk -- moving
     // NEARER -- shrink him, which is the one thing the floor may never do.
-    ...(lip ? [{
+    // THE LIP IS CARVED TOO, and was not. The trough spans y543 to 605 and
+    // the boardwalk band is 532 to 582, so the half of the trough standing in
+    // the lip was never cut out -- Tyler clicked LOOK AT and Thad walked into
+    // the water. Carving only the mud bands carved only half the obstacle.
+    ...(lip ? carve([L, T - 52, R - L, 50]).map((piece, index) => ({
       ...lip,
-      points: quad(T - 52, T - 2),
+      id: index === 0 ? 'boardwalk' : `boardwalk_${index}`,
+      points: [{ x: piece[0], y: piece[1] }, { x: piece[0] + piece[2], y: piece[1] },
+        { x: piece[0] + piece[2], y: piece[1] + piece[3] },
+        { x: piece[0], y: piece[1] + piece[3] }],
       // NAMED AFTER CARVING, AND MUTUALLY. Carving mud_far into pieces around
       // the trough left the lip pointing at a box that no longer existed, and
       // the router requires neighbours to name each other both ways -- a
@@ -523,7 +530,7 @@ built.exits = (live.exits ?? []).map((e) => {
       // mud_far, so a lip taller than the mud below it would shrink him for
       // stepping down off the boardwalk, which a floor may never do.
       scaleMode: { kind: 'fixed', height: ann.scaling.far.height },
-    }] : []),
+    })) : []),
     ...bands.flatMap(([id, y0, y1], n) => {
       const near = [n === 0 ? 'boardwalk' : bands[n - 1][0], bands[n + 1]?.[0]].filter(Boolean);
       const pieces = carve([L, y0, R - L, y1 - y0]);
@@ -568,6 +575,58 @@ built.exits = (live.exits ?? []).map((e) => {
         if (!sideBySide && !stacked && !(overlapX > TOUCH && overlapY > TOUCH)) continue;
         built.walkBoxes[a].neighbours.push(built.walkBoxes[b].id);
         built.walkBoxes[b].neighbours.push(built.walkBoxes[a].id);
+      }
+    }
+  }
+
+  // WHERE HE STANDS TO EXAMINE A THING, which no hotspot had.
+  //
+  // Tyler clicked LOOK AT on the water trough and Thad walked INTO it. Two
+  // faults met: the lip was uncarved, and no object carried an approach point,
+  // so the walk resolved to the target itself. Doc 22's staged chain wants a
+  // point to walk to and none was ever compiled.
+  //
+  // The point is directly below the rect, on the first walk box that actually
+  // contains it -- in FRONT of the thing, never on it, and never inside an
+  // obstacle, because the boxes have already had the obstacles cut out of
+  // them. A hotspot high on a wall gets the nearest floor beneath it, which
+  // is where a man stands to look up at a sign.
+  {
+    const inside = (x, y) => built.walkBoxes.some((box) => {
+      const xs = box.points.map((point) => point.x);
+      const ys = box.points.map((point) => point.y);
+      return x >= Math.min(...xs) && x <= Math.max(...xs)
+        && y >= Math.min(...ys) && y <= Math.max(...ys);
+    });
+    const floorBelow = (x, fromY) => {
+      for (let y = Math.max(fromY, T); y <= B; y += 4) if (inside(x, y)) return y;
+      return null;
+    };
+    for (const hotspot of built.hotspots) {
+      const [hx, hy, hw, hh] = hotspot.rect;
+      const centre = Math.round(hx + hw / 2);
+      // Try the centre, then either side, for a thing standing on the floor.
+      const candidates = [centre, Math.round(hx - 40), Math.round(hx + hw + 40)];
+      for (const x of candidates) {
+        if (x < L || x > R) continue;
+        const first = floorBelow(x, hy + hh + 8);
+        if (first === null) continue;
+        // AND HE STANDS BACK FROM IT, for the same reason he stands back from
+        // a person: the first walkable row below a thing is flush against it,
+        // and a man examining a trough does not have his boots in it. A third
+        // of his own drawn height at that depth is about half a metre, and it
+        // scales with the room's curve. Clamped to a row that is still floor.
+        const curve = ann.scaling;
+        const at = (y) => curve.far.height
+          + ((y - curve.far.y) / (curve.near.y - curve.far.y))
+          * (curve.near.height - curve.far.height);
+        let y = first;
+        const wanted = first + Math.round(at(first) * 0.34);
+        for (let step = wanted; step > first; step -= 4) {
+          if (inside(x, step)) { y = step; break; }
+        }
+        hotspot.walkTo = { x, y, facing: 'back' };
+        break;
       }
     }
   }

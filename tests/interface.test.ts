@@ -405,9 +405,19 @@ test('Room 2 declares one fixed box at the lip, and no step until Q6 draws one',
   // exactly one box is fixed and it is the lip. It stays true when Q6 puts a
   // real step back, and this test grows the step assertion back with it.
   const room = content.rooms.get('main_street')!;
+  // THE LIP IS ONE THING AND MAY BE SEVERAL BOXES. Counting boxes was a
+  // stand-in for "the lip is the only fixed thing", and it stopped being the
+  // same claim the moment an obstacle carved the lip in two: the water trough
+  // straddles the boardwalk band, so the lip is now the piece west of it and
+  // the piece east of it. What 28a binds is that the FIXED SCALE belongs to
+  // the lip and to nothing else, which is what is asserted.
   const fixed = room.walkBoxes!.filter((box) => box.scaleMode.kind === 'fixed');
-  assert.equal(fixed.length, 1, 'exactly one fixed box in the room');
-  assert.equal(fixed[0]!.id, 'boardwalk', 'and it is the lip');
+  assert.ok(fixed.length >= 1, 'the lip is a fixed box');
+  for (const box of fixed) {
+    assert.ok(/^boardwalk/.test(box.id), `${box.id} is fixed but is not the lip`);
+  }
+  const heights = new Set(fixed.map((box) => (box.scaleMode as { height: number }).height));
+  assert.equal(heights.size, 1, 'every piece of the lip is fixed at the same height');
 
   const jumps: { y: number; from: number; to: number }[] = [];
   let previous: number | null = null;

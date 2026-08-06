@@ -96,6 +96,11 @@
       "overrides": {
         "PICK_UP": "They belong to the town. I have read them four times, which I consider a form of ownership.",
         "OPEN": "They are already facing outward. That is the whole design."
+      },
+      "walkTo": {
+        "x": 1193,
+        "y": 628,
+        "facing": "back"
       }
     },
     {
@@ -132,6 +137,11 @@
       "overrides": {
         "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
         "OPEN": "It is a trough. It is entirely open. It is nothing but open."
+      },
+      "walkTo": {
+        "x": 1940,
+        "y": 652,
+        "facing": "back"
       }
     },
     {
@@ -169,6 +179,11 @@
         "TALK_TO": "Good morning.",
         "PICK_UP": "I am not picking up a dog I have not been introduced to.",
         "PUSH": "I will not."
+      },
+      "walkTo": {
+        "x": 2628,
+        "y": 832,
+        "facing": "back"
       }
     },
     {
@@ -208,6 +223,11 @@
       "overrides": {
         "PICK_UP": "It is four hundred yards away and approximately forty feet tall. I admire the ambition of the instruction.",
         "TALK_TO": "I am not going to shout at a church from a street."
+      },
+      "walkTo": {
+        "x": 788,
+        "y": 620,
+        "facing": "back"
       }
     },
     {
@@ -257,6 +277,11 @@
       "overrides": {
         "PULL": "It is screwed on. Thoroughly. Somebody paid for it to be screwed on.",
         "TALK_TO": "I have spoken to the building it is attached to. It went badly and I have not recovered."
+      },
+      "walkTo": {
+        "x": 668,
+        "y": 620,
+        "facing": "back"
       }
     },
     {
@@ -299,6 +324,11 @@
       "overrides": {
         "PULL": "The loose board declines to come up. It is loose recreationally, not professionally.",
         "PUSH": "Third from the end. Up an inch, down an inch. Nobody has ever fixed it."
+      },
+      "walkTo": {
+        "x": 925,
+        "y": 667,
+        "facing": "back"
       }
     },
     {
@@ -336,6 +366,11 @@
         "PICK_UP": "They are hills.",
         "TALK_TO": "No.",
         "USE": "I would not know where to begin, and neither would they."
+      },
+      "walkTo": {
+        "x": 3440,
+        "y": 620,
+        "facing": "back"
       }
     },
     {
@@ -414,6 +449,11 @@
       "overrides": {
         "PUSH": "I have pushed the front of a building. It did not fall over, which is more than I expected.",
         "PULL": "If I pull hard enough the entire town comes down, and I have not settled how I feel about that."
+      },
+      "walkTo": {
+        "x": 1580,
+        "y": 620,
+        "facing": "back"
       }
     }
   ],
@@ -685,11 +725,11 @@
           "y": 532
         },
         {
-          "x": 3690,
+          "x": 1862,
           "y": 532
         },
         {
-          "x": 3690,
+          "x": 1862,
           "y": 582
         },
         {
@@ -698,7 +738,37 @@
         }
       ],
       "neighbours": [
-        "mud_far_0",
+        "mud_far_0"
+      ],
+      "clipPlane": 12,
+      "surface": "boardwalk",
+      "scaleMode": {
+        "kind": "fixed",
+        "height": 105
+      }
+    },
+    {
+      "id": "boardwalk_1",
+      "note": "ERRATA 28a: fixed at the far drawn size, and that is where Room 2's scaling snap now lives. The boardwalk lip is the only real horizontal interruption in the walkable band -- measured at a mean luminance step of 64.5 against 16.3 for the next strongest row -- so stepping off it into the mud is where the sprite swaps from the drawn far sheet to a decimated one. Before boxes the height was one curve across the whole floor and the swap landed at y109, in open mud.",
+      "points": [
+        {
+          "x": 2017,
+          "y": 532
+        },
+        {
+          "x": 3690,
+          "y": 532
+        },
+        {
+          "x": 3690,
+          "y": 582
+        },
+        {
+          "x": 2017,
+          "y": 582
+        }
+      ],
+      "neighbours": [
         "mud_far_1"
       ],
       "clipPlane": 12,
@@ -773,7 +843,7 @@
         "nearHeight": 206
       },
       "neighbours": [
-        "boardwalk",
+        "boardwalk_1",
         "mud_mid"
       ]
     },
