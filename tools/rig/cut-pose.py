@@ -38,6 +38,33 @@ factor = np.where(spill, (2 * (green + 4)) / np.maximum(red + blue, 1e-6), 1.0)
 rgba[..., 0] = np.where(spill, red * factor, red)
 rgba[..., 2] = np.where(spill, blue * factor, blue)
 
+# ONLY THE PIXELS THAT MATERIALLY CHANGED, and the original everywhere else.
+#
+# The generator does not return a wholly redrawn image: it pastes a rectangular
+# PATCH over the original, and the patch carries a faint tonal shift of its
+# own. That shift is invisible pixel by pixel and unmistakable as a straight
+# line -- Tyler saw a box edge across the man's back, and measuring it found a
+# right edge at x105 holding for 39 rows and a bottom at y77 for 56 columns.
+#
+# WHAT THE PATCH REDRAWS BESIDES THE MAN IS THE FURNITURE HE COVERS. Measured
+# on the first pose: the chair legs below the patch differ by 0.00, the
+# tabletop beside it by 0.00, the CHAIR BACK INSIDE it by 15.35 -- and the man
+# himself by 49.23. So the patch is not a tonal shift, it is a genuine redraw
+# of everything inside a box, and the box edge shows where redrawn meets
+# original.
+#
+# The man moved by 49 and the chair by 15, so the threshold sits between them:
+# adopt a pixel only where it changed by more than THRESHOLD, and keep the
+# original everywhere else. That takes the movement and leaves the furniture,
+# without needing to know where the box was or which pixels are a man.
+if reference:
+    base = np.array(Image.open(reference).convert('RGBA'))
+    if base.shape[:2] == alpha.shape:
+        THRESHOLD = 30
+        moved = np.abs(rgba[..., :3] - base[..., :3].astype(float)).mean(axis=2) >= THRESHOLD
+        keep = (~moved) & (base[..., 3] > 200) & (alpha > 200)
+        rgba[..., :3] = np.where(keep[..., None], base[..., :3].astype(float), rgba[..., :3])
+
 Image.fromarray(np.clip(rgba, 0, 255).astype(np.uint8)).save(out)
 
 report = f'{out}: {int((alpha > 128).sum())} opaque px'
