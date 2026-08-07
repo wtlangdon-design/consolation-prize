@@ -1,0 +1,26 @@
+{
+ "schema": 1,
+ "id": "card_table_group",
+ "name": "THE PATRONS",
+ "room": "nugget",
+ "note": "The round table, its four chairs, and the four men playing at it -- ONE object, drawn together, which is what Tyler ruled and had to say three times. Composites at the plate\u2019s own coordinates with no scaling.\nMEASURED AGAINST THE FOOTPRINT IT REPLACES, which is the rule the bar taught: the removed table and its chairs occupied x703-1007 (305 wide) and this group is x670-1005 (336) -- 31 pixels wider because it now contains four men as well, and centred within 18 pixels of where the table stood. The bar came back 1.55x too wide and was shipped because nobody made that comparison.",
+ "x": 838,
+ "y": 514,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "Still. A hand of cards is the stillest thing in the room, and an idle can come from a second draw of the same four.",
+  "sheet": "art/actors/nugget-card-table.png",
+  "frames": [
+   [
+    0,
+    0,
+    336,
+    216
+   ]
+  ],
+  "rate": 0.0,
+  "phase": 0.0
+ }
+}

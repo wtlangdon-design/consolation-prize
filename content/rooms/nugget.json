@@ -685,5 +685,8 @@
   1920,
   864
  ],
- "castNote": "Empty until the furniture-and-people sprites fit. The bar came back 1.55x too wide -- x694-1916 against the x1126-1916 it replaced, 432 pixels further into the room -- and was shipped because I judged a crop against my expectations instead of against the footprint I had removed, which was in a file two commands away. Any replacement is measured against that footprint before it is wired."
+ "castNote": "The card table group is in. The BAR is not: it came back 1.55x too wide and was unshipped. Any replacement is measured against x1126-1916 y355-849 before it is wired.",
+ "ambient": [
+  "card_table_group"
+ ]
 }
