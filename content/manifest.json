@@ -55,6 +55,9 @@
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
+  "content/ambient/bar-far.json",
+  "content/ambient/bar-mid.json",
+  "content/ambient/bar-near.json",
   "content/ambient/dog.json",
   "content/ambient/letter-writer.json",
   "content/ambient/map-seller.json",

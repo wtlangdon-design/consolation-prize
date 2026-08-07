@@ -1,0 +1,26 @@
+{
+ "schema": 1,
+ "id": "bar_far",
+ "name": "THE BAR",
+ "room": "nugget",
+ "note": "A SECTION OF THE BAR, ITS STOOLS AND THE MAN AT IT -- one object, drawn together, because Tyler ruled three times that anything the men touch must be drawn with them and he was right every time.\nThree sections rather than one because the bar runs 500 pixels in depth: Thad standing at the far end must be IN FRONT of the far bar and BEHIND the near one, and a single anchor cannot do both. Cut from ONE generation along columns that pass through no man -- x855 and x1120, where the sprite is bar only -- so the three recompose to the original with a maximum channel difference of ZERO. There is no seam because there is no join. The far end, with the man seated on his stool, back to the room.",
+ "x": 774,
+ "y": 554,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "Still. The bar does not breathe; the men on it can get an idle later from a second draw of the same three.",
+  "sheet": "art/actors/nugget-bar-far.png",
+  "frames": [
+   [
+    0,
+    0,
+    161,
+    263
+   ]
+  ],
+  "rate": 0.0,
+  "phase": 0.0
+ }
+}

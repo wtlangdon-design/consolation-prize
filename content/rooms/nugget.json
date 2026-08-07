@@ -685,5 +685,10 @@
   1920,
   864
  ],
- "castNote": "EMPTY UNTIL THE FURNITURE-AND-PEOPLE SPRITES EXIST. Tyler ruled three times that anything the men touch must be drawn WITH them; I built it three ways short of that -- a casting sheet in isolation, which floated; a foreground plane, which fixed the picture and broke depth sorting; and men drawn in place against furniture that stayed in the plate, which still left chairs and a bar that did not fit them. The plate now has a bare floor and the furniture comes back as sprites with the people on it."
+ "castNote": "EMPTY UNTIL THE FURNITURE-AND-PEOPLE SPRITES EXIST. Tyler ruled three times that anything the men touch must be drawn WITH them; I built it three ways short of that -- a casting sheet in isolation, which floated; a foreground plane, which fixed the picture and broke depth sorting; and men drawn in place against furniture that stayed in the plate, which still left chairs and a bar that did not fit them. The plate now has a bare floor and the furniture comes back as sprites with the people on it.",
+ "ambient": [
+  "bar_far",
+  "bar_mid",
+  "bar_near"
+ ]
 }
