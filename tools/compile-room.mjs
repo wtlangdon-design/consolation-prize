@@ -856,6 +856,11 @@ built.exits = (live.exits ?? []).map((e) => {
   built.entrances = ann.entrances ?? [];
   // Doc 18's flicker, by the mechanism that works on a generated plate.
   if (ann.lamps) built.lamps = ann.lamps;
+  // Whole-plate animation, where a room declares it.
+  if (ann.backgroundFrames) {
+    built.backgroundFrames = ann.backgroundFrames;
+    built.backgroundRate = ann.backgroundRate ?? 0.5;
+  }
   if (ann.onEnterSay) {
     built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
   }

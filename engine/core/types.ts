@@ -810,6 +810,27 @@ export interface RoomFile {
    */
   /** Doc 18's flicker, by a mechanism that works on a generated plate. */
   lamps?: RoomLamp[];
+  /**
+   * Extra whole-plate frames, cycled with `background` as frame zero.
+   *
+   * TYLER'S ANSWER TO A PROBLEM I SPENT HOURS ON. The Nugget's seven men are
+   * fused to furniture, and every attempt to animate them by compositing --
+   * subtracting the furniture, patching one man, deriving motion inside a box
+   * -- failed on the same rock: two drawings of the same furniture are two
+   * different drawings.
+   *
+   * Replacing the WHOLE PICTURE per frame has no such problem, because nothing
+   * is composited. It is safe here for a specific reason and not in general:
+   * everything that moves in this room is always BEHIND Thad. The floor's
+   * right edge follows the bar front and the card table sits above the floor's
+   * back edge, so he never passes in front of either, and baking them into the
+   * plate cannot break depth sorting.
+   *
+   * A room whose animated furniture he can walk in front of must NOT use this.
+   */
+  backgroundFrames?: string[];
+  /** Whole-plate cycles per second. */
+  backgroundRate?: number;
   onEnter?: {
     note?: string;
     set?: FlagWrites;

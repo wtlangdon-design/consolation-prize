@@ -426,7 +426,19 @@ export class GameScene extends Phaser.Scene {
   private backgroundFor(roomId: string): CanvasImageSource | null {
     const room = this.state.content.rooms.get(roomId);
     if (!room?.background) return null;
-    const key = `bg:${roomId}`;
+    // WHOLE-PLATE FRAMES, if the room declares them. Frame zero is
+    // `background` itself, so a room with no extra frames is unchanged.
+    let key = `bg:${roomId}`;
+    const extra = room.backgroundFrames ?? [];
+    if (extra.length) {
+      const rate = room.backgroundRate ?? 0.5;
+      const step = Math.floor(this.time.now / 1000 * rate * (extra.length + 1))
+        % (extra.length + 1);
+      if (step > 0) {
+        const frameKey = `bgf:${roomId}:${step - 1}`;
+        if (this.textures.exists(frameKey)) key = frameKey;
+      }
+    }
     if (!this.textures.exists(key)) return null;
     const source = this.textures.get(key).getSourceImage() as CanvasImageSource;
     if (!room.cycling?.length) return source;

@@ -113,6 +113,12 @@ function firstFrameStaging(bundle: ContentBundle): Map<string, Set<string>> {
 function roomImages(room: RoomFile): BootAsset[] {
   const out: BootAsset[] = [];
   if (room.background) out.push({ key: `bg:${room.id}`, path: room.background });
+  // Whole-plate animation frames, keyed by index. Same half of the boot split
+  // as the plate they belong to: a room that arrives one frame at a time would
+  // stutter on entry, which is worse than arriving a moment later.
+  (room.backgroundFrames ?? []).forEach((path, index) => {
+    out.push({ key: `bgf:${room.id}:${index}`, path });
+  });
   if (room.foreground) out.push({ key: `fg:${room.id}`, path: room.foreground });
   if (room.idles?.sheet) out.push({ key: `idle:${room.id}`, path: room.idles.sheet });
   // Occlusion masks are keyed by their content path, like character sheets,
