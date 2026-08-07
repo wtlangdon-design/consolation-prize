@@ -686,11 +686,11 @@
   864
  ],
  "ambient": [
-  "patrons_bar_a",
-  "patrons_bar_b",
-  "patrons_bar_c",
   "patrons_talkers",
-  "card_table_group"
+  "card_table_group",
+  "drinker_far",
+  "drinker_mid",
+  "drinker_near"
  ],
  "ambientNote": "Nine men in five sprites. Doc 05 says nine and the line is worth keeping; five groups rather than nine figures means five idles to keep out of step instead of nine, and nothing is painted into the plate. Declared here rather than compiled because Room 3\u2019s annotation is still unconfirmed -- compile-room takes this over when it runs."
 }

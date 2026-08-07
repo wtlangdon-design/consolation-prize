@@ -57,11 +57,11 @@
  "ambient": [
   "content/ambient/card-table-group.json",
   "content/ambient/dog.json",
+  "content/ambient/drinker-far.json",
+  "content/ambient/drinker-mid.json",
+  "content/ambient/drinker-near.json",
   "content/ambient/letter-writer.json",
   "content/ambient/map-seller.json",
-  "content/ambient/patrons-bar-a.json",
-  "content/ambient/patrons-bar-b.json",
-  "content/ambient/patrons-bar-c.json",
   "content/ambient/patrons-talkers.json",
   "content/ambient/pie-woman.json"
  ],

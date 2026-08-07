@@ -120,9 +120,9 @@
   ],
   "patrons": [
    388,
-   320,
-   940,
-   296
+   288,
+   1332,
+   430
   ],
   "deke_vessel": [
    1180,
@@ -177,16 +177,6 @@
    "note": "The stool in front of the piano. He walks round it, not through it."
   },
   {
-   "id": "card_table",
-   "rect": [
-    586,
-    352,
-    214,
-    110
-   ],
-   "note": "The table and its chairs. The only furniture standing in the walkable floor."
-  },
-  {
    "id": "spittoon",
    "rect": [
     1364,
@@ -195,6 +185,16 @@
     78
    ],
    "note": "Brass, on the floor, and emptied more diligently than anything else in the building. He walks round it. Same rect as the hotspot, so the thing you click and the thing you cannot walk through are one truth."
+  },
+  {
+   "id": "card_table",
+   "rect": [
+    744,
+    352,
+    182,
+    120
+   ],
+   "note": "The table is a sprite now, merged with the men at it, but it is still a thing on the floor he walks round. Rect from the mask the table was cut with."
   }
  ],
  "provisional": {
