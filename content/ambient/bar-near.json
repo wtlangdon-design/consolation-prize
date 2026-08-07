@@ -10,17 +10,35 @@
  "approachRadius": 40,
  "barks": {},
  "sprite": {
-  "note": "Still. The men can take an idle later from a second draw of the same three.",
+  "note": "A FOUR-FRAME BREATH, DERIVED FROM THE ONE DRAWING. A second generation was tried and measured: asked for this furniture with nobody at it, the generator hit the bounding box exactly and then repeated only 26% of the furniture pixels within twelve levels -- mean difference 29.2 where it should have been zero. Frames built from two such drawings would make the furniture shimmer under men who are meant to be still.\nSo each man\u2019s own columns lift one pixel and every other pixel is copied verbatim: ZERO pixels ever change outside the declared columns, so the furniture cannot move. Each man is up for two frames of four, offset one frame from his neighbour, so no two breathe in step -- ruling 20\u2019s point about synchronised idles, indoors.",
   "sheet": "art/actors/nugget-bar-near.png",
   "frames": [
    [
-    0,
-    0,
+    2,
+    2,
+    417,
+    422
+   ],
+   [
+    421,
+    2,
+    417,
+    422
+   ],
+   [
+    840,
+    2,
+    417,
+    422
+   ],
+   [
+    1259,
+    2,
     417,
     422
    ]
   ],
-  "rate": 0.0,
-  "phase": 0.0
+  "rate": 0.19,
+  "phase": 0.83
  }
 }
