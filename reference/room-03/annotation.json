@@ -276,5 +276,7 @@
   }
  },
  "charactersNote": "Kept OUT of `hotspots` on purpose. The compiler reconciles hotspot rects against the documents that write examine lines, and correctly called these two orphans: a rect with no lines is a hotspot that says nothing when clicked. They are characters, their words live in their trees and in doc 49, and their rects follow their sprites.",
- "idNote": "Ids follow the LIVE ROOM FILE, not a slug of the doc name -- the compiler says so and it is right: a person chose `portrait` and `cards`, and I had renamed them to `faded_portrait` and `hand_of_cards` from the headings."
+ "idNote": "Ids follow the LIVE ROOM FILE, not a slug of the doc name -- the compiler says so and it is right: a person chose `portrait` and `cards`, and I had renamed them to `faded_portrait` and `hand_of_cards` from the headings.",
+ "walkModel": "clipped",
+ "walkModelNote": "The Nugget's floor is not a rectangle -- it narrows against the bar, from 1011px wide at the back to 1546 at the front -- so its bands are clipped to the floor\u2019s own span at each depth. A street does not declare this: Room 2 is full width everywhere a player stands, and clipping its topmost band on the sloping boardwalk line collapsed it to 51px."
 }

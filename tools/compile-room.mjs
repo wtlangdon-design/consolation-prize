@@ -542,14 +542,101 @@ built.exits = (live.exits ?? []).map((e) => {
   const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
   const L = Math.min(...xs), R = Math.max(...xs);
   const T = Math.min(...ys), B = Math.max(...ys);
-  const quad = (y0, y1) => [{ x: L, y: y0 }, { x: R, y: y0 }, { x: R, y: y1 }, { x: L, y: y1 }];
+  // THE POLYGON'S OWN WIDTH AT A DEPTH, NOT THE BOUNDING BOX'S.
+  //
+  // Room 2's floor is 3630 pixels wide at every depth -- it is a street -- so
+  // taking L and R from the bounding box was right there and wrong the moment
+  // a room's floor was any other shape. The Nugget's floor runs from 1011
+  // wide at the back to 1546 at the front, because the bar cuts across it
+  // diagonally, and full-width bands would have let Thad walk through the bar.
+  //
+  // A band is still a quad. It is just clipped to the floor it belongs to,
+  // which for a street returns exactly the bounding box and changes nothing.
+  const spanAt = (y) => {
+    const xs = [];
+    for (let i = 0; i < pts.length; i += 1) {
+      const [x1, y1] = pts[i];
+      const [x2, y2] = pts[(i + 1) % pts.length];
+      if ((y1 <= y && y < y2) || (y2 <= y && y < y1)) {
+        xs.push(x1 + ((y - y1) * (x2 - x1)) / (y2 - y1));
+      }
+    }
+    return xs.length ? [Math.min(...xs), Math.max(...xs)] : null;
+  };
+  // The NARROWEST span the band covers, so a quad never reaches outside the
+  // floor at any depth within it -- a box that fits at its middle but overhangs
+  // at its far edge is a box he can stand outside the room in.
+  // OPT-IN, BECAUSE IT IS WRONG FOR A STREET. Clipping takes a band's
+  // NARROWEST span so no quad reaches outside the floor -- correct for the
+  // Nugget, whose floor narrows evenly against the bar. Room 2's floor is full
+  // width everywhere except a sloping top edge, so its topmost band's
+  // narrowest row is nearly a point and clipping collapsed mud_far from 3630
+  // wide to 51, cutting the street in half.
+  //
+  // A room declares `walkModel: "clipped"` when its floor is not a rectangle.
+  // Doing it by measurement instead would be guessing at which of two correct
+  // behaviours a room wants.
+  const clipped = ann.walkModel === 'clipped';
+  const bandSpan = (y0, y1) => {
+    if (!clipped) return null;
+    let left = -Infinity;
+    let right = Infinity;
+    for (let y = y0; y <= y1; y += 2) {
+      const span = spanAt(y);
+      // A DEGENERATE ROW IS NOT A NARROW FLOOR. The topmost band contains the
+      // polygon's apex, where the span is a single point; taking that as the
+      // band's narrowest made the whole band collapse and fall back to the
+      // bounding box -- the one band that most needed clipping got none.
+      if (!span || span[1] - span[0] < 8) continue;
+      left = Math.max(left, span[0]);
+      right = Math.min(right, span[1]);
+    }
+    return Number.isFinite(left) && right > left
+      ? [Math.round(left), Math.round(right)] : null;
+  };
+  const quad = (y0, y1) => {
+    const span = bandSpan(y0, y1) ?? [L, R];
+    return [{ x: span[0], y: y0 }, { x: span[1], y: y0 },
+      { x: span[1], y: y1 }, { x: span[0], y: y1 }];
+  };
   const c1 = Math.round(T + (B - T) * 0.34), c2 = Math.round(T + (B - T) * 0.67);
   const scale = {
     kind: 'curve',
     farY: ann.scaling.far.y, farHeight: ann.scaling.far.height,
     nearY: ann.scaling.near.y, nearHeight: ann.scaling.near.height,
   };
-  const bands = [['mud_far', T, c1, 2], ['mud_mid', c1, c2, 1], ['mud_near', c2, B, 0]];
+  // HOW MANY BANDS: three for a floor of constant width, more where it
+  // narrows, because each band is a rectangle and a rectangle can only follow
+  // a slanted edge in steps. Measured from the floor itself rather than
+  // declared, so a street gets three and the Nugget gets enough.
+  // MEASURED BY PERCENTILE, because a polygon tapers to a point at its
+  // topmost vertex and that taper is not variation a player can stand in.
+  // Room 2's floor is 3630 wide at every depth that matters and 0 at the apex;
+  // taking the raw range gave it twelve bands for a straight street. The
+  // middle eighty per cent ignores the taper at both ends and answers the
+  // question actually being asked -- does this floor change width as it comes
+  // toward the camera.
+  const widths = [];
+  for (let y = T; y <= B; y += 4) {
+    const span = spanAt(y);
+    if (span) widths.push(span[1] - span[0]);
+  }
+  widths.sort((a, b) => a - b);
+  const at = (q) => widths[Math.min(widths.length - 1, Math.floor(widths.length * q))] ?? 0;
+  // MEDIAN TO p90, not p10 to p90. The taper at a polygon's apex covers about
+  // a seventh of Room 2's rows, so p10 still landed inside it and the street
+  // measured a spread of 1811 on a floor that never changes width. From the
+  // median upward there is no taper to fall into: Room 2 measures 0 and the
+  // Nugget measures 370, which is the difference the count should turn on.
+  const spread = widths.length ? at(0.9) - at(0.5) : 0;
+  const count = (!clipped || spread < 40) ? 3 : Math.min(12, 3 + Math.ceil(spread / 120));
+  const bands = [];
+  for (let i = 0; i < count; i += 1) {
+    const y0 = i === 0 ? T : Math.round(T + ((B - T) * i) / count);
+    const y1 = i === count - 1 ? B : Math.round(T + ((B - T) * (i + 1)) / count);
+    const zone = count === 3 ? 2 - i : Math.min(2, Math.floor(((count - 1 - i) * 3) / count));
+    bands.push([count === 3 ? ['mud_far', 'mud_mid', 'mud_near'][i] : `floor_${i}`, y0, y1, zone]);
+  }
   const lip = (live.walkBoxes ?? []).find((w) => w.id === 'boardwalk');
   // OBSTACLES CARVE THE BANDS. A band is a quad by rule, so a thing standing on
   // the floor cannot be a hole in one -- it has to become several quads around
@@ -612,7 +699,13 @@ built.exits = (live.exits ?? []).map((e) => {
     })) : []),
     ...bands.flatMap(([id, y0, y1], n) => {
       const near = [n === 0 ? 'boardwalk' : bands[n - 1][0], bands[n + 1]?.[0]].filter(Boolean);
-      const pieces = carve([L, y0, R - L, y1 - y0]);
+      // FROM THE FLOOR'S OWN SPAN AT THIS DEPTH, not the bounding box. This
+      // line is where the polygon clipping was being thrown away: quad() was
+      // taught to clip and then the bands never called it, so the Nugget's
+      // middle bands came out 1690 wide across a floor 1120 wide and Thad
+      // could walk through the bar after all.
+      const span = bandSpan(y0, y1) ?? [L, R];
+      const pieces = carve([span[0], y0, span[1] - span[0], y1 - y0]);
       const name = (index) => (pieces.length === 1 ? id : `${id}_${index}`);
       return pieces.map((piece, index) => ({
         id: name(index),
