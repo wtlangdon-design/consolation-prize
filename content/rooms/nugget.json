@@ -685,8 +685,11 @@
   1920,
   864
  ],
- "castNote": "The card table group is in. The BAR is not: it came back 1.55x too wide and was unshipped. Any replacement is measured against x1126-1916 y355-849 before it is wired.",
+ "castNote": "Seven men in four sprites: four at the card table with the table and its chairs, three at the bar with the bar and its stools. Every piece of furniture anybody touches is drawn with the people touching it, which is Tyler\u2019s ruling and took three attempts to follow. Each was measured against the footprint it replaces before being wired.",
  "ambient": [
-  "card_table_group"
+  "card_table_group",
+  "bar_far",
+  "bar_mid",
+  "bar_near"
  ]
 }

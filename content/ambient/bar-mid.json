@@ -1,0 +1,26 @@
+{
+ "schema": 1,
+ "id": "bar_mid",
+ "name": "THE BAR",
+ "room": "nugget",
+ "note": "A section of the bar, its stools and the man at it -- one object, drawn together.\nFITTED, AND MEASURED BEFORE WIRING: the whole bar came back at x1126-1916 y356-849 against the x1126-1916 y355-849 it replaces -- 1.00x, every edge to the pixel. The previous attempt was 1.55x and 432 pixels too far into the room, and was shipped because the comparison was never run. Giving the generator the footprint as a red box on the original was what fixed it: a box to fit rather than a description to interpret.\nThree sections because the bar runs 490 pixels in depth and one anchor cannot put Thad in front of the near end and behind the far one. Cut at x1290 and x1500, where the sprite is bar only; recomposed against the whole, maximum channel difference ZERO. The middle: the man with a boot on the foot rail.",
+ "x": 1395,
+ "y": 760,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "Still. The men can take an idle later from a second draw of the same three.",
+  "sheet": "art/actors/nugget-bar-mid.png",
+  "frames": [
+   [
+    0,
+    0,
+    210,
+    401
+   ]
+  ],
+  "rate": 0.0,
+  "phase": 0.0
+ }
+}
