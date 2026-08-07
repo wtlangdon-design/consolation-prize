@@ -10,17 +10,47 @@
  "approachRadius": 40,
  "barks": {},
  "sprite": {
-  "note": "Still. A hand of cards is the stillest thing in the room, and an idle can come from a second draw of the same four.",
+  "note": "A SIX-FRAME NOD, derived from the one drawing, applied ONLY above the furniture line. Every other route was measured and rejected: a second whole-group drawing differs by 44.2 mean, an empty-furniture pass redraws the furniture and does not align with a men-only pass, and a companion patch of one man redraws the chair inside its rectangle and blends into a two-armed chimera.\nThe first derived attempt failed because its region ran to y150, straight through a tabletop whose top edge is at y100, so the table rose with the men. Heads and shoulders sit above that line against transparency, where a man can move freely. Four pixels of nod with a pixel of sway, each man starting two steps into the cycle from his neighbour. The furniture is byte-identical in every frame -- maximum change ZERO, not small.",
   "sheet": "art/actors/nugget-card-table.png",
   "frames": [
    [
-    0,
-    0,
+    2,
+    2,
+    336,
+    216
+   ],
+   [
+    340,
+    2,
+    336,
+    216
+   ],
+   [
+    678,
+    2,
+    336,
+    216
+   ],
+   [
+    1016,
+    2,
+    336,
+    216
+   ],
+   [
+    1354,
+    2,
+    336,
+    216
+   ],
+   [
+    1692,
+    2,
     336,
     216
    ]
   ],
-  "rate": 0.0,
+  "rate": 0.16,
   "phase": 0.0
  },
  "placeNote": "SHIFTED 35px RIGHT, clear of the piano. The group was drawn with its left edge at x670 and the piano keyboard runs to x696, so four men and a chair sat on top of it. The furniture it replaced began at x703; the group began at 670, which is 33px further left -- the same class of error as the bar, at a fortieth of the scale, and caught the same way: by Tyler looking at the room. Left edge is now 705, two pixels clear of where the old table started and nine clear of the keyboard."

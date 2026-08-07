@@ -10,17 +10,47 @@
  "approachRadius": 40,
  "barks": {},
  "sprite": {
-  "note": "Still. The men can take an idle later from a second draw of the same three.",
+  "note": "A SIX-FRAME NOD, derived from the one drawing, applied ONLY above the furniture line. Every other route was measured and rejected: a second whole-group drawing differs by 44.2 mean, an empty-furniture pass redraws the furniture and does not align with a men-only pass, and a companion patch of one man redraws the chair inside its rectangle and blends into a two-armed chimera.\nThe first derived attempt failed because its region ran to y150, straight through a tabletop whose top edge is at y100, so the table rose with the men. Heads and shoulders sit above that line against transparency, where a man can move freely. Four pixels of nod with a pixel of sway, each man starting two steps into the cycle from his neighbour. The furniture is byte-identical in every frame -- maximum change ZERO, not small.",
   "sheet": "art/actors/nugget-bar-mid.png",
   "frames": [
    [
-    0,
-    0,
+    2,
+    2,
+    210,
+    401
+   ],
+   [
+    214,
+    2,
+    210,
+    401
+   ],
+   [
+    426,
+    2,
+    210,
+    401
+   ],
+   [
+    638,
+    2,
+    210,
+    401
+   ],
+   [
+    850,
+    2,
+    210,
+    401
+   ],
+   [
+    1062,
+    2,
     210,
     401
    ]
   ],
-  "rate": 0.0,
-  "phase": 0.0
+  "rate": 0.19,
+  "phase": 0.55
  }
 }
