@@ -844,6 +844,7 @@
       },
       "neighbours": [
         "boardwalk_1",
+        "mud_far_2",
         "mud_mid"
       ]
     },
@@ -878,6 +879,7 @@
       },
       "neighbours": [
         "mud_far_0",
+        "mud_far_1",
         "mud_mid"
       ]
     },

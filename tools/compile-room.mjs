@@ -76,6 +76,19 @@ function examineLayer(body) {
     for (const m of b.matchAll(/^>\s*\*\*(LOOK|LISTEN):\*\*\s*"([\s\S]*?)"\s*$/gm)) {
       entry.responses[VERBS[m[1]]] = [{ say: m[2].replace(/\s*\n\s*/g, ' ') }];
     }
+    // A LINE MAY SIT ON THE LINE BELOW ITS MARKER. Doc 05 writes THE
+    // HANDBILL's LOOK as `> **LOOK:** *(full text)*` with the rules quoted
+    // underneath, because it is long enough to want its own line. The pattern
+    // above requires the quote on the marker's own line, so the handbill
+    // compiled with a LISTEN and no LOOK -- the one hotspot in Room 3 that
+    // doc 02 calls critical, silent on the verb that matters.
+    for (const m of b.matchAll(
+      /^>\s*\*\*(LOOK|LISTEN):\*\*\s*\*\([^)]*\)\*\s*\n>\s*"([\s\S]*?)"\s*$/gm)) {
+      const verb = VERBS[m[1]];
+      if (!entry.responses[verb]) {
+        entry.responses[verb] = [{ say: m[2].replace(/\s*\n\s*/g, ' ') }];
+      }
+    }
     if (Object.keys(entry.responses).length) out.set(name, entry);
   }
   return out;
@@ -128,12 +141,25 @@ function verbOverrides(text) {
  */
 function repeatVariants(text) {
   const out = new Map();
-  const part = text.slice(text.indexOf('# PART THREE'));
+  // FOUND BY ITS HEADING, NOT ITS NUMBER. Doc 13 puts repeat variants in PART
+  // THREE and doc 16 puts them in PART TWO, because the two documents have
+  // different things to say and numbered their sections independently.
+  // Hardcoding the number meant Room 3's twenty repeat lines were read as
+  // object overrides or not at all.
+  const heading = /^#\s+PART [A-Z]+\s*—\s*REPEAT VARIANTS.*$/mi.exec(text);
+  const from = heading ? heading.index : text.indexOf('# PART THREE');
+  const after = text.slice(from + 1).search(/^#\s+PART /mi);
+  const part = after < 0 ? text.slice(from) : text.slice(from, from + 1 + after);
   let current = null;
   for (const line of part.split('\n')) {
     const head = /^##\s+(.+?)\s*$/.exec(line);
     if (head) { current = head[1].trim(); continue; }
-    const row = /^\*\*(LOOK|LISTEN)\*\*\s*—\s*(.+)$/.exec(line);
+    // The dash is optional: doc 13 writes `**LOOK** — 2 "..."` and doc 16
+    // writes `**LOOK** 2 "..."`. Requiring it dropped every one of Room 3's
+    // twenty repeat lines on the floor, and the content check caught it as
+    // "20 lines, not yet in /docs" -- which was wrong about the cause. They
+    // were in the docs. They were unreadable to this.
+    const row = /^\*\*(LOOK|LISTEN)\*\*\s*(?:—\s*)?(.+)$/.exec(line);
     if (!row || !current) continue;
     // Numbered, so variant 1 is identifiable whichever form it took. Splitting
     // on the separator would break on a line containing one.
@@ -742,8 +768,16 @@ built.exits = (live.exits ?? []).map((e) => {
         const [bx0, by0, bx1, by1] = box(built.walkBoxes[b]);
         const overlapX = Math.min(ax1, bx1) - Math.max(ax0, bx0);
         const overlapY = Math.min(ay1, by1) - Math.max(ay0, by0);
-        const sideBySide = overlapY > TOUCH && Math.abs(ax1 - bx0) <= TOUCH;
-        const stacked = overlapX > TOUCH && Math.abs(ay1 - by0) <= TOUCH;
+        // BOTH DIRECTIONS. Testing only a's right edge against b's left made
+        // adjacency depend on the order the boxes happen to be generated in:
+        // the strip below the Nugget's spittoon touches the strip beside it
+        // exactly at x1454, and was called unreachable because it came second
+        // in the list. Carving is what exposed it -- before obstacles, bands
+        // were always emitted left to right.
+        const sideBySide = overlapY > TOUCH
+          && (Math.abs(ax1 - bx0) <= TOUCH || Math.abs(bx1 - ax0) <= TOUCH);
+        const stacked = overlapX > TOUCH
+          && (Math.abs(ay1 - by0) <= TOUCH || Math.abs(by1 - ay0) <= TOUCH);
         if (!sideBySide && !stacked && !(overlapX > TOUCH && overlapY > TOUCH)) continue;
         built.walkBoxes[a].neighbours.push(built.walkBoxes[b].id);
         built.walkBoxes[b].neighbours.push(built.walkBoxes[a].id);
@@ -803,8 +837,15 @@ built.exits = (live.exits ?? []).map((e) => {
     }
   }
 
-  built.walkable = bands.map(([id, y0, y1, zone]) =>
-    ({ id, zone, surface: 'mud', rect: [L, y0, R - L, y1 - y0] }));
+  // THE ZONE BANDS ARE CLIPPED TOO, and were not. They kept the bounding box
+  // while the walk boxes learned the floor's real shape, so the Nugget's
+  // topmost zone band ran x40-1690 across a floor 115 wide at that depth and
+  // its own centre was not walkable. Two descriptions of one floor have to
+  // agree, or a check that asks either of them is asking the wrong one.
+  built.walkable = bands.map(([id, y0, y1, zone]) => {
+    const span = bandSpan(y0, y1) ?? [L, R];
+    return { id, zone, surface: 'mud', rect: [span[0], y0, span[1] - span[0], y1 - y0] };
+  });
   built.walkableOutline = ann.walkable;
   // ENTRANCES, PLURAL, WHICH IS WHAT THE ENGINE READS. The compiler wrote a
   // bare `entrance: [x, y]` and GameState.entranceInto looks for a list of
