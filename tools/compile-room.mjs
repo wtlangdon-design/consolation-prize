@@ -149,6 +149,40 @@ function repeatVariants(text) {
   return out;
 }
 
+/**
+ * Hotspots a room document writes IN FULL, which doc 05 only names.
+ *
+ * repeatVariants reads from `# PART THREE` and wants `**LOOK** — 1 "..."`,
+ * because its job is variants for hotspots doc 05 has already written. Doc
+ * 16's PART ONE is a different thing in a different shape -- `**LOOK** 1
+ * "..." · 2 "..."` -- and is where Room 3's six unwritten hotspots and THE
+ * HAND OF CARDS actually live. Parsed here rather than by loosening that
+ * function, because the two sections mean different things: one completes doc
+ * 05, the other decorates it.
+ */
+function roomDocHotspots(text) {
+  const out = new Map();
+  const start = text.indexOf('# PART ONE');
+  if (start < 0) return out;
+  const end = text.indexOf('# PART TWO');
+  let current = null;
+  for (const line of text.slice(start, end < 0 ? undefined : end).split('\n')) {
+    const head = /^##\s+(THE [A-Z' ]+?)(?:\s*\*|\s*$)/.exec(line);
+    if (head) { current = head[1].trim(); continue; }
+    const row = /^\*\*(LOOK|LISTEN)\*\*\s+(.+)$/.exec(line);
+    if (!row || !current) continue;
+    const numbered = [...row[2].matchAll(/(\d+)\s*"([^"]*)"/g)]
+      .map((m) => ({ n: Number(m[1]), say: m[2] }));
+    if (!numbered.length) continue;
+    if (!out.has(current)) out.set(current, {});
+    out.get(current)[VERBS[row[1]]] = {
+      first: numbered.find((v) => v.n === 1)?.say ?? null,
+      rest: numbered.filter((v) => v.n > 1).map((v) => v.say),
+    };
+  }
+  return out;
+}
+
 /** How many lines a spoken block wraps to, at doc 30 section 5's block width. */
 const GLYPH_W = 8 * 6;
 const BLOCK = Math.round(1920 * (240 / 320));
@@ -202,17 +236,62 @@ const unsplit = [];
 const examine = section(read('docs/05-examine-layer.md'), room);
 if (!examine) fail('doc 05 has no scripted section. Run the writing pass first.');
 
-const ROOM_DOC = { 2: 'docs/13-room-02-content.md' }[room];
+// A ROOM'S OWN CONTENT DOCUMENT, WHERE ONE EXISTS. Room 3 had one -- doc 16,
+// which completes doc 05's six unwritten hotspots and adds THE HAND OF CARDS
+// -- and this map did not know it, so the compiler reported the six as
+// missing and I wrote worse duplicates of finished lines into doc 05 rather
+// than looking for the document that already had them.
+const ROOM_DOC = {
+  2: 'docs/13-room-02-content.md',
+  3: 'docs/16-room-03-content.md',
+}[room];
 const wrongDoc = ROOM_DOC ? read(ROOM_DOC) : section(read('docs/49-wrong-answers.md'), room);
 const annPath = `reference/room-0${room}/annotation.json`;
 if (!existsSync(annPath)) fail(`no annotation at ${annPath}. Run tools/annotate/room.html first.`);
 const ann = JSON.parse(readFileSync(annPath, 'utf8'));
 
 const hotspots = examineLayer(examine);
+
 const overrides = verbOverrides(wrongDoc);
 const repeats = repeatVariants(wrongDoc);
+const written = ROOM_DOC ? roomDocHotspots(read(ROOM_DOC)) : new Map();
 
-const live0 = JSON.parse(read('content/rooms/main-street.json') || '{}');
+// A ROOM DOCUMENT MAY WRITE HOTSPOTS DOC 05 ONLY NAMES. Doc 05 lists Room 3's
+// six unwritten ones on a single line and says the full lines live elsewhere;
+// doc 16 is elsewhere, and adds THE HAND OF CARDS besides. Reconciling rects
+// against doc 05 alone therefore called nine of Room 3's twelve orphans.
+//
+// The room doc supplies a name and the lines; doc 05 stays the authority for
+// any hotspot it writes in full, which is why these are added rather than
+// merged over.
+if (ROOM_DOC) {
+  for (const line of read(ROOM_DOC).split('\n')) {
+    const heading = /^##\s+(THE [A-Z' ]+?)(?:\s*\*|\s*$)/.exec(line);
+    if (heading && !hotspots.has(heading[1].trim())) {
+      // Its LINES come from the room doc too. repeatVariants has already
+      // parsed them: variant 1 is what he says the first time, the rest are
+      // what he says on looking again.
+      const name = heading[1].trim();
+      const parsed = written.get(name) ?? {};
+      const responses = {};
+      for (const [verb, variants] of Object.entries(parsed)) {
+        if (!variants.first) continue;
+        responses[verb] = variants.rest.length
+          ? [{ say: variants.first, repeat: variants.rest }]
+          : [{ say: variants.first }];
+      }
+      if (Object.keys(responses).length) hotspots.set(name, { responses, fromRoomDoc: true });
+    }
+  }
+}
+
+// THE ROOM'S OWN LIVE FILE, WHICH WAS HARDCODED TO ROOM 2'S. Compiling Room 3
+// would have taken its id-for-name pairs from Main Street, so every Nugget
+// hotspot whose name Room 2 does not share would have fallen back to the slug
+// rule -- and the whole point of reading the live file is that a person chose
+// those ids.
+const ROOM_FILE = { 2: 'main-street', 3: 'nugget' }[room];
+const live0 = JSON.parse(read(`content/rooms/${ROOM_FILE}.json`) || '{}');
 const live = live0;
 
 // ---- reconcile: names in the docs against ids in the annotation -------------
@@ -646,9 +725,9 @@ built.exits = (live.exits ?? []).map((e) => {
   if (ann.onEnterSay) {
     built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
   }
-  built.walkBoxNote = 'GENERATED by tools/compile-room.mjs from '
-    + 'reference/room-02/annotation.json. Heights are errata 54\u2019s canon 222/240/263 while '
-    + 'doc 36 Q10 is open, so the scale question is judged on screen rather than on paper.';
+  built.walkBoxNote = `GENERATED by tools/compile-room.mjs from ${annPath}. `
+    + 'Heights come from that annotation\u2019s own depth curve, which each room derives from '
+    + 'its own architecture -- doc 36 Q10.';
 }
 
 const exitsMissing = built.exits.filter((e) => !ann.exits[e.id]).map((e) => e.id);
@@ -669,7 +748,8 @@ console.log(`\nROOM ${room} compiled from the documents\n`);
 console.log(`  ${built.hotspots.length} hotspots, verbs each: ${counts.join('  ')}`);
 console.log(`  ${built.exits.length} exits, all with rects`);
 console.log(`  walk box ${ann.walkable.length} points · depth ${ann.scaling.far.height}`
-  + `→${ann.scaling.near.height}px · arrival ${ann.entrance.join(',')}`);
+  + `→${ann.scaling.near.height}px · arrival `
+  + `${(ann.entrances?.find((e) => e.at)?.at ?? ann.entrance ?? ['?']).join(',')}`);
 // AND COUNT THE REPEATS, which are a FIELD ON a rule and not rules of their
 // own. `Object.values(responses)` yields rule ARRAYS, so reading `.repeat` off
 // one is reading it off an array: undefined, every time, silently. Half the
@@ -704,7 +784,17 @@ if (staleGeometry.length) {
 // two, so a compiler emitting one would leave the two generators permanently
 // disagreeing about a file neither had anything wrong with -- each rewriting
 // the other's whitespace, and `check-generated` calling both stale forever.
-const OUT = 'content/rooms/main-street.json';
+// THE ROOM'S OWN OUTPUT PATH, AND THIS WAS HARDCODED. Compiling Room 3 wrote
+// the Nugget over content/rooms/main-street.json -- Main Street lost its
+// hotspots, its cast, its lamps and its walk boxes in one command, and 104
+// tests failed at once.
+//
+// It was loud, which is the only good thing about it: a silent version of this
+// would have been a room quietly replaced by another room. The lesson is the
+// one the live-file read taught eight lines up -- a compiler parameterised by
+// room number must be parameterised EVERYWHERE, and I changed the paths I
+// happened to trip over rather than looking for all of them.
+const OUT = `content/rooms/${ROOM_FILE}.json`;
 const wanted = `${JSON.stringify(built, null, 2)}\n`;
 
 if (CHECKING) {

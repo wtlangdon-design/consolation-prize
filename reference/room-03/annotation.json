@@ -24,15 +24,35 @@
    498
   ],
   [
-   1260,
-   630
+   1118,
+   506
   ],
   [
-   1500,
-   790
+   1128,
+   616
   ],
   [
-   1700,
+   1256,
+   648
+  ],
+  [
+   1318,
+   728
+  ],
+  [
+   1496,
+   758
+  ],
+  [
+   1530,
+   786
+  ],
+  [
+   1648,
+   822
+  ],
+  [
+   1690,
    864
   ],
   [
@@ -70,23 +90,11 @@
    156,
    252
   ],
-  "cards": [
-   598,
-   300,
-   190,
-   60
-  ],
   "chandelier": [
    656,
    18,
    190,
    148
-  ],
-  "portrait": [
-   758,
-   188,
-   76,
-   104
   ],
   "stove": [
    826,
@@ -124,11 +132,17 @@
    1211,
    551
   ],
-  "deke_vessel": [
-   1180,
-   330,
-   120,
-   300
+  "portrait": [
+   758,
+   188,
+   76,
+   104
+  ],
+  "cards": [
+   825,
+   426,
+   96,
+   40
   ]
  },
  "exits": {
@@ -198,9 +212,10 @@
   }
  ],
  "provisional": {
-  "deke_vessel": "ACT II, NOT ACT I. Doc 02 A3 puts the swindle in this room and the room gate flagged him for it, but doc 04 VES_A1 says the sale is \"staged in the opening\u2019s shadow: he is gone by the time the player can act\". His standing appearance is VES_B1, \"found again, Duel One\", in Act II. So he is act-gated like the raccoon, and this rect is where he will stand when he is here."
+  "deke_vessel": "ACT II, NOT ACT I. Doc 02 A3 puts the swindle in this room and the room gate flagged him for it, but doc 04 VES_A1 says the sale is \"staged in the opening\u2019s shadow: he is gone by the time the player can act\". His standing appearance is VES_B1, \"found again, Duel One\", in Act II. So he is act-gated like the raccoon, and this rect is where he will stand when he is here.",
+  "raccoon": "ACT II ONWARD, after A5. He takes up residence on the END OF THE BAR -- doc 05: \"I evicted him from a hole and he has been promoted\" -- so the rect is on the bar top near the front, and it is provisional until the sprite exists and can be measured, the same as Vessel."
  },
- "walkableNote": "The right edge follows the BAR FRONT, not the bar top: the floor runs to the foot rail, which is where a man stands to lean on it. The first draft cut through the spittoon, which sits on that floor -- it is an obstacle, and an obstacle has to be INSIDE the walkable area for carving it out to mean anything.",
+ "walkableNote": "The right edge follows the BAR GROUP\u2019S OWN SILHOUETTE, read off the three shipped sprites composited together rather than estimated from the plate. That is the correct boundary because the men standing at the counter are part of the same object: floor Thad cannot walk through, whether it is oak or a drinker. Measured after the bar was refitted -- the first polygon was drawn against the OLD bar, which sat 432px further into the room.",
  "lamps": [
   {
    "id": "chandelier",
@@ -238,5 +253,28 @@
    "phase": 0.72,
    "note": "The wall lamps behind the bar, together. Barely moving -- they are trimmed, because the barman is the only person in town who maintains anything."
   }
- ]
+ ],
+ "handNote": "Doc 16: \"a hand of cards, face up, ABANDONED... somebody left a very good hand on a table and went outside.\" So it lies on the card table\u2019s own top, and its rect is derived from the table group sprite rather than guessed -- it moves if the table does, which it already did once when the group shifted 35px clear of the piano.",
+ "characters": {
+  "deke_vessel": {
+   "rect": [
+    1180,
+    330,
+    120,
+    300
+   ],
+   "note": "ACT II. Not an examine hotspot -- doc 04 VES_B1, a character with a tree, found again in this room. Provisional until the sprite exists."
+  },
+  "raccoon": {
+   "rect": [
+    1470,
+    300,
+    90,
+    70
+   ],
+   "note": "ACT II after A5. Doc 49 gives him TALK TO and PICK UP; doc 05 writes no examine lines because he is a mover, not scenery. On the end of the bar -- he was evicted from a hole and has been promoted."
+  }
+ },
+ "charactersNote": "Kept OUT of `hotspots` on purpose. The compiler reconciles hotspot rects against the documents that write examine lines, and correctly called these two orphans: a rect with no lines is a hotspot that says nothing when clicked. They are characters, their words live in their trees and in doc 49, and their rects follow their sprites.",
+ "idNote": "Ids follow the LIVE ROOM FILE, not a slug of the doc name -- the compiler says so and it is right: a person chose `portrait` and `cards`, and I had renamed them to `faded_portrait` and `hand_of_cards` from the headings."
 }
