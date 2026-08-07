@@ -4,7 +4,7 @@
  "name": "THE PATRONS",
  "room": "nugget",
  "note": "The round table, its four chairs, and the four men playing at it -- ONE object, drawn together, which is what Tyler ruled and had to say three times. Composites at the plate\u2019s own coordinates with no scaling.\nMEASURED AGAINST THE FOOTPRINT IT REPLACES, which is the rule the bar taught: the removed table and its chairs occupied x703-1007 (305 wide) and this group is x670-1005 (336) -- 31 pixels wider because it now contains four men as well, and centred within 18 pixels of where the table stood. The bar came back 1.55x too wide and was shipped because nobody made that comparison.",
- "x": 838,
+ "x": 873,
  "y": 514,
  "zone": 1,
  "approachRadius": 40,
@@ -22,5 +22,6 @@
   ],
   "rate": 0.0,
   "phase": 0.0
- }
+ },
+ "placeNote": "SHIFTED 35px RIGHT, clear of the piano. The group was drawn with its left edge at x670 and the piano keyboard runs to x696, so four men and a chair sat on top of it. The furniture it replaced began at x703; the group began at 670, which is 33px further left -- the same class of error as the bar, at a fortieth of the scale, and caught the same way: by Tyler looking at the room. Left edge is now 705, two pixels clear of where the old table started and nine clear of the keyboard."
 }

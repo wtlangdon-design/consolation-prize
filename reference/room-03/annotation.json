@@ -119,10 +119,10 @@
    78
   ],
   "patrons": [
-   388,
-   288,
-   1332,
-   430
+   705,
+   298,
+   1211,
+   551
   ],
   "deke_vessel": [
    1180,
@@ -189,12 +189,12 @@
   {
    "id": "card_table",
    "rect": [
-    744,
-    352,
-    182,
-    120
+    705,
+    298,
+    336,
+    216
    ],
-   "note": "The table is a sprite now, merged with the men at it, but it is still a thing on the floor he walks round. Rect from the mask the table was cut with."
+   "note": "The table, its chairs and the four men are one sprite; this is its footprint on the floor, which he walks round."
   }
  ],
  "provisional": {
