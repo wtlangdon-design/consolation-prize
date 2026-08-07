@@ -685,12 +685,5 @@
   1920,
   864
  ],
- "ambient": [
-  "patrons_talkers",
-  "card_table_group",
-  "drinker_far",
-  "drinker_mid",
-  "drinker_near"
- ],
- "ambientNote": "Nine men in five sprites. Doc 05 says nine and the line is worth keeping; five groups rather than nine figures means five idles to keep out of step instead of nine, and nothing is painted into the plate. Declared here rather than compiled because Room 3\u2019s annotation is still unconfirmed -- compile-room takes this over when it runs."
+ "castNote": "EMPTY UNTIL THE FURNITURE-AND-PEOPLE SPRITES EXIST. Tyler ruled three times that anything the men touch must be drawn WITH them; I built it three ways short of that -- a casting sheet in isolation, which floated; a foreground plane, which fixed the picture and broke depth sorting; and men drawn in place against furniture that stayed in the plate, which still left chairs and a bar that did not fit them. The plate now has a bare floor and the furniture comes back as sprites with the people on it."
 }
