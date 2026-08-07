@@ -10,7 +10,7 @@
  "approachRadius": 40,
  "barks": {},
  "sprite": {
-  "note": "A SIX-FRAME NOD, derived from the one drawing, applied ONLY above the furniture line. Every other route was measured and rejected: a second whole-group drawing differs by 44.2 mean, an empty-furniture pass redraws the furniture and does not align with a men-only pass, and a companion patch of one man redraws the chair inside its rectangle and blends into a two-armed chimera.\nThe first derived attempt failed because its region ran to y150, straight through a tabletop whose top edge is at y100, so the table rose with the men. Heads and shoulders sit above that line against transparency, where a man can move freely. Four pixels of nod with a pixel of sway, each man starting two steps into the cycle from his neighbour. The furniture is byte-identical in every frame -- maximum change ZERO, not small.",
+  "note": "FOUR POSES FROM ONE CHARACTER SHEET -- Room 2\u2019s method, which Tyler had to insist on three times while I tried cleverer things that all failed.\nThe reason it works is that ONE SHEET IS ONE DRAWING. Two separate generations of this group differ by 44.2 mean; four poses inside a single sheet differ on the tabletop by 0.89, 1.12 and 1.50 -- and they came back at exactly 336x216 with every pose\u2019s feet on y215, the sprite\u2019s own dimensions, so they drop in with no scaling.\nThe men lean on their elbows, lay a card down, reach for a glass and sit back. That is character movement, not a nod.",
   "sheet": "art/actors/nugget-card-table.png",
   "frames": [
    [
@@ -33,18 +33,6 @@
    ],
    [
     1016,
-    2,
-    336,
-    216
-   ],
-   [
-    1354,
-    2,
-    336,
-    216
-   ],
-   [
-    1692,
     2,
     336,
     216
