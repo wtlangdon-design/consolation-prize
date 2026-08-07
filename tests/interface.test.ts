@@ -848,18 +848,35 @@ test('a stub exit still transits, and ruling 20 keeps the landing man still', as
   // check-no-content-in-code counts a room's name as fiction leaking into the
   // engine, and a test that has to be renamed when a room is is a test tied
   // to something it does not care about.
-  const withIdles = [...content.rooms.values()].filter((room) => room.idles?.figures?.length);
-  assert.equal(withIdles.length, 1, 'one composed room declares idles so far');
-  const animated = withIdles[0]!.idles!.figures;
-  assert.equal(animated.length, 4, 'ruling 20 wants at least three of this crowd moving');
-  assert.ok(!animated.some((figure) => figure.id.includes('landing')),
-    'the man on the landing does not move, and that is his whole joke');
-  for (const figure of animated) {
-    assert.ok(figure.rate >= 0.3 && figure.rate <= 0.8, `${figure.id} outside 0.3-0.8 Hz`);
-    assert.equal(figure.frames.length, 2, `${figure.id} is a two-frame idle, not a walk cycle`);
+  // THE MECHANISM CHANGED AND THE RULING DID NOT. This asserted that exactly
+  // one room declares an `idles` layer, because that was the only way a crowd
+  // could move. A room may now animate its WHOLE PLATE instead -- the Nugget
+  // does, because its seven men are fused to furniture and nothing that moves
+  // there is ever in front of Thad -- and it therefore declares no idles at
+  // all. Counting idle layers was counting the vehicle.
+  //
+  // What ruling 20 binds is that a composed crowd moves and the man on the
+  // landing does not, so that is what is asserted, whichever way the room
+  // animates.
+  const crowded = [...content.rooms.values()].filter(
+    (room) => room.idles?.figures?.length || room.backgroundFrames?.length,
+  );
+  assert.ok(crowded.length >= 1, 'at least one composed room animates its crowd');
+  for (const room of crowded) {
+    for (const figure of room.idles?.figures ?? []) {
+      assert.ok(!figure.id.includes('landing'),
+        'the man on the landing does not move, and that is his whole joke');
+      assert.ok(figure.rate >= 0.3 && figure.rate <= 0.8, `${figure.id} outside 0.3-0.8 Hz`);
+      assert.equal(figure.frames.length, 2, `${figure.id} is a two-frame idle, not a walk cycle`);
+    }
+    for (const frame of room.backgroundFrames ?? []) {
+      assert.ok(!/landing/.test(frame), 'no plate frame is named for the landing man');
+    }
+    // Nothing metronomic: no two figures in one crowd share a rate.
+    const figures = room.idles?.figures ?? [];
+    const rates = new Set(figures.map((figure) => figure.rate));
+    assert.equal(rates.size, figures.length, 'no two of a crowd share a rate');
   }
-  const rates = new Set(animated.map((figure) => figure.rate));
-  assert.equal(rates.size, animated.length, 'nothing metronomic -- no two share a rate');
 });
 
 test('an item with two ruling 19a states keeps a cursor per state', async () => {
