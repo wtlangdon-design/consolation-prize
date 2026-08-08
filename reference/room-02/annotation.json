@@ -371,7 +371,8 @@
   }
  ],
  "onEnterWalkTo": [
-  3400,
-  640
- ]
+  3300,
+  706
+ ],
+ "onEnterWalkNote": "OUT INTO THE ROAD, NOT ALONG THE BUILDINGS. He was walking to x3400 y640, which is the boardwalk edge in front of the claims-road exit and beside the map seller\u2019s office -- he arrived and then sidled up against a wall. x3300 y706 is the middle of the street with the town in front of him, which is where a man stands when he has just walked into a town he has never seen. Clear of the assay office door at x3082-3144, clear of the map seller at x3140, and low enough to be in the road rather than on the walk."
 }

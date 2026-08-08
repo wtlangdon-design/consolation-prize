@@ -85,6 +85,9 @@ export class GameScene extends Phaser.Scene {
   private sayUntil: number | null = null;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: { speaker: string | null; line: string }[] = [];
+  /** Lines to speak once the arrival walk finishes, not during it. */
+  private linesOnArrival: { speaker: string; line: string }[] | null = null;
+
   /** A tree to open, and who to turn to, when the walk started for it ends. */
   private pendingTree: { tree: string; at: { x: number; y: number } } | null = null;
   /** The selection being performed, or null while choices are up. */
@@ -197,7 +200,6 @@ export class GameScene extends Phaser.Scene {
         // the driver and Hob all standing in the middle of town, on a street
         // that declares none of them.
         this.enterRoomPerformance();
-    this.arrivalLines();
         this.setSay(null);
         this.markDirty();
       },
@@ -344,6 +346,13 @@ export class GameScene extends Phaser.Scene {
         fired.npc.y - 30 * GLYPH_SCALE);
     }
     // The tree opens when the walk that was started for it finishes.
+    if (this.linesOnArrival && !this.actor.isWalking) {
+      const lines = this.linesOnArrival;
+      this.linesOnArrival = null;
+      this.pendingSay.push(...lines);
+      this.advanceSay();
+      this.markDirty();
+    }
     if (this.pendingTree && !this.actor.isWalking) {
       const { tree, at } = this.pendingTree;
       this.pendingTree = null;
@@ -908,6 +917,16 @@ export class GameScene extends Phaser.Scene {
     const resume = this.state.resumeStanding(from);
     if (resume) this.actor.placeAt(resume[0], resume[1]);
     else this.actor.placeIn(this.state.roomId, from);
+    // HERE, BECAUSE EVERY WAY INTO A ROOM COMES THROUGH THIS. The arrival
+    // routine was called from inside the scripted-travel callback only, so a
+    // room entered by walking through an exit, by warping, or by loading got
+    // neither its walk-in nor its lines -- which is why Main Street's three
+    // arrival lines looked as though they had been lost. They were written,
+    // compiled and loaded, and nothing was calling for them.
+    //
+    // A RESUME IS NOT AN ARRIVAL: coming back from the map or a load puts him
+    // where he stood, and a man does not remark on a town he is standing in.
+    if (!resume) this.arrivalLines();
   }
 
   /**
@@ -1361,17 +1380,24 @@ export class GameScene extends Phaser.Scene {
    */
   private arrivalLines(): void {
     const entry = this.state.room.onEnter;
-    // HE WALKS IN, if the room asks for it. Placed at the edge and sent a few
-    // steps into the street, so the player's first sight of him is a man
-    // arriving rather than a man already standing there.
-    if (entry?.walkTo) {
+    if (!entry?.say?.length && !entry?.walkTo) return;
+    const who = this.state.content.actor.id;
+    const lines = (entry.say ?? []).map((line) => ({ speaker: who, line }));
+    const held = entry.sayOnce && this.state.flags.get(entry.sayOnce) === true;
+
+    // HE WALKS IN AND THEN SPEAKS, not both at once. Arriving already standing
+    // there read as having come down out of the hills, so he now walks in from
+    // the street's edge -- but firing his arrival lines at the same moment had
+    // him remarking on the town while still crossing it. He stops, looks, and
+    // then says it.
+    if (entry.walkTo) {
       this.actor.walkTo(entry.walkTo[0], entry.walkTo[1]);
       this.markDirty();
+      if (!held && lines.length) this.linesOnArrival = lines;
+      return;
     }
-    if (!entry?.say?.length) return;
-    if (entry.sayOnce && this.state.flags.get(entry.sayOnce) === true) return;
-    const who = this.state.content.actor.id;
-    this.pendingSay.push(...entry.say.map((line) => ({ speaker: who, line })));
+    if (held || !lines.length) return;
+    this.pendingSay.push(...lines);
     this.advanceSay();
   }
 
