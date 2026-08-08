@@ -63,13 +63,13 @@
  "scaling": {
   "far": {
    "y": 498,
-   "height": 175
+   "height": 94
   },
   "near": {
    "y": 858,
-   "height": 395
+   "height": 314
   },
-  "note": "height = 0.611 x (y - 211), from the batwing doorway and the bar front"
+  "note": "height = 0.611 x (y - 344). FITTED TO THE ROOM\u2019S OWN PEOPLE, not estimated from a doorway. The first curve put the horizon at y211, which made a man at the front of this room 395px -- against 222 in Room 1 and 206 in Room 2, so Thad would have nearly DOUBLED walking through the batwing doors. The standing drinker is drawn 257px with his feet at y765; two independently generated groups agree with each other and disagreed with my number, so the number was wrong."
  },
  "hotspots": {
   "handbill": [
