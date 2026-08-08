@@ -850,6 +850,19 @@ export interface RoomFile {
     note?: string;
     set?: FlagWrites;
     /**
+     * Somewhere to walk to on arriving, once he is standing in the room.
+     *
+     * ARRIVING ALREADY STANDING THERE IS THE PROBLEM IT SOLVES. Thad walks out
+     * of Room 1 between two buildings and then appears in Main Street at the
+     * top of the road with the barren hills behind him, which reads as having
+     * come down out of the mountains rather than along the road into town.
+     * Tyler: he should walk in from stage right.
+     *
+     * With this he is placed at the street's edge and walks in, so the first
+     * thing the player sees is a man arriving rather than a man already here.
+     */
+    walkTo?: [number, number];
+    /**
      * Lines Thad speaks on arriving, once, the first time only.
      *
      * A room can be worth remarking on, and Main Street is the case that

@@ -63,13 +63,13 @@
  "scaling": {
   "far": {
    "y": 498,
-   "height": 200
+   "height": 281
   },
   "near": {
    "y": 858,
-   "height": 260
+   "height": 340
   },
-  "note": "FITTED TO THE GAME, not to this room\u2019s furniture. Thad is 222px at the near edge of Room 1 and 206 in Room 2; this puts him at 260 at the front of the Nugget -- a quarter larger, which is what a small room seen from inside should be. Fitting to the bar men instead gave 459 and he doubled walking through the batwing doors, which Tyler rejected on sight.\nTHAT MAKES THE BAR GROUP VISIBLY OVERSIZED, and it should: Tyler\u2019s own read is that the bar men do not belong in this game while the card players could. They are drawn 402px where a man at their depth is now 253. The bar group needs regenerating smaller; the curve is not the place to absorb that."
+  "note": "FITTED TO THE CARD PLAYERS, the group Tyler says could belong in this game. They are 282px standing-equivalent with their feet at y508; Thad is now 281 there and 340 at the front.\nThree fits have been tried. To the bar men: 459 at the front and he doubled walking through the doors. To the game\u2019s other rooms: 260, and half the size of the men at the bar. To the card players: 340, which is the only anchor in this room that Tyler has said reads correctly. The bar men remain 1.22x him and are the group he says does not belong -- that is a regeneration, not a curve."
  },
  "hotspots": {
   "handbill": [

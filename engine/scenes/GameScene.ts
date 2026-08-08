@@ -1361,6 +1361,13 @@ export class GameScene extends Phaser.Scene {
    */
   private arrivalLines(): void {
     const entry = this.state.room.onEnter;
+    // HE WALKS IN, if the room asks for it. Placed at the edge and sent a few
+    // steps into the street, so the player's first sight of him is a man
+    // arriving rather than a man already standing there.
+    if (entry?.walkTo) {
+      this.actor.walkTo(entry.walkTo[0], entry.walkTo[1]);
+      this.markDirty();
+    }
     if (!entry?.say?.length) return;
     if (entry.sayOnce && this.state.flags.get(entry.sayOnce) === true) return;
     const who = this.state.content.actor.id;

@@ -989,6 +989,10 @@
       "So this is Consolation.",
       "Half of it is two stories tall in front and one story deep.",
       "The other half is real, and is doing better."
+    ],
+    "walkTo": [
+      3400,
+      640
     ]
   },
   "size": [
@@ -1052,22 +1056,22 @@
   ],
   "entrances": [
     {
-      "from": "stage_road",
-      "at": [
-        3477,
-        603
-      ],
-      "facing": "front",
-      "note": "Doc 20 and errata 58: the stage road comes down out of the hills at the street’s east end, so he arrives at the top of it FACING THE TOWN -- front, toward the camera and the street he is about to walk down. He was starting mid-street with his back to us, because the compiler wrote `entrance` and the engine reads `entrances`."
-    },
-    {
       "from": "default",
       "at": [
-        3477,
-        603
+        3660,
+        600
       ],
-      "facing": "front",
-      "note": "Anything without its own entrance lands where the road does."
+      "facing": "left",
+      "note": "THE STREET’S EAST EDGE, FACING DOWN IT. He was placed at x3477 facing the camera, which is in front of the barren hills -- so he read as having come down out of the mountains rather than along the road into town, and Room 1 has him walking off between two buildings. At the edge facing left he is arriving."
+    },
+    {
+      "from": "stage_road",
+      "at": [
+        3660,
+        600
+      ],
+      "facing": "left",
+      "note": "THE STREET’S EAST EDGE, FACING DOWN IT. He was placed at x3477 facing the camera, which is in front of the barren hills -- so he read as having come down out of the mountains rather than along the road into town, and Room 1 has him walking off between two buildings. At the edge facing left he is arriving."
     },
     {
       "from": "company",

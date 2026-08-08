@@ -871,6 +871,9 @@ built.exits = (live.exits ?? []).map((e) => {
   // its previous shape needed.
   if (ann.foreground) built.foreground = ann.foreground;
   else delete built.foreground;
+  if (ann.onEnterWalkTo) {
+    built.onEnter = { ...(built.onEnter ?? {}), walkTo: ann.onEnterWalkTo };
+  }
   if (ann.onEnterSay) {
     built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
   }
