@@ -1,0 +1,40 @@
+{
+ "schema": 1,
+ "id": "nugget_man34",
+ "name": "THE PATRONS",
+ "room": "nugget",
+ "note": "Card players above the tabletop, as their own sprite with their own beat. The sheet holds each man\u2019s colours -- the far-left man\u2019s shirt is RGB 98,71,45 in both his poses, against a browning to 101,61,31 in the sheet before it -- and nobody puts his cards down to drink: the dark-coated man\u2019s card hand is byte-identical, 1228 opaque pixels, in both. The blue-coated man lays his cards down; the right-hand man turns and raises his. They share a band because their arms overlap and no column between them is safe to cut on, so the band alternates: one of them moves each beat, and which one changes each time.",
+ "x": 958,
+ "y": 380,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "A beat: at rest, and every few seconds ONE movement plays. Intervals of 13, 19 and 9 seconds share no factor, so they never fall into a pattern.",
+  "sheet": "art/actors/nugget-man34.png",
+  "frames": [
+   [
+    2,
+    2,
+    166,
+    82
+   ],
+   [
+    170,
+    2,
+    166,
+    82
+   ],
+   [
+    338,
+    2,
+    166,
+    82
+   ]
+  ],
+  "rate": 0.0,
+  "beatEvery": 9.0,
+  "beatSeconds": 1.6,
+  "phase": 0.66
+ }
+}

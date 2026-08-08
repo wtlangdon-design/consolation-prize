@@ -1295,7 +1295,14 @@ export class Renderer {
       if (into >= span) return 0;
       const rest = declared.frames.length - 1;
       if (rest <= 0) return 0;
-      return 1 + Math.min(rest - 1, Math.floor((into / span) * rest));
+      // ONE MOVEMENT PER BEAT, ROTATING, when a band holds more than one man.
+      // The Nugget's third and fourth card players share a band -- their arms
+      // overlap, so no column between them is safe to cut on -- and playing
+      // both movements in sequence every beat would be one man's arm followed
+      // by the other's, which reads as choreography. Rotating means each beat
+      // is one of them, and which one changes each time.
+      const beat = Math.floor(t / declared.beatEvery);
+      return 1 + (((beat % rest) + rest) % rest);
     }
 
     const idleFrames = declared.breaks?.length

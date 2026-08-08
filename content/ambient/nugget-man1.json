@@ -3,32 +3,32 @@
  "id": "nugget_man1",
  "name": "THE PATRONS",
  "room": "nugget",
- "note": "One card player, above the tabletop only, as his own sprite with his own beat.\nTHE SHEET HONOURED ALL FOUR RULES, which is why this finally works. Below row 82 nothing moves at all -- mean change 0.15 across every pose -- so the table, the chairs and every man\u2019s legs live in the static plate. Above it each man keeps to his own vertical band with clear space between him and his neighbour, so the four bands cut apart cleanly: each changes in exactly ONE pose and is byte-identical, 0.0, in the other three. The far-left man turns his head right, so you see his face.",
- "x": 760,
+ "note": "Card players above the tabletop, as their own sprite with their own beat. The sheet holds each man\u2019s colours -- the far-left man\u2019s shirt is RGB 98,71,45 in both his poses, against a browning to 101,61,31 in the sheet before it -- and nobody puts his cards down to drink: the dark-coated man\u2019s card hand is byte-identical, 1228 opaque pixels, in both. The far-left man turns his head right.",
+ "x": 746,
  "y": 380,
  "zone": 1,
  "approachRadius": 40,
  "barks": {},
  "sprite": {
-  "note": "A beat, not a loop: at rest, and every few seconds the movement plays once. Intervals of 13, 19, 9 and 15 seconds share no common factor below 5 minutes, so the four never fall into a pattern.",
+  "note": "A beat: at rest, and every few seconds ONE movement plays. Intervals of 13, 19 and 9 seconds share no factor, so they never fall into a pattern.",
   "sheet": "art/actors/nugget-man1.png",
   "frames": [
    [
     2,
     2,
-    110,
+    82,
     82
    ],
    [
-    114,
+    86,
     2,
-    110,
+    82,
     82
    ]
   ],
   "rate": 0.0,
   "beatEvery": 13.0,
-  "beatSeconds": 1.5,
+  "beatSeconds": 1.6,
   "phase": 0.0
  }
 }
