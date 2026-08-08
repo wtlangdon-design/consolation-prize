@@ -1671,7 +1671,22 @@ function openingCase() {
   // They are in the same column of the picture, so the fix is the exit's
   // HEIGHT: the fence's opening is what you walk through, and the lantern
   // hangs below it.
-  west.rect = [500, 470, 150, 110];
+  // THE WHOLE TOWN IS THE TARGET, NOT THE GAP IN THE FENCE. 150x110 was the
+  // opening you walk through, which is correct as a doorway and wrong as a
+  // click target -- Tyler could not reliably hit it. Consolation itself is
+  // what a player aims at: the lit buildings below and west, which the room's
+  // own lightSources put at x0-444, y336-468.
+  //
+  // It cannot swallow the road: the walkable bands begin at y660 and this
+  // stops at y580, so clicking the ground still walks.
+  //
+  // AND IT STOPS SHORT OF THE TOWN SIGN, which stands at x204-396. The first
+  // widening covered it, and check-occlusion caught what that means: this exit
+  // declares travelWhenTold, so it does not open a door -- it starts a
+  // scripted departure. A click meant for the sign would have left town.
+  // Everything west of the sign is town and is the target; the sign keeps its
+  // own rect and its own LOOK line.
+  west.rect = [400, 330, 260, 250];
   // GATED ON THE CASE AS WELL AS ON HOB. He could walk out of Room 1 leaving
   // his letter, his tuning fork and his four dollars in the mud -- everything
   // he owns -- and nothing stopped him.

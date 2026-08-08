@@ -63,13 +63,13 @@
  "scaling": {
   "far": {
    "y": 498,
-   "height": 380
+   "height": 198
   },
   "near": {
    "y": 858,
-   "height": 404
+   "height": 459
   },
-  "note": "NEARLY FLAT, AND SIZED TO THE MEN HE STANDS AMONG. Tyler, on the fourth attempt: he should not grow walking left to right, and he needs to be larger.\nThe growth was real and I had not seen why. The Nugget\u2019s floor is cut diagonally by the bar, so its right-hand side only exists at larger y -- crossing the room toward the bar forces him DOWN the screen even when he is walking sideways, and any real slope turned that into swelling. 380 at the back to 404 at the front is six per cent across the whole floor, which reads as flat.\nAnd it puts him at 398 beside the bar men\u2019s 402 -- the same man, not a dwarf."
+  "note": "TWO ANCHORS, BOTH TYLER\u2019S: slightly shorter than the standing drinker at the bar (he is 434 with his feet at y797, Thad is 415 there), and small enough at the back that his head is nowhere near the chandelier -- 205 at the card table, topping out about y303 where the players\u2019 own heads are.\nTHE FLAT CURVE WAS THE PREVIOUS FIX AND IT WAS WRONG AT THE BACK. Flat kept him from swelling as he crossed toward the bar, which was the complaint then, but it also kept him full size at the far wall, where he stood as tall as the chandelier. A room this deep needs a real slope; what it does not need is one fitted to a single figure."
  },
  "hotspots": {
   "handbill": [

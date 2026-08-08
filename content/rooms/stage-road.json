@@ -442,10 +442,10 @@
       "id": "road_west_blocked",
       "name": "CONSOLATION",
       "rect": [
-        500,
-        470,
-        150,
-        110
+        400,
+        330,
+        260,
+        250
       ],
       "colour": 198,
       "when": {
@@ -495,10 +495,10 @@
       "id": "road_west",
       "name": "CONSOLATION",
       "rect": [
-        500,
-        470,
-        150,
-        110
+        400,
+        330,
+        260,
+        250
       ],
       "rectNote": "THE FULL GAP, x500-650, measured off the plate with a ruler. It was narrowed to x500-590 so it could coexist with the lamp, which left Hob NEITHER BLOCKING NOR CLEAR -- a man in a doorway you walk around. Q63: he blocks it, and clearing him is the way out.\n\ny470-580 IS THE OPENING IN THE FENCE and stops above the lantern, which is the separation that survives him leaving. The gate closes the exit while he is there, so the two are never live together WHILE HE STANDS -- but lamp_gone is live at exactly the same time as the exit, at the lamp's own rect, and it would inherit the collision. Splitting them VERTICALLY is what makes that impossible: the fence opening is what you walk through and the lantern hangs below it, and no sideways nudge is honest because they share a column.",
       "walkTo": {
