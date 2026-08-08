@@ -42,6 +42,7 @@ import { check as spriteSheets } from './check-sprite-sheets.mjs';
 import { check as treeSpeakers } from './check-tree-speakers.mjs';
 import { check as cyclingLands } from './check-cycling-lands.mjs';
 import { check as sheetsInPlates } from './check-no-sheets-in-plates.mjs';
+import { check as bandsTile } from './check-bands-tile.mjs';
 import { check as entityFallback } from './check-entity-fallback.mjs';
 import { check as drawerCoverage } from './check-drawer-coverage.mjs';
 import { check as keyFringe } from './check-key-fringe.mjs';
@@ -56,6 +57,7 @@ import { check as cameraSpace } from './check-camera-space.mjs';
  * read the output of in under a minute -- no adjectives, no judgement calls.
  */
 const CHECKS = [
+  bandsTile,
   sheetsInPlates,
   cyclingLands,
   treeSpeakers,
