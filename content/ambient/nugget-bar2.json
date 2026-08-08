@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "id": "nugget_bar2",
+ "name": "THE PATRONS",
+ "room": "nugget",
+ "note": "A drinker above the counter top, as his own sprite with his own beat.\nThe sheet honoured all four rules: below row 150 nothing moves (0.52 mean across every pose), each man keeps to his own band with clear space between, and each band changes in exactly ONE pose and is byte-identical, 0.0, in the others -- motion of 9.3, 21.2 and 30.4. The group came back 776 wide against the 791 it replaces, so every pose is stretched 1.9% to its own footprint, which keeps the bar exactly where the walk boxes and the hotspot already say it is. The standing man straightens off the foot rail.",
+ "x": 1438,
+ "y": 509,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "A beat, not a loop. 17, 11 and 23 seconds share no factor.",
+  "sheet": "art/actors/nugget-bar2.png",
+  "frames": [
+   [
+    2,
+    2,
+    193,
+    153
+   ],
+   [
+    197,
+    2,
+    193,
+    153
+   ]
+  ],
+  "rate": 0.0,
+  "beatEvery": 11.0,
+  "beatSeconds": 1.6,
+  "phase": 0.4
+ }
+}
