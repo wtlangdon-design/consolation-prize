@@ -866,7 +866,11 @@ built.exits = (live.exits ?? []).map((e) => {
     delete built.backgroundFrames;
     delete built.backgroundRate;
   }
+  // Cleared when the annotation stops declaring one, for the same reason as
+  // backgroundFrames: a room that has moved on should not keep loading a file
+  // its previous shape needed.
   if (ann.foreground) built.foreground = ann.foreground;
+  else delete built.foreground;
   if (ann.onEnterSay) {
     built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
   }
