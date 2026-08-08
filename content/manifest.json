@@ -58,8 +58,10 @@
   "content/ambient/dog.json",
   "content/ambient/letter-writer.json",
   "content/ambient/map-seller.json",
-  "content/ambient/nugget-table-left.json",
-  "content/ambient/nugget-table-right.json",
+  "content/ambient/nugget-man1.json",
+  "content/ambient/nugget-man2.json",
+  "content/ambient/nugget-man3.json",
+  "content/ambient/nugget-man4.json",
   "content/ambient/pie-woman.json"
  ],
  "reputation": "content/reputation.json",
