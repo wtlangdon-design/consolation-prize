@@ -858,8 +858,18 @@ test('a stub exit still transits, and ruling 20 keeps the landing man still', as
   // What ruling 20 binds is that a composed crowd moves and the man on the
   // landing does not, so that is what is asserted, whichever way the room
   // animates.
+  // THREE WAYS A ROOM CAN ANIMATE ITS CROWD, and this test has now been
+  // rewritten for each of them in turn: an idle layer, whole-plate frames, and
+  // ambient figures with their own beats. Naming the mechanisms is still
+  // wrong, but the alternative -- asserting nothing -- is worse, so the list
+  // grows and the RULING stays the thing being checked.
+  const ambientRooms = new Set(
+    [...(content.ambient?.values() ?? [])].map((npc) => npc.room),
+  );
   const crowded = [...content.rooms.values()].filter(
-    (room) => room.idles?.figures?.length || room.backgroundFrames?.length,
+    (room) => room.idles?.figures?.length
+      || room.backgroundFrames?.length
+      || ambientRooms.has(room.id),
   );
   assert.ok(crowded.length >= 1, 'at least one composed room animates its crowd');
   for (const room of crowded) {

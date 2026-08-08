@@ -860,7 +860,13 @@ built.exits = (live.exits ?? []).map((e) => {
   if (ann.backgroundFrames) {
     built.backgroundFrames = ann.backgroundFrames;
     built.backgroundRate = ann.backgroundRate ?? 0.5;
+  } else {
+    // Cleared when the annotation stops declaring them, or a room that has
+    // moved to sprites keeps animating a plate it no longer has.
+    delete built.backgroundFrames;
+    delete built.backgroundRate;
   }
+  if (ann.foreground) built.foreground = ann.foreground;
   if (ann.onEnterSay) {
     built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
   }

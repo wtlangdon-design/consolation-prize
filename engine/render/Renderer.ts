@@ -1284,6 +1284,20 @@ export class Renderer {
   }
 
   private ambientFrame(declared: NonNullable<AmbientFile['sprite']>, phase: number): number {
+    // A BEAT: at rest on frame 0, and every `beatEvery` seconds the rest of
+    // the frames play once. Different intervals per figure mean they coincide
+    // only by chance, which is the difference between a room of people and a
+    // chorus line.
+    if (declared.beatEvery) {
+      const span = declared.beatSeconds ?? 1.2;
+      const t = this.clock + phase * declared.beatEvery;
+      const into = t - Math.floor(t / declared.beatEvery) * declared.beatEvery;
+      if (into >= span) return 0;
+      const rest = declared.frames.length - 1;
+      if (rest <= 0) return 0;
+      return 1 + Math.min(rest - 1, Math.floor((into / span) * rest));
+    }
+
     const idleFrames = declared.breaks?.length
       ? Math.min(2, declared.frames.length) : declared.frames.length;
     const sway = Math.floor((this.clock * declared.rate + phase) * 2) % idleFrames;

@@ -350,6 +350,21 @@ export interface AmbientFile {
      * ambient character speaks, whatever prompted it.
      */
     breaksThatSpeak?: number[];
+    /**
+     * A BEAT instead of a loop: hold frame 0, show the rest briefly, hold again.
+     *
+     * Tyler, on a four-frame cycle: the motion is right but playing it on a
+     * loop is not -- each movement should happen independently, on its own
+     * beat, with two people coinciding only occasionally. `rate` cycles evenly
+     * through every frame, which is exactly the loop he rejected.
+     *
+     * With `beatEvery` set, the figure sits on frame 0 and every `beatEvery`
+     * seconds runs frames 1..n once, taking `beatSeconds` over it. Give each
+     * figure a different interval and they drift in and out of coincidence on
+     * their own, which is what a room of people looks like.
+     */
+    beatEvery?: number;
+    beatSeconds?: number;
     /** Seconds between breaks, before the per-character jitter. */
     breakEvery?: number;
   };

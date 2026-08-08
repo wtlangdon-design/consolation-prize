@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "id": "nugget_man1",
+ "name": "THE PATRONS",
+ "room": "nugget",
+ "note": "One card player, as his own sprite with his own beat. The bodies in this sheet are PIXEL-LOCKED -- whole-figure difference of 1.1, 2.7 and 1.3 between poses against 8 to 18 before -- which is what made cutting the men apart possible at all: each sprite changes in exactly ONE pose and is byte-identical, 0.0, in the other two. The far-left man turns his head right.",
+ "x": 718,
+ "y": 509,
+ "zone": 1,
+ "approachRadius": 40,
+ "barks": {},
+ "sprite": {
+  "note": "A BEAT, not a loop: at rest, and every few seconds the movement plays once. Different intervals per man so they coincide only by chance.",
+  "sheet": "art/actors/nugget-man1.png",
+  "frames": [
+   [
+    2,
+    2,
+    93,
+    216
+   ],
+   [
+    97,
+    2,
+    93,
+    216
+   ]
+  ],
+  "rate": 0.0,
+  "beatEvery": 9.0,
+  "beatSeconds": 1.4,
+  "phase": 0.0
+ }
+}

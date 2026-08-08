@@ -279,13 +279,6 @@
  "idNote": "Ids follow the LIVE ROOM FILE, not a slug of the doc name -- the compiler says so and it is right: a person chose `portrait` and `cards`, and I had renamed them to `faded_portrait` and `hand_of_cards` from the headings.",
  "walkModel": "clipped",
  "walkModelNote": "The Nugget's floor is not a rectangle -- it narrows against the bar, from 1011px wide at the back to 1546 at the front -- so its bands are clipped to the floor\u2019s own span at each depth. A street does not declare this: Room 2 is full width everywhere a player stands, and clipping its topmost band on the sloping boardwalk line collapsed it to 51px.",
- "backgroundFrames": [
-  "art/backgrounds/room-03/frame-01.png",
-  "art/backgrounds/room-03/frame-02.png",
-  "art/backgrounds/room-03/frame-03.png",
-  "art/backgrounds/room-03/frame-04.png",
-  "art/backgrounds/room-03/frame-05.png"
- ],
- "backgroundRate": 0.3,
- "backgroundNote": "Tyler's answer: replace the whole picture per frame rather than compositing anything. Safe HERE and not in general -- everything that moves in this room is always BEHIND Thad, because the floor's right edge follows the bar front and the card table sits above the floor's back edge, so he never passes in front of either. A room whose animated furniture he can walk in front of must not use this. SIX FRAMES, MIXED FROM ONE SHEET. The sheet returned four poses in which only ONE man moves per pose -- measured: 55.2, 25.8, 28.0 and 64.6 for the man who moves, and 0.0 for the men who do not, byte-identical. Re-running the prompt with \"all four men move in every pose\" returned the identical image, max difference 0. So the four poses are recombined instead: the only column where nobody moves in any pose is x181-187, so the sprite splits there into two halves with three and two genuine states, and six frames alternate both. Every consecutive frame changes on BOTH sides of the table."
+ "backgroundNote": "Tyler's answer: replace the whole picture per frame rather than compositing anything. Safe HERE and not in general -- everything that moves in this room is always BEHIND Thad, because the floor's right edge follows the bar front and the card table sits above the floor's back edge, so he never passes in front of either. A room whose animated furniture he can walk in front of must not use this. SIX FRAMES, MIXED FROM ONE SHEET. The sheet returned four poses in which only ONE man moves per pose -- measured: 55.2, 25.8, 28.0 and 64.6 for the man who moves, and 0.0 for the men who do not, byte-identical. Re-running the prompt with \"all four men move in every pose\" returned the identical image, max difference 0. So the four poses are recombined instead: the only column where nobody moves in any pose is x181-187, so the sprite splits there into two halves with three and two genuine states, and six frames alternate both. Every consecutive frame changes on BOTH sides of the table.",
+ "foreground": "art/foregrounds/room-03-nugget.png"
 }
