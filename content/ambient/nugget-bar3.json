@@ -3,8 +3,8 @@
  "id": "nugget_bar3",
  "name": "THE PATRONS",
  "room": "nugget",
- "note": "A drinker above the counter top, as his own sprite with his own beat.\nTHE BANDS TILE. Cutting each man to his own extent left the columns BETWEEN men owned by nobody, and the strip above the counter is drawn ONLY by these sprites -- so a gap between two of them is a hole straight through the bar. Seams at x216 and x409, both inside ranges identical in every pose. The leaning man lifts his glass and drinks.",
- "x": 1726,
+ "note": "A drinker above the counter, redrawn in Thad\u2019s idiom. Texture 7.66 to 4.90 against Thad\u2019s 6.09 -- the first figure in the game to reach him, and slightly past. All four rules held first time: below the counter 0.47, three separable bands, each moving in exactly one pose and 0.0 in the others. The leaning man lifts his glass and drinks.",
+ "x": 1770,
  "y": 509,
  "zone": 1,
  "approachRadius": 40,
@@ -16,13 +16,13 @@
    [
     2,
     2,
-    382,
+    293,
     153
    ],
    [
-    386,
+    297,
     2,
-    382,
+    293,
     153
    ]
   ],
