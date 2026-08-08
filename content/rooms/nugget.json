@@ -122,7 +122,7 @@
       },
       "walkTo": {
         "x": 283,
-        "y": 642,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -162,7 +162,7 @@
       },
       "walkTo": {
         "x": 873,
-        "y": 642,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -199,7 +199,7 @@
       },
       "walkTo": {
         "x": 1409,
-        "y": 863,
+        "y": 861,
         "facing": "back"
       }
     },
@@ -239,7 +239,7 @@
       },
       "walkTo": {
         "x": 796,
-        "y": 642,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -279,7 +279,7 @@
       },
       "walkTo": {
         "x": 861,
-        "y": 642,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -319,7 +319,7 @@
       },
       "walkTo": {
         "x": 751,
-        "y": 642,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -356,7 +356,7 @@
       },
       "walkTo": {
         "x": 395,
-        "y": 642,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -396,7 +396,7 @@
       },
       "walkTo": {
         "x": 506,
-        "y": 642,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -436,7 +436,7 @@
       },
       "walkTo": {
         "x": 1016,
-        "y": 642,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -473,7 +473,44 @@
       },
       "walkTo": {
         "x": 1318,
-        "y": 862,
+        "y": 845,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "patrons",
+      "name": "THE PATRONS",
+      "rect": [
+        705,
+        298,
+        336,
+        216
+      ],
+      "colour": 170,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
+            "repeat": [
+              "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
+              "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Talk. A great deal of it, all at the same volume, none of it listened to.",
+            "repeat": [
+              "Somebody in the corner has told the same story four times and it has grown twice.",
+              "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 873,
+        "y": 621,
         "facing": "back"
       }
     },
@@ -513,44 +550,7 @@
       },
       "walkTo": {
         "x": 1417,
-        "y": 864,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "patrons",
-      "name": "THE PATRONS",
-      "rect": [
-        705,
-        298,
-        1211,
-        551
-      ],
-      "colour": 170,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
-            "repeat": [
-              "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
-              "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Talk. A great deal of it, all at the same volume, none of it listened to.",
-            "repeat": [
-              "Somebody in the corner has told the same story four times and it has grown twice.",
-              "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 1311,
-        "y": 861,
+        "y": 862,
         "facing": "back"
       }
     }
@@ -740,9 +740,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_1"
@@ -773,9 +773,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_0",
@@ -807,9 +807,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_1",
@@ -841,9 +841,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_2",
@@ -875,9 +875,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_3",
@@ -909,9 +909,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_4",
@@ -943,9 +943,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_6_1"
@@ -976,9 +976,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_5_0",
@@ -1010,9 +1010,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_5_1",
@@ -1044,9 +1044,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 239,
+        "farHeight": 200,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 260
       },
       "neighbours": [
         "floor_6_0",

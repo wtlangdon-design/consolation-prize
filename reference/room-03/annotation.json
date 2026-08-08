@@ -63,13 +63,13 @@
  "scaling": {
   "far": {
    "y": 498,
-   "height": 239
+   "height": 200
   },
   "near": {
    "y": 858,
-   "height": 459
+   "height": 260
   },
-  "note": "height = 0.611 x (y - 107). FITTED TO THE STANDING DRINKER\u2019S TRUE HEIGHT of 402px with his feet at y765 -- head in the sprite above the counter, legs in the plate below it. My first fit measured only the plate half, called him 257px, and put Thad at waist height. A figure split across two layers must be measured across both."
+  "note": "FITTED TO THE GAME, not to this room\u2019s furniture. Thad is 222px at the near edge of Room 1 and 206 in Room 2; this puts him at 260 at the front of the Nugget -- a quarter larger, which is what a small room seen from inside should be. Fitting to the bar men instead gave 459 and he doubled walking through the batwing doors, which Tyler rejected on sight.\nTHAT MAKES THE BAR GROUP VISIBLY OVERSIZED, and it should: Tyler\u2019s own read is that the bar men do not belong in this game while the card players could. They are drawn 402px where a man at their depth is now 253. The bar group needs regenerating smaller; the curve is not the place to absorb that."
  },
  "hotspots": {
   "handbill": [
@@ -129,8 +129,8 @@
   "patrons": [
    705,
    298,
-   1211,
-   551
+   336,
+   216
   ],
   "portrait": [
    758,
@@ -279,5 +279,6 @@
  "idNote": "Ids follow the LIVE ROOM FILE, not a slug of the doc name -- the compiler says so and it is right: a person chose `portrait` and `cards`, and I had renamed them to `faded_portrait` and `hand_of_cards` from the headings.",
  "walkModel": "clipped",
  "walkModelNote": "The Nugget's floor is not a rectangle -- it narrows against the bar, from 1011px wide at the back to 1546 at the front -- so its bands are clipped to the floor\u2019s own span at each depth. A street does not declare this: Room 2 is full width everywhere a player stands, and clipping its topmost band on the sloping boardwalk line collapsed it to 51px.",
- "backgroundNote": "Tyler's answer: replace the whole picture per frame rather than compositing anything. Safe HERE and not in general -- everything that moves in this room is always BEHIND Thad, because the floor's right edge follows the bar front and the card table sits above the floor's back edge, so he never passes in front of either. A room whose animated furniture he can walk in front of must not use this. SIX FRAMES, MIXED FROM ONE SHEET. The sheet returned four poses in which only ONE man moves per pose -- measured: 55.2, 25.8, 28.0 and 64.6 for the man who moves, and 0.0 for the men who do not, byte-identical. Re-running the prompt with \"all four men move in every pose\" returned the identical image, max difference 0. So the four poses are recombined instead: the only column where nobody moves in any pose is x181-187, so the sprite splits there into two halves with three and two genuine states, and six frames alternate both. Every consecutive frame changes on BOTH sides of the table."
+ "backgroundNote": "Tyler's answer: replace the whole picture per frame rather than compositing anything. Safe HERE and not in general -- everything that moves in this room is always BEHIND Thad, because the floor's right edge follows the bar front and the card table sits above the floor's back edge, so he never passes in front of either. A room whose animated furniture he can walk in front of must not use this. SIX FRAMES, MIXED FROM ONE SHEET. The sheet returned four poses in which only ONE man moves per pose -- measured: 55.2, 25.8, 28.0 and 64.6 for the man who moves, and 0.0 for the men who do not, byte-identical. Re-running the prompt with \"all four men move in every pose\" returned the identical image, max difference 0. So the four poses are recombined instead: the only column where nobody moves in any pose is x181-187, so the sprite splits there into two halves with three and two genuine states, and six frames alternate both. Every consecutive frame changes on BOTH sides of the table.",
+ "patronsNote": "THE CARD TABLE ONLY. It was derived as the bounding box of every group with a person in it, which spanned x705-1916 and y298-849 -- 667,261 pixels, forty per cent of the room, swallowing most of the floor so the player could not click to walk. A hotspot is a click target, not an inventory of everyone present: the bar\u2019s drinkers are reachable through THE BAR, which is where a player would click for them anyway."
 }

@@ -10,7 +10,7 @@
  "approachRadius": 40,
  "barks": {},
  "sprite": {
-  "note": "A beat, not a loop. 17, 11 and 23 seconds share no factor.",
+  "note": "A beat, not a loop. Tyler: they are not moving enough. Intervals roughly halved and kept mutually prime so they still drift apart rather than falling into a pattern -- 5, 7, 4 at the table and 6, 4.5, 8 at the bar. With six figures on those intervals somebody moves about every three-quarters of a second.",
   "sheet": "art/actors/nugget-bar1.png",
   "frames": [
    [
@@ -27,8 +27,8 @@
    ]
   ],
   "rate": 0.0,
-  "beatEvery": 17.0,
-  "beatSeconds": 1.6,
+  "beatEvery": 6.0,
+  "beatSeconds": 1.8,
   "phase": 0.0
  }
 }
