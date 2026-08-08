@@ -3,7 +3,7 @@
  "id": "nugget_man1",
  "name": "THE PATRONS",
  "room": "nugget",
- "note": "Card players above the tabletop, as their own sprite with their own beat. The sheet holds each man\u2019s colours -- the far-left man\u2019s shirt is RGB 98,71,45 in both his poses, against a browning to 101,61,31 in the sheet before it -- and nobody puts his cards down to drink: the dark-coated man\u2019s card hand is byte-identical, 1228 opaque pixels, in both. The far-left man turns his head right.",
+ "note": "Card players above the tabletop, drawn at THREE TIMES SIZE and AREA-AVERAGED DOWN, which is the step that makes a sprite read like Thad rather than like an illustration. Texture 14.41 to 11.32 -- smoother than every other NPC in the game, which sit at 12.45 to 16.50 -- against Thad\u2019s 6.09.\nflatten.py is NOT run after decimation: it expands contrast, which multiplies local variance, and pushed the same strip back up to 13.74. It fixes contrast and undoes decimation, so the two must not be combined. The far-left man turns his head right.",
  "x": 746,
  "y": 380,
  "zone": 1,

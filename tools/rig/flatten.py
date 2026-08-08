@@ -67,3 +67,14 @@ print(f'{out}: spread {current:.1f} -> {after.std():.1f} (Hob is 36.7), {levels}
 # it. The reliable fix is to generate the portrait in the flatter idiom, with
 # Hob attached as the style reference -- the casting-sheet method pointed at
 # style instead of at a character. This stays as the finishing pass after it.
+
+# DO NOT RUN THIS AFTER DECIMATION. Expanding contrast multiplies LOCAL
+# variance as well as global spread, so a figure that has just been
+# area-averaged down -- the step that gives Thad his smooth surfaces -- comes
+# back out noisier than it went in. Measured on the Nugget's card players:
+# 14.41 before decimation, 11.32 after, and 13.74 after this tool ran on the
+# decimated version. Thad is 6.09.
+#
+# The two fixes address different faults and pull opposite ways. Use this on a
+# figure whose CONTRAST is wrong; use decimation on one whose SURFACES are
+# noisy; do not use both.
