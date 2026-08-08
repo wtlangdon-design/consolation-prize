@@ -122,7 +122,7 @@
       },
       "walkTo": {
         "x": 283,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -162,7 +162,7 @@
       },
       "walkTo": {
         "x": 873,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -199,7 +199,7 @@
       },
       "walkTo": {
         "x": 1409,
-        "y": 864,
+        "y": 863,
         "facing": "back"
       }
     },
@@ -239,7 +239,7 @@
       },
       "walkTo": {
         "x": 796,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -279,7 +279,7 @@
       },
       "walkTo": {
         "x": 861,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -319,7 +319,7 @@
       },
       "walkTo": {
         "x": 751,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -356,7 +356,7 @@
       },
       "walkTo": {
         "x": 395,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -396,7 +396,7 @@
       },
       "walkTo": {
         "x": 506,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -436,7 +436,7 @@
       },
       "walkTo": {
         "x": 1016,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -473,7 +473,7 @@
       },
       "walkTo": {
         "x": 1318,
-        "y": 864,
+        "y": 861,
         "facing": "back"
       }
     },
@@ -510,7 +510,7 @@
       },
       "walkTo": {
         "x": 873,
-        "y": 648,
+        "y": 680,
         "facing": "back"
       }
     },
@@ -550,7 +550,7 @@
       },
       "walkTo": {
         "x": 1417,
-        "y": 861,
+        "y": 864,
         "facing": "back"
       }
     }
@@ -740,9 +740,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_1"
@@ -773,9 +773,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_0",
@@ -807,9 +807,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_1",
@@ -841,9 +841,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_2",
@@ -875,9 +875,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_3",
@@ -909,9 +909,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_4",
@@ -943,9 +943,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_6_1"
@@ -976,9 +976,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_5_0",
@@ -1010,9 +1010,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_5_1",
@@ -1044,9 +1044,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
-        "farHeight": 281,
+        "farHeight": 380,
         "nearY": 858,
-        "nearHeight": 340
+        "nearHeight": 404
       },
       "neighbours": [
         "floor_6_0",
