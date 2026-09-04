@@ -441,4 +441,38 @@ independent looked.
 
 ---
 
+# PART TEN — THE PILOT BLOCKERS, CLEARED
+
+*Added after Tyler's rulings on Q14 and on proof storage. What follows is what
+changed, not a second audit.*
+
+| Blocker | State |
+|---|---|
+| **Q14** — Main Street's occlusion | **RULED AND FIXED.** The annotation authors a clip plane per band; the compiler carries it unchanged; nothing generic replaced the constant. Three assertions, eight negative witnesses. **And both masks turned out to be stale** — Q20 |
+| **Q15** — the compiler and annotator hard-wired | **CLEARED.** Both take a room. Rooms 2 and 3 compile byte-identically except the intended Q14 fields; Room 5 refuses by name for want of an annotation, which is Tyler's fifteen minutes |
+| **Q16** — no font | **PREPARED, NOT CHOSEN.** Four OFL faces rendered in the live UI at two sizes, coverage proved from each `cmap`. Doc 51. **Stopped for Tyler** |
+| **Q18** — the image API | **READY, AND BLOCKED ON THE ENVIRONMENT.** Everything up to the socket is proven; `api.openai.com` is not in this environment's egress allowlist |
+| Proof storage | **IMPLEMENTED.** `renders/proofs/<room>/`, manifest and one WebP sheet tracked, raw frames ignored |
+
+## What Q14 turned into, and it is the finding of the sitting
+
+The clip planes were one repair and the masks are another. **Both of Main
+Street's masks describe an earlier, narrower street** — plane 2 draws a
+hitching rail the plate does not contain, plane 1 draws an eight-spoked wagon
+wheel over open mud, and neither touches the water trough that plane 2's own
+note says it contains. Q20 has the measurements.
+
+**The first reading got plane 1 wrong, and how is the useful part.** Rendering
+a mask over a background produces a highlighted shape whether or not there is
+a shape underneath, so the wheel looked like the plate's. Panel C settled it: a
+man standing in the middle of that wheel, drawn whole, with nothing to be
+behind.
+
+`check-occlusion`'s geometric overlap test passes both masks — 31% and 12% of
+the drawn figure — and says so in its own header. That is the whole limit of
+what a machine can say about a mask, and it is doc 44's first honesty arriving
+in a place nobody expected it.
+
+---
+
 *Nothing in this document overrides anything. It records.*
