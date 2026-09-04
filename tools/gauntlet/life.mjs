@@ -35,9 +35,14 @@ const git = (...args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8'
 
 async function main() {
   const roomId = process.argv[2];
-  if (!roomId) { console.error('usage: life.mjs <room id> [--candidate from=to] [--allow-dirty]'); return 2; }
+  if (!roomId) { console.error('usage: life.mjs <room id> [--candidate from=to] [--route name] [--out dir] [--allow-dirty]'); return 2; }
   const slug = roomId.replace(/_/g, '-');
-  const outDir = `renders/proofs/${slug}/life`;
+  // A NAMED ROUTE AND ITS OWN OUTPUT DIR, for a short regression that is not
+  // the room's life proof: `--route <name>` reads routes/<name>.json and
+  // `--out <dir>` keeps its captures apart. Defaults are the life proof's.
+  const flag = (name) => (process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : null);
+  const routeName = flag('--route') ?? `${slug}-life`;
+  const outDir = flag('--out') ?? `renders/proofs/${slug}/life`;
   const rawDir = `${outDir}/raw-captures-ignored`;
   mkdirSync(resolve(ROOT, rawDir), { recursive: true });
 
@@ -52,7 +57,7 @@ async function main() {
   }
   const spec = readJson(`proofs/spec/${slug}.json`);
   const entry = readJson(`tools/gauntlet/routes/${spec.route}.json`);
-  const life = readJson(`tools/gauntlet/routes/${slug}-life.json`);
+  const life = readJson(`tools/gauntlet/routes/${routeName}.json`);
   const room = readJson('content/manifest.json').rooms.map((p) => readJson(p)).find((r) => r.id === roomId);
   const commit = git('rev-parse', 'HEAD');
   const dirty = git('status', '--porcelain');

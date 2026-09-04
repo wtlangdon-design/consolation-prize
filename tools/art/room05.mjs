@@ -16,6 +16,7 @@ import { attachGates, budgetFor, record } from './staging.mjs';
  *   node tools/art/room05.mjs winnie           canonical Winnie             (cap 3, shared)
  *   node tools/art/room05.mjs winnie-sheet     her work poses, from the canonical
  *   node tools/art/room05.mjs plate            the clean plate, from the master (cap 2)
+ *   node tools/art/room05.mjs night            the NIGHT plate, edited from the DAY source (reserve, cap 1)
  *
  * Nothing here promotes, and nothing here sets visual_accepted.
  */
@@ -113,7 +114,32 @@ if (which === 'master') {
     promptFile: `proofs/room-05/prompts/clean-plate-${process.argv[4] ?? '02'}.txt`,
     images: [arg, ...BASELINE], out: `${OUT}/plate-source-${process.argv[4] ?? '02'}.png`,
   });
+} else if (which === 'night') {
+  // THE FINAL PILOT OPERATION. Tyler's night pass: the accepted DAY source is
+  // the image being edited (first), and every approved night ancestor goes
+  // with it -- Room 1's live frame and plate, the signed-off Main Street
+  // night plate, the Nugget (the approved night interior), Thad, and the
+  // baseline's own E slots. One call against the reserve sub-cap; a second
+  // is refused by the cap, not by discretion.
+  say('\nROOM 5 · NIGHT PLATE SOURCE -- the DAY source relit, nothing moved\n');
+  await call({
+    assetId: 'room-05-reserve', subject: 'room-05-assay-office', role: 'plate', purpose: 'plate',
+    promptFile: `proofs/room-05/prompts/night-plate-${arg ?? '01'}.txt`,
+    images: [
+      'art/staging/room-05/plate-source-02.png',        // the DAY source: composition and geometry authority
+      'reference/casting/room-01-casting-master.png',   // E: the rendering anchor
+      'renders/room-01-in-engine-1920x1080.png',        // A: Room 1 night, live
+      'art/backgrounds/room-01-stage-road.png',         // B: Room 1 night plate
+      'art/backgrounds/room-02-main-street.png',        // the signed-off Main Street NIGHT plate (errata 64)
+      'art/backgrounds/room-03-nugget.png',             // D: the approved night interior
+      'art/actors/thad-stand-front/stand-00.png',       // C: Thad
+      'art/staging/room-05/composition-master-02.png',  // E: Winnie's casting master
+    ],
+    out: `${OUT}/plate-source-03-night.png`,
+    extra: { state: 'night', editedFrom: 'art/staging/room-05/plate-source-02.png',
+      note: 'ROOM 5 NIGHT VISUAL CANDIDATE source. Errata 64: Room 1 night -> Main Street night -> Room 5 night. An edit of the accepted DAY source, lighting only; the DAY candidate stays as ROOM 5 - DAY VISUAL CANDIDATE.' },
+  });
 } else {
-  say('usage: room05.mjs master | winnie <master> | winnie-sheet <canonical> <attempt> | plate <master>');
+  say('usage: room05.mjs master | winnie <master> | winnie-sheet <canonical> <attempt> | plate <master> | night');
   process.exit(2);
 }

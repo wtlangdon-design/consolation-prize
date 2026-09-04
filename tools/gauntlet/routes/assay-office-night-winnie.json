@@ -1,0 +1,21 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5's SHORT NIGHT REGRESSION (Tyler's night pass, section 18). Not the life proof: the smallest route proving the NIGHT candidate loaded, the current corrected Winnie sheet (night-relit through the same candidate mechanism) loaded, her rest and writing states, the stationary ink stand and its pen state, the dialogue look-up, and the return to work -- under night light. Behaviour is unchanged by the night pass, so the 200-second life proof is not rerun.",
+ "from": "assay_office",
+ "actions": [
+  {"do": "capture", "name": "n01-night-initial", "why": "arrival under night light; Winnie at the ledger"},
+  {"do": "wait", "seconds": 12, "why": "one break interval: she takes the pen at least once"},
+  {"do": "capture", "name": "n02-night-working", "why": "a work break in progress, or rest between them"},
+  {"do": "wait", "seconds": 6},
+  {"do": "capture", "name": "n03-night-working-again"},
+  {"do": "verb", "verb": "TALK_TO"},
+  {"do": "click", "on": "winnie", "why": "TALK TO Winnie under night light"},
+  {"do": "waitFor", "dialogue": true, "upTo": 30},
+  {"do": "capture", "name": "n04-night-dialogue", "why": "she holds her look-up frame, pen raised, stand empty"},
+  {"do": "option", "option": "winnie5", "why": "the universal exit"},
+  {"do": "wait", "seconds": 4, "why": "the exit line and its hold"},
+  {"do": "wait", "seconds": 9, "why": "a full break interval: she has returned to the ledger"},
+  {"do": "capture", "name": "n05-night-back-at-work", "why": "return to work after the conversation"}
+ ]
+}

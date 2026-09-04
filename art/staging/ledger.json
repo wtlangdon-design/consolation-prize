@@ -1362,6 +1362,176 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-04T16:20:38.344Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/night-plate-01.txt",
+   "promptHash": "bbfca9beb8e6e9d526d789a1a95c758e3ad451edc3dfeeeec558bc9b797a827d",
+   "references": [
+    {
+     "path": "art/staging/room-05/plate-source-02.png",
+     "hash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/composition-master-02.png",
+     "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "plate",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Room 1 cast -- the rendering anchor)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie)",
+      "path": "art/staging/room-05/composition-master-02.png",
+      "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+   "sourcePath": "art/staging/room-05/plate-source-02.png",
+   "out": "art/staging/room-05/plate-source-03-night.png",
+   "outputHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+   "bytes": 1724808,
+   "usage": {
+    "input_tokens": 12154,
+    "input_tokens_details": {
+     "image_tokens": 11516,
+     "text_tokens": 638
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 13526
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T21:06:53.808Z",
+   "assetId": "room-05-reserve",
+   "subject": "room-05-assay-office",
+   "state": "night",
+   "editedFrom": "art/staging/room-05/plate-source-02.png",
+   "note": "ROOM 5 NIGHT VISUAL CANDIDATE source. Errata 64: Room 1 night -> Main Street night -> Room 5 night. An edit of the accepted DAY source, lighting only; the DAY candidate stays as ROOM 5 - DAY VISUAL CANDIDATE.",
+   "gates": {
+    "path": "art/staging/room-05/plate-source-03-night.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T21:06:54.009Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T21:06:53.825Z"
   }
  ],
  "promotions": []

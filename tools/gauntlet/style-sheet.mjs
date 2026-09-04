@@ -37,7 +37,11 @@ const thadRec = readJson('content/actors/thad.json');
 const stand = thadRec.clips.find((c) => c.id === 'stand' && c.facing === 'front');
 const thadSrc = load(stand.frames[0]);
 const winnieRec = readJson('content/ambient/winnie.json');
-const winnieSheet = load(winnieRec.sprite.sheet);
+// `--winnie <sheet>`: the NIGHT-relit sheet, loaded through the same
+// candidate mechanism the proof uses, so the sheet shows what the proof drew.
+const winnieSheetPath = process.argv.includes('--winnie')
+  ? process.argv[process.argv.indexOf('--winnie') + 1] : winnieRec.sprite.sheet;
+const winnieSheet = load(winnieSheetPath);
 const [wx, wy, ww, wh] = winnieRec.sprite.frames[0];
 
 // Thad at runtime scale in Room 1: his stage-road mid-band height / figureHeight.
@@ -115,7 +119,7 @@ const manifest = {
   room1: { path: 'renders/room-01-in-engine-1920x1080.png', hash: createHash('sha256').update(readFileSync(resolve(ROOT, 'renders/room-01-in-engine-1920x1080.png'))).digest('hex') },
   room5: { path: room5Frame, hash: createHash('sha256').update(readFileSync(resolve(ROOT, room5Frame))).digest('hex') },
   thad: { path: stand.frames[0], runtimeScale: thadRuntime, drawnHeight: 240 },
-  winnie: { sheet: winnieRec.sprite.sheet, frame: winnieRec.sprite.frames[0], drawnHeight: wh },
+  winnie: { sheet: winnieSheetPath, frame: winnieRec.sprite.frames[0], drawnHeight: wh },
   suspected: [],
   at: new Date().toISOString(),
 };
