@@ -25,7 +25,36 @@
 import { existsSync, mkdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+import { spawnSync } from 'node:child_process';
+
 import { ROOT } from '../lib/content.mjs';
+
+/*
+ * NODE'S fetch DOES NOT READ HTTPS_PROXY, AND THIS ENVIRONMENT NEEDS IT TO.
+ *
+ * /root/.ccr/README.md names it: "Some clients do not read HTTPS_PROXY: Node's
+ * built-in fetch (run that command with NODE_USE_ENV_PROXY=1 on Node >=
+ * 22.21)". Without it the request goes direct, the sandbox refuses it, and the
+ * refusal is word for word the one an un-allowlisted host gets -- so a run
+ * that should say "your client is misconfigured" says "ask an administrator to
+ * change the network policy" instead.
+ *
+ * Re-executed here rather than left to whoever types the command, because the
+ * instruction is `node tools/art/smoke.mjs` and a tool that only works when
+ * you already know its secret is a tool that will be run wrong.
+ *
+ * THE ENVIRONMENT IS PASSED THROUGH UNTOUCHED apart from the two flags. The
+ * key is never read, printed or copied by this file -- it travels in the
+ * environment it was already in.
+ */
+if (!process.env.NODE_USE_ENV_PROXY
+  && (process.env.HTTPS_PROXY || process.env.https_proxy)) {
+  const again = spawnSync(process.execPath, [new URL(import.meta.url).pathname, ...process.argv.slice(2)], {
+    stdio: 'inherit',
+    env: { ...process.env, NODE_USE_ENV_PROXY: '1', NODE_NO_WARNINGS: '1' },
+  });
+  process.exit(again.status ?? 1);
+}
 import { edit, generate, hashFile, model } from './openai-image.mjs';
 import { attachGates, budgetFor, promote, record } from './staging.mjs';
 import { runGates } from './gates.mjs';

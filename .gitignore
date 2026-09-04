@@ -45,3 +45,20 @@ work/
 # one compact four-panel sheet shows every COMPLETE frame beside it. A hash the
 # next capture can be compared against proves more than a stored copy does.
 renders/proofs/*/raw-captures-ignored/
+
+# STAGED GENERATED IMAGES. Same shape as the proof captures above: the blobs
+# are ignored, the claims about them are tracked.
+#
+# Nothing under art/staging/ has been looked at by Tyler, and a staged image is
+# by definition not shipping art -- promotion is the only route into
+# art/backgrounds/, it is explicit, and it is logged. Committing the staging
+# area would put unaccepted generations in the same tree as accepted ones,
+# which is the one distinction the whole staging layer exists to hold.
+#
+# art/staging/ledger.json and art/staging/caps.json stay TRACKED and are
+# excepted below. The ledger is the provenance record AND the spend meter --
+# budgetFor() computes attempts and billed tokens from its rows, so dropping it
+# would silently reset every cap to zero.
+art/staging/**
+!art/staging/ledger.json
+!art/staging/caps.json

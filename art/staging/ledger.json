@@ -1,6 +1,317 @@
 {
  "schema": 1,
  "note": "GENERATED ART PROVENANCE. One row per attempt. Holds hashes, ids and model parameters -- no credentials, and no line of the fiction: a prompt is recorded by file path and hash so the words stay in /docs.",
- "attempts": [],
+ "attempts": [
+  {
+   "attempt": 1,
+   "operation": "generate",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null,
+    "background": null
+   },
+   "prompt": "A flat neutral grey test card. A single thin white horizontal line across the middle. No text, no lettering, no objects, no texture.",
+   "promptFile": null,
+   "promptHash": "05e30b4713b72ca8212687b92821bbf355243caa0d2b91c72071b98a6010f81e",
+   "references": [],
+   "out": "art/staging/smoke/generate-01.png",
+   "outputHash": "9e02afc3758d7f0f5b395c7bb33b1f6c17bd0c3f3f872d8adf4e3c60c447727f",
+   "bytes": 826382,
+   "usage": {
+    "input_tokens": 35,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 35
+    },
+    "output_tokens": 196,
+    "output_tokens_details": {
+     "image_tokens": 196,
+     "text_tokens": 0
+    },
+    "total_tokens": 231
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T07:11:53.469Z",
+   "assetId": "smoke-test-card",
+   "subject": "api-smoke-test",
+   "gates": {
+    "path": "art/staging/smoke/generate-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T07:11:53.692Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T07:11:53.490Z"
+  },
+  {
+   "attempt": 2,
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": "Return this scene with the sky replaced by flat neutral grey. Change nothing else.",
+   "promptFile": null,
+   "promptHash": "ec4454920b1193764e0f5cd31b42264732a113e703e74195fbfb513dc4b9ecd4",
+   "references": [
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    }
+   ],
+   "mask": null,
+   "sourceHash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+   "sourcePath": "art/backgrounds/room-01-stage-road.png",
+   "out": "art/staging/smoke/edit-01.png",
+   "outputHash": "bb5f978c30f1cdfc50ca3eff319b3fba517c2cbaa350ba519f089626eef8de18",
+   "bytes": 1195960,
+   "usage": {
+    "input_tokens": 1530,
+    "input_tokens_details": {
+     "image_tokens": 1508,
+     "text_tokens": 22
+    },
+    "output_tokens": 1756,
+    "output_tokens_details": {
+     "image_tokens": 1756,
+     "text_tokens": 0
+    },
+    "total_tokens": 3286
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T07:12:41.699Z",
+   "assetId": "smoke-test-card",
+   "subject": "api-smoke-test",
+   "gates": {
+    "path": "art/staging/smoke/edit-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T07:12:41.814Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T07:12:41.700Z"
+  },
+  {
+   "attempt": 3,
+   "operation": "generate",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null,
+    "background": null
+   },
+   "prompt": "A flat neutral grey test card. A single thin white horizontal line across the middle. No text, no lettering, no objects, no texture.",
+   "promptFile": null,
+   "promptHash": "05e30b4713b72ca8212687b92821bbf355243caa0d2b91c72071b98a6010f81e",
+   "references": [],
+   "out": "art/staging/smoke/generate-01.png",
+   "outputHash": "2c60c1d68a48bbdfc9b0d593d361f0e98f6fcdd7db1a3b7ccf870944e306a963",
+   "bytes": 822771,
+   "usage": {
+    "input_tokens": 35,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 35
+    },
+    "output_tokens": 196,
+    "output_tokens_details": {
+     "image_tokens": 196,
+     "text_tokens": 0
+    },
+    "total_tokens": 231
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T07:13:03.989Z",
+   "assetId": "smoke-test-card",
+   "subject": "api-smoke-test",
+   "gates": {
+    "path": "art/staging/smoke/generate-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T07:13:04.111Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T07:13:03.990Z"
+  },
+  {
+   "attempt": 4,
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": "Return this scene with the sky replaced by flat neutral grey. Change nothing else.",
+   "promptFile": null,
+   "promptHash": "ec4454920b1193764e0f5cd31b42264732a113e703e74195fbfb513dc4b9ecd4",
+   "references": [
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    }
+   ],
+   "mask": null,
+   "sourceHash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+   "sourcePath": "art/backgrounds/room-01-stage-road.png",
+   "out": "art/staging/smoke/edit-01.png",
+   "outputHash": "f695604d14a0cf5bdc7306b850b121e710975e6130b98bdc3e5c8b0053b87135",
+   "bytes": 1238535,
+   "usage": {
+    "input_tokens": 1530,
+    "input_tokens_details": {
+     "image_tokens": 1508,
+     "text_tokens": 22
+    },
+    "output_tokens": 781,
+    "output_tokens_details": {
+     "image_tokens": 781,
+     "text_tokens": 0
+    },
+    "total_tokens": 2311
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T07:13:31.850Z",
+   "assetId": "smoke-test-card",
+   "subject": "api-smoke-test",
+   "gates": {
+    "path": "art/staging/smoke/edit-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T07:13:31.951Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T07:13:31.850Z"
+  }
+ ],
  "promotions": []
 }

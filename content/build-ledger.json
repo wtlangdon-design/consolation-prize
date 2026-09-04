@@ -133,15 +133,14 @@
     "docs/50-autonomy-delta-audit.md"
    ],
    "dependsOn": [],
-   "status": "blocked",
+   "status": "built",
    "commit": "622a8e7",
-   "validation": null,
+   "validation": "node tools/art/smoke.mjs",
    "gauntlet": null,
-   "proof": "proofs/calibration/gate-calibration.md",
-   "blockers": [
-    "Q18"
-   ],
-   "visual_accepted": false
+   "proof": "art/staging/ledger.json",
+   "blockers": [],
+   "visual_accepted": false,
+   "note": "The live path is proven: gpt-image-2 answered a generate and an edit, both landed only under art/staging/, both carry a provenance row with hashes and billed tokens, gates ran, promotion refused and no shipping asset changed. Doc 36 Q18 (the second series) holds the evidence. It is built and not proven, because `proven` in this ledger means a four-panel room proof, which is not a thing an art adapter can have."
   },
   {
    "id": "room-proof-system",

@@ -60,6 +60,11 @@ export function model() {
   return process.env.OPENAI_IMAGE_MODEL || DEFAULT_MODEL;
 }
 
+/** Whether this environment routes outbound HTTPS through a proxy. */
+export function proxied() {
+  return Boolean(process.env.HTTPS_PROXY || process.env.https_proxy);
+}
+
 /**
  * The key, or a refusal that says how to supply it.
  *
@@ -121,17 +126,54 @@ async function post(path, body, headers = {}) {
   }
   const text = await answer.text();
   if (!answer.ok) {
-    // THE EGRESS ALLOWLIST ANSWERS 403 AND SO DOES THE API, and they mean
-    // entirely different things: one is a key or an account, the other is a
-    // host this environment is not permitted to reach at all. Told apart by
-    // what answered, because a run that reports "403, check your key" against
-    // a blocked host sends somebody to rotate a credential that was fine.
+    // FOUR THINGS ANSWER WITH A NUMBER AND THEY ARE NOT THE SAME FAULT.
+    // Reporting one as another sends somebody to fix the wrong thing, and
+    // this file has already done it once -- see the second branch.
     if (answer.status === 403 && /not in allowlist|egress/i.test(text)) {
+      // IT IS THE PROXY TALKING, AND THAT DOES NOT MEAN THE HOST IS BLOCKED.
+      //
+      // Node's built-in `fetch` does not read HTTPS_PROXY. So on a machine
+      // where curl reaches the API perfectly, a fetch bypasses the proxy, the
+      // sandbox denies the direct connection, and the denial it returns is
+      // word for word the one a genuinely un-allowlisted host gets.
+      //
+      // The first version of this message read that as "the host is not in
+      // the allowlist" and told the operator to change the environment's
+      // network settings. The host was allowed. The process was not using the
+      // proxy. That is a client misconfiguration wearing an infrastructure
+      // error's clothes, and the two are told apart here rather than guessed.
+      if (proxied() && !process.env.NODE_USE_ENV_PROXY) {
+        throw new Error("this process bypassed the proxy, so the sandbox refused the direct "
+          + `connection to ${new URL(ENDPOINT).host}. The host may well be allowed: Node's `
+          + 'built-in fetch does not read HTTPS_PROXY, which /root/.ccr/README.md states in '
+          + 'as many words. Re-run with NODE_USE_ENV_PROXY=1 (Node >= 22.21). The key was '
+          + `never sent.\n--- what the proxy said ---\n${text.slice(0, 400)}`);
+      }
       throw new Error(`${new URL(ENDPOINT).host} is not in this environment's network egress `
         + 'allowlist, so no request left the machine. The key was never used and is not the '
         + 'problem. Add the host to the environment\'s network settings -- '
         + 'https://code.claude.com/docs/en/claude-code-on-the-web -- and run this again.'
         + `\n--- what the proxy said ---\n${text.slice(0, 600)}`);
+    }
+    // AUTHENTICATION, which is the key or the account and nothing else.
+    if (answer.status === 401) {
+      throw new Error('the API rejected the credential (401). This is OPENAI_API_KEY or the '
+        + 'account behind it -- not the network, which answered, and not the request, which '
+        + `was read.\n--- what it said ---\n${text.slice(0, 800)}`);
+    }
+    // BILLING, RATE LIMIT AND MODEL ACCESS, which are the account's state.
+    if (answer.status === 429 || answer.status === 402
+      || (answer.status === 403 && !/not in allowlist|egress/i.test(text))) {
+      throw new Error(`the account cannot make this call right now (${answer.status}): a rate `
+        + 'limit, a billing state, or no access to this model. The credential was accepted. '
+        + `Model asked for: ${model()}.\n--- what it said ---\n${text.slice(0, 800)}`);
+    }
+    // 4xx THAT IS NOT ANY OF THOSE IS THIS FILE'S OWN FAULT: a parameter the
+    // API does not take, a size it does not offer, a malformed multipart body.
+    if (answer.status >= 400 && answer.status < 500) {
+      throw new Error(`the request was malformed for ${model()} (${answer.status}). This is `
+        + 'the adapter, not the key, the account or the network -- read what the API says is '
+        + `wrong with it.\n--- what it said ---\n${text.slice(0, 2000)}`);
     }
     throw new Error(`image API ${answer.status} on ${path}\n--- what it said ---\n`
       + `${text.slice(0, 4000)}`);

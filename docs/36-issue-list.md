@@ -3255,22 +3255,77 @@ proven until the plates are regenerated at errata 54's presentation.
 
 ---
 
-## Q18 · THE IMAGE API PATH HAS NEVER BEEN CALLED
+## Q18 · THE IMAGE API PATH HAS NEVER BEEN CALLED — **CALLED, AND IT WORKS**
 
-`tools/art/openai-image.mjs` reads `OPENAI_API_KEY` from the environment and
-from nowhere else. There is no key in the environment the audit ran in, so
-**the adapter has never made a live request** and neither `generate` nor `edit`
-is proven against the real API.
+**Closed by `node tools/art/smoke.mjs` against the live API.** `gpt-image-2`
+answered both operations. What Q18 named as unproven — the request shape, the
+response shape, and whether the model returns an image at the size asked for —
+is now proven, and the ledger holds the evidence rather than this paragraph:
 
-Everything downstream of the call is exercised: the staging refusal (nothing
-may be written outside `art/staging/`), the provenance row, the attempt and
-spend caps, and technical gates 1–6 all run against files already in the tree.
-What is unproven is the request shape, the response shape, and whether the
-model returns an image at the sizes errata 54 asks for.
+| | |
+|---|---|
+| generate | 1024×1024 RGB, 826,382 bytes, 231 billed tokens, gates PASS |
+| edit | 1024×1024 RGB from `art/backgrounds/room-01-stage-road.png`, 1,195,960 bytes, 3,286 billed tokens, gates PASS |
+| promotion | **refused** — `smoke-test-card attempt 1 is not visually accepted` |
+| the reference plate | `3e4582227ac8` before, `3e4582227ac8` after |
 
-Recorded in the same spirit as `tools/render-music.mjs`, which "needs Chromium
-and was written where none could be installed, so it is unproven until somebody
-runs it." Same shape, same honesty.
+Every number above is a row in `art/staging/ledger.json`, which is the record;
+this table is a pointer to it.
+
+### THE FIRST RUN FAILED, AND IT FAILED BY LYING ABOUT WHY
+
+Worth more than the success. The adapter reported:
+
+> `api.openai.com is not in this environment's network egress allowlist, so no
+> request left the machine.`
+
+**Every word of which was wrong.** `curl https://api.openai.com/v1/models`
+returned **401** from the same container at the same moment — the API
+answering, which is a host that is plainly reachable. Node's built-in `fetch`
+does not read `HTTPS_PROXY`; `/root/.ccr/README.md` says so in as many words
+and names the fix (`NODE_USE_ENV_PROXY=1`, Node ≥ 22.21). The request never
+reached the proxy's forward path, the proxy refused the direct connect with a
+403, and the adapter had exactly one branch for a 403 and it named the wrong
+cause.
+
+The failure classes were required to stay distinct precisely so this could not
+happen, and one of them had been written to swallow four others. `post()` now
+separates them, and the proxy-bypass case is diagnosed by asking whether this
+process is proxied at all rather than by reading the status:
+
+| status | class |
+|---|---|
+| 403 + egress text, **process bypassed the proxy** | the client's fault, not the network's — re-exec under `NODE_USE_ENV_PROXY=1` |
+| 403 + egress text, proxied | genuinely not in the allowlist; nothing left the machine |
+| 401 | credential — not network, not request |
+| 429 / 402 / other 403 | billing, rate limit or model access |
+| other 4xx | the adapter built a bad request |
+
+`smoke.mjs` re-execs itself under the flag when a proxy is configured, so the
+first symptom of this class is now a working run rather than a wrong sentence.
+
+**A diagnostic that names the wrong cause is worse than one that says nothing**,
+because it is acted on. This one would have sent somebody to ask for an
+allowlist entry that already existed.
+
+### THE CAP WAS PROVEN BY REACHING IT, NOT BY READING IT
+
+Four attempts against a per-asset cap of six is a cap that has not been
+exercised. Lowering `attemptsPerAsset` to 4 — a count already reached — and
+re-running gave the negative witness: exit 1, the refusal named the asset and
+the cap, **and the ledger gained no row**, because the budget is read before
+the call and not after it. `caps.json` was restored byte-identical afterwards.
+
+### WHAT IS STILL UNPROVEN
+
+- **Nothing has been promoted, and nothing should be.** `visual_accepted` is
+  Tyler's field. The smoke test's own third step is the promotion refusal.
+- **No plate-sized generation.** Both calls were 1024×1024, which is what the
+  API offers; a 1920×864 room plate is not a size the model returns, so how a
+  generated plate reaches its shipping dimensions is unruled and is not this
+  issue.
+- **Gates 1–6 passed on a flat grey test card**, which is a weak subject by
+  design. Calibration against real art is `proofs/calibration/gate-calibration.md`.
 
 ---
 
