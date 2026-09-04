@@ -1,0 +1,375 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "main_street",
+ "roomWidth": 3700,
+ "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+ "commit": "005522834430fff5e1af7df00cec4a56bda8cb96",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "route": "main-street",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever.",
+  "action 13 (wait): waited 3s",
+  "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road",
+  "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it",
+  "action 17 (wait): waited 6s",
+  "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger",
+  "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "boardwalk",
+    "kind": "far",
+    "y": 533,
+    "xs": [
+     961,
+     736,
+     1186,
+     511,
+     1412,
+     285,
+     1637,
+     60,
+     1862
+    ],
+    "expect": 105,
+    "x": 961
+   },
+   "at": [
+    961,
+    533
+   ],
+   "reportedHeight": 105,
+   "expected": 105,
+   "drawnFrom": "art/actors/thad-idle-front/idle-05.png",
+   "bounds": [
+    899,
+    428,
+    124,
+    116
+   ],
+   "order": 0,
+   "renderedHeight": 106,
+   "renderedBottom": 533,
+   "file": "raw-captures-ignored/panel-c-boardwalk-far.png"
+  },
+  {
+   "mark": {
+    "box": "mud_near",
+    "kind": "near",
+    "y": 857,
+    "xs": [
+     1875,
+     1421,
+     2329,
+     968,
+     2783,
+     514,
+     3236,
+     60,
+     3690
+    ],
+    "expect": 206,
+    "x": 1875
+   },
+   "at": [
+    1875,
+    857
+   ],
+   "reportedHeight": 206,
+   "expected": 206,
+   "drawnFrom": "art/actors/thad-idle-front/idle-05.png",
+   "bounds": [
+    1753,
+    651,
+    244,
+    227
+   ],
+   "order": 0,
+   "renderedHeight": 206,
+   "renderedBottom": 856,
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
+  }
+ ],
+ "occlusion": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "main_street",
+   "clock": 107.19489999999999,
+   "beat": null,
+   "control": null,
+   "camera": 1780,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      3300,
+      706
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 150,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-04.png",
+     "bounds": [
+      3211,
+      556,
+      178,
+      166
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-09-04T06:53:04.107Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "52babf9dfd6422ab688023040ce5d564f4be3199ea84c3d6f797eb61d5b1110b"
+  },
+  {
+   "panel": "A",
+   "room": "main_street",
+   "clock": 108.3282,
+   "beat": null,
+   "control": null,
+   "camera": 1780,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      3300,
+      706
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 150,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-09-04T06:53:05.214Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "5eef9f458da01af3003aaa48201d98f1e4059f2fc0feaf392f04285759dd5a11"
+  },
+  {
+   "panel": "D",
+   "room": "main_street",
+   "clock": 115.5113,
+   "beat": null,
+   "control": null,
+   "camera": 595,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1875,
+      857
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 206,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-01.png",
+     "bounds": [
+      1753,
+      651,
+      244,
+      227
+     ],
+     "order": 0,
+     "clipLevel": 1,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(961,533)",
+    "cast(false)",
+    "cast(true)",
+    "stand(1875,857)",
+    "cast(false)",
+    "cast(true)"
+   ],
+   "capturedAt": "2026-09-04T06:53:12.458Z",
+   "intent": "principal changed state: Act III repaints the Improvement Company sign -- 'fresh gilt on the lettering' -- and posts the funeral notice on the board. Doc 35 section 2a's worked gate ruled both STATEFUL for exactly that reason, and they are the only two things on this street that change appearance rather than what Thad says about them.\n\nAND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED. Errata 60 rules ACT a numeric counter written at four places in doc 48's scripts; content/flags/flags.json declares 22 flags and ACT is not among them. So the gate the repaint compiles to cannot be satisfied by anything, and the proof fails panel D by name. An unreachable principal change is a finding; an undeclared one is a hole in this file.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "c940eacde923233d451c1a6767b979804ac5118ba26aa1214395a881769fafc3",
+   "changedBy": "nothing"
+  }
+ ],
+ "failures": [
+  "panel D: the flag registry declares no ACT",
+  "panel D: ACT is undefined, wanted 3 -- the intended state was not reached and the frame is of the old one",
+  "panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename."
+ ],
+ "passed": false,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "at": "2026-09-04T06:53:12.459Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 710518,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

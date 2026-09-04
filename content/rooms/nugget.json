@@ -736,7 +736,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -769,7 +769,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -803,7 +803,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -837,7 +837,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -871,7 +871,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -905,7 +905,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -939,7 +939,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -972,7 +972,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -1006,7 +1006,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -1040,7 +1040,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 12,
+      "clipPlane": 0,
       "scaleMode": {
         "kind": "curve",
         "farY": 498,
@@ -1101,5 +1101,15 @@
     "nugget_man1",
     "nugget_man2",
     "nugget_man34"
+  ],
+  "occlusionProofs": [],
+  "occlusionBands": [
+    "floor_0",
+    "floor_1",
+    "floor_2",
+    "floor_3",
+    "floor_4",
+    "floor_5",
+    "floor_6"
   ]
 }

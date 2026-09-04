@@ -21,7 +21,16 @@ const MAX_RATE = 4;
 const MAX_ELEMENTS = 2;
 
 export function check() {
-  const report = new Report('Palette cycling reserves what it declares (doc 18)');
+  // DOC 18 IS VOID IN FULL under errata 54: palette cycling needs an index
+  // palette and there is not one. Every element this examines is dormant, so
+  // what it validates is the shape of declarations that animate nothing.
+  //
+  // The structural assertions still work -- a 9 Hz rate and a band running out
+  // of its family were both caught by mutation -- which is why this is kept
+  // rather than deleted: the day a mechanism replaces cycling, these are the
+  // rules it will want. Until then it is not an acceptance criterion, because
+  // the condition it enforces is not required by anything.
+  const report = new Report('DIAGNOSTIC: cycling declarations are well formed (doc 18, VOID)');
   const content = loadContent();
   const palette = content.palette;
   const duplicated = colourDuplicates(palette.colours);

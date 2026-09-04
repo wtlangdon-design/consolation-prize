@@ -21,7 +21,24 @@ const REQUIRED_ROLES = [
  * player who wants this game would notice.
  */
 export function check() {
-  const report = new Report('Palette is locked, 256 entries, 6-bit, fully referenced');
+  // ERRATA 54 RETIRED THE LOCKED PALETTE, AND THREE OF THIS CHECK'S FOUR
+  // ASSERTIONS WENT WITH IT. The ruling says `consolation-256.json` "ceases to
+  // be authoritative. Retained for reference only." So:
+  //
+  //   locked flag   SUPERSEDED as design, LIVE as a runtime precondition --
+  //                 Screen.ts still throws on a palette that is not locked,
+  //                 which is doc 36 Q19 ("errata 54 retired a thing the engine
+  //                 cannot start without") and is debt, not a rule.
+  //   256 entries   SUPERSEDED. Full RGB has no entry count.
+  //   6-bit VGA     SUPERSEDED. Nothing quantises to 6-bit any more.
+  //   the 8 roles   CURRENT. Screen.ts reads roles by name for every piece of
+  //                 interface chrome, so a missing role is a live crash.
+  //   index ranges  CURRENT. Renderer draws room.colours.sky/ground and a
+  //                 target's own colour for rooms with no plate.
+  //
+  // All four were mutation-proved detectable. Detectable is not the same as
+  // required, and the title said the retired half.
+  const report = new Report('The palette file the engine still boots from is well formed');
   const content = loadContent();
   const palette = content.palette;
 

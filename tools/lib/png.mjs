@@ -98,10 +98,19 @@ export function readPng(bytes) {
       rgba[to + 2] = pixels[at + 2];
       rgba[to + 3] = 255;
     }
-    return { width, height, pixels: rgba };
+    // `hasAlpha` SAYS WHAT THE SOURCE WAS, not what this buffer is.
+    //
+    // Everything comes back RGBA because that is what every caller wants to
+    // index, and for a colour-type-2 source every alpha byte here is a 255
+    // this function wrote. A caller asking "does this asset have
+    // transparency" would read those 255s and answer no for a plate and NO
+    // FOR A SPRITE TOO, which is the wrong answer for the one that matters.
+    // Found by running a new alpha gate against approved art: every sprite in
+    // the repository came back "no alpha channel at all".
+    return { width, height, pixels: rgba, hasAlpha: false };
   }
 
-  return { width, height, pixels };
+  return { width, height, pixels, hasAlpha: true };
 }
 
 /** The bytes of one rectangle, as a comparable string. */

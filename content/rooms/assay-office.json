@@ -12,223 +12,50 @@
   "horizon": 468,
   "walkable": [
     {
-      "id": "floor_far",
+      "id": "mud_far",
       "zone": 2,
+      "surface": "mud",
       "rect": [
-        576,
-        696,
-        768,
-        60
+        60,
+        700,
+        1840,
+        43
       ]
     },
     {
-      "id": "floor_mid",
+      "id": "mud_mid",
       "zone": 1,
+      "surface": "mud",
       "rect": [
-        360,
-        756,
-        1200,
-        54
+        60,
+        743,
+        1840,
+        44
       ]
     },
     {
-      "id": "floor_near",
+      "id": "mud_near",
       "zone": 0,
+      "surface": "mud",
       "rect": [
-        180,
-        810,
-        1560,
-        54
+        60,
+        787,
+        1840,
+        43
       ]
     }
   ],
   "hotspots": [
     {
-      "id": "window_sign",
-      "name": "THE WINDOW SIGN",
-      "rect": [
-        1404,
-        240,
-        84,
-        102
-      ],
-      "colour": 203,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not.",
-            "repeat": [
-              "Six years. The ink has gone and nobody has needed to read it in some time.",
-              "THIS WINDOW CLOSES AT FOUR. It closes at four."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. It has been saying the same thing for six years and requires no assistance.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. It has said the same thing for six years and needed no help."
-            ]
-          }
-        ]
-      },
-      "defaultVerb": "LOOK_AT"
-    },
-    {
-      "id": "scales",
-      "name": "THE SCALES",
-      "rect": [
-        444,
-        396,
-        168,
-        156
-      ],
-      "colour": 204,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A balance, in a glass case, so accurate that men have wept in front of it. Mostly in the other direction.",
-            "repeat": [
-              "Under glass. Nobody touches it but her.",
-              "I have watched a man watch this scale for four minutes without breathing."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing at all. It is the only instrument in Consolation that cannot be argued with.",
-            "repeat": [
-              "Nothing.",
-              "Nothing at all. It cannot be argued with, and it knows."
-            ]
-          }
-        ]
-      },
-      "defaultVerb": "LOOK_AT",
-      "overrides": {
-        "USE": "I am not touching it.",
-        "PICK_UP": "It is under glass, and I would not touch it if it were not."
-      }
-    },
-    {
-      "id": "queue_book",
-      "name": "THE QUEUE BOOK",
-      "rect": [
-        780,
-        504,
-        156,
-        60
-      ],
-      "colour": 199,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Eight months of names. Two-thirds of them in the same hand.",
-            "repeat": [
-              "Two-thirds of these entries are in the same hand and the same ink.",
-              "Eight months. I have counted forward and I arrive in March."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Paper.",
-            "repeat": [
-              "Paper.",
-              "Nothing."
-            ]
-          }
-        ]
-      },
-      "defaultVerb": "LOOK_AT",
-      "overrides": {
-        "PICK_UP": "That is the queue. Men have killed over less orderly things."
-      }
-    },
-    {
-      "id": "floorboard",
-      "name": "THE FLOORBOARD",
-      "rect": [
-        1164,
-        744,
-        276,
-        60
-      ],
-      "colour": 197,
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A floorboard. It sits a little proud of the others.",
-            "repeat": [
-              "Proud by about the width of a nail head.",
-              "Every other board in this room is flush. She has not fixed this one."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Loose. There's a space under it.",
-            "repeat": [
-              "Still loose.",
-              "Loose. And nothing under it that rattles."
-            ]
-          }
-        ]
-      },
-      "defaultVerb": "LOOK_AT",
-      "overrides": {
-        "PULL": "It gives, and stops. Somebody has arranged for it to give and stop.",
-        "OPEN": "Not with her at the counter."
-      }
-    },
-    {
-      "id": "sample_shelves",
-      "name": "THE SAMPLE SHELVES",
-      "rect": [
-        576,
-        132,
-        768,
-        348
-      ],
-      "colour": 192,
-      "note": "The two vial banks behind the counter, drawn by furniture.vial_shelves.",
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Vials, labelled, in rows, in order. Nine years of them and not one out of place.",
-            "repeat": [
-              "Each one is somebody's morning. Somebody carried that up here in a fold of paper and waited.",
-              "I have looked for a gap. There is no gap."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. It is nine years of finished work and it is not asking for anything.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. Glass, in order, with nothing to add."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "Nine years, in order. I am not going to be the man who moves one."
-      }
-    },
-    {
       "id": "her_pen",
       "name": "HER PEN",
       "rect": [
-        708,
-        480,
+        895,
+        340,
         72,
-        72
+        60
       ],
       "colour": 195,
-      "note": "In its stand on the counter top. Drawn for doc 25, because ruling 19b will not have a LOOK line about a pen in a room with no pen.",
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -252,27 +79,152 @@
       },
       "overrides": {
         "PICK_UP": "No."
+      },
+      "walkTo": {
+        "x": 931,
+        "y": 828,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "floorboard",
+      "name": "THE FLOORBOARD",
+      "rect": [
+        880,
+        704,
+        240,
+        36
+      ],
+      "colour": 197,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A floorboard. It sits a little proud of the others.",
+            "repeat": [
+              "Proud by about the width of a nail head.",
+              "Every other board in this room is flush. She has not fixed this one."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Loose. There's a space under it.",
+            "repeat": [
+              "Still loose.",
+              "Loose. And nothing under it that rattles."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It gives, and stops. Somebody has arranged for it to give and stop.",
+        "OPEN": "Not with her at the counter."
+      },
+      "walkTo": {
+        "x": 1000,
+        "y": 827,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window_sign",
+      "name": "THE WINDOW SIGN",
+      "rect": [
+        322,
+        120,
+        72,
+        140
+      ],
+      "colour": 203,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not.",
+            "repeat": [
+              "Six years. The ink has gone and nobody has needed to read it in some time.",
+              "THIS WINDOW CLOSES AT FOUR. It closes at four."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It has been saying the same thing for six years and requires no assistance.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. It has said the same thing for six years and needed no help."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 358,
+        "y": 828,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "queue_book",
+      "name": "THE QUEUE BOOK",
+      "rect": [
+        1150,
+        392,
+        100,
+        120
+      ],
+      "colour": 199,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eight months of names. Two-thirds of them in the same hand.",
+            "repeat": [
+              "Two-thirds of these entries are in the same hand and the same ink.",
+              "Eight months. I have counted forward and I arrive in March."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper.",
+            "repeat": [
+              "Paper.",
+              "Nothing."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "That is the queue. Men have killed over less orderly things."
+      },
+      "walkTo": {
+        "x": 1200,
+        "y": 828,
+        "facing": "back"
       }
     },
     {
       "id": "certificate",
       "name": "THE CERTIFICATE ON THE WALL",
       "rect": [
-        432,
-        144,
-        132,
-        156
+        1396,
+        84,
+        104,
+        146
       ],
       "colour": 199,
-      "note": "Framed, high on the back wall left of the shelves. Blank, like every sign in this game.",
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
           {
-            "say": "A territorial commission, framed, appointing W. LEDGER acting assayer. The word acting has been there nine years.",
+            "say": "A territorial commission, framed, appointing W. LEDGER acting assayer.",
             "repeat": [
               "Acting. Nine years of acting.",
               "Somebody in a capital four hundred miles away has never got round to the other word."
+            ],
+            "then": [
+              "The word acting has been there nine years."
             ]
           }
         ],
@@ -288,19 +240,163 @@
       },
       "overrides": {
         "PICK_UP": "It is screwed to the wall, and it is hers."
+      },
+      "walkTo": {
+        "x": 1448,
+        "y": 828,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "hanging_lamp",
+      "name": "THE HANGING LAMP",
+      "rect": [
+        932,
+        62,
+        82,
+        187
+      ],
+      "defaultVerb": "LOOK_AT",
+      "state": "lit",
+      "states": {
+        "lit": {
+          "image": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+          "note": "THE HANGING WORK LAMP (Tyler, owner ruling 2026-09-04): one small plain period oil lamp on a short chain from the brass cage top rail, over the ledger. The fixture is this one prop in every visual state -- day and night -- cut from the in-context edit (art/staging/room-05/lamp-01/lamp.json); only its runtime light differs, by the room lamp below. Always lit; there is no unlit state. It hangs at the cage, in front of her: `occludes: [1]` puts it in the figure pass over plane-1 figures, so where its base meets her hair the lamp is in front.",
+          "occludes": [
+            1
+          ]
+        }
+      },
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An oil lamp hung directly over the ledger. Centered, naturally.",
+            "repeat": [
+              "The light falls on the book and almost nowhere else.",
+              "It has been placed exactly where the work is."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A small flame. Steady.",
+            "repeat": [
+              "Barely anything.",
+              "A faint wick hiss."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 973,
+        "y": 828,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "scales",
+      "name": "THE SCALES",
+      "rect": [
+        1228,
+        185,
+        150,
+        210
+      ],
+      "colour": 204,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A balance, in a glass case, so accurate that men have wept in front of it.",
+            "repeat": [
+              "Under glass. Nobody touches it but her.",
+              "I have watched a man watch this scale for four minutes without breathing."
+            ],
+            "then": [
+              "Mostly in the other direction."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing at all. It is the only instrument in Consolation that cannot be argued with.",
+            "repeat": [
+              "Nothing.",
+              "Nothing at all. It cannot be argued with, and it knows."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I am not touching it.",
+        "PICK_UP": "It is under glass, and I would not touch it if it were not."
+      },
+      "walkTo": {
+        "x": 1303,
+        "y": 828,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "queue_bench",
+      "name": "THE QUEUE BENCH",
+      "rect": [
+        1690,
+        535,
+        230,
+        250
+      ],
+      "when": {
+        "ACT": {
+          "atLeast": 2,
+          "atMost": 4
+        }
+      },
+      "act": "2-4",
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The bench seats nine and holds two.",
+            "repeat": [
+              "Seven empty places. The bench has not adjusted to the improvement.",
+              "It is still built for nine. The queue, for once, is not."
+            ],
+            "then": [
+              "The queue has been on a diet since a certain log was read aloud."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Two people shifting. There is room between them.",
+            "repeat": [
+              "A board creaks. Nobody answers it.",
+              "Almost nothing. Waiting is quieter in small numbers."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "It seats nine. I have been all nine, on different days.",
+        "PUSH": "Moving the bench does not move the queue. The queue is a spiritual object; the bench is merely where it condenses."
+      },
+      "walkTo": {
+        "x": 1650,
+        "y": 827,
+        "facing": "back"
       }
     },
     {
       "id": "stove",
       "name": "THE STOVE",
       "rect": [
-        168,
-        564,
-        120,
-        168
+        520,
+        328,
+        175,
+        345
       ],
       "colour": 190,
-      "note": "The pot stove at frame left, drawn since Room 5 was composed.",
       "defaultVerb": "LOOK_AT",
       "responses": {
         "LOOK_AT": [
@@ -324,6 +420,51 @@
       },
       "overrides": {
         "OPEN": "That is the work's fire. I am not opening it."
+      },
+      "walkTo": {
+        "x": 608,
+        "y": 828,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "sample_shelves",
+      "name": "THE SAMPLE SHELVES",
+      "rect": [
+        898,
+        84,
+        466,
+        282
+      ],
+      "colour": 192,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Vials, labelled, in rows, in order. Nine years of them and not one out of place.",
+            "repeat": [
+              "Each one is somebody's morning. Somebody carried that up here in a fold of paper and waited.",
+              "I have looked for a gap. There is no gap."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is nine years of finished work and it is not asking for anything.",
+            "repeat": [
+              "Nothing.",
+              "Nothing. Glass, in order, with nothing to add."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Nine years, in order. I am not going to be the man who moves one."
+      },
+      "walkTo": {
+        "x": 1131,
+        "y": 828,
+        "facing": "back"
       }
     }
   ],
@@ -332,10 +473,10 @@
       "id": "back_to_street",
       "name": "THE STREET DOOR",
       "rect": [
-        24,
-        360,
-        156,
-        360
+        40,
+        0,
+        275,
+        810
       ],
       "colour": 198,
       "to": "main_street",
@@ -360,16 +501,21 @@
         ]
       },
       "fallback": [],
-      "defaultVerb": "WALK_TO"
+      "defaultVerb": "WALK_TO",
+      "walkTo": {
+        "x": 200,
+        "y": 760,
+        "facing": "left"
+      }
     },
     {
       "id": "to_records",
       "name": "THE RECORDS ROOM DOOR",
       "rect": [
-        1224,
-        312,
-        144,
-        240
+        1512,
+        26,
+        218,
+        565
       ],
       "colour": 196,
       "to": "stub_assay_records",
@@ -394,7 +540,212 @@
             ]
           }
         ]
+      },
+      "walkTo": {
+        "x": 1600,
+        "y": 704,
+        "facing": "back"
       }
+    }
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "docs/05-examine-layer.md",
+      "docs/25-rooms-05-07.md",
+      "reference/room-05/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      60,
+      700
+    ],
+    [
+      1900,
+      700
+    ],
+    [
+      1900,
+      830
+    ],
+    [
+      60,
+      830
+    ]
+  ],
+  "entrance": [
+    200,
+    765
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        200,
+        765
+      ],
+      "facing": "right",
+      "note": "Just inside the street door, before its stone step, facing into the room."
+    },
+    {
+      "from": "main_street",
+      "at": [
+        200,
+        765
+      ],
+      "facing": "right",
+      "note": "He came in by the street door at left."
+    },
+    {
+      "from": "stub_assay_records",
+      "at": [
+        1600,
+        706
+      ],
+      "facing": "front",
+      "note": "Out of the back-room door at right, on the floor line."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 60,
+          "y": 700
+        },
+        {
+          "x": 1690,
+          "y": 700
+        },
+        {
+          "x": 1690,
+          "y": 743
+        },
+        {
+          "x": 60,
+          "y": 743
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 60,
+          "y": 743
+        },
+        {
+          "x": 1690,
+          "y": 743
+        },
+        {
+          "x": 1690,
+          "y": 787
+        },
+        {
+          "x": 60,
+          "y": 787
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 60,
+          "y": 787
+        },
+        {
+          "x": 1690,
+          "y": 787
+        },
+        {
+          "x": 1690,
+          "y": 830
+        },
+        {
+          "x": 60,
+          "y": 830
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 700,
+        "farHeight": 470,
+        "nearY": 830,
+        "nearHeight": 560
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "occlusionPlanes": [
+    {
+      "level": 1,
+      "mask": "art/staging/room-05/mask-plane-1.png",
+      "note": "The brass cage bars that pass in front of her, read off plate-02 by tools/art/room05-mask.mjs --bars-only. The counter itself is NOT in this mask any more: since Tyler's counter-contact correction (2026-09-04) her behind-counter sheet (art/staging/room-05/winnie-02-counter/) is matted against the ledger's far edge and the counter's back edge by tools/rig/winnie-counter.py, and a counter block from y395 down would mask the hands that rest on the ledger. Assigned to Winnie by her ambient record's clipPlane, not by any walk box."
+    }
+  ],
+  "occlusionProofs": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-05/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+  "ambient": [
+    "winnie"
+  ],
+  "lamps": [
+    {
+      "id": "hanging_lamp",
+      "at": [
+        990,
+        300
+      ],
+      "radius": 330,
+      "amount": 0.03,
+      "amountByState": {
+        "night": 0.18
+      },
+      "rate": 0.3,
+      "phase": 0.2,
+      "note": "The hanging work lamp's light: a small oil flame, so slow and low. Negligible by day (daylight is the source); by night the principal work light, a restrained warm pool on the ledger, her hands and the counter around them, centred a little below the flame so it falls on the work and not on the ceiling. The stove has no runtime lamp and stays a painted accent, secondary. Errata 64d: the state is authored, selected by the room's visual state, never by a clock."
     }
   ]
 }

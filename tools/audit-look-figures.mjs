@@ -94,7 +94,12 @@ const RESOLVED = [
 ];
 
 export function check() {
-  const report = new Report('LOOK describes only what is rendered (ruling 19b)');
+  // WHY THIS IS A DIAGNOSTIC AND NOT A CHECK. Like check-variant-one it
+  // contains no report.fail(): handed a LOOK line naming a figure that is
+  // nowhere in the frame, it lists the line and passes. Ruling 19b is a
+  // judgement about what the picture contains, and only a person looking at
+  // the picture can make it. The list is the contribution.
+  const report = new Report('DIAGNOSTIC: LOOK lines that name a figure (ruling 19b)');
   const buckets = new Map();
   const open = [];
   let scanned = 0;

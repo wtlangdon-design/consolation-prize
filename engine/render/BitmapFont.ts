@@ -54,11 +54,38 @@ export const GLYPH_SCALE = 6;
 export const PANEL_GLYPH_SCALE = 4;
 
 /**
+ * WHAT THE RENDERER NEEDS OF A FACE, and nothing more.
+ *
+ * Written down because there are two faces now: the 1-bit bitmap below, and
+ * `PreviewFont`, which draws a candidate typeface through the same calls so a
+ * replacement for the 5x7 -- void under errata 54, unchosen under Q16 -- can
+ * be looked at in the real UI instead of on a specimen sheet.
+ *
+ * Both satisfy this exactly. A preview that answered `measure` or `height`
+ * differently from what it draws would show a layout the game does not have,
+ * which is a worse instrument than no instrument.
+ */
+export interface Face {
+  readonly height: number;
+  readonly scale: number;
+  supports(char: string): boolean;
+  unsupported(text: string): string[];
+  measure(text: string): number;
+  draw(ctx: Ctx, text: string, x: number, y: number, colour: string): number;
+  drawOutlined(ctx: Ctx, text: string, x: number, y: number,
+               colour: string, outline: string): void;
+  drawCentred(ctx: Ctx, text: string, centreX: number, y: number, colour: string): void;
+  drawCentredOutlined(ctx: Ctx, text: string, centreX: number, y: number,
+                      colour: string, outline: string): void;
+  wrap(text: string, maxWidth: number): string[];
+}
+
+/**
  * 1-bit glyph renderer. Every lit pixel is written as an exact square at
  * integer coordinates, so nothing is ever rasterised through a system font
  * and nothing is ever anti-aliased.
  */
-export class BitmapFont {
+export class BitmapFont implements Face {
   readonly height: number;
   /**
    * Units per glyph pixel FOR THIS FACE. An instance, not a module constant,

@@ -51,14 +51,42 @@ import { check as speechColours } from './check-speech-colours.mjs';
 import { check as exitCollisions } from './check-exit-collisions.mjs';
 import { check as rigDescribesFrames } from './check-rig-describes-frames.mjs';
 import { check as cameraSpace } from './check-camera-space.mjs';
+import { check as buildLedger } from './check-build-ledger.mjs';
+import { check as occlusion } from './check-occlusion.mjs';
+import { check as roomReadiness } from './check-room-readiness.mjs';
+import { check as fontCandidates } from './font/check-candidates.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
  * read the output of in under a minute -- no adjectives, no judgement calls.
+ *
+ * TWO LISTS, NOT ONE, AND THE SPLIT IS THE POINT.
+ *
+ * `CHECKS` are acceptance: each one can FAIL, and each one's failure means the
+ * build is wrong. `DIAGNOSTICS` are information: they print what a person
+ * should look at and they do not gate anything.
+ *
+ * They were one list, and five entries in it were not acceptance criteria:
+ *
+ *   check-variant-one        contains no report.fail() at all
+ *   audit-look-figures       contains no report.fail() at all
+ *   check-no-sheets-in-plates  its only failure is an unreadable file; the
+ *                            condition in its title is a note
+ *   check-palette            errata 54 retired the locked palette; three of
+ *                            its four assertions are about a spec that is void
+ *   check-palette-cycling    doc 18 is void in full; every subject is dormant
+ *
+ * Each was proved by mutation: handed the exact defect it is named after,
+ * the first three passed. They printed `PASS` in a run that ended "All 48
+ * checks passed", which is a sentence that was doing more work than the
+ * checks were.
+ *
+ * NOTHING IS DELETED. A superseded diagnostic is still the best list of what
+ * to look at, and the day a mechanism replaces cycling its structural rules
+ * are wanted back. What changes is that a green run no longer counts them.
  */
 const CHECKS = [
   bandsTile,
-  sheetsInPlates,
   cyclingLands,
   treeSpeakers,
   spriteSheets,
@@ -71,7 +99,6 @@ const CHECKS = [
   stateCoverage,
   sequences,
   townMap,
-  paletteLocked,
   walkableZones,
   roomEntries,
   staging,
@@ -79,12 +106,9 @@ const CHECKS = [
   beat11Path,
   itemNames,
   combinations,
-  paletteCycling,
   examineLines,
   writtenContent,
-  variantOne,
   fixedLines,
-  lookFigures,
   dialogueNodes,
   flagOrder,
   glyphCoverage,
@@ -110,6 +134,23 @@ const CHECKS = [
   // five beats has never once run in the suite. R5o, exactly: a fix is not
   // finished until something reaches it. It passes.
   moverLifecycle,
+  buildLedger,
+  roomReadiness,
+  occlusion,
+  fontCandidates,
+];
+
+/**
+ * REPORTED, NEVER ASSERTED. See the note above CHECKS for how each got here
+ * and what proved it. A red line from any of these is impossible by
+ * construction, so their output is a list to read rather than a verdict.
+ */
+const DIAGNOSTICS = [
+  variantOne,
+  lookFigures,
+  sheetsInPlates,
+  paletteLocked,
+  paletteCycling,
 ];
 
 let failed = 0;
@@ -130,5 +171,31 @@ for (const check of CHECKS) {
 }
 
 console.log('');
-console.log(failed === 0 ? `All ${CHECKS.length} checks passed.` : `${failed} of ${CHECKS.length} checks failed.`);
+console.log('--- DIAGNOSTICS: reported, never asserted. None of these can fail. ---');
+for (const diagnostic of DIAGNOSTICS) {
+  let report;
+  try {
+    report = await diagnostic();
+  } catch (error) {
+    // A DIAGNOSTIC THAT THROWS IS STILL A FAILURE, and of the acceptance kind:
+    // it means the tree is in a state the tool cannot read, which is a fact
+    // about the tree rather than a judgement about the writing.
+    console.log(`FAIL  ${diagnostic.name} threw`);
+    console.log(`      x ${error instanceof Error ? error.message : String(error)}`);
+    failed += 1;
+    continue;
+  }
+  // A diagnostic that reports a failure has stopped being a diagnostic, and
+  // that is worth saying rather than swallowing: it means somebody added an
+  // assertion to a list that does not gate on them.
+  if (!runCheck(report)) {
+    console.log('      ! the line above is in the DIAGNOSTIC list and did not gate the build. '
+      + 'If it should, move it to CHECKS.');
+  }
+}
+
+console.log('');
+console.log(failed === 0
+  ? `All ${CHECKS.length} checks passed, and ${DIAGNOSTICS.length} diagnostics were reported.`
+  : `${failed} of ${CHECKS.length} checks failed.`);
 process.exit(failed === 0 ? 0 : 1);

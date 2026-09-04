@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "note": "THE STATE THE ROOM 5 PILOT STARTED FROM. Recorded before any work so regression and budget are measured against a fact, not a memory.",
+ "startCommit": "b63bb4ddb3c058f6107ca9e6983be96037fde756",
+ "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+ "apiOperationsAtStart": 4,
+ "apiOperationsCeiling": 12,
+ "subCaps": { "composition-master": 2, "clean-plate": 2, "winnie": 3, "reserve": 1 },
+ "cycleCeiling": 20,
+ "room1": {
+  "proofCommit": "55230a8fc401b89793ff697b8ea1bbc4d57ce6f7",
+  "proofPassed": true,
+  "baseline": {
+   "A": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+   "B": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+   "C": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+   "D": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414"
+  },
+  "thadRecord": "a9ead0d5cbc1e8320c87f310ddc6a36c30cca76417dc55be0bfc3015005ad30e",
+  "thadRig": "810cd5e60d96c7cf610b0c734b02e19afbd271b10135934f8eebd0a5d269e778",
+  "openingGauntlet": "green at a384f74 (tools/gauntlet/opening.json)"
+ },
+ "recordedAt": "2026-09-04T15:31:32Z"
+}

@@ -6,13 +6,15 @@ import { Actor } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
 import { Music } from '../core/Music.ts';
 import { RoomActors } from '../core/RoomActors.ts';
-import type { FrameReport, MoverReport } from '../dev/Probe.ts';
+import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { DialoguePerformance, readingHold, type HoldTiming } from '../core/DialoguePerformance.ts';
-import { mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
-import { BitmapFont, GLYPH_SCALE } from '../render/BitmapFont.ts';
+import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
+import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
+import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
+import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
 import { Renderer } from '../render/Renderer.ts';
@@ -53,9 +55,18 @@ const NOTICE_MS = 1200;
 export class GameScene extends Phaser.Scene {
   private state!: GameState;
   private screen!: Screen;
-  private font!: BitmapFont;
+  private font!: Face;
   private view!: Renderer;
   private actor!: Actor;
+  /**
+   * EVERYTHING THE CONTROLS DID TO THE GAME, IN ORDER.
+   *
+   * A proof panel reached by playing and a proof panel reached by injection
+   * are both legitimate evidence and they are not the SAME evidence, and the
+   * difference is invisible in the picture. So it is written down, and the
+   * proof manifest carries it beside the frame.
+   */
+  private readonly controlWrites: string[] = [];
   /** Every named mover in the room, the player among them. Issue X4 defect 3. */
   private actors!: RoomActors;
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
@@ -164,7 +175,13 @@ export class GameScene extends Phaser.Scene {
     const context = this.texture.getContext();
     context.imageSmoothingEnabled = false;
     this.screen = new Screen(context, this.state.content.palette);
-    this.font = new BitmapFont(this.state.content.font);
+    // THE PLAY AREA'S FACE. `?font=Family` in a DEV build swaps a candidate in
+    // so Q16 can be ruled on by looking at the real UI; with no parameter this
+    // constructs exactly what it always did.
+    const candidate = askedFont();
+    this.font = candidate
+      ? new PreviewFont(this.state.content.font, candidate.family, candidate.px, candidate.weight)
+      : new BitmapFont(this.state.content.font);
     // The protagonist's id comes from content. No .ts file names him, and
     // the registry does not know which of its movers he is beyond holding it.
     this.actor = new Actor(this.state, this.state.content.actor.id,
@@ -260,9 +277,10 @@ export class GameScene extends Phaser.Scene {
    */
   private loadDeferred(): void {
     let queued = 0;
+    const swaps = askedCandidates();
     for (const { key, path } of planBoot(this.state.content).deferred) {
       if (this.textures.exists(key)) continue;
-      this.load.image(key, new URL(path, document.baseURI).toString());
+      this.load.image(key, new URL(resolveAssetPath(path, swaps), document.baseURI).toString());
       this.load.once(`filecomplete-image-${key}`, () => this.markDirty());
       queued += 1;
     }
@@ -413,8 +431,8 @@ export class GameScene extends Phaser.Scene {
    * is very slightly not.
    */
   private cycleChanged(): boolean {
-    const elements = this.state.room.cycling;
-    if (!elements?.length) return false;
+    const elements = liveCycling(this.state.room);
+    if (!elements.length) return false;
     const on = this.state.menu.toggle(CYCLING_OPTION);
     const mapping = on
       ? mappingAt(elements.map((element) => resolve(this.state.content.palette, element)),
@@ -450,7 +468,7 @@ export class GameScene extends Phaser.Scene {
     }
     if (!this.textures.exists(key)) return null;
     const source = this.textures.get(key).getSourceImage() as CanvasImageSource;
-    if (!room.cycling?.length) return source;
+    if (liveCycling(room).length === 0) return source;
 
     let cycler = this.cyclers.get(roomId);
     if (!cycler) {
@@ -538,7 +556,13 @@ export class GameScene extends Phaser.Scene {
     // Ambient characters stand in front of the scenery, so they take the
     // pointer first -- exactly as they take the click. Reading one name and
     // clicking another is worse than either alone.
-    const npc = y < PLAY_HEIGHT ? this.ambient.npcAt(wx, y) : undefined;
+    // THE SAME PRECEDENCE THE CLICK USES: a hotspot rect under the pointer
+    // names the hotspot, not the person standing over it, unless the verb
+    // is TALK TO -- otherwise the sentence line promised "Pick up WINNIE
+    // LEDGER" for a click that picked up her pen.
+    const hoveredObject = y < PLAY_HEIGHT ? this.state.targetAt(wx, y) : null;
+    const npc = y < PLAY_HEIGHT && !(hoveredObject && this.state.verbs.selectedVerb !== 'TALK_TO')
+      ? this.ambient.npcAt(wx, y) : undefined;
     const found = npc
       ? { id: npc.id, name: npc.name,
           defaultVerb: this.state.content.verbs.npcVerb }
@@ -674,7 +698,16 @@ export class GameScene extends Phaser.Scene {
     // acting on it, and this path bypassed it entirely -- he shouted at the
     // pie woman from wherever he was standing. He now walks to the edge of
     // her own approachRadius and the tree opens when he arrives.
-    const npc = this.ambient.npcAt(wx, y);
+    // A SMALL OBJECT BESIDE A PERSON IS STILL AN OBJECT. The NPC hit box is a
+    // fifth of the drawn height each side of the feet, and Room 5's Winnie is
+    // 445 rows tall: her box swallowed the pen stand at her right hand, so
+    // PICK UP on HER PEN reached the people pool and her authored refusal
+    // never played. When the click lands on a hotspot's own rect, the
+    // hotspot wins for every verb but TALK TO -- talking is the one thing a
+    // person is for and an object is not.
+    const chosenVerb = this.state.verbs.selectedVerb;
+    const objectUnderClick = y < PLAY_HEIGHT ? this.state.targetAt(wx, y) : null;
+    const npc = objectUnderClick && chosenVerb !== 'TALK_TO' ? undefined : this.ambient.npcAt(wx, y);
 
     // A PERSON IS NOT A LEVER. Every verb pointed at an ambient character used
     // to open their tree, so Tyler clicked PUSH on the letter-writer and got a
@@ -703,6 +736,12 @@ export class GameScene extends Phaser.Scene {
       const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
       const from = npc.x + (this.actor.x < npc.x ? -gap : gap);
       this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y } };
+      // THE VERB IS SPENT. Errata 28b: a verb used on a thing resets. Every
+      // other path resets through GameState.interact; this one never reached
+      // it, so TALK TO stayed selected through the whole conversation and the
+      // first click afterwards -- Room 5's back-room door -- was "talk to the
+      // door" instead of a transit. Found by the life proof.
+      this.state.verbs.resetToDefault();
       this.actor.walkTo(from, npc.y);
       this.markDirty();
       return;
@@ -867,7 +906,11 @@ export class GameScene extends Phaser.Scene {
     // the game does when a verb is used is a rule about the game, and putting
     // it in the scene put it where no test could reach it: the change passed
     // 132 tests without one of them being able to see it.
-    this.setSay(result.say);
+    // SPOKEN AS THAD. A verb's line -- an examine line, an authored refusal,
+    // a fallback -- is his, and the renderer's fallback ink already assumed
+    // so; the probe did not, and reported the LAST speaker it had seen, which
+    // in Room 5 made an override of Winnie's read as the stage driver's.
+    this.setSay(result.say, this.state.content.actor.id);
     // DOC 30 §5's SPLIT UTTERANCES. The setup goes up now and the rest queue
     // behind it on their own reading holds, which is the 1990 rhythm the
     // presentation borrows: setup, beat, punchline.
@@ -1530,8 +1573,14 @@ export class GameScene extends Phaser.Scene {
 
   report(): FrameReport {
     const drawn = this.view.lastDrawn();
+    const records = this.view.lastDrawRecords();
     const movers: Record<string, MoverReport> = {};
     for (const mover of this.actors.all()) {
+      // NO INVENTED DEFAULTS FOR THE DRAW RECORD. A mover the renderer did not
+      // reach has no order, no bounds and no file, and saying `order: 0` there
+      // would put it first in a draw order it never joined. -1 and null are
+      // the honest answers and every consumer has to handle them.
+      const record = records[mover.id];
       movers[mover.id] = {
         at: [Math.round(mover.x), Math.round(mover.y)],
         facing: mover.facing,
@@ -1539,6 +1588,11 @@ export class GameScene extends Phaser.Scene {
         height: Math.round(mover.height),
         moving: mover.isWalking,
         drawn: drawn[mover.id] ?? 'not-drawn',
+        from: record?.from ?? null,
+        bounds: record?.bounds ?? null,
+        order: record?.order ?? -1,
+        clipLevel: record?.clipLevel ?? 0,
+        fallback: record?.fallback ?? false,
       };
     }
     return {
@@ -1554,6 +1608,7 @@ export class GameScene extends Phaser.Scene {
       // failed on, because every consumer compares it against itself.
       clock: this.lastFrameAt,
       beat: this.playingBeat(),
+      waitingBeat: this.carried.waiting?.beat ?? null,
       control: this.openingControl(),
       movers,
       // What each overlay actually DREW in, not what the rule says it should
@@ -1564,10 +1619,132 @@ export class GameScene extends Phaser.Scene {
       says: this.sayLines.length > 0 ? this.sayingActor : null,
       options: this.state.dialogue.isActive
         ? this.state.dialogue.presentOptions().length : 0,
+      assets: this.roomAssets(),
+      flags: this.state.flags.trueIds(),
+      counters: this.state.flags.counters(),
+      inventory: this.state.carried,
+      camera: Math.round(this.state.cameraX),
       pending: this.pendingSay.length,
       performing: this.performance !== null,
       handedOver: this.opening === null,
       segment: this.playingSegment(),
+    };
+  }
+
+  /**
+   * The room's shipping assets, and whether the RUNTIME has each one.
+   *
+   * GATE 7. The path half a harness could read out of the room file itself;
+   * `loaded` is the half it could not, and it is the half that matters -- a
+   * plate that failed to arrive leaves a room drawn out of whatever the
+   * renderer falls back to, with the correct path still sitting in the
+   * content file saying nothing is wrong.
+   *
+   * Keyed the way the loader keys them, because the question is whether THAT
+   * texture is present, not whether a file of that name exists on a disk the
+   * browser cannot see.
+   */
+  private roomAssets(): { key: string; path: string; drawn: string; candidate: boolean;
+    loaded: boolean }[] {
+    const room = this.state.room;
+    const id = this.state.roomId;
+    const out: { key: string; path: string; drawn: string; candidate: boolean;
+      loaded: boolean }[] = [];
+    // `path` is what the ROOM DECLARES and `drawn` is what was actually
+    // loaded. They differ exactly when ruling 10's candidate override is in
+    // force, and the proof records the second -- a proof that recorded the
+    // declared path while a candidate was on screen would name the wrong
+    // picture in its own manifest.
+    const swaps = appliedCandidates();
+    const add = (key: string, path: string | undefined) => {
+      if (!path) return;
+      const swap = swaps.find((entry) => entry.from === path);
+      out.push({
+        key,
+        path,
+        drawn: swap ? swap.to : path,
+        candidate: Boolean(swap),
+        loaded: this.textures.exists(key),
+      });
+    };
+    add(`bg:${id}`, room.background);
+    add(`fg:${id}`, room.foreground);
+    (room.backgroundFrames ?? []).forEach((path, at) => add(`bgf:${id}:${at}`, path));
+    for (const plane of room.occlusionPlanes ?? []) add(plane.mask, plane.mask);
+    // AMBIENT SHEETS TOO. A room's people are assets the proof has to see
+    // loaded: Room 5's Winnie is an ambient, and without this row the proof
+    // could pass with her sheet missing and nothing drawn where she stands.
+    for (const npc of this.ambient.present) {
+      add(npc.sprite?.sheet ?? '', npc.sprite?.sheet);
+      // And her props' sheets: the ink stand is drawn from its own file.
+      for (const prop of npc.sprite?.props ?? []) add(prop.sheet, prop.sheet);
+    }
+    return out;
+  }
+
+  /**
+   * Where dialogue option `index` is drawn. See Probeable.optionRow.
+   *
+   * ONE-BASED, as a player counts them and as the gauntlet's `input` writes
+   * them. The renderer answers with nothing while an exchange performs, and
+   * that is passed straight through rather than worked around: a harness that
+   * clicked into a hidden list would be testing the skip path on every run
+   * instead of the performance.
+   */
+  optionRow(index: number): { id: string; y: number; height: number } | null {
+    if (!this.state.dialogue.isActive) return null;
+    const options = this.state.dialogue.presentOptions();
+    if (index < 1 || index > options.length) return null;
+    return this.view.dialogueHitboxes(options)[index - 1] ?? null;
+  }
+
+  /**
+   * THE CONTROL SURFACE. Four named operations, each of which refuses rather
+   * than guesses, and every one of which records what it did.
+   *
+   * See `Controls` in dev/Probe.ts for why it is four and not a setter.
+   */
+  get controls(): Controls {
+    return {
+      cast: (on: boolean) => {
+        this.view.hideCast(!on);
+        this.dirty = true;
+        this.controlWrites.push(`cast(${on})`);
+      },
+      stand: (x: number, y: number) => {
+        // REFUSED OFF THE FLOOR, and the refusal is the feature. A depth
+        // reading taken where no walk box reaches is the scaling curve
+        // answering about ground it was never fitted to, and it looks exactly
+        // like a reading somebody can quote.
+        if (this.state.actorHeightAt(x, y) === null) {
+          return { ok: false, why: `${x},${y} is on no walk box of ${this.state.roomId}` };
+        }
+        this.actor.placeAt(x, y);
+        this.dirty = true;
+        this.controlWrites.push(`stand(${x},${y})`);
+        return { ok: true };
+      },
+      flags: (values: Record<string, boolean | number>) => {
+        const refused: string[] = [];
+        for (const [id, value] of Object.entries(values)) {
+          if (!this.state.flags.isDefined(id)) { refused.push(id); continue; }
+          this.state.flags.set(id, value);
+          this.controlWrites.push(`flag ${id}=${value}`);
+        }
+        this.dirty = true;
+        return { ok: refused.length === 0, refused };
+      },
+      enter: (roomId: string) => {
+        if (!this.state.content.rooms.has(roomId)) {
+          return { ok: false, why: `no room "${roomId}"` };
+        }
+        this.state.enterRoom(roomId);
+        this.enterRoomPerformance(null);
+        this.dirty = true;
+        this.controlWrites.push(`enter(${roomId})`);
+        return { ok: true };
+      },
+      writes: () => [...this.controlWrites],
     };
   }
 

@@ -42,6 +42,27 @@ export function check() {
           + `${sprite.sheet} (${png.width}x${png.height})`);
       }
     }
+    // Her props' sheets and rects, checked the same way.
+    for (const prop of sprite.props ?? []) {
+      named.set(prop.sheet, (named.get(prop.sheet) ?? 0) + 1);
+      if (!existsSync(prop.sheet)) {
+        report.fail(`${npc.id}: prop names ${prop.sheet}, which does not exist`);
+        continue;
+      }
+      const propPng = readPng(readFileSync(prop.sheet));
+      for (const [x, y, w, h] of prop.frames ?? []) {
+        rects += 1;
+        if (x < 0 || y < 0 || x + w > propPng.width || y + h > propPng.height) {
+          report.fail(`${npc.id}: prop frame ${x},${y} ${w}x${h} overruns `
+            + `${prop.sheet} (${propPng.width}x${propPng.height})`);
+        }
+      }
+      for (const [from, to] of Object.entries(prop.byFrame ?? {})) {
+        if (Number(from) >= (sprite.frames?.length ?? 0) || to >= (prop.frames?.length ?? 0)) {
+          report.fail(`${npc.id}: prop byFrame ${from} -> ${to} names a frame that does not exist`);
+        }
+      }
+    }
     for (const [index, frames] of (sprite.breaks ?? []).entries()) {
       for (const frame of frames) {
         if (frame >= (sprite.frames?.length ?? 0)) {

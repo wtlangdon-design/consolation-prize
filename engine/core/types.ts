@@ -311,6 +311,15 @@ export interface AmbientFile {
   tree: string;
   barks: Record<string, string>;
   /**
+   * The occlusion plane that masks this figure, when it stands where no walk
+   * box is. Room 5's Winnie stands BEHIND the counter: no box exists there
+   * (Thad may never reach it), so `clipPlaneAt` would fall back to the
+   * nearest box -- Thad's floor, plane 0 -- and draw her over the counter.
+   * An ambient that declares its own plane is masked by that plane and not
+   * by whatever box happens to be nearest. Absent means the box rule.
+   */
+  clipPlane?: number;
+  /**
    * Ruling 20's two-frame idle, for a character who is a sprite rather than
    * part of a drawn crowd. Rate is full cycles per second and phase offsets
    * it, so no two people on a street move on the same beat.
@@ -336,6 +345,33 @@ export interface AmbientFile {
      * begins and ends there returns without a jump.
      */
     breaks?: number[][];
+    /**
+     * The frame held while this character's own tree is open. Doc 32 section
+     * 8.2: stillness is a performance state, and a woman mid-scribble when
+     * Thad speaks to her is a woman who has not noticed him. Absent means
+     * frame 0 -- the rest pose -- which is what the sway returns to anyway.
+     */
+    talkFrame?: number;
+    /**
+     * PROPS THAT STAY PUT WHILE THE FIGURE ANIMATES. Room 5's ink stand: a
+     * counter object, drawn at ONE room coordinate, whose picture depends on
+     * what the character is doing -- the pen is in the stand while she rests
+     * and in her hand while she writes. Cut into her frames it hopped a few
+     * pixels every time her pose changed, because each pose was generated
+     * separately. Here it is drawn once, after her, at `x`,`y` (bottom-centre,
+     * like the figure), in the frame `byFrame` maps her current frame index
+     * to, or frame 0 when unmapped. Masked by her plane, since it stands
+     * where she stands.
+     */
+    props?: {
+      sheet: string;
+      x: number;
+      y: number;
+      frames: [number, number, number, number][];
+      /** Her frame index (as a string key) to this prop's frame index. */
+      byFrame?: Record<string, number>;
+      note?: string;
+    }[];
     /**
      * Which breaks SPEAK, by index into `breaks`.
      *
@@ -402,6 +438,16 @@ export interface RoomLamp {
    * over an empty road for the rest of the act.
    */
   when?: Condition;
+  /**
+   * The amount under a named VISUAL STATE of the room -- errata 64d's
+   * authored time-of-day state, not a clock. Room 5's hanging work lamp is
+   * negligible by day and the principal work light by night: the fixture is
+   * the same object in both, only its light differs. Absent, or no state
+   * named, means `amount`. The state is selected by whatever selects the
+   * room's visual state; until Q26 wires that to canon it is the dev-only
+   * `?state=` parameter the proofs use beside `?candidate=`.
+   */
+  amountByState?: Record<string, number>;
   note?: string;
 }
 
@@ -747,6 +793,24 @@ export interface CyclingElement {
   phase?: number;
   ramp: { family: string; start: number; count: number };
   bounds: [number, number, number, number];
+  /**
+   * DECLARED, KNOWN NOT TO ANIMATE, AND SAID SO IN THE CONTENT.
+   *
+   * Errata 54 retired the locked palette, so index recovery from a graded RGB
+   * plate finds nothing and every element in the game is in this state. Both
+   * of Room 1's are marked, by name in the ruling.
+   *
+   * IT WAS METADATA THE ENGINE IGNORED, WHICH IS WORSE THAN NOT HAVING IT.
+   * `check-cycling-lands` read it and skipped; the runtime did not, so it
+   * still built a CyclingBackground for Room 1, scanned the whole 1920x864
+   * plate for reserved bands, found `puddles`' single accidental match in the
+   * sky, and cycled that one pixel -- forcing a full redraw each time the
+   * mapping changed, on a machine that has to hold 60fps. A field one half of
+   * the project honours and the other half does not is a disagreement wearing
+   * a name.
+   */
+  dormant?: boolean;
+  dormantNote?: string;
 }
 
 /**
@@ -908,7 +972,42 @@ export interface RoomFile {
    * plane only says which of those pixels are in front of an actor at that
    * level. `clipPlane: 0` on a walk box means masked by nothing.
    */
-  occlusionPlanes?: { level: number; note?: string; mask: string }[];
+  occlusionPlanes?: {
+    level: number;
+    note?: string;
+    mask: string;
+    /**
+     * THE MASK DOES NOT DESCRIBE THIS PLATE, AND THE RENDERER SKIPS THE PLANE.
+     *
+     * Same shape as a cycling element's `dormant`, and for the same reason: a
+     * declaration that is right in intention and wrong in its art is better
+     * marked than deleted, and much better marked than left to run. Main
+     * Street's plane 2 is authored against an earlier, narrower street -- its
+     * mask draws a hitching rail the current plate does not contain -- so
+     * activating it would erase an actor in mid-street from the knees down.
+     *
+     * Skipping it draws straight through, which is exactly what the room did
+     * while every walk box named a plane that did not exist, so nothing
+     * regresses while the mask is regenerated. Doc 36 Q14.
+     */
+    maskPending?: boolean;
+    maskPendingNote?: string;
+  }[];
+  /**
+   * Authored points a room proof stands the actor on, with the plane each is
+   * meant to be masked by. Ruling: gate 8C's argument one level down -- the
+   * depths a test uses are the author's, not the testing agent's.
+   */
+  occlusionProofs?: { at: [number, number]; expect: number; box?: string; note?: string }[];
+  /**
+   * The band names the compiler asked the annotation for a clip plane for.
+   *
+   * PUBLISHED SO NOTHING HAS TO GUESS THEM. A carved piece is `mud_far_0` and
+   * a band can itself be `floor_5`, so no suffix rule tells the two apart --
+   * the annotator would need a second copy of the carving logic to show one
+   * row per band, and it would disagree with the first the day either moved.
+   */
+  occlusionBands?: string[];
   /**
    * Ruling 20: a drawn crowd of four or more needs at least three animated
    * members. The rest stay painted into the background and the eye gives them
@@ -1008,6 +1107,15 @@ export interface DialogueFile {
    */
   speaker?: string;
   start: string;
+  /**
+   * WHERE THE TREE OPENS, BY STATE. Doc 04 writes every principal's tree
+   * with a root per act -- "ACT II -- Root: WIN_B1 (after T_BORDERS_MOTT)" --
+   * and a single `start` cannot say that. The first entry whose `when`
+   * holds is the node the conversation opens on; none holding falls back
+   * to `start`. Authored in order of precedence, latest act first, because
+   * a later root's condition usually implies an earlier one's.
+   */
+  entries?: { when: Condition; node: string }[];
   nodes: Record<string, DialogueNode>;
 }
 

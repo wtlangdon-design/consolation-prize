@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "status": "design-grammar-only",
+  "visualAuthority": "reference/global-baseline.json",
+  "rule": "Monkey Island references inform composition, staging, scale relationships, negative space, occlusion, dialogue presentation, and spatial comedy only. They do not define Consolation's visual style and are not direct style references for image generation.",
+  "references": [
+    {
+      "id": "mi-01-scumm-bar",
+      "scene": "SCUMM Bar interior",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/dos/3164/",
+      "lessons": ["dense interior hierarchy", "protagonist readability", "NPC grouping", "interaction-zone clarity"]
+    },
+    {
+      "id": "mi-02-pirate-leaders",
+      "scene": "Talking to the Pirate leaders",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/amiga/861869/",
+      "lessons": ["dialogue integrated with room tableau", "held character poses", "reading space without losing scene context"]
+    },
+    {
+      "id": "mi-03-town",
+      "scene": "The town",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/amiga/861873/",
+      "lessons": ["theatrical street perspective", "architecture framing walkable space", "foreground-middle-background masses"]
+    },
+    {
+      "id": "mi-04-exploring-town",
+      "scene": "Exploring the town",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/amiga/861874/",
+      "lessons": ["actor-to-room scale", "depth", "walkable path composition"]
+    },
+    {
+      "id": "mi-05-docks",
+      "scene": "On the docks",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/amiga/861878/",
+      "lessons": ["negative space", "sparse atmosphere", "do not fill every surface with detail"]
+    },
+    {
+      "id": "mi-06-bridge",
+      "scene": "Troll at the bridge",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/atari-st/438524/",
+      "lessons": ["foreground framing", "aggressive occlusion", "small actors inside layered environments"]
+    },
+    {
+      "id": "mi-07-stans",
+      "scene": "Stan's",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/amiga/861891/",
+      "lessons": ["environment as character", "one dominant visual premise", "controlled absurdity"]
+    },
+    {
+      "id": "mi-08-mansion-interior",
+      "scene": "Inside the governor's mansion",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/amiga/861889/",
+      "lessons": ["large furniture masses first", "detail subordinate to composition", "clear paths in a furnished room"]
+    },
+    {
+      "id": "mi-09-forest",
+      "scene": "In the forest",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/amiga/861882/",
+      "lessons": ["character readability against complex scenery", "clear traversal lane", "complexity without visual noise"]
+    },
+    {
+      "id": "mi-10-jail",
+      "scene": "Visiting the local jail",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/amiga/861876/",
+      "lessons": ["small interior economy", "few strong spatial ideas", "restraint"]
+    },
+    {
+      "id": "mi-11-church",
+      "scene": "The church",
+      "source": "https://www.mobygames.com/game/amiga/secret-of-monkey-island/screenshots/gameShotId%2C861875/",
+      "lessons": ["architecture can dominate", "clear playable focus", "symmetry with negative space"]
+    },
+    {
+      "id": "mi-12-sword-training",
+      "scene": "Sword training",
+      "source": "https://www.mobygames.com/game/616/the-secret-of-monkey-island/screenshots/atari-st/180362/",
+      "lessons": ["action staged inside normal adventure-room grammar", "performance arena from composition", "no separate combat visual language"]
+    }
+  ],
+  "additionalGallery": {
+    "name": "The Monkey Island SCUMM Bar — Secret of Monkey Island screenshots",
+    "source": "https://scummbar.com/game/the-secret-of-monkey-island/screenshots",
+    "note": "SCUMM Bar states that its site content may be duplicated with credit and a link."
+  }
+}

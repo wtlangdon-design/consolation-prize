@@ -77,7 +77,11 @@ export class AmbientLayer {
 
   npcAt(x: number, y: number): AmbientFile | undefined {
     return this.present.find((npc) => {
-      const height = this.state.heightForZone(npc.zone);
+      // THE SPRITE'S OWN HEIGHT WHEN IT HAS ONE, the zone's when it does not.
+      // The zone heights are the game's three fixed drawn sizes; a figure
+      // whose sheet is 440 rows tall behind a counter has a head 200 rows
+      // above the top of a 240 box, and a click on her face missed her.
+      const height = npc.sprite?.frames?.[0]?.[3] ?? this.state.heightForZone(npc.zone);
       const half = height * NPC_HALF_WIDTH;
       return x >= npc.x - half && x <= npc.x + half
         && y >= npc.y - height && y <= npc.y;

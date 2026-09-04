@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-import { loadContent, Report, ROOT, runCheck } from './lib/content.mjs';
+import { allInteractables, loadContent, Report, ROOT, runCheck } from './lib/content.mjs';
 import { readPng, region } from './lib/png.mjs';
 
 /**
@@ -29,6 +29,31 @@ import { readPng, region } from './lib/png.mjs';
  * itself. Fully transparent pixels are ignored -- what is compared is what is
  * drawn.
  */
+/**
+ * TYLER'S RULING, THE FONT: the existing bitmap face is retained. The play
+ * area draws at GLYPH_SCALE 6 and the panel at PANEL_GLYPH_SCALE 4, and this
+ * check must measure the ACTUAL runtime font in the ACTUAL UI region at the
+ * ACTUAL 1920x1080 presentation. It previously did none of the three.
+ *
+ * WHAT IT USED TO DO, AND WHY IT WAS WRONG THREE WAYS. It compared an
+ * UNSCALED glyph width against `320 - panel.sentence.x * 2`. The 320 was the
+ * pre-errata-54 frame; `sentence.x` was 36, a value the x6 migration had
+ * already moved into screen space; and the drawn width was never multiplied
+ * by the scale the panel actually draws at. So it subtracted a 1920-space
+ * inset from a 320-space width and compared the result to a 1x measurement.
+ * Three errors, and they happened to point in opposite directions, which is
+ * why nothing ever failed and nobody noticed.
+ *
+ * WHAT REPLACES IT IS NOT MERELY WIDER. Substituting 1920 for 320 would make
+ * every conceivable label pass -- a vacuous assertion bought with a one-line
+ * edit, which doc 51 named in as many words. So the measurement moved to what
+ * the renderer DRAWS: `ui.sentence.itemTemplate` composed with the longest
+ * verb label and the longest target name in the game, which is the longest
+ * string the sentence line can ever be asked to hold. That is a tighter
+ * assertion than the old one and it is measured in the real region.
+ */
+
+/** Glyph units, unscaled -- the same arithmetic `BitmapFont.measure` does. */
 function measure(font, text) {
   const per = font.advances ?? {};
   let width = 0;
@@ -42,6 +67,65 @@ function measure(font, text) {
   return width;
 }
 
+/**
+ * The panel's glyph scale, and the frame's width.
+ *
+ * Duplicated from `engine/render/BitmapFont.ts` and `Screen.ts` rather than
+ * imported because the validators are plain ESM and the engine is TypeScript.
+ * `check-no-content-in-code` guards the direction that matters -- content out
+ * of code -- and two integers travelling the other way are guarded by
+ * `agreesWithEngine` below, which reads the .ts and fails if either drifts.
+ */
+const PANEL_GLYPH_SCALE = 4;
+const FRAME_WIDTH = 1920;
+
+/** Fails if the constants above stop matching the engine's. */
+function agreesWithEngine(report) {
+  const source = readFileSync(resolve(ROOT, 'engine/render/BitmapFont.ts'), 'utf8');
+  const found = /export const PANEL_GLYPH_SCALE = (\d+);/.exec(source);
+  if (!found) {
+    report.fail('engine/render/BitmapFont.ts no longer declares PANEL_GLYPH_SCALE, so this '
+      + 'check cannot know what the panel draws at');
+    return false;
+  }
+  if (Number(found[1]) !== PANEL_GLYPH_SCALE) {
+    report.fail(`the panel draws at ${found[1]}x and this check measures at `
+      + `${PANEL_GLYPH_SCALE}x -- correct the constant here, not the engine`);
+    return false;
+  }
+  const screen = readFileSync(resolve(ROOT, 'engine/render/Screen.ts'), 'utf8');
+  const width = /export const NATIVE_WIDTH = (\d+);/.exec(screen);
+  if (!width || Number(width[1]) !== FRAME_WIDTH) {
+    report.fail(`the frame is ${width ? width[1] : 'undeclared'} wide and this check measures `
+      + `against ${FRAME_WIDTH}`);
+    return false;
+  }
+  return true;
+}
+
+/** The longest string the sentence line can be asked to draw for `label`. */
+function worstSentence(content, label) {
+  const ui = content.ui ?? {};
+  const template = ui.sentence?.itemTemplate ?? '{verb} {item} on {target}';
+  const verbs = [content.verbs?.walkVerb, ...(content.verbs?.verbs ?? [])]
+    .filter(Boolean).map((verb) => verb.label);
+  const longestVerb = verbs.sort((a, b) => measure(content.font, b) - measure(content.font, a))[0]
+    ?? '';
+  const targets = allInteractables(content)
+    .map((entry) => entry.target?.name)
+    .filter((name) => typeof name === 'string');
+  const longestTarget = targets
+    .sort((a, b) => measure(content.font, b) - measure(content.font, a))[0] ?? '';
+  return {
+    text: template
+      .replace('{verb}', longestVerb)
+      .replace('{item}', label)
+      .replace('{target}', longestTarget),
+    verb: longestVerb,
+    target: longestTarget,
+  };
+}
+
 export function check() {
   const report = new Report('Inventory items are distinguishable, by name and by icon (26, 29)');
   const content = loadContent();
@@ -53,19 +137,29 @@ export function check() {
   }
 
   const panel = content.panel;
-  // Two pixels of padding at the left of a row, and the same at the right so
-  // a name never touches the scroll arrows.
-  // Ruling 29 moved the names out of the panel and into the sentence line,
-  // so the width they must fit is the sentence's, not a grid cell's.
-  const room = 320 - panel.sentence.x * 2;
+  if (!agreesWithEngine(report)) return report;
+
+  // THE REAL REGION. The sentence line is drawn by `Renderer.drawPanel` with
+  // `this.panelFont` at `panel.sentence` -- x 36, y 872 -- which is inside the
+  // 216-row verb panel, not in the play area. It is inset by the same amount
+  // at the right, and nothing else occupies that row: the verb grid starts at
+  // y 911 and the inventory arrows at x 1836 are below it. So the width it
+  // holds is the frame's, less the inset twice, in SCREEN units.
+  const room = FRAME_WIDTH - panel.sentence.x * 2;
   const drawn = new Map();
   let pending = 0;
+  let worstWidth = 0;
+  let worstOf = null;
 
   for (const { path, data } of items) {
     const label = data.short ?? data.name;
-    const width = measure(content.font, label);
+    // What the renderer actually draws, at the scale it actually draws it.
+    const worst = worstSentence(content, label);
+    const width = measure(content.font, worst.text) * PANEL_GLYPH_SCALE;
+    if (width > worstWidth) { worstWidth = width; worstOf = { ...worst, id: data.id }; }
     if (width > room) {
-      report.fail(`${data.id} (${path}): "${label}" is ${width}px and the panel holds ${room}px`
+      report.fail(`${data.id} (${path}): the sentence line would draw "${worst.text}" at `
+        + `${width} units and it holds ${room}`
         + (data.short ? '' : ' -- give it a short name'));
     }
     if (drawn.has(label)) {
@@ -115,8 +209,14 @@ export function check() {
     }
   }
 
-  report.note(`${items.length} item(s); the sentence line holds ${room}px, `
-    + `about ${Math.floor(room / content.font.advance)} glyphs`);
+  report.note(`${items.length} item(s); the sentence line holds ${room} screen units at `
+    + `PANEL_GLYPH_SCALE ${PANEL_GLYPH_SCALE}, about `
+    + `${Math.floor(room / (content.font.advance * PANEL_GLYPH_SCALE))} glyphs`);
+  if (worstOf) {
+    report.note(`longest the line can ever draw: "${worstOf.text}" `
+      + `(${worstWidth} of ${room} units, ${Math.round(100 * worstWidth / room)}%) -- `
+      + `item ${worstOf.id} in the longest verb and the longest target name`);
+  }
   if (pending > 0) {
     report.note(`${pending} item(s) awaiting LOOK and LISTEN lines -- doc 15 lists ~40 `
       + 'inventory item lines as unwritten and these are among them');

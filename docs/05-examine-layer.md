@@ -152,7 +152,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 ---
 
 ## ROOM 5 — ASSAY OFFICE, FRONT
-*Eight hotspots. Contains the second ledger's hiding place, unmarked.*
+*Nine hotspots. Contains the second ledger's hiding place, unmarked.*
 
 **THE WINDOW SIGN**
 > **LOOK:** "THIS WINDOW CLOSES AT FOUR. Handwritten. The ink has faded but the sentiment has not."
@@ -170,7 +170,7 @@ Twelve rooms, fully written. These include every load-bearing room and every spe
 > **LOOK:** "A floorboard. It sits a little proud of the others."
 > **LISTEN:** "Loose. There's a space under it."
 
-**THE SAMPLE SHELVES** · **HER PEN** · **THE CERTIFICATE ON THE WALL** · **THE STOVE** — *(working script)*
+**THE SAMPLE SHELVES** · **HER PEN** · **THE CERTIFICATE ON THE WALL** · **THE STOVE** · **THE HANGING LAMP** — *(working script)*
 
 ---
 
@@ -1348,6 +1348,7 @@ bark budget, not here.
 
 **THE QUEUE BENCH** *(act: "2-4")*
 > **LOOK:** "The bench seats nine and holds two. The queue has been on a diet since a certain log was read aloud."
+> **LISTEN:** "Two people shifting. There is room between them."
 
 ## ROOM 7 — CLAIMS REGISTRAR
 

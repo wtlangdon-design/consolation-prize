@@ -9,10 +9,13 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "validate": "node tools/run-all.mjs",
-    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test": "node --experimental-strip-types --test tests/*.test.ts tests/*.test.mjs",
     "check": "npm run typecheck && npm run validate && npm run test",
     "renders": "node tools/render-all.mjs",
-    "gauntlet": "node tools/gauntlet/run.mjs"
+    "gauntlet": "node tools/gauntlet/run.mjs",
+    "proof": "node tools/gauntlet/proof.mjs",
+    "art:gates": "node tools/art/gates.mjs",
+    "art:staging": "node tools/art/staging.mjs"
   },
   "dependencies": {
     "phaser": "^3.90.0"

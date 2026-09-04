@@ -1,0 +1,11 @@
+The woman behind the counter in the first attached image -- the assayer -- draw THAT SAME character three times in a single row, evenly spaced, each figure full length from head to feet, feet on one common ground line, not overlapping: same face, same age, same plain dark practical 1850s working dress, same tightly pinned hair, same height in all three.
+
+Render her in EXACTLY the pixel handling of the attached images from this game, and especially of the figures in the attached night-time stagecoach casting sheet: a coarse, clearly visible pixel grid; a face drawn as a handful of pixels with no realistic features; clothing as two or three flat tones with hard edges and no fabric texture; a strong dark silhouette. No smooth shading, no fine detail, no realistic skin, no modern digital finish.
+
+LEFT -- at rest: standing upright facing the viewer, both hands resting lightly at waist height in front of her as if on a counter that is not drawn, holding nothing; beside her right hand a small pen stand with a steel pen standing nib-down in it, drawn at that same waist height.
+
+MIDDLE -- writing: same stance, the steel pen in her right hand, writing on the undrawn waist-height surface, head bowed to the page; the pen stand beside her right hand, empty.
+
+RIGHT -- looking up from the page: same stance, pen still in her right hand held just above the undrawn surface, head raised, eyes toward the viewer, expression flat and unamused; the pen stand still empty.
+
+Arms held slightly away from the body so there is a visible gap between each arm and the torso. Both feet fully visible on the ground. No counter, no furniture, no floor, no shadow. The entire background is a flat, uniform, pure magenta #FF00FF and nothing else.

@@ -1,0 +1,191 @@
+{
+ "schema": 1,
+ "note": "THE OPERATIONAL LEDGER. What is built, what it depends on, and where the evidence for it is. It exists because the audit looked for a machine-readable completion queue and there is none: doc 15's road to done, doc 36's issue list and doc 46's build order are all prose, and prose cannot answer 'what may be started now' without a person reading it.\n\nIT IS NOT A SECOND MANIFEST AND HOLDS NO CREATIVE CONTENT. No dialogue, no examine line, no puzzle text, no design prose, no ruling. Every row is ids, document POINTERS, statuses, hashes and paths. The words stay in /docs and the engine's index stays content/manifest.json -- a second home for either is how every pair of documents in this project has drifted.\n\nIT IS ALSO NOT A PLAN. Which room comes next is doc 46 part five and Tyler; this records what the state IS so that question can be asked against facts.",
+ "statuses": {
+  "unstarted": "No work has begun. Its sources may not all exist yet.",
+  "blocked": "Cannot proceed. `blockers` names why, by Q id or by item id.",
+  "in-progress": "Started and not finished.",
+  "built": "Content, geometry and art are in the tree and the suite is green on it.",
+  "proven": "built, AND a four-panel proof passed on a named commit.",
+  "accepted": "proven, AND Tyler set visual_accepted. Only he sets it.",
+  "ruled": "A DECISION item only. Tyler has ruled it and the ruling is in the errata. Decisions have no four-panel proof and cannot be `proven`, so this is their terminal state."
+ },
+ "visualAcceptedNote": "visual_accepted is Tyler's field and no tool writes it. A proof establishes technical admissibility; it says nothing about whether a room is good, in style or funny. Doc 46 part one names this as the thing that cannot be automated, and doc 44's first honesty makes it permanent.",
+ "items": [
+  {
+   "id": "room-01-stage-road",
+   "kind": "room",
+   "sources": [
+    "docs/05-examine-layer.md",
+    "docs/17-opening-sequence.md",
+    "docs/43-room-01-staging-script.md",
+    "docs/37-room-01-generation-prompts.md"
+   ],
+   "dependsOn": [],
+   "status": "proven",
+   "commit": "622a8e7",
+   "validation": "npm run validate",
+   "gauntlet": "tools/gauntlet/opening.json",
+   "proof": "renders/proofs/stage-road/proof.json",
+   "blockers": [],
+   "visual_accepted": false
+  },
+  {
+   "id": "room-02-main-street",
+   "kind": "room",
+   "sources": [
+    "docs/05-examine-layer.md",
+    "docs/13-room-02-content.md",
+    "docs/14-room-02-exits.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-01-stage-road"
+   ],
+   "status": "built",
+   "commit": "622a8e7",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": "renders/proofs/main-street/proof.json",
+   "blockers": [
+    "docs/36-issue-list.md::Q20 \u00b7 BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
+   ],
+   "visual_accepted": false,
+   "note": "The font blocker is gone -- errata 62 retains the bitmap face. What remains is the two stale occlusion masks, which stay maskPending by Tyler's ruling and are not to be regenerated yet, and the undeclared ACT problem that keeps Panel D from being honestly green. Neither is invented around."
+  },
+  {
+   "id": "room-03-nugget",
+   "kind": "room",
+   "sources": [
+    "docs/05-examine-layer.md",
+    "docs/16-room-03-content.md"
+   ],
+   "dependsOn": [
+    "room-02-main-street"
+   ],
+   "status": "built",
+   "commit": "622a8e7",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": null,
+   "blockers": [],
+   "visual_accepted": false,
+   "note": "Its cited plate blocker no longer holds, by measurement rather than by assumption: art/backgrounds/room-03-nugget.png is 1920x864 PNG colour type 2, the room declares no foreground plane and no occlusion mask, so nothing of it is 320-native or unreadable. It is built and unproven -- no four-panel proof has been taken -- which is a missing artefact, not a blocker."
+  },
+  {
+   "id": "room-05-assay-office",
+   "kind": "room",
+   "sources": [
+    "docs/05-examine-layer.md",
+    "docs/25-rooms-05-07.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-02-main-street"
+   ],
+   "status": "accepted",
+   "commit": "598a11e",
+   "validation": "npm run validate: 46 of 47; the one red (check-flag-order on ACT and T_RACCOON_NAMED) is global content debt, not Room 5's",
+   "gauntlet": "tools/gauntlet/routes/assay-office.json",
+   "proof": "renders/proofs/assay-office/proof.json",
+   "blockers": [
+    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+   ],
+   "visual_accepted": true,
+   "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel and life proofs pass with the candidate plate loaded live. DAY AND NIGHT CANDIDATES COMPLETE; HUMAN VISUAL GATE PENDING (errata 64; the night candidate art/staging/room-05/plate-03-night/ exists, proved through the candidate override, and the day/night selection mechanism is Q26's): Act I Main Street is night and Room 5 inherits it, so the daylight candidate is ROOM 5 - DAY VISUAL CANDIDATE - kept as the source of composition, geometry and Winnie's design, not the Act I shipping state. The bench rulings of Q24 are applied; the one red in the suite, check-flag-order on ACT and T_RACCOON_NAMED, is global content debt. Nothing is promoted; visual_accepted is false and is Tyler's. THE HANGING WORK LAMP (Tyler's post-pilot owner visual revision, +1 image operation accounted apart from the pilot's 8/8) is THE HANGING LAMP hotspot's lit state image over both plates with a state-aware room lamp; see art/staging/room-05/LAMP.md. OWNER VISUAL RULING 2026-09-04: visually accepted (see acceptance); manual playthrough pending; nothing promoted.",
+   "readiness": "proofs/readiness/room-05.json",
+   "pilot": "proofs/room-05/pilot-report.md",
+   "visual_accepted_by": "Tyler",
+   "visual_accepted_on": "2026-09-04",
+   "acceptance": {
+    "visual": "OWNER-APPROVED 2026-09-04: composition, raster treatment, DAY plate, NIGHT plate as lifted, night ambient and task-light levels, stove contribution, Winnie's design, placement, contact and relights, the hanging work lamp's design, placement and day/night appearance.",
+    "gameplay": "PENDING: Tyler's manual in-game playthrough. Not shipping/final on visual acceptance alone.",
+    "promotion": "NOT DONE. Every Room 5 asset is still under art/staging/; the shipping plate at art/backgrounds/room-05-assay-office.png is the legacy placeholder. Promotion is a separate, logged step after the playthrough."
+   }
+  },
+  {
+   "id": "tool-compiler-any-room",
+   "kind": "tool",
+   "sources": [
+    "docs/46-room-factory.md",
+    "docs/50-autonomy-delta-audit.md"
+   ],
+   "dependsOn": [],
+   "status": "built",
+   "commit": "a0d8b43",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": null,
+   "blockers": [],
+   "visual_accepted": false
+  },
+  {
+   "id": "tool-annotator-any-room",
+   "kind": "tool",
+   "sources": [
+    "docs/46-room-factory.md",
+    "docs/50-autonomy-delta-audit.md"
+   ],
+   "dependsOn": [],
+   "status": "built",
+   "commit": "a0d8b43",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": null,
+   "blockers": [],
+   "visual_accepted": false
+  },
+  {
+   "id": "art-api-layer",
+   "kind": "tool",
+   "sources": [
+    "docs/50-autonomy-delta-audit.md"
+   ],
+   "dependsOn": [],
+   "status": "built",
+   "commit": "622a8e7",
+   "validation": "node tools/art/smoke.mjs",
+   "gauntlet": null,
+   "proof": "art/staging/ledger.json",
+   "blockers": [],
+   "visual_accepted": false,
+   "note": "The live path is proven: gpt-image-2 answered a generate and an edit, both landed only under art/staging/, both carry a provenance row with hashes and billed tokens, gates ran, promotion refused and no shipping asset changed. Doc 36 Q18 (the second series) holds the evidence. It is built and not proven, because `proven` in this ledger means a four-panel room proof, which is not a thing an art adapter can have."
+  },
+  {
+   "id": "room-proof-system",
+   "kind": "tool",
+   "sources": [
+    "docs/44-gauntlet.md",
+    "docs/46-room-factory.md",
+    "docs/50-autonomy-delta-audit.md"
+   ],
+   "dependsOn": [],
+   "status": "proven",
+   "commit": "622a8e7",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": "renders/proofs/stage-road/proof.json",
+   "blockers": [],
+   "visual_accepted": false
+  },
+  {
+   "id": "font-decision",
+   "kind": "decision",
+   "sources": [
+    "docs/00-errata.md",
+    "docs/36-issue-list.md",
+    "docs/51-font-decision-sheet.md"
+   ],
+   "dependsOn": [],
+   "status": "ruled",
+   "commit": "a0d8b43",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": "renders/font-candidates/candidates.json",
+   "blockers": [],
+   "note": "RULED BY TYLER, errata 62: the existing bitmap face is retained at GLYPH_SCALE 6 in the play area and PANEL_GLYPH_SCALE 4 in the panel. The answer to the decision sheet's question was none of the four candidates. The sheet, the four faces and PreviewFont are retained as diagnostics and are not a shipping path.",
+   "ruling": "docs/00-errata.md::62 \u00b7 THE EXISTING BITMAP FACE IS THE SHIPPING FACE"
+  }
+ ],
+ "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails."
+}

@@ -3,11 +3,14 @@ import type { PresentedOption } from '../core/DialogueRunner.ts';
 import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
+import { askedState } from '../dev/RoomState.ts';
 import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
-import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
+import type { DrawRecord } from '../dev/Probe.ts';
+import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont, type Face } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
+import { askedFont, PreviewFont } from './PreviewFont.ts';
 import {
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
@@ -235,7 +238,7 @@ const MENU_ROW = 12 * GLYPH_SCALE;
 
 export class Renderer {
   private readonly screen: Screen;
-  private readonly font: BitmapFont;
+  private readonly font: Face;
   /**
    * The panel's own face, at Q35's derived scale. Same glyph data, same file,
    * a different multiplier -- because the panel is the one region errata 54
@@ -243,7 +246,7 @@ export class Renderer {
    * factor does not fit in it. Built here rather than passed in, like
    * PanelLayout beside it: it is a property of the panel, not of the caller.
    */
-  private readonly panelFont: BitmapFont;
+  private readonly panelFont: Face;
   private readonly state: GameState;
 
   /**
@@ -294,7 +297,7 @@ export class Renderer {
 
   constructor(
     screen: Screen,
-    font: BitmapFont,
+    font: Face,
     state: GameState,
     actors: RoomActors,
     ambient: AmbientLayer,
@@ -319,7 +322,12 @@ export class Renderer {
       [...state.content.actors].map(([id, record]) => [id, new ActorSprite(record, sheet)]),
     );
     this.panel = new PanelLayout(state.content.panel);
-    this.panelFont = new BitmapFont(state.content.font, PANEL_GLYPH_SCALE);
+    // THE PANEL'S FACE, AND A CANDIDATE'S IF A DEV BUILD ASKED FOR ONE. Q16.
+    // With no `?font=` this is the line it has always been.
+    const candidate = askedFont();
+    this.panelFont = candidate
+      ? new PreviewFont(state.content.font, candidate.family, candidate.panelPx, candidate.weight)
+      : new BitmapFont(state.content.font, PANEL_GLYPH_SCALE);
   }
 
   /** The animation clock, in seconds. Set once per frame by the scene. */
@@ -335,6 +343,38 @@ export class Renderer {
    * paid for when nobody is reading it.
    */
   private readonly drawnAs = new Map<string, string>();
+  /**
+   * WHAT EACH MOVER PUT ON SCREEN, for the proof rather than for the watch.
+   *
+   * `drawnAs` answers "did it draw as a sprite or a placeholder"; this answers
+   * "which file, in which rectangle, at what point in the draw order, through
+   * which occlusion plane". Those are the four facts a room proof has to
+   * ESTABLISH rather than recompute, and every one of them was previously
+   * knowable only by re-deriving it outside the renderer and comparing the
+   * derivation with itself.
+   *
+   * Kept on the same terms as `drawnAs`: only while the watch is armed, so
+   * nobody pays for it when nobody is reading it (R5h).
+   */
+  private readonly drawRecord = new Map<string, DrawRecord>();
+  private drawOrder = 0;
+  /**
+   * PANEL A: the room drawn without anybody in it.
+   *
+   * RENDER-ONLY, and that is the whole value of it. Nothing is removed from
+   * the game -- the movers still exist, still hold their positions, still
+   * carry their state -- so what is left on the screen is exactly the
+   * permanent plate and its layers. That is the ONLY way to see a mover that
+   * has been painted INTO the plate, because a painted one does not leave when
+   * the real ones do. Doc 35's dog got baked into Room 2 and eight companion
+   * generations went by before anybody asked; this is the frame that asks.
+   */
+  private castHidden = false;
+
+  /** Suppresses every mover and ambient figure for the next frames drawn. */
+  hideCast(hidden: boolean): void {
+    this.castHidden = hidden;
+  }
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
   /**
@@ -350,6 +390,11 @@ export class Renderer {
   /** How every mover drew on the last composed frame. Doc 44's `drawn`. */
   lastDrawn(): Record<string, string> {
     return Object.fromEntries(this.drawnAs);
+  }
+
+  /** What each mover drew from, where, and in what order. Gates 7, 8B and 8D. */
+  lastDrawRecords(): Record<string, DrawRecord> {
+    return Object.fromEntries(this.drawRecord);
   }
 
   /** Options currently drawn, so the scene can hit-test them. */
@@ -667,7 +712,12 @@ export class Renderer {
       const t = this.clock * lamp.rate + (lamp.phase ?? 0);
       // Two sines of different periods, so the flicker does not tick.
       const wave = 0.5 + 0.35 * Math.sin(t * Math.PI * 2) + 0.15 * Math.sin(t * Math.PI * 5.3);
-      const strength = Math.max(0, lamp.amount * wave);
+      // Its amount under the room's authored visual state, when one is named
+      // and the lamp declares one for it; otherwise the plain amount.
+      const state = askedState();
+      const amount = (state && lamp.amountByState?.[state] !== undefined)
+        ? (lamp.amountByState[state] as number) : lamp.amount;
+      const strength = Math.max(0, amount * wave);
       if (strength < 0.002) continue;
       const [x, y] = lamp.at;
       const glow = ctx.createRadialGradient(x, y, 0, x, y, lamp.radius);
@@ -875,7 +925,19 @@ export class Renderer {
     // which is only knowable as each figure is drawn. Collected here and
     // judged once at the end rather than compared pairwise inside the loop.
     const spans: { id: string; feetX: number; feetY: number; halfWidth: number }[] = [];
+    if (watch.enabled) {
+      this.drawRecord.clear();
+      this.drawOrder = 0;
+    }
+    // BEFORE THE LOOP, NOT INSIDE IT. Skipping each figure individually would
+    // still run the occlusion mask, the depth sort and the span collection,
+    // and a bug in any of those would show in panel A as though it were the
+    // plate's.
+    if (this.castHidden) return;
     for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all()))) {
+      // An ambient that declares its own plane is masked by it; everyone
+      // else by the box under their feet. See AmbientFile.clipPlane.
+      const declaredPlane = figure.npc ? (figure.npc as AmbientFile).clipPlane : undefined;
       this.masked(figure.feetX, figure.feetY, () => {
         if (figure.mover) {
           const halfWidth = this.drawMover(figure.mover, figure.feetX, figure.feetY);
@@ -885,7 +947,10 @@ export class Renderer {
           return;
         }
         const npc = figure.npc as AmbientFile;
-        if (!this.drawAmbient(npc)) {
+        const drawnFrame = this.drawAmbient(npc);
+        if (drawnFrame !== null) {
+          this.drawProps(npc, drawnFrame);
+        } else {
           // A DECLARED SHEET THAT HAS NOT ARRIVED DRAWS NOTHING, NOT A SLAB.
           // Ambient sheets are deferred assets, so for the first seconds in a
           // room -- and for the whole of a warp straight into one -- three
@@ -904,7 +969,7 @@ export class Renderer {
               `${npc.sprite.sheet} has not arrived; drew nothing rather than a placeholder`);
           }
         }
-      });
+      }, declaredPlane);
     }
     if (!watch.enabled) return;
     for (const [one, two] of depthTies(spans)) {
@@ -1026,6 +1091,18 @@ export class Renderer {
     // a LOADING gap, which is what put a placeholder in the protagonist's
     // place for the whole of beat 2 while the boot split held his chore clips
     // in the deferred half. Merging them costs a session either way round.
+    this.drawRecord.set(mover.id, {
+      order: this.drawOrder,
+      clipLevel: this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY)),
+      // The rectangle the RENDERER landed on, taken from the draw itself.
+      // `shown` is whichever of the two draws actually put pixels down, so a
+      // fallback pose reports the fallback's rectangle and its file, which is
+      // the honest answer: that is what is on the screen.
+      from: shown ? shown.path : null,
+      bounds: shown ? [shown.x, shown.y, shown.width, shown.height] : null,
+      fallback: !drawn && Boolean(shown),
+    });
+    this.drawOrder += 1;
     if (drawn) {
       this.drawnAs.set(mover.id, 'sprite');
     } else if (shown) {
@@ -1170,15 +1247,20 @@ export class Renderer {
    * A figure at clip level 0, or in a room with no planes, skips all of this
    * and draws straight to the screen.
    */
-  private masked(feetX: number, feetY: number, draw: () => void): void {
+  private masked(feetX: number, feetY: number, draw: () => void, override?: number): void {
     const planes = this.state.room.occlusionPlanes;
     if (!planes?.length) {
       draw();
       return;
     }
-    const level = this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY));
+    const level = override ?? this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY));
     const plane = planes.find((candidate) => candidate.level === level);
-    const mask = plane ? this.sheet(plane.mask) : null;
+    // A PENDING MASK IS NOT USED. It is a mask whose art describes a plate the
+    // room no longer has, and drawing through is what this room did anyway
+    // while its boxes named a plane that did not exist -- so skipping costs
+    // nothing and using it would cut an actor apart along a shape that is not
+    // in the picture. See RoomFile.occlusionPlanes.maskPending.
+    const mask = plane && !plane.maskPending ? this.sheet(plane.mask) : null;
     // Doc 22 item 9: a state can change what OCCLUDES, not only what is
     // drawn, so an object whose current state masks this level joins the
     // punch-out alongside the room's own plane.
@@ -1238,20 +1320,48 @@ export class Renderer {
     return context;
   }
 
-  /** An ambient character's two-frame idle. Ruling 20. */
-  private drawAmbient(npc: AmbientFile): boolean {
+  /**
+   * An ambient character's two-frame idle. Ruling 20. Returns the frame index
+   * it drew, or null when nothing drew (no sprite, or a sheet not yet loaded).
+   */
+  private drawAmbient(npc: AmbientFile): number | null {
     const declared = npc.sprite;
-    if (!declared) return false;
+    if (!declared) return null;
     const image = this.sheet(declared.sheet);
-    if (!image) return false;
+    if (!image) return null;
     const phase = declared.phase ?? 0;
-    const index = this.ambientFrame(declared, phase);
+    // HELD STILL WHILE SPOKEN TO. Doc 32 section 8.2, deadpan rule: the
+    // reply pause is not filled with flapping. Her own tree open means her
+    // work stops on the talk frame; any other conversation leaves her be.
+    const talking = this.state.dialogue.isActive
+      && this.state.dialogue.activeTreeId === npc.tree;
+    const index = talking ? (declared.talkFrame ?? 0) : this.ambientFrame(declared, phase);
     const [sx, sy, width, height] = declared.frames[
       (index + declared.frames.length) % declared.frames.length
     ] as [number, number, number, number];
     this.screen.context.drawImage(image, sx, sy, width, height,
       npc.x - Math.floor(width / 2), npc.y - height + 1, width, height);
-    return true;
+    return index;
+  }
+
+  /**
+   * The character's stationary props, drawn after her at their own room
+   * coordinates, in the state her current frame maps to. See
+   * AmbientFile.sprite.props.
+   */
+  private drawProps(npc: AmbientFile, frameIndex: number): void {
+    for (const prop of npc.sprite?.props ?? []) {
+      const image = this.sheet(prop.sheet);
+      if (!image) {
+        watch.record('graybox:not-loaded', npc.id, `${prop.sheet} has not arrived; drew nothing`);
+        continue;
+      }
+      const which = prop.byFrame?.[String(frameIndex)] ?? 0;
+      const rect = prop.frames[(which + prop.frames.length) % prop.frames.length] as [number, number, number, number];
+      const [sx, sy, width, height] = rect;
+      this.screen.context.drawImage(image, sx, sy, width, height,
+        prop.x - Math.floor(width / 2), prop.y - height + 1, width, height);
+    }
   }
 
   /**

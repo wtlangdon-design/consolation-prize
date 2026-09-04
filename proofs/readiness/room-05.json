@@ -1,0 +1,243 @@
+{
+ "schema": 1,
+ "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
+ "room": 5,
+ "id": "room-05-assay-office",
+ "name": "ASSAY OFFICE, FRONT",
+ "content": [
+  {
+   "id": "look-listen",
+   "question": "LOOK/LISTEN complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#1",
+    "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
+   ],
+   "why": "9 subject(s), each with a LOOK and a LISTEN"
+  },
+  {
+   "id": "repeat-variants",
+   "question": "Repeat-selection variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#1",
+    "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
+   ],
+   "why": "all 9 subject(s) carry three LOOK and three LISTEN variants"
+  },
+  {
+   "id": "act-variants",
+   "question": "Act/state variants complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2"
+   ],
+   "why": "1 act-gated subject(s) authored: THE QUEUE BENCH (act 2-4)"
+  },
+  {
+   "id": "wrong-verbs",
+   "question": "Wrong-verb layer complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/49-wrong-answers.md::ROOM 5 — ASSAY OFFICE, FRONT"
+   ],
+   "why": "2 authored refusal(s)"
+  },
+  {
+   "id": "dialogue",
+   "question": "Dialogue used by this room complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::ACT I — Root: `WIN_A1`",
+    "docs/04-dialogue-trees.md::ACT I — `WIN_A2`: the book *(W1 growth)*",
+    "docs/04-dialogue-trees.md::ACT II — Root: `WIN_B1` (after `T_BORDERS_MOTT`)",
+    "docs/04-dialogue-trees.md::ACT II — `WIN_B2`: after the padded log (C5)",
+    "docs/04-dialogue-trees.md::ACT II — `WIN_B3`: the second ledger",
+    "docs/04-dialogue-trees.md::ACT III — `WIN_C1`: the death certificate (E4)",
+    "docs/04-dialogue-trees.md::ACT IV — grown to nodes *(W1)*"
+   ],
+   "why": "7 node(s) resolve for Winnie Ledger"
+  },
+  {
+   "id": "puzzles",
+   "question": "Puzzle requirements complete?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::TRIAL TWO — Assay of Record (Document B)"
+   ],
+   "why": "C4, C5, C6 are all specified in that section"
+  },
+  {
+   "id": "items",
+   "question": "Required items declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::TRIAL TWO — Assay of Record (Document B)"
+   ],
+   "why": "the puzzle section names the documents and topics this room issues and needs"
+  },
+  {
+   "id": "flags",
+   "question": "Required flags/state declared?",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::TRIAL TWO — Assay of Record (Document B)"
+   ],
+   "why": "the puzzle section names the topic flags this room sets"
+  },
+  {
+   "id": "staging",
+   "question": "Beat/staging script complete OR genuinely not required?",
+   "answer": "YES",
+   "evidence": [
+    "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
+   ],
+   "why": "not required: A staging/beat script is doc 17's opening and doc 43's Room 1 machinery -- a scripted sequence of timed beats. Room 5 has no scripted sequence in any canonical document: it is entered, examined and talked in. `check-gauntlet-script` and the sequence runner are not involved."
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour sufficiently authored?",
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::ACT I — Root: `WIN_A1`",
+    "docs/04-dialogue-trees.md::ACT I — `WIN_A2`: the book *(W1 growth)*",
+    "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
+   ],
+   "why": "Winnie Ledger has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
+  },
+  {
+   "id": "open-canon",
+   "question": "Unresolved canon decisions affecting this room?",
+   "answer": "YES",
+   "evidence": [
+    "docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST",
+    "docs/36-issue-list.md::Q23 · ROOM 5 HAS NO ANNOTATION, AND THAT IS NOT A CONTENT PROBLEM"
+   ],
+   "why": "2 open item(s) name this room"
+  }
+ ],
+ "subjectsFound": 9,
+ "subjectsDeclaredByDocument": 8,
+ "unresolvedCitations": [],
+ "dimensions": [
+  {
+   "id": "writing",
+   "question": "Writing",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#1",
+    "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT",
+    "docs/49-wrong-answers.md::ROOM 5 — ASSAY OFFICE, FRONT",
+    "docs/04-dialogue-trees.md::ACT I — Root: `WIN_A1`",
+    "docs/04-dialogue-trees.md::ACT I — `WIN_A2`: the book *(W1 growth)*",
+    "docs/04-dialogue-trees.md::ACT II — Root: `WIN_B1` (after `T_BORDERS_MOTT`)",
+    "docs/04-dialogue-trees.md::ACT II — `WIN_B2`: after the padded log (C5)",
+    "docs/04-dialogue-trees.md::ACT II — `WIN_B3`: the second ledger",
+    "docs/04-dialogue-trees.md::ACT III — `WIN_C1`: the death certificate (E4)",
+    "docs/04-dialogue-trees.md::ACT IV — grown to nodes *(W1)*"
+   ],
+   "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
+  },
+  {
+   "id": "puzzle-behaviour",
+   "question": "Puzzle behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/02-puzzle-graph.md::TRIAL TWO — Assay of Record (Document B)"
+   ],
+   "why": "the puzzles sited here, the items they need and issue, and the flags they set"
+  },
+  {
+   "id": "act-behaviour",
+   "question": "Act/state behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2"
+   ],
+   "why": "1 act-gated subject(s) authored: THE QUEUE BENCH (act 2-4)"
+  },
+  {
+   "id": "character-behaviour",
+   "question": "Character behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::ACT I — Root: `WIN_A1`",
+    "docs/04-dialogue-trees.md::ACT I — `WIN_A2`: the book *(W1 growth)*",
+    "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
+   ],
+   "why": "Winnie Ledger has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
+  },
+  {
+   "id": "staging-behaviour",
+   "question": "Staging behaviour",
+   "answer": "YES",
+   "evidence": [
+    "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
+   ],
+   "why": "not required: A staging/beat script is doc 17's opening and doc 43's Room 1 machinery -- a scripted sequence of timed beats. Room 5 has no scripted sequence in any canonical document: it is entered, examined and talked in. `check-gauntlet-script` and the sequence runner are not involved."
+  },
+  {
+   "id": "visual-subjects",
+   "question": "Visual subject requirements",
+   "answer": "YES",
+   "evidence": [
+    "A renders/room-01-in-engine-1920x1080.png",
+    "B art/backgrounds/room-01-stage-road.png",
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-03-nugget.png",
+    "E reference/casting/room-01-casting-master.png",
+    "E art/staging/room-05/composition-master-02.png"
+   ],
+   "why": "every baseline slot is satisfied: A, B, C, D, E, E"
+  },
+  {
+   "id": "geometry",
+   "question": "Geometry/placement",
+   "answer": "NO",
+   "evidence": [
+    "reference/room-05/annotation.json",
+    "content/rooms/assay-office.json",
+    "art/backgrounds/room-05-assay-office.png"
+   ],
+   "why": "art/backgrounds/room-05-assay-office.png is 320x144, PNG colour type 3 -- indexed, which no pixel check in this project can read"
+  }
+ ],
+ "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
+ "buildableWithoutInvention": "NO",
+ "blocking": [
+  "open-canon: 2 open item(s) name this room"
+ ],
+ "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
+ "geometry": [
+  {
+   "id": "annotation",
+   "question": "Room annotation exists?",
+   "answer": "YES",
+   "evidence": [
+    "reference/room-05/annotation.json"
+   ],
+   "why": "authored geometry is on disk"
+  },
+  {
+   "id": "compiled",
+   "question": "Room JSON in the manifest?",
+   "answer": "YES",
+   "evidence": [
+    "content/rooms/assay-office.json"
+   ],
+   "why": "content/rooms/assay-office.json is loaded by the engine"
+  },
+  {
+   "id": "plate",
+   "question": "Shipping plate at the canonical size?",
+   "answer": "NO",
+   "evidence": [
+    "art/backgrounds/room-05-assay-office.png"
+   ],
+   "why": "art/backgrounds/room-05-assay-office.png is 320x144, PNG colour type 3 -- indexed, which no pixel check in this project can read"
+  }
+ ],
+ "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
+ "geometryReady": "NO",
+ "at": "2026-09-04T18:31:27.099Z"
+}

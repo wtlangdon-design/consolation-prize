@@ -1,0 +1,222 @@
+{
+ "day": {
+  "path": "art/staging/room-05/plate-03-night/candidate-1920x864.png",
+  "sha256": "72124eb6f213dd71ef3d6032fb362f0c2ac1d3d4efe83aded85ceff6b5adc80b"
+ },
+ "night": {
+  "path": "art/staging/room-05/lamp-01/candidate-1920x864.png",
+  "sha256": "8d91331f3fbf2c876121358da448ac5aad4e4adae85d91a320f14fa06106d9f4"
+ },
+ "rule": "|dx|,|dy| <= 6 px and peak share >= 0.10 -> PASS; else DRIFT. Structure compared by phase correlation of gradient magnitude inside each annotated rect (+12 px pad).",
+ "rects": [
+  {
+   "name": "hotspot:window_sign",
+   "box": [
+    322,
+    120,
+    72,
+    140
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.274,
+   "verdict": "PASS"
+  },
+  {
+   "name": "hotspot:scales",
+   "box": [
+    1228,
+    185,
+    150,
+    210
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.284,
+   "verdict": "PASS"
+  },
+  {
+   "name": "hotspot:queue_book",
+   "box": [
+    1150,
+    392,
+    100,
+    120
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.387,
+   "verdict": "PASS"
+  },
+  {
+   "name": "hotspot:floorboard",
+   "box": [
+    880,
+    704,
+    240,
+    36
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.311,
+   "verdict": "PASS"
+  },
+  {
+   "name": "hotspot:sample_shelves",
+   "box": [
+    898,
+    84,
+    466,
+    282
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.251,
+   "verdict": "PASS"
+  },
+  {
+   "name": "hotspot:her_pen",
+   "box": [
+    895,
+    340,
+    72,
+    60
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.368,
+   "verdict": "PASS"
+  },
+  {
+   "name": "hotspot:certificate",
+   "box": [
+    1396,
+    84,
+    104,
+    146
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.247,
+   "verdict": "PASS"
+  },
+  {
+   "name": "hotspot:stove",
+   "box": [
+    520,
+    328,
+    175,
+    345
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.298,
+   "verdict": "PASS"
+  },
+  {
+   "name": "hotspot:queue_bench",
+   "box": [
+    1690,
+    535,
+    230,
+    250
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.291,
+   "verdict": "PASS"
+  },
+  {
+   "name": "exit:back_to_street",
+   "box": [
+    40,
+    0,
+    275,
+    810
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.232,
+   "verdict": "PASS"
+  },
+  {
+   "name": "exit:to_records",
+   "box": [
+    1512,
+    26,
+    218,
+    565
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.235,
+   "verdict": "PASS"
+  },
+  {
+   "name": "obstacle:bench",
+   "box": [
+    1690,
+    535,
+    230,
+    300
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.291,
+   "verdict": "PASS"
+  },
+  {
+   "name": "counter block (mask, plate-02)",
+   "box": [
+    695,
+    395,
+    802,
+    311
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.338,
+   "verdict": "PASS"
+  },
+  {
+   "name": "service cage bars (mask, plate-02)",
+   "box": [
+    720,
+    0,
+    680,
+    395
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.278,
+   "verdict": "PASS"
+  },
+  {
+   "name": "ledger (under her hands)",
+   "box": [
+    955,
+    368,
+    200,
+    56
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.382,
+   "verdict": "PASS"
+  },
+  {
+   "name": "whole plate",
+   "box": [
+    0,
+    0,
+    1920,
+    864
+   ],
+   "dx": 0,
+   "dy": 0,
+   "peak": 0.263,
+   "verdict": "PASS"
+  }
+ ],
+ "verdict": "PASS"
+}

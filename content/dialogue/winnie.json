@@ -1,0 +1,315 @@
+{
+  "schema": 1,
+  "id": "WINNIE",
+  "speaker": "winnie",
+  "name": "WINNIE LEDGER",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the opening exchange is carried whole as `opening` and the prompt is its last Winnie line. WIN_B3 and WIN_C1 are not extracted (see the extractor). Universal exit lines are doc 04 part one's pool.",
+  "entries": [
+    {
+      "when": {
+        "T_STRIKE_FOUND": true
+      },
+      "node": "WIN_F1"
+    },
+    {
+      "when": {
+        "T_BORDERS_MOTT": true
+      },
+      "node": "WIN_B1"
+    }
+  ],
+  "start": "WIN_A1",
+  "nodes": {
+    "WIN_A1": {
+      "id": "WIN_A1",
+      "prompt": "The window is *ajar*. The window is closed.",
+      "opening": [
+        {
+          "speaker": "winnie",
+          "line": "\"The window's closed.\""
+        },
+        {
+          "speaker": "thad",
+          "line": "\"The window is open.\""
+        },
+        {
+          "speaker": "winnie",
+          "line": "\"The window is *ajar*. The window is closed.\""
+        }
+      ],
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "PROGRESS",
+          "text": "I'd like to have some soil assayed.",
+          "afterUse": "remove",
+          "say": "So would nine hundred men. Get in the book.",
+          "goto": "WIN_A2"
+        },
+        {
+          "id": "winnie2",
+          "tag": "TOPIC",
+          "text": "What is it you actually do here?",
+          "afterUse": "retain",
+          "say": "I decide what things are. It's the only office in the territory that does."
+        },
+        {
+          "id": "winnie3",
+          "tag": "COMIC",
+          "text": "I tune pianos.",
+          "afterUse": "counted-repeat",
+          "say": "Congratulations.",
+          "when": {
+            "T_TUNES_PIANOS": true
+          },
+          "repeat": "Still congratulations."
+        },
+        {
+          "id": "winnie4",
+          "tag": "TOPIC",
+          "text": "Do you know a man named Ezra Pike?",
+          "afterUse": "retain",
+          "say": "I knew him. Then I certified him. Then I stopped.",
+          "when": {
+            "T_PIKE_DEAD": true
+          }
+        },
+        {
+          "id": "winnie5",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "WIN_A2": {
+      "id": "WIN_A2",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes this node as a table only -- no opening exchange -- so the conversation continues from the previous node's line rather than opening on one.",
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "PROGRESS",
+          "text": "Where do I sign?",
+          "afterUse": "remove",
+          "say": "You don't sign. You *print*. Signatures are for people the next clerk has to believe."
+        },
+        {
+          "id": "winnie2",
+          "tag": "TOPIC",
+          "text": "How long is the wait, honestly?",
+          "afterUse": "rephrase",
+          "say": "Eight months.",
+          "rephrase": {
+            "after": "C5",
+            "text": "How long is the wait now?",
+            "say": "Three weeks. It appears the queue has been on a diet."
+          }
+        },
+        {
+          "id": "winnie3",
+          "tag": "COMIC",
+          "text": "What number am I?",
+          "afterUse": "counted-repeat",
+          "say": "Nine hundred and six."
+        },
+        {
+          "id": "winnie4",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true,
+          "afterUse": "retain",
+          "say": "Mind the window."
+        }
+      ]
+    },
+    "WIN_B1": {
+      "id": "WIN_B1",
+      "prompt": "It's Claim Two.",
+      "opening": [
+        {
+          "speaker": "winnie",
+          "line": "\"You're the piano man with Claim Two.\""
+        },
+        {
+          "speaker": "thad",
+          "line": "\"Prosperity.\""
+        },
+        {
+          "speaker": "winnie",
+          "line": "\"It's Claim Two.\""
+        }
+      ],
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "PROGRESS",
+          "text": "I need a certified assay.",
+          "afterUse": "remove",
+          "say": "You need to be in a queue that's eight months long and getting longer.",
+          "set": {
+            "T_ASSAY_QUEUE": true
+          }
+        },
+        {
+          "id": "winnie2",
+          "tag": "TOPIC",
+          "text": "Eight months? Who's ahead of me?",
+          "afterUse": "retain",
+          "say": "The Improvement Company. Perpetually. Priority submissions."
+        },
+        {
+          "id": "winnie3",
+          "tag": "PROGRESS",
+          "text": "Has anyone ever brought in Mott gold?",
+          "afterUse": "remove",
+          "say": "Ask me that again when you've got something to trade."
+        },
+        {
+          "id": "winnie4",
+          "tag": "COMIC",
+          "text": "You have very good handwriting.",
+          "afterUse": "retain",
+          "say": "I know."
+        },
+        {
+          "id": "winnie5",
+          "tag": "COMIC",
+          "text": "Would you like to hear about my raccoon?",
+          "afterUse": "counted-repeat",
+          "say": "No.",
+          "when": {
+            "T_RACCOON_NAMED": true
+          },
+          "repeat": "The answer has not changed and will not change. The raccoon is not an assayable substance."
+        },
+        {
+          "id": "winniex",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "WIN_B2": {
+      "id": "WIN_B2",
+      "prompt": "Don't be sorry. Be quiet. I'm counting.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "\"Your queue is padded. Two-thirds of these submissions are the same sample.\""
+        },
+        {
+          "speaker": "winnie",
+          "line": "*(reading)* \"…Nine years.\""
+        },
+        {
+          "speaker": "thad",
+          "line": "\"I'm sorry.\""
+        },
+        {
+          "speaker": "winnie",
+          "line": "\"Don't be sorry. Be quiet. I'm counting.\""
+        }
+      ],
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "PROGRESS",
+          "text": "Will you run my assay?",
+          "afterUse": "remove",
+          "say": "I'll run your assay. I'd run your assay if it were a bucket of rain."
+        },
+        {
+          "id": "winnie2",
+          "tag": "PROGRESS",
+          "text": "Now can I ask about Mott gold?",
+          "afterUse": "remove",
+          "say": "No Mott gold has ever crossed this window. Not one flake. Not in nine years. Not one.",
+          "set": {
+            "T_NO_MOTT_GOLD": true
+          }
+        },
+        {
+          "id": "winnie3",
+          "tag": "PROGRESS",
+          "text": "Has nobody ever noticed?",
+          "afterUse": "remove",
+          "say": "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book.",
+          "set": {
+            "T_SECOND_LEDGER": true
+          }
+        },
+        {
+          "id": "winnie4",
+          "tag": "COMIC",
+          "text": "Are you all right?",
+          "afterUse": "retain",
+          "say": "I am *professionally offended*, Mr. Grubb. It is the worst kind."
+        },
+        {
+          "id": "winniex",
+          "tag": "EXIT",
+          "text": "Thank you. This has been clarifying.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "WIN_F1": {
+      "id": "WIN_F1",
+      "prompt": "…Get in the book. You're the book.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "\"I need an assay certified.\""
+        },
+        {
+          "speaker": "winnie",
+          "line": "*(she looks at the sample for a long time)* \"Where.\""
+        },
+        {
+          "speaker": "thad",
+          "line": "\"Claim Two.\""
+        },
+        {
+          "speaker": "winnie",
+          "line": "\"…Get in the book.\" *(beat)* \"You're the book.\""
+        }
+      ],
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "PROGRESS",
+          "text": "Run it.",
+          "afterUse": "remove",
+          "beat": "She runs it herself, at the window, in front of him — the first assay the player ever watches happen. It is very good gold."
+        },
+        {
+          "id": "winnie2",
+          "tag": "TOPIC",
+          "text": "You knew the nineteen names meant something.",
+          "afterUse": "retain",
+          "say": "I knew they meant *something*. Knowing what is your department. Mine is the book."
+        },
+        {
+          "id": "winnie3",
+          "tag": "COMIC",
+          "text": "Aren't you going to congratulate me?",
+          "afterUse": "counted-repeat",
+          "say": "No."
+        },
+        {
+          "id": "winniex",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

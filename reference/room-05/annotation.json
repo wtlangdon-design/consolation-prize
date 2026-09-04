@@ -1,0 +1,239 @@
+{
+  "room": "assay_office",
+  "plate": "art/backgrounds/room-05-assay-office.png",
+  "plateNote": "THE PATH IS THE SHIPPING PATH; THE PICTURE THIS WAS MEASURED ON IS THE CANDIDATE, plate-02, derived from composition-master-02 after Tyler rejected master-01 as visual ancestry. Every rect below was re-read against plate-02; nothing from the plate-01 reading survives except the method. Ruling 24: if Tyler rejects this plate and a materially different one replaces it, every rect here is stale and must be re-read, whether or not it validates.",
+  "plateCandidate": "art/staging/room-05/plate-02/candidate-1920x864.png",
+  "plateCandidateHash": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142",
+  "plateSize": [
+    1920,
+    864
+  ],
+  "walkModel": "clipped",
+  "walkable": [
+    [
+      60,
+      700
+    ],
+    [
+      1900,
+      700
+    ],
+    [
+      1900,
+      830
+    ],
+    [
+      60,
+      830
+    ]
+  ],
+  "walkableNote": "THE FLOOR IN FRONT OF THE COUNTER. Measured on the candidate: the counter's base line is y700 across x640-1440 and the floor runs to the frame's foot; the band stops at 830, short of the frame, as Room 1's does. Nothing behind the counter is walkable -- 'Not with her at the counter' (doc 25). A first draft added a lobe up to the back-room door (x1440-1652, y612-700); sliced into three bands it made the far and middle bands lobe-only and put every approach point on the near edge, so the door is approached from the floor line instead.",
+  "scaling": {
+    "far": {
+      "y": 700,
+      "height": 470
+    },
+    "near": {
+      "y": 830,
+      "height": 560
+    },
+    "note": "ROOM 5 DECLARES ITS OWN DEPTH FROM ITS OWN ARCHITECTURE (doc 36 Q10), read on plate-02. Anchor: the counter's front face is 250 rows (y440-690) and a counter is hip-high, about 0.93m against a 1.75m man, so a man at its base line (y700) is 470. The near sample extends at the Nugget's slope (0.7 per row; the approved comparable interior runs 198 at y498 to 459 at y858). Tighter than Room 1's 240 mid-band, as the approved interior already is; the continuity sheet shows the jump for Tyler."
+  },
+  "entrance": [
+    200,
+    765
+  ],
+  "entrances": [
+    {
+      "from": "default",
+      "at": [
+        200,
+        765
+      ],
+      "facing": "right",
+      "note": "Just inside the street door, before its stone step, facing into the room."
+    },
+    {
+      "from": "main_street",
+      "at": [
+        200,
+        765
+      ],
+      "facing": "right",
+      "note": "He came in by the street door at left."
+    },
+    {
+      "from": "stub_assay_records",
+      "at": [
+        1600,
+        706
+      ],
+      "facing": "front",
+      "note": "Out of the back-room door at right, on the floor line."
+    }
+  ],
+  "hotspots": {
+    "window_sign": [
+      322,
+      120,
+      72,
+      140
+    ],
+    "scales": [
+      1228,
+      185,
+      150,
+      210
+    ],
+    "queue_book": [
+      1150,
+      392,
+      100,
+      120
+    ],
+    "floorboard": [
+      880,
+      704,
+      240,
+      36
+    ],
+    "sample_shelves": [
+      898,
+      84,
+      466,
+      282
+    ],
+    "her_pen": [
+      895,
+      340,
+      72,
+      60
+    ],
+    "certificate": [
+      1396,
+      84,
+      104,
+      146
+    ],
+    "stove": [
+      520,
+      328,
+      175,
+      345
+    ],
+    "queue_bench": [
+      1690,
+      535,
+      230,
+      250
+    ],
+    "hanging_lamp": [
+      932,
+      62,
+      82,
+      187
+    ]
+  },
+  "hotspotsNote": "Every rect is generous over the thing the player sees (ruling 32), read on plate-02. her_pen sits where the stand rests on the counter top by Winnie's right hand (feet 1010,624; stand -0.179h to her right, base 0.573h above her feet) -- the pen and stand travel with her frames. floorboard is an ordinary board directly before the counter, left of centre: canon puts it within her reach and Thad's, and it is deliberately unmarked. queue_bench is doc 05's act 2-4 subject, gated by `acts`. THE HANGING LAMP (hanging_lamp) was added by Tyler's post-pilot ruling of 2026-09-04: its rect is the extracted fixture's bounds and nothing else in this file changed.",
+  "acts": {
+    "queue_bench": "2-4"
+  },
+  "actsNote": "Errata 60's sugar, authored here per hotspot. `2-4` compiles to when: { ACT: { atLeast: 2, atMost: 4 } }. Only the bench carries one: doc 05's second Room 5 section writes it for acts 2-4 and nothing for Act I.",
+  "exits": {
+    "back_to_street": [
+      40,
+      0,
+      275,
+      810
+    ],
+    "to_records": [
+      1512,
+      26,
+      218,
+      565
+    ]
+  },
+  "exitWalkTo": {
+    "back_to_street": {
+      "x": 200,
+      "y": 760,
+      "facing": "left"
+    },
+    "to_records": {
+      "x": 1600,
+      "y": 704,
+      "facing": "back"
+    }
+  },
+  "obstacles": [
+    {
+      "id": "bench",
+      "rect": [
+        1690,
+        535,
+        230,
+        300
+      ],
+      "note": "The bench against the right wall; its footprint is never floor."
+    }
+  ],
+  "occlusion": {
+    "note": "ONE PLANE: THE COUNTER, with the brass cage bars that rise from it. Winnie stands behind it and is masked by it; Thad never crosses it, so every band he can stand in is plane 0. The mask is DERIVED FROM THE CANDIDATE PLATE by measurement (tools/art/room05-mask.mjs) and bound to its hash like everything else here.",
+    "clipPlane": {
+      "mud_far": 0,
+      "mud_mid": 0,
+      "mud_near": 0,
+      "floor_0": 0,
+      "floor_1": 0,
+      "floor_2": 0,
+      "floor_3": 0,
+      "floor_4": 0,
+      "floor_5": 0
+    },
+    "planes": [
+      {
+        "level": 1,
+        "mask": "art/staging/room-05/mask-plane-1.png",
+        "note": "The brass cage bars that pass in front of her, read off plate-02 by tools/art/room05-mask.mjs --bars-only. The counter itself is NOT in this mask any more: since Tyler's counter-contact correction (2026-09-04) her behind-counter sheet (art/staging/room-05/winnie-02-counter/) is matted against the ledger's far edge and the counter's back edge by tools/rig/winnie-counter.py, and a counter block from y395 down would mask the hands that rest on the ledger. Assigned to Winnie by her ambient record's clipPlane, not by any walk box."
+      }
+    ],
+    "proofPoints": []
+  },
+  "occlusionProofNote": "No authored proof point stands THAD behind the counter, because no box does; the plane's proof is Winnie herself in panels B and C, measured by cast-suppressed difference: her drawn silhouette must end at the counter's back edge and not at her feet.",
+  "defaultVerbs": {
+    "queue_bench": "LOOK_AT",
+    "hanging_lamp": "LOOK_AT"
+  },
+  "defaultVerbsNote": "Errata 28b. The bench is new to the room file, so its bare-click verb is authored here: LOOK AT, the game's own default (content/ui/verbs.json).",
+  "hotspotStates": {
+    "hanging_lamp": {
+      "default": "lit",
+      "states": {
+        "lit": {
+          "image": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+          "note": "THE HANGING WORK LAMP (Tyler, owner ruling 2026-09-04): one small plain period oil lamp on a short chain from the brass cage top rail, over the ledger. The fixture is this one prop in every visual state -- day and night -- cut from the in-context edit (art/staging/room-05/lamp-01/lamp.json); only its runtime light differs, by the room lamp below. Always lit; there is no unlit state. It hangs at the cage, in front of her: `occludes: [1]` puts it in the figure pass over plane-1 figures, so where its base meets her hair the lamp is in front.",
+          "occludes": [
+            1
+          ]
+        }
+      }
+    }
+  },
+  "lamps": [
+    {
+      "id": "hanging_lamp",
+      "at": [
+        990,
+        300
+      ],
+      "radius": 330,
+      "amount": 0.03,
+      "amountByState": {
+        "night": 0.18
+      },
+      "rate": 0.3,
+      "phase": 0.2,
+      "note": "The hanging work lamp's light: a small oil flame, so slow and low. Negligible by day (daylight is the source); by night the principal work light, a restrained warm pool on the ledger, her hands and the counter around them, centred a little below the flame so it falls on the work and not on the ceiling. The stove has no runtime lamp and stays a painted accent, secondary. Errata 64d: the state is authored, selected by the room's visual state, never by a clock."
+    }
+  ]
+}

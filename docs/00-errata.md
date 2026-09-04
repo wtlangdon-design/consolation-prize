@@ -299,7 +299,7 @@ A weak pass is not a failure. A character legitimately carried by one anchor in 
 - Room 5: the "counter top" sample included the counter's own dark lip; the "floor" sample sat on the counter. Two apparent failures on surfaces that were fine.
 - Room 1: the verge measured 203, apparently tying the lamp as the brightest object in the frame. The sample contained the lamp.
 
-**A contaminated sample is indistinguishable from a real result.** It fails and passes with equal confidence, and both directions are dangerous — Room 5 lost time chasing failures that were not real, Room 1 nearly lost the lamp's status as the uniquely brightest object in the only night exterior in the game.
+**A contaminated sample is indistinguishable from a real result.** It fails and passes with equal confidence, and both directions are dangerous — Room 5 lost time chasing failures that were not real, Room 1 nearly lost the lamp's status as the uniquely brightest object in the only night exterior in the game *(errata 64: no longer the only one — Main Street is night too)*.
 
 **Rules:**
 
@@ -950,7 +950,7 @@ This is the highest-value animation in the project and it was never specified.
 
 **He is not a silhouette, and making him one was wrong.**
 
-He carries the only light in the only night exterior. A man holding a lantern has a lit face — and Hob's face is the single most important piece of art in Act I, because the whole Act III reveal depends on the player having walked past him and not looked twice.
+He carries the only light in the only night exterior *(errata 64: Room 1 is no longer the only night exterior, but it is still the only one where the carried lamp is the sole source)*. A man holding a lantern has a lit face — and Hob's face is the single most important piece of art in Act I, because the whole Act III reveal depends on the player having walked past him and not looked twice.
 
 **A black slab is not a man you walked past. It is a shape.** Light the face and the near side of the coat from the lamp; leave the far side dark. He should be *unremarkable*, which is a different thing from *invisible*.
 
@@ -1187,7 +1187,7 @@ Doc 20 gave the town **one** street. Everything not on it — the Registrar, the
 - **Room 2's alley is a real exit**, to the Lane. It is already drawn as a slot you can see through.
 - **Room 20, the back alley, moves** — it opens off Lower Street rather than Main Street's east end.
 - **Errata 31c is amended.** "Everything visible from Main Street appears on the map the first time Thad stands on Main Street" now covers far fewer locations, because most of them are reachable on foot and need no map entry at all.
-- **Two more composed screens**, both exteriors, both day. They inherit Room 2's palette script, camera relationship and material identity — they are the same street, further along.
+- **Two more composed screens**, both exteriors, both day. They inherit Room 2's palette script, camera relationship and material identity — they are the same street, further along. *(Amended by errata 64: "both day" is superseded — Main Street's base state is night, and the two screens inherit that.)*
 
 ## Why this is worth two rooms
 
@@ -1842,3 +1842,213 @@ difference is the base and the rate.
 watched the opening at the new timing. If it drags, the four numbers in
 `ui.json` are where it is fixed, and lowering them retimes dialogue with it —
 which is the coupling this errata was recording in the first place.
+
+---
+
+# 62 · THE EXISTING BITMAP FACE IS THE SHIPPING FACE — ERRATA 54's FONT VOIDING REVERSED, Q6 AND Q16 CLOSED
+
+Tyler's ruling, and it closes the longest-standing open item errata 54 left.
+
+**The existing 1-bit hand-authored face is retained as the canonical runtime
+typeface.** Not provisionally, not until something better lands — retained.
+
+| Region | Scale | Drawn by |
+|---|---|---|
+| Play area — speech, dialogue options, act cards | `GLYPH_SCALE` **6** | `BitmapFont` |
+| Verb panel — sentence line, verb labels, inventory | `PANEL_GLYPH_SCALE` **4** | `BitmapFont` |
+
+**Errata 54's line "the 5 × 7 font is unusable at 1920 × 1080" is reversed on
+its conclusion and stands on its facts.** It was unusable *at 1× in a frame six
+times larger*, which is what it was doing when that sentence was written. It is
+not unusable when scaled, and the scaling landed under Q6. What was left open
+after that was a preference, and Tyler has been reading and approving the
+presentation this whole time — which is the evidence that settles a preference.
+
+## What this ends
+
+- **Q6 and Q16 are closed.** No replacement face is required or wanted.
+- **`docs/51-font-decision-sheet.md` is reference only.** The four candidates,
+  the sheets under `renders/font-candidates/`, `tools/font/`, and
+  `engine/render/PreviewFont.ts` are retained as a diagnostic and as the record
+  of a question that was asked and answered. **None is a shipping path.**
+  `PreviewFont` remains dev-only behind `?font=`; with no query parameter the
+  build is bit-identical to one without the file.
+- **The build ledger's `font-decision` item is resolved**, and the rooms
+  blocked on it are no longer blocked on it.
+
+## Glyph coverage was never the problem, and is already satisfied
+
+The rule stands: **extend the existing face, never swap the typeface.** It does
+not need extending today. All seven characters CLAUDE.md names —
+
+```
+'  '  "  "  —  –  …
+```
+
+— are present in `art/ui/font-5x7.json`, and `check-glyph-coverage` asserts
+every content string against the face on every run. A future line wanting a
+glyph the face lacks is a glyph to draw, not a face to replace.
+
+## The validator that was measuring a frame that does not exist
+
+`check-item-names` compared an **unscaled** glyph width against
+`320 − panel.sentence.x × 2`. Three errors at once: 320 was the pre-errata-54
+frame; `sentence.x` was 36, a value the ×6 migration had already moved into
+screen space; and the width was never multiplied by the scale the panel draws
+at. They pointed in opposite directions, so nothing ever failed.
+
+It now measures the real thing: the composed sentence
+`ui.sentence.itemTemplate` — the longest verb label, the item, the longest
+target name in the game — at `PANEL_GLYPH_SCALE`, against the sentence line's
+actual width of 1848 screen units. The worst case in the build today is
+**1296 of 1848, 70%**. Widening 320 to 1920 and stopping there would have made
+every conceivable label pass, which doc 51 named in advance as a vacuous
+assertion bought with a one-line edit.
+
+**No approved font was changed to make a validator green**, and no approved
+font may be.
+
+---
+
+# 63 · ROOM SHIPPING DIMENSIONS ARE CANONICAL, AND AN IMAGE API DOES NOT GET A VOTE
+
+Stated as a ruling because it was about to be treated as negotiable.
+
+| | Shipping background |
+|---|---|
+| **Fixed room** | **1920 × 864** |
+| **Scrolling room** | **authored room width × 864** |
+
+Main Street is ≈3700 × 864 because it scrolls. **Room 5 is a fixed room and its
+shipping plate is therefore exactly 1920 × 864.** Room 5's JSON is already
+authored in that coordinate system; the legacy 320 × 144 Room 5 plate is
+obsolete art, not a dimensional specification.
+
+**No generation tool redefines a room's dimensions to match what a model can
+return.** The direction of accommodation is fixed: the source is adapted to the
+room, never the room to the source.
+
+## The provisional source-acquisition transform — ROOM 5 PILOT ONLY
+
+`gpt-image-2` returns 1536 × 1024 landscape and cannot return 1920 × 864. For
+the Room 5 pilot, and for nothing else yet:
+
+```
+API source           1536 × 1024        kept untouched
+crop                 x 8, y 170, w 1520, h 684      exactly 20:9
+resample             1520 × 684  →  1920 × 864      deterministic, ordinary filtered
+```
+
+The prompt must place the intended playable composition inside a central 20:9
+safe region with expendable composition above and below it.
+
+**Forbidden in the derivation:** nearest-neighbour merely because the old pixel
+pipeline used it; AI upscaling; sharpening; denoising; recolouring; contrast
+enhancement; and any generative second pass whose purpose is reaching the
+shipping dimensions.
+
+**Both artefacts are preserved** — the untouched source and the derived
+candidate — and provenance records the source path and hash, the crop
+rectangle, the exact resampling algorithm, and the derived path and hash.
+Source-level gates run on the source; every shipping-level gate runs on the
+derived 1920 × 864 candidate.
+
+**THIS IS PROVISIONAL AND DOES NOT BECOME A FORTY-ROOM RULE BECAUSE THE COMMAND
+EXECUTES.** Tyler's full-frame review of Room 5 decides whether this
+source-to-shipping treatment is visually acceptable, before Room 6 exists.
+
+---
+
+# 64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS
+
+Tyler's rulings of 2026-09-04, on `proofs/room-05/time-of-day-audit.md`. That
+audit found the canon split on Main Street's own time of day — doc 13, doc 16,
+doc 26, doc 12 and errata 43 saying day; doc 17, Room 1's lines about the town,
+errata 58, doc 35's gate ruling and the signed-off plate saying night — and
+found Room 5's daylight candidate entered, in the built game, from a night
+street. These four rulings resolve it. Canon reconciliation only: no image was
+generated or edited, no API operation spent, no geometry, Winnie or proof
+artefact touched, nothing promoted, Room 6 not begun.
+
+## 64a · The canonical Act I / base presentation of Main Street is NIGHT
+
+Based on, and preserving: Room 1's explicit night opening (doc 17); the direct
+Room 1 → Main Street continuity (doc 17 beat 11, "he is still walking when
+Main Street arrives"; Room 1's THE ROAD WEST, "A town, at night, half of it
+asleep"); the signed-off Room 2 plate `art/backgrounds/room-02-main-street.png`
+and its declared lamps; the town lights in the opening (errata 58, "toward the
+town lights"); and the approved Nugget interior's night exterior views.
+
+**Any prior prose saying the Act I / base Main Street state is daylight is
+superseded where it conflicts.** Reconciled with this erratum:
+
+- `docs/13-room-02-content.md::PART TWO` — THE MUD · PICK UP now reads
+  *"I have picked up some mud. I am now a man holding mud, in a street, at
+  night."* (Tyler's wording; the joke otherwise untouched.) Re-extracted into
+  `content/rooms/main-street.json` by the normal pipeline.
+- Errata 43's "both exteriors, both day" for Lower Street and the Lane —
+  superseded: both inherit Main Street's night. Errata 43's "same time of day"
+  stands, and now means night. Inline pointers left at the original lines.
+- The two statements that Room 1 is "the only night exterior in the game"
+  (errata 17-era rationale; errata 33/35-era Hob note) — no longer true as
+  stated; inline pointers left. Room 1 remains the only exterior whose sole
+  light is carried.
+- `docs/12-art-prompts.md` row 35's "warm low sun" for the base street — doc
+  12 is already superseded as final spec (doc 11, then errata 54); noted, not
+  edited.
+
+**Two written lines conflict with this ruling and are NOT rewritten here**,
+because they are comedy and replacement wording is Tyler's, not the
+pipeline's — exactly as the mud line was: `docs/16-room-03-content.md::THE
+FRONT DOORS → Room 2` LOOK 2 *"Daylight past them. It is always a surprise."*
+and `docs/26-batch-a.md` the hotel's STREET DOOR LOOK 3 *"Daylight, past it.
+It is always brighter than I remember."* Both describe Main Street from an
+adjoining interior in its base state. Recorded under
+`docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT`
+for Tyler's wording. *(Resolved the same day: Tyler reworded both as
+time-neutral — "The street past them. It is always a surprise." and "The
+street, past it. It is always brighter than I remember." — see Q26.)*
+
+## 64b · Room 5 is not permanently daylight
+
+Room 5 inherits the exterior lighting state appropriate to the current
+story/world state. For the immediate Act I route — **Room 1 night → Main
+Street night → Room 5 night** — the current bright-daylight Room 5 candidate
+is NOT the correct Act I shipping state.
+
+**The daylight candidate is NOT rejected and NOT deleted.** It is reclassified
+as **ROOM 5 — DAY VISUAL CANDIDATE** and remains the approved source of the
+room's composition, spatial layout, geometry ancestry, canonical Winnie design
+ancestry, object placement and general visual-style review. It stays useful
+for a later daylight-state review. No visual approval is implied by any of
+this; `visual_accepted` is Tyler's and is unset.
+
+## 64c · Room 5 requires a NIGHT visual state before it ships
+
+Before Room 5 can be promoted for normal Act I gameplay it requires a night
+treatment consistent with the signed-off Main Street exterior. The audit
+established that daylight affects more than the glass — the exterior through
+the glazed openings, direct floor and wainscot sunlight, directional interior
+illumination, shadows, and Winnie's local lighting — so **a window-only
+overlay is insufficient.** NIGHT is a genuine alternate visual plate/state,
+derived from the SAME accepted Room 5 composition and object geometry.
+
+**Not created yet.** The remaining image operation is not spent on it. It
+follows Tyler's visual review of the day candidate's composition, style, scale
+and Winnie, and nothing precedes that review.
+
+## 64d · No simulated day/night cycle
+
+This does not authorise a clock, a real-time cycle or a general day/night
+simulation. Time of day remains an authored story/world visual state, selected
+by canon. Before Room 5's state switching is implemented, determine whether the
+existing conditional room/state architecture can select the correct visual
+plate from canonical flags; if it can, use it; if it cannot, report the
+smallest missing mechanism before building anything global. (Observed at the
+time of ruling, not built: a room file carries one `background` path and
+`backgroundFrames` for cycling; the `when`/flag machinery of errata 60 gates
+hotspots and dialogue, not plates. The gap, if it is one, is a conditional
+background, and it is sized when the night plate exists.)
+
+**Room 5's status under these rulings:** CANDIDATE COMPLETE — HUMAN VISUAL
+GATE PENDING, WITH REQUIRED NIGHT VARIANT BEFORE SHIPPING.

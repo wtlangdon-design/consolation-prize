@@ -1,3 +1,4 @@
+import { askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
 import Phaser from 'phaser';
 
 import { planBoot } from '../core/BootAssets.ts';
@@ -27,9 +28,13 @@ export class BootScene extends Phaser.Scene {
     const bundle = await loadContent(fetchReader(document.baseURI));
 
     const pending: Promise<void>[] = [];
+    // ONE PLACE A CONTENT PATH BECOMES A URL. Ruling 10's candidate override
+    // is applied here and in GameScene.loadDeferred, and nowhere else, so no
+    // plate can reach the screen by a route the override cannot see.
+    const swaps = askedCandidates();
     for (const { key, path } of planBoot(bundle).required) {
       if (this.textures.exists(key)) continue;
-      this.load.image(key, new URL(path, document.baseURI).toString());
+      this.load.image(key, new URL(resolveAssetPath(path, swaps), document.baseURI).toString());
       pending.push(new Promise((resolve) => this.load.once(`filecomplete-image-${key}`, () => resolve())));
     }
     if (pending.length > 0) {

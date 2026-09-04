@@ -1,0 +1,115 @@
+{
+ "note": "Read off the life proof captures (renders/proofs/assay-office/life, commit b6af4755) by pixel. frameShown = the nearest of the five offline composites. penInStand = gold pixels above the pot rim in the stand columns (stand at 933,409). Expected: in the stand for rest/breath, out for writing/scribble/looking-up. The pot body bbox must be identical in every capture.",
+ "stand": [
+  933,
+  409
+ ],
+ "potBodyStationary": true,
+ "penStateMatchesFrameInEveryCapture": true,
+ "captures": [
+  {
+   "capture": "01-initial",
+   "frameShown": "rest",
+   "penInStandGoldPixels": 37,
+   "penInStand": true,
+   "expectedPenInStand": true,
+   "potBodyBBox": [
+    911,
+    378,
+    954,
+    406
+   ]
+  },
+  {
+   "capture": "02-early-idle",
+   "frameShown": "breath",
+   "penInStandGoldPixels": 37,
+   "penInStand": true,
+   "expectedPenInStand": true,
+   "potBodyBBox": [
+    911,
+    378,
+    954,
+    406
+   ]
+  },
+  {
+   "capture": "03-idle-later",
+   "frameShown": "writing",
+   "penInStandGoldPixels": 0,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "potBodyBBox": [
+    911,
+    378,
+    954,
+    406
+   ]
+  },
+  {
+   "capture": "05-looked",
+   "frameShown": "writing",
+   "penInStandGoldPixels": 0,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "potBodyBBox": [
+    911,
+    378,
+    954,
+    406
+   ]
+  },
+  {
+   "capture": "09-dialogue-reply",
+   "frameShown": "looking-up",
+   "penInStandGoldPixels": 0,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "potBodyBBox": [
+    911,
+    378,
+    954,
+    406
+   ]
+  },
+  {
+   "capture": "10-after-dialogue",
+   "frameShown": "writing-scribble",
+   "penInStandGoldPixels": 0,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "potBodyBBox": [
+    911,
+    378,
+    954,
+    406
+   ]
+  },
+  {
+   "capture": "10b-back-at-work",
+   "frameShown": "looking-up",
+   "penInStandGoldPixels": 0,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "potBodyBBox": [
+    911,
+    378,
+    954,
+    406
+   ]
+  },
+  {
+   "capture": "12-re-entered",
+   "frameShown": "writing-scribble",
+   "penInStandGoldPixels": 0,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "potBodyBBox": [
+    911,
+    378,
+    954,
+    406
+   ]
+  }
+ ]
+}

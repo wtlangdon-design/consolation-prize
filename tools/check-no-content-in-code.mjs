@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { listFiles, Report, ROOT, runCheck } from './lib/content.mjs';
+import { scanSource } from './lib/tsscan.mjs';
 
 /**
  * Enforces the one architecture rule: no content lives in code.
@@ -48,30 +49,18 @@ const FICTION_TOKENS = [
 const MIN_PROSE_LENGTH = 25;
 const MIN_PROSE_WORDS = 4;
 
-function stripComments(source) {
-  return source.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/(^|[^:])\/\/[^\n]*/g, '$1 ');
-}
-
-function stripDeveloperMessages(source) {
-  return source
-    .replace(/Error\(([\s\S]*?)\)/g, 'Error()')
-    .replace(/console\.\w+\(([\s\S]*?)\)/g, 'console.log()')
-    // Doc 44's violation log. Same category as a throw and a console call:
-    // developer text, never drawn, and read only by whoever is diagnosing a
-    // failure. Narrowly matched on the exact call so it cannot become a
-    // general-purpose way to smuggle a drawn string past this check.
-    .replace(/watch\.record\(([\s\S]*?)\);/g, 'watch.record();');
-}
-
-function stringLiterals(source) {
-  const out = [];
-  const pattern = /'([^'\\\n]*(?:\\.[^'\\\n]*)*)'|"([^"\\\n]*(?:\\.[^"\\\n]*)*)"|`([^`\\]*(?:\\.[^`\\]*)*)`/g;
-  let match;
-  while ((match = pattern.exec(source)) !== null) {
-    out.push(match[1] ?? match[2] ?? match[3] ?? '');
-  }
-  return out;
-}
+/*
+ * THE THREE REGULAR EXPRESSIONS THAT USED TO LIVE HERE ARE GONE. Doc 36 Q11:
+ * `Error\(([\s\S]*?)\)` matched LAZILY, so an error message containing its
+ * own brackets ended at the wrong `)` and left a dangling backtick in the
+ * scanned source. The next template literal added anywhere below became that
+ * backtick's partner and everything between them read as one enormous prose
+ * string -- so the check blamed a line that had passed for weeks, immediately
+ * after an unrelated edit six hundred lines away.
+ *
+ * Quote state and bracket depth are one problem. `tools/lib/tsscan.mjs` walks
+ * the source once and solves it there, and this file asks it two questions.
+ */
 
 function looksLikeProse(text) {
   if (text.length < MIN_PROSE_LENGTH) return false;
@@ -93,24 +82,33 @@ export function check() {
 
   for (const file of files) {
     const raw = readFileSync(resolve(ROOT, file), 'utf8');
-    const code = stripDeveloperMessages(stripComments(raw));
+    const { literals, code, text } = scanSource(raw);
 
+    // THE TOKEN TEST READS THE CODE AND THE LITERALS, NOT THE COMMENTS. A
+    // character name in a JSDoc block explaining an invariant is
+    // documentation; a character name in an identifier or in a drawn string
+    // is the engine knowing about Consolation. The old version tested a
+    // source with comments stripped and literals left in, which is the same
+    // two halves -- said here explicitly because the scanner separates them.
+    const named = `${code}\n${literals.filter((one) => !one.developer)
+      .map((one) => one.text).join('\n')}`;
     for (const token of FICTION_TOKENS) {
       const pattern = new RegExp(`\\b${token}\\b`, 'i');
-      if (pattern.test(code)) {
+      if (pattern.test(named)) {
         report.fail(`${file}: names the fiction ("${token}") -- the engine must not know Consolation`);
       }
     }
 
     if (engineFiles.includes(file)) {
-      for (const literal of stringLiterals(code)) {
-        if (looksLikeProse(literal)) {
-          report.fail(`${file}: player-facing prose as a literal -- "${literal.slice(0, 48)}..."`);
+      for (const { text, developer } of literals) {
+        if (developer) continue;
+        if (looksLikeProse(text)) {
+          report.fail(`${file}: player-facing prose as a literal -- "${text.slice(0, 48)}..."`);
         }
       }
     }
 
-    if (/from\s+['"][^'"]*\/?content\/[^'"]*\.json['"]/.test(code)) {
+    if (/from\s+['"][^'"]*\/?content\/[^'"]*\.json['"]/.test(text)) {
       report.fail(`${file}: imports content JSON -- content must be loaded at runtime, not compiled in`);
     }
   }

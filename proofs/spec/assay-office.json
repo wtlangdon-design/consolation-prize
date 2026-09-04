@@ -1,0 +1,49 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5's PROOF SPEC. How to GET there and what its PRINCIPAL state change is; both are authorship, neither is guessed. The route walks the opening, crosses Main Street and takes its assay-office exit. The principal change is doc 05's queue bench: a hotspot that exists in acts 2-4 and not in Act I. It is the only authored Room 5 state variation (proofs/room-05/gate-matrix.md, part one), and it is set here through ACT -- errata 60's counter, declared for this pilot -- which is what the proof harness's flags control writes.",
+ "route": "assay-office",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "THE QUEUE BENCH, acts 2-4. docs/05-examine-layer.md::ROOM 5 \u2014 ASSAY OFFICE, FRONT#2 writes its LOOK for act 2-4 and nothing for Act I; docs/49 gives it USE and PUSH. Prerequisite: ACT >= 2, which the game sets at doc 48's S1 (not built). Visible consequence: the bench becomes a target -- its LOOK line, and Thad walks to it. The bench itself is plate in every act.",
+  "flags": {
+   "ACT": 2
+  },
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "LOOK_AT",
+    "why": "so the click examines rather than walks"
+   },
+   {
+    "do": "click",
+    "on": "queue_bench",
+    "why": "the bench, which is a target only at ACT 2-4. At ACT 1 this click is floor."
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 15,
+    "why": "he walks to the bench and its act 2-4 line goes up. If the bench is not a target at ACT 2 this times out and the proof fails, which is the assertion"
+   }
+  ]
+ },
+ "ambientContact": {
+  "winnie": {
+   "lowestDrawnRowWithin": [
+    392,
+    403
+   ],
+   "why": "her lowest drawn pixel is the bottom of a hand resting on the ledger (400 by measurement in art/staging/room-05/winnie-02-counter/frames.json); the page runs y378-408, and a bottom past 401 is a hand on the near edge, not on the page",
+   "props": [
+    {
+     "lowestDrawnRowWithin": [
+      399,
+      431
+     ],
+     "why": "the ink stand base sits on the counter surface between its back edge (y399) and its front edge (y431)"
+    }
+   ]
+  }
+ }
+}

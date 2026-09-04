@@ -22,8 +22,22 @@ import { Report, loadContent } from './lib/content.mjs';
 import { readPng } from './lib/png.mjs';
 
 export function check() {
-  const report = new Report('No sprite sheet is baked into a background plate');
+  const report = new Report('DIAGNOSTIC: sheets whose plates a person should look at');
   const content = loadContent();
+  // WHY THIS IS A DIAGNOSTIC AND NOT A CHECK, and it is the sharpest case of
+  // the three. Its only report.fail() fires when a file cannot be READ. The
+  // condition in its own title -- a sheet baked into a plate -- is reported as
+  // a NOTE, and it never compares plate pixels against sheet pixels at all.
+  //
+  // Proved by making the dog's declared sheet BE the Nugget's plate, which is
+  // the fault in its purest form: it passed. The six bar men that prompted it
+  // would not be caught by it today.
+  //
+  // Kept, because naming which sheets are multi-frame and which plates were
+  // built from them is exactly the list somebody wants before looking. Not
+  // counted, because it does not establish what it is named after. Closing
+  // the gap for real means searching each plate for the sheet's SECOND frame,
+  // which is a pixel search worth costing before it is written.
   let compared = 0;
 
   for (const { data: npc } of content.ambient ?? []) {

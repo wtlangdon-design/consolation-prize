@@ -288,7 +288,9 @@ Sharper than Q9, and the reason Q9 is blocking rather than tidy-up.
 
 **Not covered:** clip directories. The ActorFile schema cannot address `thad-recoil-left/` at all, which is Q14 and a schema question rather than a missing-file one.
 
-## Q16 · The panel layout is provisional and needs the font
+## Q16 · The panel layout is provisional and needs the font — **CLOSED, ERRATA 62**
+
+**Closed.** The font is ruled: the existing bitmap face ships at `PANEL_GLYPH_SCALE` 4. The panel rows in `content/ui/panel.json` were authored for a 28-unit glyph, which is that face at that scale, so they are no longer provisional — they are the layout.
 
 The play area migrated to errata 54 by multiplication — 1920 ÷ 320 = 6 and 864 ÷ 144 = 6, and all 140 rects across 17 rooms were integers inside the old frame, so every coordinate moved losslessly. **The panel could not.** 56 × 6 = 336 against errata 54's 216: the panel was re-proportioned, not scaled, which is how 1080 works at all — it is 5.4× of 200, and errata 54 resolves that by shrinking the panel rather than stretching it.
 
@@ -3137,3 +3139,503 @@ check. The first version of `check-cycling-lands` caught that as
 `catch { continue }` and reported "0 of 0 elements" and passed. The reader now
 handles colour type 2 and normalises to RGBA, and the check fails loudly when
 it cannot read its input.
+
+---
+
+## Q14 · MAIN STREET'S TWO OCCLUSION PLANES ARE UNREACHABLE, AND THE COMPILER PUTS THEM THAT WAY
+
+**Found by the four-panel room proof on its first run against Room 2.**
+
+`main-street.json` declares two occlusion planes, `level: 1` and `level: 2`,
+each with a mask on disk that boot loads. Every walk box in the room declares
+`clipPlane: 12`.
+
+`Renderer.masked()` resolves a plane by level —
+
+    const plane = planes.find((candidate) => candidate.level === level);
+
+— finds nothing for 12, and, with no state mask either, calls `draw()` straight
+through. **So no figure in Main Street is ever occluded by anything.** The
+lumber stack, the hitching rail and the water trough are all in front of Thad
+in the picture and behind him in the draw. Two mask PNGs load, cost memory, and
+occlude nobody.
+
+`clipPlane: 12` is written by `tools/compile-room.mjs`, hard-coded, so this is
+not a one-room mistake — it is what the compiler will emit into every room it
+builds next.
+
+**Nothing in the suite could see it.** `check-asset-paths` confirms the masks
+exist. `check-boot-assets` confirms they are loaded. `check-walk-boxes` checks
+routing and default verbs. The one thing nobody asked was whether the number on
+the box names a plane the room has, and the answer is only visible in a frame.
+
+### What the room's own notes already say, and why this is still a ruling
+
+The plane notes are explicit:
+
+> plane 1 — "The near corner alone — the lumber stack and the wagon wheel. An
+> actor in the near mud is masked by this and by nothing else"
+
+> plane 2 — "Plane 1 plus the hitching rail and the water trough… An actor in
+> the middle band or further is behind all of it."
+
+That reads as: **near mud → 1, everything further back → 2**, with the
+boardwalk lip's assignment the only genuinely open question. But which band is
+"the near mud" is a placement judgement about a picture, and doc 22 section 5's
+rule — an actor is masked by ITS OWN plane, not by a union — means getting it
+wrong puts a man in front of a trough he should be behind. **Not fixed here.**
+
+**And there is a second question underneath it.** `types.ts` still describes
+`clipPlane` as "carried now and read by nothing yet", which stopped being true
+when `masked()` was written. A field the schema calls unread and the renderer
+reads is a field two people will disagree about.
+
+---
+
+## Q15 · THE COMPILER AND THE ANNOTATOR ARE EACH HARD-WIRED TO ONE ROOM
+
+Doc 46 part four's eight-step table is the factory. Steps 3 and 4 are the
+compiler and the annotator, and neither can be pointed at a fourth room.
+
+**The compiler**, `tools/compile-room.mjs`, in two places:
+
+    const ROOM_FILE = { 2: 'main-street', 3: 'nugget' }[room];
+    const annPath = `reference/room-0${room}/annotation.json`;
+
+The first is a two-entry table; the second cannot express a room number above
+nine.
+
+**The annotator**, `tools/annotate/room.html`, is Room 2 throughout: the
+`<title>`, the `<h1>`, the plate `src`, the note about the plate being
+3700×864, and the entire `ITEMS` array — fifteen literal hotspot and exit
+records — are written into the page.
+
+Neither is hard to generalise and neither is generalised, and doc 46 part four
+puts Tyler in the annotator for fifteen minutes per room. **For any room but
+the second there is no annotator to be in**, and every rect, the walk box, both
+depth samples and the arrival point come from it. This is the narrowest gate on
+building a fourth room.
+
+---
+
+## Q16 · `check-item-names` MEASURES AGAINST A 320px LINE AND A VOID FONT — **FIXED**
+
+**Fixed under errata 62.** The face is not void, and the measurement was wrong in three independent ways at once — a 320-space width, a 1920-space inset subtracted from it, and an unscaled glyph measurement — which is why it never failed. It now composes `ui.sentence.itemTemplate` with the longest verb label and the longest target name, measures at `PANEL_GLYPH_SCALE`, and compares against the sentence line's real 1848 screen units. Worst case in the build: 1296 of 1848, **70%**. Two negative witnesses fire: an over-long label, and a drift between the constant here and the engine's.
+
+    const room = 320 - panel.sentence.x * 2;
+
+**320 is the pre-errata-54 native width**, and the font it measures with is
+`art/ui/font-5x7.json`, which errata 54 voids and forbids replacing without a
+ruling. The check reports "the sentence line holds 248px, about 41 glyphs" —
+a true statement about a presentation the project no longer has.
+
+**Deliberately not changed.** Widening it to 1920 makes it pass on every
+conceivable label, which is a vacuous assertion bought with a one-line edit and
+is worse than an assertion that is honestly measuring the wrong thing. It is
+blocked on the font ruling, and the note is here so the number is not mistaken
+for a live constraint.
+
+---
+
+## Q17 · SEVEN SHIPPING PLATES CANNOT BE READ BY ANY TOOL IN THIS REPOSITORY
+
+Recorded as a measurement rather than a new finding — Q17 above lists the
+320-native assets — because the number is now exact and the consequence is
+sharper than "still native".
+
+`tools/lib/png.mjs` handles colour types 2 and 6 and refuses type 3, correctly:
+an indexed PNG needs its palette and a reader that guessed would mis-decode
+silently. Seven of the eleven files in `art/backgrounds/` are colour type 3 at
+320×144:
+
+    room-05-assay-office   room-13-undertakers   room-18-hotel-lobby
+    room-19-thads-room     room-29-high-ridge    room-36-main-street-dawn
+    title-screen
+
+**So every pixel check in the project is blind to them.** `check-cycling-lands`
+would fail loudly on one now; the art gates report `UNREADABLE`. That is the
+right behaviour and it means the four rooms behind those plates cannot be
+proven until the plates are regenerated at errata 54's presentation.
+
+---
+
+## Q18 · THE IMAGE API PATH HAS NEVER BEEN CALLED — **CALLED, AND IT WORKS**
+
+**Closed by `node tools/art/smoke.mjs` against the live API.** `gpt-image-2`
+answered both operations. What Q18 named as unproven — the request shape, the
+response shape, and whether the model returns an image at the size asked for —
+is now proven, and the ledger holds the evidence rather than this paragraph:
+
+| | |
+|---|---|
+| generate | 1024×1024 RGB, 826,382 bytes, 231 billed tokens, gates PASS |
+| edit | 1024×1024 RGB from `art/backgrounds/room-01-stage-road.png`, 1,195,960 bytes, 3,286 billed tokens, gates PASS |
+| promotion | **refused** — `smoke-test-card attempt 1 is not visually accepted` |
+| the reference plate | `3e4582227ac8` before, `3e4582227ac8` after |
+
+Every number above is a row in `art/staging/ledger.json`, which is the record;
+this table is a pointer to it.
+
+### THE FIRST RUN FAILED, AND IT FAILED BY LYING ABOUT WHY
+
+Worth more than the success. The adapter reported:
+
+> `api.openai.com is not in this environment's network egress allowlist, so no
+> request left the machine.`
+
+**Every word of which was wrong.** `curl https://api.openai.com/v1/models`
+returned **401** from the same container at the same moment — the API
+answering, which is a host that is plainly reachable. Node's built-in `fetch`
+does not read `HTTPS_PROXY`; `/root/.ccr/README.md` says so in as many words
+and names the fix (`NODE_USE_ENV_PROXY=1`, Node ≥ 22.21). The request never
+reached the proxy's forward path, the proxy refused the direct connect with a
+403, and the adapter had exactly one branch for a 403 and it named the wrong
+cause.
+
+The failure classes were required to stay distinct precisely so this could not
+happen, and one of them had been written to swallow four others. `post()` now
+separates them, and the proxy-bypass case is diagnosed by asking whether this
+process is proxied at all rather than by reading the status:
+
+| status | class |
+|---|---|
+| 403 + egress text, **process bypassed the proxy** | the client's fault, not the network's — re-exec under `NODE_USE_ENV_PROXY=1` |
+| 403 + egress text, proxied | genuinely not in the allowlist; nothing left the machine |
+| 401 | credential — not network, not request |
+| 429 / 402 / other 403 | billing, rate limit or model access |
+| other 4xx | the adapter built a bad request |
+
+`smoke.mjs` re-execs itself under the flag when a proxy is configured, so the
+first symptom of this class is now a working run rather than a wrong sentence.
+
+**A diagnostic that names the wrong cause is worse than one that says nothing**,
+because it is acted on. This one would have sent somebody to ask for an
+allowlist entry that already existed.
+
+### THE CAP WAS PROVEN BY REACHING IT, NOT BY READING IT
+
+Four attempts against a per-asset cap of six is a cap that has not been
+exercised. Lowering `attemptsPerAsset` to 4 — a count already reached — and
+re-running gave the negative witness: exit 1, the refusal named the asset and
+the cap, **and the ledger gained no row**, because the budget is read before
+the call and not after it. `caps.json` was restored byte-identical afterwards.
+
+### WHAT IS STILL UNPROVEN
+
+- **Nothing has been promoted, and nothing should be.** `visual_accepted` is
+  Tyler's field. The smoke test's own third step is the promotion refusal.
+- **No plate-sized generation.** Both calls were 1024×1024, which is what the
+  API offers; a 1920×864 room plate is not a size the model returns, so how a
+  generated plate reaches its shipping dimensions is unruled and is not this
+  issue.
+- **Gates 1–6 passed on a flat grey test card**, which is a weak subject by
+  design. Calibration against real art is `proofs/calibration/gate-calibration.md`.
+
+---
+
+## Q19b · A HELD BEAT WAS REPORTED AS A PLAYING BEAT — **FIXED**
+
+`CarriedBeats.current` returned `beats[at]` whether or not the beat had begun.
+Doc 17 beat 9 declares `awaitFlag: T_HOB_SPOKEN` — Q63, ruled: Hob stands at
+the roadside with his lamp until somebody addresses him — so the probe reported
+"beat 9" for a beat that was armed, holding, and had dispatched nothing.
+
+Doc 44 defines the reported beat as "the beat of the last step dispatched". A
+held beat has dispatched none, and reporting it makes a correct wait
+indistinguishable from a hang: a route sat out a ninety-second deadline against
+a game doing exactly what Q63 says it should.
+
+`current` is null while held, and `waiting` sits beside it, so "no beat is
+playing" and "a beat is waiting for the player" are separable facts. The probe
+carries both.
+
+
+---
+
+## Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS
+
+**Q14 is ruled and fixed; this is what was underneath it.**
+
+The clip planes are right now — Tyler ruled boardwalk, mud_far and mud_mid to
+plane 2 and mud_near to plane 1, the annotation authors them per band and the
+compiler carries them through. What the planes point at is stale.
+
+**Measured.** Both masks are 320×144 — errata 54's voided presentation, Q17 —
+and `Renderer.masked` stretches a mask to the room's 3700×864 at draw time,
+which is a defined behaviour and is not the same as authoring one at room
+resolution. Stretched:
+
+| Plane | What its mask draws | What the plate has there |
+|---|---|---|
+| 1 | a wagon wheel, eight spokes, and a slab beside it, across x0–940 of the near mud | open mud |
+| 2 | plane 1, plus a hitching rail — two posts and a crossbar — at x1110–1640, and a plain rectangle at x2480–2930 | open mud, and no rail anywhere on the street |
+
+Neither touches the water trough at x1862–2017 y543–605, which plane 2's own
+note says it contains. They were authored against an earlier and narrower
+Main Street.
+
+**Both are marked `maskPending`.** The renderer skips a pending plane and
+draws through — which is what the room did anyway while every box named a
+plane that did not exist, so nothing regresses. Activating a stale mask would
+be worse than the inert state it replaces: a man in mid-street would be erased
+from the knees down by a rail that is not drawn.
+
+### The part worth keeping is how it was nearly missed
+
+The first reading of the overlay recorded plane 1 as CORRECT, on the grounds
+that it "traces the wagon wheel's spokes exactly". It traces its own. **A mask
+rendered over a background produces a highlighted shape whether or not there
+is a shape underneath**, and the only thing that settles it is turning the
+mask off — which is what panel C of the room proof does: a man standing in the
+middle of that wheel, drawn whole, with nothing to be behind.
+
+`check-occlusion`'s geometric overlap test passes both masks comfortably, at
+31% and 12% of the drawn figure. That is the whole limit of what a machine can
+say here, it is stated in the check's own header, and it is doc 44's first
+honesty in miniature.
+
+**What it needs:** both masks regenerated at 3700×864 against the current
+plate, from the objects that are actually in it. That is art, and Tyler's.
+
+---
+
+## Q21 · FOUR CANDIDATE FACES ARE RENDERED IN THE LIVE UI, AND THE CHOICE IS UNMADE — **CHOICE MADE: NONE OF THEM**
+
+**Closed by errata 62.** The existing bitmap face is retained. The four candidates, the sheets and `PreviewFont` are retained as diagnostics and are not a shipping path. See `docs/51-font-decision-sheet.md`, whose banner records the ruling.
+
+Q16 stands. Errata 54 voided the 5×7 and forbids anyone but Tyler choosing
+what replaces it; nothing here chooses.
+
+What exists now is the thing the ruling needs: `tools/font/compare.mjs` drives
+the real game to two UI states — a dialogue frame and a play frame — in each
+candidate and in the current bitmap face, and writes full-frame sheets.
+`docs/51-font-decision-sheet.md` is the sheet.
+
+**Two sizes, because they are not the same question.** The 5×7 packs caps,
+x-height and descenders into seven rows; a real face spends a third of its em
+below the baseline. So a candidate given the bitmap's line budget reads
+visibly smaller than the control, and one given the bitmap's cap height eats
+more of a panel that Q35 already measured at 210 of its 216 rows. Both are
+rendered.
+
+**Glyph coverage is settled and is not the decision.**
+`tools/font/check-candidates.mjs` reads each face's cmap directly — asked of
+the font file, never of a canvas, because a browser substitutes a missing
+glyph silently and `fillText` always draws something. All four cover the 78
+characters the current content draws, including the seven CLAUDE.md names:
+`' ' " " — – …`
+
+
+---
+
+## Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST — **CLOSED**
+
+**Winnie has no approved visual reference anywhere in the repository.**
+`reference/casting/` holds the coach, the driver and Hob, and nothing else.
+
+She is not a background figure. Doc 25 gives Room 5 four newly written
+examine subjects and one of them is **HER PEN**; doc 14's exit note calls the
+oiled, self-latching door "Winnie's character in two lines"; doc 01 makes her
+the keeper of the second ledger, which is the fact the game turns on. The
+assay office is her room in the sense that matters — its tidiness is a
+description of a person the player has not met yet.
+
+**So slot E of the global visual baseline is unsatisfied for Room 5**, and
+`tools/art/baseline.mjs` refuses a room-art call on that basis. That refusal
+is the point: with no approved Winnie in front of the model, a generation of
+the assay office containing a figure produces **a Winnie the model invented**,
+and inventing a character's appearance is inventing content.
+
+**This is a casting decision and it is Tyler's.** Composition-master order
+applies when it is made — one canonical design first, poses derived from it,
+never separate fresh generations of the same person.
+
+**It does not block a plate with no figure in it.** If Room 5's first
+generation is the empty room, E is not applicable to that call and the
+baseline entry should say so rather than being waived silently.
+
+**CLOSED 2026-09-04:** Tyler's visual ruling accepts Winnie's canonical design, her
+behind-counter presentation and her relights (staging ledger, winnie attempt 3,
+`visual_accepted: true`). Slot E is satisfied by an approved reference.
+
+**Status after the Room 5 pilot (kept for the record):** a CANDIDATE Winnie exists —
+`art/staging/room-05/composition-master-02.png` (design) and
+`art/staging/room-05/winnie-02/` (sheet), generated with the Room 1 casting
+master transmitted first and recorded in `art/staging/ledger.json`. It is not
+approved. This stays open until Tyler accepts or rejects her at the visual
+gate; it is that gate under another name, not a content gap.
+
+---
+
+## Q23 · ROOM 5 HAS NO ANNOTATION, AND THAT IS NOT A CONTENT PROBLEM
+
+Recorded separately from Q22 because conflating them would hide both.
+
+`reference/room-05/` does not exist. There is no annotation, so there are no
+walk boxes, no scale curve, no entrance, no exits geometry, no occlusion
+planes and no proof points — and `tools/compile-room.mjs` refuses rather than
+guessing, which is correct behaviour and the reason it was generalised.
+
+**Missing geometry is not permission to infer geometry.** Room 1's walkable
+band was measured against its approved plate and Room 2's clip planes were
+authored by Tyler one box at a time, because both are readings of a PICTURE.
+Room 5's picture does not exist yet: the shipping plate is the obsolete
+320 × 144 indexed legacy art. Geometry cannot precede the plate it describes.
+
+**Order, therefore:** plate → annotation → compile → proof. The readiness gate
+reports content and geometry separately so that this can be seen rather than
+averaged.
+
+**Status 2026-09-04:** the plate and the geometry are Tyler-accepted (visual ruling); what
+keeps this open is promotion — the shipping path still holds the legacy plate
+until the manual playthrough and the logged promotion step.
+
+**Status after the Room 5 pilot:** that order was followed.
+`reference/room-05/annotation.json` exists and is bound by hash to the
+candidate plate `art/staging/room-05/plate-02/`; the room compiles and both
+proofs pass with the candidate loaded live. The shipping plate at
+`art/backgrounds/room-05-assay-office.png` is still the legacy 320×144 indexed
+art, so `GEOMETRY READY` stays NO until the candidate is promoted — which is
+Tyler's visual gate, not geometry work.
+
+---
+
+## Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN — **RULED**
+
+Found by compiling Room 5 from its documents. Two kinds of gap, both reported by
+the compiler on every run and neither invented around.
+
+**Unhoused refusals.** `docs/49-wrong-answers.md::ROOM 5 — ASSAY OFFICE, FRONT`
+writes OPEN and CLOSE for **THE WINDOW (AJAR)** and PULL for **THE BRASS
+PLAQUE**. Neither subject has a LOOK or a LISTEN anywhere — not in doc 05's
+Room 5 section, not in doc 25 — so neither can be a hotspot without inventing
+its examine lines. The three refusals are carried nowhere; the annotation
+declares them `unhoused` under this heading and the compiler prints them by
+name. **Decision needed:** write LOOK/LISTEN for both, or fold the window's
+lines into THE WINDOW SIGN and strike the plaque's.
+
+**The queue bench.** Doc 05's act-variant block
+(`docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2`) writes THE QUEUE
+BENCH a LOOK for acts 2–4 and nothing else; doc 49 gives it USE and PUSH in Act
+I voice ("I have been all nine, on different days"). **No LISTEN and no repeat
+variants exist for it anywhere.** It compiles as an act 2–4 hotspot and three
+validators say so: `check-examine-lines` (no LISTEN), `check-written-content`
+(one LOOK variant; LISTEN unhandled, no pool) and `check-flag-order` (its ACT
+gate has no writer until doc 48's S1 is built). The first two are a one-line
+creative gap and are Tyler's; the third is the same debt Main Street's Panel D
+carries, now visible as a red check rather than a failed panel because the
+bench is gated by errata 60's counter rather than by a cutscene.
+
+**None of the three checks was weakened, excluded or disabled.** The room is
+otherwise candidate-complete around them.
+
+### Owner rulings, 2026-09-04 (Tyler), applied at the pilot's head `500f15a`
+
+1. **THE QUEUE BENCH remains a hotspot.** It is an intentional Act 2–4 Room 5
+   state variation. Its LISTEN now lives beside its LOOK in the act block
+   (`docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2`) and its LOOK 2–3
+   and LISTEN 2–3 in doc 25's repeat block
+   (`docs/25-rooms-05-07.md::Repeat variants for doc 05's five`). Doc 49's USE
+   and PUSH stand. All six lines reach `content/rooms/assay-office.json` by
+   the normal compiler path; nothing generated was hand-edited.
+2. **THE WINDOW (AJAR) and THE BRASS PLAQUE are not Room 5 hotspot subjects.**
+   The wrong-answer layer does not create hotspots to house orphan responses.
+   Their three refusals (WINDOW CLOSE, WINDOW OPEN, PLAQUE PULL) are struck
+   from `docs/49-wrong-answers.md::ROOM 5 — ASSAY OFFICE, FRONT`. No LOOK or
+   LISTEN was written for either; the window's lines were **not** moved onto
+   THE WINDOW SIGN (opening a sign is semantically wrong) and the plaque's
+   line was **not** moved onto another hotspot. The annotation's `unhoused`
+   block is gone because nothing is unhoused.
+3. **ACT and `T_RACCOON_NAMED` are out of scope here.** The global ACT
+   progression writer (doc 48 S1) and the raccoon-naming writer are unbuilt
+   content belonging to other rooms. `check-flag-order` stays red on those two
+   gates and was not weakened, excluded or falsified; the bench's own ACT gate
+   stands as authored, its pre/post behaviour proven by the pilot harness.
+
+After the rulings: `check-examine-lines` and `check-written-content` pass;
+`check-flag-order` is the one red in the suite and it is not Room 5's.
+
+---
+
+## Q25 · THREE ENGINE FAULTS THE ROOM 5 LIFE PROOF FOUND — **FIXED**
+
+All three are shared behaviour and were found by driving Room 5 for a minute
+with the probe on. None is Room 5's; each would have bitten the next room.
+
+1. **A verb stayed selected through a conversation.** TALK TO on an ambient
+   opened the tree without resetting the verb — every other path resets in
+   `GameState.interact` — so the first click after talking to Winnie was
+   "talk to the back-room door" and the exit never transited. Reset when the
+   conversation is queued (`GameScene`, errata 28b).
+2. **An NPC's hit box swallowed a hotspot beside her.** The click handler
+   tested the ambient box before hotspots, and Winnie's 445-row box covered
+   HER PEN's stand at her right hand, so PICK UP reached the people pool and
+   the authored refusal never played. A hotspot rect under the click now wins
+   for every verb but TALK TO.
+3. **Verb lines were spoken with no speaker.** `setSay(result.say)` left the
+   speaker null; the renderer's fallback ink hid it, and the probe reported
+   the last speaker it had seen, so an override of Winnie's read as the stage
+   driver's. Verb lines are Thad's and now say so.
+
+Plus a measurement the life proof made possible: in a room with no handover,
+`control` is never `player`, so a route cannot wait on it; the route vocabulary
+gained `waitFor { says }` to land a capture inside a reading hold instead.
+
+---
+
+## Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT
+
+Opened by `docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS`,
+on the audit in `proofs/room-05/time-of-day-audit.md`.
+
+**The night state.** Room 5's only candidate plate is daylight (now classified
+ROOM 5 — DAY VISUAL CANDIDATE, kept, not rejected). The Act I route is Room 1
+night → Main Street night → Room 5 night, so the room cannot be promoted for
+Act I play until a night plate/state exists, derived from the same accepted
+composition and geometry (errata 64c). It is not made until Tyler has reviewed
+the day candidate's composition, style, scale and Winnie. Selection mechanism
+per errata 64d: check the existing conditional architecture first; a room file
+today carries one `background`, and nothing gates a plate on a flag.
+
+**The night state exists (2026-09-04, the final pilot image operation):**
+`art/staging/room-05/plate-03-night/candidate-1920x864.png` (72124eb6f213),
+an edit of the DAY source with lighting only — every annotated rect
+phase-correlates at (0,0) against the day candidate — plus Winnie's sheet and
+the ink stand relit with identical alpha. Proved live through the candidate
+override (`renders/proofs/assay-office-night/`). It is a CANDIDATE awaiting
+Tyler's review. **What stays open here is the selection mechanism** (errata
+64d): a room file carries one `background`; nothing gates a plate on a flag;
+the night files are named by no content record. Since the hanging work lamp
+(Tyler's post-pilot revision, `art/staging/room-05/LAMP.md`) a room lamp can
+carry an `amountByState`, and the proofs select the state with the dev-only
+`?state=night` (`engine/dev/RoomState.ts`) exactly as they select a candidate
+plate. That is the seam the mechanism plugs into; it is not the mechanism.
+
+**2026-09-04, visual ruling:** Tyler accepts the night candidate as lifted, the lamp and
+its task light. Still open here: the selection mechanism, and promotion after
+the manual playthrough.
+
+**Two authored lines still say daylight** about Main Street from inside its
+neighbours, and they are Tyler's to reword, as the mud line was:
+
+1. `docs/16-room-03-content.md::THE FRONT DOORS → Room 2` — LOOK 2 *"Daylight
+   past them. It is always a surprise."*
+2. `docs/26-batch-a.md` — the hotel's STREET DOOR LOOK 3 *"Daylight, past it.
+   It is always brighter than I remember."*
+
+**Both RESOLVED by Tyler's wording, 2026-09-04:** LOOK 2 now reads *"The street
+past them. It is always a surprise."* and LOOK 3 *"The street, past it. It is
+always brighter than I remember."* — deliberately time-neutral rather than
+"night", because the same reusable variants may be met under later daylight
+states. Room 18's line reached `content/rooms/hotel-lobby.json` by the
+normal path (the extractor). **Room 3's did not:** `content/rooms/nugget.json`
+has no live writer — `node tools/compile-room.mjs 3` refuses on a pre-existing
+doc 16 / doc 05 naming mismatch ("PIANO", "BAR", … which doc 05 does not name;
+it refused identically before this change) and the extractor does not own the
+Nugget's exits — so `nugget.json` still carries the old LOOK 2 and is not
+hand-edited, per CLAUDE.md. It is stale on that one line until Room 3's
+compiler path is made to agree with doc 16's headings, and the extractor's
+staleness check does not cover it. Reported, not patched around. Nothing else in canon now
+states a daytime base street: doc 13 is corrected, errata 43 and the two "only night
+exterior" lines carry pointers to errata 64, and doc 12's "warm low sun" sits
+in a document already superseded as final spec.

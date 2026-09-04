@@ -1,0 +1,442 @@
+{
+ "schema": 1,
+ "note": "A FOUR-PANEL FULL-FRAME LIVE-RUNTIME PROOF. Technical admissibility only: nothing here says the art is good, in style, funny or approved. Only Tyler sets visual_accepted.",
+ "room": "stage_road",
+ "roomWidth": 1920,
+ "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+ "commit": "a87ad4c4f016f4f48e59084ac927a8fc79ac6dec",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
+ "candidates": [],
+ "route": "stage-road",
+ "routeLog": [
+  "action 1 (wait): waited 2.5s",
+  "action 2 (click): clicked screen 960,430 -- past the title into beat 2",
+  "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?",
+  "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 6 (option): chose option drv2 -- Where am I supposed to sleep?",
+  "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so the exit opens",
+  "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road",
+  "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED",
+  "action 11 (waitFor): reached {\"control\":\"player\"} in room stage_road",
+  "action 12 (waitFor): reached {\"handedOver\":true} in room stage_road",
+  "action 1 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it",
+  "action 2 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase, which the west exit will not open without",
+  "action 3 (wait): waited 6s"
+ ],
+ "depthMarks": [
+  {
+   "mark": {
+    "box": "road_open",
+    "kind": "far",
+    "y": 701,
+    "xs": [
+     943,
+     771,
+     1114,
+     599,
+     1286,
+     428,
+     1457,
+     256,
+     1629
+    ],
+    "expect": 224,
+    "x": 943
+   },
+   "at": [
+    943,
+    701
+   ],
+   "reportedHeight": 224,
+   "expected": 224,
+   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-08.png",
+   "bounds": [
+    826,
+    477,
+    233,
+    247
+   ],
+   "order": 0,
+   "renderedHeight": 224,
+   "renderedBottom": 700,
+   "file": "raw-captures-ignored/panel-c-road_open-far.png"
+  },
+  {
+   "mark": {
+    "box": "road_open",
+    "kind": "near",
+    "y": 862,
+    "xs": [
+     943,
+     771,
+     1114,
+     599,
+     1286,
+     428,
+     1457,
+     256,
+     1629
+    ],
+    "expect": 263,
+    "x": 943
+   },
+   "at": [
+    943,
+    862
+   ],
+   "reportedHeight": 263,
+   "expected": 263,
+   "drawnFrom": "art/actors/thad-idle-left/idle-04.png",
+   "bounds": [
+    806,
+    599,
+    274,
+    290
+   ],
+   "order": 2,
+   "renderedHeight": 263,
+   "renderedBottom": 861,
+   "file": "raw-captures-ignored/panel-c-road_open-near.png"
+  }
+ ],
+ "occlusion": [],
+ "ambientFigures": [],
+ "panels": [
+  {
+   "panel": "B",
+   "room": "stage_road",
+   "clock": 49.7444,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_OPENING_DONE",
+    "T_CASE_DOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "inventory": [],
+   "movers": {
+    "thad": {
+     "at": [
+      1420,
+      830
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 263,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-03.png",
+     "bounds": [
+      1283,
+      567,
+      274,
+      290
+     ],
+     "order": 2,
+     "clipLevel": 0,
+     "fallback": false
+    },
+    "hob": {
+     "at": [
+      600,
+      720
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 230,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/hob-idle-right/idle-03.png",
+     "bounds": [
+      503,
+      490,
+      194,
+      241
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    },
+    "coach": {
+     "at": [
+      3000,
+      742
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 389,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/coach-idle-right/idle-15.png",
+     "bounds": [
+      2509,
+      353,
+      982,
+      389
+     ],
+     "order": 1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:stage_road",
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "drawn": "art/backgrounds/room-01-stage-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [],
+   "capturedAt": "2026-09-04T17:52:23.404Z",
+   "intent": "normal populated state",
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "af396bc858868f6f2ff8e7ec1174df08fdedc36f2703311385e319be2d14add2"
+  },
+  {
+   "panel": "A",
+   "room": "stage_road",
+   "clock": 50.7943,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_OPENING_DONE",
+    "T_CASE_DOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "inventory": [],
+   "movers": {
+    "thad": {
+     "at": [
+      1420,
+      830
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 263,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    },
+    "hob": {
+     "at": [
+      600,
+      720
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 230,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    },
+    "coach": {
+     "at": [
+      3000,
+      742
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 389,
+     "moving": false,
+     "drawn": "sprite",
+     "from": null,
+     "bounds": null,
+     "order": -1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:stage_road",
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "drawn": "art/backgrounds/room-01-stage-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)"
+   ],
+   "capturedAt": "2026-09-04T17:52:24.581Z",
+   "intent": "base state, cast suppressed",
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "30c1ef9511d222b1c7b75bb0a21ad52984cf560d4a3360e56cda17c7d7bae13f"
+  },
+  {
+   "panel": "D",
+   "room": "stage_road",
+   "clock": 64.1438,
+   "beat": null,
+   "control": null,
+   "camera": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_OPENING_DONE",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars"
+   ],
+   "movers": {
+    "thad": {
+     "at": [
+      1160,
+      838
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 263,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-00.png",
+     "bounds": [
+      1023,
+      575,
+      274,
+      290
+     ],
+     "order": 2,
+     "clipLevel": 0,
+     "fallback": false
+    },
+    "hob": {
+     "at": [
+      600,
+      720
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 230,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/hob-idle-right/idle-00.png",
+     "bounds": [
+      503,
+      490,
+      194,
+      241
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    },
+    "coach": {
+     "at": [
+      3000,
+      742
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 389,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/coach-idlebreak-right/idle-break-10.png",
+     "bounds": [
+      2509,
+      353,
+      982,
+      389
+     ],
+     "order": 1,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "says": null,
+   "options": 0,
+   "assets": [
+    {
+     "key": "bg:stage_road",
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "drawn": "art/backgrounds/room-01-stage-road.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": [],
+   "controlWrites": [
+    "cast(false)",
+    "cast(true)",
+    "stand(943,701)",
+    "cast(false)",
+    "cast(true)",
+    "stand(943,862)",
+    "cast(false)",
+    "cast(true)"
+   ],
+   "capturedAt": "2026-09-04T17:52:37.775Z",
+   "intent": "principal changed state: THE CASE COMES OUT OF THE MUD. Doc 17 makes picking it up the game's first PICK UP, and it is the only change to Room 1 still available once the opening has handed over -- the coach has already departed by then, which is what the first version of this spec got wrong: it declared T_COACH_DEPARTED and the route had set it four actions earlier, so panel D was panel B with a different filename.\n\nIt is an ACTION rather than a flag because that is what it is. `case_mud`'s PICK UP carries `take: true`, and GameState.targets filters out anything the actor owns -- doc 22 item 9, taking something is an ownership change -- so the hotspot is simply gone afterwards. The panel shows a road with no case in it, which is the state the rest of Act I is played in.",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "b0e9561e4a244ee75653118b8db01cae05e59dcfae89e7a66f648b9a4de35082",
+   "changedBy": "flags, inventory"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "visual_accepted": false,
+ "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
+ "at": "2026-09-04T17:52:37.776Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 419790,
+  "panels": 5,
+  "scale": 0.5
+ }
+}

@@ -5,6 +5,24 @@ import { assertRequiredClip } from '../core/Assertions.ts';
 export type SheetSource = (path: string) => CanvasImageSource | null;
 
 /**
+ * WHAT `draw` PUT ON THE SCREEN: the file it took and the rectangle it landed
+ * in, in the same coordinate space the caller handed it.
+ *
+ * The file path is gate 7's whole subject -- a proof that says a character is
+ * on screen and cannot say which asset drew him cannot tell a stale sheet from
+ * a current one. The rectangle is gate 8B's: the sprite's bounds as the
+ * renderer computed them, rather than as a second copy of the projection
+ * arithmetic would recompute them.
+ */
+export interface DrawnFrame {
+  path: string;
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+/**
  * Where a point on the padded canvas lands on screen, once the figure is drawn
  * with its soles on (feetX, feetY) at `drawn` pixels.
  *
@@ -182,10 +200,18 @@ export class ActorSprite {
   /**
    * Draws the figure with its soles on (feetX, feetY) at a drawn height.
    *
-   * Returns false if the frame has not loaded or the clip is not declared, so
+   * Returns null if the frame has not loaded or the clip is not declared, so
    * the caller can fall back to a graybox rather than leave a hole where a
    * character should be. That is a fallback to a VISIBLE PLACEHOLDER, which
    * is the opposite of substituting a clip nobody asked for.
+   *
+   * IT RETURNS THE DRAW RATHER THAN A BOOLEAN, and the difference is the whole
+   * of gate 7 and gate 8B. A boolean says a figure was drawn; it cannot say
+   * WHICH FILE was drawn or WHERE the rectangle landed, and both of those are
+   * things a proof has to establish rather than infer. Inferring them means
+   * recomputing `projectOnCanvas` outside this file and comparing the answer
+   * with itself, which is R5i. The truthiness is unchanged, so every existing
+   * caller reads the same as it did.
    */
   draw(
     context: CanvasRenderingContext2D,
@@ -197,21 +223,21 @@ export class ActorSprite {
     feetY: number,
     height: number,
     state?: string,
-  ): boolean {
+  ): DrawnFrame | null {
     const found = this.clipOf(clip, facing, surface, state);
-    if (!found) return false;
+    if (!found) return null;
     const count = found.frames.length;
-    if (count === 0) return false;
+    if (count === 0) return null;
     const index = ((frame % count) + count) % count;
     const path = found.frames[index] as string;
     const image = this.sheets(path);
-    if (!image) return false;
+    if (!image) return null;
 
     // Scale is taken against the FIGURE, not the canvas: the canvas is padded
     // and scaling to it would draw him short by the padding's share.
     const scale = height / found.figureHeight;
     const source = sizeOf(image);
-    if (!source) return false;
+    if (!source) return null;
     const drawnW = Math.max(1, Math.round(source.width * scale));
     const drawnH = Math.max(1, Math.round(source.height * scale));
 
@@ -225,21 +251,22 @@ export class ActorSprite {
     const destX = dest.x;
     const destY = dest.y;
 
+    const landed = { path, x: destX, y: destY, width: drawnW, height: drawnH };
     if (drawnW === source.width && drawnH === source.height) {
       context.drawImage(image, destX, destY);
-      return true;
+      return landed;
     }
 
     const key = `${path}:${drawnW}x${drawnH}`;
     let scaled = this.cache.get(key);
     if (!scaled) {
       const made = this.resample(image, source.width, source.height, drawnW, drawnH);
-      if (!made) return false;
+      if (!made) return null;
       scaled = made;
       this.cache.set(key, scaled);
     }
     context.drawImage(scaled, destX, destY);
-    return true;
+    return landed;
   }
 
   /**

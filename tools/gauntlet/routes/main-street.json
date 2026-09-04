@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "main_street",
- "note": "A ROUTE, not a script. The gauntlet's scripts assert what a sequence does; this only gets somewhere, so that tools/gauntlet/contact-sheet.mjs can photograph a room the game does not hand you on boot. Every room past the first is behind the opening, and the opening is behind three questions and a suitcase.\n\nWritten in the gauntlet's own vocabulary -- wait, click on a target id, option by row -- so a coordinate is never restated beside the thing it describes (R5k). `on` resolves against the room the action happens in.\n\nWAITS ARE CONDITIONS, NOT DURATIONS. The first draft was timed in seconds and was stale before it ran twice: the reading-hold retune lengthened the opening by a fifth, the driver\u2019s tree opened at 26s where the route expected 16, and every action after it missed. A route in seconds records how long the game took on the afternoon it was written.",
+ "note": "A ROUTE, not a script. The gauntlet's scripts assert what a sequence does; this only gets somewhere, so that tools/gauntlet/contact-sheet.mjs can photograph a room the game does not hand you on boot. Every room past the first is behind the opening, and the opening is behind three questions and a suitcase.\n\nWritten in the gauntlet's own vocabulary -- wait, click on a target id, option by row -- so a coordinate is never restated beside the thing it describes (R5k). `on` resolves against the room the action happens in.\n\nWAITS ARE CONDITIONS, NOT DURATIONS. The first draft was timed in seconds and was stale before it ran twice: the reading-hold retune lengthened the opening by a fifth, the driver’s tree opened at 26s where the route expected 16, and every action after it missed. A route in seconds records how long the game took on the afternoon it was written.\n\nRUN FOR THE FIRST TIME BY tools/gauntlet/proof.mjs, and it failed: see the T_HOB_GONE wait below. This file was authored, complete and correct-looking, and nothing in the repository could execute it -- R5l, a fully specified thing with no reader. The reader found it wrong within one run.\n\nAND IT WAS MISSING A WHOLE MOVE, not just a wait. Q63 ruled that Hob stands at the roadside until he is spoken to; the route was written before that and clicked straight past him. Both corrections came from one execution of a file that had never been executed.\n\nAND A THIRD CORRECTION, from watching the probe rather than guessing: waiting on `control: player` fires DURING the driver's tree, because that tree is a player segment. The route was clicking the lamp into a performing exchange.",
  "from": "stage_road",
  "actions": [
   {
@@ -60,9 +60,25 @@
   },
   {
    "do": "waitFor",
-   "control": "player",
-   "upTo": 45,
-   "why": "the coach pulls out and Hob crosses"
+   "upTo": 90,
+   "why": "HANDED OVER, NOT `control: player`, AND THE DIFFERENCE COST A DIAGNOSIS. `control` reports the OPENING SEGMENT's kind, and the driver's tree is itself a player segment -- so this fired while the exchange was still performing, the lamp click below was eaten by the utterance, and the route then waited for a flag that the click it had already spent was the only thing that would write. `handedOver` is the opening runner being finished, which is what 'the road is Thad's' actually means.",
+   "handedOver": true
+  },
+  {
+   "do": "click",
+   "on": "lamp",
+   "why": "SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "do": "wait",
+   "seconds": 3,
+   "why": "his three lines, and then he walks off frame right"
+  },
+  {
+   "do": "waitFor",
+   "flag": "T_HOB_GONE",
+   "upTo": 90,
+   "why": "THE ROUTE HAD NEVER BEEN RUN AND THIS IS WHY IT DID NOT WORK. `road_west` is gated on T_HOB_GONE AND T_CASE_TAKEN; beat 10 writes the first when Hob leaves frame, and control returns to the player at beat 8 -- two beats earlier. So the route picked up the case and clicked the gap while `road_west_blocked` was still the live target, got its line, wrote no flag, and sat until the deadline. Waiting on control was waiting on the wrong thing."
   },
   {
    "do": "verb",

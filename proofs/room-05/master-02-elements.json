@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "note": "REQUIRED ROOM ELEMENTS on composition-master-02.png, in SOURCE pixels (1536x1024), measured by looking. Boxes are the part that must survive to remain recognisable: the door opening and the glazed window, not their head trim or the cage's finials.",
+  "required": ["street_door", "window", "window_card", "stove", "counter", "service_window_bars", "ledger", "queue_book", "sample_shelves", "scales", "certificate", "records_door", "bench", "plaque", "floor_walkable"],
+  "elements": {
+    "street_door": [45, 130, 200, 690],
+    "window": [335, 175, 135, 290],
+    "window_card": [268, 268, 52, 96],
+    "stove": [412, 430, 150, 270],
+    "counter": [700, 480, 500, 240],
+    "service_window_bars": [580, 175, 530, 310],
+    "ledger": [768, 468, 150, 40],
+    "queue_book": [912, 478, 75, 90],
+    "sample_shelves": [730, 245, 370, 220],
+    "scales": [990, 320, 100, 165],
+    "certificate": [1115, 240, 80, 115],
+    "records_door": [1215, 215, 155, 470],
+    "bench": [1330, 600, 206, 230],
+    "plaque": [830, 555, 78, 36],
+    "floor_walkable": [45, 700, 1491, 150]
+  }
+}

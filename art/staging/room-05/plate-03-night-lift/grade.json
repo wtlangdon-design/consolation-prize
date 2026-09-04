@@ -1,0 +1,206 @@
+{
+ "note": "Deterministic work-area lift on the Room 5 night candidate (tools/grade/lift-work-area.py). Hue-preserving multiplicative gain in a raised-cosine window over the counter and shelves, plus the stove's radial warm bounce; exterior glazing excluded; corners unchanged. No pixel repainted, no light source added.",
+ "source": {
+  "path": "art/staging/room-05/plate-03-night/candidate-1920x864.png",
+  "sha256": "72124eb6f213dd71ef3d6032fb362f0c2ac1d3d4efe83aded85ceff6b5adc80b"
+ },
+ "output": {
+  "path": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+  "sha256": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+ },
+ "parameters": {
+  "lift": 0.17,
+  "bounce": 0.1,
+  "workWindow": {
+   "centre": [
+    1000.0,
+    380.0
+   ],
+   "core": [
+    430.0,
+    260.0
+   ],
+   "feather": [
+    380.0,
+    300.0
+   ]
+  },
+  "glazingExcluded": [
+   [
+    88,
+    30,
+    225,
+    350
+   ],
+   [
+    415,
+    0,
+    570,
+    380
+   ]
+  ],
+  "stove": {
+   "firebox": [
+    590.0,
+    515.0
+   ],
+   "reach": 470.0,
+   "bodyExcluded": [
+    515,
+    430,
+    700,
+    680
+   ],
+   "warmth": {
+    "r": 0.9,
+    "g": 0.35
+   }
+  }
+ },
+ "regions": [
+  {
+   "region": "winnie face",
+   "box": [
+    1005,
+    230,
+    1065,
+    300
+   ],
+   "before": 27.8,
+   "after": 33.8,
+   "liftPct": 21.5
+  },
+  {
+   "region": "hands + ledger",
+   "box": [
+    960,
+    370,
+    1150,
+    410
+   ],
+   "before": 62.4,
+   "after": 76.3,
+   "liftPct": 22.2
+  },
+  {
+   "region": "counter front",
+   "box": [
+    700,
+    440,
+    1490,
+    700
+   ],
+   "before": 36.7,
+   "after": 45.0,
+   "liftPct": 22.7
+  },
+  {
+   "region": "scales",
+   "box": [
+    1228,
+    185,
+    1378,
+    395
+   ],
+   "before": 33.2,
+   "after": 39.3,
+   "liftPct": 18.2
+  },
+  {
+   "region": "bottles",
+   "box": [
+    898,
+    84,
+    1364,
+    366
+   ],
+   "before": 31.1,
+   "after": 37.3,
+   "liftPct": 19.8
+  },
+  {
+   "region": "stove body",
+   "box": [
+    520,
+    430,
+    695,
+    673
+   ],
+   "before": 20.8,
+   "after": 24.3,
+   "liftPct": 16.9
+  },
+  {
+   "region": "floor centre",
+   "box": [
+    700,
+    720,
+    1300,
+    860
+   ],
+   "before": 38.6,
+   "after": 44.0,
+   "liftPct": 13.9
+  },
+  {
+   "region": "ceiling corner TL",
+   "box": [
+    0,
+    0,
+    300,
+    60
+   ],
+   "before": 23.1,
+   "after": 23.5,
+   "liftPct": 2.0
+  },
+  {
+   "region": "right corner",
+   "box": [
+    1750,
+    0,
+    1920,
+    300
+   ],
+   "before": 33.9,
+   "after": 33.9,
+   "liftPct": 0.1
+  },
+  {
+   "region": "window glass",
+   "box": [
+    420,
+    0,
+    560,
+    370
+   ],
+   "before": 25.2,
+   "after": 25.2,
+   "liftPct": 0.0
+  },
+  {
+   "region": "door glass",
+   "box": [
+    90,
+    40,
+    220,
+    340
+   ],
+   "before": 18.8,
+   "after": 18.8,
+   "liftPct": 0.0
+  },
+  {
+   "region": "bench",
+   "box": [
+    1690,
+    535,
+    1920,
+    785
+   ],
+   "before": 21.4,
+   "after": 21.6,
+   "liftPct": 0.6
+  }
+ ]
+}

@@ -47,7 +47,9 @@
         96,
         320,
         48
-      ]
+      ],
+      "dormant": true,
+      "dormantNote": "DOES NOT ANIMATE, AND HAS NOT SINCE ERRATA 54, which voids Room 1's hobs_lamp AND puddles cycling declarations by name. Only hobs_lamp was marked; this one went on reading as live. Two things, measured rather than assumed. Its three band colours appear in room-01-stage-road.png exactly ONCE between them -- a single pixel of #31396d at (891,408), in the sky, five hundred rows above the road -- which is what let check-cycling-lands report it as landed while that check still scanned the whole plate instead of the element's own bounds. And these bounds are 320x144 coordinates: errata 54's x6 migration never reached this declaration, so the rectangle reserved here is the top-left twelfth of a 1920x864 plate. NOT MIGRATED, deliberately: a corrected rectangle for a mechanism that no longer exists is a tidier way of pretending it does. Doc 36 Q13."
     }
   ],
   "walkable": [

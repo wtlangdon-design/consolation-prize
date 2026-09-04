@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "note": "STYLE CONTINUITY SHEET MANIFEST. Row 1: Room 1 approved full frame (left) and Room 5 candidate full frame (right), both at half scale. Row 2: Thad at Room 1 runtime scale, Winnie at Room 5 runtime scale, then 1:1 environment crops of Room 1 (x60,y300) and Room 5 (x600,y250). Row 3: 3x NEAREST-NEIGHBOUR enlargements, INSPECTION ONLY, never applied to production art. Evidence for Tyler; no tool judges it.",
+ "room1": {
+  "path": "renders/room-01-in-engine-1920x1080.png",
+  "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79"
+ },
+ "room5": {
+  "path": "renders/proofs/assay-office-night/raw-captures-ignored/panel-b-populated.png",
+  "hash": "0f63db4a6ee37d22256e81deed3e82951b7ce75441adfad7462380353ab4dc8c"
+ },
+ "thad": {
+  "path": "art/actors/thad-stand-front/stand-00.png",
+  "runtimeScale": 0.38338658146964855,
+  "drawnHeight": 240
+ },
+ "winnie": {
+  "sheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night.png",
+  "frame": [
+   2,
+   2,
+   444,
+   184
+  ],
+  "drawnHeight": 184
+ },
+ "suspected": [],
+ "at": "2026-09-04T21:15:19.024Z"
+}

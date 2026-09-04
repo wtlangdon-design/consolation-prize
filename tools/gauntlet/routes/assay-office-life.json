@@ -1,0 +1,213 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5's LIFE ROUTE, ruling 47: about a minute of runtime in the room, deterministic, in the gauntlet's own vocabulary. It starts INSIDE the room (the entry route is proofs/spec/assay-office.json's) and exercises: idle long enough for Winnie's work breaks; a walk; a LOOK; an authored wrong action; the conversation, in and out; her return to work; the bench gate on both sides; the records exit and re-entry. Captures are named steps, not seconds.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-initial",
+   "why": "arrival; Winnie already at work"
+  },
+  {
+   "do": "wait",
+   "seconds": 12,
+   "why": "stand still. At breakEvery 9 she takes the pen at least once in this window"
+  },
+  {
+   "do": "capture",
+   "name": "02-early-idle"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "03-idle-later",
+   "why": "a second break, by construction a different pick from the pool"
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    780
+   ],
+   "why": "walk across the room, past the counter"
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "04-walked"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "LOOK at the scales: doc 05's line"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 12,
+   "why": "he walks to the scales and the line goes up; capture inside its hold"
+  },
+  {
+   "do": "capture",
+   "name": "05-looked",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 12,
+   "why": "let the scales' line clear first, so the next capture can only be showing the pen's refusal"
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP"
+  },
+  {
+   "do": "click",
+   "on": "her_pen",
+   "why": "an authored refusal: doc 25, HER PEN \u00b7 PICK UP"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 12,
+   "why": "he walks to the pen stand and the refusal goes up"
+  },
+  {
+   "do": "capture",
+   "name": "06-wrong-action",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "queue_bench",
+   "why": "NEGATIVE GATE: at ACT 1 the bench is not a target, so this is a walk to the floor and no line"
+  },
+  {
+   "do": "wait",
+   "seconds": 6.6,
+   "why": "775px at 134px/s is about 5.8s; if the bench WERE a target its line would be up now. It is not, so nothing is"
+  },
+  {
+   "do": "capture",
+   "name": "07-bench-at-act-1",
+   "assert": {
+    "noSpeaker": true
+   }
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie: the tree opens when he reaches conversational distance"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "08-dialogue-open",
+   "why": "she holds her talk frame; the choices are up"
+  },
+  {
+   "do": "option",
+   "option": "winnie2",
+   "why": "What is it you actually do here?"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "09-dialogue-reply"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "the universal exit"
+  },
+  {
+   "do": "wait",
+   "seconds": 4,
+   "why": "the exit line and its hold; `control` is never 'player' in a room with no handover, so a timed wait is the honest one here"
+  },
+  {
+   "do": "wait",
+   "seconds": 6,
+   "why": "she resumes her work"
+  },
+  {
+   "do": "capture",
+   "name": "10-after-dialogue"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "a full break interval: she has returned to the ledger"
+  },
+  {
+   "do": "capture",
+   "name": "10b-back-at-work",
+   "why": "return to work after the conversation -- writing or resting, pen where that state puts it"
+  },
+  {
+   "do": "click",
+   "on": "to_records",
+   "why": "the back-room door: transit to the stub"
+  },
+  {
+   "do": "waitFor",
+   "room": "stub_assay_records",
+   "upTo": 40
+  },
+  {
+   "do": "capture",
+   "name": "11-records-room"
+  },
+  {
+   "do": "click",
+   "on": "back_to_assay",
+   "why": "the stub's way back"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "12-re-entered",
+   "why": "re-entry: arrival from the records door, Winnie still at work"
+  }
+ ]
+}

@@ -1,0 +1,261 @@
+{
+ "schema": 1,
+ "note": "SAFE-FRAME DIAGNOSTIC. Element boxes were authored by a person looking at the source; this tool only measures them against the fixed crop. It does not see the picture.",
+ "source": {
+  "path": "art/staging/room-05/plate-source-02.png",
+  "hash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+  "width": 1536,
+  "height": 1024
+ },
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684
+ },
+ "candidate": {
+  "path": "art/staging/room-05/plate-02/candidate-1920x864.png",
+  "hash": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142",
+  "width": 1920,
+  "height": 864
+ },
+ "overlay": "art/staging/room-05/plate-02/crop-overlay.png",
+ "tolerance": 0.12,
+ "elements": [
+  {
+   "name": "street_door",
+   "box": [
+    45,
+    130,
+    200,
+    690
+   ],
+   "required": true,
+   "lost": 0.058,
+   "verdict": "edge-clipped 6%"
+  },
+  {
+   "name": "window",
+   "box": [
+    335,
+    175,
+    135,
+    290
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "window_card",
+   "box": [
+    268,
+    268,
+    52,
+    96
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "stove",
+   "box": [
+    412,
+    430,
+    150,
+    270
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "counter",
+   "box": [
+    700,
+    480,
+    500,
+    240
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "service_window_bars",
+   "box": [
+    580,
+    175,
+    530,
+    310
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "ledger",
+   "box": [
+    768,
+    468,
+    150,
+    40
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "queue_book",
+   "box": [
+    912,
+    478,
+    75,
+    90
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "sample_shelves",
+   "box": [
+    730,
+    245,
+    370,
+    220
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "scales",
+   "box": [
+    990,
+    320,
+    100,
+    165
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "certificate",
+   "box": [
+    1115,
+    240,
+    80,
+    115
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "records_door",
+   "box": [
+    1215,
+    215,
+    155,
+    470
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "bench",
+   "box": [
+    1330,
+    600,
+    206,
+    230
+   ],
+   "required": true,
+   "lost": 0.039,
+   "verdict": "edge-clipped 4%"
+  },
+  {
+   "name": "plaque",
+   "box": [
+    830,
+    555,
+    78,
+    36
+   ],
+   "required": true,
+   "lost": 0,
+   "verdict": "inside"
+  },
+  {
+   "name": "floor_walkable",
+   "box": [
+    45,
+    700,
+    1491,
+    150
+   ],
+   "required": true,
+   "lost": 0.005,
+   "verdict": "edge-clipped 1%"
+  }
+ ],
+ "verdict": "SAFE",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-05/plate-source-02.png",
+   "hash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1988739,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 170,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-05/plate-02/candidate-1920x864.png",
+   "hash": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142",
+   "width": 1920,
+   "height": 864,
+   "bytes": 3247883,
+   "colourType": 2
+  }
+ },
+ "at": "2026-09-04T16:21:01.326Z"
+}
