@@ -30,3 +30,21 @@ files; the night state loads through the explicit `?candidate=` override
 (three swaps: plate, sheet, stand), which is how the night proofs drew it.
 The day/night selection mechanism is errata 64d's and Q26's. `visual_accepted`
 is unset and is Tyler's.
+
+## Lighting balance (Tyler, same day, no image operation)
+
+The interior read as too dark to write by. `tools/grade/lift-work-area.py`
+lifts a feathered window over the counter and shelves by a modest factor and
+lets the stove's warmth reach a little into the left and central work area;
+the exterior glazing is excluded and the corners fall off to no change. Hue
+preserved, nothing repainted, no light source added.
+
+| | path | sha256 (first 12) |
+|---|---|---|
+| lifted candidate, 1920×864 | `plate-03-night-lift/candidate-1920x864.png` | 92e3f8f5b70a |
+| grade record (parameters, region lifts, hashes) | `plate-03-night-lift/grade.json` | |
+| Winnie relit against it | `winnie-02-counter/winnie-counter-sheet-night-lift.png` | d0b138fc6f18 |
+| ink stand relit against it | `winnie-02-counter/inkstand-night-lift.png` | 6d40775eaf42 |
+
+The ungraded night candidate (72124eb6f213) is kept beside it. Neither is
+promoted; `visual_accepted` is unset.
