@@ -1,0 +1,12 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "CANDIDATE DIALOGUE POINTS for TALK TO WINNIE (Tyler's playthrough fix, 2026-09-04): Thad walked to each candidate baseline by a plain click so the four can be judged in the live frame beside Winnie at work before one is declared in her file. A walk ends facing the way he walked, so his facing here is not the conversation's; the distance from the counter, the floor under him and what he covers of her ledger are what these frames are for.",
+ "from": "assay_office",
+ "actions": [
+  {"do": "click", "at": [930, 750]}, {"do": "wait", "seconds": 8}, {"do": "capture", "name": "c1-930-750"},
+  {"do": "click", "at": [930, 760]}, {"do": "wait", "seconds": 3}, {"do": "capture", "name": "c2-930-760"},
+  {"do": "click", "at": [930, 778]}, {"do": "wait", "seconds": 3}, {"do": "capture", "name": "c3-930-778"},
+  {"do": "click", "at": [965, 760]}, {"do": "wait", "seconds": 3}, {"do": "capture", "name": "c4-965-760"}
+ ]
+}

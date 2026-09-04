@@ -100,7 +100,12 @@ export class GameScene extends Phaser.Scene {
   private linesOnArrival: { speaker: string; line: string }[] | null = null;
 
   /** A tree to open, and who to turn to, when the walk started for it ends. */
-  private pendingTree: { tree: string; at: { x: number; y: number } } | null = null;
+  /**
+   * A conversation Thad is walking to. `greeted` turns true on arrival, when
+   * the node's opening exchange (if it has one) is queued on the speech
+   * channel; the tree itself opens once that has been said.
+   */
+  private pendingTree: { tree: string; at: { x: number; y: number }; greeted: boolean } | null = null;
   /** The selection being performed, or null while choices are up. */
   private performance: DialoguePerformance | null = null;
   /**
@@ -301,7 +306,11 @@ export class GameScene extends Phaser.Scene {
     // after which the words leave the screen rather than sitting there until
     // something else happens to move them.
     if (this.sayUntil !== null && now >= this.sayUntil) {
-      this.setSay(null);
+      // A GREETING RUNS ON ITS OWN: the next line of a conversation's opening
+      // follows when the last has been read, as a performed exchange's lines
+      // do. Every other queued line keeps waiting for the click it always
+      // waited for.
+      if (!(this.pendingTree?.greeted && this.advanceSay())) this.setSay(null);
       this.markDirty();
     }
     this.view.setClock(now);
@@ -373,14 +382,32 @@ export class GameScene extends Phaser.Scene {
     }
     if (this.pendingTree && !this.actor.isWalking) {
       const { tree, at } = this.pendingTree;
-      this.pendingTree = null;
-      // HE TURNS TO WHOEVER HE IS TALKING TO. Walking to a point beside the
-      // map seller left Thad facing whichever way the walk happened to end --
-      // in Tyler's screenshot, squarely at the building behind him. A man
-      // stops, turns, and then speaks.
-      this.actor.faceToward(at.x, at.y);
-      this.state.dialogue.start(tree);
-      this.markDirty();
+      if (!this.pendingTree.greeted) {
+        this.pendingTree.greeted = true;
+        // HE TURNS TO WHOEVER HE IS TALKING TO. Walking to a point beside the
+        // map seller left Thad facing whichever way the walk happened to end --
+        // in Tyler's screenshot, squarely at the building behind him. A man
+        // stops, turns, and then speaks.
+        this.actor.faceToward(at.x, at.y);
+        // THE GREETING IS SAID BEFORE THE LIST IS OFFERED. Doc 04 opens each
+        // act root on a short exchange; it is spoken here, line by line on the
+        // ordinary speech channel, each line by the speaker it names, and
+        // only when it has drained does the tree open. Tyler's Room 5
+        // playthrough (2026-09-04): the exchange had never played -- the
+        // node's last line stood as a caption over the options, which read as
+        // a non sequitur when TALK TO was chosen.
+        const greeting = this.state.dialogue.openingOf(tree);
+        if (greeting.length > 0) {
+          this.pendingSay.push(...greeting.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })));
+          this.advanceSay();
+        }
+      }
+      if (this.sayLines.length === 0 && this.pendingSay.length === 0) {
+        this.pendingTree = null;
+        this.actor.faceToward(at.x, at.y);
+        this.state.dialogue.start(tree);
+        this.markDirty();
+      }
     }
 
     this.speakingBreaks();
@@ -417,6 +444,9 @@ export class GameScene extends Phaser.Scene {
       // when nobody is, which selects the overlay's default.
       speaker: this.sayLines.length > 0 ? this.sayingActor : null,
       performing: this.performance !== null,
+      // Whose greeting is being said, so they hold still for it as they do
+      // for their open tree.
+      greeting: this.pendingTree?.greeted ? this.pendingTree.tree : null,
     });
     this.texture.refresh();
   }
@@ -735,14 +765,19 @@ export class GameScene extends Phaser.Scene {
       // a metre at any depth, and scales with the room's curve for free.
       const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
       const from = npc.x + (this.actor.x < npc.x ? -gap : gap);
-      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y } };
+      // UNLESS THE PERSON SAYS WHERE. Room 5's Winnie is behind a counter:
+      // her baseline is not floor, the walk snapped to the counter's base
+      // line, and Thad loomed over her ledger. Her file declares where a
+      // conversation with her stands.
+      const stand = npc.walkTo ?? { x: from, y: npc.y };
+      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false };
       // THE VERB IS SPENT. Errata 28b: a verb used on a thing resets. Every
       // other path resets through GameState.interact; this one never reached
       // it, so TALK TO stayed selected through the whole conversation and the
       // first click afterwards -- Room 5's back-room door -- was "talk to the
       // door" instead of a transit. Found by the life proof.
       this.state.verbs.resetToDefault();
-      this.actor.walkTo(from, npc.y);
+      this.actor.walkTo(stand.x, stand.y);
       this.markDirty();
       return;
     }

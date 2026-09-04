@@ -202,13 +202,29 @@ export class DialogueRunner {
       throw new Error(`Unknown dialogue tree: ${treeId}`);
     }
     this.activeTree = tree;
-    // The first entry whose gate holds wins; `start` is the floor.
+    this.activeNodeId = this.opensOn(tree);
+  }
+
+  /** The node a tree opens on right now: the first entry whose gate holds, else `start`. */
+  private opensOn(tree: DialogueFile): string {
     const entry = (tree.entries ?? []).find((one) => this.flags.test(one.when));
     const opensOn = entry?.node ?? tree.start;
     if (!tree.nodes[opensOn]) {
-      throw new Error(`Dialogue tree ${treeId} opens on "${opensOn}", which it has no node for`);
+      throw new Error(`Dialogue tree ${tree.id} opens on "${opensOn}", which it has no node for`);
     }
-    this.activeNodeId = opensOn;
+    return opensOn;
+  }
+
+  /**
+   * The exchange the tree would speak on opening right now, in order, or
+   * nothing. Read BEFORE `start`, by whoever walks the player up to the
+   * speaker: the greeting plays on arrival and the list opens when it is
+   * over, so the tree is not active while its own greeting is being said.
+   */
+  openingOf(treeId: string): { speaker: string; line: string }[] {
+    const tree = this.trees.get(treeId);
+    if (!tree) throw new Error(`Unknown dialogue tree: ${treeId}`);
+    return tree.nodes[this.opensOn(tree)]?.opening ?? [];
   }
 
   /** The id of the open tree, or null. Read by the renderer to hold a speaker still. */

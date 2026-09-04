@@ -68,9 +68,9 @@ Rotating pool available at every node:
 
 ## ACT I — Root: `WIN_A1`
 
-> **WINNIE:** "The window's closed."
-> **THAD:** "The window is open."
-> **WINNIE:** "The window is *ajar*. The window is closed."
+> **WINNIE:** "If this concerns an assay, say so."
+> **THAD:** "It might."
+> **WINNIE:** "Then say it."
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
@@ -90,7 +90,7 @@ The queue ledger, chained to the sill. Getting in the book is puzzle A2's paper 
 
 | # | Option | Tag | Response | State |
 |---|---|---|---|---|
-| 1 | "Where do I sign?" | `[PROGRESS · remove]` | "You don't sign. You *print*. Signatures are for people the next clerk has to believe." | enters the queue; A2 |
+| 1 | "Where do I sign?" | `[PROGRESS · remove]` | "You don't sign. You print. Signatures are for people the next clerk has to believe." | enters the queue; A2 |
 | 2 | "How long is the wait, honestly?" | `[TOPIC · rephrase]` | "Eight months." *(rephrases after C5 to "How long is the wait now?" → "Three weeks. It appears the queue has been on a diet.")* | — |
 | 3 | "What number am I?" | `[COMIC · counted-repeat]` | "Nine hundred and six." *(second)* "Nine hundred and six." *(third)* "Mr. Grubb, the number does not refresh with enthusiasm." | — |
 | 4 | `[EXIT · retain]` | | "Mind the window." *(It is ajar.)* | |
@@ -124,7 +124,7 @@ The queue ledger, chained to the sill. Getting in the book is puzzle A2's paper 
 | 1 | "Will you run my assay?" | `[PROGRESS · remove]` | "I'll run your assay. I'd run your assay if it were a bucket of rain." | grants assay → C6 |
 | 2 | "Now can I ask about Mott gold?" | `[PROGRESS · remove]` | "No Mott gold has ever crossed this window. Not one flake. Not in nine years. Not one." | sets `T_NO_MOTT_GOLD` |
 | 3 | "Has nobody ever noticed?" | `[PROGRESS · remove]` | "I noticed. I wrote it down. I've been writing it down since eighteen and forty-nine, in a book that is not this book." | sets `T_SECOND_LEDGER` |
-| 4 | "Are you all right?" | `[COMIC · retain]` | "I am *professionally offended*, Mr. Grubb. It is the worst kind." | — |
+| 4 | "Are you all right?" | `[COMIC · retain]` | "I am professionally offended, Mr. Grubb. It is the worst kind." | — |
 
 ## ACT II — `WIN_B3`: the second ledger
 
@@ -177,7 +177,7 @@ Then:
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | "Run it." | `[PROGRESS · remove]` | *(She runs it herself, at the window, in front of him — the first assay the player ever watches happen. It is very good gold.)* |
-| 2 | "You knew the nineteen names meant something." | `[TOPIC · retain]` | "I knew they meant *something*. Knowing what is your department. Mine is the book." |
+| 2 | "You knew the nineteen names meant something." | `[TOPIC · retain]` | "I knew they meant something. Knowing what is your department. Mine is the book." |
 | 3 | "Aren't you going to congratulate me?" | `[COMIC · counted-repeat]` | "No." *(second)* "I congratulated you about the pianos. Consult your records." |
 
 **`WIN_F2` — the certification (F5)** is the scripted exchange above ("You're putting it in his name."), staged in doc 48's S6. No options; it plays as written.

@@ -1,0 +1,19 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5's TALK TO WINNIE staging, AS TYLER FOUND IT (manual playthrough, 2026-09-04): the before-record for the dialogue approach fix. TALK TO on Winnie, the walk, the arrival, the tree opening, the exit. Tolerant of the pre-fix engine, which draws the node's last line as a caption and plays no opening exchange.",
+ "from": "assay_office",
+ "actions": [
+  {"do": "wait", "seconds": 2},
+  {"do": "capture", "name": "b01-before-talk", "why": "Winnie at work; Thad at the door"},
+  {"do": "verb", "verb": "TALK_TO"},
+  {"do": "click", "on": "winnie", "why": "TALK TO Winnie"},
+  {"do": "wait", "seconds": 2.5},
+  {"do": "capture", "name": "b02-walking", "why": "mid-walk"},
+  {"do": "waitFor", "dialogue": true, "upTo": 40},
+  {"do": "capture", "name": "b03-dialogue-open", "why": "where he stops, and what the tree shows first"},
+  {"do": "option", "option": "winnie5", "why": "the exit"},
+  {"do": "wait", "seconds": 5},
+  {"do": "capture", "name": "b04-after-exit", "why": "control returned; she goes back to work"}
+ ]
+}
