@@ -1,0 +1,148 @@
+{
+ "title": "ROOM 5 LIVE SCALE -- Tyler's playthrough blocker of 2026-09-04",
+ "rootCause": "THE BROWSER WAS SHOWING THE PRE-MERGE BUILD. Tyler opened the same playtest URLs before and after PR #1 merged, and GitHub Pages' index.html and the hashed bundle it named were still in his browser cache. That build (main at 4b45d23) has no candidate-art loader, no ?state= reader, no Winnie, no lamp, and no walk-box curve for Room 5: it draws the legacy 320x144 plate upscaled (a bright grey room) and scales Thad from the global zone table (far 222 / mid 240 / near 263), which is why he stood 246 px tall in front of a counter drawn for a 470-560 px man. Every symptom reported -- tiny Thad, no Winnie, no lamp, daylight -- is that build. The deployed build (ea6aa9c) rebuilt exactly as pages.yml builds it loads the current plate, Winnie sheet, ink stand and lamp overlay for both URLs with no legacy plate request and no failures (proofs/room-05/deployed-check.json).",
+ "evidence": {
+  "staleBuildScreenshot": {
+   "commit": "4b45d23",
+   "urlLoaded": "the NIGHT playtest URL",
+   "candidatePlateRequested": true,
+   "legacyPlateAlsoRequested": true,
+   "winnieRequested": false,
+   "lampRequested": false,
+   "thadHeightMeasured": 246,
+   "note": "built from a worktree at 4b45d23 with BASE_PATH=/consolation-prize/, served locally, screenshotted headless; the panel marked X on the contact sheet"
+  },
+  "deployedCheck": {
+   "deployedSha": "ea6aa9c",
+   "day": {
+    "plate": "art/staging/room-05/plate-02/candidate-1920x864.png",
+    "winnieSheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+    "inkstand": "art/staging/room-05/winnie-02-counter/inkstand.png",
+    "lampOverlay": 200,
+    "legacyPlateRequested": false,
+    "failures": []
+   },
+   "night": {
+    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+    "winnieSheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+    "inkstand": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+    "lampOverlay": 200,
+    "legacyPlateRequested": false,
+    "failures": []
+   }
+  }
+ },
+ "depthModel": {
+  "source": "reference/room-05/annotation.json scaling -> content/rooms/assay-office.json walkBoxes[*].scaleMode (kind curve)",
+  "curve": {
+   "farY": 700,
+   "farHeight": 470,
+   "nearY": 830,
+   "nearHeight": 560,
+   "slopePerRow": 0.692
+  },
+  "anchor": "the counter's front face is 250 rows (y440-690) and a counter is hip-high (about 0.93 m against a 1.75 m man), so a man at its base line (y700) is 470; the near sample extends at the Nugget's slope",
+  "comparables": {
+   "room01MidBand": 240,
+   "nuggetInterior": "198 at y498 to 459 at y858",
+   "winnieCounterSheetDrawnRows": 178,
+   "winnieFullFigureAtHerDepthByCurve": 470,
+   "streetDoorVisible": ">= 720 px",
+   "counterFront": 250,
+   "recordsDoorFrame": "~565 px"
+  },
+  "changed": false,
+  "why": "The live runtime draws exactly the declared curve at every probe (below). The curve is anchored on the architecture Winnie was accepted against; Thad at 515 beside a 720+ px door is 0.72 of the visible door, which reads as a tall doorway rather than a small man, and a door-anchored curve would ask roughly +20% on the whole room, Winnie included. That is Tyler's call to make on the fresh build, not a fix to make against a screenshot of the old one. No art changed, no image operation."
+ },
+ "thadHeights": {
+  "before (stale build, zone table)": {
+   "anywhereOnTheFloor": "222-263 (measured 246)"
+  },
+  "after (current build, curve)": [
+   {
+    "panel": "1  STREET-DOOR ARRIVAL",
+    "at": [
+     200,
+     765
+    ],
+    "expectedByCurve": 515,
+    "probe": 515
+   },
+   {
+    "panel": "2  REAR / MID FLOOR",
+    "at": [
+     1299,
+     703
+    ],
+    "expectedByCurve": 472,
+    "probe": 472
+   },
+   {
+    "panel": "3  COUNTER APPROACH (Winnie behind)",
+    "at": [
+     1303,
+     828
+    ],
+    "expectedByCurve": 559,
+    "probe": 559
+   },
+   {
+    "panel": "4  OPEN FOREGROUND",
+    "at": [
+     960,
+     828
+    ],
+    "expectedByCurve": 559,
+    "probe": 559
+   },
+   {
+    "panel": "5  RECORDS-DOOR APPROACH",
+    "at": [
+     1599,
+     703
+    ],
+    "expectedByCurve": 472,
+    "probe": 472
+   }
+  ]
+ },
+ "proof": {
+  "route": "tools/gauntlet/routes/assay-office-scale.json",
+  "life": "renders/proofs/assay-office-lamp-night/scale/life.json",
+  "lifePassed": true,
+  "lifeCommit": "f580e9e93fd7e7ce13837ac50b7b5527b29dfa57",
+  "visualState": "night",
+  "contactSheet": {
+   "path": "renders/room-05-live-scale-contact-sheet.png",
+   "sha256": "fde09d24f5c376e50fad6758f0ae41de3986cfaf58d65d436895586bbfc6f1fa"
+  },
+  "captures": [
+   {
+    "name": "s01-street-door-arrival",
+    "sha256": "fd9502ea706ee37cb6d9fb9eb44377d0fa452ad00b32f3584750d51e17f1c9a9"
+   },
+   {
+    "name": "s02-rear-floor",
+    "sha256": "21fb3ec0906c480b7fb383159b5b4bbc18662271c440bdd0656d2ab15fa0c08c"
+   },
+   {
+    "name": "s03-counter-approach",
+    "sha256": "6f8fdbfb4a024d2dd6b24f4ba2bb246a2d18ec6c1e2cc9f52042121539cad283"
+   },
+   {
+    "name": "s04-open-foreground",
+    "sha256": "16f63a7bec519126bc507c924e89cee7c1bbf1f1116f7cac06c2b30d8898d499"
+   },
+   {
+    "name": "s05-back-door-approach",
+    "sha256": "a0843003b3c379af951fcb64a50150222b7ba96fd67f356970faebe568e60acf"
+   }
+  ]
+ },
+ "playtest": {
+  "deployedSha": "ea6aa9c",
+  "cacheProof": "the &v= parameter is ignored by the game and changes the URL the browser caches under, so the page and its bundle are fetched fresh",
+  "night": "https://wtlangdon-design.github.io/consolation-prize/?room=assay_office&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&v=ea6aa9c",
+  "day": "https://wtlangdon-design.github.io/consolation-prize/?room=assay_office&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-02/candidate-1920x864.png&v=ea6aa9c"
+ }
+}

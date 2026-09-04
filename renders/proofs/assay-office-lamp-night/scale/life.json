@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "assay_office",
- "commit": "8dfe9bffb831cefab9668c326ff8942208e80cdc",
+ "commit": "f580e9e93fd7e7ce13837ac50b7b5527b29dfa57",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": "night",
@@ -25,110 +25,110 @@
  ],
  "entryRoute": "assay-office",
  "lifeRoute": "assay-office-life",
- "durationSeconds": 145.11,
+ "durationSeconds": 142.53,
  "events": [
   {
-   "t": 4.44,
+   "t": 3.35,
    "line": "entry route assay-office: 23 action(s)"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 20 (wait): waited 2s"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 21 (click): clicked main_street/to_assay_office at world 3113,479 -- Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 22 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
   },
   {
-   "t": 109.83,
+   "t": 107.19,
    "line": "action 23 (wait): waited 3s"
   },
   {
-   "t": 109.85,
+   "t": 107.23,
    "line": "in assay_office; life route: 16 action(s)"
   },
   {
-   "t": 110.89,
+   "t": 108.26,
    "trace": {
     "says": null,
     "control": null,
@@ -143,11 +143,11 @@
    }
   },
   {
-   "t": 111.86,
+   "t": 109.23,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 111.9,
+   "t": 109.27,
    "trace": {
     "says": null,
     "control": null,
@@ -162,15 +162,15 @@
    }
   },
   {
-   "t": 112.39,
+   "t": 109.78,
    "line": "capture s01-street-door-arrival: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 112.57,
+   "t": 109.93,
    "line": "action 1 (click): clicked screen 1300,704 -- the rear of the floor, the far edge of the walkable band"
   },
   {
-   "t": 113.63,
+   "t": 110.99,
    "trace": {
     "says": null,
     "control": null,
@@ -178,14 +178,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     404,
+     397,
      761
     ],
     "moving": true
    }
   },
   {
-   "t": 114.62,
+   "t": 111.97,
    "trace": {
     "says": null,
     "control": null,
@@ -193,14 +193,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     594,
+     585,
      757
     ],
     "moving": true
    }
   },
   {
-   "t": 115.62,
+   "t": 113.01,
    "trace": {
     "says": null,
     "control": null,
@@ -208,14 +208,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     779,
+     788,
      753
     ],
     "moving": true
    }
   },
   {
-   "t": 116.63,
+   "t": 114,
    "trace": {
     "says": null,
     "control": null,
@@ -223,14 +223,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     947,
+     973,
      750
     ],
     "moving": true
    }
   },
   {
-   "t": 117.61,
+   "t": 115,
    "trace": {
     "says": null,
     "control": null,
@@ -238,14 +238,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1137,
+     1167,
      746
     ],
     "moving": true
    }
   },
   {
-   "t": 118.65,
+   "t": 115.97,
    "trace": {
     "says": null,
     "control": null,
@@ -254,29 +254,29 @@
     "options": 0,
     "thad": [
      1299,
-     714
+     703
     ],
-    "moving": true
+    "moving": false
    }
   },
   {
-   "t": 119.57,
+   "t": 116.94,
    "line": "action 1 (wait): waited 7s"
   },
   {
-   "t": 120.15,
+   "t": 117.47,
    "line": "capture s02-rear-floor: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 120.25,
+   "t": 117.58,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 120.56,
+   "t": 117.88,
    "line": "action 1 (click): clicked assay_office/scales at world 1303,290 -- the counter approach: he walks to the scales' approach point and stands in front of the counter, Winnie behind it"
   },
   {
-   "t": 121.6,
+   "t": 118.97,
    "trace": {
     "says": "thad",
     "control": null,
@@ -291,15 +291,15 @@
    }
   },
   {
-   "t": 121.6,
+   "t": 118.97,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
   },
   {
-   "t": 122.14,
+   "t": 119.49,
    "line": "capture s03-counter-approach: room assay_office, says \"thad\", options 0, control null"
   },
   {
-   "t": 123.21,
+   "t": 120.51,
    "trace": {
     "says": "thad",
     "control": null,
@@ -314,7 +314,7 @@
    }
   },
   {
-   "t": 124.17,
+   "t": 121.53,
    "trace": {
     "says": "thad",
     "control": null,
@@ -329,7 +329,7 @@
    }
   },
   {
-   "t": 125.23,
+   "t": 122.58,
    "trace": {
     "says": "thad",
     "control": null,
@@ -344,11 +344,7 @@
    }
   },
   {
-   "t": 126.16,
-   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
-  },
-  {
-   "t": 126.17,
+   "t": 123.54,
    "trace": {
     "says": null,
     "control": null,
@@ -363,11 +359,15 @@
    }
   },
   {
-   "t": 126.33,
+   "t": 123.54,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 123.79,
    "line": "action 1 (click): clicked screen 960,828 -- the open foreground, the near edge of the walkable band"
   },
   {
-   "t": 127.39,
+   "t": 124.84,
    "trace": {
     "says": null,
     "control": null,
@@ -382,7 +382,7 @@
    }
   },
   {
-   "t": 128.37,
+   "t": 125.83,
    "trace": {
     "says": null,
     "control": null,
@@ -397,7 +397,7 @@
    }
   },
   {
-   "t": 129.37,
+   "t": 126.85,
    "trace": {
     "says": null,
     "control": null,
@@ -412,7 +412,7 @@
    }
   },
   {
-   "t": 130.34,
+   "t": 127.83,
    "trace": {
     "says": null,
     "control": null,
@@ -427,7 +427,7 @@
    }
   },
   {
-   "t": 131.35,
+   "t": 128.82,
    "trace": {
     "says": null,
     "control": null,
@@ -442,19 +442,19 @@
    }
   },
   {
-   "t": 132.34,
+   "t": 129.8,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 132.88,
+   "t": 130.32,
    "line": "capture s04-open-foreground: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 133.08,
+   "t": 130.48,
    "line": "action 1 (click): clicked screen 1600,704 -- the records-room door approach, without transiting"
   },
   {
-   "t": 134.13,
+   "t": 131.55,
    "trace": {
     "says": null,
     "control": null,
@@ -462,14 +462,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1164,
+     1163,
      815
     ],
     "moving": true
    }
   },
   {
-   "t": 135.17,
+   "t": 132.56,
    "trace": {
     "says": null,
     "control": null,
@@ -477,14 +477,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1360,
-     802
+     1357,
+     803
     ],
     "moving": true
    }
   },
   {
-   "t": 136.11,
+   "t": 133.55,
    "trace": {
     "says": null,
     "control": null,
@@ -492,14 +492,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1541,
-     791
+     1554,
+     790
     ],
     "moving": true
    }
   },
   {
-   "t": 137.12,
+   "t": 134.5,
    "trace": {
     "says": null,
     "control": null,
@@ -514,7 +514,7 @@
    }
   },
   {
-   "t": 138.14,
+   "t": 135.57,
    "trace": {
     "says": null,
     "control": null,
@@ -529,7 +529,7 @@
    }
   },
   {
-   "t": 139.13,
+   "t": 136.53,
    "trace": {
     "says": null,
     "control": null,
@@ -544,7 +544,7 @@
    }
   },
   {
-   "t": 140.11,
+   "t": 137.53,
    "trace": {
     "says": null,
     "control": null,
@@ -559,23 +559,23 @@
    }
   },
   {
-   "t": 141.09,
+   "t": 138.49,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 141.77,
-   "line": "capture s05-records-door-approach: room assay_office, says null, options 0, control null"
+   "t": 138.99,
+   "line": "capture s05-back-door-approach: room assay_office, says null, options 0, control null"
   }
  ],
  "captures": [
   {
    "name": "s01-street-door-arrival",
    "why": "the entrance point (200,765)",
-   "t": 112.38,
+   "t": 109.77,
    "file": "renders/proofs/assay-office-lamp-night/scale/raw-captures-ignored/s01-street-door-arrival.png",
-   "hash": "be591e6d610cf3d90b83292ba49fe55e5a2444c49ce69804af2b9a2db4bf55c8",
+   "hash": "fd9502ea706ee37cb6d9fb9eb44377d0fa452ad00b32f3584750d51e17f1c9a9",
    "room": "assay_office",
-   "clock": 112.05510000000001,
+   "clock": 109.4346,
    "control": null,
    "says": null,
    "options": 0,
@@ -609,7 +609,7 @@
      "height": 515,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       -67,
       250,
@@ -661,11 +661,11 @@
   {
    "name": "s02-rear-floor",
    "why": "far depth: the curve's small end",
-   "t": 120.14,
+   "t": 117.46,
    "file": "renders/proofs/assay-office-lamp-night/scale/raw-captures-ignored/s02-rear-floor.png",
-   "hash": "d25dd971fae40197872287549f5e947cc1e63bfeed44795d8fdec493d74431b1",
+   "hash": "21fb3ec0906c480b7fb383159b5b4bbc18662271c440bdd0656d2ab15fa0c08c",
    "room": "assay_office",
-   "clock": 119.8048,
+   "clock": 117.151,
    "control": null,
    "says": null,
    "options": 0,
@@ -699,7 +699,7 @@
      "height": 472,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-02.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
       1019,
       231,
@@ -751,11 +751,11 @@
   {
    "name": "s03-counter-approach",
    "why": "human beside human: Thad in front of the counter, Winnie behind it",
-   "t": 122.12,
+   "t": 119.47,
    "file": "renders/proofs/assay-office-lamp-night/scale/raw-captures-ignored/s03-counter-approach.png",
-   "hash": "74df04c001c62b3f6b5a96321fc5b9e1a0ecfe5f07e1aaf9b43a8cd72b8cbc2e",
+   "hash": "6f8fdbfb4a024d2dd6b24f4ba2bb246a2d18ec6c1e2cc9f52042121539cad283",
    "room": "assay_office",
-   "clock": 121.80460000000001,
+   "clock": 119.1675,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -841,11 +841,11 @@
   {
    "name": "s04-open-foreground",
    "why": "near depth: the curve's large end",
-   "t": 132.87,
+   "t": 130.31,
    "file": "renders/proofs/assay-office-lamp-night/scale/raw-captures-ignored/s04-open-foreground.png",
-   "hash": "afe338a0f8ea466b806c57e0da5198eb8a01c6f4f9a1db204c1b7a74dc3bee11",
+   "hash": "16f63a7bec519126bc507c924e89cee7c1bbf1f1116f7cac06c2b30d8898d499",
    "room": "assay_office",
-   "clock": 132.55429999999998,
+   "clock": 130.0005,
    "control": null,
    "says": null,
    "options": 0,
@@ -879,7 +879,7 @@
      "height": 559,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-02.png",
+     "from": "art/actors/thad-idle-left/idle-03.png",
      "bounds": [
       669,
       269,
@@ -929,13 +929,13 @@
    "missingAssets": []
   },
   {
-   "name": "s05-records-door-approach",
-   "why": "far depth at the back door, the door frame beside him",
-   "t": 141.76,
-   "file": "renders/proofs/assay-office-lamp-night/scale/raw-captures-ignored/s05-records-door-approach.png",
-   "hash": "86d973c9d5f40a8fa6145f0c833bbf67cefd01b4cd3d43242c360083800d767e",
+   "name": "s05-back-door-approach",
+   "why": "the back-room door approach on the floor line (1600,704), without transiting; the door frame beside him. Named without \"records\" because the harness reads that word as a transit to the stub.",
+   "t": 138.98,
+   "file": "renders/proofs/assay-office-lamp-night/scale/raw-captures-ignored/s05-back-door-approach.png",
+   "hash": "a0843003b3c379af951fcb64a50150222b7ba96fd67f356970faebe568e60acf",
    "room": "assay_office",
-   "clock": 141.3872,
+   "clock": 138.6668,
    "control": null,
    "says": null,
    "options": 0,
@@ -969,7 +969,7 @@
      "height": 472,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-01.png",
      "bounds": [
       1319,
       231,
@@ -1019,9 +1019,7 @@
    "missingAssets": []
   }
  ],
- "failures": [
-  "capture s05-records-door-approach: room is assay_office, expected stub_assay_records"
- ],
- "passed": false,
- "at": "2026-09-04T22:42:01.091Z"
+ "failures": [],
+ "passed": true,
+ "at": "2026-09-04T22:46:47.999Z"
 }
