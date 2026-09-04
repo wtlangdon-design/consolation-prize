@@ -4,7 +4,6 @@
   933,
   409
  ],
- "potStationaryWhereVisible": false,
  "penStateMatchesFrameWhereVisible": true,
  "contactBandHeldInEveryCapture": true,
  "standVisibleIn": [
@@ -148,5 +147,14 @@
     403
    ]
   }
+ ],
+ "potPositionStationaryWhereVisible": true,
+ "potPositionNote": "Position = the silhouette's left, right and bottom (x0, x1, base row). The top row differs by 4px between pen-in and pen-out states because the pen's base sits in the rim mouth; that is the state changing, not the pot moving.",
+ "potPositions": [
+  [
+   921,
+   944,
+   406
+  ]
  ]
 }
