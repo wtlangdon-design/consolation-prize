@@ -323,8 +323,18 @@ async function main() {
     console.error('usage: proof.mjs <room id> [--out dir]');
     return 2;
   }
+  // WHERE A PROOF LANDS, AND WHY IT IS SPLIT IN TWO. Tyler's policy: raw
+  // full-resolution captures are TEST ARTIFACTS, not canonical renders, and
+  // are reproducible by one command -- so they go in an ignored subdirectory
+  // and the repository keeps the two things that carry the claims: the
+  // manifest, and one compact four-panel sheet.
+  //
+  // The arithmetic behind it: a full 1920x1080 frame is ~2.9MB, a proof is
+  // five or six of them, and forty rooms is roughly 700MB of blobs git deltas
+  // badly, against a repository that is 279MB today.
   const outDir = process.argv.includes('--out')
-    ? process.argv[process.argv.indexOf('--out') + 1] : `proofs/${roomId.replace(/_/g, '-')}`;
+    ? process.argv[process.argv.indexOf('--out') + 1] : `renders/proofs/${roomId.replace(/_/g, '-')}`;
+  const rawDir = `${outDir}/raw-captures-ignored`;
 
   const branch = git('rev-parse', '--abbrev-ref', 'HEAD');
   const commit = git('rev-parse', 'HEAD');
@@ -355,6 +365,7 @@ async function main() {
   const spec = readJson(specPath);
 
   mkdirSync(resolve(ROOT, outDir), { recursive: true });
+  mkdirSync(resolve(ROOT, rawDir), { recursive: true });
   const failures = [];
   const panels = [];
   const server = await serve();
@@ -384,16 +395,23 @@ async function main() {
     await page.goto(server.url);
 
     const probe = () => page.evaluate(() => window.__gauntlet?.probe() ?? null);
+    /** Every frame taken, in order, for the one committed sheet. */
+    const captures = [];
     const snap = async (name) => {
       const url = await page.evaluate(() => window.__gauntlet?.snapshot() ?? null);
       if (!url) throw new Error(`no frame captured for panel ${name}`);
       const bytes = Buffer.from(url.split(',')[1], 'base64');
-      writeFileSync(resolve(ROOT, outDir, `${name}.png`), bytes);
+      // THE RAW FRAME IS THE EVIDENCE AND IT IS NOT COMMITTED. Its hash goes
+      // into proof.json, so a frame regenerated later can be compared against
+      // the one the record describes -- which is what the hash is for and is
+      // strictly more than a stored copy proves.
+      writeFileSync(resolve(ROOT, rawDir, `${name}.png`), bytes);
+      captures.push({ name, url });
       // `url` is handed back for differencing and is NEVER spread into the
       // manifest: three megabytes of base64 per panel turned proof.json into
       // an 11MB file nobody could open, which is a record that has stopped
       // being readable and has therefore stopped being a record.
-      return { url, file: `${name}.png`, hash: sha(bytes) };
+      return { url, file: `raw-captures-ignored/${name}.png`, hash: sha(bytes) };
     };
 
     /** Everything true at the moment a panel was taken. */
@@ -787,6 +805,20 @@ async function main() {
         + 'technically admissible, not that it is any good.',
       at: new Date().toISOString(),
     };
+    // THE ONE COMMITTED PICTURE. Composed in the browser that took the frames,
+    // because it is the only image encoder this project has and adding one for
+    // proof compression would be a dependency bought to shrink a test artifact.
+    const sheet = await contactSheet(page, captures);
+    if (sheet) {
+      writeFileSync(resolve(ROOT, outDir, `contact-sheet.${sheet.ext}`), sheet.bytes);
+      record.contactSheet = { file: `contact-sheet.${sheet.ext}`, format: sheet.ext,
+        bytes: sheet.bytes.length, panels: captures.length, scale: sheet.scale };
+    } else {
+      failures.push('the contact sheet could not be composed, so the one image this proof '
+        + 'commits does not exist');
+    }
+    record.passed = failures.length === 0;
+    record.failures = failures;
     writeFileSync(resolve(ROOT, outDir, 'proof.json'), `${JSON.stringify(record, null, 1)}\n`);
     writeFileSync(resolve(ROOT, outDir, 'index.html'), page1(record));
 
@@ -809,11 +841,79 @@ async function main() {
   }
 }
 
-/** The contact sheet, which is the half a person actually looks at. */
+/**
+ * THE FOUR-PANEL SHEET: every complete frame, tiled, in one compact file.
+ *
+ * COMPOSED IN THE BROWSER THAT TOOK THE FRAMES. Chromium encodes WebP and JPEG
+ * and this project already runs Chromium to capture anything at all, so the
+ * sheet costs no dependency -- and buying an image library to compress a test
+ * artefact would be paying a permanent price for a temporary file.
+ *
+ * DOWNSCALED, NEVER CROPPED, and the distinction is the whole rule. A crop of a
+ * room proves nothing about the room: doc 36 Q50's black figure was decided by
+ * 2,064 pixels that turned out to be beside the point. Every panel here is the
+ * complete 1920x864 play area, at half scale, side by side -- so what a person
+ * looks at is still the frame, and the raw captures behind it are one command
+ * away when a detail needs a closer look.
+ *
+ * WebP FIRST, JPEG SECOND, and it tries rather than assumes: `toDataURL` for an
+ * unsupported type silently returns a PNG, which would land a 12MB file under a
+ * `.webp` name and look exactly like success.
+ */
+async function contactSheet(page, captures) {
+  if (!captures.length) return null;
+  const SCALE = 0.5;
+  const made = await page.evaluate(async ({ frames, scale }) => {
+    const images = await Promise.all(frames.map(({ url }) => new Promise((done, fail) => {
+      const image = new Image();
+      image.onload = () => done(image);
+      image.onerror = () => fail(new Error('a captured frame would not decode'));
+      image.src = url;
+    })));
+    const cols = Math.min(2, images.length);
+    const rows = Math.ceil(images.length / cols);
+    const cellW = Math.round(images[0].width * scale);
+    const cellH = Math.round(images[0].height * scale);
+    const pad = 8;
+    const label = 22;
+    const canvas = document.createElement('canvas');
+    canvas.width = cols * cellW + (cols + 1) * pad;
+    canvas.height = rows * (cellH + label) + (rows + 1) * pad;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#14141a';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    images.forEach((image, index) => {
+      const col = index % cols;
+      const row = Math.floor(index / cols);
+      const x = pad + col * (cellW + pad);
+      const y = pad + row * (cellH + label + pad);
+      ctx.fillStyle = '#e8e8ee';
+      ctx.font = '15px system-ui, sans-serif';
+      ctx.fillText(frames[index].name, x, y + 15);
+      ctx.drawImage(image, x, y + label, cellW, cellH);
+    });
+    for (const [type, ext] of [['image/webp', 'webp'], ['image/jpeg', 'jpg']]) {
+      const url = canvas.toDataURL(type, 0.9);
+      // toDataURL FALLS BACK TO PNG SILENTLY for a type it cannot encode, so
+      // the answer is checked rather than trusted: a 12MB PNG under a .webp
+      // name is indistinguishable from success until somebody opens it.
+      if (url.startsWith(`data:${type}`)) return { ext, url };
+    }
+    return null;
+  }, { frames: captures, scale: SCALE });
+  if (!made) return null;
+  return { ext: made.ext, bytes: Buffer.from(made.url.split(',')[1], 'base64'), scale: SCALE };
+}
+
+/** The page a person actually looks at. */
 function page1(record) {
   const cards = record.panels.map((panel) => `
   <figure>
-    <img src="${panel.file}" alt="">
+    <img src="${panel.file}" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + ${JSON.stringify(record.room)} }))">
     <figcaption><b>PANEL ${panel.panel} &mdash; ${panel.intent}</b>
       <span>room ${panel.room} &middot; camera ${panel.camera} &middot;
         flags ${panel.flags.join(' ') || 'none'} &middot;
@@ -850,6 +950,9 @@ function page1(record) {
  img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
  figcaption{padding:7px 2px;font-size:13px}
  figcaption span{display:block;color:#8a8a9e;font:11.5px ui-monospace,monospace}
+ .sheet img{border-color:#4a6ea8}
+ p.gone{color:#8a8a9e;font:12px ui-monospace,monospace;border:1px dashed #3a3a48;
+   border-radius:5px;padding:14px;margin:0}
  code{color:#c9b58a}
 </style>
 <h1>${record.room} — four-panel live-runtime proof</h1>
@@ -859,6 +962,13 @@ No crop, isolated sprite or source image appears here: those are for diagnosing 
 frame has already shown.</p>
 <p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
 art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted</code>.</p>
+<figure class="sheet">
+  <img src="${record.contactSheet ? record.contactSheet.file : ''}" alt="">
+  <figcaption><b>THE COMMITTED SHEET</b><span>Every panel, complete, at
+    ${record.contactSheet ? Math.round(record.contactSheet.scale * 100) : '-'}% &mdash;
+    downscaled, never cropped. The full-resolution captures are reproducible test artifacts
+    and are not in git; their hashes are below.</span></figcaption>
+</figure>
 <div class="verdict">${record.passed ? 'PASS — technically admissible'
     : `FAIL — ${record.failures.length} failure(s):\n  ${record.failures.join('\n  ')}`}${
   record.workingTreeClean ? '' : '\n\n! working tree was dirty: these frames do not correspond to the commit above.'}</div>

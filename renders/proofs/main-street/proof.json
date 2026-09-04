@@ -4,20 +4,29 @@
  "room": "main_street",
  "roomWidth": 3700,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "8d73c205f3bfe16d5cfb6de3067ea03bf69a544d",
+ "commit": "6c018296ed28bc23ead5b2f9c5f0ef3ae2491714",
  "workingTreeClean": false,
  "dirtyAllowed": true,
  "uncommitted": [
-  "M content/rooms/main-street.json",
-  " M content/rooms/nugget.json",
-  " M engine/core/types.ts",
-  " M engine/render/Renderer.ts",
-  " M reference/room-02/annotation.json",
-  " M reference/room-03/annotation.json",
-  "A  tools/check-occlusion.mjs",
-  " M tools/compile-room.mjs",
+  "M .gitignore",
+  " M content/build-ledger.json",
+  "D  proofs/main-street/index.html",
+  "D  proofs/main-street/panel-a-base.png",
+  "D  proofs/main-street/panel-b-populated.png",
+  "D  proofs/main-street/panel-c-boardwalk-far.png",
+  "D  proofs/main-street/panel-c-mud_near-near.png",
+  "D  proofs/main-street/panel-c-occlusion-mud_near.png",
+  "D  proofs/main-street/panel-d-changed.png",
+  "D  proofs/main-street/proof.json",
+  "D  proofs/stage-road/index.html",
+  "D  proofs/stage-road/panel-a-base.png",
+  "D  proofs/stage-road/panel-b-populated.png",
+  "D  proofs/stage-road/panel-c-road_open-far.png",
+  "D  proofs/stage-road/panel-c-road_open-near.png",
+  "D  proofs/stage-road/panel-d-changed.png",
+  "D  proofs/stage-road/proof.json",
   " M tools/gauntlet/proof.mjs",
-  " M tools/run-all.mjs"
+  "?? renders/proofs/"
  ],
  "route": "main-street",
  "routeLog": [
@@ -77,7 +86,7 @@
    "order": 0,
    "renderedHeight": 106,
    "renderedBottom": 533,
-   "file": "panel-c-boardwalk-far.png"
+   "file": "raw-captures-ignored/panel-c-boardwalk-far.png"
   },
   {
    "mark": {
@@ -114,48 +123,15 @@
    "order": 0,
    "renderedHeight": 206,
    "renderedBottom": 856,
-   "file": "panel-c-mud_near-near.png"
+   "file": "raw-captures-ignored/panel-c-mud_near-near.png"
   }
  ],
- "occlusion": [
-  {
-   "mark": {
-    "box": "mud_near",
-    "level": 1,
-    "mask": "art/masks/room-02-plane-1.png",
-    "y": 830,
-    "xs": [
-     700
-    ],
-    "note": "MEASURED, 2026-09-04, against the mask itself. In the near mud, directly behind the wagon wheel at the bottom-left corner: plane 1's mask, stretched to the room, covers x0-940 across the whole of mud_near, and traces the wheel's spokes exactly. A man standing here should have the wheel in front of him.",
-    "x": 700
-   },
-   "clipLevel": 1,
-   "mask": "art/masks/room-02-plane-1.png",
-   "reportedBounds": [
-    634,
-    634,
-    132,
-    204
-   ],
-   "renderedSilhouette": {
-    "x": 605,
-    "y": 634,
-    "width": 70,
-    "height": 197,
-    "bottom": 830,
-    "right": 674,
-    "changed": 5376
-   },
-   "cutShare": 0.6101522842639594,
-   "file": "panel-c-occlusion-mud_near.png"
-  }
- ],
+ "occlusion": [],
  "panels": [
   {
    "panel": "B",
    "room": "main_street",
-   "clock": 113.179,
+   "clock": 108.53960000000001,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -192,7 +168,7 @@
      "height": 150,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-01.png",
+     "from": "art/actors/thad-idle-front/idle-02.png",
      "bounds": [
       3211,
       556,
@@ -227,15 +203,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T05:57:15.581Z",
+   "capturedAt": "2026-09-04T06:05:53.070Z",
    "intent": "normal populated state",
-   "file": "panel-b-populated.png",
-   "hash": "53887bf78c0c0344e2ce545ee84cd3512a71d6f7c6adf2e688f33938e8787942"
+   "file": "raw-captures-ignored/panel-b-populated.png",
+   "hash": "03a5b2a3b882c28626b5bf1b3af95d1c6b05491c99e2952b7bc1cb933cde570e"
   },
   {
    "panel": "A",
    "room": "main_street",
-   "clock": 114.7623,
+   "clock": 109.6562,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -304,18 +280,18 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T05:57:16.901Z",
+   "capturedAt": "2026-09-04T06:05:54.170Z",
    "intent": "base state, cast suppressed",
-   "file": "panel-a-base.png",
-   "hash": "c56e20acc09cbeb03b7ed1b587ef7790c296bbd1958eb1e0c08a85734e4fe2bb"
+   "file": "raw-captures-ignored/panel-a-base.png",
+   "hash": "c76789500eb8e4ba1ea0c1abc4378c7205544c5e8163b3aae4568d505c147ed3"
   },
   {
    "panel": "D",
    "room": "main_street",
-   "clock": 124.66189999999999,
+   "clock": 116.8893,
    "beat": null,
    "control": null,
-   "camera": 60,
+   "camera": 595,
    "flags": [
     "T_OPENING_SAID",
     "T_COACH_DEPARTED",
@@ -341,20 +317,20 @@
    "movers": {
     "thad": {
      "at": [
-      700,
-      830
+      1875,
+      857
      ],
      "facing": "front",
      "clip": "idle-break",
-     "height": 196,
+     "height": 206,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-front/idle-break-08.png",
+     "from": "art/actors/thad-idlebreak-front/idle-break-02.png",
      "bounds": [
-      634,
-      634,
-      132,
-      204
+      1805,
+      651,
+      139,
+      214
      ],
      "order": 0,
      "clipLevel": 1,
@@ -391,15 +367,12 @@
     "cast(true)",
     "stand(1875,857)",
     "cast(false)",
-    "cast(true)",
-    "stand(700,830)",
-    "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-09-04T05:57:26.797Z",
+   "capturedAt": "2026-09-04T06:06:01.398Z",
    "intent": "principal changed state: Act III repaints the Improvement Company sign -- 'fresh gilt on the lettering' -- and posts the funeral notice on the board. Doc 35 section 2a's worked gate ruled both STATEFUL for exactly that reason, and they are the only two things on this street that change appearance rather than what Thad says about them.\n\nAND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED. Errata 60 rules ACT a numeric counter written at four places in doc 48's scripts; content/flags/flags.json declares 22 flags and ACT is not among them. So the gate the repaint compiles to cannot be satisfied by anything, and the proof fails panel D by name. An unreachable principal change is a finding; an undeclared one is a hole in this file.",
-   "file": "panel-d-changed.png",
-   "hash": "280582af006e972c269be6f7a3291fa77af1d5a07029602c5e6a274328a82c56",
+   "file": "raw-captures-ignored/panel-d-changed.png",
+   "hash": "139fd6c34db266c50baa72f252f0af201243aef6fe6bc6ec4dcfd1ab18cf42ef",
    "changedBy": "nothing"
   }
  ],
@@ -411,5 +384,12 @@
  "passed": false,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T05:57:26.797Z"
+ "at": "2026-09-04T06:06:01.398Z",
+ "contactSheet": {
+  "file": "contact-sheet.webp",
+  "format": "webp",
+  "bytes": 710740,
+  "panels": 5,
+  "scale": 0.5
+ }
 }

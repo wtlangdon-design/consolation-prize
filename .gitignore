@@ -31,3 +31,17 @@ __pycache__/
 # The Room 1 rebuild loop's scratch: blind A/B pairs, regenerated every round.
 # The renders themselves are committed under renders/room-01-loop/.
 work/
+
+# RAW ROOM-PROOF CAPTURES. Tyler's policy: a full-resolution automated proof
+# frame is a TEST ARTIFACT, not a canonical render. Shipping art and authored
+# renders stay tracked; these do not.
+#
+# A 1920x1080 frame is ~2.9MB and a proof takes five or six, so forty rooms is
+# roughly 700MB of blobs git deltas badly against a 279MB repository -- and
+# every one of them is reproduced by `npm run proof <room>` in minutes.
+#
+# WHAT IS COMMITTED CARRIES THE CLAIMS: proof.json holds each capture's sha256,
+# the commit, the state, the assets, the actor measurements and the route, and
+# one compact four-panel sheet shows every COMPLETE frame beside it. A hash the
+# next capture can be compared against proves more than a stored copy does.
+renders/proofs/*/raw-captures-ignored/

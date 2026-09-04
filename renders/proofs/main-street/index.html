@@ -10,15 +10,25 @@
  img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
  figcaption{padding:7px 2px;font-size:13px}
  figcaption span{display:block;color:#8a8a9e;font:11.5px ui-monospace,monospace}
+ .sheet img{border-color:#4a6ea8}
+ p.gone{color:#8a8a9e;font:12px ui-monospace,monospace;border:1px dashed #3a3a48;
+   border-radius:5px;padding:14px;margin:0}
  code{color:#c9b58a}
 </style>
 <h1>main_street — four-panel live-runtime proof</h1>
 <p class="lede">Every frame below is the full play area as the renderer drew it, in the running
-game, at <code>8d73c205</code> on <code>claude/last-claim-autonomy-audit-v3vsy6</code>.
+game, at <code>6c018296</code> on <code>claude/last-claim-autonomy-audit-v3vsy6</code>.
 No crop, isolated sprite or source image appears here: those are for diagnosing what a full
 frame has already shown.</p>
 <p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
 art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted</code>.</p>
+<figure class="sheet">
+  <img src="contact-sheet.webp" alt="">
+  <figcaption><b>THE COMMITTED SHEET</b><span>Every panel, complete, at
+    50% &mdash;
+    downscaled, never cropped. The full-resolution captures are reproducible test artifacts
+    and are not in git; their hashes are below.</span></figcaption>
+</figure>
 <div class="verdict">FAIL — 3 failure(s):
   panel D: the flag registry declares no ACT
   panel D: ACT is undefined, wanted 3 -- the intended state was not reached and the frame is of the old one
@@ -27,7 +37,9 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
 ! working tree was dirty: these frames do not correspond to the commit above.</div>
 
   <figure>
-    <img src="panel-b-populated.png" alt="">
+    <img src="raw-captures-ignored/panel-b-populated.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "main_street" }))">
     <figcaption><b>PANEL B &mdash; normal populated state</b>
       <span>room main_street &middot; camera 1780 &middot;
         flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
@@ -36,7 +48,9 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     </figcaption>
   </figure>
   <figure>
-    <img src="panel-a-base.png" alt="">
+    <img src="raw-captures-ignored/panel-a-base.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "main_street" }))">
     <figcaption><b>PANEL A &mdash; base state, cast suppressed</b>
       <span>room main_street &middot; camera 1780 &middot;
         flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
@@ -45,18 +59,20 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
     </figcaption>
   </figure>
   <figure>
-    <img src="panel-d-changed.png" alt="">
+    <img src="raw-captures-ignored/panel-d-changed.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "main_street" }))">
     <figcaption><b>PANEL D &mdash; principal changed state: Act III repaints the Improvement Company sign -- 'fresh gilt on the lettering' -- and posts the funeral notice on the board. Doc 35 section 2a's worked gate ruled both STATEFUL for exactly that reason, and they are the only two things on this street that change appearance rather than what Thad says about them.
 
 AND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED. Errata 60 rules ACT a numeric counter written at four places in doc 48's scripts; content/flags/flags.json declares 22 flags and ACT is not among them. So the gate the repaint compiles to cannot be satisfied by anything, and the proof fails panel D by name. An unreachable principal change is a finding; an undeclared one is a hole in this file.</b>
-      <span>room main_street &middot; camera 60 &middot;
+      <span>room main_street &middot; camera 595 &middot;
         flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
         inventory letter tuning_fork four_dollars</span>
-      <span>thad @700,830 196px sprite</span>
+      <span>thad @1875,857 206px sprite</span>
     </figcaption>
   </figure>
   <figure>
-    <img src="panel-c-boardwalk-far.png" alt="">
+    <img src="raw-captures-ignored/panel-c-boardwalk-far.png" alt="">
     <figcaption><b>PANEL C &mdash; boardwalk far, authored y533</b>
       <span>expected 105px &middot; runtime 105px &middot;
         silhouette 106px, bottom y533</span>
@@ -64,16 +80,10 @@ AND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED
     </figcaption>
   </figure>
   <figure>
-    <img src="panel-c-mud_near-near.png" alt="">
+    <img src="raw-captures-ignored/panel-c-mud_near-near.png" alt="">
     <figcaption><b>PANEL C &mdash; mud_near near, authored y857</b>
       <span>expected 206px &middot; runtime 206px &middot;
         silhouette 206px, bottom y856</span>
       <span>art/actors/thad-idle-front/idle-02.png</span>
-    </figcaption>
-  </figure>
-  <figure>
-    <img src="panel-c-occlusion-mud_near.png" alt="">
-    <figcaption><b>PANEL C &mdash; occlusion, mud_near plane 1</b>
-      <span>mask art/masks/room-02-plane-1.png &middot; drew through plane 1</span>
     </figcaption>
   </figure>

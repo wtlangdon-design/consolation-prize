@@ -25,7 +25,7 @@
    "commit": "622a8e7",
    "validation": "npm run validate",
    "gauntlet": "tools/gauntlet/opening.json",
-   "proof": "proofs/stage-road/proof.json",
+   "proof": "renders/proofs/stage-road/proof.json",
    "blockers": [],
    "visual_accepted": false
   },
@@ -45,7 +45,7 @@
    "commit": "622a8e7",
    "validation": "npm run validate",
    "gauntlet": null,
-   "proof": "proofs/main-street/proof.json",
+   "proof": "renders/proofs/main-street/proof.json",
    "blockers": [
     "Q14",
     "Q16"
@@ -163,7 +163,7 @@
    "commit": "622a8e7",
    "validation": "npm run validate",
    "gauntlet": null,
-   "proof": "proofs/stage-road/proof.json",
+   "proof": "renders/proofs/stage-road/proof.json",
    "blockers": [],
    "visual_accepted": false
   }

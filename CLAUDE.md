@@ -180,6 +180,29 @@ it was written undid committed work in both cases.
 engine loads and room JSON references by path. They live apart and keep
 their own names.
 
+**AND RAW ROOM-PROOF CAPTURES ARE NOT RENDERS EITHER.** Tyler's ruling, and it
+is the one exemption from the rule above.
+
+`tools/gauntlet/proof.mjs` takes five or six full 1920×1080 frames per room.
+They are **test artifacts**, not canonical authored renders: nobody composed
+them, nobody chooses them, and one command reproduces them in minutes. A frame
+is ~2.9MB, so forty rooms is roughly 700MB of blobs git deltas badly against a
+repository that is 279MB today.
+
+| Under `renders/proofs/<room>/` | |
+|---|---|
+| `proof.json` | **tracked.** Every capture's sha256, the commit, the branch, the state, the flags, the inventory, the actor measurements, the assets and their hashes, the route, and whether a stub or fallback was used |
+| `contact-sheet.webp` | **tracked.** One compact sheet showing every panel as a COMPLETE frame at half scale — downscaled, never cropped |
+| `index.html` | **tracked.** The page a person reads |
+| `raw-captures-ignored/` | **ignored.** The full-resolution frames |
+
+**A hash the next capture can be compared against proves more than a stored
+copy does**, which is why the manifest is the part that is kept.
+
+**Nothing else about the render policy changes.** Shipping art stays tracked.
+Authored renders under `renders/` stay tracked and pushed, and what is on
+`main` is still what was last looked at.
+
 ## Current phase
 
 **Phase 1 — engine skeleton.** Verb panel, flag store, room loader, dialogue runner, save/load, validation tooling. No content.
