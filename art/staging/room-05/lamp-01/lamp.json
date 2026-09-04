@@ -1,0 +1,69 @@
+{
+ "note": "THE HANGING WORK LAMP as a prop, cut from the in-context edit by tools/art/room05-lamp-extract.py. Strong, connected change against the unlit night candidate = the fixture; the diffuse change = its light, left to the runtime lamp.",
+ "sources": {
+  "lampEdit": {
+   "path": "art/staging/room-05/lamp-01/candidate-1920x864.png",
+   "sha256": "8d91331f3fbf2c876121358da448ac5aad4e4adae85d91a320f14fa06106d9f4"
+  },
+  "nightCandidate": {
+   "path": "art/staging/room-05/plate-03-night/candidate-1920x864.png",
+   "sha256": "72124eb6f213dd71ef3d6032fb362f0c2ac1d3d4efe83aded85ceff6b5adc80b"
+  }
+ },
+ "method": {
+  "region": [
+   880,
+   0,
+   1060,
+   300
+  ],
+  "fixtureBox": [
+   928,
+   60,
+   1016,
+   252
+  ],
+  "strongThreshold": 90,
+  "chainBand": [
+   950,
+   60,
+   1000,
+   166
+  ],
+  "chainThreshold": 50,
+  "keepMinPixels": 20,
+  "dilate": 1,
+  "rimThreshold": 25
+ },
+ "bounds": [
+  932,
+  62,
+  82,
+  187
+ ],
+ "pixels": 7187,
+ "attachmentPoint": [
+  974,
+  62
+ ],
+ "flame": [
+  972,
+  198
+ ],
+ "lightOnSurfacesBBox": [
+  700,
+  0,
+  1499,
+  519
+ ],
+ "outputs": {
+  "overlay": {
+   "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+   "sha256": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+  },
+  "crop": {
+   "path": "art/staging/room-05/lamp-01/hanging-lamp.png",
+   "sha256": "bd8f79cea439150b08a9ca36b7427a222e366d031f7609b0b020ded04d067745"
+  }
+ }
+}

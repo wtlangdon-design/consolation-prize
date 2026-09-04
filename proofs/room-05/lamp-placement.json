@@ -1,0 +1,70 @@
+{
+ "lamp": {
+  "worldBounds": [
+   932,
+   62,
+   82,
+   187
+  ],
+  "coordinateBottomCentre": [
+   973,
+   249
+  ],
+  "attachmentPoint": [
+   974,
+   62
+  ],
+  "flame": [
+   972,
+   198
+  ],
+  "pixels": 7187,
+  "overlay": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+  "hotspotRect": [
+   932,
+   62,
+   82,
+   187
+  ],
+  "stateImage": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png"
+ },
+ "glow": {
+  "id": "hanging_lamp",
+  "at": [
+   990,
+   300
+  ],
+  "radius": 330,
+  "amount": 0.03,
+  "amountByState": {
+   "night": 0.18
+  },
+  "rate": 0.3,
+  "phase": 0.2,
+  "centreOffsetFromFlame": [
+   18,
+   102
+  ]
+ },
+ "collisions": {
+  "winnieFrameBox": [
+   813,
+   218,
+   1257,
+   402
+  ],
+  "winnieDrawnSilhouette": [
+   965,
+   218,
+   1102,
+   395
+  ],
+  "lampOverlapsWinnieSilhouette": true,
+  "lampOverlapsWinnieFrameBox": true,
+  "barMaskPixelsUnderLamp": 0,
+  "hotspotRectsOverlapped": [
+   "sample_shelves"
+  ],
+  "note": "sample_shelves is the large rect behind the lamp; the compiler resolves the smallest rect first, so a click on the lamp is the lamp. Dialogue text is a UI layer drawn over everything, never blocked; whether a long line of hers visually crosses the fixture is judged on the night route captures."
+ }
+}

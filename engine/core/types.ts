@@ -438,6 +438,16 @@ export interface RoomLamp {
    * over an empty road for the rest of the act.
    */
   when?: Condition;
+  /**
+   * The amount under a named VISUAL STATE of the room -- errata 64d's
+   * authored time-of-day state, not a clock. Room 5's hanging work lamp is
+   * negligible by day and the principal work light by night: the fixture is
+   * the same object in both, only its light differs. Absent, or no state
+   * named, means `amount`. The state is selected by whatever selects the
+   * room's visual state; until Q26 wires that to canon it is the dev-only
+   * `?state=` parameter the proofs use beside `?candidate=`.
+   */
+  amountByState?: Record<string, number>;
   note?: string;
 }
 

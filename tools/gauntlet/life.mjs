@@ -75,7 +75,9 @@ async function main() {
   try {
     const page = await chrome.newPage();
     page.on('pageerror', (error) => pageErrors.push(String(error.message ?? error)));
-    const query = candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`).join('&');
+    const visualState = flag('--state');
+    const query = [...candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`),
+      ...(visualState ? [`state=${encodeURIComponent(visualState)}`] : [])].join('&');
     await page.goto(query ? `${server.url}/?${query}` : server.url);
     await page.waitForFunction(() => Boolean(window.__gauntlet?.probe?.()), { timeout: 60_000 });
     await page.evaluate(() => window.__gauntlet?.arm?.({}));
@@ -177,7 +179,7 @@ async function main() {
     const result = {
       schema: 1,
       note: 'ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.',
-      room: roomId, commit, workingTreeClean: dirty === '', dirtyAllowed: allowDirty,
+      room: roomId, commit, workingTreeClean: dirty === '', dirtyAllowed: allowDirty, visualState: visualState ?? null,
       candidates: candidates.map((c) => ({ declared: c.from, rendered: c.to, hash: c.hash })),
       entryRoute: spec.route, lifeRoute: `${slug}-life`, durationSeconds: stamp(),
       events, captures: captures.map(({ url, ...rest }) => rest), failures, passed: failures.length === 0,

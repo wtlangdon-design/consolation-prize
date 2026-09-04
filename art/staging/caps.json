@@ -1,8 +1,8 @@
 {
  "schema": 1,
- "note": "Attempt and spend ceilings, per asset and overall. Edited by a person, never by a tool. A run that reaches one of these stops and says which. ROOM 5 PILOT: Tyler authorized MAXIMUM 8 new operations beyond the 4 recorded at pilot start, so attemptsTotal is 12 -- the cumulative form, set by his instruction, with the history intact. The perAsset entries are his sub-caps. Edited under that instruction, not by a tool on its own initiative.",
+ "note": "Attempt and spend ceilings, per asset and overall. Edited by a person, never by a tool. A run that reaches one of these stops and says which. ROOM 5 PILOT: Tyler authorized MAXIMUM 8 new operations beyond the 4 recorded at pilot start, so attemptsTotal is 12 -- the cumulative form, set by his instruction, with the history intact. The perAsset entries are his sub-caps. Edited under that instruction, not by a tool on its own initiative. POST-PILOT OWNER VISUAL REVISION (Tyler, 2026-09-04): +1 operation for the canonical hanging work lamp, recorded as its own asset room-05-lamp with its own cap of 1. The pilot's 8/8 stays 8/8; attemptsTotal 12 -> 13 is that one operation and nothing else.",
  "attemptsPerAsset": 6,
- "attemptsTotal": 12,
+ "attemptsTotal": 13,
  "spendTokensTotal": 4000000,
  "perAsset": {
   "room-05-composition-master": {
@@ -20,6 +20,10 @@
   "room-05-reserve": {
    "attempts": 1,
    "why": "Tyler, Room 5 pilot ruling 52 -- one reference-derived correction"
+  },
+  "room-05-lamp": {
+   "attempts": 1,
+   "why": "Tyler, post-pilot owner visual revision -- one hanging work lamp, acquired in context and extracted as a prop. NOT part of the autonomous pilot budget (8/8)."
   }
  }
 }

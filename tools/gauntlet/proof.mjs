@@ -348,6 +348,10 @@ async function main() {
   // being written, and it is RECORDED in the manifest rather than merely
   // permitted, so a proof taken that way says so wherever it is read.
   const allowDirty = process.argv.includes('--allow-dirty');
+  // --state <name>: the room's authored visual state for this proof (errata
+  // 64d), selected the way a candidate plate is -- by URL, for one page load.
+  const visualState = process.argv.includes('--state')
+    ? process.argv[process.argv.indexOf('--state') + 1] : null;
 
   // RULING 10: A STAGED CANDIDATE, LOADED INTO THE LIVE RUNTIME, BEFORE ANYONE
   // ACCEPTS IT.
@@ -431,9 +435,10 @@ async function main() {
         const timer = setInterval(() => { if (install()) clearInterval(timer); }, 4);
       }
     });
-    const query = candidates
-      .map((entry) => `candidate=${encodeURIComponent(`${entry.from}=${entry.to}`)}`)
-      .join('&');
+    const query = [
+      ...candidates.map((entry) => `candidate=${encodeURIComponent(`${entry.from}=${entry.to}`)}`),
+      ...(visualState ? [`state=${encodeURIComponent(visualState)}`] : []),
+    ].join('&');
     await page.goto(query ? `${server.url}/?${query}` : server.url);
 
     const probe = () => page.evaluate(() => window.__gauntlet?.probe() ?? null);
@@ -971,6 +976,7 @@ async function main() {
       uncommitted: dirty ? dirty.split('\n') : [],
       // WHAT WAS ACTUALLY RENDERED, when it was not the shipping asset.
       // Empty on an ordinary proof, which is the common case and says so.
+      visualState: visualState ?? null,
       candidates: candidates.map((entry) => ({
         declared: entry.from,
         rendered: entry.to,

@@ -139,7 +139,33 @@ if (which === 'master') {
     extra: { state: 'night', editedFrom: 'art/staging/room-05/plate-source-02.png',
       note: 'ROOM 5 NIGHT VISUAL CANDIDATE source. Errata 64: Room 1 night -> Main Street night -> Room 5 night. An edit of the accepted DAY source, lighting only; the DAY candidate stays as ROOM 5 - DAY VISUAL CANDIDATE.' },
   });
+} else if (which === 'lamp') {
+  // POST-PILOT OWNER VISUAL REVISION, +1. Tyler's ruling: a small period oil
+  // work lamp over the ledger is canon. Acquired IN CONTEXT -- the night
+  // source is the image being edited so the lamp arrives in the room's own
+  // perspective, scale and light -- and then EXTRACTED as a separate prop; the
+  // edited room is not a replacement plate. Recorded under its own asset and
+  // cap, apart from the pilot's 8/8.
+  say('\nROOM 5 · HANGING WORK LAMP -- acquired in the night room, to be cut out as a prop\n');
+  await call({
+    assetId: 'room-05-lamp', subject: 'hanging-lamp', role: 'canonical-design', purpose: 'plate',
+    promptFile: `proofs/room-05/prompts/hanging-lamp-${arg ?? '01'}.txt`,
+    images: [
+      'art/staging/room-05/plate-source-03-night.png',  // the NIGHT source: the image being edited, geometry authority
+      'art/staging/room-05/plate-source-02.png',        // the DAY source: the same room, the lamp must fit both
+      'reference/casting/room-01-casting-master.png',   // E: the rendering anchor
+      'renders/room-01-in-engine-1920x1080.png',        // A: Room 1 night, live
+      'art/backgrounds/room-01-stage-road.png',         // B: Room 1 night plate (Hob's carried lamp is the approved lamp vocabulary)
+      'art/backgrounds/room-02-main-street.png',        // the signed-off Main Street NIGHT plate (its lanterns)
+      'art/backgrounds/room-03-nugget.png',             // D: the approved night interior (its lamps)
+      'art/actors/thad-stand-front/stand-00.png',       // C: Thad, for scale
+      'art/staging/room-05/composition-master-02.png',  // E: Winnie's casting master, for her scale at the counter
+    ],
+    out: `${OUT}/lamp-source-01.png`,
+    extra: { state: 'night', editedFrom: 'art/staging/room-05/plate-source-03-night.png', accounting: 'POST-PILOT OWNER VISUAL REVISION — +1 IMAGE OPERATION (pilot stays 8/8)',
+      note: 'THE HANGING WORK LAMP, owner-ruled canon: one small plain period oil lamp hung from the brass cage over the ledger. This image exists to be cut: the lamp is extracted as a separate RGBA prop drawn over the unchanged DAY and NIGHT plates; the edited room itself is not a plate.' },
+  });
 } else {
-  say('usage: room05.mjs master | winnie <master> | winnie-sheet <canonical> <attempt> | plate <master> | night');
+  say('usage: room05.mjs master | winnie <master> | winnie-sheet <canonical> <attempt> | plate <master> | night | lamp');
   process.exit(2);
 }

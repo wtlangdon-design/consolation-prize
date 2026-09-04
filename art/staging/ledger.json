@@ -1532,6 +1532,163 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-04T21:06:53.825Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "room-05-lamp",
+   "subject": "hanging-lamp",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/hanging-lamp-01.txt",
+   "promptHash": "404c3dbb73673468b2c2ae006c9664be86966cd846dea235405e700b011af9d6",
+   "references": [
+    {
+     "path": "art/staging/room-05/plate-source-03-night.png",
+     "hash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/plate-source-02.png",
+     "hash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/composition-master-02.png",
+     "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "plate",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "path": "art/staging/room-05/composition-master-02.png",
+      "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+   "out": "art/staging/room-05/lamp-source-01.png",
+   "outputHash": "cc76a6bfaf60ed92842fa5b5185055f168ac9a02cb156e5b42c2d37da4334639",
+   "bytes": 1837976,
+   "usage": null,
+   "usageNote": "NOT CAPTURED. The driver threw on the role check AFTER the API had returned and the file had landed (22:02 UTC), so the response usage object was lost with the process. This row was written from the same request data minutes later: the paths, hashes, prompt hash and output hash are recomputed from the files; the token count for this one operation is unknown and the spend tally undercounts by it.",
+   "state": "night",
+   "editedFrom": "art/staging/room-05/plate-source-03-night.png",
+   "accounting": "POST-PILOT OWNER VISUAL REVISION — +1 IMAGE OPERATION (the autonomous pilot stays 8/8)",
+   "note": "THE HANGING WORK LAMP, owner-ruled canon (Tyler, 2026-09-04): one small plain period oil lamp hung from the brass cage over the ledger. Acquired IN CONTEXT by editing the night source; this image exists to be cut -- the lamp is extracted as a separate RGBA prop drawn over the unchanged DAY and NIGHT plates. The edited room is not a plate.",
+   "recordedLate": true,
+   "gates": {
+    "path": "art/staging/room-05/lamp-source-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T22:03:45.362Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T22:03:45.257Z"
   }
  ],
  "promotions": []

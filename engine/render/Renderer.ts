@@ -3,6 +3,7 @@ import type { PresentedOption } from '../core/DialogueRunner.ts';
 import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
+import { askedState } from '../dev/RoomState.ts';
 import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
@@ -711,7 +712,12 @@ export class Renderer {
       const t = this.clock * lamp.rate + (lamp.phase ?? 0);
       // Two sines of different periods, so the flicker does not tick.
       const wave = 0.5 + 0.35 * Math.sin(t * Math.PI * 2) + 0.15 * Math.sin(t * Math.PI * 5.3);
-      const strength = Math.max(0, lamp.amount * wave);
+      // Its amount under the room's authored visual state, when one is named
+      // and the lamp declares one for it; otherwise the plain amount.
+      const state = askedState();
+      const amount = (state && lamp.amountByState?.[state] !== undefined)
+        ? (lamp.amountByState[state] as number) : lamp.amount;
+      const strength = Math.max(0, amount * wave);
       if (strength < 0.002) continue;
       const [x, y] = lamp.at;
       const glow = ctx.createRadialGradient(x, y, 0, x, y, lamp.radius);

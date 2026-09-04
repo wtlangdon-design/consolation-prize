@@ -126,9 +126,15 @@
       535,
       230,
       250
+    ],
+    "hanging_lamp": [
+      932,
+      62,
+      82,
+      187
     ]
   },
-  "hotspotsNote": "Every rect is generous over the thing the player sees (ruling 32), read on plate-02. her_pen sits where the stand rests on the counter top by Winnie's right hand (feet 1010,624; stand -0.179h to her right, base 0.573h above her feet) -- the pen and stand travel with her frames. floorboard is an ordinary board directly before the counter, left of centre: canon puts it within her reach and Thad's, and it is deliberately unmarked. queue_bench is doc 05's act 2-4 subject, gated by `acts`.",
+  "hotspotsNote": "Every rect is generous over the thing the player sees (ruling 32), read on plate-02. her_pen sits where the stand rests on the counter top by Winnie's right hand (feet 1010,624; stand -0.179h to her right, base 0.573h above her feet) -- the pen and stand travel with her frames. floorboard is an ordinary board directly before the counter, left of centre: canon puts it within her reach and Thad's, and it is deliberately unmarked. queue_bench is doc 05's act 2-4 subject, gated by `acts`. THE HANGING LAMP (hanging_lamp) was added by Tyler's post-pilot ruling of 2026-09-04: its rect is the extracted fixture's bounds and nothing else in this file changed.",
   "acts": {
     "queue_bench": "2-4"
   },
@@ -195,7 +201,39 @@
   },
   "occlusionProofNote": "No authored proof point stands THAD behind the counter, because no box does; the plane's proof is Winnie herself in panels B and C, measured by cast-suppressed difference: her drawn silhouette must end at the counter's back edge and not at her feet.",
   "defaultVerbs": {
-    "queue_bench": "LOOK_AT"
+    "queue_bench": "LOOK_AT",
+    "hanging_lamp": "LOOK_AT"
   },
-  "defaultVerbsNote": "Errata 28b. The bench is new to the room file, so its bare-click verb is authored here: LOOK AT, the game's own default (content/ui/verbs.json)."
+  "defaultVerbsNote": "Errata 28b. The bench is new to the room file, so its bare-click verb is authored here: LOOK AT, the game's own default (content/ui/verbs.json).",
+  "hotspotStates": {
+    "hanging_lamp": {
+      "default": "lit",
+      "states": {
+        "lit": {
+          "image": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+          "note": "THE HANGING WORK LAMP (Tyler, owner ruling 2026-09-04): one small plain period oil lamp on a short chain from the brass cage top rail, over the ledger. The fixture is this one prop in every visual state -- day and night -- cut from the in-context edit (art/staging/room-05/lamp-01/lamp.json); only its runtime light differs, by the room lamp below. Always lit; there is no unlit state. It hangs at the cage, in front of her: `occludes: [1]` puts it in the figure pass over plane-1 figures, so where its base meets her hair the lamp is in front.",
+          "occludes": [
+            1
+          ]
+        }
+      }
+    }
+  },
+  "lamps": [
+    {
+      "id": "hanging_lamp",
+      "at": [
+        990,
+        300
+      ],
+      "radius": 330,
+      "amount": 0.03,
+      "amountByState": {
+        "night": 0.18
+      },
+      "rate": 0.3,
+      "phase": 0.2,
+      "note": "The hanging work lamp's light: a small oil flame, so slow and low. Negligible by day (daylight is the source); by night the principal work light, a restrained warm pool on the ledger, her hands and the counter around them, centred a little below the flame so it falls on the work and not on the ceiling. The stove has no runtime lamp and stays a painted accent, secondary. Errata 64d: the state is authored, selected by the room's visual state, never by a clock."
+    }
+  ]
 }
