@@ -318,6 +318,34 @@ async function sample(page, script, state, armed) {
       }
     }
 
+    // A BEAT WAITING FOR THE PLAYER DRIVES ITS OWN INPUT, and it has to,
+    // because a held beat is no longer reported as playing.
+    //
+    // `CarriedBeats.current` used to return a beat that was armed and holding
+    // on its `awaitFlag`, so the harness saw "beat 9" the moment the carrier
+    // armed it and fired beat 9's input -- which clicks the lamp, which writes
+    // T_HOB_SPOKEN, which is what releases the hold. It worked by accident:
+    // the beat was reported as playing before it had dispatched a single step,
+    // which is not what doc 44 says `beat` means and made a correct wait
+    // indistinguishable from a hang.
+    //
+    // Reporting it honestly deadlocked this: beat 9 could not enter until the
+    // lamp was clicked, and the lamp could not be clicked until beat 9
+    // entered. The fix is not to go back to the imprecise report -- it is to
+    // notice that A BEAT WAITING FOR THE PLAYER IS EXACTLY WHEN THE PLAYER'S
+    // INPUT IS WANTED, which is what `waitingBeat` says and `beat` never did.
+    if (frame.waitingBeat) {
+      const held = byBeat.get(frame.waitingBeat);
+      if (held?.input?.length && !driven.has(held.beat)) {
+        driven.add(held.beat);
+        driving = drive(page, held.input, script, held.beat, state).catch((error) => {
+          state.failures.push({ beat: held.beat, who: '-', field: 'input',
+            expected: 'the input script to run', got: String(error.message ?? error),
+            note: '' });
+        });
+      }
+    }
+
     // A SEGMENT DRIVES ITS OWN INPUT, BECAUSE A BEAT MAY NOT BE OBSERVABLE.
     // The driver's tree carries beats 4, 5 and 6 and no runner holds any of
     // them, so `frame.beat` is null for the whole conversation. Watching for
