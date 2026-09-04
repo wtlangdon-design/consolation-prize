@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { readJson, Report, ROOT, runCheck } from './lib/content.mjs';
+import { resolveIssueRef } from './lib/issueref.mjs';
 
 /**
  * THE OPERATIONAL LEDGER POINTS AT THINGS THAT EXIST.
@@ -21,7 +22,15 @@ import { readJson, Report, ROOT, runCheck } from './lib/content.mjs';
  * pointers, ids, statuses and paths. The words stay in /docs.
  */
 
-const STATUSES = ['unstarted', 'blocked', 'in-progress', 'built', 'proven', 'accepted'];
+const STATUSES = ['unstarted', 'blocked', 'in-progress', 'built', 'proven', 'accepted', 'ruled'];
+
+/**
+ * `ruled` exists because a DECISION is not a room and cannot be proven.
+ *
+ * The font decision was Tyler's, it is recorded in the errata, and forcing it
+ * through `accepted` would have made it claim a four-panel proof it can never
+ * have. A status that has to be lied to is a status that will be.
+ */
 const LEDGER = 'content/build-ledger.json';
 
 export function check() {
@@ -58,12 +67,19 @@ export function check() {
       if (!existsSync(resolve(ROOT, path))) report.fail(`${where}: names ${path}, which does `
         + 'not exist');
     }
-    // BLOCKERS MUST NAME SOMETHING. A blocked item whose blocker is a phrase
-    // rather than an id is one nobody can tell has become unblocked.
+    // BLOCKERS MUST NAME SOMETHING, AND NAME IT UNAMBIGUOUSLY.
+    //
+    // This used to accept `/^Q\d+$/`, which looked like a check and was not:
+    // docs/36-issue-list.md carries TWO Q-number series, so "Q16" named both
+    // the panel layout and a broken validator, and a row blocked on it could
+    // not say which. Tyler's ruling -- historical numbering stays, references
+    // get qualified. A blocker is now either another item in this ledger or a
+    // path.md::Heading that resolves to exactly one heading.
     for (const blocker of item.blockers ?? []) {
-      if (!/^Q\d+$/.test(blocker) && !ids.has(blocker)) {
-        report.fail(`${where}: blocker "${blocker}" is neither a Q id from docs/36 nor an `
-          + 'item in this ledger');
+      if (ids.has(blocker)) continue;
+      const resolved = resolveIssueRef(blocker);
+      if (!resolved.ok) {
+        report.fail(`${where}: blocker ${resolved.why}`);
       }
     }
     if (item.status === 'blocked' && (item.blockers ?? []).length === 0) {
@@ -85,6 +101,21 @@ export function check() {
         }
       }
       if (!item.commit) report.fail(`${where}: claims "${item.status}" and names no commit`);
+    }
+    if (item.status === 'ruled') {
+      if (item.kind !== 'decision') {
+        report.fail(`${where}: only a decision can be "ruled"; this is a ${item.kind}`);
+      }
+      if (!item.ruling) {
+        report.fail(`${where}: "ruled" and names no ruling. A decision whose ruling cannot be `
+          + 'read is indistinguishable from one somebody assumed.');
+      } else {
+        const resolved = resolveIssueRef(item.ruling);
+        if (!resolved.ok) report.fail(`${where}: ruling ${resolved.why}`);
+      }
+      if ((item.blockers ?? []).length) {
+        report.fail(`${where}: "ruled" and still names blockers`);
+      }
     }
     if (item.status === 'accepted' && item.visual_accepted !== true) {
       report.fail(`${where}: status is "accepted" and visual_accepted is not true. Only Tyler `

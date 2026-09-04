@@ -13,6 +13,7 @@ import { AmbientLayer } from '../core/Ambient.ts';
 import { DialoguePerformance, readingHold, type HoldTiming } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
+import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
 import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
@@ -276,9 +277,10 @@ export class GameScene extends Phaser.Scene {
    */
   private loadDeferred(): void {
     let queued = 0;
+    const swaps = askedCandidates();
     for (const { key, path } of planBoot(this.state.content).deferred) {
       if (this.textures.exists(key)) continue;
-      this.load.image(key, new URL(path, document.baseURI).toString());
+      this.load.image(key, new URL(resolveAssetPath(path, swaps), document.baseURI).toString());
       this.load.once(`filecomplete-image-${key}`, () => this.markDirty());
       queued += 1;
     }
@@ -1617,13 +1619,28 @@ export class GameScene extends Phaser.Scene {
    * texture is present, not whether a file of that name exists on a disk the
    * browser cannot see.
    */
-  private roomAssets(): { key: string; path: string; loaded: boolean }[] {
+  private roomAssets(): { key: string; path: string; drawn: string; candidate: boolean;
+    loaded: boolean }[] {
     const room = this.state.room;
     const id = this.state.roomId;
-    const out: { key: string; path: string; loaded: boolean }[] = [];
+    const out: { key: string; path: string; drawn: string; candidate: boolean;
+      loaded: boolean }[] = [];
+    // `path` is what the ROOM DECLARES and `drawn` is what was actually
+    // loaded. They differ exactly when ruling 10's candidate override is in
+    // force, and the proof records the second -- a proof that recorded the
+    // declared path while a candidate was on screen would name the wrong
+    // picture in its own manifest.
+    const swaps = appliedCandidates();
     const add = (key: string, path: string | undefined) => {
       if (!path) return;
-      out.push({ key, path, loaded: this.textures.exists(key) });
+      const swap = swaps.find((entry) => entry.from === path);
+      out.push({
+        key,
+        path,
+        drawn: swap ? swap.to : path,
+        candidate: Boolean(swap),
+        loaded: this.textures.exists(key),
+      });
     };
     add(`bg:${id}`, room.background);
     add(`fg:${id}`, room.foreground);

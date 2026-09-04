@@ -11,6 +11,8 @@ A 2D point-and-click comedy adventure game in the tradition of *The Secret of Mo
 **`docs/00-errata.md` overrides every other document on every point it addresses. Read it first.**
 
 > **STOP — READ ERRATA 54 BEFORE WRITING ANY RENDERING, SCALING, PALETTE, FONT OR BACKGROUND-ANIMATION CODE.**
+> **Except the font: errata 62 reverses errata 54's voiding of it.** The existing bitmap face ships, at 6× in the play area and 4× in the panel. Everything else below stands.
+>
 > The presentation layer was replaced wholesale. Docs 11 and 18 are void, doc 06's presentation section is void, and errata 24's decimation scaler no longer applies. Work built against 320×144 or the locked 256 is wasted work.
 >
 > New: `docs/38-character-pipeline.md` and `tools/rig/character.py` — how characters are made now.
@@ -20,7 +22,13 @@ A 2D point-and-click comedy adventure game in the tradition of *The Secret of Mo
 >
 > **Doc 34's preserve list is partly void.** It says to preserve decimation, the locked palette and integer scaling. Errata 54 removed all three and is more recent. `engine/core/Decimation.ts` and `engine/core/PaletteCycling.ts` implement voided specs. The design documents were written in sequence and contradict each other in thirteen places; the errata resolves all of them.
 
-The design is complete and lives in `/docs`. **Do not invent content.** Every line of dialogue, every examine line, every bark already exists in those documents. If something is missing, say so and stop — do not fill the gap.
+The canonical story, the 45-puzzle structure and substantial written content live in `/docs`. **Never invent missing creative content.**
+
+**The design is not uniformly complete, and claiming it is has been the more dangerous error.** "Every line already exists" reads as a guarantee, and a guarantee is what makes a gap look like a search failure — something to look harder for, and then to reconstruct. Some rooms are fully written and some are not.
+
+So: **before building any room, verify that every creative source THAT ROOM requires is complete enough to build without invention.** If required dialogue, repeat-selection variants, staging, puzzle behaviour, act or state variation, character behaviour, audio-dependent creative behaviour or any other creative decision is absent, **the room is BLOCKED** — say so and stop.
+
+Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing. The gate that asks this question mechanically is `tools/check-room-readiness.mjs`, and `BUILDABLE WITHOUT INVENTION: NO` is a hard stop.
 
 ## Who you're working with
 
@@ -68,11 +76,13 @@ A line that needs changing is changed in `/docs` and re-extracted. Never edited 
 
 ## Typography
 
-**The 5×7 font is void under errata 54** — it was sized for 320×200 and is unusable at 1920×1080. No replacement is specified yet; do not pick one without a ruling.
+**ERRATA 62: the existing bitmap face is the shipping face.** Errata 54 voided it; that voiding is reversed. It is drawn at `GLYPH_SCALE` **6** in the play area and `PANEL_GLYPH_SCALE` **4** in the verb panel, and Tyler has been reading and approving that presentation. **Do not replace the typeface.** Q6 and Q16 are closed.
+
+`docs/51-font-decision-sheet.md`, `renders/font-candidates/`, `tools/font/` and `engine/render/PreviewFont.ts` are **diagnostic and reference only** — the record of a question that was asked and answered. `PreviewFont` stays dev-only behind `?font=`; with no query parameter the build is bit-identical to one without it.
 
 **The design documents were written in prose typography** — curly quotes, em dashes, en dashes, ellipsis characters. The glyph set must cover, at minimum: `' ' " " — – …`
 
-Extend the font to cover them rather than normalising the writing to ASCII. Straight-quoting a comedy script flattens it, and Thad's voice depends on the dashes. Anything outside the covered set gets normalised at the content-authoring step, and the glyph-coverage check stays as the backstop.
+**Extend the existing face to cover them rather than swapping the typeface** — that rule survives errata 62 unchanged and is the only permitted response to a missing glyph. All seven characters above are already in `art/ui/font-5x7.json`. Do not normalise the writing to ASCII. Straight-quoting a comedy script flattens it, and Thad's voice depends on the dashes. Anything outside the covered set gets normalised at the content-authoring step, and the glyph-coverage check stays as the backstop.
 
 ---
 
@@ -203,8 +213,12 @@ copy does**, which is why the manifest is the part that is kept.
 Authored renders under `renders/` stay tracked and pushed, and what is on
 `main` is still what was last looked at.
 
-## Current phase
+## CURRENT PHASE — AUTONOMOUS PRODUCTION PILOT
 
-**Phase 1 — engine skeleton.** Verb panel, flag store, room loader, dialogue runner, save/load, validation tooling. No content.
+Tyler explicitly authorizes implementation of the next room permitted by the canonical build order, **beginning with a separately authorized Room 5 pilot**.
 
-Do not build Acts I–IV. Do not build the puzzle graph. Stop when Phase 1 acceptance passes and wait.
+All current errata, design invariants, source-of-truth rules, content-generation prohibitions, room gates, art controls, validation requirements and Tyler-only visual acceptance remain binding.
+
+**Historical phase stop conditions that have already been satisfied or superseded do not prohibit work explicitly authorized by the current production task.** The Phase 1 language this replaces — "engine skeleton", "do not build Acts I–IV", "stop when Phase 1 acceptance passes and wait" — described an authorization that has since been granted, and reading it as a live prohibition was itself becoming the obstacle.
+
+**"Separately authorized" is not a formality.** No room begins on the strength of this section alone. A room begins when Tyler names it, and only after `tools/check-room-readiness.mjs` returns `BUILDABLE WITHOUT INVENTION: YES` for it.

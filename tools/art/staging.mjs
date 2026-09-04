@@ -140,6 +140,83 @@ export function budgetFor(assetId) {
  * answer "what did we already try and why did it not work", which is the
  * question the sixth generation of a room is asking.
  */
+/**
+ * THE COMPOSITION MASTER RULE. Tyler's ruling 9, and it is binding here rather
+ * than only in prose, because a prose rule about generation is obeyed exactly
+ * as often as somebody remembers it.
+ *
+ * For a room introducing a substantial new environment and/or new characters:
+ *
+ *   1. Load the approved global baseline references.
+ *   2. Create ONE non-shipping composition/casting master holding the
+ *      environment and representative cast together.
+ *   3. Use that master as the local visual-identity reference.
+ *   4. Acquire individual characters and objects using the master and the
+ *      approved references.
+ *   5. Create ONE canonical design per character or object.
+ *   6. Derive further poses, animation states and visual states FROM that
+ *      canonical design.
+ *
+ * WHAT IT FORBIDS, and each of these is a thing Room 1 taught:
+ *
+ *   - Generating a second pose of a character from prose. Two independent
+ *     generations of "the same" person are two people, and the difference
+ *     shows up as a flicker between frames that nobody can fix afterwards.
+ *   - Generating before/after versions of one object as separate fresh
+ *     images. The two states have to be the same object or the change reads
+ *     as a cut.
+ *   - Multiple supposedly identical character designs. There is one canonical
+ *     design; everything else is derived from it.
+ *
+ * THE MASTER IS NEVER A SHIPPING PLATE. It is reference material, and
+ * `promote` refuses it by role.
+ *
+ * Extends docs/38-character-pipeline.md.
+ */
+const ROLES = {
+  'composition-master': 'the room and its representative cast together, as ONE picture. '
+    + 'Reference material. Never shipped.',
+  'canonical-design': 'the single canonical design of one character or object. At most one '
+    + 'per subject.',
+  'derived-state': 'a further pose, animation frame or visual state. Must name the canonical '
+    + 'design it derives from.',
+  plate: 'a room background.',
+  other: 'anything the five above do not describe. Carries no composition-master obligation, '
+    + 'and is not a way around one.',
+};
+
+function assertCompositionOrder(file, row) {
+  const role = row.role ?? 'other';
+  if (!(role in ROLES)) {
+    throw new Error(`role "${role}" is not one of ${Object.keys(ROLES).join(', ')}`);
+  }
+  if (role === 'canonical-design') {
+    const already = file.attempts.find((one) => one.role === 'canonical-design'
+      && one.subject === row.subject && one.promoted);
+    if (already) {
+      throw new Error(`${row.subject} already has a promoted canonical design (attempt `
+        + `${already.attempt}, ${already.out}). A second one is a second character wearing `
+        + 'the same name. Derive a state from the first instead.');
+    }
+  }
+  if (role === 'derived-state') {
+    if (!row.derivedFrom) {
+      throw new Error(`a derived-state must name the canonical design it derives from `
+        + '(`derivedFrom`: the attempt number). A pose generated from prose is a different '
+        + 'person than the one it is a pose of.');
+    }
+    const parent = file.attempts.find((one) => one.attempt === row.derivedFrom
+      && one.subject === row.subject);
+    if (!parent) {
+      throw new Error(`derivedFrom ${row.derivedFrom} is not an attempt for ${row.subject}`);
+    }
+    if (parent.role !== 'canonical-design' && parent.role !== 'derived-state') {
+      throw new Error(`derivedFrom ${row.derivedFrom} has role "${parent.role}" -- a state can `
+        + 'only be derived from the canonical design or from another state of it');
+    }
+  }
+}
+
 export function record(row) {
   const required = ['assetId', 'subject', 'operation', 'model', 'out', 'outputHash'];
   const missing = required.filter((field) => row[field] === undefined || row[field] === null);
@@ -148,8 +225,10 @@ export function record(row) {
       + 'provenance entry that cannot answer what it is provenance FOR');
   }
   const file = ledger();
+  assertCompositionOrder(file, row);
   const stored = {
     attempt: file.attempts.filter((one) => one.assetId === row.assetId).length + 1,
+    role: row.role ?? 'other',
     ...row,
     gates: row.gates ?? null,
     promoted: false,
@@ -200,6 +279,12 @@ export function promote(assetId, attempt, shippingPath, { by } = {}) {
   if (!row.gates?.passed) {
     throw new Error(`${assetId} attempt ${attempt} has no passing technical gate result. `
       + 'Run tools/art/gates.mjs against it first. Gates establish ADMISSIBILITY, not quality.');
+  }
+  if (row.role === 'composition-master') {
+    throw new Error(`${assetId} attempt ${attempt} is a composition master. It exists so that `
+      + 'the room and its cast are designed as one picture, and it is reference material by '
+      + 'construction -- it is not composed, framed or sized as a plate. Derive what ships '
+      + 'from it; do not ship it.');
   }
   if (row.visual_accepted !== true) {
     throw new Error(`${assetId} attempt ${attempt} is not visually accepted. Only Tyler sets `

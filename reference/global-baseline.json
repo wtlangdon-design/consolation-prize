@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "note": "THE PERMANENT GLOBAL VISUAL BASELINE. Tyler's ruling: every new room inherits visually from APPROVED GAME ART, and Room 1 is a permanent global reference for the whole of production -- not a first link in a chain.\n\nWHY A CHAIN IS THE FAILURE MODE. If Room N is generated from Room N-1 and Room N+1 from Room N, each step is a plausible small drift and forty steps is a different game. Nobody sees it happen, because every individual comparison looks right. Anchoring every room to Room 1 makes the drift measurable against a fixed thing instead of against its own parent.\n\nTHESE ARE ACTUAL IMAGES, NOT PROSE DESCRIPTIONS. A paragraph describing the palette cannot be transmitted to an image model and cannot be hashed. Every entry here is a file, and the production record hashes each one before any generation call.\n\nNO SIMILARITY SCORE. This file identifies what must be supplied; it does not judge the result. Tyler's eye is the only aesthetic authority and no tool here ranks, scores or grades a picture.",
+
+  "global": {
+    "A": {
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "kind": "live-runtime-frame",
+      "note": "The whole frame as the game draws it -- play area, verb panel, type. It is what the game LOOKS LIKE, which is a different question from what a plate looks like, and it is the one reference that carries the interface's colour and weight."
+    },
+    "B": {
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "kind": "shipping-plate",
+      "note": "The promoted plate at 1920x864. The reference for handling, edge quality, value range and how much detail a plate carries at shipping size."
+    },
+    "C": {
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "kind": "character-frame",
+      "note": "The canonical protagonist frame, from content/actors/thad.json's `stand` front clip. He appears in every room, so any room whose art disagrees with him is the room that is wrong."
+    }
+  },
+
+  "visualTypes": {
+    "note": "Broad type only, and declared rather than inferred. A tool guessing 'interior' from a room's name would be guessing about the picture.",
+    "exterior-street": ["room-01-stage-road", "room-02-main-street"],
+    "interior-public": ["room-03-nugget"],
+    "interior-institutional": ["room-05-assay-office"]
+  },
+
+  "rooms": {
+    "room-05-assay-office": {
+      "visualType": "interior-institutional",
+      "comparable": {
+        "id": "room-03-nugget",
+        "path": "art/backgrounds/room-03-nugget.png",
+        "note": "D -- the closest approved comparable. The Nugget is the only approved INTERIOR plate at shipping size in the repository. It is a public interior and the assay office is an institutional one, which errata 54's material table separates by identity material -- the Nugget is warm timber, the assay office is grey, bone, glass and brass. So it is the closest comparable and not a model to match: it establishes interior light, depth and plate handling, not the room's palette."
+      },
+      "casting": [],
+      "castingPending": [
+        {
+          "who": "Winnie",
+          "why": "The assay office is her room and no approved casting reference for her exists anywhere in the repository. reference/casting/ holds the coach, the driver and Hob. E is UNSATISFIED for Room 5 until she is cast.",
+          "issue": "docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST"
+        }
+      ]
+    }
+  }
+}

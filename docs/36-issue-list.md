@@ -288,7 +288,9 @@ Sharper than Q9, and the reason Q9 is blocking rather than tidy-up.
 
 **Not covered:** clip directories. The ActorFile schema cannot address `thad-recoil-left/` at all, which is Q14 and a schema question rather than a missing-file one.
 
-## Q16 · The panel layout is provisional and needs the font
+## Q16 · The panel layout is provisional and needs the font — **CLOSED, ERRATA 62**
+
+**Closed.** The font is ruled: the existing bitmap face ships at `PANEL_GLYPH_SCALE` 4. The panel rows in `content/ui/panel.json` were authored for a 28-unit glyph, which is that face at that scale, so they are no longer provisional — they are the layout.
 
 The play area migrated to errata 54 by multiplication — 1920 ÷ 320 = 6 and 864 ÷ 144 = 6, and all 140 rects across 17 rooms were integers inside the old frame, so every coordinate moved losslessly. **The panel could not.** 56 × 6 = 336 against errata 54's 216: the panel was re-proportioned, not scaled, which is how 1080 works at all — it is 5.4× of 200, and errata 54 resolves that by shrinking the panel rather than stretching it.
 
@@ -3216,7 +3218,9 @@ building a fourth room.
 
 ---
 
-## Q16 · `check-item-names` MEASURES AGAINST A 320px LINE AND A VOID FONT
+## Q16 · `check-item-names` MEASURES AGAINST A 320px LINE AND A VOID FONT — **FIXED**
+
+**Fixed under errata 62.** The face is not void, and the measurement was wrong in three independent ways at once — a 320-space width, a 1920-space inset subtracted from it, and an unscaled glyph measurement — which is why it never failed. It now composes `ui.sentence.itemTemplate` with the longest verb label and the longest target name, measures at `PANEL_GLYPH_SCALE`, and compares against the sentence line's real 1848 screen units. Worst case in the build: 1296 of 1848, **70%**. Two negative witnesses fire: an over-long label, and a drift between the constant here and the engine's.
 
     const room = 320 - panel.sentence.x * 2;
 
@@ -3395,7 +3399,9 @@ plate, from the objects that are actually in it. That is art, and Tyler's.
 
 ---
 
-## Q21 · FOUR CANDIDATE FACES ARE RENDERED IN THE LIVE UI, AND THE CHOICE IS UNMADE
+## Q21 · FOUR CANDIDATE FACES ARE RENDERED IN THE LIVE UI, AND THE CHOICE IS UNMADE — **CHOICE MADE: NONE OF THEM**
+
+**Closed by errata 62.** The existing bitmap face is retained. The four candidates, the sheets and `PreviewFont` are retained as diagnostics and are not a shipping path. See `docs/51-font-decision-sheet.md`, whose banner records the ruling.
 
 Q16 stands. Errata 54 voided the 5×7 and forbids anyone but Tyler choosing
 what replaces it; nothing here chooses.
@@ -3419,3 +3425,52 @@ glyph silently and `fillText` always draws something. All four cover the 78
 characters the current content draws, including the seven CLAUDE.md names:
 `' ' " " — – …`
 
+
+---
+
+## Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST
+
+**Winnie has no approved visual reference anywhere in the repository.**
+`reference/casting/` holds the coach, the driver and Hob, and nothing else.
+
+She is not a background figure. Doc 25 gives Room 5 four newly written
+examine subjects and one of them is **HER PEN**; doc 14's exit note calls the
+oiled, self-latching door "Winnie's character in two lines"; doc 01 makes her
+the keeper of the second ledger, which is the fact the game turns on. The
+assay office is her room in the sense that matters — its tidiness is a
+description of a person the player has not met yet.
+
+**So slot E of the global visual baseline is unsatisfied for Room 5**, and
+`tools/art/baseline.mjs` refuses a room-art call on that basis. That refusal
+is the point: with no approved Winnie in front of the model, a generation of
+the assay office containing a figure produces **a Winnie the model invented**,
+and inventing a character's appearance is inventing content.
+
+**This is a casting decision and it is Tyler's.** Composition-master order
+applies when it is made — one canonical design first, poses derived from it,
+never separate fresh generations of the same person.
+
+**It does not block a plate with no figure in it.** If Room 5's first
+generation is the empty room, E is not applicable to that call and the
+baseline entry should say so rather than being waived silently.
+
+---
+
+## Q23 · ROOM 5 HAS NO ANNOTATION, AND THAT IS NOT A CONTENT PROBLEM
+
+Recorded separately from Q22 because conflating them would hide both.
+
+`reference/room-05/` does not exist. There is no annotation, so there are no
+walk boxes, no scale curve, no entrance, no exits geometry, no occlusion
+planes and no proof points — and `tools/compile-room.mjs` refuses rather than
+guessing, which is correct behaviour and the reason it was generalised.
+
+**Missing geometry is not permission to infer geometry.** Room 1's walkable
+band was measured against its approved plate and Room 2's clip planes were
+authored by Tyler one box at a time, because both are readings of a PICTURE.
+Room 5's picture does not exist yet: the shipping plate is the obsolete
+320 × 144 indexed legacy art. Geometry cannot precede the plate it describes.
+
+**Order, therefore:** plate → annotation → compile → proof. The readiness gate
+reports content and geometry separately so that this can be seen rather than
+averaged.

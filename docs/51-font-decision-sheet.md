@@ -1,5 +1,27 @@
 # 51 · THE FONT DECISION SHEET
 
+> ## RULED — AND THE ANSWER IS NONE OF THEM
+>
+> **Errata 62: the existing bitmap face is retained as the shipping face**, at
+> `GLYPH_SCALE` 6 in the play area and `PANEL_GLYPH_SCALE` 4 in the panel.
+> Tyler has been reading and approving that presentation throughout, which is
+> the evidence that settles a preference — and a preference is all that was
+> left open once Q6 scaled the face.
+>
+> **This document is now diagnostic and reference only.** Nothing in it is a
+> shipping path: not the four faces under `art/ui/fonts/candidates/`, not the
+> sheets under `renders/font-candidates/`, not `tools/font/`, and not
+> `engine/render/PreviewFont.ts`, which stays dev-only behind `?font=`.
+>
+> It is kept rather than deleted because it is the record of a question that
+> was asked properly and answered — including the two ways the comparison
+> caught itself being wrong, which are failures of a shape that will recur.
+>
+> **The one rule it leaves live:** a missing glyph is a glyph to draw in the
+> existing face, never a reason to swap the typeface.
+
+*Everything below is the evidence as it stood before the ruling, unedited.*
+
 *A record and a request, not a ruling. Errata 54 voided the 5×7 face and
 forbids anyone but Tyler choosing what replaces it. **Nothing in this document
 chooses.** Doc 36 Q16 is the open question; this is the evidence it has been

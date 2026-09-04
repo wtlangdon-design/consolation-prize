@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "room": 5,
+  "id": "room-05-assay-office",
+  "name": "ASSAY OFFICE, FRONT",
+  "note": "POINTERS, NOT ANSWERS. Every entry here names where a canonical source lives; whether that source is COMPLETE is computed by tools/check-room-readiness.mjs, never asserted here. No line of the fiction appears in this file -- the words stay in /docs, and a readiness record that quoted them would be a second copy of the writing drifting from the first.\n\nThe declaration exists because 'which sections cover Room 5' cannot be derived: doc 02's puzzle table has no room column, doc 04's trees are per character, and doc 03's pairs are per duel. A tool guessing at that would answer confidently and wrongly. So the pointers are declared and auditable, and the completeness tests are mechanical.",
+  "examine": {
+    "primary": "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#1",
+    "completions": [
+      "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT"
+    ],
+    "actVariants": "docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2",
+    "primaryNote": "#1 and #2 are not a formatting quirk. Doc 05 names this room twice: once for its own examine layer and once, 1200 lines later, in the act-variant section. Both headings are correct, neither may be renamed to suit a tool, and an unqualified reference would silently read whichever came first."
+  },
+  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 5 — ASSAY OFFICE, FRONT",
+  "dialogue": {
+    "characters": [
+      "Winnie Ledger"
+    ],
+    "trees": [
+      "docs/04-dialogue-trees.md::ACT I — Root: `WIN_A1`",
+      "docs/04-dialogue-trees.md::ACT I — `WIN_A2`: the book *(W1 growth)*",
+      "docs/04-dialogue-trees.md::ACT II — Root: `WIN_B1` (after `T_BORDERS_MOTT`)",
+      "docs/04-dialogue-trees.md::ACT II — `WIN_B2`: after the padded log (C5)",
+      "docs/04-dialogue-trees.md::ACT II — `WIN_B3`: the second ledger",
+      "docs/04-dialogue-trees.md::ACT III — `WIN_C1`: the death certificate (E4)",
+      "docs/04-dialogue-trees.md::ACT IV — grown to nodes *(W1)*"
+    ]
+  },
+  "puzzles": {
+    "ids": [
+      "C4",
+      "C5",
+      "C6"
+    ],
+    "source": "docs/02-puzzle-graph.md::TRIAL TWO — Assay of Record (Document B)",
+    "duel": "docs/03-liars-assay.md"
+  },
+  "staging": {
+    "required": false,
+    "why": "A staging/beat script is doc 17's opening and doc 43's Room 1 machinery -- a scripted sequence of timed beats. Room 5 has no scripted sequence in any canonical document: it is entered, examined and talked in. `check-gauntlet-script` and the sequence runner are not involved.",
+    "assertNoSequence": true
+  },
+  "exits": "docs/25-rooms-05-07.md::ROOM 5 · ASSAY OFFICE, FRONT",
+  "connectivity": "docs/20-room-map.md",
+  "materialIdentity": "docs/00-errata.md::5 · Assay Office",
+  "roomFile": "content/rooms/assay-office.json",
+  "plate": "art/backgrounds/room-05-assay-office.png"
+}

@@ -56,6 +56,16 @@ const DEFAULT_MODEL = 'gpt-image-2';
 
 const ENDPOINT = 'https://api.openai.com/v1/images';
 
+/**
+ * Imported lazily inside the two call paths, not at module load.
+ *
+ * `baseline.mjs` reads `reference/global-baseline.json` and hashes five files
+ * to answer a question no `generate` call without a room even asks. Paying
+ * that on every import of the adapter -- including by `gates.mjs`, which never
+ * makes a request -- would be a cost with no reader.
+ */
+async function baselineModule() { return import('./baseline.mjs'); }
+
 export function model() {
   return process.env.OPENAI_IMAGE_MODEL || DEFAULT_MODEL;
 }
@@ -238,7 +248,21 @@ function promptOf({ prompt, promptFile }) {
  * would be a fourth place that number lives, and the wrong one would be
  * invisible until a plate arrived at the wrong shape.
  */
-export async function generate({ prompt, promptFile, out, size, quality, background }) {
+export async function generate({ prompt, promptFile, out, size, quality, background,
+  baselineRoom }) {
+  // A ROOM-ART CALL CANNOT BE A GENERATION, and this is the enforcement.
+  //
+  // Tyler's ruling: where a call is expected to match the game's established
+  // visual universe, the approved reference images must ACTUALLY be supplied
+  // to the model. `/generations` transmits no images at all -- it takes a
+  // prompt and nothing else -- so a room generated through it has, by
+  // construction, no approved ancestry, however carefully the prompt describes
+  // one. Prose is not a reference.
+  if (baselineRoom) {
+    throw new Error(`generate() cannot carry visual references: the generations endpoint `
+      + `transmits a prompt and nothing else. Room art for ${baselineRoom} must go through `
+      + 'edit(), which transmits the approved images themselves.');
+  }
   const text = promptOf({ prompt, promptFile });
   if (!out) throw new Error('generate needs an explicit `out` path under art/staging/.');
   if (!size) throw new Error('generate needs an explicit `size` -- errata 54 sets the play '
@@ -261,7 +285,10 @@ export async function generate({ prompt, promptFile, out, size, quality, backgro
     prompt: text.from === 'inline' ? text.text : null,
     promptFile: text.from === 'inline' ? null : text.from,
     promptHash: sha256(Buffer.from(text.text)),
+    // Empty, and empty for a structural reason rather than an omission: the
+    // generations endpoint has nowhere to put an image.
     references: [],
+    baseline: null,
   });
 }
 
@@ -280,11 +307,43 @@ export async function generate({ prompt, promptFile, out, size, quality, backgro
  * pinned cannot be reproduced, and "regenerate that one" is the most common
  * thing anybody asks of this pipeline.
  */
-export async function edit({ prompt, promptFile, out, images, mask, size, quality }) {
+export async function edit({ prompt, promptFile, out, images, mask, size, quality,
+  baselineRoom }) {
   const text = promptOf({ prompt, promptFile });
   if (!out) throw new Error('edit needs an explicit `out` path under art/staging/.');
   if (!images?.length) throw new Error('edit needs at least one reference image.');
   assertStaged(out);
+
+  // THE BASELINE IS CHECKED AGAINST THE REQUEST, NOT AGAINST A PROMISE.
+  //
+  // `requireBaseline` refuses a room whose A-E are not all present, and then
+  // this asserts that every required path is in the `images` list that is
+  // about to be appended to the form. Recording "references: [...]" while
+  // sending none was the failure worth designing against: the provenance row
+  // would read exactly the same either way.
+  let baseline = null;
+  if (baselineRoom) {
+    const { requireBaseline } = await baselineModule();
+    const required = requireBaseline(baselineRoom);
+    const sending = new Set(images);
+    const absent = required.references.filter((reference) => !sending.has(reference.path));
+    if (absent.length) {
+      throw new Error(`the baseline for ${baselineRoom} requires images this call does not `
+        + `transmit:\n${absent.map((r) => `  ${r.slot}  ${r.path}`).join('\n')}\n`
+        + 'Naming a reference in provenance is not supplying it to the model.');
+    }
+    baseline = {
+      room: baselineRoom,
+      visualType: required.visualType,
+      slots: required.references.map((reference) => ({
+        slot: reference.slot,
+        role: reference.role,
+        path: reference.path,
+        hash: reference.hash,
+        transmitted: true,
+      })),
+    };
+  }
 
   const form = new FormData();
   form.append('model', model());
@@ -296,7 +355,9 @@ export async function edit({ prompt, promptFile, out, images, mask, size, qualit
     const full = resolve(ROOT, path);
     if (!existsSync(full)) throw new Error(`reference image does not exist: ${path}`);
     const bytes = readFileSync(full);
-    references.push({ path, hash: sha256(bytes) });
+    // `transmitted` is written HERE, on the line that appends the bytes to
+    // the form, so the flag and the act cannot come apart.
+    references.push({ path, hash: sha256(bytes), transmitted: true });
     form.append('image[]', new Blob([bytes], { type: 'image/png' }), basename(path));
   }
   let maskRecord = null;
@@ -315,6 +376,7 @@ export async function edit({ prompt, promptFile, out, images, mask, size, qualit
     promptFile: text.from === 'inline' ? null : text.from,
     promptHash: sha256(Buffer.from(text.text)),
     references,
+    baseline,
     mask: maskRecord,
     // The source an edit-isolation gate measures drift against: the FIRST
     // reference, which is the image being edited. Named rather than left for

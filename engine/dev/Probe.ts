@@ -109,7 +109,17 @@ export interface FrameReport {
    * content file, and a harness reading the file would confirm the path it
    * had just read. `loaded` is the half the file cannot answer.
    */
-  assets: { key: string; path: string; loaded: boolean }[];
+  /**
+   * Every asset this room declares, what was actually loaded for it, and
+   * whether that was a ruling-10 candidate override.
+   *
+   * `path` is the declared content path; `drawn` is the URL the loader was
+   * actually given. They differ only under `?candidate=`, and the proof
+   * records `drawn` -- a manifest naming the declared path while a candidate
+   * was on screen would describe a different picture from the one captured.
+   */
+  assets: { key: string; path: string; drawn: string; candidate: boolean;
+    loaded: boolean }[];
   /** Flags currently true. Identifiers, never content. */
   flags: string[];
   /** Numeric flags and their values. Errata 60's ACT is one of these. */

@@ -2,6 +2,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { PLAY_HEIGHT, readJson, Report, ROOT, roomWidth, runCheck } from './lib/content.mjs';
+import { resolveIssueRef } from './lib/issueref.mjs';
 import { readPng } from './lib/png.mjs';
 
 /**
@@ -123,6 +124,20 @@ export function check() {
       if (plane.maskPending) {
         pending.push(`${room.id} plane ${plane.level}: ${plane.mask} is marked maskPending, so `
           + 'the renderer skips it. Its assertions below are reported, not asserted.');
+        // A SUPPRESSED ASSERTION MUST NAME WHERE IT WENT. `maskPending` turns
+        // a check off, and a check turned off with no forwarding address is
+        // how debt stops being debt and becomes the way things are. The
+        // reference is qualified because a bare Q id names two issues.
+        if (!plane.maskPendingIssue) {
+          report.fail(`${room.id} plane ${plane.level}: maskPending with no maskPendingIssue. `
+            + 'Suppressing an assertion requires naming the issue that owns it, as '
+            + 'path.md::Exact Heading.');
+        } else {
+          const resolved = resolveIssueRef(plane.maskPendingIssue);
+          if (!resolved.ok) {
+            report.fail(`${room.id} plane ${plane.level}: maskPendingIssue ${resolved.why}`);
+          }
+        }
       }
     }
 

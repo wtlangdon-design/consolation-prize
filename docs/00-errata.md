@@ -1842,3 +1842,117 @@ difference is the base and the rate.
 watched the opening at the new timing. If it drags, the four numbers in
 `ui.json` are where it is fixed, and lowering them retimes dialogue with it —
 which is the coupling this errata was recording in the first place.
+
+---
+
+# 62 · THE EXISTING BITMAP FACE IS THE SHIPPING FACE — ERRATA 54's FONT VOIDING REVERSED, Q6 AND Q16 CLOSED
+
+Tyler's ruling, and it closes the longest-standing open item errata 54 left.
+
+**The existing 1-bit hand-authored face is retained as the canonical runtime
+typeface.** Not provisionally, not until something better lands — retained.
+
+| Region | Scale | Drawn by |
+|---|---|---|
+| Play area — speech, dialogue options, act cards | `GLYPH_SCALE` **6** | `BitmapFont` |
+| Verb panel — sentence line, verb labels, inventory | `PANEL_GLYPH_SCALE` **4** | `BitmapFont` |
+
+**Errata 54's line "the 5 × 7 font is unusable at 1920 × 1080" is reversed on
+its conclusion and stands on its facts.** It was unusable *at 1× in a frame six
+times larger*, which is what it was doing when that sentence was written. It is
+not unusable when scaled, and the scaling landed under Q6. What was left open
+after that was a preference, and Tyler has been reading and approving the
+presentation this whole time — which is the evidence that settles a preference.
+
+## What this ends
+
+- **Q6 and Q16 are closed.** No replacement face is required or wanted.
+- **`docs/51-font-decision-sheet.md` is reference only.** The four candidates,
+  the sheets under `renders/font-candidates/`, `tools/font/`, and
+  `engine/render/PreviewFont.ts` are retained as a diagnostic and as the record
+  of a question that was asked and answered. **None is a shipping path.**
+  `PreviewFont` remains dev-only behind `?font=`; with no query parameter the
+  build is bit-identical to one without the file.
+- **The build ledger's `font-decision` item is resolved**, and the rooms
+  blocked on it are no longer blocked on it.
+
+## Glyph coverage was never the problem, and is already satisfied
+
+The rule stands: **extend the existing face, never swap the typeface.** It does
+not need extending today. All seven characters CLAUDE.md names —
+
+```
+'  '  "  "  —  –  …
+```
+
+— are present in `art/ui/font-5x7.json`, and `check-glyph-coverage` asserts
+every content string against the face on every run. A future line wanting a
+glyph the face lacks is a glyph to draw, not a face to replace.
+
+## The validator that was measuring a frame that does not exist
+
+`check-item-names` compared an **unscaled** glyph width against
+`320 − panel.sentence.x × 2`. Three errors at once: 320 was the pre-errata-54
+frame; `sentence.x` was 36, a value the ×6 migration had already moved into
+screen space; and the width was never multiplied by the scale the panel draws
+at. They pointed in opposite directions, so nothing ever failed.
+
+It now measures the real thing: the composed sentence
+`ui.sentence.itemTemplate` — the longest verb label, the item, the longest
+target name in the game — at `PANEL_GLYPH_SCALE`, against the sentence line's
+actual width of 1848 screen units. The worst case in the build today is
+**1296 of 1848, 70%**. Widening 320 to 1920 and stopping there would have made
+every conceivable label pass, which doc 51 named in advance as a vacuous
+assertion bought with a one-line edit.
+
+**No approved font was changed to make a validator green**, and no approved
+font may be.
+
+---
+
+# 63 · ROOM SHIPPING DIMENSIONS ARE CANONICAL, AND AN IMAGE API DOES NOT GET A VOTE
+
+Stated as a ruling because it was about to be treated as negotiable.
+
+| | Shipping background |
+|---|---|
+| **Fixed room** | **1920 × 864** |
+| **Scrolling room** | **authored room width × 864** |
+
+Main Street is ≈3700 × 864 because it scrolls. **Room 5 is a fixed room and its
+shipping plate is therefore exactly 1920 × 864.** Room 5's JSON is already
+authored in that coordinate system; the legacy 320 × 144 Room 5 plate is
+obsolete art, not a dimensional specification.
+
+**No generation tool redefines a room's dimensions to match what a model can
+return.** The direction of accommodation is fixed: the source is adapted to the
+room, never the room to the source.
+
+## The provisional source-acquisition transform — ROOM 5 PILOT ONLY
+
+`gpt-image-2` returns 1536 × 1024 landscape and cannot return 1920 × 864. For
+the Room 5 pilot, and for nothing else yet:
+
+```
+API source           1536 × 1024        kept untouched
+crop                 x 8, y 170, w 1520, h 684      exactly 20:9
+resample             1520 × 684  →  1920 × 864      deterministic, ordinary filtered
+```
+
+The prompt must place the intended playable composition inside a central 20:9
+safe region with expendable composition above and below it.
+
+**Forbidden in the derivation:** nearest-neighbour merely because the old pixel
+pipeline used it; AI upscaling; sharpening; denoising; recolouring; contrast
+enhancement; and any generative second pass whose purpose is reaching the
+shipping dimensions.
+
+**Both artefacts are preserved** — the untouched source and the derived
+candidate — and provenance records the source path and hash, the crop
+rectangle, the exact resampling algorithm, and the derived path and hash.
+Source-level gates run on the source; every shipping-level gate runs on the
+derived 1920 × 864 candidate.
+
+**THIS IS PROVISIONAL AND DOES NOT BECOME A FORTY-ROOM RULE BECAUSE THE COMMAND
+EXECUTES.** Tyler's full-frame review of Room 5 decides whether this
+source-to-shipping treatment is visually acceptable, before Room 6 exists.

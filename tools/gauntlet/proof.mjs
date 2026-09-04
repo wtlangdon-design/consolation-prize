@@ -347,6 +347,43 @@ async function main() {
   // permitted, so a proof taken that way says so wherever it is read.
   const allowDirty = process.argv.includes('--allow-dirty');
 
+  // RULING 10: A STAGED CANDIDATE, LOADED INTO THE LIVE RUNTIME, BEFORE ANYONE
+  // ACCEPTS IT.
+  //
+  //   npm run proof <room> --candidate art/backgrounds/x.png=art/staging/room-05/plate-03.png
+  //
+  // The override is a URL parameter and touches no file, so the tree the
+  // manifest names is the tree the frames were taken from -- which is the
+  // whole reason the mechanism is not a swap-in-place.
+  //
+  // A CANDIDATE IS NOT AN APPROVAL. Nothing below sets or implies
+  // visual_accepted; the proof establishes technical admissibility of a
+  // picture, and whether it is any good is Tyler's and only his.
+  const candidates = [];
+  for (let at = 0; at < process.argv.length; at += 1) {
+    if (process.argv[at] !== '--candidate') continue;
+    const raw = process.argv[at + 1];
+    const split = raw ? raw.indexOf('=') : -1;
+    if (split <= 0 || split === raw.length - 1) {
+      console.error('--candidate needs from=to, e.g.\n'
+        + '  --candidate art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03.png');
+      return 2;
+    }
+    const from = raw.slice(0, split);
+    const to = raw.slice(split + 1);
+    if (!to.startsWith('art/staging/')) {
+      console.error(`--candidate may only point at a staged file and "${to}" is not under `
+        + 'art/staging/. A candidate is by definition not shipping art, and promotion is the '
+        + 'only route out of staging.');
+      return 2;
+    }
+    if (!existsSync(resolve(ROOT, to))) {
+      console.error(`--candidate names ${to}, which does not exist`);
+      return 2;
+    }
+    candidates.push({ from, to, hash: sha(readFileSync(resolve(ROOT, to))) });
+  }
+
   const manifest = readJson('content/manifest.json');
   const room = manifest.rooms.map((path) => readJson(path)).find((one) => one.id === roomId);
   if (!room) {
@@ -392,7 +429,10 @@ async function main() {
         const timer = setInterval(() => { if (install()) clearInterval(timer); }, 4);
       }
     });
-    await page.goto(server.url);
+    const query = candidates
+      .map((entry) => `candidate=${encodeURIComponent(`${entry.from}=${entry.to}`)}`)
+      .join('&');
+    await page.goto(query ? `${server.url}/?${query}` : server.url);
 
     const probe = () => page.evaluate(() => window.__gauntlet?.probe() ?? null);
     /** Every frame taken, in order, for the one committed sheet. */
@@ -440,10 +480,14 @@ async function main() {
         movers: frame.movers,
         assets: frame.assets.map((asset) => ({
           ...asset,
-          // HASHED ON DISK, BY THE HARNESS. The browser reports which path it
-          // resolved; only this side can say what is actually in that file, and
-          // "the right path holding the wrong bytes" is a stale asset.
-          hash: existsSync(resolve(ROOT, asset.path)) ? sha(readFileSync(resolve(ROOT, asset.path)))
+          // HASHED ON DISK, BY THE HARNESS, AND HASHED AT `drawn` RATHER THAN
+          // AT `path`. The browser reports which URL it actually resolved;
+          // only this side can say what is in that file, and "the right path
+          // holding the wrong bytes" is a stale asset. Under a ruling-10
+          // candidate override the two differ, and the one that describes the
+          // captured frame is the one that was drawn.
+          hash: existsSync(resolve(ROOT, asset.drawn ?? asset.path))
+            ? sha(readFileSync(resolve(ROOT, asset.drawn ?? asset.path)))
             : null,
         })),
         stubs,
@@ -759,6 +803,43 @@ async function main() {
         }
       }
     }
+    // RULING 10: THE RUN FAILS IF A REQUESTED CANDIDATE WAS NOT ACTUALLY DRAWN.
+    //
+    // Not warned about, not noted -- failed. The silent fallback is the thing
+    // being designed against: a typo, a stale path, or a loader that quietly
+    // reached for the shipping file would produce four beautiful frames of the
+    // OLD picture, pass every other gate, and be filed as a proof of the
+    // candidate. Nothing else in the manifest would contradict it.
+    //
+    // Asserted per panel, because a candidate that loaded for panel A and not
+    // for panel D is exactly as wrong and much harder to see.
+    for (const wanted of candidates) {
+      for (const panel of panels) {
+        const asset = panel.assets.find((entry) => entry.path === wanted.from);
+        if (!asset) {
+          failures.push(`panel ${panel.panel}: a candidate was requested for ${wanted.from} `
+            + 'and the runtime does not report that asset at all');
+          continue;
+        }
+        if (!asset.candidate || asset.drawn !== wanted.to) {
+          failures.push(`panel ${panel.panel}: the candidate ${wanted.to} was requested for `
+            + `${wanted.from} and the runtime drew ${asset.drawn ?? asset.path}. The proof `
+            + 'refuses to fall back to shipping art silently.');
+          continue;
+        }
+        if (!asset.loaded) {
+          failures.push(`panel ${panel.panel}: the candidate ${wanted.to} was resolved and `
+            + 'never loaded, so the room drew without it');
+          continue;
+        }
+        if (asset.hash !== wanted.hash) {
+          failures.push(`panel ${panel.panel}: ${wanted.to} hashed `
+            + `${wanted.hash.slice(0, 12)} when the run began and `
+            + `${String(asset.hash).slice(0, 12)} when the frame was taken -- it changed `
+            + 'underneath the proof');
+        }
+      }
+    }
     for (const error of pageErrors) failures.push(`page error: ${error}`);
 
     // EVERY PANEL, OR IT IS NOT A FOUR-PANEL PROOF. A run that quietly
@@ -793,6 +874,16 @@ async function main() {
       workingTreeClean: dirty === '',
       dirtyAllowed: allowDirty,
       uncommitted: dirty ? dirty.split('\n') : [],
+      // WHAT WAS ACTUALLY RENDERED, when it was not the shipping asset.
+      // Empty on an ordinary proof, which is the common case and says so.
+      candidates: candidates.map((entry) => ({
+        declared: entry.from,
+        rendered: entry.to,
+        hash: entry.hash,
+        note: 'A STAGED CANDIDATE, NOT AN APPROVAL. It passed the technical gates and it has '
+          + 'been drawn by the real runtime. Whether it ships is Tyler\'s, and promotion is a '
+          + 'separate, logged step.',
+      })),
       route: spec.route ?? null,
       routeLog,
       depthMarks: measured,
