@@ -37,3 +37,5 @@ roster line and count. No wrong-verb line was needed by validation; the
 generic pools answer PULL.
 
 **Not promoted; `visual_accepted` unset.** The lamp is Tyler's to accept.
+
+**OWNER-ACCEPTED 2026-09-04** (Tyler's visual ruling): design, placement, day and night appearance, and the Winnie relight under it. Not promoted; manual playthrough pending.

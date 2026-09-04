@@ -3428,7 +3428,7 @@ characters the current content draws, including the seven CLAUDE.md names:
 
 ---
 
-## Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST
+## Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST — **CLOSED**
 
 **Winnie has no approved visual reference anywhere in the repository.**
 `reference/casting/` holds the coach, the driver and Hob, and nothing else.
@@ -3454,7 +3454,11 @@ never separate fresh generations of the same person.
 generation is the empty room, E is not applicable to that call and the
 baseline entry should say so rather than being waived silently.
 
-**Status after the Room 5 pilot:** a CANDIDATE Winnie exists —
+**CLOSED 2026-09-04:** Tyler's visual ruling accepts Winnie's canonical design, her
+behind-counter presentation and her relights (staging ledger, winnie attempt 3,
+`visual_accepted: true`). Slot E is satisfied by an approved reference.
+
+**Status after the Room 5 pilot (kept for the record):** a CANDIDATE Winnie exists —
 `art/staging/room-05/composition-master-02.png` (design) and
 `art/staging/room-05/winnie-02/` (sheet), generated with the Room 1 casting
 master transmitted first and recorded in `art/staging/ledger.json`. It is not
@@ -3481,6 +3485,10 @@ Room 5's picture does not exist yet: the shipping plate is the obsolete
 **Order, therefore:** plate → annotation → compile → proof. The readiness gate
 reports content and geometry separately so that this can be seen rather than
 averaged.
+
+**Status 2026-09-04:** the plate and the geometry are Tyler-accepted (visual ruling); what
+keeps this open is promotion — the shipping path still holds the legacy plate
+until the manual playthrough and the logged promotion step.
 
 **Status after the Room 5 pilot:** that order was followed.
 `reference/room-05/annotation.json` exists and is bound by hash to the
@@ -3602,6 +3610,10 @@ the night files are named by no content record. Since the hanging work lamp
 carry an `amountByState`, and the proofs select the state with the dev-only
 `?state=night` (`engine/dev/RoomState.ts`) exactly as they select a candidate
 plate. That is the seam the mechanism plugs into; it is not the mechanism.
+
+**2026-09-04, visual ruling:** Tyler accepts the night candidate as lifted, the lamp and
+its task light. Still open here: the selection mechanism, and promotion after
+the manual playthrough.
 
 **Two authored lines still say daylight** about Main Street from inside its
 neighbours, and they are Tyler's to reword, as the mud line was:

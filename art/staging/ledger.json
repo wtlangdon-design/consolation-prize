@@ -350,7 +350,7 @@
     "room": "room-05-assay-office",
     "purpose": "composition-master",
     "pendingAcknowledged": [
-     "E: Winnie -- The assay office is her room and no approved casting reference for her exists anywhere in the repository. reference/casting/ holds the coach, the driver and Hob. E is UNSATISFIED for Room 5 until she is cast. (docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
+     "E: Winnie -- The assay office is her room and no approved casting reference for her exists anywhere in the repository. reference/casting/ holds the coach, the driver and Hob. E is UNSATISFIED for Room 5 until she is cast. (docs/36-issue-list.md::Q22 \u00b7 ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
     ],
     "visualType": "interior-institutional",
     "slots": [
@@ -944,7 +944,7 @@
     "room": "room-05-assay-office",
     "purpose": "composition-master",
     "pendingAcknowledged": [
-     "E: Winnie -- The composition master she was first drawn in (composition-master-01) was REJECTED by Tyler as visual ancestry. She must be re-cast from a corrected master that is anchored to the approved Room 1 / Thad rendering. E is unsatisfied until that master exists. (docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
+     "E: Winnie -- The composition master she was first drawn in (composition-master-01) was REJECTED by Tyler as visual ancestry. She must be re-cast from a corrected master that is anchored to the approved Room 1 / Thad rendering. E is unsatisfied until that master exists. (docs/36-issue-list.md::Q22 \u00b7 ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
     ],
     "visualType": "interior-institutional",
     "slots": [
@@ -1047,7 +1047,11 @@
     "at": "2026-09-04T16:17:34.724Z"
    },
    "promoted": false,
-   "recordedAt": "2026-09-04T16:17:34.561Z"
+   "recordedAt": "2026-09-04T16:17:34.561Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: composition/casting master 02 \u2014 accepted as visual ancestry (reference, never a shipping plate). Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
   },
   {
    "attempt": 3,
@@ -1204,7 +1208,11 @@
     "at": "2026-09-04T16:19:19.135Z"
    },
    "promoted": false,
-   "recordedAt": "2026-09-04T16:19:18.992Z"
+   "recordedAt": "2026-09-04T16:19:18.992Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: Winnie's canonical design, and everything derived from it by tools/rig: the behind-counter sheet winnie-02-counter/winnie-counter-sheet.png (0f3a0423fe4c), its night relights (-night-lift, -night-lamp) and the ink stand prop and its relights. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
   },
   {
    "attempt": 2,
@@ -1361,7 +1369,11 @@
     "at": "2026-09-04T16:20:38.498Z"
    },
    "promoted": false,
-   "recordedAt": "2026-09-04T16:20:38.344Z"
+   "recordedAt": "2026-09-04T16:20:38.344Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the DAY plate: plate-02/candidate-1920x864.png (c0afe61efcf6) \u2014 ROOM 5 DAY VISUAL CANDIDATE. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
   },
   {
    "attempt": 1,
@@ -1531,7 +1543,11 @@
     "at": "2026-09-04T21:06:54.009Z"
    },
    "promoted": false,
-   "recordedAt": "2026-09-04T21:06:53.825Z"
+   "recordedAt": "2026-09-04T21:06:53.825Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the NIGHT plate as lifted: plate-03-night-lift/candidate-1920x864.png (92e3f8f5b70a), derived from this source by tools/grade/lift-work-area.py; the ungraded plate-03-night stays as its record. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
   },
   {
    "attempt": 1,
@@ -1646,7 +1662,7 @@
    "usageNote": "NOT CAPTURED. The driver threw on the role check AFTER the API had returned and the file had landed (22:02 UTC), so the response usage object was lost with the process. This row was written from the same request data minutes later: the paths, hashes, prompt hash and output hash are recomputed from the files; the token count for this one operation is unknown and the spend tally undercounts by it.",
    "state": "night",
    "editedFrom": "art/staging/room-05/plate-source-03-night.png",
-   "accounting": "POST-PILOT OWNER VISUAL REVISION — +1 IMAGE OPERATION (the autonomous pilot stays 8/8)",
+   "accounting": "POST-PILOT OWNER VISUAL REVISION \u2014 +1 IMAGE OPERATION (the autonomous pilot stays 8/8)",
    "note": "THE HANGING WORK LAMP, owner-ruled canon (Tyler, 2026-09-04): one small plain period oil lamp hung from the brass cage over the ledger. Acquired IN CONTEXT by editing the night source; this image exists to be cut -- the lamp is extracted as a separate RGBA prop drawn over the unchanged DAY and NIGHT plates. The edited room is not a plate.",
    "recordedLate": true,
    "gates": {
@@ -1688,7 +1704,11 @@
     "at": "2026-09-04T22:03:45.362Z"
    },
    "promoted": false,
-   "recordedAt": "2026-09-04T22:03:45.257Z"
+   "recordedAt": "2026-09-04T22:03:45.257Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the hanging work lamp as a prop: lamp-01/hanging-lamp-overlay.png (5575e30126f2), its placement, day and night appearance, and the runtime task light. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
   }
  ],
  "promotions": []

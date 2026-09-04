@@ -81,7 +81,7 @@ Tyler's review of the night candidate: the stove alone does not explain a clerk 
 
 ## STATUS
 
-**ROOM 5 — DAY AND NIGHT CANDIDATES COMPLETE, WITH THE HANGING WORK LAMP; HUMAN VISUAL GATE PENDING** (errata 64; the night candidate exists and is proved, the day/night selection mechanism is Q26's).
+**ROOM 5 VISUAL PRODUCTION COMPLETE — MANUAL PLAYTHROUGH PENDING.** Tyler's visual ruling of 2026-09-04 accepts the day and night candidates, Winnie, the lamp and the lighting as they stand; recorded on the staging ledger rows and the build ledger (status accepted, visual_accepted true). Nothing is promoted; the room is not shipping/final until his manual in-game playthrough. (errata 64; the night candidate exists and is proved, the day/night selection mechanism is Q26's).
 
 Every gate that machinery can pass passes, on a clean tree, with the candidate plate loaded live and Winnie in the room, and after Tyler's rulings of 2026-09-04 no Room-5-specific creative or content check is red. The queue bench has its LOOK 1–3 and LISTEN 1–3 (docs 05 and 25, compiled by the normal path); the three orphan refusals are struck; `check-examine-lines` and `check-written-content` pass.
 

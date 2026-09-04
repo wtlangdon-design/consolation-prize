@@ -51,3 +51,5 @@ promoted; `visual_accepted` is unset.
 
 **The hanging work lamp** (Tyler, post-pilot revision) is a separate prop
 over both plates — see `LAMP.md`. Neither plate changed for it.
+
+**OWNER-ACCEPTED 2026-09-04** (Tyler's visual ruling): the night candidate as lifted (92e3f8f5b70a), its ambient level, the task light and the stove's contribution are accepted. The lift stays. Not promoted; manual playthrough pending.

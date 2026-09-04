@@ -23,3 +23,5 @@ No visual approval is implied. `visual_accepted` is unset and is Tyler's.
 
 **The NIGHT candidate** derived from this composition is `plate-03-night/` — see
 `NIGHT-CANDIDATE.md`. It does not replace this one.
+
+**OWNER-ACCEPTED 2026-09-04** (Tyler's visual ruling): the day candidate, composition and raster treatment are accepted. Not promoted; manual playthrough pending.

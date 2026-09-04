@@ -83,18 +83,25 @@
    "dependsOn": [
     "room-02-main-street"
    ],
-   "status": "in-progress",
-   "commit": null,
-   "validation": null,
+   "status": "accepted",
+   "commit": "598a11e",
+   "validation": "npm run validate: 46 of 47; the one red (check-flag-order on ACT and T_RACCOON_NAMED) is global content debt, not Room 5's",
    "gauntlet": "tools/gauntlet/routes/assay-office.json",
    "proof": "renders/proofs/assay-office/proof.json",
    "blockers": [
     "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
    ],
-   "visual_accepted": false,
-   "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel and life proofs pass with the candidate plate loaded live. DAY AND NIGHT CANDIDATES COMPLETE; HUMAN VISUAL GATE PENDING (errata 64; the night candidate art/staging/room-05/plate-03-night/ exists, proved through the candidate override, and the day/night selection mechanism is Q26's): Act I Main Street is night and Room 5 inherits it, so the daylight candidate is ROOM 5 - DAY VISUAL CANDIDATE - kept as the source of composition, geometry and Winnie's design, not the Act I shipping state. The bench rulings of Q24 are applied; the one red in the suite, check-flag-order on ACT and T_RACCOON_NAMED, is global content debt. Nothing is promoted; visual_accepted is false and is Tyler's. THE HANGING WORK LAMP (Tyler's post-pilot owner visual revision, +1 image operation accounted apart from the pilot's 8/8) is THE HANGING LAMP hotspot's lit state image over both plates with a state-aware room lamp; see art/staging/room-05/LAMP.md.",
+   "visual_accepted": true,
+   "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel and life proofs pass with the candidate plate loaded live. DAY AND NIGHT CANDIDATES COMPLETE; HUMAN VISUAL GATE PENDING (errata 64; the night candidate art/staging/room-05/plate-03-night/ exists, proved through the candidate override, and the day/night selection mechanism is Q26's): Act I Main Street is night and Room 5 inherits it, so the daylight candidate is ROOM 5 - DAY VISUAL CANDIDATE - kept as the source of composition, geometry and Winnie's design, not the Act I shipping state. The bench rulings of Q24 are applied; the one red in the suite, check-flag-order on ACT and T_RACCOON_NAMED, is global content debt. Nothing is promoted; visual_accepted is false and is Tyler's. THE HANGING WORK LAMP (Tyler's post-pilot owner visual revision, +1 image operation accounted apart from the pilot's 8/8) is THE HANGING LAMP hotspot's lit state image over both plates with a state-aware room lamp; see art/staging/room-05/LAMP.md. OWNER VISUAL RULING 2026-09-04: visually accepted (see acceptance); manual playthrough pending; nothing promoted.",
    "readiness": "proofs/readiness/room-05.json",
-   "pilot": "proofs/room-05/pilot-report.md"
+   "pilot": "proofs/room-05/pilot-report.md",
+   "visual_accepted_by": "Tyler",
+   "visual_accepted_on": "2026-09-04",
+   "acceptance": {
+    "visual": "OWNER-APPROVED 2026-09-04: composition, raster treatment, DAY plate, NIGHT plate as lifted, night ambient and task-light levels, stove contribution, Winnie's design, placement, contact and relights, the hanging work lamp's design, placement and day/night appearance.",
+    "gameplay": "PENDING: Tyler's manual in-game playthrough. Not shipping/final on visual acceptance alone.",
+    "promotion": "NOT DONE. Every Room 5 asset is still under art/staging/; the shipping plate at art/backgrounds/room-05-assay-office.png is the legacy placeholder. Promotion is a separate, logged step after the playthrough."
+   }
   },
   {
    "id": "tool-compiler-any-room",
