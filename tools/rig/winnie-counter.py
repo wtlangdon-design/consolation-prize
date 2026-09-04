@@ -31,7 +31,7 @@ re-angled about its grip; and she stands 25px further right (x1035), because
 the ledger is drawn 46px right of her centre and swinging the fist about the
 elbow far enough to reach the page destroyed its pixels.
 
-Usage: winnie-counter.py <lit sheet> <plate> <out_dir> --x 1035 --old-y 624 --dy 39
+Usage: winnie-counter.py <lit sheet> <plate> <out_dir> --x 1035 --stand-x 1010 --old-y 624 --dy 39
 """
 import hashlib, json, sys
 from pathlib import Path
@@ -44,6 +44,10 @@ args = sys.argv[1:]
 sheet_path, plate_path, out_dir = args[0], args[1], Path(args[2])
 X = int(args[args.index('--x') + 1]); OLD_Y = int(args[args.index('--old-y') + 1])
 DY = int(args[args.index('--dy') + 1])
+# THE STAND IS A COUNTER OBJECT. Its plate coordinate was registered off the
+# figure at the pilot's x (1010) and does not follow her when she moves;
+# --stand-x names that x. Default: her own x (correction 1 behaviour).
+STAND_X = int(args[args.index('--stand-x') + 1]) if '--stand-x' in args else X
 out_dir.mkdir(parents=True, exist_ok=True)
 
 def sha(path):
@@ -168,7 +172,7 @@ pot_identical = bool(np.array_equal(pen_in[~pen_px], pen_out[~pen_px]))
 mouth_filled = int(mouth.sum())
 # Base of the stand in plate space: the frame's stand rows, lowered with her.
 stand_bottom_row = int(sy.max()); stand_cols = (int(sx.min()), int(sx.max()))
-PROP_X = LEFT + (stand_cols[0] + stand_cols[1] + 1) // 2
+PROP_X = (STAND_X - FW // 2) + (stand_cols[0] + stand_cols[1] + 1) // 2
 PROP_Y = TOP + stand_bottom_row
 prop_sheet = np.zeros((sh, sw * 2 + 2, 4), dtype=np.uint8)
 prop_sheet[:, :sw] = pen_in; prop_sheet[:, sw + 2:] = pen_out

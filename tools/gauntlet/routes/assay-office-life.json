@@ -78,7 +78,7 @@
   {
    "do": "click",
    "on": "her_pen",
-   "why": "an authored refusal: doc 25, HER PEN · PICK UP"
+   "why": "an authored refusal: doc 25, HER PEN \u00b7 PICK UP"
   },
   {
    "do": "waitFor",
@@ -165,6 +165,16 @@
   {
    "do": "capture",
    "name": "10-after-dialogue"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "a full break interval: she has returned to the ledger"
+  },
+  {
+   "do": "capture",
+   "name": "10b-back-at-work",
+   "why": "return to work after the conversation -- writing or resting, pen where that state puts it"
   },
   {
    "do": "click",
