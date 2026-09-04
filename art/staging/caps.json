@@ -1,0 +1,8 @@
+{
+ "schema": 1,
+ "note": "Attempt and spend ceilings, per asset and overall. Edited by a person, never by a tool. A run that reaches one of these stops and says which.",
+ "attemptsPerAsset": 6,
+ "attemptsTotal": 400,
+ "spendTokensTotal": 4000000,
+ "perAsset": {}
+}

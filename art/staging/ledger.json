@@ -1,0 +1,6 @@
+{
+ "schema": 1,
+ "note": "GENERATED ART PROVENANCE. One row per attempt. Holds hashes, ids and model parameters -- no credentials, and no line of the fiction: a prompt is recorded by file path and hash so the words stay in /docs.",
+ "attempts": [],
+ "promotions": []
+}

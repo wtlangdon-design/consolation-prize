@@ -14,10 +14,15 @@
   {
    "id": "room-01-stage-road",
    "kind": "room",
-   "sources": ["docs/05-examine-layer.md", "docs/17-opening-sequence.md", "docs/43-room-01-staging-script.md", "docs/37-room-01-generation-prompts.md"],
+   "sources": [
+    "docs/05-examine-layer.md",
+    "docs/17-opening-sequence.md",
+    "docs/43-room-01-staging-script.md",
+    "docs/37-room-01-generation-prompts.md"
+   ],
    "dependsOn": [],
    "status": "proven",
-   "commit": "673efeb",
+   "commit": "622a8e7",
    "validation": "npm run validate",
    "gauntlet": "tools/gauntlet/opening.json",
    "proof": "proofs/stage-road/proof.json",
@@ -27,88 +32,135 @@
   {
    "id": "room-02-main-street",
    "kind": "room",
-   "sources": ["docs/05-examine-layer.md", "docs/13-room-02-content.md", "docs/14-room-02-exits.md", "docs/20-room-map.md"],
-   "dependsOn": ["room-01-stage-road"],
+   "sources": [
+    "docs/05-examine-layer.md",
+    "docs/13-room-02-content.md",
+    "docs/14-room-02-exits.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-01-stage-road"
+   ],
    "status": "built",
-   "commit": "673efeb",
+   "commit": "622a8e7",
    "validation": "npm run validate",
    "gauntlet": null,
    "proof": "proofs/main-street/proof.json",
-   "blockers": ["Q14", "Q16"],
+   "blockers": [
+    "Q14",
+    "Q16"
+   ],
    "visual_accepted": false
   },
   {
    "id": "room-03-nugget",
    "kind": "room",
-   "sources": ["docs/05-examine-layer.md", "docs/16-room-03-content.md"],
-   "dependsOn": ["room-02-main-street"],
+   "sources": [
+    "docs/05-examine-layer.md",
+    "docs/16-room-03-content.md"
+   ],
+   "dependsOn": [
+    "room-02-main-street"
+   ],
    "status": "built",
-   "commit": "673efeb",
+   "commit": "622a8e7",
    "validation": "npm run validate",
    "gauntlet": null,
    "proof": null,
-   "blockers": ["Q17"],
+   "blockers": [
+    "Q17"
+   ],
    "visual_accepted": false
   },
   {
    "id": "room-05-assay-office",
    "kind": "room",
-   "sources": ["docs/05-examine-layer.md", "docs/25-rooms-05-07.md", "docs/20-room-map.md"],
-   "dependsOn": ["room-02-main-street", "tool-annotator-any-room", "tool-compiler-any-room"],
+   "sources": [
+    "docs/05-examine-layer.md",
+    "docs/25-rooms-05-07.md",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-02-main-street",
+    "tool-annotator-any-room",
+    "tool-compiler-any-room"
+   ],
    "status": "blocked",
    "commit": null,
    "validation": null,
    "gauntlet": null,
    "proof": null,
-   "blockers": ["Q15", "Q16", "Q17"],
+   "blockers": [
+    "Q15",
+    "Q16",
+    "Q17"
+   ],
    "visual_accepted": false
   },
   {
    "id": "tool-compiler-any-room",
    "kind": "tool",
-   "sources": ["docs/46-room-factory.md", "docs/50-autonomy-delta-audit.md"],
+   "sources": [
+    "docs/46-room-factory.md",
+    "docs/50-autonomy-delta-audit.md"
+   ],
    "dependsOn": [],
    "status": "blocked",
    "commit": null,
    "validation": null,
    "gauntlet": null,
    "proof": null,
-   "blockers": ["Q15"],
+   "blockers": [
+    "Q15"
+   ],
    "visual_accepted": false
   },
   {
    "id": "tool-annotator-any-room",
    "kind": "tool",
-   "sources": ["docs/46-room-factory.md", "docs/50-autonomy-delta-audit.md"],
+   "sources": [
+    "docs/46-room-factory.md",
+    "docs/50-autonomy-delta-audit.md"
+   ],
    "dependsOn": [],
    "status": "blocked",
    "commit": null,
    "validation": null,
    "gauntlet": null,
    "proof": null,
-   "blockers": ["Q15"],
+   "blockers": [
+    "Q15"
+   ],
    "visual_accepted": false
   },
   {
    "id": "art-api-layer",
    "kind": "tool",
-   "sources": ["docs/50-autonomy-delta-audit.md"],
+   "sources": [
+    "docs/50-autonomy-delta-audit.md"
+   ],
    "dependsOn": [],
    "status": "blocked",
-   "commit": "673efeb",
+   "commit": "622a8e7",
    "validation": null,
    "gauntlet": null,
    "proof": "proofs/calibration/gate-calibration.md",
-   "blockers": ["Q18"],
+   "blockers": [
+    "Q18"
+   ],
    "visual_accepted": false
   },
   {
    "id": "room-proof-system",
    "kind": "tool",
-   "sources": ["docs/44-gauntlet.md", "docs/46-room-factory.md", "docs/50-autonomy-delta-audit.md"],
+   "sources": [
+    "docs/44-gauntlet.md",
+    "docs/46-room-factory.md",
+    "docs/50-autonomy-delta-audit.md"
+   ],
    "dependsOn": [],
    "status": "proven",
-   "commit": "673efeb",
+   "commit": "622a8e7",
    "validation": "npm run validate",
    "gauntlet": null,
    "proof": "proofs/stage-road/proof.json",

@@ -14,12 +14,12 @@
 </style>
 <h1>main_street — four-panel live-runtime proof</h1>
 <p class="lede">Every frame below is the full play area as the renderer drew it, in the running
-game, at <code>c036b541</code> on <code>claude/last-claim-autonomy-audit-v3vsy6</code>.
+game, at <code>622a8e7a</code> on <code>claude/last-claim-autonomy-audit-v3vsy6</code>.
 No crop, isolated sprite or source image appears here: those are for diagnosing what a full
 frame has already shown.</p>
 <p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
 art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted</code>.</p>
-<div class="verdict">FAIL — 11 failure(s):
+<div class="verdict">FAIL — 10 failure(s):
   gate 8D: boardwalk declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
   gate 8D: boardwalk_1 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
   gate 8D: mud_far_0 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
@@ -29,10 +29,7 @@ art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted<
   gate 8D: mud_near declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
   panel D: the flag registry declares no ACT
   panel D: ACT is undefined, wanted 3 -- the intended state was not reached and the frame is of the old one
-  panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename.
-  the working tree is dirty, so these frames do not correspond to c036b541. Commit, or re-run with --allow-dirty, which records it.
-
-! working tree was dirty: these frames do not correspond to the commit above.</div>
+  panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename.</div>
 
   <figure>
     <img src="panel-b-populated.png" alt="">
@@ -68,7 +65,7 @@ AND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED
     <figcaption><b>PANEL C &mdash; boardwalk far, authored y533</b>
       <span>expected 105px &middot; runtime 105px &middot;
         silhouette 106px, bottom y533</span>
-      <span>art/actors/thad-idle-front/idle-03.png</span>
+      <span>art/actors/thad-idle-front/idle-02.png</span>
     </figcaption>
   </figure>
   <figure>
@@ -76,6 +73,6 @@ AND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED
     <figcaption><b>PANEL C &mdash; mud_near near, authored y857</b>
       <span>expected 206px &middot; runtime 206px &middot;
         silhouette 206px, bottom y856</span>
-      <span>art/actors/thad-idle-front/idle-03.png</span>
+      <span>art/actors/thad-idle-front/idle-01.png</span>
     </figcaption>
   </figure>
