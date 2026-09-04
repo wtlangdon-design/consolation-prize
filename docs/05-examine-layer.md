@@ -1348,6 +1348,7 @@ bark budget, not here.
 
 **THE QUEUE BENCH** *(act: "2-4")*
 > **LOOK:** "The bench seats nine and holds two. The queue has been on a diet since a certain log was read aloud."
+> **LISTEN:** "Two people shifting. There is room between them."
 
 ## ROOM 7 — CLAIMS REGISTRAR
 

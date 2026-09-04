@@ -57,11 +57,8 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 ## ROOM 5 — ASSAY OFFICE, FRONT
 
-**THE WINDOW (AJAR)** · CLOSE — "I closed it once. From inside: 'It's ajar for a REASON.' The reason has never been supplied."
-**THE WINDOW (AJAR)** · OPEN — "Wider seems presumptuous. The window's whole character is the gap."
 **THE QUEUE BENCH** · USE — "It seats nine. I have been all nine, on different days."
 **THE QUEUE BENCH** · PUSH — "Moving the bench does not move the queue. The queue is a spiritual object; the bench is merely where it condenses."
-**THE BRASS PLAQUE** · PULL — "Screwed down against exactly this impulse. The territory knows its own."
 
 ## ROOM 7 — CLAIMS REGISTRAR
 

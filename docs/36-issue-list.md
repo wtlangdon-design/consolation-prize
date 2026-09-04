@@ -3454,6 +3454,13 @@ never separate fresh generations of the same person.
 generation is the empty room, E is not applicable to that call and the
 baseline entry should say so rather than being waived silently.
 
+**Status after the Room 5 pilot:** a CANDIDATE Winnie exists —
+`art/staging/room-05/composition-master-02.png` (design) and
+`art/staging/room-05/winnie-02/` (sheet), generated with the Room 1 casting
+master transmitted first and recorded in `art/staging/ledger.json`. It is not
+approved. This stays open until Tyler accepts or rejects her at the visual
+gate; it is that gate under another name, not a content gap.
+
 ---
 
 ## Q23 · ROOM 5 HAS NO ANNOTATION, AND THAT IS NOT A CONTENT PROBLEM
@@ -3475,9 +3482,17 @@ Room 5's picture does not exist yet: the shipping plate is the obsolete
 reports content and geometry separately so that this can be seen rather than
 averaged.
 
+**Status after the Room 5 pilot:** that order was followed.
+`reference/room-05/annotation.json` exists and is bound by hash to the
+candidate plate `art/staging/room-05/plate-02/`; the room compiles and both
+proofs pass with the candidate loaded live. The shipping plate at
+`art/backgrounds/room-05-assay-office.png` is still the legacy 320×144 indexed
+art, so `GEOMETRY READY` stays NO until the candidate is promoted — which is
+Tyler's visual gate, not geometry work.
+
 ---
 
-## Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN
+## Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN — **RULED**
 
 Found by compiling Room 5 from its documents. Two kinds of gap, both reported by
 the compiler on every run and neither invented around.
@@ -3505,6 +3520,32 @@ bench is gated by errata 60's counter rather than by a cutscene.
 
 **None of the three checks was weakened, excluded or disabled.** The room is
 otherwise candidate-complete around them.
+
+### Owner rulings, 2026-09-04 (Tyler), applied at the pilot's head `500f15a`
+
+1. **THE QUEUE BENCH remains a hotspot.** It is an intentional Act 2–4 Room 5
+   state variation. Its LISTEN now lives beside its LOOK in the act block
+   (`docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2`) and its LOOK 2–3
+   and LISTEN 2–3 in doc 25's repeat block
+   (`docs/25-rooms-05-07.md::Repeat variants for doc 05's five`). Doc 49's USE
+   and PUSH stand. All six lines reach `content/rooms/assay-office.json` by
+   the normal compiler path; nothing generated was hand-edited.
+2. **THE WINDOW (AJAR) and THE BRASS PLAQUE are not Room 5 hotspot subjects.**
+   The wrong-answer layer does not create hotspots to house orphan responses.
+   Their three refusals (WINDOW CLOSE, WINDOW OPEN, PLAQUE PULL) are struck
+   from `docs/49-wrong-answers.md::ROOM 5 — ASSAY OFFICE, FRONT`. No LOOK or
+   LISTEN was written for either; the window's lines were **not** moved onto
+   THE WINDOW SIGN (opening a sign is semantically wrong) and the plaque's
+   line was **not** moved onto another hotspot. The annotation's `unhoused`
+   block is gone because nothing is unhoused.
+3. **ACT and `T_RACCOON_NAMED` are out of scope here.** The global ACT
+   progression writer (doc 48 S1) and the raccoon-naming writer are unbuilt
+   content belonging to other rooms. `check-flag-order` stays red on those two
+   gates and was not weakened, excluded or falsified; the bench's own ACT gate
+   stands as authored, its pre/post behaviour proven by the pilot harness.
+
+After the rulings: `check-examine-lines` and `check-written-content` pass;
+`check-flag-order` is the one red in the suite and it is not Room 5's.
 
 ---
 

@@ -68,8 +68,8 @@ Nothing here adds a fact, a joke, a clue or a puzzle step.
 
 ## Part four — canon findings, reported rather than resolved
 
-1. **THE WINDOW (AJAR) and THE BRASS PLAQUE** (doc 49) have no LOOK or LISTEN anywhere, so they cannot be hotspots — `check-examine-lines` requires both. Their three refusals are unhoused. The compiler will be told so explicitly rather than failing silently.
-2. **THE QUEUE BENCH**: doc 05 writes its LOOK for acts 2–4 only; doc 49 writes USE and PUSH refusals in Act I voice ("I have been all nine, on different days"). No LISTEN exists. Implemented as an act 2–4 hotspot; in Act I the bench is scenery. The doc 49 lines therefore play only in acts 2–4.
+1. **THE WINDOW (AJAR) and THE BRASS PLAQUE** (doc 49) have no LOOK or LISTEN anywhere, so they cannot be hotspots — `check-examine-lines` requires both. Their three refusals are unhoused. The compiler will be told so explicitly rather than failing silently. **RULED 2026-09-04 (Tyler): not hotspot subjects; the three refusals are struck from doc 49, nothing mapped elsewhere.**
+2. **THE QUEUE BENCH**: doc 05 writes its LOOK for acts 2–4 only; doc 49 writes USE and PUSH refusals in Act I voice ("I have been all nine, on different days"). No LISTEN exists. Implemented as an act 2–4 hotspot; in Act I the bench is scenery. The doc 49 lines therefore play only in acts 2–4. **RULED 2026-09-04 (Tyler): the bench stays; its LISTEN and LOOK/LISTEN 2–3 are now authored in docs 05 and 25.**
 3. **`WIN_A2` "enters the queue; A2"** names no flag, and doc 02's A2 is the hotel-key puzzle, so the reference is either to a different table or a stale label. No flag is invented; the option is extracted with its line and nothing set.
 4. **`WIN_B1` opt 3 "flags her interest; required for C5"** names no flag. Same treatment.
 5. **`WIN_B3`** is a scene with ONE option; **`WIN_C1`** has four options and no `[COMIC]`. Both fail `check-dialogue-nodes` as written. Neither is extracted in this pilot; both are Acts II–III.

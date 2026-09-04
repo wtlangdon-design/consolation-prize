@@ -312,8 +312,21 @@
         "LOOK_AT": [
           {
             "say": "The bench seats nine and holds two.",
+            "repeat": [
+              "Seven empty places. The bench has not adjusted to the improvement.",
+              "It is still built for nine. The queue, for once, is not."
+            ],
             "then": [
               "The queue has been on a diet since a certain log was read aloud."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Two people shifting. There is room between them.",
+            "repeat": [
+              "A board creaks. Nobody answers it.",
+              "Almost nothing. Waiting is quieter in small numbers."
             ]
           }
         ]

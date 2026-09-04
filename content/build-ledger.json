@@ -48,7 +48,7 @@
    "gauntlet": null,
    "proof": "renders/proofs/main-street/proof.json",
    "blockers": [
-    "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
+    "docs/36-issue-list.md::Q20 \u00b7 BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
    ],
    "visual_accepted": false,
    "note": "The font blocker is gone -- errata 62 retains the bitmap face. What remains is the two stale occlusion masks, which stay maskPending by Tyler's ruling and are not to be regenerated yet, and the undeclared ACT problem that keeps Panel D from being honestly green. Neither is invented around."
@@ -88,11 +88,9 @@
    "validation": null,
    "gauntlet": "tools/gauntlet/routes/assay-office.json",
    "proof": "renders/proofs/assay-office/proof.json",
-   "blockers": [
-    "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON"
-   ],
+   "blockers": [],
    "visual_accepted": false,
-   "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel proof passes with the candidate plate loaded live and Winnie measured behind the counter plane. NOT candidate-complete: three validators are red on one subject -- the queue bench has no LISTEN or repeat variants in canon and its ACT gate has no writer until doc 48's S1 exists -- and the room's visual acceptance is Tyler's. Nothing is promoted; visual_accepted is false.",
+   "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel and life proofs pass with the candidate plate loaded live and Winnie measured behind the counter plane. CANDIDATE COMPLETE; HUMAN VISUAL GATE PENDING: Tyler's rulings of 2026-09-04 (docs/36-issue-list.md::Q24 \u00b7 THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN) supplied the queue bench's LISTEN and repeat variants and struck the three orphan refusals, so no Room-5-specific content check is red. The one red left in the suite, check-flag-order on ACT and T_RACCOON_NAMED, is global content debt (doc 48 S1 and the raccoon's naming) that no Room 5 work owns. Nothing is promoted; visual_accepted is false and is Tyler's.",
    "readiness": "proofs/readiness/room-05.json",
    "pilot": "proofs/room-05/pilot-report.md"
   },
@@ -177,7 +175,7 @@
    "proof": "renders/font-candidates/candidates.json",
    "blockers": [],
    "note": "RULED BY TYLER, errata 62: the existing bitmap face is retained at GLYPH_SCALE 6 in the play area and PANEL_GLYPH_SCALE 4 in the panel. The answer to the decision sheet's question was none of the four candidates. The sheet, the four faces and PreviewFont are retained as diagnostics and are not a shipping path.",
-   "ruling": "docs/00-errata.md::62 · THE EXISTING BITMAP FACE IS THE SHIPPING FACE"
+   "ruling": "docs/00-errata.md::62 \u00b7 THE EXISTING BITMAP FACE IS THE SHIPPING FACE"
   }
  ],
  "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails."

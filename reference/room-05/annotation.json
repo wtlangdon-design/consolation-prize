@@ -133,11 +133,6 @@
     "queue_bench": "2-4"
   },
   "actsNote": "Errata 60's sugar, authored here per hotspot. `2-4` compiles to when: { ACT: { atLeast: 2, atMost: 4 } }. Only the bench carries one: doc 05's second Room 5 section writes it for acts 2-4 and nothing for Act I.",
-  "unhoused": {
-    "THE WINDOW (AJAR)": "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON",
-    "THE BRASS PLAQUE": "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON"
-  },
-  "unhousedNote": "Doc 49 writes refusals for two subjects doc 05 never gives a LOOK or LISTEN. They cannot be hotspots without inventing examine lines, so their lines are carried nowhere; the compiler reports them by name on every run instead of dropping them silently, and the issue owns them.",
   "exits": {
     "back_to_street": [
       40,

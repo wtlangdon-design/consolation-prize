@@ -179,7 +179,24 @@ function ask(room, sources, note) {
     // AN INDEPENDENT CROSS-CHECK, not a restatement: doc 05 states its own
     // hotspot count in prose, and a parser that found a different number has
     // misread the document rather than found a gap.
-    const countAgrees = declaredCount === null || declaredCount === subjects.length;
+    //
+    // THE PROSE COUNT IS THE EXAMINE LAYER'S, NOT THE ROOM'S. A subject doc 05
+    // authors only in its act-variant block (Room 5's queue bench, `*(act:
+    // "2-4")*`, 1200 lines below "Eight hotspots.") is a hotspot the room has
+    // and the count never included -- so once its repeat variants arrived in
+    // doc 25 this check found nine, compared them with eight, and called a
+    // completed layer a misreading. Subjects the act block alone declares are
+    // set beside the count, not against it.
+    const actReferenceEarly = sources.examine?.actVariants ?? sources.examine?.primary;
+    const actSectionEarly = actReferenceEarly === sources.examine?.primary
+      ? primary : section(actReferenceEarly);
+    const primaryNames = new Set(parsed.written.map((one) => one.name).concat(parsed.pending));
+    const actOnlyNames = actSectionEarly.ok
+      ? doc05Subjects(actSectionEarly.body).written
+        .filter((one) => one.act && !primaryNames.has(one.name)).map((one) => one.name)
+      : [];
+    const counted05 = subjects.filter((one) => !actOnlyNames.includes(one.name)).length;
+    const countAgrees = declaredCount === null || declaredCount === counted05;
     add('look-listen', 'LOOK/LISTEN complete?',
       withoutBoth.length === 0 && countAgrees ? 'YES' : 'NO',
       [sources.examine.primary, ...(sources.examine.completions ?? [])],
@@ -187,7 +204,7 @@ function ask(room, sources, note) {
         ? `${withoutBoth.length} subject(s) without both: ${withoutBoth.map((s) => s.name).join(', ')}`
         : countAgrees
           ? `${subjects.length} subject(s), each with a LOOK and a LISTEN`
-          : `the document states ${declaredCount} hotspots and ${subjects.length} were parsed -- `
+          : `the document states ${declaredCount} hotspots and ${counted05} were parsed -- `
             + 'this check has misread it, which is not the same as a gap');
 
     /* 2 · repeat-selection variants -------------------------------------- */
