@@ -1180,5 +1180,11 @@
       "box": "mud_mid",
       "note": "In the middle band where plane 2 adds coverage beyond plane 1's corner: a hitching rail, two posts and a crossbar, drawn precisely, and there is no hitching rail in the plate there. Same state as the near point and kept for the same reason."
     }
+  ],
+  "occlusionBands": [
+    "boardwalk",
+    "mud_far",
+    "mud_mid",
+    "mud_near"
   ]
 }

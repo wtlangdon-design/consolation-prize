@@ -954,6 +954,15 @@ export interface RoomFile {
    */
   occlusionProofs?: { at: [number, number]; expect: number; box?: string; note?: string }[];
   /**
+   * The band names the compiler asked the annotation for a clip plane for.
+   *
+   * PUBLISHED SO NOTHING HAS TO GUESS THEM. A carved piece is `mud_far_0` and
+   * a band can itself be `floor_5`, so no suffix rule tells the two apart --
+   * the annotator would need a second copy of the carving logic to show one
+   * row per band, and it would disagree with the first the day either moved.
+   */
+  occlusionBands?: string[];
+  /**
    * Ruling 20: a drawn crowd of four or more needs at least three animated
    * members. The rest stay painted into the background and the eye gives them
    * the credit.

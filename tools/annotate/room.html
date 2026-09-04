@@ -147,15 +147,22 @@ function load(data) {
   const entrance = (data.entrances || []).find((e) => e.from === 'default');
   if (entrance) S.spawn = entrance.at.slice();
 
-  // THE BANDS THE COMPILER WILL ASK ABOUT. Taken from the room's existing walk
-  // boxes with any carved suffix removed -- a band split around an obstacle is
-  // still one depth and one decision. A room never compiled has none yet, and
-  // the compiler's refusal names them the first time it runs, which is the
-  // honest order: it knows how it will cut the floor and this page does not.
-  BANDS = [...new Set((data.walkBoxes || []).map((b) => b.id)
-    .map((id) => (/^(mud_(?:far|mid|near)|boardwalk)/.exec(id) || [id])[0]))];
+  // THE BANDS THE COMPILER ASKS ABOUT, PUBLISHED BY THE COMPILER ITSELF.
+  //
+  // Not derived here, and a first version that derived them was wrong on the
+  // Nugget: a carved piece is `mud_far_0` and a band can itself be `floor_5`,
+  // so stripping a trailing `_N` turns seven real bands into one. Any rule
+  // this page invented would be a second copy of the carving logic and would
+  // disagree with the first -- which shows up as Tyler authoring a plane for a
+  // band the compiler never asks about, and being refused for one it does.
+  //
+  // A room never compiled has no list yet. The compiler's refusal names every
+  // band it needs the first time it runs, which is the honest order: it knows
+  // how it will cut the floor and this page does not.
+  BANDS = data.occlusionBands || [];
   for (const band of BANDS) {
-    const box = (data.walkBoxes || []).find((b) => b.id === band || b.id.indexOf(band + '_') === 0);
+    const box = (data.walkBoxes || []).find((b) => b.id === band
+      || b.id.indexOf(band + '_') === 0);
     S.planes[band] = box ? box.clipPlane : 0;
   }
   S.proofs = (data.occlusionProofs || []).map((p) => ({ at: p.at.slice(), expect: p.expect,
