@@ -410,4 +410,35 @@ that defect will be reproduced by the compiler into every room it builds.
 
 ---
 
+---
+
+# PART NINE — THE STATE THIS AUDIT LEAVES BEHIND
+
+| | |
+|---|---|
+| `npm run typecheck` | clean |
+| `npm run validate` | **All 44 checks passed, and 5 diagnostics were reported** |
+| `npm run test` | 157 of 157 |
+| `npm run gauntlet` | green — still 2 of 12 beats asserting |
+| `npm run proof stage_road` | **PASS**, clean tree, `proofs/stage-road/proof.json` |
+| `npm run proof main_street` | **FAIL, 10 findings**, clean tree, `proofs/main-street/proof.json` |
+| Mutation worktree | destroyed; `git worktree list` shows one entry |
+| Working tree | clean |
+
+**One thing broke and was fixed rather than reverted, and it is worth reading.**
+Making the probe honest about a held beat turned the gauntlet red. The harness
+had been driving beat 9's input — the click on Hob's lamp — because the probe
+reported beat 9 the moment the carrier armed it. **That click writes
+`T_HOB_SPOKEN`, which is the flag beat 9 is holding on.** So the harness was
+releasing a hold by acting on a beat the game had not started, and it worked
+entirely by accident. Reporting the hold correctly deadlocked it. The fix is
+`waitingBeat`: a beat waiting for the player is exactly when the player's input
+is wanted, which is what that field says and `beat` never did.
+
+**That is the shape of this whole audit in one paragraph.** A green run, a
+mechanism agreeing with itself, and the correction visible only once something
+independent looked.
+
+---
+
 *Nothing in this document overrides anything. It records.*
