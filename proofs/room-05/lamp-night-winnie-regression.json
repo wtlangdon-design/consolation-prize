@@ -1,0 +1,103 @@
+{
+ "note": "Night route with the hanging lamp (renders/proofs/assay-office-lamp-night/winnie, state night). The lamp fixture is checked in every capture against the overlay it was cut from (share of fixture pixels within 60 summed RGB of the overlay, under the breathing glow); pen state where the stand is visible; Winnie contact band.",
+ "lampAnchoredInEveryCapture": true,
+ "penStateMatchesFrameWhereVisible": true,
+ "contactBandHeldInEveryCapture": true,
+ "captures": [
+  {
+   "capture": "n01-night-initial",
+   "frame": "writing (pen in hand)",
+   "standOccludedByThad": false,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "lampFixturePixelsMatchingOverlay": 1.0,
+   "lampBoundsChecked": [
+    932,
+    62,
+    82,
+    187
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  },
+  {
+   "capture": "n02-night-working",
+   "frame": "rest/breath (hands on the page)",
+   "standOccludedByThad": false,
+   "penInStand": true,
+   "expectedPenInStand": true,
+   "lampFixturePixelsMatchingOverlay": 1.0,
+   "lampBoundsChecked": [
+    932,
+    62,
+    82,
+    187
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  },
+  {
+   "capture": "n03-night-working-again",
+   "frame": "writing (pen in hand)",
+   "standOccludedByThad": false,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "lampFixturePixelsMatchingOverlay": 1.0,
+   "lampBoundsChecked": [
+    932,
+    62,
+    82,
+    187
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  },
+  {
+   "capture": "n04-night-dialogue",
+   "frame": "looking-up (talk frame)",
+   "standOccludedByThad": true,
+   "penInStand": null,
+   "expectedPenInStand": null,
+   "lampFixturePixelsMatchingOverlay": 1.0,
+   "lampBoundsChecked": [
+    932,
+    62,
+    82,
+    187
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  },
+  {
+   "capture": "n05-night-back-at-work",
+   "frame": "writing (pen in hand)",
+   "standOccludedByThad": true,
+   "penInStand": null,
+   "expectedPenInStand": null,
+   "lampFixturePixelsMatchingOverlay": 0.97,
+   "lampBoundsChecked": [
+    932,
+    62,
+    82,
+    187
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  }
+ ]
+}

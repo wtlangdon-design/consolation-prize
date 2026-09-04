@@ -3597,7 +3597,11 @@ the ink stand relit with identical alpha. Proved live through the candidate
 override (`renders/proofs/assay-office-night/`). It is a CANDIDATE awaiting
 Tyler's review. **What stays open here is the selection mechanism** (errata
 64d): a room file carries one `background`; nothing gates a plate on a flag;
-the night files are named by no content record.
+the night files are named by no content record. Since the hanging work lamp
+(Tyler's post-pilot revision, `art/staging/room-05/LAMP.md`) a room lamp can
+carry an `amountByState`, and the proofs select the state with the dev-only
+`?state=night` (`engine/dev/RoomState.ts`) exactly as they select a candidate
+plate. That is the seam the mechanism plugs into; it is not the mechanism.
 
 **Two authored lines still say daylight** about Main Street from inside its
 neighbours, and they are Tyler's to reword, as the mud line was:

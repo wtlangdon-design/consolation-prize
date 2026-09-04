@@ -48,3 +48,6 @@ preserved, nothing repainted, no light source added.
 
 The ungraded night candidate (72124eb6f213) is kept beside it. Neither is
 promoted; `visual_accepted` is unset.
+
+**The hanging work lamp** (Tyler, post-pilot revision) is a separate prop
+over both plates — see `LAMP.md`. Neither plate changed for it.
