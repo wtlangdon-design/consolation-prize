@@ -82,7 +82,7 @@ Where a specific line exists it takes precedence over the pool.
 > PUSH — "I will not."
 
 **THE MUD**
-> PICK UP — "I have picked up some mud. I am now a man holding mud, in a street, in daylight."
+> PICK UP — "I have picked up some mud. I am now a man holding mud, in a street, at night."
 > USE — "On what."
 
 **THE HILLS**

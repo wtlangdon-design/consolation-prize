@@ -299,7 +299,7 @@ A weak pass is not a failure. A character legitimately carried by one anchor in 
 - Room 5: the "counter top" sample included the counter's own dark lip; the "floor" sample sat on the counter. Two apparent failures on surfaces that were fine.
 - Room 1: the verge measured 203, apparently tying the lamp as the brightest object in the frame. The sample contained the lamp.
 
-**A contaminated sample is indistinguishable from a real result.** It fails and passes with equal confidence, and both directions are dangerous — Room 5 lost time chasing failures that were not real, Room 1 nearly lost the lamp's status as the uniquely brightest object in the only night exterior in the game.
+**A contaminated sample is indistinguishable from a real result.** It fails and passes with equal confidence, and both directions are dangerous — Room 5 lost time chasing failures that were not real, Room 1 nearly lost the lamp's status as the uniquely brightest object in the only night exterior in the game *(errata 64: no longer the only one — Main Street is night too)*.
 
 **Rules:**
 
@@ -950,7 +950,7 @@ This is the highest-value animation in the project and it was never specified.
 
 **He is not a silhouette, and making him one was wrong.**
 
-He carries the only light in the only night exterior. A man holding a lantern has a lit face — and Hob's face is the single most important piece of art in Act I, because the whole Act III reveal depends on the player having walked past him and not looked twice.
+He carries the only light in the only night exterior *(errata 64: Room 1 is no longer the only night exterior, but it is still the only one where the carried lamp is the sole source)*. A man holding a lantern has a lit face — and Hob's face is the single most important piece of art in Act I, because the whole Act III reveal depends on the player having walked past him and not looked twice.
 
 **A black slab is not a man you walked past. It is a shape.** Light the face and the near side of the coat from the lamp; leave the far side dark. He should be *unremarkable*, which is a different thing from *invisible*.
 
@@ -1187,7 +1187,7 @@ Doc 20 gave the town **one** street. Everything not on it — the Registrar, the
 - **Room 2's alley is a real exit**, to the Lane. It is already drawn as a slot you can see through.
 - **Room 20, the back alley, moves** — it opens off Lower Street rather than Main Street's east end.
 - **Errata 31c is amended.** "Everything visible from Main Street appears on the map the first time Thad stands on Main Street" now covers far fewer locations, because most of them are reachable on foot and need no map entry at all.
-- **Two more composed screens**, both exteriors, both day. They inherit Room 2's palette script, camera relationship and material identity — they are the same street, further along.
+- **Two more composed screens**, both exteriors, both day. They inherit Room 2's palette script, camera relationship and material identity — they are the same street, further along. *(Amended by errata 64: "both day" is superseded — Main Street's base state is night, and the two screens inherit that.)*
 
 ## Why this is worth two rooms
 
@@ -1956,3 +1956,97 @@ derived 1920 × 864 candidate.
 **THIS IS PROVISIONAL AND DOES NOT BECOME A FORTY-ROOM RULE BECAUSE THE COMMAND
 EXECUTES.** Tyler's full-frame review of Room 5 decides whether this
 source-to-shipping treatment is visually acceptable, before Room 6 exists.
+
+---
+
+# 64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS
+
+Tyler's rulings of 2026-09-04, on `proofs/room-05/time-of-day-audit.md`. That
+audit found the canon split on Main Street's own time of day — doc 13, doc 16,
+doc 26, doc 12 and errata 43 saying day; doc 17, Room 1's lines about the town,
+errata 58, doc 35's gate ruling and the signed-off plate saying night — and
+found Room 5's daylight candidate entered, in the built game, from a night
+street. These four rulings resolve it. Canon reconciliation only: no image was
+generated or edited, no API operation spent, no geometry, Winnie or proof
+artefact touched, nothing promoted, Room 6 not begun.
+
+## 64a · The canonical Act I / base presentation of Main Street is NIGHT
+
+Based on, and preserving: Room 1's explicit night opening (doc 17); the direct
+Room 1 → Main Street continuity (doc 17 beat 11, "he is still walking when
+Main Street arrives"; Room 1's THE ROAD WEST, "A town, at night, half of it
+asleep"); the signed-off Room 2 plate `art/backgrounds/room-02-main-street.png`
+and its declared lamps; the town lights in the opening (errata 58, "toward the
+town lights"); and the approved Nugget interior's night exterior views.
+
+**Any prior prose saying the Act I / base Main Street state is daylight is
+superseded where it conflicts.** Reconciled with this erratum:
+
+- `docs/13-room-02-content.md::PART TWO` — THE MUD · PICK UP now reads
+  *"I have picked up some mud. I am now a man holding mud, in a street, at
+  night."* (Tyler's wording; the joke otherwise untouched.) Re-extracted into
+  `content/rooms/main-street.json` by the normal pipeline.
+- Errata 43's "both exteriors, both day" for Lower Street and the Lane —
+  superseded: both inherit Main Street's night. Errata 43's "same time of day"
+  stands, and now means night. Inline pointers left at the original lines.
+- The two statements that Room 1 is "the only night exterior in the game"
+  (errata 17-era rationale; errata 33/35-era Hob note) — no longer true as
+  stated; inline pointers left. Room 1 remains the only exterior whose sole
+  light is carried.
+- `docs/12-art-prompts.md` row 35's "warm low sun" for the base street — doc
+  12 is already superseded as final spec (doc 11, then errata 54); noted, not
+  edited.
+
+**Two written lines conflict with this ruling and are NOT rewritten here**,
+because they are comedy and replacement wording is Tyler's, not the
+pipeline's — exactly as the mud line was: `docs/16-room-03-content.md::THE
+FRONT DOORS → Room 2` LOOK 2 *"Daylight past them. It is always a surprise."*
+and `docs/26-batch-a.md` the hotel's STREET DOOR LOOK 3 *"Daylight, past it.
+It is always brighter than I remember."* Both describe Main Street from an
+adjoining interior in its base state. Recorded under
+`docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT`
+for Tyler's wording.
+
+## 64b · Room 5 is not permanently daylight
+
+Room 5 inherits the exterior lighting state appropriate to the current
+story/world state. For the immediate Act I route — **Room 1 night → Main
+Street night → Room 5 night** — the current bright-daylight Room 5 candidate
+is NOT the correct Act I shipping state.
+
+**The daylight candidate is NOT rejected and NOT deleted.** It is reclassified
+as **ROOM 5 — DAY VISUAL CANDIDATE** and remains the approved source of the
+room's composition, spatial layout, geometry ancestry, canonical Winnie design
+ancestry, object placement and general visual-style review. It stays useful
+for a later daylight-state review. No visual approval is implied by any of
+this; `visual_accepted` is Tyler's and is unset.
+
+## 64c · Room 5 requires a NIGHT visual state before it ships
+
+Before Room 5 can be promoted for normal Act I gameplay it requires a night
+treatment consistent with the signed-off Main Street exterior. The audit
+established that daylight affects more than the glass — the exterior through
+the glazed openings, direct floor and wainscot sunlight, directional interior
+illumination, shadows, and Winnie's local lighting — so **a window-only
+overlay is insufficient.** NIGHT is a genuine alternate visual plate/state,
+derived from the SAME accepted Room 5 composition and object geometry.
+
+**Not created yet.** The remaining image operation is not spent on it. It
+follows Tyler's visual review of the day candidate's composition, style, scale
+and Winnie, and nothing precedes that review.
+
+## 64d · No simulated day/night cycle
+
+This does not authorise a clock, a real-time cycle or a general day/night
+simulation. Time of day remains an authored story/world visual state, selected
+by canon. Before Room 5's state switching is implemented, determine whether the
+existing conditional room/state architecture can select the correct visual
+plate from canonical flags; if it can, use it; if it cannot, report the
+smallest missing mechanism before building anything global. (Observed at the
+time of ruling, not built: a room file carries one `background` path and
+`backgroundFrames` for cycling; the `when`/flag machinery of errata 60 gates
+hotspots and dialogue, not plates. The gap, if it is one, is a conditional
+background, and it is sized when the night plate exists.)
+
+**Room 5's status under these rulings:** CANDIDATE COMPLETE — HUMAN VISUAL
+GATE PENDING, WITH REQUIRED NIGHT VARIANT BEFORE SHIPPING.

@@ -3572,3 +3572,32 @@ with the probe on. None is Room 5's; each would have bitten the next room.
 Plus a measurement the life proof made possible: in a room with no handover,
 `control` is never `player`, so a route cannot wait on it; the route vocabulary
 gained `waitFor { says }` to land a capture inside a reading hold instead.
+
+---
+
+## Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT
+
+Opened by `docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS`,
+on the audit in `proofs/room-05/time-of-day-audit.md`.
+
+**The night state.** Room 5's only candidate plate is daylight (now classified
+ROOM 5 — DAY VISUAL CANDIDATE, kept, not rejected). The Act I route is Room 1
+night → Main Street night → Room 5 night, so the room cannot be promoted for
+Act I play until a night plate/state exists, derived from the same accepted
+composition and geometry (errata 64c). It is not made until Tyler has reviewed
+the day candidate's composition, style, scale and Winnie. Selection mechanism
+per errata 64d: check the existing conditional architecture first; a room file
+today carries one `background`, and nothing gates a plate on a flag.
+
+**Two authored lines still say daylight** about Main Street from inside its
+neighbours, and they are Tyler's to reword, as the mud line was:
+
+1. `docs/16-room-03-content.md::THE FRONT DOORS → Room 2` — LOOK 2 *"Daylight
+   past them. It is always a surprise."*
+2. `docs/26-batch-a.md` — the hotel's STREET DOOR LOOK 3 *"Daylight, past it.
+   It is always brighter than I remember."*
+
+Neither was rewritten by the pipeline. Nothing else in canon now states a
+daytime base street: doc 13 is corrected, errata 43 and the two "only night
+exterior" lines carry pointers to errata 64, and doc 12's "warm low sun" sits
+in a document already superseded as final spec.

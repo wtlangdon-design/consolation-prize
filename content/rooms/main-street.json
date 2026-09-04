@@ -407,7 +407,7 @@
         ]
       },
       "overrides": {
-        "PICK_UP": "I have picked up some mud. I am now a man holding mud, in a street, in daylight.",
+        "PICK_UP": "I have picked up some mud. I am now a man holding mud, in a street, at night.",
         "USE": "On what."
       }
     },

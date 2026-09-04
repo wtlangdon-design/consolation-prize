@@ -1,5 +1,13 @@
 # ROOM 5 — TIME-OF-DAY STATE AUDIT (report only)
 
+> **RULED 2026-09-04.** The owner ruling this audit asked for is
+> `docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS`:
+> Act I Main Street is night; Room 5 inherits the street's state; the daylight
+> candidate is kept as ROOM 5 — DAY VISUAL CANDIDATE; a night state is required
+> before shipping; no simulated cycle. Follow-ups under
+> `docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT`.
+> The findings below are preserved as written.
+
 Audited at `ad9c2df`, clean tree. Nothing generated, spent, altered, rerun,
 promoted or set. Read-only.
 
@@ -154,7 +162,7 @@ base if the ruling is "day, always" for every visit.
 
 ## CONCLUSION
 
-**C. `ROOM 5 TIME-OF-DAY CONTINUITY UNSPECIFIED — OWNER RULING REQUIRED`**
+**C. `ROOM 5 TIME-OF-DAY CONTINUITY UNSPECIFIED — OWNER RULING REQUIRED`** — *ruling received: errata 64.*
 
 The documents do not determine Main Street's own time of day: doc 13, doc 16,
 doc 26, doc 12 and errata 43 say day; doc 17, Room 1's lines about the town,

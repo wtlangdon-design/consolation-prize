@@ -88,9 +88,11 @@
    "validation": null,
    "gauntlet": "tools/gauntlet/routes/assay-office.json",
    "proof": "renders/proofs/assay-office/proof.json",
-   "blockers": [],
+   "blockers": [
+    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+   ],
    "visual_accepted": false,
-   "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel and life proofs pass with the candidate plate loaded live and Winnie measured behind the counter plane. CANDIDATE COMPLETE; HUMAN VISUAL GATE PENDING: Tyler's rulings of 2026-09-04 (docs/36-issue-list.md::Q24 \u00b7 THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN) supplied the queue bench's LISTEN and repeat variants and struck the three orphan refusals, so no Room-5-specific content check is red. The one red left in the suite, check-flag-order on ACT and T_RACCOON_NAMED, is global content debt (doc 48 S1 and the raccoon's naming) that no Room 5 work owns. Nothing is promoted; visual_accepted is false and is Tyler's.",
+   "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel and life proofs pass with the candidate plate loaded live. CANDIDATE COMPLETE; HUMAN VISUAL GATE PENDING, WITH REQUIRED NIGHT VARIANT BEFORE SHIPPING (errata 64): Act I Main Street is night and Room 5 inherits it, so the daylight candidate is ROOM 5 - DAY VISUAL CANDIDATE - kept as the source of composition, geometry and Winnie's design, not the Act I shipping state. The bench rulings of Q24 are applied; the one red in the suite, check-flag-order on ACT and T_RACCOON_NAMED, is global content debt. Nothing is promoted; visual_accepted is false and is Tyler's.",
    "readiness": "proofs/readiness/room-05.json",
    "pilot": "proofs/room-05/pilot-report.md"
   },

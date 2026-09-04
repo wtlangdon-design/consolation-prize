@@ -35,7 +35,7 @@ Start commit `b63bb4dd` · pilot start record `proofs/room-05/pilot-start.json`
 
 ## TIME OF DAY
 
-Daylight is canonical for this visit, not the model's choice: `docs/13-room-02-content.md` THE MUD · PICK UP — *"I am now a man holding mud, in a street, in daylight"* — and errata 43: the other street screens are *"both exteriors, both day. They inherit Room 2's palette script."* Room 5 is entered from Main Street in Act I. Room 1's night is Room 1's.
+**Superseded by owner ruling — `docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS`.** The pilot took daylight from doc 13's mud line and errata 43's "both day"; `proofs/room-05/time-of-day-audit.md` found the canon split and the signed-off Main Street plate night, and Tyler ruled: Act I Main Street is night, Room 5 inherits the street's state, and the Act I route is Room 1 night → Main Street night → Room 5 night. The candidate made here is therefore **ROOM 5 — DAY VISUAL CANDIDATE**: kept, not rejected, the approved source of composition, layout, geometry ancestry, Winnie's design ancestry and object placement, and not the Act I shipping state. A night plate/state derived from the same composition is required before shipping (errata 64c) and is not made before Tyler's visual review of this candidate.
 
 ## WHAT THE PROOFS MEASURED
 
@@ -65,7 +65,7 @@ From `renders/room-05-style-continuity.json`: the interior scale jump (Thad 240 
 
 ## STATUS
 
-**ROOM 5 — CANDIDATE COMPLETE; HUMAN VISUAL GATE PENDING.**
+**ROOM 5 — CANDIDATE COMPLETE; HUMAN VISUAL GATE PENDING, WITH REQUIRED NIGHT VARIANT BEFORE SHIPPING** (errata 64).
 
 Every gate that machinery can pass passes, on a clean tree, with the candidate plate loaded live and Winnie in the room, and after Tyler's rulings of 2026-09-04 no Room-5-specific creative or content check is red. The queue bench has its LOOK 1–3 and LISTEN 1–3 (docs 05 and 25, compiled by the normal path); the three orphan refusals are struck; `check-examine-lines` and `check-written-content` pass.
 
