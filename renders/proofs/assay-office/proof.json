@@ -4,7 +4,7 @@
  "room": "assay_office",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "721b2595a6f5334ade3b260572868971deff7980",
+ "commit": "b75e14b7bcfed589a6f550b98143c2ce0ca1be0c",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -71,7 +71,7 @@
    ],
    "reportedHeight": 471,
    "expected": 471,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-01.png",
    "bounds": [
     631,
     230,
@@ -79,7 +79,7 @@
     520
    ],
    "order": 0,
-   "renderedHeight": 491,
+   "renderedHeight": 480,
    "renderedBottom": 700,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
@@ -108,7 +108,7 @@
    ],
    "reportedHeight": 559,
    "expected": 559,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-06.png",
    "bounds": [
     585,
     270,
@@ -128,33 +128,67 @@
    "id": "winnie",
    "feet": [
     1010,
-    624
+    404
    ],
-   "sheet": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
+   "sheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
    "clipPlane": 1,
    "box": {
     "x": 788,
-    "y": 179,
+    "y": 217,
     "width": 444,
-    "height": 447
+    "height": 189
    },
    "seen": {
-    "x": 920,
-    "y": 183,
-    "width": 156,
-    "height": 212,
-    "bottom": 394,
+    "x": 950,
+    "y": 221,
+    "width": 126,
+    "height": 180,
+    "bottom": 400,
     "right": 1075,
-    "changed": 15305
+    "changed": 11545
    },
-   "maskedAbove": 394
+   "props": [
+    {
+     "sheet": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "at": [
+      933,
+      409
+     ],
+     "box": {
+      "x": 915,
+      "y": 360,
+      "width": 36,
+      "height": 52
+     },
+     "seen": {
+      "x": 921,
+      "y": 360,
+      "width": 30,
+      "height": 47,
+      "bottom": 406,
+      "right": 950,
+      "changed": 621
+     },
+     "expected": [
+      399,
+      431
+     ]
+    }
+   ],
+   "contact": {
+    "expected": [
+     398,
+     410
+    ],
+    "lowestDrawnRow": 400
+   }
   }
  ],
  "panels": [
   {
    "panel": "B",
    "room": "assay_office",
-   "clock": 114.07239999999999,
+   "clock": 119.336,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -192,7 +226,7 @@
      "height": 515,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
       -67,
       250,
@@ -221,29 +255,37 @@
      "drawn": "art/staging/room-05/mask-plane-1.png",
      "candidate": false,
      "loaded": true,
-     "hash": "57770352248428236898587336758753c36f215570cec0fb344e6426f95ad165"
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
     },
     {
-     "key": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
-     "path": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
-     "drawn": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
      "candidate": false,
      "loaded": true,
-     "hash": "be32caa52cc06287b24b558bb801b772535b26dd37df427f3acc87446ba2ba00"
+     "hash": "019ca22b1839ef25b2933b1fd70612cafe5b0afcf5b9da76f50a2a574bf8df5d"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T18:00:38.720Z",
+   "capturedAt": "2026-09-04T19:43:59.834Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "68120f21d1311c63543d2a44e11ff182491285798305dd9c1761bef4beec7f5e"
+   "hash": "2aff5c1d66fa2c184abaa9a95643e9f244e2c9e18d87c996e2667db03a00ddcb"
   },
   {
    "panel": "A",
    "room": "assay_office",
-   "clock": 115.1723,
+   "clock": 120.36919999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -305,15 +347,23 @@
      "drawn": "art/staging/room-05/mask-plane-1.png",
      "candidate": false,
      "loaded": true,
-     "hash": "57770352248428236898587336758753c36f215570cec0fb344e6426f95ad165"
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
     },
     {
-     "key": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
-     "path": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
-     "drawn": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
      "candidate": false,
      "loaded": true,
-     "hash": "be32caa52cc06287b24b558bb801b772535b26dd37df427f3acc87446ba2ba00"
+     "hash": "019ca22b1839ef25b2933b1fd70612cafe5b0afcf5b9da76f50a2a574bf8df5d"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
     }
    ],
    "stubs": [],
@@ -321,7 +371,7 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T18:00:39.798Z",
+   "capturedAt": "2026-09-04T19:44:00.844Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "52bbaa11fa13663edce1067a4bfb15fd926d0bf974257e1d371cc78b8e4bb687"
@@ -329,7 +379,7 @@
   {
    "panel": "D",
    "room": "assay_office",
-   "clock": 127.7885,
+   "clock": 133.2354,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -367,7 +417,7 @@
      "height": 558,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       1319,
       269,
@@ -396,15 +446,23 @@
      "drawn": "art/staging/room-05/mask-plane-1.png",
      "candidate": false,
      "loaded": true,
-     "hash": "57770352248428236898587336758753c36f215570cec0fb344e6426f95ad165"
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
     },
     {
-     "key": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
-     "path": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
-     "drawn": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
      "candidate": false,
      "loaded": true,
-     "hash": "be32caa52cc06287b24b558bb801b772535b26dd37df427f3acc87446ba2ba00"
+     "hash": "019ca22b1839ef25b2933b1fd70612cafe5b0afcf5b9da76f50a2a574bf8df5d"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
     }
    ],
    "stubs": [],
@@ -420,10 +478,10 @@
     "cast(true)",
     "flag ACT=2"
    ],
-   "capturedAt": "2026-09-04T18:00:52.618Z",
+   "capturedAt": "2026-09-04T19:44:13.721Z",
    "intent": "principal changed state: THE QUEUE BENCH, acts 2-4. docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2 writes its LOOK for act 2-4 and nothing for Act I; docs/49 gives it USE and PUSH. Prerequisite: ACT >= 2, which the game sets at doc 48's S1 (not built). Visible consequence: the bench becomes a target -- its LOOK line, and Thad walks to it. The bench itself is plate in every act.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "1316a38855463676a1691906f3022dca09ff791878505151a1ed917499c39fce",
+   "hash": "a3ad0390edd53d40107f7449f2f471546ccb0207b4a457e3f7cb9377d52a827e",
    "changedBy": "counters"
   }
  ],
@@ -431,11 +489,11 @@
  "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T18:00:52.618Z",
+ "at": "2026-09-04T19:44:13.722Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 377658,
+  "bytes": 377164,
   "panels": 5,
   "scale": 0.5
  }
