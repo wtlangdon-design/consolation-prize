@@ -4,50 +4,13 @@
  "room": "assay_office",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "b63bb4ddb3c058f6107ca9e6983be96037fde756",
+ "commit": "a87ad4c4f016f4f48e59084ac927a8fc79ac6dec",
  "workingTreeClean": false,
- "dirtyAllowed": true,
+ "dirtyAllowed": false,
  "uncommitted": [
-  "M .gitignore",
-  " M art/staging/caps.json",
-  " M art/staging/ledger.json",
-  " M content/build-ledger.json",
-  " M content/flags/flags.json",
-  " M content/manifest.json",
-  " M content/rooms/assay-office.json",
-  " M docs/36-issue-list.md",
-  " M engine/core/Ambient.ts",
-  " M engine/core/DialogueRunner.ts",
-  " M engine/core/types.ts",
-  " M engine/render/Renderer.ts",
-  " M engine/scenes/GameScene.ts",
-  " M reference/global-baseline.json",
-  " M tools/art/baseline.mjs",
-  " M tools/art/openai-image.mjs",
-  " M tools/check-occlusion.mjs",
-  " M tools/compile-room.mjs",
-  " M tools/extract-content.mjs",
-  " M tools/gauntlet/proof.mjs",
-  " M tools/gauntlet/route.mjs",
-  " M tools/lib/generators.mjs",
-  "?? art/staging/room-05/",
-  "?? content/ambient/winnie.json",
-  "?? content/dialogue/winnie.json",
-  "?? proofs/room-05/",
-  "?? proofs/spec/assay-office.json",
-  "?? reference/room-05/",
-  "?? renders/proofs/assay-office/",
-  "?? renders/room-05-style-continuity.json",
-  "?? renders/room-05-style-continuity.png",
-  "?? tests/room-05.test.ts",
-  "?? tools/art/room05-mask.mjs",
-  "?? tools/art/room05.mjs",
-  "?? tools/art/safe-frame.mjs",
-  "?? tools/gauntlet/life.mjs",
-  "?? tools/gauntlet/routes/assay-office-life.json",
-  "?? tools/gauntlet/routes/assay-office.json",
-  "?? tools/gauntlet/style-sheet.mjs",
-  "?? tools/rig/winnie-frames.py"
+  "M renders/proofs/stage-road/contact-sheet.webp",
+  " M renders/proofs/stage-road/index.html",
+  " M renders/proofs/stage-road/proof.json"
  ],
  "candidates": [
   {
@@ -112,7 +75,7 @@
    ],
    "reportedHeight": 471,
    "expected": 471,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
    "bounds": [
     631,
     230,
@@ -149,7 +112,7 @@
    ],
    "reportedHeight": 559,
    "expected": 559,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-01.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
    "bounds": [
     585,
     270,
@@ -180,13 +143,13 @@
     "height": 447
    },
    "seen": {
-    "x": 920,
+    "x": 916,
     "y": 183,
-    "width": 156,
+    "width": 163,
     "height": 212,
     "bottom": 394,
-    "right": 1075,
-    "changed": 15305
+    "right": 1078,
+    "changed": 15554
    },
    "maskedAbove": 394
   }
@@ -195,7 +158,7 @@
   {
    "panel": "B",
    "room": "assay_office",
-   "clock": 113.6821,
+   "clock": 115.08630000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -233,7 +196,7 @@
      "height": 515,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       -67,
       250,
@@ -276,15 +239,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T17:46:48.069Z",
+   "capturedAt": "2026-09-04T17:54:39.760Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "68120f21d1311c63543d2a44e11ff182491285798305dd9c1761bef4beec7f5e"
+   "hash": "7fe2d3beba3b6f850c5c1f402de6df1e908a6c02d08ef64ecfa003cea8325e9b"
   },
   {
    "panel": "A",
    "room": "assay_office",
-   "clock": 114.7488,
+   "clock": 116.1528,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -362,7 +325,7 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T17:46:49.145Z",
+   "capturedAt": "2026-09-04T17:54:40.802Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "52bbaa11fa13663edce1067a4bfb15fd926d0bf974257e1d371cc78b8e4bb687"
@@ -370,7 +333,7 @@
   {
    "panel": "D",
    "room": "assay_office",
-   "clock": 126.7983,
+   "clock": 128.5857,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -408,7 +371,7 @@
      "height": 558,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idle-back/idle-05.png",
      "bounds": [
       1319,
       269,
@@ -461,22 +424,24 @@
     "cast(true)",
     "flag ACT=2"
    ],
-   "capturedAt": "2026-09-04T17:47:01.115Z",
+   "capturedAt": "2026-09-04T17:54:53.214Z",
    "intent": "principal changed state: THE QUEUE BENCH, acts 2-4. docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2 writes its LOOK for act 2-4 and nothing for Act I; docs/49 gives it USE and PUSH. Prerequisite: ACT >= 2, which the game sets at doc 48's S1 (not built). Visible consequence: the bench becomes a target -- its LOOK line, and Thad walks to it. The bench itself is plate in every act.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "1eed3361cd49c8abce8a10992ecf6e5731f037f26da847fbddd77e4ac2a1fc37",
+   "hash": "1316a38855463676a1691906f3022dca09ff791878505151a1ed917499c39fce",
    "changedBy": "counters"
   }
  ],
- "failures": [],
- "passed": true,
+ "failures": [
+  "the working tree is dirty, so these frames do not correspond to a87ad4c4. Commit, or re-run with --allow-dirty, which records it."
+ ],
+ "passed": false,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T17:47:01.115Z",
+ "at": "2026-09-04T17:54:53.214Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 377826,
+  "bytes": 377666,
   "panels": 5,
   "scale": 0.5
  }
