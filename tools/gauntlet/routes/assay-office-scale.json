@@ -4,21 +4,89 @@
  "note": "ROOM 5's LIVE SCALE ROUTE (Tyler's playthrough blocker, 2026-09-04). Thad walked to five places under the current presentation and captured at each, so his rendered height can be read off the probe beside the architecture and beside Winnie: the street-door arrival, the rear of the floor, the counter approach (the scales' approach point), the open foreground, and the records-room door approach. Nothing here is a proof of taste; the numbers are the room's own curve and Tyler judges the pictures.",
  "from": "assay_office",
  "actions": [
-  {"do": "wait", "seconds": 2},
-  {"do": "capture", "name": "s01-street-door-arrival", "why": "the entrance point (200,765)"},
-  {"do": "click", "at": [1300, 704], "why": "the rear of the floor, the far edge of the walkable band"},
-  {"do": "wait", "seconds": 7},
-  {"do": "capture", "name": "s02-rear-floor", "why": "far depth: the curve's small end"},
-  {"do": "verb", "verb": "LOOK_AT"},
-  {"do": "click", "on": "scales", "why": "the counter approach: he walks to the scales' approach point and stands in front of the counter, Winnie behind it"},
-  {"do": "waitFor", "says": "thad", "upTo": 12},
-  {"do": "capture", "name": "s03-counter-approach", "why": "human beside human: Thad in front of the counter, Winnie behind it"},
-  {"do": "waitFor", "says": null, "upTo": 12},
-  {"do": "click", "at": [960, 828], "why": "the open foreground, the near edge of the walkable band"},
-  {"do": "wait", "seconds": 6},
-  {"do": "capture", "name": "s04-open-foreground", "why": "near depth: the curve's large end"},
-  {"do": "click", "at": [1600, 704], "why": "the records-room door approach, without transiting"},
-  {"do": "wait", "seconds": 8},
-  {"do": "capture", "name": "s05-records-door-approach", "why": "far depth at the back door, the door frame beside him"}
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "s01-street-door-arrival",
+   "why": "the entrance point (200,765)"
+  },
+  {
+   "do": "click",
+   "at": [
+    1300,
+    704
+   ],
+   "why": "the rear of the floor, the far edge of the walkable band"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "capture",
+   "name": "s02-rear-floor",
+   "why": "far depth: the curve's small end"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "the counter approach: he walks to the scales' approach point and stands in front of the counter, Winnie behind it"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 12
+  },
+  {
+   "do": "capture",
+   "name": "s03-counter-approach",
+   "why": "human beside human: Thad in front of the counter, Winnie behind it"
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 12
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    828
+   ],
+   "why": "the open foreground, the near edge of the walkable band"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "s04-open-foreground",
+   "why": "near depth: the curve's large end"
+  },
+  {
+   "do": "click",
+   "at": [
+    1600,
+    704
+   ],
+   "why": "the records-room door approach, without transiting"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "s05-back-door-approach",
+   "why": "the back-room door approach on the floor line (1600,704), without transiting; the door frame beside him. Named without \"records\" because the harness reads that word as a transit to the stub."
+  }
  ]
 }
