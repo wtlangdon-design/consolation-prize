@@ -147,6 +147,10 @@ async function main() {
           const npc = readJson(`content/ambient/${npcId.replace(/_/g, '-')}.json`);
           const sheet = frame.assets.find((a) => a.path === npc.sprite?.sheet);
           if (!sheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s sheet is not loaded -- she is absent`);
+          for (const prop of npc.sprite?.props ?? []) {
+            const propSheet = frame.assets.find((a) => a.path === prop.sheet);
+            if (!propSheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s prop ${prop.sheet} is not loaded`);
+          }
         }
       }
       // `says` is the SPEAKER of the line on screen, never the words (Probe.ts).

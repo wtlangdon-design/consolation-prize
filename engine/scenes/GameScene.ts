@@ -1674,7 +1674,11 @@ export class GameScene extends Phaser.Scene {
     // AMBIENT SHEETS TOO. A room's people are assets the proof has to see
     // loaded: Room 5's Winnie is an ambient, and without this row the proof
     // could pass with her sheet missing and nothing drawn where she stands.
-    for (const npc of this.ambient.present) add(npc.sprite?.sheet ?? '', npc.sprite?.sheet);
+    for (const npc of this.ambient.present) {
+      add(npc.sprite?.sheet ?? '', npc.sprite?.sheet);
+      // And her props' sheets: the ink stand is drawn from its own file.
+      for (const prop of npc.sprite?.props ?? []) add(prop.sheet, prop.sheet);
+    }
     return out;
   }
 

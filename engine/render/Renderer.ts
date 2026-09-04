@@ -941,7 +941,10 @@ export class Renderer {
           return;
         }
         const npc = figure.npc as AmbientFile;
-        if (!this.drawAmbient(npc)) {
+        const drawnFrame = this.drawAmbient(npc);
+        if (drawnFrame !== null) {
+          this.drawProps(npc, drawnFrame);
+        } else {
           // A DECLARED SHEET THAT HAS NOT ARRIVED DRAWS NOTHING, NOT A SLAB.
           // Ambient sheets are deferred assets, so for the first seconds in a
           // room -- and for the whole of a warp straight into one -- three
@@ -1311,12 +1314,15 @@ export class Renderer {
     return context;
   }
 
-  /** An ambient character's two-frame idle. Ruling 20. */
-  private drawAmbient(npc: AmbientFile): boolean {
+  /**
+   * An ambient character's two-frame idle. Ruling 20. Returns the frame index
+   * it drew, or null when nothing drew (no sprite, or a sheet not yet loaded).
+   */
+  private drawAmbient(npc: AmbientFile): number | null {
     const declared = npc.sprite;
-    if (!declared) return false;
+    if (!declared) return null;
     const image = this.sheet(declared.sheet);
-    if (!image) return false;
+    if (!image) return null;
     const phase = declared.phase ?? 0;
     // HELD STILL WHILE SPOKEN TO. Doc 32 section 8.2, deadpan rule: the
     // reply pause is not filled with flapping. Her own tree open means her
@@ -1329,7 +1335,27 @@ export class Renderer {
     ] as [number, number, number, number];
     this.screen.context.drawImage(image, sx, sy, width, height,
       npc.x - Math.floor(width / 2), npc.y - height + 1, width, height);
-    return true;
+    return index;
+  }
+
+  /**
+   * The character's stationary props, drawn after her at their own room
+   * coordinates, in the state her current frame maps to. See
+   * AmbientFile.sprite.props.
+   */
+  private drawProps(npc: AmbientFile, frameIndex: number): void {
+    for (const prop of npc.sprite?.props ?? []) {
+      const image = this.sheet(prop.sheet);
+      if (!image) {
+        watch.record('graybox:not-loaded', npc.id, `${prop.sheet} has not arrived; drew nothing`);
+        continue;
+      }
+      const which = prop.byFrame?.[String(frameIndex)] ?? 0;
+      const rect = prop.frames[(which + prop.frames.length) % prop.frames.length] as [number, number, number, number];
+      const [sx, sy, width, height] = rect;
+      this.screen.context.drawImage(image, sx, sy, width, height,
+        prop.x - Math.floor(width / 2), prop.y - height + 1, width, height);
+    }
   }
 
   /**

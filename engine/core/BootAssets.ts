@@ -227,6 +227,8 @@ export function planBoot(bundle: ContentBundle): BootPlan {
   // populated the moment it is entered.
   for (const npc of bundle.ambient.values()) {
     if (npc.sprite) required.set(npc.sprite.sheet, { key: npc.sprite.sheet, path: npc.sprite.sheet });
+    // A prop sheet is a few hundred bytes and belongs with the figure it sits beside.
+    for (const prop of npc.sprite?.props ?? []) required.set(prop.sheet, { key: prop.sheet, path: prop.sheet });
   }
   for (const overlay of bundle.overlays.values()) {
     for (const state of Object.values(overlay.states)) {

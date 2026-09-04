@@ -21,6 +21,13 @@ import { writePng } from '../lib/pngwrite.mjs';
  *   node tools/art/room05-mask.mjs <candidate plate> <out mask>
  */
 const [, , platePath, outPath] = process.argv;
+// --bars-only: Tyler's counter-contact correction (2026-09-04). Winnie's
+// behind-counter sheet is matted against the ledger and counter edges by
+// tools/rig/winnie-counter.py, so the counter block below her is no longer
+// needed to hide her -- and it MUST not be here, because from y395 down it
+// masked the hands that now rest on the ledger. The bars still pass in front
+// of her and stay.
+const BARS_ONLY = process.argv.includes('--bars-only');
 const bytes = readFileSync(resolve(ROOT, platePath));
 const plate = readPng(bytes);
 if (plate.width !== 1920 || plate.height !== 864) throw new Error('expects a 1920x864 plate');
@@ -30,7 +37,9 @@ const set = (x, y) => { const at = (y * 1920 + x) * 4; mask[at] = 255; mask[at +
 
 // The counter: back edge of the top surface (y404) to the floor line (y705).
 const COUNTER = { x0: 695, y0: 395, x1: 1497, y1: 706 };  // plate-02
-for (let y = COUNTER.y0; y < COUNTER.y1; y += 1) for (let x = COUNTER.x0; x < COUNTER.x1; x += 1) set(x, y);
+if (!BARS_ONLY) {
+  for (let y = COUNTER.y0; y < COUNTER.y1; y += 1) for (let x = COUNTER.x0; x < COUNTER.x1; x += 1) set(x, y);
+}
 
 // The cage bars above it: warm, bright pixels inside the cage rectangle --
 // AND ONLY THE LONG RUNS. A plain threshold also caught the vial labels on
@@ -86,5 +95,5 @@ for (let y = CAGE.y0 + 1; y < CAGE.y1 - 1; y += 1) {
 }
 const out = writePng({ width: 1920, height: 864, pixels: mask }, { alpha: true });
 writeFileSync(resolve(ROOT, outPath), out);
-console.log(`${outPath}: counter ${JSON.stringify(COUNTER)}, ${barPixels} bar pixel(s) found in the cage, `
+console.log(`${outPath}: counter ${BARS_ONLY ? 'NOT masked (--bars-only)' : JSON.stringify(COUNTER)}, ${barPixels} bar pixel(s) found in the cage, `
   + `read from ${platePath} sha ${createHash('sha256').update(bytes).digest('hex').slice(0, 12)}`);

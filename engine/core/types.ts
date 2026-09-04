@@ -353,6 +353,26 @@ export interface AmbientFile {
      */
     talkFrame?: number;
     /**
+     * PROPS THAT STAY PUT WHILE THE FIGURE ANIMATES. Room 5's ink stand: a
+     * counter object, drawn at ONE room coordinate, whose picture depends on
+     * what the character is doing -- the pen is in the stand while she rests
+     * and in her hand while she writes. Cut into her frames it hopped a few
+     * pixels every time her pose changed, because each pose was generated
+     * separately. Here it is drawn once, after her, at `x`,`y` (bottom-centre,
+     * like the figure), in the frame `byFrame` maps her current frame index
+     * to, or frame 0 when unmapped. Masked by her plane, since it stands
+     * where she stands.
+     */
+    props?: {
+      sheet: string;
+      x: number;
+      y: number;
+      frames: [number, number, number, number][];
+      /** Her frame index (as a string key) to this prop's frame index. */
+      byFrame?: Record<string, number>;
+      note?: string;
+    }[];
+    /**
      * Which breaks SPEAK, by index into `breaks`.
      *
      * Tyler, on the pie woman calling out: without a line it just looks odd.

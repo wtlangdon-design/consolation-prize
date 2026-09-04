@@ -1,0 +1,262 @@
+{
+ "note": "BEHIND-COUNTER RUNTIME SHEET, derived by tools/rig/winnie-counter.py from the lit five-frame sheet with no pixel repainted: lowered, matted against the plate's ledger and counter edges, stand removed, cropped to what is drawn. The ink stand is a separate prop at one plate coordinate.",
+ "sources": {
+  "sheet": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
+  "sheetSha256": "be32caa52cc06287b24b558bb801b772535b26dd37df427f3acc87446ba2ba00",
+  "plate": "art/staging/room-05/plate-02/candidate-1920x864.png",
+  "plateSha256": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142"
+ },
+ "placement": {
+  "x": 1010,
+  "oldY": 624,
+  "dy": 39,
+  "frameTopPlateY": 218,
+  "y": 404,
+  "why": "y is the frame's bottom row in plate space (the engine anchors an ambient at its bottom-centre); it is the row below her resting hands, not her feet, because the sheet has no feet"
+ },
+ "frames": [
+  [
+   2,
+   2,
+   444,
+   187
+  ],
+  [
+   448,
+   2,
+   444,
+   187
+  ],
+  [
+   894,
+   2,
+   444,
+   187
+  ],
+  [
+   1340,
+   2,
+   444,
+   187
+  ],
+  [
+   1786,
+   2,
+   444,
+   187
+  ]
+ ],
+ "frameSize": [
+  444,
+  187
+ ],
+ "order": [
+  "rest",
+  "breath",
+  "writing",
+  "writing-scribble",
+  "looking-up"
+ ],
+ "occluder": {
+  "ledgerColumns": [
+   968,
+   1150
+  ],
+  "ledgerFarEdgeRange": [
+   378,
+   399
+  ],
+  "counterBackEdge": 399,
+  "counterFrontEdge": 431
+ },
+ "prop": {
+  "sheet": "art/staging/room-05/winnie-02-counter/inkstand.png",
+  "frames": [
+   [
+    0,
+    0,
+    36,
+    50
+   ],
+   [
+    38,
+    0,
+    36,
+    50
+   ]
+  ],
+  "x": 933,
+  "y": 409,
+  "states": [
+   "pen in the stand",
+   "pen out (in her hand)"
+  ],
+  "standBoxInFrame": [
+   126,
+   145,
+   161,
+   194
+  ],
+  "potTopRowInStand": 19,
+  "penPixelsRemovedForPenOut": 146,
+  "mouthPixelsFilledWithRimInk": 43,
+  "potBodyIdenticalAcrossStates": true,
+  "basePlateY": 409,
+  "baseOnSurface": true,
+  "before": {
+   "basePlateY": 370,
+   "gapToSurface": 29
+  }
+ },
+ "before": {
+  "handBottomPlateY": 362,
+  "gapToLedgerFarEdge": 16
+ },
+ "measurements": [
+  {
+   "frame": 0,
+   "name": "rest",
+   "standPixelsErased": 725,
+   "bodyPixelsDropped": 28537,
+   "leakedBelowOccluder": 0,
+   "lowestDrawnRow": 185,
+   "lowestDrawnPlateY": 403,
+   "handRows": [
+    165,
+    183
+   ],
+   "handBottomPlateY": 401,
+   "handColsPlateX": [
+    965,
+    1050
+   ],
+   "ledgerFarEdgeUnderHands": [
+    378,
+    399
+   ],
+   "ledgerNearEdgeUnderHands": [
+    398,
+    408
+   ],
+   "handOnPage": true,
+   "gapToPage": 0,
+   "penTipPlateY": 403
+  },
+  {
+   "frame": 1,
+   "name": "breath",
+   "standPixelsErased": 735,
+   "bodyPixelsDropped": 28562,
+   "leakedBelowOccluder": 0,
+   "lowestDrawnRow": 184,
+   "lowestDrawnPlateY": 402,
+   "handRows": [
+    164,
+    184
+   ],
+   "handBottomPlateY": 402,
+   "handColsPlateX": [
+    965,
+    1050
+   ],
+   "ledgerFarEdgeUnderHands": [
+    378,
+    399
+   ],
+   "ledgerNearEdgeUnderHands": [
+    398,
+    408
+   ],
+   "handOnPage": true,
+   "gapToPage": 0,
+   "penTipPlateY": 402
+  },
+  {
+   "frame": 2,
+   "name": "writing",
+   "standPixelsErased": 707,
+   "bodyPixelsDropped": 29001,
+   "leakedBelowOccluder": 0,
+   "lowestDrawnRow": 183,
+   "lowestDrawnPlateY": 401,
+   "handRows": [
+    135,
+    183
+   ],
+   "handBottomPlateY": 401,
+   "handColsPlateX": [
+    942,
+    1049
+   ],
+   "ledgerFarEdgeUnderHands": [
+    378,
+    399
+   ],
+   "ledgerNearEdgeUnderHands": [
+    398,
+    408
+   ],
+   "handOnPage": true,
+   "gapToPage": 0,
+   "penTipPlateY": 400
+  },
+  {
+   "frame": 3,
+   "name": "writing-scribble",
+   "standPixelsErased": 746,
+   "bodyPixelsDropped": 28968,
+   "leakedBelowOccluder": 0,
+   "lowestDrawnRow": 183,
+   "lowestDrawnPlateY": 401,
+   "handRows": [
+    135,
+    183
+   ],
+   "handBottomPlateY": 401,
+   "handColsPlateX": [
+    964,
+    1049
+   ],
+   "ledgerFarEdgeUnderHands": [
+    378,
+    399
+   ],
+   "ledgerNearEdgeUnderHands": [
+    398,
+    408
+   ],
+   "handOnPage": true,
+   "gapToPage": 0,
+   "penTipPlateY": 401
+  },
+  {
+   "frame": 4,
+   "name": "looking-up",
+   "standPixelsErased": 695,
+   "bodyPixelsDropped": 28950,
+   "leakedBelowOccluder": 0,
+   "lowestDrawnRow": 183,
+   "lowestDrawnPlateY": 401,
+   "handRows": [
+    137,
+    183
+   ],
+   "handBottomPlateY": 401,
+   "handColsPlateX": [
+    946,
+    1053
+   ],
+   "ledgerFarEdgeUnderHands": [
+    378,
+    399
+   ],
+   "ledgerNearEdgeUnderHands": [
+    398,
+    408
+   ],
+   "handOnPage": true,
+   "gapToPage": 0,
+   "penTipPlateY": 401
+  }
+ ]
+}

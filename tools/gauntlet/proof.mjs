@@ -136,13 +136,15 @@ async function decode(dataUrl) {
  * Bounded to a search box so two figures in one frame do not merge into one
  * silhouette.
  */
-function silhouette(populated, base, box) {
+function silhouette(populated, base, box, exclude = []) {
   let minX = box.x + box.width; let minY = box.y + box.height;
   let maxX = -1; let maxY = -1; let changed = 0;
   for (let y = box.y; y < box.y + box.height; y += 1) {
     if (y < 0 || y >= populated.height) continue;
     for (let x = box.x; x < box.x + box.width; x += 1) {
       if (x < 0 || x >= populated.width) continue;
+      // A prop drawn beside the figure is measured on its own, not as her.
+      if (exclude.some((e) => x >= e.x && x < e.x + e.width && y >= e.y && y < e.y + e.height)) continue;
       const at = (y * populated.width + x) * 4;
       const drift = Math.abs(populated.pixels[at] - base.pixels[at])
         + Math.abs(populated.pixels[at + 1] - base.pixels[at + 1])
@@ -565,16 +567,57 @@ async function main() {
         const [, , fw, fh] = npc.sprite.frames[0];
         const camera = panelB.camera ?? 0;
         const box = { x: Math.round(npc.x - fw / 2 - camera), y: npc.y - fh, width: fw, height: fh + 2 };
-        const seen = silhouette(populatedB, baseA, box);
+        // Her props stand where she stands; each is measured in its own box
+        // and cut out of hers, so her lowest row is HER lowest row.
+        const propBoxes = (npc.sprite.props ?? []).map((prop) => {
+          const [, , pw, ph] = prop.frames[0];
+          return { x: Math.round(prop.x - pw / 2 - camera), y: prop.y - ph + 1, width: pw, height: ph + 2 };
+        });
+        const seen = silhouette(populatedB, baseA, box, propBoxes);
         const record = { id: npc.id, feet: [npc.x, npc.y], sheet: npc.sprite.sheet,
           clipPlane: npc.clipPlane ?? null, box, seen };
+        const contactSpec = spec?.ambientContact?.[npc.id];
+        record.props = propBoxes.map((propBox, at) => {
+          const prop = npc.sprite.props[at];
+          const propSeen = silhouette(populatedB, baseA, propBox);
+          const want = contactSpec?.props?.[at]?.lowestDrawnRowWithin;
+          const out = { sheet: prop.sheet, at: [prop.x, prop.y], box: propBox, seen: propSeen, expected: want ?? null };
+          if (!propSeen) failures.push(`ambient ${npc.id}: prop ${prop.sheet} drew nothing at ${prop.x},${prop.y}`);
+          else if (want && (propSeen.bottom < want[0] || propSeen.bottom > want[1])) {
+            failures.push(`ambient ${npc.id}: prop ${prop.sheet} lowest row y${propSeen.bottom} is outside its `
+              + `contact band y${want[0]}-${want[1]} -- it is not standing on the surface`);
+          } else if (propSeen) {
+            console.log(`    ambient ${npc.id}: prop ${prop.sheet} drawn ${propSeen.width}x${propSeen.height}, `
+              + `lowest row y${propSeen.bottom}${want ? ` inside y${want[0]}-${want[1]}` : ''}`);
+          }
+          return out;
+        });
         if (!seen) {
           failures.push(`ambient ${npc.id}: nothing drew in its box at ${npc.x},${npc.y} -- the `
             + `sheet ${npc.sprite.sheet} did not arrive, or she stands off-camera`);
           ambientFigures.push({ kind: 'ambient', ...record });
           continue;
         }
-        if (npc.clipPlane) {
+        // A BEHIND-COUNTER SHEET HAS NO FEET. When the spec declares where the
+        // figure RESTS -- the band of plate rows its lowest drawn pixel must
+        // land in (the ledger's page, for Winnie's hands) -- that is the
+        // assertion: drawn to the surface and not past it, which is both
+        // "the hands are not floating" and "the skirt is not leaking" in one
+        // number. The feet-clearance rule below stays for figures placed by
+        // their feet behind a masking plane.
+        const contact = spec?.ambientContact?.[npc.id];
+        if (contact) {
+          const [low, high] = contact.lowestDrawnRowWithin;
+          record.contact = { expected: contact.lowestDrawnRowWithin, lowestDrawnRow: seen.bottom };
+          if (seen.bottom < low || seen.bottom > high) {
+            failures.push(`ambient ${npc.id}: lowest drawn row y${seen.bottom} is outside the declared `
+              + `contact band y${low}-${high} (${contact.why ?? 'proofs/spec'}) -- floating above it or `
+              + 'leaking below it');
+          } else {
+            console.log(`    ambient ${npc.id}: drawn ${seen.width}x${seen.height}, lowest row y${seen.bottom} `
+              + `inside the contact band y${low}-${high}`);
+          }
+        } else if (npc.clipPlane) {
           const clearance = npc.y - seen.bottom;
           if (clearance < 8) {
             failures.push(`ambient ${npc.id}: declares clipPlane ${npc.clipPlane} and is drawn to `
