@@ -44,7 +44,7 @@ work/
 # the commit, the state, the assets, the actor measurements and the route, and
 # one compact four-panel sheet shows every COMPLETE frame beside it. A hash the
 # next capture can be compared against proves more than a stored copy does.
-renders/proofs/*/raw-captures-ignored/
+renders/proofs/**/raw-captures-ignored/
 
 # STAGED GENERATED IMAGES. Same shape as the proof captures above: the blobs
 # are ignored, the claims about them are tracked.

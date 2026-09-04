@@ -4,14 +4,10 @@
  "room": "assay_office",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "a87ad4c4f016f4f48e59084ac927a8fc79ac6dec",
- "workingTreeClean": false,
+ "commit": "721b2595a6f5334ade3b260572868971deff7980",
+ "workingTreeClean": true,
  "dirtyAllowed": false,
- "uncommitted": [
-  "M renders/proofs/stage-road/contact-sheet.webp",
-  " M renders/proofs/stage-road/index.html",
-  " M renders/proofs/stage-road/proof.json"
- ],
+ "uncommitted": [],
  "candidates": [
   {
    "declared": "art/backgrounds/room-05-assay-office.png",
@@ -75,7 +71,7 @@
    ],
    "reportedHeight": 471,
    "expected": 471,
-   "drawnFrom": "art/actors/thad-idle-right/idle-00.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     631,
     230,
@@ -112,7 +108,7 @@
    ],
    "reportedHeight": 559,
    "expected": 559,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
    "bounds": [
     585,
     270,
@@ -143,13 +139,13 @@
     "height": 447
    },
    "seen": {
-    "x": 916,
+    "x": 920,
     "y": 183,
-    "width": 163,
+    "width": 156,
     "height": 212,
     "bottom": 394,
-    "right": 1078,
-    "changed": 15554
+    "right": 1075,
+    "changed": 15305
    },
    "maskedAbove": 394
   }
@@ -158,7 +154,7 @@
   {
    "panel": "B",
    "room": "assay_office",
-   "clock": 115.08630000000001,
+   "clock": 114.07239999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -196,7 +192,7 @@
      "height": 515,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       -67,
       250,
@@ -239,15 +235,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T17:54:39.760Z",
+   "capturedAt": "2026-09-04T18:00:38.720Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "7fe2d3beba3b6f850c5c1f402de6df1e908a6c02d08ef64ecfa003cea8325e9b"
+   "hash": "68120f21d1311c63543d2a44e11ff182491285798305dd9c1761bef4beec7f5e"
   },
   {
    "panel": "A",
    "room": "assay_office",
-   "clock": 116.1528,
+   "clock": 115.1723,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -325,7 +321,7 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T17:54:40.802Z",
+   "capturedAt": "2026-09-04T18:00:39.798Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "52bbaa11fa13663edce1067a4bfb15fd926d0bf974257e1d371cc78b8e4bb687"
@@ -333,7 +329,7 @@
   {
    "panel": "D",
    "room": "assay_office",
-   "clock": 128.5857,
+   "clock": 127.7885,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -424,24 +420,22 @@
     "cast(true)",
     "flag ACT=2"
    ],
-   "capturedAt": "2026-09-04T17:54:53.214Z",
+   "capturedAt": "2026-09-04T18:00:52.618Z",
    "intent": "principal changed state: THE QUEUE BENCH, acts 2-4. docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2 writes its LOOK for act 2-4 and nothing for Act I; docs/49 gives it USE and PUSH. Prerequisite: ACT >= 2, which the game sets at doc 48's S1 (not built). Visible consequence: the bench becomes a target -- its LOOK line, and Thad walks to it. The bench itself is plate in every act.",
    "file": "raw-captures-ignored/panel-d-changed.png",
    "hash": "1316a38855463676a1691906f3022dca09ff791878505151a1ed917499c39fce",
    "changedBy": "counters"
   }
  ],
- "failures": [
-  "the working tree is dirty, so these frames do not correspond to a87ad4c4. Commit, or re-run with --allow-dirty, which records it."
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T17:54:53.214Z",
+ "at": "2026-09-04T18:00:52.618Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 377666,
+  "bytes": 377658,
   "panels": 5,
   "scale": 0.5
  }
