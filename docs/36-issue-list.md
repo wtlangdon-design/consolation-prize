@@ -3597,7 +3597,19 @@ neighbours, and they are Tyler's to reword, as the mud line was:
 2. `docs/26-batch-a.md` — the hotel's STREET DOOR LOOK 3 *"Daylight, past it.
    It is always brighter than I remember."*
 
-Neither was rewritten by the pipeline. Nothing else in canon now states a
-daytime base street: doc 13 is corrected, errata 43 and the two "only night
+**Both RESOLVED by Tyler's wording, 2026-09-04:** LOOK 2 now reads *"The street
+past them. It is always a surprise."* and LOOK 3 *"The street, past it. It is
+always brighter than I remember."* — deliberately time-neutral rather than
+"night", because the same reusable variants may be met under later daylight
+states. Room 18's line reached `content/rooms/hotel-lobby.json` by the
+normal path (the extractor). **Room 3's did not:** `content/rooms/nugget.json`
+has no live writer — `node tools/compile-room.mjs 3` refuses on a pre-existing
+doc 16 / doc 05 naming mismatch ("PIANO", "BAR", … which doc 05 does not name;
+it refused identically before this change) and the extractor does not own the
+Nugget's exits — so `nugget.json` still carries the old LOOK 2 and is not
+hand-edited, per CLAUDE.md. It is stale on that one line until Room 3's
+compiler path is made to agree with doc 16's headings, and the extractor's
+staleness check does not cover it. Reported, not patched around. Nothing else in canon now
+states a daytime base street: doc 13 is corrected, errata 43 and the two "only night
 exterior" lines carry pointers to errata 64, and doc 12's "warm low sun" sits
 in a document already superseded as final spec.

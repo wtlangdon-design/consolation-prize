@@ -83,7 +83,7 @@
 # PART FOUR — EXITS
 
 ## THE FRONT DOORS → Room 2
-**LOOK** 1 "Batwing doors, from the inside. They swing both ways, which from in here reads as a warning rather than a convenience." · 2 "Daylight past them. It is always a surprise." · 3 "Six inches of boardwalk and then the mud. I know exactly how far it is now."
+**LOOK** 1 "Batwing doors, from the inside. They swing both ways, which from in here reads as a warning rather than a convenience." · 2 "The street past them. It is always a surprise." · 3 "Six inches of boardwalk and then the mud. I know exactly how far it is now."
 **LISTEN** 1 "The street. It sounds busier from in here than it is." · 2 "Boots on the boardwalk. Somebody deciding whether to come in." · 3 "Nothing. Everyone who is coming in is in."
 
 ## THE BACK ROOM DOOR → Room 4

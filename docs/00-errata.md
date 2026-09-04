@@ -2005,7 +2005,9 @@ and `docs/26-batch-a.md` the hotel's STREET DOOR LOOK 3 *"Daylight, past it.
 It is always brighter than I remember."* Both describe Main Street from an
 adjoining interior in its base state. Recorded under
 `docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT`
-for Tyler's wording.
+for Tyler's wording. *(Resolved the same day: Tyler reworded both as
+time-neutral — "The street past them. It is always a surprise." and "The
+street, past it. It is always brighter than I remember." — see Q26.)*
 
 ## 64b · Room 5 is not permanently daylight
 

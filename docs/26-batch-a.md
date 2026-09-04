@@ -47,7 +47,7 @@
 ## Exits
 
 **THE STREET DOOR → Room 2**
-**LOOK** 1 "The door out onto Main Street, with a bell that does not work and a mat that has given up." · 2 "The bell is a formality. Everybody who comes in is already known." · 3 "Daylight, past it. It is always brighter than I remember."
+**LOOK** 1 "The door out onto Main Street, with a bell that does not work and a mat that has given up." · 2 "The bell is a formality. Everybody who comes in is already known." · 3 "The street, past it. It is always brighter than I remember."
 **LISTEN** 1 "The street. Boots on the boardwalk." · 2 "Boots. Two men, and neither of them is coming in." · 3 "Nothing. It has gone quiet out there, which happens about four." *(Corrected — "Still the street." belongs to the assay office's door in doc 25.)*
 
 **THE STAIRS → Room 19**
