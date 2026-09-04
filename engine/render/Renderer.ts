@@ -7,8 +7,9 @@ import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/
 import { ActorSprite } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import type { DrawRecord } from '../dev/Probe.ts';
-import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
+import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont, type Face } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
+import { askedFont, PreviewFont } from './PreviewFont.ts';
 import {
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
@@ -236,7 +237,7 @@ const MENU_ROW = 12 * GLYPH_SCALE;
 
 export class Renderer {
   private readonly screen: Screen;
-  private readonly font: BitmapFont;
+  private readonly font: Face;
   /**
    * The panel's own face, at Q35's derived scale. Same glyph data, same file,
    * a different multiplier -- because the panel is the one region errata 54
@@ -244,7 +245,7 @@ export class Renderer {
    * factor does not fit in it. Built here rather than passed in, like
    * PanelLayout beside it: it is a property of the panel, not of the caller.
    */
-  private readonly panelFont: BitmapFont;
+  private readonly panelFont: Face;
   private readonly state: GameState;
 
   /**
@@ -295,7 +296,7 @@ export class Renderer {
 
   constructor(
     screen: Screen,
-    font: BitmapFont,
+    font: Face,
     state: GameState,
     actors: RoomActors,
     ambient: AmbientLayer,
@@ -320,7 +321,12 @@ export class Renderer {
       [...state.content.actors].map(([id, record]) => [id, new ActorSprite(record, sheet)]),
     );
     this.panel = new PanelLayout(state.content.panel);
-    this.panelFont = new BitmapFont(state.content.font, PANEL_GLYPH_SCALE);
+    // THE PANEL'S FACE, AND A CANDIDATE'S IF A DEV BUILD ASKED FOR ONE. Q16.
+    // With no `?font=` this is the line it has always been.
+    const candidate = askedFont();
+    this.panelFont = candidate
+      ? new PreviewFont(state.content.font, candidate.family, candidate.panelPx, candidate.weight)
+      : new BitmapFont(state.content.font, PANEL_GLYPH_SCALE);
   }
 
   /** The animation clock, in seconds. Set once per frame by the scene. */

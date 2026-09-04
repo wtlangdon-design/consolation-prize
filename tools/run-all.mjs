@@ -53,6 +53,7 @@ import { check as rigDescribesFrames } from './check-rig-describes-frames.mjs';
 import { check as cameraSpace } from './check-camera-space.mjs';
 import { check as buildLedger } from './check-build-ledger.mjs';
 import { check as occlusion } from './check-occlusion.mjs';
+import { check as fontCandidates } from './font/check-candidates.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -134,6 +135,7 @@ const CHECKS = [
   moverLifecycle,
   buildLedger,
   occlusion,
+  fontCandidates,
 ];
 
 /**

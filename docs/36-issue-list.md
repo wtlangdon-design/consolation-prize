@@ -3290,3 +3290,77 @@ a game doing exactly what Q63 says it should.
 playing" and "a beat is waiting for the player" are separable facts. The probe
 carries both.
 
+
+---
+
+## Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS
+
+**Q14 is ruled and fixed; this is what was underneath it.**
+
+The clip planes are right now — Tyler ruled boardwalk, mud_far and mud_mid to
+plane 2 and mud_near to plane 1, the annotation authors them per band and the
+compiler carries them through. What the planes point at is stale.
+
+**Measured.** Both masks are 320×144 — errata 54's voided presentation, Q17 —
+and `Renderer.masked` stretches a mask to the room's 3700×864 at draw time,
+which is a defined behaviour and is not the same as authoring one at room
+resolution. Stretched:
+
+| Plane | What its mask draws | What the plate has there |
+|---|---|---|
+| 1 | a wagon wheel, eight spokes, and a slab beside it, across x0–940 of the near mud | open mud |
+| 2 | plane 1, plus a hitching rail — two posts and a crossbar — at x1110–1640, and a plain rectangle at x2480–2930 | open mud, and no rail anywhere on the street |
+
+Neither touches the water trough at x1862–2017 y543–605, which plane 2's own
+note says it contains. They were authored against an earlier and narrower
+Main Street.
+
+**Both are marked `maskPending`.** The renderer skips a pending plane and
+draws through — which is what the room did anyway while every box named a
+plane that did not exist, so nothing regresses. Activating a stale mask would
+be worse than the inert state it replaces: a man in mid-street would be erased
+from the knees down by a rail that is not drawn.
+
+### The part worth keeping is how it was nearly missed
+
+The first reading of the overlay recorded plane 1 as CORRECT, on the grounds
+that it "traces the wagon wheel's spokes exactly". It traces its own. **A mask
+rendered over a background produces a highlighted shape whether or not there
+is a shape underneath**, and the only thing that settles it is turning the
+mask off — which is what panel C of the room proof does: a man standing in the
+middle of that wheel, drawn whole, with nothing to be behind.
+
+`check-occlusion`'s geometric overlap test passes both masks comfortably, at
+31% and 12% of the drawn figure. That is the whole limit of what a machine can
+say here, it is stated in the check's own header, and it is doc 44's first
+honesty in miniature.
+
+**What it needs:** both masks regenerated at 3700×864 against the current
+plate, from the objects that are actually in it. That is art, and Tyler's.
+
+---
+
+## Q21 · FOUR CANDIDATE FACES ARE RENDERED IN THE LIVE UI, AND THE CHOICE IS UNMADE
+
+Q16 stands. Errata 54 voided the 5×7 and forbids anyone but Tyler choosing
+what replaces it; nothing here chooses.
+
+What exists now is the thing the ruling needs: `tools/font/compare.mjs` drives
+the real game to two UI states — a dialogue frame and a play frame — in each
+candidate and in the current bitmap face, and writes full-frame sheets.
+`docs/51-font-decision-sheet.md` is the sheet.
+
+**Two sizes, because they are not the same question.** The 5×7 packs caps,
+x-height and descenders into seven rows; a real face spends a third of its em
+below the baseline. So a candidate given the bitmap's line budget reads
+visibly smaller than the control, and one given the bitmap's cap height eats
+more of a panel that Q35 already measured at 210 of its 216 rows. Both are
+rendered.
+
+**Glyph coverage is settled and is not the decision.**
+`tools/font/check-candidates.mjs` reads each face's cmap directly — asked of
+the font file, never of a canvas, because a browser substitutes a missing
+glyph silently and `fillText` always draws something. All four cover the 78
+characters the current content draws, including the seven CLAUDE.md names:
+`' ' " " — – …`
+

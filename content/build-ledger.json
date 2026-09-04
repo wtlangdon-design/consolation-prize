@@ -47,7 +47,7 @@
    "gauntlet": null,
    "proof": "renders/proofs/main-street/proof.json",
    "blockers": [
-    "Q14",
+    "Q20",
     "Q16"
    ],
    "visual_accepted": false
@@ -81,9 +81,7 @@
     "docs/20-room-map.md"
    ],
    "dependsOn": [
-    "room-02-main-street",
-    "tool-annotator-any-room",
-    "tool-compiler-any-room"
+    "room-02-main-street"
    ],
    "status": "blocked",
    "commit": null,
@@ -91,7 +89,6 @@
    "gauntlet": null,
    "proof": null,
    "blockers": [
-    "Q15",
     "Q16",
     "Q17"
    ],
@@ -105,14 +102,12 @@
     "docs/50-autonomy-delta-audit.md"
    ],
    "dependsOn": [],
-   "status": "blocked",
-   "commit": null,
-   "validation": null,
+   "status": "built",
+   "commit": "a0d8b43",
+   "validation": "npm run validate",
    "gauntlet": null,
    "proof": null,
-   "blockers": [
-    "Q15"
-   ],
+   "blockers": [],
    "visual_accepted": false
   },
   {
@@ -123,14 +118,12 @@
     "docs/50-autonomy-delta-audit.md"
    ],
    "dependsOn": [],
-   "status": "blocked",
-   "commit": null,
-   "validation": null,
+   "status": "built",
+   "commit": "a0d8b43",
+   "validation": "npm run validate",
    "gauntlet": null,
    "proof": null,
-   "blockers": [
-    "Q15"
-   ],
+   "blockers": [],
    "visual_accepted": false
   },
   {
@@ -165,6 +158,25 @@
    "gauntlet": null,
    "proof": "renders/proofs/stage-road/proof.json",
    "blockers": [],
+   "visual_accepted": false
+  },
+  {
+   "id": "font-decision",
+   "kind": "decision",
+   "sources": [
+    "docs/00-errata.md",
+    "docs/36-issue-list.md",
+    "docs/51-font-decision-sheet.md"
+   ],
+   "dependsOn": [],
+   "status": "blocked",
+   "commit": "a0d8b43",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": "renders/font-candidates/candidates.json",
+   "blockers": [
+    "Q16"
+   ],
    "visual_accepted": false
   }
  ]

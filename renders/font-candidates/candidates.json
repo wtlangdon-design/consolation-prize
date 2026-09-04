@@ -1,0 +1,92 @@
+{
+ "note": "A DECISION SHEET FOR DOC 36 Q16, AND NOT A DECISION. Errata 54 voided the 5x7 face and forbids anyone but Tyler choosing what replaces it. Nothing here ranks, scores or recommends.",
+ "capturedAt": "2026-09-04T06:42:45.331Z",
+ "sizes": [
+  {
+   "id": "budget",
+   "note": "the bitmap face's own line budget -- 42px play, 28px panel"
+  },
+  {
+   "id": "cap",
+   "note": "cap heights matched to the bitmap's -- the size the eye reads as equal"
+  }
+ ],
+ "sizeNote": "THE TWO SIZES ARE NOT THE SAME QUESTION. `budget` gives each face the vertical space the bitmap occupies now, which is what the panel is built for; `cap` matches capital heights, which is what the eye reads as equal size. They differ because the 5x7 packs caps, x-height and descenders into seven rows and a real face spends a third of its em below the baseline. At `budget` every candidate reads smaller than the control; at `cap` the panel gets tighter, and Q35 already measured the bitmap at 210 of its 216 rows.",
+ "candidates": [
+  {
+   "id": "current",
+   "family": null,
+   "weight": "",
+   "licence": "the project's own",
+   "budgetPx": {
+    "play": 42,
+    "panel": 28
+   },
+   "capMatchedPx": {
+    "play": 42,
+    "panel": 28
+   },
+   "note": "THE CONTROL: the 5x7 bitmap face, void under errata 54 and still what the game draws with."
+  },
+  {
+   "id": "ibm-plex-sans",
+   "family": "IBM Plex Sans",
+   "weight": "500",
+   "licence": "SIL OFL 1.1",
+   "budgetPx": {
+    "play": 42,
+    "panel": 28
+   },
+   "capMatchedPx": {
+    "play": 60,
+    "panel": 40
+   },
+   "note": "HUMANIST SANS, DRAWN FOR SCREENS. The most neutral of the four: open apertures, unambiguous I/l/1, and a 500 weight that holds up outlined over artwork. It brings no period of its own, which is either the safest choice or the dullest one."
+  },
+  {
+   "id": "alegreya-sans",
+   "family": "Alegreya Sans",
+   "weight": "500",
+   "licence": "SIL OFL 1.1",
+   "budgetPx": {
+    "play": 42,
+    "panel": 28
+   },
+   "capMatchedPx": {
+    "play": 66,
+    "panel": 44
+   },
+   "note": "HUMANIST SANS WITH A WRITING HAND IN IT. Slightly calligraphic, warmer than Plex, drawn as a literary companion face -- so it reads as a book rather than an operating system. Narrower, which buys room in the panel."
+  },
+  {
+   "id": "bitter",
+   "family": "Bitter",
+   "weight": "400",
+   "licence": "SIL OFL 1.1",
+   "budgetPx": {
+    "play": 42,
+    "panel": 28
+   },
+   "capMatchedPx": {
+    "play": 60,
+    "panel": 40
+   },
+   "note": "A SCREEN SLAB. Slab serifs are 19th-century American wood type, which is the register of a gold-rush town and of every handbill in it -- and this one was drawn for screen reading rather than for posters, so it stays legible small. The most of-the-place of the four, and the most opinionated."
+  },
+  {
+   "id": "vollkorn",
+   "family": "Vollkorn",
+   "weight": "400",
+   "licence": "SIL OFL 1.1",
+   "budgetPx": {
+    "play": 42,
+    "panel": 28
+   },
+   "capMatchedPx": {
+    "play": 62,
+    "panel": 41
+   },
+   "note": "A WARM TEXT SERIF. The examine layer is ~890 lines of prose a player reads rather than scans, and a serif is what prose is set in. Softer and less mechanical than Bitter; the question is whether it survives the panel at 28px."
+  }
+ ]
+}

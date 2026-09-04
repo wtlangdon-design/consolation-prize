@@ -12,7 +12,8 @@ import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { DialoguePerformance, readingHold, type HoldTiming } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
-import { BitmapFont, GLYPH_SCALE } from '../render/BitmapFont.ts';
+import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
+import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
 import { Renderer } from '../render/Renderer.ts';
@@ -53,7 +54,7 @@ const NOTICE_MS = 1200;
 export class GameScene extends Phaser.Scene {
   private state!: GameState;
   private screen!: Screen;
-  private font!: BitmapFont;
+  private font!: Face;
   private view!: Renderer;
   private actor!: Actor;
   /**
@@ -173,7 +174,13 @@ export class GameScene extends Phaser.Scene {
     const context = this.texture.getContext();
     context.imageSmoothingEnabled = false;
     this.screen = new Screen(context, this.state.content.palette);
-    this.font = new BitmapFont(this.state.content.font);
+    // THE PLAY AREA'S FACE. `?font=Family` in a DEV build swaps a candidate in
+    // so Q16 can be ruled on by looking at the real UI; with no parameter this
+    // constructs exactly what it always did.
+    const candidate = askedFont();
+    this.font = candidate
+      ? new PreviewFont(this.state.content.font, candidate.family, candidate.px, candidate.weight)
+      : new BitmapFont(this.state.content.font);
     // The protagonist's id comes from content. No .ts file names him, and
     // the registry does not know which of its movers he is beyond holding it.
     this.actor = new Actor(this.state, this.state.content.actor.id,
