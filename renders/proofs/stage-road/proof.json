@@ -4,10 +4,11 @@
  "room": "stage_road",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "9bf31b7cd74db3634bdd12e6814a91abc3d4d2bb",
+ "commit": "55230a8fc401b89793ff697b8ea1bbc4d57ce6f7",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
+ "candidates": [],
  "route": "stage-road",
  "routeLog": [
   "action 1 (wait): waited 2.5s",
@@ -52,7 +53,7 @@
    ],
    "reportedHeight": 224,
    "expected": 224,
-   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-07.png",
+   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-09.png",
    "bounds": [
     826,
     477,
@@ -89,7 +90,7 @@
    ],
    "reportedHeight": 263,
    "expected": 263,
-   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-11.png",
+   "drawnFrom": "art/actors/thad-idle-left/idle-04.png",
    "bounds": [
     806,
     599,
@@ -107,7 +108,7 @@
   {
    "panel": "B",
    "room": "stage_road",
-   "clock": 49.0982,
+   "clock": 54.7158,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -135,7 +136,7 @@
      "height": 263,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-02.png",
+     "from": "art/actors/thad-idle-left/idle-03.png",
      "bounds": [
       1283,
       567,
@@ -156,7 +157,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idle-right/idle-02.png",
+     "from": "art/actors/hob-idle-right/idle-03.png",
      "bounds": [
       503,
       490,
@@ -177,7 +178,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idle-right/idle-14.png",
+     "from": "art/actors/coach-idle-right/idle-03.png",
      "bounds": [
       2509,
       353,
@@ -193,6 +194,8 @@
     {
      "key": "bg:stage_road",
      "path": "art/backgrounds/room-01-stage-road.png",
+     "drawn": "art/backgrounds/room-01-stage-road.png",
+     "candidate": false,
      "loaded": true,
      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
     }
@@ -200,15 +203,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T06:48:29.082Z",
+   "capturedAt": "2026-09-04T07:51:53.414Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "426568225ea6adfaa67d65fd64850bf630966ca689b902a2602bc5fd26057e56"
+   "hash": "cab3d7ddda2a4955802188dd9bd5261d6ac28dc13915f273e4712aebc45e9d9e"
   },
   {
    "panel": "A",
    "room": "stage_road",
-   "clock": 50.1149,
+   "clock": 55.7824,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -279,6 +282,8 @@
     {
      "key": "bg:stage_road",
      "path": "art/backgrounds/room-01-stage-road.png",
+     "drawn": "art/backgrounds/room-01-stage-road.png",
+     "candidate": false,
      "loaded": true,
      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
     }
@@ -288,15 +293,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T06:48:30.109Z",
+   "capturedAt": "2026-09-04T07:51:54.787Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "729505a965df0b3a921ef652a3a9927b09f53e7e33ee1dae782469b8d7a18273"
+   "hash": "dce4414994bd8e4bd250903b5f18acfb70bead0d96a7b993d23f6be576b4451a"
   },
   {
    "panel": "D",
    "room": "stage_road",
-   "clock": 63.531,
+   "clock": 69.3485,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -329,7 +334,7 @@
      "height": 263,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-04.png",
+     "from": "art/actors/thad-idle-left/idle-01.png",
      "bounds": [
       1023,
       575,
@@ -350,7 +355,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idle-right/idle-04.png",
+     "from": "art/actors/hob-idle-right/idle-01.png",
      "bounds": [
       503,
       490,
@@ -367,11 +372,11 @@
       742
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idlebreak-right/idle-break-02.png",
+     "from": "art/actors/coach-idlebreak-right/idle-break-10.png",
      "bounds": [
       2509,
       353,
@@ -387,6 +392,8 @@
     {
      "key": "bg:stage_road",
      "path": "art/backgrounds/room-01-stage-road.png",
+     "drawn": "art/backgrounds/room-01-stage-road.png",
+     "candidate": false,
      "loaded": true,
      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
     }
@@ -403,10 +410,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-09-04T06:48:43.346Z",
+   "capturedAt": "2026-09-04T07:52:07.988Z",
    "intent": "principal changed state: THE CASE COMES OUT OF THE MUD. Doc 17 makes picking it up the game's first PICK UP, and it is the only change to Room 1 still available once the opening has handed over -- the coach has already departed by then, which is what the first version of this spec got wrong: it declared T_COACH_DEPARTED and the route had set it four actions earlier, so panel D was panel B with a different filename.\n\nIt is an ACTION rather than a flag because that is what it is. `case_mud`'s PICK UP carries `take: true`, and GameState.targets filters out anything the actor owns -- doc 22 item 9, taking something is an ownership change -- so the hotspot is simply gone afterwards. The panel shows a road with no case in it, which is the state the rest of Act I is played in.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "6c53fd34959824dfd6cbc2a6c562c0d19f23aabc747054364d7921ea414752e5",
+   "hash": "77784c21de387fb5fd15fbb2feb7971fa62240b0fd4cec7048e0816c8e2e635c",
    "changedBy": "flags, inventory"
   }
  ],
@@ -414,11 +421,11 @@
  "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T06:48:43.346Z",
+ "at": "2026-09-04T07:52:07.988Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 419752,
+  "bytes": 419656,
   "panels": 5,
   "scale": 0.5
  }

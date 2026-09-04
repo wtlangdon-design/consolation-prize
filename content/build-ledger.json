@@ -89,10 +89,13 @@
    "gauntlet": null,
    "proof": null,
    "blockers": [
-    "docs/36-issue-list.md::Q17 · SEVEN SHIPPING PLATES CANNOT BE READ BY ANY TOOL IN THIS REPOSITORY"
+    "docs/36-issue-list.md::Q17 · SEVEN SHIPPING PLATES CANNOT BE READ BY ANY TOOL IN THIS REPOSITORY",
+    "docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST",
+    "docs/36-issue-list.md::Q23 · ROOM 5 HAS NO ANNOTATION, AND THAT IS NOT A CONTENT PROBLEM"
    ],
    "visual_accepted": false,
-   "note": "The font blocker is gone (errata 62). What remains is the plate: art/backgrounds/room-05-assay-office.png is 320x144 PNG colour type 3 -- the legacy art, indexed, and unreadable by every pixel check in the project. Errata 63: Room 5 is a FIXED room and its shipping plate is exactly 1920x864. Content and geometry readiness are reported separately by tools/check-room-readiness.mjs."
+   "note": "BUILDABLE WITHOUT INVENTION: NO -- and its WRITING is complete. The gate reports seven dimensions and five are YES: examine lines with three LOOK and three LISTEN variants across all eight subjects, the wrong-verb layer, Winnie's seven dialogue nodes, puzzles C4-C6 with their items and flags, an act-gated bench, and no staging script because the room genuinely has none. The three NOs are art and geometry: an uncast Winnie, no annotation, and a shipping plate that is still the obsolete 320x144 indexed legacy file. Errata 63: Room 5 is FIXED and ships at exactly 1920x864.",
+   "readiness": "proofs/readiness/room-05.json"
   },
   {
    "id": "tool-compiler-any-room",
