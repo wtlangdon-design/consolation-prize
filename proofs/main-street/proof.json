@@ -4,26 +4,16 @@
  "room": "main_street",
  "roomWidth": 3700,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "6d5f1e37e0d95607a21f98481791a5af56417276",
+ "commit": "c036b5413349634f3f09389ff022364d9a637baf",
  "workingTreeClean": false,
- "dirtyAllowed": true,
+ "dirtyAllowed": false,
  "uncommitted": [
-  "M engine/core/CarriedBeats.ts",
-  " M engine/core/FlagStore.ts",
-  " M engine/dev/Probe.ts",
-  " M engine/scenes/GameScene.ts",
-  " M package.json",
-  " M tools/gauntlet/routes/main-street.json",
-  " M tools/lib/png.mjs",
-  "?? docs/50-autonomy-delta-audit.md",
-  "?? proofs/calibration/",
-  "?? proofs/main-street/",
-  "?? proofs/spec/",
-  "?? proofs/stage-road/",
-  "?? tools/art/",
-  "?? tools/gauntlet/proof.mjs",
-  "?? tools/gauntlet/route.mjs",
-  "?? tools/gauntlet/routes/stage-road.json"
+  "M proofs/stage-road/index.html",
+  " M proofs/stage-road/panel-b-populated.png",
+  " M proofs/stage-road/panel-c-road_open-far.png",
+  " M proofs/stage-road/panel-c-road_open-near.png",
+  " M proofs/stage-road/panel-d-changed.png",
+  " M proofs/stage-road/proof.json"
  ],
  "route": "main-street",
  "routeLog": [
@@ -73,7 +63,7 @@
    ],
    "reportedHeight": 105,
    "expected": 105,
-   "drawnFrom": "art/actors/thad-idle-front/idle-01.png",
+   "drawnFrom": "art/actors/thad-idle-front/idle-03.png",
    "bounds": [
     899,
     428,
@@ -110,7 +100,7 @@
    ],
    "reportedHeight": 206,
    "expected": 206,
-   "drawnFrom": "art/actors/thad-idle-front/idle-00.png",
+   "drawnFrom": "art/actors/thad-idle-front/idle-03.png",
    "bounds": [
     1753,
     651,
@@ -128,7 +118,7 @@
   {
    "panel": "B",
    "room": "main_street",
-   "clock": 105.52260000000001,
+   "clock": 106.7056,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -165,7 +155,7 @@
      "height": 150,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-01.png",
+     "from": "art/actors/thad-idle-front/idle-04.png",
      "bounds": [
       3211,
       556,
@@ -200,15 +190,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T05:13:44.522Z",
+   "capturedAt": "2026-09-04T05:23:00.463Z",
    "intent": "normal populated state",
    "file": "panel-b-populated.png",
-   "hash": "596d4469bed30a4488855ad84a5888c282dbf8f6565c061f574c96239b77a582"
+   "hash": "9c8af274f1a687bb1bed5739bac69587ad72e53d24ae3faac8fff55df794ff9f"
   },
   {
    "panel": "A",
    "room": "main_street",
-   "clock": 106.6725,
+   "clock": 107.9223,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -277,15 +267,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T05:13:45.695Z",
+   "capturedAt": "2026-09-04T05:23:01.669Z",
    "intent": "base state, cast suppressed",
    "file": "panel-a-base.png",
-   "hash": "0337bec7f8a907b4ea1bd6a4470c7b2cb1dd09c8dd19cf805c5dc079d75a6609"
+   "hash": "e52e0c6b34942bd36b1343b957b6f313a1088ee309d49ce28e81c2e0fffc08ee"
   },
   {
    "panel": "D",
    "room": "main_street",
-   "clock": 113.7722,
+   "clock": 114.7387,
    "beat": null,
    "control": null,
    "camera": 595,
@@ -318,16 +308,16 @@
       857
      ],
      "facing": "front",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 206,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-02.png",
+     "from": "art/actors/thad-idlebreak-front/idle-break-03.png",
      "bounds": [
-      1753,
+      1805,
       651,
-      244,
-      227
+      139,
+      214
      ],
      "order": 0,
      "clipLevel": 12,
@@ -366,10 +356,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-09-04T05:13:52.731Z",
+   "capturedAt": "2026-09-04T05:23:08.693Z",
    "intent": "principal changed state: Act III repaints the Improvement Company sign -- 'fresh gilt on the lettering' -- and posts the funeral notice on the board. Doc 35 section 2a's worked gate ruled both STATEFUL for exactly that reason, and they are the only two things on this street that change appearance rather than what Thad says about them.\n\nAND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED. Errata 60 rules ACT a numeric counter written at four places in doc 48's scripts; content/flags/flags.json declares 22 flags and ACT is not among them. So the gate the repaint compiles to cannot be satisfied by anything, and the proof fails panel D by name. An unreachable principal change is a finding; an undeclared one is a hole in this file.",
    "file": "panel-d-changed.png",
-   "hash": "af9f5e3ed3c43d7f216acd02a8fa88f4deb24338a9530b2febbb58a2ce2f915c",
+   "hash": "c1d6672544d0f508d12430fc2ff3542d02e18f7483e4fd1e2c4616e395827d18",
    "changedBy": "nothing"
   }
  ],
@@ -383,10 +373,11 @@
   "gate 8D: mud_near declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.",
   "panel D: the flag registry declares no ACT",
   "panel D: ACT is undefined, wanted 3 -- the intended state was not reached and the frame is of the old one",
-  "panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename."
+  "panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename.",
+  "the working tree is dirty, so these frames do not correspond to c036b541. Commit, or re-run with --allow-dirty, which records it."
  ],
  "passed": false,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T05:13:52.731Z"
+ "at": "2026-09-04T05:23:08.693Z"
 }
