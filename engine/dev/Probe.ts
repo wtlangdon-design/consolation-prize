@@ -81,6 +81,18 @@ export interface FrameReport {
   clock: number;
   /** The beat playing, from whichever runner is playing it. Null if none. */
   beat: string | null;
+  /**
+   * A beat that is ARMED and waiting on a flag the player has not written.
+   *
+   * IT IS NOT `beat`, AND CONFLATING THEM MAKES A CORRECT WAIT LOOK LIKE A
+   * HANG. Doc 17 beat 9 holds on `T_HOB_SPOKEN`: Hob stands at the roadside
+   * with his lamp until somebody addresses him, which Q63 ruled deliberately
+   * -- "a player who never speaks to him leaves a man standing at the roadside
+   * with his lamp, which is the truthful state and not a stall." A harness
+   * that reads that as beat 9 playing waits out its own deadline against a
+   * game doing exactly what it was told.
+   */
+  waitingBeat: string | null;
   control: string | null;
   movers: Record<string, MoverReport>;
   overlays: Record<string, string | null>;
@@ -100,8 +112,21 @@ export interface FrameReport {
   assets: { key: string; path: string; loaded: boolean }[];
   /** Flags currently true. Identifiers, never content. */
   flags: string[];
+  /** Numeric flags and their values. Errata 60's ACT is one of these. */
+  counters: Record<string, number>;
   /** Item ids the player is carrying. Identifiers, never content. */
   inventory: string[];
+  /**
+   * The camera's left edge, in room coordinates.
+   *
+   * A ROUTE CANNOT CLICK A WIDE ROOM WITHOUT IT. Main Street is 3700 across
+   * with the view following, so a hotspot at world x2900 is not at screen
+   * x2900 and is frequently not on screen at all -- and a click computed
+   * without this lands on whatever happens to be under it, writes no flag, and
+   * holds until a deadline. That is the exact fault doc 36 Q67 records for the
+   * gauntlet's beat 9 click, one level up.
+   */
+  camera: number;
   /**
    * Lines queued behind the one on screen.
    *
@@ -227,7 +252,7 @@ export interface Controls {
    * about is one no content gates on, so setting it proves nothing and
    * silently diverges the save from every check that reads the registry.
    */
-  flags(values: Record<string, boolean>): { ok: boolean; refused: string[] };
+  flags(values: Record<string, boolean | number>): { ok: boolean; refused: string[] };
   /** Go to a room by id, as the `?room=` warp does. Refuses an unknown id. */
   enter(roomId: string): { ok: boolean; why?: string };
   /** Everything these controls have done to the game, in order. */

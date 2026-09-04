@@ -1,0 +1,13 @@
+{
+ "schema": 1,
+ "room": "main_street",
+ "note": "See proofs/spec/stage-road.json for why a spec exists at all.",
+ "route": "main-street",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "Act III repaints the Improvement Company sign -- 'fresh gilt on the lettering' -- and posts the funeral notice on the board. Doc 35 section 2a's worked gate ruled both STATEFUL for exactly that reason, and they are the only two things on this street that change appearance rather than what Thad says about them.\n\nAND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED. Errata 60 rules ACT a numeric counter written at four places in doc 48's scripts; content/flags/flags.json declares 22 flags and ACT is not among them. So the gate the repaint compiles to cannot be satisfied by anything, and the proof fails panel D by name. An unreachable principal change is a finding; an undeclared one is a hole in this file.",
+  "flags": {
+   "ACT": 3
+  }
+ }
+}

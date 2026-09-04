@@ -1,0 +1,263 @@
+/**
+ * THE IMAGE API, AS AN ADAPTER AND NOTHING ELSE.
+ *
+ * Doc 46 part one names art generation as the thing that cannot be automated:
+ * "ChatGPT generates; Tyler's eye judges. No check measures whether a plate is
+ * good." That is unchanged and this file does not touch it. What it changes is
+ * WHO PRESSES THE BUTTON -- the loop of writing a prompt, waiting, downloading
+ * a PNG and putting it somewhere is the part a person should not be doing by
+ * hand forty rooms in a row.
+ *
+ * SO THE RULES THIS FILE KEEPS ARE ABOUT CUSTODY, NOT QUALITY:
+ *
+ * 1. THE KEY COMES FROM THE ENVIRONMENT AND IS NEVER WRITTEN ANYWHERE. Not
+ *    into the ledger, not into a log line, not into an error message. The
+ *    provenance record carries the model and the parameters and no credential.
+ *
+ * 2. IT CANNOT WRITE INTO SHIPPING ART. Every output lands under
+ *    `art/staging/`, and a refusal names the path rather than helpfully
+ *    choosing another one. Promotion out of staging is a separate, explicit,
+ *    logged act -- `tools/art/staging.mjs promote` -- because "the generator
+ *    overwrote the approved plate" is a mistake with no undo that is not a
+ *    git revert, and errata 54 exists partly because a plate Tyler approved
+ *    was nearly regenerated out from under him. `tools/pixelart/superseded.py`
+ *    is the same defence one layer over.
+ *
+ * 3. IT REFUSES RATHER THAN GUESSES. No default output path, no invented
+ *    prompt, no silent model substitution, no retry that changes the request.
+ *
+ * WHAT IT DELIBERATELY DOES NOT DO: decide whether to generate, decide how
+ * many attempts are reasonable, or decide whether the result is any good.
+ * Those live in `staging.mjs` (caps and provenance), in `gates.mjs`
+ * (technical admissibility) and in Tyler (everything else).
+ *
+ * Usage, as a module:
+ *     import { generate, edit } from './openai-image.mjs';
+ *     await generate({ prompt, out: 'art/staging/room-04/attempt-01.png', size });
+ *     await edit({ prompt, out, images: ['art/staging/.../base.png'], mask });
+ */
+import { createHash } from 'node:crypto';
+import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { basename, dirname, resolve } from 'node:path';
+
+import { ROOT } from '../lib/content.mjs';
+
+/**
+ * The one directory anything generated may be written to.
+ *
+ * A PREFIX TEST, ON THE RESOLVED PATH, so `art/staging/../backgrounds/x.png`
+ * is refused. A check that tests the string it was handed rather than the path
+ * that string resolves to is a check that is one `..` from useless.
+ */
+export const STAGING_ROOT = 'art/staging';
+
+/** Default model. Overridden by OPENAI_IMAGE_MODEL, never by an argument. */
+const DEFAULT_MODEL = 'gpt-image-2';
+
+const ENDPOINT = 'https://api.openai.com/v1/images';
+
+export function model() {
+  return process.env.OPENAI_IMAGE_MODEL || DEFAULT_MODEL;
+}
+
+/**
+ * The key, or a refusal that says how to supply it.
+ *
+ * READ AT CALL TIME, not at import. A module-level read makes every tool that
+ * imports this one fail on a machine with no key, including the gates, which
+ * do not need one.
+ */
+function key() {
+  const found = process.env.OPENAI_API_KEY;
+  if (!found) {
+    throw new Error('OPENAI_API_KEY is not set. Export it in the shell that runs this; '
+      + 'it is never read from a file, never written to the ledger, and never printed.');
+  }
+  return found;
+}
+
+/** Refuses any path that does not resolve inside `art/staging`. */
+export function assertStaged(out) {
+  const full = resolve(ROOT, out);
+  const staging = resolve(ROOT, STAGING_ROOT);
+  if (full !== staging && !full.startsWith(`${staging}/`)) {
+    throw new Error(`refusing to write ${out}: generated art goes to ${STAGING_ROOT}/ and `
+      + 'nothing else writes shipping art. Promote it with tools/art/staging.mjs promote, '
+      + 'which records that somebody decided to.');
+  }
+  return full;
+}
+
+export function sha256(bytes) {
+  return createHash('sha256').update(bytes).digest('hex');
+}
+
+export function hashFile(path) {
+  return sha256(readFileSync(resolve(ROOT, path)));
+}
+
+/**
+ * One request, with the response body kept on failure.
+ *
+ * THE BODY IS THE DIAGNOSIS. An adapter that reports "the API returned 400"
+ * and drops what the API said about why costs a round trip every time, and
+ * this project has the same lesson written into `tools/gauntlet/run.mjs`:
+ * the old dev-server failure "reported only that no URL appeared, so
+ * diagnosing it needed the run log, the job id and three tool calls."
+ */
+async function post(path, body, headers = {}) {
+  const answer = await fetch(`${ENDPOINT}${path}`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${key()}`, ...headers },
+    body,
+  });
+  const text = await answer.text();
+  if (!answer.ok) {
+    throw new Error(`image API ${answer.status} on ${path}\n--- what it said ---\n`
+      + `${text.slice(0, 4000)}`);
+  }
+  return JSON.parse(text);
+}
+
+/**
+ * Writes the first image of a response and returns the provenance of the call.
+ *
+ * The return value is what `staging.mjs` records. It carries the model, the
+ * parameters, the reference hashes and the output hash, and it carries no
+ * credential -- which is stated here because the temptation to include "the
+ * request" wholesale for debugging is exactly how a key reaches a log.
+ */
+function land(result, out, meta) {
+  const first = result.data?.[0];
+  if (!first?.b64_json) {
+    throw new Error(`the API returned no image data for ${out}. `
+      + `Keys present: ${Object.keys(first ?? {}).join(', ') || 'none'}`);
+  }
+  const bytes = Buffer.from(first.b64_json, 'base64');
+  const full = assertStaged(out);
+  mkdirSync(dirname(full), { recursive: true });
+  writeFileSync(full, bytes);
+  return {
+    ...meta,
+    out,
+    outputHash: sha256(bytes),
+    bytes: bytes.length,
+    // Usage where the API reports it. Absent is absent: a zero would read as
+    // a measurement and this is the number a spending cap is enforced on.
+    usage: result.usage ?? null,
+    revisedPrompt: first.revised_prompt ?? null,
+    at: new Date().toISOString(),
+  };
+}
+
+/**
+ * A prompt, or the file that holds one.
+ *
+ * THE PROMPT IS CONTENT'S NEIGHBOUR AND IS TREATED LIKE IT. Docs 12, 37 and 39
+ * hold the generation briefs; a prompt typed into a shell argument exists
+ * nowhere afterwards and cannot be re-run, compared or corrected. `promptFile`
+ * is the form that leaves a trail, and the ledger records which was used.
+ */
+function promptOf({ prompt, promptFile }) {
+  if (prompt && promptFile) {
+    throw new Error('give a prompt or a promptFile, not both -- two sources of one string '
+      + 'is the shape every drift in this project has had');
+  }
+  if (promptFile) return { text: readFileSync(resolve(ROOT, promptFile), 'utf8'), from: promptFile };
+  if (prompt) return { text: prompt, from: 'inline' };
+  throw new Error('no prompt and no promptFile. This refuses rather than inventing one.');
+}
+
+/**
+ * Generate an image from a prompt alone.
+ *
+ * `size` is required and not defaulted. Errata 54 sets the play area at
+ * 1920x864 and voided doc 35 section 6's "1600 x 720 exactly"; a default here
+ * would be a fourth place that number lives, and the wrong one would be
+ * invisible until a plate arrived at the wrong shape.
+ */
+export async function generate({ prompt, promptFile, out, size, quality, background }) {
+  const text = promptOf({ prompt, promptFile });
+  if (!out) throw new Error('generate needs an explicit `out` path under art/staging/.');
+  if (!size) throw new Error('generate needs an explicit `size` -- errata 54 sets the play '
+    + 'area at 1920x864 and this refuses to guess which of a room\'s sizes you meant.');
+  assertStaged(out);
+  const body = {
+    model: model(),
+    prompt: text.text,
+    size,
+    n: 1,
+    ...(quality ? { quality } : {}),
+    ...(background ? { background } : {}),
+  };
+  const result = await post('/generations', JSON.stringify(body),
+    { 'Content-Type': 'application/json' });
+  return land(result, out, {
+    operation: 'generate',
+    model: body.model,
+    parameters: { size, quality: quality ?? null, background: background ?? null },
+    prompt: text.from === 'inline' ? text.text : null,
+    promptFile: text.from === 'inline' ? null : text.from,
+    promptHash: sha256(Buffer.from(text.text)),
+    references: [],
+  });
+}
+
+/**
+ * Edit one or more existing images.
+ *
+ * SEVERAL REFERENCES, BECAUSE THE PROJECT'S OWN METHOD NEEDS THEM. Doc 36 D4:
+ * "movers are obtained by additive edit and subtraction" -- the same scene
+ * generated with and without an object, differenced. Errata 53 condition 2
+ * states it as a rule rather than an optimisation: "ask the generator for the
+ * same scene without the object, quantise both, and the layer is a difference
+ * between two images." A companion generation that cannot see the plate it is
+ * a companion to is not a companion.
+ *
+ * EVERY REFERENCE IS HASHED INTO THE RECORD. An edit whose inputs are not
+ * pinned cannot be reproduced, and "regenerate that one" is the most common
+ * thing anybody asks of this pipeline.
+ */
+export async function edit({ prompt, promptFile, out, images, mask, size, quality }) {
+  const text = promptOf({ prompt, promptFile });
+  if (!out) throw new Error('edit needs an explicit `out` path under art/staging/.');
+  if (!images?.length) throw new Error('edit needs at least one reference image.');
+  assertStaged(out);
+
+  const form = new FormData();
+  form.append('model', model());
+  form.append('prompt', text.text);
+  if (size) form.append('size', size);
+  if (quality) form.append('quality', quality);
+  const references = [];
+  for (const path of images) {
+    const full = resolve(ROOT, path);
+    if (!existsSync(full)) throw new Error(`reference image does not exist: ${path}`);
+    const bytes = readFileSync(full);
+    references.push({ path, hash: sha256(bytes) });
+    form.append('image[]', new Blob([bytes], { type: 'image/png' }), basename(path));
+  }
+  let maskRecord = null;
+  if (mask) {
+    const bytes = readFileSync(resolve(ROOT, mask));
+    maskRecord = { path: mask, hash: sha256(bytes) };
+    form.append('mask', new Blob([bytes], { type: 'image/png' }), basename(mask));
+  }
+
+  const result = await post('/edits', form);
+  return land(result, out, {
+    operation: 'edit',
+    model: model(),
+    parameters: { size: size ?? null, quality: quality ?? null },
+    prompt: text.from === 'inline' ? text.text : null,
+    promptFile: text.from === 'inline' ? null : text.from,
+    promptHash: sha256(Buffer.from(text.text)),
+    references,
+    mask: maskRecord,
+    // The source an edit-isolation gate measures drift against: the FIRST
+    // reference, which is the image being edited. Named rather than left for
+    // a reader to infer from an array's order.
+    sourceHash: references[0]?.hash ?? null,
+    sourcePath: references[0]?.path ?? null,
+  });
+}

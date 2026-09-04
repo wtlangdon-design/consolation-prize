@@ -1,0 +1,70 @@
+<!DOCTYPE html><meta charset="utf-8">
+<title>stage_road — room proof</title>
+<style>
+ body{background:#14141a;color:#e8e8ee;font:14px/1.5 system-ui,sans-serif;margin:0;padding:20px}
+ h1{font-size:17px;margin:0 0 4px}
+ p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
+ .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
+   background:#12331e;border:1px solid #2c6b40}
+ figure{margin:0 0 22px}
+ img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
+ figcaption{padding:7px 2px;font-size:13px}
+ figcaption span{display:block;color:#8a8a9e;font:11.5px ui-monospace,monospace}
+ code{color:#c9b58a}
+</style>
+<h1>stage_road — four-panel live-runtime proof</h1>
+<p class="lede">Every frame below is the full play area as the renderer drew it, in the running
+game, at <code>6d5f1e37</code> on <code>claude/last-claim-autonomy-audit-v3vsy6</code>.
+No crop, isolated sprite or source image appears here: those are for diagnosing what a full
+frame has already shown.</p>
+<p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
+art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted</code>.</p>
+<div class="verdict">PASS — technically admissible
+
+! working tree was dirty: these frames do not correspond to the commit above.</div>
+
+  <figure>
+    <img src="panel-b-populated.png" alt="">
+    <figcaption><b>PANEL B &mdash; normal populated state</b>
+      <span>room stage_road &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_OPENING_DONE T_CASE_DOWN &middot;
+        inventory none</span>
+      <span>thad @1420,830 263px sprite &middot; hob @600,720 230px sprite &middot; coach @3000,742 389px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="panel-a-base.png" alt="">
+    <figcaption><b>PANEL A &mdash; base state, cast suppressed</b>
+      <span>room stage_road &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_OPENING_DONE T_CASE_DOWN &middot;
+        inventory none</span>
+      <span>thad @1420,830 263px sprite &middot; hob @600,720 230px sprite &middot; coach @3000,742 389px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="panel-d-changed.png" alt="">
+    <figcaption><b>PANEL D &mdash; principal changed state: THE CASE COMES OUT OF THE MUD. Doc 17 makes picking it up the game's first PICK UP, and it is the only change to Room 1 still available once the opening has handed over -- the coach has already departed by then, which is what the first version of this spec got wrong: it declared T_COACH_DEPARTED and the route had set it four actions earlier, so panel D was panel B with a different filename.
+
+It is an ACTION rather than a flag because that is what it is. `case_mud`'s PICK UP carries `take: true`, and GameState.targets filters out anything the actor owns -- doc 22 item 9, taking something is an ownership change -- so the hotspot is simply gone afterwards. The panel shows a road with no case in it, which is the state the rest of Act I is played in.</b>
+      <span>room stage_road &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_OPENING_DONE T_CASE_DOWN T_CASE_TAKEN &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @1160,838 263px sprite &middot; hob @600,720 230px sprite &middot; coach @3000,742 389px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="panel-c-road_open-far.png" alt="">
+    <figcaption><b>PANEL C &mdash; road_open far, authored y701</b>
+      <span>expected 224px &middot; runtime 224px &middot;
+        silhouette 224px, bottom y700</span>
+      <span>art/actors/thad-idlebreak-left/idle-break-11.png</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="panel-c-road_open-near.png" alt="">
+    <figcaption><b>PANEL C &mdash; road_open near, authored y862</b>
+      <span>expected 263px &middot; runtime 263px &middot;
+        silhouette 263px, bottom y861</span>
+      <span>art/actors/thad-idle-left/idle-01.png</span>
+    </figcaption>
+  </figure>

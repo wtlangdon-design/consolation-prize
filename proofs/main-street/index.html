@@ -1,0 +1,80 @@
+<!DOCTYPE html><meta charset="utf-8">
+<title>main_street — room proof</title>
+<style>
+ body{background:#14141a;color:#e8e8ee;font:14px/1.5 system-ui,sans-serif;margin:0;padding:20px}
+ h1{font-size:17px;margin:0 0 4px}
+ p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
+ .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
+   background:#3a1620;border:1px solid #7a2c3c}
+ figure{margin:0 0 22px}
+ img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
+ figcaption{padding:7px 2px;font-size:13px}
+ figcaption span{display:block;color:#8a8a9e;font:11.5px ui-monospace,monospace}
+ code{color:#c9b58a}
+</style>
+<h1>main_street — four-panel live-runtime proof</h1>
+<p class="lede">Every frame below is the full play area as the renderer drew it, in the running
+game, at <code>6d5f1e37</code> on <code>claude/last-claim-autonomy-audit-v3vsy6</code>.
+No crop, isolated sprite or source image appears here: those are for diagnosing what a full
+frame has already shown.</p>
+<p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
+art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted</code>.</p>
+<div class="verdict">FAIL — 10 failure(s):
+  gate 8D: boardwalk declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
+  gate 8D: boardwalk_1 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
+  gate 8D: mud_far_0 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
+  gate 8D: mud_far_1 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
+  gate 8D: mud_far_2 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
+  gate 8D: mud_mid declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
+  gate 8D: mud_near declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.
+  panel D: the flag registry declares no ACT
+  panel D: ACT is undefined, wanted 3 -- the intended state was not reached and the frame is of the old one
+  panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename.
+
+! working tree was dirty: these frames do not correspond to the commit above.</div>
+
+  <figure>
+    <img src="panel-b-populated.png" alt="">
+    <figcaption><b>PANEL B &mdash; normal populated state</b>
+      <span>room main_street &middot; camera 1780 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @3300,706 150px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="panel-a-base.png" alt="">
+    <figcaption><b>PANEL A &mdash; base state, cast suppressed</b>
+      <span>room main_street &middot; camera 1780 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @3300,706 150px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="panel-d-changed.png" alt="">
+    <figcaption><b>PANEL D &mdash; principal changed state: Act III repaints the Improvement Company sign -- 'fresh gilt on the lettering' -- and posts the funeral notice on the board. Doc 35 section 2a's worked gate ruled both STATEFUL for exactly that reason, and they are the only two things on this street that change appearance rather than what Thad says about them.
+
+AND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED. Errata 60 rules ACT a numeric counter written at four places in doc 48's scripts; content/flags/flags.json declares 22 flags and ACT is not among them. So the gate the repaint compiles to cannot be satisfied by anything, and the proof fails panel D by name. An unreachable principal change is a finding; an undeclared one is a hole in this file.</b>
+      <span>room main_street &middot; camera 595 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @1875,857 206px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="panel-c-boardwalk-far.png" alt="">
+    <figcaption><b>PANEL C &mdash; boardwalk far, authored y533</b>
+      <span>expected 105px &middot; runtime 105px &middot;
+        silhouette 106px, bottom y533</span>
+      <span>art/actors/thad-idle-front/idle-01.png</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="panel-c-mud_near-near.png" alt="">
+    <figcaption><b>PANEL C &mdash; mud_near near, authored y857</b>
+      <span>expected 206px &middot; runtime 206px &middot;
+        silhouette 206px, bottom y856</span>
+      <span>art/actors/thad-idle-front/idle-00.png</span>
+    </figcaption>
+  </figure>

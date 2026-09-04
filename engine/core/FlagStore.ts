@@ -44,6 +44,21 @@ export class FlagStore {
     return [...this.values.entries()].filter(([, value]) => value === true).map(([id]) => id);
   }
 
+  /**
+   * Every numeric flag and its value.
+   *
+   * SEPARATE FROM `trueIds` BECAUSE A COUNTER HAS NO TRUE. Errata 60 makes ACT
+   * a number written at exactly four places, and a proof that has to establish
+   * "the room is in Act III" cannot do it from a list of booleans -- it would
+   * read ACT's absence from that list as ACT being false, which is not a state
+   * ACT has.
+   */
+  counters(): Record<string, number> {
+    const out: Record<string, number> = {};
+    for (const [id, value] of this.values) if (typeof value === 'number') out[id] = value;
+    return out;
+  }
+
   get(id: string): FlagValue {
     const value = this.values.get(id);
     if (value === undefined) {

@@ -48,9 +48,29 @@ export class CarriedBeats {
     return this.runner.isRunning;
   }
 
-  /** The beat now playing, for anything that needs to know. */
+  /**
+   * The beat now playing, for anything that needs to know.
+   *
+   * NULL WHILE A BEAT IS HELD, and that correction came from a room proof
+   * sitting at "beat 9" for ninety seconds on a game that was doing exactly
+   * what it should. Beat 9 declares `awaitFlag: T_HOB_SPOKEN` -- Q63, Hob
+   * stands at the roadside until he is addressed -- so it is ARMED and has
+   * dispatched nothing. Doc 44 defines the reported beat as "the beat of the
+   * last step dispatched"; a held beat has dispatched no step and reporting it
+   * makes a correct wait indistinguishable from a hang.
+   *
+   * `held` is public beside it so the difference is readable rather than
+   * merely absent: "no beat is playing" and "a beat is waiting for the player"
+   * are different facts and a harness needs both.
+   */
   get current(): SequenceBeat | null {
+    if (this.held()) return null;
     return this.beats[this.at] ?? null;
+  }
+
+  /** The beat waiting on a flag nobody has written yet, if one is. */
+  get waiting(): SequenceBeat | null {
+    return this.held() ? (this.beats[this.at] ?? null) : null;
   }
 
   arm(beats: SequenceBeat[]): void {

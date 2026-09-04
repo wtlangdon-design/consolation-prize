@@ -1,0 +1,27 @@
+{
+ "schema": 1,
+ "room": "stage_road",
+ "note": "WHAT A PROOF CANNOT DERIVE, AND SO IS TOLD. Two things: how to GET to the room, and which of its state changes is the PRINCIPAL one. Both are authorship. A proof that picked a state change for itself would photograph whichever it found first and call it the room's main one, which is how a variant nobody meant becomes the one on the record.\n\nEverything else -- the depth extremes, the occlusion marks, the asset paths -- is read out of the room's own file, because those ARE authored there and reading them anywhere else would be a second copy.",
+ "route": "stage-road",
+ "settleMs": 3000,
+ "principalChange": {
+  "note": "THE CASE COMES OUT OF THE MUD. Doc 17 makes picking it up the game's first PICK UP, and it is the only change to Room 1 still available once the opening has handed over -- the coach has already departed by then, which is what the first version of this spec got wrong: it declared T_COACH_DEPARTED and the route had set it four actions earlier, so panel D was panel B with a different filename.\n\nIt is an ACTION rather than a flag because that is what it is. `case_mud`'s PICK UP carries `take: true`, and GameState.targets filters out anything the actor owns -- doc 22 item 9, taking something is an ownership change -- so the hotspot is simply gone afterwards. The panel shows a road with no case in it, which is the state the rest of Act I is played in.",
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "PICK_UP",
+    "why": "WALK_TO is the default; clicking the case without this only walks to it"
+   },
+   {
+    "do": "click",
+    "on": "case_mud",
+    "why": "the suitcase, which the west exit will not open without"
+   },
+   {
+    "do": "wait",
+    "seconds": 6,
+    "why": "he walks to it, stoops, and the mud beat plays"
+   }
+  ]
+ }
+}

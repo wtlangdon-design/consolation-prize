@@ -1574,6 +1574,7 @@ export class GameScene extends Phaser.Scene {
       // failed on, because every consumer compares it against itself.
       clock: this.lastFrameAt,
       beat: this.playingBeat(),
+      waitingBeat: this.carried.waiting?.beat ?? null,
       control: this.openingControl(),
       movers,
       // What each overlay actually DREW in, not what the rule says it should
@@ -1586,7 +1587,9 @@ export class GameScene extends Phaser.Scene {
         ? this.state.dialogue.presentOptions().length : 0,
       assets: this.roomAssets(),
       flags: this.state.flags.trueIds(),
+      counters: this.state.flags.counters(),
       inventory: this.state.carried,
+      camera: Math.round(this.state.cameraX),
       pending: this.pendingSay.length,
       performing: this.performance !== null,
       handedOver: this.opening === null,
@@ -1664,7 +1667,7 @@ export class GameScene extends Phaser.Scene {
         this.controlWrites.push(`stand(${x},${y})`);
         return { ok: true };
       },
-      flags: (values: Record<string, boolean>) => {
+      flags: (values: Record<string, boolean | number>) => {
         const refused: string[] = [];
         for (const [id, value] of Object.entries(values)) {
           if (!this.state.flags.isDefined(id)) { refused.push(id); continue; }
