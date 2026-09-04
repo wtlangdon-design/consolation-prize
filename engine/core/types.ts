@@ -309,6 +309,18 @@ export interface AmbientFile {
   zone: number;
   approachRadius: number;
   tree: string;
+  /**
+   * Where Thad stands to talk to this person, when the floor beside them is
+   * not where a conversation happens. Absent, he walks to a conversational
+   * gap beside them on their own baseline -- right for a map seller on the
+   * street, wrong for a clerk BEHIND A COUNTER: her baseline is behind the
+   * furniture, the walk snapped to the nearest floor, and Thad stood pressed
+   * against the counter over her ledger (Tyler's Room 5 playthrough,
+   * 2026-09-04). Staging, in the file that stages her, like a hotspot's own
+   * `walkTo`; he turns to face her on arrival either way.
+   */
+  walkTo?: { x: number; y: number; facing?: Facing };
+  walkToNote?: string;
   barks: Record<string, string>;
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
@@ -1089,6 +1101,17 @@ export interface DialogueNode {
    */
   prompt?: string;
   noPrompt?: boolean;
+  /**
+   * The exchange that PLAYS when the tree opens on this node, before the
+   * options are offered -- doc 04 writes each act root as a short spoken
+   * greeting, `> **WINNIE:** ... > **THAD:** ... > **WINNIE:** ...`, and the
+   * extractor has always carried it. Until Tyler's Room 5 playthrough
+   * (2026-09-04) nothing played it: the last line stood as the `prompt`
+   * caption over the list and the exchange never reached the screen. Now it
+   * is spoken line by line on arrival, by the speaker each line names, and
+   * the list opens when it is over. `prompt` remains the caption.
+   */
+  opening?: { speaker: string; line: string }[];
   options: DialogueOption[];
 }
 

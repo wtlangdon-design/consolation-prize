@@ -1931,12 +1931,25 @@ function winnieTree() {
       if (id === 'WIN_F2') { unplayed.push(`${id}: a scripted exchange with no options (doc 48 S6), not a node`); continue; }
       throw new Error(`doc 04: ${id} has no option rows`);
     }
+    // THE OPENING IS SPOKEN, SO IT IS SPEECH. Each `> **WINNIE:**` line used to
+    // be carried whole -- quote marks, italic directions and all -- because
+    // nothing played it: the engine drew the node's last line as a caption
+    // over the options and the exchange itself never reached the screen.
+    // Tyler's playthrough (2026-09-04) asked for the exchange to play, so it
+    // is carried the way an option's reply is: the quoted words, and any
+    // italic direction reported as staging rather than spoken.
     const opening = [...text.matchAll(/^> \*\*(WINNIE|THAD):\*\* (.+)$/gm)]
-      .map((m) => ({ speaker: m[1] === 'THAD' ? 'thad' : SPEAKER, line: m[2].trim() }));
+      .map((m) => {
+        const speaker = m[1] === 'THAD' ? 'thad' : SPEAKER;
+        for (const d of m[2].matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} opening (${speaker}) staging: ${d[1]}`);
+        const line = quoted(m[2]).join(' ');
+        if (!line) throw new Error(`doc 04: ${id} opening line by ${speaker} has no quoted speech`);
+        return { speaker, line };
+      });
     const lastWinnie = [...opening].reverse().find((u) => u.speaker === SPEAKER);
     // A prompt is one drawn line: the quoted speech only, directions dropped
     // (they survive in `opening`).
-    const promptText = lastWinnie ? quoted(lastWinnie.line).join(' ') : null;
+    const promptText = lastWinnie?.line ?? null;
     const options = [];
     let hasExit = false;
     for (const [, number, optionCell, tagCell, responseCell, stateCell] of rows) {

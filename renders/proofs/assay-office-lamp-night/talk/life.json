@@ -1,0 +1,1161 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "assay_office",
+ "commit": "2888da2105685fbbb46ee29629f3c75060311949",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": "night",
+ "candidates": [
+  {
+   "declared": "art/backgrounds/room-05-assay-office.png",
+   "rendered": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+  },
+  {
+   "declared": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "rendered": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+  },
+  {
+   "declared": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "rendered": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+   "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+  }
+ ],
+ "entryRoute": "assay-office",
+ "lifeRoute": "assay-office-life",
+ "durationSeconds": 136.45,
+ "events": [
+  {
+   "t": 3.29,
+   "line": "entry route assay-office: 23 action(s)"
+  },
+  {
+   "t": 106.79,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 106.79,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 106.79,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 106.79,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 106.79,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 106.79,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 106.79,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 106.79,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 106.79,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 106.79,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 106.79,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 106.79,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 106.79,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 106.79,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 106.79,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 106.79,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 106.79,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 106.79,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 106.79,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 106.79,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 106.79,
+   "line": "action 21 (click): clicked main_street/to_assay_office at world 3113,479 -- Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
+  },
+  {
+   "t": 106.79,
+   "line": "action 22 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 106.79,
+   "line": "action 23 (wait): waited 3s"
+  },
+  {
+   "t": 106.81,
+   "line": "in assay_office; life route: 20 action(s)"
+  },
+  {
+   "t": 107.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     765
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 108.81,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 108.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     765
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 109.33,
+   "line": "capture t01-before-talk: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 109.42,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 109.74,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- TALK TO Winnie"
+  },
+  {
+   "t": 110.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     394,
+     764
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 111.8,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     594,
+     762
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 112.24,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 112.8,
+   "line": "capture t02-walking: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 113.76,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 114.43,
+   "line": "capture t03-arrived-winnie-opens: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 115.46,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 116.01,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 116.56,
+   "line": "capture t04-thad-answers: room assay_office, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 117.58,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.91,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 118.61,
+   "line": "capture t05-winnie-third-line: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 119.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 3,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 119.64,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 120.16,
+   "line": "capture t06-win-a1-choices: room assay_office, says null, options 3, control null"
+  },
+  {
+   "t": 120.46,
+   "line": "action 1 (option): chose option winnie5 -- the exit"
+  },
+  {
+   "t": 121.51,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 122.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 123.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 124.48,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 125.46,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 126.01,
+   "line": "capture t07-after-exit: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 126.17,
+   "line": "action 1 (click): clicked screen 600,800 -- prove control: a walk after the conversation"
+  },
+  {
+   "t": 127.24,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     727,
+     777
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 128.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     600,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 129.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     600,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 130.18,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 130.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     600,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 130.72,
+   "line": "capture t08-walked-away: room assay_office, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "t01-before-talk",
+   "why": "Winnie at work; Thad at the door",
+   "t": 109.32,
+   "file": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t01-before-talk.png",
+   "hash": "fd9502ea706ee37cb6d9fb9eb44377d0fa452ad00b32f3584750d51e17f1c9a9",
+   "room": "assay_office",
+   "clock": 108.9758,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      765
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 515,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      -67,
+      250,
+      534,
+      569
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "t02-walking",
+   "why": "mid-walk, toward the declared dialogue point",
+   "t": 112.79,
+   "file": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t02-walking.png",
+   "hash": "68959afe9a6d69750c6a0e285941ccf19eac5ce2c033c9feeacb09eb6a57df5b",
+   "room": "assay_office",
+   "clock": 112.4589,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      766,
+      761
+     ],
+     "facing": "right",
+     "clip": "walk",
+     "height": 512,
+     "moving": true,
+     "drawn": "sprite",
+     "from": "art/actors/thad-walk-right/walk-03.png",
+     "bounds": [
+      575,
+      249,
+      380,
+      532
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "t03-arrived-winnie-opens",
+   "why": "THE DIALOGUE STAGING: stopped at conversational distance, floor between his feet and the counter, facing her; her first line; she holds her look-up frame",
+   "t": 114.41,
+   "file": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t03-arrived-winnie-opens.png",
+   "hash": "3f3c13711455f6c3de25581b2f2f6595e06ea9ecf50f434db75714c48193b97a",
+   "room": "assay_office",
+   "clock": 113.9588,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "t04-thad-answers",
+   "why": "the second line of the opening, Thad's",
+   "t": 116.55,
+   "file": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t04-thad-answers.png",
+   "hash": "07e80fcf1b14d663c88b6f4f48c34b1d9e084389e7b5bf8372ad6421df888823",
+   "room": "assay_office",
+   "clock": 116.2255,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "t05-winnie-third-line",
+   "why": "the third line of the opening",
+   "t": 118.6,
+   "file": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t05-winnie-third-line.png",
+   "hash": "de596f21c321e538f223ed48c279f0db7e57123f89cf284d7f2234a373d548fc",
+   "room": "assay_office",
+   "clock": 118.07539999999999,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "t06-win-a1-choices",
+   "why": "the WIN_A1 list, beginning with the soil assay; no raw emphasis anywhere",
+   "t": 120.15,
+   "file": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t06-win-a1-choices.png",
+   "hash": "e4566b103605ebd01668ada6b61d18800b71efc186575a2eb005edec81b86b1f",
+   "room": "assay_office",
+   "clock": 119.8253,
+   "control": null,
+   "says": null,
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "t07-after-exit",
+   "why": "control returned, the panel back, she returns to the ledger",
+   "t": 125.99,
+   "file": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t07-after-exit.png",
+   "hash": "545d280225b53d5dcb855833867b6db2af465cb35491073854718727545e82e9",
+   "room": "assay_office",
+   "clock": 125.675,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "t08-walked-away",
+   "why": "he walked; control is his",
+   "t": 130.71,
+   "file": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t08-walked-away.png",
+   "hash": "4eea0f6f77e2c353f7e2b5351da433fe684303f90416b723f4206b4c1cca241c",
+   "room": "assay_office",
+   "clock": 130.3749,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      600,
+      799
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 539,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-03.png",
+     "bounds": [
+      280,
+      260,
+      639,
+      595
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "at": "2026-09-04T23:11:29.998Z"
+}

@@ -1,0 +1,218 @@
+{
+ "title": "ROOM 5 -- TALK TO WINNIE: dialogue approach, opening and emphasis (Tyler's manual playthrough, 2026-09-04)",
+ "staging": {
+  "rootCause": "TALK TO on an ambient person walks Thad to a conversational gap beside them AT THEIR BASELINE (GameScene: from = npc.x +/- 0.66 x zone height; walkTo(from, npc.y)). Winnie's baseline is y401, the row under her hands, behind the counter; the walk snapped to the nearest floor point, the counter's base line y700, so he stood pressed against the desk over her ledger. The gap was also computed from the zone table (222 x 0.66 = 147) rather than the room's curve.",
+  "before": {
+   "position": [
+    888,
+    700
+   ],
+   "facing": "back",
+   "height": 470,
+   "floorBetweenFeetAndCounterBase": 10,
+   "capture": "renders/proofs/assay-office-lamp-night/talk-before/raw-captures-ignored/b03-dialogue-open.png",
+   "sha256": "57944b7e727353ff31fe8fab0fd2e3c4517ab7c894e1b13aae1506125bf4fc59"
+  },
+  "after": {
+   "position": [
+    930,
+    760
+   ],
+   "facing": "back",
+   "height": 512,
+   "floorBetweenFeetAndCounterBase": 70,
+   "capture": "renders/proofs/assay-office-lamp-night/talk/raw-captures-ignored/t03-arrived-winnie-opens.png",
+   "sha256": "3f3c13711455f6c3de25581b2f2f6595e06ea9ecf50f434db75714c48193b97a"
+  },
+  "mechanism": "content/ambient/winnie.json declares walkTo {x:930, y:760, facing:'back'} -- an ambient's own dialogue point, read by GameScene in place of the computed gap; he turns to face her on arrival as before. The room's depth model is unchanged: 512 px at y760 is the declared curve (470 at y700 -> 560 at y830). Thad's scale unchanged.",
+  "candidates": [
+   {
+    "name": "c1-930-750",
+    "at": [
+     930,
+     750
+    ],
+    "height": 505,
+    "floorBetweenFeetAndCounterBase": 60,
+    "sha256": "950f1e17eec66d2d43faf1c60d93c00f686055c715e7d306da1811c3022352d7"
+   },
+   {
+    "name": "c2-930-760",
+    "at": [
+     930,
+     759
+    ],
+    "height": 511,
+    "floorBetweenFeetAndCounterBase": 69,
+    "sha256": "7463a0407b746614ef8ad894c83fc367b0792f8dbb1d997c7fce5b640725b10d"
+   },
+   {
+    "name": "c3-930-778",
+    "at": [
+     930,
+     777
+    ],
+    "height": 523,
+    "floorBetweenFeetAndCounterBase": 87,
+    "sha256": "fcc137827c91bf4fec824c6bfbac3a93f63e345ce799bea953fcb77e6fbec3c7"
+   },
+   {
+    "name": "c4-965-760",
+    "at": [
+     964,
+     759
+    ],
+    "height": 511,
+    "floorBetweenFeetAndCounterBase": 69,
+    "sha256": "b117bb0532b63b2e7a28304cdd10ef2b16a6500d46e0f0640bbc57bd356ff1ad"
+   }
+  ],
+  "chosen": "c2-930-760",
+  "why": "C4 (965,760) covers her hands and the ledger; C1 (930,750) leaves 60 px of floor and reads as nearly at the counter; C3 (930,778) reads a touch far for a clerk and a customer; C2 keeps clear floor between his feet and the counter, his body left of the page so her hands stay in view, facing her. Judged on the live frames (renders/room-05-dialogue-approach-candidates.png), not the numbers."
+ },
+ "opening": {
+  "source": "docs/04-dialogue-trees.md, ACT I Root WIN_A1",
+  "removed": [
+   "The window's closed.",
+   "The window is open.",
+   "The window is *ajar*. The window is closed."
+  ],
+  "now": [
+   "WINNIE: If this concerns an assay, say so.",
+   "THAD: It might.",
+   "WINNIE: Then say it."
+  ],
+  "engine": "The node's opening exchange had never played: the engine drew the last Winnie line as the prompt caption over the list and ignored `opening`. Now GameScene speaks the opening on arrival, line by line by the speaker each names, on the ordinary speech channel (auto-advancing on the reading hold, or on click), with Winnie holding her look-up frame for it; the tree opens when the greeting has drained. WIN_A1's options, responses, flags and later nodes are unchanged. WIN_A2's exit line 'Mind the window.' stays: the window is a room fact (WINDOW (AJAR) hotspot), not a dependency on the removed exchange.",
+  "otherNodesNowPlayingTheirOpenings": [
+   "WIN_B1",
+   "WIN_B2",
+   "WIN_F1"
+  ]
+ },
+ "emphasis": {
+  "renderer": "No authored emphasis mechanism exists: one bitmap face, one weight; `*` is a glyph and draws as itself.",
+  "fixedAtSource": [
+   "WIN_A1 opening (replaced)",
+   "WIN_A2 option 1: 'You print.'",
+   "WIN_B2 option 4: 'professionally offended'",
+   "WIN_F1 option 2: 'meant something'"
+  ],
+  "directionsNoLongerReachTheScreen": [
+   "WIN_B2 opening: *(reading)*",
+   "WIN_F1 opening: *(she looks at the sample for a long time)*, *(beat)*"
+  ],
+  "leftInTheDocument": "WIN_C1 (not extracted -- below doc 04 rule 2) keeps 'It is *never* just a form... *made of*'; it is not runtime dialogue. Other trees in doc 04 carry emphasis in prose but are not extracted.",
+  "check": "tools/check-no-markdown-emphasis.mjs, in run-all CHECKS, over every drawn string the glyph check walks (577 strings; openings now included in that walk). Mutation-tested against the pre-fix winnie.json: 8 failures named."
+ },
+ "proof": {
+  "before": {
+   "life": "renders/proofs/assay-office-lamp-night/talk-before/life.json",
+   "passed": true,
+   "commit": "2888da2105685fbbb46ee29629f3c75060311949"
+  },
+  "after": {
+   "life": "renders/proofs/assay-office-lamp-night/talk/life.json",
+   "passed": true,
+   "captures": [
+    {
+     "name": "t01-before-talk",
+     "thad": [
+      200,
+      765
+     ],
+     "says": null,
+     "options": 0,
+     "sha256": "fd9502ea706ee37cb6d9fb9eb44377d0fa452ad00b32f3584750d51e17f1c9a9"
+    },
+    {
+     "name": "t02-walking",
+     "thad": [
+      766,
+      761
+     ],
+     "says": null,
+     "options": 0,
+     "sha256": "68959afe9a6d69750c6a0e285941ccf19eac5ce2c033c9feeacb09eb6a57df5b"
+    },
+    {
+     "name": "t03-arrived-winnie-opens",
+     "thad": [
+      930,
+      760
+     ],
+     "says": "winnie",
+     "options": 0,
+     "sha256": "3f3c13711455f6c3de25581b2f2f6595e06ea9ecf50f434db75714c48193b97a"
+    },
+    {
+     "name": "t04-thad-answers",
+     "thad": [
+      930,
+      760
+     ],
+     "says": "thad",
+     "options": 0,
+     "sha256": "07e80fcf1b14d663c88b6f4f48c34b1d9e084389e7b5bf8372ad6421df888823"
+    },
+    {
+     "name": "t05-winnie-third-line",
+     "thad": [
+      930,
+      760
+     ],
+     "says": "winnie",
+     "options": 0,
+     "sha256": "de596f21c321e538f223ed48c279f0db7e57123f89cf284d7f2234a373d548fc"
+    },
+    {
+     "name": "t06-win-a1-choices",
+     "thad": [
+      930,
+      760
+     ],
+     "says": null,
+     "options": 3,
+     "sha256": "e4566b103605ebd01668ada6b61d18800b71efc186575a2eb005edec81b86b1f"
+    },
+    {
+     "name": "t07-after-exit",
+     "thad": [
+      930,
+      760
+     ],
+     "says": null,
+     "options": 0,
+     "sha256": "545d280225b53d5dcb855833867b6db2af465cb35491073854718727545e82e9"
+    },
+    {
+     "name": "t08-walked-away",
+     "thad": [
+      600,
+      799
+     ],
+     "says": null,
+     "options": 0,
+     "sha256": "4eea0f6f77e2c353f7e2b5351da433fe684303f90416b723f4206b4c1cca241c"
+    }
+   ]
+  },
+  "candidates": {
+   "life": "renders/proofs/assay-office-lamp-night/talk-candidates/life.json",
+   "passed": true
+  },
+  "sheets": {
+   "renders/room-05-winnie-dialogue-before-after.png": {
+    "path": "renders/room-05-winnie-dialogue-before-after.png",
+    "sha256": "516ed2dfb6f1fd8ef531f7dd175060119ddd6b4c865126160ffca2dd3523695f"
+   },
+   "renders/room-05-dialogue-approach-candidates.png": {
+    "path": "renders/room-05-dialogue-approach-candidates.png",
+    "sha256": "e5fb9f9873db5f67bc2a349f2c23787eb2215905e4444c4477bed967a15141cc"
+   },
+   "renders/room-05-winnie-dialogue-staging.webp": {
+    "path": "renders/room-05-winnie-dialogue-staging.webp",
+    "sha256": "e6a0d6996814f4fb87047bb6768cd26e0b6361d296f97d2de69b088301bb1346"
+   }
+  }
+ }
+}

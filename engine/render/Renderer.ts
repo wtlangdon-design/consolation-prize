@@ -51,6 +51,12 @@ export interface Frame {
    */
   performing?: boolean;
   /**
+   * The tree whose opening exchange is being spoken on arrival, before it
+   * opens. Its owner holds their talk frame for it exactly as for the open
+   * tree: the greeting is the conversation's first line, not ambience.
+   */
+  greeting?: string | null;
+  /**
    * Which beat is playing, so a violation can name it. Doc 44.
    *
    * Carried on the frame rather than fetched, because the renderer must not
@@ -385,6 +391,8 @@ export class Renderer {
    * player could not see what they had hit.
    */
   private performing = false;
+  /** The tree being greeted into, if any -- see `FrameArgs.greeting`. */
+  private greeting: string | null = null;
   private frameIndex = 0;
 
   /** How every mover drew on the last composed frame. Doc 44's `drawn`. */
@@ -464,6 +472,7 @@ export class Renderer {
     }
     this.speaker = frame.speaker ?? null;
     this.performing = frame.performing === true;
+    this.greeting = frame.greeting ?? null;
     // THE PANEL BAND IS CLEARED EVERY FRAME, WHETHER OR NOT A PANEL GOES IN IT.
     //
     // Nothing else repaints it. `drawPlate` covers the PLAY AREA -- rows 0 to
@@ -1333,8 +1342,8 @@ export class Renderer {
     // HELD STILL WHILE SPOKEN TO. Doc 32 section 8.2, deadpan rule: the
     // reply pause is not filled with flapping. Her own tree open means her
     // work stops on the talk frame; any other conversation leaves her be.
-    const talking = this.state.dialogue.isActive
-      && this.state.dialogue.activeTreeId === npc.tree;
+    const talking = (this.state.dialogue.isActive
+      && this.state.dialogue.activeTreeId === npc.tree) || this.greeting === npc.tree;
     const index = talking ? (declared.talkFrame ?? 0) : this.ambientFrame(declared, phase);
     const [sx, sy, width, height] = declared.frames[
       (index + declared.frames.length) % declared.frames.length

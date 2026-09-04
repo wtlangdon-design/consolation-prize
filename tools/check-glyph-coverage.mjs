@@ -9,7 +9,7 @@ import {
  * gap rather than a fallback shape -- a typographer's quote or an en dash
  * pasted in from a design document would silently vanish mid-sentence.
  */
-function collectStrings(content) {
+export function collectStrings(content) {
   const strings = [];
 
   // Response carriers rather than room targets: an item's name goes in the
@@ -30,6 +30,9 @@ function collectStrings(content) {
   for (const { data } of content.dialogue) {
     for (const [nodeId, node] of Object.entries(data.nodes ?? {})) {
       if (node.prompt) strings.push({ text: node.prompt, where: `${data.id}/${nodeId} (prompt)` });
+      (node.opening ?? []).forEach((spoken, index) => {
+        strings.push({ text: spoken.line, where: `${data.id}/${nodeId} (opening[${index}])` });
+      });
     }
   }
   for (const { treeId, nodeId, option } of allDialogueOptions(content)) {

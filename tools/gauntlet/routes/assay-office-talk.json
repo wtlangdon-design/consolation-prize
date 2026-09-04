@@ -1,0 +1,28 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5's TALK TO WINNIE staging, AFTER Tyler's manual-playthrough fix (2026-09-04): TALK TO on Winnie walks Thad to her declared dialogue point (content/ambient/winnie.json walkTo), he stops at a conversational distance from the counter, she holds her look-up frame, the node's three-line opening is spoken by its speakers, the WIN_A1 list opens, the exit returns control and she goes back to work. Waits are conditions: each line of the opening is waited for by its speaker, so a greeting that did not play fails here by name.",
+ "from": "assay_office",
+ "actions": [
+  {"do": "wait", "seconds": 2},
+  {"do": "capture", "name": "t01-before-talk", "why": "Winnie at work; Thad at the door"},
+  {"do": "verb", "verb": "TALK_TO"},
+  {"do": "click", "on": "winnie", "why": "TALK TO Winnie"},
+  {"do": "wait", "seconds": 2.5},
+  {"do": "capture", "name": "t02-walking", "why": "mid-walk, toward the declared dialogue point"},
+  {"do": "waitFor", "says": "winnie", "upTo": 40, "why": "he has arrived and she speaks first"},
+  {"do": "capture", "name": "t03-arrived-winnie-opens", "why": "THE DIALOGUE STAGING: stopped at conversational distance, floor between his feet and the counter, facing her; her first line; she holds her look-up frame"},
+  {"do": "waitFor", "says": "thad", "upTo": 20},
+  {"do": "capture", "name": "t04-thad-answers", "why": "the second line of the opening, Thad's"},
+  {"do": "waitFor", "says": "winnie", "upTo": 20},
+  {"do": "capture", "name": "t05-winnie-third-line", "why": "the third line of the opening"},
+  {"do": "waitFor", "dialogue": true, "upTo": 30},
+  {"do": "capture", "name": "t06-win-a1-choices", "why": "the WIN_A1 list, beginning with the soil assay; no raw emphasis anywhere"},
+  {"do": "option", "option": "winnie5", "why": "the exit"},
+  {"do": "wait", "seconds": 5},
+  {"do": "capture", "name": "t07-after-exit", "why": "control returned, the panel back, she returns to the ledger"},
+  {"do": "click", "at": [600, 800], "why": "prove control: a walk after the conversation"},
+  {"do": "wait", "seconds": 4},
+  {"do": "capture", "name": "t08-walked-away", "why": "he walked; control is his"}
+ ]
+}

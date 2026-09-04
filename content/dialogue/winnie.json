@@ -22,19 +22,19 @@
   "nodes": {
     "WIN_A1": {
       "id": "WIN_A1",
-      "prompt": "The window is *ajar*. The window is closed.",
+      "prompt": "Then say it.",
       "opening": [
         {
           "speaker": "winnie",
-          "line": "\"The window's closed.\""
+          "line": "If this concerns an assay, say so."
         },
         {
           "speaker": "thad",
-          "line": "\"The window is open.\""
+          "line": "It might."
         },
         {
           "speaker": "winnie",
-          "line": "\"The window is *ajar*. The window is closed.\""
+          "line": "Then say it."
         }
       ],
       "options": [
@@ -93,7 +93,7 @@
           "tag": "PROGRESS",
           "text": "Where do I sign?",
           "afterUse": "remove",
-          "say": "You don't sign. You *print*. Signatures are for people the next clerk has to believe."
+          "say": "You don't sign. You print. Signatures are for people the next clerk has to believe."
         },
         {
           "id": "winnie2",
@@ -131,15 +131,15 @@
       "opening": [
         {
           "speaker": "winnie",
-          "line": "\"You're the piano man with Claim Two.\""
+          "line": "You're the piano man with Claim Two."
         },
         {
           "speaker": "thad",
-          "line": "\"Prosperity.\""
+          "line": "Prosperity."
         },
         {
           "speaker": "winnie",
-          "line": "\"It's Claim Two.\""
+          "line": "It's Claim Two."
         }
       ],
       "options": [
@@ -200,19 +200,19 @@
       "opening": [
         {
           "speaker": "thad",
-          "line": "\"Your queue is padded. Two-thirds of these submissions are the same sample.\""
+          "line": "Your queue is padded. Two-thirds of these submissions are the same sample."
         },
         {
           "speaker": "winnie",
-          "line": "*(reading)* \"…Nine years.\""
+          "line": "…Nine years."
         },
         {
           "speaker": "thad",
-          "line": "\"I'm sorry.\""
+          "line": "I'm sorry."
         },
         {
           "speaker": "winnie",
-          "line": "\"Don't be sorry. Be quiet. I'm counting.\""
+          "line": "Don't be sorry. Be quiet. I'm counting."
         }
       ],
       "options": [
@@ -248,7 +248,7 @@
           "tag": "COMIC",
           "text": "Are you all right?",
           "afterUse": "retain",
-          "say": "I am *professionally offended*, Mr. Grubb. It is the worst kind."
+          "say": "I am professionally offended, Mr. Grubb. It is the worst kind."
         },
         {
           "id": "winniex",
@@ -265,19 +265,19 @@
       "opening": [
         {
           "speaker": "thad",
-          "line": "\"I need an assay certified.\""
+          "line": "I need an assay certified."
         },
         {
           "speaker": "winnie",
-          "line": "*(she looks at the sample for a long time)* \"Where.\""
+          "line": "Where."
         },
         {
           "speaker": "thad",
-          "line": "\"Claim Two.\""
+          "line": "Claim Two."
         },
         {
           "speaker": "winnie",
-          "line": "\"…Get in the book.\" *(beat)* \"You're the book.\""
+          "line": "…Get in the book. You're the book."
         }
       ],
       "options": [
@@ -293,7 +293,7 @@
           "tag": "TOPIC",
           "text": "You knew the nineteen names meant something.",
           "afterUse": "retain",
-          "say": "I knew they meant *something*. Knowing what is your department. Mine is the book."
+          "say": "I knew they meant something. Knowing what is your department. Mine is the book."
         },
         {
           "id": "winnie3",
