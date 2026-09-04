@@ -6,6 +6,7 @@ import type { AmbientLayer } from '../core/Ambient.ts';
 import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
+import type { DrawRecord } from '../dev/Probe.ts';
 import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont } from './BitmapFont.ts';
 import { IdleLayer } from './IdleLayer.ts';
 import {
@@ -335,6 +336,38 @@ export class Renderer {
    * paid for when nobody is reading it.
    */
   private readonly drawnAs = new Map<string, string>();
+  /**
+   * WHAT EACH MOVER PUT ON SCREEN, for the proof rather than for the watch.
+   *
+   * `drawnAs` answers "did it draw as a sprite or a placeholder"; this answers
+   * "which file, in which rectangle, at what point in the draw order, through
+   * which occlusion plane". Those are the four facts a room proof has to
+   * ESTABLISH rather than recompute, and every one of them was previously
+   * knowable only by re-deriving it outside the renderer and comparing the
+   * derivation with itself.
+   *
+   * Kept on the same terms as `drawnAs`: only while the watch is armed, so
+   * nobody pays for it when nobody is reading it (R5h).
+   */
+  private readonly drawRecord = new Map<string, DrawRecord>();
+  private drawOrder = 0;
+  /**
+   * PANEL A: the room drawn without anybody in it.
+   *
+   * RENDER-ONLY, and that is the whole value of it. Nothing is removed from
+   * the game -- the movers still exist, still hold their positions, still
+   * carry their state -- so what is left on the screen is exactly the
+   * permanent plate and its layers. That is the ONLY way to see a mover that
+   * has been painted INTO the plate, because a painted one does not leave when
+   * the real ones do. Doc 35's dog got baked into Room 2 and eight companion
+   * generations went by before anybody asked; this is the frame that asks.
+   */
+  private castHidden = false;
+
+  /** Suppresses every mover and ambient figure for the next frames drawn. */
+  hideCast(hidden: boolean): void {
+    this.castHidden = hidden;
+  }
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
   /**
@@ -350,6 +383,11 @@ export class Renderer {
   /** How every mover drew on the last composed frame. Doc 44's `drawn`. */
   lastDrawn(): Record<string, string> {
     return Object.fromEntries(this.drawnAs);
+  }
+
+  /** What each mover drew from, where, and in what order. Gates 7, 8B and 8D. */
+  lastDrawRecords(): Record<string, DrawRecord> {
+    return Object.fromEntries(this.drawRecord);
   }
 
   /** Options currently drawn, so the scene can hit-test them. */
@@ -875,6 +913,15 @@ export class Renderer {
     // which is only knowable as each figure is drawn. Collected here and
     // judged once at the end rather than compared pairwise inside the loop.
     const spans: { id: string; feetX: number; feetY: number; halfWidth: number }[] = [];
+    if (watch.enabled) {
+      this.drawRecord.clear();
+      this.drawOrder = 0;
+    }
+    // BEFORE THE LOOP, NOT INSIDE IT. Skipping each figure individually would
+    // still run the occlusion mask, the depth sort and the span collection,
+    // and a bug in any of those would show in panel A as though it were the
+    // plate's.
+    if (this.castHidden) return;
     for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all()))) {
       this.masked(figure.feetX, figure.feetY, () => {
         if (figure.mover) {
@@ -1026,6 +1073,18 @@ export class Renderer {
     // a LOADING gap, which is what put a placeholder in the protagonist's
     // place for the whole of beat 2 while the boot split held his chore clips
     // in the deferred half. Merging them costs a session either way round.
+    this.drawRecord.set(mover.id, {
+      order: this.drawOrder,
+      clipLevel: this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY)),
+      // The rectangle the RENDERER landed on, taken from the draw itself.
+      // `shown` is whichever of the two draws actually put pixels down, so a
+      // fallback pose reports the fallback's rectangle and its file, which is
+      // the honest answer: that is what is on the screen.
+      from: shown ? shown.path : null,
+      bounds: shown ? [shown.x, shown.y, shown.width, shown.height] : null,
+      fallback: !drawn && Boolean(shown),
+    });
+    this.drawOrder += 1;
     if (drawn) {
       this.drawnAs.set(mover.id, 'sprite');
     } else if (shown) {

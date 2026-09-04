@@ -27,6 +27,23 @@ export class FlagStore {
     return this.definitions.has(id);
   }
 
+  /**
+   * Every flag id the registry declares.
+   *
+   * The gauntlet's `flags` control refuses anything not in here, which is what
+   * keeps it a NARROW control rather than a general state setter: an id no
+   * content gates on cannot put the game into a state a player could reach, so
+   * writing one would produce a panel of a state that does not exist.
+   */
+  declaredIds(): string[] {
+    return [...this.definitions.keys()];
+  }
+
+  /** The ids currently true. Identifiers, for the probe. Never content. */
+  trueIds(): string[] {
+    return [...this.values.entries()].filter(([, value]) => value === true).map(([id]) => id);
+  }
+
   get(id: string): FlagValue {
     const value = this.values.get(id);
     if (value === undefined) {

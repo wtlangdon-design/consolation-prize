@@ -6,7 +6,7 @@ import { Actor } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
 import { Music } from '../core/Music.ts';
 import { RoomActors } from '../core/RoomActors.ts';
-import type { FrameReport, MoverReport } from '../dev/Probe.ts';
+import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
@@ -56,6 +56,15 @@ export class GameScene extends Phaser.Scene {
   private font!: BitmapFont;
   private view!: Renderer;
   private actor!: Actor;
+  /**
+   * EVERYTHING THE CONTROLS DID TO THE GAME, IN ORDER.
+   *
+   * A proof panel reached by playing and a proof panel reached by injection
+   * are both legitimate evidence and they are not the SAME evidence, and the
+   * difference is invisible in the picture. So it is written down, and the
+   * proof manifest carries it beside the frame.
+   */
+  private readonly controlWrites: string[] = [];
   /** Every named mover in the room, the player among them. Issue X4 defect 3. */
   private actors!: RoomActors;
   private readonly music = new Music(() => this.state.menu.toggle(MUSIC_OPTION));
@@ -1530,8 +1539,14 @@ export class GameScene extends Phaser.Scene {
 
   report(): FrameReport {
     const drawn = this.view.lastDrawn();
+    const records = this.view.lastDrawRecords();
     const movers: Record<string, MoverReport> = {};
     for (const mover of this.actors.all()) {
+      // NO INVENTED DEFAULTS FOR THE DRAW RECORD. A mover the renderer did not
+      // reach has no order, no bounds and no file, and saying `order: 0` there
+      // would put it first in a draw order it never joined. -1 and null are
+      // the honest answers and every consumer has to handle them.
+      const record = records[mover.id];
       movers[mover.id] = {
         at: [Math.round(mover.x), Math.round(mover.y)],
         facing: mover.facing,
@@ -1539,6 +1554,11 @@ export class GameScene extends Phaser.Scene {
         height: Math.round(mover.height),
         moving: mover.isWalking,
         drawn: drawn[mover.id] ?? 'not-drawn',
+        from: record?.from ?? null,
+        bounds: record?.bounds ?? null,
+        order: record?.order ?? -1,
+        clipLevel: record?.clipLevel ?? 0,
+        fallback: record?.fallback ?? false,
       };
     }
     return {
@@ -1564,10 +1584,107 @@ export class GameScene extends Phaser.Scene {
       says: this.sayLines.length > 0 ? this.sayingActor : null,
       options: this.state.dialogue.isActive
         ? this.state.dialogue.presentOptions().length : 0,
+      assets: this.roomAssets(),
+      flags: this.state.flags.trueIds(),
+      inventory: this.state.carried,
       pending: this.pendingSay.length,
       performing: this.performance !== null,
       handedOver: this.opening === null,
       segment: this.playingSegment(),
+    };
+  }
+
+  /**
+   * The room's shipping assets, and whether the RUNTIME has each one.
+   *
+   * GATE 7. The path half a harness could read out of the room file itself;
+   * `loaded` is the half it could not, and it is the half that matters -- a
+   * plate that failed to arrive leaves a room drawn out of whatever the
+   * renderer falls back to, with the correct path still sitting in the
+   * content file saying nothing is wrong.
+   *
+   * Keyed the way the loader keys them, because the question is whether THAT
+   * texture is present, not whether a file of that name exists on a disk the
+   * browser cannot see.
+   */
+  private roomAssets(): { key: string; path: string; loaded: boolean }[] {
+    const room = this.state.room;
+    const id = this.state.roomId;
+    const out: { key: string; path: string; loaded: boolean }[] = [];
+    const add = (key: string, path: string | undefined) => {
+      if (!path) return;
+      out.push({ key, path, loaded: this.textures.exists(key) });
+    };
+    add(`bg:${id}`, room.background);
+    add(`fg:${id}`, room.foreground);
+    (room.backgroundFrames ?? []).forEach((path, at) => add(`bgf:${id}:${at}`, path));
+    for (const plane of room.occlusionPlanes ?? []) add(plane.mask, plane.mask);
+    return out;
+  }
+
+  /**
+   * Where dialogue option `index` is drawn. See Probeable.optionRow.
+   *
+   * ONE-BASED, as a player counts them and as the gauntlet's `input` writes
+   * them. The renderer answers with nothing while an exchange performs, and
+   * that is passed straight through rather than worked around: a harness that
+   * clicked into a hidden list would be testing the skip path on every run
+   * instead of the performance.
+   */
+  optionRow(index: number): { id: string; y: number; height: number } | null {
+    if (!this.state.dialogue.isActive) return null;
+    const options = this.state.dialogue.presentOptions();
+    if (index < 1 || index > options.length) return null;
+    return this.view.dialogueHitboxes(options)[index - 1] ?? null;
+  }
+
+  /**
+   * THE CONTROL SURFACE. Four named operations, each of which refuses rather
+   * than guesses, and every one of which records what it did.
+   *
+   * See `Controls` in dev/Probe.ts for why it is four and not a setter.
+   */
+  get controls(): Controls {
+    return {
+      cast: (on: boolean) => {
+        this.view.hideCast(!on);
+        this.dirty = true;
+        this.controlWrites.push(`cast(${on})`);
+      },
+      stand: (x: number, y: number) => {
+        // REFUSED OFF THE FLOOR, and the refusal is the feature. A depth
+        // reading taken where no walk box reaches is the scaling curve
+        // answering about ground it was never fitted to, and it looks exactly
+        // like a reading somebody can quote.
+        if (this.state.actorHeightAt(x, y) === null) {
+          return { ok: false, why: `${x},${y} is on no walk box of ${this.state.roomId}` };
+        }
+        this.actor.placeAt(x, y);
+        this.dirty = true;
+        this.controlWrites.push(`stand(${x},${y})`);
+        return { ok: true };
+      },
+      flags: (values: Record<string, boolean>) => {
+        const refused: string[] = [];
+        for (const [id, value] of Object.entries(values)) {
+          if (!this.state.flags.isDefined(id)) { refused.push(id); continue; }
+          this.state.flags.set(id, value);
+          this.controlWrites.push(`flag ${id}=${value}`);
+        }
+        this.dirty = true;
+        return { ok: refused.length === 0, refused };
+      },
+      enter: (roomId: string) => {
+        if (!this.state.content.rooms.has(roomId)) {
+          return { ok: false, why: `no room "${roomId}"` };
+        }
+        this.state.enterRoom(roomId);
+        this.enterRoomPerformance(null);
+        this.dirty = true;
+        this.controlWrites.push(`enter(${roomId})`);
+        return { ok: true };
+      },
+      writes: () => [...this.controlWrites],
     };
   }
 
