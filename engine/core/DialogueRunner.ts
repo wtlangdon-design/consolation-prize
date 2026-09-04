@@ -202,7 +202,18 @@ export class DialogueRunner {
       throw new Error(`Unknown dialogue tree: ${treeId}`);
     }
     this.activeTree = tree;
-    this.activeNodeId = tree.start;
+    // The first entry whose gate holds wins; `start` is the floor.
+    const entry = (tree.entries ?? []).find((one) => this.flags.test(one.when));
+    const opensOn = entry?.node ?? tree.start;
+    if (!tree.nodes[opensOn]) {
+      throw new Error(`Dialogue tree ${treeId} opens on "${opensOn}", which it has no node for`);
+    }
+    this.activeNodeId = opensOn;
+  }
+
+  /** The id of the open tree, or null. Read by the renderer to hold a speaker still. */
+  get activeTreeId(): string | null {
+    return this.activeTree?.id ?? null;
   }
 
   end(): void {

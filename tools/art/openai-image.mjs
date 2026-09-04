@@ -308,7 +308,7 @@ export async function generate({ prompt, promptFile, out, size, quality, backgro
  * thing anybody asks of this pipeline.
  */
 export async function edit({ prompt, promptFile, out, images, mask, size, quality,
-  baselineRoom }) {
+  baselineRoom, purpose }) {
   const text = promptOf({ prompt, promptFile });
   if (!out) throw new Error('edit needs an explicit `out` path under art/staging/.');
   if (!images?.length) throw new Error('edit needs at least one reference image.');
@@ -324,7 +324,7 @@ export async function edit({ prompt, promptFile, out, images, mask, size, qualit
   let baseline = null;
   if (baselineRoom) {
     const { requireBaseline } = await baselineModule();
-    const required = requireBaseline(baselineRoom);
+    const required = requireBaseline(baselineRoom, { purpose });
     const sending = new Set(images);
     const absent = required.references.filter((reference) => !sending.has(reference.path));
     if (absent.length) {
@@ -334,6 +334,12 @@ export async function edit({ prompt, promptFile, out, images, mask, size, qualit
     }
     baseline = {
       room: baselineRoom,
+      purpose: purpose ?? 'room-art',
+      // Present only on a composition-master call whose slot E was pending:
+      // the record of which approved reference did not yet exist and why the
+      // call was permitted without it. Never present on a plate or a
+      // character call.
+      ...(required.pendingAcknowledged ? { pendingAcknowledged: required.pendingAcknowledged } : {}),
       visualType: required.visualType,
       slots: required.references.map((reference) => ({
         slot: reference.slot,

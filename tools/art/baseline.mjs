@@ -112,9 +112,27 @@ export function baselineFor(roomId) {
  * model, and the fact that a JSON file predicted it would happen does not make
  * the result usable.
  */
-export function requireBaseline(roomId) {
+export function requireBaseline(roomId, { purpose = 'room-art' } = {}) {
   const found = baselineFor(roomId);
   if (found.ok) return found;
+
+  // THE ONE CALL THAT MAY PROCEED WITH E PENDING IS THE ONE THAT CREATES E.
+  //
+  // Doc 38 section 1: the composition master IS the casting sheet -- it is
+  // where a new character is first drawn, in the room, beside the approved
+  // cast, so that everything in it belongs together. Requiring an approved
+  // casting reference before the master exists would require the thing the
+  // master produces. So a `composition-master` call is allowed to proceed
+  // with slot E pending, and ONLY slot E: A-D are still required in full,
+  // because they are what the master inherits its style from.
+  //
+  // It is recorded, not waived. The returned record carries the pending
+  // lines so the ledger row says which reference was absent and why that
+  // was permitted. A plate or a character call gets no such allowance.
+  if (purpose === 'composition-master' && found.missing.length === 0
+    && found.pending.every((line) => line.startsWith('E:'))) {
+    return { ...found, ok: true, pendingAcknowledged: found.pending, purpose };
+  }
   const lines = [
     ...found.missing.map((line) => `  MISSING  ${line}`),
     ...found.pending.map((line) => `  PENDING  ${line}`),

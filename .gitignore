@@ -62,3 +62,10 @@ renders/proofs/*/raw-captures-ignored/
 art/staging/**
 !art/staging/ledger.json
 !art/staging/caps.json
+# ROOM 5 PILOT CANDIDATES ARE REVIEWABLE, so they are tracked. Tyler's ruling:
+# "Keep candidate artifacts reviewable." The composition master, the untouched
+# API sources, the derived plate and Winnie's source are what he reviews, and
+# what the proof loads by path -- a branch without them could reproduce
+# neither. The ignore rule above stays for throwaway staging (the smoke test).
+!art/staging/room-05/
+!art/staging/room-05/**

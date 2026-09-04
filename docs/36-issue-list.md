@@ -3474,3 +3474,60 @@ Room 5's picture does not exist yet: the shipping plate is the obsolete
 **Order, therefore:** plate → annotation → compile → proof. The readiness gate
 reports content and geometry separately so that this can be seen rather than
 averaged.
+
+---
+
+## Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN
+
+Found by compiling Room 5 from its documents. Two kinds of gap, both reported by
+the compiler on every run and neither invented around.
+
+**Unhoused refusals.** `docs/49-wrong-answers.md::ROOM 5 — ASSAY OFFICE, FRONT`
+writes OPEN and CLOSE for **THE WINDOW (AJAR)** and PULL for **THE BRASS
+PLAQUE**. Neither subject has a LOOK or a LISTEN anywhere — not in doc 05's
+Room 5 section, not in doc 25 — so neither can be a hotspot without inventing
+its examine lines. The three refusals are carried nowhere; the annotation
+declares them `unhoused` under this heading and the compiler prints them by
+name. **Decision needed:** write LOOK/LISTEN for both, or fold the window's
+lines into THE WINDOW SIGN and strike the plaque's.
+
+**The queue bench.** Doc 05's act-variant block
+(`docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2`) writes THE QUEUE
+BENCH a LOOK for acts 2–4 and nothing else; doc 49 gives it USE and PUSH in Act
+I voice ("I have been all nine, on different days"). **No LISTEN and no repeat
+variants exist for it anywhere.** It compiles as an act 2–4 hotspot and three
+validators say so: `check-examine-lines` (no LISTEN), `check-written-content`
+(one LOOK variant; LISTEN unhandled, no pool) and `check-flag-order` (its ACT
+gate has no writer until doc 48's S1 is built). The first two are a one-line
+creative gap and are Tyler's; the third is the same debt Main Street's Panel D
+carries, now visible as a red check rather than a failed panel because the
+bench is gated by errata 60's counter rather than by a cutscene.
+
+**None of the three checks was weakened, excluded or disabled.** The room is
+otherwise candidate-complete around them.
+
+---
+
+## Q25 · THREE ENGINE FAULTS THE ROOM 5 LIFE PROOF FOUND — **FIXED**
+
+All three are shared behaviour and were found by driving Room 5 for a minute
+with the probe on. None is Room 5's; each would have bitten the next room.
+
+1. **A verb stayed selected through a conversation.** TALK TO on an ambient
+   opened the tree without resetting the verb — every other path resets in
+   `GameState.interact` — so the first click after talking to Winnie was
+   "talk to the back-room door" and the exit never transited. Reset when the
+   conversation is queued (`GameScene`, errata 28b).
+2. **An NPC's hit box swallowed a hotspot beside her.** The click handler
+   tested the ambient box before hotspots, and Winnie's 445-row box covered
+   HER PEN's stand at her right hand, so PICK UP reached the people pool and
+   the authored refusal never played. A hotspot rect under the click now wins
+   for every verb but TALK TO.
+3. **Verb lines were spoken with no speaker.** `setSay(result.say)` left the
+   speaker null; the renderer's fallback ink hid it, and the probe reported
+   the last speaker it had seen, so an override of Winnie's read as the stage
+   driver's. Verb lines are Thad's and now say so.
+
+Plus a measurement the life proof made possible: in a room with no handover,
+`control` is never `player`, so a route cannot wait on it; the route vocabulary
+gained `waitFor { says }` to land a capture inside a reading hold instead.

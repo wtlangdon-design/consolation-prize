@@ -119,6 +119,18 @@ export function check() {
       }
     }
 
+    // AN AMBIENT THAT DECLARES ITS OWN PLANE must name one the room has --
+    // the same rule as a walk box, for the same reason: Renderer.masked()
+    // draws straight through on a miss, and a figure behind a counter would
+    // stand in front of it and nothing would say so.
+    const ambients = (manifest.ambient ?? []).map((one) => readJson(one));
+    for (const npc of ambients.filter((one) => one.room === room.id)) {
+      if (npc.clipPlane === undefined || npc.clipPlane === 0) continue;
+      if (!levels.has(npc.clipPlane)) {
+        report.fail(`${room.id}/${npc.id}: ambient clipPlane ${npc.clipPlane} and this room's planes are `
+          + `${[...levels].join(', ') || 'none'}. The counter she stands behind would not mask her.`);
+      }
+    }
     if (planes.length === 0) continue;
     for (const plane of planes) {
       if (plane.maskPending) {

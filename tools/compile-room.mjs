@@ -131,6 +131,19 @@ function verbOverrides(text) {
       out.get(inline[1].trim())[verb] = inline[3];
       continue;
     }
+    // Doc 25's form: a quoted line naming the subject, then one or more
+    // `VERB — "line"` pairs separated by ` · `.
+    const quotedInline = /^>\s*\*\*([^*]+)\*\*\s*·\s*(.+)$/.exec(line);
+    if (quotedInline) {
+      const name = quotedInline[1].trim();
+      for (const pair of quotedInline[2].split(' · ')) {
+        const split = /^(PICK UP|TALK TO|LOOK AT|LISTEN TO|USE|OPEN|CLOSE|PUSH|PULL)\s*—\s*"([\s\S]*?)"\s*$/.exec(pair.trim());
+        if (!split) continue;
+        if (!out.has(name)) out.set(name, {});
+        out.get(name)[VERBS[split[1]]] = split[2];
+      }
+      continue;
+    }
     const row = /^>\s*(PICK UP|TALK TO|LOOK AT|LISTEN TO|USE|OPEN|CLOSE|PUSH|PULL)\s*—\s*"([\s\S]*?)"/.exec(line);
     if (row && current) {
       if (!out.has(current)) out.set(current, {});
@@ -211,6 +224,51 @@ function repeatVariants(text) {
  */
 function roomDocHotspots(text) {
   const out = new Map();
+  // DOC 25's SHAPE: `# ROOM N · NAME`, then `### THE THING` blocks whose
+  // LOOK and LISTEN runs are numbered `1 "..." · 2 "..." · 3 "..."`, and a
+  // `## Repeat variants` block of `**THE THING** — LOOK 2 "..." | LISTEN 2
+  // "..."` for the subjects doc 05 already wrote variant 1 of. Read only the
+  // section for THIS room; Room 7 shares the file.
+  const ranged = new RegExp(`^# ROOM ${room} · `, 'm').exec(text);
+  if (ranged) {
+    const rest = text.slice(ranged.index + ranged[0].length);
+    const next = /^# ROOM \d+ · /m.exec(rest);
+    const body = next ? rest.slice(0, next.index) : rest;
+    let current = null;
+    for (const line of body.split('\n')) {
+      const head = /^###\s+(.+?)\s*$/.exec(line);
+      if (head) { current = head[1].trim(); continue; }
+      // ANY OTHER HEADING OR BOLD SUBJECT LINE ENDS THE CURRENT SUBJECT. The
+      // exits block writes `**THE RECORDS ROOM DOOR → Room 6**` and then its
+      // own LOOK and LISTEN runs; without this reset those runs landed on the
+      // last ### subject, and THE STOVE compiled with the back door's lines.
+      if (/^##\s/.test(line) || /^\*\*[^*]+\*\*\s*$/.test(line)) { current = null; continue; }
+      const row = /^\*\*(LOOK|LISTEN)\*\*\s+(.+)$/.exec(line);
+      if (row && current) {
+        const numbered = [...row[2].matchAll(/(\d+)\s*"([^"]*)"/g)]
+          .map((m) => ({ n: Number(m[1]), say: m[2] }));
+        if (!numbered.length) continue;
+        if (!out.has(current)) out.set(current, {});
+        out.get(current)[VERBS[row[1]]] = {
+          first: numbered.find((v) => v.n === 1)?.say ?? null,
+          rest: numbered.filter((v) => v.n > 1).map((v) => v.say),
+        };
+        continue;
+      }
+      // Repeat lines for doc 05's own subjects: variant 1 is doc 05's.
+      const repeat = /^\*\*(.+?)\*\* — LOOK (.+?) \| LISTEN (.+?)$/.exec(line);
+      if (repeat) {
+        const name = repeat[1].trim();
+        if (!out.has(name)) out.set(name, {});
+        for (const [verb, run] of [['LOOK', repeat[2]], ['LISTEN', repeat[3]]]) {
+          const numbered = [...run.matchAll(/(\d+)\s*"([^"]*)"/g)]
+            .map((m) => ({ n: Number(m[1]), say: m[2] }));
+          out.get(name)[VERBS[verb]] = { first: null, rest: numbered.filter((v) => v.n > 1).map((v) => v.say) };
+        }
+      }
+    }
+    return out;
+  }
   const start = text.indexOf('# PART ONE');
   if (start < 0) return out;
   const end = text.indexOf('# PART TWO');
@@ -282,7 +340,8 @@ let splits = 0;
 const unsplit = [];
 
 // ---- load ------------------------------------------------------------------
-const examine = section(read('docs/05-examine-layer.md'), room);
+const examineWhole = read('docs/05-examine-layer.md');
+const examine = section(examineWhole, room);
 if (!examine) fail('doc 05 has no scripted section. Run the writing pass first.');
 
 // A ROOM'S OWN CONTENT DOCUMENT, WHERE ONE EXISTS. Room 3 had one -- doc 16,
@@ -303,7 +362,15 @@ if (!examine) fail('doc 05 has no scripted section. Run the writing pass first.'
 // title nobody predicted is still found, and a room with none gets doc 49's
 // section as it always did.
 const ROOM_DOCS = readdirSync('docs')
-  .filter((name) => new RegExp(`^\\d+-room-0*${room}\\b`, 'i').test(name))
+  .filter((name) => {
+    if (new RegExp(`^\\d+-room-0*${room}\\b`, 'i').test(name)) return true;
+    // A DOCUMENT MAY COVER A RANGE: `25-rooms-05-07.md` holds Rooms 5 and 7
+    // in full, under `# ROOM N ·` headings. The singular rule above could not
+    // see it, so Room 5 compiled as though its four doc-25 hotspots were
+    // never written, and the annotation's rects for them were "orphans".
+    const range = /^\d+-rooms-0*(\d+)-0*(\d+)\b/i.exec(name);
+    return Boolean(range) && Number(room) >= Number(range[1]) && Number(room) <= Number(range[2]);
+  })
   .map((name) => `docs/${name}`)
   .sort();
 // A ROOM MAY HAVE SEVERAL DOCUMENTS AND ONLY ONE OF THEM HOLDS ITS LINES.
@@ -319,7 +386,24 @@ if (ROOM_DOCS.length > 1 && !ROOM_DOC) {
     + `${ROOM_DOCS.join(', ')}. Which holds its written lines is a fact about the writing, `
     + 'not something a sort order should decide.');
 }
-const wrongDoc = ROOM_DOC ? read(ROOM_DOC) : section(read('docs/49-wrong-answers.md'), room);
+// A RANGE DOCUMENT IS READ FOR THIS ROOM ONLY. `25-rooms-05-07.md` holds
+// Room 7's hotspots, overrides and repeats under their own `# ROOM 7 ·`
+// heading; parsed whole, Room 7's THE LEDGER and THE COUNTER would arrive in
+// Room 5's override table and be reported as lines doc 05 never names.
+const ROOM_DOC_IS_RANGE = Boolean(ROOM_DOC) && /-rooms-\d+-\d+\.md$/.test(ROOM_DOC);
+const ROOM_DOC_TEXT = !ROOM_DOC ? '' : !ROOM_DOC_IS_RANGE ? read(ROOM_DOC) : (() => {
+  const whole = read(ROOM_DOC);
+  const at = new RegExp(`^# ROOM ${room} · `, 'm').exec(whole);
+  if (!at) fail(`${ROOM_DOC} covers this room's number range and has no "# ROOM ${room} ·" heading`);
+  const rest = whole.slice(at.index);
+  const next = /^# ROOM \d+ · /m.exec(rest.slice(at[0].length));
+  return next ? rest.slice(0, at[0].length + next.index) : rest;
+})();
+// A range room doc (doc 25) carries no wrong-answer layer of its own; doc
+// 49's section for the room is that layer, exactly as for a room with no
+// document at all. A dedicated room doc (doc 13, doc 16) carries its own.
+const wrongDoc = ROOM_DOC && !ROOM_DOC_IS_RANGE
+  ? ROOM_DOC_TEXT : section(read('docs/49-wrong-answers.md'), room);
 // TWO DIGITS, NOT ONE. `room-0${room}` cannot express room 13, and the rooms
 // after 9 are most of the game.
 const annPath = `reference/room-${String(room).padStart(2, '0')}/annotation.json`;
@@ -327,10 +411,39 @@ if (!existsSync(annPath)) fail(`no annotation at ${annPath}. Run tools/annotate/
 const ann = JSON.parse(readFileSync(annPath, 'utf8'));
 
 const hotspots = examineLayer(examine);
+// DOC 05 NAMES A ROOM MORE THAN ONCE: its act-variant block, 1200 lines
+// below the examine layer, repeats the heading and writes subjects `*(act:
+// "2-4")*`. A subject that appears ONLY there is an act-gated hotspot; one
+// that also appears above gains an act-gated variant, which is Part Two-B
+// work this compiler does not yet do and says so.
+const actSections = [];
+{
+  const re = new RegExp(`^## ROOM ${room}\\b[^\\n]*$`, 'mig');
+  let m; let first = true;
+  while ((m = re.exec(examineWhole))) {
+    if (first) { first = false; continue; }
+    const rest = examineWhole.slice(m.index + m[0].length);
+    const next = /^## ROOM \d/mi.exec(rest);
+    actSections.push(next ? rest.slice(0, next.index) : rest);
+  }
+}
+const actOnly = new Map();
+for (const block of actSections) {
+  for (const [name, entry] of examineLayer(block)) {
+    const act = new RegExp(`\\*\\*${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\*\\*\\s*\\*\\(act:\\s*"?([^)"]+)"?\\)\\*`).exec(block);
+    if (hotspots.has(name)) {
+      process.stderr.write(`  doc 05 act variant for "${name}" (act ${act?.[1] ?? '?'}) is NOT compiled -- `
+        + 'Part Two-B variants on an existing hotspot are not yet supported by this compiler\n');
+      continue;
+    }
+    hotspots.set(name, { ...entry, actOnly: act?.[1] ?? null });
+    actOnly.set(name, act?.[1] ?? null);
+  }
+}
 
 const overrides = verbOverrides(wrongDoc);
 const repeats = repeatVariants(wrongDoc);
-const written = ROOM_DOC ? roomDocHotspots(read(ROOM_DOC)) : new Map();
+const written = ROOM_DOC ? roomDocHotspots(ROOM_DOC_TEXT) : new Map();
 
 // A ROOM DOCUMENT MAY WRITE HOTSPOTS DOC 05 ONLY NAMES. Doc 05 lists Room 3's
 // six unwritten ones on a single line and says the full lines live elsewhere;
@@ -341,8 +454,9 @@ const written = ROOM_DOC ? roomDocHotspots(read(ROOM_DOC)) : new Map();
 // any hotspot it writes in full, which is why these are added rather than
 // merged over.
 if (ROOM_DOC) {
-  for (const line of read(ROOM_DOC).split('\n')) {
-    const heading = /^##\s+(THE [A-Z' ]+?)(?:\s*\*|\s*$)/.exec(line);
+  for (const line of ROOM_DOC_TEXT.split('\n')) {
+    const heading = /^##\s+(THE [A-Z' ]+?)(?:\s*\*|\s*$)/.exec(line)
+      ?? /^###\s+([A-Z][A-Z' ]+?)\s*$/.exec(line);
     if (heading && !hotspots.has(heading[1].trim())) {
       // Its LINES come from the room doc too. repeatVariants has already
       // parsed them: variant 1 is what he says the first time, the rest are
@@ -358,6 +472,36 @@ if (ROOM_DOC) {
       }
       if (Object.keys(responses).length) hotspots.set(name, { responses, fromRoomDoc: true });
     }
+  }
+}
+// A ROOM DOC MAY CARRY OVERRIDES TOO (doc 25's `## Overrides`), on top of doc
+// 49's. Merged per verb; a verb both write is a conflict and says so.
+if (ROOM_DOC) {
+  // A ROOM DOC SHORTENS NAMES THE WAY PEOPLE DO -- THE CERTIFICATE for THE
+  // CERTIFICATE ON THE WALL -- and the extractor already tolerates a UNIQUE
+  // prefix. A prefix matching two subjects is refused by name.
+  const resolveName = (short) => {
+    if (hotspots.has(short)) return short;
+    const near = [...hotspots.keys()].filter((full) => full.startsWith(short));
+    if (near.length === 1) return near[0];
+    if (near.length > 1) fail(`"${short}" in ${ROOM_DOC} matches ${near.length} subjects: ${near.join(', ')}`);
+    return short;
+  };
+  for (const [short, verbs] of verbOverrides(ROOM_DOC_TEXT)) {
+    const name = resolveName(short);
+    const into = overrides.get(name) ?? {};
+    for (const [verb, line] of Object.entries(verbs)) {
+      if (into[verb] && into[verb] !== line) {
+        fail(`"${name}" ${verb} is written by both ${ROOM_DOC} and doc 49 and they differ.`);
+      }
+      into[verb] = line;
+    }
+    overrides.set(name, into);
+  }
+  // And a room doc's numbered runs supply repeats for doc 05's subjects
+  // exactly as doc 13's PART THREE does.
+  for (const [name, verbs] of roomDocHotspots(ROOM_DOC_TEXT)) {
+    if (!repeats.has(name)) repeats.set(name, verbs);
   }
 }
 
@@ -412,8 +556,13 @@ if (orphanRect.length) {
 // -- three authored lines gone, invisible in a green build. The documents must
 // agree on the name or the build stops naming both.
 const docNames = new Set([...hotspots.keys()]);
+const unhoused = ann.unhoused ?? {};
+for (const [name, issue] of Object.entries(unhoused)) {
+  process.stderr.write(`  UNHOUSED: doc 49 writes lines for "${name}" and doc 05 gives it no LOOK or `
+    + `LISTEN, so it cannot be a hotspot. Its lines are carried nowhere. Owned by ${issue}\n`);
+}
 const strayNames = [...new Set([...overrides.keys(), ...repeats.keys()])]
-  .filter((n) => !docNames.has(n) && !/^PART|^ROOM/i.test(n));
+  .filter((n) => !docNames.has(n) && !/^PART|^ROOM/i.test(n) && !(n in unhoused));
 if (strayNames.length) {
   fail(`${ROOM_DOC ?? 'doc 49'} writes lines for ${strayNames.map((n) => `"${n}"`).join(', ')}, `
     + `which doc 05 does not name. doc 05 has: ${[...docNames].map((n) => `"${n}"`).join(', ')}. `
@@ -564,12 +713,30 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
   // stands, which is the documented fallback and is never in front of the
   // wrong building.
   if (old?.walkTo) staleWalkTo.push(`${id}@${old.walkTo.x},${old.walkTo.y}`);
+  // ERRATA 60's SUGAR. `acts.<id>: "2-4"` in the annotation, or a subject
+  // doc 05 writes only in its act block, compiles to a numeric ACT gate.
+  const actSpec = ann.acts?.[id] ?? entry.actOnly ?? null;
+  let actGate = {};
+  if (actSpec !== null) {
+    const span = /^(\d)(?:-(\d))?$/.exec(String(actSpec));
+    if (!span) fail(`act "${actSpec}" on ${id} is not N or N-M`);
+    const atLeast = Number(span[1]);
+    const atMost = span[2] ? Number(span[2]) : atLeast;
+    actGate = { when: { ACT: { atLeast, atMost } }, act: String(actSpec) };
+  }
   return {
     id,
     name: entry.docName,
     rect: ann.hotspots[id],
+    ...actGate,
     ...(old?.colour ? { colour: old.colour } : {}),
-    ...(old?.defaultVerb ? { defaultVerb: old.defaultVerb } : {}),
+    // ERRATA 28b: every object declares what a bare click does. The live
+    // file's choice stands; a hotspot the live file has never seen takes the
+    // annotation's `defaultVerbs.<id>`, and one with neither is refused --
+    // a compiler that picked one would be choosing an interaction.
+    ...(old?.defaultVerb ? { defaultVerb: old.defaultVerb }
+      : ann.defaultVerbs?.[id] ? { defaultVerb: ann.defaultVerbs[id] }
+        : fail(`${id} has no defaultVerb in the live file and none in the annotation's defaultVerbs`)),
     // ACT VARIANTS THAT REPAINT SOMETHING ARE OBJECT STATES, NOT CONDITIONS.
     // presentation() picks a state from objectStates or the declared default
     // and nothing evaluates a `when` there -- and errata 60 is why that is

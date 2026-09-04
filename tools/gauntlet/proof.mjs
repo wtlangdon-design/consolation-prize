@@ -90,7 +90,7 @@ function git(...args) {
   return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' }).trim();
 }
 
-async function serve() {
+export async function serve() {
   const child = spawn('npm', ['run', 'dev', '--', '--port', String(PORT), '--strictPort'],
     { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] });
   let said = '';
@@ -478,6 +478,11 @@ async function main() {
         counters: frame.counters,
         inventory: frame.inventory,
         movers: frame.movers,
+        // WHAT WAS ON THE SENTENCE LINE, and how many choices were up. A
+        // panel taken after a LOOK carries the line it produced, which is how
+        // a principal change that is a hotspot appearing gets its evidence.
+        says: frame.says,
+        options: frame.options,
         assets: frame.assets.map((asset) => ({
           ...asset,
           // HASHED ON DISK, BY THE HARNESS, AND HASHED AT `drawn` RATHER THAN
@@ -537,6 +542,53 @@ async function main() {
     const panelAshot = await snap('panel-a-base');
     const panelA = await state('A', { intent: 'base state, cast suppressed' });
     panels.push({ ...panelA, file: panelAshot.file, hash: panelAshot.hash });
+
+    /* ---- AMBIENT FIGURES: drawn, and masked where they say they are ------ */
+    //
+    // Movers are measured at authored marks below. A room's AMBIENT people
+    // never move, so they are measured where they stand, once, by the same
+    // difference: panel B (populated) against panel A (cast suppressed) in
+    // the box the sprite declares. Two assertions, both of which Room 5's
+    // Winnie is the first to need: she DREW at all -- a sheet that did not
+    // arrive draws nothing and looks like an empty room -- and, when she
+    // declares an occlusion plane, the drawn part of her stops ABOVE her
+    // feet, because the counter is in front of her. An ambient drawn to the
+    // floor while claiming a plane is a mask that missed.
+    const ambientFigures = [];
+    {
+      const populatedB = await decode(panelBshot.url);
+      const baseA = await decode(panelAshot.url);
+      const ambientIds = room.ambient ?? [];
+      for (const path of manifest.ambient ?? []) {
+        const npc = readJson(path);
+        if (!ambientIds.includes(npc.id) || !npc.sprite?.frames?.length) continue;
+        const [, , fw, fh] = npc.sprite.frames[0];
+        const camera = panelB.camera ?? 0;
+        const box = { x: Math.round(npc.x - fw / 2 - camera), y: npc.y - fh, width: fw, height: fh + 2 };
+        const seen = silhouette(populatedB, baseA, box);
+        const record = { id: npc.id, feet: [npc.x, npc.y], sheet: npc.sprite.sheet,
+          clipPlane: npc.clipPlane ?? null, box, seen };
+        if (!seen) {
+          failures.push(`ambient ${npc.id}: nothing drew in its box at ${npc.x},${npc.y} -- the `
+            + `sheet ${npc.sprite.sheet} did not arrive, or she stands off-camera`);
+          ambientFigures.push({ kind: 'ambient', ...record });
+          continue;
+        }
+        if (npc.clipPlane) {
+          const clearance = npc.y - seen.bottom;
+          if (clearance < 8) {
+            failures.push(`ambient ${npc.id}: declares clipPlane ${npc.clipPlane} and is drawn to `
+              + `y${seen.bottom}, ${clearance}px from its feet at y${npc.y}. The plane did not mask `
+              + 'it: the counter is behind her, not in front.');
+          } else {
+            record.maskedAbove = seen.bottom;
+            console.log(`    ambient ${npc.id}: drawn ${seen.width}x${seen.height}, cut off at y${seen.bottom}, `
+              + `${clearance}px above her feet -- plane ${npc.clipPlane} is masking`);
+          }
+        }
+        ambientFigures.push({ kind: 'ambient', ...record });
+      }
+    }
 
     if (Object.keys(panelA.movers).length > 0) {
       const stillDrawn = Object.entries(panelA.movers)
@@ -888,6 +940,9 @@ async function main() {
       routeLog,
       depthMarks: measured,
       occlusion,
+      // Ambient figures measured where they stand (drawn, and masked where
+      // they declare a plane). Their own field: they are not walk-box marks.
+      ambientFigures,
       panels,
       failures,
       passed: failures.length === 0,
@@ -951,7 +1006,7 @@ async function main() {
  * unsupported type silently returns a PNG, which would land a 12MB file under a
  * `.webp` name and look exactly like success.
  */
-async function contactSheet(page, captures) {
+export async function contactSheet(page, captures) {
   if (!captures.length) return null;
   const SCALE = 0.5;
   const made = await page.evaluate(async ({ frames, scale }) => {

@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 
 import { ROOT } from './lib/content.mjs';
@@ -772,6 +772,15 @@ function rooms0507() {
     const body = sections[index + 1];
     const path = FILE[number];
     if (!path) throw new Error(`doc 25: no room file for room ${number}`);
+    // ONE WRITER PER ROOM. Once a room has an annotation, tools/compile-room.mjs
+    // builds its whole file from the documents -- doc 25 included, with doc 30
+    // section 5's line splitting -- and a second writer laying the same lines
+    // down unsplit would flip the file on every alternate run. Room 7 has no
+    // annotation yet, so this still carries its lines until it does.
+    if (existsSync(`reference/room-${String(number).padStart(2, '0')}/annotation.json`)) {
+      process.stderr.write(`  doc 25 room ${number}: owned by compile-room (annotation exists), skipped\n`);
+      continue;
+    }
     const room = JSON.parse(read(path));
 
     const byName = new Map();
@@ -1846,8 +1855,183 @@ function openingCase() {
   return write(path, room);
 }
 
+
+/**
+ * DOC 04, WINNIE LEDGER: the first principal's tree, extracted for Room 5.
+ *
+ * Doc 04's shape differs from doc 27's in four ways this parser reads rather
+ * than normalises: nodes are `## ACT N — ... \`WIN_XX\`` headings with the id
+ * in backticks; a node opens on an EXCHANGE of `> **WINNIE:**` / `> **THAD:**`
+ * lines, not one root line; the tag cell carries errata 57's aftermath
+ * (`[PROGRESS · remove]`); and the State cell names what an option opens,
+ * sets or requires in prose with the id in backticks.
+ *
+ * WHAT IS CARRIED AND WHAT IS NOT, said here because both are decisions:
+ *
+ *   - The opening exchange is carried whole as `opening`, and the node's
+ *     `prompt` is the LAST Winnie line of it, which is the line the choices
+ *     are answers to. The renderer draws a prompt as one line; the machinery
+ *     to perform an opening exchange does not exist yet, and the words are
+ *     kept in the data rather than dropped -- doc 27's Vessel beat sets the
+ *     precedent.
+ *   - `repeat` carries the second selection's line. A third-selection line
+ *     (errata 45's counted-repeat) has no field yet; it stays in the document
+ *     and is reported below as unplayed.
+ *   - A node with no `[EXIT]` row gets one from doc 04's UNIVERSAL EXIT POOL,
+ *     rotating by node, because the document says the pool is "available at
+ *     every node" and the runner has no other way out. The doorframe direction
+ *     on the third line is not performed.
+ *   - `WIN_B3` (one option) and `WIN_C1` (no [COMIC]) do not satisfy doc 04's
+ *     own node rules 1 and 2 as written and are NOT extracted; both are Acts
+ *     II-III. Reported by name.
+ *   - `entries` gate the act roots on the flags doc 04 names. `WIN_B2` names no
+ *     flag ("after the padded log") and opens on nothing -- reported.
+ *
+ * Nothing is invented: every string below is the document's.
+ */
+function winnieTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('# WINNIE LEDGER');
+  const to = doc.indexOf('# COLONEL ABSALOM FANSHAWE');
+  if (from < 0 || to < 0) throw new Error('doc 04: cannot find the WINNIE LEDGER section');
+  const body = doc.slice(from, to);
+  const SPEAKER = 'winnie';
+  const POOL = [...body.length ? doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm) : []]
+    .map((m) => m[1]);
+  if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
+
+  const SKIP = { WIN_B3: 'one option -- a scene with a single [COMIC], below doc 04 rule 1',
+    WIN_C1: 'no [COMIC] option -- the relationship scene, below doc 04 rule 2' };
+  const ENTRY = { WIN_F1: { T_STRIKE_FOUND: true }, WIN_B1: { T_BORDERS_MOTT: true } };
+  const unplayed = [];
+  const nodes = {};
+  let poolIndex = 0;
+
+  // Node blocks: from a heading carrying a `WIN_XX` id to the next heading.
+  const blocks = body.split(/^## /m).slice(1);
+  const found = [];
+  for (const block of blocks) {
+    const idMatch = /`(WIN_[A-Z0-9]+)`/.exec(block.split('\n')[0]);
+    if (idMatch) found.push({ id: idMatch[1], text: block });
+    // Act IV's nodes sit under one heading as bold `WIN_F1` / `WIN_F2` lines.
+    for (const grown of block.split(/^\*\*`(WIN_F\d)`/m).slice(1).reduce((acc, part, index, all) => {
+      if (index % 2 === 0) acc.push({ id: part, text: all[index + 1] ?? '' });
+      return acc;
+    }, [])) found.push(grown);
+  }
+
+  for (const { id, text } of found) {
+    if (SKIP[id]) { unplayed.push(`${id} not extracted: ${SKIP[id]}`); continue; }
+    // `[ \t]*`, NOT `\s*`: a whitespace class that includes the newline let the
+    // optional fifth cell of a four-column row run on into the next row, and
+    // Act IV's option 1 came out carrying option 2 as its state.
+    const ROW = /^\| (\d+) \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|(?:[ \t]*(.*?)[ \t]*\|)?[ \t]*$/gm;
+    const rows = [...text.matchAll(ROW)].filter((r) => !/^#/.test(r[1]));
+    if (!rows.length) {
+      if (id === 'WIN_F2') { unplayed.push(`${id}: a scripted exchange with no options (doc 48 S6), not a node`); continue; }
+      throw new Error(`doc 04: ${id} has no option rows`);
+    }
+    const opening = [...text.matchAll(/^> \*\*(WINNIE|THAD):\*\* (.+)$/gm)]
+      .map((m) => ({ speaker: m[1] === 'THAD' ? 'thad' : SPEAKER, line: m[2].trim() }));
+    const lastWinnie = [...opening].reverse().find((u) => u.speaker === SPEAKER);
+    // A prompt is one drawn line: the quoted speech only, directions dropped
+    // (they survive in `opening`).
+    const promptText = lastWinnie ? quoted(lastWinnie.line).join(' ') : null;
+    const options = [];
+    let hasExit = false;
+    for (const [, number, optionCell, tagCell, responseCell, stateCell] of rows) {
+      const tagged = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(`${tagCell} ${optionCell}`);
+      if (!tagged) throw new Error(`doc 04: ${id} option ${number} has no tag`);
+      const tag = tagged[1];
+      const afterUse = tagged[2] ?? null;
+      const option = { id: `${SPEAKER}${number}`, tag };
+      const text = quoted(optionCell)[0];
+      if (tag === 'EXIT') {
+        hasExit = true;
+        option.text = text ?? POOL[poolIndex % POOL.length];
+        if (!text) { option.universal = true; poolIndex += 1; }
+        option.ends = true;
+      } else {
+        if (!text) throw new Error(`doc 04: ${id} option ${number} has no option text`);
+        option.text = text;
+      }
+      if (afterUse) option.afterUse = afterUse;
+      // The response: directions in italics are kept as `beat`; the quoted
+      // line is the reply. A rephrase direction names the replacement text.
+      const directions = [...responseCell.matchAll(/\*\(([^)]+)\)\*/g)].map((m) => m[1]);
+      const rephrase = directions.find((d) => /^rephrases after/.test(d));
+      const plainDirections = directions.filter((d) => !/^rephrases after/.test(d));
+      const spoken = responseCell.replace(/\*\([^)]*\)\*/g, '');
+      const lines = quoted(spoken);
+      if (lines[0]) option.say = lines[0];
+      // A DIRECTION BESIDE A LINE IS STAGING, NOT A BEAT. The schema allows an
+      // option one or the other: a `beat` is what plays when there is no line
+      // (doc 27's Vessel swindle). "(long pause) 'Congratulations.'" has a
+      // line, so the pause is reported as staging exactly as doc 27's are,
+      // and the words are what the option says.
+      if (plainDirections.length && !lines[0]) option.beat = plainDirections.join(' ');
+      else if (plainDirections.length) unplayed.push(`${id} option ${number} staging: ${plainDirections.join(' ')}`);
+      if (rephrase) {
+        const parts = /^rephrases after (\S+) to "(.+?)" → "(.+?)"$/.exec(rephrase);
+        if (parts) option.rephrase = { after: parts[1], text: parts[2], say: parts[3] };
+        else unplayed.push(`${id} option ${number}: rephrase direction not read: ${rephrase}`);
+      }
+      // State: opens / sets / req, by backticked id.
+      const state = stateCell ?? '';
+      const opens = /opens `(WIN_[A-Z0-9]+)`/.exec(state);
+      const sets = /sets `([A-Z_0-9]+)`/.exec(state);
+      const req = /req `([A-Z_0-9]+)`/.exec(state);
+      if (opens) option.goto = opens[1];
+      if (sets) option.set = { [sets[1]]: true };
+      if (req) option.when = { [req[1]]: true };
+      if (state && !opens && !sets && !req && state !== '—') {
+        unplayed.push(`${id} option ${number} state "${state}" names no flag; nothing set`);
+      }
+      options.push(option);
+    }
+    // Repeat lines, by option number, and a third selection reported.
+    for (const m of text.matchAll(/^\*\*(?:Repeat on option|Option) (\d+),? ?(?:repeat)?:\*\* (.+)$/gm)) {
+      const option = options.find((o) => o.id === `${SPEAKER}${m[1]}`);
+      const line = quoted(m[2])[0];
+      if (option && line) option.repeat = line;
+    }
+    for (const m of text.matchAll(/^\*\*(Third selection|Option (\d+), fifth selection):\*\* (.+)$/gm)) {
+      unplayed.push(`${id}: "${m[1]}" line has no field yet (errata 45): ${m[3].slice(0, 60)}...`);
+    }
+    if (!hasExit) {
+      options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true });
+      poolIndex += 1;
+    }
+    nodes[id] = { id, ...(promptText ? { prompt: promptText } : { noPrompt: true,
+      exceptionReason: 'Doc 04 writes this node as a table only -- no opening exchange -- so '
+        + 'the conversation continues from the previous node\'s line rather than opening on one.' }),
+      ...(opening.length ? { opening } : {}), options };
+  }
+
+  if (!nodes.WIN_A1) throw new Error('doc 04: WIN_A1 was not extracted');
+  const entries = Object.entries(ENTRY).filter(([node]) => nodes[node])
+    .map(([node, when]) => ({ when, node }));
+  unplayed.push('WIN_B2 ("after the padded log") names no flag and has no entry; it is reachable only by goto, and nothing gotos it');
+  for (const note of unplayed) process.stderr.write(`  doc 04 WINNIE: ${note}\n`);
+
+  return write('content/dialogue/winnie.json', {
+    schema: 1,
+    id: 'WINNIE',
+    speaker: SPEAKER,
+    name: 'WINNIE LEDGER',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (WINNIE LEDGER) by tools/extract-content.mjs. '
+      + 'Do not edit: change doc 04 and re-run. Plain quotes in a response are Winnie; the '
+      + 'opening exchange is carried whole as `opening` and the prompt is its last Winnie line. '
+      + 'WIN_B3 and WIN_C1 are not extracted (see the extractor). Universal exit lines are doc '
+      + '04 part one\'s pool.',
+    entries,
+    start: 'WIN_A1',
+    nodes,
+  });
+}
+
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

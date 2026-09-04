@@ -1,0 +1,34 @@
+{
+ "schema": 1,
+ "note": "STYLE CONTINUITY SHEET MANIFEST. Row 1: Room 1 approved full frame (left) and Room 5 candidate full frame (right), both at half scale. Row 2: Thad at Room 1 runtime scale, Winnie at Room 5 runtime scale, then 1:1 environment crops of Room 1 (x60,y300) and Room 5 (x600,y250). Row 3: 3x NEAREST-NEIGHBOUR enlargements, INSPECTION ONLY, never applied to production art. Evidence for Tyler; no tool judges it. `suspected` lists what a person might want to look at first; it is a list of observations, not a judgement.",
+ "room1": {
+  "path": "renders/room-01-in-engine-1920x1080.png",
+  "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79"
+ },
+ "room5": {
+  "path": "renders/proofs/assay-office/raw-captures-ignored/panel-b-populated.png",
+  "hash": "7fe2d3beba3b6f850c5c1f402de6df1e908a6c02d08ef64ecfa003cea8325e9b"
+ },
+ "thad": {
+  "path": "art/actors/thad-stand-front/stand-00.png",
+  "runtimeScale": 0.38338658146964855,
+  "drawnHeight": 240
+ },
+ "winnie": {
+  "sheet": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
+  "frame": [
+   2,
+   2,
+   444,
+   445
+  ],
+  "drawnHeight": 445
+ },
+ "suspected": [
+  "SCALE: Thad draws at 240px in Room 1's mid-band and 470-560px in Room 5; Winnie at 445px. The approved comparable interior (the Nugget) already runs 198-459, so this is the interior convention, but it is a 2x jump between adjacent rooms and Tyler has not seen it before.",
+  "FACE RENDERING: at 3x, Winnie's face carries more tonal gradation (cheek and brow shading) than Thad's, whose features are flatter blocks. Both are hard-edged pixel work; hers is finer.",
+  "SURFACE GRAIN: Room 5's wood and plaster dither at a finer grain than Room 1's mud and boards at the same 3x enlargement.",
+  "COAT: Thad's runtime frames read blue-grey in Room 5's daylight; in Room 1's night they read dark. Same frames, different plate light -- not a change to Thad."
+ ],
+ "at": "2026-09-04T16:36:16.198Z"
+}

@@ -54,6 +54,15 @@ export const GENERATORS = [
       + 'writing, which is the whole failure the compiler exists to prevent.',
   },
   {
+    id: 'compile-room-5',
+    command: ['node', 'tools/compile-room.mjs', '5', '--write'],
+    outputs: ['content/rooms/assay-office.json'],
+    why: 'Room 5, the first autonomous pilot room. Its lines come from docs 05 (both of its '
+      + 'sections -- the act block gates the queue bench), 25 and 49, and every rect, the '
+      + 'walk box, the depth curve and the counter plane from reference/room-05/annotation.json. '
+      + 'extract-content stands down for a room that has an annotation, so this is the one writer.',
+  },
+  {
     id: 'extract-content',
     command: ['node', 'tools/extract-content.mjs'],
     outputs: ['content/'],

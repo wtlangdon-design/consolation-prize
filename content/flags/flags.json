@@ -197,6 +197,61 @@
     "dialogue:amb_letter_writer:root:charge"
    ],
    "note": "He has quoted his rate and let slip that it varies. Gates Thad asking why."
+  },
+  {
+   "id": "ACT",
+   "type": "number",
+   "initial": 1,
+   "writtenBy": [],
+   "note": "ERRATA 60: ACT is a numeric counter written at exactly four places, the act turns in docs/48-act-turn-beats.md (S1 sets 2, S2 sets 3, S4 sets 4). None of those scripts is built yet, so writtenBy is honestly empty: the flag is READ by act-gated content (Room 5 queue bench, acts 2-4) and written today only by the proof harness. Declared now because Room 5 is the first room whose authored state variation depends on it; Main Street's act-gated sign depended on it too and could not be proven for want of it."
+  },
+  {
+   "id": "T_BORDERS_MOTT",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [],
+   "note": "Doc 04: Winnie's Act II root WIN_B1 opens 'after T_BORDERS_MOTT'. Written by the claim-boundary puzzle (doc 02 B-series), not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
+  },
+  {
+   "id": "T_RACCOON_NAMED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [],
+   "note": "Doc 04: WIN_B1 option 5 requires it. Written elsewhere (the raccoon), not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
+  },
+  {
+   "id": "T_STRIKE_FOUND",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [],
+   "note": "Doc 04: WIN_F1 opens after T_STRIKE_FOUND (F3). Written by Act IV, not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
+  },
+  {
+   "id": "T_ASSAY_QUEUE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_B1:winnie1"
+   ],
+   "note": "Doc 04: WIN_B1 option 1 sets it. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
+  },
+  {
+   "id": "T_NO_MOTT_GOLD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_B2:winnie2"
+   ],
+   "note": "Doc 04: WIN_B2 option 2 sets it. Topic: no Mott gold has ever crossed her window (doc 02 C5). EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
+  },
+  {
+   "id": "T_SECOND_LEDGER",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_B2:winnie3"
+   ],
+   "note": "Doc 04: WIN_B2 option 3 sets it. Gates WIN_B3. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
   }
  ]
 }

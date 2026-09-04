@@ -311,6 +311,15 @@ export interface AmbientFile {
   tree: string;
   barks: Record<string, string>;
   /**
+   * The occlusion plane that masks this figure, when it stands where no walk
+   * box is. Room 5's Winnie stands BEHIND the counter: no box exists there
+   * (Thad may never reach it), so `clipPlaneAt` would fall back to the
+   * nearest box -- Thad's floor, plane 0 -- and draw her over the counter.
+   * An ambient that declares its own plane is masked by that plane and not
+   * by whatever box happens to be nearest. Absent means the box rule.
+   */
+  clipPlane?: number;
+  /**
    * Ruling 20's two-frame idle, for a character who is a sprite rather than
    * part of a drawn crowd. Rate is full cycles per second and phase offsets
    * it, so no two people on a street move on the same beat.
@@ -336,6 +345,13 @@ export interface AmbientFile {
      * begins and ends there returns without a jump.
      */
     breaks?: number[][];
+    /**
+     * The frame held while this character's own tree is open. Doc 32 section
+     * 8.2: stillness is a performance state, and a woman mid-scribble when
+     * Thad speaks to her is a woman who has not noticed him. Absent means
+     * frame 0 -- the rest pose -- which is what the sway returns to anyway.
+     */
+    talkFrame?: number;
     /**
      * Which breaks SPEAK, by index into `breaks`.
      *
@@ -1061,6 +1077,15 @@ export interface DialogueFile {
    */
   speaker?: string;
   start: string;
+  /**
+   * WHERE THE TREE OPENS, BY STATE. Doc 04 writes every principal's tree
+   * with a root per act -- "ACT II -- Root: WIN_B1 (after T_BORDERS_MOTT)" --
+   * and a single `start` cannot say that. The first entry whose `when`
+   * holds is the node the conversation opens on; none holding falls back
+   * to `start`. Authored in order of precedence, latest act first, because
+   * a later root's condition usually implies an earlier one's.
+   */
+  entries?: { when: Condition; node: string }[];
   nodes: Record<string, DialogueNode>;
 }
 

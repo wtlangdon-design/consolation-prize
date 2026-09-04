@@ -1,0 +1,130 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "A ROUTE to Room 5, in the gauntlet's vocabulary. It replays the Main Street route to the letter -- the opening, Hob, the walk into town -- and then takes Main Street's assay-office exit. `on` resolves against the room the action happens in, so the exit is named, not placed.",
+ "from": "stage_road",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2.5,
+   "why": "the title. It clears on any click."
+  },
+  {
+   "do": "click",
+   "at": [
+    960,
+    430
+   ],
+   "why": "past the title into beat 2"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60,
+   "why": "beats 2 and 3 play themselves; the driver's tree opens when they are done"
+  },
+  {
+   "do": "option",
+   "option": "drv1",
+   "why": "Where can I find Ezra Pike?"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "drv2",
+   "why": "Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "drv3",
+   "why": "You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "drv4",
+   "why": "Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "do": "waitFor",
+   "upTo": 90,
+   "why": "HANDED OVER, NOT `control: player`, AND THE DIFFERENCE COST A DIAGNOSIS. `control` reports the OPENING SEGMENT's kind, and the driver's tree is itself a player segment -- so this fired while the exchange was still performing, the lamp click below was eaten by the utterance, and the route then waited for a flag that the click it had already spent was the only thing that would write. `handedOver` is the opening runner being finished, which is what 'the road is Thad's' actually means.",
+   "handedOver": true
+  },
+  {
+   "do": "click",
+   "on": "lamp",
+   "why": "SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "do": "wait",
+   "seconds": 3,
+   "why": "his three lines, and then he walks off frame right"
+  },
+  {
+   "do": "waitFor",
+   "flag": "T_HOB_GONE",
+   "upTo": 90,
+   "why": "THE ROUTE HAD NEVER BEEN RUN AND THIS IS WHY IT DID NOT WORK. `road_west` is gated on T_HOB_GONE AND T_CASE_TAKEN; beat 10 writes the first when Hob leaves frame, and control returns to the player at beat 8 -- two beats earlier. So the route picked up the case and clicked the gap while `road_west_blocked` was still the live target, got its line, wrote no flag, and sat until the deadline. Waiting on control was waiting on the wrong thing."
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP",
+   "why": "WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "do": "click",
+   "on": "case_mud",
+   "why": "the suitcase. The west exit will not open without it"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "click",
+   "on": "road_west",
+   "why": "the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60,
+   "why": "the mud beat, then the traced walk into town under the title"
+  },
+  {
+   "do": "wait",
+   "seconds": 2,
+   "why": "let the arrival settle before aiming across the street"
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 90,
+   "why": "the walk to the door, the transit, and Room 5"
+  },
+  {
+   "do": "wait",
+   "seconds": 3,
+   "why": "arrival; Winnie is already at work"
+  }
+ ]
+}

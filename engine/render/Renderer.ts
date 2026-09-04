@@ -929,6 +929,9 @@ export class Renderer {
     // plate's.
     if (this.castHidden) return;
     for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all()))) {
+      // An ambient that declares its own plane is masked by it; everyone
+      // else by the box under their feet. See AmbientFile.clipPlane.
+      const declaredPlane = figure.npc ? (figure.npc as AmbientFile).clipPlane : undefined;
       this.masked(figure.feetX, figure.feetY, () => {
         if (figure.mover) {
           const halfWidth = this.drawMover(figure.mover, figure.feetX, figure.feetY);
@@ -957,7 +960,7 @@ export class Renderer {
               `${npc.sprite.sheet} has not arrived; drew nothing rather than a placeholder`);
           }
         }
-      });
+      }, declaredPlane);
     }
     if (!watch.enabled) return;
     for (const [one, two] of depthTies(spans)) {
@@ -1235,13 +1238,13 @@ export class Renderer {
    * A figure at clip level 0, or in a room with no planes, skips all of this
    * and draws straight to the screen.
    */
-  private masked(feetX: number, feetY: number, draw: () => void): void {
+  private masked(feetX: number, feetY: number, draw: () => void, override?: number): void {
     const planes = this.state.room.occlusionPlanes;
     if (!planes?.length) {
       draw();
       return;
     }
-    const level = this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY));
+    const level = override ?? this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY));
     const plane = planes.find((candidate) => candidate.level === level);
     // A PENDING MASK IS NOT USED. It is a mask whose art describes a plate the
     // room no longer has, and drawing through is what this room did anyway
@@ -1315,7 +1318,12 @@ export class Renderer {
     const image = this.sheet(declared.sheet);
     if (!image) return false;
     const phase = declared.phase ?? 0;
-    const index = this.ambientFrame(declared, phase);
+    // HELD STILL WHILE SPOKEN TO. Doc 32 section 8.2, deadpan rule: the
+    // reply pause is not filled with flapping. Her own tree open means her
+    // work stops on the talk frame; any other conversation leaves her be.
+    const talking = this.state.dialogue.isActive
+      && this.state.dialogue.activeTreeId === npc.tree;
+    const index = talking ? (declared.talkFrame ?? 0) : this.ambientFrame(declared, phase);
     const [sx, sy, width, height] = declared.frames[
       (index + declared.frames.length) % declared.frames.length
     ] as [number, number, number, number];

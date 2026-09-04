@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "note": "REQUIRED ROOM ELEMENTS, in SOURCE pixels (1536x1024), measured by looking at art/staging/room-05/plate-source-01.png. A box is the part of the element that must survive to remain recognisable and usable -- the glazed opening of the window, not its head trim -- so a clipped decorative rail is not counted as a lost element. Every subject named in docs/05 #1, docs/25 and docs/49 for Room 5 is here, plus both exits and the counter.",
+  "required": ["street_door", "window", "window_card", "stove", "counter", "service_window_bars", "ledger", "queue_book", "sample_shelves", "scales", "certificate", "records_door", "bench", "plaque", "floor_walkable"],
+  "elements": {
+    "street_door": [40, 150, 175, 680],
+    "window": [270, 150, 120, 370],
+    "window_card": [222, 340, 40, 92],
+    "stove": [375, 440, 145, 260],
+    "counter": [515, 490, 635, 230],
+    "service_window_bars": [535, 185, 605, 315],
+    "ledger": [620, 455, 145, 45],
+    "queue_book": [860, 465, 90, 40],
+    "sample_shelves": [580, 195, 405, 245],
+    "scales": [855, 285, 100, 150],
+    "certificate": [1010, 225, 100, 105],
+    "records_door": [1180, 190, 165, 470],
+    "bench": [1310, 605, 226, 225],
+    "plaque": [745, 580, 110, 55],
+    "floor_walkable": [40, 700, 1496, 150]
+  }
+}

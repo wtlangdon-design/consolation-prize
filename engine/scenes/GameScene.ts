@@ -556,7 +556,13 @@ export class GameScene extends Phaser.Scene {
     // Ambient characters stand in front of the scenery, so they take the
     // pointer first -- exactly as they take the click. Reading one name and
     // clicking another is worse than either alone.
-    const npc = y < PLAY_HEIGHT ? this.ambient.npcAt(wx, y) : undefined;
+    // THE SAME PRECEDENCE THE CLICK USES: a hotspot rect under the pointer
+    // names the hotspot, not the person standing over it, unless the verb
+    // is TALK TO -- otherwise the sentence line promised "Pick up WINNIE
+    // LEDGER" for a click that picked up her pen.
+    const hoveredObject = y < PLAY_HEIGHT ? this.state.targetAt(wx, y) : null;
+    const npc = y < PLAY_HEIGHT && !(hoveredObject && this.state.verbs.selectedVerb !== 'TALK_TO')
+      ? this.ambient.npcAt(wx, y) : undefined;
     const found = npc
       ? { id: npc.id, name: npc.name,
           defaultVerb: this.state.content.verbs.npcVerb }
@@ -692,7 +698,16 @@ export class GameScene extends Phaser.Scene {
     // acting on it, and this path bypassed it entirely -- he shouted at the
     // pie woman from wherever he was standing. He now walks to the edge of
     // her own approachRadius and the tree opens when he arrives.
-    const npc = this.ambient.npcAt(wx, y);
+    // A SMALL OBJECT BESIDE A PERSON IS STILL AN OBJECT. The NPC hit box is a
+    // fifth of the drawn height each side of the feet, and Room 5's Winnie is
+    // 445 rows tall: her box swallowed the pen stand at her right hand, so
+    // PICK UP on HER PEN reached the people pool and her authored refusal
+    // never played. When the click lands on a hotspot's own rect, the
+    // hotspot wins for every verb but TALK TO -- talking is the one thing a
+    // person is for and an object is not.
+    const chosenVerb = this.state.verbs.selectedVerb;
+    const objectUnderClick = y < PLAY_HEIGHT ? this.state.targetAt(wx, y) : null;
+    const npc = objectUnderClick && chosenVerb !== 'TALK_TO' ? undefined : this.ambient.npcAt(wx, y);
 
     // A PERSON IS NOT A LEVER. Every verb pointed at an ambient character used
     // to open their tree, so Tyler clicked PUSH on the letter-writer and got a
@@ -721,6 +736,12 @@ export class GameScene extends Phaser.Scene {
       const gap = Math.round(this.state.heightForZone(npc.zone) * 0.66);
       const from = npc.x + (this.actor.x < npc.x ? -gap : gap);
       this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y } };
+      // THE VERB IS SPENT. Errata 28b: a verb used on a thing resets. Every
+      // other path resets through GameState.interact; this one never reached
+      // it, so TALK TO stayed selected through the whole conversation and the
+      // first click afterwards -- Room 5's back-room door -- was "talk to the
+      // door" instead of a transit. Found by the life proof.
+      this.state.verbs.resetToDefault();
       this.actor.walkTo(from, npc.y);
       this.markDirty();
       return;
@@ -885,7 +906,11 @@ export class GameScene extends Phaser.Scene {
     // the game does when a verb is used is a rule about the game, and putting
     // it in the scene put it where no test could reach it: the change passed
     // 132 tests without one of them being able to see it.
-    this.setSay(result.say);
+    // SPOKEN AS THAD. A verb's line -- an examine line, an authored refusal,
+    // a fallback -- is his, and the renderer's fallback ink already assumed
+    // so; the probe did not, and reported the LAST speaker it had seen, which
+    // in Room 5 made an override of Winnie's read as the stage driver's.
+    this.setSay(result.say, this.state.content.actor.id);
     // DOC 30 §5's SPLIT UTTERANCES. The setup goes up now and the rest queue
     // behind it on their own reading holds, which is the 1990 rhythm the
     // presentation borrows: setup, beat, punchline.
@@ -1646,6 +1671,10 @@ export class GameScene extends Phaser.Scene {
     add(`fg:${id}`, room.foreground);
     (room.backgroundFrames ?? []).forEach((path, at) => add(`bgf:${id}:${at}`, path));
     for (const plane of room.occlusionPlanes ?? []) add(plane.mask, plane.mask);
+    // AMBIENT SHEETS TOO. A room's people are assets the proof has to see
+    // loaded: Room 5's Winnie is an ambient, and without this row the proof
+    // could pass with her sheet missing and nothing drawn where she stands.
+    for (const npc of this.ambient.present) add(npc.sprite?.sheet ?? '', npc.sprite?.sheet);
     return out;
   }
 

@@ -1,0 +1,61 @@
+{
+ "frames": [
+  [
+   2,
+   2,
+   444,
+   445
+  ],
+  [
+   448,
+   2,
+   444,
+   445
+  ],
+  [
+   894,
+   2,
+   444,
+   445
+  ],
+  [
+   1340,
+   2,
+   444,
+   445
+  ],
+  [
+   1786,
+   2,
+   444,
+   445
+  ]
+ ],
+ "frameSize": [
+  444,
+  445
+ ],
+ "scale": 0.5670103092783505,
+ "target": 440.0,
+ "sourceFigureHeight": 776,
+ "standOffset": {
+  "dx_h": -0.17879637946366725,
+  "base_h": 0.5726084663887139,
+  "canonicalMovedBy": [
+   -4,
+   -1
+  ]
+ },
+ "order": [
+  "rest",
+  "breath",
+  "writing",
+  "writing-scribble",
+  "looking-up"
+ ],
+ "sources": {
+  "canonical": "art/staging/room-05/winnie-canonical-02.png",
+  "sheet": "art/staging/room-05/winnie-canonical-02.png"
+ },
+ "gamma": 1.0
+}

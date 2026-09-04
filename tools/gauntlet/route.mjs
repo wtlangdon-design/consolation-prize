@@ -57,6 +57,17 @@ function roomFiles() {
 export function targetRect(room, id) {
   const all = [...(room.exits ?? []), ...(room.hotspots ?? [])];
   const found = all.find((one) => one.id === id);
+  // AN AMBIENT CHARACTER IS A TARGET. The runtime's own hit test for one is
+  // a box around the feet as wide as a fifth of the drawn height each way
+  // (Ambient.ts NPC_HALF_WIDTH), and the click a person makes is on the
+  // body; aim at the box's middle. Room 5's Winnie is the first ambient a
+  // route has needed to talk to.
+  if (!found && (room.ambient ?? []).includes(id)) {
+    const npc = readJson(`content/ambient/${id.replace(/_/g, '-')}.json`);
+    const height = npc.sprite?.frames?.[0]?.[3] ?? 240;
+    const half = Math.round(height * 0.2);
+    return [npc.x - half, npc.y - height, half * 2, height];
+  }
   if (!found) {
     throw new Error(`route: ${room.id} has no target "${id}". It has: `
       + all.map((one) => one.id).join(', '));
@@ -140,6 +151,11 @@ async function waitFor(page, want, upTo, why) {
       if (want.dialogue === true && last.options > 0 && !last.performing) return last;
       if (want.handedOver === true && last.handedOver) return last;
       if (want.flag !== undefined && last.flags.includes(want.flag)) return last;
+      // A LINE BY A SPEAKER IS UP. `says` is the probe's speaker id, never the
+      // words. A capture that wants to land INSIDE a reading hold waits on
+      // this instead of guessing seconds, which the first life route did and
+      // missed the hold twice.
+      if (want.says !== undefined && last.says === want.says) return last;
     }
     if (Date.now() > deadline) {
       const saw = last
@@ -198,7 +214,7 @@ export async function runRoute(page, route) {
         const seen = await waitFor(page, action, action.upTo ?? 60, action.why);
         log.push(`${where}: reached ${JSON.stringify(
           Object.fromEntries(Object.entries(action)
-            .filter(([key]) => ['room', 'control', 'dialogue', 'handedOver', 'flag'].includes(key))),
+            .filter(([key]) => ['room', 'control', 'dialogue', 'handedOver', 'flag', 'says'].includes(key))),
         )} in room ${seen.room}`);
         continue;
       }

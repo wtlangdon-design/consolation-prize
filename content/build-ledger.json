@@ -83,19 +83,18 @@
    "dependsOn": [
     "room-02-main-street"
    ],
-   "status": "blocked",
+   "status": "in-progress",
    "commit": null,
    "validation": null,
-   "gauntlet": null,
-   "proof": null,
+   "gauntlet": "tools/gauntlet/routes/assay-office.json",
+   "proof": "renders/proofs/assay-office/proof.json",
    "blockers": [
-    "docs/36-issue-list.md::Q17 · SEVEN SHIPPING PLATES CANNOT BE READ BY ANY TOOL IN THIS REPOSITORY",
-    "docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST",
-    "docs/36-issue-list.md::Q23 · ROOM 5 HAS NO ANNOTATION, AND THAT IS NOT A CONTENT PROBLEM"
+    "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON"
    ],
    "visual_accepted": false,
-   "note": "BUILDABLE WITHOUT INVENTION: NO -- and its WRITING is complete. The gate reports seven dimensions and five are YES: examine lines with three LOOK and three LISTEN variants across all eight subjects, the wrong-verb layer, Winnie's seven dialogue nodes, puzzles C4-C6 with their items and flags, an act-gated bench, and no staging script because the room genuinely has none. The three NOs are art and geometry: an uncast Winnie, no annotation, and a shipping plate that is still the obsolete 320x144 indexed legacy file. Errata 63: Room 5 is FIXED and ships at exactly 1920x864.",
-   "readiness": "proofs/readiness/room-05.json"
+   "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel proof passes with the candidate plate loaded live and Winnie measured behind the counter plane. NOT candidate-complete: three validators are red on one subject -- the queue bench has no LISTEN or repeat variants in canon and its ACT gate has no writer until doc 48's S1 exists -- and the room's visual acceptance is Tyler's. Nothing is promoted; visual_accepted is false.",
+   "readiness": "proofs/readiness/room-05.json",
+   "pilot": "proofs/room-05/pilot-report.md"
   },
   {
    "id": "tool-compiler-any-room",

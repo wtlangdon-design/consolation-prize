@@ -1,8 +1,25 @@
 {
  "schema": 1,
- "note": "Attempt and spend ceilings, per asset and overall. Edited by a person, never by a tool. A run that reaches one of these stops and says which.",
+ "note": "Attempt and spend ceilings, per asset and overall. Edited by a person, never by a tool. A run that reaches one of these stops and says which. ROOM 5 PILOT: Tyler authorized MAXIMUM 8 new operations beyond the 4 recorded at pilot start, so attemptsTotal is 12 -- the cumulative form, set by his instruction, with the history intact. The perAsset entries are his sub-caps. Edited under that instruction, not by a tool on its own initiative.",
  "attemptsPerAsset": 6,
- "attemptsTotal": 400,
+ "attemptsTotal": 12,
  "spendTokensTotal": 4000000,
- "perAsset": {}
+ "perAsset": {
+  "room-05-composition-master": {
+   "attempts": 2,
+   "why": "Tyler, Room 5 pilot ruling 52"
+  },
+  "room-05-plate": {
+   "attempts": 2,
+   "why": "Tyler, Room 5 pilot ruling 52"
+  },
+  "winnie": {
+   "attempts": 3,
+   "why": "Tyler, Room 5 pilot ruling 52"
+  },
+  "room-05-reserve": {
+   "attempts": 1,
+   "why": "Tyler, Room 5 pilot ruling 52 -- one reference-derived correction"
+  }
+ }
 }

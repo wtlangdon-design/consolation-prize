@@ -1,0 +1,121 @@
+{
+ "schema": 1,
+ "id": "winnie",
+ "name": "WINNIE LEDGER",
+ "room": "assay_office",
+ "x": 1010,
+ "y": 624,
+ "zone": 2,
+ "approachRadius": 40,
+ "tree": "WINNIE",
+ "clipPlane": 1,
+ "note": "THE ACTING TERRITORIAL ASSAYER, behind her counter. Doc 04's principal; doc 25's 'Not with her at the counter'. A CANDIDATE: her canonical design is art/staging/room-05/winnie-canonical-02.png (ledger: winnie attempt 3 -- one generation holding her rest pose and her two work poses, pointed at composition-master-02 after Tyler rejected master-01); every frame here is one of those three or is derived from one of them. Nothing in this file is Tyler-approved.\n\nWHERE SHE STANDS. Feet at (1010, 624): behind the counter whose base line is y700 (plate-02), in front of the shelves, at the ledger. The counter masks her below its back edge (clipPlane 1, the plane the annotation derives from the candidate plate) -- no walk box exists behind the counter, so the plane is declared here rather than read from a box. Her sheet is drawn 1:1 at 445 rows, which is the room's own curve at that depth (490 at y700, less the counter's depth), not a zone height.\n\nWHAT SHE DOES. She writes. That is the occupation canon states outright -- WIN_B1: 'She stops writing. It is the first time she has stopped writing.' -- and the only one whose props are hers and nobody's puzzle. Breaks are a POOL chosen on an irregular cycle: a line written; a line written and the page checked; a line written and the pen set down; a glance up. Every break begins by taking the pen from the stand (frame 5) and ends by returning it (5, then 0), so the pen is always somewhere. Between breaks she breathes (frames 0 and 1). While her own tree is open she holds frame 4, looking up from the page -- doc 32 section 8.2, stillness is a performance state.\n\nNOT a joke, not a clue, not a story fact: physical staging of a role canon already gave her (ruling 19). MOVED from x1080 to x1010: the brass cage post at x1075 ran through her centre; at 1010 it crosses her right arm, which is what a cage in front of a figure looks like.",
+ "barks": {},
+ "sprite": {
+  "sheet": "art/staging/room-05/winnie-02/winnie-sheet-lit.png",
+  "frames": [
+   [
+    2,
+    2,
+    444,
+    445
+   ],
+   [
+    448,
+    2,
+    444,
+    445
+   ],
+   [
+    894,
+    2,
+    444,
+    445
+   ],
+   [
+    1340,
+    2,
+    444,
+    445
+   ],
+   [
+    1786,
+    2,
+    444,
+    445
+   ]
+  ],
+  "rate": 0.28,
+  "phase": 0.37,
+  "breaks": [
+   [
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    2,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    3,
+    4,
+    4,
+    4,
+    2,
+    3,
+    2,
+    3,
+    2,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    4,
+    4,
+    2,
+    3,
+    2,
+    3,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    2,
+    3,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 9,
+  "talkFrame": 4,
+  "frameNote": "0 rest (pen in stand) · 1 breath (derived) · 2 writing · 3 writing, hand shifted two display pixels along the line (derived) · 4 looking up from the page. Frames 0, 2 and 4 are the three poses of one generation (winnie-canonical-02); 1 and 3 are derived by tools/rig/winnie-frames.py. No pen-down pose exists this pass, so a break takes the pen in one step and returns it in one step. Relit for (1010,624) on plate-02 by tools/grade/match-local.py at strength 0.7.",
+  "provenance": "art/staging/room-05/winnie-02/frames.json"
+ }
+}
