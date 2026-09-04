@@ -20,3 +20,6 @@ is not made before Tyler's visual review of this candidate.
 
 No visual approval is implied. `visual_accepted` is unset and is Tyler's.
 `REJECTED-01.md` (composition master 01) is unaffected and stays rejected.
+
+**The NIGHT candidate** derived from this composition is `plate-03-night/` — see
+`NIGHT-CANDIDATE.md`. It does not replace this one.

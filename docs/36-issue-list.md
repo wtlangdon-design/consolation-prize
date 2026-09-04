@@ -3589,6 +3589,16 @@ the day candidate's composition, style, scale and Winnie. Selection mechanism
 per errata 64d: check the existing conditional architecture first; a room file
 today carries one `background`, and nothing gates a plate on a flag.
 
+**The night state exists (2026-09-04, the final pilot image operation):**
+`art/staging/room-05/plate-03-night/candidate-1920x864.png` (72124eb6f213),
+an edit of the DAY source with lighting only — every annotated rect
+phase-correlates at (0,0) against the day candidate — plus Winnie's sheet and
+the ink stand relit with identical alpha. Proved live through the candidate
+override (`renders/proofs/assay-office-night/`). It is a CANDIDATE awaiting
+Tyler's review. **What stays open here is the selection mechanism** (errata
+64d): a room file carries one `background`; nothing gates a plate on a flag;
+the night files are named by no content record.
+
 **Two authored lines still say daylight** about Main Street from inside its
 neighbours, and they are Tyler's to reword, as the mud line was:
 

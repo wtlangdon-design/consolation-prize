@@ -1,0 +1,112 @@
+{
+ "note": "NIGHT Winnie regression, read off renders/proofs/assay-office-night/winnie captures (commit 75f9e0bc) by pixel. The night sheet has byte-identical alpha to the approved day sheet, so hand, pen and contact geometry are the approved ones by construction; this checks the live result anyway. Where Thad stands at the dialogue approach point (888,700) he is in front of the counter and covers the stand, so its state cannot be read there and is marked occluded rather than guessed.",
+ "stand": [
+  933,
+  409
+ ],
+ "potStationaryWhereVisible": false,
+ "penStateMatchesFrameWhereVisible": false,
+ "contactBandHeldInEveryCapture": true,
+ "captures": [
+  {
+   "capture": "n01-night-initial",
+   "thadAt": null,
+   "frameByHands": "rest/breath (hands on the page)",
+   "penRaisedPixels": 6,
+   "standOccludedByThad": false,
+   "penInStand": true,
+   "expectedPenInStand": true,
+   "potSilhouetteBBox": [
+    921,
+    378,
+    944,
+    406
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  },
+  {
+   "capture": "n02-night-working",
+   "thadAt": null,
+   "frameByHands": "writing/looking-up (pen in hand)",
+   "penRaisedPixels": 86,
+   "standOccludedByThad": false,
+   "penInStand": false,
+   "expectedPenInStand": false,
+   "potSilhouetteBBox": [
+    921,
+    382,
+    944,
+    406
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  },
+  {
+   "capture": "n03-night-working-again",
+   "thadAt": null,
+   "frameByHands": "rest/breath (hands on the page)",
+   "penRaisedPixels": 6,
+   "standOccludedByThad": false,
+   "penInStand": true,
+   "expectedPenInStand": true,
+   "potSilhouetteBBox": [
+    921,
+    378,
+    944,
+    406
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  },
+  {
+   "capture": "n04-night-dialogue",
+   "thadAt": null,
+   "frameByHands": "rest/breath (hands on the page)",
+   "penRaisedPixels": 0,
+   "standOccludedByThad": false,
+   "penInStand": false,
+   "expectedPenInStand": true,
+   "potSilhouetteBBox": [
+    909,
+    378,
+    956,
+    410
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  },
+  {
+   "capture": "n05-night-back-at-work",
+   "thadAt": null,
+   "frameByHands": "rest/breath (hands on the page)",
+   "penRaisedPixels": 0,
+   "standOccludedByThad": false,
+   "penInStand": false,
+   "expectedPenInStand": true,
+   "potSilhouetteBBox": [
+    909,
+    378,
+    956,
+    410
+   ],
+   "lowestDrawnRowOfWinnie": 401,
+   "contactBand": [
+    392,
+    403
+   ]
+  }
+ ]
+}
