@@ -106,13 +106,33 @@ export function hashFile(path) {
  * diagnosing it needed the run log, the job id and three tool calls."
  */
 async function post(path, body, headers = {}) {
-  const answer = await fetch(`${ENDPOINT}${path}`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${key()}`, ...headers },
-    body,
-  });
+  let answer;
+  try {
+    answer = await fetch(`${ENDPOINT}${path}`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${key()}`, ...headers },
+      body,
+    });
+  } catch (error) {
+    // A TRANSPORT FAILURE IS NOT AN API FAILURE, and reporting it as one sends
+    // whoever reads it to look at the request. This says which it was.
+    throw new Error(`could not reach ${ENDPOINT}: ${error.message}. This is the network, not `
+      + 'the API and not the key.');
+  }
   const text = await answer.text();
   if (!answer.ok) {
+    // THE EGRESS ALLOWLIST ANSWERS 403 AND SO DOES THE API, and they mean
+    // entirely different things: one is a key or an account, the other is a
+    // host this environment is not permitted to reach at all. Told apart by
+    // what answered, because a run that reports "403, check your key" against
+    // a blocked host sends somebody to rotate a credential that was fine.
+    if (answer.status === 403 && /not in allowlist|egress/i.test(text)) {
+      throw new Error(`${new URL(ENDPOINT).host} is not in this environment's network egress `
+        + 'allowlist, so no request left the machine. The key was never used and is not the '
+        + 'problem. Add the host to the environment\'s network settings -- '
+        + 'https://code.claude.com/docs/en/claude-code-on-the-web -- and run this again.'
+        + `\n--- what the proxy said ---\n${text.slice(0, 600)}`);
+    }
     throw new Error(`image API ${answer.status} on ${path}\n--- what it said ---\n`
       + `${text.slice(0, 4000)}`);
   }
