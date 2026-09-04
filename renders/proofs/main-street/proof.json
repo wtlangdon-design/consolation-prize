@@ -4,29 +4,13 @@
  "room": "main_street",
  "roomWidth": 3700,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "6c018296ed28bc23ead5b2f9c5f0ef3ae2491714",
+ "commit": "9bf31b7cd74db3634bdd12e6814a91abc3d4d2bb",
  "workingTreeClean": false,
- "dirtyAllowed": true,
+ "dirtyAllowed": false,
  "uncommitted": [
-  "M .gitignore",
-  " M content/build-ledger.json",
-  "D  proofs/main-street/index.html",
-  "D  proofs/main-street/panel-a-base.png",
-  "D  proofs/main-street/panel-b-populated.png",
-  "D  proofs/main-street/panel-c-boardwalk-far.png",
-  "D  proofs/main-street/panel-c-mud_near-near.png",
-  "D  proofs/main-street/panel-c-occlusion-mud_near.png",
-  "D  proofs/main-street/panel-d-changed.png",
-  "D  proofs/main-street/proof.json",
-  "D  proofs/stage-road/index.html",
-  "D  proofs/stage-road/panel-a-base.png",
-  "D  proofs/stage-road/panel-b-populated.png",
-  "D  proofs/stage-road/panel-c-road_open-far.png",
-  "D  proofs/stage-road/panel-c-road_open-near.png",
-  "D  proofs/stage-road/panel-d-changed.png",
-  "D  proofs/stage-road/proof.json",
-  " M tools/gauntlet/proof.mjs",
-  "?? renders/proofs/"
+  "M renders/proofs/stage-road/contact-sheet.webp",
+  " M renders/proofs/stage-road/index.html",
+  " M renders/proofs/stage-road/proof.json"
  ],
  "route": "main-street",
  "routeLog": [
@@ -76,7 +60,7 @@
    ],
    "reportedHeight": 105,
    "expected": 105,
-   "drawnFrom": "art/actors/thad-idle-front/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-front/idle-00.png",
    "bounds": [
     899,
     428,
@@ -113,7 +97,7 @@
    ],
    "reportedHeight": 206,
    "expected": 206,
-   "drawnFrom": "art/actors/thad-idle-front/idle-02.png",
+   "drawnFrom": "art/actors/thad-idle-front/idle-05.png",
    "bounds": [
     1753,
     651,
@@ -131,7 +115,7 @@
   {
    "panel": "B",
    "room": "main_street",
-   "clock": 108.53960000000001,
+   "clock": 107.3489,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -168,7 +152,7 @@
      "height": 150,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-02.png",
+     "from": "art/actors/thad-idle-front/idle-05.png",
      "bounds": [
       3211,
       556,
@@ -203,15 +187,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T06:05:53.070Z",
+   "capturedAt": "2026-09-04T06:50:36.444Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "03a5b2a3b882c28626b5bf1b3af95d1c6b05491c99e2952b7bc1cb933cde570e"
+   "hash": "52babf9dfd6422ab688023040ce5d564f4be3199ea84c3d6f797eb61d5b1110b"
   },
   {
    "panel": "A",
    "room": "main_street",
-   "clock": 109.6562,
+   "clock": 108.2988,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -280,15 +264,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T06:05:54.170Z",
+   "capturedAt": "2026-09-04T06:50:37.797Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "c76789500eb8e4ba1ea0c1abc4378c7205544c5e8163b3aae4568d505c147ed3"
+   "hash": "c40e4e78d83d5f7d97611f27f98883ba55e0e927f4d4930d90e0aef1e51f2e07"
   },
   {
    "panel": "D",
    "room": "main_street",
-   "clock": 116.8893,
+   "clock": 115.7152,
    "beat": null,
    "control": null,
    "camera": 595,
@@ -321,16 +305,16 @@
       857
      ],
      "facing": "front",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 206,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-front/idle-break-02.png",
+     "from": "art/actors/thad-idle-front/idle-01.png",
      "bounds": [
-      1805,
+      1753,
       651,
-      139,
-      214
+      244,
+      227
      ],
      "order": 0,
      "clipLevel": 1,
@@ -369,26 +353,27 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-09-04T06:06:01.398Z",
+   "capturedAt": "2026-09-04T06:50:45.166Z",
    "intent": "principal changed state: Act III repaints the Improvement Company sign -- 'fresh gilt on the lettering' -- and posts the funeral notice on the board. Doc 35 section 2a's worked gate ruled both STATEFUL for exactly that reason, and they are the only two things on this street that change appearance rather than what Thad says about them.\n\nAND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED. Errata 60 rules ACT a numeric counter written at four places in doc 48's scripts; content/flags/flags.json declares 22 flags and ACT is not among them. So the gate the repaint compiles to cannot be satisfied by anything, and the proof fails panel D by name. An unreachable principal change is a finding; an undeclared one is a hole in this file.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "139fd6c34db266c50baa72f252f0af201243aef6fe6bc6ec4dcfd1ab18cf42ef",
+   "hash": "1413e9ac217516f2ad66a9b81768b301cbb88d5c7f39cd1ace3add56f5ff235a",
    "changedBy": "nothing"
   }
  ],
  "failures": [
   "panel D: the flag registry declares no ACT",
   "panel D: ACT is undefined, wanted 3 -- the intended state was not reached and the frame is of the old one",
-  "panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename."
+  "panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename.",
+  "the working tree is dirty, so these frames do not correspond to 9bf31b7c. Commit, or re-run with --allow-dirty, which records it."
  ],
  "passed": false,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T06:06:01.398Z",
+ "at": "2026-09-04T06:50:45.167Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 710740,
+  "bytes": 711730,
   "panels": 5,
   "scale": 0.5
  }
