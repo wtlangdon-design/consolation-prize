@@ -51,6 +51,7 @@ import { check as speechColours } from './check-speech-colours.mjs';
 import { check as exitCollisions } from './check-exit-collisions.mjs';
 import { check as rigDescribesFrames } from './check-rig-describes-frames.mjs';
 import { check as cameraSpace } from './check-camera-space.mjs';
+import { check as buildLedger } from './check-build-ledger.mjs';
 
 /**
  * The whole validation pass. Every criterion here is a script somebody can
@@ -130,6 +131,7 @@ const CHECKS = [
   // five beats has never once run in the suite. R5o, exactly: a fix is not
   // finished until something reaches it. It passes.
   moverLifecycle,
+  buildLedger,
 ];
 
 /**

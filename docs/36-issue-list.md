@@ -3137,3 +3137,156 @@ check. The first version of `check-cycling-lands` caught that as
 `catch { continue }` and reported "0 of 0 elements" and passed. The reader now
 handles colour type 2 and normalises to RGBA, and the check fails loudly when
 it cannot read its input.
+
+---
+
+## Q14 · MAIN STREET'S TWO OCCLUSION PLANES ARE UNREACHABLE, AND THE COMPILER PUTS THEM THAT WAY
+
+**Found by the four-panel room proof on its first run against Room 2.**
+
+`main-street.json` declares two occlusion planes, `level: 1` and `level: 2`,
+each with a mask on disk that boot loads. Every walk box in the room declares
+`clipPlane: 12`.
+
+`Renderer.masked()` resolves a plane by level —
+
+    const plane = planes.find((candidate) => candidate.level === level);
+
+— finds nothing for 12, and, with no state mask either, calls `draw()` straight
+through. **So no figure in Main Street is ever occluded by anything.** The
+lumber stack, the hitching rail and the water trough are all in front of Thad
+in the picture and behind him in the draw. Two mask PNGs load, cost memory, and
+occlude nobody.
+
+`clipPlane: 12` is written by `tools/compile-room.mjs`, hard-coded, so this is
+not a one-room mistake — it is what the compiler will emit into every room it
+builds next.
+
+**Nothing in the suite could see it.** `check-asset-paths` confirms the masks
+exist. `check-boot-assets` confirms they are loaded. `check-walk-boxes` checks
+routing and default verbs. The one thing nobody asked was whether the number on
+the box names a plane the room has, and the answer is only visible in a frame.
+
+### What the room's own notes already say, and why this is still a ruling
+
+The plane notes are explicit:
+
+> plane 1 — "The near corner alone — the lumber stack and the wagon wheel. An
+> actor in the near mud is masked by this and by nothing else"
+
+> plane 2 — "Plane 1 plus the hitching rail and the water trough… An actor in
+> the middle band or further is behind all of it."
+
+That reads as: **near mud → 1, everything further back → 2**, with the
+boardwalk lip's assignment the only genuinely open question. But which band is
+"the near mud" is a placement judgement about a picture, and doc 22 section 5's
+rule — an actor is masked by ITS OWN plane, not by a union — means getting it
+wrong puts a man in front of a trough he should be behind. **Not fixed here.**
+
+**And there is a second question underneath it.** `types.ts` still describes
+`clipPlane` as "carried now and read by nothing yet", which stopped being true
+when `masked()` was written. A field the schema calls unread and the renderer
+reads is a field two people will disagree about.
+
+---
+
+## Q15 · THE COMPILER AND THE ANNOTATOR ARE EACH HARD-WIRED TO ONE ROOM
+
+Doc 46 part four's eight-step table is the factory. Steps 3 and 4 are the
+compiler and the annotator, and neither can be pointed at a fourth room.
+
+**The compiler**, `tools/compile-room.mjs`, in two places:
+
+    const ROOM_FILE = { 2: 'main-street', 3: 'nugget' }[room];
+    const annPath = `reference/room-0${room}/annotation.json`;
+
+The first is a two-entry table; the second cannot express a room number above
+nine.
+
+**The annotator**, `tools/annotate/room.html`, is Room 2 throughout: the
+`<title>`, the `<h1>`, the plate `src`, the note about the plate being
+3700×864, and the entire `ITEMS` array — fifteen literal hotspot and exit
+records — are written into the page.
+
+Neither is hard to generalise and neither is generalised, and doc 46 part four
+puts Tyler in the annotator for fifteen minutes per room. **For any room but
+the second there is no annotator to be in**, and every rect, the walk box, both
+depth samples and the arrival point come from it. This is the narrowest gate on
+building a fourth room.
+
+---
+
+## Q16 · `check-item-names` MEASURES AGAINST A 320px LINE AND A VOID FONT
+
+    const room = 320 - panel.sentence.x * 2;
+
+**320 is the pre-errata-54 native width**, and the font it measures with is
+`art/ui/font-5x7.json`, which errata 54 voids and forbids replacing without a
+ruling. The check reports "the sentence line holds 248px, about 41 glyphs" —
+a true statement about a presentation the project no longer has.
+
+**Deliberately not changed.** Widening it to 1920 makes it pass on every
+conceivable label, which is a vacuous assertion bought with a one-line edit and
+is worse than an assertion that is honestly measuring the wrong thing. It is
+blocked on the font ruling, and the note is here so the number is not mistaken
+for a live constraint.
+
+---
+
+## Q17 · SEVEN SHIPPING PLATES CANNOT BE READ BY ANY TOOL IN THIS REPOSITORY
+
+Recorded as a measurement rather than a new finding — Q17 above lists the
+320-native assets — because the number is now exact and the consequence is
+sharper than "still native".
+
+`tools/lib/png.mjs` handles colour types 2 and 6 and refuses type 3, correctly:
+an indexed PNG needs its palette and a reader that guessed would mis-decode
+silently. Seven of the eleven files in `art/backgrounds/` are colour type 3 at
+320×144:
+
+    room-05-assay-office   room-13-undertakers   room-18-hotel-lobby
+    room-19-thads-room     room-29-high-ridge    room-36-main-street-dawn
+    title-screen
+
+**So every pixel check in the project is blind to them.** `check-cycling-lands`
+would fail loudly on one now; the art gates report `UNREADABLE`. That is the
+right behaviour and it means the four rooms behind those plates cannot be
+proven until the plates are regenerated at errata 54's presentation.
+
+---
+
+## Q18 · THE IMAGE API PATH HAS NEVER BEEN CALLED
+
+`tools/art/openai-image.mjs` reads `OPENAI_API_KEY` from the environment and
+from nowhere else. There is no key in the environment the audit ran in, so
+**the adapter has never made a live request** and neither `generate` nor `edit`
+is proven against the real API.
+
+Everything downstream of the call is exercised: the staging refusal (nothing
+may be written outside `art/staging/`), the provenance row, the attempt and
+spend caps, and technical gates 1–6 all run against files already in the tree.
+What is unproven is the request shape, the response shape, and whether the
+model returns an image at the sizes errata 54 asks for.
+
+Recorded in the same spirit as `tools/render-music.mjs`, which "needs Chromium
+and was written where none could be installed, so it is unproven until somebody
+runs it." Same shape, same honesty.
+
+---
+
+## Q19b · A HELD BEAT WAS REPORTED AS A PLAYING BEAT — **FIXED**
+
+`CarriedBeats.current` returned `beats[at]` whether or not the beat had begun.
+Doc 17 beat 9 declares `awaitFlag: T_HOB_SPOKEN` — Q63, ruled: Hob stands at
+the roadside with his lamp until somebody addresses him — so the probe reported
+"beat 9" for a beat that was armed, holding, and had dispatched nothing.
+
+Doc 44 defines the reported beat as "the beat of the last step dispatched". A
+held beat has dispatched none, and reporting it makes a correct wait
+indistinguishable from a hang: a route sat out a ninety-second deadline against
+a game doing exactly what Q63 says it should.
+
+`current` is null while held, and `waiting` sits beside it, so "no beat is
+playing" and "a beat is waiting for the player" are separable facts. The probe
+carries both.
+

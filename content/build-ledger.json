@@ -1,0 +1,119 @@
+{
+ "schema": 1,
+ "note": "THE OPERATIONAL LEDGER. What is built, what it depends on, and where the evidence for it is. It exists because the audit looked for a machine-readable completion queue and there is none: doc 15's road to done, doc 36's issue list and doc 46's build order are all prose, and prose cannot answer 'what may be started now' without a person reading it.\n\nIT IS NOT A SECOND MANIFEST AND HOLDS NO CREATIVE CONTENT. No dialogue, no examine line, no puzzle text, no design prose, no ruling. Every row is ids, document POINTERS, statuses, hashes and paths. The words stay in /docs and the engine's index stays content/manifest.json -- a second home for either is how every pair of documents in this project has drifted.\n\nIT IS ALSO NOT A PLAN. Which room comes next is doc 46 part five and Tyler; this records what the state IS so that question can be asked against facts.",
+ "statuses": {
+  "unstarted": "No work has begun. Its sources may not all exist yet.",
+  "blocked": "Cannot proceed. `blockers` names why, by Q id or by item id.",
+  "in-progress": "Started and not finished.",
+  "built": "Content, geometry and art are in the tree and the suite is green on it.",
+  "proven": "built, AND a four-panel proof passed on a named commit.",
+  "accepted": "proven, AND Tyler set visual_accepted. Only he sets it."
+ },
+ "visualAcceptedNote": "visual_accepted is Tyler's field and no tool writes it. A proof establishes technical admissibility; it says nothing about whether a room is good, in style or funny. Doc 46 part one names this as the thing that cannot be automated, and doc 44's first honesty makes it permanent.",
+ "items": [
+  {
+   "id": "room-01-stage-road",
+   "kind": "room",
+   "sources": ["docs/05-examine-layer.md", "docs/17-opening-sequence.md", "docs/43-room-01-staging-script.md", "docs/37-room-01-generation-prompts.md"],
+   "dependsOn": [],
+   "status": "proven",
+   "commit": "673efeb",
+   "validation": "npm run validate",
+   "gauntlet": "tools/gauntlet/opening.json",
+   "proof": "proofs/stage-road/proof.json",
+   "blockers": [],
+   "visual_accepted": false
+  },
+  {
+   "id": "room-02-main-street",
+   "kind": "room",
+   "sources": ["docs/05-examine-layer.md", "docs/13-room-02-content.md", "docs/14-room-02-exits.md", "docs/20-room-map.md"],
+   "dependsOn": ["room-01-stage-road"],
+   "status": "built",
+   "commit": "673efeb",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": "proofs/main-street/proof.json",
+   "blockers": ["Q14", "Q16"],
+   "visual_accepted": false
+  },
+  {
+   "id": "room-03-nugget",
+   "kind": "room",
+   "sources": ["docs/05-examine-layer.md", "docs/16-room-03-content.md"],
+   "dependsOn": ["room-02-main-street"],
+   "status": "built",
+   "commit": "673efeb",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": null,
+   "blockers": ["Q17"],
+   "visual_accepted": false
+  },
+  {
+   "id": "room-05-assay-office",
+   "kind": "room",
+   "sources": ["docs/05-examine-layer.md", "docs/25-rooms-05-07.md", "docs/20-room-map.md"],
+   "dependsOn": ["room-02-main-street", "tool-annotator-any-room", "tool-compiler-any-room"],
+   "status": "blocked",
+   "commit": null,
+   "validation": null,
+   "gauntlet": null,
+   "proof": null,
+   "blockers": ["Q15", "Q16", "Q17"],
+   "visual_accepted": false
+  },
+  {
+   "id": "tool-compiler-any-room",
+   "kind": "tool",
+   "sources": ["docs/46-room-factory.md", "docs/50-autonomy-delta-audit.md"],
+   "dependsOn": [],
+   "status": "blocked",
+   "commit": null,
+   "validation": null,
+   "gauntlet": null,
+   "proof": null,
+   "blockers": ["Q15"],
+   "visual_accepted": false
+  },
+  {
+   "id": "tool-annotator-any-room",
+   "kind": "tool",
+   "sources": ["docs/46-room-factory.md", "docs/50-autonomy-delta-audit.md"],
+   "dependsOn": [],
+   "status": "blocked",
+   "commit": null,
+   "validation": null,
+   "gauntlet": null,
+   "proof": null,
+   "blockers": ["Q15"],
+   "visual_accepted": false
+  },
+  {
+   "id": "art-api-layer",
+   "kind": "tool",
+   "sources": ["docs/50-autonomy-delta-audit.md"],
+   "dependsOn": [],
+   "status": "blocked",
+   "commit": "673efeb",
+   "validation": null,
+   "gauntlet": null,
+   "proof": "proofs/calibration/gate-calibration.md",
+   "blockers": ["Q18"],
+   "visual_accepted": false
+  },
+  {
+   "id": "room-proof-system",
+   "kind": "tool",
+   "sources": ["docs/44-gauntlet.md", "docs/46-room-factory.md", "docs/50-autonomy-delta-audit.md"],
+   "dependsOn": [],
+   "status": "proven",
+   "commit": "673efeb",
+   "validation": "npm run validate",
+   "gauntlet": null,
+   "proof": "proofs/stage-road/proof.json",
+   "blockers": [],
+   "visual_accepted": false
+  }
+ ]
+}

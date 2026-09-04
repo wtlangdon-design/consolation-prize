@@ -170,9 +170,19 @@ for (const row of puzzleRows) {
 
 // ---- things that emit light -------------------------------------------------
 //
-// Doc 18's palette cycling is the only background animation the game has, and
-// Room 1 already uses it for Hob's lamp. A lit interior that does not breathe
-// is a still photograph of a warm room. Costs palette entries, not art.
+// A lit interior that does not breathe is a still photograph of a warm room.
+//
+// THE MECHANISM CHANGED AND THIS TEXT DID NOT. It used to say "declare
+// `cycling` (doc 18) so the room breathes", and errata 54 voided doc 18 in
+// full: palette cycling needs an index palette and there is not one. Doc 36
+// Q13 measured it -- of hobs_lamp's four reserved band colours, ZERO appear
+// anywhere in the shipping plate -- and ruled the replacement: `RoomLamp`, a
+// small warm additive glow over a lamp that is already painted into the plate,
+// rising and falling on two sines of different periods so the flicker never
+// ticks. Six are declared across Rooms 2 and 3.
+//
+// A gate that tells an author to build a dead mechanism is worse than a gate
+// that says nothing, because it is followed.
 const LIGHT = /\b(lamp|lamps|candle|candles|chandelier|stove|fire|lantern|flame|hearth)\b/i;
 const lights = rows.filter((entry) => LIGHT.test(entry.h));
 
@@ -201,7 +211,8 @@ if (cast.size) {
   for (const who of cast) console.log(`  · ${who}`);
 }
 if (lights.length) {
-  console.log('\nLIGHT SOURCES -- declare `cycling` (doc 18) so the room breathes:');
+  console.log('\nLIGHT SOURCES -- declare a `lamps` entry (doc 36 Q13) so the room breathes.');
+  console.log('DO NOT declare `cycling`: doc 18 is void under errata 54 and animates nothing.');
   for (const entry of lights) console.log(`  · ${entry.h}`);
 }
 console.log('\nThe plate brief is written from the PLATE rows only.\n');
