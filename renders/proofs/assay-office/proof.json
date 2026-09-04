@@ -4,7 +4,7 @@
  "room": "assay_office",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "50a66324bce5f383ba373475d20881ad4c507fbc",
+ "commit": "73ef192b5b14f0764ad60bef8cb001e8865b4f9b",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -71,7 +71,7 @@
    ],
    "reportedHeight": 471,
    "expected": 471,
-   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
    "bounds": [
     631,
     230,
@@ -79,7 +79,7 @@
     520
    ],
    "order": 0,
-   "renderedHeight": 480,
+   "renderedHeight": 481,
    "renderedBottom": 700,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
@@ -108,7 +108,7 @@
    ],
    "reportedHeight": 559,
    "expected": 559,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-04.png",
    "bounds": [
     585,
     270,
@@ -139,35 +139,35 @@
     "height": 186
    },
    "seen": {
-    "x": 971,
-    "y": 220,
-    "width": 130,
-    "height": 176,
+    "x": 965,
+    "y": 221,
+    "width": 136,
+    "height": 175,
     "bottom": 395,
     "right": 1100,
-    "changed": 11439
+    "changed": 12162
    },
    "props": [
     {
      "sheet": "art/staging/room-05/winnie-02-counter/inkstand.png",
      "at": [
-      958,
+      933,
       409
      ],
      "box": {
-      "x": 940,
+      "x": 915,
       "y": 360,
       "width": 36,
       "height": 52
      },
      "seen": {
-      "x": 946,
-      "y": 360,
-      "width": 30,
-      "height": 47,
+      "x": 921,
+      "y": 379,
+      "width": 24,
+      "height": 28,
       "bottom": 406,
-      "right": 975,
-      "changed": 631
+      "right": 944,
+      "changed": 458
      },
      "expected": [
       399,
@@ -188,7 +188,7 @@
   {
    "panel": "B",
    "room": "assay_office",
-   "clock": 121.98689999999999,
+   "clock": 117.1203,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -226,7 +226,7 @@
      "height": 515,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       -67,
       250,
@@ -277,15 +277,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T20:22:39.615Z",
+   "capturedAt": "2026-09-04T20:31:24.823Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "0d340a18ae63a55e7b656876b17bcd2ee904a0c801713a1c6d5ce6054ae0808e"
+   "hash": "5d09bd43145fb6793f64092d94f17bb50dbc6f49f458e04a3bb5e005ab31e249"
   },
   {
    "panel": "A",
    "room": "assay_office",
-   "clock": 123.03689999999999,
+   "clock": 118.1869,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -371,7 +371,7 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T20:22:40.703Z",
+   "capturedAt": "2026-09-04T20:31:25.906Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "52bbaa11fa13663edce1067a4bfb15fd926d0bf974257e1d371cc78b8e4bb687"
@@ -379,7 +379,7 @@
   {
    "panel": "D",
    "room": "assay_office",
-   "clock": 135.403,
+   "clock": 130.3698,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -417,7 +417,7 @@
      "height": 558,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-04.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
       1319,
       269,
@@ -478,10 +478,10 @@
     "cast(true)",
     "flag ACT=2"
    ],
-   "capturedAt": "2026-09-04T20:22:53.021Z",
+   "capturedAt": "2026-09-04T20:31:38.123Z",
    "intent": "principal changed state: THE QUEUE BENCH, acts 2-4. docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2 writes its LOOK for act 2-4 and nothing for Act I; docs/49 gives it USE and PUSH. Prerequisite: ACT >= 2, which the game sets at doc 48's S1 (not built). Visible consequence: the bench becomes a target -- its LOOK line, and Thad walks to it. The bench itself is plate in every act.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "07c9543f838f0aa82689bc1b03630510136ed265a32fbd4bbead7edbbb91cc19",
+   "hash": "737dc4dd6b942b87baf06053d0ed6729811e598ecb206fde1dffab5291c26469",
    "changedBy": "counters"
   }
  ],
@@ -489,11 +489,11 @@
  "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T20:22:53.021Z",
+ "at": "2026-09-04T20:31:38.123Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 377774,
+  "bytes": 382814,
   "panels": 5,
   "scale": 0.5
  }
