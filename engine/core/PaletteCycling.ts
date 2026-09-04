@@ -23,6 +23,20 @@ export interface ResolvedElement {
   count: number;
 }
 
+/**
+ * The elements a room actually animates: everything it declares, less the
+ * dormant ones.
+ *
+ * ONE READER, SO THE TWO HALVES CANNOT DISAGREE. `dormant` was content-only
+ * metadata: the validator skipped a dormant element and the runtime did not,
+ * so Room 1 went on building a cycler, scanning its plate and cycling one
+ * accidental sky pixel while the content file said it did nothing. Both sides
+ * now ask this.
+ */
+export function liveCycling(room: { cycling?: CyclingElement[] }): CyclingElement[] {
+  return (room.cycling ?? []).filter((element) => element.dormant !== true);
+}
+
 export function resolve(palette: PaletteFile, element: CyclingElement): ResolvedElement {
   const family = palette.families[element.ramp.family];
   if (!family) {

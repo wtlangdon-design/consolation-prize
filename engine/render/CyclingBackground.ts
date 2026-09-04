@@ -1,5 +1,5 @@
 import type { PaletteFile, RoomFile } from '../core/types.ts';
-import { mappingAt, resolve, sameMapping, type ResolvedElement } from '../core/PaletteCycling.ts';
+import { liveCycling, mappingAt, resolve, sameMapping, type ResolvedElement } from '../core/PaletteCycling.ts';
 
 /**
  * A composed background whose reserved bands can be rotated at runtime.
@@ -29,7 +29,7 @@ export class CyclingBackground {
 
   constructor(source: CanvasImageSource, room: RoomFile, palette: PaletteFile,
               width: number, height: number) {
-    this.elements = (room.cycling ?? []).map((element) => resolve(palette, element));
+    this.elements = liveCycling(room).map((element) => resolve(palette, element));
 
     this.canvas = document.createElement('canvas');
     this.canvas.width = width;

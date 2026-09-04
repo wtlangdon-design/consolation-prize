@@ -11,7 +11,7 @@ import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
 import { DialoguePerformance, readingHold, type HoldTiming } from '../core/DialoguePerformance.ts';
-import { mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
+import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE } from '../render/BitmapFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
@@ -422,8 +422,8 @@ export class GameScene extends Phaser.Scene {
    * is very slightly not.
    */
   private cycleChanged(): boolean {
-    const elements = this.state.room.cycling;
-    if (!elements?.length) return false;
+    const elements = liveCycling(this.state.room);
+    if (!elements.length) return false;
     const on = this.state.menu.toggle(CYCLING_OPTION);
     const mapping = on
       ? mappingAt(elements.map((element) => resolve(this.state.content.palette, element)),
@@ -459,7 +459,7 @@ export class GameScene extends Phaser.Scene {
     }
     if (!this.textures.exists(key)) return null;
     const source = this.textures.get(key).getSourceImage() as CanvasImageSource;
-    if (!room.cycling?.length) return source;
+    if (liveCycling(room).length === 0) return source;
 
     let cycler = this.cyclers.get(roomId);
     if (!cycler) {

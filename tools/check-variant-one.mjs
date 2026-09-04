@@ -41,7 +41,7 @@ const ELAPSED = [
 ];
 
 export function check() {
-  const report = new Report('Variant 1 stands alone (doc 17)');
+  const report = new Report('DIAGNOSTIC: variant-1 candidates for a reader (doc 17)');
   const content = loadContent();
   const fixtures = new Set(
     content.rooms.filter(({ data }) => data.fixture).map(({ data }) => data.id),
@@ -76,6 +76,12 @@ export function check() {
     }
   }
 
+  // WHY THIS IS A DIAGNOSTIC AND NOT A CHECK. It contains no report.fail()
+  // at all -- proved by handing it a blatant violation, which it printed as a
+  // candidate and passed. Whether a variant stands alone is a writing
+  // judgement and this cannot make it; what it can do is put the candidates
+  // in front of somebody who can. That is worth having and it is not an
+  // acceptance criterion, so it no longer counts toward one.
   report.note(`${sequences} sequences with repeat variants checked`);
   report.note('candidates only -- whether each is a violation is a writing judgement');
   for (const { where, line } of continuation) {

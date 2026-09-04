@@ -747,6 +747,24 @@ export interface CyclingElement {
   phase?: number;
   ramp: { family: string; start: number; count: number };
   bounds: [number, number, number, number];
+  /**
+   * DECLARED, KNOWN NOT TO ANIMATE, AND SAID SO IN THE CONTENT.
+   *
+   * Errata 54 retired the locked palette, so index recovery from a graded RGB
+   * plate finds nothing and every element in the game is in this state. Both
+   * of Room 1's are marked, by name in the ruling.
+   *
+   * IT WAS METADATA THE ENGINE IGNORED, WHICH IS WORSE THAN NOT HAVING IT.
+   * `check-cycling-lands` read it and skipped; the runtime did not, so it
+   * still built a CyclingBackground for Room 1, scanned the whole 1920x864
+   * plate for reserved bands, found `puddles`' single accidental match in the
+   * sky, and cycled that one pixel -- forcing a full redraw each time the
+   * mapping changed, on a machine that has to hold 60fps. A field one half of
+   * the project honours and the other half does not is a disagreement wearing
+   * a name.
+   */
+  dormant?: boolean;
+  dormantNote?: string;
 }
 
 /**
