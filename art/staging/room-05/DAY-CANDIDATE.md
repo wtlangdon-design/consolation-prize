@@ -4,7 +4,9 @@ Classification by owner ruling, 2026-09-04 —
 `docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS`.
 
 `composition-master-02.png`, `plate-02/` (source, derived candidate, safe-frame
-record) and `winnie-02/` are the room's **daylight** candidate. They are **not
+record), `winnie-02/` and `winnie-02-counter/` (the behind-counter runtime
+sheet and ink-stand prop derived from `winnie-02/` after Tyler's counter-contact
+correction) are the room's **daylight** candidate. They are **not
 rejected and not deleted**. They remain the approved source of the room's
 composition, spatial layout, geometry ancestry (the annotation is bound to
 `plate-02`'s hash), canonical Winnie design ancestry, object placement and

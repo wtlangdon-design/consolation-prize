@@ -1,0 +1,90 @@
+{
+ "note": "Read off the life proof captures (renders/proofs/assay-office/life, commit 484c81db) by pixel: gold above the stand rim in the stand columns = the pen standing in it; the pot body bbox must not move between captures.",
+ "potBodyStationary": true,
+ "captures": [
+  {
+   "capture": "01-initial",
+   "goldAboveRimInStandColumns": 43,
+   "penInStand": true,
+   "goldAboveHandTop": 0,
+   "potBodyBBox": [
+    913,
+    380,
+    952,
+    406
+   ]
+  },
+  {
+   "capture": "02-early-idle",
+   "goldAboveRimInStandColumns": 43,
+   "penInStand": true,
+   "goldAboveHandTop": 0,
+   "potBodyBBox": [
+    913,
+    380,
+    952,
+    406
+   ]
+  },
+  {
+   "capture": "03-idle-later",
+   "goldAboveRimInStandColumns": 0,
+   "penInStand": false,
+   "goldAboveHandTop": 0,
+   "potBodyBBox": [
+    913,
+    380,
+    952,
+    406
+   ]
+  },
+  {
+   "capture": "05-looked",
+   "goldAboveRimInStandColumns": 0,
+   "penInStand": false,
+   "goldAboveHandTop": 0,
+   "potBodyBBox": [
+    913,
+    380,
+    952,
+    406
+   ]
+  },
+  {
+   "capture": "09-dialogue-reply",
+   "goldAboveRimInStandColumns": 0,
+   "penInStand": false,
+   "goldAboveHandTop": 0,
+   "potBodyBBox": [
+    913,
+    380,
+    952,
+    406
+   ]
+  },
+  {
+   "capture": "10-after-dialogue",
+   "goldAboveRimInStandColumns": 0,
+   "penInStand": false,
+   "goldAboveHandTop": 0,
+   "potBodyBBox": [
+    913,
+    380,
+    952,
+    406
+   ]
+  },
+  {
+   "capture": "12-re-entered",
+   "goldAboveRimInStandColumns": 0,
+   "penInStand": false,
+   "goldAboveHandTop": 0,
+   "potBodyBBox": [
+    913,
+    380,
+    952,
+    406
+   ]
+  }
+ ]
+}

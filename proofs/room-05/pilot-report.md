@@ -63,6 +63,10 @@ From `renders/room-05-style-continuity.json`: the interior scale jump (Thad 240 
 
 **Unrelated debt untouched:** Main Street's two masks stay `maskPending`; its ACT gate remains its own to re-prove (ACT is now declared).
 
+## WINNIE COUNTER CONTACT — CORRECTED (2026-09-04)
+
+Tyler's flag on review: her hands and the ink stand floated above the ledger and counter (hands 16px above the ledger's far edge, stand base 29px above the surface). Corrected without any image operation, redesign or plate change: `tools/rig/winnie-counter.py` derives a behind-counter sheet from the lit five-frame sheet (lowered 39px, matted per column against the ledger's far edge and the counter's back edge, stand removed, cropped to what is drawn), and the ink stand is one prop at one plate coordinate with pen-in/pen-out states cut from her own rest frame. Evidence: `renders/room-05-winnie-contact-before-after.png`; `renders/room-05-winnie-pen-state.png` + `proofs/room-05/winnie-pen-state.json`; measurements in `art/staging/room-05/winnie-02-counter/frames.json`; four-panel proof PASS clean on `b75e14b` (her lowest drawn row y400 in the ledger band y398–410, stand base y406 on the surface y399–431); life proof PASS clean on `484c81db`. Geometry, plate, composition, dialogue and Room 1 untouched; API operations still 7 of 8.
+
 ## STATUS
 
 **ROOM 5 — CANDIDATE COMPLETE; HUMAN VISUAL GATE PENDING, WITH REQUIRED NIGHT VARIANT BEFORE SHIPPING** (errata 64).
