@@ -1,18 +1,32 @@
 {
- "note": "NIGHT Winnie regression, read off renders/proofs/assay-office-night/winnie captures (commit 75f9e0bc) by pixel. The night sheet has byte-identical alpha to the approved day sheet, so hand, pen and contact geometry are the approved ones by construction; this checks the live result anyway. Where Thad stands at the dialogue approach point (888,700) he is in front of the counter and covers the stand, so its state cannot be read there and is marked occluded rather than guessed.",
+ "note": "NIGHT Winnie regression, read off renders/proofs/assay-office-night/winnie captures (commit 75f9e0bc) by pixel. The night sheet has byte-identical alpha to the approved day sheet, so hand, pen and contact geometry are the approved ones by construction; this checks the live result anyway. In the two captures with Thad at the dialogue approach point (888,700) he stands in front of the counter and his body covers the stand, so its state is recorded as occluded, not read. The talk frame is identified from the open options rather than from pixels.",
  "stand": [
   933,
   409
  ],
  "potStationaryWhereVisible": false,
- "penStateMatchesFrameWhereVisible": false,
+ "penStateMatchesFrameWhereVisible": true,
  "contactBandHeldInEveryCapture": true,
+ "standVisibleIn": [
+  "n01-night-initial",
+  "n02-night-working",
+  "n03-night-working-again"
+ ],
  "captures": [
   {
    "capture": "n01-night-initial",
-   "thadAt": null,
-   "frameByHands": "rest/breath (hands on the page)",
-   "penRaisedPixels": 6,
+   "thadAt": [
+    200,
+    765
+   ],
+   "thadBounds": [
+    -67,
+    250,
+    534,
+    569
+   ],
+   "frame": "rest/breath (hands on the page)",
+   "penRaisedPixelsAboveWritingHand": 6,
    "standOccludedByThad": false,
    "penInStand": true,
    "expectedPenInStand": true,
@@ -30,9 +44,18 @@
   },
   {
    "capture": "n02-night-working",
-   "thadAt": null,
-   "frameByHands": "writing/looking-up (pen in hand)",
-   "penRaisedPixels": 86,
+   "thadAt": [
+    200,
+    765
+   ],
+   "thadBounds": [
+    -67,
+    250,
+    534,
+    569
+   ],
+   "frame": "writing (pen in hand)",
+   "penRaisedPixelsAboveWritingHand": 86,
    "standOccludedByThad": false,
    "penInStand": false,
    "expectedPenInStand": false,
@@ -50,9 +73,18 @@
   },
   {
    "capture": "n03-night-working-again",
-   "thadAt": null,
-   "frameByHands": "rest/breath (hands on the page)",
-   "penRaisedPixels": 6,
+   "thadAt": [
+    200,
+    765
+   ],
+   "thadBounds": [
+    -67,
+    250,
+    534,
+    569
+   ],
+   "frame": "rest/breath (hands on the page)",
+   "penRaisedPixelsAboveWritingHand": 6,
    "standOccludedByThad": false,
    "penInStand": true,
    "expectedPenInStand": true,
@@ -70,18 +102,22 @@
   },
   {
    "capture": "n04-night-dialogue",
-   "thadAt": null,
-   "frameByHands": "rest/breath (hands on the page)",
-   "penRaisedPixels": 0,
-   "standOccludedByThad": false,
-   "penInStand": false,
-   "expectedPenInStand": true,
-   "potSilhouetteBBox": [
-    909,
-    378,
-    956,
-    410
+   "thadAt": [
+    888,
+    700
    ],
+   "thadBounds": [
+    610,
+    230,
+    556,
+    519
+   ],
+   "frame": "looking-up (talk frame, held while her tree is open)",
+   "penRaisedPixelsAboveWritingHand": 0,
+   "standOccludedByThad": true,
+   "penInStand": null,
+   "expectedPenInStand": null,
+   "potSilhouetteBBox": null,
    "lowestDrawnRowOfWinnie": 401,
    "contactBand": [
     392,
@@ -90,18 +126,22 @@
   },
   {
    "capture": "n05-night-back-at-work",
-   "thadAt": null,
-   "frameByHands": "rest/breath (hands on the page)",
-   "penRaisedPixels": 0,
-   "standOccludedByThad": false,
-   "penInStand": false,
-   "expectedPenInStand": true,
-   "potSilhouetteBBox": [
-    909,
-    378,
-    956,
-    410
+   "thadAt": [
+    888,
+    700
    ],
+   "thadBounds": [
+    724,
+    230,
+    327,
+    490
+   ],
+   "frame": "rest/breath (hands on the page)",
+   "penRaisedPixelsAboveWritingHand": 0,
+   "standOccludedByThad": true,
+   "penInStand": null,
+   "expectedPenInStand": null,
+   "potSilhouetteBBox": null,
    "lowestDrawnRowOfWinnie": 401,
    "contactBand": [
     392,
