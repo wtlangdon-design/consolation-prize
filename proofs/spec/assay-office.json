@@ -29,20 +29,19 @@
   ]
  },
  "ambientContact": {
-  "note": "Tyler's counter-contact correction, 2026-09-04. Winnie is a behind-counter sheet with no feet: her lowest drawn row is her hands, and they must rest ON the open ledger -- inside the page's rows, measured off plate-02 by tools/rig/winnie-counter.py (far edge y378, near edge y398-408 under her hands). Her ink stand is a separate prop whose base must sit on the counter surface (back edge y399 to front edge y431).",
   "winnie": {
    "lowestDrawnRowWithin": [
-    398,
-    410
+    392,
+    403
    ],
-   "why": "the ledger's near page under her hands: y398-408 measured, +2 for the anti-aliased edge",
+   "why": "her lowest drawn pixel is the bottom of a hand resting on the ledger (400 by measurement in art/staging/room-05/winnie-02-counter/frames.json); the page runs y378-408, and a bottom past 401 is a hand on the near edge, not on the page",
    "props": [
     {
      "lowestDrawnRowWithin": [
       399,
       431
      ],
-     "why": "the counter surface between its back edge (y399) and its front edge (y431)"
+     "why": "the ink stand base sits on the counter surface between its back edge (y399) and its front edge (y431)"
     }
    ]
   }
