@@ -926,7 +926,33 @@ export interface RoomFile {
    * plane only says which of those pixels are in front of an actor at that
    * level. `clipPlane: 0` on a walk box means masked by nothing.
    */
-  occlusionPlanes?: { level: number; note?: string; mask: string }[];
+  occlusionPlanes?: {
+    level: number;
+    note?: string;
+    mask: string;
+    /**
+     * THE MASK DOES NOT DESCRIBE THIS PLATE, AND THE RENDERER SKIPS THE PLANE.
+     *
+     * Same shape as a cycling element's `dormant`, and for the same reason: a
+     * declaration that is right in intention and wrong in its art is better
+     * marked than deleted, and much better marked than left to run. Main
+     * Street's plane 2 is authored against an earlier, narrower street -- its
+     * mask draws a hitching rail the current plate does not contain -- so
+     * activating it would erase an actor in mid-street from the knees down.
+     *
+     * Skipping it draws straight through, which is exactly what the room did
+     * while every walk box named a plane that did not exist, so nothing
+     * regresses while the mask is regenerated. Doc 36 Q14.
+     */
+    maskPending?: boolean;
+    maskPendingNote?: string;
+  }[];
+  /**
+   * Authored points a room proof stands the actor on, with the plane each is
+   * meant to be masked by. Ruling: gate 8C's argument one level down -- the
+   * depths a test uses are the author's, not the testing agent's.
+   */
+  occlusionProofs?: { at: [number, number]; expect: number; box?: string; note?: string }[];
   /**
    * Ruling 20: a drawn crowd of four or more needs at least three animated
    * members. The rest stay painted into the background and the eye gives them

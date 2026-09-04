@@ -4,10 +4,21 @@
  "room": "main_street",
  "roomWidth": 3700,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "622a8e7ab769a8cb564e99dd9debc2a2d1888d12",
- "workingTreeClean": true,
- "dirtyAllowed": false,
- "uncommitted": [],
+ "commit": "8d73c205f3bfe16d5cfb6de3067ea03bf69a544d",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "uncommitted": [
+  "M content/rooms/main-street.json",
+  " M content/rooms/nugget.json",
+  " M engine/core/types.ts",
+  " M engine/render/Renderer.ts",
+  " M reference/room-02/annotation.json",
+  " M reference/room-03/annotation.json",
+  "A  tools/check-occlusion.mjs",
+  " M tools/compile-room.mjs",
+  " M tools/gauntlet/proof.mjs",
+  " M tools/run-all.mjs"
+ ],
  "route": "main-street",
  "routeLog": [
   "action 1 (wait): waited 2.5s",
@@ -93,7 +104,7 @@
    ],
    "reportedHeight": 206,
    "expected": 206,
-   "drawnFrom": "art/actors/thad-idle-front/idle-01.png",
+   "drawnFrom": "art/actors/thad-idle-front/idle-02.png",
    "bounds": [
     1753,
     651,
@@ -106,12 +117,45 @@
    "file": "panel-c-mud_near-near.png"
   }
  ],
- "occlusion": [],
+ "occlusion": [
+  {
+   "mark": {
+    "box": "mud_near",
+    "level": 1,
+    "mask": "art/masks/room-02-plane-1.png",
+    "y": 830,
+    "xs": [
+     700
+    ],
+    "note": "MEASURED, 2026-09-04, against the mask itself. In the near mud, directly behind the wagon wheel at the bottom-left corner: plane 1's mask, stretched to the room, covers x0-940 across the whole of mud_near, and traces the wheel's spokes exactly. A man standing here should have the wheel in front of him.",
+    "x": 700
+   },
+   "clipLevel": 1,
+   "mask": "art/masks/room-02-plane-1.png",
+   "reportedBounds": [
+    634,
+    634,
+    132,
+    204
+   ],
+   "renderedSilhouette": {
+    "x": 605,
+    "y": 634,
+    "width": 70,
+    "height": 197,
+    "bottom": 830,
+    "right": 674,
+    "changed": 5376
+   },
+   "cutShare": 0.6101522842639594,
+   "file": "panel-c-occlusion-mud_near.png"
+  }
+ ],
  "panels": [
   {
    "panel": "B",
    "room": "main_street",
-   "clock": 105.94919999999999,
+   "clock": 113.179,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -156,7 +200,7 @@
       166
      ],
      "order": 0,
-     "clipLevel": 12,
+     "clipLevel": 2,
      "fallback": false
     }
    },
@@ -183,15 +227,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T05:25:50.300Z",
+   "capturedAt": "2026-09-04T05:57:15.581Z",
    "intent": "normal populated state",
    "file": "panel-b-populated.png",
-   "hash": "ef3d986cefc803756f94220042546090f19c53d4bf2acc87883a8c008aac9573"
+   "hash": "53887bf78c0c0344e2ce545ee84cd3512a71d6f7c6adf2e688f33938e8787942"
   },
   {
    "panel": "A",
    "room": "main_street",
-   "clock": 107.0658,
+   "clock": 114.7623,
    "beat": null,
    "control": null,
    "camera": 1780,
@@ -260,18 +304,18 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T05:25:51.388Z",
+   "capturedAt": "2026-09-04T05:57:16.901Z",
    "intent": "base state, cast suppressed",
    "file": "panel-a-base.png",
-   "hash": "a9cf07a376117b05e9921c70a7ac3a6e766fe3b6d23d0b43a8cbdcb1901650d6"
+   "hash": "c56e20acc09cbeb03b7ed1b587ef7790c296bbd1958eb1e0c08a85734e4fe2bb"
   },
   {
    "panel": "D",
    "room": "main_street",
-   "clock": 113.9988,
+   "clock": 124.66189999999999,
    "beat": null,
    "control": null,
-   "camera": 595,
+   "camera": 60,
    "flags": [
     "T_OPENING_SAID",
     "T_COACH_DEPARTED",
@@ -297,23 +341,23 @@
    "movers": {
     "thad": {
      "at": [
-      1875,
-      857
+      700,
+      830
      ],
      "facing": "front",
      "clip": "idle-break",
-     "height": 206,
+     "height": 196,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-front/idle-break-01.png",
+     "from": "art/actors/thad-idlebreak-front/idle-break-08.png",
      "bounds": [
-      1805,
-      651,
-      139,
-      214
+      634,
+      634,
+      132,
+      204
      ],
      "order": 0,
-     "clipLevel": 12,
+     "clipLevel": 1,
      "fallback": false
     }
    },
@@ -347,23 +391,19 @@
     "cast(true)",
     "stand(1875,857)",
     "cast(false)",
+    "cast(true)",
+    "stand(700,830)",
+    "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-09-04T05:25:58.304Z",
+   "capturedAt": "2026-09-04T05:57:26.797Z",
    "intent": "principal changed state: Act III repaints the Improvement Company sign -- 'fresh gilt on the lettering' -- and posts the funeral notice on the board. Doc 35 section 2a's worked gate ruled both STATEFUL for exactly that reason, and they are the only two things on this street that change appearance rather than what Thad says about them.\n\nAND IT IS NOT REACHABLE TODAY, WHICH IS WHY THIS IS DECLARED RATHER THAN OMITTED. Errata 60 rules ACT a numeric counter written at four places in doc 48's scripts; content/flags/flags.json declares 22 flags and ACT is not among them. So the gate the repaint compiles to cannot be satisfied by anything, and the proof fails panel D by name. An unreachable principal change is a finding; an undeclared one is a hole in this file.",
    "file": "panel-d-changed.png",
-   "hash": "86746689bbe1f7f753a12d80d3a5c9aedb3fd81056fd5c704d1117f0ac8cbe98",
+   "hash": "280582af006e972c269be6f7a3291fa77af1d5a07029602c5e6a274328a82c56",
    "changedBy": "nothing"
   }
  ],
  "failures": [
-  "gate 8D: boardwalk declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.",
-  "gate 8D: boardwalk_1 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.",
-  "gate 8D: mud_far_0 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.",
-  "gate 8D: mud_far_1 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.",
-  "gate 8D: mud_far_2 declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.",
-  "gate 8D: mud_mid declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.",
-  "gate 8D: mud_near declares clipPlane 12 and this room's planes are 1, 2. Renderer.masked() looks a plane up by level and draws straight through when it finds none, so this room's masks load and occlude nobody.",
   "panel D: the flag registry declares no ACT",
   "panel D: ACT is undefined, wanted 3 -- the intended state was not reached and the frame is of the old one",
   "panel D: after the principal change ran, not one flag, counter or inventory item differs from panel B. The change went nowhere, and this is panel B twice under another filename."
@@ -371,5 +411,5 @@
  "passed": false,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T05:25:58.305Z"
+ "at": "2026-09-04T05:57:26.797Z"
 }

@@ -1237,7 +1237,12 @@ export class Renderer {
     }
     const level = this.state.clipPlaneAt(Math.round(feetX), Math.round(feetY));
     const plane = planes.find((candidate) => candidate.level === level);
-    const mask = plane ? this.sheet(plane.mask) : null;
+    // A PENDING MASK IS NOT USED. It is a mask whose art describes a plate the
+    // room no longer has, and drawing through is what this room did anyway
+    // while its boxes named a plane that did not exist -- so skipping costs
+    // nothing and using it would cut an actor apart along a shape that is not
+    // in the picture. See RoomFile.occlusionPlanes.maskPending.
+    const mask = plane && !plane.maskPending ? this.sheet(plane.mask) : null;
     // Doc 22 item 9: a state can change what OCCLUDES, not only what is
     // drawn, so an object whose current state masks this level joins the
     // punch-out alongside the room's own plane.

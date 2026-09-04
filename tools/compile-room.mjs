@@ -50,6 +50,29 @@ if (!room) {
 const read = (p) => (existsSync(p) ? readFileSync(p, 'utf8') : '');
 const fail = (msg) => { console.error(`\ncompile-room ${room}: ${msg}\n`); process.exit(1); };
 
+/**
+ * The content file the manifest already loads for this room id.
+ *
+ * REFUSES RATHER THAN GUESSES. A room the manifest does not list is one the
+ * engine will not load, so compiling to a slugged filename beside it would
+ * produce a file that passes every check and is read by nothing -- R5l, the
+ * shape this project keeps finding. The refusal says to add it to the
+ * manifest, which is a decision somebody makes once.
+ */
+function roomFileFor(id) {
+  if (!id) {
+    fail('the annotation declares no `room` id, so there is nothing to compile it into.');
+  }
+  const manifest = JSON.parse(read('content/manifest.json'));
+  const found = manifest.rooms.find((path) => JSON.parse(read(path) || '{}').id === id);
+  if (!found) {
+    fail(`the annotation is for room "${id}" and content/manifest.json loads no room with `
+      + `that id. Add its file to the manifest first: a room the engine does not load is a `
+      + `room every check will happily validate and nobody will ever see.`);
+  }
+  return found;
+}
+
 /** A doc's section for one room: its heading to the next room heading. */
 function section(text, n) {
   const m = new RegExp(`^## ROOM ${n}\\b[^\\n]*$`, 'mi').exec(text);
@@ -267,12 +290,25 @@ if (!examine) fail('doc 05 has no scripted section. Run the writing pass first.'
 // -- and this map did not know it, so the compiler reported the six as
 // missing and I wrote worse duplicates of finished lines into doc 05 rather
 // than looking for the document that already had them.
-const ROOM_DOC = {
-  2: 'docs/13-room-02-content.md',
-  3: 'docs/16-room-03-content.md',
-}[room];
+//
+// FOUND BY THE ROOM'S OWN NUMBER, NOT BY A TABLE OF TWO. `{2: ..., 3: ...}`
+// answered for the only two rooms that had ever been compiled and returned
+// `undefined` for every other, which then fell through to doc 49's section --
+// silently, with the room's real content document sitting unread beside it.
+// Doc 46's factory is meant to take a room number as a parameter; a two-entry
+// literal is a parameter that has been answered in advance.
+//
+// The naming rule is the documents' own: `NN-room-NN-...`. Discovered by
+// listing docs/ rather than by constructing a filename, so a document whose
+// title nobody predicted is still found, and a room with none gets doc 49's
+// section as it always did.
+const ROOM_DOC = readdirSync('docs')
+  .filter((name) => new RegExp(`^\\d+-room-0*${room}\\b`, 'i').test(name))
+  .map((name) => `docs/${name}`)[0];
 const wrongDoc = ROOM_DOC ? read(ROOM_DOC) : section(read('docs/49-wrong-answers.md'), room);
-const annPath = `reference/room-0${room}/annotation.json`;
+// TWO DIGITS, NOT ONE. `room-0${room}` cannot express room 13, and the rooms
+// after 9 are most of the game.
+const annPath = `reference/room-${String(room).padStart(2, '0')}/annotation.json`;
 if (!existsSync(annPath)) fail(`no annotation at ${annPath}. Run tools/annotate/room.html first.`);
 const ann = JSON.parse(readFileSync(annPath, 'utf8'));
 
@@ -316,8 +352,17 @@ if (ROOM_DOC) {
 // hotspot whose name Room 2 does not share would have fallen back to the slug
 // rule -- and the whole point of reading the live file is that a person chose
 // those ids.
-const ROOM_FILE = { 2: 'main-street', 3: 'nugget' }[room];
-const live0 = JSON.parse(read(`content/rooms/${ROOM_FILE}.json`) || '{}');
+//
+// THE MANIFEST NAMES THE OUTPUT FILE, and the annotation names which room it
+// is. Another two-entry literal, and the more dangerous of the two: an
+// unlisted room compiled to `content/rooms/undefined.json`, which is a path
+// that writes cleanly and is loaded by nothing.
+//
+// `ann.room` is the room id the annotator recorded, so the annotation and the
+// manifest have to agree before anything is written -- and if they do not, the
+// refusal names both rather than picking one.
+const ROOM_FILE = roomFileFor(ann.room);
+const live0 = JSON.parse(read(ROOM_FILE) || '{}');
 const live = live0;
 
 // ---- reconcile: names in the docs against ids in the annotation -------------
@@ -663,6 +708,52 @@ built.exits = (live.exits ?? []).map((e) => {
     const zone = count === 3 ? 2 - i : Math.min(2, Math.floor(((count - 1 - i) * 3) / count));
     bands.push([count === 3 ? ['mud_far', 'mud_mid', 'mud_near'][i] : `floor_${i}`, y0, y1, zone]);
   }
+  /**
+   * The occlusion plane the ANNOTATION gives this band. Doc 36 Q14.
+   *
+   * REFUSES RATHER THAN GUESSING, and that is the whole ruling. The previous
+   * version wrote `12` into every box -- one number, no room's, naming no
+   * plane -- so `Renderer.masked()` resolved it against Main Street's levels
+   * 1 and 2, found neither, and drew straight through. Two masks loaded and
+   * occluded nobody for as long as the room has existed.
+   *
+   * A DEFAULT HERE WOULD BE THE SAME MISTAKE IN A NEW SUIT. Every room's
+   * occlusion geometry is its own reading of its own picture: which band is
+   * in front of the trough is not derivable from a band's name or its depth
+   * index. So a band with no authored value is a build failure that names the
+   * band, and the fix is one line in the annotation.
+   */
+  const authoredPlane = (band) => {
+    const table = ann.occlusion?.clipPlane;
+    if (!table) {
+      fail('the annotation declares no `occlusion.clipPlane`. Every walk box needs the plane '
+        + 'that masks an actor standing in it, authored per band -- boardwalk, mud_far, '
+        + 'mud_mid, mud_near. 0 means masked by nothing. Doc 36 Q14.');
+    }
+    // BY BAND, NOT BY CARVED PIECE, and this is only ever called with a band
+    // name. `mud_far` becomes mud_far_0..2 around the trough and every piece
+    // is at the same depth, so the band is where the decision belongs and the
+    // pieces inherit it.
+    //
+    // NAMED EXACTLY, WITH NO STRIPPING RULE. A first version fell back to the
+    // band name minus a trailing `_N`, which is right for `mud_far_0` and
+    // WRONG for the Nugget, whose bands are themselves `floor_0`..`floor_6` --
+    // it would have read `floor` for all seven and matched one entry to seven
+    // different depths. A convenience that cannot tell a band from a piece is
+    // a convenience that will eventually answer for the wrong one.
+    const found = table[band];
+    if (found === undefined) {
+      fail(`the annotation's occlusion.clipPlane has no entry for the band "${band}". `
+        + `It names: ${Object.keys(table).join(', ')}. A band with no authored plane is a `
+        + 'band whose occlusion nobody has decided, and a default would decide it silently.');
+    }
+    if (!Number.isInteger(found) || found < 0) {
+      fail(`occlusion.clipPlane.${key} is ${JSON.stringify(found)}; it must be a plane level, `
+        + 'or 0 for masked by nothing.');
+    }
+    return found;
+  };
+
   const lip = (live.walkBoxes ?? []).find((w) => w.id === 'boardwalk');
   // OBSTACLES CARVE THE BANDS. A band is a quad by rule, so a thing standing on
   // the floor cannot be a hole in one -- it has to become several quads around
@@ -709,6 +800,10 @@ built.exits = (live.exits ?? []).map((e) => {
     ...(lip ? carve([L, T - 52, R - L, 50]).map((piece, index) => ({
       ...lip,
       id: index === 0 ? 'boardwalk' : `boardwalk_${index}`,
+      // AUTHORED, NOT INHERITED FROM THE LIVE BOX. Spreading `...lip` carried
+      // whatever clipPlane the previous compile had written, which is how a
+      // constant nobody chose survived every regeneration.
+      clipPlane: authoredPlane('boardwalk'),
       points: [{ x: piece[0], y: piece[1] }, { x: piece[0] + piece[2], y: piece[1] },
         { x: piece[0] + piece[2], y: piece[1] + piece[3] },
         { x: piece[0], y: piece[1] + piece[3] }],
@@ -739,7 +834,7 @@ built.exits = (live.exits ?? []).map((e) => {
           { x: piece[0] + piece[2], y: piece[1] + piece[3] },
           { x: piece[0], y: piece[1] + piece[3] }],
         surface: 'mud',
-        clipPlane: 12,
+        clipPlane: authoredPlane(id),
         scaleMode: scale,
         neighbours: [...near, ...pieces.map((_, other) => (other === index ? null : name(other)))]
           .filter(Boolean),
@@ -877,6 +972,18 @@ built.exits = (live.exits ?? []).map((e) => {
   if (ann.onEnterSay) {
     built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
   }
+  // OCCLUSION PLANES, WHERE THE ANNOTATION AUTHORS THEM. Geometry read off the
+  // plate belongs with the rest of the geometry, and a room file this tool
+  // rewrites is not a place a hand edit survives. A room whose annotation
+  // declares none keeps whatever it already had, so nothing is lost by not
+  // having been converted yet.
+  if (ann.occlusion?.planes) built.occlusionPlanes = ann.occlusion.planes;
+  // The authored points a proof stands the actor on, and the plane each is
+  // meant to be masked by. Carried so `check-occlusion` and the room proof
+  // read ONE set of numbers a person wrote down rather than each deriving its
+  // own convenient ones -- gate 8C's whole argument, one level down.
+  if (ann.occlusion?.proofPoints) built.occlusionProofs = ann.occlusion.proofPoints;
+
   built.walkBoxNote = `GENERATED by tools/compile-room.mjs from ${annPath}. `
     + 'Heights come from that annotation\u2019s own depth curve, which each room derives from '
     + 'its own architecture -- doc 36 Q10.';
@@ -946,7 +1053,7 @@ if (staleGeometry.length) {
 // one the live-file read taught eight lines up -- a compiler parameterised by
 // room number must be parameterised EVERYWHERE, and I changed the paths I
 // happened to trip over rather than looking for all of them.
-const OUT = `content/rooms/${ROOM_FILE}.json`;
+const OUT = ROOM_FILE;
 const wanted = `${JSON.stringify(built, null, 2)}\n`;
 
 if (CHECKING) {

@@ -263,30 +263,56 @@ function heightIn(box, y) {
  */
 export function occlusionMarks(room) {
   const planes = room.occlusionPlanes ?? [];
-  if (!planes.length) return { marks: [], orphans: [] };
-  const marks = [];
-  // BOXES POINTING AT A PLANE THAT DOES NOT EXIST. Separated from "this room
-  // has no occlusion" because they are opposite states that look identical
-  // from outside: one room has not been given planes, the other has planes
-  // nothing reaches. `Renderer.masked` does `planes.find(p => p.level ===
-  // level)` and draws straight through when that misses, so a room in the
-  // second state has masks that load, cost memory, and occlude nobody.
+  if (!planes.length) return { marks: [], orphans: [], pending: [] };
   const orphans = [];
+  const pending = [];
   for (const box of room.walkBoxes ?? []) {
     if (!box.clipPlane) continue;
-    const plane = planes.find((one) => one.level === box.clipPlane);
-    if (!plane) {
+    if (!planes.some((plane) => plane.level === box.clipPlane)) {
       orphans.push(`${box.id} declares clipPlane ${box.clipPlane} and this room's planes are `
-        + `${planes.map((one) => one.level).join(', ')}`);
+        + `${planes.map((plane) => plane.level).join(', ')}`);
+    }
+  }
+  // THE POINTS ARE THE AUTHOR'S, NOT THIS TOOL'S. Gate 8C's argument applied
+  // one level down: a testing agent picking a spot to stand measures the room
+  // where standing is convenient, and occlusion is wrong at the edges of a
+  // mask rather than in the middle of one. `occlusionProofs` is written in the
+  // annotation beside the clip planes themselves, so the point and the plane
+  // it is meant to prove were decided together.
+  const marks = [];
+  for (const proof of room.occlusionProofs ?? []) {
+    const plane = planes.find((candidate) => candidate.level === proof.expect);
+    if (!plane) continue;
+    if (plane.maskPending) {
+      // NOT SKIPPED SILENTLY. A pending mask is one the renderer deliberately
+      // does not use, so asserting that it occludes would fail on a decision
+      // somebody made -- and omitting the point without saying so would let
+      // the plane disappear from the record entirely.
+      pending.push(`plane ${plane.level} (${plane.mask}) is maskPending, so the point at `
+        + `${proof.at.join(',')} is not asserted: the renderer is skipping that mask on `
+        + 'purpose while it is regenerated');
       continue;
     }
-    const xs = (box.points ?? []).map((point) => point.x);
-    const ys = (box.points ?? []).map((point) => point.y);
-    if (!xs.length) continue;
-    const y = Math.round(Math.max(...ys) - 1);
-    marks.push({ box: box.id, level: box.clipPlane, mask: plane.mask, y, xs: xSpanAt(box, y) });
+    const box = (room.walkBoxes ?? []).find((candidate) => {
+      const xs = candidate.points.map((point) => point.x);
+      const ys = candidate.points.map((point) => point.y);
+      return proof.at[0] >= Math.min(...xs) && proof.at[0] <= Math.max(...xs)
+        && proof.at[1] >= Math.min(...ys) && proof.at[1] <= Math.max(...ys);
+    });
+    marks.push({
+      box: box?.id ?? proof.box ?? '?',
+      level: proof.expect,
+      mask: plane.mask,
+      y: proof.at[1],
+      // A SINGLE AUTHORED x, not a scan. `xSpanAt` exists because a depth mark
+      // names a ROW and any point on it will do; an occlusion point names a
+      // place, and sliding along the row to find one the engine accepts would
+      // slide off the thing it is meant to be standing behind.
+      xs: [proof.at[0]],
+      note: proof.note ?? null,
+    });
   }
-  return { marks, orphans };
+  return { marks, orphans, pending };
 }
 
 /* ------------------------------------------------------------------- main */
@@ -500,7 +526,7 @@ async function main() {
     };
 
     const marks = depthMarks(room);
-    const { marks: occluders, orphans } = occlusionMarks(room);
+    const { marks: occluders, orphans, pending } = occlusionMarks(room);
     for (const line of orphans) {
       failures.push(`gate 8D: ${line}. Renderer.masked() looks a plane up by level and draws `
         + 'straight through when it finds none, so this room\'s masks load and occlude nobody.');
@@ -605,7 +631,8 @@ async function main() {
           + 'frame at all -- either he is not drawn or the mask erased him entirely');
       }
     }
-    if (occluders.length === 0 && orphans.length === 0) {
+    for (const line of pending) console.log(`    NOTE: ${roomId} ${line}`);
+    if (occluders.length === 0 && orphans.length === 0 && pending.length === 0) {
       // NOT A FAILURE, AND SAID OUT LOUD RATHER THAN OMITTED. A room with no
       // occlusion planes has an authoring gap against doc 35 section 4; a
       // proof that quietly skipped the panel would let the gap travel.

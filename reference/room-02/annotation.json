@@ -56,7 +56,7 @@
    "y": 858,
    "height": 206
   },
-  "note": "ROOM 2 DECLARES ITS OWN DEPTH, from its own architecture. height = 0.369 x (y - 300), anchored on two measurements of the plate that agree to the pixel: the saloon porch deck is 40px for about 0.6m and its batwing doorway 134px for about 2.0m, and both imply a 1.75m man at 117px at the building line. Errata 54\u2019s shared zones (222/240/263) belong to Room 1, whose street is shallower; applying them here puts a man at 1.66 times the height of the door he walks through. Doc 36 Q10."
+  "note": "ROOM 2 DECLARES ITS OWN DEPTH, from its own architecture. height = 0.369 x (y - 300), anchored on two measurements of the plate that agree to the pixel: the saloon porch deck is 40px for about 0.6m and its batwing doorway 134px for about 2.0m, and both imply a 1.75m man at 117px at the building line. Errata 54’s shared zones (222/240/263) belong to Room 1, whose street is shallower; applying them here puts a man at 1.66 times the height of the door he walks through. Doc 36 Q10."
  },
  "entrance": [
   3477,
@@ -254,7 +254,7 @@
     600
    ],
    "facing": "left",
-   "note": "THE STREET\u2019S EAST EDGE, FACING DOWN IT. He was placed at x3477 facing the camera, which is in front of the barren hills -- so he read as having come down out of the mountains rather than along the road into town, and Room 1 has him walking off between two buildings. At the edge facing left he is arriving."
+   "note": "THE STREET’S EAST EDGE, FACING DOWN IT. He was placed at x3477 facing the camera, which is in front of the barren hills -- so he read as having come down out of the mountains rather than along the road into town, and Room 1 has him walking off between two buildings. At the edge facing left he is arriving."
   },
   {
    "from": "stage_road",
@@ -263,7 +263,7 @@
     600
    ],
    "facing": "left",
-   "note": "THE STREET\u2019S EAST EDGE, FACING DOWN IT. He was placed at x3477 facing the camera, which is in front of the barren hills -- so he read as having come down out of the mountains rather than along the road into town, and Room 1 has him walking off between two buildings. At the edge facing left he is arriving."
+   "note": "THE STREET’S EAST EDGE, FACING DOWN IT. He was placed at x3477 facing the camera, which is in front of the barren hills -- so he read as having come down out of the mountains rather than along the road into town, and Room 1 has him walking off between two buildings. At the edge facing left he is arriving."
   },
   {
    "from": "company",
@@ -272,7 +272,7 @@
     642
    ],
    "facing": "front",
-   "note": "Out of company\u2019s door, facing the street."
+   "note": "Out of company’s door, facing the street."
   },
   {
    "from": "clarion",
@@ -281,7 +281,7 @@
     639
    ],
    "facing": "front",
-   "note": "Out of clarion\u2019s door, facing the street."
+   "note": "Out of clarion’s door, facing the street."
   },
   {
    "from": "nugget",
@@ -290,7 +290,7 @@
     624
    ],
    "facing": "front",
-   "note": "Out of nugget\u2019s door, facing the street."
+   "note": "Out of nugget’s door, facing the street."
   },
   {
    "from": "hotel",
@@ -299,7 +299,7 @@
     624
    ],
    "facing": "front",
-   "note": "Out of hotel\u2019s door, facing the street."
+   "note": "Out of hotel’s door, facing the street."
   },
   {
    "from": "assay_office",
@@ -308,7 +308,7 @@
     627
    ],
    "facing": "front",
-   "note": "Out of assay_office\u2019s door, facing the street."
+   "note": "Out of assay_office’s door, facing the street."
   }
  ],
  "onEnterSay": {
@@ -329,7 +329,7 @@
     155,
     62
    ],
-   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough\u2019s own hotspot rect -- one truth, not two."
+   "note": "A thing on the ground he must walk around. Thad walked through the trough because the walk bands are full-width quads and nothing in them says otherwise. The rect is the trough’s own hotspot rect -- one truth, not two."
   }
  ],
  "lamps": [
@@ -343,7 +343,7 @@
    "amount": 0.09,
    "rate": 0.19,
    "phase": 0.0,
-   "note": "The Nugget\u2019s open doors, the brightest thing on the street."
+   "note": "The Nugget’s open doors, the brightest thing on the street."
   },
   {
    "id": "office_lantern",
@@ -367,12 +367,59 @@
    "amount": 0.05,
    "rate": 0.13,
    "phase": 0.28,
-   "note": "The Improvement Company\u2019s windows. Steady: they can afford good oil."
+   "note": "The Improvement Company’s windows. Steady: they can afford good oil."
   }
  ],
  "onEnterWalkTo": [
   3300,
   706
  ],
- "onEnterWalkNote": "OUT INTO THE ROAD, NOT ALONG THE BUILDINGS. He was walking to x3400 y640, which is the boardwalk edge in front of the claims-road exit and beside the map seller\u2019s office -- he arrived and then sidled up against a wall. x3300 y706 is the middle of the street with the town in front of him, which is where a man stands when he has just walked into a town he has never seen. Clear of the assay office door at x3082-3144, clear of the map seller at x3140, and low enough to be in the road rather than on the walk."
+ "onEnterWalkNote": "OUT INTO THE ROAD, NOT ALONG THE BUILDINGS. He was walking to x3400 y640, which is the boardwalk edge in front of the claims-road exit and beside the map seller’s office -- he arrived and then sidled up against a wall. x3300 y706 is the middle of the street with the town in front of him, which is where a man stands when he has just walked into a town he has never seen. Clear of the assay office door at x3082-3144, clear of the map seller at x3140, and low enough to be in the road rather than on the walk.",
+ "occlusion": {
+  "note": "WHICH FOREGROUND PLANE MASKS AN ACTOR STANDING IN EACH BAND. Tyler's ruling, and it is authored here rather than emitted by the compiler because occlusion geometry is a reading of the PICTURE and every room's is different. The compiler previously wrote `clipPlane: 12` into every box it made -- a constant that named no plane this room declares, so Renderer.masked() looked it up, found nothing, and drew straight through. Two masks loaded and occluded nobody, and no validator could see it because none of them asked whether the number on a box named a plane the room had. Doc 36 Q14.\n\nTHE ASSIGNMENT FOLLOWS THE PLANES' OWN NOTES. Plane 1 is the near corner alone -- the lumber stack and the wagon wheel -- so an actor in the near mud passes BEHIND that and IN FRONT of the trough. Plane 2 is plane 1 plus the hitching rail and the trough, so an actor in the middle band or further back is behind all of it. No box in this room is clipPlane 0: doc 22 defines 0 as always-in-front and nothing on Main Street is nearer than the wagon wheel, whose base sits on the bottom row of the frame.\n\nBOTH PLANES ARE maskPending. The assignment above is Tyler's ruling and is what the room will use; the masks it points at were authored against an earlier, narrower Main Street and describe objects the current plate does not contain. The clip planes are right and the art is stale, and those are two different repairs.",
+  "clipPlane": {
+   "boardwalk": 2,
+   "mud_far": 2,
+   "mud_mid": 2,
+   "mud_near": 1
+  },
+  "clipPlaneNote": "BY BAND, NOT BY CARVED PIECE. The compiler cuts each band around the obstacles standing in it -- mud_far becomes three pieces around the trough -- and every piece of one band is at the same depth, so authoring a plane per piece would be authoring the same decision three times and inviting the three to disagree. A piece inherits its band's value; a band with no authored value is a build failure naming the band.",
+  "proofPoints": [
+   {
+    "at": [
+     700,
+     830
+    ],
+    "expect": 1,
+    "box": "mud_near",
+    "note": "In the near mud where plane 1's mask, stretched to the room, covers x0-940 across the whole band. GEOMETRICALLY SOUND AND VISUALLY WRONG, which is why the plane is marked maskPending: what the mask draws there is a wagon wheel and the plate underneath is open mud. Kept, not deleted -- the day the mask is regenerated against this plate, the near band's proof point is already standing and the assertion goes live with it."
+   },
+   {
+    "at": [
+     1300,
+     700
+    ],
+    "expect": 2,
+    "box": "mud_mid",
+    "note": "In the middle band where plane 2 adds coverage beyond plane 1's corner: a hitching rail, two posts and a crossbar, drawn precisely, and there is no hitching rail in the plate there. Same state as the near point and kept for the same reason."
+   }
+  ],
+  "planes": [
+   {
+    "level": 1,
+    "mask": "art/masks/room-02-plane-1.png",
+    "note": "The near corner alone -- the lumber stack and the wagon wheel. An actor in the near mud is masked by this and by nothing else, so he passes BEHIND the woodpile and IN FRONT of the trough, which is the point of having two planes rather than one flat overlay.",
+    "maskPending": true,
+    "maskPendingNote": "THE MASK DOES NOT DESCRIBE THIS PLATE. Found by rendering it over the background and looking, which is the only way it could have been found: the shapes are well-formed, they sit in plausible places, and every geometric test passes on them -- check-occlusion measures 31% of the drawn figure covered at the proof point below, which is a real overlap with a shape that is not in the picture.\n\nMEASURED. The mask is 320x144 -- errata 54's voided presentation, doc 36 Q17 -- and `Renderer.masked` stretches it to the room's 3700x864, which is a defined behaviour and not the same as authoring it at room resolution. Stretched, plane 1 draws a WAGON WHEEL with eight spokes and a slab beside it across x0-940 of the near mud. The plate there is open mud: no wheel, no lumber, nothing. Panel C of the room proof shows a man standing in the middle of it, drawn whole, with nothing to be behind.\n\nI GOT THIS WRONG ONCE AND THE WAY I GOT IT WRONG IS THE WARNING. Reading the overlay, I took the wheel the MASK draws for a wheel in the PLATE and recorded that plane 1 'traces the wheel's spokes exactly'. It traces its own. A mask rendered over a background looks like a highlighted object whether or not there is an object there, and only turning the mask off answers it.\n\nWHILE THIS IS TRUE THE RENDERER SKIPS THE PLANE and draws straight through -- which is what it did anyway when every box said clipPlane 12, so nothing regresses. Regenerating both masks at 3700x864 against the current plate is art, and Tyler's."
+   },
+   {
+    "level": 2,
+    "mask": "art/masks/room-02-plane-2.png",
+    "note": "Plane 1 plus the hitching rail and the water trough. CONTAINS plane 1 on purpose: doc 22 section 5 says an actor is masked by its own plane and not by a union of every plane, so each level has to carry everything nearer than the actors assigned to it. An actor in the middle band or further is behind all of it.",
+    "maskPending": true,
+    "maskPendingNote": "THE MASK IS STALE AND DOES NOT DESCRIBE THIS PLATE. Found by rendering it over the background and looking, which is the only way it could have been found: the shapes are well-formed, they are in plausible places, and every geometric test passes on them.\n\nMEASURED. The mask is 320x144 -- errata 54's voided presentation, doc 36 Q17 -- and `Renderer.masked` stretches it to the room's 3700x864, which is a defined behaviour and not the same as authoring it at room resolution. Stretched, plane 2 adds two regions beyond plane 1's corner: x1110-1640 in the middle band, which is a HITCHING RAIL, two posts and a crossbar, drawn precisely -- and there is no hitching rail in the plate there; and x2480-2930, a plain rectangle over open mud in front of the saloon. Neither touches the water trough at x1862-2017 y543-605, which this plane's own note says it contains. It was authored against an earlier, narrower Main Street.\n\nPLANE 1 IS PENDING FOR THE SAME REASON, and was nearly not: its mask draws a wagon wheel over what is open mud in the current plate, and the wheel looked like the plate's until the mask was turned off. Both masks are stale together.\n\nWHILE THIS IS TRUE THE RENDERER SKIPS THE PLANE and draws straight through -- which is what it did anyway when every box said clipPlane 12, so nothing regresses. Activating a stale mask would be worse than the inert state it replaces: an actor in the middle of the street would be erased from the knees down by a rail that is not drawn. Regenerating it at 3700x864 against the current plate is art, and Tyler's."
+   }
+  ],
+  "planesNote": "AUTHORED HERE, NOT HAND-EDITED IN THE ROOM FILE. Occlusion planes are geometry read off the plate, which is the annotator's whole subject, and a room file the compiler rewrites is not a place a hand edit survives. The compiler emits these; where an annotation declares none it preserves whatever the room already had, so a room converted later loses nothing."
+ }
 }

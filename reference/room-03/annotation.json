@@ -69,7 +69,7 @@
    "y": 858,
    "height": 459
   },
-  "note": "TWO ANCHORS, BOTH TYLER\u2019S: slightly shorter than the standing drinker at the bar (he is 434 with his feet at y797, Thad is 415 there), and small enough at the back that his head is nowhere near the chandelier -- 205 at the card table, topping out about y303 where the players\u2019 own heads are.\nTHE FLAT CURVE WAS THE PREVIOUS FIX AND IT WAS WRONG AT THE BACK. Flat kept him from swelling as he crossed toward the bar, which was the complaint then, but it also kept him full size at the far wall, where he stood as tall as the chandelier. A room this deep needs a real slope; what it does not need is one fitted to a single figure."
+  "note": "TWO ANCHORS, BOTH TYLER’S: slightly shorter than the standing drinker at the bar (he is 434 with his feet at y797, Thad is 415 there), and small enough at the back that his head is nowhere near the chandelier -- 205 at the card table, topping out about y303 where the players’ own heads are.\nTHE FLAT CURVE WAS THE PREVIOUS FIX AND IT WAS WRONG AT THE BACK. Flat kept him from swelling as he crossed toward the bar, which was the complaint then, but it also kept him full size at the far wall, where he stood as tall as the chandelier. A room this deep needs a real slope; what it does not need is one fitted to a single figure."
  },
  "hotspots": {
   "handbill": [
@@ -212,10 +212,10 @@
   }
  ],
  "provisional": {
-  "deke_vessel": "ACT II, NOT ACT I. Doc 02 A3 puts the swindle in this room and the room gate flagged him for it, but doc 04 VES_A1 says the sale is \"staged in the opening\u2019s shadow: he is gone by the time the player can act\". His standing appearance is VES_B1, \"found again, Duel One\", in Act II. So he is act-gated like the raccoon, and this rect is where he will stand when he is here.",
+  "deke_vessel": "ACT II, NOT ACT I. Doc 02 A3 puts the swindle in this room and the room gate flagged him for it, but doc 04 VES_A1 says the sale is \"staged in the opening’s shadow: he is gone by the time the player can act\". His standing appearance is VES_B1, \"found again, Duel One\", in Act II. So he is act-gated like the raccoon, and this rect is where he will stand when he is here.",
   "raccoon": "ACT II ONWARD, after A5. He takes up residence on the END OF THE BAR -- doc 05: \"I evicted him from a hole and he has been promoted\" -- so the rect is on the bar top near the front, and it is provisional until the sprite exists and can be measured, the same as Vessel."
  },
- "walkableNote": "The right edge follows the BAR GROUP\u2019S OWN SILHOUETTE, read off the three shipped sprites composited together rather than estimated from the plate. That is the correct boundary because the men standing at the counter are part of the same object: floor Thad cannot walk through, whether it is oak or a drinker. Measured after the bar was refitted -- the first polygon was drawn against the OLD bar, which sat 432px further into the room.",
+ "walkableNote": "The right edge follows the BAR GROUP’S OWN SILHOUETTE, read off the three shipped sprites composited together rather than estimated from the plate. That is the correct boundary because the men standing at the counter are part of the same object: floor Thad cannot walk through, whether it is oak or a drinker. Measured after the bar was refitted -- the first polygon was drawn against the OLD bar, which sat 432px further into the room.",
  "lamps": [
   {
    "id": "chandelier",
@@ -254,7 +254,7 @@
    "note": "The wall lamps behind the bar, together. Barely moving -- they are trimmed, because the barman is the only person in town who maintains anything."
   }
  ],
- "handNote": "Doc 16: \"a hand of cards, face up, ABANDONED... somebody left a very good hand on a table and went outside.\" So it lies on the card table\u2019s own top, and its rect is derived from the table group sprite rather than guessed -- it moves if the table does, which it already did once when the group shifted 35px clear of the piano.",
+ "handNote": "Doc 16: \"a hand of cards, face up, ABANDONED... somebody left a very good hand on a table and went outside.\" So it lies on the card table’s own top, and its rect is derived from the table group sprite rather than guessed -- it moves if the table does, which it already did once when the group shifted 35px clear of the piano.",
  "characters": {
   "deke_vessel": {
    "rect": [
@@ -278,7 +278,21 @@
  "charactersNote": "Kept OUT of `hotspots` on purpose. The compiler reconciles hotspot rects against the documents that write examine lines, and correctly called these two orphans: a rect with no lines is a hotspot that says nothing when clicked. They are characters, their words live in their trees and in doc 49, and their rects follow their sprites.",
  "idNote": "Ids follow the LIVE ROOM FILE, not a slug of the doc name -- the compiler says so and it is right: a person chose `portrait` and `cards`, and I had renamed them to `faded_portrait` and `hand_of_cards` from the headings.",
  "walkModel": "clipped",
- "walkModelNote": "The Nugget's floor is not a rectangle -- it narrows against the bar, from 1011px wide at the back to 1546 at the front -- so its bands are clipped to the floor\u2019s own span at each depth. A street does not declare this: Room 2 is full width everywhere a player stands, and clipping its topmost band on the sloping boardwalk line collapsed it to 51px.",
+ "walkModelNote": "The Nugget's floor is not a rectangle -- it narrows against the bar, from 1011px wide at the back to 1546 at the front -- so its bands are clipped to the floor’s own span at each depth. A street does not declare this: Room 2 is full width everywhere a player stands, and clipping its topmost band on the sloping boardwalk line collapsed it to 51px.",
  "backgroundNote": "Tyler's answer: replace the whole picture per frame rather than compositing anything. Safe HERE and not in general -- everything that moves in this room is always BEHIND Thad, because the floor's right edge follows the bar front and the card table sits above the floor's back edge, so he never passes in front of either. A room whose animated furniture he can walk in front of must not use this. SIX FRAMES, MIXED FROM ONE SHEET. The sheet returned four poses in which only ONE man moves per pose -- measured: 55.2, 25.8, 28.0 and 64.6 for the man who moves, and 0.0 for the men who do not, byte-identical. Re-running the prompt with \"all four men move in every pose\" returned the identical image, max difference 0. So the four poses are recombined instead: the only column where nobody moves in any pose is x181-187, so the sprite splits there into two halves with three and two genuine states, and six frames alternate both. Every consecutive frame changes on BOTH sides of the table.",
- "patronsNote": "THE CARD TABLE ONLY. It was derived as the bounding box of every group with a person in it, which spanned x705-1916 and y298-849 -- 667,261 pixels, forty per cent of the room, swallowing most of the floor so the player could not click to walk. A hotspot is a click target, not an inventory of everyone present: the bar\u2019s drinkers are reachable through THE BAR, which is where a player would click for them anyway."
+ "patronsNote": "THE CARD TABLE ONLY. It was derived as the bounding box of every group with a person in it, which spanned x705-1916 and y298-849 -- 667,261 pixels, forty per cent of the room, swallowing most of the floor so the player could not click to walk. A hotspot is a click target, not an inventory of everyone present: the bar’s drinkers are reachable through THE BAR, which is where a player would click for them anyway.",
+ "occlusion": {
+  "note": "THE NUGGET OCCLUDES NOBODY, AND THAT IS RECORDED RATHER THAN LEFT BLANK. Every box here read `clipPlane: 12` -- the compiler's constant, doc 36 Q14 -- against a room that declares no occlusionPlanes at all, so the number named a plane that could not exist. 0 is what the room actually is: masked by nothing.\n\nIT IS ALSO AN AUTHORING GAP, and saying so is the point of writing it down. Doc 35 section 4 asks 'which objects should occlude the actor, and are they positioned to do so', and the Nugget has a bar, tables and a stove that a man could plainly walk behind. Nobody has answered it for this room. Recording 0 makes the answer visible as a decision rather than as a number nobody chose; the day the room gets a foreground plane, these entries are where it lands.",
+  "clipPlane": {
+   "floor_0": 0,
+   "floor_1": 0,
+   "floor_2": 0,
+   "floor_3": 0,
+   "floor_4": 0,
+   "floor_5": 0,
+   "floor_6": 0
+  },
+  "proofPoints": [],
+  "proofPointsNote": "None, and correctly none: there is no plane to stand behind. check-occlusion asks for a proof point per plane IN USE, and a room whose every box is 0 uses none."
+ }
 }
