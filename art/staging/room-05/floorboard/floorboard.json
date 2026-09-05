@@ -90,5 +90,50 @@
       "sha256": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
     }
   },
-  "note": "Iteration 2, derived from the accepted plates by tools/pixelart/floorboard.py; the plates are unchanged. The middle-band plank between the door step and the joint at x~745, lifted unevenly (right end higher) with the gap under its near edge; A moderate, B one step stronger; PRESSED flush. Same plank and bounds on both plates."
+  "note": "Iteration 2, derived from the accepted plates by tools/pixelart/floorboard.py; the plates are unchanged. The middle-band plank between the door step and the joint at x~745, lifted unevenly (right end higher) with the gap under its near edge; A moderate, B one step stronger; PRESSED flush. Same plank and bounds on both plates.",
+  "visual_accepted": true,
+  "accepted_by": "Tyler",
+  "accepted_on": "2026-09-05",
+  "accepted_treatment": "c",
+  "review": {
+    "a": "NOT SELECTED (review variant, preserved)",
+    "b": "NOT SELECTED (review variant, preserved)",
+    "c": "OWNER ACCEPTED 2026-09-05 -- the declared rest image for both visual states; FROZEN"
+  },
+  "frozen": {
+    "location": "the middle-band plank, tread [462, 746, 284, 43]",
+    "rest": {
+      "day": {
+        "path": "art/staging/room-05/floorboard/board-rest-c.png",
+        "sha256": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+      },
+      "night": {
+        "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+        "sha256": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+      }
+    },
+    "pressed": {
+      "day": {
+        "path": "art/staging/room-05/floorboard/board-pressed.png",
+        "sha256": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+      },
+      "night": {
+        "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+        "sha256": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+      }
+    },
+    "behaviour": [
+      "swept crossing detection",
+      "one trigger per crossing",
+      "physical re-arm after leaving",
+      "220 ms press",
+      "rebound to rest",
+      "CREEEAK world caption, 900 ms, at (603,744)",
+      "cue R05-FLOOR-STEP",
+      "no collision",
+      "no puzzle flag from stepping",
+      "natural first-visit encounter geometry"
+    ]
+  },
+  "promotion": "not moved: Room 5's accepted assets (plates, Winnie, lamp) all stay under art/staging/room-05/ and are referenced by the room until the room's own logged promotion after the playthrough; the floorboard follows the same lifecycle. Nothing overwrote an accepted plate."
 }

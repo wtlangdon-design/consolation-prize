@@ -222,18 +222,18 @@
       "default": "rest",
       "states": {
         "rest": {
-          "image": "art/staging/room-05/floorboard/board-rest-b.png",
+          "image": "art/staging/room-05/floorboard/board-rest-c.png",
           "imageByState": {
-            "night": "art/staging/room-05/floorboard/board-rest-b-night.png"
+            "night": "art/staging/room-05/floorboard/board-rest-c-night.png"
           },
-          "note": "THE PROUD FLOORBOARD AT REST, iteration 3 (Tyler's review of iteration 2, 2026-09-05: location good, face too bright). The middle-band plank between the door step and the joint at x~745, its OWN pixels lifted unevenly out of the accepted plate by tools/pixelart/floorboard.py -- the face untouched, the dark gap under the near edge and a one-pixel lip doing the work. Treatment B (medium, two rows at the left end rising to three) is declared; A (subtle) and C (upper limit) are ?candidate= swaps of this path for Tyler's choice. The night derivation is declared beside it by visual state, so the night plate never shows a day board."
+          "note": "THE PROUD FLOORBOARD AT REST -- OWNER-ACCEPTED 2026-09-05 (Tyler): treatment C. The middle-band plank between the door step and the joint at x~745, its OWN pixels lifted unevenly out of the accepted plate by tools/pixelart/floorboard.py -- two rows at the left end rising to four at the right, the gap under the near edge at 52% of the seam, a one-row lip at +8%, the end grain at 90%, no whole-face brightening. The night derivation is declared by visual state. A and B were the review variants and were not selected; they stay under art/staging/room-05/floorboard/ as provenance. FROZEN with the tread, the press and the caption."
         },
         "pressed": {
           "image": "art/staging/room-05/floorboard/board-pressed.png",
           "imageByState": {
             "night": "art/staging/room-05/floorboard/board-pressed-night.png"
           },
-          "note": "The plank flush under a foot: the plate's own pixels. Held a moment after the step, then back to rest."
+          "note": "The plank flush under a foot: the plate's own pixels. Held 220 ms after the step, then back to rest. OWNER-ACCEPTED with treatment C, 2026-09-05."
         }
       },
       "step": {

@@ -1,5 +1,5 @@
 {
- "deployedSha": "fc779a5",
+ "deployedSha": "1ac5384",
  "served": "dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/",
  "runs": [
   {
@@ -14,11 +14,11 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 769
+   "responsesSeen": 773
   },
   {
    "name": "night",
-   "url": "https://wtlangdon-design.github.io/consolation-prize/?room=assay_office&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&candidate=art/staging/room-05/floorboard/board-rest.png=art/staging/room-05/floorboard/board-rest-night.png&candidate=art/staging/room-05/floorboard/board-pressed.png=art/staging/room-05/floorboard/board-pressed-night.png&candidate=art/staging/room-05/floorboard/board-rest-a.png=art/staging/room-05/floorboard/board-rest-a-night.png&candidate=art/staging/room-05/floorboard/board-pressed.png=art/staging/room-05/floorboard/board-pressed-night.png",
+   "url": "https://wtlangdon-design.github.io/consolation-prize/?room=assay_office&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
    "roomJson": 200,
    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -28,7 +28,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 769
+   "responsesSeen": 773
   }
  ]
 }
