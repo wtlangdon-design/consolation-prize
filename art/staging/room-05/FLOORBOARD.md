@@ -1,5 +1,20 @@
 # ROOM 5 — THE PROUD FLOORBOARD
 
+## Iteration 2 (2026-09-05) — relocated to the middle walking band, prouder, uneven
+
+Tyler rejected iteration 1 (below, preserved under `floorboard/v1-rejected/`): invisible in play and against the counter. The loose board is now the middle-band plank between the door step and the joint at x≈745. `tools/pixelart/floorboard.py` reads it between its fitted seam lines and lifts it unevenly, the right end higher.
+
+| | path | what |
+|---|---|---|
+| REST A (moderate), day | `floorboard/board-rest-a.png` | lift 2 rows at the left end rising to 4 at the right, gap under the near edge at 62% |
+| REST B (stronger), day | `floorboard/board-rest-b.png` | lift 3 rising to 5, gap at 55%, lip and end grain a shade more |
+| PRESSED, day | `floorboard/board-pressed.png` | the plank flush, the plate's own pixels |
+| night | `board-rest-a-night.png`, `board-rest-b-night.png`, `board-pressed-night.png` | the same from the night plate |
+
+**Geometry.** Hotspot rect `[450, 740, 310, 56]`; physical plank and tread `[462, 746, 284, 43]`; seams top y = 0.0209x + 731.9 and bottom y = 0.0452x + 757.3; caption at (603, 744). A is the declared `rest` image; B and the night images are `?candidate=` swaps, so the playtest can show either without touching the base plate. Record: `floorboard/floorboard.json`.
+
+## Iteration 1 (rejected)
+
 Tyler's playtest finding, 2026-09-05: the writing says the board sits a
 little proud and is loose; the accepted plates draw it flush. No image
 operation, no repaint. `tools/pixelart/floorboard.py` reads the plank out of

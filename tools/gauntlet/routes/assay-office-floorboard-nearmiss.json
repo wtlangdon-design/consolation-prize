@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "assay_office",
- "note": "FLOORBOARD NEAR MISS (Tyler, 2026-09-05): along the floor below the board, along its row past either end, up to just beside it. Zero creaks. Run by tools/gauntlet/frames.mjs.",
+ "note": "FLOORBOARD NEAR MISS, iteration 2 (Tyler, 2026-09-05): the near floor line the counter objects are approached on, the far band under the counter, the middle lane past the board's right end, and up beside it. Zero creaks; the one deliberate crossing at the end, along the middle lane, counts exactly once. Run by tools/gauntlet/frames.mjs.",
  "from": "assay_office",
  "actions": [
   {
@@ -11,22 +11,58 @@
   {
    "do": "click",
    "at": [
-    860,
-    750
+    358,
+    828
    ],
-   "why": "to the row below the board"
+   "why": "to the window sign's spot on the near floor line: below the board"
   },
   {
    "do": "wait",
-   "seconds": 4
+   "seconds": 3
   },
   {
    "do": "click",
    "at": [
     1200,
-    750
+    828
    ],
-   "why": "across under the board, one row down"
+   "why": "along the near floor line under the board and on"
+  },
+  {
+   "do": "wait",
+   "seconds": 3.5
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    715
+   ],
+   "why": "up to the far band"
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    400,
+    715
+   ],
+   "why": "along the far band, above the board"
+  },
+  {
+   "do": "wait",
+   "seconds": 3.5
+  },
+  {
+   "do": "click",
+   "at": [
+    400,
+    828
+   ],
+   "why": "down the door side, left of the board"
   },
   {
    "do": "wait",
@@ -35,10 +71,22 @@
   {
    "do": "click",
    "at": [
-    860,
-    780
+    400,
+    765
    ],
-   "why": "back along the middle of the floor"
+   "why": "onto the middle lane, left of the board"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.5
+  },
+  {
+   "do": "click",
+   "at": [
+    900,
+    765
+   ],
+   "why": "THIS one crosses the board along the middle lane and must count exactly once"
   },
   {
    "do": "wait",
@@ -47,58 +95,10 @@
   {
    "do": "click",
    "at": [
-    930,
-    715
+    780,
+    765
    ],
-   "why": "up onto the board's row just left of its end"
-  },
-  {
-   "do": "wait",
-   "seconds": 3
-  },
-  {
-   "do": "click",
-   "at": [
-    860,
-    715
-   ],
-   "why": "and away along the row"
-  },
-  {
-   "do": "wait",
-   "seconds": 2
-  },
-  {
-   "do": "click",
-   "at": [
-    1200,
-    715
-   ],
-   "why": "across: THIS one crosses the board and must count exactly once"
-  },
-  {
-   "do": "wait",
-   "seconds": 3
-  },
-  {
-   "do": "click",
-   "at": [
-    1120,
-    715
-   ],
-   "why": "back toward the board but stopping past its right end"
-  },
-  {
-   "do": "wait",
-   "seconds": 2
-  },
-  {
-   "do": "click",
-   "at": [
-    1130,
-    760
-   ],
-   "why": "down beside it"
+   "why": "back along the lane, stopping past the board's right end"
   },
   {
    "do": "wait",

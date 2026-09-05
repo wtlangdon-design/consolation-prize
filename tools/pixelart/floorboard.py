@@ -1,27 +1,24 @@
 #!/usr/bin/env python3
-"""ROOM 5's PROUD FLOORBOARD, as two deterministic state images per plate.
+"""ROOM 5's PROUD FLOORBOARD, iteration 2: a real plank in the middle walking band, lifted unevenly.
 
     python3 tools/pixelart/floorboard.py
 
-Tyler's playtest finding (2026-09-05): the writing says the board "sits a
-little proud of the others" and the accepted plates draw it flush, so the
-authored physical fact did not exist on screen. This does not repaint the
-room. It takes ONE plank's own pixels out of each accepted plate and writes
-them back as a hotspot state image over the unchanged plate:
+Tyler rejected iteration 1 (2026-09-05): a two-row lift on the plank against
+the counter was invisible in play and only a foot hugging the desk reached it.
+Iteration 2 moves the LOOSE BOARD to a plank the room's ordinary walking
+already crosses -- the board in the middle band between the street door's step
+and the joint at x~747, whose two seams the plate draws sloping gently with the
+perspective -- and lifts it by ONE restrained step more, unevenly, as a loose
+board actually sits: the right end a little higher than the left, a dark gap
+under its near edge the height of the lift, the top lip a shade lighter, the
+end grain a shade darker where it stands clear of the door's shadow.
 
-  REST     the plank lifted PROUD by two rows -- its own pixels moved up, a
-           dark gap the height of the lift showing under its near (lower)
-           edge, a restrained lift of the top lip, the end grain a shade
-           darker at both ends. Nail-head proud, not a step.
-  PRESSED  the plank flush, exactly the plate's own pixels: what the board
-           looks like with a foot on it, and what it looked like before.
-
-Same plank, same bounds, same lift, on the DAY plate and on the NIGHT plate:
-each image is derived from its own plate so the light matches, and the
-geometry is identical by construction. No image model, no invented pixels.
-The output is a full-plate RGBA with only the plank region opaque, as the
-hanging lamp's state image is, and the record beside it carries the bounds
-and the hashes.
+No image model, no repaint: the plank's own pixels, read between its fitted
+seam lines column by column, moved up by that column's lift, on a full-plate
+RGBA over the unchanged plate, as the lamp's state image is. Two strengths for
+the owner's eye -- A (moderate) and B (one step stronger) -- from each plate,
+same plank, same bounds; PRESSED is the plank flush. The record beside the
+images carries the bounds, the lifts and the hashes.
 """
 import hashlib, json
 from pathlib import Path
@@ -33,51 +30,62 @@ PLATES = {
     'day': 'art/staging/room-05/plate-02/candidate-1920x864.png',
     'night': 'art/staging/room-05/plate-03-night-lift/candidate-1920x864.png',
 }
-# THE PHYSICAL PLANK, read on the day plate (tools/pixelart/floorboard.py's
-# own scan): the board row directly under the counter's base seam (rows
-# 701-702), its body rows 707-718 and its lit lower edge 719-723, ending at
-# the dark seam of rows 725-729; between the split at x~956 and the joint
-# at x~1098. Inside the hotspot [880,704,240,36] and smaller than it: the
-# rect is interaction geometry, this is the wood.
-PLANK = (960, 707, 138, 18)          # x, y, w, h  -> rows 707..724, cols 960..1097
-LIFT = 2                             # rows proud, "about the width of a nail head" at this scale
+# THE PLANK, read on the day plate: its top seam runs y = 0.0209x + 731.9 and its
+# bottom seam y = 0.0452x + 757.3 (least squares over the seam dips, x 460-760),
+# so it is ~41 rows tall at its left end and ~46 at its right; it begins where
+# the floor comes out of the door step's shadow (x~462) and ends at the joint
+# at x~745. Inside the middle walking band (y 743-787), which is the point.
+X0, X1 = 462, 745
+TOP = (0.0209, 731.9)
+BOT = (0.0452, 757.3)
+TREADS = [X0, 746, X1 - X0 + 1, 43]            # the rectangle the feet must cross: rows 746..788
+TREATMENTS = {
+    'a': dict(lift=(2, 4), gap=0.62, lip=1.14, grain=0.90),   # MODERATE: two rows proud at the left end, four at the right
+    'b': dict(lift=(3, 5), gap=0.55, lip=1.18, grain=0.86),   # STRONGER: one restrained step more, everywhere
+}
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
-def build(plate_path):
+def seam(fit, x):
+    return int(round(fit[0] * x + fit[1]))
+
+def build(plate_path, treat):
     plate = np.array(Image.open(plate_path).convert('RGB')).astype(float)
     H, W = plate.shape[:2]
-    x, y, w, h = PLANK
-    plank = plate[y:y + h, x:x + w].copy()
-    # PRESSED: the plate's own pixels, flush.
-    pressed = np.zeros((H, W, 4)); pressed[y:y + h, x:x + w, :3] = plank; pressed[y:y + h, x:x + w, 3] = 255
-    # REST: the same pixels lifted LIFT rows, the gap under the near edge dark.
-    rest = np.zeros((H, W, 4))
-    top = y - LIFT
-    rest[top:top + h, x:x + w, :3] = plank; rest[top:top + h, x:x + w, 3] = 255
-    # the top lip catches a little more light: the wood's own colour, lifted 14%
-    rest[top, x:x + w, :3] = np.clip(plank[0] * 1.14, 0, 255)
-    # the gap under the near edge: the seam colour below the plank, darkened, LIFT rows deep
-    seam = plate[y + h:y + h + 3, x:x + w].mean(0)
-    for r in range(LIFT):
-        rest[top + h + r, x:x + w, :3] = seam * 0.62; rest[top + h + r, x:x + w, 3] = 255
-    # end grain: the outermost column at each end a shade darker, the ends of a board that stands up
-    for cx in (x, x + w - 1):
-        rest[top:top + h, cx, :3] *= 0.92
+    rest = np.zeros((H, W, 4)); pressed = np.zeros((H, W, 4))
+    l0, l1 = treat['lift']
+    for x in range(X0, X1 + 1):
+        top, bot = seam(TOP, x) + 1, seam(BOT, x) - 1          # the plank's own rows, seams excluded
+        lift = int(round(l0 + (l1 - l0) * (x - X0) / (X1 - X0)))
+        col = plate[top:bot + 1, x].copy()
+        # PRESSED: flush, the plate's own pixels
+        pressed[top:bot + 1, x, :3] = col; pressed[top:bot + 1, x, 3] = 255
+        # REST: the same pixels `lift` rows up, the vacated rows a dark gap
+        rest[top - lift:bot + 1 - lift, x, :3] = col; rest[top - lift:bot + 1 - lift, x, 3] = 255
+        rest[top - lift, x, :3] = np.clip(col[0] * treat['lip'], 0, 255)
+        seam_colour = plate[bot + 1:bot + 3, x].mean(0)
+        rest[bot + 1 - lift:bot + 1, x, :3] = seam_colour * treat['gap']; rest[bot + 1 - lift:bot + 1, x, 3] = 255
+    # end grain at the right end, two columns, where the board stands clear of the door's shadow
+    for x in (X1 - 1, X1):
+        m = rest[:, x, 3] > 0; rest[m, x, :3] *= treat['grain']
     return rest, pressed
 
-record = {'plank': dict(x=PLANK[0], y=PLANK[1], w=PLANK[2], h=PLANK[3], rows=f'{PLANK[1]}..{PLANK[1] + PLANK[3] - 1}', cols=f'{PLANK[0]}..{PLANK[0] + PLANK[2] - 1}'),
-          'liftRows': LIFT, 'hotspotRect': [880, 704, 240, 36], 'plates': {}, 'images': {}}
+record = {'iteration': 2, 'plank': dict(x=X0, y=746, w=X1 - X0 + 1, h=43, cols=f'{X0}..{X1}', topSeam=f'y = {TOP[0]}x + {TOP[1]}', bottomSeam=f'y = {BOT[0]}x + {BOT[1]}', rowsAtLeftEnd=f'{seam(TOP, X0) + 1}..{seam(BOT, X0) - 1}', rowsAtRightEnd=f'{seam(TOP, X1) + 1}..{seam(BOT, X1) - 1}'),
+          'tread': TREADS, 'treatments': TREATMENTS, 'plates': {}, 'images': {}}
 OUT.mkdir(parents=True, exist_ok=True)
 for name, plate_path in PLATES.items():
-    rest, pressed = build(plate_path)
     suffix = '' if name == 'day' else '-night'
-    for state, img in (('rest', rest), ('pressed', pressed)):
-        p = OUT / f'board-{state}{suffix}.png'
-        Image.fromarray(np.clip(img, 0, 255).astype(np.uint8), 'RGBA').save(p, optimize=True)
-        record['images'][f'{state}-{name}'] = {'path': str(p), 'sha256': sha(p)}
+    for key, treat in TREATMENTS.items():
+        rest, pressed = build(plate_path, treat)
+        p = OUT / f'board-rest-{key}{suffix}.png'
+        Image.fromarray(np.clip(rest, 0, 255).astype(np.uint8), 'RGBA').save(p, optimize=True)
+        record['images'][f'rest-{key}-{name}'] = {'path': str(p), 'sha256': sha(p)}
+        if key == 'a':
+            q = OUT / f'board-pressed{suffix}.png'
+            Image.fromarray(np.clip(pressed, 0, 255).astype(np.uint8), 'RGBA').save(q, optimize=True)
+            record['images'][f'pressed-{name}'] = {'path': str(q), 'sha256': sha(q)}
     record['plates'][name] = {'path': plate_path, 'sha256': sha(plate_path)}
-record['note'] = ('Derived from the accepted plates by tools/pixelart/floorboard.py; the plates are unchanged. '
-                  'REST is the plank lifted two rows with the gap under its near edge; PRESSED is the plank flush. '
-                  'Same bounds and lift on both plates.')
+record['note'] = ('Iteration 2, derived from the accepted plates by tools/pixelart/floorboard.py; the plates are unchanged. '
+                  'The middle-band plank between the door step and the joint at x~745, lifted unevenly (right end higher) with the gap '
+                  'under its near edge; A moderate, B one step stronger; PRESSED flush. Same plank and bounds on both plates.')
 (OUT / 'floorboard.json').write_text(json.dumps(record, indent=2))
-print(json.dumps(record['images'], indent=1)); print('plank', record['plank'], 'lift', LIFT)
+print(json.dumps({k: v['sha256'][:12] for k, v in record['images'].items()}, indent=1)); print('tread', TREADS)

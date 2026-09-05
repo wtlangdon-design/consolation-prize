@@ -1,0 +1,58 @@
+{
+  "plank": {
+    "x": 960,
+    "y": 707,
+    "w": 138,
+    "h": 18,
+    "rows": "707..724",
+    "cols": "960..1097"
+  },
+  "liftRows": 2,
+  "hotspotRect": [
+    880,
+    704,
+    240,
+    36
+  ],
+  "plates": {
+    "day": {
+      "path": "art/staging/room-05/plate-02/candidate-1920x864.png",
+      "sha256": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142"
+    },
+    "night": {
+      "path": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+      "sha256": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    }
+  },
+  "images": {
+    "rest-day": {
+      "path": "art/staging/room-05/floorboard/v1-rejected/board-rest.png",
+      "sha256": "da322a7b5f0e27f93df5e54fbde73d0aef1d3c5ef3cccc7e39ee685bd2d9ff1a"
+    },
+    "pressed-day": {
+      "path": "art/staging/room-05/floorboard/v1-rejected/board-pressed.png",
+      "sha256": "f2d3343f1aac80f89214f6cc78c53c7ab3c05ce90dfc3815b5f511717c748524"
+    },
+    "rest-night": {
+      "path": "art/staging/room-05/floorboard/v1-rejected/board-rest-night.png",
+      "sha256": "dac4769ad86f92540a72271f43945df10ef440ed57ed39fedecc114e4ddf47e5"
+    },
+    "pressed-night": {
+      "path": "art/staging/room-05/floorboard/v1-rejected/board-pressed-night.png",
+      "sha256": "e0b1d274e33d6919f53e26d7ebeeae8a6058621122e699b37982dfec2a3bed9d"
+    }
+  },
+  "note": "Derived from the accepted plates by tools/pixelart/floorboard.py; the plates are unchanged. REST is the plank lifted two rows with the gap under its near edge; PRESSED is the plank flush. Same bounds and lift on both plates. REJECTED BY TYLER 2026-09-05 (iteration 1): the two-row lift was effectively invisible in play and the plank sat against the counter, so a foot only reached it by hugging the desk. Preserved; see ../floorboard.json for iteration 2.",
+  "owner_rejected": true,
+  "owner_rejected_on": "2026-09-05",
+  "owner_rejected_reason": "too visually subtle and too close to counter for natural traversal",
+  "proofs": [
+    "renders/proofs/assay-office-lamp-night/floorboard-step",
+    "renders/proofs/assay-office-lamp-night/floorboard-crossings",
+    "renders/proofs/assay-office-lamp-night/floorboard-crossings-pace-150",
+    "renders/proofs/assay-office-lamp-night/floorboard-nearmiss",
+    "renders/proofs/assay-office-lamp-night/floorboard-verbs",
+    "renders/proofs/assay-office/floorboard-crossings-day",
+    "proofs/room-05/floorboard.json (v1 section)"
+  ]
+}

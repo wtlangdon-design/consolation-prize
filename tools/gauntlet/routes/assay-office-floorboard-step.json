@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "assay_office",
- "note": "FLOORBOARD STEP SEQUENCE (Tyler, 2026-09-05): a walk along the board's row from left of it to right of it, stills every 0.1 s -- approaching (rest), the foot on the tread (pressed, CREEEAK), the rebound, past it (rest, caption gone). A click INSIDE the hotspot rect is a LOOK, not a walk, so the board is crossed on the way to a point beyond it, which is how it is crossed in play. Run by tools/gauntlet/frames.mjs.",
+ "note": "FLOORBOARD STEP SEQUENCE, iteration 2 (Tyler, 2026-09-05): an ordinary walk along the room's middle lane from the door side to the counter side crosses the board; stills every 0.1 s show it at rest, the foot loading it (pressed, CREEEAK), the rebound and Thad walking on. Run by tools/gauntlet/frames.mjs.",
  "from": "assay_office",
  "actions": [
   {
@@ -9,35 +9,24 @@
    "seconds": 2
   },
   {
-   "do": "click",
-   "at": [
-    860,
-    715
-   ],
-   "why": "to the board's row, left of the board: approaching, board at rest"
-  },
-  {
-   "do": "wait",
-   "seconds": 4
-  },
-  {
    "do": "burst",
-   "name": "approach",
+   "name": "rest",
    "seconds": 0.4,
-   "every": 0.2
+   "every": 0.2,
+   "why": "the room at rest, Thad at the door"
   },
   {
    "do": "click",
    "at": [
-    1200,
-    715
+    1100,
+    765
    ],
-   "why": "along the row across the board: the foot loads it once"
+   "why": "an ordinary walk across the room along the middle lane: it crosses the board"
   },
   {
    "do": "burst",
    "name": "step",
-   "seconds": 2.2,
+   "seconds": 3.0,
    "every": 0.1
   },
   {

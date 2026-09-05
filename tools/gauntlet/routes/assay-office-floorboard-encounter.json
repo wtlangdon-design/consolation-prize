@@ -1,0 +1,87 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "FLOORBOARD NATURAL ENCOUNTER, iteration 2 (Tyler, 2026-09-05): first-visit paths as a player takes them -- TALK TO Winnie from the door, LOOK AT the scales, LOOK AT the stove -- and which of them cross the board with no detour. Run by tools/gauntlet/frames.mjs; the cue count says which crossed.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie from the door: the approach to her declared point crosses the board"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "click",
+   "at": [
+    340,
+    765
+   ],
+   "why": "back to the door side (x340, clear of the street-door exit rect) (crosses it again)"
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "LOOK AT the scales from the door: the diagonal to the near floor line clips the board"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "click",
+   "at": [
+    340,
+    765
+   ],
+   "why": "back to the door side (x340, clear of the street-door exit rect)"
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "stove",
+   "why": "LOOK AT the stove from the door: the short diagonal passes under the board and misses it"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "click",
+   "at": [
+    340,
+    765
+   ],
+   "why": "back to the door side (x340, clear of the street-door exit rect)"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  }
+ ]
+}

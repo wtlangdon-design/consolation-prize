@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "assay_office",
- "note": "FLOORBOARD CROSSINGS (Tyler, 2026-09-05): twelve crossings along the board row, then twenty seconds standing beside it. One press per crossing, none while standing. Run at pace 1.25 and 1.5 by tools/gauntlet/frames.mjs.",
+ "note": "FLOORBOARD CROSSINGS, iteration 2 (Tyler, 2026-09-05): twelve crossings along the middle lane, then twenty seconds standing beside the board. One press per crossing, none while standing. Run at pace 1.25 and 1.5 by tools/gauntlet/frames.mjs.",
  "from": "assay_office",
  "actions": [
   {
@@ -11,153 +11,153 @@
   {
    "do": "click",
    "at": [
-    860,
-    715
+    340,
+    765
    ],
-   "why": "start left of the board on its row"
+   "why": "start left of the board on the middle lane"
   },
   {
    "do": "wait",
-   "seconds": 4
+   "seconds": 3
   },
   {
    "do": "click",
    "at": [
-    1200,
-    715
+    1000,
+    765
    ],
-   "why": "crossing 1: left to right along the row"
+   "why": "crossing 1: left to right along the middle lane"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    860,
-    715
+    340,
+    765
    ],
    "why": "crossing 2: right to left"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    1200,
-    715
+    1000,
+    765
    ],
-   "why": "crossing 3: left to right along the row"
+   "why": "crossing 3: left to right along the middle lane"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    860,
-    715
+    340,
+    765
    ],
    "why": "crossing 4: right to left"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    1200,
-    715
+    1000,
+    765
    ],
-   "why": "crossing 5: left to right along the row"
+   "why": "crossing 5: left to right along the middle lane"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    860,
-    715
+    340,
+    765
    ],
    "why": "crossing 6: right to left"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    1200,
-    715
+    1000,
+    765
    ],
-   "why": "crossing 7: left to right along the row"
+   "why": "crossing 7: left to right along the middle lane"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    860,
-    715
+    340,
+    765
    ],
    "why": "crossing 8: right to left"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    1200,
-    715
+    1000,
+    765
    ],
-   "why": "crossing 9: left to right along the row"
+   "why": "crossing 9: left to right along the middle lane"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    860,
-    715
+    340,
+    765
    ],
    "why": "crossing 10: right to left"
   },
   {
    "do": "wait",
-   "seconds": 2.2
+   "seconds": 2.5
   },
   {
    "do": "click",
    "at": [
-    1130,
-    715
+    820,
+    765
    ],
    "why": "crossing 11: across and stop just past its right end"
   },
   {
    "do": "wait",
    "seconds": 20,
-   "why": "twenty seconds standing on the row beside the board, having just crossed it: zero further creaks (standing ON it cannot be clicked -- the tread is inside the LOOK hotspot -- and is covered by tests/floorboard.test.ts)"
+   "why": "twenty seconds standing beside the board having just crossed it: zero further creaks (standing ON it cannot be clicked, the tread is inside the LOOK hotspot; tests/floorboard.test.ts covers it)"
   },
   {
    "do": "click",
    "at": [
-    860,
-    715
+    340,
+    765
    ],
    "why": "crossing 12: straight back across after re-arming"
   },
