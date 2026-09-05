@@ -1,5 +1,5 @@
 {
- "deployedSha": "39b61b6",
+ "deployedSha": "7033f20",
  "served": "dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/",
  "runs": [
   {
@@ -14,7 +14,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 772
+   "responsesSeen": 773
   },
   {
    "name": "night",
@@ -28,7 +28,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 772
+   "responsesSeen": 773
   },
   {
    "name": "fixture-r5-a",
@@ -42,7 +42,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 772
+   "responsesSeen": 773
   },
   {
    "name": "fixture-r5-b",
@@ -56,7 +56,21 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 772
+   "responsesSeen": 773
+  },
+  {
+   "name": "fixture-r5-c",
+   "url": "https://wtlangdon-design.github.io/consolation-prize/?fixture=r5-c&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&pace=1.25",
+   "roomJson": 200,
+   "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "legacyPlateRequested": false,
+   "winnieSheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "inkstand": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+   "lampOverlay": 200,
+   "thadClips": 199,
+   "failures": [],
+   "pageErrors": [],
+   "responsesSeen": 773
   },
   {
    "name": "fixture-r5-g",
@@ -70,7 +84,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 772
+   "responsesSeen": 773
   }
  ]
 }

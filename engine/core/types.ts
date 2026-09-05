@@ -192,6 +192,14 @@ export interface Interactable {
      * belongs to a state is declared with it.
      */
     imageByState?: Record<string, string>;
+    /**
+     * This picture is ONE prop in every visual state of the room -- the
+     * hanging work lamp, whose fixture is the same by day and by night and
+     * only its runtime light differs. Declared, so `tools/check-state-images`
+     * can tell a decision from an oversight: an image with no companion for a
+     * state the room answers to is the floorboard defect unless it says this.
+     */
+    sameInAllStates?: boolean;
     /** Replaces `rect` for hit-testing while this state holds. */
     bounds?: [number, number, number, number];
     /** Clip levels this state's image masks. Doc 22 section 5, step 5. */

@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 
 import { browser } from '../lib/chromium.mjs';
 import { ROOT, readJson } from '../lib/content.mjs';
-import { contactSheet, serve } from './proof.mjs';
+import { contactSheet, proofJudgement, serve } from './proof.mjs';
 import { runRoute } from './route.mjs';
 
 /**
@@ -226,6 +226,10 @@ async function main() {
       candidates: candidates.map((c) => ({ declared: c.from, rendered: c.to, hash: c.hash })),
       entryRoute: spec.route, lifeRoute: `${slug}-life`, durationSeconds: stamp(),
       events, captures: captures.map(({ url, ...rest }) => rest), failures, passed: failures.length === 0,
+      judgement: proofJudgement(failures, {
+        establishes: [`the room stayed coherent for ${stamp()}s of a deterministic route: every capture in the room it names, every asserted state met`],
+        doesNotEstablish: ['that the room feels alive -- a person judges the contact sheet'],
+      }),
       at: new Date().toISOString(),
     };
     writeFileSync(resolve(ROOT, `${outDir}/life.json`), `${JSON.stringify(result, null, 1)}\n`);

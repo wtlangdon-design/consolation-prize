@@ -1,0 +1,161 @@
+{
+ "schema": 1,
+ "id": "room-03-nugget",
+ "room": "nugget",
+ "docRoom": 3,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four). Ids, statuses and pointers only; no creative content. Every gate is answered -- NOT-RUN is an answer -- and every answer but NOT-RUN cites evidence a person can open in a minute. Validated by tools/check-build-contracts.mjs. Owner rulings are recorded here by date and set by nobody but Tyler. OPENING-SET ROOM: this contract records what is ESTABLISHED today and answers NOT-RUN where the Factory v2 audit (step 3, OPENING SET CONTINUITY RETROFIT AUDIT) has not yet been run. It does not perform that audit.",
+ "authorities": [
+  "docs/16-room-03-content.md",
+  "docs/05-examine-layer.md",
+  "docs/35-room-gate.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+   ],
+   "note": "Acts I-IV; the piano (A8) and Deke Vessel (A3) found by the gate reading doc 02."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS-WITH-ACCEPTED-EXCEPTION",
+   "evidence": [
+    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+   ],
+   "exception": "The piano is ruled PLATE though A8 tunes it with the lid open (doc 35, \"THE GATE READS THE PUZZLE GRAPH NOW\"); the raccoon (Act II) and Deke Vessel have no sprites yet."
+  },
+  "cast": {
+   "status": "NOT-RUN",
+   "note": "Nine patrons as sprites (six sheets); no family/scale/ownership audit against the Room 5 standard. Step 3."
+  },
+  "roomLife": {
+   "status": "NOT-RUN",
+   "note": "renders/proofs/nugget/stationary/frames.json covers the frozen-frame question only; no life route. Step 3."
+  },
+  "physicalContact": {
+   "status": "NOT-RUN",
+   "note": "Patrons at the bar and the card table; no contact bands declared. Step 3."
+  },
+  "lighting": {
+   "status": "NOT-RUN",
+   "note": "Chandelier and stove declared as lamps; no per-position relight record for the patrons. Step 3."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-RUN",
+   "note": "The handbill (doc 02 calls it critical) has no perceptibility proof. Step 3."
+  },
+  "contentCompilerHealth": {
+   "status": "FAIL",
+   "evidence": [
+    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+   ],
+   "note": "compile-room 3 refuses on a doc 16 / doc 05 naming mismatch; nugget.json has no live writer and carries one stale LOOK line (Tyler's reworded front-doors LOOK 2)."
+  },
+  "artBudget": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "content/build-ledger.json"
+   ],
+   "note": "Pre-API art."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "FAIL",
+   "evidence": [
+    "cmd:node tools/compile-room.mjs 3",
+    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-03/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "NOT-RUN",
+   "note": "No four-panel proof has been taken (build ledger: built and unproven)."
+  },
+  "lifeProof": {
+   "status": "NOT-RUN",
+   "note": "No nugget-life route."
+  },
+  "gameplayProof": {
+   "status": "NOT-RUN",
+   "note": "No gameplay pass."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "cmd:npm run validate"
+   ]
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "the plate (1920x864)",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-03-nugget.png",
+   "evidence": [
+    "content/build-ledger.json"
+   ]
+  },
+  {
+   "subject": "the nine patrons (six sheets) and the card table",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/nugget-man34.png",
+   "evidence": [
+    "content/ambient/nugget-man34.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "content/build-ledger.json"
+   ]
+  },
+  "gameplay": {
+   "act1": {
+    "status": "NOT-SUBMITTED",
+    "evidence": [
+     "content/build-ledger.json"
+    ],
+    "scope": "No gameplay proof exists to submit."
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/backgrounds/room-03-nugget.png"
+   ]
+  }
+ },
+ "laterStates": [
+  {
+   "id": "the raccoon (Act II, after A5)",
+   "status": "CONTRACTED-UNBUILT",
+   "evidence": [
+    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+   ]
+  },
+  {
+   "id": "Deke Vessel (A3)",
+   "status": "CONTRACTED-UNBUILT",
+   "evidence": [
+    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+   ]
+  }
+ ],
+ "retrofit": [
+  {
+   "subject": "every element",
+   "classification": "NOT-CLASSIFIED",
+   "note": "Classified by the step-3 audit: OPENING SET CONTINUITY RETROFIT AUDIT — ROOM 2 + ROOM 3. Not performed here."
+  }
+ ]
+}

@@ -1,0 +1,198 @@
+{
+ "schema": 1,
+ "id": "room-02-main-street",
+ "room": "main_street",
+ "docRoom": 2,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four). Ids, statuses and pointers only; no creative content. Every gate is answered -- NOT-RUN is an answer -- and every answer but NOT-RUN cites evidence a person can open in a minute. Validated by tools/check-build-contracts.mjs. Owner rulings are recorded here by date and set by nobody but Tyler. OPENING-SET ROOM: this contract records what is ESTABLISHED today and answers NOT-RUN where the Factory v2 audit (step 3, OPENING SET CONTINUITY RETROFIT AUDIT) has not yet been run. It does not perform that audit.",
+ "authorities": [
+  "docs/13-room-02-content.md",
+  "docs/14-room-02-exits.md",
+  "docs/05-examine-layer.md",
+  "docs/35-room-gate.md",
+  "docs/20-room-map.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS-WITH-ACCEPTED-EXCEPTION",
+   "evidence": [
+    "docs/35-room-gate.md::2a · ROOM 2'S GATE, AS RUN (the worked example)",
+    "docs/00-errata.md::64a · The canonical Act I / base presentation of Main Street is NIGHT"
+   ],
+   "exception": "Act variants (false fronts, notices, company sign, dog) are authored and the compiler reports them NOT compiled; the ACT writer (doc 48 S1) is unbuilt -- Panel D and check-flag-order carry the debt (doc 36 Q24 ruling, 2026-09-04)."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "docs/35-room-gate.md::2a · ROOM 2'S GATE, AS RUN (the worked example)",
+    "content/rooms/main-street.json"
+   ],
+   "note": "Doors ruled exits; sign and notices STATEFUL with Act III overlays; the dog a MOVER."
+  },
+  "cast": {
+   "status": "NOT-RUN",
+   "note": "Three ambient people and the dog exist as sprites and are relit per position (doc 38); no family/scale/stationary-ownership audit against the Room 5 standard has been run. Step 3."
+  },
+  "roomLife": {
+   "status": "NOT-RUN",
+   "note": "renders/proofs/main-street/walk-new/life.json is a locomotion measurement, not a 60 s idle-life proof against the Room 5 standard. Step 3."
+  },
+  "physicalContact": {
+   "status": "NOT-RUN",
+   "note": "No contact bands declared in proofs/spec/main-street.json. Step 3."
+  },
+  "lighting": {
+   "status": "PASS-WITH-ACCEPTED-EXCEPTION",
+   "evidence": [
+    "content/rooms/main-street.json",
+    "docs/38-character-pipeline.md::LIGHT A SPRITE BY WHERE IT STANDS, NOT BY A GLOBAL GRADE"
+   ],
+   "exception": "Night plate with three declared lamps and per-position sprite relights; no DAY/NIGHT companion set because the base state IS night (errata 64a) and no other state is authored."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-RUN",
+   "note": "The assay-office window (a puzzle route, doc 13) has no perceptibility proof. Step 3."
+  },
+  "contentCompilerHealth": {
+   "status": "DEFERRED",
+   "evidence": [
+    "cmd:node tools/compile-room.mjs 2 --check"
+   ],
+   "note": "Compiles current; four Part Two-B act variants on existing hotspots are reported NOT compiled by the compiler on every run."
+  },
+  "artBudget": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "content/build-ledger.json"
+   ],
+   "note": "Pre-API art; no ledger row."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "cmd:node tools/compile-room.mjs 2 --check"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-02/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "FAIL",
+   "evidence": [
+    "renders/proofs/main-street/proof.json",
+    "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
+   ],
+   "note": "passed: false at 0055228 -- the two 320x144 masks (maskPending, Tyler's ruling: not regenerated yet) and Panel D's ACT gate."
+  },
+  "lifeProof": {
+   "status": "NOT-RUN",
+   "note": "No main-street-life route."
+  },
+  "gameplayProof": {
+   "status": "PASS-WITH-ACCEPTED-EXCEPTION",
+   "evidence": [
+    "proofs/room-05/act1.json"
+   ],
+   "exception": "Only the Act I entry/exit through its assay-office door is proved, as part of Room 5's Act I pass (three round trips; the door-state defect fixed at source). No Room 2 gameplay pass of its own."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "cmd:npm run validate"
+   ],
+   "note": "The suite is green on it except the global flag-order red."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "the night plate (signed off)",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-02-main-street.png",
+   "evidence": [
+    "docs/00-errata.md::64a · The canonical Act I / base presentation of Main Street is NIGHT"
+   ]
+  },
+  {
+   "subject": "occlusion masks, plane 1 and 2 (320x144, maskPending)",
+   "class": "MASK",
+   "stage": "LEGACY",
+   "path": "art/masks/room-02-plane-1.png",
+   "evidence": [
+    "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
+   ]
+  },
+  {
+   "subject": "Act III overlays (gilt sign, funeral notice)",
+   "class": "STATEFUL",
+   "stage": "SHIPPING",
+   "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+   "evidence": [
+    "content/rooms/main-street.json"
+   ]
+  },
+  {
+   "subject": "the map seller, the pie woman, the letter-writer",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/ambient-map-seller.png",
+   "evidence": [
+    "content/ambient/map-seller.json"
+   ]
+  },
+  {
+   "subject": "the dog",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/ambient-dog.png",
+   "evidence": [
+    "content/ambient/dog.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "content/build-ledger.json"
+   ],
+   "note": "The plate is \"signed off\" in the record (errata 64a) and the ledger's visual_accepted is false; only Tyler moves it."
+  },
+  "gameplay": {
+   "act1-transit": {
+    "status": "PENDING",
+    "evidence": [
+     "proofs/room-05/act1.json"
+    ],
+    "scope": "Entry and re-entry through the assay-office door proved as part of Room 5 Act I; no Room 2 gameplay ruling on record."
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/backgrounds/room-02-main-street.png"
+   ]
+  }
+ },
+ "laterStates": [
+  {
+   "id": "Act III overlays (gilt sign, funeral notice)",
+   "status": "CONTRACTED-UNBUILT",
+   "evidence": [
+    "content/rooms/main-street.json"
+   ],
+   "note": "Overlays exist; the ACT writer does not."
+  }
+ ],
+ "retrofit": [
+  {
+   "subject": "every element",
+   "classification": "NOT-CLASSIFIED",
+   "note": "Classified by the step-3 audit: OPENING SET CONTINUITY RETROFIT AUDIT — ROOM 2 + ROOM 3. Not performed here."
+  }
+ ]
+}

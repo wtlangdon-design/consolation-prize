@@ -2,9 +2,11 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "assay_office",
- "commit": "b6af475510470186cf4ec7c9f6b17569c1731529",
+ "commit": "e53fe99657fba1d2d76f53c641dcd15e7b8e4f21",
  "workingTreeClean": true,
  "dirtyAllowed": false,
+ "visualState": null,
+ "pace": 1,
  "candidates": [
   {
    "declared": "art/backgrounds/room-05-assay-office.png",
@@ -14,114 +16,114 @@
  ],
  "entryRoute": "assay-office",
  "lifeRoute": "assay-office-life",
- "durationSeconds": 207.45,
+ "durationSeconds": 209.41,
  "events": [
   {
-   "t": 4.75,
+   "t": 3.8,
    "line": "entry route assay-office: 23 action(s)"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 20 (wait): waited 2s"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 21 (click): clicked main_street/to_assay_office at world 3113,479 -- Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 22 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
   },
   {
-   "t": 109.94,
+   "t": 112.74,
    "line": "action 23 (wait): waited 3s"
   },
   {
-   "t": 109.99,
+   "t": 112.75,
    "line": "in assay_office; life route: 41 action(s)"
   },
   {
-   "t": 110.64,
+   "t": 113.32,
    "line": "capture 01-initial: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 111.7,
+   "t": 114.35,
    "trace": {
     "says": null,
     "control": null,
@@ -136,7 +138,7 @@
    }
   },
   {
-   "t": 112.67,
+   "t": 115.36,
    "trace": {
     "says": null,
     "control": null,
@@ -151,7 +153,7 @@
    }
   },
   {
-   "t": 113.68,
+   "t": 116.35,
    "trace": {
     "says": null,
     "control": null,
@@ -166,7 +168,7 @@
    }
   },
   {
-   "t": 114.68,
+   "t": 117.35,
    "trace": {
     "says": null,
     "control": null,
@@ -181,7 +183,7 @@
    }
   },
   {
-   "t": 115.71,
+   "t": 118.38,
    "trace": {
     "says": null,
     "control": null,
@@ -196,7 +198,7 @@
    }
   },
   {
-   "t": 116.72,
+   "t": 119.38,
    "trace": {
     "says": null,
     "control": null,
@@ -211,7 +213,7 @@
    }
   },
   {
-   "t": 117.72,
+   "t": 120.34,
    "trace": {
     "says": null,
     "control": null,
@@ -226,7 +228,7 @@
    }
   },
   {
-   "t": 118.67,
+   "t": 121.39,
    "trace": {
     "says": null,
     "control": null,
@@ -241,7 +243,7 @@
    }
   },
   {
-   "t": 119.69,
+   "t": 122.39,
    "trace": {
     "says": null,
     "control": null,
@@ -256,7 +258,7 @@
    }
   },
   {
-   "t": 120.73,
+   "t": 123.36,
    "trace": {
     "says": null,
     "control": null,
@@ -271,7 +273,7 @@
    }
   },
   {
-   "t": 121.7,
+   "t": 124.35,
    "trace": {
     "says": null,
     "control": null,
@@ -286,15 +288,15 @@
    }
   },
   {
-   "t": 122.65,
+   "t": 125.33,
    "line": "action 1 (wait): waited 12s"
   },
   {
-   "t": 123.38,
+   "t": 125.9,
    "line": "capture 02-early-idle: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 124.41,
+   "t": 126.91,
    "trace": {
     "says": null,
     "control": null,
@@ -309,7 +311,7 @@
    }
   },
   {
-   "t": 125.44,
+   "t": 127.92,
    "trace": {
     "says": null,
     "control": null,
@@ -324,7 +326,7 @@
    }
   },
   {
-   "t": 126.4,
+   "t": 128.95,
    "trace": {
     "says": null,
     "control": null,
@@ -339,7 +341,7 @@
    }
   },
   {
-   "t": 127.41,
+   "t": 129.96,
    "trace": {
     "says": null,
     "control": null,
@@ -354,7 +356,7 @@
    }
   },
   {
-   "t": 128.43,
+   "t": 130.93,
    "trace": {
     "says": null,
     "control": null,
@@ -369,7 +371,7 @@
    }
   },
   {
-   "t": 129.44,
+   "t": 131.96,
    "trace": {
     "says": null,
     "control": null,
@@ -384,7 +386,7 @@
    }
   },
   {
-   "t": 130.44,
+   "t": 132.95,
    "trace": {
     "says": null,
     "control": null,
@@ -399,7 +401,7 @@
    }
   },
   {
-   "t": 131.44,
+   "t": 133.96,
    "trace": {
     "says": null,
     "control": null,
@@ -414,7 +416,7 @@
    }
   },
   {
-   "t": 132.4,
+   "t": 134.97,
    "trace": {
     "says": null,
     "control": null,
@@ -429,19 +431,19 @@
    }
   },
   {
-   "t": 133.38,
+   "t": 135.9,
    "line": "action 1 (wait): waited 10s"
   },
   {
-   "t": 134.03,
+   "t": 136.53,
    "line": "capture 03-idle-later: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 134.24,
+   "t": 136.72,
    "line": "action 1 (click): clicked screen 1500,780 -- walk across the room, past the counter"
   },
   {
-   "t": 135.26,
+   "t": 137.79,
    "trace": {
     "says": null,
     "control": null,
@@ -449,14 +451,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     394,
-     767
+     590,
+     769
     ],
     "moving": true
    }
   },
   {
-   "t": 136.28,
+   "t": 138.79,
    "trace": {
     "says": null,
     "control": null,
@@ -464,140 +466,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     591,
-     770
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 137.29,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     785,
-     772
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 138.27,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     966,
+     1010,
      774
     ],
     "moving": true
    }
   },
   {
-   "t": 139.25,
-   "line": "action 1 (wait): waited 5s"
-  },
-  {
-   "t": 139.96,
-   "line": "capture 04-walked: room assay_office, says null, options 0, control null"
-  },
-  {
-   "t": 140.13,
-   "line": "action 1 (verb): chose verb LOOK_AT -- "
-  },
-  {
-   "t": 140.59,
-   "line": "action 1 (click): clicked assay_office/scales at world 1303,290 -- LOOK at the scales: doc 05's line"
-  },
-  {
-   "t": 141.68,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1303,
-     828
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 141.77,
-   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
-  },
-  {
-   "t": 142.41,
-   "line": "capture 05-looked: room assay_office, says \"thad\", options 0, control null"
-  },
-  {
-   "t": 143.45,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1303,
-     828
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 144.42,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1303,
-     828
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 145.46,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1303,
-     828
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 146.29,
-   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
-  },
-  {
-   "t": 146.43,
-   "line": "action 1 (verb): chose verb PICK_UP -- "
-  },
-  {
-   "t": 146.81,
-   "line": "action 1 (click): clicked assay_office/her_pen at world 931,370 -- an authored refusal: doc 25, HER PEN · PICK UP"
-  },
-  {
-   "t": 147.9,
+   "t": 139.74,
    "trace": {
     "says": null,
     "control": null,
@@ -605,14 +481,125 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1109,
-     828
+     1404,
+     779
     ],
     "moving": true
    }
   },
   {
+   "t": 140.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1500,
+     780
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.73,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 142.32,
+   "line": "capture 04-walked: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 142.44,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 142.76,
+   "line": "action 1 (click): clicked assay_office/scales at world 1303,290 -- LOOK at the scales: doc 05's line"
+  },
+  {
+   "t": 143.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1303,
+     828
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 143.96,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 144.53,
+   "line": "capture 05-looked: room assay_office, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 145.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1303,
+     828
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146.58,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1303,
+     828
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 147.58,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1303,
+     828
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 148.46,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 148.57,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
    "t": 148.85,
+   "line": "action 1 (click): clicked assay_office/her_pen at world 931,370 -- an authored refusal: doc 25, HER PEN · PICK UP"
+  },
+  {
+   "t": 149.93,
    "trace": {
     "says": null,
     "control": null,
@@ -627,23 +614,23 @@
    }
   },
   {
-   "t": 149.17,
+   "t": 150.01,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
   },
   {
-   "t": 149.77,
+   "t": 150.55,
    "line": "capture 06-wrong-action: room assay_office, says \"thad\", options 0, control null"
   },
   {
-   "t": 149.89,
+   "t": 150.59,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 150.23,
+   "t": 150.9,
    "line": "action 1 (click): clicked assay_office/queue_bench at world 1805,660 -- NEGATIVE GATE: at ACT 1 the bench is not a target, so this is a walk to the floor and no line"
   },
   {
-   "t": 151.29,
+   "t": 151.93,
    "trace": {
     "says": null,
     "control": null,
@@ -651,59 +638,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1121,
-     818
+     1368,
+     804
     ],
     "moving": true
    }
   },
   {
-   "t": 152.28,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1315,
-     807
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 153.45,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1496,
-     797
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 154.31,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1593,
-     792
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 155.27,
+   "t": 152.95,
    "trace": {
     "says": null,
     "control": null,
@@ -712,13 +654,13 @@
     "options": 0,
     "thad": [
      1690,
-     727
+     709
     ],
     "moving": true
    }
   },
   {
-   "t": 156.27,
+   "t": 153.92,
    "trace": {
     "says": null,
     "control": null,
@@ -733,23 +675,68 @@
    }
   },
   {
-   "t": 156.84,
+   "t": 154.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 155.97,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 156.97,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     700
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.51,
    "line": "action 1 (wait): waited 6.6s"
   },
   {
-   "t": 157.48,
+   "t": 158.09,
    "line": "capture 07-bench-at-act-1: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 157.59,
+   "t": 158.2,
    "line": "action 1 (verb): chose verb TALK_TO -- "
   },
   {
-   "t": 158.05,
+   "t": 158.51,
    "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- TALK TO Winnie: the tree opens when he reaches conversational distance"
   },
   {
-   "t": 159.09,
+   "t": 159.53,
    "trace": {
     "says": null,
     "control": null,
@@ -757,14 +744,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1493,
-     700
+     1312,
+     721
     ],
     "moving": true
    }
   },
   {
-   "t": 160.07,
+   "t": 160.56,
    "trace": {
     "says": null,
     "control": null,
@@ -772,26 +759,116 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1305,
-     700
+     930,
+     743
     ],
     "moving": true
    }
   },
   {
-   "t": 160.82,
+   "t": 161.52,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.56,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.58,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.55,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.56,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.55,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.63,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
   },
   {
-   "t": 161.47,
+   "t": 167.21,
    "line": "capture 08-dialogue-open: room assay_office, says null, options 3, control null"
   },
   {
-   "t": 161.79,
+   "t": 167.47,
    "line": "action 1 (option): chose option winnie2 -- What is it you actually do here?"
   },
   {
-   "t": 162.85,
+   "t": 168.56,
    "trace": {
     "says": "thad",
     "control": null,
@@ -799,14 +876,14 @@
     "performing": true,
     "options": 3,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 163.84,
+   "t": 169.52,
    "trace": {
     "says": "thad",
     "control": null,
@@ -814,14 +891,14 @@
     "performing": true,
     "options": 3,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 164.85,
+   "t": 170.51,
    "trace": {
     "says": "winnie",
     "control": null,
@@ -829,14 +906,14 @@
     "performing": true,
     "options": 3,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 165.85,
+   "t": 171.51,
    "trace": {
     "says": "winnie",
     "control": null,
@@ -844,14 +921,14 @@
     "performing": true,
     "options": 3,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 166.91,
+   "t": 172.49,
    "trace": {
     "says": "winnie",
     "control": null,
@@ -859,14 +936,14 @@
     "performing": true,
     "options": 3,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 167.82,
+   "t": 173.5,
    "trace": {
     "says": "winnie",
     "control": null,
@@ -874,26 +951,26 @@
     "performing": true,
     "options": 3,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 168.69,
+   "t": 174.25,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
   },
   {
-   "t": 169.32,
+   "t": 174.79,
    "line": "capture 09-dialogue-reply: room assay_office, says null, options 3, control null"
   },
   {
-   "t": 169.71,
+   "t": 175.06,
    "line": "action 1 (option): chose option winnie5 -- the universal exit"
   },
   {
-   "t": 170.81,
+   "t": 176.08,
    "trace": {
     "says": "thad",
     "control": null,
@@ -901,14 +978,14 @@
     "performing": true,
     "options": 3,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 171.78,
+   "t": 177.11,
    "trace": {
     "says": null,
     "control": null,
@@ -916,14 +993,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 172.79,
+   "t": 178.12,
    "trace": {
     "says": null,
     "control": null,
@@ -931,18 +1008,18 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 173.72,
+   "t": 179.06,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 174.75,
+   "t": 179.08,
    "trace": {
     "says": null,
     "control": null,
@@ -950,14 +1027,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 175.76,
+   "t": 180.12,
    "trace": {
     "says": null,
     "control": null,
@@ -965,14 +1042,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 176.77,
+   "t": 181.14,
    "trace": {
     "says": null,
     "control": null,
@@ -980,14 +1057,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 177.77,
+   "t": 182.08,
    "trace": {
     "says": null,
     "control": null,
@@ -995,14 +1072,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 178.78,
+   "t": 183.08,
    "trace": {
     "says": null,
     "control": null,
@@ -1010,22 +1087,52 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 179.72,
+   "t": 184.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.07,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 180.35,
+   "t": 185.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.63,
    "line": "capture 10-after-dialogue: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 181.41,
+   "t": 186.66,
    "trace": {
     "says": null,
     "control": null,
@@ -1033,14 +1140,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 182.36,
+   "t": 187.67,
    "trace": {
     "says": null,
     "control": null,
@@ -1048,14 +1155,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 183.4,
+   "t": 188.67,
    "trace": {
     "says": null,
     "control": null,
@@ -1063,14 +1170,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 184.42,
+   "t": 189.67,
    "trace": {
     "says": null,
     "control": null,
@@ -1078,14 +1185,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 185.37,
+   "t": 190.69,
    "trace": {
     "says": null,
     "control": null,
@@ -1093,14 +1200,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 186.42,
+   "t": 191.69,
    "trace": {
     "says": null,
     "control": null,
@@ -1108,14 +1215,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 187.42,
+   "t": 192.69,
    "trace": {
     "says": null,
     "control": null,
@@ -1123,14 +1230,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 188.38,
+   "t": 193.69,
    "trace": {
     "says": null,
     "control": null,
@@ -1138,26 +1245,26 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1182,
-     700
+     930,
+     760
     ],
     "moving": false
    }
   },
   {
-   "t": 189.35,
+   "t": 194.64,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 189.94,
+   "t": 195.19,
    "line": "capture 10b-back-at-work: room assay_office, says null, options 0, control null"
   },
   {
-   "t": 190.28,
+   "t": 195.47,
    "line": "action 1 (click): clicked assay_office/to_records at world 1621,309 -- the back-room door: transit to the stub"
   },
   {
-   "t": 191.33,
+   "t": 196.5,
    "trace": {
     "says": null,
     "control": null,
@@ -1165,14 +1272,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1373,
-     702
+     1327,
+     750
     ],
     "moving": true
    }
   },
   {
-   "t": 192.35,
+   "t": 197.53,
    "trace": {
     "says": null,
     "control": null,
@@ -1180,30 +1287,30 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1567,
-     704
+     960,
+     863
     ],
-    "moving": true
+    "moving": false
    }
   },
   {
-   "t": 192.79,
+   "t": 197.63,
    "line": "action 1 (waitFor): reached {\"room\":\"stub_assay_records\"} in room stub_assay_records"
   },
   {
-   "t": 193.19,
+   "t": 198.04,
    "line": "capture 11-records-room: room stub_assay_records, says null, options 0, control null"
   },
   {
-   "t": 193.52,
+   "t": 198.3,
    "line": "action 1 (click): clicked stub_assay_records/back_to_assay at world 960,492 -- the stub's way back"
   },
   {
-   "t": 193.62,
+   "t": 198.38,
    "line": "action 1 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
   },
   {
-   "t": 194.67,
+   "t": 199.44,
    "trace": {
     "says": null,
     "control": null,
@@ -1218,7 +1325,7 @@
    }
   },
   {
-   "t": 195.68,
+   "t": 200.39,
    "trace": {
     "says": null,
     "control": null,
@@ -1233,11 +1340,11 @@
    }
   },
   {
-   "t": 196.62,
+   "t": 201.39,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 196.63,
+   "t": 201.43,
    "trace": {
     "says": null,
     "control": null,
@@ -1252,7 +1359,7 @@
    }
   },
   {
-   "t": 197.29,
+   "t": 201.97,
    "line": "capture 12-re-entered: room assay_office, says null, options 0, control null"
   }
  ],
@@ -1260,11 +1367,301 @@
   {
    "name": "01-initial",
    "why": "arrival; Winnie already at work",
-   "t": 110.6,
+   "t": 113.3,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/01-initial.png",
-   "hash": "75796540b0ce319b322eec2e2a14f995e4040c09072d05ba13f0ee18de7d1fa0",
+   "hash": "a6bab4dfa10ebffc5fae72e0ad5016331c145f46c4192ecc0b539c5dc8ae522f",
    "room": "assay_office",
-   "clock": 110.215,
+   "clock": 112.9572,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      765
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 515,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      -67,
+      250,
+      534,
+      569
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-02/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-early-idle",
+   "why": null,
+   "t": 125.88,
+   "file": "renders/proofs/assay-office/life/raw-captures-ignored/02-early-idle.png",
+   "hash": "2ace45ee6e9f3468eef4f766df8113fb5308fed4d5e29f13be2e6ea4e6f35862",
+   "room": "assay_office",
+   "clock": 125.55669999999999,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      765
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 515,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      -67,
+      250,
+      534,
+      569
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-02/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-idle-later",
+   "why": "a second break, by construction a different pick from the pool",
+   "t": 136.51,
+   "file": "renders/proofs/assay-office/life/raw-captures-ignored/03-idle-later.png",
+   "hash": "6365c1abf09304cbabe772d3c5492d732e372e3ad67059a2ec2f28f6bb3b783f",
+   "room": "assay_office",
+   "clock": 136.10629999999998,
    "control": null,
    "says": null,
    "options": 0,
@@ -1310,6 +1707,21 @@
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -1342,186 +1754,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
-    }
-   ],
-   "stubs": [],
-   "missingAssets": []
-  },
-  {
-   "name": "02-early-idle",
-   "why": null,
-   "t": 123.35,
-   "file": "renders/proofs/assay-office/life/raw-captures-ignored/02-early-idle.png",
-   "hash": "0379e123b0606a8bf8fa2e8dd65533920389fed2f68a51542e3575e4c7bd0c23",
-   "room": "assay_office",
-   "clock": 122.88119999999999,
-   "control": null,
-   "says": null,
-   "options": 0,
-   "flags": [
-    "T_OPENING_SAID",
-    "T_COACH_DEPARTED",
-    "T_UNDERTAKER_NAMED",
-    "T_HOB_CROSSING",
-    "T_THAD_LEAVING",
-    "T_HOB_SPOKEN",
-    "T_HOB_GONE",
-    "T_OPENING_DONE",
-    "T_SEEN_MAIN_STREET",
-    "T_CASE_DOWN",
-    "T_CASE_TAKEN"
-   ],
-   "counters": {
-    "HARNESS_PUSH_COUNT": 0,
-    "T_DRIVER_ASKED": 3,
-    "ACT": 1
-   },
-   "camera": 0,
-   "movers": {
-    "thad": {
-     "at": [
-      200,
-      765
-     ],
-     "facing": "right",
-     "clip": "idle-break",
-     "height": 515,
-     "moving": false,
-     "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-05.png",
-     "bounds": [
-      -67,
-      250,
-      534,
-      569
-     ],
-     "order": 0,
-     "clipLevel": 0,
-     "fallback": false
-    }
-   },
-   "assets": [
-    {
-     "key": "bg:assay_office",
-     "path": "art/backgrounds/room-05-assay-office.png",
-     "drawn": "art/staging/room-05/plate-02/candidate-1920x864.png",
-     "candidate": true,
-     "loaded": true,
-     "hash": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142"
     },
     {
-     "key": "art/staging/room-05/mask-plane-1.png",
-     "path": "art/staging/room-05/mask-plane-1.png",
-     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
      "candidate": false,
      "loaded": true,
-     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
     },
     {
-     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
-     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
-     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
      "candidate": false,
      "loaded": true,
-     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b"
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
     },
     {
-     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
-     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
-     "drawn": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
      "candidate": false,
      "loaded": true,
-     "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
-    }
-   ],
-   "stubs": [],
-   "missingAssets": []
-  },
-  {
-   "name": "03-idle-later",
-   "why": "a second break, by construction a different pick from the pool",
-   "t": 134.01,
-   "file": "renders/proofs/assay-office/life/raw-captures-ignored/03-idle-later.png",
-   "hash": "f77cd21e5559eb197c10e65570bec1bf668e21de43672d1b6d01a82d18f7c351",
-   "room": "assay_office",
-   "clock": 133.6141,
-   "control": null,
-   "says": null,
-   "options": 0,
-   "flags": [
-    "T_OPENING_SAID",
-    "T_COACH_DEPARTED",
-    "T_UNDERTAKER_NAMED",
-    "T_HOB_CROSSING",
-    "T_THAD_LEAVING",
-    "T_HOB_SPOKEN",
-    "T_HOB_GONE",
-    "T_OPENING_DONE",
-    "T_SEEN_MAIN_STREET",
-    "T_CASE_DOWN",
-    "T_CASE_TAKEN"
-   ],
-   "counters": {
-    "HARNESS_PUSH_COUNT": 0,
-    "T_DRIVER_ASKED": 3,
-    "ACT": 1
-   },
-   "camera": 0,
-   "movers": {
-    "thad": {
-     "at": [
-      200,
-      765
-     ],
-     "facing": "right",
-     "clip": "idle",
-     "height": 515,
-     "moving": false,
-     "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
-     "bounds": [
-      -67,
-      250,
-      534,
-      569
-     ],
-     "order": 0,
-     "clipLevel": 0,
-     "fallback": false
-    }
-   },
-   "assets": [
-    {
-     "key": "bg:assay_office",
-     "path": "art/backgrounds/room-05-assay-office.png",
-     "drawn": "art/staging/room-05/plate-02/candidate-1920x864.png",
-     "candidate": true,
-     "loaded": true,
-     "hash": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142"
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
     },
     {
-     "key": "art/staging/room-05/mask-plane-1.png",
-     "path": "art/staging/room-05/mask-plane-1.png",
-     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
      "candidate": false,
      "loaded": true,
-     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
     },
     {
-     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
-     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
-     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
      "candidate": false,
      "loaded": true,
-     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b"
-    },
-    {
-     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
-     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
-     "drawn": "art/staging/room-05/winnie-02-counter/inkstand.png",
-     "candidate": false,
-     "loaded": true,
-     "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -1530,11 +1802,11 @@
   {
    "name": "04-walked",
    "why": null,
-   "t": 139.94,
+   "t": 142.3,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/04-walked.png",
-   "hash": "f961f3298bbc169b8fbcfb4222e6668b8415b0bf414045245337b6a9a7294f51",
+   "hash": "17b19731e433ee1cd1c0fa969ae72b5392d20e78dfb4b318310ab7c39530b687",
    "room": "assay_office",
-   "clock": 139.49710000000002,
+   "clock": 141.9394,
    "control": null,
    "says": null,
    "options": 0,
@@ -1560,26 +1832,41 @@
    "movers": {
     "thad": {
      "at": [
-      1244,
-      777
+      1500,
+      780
      ],
      "facing": "right",
-     "clip": "walk",
-     "height": 523,
-     "moving": true,
+     "clip": "idle",
+     "height": 525,
+     "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-walk-right/walk-05.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
-      1049,
-      254,
-      388,
-      544
+      1228,
+      255,
+      544,
+      580
      ],
      "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -1612,6 +1899,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -1620,11 +1947,11 @@
   {
    "name": "05-looked",
    "why": null,
-   "t": 142.39,
+   "t": 144.5,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/05-looked.png",
-   "hash": "0b5266e38c657bd01d95df2bb26522460845e61ad3e91ce23da58fb3f41f1a08",
+   "hash": "03c44f10a9bd0bed89c7b5ea2a9d0bb8f97ec3694c617954409f895b40042126",
    "room": "assay_office",
-   "clock": 141.99710000000002,
+   "clock": 144.18929999999997,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1658,7 +1985,7 @@
      "height": 559,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-03.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
       972,
       269,
@@ -1670,6 +1997,21 @@
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -1702,6 +2044,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -1710,11 +2092,11 @@
   {
    "name": "06-wrong-action",
    "why": null,
-   "t": 149.75,
+   "t": 150.52,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/06-wrong-action.png",
-   "hash": "df73f4979405ea1035430ca59e6a9a0da4920178e77b5a97201e9dfd9c8f9882",
+   "hash": "e188b1fbd6912325a614a701ea29812ef1fd3543a5472af2211f2105c731b88c",
    "room": "assay_office",
-   "clock": 149.3635,
+   "clock": 150.20579999999998,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1748,7 +2130,7 @@
      "height": 559,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-03.png",
+     "from": "art/actors/thad-idle-back/idle-05.png",
      "bounds": [
       600,
       269,
@@ -1760,6 +2142,21 @@
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -1792,6 +2189,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -1800,11 +2237,11 @@
   {
    "name": "07-bench-at-act-1",
    "why": null,
-   "t": 157.46,
+   "t": 158.07,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/07-bench-at-act-1.png",
-   "hash": "4cc86ad4ee12a9031e8b998f29fbc1bbc790302477aa717e45285a3617750587",
+   "hash": "4fbbdd25138b323d2de1f3249d2320ddefd25e335c9571c395622e029adf4d63",
    "room": "assay_office",
-   "clock": 157.06310000000002,
+   "clock": 157.75539999999998,
    "control": null,
    "says": null,
    "options": 0,
@@ -1838,7 +2275,7 @@
      "height": 470,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-02.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       1412,
       230,
@@ -1850,6 +2287,21 @@
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -1882,6 +2334,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -1890,11 +2382,11 @@
   {
    "name": "08-dialogue-open",
    "why": "she holds her talk frame; the choices are up",
-   "t": 161.45,
+   "t": 167.19,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/08-dialogue-open.png",
-   "hash": "62b0be12bf43ea7866ec7baefcd97e26ea7da1a26ab6204b2e952ecfbbf8b162",
+   "hash": "b166a33c492f6f3154b777e626644dc7808f70f68a353ffe41873ea761b7d805",
    "room": "assay_office",
-   "clock": 161.0464,
+   "clock": 166.8551,
    "control": null,
    "says": null,
    "options": 3,
@@ -1920,26 +2412,41 @@
    "movers": {
     "thad": {
      "at": [
-      1182,
-      700
+      930,
+      760
      ],
      "facing": "back",
      "clip": "idle",
-     "height": 470,
+     "height": 512,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
-      904,
-      230,
-      556,
-      519
+      627,
+      248,
+      606,
+      565
      ],
      "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -1972,6 +2479,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -1980,11 +2527,11 @@
   {
    "name": "09-dialogue-reply",
    "why": null,
-   "t": 169.3,
+   "t": 174.76,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/09-dialogue-reply.png",
-   "hash": "7ff6f4d85700eefb2e86b13a286c16d459c7d840ebe0543a7b0f22dd986eb9bc",
+   "hash": "41a9ad8c83d3048b49a6227453327f5aca8d2461ae2a872077a163154f084259",
    "room": "assay_office",
-   "clock": 168.9127,
+   "clock": 174.43810000000002,
    "control": null,
    "says": null,
    "options": 3,
@@ -2010,26 +2557,41 @@
    "movers": {
     "thad": {
      "at": [
-      1182,
-      700
+      930,
+      760
      ],
      "facing": "back",
      "clip": "idle",
-     "height": 470,
+     "height": 512,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-02.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
-      904,
-      230,
-      556,
-      519
+      627,
+      248,
+      606,
+      565
      ],
      "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -2062,6 +2624,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -2070,11 +2672,11 @@
   {
    "name": "10-after-dialogue",
    "why": null,
-   "t": 180.33,
+   "t": 185.6,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/10-after-dialogue.png",
-   "hash": "030b0f423e8fc2a0a27a063246508788bf079ca1b2b720cd7ce282667578489f",
+   "hash": "8444e53cd6df8abace00de329776fd1c2ca5ae564ea1d8bfd731719208ca56c5",
    "room": "assay_office",
-   "clock": 179.9289,
+   "clock": 185.27089999999998,
    "control": null,
    "says": null,
    "options": 0,
@@ -2100,26 +2702,41 @@
    "movers": {
     "thad": {
      "at": [
-      1182,
-      700
+      930,
+      760
      ],
      "facing": "back",
      "clip": "idle-break",
-     "height": 470,
+     "height": 512,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-back/idle-break-09.png",
+     "from": "art/actors/thad-idlebreak-back/idle-break-05.png",
      "bounds": [
-      1018,
-      230,
-      327,
-      490
+      627,
+      248,
+      606,
+      565
      ],
      "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -2152,6 +2769,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -2160,11 +2817,11 @@
   {
    "name": "10b-back-at-work",
    "why": "return to work after the conversation -- writing or resting, pen where that state puts it",
-   "t": 189.92,
+   "t": 195.16,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/10b-back-at-work.png",
-   "hash": "aaf6fd5df37d46f5989aa9d1e2ebeac1bc5e9009e629ab536a6a40145b2c1526",
+   "hash": "efde615eb586f16a0de52a4cc23203dc40f3e8c60021c179c46a94427ccfd2a9",
    "room": "assay_office",
-   "clock": 189.5285,
+   "clock": 194.8373,
    "control": null,
    "says": null,
    "options": 0,
@@ -2190,26 +2847,41 @@
    "movers": {
     "thad": {
      "at": [
-      1182,
-      700
+      930,
+      760
      ],
      "facing": "back",
      "clip": "idle",
-     "height": 470,
+     "height": 512,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
-      904,
-      230,
-      556,
-      519
+      627,
+      248,
+      606,
+      565
      ],
      "order": 0,
      "clipLevel": 0,
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -2242,6 +2914,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -2250,11 +2962,11 @@
   {
    "name": "11-records-room",
    "why": null,
-   "t": 193.19,
+   "t": 198.03,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/11-records-room.png",
-   "hash": "d3551a0ca2036c3171c2601363a3e1ead809046ce2fa7c006d06702922d1e5f2",
+   "hash": "c430ddebdbd37420db3e5b4b904ff367d84ba36f9c16d932fe2d5facabb8bd1b",
    "room": "stub_assay_records",
-   "clock": 192.9784,
+   "clock": 197.8371,
    "control": null,
    "says": null,
    "options": 0,
@@ -2288,7 +3000,7 @@
      "height": 240,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-00.png",
+     "from": "art/actors/thad-idle-back/idle-05.png",
      "bounds": [
       818,
       623,
@@ -2300,6 +3012,13 @@
      "fallback": false
     }
    },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
    "assets": [],
    "stubs": [],
    "missingAssets": []
@@ -2307,11 +3026,11 @@
   {
    "name": "12-re-entered",
    "why": "re-entry: arrival from the records door, Winnie still at work",
-   "t": 197.27,
+   "t": 201.94,
    "file": "renders/proofs/assay-office/life/raw-captures-ignored/12-re-entered.png",
-   "hash": "da5f623bfde03bef750322b7fe6f49f6f901596d82cc5e3a49459299e9f6a347",
+   "hash": "912ee0ede3d7e2cec75b07452ae5f410fdf8d4778f49dfa95da5068b68d4d203",
    "room": "assay_office",
-   "clock": 196.8449,
+   "clock": 201.6203,
    "control": null,
    "says": null,
    "options": 0,
@@ -2345,7 +3064,7 @@
      "height": 474,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-00.png",
+     "from": "art/actors/thad-idle-front/idle-01.png",
      "bounds": [
       1319,
       232,
@@ -2357,6 +3076,21 @@
      "fallback": false
     }
    },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
    "assets": [
     {
      "key": "bg:assay_office",
@@ -2389,6 +3123,46 @@
      "candidate": false,
      "loaded": true,
      "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     }
    ],
    "stubs": [],
@@ -2397,5 +3171,30 @@
  ],
  "failures": [],
  "passed": true,
- "at": "2026-09-04T20:35:11.060Z"
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 209.41s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-09-05T19:05:05.779Z"
 }

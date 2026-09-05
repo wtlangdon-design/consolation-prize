@@ -92,6 +92,8 @@ let ITEMS = [], BANDS = [], room = null, mode = 'walk', current = null, drag = n
 const img = document.getElementById('plate'), cv = document.getElementById('c');
 const cx = cv.getContext('2d');
 let W = 0, H = 0;
+/** The staged plate drawn in place of the declared one, when ?candidate= asked. */
+let candidate = null;
 
 const base = '../../';
 const j = (path) => fetch(base + path).then((r) => {
@@ -178,7 +180,33 @@ function load(data) {
     + 'own pixel space. <b>Walk box</b>: click corners, then Close. <b>Depth</b>: click at the '
     + 'FAR end where he stands, then the NEAR end. <b>Rects</b>: pick from the list, then drag. '
     + '<b>Occlusion proof point</b>: click where an actor should be masked, then give the plane.';
-  img.src = base + data.background;
+  // THE CANDIDATE, IF ASKED, EXACTLY AS THE RUNTIME TAKES IT (engine/dev/
+  // CandidateArt.ts): `?candidate=<declared path>=<staged path>`, repeatable,
+  // staging only. Factory v2 (doc 36 Q114) loaded this page for Room 5 and it
+  // drew the 320x144 legacy placeholder the shipping path still holds, and
+  // exported plateSize [320,144] -- every rect of a session drawn on that would
+  // have been read off a picture that is not the room. The candidate is the
+  // picture the annotation is bound to by hash; the page has to be able to
+  // show it while it is still staged, or the order collapses into
+  // promote-then-annotate.
+  let plate = data.background;
+  for (const raw of params.getAll('candidate')) {
+    const at = raw.indexOf('=');
+    if (at <= 0 || at === raw.length - 1) throw new Error('?candidate= must read from=to: ' + raw);
+    const from = raw.slice(0, at), to = raw.slice(at + 1);
+    if (!to.startsWith('art/staging/')) throw new Error('?candidate= may only point at a staged file: ' + to);
+    if (from === data.background) { plate = to; candidate = to; }
+  }
+  if (candidate) {
+    document.getElementById('lede').innerHTML += ' <b class="warn">Drawing the CANDIDATE '
+      + candidate + '</b> in place of ' + data.background + '; the export names both.';
+  } else if (data.id !== 'stage_road' && !params.get('candidate')) {
+    document.getElementById('lede').innerHTML += ' <span class="warn">No ?candidate= given: '
+      + 'this draws the SHIPPING plate. If the room\u2019s accepted plate is still staged, '
+      + 'pass ?candidate=' + data.background + '=art/staging/…, or every rect is read off the '
+      + 'wrong picture.</span>';
+  }
+  img.src = base + plate;
   renderList(); renderPlanes();
 }
 
@@ -328,6 +356,7 @@ document.getElementById('gen').onclick = () => {
       + 'there and this page does not draw them.',
     room: room.id,
     plate: room.background,
+    ...(candidate ? { plateCandidate: candidate } : {}),
     plateSize: [W, H],
     walkable: S.closed ? S.walk : null,
     scaling: (far && near) ? { far: { y: far[1], height: far[2] },
