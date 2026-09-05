@@ -1,0 +1,65 @@
+{
+ "schema": 1,
+ "title": "FACTORY V2 -- TOOL EXERCISE RECORD (2026-09-05, doc 36 Q114)",
+ "note": "What the consolidation ran, on which commit, and what it found. Records only; nothing visual is judged here.",
+ "compiler": {
+  "rooms": {
+   "2": "cmd:node tools/compile-room.mjs 2 --check -> current",
+   "5": "cmd:node tools/compile-room.mjs 5 --check -> current",
+   "3": "refuses (doc 16 / doc 05 naming mismatch, doc 36 Q26) -- unchanged"
+  },
+  "finding": "the false DROPPED report (Room 5's twelve re-sourced approach points, Main Street wording) -- fixed at a34a555"
+ },
+ "annotator": {
+  "url": "tools/annotate/room.html?room=assay_office&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+  "loadedHeadless": true,
+  "pageErrors": 0,
+  "rooms": 8,
+  "checklistRows": 12,
+  "planeRows": 3,
+  "export": {
+   "room": "assay_office",
+   "plate": "art/backgrounds/room-05-assay-office.png",
+   "plateCandidate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "plateSize": [
+    1920,
+    864
+   ]
+  },
+  "finding": "before c0bc18a the page drew the shipping placeholder (320x144) for Room 5 and exported plateSize [320,144]; it now honours ?candidate= like the runtime and exports both paths",
+  "stillMissing": "hotspotStates, treads, exitWalkTo, onEnterWalkTo, acts and contact bands are hand-edited annotation fields the page cannot draw"
+ },
+ "fourPanelProof": {
+  "record": "renders/proofs/assay-office-lamp-night/proof.json",
+  "commit": "c0bc18a7",
+  "state": "night",
+  "passed": true,
+  "workingTreeClean": true,
+  "judgement": "present"
+ },
+ "lifeProof": {
+  "record": "renders/proofs/assay-office/life/life.json",
+  "commit": "e53fe996",
+  "route": "assay-office-life",
+  "durationSeconds": 209.41,
+  "captures": 13,
+  "passed": true,
+  "workingTreeClean": true,
+  "judgement": "present",
+  "note": "the first run on c0bc18a failed on exactly one thing: the working tree was dirty with the night proof's own outputs; committed, re-run, passed"
+ },
+ "validators": {
+  "typecheck": "clean",
+  "test": "214 pass, 0 fail (incl. tests/state-images.test.mjs 7 and tests/build-contracts.test.mjs 12)",
+  "validate": "52 of 53; the red is check-flag-order on ACT and T_RACCOON_NAMED (global content debt, ruled out of scope 2026-09-04, not fixed)",
+  "new": [
+   "tools/check-state-images.mjs",
+   "tools/check-build-contracts.mjs"
+  ]
+ },
+ "roomGate": {
+  "cmd": "cmd:node tools/room-gate.mjs 5",
+  "finding": "reads doc 05's first section only and classes THE WINDOW SIGN as an opening; the hand gate matrix (proofs/room-05/gate-matrix.md) remains the audit -- known since the pilot, not changed"
+ },
+ "imageOperations": 0
+}
