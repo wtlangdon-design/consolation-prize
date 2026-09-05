@@ -1,6 +1,6 @@
 {
- "title": "ROOM 5 FLOORBOARD -- ITERATION 3: SAME PLANK, RETONED A/B/C (Tyler, 2026-09-05)",
- "status": "CANDIDATE, visual_accepted unset; Tyler chooses the strength",
+ "title": "ROOM 5 FLOORBOARD -- OWNER ACCEPTED AND FROZEN (Tyler, 2026-09-05): treatment C",
+ "status": "OWNER-ACCEPTED 2026-09-05 -- FROZEN",
  "preflight": {
   "branch": "claude/last-claim-autonomy-audit-v3vsy6",
   "startHead": "0cf6dc2 (main), branch 80bf2aa",
@@ -881,5 +881,34 @@
   "visual": "TOO OBVIOUS -- rejected",
   "measuredCause": "a DAY board over the NIGHT plate: the night derivation rode a ?candidate= swap on the playtest URL and without it the day-lit plank (face 89) sat on the night floor (51). Fixed by declaring the night picture with the state (states[].imageByState), resolved by the room's visual state like a lamp's amountByState; the night board no longer depends on the URL.",
   "retone": "the face is the plank's own pixels with no global brightening; proudness from the edge only"
+ },
+ "visual_accepted": true,
+ "visual_accepted_by": "Tyler",
+ "visual_accepted_on": "2026-09-05",
+ "acceptance": {
+  "ruling": "TREATMENT C IS SELECTED AND VISUALLY ACCEPTED: visually identifiable after the creak, still ordinary wood, not puzzle-highlighted, naturally encountered during normal traversal. The relocated location and the physical behaviour are accepted.",
+  "selected": "C",
+  "notSelected": [
+   "A",
+   "B"
+  ],
+  "declared": "C is the declared rest image for day and, by visual state, night; no candidate override is needed",
+  "frozen": [
+   "plank location",
+   "C raster treatment",
+   "day/night state resolution",
+   "tread",
+   "hotspot",
+   "press timing",
+   "caption",
+   "re-arm logic",
+   "traversal geometry"
+  ],
+  "acceptedAssets": {
+   "rest-c-day": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b",
+   "rest-c-night": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757",
+   "pressed-day": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a",
+   "pressed-night": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+  }
  }
 }

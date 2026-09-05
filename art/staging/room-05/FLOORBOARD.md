@@ -1,14 +1,17 @@
 # ROOM 5 — THE PROUD FLOORBOARD
 
+**OWNER-ACCEPTED 2026-09-05 (Tyler): TREATMENT C.** C is the declared rest image for both visual states (`board-rest-c.png`, `board-rest-c-night.png`); pressed is `board-pressed.png` / `-night.png`. A and B are NOT SELECTED and stay here as review provenance. Location, tread, hotspot, press, caption, re-arm and traversal geometry are FROZEN. Not promoted: Room 5's accepted assets all stay staged until the room's own logged promotion. Record: `floorboard/floorboard.json`.
+
+
 ## Iteration 3 (2026-09-05) — same plank, retoned: the edge does the work
 
 Tyler: location good, iteration 2's face too bright. The bright face was a day board drawn over the night plate (the night image rode a URL candidate); the night image is now declared by visual state (`imageByState.night`) and never depends on the URL. The treatments no longer brighten the face at all.
 
 | | path | lift (left → right end) | gap | lip | end grain |
 |---|---|---|---|---|---|
-| A subtle | `floorboard/board-rest-a.png`, `-a-night.png` | 1 → 2 rows | 72% | none | none |
-| B medium (declared) | `floorboard/board-rest-b.png`, `-b-night.png` | 2 → 3 | 62% | +6%, one row | 95% |
-| C upper limit | `floorboard/board-rest-c.png`, `-c-night.png` | 2 → 4 | 52% | +8%, one row | 90% |
+| A subtle (not selected) | `floorboard/board-rest-a.png`, `-a-night.png` | 1 → 2 rows | 72% | none | none |
+| B medium (not selected) | `floorboard/board-rest-b.png`, `-b-night.png` | 2 → 3 | 62% | +6%, one row | 95% |
+| C upper limit (OWNER ACCEPTED, declared) | `floorboard/board-rest-c.png`, `-c-night.png` | 2 → 4 | 52% | +8%, one row | 90% |
 | pressed | `floorboard/board-pressed.png`, `-night.png` | flush | | | |
 
 A and C are `?candidate=` swaps of B's path (day or night). Record: `floorboard/floorboard.json`.

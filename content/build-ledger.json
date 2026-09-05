@@ -100,7 +100,8 @@
    "acceptance": {
     "visual": "OWNER-APPROVED 2026-09-04: composition, raster treatment, DAY plate, NIGHT plate as lifted, night ambient and task-light levels, stove contribution, Winnie's design, placement, contact and relights, the hanging work lamp's design, placement and day/night appearance.",
     "gameplay": "PENDING: Tyler's manual in-game playthrough. Not shipping/final on visual acceptance alone.",
-    "promotion": "NOT DONE. Every Room 5 asset is still under art/staging/; the shipping plate at art/backgrounds/room-05-assay-office.png is the legacy placeholder. Promotion is a separate, logged step after the playthrough."
+    "promotion": "NOT DONE. Every Room 5 asset is still under art/staging/; the shipping plate at art/backgrounds/room-05-assay-office.png is the legacy placeholder. Promotion is a separate, logged step after the playthrough.",
+    "floorboard": "OWNER-APPROVED 2026-09-05: the proud floorboard (doc 36 Q108) -- relocated to the middle walking band, treatment C at rest, flush when pressed, the swept step trigger, CREEEAK and cue R05-FLOOR-STEP. Frozen. Assets under art/staging/room-05/floorboard/ with the room's other accepted staged assets; nothing promoted."
    }
   },
   {
