@@ -4,68 +4,10 @@
  "room": "assay_office",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "199ab6b08a59606e5df7ea3e17e9839965a59a8e",
- "workingTreeClean": false,
+ "commit": "b7e3d79d81298471575bca20a31a6442b463cc49",
+ "workingTreeClean": true,
  "dirtyAllowed": false,
- "uncommitted": [
-  "M art/backgrounds/room-05-assay-office.png",
-  " M art/staging/caps.json",
-  " M art/staging/ledger.json",
-  " M content/ambient/winnie.json",
-  " M content/build-contracts/room-02-main-street.json",
-  " M content/build-contracts/room-03-nugget.json",
-  " M content/build-contracts/room-05-assay-office.json",
-  " M content/build-ledger.json",
-  " M content/manifest.json",
-  " M content/rooms/assay-office.json",
-  " M content/rooms/main-street.json",
-  " M content/rooms/nugget.json",
-  " M docs/36-issue-list.md",
-  " M engine/core/types.ts",
-  " M engine/render/Renderer.ts",
-  " M reference/global-baseline.json",
-  " M reference/room-02/annotation.json",
-  " M reference/room-03/annotation.json",
-  " M reference/room-05/annotation.json",
-  " M renders/proofs/stage-road/contact-sheet.webp",
-  " M renders/proofs/stage-road/index.html",
-  " M renders/proofs/stage-road/proof.json",
-  " M tests/build-contracts.test.mjs",
-  " M tests/state-images.test.mjs",
-  " M tools/art/staging.mjs",
-  " M tools/check-build-contracts.mjs",
-  " M tools/check-examine-lines.mjs",
-  " M tools/compile-room.mjs",
-  " M tools/gauntlet/life.mjs",
-  " M tools/lib/generators.mjs",
-  "?? art/actors/winnie-counter-sheet.png",
-  "?? art/masks/room-05-plane-1.png",
-  "?? art/objects/room-05/",
-  "?? art/staging/room-05/legacy/",
-  "?? content/rooms/main-street-candidate.json",
-  "?? content/rooms/nugget-candidate.json",
-  "?? engine/render/LightFields.ts",
-  "?? proofs/factory/phase1-light-fields.json",
-  "?? proofs/factory/phase1-nugget-geometry.json",
-  "?? proofs/room-02/",
-  "?? proofs/room-03/",
-  "?? proofs/room-05/promotion.json",
-  "?? reference/room-02-candidate/",
-  "?? reference/room-03-candidate/",
-  "?? renders/opening-set-retrofit/",
-  "?? renders/proofs/assay-office-shipping/",
-  "?? renders/proofs/candidates/",
-  "?? renders/proofs/light-fields/",
-  "?? tests/light-fields.test.ts",
-  "?? tools/art/retrofit.mjs",
-  "?? tools/art/street-outpaint.py",
-  "?? tools/art/street-stitch.py",
-  "?? tools/gauntlet/routes/main-street-candidate.json",
-  "?? tools/gauntlet/routes/main-street-light.json",
-  "?? tools/gauntlet/routes/nugget-candidate.json",
-  "?? tools/gauntlet/routes/nugget-light.json",
-  "?? tools/retrofit/"
- ],
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": "assay-office",
@@ -131,7 +73,7 @@
     520
    ],
    "order": 0,
-   "renderedHeight": 491,
+   "renderedHeight": 481,
    "renderedBottom": 700,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
@@ -240,7 +182,7 @@
   {
    "panel": "B",
    "room": "assay_office",
-   "clock": 116.4222,
+   "clock": 116.3699,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -369,7 +311,7 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-05T21:13:02.982Z",
+   "capturedAt": "2026-09-05T21:18:00.489Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
    "hash": "4ddd1b21c73be801b4c1bf4c4a75060e6f90099519b31fe898a2825c1b9aeb6b"
@@ -377,7 +319,7 @@
   {
    "panel": "A",
    "room": "assay_office",
-   "clock": 117.43889999999999,
+   "clock": 117.1365,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -503,7 +445,7 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-05T21:13:03.921Z",
+   "capturedAt": "2026-09-05T21:18:01.409Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "f4ec8d9b7514b17547d482805a256505abd43df7239359e4143f1163584b519f"
@@ -511,7 +453,7 @@
   {
    "panel": "D",
    "room": "assay_office",
-   "clock": 125.93860000000001,
+   "clock": 125.75280000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -650,22 +592,20 @@
     "cast(true)",
     "flag ACT=2"
    ],
-   "capturedAt": "2026-09-05T21:13:12.394Z",
+   "capturedAt": "2026-09-05T21:18:10.009Z",
    "intent": "principal changed state: THE QUEUE BENCH, acts 2-4. docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2 writes its LOOK for act 2-4 and nothing for Act I; docs/49 gives it USE and PUSH. Prerequisite: ACT >= 2, which the game sets at doc 48's S1 (not built). Visible consequence: the bench becomes a target -- its LOOK line, and Thad walks to it. The bench itself is plate in every act.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "3da66b7ce8445feaa394b2c0a071aa054a6f236c06228d46e35a0a361d7cc666",
+   "hash": "9d63a888962d4ca65996af0328da00c0d37f0400aa0a5457a5becc921170c1c6",
    "changedBy": "counters"
   }
  ],
- "failures": [
-  "the working tree is dirty, so these frames do not correspond to 199ab6b0. Commit, or re-run with --allow-dirty, which records it."
- ],
- "passed": false,
+ "failures": [],
+ "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
  "judgement": {
   "machine": {
-   "passed": false,
+   "passed": true,
    "establishes": [
     "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
     "every asset the room declares loaded; no stub, graybox or fallback was drawn",
@@ -686,11 +626,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-05T21:13:12.394Z",
+ "at": "2026-09-05T21:18:10.009Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 301182,
+  "bytes": 301140,
   "panels": 5,
   "scale": 0.5
  }
