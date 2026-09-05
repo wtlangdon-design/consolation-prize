@@ -1438,13 +1438,11 @@
  },
  "input": {
   "route": "assay-office-act1-input",
-  "commit": "61474a6fd3935bf7e029b94b7d89dfca48f59c87",
-  "samples": 831,
-  "changes": 207,
-  "bursts": 61,
-  "failedActions": [
-   "FAILED action 45 (waitFor): route: waitFor {\"do\":\"waitFor\",\"says\":\"winnie\",\"upTo\":40} timed out after 40s. It saw: room assay_office, control null, beat -, 0 option(s), handedOver true"
-  ],
+  "commit": "d441c38184392d435bb225a85c02f9c2962f6b84",
+  "samples": 777,
+  "changes": 262,
+  "bursts": 96,
+  "failedActions": [],
   "locomotionWhileStill": 0
  },
  "stationary": {
@@ -1490,5 +1488,5 @@
  "reentryAmbiguity": "every TALK TO opens WIN_A1 and replays its three-line opening (doc 30 line 213); the soil-assay row is [PROGRESS · remove] in doc 04 but the runtime has no afterUse consumer (errata 57 interim: every option behaves as retain), so it stays, greyed, and re-selecting it replays its exchange and goes to WIN_A2; counted-repeat rows are greyed like the rest. Reported, not resolved.",
  "laterActAudit": "docs/36-issue-list.md Q109",
  "deployment": null,
- "at": "2026-09-05T09:55:47.145Z"
+ "at": "2026-09-05T10:05:35.818Z"
 }
