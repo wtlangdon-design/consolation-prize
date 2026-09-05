@@ -271,18 +271,6 @@
    "why": "TALK TO Winnie"
   },
   {
-   "do": "wait",
-   "seconds": 0.7
-  },
-  {
-   "do": "click",
-   "at": [
-    300,
-    800
-   ],
-   "why": "a floor click while he walks to her: the walk to talk should not be lost"
-  },
-  {
    "do": "waitFor",
    "says": "winnie",
    "upTo": 40

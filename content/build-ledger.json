@@ -48,7 +48,7 @@
    "gauntlet": null,
    "proof": "renders/proofs/main-street/proof.json",
    "blockers": [
-    "docs/36-issue-list.md::Q20 \u00b7 BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
+    "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
    ],
    "visual_accepted": false,
    "note": "The font blocker is gone -- errata 62 retains the bitmap face. What remains is the two stale occlusion masks, which stay maskPending by Tyler's ruling and are not to be regenerated yet, and the undeclared ACT problem that keeps Panel D from being honestly green. Neither is invented around."
@@ -89,7 +89,7 @@
    "gauntlet": "tools/gauntlet/routes/assay-office.json",
    "proof": "renders/proofs/assay-office/proof.json",
    "blockers": [
-    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
    ],
    "visual_accepted": true,
    "note": "THE AUTONOMOUS PILOT ROOM. Candidate art is staged (composition master 02, plate 02 derived at 1920x864, Winnie's canonical three-pose sheet), candidate geometry is bound to plate-02's hash, and the four-panel and life proofs pass with the candidate plate loaded live. DAY AND NIGHT CANDIDATES COMPLETE; HUMAN VISUAL GATE PENDING (errata 64; the night candidate art/staging/room-05/plate-03-night/ exists, proved through the candidate override, and the day/night selection mechanism is Q26's): Act I Main Street is night and Room 5 inherits it, so the daylight candidate is ROOM 5 - DAY VISUAL CANDIDATE - kept as the source of composition, geometry and Winnie's design, not the Act I shipping state. The bench rulings of Q24 are applied; the one red in the suite, check-flag-order on ACT and T_RACCOON_NAMED, is global content debt. Nothing is promoted; visual_accepted is false and is Tyler's. THE HANGING WORK LAMP (Tyler's post-pilot owner visual revision, +1 image operation accounted apart from the pilot's 8/8) is THE HANGING LAMP hotspot's lit state image over both plates with a state-aware room lamp; see art/staging/room-05/LAMP.md. OWNER VISUAL RULING 2026-09-04: visually accepted (see acceptance); manual playthrough pending; nothing promoted.",
@@ -99,7 +99,7 @@
    "visual_accepted_on": "2026-09-04",
    "acceptance": {
     "visual": "OWNER-APPROVED 2026-09-04: composition, raster treatment, DAY plate, NIGHT plate as lifted, night ambient and task-light levels, stove contribution, Winnie's design, placement, contact and relights, the hanging work lamp's design, placement and day/night appearance.",
-    "gameplay": "PENDING: Tyler's manual in-game playthrough. Not shipping/final on visual acceptance alone.",
+    "gameplay": "ACT I: AWAITING TYLER'S ACCEPTANCE (2026-09-05). The Act I first-visit gameplay is proven end to end in the live build (doc 36 Q109; proofs/room-05/act1.json; renders/proofs/assay-office-act1/): entry and re-entry by Main Street's door, room life, the board, every Act I target and wrong verb, WIN_A1 and WIN_A2 in full, interruption and resume, TALK TO from five positions, the input pass, the stationary regression. Three defects were fixed at source on the way (Main Street's door state, its first-sight walk, the greeting's click ownership). Later-act gameplay in this room is intentionally not implemented; Room 6 is a stub. Not shipping/final on visual acceptance alone.",
     "promotion": "NOT DONE. Every Room 5 asset is still under art/staging/; the shipping plate at art/backgrounds/room-05-assay-office.png is the legacy placeholder. Promotion is a separate, logged step after the playthrough.",
     "floorboard": "OWNER-APPROVED 2026-09-05: the proud floorboard (doc 36 Q108) -- relocated to the middle walking band, treatment C at rest, flush when pressed, the swept step trigger, CREEEAK and cue R05-FLOOR-STEP. Frozen. Assets under art/staging/room-05/floorboard/ with the room's other accepted staged assets; nothing promoted."
    }
@@ -185,7 +185,7 @@
    "proof": "renders/font-candidates/candidates.json",
    "blockers": [],
    "note": "RULED BY TYLER, errata 62: the existing bitmap face is retained at GLYPH_SCALE 6 in the play area and PANEL_GLYPH_SCALE 4 in the panel. The answer to the decision sheet's question was none of the four candidates. The sheet, the four faces and PreviewFont are retained as diagnostics and are not a shipping path.",
-   "ruling": "docs/00-errata.md::62 \u00b7 THE EXISTING BITMAP FACE IS THE SHIPPING FACE"
+   "ruling": "docs/00-errata.md::62 · THE EXISTING BITMAP FACE IS THE SHIPPING FACE"
   }
  ],
  "blockerNote": "BLOCKERS ARE QUALIFIED REFERENCES: path.md::Exact Heading. A bare Q id is no longer accepted, because docs/36-issue-list.md carries two Q-number series -- Q11 through Q21 and Q37 each name two different issues -- and a row blocked on \"Q16\" could not say which one. Historical numbering in the document stays as it is; the fix is on the reference side. tools/lib/issueref.mjs resolves a reference to exactly one heading or fails."

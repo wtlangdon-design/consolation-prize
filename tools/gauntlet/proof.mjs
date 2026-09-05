@@ -1058,37 +1058,57 @@ async function main() {
 export async function contactSheet(page, captures) {
   if (!captures.length) return null;
   const SCALE = 0.5;
-  const made = await page.evaluate(async ({ frames, scale }) => {
-    const images = await Promise.all(frames.map(({ url }) => new Promise((done, fail) => {
-      const image = new Image();
-      image.onload = () => done(image);
-      image.onerror = () => fail(new Error('a captured frame would not decode'));
-      image.src = url;
-    })));
-    const cols = Math.min(2, images.length);
-    const rows = Math.ceil(images.length / cols);
-    const cellW = Math.round(images[0].width * scale);
-    const cellH = Math.round(images[0].height * scale);
-    const pad = 8;
-    const label = 22;
-    const canvas = document.createElement('canvas');
-    canvas.width = cols * cellW + (cols + 1) * pad;
-    canvas.height = rows * (cellH + label) + (rows + 1) * pad;
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#14141a';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'high';
-    images.forEach((image, index) => {
-      const col = index % cols;
-      const row = Math.floor(index / cols);
-      const x = pad + col * (cellW + pad);
-      const y = pad + row * (cellH + label + pad);
-      ctx.fillStyle = '#e8e8ee';
-      ctx.font = '15px system-ui, sans-serif';
-      ctx.fillText(frames[index].name, x, y + 15);
-      ctx.drawImage(image, x, y + label, cellW, cellH);
-    });
+  // IN BATCHES, BECAUSE THE PAGE IS THE ENCODER. Sixty full frames are some
+  // 240MB of data URLs, and one evaluate carrying all of them closed the page
+  // (Room 5's Act I pass: "Target page, context or browser has been closed"
+  // at the contact sheet, twice, after the route itself had finished). The
+  // sheet canvas lives in the page between calls and each call decodes and
+  // draws a handful of frames.
+  const BATCH = 6;
+  const cols = Math.min(2, captures.length);
+  const rows = Math.ceil(captures.length / cols);
+  await page.evaluate(({ cols: c, rows: r }) => { window.__sheet = { cols: c, rows: r, canvas: null, cellW: 0, cellH: 0 }; }, { cols, rows });
+  for (let at = 0; at < captures.length; at += BATCH) {
+    const batch = captures.slice(at, at + BATCH).map((one, k) => ({ ...one, index: at + k }));
+    await page.evaluate(async ({ frames, scale }) => {
+      const sheet = window.__sheet;
+      const images = await Promise.all(frames.map(({ url }) => new Promise((done, fail) => {
+        const image = new Image();
+        image.onload = () => done(image);
+        image.onerror = () => fail(new Error('a captured frame would not decode'));
+        image.src = url;
+      })));
+      const pad = 8;
+      const label = 22;
+      if (!sheet.canvas) {
+        sheet.cellW = Math.round(images[0].width * scale);
+        sheet.cellH = Math.round(images[0].height * scale);
+        const canvas = document.createElement('canvas');
+        canvas.width = sheet.cols * sheet.cellW + (sheet.cols + 1) * pad;
+        canvas.height = sheet.rows * (sheet.cellH + label) + (sheet.rows + 1) * pad;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#14141a';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        sheet.canvas = canvas;
+      }
+      const ctx = sheet.canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      images.forEach((image, k) => {
+        const index = frames[k].index;
+        const col = index % sheet.cols;
+        const row = Math.floor(index / sheet.cols);
+        const x = pad + col * (sheet.cellW + pad);
+        const y = pad + row * (sheet.cellH + label + pad);
+        ctx.fillStyle = '#e8e8ee';
+        ctx.font = '15px system-ui, sans-serif';
+        ctx.fillText(frames[k].name, x, y + 15);
+        ctx.drawImage(image, x, y + label, sheet.cellW, sheet.cellH);
+      });
+    }, { frames: batch, scale: SCALE });
+  }
+  const made = await page.evaluate(() => {
+    const { canvas } = window.__sheet;
     for (const [type, ext] of [['image/webp', 'webp'], ['image/jpeg', 'jpg']]) {
       const url = canvas.toDataURL(type, 0.9);
       // toDataURL FALLS BACK TO PNG SILENTLY for a type it cannot encode, so
@@ -1097,7 +1117,7 @@ export async function contactSheet(page, captures) {
       if (url.startsWith(`data:${type}`)) return { ext, url };
     }
     return null;
-  }, { frames: captures, scale: SCALE });
+  });
   if (!made) return null;
   return { ext: made.ext, bytes: Buffer.from(made.url.split(',')[1], 'base64'), scale: SCALE };
 }
