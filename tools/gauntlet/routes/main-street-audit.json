@@ -113,6 +113,16 @@
   },
   {
    "do": "option",
+   "option": "charge",
+   "why": "What do you charge? -- the row that opens the follow-up"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 40
+  },
+  {
+   "do": "option",
    "option": "going_well",
    "why": "the line about the business doing well"
   },

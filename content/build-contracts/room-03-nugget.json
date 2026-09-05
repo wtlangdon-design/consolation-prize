@@ -3,7 +3,7 @@
  "id": "room-03-nugget",
  "room": "nugget",
  "docRoom": 3,
- "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four). Ids, statuses and pointers only; no creative content. Every gate is answered -- NOT-RUN is an answer -- and every answer but NOT-RUN cites evidence a person can open in a minute. Validated by tools/check-build-contracts.mjs. Owner rulings are recorded here by date and set by nobody but Tyler. OPENING-SET ROOM: this contract records what is ESTABLISHED today and answers NOT-RUN where the Factory v2 audit (step 3, OPENING SET CONTINUITY RETROFIT AUDIT) has not yet been run. It does not perform that audit.",
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four). Ids, statuses and pointers only; no creative content. Every gate is answered -- NOT-RUN is an answer -- and every answer but NOT-RUN cites evidence a person can open in a minute. Validated by tools/check-build-contracts.mjs. Owner rulings are recorded here by date and set by nobody but Tyler. OPENING-SET ROOM: this contract records what is ESTABLISHED today and answers NOT-RUN where the Factory v2 audit (step 3, OPENING SET CONTINUITY RETROFIT AUDIT) has not yet been run. The step-3 audit has now been run (2026-09-05): the retrofit rows below are its classifications, cited to proofs/factory/opening-set-retrofit-audit.json. Nothing has been retrofitted; owner acceptance fields are untouched.",
  "authorities": [
   "docs/16-room-03-content.md",
   "docs/05-examine-layer.md",
@@ -153,9 +153,287 @@
  ],
  "retrofit": [
   {
-   "subject": "every element",
-   "classification": "NOT-CLASSIFIED",
-   "note": "Classified by the step-3 audit: OPENING SET CONTINUITY RETROFIT AUDIT — ROOM 2 + ROOM 3. Not performed here."
+   "subject": "plate",
+   "classification": "REGENERATE-CANDIDATE",
+   "layer": "plate/composition",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "renders/opening-set-audit/opening-set-continuity-sheet.webp",
+    "content/rooms/nugget.json"
+   ],
+   "note": "One composition master from the current plate as ancestry with NO people, the chandelier unlit (or a ruling that doc 16 changes), broad flat masses and selective grain, a stove and wall-lamp pool as the practical light; then the clean plate; the crowd returns as sprites (see the patron rows). The cu"
+  },
+  {
+   "subject": "spatial realization",
+   "classification": "REGENERATE-CANDIDATE",
+   "layer": "plate (primary); character integration (secondary)",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "renders/opening-set-audit/opening-set-continuity-sheet.webp"
+   ],
+   "note": "See plate and patron rows. Occlusion by the near stools and the table edge is cheap once the plate is clean (masks from the new plate, 0 operations)."
+  },
+  {
+   "subject": "Thad integration",
+   "classification": "KEEP",
+   "layer": "protagonist",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "renders/proofs/opening-set-audit/nugget/life.json",
+    "proofs/thad/locomotion.json"
+   ],
+   "note": "None on Thad. Lamp-lit movers is the renderer item."
+  },
+  {
+   "subject": "patron family -- bar drinkers (nugget_bar1, bar2, bar3)",
+   "classification": "RECAST",
+   "layer": "character design/rendering",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-character-strip.png",
+    "reference/room-03/cast/bar-v2.png",
+    "renders/opening-set-audit/nugget-audit-sheet.webp"
+   ],
+   "note": "One casting sheet: three back/three-quarter drinkers in Winnie's method, cut whole, relit per position, with two or three breaks each (raise glass, turn to the neighbour, set glass down). Current patches stay until accepted."
+  },
+  {
+   "subject": "patron family -- card players (nugget_man1, man2, man34; the card-table group)",
+   "classification": "RECAST",
+   "layer": "character design/rendering",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-character-strip.png",
+    "reference/room-03/cast/card-players.png",
+    "art/actors/nugget-card-table.png"
+   ],
+   "note": "One casting sheet: four seated players in Winnie's method, cut individually, each with a deal/look/lean break on its own timer; the table and the abandoned hand as a prop cut from the same generation or from the clean plate. Current group stays until accepted."
+  },
+  {
+   "subject": "patron lighting / integration",
+   "classification": "IMPROVE",
+   "layer": "lighting",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "docs/38-character-pipeline.md::LIGHT A SPRITE BY WHERE IT STANDS, NOT BY A GLOBAL GRADE"
+   ],
+   "note": "match-local per figure on the recast sheets (0 operations)."
+  },
+  {
+   "subject": "patron room life",
+   "classification": "IMPROVE",
+   "layer": "room life",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/nugget/life.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "content/ambient/nugget-man34.json"
+   ],
+   "note": "Authored occupational breaks per recast figure from what canon gives: drinking, dealing, the raised glass, the corner storyteller (\"the same story four times\"). No new people beyond the written ones."
+  },
+  {
+   "subject": "room life overall",
+   "classification": "IMPROVE",
+   "layer": "room life",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/nugget/life.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp"
+   ],
+   "note": "As above; lands with the recasts."
+  },
+  {
+   "subject": "card table -- asset",
+   "classification": "KEEP",
+   "layer": "prop",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "art/actors/nugget-card-table.png"
+   ],
+   "note": "Carry as a prop."
+  },
+  {
+   "subject": "card table -- actor/table integration",
+   "classification": "RECAST",
+   "layer": "character/prop layering",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "reference/room-03/annotation.json"
+   ],
+   "note": "With the player recast: table as a prop with an occlusion plane at its near edge."
+  },
+  {
+   "subject": "card table -- social animation",
+   "classification": "IMPROVE",
+   "layer": "room life",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/nugget/life.json"
+   ],
+   "note": "Per-player breaks after the recast."
+  },
+  {
+   "subject": "piano -- visual asset",
+   "classification": "KEEP",
+   "layer": "plate element",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp"
+   ],
+   "note": "Carry into the regenerated plate unchanged in placement."
+  },
+  {
+   "subject": "piano -- future state architecture",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "world state",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "engine/core/types.ts",
+    "content/rooms/assay-office.json"
+   ],
+   "note": "When A8 is built: one companion edit for the open lid (1 operation, later, its own cap)."
+  },
+  {
+   "subject": "piano -- clue / readability",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "annotation geometry",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/nugget/life.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp"
+   ],
+   "note": "Re-read the rect on the shipping plate (0 operations) -- part of the whole-room re-read below."
+  },
+  {
+   "subject": "handbill",
+   "classification": "IMPROVE",
+   "layer": "clue perceptibility",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "renders/proofs/opening-set-audit/nugget/life.json",
+    "docs/05-examine-layer.md::ROOM 3 — THE BOUNTIFUL NUGGET#1"
+   ],
+   "note": "Re-read the rect on the paper (0 operations). Visual treatment: KEEP; carry the paper into the regenerated plate at the same place."
+  },
+  {
+   "subject": "stairs / the man on the landing",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "canon vs plate (ruling 19b)",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "docs/16-room-03-content.md",
+    "content/rooms/nugget.json"
+   ],
+   "note": "Tyler rules: paint him into the regenerated plate as the standing exception, or strike/reword the line. Recorded, not decided."
+  },
+  {
+   "subject": "base lighting",
+   "classification": "REGENERATE-CANDIDATE",
+   "layer": "plate lighting",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "content/rooms/nugget.json"
+   ],
+   "note": "Folds into the plate candidate: practical light from the stove and the wall lamps, the chandelier unlit per doc 16, the corners dark."
+  },
+  {
+   "subject": "actor-light integration",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "renderer",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "engine/render/Renderer.ts",
+    "renders/opening-set-audit/nugget-audit-sheet.webp"
+   ],
+   "note": "Lamp-lit movers, once, for every room."
+  },
+  {
+   "subject": "dialogue / social interaction",
+   "classification": "KEEP",
+   "layer": "dialogue",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "renders/proofs/opening-set-audit/nugget/life.json"
+   ],
+   "note": "None until a talkable patron exists; the approach and contact that exist are right."
+  },
+  {
+   "subject": "Deke Vessel",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "cast (unbuilt, Act II)",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "reference/room-03/annotation.json",
+    "docs/04-dialogue-trees.md::DEKE VESSEL — three nodes and two duels",
+    "content/dialogue/deke-vessel.json"
+   ],
+   "note": "One casting master in Winnie's method when Act II is authorized (1 operation, its own cap); placement re-derived on the regenerated plate. Unbuilt is not RECAST: nothing exists to recast."
+  },
+  {
+   "subject": "raccoon -- future-state architecture",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "world state (deferred)",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "reference/room-03/annotation.json"
+   ],
+   "note": "Deferred: an ambient `when` gate and one sprite, when Act II is built."
+  },
+  {
+   "subject": "compiler",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "compiler",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+   ],
+   "note": "Smallest fix: the compiler matches an override name to a doc 05 subject by dropping a leading \"THE \" on either side (and \"CARDS\" to \"THE HAND OF CARDS\" by an explicit alias table it refuses to grow silently); then compile-room 3 --write, register it as a generator, and the stale line re-extracts. Ed"
+  },
+  {
+   "subject": "stale content / extraction debt",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "content",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "content/rooms/nugget.json"
+   ],
+   "note": "As above."
+  },
+  {
+   "subject": "hotspot geometry (whole room)",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "annotation geometry",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/nugget/life.json",
+    "renders/opening-set-audit/nugget-audit-sheet.webp",
+    "reference/room-03/annotation.json"
+   ],
+   "note": "Re-read every rect, obstacle, approach point and the walk box on whichever plate ships (the annotator, 0 operations) -- before any proof of this room is trusted. If the plate is regenerated, do it once on the new plate."
   }
- ]
+ ],
+ "audit": {
+  "opening-set-retrofit-audit": {
+   "on": "2026-09-05",
+   "record": "proofs/factory/opening-set-retrofit-audit.json",
+   "sheet": "renders/opening-set-audit/nugget-audit-sheet.webp",
+   "status": "AUDITED; retrofit scope awaiting Tyler's approval; nothing performed",
+   "tally": {
+    "REGENERATE-CANDIDATE": 3,
+    "KEEP": 4,
+    "RECAST": 3,
+    "IMPROVE": 5,
+    "DEBT-NOT-VISUAL": 9
+   }
+  }
+ }
 }
