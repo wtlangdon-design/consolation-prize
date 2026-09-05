@@ -7,7 +7,7 @@ changing anything -- each guard exists because its absence cost a round.
     python3 tools/rig/character.py hob.png --out art/actors/hob --key magenta
 """
 from __future__ import annotations
-import argparse, json
+import argparse, os, json
 from pathlib import Path
 import numpy as np
 from PIL import Image
@@ -420,7 +420,8 @@ def over(top, base):
                       np.maximum(top[..., 3], base[..., 3])])
 
 
-def swing_arm(seg_mask, canvas, shoulder, ang, elbow_frac=0.45, fore_lead=FORE_LEAD, cx=None):
+def swing_arm(seg_mask, canvas, shoulder, ang, elbow_frac=0.45, fore_lead=FORE_LEAD, cx=None,
+              elbow_row=None, elbow_cx=None, fore_offset=0.0):
     """Two-segment arm: upper from the shoulder, forearm from the elbow.
 
     One rigid rotation makes a long arm read as a stick hinged at the hand.
@@ -435,10 +436,17 @@ def swing_arm(seg_mask, canvas, shoulder, ang, elbow_frac=0.45, fore_lead=FORE_L
         cx = float(np.nonzero(seg_mask.any(0))[0].mean())
     L = np.zeros(canvas.shape); L[..., :3] = canvas[..., :3]
     rows = np.arange(L.shape[0])[:, None]
-    elbow = int(top + elbow_frac * (bot - top))
-    upper = L.copy(); upper[..., 3] = (seg_mask & (rows < elbow)) * 255.0
-    fore = L.copy();  fore[..., 3] = (seg_mask & (rows >= elbow)) * 255.0
-    fore = rot(fore, ang * fore_lead, cx, elbow)
+    elbow = int(top + elbow_frac * (bot - top)) if elbow_row is None else int(elbow_row)
+    if elbow_cx is None:
+        elbow_cx = cx
+    # A BENT SOURCE ARM IS SPLIT WHERE IT BENDS, NOT ON A ROW. With an elbow
+    # given, the forearm is everything outside the upper arm's own column
+    # band below the shoulder, so a forearm held out at ninety degrees goes
+    # with the forearm and not with the rows it happens to share.
+    upper_m = seg_mask & (rows < elbow)
+    upper = L.copy(); upper[..., 3] = upper_m * 255.0
+    fore = L.copy();  fore[..., 3] = (seg_mask & ~upper_m) * 255.0
+    fore = rot(fore, ang * fore_lead + fore_offset, elbow_cx, elbow)
     return rot(over(fore, upper), ang, cx, shoulder)
 
 
@@ -994,10 +1002,55 @@ def main():
             return float(np.degrees(np.arctan2(end_cx - top_cx, lo - top_row)))
         lvl["near_leg"] = limb_angle(near_lm, pivot, hip_cx)
         lvl["far_leg"] = limb_angle(far_lm, pivot, hip_cx)
+        # AN ARM HANGS FROM WHERE IT MEETS THE COAT. What split_arms lifts is
+        # the part of each arm clear of the coat's silhouette: for a hanging
+        # arm a strip below the sleeve, for the source's bent forward arm the
+        # forearm alone, a slab attached by its upper end to the coat's front
+        # edge at waist height. Swung about its own centre that slab kept the
+        # hand at the waist through the whole cycle -- Tyler: "a weird dance
+        # move" (2026-09-05). Each segment is read as hanging from its
+        # ATTACHMENT -- the centroid of its pixels that touch the coat -- its
+        # angle from vertical is taken out about that point, and the swing is
+        # applied about the shoulder above it, as the whole arm would.
+        arm_geo = {}
+        # SLIVERS GO BACK TO THE COAT. split_arms leaves each arm a one- or
+        # two-pixel strand of the coat's own anti-aliased edge running down
+        # from it; measured as part of the arm it is the farthest pixel and
+        # the arm reads as hanging along it. The arm is its largest connected
+        # piece; whatever else the split gave it is coat.
+        def largest(m):
+            lab, n = ndimage.label(m)
+            if n <= 1:
+                return m
+            sizes = ndimage.sum(m, lab, range(1, n + 1))
+            return lab == int(np.argmax(sizes)) + 1
         if near_am is not None:
-            lvl["near_arm"] = limb_angle(near_am, int(sh_near), float(np.nonzero(near_am[int(sh_near):int(sh_near) + 6].any(0))[0].mean()))
+            keep = largest(near_am); coat_m |= near_am & ~keep; near_am = keep
         if far_am is not None:
-            lvl["far_arm"] = limb_angle(far_am, int(sh_far), float(np.nonzero(far_am[int(sh_far):int(sh_far) + 6].any(0))[0].mean()))
+            keep = largest(far_am); coat_m |= far_am & ~keep; far_am = keep
+        coat = as_layer(coat_m)
+        def attachment(m):
+            touch = m & ndimage.binary_dilation(coat_m, iterations=2)
+            if not touch.any():
+                ys_, xs_ = np.nonzero(m); i = int(np.argmin(ys_)); return float(xs_[i]), float(ys_[i])
+            ty, tx = np.nonzero(touch); return float(tx.mean()), float(ty.mean())
+        def arm_read(m, sh_row):
+            ax, ay = attachment(m)
+            fy, fx = np.nonzero(m)
+            far_i = int(np.argmax((fx - ax) ** 2 + (fy - ay) ** 2))
+            ang = float(np.degrees(np.arctan2(fx[far_i] - ax, max(fy[far_i] - ay, 1))))
+            return dict(attach=(ax, ay), shoulder_row=float(min(sh_row, ay)), angle=ang)
+        if os.environ.get("RIG_DEBUG"):
+            dbg = np.zeros(mask.shape + (3,), np.uint8); dbg[mask] = (90, 90, 95); dbg[coat_m] = (60, 60, 65)
+            if far_am is not None: dbg[far_am] = (60, 120, 255)
+            if near_am is not None: dbg[near_am] = (255, 120, 60)
+            Image.fromarray(dbg).save(os.environ["RIG_DEBUG"])
+        if near_am is not None:
+            arm_geo["near"] = arm_read(near_am, sh_near); lvl["near_arm"] = arm_geo["near"]["angle"]
+        if far_am is not None:
+            arm_geo["far"] = arm_read(far_am, sh_far); lvl["far_arm"] = arm_geo["far"]["angle"]
+        for k, g in arm_geo.items():
+            print(f"level-limbs: {k} arm attaches at ({g['attach'][0]:.0f},{g['attach'][1]:.0f}), hangs {g['angle']:+.1f} from vertical, swings about row {g['shoulder_row']:.0f}")
         print("level-limbs: source angles from vertical, +right: "
               + ", ".join(f"{k} {v:+.1f}" for k, v in lvl.items()) + f"; hip column {hip_cx:.0f}")
     for i, s in enumerate(HIP_SWING):
@@ -1045,17 +1098,26 @@ def main():
             leg_cx_near = hip_cx if hip_cx is not None else cxn
             f = over(swing_leg(far_leg, pivot, leg_cx_far, hip_far, knee_far), f)
             f = over(swing_leg(near_leg, pivot, leg_cx_near, hip_near, knee_near), f)
+            def hang_and_swing(m, g, swing_ang):
+                # One rotation about the attachment (its own angle taken out
+                # plus the swing), then the whole thing carried to where the
+                # swing about the shoulder would have put the attachment.
+                ax, ay = g["attach"]; sr = g["shoulder_row"]
+                layer = rot(as_layer(m), swing_ang - g["angle"], ax, ay)
+                th = np.radians(swing_ang)
+                dx0, dy0 = 0.0, ay - sr                       # attachment relative to the shoulder
+                nx = ax + (dx0 * np.cos(th) + dy0 * np.sin(th)) - 0.0
+                ny = sr + (-dx0 * np.sin(th) + dy0 * np.cos(th))
+                return np.roll(np.roll(layer, int(round(ny - ay)), axis=0), int(round(nx - ax)), axis=1)
             if far_am is not None:
-                arm_cx = (float(np.nonzero(far_am[int(sh_far):int(sh_far) + 6].any(0))[0].mean())
-                          if hip_cx is not None else None)
-                arm = swing_arm(far_am, canvas, sh_far, -a - lvl["far_arm"], elbow_frac=0.15, fore_lead=0.25, cx=arm_cx)
+                g = arm_geo.get("far") if hip_cx is not None else None
+                arm = hang_and_swing(far_am, g, -a) if g else swing_arm(far_am, canvas, sh_far, -a, elbow_frac=0.15, fore_lead=0.25)
                 if arm is not None:
                     f = over(arm, f)
             f = over(coat, f)
             if near_am is not None:
-                arm_cx = (float(np.nonzero(near_am[int(sh_near):int(sh_near) + 6].any(0))[0].mean())
-                          if hip_cx is not None else None)
-                arm = swing_arm(near_am, canvas, sh_near, a - lvl["near_arm"], cx=arm_cx)
+                g = arm_geo.get("near") if hip_cx is not None else None
+                arm = hang_and_swing(near_am, g, a) if g else swing_arm(near_am, canvas, sh_near, a)
                 if arm is not None:
                     f = over(arm, f)
         cols = np.nonzero((f[..., 3] > 90).any(0))[0]
@@ -1094,7 +1156,8 @@ def main():
                 near_arm_px=int(near_am.sum()) if near_am is not None else 0,
                 far_arm_px=int(far_am.sum()) if far_am is not None else 0,
                 measured_foot_travel=travel, hip_swing=HIP_SWING,
-                **({} if hip_cx is None else dict(level_limbs=True, source_limb_angles={k: round(v, 1) for k, v in lvl.items()}, hip_column=round(hip_cx), ground_shifts=ground_shifts)),
+                **({} if hip_cx is None else dict(level_limbs=True, source_limb_angles={k: round(v, 1) for k, v in lvl.items()}, hip_column=round(hip_cx), ground_shifts=ground_shifts,
+                                                  arm_attachments={k: [round(g["attach"][0]), round(g["attach"][1])] for k, g in arm_geo.items()})),
                 **({} if args.view == "headon" else dict(
                     knee_flex=KNEE_FLEX, knee_ratio=args.knee,
                     knee_frac=KNEE_FRAC)),
