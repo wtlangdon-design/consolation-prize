@@ -1,5 +1,5 @@
 {
- "title": "THAD PROFILE WALK CONTINUITY -- owner-authorized global character art revision (Tyler, 2026-09-05)",
+ "title": "THAD PROFILE WALK -- from the owner-authorized stride still to the OWNER-ACCEPTED hybrid gait (2026-09-05)",
  "preflight": {
   "branch": "claude/last-claim-autonomy-audit-v3vsy6",
   "cleanTree": true,
@@ -1110,7 +1110,7 @@
  },
  "hybrid": {
   "title": "THAD PROFILE WALK -- ZERO-IMAGE HYBRID COMPLETION PASS (Tyler, 2026-09-05)",
-  "status": "CANDIDATE, visual_accepted unset; Tyler is the gate",
+  "status": "OWNER-ACCEPTED 2026-09-05 at deployed 3797684 -- FROZEN",
   "preflight": {
    "startHead": "cf51b6a (main after PR #10, merged into the branch)",
    "cleanTree": true,
@@ -1485,6 +1485,53 @@
     },
     "walkingStills": 9,
     "heightPx": 242
+   }
+  },
+  "visual_accepted": true,
+  "acceptance": {
+   "visual_accepted_by": "Tyler",
+   "visual_accepted_on": "2026-09-05",
+   "deployedSha": "3797684",
+   "ruling": "THAD HYBRID PROFILE GAIT -- VISUALLY APPROVED. The hybrid gait is the approved shared Thad profile-walk authority.",
+   "frozen": [
+    "the complete-frame authored upper-body sources",
+    "the hidden-under-coat leg rephasing",
+    "the right-facing walk",
+    "the mirrored left-facing walk",
+    "the frame ordering",
+    "the animation cadence (strideLength 141)",
+    "idle -> walk -> idle transitions",
+    "scale/depth behaviour"
+   ],
+   "doNot": [
+    "regenerate profile-walk art",
+    "return to articulated-arm rigs",
+    "change arm poses",
+    "change leg construction",
+    "change bob",
+    "change loop ordering",
+    "make further aesthetic refinements"
+   ],
+   "pace": "NOT selected by this acceptance. A/B/C support stays intact until a separate owner ruling.",
+   "frozenFrames": {
+    "right": {
+     "walk-00.png": "015007f58337e1384fe2cf0750cb6007b6737f41d5f5759807d4b78f53203105",
+     "walk-01.png": "6f3bdb01036e47e9220ba733f9265766b1e0d35d7132152720dc91430194e086",
+     "walk-02.png": "2eb2fc1e74341eac155b3557f309c266a5ca7e6fa85695fe4a4a4219973f9ef3",
+     "walk-03.png": "1c2322b72f474346bdca3b68663c1e52059d6d8e407990676cb5509c4c4d0d08",
+     "walk-04.png": "16dd69102e6087b009025f501950fbb7f4aba8bffe10fdc044ade645a6f9afa6",
+     "walk-05.png": "f5a31a383c24de094f286cf1798263950f7fe8d55c4d8520fce4de95f8452a38"
+    },
+    "left": {
+     "walk-00.png": "bfd64732d9685ba41cbe38bc9c34ed9c06f03085a909a016cece6adea71d2c53",
+     "walk-01.png": "25de74c289411054785de45985b64b60637988ad5611f0beaf827533d21406db",
+     "walk-02.png": "79b9ab7fc6e1314176ff9503e3a52b9b9b65c909df7a0de2f2914f6a8e019a39",
+     "walk-03.png": "1762dff049b49c286688d808b0320cb6168c6de6922ebac7649b5bcdc17c8e4e",
+     "walk-04.png": "f94cfd7286c9878fb350860c1337743b42a4c4ed8b2c0c17d7c84a9a04cc24f7",
+     "walk-05.png": "63ea798974036d5e60cf6a70ed37e846b8e1d1f0b09cfc014f036d4793cc4503"
+    },
+    "rigRight": "f8576ac7f1b8e87886432104095a62f0e15d320fa4088d133ba9a9924a80b7b9",
+    "rigLeft": "daa9301e2d50bf1ef5648f70cbcd078edb5df509bd5c42da3728b5ad88315726"
    }
   }
  }
