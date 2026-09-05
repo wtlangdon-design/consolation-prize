@@ -1,0 +1,221 @@
+{
+ "schema": 1,
+ "id": "room-01-stage-road",
+ "room": "stage_road",
+ "docRoom": 1,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four). Ids, statuses and pointers only; no creative content. Every gate is answered -- NOT-RUN is an answer -- and every answer but NOT-RUN cites evidence a person can open in a minute. Validated by tools/check-build-contracts.mjs. Owner rulings are recorded here by date and set by nobody but Tyler. OPENING-SET ROOM: this contract records what is ESTABLISHED today and answers NOT-RUN where the Factory v2 audit (step 3, OPENING SET CONTINUITY RETROFIT AUDIT) has not yet been run. It does not perform that audit.",
+ "authorities": [
+  "docs/17-opening-sequence.md",
+  "docs/43-room-01-staging-script.md",
+  "docs/35-room-gate.md",
+  "docs/37-room-01-generation-prompts.md",
+  "docs/44-gauntlet.md"
+ ],
+ "qualityAuthority": {
+  "for": [
+   "exterior composition",
+   "the opening sequence",
+   "Thad's identity"
+  ],
+  "note": "docs/46-room-factory.md part six"
+ },
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "docs/35-room-gate.md::ROOM 1, WORKED — the reference example",
+    "docs/17-opening-sequence.md"
+   ],
+   "note": "Act I only, once; nothing brings him back."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "docs/35-room-gate.md::ROOM 1, WORKED — the reference example",
+    "content/rooms/stage-road.json"
+   ],
+   "note": "Case, coach, driver, Hob and lantern are movers or state images; nothing carried is painted."
+  },
+  "cast": {
+   "status": "PASS-WITH-ACCEPTED-EXCEPTION",
+   "evidence": [
+    "docs/52-thad-continuity-spec.md",
+    "tools/check-stationary-family.mjs",
+    "proofs/thad/audit.md"
+   ],
+   "exception": "docs/52: the opening's chore clips (aboard/alight-coach, pickup-low, carry) are the unrecorded hand-transformed family; continuity debt acknowledged with the gait acceptance (doc 36 Q107).",
+   "note": "Thad, the coach and team, the driver overlay, Hob."
+  },
+  "roomLife": {
+   "status": "NOT-RUN",
+   "note": "No 60 s live idle proof for this room; the stationary frame log under renders/proofs/stage-road/stationary/ covers the frozen-frame question only. Step 3's audit."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "tools/gauntlet/opening.json",
+    "proofs/thad/audit.md"
+   ],
+   "note": "Coach, case and Hob marks asserted by the hand-written gauntlet script every push."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "docs/36-issue-list.md::Q97 · The lantern glow is built, and the spec that had no reader now has three",
+    "art/objects/room-01-lantern-glow.png"
+   ],
+   "note": "Moonlight plate; Hob's carried lantern with its per-clip glow anchor."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/17-opening-sequence.md"
+   ],
+   "note": "No environmental clue; the case in the mud is a staged pickup."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "cmd:node tools/extract-content.mjs --check",
+    "content/rooms/stage-road.json"
+   ],
+   "note": "Extracted by the opening extractor, not compile-room."
+  },
+  "artBudget": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/37-room-01-generation-prompts.md"
+   ],
+   "note": "Pre-API art; no ledger row."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "cmd:node tools/extract-content.mjs --check"
+   ]
+  },
+  "annotation": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "content/rooms/stage-road.json"
+   ],
+   "note": "Room 1 predates the annotator; its geometry lives in the extracted room file and doc 43."
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/stage-road/proof.json"
+   ]
+  },
+  "lifeProof": {
+   "status": "NOT-RUN",
+   "note": "No life route for Room 1; the gauntlet script covers the opening, not idle life."
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "tools/gauntlet/opening.json",
+    "cmd:npm run gauntlet"
+   ],
+   "note": "Doc 44's script, every push, with a beat number on failure."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/stage-road/proof.json"
+   ],
+   "note": "Re-proved on the Room 5 pilot's engine (pilot report gate 7)."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "the plate (approved generated plate, 2.7% upscale)",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-01-stage-road.png",
+   "evidence": [
+    "docs/00-errata.md",
+    "content/rooms/stage-road.json"
+   ],
+   "note": "CLAUDE.md and doc 36 call it the approved plate; the ledger's visual_accepted (Tyler's field) is false. Reconciling the two is Tyler's, recorded under acceptance.visual."
+  },
+  {
+   "subject": "the case in the mud",
+   "class": "TAKEABLE",
+   "stage": "SHIPPING",
+   "path": "art/objects/room-01-case-mud.png",
+   "evidence": [
+    "content/rooms/stage-road.json"
+   ]
+  },
+  {
+   "subject": "the coach (idle, door-open, walk) and the driver overlay",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/coach-idle-right",
+   "evidence": [
+    "content/rooms/stage-road.json",
+    "tools/gauntlet/opening.json"
+   ]
+  },
+  {
+   "subject": "Hob and his lantern",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/hob-walk-right",
+   "evidence": [
+    "content/actors/hob.json"
+   ]
+  },
+  {
+   "subject": "the sign lettering",
+   "class": "OVERLAY",
+   "stage": "SHIPPING",
+   "path": "art/objects/room-01-sign-lettering.png",
+   "evidence": [
+    "content/rooms/stage-road.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "content/build-ledger.json"
+   ],
+   "note": "The plate is described as approved throughout the record and the ledger's visual_accepted is false. This contract records the field, not the prose; only Tyler moves it."
+  },
+  "gameplay": {
+   "opening": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q48 · Room 1 played end to end: it works, and the player's position is not state",
+     "tools/gauntlet/opening.json"
+    ],
+    "scope": "The opening plays end to end and is asserted every push; no dated owner gameplay ruling is on record."
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/backgrounds/room-01-stage-road.png"
+   ],
+   "note": "Everything Room 1 draws is in the shipping tree."
+  }
+ },
+ "laterStates": [
+  {
+   "id": "none",
+   "status": "NOT-APPLICABLE"
+  }
+ ],
+ "retrofit": [
+  {
+   "subject": "every element",
+   "classification": "NOT-CLASSIFIED",
+   "note": "Classified by the step-3 audit (OPENING SET CONTINUITY RETROFIT AUDIT — ROOM 2 + ROOM 3 covers Rooms 2 and 3; Room 1 is the exterior quality authority and is not a retrofit candidate)."
+  }
+ ]
+}

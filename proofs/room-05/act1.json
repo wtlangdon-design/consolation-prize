@@ -1,8 +1,8 @@
 {
  "title": "ROOM 5 -- ACT I GAMEPLAY ACCEPTANCE PASS (2026-09-05): proven in the live build, awaiting Tyler",
  "status": {
-  "Room 5 Act I gameplay": "awaiting Tyler acceptance",
-  "Room 5 later-act gameplay": "intentionally not implemented",
+  "Room 5 Act I gameplay": "OWNER-ACCEPTED 2026-09-05 (Tyler played the deployed build at 0376119; recorded by the Factory v2 consolidation, content/build-ledger.json acceptance.gameplay)",
+  "Room 5 later-act gameplay": "C5/WIN_B2 built early, not owner-gameplay-accepted (proofs/room-05 c5); WIN_B3, C6, E4/WIN_C1, Act IV assay/F5 contracted and unbuilt (docs/53)",
   "Room 6": "stub; next room production scope"
  },
  "preflight": {
@@ -1494,5 +1494,13 @@
   "actIUrl": "https://wtlangdon-design.github.io/consolation-prize/?room=assay_office&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&pace=1.25&v=0376119",
   "urlNote": "ONE URL: night plate, Winnie and inkstand relights, the hanging lamp by state, treatment C floorboard by state without override, the frozen gait, ACT I state (a fresh start warped into Room 5; leaving by the street door plays Main Street's first sight once), pace B 1.25 for the proof only. No second URL: no later-Act-I topic state is producible by play."
  },
- "at": "2026-09-05T10:05:35.818Z"
+ "at": "2026-09-05T10:05:35.818Z",
+ "ownerAcceptance": {
+  "actI": "OWNER-ACCEPTED",
+  "on": "2026-09-05",
+  "by": "Tyler",
+  "deployed": "0376119",
+  "scope": "Act I behaviour only; later acts excluded",
+  "recordedBy": "Factory v2 consolidation (docs/46-room-factory.md, doc 36 Q114)"
+ }
 }

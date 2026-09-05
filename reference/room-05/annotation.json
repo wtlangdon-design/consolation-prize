@@ -211,6 +211,7 @@
       "states": {
         "lit": {
           "image": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+          "sameInAllStates": true,
           "note": "THE HANGING WORK LAMP (Tyler, owner ruling 2026-09-04): one small plain period oil lamp on a short chain from the brass cage top rail, over the ledger. The fixture is this one prop in every visual state -- day and night -- cut from the in-context edit (art/staging/room-05/lamp-01/lamp.json); only its runtime light differs, by the room lamp below. Always lit; there is no unlit state. It hangs at the cage, in front of her: `occludes: [1]` puts it in the figure pass over plane-1 figures, so where its base meets her hair the lamp is in front.",
           "occludes": [
             1

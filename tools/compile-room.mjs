@@ -625,6 +625,8 @@ built.entrance = ann.entrance;
 const staleGeometry = [];
 /** Every `walkTo` dropped for the same reason, collected as the hotspots build. */
 const staleWalkTo = [];
+/** The live file's approach points by id, judged once the compiled ones exist. */
+const oldWalkTo = new Map();
 if (ann.staging) {
   built.staging = ann.staging;
 } else if ((live.staging ?? []).length) {
@@ -712,7 +714,15 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
   // to the right answer. Without it the object answers where the player
   // stands, which is the documented fallback and is never in front of the
   // wrong building.
-  if (old?.walkTo) staleWalkTo.push(`${id}@${old.walkTo.x},${old.walkTo.y}`);
+  // REPORTED ONLY IF NOTHING RE-SOURCES IT. The compiler derives every floor
+  // object's approach point from the annotation's walk box and depth curve
+  // further down, and for a room whose annotation carries them all, the old
+  // points are replaced, not dropped. The first version pushed every old
+  // point here and printed all twelve of Room 5's as DROPPED on every run,
+  // under a heading that named Main Street -- a true report about Room 2 in
+  // 2026-08, copied onto a room it was false for. A report that is wrong on
+  // a correct build teaches the reader to skip it (R5j).
+  if (old?.walkTo) oldWalkTo.set(id, old.walkTo);
   // ERRATA 60's SUGAR. `acts.<id>: "2-4"` in the annotation, or a subject
   // doc 05 writes only in its act block, compiles to a numeric ACT gate.
   const actSpec = ann.acts?.[id] ?? entry.actOnly ?? null;
@@ -768,7 +778,7 @@ built.hotspots.sort((a, b) => (a.rect[2] * a.rect[3]) - (b.rect[2] * b.rect[3]))
 
 built.exits = (live.exits ?? []).map((e) => {
   const { walkTo, ...rest } = e;
-  if (walkTo) staleWalkTo.push(`${e.id}@${walkTo.x},${walkTo.y}`);
+  if (walkTo) oldWalkTo.set(e.id, walkTo);
   return {
     ...rest,
     ...(ann.exits[e.id] ? { rect: ann.exits[e.id] } : {}),
@@ -1189,6 +1199,12 @@ built.exits = (live.exits ?? []).map((e) => {
 
 const exitsMissing = built.exits.filter((e) => !ann.exits[e.id]).map((e) => e.id);
 if (exitsMissing.length) fail(`no rect for exit(s): ${exitsMissing.join(', ')}.`);
+// An old approach point the compiled room no longer carries is a drop; one
+// the annotation re-sourced is not, whatever its coordinates were.
+for (const [id, at] of oldWalkTo) {
+  const now = [...built.hotspots, ...built.exits].find((one) => one.id === id);
+  if (!now?.walkTo) staleWalkTo.push(`${id}@${at.x},${at.y}`);
+}
 if (staleWalkTo.length) {
   staleGeometry.push(`  ${staleWalkTo.length} staged approach point(s): ${staleWalkTo.join(', ')}`);
 }
@@ -1225,12 +1241,17 @@ console.log(`  ${totalLines} authored lines carried\n`);
 // never again is a drop nobody remembers by the time it matters, and this one
 // costs the player the ability to come out of a door in the right place.
 if (staleGeometry.length) {
-  console.log(`  DROPPED — drawn against a ${roomWidth(live)}-wide Main Street, and the plate `
-    + `is ${ann.plateSize?.[0]}:\n`);
+  // ROOM-NEUTRAL WORDING. The first version named Main Street and
+  // `street_east` in every room's output, because it was written the night
+  // Room 2's old geometry was found to describe a 1920 street on a 3700
+  // plate. The reasoning is kept in the comment above the stale block; the
+  // report names THIS room's numbers and nothing from another.
+  console.log(`  DROPPED — geometry the live file carried that the annotation does not source `
+    + `(live room width ${roomWidth(live)}, plate ${ann.plateSize?.[0] ?? '?'}):\n`);
   for (const line of staleGeometry) console.log(line);
-  console.log('\n  Every one of these is a point on the OLD street. Some of them still land on'
-    + '\n  the new walk box, which makes them worse rather than better: street_east at x1836'
-    + '\n  is the middle of a 3700 street and no floor test can say so.'
+  console.log('\n  A coordinate with no source in the annotation is not carried, whether or not'
+    + '\n  it still lands on the walk box: a point that passes a floor test can still stand'
+    + '\n  in front of the wrong building, and no floor test can say so.'
     + '\n\n  Re-draw them in tools/annotate/room.html as `staging` and `entrances`, and this'
     + '\n  reads them instead. Until then the room has one arrival -- the annotation\'s --'
     + '\n  and objects are approached from wherever the player is standing.\n');

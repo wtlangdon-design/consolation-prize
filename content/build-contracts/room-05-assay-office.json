@@ -1,0 +1,412 @@
+{
+ "schema": 1,
+ "id": "room-05-assay-office",
+ "room": "assay_office",
+ "docRoom": 5,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four). Ids, statuses and pointers only; no creative content. Every gate is answered -- NOT-RUN is an answer -- and every answer but NOT-RUN cites evidence a person can open in a minute. Validated by tools/check-build-contracts.mjs. Owner rulings are recorded here by date and set by nobody but Tyler. ROOM 5 IS THE FACTORY V2 BENCHMARK: the richest contract, and the one the others are measured against.",
+ "benchmark": true,
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/25-rooms-05-07.md",
+  "docs/04-dialogue-trees.md",
+  "docs/02-puzzle-graph.md",
+  "docs/35-room-gate.md",
+  "docs/53-assay-office-later-state-contract.md",
+  "proofs/room-05/gate-matrix.md",
+  "proofs/room-05/pilot-report.md"
+ ],
+ "qualityAuthority": {
+  "for": [
+   "interior composition",
+   "character casting and occupational life",
+   "physical contact with furniture",
+   "stateful prop behaviour",
+   "environmental clue perceptibility",
+   "task lighting",
+   "DAY/NIGHT state overlays",
+   "the acceptance process itself"
+  ],
+  "note": "docs/46-room-factory.md part six"
+ },
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-05/gate-matrix.md",
+    "proofs/readiness/room-05.json",
+    "proofs/room-05/time-of-day-audit.md",
+    "docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS"
+   ],
+   "note": "Which acts visit, what changes per act, entered from a NIGHT street: the time-of-day audit was run AFTER the day candidate and cost the night plate; v2 asks it before art."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-05/gate-matrix.md",
+    "content/rooms/assay-office.json"
+   ],
+   "note": "Every subject classed PLATE / STATEFUL / MOVER; the floorboard became STATEFUL (rest/pressed, day/night companions) and the lamp an OVERLAY that is one prop in every state."
+  },
+  "cast": {
+   "status": "PASS-WITH-ACCEPTED-EXCEPTION",
+   "evidence": [
+    "art/staging/ledger.json",
+    "docs/52-thad-continuity-spec.md",
+    "docs/36-issue-list.md::Q107 · Thad is two drawings, walks at one screen speed whatever his size, and glances aside in somebody else's body",
+    "tools/check-stationary-family.mjs"
+   ],
+   "exception": "doc 36 Q107 and docs/52: the profile chore clips (use-near, give-offer, shrug, pickup-low, carry, alight/aboard-coach, lookup) remain an unrecorded hand-transformed family -- continuity debt, owner-acknowledged, and not used by any Act I Room 5 action.",
+   "note": "Winnie cast from the composition master (one generation, three poses, owner-accepted); Thad one identity family for every stationary clip and the frozen hybrid profile gait."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/assay-office/life/life.json",
+    "proofs/room-05/act1.json",
+    "content/ambient/winnie.json"
+   ],
+   "note": "Winnie writes; breaks from a pool on an irregular timer; holds her look-up frame while her tree is open; the life proof runs ~200 s and the Act I pass holds 60 s idle with zero locomotion frames."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/spec/assay-office.json",
+    "proofs/room-05/winnie-pen-state.json",
+    "proofs/room-05/pilot-report.md"
+   ],
+   "note": "Hands on the ledger, nib on the page, ink stand on the counter -- measured by silhouette after Tyler's two corrections, asserted by the four-panel proof's ambientContact bands."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/room-05/LAMP.md",
+    "proofs/room-05/lamp-placement.json",
+    "art/staging/room-05/plate-03-night-lift/grade.json",
+    "docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS"
+   ],
+   "note": "A night state derived from the same composition; a hanging work lamp as the task light by night (owner ruling); the work-area lift; Winnie and the stand relit per state."
+  },
+  "cluePerceptibility": {
+   "status": "PASS",
+   "evidence": [
+    "docs/36-issue-list.md::Q108 · The proud floorboard was flush — Tyler could not find the board the writing describes",
+    "proofs/room-05/floorboard.json",
+    "tests/floorboard.test.ts"
+   ],
+   "note": "The critical floorboard is perceivable by BEHAVIOUR (proud at rest, gives and creaks under a foot), in the middle walking band, without highlighting; treatment C owner-accepted."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "cmd:node tools/compile-room.mjs 5 --check",
+    "cmd:node tools/check-room-readiness.mjs 5",
+    "proofs/readiness/room-05.json",
+    "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; the compiler carries 71 lines, nothing unhoused after the Q24 rulings."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "Pilot 8/8 under Tyler's cap, +1 lamp (owner revision), every attempt on the ledger with hashes; 0 operations authorized today."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "cmd:node tools/compile-room.mjs 5 --check",
+    "content/rooms/assay-office.json"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-05/annotation.json",
+    "proofs/room-05/night-geometry-drift.json",
+    "proofs/room-05/lamp-geometry-drift.json"
+   ],
+   "note": "Bound by hash to plate-02; every later plate (night, night-lift, lamp) proved at (0,0) drift against it."
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/assay-office/proof.json",
+    "renders/proofs/assay-office-lamp-night/proof.json"
+   ]
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/assay-office/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-05/act1.json",
+    "renders/proofs/assay-office-act1/gauntlet/life.json",
+    "renders/proofs/dialogue-prompt/proof.json",
+    "renders/proofs/room-05-fixtures/proof.json",
+    "renders/proofs/w1-aftermath/proof.json"
+   ]
+  },
+  "regression": {
+   "status": "PASS-WITH-ACCEPTED-EXCEPTION",
+   "evidence": [
+    "proofs/room-05/deployed-check.json",
+    "renders/proofs/stage-road/proof.json"
+   ],
+   "exception": "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN -- check-flag-order stays red on ACT and T_RACCOON_NAMED, global content debt ruled out of Room 5's scope (2026-09-04).",
+   "note": "typecheck, suite, validators, gauntlet, Room 1 proof, deployed check."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 02",
+   "class": "PLATE",
+   "stage": "OWNER-VISUAL-ACCEPTED",
+   "path": "art/staging/room-05/composition-master-02.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "proofs/room-05/pilot-report.md"
+   ]
+  },
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "REJECTED",
+   "path": "art/staging/room-05/composition-master-01.png",
+   "evidence": [
+    "art/staging/room-05/REJECTED-01.md"
+   ]
+  },
+  {
+   "subject": "DAY plate (plate-02)",
+   "class": "PLATE",
+   "stage": "OWNER-VISUAL-ACCEPTED",
+   "path": "art/staging/room-05/plate-02/candidate-1920x864.png",
+   "evidence": [
+    "art/staging/room-05/DAY-CANDIDATE.md",
+    "art/staging/ledger.json"
+   ],
+   "note": "ROOM 5 -- DAY VISUAL CANDIDATE: the source of composition and geometry, not the Act I shipping state (errata 64b)."
+  },
+  {
+   "subject": "NIGHT plate, lifted (plate-03-night-lift)",
+   "class": "PLATE",
+   "stage": "GAMEPLAY-ACCEPTED",
+   "path": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "evidence": [
+    "art/staging/room-05/NIGHT-CANDIDATE.md",
+    "proofs/room-05/act1.json"
+   ]
+  },
+  {
+   "subject": "Winnie, behind-counter sheet",
+   "class": "MOVER",
+   "stage": "GAMEPLAY-ACCEPTED",
+   "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "evidence": [
+    "art/staging/room-05/winnie-02-counter/frames.json",
+    "proofs/room-05/act1.json"
+   ]
+  },
+  {
+   "subject": "Winnie, night relight under the lamp",
+   "class": "MOVER",
+   "stage": "GAMEPLAY-ACCEPTED",
+   "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "evidence": [
+    "proofs/room-05/lamp-night-winnie-regression.json",
+    "proofs/room-05/act1.json"
+   ]
+  },
+  {
+   "subject": "the ink stand (pen in / pen out)",
+   "class": "PROP",
+   "stage": "GAMEPLAY-ACCEPTED",
+   "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "evidence": [
+    "proofs/room-05/winnie-pen-state.json"
+   ]
+  },
+  {
+   "subject": "the hanging work lamp overlay",
+   "class": "OVERLAY",
+   "stage": "GAMEPLAY-ACCEPTED",
+   "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+   "evidence": [
+    "art/staging/room-05/LAMP.md",
+    "proofs/room-05/lamp-placement.json"
+   ],
+   "note": "sameInAllStates: one prop by day and by night; only its runtime light differs."
+  },
+  {
+   "subject": "the proud floorboard, treatment C, rest and pressed, day and night",
+   "class": "STATEFUL",
+   "stage": "GAMEPLAY-ACCEPTED",
+   "path": "art/staging/room-05/floorboard/board-rest-c.png",
+   "evidence": [
+    "art/staging/room-05/FLOORBOARD.md",
+    "proofs/room-05/floorboard.json"
+   ]
+  },
+  {
+   "subject": "counter occlusion mask (cage bars)",
+   "class": "MASK",
+   "stage": "LIVE-PROOF",
+   "path": "art/staging/room-05/mask-plane-1.png",
+   "evidence": [
+    "renders/proofs/assay-office/proof.json"
+   ]
+  },
+  {
+   "subject": "shipping plate path (legacy 320x144 placeholder)",
+   "class": "PLATE",
+   "stage": "LEGACY",
+   "path": "art/backgrounds/room-05-assay-office.png",
+   "evidence": [
+    "content/build-ledger.json"
+   ],
+   "note": "Overridden by ?candidate= in every proof and playtest URL until the room's logged promotion."
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "OWNER-ACCEPTED",
+   "by": "Tyler",
+   "on": "2026-09-04",
+   "evidence": [
+    "content/build-ledger.json",
+    "proofs/room-05/pilot-report.md"
+   ],
+   "scope": "composition, raster treatment, DAY and NIGHT plates, night levels, Winnie, the lamp, the floorboard treatment C (2026-09-05), the hybrid gait (2026-09-05)"
+  },
+  "gameplay": {
+   "act1": {
+    "status": "OWNER-ACCEPTED",
+    "by": "Tyler",
+    "on": "2026-09-05",
+    "evidence": [
+     "proofs/room-05/act1.json",
+     "docs/36-issue-list.md::Q109 · Room 5 Act I gameplay acceptance pass",
+     "content/build-ledger.json"
+    ],
+    "scope": "Act I behaviour only: entry and re-entry by the real door, night presentation, Winnie loop, WIN_A1/WIN_A2, approach, choice presentation, exits, hotspots and wrong actions, floorboard, Thad, room life. Played on the deployed build at 0376119."
+   },
+   "c5-win-b2": {
+    "status": "NOT-SUBMITTED",
+    "evidence": [
+     "renders/proofs/room-05-c5/proof.json",
+     "docs/36-issue-list.md::Q113 · C5 and WIN_B2 built: the submission log shown to Winnie completes C5 and opens the confrontation"
+    ],
+    "scope": "BUILT EARLY, preserved, not advanced, not owner-gameplay-accepted. Fixture r5-c is the owner's test."
+   }
+  },
+  "promotion": {
+   "status": "NOT-DONE",
+   "evidence": [
+    "content/build-ledger.json"
+   ],
+   "note": "Every Room 5 asset is staged; the shipping plate path holds the legacy placeholder. Promotion is a separate, logged step; nothing here performs it."
+  }
+ },
+ "laterStates": [
+  {
+   "id": "C5 / WIN_B2",
+   "status": "BUILT-EARLY-NOT-ACCEPTED",
+   "evidence": [
+    "renders/proofs/room-05-c5/proof.json",
+    "docs/53-assay-office-later-state-contract.md"
+   ]
+  },
+  {
+   "id": "WIN_B3",
+   "status": "CONTRACTED-UNBUILT",
+   "evidence": [
+    "docs/53-assay-office-later-state-contract.md",
+    "docs/00-errata.md::66 · ROOM 5'S LATER STATES — OWNER RULINGS A TO K (2026-09-05), AND DOC 08'S RECORDS-ROOM FLOORBOARD SUPERSEDED"
+   ]
+  },
+  {
+   "id": "C6 / Document B",
+   "status": "CONTRACTED-UNBUILT",
+   "evidence": [
+    "docs/53-assay-office-later-state-contract.md"
+   ]
+  },
+  {
+   "id": "E4 / WIN_C1 / death certificate",
+   "status": "CONTRACTED-UNBUILT",
+   "evidence": [
+    "docs/53-assay-office-later-state-contract.md"
+   ]
+  },
+  {
+   "id": "Act IV assay / WIN_F1 / F5",
+   "status": "CONTRACTED-UNBUILT",
+   "evidence": [
+    "docs/53-assay-office-later-state-contract.md"
+   ]
+  },
+  {
+   "id": "queue bench (ACT 2-4)",
+   "status": "CONTRACTED-UNBUILT",
+   "evidence": [
+    "proofs/spec/assay-office.json"
+   ],
+   "note": "Wired and proved at ACT 2 by the harness; the ACT writer (doc 48 S1) is another room's."
+  }
+ ],
+ "retrofit": [
+  {
+   "subject": "DAY and NIGHT plates",
+   "classification": "KEEP",
+   "evidence": [
+    "content/build-ledger.json"
+   ]
+  },
+  {
+   "subject": "Winnie (design, sheet, relights, contact)",
+   "classification": "KEEP",
+   "evidence": [
+    "content/build-ledger.json"
+   ]
+  },
+  {
+   "subject": "the hanging lamp",
+   "classification": "KEEP",
+   "evidence": [
+    "art/staging/room-05/LAMP.md"
+   ]
+  },
+  {
+   "subject": "the floorboard",
+   "classification": "KEEP",
+   "evidence": [
+    "proofs/room-05/floorboard.json"
+   ]
+  },
+  {
+   "subject": "Thad profile chore clips",
+   "classification": "DEBT-NOT-VISUAL",
+   "evidence": [
+    "docs/52-thad-continuity-spec.md"
+   ],
+   "note": "Not used by any Act I action in this room; continuity debt recorded, not a Room 5 retrofit."
+  },
+  {
+   "subject": "promotion of staged assets",
+   "classification": "DEBT-NOT-VISUAL",
+   "evidence": [
+    "content/build-ledger.json"
+   ]
+  }
+ ],
+ "retrospective": "proofs/room-05/factory-v2-retrospective.json"
+}

@@ -86,6 +86,45 @@ const FEET_TOLERANCE = 4;
 
 const sha = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
+/**
+ * THE MACHINE / HUMAN SPLIT, WRITTEN INTO EVERY PROOF RECORD.
+ *
+ * Doc 44's first honesty and doc 46 part one, made a field: what this proof
+ * ESTABLISHES is a closed list of measurable facts, and what it leaves to a
+ * person is a closed list of judgements, and neither list is inferred from
+ * `passed`. A reader who sees `machine.passed: true` beside
+ * `human.visual: "PENDING TYLER"` cannot mistake admissibility for
+ * acceptance, which is the mistake the build ledger's `accepted` status was
+ * invented to prevent one level up.
+ */
+export function proofJudgement(failures, extra = {}) {
+  return {
+    machine: {
+      passed: failures.length === 0,
+      establishes: [
+        'the named room was drawn by the live runtime at the recorded commit, on the tree the record describes',
+        'every asset the room declares loaded; no stub, graybox or fallback was drawn',
+        'the protagonist stands on the authored depth marks at the curve\u2019s height and with his feet on the mark, within the rounding budget',
+        'the authored occlusion marks mask the figure as declared',
+        'ambient figures sit inside their declared contact bands',
+        'the principal state change was reached by the authored route and captured',
+        ...(extra.establishes ?? []),
+      ],
+      doesNotEstablish: [
+        'that the art is good, in style, or consistent with the accepted rooms',
+        'that the scene reads, is funny, or is lit right',
+        'that the room plays -- gameplay acceptance is a separate owner ruling',
+        ...(extra.doesNotEstablish ?? []),
+      ],
+    },
+    human: {
+      visual: 'PENDING TYLER',
+      gameplay: 'PENDING TYLER',
+      note: 'Only Tyler sets either. A proof cannot advance them; the build ledger and the room\u2019s build contract record his rulings, by date.',
+    },
+  };
+}
+
 function git(...args) {
   return execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' }).trim();
 }
@@ -998,6 +1037,10 @@ async function main() {
       visual_accepted: false,
       visualAcceptedNote: 'Set by Tyler and by nobody else. A passing proof means the room is '
         + 'technically admissible, not that it is any good.',
+      // WHICH GATES A MACHINE PASSED AND WHICH A PERSON STILL HOLDS, as data.
+      // Factory v2 (docs/46): a proof record that carried only `passed` read
+      // as a verdict on the room, and it is a verdict on a list of faults.
+      judgement: proofJudgement(failures),
       at: new Date().toISOString(),
     };
     // THE ONE COMMITTED PICTURE. Composed in the browser that took the frames,

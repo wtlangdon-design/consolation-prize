@@ -1,0 +1,219 @@
+{
+ "schema": 1,
+ "title": "ROOM 5 ACT I -- RETROSPECTIVE AUDIT AGAINST THE FACTORY V2 ROOM CONTRACT (2026-09-05)",
+ "note": "Report only: nothing here was fixed by this audit. `atProduction` is how the item stood when Room 5 first met it; `now` is how it stands against the contract today. A FAIL at production that is a PASS now is the lesson the contract carries; the bug->check ledger in docs/46-room-factory.md names the check each one became.",
+ "contract": "content/build-contracts/room-05-assay-office.json",
+ "benchmark": true,
+ "verdicts": [
+  "PASS",
+  "PASS WITH EXISTING ACCEPTED EXCEPTION",
+  "DEFERRED",
+  "FAIL"
+ ],
+ "rows": [
+  {
+   "id": "A-room-story-state",
+   "requirement": "Act, entry state and time of day known before any art",
+   "atProduction": "FAIL",
+   "now": "PASS",
+   "evidence": "proofs/room-05/time-of-day-audit.md",
+   "note": "The day candidate was generated before the time-of-day question was asked; the audit came after and cost the night plate. Outcome fixed by errata 64; the process lesson is gate A."
+  },
+  {
+   "id": "B-static-vs-stateful",
+   "requirement": "Every subject classed before the plate brief",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "proofs/room-05/gate-matrix.md",
+   "note": "The floorboard was PLATE at the gate and became STATEFUL by owner playtest; gate B did not miss it -- the writing describes a physical fact the plate did not draw (gate G)."
+  },
+  {
+   "id": "C-cast",
+   "requirement": "Every character from one canonical identity; stationary clips own the stand",
+   "atProduction": "FAIL",
+   "now": "PASS WITH EXISTING ACCEPTED EXCEPTION",
+   "evidence": "proofs/thad/audit.md",
+   "note": "Thad walked in one family and stood in another; head-on idle-breaks played a mid-stride frame. Fixed and frozen (Q107); profile chore clips remain acknowledged debt."
+  },
+  {
+   "id": "D-room-life",
+   "requirement": "An occupied character with a pool of breaks; >=60 s live idle proof",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "renders/proofs/assay-office/life/life.json",
+   "note": "Winnie writes; three engine faults found by the life proof (Q25) and fixed before the pilot closed."
+  },
+  {
+   "id": "E-physical-contact",
+   "requirement": "Hands, props and feet meet the furniture by silhouette, not by coordinates",
+   "atProduction": "FAIL",
+   "now": "PASS",
+   "evidence": "proofs/room-05/winnie-pen-state.json",
+   "note": "Hands 16 px above the ledger and the stand 29 px above the counter at first proof; corrected twice on Tyler's review; the four-panel proof now asserts contact bands."
+  },
+  {
+   "id": "F-lighting",
+   "requirement": "A state per authored time of day; task light where the work is; sprites relit per state",
+   "atProduction": "FAIL",
+   "now": "PASS",
+   "evidence": "art/staging/room-05/LAMP.md",
+   "note": "Daylight interior on a night street; then too dark to write by; then the lamp. Three owner rounds that gate A and F would have folded into the brief."
+  },
+  {
+   "id": "G-clue-perceptibility",
+   "requirement": "A written physical irregularity is perceivable at gameplay scale and found on a natural route",
+   "atProduction": "FAIL",
+   "now": "PASS",
+   "evidence": "proofs/room-05/floorboard.json",
+   "note": "Flush board (Q108); iteration 1 too subtle and off-route; iteration 2 a DAY board on the NIGHT plate; treatment C accepted. Three rounds."
+  },
+  {
+   "id": "H-content-compiler-health",
+   "requirement": "BUILDABLE WITHOUT INVENTION: YES; compiler current; nothing unhoused",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "proofs/readiness/room-05.json",
+   "note": "Two gaps (bench LISTEN, orphan refusals) reported and ruled, never filled."
+  },
+  {
+   "id": "I-art-budget",
+   "requirement": "Every operation capped, ledgered and hashed",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "art/staging/caps.json",
+   "note": "8/8 pilot, +1 lamp, +4 global Thad ops, each its own cap."
+  },
+  {
+   "id": "L1-compiler",
+   "requirement": "Room compiles from the documents and the annotation, --check current",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "cmd:node tools/compile-room.mjs 5 --check",
+   "note": "The compiler printed a false DROPPED report for this room on every run until Factory v2 (Q114)."
+  },
+  {
+   "id": "L2-annotation",
+   "requirement": "Geometry bound by hash to the plate it was read on; later plates proved at zero drift",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "proofs/room-05/night-geometry-drift.json",
+   "note": ""
+  },
+  {
+   "id": "L3-four-panel-proof",
+   "requirement": "Cast-suppressed, populated, depth/occlusion, principal change; clean tree",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "renders/proofs/assay-office-lamp-night/proof.json",
+   "note": ""
+  },
+  {
+   "id": "L4-life-proof",
+   "requirement": "Deterministic route, ~200 s, full frames at named steps",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "renders/proofs/assay-office/life/life.json",
+   "note": ""
+  },
+  {
+   "id": "L5-gameplay-proof",
+   "requirement": "Entered and left by real doors twice; every target and wrong verb; dialogue in full; approach from five positions; interruption; input; stationary",
+   "atProduction": "FAIL",
+   "now": "PASS",
+   "evidence": "proofs/room-05/act1.json",
+   "note": "Three defects at first run: Main Street's door open state (stale 320x144 overlay and bounds), the first-sight walk replaying, the greeting click fall-through. All fixed at source."
+  },
+  {
+   "id": "L6-regression",
+   "requirement": "Typecheck, suite, validators, gauntlet, Room 1 proof, deployed check",
+   "atProduction": "PASS",
+   "now": "PASS WITH EXISTING ACCEPTED EXCEPTION",
+   "evidence": "proofs/room-05/deployed-check.json",
+   "note": "check-flag-order red on ACT and T_RACCOON_NAMED: global content debt ruled out of scope 2026-09-04."
+  },
+  {
+   "id": "V2-day-night-companions",
+   "requirement": "Every state image has a companion per room visual state or declares itself one prop in all states",
+   "atProduction": "FAIL",
+   "now": "PASS",
+   "evidence": "tools/check-state-images.mjs",
+   "note": "The floorboard defect; the check now exists and is proved by mutation."
+  },
+  {
+   "id": "V2-stateful-prop-contract",
+   "requirement": "A stateful prop declares rest, changed state, trigger geometry, hold, caption and cue as data",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "engine/core/StepTriggers.ts",
+   "note": "The floorboard is the worked example: `step` on the interactable, swept trigger, one press per crossing."
+  },
+  {
+   "id": "V2-swept-triggers",
+   "requirement": "Narrow triggers tested against actual traversal across the pace range",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "tests/floorboard.test.ts",
+   "note": ""
+  },
+  {
+   "id": "V2-dialogue",
+   "requirement": "No stale prompt; every option has an authored aftermath; counts persist; greeting owns its clicks",
+   "atProduction": "FAIL",
+   "now": "PASS",
+   "evidence": "renders/proofs/dialogue-prompt/proof.json",
+   "note": "Stale prompt (Q110) and the greeting fall-through (Q109) both found by Tyler or the Act I pass, both fixed globally."
+  },
+  {
+   "id": "V2-state-model",
+   "requirement": "Topic / puzzle / inventory / dialogue-count / world-prop state kept apart; ACT its own counter",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "docs/53-assay-office-later-state-contract.md",
+   "note": "Errata 66 B: no topic flag stands in for puzzle progress."
+  },
+  {
+   "id": "V2-natural-encounter",
+   "requirement": "A person or route finds the clue without being told",
+   "atProduction": "FAIL",
+   "now": "PASS",
+   "evidence": "proofs/room-05/floorboard.json",
+   "note": "Iteration 1 needed a walk onto Winnie's desk; iteration 2 put the board on the entrance-to-counter path."
+  },
+  {
+   "id": "V2-accepted-work-protection",
+   "requirement": "Accepted assets frozen; candidates under art/staging/; nothing promoted by a tool",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "tools/check-build-contracts.mjs",
+   "note": "Every Room 5 asset is still staged; the contract validator refuses SHIPPING under art/staging/."
+  },
+  {
+   "id": "V2-acceptance-separation",
+   "requirement": "Visual, gameplay-per-scope and promotion recorded apart, by date",
+   "atProduction": "DEFERRED",
+   "now": "PASS",
+   "evidence": "content/build-contracts/room-05-assay-office.json",
+   "note": "Recorded as prose in the ledger until Factory v2 gave it a schema."
+  },
+  {
+   "id": "V2-later-state-boundary",
+   "requirement": "Built-early work preserved and marked; contracted work named; nothing advanced without authorization",
+   "atProduction": "PASS",
+   "now": "PASS",
+   "evidence": "content/build-contracts/room-05-assay-office.json",
+   "note": "C5/WIN_B2 BUILT-EARLY-NOT-ACCEPTED; four scenes CONTRACTED-UNBUILT."
+  }
+ ],
+ "tally": {
+  "atProduction": {
+   "FAIL": 9,
+   "PASS": 14,
+   "DEFERRED": 1
+  },
+  "now": {
+   "PASS": 22,
+   "PASS WITH EXISTING ACCEPTED EXCEPTION": 2
+  }
+ },
+ "fails_now": []
+}
