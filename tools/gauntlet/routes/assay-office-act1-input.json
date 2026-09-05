@@ -215,6 +215,58 @@
   },
   {
    "do": "click",
+   "at": [
+    1750,
+    770
+   ],
+   "why": "a far start, so the walk to her takes more than a second"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie from the far right"
+  },
+  {
+   "do": "wait",
+   "seconds": 0.5
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    820
+   ],
+   "why": "a floor click while he walks to her: a change of mind, doc 22 -- he goes to the floor point and no conversation opens"
+  },
+  {
+   "do": "burst",
+   "name": "w06b-talk-walk-redirected",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "he stops at the floor point; no greeting plays; control is his"
+  },
+  {
+   "do": "click",
+   "at": [
+    1750,
+    770
+   ],
+   "why": "back to the far start"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "click",
    "on": "winnie",
    "why": "TALK TO Winnie"
   },
@@ -345,9 +397,11 @@
    "seconds": 6
   },
   {
-   "do": "capture",
+   "do": "burst",
    "name": "w09-control-proved",
-   "why": "he walked"
+   "why": "he walked",
+   "seconds": 1,
+   "every": 0.5
   },
   {
    "do": "click",
@@ -399,9 +453,11 @@
    "why": "a walk from the arrival point on the first frame of the room"
   },
   {
-   "do": "capture",
+   "do": "burst",
    "name": "w11-end",
-   "why": "still in the room, still in control"
+   "why": "still in the room, still in control",
+   "seconds": 1,
+   "every": 0.5
   }
  ]
 }
