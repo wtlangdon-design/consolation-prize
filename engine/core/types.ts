@@ -180,6 +180,18 @@ export interface Interactable {
     note?: string;
     /** Drawn over the background while this state holds. */
     image?: string;
+    /**
+     * The same picture under another VISUAL STATE of the room -- the night
+     * derivation of a floorboard lifted out of the night plate. Keyed by the
+     * room's visual state name (errata 64d: authored, never a clock; selected
+     * today by the dev-only `?state=` beside `?candidate=`, by Q26's mechanism
+     * when it exists), exactly as a lamp's `amountByState` is. Absent, or the
+     * state unnamed, `image` draws. Tyler's Room 5 review (2026-09-05): a day
+     * board over the night plate read as a bright insert because the night
+     * picture rode a URL candidate that was easy to lose; a picture that
+     * belongs to a state is declared with it.
+     */
+    imageByState?: Record<string, string>;
     /** Replaces `rect` for hit-testing while this state holds. */
     bounds?: [number, number, number, number];
     /** Clip levels this state's image masks. Doc 22 section 5, step 5. */

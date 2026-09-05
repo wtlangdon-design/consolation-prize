@@ -119,6 +119,9 @@ test('the board declares both state images and they exist on disk', async () => 
     const image = target.states?.[name]?.image;
     assert.ok(image, `state ${name} has an image`);
     assert.ok(existsSync(resolve(ROOT, image)), `${image} exists`);
+    for (const alt of Object.values(target.states?.[name]?.imageByState ?? {})) {
+      assert.ok(existsSync(resolve(ROOT, alt)), `${alt} exists`);
+    }
   }
   assert.equal(target.state, target.step.rest);
 });

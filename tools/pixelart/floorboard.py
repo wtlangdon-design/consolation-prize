@@ -39,9 +39,17 @@ X0, X1 = 462, 745
 TOP = (0.0209, 731.9)
 BOT = (0.0452, 757.3)
 TREADS = [X0, 746, X1 - X0 + 1, 43]            # the rectangle the feet must cross: rows 746..788
+# ITERATION 3 (Tyler, 2026-09-05): the face is the same old wood -- NO global
+# brightening of the lifted plank; proudness comes from the edge: the dark gap
+# under the near edge, at most a one-pixel restrained lip, a little unevenness.
+#   lift    rows proud at the left end and at the right end
+#   gap     the vacated rows under the near edge, as a fraction of the seam's own colour
+#   lip     the top row's gain (1.0 = untouched); at most one pixel row, restrained
+#   grain   the two end-grain columns' gain at the right end (1.0 = untouched)
 TREATMENTS = {
-    'a': dict(lift=(2, 4), gap=0.62, lip=1.14, grain=0.90),   # MODERATE: two rows proud at the left end, four at the right
-    'b': dict(lift=(3, 5), gap=0.55, lip=1.18, grain=0.86),   # STRONGER: one restrained step more, everywhere
+    'a': dict(lift=(1, 2), gap=0.72, lip=1.00, grain=1.00),   # SUBTLE: edge only
+    'b': dict(lift=(2, 3), gap=0.62, lip=1.06, grain=0.95),   # MEDIUM: the recommended balance
+    'c': dict(lift=(2, 4), gap=0.52, lip=1.08, grain=0.90),   # UPPER LIMIT: clearly noticeable, the same wood
 }
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
@@ -61,7 +69,8 @@ def build(plate_path, treat):
         pressed[top:bot + 1, x, :3] = col; pressed[top:bot + 1, x, 3] = 255
         # REST: the same pixels `lift` rows up, the vacated rows a dark gap
         rest[top - lift:bot + 1 - lift, x, :3] = col; rest[top - lift:bot + 1 - lift, x, 3] = 255
-        rest[top - lift, x, :3] = np.clip(col[0] * treat['lip'], 0, 255)
+        if treat['lip'] != 1.0:
+            rest[top - lift, x, :3] = np.clip(col[0] * treat['lip'], 0, 255)
         seam_colour = plate[bot + 1:bot + 3, x].mean(0)
         rest[bot + 1 - lift:bot + 1, x, :3] = seam_colour * treat['gap']; rest[bot + 1 - lift:bot + 1, x, 3] = 255
     # end grain at the right end, two columns, where the board stands clear of the door's shadow
@@ -69,7 +78,7 @@ def build(plate_path, treat):
         m = rest[:, x, 3] > 0; rest[m, x, :3] *= treat['grain']
     return rest, pressed
 
-record = {'iteration': 2, 'plank': dict(x=X0, y=746, w=X1 - X0 + 1, h=43, cols=f'{X0}..{X1}', topSeam=f'y = {TOP[0]}x + {TOP[1]}', bottomSeam=f'y = {BOT[0]}x + {BOT[1]}', rowsAtLeftEnd=f'{seam(TOP, X0) + 1}..{seam(BOT, X0) - 1}', rowsAtRightEnd=f'{seam(TOP, X1) + 1}..{seam(BOT, X1) - 1}'),
+record = {'iteration': 3, 'plank': dict(x=X0, y=746, w=X1 - X0 + 1, h=43, cols=f'{X0}..{X1}', topSeam=f'y = {TOP[0]}x + {TOP[1]}', bottomSeam=f'y = {BOT[0]}x + {BOT[1]}', rowsAtLeftEnd=f'{seam(TOP, X0) + 1}..{seam(BOT, X0) - 1}', rowsAtRightEnd=f'{seam(TOP, X1) + 1}..{seam(BOT, X1) - 1}'),
           'tread': TREADS, 'treatments': TREATMENTS, 'plates': {}, 'images': {}}
 OUT.mkdir(parents=True, exist_ok=True)
 for name, plate_path in PLATES.items():
@@ -79,7 +88,7 @@ for name, plate_path in PLATES.items():
         p = OUT / f'board-rest-{key}{suffix}.png'
         Image.fromarray(np.clip(rest, 0, 255).astype(np.uint8), 'RGBA').save(p, optimize=True)
         record['images'][f'rest-{key}-{name}'] = {'path': str(p), 'sha256': sha(p)}
-        if key == 'a':
+        if key == 'b':
             q = OUT / f'board-pressed{suffix}.png'
             Image.fromarray(np.clip(pressed, 0, 255).astype(np.uint8), 'RGBA').save(q, optimize=True)
             record['images'][f'pressed-{name}'] = {'path': str(q), 'sha256': sha(q)}
