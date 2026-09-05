@@ -7,8 +7,9 @@
     "clip": "walk",
     "pose": "striding",
     "pad": 260,
-    "swing": 0.7,
+    "swing": 1.5,
     "knee": 0.0,
+    "level_limbs": true,
     "breath": 1.0
   },
   "source": "art/staging/thad/profile-stride-01.png",
@@ -17,22 +18,22 @@
   "facing": "left",
   "walk_dx": -1,
   "figure": [
-    307,
+    298,
     625
   ],
-  "hem_row": 426,
-  "hem_pct": 68.1,
-  "pivot_row": 338,
-  "padding": 143,
-  "rows_legs_separate": 173,
-  "near_leg_px": 9666,
-  "far_leg_px": 9239,
+  "hem_row": 413,
+  "hem_pct": 66.1,
+  "pivot_row": 328,
+  "padding": 140,
+  "rows_legs_separate": 168,
+  "near_leg_px": 9110,
+  "far_leg_px": 8707,
   "arms_rigged": true,
-  "shoulder_near": 202,
-  "shoulder_far": 245,
-  "near_arm_px": 4388,
-  "far_arm_px": 2238,
-  "measured_foot_travel": 43,
+  "shoulder_near": 196,
+  "shoulder_far": 238,
+  "near_arm_px": 4135,
+  "far_arm_px": 2109,
+  "measured_foot_travel": 5,
   "hip_swing": [
     14,
     10,
@@ -42,6 +43,24 @@
     -10,
     0,
     10
+  ],
+  "level_limbs": true,
+  "source_limb_angles": {
+    "near_leg": 21.8,
+    "far_leg": -19.9,
+    "near_arm": 1.4,
+    "far_arm": -13.9
+  },
+  "hip_column": 280,
+  "ground_shifts": [
+    17,
+    9,
+    0,
+    1,
+    6,
+    1,
+    0,
+    9
   ],
   "knee_flex": [
     6,
@@ -60,7 +79,7 @@
   "sourceResolution": {
     "figure": [
       555,
-      1131
+      1165
     ],
     "hem_row": 770,
     "pivot_row": 611,
@@ -72,21 +91,32 @@
     "far_leg_px": 30253,
     "near_arm_px": 14368,
     "far_arm_px": 7328,
-    "measured_foot_travel": 77
+    "measured_foot_travel": 9,
+    "hip_column": 522,
+    "ground_shifts": [
+      31,
+      16,
+      0,
+      2,
+      11,
+      2,
+      0,
+      16
+    ]
   },
-  "downsampled": "Frames at figure 625, the standing family's own height (thad-stand-right is 625), from the 1131px source by tools/rig/downscale.py --figure 625 (x0.553); values above scaled from the source-resolution rig kept under sourceResolution. Reproduce: run `invocation`, then downscale.py.",
-  "provenance": "THAD PROFILE WALK CONTINUITY (Tyler, 2026-09-05). Rigged from the one owner-authorized Family-A stride source, art/staging/thad/profile-stride-01.png (ledger asset thad-profile-walk-continuity, attempt 1/1), so this walk and thad-stand-right are one drawing of one man (docs/52). Swing 0.7 and knee 0 chosen from four rigged variants on a comparison sheet: the source already carries a full stride, and a full swing on top of it kicked. Replaces the Family-B walk rigged from thad-profile-right-approved.png, preserved at art/staging/thad/previous/thad-walk-right for the continuity sheet and revert. visual_accepted: NOT SET -- Tyler's gate.",
+  "downsampled": "Frames at figure 625, the standing family's own height (thad-stand-right is 625), from the 1165px levelled, grounded figure by tools/rig/downscale.py --figure 625 (x0.536); values above scaled from the source-resolution rig kept under sourceResolution. Reproduce: run `invocation`, then downscale.py.",
+  "provenance": "THAD PROFILE WALK CONTINUITY (Tyler, 2026-09-05). Rigged from the one owner-authorized Family-A stride source, art/staging/thad/profile-stride-01.png (ledger asset thad-profile-walk-continuity, attempt 1/1), so this walk and thad-stand-right are one drawing of one man (docs/52). SECOND CUT, same source, no image operation: Tyler saw the first cut gallop -- the rig added its sine to the source's own stride, so the legs opened and closed with the same leg leading every frame. --level-limbs measures each limb's source angle (near leg +21.8, far leg -19.9, far arm -13.9 from vertical) and takes it out, so the cycle swings hanging limbs about one hip column and the legs ALTERNATE; the planted sole is grounded on the cycle's own ground row so the head bobs (2.7% of height at the extremes) instead of the feet floating. Swing 1.5 (the source's own +/-21 degree stride), knee 0, chosen from levelled variants at 1.0, 1.3 and 1.5 on a sheet: the narrower cycles put him at 3-3.7 steps a second. Replaces the Family-B walk rigged from thad-profile-right-approved.png, preserved at art/staging/thad/previous/thad-walk-right. visual_accepted: NOT SET -- Tyler's gate.",
   "mirroredFrom": {
     "clip": "art/actors/thad-walk-right",
     "frames": {
-      "walk-00.png": "8966cc51caa3518f3941952ca3dc0bc9dfaeb877477dd0776614776091adfb8d",
-      "walk-01.png": "acfe55ba854207fd206e126163e44ddefcf736c8fdf247ffb99a228608871bec",
-      "walk-02.png": "e27d8e3739db28f1dd4ee91efd77097f3fc12540d566b940c2b8403d081bda6a",
-      "walk-03.png": "2e1390f901219c91397acb52010b9c5119bbfa9fc962ca43126eaa88dfd5990a",
-      "walk-04.png": "8d87a74d59f7b2ff75deaf776c33e61ff8049c241d473ae05f5d6ce22bfbb873",
-      "walk-05.png": "2e1390f901219c91397acb52010b9c5119bbfa9fc962ca43126eaa88dfd5990a",
-      "walk-06.png": "e27d8e3739db28f1dd4ee91efd77097f3fc12540d566b940c2b8403d081bda6a",
-      "walk-07.png": "acfe55ba854207fd206e126163e44ddefcf736c8fdf247ffb99a228608871bec"
+      "walk-00.png": "904148087863ba7741da93b52368f2875b835785fb98d084b0f93c3cc5243558",
+      "walk-01.png": "2d3ba6f80b399238dd0c30e9cee38839a1e3e726a170c452cd54265f2e7ba9dd",
+      "walk-02.png": "f4b1ef3987dd5cd3ce463059d375c190850627ac6bd23dd71490cd6c28a080b6",
+      "walk-03.png": "e44a8324ad0be619464faa4a607bac40aadd03c0d729fece500d78ab9ae05a98",
+      "walk-04.png": "75ea6892750e829058d27e94ee96f69e938f4a4ccfbf57f0742245dc181055d6",
+      "walk-05.png": "e44a8324ad0be619464faa4a607bac40aadd03c0d729fece500d78ab9ae05a98",
+      "walk-06.png": "f4b1ef3987dd5cd3ce463059d375c190850627ac6bd23dd71490cd6c28a080b6",
+      "walk-07.png": "2d3ba6f80b399238dd0c30e9cee38839a1e3e726a170c452cd54265f2e7ba9dd"
     },
     "note": "docs/52 left/right policy: one side family, mirrored deterministically. Regenerate by re-running tools/rig/mirror-clip.py on the source clip; never edit these frames by hand."
   }

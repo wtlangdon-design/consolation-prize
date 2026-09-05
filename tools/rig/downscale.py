@@ -86,6 +86,10 @@ def reduce_frame(frame: Image.Image, size: tuple[int, int]) -> Image.Image:
     # more than the fringe check allows; pull both down together, keeping
     # their ratio, to eight below the line -- the same rule character.py's
     # despill applies at source resolution.
+    # AFTER THE CLIP, in the range the check reads. Done before it, a ringing
+    # overshoot un-premultiplied at alpha 50 -- red in the thousands, green
+    # below zero -- scaled to a negative and clipped back to (255, 0, 0).
+    small = np.clip(small, 0, 255)
     rgb = small[..., :3]
     avg = (rgb[..., 0] + rgb[..., 2]) / 2
     over = (out_a[..., 0] > 0) & (avg > rgb[..., 1] + 22)

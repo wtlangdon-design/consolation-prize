@@ -420,7 +420,7 @@ def over(top, base):
                       np.maximum(top[..., 3], base[..., 3])])
 
 
-def swing_arm(seg_mask, canvas, shoulder, ang, elbow_frac=0.45, fore_lead=FORE_LEAD):
+def swing_arm(seg_mask, canvas, shoulder, ang, elbow_frac=0.45, fore_lead=FORE_LEAD, cx=None):
     """Two-segment arm: upper from the shoulder, forearm from the elbow.
 
     One rigid rotation makes a long arm read as a stick hinged at the hand.
@@ -431,7 +431,8 @@ def swing_arm(seg_mask, canvas, shoulder, ang, elbow_frac=0.45, fore_lead=FORE_L
     if not len(ys):
         return None
     top, bot = int(ys.min()), int(ys.max())
-    cx = float(np.nonzero(seg_mask.any(0))[0].mean())
+    if cx is None:
+        cx = float(np.nonzero(seg_mask.any(0))[0].mean())
     L = np.zeros(canvas.shape); L[..., :3] = canvas[..., :3]
     rows = np.arange(L.shape[0])[:, None]
     elbow = int(top + elbow_frac * (bot - top))
@@ -527,6 +528,13 @@ def main():
                          "exact-match-then-fall-back, so a mover with no state gets the "
                          "stateless clip. This is what lets a pose be HELD by setState "
                          "rather than played once as a chore")
+    ap.add_argument("--level-limbs", action="store_true",
+                    help="profile walk from a STRIDING source: measure each leg's and arm's "
+                         "own angle in the source and take it out before the sine is added, "
+                         "so the cycle swings about a hanging limb and the legs ALTERNATE. "
+                         "Without it the sine is added to the source stride: the legs open "
+                         "wider and close, the same leg leads every frame, and at 500px he "
+                         "gallops (Tyler, 2026-09-05)")
     ap.add_argument("--pose", default="striding", choices=["striding", "standing"],
                     help="which hem strategy to use. DECLARED, never inferred: a "
                          "detector that accepts legs-together and legs-apart under "
@@ -560,7 +568,7 @@ def main():
         ("source", args.source), ("key", args.key), ("view", args.view),
         ("facing", args.facing), ("clip", args.clip), ("pose", args.pose),
         ("state", args.state), ("pad", args.pad), ("swing", args.swing),
-        ("knee", args.knee), ("arm_swing", args.arm_swing),
+        ("knee", args.knee), ("arm_swing", args.arm_swing), ("level_limbs", args.level_limbs),
         ("breath", args.breath), ("near_mask", args.near_mask),
         ("far_mask", args.far_mask),
     ) if v is not None}}
@@ -964,6 +972,34 @@ def main():
               f"-> offsets {used} = {[abs(u)//step for u in used]} display px, "
               f"{len(used)} distinct")
         return
+    # THE SOURCE'S OWN STRIDE, MEASURED AND TAKEN OUT (--level-limbs). The
+    # sine below assumes a limb that hangs; a striding source already holds
+    # its legs at +/- some angle, and adding the sine to that opens and closes
+    # the SAME stride rather than alternating it -- five pictures, one leg
+    # always leading, a gallop. Each limb's angle is read from the source
+    # (hip to sole, shoulder to hand) and subtracted, so frame 0 is the
+    # near leg at +14 from HANGING and frame 4 is the far leg there instead.
+    lvl = dict(near_leg=0.0, far_leg=0.0, near_arm=0.0, far_arm=0.0)
+    hip_cx = None
+    ground_shifts = []
+    composed = []
+    if args.level_limbs and args.view != "headon":
+        hip_cx = float(np.nonzero(coat_m[max(0, pivot - 3):pivot + 3].any(0))[0].mean())
+        def limb_angle(m, top_row, top_cx, tail=0.08):
+            ys_ = np.nonzero(m.any(1))[0]
+            if not len(ys_):
+                return 0.0
+            lo = ys_.max(); band = m[max(int(lo - tail * (lo - top_row)), top_row + 1):lo + 1]
+            end_cx = float(np.nonzero(band.any(0))[0].mean())
+            return float(np.degrees(np.arctan2(end_cx - top_cx, lo - top_row)))
+        lvl["near_leg"] = limb_angle(near_lm, pivot, hip_cx)
+        lvl["far_leg"] = limb_angle(far_lm, pivot, hip_cx)
+        if near_am is not None:
+            lvl["near_arm"] = limb_angle(near_am, int(sh_near), float(np.nonzero(near_am[int(sh_near):int(sh_near) + 6].any(0))[0].mean()))
+        if far_am is not None:
+            lvl["far_arm"] = limb_angle(far_am, int(sh_far), float(np.nonzero(far_am[int(sh_far):int(sh_far) + 6].any(0))[0].mean()))
+        print("level-limbs: source angles from vertical, +right: "
+              + ", ".join(f"{k} {v:+.1f}" for k, v in lvl.items()) + f"; hip column {hip_cx:.0f}")
     for i, s in enumerate(HIP_SWING):
         s *= args.swing
         a = s * args.arm_swing
@@ -998,24 +1034,54 @@ def main():
             # the seat, which is the opposite of forward, in both facings.
             far_i = (i + len(HIP_SWING) // 2) % len(HIP_SWING)
             face = 1 if args.facing == "right" else -1
-            hip_far = face * HIP_SWING[far_i] * args.swing
-            hip_near = face * HIP_SWING[i] * args.swing
+            # A limb's source angle is a rotation about the same centre the
+            # swing uses, so the two compose into ONE rotation: no second
+            # resample, and --level-limbs off reproduces the old frames exactly.
+            hip_far = face * HIP_SWING[far_i] * args.swing - lvl["far_leg"]
+            hip_near = face * HIP_SWING[i] * args.swing - lvl["near_leg"]
             knee_far = -face * KNEE_FLEX[far_i] * args.knee
             knee_near = -face * KNEE_FLEX[i] * args.knee
-            f = over(swing_leg(far_leg, pivot, cxf, hip_far, knee_far), f)
-            f = over(swing_leg(near_leg, pivot, cxn, hip_near, knee_near), f)
+            leg_cx_far = hip_cx if hip_cx is not None else cxf
+            leg_cx_near = hip_cx if hip_cx is not None else cxn
+            f = over(swing_leg(far_leg, pivot, leg_cx_far, hip_far, knee_far), f)
+            f = over(swing_leg(near_leg, pivot, leg_cx_near, hip_near, knee_near), f)
             if far_am is not None:
-                arm = swing_arm(far_am, canvas, sh_far, -a, elbow_frac=0.15, fore_lead=0.25)
+                arm_cx = (float(np.nonzero(far_am[int(sh_far):int(sh_far) + 6].any(0))[0].mean())
+                          if hip_cx is not None else None)
+                arm = swing_arm(far_am, canvas, sh_far, -a - lvl["far_arm"], elbow_frac=0.15, fore_lead=0.25, cx=arm_cx)
                 if arm is not None:
                     f = over(arm, f)
             f = over(coat, f)
             if near_am is not None:
-                arm = swing_arm(near_am, canvas, sh_near, a)
+                arm_cx = (float(np.nonzero(near_am[int(sh_near):int(sh_near) + 6].any(0))[0].mean())
+                          if hip_cx is not None else None)
+                arm = swing_arm(near_am, canvas, sh_near, a - lvl["near_arm"], cx=arm_cx)
                 if arm is not None:
                     f = over(arm, f)
         cols = np.nonzero((f[..., 3] > 90).any(0))[0]
         travel = max(travel, int(cols.max()) - (P + fig_w), P - int(cols.min()))
+        if hip_cx is not None:
+            composed.append(f)
+            continue
         Image.fromarray(f.astype(np.uint8)).save(out / f"walk-{i:02d}.png")
+    if hip_cx is not None:
+        # THE PLANTED FOOT STAYS ON THE GROUND. A rigid leg swung about the
+        # hip shortens vertically by (1 - cos) of its length: at +/-21 the
+        # sole at the stride's extremes sits 20 source pixels above the
+        # cycle's ground line while the head stays put, which reads as the
+        # feet floating. The ground is the cycle's own lowest sole (levelled
+        # legs hang past the striding source's figure height, so it is not
+        # fig_h); every frame drops to meet it. The head then dips at double
+        # support and rises at mid-stance -- the walking bob, about 2% of
+        # height -- instead of the feet leaving the floor.
+        lows = [int(np.nonzero((f[..., 3] > 90).any(1))[0].max()) for f in composed]
+        ground = max(lows)
+        for i, f in enumerate(composed):
+            drop = ground - lows[i]
+            ground_shifts.append(int(drop))
+            f = shift_rows(f, drop) if drop > 0 else f
+            Image.fromarray(f.astype(np.uint8)).save(out / f"walk-{i:02d}.png")
+        fig_h = ground + 1        # the levelled figure's own height, soles on the ground row
 
     meta = dict(**invocation, source=args.source, key=args.key, view=args.view, facing=args.facing,
                 walk_dx=(1 if args.facing == "right" else -1),
@@ -1028,6 +1094,7 @@ def main():
                 near_arm_px=int(near_am.sum()) if near_am is not None else 0,
                 far_arm_px=int(far_am.sum()) if far_am is not None else 0,
                 measured_foot_travel=travel, hip_swing=HIP_SWING,
+                **({} if hip_cx is None else dict(level_limbs=True, source_limb_angles={k: round(v, 1) for k, v in lvl.items()}, hip_column=round(hip_cx), ground_shifts=ground_shifts)),
                 **({} if args.view == "headon" else dict(
                     knee_flex=KNEE_FLEX, knee_ratio=args.knee,
                     knee_frac=KNEE_FRAC)),

@@ -94,29 +94,29 @@
   "walkRight": {
    "dir": "art/actors/thad-walk-right",
    "frames": {
-    "walk-00.png": "8966cc51caa3518f3941952ca3dc0bc9dfaeb877477dd0776614776091adfb8d",
-    "walk-01.png": "acfe55ba854207fd206e126163e44ddefcf736c8fdf247ffb99a228608871bec",
-    "walk-02.png": "e27d8e3739db28f1dd4ee91efd77097f3fc12540d566b940c2b8403d081bda6a",
-    "walk-03.png": "2e1390f901219c91397acb52010b9c5119bbfa9fc962ca43126eaa88dfd5990a",
-    "walk-04.png": "8d87a74d59f7b2ff75deaf776c33e61ff8049c241d473ae05f5d6ce22bfbb873",
-    "walk-05.png": "2e1390f901219c91397acb52010b9c5119bbfa9fc962ca43126eaa88dfd5990a",
-    "walk-06.png": "e27d8e3739db28f1dd4ee91efd77097f3fc12540d566b940c2b8403d081bda6a",
-    "walk-07.png": "acfe55ba854207fd206e126163e44ddefcf736c8fdf247ffb99a228608871bec"
+    "walk-00.png": "904148087863ba7741da93b52368f2875b835785fb98d084b0f93c3cc5243558",
+    "walk-01.png": "2d3ba6f80b399238dd0c30e9cee38839a1e3e726a170c452cd54265f2e7ba9dd",
+    "walk-02.png": "f4b1ef3987dd5cd3ce463059d375c190850627ac6bd23dd71490cd6c28a080b6",
+    "walk-03.png": "e44a8324ad0be619464faa4a607bac40aadd03c0d729fece500d78ab9ae05a98",
+    "walk-04.png": "75ea6892750e829058d27e94ee96f69e938f4a4ccfbf57f0742245dc181055d6",
+    "walk-05.png": "e44a8324ad0be619464faa4a607bac40aadd03c0d729fece500d78ab9ae05a98",
+    "walk-06.png": "f4b1ef3987dd5cd3ce463059d375c190850627ac6bd23dd71490cd6c28a080b6",
+    "walk-07.png": "2d3ba6f80b399238dd0c30e9cee38839a1e3e726a170c452cd54265f2e7ba9dd"
    },
-   "rigSha256": "876be5f513d84fbd9f3289d3465656522e786e4981293769890434b7019e21d4"
+   "rigSha256": "a8e26302597240a543b800757878f26b647033228ea95fceeecefe80ddca604a"
   },
   "walkLeft": {
    "dir": "art/actors/thad-walk-left",
    "method": "tools/rig/mirror-clip.py: every frame flipped, rig copied with facing/walk_dx/padding recomputed and mirroredFrom recording the source frames' hashes",
    "frames": {
-    "walk-00.png": "30c5acebf5ce1e4c8df26c8a1191a86ca7a7a28719f957b0313d163de6188d62",
-    "walk-01.png": "63ed6dfb28dd4aeb9cbff5289344f5db0ab8647a909b325cd75905016dd62169",
-    "walk-02.png": "033cedda1f3ad5fe9107e967becdf04899b2dfe3c14a55fb6f0736b4d170aded",
-    "walk-03.png": "604ef7173d4b88abc5c4320c449d7cfbd4ce67c424f1c4fa096a61e3c2abec8b",
-    "walk-04.png": "77f155ac29199a41322e3f3ebc4b786593f8d21ef39f9a34867bc2c927200f26",
-    "walk-05.png": "604ef7173d4b88abc5c4320c449d7cfbd4ce67c424f1c4fa096a61e3c2abec8b",
-    "walk-06.png": "033cedda1f3ad5fe9107e967becdf04899b2dfe3c14a55fb6f0736b4d170aded",
-    "walk-07.png": "63ed6dfb28dd4aeb9cbff5289344f5db0ab8647a909b325cd75905016dd62169"
+    "walk-00.png": "fac387b2a94a89c7de8d3ec72ecb303ace320dd551fd7796a0f9c32dee366d9c",
+    "walk-01.png": "7c2329703f2616689949192595d738506bcfbbe91def42a6005838f5c83dc481",
+    "walk-02.png": "d0bdf79c8aafb8fb78b62c8414339f94ec65b17beba2d925bdc631737e6a0ceb",
+    "walk-03.png": "5feea867c33bea94cf1b6c603a0def7cc309b724c4093d331364dd1850cdcbc1",
+    "walk-04.png": "73c6e10fda8790f1e90e4f9e904c0012b178953630b3d6c87bce51c86967f2a3",
+    "walk-05.png": "5feea867c33bea94cf1b6c603a0def7cc309b724c4093d331364dd1850cdcbc1",
+    "walk-06.png": "d0bdf79c8aafb8fb78b62c8414339f94ec65b17beba2d925bdc631737e6a0ceb",
+    "walk-07.png": "7c2329703f2616689949192595d738506bcfbbe91def42a6005838f5c83dc481"
    }
   },
   "previousPreserved": "art/staging/thad/previous/thad-walk-right and thad-walk-left (the Family-B clips as shipped at 63ba3bc), for the sheet and for revert",
@@ -195,6 +195,72 @@
  ],
  "continuitySheet": {
   "path": "renders/thad-profile-walk-continuity.png",
-  "sha256": "4e68b2d2f0e33bed259d983988ab87566ed6535a0ad33df652d85cb7ae946f0d"
+  "sha256": "5177b7786d7878f533dc598d88382e869dc1659ef45f03197bb75db9868443f2"
+ },
+ "secondCut": {
+  "why": "Tyler (2026-09-05): 'The side profile is way better but Thad now gallops instead of looking like he's walking.' Cause: character.py added its hip sine to the source's OWN stride, so the legs opened wider and closed with the same leg leading every frame (a five-picture bound). No image operation: same source, the rig corrected.",
+  "rigChanges": [
+   "--level-limbs: each limb's source angle measured (near leg +21.8, far leg -19.9, far arm -13.9, near arm +1.4 degrees from vertical) and subtracted, all legs swung about one hip column, so frame 0 leads with the near leg and frame 4 with the far leg",
+   "grounding: every frame dropped so its lowest sole meets the cycle's own ground row; the head bobs (up to 17 px on the 625 figure, 2.7%) at double support instead of the feet floating",
+   "downscale.py: despill applied after the clip to the byte range (one ringing pixel came back pure red)"
+  ],
+  "invocation": {
+   "source": "art/staging/thad/profile-stride-01.png",
+   "key": "magenta",
+   "view": "profile",
+   "facing": "right",
+   "clip": "walk",
+   "pose": "striding",
+   "pad": 260,
+   "swing": 1.5,
+   "knee": 0.0,
+   "level_limbs": true,
+   "breath": 1.0
+  },
+  "swing": 1.5,
+  "knee": 0,
+  "variantsCompared": "levelled swing 1.0 / 1.3 / 1.5 (steps 138 / 169 / 194 px on 625; 3.7 / 3.0 / 2.6 steps a second at pace 1.0) and 1.0 with knee 0.5; 1.5 matches the source's own +/-21 degree stride and walks rather than patters",
+  "groundShifts625": [
+   17,
+   9,
+   0,
+   1,
+   6,
+   1,
+   0,
+   9
+  ],
+  "walkRight": {
+   "dir": "art/actors/thad-walk-right",
+   "frames": {
+    "walk-00.png": "904148087863ba7741da93b52368f2875b835785fb98d084b0f93c3cc5243558",
+    "walk-01.png": "2d3ba6f80b399238dd0c30e9cee38839a1e3e726a170c452cd54265f2e7ba9dd",
+    "walk-02.png": "f4b1ef3987dd5cd3ce463059d375c190850627ac6bd23dd71490cd6c28a080b6",
+    "walk-03.png": "e44a8324ad0be619464faa4a607bac40aadd03c0d729fece500d78ab9ae05a98",
+    "walk-04.png": "75ea6892750e829058d27e94ee96f69e938f4a4ccfbf57f0742245dc181055d6",
+    "walk-05.png": "e44a8324ad0be619464faa4a607bac40aadd03c0d729fece500d78ab9ae05a98",
+    "walk-06.png": "f4b1ef3987dd5cd3ce463059d375c190850627ac6bd23dd71490cd6c28a080b6",
+    "walk-07.png": "2d3ba6f80b399238dd0c30e9cee38839a1e3e726a170c452cd54265f2e7ba9dd"
+   },
+   "rigSha256": "a8e26302597240a543b800757878f26b647033228ea95fceeecefe80ddca604a"
+  },
+  "walkLeft": {
+   "dir": "art/actors/thad-walk-left",
+   "frames": {
+    "walk-00.png": "fac387b2a94a89c7de8d3ec72ecb303ace320dd551fd7796a0f9c32dee366d9c",
+    "walk-01.png": "7c2329703f2616689949192595d738506bcfbbe91def42a6005838f5c83dc481",
+    "walk-02.png": "d0bdf79c8aafb8fb78b62c8414339f94ec65b17beba2d925bdc631737e6a0ceb",
+    "walk-03.png": "5feea867c33bea94cf1b6c603a0def7cc309b724c4093d331364dd1850cdcbc1",
+    "walk-04.png": "73c6e10fda8790f1e90e4f9e904c0012b178953630b3d6c87bce51c86967f2a3",
+    "walk-05.png": "5feea867c33bea94cf1b6c603a0def7cc309b724c4093d331364dd1850cdcbc1",
+    "walk-06.png": "d0bdf79c8aafb8fb78b62c8414339f94ec65b17beba2d925bdc631737e6a0ceb",
+    "walk-07.png": "7c2329703f2616689949192595d738506bcfbbe91def42a6005838f5c83dc481"
+   }
+  },
+  "cadence": {
+   "strideLengthBefore": 102,
+   "strideLengthAfter": 149,
+   "why": "one cycle is now two steps (contralateral half); 2 x 194 px sole separation on the 625 figure = 149 px at 240. Cycles/s = 194 x pace / 149: 1.3 at A, 1.63 at B, 1.95 at C; steps/s 2.6 / 3.25 / 3.9. Translation semantics untouched: walkSpeed, its height scaling and ?pace= are as before."
+  }
  }
 }
