@@ -1,0 +1,319 @@
+{
+ "room": "nugget_candidate",
+ "plate": "art/staging/room-03/clean-plate-02/candidate-1920x864.png",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "note": "THE NUGGET CLEAN-PLATE CANDIDATE (opening-set retrofit phase 1, doc 36 Q116). An edit of the shipping plate with the people gone and the finish changed toward Room 5, so the composition is the shipping room's by construction: the street wall with the batwing doors and window on the left, the bar running away down the right, the back wall closing it about two-thirds up. EVERY RECT HERE WAS RE-READ FROM SCRATCH on art/staging/room-03/clean-plate-02/candidate-1920x864.png on a 100 px grid (the shipping annotation's hotspotsNote says the candidate is re-read from scratch, and it was). A CANDIDATE: the shipping room is untouched; this compiles to nugget_candidate, reachable only by the dev warp, for Tyler's review.",
+ "walkable": [
+  [
+   40,
+   612
+  ],
+  [
+   300,
+   600
+  ],
+  [
+   500,
+   528
+  ],
+  [
+   720,
+   508
+  ],
+  [
+   1060,
+   506
+  ],
+  [
+   1200,
+   510
+  ],
+  [
+   1170,
+   690
+  ],
+  [
+   1320,
+   750
+  ],
+  [
+   1390,
+   800
+  ],
+  [
+   1400,
+   864
+  ],
+  [
+   40,
+   864
+  ]
+ ],
+ "walkableNote": "The floor's back edge is the foot of the far wall as the candidate draws it (the chairs' feet at y 500, the piano's foot at 520, the doorway threshold at 600-690 by the batwings). The right edge follows THE BAR FRONT AND ITS THREE STOOLS, which are painted into the plate and sit in front of the counter (stool feet at 1180/680, 1330/740, 1570/830): floor Thad cannot walk through, oak or stool. Until a stool is cut as its own occluder (\u00a713 separation plan) he walks round them, never behind them, so the room occludes nobody -- the same answer the shipping room gives, now for a reason that is written down. The near corner stops at x 1400 so the spittoon (1400-1490) lies wholly outside the floor: the first compile carved a 14 px sliver beyond it that nothing could reach.",
+ "scaling": {
+  "far": {
+   "y": 506,
+   "height": 198
+  },
+  "near": {
+   "y": 858,
+   "height": 459
+  },
+  "note": "TYLER'S TWO ANCHORS, KEPT. The candidate is the shipping composition by construction (an edit, not a new picture), so the depth curve Tyler set against that composition -- 198 at the back wall so his head is nowhere near the chandelier, 459 at the frame's foot -- carries over unchanged; the far anchor moves 8 px down with the re-read floor edge and nothing else. WHAT THE PLATE'S OWN PERSPECTIVE SAYS, for the review: the painted furniture implies a taller man -- the bar stools read 420 at y 680, 455 at y 740 and 490 at y 830, the upright piano's 265 px reads ~350 at its foot, the doorway's 590 px reads ~470 at the door -- so a 1.75 m man at the far wall would be ~330 by the furniture, and at 198 he stands a head shorter than the piano. The same tension existed in the shipping room (the seated card players' heads implied ~270) and Tyler chose 198 for the chandelier. A DECISION POINT for the plate review, not a change made here."
+ },
+ "hotspots": {
+  "handbill": [
+   320,
+   270,
+   48,
+   72
+  ],
+  "window": [
+   375,
+   100,
+   125,
+   290
+  ],
+  "piano": [
+   505,
+   255,
+   200,
+   265
+  ],
+  "chandelier": [
+   830,
+   0,
+   230,
+   155
+  ],
+  "stove": [
+   1058,
+   150,
+   70,
+   255
+  ],
+  "stairs": [
+   1200,
+   40,
+   220,
+   350
+  ],
+  "mirror": [
+   1560,
+   45,
+   330,
+   290
+  ],
+  "bar": [
+   1205,
+   300,
+   715,
+   535
+  ],
+  "spittoon": [
+   1400,
+   765,
+   90,
+   95
+  ],
+  "patrons": [
+   720,
+   335,
+   360,
+   165
+  ],
+  "portrait": [
+   968,
+   163,
+   80,
+   115
+  ],
+  "cards": [
+   860,
+   368,
+   100,
+   30
+  ]
+ },
+ "hotspotsNote": "Read off the candidate: the handbill is the paper the refinement restored on the wall between the doors and the window (x 320-368, y 270-342); the window 375-500 x 100-390; the upright piano 505-705 x 255-520 with its stool in front; the chandelier 830-1060 x 0-155, seven candles, UNLIT (doc 16 canon, and the plate keeps it so); the stove 1058-1128 x 285-405 with its pipe to the ceiling, the rect taking the pipe as the shipping rect did; the back-room door under the landing 1130-1195 x 225-405; the stairs 1200-1420 x 40-390; the bar's counter 1205-1920 from y 385 at its left end, its front foot at y 830 by the frame edge, the rect covering counter, stools and back bar as before; the mirror inside it 1560-1890 x 45-335 and winning by area; the spittoon 1400-1490 x 765-864, cut by the frame's foot; the portrait 968-1048 x 163-278; the hand of cards on the table top at 860-960 x 368-398. THE PATRONS RECT IS THE CARD TABLE AND ITS FOUR CHAIRS (720-1080 x 335-500), which is where the players sit when they are cast back in as separate actors (deferred, phase 2): the hotspot that says what the patrons say has to sit where the patrons will be.",
+ "exits": {
+  "front_doors": [
+   40,
+   30,
+   260,
+   640
+  ],
+  "back_room_door": [
+   1130,
+   225,
+   65,
+   180
+  ]
+ },
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    300,
+    760
+   ],
+   "facing": "right",
+   "note": "Through the batwing doors on the left wall, facing right into the room."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    760
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "obstacles": [
+  {
+   "id": "piano_stool",
+   "rect": [
+    640,
+    415,
+    75,
+    85
+   ],
+   "note": "The stool in front of the piano. He walks round it, not through it."
+  },
+  {
+   "id": "spittoon",
+   "rect": [
+    1400,
+    765,
+    90,
+    95
+   ],
+   "note": "Same rect as the hotspot: the thing you click and the thing you cannot walk through are one truth."
+  },
+  {
+   "id": "card_table",
+   "rect": [
+    720,
+    335,
+    360,
+    165
+   ],
+   "note": "The table and its four chairs, empty. Its footprint on the floor; he walks round it. The players return as separate actors in phase 2 and stand in this rect."
+  }
+ ],
+ "lamps": [
+  {
+   "id": "door_lamp",
+   "at": [
+    345,
+    190
+   ],
+   "radius": 230,
+   "amount": 0.07,
+   "rate": 0.29,
+   "phase": 0.1,
+   "movers": {
+    "strength": 0.16,
+    "colour": [
+     255,
+     180,
+     100
+    ],
+    "reach": 1.6
+   },
+   "note": "The wall lamp between the doors and the window, the one the candidate paints lit. Small, and the only light on the street wall."
+  },
+  {
+   "id": "stove",
+   "at": [
+    1095,
+    345
+   ],
+   "radius": 170,
+   "amount": 0.14,
+   "rate": 0.41,
+   "phase": 0.37,
+   "movers": {
+    "strength": 0.22,
+    "colour": [
+     255,
+     150,
+     72
+    ],
+    "reach": 1.8,
+    "radius": 260
+   },
+   "note": "A fire in an iron box. It flickers hardest and fastest. Re-declared on the candidate at the stove's own position (the shipping declaration sat 235 px left of its drawn stove)."
+  },
+  {
+   "id": "bar_lamps",
+   "at": [
+    1690,
+    200
+   ],
+   "radius": 360,
+   "amount": 0.06,
+   "rate": 0.17,
+   "phase": 0.72,
+   "movers": {
+    "strength": 0.14,
+    "colour": [
+     255,
+     190,
+     110
+    ],
+    "reach": 1.6
+   },
+   "note": "The two wall lamps behind the bar, together, at their painted positions (1520,210 and 1850,170). Barely moving -- trimmed, because the barman is the only person in town who maintains anything."
+  }
+ ],
+ "lampsNote": "NO CHANDELIER LAMP. Doc 16: the chandelier is not lit, and the candidate paints its candles cold. A lamp declaration would breathe a pool under a thing the writing says is dark, which is exactly the contradiction the shipping room carried (it declared a chandelier pool of 0.1 over the middle of the room). The practical-light hierarchy is the stove first, the bar lamps second, the door lamp third, and the blue street through the doors, which is not a lamp.",
+ "characters": {
+  "deke_vessel": {
+   "rect": [
+    1090,
+    380,
+    120,
+    320
+   ],
+   "note": "ACT II. Doc 04 VES_B1, found again in this room. At the near end of the bar, in the stove's and the bar lamps' light, feet about y 700 -- the one place at the counter the floor reaches. Provisional until the sprite exists."
+  },
+  "raccoon": {
+   "rect": [
+    1215,
+    330,
+    90,
+    70
+   ],
+   "note": "ACT II after A5. On the END OF THE BAR -- the counter's left end, 1205-1300 at y 385 -- evicted from a hole and promoted. Provisional until the sprite exists."
+  }
+ },
+ "charactersNote": "Kept OUT of hotspots on purpose, as in the shipping annotation: a rect with no lines is a hotspot that says nothing when clicked. Their words live in their trees and in doc 49.",
+ "overrideAliases": {
+  "CARDS": "THE HAND OF CARDS"
+ },
+ "walkModel": "clipped",
+ "occlusion": {
+  "note": "PLANNED, NOT CUT (Tyler's order: masks only after the plate is selected). The candidate offers real occluders the shipping plate never had: the three bar stools (1180-1270 x 500-680, 1330-1430 x 545-740, 1570-1700 x 620-830), the spittoon (1400-1490 x 765-864) and the near end of the counter. None is in use: the floor's right edge stops at the stools, so Thad never passes behind them, and every band is masked by nothing. When a stool is cut as a plane the floor may extend along the bar and the bands re-declare their planes.",
+  "planes": [],
+  "clipPlane": {
+   "floor_0": 0,
+   "floor_1": 0,
+   "floor_2": 0,
+   "floor_3": 0,
+   "floor_4": 0,
+   "floor_5": 0,
+   "floor_6": 0
+  },
+  "proofPoints": []
+ },
+ "candidate": {
+  "of": "nugget",
+  "stage": "CANDIDATE",
+  "review": "live at ?room=nugget_candidate; the shipping room is untouched"
+ }
+}

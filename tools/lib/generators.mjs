@@ -63,6 +63,15 @@ export const GENERATORS = [
       + 'extract-content stands down for a room that has an annotation, so this is the one writer.',
   },
   {
+    id: 'compile-room-3',
+    command: ['node', 'tools/compile-room.mjs', '3', '--write'],
+    outputs: ['content/rooms/nugget.json'],
+    why: 'Room 3, the Bountiful Nugget. Its lines come from docs 05 and 16 and every rect from '
+      + 'reference/room-03/annotation.json. It had no live writer until the opening-set retrofit '
+      + '(doc 36 Q116): doc 16 writes its overrides by short name and the compiler refused them, so '
+      + 'the room file carried a line doc 16 had already reworded. Registered the day it compiled.',
+  },
+  {
     id: 'extract-content',
     command: ['node', 'tools/extract-content.mjs'],
     outputs: ['content/'],

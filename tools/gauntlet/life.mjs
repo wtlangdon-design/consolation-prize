@@ -55,8 +55,14 @@ async function main() {
     if (!to.startsWith('art/staging/')) { console.error(`--candidate ${to} is not staged`); return 2; }
     candidates.push({ from, to, hash: sha(readFileSync(resolve(ROOT, to))) });
   }
-  const spec = readJson(`proofs/spec/${slug}.json`);
-  const entry = readJson(`tools/gauntlet/routes/${spec.route}.json`);
+  // `--warp`: START INSIDE THE ROOM by the dev warp (`?room=`), with no entry
+  // route. For a CANDIDATE room (doc 36 Q116) that no door leads to: the
+  // opening cannot reach main_street_candidate, and a review of a plate does
+  // not need the opening played first. The record names the warp so nobody
+  // mistakes the run for one that arrived by the game's own doors.
+  const warp = process.argv.includes('--warp');
+  const spec = warp ? { route: null } : readJson(`proofs/spec/${slug}.json`);
+  const entry = warp ? { actions: [] } : readJson(`tools/gauntlet/routes/${spec.route}.json`);
   const life = readJson(`tools/gauntlet/routes/${routeName}.json`);
   const room = readJson('content/manifest.json').rooms.map((p) => readJson(p)).find((r) => r.id === roomId);
   const commit = git('rev-parse', 'HEAD');
@@ -82,14 +88,15 @@ async function main() {
     page.on('close', () => log('page closed'));
     const visualState = flag('--state');
     const pace = flag('--pace');
-    const query = [...candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`),
+    const query = [...(warp ? [`room=${encodeURIComponent(roomId)}`] : []),
+      ...candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`),
       ...(visualState ? [`state=${encodeURIComponent(visualState)}`] : []),
       ...(pace ? [`pace=${encodeURIComponent(pace)}`] : [])].join('&');
     await page.goto(query ? `${server.url}/?${query}` : server.url);
     await page.waitForFunction(() => Boolean(window.__gauntlet?.probe?.()), { timeout: 60_000 });
     await page.evaluate(() => window.__gauntlet?.arm?.({}));
 
-    log(`entry route ${spec.route}: ${entry.actions.length} action(s)`);
+    log(warp ? `warped straight into ${roomId} (?room=), no entry route` : `entry route ${spec.route}: ${entry.actions.length} action(s)`);
     for (const line of await runRoute(page, entry)) events.push({ t: stamp(), line });
     const arrived = await page.evaluate(() => window.__gauntlet?.probe?.());
     if (arrived?.room !== roomId) failures.push(`entry route ended in ${arrived?.room}, not ${roomId}`);
@@ -224,7 +231,7 @@ async function main() {
       note: 'ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.',
       room: roomId, commit, workingTreeClean: dirty === '', dirtyAllowed: allowDirty, visualState: visualState ?? null, pace: pace ? Number(pace) : 1,
       candidates: candidates.map((c) => ({ declared: c.from, rendered: c.to, hash: c.hash })),
-      entryRoute: spec.route, lifeRoute: `${slug}-life`, durationSeconds: stamp(),
+      entryRoute: spec.route, warped: warp, lifeRoute: routeName, durationSeconds: stamp(),
       events, captures: captures.map(({ url, ...rest }) => rest), failures, passed: failures.length === 0,
       judgement: proofJudgement(failures, {
         establishes: [`the room stayed coherent for ${stamp()}s of a deterministic route: every capture in the room it names, every asserted state met`],

@@ -518,6 +518,24 @@ export interface RoomLamp {
    * `?state=` parameter the proofs use beside `?candidate=`.
    */
   amountByState?: Record<string, number>;
+  /**
+   * THE LIGHT ON THE PEOPLE. The pool above breathes over the plate; this
+   * declares what the same lamp does to a MOVER standing in it: a flat tint
+   * toward `colour` (the pool's warm by default) at `strength` times a square
+   * falloff from `at` over `radius` (the lamp's, unless the field declares its
+   * own), measured at the feet. `reach` divides the vertical distance, so a
+   * lamp hung high still reaches the floor under it. Absent, the lamp lights
+   * the plate exactly as it always did and touches nobody -- a room that
+   * declares no fields is unchanged to the pixel. engine/render/LightFields.ts;
+   * opening-set retrofit, doc 36 Q116.
+   */
+  movers?: {
+    strength: number;
+    strengthByState?: Record<string, number>;
+    colour?: [number, number, number];
+    radius?: number;
+    reach?: number;
+  };
   note?: string;
 }
 
@@ -1086,6 +1104,8 @@ export interface RoomFile {
    * row per band, and it would disagree with the first the day either moved.
    */
   occlusionBands?: string[];
+  /** A replacement-plate candidate compiled beside its shipping room: the id of that room (doc 36 Q116). */
+  candidateOf?: string;
   /**
    * Ruling 20: a drawn crowd of four or more needs at least three animated
    * members. The rest stay painted into the background and the eye gives them

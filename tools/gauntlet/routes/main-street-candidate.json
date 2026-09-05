@@ -1,0 +1,173 @@
+{
+ "schema": 1,
+ "room": "main_street_candidate",
+ "note": "MAIN STREET CANDIDATE REVIEW ROUTE (phase 1): accepted Thad at far/mid/near, the assay-office exterior, the saloon, the practical-light pools, the near rails. Legacy actors are placed for context only. WALK CLICKS SIT IN THE MUD (y >= 650): the boardwalk hotspot covers y 560-640 across the whole street, and a click there is LOOK AT, which walks him to the hotspot's centre (x 1695) -- which is where the first run found him three captures in a row. Westward clicks are chained so each is on screen for the camera it starts from.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "c01-arrival-east-end",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    3180,
+    655
+   ],
+   "why": "far: the mud edge at the assay office door"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c02-thad-far-assay-office",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2595,
+    655
+   ],
+   "why": "far: below the saloon doors, in the pool"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "c03-saloon-doors-in-pool",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2200,
+    740
+   ],
+   "why": "middle depth, between pools"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c04-thad-mid",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2000,
+    850
+   ],
+   "why": "near depth"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c05-thad-near",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    1705,
+    655
+   ],
+   "why": "the notice board, with the letter-writer for legacy context"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "c06-notice-board",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    1300,
+    700
+   ],
+   "why": "westward, on screen from the notice board"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "click",
+   "world": [
+    900,
+    655
+   ],
+   "why": "the trough and the Company, in its window light"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "c07-trough-company",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    300,
+    850
+   ],
+   "why": "the near west rail, in front of it"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "c08-near-west-rail",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    700,
+    655
+   ],
+   "why": "behind the west rail on the mud edge"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c09-behind-west-rail",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "wait",
+   "seconds": 30
+  },
+  {
+   "do": "capture",
+   "name": "c10-idle-30",
+   "room": "main_street_candidate"
+  }
+ ]
+}

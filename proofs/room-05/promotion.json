@@ -1,0 +1,125 @@
+{
+ "title": "ROOM 5 PROMOTION PROOF (2026-09-05): the shipping room with no candidate override, against the last accepted candidate run",
+ "note": "Every promoted file is byte-identical to the accepted staged file (the hashes). The frame comparison is the same four-panel route with candidates (before, at c0bc18a) and without (after); a difference confined to Winnie's hands or the lamp flicker is the ambient clock, not the art.",
+ "before": {
+  "record": "renders/proofs/assay-office-lamp-night/proof.json",
+  "commit": "c0bc18a7",
+  "candidates": [
+   "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png"
+  ]
+ },
+ "after": {
+  "record": "renders/proofs/assay-office-shipping/proof.json",
+  "commit": "199ab6b0",
+  "candidates": [],
+  "passed": true
+ },
+ "files": [
+  {
+   "shipping": "art/backgrounds/room-05-assay-office.png",
+   "accepted": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "identical": true,
+   "sha256": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+  },
+  {
+   "shipping": "art/actors/winnie-counter-sheet.png",
+   "accepted": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "identical": true,
+   "sha256": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+  },
+  {
+   "shipping": "art/objects/room-05/inkstand.png",
+   "accepted": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+   "identical": true,
+   "sha256": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+  },
+  {
+   "shipping": "art/objects/room-05/hanging-lamp-overlay.png",
+   "accepted": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+   "identical": true,
+   "sha256": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+  },
+  {
+   "shipping": "art/objects/room-05/board-rest-c.png",
+   "accepted": "art/staging/room-05/floorboard/board-rest-c-night.png",
+   "identical": true,
+   "sha256": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+  },
+  {
+   "shipping": "art/objects/room-05/board-pressed.png",
+   "accepted": "art/staging/room-05/floorboard/board-pressed-night.png",
+   "identical": true,
+   "sha256": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+  },
+  {
+   "shipping": "art/masks/room-05-plane-1.png",
+   "accepted": "art/staging/room-05/mask-plane-1.png",
+   "identical": true,
+   "sha256": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+  }
+ ],
+ "panels": [
+  {
+   "panel": "panel-a-base",
+   "meanAbsDiffPlayArea": 0.7570740499614198,
+   "maxAbsDiff": 24,
+   "pixelsDifferingOver8": 64529,
+   "differingBox": [
+    846,
+    156,
+    1133,
+    443
+   ]
+  },
+  {
+   "panel": "panel-b-populated",
+   "meanAbsDiffPlayArea": 1.177492042824074,
+   "maxAbsDiff": 255,
+   "pixelsDifferingOver8": 122917,
+   "differingBox": [
+    147,
+    97,
+    1192,
+    594
+   ]
+  },
+  {
+   "panel": "panel-c-mud_far-far",
+   "meanAbsDiffPlayArea": 0.4456253616898148,
+   "maxAbsDiff": 255,
+   "pixelsDifferingOver8": 11378,
+   "differingBox": [
+    827,
+    220,
+    1100,
+    550
+   ]
+  },
+  {
+   "panel": "panel-c-mud_near-near",
+   "meanAbsDiffPlayArea": 0.8625598797582305,
+   "maxAbsDiff": 255,
+   "pixelsDifferingOver8": 59212,
+   "differingBox": [
+    817,
+    155,
+    1134,
+    649
+   ]
+  },
+  {
+   "panel": "panel-d-changed",
+   "meanAbsDiffPlayArea": 0.2791636525848765,
+   "maxAbsDiff": 255,
+   "pixelsDifferingOver8": 8652,
+   "differingBox": [
+    928,
+    221,
+    1100,
+    395
+   ]
+  }
+ ]
+}

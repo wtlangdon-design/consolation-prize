@@ -1,0 +1,57 @@
+{
+ "transform": "errata-63-fixed-room-source-acquisition",
+ "provisional": true,
+ "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+ "source": {
+  "path": "art/staging/room-02/street-west-source-01.png",
+  "hash": "c75f1a3da47902c20561be6ed2d678afaa88f5f17405e95b046756ea8e2c3aa6",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 1885682,
+  "kept": true
+ },
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684,
+  "aspect": "20:9"
+ },
+ "resample": {
+  "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+  "lobes": 3,
+  "from": [
+   1520,
+   684
+  ],
+  "to": [
+   1920,
+   864
+  ],
+  "factor": 1.263157894736842,
+  "normalisedWeights": true,
+  "premultiplied": true,
+  "rounding": "half-away-from-zero, clamped to 0..255",
+  "forbidden": [
+   "nearest-neighbour",
+   "ai-upscale",
+   "sharpen",
+   "denoise",
+   "recolour",
+   "contrast-enhancement",
+   "generative-second-pass"
+  ]
+ },
+ "derived": {
+  "path": "art/staging/room-02/street-west-01/panel-1920x864.png",
+  "hash": "e0c0f5c4dda010d62ebda4404382d69c38f0b06552c2aa89d022d043bd8ce54f",
+  "width": 1920,
+  "height": 864,
+  "bytes": 2872616,
+  "colourType": 2
+ },
+ "ledger": {
+  "assetId": "main-street-plate",
+  "attempt": 1
+ }
+}

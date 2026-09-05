@@ -23,7 +23,9 @@
   "content/rooms/harness-b.json",
   "content/rooms/hotel-lobby.json",
   "content/rooms/thads-room.json",
-  "content/rooms/undertaker.json"
+  "content/rooms/undertaker.json",
+  "content/rooms/main-street-candidate.json",
+  "content/rooms/nugget-candidate.json"
  ],
  "dialogue": [
   "content/dialogue/stage-driver.json",

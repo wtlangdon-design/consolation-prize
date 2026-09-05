@@ -4,10 +4,11 @@
  "room": "stage_road",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "a87ad4c4f016f4f48e59084ac927a8fc79ac6dec",
+ "commit": "21f9d49216800430883f8f0aae345fbb3a83f4f2",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
+ "visualState": null,
  "candidates": [],
  "route": "stage-road",
  "routeLog": [
@@ -53,7 +54,7 @@
    ],
    "reportedHeight": 224,
    "expected": 224,
-   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-08.png",
+   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-00.png",
    "bounds": [
     826,
     477,
@@ -90,7 +91,7 @@
    ],
    "reportedHeight": 263,
    "expected": 263,
-   "drawnFrom": "art/actors/thad-idle-left/idle-04.png",
+   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-03.png",
    "bounds": [
     806,
     599,
@@ -109,7 +110,7 @@
   {
    "panel": "B",
    "room": "stage_road",
-   "clock": 49.7444,
+   "clock": 47.440400000000004,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -134,11 +135,11 @@
       830
      ],
      "facing": "left",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 263,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-03.png",
+     "from": "art/actors/thad-idle-left/idle-04.png",
      "bounds": [
       1283,
       567,
@@ -159,7 +160,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idle-right/idle-03.png",
+     "from": "art/actors/hob-idle-right/idle-04.png",
      "bounds": [
       503,
       490,
@@ -180,7 +181,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idle-right/idle-15.png",
+     "from": "art/actors/coach-idle-right/idle-10.png",
      "bounds": [
       2509,
       353,
@@ -202,20 +203,36 @@
      "candidate": false,
      "loaded": true,
      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    },
+    {
+     "key": "art/objects/room-01-case-mud.png",
+     "path": "art/objects/room-01-case-mud.png",
+     "drawn": "art/objects/room-01-case-mud.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "938afcfc35a56b449b353e0af3f7accc7f41b3853ce551d7155df2f0cb0c5032"
+    },
+    {
+     "key": "art/objects/room-01-sign-lettering.png",
+     "path": "art/objects/room-01-sign-lettering.png",
+     "drawn": "art/objects/room-01-sign-lettering.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2e22d7b01ea8cd48d91c6cb54a1f208e6b0781969338be00153a1e3321e9674d"
     }
    ],
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-04T17:52:23.404Z",
+   "capturedAt": "2026-09-05T21:15:46.378Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "af396bc858868f6f2ff8e7ec1174df08fdedc36f2703311385e319be2d14add2"
+   "hash": "fd0c05e32a72626e41010c23dff739a969aeba64b3ffb3f2ff86515a6095cbaf"
   },
   {
    "panel": "A",
    "room": "stage_road",
-   "clock": 50.7943,
+   "clock": 48.357099999999996,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -240,7 +257,7 @@
       830
      ],
      "facing": "left",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 263,
      "moving": false,
      "drawn": "sprite",
@@ -293,6 +310,22 @@
      "candidate": false,
      "loaded": true,
      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    },
+    {
+     "key": "art/objects/room-01-case-mud.png",
+     "path": "art/objects/room-01-case-mud.png",
+     "drawn": "art/objects/room-01-case-mud.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "938afcfc35a56b449b353e0af3f7accc7f41b3853ce551d7155df2f0cb0c5032"
+    },
+    {
+     "key": "art/objects/room-01-sign-lettering.png",
+     "path": "art/objects/room-01-sign-lettering.png",
+     "drawn": "art/objects/room-01-sign-lettering.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2e22d7b01ea8cd48d91c6cb54a1f208e6b0781969338be00153a1e3321e9674d"
     }
    ],
    "stubs": [],
@@ -300,7 +333,7 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-04T17:52:24.581Z",
+   "capturedAt": "2026-09-05T21:15:47.281Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
    "hash": "30c1ef9511d222b1c7b75bb0a21ad52984cf560d4a3360e56cda17c7d7bae13f"
@@ -308,7 +341,7 @@
   {
    "panel": "D",
    "room": "stage_road",
-   "clock": 64.1438,
+   "clock": 60.5733,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -342,7 +375,7 @@
      "height": 263,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-00.png",
+     "from": "art/actors/thad-idle-left/idle-03.png",
      "bounds": [
       1023,
       575,
@@ -363,7 +396,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idle-right/idle-00.png",
+     "from": "art/actors/hob-idlebreak-right/idle-break-08.png",
      "bounds": [
       503,
       490,
@@ -384,7 +417,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idlebreak-right/idle-break-10.png",
+     "from": "art/actors/coach-idlebreak-right/idle-break-12.png",
      "bounds": [
       2509,
       353,
@@ -406,6 +439,14 @@
      "candidate": false,
      "loaded": true,
      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    },
+    {
+     "key": "art/objects/room-01-sign-lettering.png",
+     "path": "art/objects/room-01-sign-lettering.png",
+     "drawn": "art/objects/room-01-sign-lettering.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "2e22d7b01ea8cd48d91c6cb54a1f208e6b0781969338be00153a1e3321e9674d"
     }
    ],
    "stubs": [],
@@ -420,10 +461,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-09-04T17:52:37.775Z",
+   "capturedAt": "2026-09-05T21:15:59.517Z",
    "intent": "principal changed state: THE CASE COMES OUT OF THE MUD. Doc 17 makes picking it up the game's first PICK UP, and it is the only change to Room 1 still available once the opening has handed over -- the coach has already departed by then, which is what the first version of this spec got wrong: it declared T_COACH_DEPARTED and the route had set it four actions earlier, so panel D was panel B with a different filename.\n\nIt is an ACTION rather than a flag because that is what it is. `case_mud`'s PICK UP carries `take: true`, and GameState.targets filters out anything the actor owns -- doc 22 item 9, taking something is an ownership change -- so the hotspot is simply gone afterwards. The panel shows a road with no case in it, which is the state the rest of Act I is played in.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "b0e9561e4a244ee75653118b8db01cae05e59dcfae89e7a66f648b9a4de35082",
+   "hash": "6e2bab228e3233fc4275cac740b663c52ab0c5d73a2e6eb4f73f9050bc54b371",
    "changedBy": "flags, inventory"
   }
  ],
@@ -431,11 +472,34 @@
  "passed": true,
  "visual_accepted": false,
  "visualAcceptedNote": "Set by Tyler and by nobody else. A passing proof means the room is technically admissible, not that it is any good.",
- "at": "2026-09-04T17:52:37.776Z",
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-09-05T21:15:59.517Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 419790,
+  "bytes": 419722,
   "panels": 5,
   "scale": 0.5
  }

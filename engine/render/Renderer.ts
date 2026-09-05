@@ -4,6 +4,7 @@ import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import { askedState } from '../dev/RoomState.ts';
+import { applyTint, moverTint, type MoverTint } from './LightFields.ts';
 
 /**
  * Which picture a state draws under the room's current visual state: its
@@ -16,7 +17,7 @@ export function stateImagePath(shown: { image?: string; imageByState?: Record<st
   return (state && shown.imageByState?.[state]) || shown.image;
 }
 import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
-import { ActorSprite } from './ActorSprite.ts';
+import { ActorSprite, type DrawnFrame } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import type { DrawRecord } from '../dev/Probe.ts';
 import { GLYPH_SCALE, PANEL_GLYPH_SCALE, BitmapFont, type Face } from './BitmapFont.ts';
@@ -1103,7 +1104,20 @@ export class Renderer {
     // visible would be the engine overruling a look decision.
     const clip = mover.isFarAway && sprite.declares(FAR_WALK) ? FAR_WALK : mover.clip;
     const frames = sprite.frameCount(clip, mover.facing, surface, state);
-    const drawn = frames > 0 && sprite.draw(
+    // THE LIGHT HE STANDS IN, if the room declares any. The frame is drawn
+    // through the scratch layer and tinted there, so the tint lands on his
+    // pixels and on nothing behind him; with no field it is drawn straight,
+    // exactly as before.
+    const tint = this.tintAt(feetX, feetY);
+    const paint = (go: () => DrawnFrame | null): DrawnFrame | null => {
+      if (!tint) return go();
+      let landed: DrawnFrame | null = null;
+      const half = Math.ceil(mover.height * 0.6);
+      this.drawTinted(tint, [Math.floor(feetX - half), Math.floor(feetY - mover.height - 8), half * 2, mover.height + 16],
+        () => { landed = go(); });
+      return landed;
+    };
+    const drawn = frames > 0 && paint(() => sprite.draw(
       this.screen.context, clip, mover.facing, surface,
       // THE BREAK HAS ITS OWN RATE AND NOTHING HAD EVER READ IT. Doc 40 gives
       // idle 2.4/s and idle-break ~2/s, and `idleBreakRate` sits on every
@@ -1113,7 +1127,7 @@ export class Renderer {
       // chosen for; it is the same frames at somebody else's tempo.
       this.frameFor(mover, record, frames),
       feetX, feetY, mover.height, state,
-    );
+    ));
     // A CLIP THAT EXISTS AND HAS NOT ARRIVED FALLS BACK TO ONE THAT HAS.
     //
     // Tyler, on beat 3: after the driver says "Course you have", Hob and the
@@ -1135,8 +1149,8 @@ export class Renderer {
         if (spare === clip || !sprite.declares(spare)) continue;
         const spareFrames = sprite.frameCount(spare, mover.facing, surface, state);
         if (spareFrames === 0) continue;
-        shown = sprite.draw(this.screen.context, spare, mover.facing, surface,
-          this.frameFor(mover, record, spareFrames), feetX, feetY, mover.height, state);
+        shown = paint(() => sprite.draw(this.screen.context, spare, mover.facing, surface,
+          this.frameFor(mover, record, spareFrames), feetX, feetY, mover.height, state));
         if (shown) break;
       }
     }
@@ -1372,6 +1386,44 @@ export class Renderer {
     screenContext.drawImage(scratch.canvas, camera, 0);
   }
 
+  /**
+   * THE PRACTICAL LIGHT ON A MOVER standing at (x, y): the room's lamps that
+   * exist right now (a lamp that left with its coach is no lamp) and declare
+   * a `movers` field, summed at the feet. Null for a room that declares none,
+   * which is every room until one does -- and then the frame is the frame it
+   * always was. engine/render/LightFields.ts.
+   */
+  private tintAt(feetX: number, feetY: number): MoverTint | null {
+    const lamps = this.state.room.lamps;
+    if (!lamps?.length || !lamps.some((lamp) => lamp.movers)) return null;
+    const live = lamps.filter((lamp) => !lamp.when || this.state.flags.test(lamp.when));
+    return moverTint(live, feetX, feetY, askedState());
+  }
+
+  /**
+   * Draw a figure through the scratch layer and lay the tint over its own
+   * pixels only, then blit. `source-atop` on the scratch touches nothing but
+   * what `draw` put there; the plate under the man is never tinted. Falls
+   * back to drawing straight when there is no scratch (tests, no document).
+   */
+  private drawTinted(tint: MoverTint, bounds: [number, number, number, number], draw: () => void): void {
+    const scratch = this.scratch();
+    if (!scratch) { draw(); return; }
+    const camera = this.state.cameraX;
+    scratch.setTransform(1, 0, 0, 1, 0, 0);
+    scratch.clearRect(0, 0, NATIVE_WIDTH, PLAY_HEIGHT);
+    scratch.translate(-camera, 0);
+    const screenContext = this.screen.borrow(scratch);
+    try {
+      draw();
+    } finally {
+      this.screen.borrow(screenContext);
+    }
+    applyTint(scratch, tint, bounds[0], bounds[1], bounds[2], bounds[3]);
+    scratch.setTransform(1, 0, 0, 1, 0, 0);
+    screenContext.drawImage(scratch.canvas, camera, 0);
+  }
+
   /** One reusable offscreen canvas for masking. Made on first use. */
   private scratch(): CanvasRenderingContext2D | null {
     if (this.scratchContext) return this.scratchContext;
@@ -1405,8 +1457,12 @@ export class Renderer {
     const [sx, sy, width, height] = declared.frames[
       (index + declared.frames.length) % declared.frames.length
     ] as [number, number, number, number];
-    this.screen.context.drawImage(image, sx, sy, width, height,
-      npc.x - Math.floor(width / 2), npc.y - height + 1, width, height);
+    const left = npc.x - Math.floor(width / 2);
+    const top = npc.y - height + 1;
+    const tint = this.tintAt(npc.x, npc.y);
+    const draw = () => this.screen.context.drawImage(image, sx, sy, width, height, left, top, width, height);
+    if (tint) this.drawTinted(tint, [left, top, width, height], draw);
+    else draw();
     return index;
   }
 

@@ -1,0 +1,17 @@
+{
+ "note": "Outpaint canvas: the west source's right part laid at the left of a fresh canvas; the mask keeps it and frees the rest for the model.",
+ "westSource": {
+  "path": "art/staging/room-02/street-west-source-01.png",
+  "sha256": "c75f1a3da47902c20561be6ed2d678afaa88f5f17405e95b046756ea8e2c3aa6"
+ },
+ "keepFraction": 0.3,
+ "keepPx": 461,
+ "canvas": {
+  "path": "art/staging/room-02/street-east-01/outpaint-canvas.png",
+  "sha256": "e0f83ed94c4e13f0147d9c57b58dd55454f5dc7465257e4829b055afdf691675"
+ },
+ "mask": {
+  "path": "art/staging/room-02/street-east-01/outpaint-mask.png",
+  "sha256": "1c6fcd2e0c2de58dcfe885009c1520c023b0dfba4ec4ee08f658c8d8bee8137c"
+ }
+}

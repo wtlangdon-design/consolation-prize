@@ -1129,7 +1129,17 @@
       "amount": 0.09,
       "rate": 0.19,
       "phase": 0,
-      "note": "The Nugget’s open doors, the brightest thing on the street."
+      "note": "The Nugget’s open doors, the brightest thing on the street.",
+      "movers": {
+        "strength": 0.32,
+        "colour": [
+          255,
+          176,
+          90
+        ],
+        "reach": 1.4
+      },
+      "moversNote": "THE LIGHT ON THE PEOPLE (doc 36 Q116): a mover whose feet stand in this pool is flat-tinted toward the pool's colour by the strength times a square falloff. Declared on the SHIPPING plate's lamps so the mechanism is proved live; the replacement plate re-declares its own."
     },
     {
       "id": "office_lantern",
@@ -1141,7 +1151,17 @@
       "amount": 0.11,
       "rate": 0.33,
       "phase": 0.51,
-      "note": "The lantern hung for the map seller. A single flame, so it moves more than a doorway."
+      "note": "The lantern hung for the map seller. A single flame, so it moves more than a doorway.",
+      "movers": {
+        "strength": 0.26,
+        "colour": [
+          255,
+          170,
+          84
+        ],
+        "reach": 1.4
+      },
+      "moversNote": "THE LIGHT ON THE PEOPLE (doc 36 Q116): a mover whose feet stand in this pool is flat-tinted toward the pool's colour by the strength times a square falloff. Declared on the SHIPPING plate's lamps so the mechanism is proved live; the replacement plate re-declares its own."
     },
     {
       "id": "company_windows",

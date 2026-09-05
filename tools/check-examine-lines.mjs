@@ -14,8 +14,16 @@ const LISTEN = 'LISTEN_TO';
 export function check() {
   const report = new Report('Every hotspot has a distinct LOOK and LISTEN line');
   const content = loadContent();
-  const targets = allInteractables(content);
-  report.note(`checked ${targets.length} hotspots and exits across ${content.rooms.length} rooms`);
+  // A CANDIDATE ROOM IS ITS SHIPPING ROOM'S LINES ON A NEW PLATE (doc 36
+  // Q116): compiled from the same documents beside the shipping room so a
+  // replacement plate can be played with its own geometry. Counting its
+  // lines against the shipping room's would call every line in the game a
+  // duplicate of itself. They are set aside here and said so; uniqueness is
+  // checked once, on the room that ships.
+  const candidates = new Set(content.rooms.filter(({ data }) => data.candidateOf).map(({ data }) => data.id));
+  const targets = allInteractables(content).filter(({ roomId }) => !candidates.has(roomId));
+  report.note(`checked ${targets.length} hotspots and exits across ${content.rooms.length - candidates.size} rooms`);
+  if (candidates.size) report.note(`${candidates.size} candidate room(s) set aside, their lines being their shipping room's: ${[...candidates].join(', ')}`);
 
   const seen = { [LOOK]: new Map(), [LISTEN]: new Map() };
 
