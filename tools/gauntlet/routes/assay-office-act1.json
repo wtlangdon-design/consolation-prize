@@ -1,0 +1,2209 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5's ACT I GAMEPLAY ACCEPTANCE ROUTE (2026-09-05). Run by tools/gauntlet/life.mjs, whose entry route walks the opening, Main Street, and Main Street's assay-office exit -- so arrival here is the real transition, not a warp. Then: room life at the door; the floorboard both ways; the bench's absence; LOOK and LISTEN on every Act I target with three repeats and eight wrong verbs; TALK TO Winnie through WIN_A1's opening, its Act I options, WIN_A2 and every row of it, the exit; a second conversation; two street-door round trips; a crossing after re-entry; the records stub. Every capture asserts ACT 1 and the absence of every later-act flag. Option counts are exact. Waits are conditions.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "a01-arrived-from-street",
+   "why": "in by the street door from Main Street (the entry route took the real exit); Winnie at work; ACT 1; no later-act flag",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "thadAt": [
+     200,
+     765,
+     4
+    ],
+    "facing": "right"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 30,
+   "why": "stand at the door. breakEvery 9: she takes the pen at least three times in this window"
+  },
+  {
+   "do": "capture",
+   "name": "a02-idle-30s",
+   "why": "thirty seconds of room life",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ]
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 30
+  },
+  {
+   "do": "capture",
+   "name": "a03-idle-60s",
+   "why": "a minute",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ]
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 15
+  },
+  {
+   "do": "capture",
+   "name": "a04-idle-75s",
+   "why": "seventy-five seconds; more idle accrues across the rest of the route",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ]
+   }
+  },
+  {
+   "do": "click",
+   "at": [
+    1100,
+    765
+   ],
+   "why": "walk right across the middle band, over the tread"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "capture",
+   "name": "a05-crossed-board",
+   "why": "one crossing, one creak, board back at rest",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "cues": 1
+   }
+  },
+  {
+   "do": "click",
+   "at": [
+    340,
+    765
+   ],
+   "why": "and back"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "capture",
+   "name": "a06-crossed-back",
+   "why": "a second crossing, a second creak, no flag written",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "cues": 2
+   }
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "queue_bench",
+   "why": "the bench, which exists in acts 2-4 only. At Act I this is floor"
+  },
+  {
+   "do": "wait",
+   "seconds": 6.6
+  },
+  {
+   "do": "capture",
+   "name": "a07-bench-absent",
+   "why": "no line, because there was no target",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "noSpeaker": true
+   }
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "window_sign",
+   "why": "LOOK_AT window_sign"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a08-look-window-sign",
+   "why": "LOOK_AT on window_sign",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "window_sign",
+   "why": "LISTEN_TO window_sign"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a09-listen-window-sign",
+   "why": "LISTEN_TO on window_sign",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "LOOK_AT scales"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a10-look-scales",
+   "why": "LOOK_AT on scales",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "LISTEN_TO scales"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a11-listen-scales",
+   "why": "LISTEN_TO on scales",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "queue_book",
+   "why": "LOOK_AT queue_book"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a12-look-queue-book",
+   "why": "LOOK_AT on queue_book",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "queue_book",
+   "why": "LISTEN_TO queue_book"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a13-listen-queue-book",
+   "why": "LISTEN_TO on queue_book",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "LOOK_AT floorboard"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a14-look-floorboard",
+   "why": "LOOK_AT on floorboard",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "LISTEN_TO floorboard"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a15-listen-floorboard",
+   "why": "LISTEN_TO on floorboard",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "sample_shelves",
+   "why": "LOOK_AT sample_shelves"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a16-look-sample-shelves",
+   "why": "LOOK_AT on sample_shelves",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "sample_shelves",
+   "why": "LISTEN_TO sample_shelves"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a17-listen-sample-shelves",
+   "why": "LISTEN_TO on sample_shelves",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "her_pen",
+   "why": "LOOK_AT her_pen"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a18-look-her-pen",
+   "why": "LOOK_AT on her_pen",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "her_pen",
+   "why": "LISTEN_TO her_pen"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a19-listen-her-pen",
+   "why": "LISTEN_TO on her_pen",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "certificate",
+   "why": "LOOK_AT certificate"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a20-look-certificate",
+   "why": "LOOK_AT on certificate",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "certificate",
+   "why": "LISTEN_TO certificate"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a21-listen-certificate",
+   "why": "LISTEN_TO on certificate",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "stove",
+   "why": "LOOK_AT stove"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a22-look-stove",
+   "why": "LOOK_AT on stove",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "stove",
+   "why": "LISTEN_TO stove"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a23-listen-stove",
+   "why": "LISTEN_TO on stove",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "hanging_lamp",
+   "why": "LOOK_AT hanging_lamp"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a24-look-hanging-lamp",
+   "why": "LOOK_AT on hanging_lamp",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "hanging_lamp",
+   "why": "LISTEN_TO hanging_lamp"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a25-listen-hanging-lamp",
+   "why": "LISTEN_TO on hanging_lamp",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "LOOK_AT back_to_street"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a26-look-back-to-street",
+   "why": "LOOK_AT on back_to_street",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "LISTEN_TO back_to_street"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a27-listen-back-to-street",
+   "why": "LISTEN_TO on back_to_street",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "to_records",
+   "why": "LOOK_AT to_records"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a28-look-to-records",
+   "why": "LOOK_AT on to_records",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   },
+   "room": "assay_office"
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "to_records",
+   "why": "LISTEN_TO to_records"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20,
+   "why": "he walks to it and the line goes up"
+  },
+  {
+   "do": "capture",
+   "name": "a29-listen-to-records",
+   "why": "LISTEN_TO on to_records",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   },
+   "room": "assay_office"
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30,
+   "why": "the line clears before the next"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "LOOK scales again: the repeat pool"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a30-look-again-scales",
+   "why": "a repeat LOOK on scales",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "LOOK floorboard again: the repeat pool"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a31-look-again-floorboard",
+   "why": "a repeat LOOK on floorboard",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "window_sign",
+   "why": "LOOK window_sign again: the repeat pool"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a32-look-again-window-sign",
+   "why": "a repeat LOOK on window_sign",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP"
+  },
+  {
+   "do": "click",
+   "on": "her_pen",
+   "why": "PICK_UP her_pen: a wrong action"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a33-wrong-pick-up-her-pen",
+   "why": "PICK_UP on her_pen refused in a line; no state change",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "PULL"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "PULL floorboard: a wrong action"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a34-wrong-pull-floorboard",
+   "why": "PULL on floorboard refused in a line; no state change",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "OPEN"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "OPEN floorboard: a wrong action"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a35-wrong-open-floorboard",
+   "why": "OPEN on floorboard refused in a line; no state change",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "PUSH"
+  },
+  {
+   "do": "click",
+   "on": "stove",
+   "why": "PUSH stove: a wrong action"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a36-wrong-push-stove",
+   "why": "PUSH on stove refused in a line; no state change",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "USE"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "USE scales: a wrong action"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a37-wrong-use-scales",
+   "why": "USE on scales refused in a line; no state change",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP"
+  },
+  {
+   "do": "click",
+   "on": "queue_book",
+   "why": "PICK_UP queue_book: a wrong action"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a38-wrong-pick-up-queue-book",
+   "why": "PICK_UP on queue_book refused in a line; no state change",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "CLOSE"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "CLOSE back_to_street: a wrong action"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a39-wrong-close-back-to-street",
+   "why": "CLOSE on back_to_street refused in a line; no state change",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "certificate",
+   "why": "TALK_TO certificate: a wrong action"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a40-wrong-talk-to-certificate",
+   "why": "TALK_TO on certificate refused in a line; no state change",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "he arrives at the dialogue point and she speaks first"
+  },
+  {
+   "do": "capture",
+   "name": "a41-win-a1-opening-1",
+   "why": "If this concerns an assay, say so. Thad at the declared dialogue point",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie",
+    "thadAt": [
+     930,
+     760,
+     6
+    ],
+    "facing": "back"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a42-win-a1-opening-2",
+   "why": "It might.",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a43-win-a1-opening-3",
+   "why": "Then say it.",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "a44-win-a1-list",
+   "why": "WIN_A1 at Act I: three rows. The piano and Pike topics are gated on flags no Act I room can yet write",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "options": 3
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie2",
+   "why": "What is it you actually do here?"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a45-win-a1-topic",
+   "why": "I decide what things are.",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "a46-win-a1-list-after-topic",
+   "why": "still three rows; the topic is retained",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "options": 3
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie1",
+   "why": "I'd like to have some soil assayed. goto WIN_A2"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a47-win-a1-progress",
+   "why": "So would nine hundred men. Get in the book.",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "a48-win-a2-list",
+   "why": "WIN_A2: four rows, no opening exchange (doc 04 writes it as a table)",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "options": 4
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie2",
+   "why": "How long is the wait, honestly?"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a49-win-a2-wait",
+   "why": "Eight months. The post-C5 rephrase is not in the runtime and C5 is not solved",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "winnie3",
+   "why": "What number am I?"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a50-win-a2-number",
+   "why": "Nine hundred and six.",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "winnie3",
+   "why": "What number am I? again: a counted repeat with no repeat line, so the exchange plays again"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a51-win-a2-number-again",
+   "why": "the repeat",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "winnie1",
+   "why": "Where do I sign?"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a52-win-a2-sign",
+   "why": "You don't sign. You print.",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "a53-win-a2-list-exhausted",
+   "why": "four rows still: exhausted options grey, never removed (errata 37 revoked)",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "options": 4
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie4",
+   "why": "I've taken enough of your time. The exit"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a54-win-a2-exit-line",
+   "why": "Mind the window.",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "a55-after-talk",
+   "why": "control returned; she goes back to the ledger; no flag written by the whole conversation",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "options": 0
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "a56-back-at-work",
+   "why": "a break later: she is writing again",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ]
+   }
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie a second time"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "the greeting replays (doc 30 line 213)"
+  },
+  {
+   "do": "capture",
+   "name": "a57-talk-again-opening",
+   "why": "the opening exchange again",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "speaker": "winnie"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "a58-talk-again-list",
+   "why": "WIN_A1 again, three rows, the soil-assay row exhausted and grey",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "options": 3
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie1",
+   "why": "the exhausted progress row, re-selected: its exchange again and goto WIN_A2 again"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 20
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "a59-talk-again-win-a2",
+   "why": "WIN_A2 reached again by the exhausted row",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "options": 4
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie4",
+   "why": "exit"
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "out by the street door"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "a60-on-main-street",
+   "why": "Main Street, at the assay office door",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ]
+   },
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "and back in"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "a61-re-entered-1",
+   "why": "re-entered from Main Street: door arrival, Winnie at work, board at rest, no flag",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "thadAt": [
+     200,
+     765,
+     4
+    ],
+    "facing": "right"
+   }
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "out again"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "and in again, without pausing"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "a62-re-entered-2",
+   "why": "the second round trip",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "thadAt": [
+     200,
+     765,
+     4
+    ],
+    "facing": "right"
+   }
+  },
+  {
+   "do": "click",
+   "at": [
+    1100,
+    765
+   ],
+   "why": "cross the board after re-entry: it re-armed"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "capture",
+   "name": "a63-crossed-after-reentry",
+   "why": "the creak count is per session, one more than before",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ]
+   }
+  },
+  {
+   "do": "click",
+   "on": "to_records",
+   "why": "the records door"
+  },
+  {
+   "do": "waitFor",
+   "room": "stub_assay_records",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "a64-records-stub",
+   "why": "Room 6 is a stub and stays one",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ]
+   }
+  },
+  {
+   "do": "click",
+   "on": "back_to_assay",
+   "why": "back"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "a65-back-from-records",
+   "why": "out of the back-room door; Winnie at work; no flag; ACT 1",
+   "assert": {
+    "act": 1,
+    "flagsAbsent": [
+     "T_BORDERS_MOTT",
+     "T_ASSAY_QUEUE",
+     "T_NO_MOTT_GOLD",
+     "T_SECOND_LEDGER",
+     "T_STRIKE_FOUND",
+     "T_TUNES_PIANOS",
+     "T_PIKE_DEAD"
+    ],
+    "thadAt": [
+     1600,
+     706,
+     4
+    ]
+   },
+   "room": "assay_office"
+  }
+ ]
+}

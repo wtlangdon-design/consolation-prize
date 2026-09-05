@@ -1,0 +1,446 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5 ACT I: TALK TO WINNIE FROM FIVE POSITIONS. Run by tools/gauntlet/life.mjs. From the door, the far right, the near band left and right, and the far band: TALK TO walks Thad to content/ambient/winnie.json's declared dialogue point (930,760) facing back, she speaks first, WIN_A1 lists three rows, the exit returns control. The arrival capture asserts the point and the facing.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "p01-door-start",
+   "why": "start 1: door"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie from here"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "capture",
+   "name": "p01-door-walking",
+   "why": "on the way"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "arrived; she speaks"
+  },
+  {
+   "do": "capture",
+   "name": "p01-door-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "assert": {
+    "speaker": "winnie",
+    "thadAt": [
+     930,
+     760,
+     6
+    ],
+    "facing": "back"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "p01-door-list",
+   "why": "WIN_A1, three rows",
+   "assert": {
+    "options": 3
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "p01-door-released",
+   "why": "control returned",
+   "assert": {
+    "options": 0
+   }
+  },
+  {
+   "do": "click",
+   "at": [
+    1750,
+    770
+   ],
+   "why": "walk to the far-right start: the far right of the middle band, past the counter"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "p02-far-right-start",
+   "why": "start 2: far-right"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie from here"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "capture",
+   "name": "p02-far-right-walking",
+   "why": "on the way"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "arrived; she speaks"
+  },
+  {
+   "do": "capture",
+   "name": "p02-far-right-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "assert": {
+    "speaker": "winnie",
+    "thadAt": [
+     930,
+     760,
+     6
+    ],
+    "facing": "back"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "p02-far-right-list",
+   "why": "WIN_A1, three rows",
+   "assert": {
+    "options": 3
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "p02-far-right-released",
+   "why": "control returned",
+   "assert": {
+    "options": 0
+   }
+  },
+  {
+   "do": "click",
+   "at": [
+    560,
+    822
+   ],
+   "why": "walk to the near-left start: the near band, left, below the board"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "p03-near-left-start",
+   "why": "start 3: near-left"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie from here"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "capture",
+   "name": "p03-near-left-walking",
+   "why": "on the way"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "arrived; she speaks"
+  },
+  {
+   "do": "capture",
+   "name": "p03-near-left-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "assert": {
+    "speaker": "winnie",
+    "thadAt": [
+     930,
+     760,
+     6
+    ],
+    "facing": "back"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "p03-near-left-list",
+   "why": "WIN_A1, three rows",
+   "assert": {
+    "options": 3
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "p03-near-left-released",
+   "why": "control returned",
+   "assert": {
+    "options": 0
+   }
+  },
+  {
+   "do": "click",
+   "at": [
+    1250,
+    712
+   ],
+   "why": "walk to the far-band-right start: the far band under the scales"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "p04-far-band-right-start",
+   "why": "start 4: far-band-right"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie from here"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "capture",
+   "name": "p04-far-band-right-walking",
+   "why": "on the way"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "arrived; she speaks"
+  },
+  {
+   "do": "capture",
+   "name": "p04-far-band-right-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "assert": {
+    "speaker": "winnie",
+    "thadAt": [
+     930,
+     760,
+     6
+    ],
+    "facing": "back"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "p04-far-band-right-list",
+   "why": "WIN_A1, three rows",
+   "assert": {
+    "options": 3
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "p04-far-band-right-released",
+   "why": "control returned",
+   "assert": {
+    "options": 0
+   }
+  },
+  {
+   "do": "click",
+   "at": [
+    1450,
+    820
+   ],
+   "why": "walk to the near-right start: the near band, right"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "p05-near-right-start",
+   "why": "start 5: near-right"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie from here"
+  },
+  {
+   "do": "wait",
+   "seconds": 1.2
+  },
+  {
+   "do": "capture",
+   "name": "p05-near-right-walking",
+   "why": "on the way"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "arrived; she speaks"
+  },
+  {
+   "do": "capture",
+   "name": "p05-near-right-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "assert": {
+    "speaker": "winnie",
+    "thadAt": [
+     930,
+     760,
+     6
+    ],
+    "facing": "back"
+   }
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "p05-near-right-list",
+   "why": "WIN_A1, three rows",
+   "assert": {
+    "options": 3
+   }
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "p05-near-right-released",
+   "why": "control returned",
+   "assert": {
+    "options": 0
+   }
+  }
+ ]
+}

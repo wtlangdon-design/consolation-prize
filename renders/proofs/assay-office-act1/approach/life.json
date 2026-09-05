@@ -1,0 +1,5029 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "assay_office",
+ "commit": "116328f36d94691fa0d463961b1fe12d8c9a42b4",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": "night",
+ "pace": 1.25,
+ "candidates": [
+  {
+   "declared": "art/backgrounds/room-05-assay-office.png",
+   "rendered": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+  },
+  {
+   "declared": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "rendered": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+  },
+  {
+   "declared": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "rendered": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+   "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+  }
+ ],
+ "entryRoute": "assay-office",
+ "lifeRoute": "assay-office-life",
+ "durationSeconds": 214.69,
+ "events": [
+  {
+   "t": 3.52,
+   "line": "entry route assay-office: 23 action(s)"
+  },
+  {
+   "t": 104.34,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 104.34,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 104.34,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 104.34,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 104.34,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 104.34,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 104.34,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 104.34,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 104.34,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 104.34,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 104.34,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 104.34,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 104.34,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 104.34,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 104.34,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 104.34,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 104.34,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 104.34,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 104.34,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 104.34,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 104.34,
+   "line": "action 21 (click): clicked main_street/to_assay_office at world 3113,479 -- Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
+  },
+  {
+   "t": 104.34,
+   "line": "action 22 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 104.34,
+   "line": "action 23 (wait): waited 3s"
+  },
+  {
+   "t": 104.38,
+   "line": "in assay_office; life route: 73 action(s)"
+  },
+  {
+   "t": 104.88,
+   "line": "capture p01-door-start: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 104.97,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 105.21,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- TALK TO Winnie from here"
+  },
+  {
+   "t": 106.28,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     745,
+     761
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 106.41,
+   "line": "action 1 (wait): waited 1.2s"
+  },
+  {
+   "t": 106.96,
+   "line": "capture p01-door-walking: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 107,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 107.5,
+   "line": "capture p01-door-arrived: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 108.51,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 109.51,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 110.52,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 111.54,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 112.52,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 112.67,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 113.17,
+   "line": "capture p01-door-list: room assay_office, says null, options 3, control null"
+  },
+  {
+   "t": 113.39,
+   "line": "action 1 (option): chose option winnie5 -- I should go."
+  },
+  {
+   "t": 114.43,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 115.35,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 116.36,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 116.86,
+   "line": "action 1 (wait): waited 1.5s"
+  },
+  {
+   "t": 117.36,
+   "line": "capture p01-door-released: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 117.48,
+   "line": "action 1 (click): clicked screen 1750,770 -- walk to the far-right start: the far right of the middle band, past the counter"
+  },
+  {
+   "t": 118.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1449,
+     766
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 119.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     769
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 120.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     769
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 121.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     769
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 122.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     769
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 123.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     769
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 124.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1690,
+     769
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 125.48,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 125.98,
+   "line": "capture p02-far-right-start: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 126.06,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 126.3,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- TALK TO Winnie from here"
+  },
+  {
+   "t": 127.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1169,
+     763
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 127.5,
+   "line": "action 1 (wait): waited 1.2s"
+  },
+  {
+   "t": 128.05,
+   "line": "capture p02-far-right-walking: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 128.07,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 128.62,
+   "line": "capture p02-far-right-arrived: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 129.64,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 130.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 131.64,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.63,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 133.65,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 133.9,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 134.43,
+   "line": "capture p02-far-right-list: room assay_office, says null, options 3, control null"
+  },
+  {
+   "t": 134.68,
+   "line": "action 1 (option): chose option winnie5 -- I should go."
+  },
+  {
+   "t": 135.69,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 136.54,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 137.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 138.04,
+   "line": "action 1 (wait): waited 1.5s"
+  },
+  {
+   "t": 138.59,
+   "line": "capture p02-far-right-released: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 138.71,
+   "line": "action 1 (click): clicked screen 560,822 -- walk to the near-left start: the near band, left, below the board"
+  },
+  {
+   "t": 139.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     559,
+     822
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 140.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     559,
+     822
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     559,
+     822
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 142.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     559,
+     822
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 143.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     559,
+     822
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 144.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     559,
+     822
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 145.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     559,
+     822
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146.72,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 147.26,
+   "line": "capture p03-near-left-start: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 147.34,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 147.59,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- TALK TO Winnie from here"
+  },
+  {
+   "t": 148.63,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 148.8,
+   "line": "action 1 (wait): waited 1.2s"
+  },
+  {
+   "t": 149.31,
+   "line": "capture p03-near-left-walking: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 149.34,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 149.86,
+   "line": "capture p03-near-left-arrived: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 150.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.89,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 152.87,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 153.88,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.4,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 154.93,
+   "line": "capture p03-near-left-list: room assay_office, says null, options 3, control null"
+  },
+  {
+   "t": 155.13,
+   "line": "action 1 (option): chose option winnie5 -- I should go."
+  },
+  {
+   "t": 156.16,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.06,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 158.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 158.57,
+   "line": "action 1 (wait): waited 1.5s"
+  },
+  {
+   "t": 159.26,
+   "line": "capture p03-near-left-released: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 159.39,
+   "line": "action 1 (click): clicked screen 1250,712 -- walk to the far-band-right start: the far band under the scales"
+  },
+  {
+   "t": 160.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1249,
+     711
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1249,
+     711
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1249,
+     711
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1249,
+     711
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 164.43,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1249,
+     711
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1249,
+     711
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1249,
+     711
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.39,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 167.91,
+   "line": "capture p04-far-band-right-start: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 167.98,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 168.22,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- TALK TO Winnie from here"
+  },
+  {
+   "t": 169.24,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.43,
+   "line": "action 1 (wait): waited 1.2s"
+  },
+  {
+   "t": 169.96,
+   "line": "capture p04-far-band-right-walking: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 169.99,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 170.52,
+   "line": "capture p04-far-band-right-arrived: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 171.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.53,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.54,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.55,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.09,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 175.62,
+   "line": "capture p04-far-band-right-list: room assay_office, says null, options 3, control null"
+  },
+  {
+   "t": 175.87,
+   "line": "action 1 (option): chose option winnie5 -- I should go."
+  },
+  {
+   "t": 176.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.75,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 178.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.25,
+   "line": "action 1 (wait): waited 1.5s"
+  },
+  {
+   "t": 179.77,
+   "line": "capture p04-far-band-right-released: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 179.91,
+   "line": "action 1 (click): clicked screen 1450,820 -- walk to the near-right start: the near band, right"
+  },
+  {
+   "t": 180.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1449,
+     787
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 181.92,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1449,
+     819
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.92,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1449,
+     819
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1449,
+     819
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1449,
+     819
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1449,
+     819
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1449,
+     819
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.91,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 188.41,
+   "line": "capture p05-near-right-start: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 188.5,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 188.76,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- TALK TO Winnie from here"
+  },
+  {
+   "t": 189.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     787
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 189.97,
+   "line": "action 1 (wait): waited 1.2s"
+  },
+  {
+   "t": 190.47,
+   "line": "capture p05-near-right-walking: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 190.5,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 190.99,
+   "line": "capture p05-near-right-arrived: room assay_office, says \"winnie\", options 0, control null"
+  },
+  {
+   "t": 192.04,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 193,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 194.01,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 195.01,
+   "trace": {
+    "says": "winnie",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 195.86,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 196.39,
+   "line": "capture p05-near-right-list: room assay_office, says null, options 3, control null"
+  },
+  {
+   "t": 196.61,
+   "line": "action 1 (option): chose option winnie5 -- I should go."
+  },
+  {
+   "t": 197.64,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.47,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 199.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     930,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.97,
+   "line": "action 1 (wait): waited 1.5s"
+  },
+  {
+   "t": 200.49,
+   "line": "capture p05-near-right-released: room assay_office, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "p01-door-start",
+   "why": "start 1: door",
+   "t": 104.87,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p01-door-start.png",
+   "hash": "ffb6205b43f074559e5efc95fb71dfbb6ccd5a1259b4cb6fb8a3173628c0e0ef",
+   "room": "assay_office",
+   "clock": 104.59530000000001,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      765
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 515,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      -67,
+      250,
+      534,
+      569
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p01-door-walking",
+   "why": "on the way",
+   "t": 106.96,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p01-door-walking.png",
+   "hash": "46fbc0a828d699d53873472be4e5eec763e3aed385b91d07d8cf768545fc6f17",
+   "room": "assay_office",
+   "clock": 106.6452,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p01-door-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "t": 107.49,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p01-door-arrived.png",
+   "hash": "f9ac9557b3074cf07a534aa7167678290fa185bb02cbc73ddd39b3d2402a92dd",
+   "room": "assay_office",
+   "clock": 107.1785,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p01-door-list",
+   "why": "WIN_A1, three rows",
+   "t": 113.17,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p01-door-list.png",
+   "hash": "0418041a3fb7b2fb116c9e99329e20428e71ad64e12cf8999f71edfd753dc519",
+   "room": "assay_office",
+   "clock": 112.87819999999999,
+   "control": null,
+   "says": null,
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p01-door-released",
+   "why": "control returned",
+   "t": 117.35,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p01-door-released.png",
+   "hash": "6bdf8c329ae17589284953e1fb3626dbbd0c2e10a3f9f49a2b46b8a29998fcaf",
+   "room": "assay_office",
+   "clock": 117.06139999999999,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p02-far-right-start",
+   "why": "start 2: far-right",
+   "t": 125.97,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p02-far-right-start.png",
+   "hash": "b3e83aa4b96f61eed8e15e7cc773d650a5ccbdf652c720062afa4667508c17a5",
+   "room": "assay_office",
+   "clock": 125.6777,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1690,
+      769
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 518,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      1421,
+      251,
+      537,
+      572
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p02-far-right-walking",
+   "why": "on the way",
+   "t": 128.04,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p02-far-right-walking.png",
+   "hash": "3cf4eb69e0ed0e219f27520ac97c613edc440f8f77d31b49e1e1db4f2861b496",
+   "room": "assay_office",
+   "clock": 127.711,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p02-far-right-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "t": 128.61,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p02-far-right-arrived.png",
+   "hash": "3cf4eb69e0ed0e219f27520ac97c613edc440f8f77d31b49e1e1db4f2861b496",
+   "room": "assay_office",
+   "clock": 128.2943,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p02-far-right-list",
+   "why": "WIN_A1, three rows",
+   "t": 134.42,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p02-far-right-list.png",
+   "hash": "b594da31c99352722e38d3a7bd729a8d43168aeb3e2e7753f59cf28e95387150",
+   "room": "assay_office",
+   "clock": 134.1274,
+   "control": null,
+   "says": null,
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p02-far-right-released",
+   "why": "control returned",
+   "t": 138.59,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p02-far-right-released.png",
+   "hash": "9a5b88f26885d78529c90bb86b5090dd202cabdf1f180d2e7f7cc0a7457099a1",
+   "room": "assay_office",
+   "clock": 138.2439,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p03-near-left-start",
+   "why": "start 3: near-left",
+   "t": 147.25,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p03-near-left-start.png",
+   "hash": "65cdd4667643fdaad00ce8a6edf95e8663f530153ff38224d2decf1f8751174c",
+   "room": "assay_office",
+   "clock": 146.9102,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      559,
+      822
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 554,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-04.png",
+     "bounds": [
+      230,
+      268,
+      657,
+      612
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p03-near-left-walking",
+   "why": "on the way",
+   "t": 149.3,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p03-near-left-walking.png",
+   "hash": "2de3112f02b85bf5f7390fb069c74ec97fb02ee14a09ecaa273ca5e20e089239",
+   "room": "assay_office",
+   "clock": 149.0101,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p03-near-left-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "t": 149.85,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p03-near-left-arrived.png",
+   "hash": "2de3112f02b85bf5f7390fb069c74ec97fb02ee14a09ecaa273ca5e20e089239",
+   "room": "assay_office",
+   "clock": 149.5601,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p03-near-left-list",
+   "why": "WIN_A1, three rows",
+   "t": 154.92,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p03-near-left-list.png",
+   "hash": "601dd7a79188c3f7b755d2e6c71e03228b13119cf93835c3ed476105027bec87",
+   "room": "assay_office",
+   "clock": 154.6266,
+   "control": null,
+   "says": null,
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p03-near-left-released",
+   "why": "control returned",
+   "t": 159.25,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p03-near-left-released.png",
+   "hash": "4db69e2532b6f9c7a8196a374a6fa5075c573c7e521c5d83ad3bc91d643cea32",
+   "room": "assay_office",
+   "clock": 158.7931,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p04-far-band-right-start",
+   "why": "start 4: far-band-right",
+   "t": 167.9,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p04-far-band-right-start.png",
+   "hash": "f62e7ed84c743eaf63a5000e2129b943bf55b2b42e8673a71fc219755ef58830",
+   "room": "assay_office",
+   "clock": 167.6094,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1249,
+      711
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 478,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      966,
+      233,
+      566,
+      528
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p04-far-band-right-walking",
+   "why": "on the way",
+   "t": 169.95,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p04-far-band-right-walking.png",
+   "hash": "9675a6f538560f973c07776c920238c8791ed66b361b804df113148e09d9252c",
+   "room": "assay_office",
+   "clock": 169.6593,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p04-far-band-right-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "t": 170.51,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p04-far-band-right-arrived.png",
+   "hash": "a8253a1cfb7dedbda7d2ab5271f48c4a5438ef026a45bf62852b126f74a04f04",
+   "room": "assay_office",
+   "clock": 170.20929999999998,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p04-far-band-right-list",
+   "why": "WIN_A1, three rows",
+   "t": 175.62,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p04-far-band-right-list.png",
+   "hash": "ac2888c7765ecd4355838f5b1c1b89f1b135ce887b4a323d6f5ee3be368b4286",
+   "room": "assay_office",
+   "clock": 175.3091,
+   "control": null,
+   "says": null,
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p04-far-band-right-released",
+   "why": "control returned",
+   "t": 179.76,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p04-far-band-right-released.png",
+   "hash": "1e2f73d5d0981f2bb8fb1dd72c0b9bb92452d6002006d41f46331269b30d3f51",
+   "room": "assay_office",
+   "clock": 179.4589,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p05-near-right-start",
+   "why": "start 5: near-right",
+   "t": 188.4,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p05-near-right-start.png",
+   "hash": "e32d8a19ee065d24c8b777eb39e640390a43e09e997e8f857ed949635b96c29f",
+   "room": "assay_office",
+   "clock": 188.1086,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1449,
+      819
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 552,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-01.png",
+     "bounds": [
+      1122,
+      267,
+      654,
+      609
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p05-near-right-walking",
+   "why": "on the way",
+   "t": 190.47,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p05-near-right-walking.png",
+   "hash": "5710aef632d12ca9912c95bffdaceecde54a8045bf07d4d17807f643506ad0cd",
+   "room": "assay_office",
+   "clock": 190.1585,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p05-near-right-arrived",
+   "why": "the same dialogue point and facing from every start",
+   "t": 190.98,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p05-near-right-arrived.png",
+   "hash": "5710aef632d12ca9912c95bffdaceecde54a8045bf07d4d17807f643506ad0cd",
+   "room": "assay_office",
+   "clock": 190.6918,
+   "control": null,
+   "says": "winnie",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p05-near-right-list",
+   "why": "WIN_A1, three rows",
+   "t": 196.38,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p05-near-right-list.png",
+   "hash": "63916ffdaa2d92093923ef45086cc1fa8759afe1b64d8422ba0dc4e4790836b6",
+   "room": "assay_office",
+   "clock": 196.075,
+   "control": null,
+   "says": null,
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "p05-near-right-released",
+   "why": "control returned",
+   "t": 200.48,
+   "file": "renders/proofs/assay-office-act1/approach/raw-captures-ignored/p05-near-right-released.png",
+   "hash": "ca25c15824148d9ddef356cf33aeb88bf3e6302642b067629ef2f51354693479",
+   "room": "assay_office",
+   "clock": 200.1747,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      930,
+      760
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 512,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      627,
+      248,
+      606,
+      565
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 2
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+     "candidate": true,
+     "loaded": true,
+     "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "at": "2026-09-05T09:02:56.602Z"
+}

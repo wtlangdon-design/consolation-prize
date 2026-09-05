@@ -76,7 +76,20 @@ export function projectOnCanvas(
  * a facing shares them.
  */
 export class ActorSprite {
+  /**
+   * RESAMPLED FRAMES, MOST RECENTLY USED LAST, AND BOUNDED. The key is the
+   * frame at one drawn size, and in a room that scales him by depth every row
+   * he walks down is another size of every frame he shows on the way: the
+   * cache filled with a canvas per (frame, height) pair and never let one go.
+   * The Act I pass in Room 5 lost its renderer after seven minutes and sixty
+   * captures, and the runs before it never stayed in one scaled room long
+   * enough to see it. A bound keeps the working set -- the handful of sizes
+   * he is at while standing -- and lets the walk's transients be remade.
+   */
   private readonly cache = new Map<string, HTMLCanvasElement>();
+  static readonly CACHE_LIMIT = 96;
+  /** How many resampled canvases are held right now. For the tests. */
+  cached(): number { return this.cache.size; }
   // Written out rather than declared as constructor parameter properties:
   // the tests run under node --experimental-strip-types, which erases types
   // and refuses anything that would need emitting.
@@ -259,11 +272,24 @@ export class ActorSprite {
 
     const key = `${path}:${drawnW}x${drawnH}`;
     let scaled = this.cache.get(key);
-    if (!scaled) {
+    if (scaled) {
+      // Re-inserting moves the key to the end: Map keeps insertion order, so
+      // the first key is always the least recently drawn.
+      this.cache.delete(key);
+    } else {
       const made = this.resample(image, source.width, source.height, drawnW, drawnH);
       if (!made) return null;
       scaled = made;
-      this.cache.set(key, scaled);
+    }
+    this.cache.set(key, scaled);
+    while (this.cache.size > ActorSprite.CACHE_LIMIT) {
+      const oldest = this.cache.keys().next().value;
+      if (oldest === undefined) break;
+      const gone = this.cache.get(oldest);
+      this.cache.delete(oldest);
+      // Release the bitmap's memory now rather than when the collector gets
+      // to it: a zero-size canvas holds no backing store.
+      if (gone) { gone.width = 0; gone.height = 0; }
     }
     context.drawImage(scaled, destX, destY);
     return landed;

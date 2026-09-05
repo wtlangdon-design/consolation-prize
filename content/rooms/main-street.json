@@ -670,14 +670,7 @@
           "note": "As the room composes. Winnie's door is shut because Winnie is working."
         },
         "open": {
-          "note": "Doc 22 item 9, and the appearance change that does NOT change identity: it is still THE ASSAY OFFICE, so it is one object with two states rather than the coach's two hotspots with opposite gates. The bounds widen by the swung leaf, which is why per-state bounds exist -- hit-testing the shut door's rect after it opens is the kind of wrongness nobody reports because it nearly works.",
-          "image": "art/objects/room-02-assay-door-open.png",
-          "bounds": [
-            1752,
-            300,
-            120,
-            192
-          ]
+          "note": "Doc 22 item 9, and the appearance change that does NOT change identity: it is still THE ASSAY OFFICE, so it is one object with two states rather than the coach's two hotspots with opposite gates. The bounds widen by the swung leaf, which is why per-state bounds exist -- hit-testing the shut door's rect after it opens is the kind of wrongness nobody reports because it nearly works.\n\nTHE LEAF IS NOT DRAWN, AND THE BOUNDS ARE THE DOOR'S OWN (2026-09-05, Room 5's Act I pass). The open state used to carry `room-02-assay-door-open.png` -- a 320x144 overlay cut from the composed facade errata 54 discarded (doc 36 Q20's void table) -- and bounds in that space, [1752,300,120,192]. Drawn, the overlay stretched across the whole 3700px plate as a smear beside the hotel; hit-tested, the bounds put the door in the middle of the road, so after the first pass through it the door could not be clicked where it is drawn and Room 5 could not be re-entered from the street. The state still turns on transit (the probe reports it), so the appearance change has a place to land when a leaf exists at plate scale; until then the door looks shut and works. Authoring that leaf is an art operation Tyler authorizes, not a fix."
         }
       },
       "overrides": {

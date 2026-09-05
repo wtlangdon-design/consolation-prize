@@ -1,0 +1,536 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5 ACT I: INTERRUPTION AND RESUME. Run by tools/gauntlet/frames.mjs. Ten conversations with Winnie, each begun at a different point of her work cycle (varied gaps), each exited at once; bursts every half second across the opening, the list, the exit and her return to work. Her loop is a pure function of the room clock, so what the bursts must show is: the look-up frame held while her tree is open, and the loop resumed the instant control returns -- never a frozen frame, never a restart.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "burst",
+   "name": "i00-before",
+   "seconds": 4,
+   "every": 0.5,
+   "why": "her work loop before any interruption"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 1"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i01-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i01-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i01-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 2,
+   "why": "then 2s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 2"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i02-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i02-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i02-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 5,
+   "why": "then 5s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 3"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i03-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i03-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i03-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 7,
+   "why": "then 7s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 4"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i04-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i04-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i04-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 3,
+   "why": "then 3s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 5"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i05-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i05-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i05-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "then 9s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 6"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i06-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i06-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i06-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 4,
+   "why": "then 4s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 7"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i07-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i07-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i07-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 6,
+   "why": "then 6s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 8"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i08-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i08-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i08-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 8,
+   "why": "then 8s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 9"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i09-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i09-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i09-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.5,
+   "why": "then 2.5s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "interruption 10"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40,
+   "why": "she looks up and speaks"
+  },
+  {
+   "do": "burst",
+   "name": "i10-opening",
+   "seconds": 2,
+   "every": 0.5,
+   "why": "she holds her look-up frame through the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "burst",
+   "name": "i10-list",
+   "seconds": 1.5,
+   "every": 0.5,
+   "why": "and through the list"
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "burst",
+   "name": "i10-resume",
+   "seconds": 6,
+   "every": 0.5,
+   "why": "the exit line, control returned, and her return to the ledger"
+  },
+  {
+   "do": "wait",
+   "seconds": 5.5,
+   "why": "then 5.5s of her loop before the next interruption -- a different point of the cycle each time"
+  },
+  {
+   "do": "burst",
+   "name": "i11-after",
+   "seconds": 10,
+   "every": 0.5,
+   "why": "her loop after ten interruptions, still the same clock"
+  }
+ ]
+}

@@ -1,0 +1,1492 @@
+{
+ "title": "ROOM 5 -- ACT I GAMEPLAY ACCEPTANCE PASS (2026-09-05): proven in the live build, awaiting Tyler",
+ "status": {
+  "Room 5 Act I gameplay": "awaiting Tyler acceptance",
+  "Room 5 later-act gameplay": "intentionally not implemented",
+  "Room 6": "stub; next room production scope"
+ },
+ "preflight": {
+  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+  "startHead": "4547490 (main b3045ef)",
+  "imageOperations": 0,
+  "pace": 1.25,
+  "paceNote": "B, for the proof only; not selected by this pass",
+  "visualState": "night"
+ },
+ "actIState": {
+  "ACT": 1,
+  "actWriter": "none built (doc 48 S1, Room 11)",
+  "absentFlags": [
+   "T_BORDERS_MOTT",
+   "T_ASSAY_QUEUE",
+   "T_NO_MOTT_GOLD",
+   "T_SECOND_LEDGER",
+   "T_STRIKE_FOUND",
+   "T_TUNES_PIANOS",
+   "T_PIKE_DEAD"
+  ],
+  "queueBench": "absent (gate ACT 2-4)",
+  "winnie": "at the counter, writing; tree opens on WIN_A1",
+  "unreachableTopics": {
+   "T_TUNES_PIANOS": "hotel clerk option hotel_clerk4 -- hotel_lobby/the_clerk is a stub hotspot without a tree",
+   "T_PIKE_DEAD": "undertaker option undertaker2 -- undertaker/the_undertaker is a stub hotspot without a tree"
+  },
+  "secondUrl": "not made: no later-Act-I topic state is producible by play in this build"
+ },
+ "gauntlet": {
+  "route": "assay-office-act1",
+  "commit": "384982d20c6e3713740356379cfd711ed0d2518c",
+  "passed": true,
+  "failures": [],
+  "durationSeconds": 489.09,
+  "captures": 65,
+  "laterActFlagLeaks": 0,
+  "roomTransitions": [
+   {
+    "t": 105.83,
+    "to": "main_street"
+   },
+   {
+    "t": 105.83,
+    "to": "assay_office"
+   },
+   {
+    "t": 443.14,
+    "to": "main_street"
+   },
+   {
+    "t": 445.75,
+    "to": "assay_office"
+   },
+   {
+    "t": 449.04,
+    "to": "main_street"
+   },
+   {
+    "t": 450.61,
+    "to": "assay_office"
+   },
+   {
+    "t": 462.31,
+    "to": "stub_assay_records"
+   },
+   {
+    "t": 464.53,
+    "to": "assay_office"
+   }
+  ],
+  "winA1Options": 3,
+  "winA2Options": 4,
+  "cuesAtEnd": 7,
+  "capturesList": [
+   {
+    "name": "a01-arrived-from-street",
+    "t": 106.35,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 0,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      765
+     ],
+     "right",
+     "idle"
+    ],
+    "hash": "a88d7f04af27632ce513314275c257028cd7dcac5f5cf138db9cc18859b34dd8"
+   },
+   {
+    "name": "a02-idle-30s",
+    "t": 136.84,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 0,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      765
+     ],
+     "right",
+     "idle"
+    ],
+    "hash": "21c10e9df57b1ae161e40a228f168ec462935015fb1766e969c3768152b83730"
+   },
+   {
+    "name": "a03-idle-60s",
+    "t": 167.33,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 0,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      765
+     ],
+     "right",
+     "idle"
+    ],
+    "hash": "c3c4552fca5d93d46829b4fa04e19c8cb589854f989f605e38f3ef5dae27149c"
+   },
+   {
+    "name": "a04-idle-75s",
+    "t": 182.84,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 0,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      765
+     ],
+     "right",
+     "idle"
+    ],
+    "hash": "3b71e96c2e79f15fb417112e1f3ab53b8c54b54f4c09d6f570bcab3e1413c5e6"
+   },
+   {
+    "name": "a05-crossed-board",
+    "t": 190.5,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 1,
+    "board": "rest",
+    "thad": [
+     [
+      1099,
+      765
+     ],
+     "right",
+     "idle"
+    ],
+    "hash": "b8b2975d812c44e54547cbe2ff5add53ed24874afc84a5c8e7af318d12c07966"
+   },
+   {
+    "name": "a06-crossed-back",
+    "t": 198.13,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 2,
+    "board": "rest",
+    "thad": [
+     [
+      339,
+      765
+     ],
+     "left",
+     "idle"
+    ],
+    "hash": "93ec45c21a29fca1d8ca437ba01d57402c9755a60a026c74e5a53641b830de98"
+   },
+   {
+    "name": "a07-bench-absent",
+    "t": 205.53,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1690,
+      700
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "d2c3c9108962f8a313cdf5c0eaeb3ecb5529df6923c291cdfec65ecd803d2d4d"
+   },
+   {
+    "name": "a08-look-window-sign",
+    "t": 209.69,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      358,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "063b5d1ebc8d5528001a252d3178c9de5c650b3484ad866ed00c16a0ab0ab56d"
+   },
+   {
+    "name": "a09-listen-window-sign",
+    "t": 215.28,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      358,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "f165c165b00450512dd10a1816ec2e5dffb606b9f7bd5f26514ed02ccbaaac79"
+   },
+   {
+    "name": "a10-look-scales",
+    "t": 222.85,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1303,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "8a69162fdd93d49967175a026bd700a9134a0385b55678837264176bc87b75c3"
+   },
+   {
+    "name": "a11-listen-scales",
+    "t": 227.7,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1303,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "fc039ca09d4b739bf3a5e790440fc675c443edd62d6c09d53423c4bb9a919bd8"
+   },
+   {
+    "name": "a12-look-queue-book",
+    "t": 233.78,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1200,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "d5cbf77ae1e3a64a83c7660bdf9890e8b5fe043ab217ea4bc71008c305dd602e"
+   },
+   {
+    "name": "a13-listen-queue-book",
+    "t": 237.83,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1200,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "f9339d75e9fde1d05efe98d40a32a892de4ed7cbc0ae694600b7581234fcdd9b"
+   },
+   {
+    "name": "a14-look-floorboard",
+    "t": 241.44,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      605,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "8205496f0731b2608eaf0ed15104bf61b51a94737b3d1b9999253449a935f9ce"
+   },
+   {
+    "name": "a15-listen-floorboard",
+    "t": 245.03,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      605,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "fb109ea12e82478086ff2d5a117d5f028dfb9aa8cb8827a85b174fb8d9c20834"
+   },
+   {
+    "name": "a16-look-sample-shelves",
+    "t": 248.95,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1131,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "51f60615b5ffadc0dc3dff3f303d1ab62a3e3d64ea0c8366f7535f03b76079ef"
+   },
+   {
+    "name": "a17-listen-sample-shelves",
+    "t": 254.16,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1131,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "410e274326c7ad7153f07c1f11b7fd12cdd82313f082250d9fb26484d7820d54"
+   },
+   {
+    "name": "a18-look-her-pen",
+    "t": 260.02,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      931,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "e79e61cf66feb4359b6a7a0af326152fe1942c105bf00dfa0053dd86d141bdf0"
+   },
+   {
+    "name": "a19-listen-her-pen",
+    "t": 264.66,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      931,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "aa0d40b4159e6262aa945f4c3bd368a40be4bb0e95ded5f7732b42e31fade476"
+   },
+   {
+    "name": "a20-look-certificate",
+    "t": 268.01,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1448,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "67894e1d9e138ce8dbecd168bcbd58d3a108fdf67fe6a56735c2cd85b74a6395"
+   },
+   {
+    "name": "a21-listen-certificate",
+    "t": 272.77,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      1448,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "f8fbc876a1e93d995db663e3f83689af2d389d9cfdf16ecb157fbbd4244b2687"
+   },
+   {
+    "name": "a22-look-stove",
+    "t": 276.71,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      608,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "7e355748f4b720cf2018f3527ead71606c4effd39f6cfa49c2016f0bdd287635"
+   },
+   {
+    "name": "a23-listen-stove",
+    "t": 281.95,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      608,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "60449cdc9b01675568984a19f23478dbbe20c484ae28d4177be958a53915b1ce"
+   },
+   {
+    "name": "a24-look-hanging-lamp",
+    "t": 285.18,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      973,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "1c619c8e929c1360df15c5b7c0d6b2fa87062fadf57e3756ca1e415ed25d4569"
+   },
+   {
+    "name": "a25-listen-hanging-lamp",
+    "t": 289.37,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      973,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "23aac6ee64814f463d7e2e8c88ce489d46fadc17ec77dbfa5ed796186ba75392"
+   },
+   {
+    "name": "a26-look-back-to-street",
+    "t": 293.65,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      760
+     ],
+     "left",
+     "idle"
+    ],
+    "hash": "d33d7676069021c088f1ae6029872fb9d4a5a30df1d161aca2e1627adb773653"
+   },
+   {
+    "name": "a27-listen-back-to-street",
+    "t": 297.57,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 3,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      760
+     ],
+     "left",
+     "idle"
+    ],
+    "hash": "995fa715caa8999b45f2b2bd6e0dc4e98942c9556f8c8f91b3f12fd6f44cf767"
+   },
+   {
+    "name": "a28-look-to-records",
+    "t": 304.65,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      1600,
+      704
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "bd9a5f555e05af8849140d23a2d93b909f9fbcea93ac861b0920ec03fad21dbe"
+   },
+   {
+    "name": "a29-listen-to-records",
+    "t": 310.44,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      1600,
+      704
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "003542bc69d2a495f8894fc660ebbf217a26002489955cfe017f65b0f6121f16"
+   },
+   {
+    "name": "a30-look-again-scales",
+    "t": 313.85,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      1303,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "8f12eb1382efbbc58ec2d69abaca93e412bfb6a94841d0184d68251680179181"
+   },
+   {
+    "name": "a31-look-again-floorboard",
+    "t": 318.4,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      605,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "9eaf65a9c2803463f873e8d54a98e6ed0ff5c672f00dfa9cc6618e4c32723c34"
+   },
+   {
+    "name": "a32-look-again-window-sign",
+    "t": 322.21,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      358,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "4fc824e2da3e5a13922268d09e2c7f204ed30c76db4b9ce64dacf82f7235d6aa"
+   },
+   {
+    "name": "a33-wrong-pick-up-her-pen",
+    "t": 328.34,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      931,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "b4fd4c07e80aa3690269d18f9ceddb2a6aacf9adba1afe36c26a28bc83b0f001"
+   },
+   {
+    "name": "a34-wrong-pull-floorboard",
+    "t": 331.43,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      605,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "8d5eb50a86a0ea2182a23fab88afca5391a67ef118bbb9c3426322a0676fbd7f"
+   },
+   {
+    "name": "a35-wrong-open-floorboard",
+    "t": 335.96,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      605,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "ac2f69097a8a8a7e3ecda940797ca41d68b6e56e076a526861608fd57f75a489"
+   },
+   {
+    "name": "a36-wrong-push-stove",
+    "t": 338.48,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      608,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "71f944c45bef7bed1f11215b3e37a3bc7d171d5331b5d85a944a66e3d836911b"
+   },
+   {
+    "name": "a37-wrong-use-scales",
+    "t": 344.88,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      1303,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "c55f71dc3c3818864088e1de2a36d51073d9a0a550d0d9cef050a33ca081b104"
+   },
+   {
+    "name": "a38-wrong-pick-up-queue-book",
+    "t": 347.67,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      1200,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "589c0408a95c6323e6dc38c7e8db03830e7bd4262f41f8394395a8a9675b7971"
+   },
+   {
+    "name": "a39-wrong-close-back-to-street",
+    "t": 354.21,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 4,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      760
+     ],
+     "left",
+     "idle"
+    ],
+    "hash": "a5c310c5bef76c8129fefdb0beedcf9420be05bed969364b3cf37d6148026d33"
+   },
+   {
+    "name": "a40-wrong-talk-to-certificate",
+    "t": 360.46,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      1448,
+      828
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "91a87b8a5aa01a30c866311fdb9f8cd34e0a5a3d39dcb276cc138abd09925e5c"
+   },
+   {
+    "name": "a41-win-a1-opening-1",
+    "t": 363.74,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 0,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "e05f3f674d6be00a960cc6ce78c61b64b818653f2386fdcf37db1125aa2a5d7f"
+   },
+   {
+    "name": "a42-win-a1-opening-2",
+    "t": 366.07,
+    "room": "assay_office",
+    "says": "thad",
+    "options": 0,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "597219eaa10065e4b74a44480e70ae9270087400cd2a23a47eeb0aaf2c9ceffd"
+   },
+   {
+    "name": "a43-win-a1-opening-3",
+    "t": 367.93,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 0,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "ab4bf1615afd8025e5481d4c8e90774dbf674108f2c2d32a76119243b938565c"
+   },
+   {
+    "name": "a44-win-a1-list",
+    "t": 369.78,
+    "room": "assay_office",
+    "says": null,
+    "options": 3,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "d7b8046f388625ccd0945fe44a20d35671bf552e75e197e1d4f40d92ac7f0685"
+   },
+   {
+    "name": "a45-win-a1-topic",
+    "t": 372.69,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 3,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "68cb1b8c048d7aa989615cb3978f50cfd3dda50a0ae67e7bffd2d9209a17b71e"
+   },
+   {
+    "name": "a46-win-a1-list-after-topic",
+    "t": 377.37,
+    "room": "assay_office",
+    "says": null,
+    "options": 3,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "d93d72a11505af4d9e153d52b10df932b21c0b43329dfd3213c4fcd2814330e2"
+   },
+   {
+    "name": "a47-win-a1-progress",
+    "t": 380.5,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 3,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "c8870a2957e24d81718a5b02015c9b56bc0da5a7334c99a827719d079075be71"
+   },
+   {
+    "name": "a48-win-a2-list",
+    "t": 383.35,
+    "room": "assay_office",
+    "says": null,
+    "options": 4,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle-break"
+    ],
+    "hash": "6d4dcfda731ebcc424a4714cfb5b818cb49e29b0e6367341893c25df2eb64f0a"
+   },
+   {
+    "name": "a49-win-a2-wait",
+    "t": 386.25,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 4,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle-break"
+    ],
+    "hash": "76105bc2c1a3bd142d4c232297fccec9851f90366f2ceee2ec0275ae0287f160"
+   },
+   {
+    "name": "a50-win-a2-number",
+    "t": 390.07,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 4,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "f5de0e83cd5b56a883868c8f6bbb434f3dc68b4f6bf38a0f2f68f9b38aaea2fb"
+   },
+   {
+    "name": "a51-win-a2-number-again",
+    "t": 394.03,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 4,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "bb80563cb793ac79afb2ad6044e42886dfa4b77699eb4e2c286db1ea12b25ebc"
+   },
+   {
+    "name": "a52-win-a2-sign",
+    "t": 397.94,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 4,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "7ce339d26d3689921f98af8a56ae3430aed35e8b42787d5de28379b0b2422072"
+   },
+   {
+    "name": "a53-win-a2-list-exhausted",
+    "t": 402.96,
+    "room": "assay_office",
+    "says": null,
+    "options": 4,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle-break"
+    ],
+    "hash": "056554ecbbe03c9166c59a90123f8514b154e1d7c844952a949509bec9ba5292"
+   },
+   {
+    "name": "a54-win-a2-exit-line",
+    "t": 407.44,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 4,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "f30e59ce4eea8e10730f58ddda703faf66ed97f048784a10831fa903c02f0db2"
+   },
+   {
+    "name": "a55-after-talk",
+    "t": 411.25,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "f91b90805526adfe0399988cb37d8e2fafa4dcd71660d68ef6811b3f6ade7887"
+   },
+   {
+    "name": "a56-back-at-work",
+    "t": 420.73,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "90a46cae3e66d086afb109c0c3e1f36669f67b278f25cd12a32653bc299af059"
+   },
+   {
+    "name": "a57-talk-again-opening",
+    "t": 421.66,
+    "room": "assay_office",
+    "says": "winnie",
+    "options": 0,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "0a8645fb444bdee6e419855722b4f874d0f5db96635cd050d86d76cbf0204ab8"
+   },
+   {
+    "name": "a58-talk-again-list",
+    "t": 427.65,
+    "room": "assay_office",
+    "says": null,
+    "options": 3,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "8d3f1c39a77e141ee301af18ad76e0daa83903d4c2b53bd968fc8cc68a597d83"
+   },
+   {
+    "name": "a59-talk-again-win-a2",
+    "t": 433.7,
+    "room": "assay_office",
+    "says": null,
+    "options": 4,
+    "ACT": 1,
+    "cues": 5,
+    "board": "rest",
+    "thad": [
+     [
+      930,
+      760
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "ed49b914ff3f85b83b625c01e36adf94431d85b470c36d3c42a67e8693658d71"
+   },
+   {
+    "name": "a60-on-main-street",
+    "t": 445.18,
+    "room": "main_street",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 6,
+    "board": null,
+    "thad": [
+     [
+      3113,
+      627
+     ],
+     "front",
+     "idle"
+    ],
+    "hash": "dfd21aa9859c24898d92a053626ecadbd8d9d3d4d98f7538576391b663361bf2"
+   },
+   {
+    "name": "a61-re-entered-1",
+    "t": 448.25,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 6,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      765
+     ],
+     "right",
+     "idle"
+    ],
+    "hash": "b56925288e778825c06c1241f4042234b2faf05d8a6b3b5493514f2a3c63d283"
+   },
+   {
+    "name": "a62-re-entered-2",
+    "t": 453.08,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 6,
+    "board": "rest",
+    "thad": [
+     [
+      200,
+      765
+     ],
+     "right",
+     "idle"
+    ],
+    "hash": "75cd446052c885d904e0df1087d8ce095a8855f9db1e8d7f0192fc9b714f3b9d"
+   },
+   {
+    "name": "a63-crossed-after-reentry",
+    "t": 460.71,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 7,
+    "board": "rest",
+    "thad": [
+     [
+      1099,
+      765
+     ],
+     "right",
+     "idle"
+    ],
+    "hash": "560eec699f0a3c0f440bff51e32e1e04eb716c67d8f2bed3a1e9254b379c7167"
+   },
+   {
+    "name": "a64-records-stub",
+    "t": 464.21,
+    "room": "stub_assay_records",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 7,
+    "board": null,
+    "thad": [
+     [
+      960,
+      863
+     ],
+     "back",
+     "idle"
+    ],
+    "hash": "4f8c7aa348bd38a00536fc25dd03de088b208f6643440981c328eba2b010daca"
+   },
+   {
+    "name": "a65-back-from-records",
+    "t": 467.03,
+    "room": "assay_office",
+    "says": null,
+    "options": 0,
+    "ACT": 1,
+    "cues": 7,
+    "board": "rest",
+    "thad": [
+     [
+      1600,
+      706
+     ],
+     "front",
+     "idle"
+    ],
+    "hash": "ddc9b18c197aa43516c1efb1c1024146c4942f0e2cd328ae7d564230541ac56c"
+   }
+  ]
+ },
+ "reentry": {
+  "route": "assay-office-act1-reentry",
+  "commit": "0cc46cb7bf7e62985b2c1aff92ad43a4e133831a",
+  "passed": true,
+  "failures": [],
+  "roundTrips": 3,
+  "streetArrival": [
+   [
+    3113,
+    627
+   ],
+   [
+    3113,
+    627
+   ],
+   [
+    3113,
+    627
+   ]
+  ],
+  "reentryArrival": [
+   [
+    200,
+    765
+   ],
+   [
+    200,
+    765
+   ],
+   [
+    200,
+    765
+   ]
+  ]
+ },
+ "approach": {
+  "route": "assay-office-act1-approach",
+  "commit": "116328f36d94691fa0d463961b1fe12d8c9a42b4",
+  "passed": true,
+  "failures": [],
+  "starts": [
+   [
+    200,
+    765
+   ],
+   [
+    1690,
+    769
+   ],
+   [
+    559,
+    822
+   ],
+   [
+    1249,
+    711
+   ],
+   [
+    1449,
+    819
+   ]
+  ],
+  "arrivals": [
+   [
+    [
+     930,
+     760
+    ],
+    "back",
+    "winnie"
+   ],
+   [
+    [
+     930,
+     760
+    ],
+    "back",
+    "winnie"
+   ],
+   [
+    [
+     930,
+     760
+    ],
+    "back",
+    "winnie"
+   ],
+   [
+    [
+     930,
+     760
+    ],
+    "back",
+    "winnie"
+   ],
+   [
+    [
+     930,
+     760
+    ],
+    "back",
+    "winnie"
+   ]
+  ],
+  "listRows": [
+   3,
+   3,
+   3,
+   3,
+   3
+  ]
+ },
+ "interrupt": {
+  "route": "assay-office-act1-interrupt",
+  "commit": "bd5a734a33786d4d371df1525b18918fbcb21d8e",
+  "interruptions": 10,
+  "stills": 171,
+  "analysis": "per burst, Winnie's drawn frame classified against her night sheet over the frame-identifying pixels: opening and list bursts all frame 4 (look-up); every resume burst leaves frame 4 for a work frame within three stills; before/after bursts work frames only. All 32 bursts OK.",
+  "locomotionWhileStill": 0
+ },
+ "input": {
+  "route": "assay-office-act1-input",
+  "commit": "d441c38184392d435bb225a85c02f9c2962f6b84",
+  "samples": 777,
+  "changes": 262,
+  "bursts": 96,
+  "failedActions": [],
+  "locomotionWhileStill": 0
+ },
+ "stationary": {
+  "route": "assay-office-stationary",
+  "commit": "140be0990826924fcdbc912c9b7a22ecc69d6f32",
+  "samples": 665,
+  "changes": 71,
+  "clipsWhileStill": [
+   "idle",
+   "idle-break"
+  ],
+  "locomotionWhileStill": 0
+ },
+ "defectsFixed": [
+  {
+   "where": "content/rooms/main-street.json exits[to_assay_office].states.open",
+   "what": "a 320x144 overlay (errata 54 void, doc 36 Q20) drawn stretched across the 3700px plate after the first transit, and bounds [1752,300,120,192] in that space that made the door unclickable where it is drawn: Room 5 could not be re-entered from the street",
+   "fix": "image and bounds removed; the state still turns on transit; the leaf at plate scale is an art operation Tyler authorizes",
+   "evidence": "renders/proofs/assay-office-act1/reentry (3 round trips, arrival (3113,627) on the street and (200,765) inside each time); measured overlay difference 17.6 vs 0.9 control on the pre-fix a60 capture"
+  },
+  {
+   "where": "engine/scenes/GameScene.ts arrivalLines",
+   "what": "onEnter.walkTo (Main Street's first-sight walk to (3300,706)) replayed on every entry",
+   "fix": "gated by the same sayOnce flag as the lines",
+   "evidence": "pre-fix reentry trace: arrival (3113,627) then a walk to (3300,706); post-fix: (3113,627) held"
+  },
+  {
+   "where": "engine/core/Opening.ts playfieldClick, GameScene.onPointerDown",
+   "what": "a click on the last line of a conversation's spoken opening fell through to walk/interact: Thad walked from the dialogue point to the scales during Winnie's greeting and her list opened with him there and a refusal under it; a click during the walk to talk redirected the walk and the greeting fired from wherever he stopped",
+   "fix": "greeting clicks are spent (doc 30 4.2); a click during the walk to talk cancels the conversation (doc 22 change of mind)",
+   "evidence": "input route w06b (redirect: no conversation opens) and w07 (clicks, verbs and exits with the list open: Thad stays at (930,760), room unchanged); tests/opening.test.ts"
+  }
+ ],
+ "alsoFixed": [
+  {
+   "where": "engine/render/ActorSprite.ts",
+   "what": "unbounded resampled-frame cache (a canvas per frame per drawn size)",
+   "fix": "bounded MRU map, dropped canvases released",
+   "test": "tests/actor-sprite-cache.test.ts",
+   "note": "suspected of the first run's lost page; was not the cause (the harness closed the page after the door timeout, and the contact sheet's single huge evaluate closed it once more)"
+  }
+ ],
+ "reentryAmbiguity": "every TALK TO opens WIN_A1 and replays its three-line opening (doc 30 line 213); the soil-assay row is [PROGRESS · remove] in doc 04 but the runtime has no afterUse consumer (errata 57 interim: every option behaves as retain), so it stays, greyed, and re-selecting it replays its exchange and goes to WIN_A2; counted-repeat rows are greyed like the rest. Reported, not resolved.",
+ "laterActAudit": "docs/36-issue-list.md Q109",
+ "deployment": null,
+ "at": "2026-09-05T10:05:35.818Z"
+}

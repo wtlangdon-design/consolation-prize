@@ -1,0 +1,157 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5 ACT I: STREET-DOOR ROUND TRIPS, isolated. The first Act I gauntlet run lost its page on the first re-entry from Main Street; this route does nothing but leave and come back three times, so the transition is reproduced on its own.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "r00-arrived",
+   "why": "first arrival from Main Street"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "round trip 1: out"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "r01-street",
+   "why": "on Main Street at the door",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "back in"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "r01-reentered",
+   "why": "re-entered",
+   "assert": {
+    "thadAt": [
+     200,
+     765,
+     4
+    ],
+    "facing": "right",
+    "act": 1
+   }
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "round trip 2: out"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "r02-street",
+   "why": "on Main Street at the door",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "back in"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "r02-reentered",
+   "why": "re-entered",
+   "assert": {
+    "thadAt": [
+     200,
+     765,
+     4
+    ],
+    "facing": "right",
+    "act": 1
+   }
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "round trip 3: out"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "capture",
+   "name": "r03-street",
+   "why": "on Main Street at the door",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "back in"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "r03-reentered",
+   "why": "re-entered",
+   "assert": {
+    "thadAt": [
+     200,
+     765,
+     4
+    ],
+    "facing": "right",
+    "act": 1
+   }
+  }
+ ]
+}

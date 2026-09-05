@@ -75,6 +75,11 @@ async function main() {
   try {
     const page = await chrome.newPage();
     page.on('pageerror', (error) => pageErrors.push(String(error.message ?? error)));
+    // A RENDERER CRASH IS A FAILURE WITH A NAME, NOT A LOST RUN. The Act I
+    // pass's first run lost its whole record when the page closed during a
+    // room transition and the contact sheet then threw on the closed page.
+    page.on('crash', () => { pageErrors.push('the page CRASHED (renderer gone)'); log('PAGE CRASHED'); });
+    page.on('close', () => log('page closed'));
     const visualState = flag('--state');
     const pace = flag('--pace');
     const query = [...candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`),
@@ -133,13 +138,20 @@ async function main() {
         room: frame.room, clock: frame.clock, control: frame.control, says: frame.says, options: frame.options,
         flags: frame.flags, counters: frame.counters, camera: frame.camera,
         movers: frame.movers,
+        // ROOM 5's ACT I PASS (2026-09-05): the object states, the cue count and
+        // the step triggers travel with the capture, so a board crossing is a
+        // count in the record and not an impression from the still.
+        states: frame.states ?? {}, cues: frame.cues ?? null, steps: frame.steps ?? {}, caption: Boolean(frame.caption),
         assets: frame.assets.map((a) => ({ ...a, hash: existsSync(resolve(ROOT, a.drawn ?? a.path)) ? sha(readFileSync(resolve(ROOT, a.drawn ?? a.path))) : null })),
         stubs, missingAssets: missing,
       };
       captures.push({ ...record, url });
       log(`capture ${action.name}: room ${frame.room}, says ${JSON.stringify(frame.says)}, options ${frame.options}, control ${frame.control}`);
 
-      const expectRoom = action.name.includes('records') ? 'stub_assay_records' : roomId;
+      // A CAPTURE MAY DECLARE ITS ROOM. The Act I pass leaves by the street
+      // door and comes back, and a still taken on Main Street is the proof of
+      // the round trip, not a wrong-room failure.
+      const expectRoom = action.room ?? (action.name.includes('records') ? 'stub_assay_records' : roomId);
       if (frame.room !== expectRoom) failures.push(`capture ${action.name}: room is ${frame.room}, expected ${expectRoom}`);
       if (stubs.length) failures.push(`capture ${action.name}: stub or fallback drew -- ${stubs.join(', ')}`);
       if (missing.length) failures.push(`capture ${action.name}: asset(s) never loaded -- ${missing.join(', ')}`);
@@ -172,12 +184,41 @@ async function main() {
           + `and the speaker is ${JSON.stringify(frame.says)} -- the action produced no line, or the capture missed its hold`);
       }
       if (action.name === '08-dialogue-open' && !(frame.options > 0)) failures.push('capture 08: no dialogue options on offer');
+      // AN EXACT OPTION COUNT, where the route declares one: WIN_A1 at Act I is
+      // three rows (two gated topics absent), WIN_A2 is four, and a list of the
+      // wrong length is a gate or a node the pass did not expect.
+      if (action.assert?.options !== undefined && frame.options !== action.assert.options) {
+        failures.push(`capture ${action.name}: ${frame.options} option(s) on offer, expected ${action.assert.options}`);
+      }
+      // THE CUE COUNT, where the route declares one: one creak per crossing.
+      if (action.assert?.cues !== undefined && (frame.cues?.count ?? 0) !== action.assert.cues) {
+        failures.push(`capture ${action.name}: ${frame.cues?.count ?? 0} cue(s) fired so far, expected ${action.assert.cues}`);
+      }
+      if (action.assert?.thadAt) {
+        const at = frame.movers.thad?.at ?? [NaN, NaN];
+        const [wx, wy, tol] = action.assert.thadAt;
+        if (Math.abs(at[0] - wx) > tol || Math.abs(at[1] - wy) > tol) failures.push(`capture ${action.name}: Thad at ${at.join(',')}, expected within ${tol}px of ${wx},${wy}`);
+      }
+      if (action.assert?.facing && frame.movers.thad?.facing !== action.assert.facing) {
+        failures.push(`capture ${action.name}: Thad faces ${frame.movers.thad?.facing}, expected ${action.assert.facing}`);
+      }
+      if (action.assert?.flagsAbsent) {
+        for (const id of action.assert.flagsAbsent) if (frame.flags.includes(id)) failures.push(`capture ${action.name}: flag ${id} is set and must not be at Act I`);
+      }
+      if (action.assert?.act !== undefined && (frame.counters.ACT ?? 1) !== action.assert.act) {
+        failures.push(`capture ${action.name}: ACT is ${frame.counters.ACT ?? 1}, expected ${action.assert.act}`);
+      }
     }
     for (const error of pageErrors) failures.push(`page error: ${error}`);
     if (dirty && !allowDirty) failures.push('working tree dirty; re-run with --allow-dirty to record it');
 
-    const sheet = await contactSheet(page, captures.map((c) => ({ name: c.name, url: c.url })));
-    writeFileSync(resolve(ROOT, `${outDir}/contact-sheet.${sheet.ext}`), sheet.bytes);
+    let sheet = null;
+    try {
+      sheet = await contactSheet(page, captures.map((c) => ({ name: c.name, url: c.url })));
+    } catch (error) {
+      failures.push(`contact sheet: ${String(error.message).split('\n')[0]}`);
+    }
+    if (sheet) writeFileSync(resolve(ROOT, `${outDir}/contact-sheet.${sheet.ext}`), sheet.bytes);
     const result = {
       schema: 1,
       note: 'ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.',
