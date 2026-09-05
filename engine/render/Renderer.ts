@@ -16,7 +16,7 @@ export function stateImagePath(shown: { image?: string; imageByState?: Record<st
   const state = askedState();
   return (state && shown.imageByState?.[state]) || shown.image;
 }
-import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
+import type { ActorFile, AmbientFile, Interactable, OverlayFile, RoomLamp } from '../core/types.ts';
 import { ActorSprite, type DrawnFrame } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import type { DrawRecord } from '../dev/Probe.ts';
@@ -774,7 +774,7 @@ export class Renderer {
     ctx.globalCompositeOperation = 'lighter';
     for (const lamp of lamps) {
       // A lamp that has left with the thing it hung on is not a lamp.
-      if (lamp.when && !this.state.flags.test(lamp.when)) continue;
+      if (!this.lampLive(lamp)) continue;
       const t = this.clock * lamp.rate + (lamp.phase ?? 0);
       // Two sines of different periods, so the flicker does not tick.
       const wave = 0.5 + 0.35 * Math.sin(t * Math.PI * 2) + 0.15 * Math.sin(t * Math.PI * 5.3);
@@ -1328,8 +1328,15 @@ export class Renderer {
    * and draws straight to the screen.
    */
   private masked(feetX: number, feetY: number, draw: () => void, override?: number): void {
-    const planes = this.state.room.occlusionPlanes;
-    if (!planes?.length) {
+    const planes = this.state.room.occlusionPlanes ?? [];
+    // A STATE IMAGE MAY OCCLUDE IN A ROOM WITH NO PLANES OF ITS OWN (Phase
+    // 1.5, doc 36 Q117): Main Street's trough is a companion that declares
+    // `occludes: [1]` over a plate whose masks are not yet cut, and the early
+    // return here drew Thad's legs over the water when he stood behind it.
+    // The level is looked up whenever anything could mask at it.
+    const stateOccludes = this.state.statefulTargets
+      .some((target) => (this.state.presentation(target)?.occludes?.length ?? 0) > 0);
+    if (!planes.length && !stateOccludes) {
       draw();
       return;
     }
@@ -1396,8 +1403,17 @@ export class Renderer {
   private tintAt(feetX: number, feetY: number): MoverTint | null {
     const lamps = this.state.room.lamps;
     if (!lamps?.length || !lamps.some((lamp) => lamp.movers)) return null;
-    const live = lamps.filter((lamp) => !lamp.when || this.state.flags.test(lamp.when));
+    const live = lamps.filter((lamp) => this.lampLive(lamp));
     return moverTint(live, feetX, feetY, askedState());
+  }
+
+  /** A lamp is live unless a flag condition or an object-state condition says otherwise. */
+  private lampLive(lamp: RoomLamp): boolean {
+    if (lamp.when && !this.state.flags.test(lamp.when)) return false;
+    for (const [id, wanted] of Object.entries(lamp.whenObject ?? {})) {
+      if (this.state.objectStateById(id) !== wanted) return false;
+    }
+    return true;
   }
 
   /**

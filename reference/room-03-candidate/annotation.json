@@ -1,6 +1,6 @@
 {
  "room": "nugget_candidate",
- "plate": "art/staging/room-03/clean-plate-02/candidate-1920x864.png",
+ "plate": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
  "plateSize": [
   1920,
   864
@@ -247,7 +247,10 @@
     "reach": 1.8,
     "radius": 260
    },
-   "note": "A fire in an iron box. It flickers hardest and fastest. Re-declared on the candidate at the stove's own position (the shipping declaration sat 235 px left of its drawn stove)."
+   "note": "A fire in an iron box. It flickers hardest and fastest. Re-declared on the candidate at the stove's own position (the shipping declaration sat 235 px left of its drawn stove). GATED ON THE STOVE'S OBJECT STATE (Phase 1.5): out means no pool and no field.",
+   "whenObject": {
+    "stove": "lit"
+   }
   },
   {
    "id": "bar_lamps",
@@ -315,5 +318,20 @@
   "of": "nugget",
   "stage": "CANDIDATE",
   "review": "live at ?room=nugget_candidate; the shipping room is untouched"
+ },
+ "plateNote": "PHASE 1.5 (doc 36 Q117): the accepted clean plate (clean-plate-02) corrected for canon -- the main floor re-materialised as compacted DIRT (the one authorized masked operation, art/staging/room-03/floor-01, every piece of furniture inside the mask restored from the accepted plate byte for byte) and the stove put OUT in the base with its fire lifted into the lit-state overlay (deterministic; 0 operations). Geometry is the accepted plate's: no rect moved. art/staging/room-03/corrected-01/derivation.json is the proof of what changed.",
+ "hotspotStates": {
+  "stove": {
+   "default": "lit",
+   "states": {
+    "lit": {
+     "image": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "note": "THE FIRE, LIFTED OUT OF THE PLATE as its own layer (Phase 1.5): the base plate's firebox is cold iron; this overlay is the fire the accepted plate painted, alpha-cut, drawn over it while the stove is lit. Phase 2's flicker animates THIS layer and nothing in the plate. 'A cast iron stove, lit, in July.'"
+    },
+    "out": {
+     "note": "Doc 16, THE STOVE LISTEN 3: 'Nothing. It has gone out and nobody has noticed.' Nothing is drawn: the base plate's cold firebox shows, the stove's runtime pool and its mover field are gated off (lamps.stove.whenObject). No trigger sets this state in Act I yet; the architecture holds it, and ?objects=stove=out shows it."
+    }
+   }
+  }
  }
 }

@@ -141,6 +141,22 @@ if (which === 'street-west') {
     extra: { editedFrom: `art/staging/room-03/clean-plate-source-${from}.png`,
       note: 'OPENING-SET RETROFIT PHASE 1: Nugget clean plate, refinement 2 of 2 -- the handbill and the back-room door restored under a mask; concrete defect in attempt 1.' },
   });
+} else if (which === 'nugget-floor') {
+  // PHASE 1.5, THE ONE AUTHORIZED FLOOR OPERATION: the clean plate's source
+  // edited under a mask that frees only the main saloon floor (art/staging/
+  // room-03/floor-01/floor-op.json records the mask, the polygon, the intended
+  // unchanged regions and why the deterministic attempt was not enough).
+  say('\nTHE NUGGET · DIRT FLOOR -- the plank floor re-materialised as compacted earth, under a mask\n');
+  await call({
+    assetId: 'nugget-floor', subject: 'room-03-nugget', baselineRoom: 'room-03-nugget',
+    promptFile: `proofs/room-03/prompts/dirt-floor-${n}.txt`,
+    images: ['art/staging/room-03/clean-plate-source-02.png', ...NUGGET_REFS.slice(1)],
+    mask: 'art/staging/room-03/floor-01/edit-mask.png',
+    out: `art/staging/room-03/floor-source-${n}.png`,
+    derived: `art/staging/room-03/floor-${n}/candidate-1920x864.png`,
+    extra: { editedFrom: 'art/staging/room-03/clean-plate-source-02.png', maskRecord: 'art/staging/room-03/floor-01/floor-op.json',
+      note: 'OPENING-SET RETROFIT PHASE 1.5: canon correction -- the Nugget has a DIRT floor (doc 05, doc 16). Masked to the main floor only; furniture inside the mask restored from the source afterwards. The owner-authorized 1 of 1 for the floor.' },
+  });
 } else if (which === 'nugget') {
   say('\nTHE NUGGET · CLEAN PLATE -- the same room, nobody in it, in Room 5\'s finish\n');
   await call({

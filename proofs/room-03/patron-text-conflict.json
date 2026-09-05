@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "note": "PATRON COUNT / TIME-OF-DAY TEXT CONFLICT (Phase 1.5 section 15). Recorded, not resolved: no authored prose is rewritten here.",
+ "ownerRuling": "NINE visible runtime patrons is the canonical visual population of the Nugget in normal Act I occupancy (Tyler, 2026-09-05).",
+ "timeOfDay": "Errata 64a: the canonical Act I / base presentation of Main Street is NIGHT, and the Nugget, entered from it, presents at night (the accepted candidate's windows are blue night; its lamps are lit).",
+ "conflictingLines": [
+  {
+   "where": "docs/16-room-03-content.md THE PATRONS LOOK 1",
+   "line": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
+   "conflict": "count (eleven vs nine) AND time (morning vs the night presentation)"
+  },
+  {
+   "where": "docs/16-room-03-content.md THE PATRONS LOOK 2",
+   "line": "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
+   "conflict": "count only (one word)"
+  },
+  {
+   "where": "docs/16-room-03-content.md THE STOVE LOOK 1",
+   "line": "A cast iron stove, lit, in July. Nobody has raised it and I am not going to be the first.",
+   "conflict": "none: season, not hour"
+  },
+  {
+   "where": "docs/16-room-03-content.md THE WINDOW LISTEN 3",
+   "line": "The stage has come in. Four days from Sacramento and eleven new men who think they are early.",
+   "conflict": "none: a different eleven (the stage's), not the patrons"
+  },
+  {
+   "where": "docs/00-errata.md ruling 19b table",
+   "line": "3 \u00b7 The Nugget | Eleven drinkers | 4 -- two at the bar, one at a far table, the man by the stove",
+   "conflict": "a superseded working target for ANIMATED figures; the owner ruling of nine visible runtime patrons replaces it as the count"
+  },
+  {
+   "where": "docs/19-19b-resolutions.md section 1 and its table",
+   "line": "Draw the crowd at the bar and the two far tables. Eleven men. The saloon is the social hub of a boomtown at eleven in the morning and it cannot be empty. / PATRONS v1, v3 | Draw in -- eleven men, bar and far tables",
+   "conflict": "count (eleven) and time (morning) and method (draw in): all three superseded -- the owner rules nine RUNTIME patrons, no human baked, at night"
+  }
+ ],
+ "laterAuthoritativeSource": "NONE FOUND. docs/00-errata.md, docs/48, docs/49 and doc 36 name no replacement for the PATRONS lines; the only later statement on the count is the owner ruling itself (this task).",
+ "proposedReplacementsForLook1": [
+  {
+   "id": "A",
+   "text": "Nine men drinking at nine at night, all of whom will be at their claims by seven and back here by dark.",
+   "why": "keeps the shape of the joke exactly (the count doubled as the hour; the timetable that runs the town); LOOK 2 needs 'The same nine' -- one word."
+  },
+  {
+   "id": "B",
+   "text": "Nine men drinking, at an hour when the claims are too dark to lie about, all of whom will be back at them by seven.",
+   "why": "keeps the timetable and adds the night without a clock; LOOK 2 needs 'The same nine'."
+  },
+  {
+   "id": "C",
+   "text": "Nine men drinking after dark, all of whom were at their claims by seven this morning and will be again by seven tomorrow. This is the part in between.",
+   "why": "the fullest night version; a beat longer; LOOK 2 'The same nine'."
+  }
+ ],
+ "look2Impact": "each proposal needs LOOK 2's 'eleven' -> 'nine' (one word); LOOK 3 unchanged; LISTEN 1-3 unchanged.",
+ "status": "AWAITING TYLER'S WORDING RULING. Not written into docs/16. The environment correction is not blocked by it."
+}

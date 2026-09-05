@@ -52,10 +52,10 @@
    120
   ],
   "water_trough": [
-   840,
-   505,
-   175,
-   95
+   1990,
+   559,
+   348,
+   135
   ],
   "church_steeple": [
    1530,
@@ -88,9 +88,9 @@
    224
   ],
   "dog": [
-   2630,
-   740,
-   150,
+   2700,
+   720,
+   130,
    60
   ]
  },
@@ -196,7 +196,46 @@
    "facing": "front"
   }
  },
- "hotspotStates": {},
+ "hotspotStates": {
+  "company_sign": {
+   "default": "weathered",
+   "states": {
+    "weathered": {
+     "image": "art/objects/room-02-candidate/company-sign-weathered.png",
+     "note": "THE LETTERING IS A LAYER, NOT THE PLATE (doc 35 section 6). The plate's board is blank; this is the shipping gilt art scaled to the board, dulled and flaked by a seeded erosion: 'the only sign in town that has been painted twice', peeling."
+    },
+    "gilt": {
+     "image": "art/objects/room-02-candidate/company-sign-gilt.png",
+     "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' The same lettering, fresh, over the same blank board. Set by doc 48's S2."
+    }
+   }
+  },
+  "posted_notices": {
+   "default": "ordinary",
+   "states": {
+    "ordinary": {
+     "image": "art/objects/room-02-candidate/notices-frame.png",
+     "note": "A framed board on the wall of the small structure under the Clarion's porch, the frame in the plate's own post wood with a cast shadow, so the papers read as a board and not as a papered wall fused into the next building (Tyler, Phase 1.5)."
+    },
+    "funeral": {
+     "image": "art/objects/room-02-candidate/notices-funeral.png",
+     "note": "Act III. The same frame plus the authored clean white sheet (posted-notices-act3.png at the plate's scale) pinned over the papers: 'Frame has finally found a spelling he cannot get wrong.' Set by doc 48's S2."
+    }
+   }
+  },
+  "water_trough": {
+   "default": "filled",
+   "states": {
+    "filled": {
+     "image": "art/objects/room-02-candidate/water-trough.png",
+     "occludes": [
+      1
+     ],
+     "note": "THE CANONICAL TROUGH, derived from the shipping plate's own (tools/retrofit/main-street-corrections.py): cut by polygon, scaled 1.9 with errata 63's kernel, relit to the candidate's mud, seated beside the east hitching rail in the fringe of the saloon's pool. Three inches of water. Its own silhouette masks a figure on the far mud behind it (plane 1)."
+    }
+   }
+  }
+ },
  "entrances": [
   {
    "from": "default",
@@ -290,12 +329,12 @@
   {
    "id": "trough",
    "rect": [
-    840,
-    540,
-    175,
-    60
+    1990,
+    650,
+    348,
+    42
    ],
-   "note": "the water trough on the boardwalk edge"
+   "note": "the water trough's footprint in the mud beside the east rail: its base sits on the mud_far/mud_mid seam at y 688, so a man in mud_far is behind it (plane 1) and a man in mud_mid is in front"
   }
  ],
  "lamps": [
@@ -394,16 +433,16 @@
   "planes": [],
   "clipPlane": {
    "boardwalk": 0,
-   "mud_far": 0,
+   "mud_far": 1,
    "mud_mid": 0,
    "mud_near": 0
   },
   "proofPoints": [],
-  "clipPlaneNote": "0 everywhere: masked by nothing, which is what a candidate whose masks are not yet cut actually is. The three occluders named above become planes 1.. only after Tyler accepts the plate (doc 36 Q116 phase 2), and the bands re-declare their planes then."
+  "clipPlaneNote": "mud_far is plane 1 (Phase 1.5): the water trough is a state image that declares occludes [1], so a figure standing on the far mud behind the trough is masked by it and nowhere else -- the layer is transparent everywhere but the trough. The rails and the trough remain planned occluder masks for the room's own planes (boardwalk and mud_mid/near stay 0)."
  },
  "plateNote": "MAIN STREET REPLACEMENT CANDIDATE 01 (opening-set retrofit phase 1, doc 36 Q116): two errata-63 panels (west, east) stitched at explicit cut columns (art/staging/room-02/street-candidate-01/stitch.json). Every rect below was read off this candidate on a 100 px grid. A CANDIDATE: the shipping street is untouched; this annotation compiles to the candidate room main_street_candidate, reachable only by the dev warp, for Tyler's review.",
  "acts": {},
- "hotspotStatesNote": "The Act III overlays (gilt sign, funeral notice) are cut from the SHIPPING plate and do not fit this candidate; they are re-cut as companions of whichever plate Tyler accepts. Not carried into the candidate room.",
+ "hotspotStatesNote": "PHASE 1.5 (doc 36 Q117): the three companions are derived, not painted -- the plate stays blank-boarded, unframed and troughless, and each state draws over it. The Act III companions are re-cut for THIS plate from the authored shipping elements (gilt lettering, funeral sheet).",
  "candidate": {
   "of": "main_street",
   "stage": "CANDIDATE",

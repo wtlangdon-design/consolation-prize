@@ -55,9 +55,9 @@
       "id": "dog",
       "name": "A DOG",
       "rect": [
-        2630,
-        740,
-        150,
+        2700,
+        720,
+        130,
         60
       ],
       "colour": 30,
@@ -88,49 +88,8 @@
         "PUSH": "I will not."
       },
       "walkTo": {
-        "x": 2705,
-        "y": 861,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "water_trough",
-      "name": "THE WATER TROUGH",
-      "rect": [
-        840,
-        505,
-        175,
-        95
-      ],
-      "colour": 150,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A trough. Three inches of water and a great deal of ambition.",
-            "repeat": [
-              "The water has not improved.",
-              "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Something is living in it. I have decided not to pursue this.",
-            "repeat": [
-              "It is still in there. It has moved.",
-              "We have reached an understanding."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
-        "OPEN": "It is a trough. It is entirely open. It is nothing but open."
-      },
-      "walkTo": {
-        "x": 928,
-        "y": 677,
+        "x": 2765,
+        "y": 863,
         "facing": "back"
       }
     },
@@ -145,6 +104,17 @@
       ],
       "colour": 200,
       "defaultVerb": "LOOK_AT",
+      "state": "ordinary",
+      "states": {
+        "ordinary": {
+          "image": "art/objects/room-02-candidate/notices-frame.png",
+          "note": "A framed board on the wall of the small structure under the Clarion's porch, the frame in the plate's own post wood with a cast shadow, so the papers read as a board and not as a papered wall fused into the next building (Tyler, Phase 1.5)."
+        },
+        "funeral": {
+          "image": "art/objects/room-02-candidate/notices-funeral.png",
+          "note": "Act III. The same frame plus the authored clean white sheet (posted-notices-act3.png at the plate's scale) pinned over the papers: 'Frame has finally found a spelling he cannot get wrong.' Set by doc 48's S2."
+        }
+      },
       "responses": {
         "LOOK_AT": [
           {
@@ -220,6 +190,57 @@
       }
     },
     {
+      "id": "water_trough",
+      "name": "THE WATER TROUGH",
+      "rect": [
+        1990,
+        559,
+        348,
+        135
+      ],
+      "colour": 150,
+      "defaultVerb": "LOOK_AT",
+      "state": "filled",
+      "states": {
+        "filled": {
+          "image": "art/objects/room-02-candidate/water-trough.png",
+          "occludes": [
+            1
+          ],
+          "note": "THE CANONICAL TROUGH, derived from the shipping plate's own (tools/retrofit/main-street-corrections.py): cut by polygon, scaled 1.9 with errata 63's kernel, relit to the candidate's mud, seated beside the east hitching rail in the fringe of the saloon's pool. Three inches of water. Its own silhouette masks a figure on the far mud behind it (plane 1)."
+        }
+      },
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A trough. Three inches of water and a great deal of ambition.",
+            "repeat": [
+              "The water has not improved.",
+              "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Something is living in it. I have decided not to pursue this.",
+            "repeat": [
+              "It is still in there. It has moved.",
+              "We have reached an understanding."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
+        "OPEN": "It is a trough. It is entirely open. It is nothing but open."
+      },
+      "walkTo": {
+        "x": 2164,
+        "y": 780,
+        "facing": "back"
+      }
+    },
+    {
       "id": "company_sign",
       "name": "THE IMPROVEMENT COMPANY SIGN",
       "rect": [
@@ -230,6 +251,17 @@
       ],
       "colour": 226,
       "defaultVerb": "LOOK_AT",
+      "state": "weathered",
+      "states": {
+        "weathered": {
+          "image": "art/objects/room-02-candidate/company-sign-weathered.png",
+          "note": "THE LETTERING IS A LAYER, NOT THE PLATE (doc 35 section 6). The plate's board is blank; this is the shipping gilt art scaled to the board, dulled and flaked by a seeded erosion: 'the only sign in town that has been painted twice', peeling."
+        },
+        "gilt": {
+          "image": "art/objects/room-02-candidate/company-sign-gilt.png",
+          "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' The same lettering, fresh, over the same blank board. Set by doc 48's S2."
+        }
+      },
       "responses": {
         "LOOK_AT": [
           {
@@ -697,11 +729,11 @@
           "y": 548
         },
         {
-          "x": 840,
+          "x": 3610,
           "y": 548
         },
         {
-          "x": 840,
+          "x": 3610,
           "y": 598
         },
         {
@@ -710,7 +742,8 @@
         }
       ],
       "neighbours": [
-        "mud_far"
+        "mud_far_0",
+        "mud_far_1"
       ],
       "clipPlane": 0,
       "surface": "boardwalk",
@@ -720,49 +753,18 @@
       }
     },
     {
-      "id": "boardwalk_1",
-      "note": "ERRATA 28a: fixed at the far drawn size, and that is where Room 2's scaling snap now lives. The boardwalk lip is the only real horizontal interruption in the walkable band -- measured at a mean luminance step of 64.5 against 16.3 for the next strongest row -- so stepping off it into the mud is where the sprite swaps from the drawn far sheet to a decimated one. Before boxes the height was one curve across the whole floor and the swap landed at y109, in open mud.",
-      "points": [
-        {
-          "x": 1015,
-          "y": 548
-        },
-        {
-          "x": 3610,
-          "y": 548
-        },
-        {
-          "x": 3610,
-          "y": 598
-        },
-        {
-          "x": 1015,
-          "y": 598
-        }
-      ],
-      "neighbours": [
-        "mud_far"
-      ],
-      "clipPlane": 0,
-      "surface": "boardwalk",
-      "scaleMode": {
-        "kind": "fixed",
-        "height": 200
-      }
-    },
-    {
-      "id": "mud_far",
+      "id": "mud_far_0",
       "points": [
         {
           "x": 0,
           "y": 600
         },
         {
-          "x": 3610,
+          "x": 1990,
           "y": 600
         },
         {
-          "x": 3610,
+          "x": 1990,
           "y": 688
         },
         {
@@ -771,7 +773,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 600,
@@ -781,9 +783,41 @@
       },
       "neighbours": [
         "boardwalk",
-        "boardwalk_1",
-        "mud_mid_0",
-        "mud_mid_1"
+        "mud_mid_0"
+      ]
+    },
+    {
+      "id": "mud_far_1",
+      "points": [
+        {
+          "x": 2338,
+          "y": 600
+        },
+        {
+          "x": 3610,
+          "y": 600
+        },
+        {
+          "x": 3610,
+          "y": 688
+        },
+        {
+          "x": 2338,
+          "y": 688
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "boardwalk",
+        "mud_mid_2"
       ]
     },
     {
@@ -794,11 +828,11 @@
           "y": 688
         },
         {
-          "x": 2320,
+          "x": 1990,
           "y": 688
         },
         {
-          "x": 2320,
+          "x": 1990,
           "y": 776
         },
         {
@@ -816,12 +850,47 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_far",
+        "mud_far_0",
+        "mud_mid_1",
         "mud_near_0"
       ]
     },
     {
       "id": "mud_mid_1",
+      "points": [
+        {
+          "x": 1990,
+          "y": 692
+        },
+        {
+          "x": 2320,
+          "y": 692
+        },
+        {
+          "x": 2320,
+          "y": 776
+        },
+        {
+          "x": 1990,
+          "y": 776
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "mud_mid_0",
+        "mud_near_0"
+      ]
+    },
+    {
+      "id": "mud_mid_2",
       "points": [
         {
           "x": 2680,
@@ -850,7 +919,7 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_far",
+        "mud_far_1",
         "mud_near_1"
       ]
     },
@@ -885,6 +954,7 @@
       },
       "neighbours": [
         "mud_mid_0",
+        "mud_mid_1",
         "mud_near_2",
         "mud_near_3"
       ]
@@ -919,7 +989,7 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_mid_1",
+        "mud_mid_2",
         "mud_near_2"
       ]
     },

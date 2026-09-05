@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "nugget_candidate",
- "note": "NUGGET CANDIDATE REVIEW ROUTE (phase 1): accepted Thad only, far/mid/near, the piano, the handbill, the card table, the bar depth, the stove light.",
+ "note": "NUGGET CANDIDATE REVIEW ROUTE (phase 1 + phase 1.5): accepted Thad only, far/mid/near, the piano, the handbill, the card table, the bar depth, the stove LIT (LOOK proves the hotspot over its lifted fire), the doors and the window (the view onto Main Street).",
  "actions": [
   {
    "do": "wait",
@@ -47,6 +47,32 @@
    "room": "nugget_candidate"
   },
   {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "stove",
+   "why": "the stove, lit"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "c04-look-stove-lit",
+   "room": "nugget_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
    "do": "click",
    "world": [
     700,
@@ -60,7 +86,7 @@
   },
   {
    "do": "capture",
-   "name": "c04-thad-mid",
+   "name": "c05-thad-mid",
    "room": "nugget_candidate"
   },
   {
@@ -77,7 +103,7 @@
   },
   {
    "do": "capture",
-   "name": "c05-thad-near-bar",
+   "name": "c06-thad-near-bar",
    "room": "nugget_candidate"
   },
   {
@@ -96,8 +122,11 @@
   },
   {
    "do": "capture",
-   "name": "c06-piano",
-   "room": "nugget_candidate"
+   "name": "c07-piano",
+   "room": "nugget_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
   },
   {
    "do": "wait",
@@ -123,12 +152,67 @@
   },
   {
    "do": "capture",
-   "name": "c07-handbill",
-   "room": "nugget_candidate"
+   "name": "c08-handbill",
+   "room": "nugget_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
   },
   {
    "do": "wait",
    "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "cards",
+   "why": "the abandoned hand"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "c09-cards",
+   "room": "nugget_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "window",
+   "why": "the window onto Main Street"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "c10-window",
+   "room": "nugget_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 6
   },
   {
    "do": "click",
@@ -144,16 +228,16 @@
   },
   {
    "do": "capture",
-   "name": "c08-away-from-light",
+   "name": "c11-away-from-light",
    "room": "nugget_candidate"
   },
   {
    "do": "wait",
-   "seconds": 30
+   "seconds": 20
   },
   {
    "do": "capture",
-   "name": "c09-idle-30",
+   "name": "c12-idle-20",
    "room": "nugget_candidate"
   }
  ]

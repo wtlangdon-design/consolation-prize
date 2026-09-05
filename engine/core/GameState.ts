@@ -367,6 +367,12 @@ export class GameState {
     return this.objectStates.get(this.key(moverId));
   }
 
+  /** The named object's current state in this room, by id; undefined when no such object. */
+  objectStateById(id: string): string | undefined {
+    const target = this.targets.find((candidate) => candidate.id === id);
+    return target ? this.stateOf(target) : undefined;
+  }
+
   /** What this object looks like and covers right now. */
   presentation(target: Interactable) {
     const state = this.stateOf(target);

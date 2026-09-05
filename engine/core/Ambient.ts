@@ -45,9 +45,16 @@ export class AmbientLayer {
   /** Ambient characters placed in the current room. */
   get present(): AmbientFile[] {
     const ids = this.state.room.ambient ?? [];
+    const roomId = this.state.room.id;
     return ids
       .map((id) => this.state.content.ambient.get(id))
-      .filter((npc): npc is AmbientFile => npc !== undefined);
+      .filter((npc): npc is AmbientFile => npc !== undefined)
+      // A PER-ROOM PLACEMENT WINS over the file's own x,y in that room (doc 36
+      // Q117): the same dog, standing where THIS plate has ground for him.
+      .map((npc) => {
+        const placed = npc.placements?.[roomId];
+        return placed ? { ...npc, x: placed.x, y: placed.y, zone: placed.zone ?? npc.zone } : npc;
+      });
   }
 
   get reputationState(): string {

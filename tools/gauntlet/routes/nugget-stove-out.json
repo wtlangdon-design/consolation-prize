@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "room": "nugget_candidate",
+ "note": "STOVE OUT (phase 1.5): the room opened with ?objects=stove=out -- the base plate's cold firebox, no pool, no field on Thad beside it. Architecture proof only; nothing in Act I triggers the state yet.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "s01-arrival-stove-out",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    1060,
+    560
+   ],
+   "why": "by the stove, which is out"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "s02-thad-by-cold-stove",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "stove",
+   "why": "the stove"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "s03-look-stove-out",
+   "room": "nugget_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "s04-hold",
+   "room": "nugget_candidate"
+  }
+ ]
+}

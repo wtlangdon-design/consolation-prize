@@ -379,6 +379,16 @@ export interface AmbientFile {
    */
   walkTo?: { x: number; y: number; facing?: Facing };
   walkToNote?: string;
+  /**
+   * Where this character stands in a room other than `room`, by room id. A
+   * replacement plate compiled beside its shipping room (doc 36 Q116) lists
+   * the same ambient cast, and a position read off the old plate lands
+   * wrong on the new one: Main Street's dog, at the shipping x,y, lay on
+   * top of the candidate's east hitching rail (Tyler, Phase 1.5). The
+   * placement is data, per room, and the shipping room's own x,y is
+   * untouched by it.
+   */
+  placements?: Record<string, { x: number; y: number; zone?: number }>;
   barks: Record<string, string>;
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
@@ -508,6 +518,12 @@ export interface RoomLamp {
    * over an empty road for the rest of the act.
    */
   when?: Condition;
+  /**
+   * The lamp is live only while each named object is in the named state --
+   * the Nugget's stove pool while the stove is `lit` (doc 36 Q117): a fire
+   * that has gone out breathes no light on the floor and lights nobody.
+   */
+  whenObject?: Record<string, string>;
   /**
    * The amount under a named VISUAL STATE of the room -- errata 64d's
    * authored time-of-day state, not a clock. Room 5's hanging work lamp is

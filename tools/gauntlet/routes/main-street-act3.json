@@ -1,0 +1,128 @@
+{
+ "schema": 1,
+ "room": "main_street_candidate",
+ "note": "ACT III COMPANIONS (phase 1.5): the room opened with ?objects=company_sign=gilt,posted_notices=funeral. Diagnostic: errata 60's ACT counter cannot be reached by any script yet, so the gilt lettering and the funeral sheet are shown by the object warp. Legacy ambient figures ride along.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "click",
+   "world": [
+    2160,
+    730
+   ],
+   "why": "westward"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "click",
+   "world": [
+    1705,
+    655
+   ],
+   "why": "the board"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "posted_notices",
+   "why": "the funeral notice"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a01-funeral-notice",
+   "room": "main_street_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "click",
+   "world": [
+    1300,
+    700
+   ],
+   "why": "westward"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "click",
+   "world": [
+    900,
+    700
+   ],
+   "why": "westward"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "click",
+   "world": [
+    600,
+    700
+   ],
+   "why": "the Company"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "company_sign",
+   "why": "fresh gilt"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "a02-gilt-sign",
+   "room": "main_street_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "a03-hold",
+   "room": "main_street_candidate"
+  }
+ ]
+}

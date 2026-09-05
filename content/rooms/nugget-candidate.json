@@ -1,956 +1,969 @@
 {
-  "schema": 1,
-  "id": "nugget_candidate",
-  "name": "THE BOUNTIFUL NUGGET (CANDIDATE)",
-  "note": "Doc 05 Room 3 plus doc 16, verbatim. Twelve hotspots and two exits. THE HANDBILL is the Rules of the Assay and carries Rule 3. THE PATRONS has no drawn figures in the background -- doc 07's ambient characters supply them at runtime, so the rect covers where they stand. Doc 16 note 4: the stove's third LISTEN reverses the first two on purpose; it has gone out and nobody has noticed. Do not 'correct' it.",
-  "background": "art/staging/room-03/clean-plate-02/candidate-1920x864.png",
-  "colours": {
-    "sky": 0,
-    "ground": 6
+ "schema": 1,
+ "id": "nugget_candidate",
+ "name": "THE BOUNTIFUL NUGGET (CANDIDATE)",
+ "note": "Doc 05 Room 3 plus doc 16, verbatim. Twelve hotspots and two exits. THE HANDBILL is the Rules of the Assay and carries Rule 3. THE PATRONS has no drawn figures in the background -- doc 07's ambient characters supply them at runtime, so the rect covers where they stand. Doc 16 note 4: the stove's third LISTEN reverses the first two on purpose; it has gone out and nobody has noticed. Do not 'correct' it.",
+ "background": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+ "colours": {
+  "sky": 0,
+  "ground": 6
+ },
+ "horizon": 492,
+ "walkable": [
+  {
+   "id": "floor_0",
+   "zone": 2,
+   "surface": "mud",
+   "rect": [
+    720,
+    506,
+    410,
+    72
+   ]
   },
-  "horizon": 492,
-  "walkable": [
-    {
-      "id": "floor_0",
-      "zone": 2,
-      "surface": "mud",
-      "rect": [
-        720,
-        506,
-        410,
-        72
-      ]
-    },
-    {
-      "id": "floor_1",
-      "zone": 1,
-      "surface": "mud",
-      "rect": [
-        361,
-        578,
-        816,
-        71
-      ]
-    },
-    {
-      "id": "floor_2",
-      "zone": 1,
-      "surface": "mud",
-      "rect": [
-        40,
-        649,
-        1130,
-        72
-      ]
-    },
-    {
-      "id": "floor_3",
-      "zone": 0,
-      "surface": "mud",
-      "rect": [
-        40,
-        721,
-        1208,
-        71
-      ]
-    },
-    {
-      "id": "floor_4",
-      "zone": 0,
-      "surface": "mud",
-      "rect": [
-        40,
-        792,
-        1339,
-        72
-      ]
-    }
-  ],
-  "hotspots": [
-    {
-      "id": "cards",
-      "name": "THE HAND OF CARDS",
-      "rect": [
-        860,
-        368,
-        100,
-        30
-      ],
-      "colour": 202,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A hand of cards, face up, abandoned. It is a very good hand.",
-            "repeat": [
-              "Still there. Nobody has claimed it and nobody has cleared it.",
-              "I have decided he is coming back. I have decided this several times."
-            ],
-            "then": [
-              "Somebody left a very good hand on a table and went outside."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. Whoever he was, he is not in the building."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "It is not my hand.",
-        "USE": "I do not play. My father was very clear about it, and he was wrong about most things."
-      },
-      "walkTo": {
-        "x": 910,
-        "y": 573,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "handbill",
-      "name": "THE HANDBILL",
-      "rect": [
-        320,
-        270,
-        48,
-        72
-      ],
-      "colour": 203,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LISTEN_TO": [
-          {
-            "say": "Paper. It has been on this wall a long time. It has stopped being read.",
-            "repeat": [
-              "Paper. Still not being read.",
-              "Nothing. It has outlasted everyone who nailed it up."
-            ]
-          }
-        ],
-        "LOOK_AT": [
-          {
-            "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic.",
-            "repeat": [
-              "I have read it twice. Rule five forbids arithmetic, which I assume has a history.",
-              "Rule four permits an appeal to the same judges who made the decision. Somebody thought about that and wrote it down anyway."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "It has been nailed on. Thoroughly. Somebody wanted the rules to stay up."
-      },
-      "walkTo": {
-        "x": 344,
-        "y": 754,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "spittoon",
-      "name": "THE SPITTOON",
-      "rect": [
-        1400,
-        765,
-        90,
-        95
-      ],
-      "colour": 224,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A spittoon, positioned optimistically far from anyone sitting down.",
-            "repeat": [
-              "The floor around it tells the story of a town that has tried.",
-              "Brass. Somebody polished this once, as a joke or as a duty."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Regrettably, yes.",
-            "repeat": [
-              "Still yes.",
-              "I have stopped."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PICK_UP": "No."
-      }
-    },
-    {
-      "id": "portrait",
-      "name": "THE FADED PORTRAIT",
-      "rect": [
-        968,
-        163,
-        80,
-        115
-      ],
-      "colour": 172,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A portrait of a man in a good collar, hung crooked, above a saloon.",
-            "repeat": [
-              "The three answers were a governor, a founder, and 'that's Bill's uncle.'",
-              "It is the same photograph the Clarion prints as Obadiah Mott. I am fairly sure. I am not going to raise it."
-            ],
-            "then": [
-              "Nobody in here knows who he is. I have asked three people and had three answers."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. He has been silent about it for years.",
-            "repeat": [
-              "Nothing.",
-              "Nothing. He is a man in Ohio and nobody is asking him."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 1008,
-        "y": 573,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "stove",
-      "name": "THE STOVE",
-      "rect": [
-        1058,
-        150,
-        70,
-        255
-      ],
-      "colour": 183,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A cast iron stove, lit, in July.",
-            "repeat": [
-              "Still lit. There is a man beside it who has not taken his coat off since I arrived in this territory.",
-              "The warmest thing in Consolation, wasted on a room full of men who are already drinking."
-            ],
-            "then": [
-              "Nobody has raised it and I am not going to be the first."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "It ticks. It is the only object in this room doing honest work.",
-            "repeat": [
-              "Ticking. Working.",
-              "Nothing. It has gone out and nobody has noticed."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "OPEN": "It is lit. I am not opening a lit stove in a wooden building full of drunk men."
-      },
-      "walkTo": {
-        "x": 1093,
-        "y": 573,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "chandelier",
-      "name": "THE CHANDELIER",
-      "rect": [
-        830,
-        0,
-        230,
-        155
-      ],
-      "colour": 226,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A chandelier. Below it, a dirt floor. The two have never been introduced.",
-            "repeat": [
-              "Brass, crystal, and a dirt floor. Somebody made a decision about priorities and I should like to meet them.",
-              "It is not lit. It has never been lit while I have been in this room."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "It ticks as it cools.",
-            "repeat": [
-              "Ticking as it cools. Still hanging over mud.",
-              "Nothing. It is the most expensive object in the territory and it has nothing to say for itself."
-            ],
-            "then": [
-              "It is the most expensive object in the territory and it is hanging over mud."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PULL": "It is nine feet up and it weighs more than I do. I shall admire it from here."
-      },
-      "walkTo": {
-        "x": 945,
-        "y": 573,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "window",
-      "name": "THE WINDOW",
-      "rect": [
-        375,
-        100,
-        125,
-        290
-      ],
-      "colour": 204,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A window onto Main Street, and the cleanest thing in the building, because it is the only thing anyone in here looks at.",
-            "repeat": [
-              "From in here the street looks better. That is what a window is for.",
-              "Somebody has scratched a name into the pane. It is not a name I know."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "The street. Muffled. Somebody arguing about a boundary.",
-            "repeat": [
-              "Still the boundary. Still arguing.",
-              "The stage has come in. Four days from Sacramento and eleven new men who think they are early."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 438,
-        "y": 663,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "piano",
-      "name": "THE PIANO",
-      "rect": [
-        505,
-        255,
-        200,
-        265
-      ],
-      "colour": 105,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "An upright, hauled four hundred miles by mule, at a cost exceeding its value by an order of magnitude. Nobody here can play it.",
-            "repeat": [
-              "Nobody has touched it since I arrived. I check.",
-              "There is a bottle ring on the lid. Several. It is being used as furniture."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "C-sharp is a semitone flat and has been for years. Nobody has noticed.",
-            "repeat": [
-              "Still C-sharp. Still flat. Still nobody.",
-              "I could put it right in four minutes, and I have begun to think about it during other activities."
-            ],
-            "then": [
-              "I have made a note of it. I have made several notes of it."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "USE": "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me.",
-        "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment."
-      },
-      "walkTo": {
-        "x": 605,
-        "y": 666,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "patrons",
-      "name": "THE PATRONS",
-      "rect": [
-        720,
-        335,
-        360,
-        165
-      ],
-      "colour": 170,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
-            "repeat": [
-              "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
-              "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Talk. A great deal of it, all at the same volume, none of it listened to.",
-            "repeat": [
-              "Somebody in the corner has told the same story four times and it has grown twice.",
-              "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "TALK_TO": "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
-      },
-      "walkTo": {
-        "x": 900,
-        "y": 576,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "stairs",
-      "name": "THE STAIRS",
-      "rect": [
-        1200,
-        40,
-        220,
-        350
-      ],
-      "colour": 104,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Stairs, up to rooms I have not been invited to. There is a man on the landing.",
-            "repeat": [
-              "He has not moved. I have begun to suspect he is not waiting for anything.",
-              "Eleven steps. I have counted them from down here, which is as far as I have got."
-            ],
-            "then": [
-              "There is always a man on the landing."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Boards, above. Somebody pacing a room about the size of mine.",
-            "repeat": [
-              "Still pacing.",
-              "He has stopped. That is somehow worse."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "USE": "I have not been invited up and I am not going to invite myself."
-      },
-      "walkTo": {
-        "x": 1310,
-        "y": 862,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "mirror",
-      "name": "THE MIRROR",
-      "rect": [
-        1560,
-        45,
-        330,
-        290
-      ],
-      "colour": 186,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "I look like a man who has recently been robbed and is being brave about it.",
-            "repeat": [
-              "Still me. I had hoped for some improvement.",
-              "Eleven weeks, and I have started to look like I belong here, which was not the plan."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. Mirrors are silent, which is the only restraint they show.",
-            "repeat": [
-              "Still nothing.",
-              "Nothing. I keep checking. It keeps not."
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "bar",
-      "name": "THE BAR",
-      "rect": [
-        1205,
-        300,
-        715,
-        535
-      ],
-      "colour": 108,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Mahogany. Genuinely. Somebody spent real money on the one surface everyone leans on.",
-            "repeat": [
-              "Mahogany. Four hundred miles from a tree that could have produced it.",
-              "The only maintained surface in Consolation, and it is a bar."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Glasses. Talk.",
-            "repeat": [
-              "Glasses. Talk. The same story, larger.",
-              "Somebody is being served ahead of somebody else and it is being noticed."
-            ],
-            "then": [
-              "Somebody in the corner has told the same story four times and it has grown twice."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "USE": "That would cost money.",
-        "PUSH": "It does not move. It is the only thing in Consolation built to stay."
-      },
-      "walkTo": {
-        "x": 1165,
-        "y": 863,
-        "facing": "back"
-      }
-    }
-  ],
-  "exits": [
-    {
-      "id": "front_doors",
-      "name": "THE FRONT DOORS",
-      "rect": [
-        40,
-        30,
-        260,
-        640
-      ],
-      "colour": 198,
-      "to": "main_street",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Batwing doors, from the inside. They swing both ways, which from in here reads as a warning rather than a convenience.",
-            "repeat": [
-              "The street past them. It is always a surprise.",
-              "Six inches of boardwalk and then the mud. I know exactly how far it is now."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "The street. It sounds busier from in here than it is.",
-            "repeat": [
-              "Boots on the boardwalk. Somebody deciding whether to come in.",
-              "Nothing. Everyone who is coming in is in."
-            ]
-          }
-        ]
-      },
-      "defaultVerb": "OPEN"
-    },
-    {
-      "id": "back_room_door",
-      "name": "THE BACK ROOM DOOR",
-      "rect": [
-        1130,
-        225,
-        65,
-        180
-      ],
-      "colour": 110,
-      "to": "stub_nugget_back",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A door behind the bar, shut. There is a room back there and things are settled in it.",
-            "repeat": [
-              "Shut. It has been shut every time I have looked, which is not the same as locked.",
-              "A door behind the bar. Shut, and shut in a way that has been decided rather than just closed."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it.",
-            "repeat": [
-              "A pencil. Somebody is writing something down.",
-              "Two men going in. A little later, two men coming out, and one of the two is pleased."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PUSH": "It gives half an inch and stops. Somebody has a chair against it."
-      },
-      "defaultVerb": "OPEN"
-    }
-  ],
-  "entrances": [
-    {
-      "from": "main_street",
-      "at": [
-        300,
-        760
-      ],
-      "facing": "right",
-      "note": "Through the batwing doors on the left wall, facing right into the room."
-    },
-    {
-      "from": "default",
-      "at": [
-        300,
-        760
-      ],
-      "facing": "right",
-      "note": "Anything else arrives by the door."
-    }
-  ],
-  "size": [
-    1920,
-    864
-  ],
-  "castNote": "No ambient sprites: the seven men are baked into the four whole plates. Nothing is composited, so nothing can drift.",
-  "generated": {
-    "by": "tools/compile-room.mjs",
-    "from": [
-      "docs/05-examine-layer.md",
-      "docs/16-room-03-content.md",
-      "reference/room-03-candidate/annotation.json"
-    ],
-    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  {
+   "id": "floor_1",
+   "zone": 1,
+   "surface": "mud",
+   "rect": [
+    361,
+    578,
+    816,
+    71
+   ]
   },
-  "walkableOutline": [
-    [
-      40,
-      612
+  {
+   "id": "floor_2",
+   "zone": 1,
+   "surface": "mud",
+   "rect": [
+    40,
+    649,
+    1130,
+    72
+   ]
+  },
+  {
+   "id": "floor_3",
+   "zone": 0,
+   "surface": "mud",
+   "rect": [
+    40,
+    721,
+    1208,
+    71
+   ]
+  },
+  {
+   "id": "floor_4",
+   "zone": 0,
+   "surface": "mud",
+   "rect": [
+    40,
+    792,
+    1339,
+    72
+   ]
+  }
+ ],
+ "hotspots": [
+  {
+   "id": "cards",
+   "name": "THE HAND OF CARDS",
+   "rect": [
+    860,
+    368,
+    100,
+    30
+   ],
+   "colour": 202,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "A hand of cards, face up, abandoned. It is a very good hand.",
+      "repeat": [
+       "Still there. Nobody has claimed it and nobody has cleared it.",
+       "I have decided he is coming back. I have decided this several times."
+      ],
+      "then": [
+       "Somebody left a very good hand on a table and went outside."
+      ]
+     }
     ],
-    [
-      300,
-      600
-    ],
-    [
-      500,
-      528
-    ],
-    [
-      720,
-      508
-    ],
-    [
-      1060,
-      506
-    ],
-    [
-      1200,
-      510
-    ],
-    [
-      1170,
-      690
-    ],
-    [
-      1320,
-      750
-    ],
-    [
-      1390,
-      800
-    ],
-    [
-      1400,
-      864
-    ],
-    [
-      40,
-      864
+    "LISTEN_TO": [
+     {
+      "say": "Nothing.",
+      "repeat": [
+       "Nothing.",
+       "Nothing. Whoever he was, he is not in the building."
+      ]
+     }
     ]
-  ],
-  "walkBoxes": [
-    {
-      "id": "floor_0",
-      "points": [
-        {
-          "x": 720,
-          "y": 506
-        },
-        {
-          "x": 1130,
-          "y": 506
-        },
-        {
-          "x": 1130,
-          "y": 578
-        },
-        {
-          "x": 720,
-          "y": 578
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 506,
-        "farHeight": 198,
-        "nearY": 858,
-        "nearHeight": 459
-      },
-      "neighbours": [
-        "floor_1"
+   },
+   "overrides": {
+    "PICK_UP": "It is not my hand.",
+    "USE": "I do not play. My father was very clear about it, and he was wrong about most things."
+   },
+   "walkTo": {
+    "x": 910,
+    "y": 573,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "handbill",
+   "name": "THE HANDBILL",
+   "rect": [
+    320,
+    270,
+    48,
+    72
+   ],
+   "colour": 203,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LISTEN_TO": [
+     {
+      "say": "Paper. It has been on this wall a long time. It has stopped being read.",
+      "repeat": [
+       "Paper. Still not being read.",
+       "Nothing. It has outlasted everyone who nailed it up."
       ]
+     }
+    ],
+    "LOOK_AT": [
+     {
+      "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic.",
+      "repeat": [
+       "I have read it twice. Rule five forbids arithmetic, which I assume has a history.",
+       "Rule four permits an appeal to the same judges who made the decision. Somebody thought about that and wrote it down anyway."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "PICK_UP": "It has been nailed on. Thoroughly. Somebody wanted the rules to stay up."
+   },
+   "walkTo": {
+    "x": 344,
+    "y": 754,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "spittoon",
+   "name": "THE SPITTOON",
+   "rect": [
+    1400,
+    765,
+    90,
+    95
+   ],
+   "colour": 224,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "A spittoon, positioned optimistically far from anyone sitting down.",
+      "repeat": [
+       "The floor around it tells the story of a town that has tried.",
+       "Brass. Somebody polished this once, as a joke or as a duty."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "Regrettably, yes.",
+      "repeat": [
+       "Still yes.",
+       "I have stopped."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "PICK_UP": "No."
+   }
+  },
+  {
+   "id": "portrait",
+   "name": "THE FADED PORTRAIT",
+   "rect": [
+    968,
+    163,
+    80,
+    115
+   ],
+   "colour": 172,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "A portrait of a man in a good collar, hung crooked, above a saloon.",
+      "repeat": [
+       "The three answers were a governor, a founder, and 'that's Bill's uncle.'",
+       "It is the same photograph the Clarion prints as Obadiah Mott. I am fairly sure. I am not going to raise it."
+      ],
+      "then": [
+       "Nobody in here knows who he is. I have asked three people and had three answers."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "Nothing. He has been silent about it for years.",
+      "repeat": [
+       "Nothing.",
+       "Nothing. He is a man in Ohio and nobody is asking him."
+      ]
+     }
+    ]
+   },
+   "walkTo": {
+    "x": 1008,
+    "y": 573,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "stove",
+   "name": "THE STOVE",
+   "rect": [
+    1058,
+    150,
+    70,
+    255
+   ],
+   "colour": 183,
+   "defaultVerb": "LOOK_AT",
+   "state": "lit",
+   "states": {
+    "lit": {
+     "image": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "note": "THE FIRE, LIFTED OUT OF THE PLATE as its own layer (Phase 1.5): the base plate's firebox is cold iron; this overlay is the fire the accepted plate painted, alpha-cut, drawn over it while the stove is lit. Phase 2's flicker animates THIS layer and nothing in the plate. 'A cast iron stove, lit, in July.'"
     },
-    {
-      "id": "floor_1",
-      "points": [
-        {
-          "x": 361,
-          "y": 578
-        },
-        {
-          "x": 1177,
-          "y": 578
-        },
-        {
-          "x": 1177,
-          "y": 649
-        },
-        {
-          "x": 361,
-          "y": 649
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 506,
-        "farHeight": 198,
-        "nearY": 858,
-        "nearHeight": 459
-      },
-      "neighbours": [
-        "floor_0",
-        "floor_2"
-      ]
-    },
-    {
-      "id": "floor_2",
-      "points": [
-        {
-          "x": 40,
-          "y": 649
-        },
-        {
-          "x": 1170,
-          "y": 649
-        },
-        {
-          "x": 1170,
-          "y": 721
-        },
-        {
-          "x": 40,
-          "y": 721
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 506,
-        "farHeight": 198,
-        "nearY": 858,
-        "nearHeight": 459
-      },
-      "neighbours": [
-        "floor_1",
-        "floor_3"
-      ]
-    },
-    {
-      "id": "floor_3",
-      "points": [
-        {
-          "x": 40,
-          "y": 721
-        },
-        {
-          "x": 1248,
-          "y": 721
-        },
-        {
-          "x": 1248,
-          "y": 792
-        },
-        {
-          "x": 40,
-          "y": 792
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 506,
-        "farHeight": 198,
-        "nearY": 858,
-        "nearHeight": 459
-      },
-      "neighbours": [
-        "floor_2",
-        "floor_4"
-      ]
-    },
-    {
-      "id": "floor_4",
-      "points": [
-        {
-          "x": 40,
-          "y": 792
-        },
-        {
-          "x": 1379,
-          "y": 792
-        },
-        {
-          "x": 1379,
-          "y": 864
-        },
-        {
-          "x": 40,
-          "y": 864
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 506,
-        "farHeight": 198,
-        "nearY": 858,
-        "nearHeight": 459
-      },
-      "neighbours": [
-        "floor_3"
-      ]
+    "out": {
+     "note": "Doc 16, THE STOVE LISTEN 3: 'Nothing. It has gone out and nobody has noticed.' Nothing is drawn: the base plate's cold firebox shows, the stove's runtime pool and its mover field are gated off (lamps.stove.whenObject). No trigger sets this state in Act I yet; the architecture holds it, and ?objects=stove=out shows it."
     }
+   },
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "A cast iron stove, lit, in July.",
+      "repeat": [
+       "Still lit. There is a man beside it who has not taken his coat off since I arrived in this territory.",
+       "The warmest thing in Consolation, wasted on a room full of men who are already drinking."
+      ],
+      "then": [
+       "Nobody has raised it and I am not going to be the first."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "It ticks. It is the only object in this room doing honest work.",
+      "repeat": [
+       "Ticking. Working.",
+       "Nothing. It has gone out and nobody has noticed."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "OPEN": "It is lit. I am not opening a lit stove in a wooden building full of drunk men."
+   },
+   "walkTo": {
+    "x": 1093,
+    "y": 573,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "chandelier",
+   "name": "THE CHANDELIER",
+   "rect": [
+    830,
+    0,
+    230,
+    155
+   ],
+   "colour": 226,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "A chandelier. Below it, a dirt floor. The two have never been introduced.",
+      "repeat": [
+       "Brass, crystal, and a dirt floor. Somebody made a decision about priorities and I should like to meet them.",
+       "It is not lit. It has never been lit while I have been in this room."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "It ticks as it cools.",
+      "repeat": [
+       "Ticking as it cools. Still hanging over mud.",
+       "Nothing. It is the most expensive object in the territory and it has nothing to say for itself."
+      ],
+      "then": [
+       "It is the most expensive object in the territory and it is hanging over mud."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "PULL": "It is nine feet up and it weighs more than I do. I shall admire it from here."
+   },
+   "walkTo": {
+    "x": 945,
+    "y": 573,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "window",
+   "name": "THE WINDOW",
+   "rect": [
+    375,
+    100,
+    125,
+    290
+   ],
+   "colour": 204,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "A window onto Main Street, and the cleanest thing in the building, because it is the only thing anyone in here looks at.",
+      "repeat": [
+       "From in here the street looks better. That is what a window is for.",
+       "Somebody has scratched a name into the pane. It is not a name I know."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "The street. Muffled. Somebody arguing about a boundary.",
+      "repeat": [
+       "Still the boundary. Still arguing.",
+       "The stage has come in. Four days from Sacramento and eleven new men who think they are early."
+      ]
+     }
+    ]
+   },
+   "walkTo": {
+    "x": 438,
+    "y": 663,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "piano",
+   "name": "THE PIANO",
+   "rect": [
+    505,
+    255,
+    200,
+    265
+   ],
+   "colour": 105,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "An upright, hauled four hundred miles by mule, at a cost exceeding its value by an order of magnitude. Nobody here can play it.",
+      "repeat": [
+       "Nobody has touched it since I arrived. I check.",
+       "There is a bottle ring on the lid. Several. It is being used as furniture."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "C-sharp is a semitone flat and has been for years. Nobody has noticed.",
+      "repeat": [
+       "Still C-sharp. Still flat. Still nobody.",
+       "I could put it right in four minutes, and I have begun to think about it during other activities."
+      ],
+      "then": [
+       "I have made a note of it. I have made several notes of it."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "USE": "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me.",
+    "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment."
+   },
+   "walkTo": {
+    "x": 605,
+    "y": 666,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "patrons",
+   "name": "THE PATRONS",
+   "rect": [
+    720,
+    335,
+    360,
+    165
+   ],
+   "colour": 170,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
+      "repeat": [
+       "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
+       "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "Talk. A great deal of it, all at the same volume, none of it listened to.",
+      "repeat": [
+       "Somebody in the corner has told the same story four times and it has grown twice.",
+       "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "TALK_TO": "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
+   },
+   "walkTo": {
+    "x": 900,
+    "y": 576,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "stairs",
+   "name": "THE STAIRS",
+   "rect": [
+    1200,
+    40,
+    220,
+    350
+   ],
+   "colour": 104,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "Stairs, up to rooms I have not been invited to. There is a man on the landing.",
+      "repeat": [
+       "He has not moved. I have begun to suspect he is not waiting for anything.",
+       "Eleven steps. I have counted them from down here, which is as far as I have got."
+      ],
+      "then": [
+       "There is always a man on the landing."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "Boards, above. Somebody pacing a room about the size of mine.",
+      "repeat": [
+       "Still pacing.",
+       "He has stopped. That is somehow worse."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "USE": "I have not been invited up and I am not going to invite myself."
+   },
+   "walkTo": {
+    "x": 1310,
+    "y": 862,
+    "facing": "back"
+   }
+  },
+  {
+   "id": "mirror",
+   "name": "THE MIRROR",
+   "rect": [
+    1560,
+    45,
+    330,
+    290
+   ],
+   "colour": 186,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "I look like a man who has recently been robbed and is being brave about it.",
+      "repeat": [
+       "Still me. I had hoped for some improvement.",
+       "Eleven weeks, and I have started to look like I belong here, which was not the plan."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "Nothing. Mirrors are silent, which is the only restraint they show.",
+      "repeat": [
+       "Still nothing.",
+       "Nothing. I keep checking. It keeps not."
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "id": "bar",
+   "name": "THE BAR",
+   "rect": [
+    1205,
+    300,
+    715,
+    535
+   ],
+   "colour": 108,
+   "defaultVerb": "LOOK_AT",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "Mahogany. Genuinely. Somebody spent real money on the one surface everyone leans on.",
+      "repeat": [
+       "Mahogany. Four hundred miles from a tree that could have produced it.",
+       "The only maintained surface in Consolation, and it is a bar."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "Glasses. Talk.",
+      "repeat": [
+       "Glasses. Talk. The same story, larger.",
+       "Somebody is being served ahead of somebody else and it is being noticed."
+      ],
+      "then": [
+       "Somebody in the corner has told the same story four times and it has grown twice."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "USE": "That would cost money.",
+    "PUSH": "It does not move. It is the only thing in Consolation built to stay."
+   },
+   "walkTo": {
+    "x": 1165,
+    "y": 863,
+    "facing": "back"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "id": "front_doors",
+   "name": "THE FRONT DOORS",
+   "rect": [
+    40,
+    30,
+    260,
+    640
+   ],
+   "colour": 198,
+   "to": "main_street",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "Batwing doors, from the inside. They swing both ways, which from in here reads as a warning rather than a convenience.",
+      "repeat": [
+       "The street past them. It is always a surprise.",
+       "Six inches of boardwalk and then the mud. I know exactly how far it is now."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "The street. It sounds busier from in here than it is.",
+      "repeat": [
+       "Boots on the boardwalk. Somebody deciding whether to come in.",
+       "Nothing. Everyone who is coming in is in."
+      ]
+     }
+    ]
+   },
+   "defaultVerb": "OPEN"
+  },
+  {
+   "id": "back_room_door",
+   "name": "THE BACK ROOM DOOR",
+   "rect": [
+    1130,
+    225,
+    65,
+    180
+   ],
+   "colour": 110,
+   "to": "stub_nugget_back",
+   "responses": {
+    "LOOK_AT": [
+     {
+      "say": "A door behind the bar, shut. There is a room back there and things are settled in it.",
+      "repeat": [
+       "Shut. It has been shut every time I have looked, which is not the same as locked.",
+       "A door behind the bar. Shut, and shut in a way that has been decided rather than just closed."
+      ]
+     }
+    ],
+    "LISTEN_TO": [
+     {
+      "say": "Nothing. Whatever happens back there happens quietly, and then everyone agrees about it.",
+      "repeat": [
+       "A pencil. Somebody is writing something down.",
+       "Two men going in. A little later, two men coming out, and one of the two is pleased."
+      ]
+     }
+    ]
+   },
+   "overrides": {
+    "PUSH": "It gives half an inch and stops. Somebody has a chair against it."
+   },
+   "defaultVerb": "OPEN"
+  }
+ ],
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    300,
+    760
+   ],
+   "facing": "right",
+   "note": "Through the batwing doors on the left wall, facing right into the room."
+  },
+  {
+   "from": "default",
+   "at": [
+    300,
+    760
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "size": [
+  1920,
+  864
+ ],
+ "castNote": "No ambient sprites: the seven men are baked into the four whole plates. Nothing is composited, so nothing can drift.",
+ "generated": {
+  "by": "tools/compile-room.mjs",
+  "from": [
+   "docs/05-examine-layer.md",
+   "docs/16-room-03-content.md",
+   "reference/room-03-candidate/annotation.json"
   ],
-  "lamps": [
+  "note": "GENERATED. Edit the documents or the annotation, never this file."
+ },
+ "walkableOutline": [
+  [
+   40,
+   612
+  ],
+  [
+   300,
+   600
+  ],
+  [
+   500,
+   528
+  ],
+  [
+   720,
+   508
+  ],
+  [
+   1060,
+   506
+  ],
+  [
+   1200,
+   510
+  ],
+  [
+   1170,
+   690
+  ],
+  [
+   1320,
+   750
+  ],
+  [
+   1390,
+   800
+  ],
+  [
+   1400,
+   864
+  ],
+  [
+   40,
+   864
+  ]
+ ],
+ "walkBoxes": [
+  {
+   "id": "floor_0",
+   "points": [
     {
-      "id": "door_lamp",
-      "at": [
-        345,
-        190
-      ],
-      "radius": 230,
-      "amount": 0.07,
-      "rate": 0.29,
-      "phase": 0.1,
-      "movers": {
-        "strength": 0.16,
-        "colour": [
-          255,
-          180,
-          100
-        ],
-        "reach": 1.6
-      },
-      "note": "The wall lamp between the doors and the window, the one the candidate paints lit. Small, and the only light on the street wall."
+     "x": 720,
+     "y": 506
     },
     {
-      "id": "stove",
-      "at": [
-        1095,
-        345
-      ],
-      "radius": 170,
-      "amount": 0.14,
-      "rate": 0.41,
-      "phase": 0.37,
-      "movers": {
-        "strength": 0.22,
-        "colour": [
-          255,
-          150,
-          72
-        ],
-        "reach": 1.8,
-        "radius": 260
-      },
-      "note": "A fire in an iron box. It flickers hardest and fastest. Re-declared on the candidate at the stove's own position (the shipping declaration sat 235 px left of its drawn stove)."
+     "x": 1130,
+     "y": 506
     },
     {
-      "id": "bar_lamps",
-      "at": [
-        1690,
-        200
-      ],
-      "radius": 360,
-      "amount": 0.06,
-      "rate": 0.17,
-      "phase": 0.72,
-      "movers": {
-        "strength": 0.14,
-        "colour": [
-          255,
-          190,
-          110
-        ],
-        "reach": 1.6
-      },
-      "note": "The two wall lamps behind the bar, together, at their painted positions (1520,210 and 1850,170). Barely moving -- trimmed, because the barman is the only person in town who maintains anything."
+     "x": 1130,
+     "y": 578
+    },
+    {
+     "x": 720,
+     "y": 578
     }
-  ],
-  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-03-candidate/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
-  "retiredNote": "THE 320x144 RELICS ARE GONE. This room carried an `idles` layer declaring four 18-pixel figures against a sheet drawn for the retired 320x144 presentation, and a foreground plane of the same vintage -- both drawn into a 1920x864 room, which is what put black boxes on the floor and one beside Thad. They described the same men who are now baked into the plates: the bar’s near and middle drinkers, a seated player, and doc 16’s man beside the stove.\nTHE MAN ON THE LANDING SURVIVES THE DELETION, because he was never in that list. Ruling 20 makes him an explicit exception -- his whole joke is that he never moves -- and doc 16 keeps him in THE STAIRS: there is always a man on the landing.",
-  "ambient": [],
-  "occlusionProofs": [],
-  "occlusionBands": [
+   ],
+   "surface": "mud",
+   "clipPlane": 0,
+   "scaleMode": {
+    "kind": "curve",
+    "farY": 506,
+    "farHeight": 198,
+    "nearY": 858,
+    "nearHeight": 459
+   },
+   "neighbours": [
+    "floor_1"
+   ]
+  },
+  {
+   "id": "floor_1",
+   "points": [
+    {
+     "x": 361,
+     "y": 578
+    },
+    {
+     "x": 1177,
+     "y": 578
+    },
+    {
+     "x": 1177,
+     "y": 649
+    },
+    {
+     "x": 361,
+     "y": 649
+    }
+   ],
+   "surface": "mud",
+   "clipPlane": 0,
+   "scaleMode": {
+    "kind": "curve",
+    "farY": 506,
+    "farHeight": 198,
+    "nearY": 858,
+    "nearHeight": 459
+   },
+   "neighbours": [
     "floor_0",
+    "floor_2"
+   ]
+  },
+  {
+   "id": "floor_2",
+   "points": [
+    {
+     "x": 40,
+     "y": 649
+    },
+    {
+     "x": 1170,
+     "y": 649
+    },
+    {
+     "x": 1170,
+     "y": 721
+    },
+    {
+     "x": 40,
+     "y": 721
+    }
+   ],
+   "surface": "mud",
+   "clipPlane": 0,
+   "scaleMode": {
+    "kind": "curve",
+    "farY": 506,
+    "farHeight": 198,
+    "nearY": 858,
+    "nearHeight": 459
+   },
+   "neighbours": [
     "floor_1",
+    "floor_3"
+   ]
+  },
+  {
+   "id": "floor_3",
+   "points": [
+    {
+     "x": 40,
+     "y": 721
+    },
+    {
+     "x": 1248,
+     "y": 721
+    },
+    {
+     "x": 1248,
+     "y": 792
+    },
+    {
+     "x": 40,
+     "y": 792
+    }
+   ],
+   "surface": "mud",
+   "clipPlane": 0,
+   "scaleMode": {
+    "kind": "curve",
+    "farY": 506,
+    "farHeight": 198,
+    "nearY": 858,
+    "nearHeight": 459
+   },
+   "neighbours": [
     "floor_2",
-    "floor_3",
     "floor_4"
-  ],
-  "occlusionPlanes": [],
-  "candidateOf": "nugget"
+   ]
+  },
+  {
+   "id": "floor_4",
+   "points": [
+    {
+     "x": 40,
+     "y": 792
+    },
+    {
+     "x": 1379,
+     "y": 792
+    },
+    {
+     "x": 1379,
+     "y": 864
+    },
+    {
+     "x": 40,
+     "y": 864
+    }
+   ],
+   "surface": "mud",
+   "clipPlane": 0,
+   "scaleMode": {
+    "kind": "curve",
+    "farY": 506,
+    "farHeight": 198,
+    "nearY": 858,
+    "nearHeight": 459
+   },
+   "neighbours": [
+    "floor_3"
+   ]
+  }
+ ],
+ "lamps": [
+  {
+   "id": "door_lamp",
+   "at": [
+    345,
+    190
+   ],
+   "radius": 230,
+   "amount": 0.07,
+   "rate": 0.29,
+   "phase": 0.1,
+   "movers": {
+    "strength": 0.16,
+    "colour": [
+     255,
+     180,
+     100
+    ],
+    "reach": 1.6
+   },
+   "note": "The wall lamp between the doors and the window, the one the candidate paints lit. Small, and the only light on the street wall."
+  },
+  {
+   "id": "stove",
+   "at": [
+    1095,
+    345
+   ],
+   "radius": 170,
+   "amount": 0.14,
+   "rate": 0.41,
+   "phase": 0.37,
+   "movers": {
+    "strength": 0.22,
+    "colour": [
+     255,
+     150,
+     72
+    ],
+    "reach": 1.8,
+    "radius": 260
+   },
+   "note": "A fire in an iron box. It flickers hardest and fastest. Re-declared on the candidate at the stove's own position (the shipping declaration sat 235 px left of its drawn stove). GATED ON THE STOVE'S OBJECT STATE (Phase 1.5): out means no pool and no field.",
+   "whenObject": {
+    "stove": "lit"
+   }
+  },
+  {
+   "id": "bar_lamps",
+   "at": [
+    1690,
+    200
+   ],
+   "radius": 360,
+   "amount": 0.06,
+   "rate": 0.17,
+   "phase": 0.72,
+   "movers": {
+    "strength": 0.14,
+    "colour": [
+     255,
+     190,
+     110
+    ],
+    "reach": 1.6
+   },
+   "note": "The two wall lamps behind the bar, together, at their painted positions (1520,210 and 1850,170). Barely moving -- trimmed, because the barman is the only person in town who maintains anything."
+  }
+ ],
+ "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-03-candidate/annotation.json. Heights come from that annotation\u2019s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
+ "retiredNote": "THE 320x144 RELICS ARE GONE. This room carried an `idles` layer declaring four 18-pixel figures against a sheet drawn for the retired 320x144 presentation, and a foreground plane of the same vintage -- both drawn into a 1920x864 room, which is what put black boxes on the floor and one beside Thad. They described the same men who are now baked into the plates: the bar\u2019s near and middle drinkers, a seated player, and doc 16\u2019s man beside the stove.\nTHE MAN ON THE LANDING SURVIVES THE DELETION, because he was never in that list. Ruling 20 makes him an explicit exception -- his whole joke is that he never moves -- and doc 16 keeps him in THE STAIRS: there is always a man on the landing.",
+ "ambient": [],
+ "occlusionProofs": [],
+ "occlusionBands": [
+  "floor_0",
+  "floor_1",
+  "floor_2",
+  "floor_3",
+  "floor_4"
+ ],
+ "occlusionPlanes": [],
+ "candidateOf": "nugget"
 }
