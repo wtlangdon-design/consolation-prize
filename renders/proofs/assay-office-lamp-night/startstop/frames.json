@@ -2,7 +2,7 @@
  "schema": 1,
  "room": "assay_office",
  "route": "assay-office-startstop",
- "commit": "a6da3031e69cdffde1f2ea3d2ad868f717953136",
+ "commit": "47fadeb945209fd294c1dcc2b8dbccf4218a9df3",
  "workingTreeClean": false,
  "candidates": [
   {
@@ -20,26 +20,41 @@
  ],
  "visualState": "night",
  "pace": 1.25,
- "durationSeconds": 189.616,
- "samples": 830,
+ "durationSeconds": 194.967,
+ "samples": 820,
  "summary": {
-  "changes": 202,
+  "changes": 194,
   "clipsSeen": [
-   "walk",
    "idle",
-   "idle-break"
+   "walk"
   ],
   "locomotionFramesWhileStationary": 0,
-  "idleBreaks": 1
+  "idleBreaks": 0
  },
  "changes": [
   {
-   "t": 105.134,
+   "t": 109.204,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    200,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 109.368,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    226,
+    235,
     765
    ],
    "facing": "right",
@@ -50,44 +65,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 105.3,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    313,
-    764
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 514,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 105.377,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    347,
-    764
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 514,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 105.451,
+   "t": 109.551,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    391,
+    339,
     764
    ],
    "facing": "right",
@@ -98,12 +81,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 105.598,
+   "t": 109.655,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    469,
+    382,
     764
    ],
    "facing": "right",
@@ -114,12 +97,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 105.673,
+   "t": 109.743,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    503,
+    434,
     764
    ],
    "facing": "right",
@@ -130,12 +113,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 105.748,
+   "t": 109.842,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    546,
+    486,
+    764
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 514,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 109.934,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    529,
     763
    ],
    "facing": "right",
@@ -146,9 +145,25 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 105.902,
+   "t": 110.024,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    581,
+    763
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 514,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 110.113,
+   "clip": "walk",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     624,
@@ -162,44 +177,44 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 105.975,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    659,
-    763
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 514,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 106.051,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    702,
-    763
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 514,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 106.198,
+   "t": 110.204,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    780,
+    676,
+    763
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 514,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 110.297,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    720,
+    763
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 514,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 110.39,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    771,
     762
    ],
    "facing": "right",
@@ -210,9 +225,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 106.272,
+   "t": 110.49,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     815,
@@ -226,12 +241,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 106.357,
+   "t": 110.674,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    858,
+    910,
     762
    ],
    "facing": "right",
@@ -242,28 +257,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 106.523,
+   "t": 110.862,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    944,
-    762
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 513,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 106.598,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    988,
+    1013,
     761
    ],
    "facing": "right",
@@ -274,12 +273,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 106.682,
+   "t": 110.954,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1022,
+    1056,
     761
    ],
    "facing": "right",
@@ -290,25 +289,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 106.769,
+   "t": 111.053,
    "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1065,
-    761
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 512,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 106.847,
-   "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     1108,
@@ -322,13 +305,13 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 106.995,
+   "t": 111.144,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1186,
-    760
+    1160,
+    761
    ],
    "facing": "right",
    "moving": true,
@@ -338,28 +321,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 107.078,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1229,
-    760
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 512,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 107.16,
+   "t": 111.239,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1272,
+    1212,
     760
    ],
    "facing": "right",
@@ -370,12 +337,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 107.313,
+   "t": 111.33,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1350,
+    1255,
     760
    ],
    "facing": "right",
@@ -386,12 +353,60 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 107.393,
+   "t": 111.443,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1306,
+    760
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 512,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.53,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1358,
+    760
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 512,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.628,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1410,
+    759
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.722,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1393,
+    1453,
     759
    ],
    "facing": "right",
@@ -402,41 +417,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 107.489,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1436,
-    759
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 107.565,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1479,
-    759
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 107.694,
+   "t": 111.826,
    "clip": "idle",
-   "frame": "idle-05.png",
+   "frame": "idle-03.png",
    "dir": "art/actors/thad-idle-right",
    "at": [
     1500,
@@ -450,55 +433,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 107.884,
-   "clip": "idle",
-   "frame": "idle-00.png",
-   "dir": "art/actors/thad-idle-right",
-   "at": [
-    1500,
-    759
-   ],
-   "facing": "right",
-   "moving": false,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 109.623,
-   "clip": "idle",
-   "frame": "idle-04.png",
-   "dir": "art/actors/thad-idle-right",
-   "at": [
-    1500,
-    759
-   ],
-   "facing": "right",
-   "moving": false,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 111.413,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-right",
-   "at": [
-    1500,
-    759
-   ],
-   "facing": "right",
-   "moving": false,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 113.227,
+   "t": 113.205,
    "clip": "idle",
    "frame": "idle-01.png",
    "dir": "art/actors/thad-idle-right",
@@ -514,28 +449,44 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 114.31,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-left",
+   "t": 115.051,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-right",
    "at": [
-    1474,
+    1500,
     759
    ],
-   "facing": "left",
-   "moving": true,
+   "facing": "right",
+   "moving": false,
    "height": 511,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 114.463,
+   "t": 116.797,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1500,
+    759
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 118.551,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1397,
+    1466,
     759
    ],
    "facing": "left",
@@ -546,25 +497,41 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 114.536,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    1354,
-    759
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 114.607,
+   "t": 118.644,
    "clip": "walk",
    "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1414,
+    759
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 118.736,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1362,
+    759
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 118.831,
+   "clip": "walk",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     1319,
@@ -578,12 +545,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 114.754,
+   "t": 118.942,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1242,
+    1268,
     759
    ],
    "facing": "left",
@@ -594,12 +561,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 114.832,
+   "t": 119.043,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1216,
+    759
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 119.148,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1207,
+    1164,
     759
    ],
    "facing": "left",
@@ -610,12 +593,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 114.975,
+   "t": 119.248,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1130,
+    1113,
     759
    ],
    "facing": "left",
@@ -626,12 +609,60 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 115.051,
+   "t": 119.367,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1061,
+    759
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 119.521,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1010,
+    759
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 119.625,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    958,
+    759
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 119.735,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1087,
+    906,
     759
    ],
    "facing": "left",
@@ -642,12 +673,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 115.124,
+   "t": 119.839,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1053,
+    855,
     759
    ],
    "facing": "left",
@@ -658,12 +689,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 115.27,
+   "t": 119.945,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    975,
+    803,
     759
    ],
    "facing": "left",
@@ -674,12 +705,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 115.341,
+   "t": 120.042,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    941,
+    751,
     759
    ],
    "facing": "left",
@@ -690,57 +721,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 115.415,
+   "t": 120.139,
    "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    898,
-    759
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 115.558,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    829,
-    759
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 115.635,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    786,
-    759
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 115.781,
-   "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     708,
@@ -754,12 +737,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 115.855,
+   "t": 120.238,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    674,
+    657,
     759
    ],
    "facing": "left",
@@ -770,25 +753,25 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 115.929,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    631,
-    759
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 116.085,
+   "t": 120.339,
    "clip": "walk",
    "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    605,
+    759
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 120.469,
+   "clip": "walk",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     553,
@@ -802,12 +785,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 116.156,
+   "t": 120.646,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    519,
+    459,
     759
    ],
    "facing": "left",
@@ -818,12 +801,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 116.232,
+   "t": 120.733,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    476,
+    407,
     759
    ],
    "facing": "left",
@@ -834,9 +817,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 116.392,
+   "t": 120.831,
    "clip": "idle",
-   "frame": "idle-02.png",
+   "frame": "idle-01.png",
    "dir": "art/actors/thad-idle-left",
    "at": [
     399,
@@ -850,55 +833,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 116.739,
-   "clip": "idle",
-   "frame": "idle-03.png",
-   "dir": "art/actors/thad-idle-left",
-   "at": [
-    399,
-    759
-   ],
-   "facing": "left",
-   "moving": false,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 118.546,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-left",
-   "at": [
-    399,
-    759
-   ],
-   "facing": "left",
-   "moving": false,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 120.299,
-   "clip": "idle",
-   "frame": "idle-00.png",
-   "dir": "art/actors/thad-idle-left",
-   "at": [
-    399,
-    759
-   ],
-   "facing": "left",
-   "moving": false,
-   "height": 511,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 122.122,
+   "t": 122.308,
    "clip": "idle",
    "frame": "idle-04.png",
    "dir": "art/actors/thad-idle-left",
@@ -914,9 +849,57 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 123.448,
+   "t": 123.936,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    399,
+    759
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 125.821,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    399,
+    759
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.518,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    399,
+    759
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 511,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.743,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     433,
@@ -930,44 +913,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 123.531,
+   "t": 127.854,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    476,
+    762
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 513,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.963,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    468,
-    761
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 512,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 123.61,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    511,
-    763
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 514,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 123.688,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    554,
+    528,
     764
    ],
    "facing": "right",
@@ -978,12 +945,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 123.839,
+   "t": 128.152,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    632,
+    624,
     767
    ],
    "facing": "right",
@@ -994,9 +961,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 123.924,
+   "t": 128.242,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     676,
@@ -1010,12 +977,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 124.02,
+   "t": 128.335,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    710,
+    719,
     770
    ],
    "facing": "right",
@@ -1026,12 +993,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 124.108,
+   "t": 128.429,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    763,
+    771,
     772
    ],
    "facing": "right",
@@ -1042,28 +1009,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 124.266,
+   "t": 128.532,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    850,
-    775
+    824,
+    774
    ],
    "facing": "right",
    "moving": true,
-   "height": 522,
+   "height": 521,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 124.344,
+   "t": 128.622,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    894,
+    877,
     776
    ],
    "facing": "right",
@@ -1074,28 +1041,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 124.419,
+   "t": 128.719,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    938,
-    778
+    921,
+    777
    ],
    "facing": "right",
    "moving": true,
-   "height": 524,
+   "height": 523,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 124.504,
+   "t": 128.82,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    974,
+    973,
     779
    ],
    "facing": "right",
@@ -1106,13 +1073,29 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 124.677,
+   "t": 128.932,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1062,
-    782
+    1026,
+    781
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 526,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 129.034,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1079,
+    783
    ],
    "facing": "right",
    "moving": true,
@@ -1122,28 +1105,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 124.75,
+   "t": 129.127,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1115,
-    784
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 528,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 124.828,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1151,
+    1133,
     785
    ],
    "facing": "right",
@@ -1154,13 +1121,13 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 124.9,
+   "t": 129.225,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1195,
-    787
+    1177,
+    786
    ],
    "facing": "right",
    "moving": true,
@@ -1170,9 +1137,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 125.014,
+   "t": 129.323,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     1200,
@@ -1186,9 +1153,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 125.159,
+   "t": 129.435,
    "clip": "idle",
-   "frame": "idle-05.png",
+   "frame": "idle-04.png",
    "dir": "art/actors/thad-idle-front",
    "at": [
     1200,
@@ -1202,7 +1169,23 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 125.233,
+   "t": 131.094,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-front",
+   "at": [
+    1200,
+    819
+   ],
+   "facing": "front",
+   "moving": false,
+   "height": 552,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 132.887,
    "clip": "idle",
    "frame": "idle-00.png",
    "dir": "art/actors/thad-idle-front",
@@ -1218,9 +1201,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 125.75,
+   "t": 134.655,
    "clip": "idle",
-   "frame": "idle-01.png",
+   "frame": "idle-04.png",
    "dir": "art/actors/thad-idle-front",
    "at": [
     1200,
@@ -1234,39 +1217,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 127.54,
-   "clip": "idle",
-   "frame": "idle-05.png",
-   "dir": "art/actors/thad-idle-front",
-   "at": [
-    1200,
-    819
-   ],
-   "facing": "front",
-   "moving": false,
-   "height": 552,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 129.29,
-   "clip": "idle",
-   "frame": "idle-03.png",
-   "dir": "art/actors/thad-idle-front",
-   "at": [
-    1200,
-    819
-   ],
-   "facing": "front",
-   "moving": false,
-   "height": 552,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 131.053,
+   "t": 136.464,
    "clip": "idle",
    "frame": "idle-02.png",
    "dir": "art/actors/thad-idle-front",
@@ -1282,12 +1233,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 132.558,
+   "t": 136.874,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1172,
+    1163,
     817
    ],
    "facing": "left",
@@ -1298,44 +1249,44 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 132.707,
+   "t": 136.968,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1117,
+    814
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 549,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 137.058,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1061,
+    810
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 546,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 137.151,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1089,
-    812
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 548,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 132.782,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    1043,
-    809
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 545,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 132.861,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    1006,
+    1015,
     807
    ],
    "facing": "left",
@@ -1346,61 +1297,61 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 133.015,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    924,
-    801
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 540,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 133.095,
+   "t": 137.25,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    879,
-    798
+    961,
+    804
    ],
    "facing": "left",
    "moving": true,
-   "height": 538,
+   "height": 542,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 133.193,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    834,
-    796
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 536,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 133.273,
+   "t": 137.363,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    780,
-    792
+    906,
+    800
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 539,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 137.463,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    852,
+    797
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 537,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 137.566,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    797,
+    793
    ],
    "facing": "left",
    "moving": true,
@@ -1410,9 +1361,25 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 133.418,
+   "t": 137.654,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    744,
+    790
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 532,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 137.744,
+   "clip": "walk",
+   "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     699,
@@ -1426,25 +1393,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 133.493,
+   "t": 137.852,
    "clip": "walk",
-   "frame": "walk-04.png",
-   "dir": "art/actors/thad-walk-back",
-   "at": [
-    699,
-    751
-   ],
-   "facing": "back",
-   "moving": true,
-   "height": 505,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 133.565,
-   "clip": "walk",
-   "frame": "walk-04.png",
+   "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-back",
    "at": [
     699,
@@ -1458,9 +1409,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 133.691,
+   "t": 137.942,
    "clip": "idle",
-   "frame": "idle-02.png",
+   "frame": "idle-00.png",
    "dir": "art/actors/thad-idle-back",
    "at": [
     699,
@@ -1474,39 +1425,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 134.621,
-   "clip": "idle",
-   "frame": "idle-04.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    699,
-    709
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 476,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 136.433,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    699,
-    709
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 476,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 138.213,
+   "t": 138.226,
    "clip": "idle",
    "frame": "idle-01.png",
    "dir": "art/actors/thad-idle-back",
@@ -1522,7 +1441,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 139.982,
+   "t": 139.986,
    "clip": "idle",
    "frame": "idle-05.png",
    "dir": "art/actors/thad-idle-back",
@@ -1538,9 +1457,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 141.043,
-   "clip": "idle-break",
-   "frame": "idle-05.png",
+   "t": 141.871,
+   "clip": "idle",
+   "frame": "idle-03.png",
    "dir": "art/actors/thad-idle-back",
    "at": [
     699,
@@ -1554,7 +1473,39 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 141.703,
+   "t": 143.58,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    699,
+    709
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 476,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 145.361,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    699,
+    709
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 476,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 146.024,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
@@ -1570,44 +1521,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 141.788,
+   "t": 146.205,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    755,
-    709
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 476,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 141.865,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    803,
-    709
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 476,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 141.936,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    835,
+    811,
     708
    ],
    "facing": "right",
@@ -1618,12 +1537,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 142.078,
+   "t": 146.291,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    907,
+    851,
     708
    ],
    "facing": "right",
@@ -1634,28 +1553,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 142.148,
+   "t": 146.388,
    "clip": "walk",
    "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    891,
+    708
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 476,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 146.466,
+   "clip": "walk",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     939,
-    708
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 476,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 142.293,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1004,
     707
    ],
    "facing": "right",
@@ -1666,12 +1585,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 142.362,
+   "t": 146.553,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1044,
+    979,
     707
    ],
    "facing": "right",
@@ -1682,12 +1601,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 142.436,
+   "t": 146.649,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1076,
+    1019,
     707
    ],
    "facing": "right",
@@ -1698,12 +1617,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 142.583,
+   "t": 146.759,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1147,
+    1067,
+    707
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 475,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 146.85,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1115,
     706
    ],
    "facing": "right",
@@ -1714,12 +1649,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 142.657,
+   "t": 146.969,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1179,
+    1163,
     706
    ],
    "facing": "right",
@@ -1730,60 +1665,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 142.8,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1251,
-    705
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 473,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 142.888,
+   "t": 147.067,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1283,
-    705
+    1211,
+    706
    ],
    "facing": "right",
    "moving": true,
-   "height": 473,
+   "height": 474,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 142.973,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1323,
-    705
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 473,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 143.054,
+   "t": 147.154,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1371,
+    1259,
     705
    ],
    "facing": "right",
@@ -1794,12 +1697,60 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 143.143,
+   "t": 147.263,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1299,
+    705
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 473,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 147.356,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1347,
+    705
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 473,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 147.446,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1387,
+    704
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 473,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 147.54,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1410,
+    1434,
     704
    ],
    "facing": "right",
@@ -1810,28 +1761,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 143.289,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1482,
-    704
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 473,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 143.368,
+   "t": 147.722,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1514,
+    1522,
     704
    ],
    "facing": "right",
@@ -1842,12 +1777,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 143.441,
+   "t": 147.811,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1554,
+    1562,
     703
    ],
    "facing": "right",
@@ -1858,23 +1793,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 143.589,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-right",
-   "at": [
-    1599,
-    703
-   ],
-   "facing": "right",
-   "moving": false,
-   "height": 472,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 145.301,
+   "t": 147.902,
    "clip": "idle",
    "frame": "idle-00.png",
    "dir": "art/actors/thad-idle-right",
@@ -1890,23 +1809,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 147.096,
-   "clip": "idle",
-   "frame": "idle-04.png",
-   "dir": "art/actors/thad-idle-right",
-   "at": [
-    1599,
-    703
-   ],
-   "facing": "right",
-   "moving": false,
-   "height": 472,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 148.882,
+   "t": 148.992,
    "clip": "idle",
    "frame": "idle-02.png",
    "dir": "art/actors/thad-idle-right",
@@ -1922,7 +1825,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 150.71,
+   "t": 150.719,
    "clip": "idle",
    "frame": "idle-01.png",
    "dir": "art/actors/thad-idle-right",
@@ -1938,13 +1841,45 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 150.89,
+   "t": 152.521,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1599,
+    703
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 472,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 154.3,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1599,
+    703
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 472,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 155.294,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1575,
-    704
+    1551,
+    705
    ],
    "facing": "left",
    "moving": true,
@@ -1954,9 +1889,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 151.033,
+   "t": 155.42,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     1504,
@@ -1970,29 +1905,13 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 151.105,
+   "t": 155.536,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1472,
-    707
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 475,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 151.185,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    1432,
-    709
+    1456,
+    708
    ],
    "facing": "left",
    "moving": true,
@@ -2002,12 +1921,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 151.331,
+   "t": 155.627,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1408,
+    710
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 477,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 155.723,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1359,
+    1360,
     711
    ],
    "facing": "left",
@@ -2018,44 +1953,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 151.405,
+   "t": 155.813,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1327,
-    712
+    1319,
+    713
    ],
    "facing": "left",
    "moving": true,
-   "height": 478,
+   "height": 479,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 151.484,
+   "t": 155.995,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1287,
-    714
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 480,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 151.635,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    1214,
+    1223,
     716
    ],
    "facing": "left",
@@ -2066,9 +1985,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 151.712,
+   "t": 156.084,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     1182,
@@ -2082,9 +2001,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 151.788,
+   "t": 156.175,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     1141,
@@ -2098,12 +2017,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 151.945,
+   "t": 156.267,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1060,
+    1101,
+    720
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 484,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 156.358,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1052,
     722
    ],
    "facing": "left",
@@ -2114,28 +2049,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 152.027,
+   "t": 156.554,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1027,
-    723
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 486,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 152.104,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    986,
+    1003,
     724
    ],
    "facing": "left",
@@ -2146,9 +2065,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 152.177,
+   "t": 156.71,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     954,
@@ -2162,28 +2081,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 152.325,
+   "t": 156.895,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    880,
-    728
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 489,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 152.4,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    839,
+    855,
     729
    ],
    "facing": "left",
@@ -2194,12 +2097,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 152.55,
+   "t": 156.985,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    764,
+    806,
+    731
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 491,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 157.091,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    765,
     732
    ],
    "facing": "left",
@@ -2210,28 +2129,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 152.643,
+   "t": 157.18,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    731,
-    733
+    715,
+    734
    ],
    "facing": "left",
    "moving": true,
-   "height": 493,
+   "height": 494,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 152.761,
+   "t": 157.3,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    682,
+    673,
     735
    ],
    "facing": "left",
@@ -2242,12 +2161,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 152.885,
+   "t": 157.39,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    632,
+    623,
     737
    ],
    "facing": "left",
@@ -2258,12 +2177,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 153.029,
+   "t": 157.478,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    540,
+    582,
+    738
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 496,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 157.566,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    532,
     740
    ],
    "facing": "left",
@@ -2274,41 +2209,25 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 153.145,
+   "t": 157.656,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    506,
-    741
+    490,
+    742
    ],
    "facing": "left",
    "moving": true,
-   "height": 498,
+   "height": 499,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 153.228,
+   "t": 157.746,
    "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    456,
-    743
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 500,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 153.305,
-   "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     450,
@@ -2322,71 +2241,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 153.386,
-   "clip": "idle",
-   "frame": "idle-01.png",
-   "dir": "art/actors/thad-idle-front",
-   "at": [
-    450,
-    765
-   ],
-   "facing": "front",
-   "moving": false,
-   "height": 515,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 153.535,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-front",
-   "at": [
-    450,
-    765
-   ],
-   "facing": "front",
-   "moving": false,
-   "height": 515,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 154.314,
-   "clip": "idle",
-   "frame": "idle-03.png",
-   "dir": "art/actors/thad-idle-front",
-   "at": [
-    450,
-    765
-   ],
-   "facing": "front",
-   "moving": false,
-   "height": 515,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 156.048,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-front",
-   "at": [
-    450,
-    765
-   ],
-   "facing": "front",
-   "moving": false,
-   "height": 515,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 157.87,
+   "t": 157.833,
    "clip": "idle",
    "frame": "idle-00.png",
    "dir": "art/actors/thad-idle-front",
@@ -2402,7 +2257,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 159.64,
+   "t": 159.674,
    "clip": "idle",
    "frame": "idle-04.png",
    "dir": "art/actors/thad-idle-front",
@@ -2418,9 +2273,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 159.999,
+   "t": 161.444,
    "clip": "idle",
-   "frame": "idle-05.png",
+   "frame": "idle-02.png",
    "dir": "art/actors/thad-idle-front",
    "at": [
     450,
@@ -2434,9 +2289,41 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 160.292,
+   "t": 163.248,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-front",
+   "at": [
+    450,
+    765
+   ],
+   "facing": "front",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 164.337,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-front",
+   "at": [
+    450,
+    765
+   ],
+   "facing": "front",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 164.765,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     450,
@@ -2450,41 +2337,41 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 160.37,
+   "t": 164.862,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    493,
-    771
+    502,
+    772
    ],
    "facing": "right",
    "moving": true,
-   "height": 519,
+   "height": 520,
    "says": null,
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 160.445,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    528,
-    776
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 523,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 160.593,
+   "t": 164.96,
    "clip": "walk",
    "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    554,
+    779
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 525,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 165.051,
+   "clip": "walk",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     606,
@@ -2498,9 +2385,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 160.669,
+   "t": 165.144,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     608,
@@ -2514,25 +2401,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 160.75,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-front",
-   "at": [
-    608,
-    823
-   ],
-   "facing": "front",
-   "moving": true,
-   "height": 555,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 160.905,
+   "t": 165.243,
    "clip": "idle",
-   "frame": "idle-01.png",
+   "frame": "idle-00.png",
    "dir": "art/actors/thad-idle-front",
    "at": [
     608,
@@ -2546,7 +2417,23 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 160.986,
+   "t": 165.547,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    608,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 165.724,
    "clip": "idle",
    "frame": "idle-01.png",
    "dir": "art/actors/thad-idle-back",
@@ -2562,71 +2449,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 161.066,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    608,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 163.179,
-   "clip": "idle",
-   "frame": "idle-01.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    608,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": "thad",
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 164.985,
-   "clip": "idle",
-   "frame": "idle-05.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    608,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": "thad",
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 166.087,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    608,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 166.814,
+   "t": 166.843,
    "clip": "idle",
    "frame": "idle-03.png",
    "dir": "art/actors/thad-idle-back",
@@ -2637,14 +2460,46 @@
    "facing": "back",
    "moving": false,
    "height": 559,
-   "says": null,
+   "says": "thad",
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 167.397,
+   "t": 168.615,
    "clip": "idle",
-   "frame": "idle-05.png",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    608,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": "thad",
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 170.417,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    608,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": "thad",
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 170.699,
+   "clip": "idle",
+   "frame": "idle-01.png",
    "dir": "art/actors/thad-idle-back",
    "at": [
     608,
@@ -2658,9 +2513,25 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 167.688,
+   "t": 172.059,
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    608,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 172.42,
    "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     608,
@@ -2674,12 +2545,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 167.847,
+   "t": 172.509,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    693,
+    655,
     828
    ],
    "facing": "right",
@@ -2690,12 +2561,44 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 167.925,
+   "t": 172.6,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    712,
+    828
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 172.688,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    759,
+    828
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 172.864,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    740,
+    862,
     828
    ],
    "facing": "right",
@@ -2706,28 +2609,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 168.01,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    787,
-    828
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 168.086,
+   "t": 172.955,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    834,
+    909,
     828
    ],
    "facing": "right",
@@ -2738,12 +2625,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 168.241,
+   "t": 173.037,
    "clip": "walk",
    "frame": "walk-02.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    919,
+    956,
     828
    ],
    "facing": "right",
@@ -2754,25 +2641,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 168.317,
+   "t": 173.133,
    "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    966,
-    828
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 168.395,
-   "clip": "walk",
-   "frame": "walk-01.png",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
     1003,
@@ -2786,12 +2657,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 168.545,
+   "t": 173.224,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-04.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1097,
+    1060,
     828
    ],
    "facing": "right",
@@ -2802,12 +2673,28 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 168.62,
+   "t": 173.318,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1116,
+    828
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 173.404,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1135,
+    1163,
     828
    ],
    "facing": "right",
@@ -2818,12 +2705,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 168.698,
+   "t": 173.493,
    "clip": "walk",
-   "frame": "walk-00.png",
+   "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-right",
    "at": [
-    1182,
+    1210,
     828
    ],
    "facing": "right",
@@ -2834,23 +2721,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 168.853,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1267,
-    828
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 168.938,
+   "t": 173.673,
    "clip": "idle",
    "frame": "idle-02.png",
    "dir": "art/actors/thad-idle-back",
@@ -2866,7 +2737,55 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 169.009,
+   "t": 175.765,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    1303,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": "thad",
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 177.524,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    1303,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": "thad",
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 178.523,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    1303,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 179.314,
    "clip": "idle",
    "frame": "idle-03.png",
    "dir": "art/actors/thad-idle-back",
@@ -2882,7 +2801,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 170.303,
+   "t": 180.298,
    "clip": "idle",
    "frame": "idle-00.png",
    "dir": "art/actors/thad-idle-back",
@@ -2893,144 +2812,96 @@
    "facing": "back",
    "moving": false,
    "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 180.719,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1303,
+    828
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 180.833,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1359,
+    828
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 180.933,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1416,
+    828
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 181.132,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    1448,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 182.934,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    1448,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
    "says": "thad",
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 172.139,
+   "t": 184.672,
    "clip": "idle",
    "frame": "idle-04.png",
    "dir": "art/actors/thad-idle-back",
    "at": [
-    1303,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": "thad",
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 173.681,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    1303,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 175.384,
-   "clip": "idle",
-   "frame": "idle-00.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    1303,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 175.676,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1303,
-    828
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 175.752,
-   "clip": "walk",
-   "frame": "walk-00.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1350,
-    828
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 175.905,
-   "clip": "walk",
-   "frame": "walk-01.png",
-   "dir": "art/actors/thad-walk-right",
-   "at": [
-    1435,
-    828
-   ],
-   "facing": "right",
-   "moving": true,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 175.98,
-   "clip": "idle",
-   "frame": "idle-01.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    1448,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 176.051,
-   "clip": "idle",
-   "frame": "idle-02.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    1448,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 177.491,
-   "clip": "idle",
-   "frame": "idle-05.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
     1448,
     828
    ],
@@ -3042,23 +2913,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 179.255,
-   "clip": "idle",
-   "frame": "idle-03.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    1448,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": "thad",
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 180.607,
+   "t": 185.647,
    "clip": "idle",
    "frame": "idle-00.png",
    "dir": "art/actors/thad-idle-back",
@@ -3074,9 +2929,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 181.008,
+   "t": 186.424,
    "clip": "idle",
-   "frame": "idle-01.png",
+   "frame": "idle-02.png",
    "dir": "art/actors/thad-idle-back",
    "at": [
     1448,
@@ -3090,7 +2945,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 182.425,
+   "t": 187.681,
    "clip": "idle",
    "frame": "idle-05.png",
    "dir": "art/actors/thad-idle-back",
@@ -3106,9 +2961,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 182.725,
+   "t": 188.044,
    "clip": "walk",
-   "frame": "walk-02.png",
+   "frame": "walk-05.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     1448,
@@ -3122,28 +2977,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 182.797,
-   "clip": "walk",
-   "frame": "walk-02.png",
-   "dir": "art/actors/thad-walk-left",
-   "at": [
-    1401,
-    828
-   ],
-   "facing": "left",
-   "moving": true,
-   "height": 559,
-   "says": null,
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 182.881,
+   "t": 188.137,
    "clip": "walk",
    "frame": "walk-00.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1363,
+    1392,
     828
    ],
    "facing": "left",
@@ -3154,12 +2993,12 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 183.028,
+   "t": 188.23,
    "clip": "walk",
    "frame": "walk-01.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
-    1269,
+    1344,
     828
    ],
    "facing": "left",
@@ -3170,9 +3009,25 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 183.098,
+   "t": 188.324,
    "clip": "walk",
    "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1288,
+    828
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 188.419,
+   "clip": "walk",
+   "frame": "walk-03.png",
    "dir": "art/actors/thad-walk-left",
    "at": [
     1232,
@@ -3186,7 +3041,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 183.253,
+   "t": 188.508,
    "clip": "idle",
    "frame": "idle-01.png",
    "dir": "art/actors/thad-idle-back",
@@ -3202,23 +3057,7 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 184.603,
-   "clip": "idle",
-   "frame": "idle-04.png",
-   "dir": "art/actors/thad-idle-back",
-   "at": [
-    1200,
-    828
-   ],
-   "facing": "back",
-   "moving": false,
-   "height": 559,
-   "says": "thad",
-   "options": 0,
-   "locomotionWhileStill": false
-  },
-  {
-   "t": 186.41,
+   "t": 188.608,
    "clip": "idle",
    "frame": "idle-02.png",
    "dir": "art/actors/thad-idle-back",
@@ -3229,14 +3068,46 @@
    "facing": "back",
    "moving": false,
    "height": 559,
+   "says": null,
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 190.025,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    1200,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
    "says": "thad",
    "options": 0,
    "locomotionWhileStill": false
   },
   {
-   "t": 187.134,
+   "t": 191.842,
    "clip": "idle",
-   "frame": "idle-04.png",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    1200,
+    828
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 559,
+   "says": "thad",
+   "options": 0,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 192.522,
+   "clip": "idle",
+   "frame": "idle-05.png",
    "dir": "art/actors/thad-idle-back",
    "at": [
     1200,
@@ -3250,9 +3121,9 @@
    "locomotionWhileStill": false
   },
   {
-   "t": 188.24,
+   "t": 193.615,
    "clip": "idle",
-   "frame": "idle-01.png",
+   "frame": "idle-02.png",
    "dir": "art/actors/thad-idle-back",
    "at": [
     1200,
@@ -3269,213 +3140,213 @@
  "bursts": [],
  "log": [
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 20 (wait): waited 2s"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 21 (click): clicked main_street/to_assay_office at world 3113,479 -- Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 22 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
   },
   {
-   "t": 104.9,
+   "t": 109.009,
    "line": "action 23 (wait): waited 3s"
   },
   {
-   "t": 104.909,
+   "t": 109.066,
    "line": "in assay_office; route assay-office-startstop: 28 action(s); polling every 100 ms"
   },
   {
-   "t": 105.062,
+   "t": 109.27,
    "line": "action 1 (click): clicked screen 1500,760 -- cycle 1: walk"
   },
   {
-   "t": 114.064,
+   "t": 118.272,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 114.227,
+   "t": 118.448,
    "line": "action 1 (click): clicked screen 400,760 -- cycle 2: walk"
   },
   {
-   "t": 123.232,
+   "t": 127.451,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 123.372,
+   "t": 127.643,
    "line": "action 1 (click): clicked screen 1200,820 -- cycle 3: walk"
   },
   {
-   "t": 132.374,
+   "t": 136.646,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 132.484,
+   "t": 136.781,
    "line": "action 1 (click): clicked screen 700,710 -- cycle 4: walk"
   },
   {
-   "t": 141.487,
+   "t": 145.785,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 141.631,
+   "t": 145.937,
    "line": "action 1 (click): clicked screen 1600,704 -- cycle 5: walk"
   },
   {
-   "t": 150.633,
+   "t": 154.94,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 150.817,
+   "t": 155.161,
    "line": "action 1 (click): clicked screen 450,765 -- cycle 6: walk"
   },
   {
-   "t": 159.818,
+   "t": 164.163,
    "line": "action 1 (wait): waited 9s"
   },
   {
-   "t": 159.915,
+   "t": 164.237,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 160.212,
+   "t": 164.626,
    "line": "action 1 (click): clicked assay_office/stove at world 608,501 -- approach 1: hotspot walk, final facing, line"
   },
   {
-   "t": 161.22,
+   "t": 165.874,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
   },
   {
-   "t": 167.224,
+   "t": 171.876,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 167.32,
+   "t": 171.96,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 167.612,
+   "t": 172.329,
    "line": "action 1 (click): clicked assay_office/scales at world 1303,290 -- approach 2: hotspot walk, final facing, line"
   },
   {
-   "t": 169.221,
+   "t": 174.011,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
   },
   {
-   "t": 175.224,
+   "t": 180.015,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 175.306,
+   "t": 180.151,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 175.599,
+   "t": 180.605,
    "line": "action 1 (click): clicked assay_office/certificate at world 1448,157 -- approach 3: hotspot walk, final facing, line"
   },
   {
-   "t": 176.259,
+   "t": 181.371,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
   },
   {
-   "t": 182.26,
+   "t": 187.385,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 182.35,
+   "t": 187.526,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 182.652,
+   "t": 187.947,
    "line": "action 1 (click): clicked assay_office/queue_book at world 1200,452 -- approach 4: hotspot walk, final facing, line"
   },
   {
-   "t": 183.467,
+   "t": 188.798,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
   },
   {
-   "t": 189.468,
+   "t": 194.801,
    "line": "action 1 (wait): waited 6s"
   }
  ],
- "at": "2026-09-05T03:00:23.329Z"
+ "at": "2026-09-05T04:20:31.993Z"
 }

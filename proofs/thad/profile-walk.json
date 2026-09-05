@@ -1421,6 +1421,71 @@
    "no arm, sleeve, hand, shoulder, torso or coat pixel moved",
    "no three-frame loop",
    "no contact used twice"
-  ]
+  ],
+  "proofRuns": {
+   "room5RepeatedLoop": {
+    "record": "renders/proofs/assay-office-lamp-night/cycle-loop/frames.json",
+    "commit": "cf51b6a",
+    "pace": 1.25,
+    "samples": 87,
+    "summary": {
+     "changes": 40,
+     "clipsSeen": [
+      "idle",
+      "walk"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 0
+    },
+    "walkFramesWhileNotMoving": 0,
+    "right": "235 -> 1414 px at 515 px in 4.23 s: 1179 px over a 302 px cycle = 3.9 uninterrupted cycles; three 6->1 wraps observed at the 100 ms poll",
+    "left": "1371 -> 469 px in 2.85 s: 902 px = 3.0 cycles",
+    "frameOrder": "monotone through the loop; the poll skips a frame where a screenshot pauses it (each frame lasts ~97 ms at pace 1.25)",
+    "liveStrips": [
+     "renders/thad-profile-walk-live-right.png",
+     "renders/thad-profile-walk-live-left.png"
+    ]
+   },
+   "room5StartStop": {
+    "record": "renders/proofs/assay-office-lamp-night/startstop/frames.json",
+    "commit": "47fadeb",
+    "pace": 1.25,
+    "samples": 820,
+    "summary": {
+     "changes": 194,
+     "clipsSeen": [
+      "idle",
+      "walk"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 0
+    },
+    "walkFramesWhileNotMoving": 0,
+    "transitions": "ten idle -> walk -> idle round trips, no locomotion frame at rest, identity continuous (the stand family above the hem is the same drawing in every frame)"
+   },
+   "crossRoomNugget": {
+    "record": "renders/proofs/nugget/walk-new/life.json",
+    "commit": "47fadeb",
+    "pace": 1.25,
+    "result": "stayed coherent for 152 s; every arrival on the idle clip"
+   },
+   "room1WalkBurst": {
+    "record": "renders/proofs/stage-road/walk-burst/frames.json",
+    "commit": "47fadeb",
+    "pace": 1.25,
+    "summary": {
+     "changes": 81,
+     "clipsSeen": [
+      "idle-break",
+      "walk",
+      "idle"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 1
+    },
+    "walkingStills": 9,
+    "heightPx": 242
+   }
+  }
  }
 }
