@@ -1,5 +1,5 @@
 {
- "deployedSha": "ea6aa9c",
+ "deployedSha": "090eef3",
  "served": "dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/",
  "runs": [
   {
@@ -11,10 +11,10 @@
    "winnieSheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
    "inkstand": "art/staging/room-05/winnie-02-counter/inkstand.png",
    "lampOverlay": 200,
-   "thadClips": 203,
+   "thadClips": 193,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 773
+   "responsesSeen": 753
   },
   {
    "name": "night",
@@ -25,10 +25,10 @@
    "winnieSheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
    "inkstand": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
    "lampOverlay": 200,
-   "thadClips": 203,
+   "thadClips": 193,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 773
+   "responsesSeen": 753
   }
  ]
 }
