@@ -1,0 +1,271 @@
+{
+ "schema": 1,
+ "room": "nugget",
+ "note": "OPENING SET CONTINUITY RETROFIT AUDIT (doc 36 Q115): the frames the audit judges the Bountiful Nugget on. Entry is proofs/spec/nugget.json.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "n01-arrival",
+   "room": "nugget"
+  },
+  {
+   "do": "click",
+   "world": [
+    900,
+    515
+   ],
+   "why": "far depth, by the card table"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "n02-thad-far"
+  },
+  {
+   "do": "click",
+   "world": [
+    700,
+    650
+   ],
+   "why": "middle depth"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "n03-thad-mid"
+  },
+  {
+   "do": "click",
+   "world": [
+    1150,
+    840
+   ],
+   "why": "near depth, by the spittoon and the bar"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "n04-thad-near"
+  },
+  {
+   "do": "click",
+   "world": [
+    1100,
+    770
+   ],
+   "why": "beside the bar drinkers"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "n05-bar-group"
+  },
+  {
+   "do": "click",
+   "world": [
+    830,
+    560
+   ],
+   "why": "beside the card table"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "n06-card-table"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "piano",
+   "why": "LOOK at the piano"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "n07-piano-look"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "handbill",
+   "why": "LOOK at the handbill"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "n08-handbill-look"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "n09-handbill-area"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "stairs",
+   "why": "LOOK at the stairs -- the man on the landing"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "n10-stairs-look"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "patrons",
+   "why": "TALK TO the patrons hotspot -- no tree exists"
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "n11-talk-patrons"
+  },
+  {
+   "do": "click",
+   "world": [
+    700,
+    650
+   ],
+   "why": "mid-room for the idle"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "wait",
+   "seconds": 30
+  },
+  {
+   "do": "capture",
+   "name": "n12-idle-30"
+  },
+  {
+   "do": "wait",
+   "seconds": 30
+  },
+  {
+   "do": "capture",
+   "name": "n13-idle-60"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "cards",
+   "why": "LOOK at the hand of cards"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "n14-cards-look"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "click",
+   "on": "front_doors",
+   "why": "out to the street"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "n15-outside-doors",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "on": "to_nugget",
+   "why": "back in"
+  },
+  {
+   "do": "waitFor",
+   "room": "nugget",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "n16-reentry",
+   "room": "nugget"
+  }
+ ]
+}

@@ -3,7 +3,7 @@
  "id": "room-02-main-street",
  "room": "main_street",
  "docRoom": 2,
- "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four). Ids, statuses and pointers only; no creative content. Every gate is answered -- NOT-RUN is an answer -- and every answer but NOT-RUN cites evidence a person can open in a minute. Validated by tools/check-build-contracts.mjs. Owner rulings are recorded here by date and set by nobody but Tyler. OPENING-SET ROOM: this contract records what is ESTABLISHED today and answers NOT-RUN where the Factory v2 audit (step 3, OPENING SET CONTINUITY RETROFIT AUDIT) has not yet been run. It does not perform that audit.",
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four). Ids, statuses and pointers only; no creative content. Every gate is answered -- NOT-RUN is an answer -- and every answer but NOT-RUN cites evidence a person can open in a minute. Validated by tools/check-build-contracts.mjs. Owner rulings are recorded here by date and set by nobody but Tyler. OPENING-SET ROOM: this contract records what is ESTABLISHED today and answers NOT-RUN where the Factory v2 audit (step 3, OPENING SET CONTINUITY RETROFIT AUDIT) has not yet been run. The step-3 audit has now been run (2026-09-05): the retrofit rows below are its classifications, cited to proofs/factory/opening-set-retrofit-audit.json. Nothing has been retrofitted; owner acceptance fields are untouched.",
  "authorities": [
   "docs/13-room-02-content.md",
   "docs/14-room-02-exits.md",
@@ -190,9 +190,288 @@
  ],
  "retrofit": [
   {
-   "subject": "every element",
-   "classification": "NOT-CLASSIFIED",
-   "note": "Classified by the step-3 audit: OPENING SET CONTINUITY RETROFIT AUDIT — ROOM 2 + ROOM 3. Not performed here."
+   "subject": "plate",
+   "classification": "REGENERATE-CANDIDATE",
+   "layer": "plate/composition",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "renders/opening-set-audit/opening-set-continuity-sheet.webp",
+    "docs/36-issue-list.md::Q10 · ROOM 2'S PLATE IS DRAWN AT ROUGHLY HALF THE GAME'S FIGURE SCALE"
+   ],
+   "note": "One composition master from the current plate as ancestry (same street, same night, same saloon exception) at the game's architectural scale -- a man of ~240 at the boardwalk, doorways ~280 px -- with a near foreground plane (rail, post, trough) and selective detail; then the night plate; then the t"
+  },
+  {
+   "subject": "spatial realization",
+   "classification": "REGENERATE-CANDIDATE",
+   "layer": "plate/composition (primary); occlusion and lighting (secondary)",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "renders/opening-set-audit/opening-set-continuity-sheet.webp"
+   ],
+   "note": "See plate. If Tyler keeps the plate, the deterministic ceiling is: trough and porch-post masks, movers lit by lamps, per-window value hierarchy by companion edit -- and the scale stays wrong."
+  },
+  {
+   "subject": "masks",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "occlusion",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS",
+    "content/rooms/main-street.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp"
+   ],
+   "note": "If the plate is regenerated: author planes in the annotator on the new plate (0 operations). If kept: cut trough and post masks from the shipping plate deterministically (tools/art/room05-mask.mjs's method), 0 operations. Either way the maskPending flag comes off only when a mask describes the pictu"
+  },
+  {
+   "subject": "map seller -- casting/design",
+   "classification": "KEEP",
+   "layer": "character design",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-character-strip.png",
+    "reference/room-02/cast/map-seller-portrait.png",
+    "renders/opening-set-audit/main-street-audit-sheet.webp"
+   ],
+   "note": "None."
+  },
+  {
+   "subject": "map seller -- rendering/integration",
+   "classification": "IMPROVE",
+   "layer": "placement/contact/lighting",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "content/ambient/map-seller.json"
+   ],
+   "note": "Move the assay-office arrival point or his post by a few dozen pixels in the annotation (0 operations); re-match his relight to the new plate if one comes."
+  },
+  {
+   "subject": "map seller -- life",
+   "classification": "IMPROVE",
+   "layer": "room life",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/main-street/life.json",
+    "content/ambient/map-seller.json",
+    "docs/07-ambient-layer.md"
+   ],
+   "note": "Author his bark as a world caption on a break (the pie woman's mechanism, 0 operations); an offered-map pose exists on his sheet already."
+  },
+  {
+   "subject": "pie woman -- casting/design",
+   "classification": "RECAST",
+   "layer": "character design/rendering",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-character-strip.png",
+    "reference/room-02/cast/pie-woman-portrait.png",
+    "renders/opening-set-audit/main-street-audit-sheet.webp"
+   ],
+   "note": "One casting sheet in Winnie's method (composition master transmitted; three poses: rest, offering, calling) with the same basket and shawl so the character survives the redraw. Current sprite stays until accepted."
+  },
+  {
+   "subject": "pie woman -- rendering/integration",
+   "classification": "KEEP",
+   "layer": "placement/contact/lighting",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "docs/38-character-pipeline.md::LIGHT A SPRITE BY WHERE IT STANDS, NOT BY A GLOBAL GRADE"
+   ],
+   "note": "Carry the relight forward to whatever she becomes."
+  },
+  {
+   "subject": "pie woman -- life",
+   "classification": "KEEP",
+   "layer": "room life",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/main-street/life.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "content/ambient/pie-woman.json"
+   ],
+   "note": "None beyond re-cutting the breaks from the recast sheet."
+  },
+  {
+   "subject": "letter-writer -- casting/design",
+   "classification": "RECAST",
+   "layer": "character design/rendering",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-character-strip.png",
+    "reference/room-02/cast/letter-writer-portrait.png",
+    "renders/opening-set-audit/main-street-audit-sheet.webp"
+   ],
+   "note": "One casting sheet in Winnie's method, WITH HIS STATION: a table or board with papers, since the writing establishes a working business and nothing in the build shows one. The station is a prop cut from the same generation so it sits in his light. Current sprite stays until accepted."
+  },
+  {
+   "subject": "letter-writer -- rendering/integration",
+   "classification": "IMPROVE",
+   "layer": "placement/contact/lighting",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "content/ambient/letter-writer.json"
+   ],
+   "note": "Resolved by the recast's station; until then nothing deterministic changes the reading."
+  },
+  {
+   "subject": "letter-writer -- life",
+   "classification": "IMPROVE",
+   "layer": "room life",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/main-street/life.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "docs/07-ambient-layer.md"
+   ],
+   "note": "After the recast: breaks that write, blot, turn a page, look up -- Winnie's pattern -- cut from the recast sheet (0 further operations). No customer is authored anywhere; none is proposed."
+  },
+  {
+   "subject": "dog",
+   "classification": "IMPROVE",
+   "layer": "design/scale/contact",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "content/ambient/dog.json",
+    "art/objects/room-02/dog-shadow.png"
+   ],
+   "note": "Draw the existing shadow under him (content only, 0 operations). No redesign."
+  },
+  {
+   "subject": "room life overall",
+   "classification": "IMPROVE",
+   "layer": "room life",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/main-street/life.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp"
+   ],
+   "note": "Occupational breaks per character, authored from canon (the pie woman offering, the map seller calling, the letter-writer writing), once the recasts land."
+  },
+  {
+   "subject": "base lighting",
+   "classification": "IMPROVE",
+   "layer": "plate lighting",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "content/rooms/main-street.json"
+   ],
+   "note": "Folds into the regenerated plate (fewer lit windows, a darker east end). If the plate is kept, a companion edit of window values is an image operation and is not recommended on its own."
+  },
+  {
+   "subject": "actor-light integration",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "renderer",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "engine/render/Renderer.ts"
+   ],
+   "note": "A small renderer change: tint movers by the lamps they stand in (the same radial falloff, applied to the sprite). Not a rewrite; 0 operations. Deferred to the retrofit, not done here."
+  },
+  {
+   "subject": "assay-office destination",
+   "classification": "IMPROVE",
+   "layer": "readability",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp",
+    "renders/proofs/opening-set-audit/main-street/life.json"
+   ],
+   "note": "Runtime lettering on the sign board is the design's own rule (\"the engine draws sign text at runtime\") and is unbuilt for this sign; when built it resolves the readability. No highlight, no arrow."
+  },
+  {
+   "subject": "exterior/interior continuity to Room 5",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "promotion",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/main-street/life.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp"
+   ],
+   "note": "Promote Room 5's accepted assets (a logged step, Tyler's). 0 operations."
+  },
+  {
+   "subject": "exits / re-entry",
+   "classification": "KEEP",
+   "layer": "transit",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/main-street/life.json"
+   ],
+   "note": "None."
+  },
+  {
+   "subject": "dialogue (three micro-trees)",
+   "classification": "KEEP",
+   "layer": "dialogue",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "renders/proofs/opening-set-audit/main-street/life.json",
+    "renders/opening-set-audit/main-street-audit-sheet.webp"
+   ],
+   "note": "None."
+  },
+  {
+   "subject": "Act III overlays -- assets",
+   "classification": "IMPROVE",
+   "layer": "state art",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "art/objects/room-02/company-sign-gilt-overlay.png",
+    "art/objects/room-02/posted-notices-act3-overlay.png"
+   ],
+   "note": "Lower the notice's paper value to the board's (deterministic, 0 operations) when the state becomes reachable; both must be re-cut if the plate is regenerated."
+  },
+  {
+   "subject": "Act III overlays -- state architecture",
+   "classification": "KEEP",
+   "layer": "world state",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "content/rooms/main-street.json",
+    "tools/check-state-images.mjs"
+   ],
+   "note": "None."
+  },
+  {
+   "subject": "ACT writer",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "content",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json",
+    "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN"
+   ],
+   "note": "Out of scope until the act-turn room is built."
+  },
+  {
+   "subject": "compiler / act-variant debt",
+   "classification": "DEBT-NOT-VISUAL",
+   "layer": "compiler",
+   "evidence": [
+    "proofs/factory/opening-set-retrofit-audit.json"
+   ],
+   "note": "Compiler support for variants on existing hotspots, in the retrofit. 0 operations."
   }
- ]
+ ],
+ "audit": {
+  "opening-set-retrofit-audit": {
+   "on": "2026-09-05",
+   "record": "proofs/factory/opening-set-retrofit-audit.json",
+   "sheet": "renders/opening-set-audit/main-street-audit-sheet.webp",
+   "status": "AUDITED; retrofit scope awaiting Tyler's approval; nothing performed",
+   "tally": {
+    "REGENERATE-CANDIDATE": 2,
+    "DEBT-NOT-VISUAL": 5,
+    "KEEP": 6,
+    "IMPROVE": 9,
+    "RECAST": 2
+   }
+  }
+ }
 }

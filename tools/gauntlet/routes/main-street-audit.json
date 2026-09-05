@@ -1,0 +1,403 @@
+{
+ "schema": 1,
+ "room": "main_street",
+ "note": "OPENING SET CONTINUITY RETROFIT AUDIT (doc 36 Q115): the frames the audit judges Main Street on, at gameplay scale, shipping assets, no overlays. Entry is proofs/spec/main-street.json (Room 1 through the opening). Every capture is a full 1920x1080 frame; the audit sheet picks from them.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 8,
+   "why": "the first-sight walk and the arrival settle"
+  },
+  {
+   "do": "capture",
+   "name": "m01-arrival",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "world": [
+    3000,
+    590
+   ],
+   "why": "far depth: the boardwalk line by the assay office"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "m02-thad-far"
+  },
+  {
+   "do": "click",
+   "world": [
+    2500,
+    720
+   ],
+   "why": "middle depth, before the saloon"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "m03-thad-mid"
+  },
+  {
+   "do": "click",
+   "world": [
+    2400,
+    850
+   ],
+   "why": "near depth, the near mud"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "m04-thad-near"
+  },
+  {
+   "do": "click",
+   "world": [
+    1930,
+    660
+   ],
+   "why": "stand in front of the water trough -- the plane-2 occlusion question"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "m05-trough-occlusion"
+  },
+  {
+   "do": "click",
+   "world": [
+    300,
+    830
+   ],
+   "why": "the near west corner: plane 1, the lumber stack and the wheel"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "m06-west-corner-occlusion"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "letter_writer",
+   "why": "the letter-writer"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 40
+  },
+  {
+   "do": "capture",
+   "name": "m07-letter-writer-talk"
+  },
+  {
+   "do": "option",
+   "option": "charge",
+   "why": "What do you charge? -- the row that opens the follow-up"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 40
+  },
+  {
+   "do": "option",
+   "option": "going_well",
+   "why": "the line about the business doing well"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 40
+  },
+  {
+   "do": "capture",
+   "name": "m08-letter-writer-reply"
+  },
+  {
+   "do": "option",
+   "option": "exit"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "m09-letter-writer-after"
+  },
+  {
+   "do": "click",
+   "world": [
+    2100,
+    760
+   ],
+   "why": "over to the pie woman and the saloon"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "pie_woman",
+   "why": "the pie woman"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 40
+  },
+  {
+   "do": "capture",
+   "name": "m10-pie-woman-talk"
+  },
+  {
+   "do": "option",
+   "option": "exit"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "m11-pie-woman-after"
+  },
+  {
+   "do": "click",
+   "world": [
+    2560,
+    800
+   ],
+   "why": "beside the dog"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "m12-dog"
+  },
+  {
+   "do": "wait",
+   "seconds": 30,
+   "why": "idle 30 s where the pie woman, the dog and the saloon are in frame"
+  },
+  {
+   "do": "capture",
+   "name": "m13-idle-30"
+  },
+  {
+   "do": "wait",
+   "seconds": 30,
+   "why": "idle 60 s"
+  },
+  {
+   "do": "capture",
+   "name": "m14-idle-60"
+  },
+  {
+   "do": "click",
+   "world": [
+    3120,
+    700
+   ],
+   "why": "to the assay office front"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "map_seller",
+   "why": "the map seller"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 40
+  },
+  {
+   "do": "capture",
+   "name": "m15-map-seller-talk"
+  },
+  {
+   "do": "option",
+   "option": "exit"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "m16-map-seller-after"
+  },
+  {
+   "do": "click",
+   "world": [
+    3113,
+    650
+   ],
+   "why": "at the assay office door"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "m17-assay-destination"
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "into Room 5"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "m18-inside-assay",
+   "room": "assay_office"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "back out"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "m19-back-on-street",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "second round trip"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "on": "back_to_street"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "m20-reentry-2",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "world": [
+    2320,
+    660
+   ],
+   "why": "to the saloon doorway"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "m21-saloon-door"
+  },
+  {
+   "do": "click",
+   "on": "to_nugget",
+   "why": "into the Nugget and back, the other live door"
+  },
+  {
+   "do": "waitFor",
+   "room": "nugget",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "on": "front_doors"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "m22-out-of-nugget",
+   "room": "main_street"
+  }
+ ]
+}

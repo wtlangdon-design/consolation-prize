@@ -1,0 +1,6594 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "main_street",
+ "commit": "3855ce8c791bf8271ebaad84116bd5c2e6d777e6",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "main-street",
+ "lifeRoute": "main-street-life",
+ "durationSeconds": 355.82,
+ "events": [
+  {
+   "t": 3.22,
+   "line": "entry route main-street: 19 action(s)"
+  },
+  {
+   "t": 99.63,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 99.63,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 99.63,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 99.63,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 99.63,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 99.63,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 99.63,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 99.63,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 99.63,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 99.63,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 99.63,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 99.63,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 99.63,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 99.63,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 99.63,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 99.63,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 99.63,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 99.63,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 99.63,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 99.68,
+   "line": "in main_street; life route: 82 action(s)"
+  },
+  {
+   "t": 100.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 101.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 102.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 103.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 104.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 105.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 106.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3660,
+     600
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 107.69,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 108.24,
+   "line": "capture m01-arrival: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 108.53,
+   "line": "action 1 (click): clicked world 3000,590 -- far depth: the boardwalk line by the assay office"
+  },
+  {
+   "t": 109.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3567,
+     598
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 110.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3478,
+     597
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 111.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3389,
+     595
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 112.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3302,
+     594
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 113.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3211,
+     593
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 114.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3127,
+     591
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 115.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3039,
+     590
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 116.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2999,
+     589
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2999,
+     589
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 118.53,
+   "line": "action 1 (wait): waited 10s"
+  },
+  {
+   "t": 119.09,
+   "line": "capture m02-thad-far: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 119.27,
+   "line": "action 1 (click): clicked world 2500,720 -- middle depth, before the saloon"
+  },
+  {
+   "t": 120.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2909,
+     605
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 121.28,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2820,
+     620
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 122.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2720,
+     637
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 123.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2619,
+     655
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 124.29,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2514,
+     673
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 125.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2500,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 126.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2500,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 127.3,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2500,
+     720
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 128.28,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 128.85,
+   "line": "capture m03-thad-mid: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 129.02,
+   "line": "action 1 (click): clicked world 2400,850 -- near depth, the near mud"
+  },
+  {
+   "t": 130.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2399,
+     788
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 131.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2399,
+     849
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2399,
+     849
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 133.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2399,
+     849
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 134.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2399,
+     849
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 135.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2399,
+     849
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 136.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2399,
+     849
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 137.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2399,
+     849
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 138.03,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 138.59,
+   "line": "capture m04-thad-near: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 138.85,
+   "line": "action 1 (click): clicked world 1930,660 -- stand in front of the water trough -- the plane-2 occlusion question"
+  },
+  {
+   "t": 139.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2234,
+     820
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 140.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2082,
+     794
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 141.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1938,
+     768
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 142.91,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 143.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 144.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 145.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 147.86,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 148.41,
+   "line": "capture m05-trough-occlusion: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 148.6,
+   "line": "action 1 (click): clicked world 300,830 -- the near west corner: plane 1, the lumber stack and the wheel"
+  },
+  {
+   "t": 149.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 150.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 152.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 153.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 155.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 156.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 158.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.7,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1930,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.6,
+   "line": "action 1 (wait): waited 12s"
+  },
+  {
+   "t": 161.23,
+   "line": "capture m06-west-corner-occlusion: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 161.35,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 161.56,
+   "line": "action 1 (click): clicked main_street/letter_writer at world 1330,630 -- the letter-writer"
+  },
+  {
+   "t": 162.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1821,
+     678
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 163.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1707,
+     688
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 164.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1592,
+     697
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 165.49,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room main_street"
+  },
+  {
+   "t": 166.04,
+   "line": "capture m07-letter-writer-talk: room main_street, says null, options 4, control null"
+  },
+  {
+   "t": 166.3,
+   "line": "action 1 (option): chose option charge -- What do you charge? -- the row that opens the follow-up"
+  },
+  {
+   "t": 167.34,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.34,
+   "trace": {
+    "says": "letter_writer",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.32,
+   "trace": {
+    "says": "letter_writer",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.33,
+   "trace": {
+    "says": "letter_writer",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.23,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room main_street"
+  },
+  {
+   "t": 171.44,
+   "line": "action 1 (option): chose option going_well -- the line about the business doing well"
+  },
+  {
+   "t": 172.48,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.46,
+   "trace": {
+    "says": "letter_writer",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.46,
+   "trace": {
+    "says": "letter_writer",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.46,
+   "trace": {
+    "says": "letter_writer",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.47,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.45,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.46,
+   "trace": {
+    "says": "letter_writer",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.44,
+   "trace": {
+    "says": "letter_writer",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.34,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room main_street"
+  },
+  {
+   "t": 180.89,
+   "line": "capture m08-letter-writer-reply: room main_street, says null, options 5, control null"
+  },
+  {
+   "t": 181.09,
+   "line": "action 1 (option): chose option exit -- "
+  },
+  {
+   "t": 182.1,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1488,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.1,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 185.64,
+   "line": "capture m09-letter-writer-after: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 185.83,
+   "line": "action 1 (click): clicked world 2100,760 -- over to the pie woman and the saloon"
+  },
+  {
+   "t": 186.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1612,
+     717
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 187.84,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1736,
+     727
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 188.84,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1860,
+     738
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 189.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1996,
+     750
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 190.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 193.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 194.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 195.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 196.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2099,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.84,
+   "line": "action 1 (wait): waited 14s"
+  },
+  {
+   "t": 199.89,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 200.14,
+   "line": "action 1 (click): clicked main_street/pie_woman at world 2180,646 -- the pie woman"
+  },
+  {
+   "t": 200.98,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room main_street"
+  },
+  {
+   "t": 201.55,
+   "line": "capture m10-pie-woman-talk: room main_street, says null, options 3, control null"
+  },
+  {
+   "t": 201.84,
+   "line": "action 1 (option): chose option exit -- "
+  },
+  {
+   "t": 202.87,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     2006,
+     724
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.88,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     2006,
+     724
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.88,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     2006,
+     724
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 205.84,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 205.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2006,
+     724
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 206.39,
+   "line": "capture m11-pie-woman-after: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 206.55,
+   "line": "action 1 (click): clicked world 2560,800 -- beside the dog"
+  },
+  {
+   "t": 207.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2138,
+     734
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 208.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2266,
+     744
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 209.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2402,
+     755
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 210.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2539,
+     765
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 211.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 212.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 213.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 214.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 215.56,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 216.13,
+   "line": "capture m12-dog: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 217.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 218.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 219.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 223.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 224.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 225.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 226.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 227.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 228.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 230.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 231.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 232.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 233.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 234.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 235.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 236.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 237.2,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 238.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 239.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 240.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 241.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 242.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 243.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 244.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 245.21,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 246.14,
+   "line": "action 1 (wait): waited 30s"
+  },
+  {
+   "t": 246.72,
+   "line": "capture m13-idle-30: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 247.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 248.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 249.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 250.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 251.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 252.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 253.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 254.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 255.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 256.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 257.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 258.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 259.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 260.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 261.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 262.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 263.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 264.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 265.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 266.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 267.75,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 268.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 269.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 270.79,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 271.79,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 272.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 273.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 274.8,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 275.77,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2559,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 276.72,
+   "line": "action 1 (wait): waited 30s"
+  },
+  {
+   "t": 277.31,
+   "line": "capture m14-idle-60: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 277.48,
+   "line": "action 1 (click): clicked world 3120,700 -- to the assay office front"
+  },
+  {
+   "t": 278.48,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2704,
+     791
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 279.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2856,
+     782
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 280.53,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2999,
+     774
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 281.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3119,
+     760
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 282.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3119,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 283.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3119,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 284.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3119,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 285.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3119,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 286.52,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3119,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 287.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3119,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 288.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3119,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 289.48,
+   "line": "action 1 (wait): waited 12s"
+  },
+  {
+   "t": 289.56,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 289.81,
+   "line": "action 1 (click): clicked main_street/map_seller at world 3140,631 -- the map seller"
+  },
+  {
+   "t": 290.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2995,
+     705
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 291.1,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room main_street"
+  },
+  {
+   "t": 291.64,
+   "line": "capture m15-map-seller-talk: room main_street, says null, options 4, control null"
+  },
+  {
+   "t": 291.83,
+   "line": "action 1 (option): chose option exit -- "
+  },
+  {
+   "t": 292.84,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     2982,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 293.85,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     2982,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 294.84,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     2982,
+     706
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 295.83,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 296.42,
+   "line": "capture m16-map-seller-after: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 296.6,
+   "line": "action 1 (click): clicked world 3113,650 -- at the assay office door"
+  },
+  {
+   "t": 297.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3102,
+     677
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 298.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3112,
+     649
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 299.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3112,
+     649
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 300.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3112,
+     649
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 301.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3112,
+     649
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 302.6,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 303.16,
+   "line": "capture m17-assay-destination: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 303.4,
+   "line": "action 1 (click): clicked main_street/to_assay_office at world 3113,479 -- into Room 5"
+  },
+  {
+   "t": 303.78,
+   "line": "action 1 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 304.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     765
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 305.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     765
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 306.78,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 306.8,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     765
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 307.2,
+   "line": "capture m18-inside-assay: room assay_office, says null, options 0, control null"
+  },
+  {
+   "t": 307.42,
+   "line": "action 1 (click): clicked assay_office/back_to_street at world 178,405 -- back out"
+  },
+  {
+   "t": 307.97,
+   "line": "action 1 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 308.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3113,
+     627
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 309.98,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3113,
+     627
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 311,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3113,
+     627
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 312.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3113,
+     627
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 312.97,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 313.54,
+   "line": "capture m19-back-on-street: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 313.75,
+   "line": "action 1 (click): clicked main_street/to_assay_office at world 3113,479 -- second round trip"
+  },
+  {
+   "t": 314.1,
+   "line": "action 1 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 315.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     765
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 316.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     765
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 317.1,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 317.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     200,
+     765
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 317.28,
+   "line": "action 1 (click): clicked assay_office/back_to_street at world 178,405 -- "
+  },
+  {
+   "t": 317.82,
+   "line": "action 1 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 318.83,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3113,
+     627
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 319.85,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3113,
+     627
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 320.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3113,
+     627
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 321.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3113,
+     627
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 322.82,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 323.38,
+   "line": "capture m20-reentry-2: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 323.55,
+   "line": "action 1 (click): clicked world 2320,660 -- to the saloon doorway"
+  },
+  {
+   "t": 324.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     3010,
+     631
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 325.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2914,
+     635
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 326.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2813,
+     639
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 327.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2711,
+     644
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 328.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2606,
+     648
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 329.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2500,
+     653
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 330.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2394,
+     657
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 331.58,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2320,
+     660
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 332.56,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 333.11,
+   "line": "capture m21-saloon-door: room main_street, says null, options 0, control null"
+  },
+  {
+   "t": 333.33,
+   "line": "action 1 (click): clicked main_street/to_nugget at world 2317,459 -- into the Nugget and back, the other live door"
+  },
+  {
+   "t": 333.8,
+   "line": "action 1 (waitFor): reached {\"room\":\"nugget\"} in room nugget"
+  },
+  {
+   "t": 334.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 335.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 336.81,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 336.84,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 337,
+   "line": "action 1 (click): clicked nugget/front_doors at world 156,481 -- "
+  },
+  {
+   "t": 337.06,
+   "line": "action 1 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 338.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2317,
+     624
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 339.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2317,
+     624
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 340.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2317,
+     624
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 341.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2317,
+     624
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 342.06,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 342.81,
+   "line": "capture m22-out-of-nugget: room main_street, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "m01-arrival",
+   "why": null,
+   "t": 108.23,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m01-arrival.png",
+   "hash": "0e5cb96249fd88b8725d1884ceb162f0c0f4b592eb93985144e7e06a579d0c74",
+   "room": "main_street",
+   "clock": 107.8552,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      3660,
+      600
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 111,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-00.png",
+     "bounds": [
+      3602,
+      489,
+      115,
+      123
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m02-thad-far",
+   "why": null,
+   "t": 119.08,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m02-thad-far.png",
+   "hash": "9b7a98c8c4377d0136d0a3f79551c2423f89d049bbffe2142fec236a98709b0b",
+   "room": "main_street",
+   "clock": 118.7381,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      2999,
+      589
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 107,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-02.png",
+     "bounds": [
+      2943,
+      482,
+      111,
+      118
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m03-thad-mid",
+   "why": null,
+   "t": 128.84,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m03-thad-mid.png",
+   "hash": "1a1cc86ba49ac5a0aac5ffe44af45e555bfe6dfaacc27343893c17d5658962fc",
+   "room": "main_street",
+   "clock": 128.471,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      2500,
+      720
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 155,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-02.png",
+     "bounds": [
+      2408,
+      565,
+      184,
+      171
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m04-thad-near",
+   "why": null,
+   "t": 138.58,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m04-thad-near.png",
+   "hash": "535b627ff099187137bbc36e49693592cbb73843f46e417c9c03b78ad607871c",
+   "room": "main_street",
+   "clock": 138.204,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1759,
+   "movers": {
+    "thad": {
+     "at": [
+      2399,
+      849
+     ],
+     "facing": "front",
+     "clip": "idle-break",
+     "height": 203,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-front/idle-break-01.png",
+     "bounds": [
+      2278,
+      646,
+      241,
+      224
+     ],
+     "order": 0,
+     "clipLevel": 1,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m05-trough-occlusion",
+   "why": null,
+   "t": 148.4,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m05-trough-occlusion.png",
+   "hash": "b567892f2577eb3b33bf78a17469be906d964c733be55e80e3aa96b79b992941",
+   "room": "main_street",
+   "clock": 148.05360000000002,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1290,
+   "movers": {
+    "thad": {
+     "at": [
+      1930,
+      660
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 133,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      1851,
+      527,
+      157,
+      147
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m06-west-corner-occlusion",
+   "why": null,
+   "t": 161.22,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m06-west-corner-occlusion.png",
+   "hash": "42b244c33f82218f054eef6b717f547dc5d2f4293d60cc4bcd5623ff80f6956f",
+   "room": "main_street",
+   "clock": 160.7864,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1290,
+   "movers": {
+    "thad": {
+     "at": [
+      1930,
+      660
+     ],
+     "facing": "back",
+     "clip": "idle-break",
+     "height": 133,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-back/idle-break-07.png",
+     "bounds": [
+      1851,
+      527,
+      157,
+      147
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m07-letter-writer-talk",
+   "why": null,
+   "t": 166.03,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m07-letter-writer-talk.png",
+   "hash": "951cff78991bf071ea074efd662057f4d03b711a4782e1882201cb314bd19c3e",
+   "room": "main_street",
+   "clock": 165.6862,
+   "control": null,
+   "says": null,
+   "options": 4,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 848,
+   "movers": {
+    "thad": {
+     "at": [
+      1488,
+      706
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 150,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-01.png",
+     "bounds": [
+      1410,
+      556,
+      156,
+      166
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m08-letter-writer-reply",
+   "why": null,
+   "t": 180.88,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m08-letter-writer-reply.png",
+   "hash": "fcad1e786cc87fa910d8a60f00174e15c9f62368c69e9cf81ae782c11e1b472e",
+   "room": "main_street",
+   "clock": 180.53560000000002,
+   "control": null,
+   "says": null,
+   "options": 5,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 848,
+   "movers": {
+    "thad": {
+     "at": [
+      1488,
+      706
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 150,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-left/idle-break-02.png",
+     "bounds": [
+      1410,
+      556,
+      156,
+      166
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m09-letter-writer-after",
+   "why": null,
+   "t": 185.62,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m09-letter-writer-after.png",
+   "hash": "36d83f442b53e2d2b23dbe145d764285bfe23e1664846ebc941aa7e7040d4e70",
+   "room": "main_street",
+   "clock": 185.2688,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 848,
+   "movers": {
+    "thad": {
+     "at": [
+      1488,
+      706
+     ],
+     "facing": "left",
+     "clip": "idle-break",
+     "height": 150,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-left/idle-break-11.png",
+     "bounds": [
+      1410,
+      556,
+      156,
+      166
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m10-pie-woman-talk",
+   "why": null,
+   "t": 201.54,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m10-pie-woman-talk.png",
+   "hash": "93813560ec84682d5ec9bb6d55302799cc26b22c444fc7f8f757339a7d898f35",
+   "room": "main_street",
+   "clock": 201.1682,
+   "control": null,
+   "says": null,
+   "options": 3,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 848,
+   "movers": {
+    "thad": {
+     "at": [
+      2006,
+      724
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 157,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      1924,
+      567,
+      163,
+      173
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m11-pie-woman-after",
+   "why": null,
+   "t": 206.38,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m11-pie-woman-after.png",
+   "hash": "64d1c8a43ee84effd22bea962dd2f368d83c3acc32dacac8bfe71cc8038679a3",
+   "room": "main_street",
+   "clock": 206.0012,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 848,
+   "movers": {
+    "thad": {
+     "at": [
+      2006,
+      724
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 157,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      1924,
+      567,
+      163,
+      173
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m12-dog",
+   "why": null,
+   "t": 216.13,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m12-dog.png",
+   "hash": "9c10f2959a9494b762e3a1e549ee09ae88cf7b975def706bd004b620dbfcc392",
+   "room": "main_street",
+   "clock": 215.7675,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1279,
+   "movers": {
+    "thad": {
+     "at": [
+      2559,
+      799
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 184,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-01.png",
+     "bounds": [
+      2450,
+      615,
+      218,
+      203
+     ],
+     "order": 0,
+     "clipLevel": 1,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m13-idle-30",
+   "why": null,
+   "t": 246.71,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m13-idle-30.png",
+   "hash": "d3c3e8d6082339c2ccf8c1d02eb46f8fcb1ccdd29d410b2d5dfbe327b74d4467",
+   "room": "main_street",
+   "clock": 246.333,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1279,
+   "movers": {
+    "thad": {
+     "at": [
+      2559,
+      799
+     ],
+     "facing": "front",
+     "clip": "idle-break",
+     "height": 184,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-front/idle-break-04.png",
+     "bounds": [
+      2450,
+      615,
+      218,
+      203
+     ],
+     "order": 0,
+     "clipLevel": 1,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m14-idle-60",
+   "why": null,
+   "t": 277.3,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m14-idle-60.png",
+   "hash": "6e7fe62a97f0c97024d44d76d0f10bac0d7c5b4c5c45e281c2ab30863d7e1663",
+   "room": "main_street",
+   "clock": 276.93170000000003,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1279,
+   "movers": {
+    "thad": {
+     "at": [
+      2559,
+      799
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 184,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-04.png",
+     "bounds": [
+      2450,
+      615,
+      218,
+      203
+     ],
+     "order": 0,
+     "clipLevel": 1,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m15-map-seller-talk",
+   "why": null,
+   "t": 291.63,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m15-map-seller-talk.png",
+   "hash": "bd58dc9ddeacc7d80a1af042659627d349b9a5c4b0621aa276abd2139089cf43",
+   "room": "main_street",
+   "clock": 291.2645,
+   "control": null,
+   "says": null,
+   "options": 4,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      2982,
+      706
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 150,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      2904,
+      556,
+      156,
+      166
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m16-map-seller-after",
+   "why": null,
+   "t": 296.41,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m16-map-seller-after.png",
+   "hash": "94d4feecab0867e502faf0c91f4d8b7831082995c576deb36ba35cfa246d385b",
+   "room": "main_street",
+   "clock": 296.031,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      2982,
+      706
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 150,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      2904,
+      556,
+      156,
+      166
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m17-assay-destination",
+   "why": null,
+   "t": 303.15,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m17-assay-destination.png",
+   "hash": "30a5dd0544b51f04523e498a06bd0a6e65c544f0e18f3ccc7fd389c4e742cea5",
+   "room": "main_street",
+   "clock": 302.79740000000004,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      3112,
+      649
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 129,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      3035,
+      520,
+      153,
+      142
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "shut",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m18-inside-assay",
+   "why": null,
+   "t": 307.19,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m18-inside-assay.png",
+   "hash": "62e234429b1f79ba51f45726e620df03bb36f027f71f0f391ceb0a983a2f9cda",
+   "room": "assay_office",
+   "clock": 306.9806,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      200,
+      765
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 515,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      -67,
+      250,
+      534,
+      569
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {
+    "floorboard": {
+     "armed": true,
+     "pressed": false
+    }
+   },
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_office",
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "drawn": "art/backgrounds/room-05-assay-office.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "434550b40266c2dd06d481aa2eb3c82bc7b27e42372798a74296a03d8f24413f"
+    },
+    {
+     "key": "art/staging/room-05/mask-plane-1.png",
+     "path": "art/staging/room-05/mask-plane-1.png",
+     "drawn": "art/staging/room-05/mask-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b"
+    },
+    {
+     "key": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "drawn": "art/staging/room-05/winnie-02-counter/inkstand.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f30184b62c2b5e100c73920f5a490f3d9917d481418471d4f7bfcc23677a5abb"
+    },
+    {
+     "key": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "drawn": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-rest-c-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed.png",
+     "path": "art/staging/room-05/floorboard/board-pressed.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
+    },
+    {
+     "key": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "drawn": "art/staging/room-05/floorboard/board-pressed-night.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m19-back-on-street",
+   "why": null,
+   "t": 313.53,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m19-back-on-street.png",
+   "hash": "54c6c995a953f1468ba86e67e6654022f1acb0dbd0a574303f53cd30df8ea4b1",
+   "room": "main_street",
+   "clock": 313.1636,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      3113,
+      627
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 121,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-01.png",
+     "bounds": [
+      3041,
+      506,
+      143,
+      134
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "open",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m20-reentry-2",
+   "why": null,
+   "t": 323.37,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m20-reentry-2.png",
+   "hash": "eaf3d2380c34b429c5524d52da99df42f2bfdf31cba9da8e8ab45220589a1110",
+   "room": "main_street",
+   "clock": 322.9966,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1780,
+   "movers": {
+    "thad": {
+     "at": [
+      3113,
+      627
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 121,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-01.png",
+     "bounds": [
+      3041,
+      506,
+      143,
+      134
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "open",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m21-saloon-door",
+   "why": null,
+   "t": 333.1,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m21-saloon-door.png",
+   "hash": "e4ea1a5c8524e494bf509dfab427ea044ff77a672a7aa5e6d321a50a58a75fec",
+   "room": "main_street",
+   "clock": 332.7462,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1680,
+   "movers": {
+    "thad": {
+     "at": [
+      2320,
+      660
+     ],
+     "facing": "left",
+     "clip": "idle",
+     "height": 133,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-left/idle-05.png",
+     "bounds": [
+      2251,
+      527,
+      138,
+      147
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "open",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "m22-out-of-nugget",
+   "why": null,
+   "t": 342.8,
+   "file": "renders/proofs/opening-set-audit/main-street/raw-captures-ignored/m22-out-of-nugget.png",
+   "hash": "4e2974f4b798c28f103e7e5b563961b5bc3e970812d1d118e047c6105d50e100",
+   "room": "main_street",
+   "clock": 342.27909999999997,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_CHARGE_ASKED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 1357,
+   "movers": {
+    "thad": {
+     "at": [
+      2317,
+      624
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 120,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-05.png",
+     "bounds": [
+      2246,
+      504,
+      142,
+      132
+     ],
+     "order": 0,
+     "clipLevel": 2,
+     "fallback": false
+    }
+   },
+   "states": {
+    "to_assay_office": "open",
+    "posted_notices": "ordinary",
+    "company_sign": "weathered"
+   },
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:main_street",
+     "path": "art/backgrounds/room-02-main-street.png",
+     "drawn": "art/backgrounds/room-02-main-street.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e"
+    },
+    {
+     "key": "art/masks/room-02-plane-1.png",
+     "path": "art/masks/room-02-plane-1.png",
+     "drawn": "art/masks/room-02-plane-1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "a34b008449bb2546cde0779a087d16faf1c7e09e557ff850e0b103c6e12ca347"
+    },
+    {
+     "key": "art/masks/room-02-plane-2.png",
+     "path": "art/masks/room-02-plane-2.png",
+     "drawn": "art/masks/room-02-plane-2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "24b91873e48481d0d0ed629baec3b184a7577744f8d2f58c59faed4a7a4ef923"
+    },
+    {
+     "key": "art/actors/ambient-dog.png",
+     "path": "art/actors/ambient-dog.png",
+     "drawn": "art/actors/ambient-dog.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "40367919de0322a051a9d1c61933faf62f5ef1d6738d9815750aaaee8f141bf8"
+    },
+    {
+     "key": "art/actors/ambient-letter-writer.png",
+     "path": "art/actors/ambient-letter-writer.png",
+     "drawn": "art/actors/ambient-letter-writer.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7ae676a0b8a59979fcb4d1f96c5de4c67068b10b0af3e7e3a2948d1344631373"
+    },
+    {
+     "key": "art/actors/ambient-map-seller.png",
+     "path": "art/actors/ambient-map-seller.png",
+     "drawn": "art/actors/ambient-map-seller.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f3235511bba42fcfe6e230a93593ed2f999be4a53e678014e9539c5813742a23"
+    },
+    {
+     "key": "art/actors/ambient-pie-woman.png",
+     "path": "art/actors/ambient-pie-woman.png",
+     "drawn": "art/actors/ambient-pie-woman.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "36b19dc65b2d6e96a05cb0aa0e89e815da22e85ecfd3ef4c00111f197eaca5ab"
+    },
+    {
+     "key": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "path": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "drawn": "art/objects/room-02/posted-notices-act3-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ec336a60442dce6c77feba195e0e6319b0b2c12d997fcef45a28d57c1267050f"
+    },
+    {
+     "key": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "path": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "drawn": "art/objects/room-02/company-sign-gilt-overlay.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "75b0437275e2aba2cfaf54fd34bbe7eeed642a8d34c3eedf480a0d4d075ec5b7"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 355.82s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-09-05T19:58:46.548Z"
+}
