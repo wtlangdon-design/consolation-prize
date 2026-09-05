@@ -1,0 +1,482 @@
+{
+ "schema": 1,
+ "note": "DOC 30 DIALOGUE-CHOICE PRESENTATION PROOF: Room 1's stage driver (section 16, binding) and Room 5's WIN_A1, in the executable game. choiceLines is what the choice interface draws; it must equal options. The band above an open list must be flat.",
+ "commit": "a5abc30db33d97db74ddba80f71c13e520f36754",
+ "workingTreeClean": false,
+ "candidates": [
+  {
+   "from": "art/backgrounds/room-05-assay-office.png",
+   "to": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "to": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "to": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png"
+  }
+ ],
+ "visualState": "night",
+ "pace": 1.25,
+ "durationSeconds": 110.8,
+ "log": [
+  {
+   "t": 14.82,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 14.82,
+   "line": "action 2 (click): clicked screen 960,430 -- "
+  },
+  {
+   "t": 14.82,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 15.58,
+   "line": "capture r1-01-tree-opens: room stage_road, says null, options 3, choiceLines 3"
+  },
+  {
+   "t": 16.01,
+   "line": "action 1 (option): chose option drv2 -- "
+  },
+  {
+   "t": 16.01,
+   "line": "action 2 (waitFor): reached {\"says\":\"thad\"} in room stage_road"
+  },
+  {
+   "t": 16.61,
+   "line": "capture r1-02-thad-echoes-the-choice: room stage_road, says \"thad\", options 3, choiceLines 0"
+  },
+  {
+   "t": 18.11,
+   "line": "action 1 (waitFor): reached {\"says\":\"stage_driver\"} in room stage_road"
+  },
+  {
+   "t": 18.57,
+   "line": "capture r1-03-driver-replies: room stage_road, says \"stage_driver\", options 3, choiceLines 0"
+  },
+  {
+   "t": 20,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room stage_road"
+  },
+  {
+   "t": 20.47,
+   "line": "capture r1-04-thad-again: room stage_road, says \"thad\", options 3, choiceLines 0"
+  },
+  {
+   "t": 21.82,
+   "line": "action 1 (waitFor): reached {\"says\":\"stage_driver\"} in room stage_road"
+  },
+  {
+   "t": 22.29,
+   "line": "capture r1-05-driver-closes: room stage_road, says \"stage_driver\", options 3, choiceLines 0"
+  },
+  {
+   "t": 23.58,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 24.25,
+   "line": "capture r1-06-choices-return: room stage_road, says null, options 3, choiceLines 3"
+  },
+  {
+   "t": 34.04,
+   "line": "action 1 (option): chose option drv1 -- "
+  },
+  {
+   "t": 34.04,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 34.04,
+   "line": "action 3 (option): chose option drv3 -- "
+  },
+  {
+   "t": 34.04,
+   "line": "action 4 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 34.7,
+   "line": "capture r1-07-four-choices: room stage_road, says null, options 4, choiceLines 4"
+  },
+  {
+   "t": 36.85,
+   "line": "action 1 (option): chose option drv4 -- "
+  },
+  {
+   "t": 36.85,
+   "line": "action 2 (waitFor): reached {\"says\":\"thad\"} in room stage_road"
+  },
+  {
+   "t": 36.85,
+   "line": "action 3 (waitFor): reached {\"says\":\"stage_driver\"} in room stage_road"
+  },
+  {
+   "t": 37.34,
+   "line": "capture r1-08-wasnt-for-you: room stage_road, says \"stage_driver\", options 4, choiceLines 0"
+  },
+  {
+   "t": 46.93,
+   "line": "action 1 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 55.64,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 55.64,
+   "line": "action 2 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 55.64,
+   "line": "action 3 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 55.64,
+   "line": "action 4 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 56.14,
+   "line": "capture r5-01-opening-1: room assay_office, says \"winnie\", options 0, choiceLines 0"
+  },
+  {
+   "t": 57.87,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 58.33,
+   "line": "capture r5-02-opening-2: room assay_office, says \"thad\", options 0, choiceLines 0"
+  },
+  {
+   "t": 59.69,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 60.13,
+   "line": "capture r5-03-opening-3: room assay_office, says \"winnie\", options 0, choiceLines 0"
+  },
+  {
+   "t": 61.59,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 62.14,
+   "line": "capture r5-04-win-a1-choices: room assay_office, says null, options 3, choiceLines 3"
+  },
+  {
+   "t": 67.77,
+   "line": "action 1 (option): chose option winnie1 -- "
+  },
+  {
+   "t": 67.77,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 68.3,
+   "line": "capture r5-05-win-a2-choices: room assay_office, says null, options 4, choiceLines 4"
+  },
+  {
+   "t": 74.17,
+   "line": "action 1 (option): chose option winnie4 -- "
+  },
+  {
+   "t": 74.17,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 74.64,
+   "line": "capture r5-06-after: room assay_office, says null, options 0, choiceLines 0"
+  },
+  {
+   "t": 97.21,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 97.21,
+   "line": "action 2 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 97.21,
+   "line": "action 3 (click): clicked main_street/map_seller at world 3140,631 -- "
+  },
+  {
+   "t": 97.21,
+   "line": "action 4 (waitFor): reached {\"dialogue\":true} in room main_street"
+  },
+  {
+   "t": 97.96,
+   "line": "capture r2-01-map-seller-choices: room main_street, says null, options 4, choiceLines 4"
+  },
+  {
+   "t": 98.65,
+   "line": "action 1 (option): chose option where_from -- "
+  },
+  {
+   "t": 100.47,
+   "line": "capture r2-02-map-seller-exchange: room main_street, says \"thad\", options 4, choiceLines 0"
+  }
+ ],
+ "captures": [
+  {
+   "name": "r1-01-tree-opens",
+   "why": "the driver's tree opens: its choices in the lower interface, nothing above them",
+   "t": 15.43,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r1-01-tree-opens.png",
+   "hash": "0e47b52da85431c7c5be6ab1d9e3a78695e7e7389664c25f2d7f5d526450c611",
+   "room": "stage_road",
+   "says": null,
+   "options": 3,
+   "choiceLines": 3,
+   "performing": false,
+   "pending": 0,
+   "bandAboveList": {
+    "rows": [
+     866,
+     940
+    ],
+    "colours": 1,
+    "flat": true
+   }
+  },
+  {
+   "name": "r1-02-thad-echoes-the-choice",
+   "why": "the selected wording, over Thad, in his colour; the list is hidden",
+   "t": 16.6,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r1-02-thad-echoes-the-choice.png",
+   "hash": "938344f6d703d0bc492ec235a94708c3f67220cadba01353e9f5386b4811cd41",
+   "room": "stage_road",
+   "says": "thad",
+   "options": 3,
+   "choiceLines": 0,
+   "performing": true,
+   "pending": 0
+  },
+  {
+   "name": "r1-03-driver-replies",
+   "why": "the driver's reply over the driver",
+   "t": 18.55,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r1-03-driver-replies.png",
+   "hash": "105bad3d01fa729d325ce5c2e94de4277c8d00f882670f006d3116b3f8db3134",
+   "room": "stage_road",
+   "says": "stage_driver",
+   "options": 3,
+   "choiceLines": 0,
+   "performing": true,
+   "pending": 0
+  },
+  {
+   "name": "r1-04-thad-again",
+   "why": "Thad's second line",
+   "t": 20.47,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r1-04-thad-again.png",
+   "hash": "bcf127304f0af23198c31dd7255eb64f04c0798bf8ff0a623e65dc014c7766db",
+   "room": "stage_road",
+   "says": "thad",
+   "options": 3,
+   "choiceLines": 0,
+   "performing": true,
+   "pending": 0
+  },
+  {
+   "name": "r1-05-driver-closes",
+   "why": "the driver's last line of the exchange",
+   "t": 22.28,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r1-05-driver-closes.png",
+   "hash": "9dad05bb3b9f16987e51bd609a6a5126f212191e1911e5bcc5177d24b12ace6e",
+   "room": "stage_road",
+   "says": "stage_driver",
+   "options": 3,
+   "choiceLines": 0,
+   "performing": true,
+   "pending": 0
+  },
+  {
+   "name": "r1-06-choices-return",
+   "why": "choices only after the exchange; the used progress row is kept and dimmed (errata 57's interim, every option behaves as retain)",
+   "t": 24.09,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r1-06-choices-return.png",
+   "hash": "b5a07ff810944cb8ec2351ba61b937e0c125e60dfc74df500cfa46ef63d07467",
+   "room": "stage_road",
+   "says": null,
+   "options": 3,
+   "choiceLines": 3,
+   "performing": false,
+   "pending": 0,
+   "bandAboveList": {
+    "rows": [
+     866,
+     940
+    ],
+    "colours": 1,
+    "flat": true
+   }
+  },
+  {
+   "name": "r1-07-four-choices",
+   "why": "the three asked, the exit opens: four choices, four lines, nothing above them",
+   "t": 34.59,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r1-07-four-choices.png",
+   "hash": "933c4f313df4e66c28c93f273e0cebfc44799450eaf5622a49b52355434abd1b",
+   "room": "stage_road",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "performing": false,
+   "pending": 0,
+   "bandAboveList": {
+    "rows": [
+     866,
+     900
+    ],
+    "colours": 1,
+    "flat": true
+   }
+  },
+  {
+   "name": "r1-08-wasnt-for-you",
+   "why": "the exit's reply; the tree closes after it",
+   "t": 37.34,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r1-08-wasnt-for-you.png",
+   "hash": "d9865425eb02688c6d3b09bc5893fff73b20c61898f4221e52cf11b375aa0456",
+   "room": "stage_road",
+   "says": "stage_driver",
+   "options": 4,
+   "choiceLines": 0,
+   "performing": true,
+   "pending": 0
+  },
+  {
+   "name": "r5-01-opening-1",
+   "why": "her first line, over her",
+   "t": 56.13,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r5-01-opening-1.png",
+   "hash": "f50d4016b660d2c9d14c7356c40843ec7312e346de1e40aeefb345bce586e49e",
+   "room": "assay_office",
+   "says": "winnie",
+   "options": 0,
+   "choiceLines": 0,
+   "performing": false,
+   "pending": 2
+  },
+  {
+   "name": "r5-02-opening-2",
+   "why": "his reply, over him",
+   "t": 58.32,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r5-02-opening-2.png",
+   "hash": "90ef2a6c5620dd7bdda7db2e4ba5a70cefecdbf0347544cf684a1eceb243ff52",
+   "room": "assay_office",
+   "says": "thad",
+   "options": 0,
+   "choiceLines": 0,
+   "performing": false,
+   "pending": 1
+  },
+  {
+   "name": "r5-03-opening-3",
+   "why": "her last line of the opening, over her -- the line the prompt duplicates",
+   "t": 60.13,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r5-03-opening-3.png",
+   "hash": "36505d1582b8c53d92fad3a687b60e621fca487f63b01bcfd3389ede77657430",
+   "room": "assay_office",
+   "says": "winnie",
+   "options": 0,
+   "choiceLines": 0,
+   "performing": false,
+   "pending": 0
+  },
+  {
+   "name": "r5-04-win-a1-choices",
+   "why": "WIN_A1: three choices and nothing above them",
+   "t": 62.05,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r5-04-win-a1-choices.png",
+   "hash": "b31751385ce9af3d15e0442629b96ee29bb9fa2a7fab9ea7ec33408def251989",
+   "room": "assay_office",
+   "says": null,
+   "options": 3,
+   "choiceLines": 3,
+   "performing": false,
+   "pending": 0,
+   "bandAboveList": {
+    "rows": [
+     866,
+     940
+    ],
+    "colours": 1,
+    "flat": true
+   }
+  },
+  {
+   "name": "r5-05-win-a2-choices",
+   "why": "WIN_A2 (noPrompt): four rows, unchanged",
+   "t": 68.21,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r5-05-win-a2-choices.png",
+   "hash": "bda2cb5c0c7812af46a3208e0a7439a4f0283da856c48fe1bd43bac44f093902",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "performing": false,
+   "pending": 0,
+   "bandAboveList": {
+    "rows": [
+     866,
+     900
+    ],
+    "colours": 1,
+    "flat": true
+   }
+  },
+  {
+   "name": "r5-06-after",
+   "why": "control returned",
+   "t": 74.63,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r5-06-after.png",
+   "hash": "4b122ddd6cc6c4984ae826d88dddfacf557310ee3a3d94c9dd0397bf39311f21",
+   "room": "assay_office",
+   "says": null,
+   "options": 0,
+   "choiceLines": 0,
+   "performing": false,
+   "pending": 0
+  },
+  {
+   "name": "r2-01-map-seller-choices",
+   "why": "the map seller's tree: choices only; the doc 07 stage direction that was drawn above them stays in data",
+   "t": 97.86,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r2-01-map-seller-choices.png",
+   "hash": "d38f052f31906ae7638fc0da50e78c93086bac2559cdace8a7b69cffbf0276a9",
+   "room": "main_street",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "performing": false,
+   "pending": 0,
+   "bandAboveList": {
+    "rows": [
+     866,
+     900
+    ],
+    "colours": 1,
+    "flat": true
+   }
+  },
+  {
+   "name": "r2-02-map-seller-exchange",
+   "why": "the first row chosen: the list hidden while the exchange plays",
+   "t": 100.46,
+   "file": "renders/proofs/dialogue-prompt/raw-captures-ignored/r2-02-map-seller-exchange.png",
+   "hash": "a5a02c9a8af205433f182e0be52151497945b47d014a50e0ef815fa193890419",
+   "room": "main_street",
+   "says": "thad",
+   "options": 4,
+   "choiceLines": 0,
+   "performing": true,
+   "pending": 0
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "at": "2026-09-05T16:38:45.868Z"
+}

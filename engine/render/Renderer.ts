@@ -180,6 +180,41 @@ export function dialogueTop(count: number): number {
   return DIALOGUE_BOTTOM - count * DIALOGUE_LINE_HEIGHT;
 }
 
+/** One line of the choice interface: the text, its baseline, and its ink role. */
+export interface ChoiceLine {
+  text: string;
+  y: number;
+  role: 'ink' | 'inkDim';
+}
+
+/**
+ * WHAT THE CHOICE INTERFACE DRAWS WHILE THE PLAYER IS CHOOSING: the options,
+ * and nothing else. Doc 30 section 14 -- "if the node has a greeting, enqueue
+ * it as a speaker-labelled utterance; do not draw node.prompt" -- and section
+ * 16's binding Room 1 proof, "no stale prompt is drawn".
+ *
+ * `node.prompt` is extracted metadata (a tree whose opening is performed
+ * carries its last line there; the ambient micro-trees carry a stage
+ * direction) and it used to be drawn above the list, so once an opening had
+ * been performed line by line its last line stood a second time over the
+ * choices -- the owner's Room 5 playthrough, 2026-09-05. It is not drawn
+ * anywhere now; the schema and glyph checks still read it. A pure function so
+ * the test that guards this needs no canvas.
+ */
+export function choiceLines(
+  options: PresentedOption[],
+  ui: { optionPrefix: string; exhaustedPrefix: string },
+): { top: number; backingTop: number; lines: ChoiceLine[] } {
+  const top = dialogueTop(options.length);
+  const backingTop = Math.min(top - 2 * GLYPH_SCALE, PANEL_Y);
+  const lines = options.map((presented, index) => ({
+    text: `${presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix}${presented.option.text}`,
+    y: top + index * DIALOGUE_LINE_HEIGHT + PANEL_GLYPH_SCALE,
+    role: (presented.exhausted ? 'inkDim' : 'ink') as ChoiceLine['role'],
+  }));
+  return { top, backingTop, lines };
+}
+
 /** One figure standing in the room, whatever kind of thing it is. */
 export interface RoomFigure {
   id: string;
@@ -1729,42 +1764,17 @@ export class Renderer {
     const ui = this.state.content.ui.dialogue;
     const ctx = this.screen.context;
 
-    const options = this.state.dialogue.presentOptions();
-    const top = dialogueTop(options.length);
-
-    // THE PROMPT GOES ABOVE THE LIST, NOT IN THE SENTENCE SLOT.
-    //
-    // It used to go in the sentence line's slot, on the reasoning that nothing
-    // else is using it during a conversation. Nothing else is -- but the LIST
-    // is. The list is bottom-anchored and grows upward, so it reaches the
-    // sentence slot at 894 from three options up, and at four the stage
-    // direction printed straight across the third row. Tyler photographed it
-    // twice: "The map seller brightens considerably." overlaid on "Have you
-    // ever dug where a map says?", both legible, neither readable.
-    //
-    // Above the list is the only place that cannot collide with it, because
-    // the list's own height is what decides where that is.
-    const promptY = node.prompt ? top - DIALOGUE_LINE_HEIGHT : top;
-    const backingTop = Math.min(promptY - 2 * GLYPH_SCALE, PANEL_Y);
+    // THE CHOICES, AND ONLY THE CHOICES. The node's prompt used to be drawn
+    // above the list (after first living in the sentence slot, where it
+    // collided with the list's third row -- Tyler photographed it twice); doc
+    // 30 says it is not interface text at all, and the greeting it duplicates
+    // has already been spoken by its speaker before this list exists.
+    const { backingTop, lines } = choiceLines(this.state.dialogue.presentOptions(), ui);
     this.screen.fill(0, backingTop, NATIVE_WIDTH,
       NATIVE_HEIGHT - backingTop, this.screen.role('overlayBg'));
-
-    if (node.prompt) {
-      this.panelFont.draw(ctx, node.prompt, TEXT_MARGIN, promptY,
-        this.screen.roleColour('inkBright'));
+    for (const line of lines) {
+      this.panelFont.draw(ctx, line.text, TEXT_MARGIN, line.y, this.screen.roleColour(line.role));
     }
-
-    options.forEach((presented, index) => {
-      const prefix = presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix;
-      const colour = this.screen.roleColour(presented.exhausted ? 'inkDim' : 'ink');
-      this.panelFont.draw(
-        ctx,
-        `${prefix}${presented.option.text}`,
-        TEXT_MARGIN,
-        top + index * DIALOGUE_LINE_HEIGHT + PANEL_GLYPH_SCALE,
-        colour,
-      );
-    });
   }
 
   /**
