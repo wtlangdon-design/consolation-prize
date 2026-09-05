@@ -1,4 +1,6 @@
 import { loadContent, Report, runCheck } from './lib/content.mjs';
+import { CANONICAL_PUZZLE_IDS } from './check-puzzle-graph.mjs';
+const PUZZLES = new Set(CANONICAL_PUZZLE_IDS);
 
 /**
  * PLAYTEST FIXTURES ARE LEGAL STATES OR THEY ARE NOT FIXTURES. Doc 36 Q111.
@@ -27,6 +29,11 @@ const PREREQUISITES = [
   { when: (f) => f.flags.T_OPENING_DONE === true, need: ['T_COACH_DEPARTED', 'T_HOB_GONE', 'T_CASE_TAKEN'], why: 'the opening is done only after the coach left, Hob went and the case was taken' },
   // The watch is traded at A3 and the four dollars spent -- docs/02-puzzle-graph.md:26,129-130: neither is held once swindled.
   { when: (f) => f.flags.T_SWINDLED === true, forbidItems: ['four_dollars'], why: 'the four dollars are spent at A3, before the swindle' },
+  // C5 IS SHOWN EVIDENCE (errata 66 A-B): complete only with C4 complete and the log held; the log is C4's.
+  { when: (f) => f.puzzles?.C5 === 'complete', puzzlesNeed: ['C4'], items: ['padded_log'], need: ['T_ASSAY_QUEUE'], why: 'C5 follows C1-C4 with the submission log in hand -- docs/02-puzzle-graph.md:64-68' },
+  { when: (f) => (f.inventory ?? []).includes('padded_log'), puzzlesNeed: ['C4'], need: ['T_ASSAY_QUEUE', 'T_BORDERS_MOTT'], why: 'the submission log is C4\'s, after C1 -- docs/02-puzzle-graph.md:64-67' },
+  // C6 pending is WIN_B2's first row, after C5 -- docs/04-dialogue-trees.md:124; errata 66 F.
+  { when: (f) => f.puzzles?.C6 !== undefined, puzzlesNeed: ['C5'], why: 'C6 follows C5' },
 ];
 const counter = (f, id) => (typeof f.flags[id] === 'number' ? f.flags[id] : 0);
 
@@ -76,8 +83,13 @@ export function check() {
         }
       }
       const held = new Set([...(fixture.inventory ?? []), ...content.items.filter(({ data }) => data.startsHeld).map(({ data }) => data.id)]);
+      for (const [puzzle, status] of Object.entries(fixture.puzzles ?? {})) {
+        if (!PUZZLES.has(puzzle)) report.fail(`${where}: puzzle "${puzzle}" is not a canonical puzzle id`);
+        if (status !== 'pending' && status !== 'complete') report.fail(`${where}: puzzle ${puzzle} status "${status}" is neither pending nor complete`);
+      }
       for (const rule of PREREQUISITES) {
         if (!rule.when(fixture)) continue;
+        for (const id of rule.puzzlesNeed ?? []) if (fixture.puzzles?.[id] !== 'complete') report.fail(`${where}: needs puzzle ${id} complete first -- ${rule.why}`);
         for (const id of rule.need ?? []) if (fixture.flags[id] !== true) report.fail(`${where}: sets a state that needs ${id} first -- ${rule.why}`);
         for (const [id, at] of Object.entries(rule.counters ?? {})) if (counter(fixture, id) !== at) report.fail(`${where}: needs ${id} ${at} -- ${rule.why}`);
         for (const id of rule.items ?? []) if (!held.has(id)) report.fail(`${where}: needs the item ${id} held -- ${rule.why}`);
@@ -90,7 +102,8 @@ export function check() {
         const tree = trees.get(expect.tree);
         if (!tree) report.fail(`${where}: expects tree "${expect.tree}", which is not a tree`);
         else {
-          const opens = (tree.entries ?? []).find((entry) => Object.entries(entry.when ?? {}).every(([id, value]) => fixture.flags[id] === value))?.node ?? tree.start;
+          const opens = (tree.entries ?? []).find((entry) => Object.entries(entry.when ?? {}).every(([id, value]) => fixture.flags[id] === value)
+            && (!entry.puzzle || fixture.puzzles?.[entry.puzzle] === 'complete'))?.node ?? tree.start;
           if (expect.opensOn && opens !== expect.opensOn) report.fail(`${where}: ${expect.tree} opens on ${opens} under these flags, not ${expect.opensOn}`);
           else report.note(`${fixture.id}: ${expect.tree} opens on ${opens}`);
         }

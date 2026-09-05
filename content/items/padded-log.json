@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "padded_log",
+  "name": "The Improvement Company submission log",
+  "short": "THE SUBMISSION LOG",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Acquired C4. Shown to Winnie at C5 and kept. Never consumed. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "The Improvement Company's submission log. Two-thirds of these entries are the same sample under different names.",
+        "repeat": [
+          "Same weights, same notation, same hand. Different claim numbers. Repeated until the queue became eight months long.",
+          "Nine years of delay, entered neatly enough to look like work."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Paper.",
+        "repeat": [
+          "Nothing.",
+          "Nothing. It has already said enough."
+        ]
+      }
+    ]
+  }
+}

@@ -27,12 +27,13 @@
       "input": "USE (show) padded_log on winnie -- the ambient character, TALK_TO's target; errata 66 A",
       "success": { "puzzles": { "C5": "complete" }, "inventory": "padded_log stays held (errata 66 A)", "dialogue": "WIN_B2 opens at once, its authored opening verbatim (errata 66 C)" },
       "notTopic": "T_QUEUE_PADDED is knowledge and may not stand in for C5 (errata 66 B)",
-      "unbuilt": ["padded_log item", "C2-C4 (Fanshawe's office, the funeral window)", "USE-item-on-ambient-character resolution", "an opener that starts a tree from a puzzle action rather than TALK_TO"]
+      "built": "doc 36 Q113: padded_log (extracted from doc 23), the pair in doc 24, GameState.evidencePairFor / commitEvidence, the scene's walk-beat-commit-opening; fixtures r5-c and r5-c-post",
+      "unbuilt": ["C2-C4 (Fanshawe's office, the funeral window)", "a Family-A show-evidence chore (the beat stands in)"]
     },
     "WIN_B2": {
-      "entry": "opened by C5's success action, not by the entry table; also reachable by TALK_TO afterwards? -- UNSPECIFIED: doc 04 titles it 'after the padded log (C5)' and names no entry gate; the next task adds an entry gated on puzzles.C5 or documents why not",
+      "entry": "RULED and built (doc 36 Q113): entries gated on puzzles.C5; the action performs the opening once; TALK_TO afterwards opens the list without replaying it",
       "rows": { "winnie1": "grants the assay -> C6 pending (errata 66 F)", "winnie2": "sets T_NO_MOTT_GOLD", "winnie3": "sets T_SECOND_LEDGER" },
-      "aftermath": "as authored in doc 04 (errata 57); counts persist per W1"
+      "aftermath": "as authored in doc 04 (errata 57); counts persist per W1; built: winnie1 writes puzzles.C6 = pending"
     },
     "WIN_B3": {
       "availability": { "topics": ["T_SECOND_LEDGER"] },
@@ -72,8 +73,7 @@
     "death_certificate": { "acquiredAt": "E4", "usedAt": ["E6", "E9"], "cannotBeLost": true, "examineCopy": "NOT AUTHORED" }
   },
   "openBindings": {
-    "rephrase C5": "WIN_A2 winnie2's rephrase reads puzzles.C5; nothing writes it until C5's success action exists",
-    "WIN_B2 entry": "see WIN_B2.entry",
+    "rephrase C5": "WIN_A2 winnie2's rephrase reads puzzles.C5, which C5's action now writes -- but with C5 complete the tree opens on WIN_B2, so WIN_A2 is not on the opening path (Q109's finding stands: the rephrase is unreachable by routing; a design question, not a build one)",
     "ledger afterState": "see WIN_B3.worldState",
     "F5 signature carrier": "see F5.prerequisites.signature"
   }

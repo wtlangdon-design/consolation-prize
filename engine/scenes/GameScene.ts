@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { Exit, Facing, Interactable } from '../core/types.ts';
+import type { Exit, Facing, Interactable, CombinationPair,
+} from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
 import { Music } from '../core/Music.ts';
@@ -107,7 +108,18 @@ export class GameScene extends Phaser.Scene {
    * the node's opening exchange (if it has one) is queued on the speech
    * channel; the tree itself opens once that has been said.
    */
-  private pendingTree: { tree: string; at: { x: number; y: number }; greeted: boolean } | null = null;
+  private pendingTree: {
+    tree: string; at: { x: number; y: number }; greeted: boolean;
+    /**
+     * AN EVIDENCE ACTION ON THE WAY TO A PERSON (errata 66 A-C): the pair it
+     * carries, the beat it holds at contact before the puzzle lands, and
+     * whether it has landed. Cancelled with the walk; committed once, at
+     * contact, after the beat; its tree's opening is then the action's.
+     */
+    evidence?: { pair: CombinationPair; beatUntil: number | null; committed: boolean };
+  } | null = null;
+  /** How long the evidence is held before her before it lands: contact, then the line. */
+  private static readonly EVIDENCE_BEAT_SECONDS = 1.1;
   /** The selection being performed, or null while choices are up. */
   private performance: DialoguePerformance | null = null;
   /**
@@ -409,7 +421,7 @@ export class GameScene extends Phaser.Scene {
       this.markDirty();
     }
     if (this.pendingTree && !this.actor.isWalking) {
-      const { tree, at } = this.pendingTree;
+      const { tree, at, evidence } = this.pendingTree;
       if (!this.pendingTree.greeted) {
         this.pendingTree.greeted = true;
         // HE TURNS TO WHOEVER HE IS TALKING TO. Walking to a point beside the
@@ -417,20 +429,43 @@ export class GameScene extends Phaser.Scene {
         // in Tyler's screenshot, squarely at the building behind him. A man
         // stops, turns, and then speaks.
         this.actor.faceToward(at.x, at.y);
-        // THE GREETING IS SAID BEFORE THE LIST IS OFFERED. Doc 04 opens each
-        // act root on a short exchange; it is spoken here, line by line on the
-        // ordinary speech channel, each line by the speaker it names, and
-        // only when it has drained does the tree open. Tyler's Room 5
-        // playthrough (2026-09-04): the exchange had never played -- the
-        // node's last line stood as a caption over the options, which read as
-        // a non sequitur when TALK TO was chosen.
-        const greeting = this.state.dialogue.openingOf(tree);
-        if (greeting.length > 0) {
-          this.pendingSay.push(...greeting.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })));
-          this.advanceSay();
+        if (evidence) {
+          // CONTACT. She looks up from the ledger now (the greeting state
+          // holds her talk frame) and the evidence is held before her for a
+          // beat before it lands. The beat is where a show-evidence chore
+          // would play; no Family-A chore exists (doc 36 Q113), so the
+          // accepted stand facing her is the presentation.
+          evidence.beatUntil = this.lastFrameAt + GameScene.EVIDENCE_BEAT_SECONDS;
+        } else {
+          // THE GREETING IS SAID BEFORE THE LIST IS OFFERED. Doc 04 opens each
+          // act root on a short exchange; it is spoken here, line by line on
+          // the ordinary speech channel, each line by the speaker it names,
+          // and only when it has drained does the tree open. Tyler's Room 5
+          // playthrough (2026-09-04): the exchange had never played -- the
+          // node's last line stood as a caption over the options, which read
+          // as a non sequitur when TALK TO was chosen.
+          const greeting = this.state.dialogue.openingOf(tree);
+          if (greeting.length > 0) {
+            this.pendingSay.push(...greeting.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })));
+            this.advanceSay();
+          }
         }
       }
-      if (this.sayLines.length === 0 && this.pendingSay.length === 0) {
+      const holdingEvidence = evidence !== undefined && !evidence.committed;
+      if (holdingEvidence && !(evidence.beatUntil !== null && this.lastFrameAt < evidence.beatUntil)) {
+        // THE ACTION LANDS: the puzzle completes through the journal, and the
+        // tree's opening -- the action's, performed once -- is spoken. No
+        // control returns between the two (errata 66 C).
+        evidence.committed = true;
+        this.state.commitEvidence(evidence.pair);
+        const opening = this.state.dialogue.openingOf(tree, true);
+        if (opening.length > 0) {
+          this.pendingSay.push(...opening.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })));
+          this.advanceSay();
+        }
+        this.markDirty();
+      }
+      if (!(evidence && !evidence.committed) && this.sayLines.length === 0 && this.pendingSay.length === 0) {
         this.pendingTree = null;
         this.actor.faceToward(at.x, at.y);
         this.state.dialogue.start(tree);
@@ -783,6 +818,37 @@ export class GameScene extends Phaser.Scene {
     // pool: Thad's own lines, shared across everyone, because "I am not going
     // to push a stranger" is the same sentiment whichever stranger it is.
     const chosen = this.state.verbs.selectedVerb;
+    // AN ITEM SHOWN TO A PERSON. Doc 24's table pairs an item with a target;
+    // when the target is the room's ambient character and the pair is live
+    // (its puzzles complete, its own not yet), the action walks Thad to the
+    // character's declared dialogue point exactly as TALK TO does, and lands
+    // at contact. Nothing about it is this item's or this room's: the pair
+    // and the tree it opens are content. With no live pair the click falls
+    // through to the people pool below, as any verb on a person does.
+    // THE PERSON UNDER THE CLICK, whatever scenery stands behind her: the
+    // shelves' rect covers Winnie's shoulders, and a hotspot wins over a
+    // character for every verb but TALK TO -- except this one, where a live
+    // pair says the item is for her.
+    const held = this.state.heldItem;
+    const person = held && chosen !== null && this.state.verbs.carries(chosen) ? this.ambient.npcAt(wx, y) : undefined;
+    if (person?.tree && held && chosen !== null) {
+      const pair = this.state.evidencePairFor(held, person.id);
+      if (pair && pair.opens === person.tree) {
+        const npc = person;
+        const stand = npc.walkTo ?? { x: npc.x, y: npc.y };
+        this.pendingTree = {
+          tree: pair.opens, at: { x: npc.x, y: npc.y }, greeted: false,
+          evidence: { pair, beatUntil: null, committed: false },
+        };
+        // The verb and the held selection are spent; the item stays held in
+        // the inventory (errata 66 A: showing is not surrendering).
+        this.state.holdItem(null);
+        this.state.verbs.resetToDefault();
+        this.actor.walkTo(stand.x, stand.y);
+        this.markDirty();
+        return;
+      }
+    }
     if (npc && chosen !== null && chosen !== 'TALK_TO') {
       const pool = this.state.content.verbFallbacks?.people?.[chosen];
       if (Array.isArray(pool) && pool.length) {
@@ -1713,9 +1779,11 @@ export class GameScene extends Phaser.Scene {
       flags: this.state.flags.trueIds(),
       counters: this.state.flags.counters(),
       inventory: this.state.carried,
+      held: this.state.heldItem,
       dialogueAt: this.state.dialogue.positionSnapshot(),
       selections: this.state.dialogue.selectionsHere(),
       puzzlesComplete: this.state.puzzlesComplete(),
+      puzzles: this.state.puzzleProgress(),
       camera: Math.round(this.state.cameraX),
       pending: this.pendingSay.length,
       performing: this.performance !== null,
@@ -1796,6 +1864,10 @@ export class GameScene extends Phaser.Scene {
    * clicked into a hidden list would be testing the skip path on every run
    * instead of the performance.
    */
+  inventorySlot(id: string): { id: string; x: number; y: number; width: number; height: number } | null {
+    return this.view.inventoryHitboxes().find((box) => box.id === id) ?? null;
+  }
+
   optionRow(index: number): { id: string; y: number; height: number } | null {
     if (!this.state.dialogue.isActive) return null;
     const options = this.state.dialogue.presentOptions();

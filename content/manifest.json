@@ -55,7 +55,8 @@
   "content/items/horse-blanket.json",
   "content/items/pickaxe.json",
   "content/items/filing-fee.json",
-  "content/items/harness-token.json"
+  "content/items/harness-token.json",
+  "content/items/padded-log.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [

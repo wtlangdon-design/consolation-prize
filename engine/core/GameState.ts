@@ -1,5 +1,5 @@
 import type {
-  ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture,
+  ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture, PuzzleStatus, CombinationPair,
 } from './types.ts';
 import { cameraAt, cameraFollow, roomWidth } from './Camera.ts';
 import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
@@ -12,7 +12,7 @@ import { pureResolution } from './Assertions.ts';
 
 /** A point that declares no surface has none. Not a name, and not anybody's. */
 const NO_SURFACE = '';
-import { commitBundle, localJournals, type DurableWorld, type JournalSource } from './Commit.ts';
+import { commitBundle, flagEffects, localJournals, type DurableWorld, type JournalSource } from './Commit.ts';
 import type { ActionTransaction, DurableEffect, FinishReason } from './runtime-types.ts';
 
 export interface InteractionResult {
@@ -172,7 +172,7 @@ export class GameState {
    * waits on (WIN_A2's wait question after C5) and the state a later scene
    * will read. No writer exists yet: doc 36 Q112 records the contract.
    */
-  private puzzles = new Map<string, 'complete'>();
+  private puzzles = new Map<string, PuzzleStatus>();
   /**
    * Where transactions get their journals, and therefore which EffectOwnership
    * registry they claim into.
@@ -192,8 +192,10 @@ export class GameState {
     this.flags = new FlagStore(content.flags);
     this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks,
       content.combinations);
-    this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals,
-      (puzzle) => this.puzzles.get(puzzle) === 'complete');
+    this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals, {
+      reached: (puzzle) => this.puzzles.get(puzzle) === 'complete',
+      set: (puzzle, status) => { this.puzzles.set(puzzle, status); },
+    });
     // A PLAYTEST FIXTURE SAVES UNDER ITS OWN KEY, so a review session's
     // autosaves never overwrite the player's real game.
     this.saves = saveKey ? new SaveManager(storage, saveKey) : new SaveManager(storage);
@@ -815,13 +817,19 @@ export class GameState {
    * the room it happened in rather than the room it ended in.
    */
   private interactionWorld(resolution: InteractionResolution): DurableWorld {
+    return this.worldFor(resolution.objectKey);
+  }
+
+  /** The world a durable bundle applies into, bound to the object it happened on. */
+  private worldFor(objectKey: string): DurableWorld {
     return {
       setFlag: (flag, value) => { this.flags.set(flag, value); },
       addFlag: (flag, delta) => { this.flags.set(flag, this.flags.getNumber(flag) + delta); },
       setObjectState: (object, state) => { this.objectStates.set(object, state); },
+      setPuzzle: (puzzle, status) => { this.puzzles.set(puzzle, status); },
       enterRoom: (room) => { this.arrive(room); },
       addInventory: (item) => {
-        this.taken.add(resolution.objectKey);
+        this.taken.add(objectKey);
         if (!this.inventory.includes(item)) this.inventory.push(item);
       },
       removeInventory: (item) => {
@@ -847,6 +855,7 @@ export class GameState {
       flags: this.flags.snapshot(),
       counts: this.dialogue.progressSnapshot(),
       position: this.dialogue.positionSnapshot(),
+      puzzles: this.puzzleProgress(),
       reputation: this.reputation,
     });
   }
@@ -1078,6 +1087,7 @@ export class GameState {
       objectStates: fixture.objectStates ?? {},
       taken: [],
       flags: fixture.flags,
+      puzzles: fixture.puzzles ?? {},
       dialogueProgress: fixture.dialogueCounts ?? {},
       dialoguePosition: { tree: null, node: null },
     });
@@ -1090,14 +1100,62 @@ export class GameState {
 
   /** Every puzzle held complete, sorted. For the probe. */
   puzzlesComplete(): string[] {
-    return [...this.puzzles.keys()].sort();
+    return [...this.puzzles.entries()].filter(([, status]) => status === 'complete').map(([id]) => id).sort();
+  }
+
+  /** Every puzzle with progress, by id. For the probe and the save. */
+  puzzleProgress(): Record<string, PuzzleStatus> {
+    return Object.fromEntries([...this.puzzles.entries()].sort(([a], [b]) => (a < b ? -1 : 1)));
+  }
+
+  /**
+   * THE PAIR AN ITEM HAS WITH A PERSON IN THIS ROOM, if it is live. Errata 66
+   * A-C: showing the submission log to Winnie is C5. Doc 24's table names
+   * the pair; this asks whether it fires now -- the puzzles it needs are
+   * complete and the one it completes is not -- and answers null otherwise,
+   * so the caller falls through to the ordinary pools exactly as an item on
+   * scenery does. It fires once by construction.
+   */
+  evidencePairFor(itemId: string, npcId: string): CombinationPair | null {
+    const pair = (this.content.combinations?.pairs ?? []).find((one) => one.item === itemId
+      && one.room === this.currentRoomId && one.target === npcId && one.opens && one.completes);
+    if (!pair) return null;
+    if ((pair.requiresPuzzles ?? []).some((id) => this.puzzles.get(id) !== 'complete')) return null;
+    if (this.puzzles.get(pair.completes as string) === 'complete') return null;
+    return pair;
+  }
+
+  /**
+   * THE EVIDENCE ACTION LANDS: the pair's puzzle completes and its flags
+   * write, through a journal like every other durable change, and the game
+   * autosaves at the decision point. The item is not consumed (errata 66 A).
+   * Called by the scene at contact, after the walk and the beat, and never
+   * before -- a cancelled approach reaches this for nothing.
+   */
+  commitEvidence(pair: CombinationPair): void {
+    if (!pair.completes) throw new Error(`the pair ${pair.item} on ${pair.target} completes nothing`);
+    this.serial += 1;
+    const id = `with:${this.currentRoomId}:${pair.target}:${pair.item}#${this.serial}`;
+    const prefix = `with/${this.currentRoomId}/${pair.target}/${pair.item}`;
+    const journal = this.journals.newJournal(id);
+    const bundle = journal.reserve(`${id}/bundle`, [
+      { id: `${prefix}#${pair.completes}`, kind: 'puzzleProgress', puzzle: pair.completes, status: 'complete' },
+      ...flagEffects(prefix, pair.set),
+    ]);
+    journal.mark('line');
+    journal.mark('lineSettle');
+    commitBundle(bundle, this.worldFor(`${this.currentRoomId}/${pair.target}`), journal);
+    journal.mark('stable');
+    journal.release();
+    this.autosave();
   }
 
   private restoreFrom(save: SaveFile): boolean {
     if (!this.content.rooms.has(save.room)) return false;
 
     this.flags.restore(save.flags);
-    this.puzzles = new Map(Object.entries(save.puzzles ?? {}).filter(([, v]) => v === 'complete') as [string, 'complete'][]);
+    this.puzzles = new Map(Object.entries(save.puzzles ?? {})
+      .filter(([, v]) => v === 'pending' || v === 'complete') as [string, PuzzleStatus][]);
     this.dialogue.restore(save.dialogueProgress, save.dialoguePosition);
     this.currentRoomId = save.room;
     this.inventory = [...save.inventory];

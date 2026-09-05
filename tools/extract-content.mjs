@@ -891,13 +891,34 @@ function combinations() {
   const doc = read('docs/24-combinations.md');
   const existing = JSON.parse(read('content/combinations.json'));
 
+  // A PAIR THAT OPENS A TREE INSTEAD OF SAYING A LINE. Doc 24 rule 4 wants a
+  // written line behind every pair; errata 66 A-C make C5's line WIN_B2's
+  // authored opening, launched by the action itself, so its row carries a
+  // direction and no quote. Its routing (ids, the puzzle it completes, the
+  // tree it opens, what it needs first) is authored HERE, as the Winnie
+  // tree's entry gates are, because the document names people and places
+  // and the engine needs ids.
+  const OPENING_PAIRS = {
+    'C5|THE SUBMISSION LOG|Winnie': {
+      item: 'padded_log', room: 'assay_office', target: 'winnie', puzzle: 'C5',
+      requiresPuzzles: ['C4'], completes: 'C5', opens: 'WINNIE',
+      note: 'ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room\'s ambient character, not a hotspot. No `say`: the pair\'s line is WIN_B2\'s opening, which the action launches at once. The log is kept. With C5 complete the pair yields to the ordinary pools (doc 36 Q113).',
+    },
+  };
   const pairs = [];
+  const opening = [];
   for (const line of doc.split('\n')) {
-    const row = line.match(/^\| \*\*(A\d+)\*\* \| (.+?) \| (.+?) \|$/);
+    const row = line.match(/^\| \*\*([A-F]\d+)\*\* \| (.+?) \| (.+?) \|$/);
     if (!row) continue;
     const combo = row[2].match(/^([A-Z '’]+?) on \*\*(.+?)\*\*$/);
     const say = row[3].match(/^"(.+?)"/);
-    pairs.push({ puzzle: row[1], item: combo[1].trim(), target: combo[2].trim(), say: say[1] });
+    if (say) { pairs.push({ puzzle: row[1], item: combo[1].trim(), target: combo[2].trim(), say: say[1] }); continue; }
+    const key = `${row[1]}|${combo[1].trim()}|${combo[2].trim()}`;
+    const routed = OPENING_PAIRS[key];
+    if (!routed) throw new Error(`doc 24: the pair "${key}" has no line and no routing that opens a tree`);
+    const direction = /\*\(→ opens `([A-Z_0-9]+)`/.exec(row[3]);
+    if (!direction) throw new Error(`doc 24: the pair "${key}" names no tree to open`);
+    opening.push({ ...routed, opensNode: direction[1] });
   }
   const nulls = [];
   let inNulls = false;
@@ -913,13 +934,14 @@ function combinations() {
   // shipped, so only the LINES come from the extraction. If doc 24 grows a
   // pair this cannot place, it says so rather than guessing.
   const placed = new Map(existing.pairs.map((pair) => [pair.say, pair]));
-  const rebuilt = [...pairs, ...nulls].map((pair) => {
+  const rebuilt = [...[...pairs, ...nulls].map((pair) => {
     const routed = placed.get(pair.say);
     if (!routed) throw new Error(`doc 24: no routing on file for "${pair.say.slice(0, 40)}..."`);
     return { ...routed, say: pair.say };
-  });
-  if (rebuilt.length !== existing.pairs.length) {
-    throw new Error(`doc 24: ${rebuilt.length} pairs extracted, ${existing.pairs.length} on file`);
+  }), ...opening];
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string').length;
+  if (rebuilt.length - opening.length !== spoken) {
+    throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
 
   const pools = {};
@@ -1857,6 +1879,48 @@ function openingCase() {
 
 
 /**
+ * DOC 23, ACT II ITEMS: the submission log. Act I's eight items were written
+ * into content/items by hand from the same document; this one is extracted,
+ * so its words can only be the document's. The section is a `## THE ...`
+ * heading, an italic acquisition line, and LOOK / LISTEN runs of three
+ * numbered quoted lines: the first is `say`, the rest `repeat`, exactly the
+ * shape the hand-written items carry. The full and display names come from
+ * the section's table row.
+ */
+function actTwoItems() {
+  const doc = read('docs/23-inventory-act1.md');
+  const from = doc.indexOf('## Act II items');
+  if (from < 0) throw new Error('doc 23: no Act II items section');
+  const body = doc.slice(from, doc.indexOf('## Notes', from));
+  const out = [];
+  for (const row of body.matchAll(/^\| ([a-z_]+) \| (.+?) \| (.+?) \|$/gm)) {
+    const [, id, fullName, display] = row;
+    if (id === 'Item') continue;
+    const heading = new RegExp(`^## ${display.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\n([\\s\\S]*?)(?=^## |^---)`, 'm');
+    const section = heading.exec(body);
+    if (!section) throw new Error(`doc 23: no section for ${display}`);
+    const responses = {};
+    for (const [verb, label] of [['LOOK_AT', 'LOOK'], ['LISTEN_TO', 'LISTEN']]) {
+      const line = new RegExp(`^\\*\\*${label}\\*\\* (.+)$`, 'm').exec(section[1]);
+      if (!line) throw new Error(`doc 23: ${display} has no ${label} run`);
+      const lines = [...line[1].matchAll(/\d "([^"]+)"/g)].map((m) => m[1]);
+      if (lines.length !== 3) throw new Error(`doc 23: ${display} ${label} has ${lines.length} lines, not 3`);
+      responses[verb] = [{ say: lines[0], repeat: lines.slice(1) }];
+    }
+    const acquired = /^\*(.+)\*$/m.exec(section[1])?.[1] ?? '';
+    out.push(write(`content/items/${id.replace(/_/g, '-')}.json`, {
+      schema: 1,
+      id,
+      name: fullName,
+      short: display,
+      note: `EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. ${acquired} Errata 66 ruling A: shown to the character at C5 and kept; never consumed.`,
+      responses,
+    }));
+  }
+  return out;
+}
+
+/**
  * DOC 04, WINNIE LEDGER: the first principal's tree, extracted for Room 5.
  *
  * Doc 04's shape differs from doc 27's in four ways this parser reads rather
@@ -1903,6 +1967,15 @@ function winnieTree() {
   const SKIP = { WIN_B3: 'one option -- a scene with a single [COMIC], below doc 04 rule 1',
     WIN_C1: 'no [COMIC] option -- the relationship scene, below doc 04 rule 2' };
   const ENTRY = { WIN_F1: { T_STRIKE_FOUND: true }, WIN_B1: { T_BORDERS_MOTT: true } };
+  // A PUZZLE-GATED ENTRY: doc 04 heads WIN_B2 "after the padded log (C5)".
+  // Errata 66 B-C: C5's completion is puzzle progress, and the action that
+  // completes it opens this node and performs its opening; TALK TO afterwards
+  // opens the list. Ordered after F1 (Act IV) and before B1 (Act II's root).
+  const PUZZLE_ENTRY = { WIN_B2: 'C5' };
+  // A ROW THAT MOVES A PUZZLE: doc 04's State cell "grants assay → C6" on
+  // WIN_B2's first row; doc 53 reads it as C6 pending (the assay is granted,
+  // its return is off screen and later -- errata 66 F).
+  const PUZZLE_WRITE = { 'WIN_B2:1': { C6: 'pending' } };
   const unplayed = [];
   const nodes = {};
   let poolIndex = 0;
@@ -2011,7 +2084,9 @@ function winnieTree() {
       if (opens) option.goto = opens[1];
       if (sets) option.set = { [sets[1]]: true };
       if (req) option.when = { [req[1]]: true };
-      if (state && !opens && !sets && !req && state !== '—') {
+      const puzzleWrite = PUZZLE_WRITE[`${id}:${number}`];
+      if (puzzleWrite) option.puzzle = puzzleWrite;
+      if (state && !opens && !sets && !req && !puzzleWrite && state !== '—') {
         unplayed.push(`${id} option ${number} state "${state}" names no flag; nothing set`);
       }
       options.push(option);
@@ -2053,9 +2128,13 @@ function winnieTree() {
   }
 
   if (!nodes.WIN_A1) throw new Error('doc 04: WIN_A1 was not extracted');
-  const entries = Object.entries(ENTRY).filter(([node]) => nodes[node])
-    .map(([node, when]) => ({ when, node }));
-  unplayed.push('WIN_B2 ("after the padded log") names no flag and has no entry; it is reachable only by goto, and nothing gotos it');
+  const entries = [];
+  for (const [node, when] of Object.entries(ENTRY)) {
+    if (!nodes[node]) continue;
+    entries.push({ when, node });
+    // The puzzle-gated entry sits after Act IV's and before Act II's root.
+    if (node === 'WIN_F1') for (const [gated, puzzle] of Object.entries(PUZZLE_ENTRY)) if (nodes[gated]) entries.push({ puzzle, node: gated });
+  }
   for (const note of unplayed) process.stderr.write(`  doc 04 WINNIE: ${note}\n`);
 
   return write('content/dialogue/winnie.json', {
@@ -2076,7 +2155,7 @@ function winnieTree() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), ...actTwoItems()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

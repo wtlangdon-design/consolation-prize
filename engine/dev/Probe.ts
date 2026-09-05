@@ -120,6 +120,8 @@ export interface FrameReport {
   selections: Record<string, number>;
   /** Canonical puzzle ids the game state holds complete. Empty until something writes one. */
   puzzlesComplete: string[];
+  /** Every puzzle with progress, by canonical id: pending or complete. */
+  puzzles: Record<string, 'pending' | 'complete'>;
   /**
    * The room's own shipping asset paths, as the ROOM FILE declares them.
    *
@@ -146,6 +148,8 @@ export interface FrameReport {
   counters: Record<string, number>;
   /** Item ids the player is carrying. Identifiers, never content. */
   inventory: string[];
+  /** The item selected for USE, or null. */
+  held: string | null;
   /**
    * The camera's left edge, in room coordinates.
    *
@@ -229,6 +233,8 @@ export interface Probeable {
   report(): FrameReport;
   /** Where option `index` (1-based, as a player counts) is drawn, if it is. */
   optionRow(index: number): { id: string; y: number; height: number } | null;
+  /** Where an inventory item's slot draws, by id, or null when it is not held. Geometry only. */
+  inventorySlot(id: string): { id: string; x: number; y: number; width: number; height: number } | null;
   /** Backs `Controls`. Implemented by the scene, which owns the state. */
   readonly controls: Controls;
 }
@@ -315,6 +321,8 @@ export interface Gauntlet {
    * gives a real cursor, and is why a harness must not click through it.
    */
   optionRow(index: number): { id: string; y: number; height: number } | null;
+  /** Where an inventory item's slot draws, by id, or null when it is not held. Geometry only. */
+  inventorySlot(id: string): { id: string; x: number; y: number; width: number; height: number } | null;
   /** The short, enumerated control surface. Never a general setter. */
   controls: Controls;
 }
@@ -340,6 +348,10 @@ export function installGauntlet(target: Record<string, unknown>,
     snapshot: () => {
       const live = scene();
       return live?.probeReady ? live.snapshot() : null;
+    },
+    inventorySlot: (id) => {
+      const live = scene();
+      return live?.probeReady ? live.inventorySlot(id) : null;
     },
     optionRow: (index) => {
       const live = scene();

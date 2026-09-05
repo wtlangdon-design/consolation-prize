@@ -1,4 +1,4 @@
-import type { DialogueFile, DialogueNode, DialogueOption, DialogueRepeat } from './types.ts';
+import type { Condition, DialogueFile, DialogueNode, DialogueOption, DialogueRepeat, PuzzleStatus } from './types.ts';
 import type { FlagStore } from './FlagStore.ts';
 import { pureResolution } from './Assertions.ts';
 import { commitBundle, flagEffects, localJournals, type DurableWorld, type JournalSource } from './Commit.ts';
@@ -78,8 +78,15 @@ export interface DialogueResolution {
 export type DialogueProgress = Record<string, Record<string, number>>;
 type LegacyProgress = Record<string, string[] | Record<string, number>>;
 
-/** Whether a canonical puzzle milestone (a `rephrase.after`) has been reached. */
-export type MilestoneSource = (id: string) => boolean;
+/**
+ * THE PUZZLE PROGRESS A TREE READS AND MAY WRITE. `reached` answers a
+ * rephrase's milestone and a puzzle-gated entry; `set` lands an option's
+ * `puzzle` writes (doc 04 gives WIN_B2's first row that job: C6 pending).
+ */
+export interface MilestoneStore {
+  reached(id: string): boolean;
+  set(id: string, status: PuzzleStatus): void;
+}
 
 //: EXIT ENDS THE CONVERSATION. That is the tag's function, not an exemption
 //: from a removal rule -- errata 37 is revoked and nothing is removed, so
@@ -200,19 +207,23 @@ export class DialogueRunner {
   private activeNodeId: string | null = null;
   private readonly flags: FlagStore;
   private readonly journals: JournalSource;
-  private readonly milestoneReached: MilestoneSource;
+  private readonly milestones: MilestoneStore;
   private pending: DialogueExchange | null = null;
   private serial = 0;
 
   constructor(trees: Map<string, DialogueFile>, flags: FlagStore, journals?: JournalSource,
-    milestoneReached?: MilestoneSource) {
+    milestones?: MilestoneStore) {
     this.trees = trees;
     this.flags = flags;
     this.journals = journals ?? localJournals();
     // NO MILESTONE IS REACHED UNTIL SOMETHING CANONICAL SAYS SO. A rephrase
     // names a puzzle (`after: "C5"`); the game state answers from its puzzle
-    // progress, and a runner built without one answers no.
-    this.milestoneReached = milestoneReached ?? (() => false);
+    // progress, and a runner built without one answers no and keeps nothing.
+    this.milestones = milestones ?? { reached: () => false, set: () => {} };
+  }
+
+  private milestoneReached(id: string): boolean {
+    return this.milestones.reached(id);
   }
 
   get isActive(): boolean {
@@ -228,10 +239,15 @@ export class DialogueRunner {
     this.activeNodeId = this.opensOn(tree);
   }
 
+  /** The entry a tree opens through right now: the first whose flags hold and whose puzzle, if any, is complete. */
+  private entryFor(tree: DialogueFile): { when?: Condition; puzzle?: string; node: string } | undefined {
+    return (tree.entries ?? []).find((one) => this.flags.test(one.when)
+      && (!one.puzzle || this.milestoneReached(one.puzzle)));
+  }
+
   /** The node a tree opens on right now: the first entry whose gate holds, else `start`. */
   private opensOn(tree: DialogueFile): string {
-    const entry = (tree.entries ?? []).find((one) => this.flags.test(one.when));
-    const opensOn = entry?.node ?? tree.start;
+    const opensOn = this.entryFor(tree)?.node ?? tree.start;
     if (!tree.nodes[opensOn]) {
       throw new Error(`Dialogue tree ${tree.id} opens on "${opensOn}", which it has no node for`);
     }
@@ -243,11 +259,19 @@ export class DialogueRunner {
    * nothing. Read BEFORE `start`, by whoever walks the player up to the
    * speaker: the greeting plays on arrival and the list opens when it is
    * over, so the tree is not active while its own greeting is being said.
+   *
+   * AN OPENING REACHED THROUGH A PUZZLE-GATED ENTRY BELONGS TO THE ACTION
+   * that completed the puzzle (errata 66 C): the action performs it once,
+   * asking with `viaAction`; an ordinary TALK TO afterwards opens the node's
+   * list and does not replay the confrontation. Flag-gated and start
+   * openings are unchanged -- Act I's greeting plays on every visit.
    */
-  openingOf(treeId: string): { speaker: string; line: string }[] {
+  openingOf(treeId: string, viaAction = false): { speaker: string; line: string }[] {
     const tree = this.trees.get(treeId);
     if (!tree) throw new Error(`Unknown dialogue tree: ${treeId}`);
-    return tree.nodes[this.opensOn(tree)]?.opening ?? [];
+    const entry = this.entryFor(tree);
+    if (entry?.puzzle && !viaAction) return [];
+    return tree.nodes[entry?.node ?? tree.start]?.opening ?? [];
   }
 
   /** The id of the open tree, or null. Read by the renderer to hold a speaker still. */
@@ -442,6 +466,11 @@ export class DialogueRunner {
     const effects: DurableEffect[] = [
       { id: `${prefix}#taken`, kind: 'dialogueTaken', tree: treeId, node: nodeId, option: option.id },
       ...flagEffects(prefix, option.set, option.add),
+      // PUZZLE PROGRESS A ROW WRITES (doc 53): reserved with the rest, landed
+      // after the exchange drains.
+      ...Object.entries(option.puzzle ?? {}).map(([puzzle, status]) => ({
+        id: `${prefix}#puzzle:${puzzle}`, kind: 'puzzleProgress' as const, puzzle, status,
+      })),
     ];
 
     return {
@@ -538,6 +567,11 @@ export class DialogueRunner {
       setFlag: (flag, value) => { this.flags.set(flag, value); },
       addFlag: (flag, delta) => { this.flags.set(flag, this.flags.getNumber(flag) + delta); },
       markDialogueTaken: (tree, node, option) => { this.markTaken(tree, node, option); },
+      // A ROW MAY MOVE A PUZZLE where doc 04 says so (WIN_B2: the assay is
+      // granted, C6 pending). Doc 34's ownership rule keeps inventory, objects
+      // and the room out of a tree; puzzle progress is state a conversation
+      // is written to advance.
+      setPuzzle: (puzzle, status) => { this.milestones.set(puzzle, status); },
       setObjectState: refuse('object state'),
       addInventory: refuse('inventory'),
       removeInventory: refuse('inventory'),

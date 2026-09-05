@@ -128,9 +128,12 @@ test('rephrase: the machinery holds the authored rephrase and does not fire unti
   assert.equal(state.dialogue.select(option.id).say, option.say, 'and the original answer');
   // The same tree under a runner whose milestone source says the puzzle is complete.
   const { DialogueRunner } = await import('../engine/core/DialogueRunner.ts');
-  const reached = new DialogueRunner(state.content.dialogue, state.flags, undefined, (id) => id === option.rephrase!.after);
-  reached.start(tree.id);
-  if (reached.positionSnapshot().node !== nodeId) reached.select(reached.presentOptions().find((p) => p.option.goto === nodeId)!.option.id);
+  const reached = new DialogueRunner(state.content.dialogue, state.flags, undefined, { reached: (id: string) => id === option.rephrase!.after, set: () => {} });
+  // Positioned at the node directly: once C5 is complete the tree opens on
+  // WIN_B2 (errata 66 C), so the row's node is no longer on the opening path
+  // -- Q109 records that the post-C5 rephrase is unreachable by routing.
+  // This proves the machinery, not the route.
+  reached.restore({}, { tree: tree.id, node: nodeId });
   const after = reached.presentOptions().find((p) => p.option.id === option.id)!;
   assert.equal(after.text, option.rephrase!.text, 'the rephrased wording once the milestone is reached');
   assert.equal(reached.select(option.id).say, option.rephrase!.say, 'and its answer');

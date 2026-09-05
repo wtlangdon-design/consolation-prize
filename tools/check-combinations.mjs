@@ -31,11 +31,15 @@ export function check() {
   }
 
   const items = new Set((content.items ?? []).map(({ data }) => data.id));
+  const trees = new Map((content.dialogue ?? []).map(({ data }) => [data.id, data]));
   const targets = new Map();
   for (const { data } of content.rooms) {
     targets.set(data.id, new Set([
       ...(data.hotspots ?? []).map((target) => target.id),
       ...(data.exits ?? []).map((target) => target.id),
+      // AN AMBIENT CHARACTER IS A TARGET TOO: an item shown to a person
+      // (errata 66 A). The room lists who is in it.
+      ...(data.ambient ?? []),
     ]));
   }
 
@@ -49,8 +53,17 @@ export function check() {
 
     // Rule 4, and it is the reason this check exists.
     if (typeof pair.say !== 'string' || pair.say.trim() === '') {
-      report.fail(`${where}: authored pair with no written line -- doc 24 rule 4. `
-        + 'It must be written or removed, not left to fall through to a pool');
+      // A PAIR THAT OPENS A TREE has its line: the tree's authored opening,
+      // performed by the action (errata 66 C). It must name the tree, the
+      // puzzle it completes, and the tree must open on that puzzle.
+      const tree = pair.opens ? trees.get(pair.opens) : null;
+      const entry = tree?.entries?.find((one) => one.puzzle === pair.completes);
+      if (!pair.opens || !pair.completes) {
+        report.fail(`${where}: authored pair with no written line -- doc 24 rule 4. `
+          + 'It must be written or removed, not left to fall through to a pool');
+      } else if (!tree) report.fail(`${where}: opens "${pair.opens}", which is not a tree`);
+      else if (!entry) report.fail(`${where}: opens ${pair.opens} on completing ${pair.completes}, but the tree has no entry gated on that puzzle`);
+      else if (!tree.nodes?.[entry.node]?.opening?.length) report.fail(`${where}: ${pair.opens}/${entry.node} has no authored opening to stand as the pair's line`);
     }
     if (!items.has(pair.item)) {
       report.fail(`${where}: no such item`);

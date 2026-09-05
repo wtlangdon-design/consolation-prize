@@ -671,6 +671,14 @@ export interface CombinationPair {
   /** Why the target does not resolve yet. Reported, never failed. */
   targetPending?: string;
   set?: FlagWrites;
+  /** Canonical puzzles that must be complete before the pair fires; otherwise the pools answer. */
+  requiresPuzzles?: string[];
+  /** The canonical puzzle this pair completes. Fires once: complete already, the pools answer. */
+  completes?: string;
+  /** The tree the action opens on completion, its opening performed by the action (errata 66 C). */
+  opens?: string;
+  opensNode?: string;
+  note?: string;
 }
 
 /** content/combinations.json -- doc 06's table, written by doc 24. */
@@ -1157,6 +1165,8 @@ export interface DialogueOption {
   beat?: string;
   set?: FlagWrites;
   add?: FlagAdds;
+  /** Puzzle progress the option writes (doc 53): WIN_B2's first row makes C6 pending. */
+  puzzle?: Record<string, PuzzleStatus>;
   goto?: string;
   /**
    * Marks an option that changes state without presenting as progress.
@@ -1231,9 +1241,20 @@ export interface DialogueFile {
    * to `start`. Authored in order of precedence, latest act first, because
    * a later root's condition usually implies an earlier one's.
    */
-  entries?: { when: Condition; node: string }[];
+  /**
+   * WHERE THE TREE OPENS, BY STATE: the first entry whose gate holds. A gate
+   * is flags (`when`) and, since C5, may be a canonical puzzle that must be
+   * complete (`puzzle`). An opening reached through a puzzle-gated entry
+   * belongs to the action that completed the puzzle: it performs once, at
+   * the action, and an ordinary TALK TO afterwards opens the node's list
+   * without replaying it (errata 66 C, doc 36 Q113).
+   */
+  entries?: { when?: Condition; puzzle?: string; node: string }[];
   nodes: Record<string, DialogueNode>;
 }
+
+/** A canonical puzzle's progress. Doc 53: puzzle state is not a topic flag. */
+export type PuzzleStatus = 'pending' | 'complete';
 
 export interface VerbDefinition {
   id: string;
@@ -1904,6 +1925,8 @@ export interface PlaytestFixture {
    * state genuinely needs them (a W1 proof state). Validated like the rest.
    */
   dialogueCounts?: Record<string, Record<string, number>>;
+  /** Puzzle progress by canonical id (doc 53). */
+  puzzles?: Record<string, PuzzleStatus>;
   /** Where the documents put this state, and what the build has not built yet. */
   derivedFrom?: string[];
   notBuilt?: string[];

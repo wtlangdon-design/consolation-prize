@@ -45,11 +45,11 @@ test('a tree with entries opens on its start node with nothing set, and on the e
 
   // The LAST entry is the earliest act's; its flag alone must open its node.
   const entry = tree.entries![tree.entries!.length - 1]!;
-  for (const [flag, value] of Object.entries(entry.when)) state.flags.set(flag, value as boolean);
+  for (const [flag, value] of Object.entries(entry.when ?? {})) state.flags.set(flag, value as boolean);
   state.dialogue.start(tree.id);
   const opened = state.dialogue.presentOptions().map((e) => e.option.id);
   const wanted = tree.nodes[entry.node]!.options.filter((o) => !o.when).map((o) => o.id);
-  assert.deepEqual(opened, wanted, `opens on ${entry.node} once ${Object.keys(entry.when).join(', ')} holds`);
+  assert.deepEqual(opened, wanted, `opens on ${entry.node} once ${Object.keys(entry.when ?? {}).join(', ')} holds`);
   state.dialogue.end();
 });
 
