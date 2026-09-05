@@ -139,7 +139,47 @@ if (which === 'stride') {
   attachGates(assetId, row.attempt, gates);
   say(`  gates: ${gates.passed ? 'PASS' : 'FAIL'}`);
   for (const line of gates.failures) say(`    x ${line}`);
+} else if (which === 'opposite-contact') {
+  // THE ONE MISSING POSE. The opposite-half op returned the shipping contact
+  // again (proofs/thad/profile-walk.json, oppositeHalf), so this asks for
+  // exactly ONE figure and communicates the pose with a DETERMINISTIC GUIDE
+  // rather than prose: reference/pose/thad-opposite-contact-guide.png is the
+  // image edited, the approved sheet and stills fix the man, and the
+  // do-not-copy composite shows the polarity that must not come back.
+  const n = process.argv[3] ?? '01';
+  const assetId = 'thad-profile-walk-opposite-contact';
+  guard(assetId);
+  mkdirSync(resolve(ROOT, OUT), { recursive: true });
+  const GUIDE = 'reference/pose/thad-opposite-contact-guide.png';
+  const NOT = 'reference/pose/thad-contact-do-not-copy-vs-target.png';
+  const CYCLE = 'art/staging/thad/profile-walk-cycle-01.png';
+  const HALF = 'art/staging/thad/profile-walk-opposite-half-01.png';
+  const refs = [GUIDE, CYCLE, 'reference/casting/thad-stand-right-src.png', 'reference/casting/thad-stand-front-src.png', 'reference/casting/thad-stand-back-src.png', HALF, NOT];
+  for (const image of refs) say(`  ref ${hashFile(image).slice(0, 12)}  ${image}`);
+  const made = await edit({
+    promptFile: `proofs/thad/prompts/profile-walk-opposite-contact-${n}.txt`, out: `${OUT}/profile-walk-opposite-contact-${n}.png`,
+    images: refs, size: '1024x1024', purpose: 'character',
+  });
+  say(`  wrote ${made.out}, ${made.bytes} bytes, sha ${made.outputHash.slice(0, 12)}`);
+  const row = record({
+    ...made, assetId, subject: 'thad', role: 'other',
+    roleNote: 'ONE complete right-facing figure in the OPPOSITE CONTACT of the profile walk (far leg forward, near '
+      + 'arm forward), posed from a deterministic guide image, to be cropped whole as one runtime frame. '
+      + 'Owner-authorized, 1/1, separate from the three earlier Thad operations.',
+    identityFamily: 'A',
+    poseGuide: { path: GUIDE, hash: hashFile(GUIDE), note: 'pose geometry authority; the image edited' },
+    doNotCopy: { path: NOT, hash: hashFile(NOT), note: 'the shipping contact beside the target guide' },
+    movementFamilyAuthority: { path: CYCLE, hash: hashFile(CYCLE) },
+    renderingReference: { path: HALF, hash: hashFile(HALF) },
+    familyASources: FAMILY_A.map((path) => ({ path, hash: hashFile(path) })),
+    authorizedBy: 'Tyler, THAD PROFILE WALK -- ACQUIRE THE ONE MISSING OPPOSITE CONTACT POSE (2026-09-05)',
+  });
+  say(`  recorded as ${assetId} attempt ${row.attempt}, role ${row.role}`);
+  const gates = runGates(made.out, { kind: 'plate', expect: '1024x1024' });
+  attachGates(assetId, row.attempt, gates);
+  say(`  gates: ${gates.passed ? 'PASS' : 'FAIL'}`);
+  for (const line of gates.failures) say(`    x ${line}`);
 } else {
-  say('usage: node tools/art/thad.mjs stride [nn] | walk-cycle [nn] | opposite-half [nn]');
+  say('usage: node tools/art/thad.mjs stride [nn] | walk-cycle [nn] | opposite-half [nn] | opposite-contact [nn]');
   process.exit(2);
 }

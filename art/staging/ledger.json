@@ -2116,6 +2116,163 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-05T03:30:48.431Z"
+  },
+  {
+   "attempt": 1,
+   "role": "other",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/thad/prompts/profile-walk-opposite-contact-01.txt",
+   "promptHash": "0202b05c72547592fa408693aac57d88148f95124fbcfd08da5bb03ad300a9e3",
+   "references": [
+    {
+     "path": "reference/pose/thad-opposite-contact-guide.png",
+     "hash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/thad/profile-walk-cycle-01.png",
+     "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/thad/profile-walk-opposite-half-01.png",
+     "hash": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2",
+     "transmitted": true
+    },
+    {
+     "path": "reference/pose/thad-contact-do-not-copy-vs-target.png",
+     "hash": "867f0fb3b18dbaf3b67b42009fd8e1829c8e65a060d3dd23f8625cfd3291632a",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
+   "sourcePath": "reference/pose/thad-opposite-contact-guide.png",
+   "out": "art/staging/thad/profile-walk-opposite-contact-01.png",
+   "outputHash": "3e6dd52140ca00e5e2535d927b12b7d18b07540e51432785a7be4b4cc89e7b90",
+   "bytes": 913909,
+   "usage": {
+    "input_tokens": 7689,
+    "input_tokens_details": {
+     "image_tokens": 6856,
+     "text_tokens": 833
+    },
+    "output_tokens": 196,
+    "output_tokens_details": {
+     "image_tokens": 196,
+     "text_tokens": 0
+    },
+    "total_tokens": 7885
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T03:50:16.698Z",
+   "assetId": "thad-profile-walk-opposite-contact",
+   "subject": "thad",
+   "roleNote": "ONE complete right-facing figure in the OPPOSITE CONTACT of the profile walk (far leg forward, near arm forward), posed from a deterministic guide image, to be cropped whole as one runtime frame. Owner-authorized, 1/1, separate from the three earlier Thad operations.",
+   "identityFamily": "A",
+   "poseGuide": {
+    "path": "reference/pose/thad-opposite-contact-guide.png",
+    "hash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
+    "note": "pose geometry authority; the image edited"
+   },
+   "doNotCopy": {
+    "path": "reference/pose/thad-contact-do-not-copy-vs-target.png",
+    "hash": "867f0fb3b18dbaf3b67b42009fd8e1829c8e65a060d3dd23f8625cfd3291632a",
+    "note": "the shipping contact beside the target guide"
+   },
+   "movementFamilyAuthority": {
+    "path": "art/staging/thad/profile-walk-cycle-01.png",
+    "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a"
+   },
+   "renderingReference": {
+    "path": "art/staging/thad/profile-walk-opposite-half-01.png",
+    "hash": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2"
+   },
+   "familyASources": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+    }
+   ],
+   "authorizedBy": "Tyler, THAD PROFILE WALK -- ACQUIRE THE ONE MISSING OPPOSITE CONTACT POSE (2026-09-05)",
+   "gates": {
+    "path": "art/staging/thad/profile-walk-opposite-contact-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T03:50:17.238Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T03:50:17.112Z"
   }
  ],
  "promotions": []
