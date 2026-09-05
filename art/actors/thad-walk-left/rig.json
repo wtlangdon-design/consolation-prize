@@ -1,41 +1,38 @@
 {
   "invocation": {
-    "source": "reference/casting/thad-profile-left.png",
+    "source": "art/staging/thad/profile-stride-01.png",
     "key": "magenta",
     "view": "profile",
     "facing": "left",
     "clip": "walk",
     "pose": "striding",
     "pad": 260,
-    "swing": 1,
-    "knee": 0,
-    "breath": 1,
-    "near_mask": "reference/masks/thad-left-near-arm.txt",
-    "far_mask": "reference/masks/thad-left-far-arm.txt"
+    "swing": 0.7,
+    "knee": 0.0,
+    "breath": 1.0
   },
-  "invocationNote": "RECOVERED, PROVEN: all ten invariants reproduce exactly. Both arms are painted here, not one. The recorded `source` was \"/tmp/thad-left.png\", a path that has not existed for months. The frames here are the DOWNSAMPLED ones: run the invocation above, then python3 tools/rig/downscale.py art/actors/thad-walk-left --figure 526",
-  "source": "reference/casting/thad-profile-left.png",
+  "source": "art/staging/thad/profile-stride-01.png",
   "key": "magenta",
   "view": "profile",
   "facing": "left",
   "walk_dx": -1,
   "figure": [
-    230,
-    526
+    307,
+    625
   ],
-  "hem_row": 338,
-  "hem_pct": 64.3,
-  "pivot_row": 814,
-  "padding": 84,
-  "rows_legs_separate": 517,
-  "near_leg_px": 74825,
-  "far_leg_px": 78824,
+  "hem_row": 426,
+  "hem_pct": 68.1,
+  "pivot_row": 338,
+  "padding": 143,
+  "rows_legs_separate": 173,
+  "near_leg_px": 9666,
+  "far_leg_px": 9239,
   "arms_rigged": true,
-  "shoulder_near": 298,
-  "shoulder_far": 511,
-  "near_arm_px": 66093,
-  "far_arm_px": 26398,
-  "measured_foot_travel": 180,
+  "shoulder_near": 202,
+  "shoulder_far": 245,
+  "near_arm_px": 4388,
+  "far_arm_px": 2238,
+  "measured_foot_travel": 43,
   "hip_swing": [
     14,
     10,
@@ -46,7 +43,51 @@
     0,
     10
   ],
+  "knee_flex": [
+    6,
+    4,
+    4,
+    8,
+    40,
+    60,
+    34,
+    10
+  ],
+  "knee_ratio": 0.0,
+  "knee_frac": 0.52,
   "arm_ratio": 0.55,
   "frames": 8,
-  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1620px, which is 6x linear and 38x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
+  "sourceResolution": {
+    "figure": [
+      555,
+      1131
+    ],
+    "hem_row": 770,
+    "pivot_row": 611,
+    "padding": 260,
+    "shoulder_near": 366,
+    "shoulder_far": 444,
+    "rows_legs_separate": 313,
+    "near_leg_px": 31653,
+    "far_leg_px": 30253,
+    "near_arm_px": 14368,
+    "far_arm_px": 7328,
+    "measured_foot_travel": 77
+  },
+  "downsampled": "Frames at figure 625, the standing family's own height (thad-stand-right is 625), from the 1131px source by tools/rig/downscale.py --figure 625 (x0.553); values above scaled from the source-resolution rig kept under sourceResolution. Reproduce: run `invocation`, then downscale.py.",
+  "provenance": "THAD PROFILE WALK CONTINUITY (Tyler, 2026-09-05). Rigged from the one owner-authorized Family-A stride source, art/staging/thad/profile-stride-01.png (ledger asset thad-profile-walk-continuity, attempt 1/1), so this walk and thad-stand-right are one drawing of one man (docs/52). Swing 0.7 and knee 0 chosen from four rigged variants on a comparison sheet: the source already carries a full stride, and a full swing on top of it kicked. Replaces the Family-B walk rigged from thad-profile-right-approved.png, preserved at art/staging/thad/previous/thad-walk-right for the continuity sheet and revert. visual_accepted: NOT SET -- Tyler's gate.",
+  "mirroredFrom": {
+    "clip": "art/actors/thad-walk-right",
+    "frames": {
+      "walk-00.png": "8966cc51caa3518f3941952ca3dc0bc9dfaeb877477dd0776614776091adfb8d",
+      "walk-01.png": "acfe55ba854207fd206e126163e44ddefcf736c8fdf247ffb99a228608871bec",
+      "walk-02.png": "e27d8e3739db28f1dd4ee91efd77097f3fc12540d566b940c2b8403d081bda6a",
+      "walk-03.png": "2e1390f901219c91397acb52010b9c5119bbfa9fc962ca43126eaa88dfd5990a",
+      "walk-04.png": "8d87a74d59f7b2ff75deaf776c33e61ff8049c241d473ae05f5d6ce22bfbb873",
+      "walk-05.png": "2e1390f901219c91397acb52010b9c5119bbfa9fc962ca43126eaa88dfd5990a",
+      "walk-06.png": "e27d8e3739db28f1dd4ee91efd77097f3fc12540d566b940c2b8403d081bda6a",
+      "walk-07.png": "acfe55ba854207fd206e126163e44ddefcf736c8fdf247ffb99a228608871bec"
+    },
+    "note": "docs/52 left/right policy: one side family, mirrored deterministically. Regenerate by re-running tools/rig/mirror-clip.py on the source clip; never edit these frames by hand."
+  }
 }

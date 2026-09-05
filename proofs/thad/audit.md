@@ -50,7 +50,7 @@ Measured live with the harness trace (1 Hz while `moving`; first and last partia
 - **References to transmit:** `thad-stand-right-src.png` (the identity, profile), `thad-stand-front-src.png` and `thad-stand-back-src.png` (the same man head-on), `thad-walk-front-src.png` (the same man striding, head-on: the gait's shape), and `docs/52-thad-continuity-spec.md`'s numbers in the prompt.
 - **No API call was made.**
 
-Until then walk-right and walk-left ship as they are (byte-identical on the continuity sheet's Row B), and Tyler sees the same swap he reported when Thad walks sideways.
+**Superseded 2026-09-05:** Tyler authorized the one operation; see `proofs/thad/profile-walk.json` and `renders/thad-profile-walk-continuity.png`. The candidate walk-right/walk-left now ship for his review; the Family-B clips are preserved under `art/staging/thad/previous/`.
 
 ## 5. Regression — the frame logs (`tools/gauntlet/frames.mjs`, probe polled every 100 ms)
 

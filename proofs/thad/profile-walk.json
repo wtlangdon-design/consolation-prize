@@ -1,0 +1,200 @@
+{
+ "title": "THAD PROFILE WALK CONTINUITY -- owner-authorized global character art revision (Tyler, 2026-09-05)",
+ "preflight": {
+  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+  "cleanTree": true,
+  "head": "63ba3bc"
+ },
+ "imageOperation": {
+  "assetId": "thad-profile-walk-continuity",
+  "attempt": 1,
+  "cap": "1 / 1",
+  "subject": "thad",
+  "role": "other",
+  "model": "gpt-image-2",
+  "operation": "edit",
+  "parameters": {
+   "size": "1024x1536",
+   "quality": null
+  },
+  "promptFile": "proofs/thad/prompts/profile-stride-01.txt",
+  "references": [
+   {
+    "path": "reference/casting/thad-stand-right-src.png",
+    "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+    "transmitted": true
+   },
+   {
+    "path": "reference/casting/thad-stand-front-src.png",
+    "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+    "transmitted": true
+   },
+   {
+    "path": "reference/casting/thad-stand-back-src.png",
+    "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+    "transmitted": true
+   },
+   {
+    "path": "reference/casting/thad-walk-front-src.png",
+    "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
+    "transmitted": true
+   },
+   {
+    "path": "art/actors/thad-stand-front/stand-00.png",
+    "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+    "transmitted": true
+   }
+  ],
+  "output": {
+   "path": "art/staging/thad/profile-stride-01.png",
+   "sha256": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b"
+  },
+  "gates": true,
+  "usage": {
+   "input_tokens": 3386,
+   "input_tokens_details": {
+    "image_tokens": 2720,
+    "text_tokens": 666
+   },
+   "output_tokens": 343,
+   "output_tokens_details": {
+    "image_tokens": 343,
+    "text_tokens": 0
+   },
+   "total_tokens": 3729
+  },
+  "recordedAt": "2026-09-05T00:33:56.003Z",
+  "untouchedResultPreserved": "art/staging/thad/profile-stride-01.png",
+  "visual_accepted": false
+ },
+ "sourceUsable": {
+  "verdict": "USABLE",
+  "why": "true side profile, walking right, leading leg forward and trailing leg back with clear key between them on 337 of 453 lower rows, both arms clear of the torso on 230 of 396 arm rows, hands free of the coat, boots separated, coat hem a clean edge at 68% of height, no twist toward camera, 12% margins on every side, flat #FF00FF backdrop. Head, hair, coat and proportions read as the standing still."
+ },
+ "rig": {
+  "tool": "tools/rig/character.py",
+  "invocation": {
+   "source": "art/staging/thad/profile-stride-01.png",
+   "key": "magenta",
+   "view": "profile",
+   "facing": "right",
+   "clip": "walk",
+   "pose": "striding",
+   "pad": 260,
+   "swing": 0.7,
+   "knee": 0.0,
+   "breath": 1.0
+  },
+  "chosenFromVariants": "swing 1.0/knee 0, 0.7/0, 0.7/0.5, 0.5/0 laid out at one height; 0.7/0 chosen: readable stride, boots within 5 px of the ground line across the cycle, no kick, no shuffle",
+  "downscale": "tools/rig/downscale.py --figure 625 (the standing family's own figure height)",
+  "toolFixes": [
+   "character.py key_out: a filled hole that is still pure key stays background",
+   "downscale.py: resample premultiplied planes in float (byte rounding before the resize came back as purple edge pixels after un-premultiplying) and despill Lanczos ringing to eight under the fringe line"
+  ],
+  "walkRight": {
+   "dir": "art/actors/thad-walk-right",
+   "frames": {
+    "walk-00.png": "8966cc51caa3518f3941952ca3dc0bc9dfaeb877477dd0776614776091adfb8d",
+    "walk-01.png": "acfe55ba854207fd206e126163e44ddefcf736c8fdf247ffb99a228608871bec",
+    "walk-02.png": "e27d8e3739db28f1dd4ee91efd77097f3fc12540d566b940c2b8403d081bda6a",
+    "walk-03.png": "2e1390f901219c91397acb52010b9c5119bbfa9fc962ca43126eaa88dfd5990a",
+    "walk-04.png": "8d87a74d59f7b2ff75deaf776c33e61ff8049c241d473ae05f5d6ce22bfbb873",
+    "walk-05.png": "2e1390f901219c91397acb52010b9c5119bbfa9fc962ca43126eaa88dfd5990a",
+    "walk-06.png": "e27d8e3739db28f1dd4ee91efd77097f3fc12540d566b940c2b8403d081bda6a",
+    "walk-07.png": "acfe55ba854207fd206e126163e44ddefcf736c8fdf247ffb99a228608871bec"
+   },
+   "rigSha256": "876be5f513d84fbd9f3289d3465656522e786e4981293769890434b7019e21d4"
+  },
+  "walkLeft": {
+   "dir": "art/actors/thad-walk-left",
+   "method": "tools/rig/mirror-clip.py: every frame flipped, rig copied with facing/walk_dx/padding recomputed and mirroredFrom recording the source frames' hashes",
+   "frames": {
+    "walk-00.png": "30c5acebf5ce1e4c8df26c8a1191a86ca7a7a28719f957b0313d163de6188d62",
+    "walk-01.png": "63ed6dfb28dd4aeb9cbff5289344f5db0ab8647a909b325cd75905016dd62169",
+    "walk-02.png": "033cedda1f3ad5fe9107e967becdf04899b2dfe3c14a55fb6f0736b4d170aded",
+    "walk-03.png": "604ef7173d4b88abc5c4320c449d7cfbd4ce67c424f1c4fa096a61e3c2abec8b",
+    "walk-04.png": "77f155ac29199a41322e3f3ebc4b786593f8d21ef39f9a34867bc2c927200f26",
+    "walk-05.png": "604ef7173d4b88abc5c4320c449d7cfbd4ce67c424f1c4fa096a61e3c2abec8b",
+    "walk-06.png": "033cedda1f3ad5fe9107e967becdf04899b2dfe3c14a55fb6f0736b4d170aded",
+    "walk-07.png": "63ed6dfb28dd4aeb9cbff5289344f5db0ab8647a909b325cd75905016dd62169"
+   }
+  },
+  "previousPreserved": "art/staging/thad/previous/thad-walk-right and thad-walk-left (the Family-B clips as shipped at 63ba3bc), for the sheet and for revert",
+  "strideMeasured": {
+   "widestBootSeparationPx": 282,
+   "atFigure": 625,
+   "ratio": 0.451,
+   "recordStrideRatio": 0.425,
+   "note": "6% longer than the shared record stride; the walk-front clip is unchanged and shares the record, so the record stays at 102/240. Cadence unchanged: 1.9 strides/s x pace; at pace B 2.4 strides/s under a 3.25 cap. No cadence adjustment was needed."
+  }
+ },
+ "profileChoreDebt": [
+  {
+   "clip": "use-near",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-use-near-right",
+   "source": null,
+   "family": "unrecorded (hand-transformed)",
+   "laterDerivableFromStrideSource": "partly: the stride source gives the profile body; each chore pose still needs its own limb placement, which is a generation or a hand transform"
+  },
+  {
+   "clip": "give-offer",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-give-offer-right",
+   "source": null,
+   "family": "unrecorded (hand-transformed)",
+   "laterDerivableFromStrideSource": "partly: the stride source gives the profile body; each chore pose still needs its own limb placement, which is a generation or a hand transform"
+  },
+  {
+   "clip": "shrug",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-shrug-right",
+   "source": null,
+   "family": "unrecorded (hand-transformed)",
+   "laterDerivableFromStrideSource": "partly: the stride source gives the profile body; each chore pose still needs its own limb placement, which is a generation or a hand transform"
+  },
+  {
+   "clip": "pickup-low",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-pickup-low-right",
+   "source": null,
+   "family": "unrecorded (hand-transformed)",
+   "laterDerivableFromStrideSource": "partly: the stride source gives the profile body; each chore pose still needs its own limb placement, which is a generation or a hand transform"
+  },
+  {
+   "clip": "alight-coach",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-alight-coach-right",
+   "source": null,
+   "family": "unrecorded (hand-transformed)",
+   "laterDerivableFromStrideSource": false
+  },
+  {
+   "clip": "aboard-coach",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-aboard-coach-right",
+   "source": null,
+   "family": "unrecorded (hand-transformed)",
+   "laterDerivableFromStrideSource": false
+  },
+  {
+   "clip": "carry",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-carry-right",
+   "source": null,
+   "family": "unrecorded (hand-transformed)",
+   "laterDerivableFromStrideSource": "partly: the stride source gives the profile body; each chore pose still needs its own limb placement, which is a generation or a hand transform"
+  }
+ ],
+ "continuitySheet": {
+  "path": "renders/thad-profile-walk-continuity.png",
+  "sha256": "4e68b2d2f0e33bed259d983988ab87566ed6535a0ad33df652d85cb7ae946f0d"
+ }
+}

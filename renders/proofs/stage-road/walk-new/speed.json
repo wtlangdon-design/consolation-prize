@@ -1,0 +1,70 @@
+{
+ "label": "Room 1 new walk pace B",
+ "legs": [
+  {
+   "leg": 1,
+   "from": [
+    1144,
+    811
+   ],
+   "to": [
+    399,
+    759
+   ],
+   "pathPx": 747,
+   "seconds": 3.0,
+   "pxPerSec": 249.8
+  },
+  {
+   "leg": 2,
+   "from": [
+    656,
+    759
+   ],
+   "to": [
+    1500,
+    759
+   ],
+   "pathPx": 844,
+   "seconds": 4.0,
+   "pxPerSec": 213.7
+  },
+  {
+   "leg": 3,
+   "from": [
+    1258,
+    779
+   ],
+   "to": [
+    699,
+    825
+   ],
+   "pathPx": 561,
+   "seconds": 3.0,
+   "pxPerSec": 185.7
+  }
+ ],
+ "captures": {
+  "w1-far-left": {
+   "at": [
+    399,
+    759
+   ],
+   "height": 242
+  },
+  "w2-across-right": {
+   "at": [
+    1500,
+    759
+   ],
+   "height": 242
+  },
+  "w3-back-near": {
+   "at": [
+    699,
+    825
+   ],
+   "height": 261
+  }
+ }
+}

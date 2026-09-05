@@ -63,8 +63,15 @@ def reduce_frame(frame: Image.Image, size: tuple[int, int]) -> Image.Image:
     a = np.array(frame).astype(np.float64)
     alpha = a[..., 3:4] / 255.0
     a[..., :3] *= alpha                                   # premultiply
-    small = np.array(Image.fromarray(a.astype(np.uint8), "RGBA")
-                     .resize(size, Image.LANCZOS)).astype(np.float64)
+    # RESAMPLE IN FLOAT, ONE CHANNEL AT A TIME. Premultiplied colour at a faint
+    # edge is a small number -- (2, 1, 2) under alpha 10 -- and rounding it to
+    # a byte before the resize, then dividing by the alpha afterwards, turned
+    # rounding noise into colour: the Family-A stride's downscale came back
+    # with 550 visible purple edge pixels a frame (Tyler's profile-walk task,
+    # 2026-09-05). PIL resizes a 32-bit float plane exactly.
+    planes = [np.array(Image.fromarray(a[..., c].astype(np.float32), "F")
+                       .resize(size, Image.LANCZOS)).astype(np.float64) for c in range(4)]
+    small = np.dstack(planes)
     out_a = np.clip(small[..., 3:4], 0, 255)
     # Unpremultiply where there is anything to divide by. A pixel that came out
     # fully transparent keeps whatever colour the division would have blown up
@@ -74,6 +81,17 @@ def reduce_frame(frame: Image.Image, size: tuple[int, int]) -> Image.Image:
     safe = out_a > 0
     small[..., :3] = np.where(safe, small[..., :3] * 255.0 / np.maximum(out_a, 1e-6), 0.0)
     small[..., 3:4] = out_a
+    # AND WHAT LANCZOS RINGS PAST THE KEY LINE COMES BACK UNDER IT. A negative
+    # lobe beside a hard dark edge can push red and blue over the green by
+    # more than the fringe check allows; pull both down together, keeping
+    # their ratio, to eight below the line -- the same rule character.py's
+    # despill applies at source resolution.
+    rgb = small[..., :3]
+    avg = (rgb[..., 0] + rgb[..., 2]) / 2
+    over = (out_a[..., 0] > 0) & (avg > rgb[..., 1] + 22)
+    scale = np.where(over, (rgb[..., 1] + 22) / np.maximum(avg, 1e-6), 1.0)
+    rgb[..., 0] *= scale
+    rgb[..., 2] *= scale
     return Image.fromarray(np.clip(small, 0, 255).astype(np.uint8), "RGBA")
 
 
