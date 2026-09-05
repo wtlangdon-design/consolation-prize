@@ -1,0 +1,2873 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "route": "assay-office-floorboard-crossings",
+ "commit": "3c380f5278311fab6f92f9365f2f4dd5878e3f54",
+ "workingTreeClean": false,
+ "candidates": [
+  {
+   "from": "art/backgrounds/room-05-assay-office.png",
+   "to": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "to": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "to": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png"
+  },
+  {
+   "from": "art/staging/room-05/floorboard/board-rest.png",
+   "to": "art/staging/room-05/floorboard/board-rest-night.png"
+  },
+  {
+   "from": "art/staging/room-05/floorboard/board-pressed.png",
+   "to": "art/staging/room-05/floorboard/board-pressed-night.png"
+  }
+ ],
+ "visualState": "night",
+ "pace": 1.5,
+ "durationSeconds": 152.281,
+ "samples": 518,
+ "summary": {
+  "changes": 131,
+  "clipsSeen": [
+   "idle",
+   "walk",
+   "idle-break"
+  ],
+  "locomotionFramesWhileStationary": 0,
+  "idleBreaks": 1
+ },
+ "changes": [
+  {
+   "t": 100.005,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    200,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 100.648,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    200,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.076,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    221,
+    764
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 514,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.135,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    273,
+    763
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 514,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.25,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    345,
+    760
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 512,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.364,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    407,
+    758
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 510,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.419,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    448,
+    757
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 509,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.536,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    520,
+    754
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 507,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.648,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    592,
+    752
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 506,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.765,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    653,
+    750
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 505,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.825,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    694,
+    749
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 504,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 102.936,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    765,
+    746
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 502,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 103.052,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    836,
+    744
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 500,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 103.109,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    859,
+    743
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 500,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 103.219,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 104.256,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 105.986,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-back",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "back",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.158,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    878,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.268,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    946,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.394,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1014,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.449,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1053,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.56,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1111,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.666,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1179,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.755,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 107.184,
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 107.817,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 108.459,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1181,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 108.571,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1113,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 108.68,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1045,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 2,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 108.785,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    987,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 2,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 108.91,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    958,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 2,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 109.011,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    899,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 2,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 109.074,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 2,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 109.516,
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 2,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 110.741,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    878,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 2,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 110.798,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    917,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 2,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 110.912,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    975,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.016,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1043,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.069,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1072,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.181,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1131,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.287,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1198,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.376,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.777,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 113.015,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1181,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 113.125,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1122,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 3,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 113.181,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1084,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 113.285,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1025,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 113.388,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    967,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 113.495,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    899,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 113.603,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 114.088,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 114.956,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 115.304,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    878,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 115.414,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    946,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 4,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 115.522,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1005,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 115.63,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1072,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 115.734,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1131,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 115.839,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1189,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 115.927,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 116.318,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 116.731,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 117.591,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1181,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 117.643,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1142,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 5,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 117.747,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1084,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 117.85,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1025,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 117.957,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    967,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 118.06,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    899,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 118.171,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 118.539,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 118.659,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 119.888,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    878,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 119.945,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    908,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 6,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 120.051,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    975,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 120.162,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1043,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 120.27,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1102,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 120.373,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1160,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 120.477,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 120.973,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 122.075,
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 122.205,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1181,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 122.262,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1152,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 7,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 122.367,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1084,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 8,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 122.466,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1025,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 8,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 122.568,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    967,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 8,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 122.668,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    909,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 8,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 122.776,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 8,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 123.28,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 8,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 123.886,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 8,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 124.523,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    898,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 8,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 124.637,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    975,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 124.693,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1005,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 124.799,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1072,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 124.936,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1131,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 124.988,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1179,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 125.12,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 125.492,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 125.733,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1200,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 126.815,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1181,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 126.917,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1113,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 9,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.022,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1055,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 10,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.124,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    996,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 10,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.228,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    928,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 10,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.336,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    870,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 10,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.445,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 10,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 127.849,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 10,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 129.111,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    878,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 10,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 129.221,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    946,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 10,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 129.335,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1014,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 129.449,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1082,
+    714
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 129.558,
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 130.151,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 131.04,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 132.867,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 134.566,
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 136.418,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 138.225,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 139.951,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 141.726,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 143.524,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 144.248,
+   "clip": "idle-break",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 145.33,
+   "clip": "idle-break",
+   "frame": "idle-break-02.png",
+   "dir": "art/actors/thad-idlebreak-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 147.068,
+   "clip": "idle-break",
+   "frame": "idle-break-05.png",
+   "dir": "art/actors/thad-idlebreak-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 148.869,
+   "clip": "idle-break",
+   "frame": "idle-break-09.png",
+   "dir": "art/actors/thad-idlebreak-right",
+   "at": [
+    1129,
+    714
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 149.214,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1100,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 11,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 149.273,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1071,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 12,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 149.378,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    1003,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 12,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 149.494,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    945,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"pressed\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 12,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 149.547,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-left",
+   "at": [
+    906,
+    714
+   ],
+   "facing": "left",
+   "moving": true,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 12,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 149.662,
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": true,
+   "cues": 12,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 150.161,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 12,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 150.65,
+   "clip": "idle",
+   "frame": "idle-01.png",
+   "dir": "art/actors/thad-idle-left",
+   "at": [
+    859,
+    714
+   ],
+   "facing": "left",
+   "moving": false,
+   "height": 480,
+   "says": null,
+   "options": 0,
+   "states": "{\"floorboard\":\"rest\",\"hanging_lamp\":\"lit\"}",
+   "caption": false,
+   "cues": 12,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  }
+ ],
+ "bursts": [],
+ "log": [
+  {
+   "t": 99.883,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 99.883,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 99.883,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 99.883,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 99.883,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 99.883,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 99.883,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 99.883,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 99.883,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 99.883,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 99.883,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 99.883,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 99.883,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 99.883,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 99.883,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 99.883,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 99.883,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 99.883,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 99.883,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 99.883,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 99.883,
+   "line": "action 21 (click): clicked main_street/to_assay_office at world 3113,479 -- Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
+  },
+  {
+   "t": 99.883,
+   "line": "action 22 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 99.883,
+   "line": "action 23 (wait): waited 3s"
+  },
+  {
+   "t": 99.891,
+   "line": "in assay_office; route assay-office-floorboard-crossings: 27 action(s); polling every 100 ms"
+  },
+  {
+   "t": 101.895,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 102.001,
+   "line": "action 1 (click): clicked screen 860,715 -- start left of the board on its row"
+  },
+  {
+   "t": 106.003,
+   "line": "action 1 (wait): waited 4s"
+  },
+  {
+   "t": 106.097,
+   "line": "action 1 (click): clicked screen 1200,715 -- crossing 1: left to right along the row"
+  },
+  {
+   "t": 108.299,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 108.4,
+   "line": "action 1 (click): clicked screen 860,715 -- crossing 2: right to left"
+  },
+  {
+   "t": 110.601,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 110.682,
+   "line": "action 1 (click): clicked screen 1200,715 -- crossing 3: left to right along the row"
+  },
+  {
+   "t": 112.884,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 112.961,
+   "line": "action 1 (click): clicked screen 860,715 -- crossing 4: right to left"
+  },
+  {
+   "t": 115.162,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 115.246,
+   "line": "action 1 (click): clicked screen 1200,715 -- crossing 5: left to right along the row"
+  },
+  {
+   "t": 117.448,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 117.533,
+   "line": "action 1 (click): clicked screen 860,715 -- crossing 6: right to left"
+  },
+  {
+   "t": 119.736,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 119.828,
+   "line": "action 1 (click): clicked screen 1200,715 -- crossing 7: left to right along the row"
+  },
+  {
+   "t": 122.03,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 122.145,
+   "line": "action 1 (click): clicked screen 860,715 -- crossing 8: right to left"
+  },
+  {
+   "t": 124.347,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 124.444,
+   "line": "action 1 (click): clicked screen 1200,715 -- crossing 9: left to right along the row"
+  },
+  {
+   "t": 126.645,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 126.756,
+   "line": "action 1 (click): clicked screen 860,715 -- crossing 10: right to left"
+  },
+  {
+   "t": 128.962,
+   "line": "action 1 (wait): waited 2.2s"
+  },
+  {
+   "t": 129.053,
+   "line": "action 1 (click): clicked screen 1130,715 -- crossing 11: across and stop just past its right end"
+  },
+  {
+   "t": 149.055,
+   "line": "action 1 (wait): waited 20s"
+  },
+  {
+   "t": 149.156,
+   "line": "action 1 (click): clicked screen 860,715 -- crossing 12: straight back across after re-arming"
+  },
+  {
+   "t": 152.157,
+   "line": "action 1 (wait): waited 3s"
+  }
+ ],
+ "at": "2026-09-05T05:24:38.524Z"
+}

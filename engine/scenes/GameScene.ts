@@ -1737,6 +1737,16 @@ export class GameScene extends Phaser.Scene {
       // And her props' sheets: the ink stand is drawn from its own file.
       for (const prop of npc.sprite?.props ?? []) add(prop.sheet, prop.sheet);
     }
+    // STATE IMAGES TOO. Room 5's floorboard has a rest and a pressed picture,
+    // each with a night derivation swapped in by the same candidate mechanism
+    // the plate uses; a proof that cannot see them cannot say the night board
+    // was the one drawn. Every declared state, not just the one showing:
+    // the pressed board is an asset of the room whether or not a foot is on it.
+    for (const target of this.state.targets) {
+      for (const [name, shown] of Object.entries(target.states ?? {})) {
+        if (shown.image) add(`${target.id}:${name}`, shown.image);
+      }
+    }
     return out;
   }
 
