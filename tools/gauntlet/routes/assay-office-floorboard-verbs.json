@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "FLOORBOARD HOTSPOT REGRESSION (Tyler, 2026-09-05): LOOK, LISTEN, PULL, OPEN and a generic verb on the board after the stateful overlay; each answers with a line (the probe says who spoke, never the words). Run by tools/gauntlet/life.mjs or frames.mjs.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "LOOK"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "LISTEN"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "PULL"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "PULL override"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "OPEN"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "OPEN override"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "PUSH"
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "a generic verb"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "click",
+   "on": "floorboard",
+   "why": "default verb by plain click"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  }
+ ]
+}

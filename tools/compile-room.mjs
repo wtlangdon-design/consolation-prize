@@ -746,7 +746,12 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
     // just outlived its most annoying obstacle, and the notice board carries
     // Thad's own funeral notice.
     ...(ann.hotspotStates?.[id]
-      ? { state: ann.hotspotStates[id].default, states: ann.hotspotStates[id].states }
+      ? { state: ann.hotspotStates[id].default, states: ann.hotspotStates[id].states,
+          // A BOARD THAT ANSWERS A FOOT (Tyler's Room 5 playtest, 2026-09-05):
+          // the tread, the two states, the hold, the caption and the doc 45
+          // cue travel with the hotspot's states, from the annotation, as
+          // data. See engine/core/StepTriggers.ts.
+          ...(ann.hotspotStates[id].step ? { step: ann.hotspotStates[id].step } : {}) }
       : {}),
     responses,
     ...(Object.keys(objectOverrides).length ? { overrides: objectOverrides } : {}),

@@ -68,8 +68,11 @@ async function main() {
         const f = await page.evaluate(() => window.__gauntlet?.probe?.());
         const m = f?.movers?.thad; if (!m) return;
         samples += 1;
-        const now = { clip: m.clip, frame: String(m.from ?? '').split('/').pop(), dir: String(m.from ?? '').replace(/\/[^/]+$/, ''), at: m.at, facing: m.facing, moving: m.moving, height: m.height, says: f.says, options: f.options };
-        const changed = !last || ['clip', 'frame', 'facing', 'moving'].some((k) => last[k] !== now[k]) || last.at[0] !== now.at[0] || last.at[1] !== now.at[1];
+        // BOARDS, CAPTIONS AND CUES ARE LOGGED TOO (Room 5's floorboard, 2026-09-05): the
+        // object states the probe reports, whether a world caption is up, and how
+        // many doc 45 cues have fired -- so 'one creak per crossing' is a count.
+        const now = { clip: m.clip, frame: String(m.from ?? '').split('/').pop(), dir: String(m.from ?? '').replace(/\/[^/]+$/, ''), at: m.at, facing: m.facing, moving: m.moving, height: m.height, says: f.says, options: f.options, states: JSON.stringify(f.states ?? {}), caption: Boolean(f.caption), cues: f.cues?.count ?? 0, lastCue: f.cues?.last ?? null };
+        const changed = !last || ['clip', 'frame', 'facing', 'moving', 'states', 'caption', 'cues', 'says'].some((k) => last[k] !== now[k]) || last.at[0] !== now.at[0] || last.at[1] !== now.at[1];
         if (changed) changes.push({ t: stamp(), ...now, locomotionWhileStill: !now.moving && walkDirs.has(now.dir) });
         last = now;
       } catch { /* page busy */ } finally { polling = false; }
@@ -84,7 +87,7 @@ async function main() {
           if (url) {
             const bytes = Buffer.from(url.split(',')[1], 'base64'); const file = `${rawDir}/${action.name}-${String(n).padStart(2, '0')}.png`;
             writeFileSync(resolve(ROOT, file), bytes); const m = f?.movers?.thad ?? {};
-            bursts.push({ burst: action.name, n, t: stamp(), file, hash: sha(bytes), clip: m.clip, frame: String(m.from ?? '').split('/').pop(), at: m.at, moving: m.moving, height: m.height, facing: m.facing }); n += 1;
+            bursts.push({ burst: action.name, n, t: stamp(), file, hash: sha(bytes), clip: m.clip, frame: String(m.from ?? '').split('/').pop(), at: m.at, moving: m.moving, height: m.height, facing: m.facing, states: f?.states ?? {}, caption: Boolean(f?.caption), cues: f?.cues?.count ?? 0 }); n += 1;
           }
           await page.waitForTimeout(every * 1000);
         }

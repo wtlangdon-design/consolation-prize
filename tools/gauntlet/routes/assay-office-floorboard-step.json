@@ -1,0 +1,73 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "FLOORBOARD STEP SEQUENCE (Tyler, 2026-09-05): approach below the board at rest, step onto the tread (pressed + CREEEAK), stand on it (silent), step off (rest, caption gone). Run by tools/gauntlet/frames.mjs.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    1029,
+    780
+   ],
+   "why": "to the floor just below the board: approaches, board at rest"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "burst",
+   "name": "approach",
+   "seconds": 0.6,
+   "every": 0.2
+  },
+  {
+   "do": "click",
+   "at": [
+    1029,
+    715
+   ],
+   "why": "onto the tread: the board loads once"
+  },
+  {
+   "do": "burst",
+   "name": "step",
+   "seconds": 1.6,
+   "every": 0.1
+  },
+  {
+   "do": "wait",
+   "seconds": 3,
+   "why": "standing on it: silent"
+  },
+  {
+   "do": "burst",
+   "name": "standing",
+   "seconds": 0.4,
+   "every": 0.2
+  },
+  {
+   "do": "click",
+   "at": [
+    1029,
+    790
+   ],
+   "why": "off it: the board is at rest and re-armed"
+  },
+  {
+   "do": "burst",
+   "name": "off",
+   "seconds": 1.2,
+   "every": 0.2
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  }
+ ]
+}

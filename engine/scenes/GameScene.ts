@@ -10,6 +10,7 @@ import type { Controls, FrameReport, MoverReport } from '../dev/Probe.ts';
 import { BodyOwners, SequenceWorld } from '../core/SequenceWorld.ts';
 import { assertRequiredClip } from '../core/Assertions.ts';
 import { AmbientLayer } from '../core/Ambient.ts';
+import { StepTriggers, type StepEvent } from '../core/StepTriggers.ts';
 import { DialoguePerformance, readingHold, type HoldTiming } from '../core/DialoguePerformance.ts';
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
@@ -123,6 +124,18 @@ export class GameScene extends Phaser.Scene {
   private spokenBreak: string | null = null;
   private barkAt: { x: number; y: number } | null = null;
   private barkTimer?: Phaser.Time.TimerEvent;
+  /** A sound written in the world, over the thing that made it. See `showCaption`. */
+  private captionLines: string[] = [];
+  private captionAt: { x: number; y: number } | null = null;
+  private captionTimer?: Phaser.Time.TimerEvent;
+  /**
+   * Boards that answer a foot, for the current room, and where the feet were
+   * last tick so a crossing can be swept rather than sampled.
+   */
+  private steps: StepTriggers | null = null;
+  private feetBefore: { x: number; y: number; walking: boolean } | null = null;
+  /** Doc 45 cues this scene has fired: ids only. Playback is the audio layer's when one exists. */
+  private cuesFired: { last: string | null; count: number } = { last: null, count: 0 };
   private noticeTimer?: Phaser.Time.TimerEvent;
   private dirty = true;
   /** Drawn frames, for the probe. Counted here because the scene decides. */
@@ -339,6 +352,7 @@ export class GameScene extends Phaser.Scene {
     // made a conversation read as a menu of prompts rather than a performance.
     if (this.performance?.tick(now)) this.showPerformance();
     if (this.actors.update(now)) this.markDirty();
+    this.sweepSteps(now);
     // Where he is standing is state, and this is the only place that knows it.
     this.state.rememberStanding(this.actor.x, this.actor.y);
     // And where the FOLLOWED mover is, which is usually but not always him.
@@ -422,6 +436,8 @@ export class GameScene extends Phaser.Scene {
       notice: this.notice,
       barkLines: this.barkLines,
       barkAt: this.barkAt,
+      captionLines: this.captionLines,
+      captionAt: this.captionAt,
       actCard: this.actCard,
       // Doc 17 beat 8: the panel appears when control does, and not before.
       // DOC 30 SECTION 88: "Replace the verbs/inventory area while choosing."
@@ -995,6 +1011,7 @@ export class GameScene extends Phaser.Scene {
     const resume = this.state.resumeStanding(from);
     if (resume) this.actor.placeAt(resume[0], resume[1]);
     else this.actor.placeIn(this.state.roomId, from);
+    this.armSteps();
     // HERE, BECAUSE EVERY WAY INTO A ROOM COMES THROUGH THIS. The arrival
     // routine was called from inside the scripted-travel callback only, so a
     // room entered by walking through an exit, by warping, or by loading got
@@ -1651,6 +1668,12 @@ export class GameScene extends Phaser.Scene {
       // the intended state there would tell the gauntlet a head was on screen
       // that was not.
       overlays: this.view.shownOverlayStates(),
+      states: Object.fromEntries(this.state.targets
+        .filter((target) => this.state.stateOf(target) !== undefined)
+        .map((target) => [target.id, this.state.stateOf(target) as string])),
+      caption: this.captionAt !== null,
+      cues: { ...this.cuesFired },
+      steps: this.steps?.report() ?? {},
       says: this.sayLines.length > 0 ? this.sayingActor : null,
       options: this.state.dialogue.isActive
         ? this.state.dialogue.presentOptions().length : 0,
@@ -1872,6 +1895,77 @@ export class GameScene extends Phaser.Scene {
       const line = this.ambient.barkFor(npc);
       if (line) this.showBark(npc.name, line, npc.x, npc.y - 30 * GLYPH_SCALE);
     }
+  }
+
+  /**
+   * The current room's boards, armed from where the feet are now.
+   *
+   * A board left `pressed` by a save taken inside its 220 ms hold would stay
+   * pressed for ever on load, because the hold is a clock and clocks are not
+   * saved; so every board is put back to rest on entry, and re-arms from the
+   * feet's actual position -- standing on it does not creak, stepping off and
+   * back on does.
+   */
+  private armSteps(): void {
+    this.steps = new StepTriggers(this.state.targets, this.actor.x, this.actor.y);
+    for (const target of this.state.targets) {
+      if (target.step) this.state.setState(target, target.step.rest);
+    }
+    this.feetBefore = { x: this.actor.x, y: this.actor.y, walking: false };
+  }
+
+  /**
+   * One tick of the boards: sweep the feet from where they were to where
+   * they are, press whatever they crossed, let pressed boards up again.
+   */
+  private sweepSteps(now: number): void {
+    if (!this.steps?.any) return;
+    const before = this.feetBefore ?? { x: this.actor.x, y: this.actor.y, walking: false };
+    const walking = this.actor.isWalking || before.walking;
+    const { fired, changed } = this.steps.update(now * 1000, before.x, before.y, this.actor.x, this.actor.y,
+      walking, (target, state) => this.state.setState(target, state));
+    this.feetBefore = { x: this.actor.x, y: this.actor.y, walking: this.actor.isWalking };
+    for (const event of fired) this.performStep(event);
+    if (changed) this.markDirty();
+  }
+
+  /** What a pressed board does beyond changing its picture: says its sound, fires its cue. */
+  private performStep(event: StepEvent): void {
+    const { step, target } = event;
+    if (step.cue) this.fireCue(step.cue);
+    if (step.caption) {
+      const [rx, ry, rw] = target.rect;
+      const at = step.captionAt ?? [rx + rw / 2, ry];
+      this.showCaption(step.caption, at[0], at[1], step.captionMs ?? 900);
+    }
+  }
+
+  /**
+   * A doc 45 cue, by id. Recorded so a proof can count it; nothing here plays
+   * a sound, because nothing in the build can yet (engine/core/Music.ts
+   * carries the room score and no SFX), and a cue that is fired and logged is
+   * the hook the audio layer will take when it exists.
+   */
+  private fireCue(id: string): void {
+    this.cuesFired = { last: id, count: this.cuesFired.count + 1 };
+  }
+
+  /**
+   * A sound written in the world -- CREEEAK over the board -- drawn where the
+   * thing that made it is, for a moment, in the bark's outlined face. Not a
+   * line: nobody said it, so it never enters the speech channel, the log or
+   * the panel, and it clears itself.
+   */
+  private showCaption(text: string, x: number, y: number, holdMs: number): void {
+    this.captionLines = this.font.wrap(text, 150);
+    this.captionAt = { x, y };
+    this.captionTimer?.remove();
+    this.captionTimer = this.time.delayedCall(holdMs, () => {
+      this.captionLines = [];
+      this.captionAt = null;
+      this.markDirty();
+    });
+    this.markDirty();
   }
 
   private showBark(_name: string, line: string, x: number, y: number): void {

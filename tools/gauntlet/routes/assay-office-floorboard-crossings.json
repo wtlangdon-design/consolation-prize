@@ -1,0 +1,181 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "FLOORBOARD CROSSINGS (Tyler, 2026-09-05): ten crossings along the board row, five each way, then twenty seconds standing on it, then off and straight back on. One press per crossing, none while standing. Run at pace 1.25 and 1.5 by tools/gauntlet/frames.mjs.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    715
+   ],
+   "why": "start left of the board on its row"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    715
+   ],
+   "why": "crossing 1: left to right along the row"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    715
+   ],
+   "why": "crossing 2: right to left"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    715
+   ],
+   "why": "crossing 3: left to right along the row"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    715
+   ],
+   "why": "crossing 4: right to left"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    715
+   ],
+   "why": "crossing 5: left to right along the row"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    715
+   ],
+   "why": "crossing 6: right to left"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    715
+   ],
+   "why": "crossing 7: left to right along the row"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    715
+   ],
+   "why": "crossing 8: right to left"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    715
+   ],
+   "why": "crossing 9: left to right along the row"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    715
+   ],
+   "why": "crossing 10: right to left"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.2
+  },
+  {
+   "do": "click",
+   "at": [
+    1029,
+    715
+   ],
+   "why": "onto the board and stay"
+  },
+  {
+   "do": "wait",
+   "seconds": 20,
+   "why": "stationary on the board for twenty seconds: zero creaks"
+  },
+  {
+   "do": "click",
+   "at": [
+    1029,
+    790
+   ],
+   "why": "off"
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    1029,
+    715
+   ],
+   "why": "straight back on after re-arming"
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  }
+ ]
+}
