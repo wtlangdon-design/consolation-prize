@@ -910,5 +910,36 @@
    "pressed-day": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a",
    "pressed-night": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
   }
+ },
+ "acceptanceRegression": {
+  "nightCrossing": {
+   "pace": 1.25,
+   "commit": "67890b6",
+   "fires": 1,
+   "record": "renders/proofs/assay-office-lamp-night/floorboard-step/frames.json"
+  },
+  "dayCrossing": {
+   "pace": 1.25,
+   "commit": "56c7c0d",
+   "fires": 1,
+   "record": "renders/proofs/assay-office/floorboard-step-day/frames.json"
+  },
+  "paceC": {
+   "pace": 1.5,
+   "commit": "56c7c0d",
+   "fires": 12,
+   "record": "renders/proofs/assay-office-lamp-night/floorboard-crossings-pace-150/frames.json"
+  },
+  "verbs": {
+   "pace": 1.25,
+   "commit": "56c7c0d",
+   "fires": 1,
+   "record": "renders/proofs/assay-office-lamp-night/floorboard-verbs/frames.json"
+  },
+  "winnieTalk": "assay-office-talk passes (renders/proofs/assay-office-lamp-night/talk)",
+  "typecheck": "clean",
+  "tests": "174 pass",
+  "validators": "all art, content and rig checks green; the pre-existing flag-gate check red",
+  "acceptedAssetsUnchanged": "plates, Winnie sheet, inkstand, lamp overlay and the frozen Thad walk frames all byte-identical to their records"
  }
 }
