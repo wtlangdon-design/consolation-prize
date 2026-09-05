@@ -1,6 +1,6 @@
 {
- "title": "ROOM 5 FLOORBOARD -- RELOCATED CANDIDATE, ITERATION 2 (Tyler, 2026-09-05)",
- "status": "CANDIDATE, visual_accepted unset; Tyler is the gate",
+ "title": "ROOM 5 FLOORBOARD -- ITERATION 3: SAME PLANK, RETONED A/B/C (Tyler, 2026-09-05)",
+ "status": "CANDIDATE, visual_accepted unset; Tyler chooses the strength",
  "preflight": {
   "branch": "claude/last-claim-autonomy-audit-v3vsy6",
   "startHead": "0cf6dc2 (main), branch 80bf2aa",
@@ -63,27 +63,35 @@
   "images": {
    "rest-a-day": {
     "path": "art/staging/room-05/floorboard/board-rest-a.png",
-    "sha256": "253642c923243851acf0828b530428ae543790f770d7da8c5a1c76634a7e8c6f"
+    "sha256": "521526e3c580b44711ce032358d5e52b1f73e8411b969ffe741dabc487d39a98"
+   },
+   "rest-b-day": {
+    "path": "art/staging/room-05/floorboard/board-rest-b.png",
+    "sha256": "eb1ca883b0118e1598be7b712924a543e829aa54e676a02422ec7ab94607974d"
    },
    "pressed-day": {
     "path": "art/staging/room-05/floorboard/board-pressed.png",
     "sha256": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
    },
-   "rest-b-day": {
-    "path": "art/staging/room-05/floorboard/board-rest-b.png",
-    "sha256": "ac78c005d73bd682066c2993c571df6d9f086720a13d6c52413fdc121645d9b5"
+   "rest-c-day": {
+    "path": "art/staging/room-05/floorboard/board-rest-c.png",
+    "sha256": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
    },
    "rest-a-night": {
     "path": "art/staging/room-05/floorboard/board-rest-a-night.png",
-    "sha256": "b52ade5d35a990c854f8b0c13046341cde9b23b7ed1daa66aba6bbc8c64c48a3"
+    "sha256": "b4eadd745c177facee75e4c81f1d67a011f11ddaccddaac6c9d69cdeaffd1f34"
+   },
+   "rest-b-night": {
+    "path": "art/staging/room-05/floorboard/board-rest-b-night.png",
+    "sha256": "2ba689824afe0560f6b4eb4e52ce9a4a1efe23b7d70c8bc03a6c66b54f572cee"
    },
    "pressed-night": {
     "path": "art/staging/room-05/floorboard/board-pressed-night.png",
     "sha256": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
    },
-   "rest-b-night": {
-    "path": "art/staging/room-05/floorboard/board-rest-b-night.png",
-    "sha256": "5a29196ea0ee0aa57f9b329967d0f701d0b48cfe036aa2a436c8a677a73f85f9"
+   "rest-c-night": {
+    "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+    "sha256": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
    }
   },
   "plates": {
@@ -100,32 +108,59 @@
   "treatments": {
    "a": {
     "lift": [
-     2,
-     4
+     1,
+     2
     ],
-    "gap": 0.62,
-    "lip": 1.14,
-    "grain": 0.9
+    "gap": 0.72,
+    "lip": 1.0,
+    "grain": 1.0
    },
    "b": {
     "lift": [
-     3,
-     5
+     2,
+     3
     ],
-    "gap": 0.55,
-    "lip": 1.18,
-    "grain": 0.86
+    "gap": 0.62,
+    "lip": 1.06,
+    "grain": 0.95
+   },
+   "c": {
+    "lift": [
+     2,
+     4
+    ],
+    "gap": 0.52,
+    "lip": 1.08,
+    "grain": 0.9
    }
   },
-  "treatmentNote": "A (moderate): the plank's own pixels lifted 2 rows at the left end rising to 4 at the right, gap under the near edge at 62% of the seam, lip +14%, end grain 90%. B (stronger): 3 rising to 5, gap 55%, lip +18%, end grain 86%. Uneven on purpose: a loose board does not rise as a platform. PRESSED: flush.",
-  "declaredRest": "A",
-  "abSwitch": "B and the night images are ?candidate= swaps; the base plate is never touched",
-  "abFrames": "renders/room-05-floorboard-ab-night.png",
-  "stepSequences": [
-   "renders/room-05-floorboard-step-sequence-a.png",
-   "renders/room-05-floorboard-step-sequence-b.png"
-  ],
-  "diagnostic": "renders/room-05-floorboard-diagnostic.png"
+  "declaredRest": "B",
+  "nightImages": "declared by visual state (imageByState.night) for rest and pressed",
+  "abcSwitch": "A and C are ?candidate= swaps of B's day or night path; the base plate is never touched",
+  "liveFaceBrightnessNight": {
+   "A": {
+    "face": 53.6,
+    "floorBelow": 51.2,
+    "floorAbove": 53.2,
+    "gapBand": 48.0
+   },
+   "B": {
+    "face": 52.7,
+    "floorBelow": 51.2,
+    "floorAbove": 53.2,
+    "gapBand": 46.7
+   },
+   "C": {
+    "face": 52.1,
+    "floorBelow": 51.2,
+    "floorAbove": 53.2,
+    "gapBand": 45.3
+   },
+   "note": "mean luminance of the live night frame over the board face against the floor rows below and above it: the face is the floor; only the gap band under the near edge darkens, A to C"
+  },
+  "abcFrames": "renders/room-05-floorboard-abc-night.png",
+  "diagnostic": "renders/room-05-floorboard-diagnostic.png",
+  "stepSequenceB": "renders/room-05-floorboard-step-sequence-b.png"
  },
  "physicalEvent": {
   "rule": "engine/core/StepTriggers.ts: the feet baseline is swept from last tick's position to this one and clipped against the tread (Liang-Barsky); a sweep that touches the tread, or a walking position inside it, fires if armed; armed while the feet are off the tread; disarmed on firing until the feet are off it again; a placement (not walking) never fires",
@@ -444,7 +479,30 @@
    "result": "LOOK, LISTEN, PULL, OPEN, PUSH and the default click answer with Thad's lines at the new spot; the walk to the board's own spot steps over it once"
   },
   "winnieAndRoomLife": "assay-office-talk and assay-office-life pass with the A night images drawn (renders/proofs/assay-office-lamp-night/talk, life)",
-  "standingOnTheBoard": "not clickable in play (the tread is inside the LOOK hotspot); covered by tests/floorboard.test.ts and by the twenty seconds beside it"
+  "standingOnTheBoard": "not clickable in play (the tread is inside the LOOK hotspot); covered by tests/floorboard.test.ts and by the twenty seconds beside it",
+  "iteration3": {
+   "restA": "renders/proofs/assay-office-lamp-night/floorboard-v3-rest-a/frames.json",
+   "restB": "renders/proofs/assay-office-lamp-night/floorboard-v3-rest-b/frames.json",
+   "restC": "renders/proofs/assay-office-lamp-night/floorboard-v3-rest-c/frames.json",
+   "stepB": {
+    "record": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/frames.json",
+    "fires": [
+     [
+      106.27,
+      503,
+      765
+     ]
+    ],
+    "result": "one press on the ordinary walk, CREEEAK, rebound, walking on"
+   },
+   "crossingsPaceB": {
+    "record": "renders/proofs/assay-office-lamp-night/floorboard-v2-crossings/frames.json",
+    "fires": 12,
+    "expected": 12,
+    "final": "rest"
+   },
+   "winnie": "assay-office-talk passes with NO board candidates on the URL: the night board resolved from the visual state"
+  }
  },
  "tests": "tests/floorboard.test.ts: 5 cases pass against the relocated geometry read from content",
  "iteration1": {
@@ -817,5 +875,11 @@
   "owner_rejected": true,
   "owner_rejected_reason": "too visually subtle and too close to counter for natural traversal",
   "preserved": "art/staging/room-05/floorboard/v1-rejected/"
+ },
+ "iteration2Review": {
+  "location": "GOOD (Tyler)",
+  "visual": "TOO OBVIOUS -- rejected",
+  "measuredCause": "a DAY board over the NIGHT plate: the night derivation rode a ?candidate= swap on the playtest URL and without it the day-lit plank (face 89) sat on the night floor (51). Fixed by declaring the night picture with the state (states[].imageByState), resolved by the room's visual state like a lamp's amountByState; the night board no longer depends on the URL.",
+  "retone": "the face is the plank's own pixels with no global brightening; proudness from the edge only"
  }
 }
