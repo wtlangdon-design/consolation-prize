@@ -1,4 +1,5 @@
 import type { Facing } from './types.ts';
+import { askedPace } from '../dev/Pace.ts';
 import type { GameState } from './GameState.ts';
 import { GLYPH_SCALE } from '../render/BitmapFont.ts';
 
@@ -270,8 +271,24 @@ export class Actor {
   private lastGaitClock: number | null = null;
   private readonly state: GameState;
   private readonly options: MoverOptions;
-  /** Pixels per tick. From the record where it declares one. */
+  /** Pixels per tick AT THE RECORD'S OWN HEIGHT. From the record where it declares one. */
   private readonly speed: number;
+  /**
+   * The drawn height the declared speed is true at: the record's `height`.
+   *
+   * WALKING SPEED SCALES WITH DRAWN HEIGHT, AND IT DID NOT. `speed` was
+   * applied as screen pixels per tick whatever size he was drawn at, so a man
+   * drawn twice as tall crossed the same screen pixels a second and covered
+   * half as many of his own body lengths -- and his legs, which advance from
+   * distance over a stride that IS scaled to his height, turned over at half
+   * the rate. Tyler's Room 5 playthrough (2026-09-04): Thad at 470-560px
+   * "walks extremely slowly", measured at 185 px/s, 0.36 heights a second,
+   * against Room 1's 0.77 at 242px. The traced path (`advancePath`) already
+   * walks in `ds / height` for exactly this reason; the click-walk is now the
+   * same rule: the declared 194 px/s is his pace at 240, and at any other
+   * drawn height it is 194 x (height / 240). Room 1 is unchanged by this.
+   */
+  private readonly speedHeight: number;
   /** When advanceWalk last ran, so the step can be a duration and not a frame. */
   private lastWalkAt: number | null = null;
   /**
@@ -311,7 +328,8 @@ export class Actor {
     // distance, `walkRate` no longer governs walking at all and the change
     // does nothing whatever.
     const declared = state.content.actors.get(id)?.walkSpeed;
-    this.speed = declared !== undefined ? declared / 60 : WALK_SPEED;
+    this.speed = (declared !== undefined ? declared / 60 : WALK_SPEED) * askedPace();
+    this.speedHeight = state.content.actors.get(id)?.height ?? 0;
     // A CHARACTER WITH NO DECLARED STRIDE KEEPS THE CLOCK, and that is the
     // conservative answer rather than a guessed distance: the coach's walk is
     // one frame and has no gait at all, so inventing a stride for it would be
@@ -797,8 +815,10 @@ export class Actor {
     // A ceiling in strides per second needs a duration to bound; without one
     // -- the first update, or a clock that has not moved -- there is nothing
     // to cap against and the raw advance stands.
+    // The ceiling moves with the dev pace knob, so a faster candidate keeps
+    // honest feet rather than sliding under a cap set for the shipped pace.
     const advance = elapsed > 0
-      ? Math.min(raw, MAX_STRIDES_PER_SECOND * elapsed)
+      ? Math.min(raw, MAX_STRIDES_PER_SECOND * askedPace() * elapsed)
       : raw;
     this.gaitPhase += advance;
   }
@@ -1026,7 +1046,11 @@ export class Actor {
     const distance = Math.hypot(dx, dy);
     // Clamped at a tenth of a second so a stall -- a tab in the background,
     // a long GC -- teleports nobody across a room on the frame it ends.
-    const step = Math.min(this.speed * 60 * delta, distance);
+    // THE PACE IS IN BODY HEIGHTS: the declared speed at the record's height,
+    // scaled to the height he is drawn at now. A character whose record
+    // declares no height keeps the literal screen speed.
+    const scale = this.speedHeight > 0 ? this.height / this.speedHeight : 1;
+    const step = Math.min(this.speed * scale * 60 * delta, distance);
     this.x += (dx / distance) * step;
     this.y += (dy / distance) * step;
   }

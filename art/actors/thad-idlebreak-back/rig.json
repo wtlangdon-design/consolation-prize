@@ -1,30 +1,28 @@
 {
   "invocation": {
-    "source": "reference/casting/thad-back.png",
+    "source": "reference/casting/thad-stand-back-src.png",
     "key": "magenta",
     "view": "headon",
     "facing": "right",
     "clip": "idle-break",
     "pose": "striding",
     "pad": 260,
-    "swing": 1,
-    "breath": 1,
-    "arm_swing": 0
+    "swing": 1.0,
+    "knee": 1.0,
+    "breath": 1.0
   },
-  "invocationNote": "RECOVERED, PROVEN: the tool writes step_px 7 and this record says 2, which is 7 divided by the 3.07x downsample -- the same rescale that took figure from 1616 to 526. Not a different input. The recorded `source` was \"/tmp/thad-back.png\", a path that has not existed for months. The frames here are the DOWNSAMPLED ones: run the invocation above, then python3 tools/rig/downscale.py art/actors/thad-idlebreak-back --figure 526",
-  "source": "reference/casting/thad-back.png",
+  "source": "reference/casting/thad-stand-back-src.png",
   "key": "magenta",
   "clip": "idle-break",
   "view": "headon",
   "facing": "right",
   "figure": [
-    191,
-    526
+    220,
+    625
   ],
-  "shoulder_row": 128,
-  "padding": 87,
-  "step_px": 2,
+  "shoulder_row": 152,
+  "padding": 260,
+  "step_px": 3,
   "motion": "glance",
-  "frames": 12,
-  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1565px, which is 6x linear and 35x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
+  "frames": 12
 }

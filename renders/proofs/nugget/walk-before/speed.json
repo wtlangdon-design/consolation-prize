@@ -1,0 +1,70 @@
+{
+ "label": "Nugget before",
+ "legs": [
+  {
+   "leg": 1,
+   "from": [
+    497,
+    770
+   ],
+   "to": [
+    1497,
+    759
+   ],
+   "pathPx": 1028,
+   "seconds": 6.0,
+   "pxPerSec": 171.9
+  },
+  {
+   "leg": 2,
+   "from": [
+    1335,
+    818
+   ],
+   "to": [
+    900,
+    540
+   ],
+   "pathPx": 662,
+   "seconds": 4.0,
+   "pxPerSec": 166.0
+  },
+  {
+   "leg": 3,
+   "from": [
+    900,
+    720
+   ],
+   "to": [
+    900,
+    840
+   ],
+   "pathPx": 120,
+   "seconds": 1.0,
+   "pxPerSec": 123.7
+  }
+ ],
+ "captures": {
+  "w1-across": {
+   "at": [
+    1497,
+    759
+   ],
+   "height": 387
+  },
+  "w2-far": {
+   "at": [
+    900,
+    540
+   ],
+   "height": 228
+  },
+  "w3-near": {
+   "at": [
+    900,
+    840
+   ],
+   "height": 446
+  }
+ }
+}

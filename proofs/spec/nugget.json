@@ -1,0 +1,7 @@
+{
+ "schema": 1,
+ "room": "nugget",
+ "note": "THE NUGGET's PROOF SPEC, written for the locomotion audit: how to get there. No principal change declared here; the room's own proof is not this audit's business.",
+ "route": "nugget",
+ "settleMs": 4000
+}

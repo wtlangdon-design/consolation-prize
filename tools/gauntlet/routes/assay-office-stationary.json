@@ -1,0 +1,27 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "THAD AUDIT ROUTE (2026-09-04), run by tools/gauntlet/frames.mjs with the probe polled every 100 ms.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "walk to the counter and face it, as Tyler did"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "wait",
+   "seconds": 64,
+   "why": "stationary, facing the counter: a full minute with every frame change logged"
+  }
+ ]
+}

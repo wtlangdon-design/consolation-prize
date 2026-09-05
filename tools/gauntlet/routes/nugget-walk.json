@@ -1,0 +1,60 @@
+{
+ "schema": 1,
+ "room": "nugget",
+ "note": "LOCOMOTION MEASUREMENT ROUTE (Tyler's global Thad audit, 2026-09-04): plain walks across the room, sampled once a second by the harness trace so screen speed, drawn height and elapsed time can be read off the record. Nothing here is a proof of taste.",
+ "from": "nugget",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    760
+   ],
+   "why": "leg w1-across"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "w1-across"
+  },
+  {
+   "do": "click",
+   "at": [
+    900,
+    540
+   ],
+   "why": "leg w2-far"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "w2-far"
+  },
+  {
+   "do": "click",
+   "at": [
+    900,
+    840
+   ],
+   "why": "leg w3-near"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "w3-near"
+  }
+ ]
+}

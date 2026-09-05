@@ -1,0 +1,152 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "THAD AUDIT ROUTE (2026-09-04), run by tools/gauntlet/frames.mjs with the probe polled every 100 ms.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "click",
+   "at": [
+    1500,
+    760
+   ],
+   "why": "cycle 1: walk"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "click",
+   "at": [
+    400,
+    760
+   ],
+   "why": "cycle 2: walk"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    820
+   ],
+   "why": "cycle 3: walk"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "click",
+   "at": [
+    700,
+    710
+   ],
+   "why": "cycle 4: walk"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "click",
+   "at": [
+    1600,
+    704
+   ],
+   "why": "cycle 5: walk"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "click",
+   "at": [
+    450,
+    765
+   ],
+   "why": "cycle 6: walk"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "stove",
+   "why": "approach 1: hotspot walk, final facing, line"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 25
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "approach 2: hotspot walk, final facing, line"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 25
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "certificate",
+   "why": "approach 3: hotspot walk, final facing, line"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 25
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "queue_book",
+   "why": "approach 4: hotspot walk, final facing, line"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 25
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  }
+ ]
+}

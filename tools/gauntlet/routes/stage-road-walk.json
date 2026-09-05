@@ -1,0 +1,60 @@
+{
+ "schema": 1,
+ "room": "stage_road",
+ "note": "LOCOMOTION MEASUREMENT ROUTE (Tyler's global Thad audit, 2026-09-04): plain walks across the room, sampled once a second by the harness trace so screen speed, drawn height and elapsed time can be read off the record. Nothing here is a proof of taste.",
+ "from": "stage_road",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "at": [
+    400,
+    760
+   ],
+   "why": "leg w1-far-left"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "w1-far-left"
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    760
+   ],
+   "why": "leg w2-across-right"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "w2-across-right"
+  },
+  {
+   "do": "click",
+   "at": [
+    700,
+    825
+   ],
+   "why": "leg w3-back-near"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "w3-back-near"
+  }
+ ]
+}

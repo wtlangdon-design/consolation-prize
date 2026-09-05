@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "room": "nugget",
+ "note": "THAD AUDIT ROUTE (2026-09-04), run by tools/gauntlet/frames.mjs with the probe polled every 100 ms.",
+ "from": "nugget",
+ "actions": [
+  {
+   "do": "click",
+   "at": [
+    1000,
+    760
+   ]
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "wait",
+   "seconds": 30,
+   "why": "stationary 30 s"
+  }
+ ]
+}

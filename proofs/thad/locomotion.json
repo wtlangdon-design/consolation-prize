@@ -1,0 +1,499 @@
+{
+ "note": "Tyler's global Thad audit (2026-09-04). Screen speed from the harness trace sampled once a second while `moving` (so each leg's first and last partial seconds are truncated and the figures read a little LOW against the equation), drawn height from the capture at each leg's end, cadence from the actor's own equation: strides per second = px/s / (strideRatio x height), capped at 2.6 x pace. Before: `Actor.advanceWalk` stepped the declared 194 px/s as screen pixels at every drawn height. After: 194 px/s is the pace at the record's 240 px and scales with the drawn height (`speed x height/240`), which is the rule the traced path already used.",
+ "equation": {
+  "declaredWalkSpeedPxPerSec": 194,
+  "atRecordHeight": 240,
+  "strideRatio": 0.425,
+  "framesPerCycle": 8,
+  "maxStridesPerSecond": 2.6,
+  "before": "screen px/s = 194 at any height; strides/s = 194 / (0.425 x height)",
+  "after": "screen px/s = 194 x height/240; strides/s = 194/(0.425 x 240) = 1.9 at every height"
+ },
+ "rooms": {
+  "Room 1 (stage_road)": {
+   "before": {
+    "commit": "055be41",
+    "legs": [
+     {
+      "from": [
+       1223,
+       816
+      ],
+      "to": [
+       399,
+       759
+      ],
+      "pathPx": 826,
+      "seconds": 5.0,
+      "pxPerSec": 165,
+      "heightAtEnd": 242,
+      "bodyHeightsPerSec": 0.68,
+      "stridesPerSec": 1.6,
+      "expectedPxPerSecAfter": 196
+     },
+     {
+      "from": [
+       580,
+       759
+      ],
+      "to": [
+       1500,
+       759
+      ],
+      "pathPx": 920,
+      "seconds": 5.0,
+      "pxPerSec": 185,
+      "heightAtEnd": 242,
+      "bodyHeightsPerSec": 0.76,
+      "stridesPerSec": 1.8,
+      "expectedPxPerSecAfter": 196
+     },
+     {
+      "from": [
+       1310,
+       775
+      ],
+      "to": [
+       699,
+       825
+      ],
+      "pathPx": 613,
+      "seconds": 4.1,
+      "pxPerSec": 150,
+      "heightAtEnd": 261,
+      "bodyHeightsPerSec": 0.57,
+      "stridesPerSec": 1.35,
+      "expectedPxPerSecAfter": 211
+     }
+    ]
+   },
+   "after": {
+    "commit": "055be41 (working tree)",
+    "pace": 1,
+    "legs": [
+     {
+      "from": [
+       1210,
+       815
+      ],
+      "to": [
+       399,
+       759
+      ],
+      "pathPx": 813,
+      "seconds": 4.0,
+      "pxPerSec": 204,
+      "heightAtEnd": 242,
+      "bodyHeightsPerSec": 0.84,
+      "stridesPerSec": 1.98,
+      "expectedPxPerSecAfter": 196
+     },
+     {
+      "from": [
+       598,
+       759
+      ],
+      "to": [
+       1500,
+       759
+      ],
+      "pathPx": 902,
+      "seconds": 5.0,
+      "pxPerSec": 180,
+      "heightAtEnd": 242,
+      "bodyHeightsPerSec": 0.74,
+      "stridesPerSec": 1.75,
+      "expectedPxPerSecAfter": 196
+     },
+     {
+      "from": [
+       1297,
+       776
+      ],
+      "to": [
+       699,
+       825
+      ],
+      "pathPx": 600,
+      "seconds": 4.0,
+      "pxPerSec": 150,
+      "heightAtEnd": 261,
+      "bodyHeightsPerSec": 0.57,
+      "stridesPerSec": 1.35,
+      "expectedPxPerSecAfter": 211
+     }
+    ]
+   }
+  },
+  "Main Street": {
+   "before": {
+    "commit": "055be41",
+    "legs": [
+     {
+      "from": [
+       3448,
+       644
+      ],
+      "to": [
+       3300,
+       706
+      ],
+      "pathPx": 160,
+      "seconds": 1.0,
+      "pxPerSec": 154,
+      "heightAtEnd": 150,
+      "bodyHeightsPerSec": 1.03,
+      "stridesPerSec": 2.42,
+      "expectedPxPerSecAfter": 121
+     }
+    ]
+   },
+   "after": {
+    "commit": "055be41 (working tree)",
+    "pace": 1,
+    "legs": [
+     {
+      "from": [
+       3554,
+       622
+      ],
+      "to": [
+       2399,
+       699
+      ],
+      "pathPx": 1163,
+      "seconds": 10.9,
+      "pxPerSec": 107,
+      "heightAtEnd": 147,
+      "bodyHeightsPerSec": 0.73,
+      "stridesPerSec": 1.71,
+      "expectedPxPerSecAfter": 119
+     },
+     {
+      "from": [
+       2525,
+       709
+      ],
+      "to": [
+       3299,
+       829
+      ],
+      "pathPx": 835,
+      "seconds": 7.0,
+      "pxPerSec": 119,
+      "heightAtEnd": 195,
+      "bodyHeightsPerSec": 0.61,
+      "stridesPerSec": 1.44,
+      "expectedPxPerSecAfter": 158
+     },
+     {
+      "from": [
+       3139,
+       804
+      ],
+      "to": [
+       2899,
+       600
+      ],
+      "pathPx": 381,
+      "seconds": 4.0,
+      "pxPerSec": 96,
+      "heightAtEnd": 111,
+      "bodyHeightsPerSec": 0.86,
+      "stridesPerSec": 2.03,
+      "expectedPxPerSecAfter": 90
+     }
+    ]
+   }
+  },
+  "Bountiful Nugget": {
+   "before": {
+    "commit": "055be41",
+    "legs": [
+     {
+      "from": [
+       497,
+       770
+      ],
+      "to": [
+       1497,
+       759
+      ],
+      "pathPx": 1028,
+      "seconds": 6.0,
+      "pxPerSec": 172,
+      "heightAtEnd": 387,
+      "bodyHeightsPerSec": 0.44,
+      "stridesPerSec": 1.05,
+      "expectedPxPerSecAfter": 313
+     },
+     {
+      "from": [
+       1335,
+       818
+      ],
+      "to": [
+       900,
+       540
+      ],
+      "pathPx": 662,
+      "seconds": 4.0,
+      "pxPerSec": 166,
+      "heightAtEnd": 228,
+      "bodyHeightsPerSec": 0.73,
+      "stridesPerSec": 1.71,
+      "expectedPxPerSecAfter": 184
+     },
+     {
+      "from": [
+       900,
+       720
+      ],
+      "to": [
+       900,
+       840
+      ],
+      "pathPx": 120,
+      "seconds": 1.0,
+      "pxPerSec": 124,
+      "heightAtEnd": 446,
+      "bodyHeightsPerSec": 0.28,
+      "stridesPerSec": 0.65,
+      "expectedPxPerSecAfter": 361
+     }
+    ]
+   },
+   "after": {
+    "commit": "055be41 (working tree)",
+    "pace": 1,
+    "legs": [
+     {
+      "from": [
+       628,
+       776
+      ],
+      "to": [
+       1497,
+       759
+      ],
+      "pathPx": 875,
+      "seconds": 3.0,
+      "pxPerSec": 296,
+      "heightAtEnd": 387,
+      "bodyHeightsPerSec": 0.76,
+      "stridesPerSec": 1.8,
+      "expectedPxPerSecAfter": 313
+     },
+     {
+      "from": [
+       1219,
+       816
+      ],
+      "to": [
+       900,
+       540
+      ],
+      "pathPx": 591,
+      "seconds": 3.0,
+      "pxPerSec": 196,
+      "heightAtEnd": 228,
+      "bodyHeightsPerSec": 0.86,
+      "stridesPerSec": 2.02,
+      "expectedPxPerSecAfter": 184
+     },
+     {
+      "from": [
+       900,
+       745
+      ],
+      "to": [
+       900,
+       840
+      ],
+      "pathPx": 95,
+      "seconds": 1.0,
+      "pxPerSec": 93,
+      "heightAtEnd": 446,
+      "bodyHeightsPerSec": 0.21,
+      "stridesPerSec": 0.49,
+      "expectedPxPerSecAfter": 361
+     }
+    ]
+   }
+  },
+  "Room 5 (assay_office, night)": {
+   "before": {
+    "commit": "055be41",
+    "legs": [
+     {
+      "from": [
+       394,
+       765
+      ],
+      "to": [
+       1690,
+       765
+      ],
+      "pathPx": 1296,
+      "seconds": 7.0,
+      "pxPerSec": 185,
+      "heightAtEnd": 515,
+      "bodyHeightsPerSec": 0.36,
+      "stridesPerSec": 0.85,
+      "expectedPxPerSecAfter": 416
+     },
+     {
+      "from": [
+       1490,
+       759
+      ],
+      "to": [
+       999,
+       703
+      ],
+      "pathPx": 499,
+      "seconds": 3.0,
+      "pxPerSec": 169,
+      "heightAtEnd": 472,
+      "bodyHeightsPerSec": 0.36,
+      "stridesPerSec": 0.84,
+      "expectedPxPerSecAfter": 382
+     }
+    ],
+    "note": "the route's fourth click (300,765) hit the street door's exit rect and he transited to Main Street; that leg is dropped here and the route was corrected for the after-run"
+   },
+   "after": {
+    "commit": "055be41 (working tree)",
+    "pace": 1,
+    "legs": [
+     {
+      "from": [
+       623,
+       765
+      ],
+      "to": [
+       1690,
+       765
+      ],
+      "pathPx": 1067,
+      "seconds": 3.0,
+      "pxPerSec": 354,
+      "heightAtEnd": 515,
+      "bodyHeightsPerSec": 0.69,
+      "stridesPerSec": 1.62,
+      "expectedPxPerSecAfter": 416
+     },
+     {
+      "from": [
+       1250,
+       751
+      ],
+      "to": [
+       999,
+       703
+      ],
+      "pathPx": 256,
+      "seconds": 1.0,
+      "pxPerSec": 266,
+      "heightAtEnd": 472,
+      "bodyHeightsPerSec": 0.56,
+      "stridesPerSec": 1.33,
+      "expectedPxPerSecAfter": 382
+     },
+     {
+      "from": [
+       557,
+       795
+      ],
+      "to": [
+       450,
+       765
+      ],
+      "pathPx": 111,
+      "seconds": 1.0,
+      "pxPerSec": 110,
+      "heightAtEnd": 515,
+      "bodyHeightsPerSec": 0.21,
+      "stridesPerSec": 0.5,
+      "expectedPxPerSecAfter": 416
+     }
+    ]
+   }
+  }
+ },
+ "paceCandidates": {
+  "note": "A/B/C for Tyler's feel test, all on one deployed build via ?pace= (dev-only; absent = A). Character art, room and path identical. px/s by the corrected equation (194 x pace x height/240) with the live 1 Hz reading beside it where a leg was long enough to sample; strides/s = 1.9 x pace at every height (cap 2.6 x pace).",
+  "candidates": [
+   {
+    "id": "A",
+    "name": "CURRENT / REFERENCE (Room 1's approved pace)",
+    "pace": 1.0,
+    "stridesPerSec": 1.9,
+    "room5at515": {
+     "pxPerSec": 416,
+     "live": 354,
+     "crossing1300px_s": 3.1
+    },
+    "mainStreetAt150": {
+     "pxPerSec": 121,
+     "live": 107,
+     "leg1163px_s": 9.6
+    },
+    "room1at242": {
+     "pxPerSec": 196,
+     "live": "150-204"
+    },
+    "nuggetAt387": {
+     "pxPerSec": 313,
+     "live": 296
+    }
+   },
+   {
+    "id": "B",
+    "name": "MODERATELY FASTER",
+    "pace": 1.25,
+    "stridesPerSec": 2.4,
+    "room5at515": {
+     "pxPerSec": 520,
+     "live": 483,
+     "crossing1300px_s": 2.5
+    },
+    "mainStreetAt150": {
+     "pxPerSec": 152,
+     "leg1163px_s": 7.7
+    },
+    "room1at242": {
+     "pxPerSec": 245
+    },
+    "nuggetAt387": {
+     "pxPerSec": 391
+    }
+   },
+   {
+    "id": "C",
+    "name": "BRISK",
+    "pace": 1.5,
+    "stridesPerSec": 2.9,
+    "room5at515": {
+     "pxPerSec": 624,
+     "live": "418 (2 s leg, truncated by the 1 Hz sample)",
+     "crossing1300px_s": 2.1
+    },
+    "mainStreetAt150": {
+     "pxPerSec": 182,
+     "leg1163px_s": 6.4,
+     "live": "150-182 px/s at heights 147-195 (walk-pace-150 run)"
+    },
+    "room1at242": {
+     "pxPerSec": 293
+    },
+    "nuggetAt387": {
+     "pxPerSec": 469
+    }
+   }
+  ],
+  "beforeForComparison": {
+   "everyRoom": "194 px/s at any height (Room 5: 0.36 heights/s, 0.85 strides/s; Main Street: 1.3 heights/s)"
+  }
+ }
+}

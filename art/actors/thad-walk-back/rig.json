@@ -1,38 +1,38 @@
 {
   "invocation": {
-    "source": "reference/casting/thad-back.png",
+    "source": "reference/casting/thad-stand-back-src.png",
     "key": "magenta",
     "view": "headon",
     "facing": "right",
     "clip": "walk",
     "pose": "striding",
     "pad": 260,
-    "swing": 1,
-    "breath": 1,
-    "arm_swing": 0
+    "swing": 1.0,
+    "knee": 1.0,
+    "arm_swing": 0.0,
+    "breath": 1.0
   },
-  "invocationNote": "RECOVERED, PROVEN: all eight comparable invariants reproduce exactly. The recorded `source` was \"/tmp/thad-back.png\", a path that has not existed for months. The frames here are the DOWNSAMPLED ones: run the invocation above, then python3 tools/rig/downscale.py art/actors/thad-walk-back --figure 526",
-  "source": "reference/casting/thad-back.png",
+  "source": "reference/casting/thad-stand-back-src.png",
   "key": "magenta",
   "view": "headon",
   "facing": "right",
   "walk_dx": 1,
   "figure": [
-    191,
-    526
+    220,
+    625
   ],
-  "hem_row": 328,
-  "hem_pct": 62.4,
-  "pivot_row": 757,
-  "padding": 87,
-  "rows_legs_separate": 512,
-  "near_leg_px": 60178,
-  "far_leg_px": 56263,
+  "hem_row": 407,
+  "hem_pct": 65.1,
+  "pivot_row": 319,
+  "padding": 260,
+  "rows_legs_separate": 209,
+  "near_leg_px": 10049,
+  "far_leg_px": 9901,
   "arms_rigged": true,
-  "shoulder_near": 434,
-  "shoulder_far": 434,
-  "near_arm_px": 32803,
-  "far_arm_px": 31079,
+  "shoulder_near": 194,
+  "shoulder_far": 174,
+  "near_arm_px": 4885,
+  "far_arm_px": 4543,
   "measured_foot_travel": 0,
   "hip_swing": [
     14,
@@ -44,7 +44,6 @@
     0,
     10
   ],
-  "arm_ratio": 0.2,
-  "frames": 8,
-  "downsampled": "Frames written at 2.0x the largest drawn height (263px, the near zone). Source figures were 1565px, which is 6x linear and 35x the pixels anything can ever show. The full-size frames were downloaded at boot and resampled away on first use."
+  "arm_ratio": 0.0,
+  "frames": 8
 }

@@ -111,6 +111,22 @@ def key_out(path: Path, key: str):
         spill = (a[..., 0] > a[..., 1] + 30) & (a[..., 2] > a[..., 1] + 30) & obj
         a[..., 0][spill] = (a[..., 1] + 30)[spill]
         a[..., 2][spill] = (a[..., 1] + 30)[spill]
+        # AND THE HALF-SPILLED PIXEL, which the rule above leaves alone: red
+        # high and blue not, or the reverse, still averages past the fringe
+        # check's line ((r+b)/2 - g over 30). Tyler's Thad audit (2026-09-04)
+        # re-rigged five clips from the standing stills and every one carried
+        # 150-odd such pixels at the coat's edge. Pull both channels down
+        # together until the average sits on the line, keeping their ratio,
+        # which is what the check's own message asks for.
+        # Eight below the line, not on it: a limb rotated through bicubic
+        # resampling averages a pixel sitting exactly on the line with its
+        # neighbour and lands a few counts over.
+        avg = (a[..., 0] + a[..., 2]) / 2
+        half = (avg > a[..., 1] + 22) & obj
+        scale = np.ones_like(avg)
+        scale[half] = ((a[..., 1] + 22) / np.maximum(avg, 1e-6))[half]
+        a[..., 0] *= scale
+        a[..., 2] *= scale
 
     idx = ndimage.distance_transform_edt(~obj, return_distances=False, return_indices=True)
     bled = a[tuple(idx)]
@@ -373,6 +389,19 @@ def shift_scale(layer, dy, scale, cx, cy):
     out = np.zeros_like(layer); nz = aa > 2
     out[..., :3][nz] = np.clip(pm[nz] / (aa[nz][:, None] / 255.0), 0, 255)
     out[..., 3] = aa
+    return out
+
+
+def shift_rows(layer, dy):
+    """Move a layer dy rows (negative = up) WITHOUT wrapping: rows shifted off
+    the canvas are gone, and the rows vacated are transparent."""
+    out = np.zeros_like(layer)
+    if dy == 0:
+        return layer.copy()
+    if dy < 0:
+        out[:dy] = layer[-dy:]
+    else:
+        out[dy:] = layer[:-dy]
     return out
 
 
@@ -779,7 +808,12 @@ def main():
         for i, t in enumerate(RECOIL):
             f = base.copy()
             if args.view == "headon":
-                f = over(np.roll(upper, -int(round(2 * step * t)), axis=0), f)
+                # SHIFT, NOT ROLL. np.roll wraps: the top rows of the head came
+                # back at the canvas bottom, 65px under the soles on a 625px
+                # figure, and check-rig-describes-frames read the frame as
+                # 1.104x its declared height. Found by Tyler's Thad audit
+                # (2026-09-04) when the recoils were re-rigged from the stills.
+                f = over(shift_rows(upper, -int(round(2 * step * t))), f)
             else:
                 f = over(rot(upper, 7.0 * t * away, float(np.nonzero(upper_m.any(0))[0].mean()), hem), f)
             Image.fromarray(f.astype(np.uint8)).save(out / f"recoil-{i:02d}.png")

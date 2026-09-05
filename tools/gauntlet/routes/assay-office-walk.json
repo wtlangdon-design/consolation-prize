@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "LOCOMOTION MEASUREMENT ROUTE (Tyler's global Thad audit, 2026-09-04): plain walks across the room, sampled once a second by the harness trace so screen speed, drawn height and elapsed time can be read off the record. Nothing here is a proof of taste.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "at": [
+    1700,
+    765
+   ],
+   "why": "leg w1-across"
+  },
+  {
+   "do": "wait",
+   "seconds": 16
+  },
+  {
+   "do": "capture",
+   "name": "w1-across"
+  },
+  {
+   "do": "click",
+   "at": [
+    1000,
+    704
+   ],
+   "why": "leg w2-rear"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "w2-rear"
+  },
+  {
+   "do": "click",
+   "at": [
+    1000,
+    828
+   ],
+   "why": "leg w3-near"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "w3-near"
+  },
+  {
+   "do": "click",
+   "at": [
+    450,
+    765
+   ],
+   "why": "leg w4-back-left (clear of the street door: 300 was its exit rect and he left the room)"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "w4-back-left"
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "THAD AUDIT ROUTE (2026-09-04), run by tools/gauntlet/frames.mjs with the probe polled every 100 ms.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "burst",
+   "name": "walk-right",
+   "seconds": 1.5,
+   "every": 0.35,
+   "why": "stationary first, so the strip starts on the standing profile"
+  },
+  {
+   "do": "click",
+   "at": [
+    1450,
+    765
+   ],
+   "why": "a straight walk to the right across the floor: profile"
+  },
+  {
+   "do": "burst",
+   "name": "walk-right-b",
+   "seconds": 8,
+   "every": 0.35
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    500,
+    765
+   ],
+   "why": "and back to the left"
+  },
+  {
+   "do": "burst",
+   "name": "walk-left",
+   "seconds": 7,
+   "every": 0.35
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  }
+ ]
+}

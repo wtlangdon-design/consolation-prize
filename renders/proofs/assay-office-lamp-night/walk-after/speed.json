@@ -1,0 +1,77 @@
+{
+ "label": "Room 5 after",
+ "legs": [
+  {
+   "leg": 1,
+   "from": [
+    623,
+    765
+   ],
+   "to": [
+    1690,
+    765
+   ],
+   "pathPx": 1067,
+   "seconds": 3.0,
+   "pxPerSec": 354.5
+  },
+  {
+   "leg": 2,
+   "from": [
+    1250,
+    751
+   ],
+   "to": [
+    999,
+    703
+   ],
+   "pathPx": 256,
+   "seconds": 1.0,
+   "pxPerSec": 266.2
+  },
+  {
+   "leg": 3,
+   "from": [
+    557,
+    795
+   ],
+   "to": [
+    450,
+    765
+   ],
+   "pathPx": 111,
+   "seconds": 1.0,
+   "pxPerSec": 110.0
+  }
+ ],
+ "captures": {
+  "w1-across": {
+   "at": [
+    1690,
+    765
+   ],
+   "height": 515
+  },
+  "w2-rear": {
+   "at": [
+    999,
+    703
+   ],
+   "height": 472
+  },
+  "w3-near": {
+   "at": [
+    999,
+    828
+   ],
+   "height": 559
+  },
+  "w4-back-left": {
+   "at": [
+    450,
+    765
+   ],
+   "height": 515
+  }
+ }
+}
