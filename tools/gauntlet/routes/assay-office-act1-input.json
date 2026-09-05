@@ -266,6 +266,10 @@
    "seconds": 4
   },
   {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
    "do": "click",
    "on": "winnie",
    "why": "TALK TO Winnie"
