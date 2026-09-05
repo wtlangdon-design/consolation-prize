@@ -363,7 +363,8 @@
     "walk-06.png": "4a7bd232b65ea62d4829c7cd6bd786f56fc4a49a44c7cc7cb71d7817dc0037ce",
     "walk-07.png": "c650c050d2c0f8f02bda0789889815de3d46248c233491dd51906080f7612e97"
    }
-  }
+  },
+  "status": "REJECTED by Tyler (2026-09-05); preserved under art/staging/thad/candidates/fourth-cut/"
  },
  "intactCut": {
   "why": "Tyler rejected the fourth cut (2026-09-05): the arm joins still failed in live play -- detached, severed, an extra limb, a floating forearm. Ruling: stop the cut-arm -> extend -> rotate method; the profile upper body, coat, shoulders and arms stay one intact authored silhouette while walking.",
@@ -433,5 +434,178 @@
    "sha256": "e9732aa1fa6ca7c34e44030c1f360a73d56ce8fa4dc1ea859d19749633cb49f1"
   },
   "status": "REJECTED BEFORE COMPLETION by Tyler (2026-09-05); preserved under art/staging/thad/candidates/intact-upper-body/, not adopted; shipping walk remains the fourth cut"
+ },
+ "authoredCycle": {
+  "title": "THAD AUTHORED PROFILE WALK CYCLE -- owner-authorized whole-body walk-cycle authoring (Tyler, 2026-09-05)",
+  "status": "CANDIDATE, visual_accepted unset; Tyler is the gate",
+  "preflight": {
+   "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+   "startHead": "a6da303",
+   "fourthCutPreserved": "art/staging/thad/candidates/fourth-cut/",
+   "intactCandidatePreserved": "art/staging/thad/candidates/intact-upper-body/",
+   "familyBPreserved": "art/staging/thad/previous/"
+  },
+  "imageOperation": {
+   "assetId": "thad-profile-walk-cycle-authoring",
+   "attempt": 1,
+   "cap": "1 / 1",
+   "subject": "thad",
+   "role": "other",
+   "model": "gpt-image-2",
+   "operation": "edit",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "promptFile": "proofs/thad/prompts/profile-walk-cycle-01.txt",
+   "promptHash": "83e1c59cbaedebec07631b13598024af2d978502b3a50888800f6acc3d2cec3a",
+   "references": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/thad/profile-stride-01.png",
+     "hash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
+     "transmitted": true
+    }
+   ],
+   "output": {
+    "path": "art/staging/thad/profile-walk-cycle-01.png",
+    "sha256": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a"
+   },
+   "gates": true,
+   "recordedAt": "2026-09-05T02:44:48.375Z",
+   "untouchedResultPreserved": "art/staging/thad/profile-walk-cycle-01.png",
+   "visual_accepted": false
+  },
+  "sourceQuality": {
+   "posesOnSheet": 6,
+   "commonBaseline": "all six soles on sheet rows 820-823",
+   "overlap": "none; gutters of 12-120px between figures",
+   "complete": "every figure is a complete connected body with head, coat, both arms, both legs and both feet",
+   "silhouetteIoU": {
+    "1v4": 0.911,
+    "2v5": 0.874,
+    "3v6": 0.972
+   },
+   "finding": "the sheet's second half REPEATS the first: poses 4-6 are the same contact / recoil / passing phases with the SAME leg leading, not the contralateral half asked for. Using all six would show one step drawn twice with small differences (a pulse, not a second step); using five would duplicate a phase. Three distinct complete poses are used and none is duplicated. A contralateral half needs a second authored op, which only Tyler can authorize; no surgery was done to fabricate it.",
+   "posesUsed": [
+    1,
+    2,
+    3
+   ],
+   "posesUnused": [
+    4,
+    5,
+    6
+   ],
+   "unusedKept": "art/staging/thad/candidates/authored-cycle/unused-poses/"
+  },
+  "extraction": {
+   "tool": "tools/rig/cut-cycle-sheet.py",
+   "method": "each figure keyed whole (character.py key_out), ONE uniform scale so the upright passing pose matches the stand stature 625, integer placement on the stand canvas with soles on the stand ground row 624 and torso centre on the stand torso column; left facing = whole frames mirrored (tools/rig/mirror-clip.py)",
+   "scale": 0.9843,
+   "figure": [
+    128,
+    625
+   ],
+   "padding": 260,
+   "limbsCutRotatedOrTransplanted": false,
+   "extracted": [
+    {
+     "frame": "walk-00.png",
+     "pose": 1,
+     "sheetHeight": 639,
+     "sheetWidth": 312,
+     "placedHeight": 625,
+     "placedWidth": 307,
+     "soleRow": 624,
+     "torsoShift": 152
+    },
+    {
+     "frame": "walk-01.png",
+     "pose": 2,
+     "sheetHeight": 636,
+     "sheetWidth": 131,
+     "placedHeight": 625,
+     "placedWidth": 129,
+     "soleRow": 624,
+     "torsoShift": 244
+    },
+    {
+     "frame": "walk-02.png",
+     "pose": 3,
+     "sheetHeight": 635,
+     "sheetWidth": 106,
+     "placedHeight": 625,
+     "placedWidth": 104,
+     "soleRow": 624,
+     "torsoShift": 260
+    }
+   ]
+  },
+  "runtimeCycle": {
+   "frames": 3,
+   "order": "contact (near leg forward) -> recoil (near leg under, far leg pushing off) -> passing (legs together) -> contact",
+   "cycleIsOneStep": true,
+   "strideLength": 83,
+   "strideMeasure": "foot-centre separation 215px in the contact pose on the 625 figure = 83 at height 240",
+   "cadence": {
+    "pace1.0": "2.3 steps/s",
+    "pace1.25": "2.9 steps/s",
+    "ceiling": "2.6 x pace strides/s (Actor.ts MAX_STRIDES_PER_SECOND)"
+   },
+   "translationUntouched": true,
+   "paceCandidates": {
+    "A": 1.0,
+    "B": 1.25,
+    "C": 1.5
+   },
+   "primaryProofPace": 1.25
+  },
+  "walkRight": {
+   "dir": "art/actors/thad-walk-right",
+   "frames": {
+    "walk-00.png": "3e8d7c4ec5e2b9f1232471c89c2552038de361c4800aa55bdac82b03954bdf59",
+    "walk-01.png": "e386a57439f62c0667181200e42c396a204575a86c8762347ea195b44a807a99",
+    "walk-02.png": "dd02eb4bd9cd8f682599ea1836bf3df2c497608be033c0a2840a52b4dcdb3b9d"
+   }
+  },
+  "walkLeft": {
+   "dir": "art/actors/thad-walk-left",
+   "frames": {
+    "walk-00.png": "c98d0ad8497b95b0d41ad982406ce871246b8e4e939f903693bcb755d2742212",
+    "walk-01.png": "bb51676d7028adce40234d0ea06cd9e96d86941540e69dc759491b2d85c4c3aa",
+    "walk-02.png": "887e97da663f38c8170414d752d11862dba8c102e1d43506bcd5933837f2ed72"
+   },
+   "mirroredFrom": "art/actors/thad-walk-right"
+  },
+  "reviewSheet": "renders/thad-profile-walk-continuity.png",
+  "liveStrips": {
+   "right": "renders/thad-profile-walk-live-right.png",
+   "left": "renders/thad-profile-walk-live-left.png"
+  }
  }
 }

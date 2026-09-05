@@ -1838,6 +1838,145 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-05T00:33:56.003Z"
+  },
+  {
+   "attempt": 1,
+   "role": "other",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/thad/prompts/profile-walk-cycle-01.txt",
+   "promptHash": "83e1c59cbaedebec07631b13598024af2d978502b3a50888800f6acc3d2cec3a",
+   "references": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/thad/profile-stride-01.png",
+     "hash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+   "sourcePath": "reference/casting/thad-stand-right-src.png",
+   "out": "art/staging/thad/profile-walk-cycle-01.png",
+   "outputHash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
+   "bytes": 1476443,
+   "usage": {
+    "input_tokens": 5240,
+    "input_tokens_details": {
+     "image_tokens": 4256,
+     "text_tokens": 984
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 6612
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T02:44:48.363Z",
+   "assetId": "thad-profile-walk-cycle-authoring",
+   "subject": "thad",
+   "roleNote": "A WALK-CYCLE SHEET of the approved Family-A identity: six complete sequential right-facing walking poses, to be cropped as whole runtime frames (tools/rig/cut-cycle-sheet.py) and never puppet-rigged. Owner-authorized, 1/1, separate from thad-profile-walk-continuity.",
+   "identityFamily": "A",
+   "familyASources": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+    }
+   ],
+   "poseReference": {
+    "path": "art/staging/thad/profile-stride-01.png",
+    "hash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
+    "note": "movement/pose reference only; Family A wins any conflict"
+   },
+   "authorizedBy": "Tyler, THAD PROFILE WALK -- AUTHORED WHOLE-BODY WALK-CYCLE PASS (2026-09-05)",
+   "gates": {
+    "path": "art/staging/thad/profile-walk-cycle-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T02:44:48.476Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T02:44:48.375Z"
   }
  ],
  "promotions": []
