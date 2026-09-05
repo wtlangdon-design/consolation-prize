@@ -134,7 +134,7 @@
       187
     ]
   },
-  "hotspotsNote": "Every rect is generous over the thing the player sees (ruling 32), read on plate-02. her_pen sits where the stand rests on the counter top by Winnie's right hand (feet 1010,624; stand -0.179h to her right, base 0.573h above her feet) -- the pen and stand travel with her frames. floorboard is an ordinary board directly before the counter, left of centre: canon puts it within her reach and Thad's, and it is deliberately unmarked. queue_bench is doc 05's act 2-4 subject, gated by `acts`. THE HANGING LAMP (hanging_lamp) was added by Tyler's post-pilot ruling of 2026-09-04: its rect is the extracted fixture's bounds and nothing else in this file changed.",
+  "hotspotsNote": "Every rect is generous over the thing the player sees (ruling 32), read on plate-02. her_pen sits where the stand rests on the counter top by Winnie's right hand (feet 1010,624; stand -0.179h to her right, base 0.573h above her feet) -- the pen and stand travel with her frames. floorboard is an ordinary board directly before the counter, left of centre: canon puts it within her reach and Thad's, and it is deliberately unmarked. queue_bench is doc 05's act 2-4 subject, gated by `acts`. THE HANGING LAMP (hanging_lamp) was added by Tyler's post-pilot ruling of 2026-09-04: its rect is the extracted fixture's bounds and nothing else in this file changed. THE PROUD FLOORBOARD (Tyler's playtest finding, 2026-09-05): the rect is unchanged; the physical plank and its tread are smaller and live in hotspotStates.floorboard.step.",
   "acts": {
     "queue_bench": "2-4"
   },
@@ -216,6 +216,38 @@
             1
           ]
         }
+      }
+    },
+    "floorboard": {
+      "default": "rest",
+      "states": {
+        "rest": {
+          "image": "art/staging/room-05/floorboard/board-rest.png",
+          "note": "THE PROUD FLOORBOARD AT REST (Tyler's playtest finding, 2026-09-05): the plank the writing calls proud, lifted two rows out of the accepted plate by tools/pixelart/floorboard.py -- its own pixels, the gap dark under its near edge. Nail-head proud, unmarked, from the first visit. The night plate's own derivation is board-rest-night.png, swapped in with the night plate by the same candidate mechanism the plate uses until Q26 wires the visual state."
+        },
+        "pressed": {
+          "image": "art/staging/room-05/floorboard/board-pressed.png",
+          "note": "The plank flush under a foot: the plate's own pixels. Held a moment after the step, then back to rest."
+        }
+      },
+      "step": {
+        "tread": [
+          960,
+          707,
+          138,
+          18
+        ],
+        "pressed": "pressed",
+        "rest": "rest",
+        "holdMs": 220,
+        "caption": "CREEEAK",
+        "captionMs": 900,
+        "captionAt": [
+          1029,
+          706
+        ],
+        "cue": "R05-FLOOR-STEP",
+        "note": "The tread is the wood (rows 707-724, cols 960-1097 on the plate), not the hotspot rect. Thad's feet baseline swept across it presses the board once, says CREEEAK at the board as a world sound and fires doc 45's R05-FLOOR-STEP; standing on it is silent; it re-arms when his feet leave the wood."
       }
     }
   },

@@ -29,6 +29,13 @@ export interface Frame {
   notice: string | null;
   barkLines: string[];
   barkAt: { x: number; y: number } | null;
+  /**
+   * A sound written in the world: a board's creak over the board. Drawn as a
+   * bark is drawn -- outlined, at a room position -- and nothing else: not
+   * speech, not a notice, not the panel. Null when the world is quiet.
+   */
+  captionLines: string[];
+  captionAt: { x: number; y: number } | null;
   /** Doc 17 beat 7, over the view of the town. Null the rest of the time. */
   actCard?: string | null;
   /**
@@ -543,6 +550,9 @@ export class Renderer {
     this.drawSay(frame.sayLines);
     if (frame.barkAt) {
       this.drawBark(frame.barkLines, frame.barkAt);
+    }
+    if (frame.captionAt) {
+      this.drawBark(frame.captionLines, frame.captionAt);
     }
     // DOC 30 STEP 2: THE LIST IS NOT DRAWN WHILE AN EXCHANGE PLAYS. "While an
     // exchange plays, choices are hidden and cannot receive clicks. They

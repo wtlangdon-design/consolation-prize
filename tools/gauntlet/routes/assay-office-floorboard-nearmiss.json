@@ -1,0 +1,108 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "FLOORBOARD NEAR MISS (Tyler, 2026-09-05): along the floor below the board, along its row past either end, up to just beside it. Zero creaks. Run by tools/gauntlet/frames.mjs.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    750
+   ],
+   "why": "to the row below the board"
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    750
+   ],
+   "why": "across under the board, one row down"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.5
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    780
+   ],
+   "why": "back along the middle of the floor"
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "at": [
+    930,
+    715
+   ],
+   "why": "up onto the board's row just left of its end"
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "at": [
+    860,
+    715
+   ],
+   "why": "and away along the row"
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    715
+   ],
+   "why": "across: THIS one crosses the board and must count exactly once"
+  },
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "at": [
+    1120,
+    715
+   ],
+   "why": "back toward the board but stopping past its right end"
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    1130,
+    760
+   ],
+   "why": "down beside it"
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  }
+ ]
+}

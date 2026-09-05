@@ -91,6 +91,33 @@ export interface ResponseRule {
   goto?: string;
 }
 
+/**
+ * What a hotspot does under a foot. See `Interactable.step`.
+ *
+ * THE TREAD IS THE WOOD, NOT THE HOTSPOT RECT: the rect is generous
+ * interaction geometry (ruling 32) and the tread is the plank the artist
+ * drew, measured on the plate. The feet baseline -- the actor's own (x, y)
+ * -- is swept from where it was to where it is, so a fast crossing that never
+ * lands a frame inside the tread still counts, and standing on it counts
+ * exactly once until the foot leaves.
+ */
+export interface StepTrigger {
+  /** Room-coordinate rectangle the feet baseline must cross: x, y, w, h. */
+  tread: [number, number, number, number];
+  /** The state shown while the board is loaded, and the state it returns to. */
+  pressed: string;
+  rest: string;
+  /** How long `pressed` holds after the foot lands, in milliseconds. */
+  holdMs: number;
+  /** A world caption drawn at `captionAt` when it fires, and its hold. Content, from the room. */
+  caption?: string;
+  captionMs?: number;
+  captionAt?: [number, number];
+  /** The doc 45 cue this fires. Playback belongs to the audio layer when there is one. */
+  cue?: string;
+  note?: string;
+}
+
 export interface Interactable {
   id: string;
   name: string;
@@ -158,6 +185,17 @@ export interface Interactable {
     /** Clip levels this state's image masks. Doc 22 section 5, step 5. */
     occludes?: number[];
   }>;
+  /**
+   * A board that answers a foot. Doc 25's proud floorboard, Tyler's Room 5
+   * playtest (2026-09-05): the writing says the board sits proud and is
+   * loose, so the room advertises the physical fact by BEHAVIOUR -- Thad's
+   * feet cross the tread, the board's state flips to `pressed` for a moment,
+   * a world caption and a doc 45 cue fire once, and the board returns to
+   * `rest`. Data, because which board, how long, and what it says are facts
+   * about a room and not about the engine; the engine only knows how to
+   * sweep a foot across a rectangle (engine/core/StepTriggers.ts).
+   */
+  step?: StepTrigger;
   /** The inventory item this object becomes when taken. */
   item?: string;
   /** State to move to when an exit is transited. */

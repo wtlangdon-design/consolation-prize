@@ -96,6 +96,14 @@ export interface FrameReport {
   control: string | null;
   movers: Record<string, MoverReport>;
   overlays: Record<string, string | null>;
+  /** Every stateful object's current state, by id. Identifiers, never content. */
+  states: Record<string, string>;
+  /** Whether a world caption (a written sound) is on screen. Never the words. */
+  caption: boolean;
+  /** The last doc 45 cue the scene fired, and how many have fired. Ids only. */
+  cues: { last: string | null; count: number };
+  /** Each board with a `step`: armed for the next foot, and pressed right now. */
+  steps: Record<string, { armed: boolean; pressed: boolean }>;
   /** The speaker of the line on screen, or null. Never the words. */
   says: string | null;
   /** How many dialogue options are on offer. Errata 37 is revoked: none vanish. */

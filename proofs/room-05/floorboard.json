@@ -1,0 +1,368 @@
+{
+ "title": "ROOM 5 FLOORBOARD -- PROUD BOARD + PHYSICAL CREAK ADVERTISEMENT (Tyler, 2026-09-05)",
+ "status": "CANDIDATE, visual_accepted unset; Tyler is the gate",
+ "preflight": {
+  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+  "startHead": "51e3b2f",
+  "mainHead": "51e3b2f",
+  "cleanTree": true,
+  "imageOperations": 0
+ },
+ "geometry": {
+  "hotspotRect": [
+   880,
+   704,
+   240,
+   36
+  ],
+  "hotspotRectChanged": false,
+  "physicalPlank": [
+   960,
+   707,
+   138,
+   18
+  ],
+  "plankRows": "707..724",
+  "plankCols": "960..1097",
+  "tread": [
+   960,
+   707,
+   138,
+   18
+  ],
+  "drawnBoardAtRest": [
+   960,
+   705,
+   138,
+   20
+  ],
+  "liftRows": 2,
+  "orientation": "horizontal board, its near (front) edge is its lower row 724; the feet baseline (Thad's own x,y) crosses it along the far floor band, y 707-724",
+  "howRead": "plank seams by row luminance on the day plate (seam 701-702, body 707-718, lit lower edge 719-723, seam 725-729); ends at the split x~956 and the joint x~1098"
+ },
+ "visual": {
+  "images": {
+   "rest-day": {
+    "path": "art/staging/room-05/floorboard/board-rest.png",
+    "sha256": "da322a7b5f0e27f93df5e54fbde73d0aef1d3c5ef3cccc7e39ee685bd2d9ff1a"
+   },
+   "pressed-day": {
+    "path": "art/staging/room-05/floorboard/board-pressed.png",
+    "sha256": "f2d3343f1aac80f89214f6cc78c53c7ab3c05ce90dfc3815b5f511717c748524"
+   },
+   "rest-night": {
+    "path": "art/staging/room-05/floorboard/board-rest-night.png",
+    "sha256": "dac4769ad86f92540a72271f43945df10ef440ed57ed39fedecc114e4ddf47e5"
+   },
+   "pressed-night": {
+    "path": "art/staging/room-05/floorboard/board-pressed-night.png",
+    "sha256": "e0b1d274e33d6919f53e26d7ebeeae8a6058621122e699b37982dfec2a3bed9d"
+   }
+  },
+  "plates": {
+   "day": {
+    "path": "art/staging/room-05/plate-02/candidate-1920x864.png",
+    "sha256": "c0afe61efcf6c0a0bc1168ef26c98168d2c15ffbf415935110370e5d55626142"
+   },
+   "night": {
+    "path": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+    "sha256": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+   }
+  },
+  "platesUnchanged": true,
+  "treatment": "REST: the plank's own pixels lifted 2 rows, top lip +14%, gap under the near edge at 62% of the seam colour, end grain at 92%; PRESSED: the plank flush, the plate's own pixels. Derived from each plate separately, same bounds and lift.",
+  "night": "night images ride the ?candidate= mechanism the night plate and Winnie's relight use (two more swaps on the night URL)",
+  "beforeAfter": "renders/room-05-floorboard-before-after.png",
+  "diagnostic": "renders/room-05-floorboard-diagnostic.png",
+  "stepSequence": "renders/room-05-floorboard-step-sequence.png"
+ },
+ "physicalEvent": {
+  "rule": "engine/core/StepTriggers.ts: the feet baseline is swept from last tick's position to this one and clipped against the tread (Liang-Barsky); a sweep that touches the tread, or a walking position inside it, fires if armed; armed while the feet are off the tread; disarmed on firing until the feet are off it again; a placement (not walking) never fires",
+  "pressedHoldMs": 220,
+  "caption": "CREEEAK",
+  "captionMs": 900,
+  "captionAt": [
+   1029,
+   706
+  ],
+  "captionDrawnAs": "a bark: outlined bitmap face at a room position, never the speech channel, the panel or a notice",
+  "cue": "R05-FLOOR-STEP",
+  "collisionChanged": false,
+  "walkBoxesChanged": false,
+  "thadChanged": false
+ },
+ "audio": {
+  "plays": false,
+  "reason": "the build has no SFX layer (engine/core/Music.ts carries the room score only): doc 45 case C",
+  "wired": "cue fired by id, counted by the probe (cues.count/last)",
+  "deferred": "the audible loose-board creak asset and its playback",
+  "cueSheet": "docs/45-audio-cue-sheet.md row R05-FLOOR-STEP added under Tyler's authorization"
+ },
+ "proofRuns": {
+  "stepSequence": {
+   "record": "renders/proofs/assay-office-lamp-night/floorboard-step/frames.json",
+   "fires": [
+    [
+     110.06,
+     996,
+     714
+    ]
+   ],
+   "result": "one press at the crossing, caption up, back to rest, caption gone"
+  },
+  "crossingsPaceB": {
+   "pace": 1.25,
+   "commit": "3c380f5",
+   "fires": [
+    [
+     109.52,
+     980,
+     714
+    ],
+    [
+     111.82,
+     1095,
+     714
+    ],
+    [
+     114.15,
+     980,
+     714
+    ],
+    [
+     116.51,
+     1046,
+     714
+    ],
+    [
+     118.84,
+     1013,
+     714
+    ],
+    [
+     121.09,
+     1079,
+     714
+    ],
+    [
+     123.39,
+     980,
+     714
+    ],
+    [
+     125.72,
+     1055,
+     714
+    ],
+    [
+     128.02,
+     1004,
+     714
+    ],
+    [
+     130.33,
+     1046,
+     714
+    ],
+    [
+     132.54,
+     972,
+     714
+    ],
+    [
+     152.49,
+     1081,
+     714
+    ]
+   ],
+   "pressedSamples": 32,
+   "pressedWhileStationary": 0,
+   "finalState": "rest",
+   "record": "renders/proofs/assay-office-lamp-night/floorboard-crossings/frames.json",
+   "expected": 12,
+   "result": "12 crossings, 12 presses; 20 s standing beside the board after crossing 11: none; final state rest"
+  },
+  "crossingsPaceC": {
+   "pace": 1.5,
+   "commit": "3c380f5",
+   "fires": [
+    [
+     106.39,
+     1014,
+     714
+    ],
+    [
+     108.68,
+     1045,
+     714
+    ],
+    [
+     110.91,
+     975,
+     714
+    ],
+    [
+     113.18,
+     1084,
+     714
+    ],
+    [
+     115.52,
+     1005,
+     714
+    ],
+    [
+     117.75,
+     1084,
+     714
+    ],
+    [
+     120.05,
+     975,
+     714
+    ],
+    [
+     122.37,
+     1084,
+     714
+    ],
+    [
+     124.64,
+     975,
+     714
+    ],
+    [
+     127.02,
+     1055,
+     714
+    ],
+    [
+     129.34,
+     1014,
+     714
+    ],
+    [
+     149.27,
+     1071,
+     714
+    ]
+   ],
+   "pressedSamples": 32,
+   "pressedWhileStationary": 0,
+   "finalState": "rest",
+   "record": "renders/proofs/assay-office-lamp-night/floorboard-crossings-pace-150/frames.json",
+   "expected": 12,
+   "result": "12 of 12 at pace 1.5: nothing tunnelled through"
+  },
+  "crossingsDay": {
+   "record": "renders/proofs/assay-office/floorboard-crossings-day/frames.json",
+   "fires": [
+    [
+     109.71,
+     [
+      980,
+      714
+     ]
+    ],
+    [
+     112.01,
+     [
+      1071,
+      714
+     ]
+    ],
+    [
+     114.34,
+     [
+      1013,
+      714
+     ]
+    ],
+    [
+     116.54,
+     [
+      1095,
+      714
+     ]
+    ],
+    [
+     118.86,
+     [
+      964,
+      714
+     ]
+    ],
+    [
+     121.26,
+     [
+      1054,
+      714
+     ]
+    ],
+    [
+     123.49,
+     [
+      964,
+      714
+     ]
+    ],
+    [
+     125.8,
+     [
+      1095,
+      714
+     ]
+    ],
+    [
+     128.2,
+     [
+      1004,
+      714
+     ]
+    ],
+    [
+     130.45,
+     [
+      1071,
+      714
+     ]
+    ]
+   ],
+   "result": "10 presses on the day plate (the earlier ten-crossing route)"
+  },
+  "nearMiss": {
+   "record": "renders/proofs/assay-office-lamp-night/floorboard-nearmiss/frames.json",
+   "fires": [
+    [
+     120.46,
+     [
+      964,
+      714
+     ]
+    ]
+   ],
+   "result": "zero presses along the row below the board, along its row past either end, and beside it; the one deliberate crossing in the route pressed exactly once"
+  },
+  "verbs": {
+   "record": "renders/proofs/assay-office-lamp-night/floorboard-verbs/frames.json",
+   "linesSpoken": 17,
+   "presses": 0,
+   "result": "LOOK, LISTEN, PULL, OPEN, PUSH and the default click all answer with a line from Thad; no press from any verb; hotspot rect and walk-to unchanged"
+  },
+  "standingOnTheBoard": "cannot be reached by a click in play -- the tread lies inside the LOOK hotspot -- so it is covered by tests/floorboard.test.ts (sixty stationary ticks on the tread, no press) and live by the twenty seconds standing beside it after a crossing",
+  "roomLife": {
+   "talk": {
+    "record": "renders/proofs/assay-office-lamp-night/talk/life.json",
+    "commit": "32c7560",
+    "result": "PASS: Winnie writing, the walk to the dialogue point, the spoken opening, the WIN_A1 list and the exit, every night candidate drawn including both board images -- coherent for 127 s"
+   },
+   "life": {
+    "record": "renders/proofs/assay-office-lamp-night/life/life.json",
+    "commit": "32c7560",
+    "result": "PASS: the room life route (idles, lamp, counter occlusion, dialogue open/reply/after, exits and re-entry) coherent for 195 s with the board images among the room's assets"
+   }
+  }
+ },
+ "finding": "In play the board is crossed on the way along the far floor band (toward the back-room door, or any free click on the far band past it). The counter hotspots' walk-to points are at y~828 and Winnie's approach point is (930,760), so the common LOOK and TALK routes do not cross it. Whether a walk-to point should be moved so the board is met on an ordinary approach is Tyler's call; nothing here changes staging.",
+ "tests": "tests/floorboard.test.ts: 5 cases (segment clip, one press per crossing + silent standing + re-arm, 30 px strides through an 18 px tread ten times, no press beside or on placement, both state images declared and on disk); typecheck clean; 174 tests pass; validators: every art, content and rig check green, the pre-existing flag-gate check red"
+}
