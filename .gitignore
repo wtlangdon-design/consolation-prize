@@ -69,3 +69,11 @@ art/staging/**
 # neither. The ignore rule above stays for throwaway staging (the smoke test).
 !art/staging/room-05/
 !art/staging/room-05/**
+# THE OPENING-SET RETROFIT CANDIDATES ARE REVIEWABLE TOO (doc 36 Q116), by the
+# same ruling: Main Street candidate 01 and the Nugget clean plate 02 are
+# what Tyler rules on, what the candidate rooms load by path, and what the
+# ledger's hashes name. A branch without them could play neither candidate.
+!art/staging/room-02/
+!art/staging/room-02/**
+!art/staging/room-03/
+!art/staging/room-03/**

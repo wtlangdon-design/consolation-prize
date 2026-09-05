@@ -1,0 +1,19 @@
+{
+ "note": "Masked refinement of clean-plate-01: two windows freed for the model (the wall between the doors and the window, for the handbill; the far wall under the landing, for the back-room door), everything else kept. Plate rects converted to source space through errata 63's crop.",
+ "windowsPlate": [
+  [
+   270,
+   240,
+   375,
+   430
+  ],
+  [
+   1130,
+   230,
+   1260,
+   400
+  ]
+ ],
+ "mask": "art/staging/room-03/clean-plate-02/edit-mask.png",
+ "sha256": "3da67164a52d368d7a5f61bfb36cefa501066136288f302a57dbf17cf76b7ec2"
+}

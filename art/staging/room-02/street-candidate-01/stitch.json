@@ -1,0 +1,37 @@
+{
+ "note": "STITCH of the two derived panels by explicit cut columns. The outpaint asked the model to keep the west source's right 30% and it repainted that region instead (a masked edit is guidance to this model, not preservation), so the panels do not share pixels; the cut is placed where both show open boardwalk and mud (west after its notice board, east after its clipped board) and feathered. Nothing resampled or recoloured.",
+ "west": {
+  "path": "art/staging/room-02/street-west-01/panel-1920x864.png",
+  "sha256": "e0c0f5c4dda010d62ebda4404382d69c38f0b06552c2aa89d022d043bd8ce54f",
+  "end": 1800
+ },
+ "east": {
+  "path": "art/staging/room-02/street-east-01/panel-1920x864.png",
+  "sha256": "a28c05a6476679082176ca1a1e373678ba050c13af363e0f379d0850eeb73799",
+  "start": 110
+ },
+ "feather": 96,
+ "width": 3610,
+ "seamMeanAbsDiff": 10.316193254886832,
+ "out": {
+  "path": "art/staging/room-02/street-candidate-01/candidate-plate.png",
+  "sha256": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad"
+ },
+ "outpaint": {
+  "note": "Outpaint canvas: the west source's right part laid at the left of a fresh canvas; the mask keeps it and frees the rest for the model.",
+  "westSource": {
+   "path": "art/staging/room-02/street-west-source-01.png",
+   "sha256": "c75f1a3da47902c20561be6ed2d678afaa88f5f17405e95b046756ea8e2c3aa6"
+  },
+  "keepFraction": 0.3,
+  "keepPx": 461,
+  "canvas": {
+   "path": "art/staging/room-02/street-east-01/outpaint-canvas.png",
+   "sha256": "e0f83ed94c4e13f0147d9c57b58dd55454f5dc7465257e4829b055afdf691675"
+  },
+  "mask": {
+   "path": "art/staging/room-02/street-east-01/outpaint-mask.png",
+   "sha256": "1c6fcd2e0c2de58dcfe885009c1520c023b0dfba4ec4ee08f658c8d8bee8137c"
+  }
+ }
+}
