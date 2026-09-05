@@ -396,9 +396,14 @@
    "every": 0.5
   },
   {
+   "do": "verb",
+   "verb": "OPEN",
+   "why": "OPEN on an exit walks through it (doc 14). It also clears the PICK UP selected during the greeting, which the spent target click left lit -- a verb stays until it is used on a thing"
+  },
+  {
    "do": "click",
    "on": "back_to_street",
-   "why": "the street door"
+   "why": "OPEN the street door"
   },
   {
    "do": "click",
