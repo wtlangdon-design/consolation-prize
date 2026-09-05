@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "REPEATED-CYCLE PROOF (Tyler, 2026-09-05, hybrid profile walk): at least three uninterrupted walk cycles each way across the Room 5 floor, stills every 0.12 s, so the arm swing and the 6 -> 1 seam can be read frame by frame. Run by tools/gauntlet/frames.mjs.",
+ "from": "assay_office",
+ "actions": [
+  {"do": "wait", "seconds": 2},
+  {"do": "click", "at": [1450, 765], "why": "a straight walk to the right across the whole floor: 1250 px at 515 px is about four cycles"},
+  {"do": "burst", "name": "loop-right", "seconds": 3.6, "every": 0.12},
+  {"do": "wait", "seconds": 1.5},
+  {"do": "click", "at": [450, 765], "why": "and back to the left, 1000 px, more than three cycles"},
+  {"do": "burst", "name": "loop-left", "seconds": 3.2, "every": 0.12},
+  {"do": "wait", "seconds": 2}
+ ]
+}

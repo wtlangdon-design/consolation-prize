@@ -1,70 +1,194 @@
 {
-  "method": "authored-cycle-sheet",
-  "source": "art/staging/thad/profile-walk-cycle-01.png",
-  "sourceSha256": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
-  "key": "magenta",
+  "method": "hybrid-authored-upper-bodies",
   "clip": "walk",
   "view": "profile",
   "facing": "left",
   "walk_dx": -1,
-  "poses": [
-    1,
-    2,
-    3
-  ],
-  "uprightPose": 3,
-  "scale": 0.9843,
   "figure": [
-    128,
-    625
+    307,
+    643
   ],
-  "padding": 260,
-  "standCanvas": {
-    "path": "art/actors/thad-stand-right/stand-00.png",
-    "ground": 624,
-    "torsoColumn": 311.0,
-    "stature": 625
+  "padding": 189,
+  "frames": 6,
+  "legs": {
+    "source": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-00.png",
+    "sourceSha256": "3e8d7c4ec5e2b9f1232471c89c2552038de361c4800aa55bdac82b03954bdf59",
+    "hem": 427,
+    "cutRow": 430,
+    "pivotRow": 377,
+    "hipColumn": 311.0,
+    "separatedRows": 178,
+    "sourceAngles": {
+      "near": 21.8,
+      "far": -25.5
+    },
+    "amplitudeDeg": 23.7,
+    "knee": 0,
+    "method": "split at the hem, levelled by the measured angle, root extended straight up to the pivot under the coat, swung about the concealed hip; far leg half a cycle behind; real pixels rotated, nothing redrawn"
   },
-  "frames": 3,
+  "upperBodies": "each frame's authored figure down to its own coat hem, pixel-identical, moved only as one unit by the frame's ground drop",
   "extracted": [
     {
       "frame": "walk-00.png",
-      "pose": 1,
-      "sheetHeight": 639,
-      "sheetWidth": 312,
-      "placedHeight": 625,
-      "placedWidth": 307,
-      "soleRow": 624,
-      "torsoShift": 152
+      "role": "CONTACT A",
+      "upper": {
+        "path": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-00.png",
+        "sha256": "3e8d7c4ec5e2b9f1232471c89c2552038de361c4800aa55bdac82b03954bdf59",
+        "provenance": "profile-walk-cycle-01.png pose 1 (contact)",
+        "rowsUsed": "0..427",
+        "hem": 427
+      },
+      "legs": {
+        "phase": 0,
+        "nearLegDeg": 23.7,
+        "farLegDeg": -23.7,
+        "forwardLeg": "near",
+        "hipShift": 0,
+        "groundDrop": 20
+      },
+      "hands": {
+        "near": -99,
+        "far": 100
+      },
+      "placedHeight": 623,
+      "soleRow": 642
     },
     {
       "frame": "walk-01.png",
-      "pose": 2,
-      "sheetHeight": 636,
-      "sheetWidth": 131,
-      "placedHeight": 625,
-      "placedWidth": 129,
-      "soleRow": 624,
-      "torsoShift": 244
+      "role": "TRANSITION A",
+      "upper": {
+        "path": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-01.png",
+        "sha256": "e386a57439f62c0667181200e42c396a204575a86c8762347ea195b44a807a99",
+        "provenance": "profile-walk-cycle-01.png pose 2 (recoil)",
+        "rowsUsed": "0..431",
+        "hem": 431
+      },
+      "legs": {
+        "phase": 60,
+        "nearLegDeg": 11.8,
+        "farLegDeg": -11.8,
+        "forwardLeg": "near",
+        "hipShift": 0,
+        "groundDrop": 2
+      },
+      "hands": {
+        "near": -17,
+        "far": null
+      },
+      "placedHeight": 641,
+      "soleRow": 642
     },
     {
       "frame": "walk-02.png",
-      "pose": 3,
-      "sheetHeight": 635,
-      "sheetWidth": 106,
-      "placedHeight": 625,
-      "placedWidth": 104,
-      "soleRow": 624,
-      "torsoShift": 260
+      "role": "PASS A",
+      "upper": {
+        "path": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-02.png",
+        "sha256": "dd02eb4bd9cd8f682599ea1836bf3df2c497608be033c0a2840a52b4dcdb3b9d",
+        "provenance": "profile-walk-cycle-01.png pose 3 (passing)",
+        "rowsUsed": "0..432",
+        "hem": 432
+      },
+      "legs": {
+        "phase": 120,
+        "nearLegDeg": -11.8,
+        "farLegDeg": 11.8,
+        "forwardLeg": "far",
+        "hipShift": 0,
+        "groundDrop": 0
+      },
+      "hands": {
+        "near": -14,
+        "far": null
+      },
+      "placedHeight": 642,
+      "soleRow": 641
+    },
+    {
+      "frame": "walk-03.png",
+      "role": "CONTACT B",
+      "upper": {
+        "path": "art/staging/thad/candidates/hybrid/uppers-opposite-half/walk-00.png",
+        "sha256": "e0dfd7b4604c8edf70479f2f91f7f3a187f0b84c8bb21d79d0101a4792524488",
+        "provenance": "profile-walk-opposite-half-01.png pose 2 (weight transfer, near arm forward)",
+        "rowsUsed": "0..428",
+        "hem": 428
+      },
+      "legs": {
+        "phase": 180,
+        "nearLegDeg": -23.7,
+        "farLegDeg": 23.7,
+        "forwardLeg": "far",
+        "hipShift": 0,
+        "groundDrop": 7
+      },
+      "hands": {
+        "near": 55,
+        "far": null
+      },
+      "placedHeight": 636,
+      "soleRow": 642
+    },
+    {
+      "frame": "walk-04.png",
+      "role": "TRANSITION B",
+      "upper": {
+        "path": "art/staging/thad/candidates/hybrid/uppers-opposite-half/walk-01.png",
+        "sha256": "2ddc508e3f3389c573a59bab959766faf0e27f5a2b7da41b0554af600a197c4b",
+        "provenance": "profile-walk-opposite-half-01.png pose 3 (passing, near arm forward)",
+        "rowsUsed": "0..429",
+        "hem": 429
+      },
+      "legs": {
+        "phase": 240,
+        "nearLegDeg": -11.8,
+        "farLegDeg": 11.8,
+        "forwardLeg": "far",
+        "hipShift": 0,
+        "groundDrop": 0
+      },
+      "hands": {
+        "near": 24,
+        "far": null
+      },
+      "placedHeight": 642,
+      "soleRow": 641
+    },
+    {
+      "frame": "walk-05.png",
+      "role": "PASS B",
+      "upper": {
+        "path": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-02.png",
+        "sha256": "dd02eb4bd9cd8f682599ea1836bf3df2c497608be033c0a2840a52b4dcdb3b9d",
+        "provenance": "profile-walk-cycle-01.png pose 3 (passing)",
+        "rowsUsed": "0..432",
+        "hem": 432
+      },
+      "legs": {
+        "phase": 300,
+        "nearLegDeg": 11.8,
+        "farLegDeg": -11.8,
+        "forwardLeg": "near",
+        "hipShift": 0,
+        "groundDrop": 2
+      },
+      "hands": {
+        "near": -14,
+        "far": null
+      },
+      "placedHeight": 641,
+      "soleRow": 642
     }
   ],
-  "ruling": "Tyler, 2026-09-05: authored whole-body walk poses cropped whole; no limb cut, rotated, transplanted or reattached. tools/rig/cut-cycle-sheet.py.",
+  "ruling": "Tyler, 2026-09-05: authored whole upper bodies preserved; only the legs beneath the coat are rephased. tools/rig/hybrid-walk.py.",
   "mirroredFrom": {
     "clip": "art/actors/thad-walk-right",
     "frames": {
-      "walk-00.png": "3e8d7c4ec5e2b9f1232471c89c2552038de361c4800aa55bdac82b03954bdf59",
-      "walk-01.png": "e386a57439f62c0667181200e42c396a204575a86c8762347ea195b44a807a99",
-      "walk-02.png": "dd02eb4bd9cd8f682599ea1836bf3df2c497608be033c0a2840a52b4dcdb3b9d"
+      "walk-00.png": "015007f58337e1384fe2cf0750cb6007b6737f41d5f5759807d4b78f53203105",
+      "walk-01.png": "6f3bdb01036e47e9220ba733f9265766b1e0d35d7132152720dc91430194e086",
+      "walk-02.png": "2eb2fc1e74341eac155b3557f309c266a5ca7e6fa85695fe4a4a4219973f9ef3",
+      "walk-03.png": "1c2322b72f474346bdca3b68663c1e52059d6d8e407990676cb5509c4c4d0d08",
+      "walk-04.png": "16dd69102e6087b009025f501950fbb7f4aba8bffe10fdc044ade645a6f9afa6",
+      "walk-05.png": "f5a31a383c24de094f286cf1798263950f7fe8d55c4d8520fce4de95f8452a38"
     },
     "note": "docs/52 left/right policy: one side family, mirrored deterministically. Regenerate by re-running tools/rig/mirror-clip.py on the source clip; never edit these frames by hand."
   }
