@@ -1,0 +1,63 @@
+{
+ "label": "Room 5 pace 1.5",
+ "legs": [
+  {
+   "leg": 1,
+   "from": [
+    866,
+    765
+   ],
+   "to": [
+    1690,
+    765
+   ],
+   "pathPx": 824,
+   "seconds": 2.0,
+   "pxPerSec": 418.3
+  },
+  {
+   "leg": 2,
+   "from": [
+    1043,
+    744
+   ],
+   "to": [
+    999,
+    703
+   ],
+   "pathPx": 60,
+   "seconds": 1.0,
+   "pxPerSec": 62.0
+  }
+ ],
+ "captures": {
+  "w1-across": {
+   "at": [
+    1690,
+    765
+   ],
+   "height": 515
+  },
+  "w2-rear": {
+   "at": [
+    999,
+    703
+   ],
+   "height": 472
+  },
+  "w3-near": {
+   "at": [
+    999,
+    828
+   ],
+   "height": 559
+  },
+  "w4-back-left": {
+   "at": [
+    450,
+    765
+   ],
+   "height": 515
+  }
+ }
+}

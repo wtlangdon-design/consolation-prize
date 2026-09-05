@@ -1,0 +1,24 @@
+{
+ "schema": 1,
+ "room": "stage_road",
+ "note": "THAD AUDIT ROUTE (2026-09-04), run by tools/gauntlet/frames.mjs with the probe polled every 100 ms.",
+ "from": "stage_road",
+ "actions": [
+  {
+   "do": "click",
+   "at": [
+    900,
+    760
+   ]
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "wait",
+   "seconds": 30,
+   "why": "stationary 30 s"
+  }
+ ]
+}

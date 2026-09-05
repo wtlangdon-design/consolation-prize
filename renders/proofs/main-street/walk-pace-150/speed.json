@@ -1,0 +1,84 @@
+{
+ "label": "Main Street pace 1.5",
+ "legs": [
+  {
+   "leg": 1,
+   "from": [
+    3498,
+    634
+   ],
+   "to": [
+    3300,
+    706
+   ],
+   "pathPx": 216,
+   "seconds": 2.0,
+   "pxPerSec": 109.8
+  },
+  {
+   "leg": 2,
+   "from": [
+    3026,
+    736
+   ],
+   "to": [
+    2399,
+    699
+   ],
+   "pathPx": 632,
+   "seconds": 4.2,
+   "pxPerSec": 150.2
+  },
+  {
+   "leg": 3,
+   "from": [
+    2586,
+    713
+   ],
+   "to": [
+    3299,
+    829
+   ],
+   "pathPx": 734,
+   "seconds": 4.0,
+   "pxPerSec": 182.0
+  },
+  {
+   "leg": 4,
+   "from": [
+    3083,
+    796
+   ],
+   "to": [
+    2899,
+    600
+   ],
+   "pathPx": 332,
+   "seconds": 2.0,
+   "pxPerSec": 164.5
+  }
+ ],
+ "captures": {
+  "w1-west": {
+   "at": [
+    2399,
+    699
+   ],
+   "height": 147
+  },
+  "w2-east-near": {
+   "at": [
+    3299,
+    829
+   ],
+   "height": 195
+  },
+  "w3-far": {
+   "at": [
+    2899,
+    600
+   ],
+   "height": 111
+  }
+ }
+}

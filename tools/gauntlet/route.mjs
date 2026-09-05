@@ -223,6 +223,12 @@ export async function runRoute(page, route) {
         if (action.at) {
           await clickScreen(page, action.at[0], action.at[1]);
           log.push(`${where}: clicked screen ${action.at.join(',')} -- ${action.why ?? ''}`);
+        } else if (action.world) {
+          // A WORLD POINT, through the camera. `at` is a screen point and on a
+          // scrolling room a screen x past 1920 is nowhere: the locomotion
+          // audit's Main Street legs clicked at 2400 and nothing moved.
+          await clickWorld(page, action.world[0], action.world[1]);
+          log.push(`${where}: clicked world ${action.world.join(',')} -- ${action.why ?? ''}`);
         } else {
           const state = await probe(page);
           const room = rooms.get(state?.room);

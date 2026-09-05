@@ -1,0 +1,665 @@
+{
+ "note": "Thad runtime clip inventory, 2026-09-05, after the head-on re-derivations. Family A = the standing casting stills (identity authority); family B = the earlier generations.",
+ "clips": [
+  {
+   "clip": "stand",
+   "facing": "front",
+   "state": null,
+   "dir": "art/actors/thad-stand-front",
+   "frames": 1,
+   "frameSize": [
+    742,
+    691
+   ],
+   "figureHeight": 626,
+   "anchor": [
+    371,
+    626
+   ],
+   "source": "reference/casting/thad-stand-front-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "stand",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-stand-back",
+   "frames": 1,
+   "frameSize": [
+    740,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    370,
+    625
+   ],
+   "source": "reference/casting/thad-stand-back-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "stand",
+   "facing": "left",
+   "state": null,
+   "dir": "art/actors/thad-stand-left",
+   "frames": 1,
+   "frameSize": [
+    649,
+    689
+   ],
+   "figureHeight": 624,
+   "anchor": [
+    325,
+    624
+   ],
+   "source": "reference/casting/thad-stand-left-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "stand",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-stand-right",
+   "frames": 1,
+   "frameSize": [
+    648,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    324,
+    625
+   ],
+   "source": "reference/casting/thad-stand-right-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle",
+   "facing": "front",
+   "state": null,
+   "dir": "art/actors/thad-idle-front",
+   "frames": 6,
+   "frameSize": [
+    742,
+    691
+   ],
+   "figureHeight": 626,
+   "anchor": [
+    371,
+    626
+   ],
+   "source": "reference/casting/thad-stand-front-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-idle-back",
+   "frames": 6,
+   "frameSize": [
+    740,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    370,
+    625
+   ],
+   "source": "reference/casting/thad-stand-back-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle",
+   "facing": "left",
+   "state": null,
+   "dir": "art/actors/thad-idle-left",
+   "frames": 6,
+   "frameSize": [
+    649,
+    689
+   ],
+   "figureHeight": 624,
+   "anchor": [
+    325,
+    624
+   ],
+   "source": "reference/casting/thad-stand-left-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-idle-right",
+   "frames": 6,
+   "frameSize": [
+    648,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    324,
+    625
+   ],
+   "source": "reference/casting/thad-stand-right-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle-break",
+   "facing": "front",
+   "state": null,
+   "dir": "art/actors/thad-idlebreak-front",
+   "frames": 12,
+   "frameSize": [
+    742,
+    691
+   ],
+   "figureHeight": 626,
+   "anchor": [
+    371,
+    626
+   ],
+   "source": "reference/casting/thad-stand-front-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle-break",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-idlebreak-back",
+   "frames": 12,
+   "frameSize": [
+    740,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    370,
+    625
+   ],
+   "source": "reference/casting/thad-stand-back-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle-break",
+   "facing": "left",
+   "state": null,
+   "dir": "art/actors/thad-idlebreak-left",
+   "frames": 12,
+   "frameSize": [
+    649,
+    689
+   ],
+   "figureHeight": 624,
+   "anchor": [
+    325,
+    624
+   ],
+   "source": "reference/casting/thad-stand-left-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle-break",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-idlebreak-right",
+   "frames": 12,
+   "frameSize": [
+    648,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    324,
+    625
+   ],
+   "source": "reference/casting/thad-stand-right-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "walk",
+   "facing": "front",
+   "state": null,
+   "dir": "art/actors/thad-walk-front",
+   "frames": 8,
+   "frameSize": [
+    769,
+    695
+   ],
+   "figureHeight": 630,
+   "anchor": [
+    385,
+    630
+   ],
+   "source": "reference/casting/thad-walk-front-src.png",
+   "family": "A (standing stills)",
+   "method": "see rig.json",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "walk",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-walk-back",
+   "frames": 8,
+   "frameSize": [
+    740,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    370,
+    625
+   ],
+   "source": "reference/casting/thad-stand-back-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "walk",
+   "facing": "left",
+   "state": null,
+   "dir": "art/actors/thad-walk-left",
+   "frames": 8,
+   "frameSize": [
+    399,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    199,
+    526
+   ],
+   "source": "reference/casting/thad-profile-left.png",
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "walk",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-walk-right",
+   "frames": 8,
+   "frameSize": [
+    390,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    196,
+    526
+   ],
+   "source": "reference/casting/thad-profile-right-approved.png",
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "farwalk",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-farwalk-back",
+   "frames": 3,
+   "frameSize": [
+    15,
+    46
+   ],
+   "figureHeight": 46,
+   "anchor": [
+    8,
+    46
+   ],
+   "source": null,
+   "family": "derived from walk-back",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "recoil",
+   "facing": "front",
+   "state": null,
+   "dir": "art/actors/thad-recoil-front",
+   "frames": 4,
+   "frameSize": [
+    742,
+    691
+   ],
+   "figureHeight": 626,
+   "anchor": [
+    371,
+    626
+   ],
+   "source": "reference/casting/thad-stand-front-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "recoil",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-recoil-back",
+   "frames": 4,
+   "frameSize": [
+    740,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    370,
+    625
+   ],
+   "source": "reference/casting/thad-stand-back-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "recoil",
+   "facing": "left",
+   "state": null,
+   "dir": "art/actors/thad-recoil-left",
+   "frames": 4,
+   "frameSize": [
+    649,
+    689
+   ],
+   "figureHeight": 624,
+   "anchor": [
+    325,
+    624
+   ],
+   "source": "reference/casting/thad-stand-left-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "recoil",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-recoil-right",
+   "frames": 4,
+   "frameSize": [
+    648,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    324,
+    625
+   ],
+   "source": "reference/casting/thad-stand-right-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "tug",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-tug-back",
+   "frames": 7,
+   "frameSize": [
+    740,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    370,
+    625
+   ],
+   "source": "reference/casting/thad-stand-back-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "strain",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-strain-back",
+   "frames": 7,
+   "frameSize": [
+    740,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    370,
+    625
+   ],
+   "source": "reference/casting/thad-stand-back-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "wrench",
+   "facing": "back",
+   "state": null,
+   "dir": "art/actors/thad-wrench-back",
+   "frames": 8,
+   "frameSize": [
+    740,
+    690
+   ],
+   "figureHeight": 625,
+   "anchor": [
+    370,
+    625
+   ],
+   "source": "reference/casting/thad-stand-back-src.png",
+   "family": "A (standing stills)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "use-near",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-use-near-right",
+   "frames": 5,
+   "frameSize": [
+    390,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    196,
+    526
+   ],
+   "source": null,
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "give-offer",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-give-offer-right",
+   "frames": 5,
+   "frameSize": [
+    390,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    196,
+    526
+   ],
+   "source": null,
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "shrug",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-shrug-right",
+   "frames": 5,
+   "frameSize": [
+    390,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    196,
+    526
+   ],
+   "source": null,
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "pickup-low",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-pickup-low-right",
+   "frames": 5,
+   "frameSize": [
+    390,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    196,
+    526
+   ],
+   "source": null,
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "alight-coach",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-alight-coach-right",
+   "frames": 6,
+   "frameSize": [
+    390,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    196,
+    526
+   ],
+   "source": null,
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "aboard-coach",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-aboard-coach-right",
+   "frames": 5,
+   "frameSize": [
+    390,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    196,
+    526
+   ],
+   "source": null,
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "carry",
+   "facing": "right",
+   "state": null,
+   "dir": "art/actors/thad-carry-right",
+   "frames": 5,
+   "frameSize": [
+    390,
+    547
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    196,
+    526
+   ],
+   "source": null,
+   "family": "B (earlier generations)",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle",
+   "facing": "left",
+   "state": "lookup",
+   "dir": "art/actors/thad-lookup-left",
+   "frames": 6,
+   "frameSize": [
+    279,
+    610
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    140,
+    526
+   ],
+   "source": null,
+   "family": "hand-transformed from lookup-left-src",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  },
+  {
+   "clip": "idle-break",
+   "facing": "left",
+   "state": "lookup",
+   "dir": "art/actors/thad-idlebreak-lookup-left",
+   "frames": 12,
+   "frameSize": [
+    279,
+    610
+   ],
+   "figureHeight": 526,
+   "anchor": [
+    140,
+    526
+   ],
+   "source": null,
+   "family": "hand-transformed from lookup-left-src",
+   "method": "rigged by tools/rig/character.py",
+   "usedBy": "every room (shared protagonist)"
+  }
+ ]
+}

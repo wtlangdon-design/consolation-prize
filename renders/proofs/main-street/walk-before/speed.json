@@ -1,0 +1,42 @@
+{
+ "label": "Main Street before",
+ "legs": [
+  {
+   "leg": 1,
+   "from": [
+    3448,
+    644
+   ],
+   "to": [
+    3300,
+    706
+   ],
+   "pathPx": 160,
+   "seconds": 1.0,
+   "pxPerSec": 154.3
+  }
+ ],
+ "captures": {
+  "w1-west": {
+   "at": [
+    3300,
+    706
+   ],
+   "height": 150
+  },
+  "w2-east-near": {
+   "at": [
+    3300,
+    706
+   ],
+   "height": 150
+  },
+  "w3-far": {
+   "at": [
+    3300,
+    706
+   ],
+   "height": 150
+  }
+ }
+}

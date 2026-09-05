@@ -1,0 +1,70 @@
+{
+ "label": "Main Street after",
+ "legs": [
+  {
+   "leg": 1,
+   "from": [
+    3554,
+    622
+   ],
+   "to": [
+    2399,
+    699
+   ],
+   "pathPx": 1163,
+   "seconds": 10.9,
+   "pxPerSec": 106.8
+  },
+  {
+   "leg": 2,
+   "from": [
+    2525,
+    709
+   ],
+   "to": [
+    3299,
+    829
+   ],
+   "pathPx": 835,
+   "seconds": 7.0,
+   "pxPerSec": 119.3
+  },
+  {
+   "leg": 3,
+   "from": [
+    3139,
+    804
+   ],
+   "to": [
+    2899,
+    600
+   ],
+   "pathPx": 381,
+   "seconds": 4.0,
+   "pxPerSec": 95.9
+  }
+ ],
+ "captures": {
+  "w1-west": {
+   "at": [
+    2399,
+    699
+   ],
+   "height": 147
+  },
+  "w2-east-near": {
+   "at": [
+    3299,
+    829
+   ],
+   "height": 195
+  },
+  "w3-far": {
+   "at": [
+    2899,
+    600
+   ],
+   "height": 111
+  }
+ }
+}
