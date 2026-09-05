@@ -47,13 +47,14 @@ async function main() {
   const record = readJson('content/actors/thad.json');
   const walkDirs = new Set(record.clips.filter((c) => c.id === 'walk' || c.id === 'farwalk').flatMap((c) => c.frames.map((f) => f.replace(/\/[^/]+$/, ''))));
   const commit = git('rev-parse', 'HEAD'); const dirty = git('status', '--porcelain');
+  const pace = flag('--pace');
   const server = await serve(); const chrome = await browser();
   const t0 = Date.now(); const stamp = () => Number(((Date.now() - t0) / 1000).toFixed(3));
   const changes = []; const bursts = []; const log = []; let last = null; let polling = false; let samples = 0;
   try {
     const page = await chrome.newPage();
     const visualState = flag('--state');
-    const query = [...candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`), ...(visualState ? [`state=${encodeURIComponent(visualState)}`] : [])].join('&');
+    const query = [...candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`), ...(visualState ? [`state=${encodeURIComponent(visualState)}`] : []), ...(pace ? [`pace=${encodeURIComponent(pace)}`] : [])].join('&');
     await page.goto(query ? `${server.url}/?${query}` : server.url);
     await page.waitForFunction(() => Boolean(window.__gauntlet?.probe?.()), { timeout: 60_000 });
     await page.evaluate(() => window.__gauntlet?.arm?.({}));
@@ -98,7 +99,7 @@ async function main() {
   const still = changes.filter((c) => !c.moving);
   const offences = changes.filter((c) => c.locomotionWhileStill);
   const clipsSeen = [...new Set(changes.map((c) => c.clip))];
-  const out = { schema: 1, room: roomId, route: routeName, commit, workingTreeClean: dirty === '', candidates, visualState: flag('--state'), durationSeconds: stamp(), samples,
+  const out = { schema: 1, room: roomId, route: routeName, commit, workingTreeClean: dirty === '', candidates, visualState: flag('--state'), pace: pace ? Number(pace) : 1, durationSeconds: stamp(), samples,
     summary: { changes: changes.length, clipsSeen, locomotionFramesWhileStationary: offences.length, idleBreaks: changes.filter((c, i) => c.clip === 'idle-break' && changes[i - 1]?.clip !== 'idle-break').length },
     changes, bursts, log, at: new Date().toISOString() };
   mkdirSync(resolve(ROOT, outDir), { recursive: true });

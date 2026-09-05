@@ -102,7 +102,16 @@ def key_out(path: Path, key: str):
     if n == 0:
         raise SystemExit("nothing found outside the key colour")
     sizes = ndimage.sum(obj, lab, range(1, n + 1))
-    obj = ndimage.binary_fill_holes(lab == int(np.argmax(sizes)) + 1)
+    largest = lab == int(np.argmax(sizes)) + 1
+    obj = ndimage.binary_fill_holes(largest)
+    # A HOLE THAT IS PURE KEY IS BACKGROUND, NOT FIGURE. Filling holes keeps
+    # interior pixels the key test misjudged; it also swallowed every gap the
+    # silhouette encloses -- between hair strands, under a cuff, at a coat
+    # notch -- and kept them MAGENTA, so the 1024x1536 stride source came
+    # through with 550 visible key pixels per frame and check-key-fringe said
+    # so. A filled pixel that is still unmistakably the backdrop goes back to
+    # being backdrop; only the borderline ones stay for the despill to fix.
+    obj[(obj & ~largest) & (bad > 120)] = False
 
     if key == "green":
         spill = (a[..., 1] > (a[..., 0] + a[..., 2]) / 2 + 8) & obj

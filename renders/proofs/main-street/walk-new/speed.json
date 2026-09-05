@@ -1,0 +1,70 @@
+{
+ "label": "Main Street new walk pace B",
+ "legs": [
+  {
+   "leg": 1,
+   "from": [
+    3527,
+    628
+   ],
+   "to": [
+    2399,
+    699
+   ],
+   "pathPx": 1143,
+   "seconds": 7.9,
+   "pxPerSec": 144.9
+  },
+  {
+   "leg": 2,
+   "from": [
+    2552,
+    711
+   ],
+   "to": [
+    3299,
+    829
+   ],
+   "pathPx": 771,
+   "seconds": 5.1,
+   "pxPerSec": 152.4
+  },
+  {
+   "leg": 3,
+   "from": [
+    3103,
+    799
+   ],
+   "to": [
+    2899,
+    600
+   ],
+   "pathPx": 359,
+   "seconds": 3.0,
+   "pxPerSec": 121.2
+  }
+ ],
+ "captures": {
+  "w1-west": {
+   "at": [
+    2399,
+    699
+   ],
+   "height": 147
+  },
+  "w2-east-near": {
+   "at": [
+    3299,
+    829
+   ],
+   "height": 195
+  },
+  "w3-far": {
+   "at": [
+    2899,
+    600
+   ],
+   "height": 111
+  }
+ }
+}

@@ -1,0 +1,953 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "nugget",
+ "commit": "63ba3bcb599d523cb7c2ef2dd280a0d1bd2a635a",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "pace": 1.25,
+ "candidates": [],
+ "entryRoute": "nugget",
+ "lifeRoute": "nugget-life",
+ "durationSeconds": 147.55,
+ "events": [
+  {
+   "t": 3.46,
+   "line": "entry route nugget: 23 action(s)"
+  },
+  {
+   "t": 111.13,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 111.13,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 111.13,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 111.13,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 111.13,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 111.13,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 111.13,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 111.13,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 111.13,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 111.13,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 111.13,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 111.13,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 111.13,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 111.13,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 111.13,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 111.13,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 111.13,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 111.13,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 111.13,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 111.13,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 111.13,
+   "line": "action 21 (click): clicked main_street/to_nugget at world 2317,459 -- Main Street's Nugget doors"
+  },
+  {
+   "t": 111.13,
+   "line": "action 22 (waitFor): reached {\"room\":\"nugget\"} in room nugget"
+  },
+  {
+   "t": 111.13,
+   "line": "action 23 (wait): waited 3s"
+  },
+  {
+   "t": 111.14,
+   "line": "in nugget; life route: 10 action(s)"
+  },
+  {
+   "t": 112.17,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 113.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 114.15,
+   "line": "action 1 (wait): waited 3s"
+  },
+  {
+   "t": 114.18,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     300,
+     760
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 114.29,
+   "line": "action 1 (click): clicked screen 1500,760 -- leg w1-across"
+  },
+  {
+   "t": 115.3,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     698,
+     779
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 116.34,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1125,
+     800
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 117.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1483,
+     814
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 118.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1497,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 119.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1497,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 120.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1497,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 121.36,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1497,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 122.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1497,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 123.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1497,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 124.31,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1497,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 125.32,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1497,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 126.29,
+   "line": "action 1 (wait): waited 12s"
+  },
+  {
+   "t": 126.85,
+   "line": "capture w1-across: room nugget, says null, options 0, control null"
+  },
+  {
+   "t": 127,
+   "line": "action 1 (click): clicked screen 900,540 -- leg w2-far"
+  },
+  {
+   "t": 128.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1126,
+     815
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 129.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     707
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 130.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     540
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 131.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     540
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     540
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 133.05,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     540
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 134.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     540
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 135.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     540
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 136.04,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     540
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 137.01,
+   "line": "action 1 (wait): waited 10s"
+  },
+  {
+   "t": 137.56,
+   "line": "capture w2-far: room nugget, says null, options 0, control null"
+  },
+  {
+   "t": 137.71,
+   "line": "action 1 (click): clicked screen 900,840 -- leg w3-near"
+  },
+  {
+   "t": 138.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 139.76,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 140.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 142.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 143.72,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 144.73,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     900,
+     840
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 145.71,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 146.27,
+   "line": "capture w3-near: room nugget, says null, options 0, control null"
+  }
+ ],
+ "captures": [
+  {
+   "name": "w1-across",
+   "why": null,
+   "t": 126.84,
+   "file": "renders/proofs/nugget/walk-new/raw-captures-ignored/w1-across.png",
+   "hash": "154a0cdc9a966913ab5959640a51ef2d4fab3f99c67869df401fbe1f4e6c8276",
+   "room": "nugget",
+   "clock": 126.50739999999999,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1497,
+      759
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 387,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      1268,
+      372,
+      458,
+      427
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:nugget",
+     "path": "art/backgrounds/room-03-nugget.png",
+     "drawn": "art/backgrounds/room-03-nugget.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414"
+    },
+    {
+     "key": "art/actors/nugget-bar1.png",
+     "path": "art/actors/nugget-bar1.png",
+     "drawn": "art/actors/nugget-bar1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e54a20fe3607215ebcadb0fa813ca82f21fb5b06485c8edb8bce5d8f96fe0146"
+    },
+    {
+     "key": "art/actors/nugget-bar2.png",
+     "path": "art/actors/nugget-bar2.png",
+     "drawn": "art/actors/nugget-bar2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f7ddf50d1ca4d5845ae9a112431c405e9d15502d6f5d66612cafb153692224df"
+    },
+    {
+     "key": "art/actors/nugget-bar3.png",
+     "path": "art/actors/nugget-bar3.png",
+     "drawn": "art/actors/nugget-bar3.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ba41595721e48c284ca5d7cbd1f0210f6101a351d967fd52fec846b2e8ab80ce"
+    },
+    {
+     "key": "art/actors/nugget-man1.png",
+     "path": "art/actors/nugget-man1.png",
+     "drawn": "art/actors/nugget-man1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f94a6d84b2658cbb198d0045e954439d0ea1fa84690ab6fcf6170fc277cf7320"
+    },
+    {
+     "key": "art/actors/nugget-man2.png",
+     "path": "art/actors/nugget-man2.png",
+     "drawn": "art/actors/nugget-man2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fa94fe4a34ab391a08642962cacaae852dddffb82a388a5f1f51f3b2068e3575"
+    },
+    {
+     "key": "art/actors/nugget-man34.png",
+     "path": "art/actors/nugget-man34.png",
+     "drawn": "art/actors/nugget-man34.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7e5de1063c8ce0c93b6383bdb959ef2fde6f9f9c0733fa8764450f8c6d4730d5"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "w2-far",
+   "why": null,
+   "t": 137.54,
+   "file": "renders/proofs/nugget/walk-new/raw-captures-ignored/w2-far.png",
+   "hash": "c299f0f14ccab7833220da6374e17ef3440f07d0f72d6d6eefaa0633c7b4f09f",
+   "room": "nugget",
+   "clock": 137.207,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      900,
+      540
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 228,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      765,
+      312,
+      270,
+      252
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:nugget",
+     "path": "art/backgrounds/room-03-nugget.png",
+     "drawn": "art/backgrounds/room-03-nugget.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414"
+    },
+    {
+     "key": "art/actors/nugget-bar1.png",
+     "path": "art/actors/nugget-bar1.png",
+     "drawn": "art/actors/nugget-bar1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e54a20fe3607215ebcadb0fa813ca82f21fb5b06485c8edb8bce5d8f96fe0146"
+    },
+    {
+     "key": "art/actors/nugget-bar2.png",
+     "path": "art/actors/nugget-bar2.png",
+     "drawn": "art/actors/nugget-bar2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f7ddf50d1ca4d5845ae9a112431c405e9d15502d6f5d66612cafb153692224df"
+    },
+    {
+     "key": "art/actors/nugget-bar3.png",
+     "path": "art/actors/nugget-bar3.png",
+     "drawn": "art/actors/nugget-bar3.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ba41595721e48c284ca5d7cbd1f0210f6101a351d967fd52fec846b2e8ab80ce"
+    },
+    {
+     "key": "art/actors/nugget-man1.png",
+     "path": "art/actors/nugget-man1.png",
+     "drawn": "art/actors/nugget-man1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f94a6d84b2658cbb198d0045e954439d0ea1fa84690ab6fcf6170fc277cf7320"
+    },
+    {
+     "key": "art/actors/nugget-man2.png",
+     "path": "art/actors/nugget-man2.png",
+     "drawn": "art/actors/nugget-man2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fa94fe4a34ab391a08642962cacaae852dddffb82a388a5f1f51f3b2068e3575"
+    },
+    {
+     "key": "art/actors/nugget-man34.png",
+     "path": "art/actors/nugget-man34.png",
+     "drawn": "art/actors/nugget-man34.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7e5de1063c8ce0c93b6383bdb959ef2fde6f9f9c0733fa8764450f8c6d4730d5"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "w3-near",
+   "why": null,
+   "t": 146.25,
+   "file": "renders/proofs/nugget/walk-new/raw-captures-ignored/w3-near.png",
+   "hash": "dc0ec4478cd87c7023341f14d699b83a5c28dc68870bd174c3aced0b2803b9a6",
+   "room": "nugget",
+   "clock": 145.9066,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      900,
+      840
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 446,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-02.png",
+     "bounds": [
+      635,
+      394,
+      529,
+      492
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "assets": [
+    {
+     "key": "bg:nugget",
+     "path": "art/backgrounds/room-03-nugget.png",
+     "drawn": "art/backgrounds/room-03-nugget.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414"
+    },
+    {
+     "key": "art/actors/nugget-bar1.png",
+     "path": "art/actors/nugget-bar1.png",
+     "drawn": "art/actors/nugget-bar1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "e54a20fe3607215ebcadb0fa813ca82f21fb5b06485c8edb8bce5d8f96fe0146"
+    },
+    {
+     "key": "art/actors/nugget-bar2.png",
+     "path": "art/actors/nugget-bar2.png",
+     "drawn": "art/actors/nugget-bar2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f7ddf50d1ca4d5845ae9a112431c405e9d15502d6f5d66612cafb153692224df"
+    },
+    {
+     "key": "art/actors/nugget-bar3.png",
+     "path": "art/actors/nugget-bar3.png",
+     "drawn": "art/actors/nugget-bar3.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "ba41595721e48c284ca5d7cbd1f0210f6101a351d967fd52fec846b2e8ab80ce"
+    },
+    {
+     "key": "art/actors/nugget-man1.png",
+     "path": "art/actors/nugget-man1.png",
+     "drawn": "art/actors/nugget-man1.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "f94a6d84b2658cbb198d0045e954439d0ea1fa84690ab6fcf6170fc277cf7320"
+    },
+    {
+     "key": "art/actors/nugget-man2.png",
+     "path": "art/actors/nugget-man2.png",
+     "drawn": "art/actors/nugget-man2.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "fa94fe4a34ab391a08642962cacaae852dddffb82a388a5f1f51f3b2068e3575"
+    },
+    {
+     "key": "art/actors/nugget-man34.png",
+     "path": "art/actors/nugget-man34.png",
+     "drawn": "art/actors/nugget-man34.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "7e5de1063c8ce0c93b6383bdb959ef2fde6f9f9c0733fa8764450f8c6d4730d5"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "at": "2026-09-05T00:55:19.238Z"
+}

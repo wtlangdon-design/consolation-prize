@@ -291,10 +291,10 @@
         "art/actors/thad-walk-left/walk-06.png",
         "art/actors/thad-walk-left/walk-07.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 625,
       "anchor": [
-        199,
-        526
+        297,
+        625
       ],
       "walkDx": -1
     },
@@ -311,10 +311,10 @@
         "art/actors/thad-walk-right/walk-06.png",
         "art/actors/thad-walk-right/walk-07.png"
       ],
-      "figureHeight": 526,
+      "figureHeight": 625,
       "anchor": [
-        196,
-        526
+        298,
+        625
       ],
       "walkDx": 1
     },

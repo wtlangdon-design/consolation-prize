@@ -350,7 +350,7 @@
     "room": "room-05-assay-office",
     "purpose": "composition-master",
     "pendingAcknowledged": [
-     "E: Winnie -- The assay office is her room and no approved casting reference for her exists anywhere in the repository. reference/casting/ holds the coach, the driver and Hob. E is UNSATISFIED for Room 5 until she is cast. (docs/36-issue-list.md::Q22 \u00b7 ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
+     "E: Winnie -- The assay office is her room and no approved casting reference for her exists anywhere in the repository. reference/casting/ holds the coach, the driver and Hob. E is UNSATISFIED for Room 5 until she is cast. (docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
     ],
     "visualType": "interior-institutional",
     "slots": [
@@ -944,7 +944,7 @@
     "room": "room-05-assay-office",
     "purpose": "composition-master",
     "pendingAcknowledged": [
-     "E: Winnie -- The composition master she was first drawn in (composition-master-01) was REJECTED by Tyler as visual ancestry. She must be re-cast from a corrected master that is anchored to the approved Room 1 / Thad rendering. E is unsatisfied until that master exists. (docs/36-issue-list.md::Q22 \u00b7 ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
+     "E: Winnie -- The composition master she was first drawn in (composition-master-01) was REJECTED by Tyler as visual ancestry. She must be re-cast from a corrected master that is anchored to the approved Room 1 / Thad rendering. E is unsatisfied until that master exists. (docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
     ],
     "visualType": "interior-institutional",
     "slots": [
@@ -1051,7 +1051,7 @@
    "visual_accepted": true,
    "acceptedBy": "Tyler",
    "acceptedOn": "2026-09-04",
-   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: composition/casting master 02 \u2014 accepted as visual ancestry (reference, never a shipping plate). Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: composition/casting master 02 — accepted as visual ancestry (reference, never a shipping plate). Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
   },
   {
    "attempt": 3,
@@ -1373,7 +1373,7 @@
    "visual_accepted": true,
    "acceptedBy": "Tyler",
    "acceptedOn": "2026-09-04",
-   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the DAY plate: plate-02/candidate-1920x864.png (c0afe61efcf6) \u2014 ROOM 5 DAY VISUAL CANDIDATE. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the DAY plate: plate-02/candidate-1920x864.png (c0afe61efcf6) — ROOM 5 DAY VISUAL CANDIDATE. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
   },
   {
    "attempt": 1,
@@ -1662,7 +1662,7 @@
    "usageNote": "NOT CAPTURED. The driver threw on the role check AFTER the API had returned and the file had landed (22:02 UTC), so the response usage object was lost with the process. This row was written from the same request data minutes later: the paths, hashes, prompt hash and output hash are recomputed from the files; the token count for this one operation is unknown and the spend tally undercounts by it.",
    "state": "night",
    "editedFrom": "art/staging/room-05/plate-source-03-night.png",
-   "accounting": "POST-PILOT OWNER VISUAL REVISION \u2014 +1 IMAGE OPERATION (the autonomous pilot stays 8/8)",
+   "accounting": "POST-PILOT OWNER VISUAL REVISION — +1 IMAGE OPERATION (the autonomous pilot stays 8/8)",
    "note": "THE HANGING WORK LAMP, owner-ruled canon (Tyler, 2026-09-04): one small plain period oil lamp hung from the brass cage over the ledger. Acquired IN CONTEXT by editing the night source; this image exists to be cut -- the lamp is extracted as a separate RGBA prop drawn over the unchanged DAY and NIGHT plates. The edited room is not a plate.",
    "recordedLate": true,
    "gates": {
@@ -1709,6 +1709,135 @@
    "acceptedBy": "Tyler",
    "acceptedOn": "2026-09-04",
    "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the hanging work lamp as a prop: lamp-01/hanging-lamp-overlay.png (5575e30126f2), its placement, day and night appearance, and the runtime task light. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
+  },
+  {
+   "attempt": 1,
+   "role": "other",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1536",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/thad/prompts/profile-stride-01.txt",
+   "promptHash": "04c11a2ea8d6c9759df61cc509925cc625d0cc19ecb1ff1ac730132286156a35",
+   "references": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+   "sourcePath": "reference/casting/thad-stand-right-src.png",
+   "out": "art/staging/thad/profile-stride-01.png",
+   "outputHash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
+   "bytes": 1263099,
+   "usage": {
+    "input_tokens": 3386,
+    "input_tokens_details": {
+     "image_tokens": 2720,
+     "text_tokens": 666
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 3729
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T00:33:55.999Z",
+   "assetId": "thad-profile-walk-continuity",
+   "subject": "thad",
+   "roleNote": "A profile STRIDE SOURCE for the rig -- a pose of the approved Family-A identity, whose canonical stills predate this ledger (reference/casting/thad-stand-*-src.png), so it is neither the canonical design nor a ledger-derived state. Owner-authorized, 1/1.",
+   "identityFamily": "A",
+   "familyASources": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+    }
+   ],
+   "authorizedBy": "Tyler, THAD PROFILE WALK -- OWNER-AUTHORIZED GLOBAL CHARACTER ART REVISION (2026-09-05)",
+   "gates": {
+    "path": "art/staging/thad/profile-stride-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1536, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T00:33:56.102Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T00:33:56.003Z"
   }
  ],
  "promotions": []
