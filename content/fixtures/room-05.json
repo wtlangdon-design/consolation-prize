@@ -1,0 +1,163 @@
+{
+  "schema": 1,
+  "note": "ROOM 5 PLAYTEST FIXTURES (doc 36 Q111). Named game states a review URL starts from: `?fixture=<id>` restores one exactly as a save is restored. DATA, NOT CONTENT: flag and item ids, a room, pointers to the documents each state is derived from, and what the build has not built. Every fixture is a state the DESIGN reaches; where the build lacks the writer of a flag it sets, `notBuilt` says so. tools/check-fixtures.mjs refuses an undeclared flag or item, an unknown room, and a combination the documents forbid.",
+  "fixtures": [
+    {
+      "id": "r5-a",
+      "label": "R5-A Act I first visit",
+      "room": "assay_office",
+      "flags": {
+        "T_OPENING_SAID": true,
+        "T_DRIVER_ASKED": 3,
+        "T_COACH_DEPARTED": true,
+        "T_UNDERTAKER_NAMED": true,
+        "T_HOB_CROSSING": true,
+        "T_THAD_LEAVING": true,
+        "T_HOB_SPOKEN": true,
+        "T_HOB_GONE": true,
+        "T_OPENING_DONE": true,
+        "T_SEEN_MAIN_STREET": true,
+        "T_CASE_DOWN": true,
+        "T_CASE_TAKEN": true
+      },
+      "inventory": [
+        "letter",
+        "tuning_fork",
+        "four_dollars"
+      ],
+      "derivedFrom": [
+        "docs/17-opening-sequence.md (the opening, complete)",
+        "docs/04-dialogue-trees.md:69 (ACT I root WIN_A1)",
+        "proofs/room-05/act1.json (the accepted first visit)",
+        "content/rooms/stage-road.json (the case gives the letter, the fork and the four dollars; all three are held on the first visit)"
+      ],
+      "expect": {
+        "tree": "WINNIE",
+        "opensOn": "WIN_A1",
+        "interactables": [
+          "floorboard",
+          "scales",
+          "queue_book",
+          "her_pen",
+          "window_sign",
+          "certificate",
+          "stove",
+          "hanging_lamp",
+          "sample_shelves"
+        ],
+        "absent": [
+          "queue_bench"
+        ]
+      },
+      "note": "The accepted baseline: the opening played, Main Street seen, the case taken; ACT 1; no Act I topic flag (the hotel clerk and undertaker are stubs, so none can be earned)."
+    },
+    {
+      "id": "r5-b",
+      "label": "R5-B Act II queue problem",
+      "room": "assay_office",
+      "flags": {
+        "T_OPENING_SAID": true,
+        "T_DRIVER_ASKED": 3,
+        "T_COACH_DEPARTED": true,
+        "T_UNDERTAKER_NAMED": true,
+        "T_HOB_CROSSING": true,
+        "T_THAD_LEAVING": true,
+        "T_HOB_SPOKEN": true,
+        "T_HOB_GONE": true,
+        "T_OPENING_DONE": true,
+        "T_SEEN_MAIN_STREET": true,
+        "T_CASE_DOWN": true,
+        "T_CASE_TAKEN": true,
+        "T_BORDERS_MOTT": true,
+        "T_SWINDLED": true,
+        "ACT": 2
+      },
+      "inventory": [
+        "tuning_fork",
+        "deed",
+        "company_map"
+      ],
+      "derivedFrom": [
+        "docs/02-puzzle-graph.md:32 (A9 File the deed, Room 7: Prosperity borders Mott's claim -- T_BORDERS_MOTT)",
+        "docs/02-puzzle-graph.md:33 and docs/48-act-turn-beats.md:17-30 (A10, S1 at Fanshawe's dinner, Room 11: T_SWINDLED, ACT 2)",
+        "docs/02-puzzle-graph.md:126-133 (the item ledger at A10: deed held and cannot be lost; Company map reissued; the fork never leaves; the watch traded away at A3, the four dollars spent)",
+        "docs/04-dialogue-trees.md:98 (WIN_B1 opens after T_BORDERS_MOTT)",
+        "docs/05-examine-layer.md:1357-1359 (the queue bench, acts 2-4)"
+      ],
+      "notBuilt": [
+        "the writers of T_BORDERS_MOTT (A9) and ACT (S1): neither Room 7 nor Room 11 exists, so no play reaches this state yet -- check-flag-order's standing red",
+        "Fanshawe's handkerchief (A10) is not an item in the build and is not listed",
+        "T_SURVEY_NEEDED and the other Act I topic flags doc 04 declares are not declared in the build and cannot be set",
+        "WIN_B1 option 3's 'She stops writing' staging",
+        "the queue bench's LOOK is post-C5 prose on an ACT-only gate (doc 36 Q109)",
+        "the letter's status after Act I is unspecified in the item ledger, so it is not listed"
+      ],
+      "expect": {
+        "tree": "WINNIE",
+        "opensOn": "WIN_B1",
+        "interactables": [
+          "queue_bench",
+          "floorboard",
+          "scales",
+          "queue_book"
+        ]
+      },
+      "note": "Thad has filed the deed, been swindled at Fanshawe's dinner, and comes to the assay office with the queue in front of him. Nothing of C1 onward is pre-answered: T_ASSAY_QUEUE is his to earn in WIN_B1."
+    },
+    {
+      "id": "r5-g",
+      "label": "R5-G Act IV real-gold assay (WIN_F1 material only)",
+      "room": "assay_office",
+      "flags": {
+        "T_OPENING_SAID": true,
+        "T_DRIVER_ASKED": 3,
+        "T_COACH_DEPARTED": true,
+        "T_UNDERTAKER_NAMED": true,
+        "T_HOB_CROSSING": true,
+        "T_THAD_LEAVING": true,
+        "T_HOB_SPOKEN": true,
+        "T_HOB_GONE": true,
+        "T_OPENING_DONE": true,
+        "T_SEEN_MAIN_STREET": true,
+        "T_CASE_DOWN": true,
+        "T_CASE_TAKEN": true,
+        "T_BORDERS_MOTT": true,
+        "T_SWINDLED": true,
+        "T_ASSAY_QUEUE": true,
+        "T_NO_MOTT_GOLD": true,
+        "T_SECOND_LEDGER": true,
+        "T_STRIKE_FOUND": true,
+        "ACT": 4
+      },
+      "inventory": [
+        "tuning_fork",
+        "deed",
+        "company_map",
+        "pickaxe"
+      ],
+      "derivedFrom": [
+        "docs/04-dialogue-trees.md:170-176 (WIN_F1 after T_STRIKE_FOUND; 'Run it.' -- she runs it at the window, the first assay the player watches)",
+        "docs/02-puzzle-graph.md:116-118 (F1-F3: the strike needs the fork and the pickaxe)",
+        "docs/48-act-turn-beats.md:61-70 and docs/00-errata.md:1781-1784 (S4's close sets ACT 4)",
+        "docs/02-puzzle-graph.md:64-69 and docs/04-dialogue-trees.md:106,124-126 (C1 T_ASSAY_QUEUE; WIN_B2's rows T_NO_MOTT_GOLD and T_SECOND_LEDGER, consumed on the way to C6 and E4; WIN_F1 option 2 presumes the nineteen names were read)"
+      ],
+      "notBuilt": [
+        "the writers of T_STRIKE_FOUND (F3), ACT 3 and 4 (S2, S4), T_HOB_IS_MOTT and T_STRIKE_WAS_LIE (S4; not declared in the build), T_FUNERAL_DONE (S2; not declared)",
+        "the gold sample WIN_F1 has her look at, Document B, the death certificate: none is an item in the build, so none is held",
+        "WIN_F1's payoff: 'Run it.' sets no flag, gives no item and stages no assay at the window -- the documents name no output for it, and no signature state exists; F5's certification (WIN_F2) is doc 48 S6 in Room 7, not extracted",
+        "WIN_B3 (the second ledger) and WIN_C1 (the death certificate) are not extracted, so the Act II-III material this state stands after cannot be played",
+        "the letter's status after Act I is unspecified in the item ledger, so it is not listed"
+      ],
+      "expect": {
+        "tree": "WINNIE",
+        "opensOn": "WIN_F1",
+        "interactables": [
+          "queue_bench",
+          "floorboard",
+          "scales"
+        ]
+      },
+      "note": "The strike found, ACT 4: WIN_F1's exchange and its rows are what this state offers. The assay itself is unbuilt and undocumented in outcome; the state is exposed so the authored WIN_F1 material can be reviewed, and it is labelled partial."
+    }
+  ]
+}

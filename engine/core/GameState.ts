@@ -1,12 +1,12 @@
 import type {
-  ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion,
+  ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture,
 } from './types.ts';
 import { cameraAt, cameraFollow, roomWidth } from './Camera.ts';
 import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
 import { FlagStore } from './FlagStore.ts';
 import { DialogueRunner } from './DialogueRunner.ts';
 import { VerbSystem, type ResolvedAction } from './VerbSystem.ts';
-import { SaveManager, type StorageLike } from './SaveManager.ts';
+import { SaveManager, type SaveFile, type StorageLike } from './SaveManager.ts';
 import { MenuSystem } from './MenuSystem.ts';
 import { pureResolution } from './Assertions.ts';
 
@@ -180,14 +180,16 @@ export class GameState {
   private readonly journals: JournalSource;
   private serial = 0;
 
-  constructor(content: ContentBundle, storage: StorageLike, journals?: JournalSource) {
+  constructor(content: ContentBundle, storage: StorageLike, journals?: JournalSource, saveKey?: string) {
     this.content = content;
     this.journals = journals ?? localJournals();
     this.flags = new FlagStore(content.flags);
     this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks,
       content.combinations);
     this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals);
-    this.saves = new SaveManager(storage);
+    // A PLAYTEST FIXTURE SAVES UNDER ITS OWN KEY, so a review session's
+    // autosaves never overwrite the player's real game.
+    this.saves = saveKey ? new SaveManager(storage, saveKey) : new SaveManager(storage);
     this.menu = new MenuSystem(content.menu, this.saves,
       (id) => content.rooms.get(id)?.name ?? id);
     this.currentRoomId = content.manifest.startRoom;
@@ -1046,6 +1048,34 @@ export class GameState {
   load(slot: number | null = null): boolean {
     const save = slot === null ? this.saves.read() : this.saves.readSlot(slot);
     if (!save) return false;
+    return this.restoreFrom(save);
+  }
+
+  /**
+   * A PLAYTEST FIXTURE IS RESTORED EXACTLY AS A SAVE IS. It is turned into a
+   * save file first -- the fork held, the declared initial value of every
+   * flag it does not name, no dialogue in progress, no standing position --
+   * and goes through `restoreFrom`, so a fixture can only express what a
+   * save can express and lands in the same state a load would. Undeclared
+   * flags are dropped by `FlagStore.restore`; `tools/check-fixtures.mjs`
+   * refuses them, and the documented prerequisites, at build time.
+   */
+  applyFixture(fixture: PlaytestFixture): boolean {
+    const held = new Set([...this.startingInventory(), ...(fixture.inventory ?? [])]);
+    return this.restoreFrom({
+      version: 1,
+      room: fixture.room,
+      inventory: [...held].filter((id) => this.content.items.has(id)),
+      reputation: 0,
+      objectStates: fixture.objectStates ?? {},
+      taken: [],
+      flags: fixture.flags,
+      dialogueProgress: {},
+      dialoguePosition: { tree: null, node: null },
+    });
+  }
+
+  private restoreFrom(save: SaveFile): boolean {
     if (!this.content.rooms.has(save.room)) return false;
 
     this.flags.restore(save.flags);

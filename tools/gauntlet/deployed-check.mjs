@@ -18,7 +18,8 @@ const DAY = `${base}?room=assay_office&candidate=art/backgrounds/room-05-assay-o
 const NIGHT = `${base}?room=assay_office&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&pace=1.25`;
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox'] });
 const out = { deployedSha: process.env.SHA, served: 'dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/', runs: [] };
-for (const [name, url] of [['day', DAY], ['night', NIGHT]]) {
+const FIXTURES = ['r5-a', 'r5-b', 'r5-g'].map((id) => [`fixture-${id}`, `${NIGHT.replace('?room=assay_office&', `?fixture=${id}&`)}`]);
+for (const [name, url] of [['day', DAY], ['night', NIGHT], ...FIXTURES]) {
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
   const responses = []; const errors = [];
   page.on('response', (r) => { if (r.request().resourceType() !== 'document') responses.push({ url: r.url().replace(base, ''), status: r.status() }); });

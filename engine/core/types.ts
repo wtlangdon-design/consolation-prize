@@ -1340,6 +1340,13 @@ export interface ManifestFile {
   puzzles: string[];
   /** Doc 17's opening and anything else authored as beats rather than a tree. */
   sequences: string[];
+  /**
+   * Playtest FIXTURES: named, validated game states a URL can start from
+   * (`?fixture=<id>`), for reviewing a room's later-act material without
+   * playing the game up to it. Data, never content: flags, counters, the
+   * inventory, object states, a room. Doc 36 Q111.
+   */
+  fixtures?: string[];
   /** Which sequence plays on a new game, by id. */
   openingSequence?: string;
   /** The player character's sheet and clip table. */
@@ -1554,6 +1561,8 @@ export interface ContentBundle {
   /** Every declared record by id, the protagonist among them. */
   actors: Map<string, ActorFile>;
   items: Map<string, ItemFile>;
+  /** Playtest fixtures by id. Empty unless the manifest lists any. */
+  fixtures: Map<string, PlaytestFixture>;
   panel: PanelFile;
   combinations: CombinationsFile;
   itemIcons: ItemIconsFile;
@@ -1827,3 +1836,34 @@ export interface MenuFile {
   };
   notices: { saved: string; restored: string; noSave: string };
 }
+
+/**
+ * A PLAYTEST FIXTURE: a game state a review URL starts from. Applied through
+ * the same path a saved game is restored through, so it can only express
+ * what a save can, and validated by tools/check-fixtures.mjs against the
+ * declared flags, items, rooms and the documented prerequisites. It carries
+ * no words of the fiction; `derivedFrom` points at the documents.
+ */
+export interface PlaytestFixture {
+  id: string;
+  /** A short label for the person choosing it. Developer text. */
+  label: string;
+  /** The room to start in. */
+  room: string;
+  /** Flags and counters, by id. Undeclared ids are refused by the check. */
+  flags: Record<string, FlagValue>;
+  /** Item ids held. The fork is always held and need not be listed. */
+  inventory?: string[];
+  /** Doc 22 item 9 object states, keyed "room/object". */
+  objectStates?: Record<string, string>;
+  /** Where the documents put this state, and what the build has not built yet. */
+  derivedFrom?: string[];
+  notBuilt?: string[];
+  /**
+   * What the state must show, for the proof: the dialogue node the named
+   * tree opens on, and interactables that must exist in the room.
+   */
+  expect?: { tree?: string; opensOn?: string; interactables?: string[] };
+  note?: string;
+}
+

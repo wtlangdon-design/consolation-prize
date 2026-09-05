@@ -56,6 +56,7 @@ import { check as cameraSpace } from './check-camera-space.mjs';
 import { check as buildLedger } from './check-build-ledger.mjs';
 import { check as occlusion } from './check-occlusion.mjs';
 import { check as roomReadiness } from './check-room-readiness.mjs';
+import { check as fixtures } from './check-fixtures.mjs';
 import { check as fontCandidates } from './font/check-candidates.mjs';
 
 /**
@@ -88,6 +89,7 @@ import { check as fontCandidates } from './font/check-candidates.mjs';
  * are wanted back. What changes is that a green run no longer counts them.
  */
 const CHECKS = [
+  fixtures,
   bandsTile,
   cyclingLands,
   treeSpeakers,

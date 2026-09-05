@@ -4,6 +4,7 @@ import Phaser from 'phaser';
 import { planBoot } from '../core/BootAssets.ts';
 import { fetchReader, loadContent } from '../core/ContentLoader.ts';
 import { GameState } from '../core/GameState.ts';
+import { askedFixture, FIXTURE_SAVE_KEY } from '../dev/Fixture.ts';
 import { BOOT_SCENE, GAME_SCENE, REGISTRY_STATE } from './keys.ts';
 
 /**
@@ -42,7 +43,9 @@ export class BootScene extends Phaser.Scene {
       await Promise.all(pending);
     }
 
-    const state = new GameState(bundle, window.localStorage);
+    // A fixture session keeps its saves apart from the player's game.
+    const state = new GameState(bundle, window.localStorage, undefined,
+      askedFixture() ? FIXTURE_SAVE_KEY : undefined);
     state.load();
     this.registry.set(REGISTRY_STATE, state);
     this.scene.start(GAME_SCENE);

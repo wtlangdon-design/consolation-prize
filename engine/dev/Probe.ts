@@ -114,6 +114,8 @@ export interface FrameReport {
    * stale prompt drawn above them made it one more. Never the words.
    */
   choiceLines: number;
+  /** The open dialogue tree and node, by id. Null when no tree is open. Never the words. */
+  dialogueAt: { tree: string | null; node: string | null };
   /**
    * The room's own shipping asset paths, as the ROOM FILE declares them.
    *

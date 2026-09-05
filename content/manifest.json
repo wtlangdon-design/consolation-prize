@@ -40,6 +40,9 @@
  "sequences": [
   "content/sequences/opening.json"
  ],
+ "fixtures": [
+  "content/fixtures/room-05.json"
+ ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
  "panel": "content/ui/panel.json",
