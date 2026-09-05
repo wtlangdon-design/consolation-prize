@@ -1,47 +1,47 @@
 {
- "label": "Room 1 new walk pace B",
+ "label": "stage-road",
  "legs": [
   {
    "leg": 1,
    "from": [
-    1144,
-    811
+    1158,
+    812
    ],
    "to": [
     399,
     759
    ],
-   "pathPx": 747,
-   "seconds": 3.0,
-   "pxPerSec": 249.8
+   "pathPx": 761,
+   "seconds": 4.0,
+   "pxPerSec": 188.8
   },
   {
    "leg": 2,
    "from": [
-    656,
+    643,
     759
    ],
    "to": [
     1500,
     759
    ],
-   "pathPx": 844,
-   "seconds": 4.0,
-   "pxPerSec": 213.7
+   "pathPx": 857,
+   "seconds": 4.1,
+   "pxPerSec": 211.6
   },
   {
    "leg": 3,
    "from": [
-    1258,
-    779
+    1250,
+    780
    ],
    "to": [
     699,
     825
    ],
-   "pathPx": 561,
+   "pathPx": 553,
    "seconds": 3.0,
-   "pxPerSec": 185.7
+   "pxPerSec": 184.9
   }
  ],
  "captures": {

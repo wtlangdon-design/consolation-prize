@@ -1,33 +1,47 @@
 {
- "label": "Nugget new walk pace B",
+ "label": "nugget",
  "legs": [
   {
    "leg": 1,
    "from": [
-    698,
-    779
+    712,
+    780
    ],
    "to": [
     1497,
     759
    ],
-   "pathPx": 843,
+   "pathPx": 829,
    "seconds": 3.0,
-   "pxPerSec": 278.1
+   "pxPerSec": 278.0
   },
   {
    "leg": 2,
    "from": [
-    1126,
-    815
+    1198,
+    816
    ],
    "to": [
     900,
     540
    ],
-   "pathPx": 417,
+   "pathPx": 484,
    "seconds": 2.0,
-   "pxPerSec": 208.7
+   "pxPerSec": 238.6
+  },
+  {
+   "leg": 3,
+   "from": [
+    900,
+    812
+   ],
+   "to": [
+    900,
+    840
+   ],
+   "pathPx": 28,
+   "seconds": 1.0,
+   "pxPerSec": 28.9
   }
  ],
  "captures": {

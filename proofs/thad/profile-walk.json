@@ -606,6 +606,231 @@
   "liveStrips": {
    "right": "renders/thad-profile-walk-live-right.png",
    "left": "renders/thad-profile-walk-live-left.png"
+  },
+  "proofRuns": {
+   "room5ProfileWalk": {
+    "record": "renders/proofs/assay-office-lamp-night/profile-walk/frames.json",
+    "commit": "a6da303",
+    "pace": 1.25,
+    "samples": 207,
+    "summary": {
+     "changes": 52,
+     "clipsSeen": [
+      "idle",
+      "walk",
+      "idle-break"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 1
+    },
+    "walkFramesWhileNotMoving": 0
+   },
+   "room5StartStop": {
+    "record": "renders/proofs/assay-office-lamp-night/startstop/frames.json",
+    "commit": "a6da303",
+    "pace": 1.25,
+    "samples": 830,
+    "summary": {
+     "changes": 202,
+     "clipsSeen": [
+      "walk",
+      "idle",
+      "idle-break"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 1
+    },
+    "walkFramesWhileNotMoving": 0
+   },
+   "room5Stationary": {
+    "record": "renders/proofs/assay-office-lamp-night/stationary/frames.json",
+    "commit": "a5ce4eb",
+    "pace": 1.25,
+    "samples": 665,
+    "summary": {
+     "changes": 69,
+     "clipsSeen": [
+      "idle",
+      "walk",
+      "idle-break"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 4
+    },
+    "walkFramesWhileNotMoving": 0
+   },
+   "room5FrameOrderObserved": "walk-00 -> walk-01 -> walk-02 -> walk-00 in both facings (100 ms polling misses some frames at 2.9 steps/s; the order never reversed)",
+   "crossRoom": {
+    "stageRoad": {
+     "record": "renders/proofs/stage-road/walk-new/life.json",
+     "commit": "a5ce4eb",
+     "pace": 1.25,
+     "arrivals": [
+      {
+       "name": "w1-far-left",
+       "at": [
+        399,
+        759
+       ],
+       "height": 242,
+       "clip": "idle"
+      },
+      {
+       "name": "w2-across-right",
+       "at": [
+        1500,
+        759
+       ],
+       "height": 242,
+       "clip": "idle"
+      },
+      {
+       "name": "w3-back-near",
+       "at": [
+        699,
+        825
+       ],
+       "height": 261,
+       "clip": "idle"
+      }
+     ]
+    },
+    "mainStreet": {
+     "record": "renders/proofs/main-street/walk-new/life.json",
+     "commit": "a5ce4eb",
+     "pace": 1.25,
+     "arrivals": [
+      {
+       "name": "w1-west",
+       "at": [
+        2399,
+        699
+       ],
+       "height": 147,
+       "clip": "idle"
+      },
+      {
+       "name": "w2-east-near",
+       "at": [
+        3299,
+        829
+       ],
+       "height": 195,
+       "clip": "idle"
+      },
+      {
+       "name": "w3-far",
+       "at": [
+        2899,
+        600
+       ],
+       "height": 111,
+       "clip": "idle"
+      }
+     ]
+    },
+    "nugget": {
+     "record": "renders/proofs/nugget/walk-new/life.json",
+     "commit": "a5ce4eb",
+     "pace": 1.25,
+     "arrivals": [
+      {
+       "name": "w1-across",
+       "at": [
+        1497,
+        759
+       ],
+       "height": 387,
+       "clip": "idle-break"
+      },
+      {
+       "name": "w2-far",
+       "at": [
+        900,
+        540
+       ],
+       "height": 228,
+       "clip": "idle"
+      },
+      {
+       "name": "w3-near",
+       "at": [
+        900,
+        840
+       ],
+       "height": 446,
+       "clip": "idle"
+      }
+     ]
+    },
+    "assayOfficeNight": {
+     "record": "renders/proofs/assay-office-lamp-night/walk-new/life.json",
+     "commit": "a5ce4eb",
+     "pace": 1.25,
+     "arrivals": [
+      {
+       "name": "w1-across",
+       "at": [
+        1690,
+        765
+       ],
+       "height": 515,
+       "clip": "idle"
+      },
+      {
+       "name": "w2-rear",
+       "at": [
+        999,
+        703
+       ],
+       "height": 472,
+       "clip": "idle"
+      },
+      {
+       "name": "w3-near",
+       "at": [
+        999,
+        828
+       ],
+       "height": 559,
+       "clip": "idle"
+      },
+      {
+       "name": "w4-back-left",
+       "at": [
+        450,
+        765
+       ],
+       "height": 515,
+       "clip": "idle-break"
+      }
+     ]
+    }
+   },
+   "crossRoomSpeeds125": {
+    "stageRoad": "185-212 px/s at 242-261 px",
+    "mainStreet": "118-154 px/s at 111-195 px",
+    "nugget": "239-278 px/s at 228-446 px",
+    "assayOffice": "474 px/s at 515 px",
+    "note": "translation unchanged from the fourth cut; only the frames and the stride cadence changed"
+   },
+   "anatomyGate": "every runtime frame viewed at source (690x648 canvas) and at Room 5 gameplay scale in the live strips: complete body, no cut, no severed or floating limb, both feet grounded in every frame; passing pose feet overlap as drawn",
+   "room1WalkBurst": {
+    "record": "renders/proofs/stage-road/walk-burst/frames.json",
+    "commit": "a5ce4eb",
+    "pace": 1.25,
+    "summary": {
+     "changes": 83,
+     "clipsSeen": [
+      "idle",
+      "walk"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 0
+    },
+    "walkingStills": 9,
+    "heightPx": 242
+   }
   }
  }
 }
