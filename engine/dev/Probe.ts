@@ -109,6 +109,12 @@ export interface FrameReport {
   /** How many dialogue options are on offer. Errata 37 is revoked: none vanish. */
   options: number;
   /**
+   * How many text lines the choice interface draws while choosing. Doc 30
+   * section 14: the options and nothing else, so this equals `options`; a
+   * stale prompt drawn above them made it one more. Never the words.
+   */
+  choiceLines: number;
+  /**
    * The room's own shipping asset paths, as the ROOM FILE declares them.
    *
    * Reported rather than derived by the harness from the same JSON, because

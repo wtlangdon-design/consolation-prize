@@ -1487,6 +1487,12 @@
  ],
  "reentryAmbiguity": "every TALK TO opens WIN_A1 and replays its three-line opening (doc 30 line 213); the soil-assay row is [PROGRESS · remove] in doc 04 but the runtime has no afterUse consumer (errata 57 interim: every option behaves as retain), so it stays, greyed, and re-selecting it replays its exchange and goes to WIN_A2; counted-repeat rows are greyed like the rest. Reported, not resolved.",
  "laterActAudit": "docs/36-issue-list.md Q109",
- "deployment": null,
+ "deployment": {
+  "mergeCommit": "0376119",
+  "pullRequest": "https://github.com/wtlangdon-design/consolation-prize/pull/17",
+  "deployedCheck": "proofs/room-05/deployed-check.json (day and night URLs load every declared asset, no page errors, no legacy plate)",
+  "actIUrl": "https://wtlangdon-design.github.io/consolation-prize/?room=assay_office&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&pace=1.25&v=0376119",
+  "urlNote": "ONE URL: night plate, Winnie and inkstand relights, the hanging lamp by state, treatment C floorboard by state without override, the frozen gait, ACT I state (a fresh start warped into Room 5; leaving by the street door plays Main Street's first sight once), pace B 1.25 for the proof only. No second URL: no later-Act-I topic state is producible by play."
+ },
  "at": "2026-09-05T10:05:35.818Z"
 }

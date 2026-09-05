@@ -18,7 +18,7 @@ import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/Can
 import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
-import { Renderer } from '../render/Renderer.ts';
+import { Renderer, choiceLines } from '../render/Renderer.ts';
 import {
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
@@ -1690,6 +1690,10 @@ export class GameScene extends Phaser.Scene {
       says: this.sayLines.length > 0 ? this.sayingActor : null,
       options: this.state.dialogue.isActive
         ? this.state.dialogue.presentOptions().length : 0,
+      // Exactly the renderer's own condition: the list is hidden while an
+      // exchange performs, so nothing is drawn and nothing is counted.
+      choiceLines: this.state.dialogue.isActive && this.performance === null
+        ? choiceLines(this.state.dialogue.presentOptions(), this.state.content.ui.dialogue).lines.length : 0,
       assets: this.roomAssets(),
       flags: this.state.flags.trueIds(),
       counters: this.state.flags.counters(),
