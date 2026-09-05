@@ -49,13 +49,13 @@ function walk(steps: StepTriggers, from: [number, number], to: [number, number],
 }
 
 test('the segment clip sees a crossing that never lands a frame inside the tread', () => {
-  const tread: [number, number, number, number] = [960, 707, 138, 18];
-  assert.equal(segmentCrossesRect(1000, 700, 1000, 740, tread), true);
-  assert.equal(segmentCrossesRect(900, 730, 1150, 700, tread), true);
-  assert.equal(segmentCrossesRect(900, 760, 1150, 760, tread), false);
-  assert.equal(segmentCrossesRect(940, 700, 940, 740, tread), false);
-  assert.equal(insideRect(1000, 712, tread), true);
-  assert.equal(insideRect(1000, 730, tread), false);
+  const tread: [number, number, number, number] = [100, 50, 140, 18];
+  assert.equal(segmentCrossesRect(150, 40, 150, 80, tread), true);
+  assert.equal(segmentCrossesRect(50, 75, 300, 45, tread), true);
+  assert.equal(segmentCrossesRect(50, 100, 300, 100, tread), false);
+  assert.equal(segmentCrossesRect(90, 40, 90, 80, tread), false);
+  assert.equal(insideRect(150, 55, tread), true);
+  assert.equal(insideRect(150, 75, tread), false);
 });
 
 test('a walk across the board presses it once, standing on it presses it no more, stepping off re-arms it', async () => {

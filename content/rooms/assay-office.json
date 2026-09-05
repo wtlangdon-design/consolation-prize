@@ -87,77 +87,6 @@
       }
     },
     {
-      "id": "floorboard",
-      "name": "THE FLOORBOARD",
-      "rect": [
-        880,
-        704,
-        240,
-        36
-      ],
-      "colour": 197,
-      "defaultVerb": "LOOK_AT",
-      "state": "rest",
-      "states": {
-        "rest": {
-          "image": "art/staging/room-05/floorboard/board-rest.png",
-          "note": "THE PROUD FLOORBOARD AT REST (Tyler's playtest finding, 2026-09-05): the plank the writing calls proud, lifted two rows out of the accepted plate by tools/pixelart/floorboard.py -- its own pixels, the gap dark under its near edge. Nail-head proud, unmarked, from the first visit. The night plate's own derivation is board-rest-night.png, swapped in with the night plate by the same candidate mechanism the plate uses until Q26 wires the visual state."
-        },
-        "pressed": {
-          "image": "art/staging/room-05/floorboard/board-pressed.png",
-          "note": "The plank flush under a foot: the plate's own pixels. Held a moment after the step, then back to rest."
-        }
-      },
-      "step": {
-        "tread": [
-          960,
-          707,
-          138,
-          18
-        ],
-        "pressed": "pressed",
-        "rest": "rest",
-        "holdMs": 220,
-        "caption": "CREEEAK",
-        "captionMs": 900,
-        "captionAt": [
-          1029,
-          706
-        ],
-        "cue": "R05-FLOOR-STEP",
-        "note": "The tread is the wood (rows 707-724, cols 960-1097 on the plate), not the hotspot rect. Thad's feet baseline swept across it presses the board once, says CREEEAK at the board as a world sound and fires doc 45's R05-FLOOR-STEP; standing on it is silent; it re-arms when his feet leave the wood."
-      },
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A floorboard. It sits a little proud of the others.",
-            "repeat": [
-              "Proud by about the width of a nail head.",
-              "Every other board in this room is flush. She has not fixed this one."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Loose. There's a space under it.",
-            "repeat": [
-              "Still loose.",
-              "Loose. And nothing under it that rattles."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "PULL": "It gives, and stops. Somebody has arranged for it to give and stop.",
-        "OPEN": "Not with her at the counter."
-      },
-      "walkTo": {
-        "x": 1000,
-        "y": 827,
-        "facing": "back"
-      }
-    },
-    {
       "id": "window_sign",
       "name": "THE WINDOW SIGN",
       "rect": [
@@ -319,6 +248,77 @@
       },
       "walkTo": {
         "x": 973,
+        "y": 828,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "floorboard",
+      "name": "THE FLOORBOARD",
+      "rect": [
+        450,
+        740,
+        310,
+        56
+      ],
+      "colour": 197,
+      "defaultVerb": "LOOK_AT",
+      "state": "rest",
+      "states": {
+        "rest": {
+          "image": "art/staging/room-05/floorboard/board-rest-a.png",
+          "note": "THE PROUD FLOORBOARD AT REST, iteration 2 (Tyler's rejection of iteration 1, 2026-09-05): the middle-band plank between the door step and the joint at x~745, its own pixels lifted unevenly out of the accepted plate by tools/pixelart/floorboard.py -- two rows at the left end, four at the right -- with the gap dark under its near edge. This is treatment A (moderate); B (board-rest-b.png, one step stronger) and the night derivations (-night) are swapped in by the same ?candidate= mechanism the night plate uses, until Q26 wires the visual state."
+        },
+        "pressed": {
+          "image": "art/staging/room-05/floorboard/board-pressed.png",
+          "note": "The plank flush under a foot: the plate's own pixels. Held a moment after the step, then back to rest."
+        }
+      },
+      "step": {
+        "tread": [
+          462,
+          746,
+          284,
+          43
+        ],
+        "pressed": "pressed",
+        "rest": "rest",
+        "holdMs": 220,
+        "caption": "CREEEAK",
+        "captionMs": 900,
+        "captionAt": [
+          603,
+          744
+        ],
+        "cue": "R05-FLOOR-STEP",
+        "note": "The tread is the wood: the plank's own rectangle (cols 462-745, rows 746-788 between its two seams), not the hotspot rect. Thad's feet baseline swept across it presses the board once, says CREEEAK over the board as a world sound and fires doc 45's R05-FLOOR-STEP; standing on it is silent; it re-arms when his feet leave the wood."
+      },
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A floorboard. It sits a little proud of the others.",
+            "repeat": [
+              "Proud by about the width of a nail head.",
+              "Every other board in this room is flush. She has not fixed this one."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Loose. There's a space under it.",
+            "repeat": [
+              "Still loose.",
+              "Loose. And nothing under it that rattles."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It gives, and stops. Somebody has arranged for it to give and stop.",
+        "OPEN": "Not with her at the counter."
+      },
+      "walkTo": {
+        "x": 605,
         "y": 828,
         "facing": "back"
       }
