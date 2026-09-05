@@ -1,0 +1,407 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "ROOM 5 ACT I: WRONG-ACTION AND INPUT PASS. Run by tools/gauntlet/frames.mjs with the probe at 100 ms. Mid-walk redirects, clicks on his own feet, non-walkable clicks, verbs on bare floor, verb churn, a cancelled LOOK, clicks and verbs and exits attempted while Winnie's tree is open, clicks during her lines, exit-door spam, a walk on the first frame after re-entry. The log answers: one owner of the body, no line from a target he did not reach, the room never left while the list is open, control back after every exchange.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    770
+   ],
+   "why": "a long walk right"
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "click",
+   "at": [
+    400,
+    770
+   ],
+   "why": "redirected mid-walk, back left"
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "click",
+   "at": [
+    1100,
+    770
+   ],
+   "why": "and redirected again, right, over the board"
+  },
+  {
+   "do": "burst",
+   "name": "w01-redirects",
+   "seconds": 5,
+   "every": 0.25,
+   "why": "three destinations in three seconds: he follows the last one, one creak at most per crossing"
+  },
+  {
+   "do": "click",
+   "at": [
+    1100,
+    770
+   ],
+   "why": "click where he already stands"
+  },
+  {
+   "do": "click",
+   "at": [
+    1100,
+    770
+   ]
+  },
+  {
+   "do": "click",
+   "at": [
+    1100,
+    770
+   ]
+  },
+  {
+   "do": "burst",
+   "name": "w02-same-spot",
+   "seconds": 2,
+   "every": 0.25,
+   "why": "clicks on his own feet: nothing happens"
+  },
+  {
+   "do": "click",
+   "at": [
+    1200,
+    400
+   ],
+   "why": "a click on the wall, not walkable and not a target"
+  },
+  {
+   "do": "click",
+   "at": [
+    1600,
+    850
+   ],
+   "why": "below the near band"
+  },
+  {
+   "do": "click",
+   "at": [
+    1000,
+    50
+   ],
+   "why": "the top of the frame"
+  },
+  {
+   "do": "burst",
+   "name": "w03-unwalkable",
+   "seconds": 4,
+   "every": 0.25,
+   "why": "non-walkable clicks: he goes to the nearest floor or nowhere, and never off the bands"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "at": [
+    1000,
+    800
+   ],
+   "why": "LOOK at bare floor"
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP"
+  },
+  {
+   "do": "click",
+   "at": [
+    800,
+    810
+   ],
+   "why": "PICK UP bare floor"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "at": [
+    1300,
+    800
+   ],
+   "why": "TALK TO bare floor"
+  },
+  {
+   "do": "burst",
+   "name": "w04-verbs-on-floor",
+   "seconds": 4,
+   "every": 0.25,
+   "why": "a verb on nothing: a walk or nothing, no crash, no line owed"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "verb",
+   "verb": "PULL"
+  },
+  {
+   "do": "verb",
+   "verb": "OPEN"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "at": [
+    700,
+    770
+   ],
+   "why": "verbs changed four times, then a walk"
+  },
+  {
+   "do": "burst",
+   "name": "w05-verb-churn",
+   "seconds": 3,
+   "every": 0.25,
+   "why": "the last verb wins"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "certificate",
+   "why": "LOOK at the certificate: a long walk"
+  },
+  {
+   "do": "wait",
+   "seconds": 0.8
+  },
+  {
+   "do": "click",
+   "at": [
+    500,
+    770
+   ],
+   "why": "interrupted by a walk the other way"
+  },
+  {
+   "do": "burst",
+   "name": "w06-cancelled-look",
+   "seconds": 5,
+   "every": 0.25,
+   "why": "the look is cancelled by the new walk, or completes: either way one owner of the body and no line from a target he did not reach"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "winnie",
+   "why": "TALK TO Winnie"
+  },
+  {
+   "do": "wait",
+   "seconds": 0.7
+  },
+  {
+   "do": "click",
+   "at": [
+    300,
+    800
+   ],
+   "why": "a floor click while he walks to her: the walk to talk should not be lost"
+  },
+  {
+   "do": "waitFor",
+   "says": "winnie",
+   "upTo": 40
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    800
+   ],
+   "why": "a floor click during her first line"
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP"
+  },
+  {
+   "do": "click",
+   "on": "scales",
+   "why": "a verb and a target during the opening"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    800
+   ],
+   "why": "a floor click with the list open"
+  },
+  {
+   "do": "click",
+   "at": [
+    100,
+    400
+   ],
+   "why": "a click on the street door with the list open: must not leave the room"
+  },
+  {
+   "do": "verb",
+   "verb": "OPEN"
+  },
+  {
+   "do": "click",
+   "on": "to_records",
+   "why": "the records door with the list open: must not leave the room"
+  },
+  {
+   "do": "burst",
+   "name": "w07-clicks-in-dialogue",
+   "seconds": 3,
+   "every": 0.25,
+   "why": "the list is still up; Thad still at the dialogue point; room unchanged"
+  },
+  {
+   "do": "option",
+   "option": "winnie2",
+   "why": "What is it you actually do here?"
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    800
+   ],
+   "why": "a floor click during her answer"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 30
+  },
+  {
+   "do": "option",
+   "option": "winnie5",
+   "why": "I should go."
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    800
+   ],
+   "why": "a floor click during the exit"
+  },
+  {
+   "do": "burst",
+   "name": "w08-exit-clicks",
+   "seconds": 4,
+   "every": 0.25,
+   "why": "control comes back cleanly"
+  },
+  {
+   "do": "waitFor",
+   "says": null,
+   "upTo": 30
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    770
+   ],
+   "why": "proof of control: a walk"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "w09-control-proved",
+   "why": "he walked"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "the street door"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "twice"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "three times"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 40
+  },
+  {
+   "do": "wait",
+   "seconds": 1.5
+  },
+  {
+   "do": "click",
+   "on": "to_assay_office",
+   "why": "straight back in"
+  },
+  {
+   "do": "waitFor",
+   "room": "assay_office",
+   "upTo": 40
+  },
+  {
+   "do": "click",
+   "at": [
+    1100,
+    770
+   ],
+   "why": "a walk the instant the room opens"
+  },
+  {
+   "do": "burst",
+   "name": "w10-after-reentry",
+   "seconds": 6,
+   "every": 0.25,
+   "why": "a walk from the arrival point on the first frame of the room"
+  },
+  {
+   "do": "capture",
+   "name": "w11-end",
+   "why": "still in the room, still in control"
+  }
+ ]
+}
