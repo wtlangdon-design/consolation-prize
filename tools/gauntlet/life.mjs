@@ -75,6 +75,11 @@ async function main() {
   try {
     const page = await chrome.newPage();
     page.on('pageerror', (error) => pageErrors.push(String(error.message ?? error)));
+    // A RENDERER CRASH IS A FAILURE WITH A NAME, NOT A LOST RUN. The Act I
+    // pass's first run lost its whole record when the page closed during a
+    // room transition and the contact sheet then threw on the closed page.
+    page.on('crash', () => { pageErrors.push('the page CRASHED (renderer gone)'); log('PAGE CRASHED'); });
+    page.on('close', () => log('page closed'));
     const visualState = flag('--state');
     const pace = flag('--pace');
     const query = [...candidates.map((c) => `candidate=${encodeURIComponent(`${c.from}=${c.to}`)}`),
@@ -207,8 +212,13 @@ async function main() {
     for (const error of pageErrors) failures.push(`page error: ${error}`);
     if (dirty && !allowDirty) failures.push('working tree dirty; re-run with --allow-dirty to record it');
 
-    const sheet = await contactSheet(page, captures.map((c) => ({ name: c.name, url: c.url })));
-    writeFileSync(resolve(ROOT, `${outDir}/contact-sheet.${sheet.ext}`), sheet.bytes);
+    let sheet = null;
+    try {
+      sheet = await contactSheet(page, captures.map((c) => ({ name: c.name, url: c.url })));
+    } catch (error) {
+      failures.push(`contact sheet: ${String(error.message).split('\n')[0]}`);
+    }
+    if (sheet) writeFileSync(resolve(ROOT, `${outDir}/contact-sheet.${sheet.ext}`), sheet.bytes);
     const result = {
       schema: 1,
       note: 'ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.',
