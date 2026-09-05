@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "assay_office",
- "note": "FLOORBOARD STEP SEQUENCE (Tyler, 2026-09-05): approach below the board at rest, step onto the tread (pressed + CREEEAK), stand on it (silent), step off (rest, caption gone). Run by tools/gauntlet/frames.mjs.",
+ "note": "FLOORBOARD STEP SEQUENCE (Tyler, 2026-09-05): a walk along the board's row from left of it to right of it, stills every 0.1 s -- approaching (rest), the foot on the tread (pressed, CREEEAK), the rebound, past it (rest, caption gone). A click INSIDE the hotspot rect is a LOOK, not a walk, so the board is crossed on the way to a point beyond it, which is how it is crossed in play. Run by tools/gauntlet/frames.mjs.",
  "from": "assay_office",
  "actions": [
   {
@@ -11,10 +11,10 @@
   {
    "do": "click",
    "at": [
-    1029,
-    780
+    860,
+    715
    ],
-   "why": "to the floor just below the board: approaches, board at rest"
+   "why": "to the board's row, left of the board: approaching, board at rest"
   },
   {
    "do": "wait",
@@ -23,51 +23,32 @@
   {
    "do": "burst",
    "name": "approach",
-   "seconds": 0.6,
-   "every": 0.2
-  },
-  {
-   "do": "click",
-   "at": [
-    1029,
-    715
-   ],
-   "why": "onto the tread: the board loads once"
-  },
-  {
-   "do": "burst",
-   "name": "step",
-   "seconds": 1.6,
-   "every": 0.1
-  },
-  {
-   "do": "wait",
-   "seconds": 3,
-   "why": "standing on it: silent"
-  },
-  {
-   "do": "burst",
-   "name": "standing",
    "seconds": 0.4,
    "every": 0.2
   },
   {
    "do": "click",
    "at": [
-    1029,
-    790
+    1200,
+    715
    ],
-   "why": "off it: the board is at rest and re-armed"
+   "why": "along the row across the board: the foot loads it once"
   },
   {
    "do": "burst",
-   "name": "off",
-   "seconds": 1.2,
-   "every": 0.2
+   "name": "step",
+   "seconds": 2.2,
+   "every": 0.1
   },
   {
    "do": "wait",
    "seconds": 2
+  },
+  {
+   "do": "burst",
+   "name": "past",
+   "seconds": 0.4,
+   "every": 0.2
   }
  ]
 }

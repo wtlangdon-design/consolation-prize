@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "assay_office",
- "note": "FLOORBOARD CROSSINGS (Tyler, 2026-09-05): ten crossings along the board row, five each way, then twenty seconds standing on it, then off and straight back on. One press per crossing, none while standing. Run at pace 1.25 and 1.5 by tools/gauntlet/frames.mjs.",
+ "note": "FLOORBOARD CROSSINGS (Tyler, 2026-09-05): twelve crossings along the board row, then twenty seconds standing beside it. One press per crossing, none while standing. Run at pace 1.25 and 1.5 by tools/gauntlet/frames.mjs.",
  "from": "assay_office",
  "actions": [
   {
@@ -143,39 +143,27 @@
   {
    "do": "click",
    "at": [
-    1029,
+    1130,
     715
    ],
-   "why": "onto the board and stay"
+   "why": "crossing 11: across and stop just past its right end"
   },
   {
    "do": "wait",
    "seconds": 20,
-   "why": "stationary on the board for twenty seconds: zero creaks"
+   "why": "twenty seconds standing on the row beside the board, having just crossed it: zero further creaks (standing ON it cannot be clicked -- the tread is inside the LOOK hotspot -- and is covered by tests/floorboard.test.ts)"
   },
   {
    "do": "click",
    "at": [
-    1029,
-    790
-   ],
-   "why": "off"
-  },
-  {
-   "do": "wait",
-   "seconds": 2
-  },
-  {
-   "do": "click",
-   "at": [
-    1029,
+    860,
     715
    ],
-   "why": "straight back on after re-arming"
+   "why": "crossing 12: straight back across after re-arming"
   },
   {
    "do": "wait",
-   "seconds": 2
+   "seconds": 3
   }
  ]
 }
