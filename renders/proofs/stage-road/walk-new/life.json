@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "stage_road",
- "commit": "691c0ba55704f71404ddc6376cac0de54edf90c4",
+ "commit": "1602134cfdbba8119f2d9a3d5889e3affab9f790",
  "workingTreeClean": false,
  "dirtyAllowed": true,
  "visualState": null,
@@ -10,66 +10,66 @@
  "candidates": [],
  "entryRoute": "stage-road",
  "lifeRoute": "stage-road-life",
- "durationSeconds": 81.1,
+ "durationSeconds": 80.69,
  "events": [
   {
-   "t": 3.79,
+   "t": 3.57,
    "line": "entry route stage-road: 12 action(s)"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep?"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so the exit opens"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 11 (waitFor): reached {\"control\":\"player\"} in room stage_road"
   },
   {
-   "t": 44.58,
+   "t": 44.16,
    "line": "action 12 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 44.63,
+   "t": 44.22,
    "line": "in stage_road; life route: 10 action(s)"
   },
   {
-   "t": 45.65,
+   "t": 45.28,
    "trace": {
     "says": null,
     "control": null,
@@ -84,7 +84,7 @@
    }
   },
   {
-   "t": 46.65,
+   "t": 46.26,
    "trace": {
     "says": null,
     "control": null,
@@ -99,11 +99,11 @@
    }
   },
   {
-   "t": 47.64,
+   "t": 47.23,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 47.69,
+   "t": 47.27,
    "trace": {
     "says": null,
     "control": null,
@@ -118,11 +118,11 @@
    }
   },
   {
-   "t": 47.8,
+   "t": 47.38,
    "line": "action 1 (click): clicked screen 400,760 -- leg w1-far-left"
   },
   {
-   "t": 48.85,
+   "t": 48.44,
    "trace": {
     "says": null,
     "control": null,
@@ -130,14 +130,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1149,
+     1145,
      811
     ],
     "moving": true
    }
   },
   {
-   "t": 49.83,
+   "t": 49.42,
    "trace": {
     "says": null,
     "control": null,
@@ -145,14 +145,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     896,
-     794
+     892,
+     793
     ],
     "moving": true
    }
   },
   {
-   "t": 50.83,
+   "t": 50.39,
    "trace": {
     "says": null,
     "control": null,
@@ -160,14 +160,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     645,
+     649,
      776
     ],
     "moving": true
    }
   },
   {
-   "t": 51.83,
+   "t": 51.42,
    "trace": {
     "says": null,
     "control": null,
@@ -182,7 +182,7 @@
    }
   },
   {
-   "t": 52.83,
+   "t": 52.42,
    "trace": {
     "says": null,
     "control": null,
@@ -197,7 +197,7 @@
    }
   },
   {
-   "t": 53.84,
+   "t": 53.39,
    "trace": {
     "says": null,
     "control": null,
@@ -212,7 +212,7 @@
    }
   },
   {
-   "t": 54.83,
+   "t": 54.43,
    "trace": {
     "says": null,
     "control": null,
@@ -227,19 +227,19 @@
    }
   },
   {
-   "t": 55.8,
+   "t": 55.38,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 56.34,
+   "t": 55.95,
    "line": "capture w1-far-left: room stage_road, says null, options 0, control null"
   },
   {
-   "t": 56.5,
+   "t": 56.12,
    "line": "action 1 (click): clicked screen 1500,760 -- leg w2-across-right"
   },
   {
-   "t": 57.58,
+   "t": 57.17,
    "trace": {
     "says": null,
     "control": null,
@@ -247,14 +247,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     656,
+     652,
      759
     ],
     "moving": true
    }
   },
   {
-   "t": 58.54,
+   "t": 58.14,
    "trace": {
     "says": null,
     "control": null,
@@ -269,7 +269,7 @@
    }
   },
   {
-   "t": 59.57,
+   "t": 59.13,
    "trace": {
     "says": null,
     "control": null,
@@ -277,14 +277,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1145,
+     1133,
      759
     ],
     "moving": true
    }
   },
   {
-   "t": 60.57,
+   "t": 60.17,
    "trace": {
     "says": null,
     "control": null,
@@ -299,7 +299,7 @@
    }
   },
   {
-   "t": 61.56,
+   "t": 61.17,
    "trace": {
     "says": null,
     "control": null,
@@ -314,7 +314,7 @@
    }
   },
   {
-   "t": 62.56,
+   "t": 62.16,
    "trace": {
     "says": null,
     "control": null,
@@ -329,7 +329,7 @@
    }
   },
   {
-   "t": 63.52,
+   "t": 63.17,
    "trace": {
     "says": null,
     "control": null,
@@ -344,7 +344,7 @@
    }
   },
   {
-   "t": 64.54,
+   "t": 64.17,
    "trace": {
     "says": null,
     "control": null,
@@ -359,7 +359,7 @@
    }
   },
   {
-   "t": 65.55,
+   "t": 65.16,
    "trace": {
     "says": null,
     "control": null,
@@ -374,7 +374,7 @@
    }
   },
   {
-   "t": 66.56,
+   "t": 66.19,
    "trace": {
     "says": null,
     "control": null,
@@ -389,7 +389,7 @@
    }
   },
   {
-   "t": 67.54,
+   "t": 67.15,
    "trace": {
     "says": null,
     "control": null,
@@ -404,19 +404,19 @@
    }
   },
   {
-   "t": 68.51,
+   "t": 68.13,
    "line": "action 1 (wait): waited 12s"
   },
   {
-   "t": 69.01,
+   "t": 68.68,
    "line": "capture w2-across-right: room stage_road, says null, options 0, control null"
   },
   {
-   "t": 69.18,
+   "t": 68.83,
    "line": "action 1 (click): clicked screen 700,825 -- leg w3-back-near"
   },
   {
-   "t": 70.25,
+   "t": 69.84,
    "trace": {
     "says": null,
     "control": null,
@@ -424,14 +424,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1241,
-     780
+     1254,
+     779
     ],
     "moving": true
    }
   },
   {
-   "t": 71.21,
+   "t": 70.84,
    "trace": {
     "says": null,
     "control": null,
@@ -439,14 +439,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1001,
+     1006,
      800
     ],
     "moving": true
    }
   },
   {
-   "t": 72.25,
+   "t": 71.89,
    "trace": {
     "says": null,
     "control": null,
@@ -454,14 +454,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     730,
+     734,
      822
     ],
     "moving": true
    }
   },
   {
-   "t": 73.2,
+   "t": 72.86,
    "trace": {
     "says": null,
     "control": null,
@@ -476,7 +476,7 @@
    }
   },
   {
-   "t": 74.22,
+   "t": 73.84,
    "trace": {
     "says": null,
     "control": null,
@@ -491,7 +491,7 @@
    }
   },
   {
-   "t": 75.23,
+   "t": 74.89,
    "trace": {
     "says": null,
     "control": null,
@@ -506,7 +506,7 @@
    }
   },
   {
-   "t": 76.23,
+   "t": 75.86,
    "trace": {
     "says": null,
     "control": null,
@@ -521,7 +521,7 @@
    }
   },
   {
-   "t": 77.25,
+   "t": 76.89,
    "trace": {
     "says": null,
     "control": null,
@@ -536,7 +536,7 @@
    }
   },
   {
-   "t": 78.22,
+   "t": 77.89,
    "trace": {
     "says": null,
     "control": null,
@@ -551,11 +551,11 @@
    }
   },
   {
-   "t": 79.18,
+   "t": 78.83,
    "line": "action 1 (wait): waited 10s"
   },
   {
-   "t": 79.7,
+   "t": 79.39,
    "line": "capture w3-back-near: room stage_road, says null, options 0, control null"
   }
  ],
@@ -563,11 +563,11 @@
   {
    "name": "w1-far-left",
    "why": null,
-   "t": 56.33,
+   "t": 55.94,
    "file": "renders/proofs/stage-road/walk-new/raw-captures-ignored/w1-far-left.png",
-   "hash": "1d6818da2bdef049865cb38085e0bd4aab782d2832582e1fc185e2b699c64401",
+   "hash": "59cbd7a31475a953d59c76d259e64139ca1f12620b428b600a2773d19e8a72b6",
    "room": "stage_road",
-   "clock": 56.006800000000005,
+   "clock": 55.616699999999994,
    "control": null,
    "says": null,
    "options": 0,
@@ -638,7 +638,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idlebreak-right/idle-break-06.png",
+     "from": "art/actors/coach-idle-right/idle-03.png",
      "bounds": [
       2509,
       353,
@@ -666,11 +666,11 @@
   {
    "name": "w2-across-right",
    "why": null,
-   "t": 69,
+   "t": 68.67,
    "file": "renders/proofs/stage-road/walk-new/raw-captures-ignored/w2-across-right.png",
-   "hash": "25f1efd8b6466a37b136c729072fb5faa9b5ab8b707b0691ffe20936a8ddba69",
+   "hash": "d7db060989707d292b7c92aec024c04f620685302e4851e8bfb15400da05ea60",
    "room": "stage_road",
-   "clock": 68.68960000000001,
+   "clock": 68.3329,
    "control": null,
    "says": null,
    "options": 0,
@@ -695,11 +695,11 @@
       759
      ],
      "facing": "right",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 242,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       1374,
       517,
@@ -720,7 +720,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idle-right/idle-02.png",
+     "from": "art/actors/hob-idle-right/idle-01.png",
      "bounds": [
       503,
       490,
@@ -741,7 +741,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idle-right/idle-02.png",
+     "from": "art/actors/coach-idle-right/idle-01.png",
      "bounds": [
       2509,
       353,
@@ -769,11 +769,11 @@
   {
    "name": "w3-back-near",
    "why": null,
-   "t": 79.69,
+   "t": 79.38,
    "file": "renders/proofs/stage-road/walk-new/raw-captures-ignored/w3-back-near.png",
-   "hash": "ff681168599d7c86ddd938ece2d588e3f79e0ed1cad934743ab9d1a32703ef7d",
+   "hash": "2994957a0a987ae92c34b480ab7a1a154af515813f049221f1a5820df8f4a9f1",
    "room": "stage_road",
-   "clock": 79.3725,
+   "clock": 79.06569999999999,
    "control": null,
    "says": null,
    "options": 0,
@@ -802,7 +802,7 @@
      "height": 261,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-05.png",
+     "from": "art/actors/thad-idle-left/idle-04.png",
      "bounds": [
       563,
       564,
@@ -840,11 +840,11 @@
       742
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idlebreak-right/idle-break-02.png",
+     "from": "art/actors/coach-idle-right/idle-04.png",
      "bounds": [
       2509,
       353,
@@ -872,5 +872,5 @@
  ],
  "failures": [],
  "passed": true,
- "at": "2026-09-05T01:24:37.703Z"
+ "at": "2026-09-05T01:51:18.598Z"
 }
