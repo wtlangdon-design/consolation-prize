@@ -832,5 +832,140 @@
     "heightPx": 242
    }
   }
+ },
+ "oppositeHalf": {
+  "title": "THAD PROFILE WALK -- COMPLETE THE MISSING OPPOSITE HALF-CYCLE (Tyler, 2026-09-05)",
+  "status": "OPPOSITE HALF NOT ACQUIRED -- STOPPED per the failure condition; nothing installed, the three-frame candidate and its source untouched",
+  "preflight": {
+   "startHead": "f94fc84",
+   "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+   "cleanTree": true,
+   "existingFramesPreserved": "art/actors/thad-walk-right walk-00..02 and art/staging/thad/profile-walk-cycle-01.png unchanged"
+  },
+  "imageOperation": {
+   "assetId": "thad-profile-walk-opposite-half",
+   "attempt": 1,
+   "cap": "1 / 1",
+   "subject": "thad",
+   "role": "other",
+   "model": "gpt-image-2",
+   "operation": "edit",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "promptFile": "proofs/thad/prompts/profile-walk-opposite-half-01.txt",
+   "promptHash": "b715fe4f336428f01f929bacb2ab41bab01331fd9182ab4c8d63889049e354ea",
+   "references": [
+    {
+     "path": "art/staging/thad/profile-walk-cycle-01.png",
+     "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "output": {
+    "path": "art/staging/thad/profile-walk-opposite-half-01.png",
+    "sha256": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2"
+   },
+   "gates": true,
+   "recordedAt": "2026-09-05T03:30:48.431Z",
+   "untouchedResultPreserved": true,
+   "visual_accepted": false,
+   "note": "one earlier call was rejected with 401 by a stale credential in a scratch file before any generation; nothing was generated or recorded by it, and the session credential was used for the one real attempt"
+  },
+  "whatCameBack": {
+   "figures": 3,
+   "complete": "every figure is a complete connected body; identity, coat, hands, boots match the first sheet",
+   "sheetHeights": [
+    724,
+    722,
+    722
+   ],
+   "firstSheetHeights": [
+    639,
+    636,
+    635
+   ],
+   "baselineRow": "859-861 (first sheet 820-823); normalisable by the permitted uniform scale and baseline placement, not a problem in itself"
+  },
+  "polarityTest": {
+   "method": "hand blobs (skin colour below 42% of figure height) and foot centres measured relative to the torso centre column on each sheet figure; near sleeve identified as the sleeve drawn over the coat body; normalised silhouette overlap (IoU) at one stature",
+   "existingContact": {
+    "hands": [
+     103,
+     -101
+    ],
+    "feet": [
+     -114,
+     104
+    ],
+    "nearArm": "back (drawn over the coat)",
+    "farArm": "forward"
+   },
+   "newContact": {
+    "hands": [
+     112,
+     -110
+    ],
+    "feet": [
+     -132,
+     114
+    ],
+    "nearArm": "back (drawn over the coat)",
+    "farArm": "forward",
+    "leadingLeg": "the same forward leg as the existing contact"
+   },
+   "newTransfer": {
+    "visibleHand": 63,
+    "note": "near hand ahead of the torso (existing recoil -18)"
+   },
+   "newPassing": {
+    "visibleHand": 27,
+    "note": "near hand slightly ahead (existing passing -15)"
+   },
+   "silhouetteIoU": {
+    "sheet1 pose 1 vs new pose 1": 0.909,
+    "sheet1 pose 2 vs new pose 2": 0.684,
+    "sheet1 pose 3 vs new pose 3": 0.898,
+    "new pose 1 vs sheet1 pose 4": 0.842,
+    "sheet1 pose 1 vs sheet1 pose 4 (known repeat)": 0.872
+   },
+   "verdict": "the op returned the SAME contact pose again (IoU 0.909 against the existing contact, as high as the first sheet's own known repeat), so the opposite contact -- the pose Tyler named as the most important -- does not exist. The two transition poses carry a modest near-arm-forward polarity, but without an opposite contact the legs cannot alternate and a cycle built from them would be the same half twice with two extra arm frames, which the brief forbids."
+  },
+  "notDone": [
+   "no frames installed",
+   "no limb surgery",
+   "no duplicated half",
+   "no three-frame loop called acceptable",
+   "no cadence change",
+   "no deploy of art"
+  ],
+  "diagnosisRender": "renders/thad-profile-walk-opposite-half-diagnosis.png",
+  "tooling": "tools/rig/cut-cycle-sheet.py --also <sheet>:<poses> (two sheets, one scale) added and verified byte-identical on the existing three frames; tools/art/thad.mjs opposite-half subcommand; both kept for the next authorized attempt"
  }
 }

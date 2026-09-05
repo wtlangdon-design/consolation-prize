@@ -102,7 +102,44 @@ if (which === 'stride') {
   attachGates(assetId, row.attempt, gates);
   say(`  gates: ${gates.passed ? 'PASS' : 'FAIL'}`);
   for (const line of gates.failures) say(`    x ${line}`);
+} else if (which === 'opposite-half') {
+  // THE MISSING OPPOSITE HALF OF THE AUTHORED GAIT. Tyler's diagnosis after
+  // reviewing the three-frame cycle: profile-walk-cycle-01.png drew one half
+  // of a walk twice (the same leg leading in poses 4-6), so the runtime
+  // looped a half step and the arms read as scissoring at the reset. This
+  // asks for about THREE complete right-facing poses that COMPLETE that
+  // sheet -- far leg forward, near arm forward -- with the approved sheet
+  // itself as the image edited, so the new figures are drawn as more moments
+  // of the same sheet rather than a new interpretation. Cropped whole, as
+  // before; the three existing frames stay untouched.
+  const n = process.argv[3] ?? '01';
+  const assetId = 'thad-profile-walk-opposite-half';
+  guard(assetId);
+  mkdirSync(resolve(ROOT, OUT), { recursive: true });
+  const CYCLE = 'art/staging/thad/profile-walk-cycle-01.png';
+  const refs = [CYCLE, ...FAMILY_A];
+  for (const image of refs) say(`  ref ${hashFile(image).slice(0, 12)}  ${image}`);
+  const made = await edit({
+    promptFile: `proofs/thad/prompts/profile-walk-opposite-half-${n}.txt`, out: `${OUT}/profile-walk-opposite-half-${n}.png`,
+    images: refs, size: '1536x1024', purpose: 'character',
+  });
+  say(`  wrote ${made.out}, ${made.bytes} bytes, sha ${made.outputHash.slice(0, 12)}`);
+  const row = record({
+    ...made, assetId, subject: 'thad', role: 'other',
+    roleNote: 'THE OPPOSITE HALF of the authored profile walk: about three complete right-facing poses '
+      + '(far leg forward, near arm forward) completing profile-walk-cycle-01.png, to be cropped as whole '
+      + 'runtime frames (tools/rig/cut-cycle-sheet.py) and never puppet-rigged. Owner-authorized, 1/1, '
+      + 'separate from thad-profile-walk-continuity and thad-profile-walk-cycle-authoring.',
+    identityFamily: 'A', familyASources: FAMILY_A.map((path) => ({ path, hash: hashFile(path) })),
+    movementFamilyAuthority: { path: CYCLE, hash: hashFile(CYCLE), note: 'the approved first-half sheet, transmitted first as the image edited: the movement family these poses complete' },
+    authorizedBy: 'Tyler, THAD PROFILE WALK -- COMPLETE THE MISSING OPPOSITE HALF-CYCLE (2026-09-05)',
+  });
+  say(`  recorded as ${assetId} attempt ${row.attempt}, role ${row.role}`);
+  const gates = runGates(made.out, { kind: 'plate', expect: '1536x1024' });
+  attachGates(assetId, row.attempt, gates);
+  say(`  gates: ${gates.passed ? 'PASS' : 'FAIL'}`);
+  for (const line of gates.failures) say(`    x ${line}`);
 } else {
-  say('usage: node tools/art/thad.mjs stride [nn] | walk-cycle [nn]');
+  say('usage: node tools/art/thad.mjs stride [nn] | walk-cycle [nn] | opposite-half [nn]');
   process.exit(2);
 }
