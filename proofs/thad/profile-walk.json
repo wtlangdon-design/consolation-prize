@@ -437,7 +437,7 @@
  },
  "authoredCycle": {
   "title": "THAD AUTHORED PROFILE WALK CYCLE -- owner-authorized whole-body walk-cycle authoring (Tyler, 2026-09-05)",
-  "status": "CANDIDATE, visual_accepted unset; Tyler is the gate",
+  "status": "SUPERSEDED in the shipping tree by the hybrid candidate (2026-09-05); preserved under art/staging/thad/candidates/authored-cycle/",
   "preflight": {
    "branch": "claude/last-claim-autonomy-audit-v3vsy6",
    "startHead": "a6da303",
@@ -1107,5 +1107,385 @@
    "no deploy of art"
   ],
   "diagnosisRender": "renders/thad-profile-walk-opposite-contact-diagnosis.png"
+ },
+ "hybrid": {
+  "title": "THAD PROFILE WALK -- ZERO-IMAGE HYBRID COMPLETION PASS (Tyler, 2026-09-05)",
+  "status": "CANDIDATE, visual_accepted unset; Tyler is the gate",
+  "preflight": {
+   "startHead": "cf51b6a (main after PR #10, merged into the branch)",
+   "cleanTree": true,
+   "imageOperations": 0,
+   "untouchedSources": [
+    "art/staging/thad/profile-walk-cycle-01.png",
+    "art/staging/thad/profile-walk-opposite-half-01.png",
+    "art/staging/thad/profile-walk-opposite-contact-01.png"
+   ]
+  },
+  "transitionPoseAudit": {
+   "method": "hand blobs (skin colour below 42% of figure height) relative to the torso centre column, scaled to 625; waistcoat-brown pixels visible in the torso front rows 35-60% (a near sleeve swung forward crosses the waistcoat strip); which sleeve is drawn over the coat body",
+   "existingContact": {
+    "h": 639,
+    "hands": [
+     [
+      -99,
+      739
+     ],
+     [
+      100,
+      599
+     ]
+    ],
+    "waistcoat": 662,
+    "hem": 439,
+    "hemFraction": 0.687,
+    "feet": [
+     -112,
+     101
+    ],
+    "nearArm": "back, drawn over the coat",
+    "farArm": "forward"
+   },
+   "oppositeHalfPose2": {
+    "h": 722,
+    "hands": [
+     [
+      55,
+      897
+     ]
+    ],
+    "waistcoat": 400,
+    "hem": 494,
+    "hemFraction": 0.684,
+    "feet": [
+     -10
+    ],
+    "nearArm": "FORWARD, the sleeve drawn over the coat with the hand ahead of the coat front edge",
+    "farArm": "hidden behind the body",
+    "verdict": "usable opposite-side upper body"
+   },
+   "oppositeHalfPose3": {
+    "h": 722,
+    "hands": [
+     [
+      24,
+      940
+     ]
+    ],
+    "waistcoat": 381,
+    "hem": 495,
+    "hemFraction": 0.686,
+    "feet": [
+     1
+    ],
+    "nearArm": "slightly forward",
+    "farArm": "hidden",
+    "verdict": "usable returning upper body"
+   },
+   "gate": "PASS -- at least one transition gives a clearly reversed visible arm polarity (near hand +55 against -99)"
+  },
+  "method": {
+   "tool": "tools/rig/hybrid-walk.py",
+   "spec": "art/staging/thad/candidates/hybrid/spec.json",
+   "upperBodies": "each frame is one authored figure down to its own coat hem row, pixel-identical (rows 0..hem), moved only as one unit by the frame's ground drop; no arm, sleeve, hand, shoulder, torso or coat pixel is moved relative to another",
+   "legs": {
+    "source": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-00.png",
+    "sourceSha256": "3e8d7c4ec5e2b9f1232471c89c2552038de361c4800aa55bdac82b03954bdf59",
+    "hem": 427,
+    "cutRow": 430,
+    "pivotRow": 377,
+    "hipColumn": 311.0,
+    "separatedRows": 178,
+    "sourceAngles": {
+     "near": 21.8,
+     "far": -25.5
+    },
+    "amplitudeDeg": 23.7,
+    "knee": 0,
+    "method": "split at the hem, levelled by the measured angle, root extended straight up to the pivot under the coat, swung about the concealed hip; far leg half a cycle behind; real pixels rotated, nothing redrawn"
+   },
+   "clip": "above the hem the extended roots exist only under the coat; where a root would reach past the coat outline it is cut away, so no leg pixel is ever visible above the hem",
+   "despill": "downscale.py's rule applied after the rotation (red and blue to 22 above green) -- the fringe check passes",
+   "ground": "the cycle's lowest sole; contact frames drop to it (20 and 7 px on the 643 figure), the bob",
+   "figure": [
+    307,
+    643
+   ]
+  },
+  "frames": [
+   {
+    "frame": 1,
+    "role": "CONTACT A",
+    "upper": "profile-walk-cycle-01.png pose 1 (contact)",
+    "forwardLeg": "near",
+    "nearLegDeg": 23.7,
+    "drop": 20,
+    "nearHand": -99,
+    "farHand": 100,
+    "measuredHands": [
+     -100,
+     100
+    ],
+    "feet": [
+     -112,
+     106
+    ],
+    "headTopRow": 20,
+    "soleRow": 642
+   },
+   {
+    "frame": 2,
+    "role": "TRANSITION A",
+    "upper": "profile-walk-cycle-01.png pose 2 (recoil)",
+    "forwardLeg": "near",
+    "nearLegDeg": 11.8,
+    "drop": 2,
+    "nearHand": -17,
+    "farHand": "hidden",
+    "measuredHands": [
+     -18
+    ],
+    "feet": [
+     -67,
+     68
+    ],
+    "headTopRow": 2,
+    "soleRow": 642
+   },
+   {
+    "frame": 3,
+    "role": "PASS A",
+    "upper": "profile-walk-cycle-01.png pose 3 (passing)",
+    "forwardLeg": "far",
+    "nearLegDeg": -11.8,
+    "drop": 0,
+    "nearHand": -14,
+    "farHand": "hidden",
+    "measuredHands": [
+     -14
+    ],
+    "feet": [
+     0
+    ],
+    "headTopRow": 0,
+    "soleRow": 641
+   },
+   {
+    "frame": 4,
+    "role": "CONTACT B",
+    "upper": "profile-walk-opposite-half-01.png pose 2 (weight transfer, near arm forward)",
+    "forwardLeg": "far",
+    "nearLegDeg": -23.7,
+    "drop": 7,
+    "nearHand": 55,
+    "farHand": "hidden",
+    "measuredHands": [
+     55
+    ],
+    "feet": [
+     -80,
+     80
+    ],
+    "headTopRow": 7,
+    "soleRow": 642
+   },
+   {
+    "frame": 5,
+    "role": "TRANSITION B",
+    "upper": "profile-walk-opposite-half-01.png pose 3 (passing, near arm forward)",
+    "forwardLeg": "far",
+    "nearLegDeg": -11.8,
+    "drop": 0,
+    "nearHand": 24,
+    "farHand": "hidden",
+    "measuredHands": [
+     24
+    ],
+    "feet": [
+     0
+    ],
+    "headTopRow": 0,
+    "soleRow": 641
+   },
+   {
+    "frame": 6,
+    "role": "PASS B",
+    "upper": "profile-walk-cycle-01.png pose 3 (passing)",
+    "forwardLeg": "near",
+    "nearLegDeg": 11.8,
+    "drop": 2,
+    "nearHand": -14,
+    "farHand": "hidden",
+    "measuredHands": [
+     -14
+    ],
+    "feet": [
+     -68,
+     67
+    ],
+    "headTopRow": 2,
+    "soleRow": 642
+   }
+  ],
+  "contactA": {
+   "forwardLeg": "NEAR (the leg drawn over at the crotch), +23.7 deg",
+   "nearArm": "back (-99)",
+   "farArm": "forward (+100)"
+  },
+  "contactB": {
+   "forwardLeg": "FAR, +23.7 deg; the near leg trails at -23.7 (its own rotated pixels, drawn on top)",
+   "nearArm": "forward (+55)",
+   "farArm": "hidden behind the body"
+  },
+  "nearHandProgression": [
+   -99,
+   -17,
+   -14,
+   55,
+   24,
+   -14
+  ],
+  "farHandProgression": [
+   100,
+   "hidden",
+   "hidden",
+   "hidden",
+   "hidden",
+   "hidden"
+  ],
+  "armReading": "near hand: back -99 -> centre -17 -> centre -14 -> forward +55 -> returning +24 -> centre -14 -> back -99: a pendulum sampled unevenly (the two centre frames sit close together), never a reset; the far hand shows only at contact A and is behind the body elsewhere",
+  "loopSeams": [
+   {
+    "pair": "1->2",
+    "iou": 0.455,
+    "nearHandDelta": 82
+   },
+   {
+    "pair": "2->3",
+    "iou": 0.642,
+    "nearHandDelta": 3
+   },
+   {
+    "pair": "3->4",
+    "iou": 0.526,
+    "nearHandDelta": 69
+   },
+   {
+    "pair": "4->5",
+    "iou": 0.539,
+    "nearHandDelta": 31
+   },
+   {
+    "pair": "5->6",
+    "iou": 0.639,
+    "nearHandDelta": 38
+   },
+   {
+    "pair": "6->1",
+    "iou": 0.46,
+    "nearHandDelta": 85
+   }
+  ],
+  "seamAssessment": "6 -> 1 (IoU 0.460, near-hand delta 85) is the same size as 1 -> 2 (0.455, 82): the seam is no more abrupt than the internal contact transitions; the two passing transitions are the smallest changes (0.64)",
+  "walkRight": {
+   "dir": "art/actors/thad-walk-right",
+   "frames": {
+    "walk-00.png": "015007f58337e1384fe2cf0750cb6007b6737f41d5f5759807d4b78f53203105",
+    "walk-01.png": "6f3bdb01036e47e9220ba733f9265766b1e0d35d7132152720dc91430194e086",
+    "walk-02.png": "2eb2fc1e74341eac155b3557f309c266a5ca7e6fa85695fe4a4a4219973f9ef3",
+    "walk-03.png": "1c2322b72f474346bdca3b68663c1e52059d6d8e407990676cb5509c4c4d0d08",
+    "walk-04.png": "16dd69102e6087b009025f501950fbb7f4aba8bffe10fdc044ade645a6f9afa6",
+    "walk-05.png": "f5a31a383c24de094f286cf1798263950f7fe8d55c4d8520fce4de95f8452a38"
+   }
+  },
+  "walkLeft": {
+   "dir": "art/actors/thad-walk-left",
+   "mirroredWhole": true,
+   "frames": {
+    "walk-00.png": "bfd64732d9685ba41cbe38bc9c34ed9c06f03085a909a016cece6adea71d2c53",
+    "walk-01.png": "25de74c289411054785de45985b64b60637988ad5611f0beaf827533d21406db",
+    "walk-02.png": "79b9ab7fc6e1314176ff9503e3a52b9b9b65c909df7a0de2f2914f6a8e019a39",
+    "walk-03.png": "1762dff049b49c286688d808b0320cb6168c6de6922ebac7649b5bcdc17c8e4e",
+    "walk-04.png": "f94cfd7286c9878fb350860c1337743b42a4c4ed8b2c0c17d7c84a9a04cc24f7",
+    "walk-05.png": "63ea798974036d5e60cf6a70ed37e846b8e1d1f0b09cfc014f036d4793cc4503"
+   }
+  },
+  "strideLength": 141,
+  "renders": {
+   "cycleSheet": "renders/thad-profile-walk-hybrid-cycle.png",
+   "armSwing": "renders/thad-profile-walk-hybrid-arm-swing.png",
+   "threeCycles": "renders/thad-profile-walk-hybrid-three-cycles.png",
+   "identity": "renders/thad-profile-walk-continuity.png"
+  },
+  "notDone": [
+   "no image operation",
+   "no arm, sleeve, hand, shoulder, torso or coat pixel moved",
+   "no three-frame loop",
+   "no contact used twice"
+  ],
+  "proofRuns": {
+   "room5RepeatedLoop": {
+    "record": "renders/proofs/assay-office-lamp-night/cycle-loop/frames.json",
+    "commit": "cf51b6a",
+    "pace": 1.25,
+    "samples": 87,
+    "summary": {
+     "changes": 40,
+     "clipsSeen": [
+      "idle",
+      "walk"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 0
+    },
+    "walkFramesWhileNotMoving": 0,
+    "right": "235 -> 1414 px at 515 px in 4.23 s: 1179 px over a 302 px cycle = 3.9 uninterrupted cycles; three 6->1 wraps observed at the 100 ms poll",
+    "left": "1371 -> 469 px in 2.85 s: 902 px = 3.0 cycles",
+    "frameOrder": "monotone through the loop; the poll skips a frame where a screenshot pauses it (each frame lasts ~97 ms at pace 1.25)",
+    "liveStrips": [
+     "renders/thad-profile-walk-live-right.png",
+     "renders/thad-profile-walk-live-left.png"
+    ]
+   },
+   "room5StartStop": {
+    "record": "renders/proofs/assay-office-lamp-night/startstop/frames.json",
+    "commit": "47fadeb",
+    "pace": 1.25,
+    "samples": 820,
+    "summary": {
+     "changes": 194,
+     "clipsSeen": [
+      "idle",
+      "walk"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 0
+    },
+    "walkFramesWhileNotMoving": 0,
+    "transitions": "ten idle -> walk -> idle round trips, no locomotion frame at rest, identity continuous (the stand family above the hem is the same drawing in every frame)"
+   },
+   "crossRoomNugget": {
+    "record": "renders/proofs/nugget/walk-new/life.json",
+    "commit": "47fadeb",
+    "pace": 1.25,
+    "result": "stayed coherent for 152 s; every arrival on the idle clip"
+   },
+   "room1WalkBurst": {
+    "record": "renders/proofs/stage-road/walk-burst/frames.json",
+    "commit": "47fadeb",
+    "pace": 1.25,
+    "summary": {
+     "changes": 81,
+     "clipsSeen": [
+      "idle-break",
+      "walk",
+      "idle"
+     ],
+     "locomotionFramesWhileStationary": 0,
+     "idleBreaks": 1
+    },
+    "walkingStills": 9,
+    "heightPx": 242
+   }
+  }
  }
 }

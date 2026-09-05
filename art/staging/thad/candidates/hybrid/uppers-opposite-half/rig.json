@@ -1,0 +1,59 @@
+{
+  "method": "authored-cycle-sheet",
+  "source": "art/staging/thad/profile-walk-opposite-half-01.png",
+  "sourceSha256": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2",
+  "sources": [
+    {
+      "path": "art/staging/thad/profile-walk-opposite-half-01.png",
+      "sha256": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2"
+    }
+  ],
+  "key": "magenta",
+  "clip": "walk",
+  "view": "profile",
+  "facing": "right",
+  "walk_dx": 1,
+  "poses": [
+    2,
+    3
+  ],
+  "uprightPose": 3,
+  "scale": 0.8681,
+  "figure": [
+    128,
+    625
+  ],
+  "padding": 260,
+  "standCanvas": {
+    "path": "art/actors/thad-stand-right/stand-00.png",
+    "ground": 624,
+    "torsoColumn": 311.0,
+    "stature": 625
+  },
+  "frames": 2,
+  "extracted": [
+    {
+      "frame": "walk-00.png",
+      "sheet": "art/staging/thad/profile-walk-opposite-half-01.png",
+      "pose": 2,
+      "sheetHeight": 720,
+      "sheetWidth": 190,
+      "placedHeight": 625,
+      "placedWidth": 165,
+      "soleRow": 624,
+      "torsoShift": 224
+    },
+    {
+      "frame": "walk-01.png",
+      "sheet": "art/staging/thad/profile-walk-opposite-half-01.png",
+      "pose": 3,
+      "sheetHeight": 720,
+      "sheetWidth": 144,
+      "placedHeight": 625,
+      "placedWidth": 125,
+      "soleRow": 624,
+      "torsoShift": 253
+    }
+  ],
+  "ruling": "Tyler, 2026-09-05: authored whole-body walk poses cropped whole; no limb cut, rotated, transplanted or reattached. tools/rig/cut-cycle-sheet.py."
+}

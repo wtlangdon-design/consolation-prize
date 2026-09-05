@@ -1,0 +1,70 @@
+{
+ "note": "Tyler's zero-image hybrid pass (2026-09-05): authored whole upper bodies over one set of legs rephased under the coat. tools/rig/hybrid-walk.py --spec this --out art/actors/thad-walk-right",
+ "legs": {
+  "source": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-00.png",
+  "cutBelowHem": 3,
+  "pivotAboveHem": 50
+ },
+ "frames": [
+  {
+   "role": "CONTACT A",
+   "upper": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-00.png",
+   "provenance": "profile-walk-cycle-01.png pose 1 (contact)",
+   "phase": 0,
+   "hands": {
+    "near": -99,
+    "far": 100
+   }
+  },
+  {
+   "role": "TRANSITION A",
+   "upper": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-01.png",
+   "provenance": "profile-walk-cycle-01.png pose 2 (recoil)",
+   "phase": 60,
+   "hands": {
+    "near": -17,
+    "far": null
+   }
+  },
+  {
+   "role": "PASS A",
+   "upper": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-02.png",
+   "provenance": "profile-walk-cycle-01.png pose 3 (passing)",
+   "phase": 120,
+   "hands": {
+    "near": -14,
+    "far": null
+   }
+  },
+  {
+   "role": "CONTACT B",
+   "upper": "art/staging/thad/candidates/hybrid/uppers-opposite-half/walk-00.png",
+   "provenance": "profile-walk-opposite-half-01.png pose 2 (weight transfer, near arm forward)",
+   "phase": 180,
+   "hands": {
+    "near": 55,
+    "far": null
+   }
+  },
+  {
+   "role": "TRANSITION B",
+   "upper": "art/staging/thad/candidates/hybrid/uppers-opposite-half/walk-01.png",
+   "provenance": "profile-walk-opposite-half-01.png pose 3 (passing, near arm forward)",
+   "phase": 240,
+   "hands": {
+    "near": 24,
+    "far": null
+   }
+  },
+  {
+   "role": "PASS B",
+   "upper": "art/staging/thad/candidates/authored-cycle/thad-walk-right/walk-02.png",
+   "provenance": "profile-walk-cycle-01.png pose 3 (passing)",
+   "phase": 300,
+   "hands": {
+    "near": -14,
+    "far": null
+   }
+  }
+ ]
+}
