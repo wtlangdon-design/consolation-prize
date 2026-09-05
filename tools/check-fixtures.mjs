@@ -62,6 +62,19 @@ export function check() {
         if (!target) report.fail(`${where}: objectStates key "${key}" names no object`);
         else if (!target.states?.[fixture.objectStates[key]]) report.fail(`${where}: ${key} has no state "${fixture.objectStates[key]}"`);
       }
+      // DIALOGUE COUNTS name real options, once each, with a count of one or
+      // more -- a stale key would restore a selection nothing can have made.
+      for (const [treeId, perTree] of Object.entries(fixture.dialogueCounts ?? {})) {
+        const tree = trees.get(treeId);
+        if (!tree) { report.fail(`${where}: dialogueCounts names tree "${treeId}", which is not a tree`); continue; }
+        for (const [key, count] of Object.entries(perTree)) {
+          const [nodeId, optionId] = key.split(':');
+          const option = tree.nodes?.[nodeId]?.options?.find((o) => o.id === optionId);
+          if (!option) report.fail(`${where}: dialogueCounts key "${treeId}/${key}" names no option`);
+          if (!Number.isInteger(count) || count < 1) report.fail(`${where}: dialogueCounts ${treeId}/${key} must be a count of 1 or more`);
+          if (option?.afterUse === 'remove' && count > 1) report.fail(`${where}: ${treeId}/${key} is removed after one selection and cannot count ${count}`);
+        }
+      }
       const held = new Set([...(fixture.inventory ?? []), ...content.items.filter(({ data }) => data.startsHeld).map(({ data }) => data.id)]);
       for (const rule of PREREQUISITES) {
         if (!rule.when(fixture)) continue;

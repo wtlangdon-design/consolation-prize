@@ -1,13 +1,21 @@
-import type { DialogueFile, DialogueNode, DialogueOption } from './types.ts';
+import type { DialogueFile, DialogueNode, DialogueOption, DialogueRepeat } from './types.ts';
 import type { FlagStore } from './FlagStore.ts';
 import { pureResolution } from './Assertions.ts';
 import { commitBundle, flagEffects, localJournals, type DurableWorld, type JournalSource } from './Commit.ts';
 import type { DialogueTransaction, DurableEffect, FinishReason } from './runtime-types.ts';
 
-/** An option as the UI should draw it: still visible once exhausted. */
+/**
+ * An option as the UI should draw it. `text` is the wording to draw and to
+ * echo -- the option's own, or its `rephrase` wording once that milestone is
+ * reached. `exhausted` greys a retained option that has been taken; a
+ * counted-repeat never greys (errata 57: "stays at full weight"). `selections`
+ * is how many times it has been taken, committed.
+ */
 export interface PresentedOption {
   option: DialogueOption;
+  text: string;
   exhausted: boolean;
+  selections: number;
 }
 
 export interface SelectionResult {
@@ -61,8 +69,17 @@ export interface DialogueResolution {
   readonly effects: readonly DurableEffect[];
 }
 
-/** Serialised exhaustion state, so a save restores partial trees exactly. */
-export type DialogueProgress = Record<string, string[]>;
+/**
+ * SERIALISED SELECTION COUNTS: tree -> "node:option" -> how many times taken.
+ * Doc 30 section 7: per-option selection counts, not taken/not-taken. A save
+ * written before W1 carried `string[]` of taken keys per tree; `restore`
+ * reads that shape as a count of one each.
+ */
+export type DialogueProgress = Record<string, Record<string, number>>;
+type LegacyProgress = Record<string, string[] | Record<string, number>>;
+
+/** Whether a canonical puzzle milestone (a `rephrase.after`) has been reached. */
+export type MilestoneSource = (id: string) => boolean;
 
 //: EXIT ENDS THE CONVERSATION. That is the tag's function, not an exemption
 //: from a removal rule -- errata 37 is revoked and nothing is removed, so
@@ -177,19 +194,25 @@ export class DialogueExchange {
  */
 export class DialogueRunner {
   private readonly trees: Map<string, DialogueFile>;
-  /** treeId -> set of taken option keys, formatted `${nodeId}:${optionId}`. */
-  private taken = new Map<string, Set<string>>();
+  /** treeId -> `${nodeId}:${optionId}` -> committed selection count. */
+  private counts = new Map<string, Map<string, number>>();
   private activeTree: DialogueFile | null = null;
   private activeNodeId: string | null = null;
   private readonly flags: FlagStore;
   private readonly journals: JournalSource;
+  private readonly milestoneReached: MilestoneSource;
   private pending: DialogueExchange | null = null;
   private serial = 0;
 
-  constructor(trees: Map<string, DialogueFile>, flags: FlagStore, journals?: JournalSource) {
+  constructor(trees: Map<string, DialogueFile>, flags: FlagStore, journals?: JournalSource,
+    milestoneReached?: MilestoneSource) {
     this.trees = trees;
     this.flags = flags;
     this.journals = journals ?? localJournals();
+    // NO MILESTONE IS REACHED UNTIL SOMETHING CANONICAL SAYS SO. A rephrase
+    // names a puzzle (`after: "C5"`); the game state answers from its puzzle
+    // progress, and a runner built without one answers no.
+    this.milestoneReached = milestoneReached ?? (() => false);
   }
 
   get isActive(): boolean {
@@ -301,12 +324,43 @@ export class DialogueRunner {
     if (!node || !this.activeTree) return [];
     const treeId = this.activeTree.id;
     const nodeId = this.activeNodeId as string;
-    return node.options
-      .filter((option) => this.flags.test(option.when))
-      .map((option) => ({
+    const out: PresentedOption[] = [];
+    for (const authored of node.options) {
+      if (!this.flags.test(authored.when)) continue;
+      const taken = this.countOf(treeId, nodeId, authored.id);
+      // ERRATA 57: THE OPTION'S OWN AFTERMATH DECIDES. `remove` is gone once
+      // taken; `replace` gives way to what it names; `retain` and `rephrase`
+      // stay and grey; `counted-repeat` stays at full weight.
+      if (authored.afterUse === 'remove' && taken > 0) continue;
+      const option = authored.afterUse === 'replace' && taken > 0 && authored.replaceWith
+        ? authored.replaceWith : authored;
+      const selections = option === authored ? taken : this.countOf(treeId, nodeId, option.id);
+      out.push({
         option,
-        exhausted: this.hasTaken(treeId, nodeId, option.id),
-      }));
+        text: this.wordingOf(option),
+        exhausted: selections > 0 && option.afterUse !== 'counted-repeat',
+        selections,
+      });
+    }
+    return out;
+  }
+
+  /** The option's wording right now: its `rephrase` text once that milestone is reached. */
+  private wordingOf(option: DialogueOption): string {
+    if (option.afterUse === 'rephrase' && option.rephrase && this.milestoneReached(option.rephrase.after)) {
+      return option.rephrase.text;
+    }
+    return option.text;
+  }
+
+  /** The committed selection counts of the current node's options, by option id. For the probe. */
+  selectionsHere(): Record<string, number> {
+    if (!this.activeTree || !this.activeNodeId) return {};
+    const out: Record<string, number> = {};
+    for (const option of this.currentNode?.options ?? []) {
+      out[option.id] = this.countOf(this.activeTree.id, this.activeNodeId, option.id);
+    }
+    return out;
   }
 
   /**
@@ -325,28 +379,44 @@ export class DialogueRunner {
     if (!node || !this.activeTree || !this.activeNodeId) {
       throw new Error(`Selection with no active node: ${optionId}`);
     }
-    const option = node.options.find((candidate) => candidate.id === optionId);
+    // THE OPTION AS PRESENTED: a `replace` aftermath offers what it names in
+    // the authored option's place, and that is what the player selected.
+    const option = this.presentOptions().find((shown) => shown.option.id === optionId)?.option
+      ?? node.options.find((candidate) => candidate.id === optionId);
     if (!option) {
       throw new Error(`Unknown option: ${optionId}`);
     }
     if (!this.flags.test(option.when)) {
       throw new Error(`Gated option selected: ${optionId}`);
     }
+    if (option.afterUse === 'remove' && this.countOf(this.activeTree.id, this.activeNodeId, option.id) > 0) {
+      throw new Error(`Removed option selected: ${optionId}`);
+    }
 
     const treeId = this.activeTree.id;
     const nodeId = this.activeNodeId;
-    const firstTime = !this.hasTaken(treeId, nodeId, option.id);
-    // An exchange only plays out in full the first time. On a repeat the
-    // option answers with its `repeat` line if it has one, and otherwise with
-    // the exchange again -- exhausted options stay selectable and must always
-    // answer with something.
-    const exchange = option.exchange ?? [];
+    // WHICH SELECTION THIS IS, counted from one. Doc 30 section 7 and errata
+    // 45: the first selection plays the authored exchange; a later one plays
+    // the authored repeat for that selection number, clamped at the last
+    // authored variant; with none authored, the exchange again. A rephrased
+    // option answers with its rephrased line once its milestone is reached.
+    const selection = this.countOf(treeId, nodeId, option.id) + 1;
+    const rephrased = option.afterUse === 'rephrase' && option.rephrase
+      && this.milestoneReached(option.rephrase.after) ? option.rephrase : null;
+    const repeat = selection > 1 ? repeatFor(option, selection) : null;
     let say: string | null;
     let sayer: string | null = null;
     let rest: { speaker: string; line: string }[] = [];
-    if (!firstTime && option.repeat) {
-      say = option.repeat;
-    } else if (exchange.length > 0) {
+    if (rephrased) {
+      say = rephrased.say;
+    } else if (repeat?.exchange?.length) {
+      say = repeat.exchange[0]!.line;
+      sayer = repeat.exchange[0]!.speaker;
+      rest = repeat.exchange.slice(1);
+    } else if (repeat?.say) {
+      say = repeat.say;
+    } else if ((option.exchange ?? []).length > 0) {
+      const exchange = option.exchange as { speaker: string; line: string }[];
       say = exchange[0]!.line;
       sayer = exchange[0]!.speaker;
       rest = exchange.slice(1);
@@ -484,26 +554,29 @@ export class DialogueRunner {
       flags: this.flags.snapshot(),
       tree: this.activeTree?.id ?? null,
       node: this.activeNodeId,
-      taken: this.progressSnapshot(),
+      counts: this.progressSnapshot(),
     });
   }
 
-  private hasTaken(treeId: string, nodeId: string, optionId: string): boolean {
-    return this.taken.get(treeId)?.has(`${nodeId}:${optionId}`) ?? false;
+  private countOf(treeId: string, nodeId: string, optionId: string): number {
+    return this.counts.get(treeId)?.get(`${nodeId}:${optionId}`) ?? 0;
   }
 
+  /** One more selection, committed. The `dialogueTaken` effect lands here. */
   private markTaken(treeId: string, nodeId: string, optionId: string): void {
-    let set = this.taken.get(treeId);
-    if (!set) {
-      set = new Set<string>();
-      this.taken.set(treeId, set);
+    let perTree = this.counts.get(treeId);
+    if (!perTree) {
+      perTree = new Map<string, number>();
+      this.counts.set(treeId, perTree);
     }
-    set.add(`${nodeId}:${optionId}`);
+    const key = `${nodeId}:${optionId}`;
+    perTree.set(key, (perTree.get(key) ?? 0) + 1);
   }
 
-  /** The committed option keys for one tree. DialogueTransaction.counts. */
+  /** The keys taken at least once in one tree, sorted. DialogueTransaction.counts. */
   takenIn(treeId: string): readonly string[] {
-    return [...(this.taken.get(treeId) ?? [])].sort();
+    return [...(this.counts.get(treeId) ?? new Map<string, number>()).entries()]
+      .filter(([, count]) => count > 0).map(([key]) => key).sort();
   }
 
   /** Where the conversation currently sits, for the save file. */
@@ -513,22 +586,26 @@ export class DialogueRunner {
 
   progressSnapshot(): DialogueProgress {
     const out: DialogueProgress = {};
-    for (const [treeId, set] of this.taken) {
-      out[treeId] = [...set].sort();
+    for (const [treeId, perTree] of this.counts) {
+      const entries = [...perTree.entries()].filter(([, count]) => count > 0).sort(([a], [b]) => (a < b ? -1 : 1));
+      if (entries.length) out[treeId] = Object.fromEntries(entries);
     }
     return out;
   }
 
-  restore(progress: DialogueProgress, position: { tree: string | null; node: string | null }): void {
+  restore(progress: LegacyProgress, position: { tree: string | null; node: string | null }): void {
     // A load abandons the unsaved live session whole. An exchange reserved
     // against the world being replaced is part of what is abandoned.
     this.pending?.abandon('sessionAbandoned');
     this.pending = null;
-    this.taken = new Map();
-    for (const [treeId, keys] of Object.entries(progress)) {
-      if (this.trees.has(treeId)) {
-        this.taken.set(treeId, new Set(keys));
-      }
+    this.counts = new Map();
+    for (const [treeId, taken] of Object.entries(progress)) {
+      if (!this.trees.has(treeId)) continue;
+      // A PRE-W1 SAVE LISTED TAKEN KEYS; each is one selection.
+      const entries: [string, number][] = Array.isArray(taken)
+        ? taken.map((key) => [key, 1])
+        : Object.entries(taken).filter(([, count]) => typeof count === 'number' && count > 0);
+      if (entries.length) this.counts.set(treeId, new Map(entries));
     }
     this.activeTree = position.tree ? (this.trees.get(position.tree) ?? null) : null;
     this.activeNodeId =
@@ -538,3 +615,19 @@ export class DialogueRunner {
     }
   }
 }
+
+/**
+ * The authored answer for a later selection: the last `repeats` entry at or
+ * below the selection number, or the pre-W1 single `repeat` as the second
+ * selection's line. Clamps at the last authored variant by construction --
+ * there is nothing after the last entry to move on to.
+ */
+function repeatFor(option: DialogueOption, selection: number): DialogueRepeat | null {
+  const authored = [...(option.repeats ?? [])].filter((r) => r.selection <= selection)
+    .sort((a, b) => a.selection - b.selection);
+  const last = authored.at(-1);
+  if (last) return last;
+  if (option.repeat) return { selection: 2, say: option.repeat };
+  return null;
+}
+

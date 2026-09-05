@@ -2058,3 +2058,29 @@ GATE PENDING, WITH REQUIRED NIGHT VARIANT BEFORE SHIPPING.
 Doc 30 §16 opens its binding Room 1 proof with "the tree opens with four choices in the lower interface." Doc 17 v3.1 writes the driver's four options with no gate. **The build does not open with four.** Since the tree was extracted (`tools/extract-content.mjs`, `room01Driver`), "Thank you for the ride." is gated on `T_DRIVER_ASKED` reaching 3 — a counter each of the other three rows adds to on every selection — so the tree opens with three rows and the exit arrives once three questions have been asked, in any combination. The extractor's stated reason: nothing is removed once present (errata 37 revoked), so the three are always askable and the fourth always arrives; the count is the tree's one reachability condition, and it keeps the exit from being taken before the opening has taught what it exists to teach. **That rule lives only in the extractor and its commit; no document ruled it.** This entry records it, and reads §16's "four choices" as the tree's full set, reached once the three are spent. It changes no runtime behaviour. Tyler confirms it as the rule or strikes it, in which case the extractor drops the gate and §16 stands as written.
 
 §16's other older line — "the used PROGRESS option is gone" — is already superseded: errata 57 authors every option's aftermath, and until W1's trees land every existing option behaves as `retain` (kept and dimmed). Nothing to add there.
+
+# 66 · ROOM 5'S LATER STATES — OWNER RULINGS A TO K (2026-09-05), AND DOC 08'S RECORDS-ROOM FLOORBOARD SUPERSEDED
+
+Tyler's rulings after the Room 5 playtest-fixture harness (doc 36 Q111) found the later-state sources ambiguous. Each is canon from this entry; the implementation that consumes them is doc 53's contract and a later task. None of this is built here.
+
+**A · The padded log.** Puzzle C4 yields THE PADDED IMPROVEMENT COMPANY SUBMISSION LOG, a real inventory object (item id `padded_log`). C5's successful action — what doc 02's "Show Winnie" means — is **SHOW / USE the padded log on Winnie.** No other trigger. Showing is not surrendering: the log stays held unless a later authored source consumes it.
+
+**B · The C5 state is puzzle progress, not a topic flag.** "Thad knows the queue is padded" (`T_QUEUE_PADDED`, knowledge) and "Winnie has been shown the evidence" are different facts. The second is **puzzle progress: `puzzles.C5 = complete`** in the game state's puzzle namespace (doc 36 Q112 declares it; the save carries it; nothing writes it yet). No topic flag may stand in for it.
+
+**C · WIN_B2 is launched by the evidence action.** A successful use of the padded log on Winnie opens WIN_B2 then and there, its authored opening verbatim. The player is not made to show, leave and talk again.
+
+**D · The second ledger is under the loose floorboard in Room 5, the assay office front.** Doc 05 calls that board critical and says the room "contains the second ledger's hiding place"; doc 25 writes its repeats and overrides around it; the physical board is owner-approved and foreshadows this. **Doc 08's "ROOM 6 — THE FLOORBOARD, LIFTED (after C5)" and its "THE SECOND LEDGER" hotspot are superseded as to location**: one floorboard, in Room 5. Doc 08's lines for those two subjects are not voided as writing; where they are used, they are used in Room 5.
+
+**E · WIN_B3 is canonical, verbatim, and Winnie retrieves the ledger.** She produces it from under the Room 5 floor herself; the player does not pry the board open in early play, and the early override OPEN — "Not with her at the counter." stands. The later implementation stages her physical retrieval; nothing spawns the ledger into Thad's inventory. Whether it stays on the counter afterward is decided when the scene is built. Consequence: doc 04's node rules 1 (three options) and 2 (a COMIC option), which the extractor applied to skip WIN_B3, do not bar it — it is a scene with one row, as written.
+
+**F · The Act II assay is off screen.** WIN_F1's Act IV assay is "the first assay the player ever watches happen", so C6's Prosperity assay is not shown. C6 still delivers its authored payoff — Prosperity worthless, Document B issued anyway, Winnie's five Liar's-Assay pairs (errata 3) — off screen.
+
+**G · No soil-sample item.** Act I already puts a soil assay in Winnie's queue; the item ledger lists no sample. C6 treats the queued assay as already having its material. A contradiction found later is reported then, not resolved by a new item.
+
+**H · Document B is a real inventory item** (item id `document_b`, the Assay of Record): C6 yields it; documents A, B and D are retained as examinable souvenirs. Its examination copy is not authored; that gap is a gap, not to be filled.
+
+**I · The death certificate is a real inventory item** (item id `death_certificate`): E4 yields it, E6 and E9 use it, it cannot be lost. Its examination copy is not authored.
+
+**J · WIN_C1 is canonical, verbatim.** The Act III tree in doc 04 is implemented whole — the retained failed attempts and the one advancing row, "You're right. Forget it.", after which the authored signing exchange plays. Not a yes/no. Consequence, as in E: rule 2 (a COMIC option) does not bar it.
+
+**K · WIN_F1 stands and is not F3/F5.** Fixture R5-G opening WIN_F1 is not gameplay acceptance. The real-gold assay, its outcome and F5's certification (WIN_F2, Room 7) are still to be implemented.

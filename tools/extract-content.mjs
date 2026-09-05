@@ -1971,12 +1971,26 @@ function winnieTree() {
       if (afterUse) option.afterUse = afterUse;
       // The response: directions in italics are kept as `beat`; the quoted
       // line is the reply. A rephrase direction names the replacement text.
-      const directions = [...responseCell.matchAll(/\*\(([^)]+)\)\*/g)].map((m) => m[1]);
+      // LATER SELECTIONS, INLINE: doc 04 writes a counted-repeat's second and
+      // third answers in the response cell after `*(second)*` / `*(third)*`
+      // markers. Split on them: the first part is the first selection's, each
+      // later part is that selection's `repeats` entry (errata 45, W1).
+      const ORDINALS = { second: 2, third: 3, fourth: 4, fifth: 5 };
+      const parts = responseCell.split(/\*\((second|third|fourth|fifth)\)\*/);
+      const firstCell = parts[0];
+      const laterCells = [];
+      for (let at = 1; at < parts.length; at += 2) laterCells.push({ selection: ORDINALS[parts[at]], cell: parts[at + 1] ?? '' });
+      const directions = [...firstCell.matchAll(/\*\(([^)]+)\)\*/g)].map((m) => m[1]);
       const rephrase = directions.find((d) => /^rephrases after/.test(d));
       const plainDirections = directions.filter((d) => !/^rephrases after/.test(d));
-      const spoken = responseCell.replace(/\*\([^)]*\)\*/g, '');
+      const spoken = firstCell.replace(/\*\([^)]*\)\*/g, '');
       const lines = quoted(spoken);
       if (lines[0]) option.say = lines[0];
+      for (const later of laterCells) {
+        for (const d of later.cell.matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} option ${number} selection ${later.selection} staging: ${d[1]}`);
+        const line = quoted(later.cell.replace(/\*\([^)]*\)\*/g, ''))[0];
+        if (line) (option.repeats ??= []).push({ selection: later.selection, say: line });
+      }
       // A DIRECTION BESIDE A LINE IS STAGING, NOT A BEAT. The schema allows an
       // option one or the other: a `beat` is what plays when there is no line
       // (doc 27's Vessel swindle). "(long pause) 'Congratulations.'" has a
@@ -2002,14 +2016,31 @@ function winnieTree() {
       }
       options.push(option);
     }
-    // Repeat lines, by option number, and a third selection reported.
-    for (const m of text.matchAll(/^\*\*(?:Repeat on option|Option) (\d+),? ?(?:repeat)?:\*\* (.+)$/gm)) {
-      const option = options.find((o) => o.id === `${SPEAKER}${m[1]}`);
-      const line = quoted(m[2])[0];
-      if (option && line) option.repeat = line;
-    }
-    for (const m of text.matchAll(/^\*\*(Third selection|Option (\d+), fifth selection):\*\* (.+)$/gm)) {
-      unplayed.push(`${id}: "${m[1]}" line has no field yet (errata 45): ${m[3].slice(0, 60)}...`);
+    // LATER SELECTIONS, BY LINE. `**Repeat on option N:**` / `**Option N,
+    // repeat:**` is the second selection's answer; `**Third selection:**`
+    // (unnumbered) continues the option most recently named; `**Option N,
+    // fifth selection:**` is the fifth's, an exchange whose quoted lines are
+    // hers and whose directions are staging. W1 carries all of them as
+    // `repeats`, by selection number; the runner clamps at the last.
+    let named = null;
+    for (const line of text.split('\n')) {
+      const second = /^\*\*(?:Repeat on option|Option) (\d+),? ?(?:repeat)?:\*\* (.+)$/.exec(line);
+      const third = /^\*\*Third selection:\*\* (.+)$/.exec(line);
+      const fifth = /^\*\*Option (\d+), fifth selection:\*\* (.+)$/.exec(line);
+      const hit = second ? { number: second[1], selection: 2, cell: second[2] }
+        : third && named ? { number: named, selection: 3, cell: third[1] }
+          : fifth ? { number: fifth[1], selection: 5, cell: fifth[2] } : null;
+      if (!hit) continue;
+      named = hit.number;
+      const option = options.find((o) => o.id === `${SPEAKER}${hit.number}`);
+      if (!option) { unplayed.push(`${id}: a selection ${hit.selection} line names option ${hit.number}, which the node lacks`); continue; }
+      for (const d of hit.cell.matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} option ${hit.number} selection ${hit.selection} staging: ${d[1]}`);
+      const spokenLines = quoted(hit.cell.replace(/\*\([^)]*\)\*/g, ''));
+      if (!spokenLines.length) continue;
+      const entry = spokenLines.length === 1 ? { selection: hit.selection, say: spokenLines[0] }
+        : { selection: hit.selection, exchange: spokenLines.map((l) => ({ speaker: SPEAKER, line: l })) };
+      option.repeats = [...(option.repeats ?? []).filter((r) => r.selection !== hit.selection), entry]
+        .sort((a, b) => a.selection - b.selection);
     }
     if (!hasExit) {
       options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true });
@@ -2028,6 +2059,7 @@ function winnieTree() {
   for (const note of unplayed) process.stderr.write(`  doc 04 WINNIE: ${note}\n`);
 
   return write('content/dialogue/winnie.json', {
+    aftermathAuthored: true,
     schema: 1,
     id: 'WINNIE',
     speaker: SPEAKER,

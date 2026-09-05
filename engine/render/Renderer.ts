@@ -208,7 +208,7 @@ export function choiceLines(
   const top = dialogueTop(options.length);
   const backingTop = Math.min(top - 2 * GLYPH_SCALE, PANEL_Y);
   const lines = options.map((presented, index) => ({
-    text: `${presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix}${presented.option.text}`,
+    text: `${presented.exhausted ? ui.exhaustedPrefix : ui.optionPrefix}${presented.text}`,
     y: top + index * DIALOGUE_LINE_HEIGHT + PANEL_GLYPH_SCALE,
     role: (presented.exhausted ? 'inkDim' : 'ink') as ChoiceLine['role'],
   }));

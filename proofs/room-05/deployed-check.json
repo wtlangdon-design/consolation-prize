@@ -1,5 +1,5 @@
 {
- "deployedSha": "69de8a5",
+ "deployedSha": "65f8fca",
  "served": "dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/",
  "runs": [
   {
@@ -14,7 +14,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 771
+   "responsesSeen": 772
   },
   {
    "name": "night",
@@ -28,7 +28,49 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 771
+   "responsesSeen": 772
+  },
+  {
+   "name": "fixture-r5-a",
+   "url": "https://wtlangdon-design.github.io/consolation-prize/?fixture=r5-a&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&pace=1.25",
+   "roomJson": 200,
+   "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "legacyPlateRequested": false,
+   "winnieSheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "inkstand": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+   "lampOverlay": 200,
+   "thadClips": 199,
+   "failures": [],
+   "pageErrors": [],
+   "responsesSeen": 772
+  },
+  {
+   "name": "fixture-r5-b",
+   "url": "https://wtlangdon-design.github.io/consolation-prize/?fixture=r5-b&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&pace=1.25",
+   "roomJson": 200,
+   "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "legacyPlateRequested": false,
+   "winnieSheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "inkstand": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+   "lampOverlay": 200,
+   "thadClips": 199,
+   "failures": [],
+   "pageErrors": [],
+   "responsesSeen": 772
+  },
+  {
+   "name": "fixture-r5-g",
+   "url": "https://wtlangdon-design.github.io/consolation-prize/?fixture=r5-g&state=night&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-03-night-lift/candidate-1920x864.png&candidate=art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png=art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png&candidate=art/staging/room-05/winnie-02-counter/inkstand.png=art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png&pace=1.25",
+   "roomJson": 200,
+   "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "legacyPlateRequested": false,
+   "winnieSheet": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "inkstand": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+   "lampOverlay": 200,
+   "thadClips": 199,
+   "failures": [],
+   "pageErrors": [],
+   "responsesSeen": 772
   }
  ]
 }

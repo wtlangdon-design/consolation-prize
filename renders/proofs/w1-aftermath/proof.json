@@ -1,0 +1,679 @@
+{
+ "schema": 1,
+ "note": "W1 AFTERMATH PROOF (doc 36 Q112): counts and ids from the probe, never the words. Room 1 unchanged; WIN_A1 remove; the piano counted-repeat; WIN_A2 rephrase held back.",
+ "commit": "6503c8d540abea75ab40bed2f1498ec0d2d84b48",
+ "workingTreeClean": false,
+ "candidates": [
+  {
+   "from": "art/backgrounds/room-05-assay-office.png",
+   "to": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "to": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "to": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png"
+  }
+ ],
+ "visualState": "night",
+ "pace": 1.25,
+ "durationSeconds": 197.52,
+ "log": [
+  {
+   "t": 21.29,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 21.29,
+   "line": "action 2 (click): clicked screen 960,430 -- "
+  },
+  {
+   "t": 21.29,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 22.02,
+   "line": "capture r1-01-open: node root, options 3, selections {\"drv1\":0,\"drv2\":0,\"drv3\":0,\"drv4\":0}"
+  },
+  {
+   "t": 30.06,
+   "line": "action 1 (option): chose option drv2 -- "
+  },
+  {
+   "t": 30.06,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 30.59,
+   "line": "capture r1-02-after-drv2: node root, options 3, selections {\"drv1\":0,\"drv2\":1,\"drv3\":0,\"drv4\":0}"
+  },
+  {
+   "t": 35.72,
+   "line": "action 1 (option): chose option drv1 -- "
+  },
+  {
+   "t": 35.72,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 40.76,
+   "line": "action 1 (option): chose option drv3 -- "
+  },
+  {
+   "t": 40.76,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 41.54,
+   "line": "capture r1-03-four: node root, options 4, selections {\"drv1\":1,\"drv2\":1,\"drv3\":1,\"drv4\":0}"
+  },
+  {
+   "t": 53.89,
+   "line": "action 1 (option): chose option drv4 -- "
+  },
+  {
+   "t": 53.89,
+   "line": "action 2 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 60.76,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 70.95,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 70.95,
+   "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 70.95,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 71.5,
+   "line": "capture r5-01-win-a1: node WIN_A1, options 3, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":0,\"winnie4\":0,\"winnie5\":0}"
+  },
+  {
+   "t": 77.3,
+   "line": "action 1 (option): chose option winnie1 -- "
+  },
+  {
+   "t": 77.3,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 77.87,
+   "line": "capture r5-02-win-a2: node WIN_A2, options 4, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":0,\"winnie4\":0}"
+  },
+  {
+   "t": 84.9,
+   "line": "action 1 (option): chose option winnie4 -- "
+  },
+  {
+   "t": 84.9,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 84.9,
+   "line": "action 3 (wait): waited 1s"
+  },
+  {
+   "t": 91.57,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 91.57,
+   "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 91.57,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 92.12,
+   "line": "capture r5-03-win-a1-again: node WIN_A1, options 2, selections {\"winnie1\":1,\"winnie2\":0,\"winnie3\":0,\"winnie4\":0,\"winnie5\":0}"
+  },
+  {
+   "t": 95.39,
+   "line": "action 1 (option): chose option winnie5 -- "
+  },
+  {
+   "t": 95.39,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 95.39,
+   "line": "action 3 (wait): waited 1s"
+  },
+  {
+   "t": 101.78,
+   "line": "action 1 (verb): chose verb OPEN -- "
+  },
+  {
+   "t": 101.78,
+   "line": "action 2 (click): clicked assay_office/back_to_street at world 178,405 -- "
+  },
+  {
+   "t": 101.78,
+   "line": "action 3 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 101.78,
+   "line": "action 4 (wait): waited 1.5s"
+  },
+  {
+   "t": 101.78,
+   "line": "action 5 (click): clicked main_street/to_assay_office at world 3113,479 -- "
+  },
+  {
+   "t": 101.78,
+   "line": "action 6 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 101.78,
+   "line": "action 7 (wait): waited 2s"
+  },
+  {
+   "t": 109.78,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 109.78,
+   "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 109.78,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 110.41,
+   "line": "capture r5-04-win-a1-after-round-trip: node WIN_A1, options 2, selections {\"winnie1\":1,\"winnie2\":0,\"winnie3\":0,\"winnie4\":0,\"winnie5\":1}"
+  },
+  {
+   "t": 113.82,
+   "line": "action 1 (option): chose option winnie5 -- "
+  },
+  {
+   "t": 113.82,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 113.82,
+   "line": "action 3 (wait): waited 1s"
+  },
+  {
+   "t": 120.54,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 130.22,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 130.22,
+   "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 130.22,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 130.74,
+   "line": "capture p-01-with-piano: node WIN_A1, options 4, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":0,\"winnie4\":0,\"winnie5\":0}"
+  },
+  {
+   "t": 134.89,
+   "line": "action 1 (option): chose option winnie3 -- "
+  },
+  {
+   "t": 134.89,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 135.47,
+   "line": "capture p-02-selection-1: node WIN_A1, options 4, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":1,\"winnie4\":0,\"winnie5\":0}"
+  },
+  {
+   "t": 139.61,
+   "line": "action 1 (option): chose option winnie3 -- "
+  },
+  {
+   "t": 139.61,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 140.14,
+   "line": "capture p-03-selection-2: node WIN_A1, options 4, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":2,\"winnie4\":0,\"winnie5\":0}"
+  },
+  {
+   "t": 147.22,
+   "line": "action 1 (option): chose option winnie3 -- "
+  },
+  {
+   "t": 147.22,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 147.82,
+   "line": "capture p-04-selection-3: node WIN_A1, options 4, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":3,\"winnie4\":0,\"winnie5\":0}"
+  },
+  {
+   "t": 155.01,
+   "line": "action 1 (option): chose option winnie3 -- "
+  },
+  {
+   "t": 155.01,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 155.71,
+   "line": "capture p-05-selection-4: node WIN_A1, options 4, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":4,\"winnie4\":0,\"winnie5\":0}"
+  },
+  {
+   "t": 159.24,
+   "line": "action 1 (option): chose option winnie5 -- "
+  },
+  {
+   "t": 159.24,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 159.24,
+   "line": "action 3 (wait): waited 1s"
+  },
+  {
+   "t": 166.27,
+   "line": "action 1 (verb): chose verb OPEN -- "
+  },
+  {
+   "t": 166.27,
+   "line": "action 2 (click): clicked assay_office/back_to_street at world 178,405 -- "
+  },
+  {
+   "t": 166.27,
+   "line": "action 3 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 166.27,
+   "line": "action 4 (wait): waited 1.5s"
+  },
+  {
+   "t": 166.27,
+   "line": "action 5 (click): clicked main_street/to_assay_office at world 3113,479 -- "
+  },
+  {
+   "t": 166.27,
+   "line": "action 6 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 166.27,
+   "line": "action 7 (wait): waited 2s"
+  },
+  {
+   "t": 174.75,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 174.75,
+   "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 174.75,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 175.47,
+   "line": "capture p-06-after-round-trip: node WIN_A1, options 4, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":4,\"winnie4\":0,\"winnie5\":1}"
+  },
+  {
+   "t": 181.34,
+   "line": "action 1 (option): chose option winnie1 -- "
+  },
+  {
+   "t": 181.34,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 181.88,
+   "line": "capture p-07-win-a2: node WIN_A2, options 4, selections {\"winnie1\":0,\"winnie2\":0,\"winnie3\":0,\"winnie4\":0}"
+  },
+  {
+   "t": 189,
+   "line": "action 1 (option): chose option winnie4 -- "
+  },
+  {
+   "t": 189,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 189,
+   "line": "action 3 (wait): waited 1s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "r1-01-open",
+   "why": "three rows at the open",
+   "t": 22.02,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/r1-01-open.png",
+   "hash": "8de2d8a4775d19f0a43cab395f60b9a575a561e80f369847b952b115ed51ff23",
+   "room": "stage_road",
+   "says": null,
+   "options": 3,
+   "choiceLines": 3,
+   "dialogueAt": {
+    "tree": "STAGE_DRIVER",
+    "node": "root"
+   },
+   "selections": {
+    "drv1": 0,
+    "drv2": 0,
+    "drv3": 0,
+    "drv4": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "r1-02-after-drv2",
+   "why": "the used progress row kept (retain, the interim) and counted once",
+   "t": 30.58,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/r1-02-after-drv2.png",
+   "hash": "678d61b239c9b2759217f90f9ed2e370ae2f5a285fdb09ee68aee2f03871563e",
+   "room": "stage_road",
+   "says": null,
+   "options": 3,
+   "choiceLines": 3,
+   "dialogueAt": {
+    "tree": "STAGE_DRIVER",
+    "node": "root"
+   },
+   "selections": {
+    "drv1": 0,
+    "drv2": 1,
+    "drv3": 0,
+    "drv4": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "r1-03-four",
+   "why": "four rows once the three are asked",
+   "t": 41.54,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/r1-03-four.png",
+   "hash": "f2cf87136a3e96b67e4620afc8856d6bcfedb903ab42a0d855fa92c487db2039",
+   "room": "stage_road",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "STAGE_DRIVER",
+    "node": "root"
+   },
+   "selections": {
+    "drv1": 1,
+    "drv2": 1,
+    "drv3": 1,
+    "drv4": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "r5-01-win-a1",
+   "why": "the first visit: three rows",
+   "t": 71.49,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/r5-01-win-a1.png",
+   "hash": "989638133168646567027e32c3aa2c83051ea62c6dd972bbe88fc278d4981194",
+   "room": "assay_office",
+   "says": null,
+   "options": 3,
+   "choiceLines": 3,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 0,
+    "winnie4": 0,
+    "winnie5": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "r5-02-win-a2",
+   "why": "the row opened WIN_A2",
+   "t": 77.86,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/r5-02-win-a2.png",
+   "hash": "6abf40a94badc6152de089b9c7f0bfe0e9ba7cb83f3ff9b1a1935a0d670b33ad",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A2"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 0,
+    "winnie4": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "r5-03-win-a1-again",
+   "why": "WIN_A1 again: the removed row is gone",
+   "t": 92.12,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/r5-03-win-a1-again.png",
+   "hash": "e2e38b6a8ac9f967395bbb991e15ff20b1466049abee2dfd34fd22def83f7ee6",
+   "room": "assay_office",
+   "says": null,
+   "options": 2,
+   "choiceLines": 2,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 1,
+    "winnie2": 0,
+    "winnie3": 0,
+    "winnie4": 0,
+    "winnie5": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "r5-04-win-a1-after-round-trip",
+   "why": "after leaving the room: still gone",
+   "t": 110.4,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/r5-04-win-a1-after-round-trip.png",
+   "hash": "d90f9c773e58464d03793a171d099e382442c27bd691b745f3d600d20a0ea3e6",
+   "room": "assay_office",
+   "says": null,
+   "options": 2,
+   "choiceLines": 2,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 1,
+    "winnie2": 0,
+    "winnie3": 0,
+    "winnie4": 0,
+    "winnie5": 1
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "p-01-with-piano",
+   "why": "the piano row is offered",
+   "t": 130.74,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/p-01-with-piano.png",
+   "hash": "0841921f59b715e765f19b6ab396c00739db3d2affa8ae0ca1d43afa76902921",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 0,
+    "winnie4": 0,
+    "winnie5": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "p-02-selection-1",
+   "why": "selection 1 made; the row still offered, counted 1",
+   "t": 135.46,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/p-02-selection-1.png",
+   "hash": "3b2c6a8b368cad1d5855f0ef31aa0431f5cdee0b6a60591d02706b1c8e681fd6",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 1,
+    "winnie4": 0,
+    "winnie5": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "p-03-selection-2",
+   "why": "selection 2 made; the row still offered, counted 2",
+   "t": 140.13,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/p-03-selection-2.png",
+   "hash": "f8f85fe89173697b75d2f42afc7f4bcd0738f4c2f3d0ff6ac1d8f6e3ea5b35a7",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 2,
+    "winnie4": 0,
+    "winnie5": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "p-04-selection-3",
+   "why": "selection 3 made; the row still offered, counted 3",
+   "t": 147.8,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/p-04-selection-3.png",
+   "hash": "5ec0628ad2caed3c3eee6311d2ad58f491f5634703146e1255bf3e2f432cc888",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 3,
+    "winnie4": 0,
+    "winnie5": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "p-05-selection-4",
+   "why": "selection 4 made; the row still offered, counted 4",
+   "t": 155.7,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/p-05-selection-4.png",
+   "hash": "62d78c36f8dc3d51250ec70fffaefb037c5073b90a7c576d21a654b298f8b276",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 4,
+    "winnie4": 0,
+    "winnie5": 0
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "p-06-after-round-trip",
+   "why": "the count survives leaving the room",
+   "t": 175.46,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/p-06-after-round-trip.png",
+   "hash": "2c484e79b92a88d9635cc234bc063c4c715a319eeb7e3b60a856f151fb04b1db",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 4,
+    "winnie4": 0,
+    "winnie5": 1
+   },
+   "puzzlesComplete": []
+  },
+  {
+   "name": "p-07-win-a2",
+   "why": "WIN_A2: no puzzle complete, so the wait question keeps its first wording",
+   "t": 181.87,
+   "file": "renders/proofs/w1-aftermath/raw-captures-ignored/p-07-win-a2.png",
+   "hash": "87add0874084821a5e4fc9e2086e6e19906cc3cb76cddd4d133b26938dbd21e9",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_A2"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 0,
+    "winnie4": 0
+   },
+   "puzzlesComplete": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "at": "2026-09-05T17:33:01.334Z"
+}

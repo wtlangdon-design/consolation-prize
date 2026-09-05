@@ -29,6 +29,13 @@ export interface SaveFile {
   objectStates?: Record<string, string>;
   taken?: string[];
   flags: Record<string, FlagValue>;
+  /**
+   * PUZZLE PROGRESS, by canonical puzzle id (doc 02's 45): the completion
+   * state a dialogue `rephrase` or a later scene reads. Doc 36 Q112: a
+   * puzzle's completion is not a topic flag. Nothing writes it yet; a save
+   * without it has reached none.
+   */
+  puzzles?: Record<string, 'complete'>;
   dialogueProgress: DialogueProgress;
   dialoguePosition: { tree: string | null; node: string | null };
   /**

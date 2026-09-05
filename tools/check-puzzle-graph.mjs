@@ -7,7 +7,7 @@ import { loadContent, Report, runCheck } from './lib/content.mjs';
  * Errata ruling 5 fixes the canonical count at 45 and states the enumeration
  * this script traverses. 43 is wrong wherever it still appears.
  */
-const CANONICAL_PUZZLE_IDS = [
+export const CANONICAL_PUZZLE_IDS = [
   ...range('A', 1, 10),
   ...range('B', 1, 6),
   ...range('C', 1, 6),
