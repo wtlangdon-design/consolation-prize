@@ -2052,3 +2052,9 @@ background, and it is sized when the night plate exists.)
 
 **Room 5's status under these rulings:** CANDIDATE COMPLETE — HUMAN VISUAL
 GATE PENDING, WITH REQUIRED NIGHT VARIANT BEFORE SHIPPING.
+
+# 65 · THE STAGE DRIVER'S EXIT ARRIVES AFTER THE THREE ARE ASKED — RECORDED FROM THE BUILD, FOR TYLER TO CONFIRM OR STRIKE
+
+Doc 30 §16 opens its binding Room 1 proof with "the tree opens with four choices in the lower interface." Doc 17 v3.1 writes the driver's four options with no gate. **The build does not open with four.** Since the tree was extracted (`tools/extract-content.mjs`, `room01Driver`), "Thank you for the ride." is gated on `T_DRIVER_ASKED` reaching 3 — a counter each of the other three rows adds to on every selection — so the tree opens with three rows and the exit arrives once three questions have been asked, in any combination. The extractor's stated reason: nothing is removed once present (errata 37 revoked), so the three are always askable and the fourth always arrives; the count is the tree's one reachability condition, and it keeps the exit from being taken before the opening has taught what it exists to teach. **That rule lives only in the extractor and its commit; no document ruled it.** This entry records it, and reads §16's "four choices" as the tree's full set, reached once the three are spent. It changes no runtime behaviour. Tyler confirms it as the rule or strikes it, in which case the extractor drops the gate and §16 stands as written.
+
+§16's other older line — "the used PROGRESS option is gone" — is already superseded: errata 57 authors every option's aftermath, and until W1's trees land every existing option behaves as `retain` (kept and dimmed). Nothing to add there.

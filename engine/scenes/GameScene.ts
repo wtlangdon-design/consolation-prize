@@ -15,6 +15,7 @@ import { DialoguePerformance, readingHold, type HoldTiming } from '../core/Dialo
 import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCycling.ts';
 import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
 import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
+import { askedFixture } from '../dev/Fixture.ts';
 import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
@@ -269,6 +270,19 @@ export class GameScene extends Phaser.Scene {
     // The warp happens BEFORE beginOpening, which is what makes it skip the
     // opening rather than fight it: the opening declines to run anywhere but
     // the manifest's start room.
+    // A PLAYTEST FIXTURE FIRST, THEN THE WARP. The fixture is a restored
+    // save, so it decides the room; `?room=` on top of it is allowed and
+    // moves out of that room with the fixture's state intact.
+    const fixtureId = askedFixture();
+    if (fixtureId) {
+      const fixture = this.state.content.fixtures.get(fixtureId);
+      if (!fixture) {
+        console.warn(`?fixture=${fixtureId} is not a fixture. Known: `
+          + [...this.state.content.fixtures.keys()].join(', '));
+      } else if (this.state.applyFixture(fixture)) {
+        this.enterRoomPerformance(null);
+      }
+    }
     const warp = this.warpRoom();
     if (warp) {
       this.state.enterRoom(warp);
@@ -1698,6 +1712,7 @@ export class GameScene extends Phaser.Scene {
       flags: this.state.flags.trueIds(),
       counters: this.state.flags.counters(),
       inventory: this.state.carried,
+      dialogueAt: this.state.dialogue.positionSnapshot(),
       camera: Math.round(this.state.cameraX),
       pending: this.pendingSay.length,
       performing: this.performance !== null,

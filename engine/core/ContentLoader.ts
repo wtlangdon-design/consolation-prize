@@ -22,7 +22,7 @@ import type {
   VerbFallbacksFile,
   VerbsFile,
   MenuFile,
-  SequenceFile,
+  SequenceFile, PlaytestFixture,
 } from './types.ts';
 
 /** Reads and parses one JSON file. Supplied by the host (fetch, or fs in tests). */
@@ -95,6 +95,15 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
     items.set(item.id, item);
   }
 
+  const fixtureFiles = (await Promise.all((manifest.fixtures ?? []).map((path) => read(path)))) as { fixtures: PlaytestFixture[] }[];
+  const fixtures = new Map<string, PlaytestFixture>();
+  for (const file of fixtureFiles) {
+    for (const fixture of file.fixtures ?? []) {
+      if (fixtures.has(fixture.id)) throw new Error(`Duplicate fixture id: ${fixture.id}`);
+      fixtures.set(fixture.id, fixture);
+    }
+  }
+
   const roomFiles = (await Promise.all(manifest.rooms.map((path) => read(path)))) as RoomFile[];
   const dialogueFiles = (await Promise.all(manifest.dialogue.map((path) => read(path)))) as DialogueFile[];
   const ambientFiles = (await Promise.all(manifest.ambient.map((path) => read(path)))) as AmbientFile[];
@@ -140,7 +149,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
     verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, paths,
-    speechColours, items, panel,
+    speechColours, items, fixtures, panel,
     combinations, itemIcons,
     sequences,
   };
