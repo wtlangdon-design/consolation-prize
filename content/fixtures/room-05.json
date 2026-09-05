@@ -105,6 +105,130 @@
       "note": "Thad has filed the deed, been swindled at Fanshawe's dinner, and comes to the assay office with the queue in front of him. Nothing of C1 onward is pre-answered: T_ASSAY_QUEUE is his to earn in WIN_B1."
     },
     {
+      "id": "r5-c",
+      "label": "R5-C Padded log ready (C5 not yet done)",
+      "room": "assay_office",
+      "flags": {
+        "T_OPENING_SAID": true,
+        "T_DRIVER_ASKED": 3,
+        "T_COACH_DEPARTED": true,
+        "T_UNDERTAKER_NAMED": true,
+        "T_HOB_CROSSING": true,
+        "T_THAD_LEAVING": true,
+        "T_HOB_SPOKEN": true,
+        "T_HOB_GONE": true,
+        "T_OPENING_DONE": true,
+        "T_SEEN_MAIN_STREET": true,
+        "T_CASE_DOWN": true,
+        "T_CASE_TAKEN": true,
+        "T_BORDERS_MOTT": true,
+        "T_SWINDLED": true,
+        "ACT": 2,
+        "T_ASSAY_QUEUE": true
+      },
+      "inventory": [
+        "tuning_fork",
+        "deed",
+        "company_map",
+        "padded_log"
+      ],
+      "puzzles": {
+        "C1": "complete",
+        "C2": "complete",
+        "C3": "complete",
+        "C4": "complete"
+      },
+      "dialogueCounts": {
+        "WINNIE": {
+          "WIN_B1:winnie1": 1
+        }
+      },
+      "derivedFrom": [
+        "content/fixtures/room-05.json r5-b (Act II, the queue in front of him)",
+        "docs/02-puzzle-graph.md:64-67 (C1 the refusal -- T_ASSAY_QUEUE; C2 the priority submissions; C3 the funeral window; C4 Fanshawe's office yields the padded log)",
+        "docs/00-errata.md#66 A-C (the log is an item; C5 is SHOW / USE it on Winnie; the action opens WIN_B2)",
+        "docs/53-assay-office-later-state-contract.md (C5's prerequisites and success state)"
+      ],
+      "notBuilt": [
+        "C2, C3 and C4 themselves (Fanshawe's office, the funeral window) are not built: the fixture stands where they end, with the log in hand",
+        "the writers of T_BORDERS_MOTT and ACT (Rooms 7 and 11) -- check-flag-order's standing red",
+        "WIN_B1 was played to C1 in this state: T_ASSAY_QUEUE is true and its row is counted once"
+      ],
+      "expect": {
+        "tree": "WINNIE",
+        "opensOn": "WIN_B1",
+        "interactables": [
+          "queue_bench",
+          "floorboard",
+          "scales"
+        ]
+      },
+      "note": "The evidence in hand, the confrontation not yet had: C5 is Tyler's to perform -- USE THE SUBMISSION LOG on Winnie. Until then TALK TO opens WIN_B1 (its first row counted). Nothing of WIN_B2 is pre-answered; C6 is not pending; T_NO_MOTT_GOLD and T_SECOND_LEDGER are false."
+    },
+    {
+      "id": "r5-c-post",
+      "label": "R5-C-POST C5 complete, WIN_B2 available (regression only)",
+      "room": "assay_office",
+      "flags": {
+        "T_OPENING_SAID": true,
+        "T_DRIVER_ASKED": 3,
+        "T_COACH_DEPARTED": true,
+        "T_UNDERTAKER_NAMED": true,
+        "T_HOB_CROSSING": true,
+        "T_THAD_LEAVING": true,
+        "T_HOB_SPOKEN": true,
+        "T_HOB_GONE": true,
+        "T_OPENING_DONE": true,
+        "T_SEEN_MAIN_STREET": true,
+        "T_CASE_DOWN": true,
+        "T_CASE_TAKEN": true,
+        "T_BORDERS_MOTT": true,
+        "T_SWINDLED": true,
+        "ACT": 2,
+        "T_ASSAY_QUEUE": true
+      },
+      "inventory": [
+        "tuning_fork",
+        "deed",
+        "company_map",
+        "padded_log"
+      ],
+      "puzzles": {
+        "C1": "complete",
+        "C2": "complete",
+        "C3": "complete",
+        "C4": "complete",
+        "C5": "complete"
+      },
+      "dialogueCounts": {
+        "WINNIE": {
+          "WIN_B1:winnie1": 1
+        }
+      },
+      "derivedFrom": [
+        "content/fixtures/room-05.json r5-b (Act II, the queue in front of him)",
+        "docs/02-puzzle-graph.md:64-67 (C1 the refusal -- T_ASSAY_QUEUE; C2 the priority submissions; C3 the funeral window; C4 Fanshawe's office yields the padded log)",
+        "docs/00-errata.md#66 A-C (the log is an item; C5 is SHOW / USE it on Winnie; the action opens WIN_B2)",
+        "docs/53-assay-office-later-state-contract.md (C5's prerequisites and success state)",
+        "errata 66 C (after the action, TALK TO opens WIN_B2's list without replaying the opening)"
+      ],
+      "notBuilt": [
+        "C2, C3 and C4 themselves (Fanshawe's office, the funeral window) are not built: the fixture stands where they end, with the log in hand",
+        "the writers of T_BORDERS_MOTT and ACT (Rooms 7 and 11) -- check-flag-order's standing red",
+        "WIN_B1 was played to C1 in this state: T_ASSAY_QUEUE is true and its row is counted once"
+      ],
+      "expect": {
+        "tree": "WINNIE",
+        "opensOn": "WIN_B2",
+        "interactables": [
+          "queue_bench",
+          "floorboard",
+          "scales"
+        ]
+      },
+      "note": "REGRESSION ONLY, not the owner's test: the confrontation has happened (C5 complete, nothing of WIN_B2 yet chosen), so TALK TO opens WIN_B2's list. The owner's acceptance URL is r5-c, which does not skip the action."
+    },
+    {
       "id": "r5-g",
       "label": "R5-G Act IV real-gold assay (WIN_F1 material only)",
       "room": "assay_office",

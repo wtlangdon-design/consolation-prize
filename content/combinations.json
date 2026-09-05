@@ -89,6 +89,19 @@
       "room": "main_street",
       "target": "mud",
       "say": "I have shown the mud its deed. The mud is unmoved, which is the correct response and I resent it."
+    },
+    {
+      "item": "padded_log",
+      "room": "assay_office",
+      "target": "winnie",
+      "puzzle": "C5",
+      "requiresPuzzles": [
+        "C4"
+      ],
+      "completes": "C5",
+      "opens": "WINNIE",
+      "note": "ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room's ambient character, not a hotspot. No `say`: the pair's line is WIN_B2's opening, which the action launches at once. The log is kept. With C5 complete the pair yields to the ordinary pools (doc 36 Q113).",
+      "opensNode": "WIN_B2"
     }
   ],
   "itemPools": {

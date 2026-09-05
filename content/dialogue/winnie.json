@@ -13,6 +13,10 @@
       "node": "WIN_F1"
     },
     {
+      "puzzle": "C5",
+      "node": "WIN_B2"
+    },
+    {
       "when": {
         "T_BORDERS_MOTT": true
       },
@@ -259,7 +263,10 @@
           "tag": "PROGRESS",
           "text": "Will you run my assay?",
           "afterUse": "remove",
-          "say": "I'll run your assay. I'd run your assay if it were a bucket of rain."
+          "say": "I'll run your assay. I'd run your assay if it were a bucket of rain.",
+          "puzzle": {
+            "C6": "pending"
+          }
         },
         {
           "id": "winnie2",

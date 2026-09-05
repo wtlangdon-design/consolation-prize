@@ -979,6 +979,16 @@ test('doc 24 rule 4: no authored pair exists without a written line', async () =
   // line returns NOTHING rather than a pool line, so a gap cannot disguise
   // itself as content -- which is the whole of note 4.
   for (const pair of content.combinations.pairs) {
+    // A PAIR THAT OPENS A TREE has its line in the tree's authored opening,
+    // performed by the action (errata 66 C): it names what it opens and what
+    // it completes, and the check confirms the tree opens on that puzzle.
+    if (pair.opens) {
+      assert.ok(pair.completes, `${pair.item} on ${pair.room}/${pair.target} opens a tree and completes nothing`);
+      const tree = content.dialogue.get(pair.opens);
+      assert.ok(tree?.entries?.some((entry) => entry.puzzle === pair.completes && tree.nodes[entry.node]?.opening?.length),
+        `${pair.item} on ${pair.room}/${pair.target}: ${pair.opens} has no opening gated on ${pair.completes}`);
+      continue;
+    }
     assert.ok(typeof pair.say === 'string' && pair.say.length > 0,
       `${pair.item} on ${pair.room}/${pair.target} has no line`);
   }

@@ -165,7 +165,30 @@ def filing_fee(canvas: IndexedCanvas, palette: Palette) -> None:
         canvas.outline(cx - 1, cy - 1, 8, 8, void.at(0))
 
 
+def padded_log(canvas: IndexedCanvas, palette: Palette) -> None:
+    """A bound submission log: a dark cover, a pale page block, ruled columns
+    of entries -- the same hand, the same weights, again and again. Drawn as a
+    BOOK so it cannot be confused with the three papers (letter, deed, map)."""
+    umber = palette.family("umber")
+    bone = palette.family("bone")
+    # The cover, spine at left, a shade darker than the page block.
+    canvas.rect(6, 3, 18, 15, umber.frac(0.22))
+    canvas.vline(6, 3, 15, umber.frac(0.10))
+    canvas.vline(7, 3, 15, umber.frac(0.14))
+    # The page block, offset from the spine, inside the cover.
+    canvas.rect(9, 4, 14, 13, bone.frac(0.62))
+    canvas.hline(9, 4, 14, bone.frac(0.86))
+    # Two ruled columns of entries: the padding, in one hand.
+    ink = umber.frac(0.16)
+    for row in range(5):
+        y = 6 + row * 2
+        canvas.hline(11, y, 4, ink)
+        canvas.hline(17, y, 4, ink)
+    canvas.vline(16, 5, 11, umber.frac(0.30))
+
+
 ICONS = {
+    "padded_log": padded_log,
     "tuning_fork": tuning_fork,
     "letter": letter,
     "four_dollars": four_dollars,

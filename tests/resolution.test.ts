@@ -116,9 +116,12 @@ test('D30: resolving a dialogue option over every authored tree writes nothing',
         const kinds = new Set(effectKinds(resolution.effects));
         assert.ok(kinds.has('dialogueTaken'), 'every selection reserves its own count');
         for (const kind of kinds) {
+          // PUZZLE PROGRESS JOINED THE LIST with C5 (doc 36 Q113): doc 04 gives
+          // WIN_B2's first row the job of granting the assay, which doc 53
+          // reads as C6 pending. Inventory, objects and the room stay out.
           assert.ok(
-            kind === 'dialogueTaken' || kind === 'flag' || kind === 'flagAdd',
-            `a tree may not reserve ${kind} -- section 4.2 gives it counts and flags only`,
+            kind === 'dialogueTaken' || kind === 'flag' || kind === 'flagAdd' || kind === 'puzzleProgress',
+            `a tree may not reserve ${kind} -- section 4.2 gives it counts, flags and puzzle progress only`,
           );
         }
         if (presented.option.set || presented.option.add) effectsSeen += 1;

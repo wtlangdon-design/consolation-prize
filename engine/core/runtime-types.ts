@@ -139,7 +139,8 @@ export type DurableEffect =
   | { id: string; kind: 'inventoryAdd'; item: string }
   | { id: string; kind: 'inventoryRemove'; item: string }
   | { id: string; kind: 'room'; room: string }
-  | { id: string; kind: 'dialogueTaken'; tree: string; node: string; option: string };
+  | { id: string; kind: 'dialogueTaken'; tree: string; node: string; option: string }
+  | { id: string; kind: 'puzzleProgress'; puzzle: string; status: 'pending' | 'complete' };
 
 /** Which journal phase applies an effect. Section 9.1's tail, as a lookup. */
 export type EffectPhase = Extract<JournalPhase, 'worldState' | 'flags' | 'inventory'>;

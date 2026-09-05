@@ -38,6 +38,7 @@ export const EFFECT_PHASE: Readonly<Record<DurableEffect['kind'], EffectPhase>> 
   objectState: 'worldState',
   room: 'worldState',
   dialogueTaken: 'worldState',
+  puzzleProgress: 'worldState',
   flag: 'flags',
   flagAdd: 'flags',
   inventoryAdd: 'inventory',
@@ -64,6 +65,8 @@ export interface DurableWorld {
   removeInventory(item: string): void;
   enterRoom(room: string): void;
   markDialogueTaken(tree: string, node: string, option: string): void;
+  /** Doc 53: a canonical puzzle's progress. Written by a puzzle action, or by a dialogue row doc 04 gives that job. */
+  setPuzzle(puzzle: string, status: 'pending' | 'complete'): void;
 }
 
 /**
@@ -109,6 +112,9 @@ function applyEffect(effect: DurableEffect, world: DurableWorld): void {
       return;
     case 'dialogueTaken':
       world.markDialogueTaken(effect.tree, effect.node, effect.option);
+      return;
+    case 'puzzleProgress':
+      world.setPuzzle(effect.puzzle, effect.status);
       return;
   }
 }

@@ -71,6 +71,22 @@
 
 ---
 
+## Act II items
+
+*Owner-authored (Tyler, 2026-09-05), for errata 66 ruling A. Written content, verbatim, in this document's grammar; extracted by `tools/extract-content.mjs`, never retyped.*
+
+| Item | Full name | Display name |
+|---|---|---|
+| padded_log | The Improvement Company submission log | THE SUBMISSION LOG |
+
+## THE SUBMISSION LOG
+*Acquired C4. Shown to Winnie at C5 and kept. Never consumed.*
+
+**LOOK** 1 "The Improvement Company's submission log. Two-thirds of these entries are the same sample under different names." · 2 "Same weights, same notation, same hand. Different claim numbers. Repeated until the queue became eight months long." · 3 "Nine years of delay, entered neatly enough to look like work."
+**LISTEN** 1 "Paper." · 2 "Nothing." · 3 "Nothing. It has already said enough."
+
+---
+
 ## Notes
 
 1. **The letter's second state is the only inventory item in Act I with a 19a state change**, and the third LOOK — "My father did not know. That is the part I keep arriving at" — is the only moment in the act where Thad is not being funny. Do not add a joke to it.

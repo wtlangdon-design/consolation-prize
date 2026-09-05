@@ -26,6 +26,7 @@ Resolution runs most specific first.
 | **A8** | THE TUNING FORK on **the Nugget's piano** | "Four minutes. C-sharp has come home, and nobody in this room has looked up." *(→ filing fee)* |
 | **A9** | THE DEED on **the Registrar's counter** | "Filed. Mr Sump has written a number in a book, and the number is mine." |
 | **A9** | THE FILING FEE on **Registrar Sump** | "Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure." |
+| **C5** | THE SUBMISSION LOG on **Winnie** | *(→ opens `WIN_B2`; no line of its own -- the tree's authored opening is the showing; the log is kept. Errata 66 rulings A-C, Act II.)* |
 
 ---
 

@@ -1,0 +1,1343 @@
+{
+ "schema": 1,
+ "note": "C5 + WIN_B2 PROOF (doc 36 Q113): ids, counts and state from the probe, never words. Individual frames under raw-captures-ignored; no contact sheet, the frames are the record.",
+ "commit": "16c882db5f4c2119da11fbd87e0aff537b4670f4",
+ "workingTreeClean": false,
+ "candidates": [
+  {
+   "from": "art/backgrounds/room-05-assay-office.png",
+   "to": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "to": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "to": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png"
+  }
+ ],
+ "visualState": "night",
+ "pace": 1.25,
+ "durationSeconds": 110.28,
+ "log": [
+  {
+   "t": 6.37,
+   "line": "capture c01-ready: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\"}, says null"
+  },
+  {
+   "t": 6.49,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 6.96,
+   "line": "action 1 (click): clicked screen 1722,951 -- "
+  },
+  {
+   "t": 7.1,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 8.1,
+   "line": "capture c02-look-log: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\"}, says \"thad\""
+  },
+  {
+   "t": 13.69,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 13.69,
+   "line": "action 2 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 13.9,
+   "line": "action 1 (click): clicked screen 1722,951 -- "
+  },
+  {
+   "t": 13.98,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 14.36,
+   "line": "capture c03-listen-log: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\"}, says \"thad\""
+  },
+  {
+   "t": 15.83,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 15.92,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 16.11,
+   "line": "action 1 (click): clicked screen 1722,951 -- "
+  },
+  {
+   "t": 16.36,
+   "line": "action 1 (click): clicked assay_office/scales at world 1303,290 -- "
+  },
+  {
+   "t": 19.09,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 19.55,
+   "line": "capture c04-log-on-scales: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\"}, says \"thad\""
+  },
+  {
+   "t": 21.46,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 21.55,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 21.75,
+   "line": "action 1 (click): clicked screen 1362,951 -- "
+  },
+  {
+   "t": 22.63,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 22.63,
+   "line": "action 2 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 23.02,
+   "line": "capture c05-deed-on-winnie: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\"}, says \"thad\""
+  },
+  {
+   "t": 25.65,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 31.81,
+   "line": "action 1 (click): clicked screen 1750,770 -- "
+  },
+  {
+   "t": 31.81,
+   "line": "action 2 (wait): waited 6s"
+  },
+  {
+   "t": 31.88,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 32.07,
+   "line": "action 1 (click): clicked screen 1722,951 -- "
+  },
+  {
+   "t": 32.3,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 37.91,
+   "line": "action 1 (wait): waited 0.4s"
+  },
+  {
+   "t": 37.91,
+   "line": "action 2 (click): clicked screen 1500,820 -- "
+  },
+  {
+   "t": 37.91,
+   "line": "action 3 (wait): waited 5s"
+  },
+  {
+   "t": 38.37,
+   "line": "capture c06-cancelled: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\"}, says null"
+  },
+  {
+   "t": 38.45,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 38.65,
+   "line": "action 1 (click): clicked screen 1722,951 -- "
+  },
+  {
+   "t": 38.9,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 39.7,
+   "line": "action 1 (wait): waited 0.8s"
+  },
+  {
+   "t": 40.14,
+   "line": "capture c07-approach: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\"}, says null"
+  },
+  {
+   "t": 41.37,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 41.78,
+   "line": "capture c08-contact-first-line: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\"}, says \"thad\""
+  },
+  {
+   "t": 45.95,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 46.35,
+   "line": "capture c09-nine-years: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\"}, says \"winnie\""
+  },
+  {
+   "t": 47.76,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 48.15,
+   "line": "capture c10-sorry: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\"}, says \"thad\""
+  },
+  {
+   "t": 49.6,
+   "line": "action 1 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+  },
+  {
+   "t": 50.01,
+   "line": "capture c11-counting: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\"}, says \"winnie\""
+  },
+  {
+   "t": 52.24,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 52.64,
+   "line": "capture c12-win-b2-list: room assay_office, node WIN_B2, options 5, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\"}, says null"
+  },
+  {
+   "t": 58.67,
+   "line": "action 1 (option): chose option winnie4 -- "
+  },
+  {
+   "t": 58.67,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 59.06,
+   "line": "capture c13-after-comic: room assay_office, node WIN_B2, options 5, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\"}, says null"
+  },
+  {
+   "t": 66.6,
+   "line": "action 1 (option): chose option winnie2 -- "
+  },
+  {
+   "t": 66.6,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 67.02,
+   "line": "capture c14-after-mott: room assay_office, node WIN_B2, options 4, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\"}, says null"
+  },
+  {
+   "t": 76.06,
+   "line": "action 1 (option): chose option winnie3 -- "
+  },
+  {
+   "t": 76.06,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 76.47,
+   "line": "capture c15-after-ledger: room assay_office, node WIN_B2, options 3, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\"}, says null"
+  },
+  {
+   "t": 82.88,
+   "line": "action 1 (option): chose option winnie1 -- "
+  },
+  {
+   "t": 82.88,
+   "line": "action 2 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 83.28,
+   "line": "capture c16-after-assay: room assay_office, node WIN_B2, options 2, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\",\"C6\":\"pending\"}, says null"
+  },
+  {
+   "t": 87.07,
+   "line": "action 1 (option): chose option winniex -- "
+  },
+  {
+   "t": 87.07,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 87.07,
+   "line": "action 3 (wait): waited 1s"
+  },
+  {
+   "t": 87.47,
+   "line": "capture c17-after-exit: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\",\"C6\":\"pending\"}, says null"
+  },
+  {
+   "t": 87.88,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 87.88,
+   "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 87.88,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 88.29,
+   "line": "capture c18-talk-again: room assay_office, node WIN_B2, options 2, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\",\"C6\":\"pending\"}, says null"
+  },
+  {
+   "t": 92.03,
+   "line": "action 1 (option): chose option winniex -- "
+  },
+  {
+   "t": 92.03,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 92.03,
+   "line": "action 3 (wait): waited 1s"
+  },
+  {
+   "t": 98.09,
+   "line": "action 1 (verb): chose verb OPEN -- "
+  },
+  {
+   "t": 98.09,
+   "line": "action 2 (click): clicked assay_office/back_to_street at world 178,405 -- "
+  },
+  {
+   "t": 98.09,
+   "line": "action 3 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 98.09,
+   "line": "action 4 (wait): waited 1.5s"
+  },
+  {
+   "t": 98.09,
+   "line": "action 5 (click): clicked main_street/to_assay_office at world 3113,479 -- "
+  },
+  {
+   "t": 98.09,
+   "line": "action 6 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 98.09,
+   "line": "action 7 (wait): waited 2s"
+  },
+  {
+   "t": 99.89,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 99.89,
+   "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 99.89,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room assay_office"
+  },
+  {
+   "t": 100.33,
+   "line": "capture c19-after-round-trip: room assay_office, node WIN_B2, options 2, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\",\"C6\":\"pending\"}, says null"
+  },
+  {
+   "t": 104.15,
+   "line": "action 1 (option): chose option winniex -- "
+  },
+  {
+   "t": 104.15,
+   "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+  },
+  {
+   "t": 104.15,
+   "line": "action 3 (wait): waited 1s"
+  },
+  {
+   "t": 104.24,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 104.45,
+   "line": "action 1 (click): clicked screen 1722,951 -- "
+  },
+  {
+   "t": 104.72,
+   "line": "action 1 (click): clicked assay_office/winnie at world 1035,309 -- "
+  },
+  {
+   "t": 105.86,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
+  },
+  {
+   "t": 106.23,
+   "line": "capture c20-log-again: room assay_office, node null, options 0, puzzles {\"C1\":\"complete\",\"C2\":\"complete\",\"C3\":\"complete\",\"C4\":\"complete\",\"C5\":\"complete\",\"C6\":\"pending\"}, says \"thad\""
+  },
+  {
+   "t": 110.11,
+   "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+  }
+ ],
+ "captures": [
+  {
+   "name": "c01-ready",
+   "why": "the ready state: the log held, C5 not complete",
+   "t": 6.37,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c01-ready.png",
+   "hash": "7cc90fef218aca76a86eafd597ccb391511b0462f1d310fb3f4f733207e74a19",
+   "room": "assay_office",
+   "says": null,
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     200,
+     765
+    ],
+    "right",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 0,
+   "held": null
+  },
+  {
+   "name": "c02-look-log",
+   "why": "LOOK at the submission log",
+   "t": 8.1,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c02-look-log.png",
+   "hash": "08899c772cee74cc082ba00951524f92064a550ed91b9a798ce5b7c31dcdf30a",
+   "room": "assay_office",
+   "says": "thad",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     200,
+     765
+    ],
+    "right",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 0,
+   "held": null
+  },
+  {
+   "name": "c03-listen-log",
+   "why": "LISTEN to it",
+   "t": 14.36,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c03-listen-log.png",
+   "hash": "4c300ac555104b4bfc460155d08f82bab56d5fabf8a37a7886628f01b497a130",
+   "room": "assay_office",
+   "says": "thad",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     200,
+     765
+    ],
+    "right",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 0,
+   "held": null
+  },
+  {
+   "name": "c04-log-on-scales",
+   "why": "the log on the wrong object: a pool line",
+   "t": 19.55,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c04-log-on-scales.png",
+   "hash": "eaf65fb1c88fae0f1e668624fa685f490c4364889362aaad06c7e1ae64dd1727",
+   "room": "assay_office",
+   "says": "thad",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     1303,
+     828
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": "padded_log"
+  },
+  {
+   "name": "c05-deed-on-winnie",
+   "why": "an unrelated item on Winnie: the people pool",
+   "t": 23.02,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c05-deed-on-winnie.png",
+   "hash": "460d9e5844fe3031077c3583fd264b8e10ae59388916902b2e716ca8379e3ef6",
+   "room": "assay_office",
+   "says": "thad",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     1131,
+     828
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": "deed"
+  },
+  {
+   "name": "c06-cancelled",
+   "why": "a change of mind mid-walk: nothing written, no tree, the log still held",
+   "t": 38.36,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c06-cancelled.png",
+   "hash": "49f5443039255f09636d7727756d16a38803fc27b1008947a1fcd0b4468453d2",
+   "room": "assay_office",
+   "says": null,
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     1500,
+     819
+    ],
+    "right",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c07-approach",
+   "why": "the walk to her dialogue point with the evidence",
+   "t": 40.14,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c07-approach.png",
+   "hash": "85ce2818521a42739c252bf2ff6cde58d4e24b15e53fe5e350c4a7584538ff28",
+   "room": "assay_office",
+   "says": null,
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     787
+    ],
+    "left",
+    "walk"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c08-contact-first-line",
+   "why": "contact: C5 landed at the beat, then his first line of WIN_B2 over him",
+   "t": 41.77,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c08-contact-first-line.png",
+   "hash": "affa7336b6c14eb372ac21cc0f71a66db2abe0b1fc76d3ee59cf10a8eb28289f",
+   "room": "assay_office",
+   "says": "thad",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c09-nine-years",
+   "why": "her second line, over her, the ledger stopped",
+   "t": 46.35,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c09-nine-years.png",
+   "hash": "87b82ac8be466e385b03bee5dff675b7c56f67910f7ff1770da3b09643d6f54f",
+   "room": "assay_office",
+   "says": "winnie",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c10-sorry",
+   "why": "his third line",
+   "t": 48.15,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c10-sorry.png",
+   "hash": "9c926e6841c97e726f08239237417775279362d0a6fad7da3bf2dd46e10802a3",
+   "room": "assay_office",
+   "says": "thad",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c11-counting",
+   "why": "her fourth line",
+   "t": 50,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c11-counting.png",
+   "hash": "3637be500e21f7b333d236c435366ce046b654e64b08806ffae17559536b1ec7",
+   "room": "assay_office",
+   "says": "winnie",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c12-win-b2-list",
+   "why": "WIN_B2: four rows and the exit, nothing above them",
+   "t": 52.64,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c12-win-b2-list.png",
+   "hash": "6141c644c88e2f14435090bde8237ec349d83cfa9b359c358ffa2a82c91c5f5a",
+   "room": "assay_office",
+   "says": null,
+   "options": 5,
+   "choiceLines": 5,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_B2"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 0,
+    "winnie4": 0,
+    "winniex": 0
+   },
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle-break"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c13-after-comic",
+   "why": "the comic asked: retained, greyed",
+   "t": 59.05,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c13-after-comic.png",
+   "hash": "111092a8b0e2d46f91eefd8ee3ea08e36ba7fc6ca205eb7a1c56033afaeae788",
+   "room": "assay_office",
+   "says": null,
+   "options": 5,
+   "choiceLines": 5,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_B2"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 0,
+    "winnie3": 0,
+    "winnie4": 1,
+    "winniex": 0
+   },
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c14-after-mott",
+   "why": "the Mott row asked: removed; T_NO_MOTT_GOLD",
+   "t": 67.02,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c14-after-mott.png",
+   "hash": "6832e4476c21cbffde12fb31166a1d10439b9f44d569103f67b9fcbe7e381bcd",
+   "room": "assay_office",
+   "says": null,
+   "options": 4,
+   "choiceLines": 4,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_B2"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 1,
+    "winnie3": 0,
+    "winnie4": 1,
+    "winniex": 0
+   },
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_NO_MOTT_GOLD"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c15-after-ledger",
+   "why": "the ledger row asked: removed; T_SECOND_LEDGER; the board untouched",
+   "t": 76.47,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c15-after-ledger.png",
+   "hash": "20f68288a779081f1623b1c22f830ad3831dbdbd1be6ba98d8edde412a8f045b",
+   "room": "assay_office",
+   "says": null,
+   "options": 3,
+   "choiceLines": 3,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_B2"
+   },
+   "selections": {
+    "winnie1": 0,
+    "winnie2": 1,
+    "winnie3": 1,
+    "winnie4": 1,
+    "winniex": 0
+   },
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_NO_MOTT_GOLD",
+    "T_SECOND_LEDGER"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c16-after-assay",
+   "why": "the assay row asked: removed; C6 pending; no item",
+   "t": 83.28,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c16-after-assay.png",
+   "hash": "8cf08530e4bec2920b2f0df77b8a65357296922a16201e6e89e62a3fd200d320",
+   "room": "assay_office",
+   "says": null,
+   "options": 2,
+   "choiceLines": 2,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_B2"
+   },
+   "selections": {
+    "winnie1": 1,
+    "winnie2": 1,
+    "winnie3": 1,
+    "winnie4": 1,
+    "winniex": 0
+   },
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete",
+    "C6": "pending"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_NO_MOTT_GOLD",
+    "T_SECOND_LEDGER"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle-break"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c17-after-exit",
+   "why": "control returned; she is back at work",
+   "t": 87.47,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c17-after-exit.png",
+   "hash": "eefa1614d5435bed1ad3af94160c97148c2ec32d7192dfc983ec0a1f97e5af70",
+   "room": "assay_office",
+   "says": null,
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete",
+    "C6": "pending"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_NO_MOTT_GOLD",
+    "T_SECOND_LEDGER"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle-break"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c18-talk-again",
+   "why": "TALK TO again: WIN_B2's list at once, the confrontation not replayed",
+   "t": 88.29,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c18-talk-again.png",
+   "hash": "2bec21982c2ee888d9292cb22f98354e821343c798911d80a5ab2d088f8af312",
+   "room": "assay_office",
+   "says": null,
+   "options": 2,
+   "choiceLines": 2,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_B2"
+   },
+   "selections": {
+    "winnie1": 1,
+    "winnie2": 1,
+    "winnie3": 1,
+    "winnie4": 1,
+    "winniex": 1
+   },
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete",
+    "C6": "pending"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_NO_MOTT_GOLD",
+    "T_SECOND_LEDGER"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 1,
+   "held": null
+  },
+  {
+   "name": "c19-after-round-trip",
+   "why": "after leaving and returning: the same list, the same state",
+   "t": 100.33,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c19-after-round-trip.png",
+   "hash": "9849d1c4374c6715e75e6da16bb0dda90f2a10c585731c5f673fe9b665650002",
+   "room": "assay_office",
+   "says": null,
+   "options": 2,
+   "choiceLines": 2,
+   "dialogueAt": {
+    "tree": "WINNIE",
+    "node": "WIN_B2"
+   },
+   "selections": {
+    "winnie1": 1,
+    "winnie2": 1,
+    "winnie3": 1,
+    "winnie4": 1,
+    "winniex": 2
+   },
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete",
+    "C6": "pending"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_NO_MOTT_GOLD",
+    "T_SECOND_LEDGER"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     930,
+     760
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 3,
+   "held": null
+  },
+  {
+   "name": "c20-log-again",
+   "why": "the log on Winnie after C5: the people pool, no second confrontation",
+   "t": 106.23,
+   "file": "renders/proofs/room-05-c5/raw-captures-ignored/c20-log-again.png",
+   "hash": "3833605d89f7a637e66f55ad0f3f85dc0917994b655781b187b8fe41da0660fa",
+   "room": "assay_office",
+   "says": "thad",
+   "options": 0,
+   "choiceLines": 0,
+   "dialogueAt": {
+    "tree": null,
+    "node": null
+   },
+   "selections": {},
+   "puzzles": {
+    "C1": "complete",
+    "C2": "complete",
+    "C3": "complete",
+    "C4": "complete",
+    "C5": "complete",
+    "C6": "pending"
+   },
+   "flags": [
+    "T_SWINDLED",
+    "T_BORDERS_MOTT",
+    "T_ASSAY_QUEUE",
+    "T_NO_MOTT_GOLD",
+    "T_SECOND_LEDGER"
+   ],
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "padded_log"
+   ],
+   "thad": [
+    [
+     1131,
+     828
+    ],
+    "back",
+    "idle"
+   ],
+   "board": "rest",
+   "cues": 3,
+   "held": "padded_log"
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "at": "2026-09-05T18:15:28.572Z"
+}

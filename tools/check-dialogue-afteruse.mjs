@@ -53,6 +53,11 @@ export function check() {
           if (!w || !w.id || !w.text || !w.tag) report.fail(`${at}: replace needs a replaceWith option with id, text and tag`);
           else if (keys.has(w.id) || (node.options ?? []).some((o) => o.id === w.id)) report.fail(`${at}: replaceWith id "${w.id}" collides with a row of the node`);
         }
+        // PUZZLE PROGRESS A ROW WRITES: canonical ids, pending or complete.
+        for (const [puzzle, status] of Object.entries(option.puzzle ?? {})) {
+          if (!PUZZLES.has(puzzle)) report.fail(`${at}: puzzle "${puzzle}" is not a canonical puzzle id`);
+          if (status !== 'pending' && status !== 'complete') report.fail(`${at}: puzzle ${puzzle} status "${status}" is neither pending nor complete`);
+        }
         if (option.repeats) {
           let last = 1;
           for (const entry of option.repeats) {
@@ -73,6 +78,16 @@ export function check() {
       if (!ungatedEnder && survivors.some((o) => o.ends || o.tag === 'EXIT') === false && (node.options ?? []).some((o) => o.ends || o.tag === 'EXIT')) {
         report.fail(`${where}: every way out of this node removes itself (errata 57: a tree must always be leavable)`);
       }
+    }
+    // ENTRIES: a puzzle-gated entry names a canonical puzzle and a node that
+    // has an opening for the action to perform (errata 66 C).
+    for (const entry of data.entries ?? []) {
+      if (entry.puzzle !== undefined) {
+        if (!PUZZLES.has(entry.puzzle)) report.fail(`${data.id}: entry on puzzle "${entry.puzzle}" is not a canonical puzzle id`);
+        if (!data.nodes?.[entry.node]) report.fail(`${data.id}: entry on ${entry.puzzle} names node "${entry.node}", which the tree lacks`);
+        else if (!data.nodes[entry.node].opening?.length) report.fail(`${data.id}: entry on ${entry.puzzle} opens ${entry.node}, which has no opening for the action to perform`);
+      }
+      if (entry.when === undefined && entry.puzzle === undefined) report.fail(`${data.id}: an entry to ${entry.node} has neither flags nor a puzzle`);
     }
     if (strict) report.note(`${data.id}: aftermath authored on every option (strict)`);
     else if (unauthored) { unauthoredTrees += 1; report.note(`${data.id}: ${unauthored} option(s) without afterUse -- behaves as retain until W1 reaches this tree (errata 57)`); }

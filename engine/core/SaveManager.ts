@@ -1,4 +1,4 @@
-import type { FlagValue } from './types.ts';
+import type { FlagValue, PuzzleStatus } from './types.ts';
 import type { DialogueProgress } from './DialogueRunner.ts';
 
 export const SAVE_KEY = 'consolation.save.v1';
@@ -35,7 +35,7 @@ export interface SaveFile {
    * puzzle's completion is not a topic flag. Nothing writes it yet; a save
    * without it has reached none.
    */
-  puzzles?: Record<string, 'complete'>;
+  puzzles?: Record<string, PuzzleStatus>;
   dialogueProgress: DialogueProgress;
   dialoguePosition: { tree: string | null; node: string | null };
   /**
