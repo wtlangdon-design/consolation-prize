@@ -1,0 +1,869 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "route": "assay-office-floorboard-step",
+ "commit": "589286ba619db9ae3c423677abdf7ee49a5f49d1",
+ "workingTreeClean": false,
+ "candidates": [
+  {
+   "from": "art/backgrounds/room-05-assay-office.png",
+   "to": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "to": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png"
+  },
+  {
+   "from": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "to": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png"
+  }
+ ],
+ "visualState": "night",
+ "pace": 1.25,
+ "durationSeconds": 111.528,
+ "samples": 73,
+ "summary": {
+  "changes": 20,
+  "clipsSeen": [
+   "idle",
+   "walk"
+  ],
+  "locomotionFramesWhileStationary": 0,
+  "idleBreaks": 0
+ },
+ "changes": [
+  {
+   "t": 102.694,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    200,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 104.232,
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    200,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 105.478,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    226,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 105.647,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    252,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 105.718,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    304,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 105.951,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    373,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.023,
+   "clip": "walk",
+   "frame": "walk-03.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    425,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 0,
+   "lastCue": null,
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.268,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    503,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"pressed\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.32,
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    556,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.539,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    608,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.636,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    686,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.888,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    772,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 106.952,
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    824,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": true,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 107.226,
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    911,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 107.337,
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    989,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 107.552,
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "dir": "art/actors/thad-walk-right",
+   "at": [
+    1050,
+    765
+   ],
+   "facing": "right",
+   "moving": true,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 107.678,
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1099,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 107.931,
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1099,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 109.566,
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1099,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  },
+  {
+   "t": 111.346,
+   "clip": "idle",
+   "frame": "idle-02.png",
+   "dir": "art/actors/thad-idle-right",
+   "at": [
+    1099,
+    765
+   ],
+   "facing": "right",
+   "moving": false,
+   "height": 515,
+   "says": null,
+   "options": 0,
+   "states": "{\"hanging_lamp\":\"lit\",\"floorboard\":\"rest\"}",
+   "caption": false,
+   "cues": 1,
+   "lastCue": "R05-FLOOR-STEP",
+   "locomotionWhileStill": false
+  }
+ ],
+ "bursts": [
+  {
+   "burst": "rest",
+   "n": 0,
+   "t": 104.748,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/rest-00.png",
+   "hash": "fbce51511676c5752bb75e0f319c4427e2515a0e7ddb70308293e5c553eee373",
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "at": [
+    200,
+    765
+   ],
+   "moving": false,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 0
+  },
+  {
+   "burst": "rest",
+   "n": 1,
+   "t": 105.13,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/rest-01.png",
+   "hash": "fbce51511676c5752bb75e0f319c4427e2515a0e7ddb70308293e5c553eee373",
+   "clip": "idle",
+   "frame": "idle-03.png",
+   "at": [
+    200,
+    765
+   ],
+   "moving": false,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 0
+  },
+  {
+   "burst": "step",
+   "n": 0,
+   "t": 105.658,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-00.png",
+   "hash": "72d358e43769a9780a3b148dcdd76b9106874c70c1c57fe3435a446e935de75f",
+   "clip": "walk",
+   "frame": "walk-00.png",
+   "at": [
+    252,
+    765
+   ],
+   "moving": true,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 0
+  },
+  {
+   "burst": "step",
+   "n": 1,
+   "t": 105.963,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-01.png",
+   "hash": "2f9c61c0bc56361c4e64cacc70bb1b49beb5de0328217cdac73f3dbd8d2a7043",
+   "clip": "walk",
+   "frame": "walk-02.png",
+   "at": [
+    373,
+    765
+   ],
+   "moving": true,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 0
+  },
+  {
+   "burst": "step",
+   "n": 2,
+   "t": 106.273,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-02.png",
+   "hash": "4fbb7b89055f285f1ccfc182a77770036b11b77434ed2013ca3dbc2adbfcf787",
+   "clip": "walk",
+   "frame": "walk-05.png",
+   "at": [
+    503,
+    765
+   ],
+   "moving": true,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "pressed"
+   },
+   "caption": true,
+   "cues": 1
+  },
+  {
+   "burst": "step",
+   "n": 3,
+   "t": 106.592,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-03.png",
+   "hash": "74a3e7943963db99b4ef80815262f28cf7c061c5c90ede00b0f0bbd0eeedb21d",
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "at": [
+    634,
+    765
+   ],
+   "moving": true,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": true,
+   "cues": 1
+  },
+  {
+   "burst": "step",
+   "n": 4,
+   "t": 106.9,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-04.png",
+   "hash": "399ab304c5ebc686fa795193577443b0f490ea3250e036bb6431e9c29746671d",
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "at": [
+    772,
+    765
+   ],
+   "moving": true,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": true,
+   "cues": 1
+  },
+  {
+   "burst": "step",
+   "n": 5,
+   "t": 107.241,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-05.png",
+   "hash": "2f9ee1a3f6a9e1d422fdf3f032353fe6ff6a8e56e102b4173c1c2c0666d88ad4",
+   "clip": "walk",
+   "frame": "walk-01.png",
+   "at": [
+    911,
+    765
+   ],
+   "moving": true,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 1
+  },
+  {
+   "burst": "step",
+   "n": 6,
+   "t": 107.567,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-06.png",
+   "hash": "2b2f33d1a78437a325401a56910605a1d3cca554dffa5cbcd2d69e7a7c6f2c9a",
+   "clip": "walk",
+   "frame": "walk-04.png",
+   "at": [
+    1050,
+    765
+   ],
+   "moving": true,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 1
+  },
+  {
+   "burst": "step",
+   "n": 7,
+   "t": 107.842,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-07.png",
+   "hash": "7dc6f231a8ed471f192b21a270021d0410319b82f17e8b37965a439ec0152496",
+   "clip": "idle",
+   "frame": "idle-05.png",
+   "at": [
+    1099,
+    765
+   ],
+   "moving": false,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 1
+  },
+  {
+   "burst": "step",
+   "n": 8,
+   "t": 108.146,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-08.png",
+   "hash": "4e9e568284318775892b459a42073e49f6434ce10fef3e8d1c9584cbb9de833b",
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "at": [
+    1099,
+    765
+   ],
+   "moving": false,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 1
+  },
+  {
+   "burst": "step",
+   "n": 9,
+   "t": 108.452,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/step-09.png",
+   "hash": "4e9e568284318775892b459a42073e49f6434ce10fef3e8d1c9584cbb9de833b",
+   "clip": "idle",
+   "frame": "idle-00.png",
+   "at": [
+    1099,
+    765
+   ],
+   "moving": false,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 1
+  },
+  {
+   "burst": "past",
+   "n": 0,
+   "t": 110.732,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/past-00.png",
+   "hash": "bfb57557a005ddb0319293b234b4ee795a5b6f736b4b3bbb5c07b73d45af87a2",
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "at": [
+    1099,
+    765
+   ],
+   "moving": false,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 1
+  },
+  {
+   "burst": "past",
+   "n": 1,
+   "t": 111.183,
+   "file": "renders/proofs/assay-office-lamp-night/floorboard-v3-step-b/raw-captures-ignored/past-01.png",
+   "hash": "bfb57557a005ddb0319293b234b4ee795a5b6f736b4b3bbb5c07b73d45af87a2",
+   "clip": "idle",
+   "frame": "idle-04.png",
+   "at": [
+    1099,
+    765
+   ],
+   "moving": false,
+   "height": 515,
+   "facing": "right",
+   "states": {
+    "hanging_lamp": "lit",
+    "floorboard": "rest"
+   },
+   "caption": false,
+   "cues": 1
+  }
+ ],
+ "log": [
+  {
+   "t": 102.581,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 102.581,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 102.581,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 102.581,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 102.581,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 102.581,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 102.581,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 102.581,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 102.581,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 102.581,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 102.581,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 102.581,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 102.581,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 102.581,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 102.581,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 102.581,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 102.581,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 102.581,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 102.581,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 102.581,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 102.581,
+   "line": "action 21 (click): clicked main_street/to_assay_office at world 3113,479 -- Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
+  },
+  {
+   "t": 102.581,
+   "line": "action 22 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 102.581,
+   "line": "action 23 (wait): waited 3s"
+  },
+  {
+   "t": 102.589,
+   "line": "in assay_office; route assay-office-floorboard-step: 6 action(s); polling every 100 ms"
+  },
+  {
+   "t": 104.594,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 105.334,
+   "line": "burst rest: 2 stills"
+  },
+  {
+   "t": 105.417,
+   "line": "action 1 (click): clicked screen 1100,765 -- an ordinary walk across the room along the middle lane: it crosses the board"
+  },
+  {
+   "t": 108.554,
+   "line": "burst step: 10 stills"
+  },
+  {
+   "t": 110.556,
+   "line": "action 1 (wait): waited 2s"
+  },
+  {
+   "t": 111.387,
+   "line": "burst past: 2 stills"
+  }
+ ],
+ "at": "2026-09-05T07:11:24.675Z"
+}

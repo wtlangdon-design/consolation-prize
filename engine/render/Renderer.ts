@@ -4,6 +4,17 @@ import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
 import type { RoomActors } from '../core/RoomActors.ts';
 import type { AmbientLayer } from '../core/Ambient.ts';
 import { askedState } from '../dev/RoomState.ts';
+
+/**
+ * Which picture a state draws under the room's current visual state: its
+ * `imageByState` entry for that state when both exist, else its `image`.
+ * The same rule a lamp's `amountByState` follows, and read from the same
+ * dev-only selector until Q26 wires the state to canon.
+ */
+export function stateImagePath(shown: { image?: string; imageByState?: Record<string, string> }): string | undefined {
+  const state = askedState();
+  return (state && shown.imageByState?.[state]) || shown.image;
+}
 import type { ActorFile, AmbientFile, Interactable, OverlayFile } from '../core/types.ts';
 import { ActorSprite } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
@@ -810,8 +821,9 @@ export class Renderer {
   private drawObjectStates(): void {
     for (const target of this.state.statefulTargets) {
       const shown = this.state.presentation(target);
-      if (!shown?.image) continue;
-      const image = this.sheet(shown.image);
+      const path = shown ? stateImagePath(shown) : undefined;
+      if (!path) continue;
+      const image = this.sheet(path);
       if (image) this.drawPlate(image);
     }
   }
@@ -1286,7 +1298,7 @@ export class Renderer {
     const stateMasks = this.state.statefulTargets
       .map((target) => this.state.presentation(target))
       .filter((shown) => shown?.image && shown.occludes?.includes(level))
-      .map((shown) => this.sheet(shown!.image as string))
+      .map((shown) => this.sheet(stateImagePath(shown!) as string))
       .filter((image): image is CanvasImageSource => image !== null);
     if (!mask && stateMasks.length === 0) {
       draw();

@@ -1,5 +1,5 @@
 {
-  "iteration": 2,
+  "iteration": 3,
   "plank": {
     "x": 462,
     "y": 746,
@@ -20,21 +20,30 @@
   "treatments": {
     "a": {
       "lift": [
-        2,
-        4
+        1,
+        2
       ],
-      "gap": 0.62,
-      "lip": 1.14,
-      "grain": 0.9
+      "gap": 0.72,
+      "lip": 1.0,
+      "grain": 1.0
     },
     "b": {
       "lift": [
-        3,
-        5
+        2,
+        3
       ],
-      "gap": 0.55,
-      "lip": 1.18,
-      "grain": 0.86
+      "gap": 0.62,
+      "lip": 1.06,
+      "grain": 0.95
+    },
+    "c": {
+      "lift": [
+        2,
+        4
+      ],
+      "gap": 0.52,
+      "lip": 1.08,
+      "grain": 0.9
     }
   },
   "plates": {
@@ -50,27 +59,35 @@
   "images": {
     "rest-a-day": {
       "path": "art/staging/room-05/floorboard/board-rest-a.png",
-      "sha256": "253642c923243851acf0828b530428ae543790f770d7da8c5a1c76634a7e8c6f"
+      "sha256": "521526e3c580b44711ce032358d5e52b1f73e8411b969ffe741dabc487d39a98"
+    },
+    "rest-b-day": {
+      "path": "art/staging/room-05/floorboard/board-rest-b.png",
+      "sha256": "eb1ca883b0118e1598be7b712924a543e829aa54e676a02422ec7ab94607974d"
     },
     "pressed-day": {
       "path": "art/staging/room-05/floorboard/board-pressed.png",
       "sha256": "e722dddf6dbc277819ecdea8439c5fd8e41e812d1e750e0913218638382d256a"
     },
-    "rest-b-day": {
-      "path": "art/staging/room-05/floorboard/board-rest-b.png",
-      "sha256": "ac78c005d73bd682066c2993c571df6d9f086720a13d6c52413fdc121645d9b5"
+    "rest-c-day": {
+      "path": "art/staging/room-05/floorboard/board-rest-c.png",
+      "sha256": "6e33ec3bd963c996ec1cdd719c75568c2813158a1af8cef0958ef8edae1d683b"
     },
     "rest-a-night": {
       "path": "art/staging/room-05/floorboard/board-rest-a-night.png",
-      "sha256": "b52ade5d35a990c854f8b0c13046341cde9b23b7ed1daa66aba6bbc8c64c48a3"
+      "sha256": "b4eadd745c177facee75e4c81f1d67a011f11ddaccddaac6c9d69cdeaffd1f34"
+    },
+    "rest-b-night": {
+      "path": "art/staging/room-05/floorboard/board-rest-b-night.png",
+      "sha256": "2ba689824afe0560f6b4eb4e52ce9a4a1efe23b7d70c8bc03a6c66b54f572cee"
     },
     "pressed-night": {
       "path": "art/staging/room-05/floorboard/board-pressed-night.png",
       "sha256": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7"
     },
-    "rest-b-night": {
-      "path": "art/staging/room-05/floorboard/board-rest-b-night.png",
-      "sha256": "5a29196ea0ee0aa57f9b329967d0f701d0b48cfe036aa2a436c8a677a73f85f9"
+    "rest-c-night": {
+      "path": "art/staging/room-05/floorboard/board-rest-c-night.png",
+      "sha256": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757"
     }
   },
   "note": "Iteration 2, derived from the accepted plates by tools/pixelart/floorboard.py; the plates are unchanged. The middle-band plank between the door step and the joint at x~745, lifted unevenly (right end higher) with the gap under its near edge; A moderate, B one step stronger; PRESSED flush. Same plank and bounds on both plates."

@@ -128,6 +128,9 @@ function roomImages(room: RoomFile): BootAsset[] {
   for (const target of [...room.hotspots, ...room.exits]) {
     for (const shown of Object.values(target.states ?? {})) {
       if (shown.image) out.push({ key: shown.image, path: shown.image });
+      // AND EVERY VISUAL-STATE VARIANT: the night board is an asset of the
+      // room whether or not it is night. Loaded by its own path, as the day one is.
+      for (const alt of Object.values(shown.imageByState ?? {})) out.push({ key: alt, path: alt });
     }
   }
   return out;

@@ -1,0 +1,18 @@
+{
+ "schema": 1,
+ "room": "assay_office",
+ "note": "FLOORBOARD REST FRAMES (Tyler, 2026-09-05): the room at rest with Thad at the door, for the owner's A/B/C full-frame comparison. Run by tools/gauntlet/frames.mjs with the treatment swapped in by ?candidate=.",
+ "from": "assay_office",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "burst",
+   "name": "rest",
+   "seconds": 0.4,
+   "every": 0.2
+  }
+ ]
+}

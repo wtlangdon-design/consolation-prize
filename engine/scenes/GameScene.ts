@@ -1746,6 +1746,7 @@ export class GameScene extends Phaser.Scene {
       for (const shown of Object.values(target.states ?? {})) {
         // Keyed by path, as the loader keys them: `loaded` asks the texture store.
         if (shown.image) add(shown.image, shown.image);
+        for (const alt of Object.values(shown.imageByState ?? {})) add(alt, alt);
       }
     }
     return out;

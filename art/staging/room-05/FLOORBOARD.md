@@ -1,5 +1,19 @@
 # ROOM 5 — THE PROUD FLOORBOARD
 
+## Iteration 3 (2026-09-05) — same plank, retoned: the edge does the work
+
+Tyler: location good, iteration 2's face too bright. The bright face was a day board drawn over the night plate (the night image rode a URL candidate); the night image is now declared by visual state (`imageByState.night`) and never depends on the URL. The treatments no longer brighten the face at all.
+
+| | path | lift (left → right end) | gap | lip | end grain |
+|---|---|---|---|---|---|
+| A subtle | `floorboard/board-rest-a.png`, `-a-night.png` | 1 → 2 rows | 72% | none | none |
+| B medium (declared) | `floorboard/board-rest-b.png`, `-b-night.png` | 2 → 3 | 62% | +6%, one row | 95% |
+| C upper limit | `floorboard/board-rest-c.png`, `-c-night.png` | 2 → 4 | 52% | +8%, one row | 90% |
+| pressed | `floorboard/board-pressed.png`, `-night.png` | flush | | | |
+
+A and C are `?candidate=` swaps of B's path (day or night). Record: `floorboard/floorboard.json`.
+
+
 ## Iteration 2 (2026-09-05) — relocated to the middle walking band, prouder, uneven
 
 Tyler rejected iteration 1 (below, preserved under `floorboard/v1-rejected/`): invisible in play and against the counter. The loose board is now the middle-band plank between the door step and the joint at x≈745. `tools/pixelart/floorboard.py` reads it between its fitted seam lines and lifts it unevenly, the right end higher.

@@ -222,11 +222,17 @@
       "default": "rest",
       "states": {
         "rest": {
-          "image": "art/staging/room-05/floorboard/board-rest-a.png",
-          "note": "THE PROUD FLOORBOARD AT REST, iteration 2 (Tyler's rejection of iteration 1, 2026-09-05): the middle-band plank between the door step and the joint at x~745, its own pixels lifted unevenly out of the accepted plate by tools/pixelart/floorboard.py -- two rows at the left end, four at the right -- with the gap dark under its near edge. This is treatment A (moderate); B (board-rest-b.png, one step stronger) and the night derivations (-night) are swapped in by the same ?candidate= mechanism the night plate uses, until Q26 wires the visual state."
+          "image": "art/staging/room-05/floorboard/board-rest-b.png",
+          "imageByState": {
+            "night": "art/staging/room-05/floorboard/board-rest-b-night.png"
+          },
+          "note": "THE PROUD FLOORBOARD AT REST, iteration 3 (Tyler's review of iteration 2, 2026-09-05: location good, face too bright). The middle-band plank between the door step and the joint at x~745, its OWN pixels lifted unevenly out of the accepted plate by tools/pixelart/floorboard.py -- the face untouched, the dark gap under the near edge and a one-pixel lip doing the work. Treatment B (medium, two rows at the left end rising to three) is declared; A (subtle) and C (upper limit) are ?candidate= swaps of this path for Tyler's choice. The night derivation is declared beside it by visual state, so the night plate never shows a day board."
         },
         "pressed": {
           "image": "art/staging/room-05/floorboard/board-pressed.png",
+          "imageByState": {
+            "night": "art/staging/room-05/floorboard/board-pressed-night.png"
+          },
           "note": "The plank flush under a foot: the plate's own pixels. Held a moment after the step, then back to rest."
         }
       },
