@@ -44,3 +44,7 @@ Thad has no authored asymmetry: the stand-left still is a mirror of the stand-ri
 
 ## Mechanically checked
 `tools/check-stationary-family.mjs`: every clip that plays while he stands still (stand, idle, idle-break, recoil) is rigged from the same source as that facing's stand. The walks are reported by source on the same check and judged on the continuity sheet (`renders/thad-continuity-sheet.png`), by Tyler, not by a score.
+
+## Walk grammar (Tyler's ruling of 2026-09-05, WITHDRAWN the same day -- a new direction is pending)
+**Ruled and then withdrawn before the candidate was proved: the profile upper body, coat, shoulders and arms remain one intact authored silhouette while walking.** No arm is cut away from the torso, rotated, or layered over the coat; no hidden shoulder wedge; no anatomically ambitious arm swing. The legs animate beneath the coat -- separate, pass, return, alternate -- with the hip concealed, leg length, trouser width, boot size and ground contact preserved, and a restrained whole-body bob. A slightly stiff Thad who clearly remains Thad is preferable to a fluid Thad whose anatomy breaks. Lack of arm swing is not a defect.
+

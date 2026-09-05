@@ -102,10 +102,13 @@ def reduce_frame(frame: Image.Image, size: tuple[int, int]) -> Image.Image:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("clip", help="a directory of rigged frames, as character.py writes them")
-    ap.add_argument("--figure", type=int, required=True,
+    ap.add_argument("--figure", type=int, required=False, default=0,
                     help="the figure height the game loads, in pixels. R5a: twice the "
                          "largest DRAWN height, or as much less as the boot budget "
                          "requires -- see doc 38 R5a's bound, which the coach broke")
+    ap.add_argument("--factor", type=float, default=None,
+                    help="an explicit scale instead of one derived from --figure: for a clip that is "
+                         "PART of a figure (legs alone) and must land at the same scale as the whole")
     ap.add_argument("--out", help="where to write. Defaults to the clip directory, in place")
     ap.add_argument("--min-distinct", type=int, default=3,
                     help="refuse if the reduced clip holds fewer distinct pictures than "
@@ -119,11 +122,11 @@ def main() -> None:
     frames = [Image.open(p).convert("RGBA") for p in files]
 
     fig = figure_height(frames)
-    if fig <= args.figure:
+    if args.factor is None and fig <= args.figure:
         raise SystemExit(
             f"{src.name}: figure is already {fig}px against a requested {args.figure}px. "
             "This tool reduces; it does not enlarge, because enlarging invents detail.")
-    factor = args.figure / fig
+    factor = args.factor if args.factor is not None else args.figure / fig
     w, h = frames[0].size
     size = (max(1, round(w * factor)), max(1, round(h * factor)))
 

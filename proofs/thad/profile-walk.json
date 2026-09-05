@@ -195,7 +195,7 @@
  ],
  "continuitySheet": {
   "path": "renders/thad-profile-walk-continuity.png",
-  "sha256": "69355ef70bb5e757a4993d9869cf222e6b16b2a04125be71c00d99c135b4507f"
+  "sha256": "44b8493df8df5782c55b3c4385ce48515f5d796e042a7e13d4db50334d8efd2d"
  },
  "secondCut": {
   "why": "Tyler (2026-09-05): 'The side profile is way better but Thad now gallops instead of looking like he's walking.' Cause: character.py added its hip sine to the source's OWN stride, so the legs opened wider and closed with the same leg leading every frame (a five-picture bound). No image operation: same source, the rig corrected.",
@@ -364,5 +364,74 @@
     "walk-07.png": "c650c050d2c0f8f02bda0789889815de3d46248c233491dd51906080f7612e97"
    }
   }
+ },
+ "intactCut": {
+  "why": "Tyler rejected the fourth cut (2026-09-05): the arm joins still failed in live play -- detached, severed, an extra limb, a floating forearm. Ruling: stop the cut-arm -> extend -> rotate method; the profile upper body, coat, shoulders and arms stay one intact authored silhouette while walking.",
+  "whyArticulationAbandoned": "four cuts of puppet-style arm articulation each moved the seam rather than removing it: a piece cut from the coat and rotated shows its cut, and a piece extended to hide the cut shows the extension. At gameplay scale the walk is judged on continuity, not on arm swing.",
+  "upperBodySource": {
+   "path": "art/actors/thad-stand-right/stand-00.png",
+   "sha256": "8c4373e9e60e354434f9e2445ccf02dfdf232e71a6199c7b7f22f9085b1b9c62",
+   "rowsUsed": "0..434 (the coat's lowest hem row)",
+   "note": "the approved standing frame the game already draws; its pixels are unchanged, so stand -> walk -> stand shares one upper body"
+  },
+  "legMethod": "character.py --legs-only --level-limbs (swing 1.5, knee 0) from the stride source: the two legs levelled so they alternate, swung about one hip column, grounded; downscaled by the stand's own factor (tools/rig/downscale.py --factor 0.5365); set under the coat by tools/rig/intact-walk.py with their soles on the stand's ground row and their hip column under the coat's centre; the stride coat's hem band and cast shadow on the thighs recoloured column by column from clean trouser rows (shapes kept); one per-channel gain matches the trousers to the stand's; the upper body drops by the frame's ground shift (up to 9 px on 625) so the whole man bobs",
+  "noIndependentArm": true,
+  "armsCutOrRotated": false,
+  "invocation": {
+   "source": "art/staging/thad/profile-stride-01.png",
+   "key": "magenta",
+   "view": "profile",
+   "facing": "right",
+   "clip": "walk",
+   "pose": "striding",
+   "pad": 260,
+   "swing": 1.5,
+   "knee": 0.0,
+   "level_limbs": true,
+   "legs_only": true,
+   "breath": 1.0
+  },
+  "groundShifts625": [
+   17,
+   9,
+   0,
+   1,
+   6,
+   1,
+   0,
+   9
+  ],
+  "walkRight": {
+   "dir": "art/actors/thad-walk-right",
+   "frames": {
+    "walk-00.png": "6cf6f34fd2c9462119f253b3364a72622169e39dec6c355212513c6c35666074",
+    "walk-01.png": "181147a52e7e4991c9f8a3570889ba0cb0aa6b97843cc042be16497a142b37e3",
+    "walk-02.png": "c75000c7a4cb0488b4946eb784d48a29f70391b35f5e72fda3cccd97a798aaf9",
+    "walk-03.png": "e7f2cb076ee9d7dc80356eb9748fa1511db34c70b1cafc1478a5346ff3275f5c",
+    "walk-04.png": "987e0ac25265cc7eb4f20ce5433d8a9459b315fd5645ba25baad1c7698904c31",
+    "walk-05.png": "e7f2cb076ee9d7dc80356eb9748fa1511db34c70b1cafc1478a5346ff3275f5c",
+    "walk-06.png": "c75000c7a4cb0488b4946eb784d48a29f70391b35f5e72fda3cccd97a798aaf9",
+    "walk-07.png": "181147a52e7e4991c9f8a3570889ba0cb0aa6b97843cc042be16497a142b37e3"
+   },
+   "rigSha256": "4284fd92cbf577688efe65f3612a85fd113e460c6957281a1d52d5e60a97d610"
+  },
+  "walkLeft": {
+   "dir": "art/actors/thad-walk-left",
+   "frames": {
+    "walk-00.png": "5104480b408b1e3c7d4b1ad40d0f060d919821e3552e8d164e60d863f08f68ea",
+    "walk-01.png": "427f66bc3692a36b525fa84b57b88e146ac605475e8b55fa41e6d30811af99ae",
+    "walk-02.png": "a4b4f1aae3cc29528bf9d4a58510ff7e35f75729cae4df8f5b4750ae5954a767",
+    "walk-03.png": "3f77c55e6ea8e7c2174ab7f5cafa92c4a7de014cb59060520a265f4613e7c7b6",
+    "walk-04.png": "ac9ac4562fab199f8c521f60eaf7d39db6223ab5bd1c8dbfd894a4b7ba47d54a",
+    "walk-05.png": "3f77c55e6ea8e7c2174ab7f5cafa92c4a7de014cb59060520a265f4613e7c7b6",
+    "walk-06.png": "a4b4f1aae3cc29528bf9d4a58510ff7e35f75729cae4df8f5b4750ae5954a767",
+    "walk-07.png": "427f66bc3692a36b525fa84b57b88e146ac605475e8b55fa41e6d30811af99ae"
+   }
+  },
+  "cycleSheet": {
+   "path": "renders/thad-profile-walk-cycle.png",
+   "sha256": "e9732aa1fa6ca7c34e44030c1f360a73d56ce8fa4dc1ea859d19749633cb49f1"
+  },
+  "status": "REJECTED BEFORE COMPLETION by Tyler (2026-09-05); preserved under art/staging/thad/candidates/intact-upper-body/, not adopted; shipping walk remains the fourth cut"
  }
 }
