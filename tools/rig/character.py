@@ -1099,16 +1099,25 @@ def main():
             f = over(swing_leg(far_leg, pivot, leg_cx_far, hip_far, knee_far), f)
             f = over(swing_leg(near_leg, pivot, leg_cx_near, hip_near, knee_near), f)
             def hang_and_swing(m, g, swing_ang):
-                # One rotation about the attachment (its own angle taken out
-                # plus the swing), then the whole thing carried to where the
-                # swing about the shoulder would have put the attachment.
+                # LEVEL, EXTEND, THEN SWING FROM THE SHOULDER -- the legs' own
+                # recipe. Rotating a cut piece about its cut opens a wedge at
+                # the cut, and Tyler saw it: arms "partially disconnected at
+                # the elbows ... dangling parts of limbs". So the piece is
+                # first hung straight from its attachment, then extended
+                # upward to the shoulder by repeating its top rows (the sleeve
+                # continuing under, or as, the coat's shoulder), and only then
+                # swung about the shoulder: the join is at a real joint, the
+                # rotation there moves the joined rows by almost nothing, and
+                # the extension covers what little it opens.
                 ax, ay = g["attach"]; sr = g["shoulder_row"]
-                layer = rot(as_layer(m), swing_ang - g["angle"], ax, ay)
-                th = np.radians(swing_ang)
-                dx0, dy0 = 0.0, ay - sr                       # attachment relative to the shoulder
-                nx = ax + (dx0 * np.cos(th) + dy0 * np.sin(th)) - 0.0
-                ny = sr + (-dx0 * np.sin(th) + dy0 * np.cos(th))
-                return np.roll(np.roll(layer, int(round(ny - ay)), axis=0), int(round(nx - ax)), axis=1)
+                layer = rot(as_layer(m), -g["angle"], ax, ay)
+                mm = layer[..., 3] > 128
+                if mm.any():
+                    top = int(np.nonzero(mm.any(1))[0].min())
+                    strip = layer[top:top + 6].copy()
+                    for y in range(max(int(sr) - 6, 0), top):
+                        layer[y] = strip[(y - top) % 6]
+                return rot(layer, swing_ang, ax, sr)
             if far_am is not None:
                 g = arm_geo.get("far") if hip_cx is not None else None
                 arm = hang_and_swing(far_am, g, -a) if g else swing_arm(far_am, canvas, sh_far, -a, elbow_frac=0.15, fore_lead=0.25)

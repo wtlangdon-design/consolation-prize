@@ -94,29 +94,29 @@
   "walkRight": {
    "dir": "art/actors/thad-walk-right",
    "frames": {
-    "walk-00.png": "0ee0323d0f0886f27f7b74d0bd933bf745dbaeae1f53bdd407ac7c7275f31353",
-    "walk-01.png": "01f42505d00af7fa7bbcdf7dddd00ea925f1e96d80cf052145d88afcd26abfae",
-    "walk-02.png": "d44fdbedb195abdfe3735e36987e9ee65e9b4953f1d0d58cd0077faf5dceed10",
-    "walk-03.png": "9f766cd543607972b5868a3ea7469c8fef2412b0f0cc98c3896ad11bb74a54dd",
-    "walk-04.png": "8799f18a190eeca773aa247f1565928d6f44a566261a7263908a698f879e3216",
-    "walk-05.png": "9f766cd543607972b5868a3ea7469c8fef2412b0f0cc98c3896ad11bb74a54dd",
-    "walk-06.png": "d44fdbedb195abdfe3735e36987e9ee65e9b4953f1d0d58cd0077faf5dceed10",
-    "walk-07.png": "01f42505d00af7fa7bbcdf7dddd00ea925f1e96d80cf052145d88afcd26abfae"
+    "walk-00.png": "5d5d81a8f7d55c4435ccb6b6221e5c28263d6dc7551de8f8ec54719a40315c44",
+    "walk-01.png": "c452e98d259fb20ac8a7a7aa5a4f4fc2a1336bcb11c781c9b614649d8d8d3d86",
+    "walk-02.png": "248ca87f90fa8ae458db8ddbcb7ec279284b3761e8f93e4da30508f96f35bda0",
+    "walk-03.png": "b3196237159a4676c90f4fcba653a90901c425a99a8d60f33b694cdeb610a03d",
+    "walk-04.png": "3de0d7883d1af5959c55c0921757a2f1699c5ffa7a218fc7d6615bd1a43965c5",
+    "walk-05.png": "b3196237159a4676c90f4fcba653a90901c425a99a8d60f33b694cdeb610a03d",
+    "walk-06.png": "248ca87f90fa8ae458db8ddbcb7ec279284b3761e8f93e4da30508f96f35bda0",
+    "walk-07.png": "c452e98d259fb20ac8a7a7aa5a4f4fc2a1336bcb11c781c9b614649d8d8d3d86"
    },
-   "rigSha256": "b499aef49cd164064c33861bd464f4bd6ce5f07b3c7016ecbc383889e3230afd"
+   "rigSha256": "5621a0a54ff8d95aa50bf3c15c277c0ba12ddc48252d83acb3ec5e80e4f4b6ca"
   },
   "walkLeft": {
    "dir": "art/actors/thad-walk-left",
    "method": "tools/rig/mirror-clip.py: every frame flipped, rig copied with facing/walk_dx/padding recomputed and mirroredFrom recording the source frames' hashes",
    "frames": {
-    "walk-00.png": "6d790089ae0fba9242678eb9fbcd04dd7e5497b2cef6f770596d3f3e21abb48b",
-    "walk-01.png": "6cbf5d63ac36f860fce446e6e124a5e4c60d79682e1be82336c17ce4128f95e6",
-    "walk-02.png": "f7ad810f8b0dee76473d576422dbe135a5c63d11057c281211a93709aca80a33",
-    "walk-03.png": "a172f65d2477a44bdb2f6aae1fccf790810e3900aa2d496c3f12271789337288",
-    "walk-04.png": "797d421176c44f27b05d96f54f112c02e2055dff52f9faa85306ce7a3fc46156",
-    "walk-05.png": "a172f65d2477a44bdb2f6aae1fccf790810e3900aa2d496c3f12271789337288",
-    "walk-06.png": "f7ad810f8b0dee76473d576422dbe135a5c63d11057c281211a93709aca80a33",
-    "walk-07.png": "6cbf5d63ac36f860fce446e6e124a5e4c60d79682e1be82336c17ce4128f95e6"
+    "walk-00.png": "91379d8caefb66f63b80bbbee8846243af3348ad8c2e6dbb306bebcd721513dc",
+    "walk-01.png": "c650c050d2c0f8f02bda0789889815de3d46248c233491dd51906080f7612e97",
+    "walk-02.png": "4a7bd232b65ea62d4829c7cd6bd786f56fc4a49a44c7cc7cb71d7817dc0037ce",
+    "walk-03.png": "a0b54afd6ae4e88d0396ed4d6061e91538859a020df5677c57325e52b89224d0",
+    "walk-04.png": "9ec2255c38124763996059932fbcb3c8f3755332e91ab6ec3a4c624d763b42e7",
+    "walk-05.png": "a0b54afd6ae4e88d0396ed4d6061e91538859a020df5677c57325e52b89224d0",
+    "walk-06.png": "4a7bd232b65ea62d4829c7cd6bd786f56fc4a49a44c7cc7cb71d7817dc0037ce",
+    "walk-07.png": "c650c050d2c0f8f02bda0789889815de3d46248c233491dd51906080f7612e97"
    }
   },
   "previousPreserved": "art/staging/thad/previous/thad-walk-right and thad-walk-left (the Family-B clips as shipped at 63ba3bc), for the sheet and for revert",
@@ -195,7 +195,7 @@
  ],
  "continuitySheet": {
   "path": "renders/thad-profile-walk-continuity.png",
-  "sha256": "82ee6a3309eea1ce0da2b2046e2f842bf68e4170625542683d9fae8aee89bf1b"
+  "sha256": "69355ef70bb5e757a4993d9869cf222e6b16b2a04125be71c00d99c135b4507f"
  },
  "secondCut": {
   "why": "Tyler (2026-09-05): 'The side profile is way better but Thad now gallops instead of looking like he's walking.' Cause: character.py added its hip sine to the source's OWN stride, so the legs opened wider and closed with the same leg leading every frame (a five-picture bound). No image operation: same source, the rig corrected.",
@@ -318,6 +318,50 @@
     "walk-05.png": "a172f65d2477a44bdb2f6aae1fccf790810e3900aa2d496c3f12271789337288",
     "walk-06.png": "f7ad810f8b0dee76473d576422dbe135a5c63d11057c281211a93709aca80a33",
     "walk-07.png": "6cbf5d63ac36f860fce446e6e124a5e4c60d79682e1be82336c17ce4128f95e6"
+   }
+  }
+ },
+ "fourthCut": {
+  "why": "Tyler (2026-09-05): 'You can see where you made cuts in his arms, so they now look partially disconnected from his body at the elbows... dangling parts of limbs that were severed.' Cause: a lifted arm piece rotated about its own cut edge opens a wedge at the cut, and the third cut rotated each arm 13-34 degrees there.",
+  "rigChange": "the legs' own recipe applied to the arms: each piece is levelled about its attachment, then EXTENDED up to the shoulder by repeating its top rows (the near sleeve continuing to the coat's shoulder over the coat, the far forearm's upper end under it), then swung about the shoulder, so the join sits at a real joint and the rotation there moves the joined rows by almost nothing",
+  "invocation": {
+   "source": "art/staging/thad/profile-stride-01.png",
+   "key": "magenta",
+   "view": "profile",
+   "facing": "right",
+   "clip": "walk",
+   "pose": "striding",
+   "pad": 260,
+   "swing": 1.5,
+   "knee": 0.0,
+   "level_limbs": true,
+   "breath": 1.0
+  },
+  "walkRight": {
+   "dir": "art/actors/thad-walk-right",
+   "frames": {
+    "walk-00.png": "5d5d81a8f7d55c4435ccb6b6221e5c28263d6dc7551de8f8ec54719a40315c44",
+    "walk-01.png": "c452e98d259fb20ac8a7a7aa5a4f4fc2a1336bcb11c781c9b614649d8d8d3d86",
+    "walk-02.png": "248ca87f90fa8ae458db8ddbcb7ec279284b3761e8f93e4da30508f96f35bda0",
+    "walk-03.png": "b3196237159a4676c90f4fcba653a90901c425a99a8d60f33b694cdeb610a03d",
+    "walk-04.png": "3de0d7883d1af5959c55c0921757a2f1699c5ffa7a218fc7d6615bd1a43965c5",
+    "walk-05.png": "b3196237159a4676c90f4fcba653a90901c425a99a8d60f33b694cdeb610a03d",
+    "walk-06.png": "248ca87f90fa8ae458db8ddbcb7ec279284b3761e8f93e4da30508f96f35bda0",
+    "walk-07.png": "c452e98d259fb20ac8a7a7aa5a4f4fc2a1336bcb11c781c9b614649d8d8d3d86"
+   },
+   "rigSha256": "5621a0a54ff8d95aa50bf3c15c277c0ba12ddc48252d83acb3ec5e80e4f4b6ca"
+  },
+  "walkLeft": {
+   "dir": "art/actors/thad-walk-left",
+   "frames": {
+    "walk-00.png": "91379d8caefb66f63b80bbbee8846243af3348ad8c2e6dbb306bebcd721513dc",
+    "walk-01.png": "c650c050d2c0f8f02bda0789889815de3d46248c233491dd51906080f7612e97",
+    "walk-02.png": "4a7bd232b65ea62d4829c7cd6bd786f56fc4a49a44c7cc7cb71d7817dc0037ce",
+    "walk-03.png": "a0b54afd6ae4e88d0396ed4d6061e91538859a020df5677c57325e52b89224d0",
+    "walk-04.png": "9ec2255c38124763996059932fbcb3c8f3755332e91ab6ec3a4c624d763b42e7",
+    "walk-05.png": "a0b54afd6ae4e88d0396ed4d6061e91538859a020df5677c57325e52b89224d0",
+    "walk-06.png": "4a7bd232b65ea62d4829c7cd6bd786f56fc4a49a44c7cc7cb71d7817dc0037ce",
+    "walk-07.png": "c650c050d2c0f8f02bda0789889815de3d46248c233491dd51906080f7612e97"
    }
   }
  }

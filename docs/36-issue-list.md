@@ -3663,3 +3663,5 @@ Tyler's manual Room 5 playthrough (2026-09-04) reported three protagonist defect
 
 **Third cut, same day.** Tyler: the rear arm stays up at the waist through the cycle. The source's forward arm is bent at the elbow, and what `split_arms` lifts of it is the forearm alone, attached by its upper end to the coat at waist height; swung about its own centre it kept the hand at the waist front to back. Each lifted arm now hangs from its attachment to the coat and swings about the shoulder above it, and the coat-edge slivers the split leaves on an arm go back to the coat. No image operation.
 
+**Fourth cut, same day.** Tyler: the cut edges show and the arms dangle at the elbows. A lifted piece rotated about its own cut opens a wedge there. The arms now get the legs' recipe: levelled, extended up to the shoulder by repeating their top rows, then swung about the shoulder, so the join is at a real joint and covered. No image operation.
+
