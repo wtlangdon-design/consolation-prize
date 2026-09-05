@@ -24,10 +24,10 @@
   {
    "do": "click",
    "at": [
-    200,
+    340,
     765
    ],
-   "why": "back to the door (crosses it again)"
+   "why": "back to the door side (x340, clear of the street-door exit rect) (crosses it again)"
   },
   {
    "do": "wait",
@@ -49,10 +49,10 @@
   {
    "do": "click",
    "at": [
-    200,
+    340,
     765
    ],
-   "why": "back to the door"
+   "why": "back to the door side (x340, clear of the street-door exit rect)"
   },
   {
    "do": "wait",
@@ -74,10 +74,10 @@
   {
    "do": "click",
    "at": [
-    200,
+    340,
     765
    ],
-   "why": "back to the door"
+   "why": "back to the door side (x340, clear of the street-door exit rect)"
   },
   {
    "do": "wait",

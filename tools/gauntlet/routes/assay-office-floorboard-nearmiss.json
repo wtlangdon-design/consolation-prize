@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "assay_office",
- "note": "FLOORBOARD NEAR MISS, iteration 2 (Tyler, 2026-09-05): the near floor line the counter objects are approached on, the far band under the counter, the middle lane past the board's right end, and up beside it. Zero creaks; the one deliberate crossing at the end counts exactly once. Run by tools/gauntlet/frames.mjs.",
+ "note": "FLOORBOARD NEAR MISS, iteration 2 (Tyler, 2026-09-05): the near floor line the counter objects are approached on, the far band under the counter, the middle lane past the board's right end, and up beside it. Zero creaks; the one deliberate crossing at the end, along the middle lane, counts exactly once. Run by tools/gauntlet/frames.mjs.",
  "from": "assay_office",
  "actions": [
   {
@@ -63,6 +63,18 @@
     828
    ],
    "why": "down the door side, left of the board"
+  },
+  {
+   "do": "wait",
+   "seconds": 2.5
+  },
+  {
+   "do": "click",
+   "at": [
+    400,
+    765
+   ],
+   "why": "onto the middle lane, left of the board"
   },
   {
    "do": "wait",

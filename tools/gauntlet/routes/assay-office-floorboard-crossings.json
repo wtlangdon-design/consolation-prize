@@ -11,7 +11,7 @@
   {
    "do": "click",
    "at": [
-    300,
+    340,
     765
    ],
    "why": "start left of the board on the middle lane"
@@ -35,7 +35,7 @@
   {
    "do": "click",
    "at": [
-    300,
+    340,
     765
    ],
    "why": "crossing 2: right to left"
@@ -59,7 +59,7 @@
   {
    "do": "click",
    "at": [
-    300,
+    340,
     765
    ],
    "why": "crossing 4: right to left"
@@ -83,7 +83,7 @@
   {
    "do": "click",
    "at": [
-    300,
+    340,
     765
    ],
    "why": "crossing 6: right to left"
@@ -107,7 +107,7 @@
   {
    "do": "click",
    "at": [
-    300,
+    340,
     765
    ],
    "why": "crossing 8: right to left"
@@ -131,7 +131,7 @@
   {
    "do": "click",
    "at": [
-    300,
+    340,
     765
    ],
    "why": "crossing 10: right to left"
@@ -156,7 +156,7 @@
   {
    "do": "click",
    "at": [
-    300,
+    340,
     765
    ],
    "why": "crossing 12: straight back across after re-arming"
