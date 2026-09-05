@@ -1272,7 +1272,8 @@ export class GameScene extends Phaser.Scene {
     // THE ECHO IS THE OPTION'S OWN WORDING. Doc 30 section 6.2: "using
     // option.echo when present, otherwise option.text". Spoken by whoever the
     // manifest says the protagonist is -- no .ts file names him.
-    const echo = { speaker: this.state.content.actor.id, line: chosen.option.text };
+    // THE WORDING AS DRAWN, which is the option's own or its rephrase.
+    const echo = { speaker: this.state.content.actor.id, line: chosen.text };
     const replies = [
       ...(said.say ? [{ speaker: said.sayer, line: said.say }] : []),
       ...said.rest.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })),
@@ -1713,6 +1714,8 @@ export class GameScene extends Phaser.Scene {
       counters: this.state.flags.counters(),
       inventory: this.state.carried,
       dialogueAt: this.state.dialogue.positionSnapshot(),
+      selections: this.state.dialogue.selectionsHere(),
+      puzzlesComplete: this.state.puzzlesComplete(),
       camera: Math.round(this.state.cameraX),
       pending: this.pendingSay.length,
       performing: this.performance !== null,

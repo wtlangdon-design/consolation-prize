@@ -116,6 +116,10 @@ export interface FrameReport {
   choiceLines: number;
   /** The open dialogue tree and node, by id. Null when no tree is open. Never the words. */
   dialogueAt: { tree: string | null; node: string | null };
+  /** Committed selection counts of the open node's options, by option id. Never the words. */
+  selections: Record<string, number>;
+  /** Canonical puzzle ids the game state holds complete. Empty until something writes one. */
+  puzzlesComplete: string[];
   /**
    * The room's own shipping asset paths, as the ROOM FILE declares them.
    *

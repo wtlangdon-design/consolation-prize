@@ -174,7 +174,7 @@ test('D30: a selection is reserved, and lands only when the exchange drains', as
   exchange.settle();
   assert.equal(state.flags.getBoolean('T_HARNESS_UNLOCKED'), true);
   assert.equal(state.dialogue.positionSnapshot().node, 'HARN_2');
-  assert.deepEqual(state.dialogue.progressSnapshot(), { harness_tree: ['HARN_1:opt_unlock'] });
+  assert.deepEqual(state.dialogue.progressSnapshot(), { harness_tree: { 'HARN_1:opt_unlock': 1 } }, 'W1: a count of one, not a taken key');
   assert.deepEqual(exchange.tx.journal.trace, ['line', 'lineSettle', 'worldState', 'flags', 'stable']);
   assert.equal(exchange.tx.phase, 'settled');
   assert.deepEqual(exchange.tx.counts, { node: 'HARN_2', taken: ['HARN_1:opt_unlock'] });

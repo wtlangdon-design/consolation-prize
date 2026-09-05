@@ -158,6 +158,48 @@
         ]
       },
       "note": "The strike found, ACT 4: WIN_F1's exchange and its rows are what this state offers. The assay itself is unbuilt and undocumented in outcome; the state is exposed so the authored WIN_F1 material can be reviewed, and it is labelled partial."
+    },
+    {
+      "id": "w1-piano",
+      "label": "W1 proof: Act I first visit with the piano topic earned",
+      "room": "assay_office",
+      "flags": {
+        "T_OPENING_SAID": true,
+        "T_DRIVER_ASKED": 3,
+        "T_COACH_DEPARTED": true,
+        "T_UNDERTAKER_NAMED": true,
+        "T_HOB_CROSSING": true,
+        "T_THAD_LEAVING": true,
+        "T_HOB_SPOKEN": true,
+        "T_HOB_GONE": true,
+        "T_OPENING_DONE": true,
+        "T_SEEN_MAIN_STREET": true,
+        "T_CASE_DOWN": true,
+        "T_CASE_TAKEN": true,
+        "T_TUNES_PIANOS": true
+      },
+      "inventory": [
+        "letter",
+        "tuning_fork",
+        "four_dollars"
+      ],
+      "derivedFrom": [
+        "content/fixtures/room-05.json r5-a (the accepted first visit)",
+        "content/flags/flags.json (T_TUNES_PIANOS is written by the hotel clerk's option hotel_clerk4, an Act I conversation)",
+        "docs/04-dialogue-trees.md:80,84-85 (WIN_A1 option 3, counted-repeat: Congratulations. / Still congratulations. / no third congratulation)"
+      ],
+      "notBuilt": [
+        "the hotel lobby's clerk is a stub hotspot without a tree, so no play writes T_TUNES_PIANOS yet; this state exists to prove W1's counted-repeat in the executable game"
+      ],
+      "expect": {
+        "tree": "WINNIE",
+        "opensOn": "WIN_A1",
+        "interactables": [
+          "floorboard",
+          "scales"
+        ]
+      },
+      "note": "A W1 proof state, not a review state: the accepted first visit plus the one Act I topic flag that opens WIN_A1's counted-repeat row."
     }
   ]
 }

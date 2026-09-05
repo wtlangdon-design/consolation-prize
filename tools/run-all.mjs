@@ -57,6 +57,7 @@ import { check as buildLedger } from './check-build-ledger.mjs';
 import { check as occlusion } from './check-occlusion.mjs';
 import { check as roomReadiness } from './check-room-readiness.mjs';
 import { check as fixtures } from './check-fixtures.mjs';
+import { check as afterUse } from './check-dialogue-afteruse.mjs';
 import { check as fontCandidates } from './font/check-candidates.mjs';
 
 /**
@@ -90,6 +91,7 @@ import { check as fontCandidates } from './font/check-candidates.mjs';
  */
 const CHECKS = [
   fixtures,
+  afterUse,
   bandsTile,
   cyclingLands,
   treeSpeakers,

@@ -1,4 +1,5 @@
 {
+  "aftermathAuthored": true,
   "schema": 1,
   "id": "WINNIE",
   "speaker": "winnie",
@@ -62,7 +63,16 @@
           "when": {
             "T_TUNES_PIANOS": true
           },
-          "repeat": "Still congratulations."
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Still congratulations."
+            },
+            {
+              "selection": 3,
+              "say": "Mr. Grubb, I have congratulated you twice. There is no third congratulation."
+            }
+          ]
         },
         {
           "id": "winnie4",
@@ -112,7 +122,17 @@
           "tag": "COMIC",
           "text": "What number am I?",
           "afterUse": "counted-repeat",
-          "say": "Nine hundred and six."
+          "say": "Nine hundred and six.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "Nine hundred and six."
+            },
+            {
+              "selection": 3,
+              "say": "Mr. Grubb, the number does not refresh with enthusiasm."
+            }
+          ]
         },
         {
           "id": "winnie4",
@@ -183,7 +203,25 @@
           "when": {
             "T_RACCOON_NAMED": true
           },
-          "repeat": "The answer has not changed and will not change. The raccoon is not an assayable substance."
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "The answer has not changed and will not change. The raccoon is not an assayable substance."
+            },
+            {
+              "selection": 5,
+              "exchange": [
+                {
+                  "speaker": "winnie",
+                  "line": "What's its name."
+                },
+                {
+                  "speaker": "winnie",
+                  "line": "That's a terrible name."
+                }
+              ]
+            }
+          ]
         },
         {
           "id": "winniex",
@@ -300,7 +338,13 @@
           "tag": "COMIC",
           "text": "Aren't you going to congratulate me?",
           "afterUse": "counted-repeat",
-          "say": "No."
+          "say": "No.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "I congratulated you about the pianos. Consult your records."
+            }
+          ]
         },
         {
           "id": "winniex",

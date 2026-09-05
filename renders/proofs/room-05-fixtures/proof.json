@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "note": "ROOM 5 PLAYTEST FIXTURES, CONSTRUCTED AND MEASURED (doc 36 Q111). Automation proves the state; Tyler proves whether it plays.",
- "commit": "7e4ea20f2fa86b2ed87c492b7304e22328b73e29",
+ "commit": "6503c8d540abea75ab40bed2f1498ec0d2d84b48",
  "workingTreeClean": false,
  "candidates": [
   {
@@ -19,7 +19,7 @@
  ],
  "visualState": "night",
  "pace": 1.25,
- "durationSeconds": 145.26,
+ "durationSeconds": 211.28,
  "fixtures": [
   {
    "fixture": "r5-a",
@@ -62,52 +62,52 @@
    "loopBurst": [
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-00.png",
-     "hash": "f5813a58457cacd925b0277094f0ed6bfe3a5de8dc022c3206bb6a38726c6388",
-     "t": 6.68
+     "hash": "4161712c8ac0db0bdd1330e470a8bb33343b76b642de47d07926f132894a20d1",
+     "t": 8.77
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-01.png",
-     "hash": "5060ce3b68d71b5201eccc706ecd4cc5c40915db707f06e2acf2458cf740c66e",
-     "t": 7.84
+     "hash": "04be8407ec02e49bc39f9d4423d9a83be4b10dad5c1fb04359ffd46337fb72df",
+     "t": 9.88
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-02.png",
-     "hash": "1056547ae258f28142550fa9b945a65bad7dee56db84bba48a61e1e8f31cd4b9",
-     "t": 8.71
-    },
-    {
-     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-03.png",
-     "hash": "1056547ae258f28142550fa9b945a65bad7dee56db84bba48a61e1e8f31cd4b9",
-     "t": 9.57
-    },
-    {
-     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-04.png",
-     "hash": "34ffb6c72e74a33bfc834c5205749155a4b39eae17bb367db6cc182bfd57598a",
-     "t": 10.48
-    },
-    {
-     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-05.png",
-     "hash": "34ffb6c72e74a33bfc834c5205749155a4b39eae17bb367db6cc182bfd57598a",
+     "hash": "85c8891fee76081e5923368b4144f2f809058e5b5fd3239acd342d3a19c6fb87",
      "t": 11.35
     },
     {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-03.png",
+     "hash": "3e88569759a0f812dcbd3d51f70b838c211325110f6b0a2d5f5f670194cb912d",
+     "t": 12.31
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-04.png",
+     "hash": "3e88569759a0f812dcbd3d51f70b838c211325110f6b0a2d5f5f670194cb912d",
+     "t": 13.25
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-05.png",
+     "hash": "2133633a4e4cb4e2d3b50ffc91190ed6d5960a5bd2487c1b29956d865fca6c3b",
+     "t": 14.25
+    },
+    {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-06.png",
-     "hash": "1048b1a059bd9f5ef62dae10ad2745835c2e77b280ae53b6c74ac4341944c50e",
-     "t": 12.2
+     "hash": "2133633a4e4cb4e2d3b50ffc91190ed6d5960a5bd2487c1b29956d865fca6c3b",
+     "t": 15.16
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-loop-07.png",
-     "hash": "1048b1a059bd9f5ef62dae10ad2745835c2e77b280ae53b6c74ac4341944c50e",
-     "t": 13.06
+     "hash": "673413375482079d419e137de6e04ffa41ae451782cfb509184fe31791abcbb7",
+     "t": 16.07
     }
    ],
    "captures": [
     {
      "name": "01-start",
      "why": "the fixture applied, at the room's entrance",
-     "t": 6.25,
+     "t": 8.46,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-01-start.png",
-     "hash": "d6a74ce83db0591a6b40472679e79ab0d367864a95bc927b12370890c84927ea",
+     "hash": "bfcbb23a7a0666107864644fa5073c97df3d9ff0235204c5f06a0546c2b21fe2",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -130,9 +130,9 @@
     {
      "name": "02-crossed-board",
      "why": "walked across the board from the door",
-     "t": 20.38,
+     "t": 23.47,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-02-crossed-board.png",
-     "hash": "43285a80d93177c3b03c39f7f85addf19b73c0a0ba56cc3afbf5897084ae1523",
+     "hash": "98d1960d7cea52827239cfeb6b9caac1326a4a853aecfe1565ecb336b7d4d5e9",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -155,9 +155,9 @@
     {
      "name": "03-look-bench",
      "why": "LOOK at the queue bench",
-     "t": 27.26,
+     "t": 30.53,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-03-look-bench.png",
-     "hash": "5a76715532ad4ccd9ad893dedcf1110d7a1c5cfaa4d0d099407536fd89dc3e9c",
+     "hash": "0c3fc87fb3f6245e4eabb00d587e0babdad0db88cc4258f5dadbcacaff699a91",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -180,9 +180,9 @@
     {
      "name": "04-opening",
      "why": "she speaks first, at the dialogue point",
-     "t": 29.97,
+     "t": 33.44,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-04-opening.png",
-     "hash": "e6028769b2cb90dcde69885445d36104966047892e6ce8dfcf231da73e7145cc",
+     "hash": "92f53d235a47670e11cd66f8e60c37b9b670aedc2a0d3a89bb128aa07f77941c",
      "room": "assay_office",
      "says": "winnie",
      "options": 0,
@@ -205,9 +205,9 @@
     {
      "name": "05-choices",
      "why": "the tree open: its choices and nothing else",
-     "t": 35.93,
+     "t": 39.47,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-05-choices.png",
-     "hash": "5311f6f27a0816620812881663d348796075de7ce913f43227ea69d4ca6438ef",
+     "hash": "1a8d93abe2b20c1b2562530e48b23e4b57ad726f07b7c0d1f828a0fb75a242bf",
      "room": "assay_office",
      "says": null,
      "options": 3,
@@ -230,9 +230,9 @@
     {
      "name": "06-after-talk",
      "why": "control returned; she is back at work",
-     "t": 40.03,
+     "t": 43.77,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-06-after-talk.png",
-     "hash": "3543d7392d1c0866d716f8f907c14bd6bd5bbcbed98010a8339666d27a28523c",
+     "hash": "37fcaca495bf3550e9bc09b6404a5e167466944695c48a6e408037e96186ddef",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -249,15 +249,15 @@
        760
       ],
       "back",
-      "idle"
+      "idle-break"
      ]
     },
     {
      "name": "07-re-entered",
      "why": "out by the street door and back in",
-     "t": 46.59,
+     "t": 50.79,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-a-07-re-entered.png",
-     "hash": "d2222ce66622d6e1b68e1a1ee33f9d1dfd6cacfe572b4b7a2fdf6115f0989347",
+     "hash": "50ef01ff9aef1e6c106db042acc4ad87d96883df4f487ede9bf168799e9a388d",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -280,79 +280,79 @@
    ],
    "log": [
     {
-     "t": 19.9,
+     "t": 22.91,
      "line": "action 1 (click): clicked screen 1100,765 -- "
     },
     {
-     "t": 19.9,
+     "t": 22.91,
      "line": "action 2 (wait): waited 6s"
     },
     {
-     "t": 26.79,
+     "t": 29.98,
      "line": "action 1 (verb): chose verb LOOK_AT -- "
     },
     {
-     "t": 26.79,
+     "t": 29.98,
      "line": "action 2 (click): clicked assay_office/queue_bench at world 1805,660 -- "
     },
     {
-     "t": 26.79,
+     "t": 29.98,
      "line": "action 3 (wait): waited 6s"
     },
     {
-     "t": 27.32,
+     "t": 30.61,
      "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
     },
     {
-     "t": 29.52,
+     "t": 32.86,
      "line": "action 1 (verb): chose verb TALK_TO -- "
     },
     {
-     "t": 29.52,
+     "t": 32.86,
      "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
     },
     {
-     "t": 29.52,
+     "t": 32.86,
      "line": "action 3 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
     },
     {
-     "t": 35.43,
+     "t": 38.95,
      "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
     },
     {
-     "t": 38.08,
+     "t": 41.68,
      "line": "action 1 (option): chose option winnie5 -- "
     },
     {
-     "t": 38.08,
+     "t": 41.68,
      "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
     },
     {
-     "t": 46.14,
+     "t": 50.22,
      "line": "action 1 (verb): chose verb OPEN -- "
     },
     {
-     "t": 46.14,
+     "t": 50.22,
      "line": "action 2 (click): clicked assay_office/back_to_street at world 178,405 -- "
     },
     {
-     "t": 46.14,
+     "t": 50.22,
      "line": "action 3 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
     },
     {
-     "t": 46.14,
+     "t": 50.22,
      "line": "action 4 (wait): waited 1.5s"
     },
     {
-     "t": 46.14,
+     "t": 50.22,
      "line": "action 5 (click): clicked main_street/to_assay_office at world 3113,479 -- "
     },
     {
-     "t": 46.14,
+     "t": 50.22,
      "line": "action 6 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
     },
     {
-     "t": 46.14,
+     "t": 50.22,
      "line": "action 7 (wait): waited 2s"
     }
    ]
@@ -400,52 +400,52 @@
    "loopBurst": [
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-loop-00.png",
-     "hash": "6ea9c213b9505e06f791b6e02ccb1cae3fb3af67a0c57baa725a62fdd6505d73",
-     "t": 53.05
+     "hash": "2dd18e7e1ca057fcd797b033349e21b8da1377f3ad8753f9c25a86f64e9d5218",
+     "t": 59.01
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-loop-01.png",
-     "hash": "c81d54339d7bcb3e208c79164d223392d8b8232dfbc2805efe6bca3e447ac259",
-     "t": 54.16
+     "hash": "028fe82874f943094c30c422b34811ae101cf495c8625722871702081097cb57",
+     "t": 60.17
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-loop-02.png",
-     "hash": "0ade6fce46933455478e08f45432b9e6735129d665a0e32e9eaed6f3f1f3bfc3",
-     "t": 55.04
+     "hash": "95371a49bcfe8b674d07f1408a03456967a39ff172ae7d8db07cb8a518e6d87a",
+     "t": 61.63
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-loop-03.png",
-     "hash": "0ade6fce46933455478e08f45432b9e6735129d665a0e32e9eaed6f3f1f3bfc3",
-     "t": 55.94
+     "hash": "7d395e721826067bb33dd5e6f593c404b80c2a81182a00ff5abc7d62e6c3a5c8",
+     "t": 62.56
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-loop-04.png",
-     "hash": "9f2d7e49fdf52a6532652c1e1769253a404adb81d1f8aa72e5bef8d95c25358c",
-     "t": 56.78
+     "hash": "7d395e721826067bb33dd5e6f593c404b80c2a81182a00ff5abc7d62e6c3a5c8",
+     "t": 63.51
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-loop-05.png",
-     "hash": "9f2d7e49fdf52a6532652c1e1769253a404adb81d1f8aa72e5bef8d95c25358c",
-     "t": 57.67
+     "hash": "11f83b9e2ab932bb6436d1373b738c9801098ff9532f7d8928a3bf4771e69302",
+     "t": 64.47
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-loop-06.png",
-     "hash": "febe3f8d1e96b8dafd640f6cf3ed0ecd30bf5410cc4cf119f70f934d32b89b05",
-     "t": 58.52
+     "hash": "11f83b9e2ab932bb6436d1373b738c9801098ff9532f7d8928a3bf4771e69302",
+     "t": 65.46
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-loop-07.png",
-     "hash": "febe3f8d1e96b8dafd640f6cf3ed0ecd30bf5410cc4cf119f70f934d32b89b05",
-     "t": 59.42
+     "hash": "f4f71d2d966e22f61b999d191091724734399a99182e3254a8904b587675a494",
+     "t": 66.4
     }
    ],
    "captures": [
     {
      "name": "01-start",
      "why": "the fixture applied, at the room's entrance",
-     "t": 52.85,
+     "t": 58.69,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-01-start.png",
-     "hash": "5ffc7991406d7d30c3f7ada4278578b7aa9cecd95b7a9955139d8540aa073f26",
+     "hash": "2dd18e7e1ca057fcd797b033349e21b8da1377f3ad8753f9c25a86f64e9d5218",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -468,9 +468,9 @@
     {
      "name": "02-crossed-board",
      "why": "walked across the board from the door",
-     "t": 66.72,
+     "t": 73.89,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-02-crossed-board.png",
-     "hash": "5f61d09492954b1f1e05a249b8370c518edcf4b2a5a343e80072dfeb983a58b9",
+     "hash": "e38e75af4181d60577287dff907dfda33a284c5d59a8374b8c12361a8c7fd5d0",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -493,9 +493,9 @@
     {
      "name": "03-look-bench",
      "why": "LOOK at the queue bench",
-     "t": 69.39,
+     "t": 76.71,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-03-look-bench.png",
-     "hash": "a793493c5fd65e6777510623046e0952487a5bd1e4368015b00ac5012e862ae3",
+     "hash": "4cff10b2d7452ba7c775d2bb1f2401d943b31d7059df6b665848ec713a1b0313",
      "room": "assay_office",
      "says": "thad",
      "options": 0,
@@ -518,9 +518,9 @@
     {
      "name": "04-opening",
      "why": "she speaks first, at the dialogue point",
-     "t": 73.63,
+     "t": 81.07,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-04-opening.png",
-     "hash": "1b6d606667481d559f7b91c218796920650c5c4f8ad6f82a90d408cc5c9372c7",
+     "hash": "a9e4b52702a863d3e808cc7faf5439592a561bb7d9d758d53a4d243a8de7fd67",
      "room": "assay_office",
      "says": "winnie",
      "options": 0,
@@ -543,9 +543,9 @@
     {
      "name": "05-choices",
      "why": "the tree open: its choices and nothing else",
-     "t": 79.75,
+     "t": 87.22,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-05-choices.png",
-     "hash": "e42782ad1ffecd9f22fb62594101ffad0f4b01ee3dc81519c00cdcb0c87018e0",
+     "hash": "64ee95c0d0cf9c7563bb67a26772279ed81a331e61a6b18ee32ee6ef845264ec",
      "room": "assay_office",
      "says": null,
      "options": 5,
@@ -568,9 +568,9 @@
     {
      "name": "06-after-talk",
      "why": "control returned; she is back at work",
-     "t": 85.09,
+     "t": 92.9,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-06-after-talk.png",
-     "hash": "2a377c33c459dcdec9ebf3c63096b2946b8dc1aab5de67a40e4c06fc2709922d",
+     "hash": "2a0639380cda49f6ad222fc51252601c481a1c41979a248db7cb5fee2d8a39ae",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -593,9 +593,9 @@
     {
      "name": "07-re-entered",
      "why": "out by the street door and back in",
-     "t": 91.75,
+     "t": 99.9,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-b-07-re-entered.png",
-     "hash": "98d66acbe0ef9a01a35aad8bbc25291f54a3570e19d9d03db1b0024df79ce05b",
+     "hash": "1ad6e2edd9d0c3504cfd8c6b967595d500925fcbd82191ac7f7f570a095e5b3d",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -618,79 +618,79 @@
    ],
    "log": [
     {
-     "t": 66.27,
+     "t": 73.28,
      "line": "action 1 (click): clicked screen 1100,765 -- "
     },
     {
-     "t": 66.27,
+     "t": 73.28,
      "line": "action 2 (wait): waited 6s"
     },
     {
-     "t": 68.95,
+     "t": 76.2,
      "line": "action 1 (verb): chose verb LOOK_AT -- "
     },
     {
-     "t": 68.95,
+     "t": 76.2,
      "line": "action 2 (click): clicked assay_office/queue_bench at world 1805,660 -- "
     },
     {
-     "t": 68.95,
+     "t": 76.2,
      "line": "action 3 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
     },
     {
-     "t": 71.24,
+     "t": 78.55,
      "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
     },
     {
-     "t": 73.16,
+     "t": 80.56,
      "line": "action 1 (verb): chose verb TALK_TO -- "
     },
     {
-     "t": 73.16,
+     "t": 80.56,
      "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
     },
     {
-     "t": 73.16,
+     "t": 80.56,
      "line": "action 3 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
     },
     {
-     "t": 79.3,
+     "t": 86.62,
      "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
     },
     {
-     "t": 83.15,
+     "t": 90.8,
      "line": "action 1 (option): chose option winniex -- "
     },
     {
-     "t": 83.15,
+     "t": 90.8,
      "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
     },
     {
-     "t": 91.28,
+     "t": 99.34,
      "line": "action 1 (verb): chose verb OPEN -- "
     },
     {
-     "t": 91.28,
+     "t": 99.34,
      "line": "action 2 (click): clicked assay_office/back_to_street at world 178,405 -- "
     },
     {
-     "t": 91.28,
+     "t": 99.34,
      "line": "action 3 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
     },
     {
-     "t": 91.28,
+     "t": 99.34,
      "line": "action 4 (wait): waited 1.5s"
     },
     {
-     "t": 91.28,
+     "t": 99.34,
      "line": "action 5 (click): clicked main_street/to_assay_office at world 3113,479 -- "
     },
     {
-     "t": 91.28,
+     "t": 99.34,
      "line": "action 6 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
     },
     {
-     "t": 91.28,
+     "t": 99.34,
      "line": "action 7 (wait): waited 2s"
     }
    ]
@@ -743,52 +743,52 @@
    "loopBurst": [
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-loop-00.png",
-     "hash": "eb551becbe69ecd1cb3e4b298b37edfa30e4efaa317e961740c7269f33b8986d",
-     "t": 98.23
+     "hash": "2e06ad7abd5b1588459791d8379e6123c0f044b950b08c76dc44f734f9283c1b",
+     "t": 107.97
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-loop-01.png",
-     "hash": "2e06ad7abd5b1588459791d8379e6123c0f044b950b08c76dc44f734f9283c1b",
-     "t": 99.32
+     "hash": "3fda0c30712edc894f599468746814e9d3aa04df407a6dba78e78d1bef7bb50b",
+     "t": 109.01
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-loop-02.png",
-     "hash": "10b70ded98851d913f0b9b3b1d5afb336ce47436c909fa08a2fc48eed9ab25fd",
-     "t": 100.2
+     "hash": "87b1399ac646221834dc2d09d58640ca96382c961ce0195c7102670bc1684650",
+     "t": 110.35
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-loop-03.png",
-     "hash": "10b70ded98851d913f0b9b3b1d5afb336ce47436c909fa08a2fc48eed9ab25fd",
-     "t": 101.1
+     "hash": "1e8724403cd6fc3ecf6efb0c1fa1b80c9eae51630123ce522683db9957147fcf",
+     "t": 111.28
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-loop-04.png",
-     "hash": "a70450f75841c22e02e4850d02d5404bd2a2ee0e5ae70bf5abb94354fc95d01f",
-     "t": 102.03
+     "hash": "6f635dab44939b59d7d7287898f9f85d5d0bddba4d91df0402b06ba3ab41a4ac",
+     "t": 112.2
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-loop-05.png",
-     "hash": "a70450f75841c22e02e4850d02d5404bd2a2ee0e5ae70bf5abb94354fc95d01f",
-     "t": 102.92
+     "hash": "6f635dab44939b59d7d7287898f9f85d5d0bddba4d91df0402b06ba3ab41a4ac",
+     "t": 113.16
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-loop-06.png",
-     "hash": "75b9720998f2cc59e3f6f238ff8ec2863b1451b9fd4fb663efb7c4141037c21c",
-     "t": 103.8
+     "hash": "749d291a73af17e96f8b65e8984d5e0459c83044513f116869eb8485ef802ed3",
+     "t": 114.09
     },
     {
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-loop-07.png",
-     "hash": "75b9720998f2cc59e3f6f238ff8ec2863b1451b9fd4fb663efb7c4141037c21c",
-     "t": 104.67
+     "hash": "749d291a73af17e96f8b65e8984d5e0459c83044513f116869eb8485ef802ed3",
+     "t": 115.05
     }
    ],
    "captures": [
     {
      "name": "01-start",
      "why": "the fixture applied, at the room's entrance",
-     "t": 98.04,
+     "t": 107.65,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-01-start.png",
-     "hash": "8b84522c7ca144d9212dd827573c3564d00cc7ca45ae11319abcd67eacdb351f",
+     "hash": "2e06ad7abd5b1588459791d8379e6123c0f044b950b08c76dc44f734f9283c1b",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -811,9 +811,9 @@
     {
      "name": "02-crossed-board",
      "why": "walked across the board from the door",
-     "t": 111.97,
+     "t": 122.45,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-02-crossed-board.png",
-     "hash": "595fc0e3df950d4a58a54b186fd0cd0a4402fb5b15a48046d02df056c8fa42fd",
+     "hash": "3eed89d3795de2ab1a28046cf215ce9bcaa424171986887be966156742926e4b",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -836,9 +836,9 @@
     {
      "name": "03-look-bench",
      "why": "LOOK at the queue bench",
-     "t": 114.53,
+     "t": 125.35,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-03-look-bench.png",
-     "hash": "db0662a5013cdc92deb225fe37e4b3812ce9a37d19e10ed63253af64c20134f2",
+     "hash": "c638313473c3a150c327443457f83f1157fd96b97274d4b92fbd79fca6f737ba",
      "room": "assay_office",
      "says": "thad",
      "options": 0,
@@ -861,9 +861,9 @@
     {
      "name": "04-opening",
      "why": "she speaks first, at the dialogue point",
-     "t": 120.83,
+     "t": 131.64,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-04-opening.png",
-     "hash": "3829ccee118277e49b09291c1de8d05443d2f385a390008c6f7cea728b725729",
+     "hash": "0a59b78f48557d0cefc1cb91f935d2e270053dbaee914f263a9def6d2ae3cfbe",
      "room": "assay_office",
      "says": "winnie",
      "options": 0,
@@ -886,9 +886,9 @@
     {
      "name": "05-choices",
      "why": "the tree open: its choices and nothing else",
-     "t": 126.9,
+     "t": 137.81,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-05-choices.png",
-     "hash": "8734b126a60e8b544a15c884f37c6ed116b38be2db1c9867006ce876f4190fc6",
+     "hash": "212a039a3b0a0aeb9d9bc0cde6537df9fa81463a9ed51fb26e9ad4a8bce600be",
      "room": "assay_office",
      "says": null,
      "options": 4,
@@ -911,9 +911,9 @@
     {
      "name": "06-after-talk",
      "why": "control returned; she is back at work",
-     "t": 131.09,
+     "t": 142.18,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-06-after-talk.png",
-     "hash": "4eb74ef694fc6c1741bb2ee85709b7e2ba3f1d4a2638113f5369e5608f0d0cde",
+     "hash": "88628d609e827b2729da9951bed7559cac227caa5f8359b586c8ad2b37705729",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -936,9 +936,9 @@
     {
      "name": "07-re-entered",
      "why": "out by the street door and back in",
-     "t": 137.63,
+     "t": 149,
      "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/r5-g-07-re-entered.png",
-     "hash": "a43140ad7e045e4bc897607b3ee7bd8646aa541e0f1f33c518b1d1805cb8a52e",
+     "hash": "d2b88258f4e147bc0da20aef62cadebd7b8b53c2c908e7c228b1be53137e0376",
      "room": "assay_office",
      "says": null,
      "options": 0,
@@ -961,79 +961,416 @@
    ],
    "log": [
     {
-     "t": 111.52,
+     "t": 121.91,
      "line": "action 1 (click): clicked screen 1100,765 -- "
     },
     {
-     "t": 111.52,
+     "t": 121.91,
      "line": "action 2 (wait): waited 6s"
     },
     {
-     "t": 114.1,
+     "t": 124.82,
      "line": "action 1 (verb): chose verb LOOK_AT -- "
     },
     {
-     "t": 114.1,
+     "t": 124.82,
      "line": "action 2 (click): clicked assay_office/queue_bench at world 1805,660 -- "
     },
     {
-     "t": 114.1,
+     "t": 124.82,
      "line": "action 3 (waitFor): reached {\"says\":\"thad\"} in room assay_office"
     },
     {
-     "t": 116.54,
+     "t": 127.14,
      "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
     },
     {
-     "t": 120.36,
+     "t": 131.12,
      "line": "action 1 (verb): chose verb TALK_TO -- "
     },
     {
-     "t": 120.36,
+     "t": 131.12,
      "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
     },
     {
-     "t": 120.36,
+     "t": 131.12,
      "line": "action 3 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
     },
     {
-     "t": 126.4,
+     "t": 137.25,
      "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
     },
     {
-     "t": 129.13,
+     "t": 140.13,
      "line": "action 1 (option): chose option winniex -- "
     },
     {
-     "t": 129.13,
+     "t": 140.13,
      "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
     },
     {
-     "t": 137.16,
+     "t": 148.46,
      "line": "action 1 (verb): chose verb OPEN -- "
     },
     {
-     "t": 137.16,
+     "t": 148.46,
      "line": "action 2 (click): clicked assay_office/back_to_street at world 178,405 -- "
     },
     {
-     "t": 137.16,
+     "t": 148.46,
      "line": "action 3 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
     },
     {
-     "t": 137.16,
+     "t": 148.46,
      "line": "action 4 (wait): waited 1.5s"
     },
     {
-     "t": 137.16,
+     "t": 148.46,
      "line": "action 5 (click): clicked main_street/to_assay_office at world 3113,479 -- "
     },
     {
-     "t": 137.16,
+     "t": 148.46,
      "line": "action 6 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
     },
     {
-     "t": 137.16,
+     "t": 148.46,
+     "line": "action 7 (wait): waited 2s"
+    }
+   ]
+  },
+  {
+   "fixture": "w1-piano",
+   "label": "W1 proof: Act I first visit with the piano topic earned",
+   "room": "assay_office",
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_TUNES_PIANOS",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1
+   },
+   "inventory": [
+    "letter",
+    "tuning_fork",
+    "four_dollars"
+   ],
+   "opensOn": {
+    "tree": "WINNIE",
+    "node": "WIN_A1"
+   },
+   "optionsOffered": 4,
+   "choiceLines": 4,
+   "benchIsTarget": false,
+   "boardCuesAfterCrossing": 1,
+   "boardAfterCrossing": "rest",
+   "roundTripPreserved": true,
+   "thadHeightAtDialoguePoint": null,
+   "loopBurst": [
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-loop-00.png",
+     "hash": "15f40381608d241cdb6eb663c2917bd4f0c6f951f426e50445e396a45b853476",
+     "t": 156.98
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-loop-01.png",
+     "hash": "a2b7224f51a7e0c2ecef5bd427ec030961e4987665555577333b608719f0748a",
+     "t": 158.02
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-loop-02.png",
+     "hash": "45cf9c1d5522b7ea82793598596af626312e6939cc791f638e7c4400136cd6c2",
+     "t": 159.42
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-loop-03.png",
+     "hash": "fd6dda7f504b5a47c50e55336127c80e332325a176fc08519cf87b42e7e3e85d",
+     "t": 160.33
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-loop-04.png",
+     "hash": "316e5ba74fc1254b54da9abdac87bff077315a0f939de810c99bb80d4ee41a44",
+     "t": 161.24
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-loop-05.png",
+     "hash": "316e5ba74fc1254b54da9abdac87bff077315a0f939de810c99bb80d4ee41a44",
+     "t": 162.18
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-loop-06.png",
+     "hash": "2f3871f3dba2343adbfbd08d2789157f2a47b0f23218e694d97d88c9bb665849",
+     "t": 163.12
+    },
+    {
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-loop-07.png",
+     "hash": "2f3871f3dba2343adbfbd08d2789157f2a47b0f23218e694d97d88c9bb665849",
+     "t": 164.01
+    }
+   ],
+   "captures": [
+    {
+     "name": "01-start",
+     "why": "the fixture applied, at the room's entrance",
+     "t": 156.67,
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-01-start.png",
+     "hash": "15f40381608d241cdb6eb663c2917bd4f0c6f951f426e50445e396a45b853476",
+     "room": "assay_office",
+     "says": null,
+     "options": 0,
+     "choiceLines": 0,
+     "dialogueAt": {
+      "tree": null,
+      "node": null
+     },
+     "cues": 0,
+     "board": "rest",
+     "thad": [
+      [
+       200,
+       765
+      ],
+      "right",
+      "idle"
+     ]
+    },
+    {
+     "name": "02-crossed-board",
+     "why": "walked across the board from the door",
+     "t": 171.44,
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-02-crossed-board.png",
+     "hash": "270176267cf401d1e3a0c14859df1ecd02f6bee40bda158b3b8fc9117f69dbe6",
+     "room": "assay_office",
+     "says": null,
+     "options": 0,
+     "choiceLines": 0,
+     "dialogueAt": {
+      "tree": null,
+      "node": null
+     },
+     "cues": 1,
+     "board": "rest",
+     "thad": [
+      [
+       1099,
+       765
+      ],
+      "right",
+      "idle"
+     ]
+    },
+    {
+     "name": "03-look-bench",
+     "why": "LOOK at the queue bench",
+     "t": 178.47,
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-03-look-bench.png",
+     "hash": "1cbabbc2aa552fea3a100a11060e5eb6921be333cae94c6e515b34826e13f939",
+     "room": "assay_office",
+     "says": null,
+     "options": 0,
+     "choiceLines": 0,
+     "dialogueAt": {
+      "tree": null,
+      "node": null
+     },
+     "cues": 1,
+     "board": "rest",
+     "thad": [
+      [
+       1690,
+       700
+      ],
+      "back",
+      "idle"
+     ]
+    },
+    {
+     "name": "04-opening",
+     "why": "she speaks first, at the dialogue point",
+     "t": 181.41,
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-04-opening.png",
+     "hash": "cc147dea340f56d50d6d11118b97492c1e901bd07ed9ca4f14fc835d485bee1d",
+     "room": "assay_office",
+     "says": "winnie",
+     "options": 0,
+     "choiceLines": 0,
+     "dialogueAt": {
+      "tree": null,
+      "node": null
+     },
+     "cues": 1,
+     "board": "rest",
+     "thad": [
+      [
+       930,
+       760
+      ],
+      "back",
+      "idle"
+     ]
+    },
+    {
+     "name": "05-choices",
+     "why": "the tree open: its choices and nothing else",
+     "t": 187.36,
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-05-choices.png",
+     "hash": "920164c5e1bf14f1379eab87d9f0a14ba6e15cfbe11cca86c6aef14970456213",
+     "room": "assay_office",
+     "says": null,
+     "options": 4,
+     "choiceLines": 4,
+     "dialogueAt": {
+      "tree": "WINNIE",
+      "node": "WIN_A1"
+     },
+     "cues": 1,
+     "board": "rest",
+     "thad": [
+      [
+       930,
+       760
+      ],
+      "back",
+      "idle"
+     ]
+    },
+    {
+     "name": "06-after-talk",
+     "why": "control returned; she is back at work",
+     "t": 191.7,
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-06-after-talk.png",
+     "hash": "2aa525ea93cdbb581434aaf88de2e1b5d16a02c778283a281c901a590b283a61",
+     "room": "assay_office",
+     "says": null,
+     "options": 0,
+     "choiceLines": 0,
+     "dialogueAt": {
+      "tree": null,
+      "node": null
+     },
+     "cues": 1,
+     "board": "rest",
+     "thad": [
+      [
+       930,
+       760
+      ],
+      "back",
+      "idle-break"
+     ]
+    },
+    {
+     "name": "07-re-entered",
+     "why": "out by the street door and back in",
+     "t": 198.61,
+     "file": "renders/proofs/room-05-fixtures/raw-captures-ignored/w1-piano-07-re-entered.png",
+     "hash": "50ef01ff9aef1e6c106db042acc4ad87d96883df4f487ede9bf168799e9a388d",
+     "room": "assay_office",
+     "says": null,
+     "options": 0,
+     "choiceLines": 0,
+     "dialogueAt": {
+      "tree": null,
+      "node": null
+     },
+     "cues": 2,
+     "board": "rest",
+     "thad": [
+      [
+       200,
+       765
+      ],
+      "right",
+      "idle"
+     ]
+    }
+   ],
+   "log": [
+    {
+     "t": 170.88,
+     "line": "action 1 (click): clicked screen 1100,765 -- "
+    },
+    {
+     "t": 170.88,
+     "line": "action 2 (wait): waited 6s"
+    },
+    {
+     "t": 177.93,
+     "line": "action 1 (verb): chose verb LOOK_AT -- "
+    },
+    {
+     "t": 177.93,
+     "line": "action 2 (click): clicked assay_office/queue_bench at world 1805,660 -- "
+    },
+    {
+     "t": 177.93,
+     "line": "action 3 (wait): waited 6s"
+    },
+    {
+     "t": 178.56,
+     "line": "action 1 (waitFor): reached {\"says\":null} in room assay_office"
+    },
+    {
+     "t": 180.91,
+     "line": "action 1 (verb): chose verb TALK_TO -- "
+    },
+    {
+     "t": 180.91,
+     "line": "action 2 (click): clicked assay_office/winnie at world 1035,309 -- "
+    },
+    {
+     "t": 180.91,
+     "line": "action 3 (waitFor): reached {\"says\":\"winnie\"} in room assay_office"
+    },
+    {
+     "t": 186.84,
+     "line": "action 1 (waitFor): reached {\"dialogue\":true} in room assay_office"
+    },
+    {
+     "t": 189.63,
+     "line": "action 1 (option): chose option winnie5 -- "
+    },
+    {
+     "t": 189.63,
+     "line": "action 2 (waitFor): reached {\"says\":null} in room assay_office"
+    },
+    {
+     "t": 198.08,
+     "line": "action 1 (verb): chose verb OPEN -- "
+    },
+    {
+     "t": 198.08,
+     "line": "action 2 (click): clicked assay_office/back_to_street at world 178,405 -- "
+    },
+    {
+     "t": 198.08,
+     "line": "action 3 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+    },
+    {
+     "t": 198.08,
+     "line": "action 4 (wait): waited 1.5s"
+    },
+    {
+     "t": 198.08,
+     "line": "action 5 (click): clicked main_street/to_assay_office at world 3113,479 -- "
+    },
+    {
+     "t": 198.08,
+     "line": "action 6 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+    },
+    {
+     "t": 198.08,
      "line": "action 7 (wait): waited 2s"
     }
    ]
@@ -1041,5 +1378,5 @@
  ],
  "failures": [],
  "passed": true,
- "at": "2026-09-05T17:06:25.504Z"
+ "at": "2026-09-05T17:39:48.883Z"
 }

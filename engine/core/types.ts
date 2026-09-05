@@ -1112,8 +1112,35 @@ export interface DialogueOption {
    * option has either `say` or `exchange`, never both.
    */
   exchange?: { speaker: string; line: string }[];
-  /** Shown instead of `say` once the option has already been taken. */
+  /**
+   * Shown instead of `say` once the option has already been taken. The
+   * pre-W1 shape: one string, the second selection's line, kept for the
+   * trees whose documents write one repeat. `repeats` is the authored form.
+   */
   repeat?: string;
+  /**
+   * WHAT THE OPTION ANSWERS ON ITS LATER SELECTIONS, BY SELECTION NUMBER.
+   * Doc 30 section 7 and errata 45: selection counts, and repeat exchanges
+   * that clamp at the last authored variant. Each entry is the line (or
+   * exchange) for the given selection and every later one until the next
+   * entry; a selection before the first entry answers with the first
+   * exchange again. Sorted by `selection`, all of them at 2 or above.
+   */
+  repeats?: DialogueRepeat[];
+  /**
+   * ERRATA 57: THE OPTION'S OWN AFTERMATH, AUTHORED. `retain` stays and
+   * greys; `remove` is gone after its first selection; `counted-repeat`
+   * stays at full weight and counts; `rephrase` changes its wording once
+   * `rephrase.after` is reached; `replace` gives way to `replaceWith`.
+   * Absent on the trees whose documents predate the ruling, which behave as
+   * `retain` (errata 57's interim); the check is strict on trees that
+   * declare `aftermathAuthored`.
+   */
+  afterUse?: AfterUse;
+  /** The wording and answer this option takes once a canonical milestone is reached. */
+  rephrase?: { after: string; text: string; say: string };
+  /** The option shown in this one's place after its first selection (`afterUse: replace`). */
+  replaceWith?: DialogueOption;
   /**
    * The option's response is a SCENE, not a line, and the scene is not built.
    *
@@ -1137,6 +1164,15 @@ export interface DialogueOption {
    * the runner treats it identically to any other option.
    */
   silentState?: boolean;
+}
+
+export type AfterUse = 'retain' | 'remove' | 'counted-repeat' | 'rephrase' | 'replace';
+
+/** One later selection's answer: from `selection` on, until the next entry. */
+export interface DialogueRepeat {
+  selection: number;
+  say?: string;
+  exchange?: { speaker: string; line: string }[];
 }
 
 export interface DialogueNode {
@@ -1179,6 +1215,13 @@ export interface DialogueFile {
    * had said it, because the fallback ink is the colour Thad speaks in.
    */
   speaker?: string;
+  /**
+   * The document this tree comes from carries errata 57's aftermath on every
+   * option, so `afterUse` is required here and its absence is a build
+   * failure. Set by the extractor; false or absent on the trees whose
+   * documents predate the ruling.
+   */
+  aftermathAuthored?: boolean;
   start: string;
   /**
    * WHERE THE TREE OPENS, BY STATE. Doc 04 writes every principal's tree
@@ -1856,6 +1899,11 @@ export interface PlaytestFixture {
   inventory?: string[];
   /** Doc 22 item 9 object states, keyed "room/object". */
   objectStates?: Record<string, string>;
+  /**
+   * Dialogue selection counts, tree -> "node:option" -> count, only where a
+   * state genuinely needs them (a W1 proof state). Validated like the rest.
+   */
+  dialogueCounts?: Record<string, Record<string, number>>;
   /** Where the documents put this state, and what the build has not built yet. */
   derivedFrom?: string[];
   notBuilt?: string[];

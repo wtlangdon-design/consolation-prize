@@ -136,7 +136,7 @@
 > **LOOK:** "Nine years of assays, in a hand that has not varied once. Not one crossing-out."
 > **LISTEN:** "Nothing."
 
-**THE FLOORBOARD, LIFTED** *(after C5)*
+**THE FLOORBOARD, LIFTED** *(after C5)* — *LOCATION SUPERSEDED, errata 66 ruling D: the loose board and the second ledger are in Room 5, the assay office front; these lines apply there.*
 > **LOOK:** "A space under a board, and a second book in it, and the second book is a different kind of document entirely."
 > **LISTEN:** "Nothing."
 

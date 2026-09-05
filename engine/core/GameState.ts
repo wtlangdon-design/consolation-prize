@@ -168,6 +168,12 @@ export class GameState {
   /** Objects whose ownership has passed to the actor. Saved. */
   private taken = new Set<string>();
   /**
+   * PUZZLE PROGRESS, by canonical id. The milestone a dialogue `rephrase`
+   * waits on (WIN_A2's wait question after C5) and the state a later scene
+   * will read. No writer exists yet: doc 36 Q112 records the contract.
+   */
+  private puzzles = new Map<string, 'complete'>();
+  /**
    * Where transactions get their journals, and therefore which EffectOwnership
    * registry they claim into.
    *
@@ -186,7 +192,8 @@ export class GameState {
     this.flags = new FlagStore(content.flags);
     this.verbs = new VerbSystem(content.verbs, this.flags, content.verbFallbacks,
       content.combinations);
-    this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals);
+    this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals,
+      (puzzle) => this.puzzles.get(puzzle) === 'complete');
     // A PLAYTEST FIXTURE SAVES UNDER ITS OWN KEY, so a review session's
     // autosaves never overwrite the player's real game.
     this.saves = saveKey ? new SaveManager(storage, saveKey) : new SaveManager(storage);
@@ -1034,6 +1041,7 @@ export class GameState {
       objectStates: Object.fromEntries(this.objectStates),
       taken: [...this.taken].sort(),
       flags: this.flags.snapshot(),
+      puzzles: Object.fromEntries(this.puzzles),
       dialogueProgress: this.dialogue.progressSnapshot(),
       dialoguePosition: this.dialogue.positionSnapshot(),
       position: this.standing.get(this.currentRoomId),
@@ -1070,15 +1078,26 @@ export class GameState {
       objectStates: fixture.objectStates ?? {},
       taken: [],
       flags: fixture.flags,
-      dialogueProgress: {},
+      dialogueProgress: fixture.dialogueCounts ?? {},
       dialoguePosition: { tree: null, node: null },
     });
+  }
+
+  /** Whether a canonical puzzle has been completed. Read by the probe and by tests. */
+  puzzleComplete(id: string): boolean {
+    return this.puzzles.get(id) === 'complete';
+  }
+
+  /** Every puzzle held complete, sorted. For the probe. */
+  puzzlesComplete(): string[] {
+    return [...this.puzzles.keys()].sort();
   }
 
   private restoreFrom(save: SaveFile): boolean {
     if (!this.content.rooms.has(save.room)) return false;
 
     this.flags.restore(save.flags);
+    this.puzzles = new Map(Object.entries(save.puzzles ?? {}).filter(([, v]) => v === 'complete') as [string, 'complete'][]);
     this.dialogue.restore(save.dialogueProgress, save.dialoguePosition);
     this.currentRoomId = save.room;
     this.inventory = [...save.inventory];
@@ -1098,6 +1117,7 @@ export class GameState {
   reset(): void {
     this.standing.clear();
     this.flags.reset();
+    this.puzzles = new Map();
     this.dialogue.restore({}, { tree: null, node: null });
     this.currentRoomId = this.content.manifest.startRoom;
     this.inventory = this.startingInventory();
