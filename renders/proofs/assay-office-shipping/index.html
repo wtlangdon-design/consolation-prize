@@ -1,0 +1,85 @@
+<!DOCTYPE html><meta charset="utf-8">
+<title>assay_office — room proof</title>
+<style>
+ body{background:#14141a;color:#e8e8ee;font:14px/1.5 system-ui,sans-serif;margin:0;padding:20px}
+ h1{font-size:17px;margin:0 0 4px}
+ p.lede{color:#9a9aae;margin:0 0 8px;max-width:64em}
+ .verdict{font:13px ui-monospace,monospace;padding:8px 10px;border-radius:5px;margin:12px 0;
+   background:#3a1620;border:1px solid #7a2c3c}
+ figure{margin:0 0 22px}
+ img{width:100%;display:block;border-radius:5px;border:1px solid #2c2c38}
+ figcaption{padding:7px 2px;font-size:13px}
+ figcaption span{display:block;color:#8a8a9e;font:11.5px ui-monospace,monospace}
+ .sheet img{border-color:#4a6ea8}
+ p.gone{color:#8a8a9e;font:12px ui-monospace,monospace;border:1px dashed #3a3a48;
+   border-radius:5px;padding:14px;margin:0}
+ code{color:#c9b58a}
+</style>
+<h1>assay_office — four-panel live-runtime proof</h1>
+<p class="lede">Every frame below is the full play area as the renderer drew it, in the running
+game, at <code>199ab6b0</code> on <code>claude/last-claim-autonomy-audit-v3vsy6</code>.
+No crop, isolated sprite or source image appears here: those are for diagnosing what a full
+frame has already shown.</p>
+<p class="lede"><b>These panels establish technical admissibility only.</b> Nothing here says the
+art is good, in style, funny or approved. Only Tyler sets <code>visual_accepted</code>.</p>
+<figure class="sheet">
+  <img src="contact-sheet.webp" alt="">
+  <figcaption><b>THE COMMITTED SHEET</b><span>Every panel, complete, at
+    50% &mdash;
+    downscaled, never cropped. The full-resolution captures are reproducible test artifacts
+    and are not in git; their hashes are below.</span></figcaption>
+</figure>
+<div class="verdict">FAIL — 1 failure(s):
+  the working tree is dirty, so these frames do not correspond to 199ab6b0. Commit, or re-run with --allow-dirty, which records it.
+
+! working tree was dirty: these frames do not correspond to the commit above.</div>
+
+  <figure>
+    <img src="raw-captures-ignored/panel-b-populated.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "assay_office" }))">
+    <figcaption><b>PANEL B &mdash; normal populated state</b>
+      <span>room assay_office &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @200,765 515px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="raw-captures-ignored/panel-a-base.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "assay_office" }))">
+    <figcaption><b>PANEL A &mdash; base state, cast suppressed</b>
+      <span>room assay_office &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @200,765 515px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="raw-captures-ignored/panel-d-changed.png" alt="" onerror="this.replaceWith(Object.assign(
+      document.createElement('p'), { className: 'gone', textContent:
+      'raw capture not committed -- regenerate with: npm run proof ' + "assay_office" }))">
+    <figcaption><b>PANEL D &mdash; principal changed state: THE QUEUE BENCH, acts 2-4. docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2 writes its LOOK for act 2-4 and nothing for Act I; docs/49 gives it USE and PUSH. Prerequisite: ACT >= 2, which the game sets at doc 48's S1 (not built). Visible consequence: the bench becomes a target -- its LOOK line, and Thad walks to it. The bench itself is plate in every act.</b>
+      <span>room assay_office &middot; camera 0 &middot;
+        flags T_OPENING_SAID T_COACH_DEPARTED T_UNDERTAKER_NAMED T_HOB_CROSSING T_THAD_LEAVING T_HOB_SPOKEN T_HOB_GONE T_OPENING_DONE T_SEEN_MAIN_STREET T_CASE_DOWN T_CASE_TAKEN &middot;
+        inventory letter tuning_fork four_dollars</span>
+      <span>thad @1650,827 558px sprite</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="raw-captures-ignored/panel-c-mud_far-far.png" alt="">
+    <figcaption><b>PANEL C &mdash; mud_far far, authored y701</b>
+      <span>expected 471px &middot; runtime 471px &middot;
+        silhouette 491px, bottom y700</span>
+      <span>art/actors/thad-idle-right/idle-02.png</span>
+    </figcaption>
+  </figure>
+  <figure>
+    <img src="raw-captures-ignored/panel-c-mud_near-near.png" alt="">
+    <figcaption><b>PANEL C &mdash; mud_near near, authored y829</b>
+      <span>expected 559px &middot; runtime 559px &middot;
+        silhouette 579px, bottom y828</span>
+      <span>art/actors/thad-idle-right/idle-00.png</span>
+    </figcaption>
+  </figure>
