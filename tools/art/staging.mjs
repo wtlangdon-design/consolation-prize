@@ -313,6 +313,45 @@ export function promote(assetId, attempt, shippingPath, { by } = {}) {
   return file.promotions[file.promotions.length - 1];
 }
 
+/**
+ * PROMOTE A DERIVED ASSET. What ships is rarely the ledger row's own output:
+ * the row is the 1536x1024 API source, and the shipping plate is the errata
+ * 63 derivation of it, the relit sheet is a deterministic pass over the cut
+ * figure, the floorboard is the plate's own pixels lifted. `promote()` above
+ * copies the row's `out` and would ship the wrong file for every one of them.
+ *
+ * So a derived promotion names the ACCEPTED ROW it descends from (which must
+ * pass the same three refusals) and the derived file's own PROVENANCE record
+ * -- the safe-frame, grade or frames JSON that says how it was made and from
+ * what -- and records both. The derivation itself is not judged here: it was
+ * proved when it was made, and it was what Tyler looked at when he accepted.
+ */
+export function promoteDerived({ assetId, attempt, derived, provenance, shippingPath, by, acceptedBy }) {
+  const file = ledger();
+  const row = file.attempts.find((one) => one.assetId === assetId && one.attempt === attempt);
+  if (!row) throw new Error(`no attempt ${attempt} for ${assetId} in ${LEDGER}`);
+  if (!row.gates?.passed) throw new Error(`${assetId} attempt ${attempt} has no passing technical gate result`);
+  if (row.visual_accepted !== true) {
+    throw new Error(`${assetId} attempt ${attempt} is not visually accepted. Only Tyler sets visual_accepted.`);
+  }
+  if (!existsSync(resolve(ROOT, derived))) throw new Error(`${derived} is gone -- nothing to promote`);
+  if (!provenance || !existsSync(resolve(ROOT, provenance))) {
+    throw new Error(`a derived promotion names the record of its derivation, and ${provenance} does not exist`);
+  }
+  const target = resolve(ROOT, shippingPath);
+  const replacing = existsSync(target) ? hashFile(shippingPath) : null;
+  mkdirSync(dirname(target), { recursive: true });
+  copyFileSync(resolve(ROOT, derived), target);
+  const promotion = {
+    assetId, attempt, from: derived, derivedFrom: row.out, provenance, to: shippingPath,
+    hash: hashFile(derived), sourceHash: row.outputHash, replacedHash: replacing,
+    acceptedBy: acceptedBy ?? null, by: by ?? process.env.USER ?? 'unattributed', at: new Date().toISOString(),
+  };
+  file.promotions.push(promotion);
+  write(LEDGER, file);
+  return promotion;
+}
+
 /* ------------------------------------------------------------------- CLI */
 
 if (import.meta.url === `file://${process.argv[1]}`) {

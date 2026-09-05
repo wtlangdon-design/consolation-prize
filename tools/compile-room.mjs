@@ -290,6 +290,38 @@ function roomDocHotspots(text) {
   return out;
 }
 
+/**
+ * A ROOM DOC'S EXITS. Doc 16's PART FOUR writes `## THE FRONT DOORS → Room 2`
+ * and then the same numbered LOOK and LISTEN runs its hotspots use. Nothing
+ * read them: exits passed through the compiler from the live file untouched,
+ * so the Nugget's front doors kept saying "Daylight past them" a day after
+ * Tyler reworded the line in the document (doc 36 Q26, Q115). The words stay
+ * in the doc; the exit carries them from here.
+ */
+function roomDocExits(text) {
+  const out = new Map();
+  const start = text.indexOf('# PART FOUR');
+  if (start < 0) return out;
+  let current = null;
+  for (const line of text.slice(start).split('\n')) {
+    if (/^# /.test(line) && !/^# PART FOUR/.test(line)) break;
+    const head = /^##\s+(THE [A-Z' ]+?)\s*(?:→|->)\s*Room\s+\d+\s*$/.exec(line);
+    if (head) { current = head[1].trim(); continue; }
+    if (/^##\s/.test(line)) { current = null; continue; }
+    const row = /^\*\*(LOOK|LISTEN)\*\*\s+(.+)$/.exec(line);
+    if (!row || !current) continue;
+    const numbered = [...row[2].matchAll(/(\d+)\s*"([^"]*)"/g)]
+      .map((m) => ({ n: Number(m[1]), say: m[2] }));
+    if (!numbered.length) continue;
+    if (!out.has(current)) out.set(current, {});
+    out.get(current)[VERBS[row[1]]] = {
+      first: numbered.find((v) => v.n === 1)?.say ?? null,
+      rest: numbered.filter((v) => v.n > 1).map((v) => v.say),
+    };
+  }
+  return out;
+}
+
 /** How many lines a spoken block wraps to, at doc 30 section 5's block width. */
 const GLYPH_W = 8 * 6;
 const BLOCK = Math.round(1920 * (240 / 320));
@@ -406,7 +438,15 @@ const wrongDoc = ROOM_DOC && !ROOM_DOC_IS_RANGE
   ? ROOM_DOC_TEXT : section(read('docs/49-wrong-answers.md'), room);
 // TWO DIGITS, NOT ONE. `room-0${room}` cannot express room 13, and the rooms
 // after 9 are most of the game.
-const annPath = `reference/room-${String(room).padStart(2, '0')}/annotation.json`;
+// A CANDIDATE ROOM COMPILES FROM ITS OWN ANNOTATION. `--annotation <path>`
+// names it; the docs are the same room's, the room id is the annotation's,
+// and the manifest must list a room file with that id (the refusal below).
+// This is how a replacement plate is played live, with its own geometry,
+// beside the shipping room and without touching it (doc 36 Q116).
+const annFlag = process.argv.indexOf('--annotation');
+const annPath = annFlag > 0 && process.argv[annFlag + 1]
+  ? process.argv[annFlag + 1]
+  : `reference/room-${String(room).padStart(2, '0')}/annotation.json`;
 if (!existsSync(annPath)) fail(`no annotation at ${annPath}. Run tools/annotate/room.html first.`);
 const ann = JSON.parse(readFileSync(annPath, 'utf8'));
 
@@ -480,15 +520,39 @@ if (ROOM_DOC) {
   // A ROOM DOC SHORTENS NAMES THE WAY PEOPLE DO -- THE CERTIFICATE for THE
   // CERTIFICATE ON THE WALL -- and the extractor already tolerates a UNIQUE
   // prefix. A prefix matching two subjects is refused by name.
+  //
+  // AND IT DROPS THE ARTICLE. Doc 16 writes `**PIANO** · USE`, `**BAR** · PUSH`,
+  // `**STOVE** · OPEN` for doc 05's THE PIANO, THE BAR, THE STOVE, and a
+  // prefix test on the full name refused all nine (doc 36 Q115): the Nugget
+  // had no live writer and carried a stale line for it. A short name now
+  // matches a subject by unique prefix WITH OR WITHOUT the subject's leading
+  // THE; two candidates are still refused by name, and a short name that is
+  // no prefix of anything is left to the stray-name refusal below. The one
+  // Nugget name that is not a prefix at all (CARDS for THE HAND OF CARDS) is
+  // declared in the annotation's `overrideAliases`, per room, and an alias
+  // whose target doc 05 does not name is a build failure -- the table cannot
+  // grow silently.
+  const aliases = ann.overrideAliases ?? {};
+  for (const [short, full] of Object.entries(aliases)) {
+    if (!hotspots.has(full)) fail(`overrideAliases maps "${short}" to "${full}", which doc 05 does not name`);
+  }
   const resolveName = (short) => {
     if (hotspots.has(short)) return short;
-    const near = [...hotspots.keys()].filter((full) => full.startsWith(short));
+    if (aliases[short]) return aliases[short];
+    const bare = (name) => name.replace(/^THE\s+/, '');
+    const near = [...hotspots.keys()]
+      .filter((full) => full.startsWith(short) || bare(full).startsWith(short));
     if (near.length === 1) return near[0];
     if (near.length > 1) fail(`"${short}" in ${ROOM_DOC} matches ${near.length} subjects: ${near.join(', ')}`);
     return short;
   };
   for (const [short, verbs] of verbOverrides(ROOM_DOC_TEXT)) {
     const name = resolveName(short);
+    // THE SAME LINES WERE READ ONCE ALREADY under their short key, when the
+    // room doc stood in for doc 49 above; once they are housed under the
+    // subject's full name the short key is a duplicate that the stray-name
+    // refusal would report as dropped.
+    if (name !== short && overrides.has(short)) overrides.delete(short);
     const into = overrides.get(name) ?? {};
     for (const [verb, line] of Object.entries(verbs)) {
       if (into[verb] && into[verb] !== line) {
@@ -776,11 +840,20 @@ built.hotspots = [...byId.entries()].map(([id, entry]) => {
 // hotspot inside a large one ever be reached.
 built.hotspots.sort((a, b) => (a.rect[2] * a.rect[3]) - (b.rect[2] * b.rect[3]));
 
+const exitLines = ROOM_DOC && !ROOM_DOC_IS_RANGE ? roomDocExits(ROOM_DOC_TEXT) : new Map();
 built.exits = (live.exits ?? []).map((e) => {
   const { walkTo, ...rest } = e;
   if (walkTo) oldWalkTo.set(e.id, walkTo);
+  // ITS LINES FROM THE ROOM DOC, where the doc writes them (PART FOUR). An
+  // exit the doc does not write keeps what the live file carries, as before.
+  const written = exitLines.get(e.name);
+  const responses = written ? Object.fromEntries(Object.entries(written)
+    .filter(([, v]) => v.first)
+    .map(([verb, v]) => [verb, v.rest.length ? [{ say: v.first, repeat: v.rest }] : [{ say: v.first }]]))
+    : null;
   return {
     ...rest,
+    ...(responses && Object.keys(responses).length ? { responses: { ...(rest.responses ?? {}), ...responses } } : {}),
     ...(ann.exits[e.id] ? { rect: ann.exits[e.id] } : {}),
     ...(ann.exitWalkTo?.[e.id] ? { walkTo: ann.exitWalkTo[e.id] } : {}),
   };
@@ -1191,6 +1264,11 @@ built.exits = (live.exits ?? []).map((e) => {
   // time either moved -- and the disagreement would show up as Tyler authoring
   // a plane for a band the compiler never asks about.
   built.occlusionBands = [...askedBands].sort();
+  // A CANDIDATE ROOM SAYS WHOSE CANDIDATE IT IS. Its lines are the shipping
+  // room's by construction, so the game-wide duplicate check reads this and
+  // does not count them twice (doc 36 Q116).
+  if (ann.candidate?.of) built.candidateOf = ann.candidate.of;
+  else delete built.candidateOf;
 
   built.walkBoxNote = `GENERATED by tools/compile-room.mjs from ${annPath}. `
     + 'Heights come from that annotation\u2019s own depth curve, which each room derives from '

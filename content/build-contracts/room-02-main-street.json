@@ -15,15 +15,15 @@
   "roomStoryState": {
    "status": "PASS-WITH-ACCEPTED-EXCEPTION",
    "evidence": [
-    "docs/35-room-gate.md::2a · ROOM 2'S GATE, AS RUN (the worked example)",
-    "docs/00-errata.md::64a · The canonical Act I / base presentation of Main Street is NIGHT"
+    "docs/35-room-gate.md::2a \u00b7 ROOM 2'S GATE, AS RUN (the worked example)",
+    "docs/00-errata.md::64a \u00b7 The canonical Act I / base presentation of Main Street is NIGHT"
    ],
    "exception": "Act variants (false fronts, notices, company sign, dog) are authored and the compiler reports them NOT compiled; the ACT writer (doc 48 S1) is unbuilt -- Panel D and check-flag-order carry the debt (doc 36 Q24 ruling, 2026-09-04)."
   },
   "staticVsStatefulArt": {
    "status": "PASS",
    "evidence": [
-    "docs/35-room-gate.md::2a · ROOM 2'S GATE, AS RUN (the worked example)",
+    "docs/35-room-gate.md::2a \u00b7 ROOM 2'S GATE, AS RUN (the worked example)",
     "content/rooms/main-street.json"
    ],
    "note": "Doors ruled exits; sign and notices STATEFUL with Act III overlays; the dog a MOVER."
@@ -84,7 +84,7 @@
    "status": "FAIL",
    "evidence": [
     "renders/proofs/main-street/proof.json",
-    "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
+    "docs/36-issue-list.md::Q20 \u00b7 BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
    ],
    "note": "passed: false at 0055228 -- the two 320x144 masks (maskPending, Tyler's ruling: not regenerated yet) and Panel D's ACT gate."
   },
@@ -114,7 +114,7 @@
    "stage": "SHIPPING",
    "path": "art/backgrounds/room-02-main-street.png",
    "evidence": [
-    "docs/00-errata.md::64a · The canonical Act I / base presentation of Main Street is NIGHT"
+    "docs/00-errata.md::64a \u00b7 The canonical Act I / base presentation of Main Street is NIGHT"
    ]
   },
   {
@@ -123,7 +123,7 @@
    "stage": "LEGACY",
    "path": "art/masks/room-02-plane-1.png",
    "evidence": [
-    "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
+    "docs/36-issue-list.md::Q20 \u00b7 BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS"
    ]
   },
   {
@@ -151,6 +151,40 @@
    "path": "art/actors/ambient-dog.png",
    "evidence": [
     "content/ambient/dog.json"
+   ]
+  },
+  {
+   "subject": "Main Street candidate 01 (stitched, 3610x864)",
+   "class": "PLATE",
+   "stage": "LIVE-PROOF",
+   "path": "art/staging/room-02/street-candidate-01/candidate-plate.png",
+   "evidence": [
+    "renders/proofs/candidates/main-street/life.json",
+    "renders/opening-set-retrofit/main-street-candidate-live.webp",
+    "proofs/room-02/separation-plan.json",
+    "reference/room-02-candidate/annotation.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "PHASE 1 (doc 36 Q116): the REGENERATE-CANDIDATE, compiled to its own room main_street_candidate and played live with the accepted Thad. AWAITING TYLER'S VISUAL RULING; nothing promoted, the shipping plate untouched. 2 of 4 operations spent (west panel, east outpaint)."
+  },
+  {
+   "subject": "Main Street candidate 01, west panel",
+   "class": "PLATE",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-02/street-west-01/panel-1920x864.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-02/street-west-01/derivation.json"
+   ]
+  },
+  {
+   "subject": "Main Street candidate 01, east panel (outpaint)",
+   "class": "PLATE",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-02/street-east-01/panel-1920x864.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-02/street-east-01/outpaint.json"
    ]
   }
  ],
@@ -197,7 +231,7 @@
     "proofs/factory/opening-set-retrofit-audit.json",
     "renders/opening-set-audit/main-street-audit-sheet.webp",
     "renders/opening-set-audit/opening-set-continuity-sheet.webp",
-    "docs/36-issue-list.md::Q10 · ROOM 2'S PLATE IS DRAWN AT ROUGHLY HALF THE GAME'S FIGURE SCALE"
+    "docs/36-issue-list.md::Q10 \u00b7 ROOM 2'S PLATE IS DRAWN AT ROUGHLY HALF THE GAME'S FIGURE SCALE"
    ],
    "note": "One composition master from the current plate as ancestry (same street, same night, same saloon exception) at the game's architectural scale -- a man of ~240 at the boardwalk, doorways ~280 px -- with a near foreground plane (rail, post, trough) and selective detail; then the night plate; then the t"
   },
@@ -218,7 +252,7 @@
    "layer": "occlusion",
    "evidence": [
     "proofs/factory/opening-set-retrofit-audit.json",
-    "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS",
+    "docs/36-issue-list.md::Q20 \u00b7 BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS",
     "content/rooms/main-street.json",
     "renders/opening-set-audit/main-street-audit-sheet.webp"
    ],
@@ -445,7 +479,7 @@
    "layer": "content",
    "evidence": [
     "proofs/factory/opening-set-retrofit-audit.json",
-    "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN"
+    "docs/36-issue-list.md::Q24 \u00b7 THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN"
    ],
    "note": "Out of scope until the act-turn room is built."
   },

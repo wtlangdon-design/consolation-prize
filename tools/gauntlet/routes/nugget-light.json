@@ -1,0 +1,62 @@
+{
+ "schema": 1,
+ "room": "nugget",
+ "note": "MOVER LIGHT FIELD PROOF (doc 36 Q116): Thad by the stove and away from it.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "click",
+   "world": [
+    960,
+    540
+   ],
+   "why": "as near the stove as the floor allows"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "l01-by-stove",
+   "room": "nugget"
+  },
+  {
+   "do": "click",
+   "world": [
+    400,
+    760
+   ],
+   "why": "the dark near the doors"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "l02-away",
+   "room": "nugget"
+  },
+  {
+   "do": "click",
+   "world": [
+    1150,
+    780
+   ],
+   "why": "along the bar under its lamps"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "l03-at-bar",
+   "room": "nugget"
+  }
+ ]
+}

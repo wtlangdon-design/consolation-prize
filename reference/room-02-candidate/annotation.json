@@ -1,0 +1,412 @@
+{
+ "room": "main_street_candidate",
+ "plate": "art/staging/room-02/street-candidate-01/candidate-plate.png",
+ "plateSize": [
+  3610,
+  864
+ ],
+ "walkable": [
+  [
+   0,
+   600
+  ],
+  [
+   3610,
+   600
+  ],
+  [
+   3610,
+   864
+  ],
+  [
+   0,
+   864
+  ]
+ ],
+ "scaling": {
+  "far": {
+   "y": 600,
+   "height": 200
+  },
+  "near": {
+   "y": 858,
+   "height": 275
+  },
+  "note": "READ OFF THE CANDIDATE: the Company's door is 220 px tall (y 350-570) and a doorway is about 2.0 m, so a 1.75 m man at the boardwalk line (y 600) is ~195-200 px; the near edge follows Room 1's slope (0.3 per row) to 275 at the frame's foot. Errata 54's shared zones (222/240/263) land in this range, which is what \"architectural scale corrected\" means: Thad belongs in the street without shrinking or swelling."
+ },
+ "entrance": [
+  3560,
+  660
+ ],
+ "hotspots": {
+  "false_fronts": [
+   200,
+   30,
+   3300,
+   570
+  ],
+  "company_sign": [
+   330,
+   120,
+   400,
+   120
+  ],
+  "water_trough": [
+   840,
+   505,
+   175,
+   95
+  ],
+  "church_steeple": [
+   1530,
+   0,
+   120,
+   340
+  ],
+  "posted_notices": [
+   1620,
+   370,
+   170,
+   150
+  ],
+  "boardwalk": [
+   0,
+   560,
+   3390,
+   80
+  ],
+  "hills": [
+   0,
+   40,
+   3610,
+   250
+  ],
+  "mud": [
+   0,
+   640,
+   3610,
+   224
+  ],
+  "dog": [
+   2630,
+   740,
+   150,
+   60
+  ]
+ },
+ "exits": {
+  "to_company": [
+   470,
+   350,
+   110,
+   220
+  ],
+  "to_clarion": [
+   1250,
+   380,
+   90,
+   190
+  ],
+  "to_nugget": [
+   2550,
+   350,
+   90,
+   170
+  ],
+  "to_hotel": [
+   3015,
+   395,
+   90,
+   180
+  ],
+  "to_assay_office": [
+   3140,
+   400,
+   80,
+   170
+  ],
+  "to_claims_road": [
+   3390,
+   380,
+   220,
+   240
+  ]
+ },
+ "exitWalkTo": {
+  "to_company": {
+   "x": 525,
+   "y": 610,
+   "facing": "back"
+  },
+  "to_clarion": {
+   "x": 1295,
+   "y": 610,
+   "facing": "back"
+  },
+  "to_nugget": {
+   "x": 2595,
+   "y": 610,
+   "facing": "back"
+  },
+  "to_hotel": {
+   "x": 3060,
+   "y": 610,
+   "facing": "back"
+  },
+  "to_assay_office": {
+   "x": 3180,
+   "y": 610,
+   "facing": "back"
+  },
+  "to_claims_road": {
+   "x": 3480,
+   "y": 640,
+   "facing": "right"
+  }
+ },
+ "arrivalBySource": {
+  "company": {
+   "x": 689,
+   "y": 642,
+   "facing": "front"
+  },
+  "clarion": {
+   "x": 1097,
+   "y": 639,
+   "facing": "front"
+  },
+  "nugget": {
+   "x": 2317,
+   "y": 624,
+   "facing": "front"
+  },
+  "hotel": {
+   "x": 2707,
+   "y": 624,
+   "facing": "front"
+  },
+  "assay_office": {
+   "x": 3113,
+   "y": 627,
+   "facing": "front"
+  },
+  "claims_road": {
+   "x": 3477,
+   "y": 603,
+   "facing": "front"
+  }
+ },
+ "hotspotStates": {},
+ "entrances": [
+  {
+   "from": "default",
+   "at": [
+    3560,
+    660
+   ],
+   "facing": "left",
+   "note": "the east edge, by the road in, facing down the street"
+  },
+  {
+   "from": "stage_road",
+   "at": [
+    3560,
+    660
+   ],
+   "facing": "left",
+   "note": "as default"
+  },
+  {
+   "from": "company",
+   "at": [
+    525,
+    620
+   ],
+   "facing": "front"
+  },
+  {
+   "from": "clarion",
+   "at": [
+    1295,
+    620
+   ],
+   "facing": "front"
+  },
+  {
+   "from": "nugget",
+   "at": [
+    2595,
+    620
+   ],
+   "facing": "front"
+  },
+  {
+   "from": "hotel",
+   "at": [
+    3060,
+    620
+   ],
+   "facing": "front"
+  },
+  {
+   "from": "assay_office",
+   "at": [
+    3180,
+    620
+   ],
+   "facing": "front"
+  }
+ ],
+ "onEnterSay": {
+  "sayOnce": "T_SEEN_MAIN_STREET",
+  "say": [
+   "So this is Consolation.",
+   "Half of it is two stories tall in front and one story deep.",
+   "The other half is real, and is doing better."
+  ],
+  "note": "His first sight of the town, and the words come from doc 05's THE FALSE FRONTS rather than being written fresh -- he has the opinion already; this is him having it out loud at the moment he first has it. AMENDED AFTER TYLER CHECKED IT AGAINST THE PLATE: the original said EVERY building was a false front, which the picture contradicts -- the saloon is a flat parapet with a low roof behind it, and the hotel beside it is genuinely two storeys with lit windows and real depth. The plate is signed off, so the writing yields, and the observation is better for it: the half that is real is the half with money, which is the town's whole economy in one line. Gated on T_SEEN_MAIN_STREET, which onEnter sets, so it plays once."
+ },
+ "obstacles": [
+  {
+   "id": "rail_west",
+   "rect": [
+    0,
+    700,
+    560,
+    110
+   ],
+   "note": "THE NEAR HITCHING RAIL at the west end: a foreground object he cannot walk through. It is the occluder this street never had; until its mask is cut from an ACCEPTED plate he walks round it, not behind it."
+  },
+  {
+   "id": "rail_east",
+   "rect": [
+    2320,
+    700,
+    360,
+    110
+   ],
+   "note": "the second near rail, in front of the saloon; as rail_west"
+  },
+  {
+   "id": "trough",
+   "rect": [
+    840,
+    540,
+    175,
+    60
+   ],
+   "note": "the water trough on the boardwalk edge"
+  }
+ ],
+ "lamps": [
+  {
+   "id": "saloon_doorway",
+   "at": [
+    2595,
+    470
+   ],
+   "radius": 380,
+   "amount": 0.09,
+   "rate": 0.31,
+   "phase": 0.0,
+   "movers": {
+    "strength": 0.32,
+    "colour": [
+     255,
+     176,
+     90
+    ],
+    "reach": 1.4
+   },
+   "note": "the batwing doors and both porch lanterns: the brightest place on the street"
+  },
+  {
+   "id": "office_lantern",
+   "at": [
+    3225,
+    430
+   ],
+   "radius": 200,
+   "amount": 0.11,
+   "rate": 0.27,
+   "phase": 0.4,
+   "movers": {
+    "strength": 0.26,
+    "colour": [
+     255,
+     170,
+     84
+    ],
+    "reach": 1.4
+   },
+   "note": "the assay office's one lantern over its door"
+  },
+  {
+   "id": "company_windows",
+   "at": [
+    530,
+    430
+   ],
+   "radius": 260,
+   "amount": 0.05,
+   "rate": 0.19,
+   "phase": 0.7,
+   "movers": {
+    "strength": 0.18,
+    "colour": [
+     255,
+     180,
+     100
+    ],
+    "reach": 1.4
+   },
+   "note": "the Company's two lit windows"
+  },
+  {
+   "id": "clarion_lantern",
+   "at": [
+    1215,
+    430
+   ],
+   "radius": 150,
+   "amount": 0.05,
+   "rate": 0.23,
+   "phase": 0.2,
+   "movers": {
+    "strength": 0.14,
+    "colour": [
+     255,
+     170,
+     84
+    ],
+    "reach": 1.4
+   },
+   "note": "the small lantern by the Clarion's door"
+  }
+ ],
+ "onEnterWalkTo": {
+  "x": 3200,
+  "y": 700
+ },
+ "onEnterWalkNote": "OUT INTO THE ROAD, NOT ALONG THE BUILDINGS. He was walking to x3400 y640, which is the boardwalk edge in front of the claims-road exit and beside the map seller\u2019s office -- he arrived and then sidled up against a wall. x3300 y706 is the middle of the street with the town in front of him, which is where a man stands when he has just walked into a town he has never seen. Clear of the assay office door at x3082-3144, clear of the map seller at x3140, and low enough to be in the road rather than on the walk.",
+ "occlusion": {
+  "note": "PLANNED, NOT CUT (Tyler's order: masks only after the replacement plate is selected). The candidate offers three real occluders -- the west hitching rail (x 0-560, y 700-800), the east rail in front of the saloon (x 2320-2680, y 700-800) and the trough (x 840-1015, y 505-600) -- and the porch posts of the saloon and the Company. Until masks exist they are obstacles.",
+  "planes": [],
+  "clipPlane": {
+   "boardwalk": 0,
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "proofPoints": [],
+  "clipPlaneNote": "0 everywhere: masked by nothing, which is what a candidate whose masks are not yet cut actually is. The three occluders named above become planes 1.. only after Tyler accepts the plate (doc 36 Q116 phase 2), and the bands re-declare their planes then."
+ },
+ "plateNote": "MAIN STREET REPLACEMENT CANDIDATE 01 (opening-set retrofit phase 1, doc 36 Q116): two errata-63 panels (west, east) stitched at explicit cut columns (art/staging/room-02/street-candidate-01/stitch.json). Every rect below was read off this candidate on a 100 px grid. A CANDIDATE: the shipping street is untouched; this annotation compiles to the candidate room main_street_candidate, reachable only by the dev warp, for Tyler's review.",
+ "acts": {},
+ "hotspotStatesNote": "The Act III overlays (gilt sign, funeral notice) are cut from the SHIPPING plate and do not fit this candidate; they are re-cut as companions of whichever plate Tyler accepts. Not carried into the candidate room.",
+ "candidate": {
+  "of": "main_street",
+  "stage": "CANDIDATE",
+  "review": "live at ?room=main_street_candidate; the shipping room is untouched"
+ }
+}

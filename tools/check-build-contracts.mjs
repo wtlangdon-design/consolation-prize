@@ -46,7 +46,13 @@ import { resolveIssueRef } from './lib/issueref.mjs';
 
 export const CONTRACT_SCHEMA = 1;
 export const GATE_STATUSES = ['PASS', 'PASS-WITH-ACCEPTED-EXCEPTION', 'DEFERRED', 'FAIL', 'NOT-APPLICABLE', 'NOT-RUN'];
-export const LIFECYCLE_STAGES = ['GENERATED', 'STAGED', 'GATES', 'CANDIDATE', 'LIVE-PROOF', 'OWNER-VISUAL-ACCEPTED', 'GAMEPLAY-ACCEPTED', 'SHIPPING', 'REJECTED', 'LEGACY'];
+export const LIFECYCLE_STAGES = ['GENERATED', 'STAGED', 'GATES', 'CANDIDATE', 'LIVE-PROOF', 'OWNER-VISUAL-ACCEPTED', 'GAMEPLAY-ACCEPTED', 'ACCEPTED-NOT-SHIPPING', 'SHIPPING', 'REJECTED', 'LEGACY'];
+// ACCEPTED-NOT-SHIPPING (phase 1 of the opening-set retrofit, doc 36 Q116):
+// owner-accepted work that is deliberately NOT the shipping state and stays
+// staged after the room's promotion -- Room 5's DAY plate, the source of its
+// composition and geometry, which errata 64b rules is not the Act I
+// presentation. Without it a DONE promotion had to call the day plate either
+// shipping (false) or rejected (false).
 export const ASSET_CLASSES = ['PLATE', 'STATEFUL', 'TAKEABLE', 'MOVER', 'ABSENT-LATER', 'OVERLAY', 'MASK', 'LIGHT', 'PROP'];
 export const ACCEPTANCE_STATUSES = ['OWNER-ACCEPTED', 'PENDING', 'NOT-SUBMITTED', 'OWNER-REJECTED', 'NOT-APPLICABLE'];
 export const PROMOTION_STATUSES = ['DONE', 'NOT-DONE', 'NOT-APPLICABLE'];
@@ -57,7 +63,7 @@ export const PRE_ART_GATES = ['roomStoryState', 'staticVsStatefulArt', 'cast', '
 /** Before a live candidate is offered to Tyler. */
 export const LIVE_GATES = ['compiler', 'annotation', 'fourPanelProof', 'lifeProof', 'gameplayProof', 'regression'];
 const STAGING = 'art/staging/';
-const CANDIDATE_STAGES = new Set(['GENERATED', 'STAGED', 'GATES', 'CANDIDATE', 'LIVE-PROOF', 'OWNER-VISUAL-ACCEPTED', 'GAMEPLAY-ACCEPTED', 'REJECTED']);
+const CANDIDATE_STAGES = new Set(['GENERATED', 'STAGED', 'GATES', 'CANDIDATE', 'LIVE-PROOF', 'OWNER-VISUAL-ACCEPTED', 'GAMEPLAY-ACCEPTED', 'ACCEPTED-NOT-SHIPPING', 'REJECTED']);
 
 /** Does one evidence string resolve? */
 export function evidenceResolves(evidence) {
@@ -207,7 +213,14 @@ export function check(paths = listFiles('content/build-contracts', ['.json']), l
       // accepted stage. The lifecycle rule above catches the first; this is
       // the second half.
     } else if (promotion.status === 'DONE') {
-      const staged = (contract.lifecycle ?? []).filter((asset) => asset.path?.startsWith(STAGING) && asset.stage !== 'REJECTED');
+      // ACCEPTED AND STILL STAGED is the contradiction: work Tyler accepted
+      // that the promotion step never carried across. A candidate still under
+      // review (GENERATED..LIVE-PROOF), rejected work, ACCEPTED-NOT-SHIPPING
+      // work and a retired legacy file all belong under staging after a
+      // promotion, and a room whose shipping state is promoted may carry a
+      // replacement candidate beside it (doc 36 Q116).
+      const staged = (contract.lifecycle ?? []).filter((asset) => asset.path?.startsWith(STAGING)
+        && (asset.stage === 'OWNER-VISUAL-ACCEPTED' || asset.stage === 'GAMEPLAY-ACCEPTED'));
       if (staged.length) report.fail(`${where}/acceptance/promotion: DONE, and ${staged.length} asset(s) still live under ${STAGING}`);
     }
 

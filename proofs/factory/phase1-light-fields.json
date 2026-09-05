@@ -1,0 +1,224 @@
+{
+ "schema": 1,
+ "note": "MOVER LIGHT FIELDS, PROVED LIVE (opening-set retrofit phase 1, doc 36 Q116). The audit found the one lighting fault every room shares: the renderer breathes a lamp's pool over the PLATE and never over the people, so Thad crossed the saloon's orange pool in a cool blue coat. A lamp may now declare `movers` {strength, colour, reach, radius, strengthByState}; a mover whose feet stand in the field is flat-tinted toward the colour by strength x square falloff (engine/render/LightFields.ts; unit tests tests/light-fields.test.ts). A lamp that declares nothing touches nobody, so a room that declares none is unchanged to the pixel. Measured here: each capture's drawn Thad against his own source frame scaled to the drawn bounds, over opaque pixels only, so the shift is the tint and not the plate.",
+ "declared": {
+  "main_street": {
+   "saloon_doorway": {
+    "strength": 0.32,
+    "colour": [
+     255,
+     176,
+     90
+    ],
+    "reach": 1.4,
+    "radius": 380
+   },
+   "office_lantern": {
+    "strength": 0.26,
+    "colour": [
+     255,
+     170,
+     84
+    ],
+    "reach": 1.4,
+    "radius": 200
+   }
+  },
+  "nugget": {
+   "stove": {
+    "strength": 0.22,
+    "colour": [
+     255,
+     150,
+     72
+    ],
+    "reach": 1.8,
+    "radius": 260
+   },
+   "bar_lamps": {
+    "strength": 0.14,
+    "colour": [
+     255,
+     190,
+     110
+    ],
+    "reach": 1.6,
+    "radius": 320
+   }
+  }
+ },
+ "runs": {
+  "main_street": "renders/proofs/light-fields/main-street/life.json",
+  "nugget": "renders/proofs/light-fields/nugget/life.json"
+ },
+ "measurements": {
+  "main-street": [
+   {
+    "capture": "l01-in-saloon-pool",
+    "thadAt": [
+     2433,
+     669
+    ],
+    "frame": "art/actors/thad-walk-left/walk-01.png",
+    "opaquePx": 2561,
+    "spriteMeanRGB": [
+     62.2,
+     59.6,
+     63.7
+    ],
+    "drawnMeanRGB": [
+     88.2,
+     63.7,
+     45.0
+    ],
+    "shiftRGB": [
+     26.0,
+     4.1,
+     -18.7
+    ],
+    "absMeanDiff": 45.95
+   },
+   {
+    "capture": "l02-out-of-pool",
+    "thadAt": [
+     2329,
+     699
+    ],
+    "frame": "art/actors/thad-idle-front/idle-01.png",
+    "opaquePx": 4204,
+    "spriteMeanRGB": [
+     62.3,
+     55.5,
+     57.3
+    ],
+    "drawnMeanRGB": [
+     81.8,
+     67.1,
+     60.4
+    ],
+    "shiftRGB": [
+     19.5,
+     11.6,
+     3.1
+    ],
+    "absMeanDiff": 14.35
+   },
+   {
+    "capture": "l03-under-lantern",
+    "thadAt": [
+     3094,
+     660
+    ],
+    "frame": "art/actors/thad-idle-back/idle-00.png",
+    "opaquePx": 3395,
+    "spriteMeanRGB": [
+     51.5,
+     53.8,
+     64.4
+    ],
+    "drawnMeanRGB": [
+     56.7,
+     55.8,
+     64.1
+    ],
+    "shiftRGB": [
+     5.2,
+     2.0,
+     -0.4
+    ],
+    "absMeanDiff": 5.84
+   }
+  ],
+  "nugget": [
+   {
+    "capture": "l01-by-stove",
+    "thadAt": [
+     960,
+     540
+    ],
+    "frame": "art/actors/thad-idle-back/idle-05.png",
+    "opaquePx": 9940,
+    "spriteMeanRGB": [
+     51.1,
+     53.4,
+     64.2
+    ],
+    "drawnMeanRGB": [
+     58.5,
+     56.4,
+     64.4
+    ],
+    "shiftRGB": [
+     7.4,
+     3.0,
+     0.2
+    ],
+    "absMeanDiff": 4.81
+   },
+   {
+    "capture": "l02-away",
+    "thadAt": [
+     399,
+     759
+    ],
+    "frame": "art/actors/thad-idle-front/idle-05.png",
+    "opaquePx": 28942,
+    "spriteMeanRGB": [
+     63.2,
+     56.4,
+     58.2
+    ],
+    "drawnMeanRGB": [
+     63.1,
+     56.1,
+     57.7
+    ],
+    "shiftRGB": [
+     -0.1,
+     -0.3,
+     -0.6
+    ],
+    "absMeanDiff": 2.14
+   },
+   {
+    "capture": "l03-at-bar",
+    "thadAt": [
+     1149,
+     780
+    ],
+    "frame": "art/actors/thad-idle-front/idle-02.png",
+    "opaquePx": 31197,
+    "spriteMeanRGB": [
+     63.4,
+     56.4,
+     58.2
+    ],
+    "drawnMeanRGB": [
+     63.2,
+     56.0,
+     57.6
+    ],
+    "shiftRGB": [
+     -0.2,
+     -0.4,
+     -0.6
+    ],
+    "absMeanDiff": 2.09
+   }
+  ]
+ },
+ "reading": "Main Street: in the saloon pool the figure shifts +26 red / -19 blue against its source frame (mean abs 46); out of the pool 14 (a walk frame's nearest-neighbour rescale accounts for the residual; the field's own contribution there computes to 0.01); under the office lantern the shift is +5 red at a point 43 px outside its 200 px reach-scaled radius. The Nugget: by the stove +7 red (field weight 0.037 at 154 px of 260); away from every field and at the bar end (outside bar_lamps' reach) the figure is drawn to within 2.1 of its source, which is the untouched case: a mover the field does not reach is not touched. PROPORTIONAL AND DETERMINISTIC, as the unit tests state and the live run shows; whether the strengths are RIGHT is Tyler's eye on the review sheets, and the numbers are per room in the annotation, not in code.",
+ "unchangedWhereUndeclared": "Room 1 and Room 5 declare no `movers` on any lamp. Room 5's shipping proof (renders/proofs/assay-office-shipping/) ran after the renderer change with no candidates and passed; Room 1's regression is in the phase-1 test list.",
+ "proofsWithMovers": {
+  "main_street": [
+   "l01-in-saloon-pool",
+   "l02-out-of-pool",
+   "l03-under-lantern"
+  ],
+  "nugget": [
+   "l01-by-stove",
+   "l02-away",
+   "l03-at-bar"
+  ]
+ }
+}

@@ -1,0 +1,160 @@
+{
+ "schema": 1,
+ "room": "nugget_candidate",
+ "note": "NUGGET CANDIDATE REVIEW ROUTE (phase 1): accepted Thad only, far/mid/near, the piano, the handbill, the card table, the bar depth, the stove light.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 3
+  },
+  {
+   "do": "capture",
+   "name": "c01-arrival",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    900,
+    520
+   ],
+   "why": "far: by the card table"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c02-thad-far-card-table",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    1060,
+    560
+   ],
+   "why": "by the stove, in its light"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c03-thad-by-stove",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    700,
+    680
+   ],
+   "why": "middle depth"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c04-thad-mid",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    1100,
+    830
+   ],
+   "why": "near: at the bar end by the spittoon"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c05-thad-near-bar",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "piano",
+   "why": "the piano"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "c06-piano",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "handbill",
+   "why": "the handbill"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "c07-handbill",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "click",
+   "world": [
+    600,
+    700
+   ],
+   "why": "the dark near the doors"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "capture",
+   "name": "c08-away-from-light",
+   "room": "nugget_candidate"
+  },
+  {
+   "do": "wait",
+   "seconds": 30
+  },
+  {
+   "do": "capture",
+   "name": "c09-idle-30",
+   "room": "nugget_candidate"
+  }
+ ]
+}

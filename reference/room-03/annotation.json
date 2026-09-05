@@ -73,52 +73,52 @@
  },
  "hotspots": {
   "handbill": [
-   262,
-   248,
+   322,
+   306,
    42,
-   66
+   84
   ],
   "window": [
-   318,
-   196,
-   154,
-   196
-  ],
-  "piano": [
-   428,
-   250,
-   156,
-   252
-  ],
-  "chandelier": [
-   656,
-   18,
-   190,
-   148
-  ],
-  "stove": [
-   826,
-   244,
-   70,
-   160
-  ],
-  "stairs": [
-   938,
-   96,
-   156,
+   372,
+   150,
+   118,
    290
   ],
+  "piano": [
+   540,
+   300,
+   160,
+   205
+  ],
+  "chandelier": [
+   818,
+   28,
+   200,
+   178
+  ],
+  "stove": [
+   1028,
+   236,
+   74,
+   190
+  ],
+  "stairs": [
+   1150,
+   100,
+   195,
+   300
+  ],
   "mirror": [
-   1128,
-   96,
-   380,
-   170
+   1515,
+   125,
+   320,
+   260
   ],
   "bar": [
-   952,
-   296,
-   930,
-   300
+   1180,
+   300,
+   720,
+   520
   ],
   "spittoon": [
    1364,
@@ -133,30 +133,30 @@
    216
   ],
   "portrait": [
-   758,
-   188,
-   76,
-   104
+   936,
+   212,
+   78,
+   94
   ],
   "cards": [
-   825,
-   426,
-   96,
-   40
+   828,
+   378,
+   90,
+   36
   ]
  },
  "exits": {
   "front_doors": [
-   56,
-   336,
-   200,
+   60,
+   330,
+   235,
    290
   ],
   "back_room_door": [
-   602,
-   192,
-   92,
-   142
+   1088,
+   250,
+   54,
+   170
   ]
  },
  "entrances": [
@@ -183,10 +183,10 @@
   {
    "id": "piano_stool",
    "rect": [
-    520,
-    430,
-    64,
-    70
+    645,
+    445,
+    60,
+    80
    ],
    "note": "The stool in front of the piano. He walks round it, not through it."
   },
@@ -239,7 +239,18 @@
    "amount": 0.14,
    "rate": 0.41,
    "phase": 0.37,
-   "note": "A fire in an iron box, and doc 05 says the pipe was fitted by somebody who had seen a stove. It flickers hardest and fastest."
+   "note": "A fire in an iron box, and doc 05 says the pipe was fitted by somebody who had seen a stove. It flickers hardest and fastest.",
+   "movers": {
+    "strength": 0.22,
+    "colour": [
+     255,
+     150,
+     72
+    ],
+    "reach": 1.8,
+    "radius": 260
+   },
+   "moversNote": "THE LIGHT ON THE PEOPLE (doc 36 Q116): a mover whose feet stand in this pool is flat-tinted toward the pool's colour by the strength times a square falloff. Declared on the SHIPPING plate's lamps so the mechanism is proved live; the replacement plate re-declares its own."
   },
   {
    "id": "bar_lamps",
@@ -251,7 +262,17 @@
    "amount": 0.06,
    "rate": 0.17,
    "phase": 0.72,
-   "note": "The wall lamps behind the bar, together. Barely moving -- they are trimmed, because the barman is the only person in town who maintains anything."
+   "note": "The wall lamps behind the bar, together. Barely moving -- they are trimmed, because the barman is the only person in town who maintains anything.",
+   "movers": {
+    "strength": 0.14,
+    "colour": [
+     255,
+     190,
+     110
+    ],
+    "reach": 1.6
+   },
+   "moversNote": "THE LIGHT ON THE PEOPLE (doc 36 Q116): a mover whose feet stand in this pool is flat-tinted toward the pool's colour by the strength times a square falloff. Declared on the SHIPPING plate's lamps so the mechanism is proved live; the replacement plate re-declares its own."
   }
  ],
  "handNote": "Doc 16: \"a hand of cards, face up, ABANDONED... somebody left a very good hand on a table and went outside.\" So it lies on the card table’s own top, and its rect is derived from the table group sprite rather than guessed -- it moves if the table does, which it already did once when the group shifted 35px clear of the piano.",
@@ -294,5 +315,10 @@
   },
   "proofPoints": [],
   "proofPointsNote": "None, and correctly none: there is no plane to stand behind. check-occlusion asks for a proof point per plane IN USE, and a room whose every box is 0 uses none."
- }
+ },
+ "hotspotsNote": "RE-READ ON THE SHIPPING PLATE, 2026-09-05 (opening-set retrofit phase 1, doc 36 Q115/Q116). The audit proved by live hover that seven of twelve rects sat 60-200 px left of their subjects: the plate was re-composed after the first reading (the bar moved 432 px, see walkableNote) and the rects were never re-read. Every rect here was read off art/backgrounds/room-03-nugget.png on a 100 px grid and pinned by pixel measurement where a subject has a hard edge (the portrait frame 920-1013 x 200-317, the chandelier 821-1020 x 23-205, the spittoon 1340-1479 x 720-828, the back doorway 1080-1149 x 240-439). THESE ARE SEMANTIC AUTHORITY FOR THE SHIPPING PLATE ONLY: the replacement plate (REGENERATE-CANDIDATE) is re-read from scratch; nothing here obliges it to keep a pixel. The handbill rect sits ON the drawn paper (x 322-364, y 306-390) so the load-bearing clue answers where it is seen. The bar rect covers the counter, its stools and the back bar; the mirror sits inside it and wins by area. The cards lie on the table top, not on its pedestal.",
+ "overrideAliases": {
+  "CARDS": "THE HAND OF CARDS"
+ },
+ "overrideAliasesNote": "Doc 16 Part Three writes its overrides by short name (PIANO, BAR, STOVE...) and the compiler resolves a short name by unique prefix with or without a leading THE. CARDS is the one short name that is not a prefix of its doc 05 subject (THE HAND OF CARDS), so it is declared here, per room, and the compiler refuses an alias whose target doc 05 does not name."
 }

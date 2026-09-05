@@ -13,14 +13,14 @@
   "roomStoryState": {
    "status": "PASS",
    "evidence": [
-    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+    "docs/35-room-gate.md::2b \u00b7 ROOM 3'S GATE, AS RUN AND RULED"
    ],
    "note": "Acts I-IV; the piano (A8) and Deke Vessel (A3) found by the gate reading doc 02."
   },
   "staticVsStatefulArt": {
    "status": "PASS-WITH-ACCEPTED-EXCEPTION",
    "evidence": [
-    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+    "docs/35-room-gate.md::2b \u00b7 ROOM 3'S GATE, AS RUN AND RULED"
    ],
    "exception": "The piano is ruled PLATE though A8 tunes it with the lid open (doc 35, \"THE GATE READS THE PUZZLE GRAPH NOW\"); the raccoon (Act II) and Deke Vessel have no sprites yet."
   },
@@ -47,7 +47,7 @@
   "contentCompilerHealth": {
    "status": "FAIL",
    "evidence": [
-    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
    ],
    "note": "compile-room 3 refuses on a doc 16 / doc 05 naming mismatch; nugget.json has no live writer and carries one stale LOOK line (Tyler's reworded front-doors LOOK 2)."
   },
@@ -64,7 +64,7 @@
    "status": "FAIL",
    "evidence": [
     "cmd:node tools/compile-room.mjs 3",
-    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
    ]
   },
   "annotation": {
@@ -110,6 +110,32 @@
    "evidence": [
     "content/ambient/nugget-man34.json"
    ]
+  },
+  {
+   "subject": "Nugget clean-plate candidate 02 (people-free)",
+   "class": "PLATE",
+   "stage": "LIVE-PROOF",
+   "path": "art/staging/room-03/clean-plate-02/candidate-1920x864.png",
+   "evidence": [
+    "renders/proofs/candidates/nugget/life.json",
+    "renders/opening-set-retrofit/nugget-candidate-live.webp",
+    "proofs/room-03/separation-plan.json",
+    "proofs/room-03/refinement.json",
+    "reference/room-03-candidate/annotation.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "PHASE 1 (doc 36 Q116): the REGENERATE-CANDIDATE, an edit of the shipping plate with zero people baked and the chandelier unlit, compiled to its own room nugget_candidate and played live with the accepted Thad only. AWAITING TYLER'S VISUAL RULING; nothing promoted, the shipping plate untouched. 2 of 2 operations spent."
+  },
+  {
+   "subject": "Nugget clean-plate candidate 01 (superseded by 02)",
+   "class": "PLATE",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-03/clean-plate-01/candidate-1920x864.png",
+   "evidence": [
+    "proofs/room-03/refinement.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "Came back without the handbill and the back-room door; 02 is 01 with both restored under a mask. Not rejected by Tyler -- superseded by the refinement."
   }
  ],
  "acceptance": {
@@ -140,14 +166,14 @@
    "id": "the raccoon (Act II, after A5)",
    "status": "CONTRACTED-UNBUILT",
    "evidence": [
-    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+    "docs/35-room-gate.md::2b \u00b7 ROOM 3'S GATE, AS RUN AND RULED"
    ]
   },
   {
    "id": "Deke Vessel (A3)",
    "status": "CONTRACTED-UNBUILT",
    "evidence": [
-    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+    "docs/35-room-gate.md::2b \u00b7 ROOM 3'S GATE, AS RUN AND RULED"
    ]
   }
  ],
@@ -317,7 +343,7 @@
     "proofs/factory/opening-set-retrofit-audit.json",
     "renders/opening-set-audit/nugget-audit-sheet.webp",
     "renders/proofs/opening-set-audit/nugget/life.json",
-    "docs/05-examine-layer.md::ROOM 3 — THE BOUNTIFUL NUGGET#1"
+    "docs/05-examine-layer.md::ROOM 3 \u2014 THE BOUNTIFUL NUGGET#1"
    ],
    "note": "Re-read the rect on the paper (0 operations). Visual treatment: KEEP; carry the paper into the regenerated plate at the same place."
   },
@@ -373,7 +399,7 @@
    "evidence": [
     "proofs/factory/opening-set-retrofit-audit.json",
     "reference/room-03/annotation.json",
-    "docs/04-dialogue-trees.md::DEKE VESSEL — three nodes and two duels",
+    "docs/04-dialogue-trees.md::DEKE VESSEL \u2014 three nodes and two duels",
     "content/dialogue/deke-vessel.json"
    ],
    "note": "One casting master in Winnie's method when Act II is authorized (1 operation, its own cap); placement re-derived on the regenerated plate. Unbuilt is not RECAST: nothing exists to recast."
@@ -394,7 +420,7 @@
    "layer": "compiler",
    "evidence": [
     "proofs/factory/opening-set-retrofit-audit.json",
-    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
    ],
    "note": "Smallest fix: the compiler matches an override name to a doc 05 subject by dropping a leading \"THE \" on either side (and \"CARDS\" to \"THE HAND OF CARDS\" by an explicit alias table it refuses to grow silently); then compile-room 3 --write, register it as a generator, and the stale line re-extracts. Ed"
   },

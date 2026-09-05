@@ -219,7 +219,7 @@
       "state": "lit",
       "states": {
         "lit": {
-          "image": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+          "image": "art/objects/room-05/hanging-lamp-overlay.png",
           "sameInAllStates": true,
           "note": "THE HANGING WORK LAMP (Tyler, owner ruling 2026-09-04): one small plain period oil lamp on a short chain from the brass cage top rail, over the ledger. The fixture is this one prop in every visual state -- day and night -- cut from the in-context edit (art/staging/room-05/lamp-01/lamp.json); only its runtime light differs, by the room lamp below. Always lit; there is no unlit state. It hangs at the cage, in front of her: `occludes: [1]` puts it in the figure pass over plane-1 figures, so where its base meets her hair the lamp is in front.",
           "occludes": [
@@ -267,16 +267,16 @@
       "state": "rest",
       "states": {
         "rest": {
-          "image": "art/staging/room-05/floorboard/board-rest-c.png",
+          "image": "art/objects/room-05/board-rest-c.png",
           "imageByState": {
-            "night": "art/staging/room-05/floorboard/board-rest-c-night.png"
+            "day": "art/staging/room-05/floorboard/board-rest-c.png"
           },
-          "note": "THE PROUD FLOORBOARD AT REST -- OWNER-ACCEPTED 2026-09-05 (Tyler): treatment C. The middle-band plank between the door step and the joint at x~745, its OWN pixels lifted unevenly out of the accepted plate by tools/pixelart/floorboard.py -- two rows at the left end rising to four at the right, the gap under the near edge at 52% of the seam, a one-row lip at +8%, the end grain at 90%, no whole-face brightening. The night derivation is declared by visual state. A and B were the review variants and were not selected; they stay under art/staging/room-05/floorboard/ as provenance. FROZEN with the tread, the press and the caption."
+          "note": "THE PROUD FLOORBOARD AT REST -- OWNER-ACCEPTED 2026-09-05 (Tyler): treatment C. The middle-band plank between the door step and the joint at x~745, its OWN pixels lifted unevenly out of the accepted plate by tools/pixelart/floorboard.py -- two rows at the left end rising to four at the right, the gap under the near edge at 52% of the seam, a one-row lip at +8%, the end grain at 90%, no whole-face brightening. The night derivation is declared by visual state. A and B were the review variants and were not selected; they stay under art/staging/room-05/floorboard/ as provenance. FROZEN with the tread, the press and the caption. PROMOTED 2026-09-05 (opening-set retrofit phase 1): the room's base presentation is the owner-accepted NIGHT (errata 64: Act I arrives from the night street), so the night derivation is the base image and the DAY derivation is the `day` companion, still staged as ROOM 5 - DAY VISUAL CANDIDATE."
         },
         "pressed": {
-          "image": "art/staging/room-05/floorboard/board-pressed.png",
+          "image": "art/objects/room-05/board-pressed.png",
           "imageByState": {
-            "night": "art/staging/room-05/floorboard/board-pressed-night.png"
+            "day": "art/staging/room-05/floorboard/board-pressed.png"
           },
           "note": "The plank flush under a foot: the plate's own pixels. Held 220 ms after the step, then back to rest. OWNER-ACCEPTED with treatment C, 2026-09-05."
         }
@@ -754,7 +754,7 @@
   "occlusionPlanes": [
     {
       "level": 1,
-      "mask": "art/staging/room-05/mask-plane-1.png",
+      "mask": "art/masks/room-05-plane-1.png",
       "note": "The brass cage bars that pass in front of her, read off plate-02 by tools/art/room05-mask.mjs --bars-only. The counter itself is NOT in this mask any more: since Tyler's counter-contact correction (2026-09-04) her behind-counter sheet (art/staging/room-05/winnie-02-counter/) is matted against the ledger's far edge and the counter's back edge by tools/rig/winnie-counter.py, and a counter block from y395 down would mask the hands that rest on the ledger. Assigned to Winnie by her ambient record's clipPlane, not by any walk box."
     }
   ],
@@ -776,13 +776,13 @@
         300
       ],
       "radius": 330,
-      "amount": 0.03,
+      "amount": 0.18,
       "amountByState": {
-        "night": 0.18
+        "day": 0.03
       },
       "rate": 0.3,
       "phase": 0.2,
-      "note": "The hanging work lamp's light: a small oil flame, so slow and low. Negligible by day (daylight is the source); by night the principal work light, a restrained warm pool on the ledger, her hands and the counter around them, centred a little below the flame so it falls on the work and not on the ceiling. The stove has no runtime lamp and stays a painted accent, secondary. Errata 64d: the state is authored, selected by the room's visual state, never by a clock."
+      "note": "The hanging work lamp's light: a small oil flame, so slow and low. Negligible by day (daylight is the source); by night the principal work light, a restrained warm pool on the ledger, her hands and the counter around them, centred a little below the flame so it falls on the work and not on the ceiling. The stove has no runtime lamp and stays a painted accent, secondary. Errata 64d: the state is authored, selected by the room's visual state, never by a clock. PROMOTED 2026-09-05: night is the base presentation, so `amount` is the night light and `day` the companion."
     }
   ]
 }

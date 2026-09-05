@@ -1,0 +1,281 @@
+{
+ "schema": 1,
+ "room": "main_street_candidate",
+ "plate": "art/staging/room-02/street-candidate-01/candidate-plate.png",
+ "note": "SEPARATION PLAN FOR THE MAIN STREET CANDIDATE (phase 1 \u00a713). What is baked into the plate, what will be cut from it as its own layer once Tyler accepts it, and where the people and the light go. Nothing here is cut yet: masks come from an ACCEPTED plate (Tyler's order), and every rect below is in the candidate's 3610x864 space.",
+ "bakedArchitecture": [
+  "the hills and the sky",
+  "the false fronts along the north side: the Improvement Company (x 200-760), the Clarion (1100-1400), the church and its steeple behind (1530-1650), the notice board wall (1620-1790), the saloon with its parapet (2400-2800), the hotel (2900-3100), the assay office (3100-3300), the road out east (3390-3610)",
+  "the boardwalk and its edge (y 560-640)",
+  "the mud (y 640-864)",
+  "the Company's lit windows, the Clarion's small lantern, the saloon's doorway glow and both porch lanterns, the assay office's one lantern: PAINTED light, the plate's own; the `lamps` breathe over them"
+ ],
+ "occluders": [
+  {
+   "id": "rail_west",
+   "rect": [
+    0,
+    700,
+    560,
+    110
+   ],
+   "plane": 1,
+   "now": "obstacle",
+   "cutWhen": "plate accepted",
+   "why": "the near hitching rail at the west end: the first foreground plane this street has ever had"
+  },
+  {
+   "id": "rail_east",
+   "rect": [
+    2320,
+    700,
+    360,
+    110
+   ],
+   "plane": 1,
+   "now": "obstacle",
+   "cutWhen": "plate accepted",
+   "why": "the second near rail, in front of the saloon; Thad walking behind it toward the doors is the shot the audit asked for"
+  },
+  {
+   "id": "trough",
+   "rect": [
+    840,
+    505,
+    175,
+    95
+   ],
+   "plane": 2,
+   "now": "obstacle",
+   "cutWhen": "plate accepted",
+   "why": "the trough on the boardwalk edge; a man on the boardwalk behind it is masked by its near half"
+  },
+  {
+   "id": "saloon_porch_posts",
+   "rect": [
+    2400,
+    380,
+    400,
+    260
+   ],
+   "plane": 2,
+   "now": "nothing",
+   "cutWhen": "plate accepted, if the review wants it",
+   "why": "two posts; a man on the porch line passes behind them"
+  },
+  {
+   "id": "company_porch_posts",
+   "rect": [
+    300,
+    380,
+    460,
+    260
+   ],
+   "plane": 2,
+   "now": "nothing",
+   "cutWhen": "as above"
+  }
+ ],
+ "statefulProps": [
+  {
+   "id": "company_sign",
+   "states": {
+    "weathered": "baked",
+    "gilt": "companion overlay to re-cut from the accepted plate (Act III, doc 48 S2)"
+   },
+   "rect": [
+    330,
+    120,
+    400,
+    120
+   ]
+  },
+  {
+   "id": "posted_notices",
+   "states": {
+    "ordinary": "baked",
+    "funeral": "companion overlay to re-cut from the accepted plate (Act III, doc 48 S2); the audit ruled IMPROVE its value so the clean sheet reads"
+   },
+   "rect": [
+    1620,
+    370,
+    170,
+    150
+   ]
+  }
+ ],
+ "lightingFields": [
+  {
+   "lamp": "saloon_doorway",
+   "at": [
+    2595,
+    470
+   ],
+   "radius": 380,
+   "movers": {
+    "strength": 0.32,
+    "colour": [
+     255,
+     176,
+     90
+    ],
+    "reach": 1.4
+   },
+   "rank": 1
+  },
+  {
+   "lamp": "office_lantern",
+   "at": [
+    3225,
+    430
+   ],
+   "radius": 200,
+   "movers": {
+    "strength": 0.26,
+    "colour": [
+     255,
+     170,
+     84
+    ],
+    "reach": 1.4
+   },
+   "rank": 2
+  },
+  {
+   "lamp": "company_windows",
+   "at": [
+    530,
+    430
+   ],
+   "radius": 260,
+   "movers": {
+    "strength": 0.18,
+    "colour": [
+     255,
+     180,
+     100
+    ],
+    "reach": 1.4
+   },
+   "rank": 3
+  },
+  {
+   "lamp": "clarion_lantern",
+   "at": [
+    1215,
+    430
+   ],
+   "radius": 150,
+   "movers": {
+    "strength": 0.14,
+    "colour": [
+     255,
+     170,
+     84
+    ],
+    "reach": 1.4
+   },
+   "rank": 4
+  }
+ ],
+ "actorZones": [
+  {
+   "who": "pie_woman",
+   "status": "RECAST, deferred to phase 2",
+   "zone": [
+    2330,
+    600,
+    120,
+    60
+   ],
+   "note": "on the boardwalk edge just west of the saloon, in the fringe of its pool, where a pie is sold to people going in and out; NOT in the pool's centre, which is the doors'"
+  },
+  {
+   "who": "letter_writer",
+   "status": "RECAST with his station, deferred to phase 2",
+   "zone": [
+    1820,
+    590,
+    140,
+    60
+   ],
+   "note": "on the boardwalk beside the notice board, at a table facing the street: the canon says he writes, and the station is part of the cast"
+  },
+  {
+   "who": "map_seller",
+   "status": "KEEP design, IMPROVE life (phase 2)",
+   "zone": [
+    3400,
+    600,
+    100,
+    60
+   ],
+   "note": "at the east end by the road out, where a man sells maps to people arriving"
+  },
+  {
+   "who": "dog",
+   "status": "IMPROVE (draw the shadow)",
+   "zone": [
+    2630,
+    740,
+    150,
+    60
+   ],
+   "note": "lying in the mud in front of the saloon rail, as the hotspot rect"
+  },
+  {
+   "who": "thad",
+   "status": "FROZEN",
+   "note": "far 200 at the boardwalk line, near 275 at the frame's foot; the accepted hybrid gait untouched"
+  }
+ ],
+ "dialogueApproachZones": [
+  {
+   "target": "pie_woman",
+   "standAt": [
+    2340,
+    680
+   ],
+   "facing": "back"
+  },
+  {
+   "target": "letter_writer",
+   "standAt": [
+    1890,
+    680
+   ],
+   "facing": "back"
+  },
+  {
+   "target": "map_seller",
+   "standAt": [
+    3430,
+    690
+   ],
+   "facing": "back"
+  },
+  {
+   "target": "posted_notices",
+   "standAt": [
+    1705,
+    650
+   ],
+   "facing": "back"
+  }
+ ],
+ "futureStateCompanions": [
+  {
+   "state": "Act III (ACT=3)",
+   "companions": [
+    "company_sign gilt overlay",
+    "posted_notices funeral overlay"
+   ],
+   "status": "re-cut from the accepted plate; the shipping overlays are cut from the shipping plate and do not fit this candidate"
+  },
+  {
+   "state": "DAY",
+   "status": "NOT WRITTEN: no document gives Main Street a day state. Nothing to plan; recorded so the absence is a decision, not a gap."
+  }
+ ],
+ "legacyContext": "The candidate room lists the four shipping ambient characters at their shipping positions so a reviewer sees the street with people in it. They are LEGACY CONTEXT, labelled so on every sheet; their positions are the shipping plate's and mean nothing on this one."
+}

@@ -1,0 +1,23 @@
+{
+ "schema": 1,
+ "note": "NUGGET CLEAN PLATE, ATTEMPT 2 OF 2: a masked refinement against a concrete defect in attempt 1 (the prompt asked to keep the handbill and the back-room door; the model painted neither). The candidate SOURCE of attempt 1 was the image edited, under a mask that freed only the two wall patches (art/staging/room-03/clean-plate-02/edit-mask.json). Measured after: difference of the derived 1920x864 candidates, per 120x96 block, mean over the frame 3.93 (0-255), 2.5% of pixels differ by more than 16, and the only blocks above 6 are the handbill's column (x 240-360, y 96-480, up to 13) and the door's (x 1080-1320, y 190-480, up to 7). Everything else is within the model's re-encoding noise.",
+ "attempt1": {
+  "source": "art/staging/room-03/clean-plate-source-01.png",
+  "candidate": "art/staging/room-03/clean-plate-01/candidate-1920x864.png",
+  "sha256": "e1972095a4fdef0a1c89891adbb21fc42c43a50f7e4c05b3125d2c890d333fc1",
+  "defect": "no handbill on the wall between the doors and the window; no back-room door under the landing"
+ },
+ "attempt2": {
+  "source": "art/staging/room-03/clean-plate-source-02.png",
+  "candidate": "art/staging/room-03/clean-plate-02/candidate-1920x864.png",
+  "sha256": "12e4efa55dafc48b6038384ac0fcc69b74fbc25a30e5617a7257be33ef99298f",
+  "mask": "art/staging/room-03/clean-plate-02/edit-mask.png",
+  "restored": "the handbill (a small paper on the wall at x 320-368, y 270-342, with a printed header and lines of small type) and the panelled back-room door with its knob under the landing (x 1130-1195, y 225-405)"
+ },
+ "meanAbsDiff": 3.93,
+ "fractionOver16": 0.0247,
+ "chosen": "attempt2",
+ "chosenWhy": "attempt 1 with its two defects repaired and nothing else moved; the handbill is what the LOOK line needs to be seen on, and the door is an exit.",
+ "ledger": "art/staging/ledger.json nugget-plate attempts 1-2; cap 2 of 2 spent",
+ "diffImage": null
+}

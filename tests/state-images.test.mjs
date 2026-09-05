@@ -15,19 +15,22 @@ const room5 = (content) => content.rooms.find(({ data }) => data.id === 'assay_o
 const stateOf = (room, id, name) => room.hotspots.find((h) => h.id === id).states[name];
 const failing = (report, pattern) => report.failures.filter((line) => pattern.test(line));
 
-test('the live content passes, and Room 5 answers to the night state', () => {
+// SINCE THE PROMOTION (doc 36 Q116) NIGHT IS THE BASE and DAY is the
+// companion state: the shipping plate and the shipping boards are the night
+// files, and the day boards are reached through imageByState.day.
+test('the live content passes, and Room 5 answers to the day state', () => {
   const content = loadContent();
   const report = check(content);
   assert.deepEqual(report.failures, []);
-  assert.deepEqual(roomVisualStates(room5(content)), ['night']);
+  assert.deepEqual(roomVisualStates(room5(content)), ['day']);
 });
 
-test('a DAY-only overlay in a NIGHT room fails by name (the floorboard defect)', () => {
+test('a base-only overlay in a room with a companion state fails by name (the floorboard defect)', () => {
   const content = loadContent();
   const board = stateOf(room5(content), 'floorboard', 'rest');
-  delete board.imageByState.night;
+  delete board.imageByState.day;
   const report = check(content);
-  const hits = failing(report, /floorboard\/rest: .* has no imageByState\.night/);
+  const hits = failing(report, /floorboard\/rest: .* has no imageByState\.day/);
   assert.equal(hits.length, 1, report.failures.join('\n'));
 });
 

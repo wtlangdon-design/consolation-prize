@@ -90,50 +90,13 @@
   ],
   "hotspots": [
     {
-      "id": "handbill",
-      "name": "THE HANDBILL",
-      "rect": [
-        262,
-        248,
-        42,
-        66
-      ],
-      "colour": 203,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LISTEN_TO": [
-          {
-            "say": "Paper. It has been on this wall a long time. It has stopped being read.",
-            "repeat": [
-              "Paper. Still not being read.",
-              "Nothing. It has outlasted everyone who nailed it up."
-            ]
-          }
-        ],
-        "LOOK_AT": [
-          {
-            "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic.",
-            "repeat": [
-              "I have read it twice. Rule five forbids arithmetic, which I assume has a history.",
-              "Rule four permits an appeal to the same judges who made the decision. Somebody thought about that and wrote it down anyway."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 283,
-        "y": 630,
-        "facing": "back"
-      }
-    },
-    {
       "id": "cards",
       "name": "THE HAND OF CARDS",
       "rect": [
-        825,
-        426,
-        96,
-        40
+        828,
+        378,
+        90,
+        36
       ],
       "colour": 202,
       "defaultVerb": "LOOK_AT",
@@ -160,8 +123,52 @@
           }
         ]
       },
+      "overrides": {
+        "PICK_UP": "It is not my hand.",
+        "USE": "I do not play. My father was very clear about it, and he was wrong about most things."
+      },
       "walkTo": {
         "x": 873,
+        "y": 630,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "handbill",
+      "name": "THE HANDBILL",
+      "rect": [
+        322,
+        306,
+        42,
+        84
+      ],
+      "colour": 203,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LISTEN_TO": [
+          {
+            "say": "Paper. It has been on this wall a long time. It has stopped being read.",
+            "repeat": [
+              "Paper. Still not being read.",
+              "Nothing. It has outlasted everyone who nailed it up."
+            ]
+          }
+        ],
+        "LOOK_AT": [
+          {
+            "say": "RULES OF THE ASSAY. One: a man may not be interrupted in his account. Two: a man's account may be doubted only by a better one. Three: truth is admissible but has never been raised. Four: the judges' decision is final and may be appealed to the same judges. Five: no firearms, no knives, no arithmetic.",
+            "repeat": [
+              "I have read it twice. Rule five forbids arithmetic, which I assume has a history.",
+              "Rule four permits an appeal to the same judges who made the decision. Somebody thought about that and wrote it down anyway."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "It has been nailed on. Thoroughly. Somebody wanted the rules to stay up."
+      },
+      "walkTo": {
+        "x": 343,
         "y": 630,
         "facing": "back"
       }
@@ -197,6 +204,9 @@
           }
         ]
       },
+      "overrides": {
+        "PICK_UP": "No."
+      },
       "walkTo": {
         "x": 1409,
         "y": 862,
@@ -207,10 +217,10 @@
       "id": "portrait",
       "name": "THE FADED PORTRAIT",
       "rect": [
-        758,
-        188,
-        76,
-        104
+        936,
+        212,
+        78,
+        94
       ],
       "colour": 172,
       "defaultVerb": "LOOK_AT",
@@ -238,8 +248,8 @@
         ]
       },
       "walkTo": {
-        "x": 796,
-        "y": 630,
+        "x": 975,
+        "y": 585,
         "facing": "back"
       }
     },
@@ -247,10 +257,10 @@
       "id": "stove",
       "name": "THE STOVE",
       "rect": [
-        826,
-        244,
-        70,
-        160
+        1028,
+        236,
+        74,
+        190
       ],
       "colour": 183,
       "defaultVerb": "LOOK_AT",
@@ -277,85 +287,11 @@
           }
         ]
       },
-      "walkTo": {
-        "x": 861,
-        "y": 630,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "chandelier",
-      "name": "THE CHANDELIER",
-      "rect": [
-        656,
-        18,
-        190,
-        148
-      ],
-      "colour": 226,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A chandelier. Below it, a dirt floor. The two have never been introduced.",
-            "repeat": [
-              "Brass, crystal, and a dirt floor. Somebody made a decision about priorities and I should like to meet them.",
-              "It is not lit. It has never been lit while I have been in this room."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "It ticks as it cools.",
-            "repeat": [
-              "Ticking as it cools. Still hanging over mud.",
-              "Nothing. It is the most expensive object in the territory and it has nothing to say for itself."
-            ],
-            "then": [
-              "It is the most expensive object in the territory and it is hanging over mud."
-            ]
-          }
-        ]
+      "overrides": {
+        "OPEN": "It is lit. I am not opening a lit stove in a wooden building full of drunk men."
       },
       "walkTo": {
-        "x": 751,
-        "y": 630,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "window",
-      "name": "THE WINDOW",
-      "rect": [
-        318,
-        196,
-        154,
-        196
-      ],
-      "colour": 204,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A window onto Main Street, and the cleanest thing in the building, because it is the only thing anyone in here looks at.",
-            "repeat": [
-              "From in here the street looks better. That is what a window is for.",
-              "Somebody has scratched a name into the pane. It is not a name I know."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "The street. Muffled. Somebody arguing about a boundary.",
-            "repeat": [
-              "Still the boundary. Still arguing.",
-              "The stage has come in. Four days from Sacramento and eleven new men who think they are early."
-            ]
-          }
-        ]
-      },
-      "walkTo": {
-        "x": 395,
+        "x": 1065,
         "y": 630,
         "facing": "back"
       }
@@ -364,10 +300,10 @@
       "id": "piano",
       "name": "THE PIANO",
       "rect": [
-        428,
-        250,
-        156,
-        252
+        540,
+        300,
+        160,
+        205
       ],
       "colour": 105,
       "defaultVerb": "LOOK_AT",
@@ -394,9 +330,93 @@
           }
         ]
       },
+      "overrides": {
+        "USE": "I could tune it. Nobody has asked me, and I have decided that asking to be asked is beneath me.",
+        "OPEN": "The lid comes up. Inside is a piano, which is what I expected and somehow still a disappointment."
+      },
       "walkTo": {
-        "x": 506,
+        "x": 620,
+        "y": 634,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        372,
+        150,
+        118,
+        290
+      ],
+      "colour": 204,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A window onto Main Street, and the cleanest thing in the building, because it is the only thing anyone in here looks at.",
+            "repeat": [
+              "From in here the street looks better. That is what a window is for.",
+              "Somebody has scratched a name into the pane. It is not a name I know."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "The street. Muffled. Somebody arguing about a boundary.",
+            "repeat": [
+              "Still the boundary. Still arguing.",
+              "The stage has come in. Four days from Sacramento and eleven new men who think they are early."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 431,
         "y": 630,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "chandelier",
+      "name": "THE CHANDELIER",
+      "rect": [
+        818,
+        28,
+        200,
+        178
+      ],
+      "colour": 226,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A chandelier. Below it, a dirt floor. The two have never been introduced.",
+            "repeat": [
+              "Brass, crystal, and a dirt floor. Somebody made a decision about priorities and I should like to meet them.",
+              "It is not lit. It has never been lit while I have been in this room."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It ticks as it cools.",
+            "repeat": [
+              "Ticking as it cools. Still hanging over mud.",
+              "Nothing. It is the most expensive object in the territory and it has nothing to say for itself."
+            ],
+            "then": [
+              "It is the most expensive object in the territory and it is hanging over mud."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "It is nine feet up and it weighs more than I do. I shall admire it from here."
+      },
+      "walkTo": {
+        "x": 918,
+        "y": 585,
         "facing": "back"
       }
     },
@@ -404,10 +424,10 @@
       "id": "stairs",
       "name": "THE STAIRS",
       "rect": [
-        938,
-        96,
-        156,
-        290
+        1150,
+        100,
+        195,
+        300
       ],
       "colour": 104,
       "defaultVerb": "LOOK_AT",
@@ -434,46 +454,12 @@
           }
         ]
       },
-      "walkTo": {
-        "x": 1016,
-        "y": 630,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "mirror",
-      "name": "THE MIRROR",
-      "rect": [
-        1128,
-        96,
-        380,
-        170
-      ],
-      "colour": 186,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "I look like a man who has recently been robbed and is being brave about it.",
-            "repeat": [
-              "Still me. I had hoped for some improvement.",
-              "Eleven weeks, and I have started to look like I belong here, which was not the plan."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Nothing. Mirrors are silent, which is the only restraint they show.",
-            "repeat": [
-              "Still nothing.",
-              "Nothing. I keep checking. It keeps not."
-            ]
-          }
-        ]
+      "overrides": {
+        "USE": "I have not been invited up and I am not going to invite myself."
       },
       "walkTo": {
-        "x": 1318,
-        "y": 862,
+        "x": 1248,
+        "y": 765,
         "facing": "back"
       }
     },
@@ -508,6 +494,9 @@
           }
         ]
       },
+      "overrides": {
+        "TALK_TO": "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
+      },
       "walkTo": {
         "x": 873,
         "y": 630,
@@ -515,13 +504,50 @@
       }
     },
     {
+      "id": "mirror",
+      "name": "THE MIRROR",
+      "rect": [
+        1515,
+        125,
+        320,
+        260
+      ],
+      "colour": 186,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "I look like a man who has recently been robbed and is being brave about it.",
+            "repeat": [
+              "Still me. I had hoped for some improvement.",
+              "Eleven weeks, and I have started to look like I belong here, which was not the plan."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Mirrors are silent, which is the only restraint they show.",
+            "repeat": [
+              "Still nothing.",
+              "Nothing. I keep checking. It keeps not."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1475,
+        "y": 862,
+        "facing": "back"
+      }
+    },
+    {
       "id": "bar",
       "name": "THE BAR",
       "rect": [
-        952,
-        296,
-        930,
-        300
+        1180,
+        300,
+        720,
+        520
       ],
       "colour": 108,
       "defaultVerb": "LOOK_AT",
@@ -548,9 +574,13 @@
           }
         ]
       },
+      "overrides": {
+        "USE": "That would cost money.",
+        "PUSH": "It does not move. It is the only thing in Consolation built to stay."
+      },
       "walkTo": {
-        "x": 1417,
-        "y": 863,
+        "x": 1540,
+        "y": 861,
         "facing": "back"
       }
     }
@@ -560,9 +590,9 @@
       "id": "front_doors",
       "name": "THE FRONT DOORS",
       "rect": [
-        56,
-        336,
-        200,
+        60,
+        330,
+        235,
         290
       ],
       "colour": 198,
@@ -572,7 +602,7 @@
           {
             "say": "Batwing doors, from the inside. They swing both ways, which from in here reads as a warning rather than a convenience.",
             "repeat": [
-              "Daylight past them. It is always a surprise.",
+              "The street past them. It is always a surprise.",
               "Six inches of boardwalk and then the mud. I know exactly how far it is now."
             ]
           }
@@ -593,10 +623,10 @@
       "id": "back_room_door",
       "name": "THE BACK ROOM DOOR",
       "rect": [
-        602,
-        192,
-        92,
-        142
+        1088,
+        250,
+        54,
+        170
       ],
       "colour": 110,
       "to": "stub_nugget_back",
@@ -1077,7 +1107,18 @@
       "amount": 0.14,
       "rate": 0.41,
       "phase": 0.37,
-      "note": "A fire in an iron box, and doc 05 says the pipe was fitted by somebody who had seen a stove. It flickers hardest and fastest."
+      "note": "A fire in an iron box, and doc 05 says the pipe was fitted by somebody who had seen a stove. It flickers hardest and fastest.",
+      "movers": {
+        "strength": 0.22,
+        "colour": [
+          255,
+          150,
+          72
+        ],
+        "reach": 1.8,
+        "radius": 260
+      },
+      "moversNote": "THE LIGHT ON THE PEOPLE (doc 36 Q116): a mover whose feet stand in this pool is flat-tinted toward the pool's colour by the strength times a square falloff. Declared on the SHIPPING plate's lamps so the mechanism is proved live; the replacement plate re-declares its own."
     },
     {
       "id": "bar_lamps",
@@ -1089,7 +1130,17 @@
       "amount": 0.06,
       "rate": 0.17,
       "phase": 0.72,
-      "note": "The wall lamps behind the bar, together. Barely moving -- they are trimmed, because the barman is the only person in town who maintains anything."
+      "note": "The wall lamps behind the bar, together. Barely moving -- they are trimmed, because the barman is the only person in town who maintains anything.",
+      "movers": {
+        "strength": 0.14,
+        "colour": [
+          255,
+          190,
+          110
+        ],
+        "reach": 1.6
+      },
+      "moversNote": "THE LIGHT ON THE PEOPLE (doc 36 Q116): a mover whose feet stand in this pool is flat-tinted toward the pool's colour by the strength times a square falloff. Declared on the SHIPPING plate's lamps so the mechanism is proved live; the replacement plate re-declares its own."
     }
   ],
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-03/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",

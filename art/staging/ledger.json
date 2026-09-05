@@ -1,2289 +1,2980 @@
 {
-  "schema": 1,
-  "note": "GENERATED ART PROVENANCE. One row per attempt. Holds hashes, ids and model parameters -- no credentials, and no line of the fiction: a prompt is recorded by file path and hash so the words stay in /docs.",
-  "attempts": [
-    {
-      "attempt": 1,
-      "operation": "generate",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1024x1024",
-        "quality": null,
-        "background": null
-      },
-      "prompt": "A flat neutral grey test card. A single thin white horizontal line across the middle. No text, no lettering, no objects, no texture.",
-      "promptFile": null,
-      "promptHash": "05e30b4713b72ca8212687b92821bbf355243caa0d2b91c72071b98a6010f81e",
-      "references": [],
-      "out": "art/staging/smoke/generate-01.png",
-      "outputHash": "9e02afc3758d7f0f5b395c7bb33b1f6c17bd0c3f3f872d8adf4e3c60c447727f",
-      "bytes": 826382,
-      "usage": {
-        "input_tokens": 35,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 35
-        },
-        "output_tokens": 196,
-        "output_tokens_details": {
-          "image_tokens": 196,
-          "text_tokens": 0
-        },
-        "total_tokens": 231
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T07:11:53.469Z",
-      "assetId": "smoke-test-card",
-      "subject": "api-smoke-test",
-      "gates": {
-        "path": "art/staging/smoke/generate-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1024x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T07:11:53.692Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T07:11:53.490Z"
+ "schema": 1,
+ "note": "GENERATED ART PROVENANCE. One row per attempt. Holds hashes, ids and model parameters -- no credentials, and no line of the fiction: a prompt is recorded by file path and hash so the words stay in /docs.",
+ "attempts": [
+  {
+   "attempt": 1,
+   "operation": "generate",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null,
+    "background": null
+   },
+   "prompt": "A flat neutral grey test card. A single thin white horizontal line across the middle. No text, no lettering, no objects, no texture.",
+   "promptFile": null,
+   "promptHash": "05e30b4713b72ca8212687b92821bbf355243caa0d2b91c72071b98a6010f81e",
+   "references": [],
+   "out": "art/staging/smoke/generate-01.png",
+   "outputHash": "9e02afc3758d7f0f5b395c7bb33b1f6c17bd0c3f3f872d8adf4e3c60c447727f",
+   "bytes": 826382,
+   "usage": {
+    "input_tokens": 35,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 35
     },
-    {
-      "attempt": 2,
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1024x1024",
-        "quality": null
-      },
-      "prompt": "Return this scene with the sky replaced by flat neutral grey. Change nothing else.",
-      "promptFile": null,
-      "promptHash": "ec4454920b1193764e0f5cd31b42264732a113e703e74195fbfb513dc4b9ecd4",
-      "references": [
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
-        }
-      ],
-      "mask": null,
-      "sourceHash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-      "sourcePath": "art/backgrounds/room-01-stage-road.png",
-      "out": "art/staging/smoke/edit-01.png",
-      "outputHash": "bb5f978c30f1cdfc50ca3eff319b3fba517c2cbaa350ba519f089626eef8de18",
-      "bytes": 1195960,
-      "usage": {
-        "input_tokens": 1530,
-        "input_tokens_details": {
-          "image_tokens": 1508,
-          "text_tokens": 22
-        },
-        "output_tokens": 1756,
-        "output_tokens_details": {
-          "image_tokens": 1756,
-          "text_tokens": 0
-        },
-        "total_tokens": 3286
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T07:12:41.699Z",
-      "assetId": "smoke-test-card",
-      "subject": "api-smoke-test",
-      "gates": {
-        "path": "art/staging/smoke/edit-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1024x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T07:12:41.814Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T07:12:41.700Z"
+    "output_tokens": 196,
+    "output_tokens_details": {
+     "image_tokens": 196,
+     "text_tokens": 0
     },
+    "total_tokens": 231
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T07:11:53.469Z",
+   "assetId": "smoke-test-card",
+   "subject": "api-smoke-test",
+   "gates": {
+    "path": "art/staging/smoke/generate-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T07:11:53.692Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T07:11:53.490Z"
+  },
+  {
+   "attempt": 2,
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": "Return this scene with the sky replaced by flat neutral grey. Change nothing else.",
+   "promptFile": null,
+   "promptHash": "ec4454920b1193764e0f5cd31b42264732a113e703e74195fbfb513dc4b9ecd4",
+   "references": [
     {
-      "attempt": 3,
-      "operation": "generate",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1024x1024",
-        "quality": null,
-        "background": null
-      },
-      "prompt": "A flat neutral grey test card. A single thin white horizontal line across the middle. No text, no lettering, no objects, no texture.",
-      "promptFile": null,
-      "promptHash": "05e30b4713b72ca8212687b92821bbf355243caa0d2b91c72071b98a6010f81e",
-      "references": [],
-      "out": "art/staging/smoke/generate-01.png",
-      "outputHash": "2c60c1d68a48bbdfc9b0d593d361f0e98f6fcdd7db1a3b7ccf870944e306a963",
-      "bytes": 822771,
-      "usage": {
-        "input_tokens": 35,
-        "input_tokens_details": {
-          "image_tokens": 0,
-          "text_tokens": 35
-        },
-        "output_tokens": 196,
-        "output_tokens_details": {
-          "image_tokens": 196,
-          "text_tokens": 0
-        },
-        "total_tokens": 231
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T07:13:03.989Z",
-      "assetId": "smoke-test-card",
-      "subject": "api-smoke-test",
-      "gates": {
-        "path": "art/staging/smoke/generate-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1024x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T07:13:04.111Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T07:13:03.990Z"
-    },
-    {
-      "attempt": 4,
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1024x1024",
-        "quality": null
-      },
-      "prompt": "Return this scene with the sky replaced by flat neutral grey. Change nothing else.",
-      "promptFile": null,
-      "promptHash": "ec4454920b1193764e0f5cd31b42264732a113e703e74195fbfb513dc4b9ecd4",
-      "references": [
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
-        }
-      ],
-      "mask": null,
-      "sourceHash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-      "sourcePath": "art/backgrounds/room-01-stage-road.png",
-      "out": "art/staging/smoke/edit-01.png",
-      "outputHash": "f695604d14a0cf5bdc7306b850b121e710975e6130b98bdc3e5c8b0053b87135",
-      "bytes": 1238535,
-      "usage": {
-        "input_tokens": 1530,
-        "input_tokens_details": {
-          "image_tokens": 1508,
-          "text_tokens": 22
-        },
-        "output_tokens": 781,
-        "output_tokens_details": {
-          "image_tokens": 781,
-          "text_tokens": 0
-        },
-        "total_tokens": 2311
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T07:13:31.850Z",
-      "assetId": "smoke-test-card",
-      "subject": "api-smoke-test",
-      "gates": {
-        "path": "art/staging/smoke/edit-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1024x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T07:13:31.951Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T07:13:31.850Z"
-    },
-    {
-      "attempt": 1,
-      "role": "composition-master",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/composition-master.txt",
-      "promptHash": "3b9603a30ce3e4f5d2f4a3d5168835cd1b34e13bf502be7cc9ab217aa96bafd3",
-      "references": [
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "composition-master",
-        "pendingAcknowledged": [
-          "E: Winnie -- The assay office is her room and no approved casting reference for her exists anywhere in the repository. reference/casting/ holds the coach, the driver and Hob. E is UNSATISFIED for Room 5 until she is cast. (docs/36-issue-list.md::Q22 \u00b7 ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
-        ],
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "role": "approved Room 1 full-frame live-runtime baseline",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "role": "approved Room 1 shipping background",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "role": "approved current Thad",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "role": "closest approved comparable (room-03-nugget)",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-      "sourcePath": "renders/room-01-in-engine-1920x1080.png",
-      "out": "art/staging/room-05/composition-master-01.png",
-      "outputHash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-      "bytes": 2441980,
-      "usage": {
-        "input_tokens": 6056,
-        "input_tokens_details": {
-          "image_tokens": 5484,
-          "text_tokens": 572
-        },
-        "output_tokens": 1372,
-        "output_tokens_details": {
-          "image_tokens": 1372,
-          "text_tokens": 0
-        },
-        "total_tokens": 7428
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T15:49:25.154Z",
-      "assetId": "room-05-composition-master",
-      "subject": "room-05-assay-office",
-      "gates": {
-        "path": "art/staging/room-05/composition-master-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T15:49:25.344Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T15:49:25.170Z",
-      "rejected": true,
-      "rejectedBy": "Tyler",
-      "rejectedWhy": "REJECTED AS VISUAL ANCESTRY by Tyler: too smooth, realistic and finely rendered against the approved Room 1 / Thad vocabulary; characters not of the same game as Thad; daylight windows unverified against canon. PRESERVED AS COMPOSITION DIAGNOSTIC ONLY -- its layout may inform the corrected master; its rendering may not."
-    },
-    {
-      "attempt": 1,
-      "role": "canonical-design",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/winnie-canonical.txt",
-      "promptHash": "1fcc2c98974b93f5ec3c6b518a98a54bbb2d547a8cdd2a6a48d664607bfdd20a",
-      "references": [
-        {
-          "path": "art/staging/room-05/composition-master-01.png",
-          "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "character",
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "role": "approved Room 1 full-frame live-runtime baseline",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "role": "approved Room 1 shipping background",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "role": "approved current Thad",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "role": "closest approved comparable (room-03-nugget)",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Winnie)",
-            "path": "art/staging/room-05/composition-master-01.png",
-            "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-      "sourcePath": "art/staging/room-05/composition-master-01.png",
-      "out": "art/staging/room-05/winnie-canonical-01.png",
-      "outputHash": "707e48b94821bd95c6780429f578e61607a3d1cb75c3d415fecb407c2e615b74",
-      "bytes": 1309303,
-      "usage": {
-        "input_tokens": 7286,
-        "input_tokens_details": {
-          "image_tokens": 7020,
-          "text_tokens": 266
-        },
-        "output_tokens": 343,
-        "output_tokens_details": {
-          "image_tokens": 343,
-          "text_tokens": 0
-        },
-        "total_tokens": 7629
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T15:51:20.187Z",
-      "assetId": "winnie",
-      "subject": "winnie",
-      "gates": {
-        "path": "art/staging/room-05/winnie-canonical-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T15:51:20.340Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T15:51:20.188Z",
-      "rejected": true,
-      "rejectedBy": "Tyler",
-      "rejectedWhy": "Derives from the rejected master (attempt 5). Preserved and counted; NOT canonical ancestry. Do not derive from it."
-    },
-    {
-      "attempt": 1,
-      "role": "plate",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/clean-plate.txt",
-      "promptHash": "5d89ed6ce203af417fffe4894d7bc5c381bc6fab53a84097a5d43fd0c2bafed6",
-      "references": [
-        {
-          "path": "art/staging/room-05/composition-master-01.png",
-          "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-          "transmitted": true
-        },
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "plate",
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "role": "approved Room 1 full-frame live-runtime baseline",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "role": "approved Room 1 shipping background",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "role": "approved current Thad",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "role": "closest approved comparable (room-03-nugget)",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Winnie)",
-            "path": "art/staging/room-05/composition-master-01.png",
-            "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-      "sourcePath": "art/staging/room-05/composition-master-01.png",
-      "out": "art/staging/room-05/plate-source-01.png",
-      "outputHash": "0c0ab6f4870449ef009b6c0c81e6a5345e543bdd5fcda638a45fd02ddf06bd00",
-      "bytes": 2349911,
-      "usage": {
-        "input_tokens": 7365,
-        "input_tokens_details": {
-          "image_tokens": 7020,
-          "text_tokens": 345
-        },
-        "output_tokens": 1372,
-        "output_tokens_details": {
-          "image_tokens": 1372,
-          "text_tokens": 0
-        },
-        "total_tokens": 8737
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T15:52:24.961Z",
-      "assetId": "room-05-plate",
-      "subject": "room-05-assay-office",
-      "gates": {
-        "path": "art/staging/room-05/plate-source-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T15:52:25.210Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T15:52:24.962Z",
-      "rejected": true,
-      "rejectedBy": "Tyler",
-      "rejectedWhy": "Derives from the rejected master (attempt 5). Preserved and counted; NOT a candidate. Do not derive from it."
-    },
-    {
-      "attempt": 2,
-      "role": "derived-state",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/winnie-sheet.txt",
-      "promptHash": "90affce7bce9e45ffb294751daf28e61a716e69159cb2d6ccbe788d83887b328",
-      "references": [
-        {
-          "path": "art/staging/room-05/winnie-canonical-01.png",
-          "hash": "707e48b94821bd95c6780429f578e61607a3d1cb75c3d415fecb407c2e615b74",
-          "transmitted": true
-        },
-        {
-          "path": "art/staging/room-05/composition-master-01.png",
-          "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-          "transmitted": true
-        },
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "character",
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "role": "approved Room 1 full-frame live-runtime baseline",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "role": "approved Room 1 shipping background",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "role": "approved current Thad",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "role": "closest approved comparable (room-03-nugget)",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Winnie)",
-            "path": "art/staging/room-05/composition-master-01.png",
-            "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "707e48b94821bd95c6780429f578e61607a3d1cb75c3d415fecb407c2e615b74",
-      "sourcePath": "art/staging/room-05/winnie-canonical-01.png",
-      "out": "art/staging/room-05/winnie-sheet-01.png",
-      "outputHash": "837652e8578aeefb516867276e10f2528a760eddc39f9a062e7804be5f97181b",
-      "bytes": 1538936,
-      "usage": {
-        "input_tokens": 8856,
-        "input_tokens_details": {
-          "image_tokens": 8556,
-          "text_tokens": 300
-        },
-        "output_tokens": 343,
-        "output_tokens_details": {
-          "image_tokens": 343,
-          "text_tokens": 0
-        },
-        "total_tokens": 9199
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T15:53:32.126Z",
-      "assetId": "winnie",
-      "subject": "winnie",
-      "derivedFrom": 1,
-      "gates": {
-        "path": "art/staging/room-05/winnie-sheet-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T15:53:32.310Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T15:53:32.128Z",
-      "rejected": true,
-      "rejectedBy": "Tyler",
-      "rejectedWhy": "Derives from the rejected master (attempt 5). Preserved and counted; NOT canonical ancestry. Do not derive from it."
-    },
-    {
-      "attempt": 2,
-      "role": "composition-master",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/composition-master-02.txt",
-      "promptHash": "3d4ddd366b307bb374f8d45914e1435d480b8a33d49eba3a11a1b22c9131b877",
-      "references": [
-        {
-          "path": "reference/casting/room-01-casting-master.png",
-          "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-          "transmitted": true
-        },
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "composition-master",
-        "pendingAcknowledged": [
-          "E: Winnie -- The composition master she was first drawn in (composition-master-01) was REJECTED by Tyler as visual ancestry. She must be re-cast from a corrected master that is anchored to the approved Room 1 / Thad rendering. E is unsatisfied until that master exists. (docs/36-issue-list.md::Q22 \u00b7 ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
-        ],
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "role": "approved Room 1 full-frame live-runtime baseline",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "role": "approved Room 1 shipping background",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "role": "approved current Thad",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "role": "closest approved comparable (room-03-nugget)",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Room 1 cast -- the rendering anchor)",
-            "path": "reference/casting/room-01-casting-master.png",
-            "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-      "sourcePath": "reference/casting/room-01-casting-master.png",
-      "out": "art/staging/room-05/composition-master-02.png",
-      "outputHash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-      "bytes": 2045912,
-      "usage": {
-        "input_tokens": 7685,
-        "input_tokens_details": {
-          "image_tokens": 6992,
-          "text_tokens": 693
-        },
-        "output_tokens": 1372,
-        "output_tokens_details": {
-          "image_tokens": 1372,
-          "text_tokens": 0
-        },
-        "total_tokens": 9057
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T16:17:34.559Z",
-      "assetId": "room-05-composition-master",
-      "subject": "room-05-assay-office",
-      "gates": {
-        "path": "art/staging/room-05/composition-master-02.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T16:17:34.724Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T16:17:34.561Z",
-      "visual_accepted": true,
-      "acceptedBy": "Tyler",
-      "acceptedOn": "2026-09-04",
-      "acceptedNote": "OWNER VISUAL RULING 2026-09-04: composition/casting master 02 \u2014 accepted as visual ancestry (reference, never a shipping plate). Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
-    },
-    {
-      "attempt": 3,
-      "role": "canonical-design",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/winnie-sheet-02.txt",
-      "promptHash": "14637709b9d450576de8890007106b7ae1e2e398288f15b9d12311cb37ef3594",
-      "references": [
-        {
-          "path": "art/staging/room-05/composition-master-02.png",
-          "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/room-01-casting-master.png",
-          "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-          "transmitted": true
-        },
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "character",
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "role": "approved Room 1 full-frame live-runtime baseline",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "role": "approved Room 1 shipping background",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "role": "approved current Thad",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "role": "closest approved comparable (room-03-nugget)",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Room 1 cast -- the rendering anchor)",
-            "path": "reference/casting/room-01-casting-master.png",
-            "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Winnie)",
-            "path": "art/staging/room-05/composition-master-02.png",
-            "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-      "sourcePath": "art/staging/room-05/composition-master-02.png",
-      "out": "art/staging/room-05/winnie-canonical-02.png",
-      "outputHash": "94e73f0af03c4651be4b84adc9d907ced3f5744072bef3f9bdc86aa64ac4f6ea",
-      "bytes": 1290424,
-      "usage": {
-        "input_tokens": 8907,
-        "input_tokens_details": {
-          "image_tokens": 8528,
-          "text_tokens": 379
-        },
-        "output_tokens": 343,
-        "output_tokens_details": {
-          "image_tokens": 343,
-          "text_tokens": 0
-        },
-        "total_tokens": 9250
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T16:19:18.990Z",
-      "assetId": "winnie",
-      "subject": "winnie",
-      "gates": {
-        "path": "art/staging/room-05/winnie-canonical-02.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T16:19:19.135Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T16:19:18.992Z",
-      "visual_accepted": true,
-      "acceptedBy": "Tyler",
-      "acceptedOn": "2026-09-04",
-      "acceptedNote": "OWNER VISUAL RULING 2026-09-04: Winnie's canonical design, and everything derived from it by tools/rig: the behind-counter sheet winnie-02-counter/winnie-counter-sheet.png (0f3a0423fe4c), its night relights (-night-lift, -night-lamp) and the ink stand prop and its relights. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
-    },
-    {
-      "attempt": 2,
-      "role": "plate",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/clean-plate-02.txt",
-      "promptHash": "e2cab056558cc2db933f4d95b9ae37840de7c408ed6416fb1949fe3575b63898",
-      "references": [
-        {
-          "path": "art/staging/room-05/composition-master-02.png",
-          "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/room-01-casting-master.png",
-          "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-          "transmitted": true
-        },
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "plate",
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "role": "approved Room 1 full-frame live-runtime baseline",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "role": "approved Room 1 shipping background",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "role": "approved current Thad",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "role": "closest approved comparable (room-03-nugget)",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Room 1 cast -- the rendering anchor)",
-            "path": "reference/casting/room-01-casting-master.png",
-            "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Winnie)",
-            "path": "art/staging/room-05/composition-master-02.png",
-            "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-      "sourcePath": "art/staging/room-05/composition-master-02.png",
-      "out": "art/staging/room-05/plate-source-02.png",
-      "outputHash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
-      "bytes": 1988739,
-      "usage": {
-        "input_tokens": 8836,
-        "input_tokens_details": {
-          "image_tokens": 8528,
-          "text_tokens": 308
-        },
-        "output_tokens": 1372,
-        "output_tokens_details": {
-          "image_tokens": 1372,
-          "text_tokens": 0
-        },
-        "total_tokens": 10208
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T16:20:38.343Z",
-      "assetId": "room-05-plate",
-      "subject": "room-05-assay-office",
-      "gates": {
-        "path": "art/staging/room-05/plate-source-02.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T16:20:38.498Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T16:20:38.344Z",
-      "visual_accepted": true,
-      "acceptedBy": "Tyler",
-      "acceptedOn": "2026-09-04",
-      "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the DAY plate: plate-02/candidate-1920x864.png (c0afe61efcf6) \u2014 ROOM 5 DAY VISUAL CANDIDATE. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
-    },
-    {
-      "attempt": 1,
-      "role": "plate",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/night-plate-01.txt",
-      "promptHash": "bbfca9beb8e6e9d526d789a1a95c758e3ad451edc3dfeeeec558bc9b797a827d",
-      "references": [
-        {
-          "path": "art/staging/room-05/plate-source-02.png",
-          "hash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/room-01-casting-master.png",
-          "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-          "transmitted": true
-        },
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-02-main-street.png",
-          "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/staging/room-05/composition-master-02.png",
-          "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "plate",
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "role": "approved Room 1 full-frame live-runtime baseline",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "role": "approved Room 1 shipping background",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "role": "approved current Thad",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "role": "closest approved comparable (room-03-nugget)",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Room 1 cast -- the rendering anchor)",
-            "path": "reference/casting/room-01-casting-master.png",
-            "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "role": "casting reference (Winnie)",
-            "path": "art/staging/room-05/composition-master-02.png",
-            "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
-      "sourcePath": "art/staging/room-05/plate-source-02.png",
-      "out": "art/staging/room-05/plate-source-03-night.png",
-      "outputHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
-      "bytes": 1724808,
-      "usage": {
-        "input_tokens": 12154,
-        "input_tokens_details": {
-          "image_tokens": 11516,
-          "text_tokens": 638
-        },
-        "output_tokens": 1372,
-        "output_tokens_details": {
-          "image_tokens": 1372,
-          "text_tokens": 0
-        },
-        "total_tokens": 13526
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-04T21:06:53.808Z",
-      "assetId": "room-05-reserve",
-      "subject": "room-05-assay-office",
-      "state": "night",
-      "editedFrom": "art/staging/room-05/plate-source-02.png",
-      "note": "ROOM 5 NIGHT VISUAL CANDIDATE source. Errata 64: Room 1 night -> Main Street night -> Room 5 night. An edit of the accepted DAY source, lighting only; the DAY candidate stays as ROOM 5 - DAY VISUAL CANDIDATE.",
-      "gates": {
-        "path": "art/staging/room-05/plate-source-03-night.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T21:06:54.009Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T21:06:53.825Z",
-      "visual_accepted": true,
-      "acceptedBy": "Tyler",
-      "acceptedOn": "2026-09-04",
-      "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the NIGHT plate as lifted: plate-03-night-lift/candidate-1920x864.png (92e3f8f5b70a), derived from this source by tools/grade/lift-work-area.py; the ungraded plate-03-night stays as its record. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
-    },
-    {
-      "attempt": 1,
-      "role": "canonical-design",
-      "assetId": "room-05-lamp",
-      "subject": "hanging-lamp",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/room-05/prompts/hanging-lamp-01.txt",
-      "promptHash": "404c3dbb73673468b2c2ae006c9664be86966cd846dea235405e700b011af9d6",
-      "references": [
-        {
-          "path": "art/staging/room-05/plate-source-03-night.png",
-          "hash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
-          "transmitted": true
-        },
-        {
-          "path": "art/staging/room-05/plate-source-02.png",
-          "hash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/room-01-casting-master.png",
-          "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-          "transmitted": true
-        },
-        {
-          "path": "renders/room-01-in-engine-1920x1080.png",
-          "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-01-stage-road.png",
-          "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-02-main-street.png",
-          "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
-          "transmitted": true
-        },
-        {
-          "path": "art/backgrounds/room-03-nugget.png",
-          "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/staging/room-05/composition-master-02.png",
-          "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-          "transmitted": true
-        }
-      ],
-      "baseline": {
-        "room": "room-05-assay-office",
-        "purpose": "plate",
-        "visualType": "interior-institutional",
-        "slots": [
-          {
-            "slot": "A",
-            "path": "renders/room-01-in-engine-1920x1080.png",
-            "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
-            "transmitted": true
-          },
-          {
-            "slot": "B",
-            "path": "art/backgrounds/room-01-stage-road.png",
-            "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
-            "transmitted": true
-          },
-          {
-            "slot": "C",
-            "path": "art/actors/thad-stand-front/stand-00.png",
-            "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-            "transmitted": true
-          },
-          {
-            "slot": "D",
-            "path": "art/backgrounds/room-03-nugget.png",
-            "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "path": "reference/casting/room-01-casting-master.png",
-            "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
-            "transmitted": true
-          },
-          {
-            "slot": "E",
-            "path": "art/staging/room-05/composition-master-02.png",
-            "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
-            "transmitted": true
-          }
-        ]
-      },
-      "mask": null,
-      "sourceHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
-      "out": "art/staging/room-05/lamp-source-01.png",
-      "outputHash": "cc76a6bfaf60ed92842fa5b5185055f168ac9a02cb156e5b42c2d37da4334639",
-      "bytes": 1837976,
-      "usage": null,
-      "usageNote": "NOT CAPTURED. The driver threw on the role check AFTER the API had returned and the file had landed (22:02 UTC), so the response usage object was lost with the process. This row was written from the same request data minutes later: the paths, hashes, prompt hash and output hash are recomputed from the files; the token count for this one operation is unknown and the spend tally undercounts by it.",
-      "state": "night",
-      "editedFrom": "art/staging/room-05/plate-source-03-night.png",
-      "accounting": "POST-PILOT OWNER VISUAL REVISION \u2014 +1 IMAGE OPERATION (the autonomous pilot stays 8/8)",
-      "note": "THE HANGING WORK LAMP, owner-ruled canon (Tyler, 2026-09-04): one small plain period oil lamp hung from the brass cage over the ledger. Acquired IN CONTEXT by editing the night source; this image exists to be cut -- the lamp is extracted as a separate RGBA prop drawn over the unchanged DAY and NIGHT plates. The edited room is not a plate.",
-      "recordedLate": true,
-      "gates": {
-        "path": "art/staging/room-05/lamp-source-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-04T22:03:45.362Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-04T22:03:45.257Z",
-      "visual_accepted": true,
-      "acceptedBy": "Tyler",
-      "acceptedOn": "2026-09-04",
-      "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the hanging work lamp as a prop: lamp-01/hanging-lamp-overlay.png (5575e30126f2), its placement, day and night appearance, and the runtime task light. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
-    },
-    {
-      "attempt": 1,
-      "role": "other",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1024x1536",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/thad/prompts/profile-stride-01.txt",
-      "promptHash": "04c11a2ea8d6c9759df61cc509925cc625d0cc19ecb1ff1ac730132286156a35",
-      "references": [
-        {
-          "path": "reference/casting/thad-stand-right-src.png",
-          "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-front-src.png",
-          "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-back-src.png",
-          "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-walk-front-src.png",
-          "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        }
-      ],
-      "baseline": null,
-      "mask": null,
-      "sourceHash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
-      "sourcePath": "reference/casting/thad-stand-right-src.png",
-      "out": "art/staging/thad/profile-stride-01.png",
-      "outputHash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
-      "bytes": 1263099,
-      "usage": {
-        "input_tokens": 3386,
-        "input_tokens_details": {
-          "image_tokens": 2720,
-          "text_tokens": 666
-        },
-        "output_tokens": 343,
-        "output_tokens_details": {
-          "image_tokens": 343,
-          "text_tokens": 0
-        },
-        "total_tokens": 3729
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-05T00:33:55.999Z",
-      "assetId": "thad-profile-walk-continuity",
-      "subject": "thad",
-      "roleNote": "A profile STRIDE SOURCE for the rig -- a pose of the approved Family-A identity, whose canonical stills predate this ledger (reference/casting/thad-stand-*-src.png), so it is neither the canonical design nor a ledger-derived state. Owner-authorized, 1/1.",
-      "identityFamily": "A",
-      "familyASources": [
-        {
-          "path": "reference/casting/thad-stand-right-src.png",
-          "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
-        },
-        {
-          "path": "reference/casting/thad-stand-front-src.png",
-          "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
-        },
-        {
-          "path": "reference/casting/thad-stand-back-src.png",
-          "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
-        },
-        {
-          "path": "reference/casting/thad-walk-front-src.png",
-          "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
-        }
-      ],
-      "authorizedBy": "Tyler, THAD PROFILE WALK -- OWNER-AUTHORIZED GLOBAL CHARACTER ART REVISION (2026-09-05)",
-      "gates": {
-        "path": "art/staging/thad/profile-stride-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1024x1536, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-05T00:33:56.102Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-05T00:33:56.003Z",
-      "statusNote": "2026-09-05: superseded. The single stride still fed the four rejected puppet cuts and the rejected intact cut; the accepted hybrid gait uses none of it. Not accepted, preserved."
-    },
-    {
-      "attempt": 1,
-      "role": "other",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/thad/prompts/profile-walk-cycle-01.txt",
-      "promptHash": "83e1c59cbaedebec07631b13598024af2d978502b3a50888800f6acc3d2cec3a",
-      "references": [
-        {
-          "path": "reference/casting/thad-stand-right-src.png",
-          "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-front-src.png",
-          "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-back-src.png",
-          "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-walk-front-src.png",
-          "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        },
-        {
-          "path": "art/staging/thad/profile-stride-01.png",
-          "hash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
-          "transmitted": true
-        }
-      ],
-      "baseline": null,
-      "mask": null,
-      "sourceHash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
-      "sourcePath": "reference/casting/thad-stand-right-src.png",
-      "out": "art/staging/thad/profile-walk-cycle-01.png",
-      "outputHash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
-      "bytes": 1476443,
-      "usage": {
-        "input_tokens": 5240,
-        "input_tokens_details": {
-          "image_tokens": 4256,
-          "text_tokens": 984
-        },
-        "output_tokens": 1372,
-        "output_tokens_details": {
-          "image_tokens": 1372,
-          "text_tokens": 0
-        },
-        "total_tokens": 6612
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-05T02:44:48.363Z",
-      "assetId": "thad-profile-walk-cycle-authoring",
-      "subject": "thad",
-      "roleNote": "A WALK-CYCLE SHEET of the approved Family-A identity: six complete sequential right-facing walking poses, to be cropped as whole runtime frames (tools/rig/cut-cycle-sheet.py) and never puppet-rigged. Owner-authorized, 1/1, separate from thad-profile-walk-continuity.",
-      "identityFamily": "A",
-      "familyASources": [
-        {
-          "path": "reference/casting/thad-stand-right-src.png",
-          "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
-        },
-        {
-          "path": "reference/casting/thad-stand-front-src.png",
-          "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
-        },
-        {
-          "path": "reference/casting/thad-stand-back-src.png",
-          "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
-        },
-        {
-          "path": "reference/casting/thad-walk-front-src.png",
-          "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
-        }
-      ],
-      "poseReference": {
-        "path": "art/staging/thad/profile-stride-01.png",
-        "hash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
-        "note": "movement/pose reference only; Family A wins any conflict"
-      },
-      "authorizedBy": "Tyler, THAD PROFILE WALK -- AUTHORED WHOLE-BODY WALK-CYCLE PASS (2026-09-05)",
-      "gates": {
-        "path": "art/staging/thad/profile-walk-cycle-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-05T02:44:48.476Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-05T02:44:48.375Z",
-      "visual_accepted": true,
-      "acceptedBy": "Tyler",
-      "acceptedOn": "2026-09-05",
-      "acceptedNote": "OWNER VISUAL RULING 2026-09-05: THAD HYBRID PROFILE GAIT VISUALLY APPROVED at deployed 3797684. This sheet is an accepted SOURCE of the frozen gait: poses 1, 2 and 3 are the upper bodies of frames 1, 2, 3 and 6 and pose 1 is the legs of every frame (tools/rig/hybrid-walk.py). Not promoted by staging.mjs -- the sheet is reference material by construction; what ships is derived from it into art/actors/thad-walk-right and -left."
-    },
-    {
-      "attempt": 1,
-      "role": "other",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1536x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/thad/prompts/profile-walk-opposite-half-01.txt",
-      "promptHash": "b715fe4f336428f01f929bacb2ab41bab01331fd9182ab4c8d63889049e354ea",
-      "references": [
-        {
-          "path": "art/staging/thad/profile-walk-cycle-01.png",
-          "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-right-src.png",
-          "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-front-src.png",
-          "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-back-src.png",
-          "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-walk-front-src.png",
-          "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
-          "transmitted": true
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
-          "transmitted": true
-        }
-      ],
-      "baseline": null,
-      "mask": null,
-      "sourceHash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
-      "sourcePath": "art/staging/thad/profile-walk-cycle-01.png",
-      "out": "art/staging/thad/profile-walk-opposite-half-01.png",
-      "outputHash": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2",
-      "bytes": 1396190,
-      "usage": {
-        "input_tokens": 5503,
-        "input_tokens_details": {
-          "image_tokens": 4256,
-          "text_tokens": 1247
-        },
-        "output_tokens": 343,
-        "output_tokens_details": {
-          "image_tokens": 343,
-          "text_tokens": 0
-        },
-        "total_tokens": 5846
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-05T03:30:48.409Z",
-      "assetId": "thad-profile-walk-opposite-half",
-      "subject": "thad",
-      "roleNote": "THE OPPOSITE HALF of the authored profile walk: about three complete right-facing poses (far leg forward, near arm forward) completing profile-walk-cycle-01.png, to be cropped as whole runtime frames (tools/rig/cut-cycle-sheet.py) and never puppet-rigged. Owner-authorized, 1/1, separate from thad-profile-walk-continuity and thad-profile-walk-cycle-authoring.",
-      "identityFamily": "A",
-      "familyASources": [
-        {
-          "path": "reference/casting/thad-stand-right-src.png",
-          "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
-        },
-        {
-          "path": "reference/casting/thad-stand-front-src.png",
-          "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
-        },
-        {
-          "path": "reference/casting/thad-stand-back-src.png",
-          "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
-        },
-        {
-          "path": "reference/casting/thad-walk-front-src.png",
-          "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
-        }
-      ],
-      "movementFamilyAuthority": {
-        "path": "art/staging/thad/profile-walk-cycle-01.png",
-        "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
-        "note": "the approved first-half sheet, transmitted first as the image edited: the movement family these poses complete"
-      },
-      "authorizedBy": "Tyler, THAD PROFILE WALK -- COMPLETE THE MISSING OPPOSITE HALF-CYCLE (2026-09-05)",
-      "gates": {
-        "path": "art/staging/thad/profile-walk-opposite-half-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1536x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-05T03:30:48.573Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-05T03:30:48.431Z",
-      "visual_accepted": true,
-      "acceptedBy": "Tyler",
-      "acceptedOn": "2026-09-05",
-      "acceptedNote": "OWNER VISUAL RULING 2026-09-05: THAD HYBRID PROFILE GAIT VISUALLY APPROVED at deployed 3797684. Poses 2 and 3 of this sheet are the upper bodies of frames 4 and 5 of the frozen gait; pose 1 is unused. Not promoted by staging.mjs; reference material derived from, never shipped whole."
-    },
-    {
-      "attempt": 1,
-      "role": "other",
-      "operation": "edit",
-      "model": "gpt-image-2",
-      "parameters": {
-        "size": "1024x1024",
-        "quality": null
-      },
-      "prompt": null,
-      "promptFile": "proofs/thad/prompts/profile-walk-opposite-contact-01.txt",
-      "promptHash": "0202b05c72547592fa408693aac57d88148f95124fbcfd08da5bb03ad300a9e3",
-      "references": [
-        {
-          "path": "reference/pose/thad-opposite-contact-guide.png",
-          "hash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
-          "transmitted": true
-        },
-        {
-          "path": "art/staging/thad/profile-walk-cycle-01.png",
-          "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-right-src.png",
-          "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-front-src.png",
-          "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
-          "transmitted": true
-        },
-        {
-          "path": "reference/casting/thad-stand-back-src.png",
-          "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
-          "transmitted": true
-        },
-        {
-          "path": "art/staging/thad/profile-walk-opposite-half-01.png",
-          "hash": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2",
-          "transmitted": true
-        },
-        {
-          "path": "reference/pose/thad-contact-do-not-copy-vs-target.png",
-          "hash": "867f0fb3b18dbaf3b67b42009fd8e1829c8e65a060d3dd23f8625cfd3291632a",
-          "transmitted": true
-        }
-      ],
-      "baseline": null,
-      "mask": null,
-      "sourceHash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
-      "sourcePath": "reference/pose/thad-opposite-contact-guide.png",
-      "out": "art/staging/thad/profile-walk-opposite-contact-01.png",
-      "outputHash": "3e6dd52140ca00e5e2535d927b12b7d18b07540e51432785a7be4b4cc89e7b90",
-      "bytes": 913909,
-      "usage": {
-        "input_tokens": 7689,
-        "input_tokens_details": {
-          "image_tokens": 6856,
-          "text_tokens": 833
-        },
-        "output_tokens": 196,
-        "output_tokens_details": {
-          "image_tokens": 196,
-          "text_tokens": 0
-        },
-        "total_tokens": 7885
-      },
-      "revisedPrompt": null,
-      "at": "2026-09-05T03:50:16.698Z",
-      "assetId": "thad-profile-walk-opposite-contact",
-      "subject": "thad",
-      "roleNote": "ONE complete right-facing figure in the OPPOSITE CONTACT of the profile walk (far leg forward, near arm forward), posed from a deterministic guide image, to be cropped whole as one runtime frame. Owner-authorized, 1/1, separate from the three earlier Thad operations.",
-      "identityFamily": "A",
-      "poseGuide": {
-        "path": "reference/pose/thad-opposite-contact-guide.png",
-        "hash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
-        "note": "pose geometry authority; the image edited"
-      },
-      "doNotCopy": {
-        "path": "reference/pose/thad-contact-do-not-copy-vs-target.png",
-        "hash": "867f0fb3b18dbaf3b67b42009fd8e1829c8e65a060d3dd23f8625cfd3291632a",
-        "note": "the shipping contact beside the target guide"
-      },
-      "movementFamilyAuthority": {
-        "path": "art/staging/thad/profile-walk-cycle-01.png",
-        "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a"
-      },
-      "renderingReference": {
-        "path": "art/staging/thad/profile-walk-opposite-half-01.png",
-        "hash": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2"
-      },
-      "familyASources": [
-        {
-          "path": "reference/casting/thad-stand-right-src.png",
-          "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
-        },
-        {
-          "path": "reference/casting/thad-stand-front-src.png",
-          "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
-        },
-        {
-          "path": "reference/casting/thad-stand-back-src.png",
-          "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
-        },
-        {
-          "path": "reference/casting/thad-walk-front-src.png",
-          "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
-        },
-        {
-          "path": "art/actors/thad-stand-front/stand-00.png",
-          "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
-        }
-      ],
-      "authorizedBy": "Tyler, THAD PROFILE WALK -- ACQUIRE THE ONE MISSING OPPOSITE CONTACT POSE (2026-09-05)",
-      "gates": {
-        "path": "art/staging/thad/profile-walk-opposite-contact-01.png",
-        "kind": "plate",
-        "passed": true,
-        "gates": [
-          {
-            "name": "DIMENSIONS / FORMAT / ALPHA",
-            "failures": [],
-            "notes": [
-              "1024x1024, RGB",
-              "0.0% transparent"
-            ]
-          },
-          {
-            "name": "CLIPPING",
-            "failures": [],
-            "notes": [
-              "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
-            ]
-          },
-          {
-            "name": "KEY / EDGE CLEANLINESS",
-            "failures": [],
-            "notes": [
-              "no alpha channel -- there is no key to have left behind"
-            ]
-          },
-          {
-            "name": "PLATE CONTENT",
-            "failures": [],
-            "notes": [
-              "no --room given, so nothing was derived. Pass the doc 05 room number."
-            ]
-          }
-        ],
-        "failures": [],
-        "at": "2026-09-05T03:50:17.238Z"
-      },
-      "promoted": false,
-      "recordedAt": "2026-09-05T03:50:17.112Z",
-      "statusNote": "2026-09-05: unused. Returned the existing contact again; the accepted hybrid gait uses none of it. Not accepted, preserved."
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
     }
-  ],
-  "promotions": []
+   ],
+   "mask": null,
+   "sourceHash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+   "sourcePath": "art/backgrounds/room-01-stage-road.png",
+   "out": "art/staging/smoke/edit-01.png",
+   "outputHash": "bb5f978c30f1cdfc50ca3eff319b3fba517c2cbaa350ba519f089626eef8de18",
+   "bytes": 1195960,
+   "usage": {
+    "input_tokens": 1530,
+    "input_tokens_details": {
+     "image_tokens": 1508,
+     "text_tokens": 22
+    },
+    "output_tokens": 1756,
+    "output_tokens_details": {
+     "image_tokens": 1756,
+     "text_tokens": 0
+    },
+    "total_tokens": 3286
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T07:12:41.699Z",
+   "assetId": "smoke-test-card",
+   "subject": "api-smoke-test",
+   "gates": {
+    "path": "art/staging/smoke/edit-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T07:12:41.814Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T07:12:41.700Z"
+  },
+  {
+   "attempt": 3,
+   "operation": "generate",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null,
+    "background": null
+   },
+   "prompt": "A flat neutral grey test card. A single thin white horizontal line across the middle. No text, no lettering, no objects, no texture.",
+   "promptFile": null,
+   "promptHash": "05e30b4713b72ca8212687b92821bbf355243caa0d2b91c72071b98a6010f81e",
+   "references": [],
+   "out": "art/staging/smoke/generate-01.png",
+   "outputHash": "2c60c1d68a48bbdfc9b0d593d361f0e98f6fcdd7db1a3b7ccf870944e306a963",
+   "bytes": 822771,
+   "usage": {
+    "input_tokens": 35,
+    "input_tokens_details": {
+     "image_tokens": 0,
+     "text_tokens": 35
+    },
+    "output_tokens": 196,
+    "output_tokens_details": {
+     "image_tokens": 196,
+     "text_tokens": 0
+    },
+    "total_tokens": 231
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T07:13:03.989Z",
+   "assetId": "smoke-test-card",
+   "subject": "api-smoke-test",
+   "gates": {
+    "path": "art/staging/smoke/generate-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T07:13:04.111Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T07:13:03.990Z"
+  },
+  {
+   "attempt": 4,
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": "Return this scene with the sky replaced by flat neutral grey. Change nothing else.",
+   "promptFile": null,
+   "promptHash": "ec4454920b1193764e0f5cd31b42264732a113e703e74195fbfb513dc4b9ecd4",
+   "references": [
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+    }
+   ],
+   "mask": null,
+   "sourceHash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+   "sourcePath": "art/backgrounds/room-01-stage-road.png",
+   "out": "art/staging/smoke/edit-01.png",
+   "outputHash": "f695604d14a0cf5bdc7306b850b121e710975e6130b98bdc3e5c8b0053b87135",
+   "bytes": 1238535,
+   "usage": {
+    "input_tokens": 1530,
+    "input_tokens_details": {
+     "image_tokens": 1508,
+     "text_tokens": 22
+    },
+    "output_tokens": 781,
+    "output_tokens_details": {
+     "image_tokens": 781,
+     "text_tokens": 0
+    },
+    "total_tokens": 2311
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T07:13:31.850Z",
+   "assetId": "smoke-test-card",
+   "subject": "api-smoke-test",
+   "gates": {
+    "path": "art/staging/smoke/edit-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T07:13:31.951Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T07:13:31.850Z"
+  },
+  {
+   "attempt": 1,
+   "role": "composition-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/composition-master.txt",
+   "promptHash": "3b9603a30ce3e4f5d2f4a3d5168835cd1b34e13bf502be7cc9ab217aa96bafd3",
+   "references": [
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "composition-master",
+    "pendingAcknowledged": [
+     "E: Winnie -- The assay office is her room and no approved casting reference for her exists anywhere in the repository. reference/casting/ holds the coach, the driver and Hob. E is UNSATISFIED for Room 5 until she is cast. (docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
+    ],
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+   "sourcePath": "renders/room-01-in-engine-1920x1080.png",
+   "out": "art/staging/room-05/composition-master-01.png",
+   "outputHash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+   "bytes": 2441980,
+   "usage": {
+    "input_tokens": 6056,
+    "input_tokens_details": {
+     "image_tokens": 5484,
+     "text_tokens": 572
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 7428
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T15:49:25.154Z",
+   "assetId": "room-05-composition-master",
+   "subject": "room-05-assay-office",
+   "gates": {
+    "path": "art/staging/room-05/composition-master-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T15:49:25.344Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T15:49:25.170Z",
+   "rejected": true,
+   "rejectedBy": "Tyler",
+   "rejectedWhy": "REJECTED AS VISUAL ANCESTRY by Tyler: too smooth, realistic and finely rendered against the approved Room 1 / Thad vocabulary; characters not of the same game as Thad; daylight windows unverified against canon. PRESERVED AS COMPOSITION DIAGNOSTIC ONLY -- its layout may inform the corrected master; its rendering may not."
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/winnie-canonical.txt",
+   "promptHash": "1fcc2c98974b93f5ec3c6b518a98a54bbb2d547a8cdd2a6a48d664607bfdd20a",
+   "references": [
+    {
+     "path": "art/staging/room-05/composition-master-01.png",
+     "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "character",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie)",
+      "path": "art/staging/room-05/composition-master-01.png",
+      "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+   "sourcePath": "art/staging/room-05/composition-master-01.png",
+   "out": "art/staging/room-05/winnie-canonical-01.png",
+   "outputHash": "707e48b94821bd95c6780429f578e61607a3d1cb75c3d415fecb407c2e615b74",
+   "bytes": 1309303,
+   "usage": {
+    "input_tokens": 7286,
+    "input_tokens_details": {
+     "image_tokens": 7020,
+     "text_tokens": 266
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 7629
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T15:51:20.187Z",
+   "assetId": "winnie",
+   "subject": "winnie",
+   "gates": {
+    "path": "art/staging/room-05/winnie-canonical-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T15:51:20.340Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T15:51:20.188Z",
+   "rejected": true,
+   "rejectedBy": "Tyler",
+   "rejectedWhy": "Derives from the rejected master (attempt 5). Preserved and counted; NOT canonical ancestry. Do not derive from it."
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/clean-plate.txt",
+   "promptHash": "5d89ed6ce203af417fffe4894d7bc5c381bc6fab53a84097a5d43fd0c2bafed6",
+   "references": [
+    {
+     "path": "art/staging/room-05/composition-master-01.png",
+     "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "plate",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie)",
+      "path": "art/staging/room-05/composition-master-01.png",
+      "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+   "sourcePath": "art/staging/room-05/composition-master-01.png",
+   "out": "art/staging/room-05/plate-source-01.png",
+   "outputHash": "0c0ab6f4870449ef009b6c0c81e6a5345e543bdd5fcda638a45fd02ddf06bd00",
+   "bytes": 2349911,
+   "usage": {
+    "input_tokens": 7365,
+    "input_tokens_details": {
+     "image_tokens": 7020,
+     "text_tokens": 345
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 8737
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T15:52:24.961Z",
+   "assetId": "room-05-plate",
+   "subject": "room-05-assay-office",
+   "gates": {
+    "path": "art/staging/room-05/plate-source-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T15:52:25.210Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T15:52:24.962Z",
+   "rejected": true,
+   "rejectedBy": "Tyler",
+   "rejectedWhy": "Derives from the rejected master (attempt 5). Preserved and counted; NOT a candidate. Do not derive from it."
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/winnie-sheet.txt",
+   "promptHash": "90affce7bce9e45ffb294751daf28e61a716e69159cb2d6ccbe788d83887b328",
+   "references": [
+    {
+     "path": "art/staging/room-05/winnie-canonical-01.png",
+     "hash": "707e48b94821bd95c6780429f578e61607a3d1cb75c3d415fecb407c2e615b74",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/composition-master-01.png",
+     "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "character",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie)",
+      "path": "art/staging/room-05/composition-master-01.png",
+      "hash": "87475a3a940d6ee6782149285d166486e716260bc7eda4dec6a6d60feceeb83d",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "707e48b94821bd95c6780429f578e61607a3d1cb75c3d415fecb407c2e615b74",
+   "sourcePath": "art/staging/room-05/winnie-canonical-01.png",
+   "out": "art/staging/room-05/winnie-sheet-01.png",
+   "outputHash": "837652e8578aeefb516867276e10f2528a760eddc39f9a062e7804be5f97181b",
+   "bytes": 1538936,
+   "usage": {
+    "input_tokens": 8856,
+    "input_tokens_details": {
+     "image_tokens": 8556,
+     "text_tokens": 300
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 9199
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T15:53:32.126Z",
+   "assetId": "winnie",
+   "subject": "winnie",
+   "derivedFrom": 1,
+   "gates": {
+    "path": "art/staging/room-05/winnie-sheet-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T15:53:32.310Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T15:53:32.128Z",
+   "rejected": true,
+   "rejectedBy": "Tyler",
+   "rejectedWhy": "Derives from the rejected master (attempt 5). Preserved and counted; NOT canonical ancestry. Do not derive from it."
+  },
+  {
+   "attempt": 2,
+   "role": "composition-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/composition-master-02.txt",
+   "promptHash": "3d4ddd366b307bb374f8d45914e1435d480b8a33d49eba3a11a1b22c9131b877",
+   "references": [
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "composition-master",
+    "pendingAcknowledged": [
+     "E: Winnie -- The composition master she was first drawn in (composition-master-01) was REJECTED by Tyler as visual ancestry. She must be re-cast from a corrected master that is anchored to the approved Room 1 / Thad rendering. E is unsatisfied until that master exists. (docs/36-issue-list.md::Q22 · ROOM 5's CHARACTER HAS NEVER BEEN CAST)"
+    ],
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Room 1 cast -- the rendering anchor)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+   "sourcePath": "reference/casting/room-01-casting-master.png",
+   "out": "art/staging/room-05/composition-master-02.png",
+   "outputHash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+   "bytes": 2045912,
+   "usage": {
+    "input_tokens": 7685,
+    "input_tokens_details": {
+     "image_tokens": 6992,
+     "text_tokens": 693
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 9057
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T16:17:34.559Z",
+   "assetId": "room-05-composition-master",
+   "subject": "room-05-assay-office",
+   "gates": {
+    "path": "art/staging/room-05/composition-master-02.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T16:17:34.724Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T16:17:34.561Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: composition/casting master 02 — accepted as visual ancestry (reference, never a shipping plate). Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
+  },
+  {
+   "attempt": 3,
+   "role": "canonical-design",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/winnie-sheet-02.txt",
+   "promptHash": "14637709b9d450576de8890007106b7ae1e2e398288f15b9d12311cb37ef3594",
+   "references": [
+    {
+     "path": "art/staging/room-05/composition-master-02.png",
+     "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "character",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Room 1 cast -- the rendering anchor)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie)",
+      "path": "art/staging/room-05/composition-master-02.png",
+      "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+   "sourcePath": "art/staging/room-05/composition-master-02.png",
+   "out": "art/staging/room-05/winnie-canonical-02.png",
+   "outputHash": "94e73f0af03c4651be4b84adc9d907ced3f5744072bef3f9bdc86aa64ac4f6ea",
+   "bytes": 1290424,
+   "usage": {
+    "input_tokens": 8907,
+    "input_tokens_details": {
+     "image_tokens": 8528,
+     "text_tokens": 379
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 9250
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T16:19:18.990Z",
+   "assetId": "winnie",
+   "subject": "winnie",
+   "gates": {
+    "path": "art/staging/room-05/winnie-canonical-02.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T16:19:19.135Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T16:19:18.992Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: Winnie's canonical design, and everything derived from it by tools/rig: the behind-counter sheet winnie-02-counter/winnie-counter-sheet.png (0f3a0423fe4c), its night relights (-night-lift, -night-lamp) and the ink stand prop and its relights. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
+  },
+  {
+   "attempt": 2,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/clean-plate-02.txt",
+   "promptHash": "e2cab056558cc2db933f4d95b9ae37840de7c408ed6416fb1949fe3575b63898",
+   "references": [
+    {
+     "path": "art/staging/room-05/composition-master-02.png",
+     "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "plate",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Room 1 cast -- the rendering anchor)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie)",
+      "path": "art/staging/room-05/composition-master-02.png",
+      "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+   "sourcePath": "art/staging/room-05/composition-master-02.png",
+   "out": "art/staging/room-05/plate-source-02.png",
+   "outputHash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+   "bytes": 1988739,
+   "usage": {
+    "input_tokens": 8836,
+    "input_tokens_details": {
+     "image_tokens": 8528,
+     "text_tokens": 308
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 10208
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T16:20:38.343Z",
+   "assetId": "room-05-plate",
+   "subject": "room-05-assay-office",
+   "gates": {
+    "path": "art/staging/room-05/plate-source-02.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T16:20:38.498Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T16:20:38.344Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the DAY plate: plate-02/candidate-1920x864.png (c0afe61efcf6) — ROOM 5 DAY VISUAL CANDIDATE. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/night-plate-01.txt",
+   "promptHash": "bbfca9beb8e6e9d526d789a1a95c758e3ad451edc3dfeeeec558bc9b797a827d",
+   "references": [
+    {
+     "path": "art/staging/room-05/plate-source-02.png",
+     "hash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/composition-master-02.png",
+     "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "plate",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-03-nugget)",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Room 1 cast -- the rendering anchor)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie)",
+      "path": "art/staging/room-05/composition-master-02.png",
+      "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+   "sourcePath": "art/staging/room-05/plate-source-02.png",
+   "out": "art/staging/room-05/plate-source-03-night.png",
+   "outputHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+   "bytes": 1724808,
+   "usage": {
+    "input_tokens": 12154,
+    "input_tokens_details": {
+     "image_tokens": 11516,
+     "text_tokens": 638
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 13526
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-04T21:06:53.808Z",
+   "assetId": "room-05-reserve",
+   "subject": "room-05-assay-office",
+   "state": "night",
+   "editedFrom": "art/staging/room-05/plate-source-02.png",
+   "note": "ROOM 5 NIGHT VISUAL CANDIDATE source. Errata 64: Room 1 night -> Main Street night -> Room 5 night. An edit of the accepted DAY source, lighting only; the DAY candidate stays as ROOM 5 - DAY VISUAL CANDIDATE.",
+   "gates": {
+    "path": "art/staging/room-05/plate-source-03-night.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T21:06:54.009Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T21:06:53.825Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the NIGHT plate as lifted: plate-03-night-lift/candidate-1920x864.png (92e3f8f5b70a), derived from this source by tools/grade/lift-work-area.py; the ungraded plate-03-night stays as its record. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "room-05-lamp",
+   "subject": "hanging-lamp",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-05/prompts/hanging-lamp-01.txt",
+   "promptHash": "404c3dbb73673468b2c2ae006c9664be86966cd846dea235405e700b011af9d6",
+   "references": [
+    {
+     "path": "art/staging/room-05/plate-source-03-night.png",
+     "hash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/plate-source-02.png",
+     "hash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/composition-master-02.png",
+     "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-05-assay-office",
+    "purpose": "plate",
+    "visualType": "interior-institutional",
+    "slots": [
+     {
+      "slot": "A",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "path": "art/backgrounds/room-03-nugget.png",
+      "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "path": "art/staging/room-05/composition-master-02.png",
+      "hash": "f78a4856f3a60d1ec470cb8ebc1f7aeb91e3d00fc539b23d5e80924a587ab482",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+   "out": "art/staging/room-05/lamp-source-01.png",
+   "outputHash": "cc76a6bfaf60ed92842fa5b5185055f168ac9a02cb156e5b42c2d37da4334639",
+   "bytes": 1837976,
+   "usage": null,
+   "usageNote": "NOT CAPTURED. The driver threw on the role check AFTER the API had returned and the file had landed (22:02 UTC), so the response usage object was lost with the process. This row was written from the same request data minutes later: the paths, hashes, prompt hash and output hash are recomputed from the files; the token count for this one operation is unknown and the spend tally undercounts by it.",
+   "state": "night",
+   "editedFrom": "art/staging/room-05/plate-source-03-night.png",
+   "accounting": "POST-PILOT OWNER VISUAL REVISION — +1 IMAGE OPERATION (the autonomous pilot stays 8/8)",
+   "note": "THE HANGING WORK LAMP, owner-ruled canon (Tyler, 2026-09-04): one small plain period oil lamp hung from the brass cage over the ledger. Acquired IN CONTEXT by editing the night source; this image exists to be cut -- the lamp is extracted as a separate RGBA prop drawn over the unchanged DAY and NIGHT plates. The edited room is not a plate.",
+   "recordedLate": true,
+   "gates": {
+    "path": "art/staging/room-05/lamp-source-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-04T22:03:45.362Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-04T22:03:45.257Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-04",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-04: the hanging work lamp as a prop: lamp-01/hanging-lamp-overlay.png (5575e30126f2), its placement, day and night appearance, and the runtime task light. Visual acceptance only: not promoted to shipping; Room 5 awaits Tyler's manual in-game playthrough for gameplay acceptance."
+  },
+  {
+   "attempt": 1,
+   "role": "other",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1536",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/thad/prompts/profile-stride-01.txt",
+   "promptHash": "04c11a2ea8d6c9759df61cc509925cc625d0cc19ecb1ff1ac730132286156a35",
+   "references": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+   "sourcePath": "reference/casting/thad-stand-right-src.png",
+   "out": "art/staging/thad/profile-stride-01.png",
+   "outputHash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
+   "bytes": 1263099,
+   "usage": {
+    "input_tokens": 3386,
+    "input_tokens_details": {
+     "image_tokens": 2720,
+     "text_tokens": 666
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 3729
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T00:33:55.999Z",
+   "assetId": "thad-profile-walk-continuity",
+   "subject": "thad",
+   "roleNote": "A profile STRIDE SOURCE for the rig -- a pose of the approved Family-A identity, whose canonical stills predate this ledger (reference/casting/thad-stand-*-src.png), so it is neither the canonical design nor a ledger-derived state. Owner-authorized, 1/1.",
+   "identityFamily": "A",
+   "familyASources": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+    }
+   ],
+   "authorizedBy": "Tyler, THAD PROFILE WALK -- OWNER-AUTHORIZED GLOBAL CHARACTER ART REVISION (2026-09-05)",
+   "gates": {
+    "path": "art/staging/thad/profile-stride-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1536, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T00:33:56.102Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T00:33:56.003Z",
+   "statusNote": "2026-09-05: superseded. The single stride still fed the four rejected puppet cuts and the rejected intact cut; the accepted hybrid gait uses none of it. Not accepted, preserved."
+  },
+  {
+   "attempt": 1,
+   "role": "other",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/thad/prompts/profile-walk-cycle-01.txt",
+   "promptHash": "83e1c59cbaedebec07631b13598024af2d978502b3a50888800f6acc3d2cec3a",
+   "references": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/thad/profile-stride-01.png",
+     "hash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+   "sourcePath": "reference/casting/thad-stand-right-src.png",
+   "out": "art/staging/thad/profile-walk-cycle-01.png",
+   "outputHash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
+   "bytes": 1476443,
+   "usage": {
+    "input_tokens": 5240,
+    "input_tokens_details": {
+     "image_tokens": 4256,
+     "text_tokens": 984
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 6612
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T02:44:48.363Z",
+   "assetId": "thad-profile-walk-cycle-authoring",
+   "subject": "thad",
+   "roleNote": "A WALK-CYCLE SHEET of the approved Family-A identity: six complete sequential right-facing walking poses, to be cropped as whole runtime frames (tools/rig/cut-cycle-sheet.py) and never puppet-rigged. Owner-authorized, 1/1, separate from thad-profile-walk-continuity.",
+   "identityFamily": "A",
+   "familyASources": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+    }
+   ],
+   "poseReference": {
+    "path": "art/staging/thad/profile-stride-01.png",
+    "hash": "6de3c11f8e9facb65cc238219e1223b5d7c6c72a2f5728bb0d0e2d047e8f495b",
+    "note": "movement/pose reference only; Family A wins any conflict"
+   },
+   "authorizedBy": "Tyler, THAD PROFILE WALK -- AUTHORED WHOLE-BODY WALK-CYCLE PASS (2026-09-05)",
+   "gates": {
+    "path": "art/staging/thad/profile-walk-cycle-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T02:44:48.476Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T02:44:48.375Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-05",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-05: THAD HYBRID PROFILE GAIT VISUALLY APPROVED at deployed 3797684. This sheet is an accepted SOURCE of the frozen gait: poses 1, 2 and 3 are the upper bodies of frames 1, 2, 3 and 6 and pose 1 is the legs of every frame (tools/rig/hybrid-walk.py). Not promoted by staging.mjs -- the sheet is reference material by construction; what ships is derived from it into art/actors/thad-walk-right and -left."
+  },
+  {
+   "attempt": 1,
+   "role": "other",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/thad/prompts/profile-walk-opposite-half-01.txt",
+   "promptHash": "b715fe4f336428f01f929bacb2ab41bab01331fd9182ab4c8d63889049e354ea",
+   "references": [
+    {
+     "path": "art/staging/thad/profile-walk-cycle-01.png",
+     "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
+   "sourcePath": "art/staging/thad/profile-walk-cycle-01.png",
+   "out": "art/staging/thad/profile-walk-opposite-half-01.png",
+   "outputHash": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2",
+   "bytes": 1396190,
+   "usage": {
+    "input_tokens": 5503,
+    "input_tokens_details": {
+     "image_tokens": 4256,
+     "text_tokens": 1247
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 5846
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T03:30:48.409Z",
+   "assetId": "thad-profile-walk-opposite-half",
+   "subject": "thad",
+   "roleNote": "THE OPPOSITE HALF of the authored profile walk: about three complete right-facing poses (far leg forward, near arm forward) completing profile-walk-cycle-01.png, to be cropped as whole runtime frames (tools/rig/cut-cycle-sheet.py) and never puppet-rigged. Owner-authorized, 1/1, separate from thad-profile-walk-continuity and thad-profile-walk-cycle-authoring.",
+   "identityFamily": "A",
+   "familyASources": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+    }
+   ],
+   "movementFamilyAuthority": {
+    "path": "art/staging/thad/profile-walk-cycle-01.png",
+    "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
+    "note": "the approved first-half sheet, transmitted first as the image edited: the movement family these poses complete"
+   },
+   "authorizedBy": "Tyler, THAD PROFILE WALK -- COMPLETE THE MISSING OPPOSITE HALF-CYCLE (2026-09-05)",
+   "gates": {
+    "path": "art/staging/thad/profile-walk-opposite-half-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T03:30:48.573Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T03:30:48.431Z",
+   "visual_accepted": true,
+   "acceptedBy": "Tyler",
+   "acceptedOn": "2026-09-05",
+   "acceptedNote": "OWNER VISUAL RULING 2026-09-05: THAD HYBRID PROFILE GAIT VISUALLY APPROVED at deployed 3797684. Poses 2 and 3 of this sheet are the upper bodies of frames 4 and 5 of the frozen gait; pose 1 is unused. Not promoted by staging.mjs; reference material derived from, never shipped whole."
+  },
+  {
+   "attempt": 1,
+   "role": "other",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/thad/prompts/profile-walk-opposite-contact-01.txt",
+   "promptHash": "0202b05c72547592fa408693aac57d88148f95124fbcfd08da5bb03ad300a9e3",
+   "references": [
+    {
+     "path": "reference/pose/thad-opposite-contact-guide.png",
+     "hash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/thad/profile-walk-cycle-01.png",
+     "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/thad/profile-walk-opposite-half-01.png",
+     "hash": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2",
+     "transmitted": true
+    },
+    {
+     "path": "reference/pose/thad-contact-do-not-copy-vs-target.png",
+     "hash": "867f0fb3b18dbaf3b67b42009fd8e1829c8e65a060d3dd23f8625cfd3291632a",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
+   "sourcePath": "reference/pose/thad-opposite-contact-guide.png",
+   "out": "art/staging/thad/profile-walk-opposite-contact-01.png",
+   "outputHash": "3e6dd52140ca00e5e2535d927b12b7d18b07540e51432785a7be4b4cc89e7b90",
+   "bytes": 913909,
+   "usage": {
+    "input_tokens": 7689,
+    "input_tokens_details": {
+     "image_tokens": 6856,
+     "text_tokens": 833
+    },
+    "output_tokens": 196,
+    "output_tokens_details": {
+     "image_tokens": 196,
+     "text_tokens": 0
+    },
+    "total_tokens": 7885
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T03:50:16.698Z",
+   "assetId": "thad-profile-walk-opposite-contact",
+   "subject": "thad",
+   "roleNote": "ONE complete right-facing figure in the OPPOSITE CONTACT of the profile walk (far leg forward, near arm forward), posed from a deterministic guide image, to be cropped whole as one runtime frame. Owner-authorized, 1/1, separate from the three earlier Thad operations.",
+   "identityFamily": "A",
+   "poseGuide": {
+    "path": "reference/pose/thad-opposite-contact-guide.png",
+    "hash": "1cb3470eadb07e1bd871636ec7b043b20cc45fb9d4fcf9ae54bfad862fe148ba",
+    "note": "pose geometry authority; the image edited"
+   },
+   "doNotCopy": {
+    "path": "reference/pose/thad-contact-do-not-copy-vs-target.png",
+    "hash": "867f0fb3b18dbaf3b67b42009fd8e1829c8e65a060d3dd23f8625cfd3291632a",
+    "note": "the shipping contact beside the target guide"
+   },
+   "movementFamilyAuthority": {
+    "path": "art/staging/thad/profile-walk-cycle-01.png",
+    "hash": "17583a32c7329218c1130193bdbbb6b8cd64b8c1f3933811989cffde62dcfc8a"
+   },
+   "renderingReference": {
+    "path": "art/staging/thad/profile-walk-opposite-half-01.png",
+    "hash": "4b0373d601286bf3d5e79e39d073e39825407b9f381bfa5f6d8651f3ae8de8a2"
+   },
+   "familyASources": [
+    {
+     "path": "reference/casting/thad-stand-right-src.png",
+     "hash": "809d9e4e3cafb43839871a3e8a49ec43179dedbf63e00899a129674f72a3ba12"
+    },
+    {
+     "path": "reference/casting/thad-stand-front-src.png",
+     "hash": "cd23424f8b7955712fd245e39bbbaa790f3aa51ef82ec08c278a41558935ecc8"
+    },
+    {
+     "path": "reference/casting/thad-stand-back-src.png",
+     "hash": "1ed78059f90efa1053864cfa80c99b4986d667c15b5519606a6b9c6b8289d36f"
+    },
+    {
+     "path": "reference/casting/thad-walk-front-src.png",
+     "hash": "bd1b5943cafd4ceb4b94e1c6a266b10f327c8ea0c51ad7a1f7bb3f65f5f159f0"
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+    }
+   ],
+   "authorizedBy": "Tyler, THAD PROFILE WALK -- ACQUIRE THE ONE MISSING OPPOSITE CONTACT POSE (2026-09-05)",
+   "gates": {
+    "path": "art/staging/thad/profile-walk-opposite-contact-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T03:50:17.238Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T03:50:17.112Z",
+   "statusNote": "2026-09-05: unused. Returned the existing contact again; the accepted hybrid gait uses none of it. Not accepted, preserved."
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/street-west-01.txt",
+   "promptHash": "b89f4450e66d1bdde7b80ec84b0827808135647f0f760af1e3b6e761a91c0b93",
+   "references": [
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "plate",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+   "sourcePath": "reference/casting/room-01-casting-master.png",
+   "out": "art/staging/room-02/street-west-source-01.png",
+   "outputHash": "c75f1a3da47902c20561be6ed2d678afaa88f5f17405e95b046756ea8e2c3aa6",
+   "bytes": 1885682,
+   "usage": {
+    "input_tokens": 9314,
+    "input_tokens_details": {
+     "image_tokens": 8444,
+     "text_tokens": 870
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 10686
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T20:37:21.231Z",
+   "assetId": "main-street-plate",
+   "subject": "room-02-main-street",
+   "panel": "west",
+   "note": "OPENING-SET RETROFIT PHASE 1: Main Street REGENERATE-CANDIDATE, west panel. The current plate stays shipping until Tyler accepts a candidate.",
+   "gates": {
+    "path": "art/staging/room-02/street-west-source-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T20:37:21.368Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T20:37:21.236Z"
+  },
+  {
+   "attempt": 2,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/street-east-01.txt",
+   "promptHash": "a26c06c6b77d652c50be081aeb4eae0cd5ca0a25898b4493f3d57a49b36417de",
+   "references": [
+    {
+     "path": "art/staging/room-02/street-east-01/outpaint-canvas.png",
+     "hash": "e0f83ed94c4e13f0147d9c57b58dd55454f5dc7465257e4829b055afdf691675",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "plate",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-02/street-east-01/outpaint-mask.png",
+    "hash": "1c6fcd2e0c2de58dcfe885009c1520c023b0dfba4ec4ee08f658c8d8bee8137c"
+   },
+   "sourceHash": "e0f83ed94c4e13f0147d9c57b58dd55454f5dc7465257e4829b055afdf691675",
+   "sourcePath": "art/staging/room-02/street-east-01/outpaint-canvas.png",
+   "out": "art/staging/room-02/street-east-source-01.png",
+   "outputHash": "84a10929723feba96136b35d6ae7ecbd7fa4acefc9eee2ee5f41d693975a5522",
+   "bytes": 1939391,
+   "usage": {
+    "input_tokens": 10449,
+    "input_tokens_details": {
+     "image_tokens": 9980,
+     "text_tokens": 469
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 11821
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T20:38:33.337Z",
+   "assetId": "main-street-plate",
+   "subject": "room-02-main-street",
+   "panel": "east",
+   "continues": "art/staging/room-02/street-west-source-01.png",
+   "note": "OPENING-SET RETROFIT PHASE 1: Main Street REGENERATE-CANDIDATE, east panel, outpainted from the west source under a mask.",
+   "gates": {
+    "path": "art/staging/room-02/street-east-source-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T20:38:33.448Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T20:38:33.339Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/clean-plate-01.txt",
+   "promptHash": "b78910d542c4e668f80b8996a9257bc8ff8e7a01ea8d76bee64d16bc17136cc0",
+   "references": [
+    {
+     "path": "art/backgrounds/room-03-nugget.png",
+     "hash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "plate",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+   "sourcePath": "art/backgrounds/room-03-nugget.png",
+   "out": "art/staging/room-03/clean-plate-source-01.png",
+   "outputHash": "80549d9f2f195d88dd0383915b5bdf947acfe7d65a1266978dc753b44add6bf1",
+   "bytes": 2202702,
+   "usage": {
+    "input_tokens": 8948,
+    "input_tokens_details": {
+     "image_tokens": 8500,
+     "text_tokens": 448
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 10320
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T20:40:10.759Z",
+   "assetId": "nugget-plate",
+   "subject": "room-03-nugget",
+   "editedFrom": "art/backgrounds/room-03-nugget.png",
+   "note": "OPENING-SET RETROFIT PHASE 1: Nugget REGENERATE-CANDIDATE, the clean people-free plate, an edit of the shipping plate. The shipping plate stays until Tyler accepts a candidate.",
+   "gates": {
+    "path": "art/staging/room-03/clean-plate-source-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T20:40:10.859Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T20:40:10.761Z"
+  },
+  {
+   "attempt": 2,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/clean-plate-02.txt",
+   "promptHash": "efd8ff1b87fe8ca0f9bb244d569d0b48cef9eb4cd75ec0e6a8a892fa9bb58816",
+   "references": [
+    {
+     "path": "art/staging/room-03/clean-plate-source-01.png",
+     "hash": "80549d9f2f195d88dd0383915b5bdf947acfe7d65a1266978dc753b44add6bf1",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "plate",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-03/clean-plate-02/edit-mask.png",
+    "hash": "3da67164a52d368d7a5f61bfb36cefa501066136288f302a57dbf17cf76b7ec2"
+   },
+   "sourceHash": "80549d9f2f195d88dd0383915b5bdf947acfe7d65a1266978dc753b44add6bf1",
+   "sourcePath": "art/staging/room-03/clean-plate-source-01.png",
+   "out": "art/staging/room-03/clean-plate-source-02.png",
+   "outputHash": "a31ca89982fc7a98018aed21c7c33d8417df3c9ff4dd4ebdeede8fad60e255e4",
+   "bytes": 2135353,
+   "usage": {
+    "input_tokens": 8756,
+    "input_tokens_details": {
+     "image_tokens": 8528,
+     "text_tokens": 228
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 10128
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T20:43:23.593Z",
+   "assetId": "nugget-plate",
+   "subject": "room-03-nugget",
+   "editedFrom": "art/staging/room-03/clean-plate-source-01.png",
+   "note": "OPENING-SET RETROFIT PHASE 1: Nugget clean plate, refinement 2 of 2 -- the handbill and the back-room door restored under a mask; concrete defect in attempt 1.",
+   "gates": {
+    "path": "art/staging/room-03/clean-plate-source-02.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T20:43:23.699Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T20:43:23.596Z"
+  }
+ ],
+ "promotions": [
+  {
+   "assetId": "room-05-reserve",
+   "attempt": 1,
+   "from": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "derivedFrom": "art/staging/room-05/plate-source-03-night.png",
+   "provenance": "art/staging/room-05/plate-03-night-lift/grade.json",
+   "to": "art/backgrounds/room-05-assay-office.png",
+   "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+   "sourceHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+   "replacedHash": "434550b40266c2dd06d481aa2eb3c82bc7b27e42372798a74296a03d8f24413f",
+   "acceptedBy": "Tyler, visual rulings 2026-09-04 (plate, night, lamp, Winnie) and 2026-09-05 (floorboard C); gameplay Act I 2026-09-05",
+   "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
+   "at": "2026-09-05T20:32:44.459Z"
+  },
+  {
+   "assetId": "winnie",
+   "attempt": 3,
+   "from": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
+   "derivedFrom": "art/staging/room-05/winnie-canonical-02.png",
+   "provenance": "art/staging/room-05/winnie-02-counter/frames.json",
+   "to": "art/actors/winnie-counter-sheet.png",
+   "hash": "cd2f4c4fd151998956b4122f3041a0b253673a46b9dc7ac50785294c3a07ccca",
+   "sourceHash": "94e73f0af03c4651be4b84adc9d907ced3f5744072bef3f9bdc86aa64ac4f6ea",
+   "replacedHash": null,
+   "acceptedBy": "Tyler, visual rulings 2026-09-04 (plate, night, lamp, Winnie) and 2026-09-05 (floorboard C); gameplay Act I 2026-09-05",
+   "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
+   "at": "2026-09-05T20:32:44.533Z"
+  },
+  {
+   "assetId": "winnie",
+   "attempt": 3,
+   "from": "art/staging/room-05/winnie-02-counter/inkstand-night-lamp.png",
+   "derivedFrom": "art/staging/room-05/winnie-canonical-02.png",
+   "provenance": "art/staging/room-05/winnie-02-counter/frames.json",
+   "to": "art/objects/room-05/inkstand.png",
+   "hash": "502f042d2c744b10152eb8ccd43777bf03a1e7f24b70e00f97e3b4d61ac1dc1e",
+   "sourceHash": "94e73f0af03c4651be4b84adc9d907ced3f5744072bef3f9bdc86aa64ac4f6ea",
+   "replacedHash": null,
+   "acceptedBy": "Tyler, visual rulings 2026-09-04 (plate, night, lamp, Winnie) and 2026-09-05 (floorboard C); gameplay Act I 2026-09-05",
+   "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
+   "at": "2026-09-05T20:32:44.536Z"
+  },
+  {
+   "assetId": "room-05-lamp",
+   "attempt": 1,
+   "from": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+   "derivedFrom": "art/staging/room-05/lamp-source-01.png",
+   "provenance": "art/staging/room-05/lamp-01/lamp.json",
+   "to": "art/objects/room-05/hanging-lamp-overlay.png",
+   "hash": "5575e30126f27228b4b15f4175bec1a23cf4ec55d40a443761c82a85033e5368",
+   "sourceHash": "cc76a6bfaf60ed92842fa5b5185055f168ac9a02cb156e5b42c2d37da4334639",
+   "replacedHash": null,
+   "acceptedBy": "Tyler, visual rulings 2026-09-04 (plate, night, lamp, Winnie) and 2026-09-05 (floorboard C); gameplay Act I 2026-09-05",
+   "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
+   "at": "2026-09-05T20:32:44.543Z"
+  },
+  {
+   "assetId": "room-05-reserve",
+   "attempt": 1,
+   "from": "art/staging/room-05/floorboard/board-rest-c-night.png",
+   "derivedFrom": "art/staging/room-05/plate-source-03-night.png",
+   "provenance": "art/staging/room-05/floorboard/floorboard.json",
+   "to": "art/objects/room-05/board-rest-c.png",
+   "hash": "f20b65e2d7d449732e7265e974cb08101f193ef4c523f4a571a94fefd9ae9757",
+   "sourceHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+   "replacedHash": null,
+   "acceptedBy": "Tyler, visual rulings 2026-09-04 (plate, night, lamp, Winnie) and 2026-09-05 (floorboard C); gameplay Act I 2026-09-05",
+   "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
+   "at": "2026-09-05T20:32:44.545Z"
+  },
+  {
+   "assetId": "room-05-reserve",
+   "attempt": 1,
+   "from": "art/staging/room-05/floorboard/board-pressed-night.png",
+   "derivedFrom": "art/staging/room-05/plate-source-03-night.png",
+   "provenance": "art/staging/room-05/floorboard/floorboard.json",
+   "to": "art/objects/room-05/board-pressed.png",
+   "hash": "a9695b3f2d9fbfb7e2df65b7aace7e1622383a77a92f229582a9c953722cb9e7",
+   "sourceHash": "5ea39bd8201e12797b0244658532907047661b11a9132e9dc41019e7a9e6e0b5",
+   "replacedHash": null,
+   "acceptedBy": "Tyler, visual rulings 2026-09-04 (plate, night, lamp, Winnie) and 2026-09-05 (floorboard C); gameplay Act I 2026-09-05",
+   "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
+   "at": "2026-09-05T20:32:44.548Z"
+  },
+  {
+   "assetId": "room-05-plate",
+   "attempt": 2,
+   "from": "art/staging/room-05/mask-plane-1.png",
+   "derivedFrom": "art/staging/room-05/plate-source-02.png",
+   "provenance": "reference/room-05/annotation.json",
+   "to": "art/masks/room-05-plane-1.png",
+   "hash": "8655afd5fe6a4bdb1df009e2a5d2f2db3ac54ee88562fb546a1c16cec5a4fa99",
+   "sourceHash": "a80140dcfa4714f65de08dba0bcc6e868346ca917f64c9511604d17b5ca6ac35",
+   "replacedHash": null,
+   "acceptedBy": "Tyler, visual rulings 2026-09-04 (plate, night, lamp, Winnie) and 2026-09-05 (floorboard C); gameplay Act I 2026-09-05",
+   "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
+   "at": "2026-09-05T20:32:44.551Z"
+  }
+ ]
 }

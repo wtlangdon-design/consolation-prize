@@ -343,7 +343,17 @@
    "amount": 0.09,
    "rate": 0.19,
    "phase": 0.0,
-   "note": "The Nugget’s open doors, the brightest thing on the street."
+   "note": "The Nugget’s open doors, the brightest thing on the street.",
+   "movers": {
+    "strength": 0.32,
+    "colour": [
+     255,
+     176,
+     90
+    ],
+    "reach": 1.4
+   },
+   "moversNote": "THE LIGHT ON THE PEOPLE (doc 36 Q116): a mover whose feet stand in this pool is flat-tinted toward the pool's colour by the strength times a square falloff. Declared on the SHIPPING plate's lamps so the mechanism is proved live; the replacement plate re-declares its own."
   },
   {
    "id": "office_lantern",
@@ -355,7 +365,17 @@
    "amount": 0.11,
    "rate": 0.33,
    "phase": 0.51,
-   "note": "The lantern hung for the map seller. A single flame, so it moves more than a doorway."
+   "note": "The lantern hung for the map seller. A single flame, so it moves more than a doorway.",
+   "movers": {
+    "strength": 0.26,
+    "colour": [
+     255,
+     170,
+     84
+    ],
+    "reach": 1.4
+   },
+   "moversNote": "THE LIGHT ON THE PEOPLE (doc 36 Q116): a mover whose feet stand in this pool is flat-tinted toward the pool's colour by the strength times a square falloff. Declared on the SHIPPING plate's lamps so the mechanism is proved live; the replacement plate re-declares its own."
   },
   {
    "id": "company_windows",
@@ -410,7 +430,7 @@
     "mask": "art/masks/room-02-plane-1.png",
     "note": "The near corner alone -- the lumber stack and the wagon wheel. An actor in the near mud is masked by this and by nothing else, so he passes BEHIND the woodpile and IN FRONT of the trough, which is the point of having two planes rather than one flat overlay.",
     "maskPending": true,
-    "maskPendingIssue": "docs/36-issue-list.md::Q20 \u00b7 BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS",
+    "maskPendingIssue": "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS",
     "maskPendingNote": "THE MASK DOES NOT DESCRIBE THIS PLATE. Found by rendering it over the background and looking, which is the only way it could have been found: the shapes are well-formed, they sit in plausible places, and every geometric test passes on them -- check-occlusion measures 31% of the drawn figure covered at the proof point below, which is a real overlap with a shape that is not in the picture.\n\nMEASURED. The mask is 320x144 -- errata 54's voided presentation, doc 36 Q17 -- and `Renderer.masked` stretches it to the room's 3700x864, which is a defined behaviour and not the same as authoring it at room resolution. Stretched, plane 1 draws a WAGON WHEEL with eight spokes and a slab beside it across x0-940 of the near mud. The plate there is open mud: no wheel, no lumber, nothing. Panel C of the room proof shows a man standing in the middle of it, drawn whole, with nothing to be behind.\n\nI GOT THIS WRONG ONCE AND THE WAY I GOT IT WRONG IS THE WARNING. Reading the overlay, I took the wheel the MASK draws for a wheel in the PLATE and recorded that plane 1 'traces the wheel's spokes exactly'. It traces its own. A mask rendered over a background looks like a highlighted object whether or not there is an object there, and only turning the mask off answers it.\n\nWHILE THIS IS TRUE THE RENDERER SKIPS THE PLANE and draws straight through -- which is what it did anyway when every box said clipPlane 12, so nothing regresses. Regenerating both masks at 3700x864 against the current plate is art, and Tyler's."
    },
    {
@@ -418,7 +438,7 @@
     "mask": "art/masks/room-02-plane-2.png",
     "note": "Plane 1 plus the hitching rail and the water trough. CONTAINS plane 1 on purpose: doc 22 section 5 says an actor is masked by its own plane and not by a union of every plane, so each level has to carry everything nearer than the actors assigned to it. An actor in the middle band or further is behind all of it.",
     "maskPending": true,
-    "maskPendingIssue": "docs/36-issue-list.md::Q20 \u00b7 BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS",
+    "maskPendingIssue": "docs/36-issue-list.md::Q20 · BOTH OF MAIN STREET'S OCCLUSION MASKS DESCRIBE A STREET THAT NO LONGER EXISTS",
     "maskPendingNote": "THE MASK IS STALE AND DOES NOT DESCRIBE THIS PLATE. Found by rendering it over the background and looking, which is the only way it could have been found: the shapes are well-formed, they are in plausible places, and every geometric test passes on them.\n\nMEASURED. The mask is 320x144 -- errata 54's voided presentation, doc 36 Q17 -- and `Renderer.masked` stretches it to the room's 3700x864, which is a defined behaviour and not the same as authoring it at room resolution. Stretched, plane 2 adds two regions beyond plane 1's corner: x1110-1640 in the middle band, which is a HITCHING RAIL, two posts and a crossbar, drawn precisely -- and there is no hitching rail in the plate there; and x2480-2930, a plain rectangle over open mud in front of the saloon. Neither touches the water trough at x1862-2017 y543-605, which this plane's own note says it contains. It was authored against an earlier, narrower Main Street.\n\nPLANE 1 IS PENDING FOR THE SAME REASON, and was nearly not: its mask draws a wagon wheel over what is open mud in the current plate, and the wheel looked like the plate's until the mask was turned off. Both masks are stale together.\n\nWHILE THIS IS TRUE THE RENDERER SKIPS THE PLANE and draws straight through -- which is what it did anyway when every box said clipPlane 12, so nothing regresses. Activating a stale mask would be worse than the inert state it replaces: an actor in the middle of the street would be erased from the knees down by a rail that is not drawn. Regenerating it at 3700x864 against the current plate is art, and Tyler's."
    }
   ],

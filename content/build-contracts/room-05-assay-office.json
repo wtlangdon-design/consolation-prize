@@ -36,7 +36,7 @@
     "proofs/room-05/gate-matrix.md",
     "proofs/readiness/room-05.json",
     "proofs/room-05/time-of-day-audit.md",
-    "docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS"
+    "docs/00-errata.md::64 \u00b7 ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE \u2014 OWNER RULINGS"
    ],
    "note": "Which acts visit, what changes per act, entered from a NIGHT street: the time-of-day audit was run AFTER the day candidate and cost the night plate; v2 asks it before art."
   },
@@ -53,7 +53,7 @@
    "evidence": [
     "art/staging/ledger.json",
     "docs/52-thad-continuity-spec.md",
-    "docs/36-issue-list.md::Q107 · Thad is two drawings, walks at one screen speed whatever his size, and glances aside in somebody else's body",
+    "docs/36-issue-list.md::Q107 \u00b7 Thad is two drawings, walks at one screen speed whatever his size, and glances aside in somebody else's body",
     "tools/check-stationary-family.mjs"
    ],
    "exception": "doc 36 Q107 and docs/52: the profile chore clips (use-near, give-offer, shrug, pickup-low, carry, alight/aboard-coach, lookup) remain an unrecorded hand-transformed family -- continuity debt, owner-acknowledged, and not used by any Act I Room 5 action.",
@@ -83,14 +83,14 @@
     "art/staging/room-05/LAMP.md",
     "proofs/room-05/lamp-placement.json",
     "art/staging/room-05/plate-03-night-lift/grade.json",
-    "docs/00-errata.md::64 · ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE — OWNER RULINGS"
+    "docs/00-errata.md::64 \u00b7 ACT I MAIN STREET IS NIGHT, AND ROOM 5 INHERITS THE STREET'S STATE \u2014 OWNER RULINGS"
    ],
    "note": "A night state derived from the same composition; a hanging work lamp as the task light by night (owner ruling); the work-area lift; Winnie and the stand relit per state."
   },
   "cluePerceptibility": {
    "status": "PASS",
    "evidence": [
-    "docs/36-issue-list.md::Q108 · The proud floorboard was flush — Tyler could not find the board the writing describes",
+    "docs/36-issue-list.md::Q108 \u00b7 The proud floorboard was flush \u2014 Tyler could not find the board the writing describes",
     "proofs/room-05/floorboard.json",
     "tests/floorboard.test.ts"
    ],
@@ -102,7 +102,7 @@
     "cmd:node tools/compile-room.mjs 5 --check",
     "cmd:node tools/check-room-readiness.mjs 5",
     "proofs/readiness/room-05.json",
-    "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN"
+    "docs/36-issue-list.md::Q24 \u00b7 THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN"
    ],
    "note": "BUILDABLE WITHOUT INVENTION: YES; the compiler carries 71 lines, nothing unhoused after the Q24 rulings."
   },
@@ -136,7 +136,8 @@
    "status": "PASS",
    "evidence": [
     "renders/proofs/assay-office/proof.json",
-    "renders/proofs/assay-office-lamp-night/proof.json"
+    "renders/proofs/assay-office-lamp-night/proof.json",
+    "renders/proofs/assay-office-shipping/proof.json"
    ]
   },
   "lifeProof": {
@@ -161,7 +162,7 @@
     "proofs/room-05/deployed-check.json",
     "renders/proofs/stage-road/proof.json"
    ],
-   "exception": "docs/36-issue-list.md::Q24 · THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN -- check-flag-order stays red on ACT and T_RACCOON_NAMED, global content debt ruled out of Room 5's scope (2026-09-04).",
+   "exception": "docs/36-issue-list.md::Q24 \u00b7 THREE ROOM 5 REFUSALS HAVE NO HOTSPOT TO LIVE ON, AND THE QUEUE BENCH HAS NO LISTEN -- check-flag-order stays red on ACT and T_RACCOON_NAMED, global content debt ruled out of Room 5's scope (2026-09-04).",
    "note": "typecheck, suite, validators, gauntlet, Room 1 proof, deployed check."
   }
  },
@@ -169,12 +170,13 @@
   {
    "subject": "composition master 02",
    "class": "PLATE",
-   "stage": "OWNER-VISUAL-ACCEPTED",
+   "stage": "ACCEPTED-NOT-SHIPPING",
    "path": "art/staging/room-05/composition-master-02.png",
    "evidence": [
     "art/staging/ledger.json",
     "proofs/room-05/pilot-report.md"
-   ]
+   ],
+   "note": "The ancestor every Room 5 plate derives from; accepted, staged, never shipped as such."
   },
   {
    "subject": "composition master 01",
@@ -188,60 +190,57 @@
   {
    "subject": "DAY plate (plate-02)",
    "class": "PLATE",
-   "stage": "OWNER-VISUAL-ACCEPTED",
+   "stage": "ACCEPTED-NOT-SHIPPING",
    "path": "art/staging/room-05/plate-02/candidate-1920x864.png",
    "evidence": [
     "art/staging/room-05/DAY-CANDIDATE.md",
     "art/staging/ledger.json"
    ],
-   "note": "ROOM 5 -- DAY VISUAL CANDIDATE: the source of composition and geometry, not the Act I shipping state (errata 64b)."
+   "note": "ROOM 5 -- DAY VISUAL CANDIDATE: the source of composition and geometry, not the Act I shipping state (errata 64b). Stays staged after promotion by design; the day floorboards are referenced by the annotation as imageByState.day from staging."
   },
   {
    "subject": "NIGHT plate, lifted (plate-03-night-lift)",
    "class": "PLATE",
-   "stage": "GAMEPLAY-ACCEPTED",
-   "path": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-05-assay-office.png",
    "evidence": [
-    "art/staging/room-05/NIGHT-CANDIDATE.md",
+    "proofs/room-05/promotion.json",
+    "art/staging/ledger.json",
     "proofs/room-05/act1.json"
-   ]
+   ],
+   "note": "PROMOTED 2026-09-05 (phase 1 of the opening-set retrofit): the night-lift candidate is the shipping plate, byte-identical to the accepted staged file (sha 92e3f8f5b70a...). The legacy 320x144 placeholder moved to art/staging/room-05/legacy/."
   },
   {
    "subject": "Winnie, behind-counter sheet",
    "class": "MOVER",
-   "stage": "GAMEPLAY-ACCEPTED",
-   "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "stage": "SHIPPING",
+   "path": "art/actors/winnie-counter-sheet.png",
    "evidence": [
-    "art/staging/room-05/winnie-02-counter/frames.json",
-    "proofs/room-05/act1.json"
-   ]
-  },
-  {
-   "subject": "Winnie, night relight under the lamp",
-   "class": "MOVER",
-   "stage": "GAMEPLAY-ACCEPTED",
-   "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet-night-lamp.png",
-   "evidence": [
-    "proofs/room-05/lamp-night-winnie-regression.json",
-    "proofs/room-05/act1.json"
-   ]
+    "proofs/room-05/promotion.json",
+    "art/staging/ledger.json",
+    "content/ambient/winnie.json"
+   ],
+   "note": "PROMOTED 2026-09-05: the night-lamp relight is the shipping sheet (night is the Act I presentation)."
   },
   {
    "subject": "the ink stand (pen in / pen out)",
    "class": "PROP",
-   "stage": "GAMEPLAY-ACCEPTED",
-   "path": "art/staging/room-05/winnie-02-counter/inkstand.png",
+   "stage": "SHIPPING",
+   "path": "art/objects/room-05/inkstand.png",
    "evidence": [
+    "proofs/room-05/promotion.json",
+    "art/staging/ledger.json",
     "proofs/room-05/winnie-pen-state.json"
    ]
   },
   {
    "subject": "the hanging work lamp overlay",
    "class": "OVERLAY",
-   "stage": "GAMEPLAY-ACCEPTED",
-   "path": "art/staging/room-05/lamp-01/hanging-lamp-overlay.png",
+   "stage": "SHIPPING",
+   "path": "art/objects/room-05/hanging-lamp-overlay.png",
    "evidence": [
-    "art/staging/room-05/LAMP.md",
+    "proofs/room-05/promotion.json",
+    "art/staging/ledger.json",
     "proofs/room-05/lamp-placement.json"
    ],
    "note": "sameInAllStates: one prop by day and by night; only its runtime light differs."
@@ -249,31 +248,36 @@
   {
    "subject": "the proud floorboard, treatment C, rest and pressed, day and night",
    "class": "STATEFUL",
-   "stage": "GAMEPLAY-ACCEPTED",
-   "path": "art/staging/room-05/floorboard/board-rest-c.png",
+   "stage": "SHIPPING",
+   "path": "art/objects/room-05/board-rest-c.png",
    "evidence": [
-    "art/staging/room-05/FLOORBOARD.md",
+    "proofs/room-05/promotion.json",
+    "art/staging/ledger.json",
     "proofs/room-05/floorboard.json"
-   ]
+   ],
+   "note": "PROMOTED 2026-09-05: night rest and pressed boards ship; the day boards stay staged as the DAY state's imageByState companions (check-state-images PASS)."
   },
   {
    "subject": "counter occlusion mask (cage bars)",
    "class": "MASK",
-   "stage": "LIVE-PROOF",
-   "path": "art/staging/room-05/mask-plane-1.png",
+   "stage": "SHIPPING",
+   "path": "art/masks/room-05-plane-1.png",
    "evidence": [
-    "renders/proofs/assay-office/proof.json"
+    "proofs/room-05/promotion.json",
+    "art/staging/ledger.json",
+    "renders/proofs/assay-office-shipping/proof.json"
    ]
   },
   {
-   "subject": "shipping plate path (legacy 320x144 placeholder)",
+   "subject": "the legacy 320x144 placeholder plate",
    "class": "PLATE",
    "stage": "LEGACY",
-   "path": "art/backgrounds/room-05-assay-office.png",
+   "path": "art/staging/room-05/legacy/room-05-assay-office-320x144-placeholder.png",
    "evidence": [
-    "content/build-ledger.json"
+    "proofs/room-05/promotion.json",
+    "art/staging/ledger.json"
    ],
-   "note": "Overridden by ?candidate= in every proof and playtest URL until the room's logged promotion."
+   "note": "Moved out of the shipping path by the promotion; kept as the record of what shipped before."
   }
  ],
  "acceptance": {
@@ -294,7 +298,7 @@
     "on": "2026-09-05",
     "evidence": [
      "proofs/room-05/act1.json",
-     "docs/36-issue-list.md::Q109 · Room 5 Act I gameplay acceptance pass",
+     "docs/36-issue-list.md::Q109 \u00b7 Room 5 Act I gameplay acceptance pass",
      "content/build-ledger.json"
     ],
     "scope": "Act I behaviour only: entry and re-entry by the real door, night presentation, Winnie loop, WIN_A1/WIN_A2, approach, choice presentation, exits, hotspots and wrong actions, floorboard, Thad, room life. Played on the deployed build at 0376119."
@@ -303,17 +307,22 @@
     "status": "NOT-SUBMITTED",
     "evidence": [
      "renders/proofs/room-05-c5/proof.json",
-     "docs/36-issue-list.md::Q113 · C5 and WIN_B2 built: the submission log shown to Winnie completes C5 and opens the confrontation"
+     "docs/36-issue-list.md::Q113 \u00b7 C5 and WIN_B2 built: the submission log shown to Winnie completes C5 and opens the confrontation"
     ],
     "scope": "BUILT EARLY, preserved, not advanced, not owner-gameplay-accepted. Fixture r5-c is the owner's test."
    }
   },
   "promotion": {
-   "status": "NOT-DONE",
+   "status": "DONE",
+   "by": "claude, on Tyler's phase-1 instruction (opening-set retrofit, 2026-09-05)",
+   "acceptedBy": "Tyler, visual rulings 2026-09-04 and 2026-09-05; gameplay Act I 2026-09-05",
    "evidence": [
-    "content/build-ledger.json"
+    "proofs/room-05/promotion.json",
+    "art/staging/ledger.json",
+    "renders/proofs/assay-office-shipping/proof.json",
+    "tools/check-state-images.mjs"
    ],
-   "note": "Every Room 5 asset is staged; the shipping plate path holds the legacy placeholder. Promotion is a separate, logged step; nothing here performs it."
+   "note": "Seven accepted files promoted by tools/art/staging.mjs promoteDerived, each logged with its source hash; the night presentation is the shipping presentation with NO ?candidate= in the URL. proofs/room-05/promotion.json proves every shipping file byte-identical to its accepted staged file and the shipping proof's panels differing from the candidate proof's only by the lamp flicker phase and Thad's idle frame. No appearance changed."
   }
  },
  "laterStates": [
@@ -330,7 +339,7 @@
    "status": "CONTRACTED-UNBUILT",
    "evidence": [
     "docs/53-assay-office-later-state-contract.md",
-    "docs/00-errata.md::66 · ROOM 5'S LATER STATES — OWNER RULINGS A TO K (2026-09-05), AND DOC 08'S RECORDS-ROOM FLOORBOARD SUPERSEDED"
+    "docs/00-errata.md::66 \u00b7 ROOM 5'S LATER STATES \u2014 OWNER RULINGS A TO K (2026-09-05), AND DOC 08'S RECORDS-ROOM FLOORBOARD SUPERSEDED"
    ]
   },
   {

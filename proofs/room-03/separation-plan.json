@@ -1,0 +1,285 @@
+{
+ "schema": 1,
+ "room": "nugget_candidate",
+ "plate": "art/staging/room-03/clean-plate-02/candidate-1920x864.png",
+ "note": "SEPARATION PLAN FOR THE NUGGET CLEAN-PLATE CANDIDATE (phase 1 \u00a713). Zero people are baked into this plate; every person the room needs is listed below as a zone for a separate actor. Nothing is cut yet; every rect is in the plate's 1920x864 space.",
+ "bakedArchitecture": [
+  "the street wall with the batwing doors (40-300) and the window (375-500); the door lamp between them, painted lit",
+  "the far wall: the piano (505-705), the empty card table and its four chairs (720-1080), the portrait (968-1048), the stove and its pipe (1058-1128), the back-room door under the landing (1130-1195), the stairs (1200-1420)",
+  "the bar: counter (1205-1920, y 385-830), three stools in front of it, the back bar with its bottles and shelves, the mirror (1560-1890), two wall lamps painted lit",
+  "the chandelier (830-1060), UNLIT, seven cold candles (doc 16)",
+  "the floor, the spittoon (1400-1490 at the frame's foot)",
+  "the blue street through the doors: not a lamp"
+ ],
+ "occluders": [
+  {
+   "id": "stool_1",
+   "rect": [
+    1180,
+    500,
+    90,
+    180
+   ],
+   "plane": 1,
+   "now": "outside the floor",
+   "cutWhen": "plate accepted and the floor extended along the bar"
+  },
+  {
+   "id": "stool_2",
+   "rect": [
+    1330,
+    545,
+    100,
+    195
+   ],
+   "plane": 1,
+   "now": "outside the floor",
+   "cutWhen": "as above"
+  },
+  {
+   "id": "stool_3",
+   "rect": [
+    1570,
+    620,
+    130,
+    210
+   ],
+   "plane": 1,
+   "now": "outside the floor",
+   "cutWhen": "as above"
+  },
+  {
+   "id": "spittoon",
+   "rect": [
+    1400,
+    765,
+    90,
+    99
+   ],
+   "plane": 1,
+   "now": "obstacle, outside the floor",
+   "cutWhen": "as above"
+  },
+  {
+   "id": "counter_near_end",
+   "rect": [
+    1205,
+    385,
+    200,
+    300
+   ],
+   "plane": 2,
+   "now": "nothing",
+   "cutWhen": "a barman is cast: he stands behind it and the counter masks him to the waist"
+  }
+ ],
+ "statefulProps": [
+  {
+   "id": "cards",
+   "rect": [
+    860,
+    368,
+    100,
+    30
+   ],
+   "note": "the abandoned hand on the table top; baked. Doc 16: a very good hand, left. No state change is written for it."
+  },
+  {
+   "id": "handbill",
+   "rect": [
+    320,
+    270,
+    48,
+    72
+   ],
+   "note": "baked; a load-bearing LOOK/LISTEN subject and it must stay unmarked (invariant 3). Mundane, small, aligned to the boards."
+  },
+  {
+   "id": "stove_fire",
+   "rect": [
+    1075,
+    320,
+    40,
+    60
+   ],
+   "note": "the one ambient animation the plate invites (doc 07/room-life, phase 2): the fire in the box, as a companion overlay; the plate's pool already breathes"
+  },
+  {
+   "id": "chandelier",
+   "note": "NO state. Never lit (doc 16). No lamp declared for it."
+  }
+ ],
+ "lightingFields": [
+  {
+   "lamp": "stove",
+   "at": [
+    1095,
+    345
+   ],
+   "radius": 170,
+   "movers": {
+    "strength": 0.22,
+    "colour": [
+     255,
+     150,
+     72
+    ],
+    "reach": 1.8,
+    "radius": 260
+   },
+   "rank": 1
+  },
+  {
+   "lamp": "bar_lamps",
+   "at": [
+    1690,
+    200
+   ],
+   "radius": 360,
+   "movers": {
+    "strength": 0.14,
+    "colour": [
+     255,
+     190,
+     110
+    ],
+    "reach": 1.6
+   },
+   "rank": 2
+  },
+  {
+   "lamp": "door_lamp",
+   "at": [
+    345,
+    190
+   ],
+   "radius": 230,
+   "movers": {
+    "strength": 0.16,
+    "colour": [
+     255,
+     180,
+     100
+    ],
+    "reach": 1.6
+   },
+   "rank": 3
+  }
+ ],
+ "actorZones": [
+  {
+   "who": "card_players (four)",
+   "status": "RECAST, deferred to phase 2",
+   "zone": [
+    720,
+    335,
+    360,
+    165
+   ],
+   "note": "seated in the four chairs; drawn BEHIND the table's near edge and in front of its far edge, which makes the table itself a two-plane prop once they exist"
+  },
+  {
+   "who": "bar_drinkers (three)",
+   "status": "RECAST, deferred to phase 2",
+   "zone": [
+    1150,
+    560,
+    500,
+    280
+   ],
+   "note": "standing at the counter between the stools, feet on the line 1180/680 to 1600/830; in the bar lamps' field"
+  },
+  {
+   "who": "barman",
+   "status": "not yet classified; doc 07",
+   "zone": [
+    1300,
+    430,
+    500,
+    90
+   ],
+   "note": "behind the counter, masked to the waist by it (occluder counter_near_end)"
+  },
+  {
+   "who": "deke_vessel",
+   "status": "ACT II, unbuilt (do not build)",
+   "zone": [
+    1090,
+    380,
+    120,
+    320
+   ],
+   "note": "at the near end of the bar, feet about y 700, in the stove's and the bar lamps' light"
+  },
+  {
+   "who": "raccoon",
+   "status": "ACT II after A5, unbuilt (do not build)",
+   "zone": [
+    1215,
+    330,
+    90,
+    70
+   ],
+   "note": "on the END of the bar, the counter's left end"
+  },
+  {
+   "who": "thad",
+   "status": "FROZEN",
+   "note": "Tyler's anchors carried: 198 at the far wall, 459 at the frame's foot; the plate's own furniture argues for taller (see the annotation's scaling note) and that is a review question, not a change"
+  }
+ ],
+ "dialogueApproachZones": [
+  {
+   "target": "card_players",
+   "standAt": [
+    900,
+    545
+   ],
+   "facing": "back"
+  },
+  {
+   "target": "bar / bar_drinkers",
+   "standAt": [
+    1150,
+    700
+   ],
+   "facing": "right"
+  },
+  {
+   "target": "deke_vessel",
+   "standAt": [
+    1000,
+    690
+   ],
+   "facing": "right"
+  },
+  {
+   "target": "piano",
+   "standAt": [
+    600,
+    560
+   ],
+   "facing": "back"
+  },
+  {
+   "target": "handbill",
+   "standAt": [
+    345,
+    640
+   ],
+   "facing": "back"
+  }
+ ],
+ "futureStateCompanions": [
+  {
+   "state": "Act II (Deke present; raccoon on the bar after A5)",
+   "companions": "none in the plate: both are actors",
+   "status": "unbuilt by order"
+  },
+  {
+   "state": "DAY",
+   "status": "NOT WRITTEN: the Nugget has no day state in any document."
+  }
+ ],
+ "patronZoneDiagnostic": "renders/opening-set-retrofit/nugget-patron-zones-diagnostic.png -- the zones above drawn over the clean plate, SEPARATE from the review sheets so the clean plate is judged clean."
+}

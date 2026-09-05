@@ -1,0 +1,139 @@
+{
+ "schema": 1,
+ "note": "NUGGET GEOMETRY RE-READ ON THE SHIPPING PLATE (phase 1 \u00a72A). The audit proved by live hover that seven of twelve rects sat 60-200 px left of their subjects. Every rect in reference/room-03/annotation.json was re-read off art/backgrounds/room-03-nugget.png on a 100 px grid and pinned by pixel measurement where a subject has a hard edge; the room recompiled (tools/compile-room.mjs 3, now a registered generator). Then the same hover probe that found the drift was run again: the point on each DRAWN subject, and the name the engine answers. Semantic authority for the shipping plate only; the candidate plate is re-read from scratch (reference/room-03-candidate/annotation.json).",
+ "plate": "art/backgrounds/room-03-nugget.png",
+ "plateSha256": "fb406da01393cc3c7403269bcd11f4a2da8e6b9e013f0f6abe56dd930bec5414",
+ "hoverAfter": [
+  {
+   "label": "drawn stairs",
+   "at": [
+    1240,
+    250
+   ],
+   "hovered": "THE STAIRS",
+   "id": "stairs",
+   "camera": null
+  },
+  {
+   "label": "drawn mirror",
+   "at": [
+    1680,
+    250
+   ],
+   "hovered": "THE MIRROR",
+   "id": "mirror",
+   "camera": null
+  },
+  {
+   "label": "drawn portrait",
+   "at": [
+    975,
+    260
+   ],
+   "hovered": "THE FADED PORTRAIT",
+   "id": "portrait",
+   "camera": null
+  },
+  {
+   "label": "drawn stove",
+   "at": [
+    1060,
+    360
+   ],
+   "hovered": "THE STOVE",
+   "id": "stove",
+   "camera": null
+  },
+  {
+   "label": "drawn piano",
+   "at": [
+    620,
+    420
+   ],
+   "hovered": "THE PIANO",
+   "id": "piano",
+   "camera": null
+  },
+  {
+   "label": "drawn handbill paper",
+   "at": [
+    342,
+    350
+   ],
+   "hovered": "THE HANDBILL",
+   "id": "handbill",
+   "camera": null
+  },
+  {
+   "label": "drawn chandelier",
+   "at": [
+    920,
+    120
+   ],
+   "hovered": "THE CHANDELIER",
+   "id": "chandelier",
+   "camera": null
+  },
+  {
+   "label": "drawn back doorway",
+   "at": [
+    1115,
+    330
+   ],
+   "hovered": "THE BACK ROOM DOOR",
+   "id": "back_room_door",
+   "camera": null
+  },
+  {
+   "label": "drawn window",
+   "at": [
+    430,
+    300
+   ],
+   "hovered": "THE WINDOW",
+   "id": "window",
+   "camera": null
+  },
+  {
+   "label": "drawn cards",
+   "at": [
+    870,
+    395
+   ],
+   "hovered": "THE HAND OF CARDS",
+   "id": "cards",
+   "camera": null
+  },
+  {
+   "label": "drawn spittoon",
+   "at": [
+    1405,
+    780
+   ],
+   "hovered": "THE SPITTOON",
+   "id": "spittoon",
+   "camera": null
+  },
+  {
+   "label": "drawn bar counter",
+   "at": [
+    1600,
+    600
+   ],
+   "hovered": "THE BAR",
+   "id": "bar",
+   "camera": null
+  },
+  {
+   "label": "drawn front doors",
+   "at": [
+    180,
+    450
+   ],
+   "hovered": "THE FRONT DOORS",
+   "id": "front_doors",
+   "camera": null
+  }
+ ],
+ "result": "13 of 13: every drawn subject (the stairs, mirror, portrait, stove, piano, handbill paper, chandelier, back doorway, window, cards, spittoon, bar counter, front doors) answers its own name on hover."
+}

@@ -60,16 +60,19 @@ test('an accepted exception names its ruling', () => {
 
 test('nothing under art/staging/ may claim SHIPPING (accepted-work protection)', () => {
   const contract = load();
-  const plate = contract.data.lifecycle.find((asset) => asset.subject.startsWith('NIGHT plate'));
+  // The DAY plate is the staged one after the promotion (ACCEPTED-NOT-SHIPPING);
+  // the night plate now lives at its shipping path and cannot be this witness.
+  const plate = contract.data.lifecycle.find((asset) => asset.subject.startsWith('DAY plate'));
   plate.stage = 'SHIPPING';
   const report = check([contract]);
-  assert.equal(only(report, /NIGHT plate.*claims SHIPPING and lives under art\/staging\//).length, 1);
+  assert.equal(only(report, /DAY plate.*claims SHIPPING and lives under art\/staging\//).length, 1);
 });
 
 test('a candidate stage outside art/staging/ is a promotion without the step', () => {
   const contract = load();
-  const legacy = contract.data.lifecycle.find((asset) => asset.stage === 'LEGACY');
-  legacy.stage = 'CANDIDATE';
+  // The promoted night plate at art/backgrounds/ is the witness now.
+  const shipping = contract.data.lifecycle.find((asset) => asset.path === 'art/backgrounds/room-05-assay-office.png');
+  shipping.stage = 'CANDIDATE';
   const report = check([contract]);
   assert.equal(only(report, /claims CANDIDATE and lives at art\/backgrounds/).length, 1);
 });
@@ -94,8 +97,12 @@ test('an owner gameplay acceptance names who, when and the evidence', () => {
 });
 
 test('promotion DONE with staged assets still in the tree is refused', () => {
+  // Room 5 IS promoted now, so the witness is accepted work left behind under
+  // staging: the DAY plate re-marked OWNER-VISUAL-ACCEPTED instead of
+  // ACCEPTED-NOT-SHIPPING is exactly a file the promotion step never carried.
   const contract = load();
-  contract.data.acceptance.promotion.status = 'DONE';
+  assert.equal(contract.data.acceptance.promotion.status, 'DONE');
+  contract.data.lifecycle.find((asset) => asset.subject.startsWith('DAY plate')).stage = 'OWNER-VISUAL-ACCEPTED';
   const report = check([contract]);
   assert.equal(only(report, /promotion: DONE, and \d+ asset\(s\) still live under art\/staging\//).length, 1);
 });

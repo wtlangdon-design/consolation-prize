@@ -1,0 +1,63 @@
+{
+ "schema": 1,
+ "room": "main_street",
+ "note": "MOVER LIGHT FIELD PROOF (doc 36 Q116): Thad walks into the saloon pool and out of it; captures at both. Shipping plate and lamps; the field is declared on saloon_doorway and office_lantern.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 6,
+   "why": "arrival walk settles"
+  },
+  {
+   "do": "click",
+   "world": [
+    2330,
+    700
+   ],
+   "why": "into the saloon doorway pool"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "l01-in-saloon-pool",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "world": [
+    1700,
+    760
+   ],
+   "why": "out of every pool, the dark middle"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "l02-out-of-pool",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "world": [
+    3095,
+    660
+   ],
+   "why": "under the assay office lantern"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "l03-under-lantern",
+   "room": "main_street"
+  }
+ ]
+}
