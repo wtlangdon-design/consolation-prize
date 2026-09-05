@@ -19,7 +19,12 @@ const NIGHT = `${base}?room=assay_office&state=night&candidate=art/backgrounds/r
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox'] });
 const out = { deployedSha: process.env.SHA, served: 'dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/', runs: [] };
 const FIXTURES = ['r5-a', 'r5-b', 'r5-c', 'r5-g'].map((id) => [`fixture-${id}`, `${NIGHT.replace('?room=assay_office&', `?fixture=${id}&`)}`]);
-for (const [name, url] of [['day', DAY], ['night', NIGHT], ...FIXTURES]) {
+// AFTER THE PROMOTION (doc 36 Q116) THE SHIPPING URL IS THE NIGHT PRESENTATION
+// with no ?candidate= at all, and the two phase-1 candidate rooms are reached
+// by the dev warp. All three are what Tyler opens.
+const SHIPPING = `${base}?room=assay_office`;
+const CANDIDATES = [['main-street-candidate', `${base}?room=main_street_candidate`], ['nugget-candidate', `${base}?room=nugget_candidate`]];
+for (const [name, url] of [['shipping-night', SHIPPING], ...CANDIDATES, ['day', DAY], ['night', NIGHT], ...FIXTURES]) {
   const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
   const responses = []; const errors = [];
   page.on('response', (r) => { if (r.request().resourceType() !== 'document') responses.push({ url: r.url().replace(base, ''), status: r.status() }); });
@@ -27,10 +32,11 @@ for (const [name, url] of [['day', DAY], ['night', NIGHT], ...FIXTURES]) {
   page.on('console', (m) => { if (m.type() === 'error') errors.push(m.text()); });
   await page.goto(url); await page.waitForTimeout(9000);
   await page.screenshot({ path: `${S}/deployed-${name}.png` });
-  const interesting = responses.filter((r) => /assay-office|room-05|staging|thad-|winnie|hanging|content\/rooms|index-/.test(r.url));
+  const roomFile = url.includes('main_street_candidate') ? 'main-street-candidate.json' : url.includes('nugget_candidate') ? 'nugget-candidate.json' : 'assay-office.json';
+  const backgrounds = responses.filter((r) => /art\/backgrounds\/|candidate-plate\.png|candidate-1920x864\.png/.test(r.url)).map((r) => `${r.status} ${r.url}`);
   const legacy = responses.filter((r) => r.url.endsWith('art/backgrounds/room-05-assay-office.png'));
   const bad = responses.filter((r) => r.status >= 400);
-  out.runs.push({ name, url: url.replace(base, 'https://wtlangdon-design.github.io/consolation-prize/'), roomJson: responses.find((r) => r.url.includes('content/rooms/assay-office.json'))?.status ?? 'not requested',
+  out.runs.push({ name, url: url.replace(base, 'https://wtlangdon-design.github.io/consolation-prize/'), roomJson: responses.find((r) => r.url.includes(`content/rooms/${roomFile}`))?.status ?? 'not requested', backgrounds,
     plate: responses.find((r) => r.url.includes('candidate-1920x864.png'))?.url ?? 'no candidate plate requested', legacyPlateRequested: legacy.length > 0,
     winnieSheet: responses.find((r) => r.url.includes('winnie-counter-sheet'))?.url ?? 'not requested', inkstand: responses.find((r) => r.url.includes('inkstand'))?.url ?? 'not requested',
     lampOverlay: responses.find((r) => r.url.includes('hanging-lamp-overlay'))?.status ?? 'not requested', thadClips: responses.filter((r) => r.url.includes('art/actors/thad-')).length,
