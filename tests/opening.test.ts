@@ -177,3 +177,19 @@ test('Q25: the verdict itself, stated once', () => {
     'an opening segment nothing is performing -- the player has control and may act');
   assert.equal(playfieldClick({ sequenceRunning: false, openingActive: false }), 'pass');
 });
+
+/**
+ * A CONVERSATION'S OPENING EXCHANGE OWNS THE CLICK. Room 5's Act I pass
+ * (2026-09-05): Winnie's greeting is spoken before her tree opens, so the
+ * dialogue was not active, the click fell through, and a floor click during
+ * her last line walked Thad from the dialogue point to the scales -- her list
+ * then opened with him standing there and a refusal playing under it.
+ */
+test('a playfield click while a greeting performs is spent, and nothing else changes', () => {
+  assert.equal(playfieldClick({ sequenceRunning: false, openingActive: false, greeting: true }), 'consume');
+  assert.equal(playfieldClick({ sequenceRunning: true, openingActive: false, greeting: true }), 'consume');
+  // Without a greeting the verdicts are what they were.
+  assert.equal(playfieldClick({ sequenceRunning: false, openingActive: false }), 'pass');
+  assert.equal(playfieldClick({ sequenceRunning: true, openingActive: false }), 'cancel');
+  assert.equal(playfieldClick({ sequenceRunning: true, openingActive: true }), 'consume');
+});

@@ -348,12 +348,21 @@ export function writesOf(segment: Segment): Record<string, boolean | number> {
 export type ClickVerdict = 'consume' | 'cancel' | 'pass';
 
 export function playfieldClick(
-  options: { sequenceRunning: boolean; openingActive: boolean },
+  options: { sequenceRunning: boolean; openingActive: boolean; greeting?: boolean },
 ): ClickVerdict {
   // A cutscene beat is playing. The click is spent: it neither ends the beat
   // nor starts a walk underneath it. Any pending line has already been taken
   // by the caller before this is reached.
   if (options.openingActive && options.sequenceRunning) return 'consume';
+  // A CONVERSATION'S OPENING EXCHANGE IS PERFORMING. Doc 30 section 4.2: a
+  // performance owns every click in the playfield while it plays. The greeting
+  // is spoken on the ordinary speech channel BEFORE the tree opens, so the
+  // dialogue is not yet active and nothing above this caught the click; the
+  // Act I pass in Room 5 (2026-09-05) walked Thad from the dialogue point to
+  // the scales during Winnie's first line and opened her list with him
+  // standing there and a refusal playing under it. Any pending line was
+  // already advanced by the caller; the last line's hold is not a walk.
+  if (options.greeting) return 'consume';
   if (options.sequenceRunning) return 'cancel';
   return 'pass';
 }

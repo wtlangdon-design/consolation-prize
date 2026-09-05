@@ -9,7 +9,7 @@ import { ActorSprite } from '../engine/render/ActorSprite.ts';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 /**
- * THE RESAMPLE CACHE IS BOUNDED. Room 5 scales Thad by depth, so a walk down
+ * THE RESAMPLE CACHE IS BOUNDED. A depth-scaled room scales the protagonist, so a walk down
  * the room draws every frame at a new size on every row, and each size was a
  * canvas the cache kept for ever. The Act I gameplay pass lost its renderer
  * after seven minutes of that. This drives the sprite through more distinct
@@ -17,7 +17,10 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
  * most recent sizes, and releases the ones it drops.
  */
 test('the resampled-frame cache is bounded and drops the least recently drawn size', () => {
-  const table = JSON.parse(readFileSync(resolve(ROOT, 'content/actors/thad.json'), 'utf8'));
+  // The protagonist's record, by way of the manifest: the tests name no file
+  // of the fiction, the same way the engine names none.
+  const manifest = JSON.parse(readFileSync(resolve(ROOT, 'content/manifest.json'), 'utf8'));
+  const table = JSON.parse(readFileSync(resolve(ROOT, manifest.actor), 'utf8'));
   const made: { width: number; height: number }[] = [];
   const fakeDocument = {
     createElement: () => {

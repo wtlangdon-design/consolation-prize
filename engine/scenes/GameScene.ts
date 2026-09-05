@@ -711,12 +711,19 @@ export class GameScene extends Phaser.Scene {
     const verdict = playfieldClick({
       sequenceRunning: this.sequence.isRunning,
       openingActive: this.opening !== null,
+      greeting: this.pendingTree?.greeted === true,
     });
     // A cutscene beat is playing. Any pending line was taken by `advanceSay`
     // above; with none left the click is spent, and it must not fall through
     // to the walk and interact code either -- control is `none` during an
     // automatic beat and a click cannot start the player moving under it.
     if (verdict === 'consume') return;
+    // A CHANGE OF MIND ABOUT A CONVERSATION. He was walking to talk and the
+    // player clicked elsewhere: doc 22's deterministic cancellation, the
+    // interaction stops where it is. Without this the walk was redirected
+    // and the greeting still fired wherever he came to rest -- a conversation
+    // opened from across the room.
+    if (this.pendingTree && !this.pendingTree.greeted) this.pendingTree = null;
     if (verdict === 'cancel') {
       this.sequence.cancel();
       // The PLAYER's performance, and nobody else's: beat 9's carrier is
@@ -1485,10 +1492,16 @@ export class GameScene extends Phaser.Scene {
     // the street's edge -- but firing his arrival lines at the same moment had
     // him remarking on the town while still crossing it. He stops, looks, and
     // then says it.
-    if (entry.walkTo) {
+    //
+    // AND ONLY ONCE. The walk is the first-sight staging (Room 2's annotation:
+    // "where a man stands when he has just walked into a town he has never
+    // seen"), gated by the same flag as the lines. It used to run on every
+    // entry, so coming back out of the assay office put him at its door and
+    // then marched him into the middle of the road. Room 5's Act I pass.
+    if (entry.walkTo && !held) {
       this.actor.walkTo(entry.walkTo[0], entry.walkTo[1]);
       this.markDirty();
-      if (!held && lines.length) this.linesOnArrival = lines;
+      if (lines.length) this.linesOnArrival = lines;
       return;
     }
     if (held || !lines.length) return;
