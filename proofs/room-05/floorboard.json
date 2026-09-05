@@ -350,8 +350,19 @@
    "result": "LOOK, LISTEN, PULL, OPEN, PUSH and the default click all answer with a line from Thad; no press from any verb; hotspot rect and walk-to unchanged"
   },
   "standingOnTheBoard": "cannot be reached by a click in play -- the tread lies inside the LOOK hotspot -- so it is covered by tests/floorboard.test.ts (sixty stationary ticks on the tread, no press) and live by the twenty seconds standing beside it after a crossing",
-  "roomLife": "filled after the talk and life runs"
+  "roomLife": {
+   "talk": {
+    "record": "renders/proofs/assay-office-lamp-night/talk/life.json",
+    "commit": "32c7560",
+    "result": "PASS: Winnie writing, the walk to the dialogue point, the spoken opening, the WIN_A1 list and the exit, every night candidate drawn including both board images -- coherent for 127 s"
+   },
+   "life": {
+    "record": "renders/proofs/assay-office-lamp-night/life/life.json",
+    "commit": "32c7560",
+    "result": "PASS: the room life route (idles, lamp, counter occlusion, dialogue open/reply/after, exits and re-entry) coherent for 195 s with the board images among the room's assets"
+   }
+  }
  },
  "finding": "In play the board is crossed on the way along the far floor band (toward the back-room door, or any free click on the far band past it). The counter hotspots' walk-to points are at y~828 and Winnie's approach point is (930,760), so the common LOOK and TALK routes do not cross it. Whether a walk-to point should be moved so the board is met on an ordinary approach is Tyler's call; nothing here changes staging.",
- "tests": "tests/floorboard.test.ts: 5 cases (segment clip, one press per crossing + silent standing + re-arm, 30 px strides through an 18 px tread ten times, no press beside or on placement, both state images declared and on disk)"
+ "tests": "tests/floorboard.test.ts: 5 cases (segment clip, one press per crossing + silent standing + re-arm, 30 px strides through an 18 px tread ten times, no press beside or on placement, both state images declared and on disk); typecheck clean; 174 tests pass; validators: every art, content and rig check green, the pre-existing flag-gate check red"
 }

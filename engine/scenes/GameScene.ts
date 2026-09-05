@@ -1743,8 +1743,9 @@ export class GameScene extends Phaser.Scene {
     // was the one drawn. Every declared state, not just the one showing:
     // the pressed board is an asset of the room whether or not a foot is on it.
     for (const target of this.state.targets) {
-      for (const [name, shown] of Object.entries(target.states ?? {})) {
-        if (shown.image) add(`${target.id}:${name}`, shown.image);
+      for (const shown of Object.values(target.states ?? {})) {
+        // Keyed by path, as the loader keys them: `loaded` asks the texture store.
+        if (shown.image) add(shown.image, shown.image);
       }
     }
     return out;
