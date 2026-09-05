@@ -1,0 +1,85 @@
+{
+  "method": "intact-upper-body",
+  "source": "art/actors/thad-stand-right/stand-00.png",
+  "key": "magenta",
+  "clip": "walk",
+  "view": "profile",
+  "facing": "left",
+  "walk_dx": -1,
+  "figure": [
+    128,
+    625
+  ],
+  "hem_row": 434,
+  "padding": 260,
+  "hip_column": 311,
+  "upper_body": {
+    "path": "art/actors/thad-stand-right/stand-00.png",
+    "sha256": "8c4373e9e60e354434f9e2445ccf02dfdf232e71a6199c7b7f22f9085b1b9c62",
+    "rowsUsed": "0..434",
+    "note": "the approved standing frame's pixels, unchanged"
+  },
+  "legs": {
+    "dir": "/tmp/claude-0/-home-user-consolation-prize/de67d760-96c1-50cf-be13-5871c6af4fb5/scratchpad/rig-new/legs-625",
+    "frames": {
+      "walk-00.png": "f6f95b8148fb10df6c3c8d8851c5e09ca525119a14ce6bc80ebc581ec0cea2e7",
+      "walk-01.png": "bd9020c5991baf6621dccbed351703dd4ab7967215677181ce4d91ab04592cad",
+      "walk-02.png": "a9aaa51d8ace573c4e33c7e38f40dabdc6c4c9c14819bc646672c70c4c40d657",
+      "walk-03.png": "66a0071de690de8d8894fa9251ef84471367d8dfcbd4fb5f364ba9cf8cda4f87",
+      "walk-04.png": "ae4dcb64265e464b4889d023df928875068af9918ca00ac9a8e71dda7ee942c7",
+      "walk-05.png": "66a0071de690de8d8894fa9251ef84471367d8dfcbd4fb5f364ba9cf8cda4f87",
+      "walk-06.png": "a9aaa51d8ace573c4e33c7e38f40dabdc6c4c9c14819bc646672c70c4c40d657",
+      "walk-07.png": "bd9020c5991baf6621dccbed351703dd4ab7967215677181ce4d91ab04592cad"
+    },
+    "sourceRig": "/tmp/claude-0/-home-user-consolation-prize/de67d760-96c1-50cf-be13-5871c6af4fb5/scratchpad/rig-new/legs/rig.json",
+    "sourceRigSha256": "9a0adfe684a010e51217861fa24bf99f20b44b41baccb289e34706f2cc354fde",
+    "invocation": {
+      "source": "art/staging/thad/profile-stride-01.png",
+      "key": "magenta",
+      "view": "profile",
+      "facing": "right",
+      "clip": "walk",
+      "pose": "striding",
+      "pad": 260,
+      "swing": 1.5,
+      "knee": 0.0,
+      "level_limbs": true,
+      "legs_only": true,
+      "breath": 1.0
+    },
+    "scale": 0.5365,
+    "hipColumnShift": 31,
+    "colourGain": [
+      1.097,
+      1.021,
+      1.026
+    ]
+  },
+  "ground_shifts": [
+    17,
+    9,
+    0,
+    1,
+    6,
+    1,
+    0,
+    9
+  ],
+  "bob": "upper body drops with the legs' ground shift",
+  "frames": 8,
+  "ruling": "Tyler, 2026-09-05: the profile upper body, coat, shoulders and arms remain one intact authored silhouette while walking; no arm is cut, rotated or layered. tools/rig/intact-walk.py.",
+  "mirroredFrom": {
+    "clip": "art/actors/thad-walk-right",
+    "frames": {
+      "walk-00.png": "6cf6f34fd2c9462119f253b3364a72622169e39dec6c355212513c6c35666074",
+      "walk-01.png": "181147a52e7e4991c9f8a3570889ba0cb0aa6b97843cc042be16497a142b37e3",
+      "walk-02.png": "c75000c7a4cb0488b4946eb784d48a29f70391b35f5e72fda3cccd97a798aaf9",
+      "walk-03.png": "e7f2cb076ee9d7dc80356eb9748fa1511db34c70b1cafc1478a5346ff3275f5c",
+      "walk-04.png": "987e0ac25265cc7eb4f20ce5433d8a9459b315fd5645ba25baad1c7698904c31",
+      "walk-05.png": "e7f2cb076ee9d7dc80356eb9748fa1511db34c70b1cafc1478a5346ff3275f5c",
+      "walk-06.png": "c75000c7a4cb0488b4946eb784d48a29f70391b35f5e72fda3cccd97a798aaf9",
+      "walk-07.png": "181147a52e7e4991c9f8a3570889ba0cb0aa6b97843cc042be16497a142b37e3"
+    },
+    "note": "docs/52 left/right policy: one side family, mirrored deterministically. Regenerate by re-running tools/rig/mirror-clip.py on the source clip; never edit these frames by hand."
+  }
+}

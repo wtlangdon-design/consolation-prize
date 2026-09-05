@@ -1,0 +1,143 @@
+{
+  "invocation": {
+    "source": "art/staging/thad/profile-stride-01.png",
+    "key": "magenta",
+    "view": "profile",
+    "facing": "left",
+    "clip": "walk",
+    "pose": "striding",
+    "pad": 260,
+    "swing": 1.5,
+    "knee": 0.0,
+    "level_limbs": true,
+    "breath": 1.0
+  },
+  "source": "art/staging/thad/profile-stride-01.png",
+  "key": "magenta",
+  "view": "profile",
+  "facing": "left",
+  "walk_dx": -1,
+  "figure": [
+    298,
+    625
+  ],
+  "hem_row": 413,
+  "hem_pct": 66.1,
+  "pivot_row": 328,
+  "padding": 140,
+  "rows_legs_separate": 168,
+  "near_leg_px": 9110,
+  "far_leg_px": 8707,
+  "arms_rigged": true,
+  "shoulder_near": 196,
+  "shoulder_far": 238,
+  "near_arm_px": 4134,
+  "far_arm_px": 2036,
+  "measured_foot_travel": 5,
+  "hip_swing": [
+    14,
+    10,
+    0,
+    -10,
+    -14,
+    -10,
+    0,
+    10
+  ],
+  "level_limbs": true,
+  "source_limb_angles": {
+    "near_leg": 21.8,
+    "far_leg": -19.9,
+    "near_arm": -12.8,
+    "far_arm": 33.8
+  },
+  "hip_column": 280,
+  "ground_shifts": [
+    17,
+    9,
+    0,
+    1,
+    6,
+    1,
+    0,
+    9
+  ],
+  "arm_attachments": {
+    "near": [
+      220,
+      225
+    ],
+    "far": [
+      358,
+      262
+    ]
+  },
+  "knee_flex": [
+    6,
+    4,
+    4,
+    8,
+    40,
+    60,
+    34,
+    10
+  ],
+  "knee_ratio": 0.0,
+  "knee_frac": 0.52,
+  "arm_ratio": 0.55,
+  "frames": 8,
+  "sourceResolution": {
+    "figure": [
+      555,
+      1165
+    ],
+    "hem_row": 770,
+    "pivot_row": 611,
+    "padding": 260,
+    "shoulder_near": 366,
+    "shoulder_far": 444,
+    "rows_legs_separate": 313,
+    "near_leg_px": 31653,
+    "far_leg_px": 30253,
+    "near_arm_px": 14363,
+    "far_arm_px": 7073,
+    "measured_foot_travel": 9,
+    "hip_column": 522,
+    "ground_shifts": [
+      31,
+      16,
+      0,
+      2,
+      11,
+      2,
+      0,
+      16
+    ],
+    "arm_attachments": {
+      "near": [
+        411,
+        420
+      ],
+      "far": [
+        667,
+        488
+      ]
+    }
+  },
+  "downsampled": "Frames at figure 625, the standing family's own height (thad-stand-right is 625), from the 1165px levelled, grounded figure by tools/rig/downscale.py --figure 625 (x0.536); values above scaled from the source-resolution rig kept under sourceResolution. Reproduce: run `invocation`, then downscale.py.",
+  "provenance": "THAD PROFILE WALK CONTINUITY (Tyler, 2026-09-05). Rigged from the one owner-authorized Family-A stride source, art/staging/thad/profile-stride-01.png (ledger asset thad-profile-walk-continuity, attempt 1/1), so this walk and thad-stand-right are one drawing of one man (docs/52). FOURTH CUT, same source, no image operation. Cuts two and three: --level-limbs takes each leg's source angle out so the legs alternate; the planted sole is grounded; each lifted arm hangs from its attachment to the coat. Cut four (Tyler: the cut edges showed and the arms dangled at the elbows): each arm is levelled, then EXTENDED up to the shoulder by repeating its top rows, then swung about the shoulder -- the legs' own recipe -- so the join sits at a real joint under or as the coat's shoulder and no wedge opens. Swing 1.5 (the source's own stride), knee 0. Replaces the Family-B walk rigged from thad-profile-right-approved.png, preserved at art/staging/thad/previous/thad-walk-right. visual_accepted: NOT SET -- Tyler's gate.",
+  "mirroredFrom": {
+    "clip": "art/actors/thad-walk-right",
+    "frames": {
+      "walk-00.png": "5d5d81a8f7d55c4435ccb6b6221e5c28263d6dc7551de8f8ec54719a40315c44",
+      "walk-01.png": "c452e98d259fb20ac8a7a7aa5a4f4fc2a1336bcb11c781c9b614649d8d8d3d86",
+      "walk-02.png": "248ca87f90fa8ae458db8ddbcb7ec279284b3761e8f93e4da30508f96f35bda0",
+      "walk-03.png": "b3196237159a4676c90f4fcba653a90901c425a99a8d60f33b694cdeb610a03d",
+      "walk-04.png": "3de0d7883d1af5959c55c0921757a2f1699c5ffa7a218fc7d6615bd1a43965c5",
+      "walk-05.png": "b3196237159a4676c90f4fcba653a90901c425a99a8d60f33b694cdeb610a03d",
+      "walk-06.png": "248ca87f90fa8ae458db8ddbcb7ec279284b3761e8f93e4da30508f96f35bda0",
+      "walk-07.png": "c452e98d259fb20ac8a7a7aa5a4f4fc2a1336bcb11c781c9b614649d8d8d3d86"
+    },
+    "note": "docs/52 left/right policy: one side family, mirrored deterministically. Regenerate by re-running tools/rig/mirror-clip.py on the source clip; never edit these frames by hand."
+  }
+}

@@ -70,7 +70,39 @@ if (which === 'stride') {
   attachGates(assetId, row.attempt, gates);
   say(`  gates: ${gates.passed ? 'PASS' : 'FAIL'}`);
   for (const line of gates.failures) say(`    x ${line}`);
+} else if (which === 'walk-cycle') {
+  // THE AUTHORED WHOLE-BODY WALK CYCLE. Tyler's ruling after four cuts of
+  // puppet-rigging and one intact-upper-body cut: the profile walk is made
+  // from COMPLETE authored poses, cropped whole, never assembled from limbs.
+  // One sheet of six sequential right-facing poses; the standing still is
+  // the image edited, the other stills fix the same man from the other
+  // views, the stride source goes last as a pose reference only.
+  const n = process.argv[3] ?? '01';
+  const assetId = 'thad-profile-walk-cycle-authoring';
+  guard(assetId);
+  mkdirSync(resolve(ROOT, OUT), { recursive: true });
+  const refs = [...FAMILY_A, 'art/staging/thad/profile-stride-01.png'];
+  for (const image of refs) say(`  ref ${hashFile(image).slice(0, 12)}  ${image}`);
+  const made = await edit({
+    promptFile: `proofs/thad/prompts/profile-walk-cycle-${n}.txt`, out: `${OUT}/profile-walk-cycle-${n}.png`,
+    images: refs, size: '1536x1024', purpose: 'character',
+  });
+  say(`  wrote ${made.out}, ${made.bytes} bytes, sha ${made.outputHash.slice(0, 12)}`);
+  const row = record({
+    ...made, assetId, subject: 'thad', role: 'other',
+    roleNote: 'A WALK-CYCLE SHEET of the approved Family-A identity: six complete sequential right-facing '
+      + 'walking poses, to be cropped as whole runtime frames (tools/rig/cut-cycle-sheet.py) and never '
+      + 'puppet-rigged. Owner-authorized, 1/1, separate from thad-profile-walk-continuity.',
+    identityFamily: 'A', familyASources: FAMILY_A.map((path) => ({ path, hash: hashFile(path) })),
+    poseReference: { path: 'art/staging/thad/profile-stride-01.png', hash: hashFile('art/staging/thad/profile-stride-01.png'), note: 'movement/pose reference only; Family A wins any conflict' },
+    authorizedBy: 'Tyler, THAD PROFILE WALK -- AUTHORED WHOLE-BODY WALK-CYCLE PASS (2026-09-05)',
+  });
+  say(`  recorded as ${assetId} attempt ${row.attempt}, role ${row.role}`);
+  const gates = runGates(made.out, { kind: 'plate', expect: '1536x1024' });
+  attachGates(assetId, row.attempt, gates);
+  say(`  gates: ${gates.passed ? 'PASS' : 'FAIL'}`);
+  for (const line of gates.failures) say(`    x ${line}`);
 } else {
-  say('usage: node tools/art/thad.mjs stride [nn]');
+  say('usage: node tools/art/thad.mjs stride [nn] | walk-cycle [nn]');
   process.exit(2);
 }

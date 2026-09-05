@@ -1,19 +1,19 @@
 {
- "label": "Room 5 new walk pace B",
+ "label": "assay-office-lamp-night",
  "legs": [
   {
    "leg": 1,
    "from": [
-    729,
+    746,
     765
    ],
    "to": [
     1690,
     765
    ],
-   "pathPx": 961,
+   "pathPx": 944,
    "seconds": 2.0,
-   "pxPerSec": 487.8
+   "pxPerSec": 474.4
   },
   {
    "leg": 2,
@@ -41,7 +41,7 @@
    ],
    "pathPx": 22,
    "seconds": 1.0,
-   "pxPerSec": 22.4
+   "pxPerSec": 22.7
   }
  ],
  "captures": {

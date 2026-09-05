@@ -543,6 +543,12 @@ def main():
                          "Without it the sine is added to the source stride: the legs open "
                          "wider and close, the same leg leads every frame, and at 500px he "
                          "gallops (Tyler, 2026-09-05)")
+    ap.add_argument("--legs-only", action="store_true",
+                    help="profile walk: write the two levelled, swung, grounded LEGS and nothing "
+                         "else -- no coat, no arms -- for tools/rig/intact-walk.py to set under an "
+                         "intact standing upper body. Tyler's ruling (2026-09-05): the profile "
+                         "upper body, coat, shoulders and arms stay one authored silhouette; only "
+                         "the legs animate")
     ap.add_argument("--pose", default="striding", choices=["striding", "standing"],
                     help="which hem strategy to use. DECLARED, never inferred: a "
                          "detector that accepts legs-together and legs-apart under "
@@ -576,7 +582,7 @@ def main():
         ("source", args.source), ("key", args.key), ("view", args.view),
         ("facing", args.facing), ("clip", args.clip), ("pose", args.pose),
         ("state", args.state), ("pad", args.pad), ("swing", args.swing),
-        ("knee", args.knee), ("arm_swing", args.arm_swing), ("level_limbs", args.level_limbs),
+        ("knee", args.knee), ("arm_swing", args.arm_swing), ("level_limbs", args.level_limbs), ("legs_only", args.legs_only),
         ("breath", args.breath), ("near_mask", args.near_mask),
         ("far_mask", args.far_mask),
     ) if v is not None}}
@@ -1098,6 +1104,12 @@ def main():
             leg_cx_near = hip_cx if hip_cx is not None else cxn
             f = over(swing_leg(far_leg, pivot, leg_cx_far, hip_far, knee_far), f)
             f = over(swing_leg(near_leg, pivot, leg_cx_near, hip_near, knee_near), f)
+            if args.legs_only:
+                if hip_cx is not None:
+                    composed.append(f)
+                    continue
+                Image.fromarray(f.astype(np.uint8)).save(out / f"walk-{i:02d}.png")
+                continue
             def hang_and_swing(m, g, swing_ang):
                 # LEVEL, EXTEND, THEN SWING FROM THE SHOULDER -- the legs' own
                 # recipe. Rotating a cut piece about its cut opens a wedge at

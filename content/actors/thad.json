@@ -13,8 +13,8 @@
   "walkRate": 8,
   "walkSpeed": 194,
   "walkSpeedNote": "194 px/s, DOWN FROM 245, and the change is a consequence of walking becoming time-based rather than a retune of taste. The gait advances from DISTANCE, so while movement was frame-locked at a fraction of its declared pace the legs barely turned over and it read as a glide. Fixed, he covered the declared 245 px/s -- which over his measured 102px stride is 2.4 strides a second. A walking man does about 1.9, and 194 is exactly that. Actor.ts predicted this in its own comment before anyone could see it: \"the legs now tell the truth about the speed, and the speed is a sprint.\" Hob keeps his ratio; he ambles on purpose. One number per actor if the pace wants changing again.",
-  "strideLength": 149,
-  "strideNote": "MEASURED on the levelled Family-A profile walk (2026-09-05), not chosen. The cycle now has a CONTRALATERAL half -- --level-limbs takes the source stride out and the sine swings hanging legs, so frames 0 and 4 lead with opposite legs -- and one full cycle is therefore TWO steps, as the previous note said it would be the day that happened. Widest separation between the two soles is 194px on the 625px figure, one step; two steps are 388px, which is 149 drawn pixels at height 240, 0.62 of his height per cycle. Cadence follows from the same equation as before: 194 px/s over 149px is 1.3 cycles a second, 2.6 steps a second at pace 1.0 and 3.25 at pace 1.25. It replaces 102, which was one ping-ponged step of the Family-B walk (0.42 of height), and it is a CADENCE fact only: translation is untouched. The front and back walks share this number; their own steps are shift-and-scale, not measured.",
+  "strideLength": 83,
+  "strideNote": "MEASURED on the AUTHORED whole-body profile cycle (2026-09-05), not chosen. The cycle is three complete drawn poses -- contact, recoil, passing -- cropped whole from the one authorized sheet (op thad-profile-walk-cycle-authoring), and the sheet's second half repeated the first with the SAME leg leading, so one full cycle is ONE step and the contralateral half does not exist in the art. Foot-centre separation in the contact pose is 215px on the 625px figure, which is 83 drawn pixels at height 240, 0.35 of his height per cycle. Cadence follows from the same equation as before: 194 px/s over 83px is 2.3 steps a second at pace 1.0 and 2.9 at pace 1.25, under the 2.6 x pace ceiling. It replaces 149, which was two steps of the fourth cut's sine-swung legs. A CADENCE fact only: translation is untouched, and this number exists so a footfall lands once per step of ground covered rather than sliding. The front and back walks share this number; their own steps are shift-and-scale, not measured.",
   "reactRate": 7,
   "idleRate": 2.4,
   "idleBreakRate": 2,
@@ -284,16 +284,11 @@
       "frames": [
         "art/actors/thad-walk-left/walk-00.png",
         "art/actors/thad-walk-left/walk-01.png",
-        "art/actors/thad-walk-left/walk-02.png",
-        "art/actors/thad-walk-left/walk-03.png",
-        "art/actors/thad-walk-left/walk-04.png",
-        "art/actors/thad-walk-left/walk-05.png",
-        "art/actors/thad-walk-left/walk-06.png",
-        "art/actors/thad-walk-left/walk-07.png"
+        "art/actors/thad-walk-left/walk-02.png"
       ],
       "figureHeight": 625,
       "anchor": [
-        289,
+        324,
         625
       ],
       "walkDx": -1
@@ -304,16 +299,11 @@
       "frames": [
         "art/actors/thad-walk-right/walk-00.png",
         "art/actors/thad-walk-right/walk-01.png",
-        "art/actors/thad-walk-right/walk-02.png",
-        "art/actors/thad-walk-right/walk-03.png",
-        "art/actors/thad-walk-right/walk-04.png",
-        "art/actors/thad-walk-right/walk-05.png",
-        "art/actors/thad-walk-right/walk-06.png",
-        "art/actors/thad-walk-right/walk-07.png"
+        "art/actors/thad-walk-right/walk-02.png"
       ],
       "figureHeight": 625,
       "anchor": [
-        288,
+        324,
         625
       ],
       "walkDx": 1

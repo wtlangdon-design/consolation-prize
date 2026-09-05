@@ -1,0 +1,43 @@
+{
+ "schema": 1,
+ "room": "stage_road",
+ "note": "THAD AUDIT: Room 1 cross-room runtime strip of the profile walk, one still every 0.35 s across the road at pace B (tools/gauntlet/frames.mjs).",
+ "from": "stage_road",
+ "actions": [
+  {
+   "do": "click",
+   "at": [
+    400,
+    760
+   ]
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "burst",
+   "name": "room1-walk-right",
+   "seconds": 1.2,
+   "every": 0.35
+  },
+  {
+   "do": "click",
+   "at": [
+    1500,
+    760
+   ],
+   "why": "across the road to the right: profile"
+  },
+  {
+   "do": "burst",
+   "name": "room1-walk-right-b",
+   "seconds": 7,
+   "every": 0.35
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  }
+ ]
+}
