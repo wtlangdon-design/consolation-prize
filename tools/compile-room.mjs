@@ -1039,6 +1039,13 @@ built.exits = (live.exits ?? []).map((e) => {
   // and is genuinely walkable. The rect is the trough's own hotspot rect, so
   // the thing you can click and the thing you cannot walk through are one
   // truth and not two.
+  //
+  // AND, WHERE THE OBSTACLE SAYS SO, THE STRIP ABOVE IT. Phase 1.5G: an
+  // obstacle that sits on an object's own base line -- the trough's, the
+  // rail's -- has walkable ground BEHIND it as well as in front, and dropping
+  // that ground was how the street ended up with nowhere to stand behind the
+  // rail. It stays opt-in (`keepsGroundAbove`) because the general case is a
+  // thing standing against a wall, where the strip above is the wall.
   const carve = (band) => {
     let pieces = [band];
     for (const obstacle of ann.obstacles ?? []) {
@@ -1054,6 +1061,11 @@ built.exits = (live.exits ?? []).map((e) => {
           const left = Math.max(px, ox);
           const right = Math.min(px + pw, ox + ow);
           next.push([left, oy + oh, right - left, py + ph - (oy + oh)]);
+        }
+        if (obstacle.keepsGroundAbove && oy > py) {
+          const left = Math.max(px, ox);
+          const right = Math.min(px + pw, ox + ow);
+          next.push([left, py, right - left, oy - py]);
         }
       }
       pieces = next;

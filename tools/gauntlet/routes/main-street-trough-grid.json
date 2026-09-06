@@ -1,0 +1,186 @@
+{
+ "schema": 1,
+ "room": "main_street_candidate",
+ "note": "PHASE 1.5G TROUGH GRID (doc 36 Q123). Tyler's live screenshot showed the trough eating a man's feet and shins over a much wider area than the trough. The mask is now cut from the trough's own pixels. This route stands Thad at ten positions round it -- left, right, in front, behind, the corners, just outside each end -- and at the position that failed, which is now inside the trough's own footing and resolves to the nearest ground.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "t01-arrival",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    1900,
+    760
+   ],
+   "why": "left of the trough, at the same depth as behind it"
+  },
+  {
+   "do": "wait",
+   "seconds": 30
+  },
+  {
+   "do": "capture",
+   "name": "t02-left-of-trough",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2000,
+    700
+   ],
+   "why": "behind-left"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "t03-behind-left",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2100,
+    700
+   ],
+   "why": "directly behind the trough"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "t04-behind-centre",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2200,
+    700
+   ],
+   "why": "behind-right"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "t05-behind-right",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2300,
+    760
+   ],
+   "why": "right of the trough, at the same depth as behind it"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "t06-right-of-trough",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2250,
+    790
+   ],
+   "why": "just outside the trough's east end, in the near mud"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "t07-just-outside-east",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2200,
+    765
+   ],
+   "why": "THE REGRESSION: the ground that used to clip his shins from in front of the trough. It is inside the trough's hotspot, so the click is an ordinary LOOK AT: he walks to the trough's own approach point in front of it and speaks. Either way he never stands in the trough's footing."
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "t08-regression-position",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2100,
+    840
+   ],
+   "why": "directly in front of the trough"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "t09-in-front",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    1970,
+    800
+   ],
+   "why": "just outside the trough's west end, in the near mud"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "t10-just-outside-west",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2200,
+    840
+   ],
+   "why": "the front-right corner"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "t11-front-right-corner",
+   "room": "main_street_candidate"
+  }
+ ]
+}

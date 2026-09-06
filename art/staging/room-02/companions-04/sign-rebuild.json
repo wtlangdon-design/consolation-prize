@@ -1,0 +1,114 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5G -- THE SIGN, REBUILT LETTER BY LETTER (doc 36 Q123).\n\n    python3 tools/retrofit/phase15g-sign.py\n\nZero image operations. Tyler's third finding: after Phase 1.5F the lettering\nstill LOOKS crooked in the live room, whatever the residual angle measured.\n\nWHY A LEVEL BLOCK CAN STILL READ AS CROOKED. 1.5F rotated the whole crop by\nits measured slant. Rotating a raster by 1.4 degrees does not put the letters\non a line: each glyph lands where the rotation leaves it, a third of a pixel\nhere and two thirds there, and every letter keeps the vertical offset the old\nangled board gave it. The BLOCK is level; the LETTERS still step up and down\nthe way they did on the shipping sign, and stepping letters are what a person\nsees as crooked. It also resampled every letterform once, which softened them.\n\nTHE METHOD. The authored letterforms are kept exactly as drawn and MOVED,\nnever rotated and never resampled:\n\n  1. the letters are cut from art/objects/room-02/company-sign-gilt.png on\n     their own luminance ramp (95..125), which takes the glyphs and none of\n     the source crop's wood;\n  2. connected components are the glyphs -- 11 on line one (CONSOLATION) and\n     19 pieces on line two (IMPROVEMENT COMPANY, one letter arriving in two);\n  3. the two lines are separated by their own baselines, not by a horizontal\n     cut, because the source is slanted;\n  4. each line's slant is measured from its glyph bottoms by Theil-Sen (the\n     median of every pairwise slope -- robust to a letter or two whose bottom\n     is a serif or an overshoot), and each glyph is moved by whole pixels\n     against that slope. A round letter keeps its overshoot; a flat letter\n     keeps its flat foot; the LINE comes level;\n  5. every glyph's foot is then set on its line's own median row exactly --\n     a one-pixel optical overshoot is invisible at this size, and a one-pixel\n     step, magnified onto the board, is precisely what reads as crooked;\n  6. the two lines are set on exact rows, the block scaled once to the board's\n     inner face and centred on it.\n\nThe result is one raster; both states are cut from it, so the weathered and\ngilt states cannot differ in position or angle by a pixel.",
+ "inputs": {
+  "art/objects/room-02/company-sign-gilt.png": "7f32015077609211989d38452350f3c6cc58c0aef12ac0b871f8bc397be2034b",
+  "art/staging/room-02/street-candidate-03/candidate-plate.png": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443"
+ },
+ "method": "glyph-level: components moved by whole pixels against each line's Theil-Sen slope; no rotation, no per-glyph resampling",
+ "boardInnerFace": [
+  345,
+  143,
+  703,
+  225
+ ],
+ "lines": [
+  {
+   "line": 0,
+   "glyphs": 11,
+   "slopeBefore": 0.03407,
+   "degreesBefore": 1.95,
+   "baselineRow": 34.0,
+   "spreadBefore": 6,
+   "spreadAfter": 0,
+   "shifts": [
+    3,
+    2,
+    1,
+    1,
+    1,
+    0,
+    -1,
+    -1,
+    -1,
+    -2,
+    -3
+   ]
+  },
+  {
+   "line": 1,
+   "glyphs": 19,
+   "slopeBefore": 0.03004,
+   "degreesBefore": 1.72,
+   "baselineRow": 64.0,
+   "spreadBefore": 7,
+   "spreadAfter": 0,
+   "shifts": [
+    4,
+    3,
+    3,
+    2,
+    2,
+    1,
+    1,
+    0,
+    0,
+    -1,
+    -1,
+    -1,
+    -2,
+    -2,
+    -2,
+    -3,
+    -3,
+    -3,
+    -3
+   ]
+  }
+ ],
+ "placement": {
+  "scale": 1.1933,
+  "size": [
+   294,
+   63
+  ],
+  "at": [
+   377,
+   152
+  ],
+  "marginLeftRight": [
+   32,
+   32
+  ],
+  "marginTopBottom": [
+   9,
+   10
+  ]
+ },
+ "supersedes": "art/staging/room-02/companions-03 (Phase 1.5F whole-crop rotation)",
+ "layers": {
+  "company-sign-gilt": {
+   "path": "art/staging/room-02/companions-04/company-sign-gilt.png",
+   "sha256": "d26fdc87186a0daea3d86801b593dbc4f5f23bd7bca7b818be8135879ef6ba5e",
+   "bbox": [
+    377,
+    152,
+    671,
+    215
+   ],
+   "state": "gilt"
+  },
+  "company-sign-weathered": {
+   "path": "art/staging/room-02/companions-04/company-sign-weathered.png",
+   "sha256": "a77e970bbbfa0f41d73b816c575515c507c876a6943fc60c1cf7a8d5343f3461",
+   "bbox": [
+    377,
+    152,
+    671,
+    215
+   ],
+   "state": "weathered",
+   "seed": 20260905
+  }
+ }
+}

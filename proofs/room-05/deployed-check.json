@@ -1,5 +1,5 @@
 {
- "deployedSha": "b122cc3557b792531754768cb91b1de6be5188fe",
+ "deployedSha": "d15c264bef67d45c48262d8680bfdb08ebc2dd9a",
  "served": "dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/",
  "runs": [
   {
@@ -8,8 +8,8 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-00-town-map.png",
+    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/backgrounds/room-05-assay-office.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
@@ -58,8 +58,8 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-05-assay-office.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
@@ -108,14 +108,14 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
-    "200 art/staging/room-02/street-candidate-03/candidate-plate.png",
-    "200 art/backgrounds/room-13-undertakers.png"
+    "200 art/backgrounds/room-13-undertakers.png",
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -135,8 +135,8 @@
     "200 art/backgrounds/room-01-stage-road.png",
     "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-00-town-map.png",
-    "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-03-nugget.png",
+    "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
@@ -164,8 +164,8 @@
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
-    "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png",
+    "200 art/backgrounds/room-13-undertakers.png"
    ],
    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -183,8 +183,8 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
