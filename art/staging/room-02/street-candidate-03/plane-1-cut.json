@@ -1,0 +1,122 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5G -- THE OCCLUSION MASK, CUT FROM THE ART INSTEAD OF DRAWN BY HAND (doc 36 Q123).\n\n    python3 tools/retrofit/phase15g-masks.py\n\nTyler's second finding: the trough clips a man's feet and shins over an area\nmuch larger than the trough. The cause is in the mask, not the engine: Phase\n1.5E authored the trough as a six-point polygon, and a six-point polygon around\na box drawn in oblique projection is a convex hull -- it swallowed a wedge of\nmud above the far rim and a skirt of mud below the near wall. This replaces\nBOTH silhouettes with masks segmented from the plate's own pixels:\n\n  THE TROUGH   dark water and dark front boards, plus the bright lit rim,\n               against a per-row median of the mud beside it; closed, filled,\n               largest component; then everything below the trough's own base\n               line is dropped, which is what removes the contact shadow (a\n               shadow is ground, not an occluder).\n  THE RAIL     kept as authored quads, because the rail IS three straight\n               members and a quad describes each one exactly -- and because the\n               mud around it carries the saloon's light pool, which no per-row\n               reference survives: segmenting there swallowed half the street.\n               The bar quad is corrected down by the few pixels the Phase 1.5E\n               overlay showed it missing at its west end.\n\nOne file, one source: art/staging/room-02/street-candidate-03/\nplane-1-trough-rail.png, the only occluder the candidate room declares. The\nrecord beside it carries both bounding boxes and the pixel counts, and\ntools/check-occluder-bounds.mjs holds the mask to the art it was cut from.",
+ "source": {
+  "art/staging/room-02/street-candidate-03/candidate-plate.png": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443"
+ },
+ "method": {
+  "dark": 0.72,
+  "bright": 1.4,
+  "againstMud": "per-row median of the 12 columns at each side of the box",
+  "baseLineMarginPx": 2
+ },
+ "trough": {
+  "box": [
+   1965,
+   660,
+   2255,
+   820
+  ],
+  "baseLine": [
+   [
+    1983,
+    798
+   ],
+   [
+    2218,
+    750
+   ]
+  ],
+  "span": [
+   1976,
+   2236
+  ],
+  "bbox": [
+   1976,
+   677,
+   2234,
+   801
+  ],
+  "pixels": 18800
+ },
+ "rail": {
+  "quads": {
+   "near_post": [
+    [
+     2290,
+     615
+    ],
+    [
+     2320,
+     615
+    ],
+    [
+     2320,
+     790
+    ],
+    [
+     2290,
+     790
+    ]
+   ],
+   "far_post": [
+    [
+     2555,
+     632
+    ],
+    [
+     2583,
+     632
+    ],
+    [
+     2583,
+     812
+    ],
+    [
+     2555,
+     812
+    ]
+   ],
+   "bar": [
+    [
+     2268,
+     640
+    ],
+    [
+     2612,
+     660
+    ],
+    [
+     2612,
+     682
+    ],
+    [
+     2268,
+     662
+    ]
+   ]
+  },
+  "baseLine": [
+   [
+    2300,
+    788
+   ],
+   [
+    2570,
+    814
+   ]
+  ],
+  "bbox": [
+   2268,
+   615,
+   2612,
+   812
+  ],
+  "pixels": 16992
+ },
+ "output": {
+  "art/staging/room-02/street-candidate-03/plane-1-trough-rail.png": "40b43db17b660333d8a0102f02ac72631413c13996b39e95f2a8e2507add94f5",
+  "pixels": 35792
+ },
+ "supersedes": "art/staging/room-02/street-candidate-03/plane-1-silhouettes.json (Phase 1.5E hand-authored polygons)"
+}

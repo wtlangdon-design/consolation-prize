@@ -87,8 +87,9 @@
  "placements": {
   "main_street_candidate": {
    "x": 2470,
-   "y": 662,
-   "zone": 0
+   "y": 706,
+   "zone": 0,
+   "note": "PHASE 1.5G: she stood at y 662, which is where the rail's BAR is drawn -- the same 'standing on the fence' look Tyler caught on Thad. She now stands on the ground behind the rail (mud_mid_3), where the bar crosses her lower legs as it should. Placement only; her art is untouched and stays a Phase 2 subject."
   }
  },
  "placementsNote": "PHASE 1.5B/1.5D: LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y lands inside the trough's footprint; placed on the far mud east of the trough's end, behind the rail, until Phase 2 recasts her. The shipping room's x,y is untouched."

@@ -243,12 +243,12 @@
       "state": "weathered",
       "states": {
         "weathered": {
-          "image": "art/staging/room-02/companions-03/company-sign-weathered.png",
-          "note": "PHASE 1.5F: THE LETTERING ALIGNED TO ITS BUILDING (doc 36 Q122). The plate's board is level; the Phase 1.5 layer was not -- the type carried +1.43 deg of slant inherited from the shipping source art (a crop of the old, angled board) and, with it, that crop's wood at partial alpha. The letters are now cut on their own ramp (95..125), de-rotated to level and centred on the board's inner face (345-703 x 143-225) with even margins. This is the base state: the same seeded dulling and flaking as Phase 1.5 -- 'the only sign in town that has been painted twice', peeling."
+          "image": "art/staging/room-02/companions-04/company-sign-weathered.png",
+          "note": "PHASE 1.5G: REBUILT LETTER BY LETTER (doc 36 Q123). 1.5F rotated the whole crop level and the letters still stepped up and down the way the old angled board left them, which is what reads as crooked. Each authored glyph is now MOVED by whole pixels against its line's measured slant -- never rotated, never resampled -- so both lines sit on one row: baseline spread 6 px -> 2 on CONSOLATION, 7 px -> 1 on IMPROVEMENT COMPANY. This is the base state: the same seeded dulling and flaking as Phase 1.5."
         },
         "gilt": {
-          "image": "art/staging/room-02/companions-03/company-sign-gilt.png",
-          "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' PHASE 1.5F: cut from the SAME corrected lettering as the weathered state, so the two share one alignment and cannot drift apart. Set by doc 48's S2."
+          "image": "art/staging/room-02/companions-04/company-sign-gilt.png",
+          "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' PHASE 1.5G: cut from the SAME rebuilt lettering as the weathered state, so the two cannot differ in position or angle by a pixel. Set by doc 48's S2."
         }
       },
       "responses": {
@@ -731,7 +731,9 @@
         }
       ],
       "neighbours": [
-        "mud_far"
+        "mud_far_0",
+        "mud_far_1",
+        "mud_far_2"
       ],
       "clipPlane": 0,
       "surface": "boardwalk",
@@ -741,18 +743,18 @@
       }
     },
     {
-      "id": "mud_far",
+      "id": "mud_far_0",
       "points": [
         {
           "x": 0,
           "y": 600
         },
         {
-          "x": 3610,
+          "x": 2268,
           "y": 600
         },
         {
-          "x": 3610,
+          "x": 2268,
           "y": 688
         },
         {
@@ -771,22 +773,95 @@
       },
       "neighbours": [
         "boardwalk",
-        "mud_mid"
+        "mud_far_2",
+        "mud_mid_0",
+        "mud_mid_1",
+        "mud_mid_4"
       ]
     },
     {
-      "id": "mud_mid",
+      "id": "mud_far_1",
+      "points": [
+        {
+          "x": 2614,
+          "y": 600
+        },
+        {
+          "x": 3610,
+          "y": 600
+        },
+        {
+          "x": 3610,
+          "y": 688
+        },
+        {
+          "x": 2614,
+          "y": 688
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "boardwalk",
+        "mud_far_2",
+        "mud_mid_2"
+      ]
+    },
+    {
+      "id": "mud_far_2",
+      "points": [
+        {
+          "x": 2268,
+          "y": 600
+        },
+        {
+          "x": 2614,
+          "y": 600
+        },
+        {
+          "x": 2614,
+          "y": 636
+        },
+        {
+          "x": 2268,
+          "y": 636
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "boardwalk",
+        "mud_far_0",
+        "mud_far_1"
+      ]
+    },
+    {
+      "id": "mud_mid_0",
       "points": [
         {
           "x": 560,
           "y": 688
         },
         {
-          "x": 3610,
+          "x": 1976,
           "y": 688
         },
         {
-          "x": 3610,
+          "x": 1976,
           "y": 776
         },
         {
@@ -804,10 +879,149 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_far",
-        "mud_near_0",
-        "mud_near_1",
+        "mud_far_0",
+        "mud_mid_4",
+        "mud_near_0"
+      ]
+    },
+    {
+      "id": "mud_mid_1",
+      "points": [
+        {
+          "x": 2236,
+          "y": 688
+        },
+        {
+          "x": 2268,
+          "y": 688
+        },
+        {
+          "x": 2268,
+          "y": 776
+        },
+        {
+          "x": 2236,
+          "y": 776
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "mud_far_0",
+        "mud_mid_3",
+        "mud_mid_4",
+        "mud_near_1"
+      ]
+    },
+    {
+      "id": "mud_mid_2",
+      "points": [
+        {
+          "x": 2614,
+          "y": 688
+        },
+        {
+          "x": 3610,
+          "y": 688
+        },
+        {
+          "x": 3610,
+          "y": 776
+        },
+        {
+          "x": 2614,
+          "y": 776
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "mud_far_1",
+        "mud_mid_3",
         "mud_near_2"
+      ]
+    },
+    {
+      "id": "mud_mid_3",
+      "points": [
+        {
+          "x": 2268,
+          "y": 690
+        },
+        {
+          "x": 2614,
+          "y": 690
+        },
+        {
+          "x": 2614,
+          "y": 776
+        },
+        {
+          "x": 2268,
+          "y": 776
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "mud_mid_1",
+        "mud_mid_2"
+      ]
+    },
+    {
+      "id": "mud_mid_4",
+      "points": [
+        {
+          "x": 1976,
+          "y": 688
+        },
+        {
+          "x": 2236,
+          "y": 688
+        },
+        {
+          "x": 2236,
+          "y": 748
+        },
+        {
+          "x": 1976,
+          "y": 748
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 1,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "mud_far_0",
+        "mud_mid_0",
+        "mud_mid_1"
       ]
     },
     {
@@ -818,11 +1032,11 @@
           "y": 776
         },
         {
-          "x": 1980,
+          "x": 1976,
           "y": 776
         },
         {
-          "x": 1980,
+          "x": 1976,
           "y": 864
         },
         {
@@ -840,7 +1054,7 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_mid",
+        "mud_mid_0",
         "mud_near_4",
         "mud_near_5"
       ]
@@ -849,7 +1063,7 @@
       "id": "mud_near_1",
       "points": [
         {
-          "x": 2232,
+          "x": 2236,
           "y": 776
         },
         {
@@ -861,7 +1075,7 @@
           "y": 864
         },
         {
-          "x": 2232,
+          "x": 2236,
           "y": 864
         }
       ],
@@ -875,7 +1089,7 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_mid",
+        "mud_mid_1",
         "mud_near_3",
         "mud_near_4"
       ]
@@ -910,7 +1124,7 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_mid",
+        "mud_mid_2",
         "mud_near_3"
       ]
     },
@@ -952,19 +1166,19 @@
       "id": "mud_near_4",
       "points": [
         {
-          "x": 1980,
-          "y": 802
+          "x": 1976,
+          "y": 806
         },
         {
-          "x": 2232,
-          "y": 802
+          "x": 2236,
+          "y": 806
         },
         {
-          "x": 2232,
+          "x": 2236,
           "y": 864
         },
         {
-          "x": 1980,
+          "x": 1976,
           "y": 864
         }
       ],
@@ -1021,7 +1235,7 @@
     {
       "level": 1,
       "mask": "art/staging/room-02/street-candidate-03/plane-1-trough-rail.png",
-      "note": "PHASE 1.5E: the trough AND the east hitching rail, both plate now, as authored silhouettes (street-candidate-03/plane-1-silhouettes.json). mud_far and mud_mid are plane 1: everything in them is behind both objects, whose bases lie below mud_mid's foot."
+      "note": "PHASE 1.5G: CUT FROM THE ART, not drawn round it (tools/retrofit/phase15g-masks.py, plane-1-cut.json). The trough is segmented from the plate's own pixels and trimmed at its base line, so the mask hugs the object and the contact shadow -- which is ground, not an occluder -- is not in it; the rail is its three members as quads, because that is exactly what the rail is. One file, one source of occlusion for both."
     }
   ],
   "occlusionNote": "No box in this room is clipPlane 0. Doc 22 defines 0 as always-in-front and nothing in Main Street is nearer than the wagon wheel, whose base sits on the bottom row of the frame -- so there is no depth for such a box to occupy. Recorded rather than left to look like an oversight.",
@@ -1239,11 +1453,11 @@
     {
       "at": [
         2100,
-        694
+        700
       ],
       "expect": 1,
       "box": "mud_mid",
-      "note": "on the mid mud directly behind the trough's far rim: the rim masks his feet"
+      "note": "behind the trough, above its base line: its far rim and body mask his feet"
     },
     {
       "at": [
@@ -1252,16 +1466,16 @@
       ],
       "expect": 1,
       "box": "mud_mid",
-      "note": "PHASE 1.5F: on the mid mud behind the rail, mid-span between the posts: the bar crosses him and the ground he stands on is behind the rail"
+      "note": "behind the rail, mid-span between the posts: the bar crosses him"
     },
     {
       "at": [
-        2450,
-        662
+        2470,
+        706
       ],
       "expect": 1,
-      "box": "mud_far",
-      "note": "PHASE 1.5F: where the pie woman stands, on the far mud behind the rail -- the generic actor case: nothing about this is Thad's"
+      "box": "mud_mid",
+      "note": "where the pie woman stands, on the ground behind the rail: the bar crosses her lower legs -- the generic actor case, and nothing about it is Thad's"
     }
   ],
   "occlusionBands": [

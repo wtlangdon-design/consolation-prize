@@ -55,6 +55,8 @@ import { check as rigDescribesFrames } from './check-rig-describes-frames.mjs';
 import { check as cameraSpace } from './check-camera-space.mjs';
 import { check as buildLedger } from './check-build-ledger.mjs';
 import { check as occlusion } from './check-occlusion.mjs';
+import { check as occluderBounds } from './check-occluder-bounds.mjs';
+import { check as signBaselines } from './check-sign-baselines.mjs';
 import { check as roomReadiness } from './check-room-readiness.mjs';
 import { check as fixtures } from './check-fixtures.mjs';
 import { check as afterUse } from './check-dialogue-afteruse.mjs';
@@ -149,6 +151,8 @@ const CHECKS = [
   buildLedger,
   roomReadiness,
   occlusion,
+  occluderBounds,
+  signBaselines,
   fontCandidates,
 ];
 

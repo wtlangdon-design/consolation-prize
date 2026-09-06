@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "main_street_candidate",
- "note": "PHASE 1.5F RAIL DEPTH PROOF (doc 36 Q122). Tyler's third finding: actors could not stand behind the east hitching rail. Five positions and the walks between them, all by world click, all with the camera in reach: beside the far post, in front of the rail, behind it mid-span (the walk has to go round the posts, which is the fence behaving), behind the near post, and out in front again. The pie woman stands on the far mud at 2450,662 through all of it -- the generic actor case, since nothing here is Thad's own.",
+ "note": "PHASE 1.5G RAIL PROOF (doc 36 Q123). Tyler's live screenshot showed Thad standing on the hitching rail. The rail is now a barrier on its own two lines -- the bar's drawn line in the far mud, the posts' feet in the near mud -- with real ground behind it between them. This route tries to break it: it stands him in front, sends him straight through the midspan, clicks directly on the bar, and walks him round both ends.",
  "actions": [
   {
    "do": "wait",
@@ -9,24 +9,7 @@
   },
   {
    "do": "capture",
-   "name": "r01-arrival",
-   "room": "main_street_candidate"
-  },
-  {
-   "do": "click",
-   "world": [
-    2640,
-    800
-   ],
-   "why": "D: beside the rail's far post, on the near mud"
-  },
-  {
-   "do": "wait",
-   "seconds": 9
-  },
-  {
-   "do": "capture",
-   "name": "r02-beside-far-post",
+   "name": "g01-arrival",
    "room": "main_street_candidate"
   },
   {
@@ -35,92 +18,118 @@
     2440,
     845
    ],
-   "why": "A: in front of the rail, mid-span, on the near mud"
+   "why": "A: in front of the rail, mid-span"
   },
   {
    "do": "wait",
-   "seconds": 9
+   "seconds": 22
   },
   {
    "do": "capture",
-   "name": "r03-front-centre",
+   "name": "g02-front-midspan",
    "room": "main_street_candidate"
   },
   {
    "do": "click",
    "world": [
     2440,
-    740
+    700
    ],
-   "why": "B: behind the rail, mid-span, on the mid mud -- the walk must go round a post"
+   "why": "C: straight through the rail at mid-span -- the path must go round an end"
   },
   {
    "do": "wait",
-   "seconds": 14
+   "seconds": 2.5
   },
   {
    "do": "capture",
-   "name": "r04-behind-centre",
+   "name": "g03a-crossing-starts",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "g03-crossing-underway",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "wait",
+   "seconds": 16
+  },
+  {
+   "do": "capture",
+   "name": "g04-behind-midspan",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2440,
+    660
+   ],
+   "why": "D: directly on the horizontal rail itself"
+  },
+  {
+   "do": "wait",
+   "seconds": 12
+  },
+  {
+   "do": "capture",
+   "name": "g05-clicked-the-rail",
    "room": "main_street_candidate"
   },
   {
    "do": "click",
    "world": [
     2300,
-    745
+    720
    ],
-   "why": "C: behind the rail's near post, on the mid mud"
+   "why": "E: behind the near post"
   },
   {
    "do": "wait",
-   "seconds": 9
+   "seconds": 12
   },
   {
    "do": "capture",
-   "name": "r05-behind-near-post",
+   "name": "g06-behind-near-post",
    "room": "main_street_candidate"
   },
   {
    "do": "click",
    "world": [
-    2400,
-    850
+    2600,
+    835
    ],
-   "why": "back out in front of the rail again"
+   "why": "F: round the far end, out in front again"
   },
   {
    "do": "wait",
-   "seconds": 14
+   "seconds": 22
   },
   {
    "do": "capture",
-   "name": "r06-front-again",
+   "name": "g07-front-far-end",
    "room": "main_street_candidate"
   },
   {
    "do": "click",
    "world": [
-    2560,
-    700
+    2440,
+    845
    ],
-   "why": "the ground the far post stands on: he must stop beside it, never inside it"
+   "why": "G: back to the front mid-span"
   },
   {
    "do": "wait",
-   "seconds": 10
+   "seconds": 16
   },
   {
    "do": "capture",
-   "name": "r07-at-far-post",
-   "room": "main_street_candidate"
-  },
-  {
-   "do": "wait",
-   "seconds": 6
-  },
-  {
-   "do": "capture",
-   "name": "r08-hold",
+   "name": "g08-front-again",
    "room": "main_street_candidate"
   }
  ]
