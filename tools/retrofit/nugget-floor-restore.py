@@ -17,10 +17,15 @@ from scipy import ndimage
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 os.chdir(ROOT)
+import sys
 SRC = 'art/staging/room-03/clean-plate-02/candidate-1920x864.png'
-OP = 'art/staging/room-03/floor-01/candidate-1920x864.png'
-MASK = 'art/staging/room-03/floor-01/floor-mask-plate.png'
-OUT = 'art/staging/room-03/corrected-01'
+# PHASE 1.5B: `--op 02` assembles from the floor-02 result (the whole public
+# floor) into corrected-02; the default is Phase 1.5's floor-01 / corrected-01.
+OPN = sys.argv[sys.argv.index('--op') + 1] if '--op' in sys.argv else '01'
+OP = f'art/staging/room-03/floor-{OPN}/candidate-1920x864.png'
+MASK = f'art/staging/room-03/floor-{OPN}/floor-mask-plate.png'
+OUT = f'art/staging/room-03/corrected-{OPN}'
+os.makedirs(OUT, exist_ok=True)
 sha = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()
 A = np.array(Image.open(SRC).convert('RGB')).astype(float)
 B = np.array(Image.open(OP).convert('RGB')).astype(float)
@@ -32,7 +37,10 @@ inside = np.array(Image.open(MASK).convert('L')) > 127
 # plank floor is a warm mid brown of steady hue; a stool seat is blue-grey, a
 # leg is near-black, the spittoon is brass.
 BOXES = {'stool_1': (1170, 490, 1285, 690), 'stool_2': (1320, 535, 1440, 750), 'stool_3': (1555, 610, 1710, 840),
-         'spittoon': (1390, 755, 1500, 864), 'piano_stool': (630, 405, 725, 505), 'chair_feet': (710, 425, 1090, 520)}
+         'spittoon': (1390, 755, 1500, 864), 'piano_stool': (630, 405, 725, 505), 'chair_feet': (710, 425, 1090, 520),
+         # PHASE 1.5B: the mask reaches behind the table to the wall's foot, so the
+         # whole table-and-chairs group is restored where the classifier finds it
+         'table_and_chairs': (712, 335, 1090, 510)}
 hsv = np.array(Image.open(SRC).convert('HSV')).astype(float)
 hue, sat, val = hsv[..., 0], hsv[..., 1], hsv[..., 2]
 furniture = np.zeros((H, W), bool)
@@ -43,6 +51,10 @@ for name, (x0, y0, x1, y1) in BOXES.items():
     f = ndimage.binary_opening(f, structure=np.ones((2, 2)))
     f = ndimage.binary_closing(f, structure=np.ones((3, 3)))
     furniture[win] |= f
+# the table top, restored whole: its light wood reads as plank to the classifier
+from PIL import ImageDraw as _ID
+_top = Image.new('L', (W, H), 0); _ID.Draw(_top).ellipse((786, 352, 1004, 402), fill=255)
+furniture |= np.array(_top) > 0
 furniture &= inside
 furniture = ndimage.binary_dilation(furniture, structure=np.ones((3, 3))) & inside
 Image.fromarray((furniture * 255).astype('uint8')).save(f'{OUT}/furniture-restore-mask.png')
@@ -91,11 +103,11 @@ out = f'{OUT}/plate-cold-dirt.png'
 Image.fromarray(np.clip(result, 0, 255).astype('uint8')).save(out)
 changed = np.abs(result - A).sum(-1) > 6
 outside = changed & ~inside; outside[y0:y1, x0:x1] = False
-rec = {'schema': 1, 'note': __doc__.strip(), 'inputs': {SRC: sha(SRC), OP: sha(OP), MASK: sha(MASK)}, 'output': {out: sha(out)},
+rec = {'schema': 1, 'op': OPN, 'note': __doc__.strip(), 'inputs': {SRC: sha(SRC), OP: sha(OP), MASK: sha(MASK)}, 'output': {out: sha(out)},
        'furnitureBoxes': BOXES, 'furniturePixelsRestored': int(furniture.sum()), 'floorPixelsTaken': int(take.sum()),
        'changedOutsideFloorAndFirebox': int(outside.sum()), 'changedInsideFurniture': int((changed & furniture).sum()),
        'stove': {'firebox': list(FIREBOX), 'overlay': f'{OUT}/stove-fire-overlay.png', 'firePixels': int((alpha > 0).sum())},
-       'imageOperations': {'nugget-floor': 1, 'nugget-stove': 0},
+       'imageOperations': {'nugget-floor': int(OPN), 'nugget-stove': 0},
        'modelDriftOutsideMaskUndone': int(((np.abs(B - A).sum(-1) > 6) & ~inside).sum())}
 json.dump(rec, open(f'{OUT}/derivation.json', 'w'), indent=1); open(f'{OUT}/derivation.json', 'a').write('\n')
 print(json.dumps({k: v for k, v in rec.items() if k not in ('note', 'inputs', 'furnitureBoxes')}))

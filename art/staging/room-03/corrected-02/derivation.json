@@ -1,0 +1,76 @@
+{
+ "schema": 1,
+ "op": "02",
+ "note": "PHASE 1.5 -- ASSEMBLE THE CORRECTED NUGGET BASE PLATE (doc 36 Q117).\n\n    python3 tools/retrofit/nugget-floor-restore.py\n\nTakes the accepted clean plate (clean-plate-02) as the base, lays the floor\noperation's result (floor-01) over it ONLY where the floor mask says floor and\nthe source says \"not furniture\", puts the stove out (its fire lifted into a\nlit-state overlay), and writes art/staging/room-03/corrected-01/\nplate-cold-dirt.png with a byte-level record: every pixel outside the floor\nmask is the accepted plate's own, and inside it every furniture pixel is the\naccepted plate's own. Whatever the model did to a stool is undone.",
+ "inputs": {
+  "art/staging/room-03/clean-plate-02/candidate-1920x864.png": "12e4efa55dafc48b6038384ac0fcc69b74fbc25a30e5617a7257be33ef99298f",
+  "art/staging/room-03/floor-02/candidate-1920x864.png": "a630bceb0c7aed478e4235d70af5cfc7f4102b86757b337ffb21ca6c1095337a",
+  "art/staging/room-03/floor-02/floor-mask-plate.png": "9b2e993f7d67c0245a14eb4827ca8126d68484e5460c5f2231a57039a200c4db"
+ },
+ "output": {
+  "art/staging/room-03/corrected-02/plate-cold-dirt.png": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
+ },
+ "furnitureBoxes": {
+  "stool_1": [
+   1170,
+   490,
+   1285,
+   690
+  ],
+  "stool_2": [
+   1320,
+   535,
+   1440,
+   750
+  ],
+  "stool_3": [
+   1555,
+   610,
+   1710,
+   840
+  ],
+  "spittoon": [
+   1390,
+   755,
+   1500,
+   864
+  ],
+  "piano_stool": [
+   630,
+   405,
+   725,
+   505
+  ],
+  "chair_feet": [
+   710,
+   425,
+   1090,
+   520
+  ],
+  "table_and_chairs": [
+   712,
+   335,
+   1090,
+   510
+  ]
+ },
+ "furniturePixelsRestored": 14784,
+ "floorPixelsTaken": 450173,
+ "changedOutsideFloorAndFirebox": 0,
+ "changedInsideFurniture": 0,
+ "stove": {
+  "firebox": [
+   1070,
+   312,
+   1108,
+   356
+  ],
+  "overlay": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+  "firePixels": 713
+ },
+ "imageOperations": {
+  "nugget-floor": 2,
+  "nugget-stove": 0
+ },
+ "modelDriftOutsideMaskUndone": 867094
+}

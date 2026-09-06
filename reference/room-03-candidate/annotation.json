@@ -1,6 +1,6 @@
 {
  "room": "nugget_candidate",
- "plate": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+ "plate": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
  "plateSize": [
   1920,
   864
@@ -319,13 +319,13 @@
   "stage": "CANDIDATE",
   "review": "live at ?room=nugget_candidate; the shipping room is untouched"
  },
- "plateNote": "PHASE 1.5 (doc 36 Q117): the accepted clean plate (clean-plate-02) corrected for canon -- the main floor re-materialised as compacted DIRT (the one authorized masked operation, art/staging/room-03/floor-01, every piece of furniture inside the mask restored from the accepted plate byte for byte) and the stove put OUT in the base with its fire lifted into the lit-state overlay (deterministic; 0 operations). Geometry is the accepted plate's: no rect moved. art/staging/room-03/corrected-01/derivation.json is the proof of what changed.",
+ "plateNote": "PHASE 1.5B (doc 36 Q118): the accepted clean plate (clean-plate-02) with the WHOLE public floor as compacted dirt -- the Phase 1.5 operation reached only the front floor (owner finding 3); the remaining Nugget operation (art/staging/room-03/floor-02) continued the same dirt behind the furniture to the far wall's foot, the stove side and the bar side -- and the stove out in the base with its fire lifted into the lit-state overlay. Every furniture pixel and every pixel outside the floor mask is the accepted plate's own (art/staging/room-03/corrected-02/derivation.json). Geometry is the accepted plate's: no rect moved.",
  "hotspotStates": {
   "stove": {
    "default": "lit",
    "states": {
     "lit": {
-     "image": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "image": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "note": "THE FIRE, LIFTED OUT OF THE PLATE as its own layer (Phase 1.5): the base plate's firebox is cold iron; this overlay is the fire the accepted plate painted, alpha-cut, drawn over it while the stove is lit. Phase 2's flicker animates THIS layer and nothing in the plate. 'A cast iron stove, lit, in July.'"
     },
     "out": {

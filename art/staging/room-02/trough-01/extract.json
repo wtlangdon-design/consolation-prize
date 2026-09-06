@@ -1,0 +1,64 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5B -- CUT THE NEW TROUGH OUT OF ITS IN-CONTEXT RESULT (doc 36 Q118).\n\n    python3 tools/retrofit/trough-extract.py\n\nThe trough operation painted inside a mask over a window of the accepted\nplate. Only that window's masked region is looked at; inside it, the trough is\nwhatever differs from the accepted plate's mud (a colour-difference mask,\nclosed, opened, largest component, holes filled, one-pixel feather), and the\ncompanion is the result's pixels under that silhouette, placed back at the\nwindow's plate position. The plate outside the mask is untouched by\nconstruction: nothing outside the mask is ever read from the result.",
+ "inputs": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad",
+  "art/staging/room-02/trough-01/window-1920x864.png": "ada59dbe8ea9b45534144b92880ebc740e2421ad906f08d99f8d1fbfd3db71e6"
+ },
+ "output": {
+  "art/staging/room-02/companions-01/water-trough.png": "a99cf7b745726ba001c0baaf42e8582a577eb5f05c018e8eed98341ab2e57144"
+ },
+ "silhouettePixels": 23451,
+ "components": 1,
+ "bboxPlate": [
+  2044,
+  660,
+  295,
+  105
+ ],
+ "footY": 765,
+ "extractZonePlate": [
+  1960,
+  600,
+  2400,
+  800
+ ],
+ "shiftY": -22,
+ "modelPaintedBelowMask": "yes: rim ~682, base ~786 against a mask foot of 712; only the authored trough silhouette is taken, no mud",
+ "silhouette": "authored polygon",
+ "troughPolygonResult": [
+  [
+   2044,
+   712
+  ],
+  [
+   2138,
+   682
+  ],
+  [
+   2262,
+   694
+  ],
+  [
+   2334,
+   738
+  ],
+  [
+   2338,
+   786
+  ],
+  [
+   2262,
+   780
+  ],
+  [
+   2062,
+   775
+  ],
+  [
+   2046,
+   762
+  ]
+ ],
+ "plateOutsideMaskUnchanged": "by construction: only the masked zone is read from the result"
+}
