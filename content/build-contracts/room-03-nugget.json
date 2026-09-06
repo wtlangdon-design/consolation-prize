@@ -141,13 +141,13 @@
    "subject": "Nugget corrected base (dirt floor, cold stove) and the lifted fire overlay",
    "class": "PLATE",
    "stage": "LIVE-PROOF",
-   "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+   "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
    "evidence": [
-    "art/staging/room-03/corrected-01/derivation.json",
+    "art/staging/room-03/corrected-02/derivation.json",
     "renders/proofs/candidates/nugget/life.json",
     "renders/proofs/candidates/nugget-stove-out/life.json"
    ],
-   "note": "PHASE 1.5: the accepted clean plate 02 with the main floor from the one authorized masked operation (floor-01) and the firebox cold; every pixel outside the floor mask and every furniture pixel inside it is the accepted plate's own. The candidate room loads this."
+   "note": "PHASE 1.5B: the accepted clean plate 02 with the WHOLE public floor as dirt (floor-01 then floor-02) and the firebox cold; every pixel outside the floor mask and every furniture pixel inside it is the accepted plate's own. The candidate room loads this. corrected-01 (front floor only) is superseded and kept as the record of the rejected intermediate."
   },
   {
    "subject": "Nugget floor operation source and derived candidate (floor-01)",
@@ -159,6 +159,17 @@
     "art/staging/ledger.json"
    ],
    "note": "The raw result of the floor operation; consumed by the restore step, not loaded by any room."
+  },
+  {
+   "subject": "Nugget floor operation 2 source and derived candidate (floor-02)",
+   "class": "PLATE",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-03/floor-02/candidate-1920x864.png",
+   "evidence": [
+    "art/staging/room-03/floor-02/floor-op.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "The raw result of the second floor operation; consumed by the restore step, not loaded by any room."
   }
  ],
  "acceptance": {
@@ -487,9 +498,10 @@
  },
  "environment": {
   "status": "OWNER ACCEPTED WITH CANON CORRECTIONS",
-  "correctionsApplied": "ENVIRONMENT CORRECTIONS COMPLETE \u2014 SCALE CALIBRATION + CHARACTER/LIFE PHASE PENDING",
+  "correctionsApplied": "ENVIRONMENT CLEANUP COMPLETE \u2014 READY FOR PHASE 2 SCALE + CASTING",
   "by": "Tyler, live review of the Phase 1 candidate (2026-09-05); corrections claude, Phase 1.5",
   "evidence": [
+   "docs/36-issue-list.md::Q118 \u00b7 Opening-set retrofit, phase 1.5B: the final environment cleanup \u2014 the trough as prop art, the funeral sheet as paper, the whole Nugget floor as dirt",
    "docs/36-issue-list.md::Q117 \u00b7 Opening-set retrofit, phase 1.5: the accepted environments corrected for canon and physics before casting",
    "renders/opening-set-retrofit/phase15-nugget-old-vs-corrected.webp",
    "renders/opening-set-retrofit/phase15-nugget-stove.webp",
@@ -499,12 +511,16 @@
    "art/staging/room-03/floor-01/floor-op.json",
    "proofs/room-03/phase15-hover.json",
    "proofs/room-03/separation-plan.json",
-   "proofs/room-03/patron-text-conflict.json"
+   "proofs/room-03/patron-text-conflict.json",
+   "renders/opening-set-retrofit/phase15b-nugget-before-after.webp",
+   "renders/opening-set-retrofit/phase15b-nugget-floor-detail.webp",
+   "art/staging/room-03/floor-02/floor-op.json",
+   "art/staging/room-03/corrected-02/derivation.json"
   ],
   "record": {
-   "dirtFloor": "canon (doc 05, doc 16); 1 masked image operation on the main floor, furniture restored from the accepted plate byte for byte",
-   "stoveStateArchitecture": "LIT = base + lifted fire overlay (hotspot state); OUT = base alone, lamp and field gated on the object state; 0 operations",
-   "futurePopulation": "OWNER-RULED nine visible runtime patrons: 3 bar, 4 card table, landing man, stove man; all runtime, none baked",
+   "dirtFloor": "canon (doc 05, doc 16); PHASE 1.5B: continuous across the whole public saloon floor -- 2 masked operations in all (front floor, then the rest behind the furniture to the far wall's foot, the stove side and the bar side), furniture and everything outside the mask restored from the accepted plate byte for byte",
+   "stoveStateArchitecture": "LIT = base + lifted fire overlay (hotspot state); OUT = base alone, lamp and field gated on the object state; 0 operations; preserved through the Phase 1.5B floor correction (corrected-02)",
+   "futurePopulation": "OWNER-RULED nine visible runtime patrons: 3 bar, 4 card table, landing man, stove man; all runtime, none baked; still pending Phase 2",
    "pianoPlayer": "NONE, ever",
    "abandonedHand": "the near edge of the table has no chair: the absent fifth player's place; four chairs, four players, nobody claims the hand",
    "landingMan": "story anchor: near-stillness is the character",

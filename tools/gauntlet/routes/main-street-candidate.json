@@ -42,9 +42,9 @@
    "do": "click",
    "world": [
     2160,
-    730
+    770
    ],
-   "why": "in front of the trough, mud_mid"
+   "why": "in front of the trough, mud_mid, just below its footprint (692-756)"
   },
   {
    "do": "wait",

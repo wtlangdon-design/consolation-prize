@@ -2,9 +2,9 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "nugget_candidate",
- "commit": "3ceba283d5f486f359d6df150cbd980f8f6c7dd7",
- "workingTreeClean": true,
- "dirtyAllowed": false,
+ "commit": "adf78e77414e17afe32bfd5b63e20ee38b70aeb1",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
  "visualState": null,
  "objectStates": null,
  "pace": 1,
@@ -12,18 +12,18 @@
  "entryRoute": null,
  "warped": true,
  "lifeRoute": "nugget-candidate",
- "durationSeconds": 121.77,
+ "durationSeconds": 126.5,
  "events": [
   {
-   "t": 2.9,
+   "t": 3.4,
    "line": "warped straight into nugget_candidate (?room=), no entry route"
   },
   {
-   "t": 2.94,
+   "t": 3.44,
    "line": "in nugget_candidate; life route: 45 action(s)"
   },
   {
-   "t": 4.04,
+   "t": 4.88,
    "trace": {
     "says": null,
     "control": null,
@@ -38,7 +38,7 @@
    }
   },
   {
-   "t": 5.02,
+   "t": 5.46,
    "trace": {
     "says": null,
     "control": null,
@@ -53,11 +53,11 @@
    }
   },
   {
-   "t": 5.94,
+   "t": 6.45,
    "line": "action 1 (wait): waited 3s"
   },
   {
-   "t": 6.28,
+   "t": 6.54,
    "trace": {
     "says": null,
     "control": null,
@@ -72,15 +72,15 @@
    }
   },
   {
-   "t": 6.52,
+   "t": 7.77,
    "line": "capture c01-arrival: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 6.93,
+   "t": 8.24,
    "line": "action 1 (click): clicked world 900,520 -- far: by the card table"
   },
   {
-   "t": 7.99,
+   "t": 9.25,
    "trace": {
     "says": null,
     "control": null,
@@ -95,7 +95,7 @@
    }
   },
   {
-   "t": 8.95,
+   "t": 10.27,
    "trace": {
     "says": null,
     "control": null,
@@ -104,13 +104,13 @@
     "options": 0,
     "thad": [
      900,
-     721
+     707
     ],
     "moving": true
    }
   },
   {
-   "t": 9.95,
+   "t": 11.27,
    "trace": {
     "says": null,
     "control": null,
@@ -125,7 +125,7 @@
    }
   },
   {
-   "t": 10.94,
+   "t": 12.29,
    "trace": {
     "says": null,
     "control": null,
@@ -140,7 +140,7 @@
    }
   },
   {
-   "t": 11.96,
+   "t": 13.27,
    "trace": {
     "says": null,
     "control": null,
@@ -155,7 +155,7 @@
    }
   },
   {
-   "t": 12.95,
+   "t": 14.26,
    "trace": {
     "says": null,
     "control": null,
@@ -170,7 +170,7 @@
    }
   },
   {
-   "t": 13.95,
+   "t": 15.28,
    "trace": {
     "says": null,
     "control": null,
@@ -185,19 +185,19 @@
    }
   },
   {
-   "t": 14.94,
+   "t": 16.25,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 15.44,
+   "t": 16.78,
    "line": "capture c02-thad-far-card-table: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 15.59,
+   "t": 16.96,
    "line": "action 1 (click): clicked world 1060,560 -- by the stove, in its light"
   },
   {
-   "t": 16.64,
+   "t": 17.98,
    "trace": {
     "says": null,
     "control": null,
@@ -212,7 +212,7 @@
    }
   },
   {
-   "t": 17.62,
+   "t": 18.97,
    "trace": {
     "says": null,
     "control": null,
@@ -227,7 +227,7 @@
    }
   },
   {
-   "t": 18.6,
+   "t": 20,
    "trace": {
     "says": null,
     "control": null,
@@ -242,7 +242,7 @@
    }
   },
   {
-   "t": 19.6,
+   "t": 20.97,
    "trace": {
     "says": null,
     "control": null,
@@ -257,7 +257,7 @@
    }
   },
   {
-   "t": 20.6,
+   "t": 22,
    "trace": {
     "says": null,
     "control": null,
@@ -272,7 +272,7 @@
    }
   },
   {
-   "t": 21.63,
+   "t": 23,
    "trace": {
     "says": null,
     "control": null,
@@ -287,7 +287,7 @@
    }
   },
   {
-   "t": 22.6,
+   "t": 23.98,
    "trace": {
     "says": null,
     "control": null,
@@ -302,31 +302,31 @@
    }
   },
   {
-   "t": 23.59,
+   "t": 24.96,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 24.1,
+   "t": 25.52,
    "line": "capture c03-thad-by-stove: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 24.18,
+   "t": 25.6,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 24.4,
+   "t": 25.84,
    "line": "action 1 (click): clicked nugget_candidate/stove at world 1093,278 -- the stove, lit"
   },
   {
-   "t": 24.95,
+   "t": 26.46,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room nugget_candidate"
   },
   {
-   "t": 25.48,
+   "t": 26.98,
    "line": "capture c04-look-stove-lit: room nugget_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 26.51,
+   "t": 28.02,
    "trace": {
     "says": "thad",
     "control": null,
@@ -341,7 +341,7 @@
    }
   },
   {
-   "t": 27.5,
+   "t": 29.01,
    "trace": {
     "says": null,
     "control": null,
@@ -356,7 +356,7 @@
    }
   },
   {
-   "t": 28.5,
+   "t": 30.02,
    "trace": {
     "says": null,
     "control": null,
@@ -371,7 +371,7 @@
    }
   },
   {
-   "t": 29.52,
+   "t": 31.01,
    "trace": {
     "says": null,
     "control": null,
@@ -386,15 +386,15 @@
    }
   },
   {
-   "t": 30.48,
+   "t": 31.98,
    "line": "action 1 (wait): waited 5s"
   },
   {
-   "t": 30.6,
+   "t": 32.12,
    "line": "action 1 (click): clicked world 700,680 -- middle depth"
   },
   {
-   "t": 31.66,
+   "t": 33.13,
    "trace": {
     "says": null,
     "control": null,
@@ -402,14 +402,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     885,
+     896,
      576
     ],
     "moving": true
    }
   },
   {
-   "t": 32.65,
+   "t": 34.19,
    "trace": {
     "says": null,
     "control": null,
@@ -417,14 +417,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     710,
-     612
+     709,
+     615
     ],
     "moving": true
    }
   },
   {
-   "t": 33.62,
+   "t": 35.15,
    "trace": {
     "says": null,
     "control": null,
@@ -439,7 +439,7 @@
    }
   },
   {
-   "t": 34.65,
+   "t": 36.14,
    "trace": {
     "says": null,
     "control": null,
@@ -454,7 +454,7 @@
    }
   },
   {
-   "t": 35.63,
+   "t": 37.16,
    "trace": {
     "says": null,
     "control": null,
@@ -469,7 +469,7 @@
    }
   },
   {
-   "t": 36.63,
+   "t": 38.18,
    "trace": {
     "says": null,
     "control": null,
@@ -484,7 +484,7 @@
    }
   },
   {
-   "t": 37.64,
+   "t": 39.15,
    "trace": {
     "says": null,
     "control": null,
@@ -499,19 +499,19 @@
    }
   },
   {
-   "t": 38.61,
+   "t": 40.13,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 39.12,
+   "t": 40.67,
    "line": "capture c05-thad-mid: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 39.27,
+   "t": 40.84,
    "line": "action 1 (click): clicked world 1100,830 -- near: at the bar end by the spittoon"
   },
   {
-   "t": 40.29,
+   "t": 41.89,
    "trace": {
     "says": null,
     "control": null,
@@ -519,14 +519,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     969,
-     707
+     978,
+     708
     ],
     "moving": true
    }
   },
   {
-   "t": 41.29,
+   "t": 42.88,
    "trace": {
     "says": null,
     "control": null,
@@ -541,7 +541,7 @@
    }
   },
   {
-   "t": 42.3,
+   "t": 43.89,
    "trace": {
     "says": null,
     "control": null,
@@ -556,7 +556,7 @@
    }
   },
   {
-   "t": 43.29,
+   "t": 44.87,
    "trace": {
     "says": null,
     "control": null,
@@ -571,7 +571,7 @@
    }
   },
   {
-   "t": 44.3,
+   "t": 45.86,
    "trace": {
     "says": null,
     "control": null,
@@ -586,7 +586,7 @@
    }
   },
   {
-   "t": 45.32,
+   "t": 46.86,
    "trace": {
     "says": null,
     "control": null,
@@ -601,7 +601,7 @@
    }
   },
   {
-   "t": 46.29,
+   "t": 47.9,
    "trace": {
     "says": null,
     "control": null,
@@ -616,23 +616,23 @@
    }
   },
   {
-   "t": 47.28,
+   "t": 48.84,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 47.8,
+   "t": 49.4,
    "line": "capture c06-thad-near-bar: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 47.88,
+   "t": 49.49,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 48.09,
+   "t": 49.72,
    "line": "action 1 (click): clicked nugget_candidate/piano at world 605,388 -- the piano"
   },
   {
-   "t": 49.14,
+   "t": 50.73,
    "trace": {
     "says": null,
     "control": null,
@@ -640,22 +640,37 @@
     "performing": false,
     "options": 0,
     "thad": [
-     754,
-     803
+     776,
+     805
     ],
     "moving": true
    }
   },
   {
-   "t": 50.07,
+   "t": 51.76,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     605,
+     666
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 51.81,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room nugget_candidate"
   },
   {
-   "t": 50.6,
+   "t": 52.36,
    "line": "capture c07-piano: room nugget_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 51.61,
+   "t": 53.39,
    "trace": {
     "says": "thad",
     "control": null,
@@ -670,7 +685,7 @@
    }
   },
   {
-   "t": 52.63,
+   "t": 54.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -685,7 +700,7 @@
    }
   },
   {
-   "t": 53.62,
+   "t": 55.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -700,7 +715,7 @@
    }
   },
   {
-   "t": 54.61,
+   "t": 56.4,
    "trace": {
     "says": "thad",
     "control": null,
@@ -715,7 +730,7 @@
    }
   },
   {
-   "t": 55.61,
+   "t": 57.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -730,23 +745,23 @@
    }
   },
   {
-   "t": 56.6,
+   "t": 58.36,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 56.66,
+   "t": 58.45,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 56.88,
+   "t": 58.7,
    "line": "action 1 (click): clicked nugget_candidate/handbill at world 344,306 -- the handbill"
   },
   {
-   "t": 56.94,
+   "t": 58.76,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room nugget_candidate"
   },
   {
-   "t": 57.96,
+   "t": 59.77,
    "trace": {
     "says": null,
     "control": null,
@@ -755,13 +770,13 @@
     "options": 0,
     "thad": [
      344,
-     735
+     721
     ],
     "moving": true
    }
   },
   {
-   "t": 58.98,
+   "t": 60.78,
    "trace": {
     "says": "thad",
     "control": null,
@@ -776,7 +791,7 @@
    }
   },
   {
-   "t": 59.95,
+   "t": 61.79,
    "trace": {
     "says": "thad",
     "control": null,
@@ -791,30 +806,15 @@
    }
   },
   {
-   "t": 60.94,
+   "t": 62.77,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 60.95,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     344,
-     754
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 61.4,
+   "t": 63.3,
    "line": "capture c08-handbill: room nugget_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 62.45,
+   "t": 64.34,
    "trace": {
     "says": "thad",
     "control": null,
@@ -829,7 +829,7 @@
    }
   },
   {
-   "t": 63.44,
+   "t": 65.34,
    "trace": {
     "says": "thad",
     "control": null,
@@ -844,7 +844,7 @@
    }
   },
   {
-   "t": 64.43,
+   "t": 66.32,
    "trace": {
     "says": "thad",
     "control": null,
@@ -859,7 +859,7 @@
    }
   },
   {
-   "t": 65.44,
+   "t": 67.35,
    "trace": {
     "says": "thad",
     "control": null,
@@ -874,7 +874,7 @@
    }
   },
   {
-   "t": 66.44,
+   "t": 68.36,
    "trace": {
     "says": null,
     "control": null,
@@ -889,7 +889,7 @@
    }
   },
   {
-   "t": 67.44,
+   "t": 69.32,
    "trace": {
     "says": null,
     "control": null,
@@ -904,7 +904,7 @@
    }
   },
   {
-   "t": 68.45,
+   "t": 70.34,
    "trace": {
     "says": null,
     "control": null,
@@ -919,19 +919,19 @@
    }
   },
   {
-   "t": 69.41,
+   "t": 71.3,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 69.46,
+   "t": 71.36,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 69.67,
+   "t": 71.61,
    "line": "action 1 (click): clicked nugget_candidate/cards at world 910,383 -- the abandoned hand"
   },
   {
-   "t": 70.71,
+   "t": 72.65,
    "trace": {
     "says": null,
     "control": null,
@@ -939,14 +939,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     647,
-     736
+     642,
+     737
     ],
     "moving": true
    }
   },
   {
-   "t": 71.68,
+   "t": 73.65,
    "trace": {
     "says": null,
     "control": null,
@@ -961,15 +961,15 @@
    }
   },
   {
-   "t": 72.36,
+   "t": 74.3,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room nugget_candidate"
   },
   {
-   "t": 72.9,
+   "t": 74.81,
    "line": "capture c09-cards: room nugget_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 73.91,
+   "t": 75.82,
    "trace": {
     "says": "thad",
     "control": null,
@@ -984,7 +984,7 @@
    }
   },
   {
-   "t": 74.92,
+   "t": 76.86,
    "trace": {
     "says": "thad",
     "control": null,
@@ -999,7 +999,7 @@
    }
   },
   {
-   "t": 75.92,
+   "t": 77.85,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1014,7 +1014,7 @@
    }
   },
   {
-   "t": 76.92,
+   "t": 78.86,
    "trace": {
     "says": null,
     "control": null,
@@ -1029,7 +1029,7 @@
    }
   },
   {
-   "t": 77.92,
+   "t": 79.85,
    "trace": {
     "says": null,
     "control": null,
@@ -1044,19 +1044,19 @@
    }
   },
   {
-   "t": 78.9,
+   "t": 80.81,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 78.98,
+   "t": 80.88,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 79.22,
+   "t": 81.13,
    "line": "action 1 (click): clicked nugget_candidate/window at world 438,245 -- the window onto Main Street"
   },
   {
-   "t": 80.26,
+   "t": 82.16,
    "trace": {
     "says": null,
     "control": null,
@@ -1064,14 +1064,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     710,
-     580
+     720,
+     578
     ],
     "moving": true
    }
   },
   {
-   "t": 81.24,
+   "t": 83.13,
    "trace": {
     "says": null,
     "control": null,
@@ -1079,22 +1079,22 @@
     "performing": false,
     "options": 0,
     "thad": [
-     505,
-     632
+     516,
+     629
     ],
     "moving": true
    }
   },
   {
-   "t": 82.11,
+   "t": 84.08,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room nugget_candidate"
   },
   {
-   "t": 82.58,
+   "t": 84.59,
    "line": "capture c10-window: room nugget_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 83.61,
+   "t": 85.62,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1109,7 +1109,7 @@
    }
   },
   {
-   "t": 84.61,
+   "t": 86.62,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1124,7 +1124,7 @@
    }
   },
   {
-   "t": 85.61,
+   "t": 87.62,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1139,7 +1139,7 @@
    }
   },
   {
-   "t": 86.59,
+   "t": 88.63,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1154,7 +1154,7 @@
    }
   },
   {
-   "t": 87.61,
+   "t": 89.63,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1169,45 +1169,15 @@
    }
   },
   {
-   "t": 88.58,
+   "t": 90.6,
    "line": "action 1 (wait): waited 6s"
   },
   {
-   "t": 88.73,
+   "t": 90.75,
    "line": "action 1 (click): clicked world 600,700 -- the dark near the doors"
   },
   {
-   "t": 89.77,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     600,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 90.76,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     600,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 91.74,
+   "t": 91.76,
    "trace": {
     "says": null,
     "control": null,
@@ -1237,7 +1207,7 @@
    }
   },
   {
-   "t": 93.76,
+   "t": 93.77,
    "trace": {
     "says": null,
     "control": null,
@@ -1252,7 +1222,7 @@
    }
   },
   {
-   "t": 94.75,
+   "t": 94.77,
    "trace": {
     "says": null,
     "control": null,
@@ -1267,7 +1237,7 @@
    }
   },
   {
-   "t": 95.78,
+   "t": 95.79,
    "trace": {
     "says": null,
     "control": null,
@@ -1282,15 +1252,45 @@
    }
   },
   {
-   "t": 96.74,
+   "t": 96.78,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     600,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 97.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     600,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 98.76,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 97.23,
+   "t": 99.32,
    "line": "capture c11-away-from-light: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 98.24,
+   "t": 100.36,
    "trace": {
     "says": null,
     "control": null,
@@ -1305,7 +1305,7 @@
    }
   },
   {
-   "t": 99.25,
+   "t": 101.37,
    "trace": {
     "says": null,
     "control": null,
@@ -1320,7 +1320,7 @@
    }
   },
   {
-   "t": 100.27,
+   "t": 102.35,
    "trace": {
     "says": null,
     "control": null,
@@ -1335,7 +1335,7 @@
    }
   },
   {
-   "t": 101.28,
+   "t": 103.34,
    "trace": {
     "says": null,
     "control": null,
@@ -1350,7 +1350,7 @@
    }
   },
   {
-   "t": 102.24,
+   "t": 104.34,
    "trace": {
     "says": null,
     "control": null,
@@ -1365,7 +1365,7 @@
    }
   },
   {
-   "t": 103.26,
+   "t": 105.38,
    "trace": {
     "says": null,
     "control": null,
@@ -1380,7 +1380,7 @@
    }
   },
   {
-   "t": 104.27,
+   "t": 106.38,
    "trace": {
     "says": null,
     "control": null,
@@ -1395,7 +1395,7 @@
    }
   },
   {
-   "t": 105.29,
+   "t": 107.38,
    "trace": {
     "says": null,
     "control": null,
@@ -1410,7 +1410,7 @@
    }
   },
   {
-   "t": 106.28,
+   "t": 108.36,
    "trace": {
     "says": null,
     "control": null,
@@ -1425,7 +1425,7 @@
    }
   },
   {
-   "t": 107.28,
+   "t": 109.39,
    "trace": {
     "says": null,
     "control": null,
@@ -1440,7 +1440,7 @@
    }
   },
   {
-   "t": 108.29,
+   "t": 110.37,
    "trace": {
     "says": null,
     "control": null,
@@ -1455,7 +1455,7 @@
    }
   },
   {
-   "t": 109.25,
+   "t": 111.38,
    "trace": {
     "says": null,
     "control": null,
@@ -1470,7 +1470,7 @@
    }
   },
   {
-   "t": 110.28,
+   "t": 112.38,
    "trace": {
     "says": null,
     "control": null,
@@ -1485,7 +1485,7 @@
    }
   },
   {
-   "t": 111.29,
+   "t": 113.37,
    "trace": {
     "says": null,
     "control": null,
@@ -1500,7 +1500,7 @@
    }
   },
   {
-   "t": 112.27,
+   "t": 114.37,
    "trace": {
     "says": null,
     "control": null,
@@ -1515,7 +1515,7 @@
    }
   },
   {
-   "t": 113.27,
+   "t": 115.41,
    "trace": {
     "says": null,
     "control": null,
@@ -1530,7 +1530,7 @@
    }
   },
   {
-   "t": 114.29,
+   "t": 116.39,
    "trace": {
     "says": null,
     "control": null,
@@ -1545,7 +1545,7 @@
    }
   },
   {
-   "t": 115.28,
+   "t": 117.38,
    "trace": {
     "says": null,
     "control": null,
@@ -1560,7 +1560,7 @@
    }
   },
   {
-   "t": 116.28,
+   "t": 118.4,
    "trace": {
     "says": null,
     "control": null,
@@ -1575,11 +1575,11 @@
    }
   },
   {
-   "t": 117.23,
+   "t": 119.32,
    "line": "action 1 (wait): waited 20s"
   },
   {
-   "t": 117.76,
+   "t": 119.87,
    "line": "capture c12-idle-20: room nugget_candidate, says null, options 0, control null"
   }
  ],
@@ -1587,11 +1587,11 @@
   {
    "name": "c01-arrival",
    "why": null,
-   "t": 6.51,
+   "t": 7.76,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c01-arrival.png",
-   "hash": "964c7e1c6eda7bb5d38979e34c0914f47e9397546cfd56c9529cf5805bad6abf",
+   "hash": "1e9099d824fac5030021b36edc003b9da4c9b0394e8e673ca678f8375e7fd167",
    "room": "nugget_candidate",
-   "clock": 6.2175,
+   "clock": 7.458,
    "control": null,
    "says": null,
    "options": 0,
@@ -1613,7 +1613,7 @@
      "height": 386,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       100,
       374,
@@ -1637,16 +1637,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -1658,11 +1658,11 @@
   {
    "name": "c02-thad-far-card-table",
    "why": null,
-   "t": 15.43,
+   "t": 16.77,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c02-thad-far-card-table.png",
-   "hash": "a43b9f74982cb4388fdbfaa0545b3f2fe02b3eb6161f01060870f04cda79dd80",
+   "hash": "8fa61f261eab3eab7baafdaf7e92618e81e1023f9de4bca9e36b9953ed81309c",
    "room": "nugget_candidate",
-   "clock": 15.1671,
+   "clock": 16.440900000000003,
    "control": null,
    "says": null,
    "options": 0,
@@ -1684,7 +1684,7 @@
      "height": 208,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
       777,
       311,
@@ -1708,16 +1708,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -1729,11 +1729,11 @@
   {
    "name": "c03-thad-by-stove",
    "why": null,
-   "t": 24.1,
+   "t": 25.51,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c03-thad-by-stove.png",
-   "hash": "344d881ade5e2d4a419d1f9f340e8611e1fd5764a9f5476d766e73599976f6f4",
+   "hash": "987b8383f8c5bf8e00c756ce4a95be7a4366d33c0073143eb751616638fde8f8",
    "room": "nugget_candidate",
-   "clock": 23.8168,
+   "clock": 25.1738,
    "control": null,
    "says": null,
    "options": 0,
@@ -1755,7 +1755,7 @@
      "height": 237,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-03.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       936,
       322,
@@ -1779,16 +1779,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -1800,11 +1800,11 @@
   {
    "name": "c04-look-stove-lit",
    "why": null,
-   "t": 25.47,
+   "t": 26.97,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c04-look-stove-lit.png",
-   "hash": "6872363f9abff337ef80a69b2e6070705dcb556a52c6d621073b6bcebfc3be15",
+   "hash": "d96409dab402ced6546cea4046ef7155df38236227a573a525aa4323a00f49a0",
    "room": "nugget_candidate",
-   "clock": 25.1668,
+   "clock": 26.6571,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1826,7 +1826,7 @@
      "height": 248,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
       946,
       325,
@@ -1850,16 +1850,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -1871,11 +1871,11 @@
   {
    "name": "c05-thad-mid",
    "why": null,
-   "t": 39.11,
+   "t": 40.67,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c05-thad-mid.png",
-   "hash": "1be98985a4cab8429a0f00fcb04fce02c9e766455ed06fb5db76b449de8bc20e",
+   "hash": "5064255fea447075d957050011d1d5bb98a18b6d19166237d725fbbcededccb1",
    "room": "nugget_candidate",
-   "clock": 38.816199999999995,
+   "clock": 40.3233,
    "control": null,
    "says": null,
    "options": 0,
@@ -1897,7 +1897,7 @@
      "height": 326,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-00.png",
+     "from": "art/actors/thad-idle-front/idle-04.png",
      "bounds": [
       506,
       353,
@@ -1921,16 +1921,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -1942,11 +1942,11 @@
   {
    "name": "c06-thad-near-bar",
    "why": null,
-   "t": 47.8,
+   "t": 49.39,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c06-thad-near-bar.png",
-   "hash": "fce6f42fcc17ae2bd038cdb064c4eb608f7b5dc97f2123d6c00ac0593bbf1880",
+   "hash": "f6eb5e94c067c4ecd357e59dcc3589026f45dc0161e64d63f19c6e58e3459678",
    "room": "nugget_candidate",
-   "clock": 47.499199999999995,
+   "clock": 49.072900000000004,
    "control": null,
    "says": null,
    "options": 0,
@@ -1968,7 +1968,7 @@
      "height": 437,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-front/idle-02.png",
+     "from": "art/actors/thad-idle-front/idle-00.png",
      "bounds": [
       840,
       392,
@@ -1992,16 +1992,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -2013,11 +2013,11 @@
   {
    "name": "c07-piano",
    "why": null,
-   "t": 50.59,
+   "t": 52.35,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c07-piano.png",
-   "hash": "5e5f8b68466f67da3e7a65c753d5137968d589964de8bb914a98166f50b1182b",
+   "hash": "af6ddeae85c79b13c3a0c2dc59b2d98426c392213f520d2329ae3bdce306cb5a",
    "room": "nugget_candidate",
-   "clock": 50.3158,
+   "clock": 52.022800000000004,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -2039,7 +2039,7 @@
      "height": 317,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
       417,
       349,
@@ -2063,16 +2063,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -2084,11 +2084,11 @@
   {
    "name": "c08-handbill",
    "why": null,
-   "t": 61.4,
+   "t": 63.29,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c08-handbill.png",
-   "hash": "6c652a5385f9ddc4d72e5b1098148ecceebeae08ea8d0d5e679f837489ac86fe",
+   "hash": "26a14a699b4717ecfbb8760e723097f84865d79b7d9a336d52eb304222ad9f6e",
    "room": "nugget_candidate",
-   "clock": 61.1486,
+   "clock": 62.972300000000004,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -2110,7 +2110,7 @@
      "height": 382,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       118,
       372,
@@ -2134,16 +2134,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -2155,11 +2155,11 @@
   {
    "name": "c09-cards",
    "why": null,
-   "t": 72.89,
+   "t": 74.8,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c09-cards.png",
-   "hash": "49d7a4693564b78028d6d6dd38b192ec74b9c2e44e75796830857dc15aca3a1d",
+   "hash": "592c1e8347d2461b9a1d4144a41cdf7222bbf2eb6179b4816720c515e3f207ec",
    "room": "nugget_candidate",
-   "clock": 72.59819999999999,
+   "clock": 74.4886,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -2181,7 +2181,7 @@
      "height": 248,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
       763,
       325,
@@ -2205,16 +2205,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -2226,11 +2226,11 @@
   {
    "name": "c10-window",
    "why": null,
-   "t": 82.57,
+   "t": 84.59,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c10-window.png",
-   "hash": "385d1ab86444134cb087aab65db699e4857c86c2bd5a8900039919d92f5bfd66",
+   "hash": "e26fefe2a6dbf4329139f38a51edd6b4336d19865a62c3e7fb8c217edc9b432f",
    "room": "nugget_candidate",
-   "clock": 82.31439999999999,
+   "clock": 84.2715,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -2252,7 +2252,7 @@
      "height": 314,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-04.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
       252,
       349,
@@ -2276,16 +2276,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -2297,11 +2297,11 @@
   {
    "name": "c11-away-from-light",
    "why": null,
-   "t": 97.22,
+   "t": 99.31,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c11-away-from-light.png",
-   "hash": "26142879ab97ccc0a967de8c27d06641044368c9895d6f6848aaaa19ed4ccbd3",
+   "hash": "6f51546e94e95f8c3dbba109c3d3437273d4fc28a6ee66632d664a67e94857ad",
    "room": "nugget_candidate",
-   "clock": 96.9472,
+   "clock": 98.9876,
    "control": null,
    "says": null,
    "options": 0,
@@ -2323,7 +2323,7 @@
      "height": 341,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
       423,
       358,
@@ -2347,16 +2347,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -2368,11 +2368,11 @@
   {
    "name": "c12-idle-20",
    "why": null,
-   "t": 117.75,
+   "t": 119.86,
    "file": "renders/proofs/candidates/nugget/raw-captures-ignored/c12-idle-20.png",
-   "hash": "26142879ab97ccc0a967de8c27d06641044368c9895d6f6848aaaa19ed4ccbd3",
+   "hash": "6f51546e94e95f8c3dbba109c3d3437273d4fc28a6ee66632d664a67e94857ad",
    "room": "nugget_candidate",
-   "clock": 117.4797,
+   "clock": 119.5201,
    "control": null,
    "says": null,
    "options": 0,
@@ -2394,7 +2394,7 @@
      "height": 341,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
       423,
       358,
@@ -2418,16 +2418,16 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
-     "drawn": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+     "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+     "drawn": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+     "hash": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
     },
     {
-     "key": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "path": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
-     "drawn": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+     "key": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "path": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+     "drawn": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
      "candidate": false,
      "loaded": true,
      "hash": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
@@ -2449,7 +2449,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 121.77s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 126.5s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -2464,5 +2464,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-06T00:18:53.865Z"
+ "at": "2026-09-06T01:28:10.382Z"
 }
