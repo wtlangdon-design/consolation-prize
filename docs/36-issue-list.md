@@ -4203,3 +4203,33 @@ Tyler authorized one more image operation, the last one anywhere in Phase 2A, fo
 `art/staging/room-03/cast-bar-pair-01/REJECTED.md` · `renders/opening-set-retrofit/phase2a-pair-eyes.webp` · `phase2a-pair-judgement.webp` · `tools/retrofit/phase2a-bar-pair-prep.py` · `tools/art/phase2a-pair-judge.py` · `proofs/room-03/prompts/bar-pair-01.txt`.
 
 **PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
+
+## Q132 · Opening-set retrofit, phase 2A: the deterministic face finish — the last defect closed without a generation — **CORRECTED 2026-09-06, ACCEPTANCE AWAITING TYLER**
+
+Tyler's ruling after Q131: no further image generation, and the isolated-pair result had proved something worth acting on — identity, pose, clothing, hair, hat, moustache and cloth all came back right, and the entire remaining mismatch sat in the face. A defect that small is repainted, not recast.
+
+**BOTH MEN PASSED AND BOTH SHIP.** `nugget_bar_2` and `nugget_bar_3` are the isolated-pair candidates with their faces finished. **Zero image-generation operations.** `nugget-bar-stove-family` stays at 5 billed, `nugget-card-landing-family` at 2, Nugget patron generation at 7, and the guard still refuses the category.
+
+**WHAT WAS DONE, IN TWO MOVES.**
+
+- **The eye.** Inside a rectangle read off the art at 14× and drawn to sit below the brow, a pixel that is light and **not warm** takes the eye's own darkest tone. The dark part of the eye — the lash, the iris, the socket — is left exactly as drawn, so the eye keeps the shape the generation gave it and simply stops being an eyeball. 25 pixels per man.
+- **The cheek.** The skin inside the face is snapped to four tones measured from that man's own face, and every connected run smaller than 14 px is handed to the tone around it. His colours, so his colour family and his identity survive; what goes is the ramp between them.
+
+**FOUR RULES WERE TRIED AND THROWN AWAY BEFORE THE FIFTH WORKED, and they are worth writing down because each looked reasonable.** Filling every non-skin pixel in the eye rectangle, and filling every dark-or-bright pixel in it, both turned the *shadow-side* eye into a solid black rectangle: on that side of the face the whole socket is below the dark threshold, so the rectangle became the shape. Counting dark neighbours in a 5×5 missed the middle of a five-pixel-wide sclera and, taken on a cropped window with wraparound, painted little brackets along the rectangle's edges. A hole fill found nothing at all, because a sclera is not enclosed — it opens into the lower lid. **Brightness alone could not do it either:** the lit lid inside the rectangle runs to 195 and one man's catchlight only reaches 184, so every single threshold either left a white dot or ate a lid. **Warmth could.** This cast is lit by lamplight and their skin sits at red-minus-blue around 170; a sclera is near-neutral. Measured after: 25 light-and-not-warm pixels in the eye rectangles before, **0 after**, for both men.
+
+**THE CHEEK TOOK THREE GOES TOO.** A majority filter at radius 2 turned the cheeks into amoebas. Median-filtering the luminance first to place the planes gave simpler boundaries that stopped following the face — the nose and jaw dissolved. Snapping the original values keeps every plane edge where the drawing put it; the islands that leaves are then removed by **area**, not by blurring, which is the difference between a few intentional masses and a quantized photograph.
+
+**NO METRIC WAS USED AND NONE COULD BE.** Colour count, flatness and neighbour step all rank *Thad* as the softer image, because his sprite is a resampled 742 px painting. The call was made by looking, at four sizes, against two accepted controls.
+
+**JUDGED INDEPENDENTLY, AND BOTH PASSED.**
+
+| | identity | pose | style |
+|---|---|---|---|
+| `nugget_bar_2` | same lean younger man, dark hair, shirtsleeves, waistcoat, watch chain, same colours; no Thad resemblance | leaning, near elbow up on the counter, far hand on the hip, ankles crossed, head turned back into the room — unchanged | no sclera, no iris, no catchlight; cheek in flat planes; volume kept; no filter look |
+| `nugget_bar_3` | same heavier older man, bowler, moustache as one mass, checked shirt, work coat, tin cup | square at the near end of the counter, cup at waist height, one boot forward — unchanged | the same |
+
+**NOTHING ELSE MOVED.** Bar Patron 1 and the Stove Man are byte-identical, as are the four card players, the landing man and all of Main Street. Nine patrons — 3 bar, 4 cards, 1 landing, 1 stove — in their occupational poses; the abandoned hand on the table's near edge; nobody at the piano and its stool empty; the stove man turned into the iron; Thad's depth calibration as accepted. No anchor moved: the sheets are drawn from a bottom-centre anchor and the crops changed by 3 px and 2 px of width, which is under half a pixel of centring.
+
+`renders/opening-set-retrofit/phase2a-face-proof-3x.webp` · `phase2a-face-proof-1x.webp` (the row that decides it: 1:1, the size the player sees) · `phase2a-owner-review-nugget.webp` · `art/staging/room-03/cast-bar-pair-01/STATUS.md` · `tools/art/phase2a-face-finish.py` · `tools/art/phase2a-face-proof.py`.
+
+**PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED.**

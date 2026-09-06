@@ -385,6 +385,51 @@ advanced, not accepted. WIN_B3, C6, E4/WIN_C1, the Act IV assay and F5: contract
 (doc 53). A room may be Act I accepted with its later states deferred; that is now a recorded
 status, not an exception.
 
+---
+
+# PART ELEVEN — REPAIR BEFORE RECAST
+
+*One lesson, from the Nugget's two foreground bar men (doc 36 Q129 to Q132). It is a repair
+technique and not a workflow: most characters will never need it.*
+
+**WHEN A GENERATED CHARACTER IS RIGHT EXCEPT FOR A SMALL FEATURE AREA, REPAINT THAT AREA RATHER
+THAN GENERATING THE CHARACTER AGAIN.**
+
+Regeneration is good at the whole person and unreliable at the smallest features. Across four
+authorized operations on the same two men, every pass got identity, pose, clothing, hair, hat,
+moustache and cloth right — and every pass drew the eye as an eyeball, with a white sclera, an
+iris and a catchlight, at a size where this game's protagonist has one dark bar. The instruction
+was in the prompt every time, in the plainest words available, with the target transmitted as a
+reference image. It did not take, because it is below the resolution at which a prompt steers.
+
+Two costs come with asking again. Each attempt is billed, and each attempt is a fresh roll of the
+whole figure: the third operation on these men deleted two characters who were only in the
+request as bystanders, and the fourth put the protagonist's coat on one of them. **A repaint
+cannot do that.** It touches a declared region of one figure and everything else in the file is
+untouched by construction, which is a stronger guarantee than any wording.
+
+The technique, as it was actually used:
+
+1. **Find the region from the art, not from memory.** Grid the sprite at 8× and 14×, read the
+   rectangles off it, and put them in the tool as data. Every coordinate in
+   `tools/art/phase2a-face-finish.py` was read that way.
+2. **Write the narrowest rule that removes the defect.** Five rules were tried on the eye. The
+   four wide ones each destroyed something — a rectangle became the eye's shape, or a wraparound
+   bug painted brackets, or a threshold ate a lid. The one that worked repaints a pixel only if it
+   is *light and not warm*, which on a lamplit face is a sclera and nothing else.
+3. **Reduce tone, not detail.** Snap the region to a few tones **measured from that character's
+   own art** so his colour family survives, then remove leftover islands by **area**. Do not blur,
+   do not median the values first, and do not posterize globally: all three stop the shading
+   following the form and the face turns to blobs.
+4. **Judge at the deployed size, against accepted controls.** Magnification shows the vocabulary;
+   1:1 decides. A correction that only works magnified has not worked.
+5. **Iterate freely.** A repaint costs nothing, so ten versions are cheap where two generations
+   are not. Ten is roughly what it took.
+
+**WHAT WOULD MAKE THIS THE WRONG TOOL.** If identity, pose or costume is wrong, repaint nothing —
+that is a generation problem and no amount of local editing will fix a man who is the wrong man.
+The test is whether the part you would change is small enough to point at.
+
 **Next: OPENING SET CONTINUITY RETROFIT AUDIT — ROOM 2 + ROOM 3** — the step-3 audit of Main
 Street and the Nugget against this contract, classifying every element by part eight, with no
 art produced.

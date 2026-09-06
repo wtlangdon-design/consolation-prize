@@ -28,7 +28,7 @@
   {
    "id": "nugget_bar_2",
    "name": "BAR PATRON 2",
-   "cut": "art/staging/room-03/cast-bar-stove-02/bar-2.png",
+   "cut": "art/staging/room-03/cast-bar-pair-01/finished/bar-2.png",
    "sheet": "art/actors/cast-nugget-bar-2.png",
    "at": [
     1450,
@@ -36,12 +36,13 @@
    ],
    "stature": 0.97,
    "pose": "STANDING and LEANING on the counter between the far and middle stools: near elbow up on the bar, ankles crossed, far hand on his hip, head turned back into the room.",
-   "why": "The restless one, and the tallest of the three."
+   "why": "The restless one, and the tallest of the three.",
+   "cutNote": "THE FINISHED CANDIDATE, doc 36 Q132: the isolated-pair generation with a deterministic face finish over it -- the sclera taken out of both eyes and the cheek snapped to four of his own tones. Zero image-generation operations in that finish."
   },
   {
    "id": "nugget_bar_3",
    "name": "BAR PATRON 3",
-   "cut": "art/staging/room-03/cast-bar-stove-02/bar-3.png",
+   "cut": "art/staging/room-03/cast-bar-pair-01/finished/bar-3.png",
    "sheet": "art/actors/cast-nugget-bar-3.png",
    "at": [
     1790,
@@ -49,7 +50,8 @@
    ],
    "stature": 1.0,
    "pose": "STANDING square at the near end of the counter, half turned toward the room, a tin cup at waist height, one boot forward as if on the rail.",
-   "why": "Short and wide and settled. The nearest and largest figure in the room after Thad, in the bar lamps' field."
+   "why": "Short and wide and settled. The nearest and largest figure in the room after Thad, in the bar lamps' field.",
+   "cutNote": "THE FINISHED CANDIDATE, doc 36 Q132: same treatment. Hat, moustache, coat, check shirt, cup and pose are the generation's own and are untouched."
   },
   {
    "id": "nugget_stove_man",

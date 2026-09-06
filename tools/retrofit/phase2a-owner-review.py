@@ -121,10 +121,9 @@ page(f'{OUT}/phase2a-owner-review-nugget.webp',
       (frame('nugget-candidate-at-560_800'), 'THAD IN THE ROOM',
        'Thad at the front left, at the near depth, with the whole population visible behind him.'),
       (crop('nugget-candidate', (1230, 240, 1920, 864)),
-       'THE TWO FOREGROUND MEN AT 1:1 — nugget_bar_2 and nugget_bar_3, THE OPEN DEFECT',
-       'Not resized: this is the size the game draws them. They are the two figures nearest the '
-       'camera, and they are still drawn finer than Thad -- smooth cheeks, moustache hairs, a '
-       'catchlight in the eye. The one operation Tyler authorized to correct this did not do it '
-       'and nothing from it was integrated (doc 36 Q130). They stay where they are: that '
-       'near-camera depth is what gives the room its depth, and moving them would only hide the '
-       'difference.')])
+       'THE TWO FOREGROUND MEN AT 1:1 — nugget_bar_2 and nugget_bar_3, CORRECTED',
+       'Not resized: this is the size the game draws them, and it is the size the correction had '
+       'to survive. The eyes are dark shapes with no white in them and the cheeks are a few flat '
+       'planes, done by repainting the faces of the isolated-pair candidates rather than by '
+       'generating anything -- zero image operations (doc 36 Q132). They keep their near-camera '
+       'depth, which is what gives the room its depth.')])
