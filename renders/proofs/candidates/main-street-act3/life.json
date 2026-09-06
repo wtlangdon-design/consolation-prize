@@ -2,9 +2,9 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "main_street_candidate",
- "commit": "6db202172c5b7c20716c87c4c5774fbc263dde43",
- "workingTreeClean": false,
- "dirtyAllowed": true,
+ "commit": "de0b99d493ef4b30b7a548fe4cd58dacfffd953a",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
  "visualState": null,
  "objectStates": "company_sign=gilt,posted_notices=funeral",
  "pace": 1,
@@ -12,18 +12,18 @@
  "entryRoute": null,
  "warped": true,
  "lifeRoute": "main-street-act3",
- "durationSeconds": 77.91,
+ "durationSeconds": 77.86,
  "events": [
   {
-   "t": 4.57,
+   "t": 4.61,
    "line": "warped straight into main_street_candidate (?room=), no entry route"
   },
   {
-   "t": 4.68,
+   "t": 4.7,
    "line": "in main_street_candidate; life route: 22 action(s)"
   },
   {
-   "t": 6.76,
+   "t": 6.81,
    "trace": {
     "says": null,
     "control": null,
@@ -38,7 +38,7 @@
    }
   },
   {
-   "t": 6.9,
+   "t": 6.81,
    "trace": {
     "says": null,
     "control": null,
@@ -53,7 +53,7 @@
    }
   },
   {
-   "t": 7.8,
+   "t": 7.77,
    "trace": {
     "says": null,
     "control": null,
@@ -68,30 +68,15 @@
    }
   },
   {
-   "t": 8.69,
+   "t": 8.7,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 9.13,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     3560,
-     660
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 9.51,
+   "t": 9.79,
    "line": "action 1 (click): clicked world 2160,730 -- westward"
   },
   {
-   "t": 11.36,
+   "t": 10.99,
    "trace": {
     "says": null,
     "control": null,
@@ -99,14 +84,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3438,
-     652
+     3473,
+     654
     ],
     "moving": true
    }
   },
   {
-   "t": 11.67,
+   "t": 12.14,
    "trace": {
     "says": null,
     "control": null,
@@ -121,7 +106,7 @@
    }
   },
   {
-   "t": 12.55,
+   "t": 12.91,
    "trace": {
     "says": null,
     "control": null,
@@ -129,14 +114,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3317,
-     645
+     3334,
+     646
     ],
     "moving": true
    }
   },
   {
-   "t": 13.61,
+   "t": 13.82,
    "trace": {
     "says": null,
     "control": null,
@@ -144,14 +129,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3197,
-     637
+     3231,
+     639
     ],
     "moving": true
    }
   },
   {
-   "t": 14.53,
+   "t": 14.86,
    "trace": {
     "says": null,
     "control": null,
@@ -159,14 +144,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3095,
-     631
+     3112,
+     632
     ],
     "moving": true
    }
   },
   {
-   "t": 15.65,
+   "t": 15.86,
    "trace": {
     "says": null,
     "control": null,
@@ -174,14 +159,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2961,
-     622
+     2995,
+     624
     ],
     "moving": true
    }
   },
   {
-   "t": 16.54,
+   "t": 16.94,
    "trace": {
     "says": null,
     "control": null,
@@ -189,14 +174,67 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2862,
+     2878,
+     617
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 17.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2780,
+     610
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 18.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2665,
+     603
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 19.8,
+   "line": "action 1 (wait): waited 10s"
+  },
+  {
+   "t": 20.39,
+   "line": "action 1 (click): clicked world 1705,655 -- the board"
+  },
+  {
+   "t": 21.43,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2404,
      616
     ],
     "moving": true
    }
   },
   {
-   "t": 17.55,
+   "t": 22.5,
    "trace": {
     "says": null,
     "control": null,
@@ -204,14 +242,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2747,
-     608
+     2288,
+     633
     ],
     "moving": true
    }
   },
   {
-   "t": 18.56,
+   "t": 23.5,
    "trace": {
     "says": null,
     "control": null,
@@ -219,192 +257,124 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2633,
-     601
+     2183,
+     639
     ],
     "moving": true
    }
   },
   {
-   "t": 19.52,
+   "t": 24.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2063,
+     643
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 25.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1960,
+     646
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 26.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1822,
+     650
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 27.43,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1717,
+     654
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 28.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1705,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 29.42,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1705,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 30.4,
    "line": "action 1 (wait): waited 10s"
   },
   {
-   "t": 20.02,
-   "line": "action 1 (click): clicked world 1705,655 -- the board"
-  },
-  {
-   "t": 21.04,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2372,
-     619
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 22.05,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2268,
-     636
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 23.06,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2149,
-     640
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 24.03,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2029,
-     644
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 25.05,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1908,
-     648
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 26.02,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1787,
-     651
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 27.13,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1705,
-     654
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 28.12,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1705,
-     654
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 29.17,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1705,
-     654
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 30.02,
-   "line": "action 1 (wait): waited 10s"
-  },
-  {
-   "t": 30.06,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1705,
-     654
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 30.2,
+   "t": 30.61,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 30.76,
+   "t": 31.12,
    "line": "action 1 (click): clicked main_street_candidate/posted_notices at world 1666,460 -- the funeral notice"
   },
   {
-   "t": 31.7,
+   "t": 32,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room main_street_candidate"
   },
   {
-   "t": 32.46,
+   "t": 32.64,
    "line": "capture a01-funeral-notice: room main_street_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 33.53,
+   "t": 33.72,
    "trace": {
     "says": "thad",
     "control": null,
@@ -419,7 +389,7 @@
    }
   },
   {
-   "t": 34.56,
+   "t": 34.67,
    "trace": {
     "says": "thad",
     "control": null,
@@ -434,7 +404,7 @@
    }
   },
   {
-   "t": 35.58,
+   "t": 35.78,
    "trace": {
     "says": "thad",
     "control": null,
@@ -449,7 +419,7 @@
    }
   },
   {
-   "t": 36.53,
+   "t": 36.73,
    "trace": {
     "says": "thad",
     "control": null,
@@ -464,30 +434,15 @@
    }
   },
   {
-   "t": 37.47,
+   "t": 37.65,
    "line": "action 1 (wait): waited 5s"
   },
   {
-   "t": 37.57,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1666,
-     668
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 37.84,
+   "t": 37.98,
    "line": "action 1 (click): clicked world 1300,700 -- westward"
   },
   {
-   "t": 38.92,
+   "t": 39.09,
    "trace": {
     "says": "thad",
     "control": null,
@@ -495,14 +450,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1550,
+     1547,
      674
     ],
     "moving": true
    }
   },
   {
-   "t": 39.91,
+   "t": 40.01,
    "trace": {
     "says": null,
     "control": null,
@@ -510,14 +465,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1425,
-     681
+     1440,
+     680
     ],
     "moving": true
    }
   },
   {
-   "t": 40.91,
+   "t": 41.01,
    "trace": {
     "says": null,
     "control": null,
@@ -525,14 +480,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1299,
-     688
+     1313,
+     687
     ],
     "moving": true
    }
   },
   {
-   "t": 41.97,
+   "t": 42.01,
    "trace": {
     "says": null,
     "control": null,
@@ -547,7 +502,7 @@
    }
   },
   {
-   "t": 42.86,
+   "t": 43.13,
    "trace": {
     "says": null,
     "control": null,
@@ -562,7 +517,7 @@
    }
   },
   {
-   "t": 43.9,
+   "t": 44.01,
    "trace": {
     "says": null,
     "control": null,
@@ -577,7 +532,7 @@
    }
   },
   {
-   "t": 44.89,
+   "t": 45.03,
    "trace": {
     "says": null,
     "control": null,
@@ -592,7 +547,7 @@
    }
   },
   {
-   "t": 45.91,
+   "t": 46.05,
    "trace": {
     "says": null,
     "control": null,
@@ -607,7 +562,7 @@
    }
   },
   {
-   "t": 46.91,
+   "t": 47.02,
    "trace": {
     "says": null,
     "control": null,
@@ -622,15 +577,15 @@
    }
   },
   {
-   "t": 47.85,
+   "t": 47.99,
    "line": "action 1 (wait): waited 10s"
   },
   {
-   "t": 48.15,
+   "t": 48.46,
    "line": "action 1 (click): clicked world 900,700 -- westward"
   },
   {
-   "t": 49.27,
+   "t": 49.5,
    "trace": {
     "says": null,
     "control": null,
@@ -638,14 +593,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1151,
+     1169,
      699
     ],
     "moving": true
    }
   },
   {
-   "t": 50.3,
+   "t": 50.52,
    "trace": {
     "says": null,
     "control": null,
@@ -653,14 +608,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1021,
+     1040,
      699
     ],
     "moving": true
    }
   },
   {
-   "t": 51.16,
+   "t": 51.5,
    "trace": {
     "says": null,
     "control": null,
@@ -675,7 +630,7 @@
    }
   },
   {
-   "t": 52.2,
+   "t": 52.53,
    "trace": {
     "says": null,
     "control": null,
@@ -690,7 +645,7 @@
    }
   },
   {
-   "t": 53.3,
+   "t": 53.51,
    "trace": {
     "says": null,
     "control": null,
@@ -705,7 +660,7 @@
    }
   },
   {
-   "t": 54.21,
+   "t": 54.58,
    "trace": {
     "says": null,
     "control": null,
@@ -720,7 +675,7 @@
    }
   },
   {
-   "t": 55.17,
+   "t": 55.6,
    "trace": {
     "says": null,
     "control": null,
@@ -735,15 +690,15 @@
    }
   },
   {
-   "t": 56.16,
+   "t": 56.47,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 56.55,
+   "t": 56.7,
    "line": "action 1 (click): clicked world 600,700 -- the Company"
   },
   {
-   "t": 57.6,
+   "t": 57.82,
    "trace": {
     "says": null,
     "control": null,
@@ -751,14 +706,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     772,
+     757,
      699
     ],
     "moving": true
    }
   },
   {
-   "t": 58.62,
+   "t": 58.82,
    "trace": {
     "says": null,
     "control": null,
@@ -766,14 +721,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     643,
+     627,
      699
     ],
     "moving": true
    }
   },
   {
-   "t": 59.64,
+   "t": 59.79,
    "trace": {
     "says": null,
     "control": null,
@@ -788,7 +743,7 @@
    }
   },
   {
-   "t": 60.63,
+   "t": 60.84,
    "trace": {
     "says": null,
     "control": null,
@@ -803,7 +758,7 @@
    }
   },
   {
-   "t": 61.62,
+   "t": 61.76,
    "trace": {
     "says": null,
     "control": null,
@@ -818,7 +773,7 @@
    }
   },
   {
-   "t": 62.69,
+   "t": 62.72,
    "trace": {
     "says": null,
     "control": null,
@@ -833,7 +788,7 @@
    }
   },
   {
-   "t": 63.68,
+   "t": 63.76,
    "trace": {
     "says": null,
     "control": null,
@@ -848,7 +803,7 @@
    }
   },
   {
-   "t": 64.59,
+   "t": 64.81,
    "trace": {
     "says": null,
     "control": null,
@@ -863,7 +818,7 @@
    }
   },
   {
-   "t": 65.58,
+   "t": 65.74,
    "trace": {
     "says": null,
     "control": null,
@@ -878,7 +833,7 @@
    }
   },
   {
-   "t": 66.63,
+   "t": 66.73,
    "trace": {
     "says": null,
     "control": null,
@@ -893,7 +848,7 @@
    }
   },
   {
-   "t": 67.68,
+   "t": 67.81,
    "trace": {
     "says": null,
     "control": null,
@@ -906,13 +861,13 @@
     ],
     "moving": false
    }
-  },
-  {
-   "t": 68.55,
-   "line": "action 1 (wait): waited 12s"
   },
   {
    "t": 68.71,
+   "line": "action 1 (wait): waited 12s"
+  },
+  {
+   "t": 68.92,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
@@ -920,7 +875,7 @@
    "line": "action 1 (click): clicked main_street_candidate/company_sign at world 530,180 -- fresh gilt"
   },
   {
-   "t": 70.5,
+   "t": 70.48,
    "trace": {
     "says": null,
     "control": null,
@@ -935,15 +890,15 @@
    }
   },
   {
-   "t": 70.65,
+   "t": 70.64,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room main_street_candidate"
   },
   {
-   "t": 71.33,
+   "t": 71.28,
    "line": "capture a02-gilt-sign: room main_street_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 72.39,
+   "t": 72.34,
    "trace": {
     "says": "thad",
     "control": null,
@@ -958,7 +913,7 @@
    }
   },
   {
-   "t": 73.47,
+   "t": 73.36,
    "trace": {
     "says": "thad",
     "control": null,
@@ -973,7 +928,7 @@
    }
   },
   {
-   "t": 74.4,
+   "t": 74.34,
    "trace": {
     "says": null,
     "control": null,
@@ -988,11 +943,11 @@
    }
   },
   {
-   "t": 75.33,
+   "t": 75.29,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 75.37,
+   "t": 75.34,
    "trace": {
     "says": null,
     "control": null,
@@ -1007,7 +962,7 @@
    }
   },
   {
-   "t": 76,
+   "t": 75.94,
    "line": "capture a03-hold: room main_street_candidate, says null, options 0, control null"
   }
  ],
@@ -1015,11 +970,11 @@
   {
    "name": "a01-funeral-notice",
    "why": null,
-   "t": 32.44,
+   "t": 32.63,
    "file": "renders/proofs/candidates/main-street-act3/raw-captures-ignored/a01-funeral-notice.png",
    "hash": "df6b24ed8961c530e62c2db3ceeedc230e6fd113a4315a8205d78b3b886a5464",
    "room": "main_street_candidate",
-   "clock": 32.009299999999996,
+   "clock": 32.1925,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1146,11 +1101,11 @@
   {
    "name": "a02-gilt-sign",
    "why": null,
-   "t": 71.31,
+   "t": 71.27,
    "file": "renders/proofs/candidates/main-street-act3/raw-captures-ignored/a02-gilt-sign.png",
-   "hash": "d222fce4c0f63da9386f67b0eb5d77956eb550b020e8925803012e1561f1c160",
+   "hash": "8ec35d8b8902b846f8f1cce90e9f62ce2c6b2a436554a8a7fe29d4204c82a80e",
    "room": "main_street_candidate",
-   "clock": 70.8744,
+   "clock": 70.841,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1277,11 +1232,11 @@
   {
    "name": "a03-hold",
    "why": null,
-   "t": 75.98,
+   "t": 75.93,
    "file": "renders/proofs/candidates/main-street-act3/raw-captures-ignored/a03-hold.png",
    "hash": "f7109e16e50b5568d8f206e8433b3bcef0a27ce1dc182dbd100140d40e1cb0f7",
    "room": "main_street_candidate",
-   "clock": 75.5075,
+   "clock": 75.4742,
    "control": null,
    "says": null,
    "options": 0,
@@ -1305,7 +1260,7 @@
      "height": 220,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       400,
       448,
@@ -1418,7 +1373,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 77.91s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 77.86s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1433,5 +1388,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-06T07:00:46.801Z"
+ "at": "2026-09-06T07:11:41.357Z"
 }
