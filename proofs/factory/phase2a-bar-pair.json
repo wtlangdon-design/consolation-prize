@@ -1,0 +1,200 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A FINAL AUTHORIZED IMAGE OPERATION. The method was fixed and the style was not. The isolated-pair source did exactly what it was built to do -- the same two men came back, same poses, same clothes, nobody added or deleted, no scene composed -- and both candidates were still rejected on style, so NOTHING WAS INTEGRATED. Doc 36 Q131.",
+ "commit": "f476628299a71fa991e0bce420fdbccb4658f9c2",
+ "baseCommit": "f476628 (PR #39 merged)",
+ "operation": {
+  "used": true,
+  "count": 1,
+  "assetId": "nugget-bar-stove-family",
+  "attempt": 5,
+  "shape": "edit of an isolated two-character source; NO mask",
+  "promptFile": "proofs/room-03/prompts/bar-pair-01.txt",
+  "out": "art/staging/room-03/cast-bar-pair-01/source.png",
+  "outputHash": "5a7fece7e53d2cd2670d3b7f0e5df9f43bfbaccd6577e6505e26344dd6c3ebb4",
+  "gates": "PASS (technical admissibility only)",
+  "integrated": false,
+  "rejectedWhy": "REJECTED ON STYLE, NOT ON METHOD, AND NOT INTEGRATED. The isolated-pair source did what it was built to do: the same two men came back in the same poses, clothes, colours, facings and held objects, nobody was added or deleted, no scene was composed and neither man was turned into Thad -- every failure of the masked family-sheet attempt is absent. Identity and staging pass for both. Style fails for both: at 380 px and 494 px the eye is still drawn as an eyeball with a white, an iris and (on bar_3) a catchlight, where Thad and every accepted figure have one dark shape, and the cheek still carries smooth continuous modelling. Hair, hat, moustache and cloth genuinely improved. Promoting either would need no further operation, only a decision to accept a better-but-failing figure, which is the owner's. art/staging/room-03/cast-bar-pair-01/REJECTED.md, doc 36 Q131."
+ },
+ "sourceConstruction": {
+  "canvas": [
+   1536,
+   1024
+  ],
+  "background": "flat magenta #FF00FF, edge to edge",
+  "resampling": "NONE. Both figures are pasted at native resolution from the retained cuts.",
+  "gapPx": 340,
+  "marginPx": 307,
+  "figures": [
+   {
+    "id": "nugget_bar_2",
+    "cut": "art/staging/room-03/cast-bar-stove-02/bar-2.png",
+    "nativeSize": [
+     314,
+     703
+    ],
+    "at": [
+     307,
+     177
+    ],
+    "deployedFigureHeight": 380
+   },
+   {
+    "id": "nugget_bar_3",
+    "cut": "art/staging/room-03/cast-bar-stove-02/bar-3.png",
+    "nativeSize": [
+     267,
+     708
+    ],
+    "at": [
+     961,
+     172
+    ],
+    "deployedFigureHeight": 494
+   }
+  ],
+  "notInThisRequest": [
+   "bar-1 (Bar Patron 1)",
+   "stove-man (the Stove Man)",
+   "the four card players",
+   "the landing man",
+   "any Room 3 environment art"
+  ],
+  "references": [
+   "the isolated pair source (identity/pose/clothing authority)",
+   "art/actors/thad-stand-front/stand-00.png (rendering authority)",
+   "baseline A, B, D, E, E -- no Room 3 environment art"
+  ]
+ },
+ "judgement": {
+  "criterionA_identityAndStaging": {
+   "nugget_bar_2": "PASS -- same man, still leaning with the near elbow up on the counter, far hand on the hip, ankles crossed, head turned back into the room",
+   "nugget_bar_3": "PASS -- same man, still square at the near end of the counter, cup at waist height, one boot forward, bowler and moustache and check"
+  },
+  "criterionB_style": {
+   "nugget_bar_2": "FAIL -- the eye is still an eyeball with a white and an iris; the cheek still carries smooth continuous modelling",
+   "nugget_bar_3": "FAIL -- same, with a visible catchlight"
+  },
+  "improved": "hair as a hard-edged mass rather than strands; the bowler a flatter shape; the moustache one grouped mass; fewer and harder cloth folds; a hard-edged shadow plane on the cheek where there was a continuous ramp",
+  "decidedBy": "looking, at renders/opening-set-retrofit/phase2a-pair-eyes.webp (8x across the eyes). No metric was used: colour count, flatness and neighbour step all rank THAD as the softer image -- soft-step ratio across the head, Thad 45.5% vs the bar_3 candidate 39.6% -- which is the third time a measurement has been inert on this question.",
+  "standingOption": "Both candidates are kept intact. Promoting either needs NO image operation, only an owner decision to accept a better-but-still-failing figure. This pass did not make that trade because the instruction was not to lower the acceptance standard."
+ },
+ "outcome": {
+  "nugget_bar_2": "NOT REPLACED -- art/actors/cast-nugget-bar-2.png byte-identical",
+  "nugget_bar_3": "NOT REPLACED -- art/actors/cast-nugget-bar-3.png byte-identical",
+  "nugget_bar_1": "UNCHANGED -- byte-identical",
+  "nugget_stove_man": "UNCHANGED -- byte-identical, still mirrored",
+  "cardFamily": "UNTOUCHED",
+  "mainStreet": "UNTOUCHED",
+  "anchorAdjustment": "NONE -- no sprite was replaced, so no anchor moved"
+ },
+ "staging": {
+  "unchanged": true,
+  "population": {
+   "bar": 3,
+   "cards": 4,
+   "landing": 1,
+   "stove": 1,
+   "total": 9,
+   "piano": 0
+  },
+  "positions": {
+   "nugget_bar_1": [
+    1232,
+    645
+   ],
+   "nugget_bar_2": [
+    1450,
+    700
+   ],
+   "nugget_bar_3": [
+    1790,
+    820
+   ],
+   "nugget_stove_man": [
+    1140,
+    508
+   ],
+   "nugget_card_1": [
+    762,
+    508
+   ],
+   "nugget_card_2": [
+    1050,
+    515
+   ],
+   "nugget_card_3": [
+    822,
+    478
+   ],
+   "nugget_card_4": [
+    982,
+    478
+   ],
+   "nugget_landing_man": [
+    1305,
+    235
+   ]
+  }
+ },
+ "imageOperations": {
+  "spentThisPass": 1,
+  "nuggetBarStoveFamily": {
+   "billed": 5,
+   "cap": 5,
+   "breakdown": [
+    "1 family sheet",
+    "1 refinement",
+    "1 recorded accidental re-run",
+    "1 masked correction (rejected)",
+    "1 isolated-pair correction (rejected)"
+   ],
+   "guard": "refuses"
+  },
+  "nuggetCardLandingFamily": {
+   "billed": 2,
+   "cap": 2
+  },
+  "nuggetPatronGenerationTotal": 7,
+  "totalAttempts": 44,
+  "totalCap": 45,
+  "historyNormalized": false,
+  "furtherAuthorized": "NONE anywhere in Phase 2A"
+ },
+ "proof": [
+  {
+   "file": "renders/opening-set-retrofit/phase2a-pair-eyes.webp",
+   "sha256": "1d1e97c494eda78b2d69c419da5b6c3b5816c4cabcabd187fb812d2bc35c1568"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-pair-judgement.webp",
+   "sha256": "b92e270cae5e607d947e11dd7257631c1d3e0fb86a048d4c6d799c15cfcdc13e"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-matched-faces.webp",
+   "sha256": "615e4c010a81983986901d58a261223431d70fbb52236b5c489e211430fa55d2"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-owner-review-nugget.webp",
+   "sha256": "fe4fe483f437feb0b868e668fdd15feb0fb3b93ae831b6380b69ebfb0df3e2fa"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png",
+   "sha256": "9ea4f401aaccaa10b222c6b2d9729650b270e54f7482ea55b96dcb22fe8cec15"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-nugget-candidate-at-560_800.png",
+   "sha256": "b753de176d8072a00f5dac49c3f51e96ed50d943269c72a2cd87983d8e52d156"
+  }
+ ],
+ "liveProofUnchanged": "Both Nugget frames were rebuilt from dist/ and recaptured after the operation and are PIXEL-IDENTICAL to the merged ones: 0 pixels differ by more than 8 in either, Thad's own frame included. They are therefore left as committed rather than re-committed as byte-different, pixel-identical PNGs.",
+ "checks": {
+  "build": "BASE_PATH=/consolation-prize/ npm run build -- clean",
+  "typecheck": "pass",
+  "tests": "236 of 236, including the nine-patron population and piano checks",
+  "validate": "54 of 55; the one failure is check-flag-order (ACT / T_RACCOON_NAMED), pre-existing and red on main -- not touched",
+  "productionShot": "PASS, drawn from dist/, no page errors, nothing failed to load",
+  "deployedCheck": "9 runs, every room JSON 200, 0 failed assets, 0 page errors"
+ },
+ "status": "PHASE 2A FOREGROUND CHARACTER DEFECT REMAINS. THE FINAL AUTHORIZED OPERATION WAS REJECTED AND NOTHING WAS INTEGRATED. PHASE 2B HAS NOT STARTED."
+}

@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "purpose": "OWNER-AUTHORIZED (Tyler, 2026-09-06): the FINAL Phase 2A image operation. An isolated two-character correction source holding ONLY nugget_bar_2 and nugget_bar_3, so that Bar Patron 1 and the Stove Man are not in the request at all. Replaces the masked family-sheet method, which the endpoint recomposed.",
+ "canvas": [
+  1536,
+  1024
+ ],
+ "background": "flat magenta #FF00FF, edge to edge",
+ "baselineRow": 880,
+ "gapPx": 340,
+ "marginPx": 307,
+ "resampling": "NONE. Both figures are pasted at native resolution from the retained cuts.",
+ "figures": [
+  {
+   "cut": "art/staging/room-03/cast-bar-stove-02/bar-2.png",
+   "id": "nugget_bar_2",
+   "at": [
+    307,
+    177
+   ],
+   "size": [
+    314,
+    703
+   ],
+   "resized": false,
+   "pose": "STANDING and LEANING on the counter between the far and middle stools: near elbow up on the bar, ankles crossed, far hand on his hip, head turned back into the room.",
+   "deployedFigureHeight": 380
+  },
+  {
+   "cut": "art/staging/room-03/cast-bar-stove-02/bar-3.png",
+   "id": "nugget_bar_3",
+   "at": [
+    961,
+    172
+   ],
+   "size": [
+    267,
+    708
+   ],
+   "resized": false,
+   "pose": "STANDING square at the near end of the counter, half turned toward the room, a tin cup at waist height, one boot forward as if on the rail.",
+   "deployedFigureHeight": 494
+  }
+ ],
+ "notInThisRequest": [
+  "bar-1 (Bar Patron 1)",
+  "stove-man (the Stove Man)",
+  "the four card players",
+  "the landing man",
+  "any Room 3 environment art"
+ ],
+ "out": "art/staging/room-03/cast-bar-pair-01/pair-source.png",
+ "sha256": "859ebb1addff2ba6329446e043f033b19cdb121702f43509f0e069e94c6f6159",
+ "sources": {
+  "art/staging/room-03/cast-bar-stove-02/bar-2.png": "68f16bfc02ff877cbae6c085b973fedca42721fa1df3b4a85d31d612b9c13986",
+  "art/staging/room-03/cast-bar-stove-02/bar-3.png": "28a3f1fbe66dab0ed8ebc7fd8e5536f898a857e3c2d0ef0032c94819ddb5817a"
+ }
+}

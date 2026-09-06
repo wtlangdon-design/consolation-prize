@@ -237,6 +237,50 @@ JOBS['bar-stove-family-fix'] = {
     + 'instruction is to stop and report, not to generate again.',
 };
 
+// ---- THE FINAL OWNER-EXCEPTION OPERATION -----------------------------------
+//
+// Tyler, 2026-09-06, after the masked family-sheet attempt was rejected: one
+// more operation, and the last one authorized anywhere in Phase 2A.
+//
+// THE INPUT TOPOLOGY CHANGES AND THE ART DIRECTION DOES NOT. The previous
+// attempt proved the prompt works and the method does not: the two men the
+// model drew were drawn in the vocabulary that was asked for, but a large
+// masked window over a four-man sheet read as permission to recompose, and
+// two men who were outside it came back altered and absent. A mask can be
+// misread; an absence cannot. So Bar Patron 1 and the Stove Man are not in
+// this request at all -- the source holds only the two men being corrected,
+// pasted at native resolution with a gap between them wider than either of
+// them, built by tools/retrofit/phase2a-bar-pair-prep.py.
+//
+// AND NO ROOM 3 ENVIRONMENT ART GOES WITH IT. The saloon plate rode along on
+// the family calls as a palette reference; here it is one more thing that
+// could be read as a scene to put people back into. The baseline's own six
+// (Room 1 live and plate, Thad, the Room 5 comparable, Winnie and the Room 1
+// casting master) are all that is transmitted, and they satisfy it in full.
+JOBS['bar-pair'] = {
+  assetId: 'nugget-bar-stove-family', subject: 'nugget-bar-stove-family',
+  role: 'composition-master', baselineRoom: 'room-03-nugget',
+  promptFile: 'proofs/room-03/prompts/bar-pair-01.txt',
+  images: ['art/staging/room-03/cast-bar-pair-01/pair-source.png',
+    'art/actors/thad-stand-front/stand-00.png',
+    'renders/room-01-in-engine-1920x1080.png',
+    'art/backgrounds/room-01-stage-road.png',
+    'art/backgrounds/room-05-assay-office.png',
+    'art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png',
+    'reference/casting/room-01-casting-master.png'],
+  size: SHEET,
+  out: 'art/staging/room-03/cast-bar-pair-01/source.png',
+  banner: '\nFINAL OPERATION · nugget_bar_2 AND nugget_bar_3 ALONE -- isolated pair, no mask\n',
+  note: 'PHASE 2A FINAL AUTHORIZED IMAGE OPERATION (Tyler, 2026-09-06). The two near-camera bar '
+    + 'men redrawn in Thad\'s feature vocabulary, from a source that contains ONLY them: the '
+    + 'masked family-sheet method was rejected because the endpoint recomposed the scene, so the '
+    + 'two men who must not change are absent from the request rather than protected inside it. '
+    + 'Identity, clothing, pose, facing and held objects are held; only the drawing vocabulary '
+    + 'changes. No Room 3 environment art transmitted. 0 environment operations. Nothing is '
+    + 'integrated on the strength of this call alone -- each man is judged separately against his '
+    + 'retained version, Thad at matched height, and the accepted controls.',
+};
+
 const job = JOBS[which];
 if (!job) {
   say(`usage: node tools/art/phase2a.mjs <${Object.keys(JOBS).join('|')}> [n]`);
