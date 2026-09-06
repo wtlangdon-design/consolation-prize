@@ -1,0 +1,65 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5E -- THE LOCAL REPAIRS BECOME PLATE (doc 36 Q121).\n\n    python3 tools/retrofit/phase15e-integrate.py a\n    python3 tools/retrofit/phase15e-integrate.py b\n\nEach region's masked zone, scaled back to 1:1 by the driver, is composited\nINTO the plate -- a new plate file, art/staging/room-02/street-candidate-03/\ncandidate-plate.png -- with the zone's edge feathered over 8 px inside the\nzone, so the seam falls in the model's own repainted wall or mud. `a` starts\nfrom the accepted candidate-01 plate; `b` continues from the plate `a` wrote.\nNothing outside a zone is read from a result. The board's structure and its\nordinary papers are now environment; the Act III funeral sheet is the one\nthing that changes and stays an overlay, cut here as a SHEET-ONLY full-frame\nRGBA companion pinned to the new board's face (no board pixels in it). The\ntrough is environment; its occlusion is the room's plane-1 mask, authored\nseparately from the new geometry.",
+ "source": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad"
+ },
+ "steps": [
+  {
+   "region": "a",
+   "op": "OWNER-AUTHORIZED (Tyler, Phase 1.5E): REGION A, the one local structural repair of the notice-board / storefront / church relationship, 1 of 1. A 520x520 window of the accepted plate scaled x1.96 into a 1024 canvas; the mask frees the stitched board, the church's lower right wall behind it and the east porch's ghosted left end, and keeps the steeple, gable, the Company porch, the lit window, the boardwalk edge and the mud. The result's masked zone, scaled back 1:1, becomes PLATE (street-candidate-03); the board's structure and its ordinary papers are environment, only the Act III funeral sheet stays an overlay.",
+   "zonePlate": [
+    1585,
+    335,
+    1800,
+    615
+   ],
+   "feather": 8,
+   "input": {
+    "art/staging/room-02/repair-a/local-1to1.png": "5c9e34cc080b05c4a62fb571630fe4df878a671f1aa18f6376d8ce6eacc13978"
+   },
+   "boardFrame": [
+    1605,
+    412,
+    1727,
+    507
+   ],
+   "boardFace": [
+    1612,
+    428,
+    1720,
+    500
+   ],
+   "funeralSheet": {
+    "path": "art/staging/room-02/street-candidate-03/notices-funeral-sheet.png",
+    "sha256": "c522d334b222c24101cff4ebf494f44703e751f8ad53ffe8c7e832dc02be00f9",
+    "scale": 0.823,
+    "at": [
+     1643,
+     434
+    ],
+    "size": [
+     46,
+     58
+    ]
+   }
+  },
+  {
+   "region": "b",
+   "op": "OWNER-AUTHORIZED (Tyler, Phase 1.5E): REGION B, the one local structural repair of the water-trough / east hitching-rail relationship, 1 of 1. An 880x484 window of the accepted plate scaled x1.164 and set in the middle of a 1024 canvas with letterbox above and below; the mask frees the mud in front of the saloon from the boardwalk foot (y 600) to the frame bottom with the whole east rail inside it, so the trough and the rail are authored TOGETHER as one physical scene. The 1.5D trough result is the object reference only; the current pasted trough is NOT in the source (the plate never held it). The result's masked zone, scaled back 1:1, becomes PLATE (street-candidate-03): the trough is permanent scenery, occluding by an environmental plane mask.",
+   "zonePlate": [
+    1960,
+    600,
+    2690,
+    864
+   ],
+   "feather": 8,
+   "input": {
+    "art/staging/room-02/repair-b/local-1to1.png": "bc4ddd5bbfa27aeb1e0fcd20181b402afd7993f3013a06f469eda56a091929d7"
+   }
+  }
+ ],
+ "output": {
+  "art/staging/room-02/street-candidate-03/candidate-plate.png": "11e619e0d6aff397889020317e5641f9a110b4f969f33a94283dc9cf588ed59c"
+ }
+}

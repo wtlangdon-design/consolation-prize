@@ -251,7 +251,7 @@
   {
    "subject": "Main Street candidate companions-02: notices board (ORDINARY), notices funeral (Act III), water trough (FILLED), trough plane-1 mask",
    "class": "STATEFUL",
-   "stage": "LIVE-PROOF",
+   "stage": "REJECTED",
    "path": "art/staging/room-02/companions-02/water-trough.png",
    "evidence": [
     "art/staging/room-02/companions-02/board-integrate.json",
@@ -260,7 +260,45 @@
     "renders/proofs/candidates/main-street-act3/life.json",
     "renders/opening-set-retrofit/phase15d-live.webp"
    ],
-   "note": "PHASE 1.5D: the object state images the candidate room loads now, over the unchanged plate. The companions-01 board, trough and funeral states are superseded (the sign states there stay in use). AWAITING TYLER."
+   "note": "PHASE 1.5D: the object state images the candidate room loads now, over the unchanged plate. The companions-01 board, trough and funeral states are superseded (the sign states there stay in use). AWAITING TYLER. PHASE 1.5E: REJECTED by Tyler as final integration assets (still reading as composited pieces); superseded by the structural repairs in street-candidate-03. Kept as evidence; not loaded by any room."
+  },
+  {
+   "subject": "Main Street Region A structural repair (repair-a): local canvas, result and 1:1 window",
+   "class": "PLATE",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-02/repair-a/result-1024.png",
+   "evidence": [
+    "art/staging/room-02/repair-a/repair-op.json",
+    "art/staging/room-02/repair-a/derivation.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "PHASE 1.5E, 1 of 1. The raw 1024 result and its scaled-back window; only the masked zone went into the plate. Not loaded by any room."
+  },
+  {
+   "subject": "Main Street Region B structural repair (repair-b): local canvas, object reference, result and 1:1 window",
+   "class": "PLATE",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-02/repair-b/result-1024.png",
+   "evidence": [
+    "art/staging/room-02/repair-b/repair-op.json",
+    "art/staging/room-02/repair-b/derivation.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "PHASE 1.5E, 1 of 1. The raw 1024 result and its scaled-back window; only the masked zone went into the plate. Not loaded by any room."
+  },
+  {
+   "subject": "Main Street candidate 03 (candidate 01 with the two structural repairs composited in), its funeral-sheet overlay and its plane-1 silhouette mask",
+   "class": "PLATE",
+   "stage": "LIVE-PROOF",
+   "path": "art/staging/room-02/street-candidate-03/candidate-plate.png",
+   "evidence": [
+    "art/staging/room-02/street-candidate-03/integrate.json",
+    "art/staging/room-02/street-candidate-03/plane-1-silhouettes.json",
+    "renders/proofs/candidates/main-street/life.json",
+    "renders/proofs/candidates/main-street-act3/life.json",
+    "renders/opening-set-retrofit/phase15e-live.webp"
+   ],
+   "note": "PHASE 1.5E: the plate the candidate room loads now. The board (with its ordinary papers), the trough and the east rail are plate; notices-funeral-sheet.png is the one notice overlay; plane-1-trough-rail.png masks mud_far and mud_mid. AWAITING TYLER'S FINAL STRUCTURAL REVIEW; nothing promoted, the shipping plate untouched."
   }
  ],
  "acceptance": {
@@ -584,10 +622,25 @@
   }
  },
  "environment": {
-  "status": "MAIN STREET FINAL ENVIRONMENT ART \u2014 READY FOR OWNER REVIEW BEFORE PHASE 2",
-  "priorStatus": "FINAL ENVIRONMENT CLEANUP \u2014 OWNER REVIEW FAILED / CORRECTIONS REQUIRED (Phase 1.5C, after Tyler's review of 1.5B)",
-  "by": "Tyler, live review of the Phase 1 candidate (2026-09-05) and of 1.5B (2026-09-06); corrections claude, Phases 1.5 to 1.5D",
+  "status": "MAIN STREET STRUCTURAL ENVIRONMENT \u2014 READY FOR OWNER FINAL REVIEW",
+  "priorStatus": "MAIN STREET FINAL ENVIRONMENT ART \u2014 READY FOR OWNER REVIEW BEFORE PHASE 2 (Phase 1.5D; Tyler's review found the board and the trough still reading as separate composited pieces)",
+  "by": "Tyler, live reviews of Phase 1 (2026-09-05), 1.5B and 1.5D (2026-09-06); repairs claude, Phases 1.5 to 1.5E",
   "evidence": [
+   "docs/36-issue-list.md::Q121 \u00b7 Opening-set retrofit, phase 1.5E: Main Street's board and trough repaired as structure and made plate (2 operations), the Nugget owner-accepted and frozen",
+   "art/staging/room-02/repair-a/repair-op.json",
+   "art/staging/room-02/repair-b/repair-op.json",
+   "art/staging/room-02/street-candidate-03/integrate.json",
+   "art/staging/room-02/street-candidate-03/plane-1-silhouettes.json",
+   "renders/opening-set-retrofit/phase15e-main-street-full.webp",
+   "renders/opening-set-retrofit/phase15e-region-a.webp",
+   "renders/opening-set-retrofit/phase15e-region-b.webp",
+   "renders/opening-set-retrofit/phase15e-sanity.webp",
+   "renders/opening-set-retrofit/phase15e-live.webp",
+   "renders/opening-set-retrofit/phase15e-opening-set.webp",
+   "renders/opening-set-retrofit/phase15e-repair-a-canvas-diagnostic.png",
+   "renders/opening-set-retrofit/phase15e-repair-b-canvas-diagnostic.png",
+   "renders/proofs/candidates/main-street/life.json",
+   "renders/proofs/candidates/main-street-act3/life.json",
    "docs/36-issue-list.md::Q120 \u00b7 Opening-set retrofit, phase 1.5D: Main Street's board and trough painted in place on local canvases (2 operations, both used), the Nugget frozen",
    "art/staging/room-02/board-01/board-op.json",
    "art/staging/room-02/trough-02/trough-op.json",
@@ -624,9 +677,10 @@
    "PHASE 1.5B: new local trough art painted in context (1 operation), cut by an authored silhouette; the Phase 1.5 scaled trough retired",
    "PHASE 1.5B: the ordinary board preserved; the Act III funeral sheet treated deterministically as aged paper on the board (0 operations); a lettered sheet, if ever wanted on screen, is future authored art, non-blocking",
    "PHASE 1.5C: one owner-directed in-context integration operation (board + trough) FAILED -- the model painted the board wall away and put the trough off the frame; nothing composited; stopped, plan proposed in Q119",
-   "PHASE 1.5D: two owner-authorized LOCAL operations, one per subject, each on a 1024x1024 canvas with the site centred and only the site unmasked -- BOARD 1 of 1: the existing papers framed into a public notice board on its own posts at the existing location; TROUGH 1 of 1: the trough painted in context beside the east rail, the Phase 1.5C trough given as the object reference. Each result's masked zone, scaled back 1:1, is the object's state image (companions-02) composited over the UNCHANGED plate with an 8 px feathered edge; the funeral sheet is placed on the new board; the plane-1 occlusion mask is an authored silhouette of the new trough. Plate file unchanged. Live proofs: Thad in front of and behind the trough, the funeral state in Act III."
+   "PHASE 1.5D: two owner-authorized LOCAL operations, one per subject, each on a 1024x1024 canvas with the site centred and only the site unmasked -- BOARD 1 of 1: the existing papers framed into a public notice board on its own posts at the existing location; TROUGH 1 of 1: the trough painted in context beside the east rail, the Phase 1.5C trough given as the object reference. Each result's masked zone, scaled back 1:1, is the object's state image (companions-02) composited over the UNCHANGED plate with an 8 px feathered edge; the funeral sheet is placed on the new board; the plane-1 occlusion mask is an authored silhouette of the new trough. Plate file unchanged. Live proofs: Thad in front of and behind the trough, the funeral state in Act III.",
+   "PHASE 1.5E (owner review of 1.5D: the board and the trough still read as separate pieces composited over the environment): STRATEGY CHANGED -- the board's structure and the trough are PLATE. Preflight diagnosis: the two source panels were stitched at x 1704-1800 through the west panel's board, whose right half was a ghost fused into the east storefront's porch; the church was intact outside the seam (not repainted above y 335 or left of x 1585). REGION A (1 of 1): the board freestanding on two posts on the boardwalk with its ordinary papers, the church's lower right wall continued behind it, the storefront porch's left end finished, clear air between. REGION B (1 of 1): the trough and the east hitching rail authored together as one scene -- a low trough beside the rail's west end with a stride of mud between. Both zones composited INTO a new plate (street-candidate-03); the 1.5D overlays retired. posted_notices ORDINARY = the plate, FUNERAL = a sheet-only overlay on the same board; water_trough has no state image, its occlusion (and the rail's) is the room's plane-1 authored silhouette mask; mud_far and mud_mid plane 1; obstacles and the hotspot re-authored from the new geometry."
   ],
   "note": "Environment only. Not character acceptance, not population, not room life; Phase 2 casts the pie woman, the letter-writer, and decides the dog's life and the map seller's.",
-  "ownerReview": "Tyler, 2026-09-06: the 1.5B board and trough read as cut and pasted; the 1.5C integration operation failed. PHASE 1.5D painted both in place on local canvases. AWAITING TYLER'S FINAL ENVIRONMENT VISUAL RULING on the live candidate; nothing here is owner-accepted until he rules, and nothing is promoted."
+  "ownerReview": "Tyler, 2026-09-06 (after 1.5D): the bulletin-board area still looked merged into the neighbouring architecture, the chapel possibly damaged, the trough and rail an obvious visual mess; rescaling the overlays is not the solution. PHASE 1.5E performed the two local structural repairs. AWAITING TYLER'S FINAL STRUCTURAL ENVIRONMENT REVIEW; nothing is owner-accepted and nothing is promoted."
  }
 }

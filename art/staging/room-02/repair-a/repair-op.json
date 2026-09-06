@@ -1,0 +1,30 @@
+{
+ "region": [
+  1440,
+  110,
+  1960,
+  630
+ ],
+ "scale": 1.96,
+ "at": [
+  2,
+  2
+ ],
+ "zonePlate": [
+  1585,
+  335,
+  1800,
+  615
+ ],
+ "canvas": "art/staging/room-02/repair-a/edit-canvas.png",
+ "mask": "art/staging/room-02/repair-a/edit-mask.png",
+ "maskSha256": "55c2047dce01715b1a280563213d46d9f0a4fa1c3fac605cddcb6b3742e4a1d7",
+ "diagnostic": "renders/opening-set-retrofit/phase15e-repair-a-canvas-diagnostic.png",
+ "schema": 1,
+ "purpose": "OWNER-AUTHORIZED (Tyler, Phase 1.5E): REGION A, the one local structural repair of the notice-board / storefront / church relationship, 1 of 1. A 520x520 window of the accepted plate scaled x1.96 into a 1024 canvas; the mask frees the stitched board, the church's lower right wall behind it and the east porch's ghosted left end, and keeps the steeple, gable, the Company porch, the lit window, the boardwalk edge and the mud. The result's masked zone, scaled back 1:1, becomes PLATE (street-candidate-03); the board's structure and its ordinary papers are environment, only the Act III funeral sheet stays an overlay.",
+ "source": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad"
+ },
+ "diagnosis": "stitch seam x 1704-1800 (96 px feather) through the west panel's board; church intact outside the seam, not repainted above y 335 or left of x 1585",
+ "mustRemainUnchanged": "the steeple and church roof, the Company building and its porch, the storefront's lit window and false front right of x 1800, the boardwalk edge and the mud below y 615"
+}

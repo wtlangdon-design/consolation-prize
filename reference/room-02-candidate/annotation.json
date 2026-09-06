@@ -1,6 +1,6 @@
 {
  "room": "main_street_candidate",
- "plate": "art/staging/room-02/street-candidate-01/candidate-plate.png",
+ "plate": "art/staging/room-02/street-candidate-03/candidate-plate.png",
  "plateSize": [
   3610,
   864
@@ -52,10 +52,10 @@
    120
   ],
   "water_trough": [
-   2016,
-   654,
-   384,
-   154
+   1980,
+   700,
+   252,
+   104
   ],
   "church_steeple": [
    1530,
@@ -64,10 +64,10 @@
    340
   ],
   "posted_notices": [
-   1628,
-   396,
-   132,
-   128
+   1604,
+   410,
+   124,
+   100
   ],
   "boardwalk": [
    0,
@@ -214,21 +214,11 @@
    "default": "ordinary",
    "states": {
     "ordinary": {
-     "image": "art/staging/room-02/companions-02/notices-board.png",
-     "note": "PHASE 1.5D: a public notice board framed around the existing papers by the one owner-authorized board operation on a local centred canvas (art/staging/room-02/board-01/board-op.json), installed as the ORDINARY state image over the unchanged plate. Weathered planks, a rough timber frame proud of the wall, a bottom ledge, the papers pinned, a thin cast shadow."
+     "note": "PHASE 1.5E: THE BOARD IS PLATE. The freestanding notice board -- rough timber, two posts on the boardwalk, a plank cap, the ordinary pinned papers -- was painted into the environment by the Region A structural repair (art/staging/room-02/repair-a/repair-op.json, street-candidate-03). The ORDINARY state draws nothing over it; the plate IS the ordinary board."
     },
     "funeral": {
-     "image": "art/staging/room-02/companions-02/notices-funeral.png",
-     "note": "Act III: the same board with the Phase 1.5B aged funeral sheet pinned centre-top. No copy invented; the notice's words are the LOOK line's. Future-state polish, not an Act I gate."
-    }
-   }
-  },
-  "water_trough": {
-   "default": "filled",
-   "states": {
-    "filled": {
-     "image": "art/staging/room-02/companions-02/water-trough.png",
-     "note": "THE CANONICAL TROUGH, PHASE 1.5D: painted in context by the one owner-authorized trough operation on a local centred canvas with the 1.5C trough as the object reference (art/staging/room-02/trough-02/trough-op.json); installed as the FILLED state image -- the operation's zone, feathered, over the unchanged plate, so its timber, mud contact, shadow and reflection are the model's own. The occlusion is the separate authored silhouette, plane 1."
+     "image": "art/staging/room-02/street-candidate-03/notices-funeral-sheet.png",
+     "note": "Act III: ONLY the changed paper -- the Phase 1.5B aged funeral sheet, pinned centre-top on the SAME physical board (a sheet-only overlay, no board pixels). No copy invented; the notice's words are the LOOK line's. Set by doc 48's S2."
     }
    }
   }
@@ -314,24 +304,24 @@
    "note": "THE NEAR HITCHING RAIL at the west end: a foreground object he cannot walk through. It is the occluder this street never had; until its mask is cut from an ACCEPTED plate he walks round it, not behind it."
   },
   {
-   "id": "rail_east",
-   "rect": [
-    2320,
-    700,
-    360,
-    110
-   ],
-   "note": "the second near rail, in front of the saloon; as rail_west"
-  },
-  {
    "id": "trough",
    "rect": [
-    2016,
-    700,
-    384,
-    108
+    1980,
+    776,
+    252,
+    26
    ],
-   "note": "PHASE 1.5D: the trough's ground footprint (far base ~y 700, near base ~808), carved from the mid and near mud; the far mud stays floor, so a man there stands behind the trough and is masked by its silhouette (plane 1)."
+   "note": "PHASE 1.5E: THE TROUGH IS PLATE (Region B, street-candidate-03). The obstacle is its NEAR footprint only (y 776-802, the front base ~798), carved from mud_near, so nobody stands on the mud in front of its face and is drawn over it. The mid mud behind its face stays walkable at plane 1: a man there is masked by the trough's silhouette from its rim (y 678) down, which is what standing behind a trough looks like. The compiler carves a band's whole column under an obstacle, so an obstacle reaching into mud_mid would remove the ground behind the trough altogether."
+  },
+  {
+   "id": "rail_east",
+   "rect": [
+    2270,
+    700,
+    345,
+    115
+   ],
+   "note": "PHASE 1.5E: the east hitching rail, repainted with the trough as one scene (two posts, bases ~790 and ~810, and the bar): the column behind and under it is carved so nobody stands inside the rail; a man on mud_far or mud_mid beside it is masked by its plane-1 silhouette, a man below y 815 walks in front of it."
   }
  ],
  "lamps": [
@@ -426,36 +416,45 @@
  },
  "onEnterWalkNote": "OUT INTO THE ROAD, NOT ALONG THE BUILDINGS. He was walking to x3400 y640, which is the boardwalk edge in front of the claims-road exit and beside the map seller\u2019s office -- he arrived and then sidled up against a wall. x3300 y706 is the middle of the street with the town in front of him, which is where a man stands when he has just walked into a town he has never seen. Clear of the assay office door at x3082-3144, clear of the map seller at x3140, and low enough to be in the road rather than on the walk.",
  "occlusion": {
-  "note": "PLANNED, NOT CUT (Tyler's order: masks only after the replacement plate is selected). The candidate offers three real occluders -- the west hitching rail (x 0-560, y 700-800), the east rail in front of the saloon (x 2320-2680, y 700-800) and the trough (x 840-1015, y 505-600) -- and the porch posts of the saloon and the Company. Until masks exist they are obstacles.",
+  "note": "PHASE 1.5E: cut. The plane-1 mask is the authored silhouette of the trough and the east rail on street-candidate-03; the west rail (x 0-560) stays an obstacle only, its base below the frame; the porch posts remain uncut (nobody walks behind them: the boardwalk band is plane 0 and in front of nothing).",
   "planes": [
    {
     "level": 1,
-    "mask": "art/staging/room-02/companions-02/trough-plane-1.png",
-    "note": "PHASE 1.5D: THE TROUGH'S AUTHORED SILHOUETTE (art/staging/room-02/trough-02/silhouette.json) is the plane-1 mask; the visual is the water_trough state image. mud_far is plane 1: a man on the far mud behind the trough is masked by the trough and nothing else."
+    "mask": "art/staging/room-02/street-candidate-03/plane-1-trough-rail.png",
+    "note": "PHASE 1.5E: the trough AND the east hitching rail, both plate now, as authored silhouettes (street-candidate-03/plane-1-silhouettes.json). mud_far and mud_mid are plane 1: everything in them is behind both objects, whose bases lie below mud_mid's foot."
    }
   ],
   "clipPlane": {
    "boardwalk": 0,
    "mud_far": 1,
-   "mud_mid": 0,
+   "mud_mid": 1,
    "mud_near": 0
   },
   "proofPoints": [
    {
     "at": [
-     2160,
-     683
+     2100,
+     694
+    ],
+    "expect": 1,
+    "box": "mud_mid",
+    "note": "on the mid mud directly behind the trough's far rim (the hotspot rect starts at y 700 so this ground is clickable): the rim (from y 678) masks his feet -- what standing behind a low trough looks like"
+   },
+   {
+    "at": [
+     2450,
+     662
     ],
     "expect": 1,
     "box": "mud_far",
-    "note": "on the far mud just behind the trough: its far side (from y 654) masks his feet and shins"
+    "note": "on the far mud behind the hitching rail: the bar (y ~650-675 there) masks his ankles"
    }
   ],
-  "clipPlaneNote": "mud_far is plane 1 (Phase 1.5): the water trough is a state image that declares occludes [1], so a figure standing on the far mud behind the trough is masked by it and nowhere else -- the layer is transparent everywhere but the trough. The rails and the trough remain planned occluder masks for the room's own planes (boardwalk and mud_mid/near stay 0)."
+  "clipPlaneNote": "PHASE 1.5E: the trough and the east rail are plate scenery whose bases (798, 790/810) lie below mud_mid's foot (776), so mud_far AND mud_mid are plane 1 and are masked by the one plane-1 silhouette mask; mud_near (776-864) stays 0 and walks in front. The west rail stays an obstacle (its base is off the frame's foot)."
  },
  "plateNote": "MAIN STREET REPLACEMENT CANDIDATE 01 (opening-set retrofit phase 1, doc 36 Q116): two errata-63 panels (west, east) stitched at explicit cut columns (art/staging/room-02/street-candidate-01/stitch.json). Every rect below was read off this candidate on a 100 px grid. A CANDIDATE: the shipping street is untouched; this annotation compiles to the candidate room main_street_candidate, reachable only by the dev warp, for Tyler's review.",
  "acts": {},
- "hotspotStatesNote": "PHASE 1.5 (doc 36 Q117): the three companions are derived, not painted -- the plate stays blank-boarded, unframed and troughless, and each state draws over it. The Act III companions are re-cut for THIS plate from the authored shipping elements (gilt lettering, funeral sheet).",
+ "hotspotStatesNote": "PHASE 1.5E (doc 36 Q121): the plate holds the board's structure and its ordinary papers and the trough; only what genuinely changes is a state image -- the Company lettering (weathered / gilt, over the plate's blank board) and the Act III funeral sheet (over the plate's board). Nothing swaps a whole object between states.",
  "candidate": {
   "of": "main_street",
   "stage": "CANDIDATE",

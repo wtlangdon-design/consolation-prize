@@ -1,0 +1,31 @@
+{
+ "region": [
+  1880,
+  380,
+  2760,
+  864
+ ],
+ "scale": 1.1636363636363636,
+ "at": [
+  0,
+  230
+ ],
+ "zonePlate": [
+  1960,
+  600,
+  2690,
+  864
+ ],
+ "canvas": "art/staging/room-02/repair-b/edit-canvas.png",
+ "mask": "art/staging/room-02/repair-b/edit-mask.png",
+ "maskSha256": "df2251d35613a52ac6c77f10f675a377a770ecc68d0b29811818219c8eec0cfe",
+ "diagnostic": "renders/opening-set-retrofit/phase15e-repair-b-canvas-diagnostic.png",
+ "schema": 1,
+ "purpose": "OWNER-AUTHORIZED (Tyler, Phase 1.5E): REGION B, the one local structural repair of the water-trough / east hitching-rail relationship, 1 of 1. An 880x484 window of the accepted plate scaled x1.164 and set in the middle of a 1024 canvas with letterbox above and below; the mask frees the mud in front of the saloon from the boardwalk foot (y 600) to the frame bottom with the whole east rail inside it, so the trough and the rail are authored TOGETHER as one physical scene. The 1.5D trough result is the object reference only; the current pasted trough is NOT in the source (the plate never held it). The result's masked zone, scaled back 1:1, becomes PLATE (street-candidate-03): the trough is permanent scenery, occluding by an environmental plane mask.",
+ "source": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad",
+  "objectReference": "art/staging/room-02/repair-b/object-reference.png"
+ },
+ "diagnosis": "the 1.5D trough (154 px tall) back rim above the near rail post's top while its end passes behind the post; authored apart from the rail",
+ "mustRemainUnchanged": "the saloon, its porch, steps and lamps, the storefronts, the boardwalk and its edge, the mud left of x 1960"
+}

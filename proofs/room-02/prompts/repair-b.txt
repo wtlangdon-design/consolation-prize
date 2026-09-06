@@ -1,0 +1,10 @@
+REPAIR ONE LOCAL PATCH OF THIS STREET AS ONE PHYSICAL SCENE: A HITCHING RAIL AND A WATER TROUGH THAT BELONG TOGETHER. Paint only inside the unmasked area; everything outside it is finished and must be continued exactly, pixel for pixel, at the mask edge.
+
+The first attached image is a section of a night-time 1850s gold-rush Main Street, painted pixel art: storefronts and a lit saloon across the top, a raised boardwalk, then deep mud with puddles in the foreground where the mask is. In the mud stands a hitching rail: two rough posts and one horizontal bar, chest-high on a man, a few paces out from the boardwalk.
+
+Paint, inside the mask, on the same mud:
+1. The hitching rail, kept where it is and as it is: two rough posts, one bar, chest-high, standing in the mud.
+2. A water trough beside the WEST (left) end of the rail: a low, long, rough-plank horse trough of the same kind as the one in the second attached image, but SMALLER and LOWER -- knee-to-thigh high on a man, about two and a half man-heights long at most, holding a few inches of dark still water that catches a little of the saloon's light. It stands squarely on the mud, its long side roughly parallel to the rail, with a clear stride of open mud between the trough and the rail's near post, so a horse tied at the rail could reach it. The rail's bar and posts pass nowhere through or over the trough; the trough is not in front of the post and not behind it, but beside it.
+3. Mud all round, continuous with the mud outside the mask, ruts and dull puddles, correct contact shadows under the trough's planks and the rail's posts.
+
+Same painterly pixel-art language, same dark night, the warm lamplight from the saloon on the right falling across the mud. No bright blue water, no floating, no seams, no monumental trough, no horse, no people, no pump, no barrels. The boardwalk, the saloon porch and steps, the lamps and everything outside the mask stay exactly as they are.

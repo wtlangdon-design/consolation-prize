@@ -1,0 +1,86 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5E: the plane-1 occluder silhouettes, AUTHORED on the Region B result (street-candidate-03): the trough and the east hitching rail (two posts and the bar). A figure on mud_far or mud_mid is masked where it overlaps them; both objects' bases (trough ~798, posts 790/810) lie below mud_mid's foot (776), so every figure in those bands is physically behind them.",
+ "trough": [
+  [
+   1980,
+   732
+  ],
+  [
+   2085,
+   678
+  ],
+  [
+   2230,
+   695
+  ],
+  [
+   2232,
+   760
+  ],
+  [
+   2062,
+   804
+  ],
+  [
+   1980,
+   770
+  ]
+ ],
+ "railNearPost": [
+  [
+   2290,
+   615
+  ],
+  [
+   2320,
+   615
+  ],
+  [
+   2320,
+   790
+  ],
+  [
+   2290,
+   790
+  ]
+ ],
+ "railFarPost": [
+  [
+   2555,
+   632
+  ],
+  [
+   2583,
+   632
+  ],
+  [
+   2583,
+   810
+  ],
+  [
+   2555,
+   810
+  ]
+ ],
+ "railBar": [
+  [
+   2268,
+   640
+  ],
+  [
+   2612,
+   662
+  ],
+  [
+   2612,
+   678
+  ],
+  [
+   2268,
+   656
+  ]
+ ],
+ "mask": "art/staging/room-02/street-candidate-03/plane-1-trough-rail.png",
+ "maskSha256": "b06c4a74bf1498e61b3c952894441d87b414450aff99a3a3c023ab48664f41f3"
+}

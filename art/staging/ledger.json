@@ -3943,6 +3943,319 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-06T03:15:46.332Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/repair-a.txt",
+   "promptHash": "2432d2cabf2ee0657c16ba6625cf5ea59a1ba40a82f5a296d945954b8c70a79d",
+   "references": [
+    {
+     "path": "art/staging/room-02/repair-a/edit-canvas.png",
+     "hash": "3008691dcff67b19b2ac3df08f84d54e693af78edd3c509ecfd471b85f8d6beb",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "plate",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-02/repair-a/edit-mask.png",
+    "hash": "55c2047dce01715b1a280563213d46d9f0a4fa1c3fac605cddcb6b3742e4a1d7"
+   },
+   "sourceHash": "3008691dcff67b19b2ac3df08f84d54e693af78edd3c509ecfd471b85f8d6beb",
+   "sourcePath": "art/staging/room-02/repair-a/edit-canvas.png",
+   "out": "art/staging/room-02/repair-a/result-1024.png",
+   "outputHash": "b26b697c5da3fd990c852303ab94bdee94cbd18b43aabe468cc4feeb0406832e",
+   "bytes": 1105073,
+   "usage": {
+    "input_tokens": 9913,
+    "input_tokens_details": {
+     "image_tokens": 9468,
+     "text_tokens": 445
+    },
+    "output_tokens": 1756,
+    "output_tokens_details": {
+     "image_tokens": 1756,
+     "text_tokens": 0
+    },
+    "total_tokens": 11669
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T04:00:27.069Z",
+   "assetId": "main-street-repair-a",
+   "subject": "room-02-main-street",
+   "editedFrom": "art/staging/room-02/repair-a/edit-canvas.png",
+   "maskRecord": "art/staging/room-02/repair-a/repair-op.json",
+   "note": "OPENING-SET RETROFIT PHASE 1.5E: REGION A structural repair -- the notice board freestanding and clear of the storefront porch, the church's lower wall continued, the porch end finished; the masked zone becomes plate. The owner-authorized 1 of 1.",
+   "gates": {
+    "path": "art/staging/room-02/repair-a/result-1024.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T04:00:27.189Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T04:00:27.084Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/repair-b.txt",
+   "promptHash": "9729b81a9aa285478b537287b74f96df222bd0bd6170b2021eea9444c08d396d",
+   "references": [
+    {
+     "path": "art/staging/room-02/repair-b/edit-canvas.png",
+     "hash": "93ea40f482eb691e30b08610d851292b83aec5b2386a1b951ff85c09f76b30bb",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-02/repair-b/object-reference.png",
+     "hash": "3b24c408b669fa74eb3c60c90485b0b75f9829b971aecec2441618ee02304d66",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "plate",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-02/repair-b/edit-mask.png",
+    "hash": "df2251d35613a52ac6c77f10f675a377a770ecc68d0b29811818219c8eec0cfe"
+   },
+   "sourceHash": "93ea40f482eb691e30b08610d851292b83aec5b2386a1b951ff85c09f76b30bb",
+   "sourcePath": "art/staging/room-02/repair-b/edit-canvas.png",
+   "out": "art/staging/room-02/repair-b/result-1024.png",
+   "outputHash": "72d3620ab41b4bfbd86ba7774695b8aa97f078171eabe945f34d31b43552cb1e",
+   "bytes": 1038761,
+   "usage": {
+    "input_tokens": 10966,
+    "input_tokens_details": {
+     "image_tokens": 10492,
+     "text_tokens": 474
+    },
+    "output_tokens": 439,
+    "output_tokens_details": {
+     "image_tokens": 439,
+     "text_tokens": 0
+    },
+    "total_tokens": 11405
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T04:08:12.295Z",
+   "assetId": "main-street-repair-b",
+   "subject": "room-02-main-street",
+   "editedFrom": "art/staging/room-02/repair-b/edit-canvas.png",
+   "maskRecord": "art/staging/room-02/repair-b/repair-op.json",
+   "note": "OPENING-SET RETROFIT PHASE 1.5E: REGION B structural repair -- the water trough and the east hitching rail painted together as one scene; the masked zone becomes plate. The owner-authorized 1 of 1.",
+   "gates": {
+    "path": "art/staging/room-02/repair-b/result-1024.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T04:08:12.401Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T04:08:12.298Z"
   }
  ],
  "promotions": [

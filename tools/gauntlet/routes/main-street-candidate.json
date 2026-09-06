@@ -84,10 +84,10 @@
   {
    "do": "click",
    "world": [
-    2160,
-    683
+    2100,
+    694
    ],
-   "why": "behind the trough on the far mud, at the occlusion proof point: its far side masks his feet and shins"
+   "why": "on the mid mud directly behind the trough's far rim, just above its hotspot rect: the rim masks his feet"
   },
   {
    "do": "wait",
