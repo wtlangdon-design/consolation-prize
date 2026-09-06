@@ -1,0 +1,29 @@
+Redraw the attached five men. Same five people, same order, two changes.
+
+CHANGE ONE — THEIR POSES. The first four are no longer standing: they are in the middle of a card game, held still. NO furniture is drawn — no chairs, no table, no cards on a table, no floor. Each man is posed as though a round table and his chair were there, and the room will supply them. All four are SEATED with BOTH BOOTS FLAT ON THE GROUND, thighs horizontal, and all four are turned toward the same point in front of them: the table between them.
+
+1. CARD PLAYER ONE (the silver-haired one) — seated, turned three-quarters to frame right, leaning BACK, chin slightly up, a fan of playing cards held close to his chest in the near hand. Pleased with himself.
+
+2. CARD PLAYER TWO (the young fair one) — seated, turned three-quarters to frame left, leaning FORWARD with both forearms low in front of him as if on the table edge, a fan of cards flat in one hand, staring at them.
+
+3. CARD PLAYER THREE (the black-bearded one in the cap) — seated square to the viewer, upright and still, one hand resting flat and low in front of him, the other holding cards face-in against his chest. Says nothing, ever.
+
+4. CARD PLAYER FOUR (the bald one with spectacles) — seated, turned three-quarters to frame right, hunched forward, both hands low in front of him, cards held low and close, peering down through his spectacles.
+
+5. THE MAN ON THE LANDING — UNCHANGED IN POSE. He stays exactly as he is: standing straight and easy, hat held at his side, nothing in his other hand, looking at nothing in particular, doing nothing. He is the only one still standing and that is deliberate. Do not give him a gesture, a drink, cards, or anything to do.
+
+THE OTHER CHANGE — DRAWING DETAIL. Reference 2 is THAD, the protagonist of this game, at the size the game draws him. He is the target and he is not negotiable. Every figure here must look like it was drawn by the same hand, for the same game, at the same degree of simplification as him. Right now these figures are far too finely rendered beside him: they read as modern painted portraits shrunk down, and he reads as a hand-drawn 1990s adventure-game sprite. Redraw them so that is no longer true.
+
+WHAT THAT MEANS, CONCRETELY:
+- A FACE CARRIES AT MOST: the mass of the brow and hair, a shape for each eye, one shadow for the nose, one line for the mouth, one shadow under the jaw. Nothing else.
+- NO eyeball modelling, NO catchlights, NO eyelid creases, NO individual eyelashes, NO nostril detail, NO teeth, NO lip modelling, NO ear cartilage.
+- NO skin texture, NO pores, NO cheek blush, NO stubble rendered hair by hair. A beard is ONE mass with two or three tones, not thousands of hairs.
+- HAIR IS A SHAPE, not strands.
+- CLOTH IS FLAT MASSES with two or three tones and hard-edged folds. NO soft airbrushed gradients, NO fabric weave, NO thread, NO subtle sheen.
+- Buttons, buckles and watch chains are single small marks or are left out.
+- EDGES ARE CRISP. Where two tones meet they meet on a hard line, not through a blur.
+- Fewer, larger shapes everywhere. If a detail would be smaller than an eye, it does not exist.
+
+DRAW IT AT THE SIZE IT WILL BE SEEN. These figures appear in the game about 170 to 460 pixels tall. Draw a small figure large — do not draw a detailed portrait and expect it to be reduced.
+
+KEEP THE CAST. The same men, the same faces, the same ages, builds, clothes and colours, in the same left-to-right order. Flat MAGENTA #FF00FF background edge to edge, CLEAR MAGENTA BETWEEN EVERY FIGURE so none of them touches another, and each figure complete from the crown of the head to the soles of the boots with nothing cropped by any edge. NO furniture is drawn — no bar, no counter, no stool, no chair, no table, no floor, no shadow on the ground. The room supplies all of that; these are figures only.

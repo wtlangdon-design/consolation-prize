@@ -15,111 +15,113 @@
   {
    "id": "nugget_bar_1",
    "name": "BAR PATRON 1",
-   "cut": "art/staging/room-03/cast-bar-stove-01/bar-1.png",
+   "cut": "art/staging/room-03/cast-bar-stove-02/bar-1.png",
    "sheet": "art/actors/cast-nugget-bar-1.png",
    "at": [
-    1300,
-    660
+    1232,
+    645
    ],
-   "stature": 1.0,
-   "pose": "standing at the counter between the far and middle stools, side on to the room",
+   "stature": 0.78,
+   "pose": "SEATED on the far stool, in profile, boots flat on the floor, forearms forward on the counter, a tin cup in one hand. Feet at the stool's own floor row (632) plus a boot's length forward.",
    "why": "The old miner who stopped mining. He stands ON THE BAR STRIP, right of Thad's floor edge, which is where a man at a counter stands; an actor needs no walk box."
   },
   {
    "id": "nugget_bar_2",
    "name": "BAR PATRON 2",
-   "cut": "art/staging/room-03/cast-bar-stove-01/bar-2.png",
+   "cut": "art/staging/room-03/cast-bar-stove-02/bar-2.png",
    "sheet": "art/actors/cast-nugget-bar-2.png",
    "at": [
-    1500,
-    730
+    1450,
+    700
    ],
-   "stature": 1.02,
-   "pose": "standing at the counter between the middle and near stools",
+   "stature": 0.97,
+   "pose": "STANDING and LEANING on the counter between the far and middle stools: near elbow up on the bar, ankles crossed, far hand on his hip, head turned back into the room.",
    "why": "The restless one, and the tallest of the three."
   },
   {
    "id": "nugget_bar_3",
    "name": "BAR PATRON 3",
-   "cut": "art/staging/room-03/cast-bar-stove-01/bar-3.png",
+   "cut": "art/staging/room-03/cast-bar-stove-02/bar-3.png",
    "sheet": "art/actors/cast-nugget-bar-3.png",
    "at": [
     1790,
     820
    ],
-   "stature": 0.94,
-   "pose": "standing at the near end of the counter, half turned toward the room",
+   "stature": 1.0,
+   "pose": "STANDING square at the near end of the counter, half turned toward the room, a tin cup at waist height, one boot forward as if on the rail.",
    "why": "Short and wide and settled. The nearest and largest figure in the room after Thad, in the bar lamps' field."
   },
   {
    "id": "nugget_stove_man",
    "name": "THE STOVE MAN",
-   "cut": "art/staging/room-03/cast-bar-stove-01/stove-man.png",
+   "cut": "art/staging/room-03/cast-bar-stove-02/stove-man.png",
    "sheet": "art/actors/cast-nugget-stove-man.png",
    "at": [
-    1150,
+    1140,
     508
    ],
-   "stature": 0.97,
-   "pose": "standing to the right of the stove, coat on, turned toward the iron",
-   "why": "A STORY ANCHOR, not a fourth drinker: the man who has not taken his coat off since Thad arrived in this territory. RESTAGED after the first composition put him at 1150,570 -- out in open floor between the card table and the bar, reading as a man standing in the middle of the room, which is the one thing he must not read as. The stove's own base line is y 412, which is 94 px BEHIND the walkable floor's far edge, so nobody can stand level with it; he now stands at the floor's far edge at 1150,508, just off the stove's right side and overlapping it, which is where a man warming himself actually stands -- in front of the iron, not beside it."
+   "stature": 1.0,
+   "pose": "STANDING just off the stove's right side and overlapping it, turned INTO it, both hands open at chest height toward the iron, coat buttoned to the throat.",
+   "why": "A STORY ANCHOR, not a fourth drinker: the man who has not taken his coat off since Thad arrived in this territory. RESTAGED after the first composition put him at 1150,570 -- out in open floor between the card table and the bar, reading as a man standing in the middle of the room, which is the one thing he must not read as. The stove's own base line is y 412, which is 94 px BEHIND the walkable floor's far edge, so nobody can stand level with it; he now stands at the floor's far edge at 1150,508, just off the stove's right side and overlapping it, which is where a man warming himself actually stands -- in front of the iron, not beside it.",
+   "mirror": true,
+   "mirrorNote": "MIRRORED. The generated figure holds both hands out to HIS OWN left, which is screen RIGHT; standing right of the stove he warmed empty floor and the iron sat behind his shoulder. Flipping the cut turns him into the stove instead of away from it. No image operation: the painting is unchanged, it is drawn reversed."
   },
   {
    "id": "nugget_card_1",
    "name": "CARD PLAYER 1",
-   "cut": "art/staging/room-03/cast-card-landing-01/card-1.png",
+   "cut": "art/staging/room-03/cast-card-landing-02/card-1.png",
    "sheet": "art/actors/cast-nugget-card-1.png",
    "at": [
-    750,
-    535
+    762,
+    508
    ],
-   "stature": 0.99,
-   "pose": "standing at the table's left end, facing across it",
+   "stature": 0.72,
+   "pose": "SEATED in the second chair on the table's left, leaning BACK with his cards close to his chest, chin up. Pleased with himself. MOVED OFF THE OUTERMOST CHAIR, which stands in front of the piano: he read as a card player to the eye but the piano-exclusion test could not tell the difference, and a rule that only holds when you squint is not a rule. That chair is now the empty fifth place.",
    "why": "The silver-haired one who thinks he is the sharpest man at the table. Moved right off the piano: at 695,522 he stood at its right end, inside the piano's own rect, and the piano's whole comedy is that nobody is at it. He now stands at the card table's left corner, 45 px clear of the instrument."
   },
   {
    "id": "nugget_card_2",
    "name": "CARD PLAYER 2",
-   "cut": "art/staging/room-03/cast-card-landing-01/card-2.png",
+   "cut": "art/staging/room-03/cast-card-landing-02/card-2.png",
    "sheet": "art/actors/cast-nugget-card-2.png",
    "at": [
-    1060,
-    535
+    1050,
+    515
    ],
-   "stature": 1.01,
-   "pose": "standing at the table's right end, facing across it",
+   "stature": 0.72,
+   "pose": "SEATED in the chair on the table's right, hunched forward over the edge, staring down at the cards flat in his hand, seen past his near shoulder. He sits between the fourth player and the stove man, at neither of them.",
    "why": "The young one, losing and not yet worried about it. Moved 45 px left and 13 px nearer, off the stove man: at 1105,522 the two of them read as a pair standing together, which neither of them is."
   },
   {
    "id": "nugget_card_3",
    "name": "CARD PLAYER 3",
-   "cut": "art/staging/room-03/cast-card-landing-01/card-3.png",
+   "cut": "art/staging/room-03/cast-card-landing-02/card-3.png",
    "sheet": "art/actors/cast-nugget-card-3.png",
    "at": [
-    855,
-    508
+    822,
+    478
    ],
-   "stature": 1.0,
-   "pose": "standing behind the table, left, the table across his legs",
+   "stature": 0.72,
+   "pose": "SEATED in the back-left chair, square to us, upright and still, one hand flat on the table, cards face-in against his chest. The table crosses him from the knee down.",
    "why": "The black-bearded one who says nothing. Standing behind the table means the table occludes him from the knee down, which is what the plane-0 floor and the painted table already do."
   },
   {
    "id": "nugget_card_4",
    "name": "CARD PLAYER 4",
-   "cut": "art/staging/room-03/cast-card-landing-01/card-4.png",
+   "cut": "art/staging/room-03/cast-card-landing-02/card-4.png",
    "sheet": "art/actors/cast-nugget-card-4.png",
    "at": [
-    975,
-    508
+    982,
+    478
    ],
-   "stature": 0.93,
-   "pose": "standing behind the table, right",
+   "stature": 0.72,
+   "pose": "SEATED in the back-right chair, hunched forward, peering down through his spectacles at cards held low.",
    "why": "The bald retired something, in the wrong town, and the shortest man in the room."
   },
   {
    "id": "nugget_landing_man",
    "name": "THE MAN ON THE LANDING",
-   "cut": "art/staging/room-03/cast-card-landing-01/landing-man.png",
+   "cut": "art/staging/room-03/cast-card-landing-02/landing-man.png",
    "sheet": "art/actors/cast-nugget-landing-man.png",
    "at": [
     1305,
@@ -132,5 +134,6 @@
  ],
  "noPianoPlayer": "BINDING, and it is a joke, not an omission: nobody plays the piano and nobody touches it. No character is placed at it, in this phase or any other.",
  "abandonedHand": "The face-up hand lies on the table's NEAR edge, x 860-960 y 368-398 -- the side with no chair. Four men stand at the left end, the right end and behind; nobody is on the near side, so the fifth place stays visibly empty and the hand still belongs to a man who went outside. No furniture changed.",
- "deke": "RESERVED BY ZONE REPLACEMENT. Deke Vessel is a named Act I/II story NPC and must appear at the near end of the bar for A3. His zone is the annotation's `characters.deke_vessel` -- x 1090-1210, feet about y 700 -- and it does not collide with any of the nine. When he is built, the intended solution is a STORY-STATE OCCUPANCY ADJUSTMENT: nugget_bar_1 stands at 1300,660 and Deke takes the counter west of him, so no generic patron is deleted, no zone is repainted and no plate changes. He is NEVER a re-skinned generic patron."
+ "deke": "RESERVED BY ZONE REPLACEMENT. Deke Vessel is a named Act I/II story NPC and must appear at the near end of the bar for A3. His zone is the annotation's `characters.deke_vessel` -- x 1090-1210, feet about y 700 -- and it does not collide with any of the nine. When he is built, the intended solution is a STORY-STATE OCCUPANCY ADJUSTMENT: nugget_bar_1 stands at 1300,660 and Deke takes the counter west of him, so no generic patron is deleted, no zone is repainted and no plate changes. He is NEVER a re-skinned generic patron.",
+ "poseNote": "PHASE 2A OWNER-REVIEW CORRECTION. Tyler: static staging does not mean nine men standing upright in a row, and the deployed room read as a casting lineup dropped into a saloon. The two family sheets were REDRAWN with occupational poses, so `stature` now carries the POSE as well as the person: it is this figure's drawn height as a fraction of the room's STANDING man at his feet. A man seated on a dining chair with his boots flat is about 0.72 of his own standing height; on a bar stool, which is higher, about 0.78; leaning on a counter about 0.97. Those factors are anatomy, not taste, and they are written here rather than tuned until the picture looked right. Every seated man still has BOTH FEET ON THE FLOOR, so the feet anchor the engine uses is still the feet."
 }

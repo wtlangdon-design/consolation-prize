@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import { ROOT } from '../lib/content.mjs';
 import { runGates } from './gates.mjs';
 import { edit, hashFile } from './openai-image.mjs';
-import { attachGates, budgetFor, record } from './staging.mjs';
+import { assertRecordable, attachGates, budgetFor, record } from './staging.mjs';
 
 /**
  * PHASE 2A CASTING (Tyler's authorization of 2026-09-06, doc 36 Q128).
@@ -64,8 +64,13 @@ function guard(assetId) {
   return budget;
 }
 
-async function cast({ assetId, subject, role, baselineRoom, promptFile, images, out, size, note }) {
+async function cast({ assetId, subject, role, baselineRoom, promptFile, images, out, size, note,
+  derivedFrom }) {
   guard(assetId);
+  // AND WOULD THE ROW BE ACCEPTED? The cap was always checked before the call
+  // and the row never was, so a wrong role cost a whole operation four times.
+  assertRecordable({ assetId, subject, role, operation: 'edit', model: 'gpt-image-2',
+    ...(derivedFrom ? { derivedFrom } : {}) });
   mkdirSync(resolve(ROOT, out.slice(0, out.lastIndexOf('/'))), { recursive: true });
   for (const image of images) say(`  ref ${hashFile(image).slice(0, 12)}  ${image}`);
   const made = await edit({ promptFile, out, images, size, baselineRoom, purpose: 'character' });
@@ -80,7 +85,8 @@ async function cast({ assetId, subject, role, baselineRoom, promptFile, images, 
   // that is never shipped. And `subject` is the CHARACTER, not the room, or
   // the one-canonical-design-per-subject rule would count a whole street as
   // one person.
-  const row = record({ ...made, assetId, subject, role, note });
+  const row = record({ ...made, assetId, subject, role, note,
+    ...(derivedFrom ? { derivedFrom } : {}) });
   say(`  recorded as ${assetId} attempt ${row.attempt}`);
   const gates = runGates(made.out, { kind: 'plate', expect: size });
   attachGates(assetId, row.attempt, gates);
@@ -137,6 +143,59 @@ const JOBS = {
     note: 'PHASE 2A CASTING: four card players and the landing man on one family sheet, all drawn standing and whole so a seated pose can be derived from a complete figure. Character art only; 0 environment operations.',
   },
 };
+
+// ---- THE AUTHORIZED REFINEMENTS ------------------------------------------
+//
+// EACH IS AN EDIT OF ITS OWN FIRST ATTEMPT, never a fresh generation. Doc 38's
+// first rule: two independent generations of "the same" person are two people,
+// and the difference is a flicker nobody can fix afterwards. The sheet being
+// corrected is images[0]; THAD'S RUNTIME FRAME IS images[1], because the fault
+// being corrected is that these figures do not look drawn by the same hand as
+// him, and the target has to be in front of the model, not described to it.
+const REFINE = {
+  'pie-woman': ['street-pie-woman', 'pie-woman', 'room-02', 'cast-pie-woman', PORTRAIT, STREET,
+    'the pie woman'],
+  'letter-writer': ['street-letter-writer', 'letter-writer', 'room-02', 'cast-letter-writer',
+    PORTRAIT, STREET, 'the letter-writer and his station'],
+  'map-seller': ['street-map-seller', 'map-seller', 'room-02', 'cast-map-seller', PORTRAIT, STREET,
+    'the map seller'],
+  'bar-stove-family': ['nugget-bar-stove-family', 'nugget-bar-stove-family', 'room-03',
+    'cast-bar-stove', SHEET, NUGGET, 'the bar and stove family'],
+  'card-landing-family': ['nugget-card-landing-family', 'nugget-card-landing-family', 'room-03',
+    'cast-card-landing', SHEET, NUGGET, 'the card and landing family'],
+};
+for (const [key, [assetId, subject, room, dir, size, refs, what]] of Object.entries(REFINE)) {
+  const roomDir = room === 'room-02' ? 'room-02' : 'room-03';
+  const promptDir = room === 'room-02' ? 'proofs/room-02/prompts' : 'proofs/room-03/prompts';
+  const stem = key === 'bar-stove-family' ? 'bar-stove-family'
+    : key === 'card-landing-family' ? 'card-landing-family' : key;
+  JOBS[`${key}-refine`] = {
+    assetId, subject,
+    // A SINGLE CHARACTER'S REDRAW IS A DERIVED STATE OF HIS CANONICAL DESIGN.
+    // A FAMILY SHEET'S REDRAW IS ANOTHER CASTING SHEET: reference material,
+    // never shipped, and a `derived-state` may only descend from a
+    // canonical-design, which a composition-master is not.
+    role: room === 'room-03' ? 'composition-master' : 'derived-state',
+    ...(room === 'room-03' ? {} : { derivedFrom: 1 }),
+    baselineRoom: room === 'room-02' ? 'room-02-main-street' : 'room-03-nugget',
+    promptFile: `${promptDir}/${stem}-02.txt`,
+    // THE SHEET FIRST (it is the image being edited), THAD SECOND. The prompt
+    // says "reference 2 is Thad" and it has to be true: the whole correction
+    // is measured against him, and a target buried at position four is a
+    // target described rather than shown.
+    images: [`art/staging/${roomDir}/${dir}-01/source.png`,
+      'art/actors/thad-stand-front/stand-00.png',
+      ...refs.filter((one) => one !== 'art/actors/thad-stand-front/stand-00.png')],
+    size,
+    out: `art/staging/${roomDir}/${dir}-02/source.png`,
+    banner: `\nREFINEMENT · ${what.toUpperCase()} -- redrawn in Thad's hand, as an edit of attempt 1\n`,
+    note: `PHASE 2A OWNER-REVIEW CORRECTION: ${what}, refinement 1 of 1, spent against a concrete `
+      + 'defect Tyler named in the DEPLOYED rooms -- the new cast is drawn far finer than Thad and '
+      + 'reads as painted illustration reduced into the game. An EDIT of attempt 1 so the same '
+      + 'people come back, with Thad\'s own runtime frame transmitted as the detail target. '
+      + '0 environment operations.',
+  };
+}
 
 const job = JOBS[which];
 if (!job) {

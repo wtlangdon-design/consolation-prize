@@ -1,0 +1,23 @@
+Redraw the attached image — the same elderly clerk, the same spectacles, coat, waistcoat and hat, and the same small folding table with its weighted paper, ink bottle and pens, and the same satchel on the ground.
+
+TWO CHANGES, AND ONLY TWO.
+
+CHANGE ONE — HIS POSE. He is no longer standing beside the table. He is AT WORK: seated on a low camp stool with BOTH FEET FLAT ON THE GROUND, leaning forward over the table, his near hand holding the pen down ON the paper as if in the middle of a word, his far hand resting flat on the sheet to hold it. Head tipped down toward the page. The premise must read in one still frame: this is a man whose business is writing letters for other people. Keep the table where it is, to his side, still clear of his body — do not let him overlap it.
+
+CHANGE TWO — THE DRAWING DETAIL, below.
+
+THE ONE THING TO CHANGE — DRAWING DETAIL. Reference 2 is THAD, the protagonist of this game, at the size the game draws him. He is the target and he is not negotiable. Every figure here must look like it was drawn by the same hand, for the same game, at the same degree of simplification as him. Right now these figures are far too finely rendered beside him: they read as modern painted portraits shrunk down, and he reads as a hand-drawn 1990s adventure-game sprite. Redraw them so that is no longer true.
+
+WHAT THAT MEANS, CONCRETELY:
+- A FACE CARRIES AT MOST: the mass of the brow and hair, a shape for each eye, one shadow for the nose, one line for the mouth, one shadow under the jaw. Nothing else.
+- NO eyeball modelling, NO catchlights, NO eyelid creases, NO individual eyelashes, NO nostril detail, NO teeth, NO lip modelling, NO ear cartilage.
+- NO skin texture, NO pores, NO cheek blush, NO stubble rendered hair by hair. A beard is ONE mass with two or three tones, not thousands of hairs.
+- HAIR IS A SHAPE, not strands.
+- CLOTH IS FLAT MASSES with two or three tones and hard-edged folds. NO soft airbrushed gradients, NO fabric weave, NO thread, NO subtle sheen.
+- Buttons, buckles and watch chains are single small marks or are left out. They are not jewellery.
+- EDGES ARE CRISP. Where two tones meet they meet on a hard line, not through a blur.
+- Fewer, larger shapes everywhere. If a detail would be smaller than an eye, it does not exist.
+
+DRAW IT AT THE SIZE IT WILL BE SEEN. These figures appear in the game about 200 to 460 pixels tall. Draw a small figure large — do not draw a detailed portrait and expect it to be reduced. The test is: at gameplay size, does this face carry the same amount of information as Thad's face, and no more?
+
+KEEP EVERYTHING ELSE. Same people, same faces, same ages, same builds, same clothes, same colours, same composition, same magenta #FF00FF background edge to edge, same clear magenta between every figure, each figure complete from crown to boot soles with nothing cropped. This is a redraw of the attached image in a simpler hand, NOT a new cast.

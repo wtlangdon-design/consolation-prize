@@ -1,0 +1,240 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A: how much detail does a figure carry, at the size it is drawn?\n\n    python3 tools/art/phase2a-detail-audit.py\n\nTyler, on the deployed rooms: the new NPCs read as modern painted illustrations\nreduced into the game, and Thad beside them looks pixelated and simplified. The\nquestion this answers is not \"are they pretty\" -- that is his -- but \"are they\nthe same KIND of picture\", which is measurable, because the difference between\nauthored pixel art and a downsampled painting shows up in the pixels:\n\n  coloursPerK   unique RGB values per 1000 opaque pixels. Authored pixel art\n                reuses a small palette; a resampled painting invents a new\n                colour at every edge.\n  flat          the fraction of opaque pixels whose four neighbours are ALL\n                exactly the same colour. Pixel art is mostly flat runs. A\n                photographic gradient has almost none.\n  step          the mean absolute luminance difference between horizontally\n                adjacent opaque pixels. Small and continuous means a gradient;\n                mostly zero with occasional jumps means a drawn edge.\n\nTHE MEASUREMENT IS TAKEN AT THE DEPLOYED SIZE, never on the source sheet. A\n1200 px painting and a 250 px sprite are not comparable pictures, and the whole\ndefect is that one of them was made by shrinking the other.",
+ "rows": [
+  {
+   "file": "art/actors/thad-stand-front/stand-00.png",
+   "size": [
+    421,
+    392
+   ],
+   "opaque": 24454,
+   "colours": 12084,
+   "coloursPerK": 494.2,
+   "flat": 0.0,
+   "step": 8.31,
+   "subject": "THAD (the reference)"
+  },
+  {
+   "file": "art/actors/thad-stand-front/stand-00.png",
+   "size": [
+    248,
+    231
+   ],
+   "opaque": 8516,
+   "colours": 5526,
+   "coloursPerK": 648.9,
+   "flat": 0.0,
+   "step": 12.24,
+   "subject": "THAD in the street"
+  },
+  {
+   "file": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "size": [
+    2232,
+    188
+   ],
+   "opaque": 65899,
+   "colours": 9949,
+   "coloursPerK": 151.0,
+   "flat": 0.0,
+   "step": 9.53,
+   "subject": "WINNIE (accepted)"
+  },
+  {
+   "file": "art/actors/cast-letter-writer.png",
+   "size": [
+    75,
+    208
+   ],
+   "opaque": 9252,
+   "colours": 5117,
+   "coloursPerK": 553.1,
+   "flat": 0.0,
+   "step": 12.64,
+   "subject": "letter_writer"
+  },
+  {
+   "file": "art/actors/cast-pie-woman.png",
+   "size": [
+    106,
+    252
+   ],
+   "opaque": 16098,
+   "colours": 8843,
+   "coloursPerK": 549.3,
+   "flat": 0.0,
+   "step": 10.68,
+   "subject": "pie_woman"
+  },
+  {
+   "file": "art/actors/cast-map-seller.png",
+   "size": [
+    112,
+    231
+   ],
+   "opaque": 11995,
+   "colours": 6775,
+   "coloursPerK": 564.8,
+   "flat": 0.0,
+   "step": 13.43,
+   "subject": "map_seller"
+  },
+  {
+   "file": "art/actors/cast-letter-writer-station.png",
+   "size": [
+    75,
+    130
+   ],
+   "opaque": 5252,
+   "colours": 4322,
+   "coloursPerK": 822.9,
+   "flat": 0.0,
+   "step": 11.15,
+   "subject": "letter_writer_station"
+  },
+  {
+   "file": "art/actors/cast-nugget-bar-1.png",
+   "size": [
+    129,
+    358
+   ],
+   "opaque": 29517,
+   "colours": 11536,
+   "coloursPerK": 390.8,
+   "flat": 0.0,
+   "step": 9.91,
+   "subject": "nugget_bar_1"
+  },
+  {
+   "file": "art/actors/cast-nugget-bar-2.png",
+   "size": [
+    142,
+    426
+   ],
+   "opaque": 36211,
+   "colours": 17577,
+   "coloursPerK": 485.4,
+   "flat": 0.0,
+   "step": 10.2,
+   "subject": "nugget_bar_2"
+  },
+  {
+   "file": "art/actors/cast-nugget-bar-3.png",
+   "size": [
+    181,
+    464
+   ],
+   "opaque": 52990,
+   "colours": 15117,
+   "coloursPerK": 285.3,
+   "flat": 0.0,
+   "step": 6.69,
+   "subject": "nugget_bar_3"
+  },
+  {
+   "file": "art/actors/cast-nugget-stove-man.png",
+   "size": [
+    67,
+    222
+   ],
+   "opaque": 10576,
+   "colours": 4777,
+   "coloursPerK": 451.7,
+   "flat": 0.0,
+   "step": 8.49,
+   "subject": "nugget_stove_man"
+  },
+  {
+   "file": "art/actors/cast-nugget-card-1.png",
+   "size": [
+    81,
+    249
+   ],
+   "opaque": 13086,
+   "colours": 5353,
+   "coloursPerK": 409.1,
+   "flat": 0.0,
+   "step": 10.17,
+   "subject": "nugget_card_1"
+  },
+  {
+   "file": "art/actors/cast-nugget-card-2.png",
+   "size": [
+    83,
+    254
+   ],
+   "opaque": 12623,
+   "colours": 8312,
+   "coloursPerK": 658.5,
+   "flat": 0.0,
+   "step": 13.76,
+   "subject": "nugget_card_2"
+  },
+  {
+   "file": "art/actors/cast-nugget-card-3.png",
+   "size": [
+    84,
+    229
+   ],
+   "opaque": 12243,
+   "colours": 5937,
+   "coloursPerK": 484.9,
+   "flat": 0.0,
+   "step": 10.07,
+   "subject": "nugget_card_3"
+  },
+  {
+   "file": "art/actors/cast-nugget-card-4.png",
+   "size": [
+    70,
+    213
+   ],
+   "opaque": 9988,
+   "colours": 5627,
+   "coloursPerK": 563.4,
+   "flat": 0.0,
+   "step": 11.59,
+   "subject": "nugget_card_4"
+  },
+  {
+   "file": "art/actors/cast-nugget-landing-man.png",
+   "size": [
+    57,
+    168
+   ],
+   "opaque": 5819,
+   "colours": 2815,
+   "coloursPerK": 483.8,
+   "flat": 0.0,
+   "step": 10.1,
+   "subject": "nugget_landing_man"
+  },
+  {
+   "file": "art/actors/ambient-pie-woman.png",
+   "size": [
+    387,
+    161
+   ],
+   "opaque": 34022,
+   "colours": 8642,
+   "coloursPerK": 254.0,
+   "flat": 0.001,
+   "step": 11.33,
+   "subject": "legacy pie woman"
+  },
+  {
+   "file": "art/actors/ambient-map-seller.png",
+   "size": [
+    337,
+    154
+   ],
+   "opaque": 20607,
+   "colours": 11705,
+   "coloursPerK": 568.0,
+   "flat": 0.0,
+   "step": 13.13,
+   "subject": "legacy map seller"
+  }
+ ]
+}

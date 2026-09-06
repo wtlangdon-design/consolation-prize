@@ -5210,6 +5210,938 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-06T17:56:31.671Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1536",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/pie-woman-02.txt",
+   "promptHash": "8688233b9b9378744f0aee25c97e1a88a1e0f96770badde84d1b51974c9e7506",
+   "references": [
+    {
+     "path": "art/staging/room-02/cast-pie-woman-01/source.png",
+     "hash": "92dba1c3e7ce40252eb84d416d3a13566488989a269e51417eaed7b471019799",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-02/street-candidate-03/candidate-plate.png",
+     "hash": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "character",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "92dba1c3e7ce40252eb84d416d3a13566488989a269e51417eaed7b471019799",
+   "sourcePath": "art/staging/room-02/cast-pie-woman-01/source.png",
+   "out": "art/staging/room-02/cast-pie-woman-02/source.png",
+   "outputHash": "e53bbd2d4fa71e49927fce79d71a5c373bf14fbd98d2f3b36963f3ada871d09f",
+   "bytes": 1220260,
+   "usage": {
+    "input_tokens": 11981,
+    "input_tokens_details": {
+     "image_tokens": 11432,
+     "text_tokens": 549
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 13353
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T20:25:21.435Z",
+   "assetId": "street-pie-woman",
+   "subject": "pie-woman",
+   "note": "PHASE 2A OWNER-REVIEW CORRECTION: the pie woman, refinement 1 of 1, spent against a concrete defect Tyler named in the DEPLOYED rooms -- the new cast is drawn far finer than Thad and reads as painted illustration reduced into the game. An EDIT of attempt 1 so the same people come back, with Thad's own runtime frame transmitted as the detail target. 0 environment operations.",
+   "derivedFrom": 1,
+   "gates": {
+    "path": "art/staging/room-02/cast-pie-woman-02/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1536, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T20:25:21.695Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T20:25:21.457Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1536",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/map-seller-02.txt",
+   "promptHash": "686276fc972e7169db6a5c72096879e45a85231e59479108abd0130b530c3279",
+   "references": [
+    {
+     "path": "art/staging/room-02/cast-map-seller-01/source.png",
+     "hash": "96fec6b595275d4aec0fce5b5b86bea9aed6f48228ca650f3da9d809a3365811",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-02/street-candidate-03/candidate-plate.png",
+     "hash": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "character",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "96fec6b595275d4aec0fce5b5b86bea9aed6f48228ca650f3da9d809a3365811",
+   "sourcePath": "art/staging/room-02/cast-map-seller-01/source.png",
+   "out": "art/staging/room-02/cast-map-seller-02/source.png",
+   "outputHash": "c5e63864e74bd19628e9039265e5e5c1d30bc2d7a0334e7226b7a16a01c99518",
+   "bytes": 1218745,
+   "usage": {
+    "input_tokens": 12000,
+    "input_tokens_details": {
+     "image_tokens": 11432,
+     "text_tokens": 568
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 13372
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T20:26:36.546Z",
+   "assetId": "street-map-seller",
+   "subject": "map-seller",
+   "note": "PHASE 2A OWNER-REVIEW CORRECTION: the map seller, refinement 1 of 1, spent against a concrete defect Tyler named in the DEPLOYED rooms -- the new cast is drawn far finer than Thad and reads as painted illustration reduced into the game. An EDIT of attempt 1 so the same people come back, with Thad's own runtime frame transmitted as the detail target. 0 environment operations.",
+   "derivedFrom": 1,
+   "gates": {
+    "path": "art/staging/room-02/cast-map-seller-02/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1536, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T20:26:36.737Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T20:26:36.549Z"
+  },
+  {
+   "attempt": 2,
+   "role": "derived-state",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1536",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/letter-writer-02.txt",
+   "promptHash": "6a29865b549e332eaee541cda1e9d15b11ab290a7a035dc3cef1164581d42172",
+   "references": [
+    {
+     "path": "art/staging/room-02/cast-letter-writer-01/source.png",
+     "hash": "d794d8dbbf4b17a2ac1bd53c16187900c4147251a6e2cbd6e389ed019f6ddb9d",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-02/street-candidate-03/candidate-plate.png",
+     "hash": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "character",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "d794d8dbbf4b17a2ac1bd53c16187900c4147251a6e2cbd6e389ed019f6ddb9d",
+   "sourcePath": "art/staging/room-02/cast-letter-writer-01/source.png",
+   "out": "art/staging/room-02/cast-letter-writer-02/source.png",
+   "outputHash": "a096ddf9a2d919b9841b2a8d20bc52a8435bb92b37ecf501adade193cbe4eaa3",
+   "bytes": 1332056,
+   "usage": {
+    "input_tokens": 12141,
+    "input_tokens_details": {
+     "image_tokens": 11432,
+     "text_tokens": 709
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 13513
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T20:27:17.560Z",
+   "assetId": "street-letter-writer",
+   "subject": "letter-writer",
+   "note": "PHASE 2A OWNER-REVIEW CORRECTION: the letter-writer and his station, refinement 1 of 1, spent against a concrete defect Tyler named in the DEPLOYED rooms -- the new cast is drawn far finer than Thad and reads as painted illustration reduced into the game. An EDIT of attempt 1 so the same people come back, with Thad's own runtime frame transmitted as the detail target. 0 environment operations.",
+   "derivedFrom": 1,
+   "gates": {
+    "path": "art/staging/room-02/cast-letter-writer-02/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1536, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T20:27:17.710Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T20:27:17.563Z"
+  },
+  {
+   "attempt": 2,
+   "role": "composition-master",
+   "assetId": "nugget-bar-stove-family",
+   "subject": "nugget-bar-stove-family",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/bar-stove-family-02.txt",
+   "promptHash": "05fb5e364107da4f55106f52b82162004e87deecb0165c9d6a1a31ff42a4abc9",
+   "references": [
+    {
+     "path": "art/staging/room-03/cast-bar-stove-01/source.png",
+     "hash": "7765cc7a13a90fd77c5f8932136cde679a8ffd4dd290a2bf2df80ab7bf149e4d",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+     "hash": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "editedFrom": "art/staging/room-03/cast-bar-stove-01/source.png",
+   "out": "NOT RETAINED",
+   "outputHash": "NOT RETAINED",
+   "bytes": null,
+   "usage": null,
+   "usageNote": "BILLED TOKENS UNKNOWN. record() threw after the API had returned, so the response usage object went with the discarded return value -- the fourth time this has happened and the last, now that the row is validated before the call.",
+   "at": "2026-09-06T20:31:30.834Z",
+   "note": "PHASE 2A OWNER-REVIEW CORRECTION: the bar and stove family, refinement 1 of 1. BILLED, AND ITS IMAGE IS GONE. This attempt returned and was written to art/staging/room-03/cast-bar-stove-02/source.png, then record() threw on the role, and the command was RE-RUN before that failure had been diagnosed -- so the next attempt overwrote this one's file. There is no artifact to hash. It is recorded because it was spent, and an operation spent and not written down is the one thing this ledger exists to prevent.",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-09-06T20:31:30.837Z"
+  },
+  {
+   "attempt": 3,
+   "role": "composition-master",
+   "assetId": "nugget-bar-stove-family",
+   "subject": "nugget-bar-stove-family",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/bar-stove-family-02.txt",
+   "promptHash": "05fb5e364107da4f55106f52b82162004e87deecb0165c9d6a1a31ff42a4abc9",
+   "references": [
+    {
+     "path": "art/staging/room-03/cast-bar-stove-01/source.png",
+     "hash": "7765cc7a13a90fd77c5f8932136cde679a8ffd4dd290a2bf2df80ab7bf149e4d",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+     "hash": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "editedFrom": "art/staging/room-03/cast-bar-stove-01/source.png",
+   "out": "art/staging/room-03/cast-bar-stove-02/source.png",
+   "outputHash": "af57143d0f55401ae6f0d950319e12cb387b34be777f7d537ec15faac3d7e7bc",
+   "bytes": 1454551,
+   "usage": null,
+   "usageNote": "BILLED TOKENS UNKNOWN. record() threw after the API had returned, so the response usage object went with the discarded return value -- the fourth time this has happened and the last, now that the row is validated before the call.",
+   "at": "2026-09-06T20:31:30.889Z",
+   "note": "PHASE 2A OWNER-REVIEW CORRECTION: the bar and stove family, redrawn in Thad's hand with occupational poses. OVER TYLER'S CAP. His Phase 2A authorization gives this asset TWO operations and this is the third. It happened because a failing command was re-run before its failure was understood: record() refuses a role AFTER the image has been generated and billed, and the cap check that runs before the call could not see the coming refusal. The cap is deliberately NOT raised to make this fit -- the asset now reads 3/2 and refuses further calls, which is the truth. tools/art/staging.mjs now exports assertRecordable() and the driver asks it before spending.",
+   "gates": {
+    "path": "art/staging/room-03/cast-bar-stove-02/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T20:31:31.021Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T20:31:30.891Z"
+  },
+  {
+   "attempt": 2,
+   "role": "composition-master",
+   "assetId": "nugget-card-landing-family",
+   "subject": "nugget-card-landing-family",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/card-landing-family-02.txt",
+   "promptHash": "1cabb635b4cef7e72ca52876b357513386f6fa5022acc2a593f3be153b14da66",
+   "references": [
+    {
+     "path": "art/staging/room-03/cast-card-landing-01/source.png",
+     "hash": "b3f07e47b567fdd54dcbf71edb7e4135e0b5e2d9fcbaa890a636b60e871692d9",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+     "hash": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "editedFrom": "art/staging/room-03/cast-card-landing-01/source.png",
+   "out": "art/staging/room-03/cast-card-landing-02/source.png",
+   "outputHash": "16375e05493c662f519862c0c58247d61f474637a17443147125ef7c5e118ff8",
+   "bytes": 1486644,
+   "usage": null,
+   "usageNote": "BILLED TOKENS UNKNOWN. record() threw after the API had returned, so the response usage object went with the discarded return value -- the fourth time this has happened and the last, now that the row is validated before the call.",
+   "at": "2026-09-06T20:31:31.070Z",
+   "note": "PHASE 2A OWNER-REVIEW CORRECTION: the card and landing family, redrawn in Thad's hand with four seated card players and the landing man unchanged. Refinement 1 of 1, within cap. Its record() call threw on the role after the image had been generated and billed; the row is written from what survives and the driver now validates the row before spending.",
+   "gates": {
+    "path": "art/staging/room-03/cast-card-landing-02/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T20:31:31.175Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T20:31:31.072Z"
   }
  ],
  "promotions": [
@@ -5311,5 +6243,6 @@
    "by": "claude, on Tyler's Phase 1 instruction (opening-set retrofit, 2026-09-05)",
    "at": "2026-09-05T20:32:44.551Z"
   }
- ]
+ ],
+ "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."
 }

@@ -1,0 +1,27 @@
+Redraw the attached four men. Same four people, same order, two changes.
+
+CHANGE ONE — THEIR POSES. They are no longer standing in a row. Each is now doing the thing he is in this room to do, held still, as if a photograph were taken mid-evening. NO furniture is drawn: each man is posed as though the bar and the stool were there, and the room will supply them.
+
+1. BAR PATRON ONE (the old bearded miner) — SEATED, in profile facing frame right, on a stool that is not drawn: thighs horizontal, BOTH BOOTS FLAT ON THE GROUND with the near boot forward, back slightly rounded, both forearms held out and forward at chest height as if resting on a counter, one hand curled round a tin cup.
+
+2. BAR PATRON TWO (the lean restless one) — STANDING and LEANING: turned three-quarters to frame right, weight on the far leg, the near leg crossed loosely behind it at the ankle, the near elbow raised and resting at chest height on a counter that is not drawn, the far hand on his hip. Head turned back toward the viewer.
+
+3. BAR PATRON THREE (the wide moustached one in the bowler) — STANDING square at the counter, half-turned toward the room, one boot forward as if on a foot rail, a tin cup held at waist height in the near hand, the far hand hanging.
+
+4. THE STOVE MAN — STANDING, turned three-quarters away toward frame left, coat still buttoned to the throat and collar up, BOTH HANDS held out open and flat at chest height toward a stove that is not drawn, shoulders drawn up, warming himself. He is doing something different from the other three and it must show.
+
+THE OTHER CHANGE — DRAWING DETAIL. Reference 2 is THAD, the protagonist of this game, at the size the game draws him. He is the target and he is not negotiable. Every figure here must look like it was drawn by the same hand, for the same game, at the same degree of simplification as him. Right now these figures are far too finely rendered beside him: they read as modern painted portraits shrunk down, and he reads as a hand-drawn 1990s adventure-game sprite. Redraw them so that is no longer true.
+
+WHAT THAT MEANS, CONCRETELY:
+- A FACE CARRIES AT MOST: the mass of the brow and hair, a shape for each eye, one shadow for the nose, one line for the mouth, one shadow under the jaw. Nothing else.
+- NO eyeball modelling, NO catchlights, NO eyelid creases, NO individual eyelashes, NO nostril detail, NO teeth, NO lip modelling, NO ear cartilage.
+- NO skin texture, NO pores, NO cheek blush, NO stubble rendered hair by hair. A beard is ONE mass with two or three tones, not thousands of hairs.
+- HAIR IS A SHAPE, not strands.
+- CLOTH IS FLAT MASSES with two or three tones and hard-edged folds. NO soft airbrushed gradients, NO fabric weave, NO thread, NO subtle sheen.
+- Buttons, buckles and watch chains are single small marks or are left out.
+- EDGES ARE CRISP. Where two tones meet they meet on a hard line, not through a blur.
+- Fewer, larger shapes everywhere. If a detail would be smaller than an eye, it does not exist.
+
+DRAW IT AT THE SIZE IT WILL BE SEEN. These figures appear in the game about 170 to 460 pixels tall. Draw a small figure large — do not draw a detailed portrait and expect it to be reduced.
+
+KEEP THE CAST. The same men, the same faces, the same ages, builds, clothes and colours, in the same left-to-right order. Flat MAGENTA #FF00FF background edge to edge, CLEAR MAGENTA BETWEEN EVERY FIGURE so none of them touches another, and each figure complete from the crown of the head to the soles of the boots with nothing cropped by any edge. NO furniture is drawn — no bar, no counter, no stool, no chair, no table, no floor, no shadow on the ground. The room supplies all of that; these are figures only.

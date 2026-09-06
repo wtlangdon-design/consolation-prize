@@ -93,31 +93,31 @@
      [
       0,
       0,
-      75,
-      208
+      79,
+      156
      ]
     ],
-    "figureHeight": 208,
-    "stature": 0.96,
+    "figureHeight": 156,
+    "stature": 0.72,
     "props": [
      {
       "sheet": "art/actors/cast-letter-writer-station.png",
-      "x": 1548,
+      "x": 1556,
       "y": 658,
       "frames": [
        [
         0,
         0,
-        75,
-        130
+        85,
+        134
        ]
       ],
-      "note": "HIS WORK STATION, drawn as part of the same casting operation and cut apart from him afterwards: a folding camp table with weighted paper, an ink bottle and pens, and the satchel of finished letters on the ground at its foot. It is a prop of the room at its own coordinates, not a thing he carries, and it stands to his right with its feet on his own floor row."
+      "note": "HIS WORK STATION, drawn in the same operation and cut apart from him afterwards: the folding table with weighted paper, ink and spare pens, and the satchel of finished letters on the ground at its foot. A prop of the room at its own coordinates, standing to his right with its feet on his own floor row."
      }
     ],
     "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
    },
-   "note": "Doc 07 #1 and his own placeNote: beside the posted notices, at the west end, not clustered at the saloon. The board is x1604-1728 and its own approach is (1666,668), so he sits just west of it with room for a station and does not stand on it. An older man at his work: 0.96."
+   "note": "Beside the posted notices at the west end, where doc 07 and his own placeNote put him. SEATED AT HIS WORK now, not standing beside it: on his camp stool, leaning over the board on his knee, pen down on the paper mid-word, the far hand holding the sheet. `stature` 0.72 is a seated man with his boots flat -- anatomy, not taste. The station stands to his right at 1548,658 with the ink, the spare pens and the satchel."
   }
  }
 }

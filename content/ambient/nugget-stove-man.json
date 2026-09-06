@@ -4,11 +4,11 @@
  "name": "THE STOVE MAN",
  "note": "A STORY ANCHOR, not a fourth drinker: the man who has not taken his coat off since Thad arrived in this territory. RESTAGED after the first composition put him at 1150,570 -- out in open floor between the card table and the bar, reading as a man standing in the middle of the room, which is the one thing he must not read as. The stove's own base line is y 412, which is 94 px BEHIND the walkable floor's far edge, so nobody can stand level with it; he now stands at the floor's far edge at 1150,508, just off the stove's right side and overlapping it, which is where a man warming himself actually stands -- in front of the iron, not beside it.",
  "room": "nugget_candidate",
- "x": 1150,
+ "x": 1140,
  "y": 508,
  "zone": 1,
  "approachRadius": 40,
- "poseNote": "standing to the right of the stove, coat on, turned toward the iron",
+ "poseNote": "STANDING just off the stove's right side and overlapping it, turned INTO it, both hands open at chest height toward the iron, coat buttoned to the throat.",
  "sprite": {
   "sheet": "art/actors/cast-nugget-stove-man.png",
   "rate": 1.0,
@@ -16,12 +16,12 @@
    [
     0,
     0,
-    67,
-    222
+    94,
+    229
    ]
   ],
-  "figureHeight": 222,
-  "stature": 0.97,
+  "figureHeight": 229,
+  "stature": 1.0,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },
  "barks": {},

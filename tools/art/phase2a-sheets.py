@@ -48,8 +48,10 @@ def bleed(rgba, rounds=3):
     return Image.fromarray(arr.astype(np.uint8), 'RGBA')
 
 
-def resize_to(path, target_h, out):
+def resize_to(path, target_h, out, mirror=False):
     im = Image.open(path).convert('RGBA')
+    if mirror:
+        im = im.transpose(Image.FLIP_LEFT_RIGHT)
     im = bleed(im)
     scale = target_h / im.height
     size = (max(1, round(im.width * scale)), max(1, round(im.height * scale)))
@@ -96,11 +98,9 @@ room2 = json.load(open('content/rooms/main-street-candidate.json'))
 c2 = next(b['scaleMode'] for b in room2['walkBoxes'] if b['scaleMode']['kind'] == 'curve')
 curve2 = {'far': {'y': c2['farY'], 'height': c2['farHeight']},
           'near': {'y': c2['nearY'], 'height': c2['nearHeight']}}
-CUTS = {
-    'letter_writer': 'art/staging/room-02/cast-letter-writer-01/letter-writer.png',
-    'pie_woman': 'art/staging/room-02/cast-pie-woman-01/pie-woman.png',
-    'map_seller': 'art/staging/room-02/cast-map-seller-01/map-seller.png',
-}
+# The cut each character is built from is declared in the staging record, so a
+# refinement changes one file and not this list.
+CUTS = {who['id']: who['cut'] for who in street['characters']}
 SHEETS = {
     'letter_writer': 'art/actors/cast-letter-writer.png',
     'pie_woman': 'art/actors/cast-pie-woman.png',
@@ -118,8 +118,8 @@ for who in street['characters']:
 # The letter-writer's station is a PROP of the room, not a person: it is scaled
 # by the same curve at the same feet so the two belong together, and it has no
 # stature of its own -- a table is not 0.96 of a man.
-station_h = round(curve_height(curve2, 658) * 0.60)
-size = resize_to('art/staging/room-02/cast-letter-writer-01/letter-writer-station.png',
+station_h = round(curve_height(curve2, 658) * 0.62)
+size = resize_to('art/staging/room-02/cast-letter-writer-02/letter-writer-station.png',
                  station_h, 'art/actors/cast-letter-writer-station.png')
 print(f"  {'station':16s} -> art/actors/cast-letter-writer-station.png  {size[0]}x{size[1]}")
 made['sheets'].append({'id': 'letter_writer_station', 'room': 'main_street_candidate',
@@ -134,7 +134,7 @@ nugget = json.load(open('reference/room-03-candidate/nugget-staging.json'))
 print('\nTHE NUGGET')
 for who in nugget['characters']:
     target = round(curve_height(nugget['curve'], who['at'][1]) * who['stature'])
-    size = resize_to(who['cut'], target, who['sheet'])
+    size = resize_to(who['cut'], target, who['sheet'], mirror=who.get('mirror', False))
     print(f"  {who['id']:20s} -> {who['sheet']}  {size[0]}x{size[1]}  figureHeight {target}")
     made['sheets'].append({'id': who['id'], 'room': 'nugget_candidate', 'sheet': who['sheet'],
                            'width': size[0], 'height': size[1], 'figureHeight': target,
