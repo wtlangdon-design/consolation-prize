@@ -1,0 +1,136 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A: where the Nugget's nine runtime patrons stand, and how big each is (doc 36 Q128). Tyler's ruling: NINE visible patrons -- three at the bar, four at the card table, one on the stair landing, one beside the stove -- all runtime actors, nobody baked into the plate, and no piano player, ever.\n\nTHEY ARE STANDING, AND THAT IS A PHASE 2A DECISION, NOT AN OVERSIGHT. The casting sheets draw complete whole men upright, which is what doc 38 and Tyler's sec.23 ask for: a seated pose is DERIVED from a canonical design, never generated beside it, and deriving one is a Phase 2B operation. So the four card players stand AROUND their table rather than sitting in its four chairs, and the two bar men who were to be on stools stand at the counter between them. Four men standing at a card table is a thing men do; four men standing inside chairs is not, so the chairs are left empty and read as chairs. The near edge of the table stays clear either way, which is what the abandoned hand needs.\n\n`stature` is each man's height as a fraction of the room's man at his feet -- doc 36 Q128's variation clause, so nine people are not one person nine times.",
+ "curve": {
+  "far": {
+   "y": 506,
+   "height": 227
+  },
+  "near": {
+   "y": 858,
+   "height": 526
+  }
+ },
+ "characters": [
+  {
+   "id": "nugget_bar_1",
+   "name": "BAR PATRON 1",
+   "cut": "art/staging/room-03/cast-bar-stove-01/bar-1.png",
+   "sheet": "art/actors/cast-nugget-bar-1.png",
+   "at": [
+    1300,
+    660
+   ],
+   "stature": 1.0,
+   "pose": "standing at the counter between the far and middle stools, side on to the room",
+   "why": "The old miner who stopped mining. He stands ON THE BAR STRIP, right of Thad's floor edge, which is where a man at a counter stands; an actor needs no walk box."
+  },
+  {
+   "id": "nugget_bar_2",
+   "name": "BAR PATRON 2",
+   "cut": "art/staging/room-03/cast-bar-stove-01/bar-2.png",
+   "sheet": "art/actors/cast-nugget-bar-2.png",
+   "at": [
+    1500,
+    730
+   ],
+   "stature": 1.02,
+   "pose": "standing at the counter between the middle and near stools",
+   "why": "The restless one, and the tallest of the three."
+  },
+  {
+   "id": "nugget_bar_3",
+   "name": "BAR PATRON 3",
+   "cut": "art/staging/room-03/cast-bar-stove-01/bar-3.png",
+   "sheet": "art/actors/cast-nugget-bar-3.png",
+   "at": [
+    1790,
+    820
+   ],
+   "stature": 0.94,
+   "pose": "standing at the near end of the counter, half turned toward the room",
+   "why": "Short and wide and settled. The nearest and largest figure in the room after Thad, in the bar lamps' field."
+  },
+  {
+   "id": "nugget_stove_man",
+   "name": "THE STOVE MAN",
+   "cut": "art/staging/room-03/cast-bar-stove-01/stove-man.png",
+   "sheet": "art/actors/cast-nugget-stove-man.png",
+   "at": [
+    1150,
+    508
+   ],
+   "stature": 0.97,
+   "pose": "standing to the right of the stove, coat on, turned toward the iron",
+   "why": "A STORY ANCHOR, not a fourth drinker: the man who has not taken his coat off since Thad arrived in this territory. RESTAGED after the first composition put him at 1150,570 -- out in open floor between the card table and the bar, reading as a man standing in the middle of the room, which is the one thing he must not read as. The stove's own base line is y 412, which is 94 px BEHIND the walkable floor's far edge, so nobody can stand level with it; he now stands at the floor's far edge at 1150,508, just off the stove's right side and overlapping it, which is where a man warming himself actually stands -- in front of the iron, not beside it."
+  },
+  {
+   "id": "nugget_card_1",
+   "name": "CARD PLAYER 1",
+   "cut": "art/staging/room-03/cast-card-landing-01/card-1.png",
+   "sheet": "art/actors/cast-nugget-card-1.png",
+   "at": [
+    750,
+    535
+   ],
+   "stature": 0.99,
+   "pose": "standing at the table's left end, facing across it",
+   "why": "The silver-haired one who thinks he is the sharpest man at the table. Moved right off the piano: at 695,522 he stood at its right end, inside the piano's own rect, and the piano's whole comedy is that nobody is at it. He now stands at the card table's left corner, 45 px clear of the instrument."
+  },
+  {
+   "id": "nugget_card_2",
+   "name": "CARD PLAYER 2",
+   "cut": "art/staging/room-03/cast-card-landing-01/card-2.png",
+   "sheet": "art/actors/cast-nugget-card-2.png",
+   "at": [
+    1060,
+    535
+   ],
+   "stature": 1.01,
+   "pose": "standing at the table's right end, facing across it",
+   "why": "The young one, losing and not yet worried about it. Moved 45 px left and 13 px nearer, off the stove man: at 1105,522 the two of them read as a pair standing together, which neither of them is."
+  },
+  {
+   "id": "nugget_card_3",
+   "name": "CARD PLAYER 3",
+   "cut": "art/staging/room-03/cast-card-landing-01/card-3.png",
+   "sheet": "art/actors/cast-nugget-card-3.png",
+   "at": [
+    855,
+    508
+   ],
+   "stature": 1.0,
+   "pose": "standing behind the table, left, the table across his legs",
+   "why": "The black-bearded one who says nothing. Standing behind the table means the table occludes him from the knee down, which is what the plane-0 floor and the painted table already do."
+  },
+  {
+   "id": "nugget_card_4",
+   "name": "CARD PLAYER 4",
+   "cut": "art/staging/room-03/cast-card-landing-01/card-4.png",
+   "sheet": "art/actors/cast-nugget-card-4.png",
+   "at": [
+    975,
+    508
+   ],
+   "stature": 0.93,
+   "pose": "standing behind the table, right",
+   "why": "The bald retired something, in the wrong town, and the shortest man in the room."
+  },
+  {
+   "id": "nugget_landing_man",
+   "name": "THE MAN ON THE LANDING",
+   "cut": "art/staging/room-03/cast-card-landing-01/landing-man.png",
+   "sheet": "art/actors/cast-nugget-landing-man.png",
+   "at": [
+    1350,
+    212
+   ],
+   "stature": 0.74,
+   "pose": "standing on the landing at the head of the stairs, hat at his side, looking at nothing",
+   "why": "A STORY ANCHOR: there is always a man on the landing, and he has not moved. RESTAGED from 1382,168 -- the separation plan's zone -- because at that row his hat is CUT OFF BY THE TOP OF THE FRAME: the staircase runs to the frame's edge and a 170 px man standing on its topmost visible tread has his head at y -2. He now stands three treads lower at 1350,212, where the tread's front edge is, with 44 px of headroom. His stature is 0.74 because HIS FEET ARE NOT ON THIS ROOM'S FLOOR -- he stands on the stairs at the back, where the depth curve does not reach and the engine clamps to the far height -- and 0.74 of that is the size the staircase's own depth implies. It is written down here rather than hidden in a magic number."
+  }
+ ],
+ "noPianoPlayer": "BINDING, and it is a joke, not an omission: nobody plays the piano and nobody touches it. No character is placed at it, in this phase or any other.",
+ "abandonedHand": "The face-up hand lies on the table's NEAR edge, x 860-960 y 368-398 -- the side with no chair. Four men stand at the left end, the right end and behind; nobody is on the near side, so the fifth place stays visibly empty and the hand still belongs to a man who went outside. No furniture changed.",
+ "deke": "RESERVED BY ZONE REPLACEMENT. Deke Vessel is a named Act I/II story NPC and must appear at the near end of the bar for A3. His zone is the annotation's `characters.deke_vessel` -- x 1090-1210, feet about y 700 -- and it does not collide with any of the nine. When he is built, the intended solution is a STORY-STATE OCCUPANCY ADJUSTMENT: nugget_bar_1 stands at 1300,660 and Deke takes the counter west of him, so no generic patron is deleted, no zone is repainted and no plate changes. He is NEVER a re-skinned generic patron."
+}

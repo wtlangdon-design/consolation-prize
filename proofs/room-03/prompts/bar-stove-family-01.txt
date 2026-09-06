@@ -1,0 +1,23 @@
+THE BOUNTIFUL NUGGET — FOUR MEN, standing in a row across the frame, evenly spaced, all facing us. A casting sheet, not a scene.
+
+FROM LEFT TO RIGHT:
+
+1. BAR PATRON ONE. Late fifties, heavy through the shoulders, a grey beard going yellow at the mouth. A miner who stopped mining. Battered slouch hat, collarless shirt, braces, a coat he has not taken to a tailor in ten years.
+
+2. BAR PATRON TWO. Early thirties, lean and restless, clean-shaven, dark hair badly cut. No hat. Shirtsleeves and a waistcoat, one sleeve rolled. The one who is always about to say something.
+
+3. BAR PATRON THREE. Forties, short and wide, a full moustache, a bowler set back on his head. A checked shirt under a heavy jacket. Comfortable, settled, going nowhere.
+
+4. THE STOVE MAN — AND HE IS NOT A FOURTH DRINKER. He is the man who has not taken his coat off since the protagonist arrived in this territory, and that is his whole character. A long heavy overcoat buttoned to the throat, collar up, hands drawn in toward himself as though still cold in a warm room. Thin, sixty, grey, a face that has stopped expecting anything. He stands apart from the other three in the way he holds himself: turned slightly inward, self-contained, not sociable. No drink in his hand.
+
+RENDERING — BINDING. Paint this in EXACTLY the manner of the attached references: the same hand that painted Winnie the counter clerk (reference 5) and the Room 1 casting master (reference 6). Hand-painted pixel art for a 1990s point-and-click adventure at 1920x1080: flat masses, selective grain, warm lamplight against cool shadow, a readable silhouette first and detail second. NOT photographic. NOT a 3D render. NOT caricature. No outlines drawn around the figures. No text, no lettering, no numbers, no signature, no watermark anywhere in the image.
+
+SETTING — a failing Californian gold-rush town, 1852. A saloon at eleven in the morning with the lamps still lit. Period clothing, worn and actually lived in. The palette belongs with the attached room (reference 4) and with Thad (reference 3).
+
+FRAME — BINDING. Flat MAGENTA #FF00FF background, edge to edge. Nothing else in the frame: no floor, no wall, no bar, no furniture except what is named, no shadows on the ground, no border. Each figure complete from the crown of the head to the soles of the boots, nothing cropped by any edge, and CLEAR MAGENTA BETWEEN EVERY FIGURE — they must not touch or overlap each other.
+
+POSE — BINDING. Each man stands at rest, weight even, turned about three-quarters toward the viewer. Both arms hanging clear of the torso with daylight between each arm and the coat. Feet slightly apart with a visible gap between the legs. No part of any figure overlapping any other part of itself.
+
+THEY MUST NOT BE THE SAME MAN. Different faces, different ages, different builds, different hair, different hats or none, different coats. Not one design in different colours. But they are all painted by one hand, in one pass, and they all belong in the same game as Thad and Winnie.
+
+SCALE — BINDING. All four are adult men and all four are within a hand's breadth of the height of the man in reference 3. Vary their build, not their species. Head about one seventh of total height on each of them.

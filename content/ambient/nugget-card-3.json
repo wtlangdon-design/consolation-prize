@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "id": "nugget_card_3",
+ "name": "CARD PLAYER 3",
+ "note": "The black-bearded one who says nothing. Standing behind the table means the table occludes him from the knee down, which is what the plane-0 floor and the painted table already do.",
+ "room": "nugget_candidate",
+ "x": 855,
+ "y": 508,
+ "zone": 1,
+ "approachRadius": 40,
+ "poseNote": "standing behind the table, left, the table across his legs",
+ "sprite": {
+  "sheet": "art/actors/cast-nugget-card-3.png",
+  "rate": 1.0,
+  "frames": [
+   [
+    0,
+    0,
+    84,
+    229
+   ]
+  ],
+  "figureHeight": 229,
+  "stature": 1.0,
+  "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
+ },
+ "barks": {},
+ "barksNote": "NONE. These nine are the room's population, not its dialogue: doc 07's reputation barks belong to the named ambient cast, and nothing in Tyler's Phase 2A ruling gives a generic patron a line. No written content is invented for them here or anywhere."
+}

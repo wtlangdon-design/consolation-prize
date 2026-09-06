@@ -32,19 +32,23 @@
    510
   ],
   [
-   1170,
-   690
+   1205,
+   620
   ],
   [
-   1320,
-   750
+   1500,
+   715
   ],
   [
-   1390,
-   800
+   1700,
+   790
   ],
   [
-   1400,
+   1830,
+   845
+  ],
+  [
+   1860,
    864
   ],
   [
@@ -52,17 +56,17 @@
    864
   ]
  ],
- "walkableNote": "The floor's back edge is the foot of the far wall as the candidate draws it (the chairs' feet at y 500, the piano's foot at 520, the doorway threshold at 600-690 by the batwings). The right edge follows THE BAR FRONT AND ITS THREE STOOLS, which are painted into the plate and sit in front of the counter (stool feet at 1180/680, 1330/740, 1570/830): floor Thad cannot walk through, oak or stool. Until a stool is cut as its own occluder (\u00a713 separation plan) he walks round them, never behind them, so the room occludes nobody -- the same answer the shipping room gives, now for a reason that is written down. The near corner stops at x 1400 so the spittoon (1400-1490) lies wholly outside the floor: the first compile carved a 14 px sliver beyond it that nothing could reach.",
+ "walkableNote": "PHASE 2A: THE FLOOR NOW REACHES THE BAR. It used to turn in at x 1170 (y 690) and run down to 1400 at the frame's foot, leaving a wedge of real dirt -- up to 440 px of it, with the three stools standing on it -- that Thad could not enter. He could never stand AT the counter, only out in the room looking at it, which is why it read across his shoulders. The right edge now follows the bar's own plinth line, read off a ruled 2x crop: (1205,620) (1500,715) (1700,790) (1830,845) (1860,864). The three stools become obstacles so he cannot stand inside one, and the bar patrons' zones are unchanged -- they are actors, not walls. Doc 36 Q126.",
  "scaling": {
   "far": {
    "y": 506,
-   "height": 198
+   "height": 227
   },
   "near": {
    "y": 858,
-   "height": 459
+   "height": 526
   },
-  "note": "TYLER'S TWO ANCHORS, KEPT. The candidate is the shipping composition by construction (an edit, not a new picture), so the depth curve Tyler set against that composition -- 198 at the back wall so his head is nowhere near the chandelier, 459 at the frame's foot -- carries over unchanged; the far anchor moves 8 px down with the re-read floor edge and nothing else. WHAT THE PLATE'S OWN PERSPECTIVE SAYS, for the review: the painted furniture implies a taller man -- the bar stools read 420 at y 680, 455 at y 740 and 490 at y 830, the upright piano's 265 px reads ~350 at its foot, the doorway's 590 px reads ~470 at the door -- so a 1.75 m man at the far wall would be ~330 by the furniture, and at 198 he stands a head shorter than the piano. The same tension existed in the shipping room (the seated card players' heads implied ~270) and Tyler chose 198 for the chandelier. A DECISION POINT for the plate review, not a change made here."
+  "note": "PHASE 2A, TYLER: \"Thad looks too small next to the bar.\" His art is frozen, so the room changed. THE CURVE IS RESCALED BY 1.145 AND ITS SHAPE IS UNTOUCHED -- 198/459 became 227/526 on the same horizon (y 239) -- which is the median of eight dimensioned things measured off this plate at 3x and 4x (reference/room-03-candidate/furniture-measurements.json). THE READINGS DO NOT AGREE with each other: at the same depth the card table says a 222 px man and the piano says 356. That is what a painted room is, and it is why this takes a median rather than crowning one object. The three bar stools alone agree with the OLD curve; the counter and the piano do not. THE CURVE WAS NOT THE WHOLE DEFECT, and this is the part no rescale could have fixed: the walkable floor turned in at x 1170-1379 and stopped up to 440 px short of the bar's own plinth, so wherever Thad stood the counter was at a SHALLOWER depth than he was and read across his shoulders -- 0.87 of his stature, measured. Carrying the floor to the plinth puts it at 0.63, waist and lower ribs, which is where a bar belongs on a man. The study is proofs/room-03/phase2a-scale-study.json and renders/opening-set-retrofit/phase2a-nugget-scale.webp; the candidates are scale-candidates.json beside this file. STILL WRONG AND NOT FIXED: the painted piano tops him at every candidate -- it reads about 1.7 m against furniture that reads 1.75 m men. The environment is OWNER-ACCEPTED AND FROZEN, and the only fix is repainting it, so it is recorded for Tyler rather than corrected."
  },
  "hotspots": {
   "handbill": [
@@ -187,12 +191,12 @@
   {
    "id": "spittoon",
    "rect": [
-    1400,
-    765,
-    90,
-    95
+    1405,
+    824,
+    82,
+    40
    ],
-   "note": "Same rect as the hotspot: the thing you click and the thing you cannot walk through are one truth."
+   "note": "PHASE 2A: THE SPITTOON'S OWN FOOTPRINT, not its sprite. It was [1400,765,90,95] -- the whole drawn object -- and with the floor now reaching the bar that rect stood in open dirt and cut the near floor in two, stranding everything east of it. The brass sits on the ground at y 824-860, x 1405-1487; the obstacle is that, carried to the frame's foot so no unwalkable 4 px sliver is left under it. Same correction the trough got in Phase 1.5G: an obstacle is a thing's base line, not its silhouette."
   },
   {
    "id": "card_table",
@@ -203,6 +207,36 @@
     165
    ],
    "note": "The table and its four chairs, empty. Its footprint on the floor; he walks round it. The players return as separate actors in phase 2 and stand in this rect."
+  },
+  {
+   "id": "bar_stool_1",
+   "rect": [
+    1188,
+    604,
+    92,
+    46
+   ],
+   "note": "PHASE 2A: the far stool. Base centre (1232,632), seat plane y 514."
+  },
+  {
+   "id": "bar_stool_2",
+   "rect": [
+    1330,
+    694,
+    100,
+    68
+   ],
+   "note": "PHASE 2A: the middle stool, carried down to the band edge at y 762. Base centre (1372,727), seat plane y 565. Stopping at its leg tips left a 12 px strip under it, which is a box the router can route through and a man cannot stand in."
+  },
+  {
+   "id": "bar_stool_3",
+   "rect": [
+    1562,
+    794,
+    200,
+    70
+   ],
+   "note": "PHASE 2A: the near stool, carried to the frame's foot and east to the bar's plinth. Base centre (1640,830), seat plane y 644. The 30-70 px between a stool and the counter is not a place a man walks, and leaving it walkable made two stranded slivers."
   }
  ],
  "lamps": [

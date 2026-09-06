@@ -671,8 +671,8 @@
   }
  },
  "environment": {
-  "status": "MAIN STREET FRONT-ONLY HITCHING-RAIL NAVIGATION — AWAITING OWNER FINAL ACCEPTANCE",
-  "priorStatus": "MAIN STREET HITCHING-RAIL NAVIGATION — AWAITING OWNER FINAL ACCEPTANCE",
+  "status": "MAIN STREET ENVIRONMENT — OWNER ACCEPTED 2026-09-06",
+  "priorStatus": "MAIN STREET FRONT-ONLY HITCHING-RAIL NAVIGATION — AWAITING OWNER FINAL ACCEPTANCE",
   "by": "Tyler, live reviews of Phase 1 (2026-09-05), 1.5B and 1.5D (2026-09-06); repairs claude, Phases 1.5 to 1.5E",
   "evidence": [
    "docs/36-issue-list.md::Q125 · Opening-set retrofit, phase 1.5I: front-only hitching-rail navigation — the ground behind the rail retired, and a click test that walks at it",
@@ -761,6 +761,84 @@
    "PHASE 1.5I (Tyler, having manually tested 1.5H: he can still put Thad onto and through the hitching-rail geometry in the live room). 0 image operations. THE OWNER RULING retires dual-side navigation for this rail: Thad walks only on its FRONT side, round its ends where the street is open, and nowhere behind it. WHY 1.5H STILL FAILED: it answered whether he could CROSS the fence, and that was never the question. The strip behind the rail -- mud_mid_3, x 2268-2614, y 690-776 -- was legal ground, and it is exactly where the bar is drawn, so standing on it IS standing in the fence however he arrived. 1.5G's proof, 1.5H's proof and both of their tests were all consistent with the thing Tyler was seeing. Reproduced live before anything was changed: the same click test run against the complete 1.5H build fails 31 ways, and puts him behind or on the rail on nine of nine clicks -- on the bar at 2443,636, on the near post at 2305,699, on the far post at 2568,769. THE FIX is one obstacle instead of a barrier: rail_east becomes x 2236-2652, y 600-816, the whole rear of the rail's span from the top of the far mud to the top of the front band, and the compiler CARVES it -- no walk box exists behind the rail, so there is nothing for the router to find. rail_east_bar is retired with the ground it kept. A second obstacle, rail_east_post_far, carries the front ground down to 824 across x 2545-2593, because the far post's foot is 812 and the band began at 816: four pixels is not a margin. In front, mud_near is unbroken along the whole rail; past either end the street is ordinary street at every depth. THE POINTER needed a rule of its own: a click behind the rail is a click on no box, and `nearest` would have answered with the BOARDWALK, which is closer in pixels and on the far side of the fence -- so the room declares `navigation.frontOnly` and WalkBoxes.target() restricts a DESTINATION inside that region to boxes at or below y 816. `nearest` itself is untouched, which is why a figure standing behind the rail is still drawn behind it. CONSEQUENCES, both forced and both taken: the saloon's own approach point and arrival move up onto the boardwalk (y 610 and 620 -> 592, x untouched), because its door is dead centre of the rail's span and every point in the mud in front of it was behind the rail; and the pie woman, who stands behind the rail, now declares her plane on her placement, as Room 5's Winnie does behind her counter -- her position and art are untouched and her approach radius is MARKED FOR PHASE 2 RESTAGING. The two rear-side occlusion proof points are deleted with their ground; the plane-1 mask is deliberately NOT re-cut, because one file masks both the rail and the frozen trough. Proved live by tools/gauntlet/rail-front-only.mjs -- eighteen clicks, feet sampled every 120 ms -- and as geometry by tests/front-only-rail.test.ts, which asserts no walk box lies behind the rail at all."
   ],
   "note": "Environment only. Not character acceptance, not population, not room life; Phase 2 casts the pie woman, the letter-writer, and decides the dog's life and the map seller's.",
-  "ownerReview": "Tyler, 2026-09-06 (after manually testing 1.5H): it still fails -- he can put Thad onto and through the rail in the live room. OWNER RULING: stop preserving walkability behind this rail; Thad walks only on its front side. PHASE 1.5I removes the rear ground from the floor entirely. AWAITING TYLER'S FINAL FRONT-ONLY RAIL NAVIGATION ACCEPTANCE; nothing is owner-accepted and nothing is promoted."
+  "ownerReview": "Tyler, 2026-09-06: MAIN STREET ENVIRONMENT OWNER ACCEPTED. The environment retrofit is closed. What remains for this room is Phase 2A -- human scale, casting and static staging -- and the environment pixels are frozen while it happens: 0 environment image operations.",
+  "acceptedOn": "2026-09-06",
+  "acceptedBy": "Tyler",
+  "acceptedScope": [
+   "the redesigned night environment",
+   "architecture",
+   "the chapel",
+   "the notice-board structure",
+   "the Improvement Company sign treatment",
+   "the water trough",
+   "the hitching rail",
+   "the dog's environment placement",
+   "mud and boardwalk",
+   "the practical-light composition",
+   "front-only hitching-rail navigation"
+  ],
+  "frozenRule": "THE HITCHING RAIL IS FROZEN. Thad may walk only on the front/near side of the rail within its span. He may move freely along the front, round the legal ends, and up to the trough. He may NOT walk behind it within its span, cross through it, stand on the bar, or stand on either post. Tyler, 2026-09-06, after manually testing Phase 1.5I: it finally landed correctly. THIS RULE IS NOT REOPENED DURING CHARACTER WORK -- not to place a character, not to reach a hotspot, not to make a route shorter. A staging that needs it reopened is a staging that moves."
+ },
+ "phase2a": {
+  "status": "MAIN STREET PHASE 2A — AWAITING TYLER CHARACTER/STAGING ACCEPTANCE",
+  "environmentOperations": 0,
+  "characterOperations": 3,
+  "humanScale": "THE PEOPLE WERE NEVER ON THE ROOM'S CURVE AT ALL. Every ambient in this game was blitted 1:1 -- source rect to destination rect -- so a sheet drawn 157 px tall stayed 157 px tall in a street where a man at that depth is 231. Measured: the letter-writer at 0.70 of Thad, the map seller 0.65, the pie woman 0.58. An ambient sprite may now declare `figureHeight` and `stature`, and the renderer scales it the way it scales Thad. A sheet that declares neither keeps the 1:1 blit, which is why the accepted dog is untouched.",
+  "cast": [
+   {
+    "who": "pie_woman",
+    "verdict": "RECAST",
+    "operations": 1,
+    "at": [
+     2205,
+     845
+    ],
+    "height": 252,
+    "stature": 0.93,
+    "staging": "RESTAGED. She stood at 2470,706 -- behind the hitching rail, on ground the frozen front-only rule has taken away, 110 px from anywhere Thad can stand with a radius of 40. She now stands in FRONT of the water trough at the west end of the saloon's light: legal front-side ground, clear of the rail's span and of the 48 px choke in front of it, with Thad able to stand 40 px away. The radius was not widened.",
+    "pose": "One canonical static pose: standing at rest, basket of pies carried clear of the skirt, shawl, apron. Offering and calling poses are Phase 2B derivations from this design."
+   },
+   {
+    "who": "letter_writer",
+    "verdict": "RECAST",
+    "operations": 1,
+    "at": [
+     1470,
+     658
+    ],
+    "height": 208,
+    "stature": 0.96,
+    "staging": "Beside the posted notices at the west end, where doc 07 and his own placeNote put him, with room for the station and clear of the board's own approach point at 1666,668.",
+    "station": "GENERATED IN THE SAME OPERATION and cut apart afterwards: a folding camp table at hip height with weighted paper, an ink bottle and pens, and the satchel of finished letters on the ground at its foot. It is a prop of the room at 1548,658, not a thing he carries. THE TEST THAT MATTERED: a stranger looking at the still frame should say that is a man whose business is writing letters, and this one does."
+   },
+   {
+    "who": "map_seller",
+    "verdict": "RECAST",
+    "operations": 1,
+    "at": [
+     3140,
+     706
+    ],
+    "height": 231,
+    "stature": 1.0,
+    "staging": "Unmoved. His placeNote already puts him clear of the small office's steps with the office lantern over him; only his size was wrong.",
+    "why": "THE AUDIT SAID KEEP AND THE AUDIT WAS JUDGING HIM AT TWO THIRDS SIZE. Enlarged to 231 px beside Thad the sheet reads as what it is: a 150 px source upscaled 1.54x, soft where Thad and Winnie are crisp. That is the 'obsolete rendering' test, and keeping him would have left one soft figure standing between two new ones -- the mixed-generation look the composition gate exists to catch."
+   },
+   {
+    "who": "dog",
+    "verdict": "UNCHANGED",
+    "operations": 0,
+    "staging": "Art and placement both untouched, and deliberately still drawn 1:1: his sheet declares no figureHeight, so the new scaling path does not touch him."
+   }
+  ],
+  "shippingRoomUntouched": "The three recast sheets are declared on the CANDIDATE's placement, not on the character's own file, so the shipping street still draws the art it shipped with. One character, two plates, two pieces of art -- the same per-room mechanism the position and the clip plane already used.",
+  "evidence": [
+   "docs/36-issue-list.md::Q127 · Opening-set retrofit, phase 2A: Main Street's human scale, the cast recast and staged",
+   "renders/opening-set-retrofit/phase2a-street-scale.webp",
+   "renders/opening-set-retrofit/phase2a-street-crowd.webp",
+   "proofs/room-02/phase2a-street-scale.json",
+   "reference/room-02-candidate/street-staging.json",
+   "tests/phase2a-access.test.ts"
+  ]
  }
 }

@@ -1473,13 +1473,35 @@ export class Renderer {
     const [sx, sy, width, height] = declared.frames[
       (index + declared.frames.length) % declared.frames.length
     ] as [number, number, number, number];
-    const left = npc.x - Math.floor(width / 2);
-    const top = npc.y - height + 1;
+    // ON THE ROOM'S DEPTH CURVE, when the sheet has been measured. Phase 2A:
+    // this used to be a 1:1 blit and an ambient was therefore whatever size
+    // her sheet happened to be drawn at, in every room, at every depth.
+    const [drawW, drawH] = this.ambientSize(npc, width, height);
+    const left = npc.x - Math.floor(drawW / 2);
+    const top = npc.y - drawH + 1;
     const tint = this.tintAt(npc.x, npc.y);
-    const draw = () => this.screen.context.drawImage(image, sx, sy, width, height, left, top, width, height);
-    if (tint) this.drawTinted(tint, [left, top, width, height], draw);
+    const draw = () => this.screen.context.drawImage(image, sx, sy, width, height, left, top, drawW, drawH);
+    if (tint) this.drawTinted(tint, [left, top, drawW, drawH], draw);
     else draw();
     return index;
+  }
+
+  /**
+   * How big to draw an ambient's frame: the room's own man-height where her
+   * feet are, times her `stature`, over the height her sheet draws a figure
+   * at. A sheet that declares no `figureHeight` is drawn 1:1, exactly as
+   * before -- an unmeasured sheet is not silently resized to a guess.
+   */
+  private ambientSize(npc: AmbientFile, width: number, height: number): [number, number] {
+    const drawn = npc.sprite?.figureHeight;
+    if (!drawn) return [width, height];
+    // STAGED, not strict: an ambient may legitimately stand where no walk
+    // box is -- the pie woman behind a rail, a patron on the bar strip --
+    // and the nearest box's curve is the right answer there.
+    const man = this.state.stagedHeightAt(npc.x, npc.y);
+    if (!man) return [width, height];
+    const scale = (man * (npc.sprite?.stature ?? 1)) / drawn;
+    return [Math.max(1, Math.round(width * scale)), Math.max(1, Math.round(height * scale))];
   }
 
   /**

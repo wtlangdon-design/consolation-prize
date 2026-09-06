@@ -1,0 +1,31 @@
+{
+ "schema": 1,
+ "plate": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+ "note": "PHASE 2A (doc 36 Q126). Every dimensioned thing in the Nugget's accepted plate, read off ruled crops at 3x and 4x, with the real height a period example of it has. `impliedMan` is what a 1.75 m man would be at that thing's own floor row if the thing were that size. THE READINGS DO NOT AGREE: at the same depth the card table says 220 and the piano says 356. That is not a measurement failure, it is what the plate is -- a painting, not a technical drawing -- and it is the reason this phase fits a MEDIAN rather than picking one object and calling it the ruler. Each entry carries its own uncertainty; edges were read to about +-8 px.",
+ "horizon": 239,
+ "horizonNote": "The current curve's own horizon, from its two anchors (198 at y506, 459 at y858). It is kept: this phase rescales the curve, it does not reshape it -- the same move doc 36 made when Thad's own height went 205 -> 240.",
+ "items": [
+  {"id": "card_table", "metres": 0.75, "what": "round card table, top surface to pedestal foot",
+   "topY": 402, "baseY": 497, "atX": 872, "drawn": 95, "impliedMan": 222, "k": 0.860,
+   "note": "the surface plane above the pedestal centre, not the near rim"},
+  {"id": "card_chair", "metres": 0.88, "what": "dining chair, top rail to rear leg",
+   "topY": 382, "baseY": 492, "atX": 755, "drawn": 110, "impliedMan": 219, "k": 0.866},
+  {"id": "piano_stool", "metres": 0.53, "what": "round piano stool, seat plane to foot",
+   "topY": 429, "baseY": 505, "atX": 655, "drawn": 76, "impliedMan": 251, "k": 0.944},
+  {"id": "piano", "metres": 1.22, "what": "upright piano, top board to foot",
+   "topY": 260, "baseY": 508, "atX": 570, "drawn": 248, "impliedMan": 356, "k": 1.323,
+   "note": "THE HIGH OUTLIER. The piano is painted tall; nothing else in the room agrees with it."},
+  {"id": "bar_stool_1", "metres": 0.74, "what": "bar stool, seat plane to base centre",
+   "topY": 514, "baseY": 632, "atX": 1232, "drawn": 118, "impliedMan": 279, "k": 0.710},
+  {"id": "bar_stool_2", "metres": 0.74, "what": "bar stool, seat plane to base centre",
+   "topY": 565, "baseY": 727, "atX": 1372, "drawn": 162, "impliedMan": 383, "k": 0.785},
+  {"id": "bar_stool_3", "metres": 0.74, "what": "bar stool, seat plane to base centre",
+   "topY": 644, "baseY": 830, "atX": 1640, "drawn": 186, "impliedMan": 440, "k": 0.744},
+  {"id": "bar_counter", "metres": 1.10, "what": "counter bullnose to the plinth's floor line",
+   "topY": 462, "baseY": 715, "atX": 1500, "drawn": 253, "impliedMan": 402, "k": 0.845,
+   "topLine": [[1200, 400], [1900, 560]], "baseLine": [[1205, 620], [1700, 790]],
+   "note": "the one object the player stands beside for minutes at a time, and the one Tyler named"}
+ ],
+ "median": {"k": 0.849, "againstCurrentCurve": 0.7415, "factor": 1.145},
+ "medianNote": "Eight readings, median k 0.849 against the current curve's 0.7415: the room's own furniture, taken together, asks for a man 14.5% taller at every depth. The bar stools alone agree with the current curve (0.71-0.785); the counter and the piano do not. Taking the median rather than the counter alone is the conservative choice -- it is the smallest correction consistent with the room as a whole."
+}

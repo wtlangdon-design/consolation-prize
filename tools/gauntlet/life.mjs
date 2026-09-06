@@ -175,8 +175,15 @@ async function main() {
         }
         for (const npcId of room.ambient ?? []) {
           const npc = readJson(`content/ambient/${npcId.replace(/_/g, '-')}.json`);
-          const sheet = frame.assets.find((a) => a.path === npc.sprite?.sheet);
-          if (!sheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s sheet is not loaded -- she is absent`);
+          // THE SHEET THIS ROOM ACTUALLY DRAWS, which is not always the
+          // character's own. Phase 2A recast Main Street's three humans
+          // against the replacement plate and left the shipping street its
+          // original art, so the room's sheet lives on the placement. Checking
+          // the file's own sheet would pass while the room stood empty --
+          // which is precisely the failure this line exists to catch.
+          const declared = npc.placements?.[room.id]?.sprite ?? npc.sprite;
+          const sheet = frame.assets.find((a) => a.path === declared?.sheet);
+          if (!sheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s sheet ${declared?.sheet ?? '(none declared)'} is not loaded -- she is absent`);
           for (const prop of npc.sprite?.props ?? []) {
             const propSheet = frame.assets.find((a) => a.path === prop.sheet);
             if (!propSheet?.loaded) failures.push(`capture ${action.name}: ${npcId}'s prop ${prop.sheet} is not loaded`);

@@ -18,18 +18,18 @@
         720,
         506,
         410,
-        72
+        51
       ]
     },
     {
       "id": "floor_1",
-      "zone": 1,
+      "zone": 2,
       "surface": "mud",
       "rect": [
-        361,
-        578,
-        816,
-        71
+        419,
+        557,
+        783,
+        51
       ]
     },
     {
@@ -37,21 +37,21 @@
       "zone": 1,
       "surface": "mud",
       "rect": [
-        40,
-        649,
-        1130,
-        72
+        127,
+        608,
+        1077,
+        51
       ]
     },
     {
       "id": "floor_3",
-      "zone": 0,
+      "zone": 1,
       "surface": "mud",
       "rect": [
         40,
-        721,
-        1208,
-        71
+        659,
+        1286,
+        52
       ]
     },
     {
@@ -60,9 +60,31 @@
       "surface": "mud",
       "rect": [
         40,
-        792,
-        1339,
-        72
+        711,
+        1448,
+        51
+      ]
+    },
+    {
+      "id": "floor_5",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        40,
+        762,
+        1585,
+        51
+      ]
+    },
+    {
+      "id": "floor_6",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        40,
+        813,
+        1714,
+        51
       ]
     }
   ],
@@ -107,7 +129,7 @@
       },
       "walkTo": {
         "x": 910,
-        "y": 573,
+        "y": 583,
         "facing": "back"
       }
     },
@@ -147,7 +169,7 @@
       },
       "walkTo": {
         "x": 344,
-        "y": 754,
+        "y": 717,
         "facing": "back"
       }
     },
@@ -222,7 +244,7 @@
       },
       "walkTo": {
         "x": 1008,
-        "y": 573,
+        "y": 583,
         "facing": "back"
       }
     },
@@ -275,7 +297,7 @@
       },
       "walkTo": {
         "x": 1093,
-        "y": 573,
+        "y": 583,
         "facing": "back"
       }
     },
@@ -318,7 +340,7 @@
       },
       "walkTo": {
         "x": 945,
-        "y": 573,
+        "y": 583,
         "facing": "back"
       }
     },
@@ -355,7 +377,7 @@
       },
       "walkTo": {
         "x": 438,
-        "y": 663,
+        "y": 650,
         "facing": "back"
       }
     },
@@ -399,7 +421,7 @@
       },
       "walkTo": {
         "x": 605,
-        "y": 666,
+        "y": 653,
         "facing": "back"
       }
     },
@@ -439,7 +461,7 @@
       },
       "walkTo": {
         "x": 900,
-        "y": 576,
+        "y": 586,
         "facing": "back"
       }
     },
@@ -482,7 +504,7 @@
       },
       "walkTo": {
         "x": 1310,
-        "y": 862,
+        "y": 784,
         "facing": "back"
       }
     },
@@ -516,6 +538,11 @@
             ]
           }
         ]
+      },
+      "walkTo": {
+        "x": 1520,
+        "y": 861,
+        "facing": "back"
       }
     },
     {
@@ -558,7 +585,7 @@
       },
       "walkTo": {
         "x": 1165,
-        "y": 863,
+        "y": 862,
         "facing": "back"
       }
     }
@@ -694,19 +721,23 @@
       510
     ],
     [
-      1170,
-      690
+      1205,
+      620
     ],
     [
-      1320,
-      750
+      1500,
+      715
     ],
     [
-      1390,
-      800
+      1700,
+      790
     ],
     [
-      1400,
+      1830,
+      845
+    ],
+    [
+      1860,
       864
     ],
     [
@@ -728,11 +759,11 @@
         },
         {
           "x": 1130,
-          "y": 578
+          "y": 557
         },
         {
           "x": 720,
-          "y": 578
+          "y": 557
         }
       ],
       "surface": "mud",
@@ -740,9 +771,9 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
-        "farHeight": 198,
+        "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 526
       },
       "neighbours": [
         "floor_1"
@@ -752,20 +783,20 @@
       "id": "floor_1",
       "points": [
         {
-          "x": 361,
-          "y": 578
+          "x": 419,
+          "y": 557
         },
         {
-          "x": 1177,
-          "y": 578
+          "x": 1188,
+          "y": 557
         },
         {
-          "x": 1177,
-          "y": 649
+          "x": 1188,
+          "y": 608
         },
         {
-          "x": 361,
-          "y": 649
+          "x": 419,
+          "y": 608
         }
       ],
       "surface": "mud",
@@ -773,33 +804,33 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
-        "farHeight": 198,
+        "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 526
       },
       "neighbours": [
         "floor_0",
-        "floor_2"
+        "floor_2_0"
       ]
     },
     {
-      "id": "floor_2",
+      "id": "floor_2_0",
       "points": [
         {
-          "x": 40,
-          "y": 649
+          "x": 127,
+          "y": 608
         },
         {
-          "x": 1170,
-          "y": 649
+          "x": 1188,
+          "y": 608
         },
         {
-          "x": 1170,
-          "y": 721
+          "x": 1188,
+          "y": 659
         },
         {
-          "x": 40,
-          "y": 721
+          "x": 127,
+          "y": 659
         }
       ],
       "surface": "mud",
@@ -807,12 +838,47 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
-        "farHeight": 198,
+        "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 526
       },
       "neighbours": [
         "floor_1",
+        "floor_2_1",
+        "floor_3"
+      ]
+    },
+    {
+      "id": "floor_2_1",
+      "points": [
+        {
+          "x": 1188,
+          "y": 650
+        },
+        {
+          "x": 1204,
+          "y": 650
+        },
+        {
+          "x": 1204,
+          "y": 659
+        },
+        {
+          "x": 1188,
+          "y": 659
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 506,
+        "farHeight": 227,
+        "nearY": 858,
+        "nearHeight": 526
+      },
+      "neighbours": [
+        "floor_2_0",
         "floor_3"
       ]
     },
@@ -821,19 +887,19 @@
       "points": [
         {
           "x": 40,
-          "y": 721
+          "y": 659
         },
         {
-          "x": 1248,
-          "y": 721
+          "x": 1326,
+          "y": 659
         },
         {
-          "x": 1248,
-          "y": 792
+          "x": 1326,
+          "y": 711
         },
         {
           "x": 40,
-          "y": 792
+          "y": 711
         }
       ],
       "surface": "mud",
@@ -841,28 +907,132 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
-        "farHeight": 198,
+        "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 526
       },
       "neighbours": [
-        "floor_2",
-        "floor_4"
+        "floor_2_0",
+        "floor_2_1",
+        "floor_4_0"
       ]
     },
     {
-      "id": "floor_4",
+      "id": "floor_4_0",
       "points": [
         {
           "x": 40,
-          "y": 792
+          "y": 711
         },
         {
-          "x": 1379,
-          "y": 792
+          "x": 1330,
+          "y": 711
         },
         {
-          "x": 1379,
+          "x": 1330,
+          "y": 762
+        },
+        {
+          "x": 40,
+          "y": 762
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 506,
+        "farHeight": 227,
+        "nearY": 858,
+        "nearHeight": 526
+      },
+      "neighbours": [
+        "floor_3",
+        "floor_5"
+      ]
+    },
+    {
+      "id": "floor_4_1",
+      "points": [
+        {
+          "x": 1430,
+          "y": 711
+        },
+        {
+          "x": 1488,
+          "y": 711
+        },
+        {
+          "x": 1488,
+          "y": 762
+        },
+        {
+          "x": 1430,
+          "y": 762
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 506,
+        "farHeight": 227,
+        "nearY": 858,
+        "nearHeight": 526
+      },
+      "neighbours": [
+        "floor_5"
+      ]
+    },
+    {
+      "id": "floor_5",
+      "points": [
+        {
+          "x": 40,
+          "y": 762
+        },
+        {
+          "x": 1562,
+          "y": 762
+        },
+        {
+          "x": 1562,
+          "y": 813
+        },
+        {
+          "x": 40,
+          "y": 813
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 506,
+        "farHeight": 227,
+        "nearY": 858,
+        "nearHeight": 526
+      },
+      "neighbours": [
+        "floor_4_0",
+        "floor_4_1",
+        "floor_6_0",
+        "floor_6_1"
+      ]
+    },
+    {
+      "id": "floor_6_0",
+      "points": [
+        {
+          "x": 40,
+          "y": 813
+        },
+        {
+          "x": 1405,
+          "y": 813
+        },
+        {
+          "x": 1405,
           "y": 864
         },
         {
@@ -875,12 +1045,45 @@
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
-        "farHeight": 198,
+        "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 526
       },
       "neighbours": [
-        "floor_3"
+        "floor_5"
+      ]
+    },
+    {
+      "id": "floor_6_1",
+      "points": [
+        {
+          "x": 1487,
+          "y": 813
+        },
+        {
+          "x": 1562,
+          "y": 813
+        },
+        {
+          "x": 1562,
+          "y": 864
+        },
+        {
+          "x": 1487,
+          "y": 864
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 506,
+        "farHeight": 227,
+        "nearY": 858,
+        "nearHeight": 526
+      },
+      "neighbours": [
+        "floor_5"
       ]
     }
   ],
@@ -955,14 +1158,26 @@
   ],
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-03-candidate/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
   "retiredNote": "THE 320x144 RELICS ARE GONE. This room carried an `idles` layer declaring four 18-pixel figures against a sheet drawn for the retired 320x144 presentation, and a foreground plane of the same vintage -- both drawn into a 1920x864 room, which is what put black boxes on the floor and one beside Thad. They described the same men who are now baked into the plates: the bar’s near and middle drinkers, a seated player, and doc 16’s man beside the stove.\nTHE MAN ON THE LANDING SURVIVES THE DELETION, because he was never in that list. Ruling 20 makes him an explicit exception -- his whole joke is that he never moves -- and doc 16 keeps him in THE STAIRS: there is always a man on the landing.",
-  "ambient": [],
+  "ambient": [
+    "nugget_bar_1",
+    "nugget_bar_2",
+    "nugget_bar_3",
+    "nugget_card_1",
+    "nugget_card_2",
+    "nugget_card_3",
+    "nugget_card_4",
+    "nugget_landing_man",
+    "nugget_stove_man"
+  ],
   "occlusionProofs": [],
   "occlusionBands": [
     "floor_0",
     "floor_1",
     "floor_2",
     "floor_3",
-    "floor_4"
+    "floor_4",
+    "floor_5",
+    "floor_6"
   ],
   "occlusionPlanes": [],
   "candidateOf": "nugget"

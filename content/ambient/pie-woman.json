@@ -86,11 +86,26 @@
  "placeNote": "Forward into the lit mud, clear of the porch line. Was (2210, 657).",
  "placements": {
   "main_street_candidate": {
-   "x": 2470,
-   "y": 706,
+   "x": 2205,
+   "y": 845,
    "zone": 0,
-   "note": "PHASE 1.5G: she stood at y 662, which is where the rail's BAR is drawn -- the same 'standing on the fence' look Tyler caught on Thad. She now stands on the ground behind the rail (mud_mid_3), where the bar crosses her lower legs as it should. Placement only; her art is untouched and stays a Phase 2 subject. PHASE 1.5I: she keeps this position and her art is still untouched, but the ground under her is no longer a walk box -- Tyler's ruling took the rear of the rail out of the floor, and mud_mid_3 went with it. She therefore declares her own plane, exactly as Room 5's Winnie does behind her counter, so the rail still crosses her lower legs instead of the box rule falling back to the boardwalk and drawing her in front of it. MARKED FOR PHASE 2 RESTAGING: her approachRadius is 40 and the nearest ground Thad can now reach is 110 px away at 2470,816, so her bark cannot fire where she stands. She is a Phase 2 subject already and this is a Phase 2 decision; the rail rule is not bent to keep her zone.",
-   "clipPlane": 1
+   "note": "RESTAGED. Her placeNote says forward into the lit mud, clear of the porch line, and the Phase 1.5G candidate had put her at 2470,706 -- behind the hitching rail, on ground the frozen front-only rule has since taken away, 110 px from anywhere Thad can stand. She now stands in FRONT of the water trough at the west end of the saloon's light, on mud_near_5: legal front-side ground, clear of the rail's span and of the 48 px choke in front of it, with the trough behind her rather than across her shins, and Thad able to stand at 2165,845 -- 40 px, her own radius, unenlarged.",
+   "clipPlane": 1,
+   "sprite": {
+    "sheet": "art/actors/cast-pie-woman.png",
+    "rate": 1.0,
+    "frames": [
+     [
+      0,
+      0,
+      106,
+      252
+     ]
+    ],
+    "figureHeight": 252,
+    "stature": 0.93,
+    "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
+   }
   }
  },
  "placementsNote": "PHASE 1.5B/1.5D: LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y lands inside the trough's footprint; placed on the far mud east of the trough's end, behind the rail, until Phase 2 recasts her. The shipping room's x,y is untouched."

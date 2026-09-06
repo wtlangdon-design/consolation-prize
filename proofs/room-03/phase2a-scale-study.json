@@ -1,0 +1,267 @@
+{
+ "schema": 1,
+ "room": "nugget_candidate",
+ "candidates": [
+  {
+   "id": "A",
+   "label": "current -- the control",
+   "far": {
+    "y": 506,
+    "height": 198
+   },
+   "near": {
+    "y": 858,
+    "height": 459
+   },
+   "floor": "current",
+   "samples": [
+    {
+     "sample": "front-doors",
+     "feet": [
+      330,
+      760
+     ],
+     "height": 386.3
+    },
+    {
+     "sample": "by-the-piano",
+     "feet": [
+      600,
+      560
+     ],
+     "height": 238.0,
+     "thing": "piano",
+     "onHim": 1.26,
+     "reads": "over his head"
+    },
+    {
+     "sample": "at-the-card-table",
+     "feet": [
+      860,
+      545
+     ],
+     "height": 226.9,
+     "thing": "card_table",
+     "onHim": 0.63,
+     "reads": "waist / lower ribs  <-- the target"
+    },
+    {
+     "sample": "near-the-stove",
+     "feet": [
+      1120,
+      560
+     ],
+     "height": 238.0
+    },
+    {
+     "sample": "middle-bar",
+     "feet": [
+      1278,
+      745
+     ],
+     "height": 375.2,
+     "counterTopY": 417.8,
+     "counterBaseY": 645.1,
+     "gapToBar": 0.0,
+     "onHim": 0.872,
+     "reads": "shoulders"
+    },
+    {
+     "sample": "bar-end",
+     "feet": [
+      1360,
+      800
+     ],
+     "height": 416.0,
+     "counterTopY": 436.6,
+     "counterBaseY": 673.2,
+     "gapToBar": 0.0,
+     "onHim": 0.874,
+     "reads": "shoulders"
+    },
+    {
+     "sample": "near-foreground",
+     "feet": [
+      700,
+      840
+     ],
+     "height": 445.7
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "label": "furniture median, current floor",
+   "far": {
+    "y": 506,
+    "height": 227
+   },
+   "near": {
+    "y": 858,
+    "height": 526
+   },
+   "floor": "current",
+   "samples": [
+    {
+     "sample": "front-doors",
+     "feet": [
+      330,
+      760
+     ],
+     "height": 442.8
+    },
+    {
+     "sample": "by-the-piano",
+     "feet": [
+      600,
+      560
+     ],
+     "height": 272.9,
+     "thing": "piano",
+     "onHim": 1.099,
+     "reads": "over his head"
+    },
+    {
+     "sample": "at-the-card-table",
+     "feet": [
+      860,
+      545
+     ],
+     "height": 260.1,
+     "thing": "card_table",
+     "onHim": 0.55,
+     "reads": "hip"
+    },
+    {
+     "sample": "near-the-stove",
+     "feet": [
+      1120,
+      560
+     ],
+     "height": 272.9
+    },
+    {
+     "sample": "middle-bar",
+     "feet": [
+      1278,
+      745
+     ],
+     "height": 430.0,
+     "counterTopY": 417.8,
+     "counterBaseY": 645.1,
+     "gapToBar": 0.0,
+     "onHim": 0.761,
+     "reads": "upper chest"
+    },
+    {
+     "sample": "bar-end",
+     "feet": [
+      1360,
+      800
+     ],
+     "height": 476.7,
+     "counterTopY": 436.6,
+     "counterBaseY": 673.2,
+     "gapToBar": 0.0,
+     "onHim": 0.762,
+     "reads": "upper chest"
+    },
+    {
+     "sample": "near-foreground",
+     "feet": [
+      700,
+      840
+     ],
+     "height": 510.7
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "label": "furniture median, floor extended to the bar",
+   "far": {
+    "y": 506,
+    "height": 227
+   },
+   "near": {
+    "y": 858,
+    "height": 526
+   },
+   "floor": "extended",
+   "samples": [
+    {
+     "sample": "front-doors",
+     "feet": [
+      330,
+      760
+     ],
+     "height": 442.8
+    },
+    {
+     "sample": "by-the-piano",
+     "feet": [
+      600,
+      560
+     ],
+     "height": 272.9,
+     "thing": "piano",
+     "onHim": 1.099,
+     "reads": "over his head"
+    },
+    {
+     "sample": "at-the-card-table",
+     "feet": [
+      860,
+      545
+     ],
+     "height": 260.1,
+     "thing": "card_table",
+     "onHim": 0.55,
+     "reads": "hip"
+    },
+    {
+     "sample": "near-the-stove",
+     "feet": [
+      1120,
+      560
+     ],
+     "height": 272.9
+    },
+    {
+     "sample": "middle-bar",
+     "feet": [
+      1470,
+      745
+     ],
+     "height": 430.0,
+     "counterTopY": 461.7,
+     "counterBaseY": 711.0,
+     "gapToBar": 0.0,
+     "onHim": 0.659,
+     "reads": "waist / lower ribs  <-- the target"
+    },
+    {
+     "sample": "bar-end",
+     "feet": [
+      1540,
+      800
+     ],
+     "height": 476.7,
+     "counterTopY": 477.7,
+     "counterBaseY": 735.1,
+     "gapToBar": 0.0,
+     "onHim": 0.676,
+     "reads": "waist / lower ribs  <-- the target"
+    },
+    {
+     "sample": "near-foreground",
+     "feet": [
+      700,
+      840
+     ],
+     "height": 510.7
+    }
+   ]
+  }
+ ]
+}

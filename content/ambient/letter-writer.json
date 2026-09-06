@@ -13,12 +13,12 @@
   "R_NOBODY": "Letters home. Ten cents the page.",
   "R_SWINDLED": "Letters home. Might want to leave a bit out.",
   "R_RACCOON": "I could make the raccoon sound better.",
-  "R_SURVEYED": "\u2018Had my land surveyed by a professional.\u2019 See? Free of charge.",
-  "R_BORDERS_MOTT": "Now you\u2019ve got something to write about. Twenty cents.",
-  "R_LOST_DUEL": "I\u2019d leave the duel out entirely.",
-  "R_WON_DUEL": "Beat Deke Vessel. That\u2019s a page and a half right there.",
+  "R_SURVEYED": "‘Had my land surveyed by a professional.’ See? Free of charge.",
+  "R_BORDERS_MOTT": "Now you’ve got something to write about. Twenty cents.",
+  "R_LOST_DUEL": "I’d leave the duel out entirely.",
+  "R_WON_DUEL": "Beat Deke Vessel. That’s a page and a half right there.",
   "R_DEAD": "Do you want me to write to her, or would that be strange?",
-  "R_TRUTH": "Twelve years I\u2019ve been making things up on this street and you did it in one afternoon."
+  "R_TRUTH": "Twelve years I’ve been making things up on this street and you did it in one afternoon."
  },
  "sprite": {
   "note": "Frames 0-1 are the idle: the pose and a derived one-pixel breath. Frames 2-4 are the three poses from the character sheet. `breaks` are SEPARATE actions chosen from a pool, each leaving the idle and returning to it -- not a routine played in order, which is what the eye catches.",
@@ -80,5 +80,44 @@
   "breakEvery": 29
  },
  "migrationNote": "ERRATA 54, x6. Was (30, 112) in the 320x144 play area. THE AMBIENT LAYER WAS NEVER MIGRATED: tools/migrate-play-area-x6.mjs is an ALLOWLIST -- \"anything not on the list is left exactly as it was\" -- and it measured \"17 rooms, 140 rects\". An ambient character is not a room, so nothing named these and nothing touched them. Every one of them stood in the sky, 13-15% down a 864-tall play area, for as long as errata 54 has been in force, and the game loaded and validated and drew them there.",
- "placeNote": "Back at the west end, beside the posted notices rather than clustered at the saloon with the other two. Was (2500, 712). THE CLUSTER WAS A MISTAKE OF MY OWN MAKING: I moved all three east on the reasoning that the saloon is the only lit thing at night, and the measurement says otherwise -- the mud at the Company and the Clarion reads 70-72 against the map seller\u2019s 58, and only the saloon porch peaks at 84. Half a 3700px street had nobody in it. He belongs here anyway: doc 05 gives POSTED NOTICES to him, and a man who writes letters for the illiterate sets up where the town reads. Clear of the board rect and the Company steps."
+ "placeNote": "Back at the west end, beside the posted notices rather than clustered at the saloon with the other two. Was (2500, 712). THE CLUSTER WAS A MISTAKE OF MY OWN MAKING: I moved all three east on the reasoning that the saloon is the only lit thing at night, and the measurement says otherwise -- the mud at the Company and the Clarion reads 70-72 against the map seller’s 58, and only the saloon porch peaks at 84. Half a 3700px street had nobody in it. He belongs here anyway: doc 05 gives POSTED NOTICES to him, and a man who writes letters for the illiterate sets up where the town reads. Clear of the board rect and the Company steps.",
+ "placements": {
+  "main_street_candidate": {
+   "x": 1470,
+   "y": 658,
+   "zone": 1,
+   "sprite": {
+    "sheet": "art/actors/cast-letter-writer.png",
+    "rate": 1.0,
+    "frames": [
+     [
+      0,
+      0,
+      75,
+      208
+     ]
+    ],
+    "figureHeight": 208,
+    "stature": 0.96,
+    "props": [
+     {
+      "sheet": "art/actors/cast-letter-writer-station.png",
+      "x": 1548,
+      "y": 658,
+      "frames": [
+       [
+        0,
+        0,
+        75,
+        130
+       ]
+      ],
+      "note": "HIS WORK STATION, drawn as part of the same casting operation and cut apart from him afterwards: a folding camp table with weighted paper, an ink bottle and pens, and the satchel of finished letters on the ground at its foot. It is a prop of the room at its own coordinates, not a thing he carries, and it stands to his right with its feet on his own floor row."
+     }
+    ],
+    "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
+   },
+   "note": "Doc 07 #1 and his own placeNote: beside the posted notices, at the west end, not clustered at the saloon. The board is x1604-1728 and its own approach is (1666,668), so he sits just west of it with room for a station and does not stand on it. An older man at his work: 0.96."
+  }
+ }
 }

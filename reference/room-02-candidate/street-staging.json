@@ -1,0 +1,15 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A staging for Main Street's three humans (doc 36 Q127). `stature` is the character's height as a fraction of the room's man at their feet -- ordinary variation, not everyone the same height. `drawnHeight` is what their sheet actually draws, measured off the alpha. Every placement is on legal front-side ground, respects the frozen hitching-rail rule, and leaves Thad somewhere legal within the character's own approach radius.",
+ "characters": [
+  {"id": "letter_writer", "sheet": "art/actors/ambient-letter-writer.png", "frame": [2, 2, 60, 152],
+   "drawnHeight": 152, "stature": 0.96, "at": [1470, 658],
+   "why": "Doc 07 #1 and his own placeNote: beside the posted notices, at the west end, not clustered at the saloon. The board is x1604-1728 and its own approach is (1666,668), so he sits just west of it with room for a station and does not stand on it. An older man at his work: 0.96."},
+  {"id": "pie_woman", "sheet": "art/actors/ambient-pie-woman.png", "frame": [2, 2, 75, 157],
+   "drawnHeight": 157, "stature": 0.93, "at": [2205, 845],
+   "why": "RESTAGED. Her placeNote says forward into the lit mud, clear of the porch line, and the Phase 1.5G candidate had put her at 2470,706 -- behind the hitching rail, on ground the frozen front-only rule has since taken away, 110 px from anywhere Thad can stand. She now stands in FRONT of the water trough at the west end of the saloon's light, on mud_near_5: legal front-side ground, clear of the rail's span and of the 48 px choke in front of it, with the trough behind her rather than across her shins, and Thad able to stand at 2165,845 -- 40 px, her own radius, unenlarged."},
+  {"id": "map_seller", "sheet": "art/actors/ambient-map-seller.png", "frame": [2, 2, 65, 150],
+   "drawnHeight": 150, "stature": 1.0, "at": [3140, 706],
+   "why": "Unmoved: his placeNote already puts him clear of the small office's steps, on legal ground, with the office lantern over him. Only his SIZE was wrong. An adult man: 1.0."}
+ ]
+}
