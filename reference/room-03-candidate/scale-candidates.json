@@ -1,0 +1,20 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A: three candidates for the Nugget's depth model, tested against the same plate, the same Thad frame and the same seven positions. A is the control. Thad's art is unchanged in all three -- only the room's curve and its floor differ.",
+ "candidates": [
+  {"id": "A", "label": "current -- the control",
+   "far": {"y": 506, "height": 198}, "near": {"y": 858, "height": 459},
+   "floor": "current",
+   "why": "Tyler's original anchors, set against the chandelier. Agrees with the bar stools and with nothing else."},
+  {"id": "B", "label": "furniture median, current floor",
+   "far": {"y": 506, "height": 227}, "near": {"y": 858, "height": 526},
+   "floor": "current",
+   "why": "The curve rescaled by 1.145, its shape and horizon unchanged: the median of eight furniture readings."},
+  {"id": "C", "label": "furniture median, floor extended to the bar",
+   "far": {"y": 506, "height": 227}, "near": {"y": 858, "height": 526},
+   "floor": "extended",
+   "why": "As B, and the walkable floor carried right up to the bar's own plinth line. The current floor stops 440 px short of the counter at the near end, so wherever Thad stands the counter is at a SHALLOWER depth than he is and reads high on him -- which is the defect Tyler named, and no curve alone fixes it."}
+ ],
+ "barBaseLine": [[1205, 620], [1500, 715], [1700, 790], [1830, 845], [1860, 864]],
+ "barBaseNote": "Where the bar's plinth meets the dirt, read off a ruled 2x crop. The current walkable outline turns in at x 1170 and never reaches it."
+}
