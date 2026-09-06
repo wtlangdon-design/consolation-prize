@@ -4,7 +4,7 @@
  "room": "stage_road",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "46543fb49569bf2fbd5cf38580a2e1acf030c0e1",
+ "commit": "ac20c9ca00cbbdc3fcab447817752f6e499b594c",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -54,7 +54,7 @@
    ],
    "reportedHeight": 224,
    "expected": 224,
-   "drawnFrom": "art/actors/thad-idle-left/idle-03.png",
+   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-03.png",
    "bounds": [
     826,
     477,
@@ -91,7 +91,7 @@
    ],
    "reportedHeight": 263,
    "expected": 263,
-   "drawnFrom": "art/actors/thad-idle-left/idle-03.png",
+   "drawnFrom": "art/actors/thad-idlebreak-left/idle-break-07.png",
    "bounds": [
     806,
     599,
@@ -110,7 +110,7 @@
   {
    "panel": "B",
    "room": "stage_road",
-   "clock": 48.3838,
+   "clock": 55.0595,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -135,11 +135,11 @@
       830
      ],
      "facing": "left",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 263,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-05.png",
+     "from": "art/actors/thad-idle-left/idle-04.png",
      "bounds": [
       1283,
       567,
@@ -160,7 +160,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idle-right/idle-05.png",
+     "from": "art/actors/hob-idle-right/idle-04.png",
      "bounds": [
       503,
       490,
@@ -181,7 +181,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idle-right/idle-11.png",
+     "from": "art/actors/coach-idle-right/idle-04.png",
      "bounds": [
       2509,
       353,
@@ -224,15 +224,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-06T18:38:39.831Z",
+   "capturedAt": "2026-09-06T18:40:08.040Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "fa8689eb8bfd9a59e75609e16777ff3a4a96c6cb8fc49b5115baa3fe0ddcb9b2"
+   "hash": "fd0c05e32a72626e41010c23dff739a969aeba64b3ffb3f2ff86515a6095cbaf"
   },
   {
    "panel": "A",
    "room": "stage_road",
-   "clock": 51.450300000000006,
+   "clock": 56.1261,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -333,15 +333,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-06T18:38:43.902Z",
+   "capturedAt": "2026-09-06T18:40:09.075Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "30c1ef9511d222b1c7b75bb0a21ad52984cf560d4a3360e56cda17c7d7bae13f"
+   "hash": "a493e4987c0d09f7667f4c5f5866490f909bd9eec626e67d0dfb94260e4b2ee0"
   },
   {
    "panel": "D",
    "room": "stage_road",
-   "clock": 78.5992,
+   "clock": 69.2922,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -375,7 +375,7 @@
      "height": 263,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-04.png",
+     "from": "art/actors/thad-idle-left/idle-00.png",
      "bounds": [
       1023,
       575,
@@ -396,7 +396,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idle-right/idle-04.png",
+     "from": "art/actors/hob-idle-right/idle-00.png",
      "bounds": [
       503,
       490,
@@ -417,7 +417,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idlebreak-right/idle-break-08.png",
+     "from": "art/actors/coach-idlebreak-right/idle-break-05.png",
      "bounds": [
       2509,
       353,
@@ -429,7 +429,7 @@
      "fallback": false
     }
    },
-   "says": "thad",
+   "says": null,
    "options": 0,
    "assets": [
     {
@@ -461,10 +461,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-09-06T18:39:10.135Z",
+   "capturedAt": "2026-09-06T18:40:22.176Z",
    "intent": "principal changed state: THE CASE COMES OUT OF THE MUD. Doc 17 makes picking it up the game's first PICK UP, and it is the only change to Room 1 still available once the opening has handed over -- the coach has already departed by then, which is what the first version of this spec got wrong: it declared T_COACH_DEPARTED and the route had set it four actions earlier, so panel D was panel B with a different filename.\n\nIt is an ACTION rather than a flag because that is what it is. `case_mud`'s PICK UP carries `take: true`, and GameState.targets filters out anything the actor owns -- doc 22 item 9, taking something is an ownership change -- so the hotspot is simply gone afterwards. The panel shows a road with no case in it, which is the state the rest of Act I is played in.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "2289d6d5c3ce40ae83a06a0d6f3b69b572fbbe54e41aa6855ab465a483153ac8",
+   "hash": "f7b3ea73b0edc395b5272d10f8146731657f2f75cdafd1e8bd855ff6f17b02cd",
    "changedBy": "flags, inventory"
   }
  ],
@@ -495,11 +495,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-06T18:39:10.135Z",
+ "at": "2026-09-06T18:40:22.176Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 421094,
+  "bytes": 419702,
   "panels": 5,
   "scale": 0.5
  }
