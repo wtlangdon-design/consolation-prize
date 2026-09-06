@@ -74,8 +74,19 @@
     "path": "art/backgrounds/room-05-assay-office.png",
     "note": "D -- the owner-approved visual-language target (Room 5, night, promoted 2026-09-05): the finish, the flat masses, the selective grain, the practical light. Room 1 (slot B) is the exterior mood; this is the rendering language the street must share."
    },
-   "casting": [],
-   "castingNote": "A PEOPLE-FREE PLATE BY RULE (opening-set retrofit phase 1): no character is designed in this call; the cast is recast against the accepted plate in the next phase. Thad (slot C) rides along as the scale ruler, never as a subject.",
+   "casting": [
+    {
+     "who": "Winnie, the accepted Room 5 counter clerk",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "note": "E -- THE ONE APPROVED CHARACTER GENERATION IN THIS GAME BESIDES THAD. Tyler accepted her in the Room 5 pilot, in the room, at gameplay scale. Every character cast from Phase 2A onward has to look like it came out of the same hand as her and as Thad; she is the evidence of what that hand does with a face, a costume and a light."
+    },
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example this project has used since Room 1: every character in one image, painted in one pass, which is what fixes the style. Doc 38 part one."
+    }
+   ],
+   "castingNote": "PHASE 1 was a people-free plate by rule and declared no casting references. PHASE 2A casts the people against that accepted plate, so slot E is now the two approved character authorities: Winnie, the only character generation Tyler has accepted besides Thad, and the Room 1 casting master. Thad (slot C) is still the ruler and still never the subject.",
    "ancestry": [
     {
      "role": "the current shipping street -- geography, night, the saloon exception",
@@ -90,8 +101,19 @@
     "path": "art/backgrounds/room-05-assay-office.png",
     "note": "D -- the owner-approved visual-language target (Room 5, night, promoted 2026-09-05): an interior at night lit from where the work is."
    },
-   "casting": [],
-   "castingNote": "A PEOPLE-FREE PLATE BY RULE (opening-set retrofit phase 1): zero patrons baked; the bar drinkers and card players are recast against the accepted plate in the next phase.",
+   "casting": [
+    {
+     "who": "Winnie, the accepted Room 5 counter clerk",
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "note": "E -- THE ONE APPROVED CHARACTER GENERATION IN THIS GAME BESIDES THAD. Tyler accepted her in the Room 5 pilot, in the room, at gameplay scale. Every character cast from Phase 2A onward has to look like it came out of the same hand as her and as Thad; she is the evidence of what that hand does with a face, a costume and a light."
+    },
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example this project has used since Room 1: every character in one image, painted in one pass, which is what fixes the style. Doc 38 part one."
+    }
+   ],
+   "castingNote": "PHASE 1 was a people-free plate by rule and declared no casting references. PHASE 2A casts the people against that accepted plate, so slot E is now the two approved character authorities: Winnie, the only character generation Tyler has accepted besides Thad, and the Room 1 casting master. Thad (slot C) is still the ruler and still never the subject.",
    "ancestry": [
     {
      "role": "the current shipping Nugget -- the composition to keep",
