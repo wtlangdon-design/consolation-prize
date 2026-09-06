@@ -217,6 +217,30 @@ function assertCompositionOrder(file, row) {
   }
 }
 
+/**
+ * WOULD THIS ROW BE ACCEPTED? Ask BEFORE spending, not after.
+ *
+ * THE DEFECT THIS EXISTS FOR, four times over. `record()` validates the role
+ * and the composition order and throws when they are wrong -- which is right --
+ * but it runs AFTER the image has been generated and billed, so a bad role has
+ * cost an operation on every occasion: room-05-lamp, the pie woman, and both
+ * Nugget families. The third and fourth of those also took the response's
+ * usage object down with the process, so their billed tokens are unknown.
+ *
+ * The cap is checked before the call and the row is not. This closes that:
+ * the driver asks this first, with the same file and the same rules, and a
+ * refusal costs nothing.
+ */
+export function assertRecordable(row) {
+  const required = ['assetId', 'subject', 'operation', 'model', 'role'];
+  const missing = required.filter((field) => row[field] === undefined || row[field] === null);
+  if (missing.length) {
+    throw new Error(`this call would produce a ledger row missing ${missing.join(', ')} -- `
+      + 'refusing to spend an operation that cannot be recorded');
+  }
+  assertCompositionOrder(ledger(), { ...row, out: row.out ?? 'PENDING', outputHash: 'PENDING' });
+}
+
 export function record(row) {
   const required = ['assetId', 'subject', 'operation', 'model', 'out', 'outputHash'];
   const missing = required.filter((field) => row[field] === undefined || row[field] === null);

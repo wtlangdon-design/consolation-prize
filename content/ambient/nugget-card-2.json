@@ -4,11 +4,11 @@
  "name": "CARD PLAYER 2",
  "note": "The young one, losing and not yet worried about it. Moved 45 px left and 13 px nearer, off the stove man: at 1105,522 the two of them read as a pair standing together, which neither of them is.",
  "room": "nugget_candidate",
- "x": 1060,
- "y": 535,
+ "x": 1050,
+ "y": 515,
  "zone": 1,
  "approachRadius": 40,
- "poseNote": "standing at the table's right end, facing across it",
+ "poseNote": "SEATED in the chair on the table's right, hunched forward over the edge, staring down at the cards flat in his hand, seen past his near shoulder. He sits between the fourth player and the stove man, at neither of them.",
  "sprite": {
   "sheet": "art/actors/cast-nugget-card-2.png",
   "rate": 1.0,
@@ -16,12 +16,12 @@
    [
     0,
     0,
-    83,
-    254
+    89,
+    169
    ]
   ],
-  "figureHeight": 254,
-  "stature": 1.01,
+  "figureHeight": 169,
+  "stature": 0.72,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },
  "barks": {},

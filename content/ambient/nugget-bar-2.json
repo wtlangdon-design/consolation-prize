@@ -4,11 +4,11 @@
  "name": "BAR PATRON 2",
  "note": "The restless one, and the tallest of the three.",
  "room": "nugget_candidate",
- "x": 1500,
- "y": 730,
+ "x": 1450,
+ "y": 700,
  "zone": 1,
  "approachRadius": 40,
- "poseNote": "standing at the counter between the middle and near stools",
+ "poseNote": "STANDING and LEANING on the counter between the far and middle stools: near elbow up on the bar, ankles crossed, far hand on his hip, head turned back into the room.",
  "sprite": {
   "sheet": "art/actors/cast-nugget-bar-2.png",
   "rate": 1.0,
@@ -16,12 +16,12 @@
    [
     0,
     0,
-    142,
-    426
+    170,
+    380
    ]
   ],
-  "figureHeight": 426,
-  "stature": 1.02,
+  "figureHeight": 380,
+  "stature": 0.97,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },
  "barks": {},

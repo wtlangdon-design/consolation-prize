@@ -4,11 +4,11 @@
  "name": "CARD PLAYER 4",
  "note": "The bald retired something, in the wrong town, and the shortest man in the room.",
  "room": "nugget_candidate",
- "x": 975,
- "y": 508,
+ "x": 982,
+ "y": 478,
  "zone": 1,
  "approachRadius": 40,
- "poseNote": "standing behind the table, right",
+ "poseNote": "SEATED in the back-right chair, hunched forward, peering down through his spectacles at cards held low.",
  "sprite": {
   "sheet": "art/actors/cast-nugget-card-4.png",
   "rate": 1.0,
@@ -16,12 +16,12 @@
    [
     0,
     0,
-    70,
-    213
+    100,
+    163
    ]
   ],
-  "figureHeight": 213,
-  "stature": 0.93,
+  "figureHeight": 163,
+  "stature": 0.72,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },
  "barks": {},

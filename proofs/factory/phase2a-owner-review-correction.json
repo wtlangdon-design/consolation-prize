@@ -1,0 +1,234 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A OWNER-REVIEW CORRECTION PASS. Tyler reviewed the DEPLOYED rooms and did not accept Phase 2A; the environment work stays accepted and frozen. This records what was done about each of the three named failures, what the image budget actually stands at, and which part is blocked on his authorization rather than done. Doc 36 Q129.",
+ "commit": "56aca93ebebe5b37bf82d3a39e680b5355c386ec",
+ "branch": "claude/last-claim-autonomy-audit-v3vsy6",
+ "failures": [
+  {
+   "id": 1,
+   "owner": "the new cast is drawn in a different language from Thad",
+   "fixedAt": "character source, one refinement per character and per family",
+   "method": "a STYLE block that names the feature budget rather than the mood, and orders the figure drawn at the size it will be seen; Thad stand-00 transmitted as reference 2",
+   "rejected": [
+    "blur",
+    "generic pixelation filter",
+    "indiscriminate reduce-then-enlarge",
+    "any change to Thad",
+    "making either room more realistic",
+    "moving a near-camera figure backwards to hide the mismatch behind the depth curve"
+   ],
+   "outcome": "the small and mid-depth cast now matches at a matched figure height",
+   "stillWrong": "nugget_bar_2 (380px) and nugget_bar_3 (494px), the two figures nearest the camera, still carry continuous cheek gradients, individually drawn moustache hairs and a catchlight in the eye against Thad hard clumps and flat masses",
+   "blockedBy": "nugget-bar-stove-family is at 3 operations against a cap of 2; correcting these two needs one more operation and it was NOT spent",
+   "evidence": "renders/opening-set-retrofit/phase2a-matched-faces.webp"
+  },
+  {
+   "id": 2,
+   "owner": "the pie woman is visually in the trough",
+   "fixedAt": "staging only",
+   "movedTo": [
+    2380,
+    845
+   ],
+   "unchanged": [
+    "trough art",
+    "rail art",
+    "front-only rail navigation",
+    "the accepted environment",
+    "dog placement"
+   ],
+   "evidence": "renders/opening-set-retrofit/phase2a-production-main-street-candidate-at-700_800.png"
+  },
+  {
+   "id": 3,
+   "owner": "the Nugget static staging reads as a casting lineup",
+   "fixedAt": "character source (occupational poses, generated with no furniture drawn and both feet flat) plus staging",
+   "stagingFaultsFoundByThePicture": [
+    "the stove man warmed empty floor: his hands are drawn open to screen right, so standing at the stove right side he faced away from the iron. The cut is now drawn MIRRORED -- no image operation, the painting is unchanged -- and he stands at 1140,508 turned into the fire",
+    "a card player at 1110,508 sat directly under the standing stove man and lost his head to the coat; he is at 1050,515",
+    "a card player at 690,508 read to the eye as the leftmost man at the table and to tests/phase2a-access.test.ts as a man at the piano, because he was in front of it; he is at 762,508 and the piano keeps its empty stool"
+   ],
+   "population": {
+    "bar": 3,
+    "cards": 4,
+    "landing": 1,
+    "stove": 1,
+    "total": 9,
+    "piano": 0
+   },
+   "fifthPlace": "the table near edge: no chair, no man, the abandoned hand on it",
+   "animation": "none. Phase 2A is static staging.",
+   "evidence": "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png"
+  }
+ ],
+ "imageOperations": {
+  "spentThisPass": 0,
+  "note": "No image operation was made in the correction pass itself. The five refinements it integrates were spent before it, and the ledger below is the reconciled state.",
+  "perCategory": {
+   "street-pie-woman": {
+    "spent": 2,
+    "cap": 2,
+    "state": "at cap"
+   },
+   "street-letter-writer": {
+    "spent": 2,
+    "cap": 2,
+    "state": "at cap"
+   },
+   "street-map-seller": {
+    "spent": 2,
+    "cap": 2,
+    "state": "at cap"
+   },
+   "nugget-bar-stove-family": {
+    "spent": 3,
+    "cap": 2,
+    "state": "OVER CAP"
+   },
+   "nugget-card-landing-family": {
+    "spent": 2,
+    "cap": 2,
+    "state": "at cap"
+   }
+  },
+  "totalAttempts": 42,
+  "totalCap": 43,
+  "requiresOwnerAuthorization": [
+   "nugget-bar-stove-family"
+  ]
+ },
+ "staging": {
+  "mainStreet": {
+   "letter_writer": {
+    "at": [
+     1470,
+     658
+    ],
+    "stature": 0.72
+   },
+   "pie_woman": {
+    "at": [
+     2380,
+     845
+    ],
+    "stature": 0.93
+   },
+   "map_seller": {
+    "at": [
+     3140,
+     706
+    ],
+    "stature": 1.0
+   }
+  },
+  "nugget": {
+   "nugget_bar_1": {
+    "at": [
+     1232,
+     645
+    ],
+    "stature": 0.78,
+    "mirror": false
+   },
+   "nugget_bar_2": {
+    "at": [
+     1450,
+     700
+    ],
+    "stature": 0.97,
+    "mirror": false
+   },
+   "nugget_bar_3": {
+    "at": [
+     1790,
+     820
+    ],
+    "stature": 1.0,
+    "mirror": false
+   },
+   "nugget_stove_man": {
+    "at": [
+     1140,
+     508
+    ],
+    "stature": 1.0,
+    "mirror": true
+   },
+   "nugget_card_1": {
+    "at": [
+     762,
+     508
+    ],
+    "stature": 0.72,
+    "mirror": false
+   },
+   "nugget_card_2": {
+    "at": [
+     1050,
+     515
+    ],
+    "stature": 0.72,
+    "mirror": false
+   },
+   "nugget_card_3": {
+    "at": [
+     822,
+     478
+    ],
+    "stature": 0.72,
+    "mirror": false
+   },
+   "nugget_card_4": {
+    "at": [
+     982,
+     478
+    ],
+    "stature": 0.72,
+    "mirror": false
+   },
+   "nugget_landing_man": {
+    "at": [
+     1305,
+     235
+    ],
+    "stature": 0.74,
+    "mirror": false
+   }
+  }
+ },
+ "deployedCaptures": [
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-main-street-candidate-at-100_800-100_800-900_700-420_760.png",
+   "sha256": "44499f50dab36dd31ba7eccc64ab6de32a6a43ab57db69b418cf8ed9db5eaf87"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-main-street-candidate-at-700_800-1200_780.png",
+   "sha256": "e7dca86f830b0406777e3e87cf74246b1c68931d15d0ae64bd95b469a5d4d25f"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-main-street-candidate-at-700_800.png",
+   "sha256": "e4b2b186b118bf204c76b734ad5798d4f779915e5269c012fd446441441f8463"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-main-street-candidate.png",
+   "sha256": "309c74b86c105a672e114f25143a4911b99331602dd7338ad3e11dfaeea7ee7a"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-nugget-candidate-at-560_800.png",
+   "sha256": "b753de176d8072a00f5dac49c3f51e96ed50d943269c72a2cd87983d8e52d156"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png",
+   "sha256": "9ea4f401aaccaa10b222c6b2d9729650b270e54f7482ea55b96dcb22fe8cec15"
+  }
+ ],
+ "checks": {
+  "build": "BASE_PATH=/consolation-prize/ npm run build -- clean",
+  "typecheck": "pass",
+  "tests": "236 of 236",
+  "validate": "54 of 55; the one failure is check-flag-order (ACT / T_RACCOON_NAMED), pre-existing and red on main -- reported, never fixed here",
+  "railFrontOnly": "PASS, 18 clicks: never behind the rail, never on a post, trough reachable",
+  "productionShot": "PASS, drawn from dist/, no page errors, nothing failed to load"
+ },
+ "status": "PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED."
+}

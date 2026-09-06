@@ -99,16 +99,18 @@ ng = json.load(open('reference/room-03-candidate/nugget-staging.json'))
 people = [{'id': c['id'], 'label': c['id'].replace('nugget_', ''), 'at': c['at']}
           for c in ng['characters']]
 thads = [{'thad': True, 'label': 'THAD', 'at': [1450, 780]},
-         {'thad': True, 'label': 'THAD', 'at': [600, 700]}]
+         {'thad': True, 'label': 'THAD', 'at': [560, 800]}]
 nugget = compose('art/staging/room-03/corrected-03/plate-cold-dirt.png', ng['curve'],
                  people, thads,
-                 [(505, 300, 'NOBODY AT THE PIANO'), (860, 340, 'the abandoned hand: no fifth chair')])
+                 [(505, 300, 'NOBODY AT THE PIANO'),
+                  (880, 300, "the abandoned hand on the table's near edge: the side with no chair")])
 sheet(f'{OUT}/phase2a-nugget-crowd.webp',
       'PHASE 2A  The Bountiful Nugget, nine runtime patrons, NO ANIMATION',
       [(nugget, 'yellow feet are patrons, blue are Thad at two depths. Nine people: 3 bar, '
                 '4 cards, 1 landing, 1 stove.')],
-      'Every figure is the pre-scaled shipping sheet at the size the engine draws it. '
-      'The piano has nobody at it and the table\'s near edge has nobody on it.')
+      'Every figure is the pre-scaled shipping sheet at the size the engine draws it. Four men '
+      'are round the table with cards in hand, the fifth chair is empty above an abandoned hand, '
+      'the stove man is turned INTO the iron, and the piano has nobody at it.')
 
 # ---- MAIN STREET ------------------------------------------------------------
 st = json.load(open('reference/room-02-candidate/street-staging.json'))

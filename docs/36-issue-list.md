@@ -4092,7 +4092,7 @@ All seven baseline references transmitted on every call, including slot E — Wi
 
 **THE TWO STORY ANCHORS SURVIVED THE SHEET.** The stove man reads as a different *kind* of man from the three drinkers — coat buttoned to the throat, collar up, hands drawn in, standing apart — rather than as bar patron #4. The landing man is the quietest figure on his sheet: no gesture, nothing in his hands but his hat, which is his entire character.
 
-**THE NINE STAND, AND THAT IS A DECISION.** The sheets draw complete men upright, which is what the pipeline requires: a seated pose is *derived* from a canonical design, never generated beside it, and deriving one is a Phase 2B operation. So the four card players stand around their table instead of sitting in its chairs, and the two stool men stand at the counter. Four men standing at a card table is a thing men do; four men standing inside chairs is not. The near edge stays clear either way, so **the abandoned hand still belongs to a man who went outside**.
+**THE NINE STAND, AND THAT IS A DECISION.** *(SUPERSEDED by Q129: the refinement operations authorized for this same phase came back seated, and they are what ships. The near-edge reasoning below still holds.)* The sheets draw complete men upright, which is what the pipeline requires: a seated pose is *derived* from a canonical design, never generated beside it, and deriving one is a Phase 2B operation. So the four card players stand around their table instead of sitting in its chairs, and the two stool men stand at the counter. Four men standing at a card table is a thing men do; four men standing inside chairs is not. The near edge stays clear either way, so **the abandoned hand still belongs to a man who went outside**.
 
 **ONE RECORD DEFECT, WRITTEN DOWN RATHER THAN TIDIED.** The first pie-woman call generated and billed, and then `record()` refused the row because the driver passed role `"character"`, which is not one of the ledger's five. The usage object went with the discarded return value. The row is reconstructed from what survives — the file, the prompt and the references, all re-hashed — and carries a `usageNote` saying its billed tokens are unknown and why. An attempt spent and not recorded is the one thing that ledger exists to prevent.
 
@@ -4101,3 +4101,45 @@ All seven baseline references transmitted on every call, including slot E — Wi
 `renders/opening-set-retrofit/phase2a-nugget-crowd.webp` · `phase2a-street-crowd.webp` · `art/staging/phase2a-extraction.json` · `art/staging/phase2a-sheets.json` · `tests/phase2a-access.test.ts`.
 
 **PHASE 2B HAS NOT BEGUN.**
+
+## Q129 · Opening-set retrofit, phase 2A: the owner-review correction pass — the detail language, the trough, and nine men who were standing in a line — **CORRECTED 2026-09-06, ACCEPTANCE AWAITING TYLER; ONE CATEGORY BLOCKED ON AUTHORIZATION**
+
+Tyler reviewed the deployed rooms and did not accept Phase 2A. The environment work stays accepted and frozen; three failures were named, and this is what happened to each.
+
+**1 · THE NEW CAST WAS DRAWN IN A DIFFERENT LANGUAGE FROM THAD.** Faces more finely modelled, smoother gradients, finer cloth: modern painted illustration reduced into the game rather than authored for it. It had to be fixed at the source, not with a filter.
+
+The measurements could not see it. Colour count, flatness and neighbour step were taken at deployed size for Thad, Winnie and all twelve new figures and they do not separate them — Thad's own sprite carries 494 unique colours per thousand pixels, inside the range the new cast occupies. **Palette size was never the difference.** The difference is how much of a face gets *drawn*, and that is a thing to look at. `tools/art/phase2a-face-compare.py` puts every head side by side at the size the engine draws it, and then again at a matched figure height, which is the comparison that settles it.
+
+One refinement per character and per family, inside the reserves Tyler had already authorized, carrying a STYLE block that names the budget rather than the mood: *a face carries at most the mass of the brow and hair, a shape for each eye, one shadow for the nose, one line for the mouth, one shadow under the jaw* — and **draw it at the size it will be seen**.
+
+| asset | spent / cap | outcome |
+|---|---|---|
+| `street-pie-woman` | 2/2 | keeper. Eyes as shapes, hair as a mass, flat skin |
+| `street-letter-writer` | 2/2 | keeper, station included |
+| `street-map-seller` | 2/2 | keeper |
+| `nugget-card-landing-family` | 2/2 | keeper. Four seated players, the landing man unchanged |
+| `nugget-bar-stove-family` | **3/2 — OVER TYLER'S CEILING BY ONE** | see below |
+
+**WHAT IS STILL WRONG, AND WHY IT IS NOT FIXED.** At a matched figure height the small and mid-depth cast now speaks Thad's language. The two bar men nearest the camera — `nugget_bar_2` at 380 px and `nugget_bar_3` at 494 px — still do not: continuous cheek gradients, individually drawn moustache hairs, a catchlight in the eye, against Thad's hard clumps and flat masses at the same size. `renders/opening-set-retrofit/phase2a-matched-faces.webp` is that comparison. **Correcting them needs one more `nugget-bar-stove-family` operation and that category is already over its authorized ceiling, so it was not spent.** It requires Tyler's authorization. Nothing was done to fake it: they were not blurred, not pixelated, not shrunk and re-enlarged, and they were not moved backwards to hide behind the depth curve, because a near-camera figure is what gives the room its depth and taking it away would be a worse room honestly reached.
+
+**THE OVER-CAP OPERATION, WRITTEN DOWN RATHER THAN TIDIED.** Both Nugget family refinements threw inside `record()` *after* the API had returned and billed, because a `derived-state` row may not descend from a `composition-master`. The card family was diagnosed and recorded. The bar family was **re-run before it was diagnosed**, which billed a third time and overwrote the second call's image — that artifact is gone and its row says `out: NOT RETAINED`. Three calls against a cap of two. The cap has deliberately **not** been raised: at 3/2 the guard blocks the category, which is the correct state for something that needs an owner's decision. `tools/art/staging.mjs` now exports `assertRecordable()` and the driver calls it *before* spending, so a row that cannot be recorded can no longer be billed. This was the fourth occurrence of billed-then-refused and the first one that costs a retained artifact.
+
+**2 · THE PIE WOMAN WAS VISUALLY IN THE TROUGH.** She is restaged to 2380,845 — on open mud in front of the rail, a body's width clear of the trough, with no change to the trough art, the rail art, the front-only rail navigation or the dog. Human visual proof: `phase2a-owner-review-street.webp`, panel 2, Thad standing beside her.
+
+**3 · THE NUGGET READ AS A CASTING LINEUP.** Nine men standing in a row facing front. The refinement generated them *in their occupations* — seated on chairs with cards in hand, seated on a stool at the counter, leaning on the bar with an elbow up, warming his hands — with no furniture drawn, since the room already has furniture, and both feet flat on the ground so the depth curve still places them.
+
+**Q128's paragraph beginning "THE NINE STAND" is superseded.** It reasoned that a seated pose must be *derived* from a canonical design and so belonged to Phase 2B. The refinement operations Tyler had already authorized for this phase were the right place to spend, and they came back seated.
+
+Three staging faults the pictures found that no assertion had:
+
+- **The stove man warmed empty floor.** His hands are drawn open to *his* left, which is screen right; standing at the stove's right side he faced away from the iron with it behind his shoulder. The cut is now drawn mirrored (`mirror` in the staging record — no image operation; the painting is unchanged, it is drawn reversed) and he stands at 1140,508, turned into the fire.
+- **A card player was wearing the stove man.** At 1110,508 he sat directly under the standing figure and lost his head to its coat. He is at 1050,515, on the table's right, between the fourth player and nobody.
+- **A card player was at the piano.** At 690,508 he read to the eye as the leftmost man at the table and to `tests/phase2a-access.test.ts` as a man at the piano, because he was in front of it. A rule that only holds when you squint is not a rule: he is at 762,508 and the piano keeps its empty stool.
+
+The near edge of the table still has no chair and no man, so **the abandoned hand still belongs to somebody who went outside**, and nobody plays the piano.
+
+**THE PROOF IS THE DEPLOYED BUNDLE, NOT A COMPOSITE.** The last pass was reviewed off labelled composites and rejected in the game, correctly: a composite drawn from the staging numbers agrees with the engine by construction. `tools/gauntlet/production-shot.mjs` serves `dist/` the way Pages serves it, walks Thad to named positions and screenshots whole frames; `tools/retrofit/phase2a-owner-review.py` assembles them, downscaled and never cropped. It also stopped calling an aborted transfer a missing asset — the 4.4 MB title score is still streaming when the page closes, and that is this tool tidying up, not the bundle failing.
+
+`renders/opening-set-retrofit/phase2a-owner-review-street.webp` · `phase2a-owner-review-nugget.webp` · `phase2a-matched-faces.webp` · `phase2a-face-compare.webp` · `phase2a-nugget-crowd.webp` · `phase2a-street-crowd.webp` · six `phase2a-production-*.png` frames from the built bundle.
+
+**PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED.**

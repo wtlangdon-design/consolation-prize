@@ -101,20 +101,20 @@ def cut(path, out_dir, names, gap=14, splits=None):
 
 
 JOBS = [
-    ('art/staging/room-02/cast-pie-woman-01/source.png',
-     'art/staging/room-02/cast-pie-woman-01', ['pie-woman'], 14),
+    ('art/staging/room-02/cast-pie-woman-02/source.png',
+     'art/staging/room-02/cast-pie-woman-02', ['pie-woman'], 14),
     # The man and his station are separate objects and are cut apart on purpose:
     # the station is a fixed prop of the room and he is a mover in front of it.
-    ('art/staging/room-02/cast-letter-writer-01/source.png',
-     'art/staging/room-02/cast-letter-writer-01', ['letter-writer', 'letter-writer-station'], 14,
-     [586]),
-    ('art/staging/room-02/cast-map-seller-01/source.png',
-     'art/staging/room-02/cast-map-seller-01', ['map-seller'], 14),
-    ('art/staging/room-03/cast-bar-stove-01/source.png',
-     'art/staging/room-03/cast-bar-stove-01',
+    ('art/staging/room-02/cast-letter-writer-02/source.png',
+     'art/staging/room-02/cast-letter-writer-02', ['letter-writer', 'letter-writer-station'], 14,
+     [588]),
+    ('art/staging/room-02/cast-map-seller-02/source.png',
+     'art/staging/room-02/cast-map-seller-02', ['map-seller'], 14),
+    ('art/staging/room-03/cast-bar-stove-02/source.png',
+     'art/staging/room-03/cast-bar-stove-02',
      ['bar-1', 'bar-2', 'bar-3', 'stove-man'], 20),
-    ('art/staging/room-03/cast-card-landing-01/source.png',
-     'art/staging/room-03/cast-card-landing-01',
+    ('art/staging/room-03/cast-card-landing-02/source.png',
+     'art/staging/room-03/cast-card-landing-02',
      ['card-1', 'card-2', 'card-3', 'card-4', 'landing-man'], 20),
 ]
 

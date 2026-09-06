@@ -4,11 +4,11 @@
  "name": "BAR PATRON 1",
  "note": "The old miner who stopped mining. He stands ON THE BAR STRIP, right of Thad's floor edge, which is where a man at a counter stands; an actor needs no walk box.",
  "room": "nugget_candidate",
- "x": 1300,
- "y": 660,
+ "x": 1232,
+ "y": 645,
  "zone": 1,
  "approachRadius": 40,
- "poseNote": "standing at the counter between the far and middle stools, side on to the room",
+ "poseNote": "SEATED on the far stool, in profile, boots flat on the floor, forearms forward on the counter, a tin cup in one hand. Feet at the stool's own floor row (632) plus a boot's length forward.",
  "sprite": {
   "sheet": "art/actors/cast-nugget-bar-1.png",
   "rate": 1.0,
@@ -16,12 +16,12 @@
    [
     0,
     0,
-    129,
-    358
+    148,
+    269
    ]
   ],
-  "figureHeight": 358,
-  "stature": 1.0,
+  "figureHeight": 269,
+  "stature": 0.78,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },
  "barks": {},
