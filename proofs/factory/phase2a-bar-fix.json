@@ -1,0 +1,166 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A FINAL VISUAL CORRECTION. The ONE additional nugget-bar-stove-family operation Tyler authorized on 2026-09-06 was spent and NOT USED. Nothing from it is in the game; nugget_bar_2 and nugget_bar_3 still carry the defect. Tyler's stopping rule for this case was to stop and report rather than generate again, and that is what happened. Doc 36 Q130.",
+ "commit": "edb11c7953e18e5a2418e68ddcec6bb5eae39f6e",
+ "operation": {
+  "used": true,
+  "assetId": "nugget-bar-stove-family",
+  "attempt": 4,
+  "shape": "masked edit of cast-bar-stove-02/source.png",
+  "promptFile": "proofs/room-03/prompts/bar-stove-family-03.txt",
+  "mask": "art/staging/room-03/cast-bar-stove-03/edit-mask.png",
+  "freeWindow": [
+   405,
+   97,
+   1106,
+   861
+  ],
+  "clearancePx": {
+   "bar-1": 34,
+   "stove-man": 89
+  },
+  "out": "art/staging/room-03/cast-bar-stove-03/source.png",
+  "outputHash": "ee616b9f37df6b738f93af4cb42f55086c238f7b04b18c288ab9e3cb9891096d",
+  "gates": "PASS (technical admissibility only -- gates do not judge content)",
+  "integrated": false,
+  "rejectedWhy": "NOT INTEGRATED AND NOT ANCESTRY. The mask did not confine the edit: the endpoint returned a new two-figure composition at a different scale instead of the source with one window repainted. nugget_bar_3 is absent from the result, the Stove Man is absent (6% of his box is drawn, against 52% before), Bar Patron 1 came back altered though he was outside the free window, and nugget_bar_2 is wearing Thad's coat. The two figures it did draw ARE in the vocabulary the prompt asked for, so the fault is the operation shape and not the writing. Tyler's instruction for this case: stop and report, do not generate again. art/staging/room-03/cast-bar-stove-03/REJECTED.md, doc 36 Q130."
+ },
+ "measured": {
+  "note": "fraction of each figure's ORIGINAL box that is not flat magenta, before and after",
+  "bar-1": {
+   "keep": true,
+   "before": 0.519,
+   "after": 0.516,
+   "butAltered": "67% of the box's pixels differ by more than 16"
+  },
+  "bar-2": {
+   "redraw": true,
+   "before": 0.416,
+   "after": 0.117
+  },
+  "bar-3": {
+   "redraw": true,
+   "before": 0.615,
+   "after": 0.314,
+   "absent": "the moustached man in the bowler is not in the returned image"
+  },
+  "stove-man": {
+   "keep": true,
+   "before": 0.518,
+   "after": 0.059,
+   "absent": "gone"
+  }
+ },
+ "whatDidWork": "The two men the model DID draw are drawn in the vocabulary the prompt asked for -- flat skin masses with hard edges, a shape per eye, no catchlights, facial hair as one mass. The writing landed; the operation shape is what failed.",
+ "recommendationForAnyFutureAuthorization": "Do not ask a mask to protect a figure. Send a source that contains ONLY the men to be redrawn -- one man per operation, or the two cut out and composited onto their own canvas -- so the men who must not change are not in the request. This is a recommendation, not a licence: no further character image operation is authorized anywhere in Phase 2A.",
+ "replaced": {
+  "nugget_bar_2": false,
+  "nugget_bar_3": false
+ },
+ "preserved": {
+  "nugget_bar_1": "yes -- art/actors/cast-nugget-bar-1.png unchanged, from cast-bar-stove-02",
+  "nugget_stove_man": "yes -- art/actors/cast-nugget-stove-man.png unchanged, from cast-bar-stove-02, still mirrored",
+  "allNineSheets": "unchanged",
+  "mainStreet": "untouched"
+ },
+ "staging": {
+  "unchanged": true,
+  "population": {
+   "bar": 3,
+   "cards": 4,
+   "landing": 1,
+   "stove": 1,
+   "total": 9,
+   "piano": 0
+  },
+  "positions": {
+   "nugget_bar_1": [
+    1232,
+    645
+   ],
+   "nugget_bar_2": [
+    1450,
+    700
+   ],
+   "nugget_bar_3": [
+    1790,
+    820
+   ],
+   "nugget_stove_man": [
+    1140,
+    508
+   ],
+   "nugget_card_1": [
+    762,
+    508
+   ],
+   "nugget_card_2": [
+    1050,
+    515
+   ],
+   "nugget_card_3": [
+    822,
+    478
+   ],
+   "nugget_card_4": [
+    982,
+    478
+   ],
+   "nugget_landing_man": [
+    1305,
+    235
+   ]
+  }
+ },
+ "imageOperations": {
+  "spentThisPass": 1,
+  "nuggetBarStoveFamily": {
+   "billed": 4,
+   "cap": 4,
+   "guard": "now refuses"
+  },
+  "nuggetCardLandingFamily": {
+   "billed": 2,
+   "cap": 2
+  },
+  "nuggetPatronGenerationTotal": 6,
+  "totalAttempts": 43,
+  "totalCap": 44,
+  "furtherAuthorized": "NONE anywhere in Phase 2A"
+ },
+ "proof": [
+  {
+   "file": "renders/opening-set-retrofit/phase2a-bar-fix-mask.png",
+   "sha256": "87bc2df898654815bd40b592354d44328c3f46350883a315b5a429b7dd4125b7"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-bar-fix-result.webp",
+   "sha256": "ae652616db54d9c1ecd669c8164009c0a2e4bb2e4f1b703757cf9ad92a845909"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-matched-faces.webp",
+   "sha256": "615e4c010a81983986901d58a261223431d70fbb52236b5c489e211430fa55d2"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-owner-review-nugget.webp",
+   "sha256": "536381adc3af0a4d0a33be242e79cebe5da409ef9a9869b355ea1f1aeefd05a1"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png",
+   "sha256": "2a17420de0b71ad61424056a4a7165bde554b25ae28148807345be0a258cd4b8"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-nugget-candidate-at-560_800.png",
+   "sha256": "38dc69eeeb2a6db293c592335202105632175015aa5c838c580a3a4bda36b08a"
+  }
+ ],
+ "compositionUnchangedProof": "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png was rebuilt and recaptured after the operation and is PIXEL-IDENTICAL to the frame merged before it: 0 pixels differ by more than 8. The Thad frame differs only inside Thad's own bounding box (475,323-643,800), which is his idle animation phase at capture time. Both committed frames are therefore left as they are rather than re-committed as byte-different, pixel-identical PNGs.",
+ "checks": {
+  "build": "BASE_PATH=/consolation-prize/ npm run build -- clean",
+  "typecheck": "pass",
+  "tests": "236 of 236",
+  "validate": "54 of 55; the one failure is check-flag-order (ACT / T_RACCOON_NAMED), pre-existing and red on main -- not touched",
+  "productionShot": "PASS, drawn from dist/, no page errors, nothing failed to load"
+ },
+ "status": "FINAL PHASE 2A VISUAL CORRECTION IS DEPLOYED AND AWAITING OWNER REVIEW. PHASE 2B HAS NOT STARTED."
+}

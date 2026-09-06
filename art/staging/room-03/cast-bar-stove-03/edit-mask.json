@@ -1,0 +1,50 @@
+{
+ "schema": 1,
+ "purpose": "OWNER-AUTHORIZED (Tyler, 2026-09-06): the ONE additional nugget-bar-stove-family operation, a one-time exception over the ceiling of 2, for nugget_bar_2 and nugget_bar_3 ONLY. They are the two figures nearest the camera and the only two still outside Thad's feature vocabulary at matched deployed height.",
+ "source": {
+  "art/staging/room-03/cast-bar-stove-02/source.png": "af57143d0f55401ae6f0d950319e12cb387b34be777f7d537ec15faac3d7e7bc"
+ },
+ "mask": "art/staging/room-03/cast-bar-stove-03/edit-mask.png",
+ "maskSha256": "ba2eb7ddb156fe71b5ff1e2844427fd61fb6877a99de30fac7caebd35a755e5e",
+ "freeWindow": [
+  405,
+  97,
+  1106,
+  861
+ ],
+ "pad": 28,
+ "freed": {
+  "bar-2": [
+   433,
+   128,
+   747,
+   831
+  ],
+  "bar-3": [
+   811,
+   125,
+   1078,
+   833
+  ]
+ },
+ "kept": {
+  "bar-1": [
+   52,
+   251,
+   371,
+   832
+  ],
+  "stove-man": [
+   1195,
+   154,
+   1475,
+   833
+  ]
+ },
+ "clearancePx": {
+  "bar-1": 34,
+  "stove-man": 89
+ },
+ "mustRemainUnchanged": "bar-1 (Bar Patron 1, seated on the stool with his cup) and stove-man (the coat buttoned to the throat, hands open at the iron). Tyler: keep their current retained assets; do not replace them merely because a new sheet offers alternatives.",
+ "diagnostic": "renders/opening-set-retrofit/phase2a-bar-fix-mask.png"
+}

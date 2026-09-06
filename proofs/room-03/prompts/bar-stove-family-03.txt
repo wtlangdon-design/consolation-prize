@@ -1,0 +1,31 @@
+This is a MASKED edit. Only the two men inside the editable window may change: the lean man in the waistcoat leaning on a counter that is not drawn, and the wide moustached man in the bowler hat holding a tin cup. The seated bearded man at the far left and the man in the long coat at the far right are FINISHED and must not be touched.
+
+Redraw those TWO men only. Same two people. Same poses. Same faces, ages, builds, hair, hats, clothes and colours. Same silhouettes to within a few pixels. Nothing about who they are or what they are doing changes.
+
+ONE THING CHANGES: HOW MUCH OF THEM IS DRAWN.
+
+Reference 2 is THAD, the protagonist, at the exact size the game draws him. He is the target and he is not negotiable. These two men stand nearest the camera in their room, so the game draws them larger than anyone else, and at that size they are visibly drawn by a different hand than his. Beside him they read as modern painted portraits; he reads as a hand-drawn 1990s adventure-game sprite. Make that no longer true.
+
+THE SPECIFIC FAULTS TO REMOVE, ALL OF THEM IN THE FACES:
+- Continuous smooth gradients across the cheek, forehead and jaw. Gone. Skin is FLAT MASSES with hard edges between them.
+- Moustache and beard drawn hair by hair. Gone. Facial hair is ONE shape in two tones, with a hard outline. No individual hairs anywhere.
+- Catchlights and modelled eyeballs. Gone. NO highlight in the eye, no iris, no eyelid crease, no lashes, no eye-white shading.
+- Small-scale portrait information generally: nostril interiors, lip modelling, ear cartilage, chin dimples, crow's feet, skin texture, pores, cheek blush. All gone.
+
+THE VOCABULARY TO REPLACE IT WITH — THE WHOLE FACE, AND NOTHING MORE:
+- One broad mass for the hair, and one for the hat if he wears one, each a shape with a hard edge.
+- One brow mass.
+- One simple dark shape per eye. Two or three pixels of it. No more.
+- ONE economical shadow for the nose.
+- ONE line or one compact dark shape for the mouth.
+- ONE shadow under the jaw.
+- Facial hair, where he has it, as ONE shape over the top of that.
+That is the entire face. If a mark would be smaller than the eye shape, it does not exist.
+
+THE SAME ECONOMY IN THE CLOTH AND HANDS: three or four flat tones per garment with hard-edged folds, no weave, no thread, no sheen, no airbrushed shading. Hands are a mass with a thumb, not five modelled fingers with knuckles.
+
+DRAW THEM AS IF THEY WERE SMALL. This is the whole instruction. Do not think of these as the big figures that can therefore afford more rendering — decide every shape as though the finished man were about 200 pixels tall, and then draw those few shapes large and clean on this canvas. Fewer, larger, harder shapes.
+
+KEEP THEM SOLID. This is not a request to blur them, soften them, flatten them into silhouettes, pixelate them, or lower the quality. The form must still read: the arm still turns, the coat still hangs, the hat still sits on a skull, the figure still stands in light coming from one side. Keep the dimensionality and get it with FEWER, HARDER TONAL GROUPINGS instead of with smooth modelling. Crisp edges where two tones meet, never a blur.
+
+Everything else about the image is unchanged: flat MAGENTA #FF00FF background edge to edge, clear magenta between the figures so none touches another, each man complete from the crown of the head to the soles of the boots, and NO furniture, floor or ground shadow drawn anywhere — no bar, no counter, no stool, no rail.

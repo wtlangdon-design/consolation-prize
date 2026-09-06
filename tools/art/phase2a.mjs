@@ -64,8 +64,8 @@ function guard(assetId) {
   return budget;
 }
 
-async function cast({ assetId, subject, role, baselineRoom, promptFile, images, out, size, note,
-  derivedFrom }) {
+async function cast({ assetId, subject, role, baselineRoom, promptFile, images, mask, out, size,
+  note, derivedFrom }) {
   guard(assetId);
   // AND WOULD THE ROW BE ACCEPTED? The cap was always checked before the call
   // and the row never was, so a wrong role cost a whole operation four times.
@@ -73,7 +73,9 @@ async function cast({ assetId, subject, role, baselineRoom, promptFile, images, 
     ...(derivedFrom ? { derivedFrom } : {}) });
   mkdirSync(resolve(ROOT, out.slice(0, out.lastIndexOf('/'))), { recursive: true });
   for (const image of images) say(`  ref ${hashFile(image).slice(0, 12)}  ${image}`);
-  const made = await edit({ promptFile, out, images, size, baselineRoom, purpose: 'character' });
+  if (mask) say(`  mask ${hashFile(mask).slice(0, 12)}  ${mask}`);
+  const made = await edit({ promptFile, out, images, mask, size, baselineRoom,
+    purpose: 'character' });
   say(`  wrote ${made.out}, ${made.bytes} bytes, sha ${made.outputHash.slice(0, 12)}`);
   say(`  transmitted: ${made.references.filter((r) => r.transmitted).length}/${made.references.length}`);
   // THE ROLE IS THE LEDGER'S, NOT A WORD OF OUR OWN. The first pie-woman call
@@ -196,6 +198,44 @@ for (const [key, [assetId, subject, room, dir, size, refs, what]] of Object.entr
       + '0 environment operations.',
   };
 }
+
+// ---- THE ONE OWNER-EXCEPTION OPERATION -------------------------------------
+//
+// Tyler, 2026-09-06, after reviewing the correction pass: exactly ONE more
+// `nugget-bar-stove-family` operation, for `nugget_bar_2` and `nugget_bar_3`
+// only, and keep the current Bar Patron 1 and Stove Man.
+//
+// IT IS MASKED, AND THAT IS THE POINT. "Do not reopen the accepted family
+// members" written into a prompt is a request; the same thing written into a
+// mask is a guarantee, because the endpoint returns the source pixels wherever
+// the mask is opaque. The two accepted men cannot come back different even if
+// the model would have drawn them differently -- which, on a sheet of four
+// where two are being redrawn in a new vocabulary, it certainly would.
+//
+// The window and its clearances are built and asserted by
+// tools/retrofit/phase2a-bar-fix-prep.py from the extraction record's own
+// boxes, so the coordinates the figures were CUT at are the coordinates the
+// mask is drawn from, rather than the same numbers typed a second time.
+JOBS['bar-stove-family-fix'] = {
+  assetId: 'nugget-bar-stove-family', subject: 'nugget-bar-stove-family',
+  role: 'composition-master', baselineRoom: 'room-03-nugget',
+  promptFile: 'proofs/room-03/prompts/bar-stove-family-03.txt',
+  images: ['art/staging/room-03/cast-bar-stove-02/source.png',
+    'art/actors/thad-stand-front/stand-00.png',
+    ...NUGGET.filter((one) => one !== 'art/actors/thad-stand-front/stand-00.png')],
+  mask: 'art/staging/room-03/cast-bar-stove-03/edit-mask.png',
+  size: SHEET,
+  out: 'art/staging/room-03/cast-bar-stove-03/source.png',
+  banner: '\nOWNER EXCEPTION · BAR PATRONS 2 AND 3 ONLY -- masked edit of the -02 sheet\n',
+  note: 'PHASE 2A FINAL VISUAL CORRECTION, the ONE operation Tyler authorized over the ceiling of '
+    + '2 (making this category 4 billed operations, of which attempt 3 was the recorded accidental '
+    + 're-run). MASKED so only nugget_bar_2 and nugget_bar_3 are in play: Bar Patron 1 and the '
+    + 'Stove Man are outside the free window and come back as their own pixels. The defect is '
+    + 'theirs alone -- at matched deployed figure height these two still carry continuous cheek '
+    + 'gradients, individually drawn moustache hairs and catchlights in the eye against Thad\'s '
+    + 'hard clumps and flat masses. 0 environment operations. If this does not solve it, the '
+    + 'instruction is to stop and report, not to generate again.',
+};
 
 const job = JOBS[which];
 if (!job) {

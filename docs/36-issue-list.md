@@ -4143,3 +4143,34 @@ The near edge of the table still has no chair and no man, so **the abandoned han
 `renders/opening-set-retrofit/phase2a-owner-review-street.webp` · `phase2a-owner-review-nugget.webp` · `phase2a-matched-faces.webp` · `phase2a-face-compare.webp` · `phase2a-nugget-crowd.webp` · `phase2a-street-crowd.webp` · six `phase2a-production-*.png` frames from the built bundle.
 
 **PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
+
+## Q130 · Opening-set retrofit, phase 2A: the one owner-authorized bar-patron operation — spent, and not used — **ATTEMPTED 2026-09-06, DEFECT UNRESOLVED, NO FURTHER OPERATION AUTHORIZED**
+
+Tyler authorized exactly one additional `nugget-bar-stove-family` operation, over the ceiling of 2, for `nugget_bar_2` and `nugget_bar_3` only: the two figures nearest the camera, and the only two still outside Thad's feature vocabulary at matched deployed height. He named the failures precisely — continuous cheek gradients, individually rendered moustache hairs, eye catchlights, too much small-scale portrait information — and the vocabulary to replace them with. He also set the stopping rule: **if the operation does not solve the problem, stop and report rather than generating again.**
+
+**IT DID NOT SOLVE THE PROBLEM. Nothing from it is in the game.** The nine patrons are the ones that were already merged, and the two men still carry the defect.
+
+**THE OPERATION WAS MASKED, TO MAKE "KEEP BAR PATRON 1 AND THE STOVE MAN" STRUCTURAL.** A prompt asking a model to leave two of four men alone is a request; a mask is a guarantee, because the endpoint returns source pixels wherever the mask is opaque. The free window was built from the extraction record's own boxes — the coordinates the figures were *cut* at, rather than the same numbers typed a second time — and its clearances were asserted before the call: 701×764, 34 px to Bar Patron 1, 89 px to the Stove Man.
+
+**THE MASK DID NOT HOLD.** What came back was a new two-figure composition at a different scale, in none of the four original places.
+
+| figure | own box, drawn before → after | |
+|---|---|---|
+| `bar-1` | 52% → 52% | KEEP — but not the same man: 67% of the box differs by more than 16 |
+| `bar-2` | 42% → 12% | redraw — he moved |
+| `bar-3` | 62% → 31% | redraw — **not in the returned image at all** |
+| `stove-man` | 52% → **6%** | KEEP — **gone** |
+
+`nugget_bar_2` also came back wearing Thad's long blue-grey coat, which is not his costume.
+
+**THE PROMPT IS NOT WHAT FAILED, AND THAT IS THE USEFUL PART.** The two men the model *did* draw are drawn in the vocabulary that was asked for: flat skin masses with hard edges, a shape per eye, no catchlights, facial hair as one mass. The writing landed. What failed is the **shape of the operation**. Twelve earlier masked edits in this project held their unmasked regions, so the convention is right (alpha 0 is the free window); what is new here is a free window that is a large rectangle of flat backdrop *between separate figures*, rather than a patch of continuous scenery. The endpoint read it as "compose this scene again".
+
+**SO A FUTURE AUTHORIZED ATTEMPT SHOULD NOT ASK A MASK TO PROTECT A FIGURE.** It should send a source containing only the men to be redrawn — one man per operation, or the two of them cut out and composited onto their own canvas — so the men who must not change are not in the request at all. That is a recommendation and not a licence: **no further character image operation is authorized anywhere in Phase 2A.**
+
+**WHAT IS TRUE OF THE GAME RIGHT NOW.** Unchanged from the merge before this: nine patrons — 3 bar, 4 cards, 1 landing, 1 stove — in their occupational poses, the abandoned hand on the table's near edge, nobody at the piano and its stool empty, the stove man mirrored and turned into the iron, Thad's depth calibration as accepted. Main Street untouched. The one open visual defect is `nugget_bar_2` and `nugget_bar_3`.
+
+**THE LEDGER, HARD.** `nugget-bar-stove-family` is 4 billed operations: 1 sheet, 1 refinement, 1 recorded accidental re-run, 1 owner-authorized correction. Nugget patron generation is 6 across the two families. 43 attempts of 44. The cap stands at 4 and the guard now refuses the category.
+
+`art/staging/room-03/cast-bar-stove-03/REJECTED.md` · `renders/opening-set-retrofit/phase2a-bar-fix-result.webp` · `phase2a-bar-fix-mask.png` · `tools/retrofit/phase2a-bar-fix-prep.py` · `tools/retrofit/phase2a-bar-fix-result.py` · `proofs/room-03/prompts/bar-stove-family-03.txt`.
+
+**PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
