@@ -2,7 +2,7 @@
  "schema": 1,
  "room": "nugget_candidate",
  "plate": "art/staging/room-03/clean-plate-02/candidate-1920x864.png",
- "note": "SEPARATION PLAN FOR THE NUGGET CLEAN-PLATE CANDIDATE (phase 1 \u00a713). Zero people are baked into this plate; every person the room needs is listed below as a zone for a separate actor. Nothing is cut yet; every rect is in the plate's 1920x864 space.",
+ "note": "SEPARATION PLAN FOR THE NUGGET CLEAN-PLATE CANDIDATE (phase 1 \u00a713). Zero people are baked into this plate; every person the room needs is listed below as a zone for a separate actor. Nothing is cut yet; every rect is in the plate's 1920x864 space. PHASE 1.5 (doc 36 Q117): the actor zones below are re-cut to Tyler's binding ruling of NINE visible runtime patrons (3 bar, 4 card table, 1 landing, 1 stove), no piano player, the abandoned hand's owner absent, Deke and the raccoon reserved. Zones only; nobody is generated.",
  "bakedArchitecture": [
   "the street wall with the batwing doors (40-300) and the window (375-500); the door lamp between them, painted lit",
   "the far wall: the piano (505-705), the empty card table and its four chairs (720-1080), the portrait (968-1048), the stove and its pipe (1058-1128), the back-room door under the landing (1130-1195), the stairs (1200-1420)",
@@ -168,37 +168,155 @@
  ],
  "actorZones": [
   {
-   "who": "card_players (four)",
-   "status": "RECAST, deferred to phase 2",
+   "who": "bar_1",
+   "status": "RESERVED, Phase 2 recast",
    "zone": [
-    720,
-    335,
-    360,
-    165
+    1160,
+    440,
+    120,
+    245
    ],
-   "note": "seated in the four chairs; drawn BEHIND the table's near edge and in front of its far edge, which makes the table itself a two-plane prop once they exist"
+   "feet": [
+    1220,
+    685
+   ],
+   "pose": "seated on stool 1, back to the room, elbows on the counter",
+   "note": "outside Thad's floor (his right edge passes 1170 at y 690)"
   },
   {
-   "who": "bar_drinkers (three)",
-   "status": "RECAST, deferred to phase 2",
+   "who": "bar_2",
+   "status": "RESERVED, Phase 2 recast",
    "zone": [
-    1150,
-    560,
-    500,
-    280
+    1275,
+    470,
+    95,
+    250
    ],
-   "note": "standing at the counter between the stools, feet on the line 1180/680 to 1600/830; in the bar lamps' field"
+   "feet": [
+    1320,
+    718
+   ],
+   "pose": "standing at the counter between stools 1 and 2, one boot on the rail",
+   "note": "on the bar strip, right of the floor edge"
   },
   {
-   "who": "barman",
-   "status": "not yet classified; doc 07",
+   "who": "bar_3",
+   "status": "RESERVED, Phase 2 recast",
    "zone": [
-    1300,
-    430,
-    500,
-    90
+    1550,
+    520,
+    150,
+    315
    ],
-   "note": "behind the counter, masked to the waist by it (occluder counter_near_end)"
+   "feet": [
+    1625,
+    832
+   ],
+   "pose": "seated on stool 3, the near one, half turned toward the room",
+   "note": "the nearest and largest figure in the room after Thad; in the bar lamps' field"
+  },
+  {
+   "who": "card_1",
+   "status": "RESERVED, Phase 2 recast",
+   "zone": [
+    712,
+    325,
+    95,
+    180
+   ],
+   "feet": [
+    760,
+    500
+   ],
+   "pose": "seated, left chair, facing right across the table"
+  },
+  {
+   "who": "card_2",
+   "status": "RESERVED, Phase 2 recast",
+   "zone": [
+    985,
+    325,
+    100,
+    180
+   ],
+   "feet": [
+    1035,
+    500
+   ],
+   "pose": "seated, right chair, facing left"
+  },
+  {
+   "who": "card_3",
+   "status": "RESERVED, Phase 2 recast",
+   "zone": [
+    795,
+    312,
+    95,
+    160
+   ],
+   "feet": [
+    842,
+    470
+   ],
+   "pose": "seated, back-left chair, facing us over his cards"
+  },
+  {
+   "who": "card_4",
+   "status": "RESERVED, Phase 2 recast",
+   "zone": [
+    900,
+    312,
+    95,
+    160
+   ],
+   "feet": [
+    947,
+    470
+   ],
+   "pose": "seated, back-right chair, facing us"
+  },
+  {
+   "who": "landing_man",
+   "status": "RESERVED, Phase 2 recast -- STORY ANCHOR",
+   "zone": [
+    1335,
+    10,
+    95,
+    160
+   ],
+   "feet": [
+    1382,
+    168
+   ],
+   "pose": "standing on the landing at the head of the stairs, one hand on the rail, looking at nothing",
+   "life": "NEAR-STILLNESS IS THE CHARACTER. 'There is a man on the landing. There is always a man on the landing.' / 'He has not moved.' A blink, a breath, once in a long while a shift of weight. Never a busy idle; errata 19b: he must not move."
+  },
+  {
+   "who": "stove_man",
+   "status": "RESERVED, Phase 2 recast -- STORY ANCHOR",
+   "zone": [
+    1130,
+    295,
+    95,
+    215
+   ],
+   "feet": [
+    1178,
+    507
+   ],
+   "pose": "standing beside the stove, right of it, coat on, hands toward the iron",
+   "life": "'There is a man beside it who has not taken his coat off since I arrived in this territory.' His relationship to the stove must read: turned to it, warmed by it (in the stove's mover field), never wandering to the bar. Not interchangeable with a bar patron."
+  },
+  {
+   "who": "absent_player (the abandoned hand)",
+   "status": "NOBODY. Constraint, not a zone.",
+   "zone": [
+    850,
+    362,
+    120,
+    42
+   ],
+   "note": "THE HAND OF CARDS lies at the table's NEAR edge (860-960 x 368-398), the side that has no chair: the fifth place, the absent man's. Four chairs are occupied; the near side stays empty and the hand stays face up on it. No tenth figure ever owns it. 'I have decided he is coming back.'"
   },
   {
    "who": "deke_vessel",
@@ -209,7 +327,11 @@
     120,
     320
    ],
-   "note": "at the near end of the bar, feet about y 700, in the stove's and the bar lamps' light"
+   "feet": [
+    1150,
+    700
+   ],
+   "note": "at the near end of the bar, feet about y 700, in the stove's and the bar lamps' light; below and in front of the stove man, who stands at the far wall at y 507"
   },
   {
    "who": "raccoon",
@@ -225,7 +347,7 @@
   {
    "who": "thad",
    "status": "FROZEN",
-   "note": "Tyler's anchors carried: 198 at the far wall, 459 at the frame's foot; the plate's own furniture argues for taller (see the annotation's scaling note) and that is a review question, not a change"
+   "note": "Tyler's anchors carried: 198 at the far wall, 459 at the frame's foot. KNOWN PHASE 2 SCALE CALIBRATION STILL REQUIRED: the plate's furniture argues ~330 at the back; the dirt floor does not change that reading (the furniture and the doorway set it, not the floor)."
   }
  ],
  "dialogueApproachZones": [
@@ -281,5 +403,23 @@
    "status": "NOT WRITTEN: the Nugget has no day state in any document."
   }
  ],
- "patronZoneDiagnostic": "renders/opening-set-retrofit/nugget-patron-zones-diagnostic.png -- the zones above drawn over the clean plate, SEPARATE from the review sheets so the clean plate is judged clean."
+ "patronZoneDiagnostic": "renders/opening-set-retrofit/nugget-patron-zones-diagnostic.png -- zone markers only, no people, apart from the review sheets.",
+ "ownerRuling": {
+  "visiblePatrons": 9,
+  "composition": {
+   "bar": 3,
+   "cardTable": 4,
+   "stairLanding": 1,
+   "stove": 1
+  },
+  "supersedes": [
+   "the Phase 2 working target of about seven",
+   "doc 16's 'eleven men' where it conflicts with this staging",
+   "errata 19b's table row 'Eleven drinkers -> 4' as a count"
+  ],
+  "pianoPlayer": "NONE, ever: the piano's comedy is that nobody plays it and nobody touches it",
+  "allRuntime": true,
+  "noHumanBaked": true
+ },
+ "abandonedHandSolution": "Four occupied positions: left chair, right chair, two back chairs (all four chairs the plate paints). The table's near edge has no chair and the face-up hand lies there: the absent player's place, unoccupied by construction. No furniture change. Phase 2 casts four seated players whose hands are their own; the abandoned hand stays the hotspot it is."
 }

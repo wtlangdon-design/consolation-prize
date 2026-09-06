@@ -17,6 +17,7 @@ import { liveCycling, mappingAt, resolve, sameMapping } from '../core/PaletteCyc
 import { BitmapFont, GLYPH_SCALE, type Face } from '../render/BitmapFont.ts';
 import { appliedCandidates, askedCandidates, resolveAssetPath } from '../dev/CandidateArt.ts';
 import { askedFixture } from '../dev/Fixture.ts';
+import { askedObjectStates } from '../dev/ObjectStates.ts';
 import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
@@ -299,6 +300,15 @@ export class GameScene extends Phaser.Scene {
     if (warp) {
       this.state.enterRoom(warp);
       this.enterRoomPerformance(null);
+    }
+    // `?objects=stove=out`: named objects in named states, for review (doc 36 Q117).
+    for (const [id, wanted] of Object.entries(askedObjectStates())) {
+      const target = this.state.targets.find((candidate) => candidate.id === id);
+      if (!target || !target.states?.[wanted]) {
+        console.warn(`?objects: ${id}=${wanted} names no such object state in ${this.state.roomId}`);
+        continue;
+      }
+      this.state.setState(target, wanted);
     }
 
     this.beginOpening();

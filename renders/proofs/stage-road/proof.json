@@ -4,7 +4,7 @@
  "room": "stage_road",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "21f9d49216800430883f8f0aae345fbb3a83f4f2",
+ "commit": "e43620c3705545bdc71abd50bdca6c284f72a2f0",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -110,7 +110,7 @@
   {
    "panel": "B",
    "room": "stage_road",
-   "clock": 47.440400000000004,
+   "clock": 46.381,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -139,7 +139,7 @@
      "height": 263,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-04.png",
+     "from": "art/actors/thad-idle-left/idle-01.png",
      "bounds": [
       1283,
       567,
@@ -160,7 +160,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idle-right/idle-04.png",
+     "from": "art/actors/hob-idle-right/idle-01.png",
      "bounds": [
       503,
       490,
@@ -181,7 +181,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idle-right/idle-10.png",
+     "from": "art/actors/coach-idle-right/idle-07.png",
      "bounds": [
       2509,
       353,
@@ -224,15 +224,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-05T21:15:46.378Z",
+   "capturedAt": "2026-09-06T00:11:02.276Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "fd0c05e32a72626e41010c23dff739a969aeba64b3ffb3f2ff86515a6095cbaf"
+   "hash": "5d5f8f35571b8eac09c643d4c52b8513d1660677ec3b739c003a83520f44431e"
   },
   {
    "panel": "A",
    "room": "stage_road",
-   "clock": 48.357099999999996,
+   "clock": 47.414300000000004,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -289,7 +289,7 @@
       742
      ],
      "facing": "right",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 389,
      "moving": false,
      "drawn": "sprite",
@@ -333,15 +333,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-05T21:15:47.281Z",
+   "capturedAt": "2026-09-06T00:11:03.197Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "30c1ef9511d222b1c7b75bb0a21ad52984cf560d4a3360e56cda17c7d7bae13f"
+   "hash": "729505a965df0b3a921ef652a3a9927b09f53e7e33ee1dae782469b8d7a18273"
   },
   {
    "panel": "D",
    "room": "stage_road",
-   "clock": 60.5733,
+   "clock": 59.5472,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -375,7 +375,7 @@
      "height": 263,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-03.png",
+     "from": "art/actors/thad-idle-left/idle-01.png",
      "bounds": [
       1023,
       575,
@@ -396,7 +396,7 @@
      "height": 230,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/hob-idlebreak-right/idle-break-08.png",
+     "from": "art/actors/hob-idlebreak-right/idle-break-07.png",
      "bounds": [
       503,
       490,
@@ -417,7 +417,7 @@
      "height": 389,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/coach-idlebreak-right/idle-break-12.png",
+     "from": "art/actors/coach-idle-right/idle-13.png",
      "bounds": [
       2509,
       353,
@@ -461,10 +461,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-09-05T21:15:59.517Z",
+   "capturedAt": "2026-09-06T00:11:15.438Z",
    "intent": "principal changed state: THE CASE COMES OUT OF THE MUD. Doc 17 makes picking it up the game's first PICK UP, and it is the only change to Room 1 still available once the opening has handed over -- the coach has already departed by then, which is what the first version of this spec got wrong: it declared T_COACH_DEPARTED and the route had set it four actions earlier, so panel D was panel B with a different filename.\n\nIt is an ACTION rather than a flag because that is what it is. `case_mud`'s PICK UP carries `take: true`, and GameState.targets filters out anything the actor owns -- doc 22 item 9, taking something is an ownership change -- so the hotspot is simply gone afterwards. The panel shows a road with no case in it, which is the state the rest of Act I is played in.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "6e2bab228e3233fc4275cac740b663c52ab0c5d73a2e6eb4f73f9050bc54b371",
+   "hash": "76b2bdb010f4b6238694fa664c7d3df67dd40ebcc249abce87bc7a81cb4ecd62",
    "changedBy": "flags, inventory"
   }
  ],
@@ -495,11 +495,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-05T21:15:59.517Z",
+ "at": "2026-09-06T00:11:15.438Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 419722,
+  "bytes": 419824,
   "panels": 5,
   "scale": 0.5
  }

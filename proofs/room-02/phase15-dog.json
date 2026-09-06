@@ -1,0 +1,41 @@
+{
+ "schema": 1,
+ "note": "THE DOG (Phase 1.5 section 5): was the double draw real, and where does he lie now.",
+ "duplicateDrawReal": false,
+ "rootCause": "ONE sprite, drawn ONCE. The candidate room lists the ambient id once; the renderer draws each present ambient once per frame; the candidate plate paints no dog (crop of the plate at the rail: rail only). His shipping position (2628,765) coincided with the candidate's east hitching rail (x 2320-2680, y 700-810), so the sleeping dog lay along the top rail with its bar crossing him -- which read as a dog perched on a fence, and his curled silhouette over the bar read as two forms.",
+ "roomAmbientList": [
+  "dog",
+  "letter_writer",
+  "map_seller",
+  "pie_woman"
+ ],
+ "dogListedTimes": 1,
+ "plateHasBakedDog": false,
+ "placement": {
+  "shipping": [
+   2628,
+   765
+  ],
+  "candidate": {
+   "x": 2765,
+   "y": 775,
+   "zone": 0
+  },
+  "mechanism": "AmbientFile.placements[roomId] (engine/core/Ambient.ts present getter)"
+ },
+ "baseline": "feet at y 775 on the mud_mid band, on open ground east of the rail's end post (x 2680), in front of the saloon's boardwalk",
+ "hotspotRect": [
+  2700,
+  720,
+  130,
+  60
+ ],
+ "occlusion": "none needed: he no longer overlaps the rail; the rail remains a planned occluder (plane 1, mask uncut) for a figure that walks behind it",
+ "artUnchanged": true,
+ "scaleNote": "113 px nose to tail at y 775 where a man is ~235: a small dog, plausible; not recast (Phase 2 decides his life and, if needed, his size)",
+ "captureProof": {
+  "file": "renders/proofs/candidates/main-street/raw-captures-ignored/c01-arrival-east-end.png",
+  "hash": "eea8285603fc421457df4015e57f9e920d4670fe885f049605294f850245fd57",
+  "camera": 1690
+ }
+}

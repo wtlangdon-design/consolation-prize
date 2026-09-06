@@ -1,0 +1,69 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5 -- ASSEMBLE THE CORRECTED NUGGET BASE PLATE (doc 36 Q117).\n\n    python3 tools/retrofit/nugget-floor-restore.py\n\nTakes the accepted clean plate (clean-plate-02) as the base, lays the floor\noperation's result (floor-01) over it ONLY where the floor mask says floor and\nthe source says \"not furniture\", puts the stove out (its fire lifted into a\nlit-state overlay), and writes art/staging/room-03/corrected-01/\nplate-cold-dirt.png with a byte-level record: every pixel outside the floor\nmask is the accepted plate's own, and inside it every furniture pixel is the\naccepted plate's own. Whatever the model did to a stool is undone.",
+ "inputs": {
+  "art/staging/room-03/clean-plate-02/candidate-1920x864.png": "12e4efa55dafc48b6038384ac0fcc69b74fbc25a30e5617a7257be33ef99298f",
+  "art/staging/room-03/floor-01/candidate-1920x864.png": "8756a7092cceb4ba7b45582b479666af7409184c409385c8898b3deb3f5d657c",
+  "art/staging/room-03/floor-01/floor-mask-plate.png": "b1a5206521aaeb8f48bcca82a5d54c071ae43e44418e51d11b34a3090970ad56"
+ },
+ "output": {
+  "art/staging/room-03/corrected-01/plate-cold-dirt.png": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+ },
+ "furnitureBoxes": {
+  "stool_1": [
+   1170,
+   490,
+   1285,
+   690
+  ],
+  "stool_2": [
+   1320,
+   535,
+   1440,
+   750
+  ],
+  "stool_3": [
+   1555,
+   610,
+   1710,
+   840
+  ],
+  "spittoon": [
+   1390,
+   755,
+   1500,
+   864
+  ],
+  "piano_stool": [
+   630,
+   405,
+   725,
+   505
+  ],
+  "chair_feet": [
+   710,
+   425,
+   1090,
+   520
+  ]
+ },
+ "furniturePixelsRestored": 70056,
+ "floorPixelsTaken": 437488,
+ "changedOutsideFloorAndFirebox": 0,
+ "changedInsideFurniture": 0,
+ "stove": {
+  "firebox": [
+   1070,
+   312,
+   1108,
+   356
+  ],
+  "overlay": "art/staging/room-03/corrected-01/stove-fire-overlay.png",
+  "firePixels": 713
+ },
+ "imageOperations": {
+  "nugget-floor": 1,
+  "nugget-stove": 0
+ },
+ "modelDriftOutsideMaskUndone": 604050
+}

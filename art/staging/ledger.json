@@ -2875,6 +2875,155 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-05T20:43:23.596Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/dirt-floor-01.txt",
+   "promptHash": "dab41a4fddfef12a313dcb4368cfdf0c3ca0279851fbbf80e0b99a26ed9eb579",
+   "references": [
+    {
+     "path": "art/staging/room-03/clean-plate-source-02.png",
+     "hash": "a31ca89982fc7a98018aed21c7c33d8417df3c9ff4dd4ebdeede8fad60e255e4",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "plate",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-03/floor-01/edit-mask.png",
+    "hash": "7d3e1978d3673dfe31b0d7dfe4d415f0c9e8ce120e77c573054d0089928daf06"
+   },
+   "sourceHash": "a31ca89982fc7a98018aed21c7c33d8417df3c9ff4dd4ebdeede8fad60e255e4",
+   "sourcePath": "art/staging/room-03/clean-plate-source-02.png",
+   "out": "art/staging/room-03/floor-source-01.png",
+   "outputHash": "cc42c776940afefc8e153d24b5da9dcfb55e672513f03169df62123dc08552a1",
+   "bytes": 2043577,
+   "usage": {
+    "input_tokens": 8807,
+    "input_tokens_details": {
+     "image_tokens": 8528,
+     "text_tokens": 279
+    },
+    "output_tokens": 343,
+    "output_tokens_details": {
+     "image_tokens": 343,
+     "text_tokens": 0
+    },
+    "total_tokens": 9150
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-05T23:50:14.954Z",
+   "assetId": "nugget-floor",
+   "subject": "room-03-nugget",
+   "editedFrom": "art/staging/room-03/clean-plate-source-02.png",
+   "maskRecord": "art/staging/room-03/floor-01/floor-op.json",
+   "note": "OPENING-SET RETROFIT PHASE 1.5: canon correction -- the Nugget has a DIRT floor (doc 05, doc 16). Masked to the main floor only; furniture inside the mask restored from the source afterwards. The owner-authorized 1 of 1 for the floor.",
+   "gates": {
+    "path": "art/staging/room-03/floor-source-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-05T23:50:15.056Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-05T23:50:14.956Z"
   }
  ],
  "promotions": [

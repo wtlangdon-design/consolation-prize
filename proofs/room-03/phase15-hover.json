@@ -1,0 +1,159 @@
+{
+ "schema": 1,
+ "note": "NUGGET GEOMETRY ON THE CORRECTED PLATE (Phase 1.5 section 18): the same hover probe as Phase 1, on nugget_candidate with art/staging/room-03/corrected-01/plate-cold-dirt.png. No rect moved (the correction is the floor's material and the stove's firebox); every drawn subject still answers its own name.",
+ "plate": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+ "plateSha256": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec",
+ "hover": [
+  {
+   "label": "drawn handbill",
+   "at": [
+    344,
+    306
+   ],
+   "hovered": "THE HANDBILL",
+   "id": "handbill",
+   "camera": null
+  },
+  {
+   "label": "drawn window",
+   "at": [
+    437,
+    245
+   ],
+   "hovered": "THE WINDOW",
+   "id": "window",
+   "camera": null
+  },
+  {
+   "label": "drawn piano",
+   "at": [
+    605,
+    387
+   ],
+   "hovered": "THE PIANO",
+   "id": "piano",
+   "camera": null
+  },
+  {
+   "label": "drawn chandelier",
+   "at": [
+    945,
+    77
+   ],
+   "hovered": "THE CHANDELIER",
+   "id": "chandelier",
+   "camera": null
+  },
+  {
+   "label": "drawn stove",
+   "at": [
+    1093,
+    277
+   ],
+   "hovered": "THE STOVE",
+   "id": "stove",
+   "camera": null
+  },
+  {
+   "label": "drawn stairs",
+   "at": [
+    1310,
+    215
+   ],
+   "hovered": "THE STAIRS",
+   "id": "stairs",
+   "camera": null
+  },
+  {
+   "label": "drawn mirror",
+   "at": [
+    1725,
+    190
+   ],
+   "hovered": "THE MIRROR",
+   "id": "mirror",
+   "camera": null
+  },
+  {
+   "label": "drawn spittoon",
+   "at": [
+    1445,
+    812
+   ],
+   "hovered": "THE SPITTOON",
+   "id": "spittoon",
+   "camera": null
+  },
+  {
+   "label": "drawn patrons",
+   "at": [
+    900,
+    417
+   ],
+   "hovered": "THE PATRONS",
+   "id": "patrons",
+   "camera": null
+  },
+  {
+   "label": "drawn portrait",
+   "at": [
+    1008,
+    220
+   ],
+   "hovered": "THE FADED PORTRAIT",
+   "id": "portrait",
+   "camera": null
+  },
+  {
+   "label": "drawn cards",
+   "at": [
+    910,
+    383
+   ],
+   "hovered": "THE HAND OF CARDS",
+   "id": "cards",
+   "camera": null
+  },
+  {
+   "label": "drawn front_doors",
+   "at": [
+    170,
+    350
+   ],
+   "hovered": "THE FRONT DOORS",
+   "id": "front_doors",
+   "camera": null
+  },
+  {
+   "label": "drawn back_room_door",
+   "at": [
+    1162,
+    315
+   ],
+   "hovered": "THE BACK ROOM DOOR",
+   "id": "back_room_door",
+   "camera": null
+  },
+  {
+   "label": "drawn bar counter",
+   "at": [
+    1500,
+    450
+   ],
+   "hovered": "THE BAR",
+   "id": "bar",
+   "camera": null
+  },
+  {
+   "label": "drawn spittoon",
+   "at": [
+    1445,
+    800
+   ],
+   "hovered": "THE SPITTOON",
+   "id": "spittoon",
+   "camera": null
+  }
+ ],
+ "result": "15 of 15 points answer a name; each the drawn subject's own"
+}

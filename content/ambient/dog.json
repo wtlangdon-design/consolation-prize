@@ -28,5 +28,13 @@
   "rate": 0.35,
   "phase": 0.15
  },
- "barks": {}
+ "barks": {},
+ "placements": {
+  "main_street_candidate": {
+   "x": 2765,
+   "y": 775,
+   "zone": 0
+  }
+ },
+ "placementsNote": "PHASE 1.5 (doc 36 Q117): on the Main Street candidate his shipping x,y (2628,765) put him ON the east hitching rail the new plate has at x 2320-2680, y 700-810 -- one sprite, drawn once, lying along the top rail. Here he lies in the mud just east of the rail's end post, in front of the saloon's boardwalk, on open ground. The shipping room's x,y is untouched."
 }

@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "main_street_candidate",
- "note": "MAIN STREET CANDIDATE REVIEW ROUTE (phase 1): accepted Thad at far/mid/near, the assay-office exterior, the saloon, the practical-light pools, the near rails. Legacy actors are placed for context only. WALK CLICKS SIT IN THE MUD (y >= 650): the boardwalk hotspot covers y 560-640 across the whole street, and a click there is LOOK AT, which walks him to the hotspot's centre (x 1695) -- which is where the first run found him three captures in a row. Westward clicks are chained so each is on screen for the camera it starts from.",
+ "note": "MAIN STREET PHASE 1.5 PROOF ROUTE (doc 36 Q117): the corrected environment with the accepted Thad. The dog east of the rail, the trough beside it (LOOK AT proves the hotspot; a stand on the far mud proves it occludes), the framed notices, the lettered sign at the west end. Walk clicks sit in the mud (y >= 646): the boardwalk hotspot covers y 560-640 and a click there is LOOK AT. Legacy ambient figures ride along for context only. Westward clicks are chained 1300 -> 900 -> 600 because the camera follows Thad in a dead zone and a world x off the current screen cannot be clicked.",
  "actions": [
   {
    "do": "wait",
@@ -13,29 +13,38 @@
    "room": "main_street_candidate"
   },
   {
-   "do": "click",
-   "world": [
-    3180,
-    655
-   ],
-   "why": "far: the mud edge at the assay office door"
+   "do": "verb",
+   "verb": "LOOK_AT"
   },
   {
-   "do": "wait",
-   "seconds": 8
+   "do": "click",
+   "on": "dog",
+   "why": "the dog, east of the rail"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
   },
   {
    "do": "capture",
-   "name": "c02-thad-far-assay-office",
-   "room": "main_street_candidate"
+   "name": "c02-look-dog",
+   "room": "main_street_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 5
   },
   {
    "do": "click",
    "world": [
-    2595,
-    655
+    2160,
+    730
    ],
-   "why": "far: below the saloon doors, in the pool"
+   "why": "in front of the trough, mud_mid"
   },
   {
    "do": "wait",
@@ -43,16 +52,42 @@
   },
   {
    "do": "capture",
-   "name": "c03-saloon-doors-in-pool",
+   "name": "c03-thad-before-trough",
    "room": "main_street_candidate"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "water_trough",
+   "why": "the trough"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "c04-look-trough",
+   "room": "main_street_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 5
   },
   {
    "do": "click",
    "world": [
-    2200,
-    740
+    2160,
+    646
    ],
-   "why": "middle depth, between pools"
+   "why": "behind the trough, mud_far: it occludes his legs"
   },
   {
    "do": "wait",
@@ -60,24 +95,7 @@
   },
   {
    "do": "capture",
-   "name": "c04-thad-mid",
-   "room": "main_street_candidate"
-  },
-  {
-   "do": "click",
-   "world": [
-    2000,
-    850
-   ],
-   "why": "near depth"
-  },
-  {
-   "do": "wait",
-   "seconds": 8
-  },
-  {
-   "do": "capture",
-   "name": "c05-thad-near",
+   "name": "c05-thad-behind-trough",
    "room": "main_street_candidate"
   },
   {
@@ -86,16 +104,37 @@
     1705,
     655
    ],
-   "why": "the notice board, with the letter-writer for legacy context"
+   "why": "the notice board"
   },
   {
    "do": "wait",
    "seconds": 10
   },
   {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "posted_notices",
+   "why": "the framed board"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
    "do": "capture",
-   "name": "c06-notice-board",
-   "room": "main_street_candidate"
+   "name": "c06-look-notices",
+   "room": "main_street_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 5
   },
   {
    "do": "click",
@@ -103,7 +142,7 @@
     1300,
     700
    ],
-   "why": "westward, on screen from the notice board"
+   "why": "westward, on screen"
   },
   {
    "do": "wait",
@@ -113,18 +152,51 @@
    "do": "click",
    "world": [
     900,
-    655
+    700
    ],
-   "why": "the trough and the Company, in its window light"
+   "why": "westward again: the camera follows in a dead zone, so 600 is off screen from 1300"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "click",
+   "world": [
+    600,
+    700
+   ],
+   "why": "the Company, in its window light"
   },
   {
    "do": "wait",
    "seconds": 12
   },
   {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "company_sign",
+   "why": "the lettered sign"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
    "do": "capture",
-   "name": "c07-trough-company",
-   "room": "main_street_candidate"
+   "name": "c07-look-sign",
+   "room": "main_street_candidate",
+   "assert": {
+    "speaker": "thad"
+   }
+  },
+  {
+   "do": "wait",
+   "seconds": 5
   },
   {
    "do": "click",
@@ -132,24 +204,7 @@
     300,
     850
    ],
-   "why": "the near west rail, in front of it"
-  },
-  {
-   "do": "wait",
-   "seconds": 10
-  },
-  {
-   "do": "capture",
-   "name": "c08-near-west-rail",
-   "room": "main_street_candidate"
-  },
-  {
-   "do": "click",
-   "world": [
-    700,
-    655
-   ],
-   "why": "behind the west rail on the mud edge"
+   "why": "the near west rail"
   },
   {
    "do": "wait",
@@ -157,16 +212,16 @@
   },
   {
    "do": "capture",
-   "name": "c09-behind-west-rail",
+   "name": "c08-near-west-rail",
    "room": "main_street_candidate"
   },
   {
    "do": "wait",
-   "seconds": 30
+   "seconds": 20
   },
   {
    "do": "capture",
-   "name": "c10-idle-30",
+   "name": "c09-idle-20",
    "room": "main_street_candidate"
   }
  ]

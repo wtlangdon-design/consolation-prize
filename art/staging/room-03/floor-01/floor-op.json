@@ -1,0 +1,48 @@
+{
+ "note": "THE ONE AUTHORIZED FLOOR OPERATION (Tyler, Phase 1.5 section 10): a narrowly masked edit of the clean plate's SOURCE (clean-plate-source-02.png) that frees only the main saloon floor -- the polygon below the far wall's foot, left of the bar's front foot -- and keeps everything else. Plate-space polygon converted to source space through errata 63's crop (x8, y170, 1520x684 of 1536x1024). INTENDED UNCHANGED: every wall, door, window, the piano and its stool, the card table and chairs, the stove and pipe, the stairs, the bar, the three stools, the spittoon, the chandelier, the mirror, the portrait, the handbill, the lamps. The stools, the spittoon and the piano stool stand INSIDE the polygon and are restored from the source by mask afterwards (tools/retrofit/nugget-floor-restore.py), so the proof of unchanged furniture is byte-level. PURPOSE: canon -- the chandelier's joke is brass and crystal over a DIRT floor (doc 05, doc 16); the deterministic attempt (art/staging/room-03/corrected-01, tools/retrofit/nugget-corrections.py) read as a blur cloud with planks surviving around it, which is the case the owner authorized this operation for.",
+ "floorPolygonPlate": [
+  [
+   40,
+   640
+  ],
+  [
+   300,
+   606
+  ],
+  [
+   500,
+   532
+  ],
+  [
+   720,
+   506
+  ],
+  [
+   1200,
+   508
+  ],
+  [
+   1250,
+   528
+  ],
+  [
+   1920,
+   836
+  ],
+  [
+   1920,
+   864
+  ],
+  [
+   40,
+   864
+  ]
+ ],
+ "source": "art/staging/room-03/clean-plate-source-02.png",
+ "sourceSha256": "a31ca89982fc7a98018aed21c7c33d8417df3c9ff4dd4ebdeede8fad60e255e4",
+ "mask": "art/staging/room-03/floor-01/edit-mask.png",
+ "maskSha256": "7d3e1978d3673dfe31b0d7dfe4d415f0c9e8ce120e77c573054d0089928daf06",
+ "maskPlate": "art/staging/room-03/floor-01/floor-mask-plate.png",
+ "deterministicAttempt": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+ "verdictOnDeterministic": "not convincing: the lighting-field low-pass reads as a smudge and the plank seams survive where the classifier missed the darker floor; not a compacted-earth floor at Room 5's standard"
+}

@@ -28,7 +28,7 @@ except Exception:  # pragma: no cover
 
 MS_PLATE = 'art/staging/room-02/street-candidate-01/candidate-plate.png'
 MS_OLD = 'art/backgrounds/room-02-main-street.png'
-NG_PLATE = 'art/staging/room-03/clean-plate-02/candidate-1920x864.png'
+NG_PLATE = 'art/staging/room-03/corrected-01/plate-cold-dirt.png'
 NG_OLD = 'art/backgrounds/room-03-nugget.png'
 MS_RAW = 'renders/proofs/candidates/main-street/raw-captures-ignored'
 NG_RAW = 'renders/proofs/candidates/nugget/raw-captures-ignored'
