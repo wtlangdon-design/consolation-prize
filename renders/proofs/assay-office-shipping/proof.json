@@ -4,7 +4,7 @@
  "room": "assay_office",
  "roomWidth": 1920,
  "branch": "claude/last-claim-autonomy-audit-v3vsy6",
- "commit": "8cf80ae4eb112c44d0ae338134fd68b104ec3416",
+ "commit": "428061022a00cbd2779c4ae57f9387e2ba5b685c",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "uncommitted": [],
@@ -65,7 +65,7 @@
    ],
    "reportedHeight": 471,
    "expected": 471,
-   "drawnFrom": "art/actors/thad-idle-right/idle-03.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
    "bounds": [
     631,
     230,
@@ -73,7 +73,7 @@
     520
    ],
    "order": 0,
-   "renderedHeight": 480,
+   "renderedHeight": 481,
    "renderedBottom": 700,
    "file": "raw-captures-ignored/panel-c-mud_far-far.png"
   },
@@ -102,7 +102,7 @@
    ],
    "reportedHeight": 559,
    "expected": 559,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-01.png",
+   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-02.png",
    "bounds": [
     585,
     270,
@@ -133,13 +133,13 @@
     "height": 186
    },
    "seen": {
-    "x": 871,
+    "x": 822,
     "y": 217,
-    "width": 239,
+    "width": 335,
     "height": 186,
     "bottom": 402,
-    "right": 1109,
-    "changed": 36234
+    "right": 1156,
+    "changed": 54342
    },
    "props": [
     {
@@ -161,7 +161,7 @@
       "height": 52,
       "bottom": 411,
       "right": 950,
-      "changed": 1575
+      "changed": 1837
      },
      "expected": [
       399,
@@ -182,7 +182,7 @@
   {
    "panel": "B",
    "room": "assay_office",
-   "clock": 118.9321,
+   "clock": 116.01889999999999,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -220,7 +220,7 @@
      "height": 515,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       -67,
       250,
@@ -311,15 +311,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-09-06T07:07:40.131Z",
+   "capturedAt": "2026-09-06T08:27:09.042Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "449c8a4ebff48acfc34f6c92adb55651ab4b7641fb67ab016aebcc5592fbaafa"
+   "hash": "4ddd1b21c73be801b4c1bf4c4a75060e6f90099519b31fe898a2825c1b9aeb6b"
   },
   {
    "panel": "A",
    "room": "assay_office",
-   "clock": 119.9821,
+   "clock": 117.0022,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -445,15 +445,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-09-06T07:07:41.272Z",
+   "capturedAt": "2026-09-06T08:27:10.032Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "27ef6e658d1aaef8490c236c4f6e56898f6b8ed6155a4d11d35f34de732635a1"
+   "hash": "f4ec8d9b7514b17547d482805a256505abd43df7239359e4143f1163584b519f"
   },
   {
    "panel": "D",
    "room": "assay_office",
-   "clock": 129.815,
+   "clock": 126.15180000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -491,7 +491,7 @@
      "height": 558,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-03.png",
+     "from": "art/actors/thad-idle-back/idle-01.png",
      "bounds": [
       1319,
       269,
@@ -592,10 +592,10 @@
     "cast(true)",
     "flag ACT=2"
    ],
-   "capturedAt": "2026-09-06T07:07:51.007Z",
+   "capturedAt": "2026-09-06T08:27:19.196Z",
    "intent": "principal changed state: THE QUEUE BENCH, acts 2-4. docs/05-examine-layer.md::ROOM 5 — ASSAY OFFICE, FRONT#2 writes its LOOK for act 2-4 and nothing for Act I; docs/49 gives it USE and PUSH. Prerequisite: ACT >= 2, which the game sets at doc 48's S1 (not built). Visible consequence: the bench becomes a target -- its LOOK line, and Thad walks to it. The bench itself is plate in every act.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "7c9572ee45772f3a1afac55b3875740c2b2adefbdaacddf3e771fd163cbac352",
+   "hash": "9d63a888962d4ca65996af0328da00c0d37f0400aa0a5457a5becc921170c1c6",
    "changedBy": "counters"
   }
  ],
@@ -626,11 +626,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-06T07:07:51.008Z",
+ "at": "2026-09-06T08:27:19.196Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 301080,
+  "bytes": 301190,
   "panels": 5,
   "scale": 0.5
  }

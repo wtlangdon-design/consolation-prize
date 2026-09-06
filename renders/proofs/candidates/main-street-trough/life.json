@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "main_street_candidate",
- "commit": "c43f68ec002bbf696f2d2c742d766f995e92b7c0",
+ "commit": "0b2dd0f31c09bc92c9d1a5a4122223c32d6ae357",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -12,18 +12,18 @@
  "entryRoute": null,
  "warped": true,
  "lifeRoute": "main-street-trough-grid",
- "durationSeconds": 176.32,
+ "durationSeconds": 173.87,
  "events": [
   {
-   "t": 4.87,
+   "t": 3.65,
    "line": "warped straight into main_street_candidate (?room=), no entry route"
   },
   {
-   "t": 4.98,
+   "t": 3.74,
    "line": "in main_street_candidate; life route: 32 action(s)"
   },
   {
-   "t": 7.24,
+   "t": 5.26,
    "trace": {
     "says": null,
     "control": null,
@@ -38,7 +38,7 @@
    }
   },
   {
-   "t": 7.24,
+   "t": 5.9,
    "trace": {
     "says": null,
     "control": null,
@@ -53,7 +53,7 @@
    }
   },
   {
-   "t": 8.12,
+   "t": 7.12,
    "trace": {
     "says": null,
     "control": null,
@@ -68,11 +68,11 @@
    }
   },
   {
-   "t": 8.99,
+   "t": 7.75,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 9.03,
+   "t": 7.8,
    "trace": {
     "says": null,
     "control": null,
@@ -87,15 +87,15 @@
    }
   },
   {
-   "t": 10.06,
+   "t": 9.04,
    "line": "capture t01-arrival: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 10.78,
+   "t": 9.8,
    "line": "action 1 (click): clicked world 1900,760 -- left of the trough, at the same depth as behind it"
   },
   {
-   "t": 12.3,
+   "t": 10.86,
    "trace": {
     "says": null,
     "control": null,
@@ -103,14 +103,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3455,
-     653
+     3406,
+     650
     ],
     "moving": true
    }
   },
   {
-   "t": 13.09,
+   "t": 11.88,
    "trace": {
     "says": null,
     "control": null,
@@ -118,14 +118,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3386,
-     649
+     3234,
+     639
     ],
     "moving": true
    }
   },
   {
-   "t": 13.8,
+   "t": 12.94,
    "trace": {
     "says": null,
     "control": null,
@@ -133,14 +133,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3300,
-     643
+     3081,
+     630
     ],
     "moving": true
    }
   },
   {
-   "t": 14.81,
+   "t": 13.9,
    "trace": {
     "says": null,
     "control": null,
@@ -148,14 +148,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3180,
-     636
+     2964,
+     622
     ],
     "moving": true
    }
   },
   {
-   "t": 15.84,
+   "t": 14.84,
    "trace": {
     "says": null,
     "control": null,
@@ -163,14 +163,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3062,
-     628
+     2815,
+     613
     ],
     "moving": true
    }
   },
   {
-   "t": 16.92,
+   "t": 15.9,
    "trace": {
     "says": null,
     "control": null,
@@ -178,14 +178,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2928,
-     620
+     2668,
+     603
     ],
     "moving": true
    }
   },
   {
-   "t": 17.8,
+   "t": 16.82,
    "trace": {
     "says": null,
     "control": null,
@@ -193,44 +193,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2829,
-     614
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 18.8,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2714,
-     606
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 19.87,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2614,
+     2549,
      600
     ],
     "moving": true
    }
   },
   {
-   "t": 20.87,
+   "t": 17.83,
    "trace": {
     "says": null,
     "control": null,
@@ -238,14 +208,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2501,
+     2404,
      600
     ],
     "moving": true
    }
   },
   {
-   "t": 21.86,
+   "t": 18.87,
    "trace": {
     "says": null,
     "control": null,
@@ -253,14 +223,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2388,
+     2258,
      600
     ],
     "moving": true
    }
   },
   {
-   "t": 22.84,
+   "t": 19.83,
    "trace": {
     "says": null,
     "control": null,
@@ -268,14 +238,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2275,
+     2113,
      600
     ],
     "moving": true
    }
   },
   {
-   "t": 23.91,
+   "t": 20.84,
    "trace": {
     "says": null,
     "control": null,
@@ -283,14 +253,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2145,
+     1967,
      600
     ],
     "moving": true
    }
   },
   {
-   "t": 24.84,
+   "t": 21.87,
    "trace": {
     "says": null,
     "control": null,
@@ -298,44 +268,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2032,
-     600
+     1900,
+     667
     ],
     "moving": true
    }
   },
   {
-   "t": 25.8,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1919,
-     600
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 26.93,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1900,
-     688
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 27.83,
+   "t": 22.83,
    "trace": {
     "says": null,
     "control": null,
@@ -350,7 +290,7 @@
    }
   },
   {
-   "t": 28.93,
+   "t": 23.84,
    "trace": {
     "says": null,
     "control": null,
@@ -365,7 +305,7 @@
    }
   },
   {
-   "t": 29.9,
+   "t": 24.85,
    "trace": {
     "says": null,
     "control": null,
@@ -380,7 +320,7 @@
    }
   },
   {
-   "t": 30.93,
+   "t": 25.87,
    "trace": {
     "says": null,
     "control": null,
@@ -395,7 +335,7 @@
    }
   },
   {
-   "t": 31.89,
+   "t": 26.82,
    "trace": {
     "says": null,
     "control": null,
@@ -410,7 +350,7 @@
    }
   },
   {
-   "t": 32.86,
+   "t": 27.84,
    "trace": {
     "says": null,
     "control": null,
@@ -425,7 +365,7 @@
    }
   },
   {
-   "t": 33.81,
+   "t": 28.88,
    "trace": {
     "says": null,
     "control": null,
@@ -440,7 +380,7 @@
    }
   },
   {
-   "t": 34.91,
+   "t": 29.88,
    "trace": {
     "says": null,
     "control": null,
@@ -455,7 +395,7 @@
    }
   },
   {
-   "t": 35.82,
+   "t": 30.89,
    "trace": {
     "says": null,
     "control": null,
@@ -470,7 +410,7 @@
    }
   },
   {
-   "t": 36.83,
+   "t": 31.83,
    "trace": {
     "says": null,
     "control": null,
@@ -485,7 +425,7 @@
    }
   },
   {
-   "t": 37.84,
+   "t": 32.89,
    "trace": {
     "says": null,
     "control": null,
@@ -500,7 +440,7 @@
    }
   },
   {
-   "t": 38.92,
+   "t": 33.91,
    "trace": {
     "says": null,
     "control": null,
@@ -515,7 +455,7 @@
    }
   },
   {
-   "t": 39.96,
+   "t": 34.87,
    "trace": {
     "says": null,
     "control": null,
@@ -530,34 +470,79 @@
    }
   },
   {
-   "t": 40.78,
+   "t": 35.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1900,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1900,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 37.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1900,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 38.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1900,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 39.8,
    "line": "action 1 (wait): waited 30s"
   },
   {
-   "t": 41.39,
+   "t": 40.34,
    "line": "capture t02-left-of-trough: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 41.69,
+   "t": 40.75,
    "line": "action 1 (click): clicked world 2000,700 -- behind-left"
   },
   {
-   "t": 42.71,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1995,
-     699
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 43.73,
+   "t": 41.77,
    "trace": {
     "says": null,
     "control": null,
@@ -572,7 +557,7 @@
    }
   },
   {
-   "t": 44.79,
+   "t": 42.79,
    "trace": {
     "says": null,
     "control": null,
@@ -587,7 +572,7 @@
    }
   },
   {
-   "t": 45.8,
+   "t": 43.76,
    "trace": {
     "says": null,
     "control": null,
@@ -602,7 +587,7 @@
    }
   },
   {
-   "t": 46.76,
+   "t": 44.83,
    "trace": {
     "says": null,
     "control": null,
@@ -617,7 +602,7 @@
    }
   },
   {
-   "t": 47.82,
+   "t": 45.84,
    "trace": {
     "says": null,
     "control": null,
@@ -632,7 +617,7 @@
    }
   },
   {
-   "t": 48.74,
+   "t": 46.79,
    "trace": {
     "says": null,
     "control": null,
@@ -647,7 +632,7 @@
    }
   },
   {
-   "t": 49.76,
+   "t": 47.85,
    "trace": {
     "says": null,
     "control": null,
@@ -662,7 +647,7 @@
    }
   },
   {
-   "t": 50.82,
+   "t": 48.87,
    "trace": {
     "says": null,
     "control": null,
@@ -677,7 +662,7 @@
    }
   },
   {
-   "t": 51.74,
+   "t": 49.82,
    "trace": {
     "says": null,
     "control": null,
@@ -692,7 +677,7 @@
    }
   },
   {
-   "t": 52.8,
+   "t": 50.87,
    "trace": {
     "says": null,
     "control": null,
@@ -707,7 +692,37 @@
    }
   },
   {
-   "t": 53.71,
+   "t": 51.79,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1999,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 52.82,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1999,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 53.85,
    "trace": {
     "says": null,
     "control": null,
@@ -723,33 +738,18 @@
   },
   {
    "t": 54.75,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1999,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 55.69,
    "line": "action 1 (wait): waited 14s"
   },
   {
-   "t": 56.31,
+   "t": 55.46,
    "line": "capture t03-behind-left: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 56.69,
+   "t": 55.85,
    "line": "action 1 (click): clicked world 2100,700 -- directly behind the trough"
   },
   {
-   "t": 57.8,
+   "t": 56.95,
    "trace": {
     "says": null,
     "control": null,
@@ -764,7 +764,7 @@
    }
   },
   {
-   "t": 58.7,
+   "t": 57.89,
    "trace": {
     "says": null,
     "control": null,
@@ -779,7 +779,7 @@
    }
   },
   {
-   "t": 59.77,
+   "t": 58.94,
    "trace": {
     "says": null,
     "control": null,
@@ -794,7 +794,7 @@
    }
   },
   {
-   "t": 60.83,
+   "t": 59.88,
    "trace": {
     "says": null,
     "control": null,
@@ -809,7 +809,22 @@
    }
   },
   {
-   "t": 61.75,
+   "t": 60.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2100,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 61.94,
    "trace": {
     "says": null,
     "control": null,
@@ -839,7 +854,7 @@
    }
   },
   {
-   "t": 63.76,
+   "t": 63.91,
    "trace": {
     "says": null,
     "control": null,
@@ -854,7 +869,7 @@
    }
   },
   {
-   "t": 64.79,
+   "t": 64.94,
    "trace": {
     "says": null,
     "control": null,
@@ -869,7 +884,7 @@
    }
   },
   {
-   "t": 65.78,
+   "t": 65.9,
    "trace": {
     "says": null,
     "control": null,
@@ -884,7 +899,7 @@
    }
   },
   {
-   "t": 66.77,
+   "t": 66.94,
    "trace": {
     "says": null,
     "control": null,
@@ -899,34 +914,19 @@
    }
   },
   {
-   "t": 67.83,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2100,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 68.7,
+   "t": 67.86,
    "line": "action 1 (wait): waited 12s"
   },
   {
-   "t": 69.37,
+   "t": 68.45,
    "line": "capture t04-behind-centre: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 69.81,
+   "t": 68.73,
    "line": "action 1 (click): clicked world 2200,700 -- behind-right"
   },
   {
-   "t": 70.84,
+   "t": 69.84,
    "trace": {
     "says": null,
     "control": null,
@@ -941,7 +941,7 @@
    }
   },
   {
-   "t": 71.84,
+   "t": 70.74,
    "trace": {
     "says": null,
     "control": null,
@@ -956,7 +956,7 @@
    }
   },
   {
-   "t": 72.84,
+   "t": 71.76,
    "trace": {
     "says": null,
     "control": null,
@@ -971,7 +971,7 @@
    }
   },
   {
-   "t": 73.91,
+   "t": 72.78,
    "trace": {
     "says": null,
     "control": null,
@@ -986,7 +986,7 @@
    }
   },
   {
-   "t": 74.92,
+   "t": 73.77,
    "trace": {
     "says": null,
     "control": null,
@@ -1001,7 +1001,7 @@
    }
   },
   {
-   "t": 75.84,
+   "t": 74.8,
    "trace": {
     "says": null,
     "control": null,
@@ -1016,7 +1016,7 @@
    }
   },
   {
-   "t": 76.89,
+   "t": 75.75,
    "trace": {
     "says": null,
     "control": null,
@@ -1031,7 +1031,7 @@
    }
   },
   {
-   "t": 77.88,
+   "t": 76.79,
    "trace": {
     "says": null,
     "control": null,
@@ -1046,7 +1046,7 @@
    }
   },
   {
-   "t": 78.91,
+   "t": 77.77,
    "trace": {
     "says": null,
     "control": null,
@@ -1061,7 +1061,7 @@
    }
   },
   {
-   "t": 79.91,
+   "t": 78.84,
    "trace": {
     "says": null,
     "control": null,
@@ -1076,7 +1076,7 @@
    }
   },
   {
-   "t": 80.83,
+   "t": 79.82,
    "trace": {
     "says": null,
     "control": null,
@@ -1091,34 +1091,19 @@
    }
   },
   {
-   "t": 81.82,
+   "t": 80.73,
    "line": "action 1 (wait): waited 12s"
   },
   {
-   "t": 82.48,
+   "t": 81.31,
    "line": "capture t05-behind-right: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 82.87,
+   "t": 81.72,
    "line": "action 1 (click): clicked world 2300,760 -- right of the trough, at the same depth as behind it"
   },
   {
-   "t": 83.92,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2288,
-     759
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 84.93,
+   "t": 82.78,
    "trace": {
     "says": null,
     "control": null,
@@ -1133,7 +1118,7 @@
    }
   },
   {
-   "t": 85.95,
+   "t": 83.73,
    "trace": {
     "says": null,
     "control": null,
@@ -1148,7 +1133,7 @@
    }
   },
   {
-   "t": 87.01,
+   "t": 84.77,
    "trace": {
     "says": null,
     "control": null,
@@ -1163,7 +1148,7 @@
    }
   },
   {
-   "t": 87.91,
+   "t": 85.75,
    "trace": {
     "says": null,
     "control": null,
@@ -1178,7 +1163,7 @@
    }
   },
   {
-   "t": 88.97,
+   "t": 86.77,
    "trace": {
     "says": null,
     "control": null,
@@ -1193,7 +1178,7 @@
    }
   },
   {
-   "t": 89.93,
+   "t": 87.78,
    "trace": {
     "says": null,
     "control": null,
@@ -1208,7 +1193,7 @@
    }
   },
   {
-   "t": 91.03,
+   "t": 88.74,
    "trace": {
     "says": null,
     "control": null,
@@ -1223,7 +1208,7 @@
    }
   },
   {
-   "t": 91.98,
+   "t": 89.85,
    "trace": {
     "says": null,
     "control": null,
@@ -1238,7 +1223,7 @@
    }
   },
   {
-   "t": 92.94,
+   "t": 90.75,
    "trace": {
     "says": null,
     "control": null,
@@ -1253,7 +1238,7 @@
    }
   },
   {
-   "t": 93.94,
+   "t": 91.79,
    "trace": {
     "says": null,
     "control": null,
@@ -1268,7 +1253,7 @@
    }
   },
   {
-   "t": 94.94,
+   "t": 92.76,
    "trace": {
     "says": null,
     "control": null,
@@ -1283,7 +1268,7 @@
    }
   },
   {
-   "t": 96.05,
+   "t": 93.77,
    "trace": {
     "says": null,
     "control": null,
@@ -1298,19 +1283,34 @@
    }
   },
   {
-   "t": 96.87,
+   "t": 94.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2299,
+     759
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 95.72,
    "line": "action 1 (wait): waited 14s"
   },
   {
-   "t": 97.56,
+   "t": 96.27,
    "line": "capture t06-right-of-trough: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 97.95,
+   "t": 96.53,
    "line": "action 1 (click): clicked world 2250,790 -- just outside the trough's east end, in the near mud"
   },
   {
-   "t": 98.96,
+   "t": 97.59,
    "trace": {
     "says": null,
     "control": null,
@@ -1319,13 +1319,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 100,
+   "t": 98.62,
    "trace": {
     "says": null,
     "control": null,
@@ -1334,13 +1334,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 100.99,
+   "t": 99.59,
    "trace": {
     "says": null,
     "control": null,
@@ -1349,13 +1349,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 101.97,
+   "t": 100.61,
    "trace": {
     "says": null,
     "control": null,
@@ -1364,13 +1364,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 103.09,
+   "t": 101.58,
    "trace": {
     "says": null,
     "control": null,
@@ -1379,13 +1379,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 104,
+   "t": 102.63,
    "trace": {
     "says": null,
     "control": null,
@@ -1394,13 +1394,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 105.01,
+   "t": 103.59,
    "trace": {
     "says": null,
     "control": null,
@@ -1409,13 +1409,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 105.98,
+   "t": 104.58,
    "trace": {
     "says": null,
     "control": null,
@@ -1424,13 +1424,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 107,
+   "t": 105.56,
    "trace": {
     "says": null,
     "control": null,
@@ -1439,13 +1439,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 108.09,
+   "t": 106.59,
    "trace": {
     "says": null,
     "control": null,
@@ -1454,13 +1454,13 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 109,
+   "t": 107.59,
    "trace": {
     "says": null,
     "control": null,
@@ -1469,25 +1469,25 @@
     "options": 0,
     "thad": [
      2250,
-     789
+     776
     ],
     "moving": false
    }
   },
   {
-   "t": 109.96,
+   "t": 108.54,
    "line": "action 1 (wait): waited 12s"
   },
   {
-   "t": 110.58,
+   "t": 109.18,
    "line": "capture t07-just-outside-east: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 111.04,
+   "t": 109.54,
    "line": "action 1 (click): clicked world 2200,765 -- THE REGRESSION: the ground that used to clip his shins from in front of the trough. It is inside the trough's hotspot, so the click is an ordinary LOOK AT: he walks to the trough's own approach point in front of it and speaks. Either way he never stands in the trough's footing."
   },
   {
-   "t": 112.11,
+   "t": 110.61,
    "trace": {
     "says": null,
     "control": null,
@@ -1495,14 +1495,59 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2169,
+     2181,
+     688
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 111.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2017,
+     688
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 112.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1976,
+     776
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 113.56,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1998,
      861
     ],
     "moving": true
    }
   },
   {
-   "t": 113.11,
+   "t": 114.61,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1517,7 +1562,7 @@
    }
   },
   {
-   "t": 114.06,
+   "t": 115.61,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1532,7 +1577,7 @@
    }
   },
   {
-   "t": 115.17,
+   "t": 116.59,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1547,7 +1592,7 @@
    }
   },
   {
-   "t": 116.08,
+   "t": 117.64,
    "trace": {
     "says": "thad",
     "control": null,
@@ -1562,7 +1607,7 @@
    }
   },
   {
-   "t": 117.08,
+   "t": 118.6,
    "trace": {
     "says": null,
     "control": null,
@@ -1577,7 +1622,7 @@
    }
   },
   {
-   "t": 118.14,
+   "t": 119.61,
    "trace": {
     "says": null,
     "control": null,
@@ -1592,7 +1637,7 @@
    }
   },
   {
-   "t": 119.06,
+   "t": 120.63,
    "trace": {
     "says": null,
     "control": null,
@@ -1607,64 +1652,19 @@
    }
   },
   {
-   "t": 120.18,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2106,
-     861
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 121.07,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2106,
-     861
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 122.11,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2106,
-     861
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 123.05,
+   "t": 121.55,
    "line": "action 1 (wait): waited 12s"
   },
   {
-   "t": 123.76,
+   "t": 122.22,
    "line": "capture t08-regression-position: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 124.18,
+   "t": 122.51,
    "line": "action 1 (click): clicked world 2100,840 -- directly in front of the trough"
   },
   {
-   "t": 125.31,
+   "t": 123.6,
    "trace": {
     "says": null,
     "control": null,
@@ -1679,7 +1679,7 @@
    }
   },
   {
-   "t": 126.19,
+   "t": 124.58,
    "trace": {
     "says": null,
     "control": null,
@@ -1694,7 +1694,7 @@
    }
   },
   {
-   "t": 127.23,
+   "t": 125.62,
    "trace": {
     "says": null,
     "control": null,
@@ -1709,7 +1709,7 @@
    }
   },
   {
-   "t": 128.29,
+   "t": 126.54,
    "trace": {
     "says": null,
     "control": null,
@@ -1724,7 +1724,7 @@
    }
   },
   {
-   "t": 129.3,
+   "t": 127.6,
    "trace": {
     "says": null,
     "control": null,
@@ -1739,7 +1739,7 @@
    }
   },
   {
-   "t": 130.21,
+   "t": 128.59,
    "trace": {
     "says": null,
     "control": null,
@@ -1754,7 +1754,7 @@
    }
   },
   {
-   "t": 131.19,
+   "t": 129.55,
    "trace": {
     "says": null,
     "control": null,
@@ -1769,7 +1769,7 @@
    }
   },
   {
-   "t": 132.25,
+   "t": 130.54,
    "trace": {
     "says": null,
     "control": null,
@@ -1784,7 +1784,7 @@
    }
   },
   {
-   "t": 133.32,
+   "t": 131.55,
    "trace": {
     "says": null,
     "control": null,
@@ -1799,7 +1799,7 @@
    }
   },
   {
-   "t": 134.3,
+   "t": 132.58,
    "trace": {
     "says": null,
     "control": null,
@@ -1814,7 +1814,7 @@
    }
   },
   {
-   "t": 135.31,
+   "t": 133.6,
    "trace": {
     "says": null,
     "control": null,
@@ -1829,7 +1829,7 @@
    }
   },
   {
-   "t": 136.27,
+   "t": 134.55,
    "trace": {
     "says": null,
     "control": null,
@@ -1844,7 +1844,7 @@
    }
   },
   {
-   "t": 137.22,
+   "t": 135.56,
    "trace": {
     "says": null,
     "control": null,
@@ -1859,19 +1859,19 @@
    }
   },
   {
-   "t": 138.18,
+   "t": 136.52,
    "line": "action 1 (wait): waited 14s"
   },
   {
-   "t": 138.86,
+   "t": 137.17,
    "line": "capture t09-in-front: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 139.27,
+   "t": 137.4,
    "line": "action 1 (click): clicked world 1970,800 -- just outside the trough's west end, in the near mud"
   },
   {
-   "t": 140.3,
+   "t": 138.41,
    "trace": {
     "says": null,
     "control": null,
@@ -1886,7 +1886,7 @@
    }
   },
   {
-   "t": 141.29,
+   "t": 139.51,
    "trace": {
     "says": null,
     "control": null,
@@ -1901,7 +1901,7 @@
    }
   },
   {
-   "t": 142.34,
+   "t": 140.43,
    "trace": {
     "says": null,
     "control": null,
@@ -1916,7 +1916,7 @@
    }
   },
   {
-   "t": 143.29,
+   "t": 141.43,
    "trace": {
     "says": null,
     "control": null,
@@ -1931,7 +1931,7 @@
    }
   },
   {
-   "t": 144.31,
+   "t": 142.47,
    "trace": {
     "says": null,
     "control": null,
@@ -1946,7 +1946,7 @@
    }
   },
   {
-   "t": 145.29,
+   "t": 143.45,
    "trace": {
     "says": null,
     "control": null,
@@ -1961,7 +1961,7 @@
    }
   },
   {
-   "t": 146.33,
+   "t": 144.5,
    "trace": {
     "says": null,
     "control": null,
@@ -1976,7 +1976,7 @@
    }
   },
   {
-   "t": 147.32,
+   "t": 145.51,
    "trace": {
     "says": null,
     "control": null,
@@ -1991,7 +1991,7 @@
    }
   },
   {
-   "t": 148.29,
+   "t": 146.46,
    "trace": {
     "says": null,
     "control": null,
@@ -2006,7 +2006,7 @@
    }
   },
   {
-   "t": 149.3,
+   "t": 147.47,
    "trace": {
     "says": null,
     "control": null,
@@ -2021,7 +2021,7 @@
    }
   },
   {
-   "t": 150.31,
+   "t": 148.49,
    "trace": {
     "says": null,
     "control": null,
@@ -2036,7 +2036,7 @@
    }
   },
   {
-   "t": 151.35,
+   "t": 149.51,
    "trace": {
     "says": null,
     "control": null,
@@ -2051,7 +2051,7 @@
    }
   },
   {
-   "t": 152.3,
+   "t": 150.5,
    "trace": {
     "says": null,
     "control": null,
@@ -2066,19 +2066,19 @@
    }
   },
   {
-   "t": 153.27,
+   "t": 151.4,
    "line": "action 1 (wait): waited 14s"
   },
   {
-   "t": 153.98,
+   "t": 151.96,
    "line": "capture t10-just-outside-west: room main_street_candidate, says null, options 0, control null"
   },
   {
-   "t": 154.39,
+   "t": 152.23,
    "line": "action 1 (click): clicked world 2200,840 -- the front-right corner"
   },
   {
-   "t": 155.5,
+   "t": 153.27,
    "trace": {
     "says": null,
     "control": null,
@@ -2086,14 +2086,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2085,
+     2107,
      840
     ],
     "moving": true
    }
   },
   {
-   "t": 156.54,
+   "t": 154.24,
    "trace": {
     "says": null,
     "control": null,
@@ -2108,7 +2108,7 @@
    }
   },
   {
-   "t": 157.44,
+   "t": 155.23,
    "trace": {
     "says": null,
     "control": null,
@@ -2123,7 +2123,7 @@
    }
   },
   {
-   "t": 158.46,
+   "t": 156.34,
    "trace": {
     "says": null,
     "control": null,
@@ -2138,7 +2138,7 @@
    }
   },
   {
-   "t": 159.41,
+   "t": 157.29,
    "trace": {
     "says": null,
     "control": null,
@@ -2153,7 +2153,7 @@
    }
   },
   {
-   "t": 160.43,
+   "t": 158.27,
    "trace": {
     "says": null,
     "control": null,
@@ -2168,7 +2168,7 @@
    }
   },
   {
-   "t": 161.44,
+   "t": 159.28,
    "trace": {
     "says": null,
     "control": null,
@@ -2183,7 +2183,7 @@
    }
   },
   {
-   "t": 162.43,
+   "t": 160.25,
    "trace": {
     "says": null,
     "control": null,
@@ -2198,7 +2198,7 @@
    }
   },
   {
-   "t": 163.47,
+   "t": 161.31,
    "trace": {
     "says": null,
     "control": null,
@@ -2213,7 +2213,7 @@
    }
   },
   {
-   "t": 164.46,
+   "t": 162.27,
    "trace": {
     "says": null,
     "control": null,
@@ -2228,7 +2228,7 @@
    }
   },
   {
-   "t": 165.45,
+   "t": 163.28,
    "trace": {
     "says": null,
     "control": null,
@@ -2243,7 +2243,7 @@
    }
   },
   {
-   "t": 166.47,
+   "t": 164.26,
    "trace": {
     "says": null,
     "control": null,
@@ -2258,7 +2258,7 @@
    }
   },
   {
-   "t": 167.52,
+   "t": 165.32,
    "trace": {
     "says": null,
     "control": null,
@@ -2273,11 +2273,11 @@
    }
   },
   {
-   "t": 168.39,
+   "t": 166.23,
    "line": "action 1 (wait): waited 14s"
   },
   {
-   "t": 169.04,
+   "t": 166.83,
    "line": "capture t11-front-right-corner: room main_street_candidate, says null, options 0, control null"
   }
  ],
@@ -2285,11 +2285,11 @@
   {
    "name": "t01-arrival",
    "why": null,
-   "t": 10.04,
+   "t": 9.01,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t01-arrival.png",
-   "hash": "6bd1414c9b21c51ed69d08521b629c05b298bdca50cb6e40b7f241cfe974cd6b",
+   "hash": "fe18326e12fb69f11775fc674642bdeafd8a0b52db76039ae6532c4b73201ccf",
    "room": "main_street_candidate",
-   "clock": 9.4413,
+   "clock": 8.6139,
    "control": null,
    "says": null,
    "options": 0,
@@ -2313,7 +2313,7 @@
      "height": 217,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-left/idle-04.png",
+     "from": "art/actors/thad-idle-left/idle-02.png",
      "bounds": [
       3447,
       443,
@@ -2416,11 +2416,11 @@
   {
    "name": "t02-left-of-trough",
    "why": null,
-   "t": 41.37,
+   "t": 40.32,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t02-left-of-trough.png",
-   "hash": "968eeaae9eff556f73ca7640498b271a662c38743353048e012b80127ebdbbb8",
+   "hash": "adbc94c19d865b4ac9957bc7caafcf748fa6a682df0eea286ec58654232409b5",
    "room": "main_street_candidate",
-   "clock": 40.9235,
+   "clock": 39.9959,
    "control": null,
    "says": null,
    "options": 0,
@@ -2440,11 +2440,11 @@
       759
      ],
      "facing": "front",
-     "clip": "idle-break",
+     "clip": "idle",
      "height": 246,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-front/idle-break-10.png",
+     "from": "art/actors/thad-idle-front/idle-05.png",
      "bounds": [
       1754,
       513,
@@ -2547,11 +2547,11 @@
   {
    "name": "t03-behind-left",
    "why": null,
-   "t": 56.29,
+   "t": 55.44,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t03-behind-left.png",
-   "hash": "a823cdd1ac258368ff18cdb2db8d11e5718bdff7184b25993cd1f684232ab5b1",
+   "hash": "b65a49586963391954fcc0648630e84059a173207ad6d20c237f2ad1393ec9be",
    "room": "main_street_candidate",
-   "clock": 55.8395,
+   "clock": 55.0454,
    "control": null,
    "says": null,
    "options": 0,
@@ -2575,7 +2575,7 @@
      "height": 229,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-03.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-01.png",
      "bounds": [
       1880,
       470,
@@ -2678,11 +2678,11 @@
   {
    "name": "t04-behind-centre",
    "why": null,
-   "t": 69.35,
+   "t": 68.43,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t04-behind-centre.png",
-   "hash": "d133b53a30c3882a17aaa272d2f1bbcc5e08bc4fa663869eae9607be785dc15b",
+   "hash": "7972d58e1f6f262c4fa06d750cecb16fb4d7458fcce1987e0a7b0ebf77437ce6",
    "room": "main_street_candidate",
-   "clock": 68.87230000000001,
+   "clock": 68.0948,
    "control": null,
    "says": null,
    "options": 0,
@@ -2706,7 +2706,7 @@
      "height": 229,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-03.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       1981,
       470,
@@ -2809,11 +2809,11 @@
   {
    "name": "t05-behind-right",
    "why": null,
-   "t": 82.46,
+   "t": 81.3,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t05-behind-right.png",
-   "hash": "753573e5241502956b005d1345c9a2421c9c5839f28906ccc95713058ed42e58",
+   "hash": "9b60e316a125c55b47710ea977da213e0be6d28a66b8788946c1fc1784513fa6",
    "room": "main_street_candidate",
-   "clock": 82.0052,
+   "clock": 80.9277,
    "control": null,
    "says": null,
    "options": 0,
@@ -2837,7 +2837,7 @@
      "height": 229,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       2080,
       470,
@@ -2940,11 +2940,11 @@
   {
    "name": "t06-right-of-trough",
    "why": null,
-   "t": 97.55,
+   "t": 96.25,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t06-right-of-trough.png",
-   "hash": "3524420aa1727fca5f8ff4c4cc1573e2df4d0b2ac7f89bd04b50f194d348a3c8",
+   "hash": "311e3326c8969dfa8e743fa580818b7d4c3320af0fb2dc397eb1562872684eb4",
    "room": "main_street_candidate",
-   "clock": 97.0878,
+   "clock": 95.927,
    "control": null,
    "says": null,
    "options": 0,
@@ -2968,7 +2968,7 @@
      "height": 246,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-11.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       2171,
       513,
@@ -3071,11 +3071,11 @@
   {
    "name": "t07-just-outside-east",
    "why": null,
-   "t": 110.56,
+   "t": 109.15,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t07-just-outside-east.png",
-   "hash": "44ffb75ec74533c409427ab84676ffbaeee1f042064f8252ddbfe43df32216cd",
+   "hash": "5e5fe8495255014ffcd95e3cbc948723f8a0a5038dd2aaf08d07208f60f9fe21",
    "room": "main_street_candidate",
-   "clock": 110.154,
+   "clock": 108.7765,
    "control": null,
    "says": null,
    "options": 0,
@@ -3092,22 +3092,22 @@
     "thad": {
      "at": [
       2250,
-      789
+      776
      ],
-     "facing": "front",
+     "facing": "left",
      "clip": "idle-break",
-     "height": 255,
+     "height": 251,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-front/idle-break-02.png",
+     "from": "art/actors/thad-idlebreak-left/idle-break-08.png",
      "bounds": [
-      2099,
-      534,
-      302,
-      281
+      2119,
+      525,
+      261,
+      277
      ],
      "order": 0,
-     "clipLevel": 0,
+     "clipLevel": 1,
      "fallback": false
     }
    },
@@ -3202,11 +3202,11 @@
   {
    "name": "t08-regression-position",
    "why": null,
-   "t": 123.74,
+   "t": 122.2,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t08-regression-position.png",
-   "hash": "d6d68cee934d3d2e0385d5ae7c791874f8fddc9d64e23710970be0e879bd352f",
+   "hash": "8126e431cd68f1ba774cabab9e4d25ab043a52a2722692ba463e235bb32b5c1b",
    "room": "main_street_candidate",
-   "clock": 123.32010000000001,
+   "clock": 121.8427,
    "control": null,
    "says": null,
    "options": 0,
@@ -3226,11 +3226,11 @@
       861
      ],
      "facing": "back",
-     "clip": "idle",
+     "clip": "idle-break",
      "height": 275,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-01.png",
+     "from": "art/actors/thad-idlebreak-back/idle-break-00.png",
      "bounds": [
       1943,
       586,
@@ -3333,11 +3333,11 @@
   {
    "name": "t09-in-front",
    "why": null,
-   "t": 138.84,
+   "t": 137.15,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t09-in-front.png",
-   "hash": "2e8da3fc8f223f61465d9972da00201f357116bdc937640aae6e77dea48e5bb0",
+   "hash": "e82cf4822654e333ab1ad823def2ef64cb4f962f741caf1d7d300b6c3e470907",
    "room": "main_street_candidate",
-   "clock": 138.33620000000002,
+   "clock": 136.7921,
    "control": null,
    "says": null,
    "options": 0,
@@ -3361,7 +3361,7 @@
      "height": 270,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-02.png",
+     "from": "art/actors/thad-idle-back/idle-04.png",
      "bounds": [
       1940,
       570,
@@ -3464,11 +3464,11 @@
   {
    "name": "t10-just-outside-west",
    "why": null,
-   "t": 153.96,
+   "t": 151.94,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t10-just-outside-west.png",
-   "hash": "d9bf325879808441b4a19331958fac64889c9d49989299579fead4c6623bd003",
+   "hash": "cbc0058ae9eec31e2452b894e0e72810eb1d972b94b1f2347b9b8f5a3334b1b6",
    "room": "main_street_candidate",
-   "clock": 153.5189,
+   "clock": 151.6081,
    "control": null,
    "says": null,
    "options": 0,
@@ -3492,7 +3492,7 @@
      "height": 258,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-left/idle-break-07.png",
+     "from": "art/actors/thad-idlebreak-left/idle-break-09.png",
      "bounds": [
       1835,
       541,
@@ -3595,11 +3595,11 @@
   {
    "name": "t11-front-right-corner",
    "why": null,
-   "t": 169.02,
+   "t": 166.81,
    "file": "renders/proofs/candidates/main-street-trough/raw-captures-ignored/t11-front-right-corner.png",
-   "hash": "ac41bc584164c1b81ee38ab2edfba84e599791ea48dfd7af499ba85755f251a0",
+   "hash": "8d54f137a70357fa62d98d2e5aee67c042085de8fdffc46b5a87d86b30c1ea59",
    "room": "main_street_candidate",
-   "clock": 168.585,
+   "clock": 166.4575,
    "control": null,
    "says": null,
    "options": 0,
@@ -3623,7 +3623,7 @@
      "height": 270,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-right/idle-break-09.png",
+     "from": "art/actors/thad-idlebreak-right/idle-break-02.png",
      "bounds": [
       2059,
       570,
@@ -3736,7 +3736,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 176.32s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 173.87s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -3751,5 +3751,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-06T07:16:50.844Z"
+ "at": "2026-09-06T08:18:22.347Z"
 }

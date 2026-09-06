@@ -657,6 +657,12 @@ built.generated = {
   const xs = ann.walkable.map((p) => p[0]);
   const left = Math.min(...xs), right = Math.max(...xs);
   const cuts = [top, top + (bottom - top) * 0.34, top + (bottom - top) * 0.67, bottom];
+  // PHASE 1.5H: THE ROOM'S NAVIGATION CONTRACTS, carried through as data.
+  // A barrier is not a second obstacle -- the obstacles above are what the
+  // router actually obeys -- it is the STATEMENT of what the obstacles are
+  // for, so a test can drive the live room and assert it. See
+  // tools/gauntlet/rail-crossing.mjs.
+  if (ann.navigation) built.navigation = ann.navigation;
   built.walkable = [
     { id: 'mud_far', zone: 2, surface: 'mud', rect: [left, Math.round(cuts[0]), right - left, Math.round(cuts[1] - cuts[0])] },
     { id: 'mud_mid', zone: 1, surface: 'mud', rect: [left, Math.round(cuts[1]), right - left, Math.round(cuts[2] - cuts[1])] },

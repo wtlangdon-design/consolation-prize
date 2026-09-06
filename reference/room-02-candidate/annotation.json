@@ -317,12 +317,12 @@
   {
    "id": "rail_east",
    "rect": [
-    2270,
+    2236,
     776,
-    345,
+    416,
     40
    ],
-   "note": "PHASE 1.5F/G: the east rail's ground line. Its posts' feet are at y 786 (near, x 2290-2312) and 812 (far, x 2550-2578), so the strip y 776-816 is the fence's own footing: nobody stands inside it, and the ground in front of it (from y 816) stays walkable. The band boundary at 776 is above both feet, so mud_mid is behind the rail and mud_near is in front of it with nothing ambiguous between."
+   "note": "PHASE 1.5H: THE FENCE AS ONE CONTINUOUS NO-CROSS BARRIER (Tyler: Thad could still walk through the rail). Phase 1.5G stopped this obstacle at the bar's own west end, x 2270, which left a 34 px gap between the trough's east edge (2236) and the rail -- and the router picks the crossing point NEAREST the destination, so every front-to-back walk crossed at x 2268: the bar's exact tip. On screen that is a man walking through the end of the fence. The barrier now runs from the trough's east edge (2236) to 40 px clear of the bar's east tip (2652), one continuous strip on the fence's own ground line, filling the whole gap between the ground behind it (mud_mid, to y 776) and the ground in front (mud_near, from y 816). Crossing is possible only round the ends: east of x 2652, clear of the rail, or west of the trough at x 1976. The strip is 40 px deep and nothing else of the street is blocked."
   },
   {
    "id": "rail_east_bar",
@@ -480,5 +480,47 @@
   "of": "main_street",
   "stage": "CANDIDATE",
   "review": "live at ?room=main_street_candidate; the shipping room is untouched"
+ },
+ "navigation": {
+  "barriers": [
+   {
+    "id": "rail_east",
+    "span": [
+     2236,
+     2652
+    ],
+    "line": [
+     [
+      2236,
+      796
+     ],
+     [
+      2652,
+      796
+     ]
+    ],
+    "frontY": 845,
+    "backY": 730,
+    "posts": {
+     "near": [
+      2290,
+      2320,
+      786
+     ],
+     "far": [
+      2555,
+      2583,
+      812
+     ]
+    },
+    "note": "PHASE 1.5H: the fence's no-cross contract, as data. `strip` is the obstacle the router actually obeys -- the fence's footing, y 776-816, from the trough's east edge to 40 px clear of the bar's east tip -- and `line` is that strip's middle, which is the separator a test measures sides against: above it (to y 776) is the ground behind the fence, below it (from y 816) the ground in front. The posts' own feet, 786 at x 2290-2320 and 812 at x 2555-2583, both lie inside the strip, which is why one flat separator describes a fence that recedes. `frontY` and `backY` are ground a man can stand on either side. tools/gauntlet/rail-crossing.mjs drives the live room like a player at five x positions each way and asserts the side only ever changes outside the span. Navigation topology only: the visual occlusion is the plane mask, and the two are not the same system.",
+    "strip": [
+     2236,
+     776,
+     416,
+     40
+    ]
+   }
+  ]
  }
 }

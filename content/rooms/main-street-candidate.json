@@ -916,8 +916,7 @@
       "neighbours": [
         "mud_far_0",
         "mud_mid_3",
-        "mud_mid_4",
-        "mud_near_1"
+        "mud_mid_4"
       ]
     },
     {
@@ -952,7 +951,7 @@
       "neighbours": [
         "mud_far_1",
         "mud_mid_3",
-        "mud_near_2"
+        "mud_near_1"
       ]
     },
     {
@@ -1055,50 +1054,15 @@
       },
       "neighbours": [
         "mud_mid_0",
-        "mud_near_4",
-        "mud_near_5"
+        "mud_near_3",
+        "mud_near_4"
       ]
     },
     {
       "id": "mud_near_1",
       "points": [
         {
-          "x": 2236,
-          "y": 776
-        },
-        {
-          "x": 2270,
-          "y": 776
-        },
-        {
-          "x": 2270,
-          "y": 864
-        },
-        {
-          "x": 2236,
-          "y": 864
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 600,
-        "farHeight": 200,
-        "nearY": 858,
-        "nearHeight": 275
-      },
-      "neighbours": [
-        "mud_mid_1",
-        "mud_near_3",
-        "mud_near_4"
-      ]
-    },
-    {
-      "id": "mud_near_2",
-      "points": [
-        {
-          "x": 2615,
+          "x": 2652,
           "y": 776
         },
         {
@@ -1110,7 +1074,7 @@
           "y": 864
         },
         {
-          "x": 2615,
+          "x": 2652,
           "y": 864
         }
       ],
@@ -1125,26 +1089,26 @@
       },
       "neighbours": [
         "mud_mid_2",
-        "mud_near_3"
+        "mud_near_2"
       ]
     },
     {
-      "id": "mud_near_3",
+      "id": "mud_near_2",
       "points": [
         {
-          "x": 2270,
+          "x": 2236,
           "y": 816
         },
         {
-          "x": 2615,
+          "x": 2652,
           "y": 816
         },
         {
-          "x": 2615,
+          "x": 2652,
           "y": 864
         },
         {
-          "x": 2270,
+          "x": 2236,
           "y": 864
         }
       ],
@@ -1159,11 +1123,11 @@
       },
       "neighbours": [
         "mud_near_1",
-        "mud_near_2"
+        "mud_near_3"
       ]
     },
     {
-      "id": "mud_near_4",
+      "id": "mud_near_3",
       "points": [
         {
           "x": 1976,
@@ -1193,11 +1157,11 @@
       },
       "neighbours": [
         "mud_near_0",
-        "mud_near_1"
+        "mud_near_2"
       ]
     },
     {
-      "id": "mud_near_5",
+      "id": "mud_near_4",
       "points": [
         {
           "x": 0,
@@ -1484,5 +1448,47 @@
     "mud_mid",
     "mud_near"
   ],
-  "candidateOf": "main_street"
+  "candidateOf": "main_street",
+  "navigation": {
+    "barriers": [
+      {
+        "id": "rail_east",
+        "span": [
+          2236,
+          2652
+        ],
+        "line": [
+          [
+            2236,
+            796
+          ],
+          [
+            2652,
+            796
+          ]
+        ],
+        "frontY": 845,
+        "backY": 730,
+        "posts": {
+          "near": [
+            2290,
+            2320,
+            786
+          ],
+          "far": [
+            2555,
+            2583,
+            812
+          ]
+        },
+        "note": "PHASE 1.5H: the fence's no-cross contract, as data. `strip` is the obstacle the router actually obeys -- the fence's footing, y 776-816, from the trough's east edge to 40 px clear of the bar's east tip -- and `line` is that strip's middle, which is the separator a test measures sides against: above it (to y 776) is the ground behind the fence, below it (from y 816) the ground in front. The posts' own feet, 786 at x 2290-2320 and 812 at x 2555-2583, both lie inside the strip, which is why one flat separator describes a fence that recedes. `frontY` and `backY` are ground a man can stand on either side. tools/gauntlet/rail-crossing.mjs drives the live room like a player at five x positions each way and asserts the side only ever changes outside the span. Navigation topology only: the visual occlusion is the plane mask, and the two are not the same system.",
+        "strip": [
+          2236,
+          776,
+          416,
+          40
+        ]
+      }
+    ]
+  }
 }
