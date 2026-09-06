@@ -1,0 +1,23 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5D -- INTEGRATE THE LOCAL RESULTS AS THE OBJECTS' STATE IMAGES (doc 36 Q120).\n\n    python3 tools/retrofit/phase15d-integrate.py board\n    python3 tools/retrofit/phase15d-integrate.py trough\n\nEach local operation's masked zone, scaled back to 1:1 by the driver, becomes\na full-frame RGBA companion over the UNCHANGED plate: the zone's pixels with\nan alpha that is 1 inside and feathers to 0 over the last 8 px inside the\nzone's edge, so the seam falls in the model's own repainted wall or mud, which\nmatches the plate it was painted from. The plate file is not touched.\n\n  board   -> companions-02/notices-board.png (ORDINARY) and notices-funeral.png\n             (the same board with the aged funeral sheet from Phase 1.5B)\n  trough  -> companions-02/water-trough.png (FILLED); the plane-1 occlusion\n             mask is a separate authored silhouette, trough-plane-1.png",
+ "op": "OWNER-AUTHORIZED (Tyler, Phase 1.5D): the bulletin-board operation, 1 of 1. A local 500x500 window of the accepted plate centred on the existing papered wall under the Clarion's porch, scaled x2 so the papers read as the semantic anchor; the mask frees only that wall below the roof beam. The model is asked to FRAME THESE PAPERS INTO A COHERENT NOTICE BOARD at the existing location. The result's masked region, scaled back, becomes the posted_notices ORDINARY state image (a companion over the unchanged plate); the funeral sheet goes on it.",
+ "inputs": {
+  "art/staging/room-02/board-01/local-1to1.png": "7f7f94e2e26ba54c3c6f22dbc3afcba9077ebe2e85f5f1c1ada3979a6067de21"
+ },
+ "outputs": {
+  "art/staging/room-02/companions-02/notices-board.png": "6c5b7e071f8b8b3b1aa5c4f7a97c47167993398b22dd727624ffea410aeb0bc0",
+  "art/staging/room-02/companions-02/notices-funeral.png": "cdfcea3aa1af004db6c5c0040337e584694dc34910c585d107ce42a7b4ee5f65"
+ },
+ "boardFace": [
+  1640,
+  406,
+  1748,
+  514
+ ],
+ "sheetAt": [
+  1662,
+  416
+ ],
+ "feather": 8
+}

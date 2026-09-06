@@ -86,10 +86,10 @@
  "placeNote": "Forward into the lit mud, clear of the porch line. Was (2210, 657).",
  "placements": {
   "main_street_candidate": {
-   "x": 2400,
+   "x": 2470,
    "y": 662,
    "zone": 0
   }
  },
- "placementsNote": "PHASE 1.5B (doc 36 Q118): LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y (2180,724) lands inside the new trough's footprint. Placed on the far mud east of the trough, beside the rail, until Phase 2 recasts her. The shipping room's x,y is untouched."
+ "placementsNote": "PHASE 1.5B/1.5D: LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y lands inside the trough's footprint; placed on the far mud east of the trough's end, behind the rail, until Phase 2 recasts her. The shipping room's x,y is untouched."
 }

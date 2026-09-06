@@ -1,0 +1,19 @@
+{
+ "transform": "phase15d-local-window",
+ "region": [
+  1500,
+  150,
+  2000,
+  650
+ ],
+ "scale": 2,
+ "at": [
+  12,
+  12
+ ],
+ "out": "art/staging/room-02/board-01/local-1to1.png",
+ "ledger": {
+  "assetId": "main-street-board",
+  "attempt": 1
+ }
+}

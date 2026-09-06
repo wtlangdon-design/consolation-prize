@@ -509,9 +509,10 @@
  },
  "environment": {
   "status": "OWNER ACCEPTED WITH CANON CORRECTIONS",
-  "correctionsApplied": "FINAL ENVIRONMENT CLEANUP \u2014 OWNER REVIEW FAILED / CORRECTIONS REQUIRED",
+  "correctionsApplied": "PHASE 1.5C ENVIRONMENT \u2014 AWAITING OWNER VISUAL REVIEW",
   "by": "Tyler, live review of the Phase 1 candidate (2026-09-05); corrections claude, Phase 1.5",
   "evidence": [
+   "docs/36-issue-list.md::Q120 \u00b7 Opening-set retrofit, phase 1.5D: Main Street's board and trough painted in place on local canvases (2 operations, both used), the Nugget frozen",
    "docs/36-issue-list.md::Q119 \u00b7 Opening-set retrofit, phase 1.5C: owner review of 1.5B failed \u2014 the Nugget floor made one floor; the Main Street integration operation failed and is stopped",
    "renders/opening-set-retrofit/phase15c-nugget-floor-detail.webp",
    "renders/opening-set-retrofit/phase15c-nugget-before-after.webp",
@@ -545,6 +546,6 @@
    "thadScale": "KNOWN PHASE 2 SCALE CALIBRATION STILL REQUIRED before character generation"
   },
   "note": "Environment only. Not population acceptance, not gameplay acceptance.",
-  "ownerReview": "Tyler, 2026-09-06: the 1.5B floor kept plank remnants inside the box-restore regions; the whole public floor must be one dirt floor, actual furniture pixels only. Phase 1.5C applied the third floor operation (no holes, no box restore); status stays FAILED / CORRECTIONS REQUIRED until Tyler approves new live screenshots."
+  "ownerReview": "Tyler, 2026-09-06: the 1.5B floor kept plank remnants inside the box-restore regions; the whole public floor must be one dirt floor, actual furniture pixels only. Phase 1.5C applied the third floor operation (no holes, no box restore); status stays FAILED / CORRECTIONS REQUIRED until Tyler approves new live screenshots. PHASE 1.5D: the Nugget was FROZEN by Tyler's brief -- no floor, stove, furniture, hotspot, occlusion or state change; the 1.5C floor stands as the review candidate, stove LIT/OUT unchanged; not owner-accepted until Tyler rules."
  }
 }

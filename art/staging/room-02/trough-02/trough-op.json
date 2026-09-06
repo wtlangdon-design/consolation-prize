@@ -1,0 +1,30 @@
+{
+ "region": [
+  1880,
+  420,
+  2600,
+  864
+ ],
+ "scale": 1.42,
+ "at": [
+  1,
+  60
+ ],
+ "zonePlate": [
+  1960,
+  560,
+  2400,
+  800
+ ],
+ "canvas": "art/staging/room-02/trough-02/edit-canvas.png",
+ "mask": "art/staging/room-02/trough-02/edit-mask.png",
+ "maskSha256": "23e6564bc36c5d6df55f78b9abf705d795db9eb037c0199e4bf5dcf1ebb5fdca",
+ "diagnostic": "renders/opening-set-retrofit/phase15d-trough-02-canvas-diagnostic.png",
+ "schema": 1,
+ "purpose": "OWNER-AUTHORIZED (Tyler, Phase 1.5D): the water-trough operation, 1 of 1. A local 720x444 window of the accepted plate around the site beside the east hitching rail, scaled x1.42 and set in the MIDDLE of a 1024x1024 canvas with letterbox above and below, so the site is nowhere near a frame edge; the mask frees only the site. The Phase 1.5C trough (good object, wrong placement) is passed as the object reference. The result's masked region, scaled back, becomes the water_trough FILLED state image (a companion over the unchanged plate); the plane-1 mask is an authored silhouette cut from it.",
+ "source": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad",
+  "objectReference": "art/staging/room-02/trough-02/object-reference.png"
+ },
+ "mustRemainUnchanged": "the hitching rail and its posts, the boardwalk edge and the porches above, the saloon, the mud outside the site"
+}

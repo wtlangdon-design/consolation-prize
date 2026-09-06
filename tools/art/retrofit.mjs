@@ -1,4 +1,5 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 
 import { ROOT } from '../lib/content.mjs';
@@ -70,24 +71,27 @@ function guard(assetId) {
   }
 }
 
-async function call({ assetId, subject, baselineRoom, promptFile, images, mask, out, derived, extra = {} }) {
+async function call({ assetId, subject, baselineRoom, promptFile, images, mask, out, derived, extra = {}, size = SIZE, deriveFn = null }) {
   guard(assetId);
   mkdirSync(resolve(ROOT, out.slice(0, out.lastIndexOf('/'))), { recursive: true });
   for (const image of images) say(`  ref ${hashFile(image).slice(0, 12)}  ${image}`);
   if (mask) say(`  mask ${hashFile(mask).slice(0, 12)}  ${mask}`);
-  const made = await edit({ promptFile, out, images, mask, size: SIZE, baselineRoom, purpose: 'plate' });
+  const made = await edit({ promptFile, out, images, mask, size, baselineRoom, purpose: 'plate' });
   say(`  wrote ${made.out}, ${made.bytes} bytes, sha ${made.outputHash.slice(0, 12)}`);
   say(`  transmitted: ${made.references.filter((r) => r.transmitted).length}/${made.references.length}`);
   const row = record({ ...made, assetId, subject, role: 'plate', ...extra });
   say(`  recorded as ${assetId} attempt ${row.attempt}`);
-  const gates = runGates(made.out, { kind: 'plate', expect: SIZE });
+  const gates = runGates(made.out, { kind: 'plate', expect: size });
   attachGates(assetId, row.attempt, gates);
   say(`  gates: ${gates.passed ? 'PASS' : 'FAIL'}`);
   for (const line of gates.failures) say(`    x ${line}`);
   // ERRATA 63'S DERIVATION, the same crop and the same named kernel Room 5
   // shipped through, recorded beside the source.
   mkdirSync(resolve(ROOT, derived.slice(0, derived.lastIndexOf('/'))), { recursive: true });
-  const plate = deriveFixedRoomPlate({ source: made.out, out: derived });
+  // A LOCAL CANVAS (Phase 1.5D) is not an errata-63 plate source: its result
+  // is scaled back into the plate by the prep record, not cropped by the
+  // fixed-room transform, so `deriveFn` says how.
+  const plate = deriveFn ? deriveFn(made.out, derived) : deriveFixedRoomPlate({ source: made.out, out: derived });
   writeFileSync(resolve(ROOT, `${derived.slice(0, derived.lastIndexOf('/'))}/derivation.json`),
     `${JSON.stringify({ ...plate, ledger: { assetId, attempt: row.attempt } }, null, 1)}\n`);
   say(`  derived ${derived} (${JSON.stringify(plate).slice(0, 160)}...)`);
@@ -156,6 +160,30 @@ if (which === 'street-west') {
     derived: `art/staging/room-02/trough-${n}/window-1920x864.png`,
     extra: { editedFrom: `art/staging/room-02/trough-${n}/edit-canvas.png`, maskRecord: `art/staging/room-02/trough-${n}/trough-op.json`,
       note: 'OPENING-SET RETROFIT PHASE 1.5B: the water trough as local prop art in the accepted street; owner finding 1 (the Phase 1.5 trough read as pasted, jagged, old and electric blue). The owner-authorized 1 of 1.' },
+  });
+} else if (which === 'street-board' || which === 'street-trough-local') {
+  // PHASE 1.5D: one local, centred 1024x1024 canvas per subject; the derived
+  // file is the canvas's plate window scaled back to 1:1 (the composite into
+  // the companion is tools/retrofit/phase15d-integrate.py).
+  const isBoard = which === 'street-board';
+  const dir = isBoard ? 'art/staging/room-02/board-01' : 'art/staging/room-02/trough-02';
+  const op = JSON.parse(readFileSync(resolve(ROOT, `${dir}/${isBoard ? 'board' : 'trough'}-op.json`), 'utf8'));
+  say(isBoard ? '\nMAIN STREET · THE NOTICE BOARD -- a local centred canvas, one operation\n' : '\nMAIN STREET · THE TROUGH -- a local centred canvas, the 1.5C trough as reference, one operation\n');
+  await call({
+    assetId: isBoard ? 'main-street-board' : 'main-street-trough', subject: 'room-02-main-street', baselineRoom: 'room-02-main-street',
+    promptFile: isBoard ? 'proofs/room-02/prompts/board-01.txt' : 'proofs/room-02/prompts/trough-02.txt',
+    images: [`${dir}/edit-canvas.png`, ...(isBoard ? [] : [`${dir}/object-reference.png`]), ...STREET_REFS],
+    mask: `${dir}/edit-mask.png`, size: '1024x1024',
+    out: `${dir}/result-1024.png`, derived: `${dir}/local-1to1.png`,
+    deriveFn: (source, outPath) => {
+      // the canvas's plate window, scaled back to plate scale, as the record says
+      const [x0, y0, x1, y1] = op.region; const [ax, ay] = op.at; const k = op.scale;
+      const w = Math.round((x1 - x0) * k), h = Math.round((y1 - y0) * k);
+      execFileSync('python3', ['-c', `from PIL import Image; im=Image.open('${source}').crop((${ax},${ay},${ax + w},${ay + h})).resize((${x1 - x0},${y1 - y0}), Image.LANCZOS); im.save('${outPath}')`], { cwd: ROOT });
+      return { transform: 'phase15d-local-window', region: op.region, scale: k, at: op.at, out: outPath };
+    },
+    extra: { editedFrom: `${dir}/edit-canvas.png`, maskRecord: `${dir}/${isBoard ? 'board' : 'trough'}-op.json`,
+      note: isBoard ? 'OPENING-SET RETROFIT PHASE 1.5D: the notice board framed around the existing papers on a local centred canvas. The owner-authorized 1 of 1.' : 'OPENING-SET RETROFIT PHASE 1.5D: the trough on a local centred canvas with the 1.5C object as reference. The owner-authorized 1 of 1 for this phase.' },
   });
 } else if (which === 'street-integrate') {
   // PHASE 1.5C: the board and the trough painted INTO the street, in context,

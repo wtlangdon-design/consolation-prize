@@ -1,0 +1,29 @@
+{
+ "note": "THE TROUGH'S SILHOUETTE, authored off the Phase 1.5D result on a 20 px grid (plate coordinates): the occlusion plane, not the visual -- the visual is the feathered zone companion.",
+ "polygon": [
+  [
+   2016,
+   690
+  ],
+  [
+   2044,
+   660
+  ],
+  [
+   2292,
+   654
+  ],
+  [
+   2400,
+   703
+  ],
+  [
+   2400,
+   808
+  ],
+  [
+   2020,
+   752
+  ]
+ ]
+}

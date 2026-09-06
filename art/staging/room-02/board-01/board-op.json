@@ -1,0 +1,29 @@
+{
+ "region": [
+  1500,
+  150,
+  2000,
+  650
+ ],
+ "scale": 2.0,
+ "at": [
+  12,
+  12
+ ],
+ "zonePlate": [
+  1596,
+  388,
+  1800,
+  560
+ ],
+ "canvas": "art/staging/room-02/board-01/edit-canvas.png",
+ "mask": "art/staging/room-02/board-01/edit-mask.png",
+ "maskSha256": "c675f4a1b6dbe17d299863effe6e2fe732e91c57d736a17c328f1e9c183b8c03",
+ "diagnostic": "renders/opening-set-retrofit/phase15d-board-01-canvas-diagnostic.png",
+ "schema": 1,
+ "purpose": "OWNER-AUTHORIZED (Tyler, Phase 1.5D): the bulletin-board operation, 1 of 1. A local 500x500 window of the accepted plate centred on the existing papered wall under the Clarion's porch, scaled x2 so the papers read as the semantic anchor; the mask frees only that wall below the roof beam. The model is asked to FRAME THESE PAPERS INTO A COHERENT NOTICE BOARD at the existing location. The result's masked region, scaled back, becomes the posted_notices ORDINARY state image (a companion over the unchanged plate); the funeral sheet goes on it.",
+ "source": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad"
+ },
+ "mustRemainUnchanged": "the porch roof and beam above, the porch post left of the board, the neighbouring building right of it, the boardwalk below, everything outside the wall zone"
+}
