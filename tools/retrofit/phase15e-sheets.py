@@ -71,8 +71,8 @@ items = [(z(before, B, 1), 'BEFORE (1.5D as reviewed): the pasted trough with it
          (z(after, B, 1), 'AFTER: one structural repair -- trough and rail authored together, a stride of mud between them'),
          (z(after, (1950, 600, 2650, 864), 3), '3x: the patch; no compositing seam, mud continuous, contact shadows')]
 if 'c03-thad-before-trough' in ms: items.append((frame(ms['c03-thad-before-trough'], (1880, 380, 2760, 864)), 'LIVE: Thad in front of the trough (mud_near, plane 0)'))
-if 'c05-thad-behind-trough' in ms: items.append((frame(ms['c05-thad-behind-trough'], (1880, 380, 2760, 864)), 'LIVE: Thad behind the trough (mud_mid, plane 1): the trough masks his legs'))
-if 'c05-thad-behind-trough' in ms: items.append((frame(ms['c05-thad-behind-trough'], (1950, 600, 2400, 864), 2), '2x: the occlusion edge on the trough\'s rim'))
+if 'c05-thad-behind-trough' in ms: items.append((frame(ms['c05-thad-behind-trough'], (1880, 380, 2760, 864)), 'LIVE: Thad behind the trough (mud_mid, plane 1): its far rim masks his feet'))
+if 'c05-thad-behind-trough' in ms: items.append((frame(ms['c05-thad-behind-trough'], (1950, 600, 2400, 864), 2), '2x: the occlusion edge on the trough\'s far rim'))
 sheet(f'{OUT}/phase15e-region-b.webp', 'REGION B -- trough / east hitching rail: before (1.5D) and after (1.5E), the 3x patch, Thad in front and behind', items, 2)
 # the sanity pass at 1:1
 sheet(f'{OUT}/phase15e-sanity.webp', 'MAIN STREET -- sanity pass at 1:1: board, adjacent building, church front, sign, trough, rail, dog zone, porches, boardwalk, patch boundaries',
