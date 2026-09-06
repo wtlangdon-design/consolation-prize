@@ -131,6 +131,20 @@ export function check() {
           + `${[...levels].join(', ') || 'none'}. The counter she stands behind would not mask her.`);
       }
     }
+    // AND A PER-ROOM PLACEMENT'S OWN PLANE, which is the same claim made about
+    // a different plate. Main Street's pie woman stands behind a hitching rail
+    // on the candidate and nowhere near one on the shipping room, so the plane
+    // is declared on the placement; a placement naming a plane the room does
+    // not have would draw her in front of the thing she is behind, and until
+    // this loop existed nothing looked.
+    for (const npc of ambients) {
+      const placed = npc.placements?.[room.id];
+      if (!placed || placed.clipPlane === undefined || placed.clipPlane === 0) continue;
+      if (!levels.has(placed.clipPlane)) {
+        report.fail(`${room.id}/${npc.id}: placement clipPlane ${placed.clipPlane} and this room's `
+          + `planes are ${[...levels].join(', ') || 'none'}.`);
+      }
+    }
     if (planes.length === 0) continue;
     for (const plane of planes) {
       if (plane.maskPending) {

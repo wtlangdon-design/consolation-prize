@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": "main_street_candidate",
- "note": "PHASE 1.5G RAIL PROOF (doc 36 Q123). Tyler's live screenshot showed Thad standing on the hitching rail. The rail is now a barrier on its own two lines -- the bar's drawn line in the far mud, the posts' feet in the near mud -- with real ground behind it between them. This route tries to break it: it stands him in front, sends him straight through the midspan, clicks directly on the bar, and walks him round both ends.",
+ "note": "PHASE 1.5I FRONT-ONLY RAIL PROOF (doc 36 Q125). Tyler's ruling: Thad walks only in FRONT of this rail. The clicks are unchanged from the 1.5G/1.5H route, because they are the clicks Tyler makes -- in front, straight at the mid-span, on the bar itself, at the near post, round the far end, back to the front. What changed is what they are supposed to DO: every one of them now leaves him on the front side, because the ground behind the rail is not floor any more. The captures are the frames a person looks at; the assertion is tools/gauntlet/rail-front-only.mjs, which samples the whole walk.",
  "actions": [
   {
    "do": "wait",
@@ -35,7 +35,7 @@
     2440,
     700
    ],
-   "why": "C: straight through the rail at mid-span -- the path must go round an end"
+   "why": "C: straight at the rail's mid-span -- he must stay in front of it"
   },
   {
    "do": "wait",
@@ -43,7 +43,7 @@
   },
   {
    "do": "capture",
-   "name": "g03a-crossing-starts",
+   "name": "g03a-walk-starts",
    "room": "main_street_candidate"
   },
   {
@@ -52,7 +52,7 @@
   },
   {
    "do": "capture",
-   "name": "g03-crossing-underway",
+   "name": "g03-walk-underway",
    "room": "main_street_candidate"
   },
   {
@@ -61,7 +61,7 @@
   },
   {
    "do": "capture",
-   "name": "g04-behind-midspan",
+   "name": "g04-front-after-clicking-behind",
    "room": "main_street_candidate"
   },
   {
@@ -87,7 +87,7 @@
     2300,
     720
    ],
-   "why": "E: behind the near post"
+   "why": "E: at the near post -- he must stop clear of its foot"
   },
   {
    "do": "wait",
@@ -95,7 +95,7 @@
   },
   {
    "do": "capture",
-   "name": "g06-behind-near-post",
+   "name": "g06-front-after-clicking-the-near-post",
    "room": "main_street_candidate"
   },
   {
@@ -104,7 +104,7 @@
     2600,
     835
    ],
-   "why": "F: round the far end, out in front again"
+   "why": "F: past the far end, out in front again"
   },
   {
    "do": "wait",

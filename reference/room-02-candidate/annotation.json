@@ -145,7 +145,7 @@
   },
   "to_nugget": {
    "x": 2595,
-   "y": 610,
+   "y": 592,
    "facing": "back"
   },
   "to_hotel": {
@@ -262,9 +262,10 @@
    "from": "nugget",
    "at": [
     2595,
-    620
+    592
    ],
-   "facing": "front"
+   "facing": "front",
+   "note": "PHASE 1.5I: 620 -> 592, up onto the boardwalk, x untouched. The saloon door is dead centre of the hitching rail's span, so the mud he used to arrive on is behind the rail -- and that ground is gone. He now steps out of the Nugget onto its own pavement, which is where a man leaving a saloon stands. `arrivalBySource` still says 2317,624; nothing reads it (the compiler uses `entrances`) and it is left alone rather than half-corrected."
   },
   {
    "from": "hotel",
@@ -318,22 +319,21 @@
    "id": "rail_east",
    "rect": [
     2236,
-    776,
+    600,
     416,
-    40
+    216
    ],
-   "note": "PHASE 1.5H: THE FENCE AS ONE CONTINUOUS NO-CROSS BARRIER (Tyler: Thad could still walk through the rail). Phase 1.5G stopped this obstacle at the bar's own west end, x 2270, which left a 34 px gap between the trough's east edge (2236) and the rail -- and the router picks the crossing point NEAREST the destination, so every front-to-back walk crossed at x 2268: the bar's exact tip. On screen that is a man walking through the end of the fence. The barrier now runs from the trough's east edge (2236) to 40 px clear of the bar's east tip (2652), one continuous strip on the fence's own ground line, filling the whole gap between the ground behind it (mud_mid, to y 776) and the ground in front (mud_near, from y 816). Crossing is possible only round the ends: east of x 2652, clear of the rail, or west of the trough at x 1976. The strip is 40 px deep and nothing else of the street is blocked."
+   "note": "PHASE 1.5I, TYLER'S RULING -- THE REAR OF THE RAIL IS NOT PLAYER GROUND. This obstacle used to be the fence's footing, y 776-816, with walkable mud behind it; that design is retired. 1.5G gave the rear ground back and 1.5H made the fence uncrossable, and Tyler could still put Thad IN the rail, because standing on the rear strip (mud_mid, y 690-776, where the bar is drawn) IS standing in the fence however he got there. The obstacle is now the whole rear of the rail's span: x 2236 (the trough's east edge) to 2652 (40 px clear of the bar's east tip), y 600 (the top of the far mud) to 816 (the top of the front band). The compiler CARVES it, so no walk box exists behind the rail at all -- this is not an overlay for the router to find a way round, and there is no rear side left to cross to. In front, mud_near from y 816 is unbroken along the whole rail; past either end the street is ordinary walkable street at every depth. The boardwalk (y 548-598) is untouched and is not in this rect: it is the town's far pavement, it carries exits and hotspots, and a man on it stands 40 px above the bar's top with no part of him drawn against the rail."
   },
   {
-   "id": "rail_east_bar",
+   "id": "rail_east_post_far",
    "rect": [
-    2268,
-    636,
-    346,
-    54
+    2545,
+    776,
+    48,
+    48
    ],
-   "keepsGroundAbove": true,
-   "note": "PHASE 1.5G: THE BAR'S OWN LINE, and the answer to Tyler's first finding. The bar is drawn across y 640-682, and the far mud is walkable at those depths, so a click on the rail put Thad's FEET exactly where the bar is drawn -- a man standing on a fence. This strip is now his; the far mud above it (600-636, behind the fence) and the mid mud below it (690-776, behind the fence and clear of the bar) both stay walkable, so 'behind the rail' is still a place he can go."
+   "note": "PHASE 1.5I: THE FAR POST'S SAFETY MARGIN. The far post's foot is y 812 at x 2555-2583 and the front band begins at 816, so without this his feet could stop 4 px below the post's base -- boots and post foot in the same pixels, and grazing it on a turn. The notch carries the front ground down to 824 across x 2545-2593 (the footprint plus 10 px either side), which is 12 px of clearance. The near post needs none: its foot is 786 and the band already starts 30 px below it."
   }
  ],
  "lamps": [
@@ -426,7 +426,7 @@
   "x": 3200,
   "y": 700
  },
- "onEnterWalkNote": "OUT INTO THE ROAD, NOT ALONG THE BUILDINGS. He was walking to x3400 y640, which is the boardwalk edge in front of the claims-road exit and beside the map seller\u2019s office -- he arrived and then sidled up against a wall. x3300 y706 is the middle of the street with the town in front of him, which is where a man stands when he has just walked into a town he has never seen. Clear of the assay office door at x3082-3144, clear of the map seller at x3140, and low enough to be in the road rather than on the walk.",
+ "onEnterWalkNote": "OUT INTO THE ROAD, NOT ALONG THE BUILDINGS. He was walking to x3400 y640, which is the boardwalk edge in front of the claims-road exit and beside the map seller’s office -- he arrived and then sidled up against a wall. x3300 y706 is the middle of the street with the town in front of him, which is where a man stands when he has just walked into a town he has never seen. Clear of the assay office door at x3082-3144, clear of the map seller at x3140, and low enough to be in the road rather than on the walk.",
  "occlusion": {
   "note": "PHASE 1.5E: cut. The plane-1 mask is the authored silhouette of the trough and the east rail on street-candidate-03; the west rail (x 0-560) stays an obstacle only, its base below the frame; the porch posts remain uncut (nobody walks behind them: the boardwalk band is plane 0 and in front of nothing).",
   "planes": [
@@ -451,27 +451,10 @@
     "expect": 1,
     "box": "mud_mid",
     "note": "behind the trough, above its base line: its far rim and body mask his feet"
-   },
-   {
-    "at": [
-     2440,
-     740
-    ],
-    "expect": 1,
-    "box": "mud_mid",
-    "note": "behind the rail, mid-span between the posts: the bar crosses him"
-   },
-   {
-    "at": [
-     2470,
-     706
-    ],
-    "expect": 1,
-    "box": "mud_mid",
-    "note": "where the pie woman stands, on the ground behind the rail: the bar crosses her lower legs -- the generic actor case, and nothing about it is Thad's"
    }
   ],
-  "clipPlaneNote": "PHASE 1.5G: depth is read from the FOOT BASELINE and the mask is local to the objects. Each object's obstacle sits on ITS OWN base line, so the band boundary at y 776 no longer has to double as the depth boundary: above an object's line the ground is behind it (mud_far and mud_mid, plane 1, masked by the object's own silhouette where the two overlap), below it the ground is in front (mud_near, plane 0). A man left or right of the trough at the same depth is untouched, because the mask has no pixels there."
+  "clipPlaneNote": "PHASE 1.5G: depth is read from the FOOT BASELINE and the mask is local to the objects. Each object's obstacle sits on ITS OWN base line, so the band boundary at y 776 no longer has to double as the depth boundary: above an object's line the ground is behind it (mud_far and mud_mid, plane 1, masked by the object's own silhouette where the two overlap), below it the ground is in front (mud_near, plane 0). A man left or right of the trough at the same depth is untouched, because the mask has no pixels there.",
+  "proofPointsNote": "PHASE 1.5I: the two rail proof points -- behind the bar at 2440,740 and where the pie woman stands at 2470,706 -- are gone with the ground they stood on. Thad may not walk behind this rail, so there is no player state for them to assert; a proof point on ground nobody can reach measures nothing and would fail the floor test besides. Plane 1 keeps its assertion at 2100,700, behind the trough, which is ground he can still stand on. The MASK is deliberately unchanged: it is one file cutting both the trough and the rail, the trough's occlusion is frozen, and re-cutting a shared mask to delete pixels that now mask nobody would risk the frozen half for no gain."
  },
  "plateNote": "MAIN STREET REPLACEMENT CANDIDATE 01 (opening-set retrofit phase 1, doc 36 Q116): two errata-63 panels (west, east) stitched at explicit cut columns (art/staging/room-02/street-candidate-01/stitch.json). Every rect below was read off this candidate on a 100 px grid. A CANDIDATE: the shipping street is untouched; this annotation compiles to the candidate room main_street_candidate, reachable only by the dev warp, for Tyler's review.",
  "acts": {},
@@ -482,45 +465,45 @@
   "review": "live at ?room=main_street_candidate; the shipping room is untouched"
  },
  "navigation": {
-  "barriers": [
+  "frontOnly": [
    {
     "id": "rail_east",
     "span": [
      2236,
      2652
     ],
-    "line": [
-     [
-      2236,
-      796
-     ],
-     [
-      2652,
-      796
-     ]
-    ],
-    "frontY": 845,
-    "backY": 730,
-    "posts": {
-     "near": [
-      2290,
-      2320,
-      786
-     ],
-     "far": [
-      2555,
-      2583,
-      812
-     ]
-    },
-    "note": "PHASE 1.5H: the fence's no-cross contract, as data. `strip` is the obstacle the router actually obeys -- the fence's footing, y 776-816, from the trough's east edge to 40 px clear of the bar's east tip -- and `line` is that strip's middle, which is the separator a test measures sides against: above it (to y 776) is the ground behind the fence, below it (from y 816) the ground in front. The posts' own feet, 786 at x 2290-2320 and 812 at x 2555-2583, both lie inside the strip, which is why one flat separator describes a fence that recedes. `frontY` and `backY` are ground a man can stand on either side. tools/gauntlet/rail-crossing.mjs drives the live room like a player at five x positions each way and asserts the side only ever changes outside the span. Navigation topology only: the visual occlusion is the plane mask, and the two are not the same system.",
-    "strip": [
+    "rect": [
      2236,
-     776,
+     600,
      416,
-     40
-    ]
+     216
+    ],
+    "resolveBelowY": 816,
+    "frontY": 845,
+    "minPostClearance": 8,
+    "posts": [
+     {
+      "id": "near",
+      "x": [
+       2290,
+       2320
+      ],
+      "base": 786
+     },
+     {
+      "id": "far",
+      "x": [
+       2555,
+       2583
+      ],
+      "base": 812,
+      "safetyObstacle": "rail_east_post_far"
+     }
+    ],
+    "note": "PHASE 1.5I, TYLER'S RULING: THAD WALKS ONLY IN FRONT OF THIS RAIL. Dual-side navigation is retired -- 1.5G gave the rear ground back, 1.5H made the fence uncrossable, and Tyler could still put him in the rail, because the rear strip mud_mid_3 (x 2268-2614, y 690-776) was legal ground and standing there IS standing in the fence. `rect` is the ground that is no longer player ground: the whole rear of the rail's span, from the top of the far mud (600) down to the top of the front band (816). It is not an overlay the router may route around -- the compiler carves it out, so no walk box exists there at all. `resolveBelowY` is the line a click inside `rect` resolves BELOW: the engine restricts the landing to boxes at or under it, so a click on the bar, on a post, or on the ground behind them puts him on the nearest FRONT-side ground rather than sending him round the block to the boardwalk. `posts` are the two footprints his feet must clear by `minPostClearance`; the far post's foot is at 812 and the front band starts at 816, which is 4 px, so its safety notch carries the front ground down to 824 there. tools/gauntlet/rail-front-only.mjs clicks all of this like a player and asserts he is never inside `rect`."
    }
-  ]
- }
+  ],
+  "note": "PHASE 1.5I: `barriers` is gone. It stated the 1.5H contract -- a fence with walkable ground on both sides that may not be crossed between its ends -- and that design is retired: there is no rear side to cross to. What remains is `frontOnly`, which says the stronger thing."
+ },
+ "exitWalkToNote": "PHASE 1.5I: the Nugget's approach moves UP ONTO THE BOARDWALK, y 610 -> 592, and only in y. The saloon door is at x 2550-2640, dead centre of the hitching rail's span, so every point in the mud in front of it is behind the rail -- and Tyler's ruling took that ground out of the floor. The boardwalk is where the point belongs anyway: you walk into a saloon off its pavement, with the rail in the street behind you. Every other exit in this room is unchanged."
 }

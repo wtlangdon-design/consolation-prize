@@ -1,0 +1,1930 @@
+{
+ "schema": 1,
+ "room": "main_street_candidate",
+ "region": {
+  "id": "rail_east",
+  "span": [
+   2236,
+   2652
+  ],
+  "rect": [
+   2236,
+   600,
+   416,
+   216
+  ],
+  "resolveBelowY": 816,
+  "frontY": 845,
+  "minPostClearance": 8,
+  "posts": [
+   {
+    "id": "near",
+    "x": [
+     2290,
+     2320
+    ],
+    "base": 786
+   },
+   {
+    "id": "far",
+    "x": [
+     2555,
+     2583
+    ],
+    "base": 812,
+    "safetyObstacle": "rail_east_post_far"
+   }
+  ],
+  "note": "PHASE 1.5I, TYLER'S RULING: THAD WALKS ONLY IN FRONT OF THIS RAIL. Dual-side navigation is retired -- 1.5G gave the rear ground back, 1.5H made the fence uncrossable, and Tyler could still put him in the rail, because the rear strip mud_mid_3 (x 2268-2614, y 690-776) was legal ground and standing there IS standing in the fence. `rect` is the ground that is no longer player ground: the whole rear of the rail's span, from the top of the far mud (600) down to the top of the front band (816). It is not an overlay the router may route around -- the compiler carves it out, so no walk box exists there at all. `resolveBelowY` is the line a click inside `rect` resolves BELOW: the engine restricts the landing to boxes at or under it, so a click on the bar, on a post, or on the ground behind them puts him on the nearest FRONT-side ground rather than sending him round the block to the boardwalk. `posts` are the two footprints his feet must clear by `minPostClearance`; the far post's foot is at 812 and the front band starts at 816, which is 4 px, so its safety notch carries the front ground down to 824 there. tools/gauntlet/rail-front-only.mjs clicks all of this like a player and asserts he is never inside `rect`."
+ },
+ "at": "2026-09-06T16:46:01.298Z",
+ "runs": [
+  {
+   "group": "behind the rail",
+   "name": "behind-left-quarter",
+   "at": [
+    2340,
+    730
+   ],
+   "landed": {
+    "t": 1845,
+    "x": 2339,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 113,
+     "x": 2422,
+     "y": 838,
+     "moving": true
+    },
+    {
+     "t": 338,
+     "x": 2380,
+     "y": 827,
+     "moving": true
+    },
+    {
+     "t": 553,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 716,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 935,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1104,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1273,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1456,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1627,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1845,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "behind the rail",
+   "name": "behind-centre",
+   "at": [
+    2444,
+    730
+   ],
+   "landed": {
+    "t": 1547,
+    "x": 2443,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 126,
+     "x": 2443,
+     "y": 822,
+     "moving": true
+    },
+    {
+     "t": 256,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 433,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 676,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 801,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1001,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1128,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1293,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1547,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "behind the rail",
+   "name": "behind-right-quarter",
+   "at": [
+    2548,
+    730
+   ],
+   "landed": {
+    "t": 1946,
+    "x": 2545,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 112,
+     "x": 2457,
+     "y": 840,
+     "moving": true
+    },
+    {
+     "t": 335,
+     "x": 2499,
+     "y": 829,
+     "moving": true
+    },
+    {
+     "t": 549,
+     "x": 2540,
+     "y": 817,
+     "moving": true
+    },
+    {
+     "t": 717,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 908,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1085,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1255,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1426,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1556,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1734,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1946,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "behind the rail",
+   "name": "behind-centre-again",
+   "at": [
+    2444,
+    700
+   ],
+   "landed": {
+    "t": 1607,
+    "x": 2443,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 125,
+     "x": 2443,
+     "y": 822,
+     "moving": true
+    },
+    {
+     "t": 363,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 526,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 745,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 910,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1093,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1257,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1437,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1607,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "behind the rail",
+   "name": "behind-left-again",
+   "at": [
+    2340,
+    760
+   ],
+   "landed": {
+    "t": 2064,
+    "x": 2339,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 110,
+     "x": 2429,
+     "y": 840,
+     "moving": true
+    },
+    {
+     "t": 335,
+     "x": 2387,
+     "y": 829,
+     "moving": true
+    },
+    {
+     "t": 568,
+     "x": 2345,
+     "y": 818,
+     "moving": true
+    },
+    {
+     "t": 774,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 929,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1093,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1300,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1514,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1675,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1851,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 2064,
+     "x": 2339,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "behind the rail",
+   "name": "behind-right-again",
+   "at": [
+    2548,
+    700
+   ],
+   "landed": {
+    "t": 1976,
+    "x": 2545,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 108,
+     "x": 2464,
+     "y": 838,
+     "moving": true
+    },
+    {
+     "t": 356,
+     "x": 2506,
+     "y": 827,
+     "moving": true
+    },
+    {
+     "t": 487,
+     "x": 2527,
+     "y": 821,
+     "moving": true
+    },
+    {
+     "t": 624,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 854,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1035,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1163,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1387,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1566,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1738,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1976,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "on the rail",
+   "name": "on-the-bar",
+   "at": [
+    2444,
+    660
+   ],
+   "landed": {
+    "t": 1613,
+    "x": 2443,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 147,
+     "x": 2443,
+     "y": 822,
+     "moving": true
+    },
+    {
+     "t": 279,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 413,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 629,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 861,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1072,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1233,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1446,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1613,
+     "x": 2443,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "on the rail",
+   "name": "on-the-near-post",
+   "at": [
+    2305,
+    700
+   ],
+   "landed": {
+    "t": 1943,
+    "x": 2305,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 109,
+     "x": 2422,
+     "y": 840,
+     "moving": true
+    },
+    {
+     "t": 321,
+     "x": 2379,
+     "y": 831,
+     "moving": true
+    },
+    {
+     "t": 532,
+     "x": 2337,
+     "y": 822,
+     "moving": true
+    },
+    {
+     "t": 736,
+     "x": 2305,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 956,
+     "x": 2305,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1120,
+     "x": 2305,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1275,
+     "x": 2305,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1429,
+     "x": 2305,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1629,
+     "x": 2305,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1783,
+     "x": 2305,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1943,
+     "x": 2305,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "on the rail",
+   "name": "on-the-far-post",
+   "at": [
+    2569,
+    770
+   ],
+   "landed": {
+    "t": 1728,
+    "x": 2545,
+    "y": 816,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 113,
+     "x": 2457,
+     "y": 840,
+     "moving": true
+    },
+    {
+     "t": 245,
+     "x": 2478,
+     "y": 834,
+     "moving": true
+    },
+    {
+     "t": 463,
+     "x": 2520,
+     "y": 823,
+     "moving": true
+    },
+    {
+     "t": 679,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 833,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 989,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1117,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1247,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1414,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1573,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    },
+    {
+     "t": 1728,
+     "x": 2545,
+     "y": 816,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "past the ends",
+   "name": "past-the-west-end",
+   "at": [
+    1900,
+    720
+   ],
+   "reachesDepth": true,
+   "landed": {
+    "t": 5418,
+    "x": 1899,
+    "y": 720,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 114,
+     "x": 2534,
+     "y": 816,
+     "moving": true
+    },
+    {
+     "t": 357,
+     "x": 2492,
+     "y": 816,
+     "moving": true
+    },
+    {
+     "t": 572,
+     "x": 2449,
+     "y": 816,
+     "moving": true
+    },
+    {
+     "t": 800,
+     "x": 2407,
+     "y": 816,
+     "moving": true
+    },
+    {
+     "t": 1020,
+     "x": 2364,
+     "y": 816,
+     "moving": true
+    },
+    {
+     "t": 1228,
+     "x": 2322,
+     "y": 816,
+     "moving": true
+    },
+    {
+     "t": 1433,
+     "x": 2279,
+     "y": 816,
+     "moving": true
+    },
+    {
+     "t": 1650,
+     "x": 2237,
+     "y": 816,
+     "moving": true
+    },
+    {
+     "t": 1859,
+     "x": 2215,
+     "y": 815,
+     "moving": true
+    },
+    {
+     "t": 2072,
+     "x": 2172,
+     "y": 814,
+     "moving": true
+    },
+    {
+     "t": 2293,
+     "x": 2130,
+     "y": 812,
+     "moving": true
+    },
+    {
+     "t": 2520,
+     "x": 2088,
+     "y": 810,
+     "moving": true
+    },
+    {
+     "t": 2742,
+     "x": 2046,
+     "y": 809,
+     "moving": true
+    },
+    {
+     "t": 2960,
+     "x": 2004,
+     "y": 807,
+     "moving": true
+    },
+    {
+     "t": 3180,
+     "x": 1976,
+     "y": 806,
+     "moving": true
+    },
+    {
+     "t": 3408,
+     "x": 1937,
+     "y": 791,
+     "moving": true
+    },
+    {
+     "t": 3632,
+     "x": 1899,
+     "y": 776,
+     "moving": true
+    },
+    {
+     "t": 3869,
+     "x": 1899,
+     "y": 736,
+     "moving": true
+    },
+    {
+     "t": 4102,
+     "x": 1899,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 4270,
+     "x": 1899,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 4430,
+     "x": 1899,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 4599,
+     "x": 1899,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 4763,
+     "x": 1899,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 4937,
+     "x": 1899,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 5191,
+     "x": 1899,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 5418,
+     "x": 1899,
+     "y": 720,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "past the ends",
+   "name": "past-the-east-end",
+   "at": [
+    2900,
+    720
+   ],
+   "reachesDepth": true,
+   "landed": {
+    "t": 9495,
+    "x": 2900,
+    "y": 720,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 113,
+     "x": 1917,
+     "y": 713,
+     "moving": true
+    },
+    {
+     "t": 336,
+     "x": 1951,
+     "y": 698,
+     "moving": true
+    },
+    {
+     "t": 559,
+     "x": 1976,
+     "y": 688,
+     "moving": true
+    },
+    {
+     "t": 699,
+     "x": 1993,
+     "y": 682,
+     "moving": true
+    },
+    {
+     "t": 933,
+     "x": 2027,
+     "y": 671,
+     "moving": true
+    },
+    {
+     "t": 1159,
+     "x": 2061,
+     "y": 659,
+     "moving": true
+    },
+    {
+     "t": 1404,
+     "x": 2094,
+     "y": 648,
+     "moving": true
+    },
+    {
+     "t": 1634,
+     "x": 2127,
+     "y": 637,
+     "moving": true
+    },
+    {
+     "t": 1767,
+     "x": 2143,
+     "y": 631,
+     "moving": true
+    },
+    {
+     "t": 2013,
+     "x": 2175,
+     "y": 621,
+     "moving": true
+    },
+    {
+     "t": 2244,
+     "x": 2206,
+     "y": 610,
+     "moving": true
+    },
+    {
+     "t": 2479,
+     "x": 2236,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 2701,
+     "x": 2268,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 2922,
+     "x": 2301,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 3140,
+     "x": 2333,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 3351,
+     "x": 2365,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 3580,
+     "x": 2398,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 3800,
+     "x": 2430,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 4008,
+     "x": 2462,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 4242,
+     "x": 2495,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 4457,
+     "x": 2527,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 4632,
+     "x": 2543,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 4828,
+     "x": 2559,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 5043,
+     "x": 2592,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 5259,
+     "x": 2624,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 5478,
+     "x": 2656,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 5697,
+     "x": 2689,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 5916,
+     "x": 2721,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 6134,
+     "x": 2753,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 6359,
+     "x": 2786,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 6579,
+     "x": 2818,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 6796,
+     "x": 2850,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 7011,
+     "x": 2883,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 7235,
+     "x": 2900,
+     "y": 600,
+     "moving": true
+    },
+    {
+     "t": 7466,
+     "x": 2900,
+     "y": 633,
+     "moving": true
+    },
+    {
+     "t": 7701,
+     "x": 2900,
+     "y": 667,
+     "moving": true
+    },
+    {
+     "t": 7833,
+     "x": 2900,
+     "y": 685,
+     "moving": true
+    },
+    {
+     "t": 8076,
+     "x": 2900,
+     "y": 706,
+     "moving": true
+    },
+    {
+     "t": 8239,
+     "x": 2900,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 8408,
+     "x": 2900,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 8659,
+     "x": 2900,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 8822,
+     "x": 2900,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 8996,
+     "x": 2900,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 9165,
+     "x": 2900,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 9329,
+     "x": 2900,
+     "y": 720,
+     "moving": false
+    },
+    {
+     "t": 9495,
+     "x": 2900,
+     "y": 720,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "along the front",
+   "name": "along-the-front-5",
+   "at": [
+    2257,
+    845
+   ],
+   "landed": {
+    "t": 5477,
+    "x": 2256,
+    "y": 844,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 110,
+     "x": 2891,
+     "y": 722,
+     "moving": true
+    },
+    {
+     "t": 368,
+     "x": 2854,
+     "y": 730,
+     "moving": true
+    },
+    {
+     "t": 598,
+     "x": 2816,
+     "y": 739,
+     "moving": true
+    },
+    {
+     "t": 849,
+     "x": 2778,
+     "y": 748,
+     "moving": true
+    },
+    {
+     "t": 1080,
+     "x": 2739,
+     "y": 756,
+     "moving": true
+    },
+    {
+     "t": 1312,
+     "x": 2701,
+     "y": 765,
+     "moving": true
+    },
+    {
+     "t": 1547,
+     "x": 2662,
+     "y": 774,
+     "moving": true
+    },
+    {
+     "t": 1768,
+     "x": 2652,
+     "y": 796,
+     "moving": true
+    },
+    {
+     "t": 2017,
+     "x": 2652,
+     "y": 838,
+     "moving": true
+    },
+    {
+     "t": 2232,
+     "x": 2630,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 2446,
+     "x": 2593,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 2658,
+     "x": 2549,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 2874,
+     "x": 2523,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 3087,
+     "x": 2479,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 3312,
+     "x": 2435,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 3538,
+     "x": 2392,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 3742,
+     "x": 2348,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 3951,
+     "x": 2304,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 4164,
+     "x": 2260,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 4314,
+     "x": 2256,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 4466,
+     "x": 2256,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 4635,
+     "x": 2256,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 4843,
+     "x": 2256,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 5010,
+     "x": 2256,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 5163,
+     "x": 2256,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 5324,
+     "x": 2256,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 5477,
+     "x": 2256,
+     "y": 844,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "along the front",
+   "name": "along-the-front-30",
+   "at": [
+    2361,
+    845
+   ],
+   "landed": {
+    "t": 1807,
+    "x": 2360,
+    "y": 844,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 113,
+     "x": 2278,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 326,
+     "x": 2322,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 537,
+     "x": 2360,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 701,
+     "x": 2360,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 855,
+     "x": 2360,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1061,
+     "x": 2360,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1276,
+     "x": 2360,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1433,
+     "x": 2360,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1594,
+     "x": 2360,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1807,
+     "x": 2360,
+     "y": 844,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "along the front",
+   "name": "along-the-front-55",
+   "at": [
+    2465,
+    845
+   ],
+   "landed": {
+    "t": 1980,
+    "x": 2465,
+    "y": 844,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 104,
+     "x": 2375,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 314,
+     "x": 2418,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 527,
+     "x": 2462,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 684,
+     "x": 2465,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 858,
+     "x": 2465,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1019,
+     "x": 2465,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1245,
+     "x": 2465,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1425,
+     "x": 2465,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1595,
+     "x": 2465,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1776,
+     "x": 2465,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1980,
+     "x": 2465,
+     "y": 844,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "along the front",
+   "name": "along-the-front-80",
+   "at": [
+    2569,
+    845
+   ],
+   "landed": {
+    "t": 1892,
+    "x": 2568,
+    "y": 844,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 118,
+     "x": 2480,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 361,
+     "x": 2523,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 609,
+     "x": 2567,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 739,
+     "x": 2568,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 866,
+     "x": 2568,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 994,
+     "x": 2568,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1122,
+     "x": 2568,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1300,
+     "x": 2568,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1545,
+     "x": 2568,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1716,
+     "x": 2568,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1892,
+     "x": 2568,
+     "y": 844,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "along the front",
+   "name": "along-the-front-95",
+   "at": [
+    2631,
+    845
+   ],
+   "landed": {
+    "t": 1914,
+    "x": 2630,
+    "y": 844,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 110,
+     "x": 2579,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 355,
+     "x": 2615,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 602,
+     "x": 2630,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 768,
+     "x": 2630,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 940,
+     "x": 2630,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1164,
+     "x": 2630,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1335,
+     "x": 2630,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1517,
+     "x": 2630,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1741,
+     "x": 2630,
+     "y": 844,
+     "moving": false
+    },
+    {
+     "t": 1914,
+     "x": 2630,
+     "y": 844,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "the trough",
+   "name": "trough-body",
+   "at": [
+    2106,
+    740
+   ],
+   "landed": {
+    "t": 4257,
+    "x": 2106,
+    "y": 861,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 122,
+     "x": 2630,
+     "y": 844,
+     "moving": true
+    },
+    {
+     "t": 355,
+     "x": 2593,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 585,
+     "x": 2549,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 827,
+     "x": 2523,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 1060,
+     "x": 2478,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 1308,
+     "x": 2434,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 1435,
+     "x": 2412,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 1660,
+     "x": 2367,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 1887,
+     "x": 2323,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 2112,
+     "x": 2278,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 2355,
+     "x": 2236,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 2582,
+     "x": 2192,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 2823,
+     "x": 2147,
+     "y": 861,
+     "moving": true
+    },
+    {
+     "t": 3056,
+     "x": 2106,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 3283,
+     "x": 2106,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 3447,
+     "x": 2106,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 3616,
+     "x": 2106,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 3783,
+     "x": 2106,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 3907,
+     "x": 2106,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 4080,
+     "x": 2106,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 4257,
+     "x": 2106,
+     "y": 861,
+     "moving": false
+    }
+   ],
+   "broke": []
+  },
+  {
+   "group": "the trough",
+   "name": "trough-walk-to",
+   "at": [
+    2106,
+    861
+   ],
+   "landed": {
+    "t": 1572,
+    "x": 2105,
+    "y": 861,
+    "moving": false
+   },
+   "samples": [
+    {
+     "t": 121,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 284,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 513,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 699,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 888,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 1076,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 1200,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 1330,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    },
+    {
+     "t": 1572,
+     "x": 2105,
+     "y": 861,
+     "moving": false
+    }
+   ],
+   "broke": []
+  }
+ ],
+ "failures": []
+}
