@@ -22,8 +22,8 @@ MS_PLATE = 'art/staging/room-02/street-candidate-01/candidate-plate.png'
 MS_LAYERS = 'art/staging/room-02/companions-01'
 NG_CLEAN = 'art/staging/room-03/clean-plate-02/candidate-1920x864.png'
 NG_15 = 'art/staging/room-03/corrected-01/plate-cold-dirt.png'
-NG_BASE = 'art/staging/room-03/corrected-02/plate-cold-dirt.png'
-NG_FIRE = 'art/staging/room-03/corrected-02/stove-fire-overlay.png'
+NG_BASE = 'art/staging/room-03/corrected-03/plate-cold-dirt.png'
+NG_FIRE = 'art/staging/room-03/corrected-03/stove-fire-overlay.png'
 PLAY = (0, 0, 1920, 864)
 
 

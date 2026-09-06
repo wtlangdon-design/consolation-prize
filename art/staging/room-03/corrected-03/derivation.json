@@ -1,0 +1,26 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5C -- ONE DIRT FLOOR, NO BOX RESTORE (doc 36 Q119).\n\n    python3 tools/retrofit/nugget-floor-final.py [--restore-tight]\n\ncorrected-03 = corrected-02 everywhere outside the floor-03 mask (the accepted\nplate with the cold stove), and the floor-03 result everywhere inside it --\nunder and between the furniture too. Nothing is restored by rectangle. The\nfurniture inside the mask is CHECKED against the accepted plate on tight\nsilhouettes (strict colour classes, small pieces dropped, no dilation) and the\nmean difference reported; with --restore-tight those silhouettes alone are\ntaken from the accepted plate with a one-pixel feather. The lit-state fire\noverlay is unchanged from corrected-02.",
+ "inputs": {
+  "art/staging/room-03/clean-plate-02/candidate-1920x864.png": "12e4efa55dafc48b6038384ac0fcc69b74fbc25a30e5617a7257be33ef99298f",
+  "art/staging/room-03/corrected-02/plate-cold-dirt.png": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642",
+  "art/staging/room-03/floor-03/candidate-1920x864.png": "a0e8079451d10ef865ccdc9c0772c47cab4d05c48b038396d3998dadf31c0eb3",
+  "art/staging/room-03/floor-03/floor-mask-plate.png": "fc114905149092aad021cbd53b00688eded9b167434c77e9be7d53385af81997"
+ },
+ "output": {
+  "art/staging/room-03/corrected-03/plate-cold-dirt.png": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+  "art/staging/room-03/corrected-03/stove-fire-overlay.png": "289e40ee690dbce4c29bb455b77e8fb70a20fc3caccdc45cb07191cced61852d"
+ },
+ "changedOutsideMask": 0,
+ "floorPixels": 558885,
+ "furnitureCheck": {
+  "furniturePixelsTight": 100722,
+  "meanDiffOnFurniture_modelVsAccepted": 31.575127578880483,
+  "fractionOver30": 0.38845535235598977,
+  "restored": "the spittoon, authored silhouette (8580 px) from the accepted plate, 1px feather; the stray bucket at (1622, 796, 1726, 864) covered with the floor beside it"
+ },
+ "imageOperations": {
+  "nugget-floor": 3,
+  "nugget-stove": 0
+ }
+}

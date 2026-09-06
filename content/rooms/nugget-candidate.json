@@ -3,7 +3,7 @@
   "id": "nugget_candidate",
   "name": "THE BOUNTIFUL NUGGET (CANDIDATE)",
   "note": "Doc 05 Room 3 plus doc 16, verbatim. Twelve hotspots and two exits. THE HANDBILL is the Rules of the Assay and carries Rule 3. THE PATRONS has no drawn figures in the background -- doc 07's ambient characters supply them at runtime, so the rect covers where they stand. Doc 16 note 4: the stove's third LISTEN reverses the first two on purpose; it has gone out and nobody has noticed. Do not 'correct' it.",
-  "background": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+  "background": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
   "colours": {
     "sky": 0,
     "ground": 6
@@ -240,7 +240,7 @@
       "state": "lit",
       "states": {
         "lit": {
-          "image": "art/staging/room-03/corrected-02/stove-fire-overlay.png",
+          "image": "art/staging/room-03/corrected-03/stove-fire-overlay.png",
           "note": "THE FIRE, LIFTED OUT OF THE PLATE as its own layer (Phase 1.5): the base plate's firebox is cold iron; this overlay is the fire the accepted plate painted, alpha-cut, drawn over it while the stove is lit. Phase 2's flicker animates THIS layer and nothing in the plate. 'A cast iron stove, lit, in July.'"
         },
         "out": {

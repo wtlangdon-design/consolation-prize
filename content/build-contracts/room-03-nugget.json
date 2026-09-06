@@ -141,13 +141,13 @@
    "subject": "Nugget corrected base (dirt floor, cold stove) and the lifted fire overlay",
    "class": "PLATE",
    "stage": "LIVE-PROOF",
-   "path": "art/staging/room-03/corrected-02/plate-cold-dirt.png",
+   "path": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
    "evidence": [
-    "art/staging/room-03/corrected-02/derivation.json",
+    "art/staging/room-03/corrected-03/derivation.json",
     "renders/proofs/candidates/nugget/life.json",
     "renders/proofs/candidates/nugget-stove-out/life.json"
    ],
-   "note": "PHASE 1.5B: the accepted clean plate 02 with the WHOLE public floor as dirt (floor-01 then floor-02) and the firebox cold; every pixel outside the floor mask and every furniture pixel inside it is the accepted plate's own. The candidate room loads this. corrected-01 (front floor only) is superseded and kept as the record of the rejected intermediate."
+   "note": "PHASE 1.5C: the accepted clean plate with ONE continuous dirt floor (three floor operations in all; the third over the whole public floor with no holes and no box restore) and the firebox cold. The candidate room loads this. corrected-01 and corrected-02 are the rejected intermediates, kept as record."
   },
   {
    "subject": "Nugget floor operation source and derived candidate (floor-01)",
@@ -170,6 +170,17 @@
     "art/staging/ledger.json"
    ],
    "note": "The raw result of the second floor operation; consumed by the restore step, not loaded by any room."
+  },
+  {
+   "subject": "Nugget floor operation 3 source and derived candidate (floor-03)",
+   "class": "PLATE",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-03/floor-03/candidate-1920x864.png",
+   "evidence": [
+    "art/staging/room-03/floor-03/floor-op.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "The raw result of the third floor operation; assembled into corrected-03, not loaded by any room."
   }
  ],
  "acceptance": {
@@ -498,9 +509,14 @@
  },
  "environment": {
   "status": "OWNER ACCEPTED WITH CANON CORRECTIONS",
-  "correctionsApplied": "ENVIRONMENT CLEANUP COMPLETE \u2014 READY FOR PHASE 2 SCALE + CASTING",
+  "correctionsApplied": "FINAL ENVIRONMENT CLEANUP \u2014 OWNER REVIEW FAILED / CORRECTIONS REQUIRED",
   "by": "Tyler, live review of the Phase 1 candidate (2026-09-05); corrections claude, Phase 1.5",
   "evidence": [
+   "docs/36-issue-list.md::Q119 \u00b7 Opening-set retrofit, phase 1.5C: owner review of 1.5B failed \u2014 the Nugget floor made one floor; the Main Street integration operation failed and is stopped",
+   "renders/opening-set-retrofit/phase15c-nugget-floor-detail.webp",
+   "renders/opening-set-retrofit/phase15c-nugget-before-after.webp",
+   "art/staging/room-03/floor-03/floor-op.json",
+   "art/staging/room-03/corrected-03/derivation.json",
    "docs/36-issue-list.md::Q118 \u00b7 Opening-set retrofit, phase 1.5B: the final environment cleanup \u2014 the trough as prop art, the funeral sheet as paper, the whole Nugget floor as dirt",
    "docs/36-issue-list.md::Q117 \u00b7 Opening-set retrofit, phase 1.5: the accepted environments corrected for canon and physics before casting",
    "renders/opening-set-retrofit/phase15-nugget-old-vs-corrected.webp",
@@ -518,7 +534,7 @@
    "art/staging/room-03/corrected-02/derivation.json"
   ],
   "record": {
-   "dirtFloor": "canon (doc 05, doc 16); PHASE 1.5B: continuous across the whole public saloon floor -- 2 masked operations in all (front floor, then the rest behind the furniture to the far wall's foot, the stove side and the bar side), furniture and everything outside the mask restored from the accepted plate byte for byte",
+   "dirtFloor": "canon (doc 05, doc 16); PHASE 1.5C: one continuous floor from the third and final floor operation -- the whole public floor, no furniture holes, no rectangular restore; the model's furniture stands, the spittoon restored by its authored silhouette; inspected at 2x and 3x in every region Tyler named",
    "stoveStateArchitecture": "LIT = base + lifted fire overlay (hotspot state); OUT = base alone, lamp and field gated on the object state; 0 operations; preserved through the Phase 1.5B floor correction (corrected-02)",
    "futurePopulation": "OWNER-RULED nine visible runtime patrons: 3 bar, 4 card table, landing man, stove man; all runtime, none baked; still pending Phase 2",
    "pianoPlayer": "NONE, ever",
@@ -528,6 +544,7 @@
    "textConflict": "PATRONS LOOK 1 (eleven men, eleven in the morning) vs the owner's nine and the night presentation; recorded with three proposed replacements; awaiting Tyler's wording",
    "thadScale": "KNOWN PHASE 2 SCALE CALIBRATION STILL REQUIRED before character generation"
   },
-  "note": "Environment only. Not population acceptance, not gameplay acceptance."
+  "note": "Environment only. Not population acceptance, not gameplay acceptance.",
+  "ownerReview": "Tyler, 2026-09-06: the 1.5B floor kept plank remnants inside the box-restore regions; the whole public floor must be one dirt floor, actual furniture pixels only. Phase 1.5C applied the third floor operation (no holes, no box restore); status stays FAILED / CORRECTIONS REQUIRED until Tyler approves new live screenshots."
  }
 }

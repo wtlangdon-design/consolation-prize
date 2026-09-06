@@ -1,0 +1,30 @@
+{
+ "schema": 1,
+ "purpose": "OWNER-DIRECTED (Tyler, Phase 1.5B review, 2026-09-06): 'integrate the permanent board structure directly into the environment plate' and 'integrate the trough into the environment in context so its timber, mud contact, shadows, reflected light, water and edge treatment are painted together with the street'. One in-context operation over the plate window; its two masked regions become PLATE in a new file (street-candidate-02). Nothing else in the plate changes: only the masked regions of the derived result are composited, with feathered edges.",
+ "source": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad",
+  "editCanvas": "art/staging/room-02/integrate-01/edit-canvas.png"
+ },
+ "window": {
+  "plateX0": 1200,
+  "width": 1920
+ },
+ "zones": {
+  "board": [
+   1596,
+   350,
+   1800,
+   560
+  ],
+  "trough": [
+   1960,
+   560,
+   2400,
+   800
+  ]
+ },
+ "mask": "art/staging/room-02/integrate-01/edit-mask.png",
+ "maskSha256": "ce85e7d4f20c435a17773dd3bf89b195bb1b60c2dff956a2c7251d0933fe5493",
+ "mustRemainUnchanged": "everything outside the two zones: the porch roof and posts above the board, the neighbouring buildings, the boardwalk, the rail and its posts, the saloon, the mud beyond the trough zone",
+ "diagnostic": "renders/opening-set-retrofit/phase15c-street-mask-diagnostic.png"
+}

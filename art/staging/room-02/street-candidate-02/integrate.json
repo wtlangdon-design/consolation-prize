@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5C -- THE BOARD AND THE TROUGH BECOME PLATE (doc 36 Q119).\n\n    python3 tools/retrofit/street-integrate.py\n\nTakes the in-context result's two masked regions (integrate-01) and composites\nthem into a NEW plate file, art/staging/room-02/street-candidate-02/\ncandidate-plate.png, with the mask edge feathered over 8 px so the seams fall\ninside repainted mud and wall. Nothing outside the mask is read from the\nresult. Records the sha of both plates and the pixels that changed.",
+ "inputs": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad",
+  "art/staging/room-02/integrate-01/window-1920x864.png": "c7ffc59d06b31c272d149e8ea3118c103458024479ccab7f9f6e02e00ec472f9",
+  "art/staging/room-02/integrate-01/mask-window.png": "4b83452e38b9ed54de289805e6af63ee6e3085455068f8599c8779461ccd70b4"
+ },
+ "output": {
+  "art/staging/room-02/street-candidate-02/candidate-plate.png": "e28bafa19a9417d875c1374b87165d0d8b87de8cac42fb527e359627e4656bff"
+ },
+ "zones": {
+  "board": [
+   1596,
+   350,
+   1800,
+   560
+  ],
+  "trough": [
+   1960,
+   560,
+   2400,
+   800
+  ]
+ },
+ "feather": 8,
+ "changedInsideMask": 132961,
+ "changedOutsideMask": 0
+}

@@ -28,7 +28,7 @@ except Exception:  # pragma: no cover
 
 MS_PLATE = 'art/staging/room-02/street-candidate-01/candidate-plate.png'
 MS_OLD = 'art/backgrounds/room-02-main-street.png'
-NG_PLATE = 'art/staging/room-03/corrected-02/plate-cold-dirt.png'
+NG_PLATE = 'art/staging/room-03/corrected-03/plate-cold-dirt.png'
 NG_OLD = 'art/backgrounds/room-03-nugget.png'
 MS_RAW = 'renders/proofs/candidates/main-street/raw-captures-ignored'
 NG_RAW = 'renders/proofs/candidates/nugget/raw-captures-ignored'
@@ -79,7 +79,9 @@ def raw(dir_, name):
 
 def thad_crop(life, name, width=420, margin=40):
     """A 1:1 crop around Thad in a capture, from the probe's own bounds."""
-    cap = next(c for c in life['captures'] if c['name'] == name)
+    cap = next((c for c in life['captures'] if c['name'] == name), None)
+    if cap is None:
+        return None
     cam = cap.get('camera') or 0
     bx, by, bw, bh = cap['movers']['thad']['bounds']
     cx = int(bx - cam + bw / 2)
@@ -138,9 +140,12 @@ def main_street():
         for n, label in (('c02-thad-far-assay-office', 'FAR'), ('c04-thad-mid', 'MID'), ('c05-thad-near', 'NEAR'), ('c03-saloon-doors-in-pool', 'IN THE SALOON POOL')):
             if not os.path.exists(raw(MS_RAW, n)):
                 continue
-            box, h, at = thad_crop(life, n)
+            got = thad_crop(life, n)
+            if not got:
+                continue
+            box, h, at = got
             depth.append((load(raw(MS_RAW, n), crop=box), f'{label}: Thad {h} px tall at world {at[0]},{at[1]} (1:1)'))
-        sheet(f'{OUT}/main-street-thad-depths.webp', 'MAIN STREET CANDIDATE 01 -- the accepted Thad at three depths, 1:1', depth, 4,
+        if depth: sheet(f'{OUT}/main-street-thad-depths.webp', 'MAIN STREET CANDIDATE 01 -- the accepted Thad at three depths, 1:1', depth, 4,
               note='Far 200, near 275 by the annotation\'s two anchors; errata 54\'s 222/240/263 land inside that range.')
     else:
         print('main street: no live captures yet; live sheets skipped', file=sys.stderr)
@@ -185,9 +190,12 @@ def nugget():
         for n, label in (('c02-thad-far-card-table', 'FAR'), ('c04-thad-mid', 'MID'), ('c05-thad-near-bar', 'NEAR'), ('c03-thad-by-stove', 'BY THE STOVE')):
             if not os.path.exists(raw(NG_RAW, n)):
                 continue
-            box, h, at = thad_crop(life, n, width=480)
+            got = thad_crop(life, n, width=480)
+            if not got:
+                continue
+            box, h, at = got
             depth.append((load(raw(NG_RAW, n), crop=box), f'{label}: Thad {h} px at world {at[0]},{at[1]} (1:1)'))
-        sheet(f'{OUT}/nugget-thad-depths.webp', 'THE NUGGET CANDIDATE 02 -- the accepted Thad at three depths, 1:1', depth, 4,
+        if depth: sheet(f'{OUT}/nugget-thad-depths.webp', 'THE NUGGET CANDIDATE 02 -- the accepted Thad at three depths, 1:1', depth, 4,
               note='Tyler\'s anchors carried (198 far, 459 near). DECISION POINT: the plate\'s own furniture reads a taller man at the back (~330); see the annotation\'s scaling note.')
     # THE PATRON-ZONE DIAGNOSTIC, apart from the review sheets.
     plan = json.load(open('proofs/room-03/separation-plan.json'))
