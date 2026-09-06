@@ -10,7 +10,7 @@ it there).
 
     python3 tools/retrofit/main-street-corrections.py
 
-Writes art/objects/room-02-candidate/*.png and a record beside them.
+Writes art/staging/room-02/companions-01/*.png and a record beside them.
 """
 import hashlib, json, os
 import numpy as np
@@ -21,7 +21,7 @@ os.chdir(ROOT)
 PLATE = 'art/staging/room-02/street-candidate-01/candidate-plate.png'
 SHIPPING = 'art/backgrounds/room-02-main-street.png'
 GILT = 'art/objects/room-02/company-sign-gilt.png'
-OUT = 'art/objects/room-02-candidate'
+OUT = 'art/staging/room-02/companions-01'
 W, H = 3610, 864
 sha = lambda p: hashlib.sha256(open(p, 'rb').read()).hexdigest()
 plate = Image.open(PLATE).convert('RGB')

@@ -186,6 +186,18 @@
     "art/staging/ledger.json",
     "art/staging/room-02/street-east-01/outpaint.json"
    ]
+  },
+  {
+   "subject": "Main Street candidate companions: water trough, notices frame, notices funeral, sign weathered, sign gilt",
+   "class": "STATEFUL",
+   "stage": "LIVE-PROOF",
+   "path": "art/staging/room-02/companions-01/water-trough.png",
+   "evidence": [
+    "art/staging/room-02/companions-01/derivation.json",
+    "renders/proofs/candidates/main-street/life.json",
+    "renders/proofs/candidates/main-street-act3/life.json"
+   ],
+   "note": "PHASE 1.5: derived from authorized art (the shipping trough, the plate's post wood, the shipping gilt lettering, the shipping funeral sheet); 0 operations. Drawn as object states over the accepted plate."
   }
  ],
  "acceptance": {
@@ -507,5 +519,25 @@
     "RECAST": 2
    }
   }
+ },
+ "environment": {
+  "status": "ENVIRONMENT CORRECTIONS COMPLETE \u2014 CHARACTER/LIFE PHASE PENDING",
+  "priorStatus": "OWNER ACCEPTED WITH PHYSICAL-PROP CORRECTIONS",
+  "by": "Tyler, live review of the Phase 1 candidate (2026-09-05); corrections claude, Phase 1.5",
+  "evidence": [
+   "docs/36-issue-list.md::Q117 \u00b7 Opening-set retrofit, phase 1.5: the accepted environments corrected for canon and physics before casting",
+   "renders/opening-set-retrofit/phase15-main-street-detail.webp",
+   "renders/proofs/candidates/main-street/life.json",
+   "proofs/room-02/phase15-dog.json",
+   "art/staging/room-02/companions-01/derivation.json"
+  ],
+  "corrections": [
+   "water trough restored as a companion derived from the shipping plate's own (occludes plane 1)",
+   "posted notices framed as a board on the wall (companion), Act III funeral sheet re-cut",
+   "dog: one sprite, placed on open mud east of the rail by a per-room placement; art unchanged",
+   "Improvement Company lettering as weathered/gilt state layers over the blank plate board",
+   "plate file unchanged; 0 image operations"
+  ],
+  "note": "Environment only. Not character acceptance, not population, not room life; Phase 2 casts the pie woman, the letter-writer, and decides the dog's life and the map seller's."
  }
 }

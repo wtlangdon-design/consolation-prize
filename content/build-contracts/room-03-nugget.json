@@ -136,6 +136,29 @@
     "art/staging/ledger.json"
    ],
    "note": "Came back without the handbill and the back-room door; 02 is 01 with both restored under a mask. Not rejected by Tyler -- superseded by the refinement."
+  },
+  {
+   "subject": "Nugget corrected base (dirt floor, cold stove) and the lifted fire overlay",
+   "class": "PLATE",
+   "stage": "LIVE-PROOF",
+   "path": "art/staging/room-03/corrected-01/plate-cold-dirt.png",
+   "evidence": [
+    "art/staging/room-03/corrected-01/derivation.json",
+    "renders/proofs/candidates/nugget/life.json",
+    "renders/proofs/candidates/nugget-stove-out/life.json"
+   ],
+   "note": "PHASE 1.5: the accepted clean plate 02 with the main floor from the one authorized masked operation (floor-01) and the firebox cold; every pixel outside the floor mask and every furniture pixel inside it is the accepted plate's own. The candidate room loads this."
+  },
+  {
+   "subject": "Nugget floor operation source and derived candidate (floor-01)",
+   "class": "PLATE",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-03/floor-01/candidate-1920x864.png",
+   "evidence": [
+    "art/staging/room-03/floor-01/floor-op.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "The raw result of the floor operation; consumed by the restore step, not loaded by any room."
   }
  ],
  "acceptance": {
@@ -461,5 +484,34 @@
     "DEBT-NOT-VISUAL": 9
    }
   }
+ },
+ "environment": {
+  "status": "OWNER ACCEPTED WITH CANON CORRECTIONS",
+  "correctionsApplied": "ENVIRONMENT CORRECTIONS COMPLETE \u2014 SCALE CALIBRATION + CHARACTER/LIFE PHASE PENDING",
+  "by": "Tyler, live review of the Phase 1 candidate (2026-09-05); corrections claude, Phase 1.5",
+  "evidence": [
+   "docs/36-issue-list.md::Q117 \u00b7 Opening-set retrofit, phase 1.5: the accepted environments corrected for canon and physics before casting",
+   "renders/opening-set-retrofit/phase15-nugget-old-vs-corrected.webp",
+   "renders/opening-set-retrofit/phase15-nugget-stove.webp",
+   "renders/proofs/candidates/nugget/life.json",
+   "renders/proofs/candidates/nugget-stove-out/life.json",
+   "art/staging/room-03/corrected-01/derivation.json",
+   "art/staging/room-03/floor-01/floor-op.json",
+   "proofs/room-03/phase15-hover.json",
+   "proofs/room-03/separation-plan.json",
+   "proofs/room-03/patron-text-conflict.json"
+  ],
+  "record": {
+   "dirtFloor": "canon (doc 05, doc 16); 1 masked image operation on the main floor, furniture restored from the accepted plate byte for byte",
+   "stoveStateArchitecture": "LIT = base + lifted fire overlay (hotspot state); OUT = base alone, lamp and field gated on the object state; 0 operations",
+   "futurePopulation": "OWNER-RULED nine visible runtime patrons: 3 bar, 4 card table, landing man, stove man; all runtime, none baked",
+   "pianoPlayer": "NONE, ever",
+   "abandonedHand": "the near edge of the table has no chair: the absent fifth player's place; four chairs, four players, nobody claims the hand",
+   "landingMan": "story anchor: near-stillness is the character",
+   "stoveMan": "story anchor: beside the lit stove, coat on, not interchangeable with a bar patron",
+   "textConflict": "PATRONS LOOK 1 (eleven men, eleven in the morning) vs the owner's nine and the night presentation; recorded with three proposed replacements; awaiting Tyler's wording",
+   "thadScale": "KNOWN PHASE 2 SCALE CALIBRATION STILL REQUIRED before character generation"
+  },
+  "note": "Environment only. Not population acceptance, not gameplay acceptance."
  }
 }

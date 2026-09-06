@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "note": "PHASE 1.5 -- MAIN STREET PHYSICAL-PROP CORRECTIONS, DETERMINISTIC (doc 36 Q117).\n\nZero image operations. Every layer here is derived from art that already\nexists and is authorized: the shipping plate's own trough, the plate's own\nwood for the notice-board frame, and the shipping gilt lettering for the\nImprovement Company sign. Each is a full-frame RGBA companion the candidate\nroom draws as an object state over the accepted plate, so the plate itself\nis not touched (doc 35 section 6: no lettering in the plate; the engine puts\nit there).\n\n    python3 tools/retrofit/main-street-corrections.py\n\nWrites art/objects/room-02-candidate/*.png and a record beside them.",
+ "note": "PHASE 1.5 -- MAIN STREET PHYSICAL-PROP CORRECTIONS, DETERMINISTIC (doc 36 Q117).\n\nZero image operations. Every layer here is derived from art that already\nexists and is authorized: the shipping plate's own trough, the plate's own\nwood for the notice-board frame, and the shipping gilt lettering for the\nImprovement Company sign. Each is a full-frame RGBA companion the candidate\nroom draws as an object state over the accepted plate, so the plate itself\nis not touched (doc 35 section 6: no lettering in the plate; the engine puts\nit there).\n\n    python3 tools/retrofit/main-street-corrections.py\n\nWrites art/staging/room-02/companions-01/*.png and a record beside them.",
  "inputs": {
   "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad",
   "art/backgrounds/room-02-main-street.png": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
@@ -9,7 +9,7 @@
  },
  "layers": {
   "water-trough": {
-   "path": "art/objects/room-02-candidate/water-trough.png",
+   "path": "art/staging/room-02/companions-01/water-trough.png",
    "sha256": "364d0848a6668bc42702ee71c41d8baea780d5caf95784088a770455824689ff",
    "bbox": [
     1990,
@@ -61,7 +61,7 @@
    "footY": 688
   },
   "notices-frame": {
-   "path": "art/objects/room-02-candidate/notices-frame.png",
+   "path": "art/staging/room-02/companions-01/notices-frame.png",
    "sha256": "edf0038ff6ce14032af03495431d7909da699f6a11e064bf0fa94cea778f5937",
    "bbox": [
     1638,
@@ -83,7 +83,7 @@
    ]
   },
   "company-sign-gilt": {
-   "path": "art/objects/room-02-candidate/company-sign-gilt.png",
+   "path": "art/staging/room-02/companions-01/company-sign-gilt.png",
    "sha256": "9a8c063d3a176fcccaf4807f8de22798b1dae49bc2d0a3cf1f5e0846ac400f0c",
    "bbox": [
     374,
@@ -108,7 +108,7 @@
    "scale": 1.1
   },
   "company-sign-weathered": {
-   "path": "art/objects/room-02-candidate/company-sign-weathered.png",
+   "path": "art/staging/room-02/companions-01/company-sign-weathered.png",
    "sha256": "559bacf4aa1efebf5120877e9b1b44d18b82fac7227c0a33a9442853ac0b4942",
    "bbox": [
     374,
@@ -129,7 +129,7 @@
    "seed": 20260905
   },
   "notices-funeral": {
-   "path": "art/objects/room-02-candidate/notices-funeral.png",
+   "path": "art/staging/room-02/companions-01/notices-funeral.png",
    "sha256": "d87ebe886d222ac63c1a707b70ca6e53704a20c6f97271f63f9726f20fec5b9b",
    "bbox": [
     1638,

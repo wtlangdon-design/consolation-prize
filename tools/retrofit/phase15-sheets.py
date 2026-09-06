@@ -20,7 +20,7 @@ try:
 except Exception:
     FONT = TITLE = ImageFont.load_default()
 MS_PLATE = 'art/staging/room-02/street-candidate-01/candidate-plate.png'
-MS_LAYERS = 'art/objects/room-02-candidate'
+MS_LAYERS = 'art/staging/room-02/companions-01'
 NG_OLD = 'art/backgrounds/room-03-nugget.png'
 NG_CLEAN = 'art/staging/room-03/clean-plate-02/candidate-1920x864.png'
 NG_BASE = 'art/staging/room-03/corrected-01/plate-cold-dirt.png'

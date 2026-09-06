@@ -60,6 +60,11 @@ x0, y0, x1, y1 = FIREBOX
 win = A[y0:y1, x0:x1]
 r, b = win[..., 0], win[..., 2]
 alpha = np.clip((r - 90) / 50, 0, 1) * ((r > 100) & (r > b * 1.35))
+# THE WHOLE APERTURE IS THE LIT LAYER, not only the flames: the accepted
+# plate's glowing box, exactly, so that lit == accepted in the firebox and
+# only the OUT state differs from what Tyler approved.
+AX0, AY0, AX1, AY1 = 1078, 321, 1101, 352
+alpha[(AY0 - y0):(AY1 - y0), (AX0 - x0):(AX1 - x0)] = 1.0
 fire = np.zeros((H, W, 4), dtype='uint8')
 fire[y0:y1, x0:x1, :3] = win.astype('uint8'); fire[y0:y1, x0:x1, 3] = (alpha * 255).astype('uint8')
 Image.fromarray(fire, 'RGBA').save(f'{OUT}/stove-fire-overlay.png')
@@ -78,7 +83,6 @@ for yy in range(y1 - y0):
 result[y0:y1, x0:x1] = box
 # and the door's aperture itself -- the opening the fire showed through --
 # is filled with dark iron whatever colour it was, so no ember survives
-AX0, AY0, AX1, AY1 = 1078, 321, 1101, 352
 for yy in range(AY0, AY1):
     for xx in range(AX0, AX1):
         result[yy, xx] = iron[rng.integers(len(iron))] * (0.42 + 0.08 * rng.random())

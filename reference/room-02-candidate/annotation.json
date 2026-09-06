@@ -201,11 +201,11 @@
    "default": "weathered",
    "states": {
     "weathered": {
-     "image": "art/objects/room-02-candidate/company-sign-weathered.png",
+     "image": "art/staging/room-02/companions-01/company-sign-weathered.png",
      "note": "THE LETTERING IS A LAYER, NOT THE PLATE (doc 35 section 6). The plate's board is blank; this is the shipping gilt art scaled to the board, dulled and flaked by a seeded erosion: 'the only sign in town that has been painted twice', peeling."
     },
     "gilt": {
-     "image": "art/objects/room-02-candidate/company-sign-gilt.png",
+     "image": "art/staging/room-02/companions-01/company-sign-gilt.png",
      "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' The same lettering, fresh, over the same blank board. Set by doc 48's S2."
     }
    }
@@ -214,11 +214,11 @@
    "default": "ordinary",
    "states": {
     "ordinary": {
-     "image": "art/objects/room-02-candidate/notices-frame.png",
+     "image": "art/staging/room-02/companions-01/notices-frame.png",
      "note": "A framed board on the wall of the small structure under the Clarion's porch, the frame in the plate's own post wood with a cast shadow, so the papers read as a board and not as a papered wall fused into the next building (Tyler, Phase 1.5)."
     },
     "funeral": {
-     "image": "art/objects/room-02-candidate/notices-funeral.png",
+     "image": "art/staging/room-02/companions-01/notices-funeral.png",
      "note": "Act III. The same frame plus the authored clean white sheet (posted-notices-act3.png at the plate's scale) pinned over the papers: 'Frame has finally found a spelling he cannot get wrong.' Set by doc 48's S2."
     }
    }
@@ -227,7 +227,7 @@
    "default": "filled",
    "states": {
     "filled": {
-     "image": "art/objects/room-02-candidate/water-trough.png",
+     "image": "art/staging/room-02/companions-01/water-trough.png",
      "occludes": [
       1
      ],
@@ -330,11 +330,11 @@
    "id": "trough",
    "rect": [
     1990,
-    650,
+    690,
     348,
-    42
+    44
    ],
-   "note": "the water trough's footprint in the mud beside the east rail: its base sits on the mud_far/mud_mid seam at y 688, so a man in mud_far is behind it (plane 1) and a man in mud_mid is in front"
+   "note": "the water trough's footprint in the mud: its base sits on the mud_far/mud_mid seam at y 688, and the footprint is carved from mud_mid ONLY, so the far mud behind it stays floor -- a man standing there (2160,646) is behind the trough and masked by it (plane 1), which is the proof point"
   }
  ],
  "lamps": [
@@ -430,14 +430,30 @@
  "onEnterWalkNote": "OUT INTO THE ROAD, NOT ALONG THE BUILDINGS. He was walking to x3400 y640, which is the boardwalk edge in front of the claims-road exit and beside the map seller\u2019s office -- he arrived and then sidled up against a wall. x3300 y706 is the middle of the street with the town in front of him, which is where a man stands when he has just walked into a town he has never seen. Clear of the assay office door at x3082-3144, clear of the map seller at x3140, and low enough to be in the road rather than on the walk.",
  "occlusion": {
   "note": "PLANNED, NOT CUT (Tyler's order: masks only after the replacement plate is selected). The candidate offers three real occluders -- the west hitching rail (x 0-560, y 700-800), the east rail in front of the saloon (x 2320-2680, y 700-800) and the trough (x 840-1015, y 505-600) -- and the porch posts of the saloon and the Company. Until masks exist they are obstacles.",
-  "planes": [],
+  "planes": [
+   {
+    "level": 1,
+    "mask": "art/staging/room-02/companions-01/water-trough.png",
+    "note": "PHASE 1.5: THE TROUGH IS THE PLANE. The companion the water_trough hotspot draws as its filled state is also the room's plane-1 mask -- the same silhouette, one file, so the state image and the plane can never disagree. mud_far is plane 1: a man on the far mud behind the trough is masked by it and by nothing else (the layer is transparent everywhere but the trough). The rails remain planned masks for a later plane."
+   }
+  ],
   "clipPlane": {
    "boardwalk": 0,
    "mud_far": 1,
    "mud_mid": 0,
    "mud_near": 0
   },
-  "proofPoints": [],
+  "proofPoints": [
+   {
+    "at": [
+     2160,
+     646
+    ],
+    "expect": 1,
+    "box": "mud_far",
+    "note": "behind the trough on the far mud: the water and rim mask his legs (renders/proofs/candidates/main-street c05-thad-behind-trough)"
+   }
+  ],
   "clipPlaneNote": "mud_far is plane 1 (Phase 1.5): the water trough is a state image that declares occludes [1], so a figure standing on the far mud behind the trough is masked by it and nowhere else -- the layer is transparent everywhere but the trough. The rails and the trough remain planned occluder masks for the room's own planes (boardwalk and mud_mid/near stay 0)."
  },
  "plateNote": "MAIN STREET REPLACEMENT CANDIDATE 01 (opening-set retrofit phase 1, doc 36 Q116): two errata-63 panels (west, east) stitched at explicit cut columns (art/staging/room-02/street-candidate-01/stitch.json). Every rect below was read off this candidate on a 100 px grid. A CANDIDATE: the shipping street is untouched; this annotation compiles to the candidate room main_street_candidate, reachable only by the dev warp, for Tyler's review.",
