@@ -229,9 +229,20 @@ export function planBoot(bundle: ContentBundle): BootPlan {
   // That is a rounding error paid once at boot to make every populated room
   // populated the moment it is entered.
   for (const npc of bundle.ambient.values()) {
-    if (npc.sprite) required.set(npc.sprite.sheet, { key: npc.sprite.sheet, path: npc.sprite.sheet });
-    // A prop sheet is a few hundred bytes and belongs with the figure it sits beside.
-    for (const prop of npc.sprite?.props ?? []) required.set(prop.sheet, { key: prop.sheet, path: prop.sheet });
+    // A CHARACTER'S OWN SHEET, AND EVERY PER-ROOM SHEET THAT REPLACES IT.
+    // Phase 2A recast Main Street's three humans against the accepted
+    // candidate plate and left the shipping street its original art, so one
+    // character has two sheets and only one of them is on the file's own
+    // `sprite`. Boot has to carry both, or entering the room the placement
+    // belongs to draws the graybox and nothing says why.
+    const sprites = [npc.sprite,
+      ...Object.values(npc.placements ?? {}).map((placed) => placed.sprite)];
+    for (const sprite of sprites) {
+      if (!sprite) continue;
+      required.set(sprite.sheet, { key: sprite.sheet, path: sprite.sheet });
+      // A prop sheet is a few hundred bytes and belongs with the figure it sits beside.
+      for (const prop of sprite.props ?? []) required.set(prop.sheet, { key: prop.sheet, path: prop.sheet });
+    }
   }
   for (const overlay of bundle.overlays.values()) {
     for (const state of Object.values(overlay.states)) {

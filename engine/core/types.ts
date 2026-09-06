@@ -400,6 +400,14 @@ export interface AmbientFile {
      * shipping position is somewhere else entirely.
      */
     clipPlane?: number;
+    /**
+     * The sheet this character is drawn from IN THIS ROOM, replacing the
+     * file's own. Phase 2A recast Main Street's three humans against the
+     * ACCEPTED candidate plate; the shipping street still ships and still
+     * wants the sheets it was built with. One character, two plates, two
+     * pieces of art -- the same reason the position is per room.
+     */
+    sprite?: AmbientFile['sprite'];
   }>;
   barks: Record<string, string>;
   /**

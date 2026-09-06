@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "id": "nugget_bar_3",
+ "name": "BAR PATRON 3",
+ "note": "Short and wide and settled. The nearest and largest figure in the room after Thad, in the bar lamps' field.",
+ "room": "nugget_candidate",
+ "x": 1790,
+ "y": 820,
+ "zone": 1,
+ "approachRadius": 40,
+ "poseNote": "standing at the near end of the counter, half turned toward the room",
+ "sprite": {
+  "sheet": "art/actors/cast-nugget-bar-3.png",
+  "rate": 1.0,
+  "frames": [
+   [
+    0,
+    0,
+    181,
+    464
+   ]
+  ],
+  "figureHeight": 464,
+  "stature": 0.94,
+  "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
+ },
+ "barks": {},
+ "barksNote": "NONE. These nine are the room's population, not its dialogue: doc 07's reputation barks belong to the named ambient cast, and nothing in Tyler's Phase 2A ruling gives a generic patron a line. No written content is invented for them here or anywhere."
+}

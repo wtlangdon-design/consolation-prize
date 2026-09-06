@@ -63,6 +63,10 @@ export class AmbientLayer {
             // position: the plate she is standing on is not the one her
             // file was written against.
             clipPlane: placed.clipPlane ?? npc.clipPlane,
+            // AND THE ART, where the room supplies its own: a recast
+            // character against a replacement plate is a different
+            // picture, and the shipping room keeps the one it shipped.
+            sprite: placed.sprite ?? npc.sprite,
           }
           : npc;
       });

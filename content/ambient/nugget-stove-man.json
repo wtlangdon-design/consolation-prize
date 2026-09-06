@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "id": "nugget_stove_man",
+ "name": "THE STOVE MAN",
+ "note": "A STORY ANCHOR, not a fourth drinker: the man who has not taken his coat off since Thad arrived in this territory. He stands by the stove and never wanders to the bar, and his casting reads that way -- collar up, hands drawn in, apart from the others.",
+ "room": "nugget_candidate",
+ "x": 1150,
+ "y": 570,
+ "zone": 1,
+ "approachRadius": 40,
+ "poseNote": "standing to the right of the stove, coat on, turned toward the iron",
+ "sprite": {
+  "sheet": "art/actors/cast-nugget-stove-man.png",
+  "rate": 1.0,
+  "frames": [
+   [
+    0,
+    0,
+    83,
+    273
+   ]
+  ],
+  "figureHeight": 273,
+  "stature": 0.97,
+  "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
+ },
+ "barks": {},
+ "barksNote": "NONE. These nine are the room's population, not its dialogue: doc 07's reputation barks belong to the named ambient cast, and nothing in Tyler's Phase 2A ruling gives a generic patron a line. No written content is invented for them here or anywhere."
+}
