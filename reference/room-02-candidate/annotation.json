@@ -52,10 +52,10 @@
    120
   ],
   "water_trough": [
-   2044,
-   660,
-   295,
-   105
+   2016,
+   654,
+   384,
+   154
   ],
   "church_steeple": [
    1530,
@@ -64,10 +64,10 @@
    340
   ],
   "posted_notices": [
-   1620,
-   370,
-   170,
-   150
+   1628,
+   396,
+   132,
+   128
   ],
   "boardwalk": [
    0,
@@ -214,12 +214,12 @@
    "default": "ordinary",
    "states": {
     "ordinary": {
-     "image": "art/staging/room-02/companions-01/notices-frame.png",
-     "note": "A framed board on the wall of the small structure under the Clarion's porch, the frame in the plate's own post wood with a cast shadow, so the papers read as a board and not as a papered wall fused into the next building (Tyler, Phase 1.5)."
+     "image": "art/staging/room-02/companions-02/notices-board.png",
+     "note": "PHASE 1.5D: a public notice board framed around the existing papers by the one owner-authorized board operation on a local centred canvas (art/staging/room-02/board-01/board-op.json), installed as the ORDINARY state image over the unchanged plate. Weathered planks, a rough timber frame proud of the wall, a bottom ledge, the papers pinned, a thin cast shadow."
     },
     "funeral": {
-     "image": "art/staging/room-02/companions-01/notices-funeral.png",
-     "note": "Act III. The same frame plus the authored clean white sheet (posted-notices-act3.png at the plate's scale) pinned over the papers: 'Frame has finally found a spelling he cannot get wrong.' Set by doc 48's S2."
+     "image": "art/staging/room-02/companions-02/notices-funeral.png",
+     "note": "Act III: the same board with the Phase 1.5B aged funeral sheet pinned centre-top. No copy invented; the notice's words are the LOOK line's. Future-state polish, not an Act I gate."
     }
    }
   },
@@ -227,11 +227,8 @@
    "default": "filled",
    "states": {
     "filled": {
-     "image": "art/staging/room-02/companions-01/water-trough.png",
-     "occludes": [
-      1
-     ],
-     "note": "THE CANONICAL TROUGH, PHASE 1.5B: local prop art painted IN CONTEXT by the one owner-authorized operation (art/staging/room-02/trough-01/trough-op.json), cut by an authored polygon (tools/retrofit/trough-extract.py) and seated beside the east hitching rail with its footprint in the mid mud. Rough timber, a few inches of dark water, one lamp reflection. Its own silhouette masks a figure on the far mud behind it (plane 1)."
+     "image": "art/staging/room-02/companions-02/water-trough.png",
+     "note": "THE CANONICAL TROUGH, PHASE 1.5D: painted in context by the one owner-authorized trough operation on a local centred canvas with the 1.5C trough as the object reference (art/staging/room-02/trough-02/trough-op.json); installed as the FILLED state image -- the operation's zone, feathered, over the unchanged plate, so its timber, mud contact, shadow and reflection are the model's own. The occlusion is the separate authored silhouette, plane 1."
     }
    }
   }
@@ -329,12 +326,12 @@
   {
    "id": "trough",
    "rect": [
-    2044,
-    692,
-    295,
-    64
+    2016,
+    700,
+    384,
+    108
    ],
-   "note": "PHASE 1.5B: the new trough's ground footprint, wholly in the mid mud band (its far base at y 692, its near base at 756), carved from mud_mid only. The far mud is floor to y 688, so a man on it stands behind the trough and is masked by it (plane 1)."
+   "note": "PHASE 1.5D: the trough's ground footprint (far base ~y 700, near base ~808), carved from the mid and near mud; the far mud stays floor, so a man there stands behind the trough and is masked by its silhouette (plane 1)."
   }
  ],
  "lamps": [
@@ -433,8 +430,8 @@
   "planes": [
    {
     "level": 1,
-    "mask": "art/staging/room-02/companions-01/water-trough.png",
-    "note": "PHASE 1.5B: THE TROUGH IS THE PLANE. The companion the water_trough hotspot draws as its filled state is the plane-1 mask -- one file, the trough's authored silhouette (art/staging/room-02/trough-01/extract.json). The trough is new prop art painted in context by the one authorized operation; the plate is untouched."
+    "mask": "art/staging/room-02/companions-02/trough-plane-1.png",
+    "note": "PHASE 1.5D: THE TROUGH'S AUTHORED SILHOUETTE (art/staging/room-02/trough-02/silhouette.json) is the plane-1 mask; the visual is the water_trough state image. mud_far is plane 1: a man on the far mud behind the trough is masked by the trough and nothing else."
    }
   ],
   "clipPlane": {
@@ -451,7 +448,7 @@
     ],
     "expect": 1,
     "box": "mud_far",
-    "note": "on the far mud just behind the trough: its rim (from y 660) masks his feet and shins (renders/proofs/candidates/main-street c05-thad-behind-trough)"
+    "note": "on the far mud just behind the trough: its far side (from y 654) masks his feet and shins"
    }
   ],
   "clipPlaneNote": "mud_far is plane 1 (Phase 1.5): the water trough is a state image that declares occludes [1], so a figure standing on the far mud behind the trough is masked by it and nowhere else -- the layer is transparent everywhere but the trough. The rails and the trough remain planned occluder masks for the room's own planes (boardwalk and mud_mid/near stay 0)."

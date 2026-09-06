@@ -222,6 +222,45 @@
     "art/staging/ledger.json"
    ],
    "note": "The board zone came back as plain wall with a window; the trough painted outside its mask and off the frame's bottom. Not used."
+  },
+  {
+   "subject": "Main Street board operation (board-01): local canvas, result and 1:1 window",
+   "class": "PROP",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-02/board-01/result-1024.png",
+   "evidence": [
+    "art/staging/room-02/board-01/board-op.json",
+    "art/staging/room-02/board-01/derivation.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "PHASE 1.5D, 1 of 1. The raw 1024 result and its scaled-back window; only the masked zone goes into the companion. Not loaded by any room."
+  },
+  {
+   "subject": "Main Street trough operation (trough-02): local canvas, object reference, result and 1:1 window",
+   "class": "PROP",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-02/trough-02/result-1024.png",
+   "evidence": [
+    "art/staging/room-02/trough-02/trough-op.json",
+    "art/staging/room-02/trough-02/derivation.json",
+    "art/staging/room-02/trough-02/silhouette.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "PHASE 1.5D, 1 of 1. The raw 1024 result and its scaled-back window; only the masked zone goes into the companion, the plane-1 mask is the authored silhouette. Not loaded by any room."
+  },
+  {
+   "subject": "Main Street candidate companions-02: notices board (ORDINARY), notices funeral (Act III), water trough (FILLED), trough plane-1 mask",
+   "class": "STATEFUL",
+   "stage": "LIVE-PROOF",
+   "path": "art/staging/room-02/companions-02/water-trough.png",
+   "evidence": [
+    "art/staging/room-02/companions-02/board-integrate.json",
+    "art/staging/room-02/companions-02/trough-integrate.json",
+    "renders/proofs/candidates/main-street/life.json",
+    "renders/proofs/candidates/main-street-act3/life.json",
+    "renders/opening-set-retrofit/phase15d-live.webp"
+   ],
+   "note": "PHASE 1.5D: the object state images the candidate room loads now, over the unchanged plate. The companions-01 board, trough and funeral states are superseded (the sign states there stay in use). AWAITING TYLER."
   }
  ],
  "acceptance": {
@@ -545,10 +584,23 @@
   }
  },
  "environment": {
-  "status": "FINAL ENVIRONMENT CLEANUP \u2014 OWNER REVIEW FAILED / CORRECTIONS REQUIRED",
-  "priorStatus": "ENVIRONMENT CLEANUP COMPLETE \u2014 READY FOR PHASE 2 CASTING (Phase 1.5B, withdrawn by Tyler's review)",
-  "by": "Tyler, live review of the Phase 1 candidate (2026-09-05); corrections claude, Phase 1.5",
+  "status": "MAIN STREET FINAL ENVIRONMENT ART \u2014 READY FOR OWNER REVIEW BEFORE PHASE 2",
+  "priorStatus": "FINAL ENVIRONMENT CLEANUP \u2014 OWNER REVIEW FAILED / CORRECTIONS REQUIRED (Phase 1.5C, after Tyler's review of 1.5B)",
+  "by": "Tyler, live review of the Phase 1 candidate (2026-09-05) and of 1.5B (2026-09-06); corrections claude, Phases 1.5 to 1.5D",
   "evidence": [
+   "docs/36-issue-list.md::Q120 \u00b7 Opening-set retrofit, phase 1.5D: Main Street's board and trough painted in place on local canvases (2 operations, both used), the Nugget frozen",
+   "art/staging/room-02/board-01/board-op.json",
+   "art/staging/room-02/trough-02/trough-op.json",
+   "art/staging/room-02/companions-02/board-integrate.json",
+   "art/staging/room-02/companions-02/trough-integrate.json",
+   "art/staging/room-02/trough-02/silhouette.json",
+   "renders/opening-set-retrofit/phase15d-main-street-full.webp",
+   "renders/opening-set-retrofit/phase15d-board-detail.webp",
+   "renders/opening-set-retrofit/phase15d-trough-detail.webp",
+   "renders/opening-set-retrofit/phase15d-live.webp",
+   "renders/opening-set-retrofit/phase15d-sanity.webp",
+   "renders/proofs/candidates/main-street/life.json",
+   "renders/proofs/candidates/main-street-act3/life.json",
    "docs/36-issue-list.md::Q119 \u00b7 Opening-set retrofit, phase 1.5C: owner review of 1.5B failed \u2014 the Nugget floor made one floor; the Main Street integration operation failed and is stopped",
    "renders/opening-set-retrofit/phase15c-street-failed-op.webp",
    "art/staging/room-02/integrate-01/integrate-op.json",
@@ -571,9 +623,10 @@
    "plate file unchanged; 0 image operations",
    "PHASE 1.5B: new local trough art painted in context (1 operation), cut by an authored silhouette; the Phase 1.5 scaled trough retired",
    "PHASE 1.5B: the ordinary board preserved; the Act III funeral sheet treated deterministically as aged paper on the board (0 operations); a lettered sheet, if ever wanted on screen, is future authored art, non-blocking",
-   "PHASE 1.5C: one owner-directed in-context integration operation (board + trough) FAILED -- the model painted the board wall away and put the trough off the frame; nothing composited; stopped, plan proposed in Q119"
+   "PHASE 1.5C: one owner-directed in-context integration operation (board + trough) FAILED -- the model painted the board wall away and put the trough off the frame; nothing composited; stopped, plan proposed in Q119",
+   "PHASE 1.5D: two owner-authorized LOCAL operations, one per subject, each on a 1024x1024 canvas with the site centred and only the site unmasked -- BOARD 1 of 1: the existing papers framed into a public notice board on its own posts at the existing location; TROUGH 1 of 1: the trough painted in context beside the east rail, the Phase 1.5C trough given as the object reference. Each result's masked zone, scaled back 1:1, is the object's state image (companions-02) composited over the UNCHANGED plate with an 8 px feathered edge; the funeral sheet is placed on the new board; the plane-1 occlusion mask is an authored silhouette of the new trough. Plate file unchanged. Live proofs: Thad in front of and behind the trough, the funeral state in Act III."
   ],
   "note": "Environment only. Not character acceptance, not population, not room life; Phase 2 casts the pie woman, the letter-writer, and decides the dog's life and the map seller's.",
-  "ownerReview": "Tyler, 2026-09-06: the notice board and the trough still read as cut and pasted; the board structure and the trough must be painted into the environment plate, the companion reserved for the changing notice paper. Status stays FAILED / CORRECTIONS REQUIRED until Tyler approves new live screenshots."
+  "ownerReview": "Tyler, 2026-09-06: the 1.5B board and trough read as cut and pasted; the 1.5C integration operation failed. PHASE 1.5D painted both in place on local canvases. AWAITING TYLER'S FINAL ENVIRONMENT VISUAL RULING on the live candidate; nothing here is owner-accepted until he rules, and nothing is promoted."
  }
 }

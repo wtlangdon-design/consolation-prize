@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5D -- INTEGRATE THE LOCAL RESULTS AS THE OBJECTS' STATE IMAGES (doc 36 Q120).\n\n    python3 tools/retrofit/phase15d-integrate.py board\n    python3 tools/retrofit/phase15d-integrate.py trough\n\nEach local operation's masked zone, scaled back to 1:1 by the driver, becomes\na full-frame RGBA companion over the UNCHANGED plate: the zone's pixels with\nan alpha that is 1 inside and feathers to 0 over the last 8 px inside the\nzone's edge, so the seam falls in the model's own repainted wall or mud, which\nmatches the plate it was painted from. The plate file is not touched.\n\n  board   -> companions-02/notices-board.png (ORDINARY) and notices-funeral.png\n             (the same board with the aged funeral sheet from Phase 1.5B)\n  trough  -> companions-02/water-trough.png (FILLED); the plane-1 occlusion\n             mask is a separate authored silhouette, trough-plane-1.png",
+ "op": "OWNER-AUTHORIZED (Tyler, Phase 1.5D): the water-trough operation, 1 of 1. A local 720x444 window of the accepted plate around the site beside the east hitching rail, scaled x1.42 and set in the MIDDLE of a 1024x1024 canvas with letterbox above and below, so the site is nowhere near a frame edge; the mask frees only the site. The Phase 1.5C trough (good object, wrong placement) is passed as the object reference. The result's masked region, scaled back, becomes the water_trough FILLED state image (a companion over the unchanged plate); the plane-1 mask is an authored silhouette cut from it.",
+ "inputs": {
+  "art/staging/room-02/trough-02/local-1to1.png": "a675d22dd500fc26cbcb9279e36622b47ca893dd49d1353c7cd79c15a6ad667b"
+ },
+ "outputs": {
+  "art/staging/room-02/companions-02/water-trough.png": "c5b2e68b39603fe219892e45756409ca67029992c4d0d902098aa6e6f0bb5c38",
+  "art/staging/room-02/companions-02/trough-plane-1.png": "62a8e43c860ce0ccd79955957de3652d37be325777ae6f8ff26b1e74769e3fd6"
+ },
+ "silhouette": [
+  [
+   2016,
+   690
+  ],
+  [
+   2044,
+   660
+  ],
+  [
+   2292,
+   654
+  ],
+  [
+   2400,
+   703
+  ],
+  [
+   2400,
+   808
+  ],
+  [
+   2020,
+   752
+  ]
+ ],
+ "feather": 8
+}

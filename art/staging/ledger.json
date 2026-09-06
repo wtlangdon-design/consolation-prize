@@ -3630,6 +3630,319 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-06T02:26:09.301Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/board-01.txt",
+   "promptHash": "8eca4101c322be17efb0aa3e1acf034255b65dcaadba716675737d96d6dbb273",
+   "references": [
+    {
+     "path": "art/staging/room-02/board-01/edit-canvas.png",
+     "hash": "1eb191fc57371a5fc2b9cc56a1f73258ec12fcb76e29a380ce62143457b42063",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "plate",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-02/board-01/edit-mask.png",
+    "hash": "c675f4a1b6dbe17d299863effe6e2fe732e91c57d736a17c328f1e9c183b8c03"
+   },
+   "sourceHash": "1eb191fc57371a5fc2b9cc56a1f73258ec12fcb76e29a380ce62143457b42063",
+   "sourcePath": "art/staging/room-02/board-01/edit-canvas.png",
+   "out": "art/staging/room-02/board-01/result-1024.png",
+   "outputHash": "a51c0a693c74bd7705c700302efb6875f6b5cf84a9b35d409901b76f294415b4",
+   "bytes": 1073635,
+   "usage": {
+    "input_tokens": 9732,
+    "input_tokens_details": {
+     "image_tokens": 9468,
+     "text_tokens": 264
+    },
+    "output_tokens": 1756,
+    "output_tokens_details": {
+     "image_tokens": 1756,
+     "text_tokens": 0
+    },
+    "total_tokens": 11488
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T03:08:34.571Z",
+   "assetId": "main-street-board",
+   "subject": "room-02-main-street",
+   "editedFrom": "art/staging/room-02/board-01/edit-canvas.png",
+   "maskRecord": "art/staging/room-02/board-01/board-op.json",
+   "note": "OPENING-SET RETROFIT PHASE 1.5D: the notice board framed around the existing papers on a local centred canvas. The owner-authorized 1 of 1.",
+   "gates": {
+    "path": "art/staging/room-02/board-01/result-1024.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T03:08:34.656Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T03:08:34.583Z"
+  },
+  {
+   "attempt": 2,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/trough-02.txt",
+   "promptHash": "ba07cc7cccc72bb1c35a57896738feff6119a16d90dde18fea86e3a004585045",
+   "references": [
+    {
+     "path": "art/staging/room-02/trough-02/edit-canvas.png",
+     "hash": "f13976594b8c6cd1b4eaf1c19c815224b89cda6855f9e84b3ba7fd8462b5748e",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-02/trough-02/object-reference.png",
+     "hash": "df6947d3fb5dacc839f21d9fe2f782487b3a211eebeb19bfd42eef8205f572d1",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "plate",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-02/trough-02/edit-mask.png",
+    "hash": "23e6564bc36c5d6df55f78b9abf705d795db9eb037c0199e4bf5dcf1ebb5fdca"
+   },
+   "sourceHash": "f13976594b8c6cd1b4eaf1c19c815224b89cda6855f9e84b3ba7fd8462b5748e",
+   "sourcePath": "art/staging/room-02/trough-02/edit-canvas.png",
+   "out": "art/staging/room-02/trough-02/result-1024.png",
+   "outputHash": "e81faf2dbfb96b7dfa6ff877d3c1e582d1b57024a80457190f311351d64ebaec",
+   "bytes": 1161135,
+   "usage": {
+    "input_tokens": 10751,
+    "input_tokens_details": {
+     "image_tokens": 10492,
+     "text_tokens": 259
+    },
+    "output_tokens": 1756,
+    "output_tokens_details": {
+     "image_tokens": 1756,
+     "text_tokens": 0
+    },
+    "total_tokens": 12507
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T03:15:46.329Z",
+   "assetId": "main-street-trough",
+   "subject": "room-02-main-street",
+   "editedFrom": "art/staging/room-02/trough-02/edit-canvas.png",
+   "maskRecord": "art/staging/room-02/trough-02/trough-op.json",
+   "note": "OPENING-SET RETROFIT PHASE 1.5D: the trough on a local centred canvas with the 1.5C object as reference. The owner-authorized 1 of 1 for this phase.",
+   "gates": {
+    "path": "art/staging/room-02/trough-02/result-1024.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T03:15:46.411Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T03:15:46.332Z"
   }
  ],
  "promotions": [

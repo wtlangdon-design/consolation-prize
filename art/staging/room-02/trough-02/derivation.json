@@ -1,0 +1,19 @@
+{
+ "transform": "phase15d-local-window",
+ "region": [
+  1880,
+  420,
+  2600,
+  864
+ ],
+ "scale": 1.42,
+ "at": [
+  1,
+  60
+ ],
+ "out": "art/staging/room-02/trough-02/local-1to1.png",
+ "ledger": {
+  "assetId": "main-street-trough",
+  "attempt": 2
+ }
+}

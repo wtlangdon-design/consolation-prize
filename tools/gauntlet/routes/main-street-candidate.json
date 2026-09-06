@@ -41,10 +41,10 @@
   {
    "do": "click",
    "world": [
-    2160,
-    770
+    2180,
+    840
    ],
-   "why": "in front of the trough, mud_mid, just below its footprint (692-756)"
+   "why": "in front of the trough, on the near mud below its footprint"
   },
   {
    "do": "wait",
@@ -85,9 +85,9 @@
    "do": "click",
    "world": [
     2160,
-    646
+    683
    ],
-   "why": "behind the trough, mud_far: it occludes his legs"
+   "why": "behind the trough on the far mud, at the occlusion proof point: its far side masks his feet and shins"
   },
   {
    "do": "wait",
