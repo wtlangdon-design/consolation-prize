@@ -2,10 +2,10 @@
  "schema": 1,
  "id": "nugget_card_1",
  "name": "CARD PLAYER 1",
- "note": "The silver-haired one who thinks he is the sharpest man at the table.",
+ "note": "The silver-haired one who thinks he is the sharpest man at the table. Moved right off the piano: at 695,522 he stood at its right end, inside the piano's own rect, and the piano's whole comedy is that nobody is at it. He now stands at the card table's left corner, 45 px clear of the instrument.",
  "room": "nugget_candidate",
- "x": 695,
- "y": 522,
+ "x": 750,
+ "y": 535,
  "zone": 1,
  "approachRadius": 40,
  "poseNote": "standing at the table's left end, facing across it",
@@ -16,11 +16,11 @@
    [
     0,
     0,
-    78,
-    238
+    81,
+    249
    ]
   ],
-  "figureHeight": 238,
+  "figureHeight": 249,
   "stature": 0.99,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },

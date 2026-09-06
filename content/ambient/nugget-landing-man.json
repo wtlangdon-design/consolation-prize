@@ -2,10 +2,10 @@
  "schema": 1,
  "id": "nugget_landing_man",
  "name": "THE MAN ON THE LANDING",
- "note": "A STORY ANCHOR: there is always a man on the landing, and he has not moved. His stature is 0.75 because HIS FEET ARE NOT ON THIS ROOM'S FLOOR -- he stands on a raised landing at the back, where the depth curve does not reach, and the box the engine falls back to is the far floor. 0.75 of that is the size the landing's own depth implies. It is written down here rather than hidden in a magic number.",
+ "note": "A STORY ANCHOR: there is always a man on the landing, and he has not moved. RESTAGED from 1382,168 -- the separation plan's zone -- because at that row his hat is CUT OFF BY THE TOP OF THE FRAME: the staircase runs to the frame's edge and a 170 px man standing on its topmost visible tread has his head at y -2. He now stands three treads lower at 1350,212, where the tread's front edge is, with 44 px of headroom. His stature is 0.74 because HIS FEET ARE NOT ON THIS ROOM'S FLOOR -- he stands on the stairs at the back, where the depth curve does not reach and the engine clamps to the far height -- and 0.74 of that is the size the staircase's own depth implies. It is written down here rather than hidden in a magic number.",
  "room": "nugget_candidate",
- "x": 1382,
- "y": 168,
+ "x": 1350,
+ "y": 212,
  "zone": 1,
  "approachRadius": 40,
  "poseNote": "standing on the landing at the head of the stairs, hat at his side, looking at nothing",
@@ -16,12 +16,12 @@
    [
     0,
     0,
-    58,
-    170
+    57,
+    168
    ]
   ],
-  "figureHeight": 170,
-  "stature": 0.75,
+  "figureHeight": 168,
+  "stature": 0.74,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },
  "barks": {},

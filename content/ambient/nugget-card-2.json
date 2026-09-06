@@ -2,10 +2,10 @@
  "schema": 1,
  "id": "nugget_card_2",
  "name": "CARD PLAYER 2",
- "note": "The young one, losing and not yet worried about it.",
+ "note": "The young one, losing and not yet worried about it. Moved 45 px left and 13 px nearer, off the stove man: at 1105,522 the two of them read as a pair standing together, which neither of them is.",
  "room": "nugget_candidate",
- "x": 1105,
- "y": 522,
+ "x": 1060,
+ "y": 535,
  "zone": 1,
  "approachRadius": 40,
  "poseNote": "standing at the table's right end, facing across it",
@@ -16,11 +16,11 @@
    [
     0,
     0,
-    79,
-    243
+    83,
+    254
    ]
   ],
-  "figureHeight": 243,
+  "figureHeight": 254,
   "stature": 1.01,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },
