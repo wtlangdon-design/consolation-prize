@@ -6479,7 +6479,12 @@
    "promoted": false,
    "recordedAt": "2026-09-06T22:07:20.595Z",
    "rejected": true,
-   "rejectedWhy": "REJECTED ON STYLE, NOT ON METHOD, AND NOT INTEGRATED. The isolated-pair source did what it was built to do: the same two men came back in the same poses, clothes, colours, facings and held objects, nobody was added or deleted, no scene was composed and neither man was turned into Thad -- every failure of the masked family-sheet attempt is absent. Identity and staging pass for both. Style fails for both: at 380 px and 494 px the eye is still drawn as an eyeball with a white, an iris and (on bar_3) a catchlight, where Thad and every accepted figure have one dark shape, and the cheek still carries smooth continuous modelling. Hair, hat, moustache and cloth genuinely improved. Promoting either would need no further operation, only a decision to accept a better-but-failing figure, which is the owner's. art/staging/room-03/cast-bar-pair-01/REJECTED.md, doc 36 Q131."
+   "rejectedWhy": "REJECTED AS DELIVERED, THEN PROMOTED AFTER A ZERO-COST FACE FINISH. The isolated-pair source did what it was built to do: the same two men came back in the same poses, clothes, colours, facings and held objects, nobody added or deleted, no scene composed, neither man turned into Thad. Identity and staging passed for both. Style failed for both as delivered: at 380 px and 494 px the eye was still an eyeball with a white, an iris and a catchlight, and the cheek still carried smooth modelling. The delivered sheet was NOT promoted. Its two cut figures were then repainted -- eyes and cheek planes only, no image-generation operation -- and the repainted versions ARE what ships. art/staging/room-03/cast-bar-pair-01/STATUS.md, doc 36 Q131 and Q132.",
+   "promotedAfterDeterministicFinish": true,
+   "shipping": [
+    "art/staging/room-03/cast-bar-pair-01/finished/bar-2.png",
+    "art/staging/room-03/cast-bar-pair-01/finished/bar-3.png"
+   ]
   }
  ],
  "promotions": [

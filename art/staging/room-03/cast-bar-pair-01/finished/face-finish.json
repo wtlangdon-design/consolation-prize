@@ -1,0 +1,182 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A deterministic face finish: eyes and cheek planes only, on the isolated candidates. Zero image-generation operations. Doc 36 Q132.",
+ "figures": [
+  {
+   "id": "bar-2",
+   "source": "art/staging/room-03/cast-bar-pair-01/bar-2.png",
+   "face": [
+    115,
+    30,
+    200,
+    126
+   ],
+   "browGuard": 44,
+   "levels": [
+    {
+     "percentile": 10,
+     "lum": 93.0,
+     "colour": [
+      138,
+      82,
+      34
+     ]
+    },
+    {
+     "percentile": 35,
+     "lum": 157.5,
+     "colour": [
+      225,
+      144,
+      56
+     ]
+    },
+    {
+     "percentile": 60,
+     "lum": 179.6,
+     "colour": [
+      248,
+      168,
+      69
+     ]
+    },
+    {
+     "percentile": 85,
+     "lum": 184.8,
+     "colour": [
+      250,
+      172,
+      73
+     ]
+    }
+   ],
+   "method": "the character's own luminance snapped to his own four tones, then every connected run smaller than 14 px handed to the tone around it. No smoothed pixel is ever written and no edge is softened: the output skin holds only the four declared colours.",
+   "eyeRule": "inside each rectangle, and only there, a pixel lighter than 140 whose red minus blue is under 120 is eyeball -- light but not warm, which this lamplit skin never is -- and takes the eye's own darkest tone. Everything else is left exactly as drawn, so the eye keeps its authored shape.",
+   "skinPixelsRepainted": 4430,
+   "eyes": [
+    {
+     "box": [
+      147,
+      63,
+      173,
+      77
+     ],
+     "scleraPixels": 17,
+     "darkPixelsLeftAlone": 166,
+     "ink": [
+      17,
+      7,
+      5
+     ]
+    },
+    {
+     "box": [
+      175,
+      60,
+      197,
+      77
+     ],
+     "scleraPixels": 8,
+     "darkPixelsLeftAlone": 233,
+     "ink": [
+      23,
+      14,
+      13
+     ]
+    }
+   ],
+   "figureHeight": 741,
+   "deployedHeight": 380,
+   "note": "three-quarters to screen right; the far eye sits higher and is foreshortened, and its outer edge is the silhouette, so the fill is bounded by alpha as well as by the rectangle",
+   "out": "art/staging/room-03/cast-bar-pair-01/finished/bar-2.png"
+  },
+  {
+   "id": "bar-3",
+   "source": "art/staging/room-03/cast-bar-pair-01/bar-3.png",
+   "face": [
+    105,
+    58,
+    205,
+    128
+   ],
+   "browGuard": 60,
+   "levels": [
+    {
+     "percentile": 10,
+     "lum": 91.8,
+     "colour": [
+      134,
+      81,
+      38
+     ]
+    },
+    {
+     "percentile": 35,
+     "lum": 139.1,
+     "colour": [
+      204,
+      124,
+      48
+     ]
+    },
+    {
+     "percentile": 60,
+     "lum": 162.5,
+     "colour": [
+      231,
+      147,
+      60
+     ]
+    },
+    {
+     "percentile": 85,
+     "lum": 179.7,
+     "colour": [
+      248,
+      166,
+      70
+     ]
+    }
+   ],
+   "method": "the character's own luminance snapped to his own four tones, then every connected run smaller than 14 px handed to the tone around it. No smoothed pixel is ever written and no edge is softened: the output skin holds only the four declared colours.",
+   "eyeRule": "inside each rectangle, and only there, a pixel lighter than 140 whose red minus blue is under 120 is eyeball -- light but not warm, which this lamplit skin never is -- and takes the eye's own darkest tone. Everything else is left exactly as drawn, so the eye keeps its authored shape.",
+   "skinPixelsRepainted": 3519,
+   "eyes": [
+    {
+     "box": [
+      137,
+      73,
+      170,
+      86
+     ],
+     "scleraPixels": 17,
+     "darkPixelsLeftAlone": 151,
+     "ink": [
+      27,
+      13,
+      8
+     ]
+    },
+    {
+     "box": [
+      170,
+      71,
+      198,
+      85
+     ],
+     "scleraPixels": 8,
+     "darkPixelsLeftAlone": 256,
+     "ink": [
+      16,
+      7,
+      6
+     ]
+    }
+   ],
+   "figureHeight": 754,
+   "deployedHeight": 494,
+   "note": "square to camera under a bowler; the moustache below y 96 and the hat above y 60 are outside every region here and are never touched",
+   "out": "art/staging/room-03/cast-bar-pair-01/finished/bar-3.png"
+  }
+ ]
+}

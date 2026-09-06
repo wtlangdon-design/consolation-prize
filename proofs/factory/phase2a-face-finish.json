@@ -1,0 +1,253 @@
+{
+ "schema": 1,
+ "note": "PHASE 2A DETERMINISTIC FACE FINISH. The last open visual defect closed with ZERO image-generation operations: the isolated-pair candidates repainted in the face only, judged independently, and both promoted. Doc 36 Q132.",
+ "commit": "c955df647db2f999f2b55ab8692521bf594bef5e",
+ "baseCommit": "c955df6 (PR #40 merged)",
+ "imageGenerationOperations": 0,
+ "method": {
+  "eye": "inside each rectangle, and only there, a pixel lighter than 140 whose red minus blue is under 120 is eyeball -- light but not warm, which this lamplit skin never is -- and takes the eye's own darkest tone. Everything else is left exactly as drawn, so the eye keeps its authored shape.",
+  "cheek": "the character's own luminance snapped to his own four tones, then every connected run smaller than 14 px handed to the tone around it. No smoothed pixel is ever written and no edge is softened: the output skin holds only the four declared colours.",
+  "confinedTo": "a declared face rectangle per character; hair, hat, facial hair, clothing, hands, props, body and pose are never touched",
+  "notUsed": [
+   "blur",
+   "global posterize",
+   "palette reduction",
+   "downsample-and-upscale",
+   "nearest-neighbour degradation",
+   "any whole-sprite operation"
+  ],
+  "rulesTriedAndRejected": [
+   "fill every non-skin pixel in the eye rectangle -- turned the shadow-side eye into a black rectangle",
+   "fill every dark-or-bright pixel -- same failure",
+   "count dark neighbours in a 5x5 -- missed the middle of a five-pixel sclera, and wraparound on the cropped window painted brackets at the rectangle edges",
+   "hole fill -- found nothing: a sclera is not enclosed, it opens into the lower lid",
+   "brightness threshold alone -- the lit lid reaches 195 and one catchlight only reaches 184",
+   "majority filter radius 2 on the cheek -- amoebas",
+   "median the luminance first to place the planes -- simpler boundaries that stopped following the face; the nose and jaw dissolved"
+  ]
+ },
+ "measured": {
+  "scleraPixelsInEyeRects": {
+   "bar-2": {
+    "before": 25,
+    "after": 0
+   },
+   "bar-3": {
+    "before": 25,
+    "after": 0
+   }
+  },
+  "skinPixelsRepainted": {
+   "bar-2": 4430,
+   "bar-3": 3519
+  },
+  "tones": {
+   "bar-2": [
+    [
+     138,
+     82,
+     34
+    ],
+    [
+     225,
+     144,
+     56
+    ],
+    [
+     248,
+     168,
+     69
+    ],
+    [
+     250,
+     172,
+     73
+    ]
+   ],
+   "bar-3": [
+    [
+     134,
+     81,
+     38
+    ],
+    [
+     204,
+     124,
+     48
+    ],
+    [
+     231,
+     147,
+     60
+    ],
+    [
+     248,
+     166,
+     70
+    ]
+   ]
+  }
+ },
+ "judgement": {
+  "against": [
+   "THAD at matched figure height",
+   "the accepted stove man",
+   "the accepted card player 4",
+   "the deployed room at 1:1"
+  ],
+  "nugget_bar_2": {
+   "identity": "PASS",
+   "pose": "PASS",
+   "style": "PASS",
+   "promoted": true
+  },
+  "nugget_bar_3": {
+   "identity": "PASS",
+   "pose": "PASS",
+   "style": "PASS",
+   "promoted": true
+  },
+  "decidedBy": "looking, at 1:1 and at 3x. No metric was used and none could be: colour count, flatness and neighbour step all rank THAD as the softer image."
+ },
+ "promoted": {
+  "nugget_bar_2": {
+   "from": "art/staging/room-03/cast-bar-pair-01/finished/bar-2.png",
+   "to": "art/actors/cast-nugget-bar-2.png",
+   "sheet": [
+    167,
+    380
+   ],
+   "figureHeight": 380,
+   "sha256": "cd8363490886f8e2f39dc93481a384965dfeb676790882b0ba48d906c19eb5e2"
+  },
+  "nugget_bar_3": {
+   "from": "art/staging/room-03/cast-bar-pair-01/finished/bar-3.png",
+   "to": "art/actors/cast-nugget-bar-3.png",
+   "sheet": [
+    188,
+    494
+   ],
+   "figureHeight": 494,
+   "sha256": "9460b3cd7fd185357337679f140ffecb65f9c49ba9a6a1869d322e873715017e"
+  }
+ },
+ "unchanged": {
+  "byteIdentical": [
+   "art/actors/cast-nugget-bar-1.png",
+   "art/actors/cast-nugget-stove-man.png",
+   "art/actors/cast-nugget-card-1.png",
+   "art/actors/cast-nugget-card-2.png",
+   "art/actors/cast-nugget-card-3.png",
+   "art/actors/cast-nugget-card-4.png",
+   "art/actors/cast-nugget-landing-man.png",
+   "art/actors/cast-pie-woman.png",
+   "art/actors/cast-map-seller.png",
+   "art/actors/cast-letter-writer.png"
+  ],
+  "anchorAdjustment": "NONE. The sheets draw from a bottom-centre anchor and the crops changed by 3 px and 2 px of width, which is under half a pixel of centring. Feet grounding is set by figureHeight, which is unchanged at 380 and 494.",
+  "mainStreet": "untouched",
+  "environment": "untouched",
+  "thad": "untouched"
+ },
+ "staging": {
+  "unchanged": true,
+  "population": {
+   "bar": 3,
+   "cards": 4,
+   "landing": 1,
+   "stove": 1,
+   "total": 9,
+   "piano": 0
+  },
+  "positions": {
+   "nugget_bar_1": [
+    1232,
+    645
+   ],
+   "nugget_bar_2": [
+    1450,
+    700
+   ],
+   "nugget_bar_3": [
+    1790,
+    820
+   ],
+   "nugget_stove_man": [
+    1140,
+    508
+   ],
+   "nugget_card_1": [
+    762,
+    508
+   ],
+   "nugget_card_2": [
+    1050,
+    515
+   ],
+   "nugget_card_3": [
+    822,
+    478
+   ],
+   "nugget_card_4": [
+    982,
+    478
+   ],
+   "nugget_landing_man": [
+    1305,
+    235
+   ]
+  }
+ },
+ "imageOperations": {
+  "spentThisPass": 0,
+  "nuggetBarStoveFamily": {
+   "billed": 5,
+   "cap": 5,
+   "guard": "refuses"
+  },
+  "nuggetCardLandingFamily": {
+   "billed": 2,
+   "cap": 2
+  },
+  "nuggetPatronGenerationTotal": 7,
+  "totalAttempts": 44,
+  "totalCap": 45,
+  "furtherAuthorized": "NONE anywhere in Phase 2A"
+ },
+ "proof": [
+  {
+   "file": "renders/opening-set-retrofit/phase2a-face-proof-3x.webp",
+   "sha256": "32f7e914c318974e110e185267e91a56eb603a456c0bb6aa9ad901b8bca70940"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-face-proof-1x.webp",
+   "sha256": "6e34e7476397d74dacb9d8a7288146eca544dcc1fda8bb53f6cf9dbc135878a3"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-owner-review-nugget.webp",
+   "sha256": "c67454e1764b284cee81425a5351e636afd21a9bf1aea369f9c17b6b2e76cb32"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-nugget-crowd.webp",
+   "sha256": "7021995d7a9f2e172ad7483202e2a0fc813e9681fce87763130a1985d78ca786"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png",
+   "sha256": "03bada2ec1b2e9a021aa3e10bb6dd8378954f384eff261b471032f02b9fbfe05"
+  },
+  {
+   "file": "renders/opening-set-retrofit/phase2a-production-nugget-candidate-at-560_800.png",
+   "sha256": "c3dfb73b069adab1cba8bbbda5889f88d181d978f093d4354314087ccbc022e4"
+  }
+ ],
+ "checks": {
+  "build": "BASE_PATH=/consolation-prize/ npm run build -- clean",
+  "typecheck": "pass",
+  "tests": "236 of 236, the nine-patron population and empty-piano assertions included",
+  "validate": "54 of 55; the one failure is check-flag-order (ACT / T_RACCOON_NAMED), pre-existing and red on main -- not touched",
+  "productionShot": "PASS, drawn from dist/, no page errors, nothing failed to load",
+  "deployedCheck": "9 runs, every room JSON 200, 0 failed assets, 0 page errors"
+ },
+ "factoryLesson": "docs/46-room-factory.md PART ELEVEN -- REPAIR BEFORE RECAST",
+ "status": "THE FINAL PHASE 2A FOREGROUND CHARACTER DEFECT IS CORRECTED. PHASE 2A IS DEPLOYED AND AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED."
+}
