@@ -1,4 +1,4 @@
-import type { Condition, Point, WalkBox } from './types.ts';
+import type { Condition, FrontOnlyRegion, Point, WalkBox } from './types.ts';
 
 /**
  * Walk boxes: routing, and the geometry the actor's scale and clip plane hang
@@ -77,10 +77,16 @@ function clampInto(box: WalkBox, x: number, y: number): Point {
 export class WalkBoxes {
   private readonly boxes: WalkBox[];
   private readonly byId = new Map<string, WalkBox>();
+  private readonly frontOnly: FrontOnlyRegion[];
 
-  constructor(boxes: WalkBox[], holds: (when?: Condition) => boolean = () => true) {
+  constructor(
+    boxes: WalkBox[],
+    holds: (when?: Condition) => boolean = () => true,
+    frontOnly: FrontOnlyRegion[] = [],
+  ) {
     this.boxes = boxes.filter((box) => holds(box.enabledWhen));
     for (const box of this.boxes) this.byId.set(box.id, box);
+    this.frontOnly = frontOnly;
   }
 
   get all(): WalkBox[] {
@@ -115,6 +121,40 @@ export class WalkBoxes {
       }
     }
     return best;
+  }
+
+  /**
+   * WHERE A WALK DESTINATION RESOLVES TO -- `nearest`, unless the room has
+   * ruled otherwise about this patch of frame.
+   *
+   * Main Street's east hitching rail, Phase 1.5I: the ground behind it is not
+   * player ground, and a click on the rail must put him on the mud IN FRONT of
+   * it. Plain `nearest` would hand back the boardwalk, which is nearer in
+   * pixels and on the far side of the fence. Inside a declared region the
+   * candidates are restricted to boxes at or below its front line; if the room
+   * declares none, or the restriction finds nothing, this is `nearest`
+   * unchanged.
+   *
+   * ONLY DESTINATIONS. `nearest` itself is untouched, because it also answers
+   * "what plane is a figure standing here drawn at", and an ambient standing
+   * behind the rail must keep being masked by it.
+   */
+  target(x: number, y: number): { box: WalkBox; point: Point } | undefined {
+    const region = this.frontOnly.find(({ rect: [rx, ry, rw, rh] }) => x > rx && x < rx + rw
+      && y > ry && y < ry + rh);
+    if (!region) return this.nearest(x, y);
+    let best: { box: WalkBox; point: Point } | undefined;
+    let bestGap = Number.POSITIVE_INFINITY;
+    for (const box of this.boxes) {
+      if (bounds(box).top < region.resolveBelowY) continue;
+      const point = clampInto(box, x, y);
+      const gap = Math.hypot(point.x - x, point.y - y);
+      if (gap < bestGap) {
+        best = { box, point };
+        bestGap = gap;
+      }
+    }
+    return best ?? this.nearest(x, y);
   }
 
   /** Box ids from `from` to `to`, inclusive. Empty if unreachable. */
@@ -154,8 +194,11 @@ export class WalkBoxes {
    * hug the obstacle, which is what routing is supposed to look like.
    */
   route(fromX: number, fromY: number, toX: number, toY: number): Route | undefined {
-    const start = this.boxAt(fromX, fromY) ?? this.nearest(fromX, fromY)?.box;
-    const landing = this.nearest(toX, toY);
+    // BOTH ENDS THROUGH `target`, not `nearest`: a walk that STARTS on ground
+    // the room has ruled out -- the actor placed there, or left there by an
+    // earlier build -- must come out of it to the front, not route along it.
+    const start = this.boxAt(fromX, fromY) ?? this.target(fromX, fromY)?.box;
+    const landing = this.target(toX, toY);
     if (!start || !landing) return undefined;
 
     const chain = this.path(start.id, landing.box.id);

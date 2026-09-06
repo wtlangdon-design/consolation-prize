@@ -497,7 +497,7 @@
       "defaultVerb": "OPEN",
       "walkTo": {
         "x": 2595,
-        "y": 610,
+        "y": 592,
         "facing": "back"
       }
     },
@@ -732,8 +732,7 @@
       ],
       "neighbours": [
         "mud_far_0",
-        "mud_far_1",
-        "mud_far_2"
+        "mud_far_1"
       ],
       "clipPlane": 0,
       "surface": "boardwalk",
@@ -750,11 +749,11 @@
           "y": 600
         },
         {
-          "x": 2268,
+          "x": 2236,
           "y": 600
         },
         {
-          "x": 2268,
+          "x": 2236,
           "y": 688
         },
         {
@@ -773,17 +772,15 @@
       },
       "neighbours": [
         "boardwalk",
-        "mud_far_2",
         "mud_mid_0",
-        "mud_mid_1",
-        "mud_mid_4"
+        "mud_mid_2"
       ]
     },
     {
       "id": "mud_far_1",
       "points": [
         {
-          "x": 2614,
+          "x": 2652,
           "y": 600
         },
         {
@@ -795,7 +792,7 @@
           "y": 688
         },
         {
-          "x": 2614,
+          "x": 2652,
           "y": 688
         }
       ],
@@ -810,43 +807,7 @@
       },
       "neighbours": [
         "boardwalk",
-        "mud_far_2",
-        "mud_mid_2"
-      ]
-    },
-    {
-      "id": "mud_far_2",
-      "points": [
-        {
-          "x": 2268,
-          "y": 600
-        },
-        {
-          "x": 2614,
-          "y": 600
-        },
-        {
-          "x": 2614,
-          "y": 636
-        },
-        {
-          "x": 2268,
-          "y": 636
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 1,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 600,
-        "farHeight": 200,
-        "nearY": 858,
-        "nearHeight": 275
-      },
-      "neighbours": [
-        "boardwalk",
-        "mud_far_0",
-        "mud_far_1"
+        "mud_mid_1"
       ]
     },
     {
@@ -880,7 +841,7 @@
       },
       "neighbours": [
         "mud_far_0",
-        "mud_mid_4",
+        "mud_mid_2",
         "mud_near_0"
       ]
     },
@@ -888,42 +849,7 @@
       "id": "mud_mid_1",
       "points": [
         {
-          "x": 2236,
-          "y": 688
-        },
-        {
-          "x": 2268,
-          "y": 688
-        },
-        {
-          "x": 2268,
-          "y": 776
-        },
-        {
-          "x": 2236,
-          "y": 776
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 1,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 600,
-        "farHeight": 200,
-        "nearY": 858,
-        "nearHeight": 275
-      },
-      "neighbours": [
-        "mud_far_0",
-        "mud_mid_3",
-        "mud_mid_4"
-      ]
-    },
-    {
-      "id": "mud_mid_2",
-      "points": [
-        {
-          "x": 2614,
+          "x": 2652,
           "y": 688
         },
         {
@@ -935,7 +861,7 @@
           "y": 776
         },
         {
-          "x": 2614,
+          "x": 2652,
           "y": 776
         }
       ],
@@ -950,46 +876,11 @@
       },
       "neighbours": [
         "mud_far_1",
-        "mud_mid_3",
         "mud_near_1"
       ]
     },
     {
-      "id": "mud_mid_3",
-      "points": [
-        {
-          "x": 2268,
-          "y": 690
-        },
-        {
-          "x": 2614,
-          "y": 690
-        },
-        {
-          "x": 2614,
-          "y": 776
-        },
-        {
-          "x": 2268,
-          "y": 776
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 1,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 600,
-        "farHeight": 200,
-        "nearY": 858,
-        "nearHeight": 275
-      },
-      "neighbours": [
-        "mud_mid_1",
-        "mud_mid_2"
-      ]
-    },
-    {
-      "id": "mud_mid_4",
+      "id": "mud_mid_2",
       "points": [
         {
           "x": 1976,
@@ -1019,8 +910,7 @@
       },
       "neighbours": [
         "mud_far_0",
-        "mud_mid_0",
-        "mud_mid_1"
+        "mud_mid_0"
       ]
     },
     {
@@ -1054,8 +944,8 @@
       },
       "neighbours": [
         "mud_mid_0",
-        "mud_near_3",
-        "mud_near_4"
+        "mud_near_5",
+        "mud_near_6"
       ]
     },
     {
@@ -1088,8 +978,8 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_mid_2",
-        "mud_near_2"
+        "mud_mid_1",
+        "mud_near_3"
       ]
     },
     {
@@ -1100,11 +990,11 @@
           "y": 816
         },
         {
-          "x": 2652,
+          "x": 2545,
           "y": 816
         },
         {
-          "x": 2652,
+          "x": 2545,
           "y": 864
         },
         {
@@ -1122,12 +1012,80 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_near_1",
-        "mud_near_3"
+        "mud_near_4",
+        "mud_near_5"
       ]
     },
     {
       "id": "mud_near_3",
+      "points": [
+        {
+          "x": 2593,
+          "y": 816
+        },
+        {
+          "x": 2652,
+          "y": 816
+        },
+        {
+          "x": 2652,
+          "y": 864
+        },
+        {
+          "x": 2593,
+          "y": 864
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "mud_near_1",
+        "mud_near_4"
+      ]
+    },
+    {
+      "id": "mud_near_4",
+      "points": [
+        {
+          "x": 2545,
+          "y": 824
+        },
+        {
+          "x": 2593,
+          "y": 824
+        },
+        {
+          "x": 2593,
+          "y": 864
+        },
+        {
+          "x": 2545,
+          "y": 864
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "mud_near_2",
+        "mud_near_3"
+      ]
+    },
+    {
+      "id": "mud_near_5",
       "points": [
         {
           "x": 1976,
@@ -1161,7 +1119,7 @@
       ]
     },
     {
-      "id": "mud_near_4",
+      "id": "mud_near_6",
       "points": [
         {
           "x": 0,
@@ -1306,9 +1264,10 @@
       "from": "nugget",
       "at": [
         2595,
-        620
+        592
       ],
-      "facing": "front"
+      "facing": "front",
+      "note": "PHASE 1.5I: 620 -> 592, up onto the boardwalk, x untouched. The saloon door is dead centre of the hitching rail's span, so the mud he used to arrive on is behind the rail -- and that ground is gone. He now steps out of the Nugget onto its own pavement, which is where a man leaving a saloon stands. `arrivalBySource` still says 2317,624; nothing reads it (the compiler uses `entrances`) and it is left alone rather than half-corrected."
     },
     {
       "from": "hotel",
@@ -1422,24 +1381,6 @@
       "expect": 1,
       "box": "mud_mid",
       "note": "behind the trough, above its base line: its far rim and body mask his feet"
-    },
-    {
-      "at": [
-        2440,
-        740
-      ],
-      "expect": 1,
-      "box": "mud_mid",
-      "note": "behind the rail, mid-span between the posts: the bar crosses him"
-    },
-    {
-      "at": [
-        2470,
-        706
-      ],
-      "expect": 1,
-      "box": "mud_mid",
-      "note": "where the pie woman stands, on the ground behind the rail: the bar crosses her lower legs -- the generic actor case, and nothing about it is Thad's"
     }
   ],
   "occlusionBands": [
@@ -1450,45 +1391,44 @@
   ],
   "candidateOf": "main_street",
   "navigation": {
-    "barriers": [
+    "frontOnly": [
       {
         "id": "rail_east",
         "span": [
           2236,
           2652
         ],
-        "line": [
-          [
-            2236,
-            796
-          ],
-          [
-            2652,
-            796
-          ]
-        ],
-        "frontY": 845,
-        "backY": 730,
-        "posts": {
-          "near": [
-            2290,
-            2320,
-            786
-          ],
-          "far": [
-            2555,
-            2583,
-            812
-          ]
-        },
-        "note": "PHASE 1.5H: the fence's no-cross contract, as data. `strip` is the obstacle the router actually obeys -- the fence's footing, y 776-816, from the trough's east edge to 40 px clear of the bar's east tip -- and `line` is that strip's middle, which is the separator a test measures sides against: above it (to y 776) is the ground behind the fence, below it (from y 816) the ground in front. The posts' own feet, 786 at x 2290-2320 and 812 at x 2555-2583, both lie inside the strip, which is why one flat separator describes a fence that recedes. `frontY` and `backY` are ground a man can stand on either side. tools/gauntlet/rail-crossing.mjs drives the live room like a player at five x positions each way and asserts the side only ever changes outside the span. Navigation topology only: the visual occlusion is the plane mask, and the two are not the same system.",
-        "strip": [
+        "rect": [
           2236,
-          776,
+          600,
           416,
-          40
-        ]
+          216
+        ],
+        "resolveBelowY": 816,
+        "frontY": 845,
+        "minPostClearance": 8,
+        "posts": [
+          {
+            "id": "near",
+            "x": [
+              2290,
+              2320
+            ],
+            "base": 786
+          },
+          {
+            "id": "far",
+            "x": [
+              2555,
+              2583
+            ],
+            "base": 812,
+            "safetyObstacle": "rail_east_post_far"
+          }
+        ],
+        "note": "PHASE 1.5I, TYLER'S RULING: THAD WALKS ONLY IN FRONT OF THIS RAIL. Dual-side navigation is retired -- 1.5G gave the rear ground back, 1.5H made the fence uncrossable, and Tyler could still put him in the rail, because the rear strip mud_mid_3 (x 2268-2614, y 690-776) was legal ground and standing there IS standing in the fence. `rect` is the ground that is no longer player ground: the whole rear of the rail's span, from the top of the far mud (600) down to the top of the front band (816). It is not an overlay the router may route around -- the compiler carves it out, so no walk box exists there at all. `resolveBelowY` is the line a click inside `rect` resolves BELOW: the engine restricts the landing to boxes at or under it, so a click on the bar, on a post, or on the ground behind them puts him on the nearest FRONT-side ground rather than sending him round the block to the boardwalk. `posts` are the two footprints his feet must clear by `minPostClearance`; the far post's foot is at 812 and the front band starts at 816, which is 4 px, so its safety notch carries the front ground down to 824 there. tools/gauntlet/rail-front-only.mjs clicks all of this like a player and asserts he is never inside `rect`."
       }
-    ]
+    ],
+    "note": "PHASE 1.5I: `barriers` is gone. It stated the 1.5H contract -- a fence with walkable ground on both sides that may not be crossed between its ends -- and that design is retired: there is no rear side to cross to. What remains is `frontOnly`, which says the stronger thing."
   }
 }

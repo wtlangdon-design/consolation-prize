@@ -388,7 +388,19 @@ export interface AmbientFile {
    * placement is data, per room, and the shipping room's own x,y is
    * untouched by it.
    */
-  placements?: Record<string, { x: number; y: number; zone?: number }>;
+  placements?: Record<string, {
+    x: number; y: number; zone?: number;
+    /**
+     * The plane that masks her IN THIS ROOM. Phase 1.5I: Main Street's
+     * candidate has no walk box behind its east hitching rail any more --
+     * Thad may not go there -- so the box rule would fall back to the
+     * nearest box, the boardwalk at plane 0, and draw the pie woman OVER
+     * the rail she is standing behind. Same case as Room 5's Winnie
+     * behind her counter, and the same answer, but per room, because her
+     * shipping position is somewhere else entirely.
+     */
+    clipPlane?: number;
+  }>;
   barks: Record<string, string>;
   /**
    * The occlusion plane that masks this figure, when it stands where no walk
@@ -965,6 +977,43 @@ export interface MapLocation {
   note?: string;
 }
 
+/**
+ * A REGION OF THE FRAME WHERE A WALK DESTINATION RESOLVES TO THE FRONT.
+ *
+ * Main Street's east hitching rail, Phase 1.5I. Tyler's ruling is that Thad
+ * walks only in FRONT of that rail, so the ground behind it is carved out of
+ * the room's boxes and does not exist. Carving alone is not enough for the
+ * pointer: a click on the bar, on a post, or on the mud behind them is a click
+ * on no box, and `nearest` answers with whatever box is closest in pixels --
+ * which, behind a rail standing just below the town's boardwalk, is the
+ * BOARDWALK. Clicking the fence would send him round the block to the far
+ * pavement, which is not what a player asked for.
+ *
+ * So a room may declare that inside `rect` a destination resolves only among
+ * boxes whose top edge is at or below `resolveBelowY`: the ground in FRONT of
+ * the thing. It changes WHERE A CLICK LANDS and nothing else -- adjacency,
+ * routing between boxes, and the depth a figure is drawn at are all untouched,
+ * which is why an ambient standing behind the rail is still masked by it.
+ */
+export interface FrontOnlyRegion {
+  id: string;
+  /** The region that is not player ground: [x, y, width, height]. */
+  rect: [number, number, number, number];
+  /** A destination inside `rect` resolves to boxes starting at or below this row. */
+  resolveBelowY: number;
+  /** Ground in front of the thing, for a test to walk to. */
+  frontY?: number;
+  span?: [number, number];
+  minPostClearance?: number;
+  posts?: { id: string; x: [number, number]; base: number; safetyObstacle?: string }[];
+  note?: string;
+}
+
+export interface RoomNavigation {
+  frontOnly?: FrontOnlyRegion[];
+  note?: string;
+}
+
 export interface RoomFile {
   /**
    * The room's whole size in play-area pixels. Absent means the window's, and
@@ -1066,6 +1115,12 @@ export interface RoomFile {
    * re-blocked at ruling 22 step 2, and until then both models are live.
    */
   walkBoxes?: WalkBox[];
+  /**
+   * ROOM-LEVEL NAVIGATION RULINGS: things about this room's floor that its
+   * boxes alone cannot say. Data, not code -- the engine reads it, the room
+   * declares it, and a room that declares none behaves exactly as before.
+   */
+  navigation?: RoomNavigation;
   /** Composed background, relative to the manifest. */
   background?: string;
   /**

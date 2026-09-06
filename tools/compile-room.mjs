@@ -661,7 +661,7 @@ built.generated = {
   // A barrier is not a second obstacle -- the obstacles above are what the
   // router actually obeys -- it is the STATEMENT of what the obstacles are
   // for, so a test can drive the live room and assert it. See
-  // tools/gauntlet/rail-crossing.mjs.
+  // tools/gauntlet/rail-front-only.mjs.
   if (ann.navigation) built.navigation = ann.navigation;
   built.walkable = [
     { id: 'mud_far', zone: 2, surface: 'mud', rect: [left, Math.round(cuts[0]), right - left, Math.round(cuts[1] - cuts[0])] },

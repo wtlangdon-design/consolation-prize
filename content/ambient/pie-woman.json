@@ -15,9 +15,9 @@
   "R_RACCOON": "Heard about your animal. Pie?",
   "R_SURVEYED": "That woman charged you two dollars to point at dirt. Pie.",
   "R_BORDERS_MOTT": "Pie, Mr. Grubb. On the house. On the house today.",
-  "R_LOST_DUEL": "Pie. You\u2019ll want the big one.",
-  "R_WON_DUEL": "Beat Deke Vessel! Pie\u2019s still a nickel.",
-  "R_DEAD": "Thought you\u2019d passed.",
+  "R_LOST_DUEL": "Pie. You’ll want the big one.",
+  "R_WON_DUEL": "Beat Deke Vessel! Pie’s still a nickel.",
+  "R_DEAD": "Thought you’d passed.",
   "R_TRUTH": "Biggest lie ever told in this territory and he still buys the nickel pie."
  },
  "sprite": {
@@ -89,7 +89,8 @@
    "x": 2470,
    "y": 706,
    "zone": 0,
-   "note": "PHASE 1.5G: she stood at y 662, which is where the rail's BAR is drawn -- the same 'standing on the fence' look Tyler caught on Thad. She now stands on the ground behind the rail (mud_mid_3), where the bar crosses her lower legs as it should. Placement only; her art is untouched and stays a Phase 2 subject."
+   "note": "PHASE 1.5G: she stood at y 662, which is where the rail's BAR is drawn -- the same 'standing on the fence' look Tyler caught on Thad. She now stands on the ground behind the rail (mud_mid_3), where the bar crosses her lower legs as it should. Placement only; her art is untouched and stays a Phase 2 subject. PHASE 1.5I: she keeps this position and her art is still untouched, but the ground under her is no longer a walk box -- Tyler's ruling took the rear of the rail out of the floor, and mud_mid_3 went with it. She therefore declares her own plane, exactly as Room 5's Winnie does behind her counter, so the rail still crosses her lower legs instead of the box rule falling back to the boardwalk and drawing her in front of it. MARKED FOR PHASE 2 RESTAGING: her approachRadius is 40 and the nearest ground Thad can now reach is 110 px away at 2470,816, so her bark cannot fire where she stands. She is a Phase 2 subject already and this is a Phase 2 decision; the rail rule is not bent to keep her zone.",
+   "clipPlane": 1
   }
  },
  "placementsNote": "PHASE 1.5B/1.5D: LEGACY CONTEXT ONLY. On the Main Street candidate her shipping x,y lands inside the trough's footprint; placed on the far mud east of the trough's end, behind the rail, until Phase 2 recasts her. The shipping room's x,y is untouched."

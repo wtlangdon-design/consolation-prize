@@ -53,7 +53,18 @@ export class AmbientLayer {
       // Q117): the same dog, standing where THIS plate has ground for him.
       .map((npc) => {
         const placed = npc.placements?.[roomId];
-        return placed ? { ...npc, x: placed.x, y: placed.y, zone: placed.zone ?? npc.zone } : npc;
+        return placed
+          ? {
+            ...npc,
+            x: placed.x,
+            y: placed.y,
+            zone: placed.zone ?? npc.zone,
+            // A PER-ROOM PLANE TOO, and for the same reason as the
+            // position: the plate she is standing on is not the one her
+            // file was written against.
+            clipPlane: placed.clipPlane ?? npc.clipPlane,
+          }
+          : npc;
       });
   }
 

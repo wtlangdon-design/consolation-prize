@@ -65,16 +65,20 @@ def comp(layers):
 # ---- A. THE RAIL --------------------------------------------------------------
 rail = captures('main-street-rail')
 BOX = (2240, 420, 2700, 864)
+# PHASE 1.5I: the captions describe the FRONT-ONLY rail. The clicks in the
+# route are unchanged -- they are the clicks Tyler makes -- but the ground
+# behind the rail is no longer floor, so each one leaves him in front of it.
 plan = [('g02-front-midspan', 'IN FRONT, mid-span: he draws over the bar'),
-        ('g03a-crossing-starts', 'ASKED TO CROSS MID-SPAN: he is round the west end already, walking back east'),
-        ('g04-behind-midspan', 'BEHIND, mid-span: the bar draws over him'),
-        ('g05-clicked-the-rail', 'CLICKED ON THE RAIL: he stops on the ground beyond it, not on it'),
-        ('g06-behind-near-post', 'BEHIND THE NEAR POST: the post crosses him'),
-        ('g07-front-far-end', 'ROUND THE FAR END, in front again')]
+        ('g03a-walk-starts', 'ASKED FOR THE GROUND BEHIND: he sets off along the front, not round the end'),
+        ('g04-front-after-clicking-behind', 'CLICKED BEHIND, mid-span: he stops in front of the rail'),
+        ('g05-clicked-the-rail', 'CLICKED ON THE RAIL: he stops in front of it, not on it'),
+        ('g06-front-after-clicking-the-near-post', 'CLICKED THE NEAR POST: in front of it, clear of its foot'),
+        ('g07-front-far-end', 'PAST THE FAR END, in front all the way')]
 items = [(frame(rail[n], BOX), f'{c} ({where(rail[n])})') for n, c in plan if n in rail]
 if items:
-    sheet(f'{OUT}/phase15g-rail.webp', 'THE HITCHING RAIL -- a barrier on its own lines, with ground behind it (0 image operations)', items, 3,
-          note="The pie woman stands behind the rail in every frame: the same rule, no special case for Thad.")
+    sheet(f'{OUT}/phase15g-rail.webp', 'THE HITCHING RAIL -- front-only, and the ground behind it retired (0 image operations)', items, 3,
+          note="The pie woman still stands behind the rail and the rail still crosses her legs: "
+               "an ambient does not need floor, and her placement declares its own plane.")
 
 # ---- B. THE TROUGH ------------------------------------------------------------
 trough = captures('main-street-trough')

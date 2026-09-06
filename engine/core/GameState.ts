@@ -891,7 +891,8 @@ export class GameState {
     const declared = this.room.walkBoxes;
     if (!declared) return undefined;
     if (this.boxesFor !== this.currentRoomId || !this.boxCache) {
-      this.boxCache = new WalkBoxes(declared, (when) => this.flags.test(when));
+      this.boxCache = new WalkBoxes(declared, (when) => this.flags.test(when),
+        this.room.navigation?.frontOnly ?? []);
       this.boxesFor = this.currentRoomId;
     }
     return this.boxCache;
@@ -916,9 +917,16 @@ export class GameState {
     return (boxes.boxAt(x, y) ?? boxes.nearest(x, y)?.box)?.clipPlane ?? 0;
   }
 
-  /** Nearest standable point. Doc 22 step 1 -- a click is snapped, not refused. */
+  /**
+   * Nearest standable point. Doc 22 step 1 -- a click is snapped, not refused.
+   *
+   * THROUGH `target`, so a room's own navigation ruling applies to a
+   * destination the ENGINE chose as well as one the player clicked: the
+   * approach point for LOOK AT on something behind Main Street's hitching rail
+   * is resolved by the same rule as the click that asked for it.
+   */
   nearestFloor(x: number, y: number): Point | undefined {
-    return this.boxes?.nearest(x, y)?.point;
+    return this.boxes?.target(x, y)?.point;
   }
 
   regionAt(x: number, y: number): WalkableRegion | undefined {
