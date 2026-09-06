@@ -422,6 +422,31 @@ export interface AmbientFile {
     phase?: number;
     frames: [number, number, number, number][];
     /**
+     * THE DRAWN HEIGHT OF A STANDING FIGURE IN THIS SHEET, and what puts an
+     * ambient on the room's own depth curve instead of on nothing.
+     *
+     * Until Phase 2A every ambient was blitted at 1:1 -- source rect to
+     * destination rect, same width, same height -- so a sheet drawn 157 px
+     * tall stayed 157 px tall in a street where a man at that depth is 231.
+     * The pie woman was two thirds of Thad's height and read as a child, and
+     * the same sheet in another room would have been wrong differently.
+     *
+     * With this declared, the renderer scales the frame the way it scales
+     * Thad: the room says how tall a man is where her feet are, `stature`
+     * says how much of a man this character is, and the sheet is drawn to
+     * that. Absent, the 1:1 blit is kept, so a sheet that has not been
+     * measured behaves exactly as it did.
+     */
+    figureHeight?: number;
+    /**
+     * This character's height as a fraction of the room's man at their feet.
+     * 1.0 is a man of average height; a shorter woman is about 0.93; the
+     * street dog is 0.45. It carries ordinary human variation -- sex, age,
+     * build -- without every ambient needing their own curve, and it is the
+     * one place a character's size is written down.
+     */
+    stature?: number;
+    /**
      * Idle BREAKS: separate one-off actions, each leaving the idle, doing one
      * thing, and returning to it.
      *
