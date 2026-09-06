@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "main_street_candidate",
- "commit": "4595ad230c42d36565d5381b502a3515a6320f5b",
+ "commit": "4bd381f317dfdce4162a798eafaa11eec3bd6e12",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -12,18 +12,18 @@
  "entryRoute": null,
  "warped": true,
  "lifeRoute": "main-street-act3",
- "durationSeconds": 77.26,
+ "durationSeconds": 72.86,
  "events": [
   {
-   "t": 4.38,
+   "t": 2.98,
    "line": "warped straight into main_street_candidate (?room=), no entry route"
   },
   {
-   "t": 4.45,
+   "t": 3.04,
    "line": "in main_street_candidate; life route: 22 action(s)"
   },
   {
-   "t": 6.51,
+   "t": 4.38,
    "trace": {
     "says": null,
     "control": null,
@@ -38,7 +38,7 @@
    }
   },
   {
-   "t": 6.64,
+   "t": 5.38,
    "trace": {
     "says": null,
     "control": null,
@@ -53,7 +53,7 @@
    }
   },
   {
-   "t": 7.51,
+   "t": 6.13,
    "trace": {
     "says": null,
     "control": null,
@@ -68,11 +68,11 @@
    }
   },
   {
-   "t": 8.45,
+   "t": 7.04,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 8.51,
+   "t": 7.24,
    "trace": {
     "says": null,
     "control": null,
@@ -87,11 +87,11 @@
    }
   },
   {
-   "t": 9.23,
+   "t": 7.5,
    "line": "action 1 (click): clicked world 2160,730 -- westward"
   },
   {
-   "t": 11.26,
+   "t": 8.6,
    "trace": {
     "says": null,
     "control": null,
@@ -106,7 +106,7 @@
    }
   },
   {
-   "t": 11.38,
+   "t": 9.53,
    "trace": {
     "says": null,
     "control": null,
@@ -114,14 +114,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3402,
-     663
+     3257,
+     666
     ],
     "moving": true
    }
   },
   {
-   "t": 12.3,
+   "t": 10.53,
    "trace": {
     "says": null,
     "control": null,
@@ -129,14 +129,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3313,
-     665
+     3083,
+     669
     ],
     "moving": true
    }
   },
   {
-   "t": 13.32,
+   "t": 11.54,
    "trace": {
     "says": null,
     "control": null,
@@ -144,14 +144,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3189,
-     667
+     2902,
+     673
     ],
     "moving": true
    }
   },
   {
-   "t": 14.35,
+   "t": 12.54,
    "trace": {
     "says": null,
     "control": null,
@@ -159,59 +159,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     3065,
-     670
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 15.3,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2958,
-     672
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 16.38,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2833,
-     674
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 17.27,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     2725,
+     2729,
      676
     ],
     "moving": true
    }
   },
   {
-   "t": 18.38,
+   "t": 13.6,
    "trace": {
     "says": null,
     "control": null,
@@ -219,18 +174,67 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2582,
-     679
+     2537,
+     680
     ],
     "moving": true
    }
   },
   {
-   "t": 19.24,
+   "t": 14.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2368,
+     683
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 15.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2177,
+     687
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 16.6,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     2021,
+     747
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 17.51,
    "line": "action 1 (wait): waited 10s"
   },
   {
-   "t": 19.34,
+   "t": 17.86,
+   "line": "action 1 (click): clicked world 1705,655 -- the board"
+  },
+  {
+   "t": 18.88,
    "trace": {
     "says": null,
     "control": null,
@@ -238,15 +242,26 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2455,
-     681
+     1907,
+     795
     ],
     "moving": true
    }
   },
   {
-   "t": 19.8,
-   "line": "action 1 (click): clicked world 1705,655 -- the board"
+   "t": 19.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1704,
+     776
+    ],
+    "moving": true
+   }
   },
   {
    "t": 20.9,
@@ -257,29 +272,222 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2275,
+     1704,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 21.91,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1704,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 22.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1704,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 23.9,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1704,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 24.91,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1704,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 25.89,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1704,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 26.92,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1704,
+     654
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 27.87,
+   "line": "action 1 (wait): waited 10s"
+  },
+  {
+   "t": 27.93,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 28.26,
+   "line": "action 1 (click): clicked main_street_candidate/posted_notices at world 1666,460 -- the funeral notice"
+  },
+  {
+   "t": 28.88,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room main_street_candidate"
+  },
+  {
+   "t": 29.37,
+   "line": "capture a01-funeral-notice: room main_street_candidate, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 30.41,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1666,
+     668
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 31.43,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1666,
+     668
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 32.46,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1666,
+     668
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 33.42,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1666,
+     668
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.38,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 34.59,
+   "line": "action 1 (click): clicked world 1300,700 -- westward"
+  },
+  {
+   "t": 35.6,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1494,
      677
     ],
     "moving": true
    }
   },
   {
-   "t": 21.87,
+   "t": 36.64,
    "trace": {
-    "says": null,
+    "says": "thad",
     "control": null,
     "beat": null,
     "performing": false,
     "options": 0,
     "thad": [
-     2149,
-     672
+     1310,
+     687
     ],
     "moving": true
    }
   },
   {
-   "t": 22.84,
+   "t": 37.67,
    "trace": {
     "says": null,
     "control": null,
@@ -287,59 +495,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     2025,
-     667
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 23.91,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1883,
-     661
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 24.85,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1761,
-     656
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 25.85,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1705,
-     654
+     1299,
+     699
     ],
     "moving": false
    }
   },
   {
-   "t": 26.82,
+   "t": 38.62,
    "trace": {
     "says": null,
     "control": null,
@@ -347,14 +510,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1705,
-     654
+     1299,
+     699
     ],
     "moving": false
    }
   },
   {
-   "t": 27.82,
+   "t": 39.69,
    "trace": {
     "says": null,
     "control": null,
@@ -362,14 +525,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1705,
-     654
+     1299,
+     699
     ],
     "moving": false
    }
   },
   {
-   "t": 28.89,
+   "t": 40.62,
    "trace": {
     "says": null,
     "control": null,
@@ -377,260 +540,67 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1705,
-     654
+     1299,
+     699
     ],
     "moving": false
    }
   },
   {
-   "t": 29.81,
+   "t": 41.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1299,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 42.61,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1299,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 43.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1299,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 44.59,
    "line": "action 1 (wait): waited 10s"
   },
   {
-   "t": 30,
-   "line": "action 1 (verb): chose verb LOOK_AT -- "
-  },
-  {
-   "t": 30.62,
-   "line": "action 1 (click): clicked main_street_candidate/posted_notices at world 1666,460 -- the funeral notice"
-  },
-  {
-   "t": 31.55,
-   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room main_street_candidate"
-  },
-  {
-   "t": 32.21,
-   "line": "capture a01-funeral-notice: room main_street_candidate, says \"thad\", options 0, control null"
-  },
-  {
-   "t": 33.29,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1666,
-     668
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 34.26,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1666,
-     668
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 35.33,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1666,
-     668
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 36.33,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1666,
-     668
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 37.22,
-   "line": "action 1 (wait): waited 5s"
-  },
-  {
-   "t": 37.27,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1666,
-     668
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 37.55,
-   "line": "action 1 (click): clicked world 1300,700 -- westward"
-  },
-  {
-   "t": 38.65,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1523,
-     676
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 39.63,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1397,
-     683
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 40.59,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1299,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 41.59,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1299,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 42.58,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1299,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 43.68,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1299,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 44.56,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1299,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 45.69,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1299,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 46.62,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     1299,
-     699
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 47.55,
-   "line": "action 1 (wait): waited 10s"
-  },
-  {
-   "t": 47.93,
+   "t": 44.84,
    "line": "action 1 (click): clicked world 900,700 -- westward"
   },
   {
-   "t": 49.05,
+   "t": 45.9,
    "trace": {
     "says": null,
     "control": null,
@@ -638,14 +608,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1157,
+     1114,
      699
     ],
     "moving": true
    }
   },
   {
-   "t": 50.06,
+   "t": 46.86,
    "trace": {
     "says": null,
     "control": null,
@@ -653,14 +623,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1028,
+     938,
      699
     ],
     "moving": true
    }
   },
   {
-   "t": 51.07,
+   "t": 47.86,
    "trace": {
     "says": null,
     "control": null,
@@ -675,7 +645,7 @@
    }
   },
   {
-   "t": 51.99,
+   "t": 48.85,
    "trace": {
     "says": null,
     "control": null,
@@ -690,7 +660,7 @@
    }
   },
   {
-   "t": 52.96,
+   "t": 49.85,
    "trace": {
     "says": null,
     "control": null,
@@ -705,7 +675,7 @@
    }
   },
   {
-   "t": 54,
+   "t": 50.86,
    "trace": {
     "says": null,
     "control": null,
@@ -720,7 +690,7 @@
    }
   },
   {
-   "t": 55.01,
+   "t": 51.9,
    "trace": {
     "says": null,
     "control": null,
@@ -735,15 +705,15 @@
    }
   },
   {
-   "t": 55.94,
+   "t": 52.84,
    "line": "action 1 (wait): waited 8s"
   },
   {
-   "t": 56.2,
+   "t": 53.04,
    "line": "action 1 (click): clicked world 600,700 -- the Company"
   },
   {
-   "t": 57.29,
+   "t": 54.09,
    "trace": {
     "says": null,
     "control": null,
@@ -751,29 +721,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     757,
+     705,
      699
     ],
     "moving": true
    }
   },
   {
-   "t": 58.24,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     628,
-     699
-    ],
-    "moving": true
-   }
-  },
-  {
-   "t": 59.31,
+   "t": 55.12,
    "trace": {
     "says": null,
     "control": null,
@@ -788,7 +743,7 @@
    }
   },
   {
-   "t": 60.31,
+   "t": 56.06,
    "trace": {
     "says": null,
     "control": null,
@@ -803,7 +758,7 @@
    }
   },
   {
-   "t": 61.32,
+   "t": 57.08,
    "trace": {
     "says": null,
     "control": null,
@@ -818,7 +773,7 @@
    }
   },
   {
-   "t": 62.24,
+   "t": 58.08,
    "trace": {
     "says": null,
     "control": null,
@@ -833,7 +788,7 @@
    }
   },
   {
-   "t": 63.34,
+   "t": 59.1,
    "trace": {
     "says": null,
     "control": null,
@@ -848,7 +803,7 @@
    }
   },
   {
-   "t": 64.3,
+   "t": 60.1,
    "trace": {
     "says": null,
     "control": null,
@@ -863,7 +818,7 @@
    }
   },
   {
-   "t": 65.34,
+   "t": 61.07,
    "trace": {
     "says": null,
     "control": null,
@@ -878,7 +833,7 @@
    }
   },
   {
-   "t": 66.29,
+   "t": 62.06,
    "trace": {
     "says": null,
     "control": null,
@@ -893,7 +848,7 @@
    }
   },
   {
-   "t": 67.22,
+   "t": 63.07,
    "trace": {
     "says": null,
     "control": null,
@@ -908,42 +863,42 @@
    }
   },
   {
-   "t": 68.2,
+   "t": 64.1,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     599,
+     699
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 65.04,
    "line": "action 1 (wait): waited 12s"
   },
   {
-   "t": 68.44,
+   "t": 65.22,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 68.99,
+   "t": 65.52,
    "line": "action 1 (click): clicked main_street_candidate/company_sign at world 530,180 -- fresh gilt"
   },
   {
-   "t": 70.12,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     530,
-     668
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 70.12,
+   "t": 66.5,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room main_street_candidate"
   },
   {
-   "t": 70.78,
+   "t": 67.04,
    "line": "capture a02-gilt-sign: room main_street_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 71.79,
+   "t": 68.08,
    "trace": {
     "says": "thad",
     "control": null,
@@ -958,7 +913,7 @@
    }
   },
   {
-   "t": 72.86,
+   "t": 69.1,
    "trace": {
     "says": "thad",
     "control": null,
@@ -973,7 +928,7 @@
    }
   },
   {
-   "t": 73.79,
+   "t": 70.11,
    "trace": {
     "says": null,
     "control": null,
@@ -988,26 +943,11 @@
    }
   },
   {
-   "t": 74.79,
+   "t": 71.04,
    "line": "action 1 (wait): waited 4s"
   },
   {
-   "t": 74.88,
-   "trace": {
-    "says": null,
-    "control": null,
-    "beat": null,
-    "performing": false,
-    "options": 0,
-    "thad": [
-     530,
-     668
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 75.42,
+   "t": 71.61,
    "line": "capture a03-hold: room main_street_candidate, says null, options 0, control null"
   }
  ],
@@ -1015,11 +955,11 @@
   {
    "name": "a01-funeral-notice",
    "why": null,
-   "t": 32.2,
+   "t": 29.37,
    "file": "renders/proofs/candidates/main-street-act3/raw-captures-ignored/a01-funeral-notice.png",
-   "hash": "ba9743c46e2c5ff7b307e8865eca065443fdbed8d96feb6dac9f036c5b387be6",
+   "hash": "6914ff50b3a9fd38fe761b9cf5b58410e6d8493290e44253b7bfa999c70b9afe",
    "room": "main_street_candidate",
-   "clock": 31.714299999999998,
+   "clock": 29.043200000000002,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1043,7 +983,7 @@
      "height": 220,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-04.png",
+     "from": "art/actors/thad-idle-back/idle-03.png",
      "bounds": [
       1536,
       448,
@@ -1073,7 +1013,7 @@
      "drawn": "art/staging/room-02/street-candidate-03/candidate-plate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "11e619e0d6aff397889020317e5641f9a110b4f969f33a94283dc9cf588ed59c"
+     "hash": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443"
     },
     {
      "key": "art/staging/room-02/street-candidate-03/plane-1-trough-rail.png",
@@ -1124,20 +1064,20 @@
      "hash": "c522d334b222c24101cff4ebf494f44703e751f8ad53ffe8c7e832dc02be00f9"
     },
     {
-     "key": "art/staging/room-02/companions-01/company-sign-weathered.png",
-     "path": "art/staging/room-02/companions-01/company-sign-weathered.png",
-     "drawn": "art/staging/room-02/companions-01/company-sign-weathered.png",
+     "key": "art/staging/room-02/companions-03/company-sign-weathered.png",
+     "path": "art/staging/room-02/companions-03/company-sign-weathered.png",
+     "drawn": "art/staging/room-02/companions-03/company-sign-weathered.png",
      "candidate": false,
      "loaded": true,
-     "hash": "559bacf4aa1efebf5120877e9b1b44d18b82fac7227c0a33a9442853ac0b4942"
+     "hash": "eabcfbf01b7b8df04f450fe7e784f5f8d7cbdf5b1e8e12638ac9d57ddd27bf90"
     },
     {
-     "key": "art/staging/room-02/companions-01/company-sign-gilt.png",
-     "path": "art/staging/room-02/companions-01/company-sign-gilt.png",
-     "drawn": "art/staging/room-02/companions-01/company-sign-gilt.png",
+     "key": "art/staging/room-02/companions-03/company-sign-gilt.png",
+     "path": "art/staging/room-02/companions-03/company-sign-gilt.png",
+     "drawn": "art/staging/room-02/companions-03/company-sign-gilt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "9a8c063d3a176fcccaf4807f8de22798b1dae49bc2d0a3cf1f5e0846ac400f0c"
+     "hash": "9d1659b9c33f4945d59403231e832a812a0d9f6fe93f2fbac8132207518f0313"
     }
    ],
    "stubs": [],
@@ -1146,11 +1086,11 @@
   {
    "name": "a02-gilt-sign",
    "why": null,
-   "t": 70.77,
+   "t": 67.03,
    "file": "renders/proofs/candidates/main-street-act3/raw-captures-ignored/a02-gilt-sign.png",
-   "hash": "44cf10178562150ba066c163c8f3b9c97e5996b455928f7ca0d07f1ca4b7d210",
+   "hash": "578ba27c6f9b7320241b33d26279ec0e30cbadc5c3ddbbaaee4f4c9e27670a4e",
    "room": "main_street_candidate",
-   "clock": 70.31280000000001,
+   "clock": 66.6751,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1174,7 +1114,7 @@
      "height": 220,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-00.png",
+     "from": "art/actors/thad-idle-back/idle-04.png",
      "bounds": [
       400,
       448,
@@ -1204,7 +1144,7 @@
      "drawn": "art/staging/room-02/street-candidate-03/candidate-plate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "11e619e0d6aff397889020317e5641f9a110b4f969f33a94283dc9cf588ed59c"
+     "hash": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443"
     },
     {
      "key": "art/staging/room-02/street-candidate-03/plane-1-trough-rail.png",
@@ -1255,20 +1195,20 @@
      "hash": "c522d334b222c24101cff4ebf494f44703e751f8ad53ffe8c7e832dc02be00f9"
     },
     {
-     "key": "art/staging/room-02/companions-01/company-sign-weathered.png",
-     "path": "art/staging/room-02/companions-01/company-sign-weathered.png",
-     "drawn": "art/staging/room-02/companions-01/company-sign-weathered.png",
+     "key": "art/staging/room-02/companions-03/company-sign-weathered.png",
+     "path": "art/staging/room-02/companions-03/company-sign-weathered.png",
+     "drawn": "art/staging/room-02/companions-03/company-sign-weathered.png",
      "candidate": false,
      "loaded": true,
-     "hash": "559bacf4aa1efebf5120877e9b1b44d18b82fac7227c0a33a9442853ac0b4942"
+     "hash": "eabcfbf01b7b8df04f450fe7e784f5f8d7cbdf5b1e8e12638ac9d57ddd27bf90"
     },
     {
-     "key": "art/staging/room-02/companions-01/company-sign-gilt.png",
-     "path": "art/staging/room-02/companions-01/company-sign-gilt.png",
-     "drawn": "art/staging/room-02/companions-01/company-sign-gilt.png",
+     "key": "art/staging/room-02/companions-03/company-sign-gilt.png",
+     "path": "art/staging/room-02/companions-03/company-sign-gilt.png",
+     "drawn": "art/staging/room-02/companions-03/company-sign-gilt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "9a8c063d3a176fcccaf4807f8de22798b1dae49bc2d0a3cf1f5e0846ac400f0c"
+     "hash": "9d1659b9c33f4945d59403231e832a812a0d9f6fe93f2fbac8132207518f0313"
     }
    ],
    "stubs": [],
@@ -1277,11 +1217,11 @@
   {
    "name": "a03-hold",
    "why": null,
-   "t": 75.4,
+   "t": 71.61,
    "file": "renders/proofs/candidates/main-street-act3/raw-captures-ignored/a03-hold.png",
-   "hash": "c64df6e3723c1979ada9dfcfe0c3ae1523d37c3f9a68e0078f15adaa91514a39",
+   "hash": "08e911ec1efbb092ab318a083eb2f5c36f5ccf7043e120c22b8ce69356b5b83a",
    "room": "main_street_candidate",
-   "clock": 74.99589999999999,
+   "clock": 71.2915,
    "control": null,
    "says": null,
    "options": 0,
@@ -1305,7 +1245,7 @@
      "height": 220,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-05.png",
+     "from": "art/actors/thad-idle-back/idle-02.png",
      "bounds": [
       400,
       448,
@@ -1335,7 +1275,7 @@
      "drawn": "art/staging/room-02/street-candidate-03/candidate-plate.png",
      "candidate": false,
      "loaded": true,
-     "hash": "11e619e0d6aff397889020317e5641f9a110b4f969f33a94283dc9cf588ed59c"
+     "hash": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443"
     },
     {
      "key": "art/staging/room-02/street-candidate-03/plane-1-trough-rail.png",
@@ -1386,20 +1326,20 @@
      "hash": "c522d334b222c24101cff4ebf494f44703e751f8ad53ffe8c7e832dc02be00f9"
     },
     {
-     "key": "art/staging/room-02/companions-01/company-sign-weathered.png",
-     "path": "art/staging/room-02/companions-01/company-sign-weathered.png",
-     "drawn": "art/staging/room-02/companions-01/company-sign-weathered.png",
+     "key": "art/staging/room-02/companions-03/company-sign-weathered.png",
+     "path": "art/staging/room-02/companions-03/company-sign-weathered.png",
+     "drawn": "art/staging/room-02/companions-03/company-sign-weathered.png",
      "candidate": false,
      "loaded": true,
-     "hash": "559bacf4aa1efebf5120877e9b1b44d18b82fac7227c0a33a9442853ac0b4942"
+     "hash": "eabcfbf01b7b8df04f450fe7e784f5f8d7cbdf5b1e8e12638ac9d57ddd27bf90"
     },
     {
-     "key": "art/staging/room-02/companions-01/company-sign-gilt.png",
-     "path": "art/staging/room-02/companions-01/company-sign-gilt.png",
-     "drawn": "art/staging/room-02/companions-01/company-sign-gilt.png",
+     "key": "art/staging/room-02/companions-03/company-sign-gilt.png",
+     "path": "art/staging/room-02/companions-03/company-sign-gilt.png",
+     "drawn": "art/staging/room-02/companions-03/company-sign-gilt.png",
      "candidate": false,
      "loaded": true,
-     "hash": "9a8c063d3a176fcccaf4807f8de22798b1dae49bc2d0a3cf1f5e0846ac400f0c"
+     "hash": "9d1659b9c33f4945d59403231e832a812a0d9f6fe93f2fbac8132207518f0313"
     }
    ],
    "stubs": [],
@@ -1418,7 +1358,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 77.26s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 72.86s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1433,5 +1373,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-06T04:30:35.732Z"
+ "at": "2026-09-06T06:02:56.704Z"
 }

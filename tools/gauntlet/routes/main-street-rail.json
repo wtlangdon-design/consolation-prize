@@ -1,0 +1,127 @@
+{
+ "schema": 1,
+ "room": "main_street_candidate",
+ "note": "PHASE 1.5F RAIL DEPTH PROOF (doc 36 Q122). Tyler's third finding: actors could not stand behind the east hitching rail. Five positions and the walks between them, all by world click, all with the camera in reach: beside the far post, in front of the rail, behind it mid-span (the walk has to go round the posts, which is the fence behaving), behind the near post, and out in front again. The pie woman stands on the far mud at 2450,662 through all of it -- the generic actor case, since nothing here is Thad's own.",
+ "actions": [
+  {
+   "do": "wait",
+   "seconds": 4
+  },
+  {
+   "do": "capture",
+   "name": "r01-arrival",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2640,
+    800
+   ],
+   "why": "D: beside the rail's far post, on the near mud"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "r02-beside-far-post",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2440,
+    845
+   ],
+   "why": "A: in front of the rail, mid-span, on the near mud"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "r03-front-centre",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2440,
+    740
+   ],
+   "why": "B: behind the rail, mid-span, on the mid mud -- the walk must go round a post"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "r04-behind-centre",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2300,
+    745
+   ],
+   "why": "C: behind the rail's near post, on the mid mud"
+  },
+  {
+   "do": "wait",
+   "seconds": 9
+  },
+  {
+   "do": "capture",
+   "name": "r05-behind-near-post",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2400,
+    850
+   ],
+   "why": "back out in front of the rail again"
+  },
+  {
+   "do": "wait",
+   "seconds": 14
+  },
+  {
+   "do": "capture",
+   "name": "r06-front-again",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "click",
+   "world": [
+    2560,
+    700
+   ],
+   "why": "the ground the far post stands on: he must stop beside it, never inside it"
+  },
+  {
+   "do": "wait",
+   "seconds": 10
+  },
+  {
+   "do": "capture",
+   "name": "r07-at-far-post",
+   "room": "main_street_candidate"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "r08-hold",
+   "room": "main_street_candidate"
+  }
+ ]
+}

@@ -201,12 +201,12 @@
    "default": "weathered",
    "states": {
     "weathered": {
-     "image": "art/staging/room-02/companions-01/company-sign-weathered.png",
-     "note": "THE LETTERING IS A LAYER, NOT THE PLATE (doc 35 section 6). The plate's board is blank; this is the shipping gilt art scaled to the board, dulled and flaked by a seeded erosion: 'the only sign in town that has been painted twice', peeling."
+     "image": "art/staging/room-02/companions-03/company-sign-weathered.png",
+     "note": "PHASE 1.5F: THE LETTERING ALIGNED TO ITS BUILDING (doc 36 Q122). The plate's board is level; the Phase 1.5 layer was not -- the type carried +1.43 deg of slant inherited from the shipping source art (a crop of the old, angled board) and, with it, that crop's wood at partial alpha. The letters are now cut on their own ramp (95..125), de-rotated to level and centred on the board's inner face (345-703 x 143-225) with even margins. This is the base state: the same seeded dulling and flaking as Phase 1.5 -- 'the only sign in town that has been painted twice', peeling."
     },
     "gilt": {
-     "image": "art/staging/room-02/companions-01/company-sign-gilt.png",
-     "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' The same lettering, fresh, over the same blank board. Set by doc 48's S2."
+     "image": "art/staging/room-02/companions-03/company-sign-gilt.png",
+     "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' PHASE 1.5F: cut from the SAME corrected lettering as the weathered state, so the two share one alignment and cannot drift apart. Set by doc 48's S2."
     }
    }
   },
@@ -317,11 +317,11 @@
    "id": "rail_east",
    "rect": [
     2270,
-    700,
+    776,
     345,
-    115
+    40
    ],
-   "note": "PHASE 1.5E: the east hitching rail, repainted with the trough as one scene (two posts, bases ~790 and ~810, and the bar): the column behind and under it is carved so nobody stands inside the rail; a man on mud_far or mud_mid beside it is masked by its plane-1 silhouette, a man below y 815 walks in front of it."
+   "note": "PHASE 1.5F: THE RAIL'S OWN GROUND LINE, AND NOTHING MORE (Tyler's third finding: actors could not stand behind the rail). Measured off the plate at 6x: the near post's foot is at y ~786 (x 2290-2312), the far post's at y ~812 (x 2550-2578), so the rail stands on the strip y 776-816 across x 2270-2615 -- the top of mud_near, where a man would be standing inside the fence. Everything BEHIND it (mud_mid 688-776 and mud_far) is walkable ground now, and everything in front of it (below y 816) is too; he passes from one to the other round the posts, through the 38 px gap between the trough and the near post, or past the far end. The old obstacle was 115 px deep from y 700 and the compiler carves a band's whole column under an obstacle, so it took the entire band behind the rail away and left nowhere to stand but the rail's own line."
   }
  ],
  "lamps": [
@@ -438,7 +438,16 @@
     ],
     "expect": 1,
     "box": "mud_mid",
-    "note": "on the mid mud directly behind the trough's far rim (the hotspot rect starts at y 700 so this ground is clickable): the rim (from y 678) masks his feet -- what standing behind a low trough looks like"
+    "note": "on the mid mud directly behind the trough's far rim: the rim masks his feet"
+   },
+   {
+    "at": [
+     2440,
+     740
+    ],
+    "expect": 1,
+    "box": "mud_mid",
+    "note": "PHASE 1.5F: on the mid mud behind the rail, mid-span between the posts: the bar crosses him and the ground he stands on is behind the rail"
    },
    {
     "at": [
@@ -447,10 +456,10 @@
     ],
     "expect": 1,
     "box": "mud_far",
-    "note": "on the far mud behind the hitching rail: the bar (y ~650-675 there) masks his ankles"
+    "note": "PHASE 1.5F: where the pie woman stands, on the far mud behind the rail -- the generic actor case: nothing about this is Thad's"
    }
   ],
-  "clipPlaneNote": "PHASE 1.5E: the trough and the east rail are plate scenery whose bases (798, 790/810) lie below mud_mid's foot (776), so mud_far AND mud_mid are plane 1 and are masked by the one plane-1 silhouette mask; mud_near (776-864) stays 0 and walks in front. The west rail stays an obstacle (its base is off the frame's foot)."
+  "clipPlaneNote": "PHASE 1.5F: depth is read from the FOOT BASELINE, as the engine does it -- the walk box under an actor's feet names the plane, and the plane's mask holds the trough and the east rail. Behind the rail's ground line (mud_far 600-688 and mud_mid 688-776) is plane 1: the trough's rim, the rail's bar and its posts draw over anyone standing there, Thad or an ambient alike. In front of it (mud_near, below y 816) is plane 0 and the actor draws over the rail. The rail's own line, y 776-816, is the obstacle, so nobody stands inside the fence and nobody walks through a post. The west rail stays an obstacle only: its base is off the frame's foot."
  },
  "plateNote": "MAIN STREET REPLACEMENT CANDIDATE 01 (opening-set retrofit phase 1, doc 36 Q116): two errata-63 panels (west, east) stitched at explicit cut columns (art/staging/room-02/street-candidate-01/stitch.json). Every rect below was read off this candidate on a 100 px grid. A CANDIDATE: the shipping street is untouched; this annotation compiles to the candidate room main_street_candidate, reachable only by the dev warp, for Tyler's review.",
  "acts": {},

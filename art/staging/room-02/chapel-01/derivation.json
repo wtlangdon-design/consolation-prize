@@ -1,0 +1,19 @@
+{
+ "transform": "phase15f-local-window",
+ "region": [
+  1380,
+  90,
+  1900,
+  610
+ ],
+ "scale": 1.9692,
+ "at": [
+  0,
+  0
+ ],
+ "out": "art/staging/room-02/chapel-01/local-1to1.png",
+ "ledger": {
+  "assetId": "main-street-chapel",
+  "attempt": 1
+ }
+}
