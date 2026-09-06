@@ -6315,6 +6315,171 @@
    "recordedAt": "2026-09-06T21:49:41.610Z",
    "rejected": true,
    "rejectedWhy": "NOT INTEGRATED AND NOT ANCESTRY. The mask did not confine the edit: the endpoint returned a new two-figure composition at a different scale instead of the source with one window repainted. nugget_bar_3 is absent from the result, the Stove Man is absent (6% of his box is drawn, against 52% before), Bar Patron 1 came back altered though he was outside the free window, and nugget_bar_2 is wearing Thad's coat. The two figures it did draw ARE in the vocabulary the prompt asked for, so the fault is the operation shape and not the writing. Tyler's instruction for this case: stop and report, do not generate again. art/staging/room-03/cast-bar-stove-03/REJECTED.md, doc 36 Q130."
+  },
+  {
+   "attempt": 5,
+   "role": "composition-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/bar-pair-01.txt",
+   "promptHash": "b029bd38f861264eda0fe28f61161546682bd7acabb10c147cf482d841ca5e0d",
+   "references": [
+    {
+     "path": "art/staging/room-03/cast-bar-pair-01/pair-source.png",
+     "hash": "859ebb1addff2ba6329446e043f033b19cdb121702f43509f0e069e94c6f6159",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "859ebb1addff2ba6329446e043f033b19cdb121702f43509f0e069e94c6f6159",
+   "sourcePath": "art/staging/room-03/cast-bar-pair-01/pair-source.png",
+   "out": "art/staging/room-03/cast-bar-pair-01/source.png",
+   "outputHash": "5a7fece7e53d2cd2670d3b7f0e5df9f43bfbaccd6577e6505e26344dd6c3ebb4",
+   "bytes": 1344802,
+   "usage": {
+    "input_tokens": 11057,
+    "input_tokens_details": {
+     "image_tokens": 9980,
+     "text_tokens": 1077
+    },
+    "output_tokens": 158,
+    "output_tokens_details": {
+     "image_tokens": 158,
+     "text_tokens": 0
+    },
+    "total_tokens": 11215
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T22:07:20.587Z",
+   "assetId": "nugget-bar-stove-family",
+   "subject": "nugget-bar-stove-family",
+   "note": "PHASE 2A FINAL AUTHORIZED IMAGE OPERATION (Tyler, 2026-09-06). The two near-camera bar men redrawn in Thad's feature vocabulary, from a source that contains ONLY them: the masked family-sheet method was rejected because the endpoint recomposed the scene, so the two men who must not change are absent from the request rather than protected inside it. Identity, clothing, pose, facing and held objects are held; only the drawing vocabulary changes. No Room 3 environment art transmitted. 0 environment operations. Nothing is integrated on the strength of this call alone -- each man is judged separately against his retained version, Thad at matched height, and the accepted controls.",
+   "gates": {
+    "path": "art/staging/room-03/cast-bar-pair-01/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T22:07:20.695Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T22:07:20.595Z",
+   "rejected": true,
+   "rejectedWhy": "REJECTED ON STYLE, NOT ON METHOD, AND NOT INTEGRATED. The isolated-pair source did what it was built to do: the same two men came back in the same poses, clothes, colours, facings and held objects, nobody was added or deleted, no scene was composed and neither man was turned into Thad -- every failure of the masked family-sheet attempt is absent. Identity and staging pass for both. Style fails for both: at 380 px and 494 px the eye is still drawn as an eyeball with a white, an iris and (on bar_3) a catchlight, where Thad and every accepted figure have one dark shape, and the cheek still carries smooth continuous modelling. Hair, hat, moustache and cloth genuinely improved. Promoting either would need no further operation, only a decision to accept a better-but-failing figure, which is the owner's. art/staging/room-03/cast-bar-pair-01/REJECTED.md, doc 36 Q131."
   }
  ],
  "promotions": [

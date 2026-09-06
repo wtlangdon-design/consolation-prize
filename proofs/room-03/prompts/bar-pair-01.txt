@@ -1,0 +1,37 @@
+Redraw the two men in this image. There are only two, they are far apart on a flat magenta field, and they are separate cutouts — not a scene. Do not add anyone. Do not add furniture, floor, ground shadow, background or props beyond what each man already holds. Do not move them, do not resize them, do not change the space between them, and do not fill the empty magenta with anything.
+
+THESE ARE THE SAME TWO MEN AFTERWARDS. This is a correction of how they are drawn, not a recasting. For BOTH of them keep: the same person and face, the same age, the same hair and the same facial-hair concept, the same build, the same clothes in the same colours and the same materials, the same pose, the same direction of facing, the same relationship to the counter and the stool they are standing at, the same object in the same hand, and the same silhouette to within a few pixels.
+
+LEFT MAN — lean, younger, shirtsleeves rolled, dark waistcoat with a watch chain, dark trousers, boots. He is LEANING: near elbow raised at chest height on a counter that is not drawn, far hand on his hip, ankles crossed, head turned back over his shoulder into the room. He keeps that lean.
+
+RIGHT MAN — heavier, older, moustache, bowler hat, checked shirt under a work coat, a tin cup in his near hand at waist height, one boot forward as if on a foot rail. He keeps the hat, the moustache, the check, the coat and the cup.
+
+WHAT CHANGES IS HOW MUCH OF THEM IS DRAWN.
+
+Reference 2 is THAD, the protagonist, at the exact size the game draws him. He is the RENDERING reference and nothing else. Do NOT take his coat, his hairstyle, his face, his build or his colours — a previous attempt put one of these men into Thad's long blue-grey coat and that is specifically wrong. Take only his DRAWING VOCABULARY: how much of a face he spends marks on, and how hard his edges are.
+
+These two men stand nearest the camera in their room, so the game draws them larger than anyone else, and at that size they are visibly drawn by a different hand than his. Beside him they read as painted portraits; he reads as a hand-drawn adventure-game sprite.
+
+THE FAULTS TO REMOVE, ALL IN THE FACES:
+- Continuous smooth gradients across cheek, forehead and jaw. Gone. Skin becomes FLAT MASSES meeting on hard edges.
+- Moustache and beard drawn hair by hair. Gone. Facial hair is ONE grouped shape in two tones with a hard outline.
+- Catchlights and modelled eyeballs. Gone. No highlight in the eye, no iris, no eyelid crease, no lashes, no shading in the white.
+- Small-scale portrait information generally: nostril interiors, lip modelling, ear cartilage, crow's feet, skin texture, pores, cheek blush.
+
+THE WHOLE FACE, AND NOTHING MORE:
+- One broad mass for the hair, and one for the hat where he wears one, each a shape with a hard edge.
+- One brow mass.
+- One simple readable dark shape per eye. No more.
+- ONE principal shadow for the nose.
+- ONE principal mouth line or one compact dark shape.
+- ONE broad shadow under the jaw.
+- Facial hair, where he has it, as ONE grouped mass over the top of that.
+If a mark would be smaller than the eye shape, it does not exist.
+
+THE SAME ECONOMY BELOW THE NECK: few, large, hard-edged tonal groups per garment. A restrained number of folds. No fabric weave, no thread, no sheen, no airbrushed shading. The watch chain and the buttons are single small marks or are left out. The check on the right man's shirt is a coarse suggestion, not woven cloth. Hands are a mass with a thumb, not five modelled fingers.
+
+DRAW THEM AT THE LEVEL OF ABSTRACTION THEY WILL BE SEEN AT. In the game these two are about 380 and 494 pixels tall. Decide every shape as though the finished man were that size — then draw those few shapes cleanly at the size of this canvas. Fewer, larger, harder shapes. Do not draw a detailed portrait in the expectation that it will be reduced.
+
+KEEP THEM SOLID AND THREE-DIMENSIONAL. This is not a request to blur, soften, flatten, posterize or pixelate them, and not a request for cruder or lower-quality art. The form must still read: the arm still turns, the coat still hangs, the hat still sits on a skull, the light still comes from one side and the anatomy is still right. Get the volume from FEWER, HARDER TONAL GROUPS instead of from smooth modelling. Where two tones meet they meet on a crisp line, never through a blur.
+
+The background stays flat MAGENTA #FF00FF edge to edge, with the same wide clear magenta between the two men and around them. Each man complete from the crown of the head to the soles of his boots, nothing cropped by any edge.

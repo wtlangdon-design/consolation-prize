@@ -4174,3 +4174,32 @@ Tyler authorized exactly one additional `nugget-bar-stove-family` operation, ove
 `art/staging/room-03/cast-bar-stove-03/REJECTED.md` · `renders/opening-set-retrofit/phase2a-bar-fix-result.webp` · `phase2a-bar-fix-mask.png` · `tools/retrofit/phase2a-bar-fix-prep.py` · `tools/retrofit/phase2a-bar-fix-result.py` · `proofs/room-03/prompts/bar-stove-family-03.txt`.
 
 **PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
+
+## Q131 · Opening-set retrofit, phase 2A: the final authorized operation — the method was fixed, the style was not — **ATTEMPTED 2026-09-06, REJECTED ON STYLE, NOTHING INTEGRATED, NO FURTHER OPERATION AUTHORIZED**
+
+Tyler authorized one more image operation, the last one anywhere in Phase 2A, for `nugget_bar_2` and `nugget_bar_3`. His ruling on Q130 was precise about what to change: **the style prompt worked and the masked family-sheet method did not**, so change the input topology and not the art direction.
+
+**THE INPUT TOPOLOGY WAS CHANGED AND IT WORKED.** The request contained only the two men — their retained cuts pasted at native resolution, no resample of any kind, a 340 px gap between them (wider than either of them) on flat magenta — and no Room 3 environment art rode along. Bar Patron 1 and the Stove Man were not in the request to be redrawn. What came back was **the same two men, in the same poses, in the same clothes and colours, holding the same objects, facing the same way, in the same places on the canvas.** Nobody added, nobody deleted, no scene composed, neither man turned into Thad. Every failure mode of Q130 is absent.
+
+**IT WAS REJECTED ANYWAY, ON STYLE.** Both candidates pass criterion A and fail criterion B.
+
+| | identity and staging | style |
+|---|---|---|
+| `nugget_bar_2` | PASS — still leaning, elbow up on the counter, far hand on the hip, ankles crossed, head turned back into the room | FAIL |
+| `nugget_bar_3` | PASS — still square at the near end of the counter, cup at waist height, one boot forward, bowler and moustache and check | FAIL |
+
+**WHAT GENUINELY IMPROVED, because it is not nothing.** The hair is a mass with a hard edge rather than strands. The bowler is a flatter shape. The moustache is one grouped mass. The cloth carries fewer, harder folds. The cheek has a hard-edged shadow plane where it had a continuous ramp. Four of the named faults are gone.
+
+**WHAT DID NOT.** At the heights the room actually draws these men — 380 px and 494 px — **the eye is still rendered as an eyeball**: a white sclera, a dark iris, a lid line, and on `bar_3` a catchlight. Thad's eye at the same height is one solid dark bar, and every accepted figure in this game — the pie woman, the stove man, card player 4 — has an eye that is one dark shape. It is the single feature that survives every other simplification, and it is on Tyler's explicit list. The cheek and nose also still carry smooth continuous modelling through many intermediate tones against Thad's three flat tones meeting on hard steps.
+
+**THE DECISION WAS MADE BY LOOKING, BECAUSE EVERY MEASUREMENT OF THIS QUESTION IS INERT.** Colour count, flatness and neighbour step all rank *Thad* as the softer image, because his sprite is a resampled 742 px painting: on a soft-step ratio across the head Thad scores 45.5% against the `bar_3` candidate's 39.6%, which would say the candidate is already harder-edged than the target. It is not. `renders/opening-set-retrofit/phase2a-pair-eyes.webp` is a strip across the eyes at 8× and it settles it in one look. That is the third time a metric has failed on this question and it should stop being reached for.
+
+**THE OPTION THAT COSTS NOTHING, AND IS THE OWNER'S.** These candidates are strictly better than the retained art on hair, hat, moustache and cloth, and worse than nothing on the eyes. They are kept intact under `art/staging/room-03/cast-bar-pair-01/`. **Promoting either or both needs no image operation** — only a decision to accept a better-but-still-failing figure. Tyler's instruction was not to lower the acceptance standard, so this pass did not make that trade on his behalf; it is available to him at any time.
+
+**WHAT IS TRUE OF THE GAME.** Unchanged. Nine patrons — 3 bar, 4 cards, 1 landing, 1 stove — in their occupational poses; the abandoned hand on the table's near edge; nobody at the piano and its stool empty; the stove man mirrored and turned into the iron; Thad's depth calibration as accepted; Main Street untouched. `cast-nugget-bar-1.png` and `cast-nugget-stove-man.png` are byte-identical, as are all nine sheets. The one open visual defect is `nugget_bar_2` and `nugget_bar_3`.
+
+**THE LEDGER, HARD, AND NOT NORMALIZED.** `nugget-bar-stove-family` is 5 billed operations: 1 sheet, 1 refinement, 1 recorded accidental re-run, 1 owner-authorized masked correction (rejected), 1 owner-authorized isolated-pair correction (rejected). `nugget-card-landing-family` is 2. Nugget patron generation is 7. 44 attempts of 45. The cap stands at 5 and the guard refuses the category. **No further image operation is authorized anywhere in Phase 2A.**
+
+`art/staging/room-03/cast-bar-pair-01/REJECTED.md` · `renders/opening-set-retrofit/phase2a-pair-eyes.webp` · `phase2a-pair-judgement.webp` · `tools/retrofit/phase2a-bar-pair-prep.py` · `tools/art/phase2a-pair-judge.py` · `proofs/room-03/prompts/bar-pair-01.txt`.
+
+**PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED.**

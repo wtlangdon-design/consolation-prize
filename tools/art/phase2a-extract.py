@@ -116,6 +116,12 @@ JOBS = [
     ('art/staging/room-03/cast-card-landing-02/source.png',
      'art/staging/room-03/cast-card-landing-02',
      ['card-1', 'card-2', 'card-3', 'card-4', 'landing-man'], 20),
+    # THE FINAL CORRECTION PAIR. Only two men, and they were sent alone on
+    # purpose (doc 36 Q131) -- so the gap rule has an enormous gap to find and
+    # cannot mistake a shoulder for a boundary. Whether either of them is
+    # actually promoted into the room is a separate judgement made after this.
+    ('art/staging/room-03/cast-bar-pair-01/source.png',
+     'art/staging/room-03/cast-bar-pair-01', ['bar-2', 'bar-3'], 40),
 ]
 
 record = {'schema': 1, 'note': 'PHASE 2A: what was cut out of each casting sheet, at the size it '
