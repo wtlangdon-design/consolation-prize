@@ -1,5 +1,5 @@
 {
- "deployedSha": "9249f0b4a7491708c02ce100cf0f00fb3592d0ac",
+ "deployedSha": "17dc9e26ec4ecf66719687a2d67e8f6d22cdccdc",
  "served": "dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/",
  "runs": [
   {
@@ -8,14 +8,14 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-00-town-map.png",
+    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/backgrounds/room-05-assay-office.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "no candidate plate requested",
    "legacyPlateRequested": true,
@@ -25,7 +25,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   },
   {
    "name": "main-street-candidate",
@@ -33,14 +33,14 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-00-town-map.png",
+    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/backgrounds/room-05-assay-office.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "no candidate plate requested",
    "legacyPlateRequested": true,
@@ -50,7 +50,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   },
   {
    "name": "nugget-candidate",
@@ -58,14 +58,14 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-00-town-map.png",
+    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/backgrounds/room-05-assay-office.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "no candidate plate requested",
    "legacyPlateRequested": true,
@@ -75,7 +75,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   },
   {
    "name": "day",
@@ -83,14 +83,14 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-02/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "art/staging/room-05/plate-02/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -100,7 +100,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   },
   {
    "name": "night",
@@ -108,14 +108,14 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-00-town-map.png",
+    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -125,7 +125,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   },
   {
    "name": "fixture-r5-a",
@@ -133,14 +133,14 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -150,7 +150,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   },
   {
    "name": "fixture-r5-b",
@@ -164,8 +164,8 @@
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
-    "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png",
+    "200 art/backgrounds/room-13-undertakers.png"
    ],
    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -175,7 +175,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   },
   {
    "name": "fixture-r5-c",
@@ -183,14 +183,14 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-00-town-map.png",
+    "200 art/backgrounds/room-02-main-street.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -200,7 +200,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   },
   {
    "name": "fixture-r5-g",
@@ -210,12 +210,12 @@
     "200 art/backgrounds/room-01-stage-road.png",
     "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
-    "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-03-nugget.png",
+    "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
     "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-01/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
    "plate": "art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
    "legacyPlateRequested": false,
@@ -225,7 +225,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 793
+   "responsesSeen": 789
   }
  ]
 }
