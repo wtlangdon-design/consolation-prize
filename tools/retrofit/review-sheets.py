@@ -77,6 +77,28 @@ def raw(dir_, name):
     return f'{dir_}/{name}.png'
 
 
+def fresh(life, dir_, *wanted):
+    """A capture THIS RUN actually took, by name fragment.
+
+    A proof directory accumulates: routes get renamed, captures get renumbered,
+    and the orphans stay on disk looking exactly like current ones. The
+    continuity sheet was reading `c04-thad-mid.png` -- a file from a run a day
+    older than the cast -- and captioning it "nine runtime patrons" over an
+    empty room. Doc 38 R3g names that failure exactly: a stale filmstrip
+    presented beside the fresh one. So the name is looked up in the run's own
+    record, and a fragment that matches nothing returns nothing rather than a
+    file that happens to exist.
+    """
+    names = [one['name'] for one in life.get('captures', [])]
+    for fragment in wanted:
+        for name in names:
+            if fragment in name:
+                path = raw(dir_, name)
+                if os.path.exists(path):
+                    return path
+    return None
+
+
 def thad_crop(life, name, width=420, margin=40):
     """A 1:1 crop around Thad in a capture, from the probe's own bounds."""
     cap = next((c for c in life['captures'] if c['name'] == name), None)
@@ -222,11 +244,13 @@ def continuity():
     frames = []
     r1 = 'renders/room-01-in-engine-1920x1080.png'
     frames.append((load(r1, crop=PLAY, scale=0.5), 'ROOM 1 STAGE ROAD -- shipping, accepted (the exterior authority)'))
-    ms = raw(MS_RAW, 'c04-thad-mid')
-    if os.path.exists(ms):
+    ms_life = 'renders/proofs/candidates/main-street/life.json'
+    ms = fresh(json.load(open(ms_life)), MS_RAW, 'thad-mid', 'before-trough') if os.path.exists(ms_life) else None
+    if ms:
         frames.append((load(ms, crop=PLAY, scale=0.5), 'MAIN STREET -- live, PHASE 2A: the three humans recast and on the room\'s own depth curve'))
-    ng = raw(NG_RAW, 'c04-thad-mid')
-    if os.path.exists(ng):
+    ng_life = 'renders/proofs/candidates/nugget/life.json'
+    ng = fresh(json.load(open(ng_life)), NG_RAW, 'thad-mid', 'near-bar') if os.path.exists(ng_life) else None
+    if ng:
         frames.append((load(ng, crop=PLAY, scale=0.5), 'THE NUGGET -- live, PHASE 2A: nine runtime patrons, corrected depth model, no animation on anybody'))
     r5 = 'renders/proofs/assay-office-shipping/raw-captures-ignored/panel-b-populated.png'
     if not os.path.exists(r5):
