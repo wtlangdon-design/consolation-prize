@@ -224,10 +224,10 @@ def continuity():
     frames.append((load(r1, crop=PLAY, scale=0.5), 'ROOM 1 STAGE ROAD -- shipping, accepted (the exterior authority)'))
     ms = raw(MS_RAW, 'c04-thad-mid')
     if os.path.exists(ms):
-        frames.append((load(ms, crop=PLAY, scale=0.5), 'MAIN STREET CANDIDATE 01 -- live; orange figures are LEGACY CONTEXT'))
+        frames.append((load(ms, crop=PLAY, scale=0.5), 'MAIN STREET -- live, PHASE 2A: the three humans recast and on the room\'s own depth curve'))
     ng = raw(NG_RAW, 'c04-thad-mid')
     if os.path.exists(ng):
-        frames.append((load(ng, crop=PLAY, scale=0.5), 'NUGGET CANDIDATE 02 -- live, nobody but Thad'))
+        frames.append((load(ng, crop=PLAY, scale=0.5), 'THE NUGGET -- live, PHASE 2A: nine runtime patrons, corrected depth model, no animation on anybody'))
     r5 = 'renders/proofs/assay-office-shipping/raw-captures-ignored/panel-b-populated.png'
     if not os.path.exists(r5):
         r5 = 'art/backgrounds/room-05-assay-office.png'

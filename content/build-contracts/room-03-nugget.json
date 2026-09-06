@@ -558,8 +558,30 @@
     "proofs/room-03/phase2a-scale-study.json",
     "renders/opening-set-retrofit/phase2a-nugget-scale.webp",
     "reference/room-03-candidate/furniture-measurements.json",
-    "reference/room-03-candidate/scale-candidates.json"
-   ]
+    "reference/room-03-candidate/scale-candidates.json",
+    "docs/36-issue-list.md::Q128 · Opening-set retrofit, phase 2A: the Nugget's nine, cast and staged",
+    "renders/opening-set-retrofit/phase2a-nugget-crowd.webp",
+    "reference/room-03-candidate/nugget-staging.json",
+    "art/staging/phase2a-extraction.json",
+    "art/staging/phase2a-sheets.json",
+    "tests/phase2a-access.test.ts"
+   ],
+   "characterOperations": 2,
+   "population": {
+    "visiblePatrons": 9,
+    "composition": {
+     "bar": 3,
+     "cardTable": 4,
+     "stairLanding": 1,
+     "stove": 1
+    },
+    "allRuntime": true,
+    "noHumanBaked": true,
+    "pianoPlayer": "NONE, and it is asserted rather than remembered: tests/phase2a-access.test.ts fails if any of the nine stands inside the piano's rect. It caught one -- Card Player 1 was at its right end -- before Tyler ever saw the room.",
+    "standingNotSeated": "THE FOUR CARD PLAYERS STAND AROUND THEIR TABLE AND THE TWO STOOL MEN STAND AT THE COUNTER, and that is a Phase 2A decision, not an oversight. The casting sheets draw complete men upright, which is what the pipeline requires: a seated pose is DERIVED from a canonical design, never generated beside it, and deriving one is a Phase 2B operation. Four men standing at a card table is a thing men do; four men standing inside chairs is not, so the chairs are left empty and read as chairs.",
+    "abandonedHand": "The face-up hand keeps the table's near edge, the side with no chair. Nobody stands there and a test fails if anybody does, so the fifth place stays visibly the absent player's. No furniture changed.",
+    "deke": "RESERVED BY STORY-STATE OCCUPANCY ADJUSTMENT, and the approach is recorded rather than left to be improvised. Deke Vessel is a named Act I/II NPC who must appear at the near end of the bar for A3. His zone -- the annotation's characters.deke_vessel, x 1090-1210, feet about y 700 -- collides with none of the nine. When he is built he takes the counter west of Bar Patron 1, who stands at 1300,660: no generic patron is deleted, no zone is repainted, no plate changes. He is NEVER a re-skinned generic patron."
+   }
   }
  }
 }

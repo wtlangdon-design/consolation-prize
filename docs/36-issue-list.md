@@ -4035,3 +4035,69 @@ The floor that remains, in the rail's span: **`mud_near_2` x 2236–2545 · `mud
 **Contract.** `MAIN STREET FRONT-ONLY HITCHING-RAIL NAVIGATION — AWAITING OWNER FINAL ACCEPTANCE`. Nothing promoted; the shipping room untouched.
 
 **PHASE 2 HAS NOT BEGUN. NUGGET IS OWNER-ACCEPTED. MAIN STREET HAS ONE FINAL OWNER GATE: FRONT-ONLY HITCHING-RAIL NAVIGATION.**
+
+---
+
+## Q126 · Opening-set retrofit, phase 2A: the Nugget's depth model — the floor never reached its own bar — **BUILT 2026-09-06, ACCEPTANCE AWAITING TYLER**
+
+Tyler, on the accepted Nugget environment: **Thad looks too small next to the bar.** Thad's art is frozen, so the room is what changes.
+
+**THE PLATE'S FURNITURE DOES NOT AGREE WITH ITSELF, and that is the first thing to say.** Eight dimensioned things were measured off the accepted plate at 3× and 4× — the card table, a dining chair, the piano stool, the piano, the three bar stools and the counter — and at the same depth the card table implies a 222 px man and the piano implies 356. A painting is not a technical drawing. Rather than crown one object the ruler, the correction is the **median**: k 0.849 against the curve's own 0.7415, so the curve is rescaled ×1.145 with its shape and horizon (y 239) untouched — **198/459 becomes 227/526**. That is the same move the project made when Thad's own height went 205 → 240. Every reading is recorded with its assumed real-world size in `reference/room-03-candidate/furniture-measurements.json`.
+
+**AND THE CURVE WAS NOT THE WHOLE DEFECT.** The walkable outline turned in at x 1170 and ran down to 1400 at the frame's foot, while the bar's plinth runs from (1205,620) to (1830,845). At the near end that is **440 px of real dirt floor, with all three stools standing on it, that Thad could not enter.** He could never stand AT the counter — only out in the room looking at it, with the counter at a *shallower* depth than his own feet, so it read across his shoulders. Measured on the composite:
+
+| | counter on his body | reads as |
+|---|---|---|
+| A — the current curve and floor | **0.872** | his shoulders |
+| B — the rescale alone | **0.761** | upper chest — which the brief forbids by name |
+| C — the rescale AND the floor carried to the plinth | **0.659 / 0.676** | **waist and lower ribs** |
+
+C at both bar positions. B alone does not get there, which is why the floor change is load-bearing and not a tidy-up. The three stools and the spittoon became obstacles on their own base lines — the spittoon's was its whole sprite, which with the new floor stood in open dirt and cut the near floor in two — and every walk box is reachable.
+
+**STILL WRONG AND NOT FIXED: the painted piano tops him** under every candidate — 248 px against a 227 px man at its own floor row, an instrument reading about 1.7 m in a room whose other furniture reads 1.75 m men. It is the high outlier and nothing else agrees with it. The environment is owner-accepted and frozen and the only fix is repainting it, so it is **reported, not corrected**.
+
+Study: `proofs/room-03/phase2a-scale-study.json`, `renders/opening-set-retrofit/phase2a-nugget-scale.webp`. **THAD ART UNCHANGED.**
+
+---
+
+## Q127 · Opening-set retrofit, phase 2A: Main Street's human scale — the people were never on the curve at all — **BUILT 2026-09-06, ACCEPTANCE AWAITING TYLER**
+
+The architecture was rebuilt to the right human scale and the people were not, and the reason turned out to be worse than a wrong number.
+
+**EVERY AMBIENT IN THIS GAME WAS BLITTED 1:1.** `drawAmbient` passed the source rectangle as the destination rectangle — same width, same height — so a sheet drawn 157 px tall stayed 157 px tall in a street where a man at that depth is 231, and the same sheet in another room would have been wrong differently. Measured against Thad at their own depths: the letter-writer **0.70**, the map seller **0.65**, the pie woman **0.58**. They are not small characters. They were never scaled.
+
+An ambient sprite may now declare `figureHeight` — what its sheet draws a standing figure at — and `stature`, the character's height as a fraction of the room's man at their feet (1.0 an average man, 0.93 a shorter woman, and ordinary variation between them, because nine identical heights is nine copies of one person). A sheet that declares neither keeps the 1:1 blit exactly, which is why **the accepted dog is untouched**.
+
+**THE MAP SELLER IS A RECAST, and the audit that said KEEP was judging him at two thirds size.** Enlarged to 231 px beside Thad the sheet reads as what it is: a 150 px source upscaled 1.54×, soft where Thad and Winnie are crisp. Keeping him would have left one soft figure standing between two newly cast ones — the mixed-generation look the composition gate exists to catch.
+
+**THE PIE WOMAN IS RESTAGED**, which the frozen hitching-rail rule forced. She stood at 2470,706 — behind the rail, on ground the front-only ruling has since taken away, 110 px from anywhere Thad can stand with a radius of 40. She now stands in front of the water trough at the west end of the saloon's light: legal front-side ground, clear of the rail's span and of the 48 px choke in front of it, with Thad able to stand 40 px away. **The radius was not widened**, and a test now fails if any character's is.
+
+`renders/opening-set-retrofit/phase2a-street-scale.webp` · `phase2a-street-crowd.webp` · `proofs/room-02/phase2a-street-scale.json`.
+
+---
+
+## Q128 · Opening-set retrofit, phase 2A: the cast — five operations, five keepers, no reserves spent — **BUILT 2026-09-06, ACCEPTANCE AWAITING TYLER**
+
+Tyler authorized ten character operations with per-asset sub-caps: five first attempts and five refinements held in reserve, 0 environment operations in either room, and no more than 4 for the Nugget. **Five were spent, all five came back usable, and no reserve was touched.** The Nugget used 2 of its 4.
+
+| asset | | |
+|---|---|---|
+| `street-pie-woman` | 1/2 | whole figure, basket clear of the skirt |
+| `street-letter-writer` | 1/2 | the man **and** his station in one operation |
+| `street-map-seller` | 1/2 | the conditional recast, condition tested and met |
+| `nugget-bar-stove-family` | 1/2 | four distinct men, the stove man among them |
+| `nugget-card-landing-family` | 1/2 | five distinct men, the landing man among them |
+
+All seven baseline references transmitted on every call, including slot E — Winnie and the Room 1 casting master, newly declared for both rooms, because Phase 1's baseline said "people-free by rule" and named no character authority. Doc 38's first lesson is that a character described in words and shown no style comes back photographic, twice. None of these did.
+
+**THE TWO STORY ANCHORS SURVIVED THE SHEET.** The stove man reads as a different *kind* of man from the three drinkers — coat buttoned to the throat, collar up, hands drawn in, standing apart — rather than as bar patron #4. The landing man is the quietest figure on his sheet: no gesture, nothing in his hands but his hat, which is his entire character.
+
+**THE NINE STAND, AND THAT IS A DECISION.** The sheets draw complete men upright, which is what the pipeline requires: a seated pose is *derived* from a canonical design, never generated beside it, and deriving one is a Phase 2B operation. So the four card players stand around their table instead of sitting in its chairs, and the two stool men stand at the counter. Four men standing at a card table is a thing men do; four men standing inside chairs is not. The near edge stays clear either way, so **the abandoned hand still belongs to a man who went outside**.
+
+**ONE RECORD DEFECT, WRITTEN DOWN RATHER THAN TIDIED.** The first pie-woman call generated and billed, and then `record()` refused the row because the driver passed role `"character"`, which is not one of the ledger's five. The usage object went with the discarded return value. The row is reconstructed from what survives — the file, the prompt and the references, all re-hashed — and carries a `usageNote` saying its billed tokens are unknown and why. An attempt spent and not recorded is the one thing that ledger exists to prevent.
+
+**DEKE IS RESERVED BY STORY-STATE OCCUPANCY ADJUSTMENT.** His zone collides with none of the nine; when he is built he takes the counter west of Bar Patron 1. No generic patron is deleted, no zone repainted, no plate changed, and he is never a re-skinned patron.
+
+`renders/opening-set-retrofit/phase2a-nugget-crowd.webp` · `phase2a-street-crowd.webp` · `art/staging/phase2a-extraction.json` · `art/staging/phase2a-sheets.json` · `tests/phase2a-access.test.ts`.
+
+**PHASE 2B HAS NOT BEGUN.**

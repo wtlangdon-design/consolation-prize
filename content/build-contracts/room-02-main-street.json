@@ -778,5 +778,67 @@
    "front-only hitching-rail navigation"
   ],
   "frozenRule": "THE HITCHING RAIL IS FROZEN. Thad may walk only on the front/near side of the rail within its span. He may move freely along the front, round the legal ends, and up to the trough. He may NOT walk behind it within its span, cross through it, stand on the bar, or stand on either post. Tyler, 2026-09-06, after manually testing Phase 1.5I: it finally landed correctly. THIS RULE IS NOT REOPENED DURING CHARACTER WORK -- not to place a character, not to reach a hotspot, not to make a route shorter. A staging that needs it reopened is a staging that moves."
+ },
+ "phase2a": {
+  "status": "MAIN STREET PHASE 2A — AWAITING TYLER CHARACTER/STAGING ACCEPTANCE",
+  "environmentOperations": 0,
+  "characterOperations": 3,
+  "humanScale": "THE PEOPLE WERE NEVER ON THE ROOM'S CURVE AT ALL. Every ambient in this game was blitted 1:1 -- source rect to destination rect -- so a sheet drawn 157 px tall stayed 157 px tall in a street where a man at that depth is 231. Measured: the letter-writer at 0.70 of Thad, the map seller 0.65, the pie woman 0.58. An ambient sprite may now declare `figureHeight` and `stature`, and the renderer scales it the way it scales Thad. A sheet that declares neither keeps the 1:1 blit, which is why the accepted dog is untouched.",
+  "cast": [
+   {
+    "who": "pie_woman",
+    "verdict": "RECAST",
+    "operations": 1,
+    "at": [
+     2205,
+     845
+    ],
+    "height": 252,
+    "stature": 0.93,
+    "staging": "RESTAGED. She stood at 2470,706 -- behind the hitching rail, on ground the frozen front-only rule has taken away, 110 px from anywhere Thad can stand with a radius of 40. She now stands in FRONT of the water trough at the west end of the saloon's light: legal front-side ground, clear of the rail's span and of the 48 px choke in front of it, with Thad able to stand 40 px away. The radius was not widened.",
+    "pose": "One canonical static pose: standing at rest, basket of pies carried clear of the skirt, shawl, apron. Offering and calling poses are Phase 2B derivations from this design."
+   },
+   {
+    "who": "letter_writer",
+    "verdict": "RECAST",
+    "operations": 1,
+    "at": [
+     1470,
+     658
+    ],
+    "height": 208,
+    "stature": 0.96,
+    "staging": "Beside the posted notices at the west end, where doc 07 and his own placeNote put him, with room for the station and clear of the board's own approach point at 1666,668.",
+    "station": "GENERATED IN THE SAME OPERATION and cut apart afterwards: a folding camp table at hip height with weighted paper, an ink bottle and pens, and the satchel of finished letters on the ground at its foot. It is a prop of the room at 1548,658, not a thing he carries. THE TEST THAT MATTERED: a stranger looking at the still frame should say that is a man whose business is writing letters, and this one does."
+   },
+   {
+    "who": "map_seller",
+    "verdict": "RECAST",
+    "operations": 1,
+    "at": [
+     3140,
+     706
+    ],
+    "height": 231,
+    "stature": 1.0,
+    "staging": "Unmoved. His placeNote already puts him clear of the small office's steps with the office lantern over him; only his size was wrong.",
+    "why": "THE AUDIT SAID KEEP AND THE AUDIT WAS JUDGING HIM AT TWO THIRDS SIZE. Enlarged to 231 px beside Thad the sheet reads as what it is: a 150 px source upscaled 1.54x, soft where Thad and Winnie are crisp. That is the 'obsolete rendering' test, and keeping him would have left one soft figure standing between two new ones -- the mixed-generation look the composition gate exists to catch."
+   },
+   {
+    "who": "dog",
+    "verdict": "UNCHANGED",
+    "operations": 0,
+    "staging": "Art and placement both untouched, and deliberately still drawn 1:1: his sheet declares no figureHeight, so the new scaling path does not touch him."
+   }
+  ],
+  "shippingRoomUntouched": "The three recast sheets are declared on the CANDIDATE's placement, not on the character's own file, so the shipping street still draws the art it shipped with. One character, two plates, two pieces of art -- the same per-room mechanism the position and the clip plane already used.",
+  "evidence": [
+   "docs/36-issue-list.md::Q127 · Opening-set retrofit, phase 2A: Main Street's human scale, the cast recast and staged",
+   "renders/opening-set-retrofit/phase2a-street-scale.webp",
+   "renders/opening-set-retrofit/phase2a-street-crowd.webp",
+   "proofs/room-02/phase2a-street-scale.json",
+   "reference/room-02-candidate/street-staging.json",
+   "tests/phase2a-access.test.ts"
+  ]
  }
 }
