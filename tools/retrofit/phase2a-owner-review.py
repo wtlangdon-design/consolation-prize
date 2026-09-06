@@ -36,6 +36,15 @@ def frame(name, width=1400):
     return im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
 
 
+def crop(name, box, zoom=1):
+    """A region of a deployed frame at 1:1, or magnified with hard pixels.
+
+    NEVER downscaled: the whole point of this panel is what the two men look
+    like at the size the game actually draws them."""
+    im = Image.open(f'{SHOT}-{name}.png').convert('RGB').crop(PLAY).crop(box)
+    return im if zoom == 1 else im.resize((im.width * zoom, im.height * zoom), Image.NEAREST)
+
+
 def wrap(draw, text, font, width):
     """A caption that runs off the right edge is a caption nobody read. The
     last sheet lost the three bar patrons that way, which is exactly the thing
@@ -110,4 +119,12 @@ page(f'{OUT}/phase2a-owner-review-nugget.webp',
        'near end with a cup. The man on the landing is still, and the piano keeps its empty '
        'stool.'),
       (frame('nugget-candidate-at-560_800'), 'THAD IN THE ROOM',
-       'Thad at the front left, at the near depth, with the whole population visible behind him.')])
+       'Thad at the front left, at the near depth, with the whole population visible behind him.'),
+      (crop('nugget-candidate', (1230, 240, 1920, 864)),
+       'THE TWO FOREGROUND MEN AT 1:1 — nugget_bar_2 and nugget_bar_3, THE OPEN DEFECT',
+       'Not resized: this is the size the game draws them. They are the two figures nearest the '
+       'camera, and they are still drawn finer than Thad -- smooth cheeks, moustache hairs, a '
+       'catchlight in the eye. The one operation Tyler authorized to correct this did not do it '
+       'and nothing from it was integrated (doc 36 Q130). They stay where they are: that '
+       'near-camera depth is what gives the room its depth, and moving them would only hide the '
+       'difference.')])

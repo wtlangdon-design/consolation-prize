@@ -100,27 +100,43 @@ def figure(path, height):
     return im.resize((max(1, round(im.width * s)), height), Image.LANCZOS)
 
 
+# A CONTROL BELONGS IN THE ROW. Two failing men beside Thad shows a gap; it
+# does not show whether the gap is the room's or theirs. The stove man comes
+# off the SAME family sheet, at the same operation, and he passes -- so he is
+# the control that separates "this sheet is wrong" from "these two men are".
 MATCHED = [
     ('THAD at 494 px', figure('art/actors/thad-stand-front/stand-00.png', 494),
      'accepted, frozen'),
     ('nugget_bar_3 at 494 px', Image.open('art/actors/cast-nugget-bar-3.png').convert('RGBA'),
-     'as the engine draws him'),
+     'STILL WRONG — as the engine draws him'),
     ('THAD at 380 px', figure('art/actors/thad-stand-front/stand-00.png', 380),
      'accepted, frozen'),
     ('nugget_bar_2 at 380 px', Image.open('art/actors/cast-nugget-bar-2.png').convert('RGBA'),
-     'as the engine draws him'),
+     'STILL WRONG — as the engine draws him'),
+    ('nugget_stove_man at 229 px',
+     Image.open('art/actors/cast-nugget-stove-man.png').convert('RGBA'),
+     'CONTROL — same sheet, same operation, accepted'),
+    ('nugget_card_4 at 163 px',
+     Image.open('art/actors/cast-nugget-card-4.png').convert('RGBA'),
+     'CONTROL — the other family, accepted'),
 ]
 crops = [(label, head(im), sub) for label, im, sub in MATCHED]
+probe2 = ImageDraw.Draw(Image.new('RGB', (8, 8)))
 Z2 = 3
 gap = 30
-w2 = sum(c.width * Z2 + gap for _, c, _ in crops) + gap
+# THE CAPTION IS PART OF THE PANEL. Sizing the canvas to the pictures alone
+# clipped the last subject's label off the right edge, which is the one label a
+# reader most needs -- it is the control.
+w2 = sum(max(c.width * Z2, round(probe2.textlength(f'{im.width}x{im.height} px -- {sub}', font=F)))
+         + gap for (_, c, sub), (_, im, _) in zip(crops, MATCHED)) + gap
 h2 = max(c.height * Z2 for _, c, _ in crops) + 152
 strip = Image.new('RGB', (w2, h2), (24, 22, 26))
 d2 = ImageDraw.Draw(strip)
 d2.text((gap, 16), 'PHASE 2A  The same head height, side by side — 3x magnification, nothing '
         'else resized', fill=(238, 238, 242), font=T)
-d2.text((gap, 48), 'THE REMAINING MISMATCH: the small and mid-depth cast now speaks Thad\'s '
-        'language. The two bar men nearest the camera still do not.',
+d2.text((gap, 48), 'THE REMAINING MISMATCH: the small and mid-depth cast speaks Thad\'s '
+        'language -- the two controls on the right are the proof. The two bar men nearest the '
+        'camera still do not. The one authorized correction operation did not fix it (Q130).',
         fill=(255, 160, 150), font=F)
 d2.text((gap, 68), 'Thad: hair in hard clumps, one flat skin mass, a shape per eye, one nose '
         'shadow, one mouth line. The bar men: continuous cheek gradients, individually drawn '
@@ -132,6 +148,7 @@ for label, im, sub in crops:
     d2.text((x2, 108 + big.height), label, fill=(230, 230, 235), font=F)
     d2.text((x2, 126 + big.height), f'{im.width}x{im.height} px — {sub}',
             fill=(150, 150, 160), font=F)
-    x2 += big.width + gap
+    x2 += max(big.width, round(probe2.textlength(f'{im.width}x{im.height} px -- {sub}',
+                                                 font=F))) + gap
 strip.save(f'{OUT}/phase2a-matched-faces.webp', 'WEBP', quality=92, method=6)
 print(f'{OUT}/phase2a-matched-faces.webp', strip.size)
