@@ -210,6 +210,18 @@
     "art/staging/ledger.json"
    ],
    "note": "The raw in-context result; only the authored trough silhouette is taken from it into the companion. Not loaded by any room."
+  },
+  {
+   "subject": "Main Street integration operation (integrate-01): FAILED result, evidence only",
+   "class": "PLATE",
+   "stage": "REJECTED",
+   "path": "art/staging/room-02/integrate-01/window-1920x864.png",
+   "evidence": [
+    "art/staging/room-02/integrate-01/integrate-op.json",
+    "renders/opening-set-retrofit/phase15c-street-failed-op.webp",
+    "art/staging/ledger.json"
+   ],
+   "note": "The board zone came back as plain wall with a window; the trough painted outside its mask and off the frame's bottom. Not used."
   }
  ],
  "acceptance": {
@@ -533,10 +545,13 @@
   }
  },
  "environment": {
-  "status": "ENVIRONMENT CLEANUP COMPLETE \u2014 READY FOR PHASE 2 CASTING",
-  "priorStatus": "ENVIRONMENT CORRECTIONS COMPLETE \u2014 CHARACTER/LIFE PHASE PENDING (Phase 1.5); before that OWNER ACCEPTED WITH PHYSICAL-PROP CORRECTIONS",
+  "status": "FINAL ENVIRONMENT CLEANUP \u2014 OWNER REVIEW FAILED / CORRECTIONS REQUIRED",
+  "priorStatus": "ENVIRONMENT CLEANUP COMPLETE \u2014 READY FOR PHASE 2 CASTING (Phase 1.5B, withdrawn by Tyler's review)",
   "by": "Tyler, live review of the Phase 1 candidate (2026-09-05); corrections claude, Phase 1.5",
   "evidence": [
+   "docs/36-issue-list.md::Q119 \u00b7 Opening-set retrofit, phase 1.5C: owner review of 1.5B failed \u2014 the Nugget floor made one floor; the Main Street integration operation failed and is stopped",
+   "renders/opening-set-retrofit/phase15c-street-failed-op.webp",
+   "art/staging/room-02/integrate-01/integrate-op.json",
    "docs/36-issue-list.md::Q118 \u00b7 Opening-set retrofit, phase 1.5B: the final environment cleanup \u2014 the trough as prop art, the funeral sheet as paper, the whole Nugget floor as dirt",
    "docs/36-issue-list.md::Q117 \u00b7 Opening-set retrofit, phase 1.5: the accepted environments corrected for canon and physics before casting",
    "renders/opening-set-retrofit/phase15-main-street-detail.webp",
@@ -555,8 +570,10 @@
    "Improvement Company lettering as weathered/gilt state layers over the blank plate board",
    "plate file unchanged; 0 image operations",
    "PHASE 1.5B: new local trough art painted in context (1 operation), cut by an authored silhouette; the Phase 1.5 scaled trough retired",
-   "PHASE 1.5B: the ordinary board preserved; the Act III funeral sheet treated deterministically as aged paper on the board (0 operations); a lettered sheet, if ever wanted on screen, is future authored art, non-blocking"
+   "PHASE 1.5B: the ordinary board preserved; the Act III funeral sheet treated deterministically as aged paper on the board (0 operations); a lettered sheet, if ever wanted on screen, is future authored art, non-blocking",
+   "PHASE 1.5C: one owner-directed in-context integration operation (board + trough) FAILED -- the model painted the board wall away and put the trough off the frame; nothing composited; stopped, plan proposed in Q119"
   ],
-  "note": "Environment only. Not character acceptance, not population, not room life; Phase 2 casts the pie woman, the letter-writer, and decides the dog's life and the map seller's."
+  "note": "Environment only. Not character acceptance, not population, not room life; Phase 2 casts the pie woman, the letter-writer, and decides the dog's life and the map seller's.",
+  "ownerReview": "Tyler, 2026-09-06: the notice board and the trough still read as cut and pasted; the board structure and the trough must be painted into the environment plate, the companion reserved for the changing notice paper. Status stays FAILED / CORRECTIONS REQUIRED until Tyler approves new live screenshots."
  }
 }

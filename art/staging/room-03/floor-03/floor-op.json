@@ -1,0 +1,75 @@
+{
+ "schema": 1,
+ "purpose": "OWNER-DIRECTED (Tyler, Phase 1.5B review, 2026-09-06): 'the entire walkable public floor must read as one continuous dirt floor... Preserve actual furniture pixels only -- not halos, former floor underneath furniture, or broad restore regions that reintroduce planks.' The Phase 1.5B mask cut holes around furniture by a classifier and the restore step used rectangular boxes; both left planks. This mask is the whole public floor with NO holes but the table top; the model repaints the floor under and around every leg. Afterwards NOTHING is restored by box: at most the tight furniture silhouettes, and only if the model moved them.",
+ "source": {
+  "art/staging/room-03/floor-source-02.png": "8828249eaebf16722c2f3082c3b3df0e410944bda77ab44a62444eeab19ec840",
+  "art/staging/room-03/corrected-02/plate-cold-dirt.png": "a1b3abca11ac8318a9ee7221f72bf6e39074289b9ac60aeb83891c3d582da642"
+ },
+ "floorPolygonPlate": [
+  [
+   40,
+   640
+  ],
+  [
+   300,
+   606
+  ],
+  [
+   500,
+   525
+  ],
+  [
+   505,
+   521
+  ],
+  [
+   705,
+   521
+  ],
+  [
+   712,
+   404
+  ],
+  [
+   1058,
+   404
+  ],
+  [
+   1060,
+   410
+  ],
+  [
+   1130,
+   410
+  ],
+  [
+   1198,
+   398
+  ],
+  [
+   1205,
+   505
+  ],
+  [
+   1250,
+   528
+  ],
+  [
+   1920,
+   836
+  ],
+  [
+   1920,
+   864
+  ],
+  [
+   40,
+   864
+  ]
+ ],
+ "mask": "art/staging/room-03/floor-03/edit-mask.png",
+ "maskSha256": "75bd384b4024f4da62584d2c90118a2a056e3d3ab7006a11dc1bea1f49c75cfd",
+ "maskPlate": "art/staging/room-03/floor-03/floor-mask-plate.png",
+ "mustRemainUnchanged": "every wall, door, window, the piano, the stove and pipe, the stairs, the bar, the chandelier, the mirror, the portrait, the handbill, the lamps, and -- inside the mask -- the stools, the spittoon, the chairs, the table pedestal and the piano stool as objects (the model is told to keep them; they are checked, not boxed)",
+ "diagnostic": "renders/opening-set-retrofit/phase15c-floor-mask-diagnostic.png"
+}

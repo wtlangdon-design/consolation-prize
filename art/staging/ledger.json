@@ -3327,6 +3327,309 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-06T01:18:05.710Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/integrate-01.txt",
+   "promptHash": "b1e0a3fa20df5d424e9bb8db4d1251a22f11b9d8bbc121ede1016b43c3b33230",
+   "references": [
+    {
+     "path": "art/staging/room-02/integrate-01/edit-canvas.png",
+     "hash": "1312b51898fd6b733b9f6908374cfe8e12af0a9da51513d409826b549f8418bc",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "plate",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-02/integrate-01/edit-mask.png",
+    "hash": "ce85e7d4f20c435a17773dd3bf89b195bb1b60c2dff956a2c7251d0933fe5493"
+   },
+   "sourceHash": "1312b51898fd6b733b9f6908374cfe8e12af0a9da51513d409826b549f8418bc",
+   "sourcePath": "art/staging/room-02/integrate-01/edit-canvas.png",
+   "out": "art/staging/room-02/integrate-source-01.png",
+   "outputHash": "e8e307035fc65f3f59705bdb5547bf68ece0fca84a4f9488e6509627ab6ad7bd",
+   "bytes": 1843461,
+   "usage": {
+    "input_tokens": 10340,
+    "input_tokens_details": {
+     "image_tokens": 9980,
+     "text_tokens": 360
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 11712
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T02:25:33.130Z",
+   "assetId": "main-street-plate-integration",
+   "subject": "room-02-main-street",
+   "editedFrom": "art/staging/room-02/integrate-01/edit-canvas.png",
+   "maskRecord": "art/staging/room-02/integrate-01/integrate-op.json",
+   "note": "OPENING-SET RETROFIT PHASE 1.5C (owner review of 1.5B failed): the notice board structure and the water trough painted into the accepted street in context; the masked regions become plate. The owner-directed 1 of 1.",
+   "gates": {
+    "path": "art/staging/room-02/integrate-source-01.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T02:25:33.303Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T02:25:33.148Z"
+  },
+  {
+   "attempt": 3,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/dirt-floor-03.txt",
+   "promptHash": "25cbf4d45346a9bf829394fd9282b6e944818a9fbbad893400f90ec2bbd40f77",
+   "references": [
+    {
+     "path": "art/staging/room-03/floor-source-02.png",
+     "hash": "8828249eaebf16722c2f3082c3b3df0e410944bda77ab44a62444eeab19ec840",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "plate",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-03/floor-03/edit-mask.png",
+    "hash": "75bd384b4024f4da62584d2c90118a2a056e3d3ab7006a11dc1bea1f49c75cfd"
+   },
+   "sourceHash": "8828249eaebf16722c2f3082c3b3df0e410944bda77ab44a62444eeab19ec840",
+   "sourcePath": "art/staging/room-03/floor-source-02.png",
+   "out": "art/staging/room-03/floor-source-03.png",
+   "outputHash": "06ce3f13d80f3313e9cce1e013bc787550e9c1e60a0372d11bb841c6200f4910",
+   "bytes": 1902938,
+   "usage": {
+    "input_tokens": 8836,
+    "input_tokens_details": {
+     "image_tokens": 8528,
+     "text_tokens": 308
+    },
+    "output_tokens": 601,
+    "output_tokens_details": {
+     "image_tokens": 601,
+     "text_tokens": 0
+    },
+    "total_tokens": 9437
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T02:26:09.297Z",
+   "assetId": "nugget-floor",
+   "subject": "room-03-nugget",
+   "editedFrom": "art/staging/room-03/floor-source-02.png",
+   "maskRecord": "art/staging/room-03/floor-03/floor-op.json",
+   "note": "OPENING-SET RETROFIT PHASE 1.5C (owner review of 1.5B failed): one continuous dirt floor, the whole public floor under a mask with no furniture holes, no rectangular restore afterwards. The owner-directed 3 of 3.",
+   "gates": {
+    "path": "art/staging/room-03/floor-source-03.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T02:26:09.463Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T02:26:09.301Z"
   }
  ],
  "promotions": [

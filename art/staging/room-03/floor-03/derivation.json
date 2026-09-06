@@ -1,0 +1,57 @@
+{
+ "transform": "errata-63-fixed-room-source-acquisition",
+ "provisional": true,
+ "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+ "source": {
+  "path": "art/staging/room-03/floor-source-03.png",
+  "hash": "06ce3f13d80f3313e9cce1e013bc787550e9c1e60a0372d11bb841c6200f4910",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 1902938,
+  "kept": true
+ },
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684,
+  "aspect": "20:9"
+ },
+ "resample": {
+  "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+  "lobes": 3,
+  "from": [
+   1520,
+   684
+  ],
+  "to": [
+   1920,
+   864
+  ],
+  "factor": 1.263157894736842,
+  "normalisedWeights": true,
+  "premultiplied": true,
+  "rounding": "half-away-from-zero, clamped to 0..255",
+  "forbidden": [
+   "nearest-neighbour",
+   "ai-upscale",
+   "sharpen",
+   "denoise",
+   "recolour",
+   "contrast-enhancement",
+   "generative-second-pass"
+  ]
+ },
+ "derived": {
+  "path": "art/staging/room-03/floor-03/candidate-1920x864.png",
+  "hash": "a0e8079451d10ef865ccdc9c0772c47cab4d05c48b038396d3998dadf31c0eb3",
+  "width": 1920,
+  "height": 864,
+  "bytes": 2825785,
+  "colourType": 2
+ },
+ "ledger": {
+  "assetId": "nugget-floor",
+  "attempt": 3
+ }
+}

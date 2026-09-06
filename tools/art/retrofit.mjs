@@ -157,6 +157,33 @@ if (which === 'street-west') {
     extra: { editedFrom: `art/staging/room-02/trough-${n}/edit-canvas.png`, maskRecord: `art/staging/room-02/trough-${n}/trough-op.json`,
       note: 'OPENING-SET RETROFIT PHASE 1.5B: the water trough as local prop art in the accepted street; owner finding 1 (the Phase 1.5 trough read as pasted, jagged, old and electric blue). The owner-authorized 1 of 1.' },
   });
+} else if (which === 'street-integrate') {
+  // PHASE 1.5C: the board and the trough painted INTO the street, in context,
+  // under one mask over the plate window (integrate-01/integrate-op.json).
+  say('\nMAIN STREET · BOARD + TROUGH -- painted into the street, under one mask\n');
+  await call({
+    assetId: 'main-street-plate-integration', subject: 'room-02-main-street', baselineRoom: 'room-02-main-street',
+    promptFile: `proofs/room-02/prompts/integrate-${n}.txt`,
+    images: [`art/staging/room-02/integrate-${n}/edit-canvas.png`, ...STREET_REFS],
+    mask: `art/staging/room-02/integrate-${n}/edit-mask.png`,
+    out: `art/staging/room-02/integrate-source-${n}.png`,
+    derived: `art/staging/room-02/integrate-${n}/window-1920x864.png`,
+    extra: { editedFrom: `art/staging/room-02/integrate-${n}/edit-canvas.png`, maskRecord: `art/staging/room-02/integrate-${n}/integrate-op.json`,
+      note: 'OPENING-SET RETROFIT PHASE 1.5C (owner review of 1.5B failed): the notice board structure and the water trough painted into the accepted street in context; the masked regions become plate. The owner-directed 1 of 1.' },
+  });
+} else if (which === 'nugget-floor' && n === '03') {
+  // PHASE 1.5C: the whole public floor, no holes, no box restore.
+  say('\nTHE NUGGET · DIRT FLOOR, ONE FLOOR -- the whole public floor, under a mask with no holes\n');
+  await call({
+    assetId: 'nugget-floor', subject: 'room-03-nugget', baselineRoom: 'room-03-nugget',
+    promptFile: 'proofs/room-03/prompts/dirt-floor-03.txt',
+    images: ['art/staging/room-03/floor-source-02.png', ...NUGGET_REFS.slice(1)],
+    mask: 'art/staging/room-03/floor-03/edit-mask.png',
+    out: 'art/staging/room-03/floor-source-03.png',
+    derived: 'art/staging/room-03/floor-03/candidate-1920x864.png',
+    extra: { editedFrom: 'art/staging/room-03/floor-source-02.png', maskRecord: 'art/staging/room-03/floor-03/floor-op.json',
+      note: 'OPENING-SET RETROFIT PHASE 1.5C (owner review of 1.5B failed): one continuous dirt floor, the whole public floor under a mask with no furniture holes, no rectangular restore afterwards. The owner-directed 3 of 3.' },
+  });
 } else if (which === 'nugget-floor' && n === '02') {
   // PHASE 1.5B: the whole public floor, on top of the floor-01 result.
   say('\nTHE NUGGET · DIRT FLOOR, COMPLETED -- the whole public floor, under a mask\n');
