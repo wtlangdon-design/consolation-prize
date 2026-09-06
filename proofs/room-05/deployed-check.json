@@ -1,5 +1,5 @@
 {
- "deployedSha": "20e52065acac0bb2161221b9cd81487bc825ed5b",
+ "deployedSha": "a4c7b126266040779d5f3d233dfa2eb3fd15311b",
  "served": "dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/",
  "runs": [
   {
@@ -8,8 +8,8 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/backgrounds/room-05-assay-office.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
@@ -39,8 +39,8 @@
     "200 art/backgrounds/room-05-assay-office.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
-    "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png",
+    "200 art/backgrounds/room-13-undertakers.png"
    ],
    "plate": "no candidate plate requested",
    "legacyPlateRequested": true,
@@ -60,12 +60,12 @@
     "200 art/backgrounds/room-01-stage-road.png",
     "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
-    "200 art/backgrounds/room-03-nugget.png",
     "200 art/backgrounds/room-05-assay-office.png",
+    "200 art/backgrounds/room-03-nugget.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
     "200 art/backgrounds/room-19-thads-room.png",
-    "200 art/backgrounds/room-13-undertakers.png",
-    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png",
+    "200 art/backgrounds/room-13-undertakers.png"
    ],
    "plate": "no candidate plate requested",
    "legacyPlateRequested": true,
@@ -80,20 +80,27 @@
   {
    "name": "day",
    "url": "https://wtlangdon-design.github.io/consolation-prize/?room=assay_office&candidate=art/backgrounds/room-05-assay-office.png=art/staging/room-05/plate-02/candidate-1920x864.png",
-   "roomJson": "not requested",
-   "backgrounds": [],
-   "plate": "no candidate plate requested",
-   "legacyPlateRequested": false,
-   "winnieSheet": "not requested",
-   "inkstand": "not requested",
-   "lampOverlay": "not requested",
-   "thadClips": 0,
-   "failures": [],
-   "pageErrors": [
-    "Failed to load resource: the server responded with a status of 404 (File not found)",
-    "Failed to load resource: the server responded with a status of 404 (File not found)"
+   "roomJson": 200,
+   "backgrounds": [
+    "200 art/backgrounds/room-01-stage-road.png",
+    "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
+    "200 art/backgrounds/room-03-nugget.png",
+    "200 art/staging/room-05/plate-02/candidate-1920x864.png",
+    "200 art/backgrounds/room-18-hotel-lobby.png",
+    "200 art/backgrounds/room-19-thads-room.png",
+    "200 art/backgrounds/room-13-undertakers.png",
+    "200 art/staging/room-02/street-candidate-03/candidate-plate.png"
    ],
-   "responsesSeen": 0
+   "plate": "art/staging/room-05/plate-02/candidate-1920x864.png",
+   "legacyPlateRequested": false,
+   "winnieSheet": "art/actors/winnie-counter-sheet.png",
+   "inkstand": "art/objects/room-05/inkstand.png",
+   "lampOverlay": 200,
+   "thadClips": 199,
+   "failures": [],
+   "pageErrors": [],
+   "responsesSeen": 824
   },
   {
    "name": "night",
@@ -101,8 +108,8 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
@@ -176,8 +183,8 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
