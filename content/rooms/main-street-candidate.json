@@ -3,7 +3,7 @@
   "id": "main_street_candidate",
   "name": "MAIN STREET (CANDIDATE)",
   "note": "Room 2. The hub, and the most-visited screen in the game. LOOK and LISTEN lines are verbatim from docs/05-examine-layer.md; repeat variants and verb overrides are verbatim from docs/13-room-02-content.md; the four exits from docs/14-room-02-exits.md. Nothing on this screen was written by anyone implementing it.",
-  "background": "art/staging/room-02/street-candidate-01/candidate-plate.png",
+  "background": "art/staging/room-02/street-candidate-03/candidate-plate.png",
   "colours": {
     "sky": 158,
     "ground": 8
@@ -97,22 +97,21 @@
       "id": "posted_notices",
       "name": "POSTED NOTICES",
       "rect": [
-        1628,
-        396,
-        132,
-        128
+        1604,
+        410,
+        124,
+        100
       ],
       "colour": 200,
       "defaultVerb": "LOOK_AT",
       "state": "ordinary",
       "states": {
         "ordinary": {
-          "image": "art/staging/room-02/companions-02/notices-board.png",
-          "note": "PHASE 1.5D: a public notice board framed around the existing papers by the one owner-authorized board operation on a local centred canvas (art/staging/room-02/board-01/board-op.json), installed as the ORDINARY state image over the unchanged plate. Weathered planks, a rough timber frame proud of the wall, a bottom ledge, the papers pinned, a thin cast shadow."
+          "note": "PHASE 1.5E: THE BOARD IS PLATE. The freestanding notice board -- rough timber, two posts on the boardwalk, a plank cap, the ordinary pinned papers -- was painted into the environment by the Region A structural repair (art/staging/room-02/repair-a/repair-op.json, street-candidate-03). The ORDINARY state draws nothing over it; the plate IS the ordinary board."
         },
         "funeral": {
-          "image": "art/staging/room-02/companions-02/notices-funeral.png",
-          "note": "Act III: the same board with the Phase 1.5B aged funeral sheet pinned centre-top. No copy invented; the notice's words are the LOOK line's. Future-state polish, not an Act I gate."
+          "image": "art/staging/room-02/street-candidate-03/notices-funeral-sheet.png",
+          "note": "Act III: ONLY the changed paper -- the Phase 1.5B aged funeral sheet, pinned centre-top on the SAME physical board (a sheet-only overlay, no board pixels). No copy invented; the notice's words are the LOOK line's. Set by doc 48's S2."
         }
       },
       "responses": {
@@ -140,8 +139,49 @@
         "OPEN": "They are already facing outward. That is the whole design."
       },
       "walkTo": {
-        "x": 1694,
+        "x": 1666,
         "y": 668,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "water_trough",
+      "name": "THE WATER TROUGH",
+      "rect": [
+        1980,
+        700,
+        252,
+        104
+      ],
+      "colour": 150,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A trough. Three inches of water and a great deal of ambition.",
+            "repeat": [
+              "The water has not improved.",
+              "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Something is living in it. I have decided not to pursue this.",
+            "repeat": [
+              "It is still in there. It has moved.",
+              "We have reached an understanding."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
+        "OPEN": "It is a trough. It is entirely open. It is nothing but open."
+      },
+      "walkTo": {
+        "x": 2106,
+        "y": 861,
         "facing": "back"
       }
     },
@@ -241,54 +281,6 @@
       "walkTo": {
         "x": 530,
         "y": 668,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "water_trough",
-      "name": "THE WATER TROUGH",
-      "rect": [
-        2016,
-        654,
-        384,
-        154
-      ],
-      "colour": 150,
-      "defaultVerb": "LOOK_AT",
-      "state": "filled",
-      "states": {
-        "filled": {
-          "image": "art/staging/room-02/companions-02/water-trough.png",
-          "note": "THE CANONICAL TROUGH, PHASE 1.5D: painted in context by the one owner-authorized trough operation on a local centred canvas with the 1.5C trough as the object reference (art/staging/room-02/trough-02/trough-op.json); installed as the FILLED state image -- the operation's zone, feathered, over the unchanged plate, so its timber, mud contact, shadow and reflection are the model's own. The occlusion is the separate authored silhouette, plane 1."
-        }
-      },
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A trough. Three inches of water and a great deal of ambition.",
-            "repeat": [
-              "The water has not improved.",
-              "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Something is living in it. I have decided not to pursue this.",
-            "repeat": [
-              "It is still in there. It has moved.",
-              "We have reached an understanding."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
-        "OPEN": "It is a trough. It is entirely open. It is nothing but open."
-      },
-      "walkTo": {
-        "x": 2208,
-        "y": 861,
         "facing": "back"
       }
     },
@@ -791,11 +783,11 @@
           "y": 688
         },
         {
-          "x": 2016,
+          "x": 2270,
           "y": 688
         },
         {
-          "x": 2016,
+          "x": 2270,
           "y": 776
         },
         {
@@ -804,7 +796,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 600,
@@ -814,14 +806,15 @@
       },
       "neighbours": [
         "mud_far",
-        "mud_near_0"
+        "mud_near_0",
+        "mud_near_1"
       ]
     },
     {
       "id": "mud_mid_1",
       "points": [
         {
-          "x": 2680,
+          "x": 2615,
           "y": 688
         },
         {
@@ -833,12 +826,12 @@
           "y": 776
         },
         {
-          "x": 2680,
+          "x": 2615,
           "y": 776
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 600,
@@ -859,11 +852,11 @@
           "y": 776
         },
         {
-          "x": 2016,
+          "x": 1980,
           "y": 776
         },
         {
-          "x": 2016,
+          "x": 1980,
           "y": 864
         },
         {
@@ -882,27 +875,27 @@
       },
       "neighbours": [
         "mud_mid_0",
-        "mud_near_1",
-        "mud_near_4"
+        "mud_near_4",
+        "mud_near_5"
       ]
     },
     {
       "id": "mud_near_1",
       "points": [
         {
-          "x": 2016,
-          "y": 808
+          "x": 2232,
+          "y": 776
         },
         {
-          "x": 2320,
-          "y": 808
+          "x": 2270,
+          "y": 776
         },
         {
-          "x": 2320,
+          "x": 2270,
           "y": 864
         },
         {
-          "x": 2016,
+          "x": 2232,
           "y": 864
         }
       ],
@@ -916,15 +909,16 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_near_0",
-        "mud_near_3"
+        "mud_mid_0",
+        "mud_near_3",
+        "mud_near_4"
       ]
     },
     {
       "id": "mud_near_2",
       "points": [
         {
-          "x": 2680,
+          "x": 2615,
           "y": 776
         },
         {
@@ -936,7 +930,7 @@
           "y": 864
         },
         {
-          "x": 2680,
+          "x": 2615,
           "y": 864
         }
       ],
@@ -958,19 +952,19 @@
       "id": "mud_near_3",
       "points": [
         {
-          "x": 2320,
-          "y": 810
+          "x": 2270,
+          "y": 815
         },
         {
-          "x": 2680,
-          "y": 810
+          "x": 2615,
+          "y": 815
         },
         {
-          "x": 2680,
+          "x": 2615,
           "y": 864
         },
         {
-          "x": 2320,
+          "x": 2270,
           "y": 864
         }
       ],
@@ -990,6 +984,40 @@
     },
     {
       "id": "mud_near_4",
+      "points": [
+        {
+          "x": 1980,
+          "y": 802
+        },
+        {
+          "x": 2232,
+          "y": 802
+        },
+        {
+          "x": 2232,
+          "y": 864
+        },
+        {
+          "x": 1980,
+          "y": 864
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 600,
+        "farHeight": 200,
+        "nearY": 858,
+        "nearHeight": 275
+      },
+      "neighbours": [
+        "mud_near_0",
+        "mud_near_1"
+      ]
+    },
+    {
+      "id": "mud_near_5",
       "points": [
         {
           "x": 0,
@@ -1026,8 +1054,8 @@
   "occlusionPlanes": [
     {
       "level": 1,
-      "mask": "art/staging/room-02/companions-02/trough-plane-1.png",
-      "note": "PHASE 1.5D: THE TROUGH'S AUTHORED SILHOUETTE (art/staging/room-02/trough-02/silhouette.json) is the plane-1 mask; the visual is the water_trough state image. mud_far is plane 1: a man on the far mud behind the trough is masked by the trough and nothing else."
+      "mask": "art/staging/room-02/street-candidate-03/plane-1-trough-rail.png",
+      "note": "PHASE 1.5E: the trough AND the east hitching rail, both plate now, as authored silhouettes (street-candidate-03/plane-1-silhouettes.json). mud_far and mud_mid are plane 1: everything in them is behind both objects, whose bases lie below mud_mid's foot."
     }
   ],
   "occlusionNote": "No box in this room is clipPlane 0. Doc 22 defines 0 as always-in-front and nothing in Main Street is nearer than the wagon wheel, whose base sits on the bottom row of the frame -- so there is no depth for such a box to occupy. Recorded rather than left to look like an oversight.",
@@ -1244,12 +1272,21 @@
   "occlusionProofs": [
     {
       "at": [
-        2160,
-        683
+        2100,
+        694
+      ],
+      "expect": 1,
+      "box": "mud_mid",
+      "note": "on the mid mud directly behind the trough's far rim (the hotspot rect starts at y 700 so this ground is clickable): the rim (from y 678) masks his feet -- what standing behind a low trough looks like"
+    },
+    {
+      "at": [
+        2450,
+        662
       ],
       "expect": 1,
       "box": "mud_far",
-      "note": "on the far mud just behind the trough: its far side (from y 654) masks his feet and shins"
+      "note": "on the far mud behind the hitching rail: the bar (y ~650-675 there) masks his ankles"
     }
   ],
   "occlusionBands": [

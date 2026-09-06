@@ -1,0 +1,10 @@
+REPAIR ONE LOCAL SECTION OF THIS STREET AS ONE COHERENT PIECE OF FRONTIER ARCHITECTURE. Paint only inside the unmasked area; everything outside it is finished and must be continued exactly, pixel for pixel, at the mask edge.
+
+The first attached image is a section of a night-time 1850s gold-rush Main Street, painted pixel art. On the left is the porch of the Improvement Company building. Set back behind the street stands a plain white wooden church with a steeple; its roof, steeple and upper walls are outside the mask and stay as they are. On the right is a storefront with a porch and a lit window. In the middle, on the boardwalk in front of the church's right wall, stands a public notice board. The board and the left end of the storefront's porch were damaged where two paintings were joined: the board's right half is a ghost that melts into the porch.
+
+Repair the unmasked area so it reads as one place:
+1. The church's lower right wall continues down behind the board to the boardwalk as plain clapboard, matching the church wall visible above and to the left of the mask.
+2. The notice board is a modest, ordinary frontier notice board: rough sawn timber, two posts standing on the boardwalk, a plank back about the height of a standing man's head, a handful of ordinary pinned paper notices, perhaps a short plank cap against rain. It stands FREE, in the open, with clearly visible night air between it and the storefront's porch on the right. It does not touch, share, or join any wall, roof or post of either building. Not a billboard, not a framed sign, not a bright panel.
+3. The storefront's porch on the right: finish its left end cleanly as a plain roof end and a plain post; its lit window and its wall stay exactly as they are.
+
+Same painterly pixel-art language, same dark night, same warm lamplight from the existing windows. No new lamps, no people, no signs or lettering, no extra windows, no decorative props. Nothing outside the mask changes.

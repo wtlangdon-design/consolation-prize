@@ -1,0 +1,19 @@
+{
+ "transform": "phase15e-local-window",
+ "region": [
+  1880,
+  380,
+  2760,
+  864
+ ],
+ "scale": 1.1636363636363636,
+ "at": [
+  0,
+  230
+ ],
+ "out": "art/staging/room-02/repair-b/local-1to1.png",
+ "ledger": {
+  "assetId": "main-street-repair-b",
+  "attempt": 1
+ }
+}
