@@ -36,19 +36,47 @@ def frame(name, width=1400):
     return im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
 
 
+def wrap(draw, text, font, width):
+    """A caption that runs off the right edge is a caption nobody read. The
+    last sheet lost the three bar patrons that way, which is exactly the thing
+    the panel was there to show."""
+    lines, line = [], ''
+    for word in text.split():
+        trial = f'{line} {word}'.strip()
+        if draw.textlength(trial, font=font) <= width:
+            line = trial
+        else:
+            if line:
+                lines.append(line)
+            line = word
+    if line:
+        lines.append(line)
+    return lines
+
+
 def page(out, title, note, panels):
     w = max(im.width for im, _, _ in panels)
-    h = sum(im.height + 62 for im, _, _ in panels)
-    canvas = Image.new('RGB', (w + 28, 92 + h), (22, 22, 26))
+    probe = ImageDraw.Draw(Image.new('RGB', (8, 8)))
+    heads = [wrap(probe, note, F, w)]
+    blocks = [wrap(probe, sub, F, w) for _, _, sub in panels]
+    h = sum(im.height + 34 + 20 * len(b) + 16 for (im, _, _), b in zip(panels, blocks))
+    canvas = Image.new('RGB', (w + 28, 64 + 20 * len(heads[0]) + h), (22, 22, 26))
     d = ImageDraw.Draw(canvas)
     d.text((14, 16), title, fill=(238, 238, 242), font=T)
-    d.text((14, 50), note, fill=(190, 190, 200), font=F)
-    y = 92
-    for im, cap, sub in panels:
+    y = 50
+    for line in heads[0]:
+        d.text((14, y), line, fill=(190, 190, 200), font=F)
+        y += 20
+    y += 14
+    for (im, cap, _), block in zip(panels, blocks):
         canvas.paste(im, (14, y))
-        d.text((14, y + im.height + 8), cap, fill=(255, 205, 140), font=B)
-        d.text((14, y + im.height + 30), sub, fill=(214, 214, 220), font=F)
-        y += im.height + 62
+        y += im.height + 8
+        d.text((14, y), cap, fill=(255, 205, 140), font=B)
+        y += 24
+        for line in block:
+            d.text((14, y), line, fill=(214, 214, 220), font=F)
+            y += 20
+        y += 16
     canvas.save(out, 'WEBP', quality=90, method=6)
     print(out, canvas.size)
 
@@ -75,9 +103,11 @@ page(f'{OUT}/phase2a-owner-review-nugget.webp',
      'Failure 3. Nine patrons: 3 at the bar, 4 at cards, 1 on the landing, 1 at the stove. '
      'Nobody at the piano. No animation on anyone -- these are static poses.',
      [(frame('nugget-candidate'), 'THE ROOM WITH NOBODY IN THE WAY',
-       'Four men round the table with cards in hand and the fifth chair empty above an abandoned '
-       'hand. The stove man is turned INTO the iron with both hands open at it. At the bar: one '
-       'seated on a stool with a cup, one leaning on the counter with his elbow up, one standing '
-       'at the near end with a cup. The man on the landing is still.'),
+       'Four men round the table with cards in hand. The abandoned fifth hand lies on the near '
+       'edge, which is the side with no chair, so it still belongs to somebody who went outside. '
+       'The stove man is turned INTO the iron with both hands open at it. At the bar: one seated '
+       'on a stool with a cup, one leaning on the counter with his elbow up, one standing at the '
+       'near end with a cup. The man on the landing is still, and the piano keeps its empty '
+       'stool.'),
       (frame('nugget-candidate-at-560_800'), 'THAD IN THE ROOM',
        'Thad at the front left, at the near depth, with the whole population visible behind him.')])
