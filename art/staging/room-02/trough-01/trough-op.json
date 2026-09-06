@@ -1,0 +1,23 @@
+{
+ "schema": 1,
+ "purpose": "THE ONE AUTHORIZED TROUGH OPERATION (Tyler, Phase 1.5B section 4): local prop art only. The Phase 1.5 trough -- the shipping plate's trough scaled 1.9 -- read as cut and pasted, jagged at the rim, older than the street and electric blue in the water (owner finding 1). A new trough is painted IN CONTEXT, inside a mask that frees only its footprint in the mud beside the east hitching rail; the accepted plate outside that footprint is not touched by construction, because only the masked region of the derived result is taken, and from it only the trough's own silhouette (by difference against the plate) becomes the companion. The hotspot, the filled state, the plane-1 occlusion, the obstacle and the approach are kept.",
+ "source": {
+  "art/staging/room-02/street-candidate-01/candidate-plate.png": "d892ca07f18492191581b89f2820eb9ab839a3d56f3f4d45afb9cdcbf777a0ad",
+  "editCanvas": "art/staging/room-02/trough-01/edit-canvas.png",
+  "canvasNote": "built from the plate (no true source exists for a stitched plate): plate window x 1200-3120 taken to 1520x684 with errata 63's kernel and set at (8,170) of the east panel's own source canvas"
+ },
+ "window": {
+  "plateX0": 1200,
+  "width": 1920
+ },
+ "troughZonePlate": [
+  1960,
+  540,
+  2370,
+  712
+ ],
+ "mask": "art/staging/room-02/trough-01/edit-mask.png",
+ "maskSha256": "3485d8816e4617cf1e3f4a504616646db927487fb61e0afc2303ec2e05675d42",
+ "mustRemainUnchanged": "everything outside the trough zone: the rail and its posts, the boardwalk edge, the notice-board building, the saloon, every building, the mud beyond the zone, the dog's ground",
+ "diagnostic": "renders/opening-set-retrofit/phase15b-trough-mask-diagnostic.png"
+}

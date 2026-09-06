@@ -141,6 +141,35 @@ if (which === 'street-west') {
     extra: { editedFrom: `art/staging/room-03/clean-plate-source-${from}.png`,
       note: 'OPENING-SET RETROFIT PHASE 1: Nugget clean plate, refinement 2 of 2 -- the handbill and the back-room door restored under a mask; concrete defect in attempt 1.' },
   });
+} else if (which === 'street-trough') {
+  // PHASE 1.5B: the trough as local prop art, painted in context inside a
+  // mask over a source canvas BUILT from the accepted plate
+  // (art/staging/room-02/trough-01/trough-op.json). Only the masked region
+  // of the derived result is taken, and only the trough's silhouette from it.
+  say('\nMAIN STREET · THE TROUGH -- local prop art in context, under a mask\n');
+  await call({
+    assetId: 'main-street-trough', subject: 'room-02-main-street', baselineRoom: 'room-02-main-street',
+    promptFile: `proofs/room-02/prompts/trough-${n}.txt`,
+    images: [`art/staging/room-02/trough-${n}/edit-canvas.png`, ...STREET_REFS],   // the baseline's A/B/C/D, Thad as the ruler included
+    mask: `art/staging/room-02/trough-${n}/edit-mask.png`,
+    out: `art/staging/room-02/trough-source-${n}.png`,
+    derived: `art/staging/room-02/trough-${n}/window-1920x864.png`,
+    extra: { editedFrom: `art/staging/room-02/trough-${n}/edit-canvas.png`, maskRecord: `art/staging/room-02/trough-${n}/trough-op.json`,
+      note: 'OPENING-SET RETROFIT PHASE 1.5B: the water trough as local prop art in the accepted street; owner finding 1 (the Phase 1.5 trough read as pasted, jagged, old and electric blue). The owner-authorized 1 of 1.' },
+  });
+} else if (which === 'nugget-floor' && n === '02') {
+  // PHASE 1.5B: the whole public floor, on top of the floor-01 result.
+  say('\nTHE NUGGET · DIRT FLOOR, COMPLETED -- the whole public floor, under a mask\n');
+  await call({
+    assetId: 'nugget-floor', subject: 'room-03-nugget', baselineRoom: 'room-03-nugget',
+    promptFile: 'proofs/room-03/prompts/dirt-floor-02.txt',
+    images: ['art/staging/room-03/floor-source-01.png', ...NUGGET_REFS.slice(1)],
+    mask: 'art/staging/room-03/floor-02/edit-mask.png',
+    out: 'art/staging/room-03/floor-source-02.png',
+    derived: 'art/staging/room-03/floor-02/candidate-1920x864.png',
+    extra: { editedFrom: 'art/staging/room-03/floor-source-01.png', maskRecord: 'art/staging/room-03/floor-02/floor-op.json',
+      note: 'OPENING-SET RETROFIT PHASE 1.5B: the public saloon floor completed as dirt (owner finding 3: the Phase 1.5 mask stopped at the far wall\'s foot in front of the furniture). The owner re-authorized remaining Nugget operation, 2 of 2.' },
+  });
 } else if (which === 'nugget-floor') {
   // PHASE 1.5, THE ONE AUTHORIZED FLOOR OPERATION: the clean plate's source
   // edited under a mask that frees only the main saloon floor (art/staging/

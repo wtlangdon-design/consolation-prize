@@ -172,14 +172,51 @@ save('company-sign-weathered', layer, board=list(BOARD), letteringAt=[lx, ly], s
 # "It has the whole board's attention."
 SHEET = 'art/objects/room-02/posted-notices-act3.png'
 sheet = Image.open(SHEET).convert('RGBA')
-sheet = sheet.resize((round(sheet.width * SCALE), round(sheet.height * SCALE)), Image.LANCZOS)
+# PHASE 1.5B (owner finding 2): the sheet read as a glowing blank white
+# rectangle. Deterministic paper treatment, 0 operations: a period paper
+# tone at the board's night value, seeded fibre and handling, worn edges,
+# faint suggested print (no words: the notice's copy is spoken by the LOOK
+# line, "'THE PIANO MAN, MOURNED BY ALL.'", and no lettering art is
+# authored for it), a tack shadow, and a cast shadow on the papers beneath.
+SHEET_SCALE = 1.45
+sheet = sheet.resize((round(sheet.width * SHEET_SCALE), round(sheet.height * SHEET_SCALE)), Image.LANCZOS)
+sa = np.array(sheet).astype(float)
+rng = np.random.default_rng(20260906)
+h, w = sa.shape[:2]
+paper = np.array([214, 196, 158], float)             # aged paper, before the night
+tone = sa[..., :3] / 255.0
+sa[..., :3] = paper * (0.55 + 0.45 * tone.mean(-1, keepdims=True))   # keep the sheet's own shading, in paper
+fibre = rng.normal(0, 1, (h, w))
+fibre = (fibre + np.roll(fibre, 1, 1) + np.roll(fibre, 1, 0)) / 3
+sa[..., :3] *= (1 + 0.035 * fibre)[..., None]
+yy, xx = np.mgrid[0:h, 0:w]
+edge = np.minimum(np.minimum(xx, w - 1 - xx), np.minimum(yy, h - 1 - yy))
+wear = np.clip(edge / 6.0, 0, 1)
+sa[..., :3] *= (0.78 + 0.22 * wear)[..., None]          # darker, handled edges
+# faint print: a title band and lines of small type, illegible by construction
+for row, wid, dark in [(14, 0.62, 0.40), (24, 0.5, 0.40)] + [(38 + 7 * i, 0.72, 0.28) for i in range(8)]:
+    if row + 3 >= h: break
+    x0 = int(w * (1 - wid) / 2); x1 = int(w * (1 + wid) / 2)
+    seg = sa[row:row + 3, x0:x1, :3]
+    breaks = rng.random(x1 - x0) > 0.18
+    seg[:, breaks] *= (1 - dark)
+sa[..., :3] *= 0.56                                       # the board's night value
+alpha = sa[..., 3] * (0.85 + 0.15 * wear)
+sa[..., 3] = alpha
+sheet = Image.fromarray(np.clip(sa, 0, 255).astype('uint8'), 'RGBA')
 frame_layer = Image.open(f'{OUT}/notices-frame.png').convert('RGBA')
 layer = frame_layer.copy()
-sx = (FRAME[0] + FRAME[2]) // 2 - sheet.width // 2
-sy = FRAME[1] + 14
+sx = (FRAME[0] + FRAME[2]) // 2 - sheet.width // 2 + 6
+sy = FRAME[1] + 18
+shadow = Image.new('RGBA', (sheet.width + 6, sheet.height + 6), (0, 0, 0, 0))
+ImageDraw.Draw(shadow).rectangle([3, 3, sheet.width + 2, sheet.height + 2], fill=(0, 0, 0, 90))
+layer.alpha_composite(shadow, (sx, sy))
 layer.alpha_composite(sheet, (sx, sy))
+tack = ImageDraw.Draw(layer)
+tack.ellipse([sx + sheet.width // 2 - 3, sy + 3, sx + sheet.width // 2 + 3, sy + 9], fill=(70, 52, 34, 255))
+tack.point([(sx + sheet.width // 2 - 1, sy + 5)], fill=(150, 130, 100, 255))
 record['inputs'][SHEET] = sha(SHEET)
-save('notices-funeral', layer, sheetAt=[sx, sy], sheetSize=list(sheet.size), scale=SCALE)
+save('notices-funeral', layer, sheetAt=[sx, sy], sheetSize=list(sheet.size), scale=SHEET_SCALE, treatment='deterministic paper: aged tone, seeded fibre, worn edges, suggested print without words, tack, cast shadow, night value 0.56')
 
 json.dump(record, open(f'{OUT}/derivation.json', 'w'), indent=1)
 open(f'{OUT}/derivation.json', 'a').write('\n')

@@ -52,10 +52,10 @@
    120
   ],
   "water_trough": [
-   1990,
-   559,
-   348,
-   135
+   2044,
+   660,
+   295,
+   105
   ],
   "church_steeple": [
    1530,
@@ -231,7 +231,7 @@
      "occludes": [
       1
      ],
-     "note": "THE CANONICAL TROUGH, derived from the shipping plate's own (tools/retrofit/main-street-corrections.py): cut by polygon, scaled 1.9 with errata 63's kernel, relit to the candidate's mud, seated beside the east hitching rail in the fringe of the saloon's pool. Three inches of water. Its own silhouette masks a figure on the far mud behind it (plane 1)."
+     "note": "THE CANONICAL TROUGH, PHASE 1.5B: local prop art painted IN CONTEXT by the one owner-authorized operation (art/staging/room-02/trough-01/trough-op.json), cut by an authored polygon (tools/retrofit/trough-extract.py) and seated beside the east hitching rail with its footprint in the mid mud. Rough timber, a few inches of dark water, one lamp reflection. Its own silhouette masks a figure on the far mud behind it (plane 1)."
     }
    }
   }
@@ -329,12 +329,12 @@
   {
    "id": "trough",
    "rect": [
-    1990,
-    690,
-    348,
-    44
+    2044,
+    692,
+    295,
+    64
    ],
-   "note": "the water trough's footprint in the mud: its base sits on the mud_far/mud_mid seam at y 688, and the footprint is carved from mud_mid ONLY, so the far mud behind it stays floor -- a man standing there (2160,646) is behind the trough and masked by it (plane 1), which is the proof point"
+   "note": "PHASE 1.5B: the new trough's ground footprint, wholly in the mid mud band (its far base at y 692, its near base at 756), carved from mud_mid only. The far mud is floor to y 688, so a man on it stands behind the trough and is masked by it (plane 1)."
   }
  ],
  "lamps": [
@@ -434,7 +434,7 @@
    {
     "level": 1,
     "mask": "art/staging/room-02/companions-01/water-trough.png",
-    "note": "PHASE 1.5: THE TROUGH IS THE PLANE. The companion the water_trough hotspot draws as its filled state is also the room's plane-1 mask -- the same silhouette, one file, so the state image and the plane can never disagree. mud_far is plane 1: a man on the far mud behind the trough is masked by it and by nothing else (the layer is transparent everywhere but the trough). The rails remain planned masks for a later plane."
+    "note": "PHASE 1.5B: THE TROUGH IS THE PLANE. The companion the water_trough hotspot draws as its filled state is the plane-1 mask -- one file, the trough's authored silhouette (art/staging/room-02/trough-01/extract.json). The trough is new prop art painted in context by the one authorized operation; the plate is untouched."
    }
   ],
   "clipPlane": {
@@ -447,11 +447,11 @@
    {
     "at": [
      2160,
-     646
+     683
     ],
     "expect": 1,
     "box": "mud_far",
-    "note": "behind the trough on the far mud: the water and rim mask his legs (renders/proofs/candidates/main-street c05-thad-behind-trough)"
+    "note": "on the far mud just behind the trough: its rim (from y 660) masks his feet and shins (renders/proofs/candidates/main-street c05-thad-behind-trough)"
    }
   ],
   "clipPlaneNote": "mud_far is plane 1 (Phase 1.5): the water trough is a state image that declares occludes [1], so a figure standing on the far mud behind the trough is masked by it and nowhere else -- the layer is transparent everywhere but the trough. The rails and the trough remain planned occluder masks for the room's own planes (boardwalk and mud_mid/near stay 0)."

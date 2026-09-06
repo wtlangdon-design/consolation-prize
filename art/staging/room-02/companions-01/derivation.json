@@ -130,22 +130,23 @@
   },
   "notices-funeral": {
    "path": "art/staging/room-02/companions-01/notices-funeral.png",
-   "sha256": "d87ebe886d222ac63c1a707b70ca6e53704a20c6f97271f63f9726f20fec5b9b",
+   "sha256": "d1b0269f2c64fe8dba8ddc1838a09ca596118265aabfd6579bcb5fc9da12b499",
    "bbox": [
     1638,
     392,
     1779,
-    539
+    537
    ],
    "sheetAt": [
-    1653,
-    406
+    1672,
+    410
    ],
    "sheetSize": [
-    106,
-    133
+    81,
+    102
    ],
-   "scale": 1.9
+   "scale": 1.45,
+   "treatment": "deterministic paper: aged tone, seeded fibre, worn edges, suggested print without words, tack, cast shadow, night value 0.56"
   }
  },
  "trough": {

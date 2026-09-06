@@ -146,6 +146,57 @@
       }
     },
     {
+      "id": "water_trough",
+      "name": "THE WATER TROUGH",
+      "rect": [
+        2044,
+        660,
+        295,
+        105
+      ],
+      "colour": 150,
+      "defaultVerb": "LOOK_AT",
+      "state": "filled",
+      "states": {
+        "filled": {
+          "image": "art/staging/room-02/companions-01/water-trough.png",
+          "occludes": [
+            1
+          ],
+          "note": "THE CANONICAL TROUGH, PHASE 1.5B: local prop art painted IN CONTEXT by the one owner-authorized operation (art/staging/room-02/trough-01/trough-op.json), cut by an authored polygon (tools/retrofit/trough-extract.py) and seated beside the east hitching rail with its footprint in the mid mud. Rough timber, a few inches of dark water, one lamp reflection. Its own silhouette masks a figure on the far mud behind it (plane 1)."
+        }
+      },
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A trough. Three inches of water and a great deal of ambition.",
+            "repeat": [
+              "The water has not improved.",
+              "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Something is living in it. I have decided not to pursue this.",
+            "repeat": [
+              "It is still in there. It has moved.",
+              "We have reached an understanding."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
+        "OPEN": "It is a trough. It is entirely open. It is nothing but open."
+      },
+      "walkTo": {
+        "x": 2192,
+        "y": 858,
+        "facing": "back"
+      }
+    },
+    {
       "id": "church_steeple",
       "name": "THE CHURCH STEEPLE",
       "rect": [
@@ -186,57 +237,6 @@
       "walkTo": {
         "x": 1590,
         "y": 668,
-        "facing": "back"
-      }
-    },
-    {
-      "id": "water_trough",
-      "name": "THE WATER TROUGH",
-      "rect": [
-        1990,
-        559,
-        348,
-        135
-      ],
-      "colour": 150,
-      "defaultVerb": "LOOK_AT",
-      "state": "filled",
-      "states": {
-        "filled": {
-          "image": "art/staging/room-02/companions-01/water-trough.png",
-          "occludes": [
-            1
-          ],
-          "note": "THE CANONICAL TROUGH, derived from the shipping plate's own (tools/retrofit/main-street-corrections.py): cut by polygon, scaled 1.9 with errata 63's kernel, relit to the candidate's mud, seated beside the east hitching rail in the fringe of the saloon's pool. Three inches of water. Its own silhouette masks a figure on the far mud behind it (plane 1)."
-        }
-      },
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "A trough. Three inches of water and a great deal of ambition.",
-            "repeat": [
-              "The water has not improved.",
-              "Three inches. I have measured it with a stick, which is the most scientific act performed in Consolation this year."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Something is living in it. I have decided not to pursue this.",
-            "repeat": [
-              "It is still in there. It has moved.",
-              "We have reached an understanding."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "USE": "I have drunk from it once. The once is doing a great deal of work in that sentence.",
-        "OPEN": "It is a trough. It is entirely open. It is nothing but open."
-      },
-      "walkTo": {
-        "x": 2164,
-        "y": 815,
         "facing": "back"
       }
     },
@@ -794,11 +794,11 @@
           "y": 688
         },
         {
-          "x": 1990,
+          "x": 2044,
           "y": 688
         },
         {
-          "x": 1990,
+          "x": 2044,
           "y": 776
         },
         {
@@ -825,19 +825,19 @@
       "id": "mud_mid_1",
       "points": [
         {
-          "x": 1990,
-          "y": 734
+          "x": 2044,
+          "y": 756
         },
         {
           "x": 2320,
-          "y": 734
+          "y": 756
         },
         {
           "x": 2320,
           "y": 776
         },
         {
-          "x": 1990,
+          "x": 2044,
           "y": 776
         }
       ],
@@ -1032,7 +1032,7 @@
     {
       "level": 1,
       "mask": "art/staging/room-02/companions-01/water-trough.png",
-      "note": "PHASE 1.5: THE TROUGH IS THE PLANE. The companion the water_trough hotspot draws as its filled state is also the room's plane-1 mask -- the same silhouette, one file, so the state image and the plane can never disagree. mud_far is plane 1: a man on the far mud behind the trough is masked by it and by nothing else (the layer is transparent everywhere but the trough). The rails remain planned masks for a later plane."
+      "note": "PHASE 1.5B: THE TROUGH IS THE PLANE. The companion the water_trough hotspot draws as its filled state is the plane-1 mask -- one file, the trough's authored silhouette (art/staging/room-02/trough-01/extract.json). The trough is new prop art painted in context by the one authorized operation; the plate is untouched."
     }
   ],
   "occlusionNote": "No box in this room is clipPlane 0. Doc 22 defines 0 as always-in-front and nothing in Main Street is nearer than the wagon wheel, whose base sits on the bottom row of the frame -- so there is no depth for such a box to occupy. Recorded rather than left to look like an oversight.",
@@ -1250,11 +1250,11 @@
     {
       "at": [
         2160,
-        646
+        683
       ],
       "expect": 1,
       "box": "mud_far",
-      "note": "behind the trough on the far mud: the water and rim mask his legs (renders/proofs/candidates/main-street c05-thad-behind-trough)"
+      "note": "on the far mud just behind the trough: its rim (from y 660) masks his feet and shins (renders/proofs/candidates/main-street c05-thad-behind-trough)"
     }
   ],
   "occlusionBands": [

@@ -1,0 +1,81 @@
+{
+ "schema": 1,
+ "purpose": "THE ONE REMAINING NUGGET OPERATION (Tyler, Phase 1.5B section 12): the public saloon floor completed as dirt. The Phase 1.5 mask stopped at the far wall's foot line in front of the furniture and left planks under and around the card table, the stove side and the bar-side circulation (owner finding 3). This mask is the whole public floor: doorway to the far wall's foot behind the piano and the table, the stove's and the back door's foot, the stairs' foot, and the bar's front foot to the frame edge. The image edited is floor-source-01.png, the Phase 1.5 result in source space, which already carries the accepted foreground dirt, so the model continues that material rather than inventing another.",
+ "source": {
+  "art/staging/room-03/floor-source-01.png": "cc42c776940afefc8e153d24b5da9dcfb55e672513f03169df62123dc08552a1",
+  "art/staging/room-03/corrected-01/plate-cold-dirt.png": "dda81a013096e1d0ad760ea59391f623be722094f31caa44038dd9744a82d7ec"
+ },
+ "floorPolygonPlate": [
+  [
+   40,
+   640
+  ],
+  [
+   300,
+   606
+  ],
+  [
+   500,
+   525
+  ],
+  [
+   505,
+   521
+  ],
+  [
+   705,
+   521
+  ],
+  [
+   712,
+   404
+  ],
+  [
+   1058,
+   404
+  ],
+  [
+   1060,
+   410
+  ],
+  [
+   1130,
+   410
+  ],
+  [
+   1198,
+   398
+  ],
+  [
+   1205,
+   505
+  ],
+  [
+   1250,
+   528
+  ],
+  [
+   1920,
+   836
+  ],
+  [
+   1920,
+   864
+  ],
+  [
+   40,
+   864
+  ]
+ ],
+ "mask": "art/staging/room-03/floor-02/edit-mask.png",
+ "maskSha256": "89c3cd6db1e873967c09a9771b1c3cdc38141a8081902a29d3546775829a4f6f",
+ "maskPlate": "art/staging/room-03/floor-02/floor-mask-plate.png",
+ "maskPixels": {
+  "phase15": 507544,
+  "phase15b": 464957,
+  "added": 15837
+ },
+ "furnitureExcluded": "inside the polygon the three stools, the spittoon, the piano stool, the chairs' legs and feet and the table's pedestal are restored from the accepted plate by tools/retrofit/nugget-floor-restore.py (boxes there); outside it the bar, the stairs, the piano, the stove, the doors, the walls and the trim are never in the mask",
+ "mustRemainUnchanged": "every wall, door, window, the piano, the card table and its chairs, the stove and pipe, the stairs, the bar, the stools, the spittoon, the chandelier, the mirror, the portrait, the handbill, the lamps; the accepted foreground dirt language continues, not a new material",
+ "diagnostic": "renders/opening-set-retrofit/phase15b-floor-mask-diagnostic.png"
+}

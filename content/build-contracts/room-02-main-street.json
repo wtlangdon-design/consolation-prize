@@ -197,7 +197,19 @@
     "renders/proofs/candidates/main-street/life.json",
     "renders/proofs/candidates/main-street-act3/life.json"
    ],
-   "note": "PHASE 1.5: derived from authorized art (the shipping trough, the plate's post wood, the shipping gilt lettering, the shipping funeral sheet); 0 operations. Drawn as object states over the accepted plate."
+   "note": "PHASE 1.5: derived from authorized art (the shipping trough, the plate's post wood, the shipping gilt lettering, the shipping funeral sheet); 0 operations. Drawn as object states over the accepted plate. PHASE 1.5B: the trough companion replaced by in-context prop art (art/staging/room-02/trough-01), the funeral sheet re-treated as paper."
+  },
+  {
+   "subject": "Main Street trough operation source and derived window (trough-01)",
+   "class": "PROP",
+   "stage": "CANDIDATE",
+   "path": "art/staging/room-02/trough-01/window-1920x864.png",
+   "evidence": [
+    "art/staging/room-02/trough-01/trough-op.json",
+    "art/staging/room-02/trough-01/extract.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "The raw in-context result; only the authored trough silhouette is taken from it into the companion. Not loaded by any room."
   }
  ],
  "acceptance": {
@@ -521,22 +533,29 @@
   }
  },
  "environment": {
-  "status": "ENVIRONMENT CORRECTIONS COMPLETE \u2014 CHARACTER/LIFE PHASE PENDING",
-  "priorStatus": "OWNER ACCEPTED WITH PHYSICAL-PROP CORRECTIONS",
+  "status": "ENVIRONMENT CLEANUP COMPLETE \u2014 READY FOR PHASE 2 CASTING",
+  "priorStatus": "ENVIRONMENT CORRECTIONS COMPLETE \u2014 CHARACTER/LIFE PHASE PENDING (Phase 1.5); before that OWNER ACCEPTED WITH PHYSICAL-PROP CORRECTIONS",
   "by": "Tyler, live review of the Phase 1 candidate (2026-09-05); corrections claude, Phase 1.5",
   "evidence": [
+   "docs/36-issue-list.md::Q118 \u00b7 Opening-set retrofit, phase 1.5B: the final environment cleanup \u2014 the trough as prop art, the funeral sheet as paper, the whole Nugget floor as dirt",
    "docs/36-issue-list.md::Q117 \u00b7 Opening-set retrofit, phase 1.5: the accepted environments corrected for canon and physics before casting",
    "renders/opening-set-retrofit/phase15-main-street-detail.webp",
    "renders/proofs/candidates/main-street/life.json",
    "proofs/room-02/phase15-dog.json",
-   "art/staging/room-02/companions-01/derivation.json"
+   "art/staging/room-02/companions-01/derivation.json",
+   "renders/opening-set-retrofit/phase15b-main-street-detail.webp",
+   "renders/opening-set-retrofit/phase15b-notice-states.webp",
+   "art/staging/room-02/trough-01/trough-op.json",
+   "art/staging/room-02/trough-01/extract.json"
   ],
   "corrections": [
    "water trough restored as a companion derived from the shipping plate's own (occludes plane 1)",
    "posted notices framed as a board on the wall (companion), Act III funeral sheet re-cut",
    "dog: one sprite, placed on open mud east of the rail by a per-room placement; art unchanged",
    "Improvement Company lettering as weathered/gilt state layers over the blank plate board",
-   "plate file unchanged; 0 image operations"
+   "plate file unchanged; 0 image operations",
+   "PHASE 1.5B: new local trough art painted in context (1 operation), cut by an authored silhouette; the Phase 1.5 scaled trough retired",
+   "PHASE 1.5B: the ordinary board preserved; the Act III funeral sheet treated deterministically as aged paper on the board (0 operations); a lettered sheet, if ever wanted on screen, is future authored art, non-blocking"
   ],
   "note": "Environment only. Not character acceptance, not population, not room life; Phase 2 casts the pie woman, the letter-writer, and decides the dog's life and the map seller's."
  }

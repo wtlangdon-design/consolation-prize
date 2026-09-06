@@ -1,0 +1,57 @@
+{
+ "transform": "errata-63-fixed-room-source-acquisition",
+ "provisional": true,
+ "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+ "source": {
+  "path": "art/staging/room-02/trough-source-01.png",
+  "hash": "678ca3e5db5274f329affd10f0e5deb3ba1539f995ad6b90ba5d965f8caa094e",
+  "width": 1536,
+  "height": 1024,
+  "bytes": 1856502,
+  "kept": true
+ },
+ "crop": {
+  "x": 8,
+  "y": 170,
+  "width": 1520,
+  "height": 684,
+  "aspect": "20:9"
+ },
+ "resample": {
+  "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+  "lobes": 3,
+  "from": [
+   1520,
+   684
+  ],
+  "to": [
+   1920,
+   864
+  ],
+  "factor": 1.263157894736842,
+  "normalisedWeights": true,
+  "premultiplied": true,
+  "rounding": "half-away-from-zero, clamped to 0..255",
+  "forbidden": [
+   "nearest-neighbour",
+   "ai-upscale",
+   "sharpen",
+   "denoise",
+   "recolour",
+   "contrast-enhancement",
+   "generative-second-pass"
+  ]
+ },
+ "derived": {
+  "path": "art/staging/room-02/trough-01/window-1920x864.png",
+  "hash": "ada59dbe8ea9b45534144b92880ebc740e2421ad906f08d99f8d1fbfd3db71e6",
+  "width": 1920,
+  "height": 864,
+  "bytes": 2919624,
+  "colourType": 2
+ },
+ "ledger": {
+  "assetId": "main-street-trough",
+  "attempt": 1
+ }
+}
