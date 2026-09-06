@@ -1,0 +1,12 @@
+REPAIR THE FRONT OF THIS SMALL FRONTIER CHURCH SO IT READS AS A COMPLETE BUILDING. Paint only inside the unmasked area; everything outside it is finished and must be continued exactly, pixel for pixel, at the mask edge.
+
+The attached image is a section of a night-time 1850s gold-rush Main Street, painted pixel art. Behind the street buildings stands a small white clapboard church: a tall steeple, a gabled roof, and below them a facade that is at present a blank wall with nothing on it at all. The steeple, the roof and the gable are outside the mask and stay exactly as they are.
+
+Inside the mask, complete that facade as the front of a plain, modest frontier church, still standing where it stands, at the same distance behind the street:
+
+1. A single ordinary double door in the middle of the front, closed, dark timber, at a sensible height for a man to walk through, with two or three plain wooden steps down from it.
+2. A plain wooden base where the wall meets the ground, so the building sits on the ground rather than stopping at it.
+3. One small plain window on each side of the door if there is room, dark, no coloured glass, no tracery.
+4. The rest of the wall as the same white-grey clapboard siding it already is, continuing the boards and their shadows from the wall above the mask.
+
+It is a distant supporting building at night, not the subject of the picture: no lamps, no lit windows, no bell, no cross, no signs or lettering, no fence, no people, no ornament, no bright paint. Keep it dark and quiet, in the same painterly pixel-art language and the same night lighting as the rest of the image. A wooden notice board stands on the boardwalk in front of the church, inside the masked area; ignore it and paint the church behind where it stands. Nothing outside the mask changes.

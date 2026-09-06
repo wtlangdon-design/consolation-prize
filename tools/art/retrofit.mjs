@@ -209,6 +209,29 @@ if (which === 'street-west') {
     extra: { editedFrom: `${dir}/edit-canvas.png`, maskRecord: `${dir}/repair-op.json`,
       note: region === 'a' ? 'OPENING-SET RETROFIT PHASE 1.5E: REGION A structural repair -- the notice board freestanding and clear of the storefront porch, the church\'s lower wall continued, the porch end finished; the masked zone becomes plate. The owner-authorized 1 of 1.' : 'OPENING-SET RETROFIT PHASE 1.5E: REGION B structural repair -- the water trough and the east hitching rail painted together as one scene; the masked zone becomes plate. The owner-authorized 1 of 1.' },
   });
+} else if (which === 'street-chapel') {
+  // PHASE 1.5F: the one conditional chapel-front repair, on a local canvas
+  // with the chapel centred; the masked zone becomes plate and the frozen
+  // notice board is composited back by its own silhouette
+  // (tools/retrofit/phase15f-chapel-integrate.py).
+  const dir = 'art/staging/room-02/chapel-01';
+  const op = JSON.parse(readFileSync(resolve(ROOT, `${dir}/chapel-op.json`), 'utf8'));
+  say('\nMAIN STREET · THE CHAPEL FRONT -- a door, steps and a base for a facade that has none\n');
+  await call({
+    assetId: 'main-street-chapel', subject: 'room-02-main-street', baselineRoom: 'room-02-main-street',
+    promptFile: 'proofs/room-02/prompts/chapel-01.txt',
+    images: [`${dir}/edit-canvas.png`, ...STREET_REFS],
+    mask: `${dir}/edit-mask.png`, size: '1024x1024',
+    out: `${dir}/result-1024.png`, derived: `${dir}/local-1to1.png`,
+    deriveFn: (source, outPath) => {
+      const [x0, y0, x1, y1] = op.region; const [ax, ay] = op.at; const k = op.scale;
+      const w = Math.round((x1 - x0) * k), h = Math.round((y1 - y0) * k);
+      execFileSync('python3', ['-c', `from PIL import Image; im=Image.open('${source}').crop((${ax},${ay},${ax + w},${ay + h})).resize((${x1 - x0},${y1 - y0}), Image.LANCZOS); im.save('${outPath}')`], { cwd: ROOT });
+      return { transform: 'phase15f-local-window', region: op.region, scale: k, at: op.at, out: outPath };
+    },
+    extra: { editedFrom: `${dir}/edit-canvas.png`, maskRecord: `${dir}/chapel-op.json`,
+      note: 'OPENING-SET RETROFIT PHASE 1.5F: the chapel front given a door, steps, a base and small windows -- the facade carried no architecture at all. The owner-authorized conditional 1 of 1.' },
+  });
 } else if (which === 'street-integrate') {
   // PHASE 1.5C: the board and the trough painted INTO the street, in context,
   // under one mask over the plate window (integrate-01/integrate-op.json).

@@ -4256,6 +4256,160 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-06T04:08:12.298Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-02/prompts/chapel-01.txt",
+   "promptHash": "d78ddbc862df08d261798df00731c52441530fa0cd73d3a0c82713809b4b588b",
+   "references": [
+    {
+     "path": "art/staging/room-02/chapel-01/edit-canvas.png",
+     "hash": "93098804abd5e5ccbd864644edddfa7515f7be6055df0ab0c4bf871ea3167831",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-02-main-street.png",
+     "hash": "5e7a8f59d51b02bb333c23aa0b3155f4a65e608b4bcbc40a66de07903f66388e",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-02-main-street",
+    "purpose": "plate",
+    "visualType": "exterior-street-night",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-02/chapel-01/edit-mask.png",
+    "hash": "136a0465f21b6f887d79e6715388fda3f2e8a79c36d8622e75b665a9495b1de4"
+   },
+   "sourceHash": "93098804abd5e5ccbd864644edddfa7515f7be6055df0ab0c4bf871ea3167831",
+   "sourcePath": "art/staging/room-02/chapel-01/edit-canvas.png",
+   "out": "art/staging/room-02/chapel-01/result-1024.png",
+   "outputHash": "2ef2feda9f0dc7800218ff4740be2f18ea397db0bd3e7d21980ebd4441359fd7",
+   "bytes": 1082261,
+   "usage": {
+    "input_tokens": 9880,
+    "input_tokens_details": {
+     "image_tokens": 9468,
+     "text_tokens": 412
+    },
+    "output_tokens": 439,
+    "output_tokens_details": {
+     "image_tokens": 439,
+     "text_tokens": 0
+    },
+    "total_tokens": 10319
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-06T05:39:07.927Z",
+   "assetId": "main-street-chapel",
+   "subject": "room-02-main-street",
+   "editedFrom": "art/staging/room-02/chapel-01/edit-canvas.png",
+   "maskRecord": "art/staging/room-02/chapel-01/chapel-op.json",
+   "note": "OPENING-SET RETROFIT PHASE 1.5F: the chapel front given a door, steps, a base and small windows -- the facade carried no architecture at all. The owner-authorized conditional 1 of 1.",
+   "gates": {
+    "path": "art/staging/room-02/chapel-01/result-1024.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-06T05:39:07.996Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-06T05:39:07.936Z"
   }
  ],
  "promotions": [

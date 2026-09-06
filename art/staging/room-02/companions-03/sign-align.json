@@ -1,0 +1,78 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5F -- THE IMPROVEMENT COMPANY SIGN, ALIGNED TO ITS BUILDING (doc 36 Q122).\n\n    python3 tools/retrofit/phase15f-sign.py\n\nZero image operations. Tyler's finding: the sign reads crooked against an\notherwise frontal facade.\n\nTHE DIAGNOSIS, MEASURED. The plate's physical board is LEVEL: its inner\nshadow lines lie at y 142 and y 226 at every column from x 360 to x 700, and\nits inner side shadows at x 344 and x 704. Two things in the LETTERING LAYER\nare not.\n\n  1. THE TYPE IS TILTED by about +1.4 degrees, falling to the right. The\n     slant is inherited from art/objects/room-02/company-sign-gilt.png, the\n     one authored rendering of the words -- a crop of the SHIPPING plate's\n     sign, whose board was drawn at an angle. Measured on the letters alone\n     (luminance > 110, which excludes the wood): line 1 cap-top +1.20 deg,\n     line 1 baseline +1.80, line 2 cap-top +1.29, line 2 baseline +1.41.\n  2. THE LAYER CARRIES THE SOURCE'S WOOD. Phase 1.5 derived its alpha as a\n     luminance ramp, (lum - 60) / 50, over that crop -- so every wooden pixel\n     brighter than 60 came too, at partial alpha: 6219 translucent pixels\n     against 3594 solid letter ones. A slanted translucent rectangle of the\n     old board, over the new level board. That is the second half of what\n     reads as crooked, and why the sign also looked slightly pasted on.\n\nTHE CORRECTION, deterministic. The alpha ramp is lifted to 95..125, which\ntakes the letters with their anti-aliased edges and nothing of the wood (at\nluminance 85 the source's top, bottom, left and right edge rows are already\nempty). The lettering is de-rotated by its own measured slant, refined until\nnothing is left to take out, then scaled and centred on the board's inner\nface with even margins. The two states are cut from that ONE corrected\nlettering, so they cannot drift apart: GILT is the fresh art at the plate's\nnight exposure, WEATHERED the same art dulled and flaked by the same seeded\nerosion as Phase 1.5. The facade is not touched and no pixel of the plate\nchanges.",
+ "inputs": {
+  "art/objects/room-02/company-sign-gilt.png": "7f32015077609211989d38452350f3c6cc58c0aef12ac0b871f8bc397be2034b",
+  "art/staging/room-02/street-candidate-03/candidate-plate.png": "11e619e0d6aff397889020317e5641f9a110b4f969f33a94283dc9cf588ed59c"
+ },
+ "diagnosis": {
+  "plateBoardIsLevel": true,
+  "boardInnerFace": [
+   345,
+   143,
+   703,
+   225
+  ],
+  "boardEdgesMeasured": {
+   "innerTopY": 142,
+   "innerBottomY": 226,
+   "innerLeftX": 344,
+   "innerRightX": 704
+  },
+  "sourceLetterSlopePxPerPx": {
+   "l1t": 0.0209,
+   "l1b": 0.0315,
+   "l2t": 0.0225,
+   "l2b": 0.0246
+  },
+  "sourceLetterSlantDegrees": 1.43,
+  "phase15AlphaRamp": "(lum - 60) / 50 -- took the source wood at partial alpha",
+  "correctedAlphaRamp": "(lum - 95) / 30 -- letters only"
+ },
+ "placement": {
+  "rotatedBy": 1.878,
+  "residualDegrees": -0.046,
+  "scale": 1.1982,
+  "size": [
+   294,
+   64
+  ],
+  "at": [
+   377,
+   152
+  ],
+  "marginLeftRight": [
+   32,
+   32
+  ],
+  "marginTopBottom": [
+   9,
+   9
+  ]
+ },
+ "layers": {
+  "company-sign-gilt": {
+   "path": "art/staging/room-02/companions-03/company-sign-gilt.png",
+   "sha256": "9d1659b9c33f4945d59403231e832a812a0d9f6fe93f2fbac8132207518f0313",
+   "bbox": [
+    377,
+    152,
+    671,
+    216
+   ],
+   "state": "gilt"
+  },
+  "company-sign-weathered": {
+   "path": "art/staging/room-02/companions-03/company-sign-weathered.png",
+   "sha256": "eabcfbf01b7b8df04f450fe7e784f5f8d7cbdf5b1e8e12638ac9d57ddd27bf90",
+   "bbox": [
+    377,
+    152,
+    671,
+    216
+   ],
+   "state": "weathered",
+   "seed": 20260905
+  }
+ }
+}

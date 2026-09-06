@@ -243,12 +243,12 @@
       "state": "weathered",
       "states": {
         "weathered": {
-          "image": "art/staging/room-02/companions-01/company-sign-weathered.png",
-          "note": "THE LETTERING IS A LAYER, NOT THE PLATE (doc 35 section 6). The plate's board is blank; this is the shipping gilt art scaled to the board, dulled and flaked by a seeded erosion: 'the only sign in town that has been painted twice', peeling."
+          "image": "art/staging/room-02/companions-03/company-sign-weathered.png",
+          "note": "PHASE 1.5F: THE LETTERING ALIGNED TO ITS BUILDING (doc 36 Q122). The plate's board is level; the Phase 1.5 layer was not -- the type carried +1.43 deg of slant inherited from the shipping source art (a crop of the old, angled board) and, with it, that crop's wood at partial alpha. The letters are now cut on their own ramp (95..125), de-rotated to level and centred on the board's inner face (345-703 x 143-225) with even margins. This is the base state: the same seeded dulling and flaking as Phase 1.5 -- 'the only sign in town that has been painted twice', peeling."
         },
         "gilt": {
-          "image": "art/staging/room-02/companions-01/company-sign-gilt.png",
-          "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' The same lettering, fresh, over the same blank board. Set by doc 48's S2."
+          "image": "art/staging/room-02/companions-03/company-sign-gilt.png",
+          "note": "Act III. Doc 05 Part Two-B: 'Fresh gilt on the lettering.' PHASE 1.5F: cut from the SAME corrected lettering as the weathered state, so the two share one alignment and cannot drift apart. Set by doc 48's S2."
         }
       },
       "responses": {
@@ -771,23 +771,22 @@
       },
       "neighbours": [
         "boardwalk",
-        "mud_mid_0",
-        "mud_mid_1"
+        "mud_mid"
       ]
     },
     {
-      "id": "mud_mid_0",
+      "id": "mud_mid",
       "points": [
         {
           "x": 560,
           "y": 688
         },
         {
-          "x": 2270,
+          "x": 3610,
           "y": 688
         },
         {
-          "x": 2270,
+          "x": 3610,
           "y": 776
         },
         {
@@ -807,40 +806,7 @@
       "neighbours": [
         "mud_far",
         "mud_near_0",
-        "mud_near_1"
-      ]
-    },
-    {
-      "id": "mud_mid_1",
-      "points": [
-        {
-          "x": 2615,
-          "y": 688
-        },
-        {
-          "x": 3610,
-          "y": 688
-        },
-        {
-          "x": 3610,
-          "y": 776
-        },
-        {
-          "x": 2615,
-          "y": 776
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 1,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 600,
-        "farHeight": 200,
-        "nearY": 858,
-        "nearHeight": 275
-      },
-      "neighbours": [
-        "mud_far",
+        "mud_near_1",
         "mud_near_2"
       ]
     },
@@ -874,7 +840,7 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_mid_0",
+        "mud_mid",
         "mud_near_4",
         "mud_near_5"
       ]
@@ -909,7 +875,7 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_mid_0",
+        "mud_mid",
         "mud_near_3",
         "mud_near_4"
       ]
@@ -944,7 +910,7 @@
         "nearHeight": 275
       },
       "neighbours": [
-        "mud_mid_1",
+        "mud_mid",
         "mud_near_3"
       ]
     },
@@ -953,11 +919,11 @@
       "points": [
         {
           "x": 2270,
-          "y": 815
+          "y": 816
         },
         {
           "x": 2615,
-          "y": 815
+          "y": 816
         },
         {
           "x": 2615,
@@ -1277,7 +1243,16 @@
       ],
       "expect": 1,
       "box": "mud_mid",
-      "note": "on the mid mud directly behind the trough's far rim (the hotspot rect starts at y 700 so this ground is clickable): the rim (from y 678) masks his feet -- what standing behind a low trough looks like"
+      "note": "on the mid mud directly behind the trough's far rim: the rim masks his feet"
+    },
+    {
+      "at": [
+        2440,
+        740
+      ],
+      "expect": 1,
+      "box": "mud_mid",
+      "note": "PHASE 1.5F: on the mid mud behind the rail, mid-span between the posts: the bar crosses him and the ground he stands on is behind the rail"
     },
     {
       "at": [
@@ -1286,7 +1261,7 @@
       ],
       "expect": 1,
       "box": "mud_far",
-      "note": "on the far mud behind the hitching rail: the bar (y ~650-675 there) masks his ankles"
+      "note": "PHASE 1.5F: where the pie woman stands, on the far mud behind the rail -- the generic actor case: nothing about this is Thad's"
     }
   ],
   "occlusionBands": [

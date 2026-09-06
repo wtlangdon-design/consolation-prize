@@ -1,0 +1,30 @@
+{
+ "schema": 1,
+ "region": [
+  1380,
+  90,
+  1900,
+  610
+ ],
+ "scale": 1.9692,
+ "at": [
+  0,
+  0
+ ],
+ "zonePlate": [
+  1505,
+  330,
+  1740,
+  578
+ ],
+ "canvas": "art/staging/room-02/chapel-01/edit-canvas.png",
+ "mask": "art/staging/room-02/chapel-01/edit-mask.png",
+ "maskSha256": "136a0465f21b6f887d79e6715388fda3f2e8a79c36d8622e75b665a9495b1de4",
+ "diagnostic": "renders/opening-set-retrofit/phase15f-chapel-canvas-diagnostic.png",
+ "purpose": "OWNER-AUTHORIZED, CONDITIONAL (Tyler, Phase 1.5F): the chapel-front operation, 1 of 1, spent only because the board-hidden diagnostic proved the facade itself carries no architecture -- no door, no window, no step, no plinth. Repair, not redesign: the chapel keeps its location, its steeple, its distant scale and its night lighting, and gains the entrance and base that make it read as a building behind the street.",
+ "source": {
+  "art/staging/room-02/street-candidate-03/candidate-plate.png": "11e619e0d6aff397889020317e5641f9a110b4f969f33a94283dc9cf588ed59c"
+ },
+ "mustRemainUnchanged": "the steeple and the whole roof and gable above y 330, the Improvement Company and its porch left of x 1505, the storefront right of x 1740, the mountains, the boardwalk below y 578, and the notice board (restored by its own silhouette after the operation)",
+ "note": "PHASE 1.5F -- THE CHAPEL FRONT: ONE LOCAL CANVAS (doc 36 Q122).\n\n    python3 tools/retrofit/phase15f-chapel-prep.py\n\nTyler's finding: the church front still reads as physically unrealistic. The\nbrief requires the cause to be proven before any repaint, with the notice\nboard taken out of the way for the diagnosis (renders/opening-set-retrofit/\nphase15f-chapel-diagnostic.webp, built by phase15f-chapel-diagnose.py).\n\nTHE DIAGNOSIS, WITH THE BOARD CLONED OUT: the chapel is NOT truncated and\ncarries no stitch artifact -- steeple, gable and roof are one structure, the\nnave continues left behind the Improvement Company, and the wall runs\nunbroken to the boardwalk. What it has is NO ARCHITECTURE: no door, no\nwindow, no step, no plinth anywhere on the front. A church nobody can enter,\nwhose facade is a blank slab meeting a boardwalk. At gameplay scale it reads\nas a steeple and a triangle rather than a building, which is exactly the\nfailure the brief names. Moving the board cannot fix that -- it would only\nuncover more blank wall -- so this is the brief's CASE 2 and the one\nconditional chapel operation is spent on it.\n\nTHE CANVAS: a 520x520 window of the plate (x 1380-1900, y 90-610) at x1.969,\nthe chapel centred. The mask frees the chapel's FRONT ONLY -- x 1505-1740, y\n330-578 -- which keeps the steeple, the whole roof and gable, the Improvement\nCompany and its porch, the storefront right of the chapel, the mountains and\nthe boardwalk. The board stands inside that zone; it is frozen art, so it is\nnot asked for and not kept from the result: its own pixels are composited\nback over the result by their wood-hue silhouette, cut from the plate as it\nis now (phase15f-chapel-integrate.py). A door painted behind it stays behind\nit, which is what a notice board on a boardwalk in front of a church does."
+}

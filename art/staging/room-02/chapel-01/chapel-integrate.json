@@ -1,0 +1,53 @@
+{
+ "schema": 1,
+ "note": "PHASE 1.5F -- THE CHAPEL REPAIR BECOMES PLATE, THE BOARD STAYS FROZEN (doc 36 Q122).\n\n    python3 tools/retrofit/phase15f-chapel-integrate.py\n\nThe chapel operation's masked zone is composited into the plate, in place, with\nits edge feathered over 8 px inside the zone. Then the NOTICE BOARD -- frozen\nart by Tyler's ruling -- is put back exactly as it stands: its own pixels, cut\nfrom the plate as it was before this phase by the wood-hue silhouette that\nseparates warm board timber from the cool clapboard behind it, dilated by one\npixel and composited over the result.\n\nTHE MODEL PAINTED ITS OWN BOARD inside the mask (it was asked to ignore the\none that is there, and could not). Where that painted board falls outside the\nfrozen board's silhouette -- below the real frame, between the real posts and\nalong the right edge -- it is covered with the chapel's own wall, cloned from\nthe band of siding the model painted immediately left of the board at the same\nrows, which carries the same clapboard courses, the same base line and the same\nnight value. The door, the steps, the windows and the siding the operation was\nspent on are untouched by that cover: it starts right of x 1615, clear of them.",
+ "op": "OWNER-AUTHORIZED, CONDITIONAL (Tyler, Phase 1.5F): the chapel-front operation, 1 of 1, spent only because the board-hidden diagnostic proved the facade itself carries no architecture -- no door, no window, no step, no plinth. Repair, not redesign: the chapel keeps its location, its steeple, its distant scale and its night lighting, and gains the entrance and base that make it read as a building behind the street.",
+ "inputs": {
+  "art/staging/room-02/chapel-01/local-1to1.png": "ee83d6d8ccc7d91629569183c8588c337d8a5bcea56c7220b0205e98001cd13f",
+  "plateBefore": "11e619e0d6aff397889020317e5641f9a110b4f969f33a94283dc9cf588ed59c"
+ },
+ "zonePlate": [
+  1505,
+  330,
+  1740,
+  578
+ ],
+ "feather": 8,
+ "boardRestore": {
+  "box": [
+   1560,
+   392,
+   1760,
+   604
+  ],
+  "method": "wood-hue silhouette of the frozen board, dilated 1px, from the plate before this phase",
+  "pixels": 19604
+ },
+ "paintedBoardCover": {
+  "from": [
+   1546,
+   1568
+  ],
+  "fill": "per-row median of the band (the siding is horizontal courses)",
+  "rightOfX": 1615,
+  "pixels": 3619,
+  "authoredRects": [
+   [
+    1716,
+    438,
+    1728,
+    462
+   ],
+   [
+    1614,
+    502,
+    1720,
+    520
+   ]
+  ],
+  "plateKeptRightOfX": 1728
+ },
+ "output": {
+  "art/staging/room-02/street-candidate-03/candidate-plate.png": "9982683ccebee9eaa055cbc81700fd80f1dea0ead643b499c97da9cc5a181443"
+ }
+}
