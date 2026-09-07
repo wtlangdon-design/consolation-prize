@@ -4233,3 +4233,41 @@ Tyler's ruling after Q131: no further image generation, and the isolated-pair re
 `renders/opening-set-retrofit/phase2a-face-proof-3x.webp` · `phase2a-face-proof-1x.webp` (the row that decides it: 1:1, the size the player sees) · `phase2a-owner-review-nugget.webp` · `art/staging/room-03/cast-bar-pair-01/STATUS.md` · `tools/art/phase2a-face-finish.py` · `tools/art/phase2a-face-proof.py`.
 
 **PHASE 2A REMAINS AWAITING OWNER ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
+
+## Q133 · Opening-set retrofit, phase 2A: the Nugget's patrons cannot be registered to its furniture as drawn — **AUDITED 2026-09-07, BLOCKED, NO IMAGE OPERATION SPENT**
+
+Tyler rejected the deployed Nugget on physical staging: the furniture-dependent patrons read as sprites placed near furniture rather than people using it, and he ruled that the furniture must be part of the composition authority. He asked, before any art, whether the accepted character art can be re-registered against the canonical furniture. **It cannot, and this is why.**
+
+**THE HISTORICAL PRECEDENT EXISTS AND IT IS IN THE TREE.** `art/backgrounds/room-03-nugget.png`, the original shipping background — the very plate `art/staging/room-03/clean-plate-*` was made by cleaning — has four men seated AT the card table and three at the bar, drawn in the same pass as the furniture. Hips on the chair seats, forearms over the tabletop rim, boots on the floor between the pedestal feet, the tabletop crossing their laps; at the bar, a man leaning with a boot on the foot rail and a man on a stool with the counter's corner crossing his forearm. The figures are cropped and headless and the plate breaks the no-person-in-a-plate rule, so the art is unusable. **The spatial method is not.** Those bodies make contact because they were authored against that furniture. Nothing since has been.
+
+**WHY THE INDEPENDENT-SPRITE MODEL FAILED, in three parts.**
+
+1. The seven were generated with **no furniture in the request** — the prompts literally say *"posed as though the bar and the stool were there, and the room will supply them"* — so each drawing invented its own seat height and its own counter height.
+2. The room supplies **one number per character**: a floor row, from which the depth curve derives a height. Two independent contacts (hips *and* forearms) cannot both be satisfied by one scalar.
+3. `content/rooms/nugget-candidate.json` declares `occlusionPlanes: []` and **every walk box carries `clipPlane: 0`**, so nothing in this room can draw in front of an actor. The tabletop physically cannot cross a lap and the bar front cannot hide a leg, whatever the coordinates say. That is why it reads as sprites laid over a picture: they are.
+
+**THE MEASUREMENTS.** From the drawings' own fixed proportions and the room's own depth curve — `tools/retrofit/nugget-furniture-audit.py`, against `reference/room-03-candidate/nugget-furniture.json`, read off the accepted plate at 4×.
+
+| | finding |
+|---|---|
+| all four card players | **face the camera.** A round table reads as a game only when players face each other across it, so the near chairs need men seen from BEHIND. No placement, scale or occlusion turns a front view into a back view. |
+| card seat height | each would have to be **25–30% taller** for his own seat fraction to land on these chairs |
+| `nugget_bar_1` seated | can put his hips on a stool **or** his forearms on the counter, not both: −42% at the far stool, −24% at the middle, **+6% at the near stool** — he fits one stool in the room and is staged at another |
+| `nugget_bar_2` leaning | standing at the bar's own floor line his elbow lands **89–113 px above the counter**, at every point along its length. The floor rows that would fix it are out in the middle of the room, where he would be leaning on the counter's *image* from several feet in front of it |
+| `nugget_bar_3` standing | fine. Floor contact and occlusion only; nothing about him is over-constrained |
+
+`renders/opening-set-retrofit/phase2a-furniture-registration.webp` draws this on the plate: cyan is the canonical furniture, red is where an existing figure's contact actually lands.
+
+**THE ENGINE ALREADY HAS THE MECHANISM AND THIS ROOM DOES NOT USE IT.** `RoomFile.occlusionPlanes` is a list of `{level, mask}` where the mask is a 1-bit stencil over the **background's own pixels** and is never drawn — so plate-derived occlusion costs no art, duplicates no furniture and cannot shift a pixel, which is exactly the "exact copies, aligned pixel-for-pixel" Tyler asked for. `AmbientFile.clipPlane` lets one patron opt into a plane without touching a walk box, so Thad is unaffected. `Renderer.masked()` is the code. **Whatever else happens, this room needs two planes: the card tabletop and the bar front.** That part needs no authorization and no art, and it is not enough on its own, because occlusion cannot make a front-facing man sit with his back to us.
+
+**THE MINIMUM PROPOSAL: TWO OPERATIONS, ONE PER CLUSTER. NOT AUTHORIZED, NOT SPENT.**
+
+Each sends the **exact canonical furniture crop from the accepted plate**, unmodified, as the geometry to compose into — the card table at region 660,340–1170,520 and the bar at 1150,420–1920,864 — plus that cluster's accepted sprites as the identity and costume authority, so nobody is recast.
+
+**The furniture is in the request and never in the output that ships.** Because the input crop is known exactly, the people are extracted by *differencing* the result against it: every pixel that changed is a person. They ship as individual actors with anchors read from the composition; the table and the bar occlude them at runtime through masks cut from the accepted plate. The plate is never rewritten, no furniture is redrawn, and no person is ever baked into a plate.
+
+**NOTHING WAS CHANGED IN THE ROOM.** No image operation was spent, no character art was modified, no coordinate was nudged, the environment and Thad are untouched, and the nine patrons, the empty piano, the abandoned hand and the Deke zone all stand. `nugget-bar-stove-family` remains 5 billed, `nugget-card-landing-family` 2, 44 of 45 overall.
+
+`reference/room-03-candidate/nugget-furniture.json` · `proofs/room-03/furniture-registration.json` · `tools/retrofit/nugget-furniture-audit.py` · `tools/retrofit/nugget-furniture-diagnostic.py` · `renders/opening-set-retrofit/phase2a-furniture-registration.webp`.
+
+**PHASE 2A REMAINS OPEN. PHASE 2B HAS NOT STARTED.**

@@ -1,0 +1,43 @@
+{
+ "schema": 1,
+ "note": "THE CANONICAL FURNITURE OF THE OWNER-ACCEPTED NUGGET, read off the shipping plate at 4x and 2x with a coordinate grid. This is geometry ONLY -- no pixel of the plate is copied, moved or redrawn by anything that reads this file. It exists because seven of the nine patrons have poses that physically depend on furniture, and until now they were authored as free-standing figures and fitted to the room afterwards, which is the defect Tyler rejected.",
+ "plate": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+ "roomSize": [1920, 864],
+ "depthCurve": {
+  "farY": 506, "farHeight": 227, "nearY": 858, "nearHeight": 526,
+  "note": "the room's own curve, from content/rooms/nugget-candidate.json; man-height in pixels at a floor row"
+ },
+ "cardTable": {
+  "topEllipse": {"centre": [925, 383], "rx": 180, "ry": 25},
+  "apronBottomY": 408,
+  "topFrontEdgeY": 405,
+  "pedestal": {"x": [855, 950], "y": [405, 470]},
+  "footSpread": {"x": [660, 1140], "y": [460, 512]},
+  "floorY": 505,
+  "seatY": 435,
+  "seatToFloorPx": 70,
+  "topToSeatPx": 45,
+  "visibleChairs": [
+   {"id": "left", "seatCentre": [800, 437], "floorY": 507},
+   {"id": "right", "seatCentre": [1075, 440], "floorY": 510}
+  ],
+  "hiddenFarSeats": [
+   {"id": "far-left", "seatCentre": [855, 415], "floorY": 485},
+   {"id": "far-right", "seatCentre": [995, 415], "floorY": 485}
+  ],
+  "abandonedHand": {"rect": [860, 368, 100, 30], "note": "the cards hotspot: on the tabletop, near edge, unowned"}
+ },
+ "bar": {
+  "counterFrontTopEdge": {"at1150": 455, "slopePerPx": 0.1948,
+   "note": "y = 455 + (x - 1150) * 0.1948 -- the near top edge of the counter, the line a forearm rests on"},
+  "counterFrontFaceBottom": {"at1400": 640, "slopePerPx": 0.32,
+   "note": "y = 640 + (x - 1400) * 0.32 -- where the bar's front face meets the floor"},
+  "stools": [
+   {"id": "far", "seatCentre": [1212, 505], "floorY": 620},
+   {"id": "middle", "seatCentre": [1392, 562], "floorY": 700},
+   {"id": "near", "seatCentre": [1650, 652], "floorY": 790}
+  ],
+  "footRail": {"from": [1400, 640], "to": [1900, 800]}
+ },
+ "read": "coordinates read from the plate with tools/retrofit/nugget-furniture-audit.py's grids at 4x (table) and 2x (bar); every number is a screen coordinate in the 1920x864 room."
+}
