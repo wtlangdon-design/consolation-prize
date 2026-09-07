@@ -6485,6 +6485,354 @@
     "art/staging/room-03/cast-bar-pair-01/finished/bar-2.png",
     "art/staging/room-03/cast-bar-pair-01/finished/bar-3.png"
    ]
+  },
+  {
+   "attempt": 1,
+   "role": "composition-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/cluster-card-01.txt",
+   "promptHash": "674e74bdc1b4e12106b6b4b526172e365b8bd938aae6a2c9b6ab52a953a0217d",
+   "references": [
+    {
+     "path": "art/staging/room-03/cluster-card-01/furniture-canvas.png",
+     "hash": "6f5cb8e15c7419c7114d6bef29ba0ce1051a4f30f9885d920c1baed358b7018c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/cluster-card-01/identity.png",
+     "hash": "895356d942e1e6d5e422a94e934fec75115373bf8b9fddd541ff20b0ff9c9a00",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-03/cluster-card-01/edit-mask.png",
+    "hash": "fd349f1a5a576dbcf5d8ab4c27d59af486726d41ead0655652a11f0d312fca45"
+   },
+   "sourceHash": "6f5cb8e15c7419c7114d6bef29ba0ce1051a4f30f9885d920c1baed358b7018c",
+   "sourcePath": "art/staging/room-03/cluster-card-01/furniture-canvas.png",
+   "out": "art/staging/room-03/cluster-card-01/source.png",
+   "outputHash": "4e005d41ddb58b74ca50bad79eae2a16437b132e1dfd360437b984012dd2516e",
+   "bytes": 1287660,
+   "usage": {
+    "input_tokens": 10770,
+    "input_tokens_details": {
+     "image_tokens": 9852,
+     "text_tokens": 918
+    },
+    "output_tokens": 1756,
+    "output_tokens_details": {
+     "image_tokens": 1756,
+     "text_tokens": 0
+    },
+    "total_tokens": 12526
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-07T03:00:48.146Z",
+   "assetId": "nugget-card-furniture-cluster",
+   "subject": "nugget-card-furniture-cluster",
+   "note": "PHASE 2A FURNITURE-REGISTERED CLUSTER (Tyler, 2026-09-07, 1 of 1, no retries): four men seated at the canonical card table, composed INTO the accepted plate's own pixels at an integer x2 so the round trip is exact. The furniture is contact geometry in the request and never ships: only the people are extracted, and the plate is never rewritten. Nothing is integrated on the strength of this call -- the returned furniture is compared against the canonical input first.",
+   "gates": {
+    "path": "art/staging/room-03/cluster-card-01/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-07T03:00:48.240Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-07T03:00:48.159Z",
+   "rejected": true,
+   "rejectedWhy": "REJECTED AT THE FURNITURE-REGISTRATION GATE, BEFORE ANY HUMAN WAS EXTRACTED, AND NOT INTEGRATED. The method half-worked and that is worth recording: outside the mask's free window the room came back untouched -- mean difference 4.14 of 255 over 353,140 kept pixels, 2.5% over 16, nothing over 48, and no translation improves it -- so the endpoint did treat this as an edit of this room. Inside the free window the furniture moved anyway: the tabletop's near rim, which is the line a seated man's lap must sit behind, dropped from canvas row 582 to 715 (66 plate px); the tabletop narrowed from 521 to 392 canvas px in its own band; and the packed-dirt floor became planks (foreground horizontal-edge energy 1.31 -> 2.62). The composition itself is correct -- four men genuinely seated, two seen from behind, hands on the table, the abandoned hand untouched and the fifth chair empty -- but it is correct about a table this room does not have, so contacts taken from it would not land. proofs/room-03/registration-card.json, doc 36 Q134.",
+   "integrated": false
+  },
+  {
+   "attempt": 1,
+   "role": "composition-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/cluster-bar-01.txt",
+   "promptHash": "832e80098d084592c279027dd9898f25d09ee49ff0b4887eb5bec5bb84e01cb5",
+   "references": [
+    {
+     "path": "art/staging/room-03/cluster-bar-01/furniture-canvas.png",
+     "hash": "a6d28ced18e3d337f1045d6ee827691d21d081c82c5aabca808051c1453cf596",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/cluster-bar-01/identity.png",
+     "hash": "25869e9902ff29bd4ed2e21d6414b9ff5cdd1d23366639cfbc6d6fa7753c4afb",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-03/cluster-bar-01/edit-mask.png",
+    "hash": "0140dbabb98246bbeafa3f9608609308f825dbd15be9c42b0bab84e3fc759f60"
+   },
+   "sourceHash": "a6d28ced18e3d337f1045d6ee827691d21d081c82c5aabca808051c1453cf596",
+   "sourcePath": "art/staging/room-03/cluster-bar-01/furniture-canvas.png",
+   "out": "art/staging/room-03/cluster-bar-01/source.png",
+   "outputHash": "db842f9c577e1cc6d5879e6d26ccaba075f46baa30058fceedc3db659943d33f",
+   "bytes": 2192460,
+   "usage": {
+    "input_tokens": 11542,
+    "input_tokens_details": {
+     "image_tokens": 10716,
+     "text_tokens": 826
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 12914
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-07T03:05:09.649Z",
+   "assetId": "nugget-bar-furniture-cluster",
+   "subject": "nugget-bar-furniture-cluster",
+   "note": "PHASE 2A FURNITURE-REGISTERED CLUSTER (Tyler, 2026-09-07, 1 of 1, no retries): three men using the canonical bar, composed INTO the accepted plate's own pixels at an integer x2 so the round trip is exact. The furniture is contact geometry in the request and never ships: only the people are extracted, and the plate is never rewritten. Nothing is integrated on the strength of this call -- the returned furniture is compared against the canonical input first.",
+   "gates": {
+    "path": "art/staging/room-03/cluster-bar-01/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-07T03:05:09.759Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-07T03:05:09.653Z",
+   "rejected": true,
+   "rejectedWhy": "REJECTED AT THE FURNITURE-REGISTRATION GATE, BEFORE ANY HUMAN WAS EXTRACTED, AND NOT INTEGRATED. This one is not close: the result is a different saloon. A short frontal bar instead of the long diagonal counter, one stool instead of three, a new stove, a new door, a new window, a plank floor. Even the region the mask kept came back changed -- mean difference 26.14, 65% of kept pixels over 16 and 10% over 48 -- and no uniform shift registers it (best offset dx -18 improves the residual from 14.33 to 14.17, about 1%). The counter's measured slope reversed, +0.0011/px sent against -0.1602/px returned. The three men use their bar convincingly; it is not this bar. proofs/room-03/registration-bar.json, doc 36 Q134.",
+   "integrated": false
   }
  ],
  "promotions": [
