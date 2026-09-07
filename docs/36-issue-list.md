@@ -4271,3 +4271,37 @@ Each sends the **exact canonical furniture crop from the accepted plate**, unmod
 `reference/room-03-candidate/nugget-furniture.json` · `proofs/room-03/furniture-registration.json` · `tools/retrofit/nugget-furniture-audit.py` · `tools/retrofit/nugget-furniture-diagnostic.py` · `renders/opening-set-retrofit/phase2a-furniture-registration.webp`.
 
 **PHASE 2A REMAINS OPEN. PHASE 2B HAS NOT STARTED.**
+
+## Q134 · Opening-set retrofit, phase 2A: the two furniture-registered cluster operations — both spent, both rejected at the gate — **ATTEMPTED 2026-09-07, NOTHING INTEGRATED, NO OPERATION REMAINS**
+
+Tyler accepted the Q133 diagnosis and authorized exactly two operations, one per cluster, no retries: author the group against the exact canonical furniture, then decompose it into runtime actors. Both were spent. **Both failed the furniture-registration gate before any human was extracted, and nothing was integrated.** The room is byte-identical to what was deployed.
+
+**THE METHOD, AND THE ONE PART OF IT THAT WORKED.** Each request sent the accepted plate's own pixels as the canvas to compose into, cropped so the scale is an **integer ×2** — 512×512 for the table, 768×512 for the bar — so the round trip back to the plate lands every canonical pixel on the pixel it came from. A mask freed only where people go; the accepted patrons rode along as a separate identity sheet rather than being pasted into the canvas, so nothing about their rejected placement was suggested as a layout.
+
+On the card call **the mask held completely**: outside the free window the room came back untouched — mean difference **4.14 of 255** across 353,140 kept pixels, 2.5% over 16, **nothing over 48**, and no translation improves it. The endpoint did treat it as an edit of this room. That is a real result and it is why the topology is worth keeping.
+
+**CARD — REJECTED.** Inside the free window the furniture moved anyway:
+
+| | sent | got |
+|---|---|---|
+| tabletop near rim (the line a seated lap must sit behind) | canvas row 582 | canvas row **715** — 66 plate px lower |
+| tabletop width in its own band | 521 canvas px | **392** — a quarter narrower |
+| foreground floor | packed dirt (edge energy 1.31) | **planks** (2.62) |
+
+The composition itself is right, and that is the frustrating part: four men genuinely seated, two seen from behind and two facing across, hands on the table, the abandoned hand untouched and unowned, the fifth chair empty. It is a real card game — at a table this room does not have. Contacts taken from it would not land on the shipping furniture, so it fails Tyler's stated gate and nothing was cut out of it.
+
+**BAR — REJECTED, and not close.** The result is a different saloon: a short frontal bar instead of the long diagonal counter, one stool instead of three, a new stove, a new door, a new window, a plank floor. **Even the kept region came back changed** — mean difference 26.14, 65% of kept pixels over 16, 10% over 48 — and no uniform shift registers it (best offset dx −18 improves the residual from 14.33 to 14.17, about 1%). The counter's measured slope reversed: +0.0011/px sent against −0.1602/px returned. Its three men use their bar convincingly. It is not this bar.
+
+`renders/opening-set-retrofit/phase2a-cluster-rejections.webp` puts sent, got and the difference side by side for both.
+
+**WHY THE BAR DRIFTED FURTHER THAN THE CARD, which is the useful lesson.** The card's free window is a rectangle inside a room whose walls, window, portrait and stove all stayed outside it — a large, rigid, unfreed frame the endpoint had to stay consistent with. The bar's free window had to be a band following the counter, because the men's heads occupy the same region as the back-bar bottles; there is no window that both lets a head be drawn and keeps the shelf behind it. Less unfreed context, more drift. **The amount of scenery a mask can keep is the thing that predicts whether the geometry survives**, and at the bar that quantity is small for reasons of anatomy, not of tooling.
+
+**THE LEDGER, EXACTLY AS SPENT.** Two dedicated categories were created rather than mutating the historical families, so the record of what the free-floating model cost still says what it said: `nugget-card-furniture-cluster` **1/1**, `nugget-bar-furniture-cluster` **1/1**, both marked rejected and not integrated. Overall **46 of 46**. The guard now refuses both. **No image operation remains authorized anywhere.**
+
+**WHAT WAS NOT BUILT, DELIBERATELY.** The occlusion planes. They are still needed and still need no authorization, but authoring masks against figures that do not exist yet would be work aimed at a composition nobody has approved. They are the first thing to build the day a cluster passes.
+
+**WHAT IS TRUE OF THE GAME.** Unchanged and still wrong in the way Tyler described: nine patrons, 3 bar / 4 cards / 1 landing / 1 stove, the empty piano and its stool, the abandoned hand on the table's near edge, the Deke zone, the frozen environment, Thad. The open defect is the physical registration of the seven furniture-dependent patrons.
+
+`proofs/room-03/registration-card.json` · `registration-bar.json` · `art/staging/room-03/cluster-sources.json` · `tools/retrofit/nugget-cluster-prep.py` · `nugget-cluster-registration.py` · `nugget-cluster-evidence.py` · `proofs/room-03/prompts/cluster-card-01.txt` · `cluster-bar-01.txt`.
+
+**PHASE 2A REMAINS OPEN. PHASE 2B HAS NOT STARTED.**

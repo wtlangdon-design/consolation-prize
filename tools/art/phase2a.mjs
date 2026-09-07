@@ -281,6 +281,53 @@ JOBS['bar-pair'] = {
     + 'retained version, Thad at matched height, and the accepted controls.',
 };
 
+// ---- THE FURNITURE-REGISTERED CLUSTERS -------------------------------------
+//
+// Tyler, 2026-09-07, after accepting the Q133 diagnosis: author the
+// furniture-dependent group as a coherent composition against the exact
+// canonical furniture, then decompose it into runtime actors. Exactly one
+// operation each and no retries.
+//
+// THE IMAGE BEING EDITED IS THE ROOM'S OWN PIXELS, at an integer x2 so the
+// round trip back to the plate is exact (tools/retrofit/nugget-cluster-prep.py).
+// The furniture is in the REQUEST as contact geometry and never in the output
+// that ships: after the registration gate, only the people are extracted.
+//
+// The identity sheet rides as reference 2 rather than being pasted into the
+// canvas, so nothing about the patrons' current -- rejected -- placement is
+// suggested to the model as a layout. Thad is reference 3, as he has been all
+// phase, and the baseline's A/B/D/E/E follow.
+const CLUSTER_REFS = [
+  'art/actors/thad-stand-front/stand-00.png',
+  'renders/room-01-in-engine-1920x1080.png',
+  'art/backgrounds/room-01-stage-road.png',
+  'art/backgrounds/room-05-assay-office.png',
+  'art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png',
+  'reference/casting/room-01-casting-master.png',
+];
+for (const [key, assetId, dir, size, what] of [
+  ['cluster-card', 'nugget-card-furniture-cluster', 'cluster-card-01', '1024x1024',
+    'four men seated at the canonical card table'],
+  ['cluster-bar', 'nugget-bar-furniture-cluster', 'cluster-bar-01', SHEET,
+    'three men using the canonical bar'],
+]) {
+  JOBS[key] = {
+    assetId, subject: assetId, role: 'composition-master', baselineRoom: 'room-03-nugget',
+    promptFile: `proofs/room-03/prompts/${dir}.txt`,
+    images: [`art/staging/room-03/${dir}/furniture-canvas.png`,
+      `art/staging/room-03/${dir}/identity.png`, ...CLUSTER_REFS],
+    mask: `art/staging/room-03/${dir}/edit-mask.png`,
+    size,
+    out: `art/staging/room-03/${dir}/source.png`,
+    banner: `\nFURNITURE-REGISTERED CLUSTER · ${what.toUpperCase()}\n`,
+    note: `PHASE 2A FURNITURE-REGISTERED CLUSTER (Tyler, 2026-09-07, 1 of 1, no retries): ${what}, `
+      + 'composed INTO the accepted plate\'s own pixels at an integer x2 so the round trip is '
+      + 'exact. The furniture is contact geometry in the request and never ships: only the people '
+      + 'are extracted, and the plate is never rewritten. Nothing is integrated on the strength of '
+      + 'this call -- the returned furniture is compared against the canonical input first.',
+  };
+}
+
 const job = JOBS[which];
 if (!job) {
   say(`usage: node tools/art/phase2a.mjs <${Object.keys(JOBS).join('|')}> [n]`);
