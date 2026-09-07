@@ -1,0 +1,125 @@
+{
+ "schema": 1,
+ "note": "Can the accepted character art make the contacts the canonical furniture requires? Answered from the drawings' own fixed proportions and the room's own depth curve. No art was generated, moved or modified to produce this. Doc 36 Q133.",
+ "furniture": "reference/room-03-candidate/nugget-furniture.json",
+ "contactFractions": {
+  "nugget_card_1": {
+   "seat": 0.66,
+   "contact": null,
+   "facing": "front",
+   "note": "seated, leaning back, cards at the chest"
+  },
+  "nugget_card_2": {
+   "seat": 0.65,
+   "contact": null,
+   "facing": "front",
+   "note": "seated, hunched forward, cards low"
+  },
+  "nugget_card_3": {
+   "seat": 0.67,
+   "contact": null,
+   "facing": "front",
+   "note": "seated square to camera, cards at the chest"
+  },
+  "nugget_card_4": {
+   "seat": 0.67,
+   "contact": null,
+   "facing": "front",
+   "note": "seated, head down over the cards"
+  },
+  "nugget_bar_1": {
+   "seat": 0.63,
+   "contact": 0.35,
+   "facing": "profile-right",
+   "note": "seated in profile, forearms forward at a counter"
+  },
+  "nugget_bar_2": {
+   "seat": null,
+   "contact": 0.32,
+   "facing": "three-quarter",
+   "note": "standing, near elbow raised onto a counter"
+  },
+  "nugget_bar_3": {
+   "seat": null,
+   "contact": null,
+   "facing": "three-quarter",
+   "note": "standing with a cup: needs floor contact only"
+  }
+ },
+ "findings": [
+  {
+   "cluster": "card",
+   "blocked": true,
+   "reason": "all four seated players are drawn front-facing; the near seats of a round table require back-view players and no placement, scale or occlusion can turn a front view into a back view",
+   "detail": [
+    "4 of 4 seated card sprites face the camera: nugget_card_1, nugget_card_2, nugget_card_3, nugget_card_4",
+    "the canonical table is a round pedestal table with seats all round it (visible chairs at [[800, 437], [1075, 440]], hidden far seats at [[855, 415], [995, 415]])",
+    "a game reads only when players face each other across it, so the near seats must hold men seen FROM BEHIND -- which none of these four is"
+   ]
+  },
+  {
+   "cluster": "bar",
+   "who": "nugget_bar_1",
+   "blocked": false,
+   "reason": "fits the NEAR stool within a few per cent and no other; he is currently staged at the far stool",
+   "detail": [
+    "  stool far   : counter   467, seat 505 -> the drawing needs a figure   135px tall to put hips and forearms on both; the room wants   233px (-42%)",
+    "  stool middle: counter   502, seat 562 -> the drawing needs a figure   214px tall to put hips and forearms on both; the room wants   282px (-24%)",
+    "  stool near  : counter   552, seat 652 -> the drawing needs a figure   356px tall to put hips and forearms on both; the room wants   337px (+6%)"
+   ]
+  },
+  {
+   "cluster": "bar",
+   "who": "nugget_bar_2",
+   "blocked": true,
+   "reason": "his elbow is drawn too high on his body for this counter: standing at the bar anywhere along its length, his elbow lands about 90 to 105 px above the counter top, and the only floor rows that would fix that are out in the middle of the room, where he would be leaning on the counter's image from several feet in front of it",
+   "detail": [
+    "  at x 1400: standing at the bar (floor row   640) his elbow lands at y   415; the counter is at y   504 -- +89px, his elbow is above the counter",
+    "  at x 1550: standing at the bar (floor row   688) his elbow lands at y   436; the counter is at y   533 -- +97px, his elbow is above the counter",
+    "  at x 1700: standing at the bar (floor row   736) his elbow lands at y   457; the counter is at y   562 -- +105px, his elbow is above the counter",
+    "  at x 1850: standing at the bar (floor row   784) his elbow lands at y   479; the counter is at y   591 -- +113px, his elbow is above the counter"
+   ]
+  },
+  {
+   "cluster": "bar",
+   "who": "nugget_bar_3",
+   "blocked": false,
+   "reason": "standing only; registrable with existing art",
+   "detail": [
+    "  nugget_bar_3 needs floor contact and correct occlusion by the bar front only.",
+    "  No second contact is drawn into him, so nothing about him is over-constrained."
+   ]
+  }
+ ],
+ "historicalPrecedent": {
+  "found": true,
+  "where": "art/backgrounds/room-03-nugget.png -- the ORIGINAL shipping Nugget background, still in the tree, and the thing art/staging/room-03/clean-plate-* was made by cleaning",
+  "what": "four men seated AT the card table and three at the bar, drawn in the same pass as the furniture: hips on the chair seats, forearms over the tabletop rim, boots on the floor between the pedestal feet, the tabletop crossing their laps; at the bar, one man leaning with a boot on the foot rail and one seated on a stool with the counter corner crossing his forearm",
+  "why it was superseded": "the figures are cropped and headless and the plate had people baked into it, which the no-person-in-a-plate rule forbids",
+  "what it proves": "the SPATIAL METHOD, not the art: those bodies were authored against that furniture, which is why they make contact. Nothing since has been."
+ },
+ "whyIndependentSpriteStagingFailed": [
+  "the seven furniture-dependent patrons were generated as free-standing figures with NO furniture in the request -- the prompts said \"posed as though the bar and the stool were there, and the room will supply them\" -- so each drawing invented its own seat height and its own counter height",
+  "the room supplies exactly one number per character, a floor row, from which the depth curve derives a height; two independent contacts (hips AND forearms) cannot both be satisfied by one scalar",
+  "content/rooms/nugget-candidate.json declares occlusionPlanes: [] and every walk box carries clipPlane: 0, so NOTHING in this room can draw in front of an actor. The tabletop physically cannot cross a lap and the bar front cannot hide a leg, whatever the coordinates say."
+ ],
+ "engineFinding": "the engine already has the mechanism this needs. RoomFile.occlusionPlanes is a list of {level, mask} where the mask is a 1-bit stencil over the BACKGROUND'S OWN PIXELS and is never drawn -- so plate-derived occlusion costs no art, duplicates no furniture and cannot shift a pixel. AmbientFile.clipPlane lets a single patron opt into a plane without touching a walk box, so Thad is unaffected. Renderer.masked() is the code. It is unused in this room.",
+ "minimumGenerationProposal": {
+  "total": 2,
+  "note": "ONE operation per cluster. Not authorized; not spent.",
+  "card": {
+   "operations": 1,
+   "source": "a canvas holding the EXACT canonical card-table crop from the accepted plate (art/staging/room-03/corrected-03/plate-cold-dirt.png, region 660,340-1170,520) at its own scale and position, unmodified, as the geometry to draw into; plus the four accepted card sprites alongside as the identity and costume authority",
+   "ask": "the same four men seated at that table -- TWO SEEN FROM BEHIND on the near chairs and two from the front on the far chairs, hips on the painted seats, cards and forearms over the tabletop rim, boots on the floor between the pedestal feet",
+   "why art is needed": "all four existing sprites face the camera and a round table reads as a game only when players face each other across it; and their seat height is 25-30% short of these chairs"
+  },
+  "bar": {
+   "operations": 1,
+   "source": "the EXACT canonical bar crop from the accepted plate (region 1150,420-1920,864), unmodified, plus the three accepted bar sprites as identity authority",
+   "ask": "the same three men using that bar -- one seated on a painted stool with his forearms on the counter, one leaning with his elbow ON the counter top and a boot on the foot rail, one standing at the near end",
+   "why art is needed": "the leaning man's elbow is drawn 89-113px above this counter at every point along it, and the seated man can put his hips on a stool or his forearms on the counter but not both at any of the three stools"
+  },
+  "howTheFurnitureIsUsedAndNotShipped": "the furniture is in the REQUEST as the geometry to compose against and never in the OUTPUT that ships. Because the input crop is known exactly, the people are extracted by differencing the result against that unmodified crop: every pixel that changed is a person. The extracted people ship as individual actors with anchors read from the composition, and the table and bar are occluded at runtime by masks cut from the accepted plate. The plate itself is never rewritten, no furniture is redrawn, and no person is ever baked into a plate."
+ },
+ "statusIfUnauthorized": "nothing changes. The room stays exactly as deployed, which is wrong, and this report is the reason rather than another round of coordinates."
+}
