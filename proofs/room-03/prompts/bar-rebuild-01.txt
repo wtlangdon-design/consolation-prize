@@ -1,0 +1,29 @@
+This image is a room from a 1990s-style point-and-click adventure game: a frontier saloon at night called the Bountiful Nugget. The set is finished and approved. Four men are already playing cards in it at the left of the frame — they are finished too. Your job is to put THREE MEN at the bar that is already here, and to change nothing else.
+
+WHAT MUST NOT CHANGE, ANYWHERE.
+
+The bar is the room's spine. Its counter is one long straight run that comes toward the viewer from the upper left to the lower right. It ENTERS the area you may paint at the left edge and LEAVES it at the right edge, and in both places it is already drawn. Continue that same line at that same angle across the middle. Do not shorten it, do not turn it to face the viewer, do not break it, do not raise or lower it.
+
+Keep, exactly as drawn: the counter's angle and height; the front panelling and its recessed panels; the three stools where they stand; the back bar, its shelf and its row of bottles; the mirror; the lamps; the stairs; the stove; the doorway; the four card players; the spittoon.
+
+THE FLOOR IS PACKED DIRT. It is dirt everywhere in this room and it stays dirt. Do not lay boards. Do not draw planks, seams, or floorboards of any kind.
+
+Do not add a door, a window, a stove, a bench, a table, a sign, a keg, a piano, or any other furniture. Do not add a fourth person. Do not add bottles or glasses beyond what a man is holding.
+
+WHAT TO ADD: three men using this bar, and nothing else.
+
+WHO THEY ARE. Reference 2 shows the three, each on flat magenta. Keep each recognisably himself — his age, his build, his hair, his facial hair, his clothes, his colours. The old bearded miner in the wide hat and worn coat with a tin cup. The lean younger man in shirtsleeves, dark waistcoat and watch chain. The heavy moustached man in the bowler hat, checked shirt and work coat with a tin mug. This is not a recast. Only their poses change, and you may give any of the three any of the three positions below — choose by what suits each man's build.
+
+WHERE THEY ARE AND WHAT THEY ARE DOING.
+
+1. SITTING. One man has his backside on the seat of the middle stool — the stool already drawn near the centre of the area you may paint. His weight is on it, one boot on the stool's ring, the other reaching the floor. His forearms lie ON the counter top, at the height that counter actually is.
+
+2. LEANING. One man stands on the dirt floor between the middle stool and the nearer one, turned toward the bar. His elbow and forearm take his weight ON the counter's top surface — not hovering above it — and his shoulder drops toward that elbow the way a leaning man's does. Both boots are on the floor.
+
+3. STANDING. One man stands at the near end of the run, closest to the viewer and past the nearest stool, a drink in one hand, boots flat on the floor, half turned into the room. He is the largest figure because he is the nearest.
+
+MAKE THE CONTACT REAL. Where a body meets the bar, the bar crosses in front of it: the counter's near edge passes over a forearm; the front panelling hides the lower half of a man standing close against it; a stool leg crosses in front of a boot. Nobody floats. No elbow rests on air above the wood. Nobody stands inside the bar, and nobody stands behind it.
+
+HOW THEY ARE DRAWN. Reference 3 is THAD, the game's protagonist, at the size the game draws him, and the four card players already in this picture are the same standard. A face carries the mass of the hair and the brow, one simple dark shape per eye, one shadow for the nose, one line for the mouth, one shadow under the jaw, and facial hair as a single grouped shape. NO white in the eye, no iris, no catchlight. No smooth continuous cheek modelling: flat masses meeting on hard edges. Cloth in a few flat tones with hard folds, no weave, no sheen. Decide every shape as though the finished man were between 300 and 480 pixels tall — small, hard, few — and draw those few shapes cleanly at this canvas's size. Not crude blobs: the form still turns, the light still comes from one side, the anatomy is still right.
+
+THE LIGHT. It is night. The room is lit warm and low from oil lamps and a chandelier above, and these men are in that light — not in a brighter, cooler or whiter one. Match the card players' key and their shadow depth exactly.

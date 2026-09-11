@@ -328,6 +328,37 @@ for (const [key, assetId, dir, size, what] of [
   };
 }
 
+// ---- THE ROOM 3 BAR REBUILD -----------------------------------------------
+//
+// Tyler, 2026-09-11: the build decision is accepted, the Nugget freeze is
+// withdrawn, the card cluster becomes canon and EXACTLY ONE operation rebuilds
+// the bar quadrant with its three patrons on it. No retry.
+//
+// The canvas is the CARD-BAKED plate, so four accepted men ride inside the
+// frame at their accepted size: the scale and the drawing language are in the
+// picture, not only in the words. The free window is a RECTANGLE the counter
+// enters and leaves through kept room -- the previous call's band left the
+// counter free along its whole length and its slope reversed.
+JOBS['bar-rebuild'] = {
+  assetId: 'room-03-nugget', subject: 'room-03-nugget',
+  role: 'composition-master', baselineRoom: 'room-03-nugget',
+  promptFile: 'proofs/room-03/prompts/bar-rebuild-01.txt',
+  images: ['art/staging/room-03/bar-rebuild-01/canvas.png',
+    'art/staging/room-03/bar-rebuild-01/identity.png',
+    ...CLUSTER_REFS,
+    'art/staging/room-03/cluster-bar-01/source.png'],
+  mask: 'art/staging/room-03/bar-rebuild-01/edit-mask.png',
+  size: SHEET,
+  out: 'art/staging/room-03/bar-rebuild-01/source.png',
+  banner: '\nROOM 3 BAR REBUILD -- ONE OPERATION, NO RETRY\n',
+  note: 'ROOM 3 REBUILD (Tyler, 2026-09-11, 1 of 1, no retries): the long diagonal bar, its '
+    + 'back bar, three stools and the three accepted patrons registered to it, painted into the '
+    + "card-baked plate's own pixels. The last reference is the REJECTED bar generation, carried "
+    + 'as pose and contact authority only -- Tyler accepted it for that and rejected its '
+    + 'architecture. Nothing is integrated on the strength of this call: the returned room is '
+    + 'compared against the canonical input first.',
+};
+
 const job = JOBS[which];
 if (!job) {
   say(`usage: node tools/art/phase2a.mjs <${Object.keys(JOBS).join('|')}> [n]`);

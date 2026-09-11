@@ -13,14 +13,14 @@
   "roomStoryState": {
    "status": "PASS",
    "evidence": [
-    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+    "docs/35-room-gate.md::2b \u00b7 ROOM 3'S GATE, AS RUN AND RULED"
    ],
    "note": "Acts I-IV; the piano (A8) and Deke Vessel (A3) found by the gate reading doc 02."
   },
   "staticVsStatefulArt": {
    "status": "PASS-WITH-ACCEPTED-EXCEPTION",
    "evidence": [
-    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+    "docs/35-room-gate.md::2b \u00b7 ROOM 3'S GATE, AS RUN AND RULED"
    ],
    "exception": "The piano is ruled PLATE though A8 tunes it with the lid open (doc 35, \"THE GATE READS THE PUZZLE GRAPH NOW\"); the raccoon (Act II) and Deke Vessel have no sprites yet."
   },
@@ -47,7 +47,7 @@
   "contentCompilerHealth": {
    "status": "FAIL",
    "evidence": [
-    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
    ],
    "note": "compile-room 3 refuses on a doc 16 / doc 05 naming mismatch; nugget.json has no live writer and carries one stale LOOK line (Tyler's reworded front-doors LOOK 2)."
   },
@@ -64,7 +64,7 @@
    "status": "FAIL",
    "evidence": [
     "cmd:node tools/compile-room.mjs 3",
-    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
    ]
   },
   "annotation": {
@@ -211,14 +211,14 @@
    "id": "the raccoon (Act II, after A5)",
    "status": "CONTRACTED-UNBUILT",
    "evidence": [
-    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+    "docs/35-room-gate.md::2b \u00b7 ROOM 3'S GATE, AS RUN AND RULED"
    ]
   },
   {
    "id": "Deke Vessel (A3)",
    "status": "CONTRACTED-UNBUILT",
    "evidence": [
-    "docs/35-room-gate.md::2b · ROOM 3'S GATE, AS RUN AND RULED"
+    "docs/35-room-gate.md::2b \u00b7 ROOM 3'S GATE, AS RUN AND RULED"
    ]
   }
  ],
@@ -388,7 +388,7 @@
     "proofs/factory/opening-set-retrofit-audit.json",
     "renders/opening-set-audit/nugget-audit-sheet.webp",
     "renders/proofs/opening-set-audit/nugget/life.json",
-    "docs/05-examine-layer.md::ROOM 3 — THE BOUNTIFUL NUGGET#1"
+    "docs/05-examine-layer.md::ROOM 3 \u2014 THE BOUNTIFUL NUGGET#1"
    ],
    "note": "Re-read the rect on the paper (0 operations). Visual treatment: KEEP; carry the paper into the regenerated plate at the same place."
   },
@@ -444,7 +444,7 @@
    "evidence": [
     "proofs/factory/opening-set-retrofit-audit.json",
     "reference/room-03/annotation.json",
-    "docs/04-dialogue-trees.md::DEKE VESSEL — three nodes and two duels",
+    "docs/04-dialogue-trees.md::DEKE VESSEL \u2014 three nodes and two duels",
     "content/dialogue/deke-vessel.json"
    ],
    "note": "One casting master in Winnie's method when Act II is authorized (1 operation, its own cap); placement re-derived on the regenerated plate. Unbuilt is not RECAST: nothing exists to recast."
@@ -465,7 +465,7 @@
    "layer": "compiler",
    "evidence": [
     "proofs/factory/opening-set-retrofit-audit.json",
-    "docs/36-issue-list.md::Q26 · ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
+    "docs/36-issue-list.md::Q26 \u00b7 ROOM 5 NEEDS A NIGHT STATE BEFORE IT SHIPS, AND TWO INTERIOR LINES STILL SAY DAYLIGHT"
    ],
    "note": "Smallest fix: the compiler matches an override name to a doc 05 subject by dropping a leading \"THE \" on either side (and \"CARDS\" to \"THE HAND OF CARDS\" by an explicit alias table it refuses to grow silently); then compile-room 3 --write, register it as a generator, and the stale line re-extracts. Ed"
   },
@@ -508,19 +508,19 @@
   }
  },
  "environment": {
-  "status": "NUGGET ENVIRONMENT — OWNER ACCEPTED",
+  "status": "NUGGET ENVIRONMENT \u2014 OWNER ACCEPTED",
   "correctionsApplied": "OWNER ACCEPTED AND FROZEN (Tyler, 2026-09-06, the Phase 1.5E brief): plate, dirt floor, furniture, stove, windows, doors, piano, handbill and room geometry are not to be altered. Phase 2 owns Thad's depth scale, the nine patrons, room life, flicker and actor integration.",
   "by": "Tyler, live review of the Phase 1 candidate (2026-09-05), of 1.5B (2026-09-06), and acceptance of the 1.5C environment (2026-09-06)",
   "evidence": [
-   "docs/36-issue-list.md::Q121 · Opening-set retrofit, phase 1.5E: Main Street's board and trough repaired as structure and made plate (2 operations), the Nugget owner-accepted and frozen",
-   "docs/36-issue-list.md::Q120 · Opening-set retrofit, phase 1.5D: Main Street's board and trough painted in place on local canvases (2 operations, both used), the Nugget frozen",
-   "docs/36-issue-list.md::Q119 · Opening-set retrofit, phase 1.5C: owner review of 1.5B failed — the Nugget floor made one floor; the Main Street integration operation failed and is stopped",
+   "docs/36-issue-list.md::Q121 \u00b7 Opening-set retrofit, phase 1.5E: Main Street's board and trough repaired as structure and made plate (2 operations), the Nugget owner-accepted and frozen",
+   "docs/36-issue-list.md::Q120 \u00b7 Opening-set retrofit, phase 1.5D: Main Street's board and trough painted in place on local canvases (2 operations, both used), the Nugget frozen",
+   "docs/36-issue-list.md::Q119 \u00b7 Opening-set retrofit, phase 1.5C: owner review of 1.5B failed \u2014 the Nugget floor made one floor; the Main Street integration operation failed and is stopped",
    "renders/opening-set-retrofit/phase15c-nugget-floor-detail.webp",
    "renders/opening-set-retrofit/phase15c-nugget-before-after.webp",
    "art/staging/room-03/floor-03/floor-op.json",
    "art/staging/room-03/corrected-03/derivation.json",
-   "docs/36-issue-list.md::Q118 · Opening-set retrofit, phase 1.5B: the final environment cleanup — the trough as prop art, the funeral sheet as paper, the whole Nugget floor as dirt",
-   "docs/36-issue-list.md::Q117 · Opening-set retrofit, phase 1.5: the accepted environments corrected for canon and physics before casting",
+   "docs/36-issue-list.md::Q118 \u00b7 Opening-set retrofit, phase 1.5B: the final environment cleanup \u2014 the trough as prop art, the funeral sheet as paper, the whole Nugget floor as dirt",
+   "docs/36-issue-list.md::Q117 \u00b7 Opening-set retrofit, phase 1.5: the accepted environments corrected for canon and physics before casting",
    "renders/opening-set-retrofit/phase15-nugget-old-vs-corrected.webp",
    "renders/opening-set-retrofit/phase15-nugget-stove.webp",
    "renders/proofs/candidates/nugget/life.json",
@@ -549,7 +549,7 @@
   "note": "Environment only. Not population acceptance, not gameplay acceptance.",
   "ownerReview": "Tyler, 2026-09-06: NUGGET ENVIRONMENT OWNER ACCEPTED AND FROZEN, unchanged by Phase 2A. The accepted scope is the people-free architecture, the canonical dirt floor, the bar, the card table, the stove lit and out, the piano, the stairs, the doors and windows, the handbill and the environmental lighting composition. STILL PENDING and not accepted by this: Thad's depth scaling, the population, the characters, room life, practical-light animation and gameplay acceptance. PHASE 2A changed the room's DEPTH MODEL and its FLOOR -- not one environment pixel -- because Tyler reported Thad reading too small next to the bar; see `phase2a` below.",
   "phase2a": {
-   "status": "NUGGET PHASE 2A — AWAITING TYLER CHARACTER/STAGING ACCEPTANCE",
+   "status": "NUGGET PHASE 2A \u2014 AWAITING TYLER CHARACTER/STAGING ACCEPTANCE",
    "environmentOperations": 0,
    "depthModel": "The curve is rescaled 1.145 with its shape and horizon untouched: 198/459 -> 227/526. That factor is the MEDIAN of eight dimensioned things measured off the accepted plate; the readings disagree by a factor of 1.6 between the card table and the piano, so no single object is the ruler. Thad's art is unchanged.",
    "floor": "THE FLOOR NOW REACHES THE BAR, and this is the half of the defect no rescale could fix. The walkable outline turned in at x 1170 and stopped up to 440 px short of the bar's plinth, so Thad could never stand AT the counter -- only out in the room looking at it, with the counter at a shallower depth than his own feet. Measured on the composite: the counter read at 0.872 of his stature (his shoulders) under the old model and 0.761 (upper chest) under the rescale alone. With the floor carried to the plinth it reads 0.659 and 0.676 -- waist and lower ribs, which is the target. The three stools and the spittoon became obstacles on their own base lines so he cannot stand inside one.",
@@ -559,7 +559,7 @@
     "renders/opening-set-retrofit/phase2a-nugget-scale.webp",
     "reference/room-03-candidate/furniture-measurements.json",
     "reference/room-03-candidate/scale-candidates.json",
-    "docs/36-issue-list.md::Q128 · Opening-set retrofit, phase 2A: the Nugget's nine, cast and staged",
+    "docs/36-issue-list.md::Q128 \u00b7 Opening-set retrofit, phase 2A: the Nugget's nine, cast and staged",
     "renders/opening-set-retrofit/phase2a-nugget-crowd.webp",
     "reference/room-03-candidate/nugget-staging.json",
     "art/staging/phase2a-extraction.json",
@@ -582,6 +582,43 @@
     "abandonedHand": "The face-up hand keeps the table's near edge, the side with no chair. Nobody stands there and a test fails if anybody does, so the fifth place stays visibly the absent player's. No furniture changed.",
     "deke": "RESERVED BY STORY-STATE OCCUPANCY ADJUSTMENT, and the approach is recorded rather than left to be improvised. Deke Vessel is a named Act I/II NPC who must appear at the near end of the bar for A3. His zone -- the annotation's characters.deke_vessel, x 1090-1210, feet about y 700 -- collides with none of the nine. When he is built he takes the counter west of Bar Patron 1, who stands at 1300,660: no generic patron is deleted, no zone is repainted, no plate changes. He is NEVER a re-skinned generic patron."
    }
+  },
+  "rebuild2026_09_11": {
+   "status": "AWAITING-OWNER-VISUAL-ACCEPTANCE",
+   "ruling": "Tyler, 2026-09-11: the environment freeze is WITHDRAWN and Room 3 is rebuilt. The rejected card-cluster generation becomes the canonical card composition; ONE further image operation rebuilds the bar quadrant with its three patrons registered to it; the seven furniture-dependent patrons ship as STATIC STAGING baked into the background with their LOOK and LISTEN on room hotspots; only the landing man and the stove man stay runtime actors. He accepts that this forfeits per-patron idle animation for the seven.",
+   "supersedes": "The phase2a row's `allRuntime: true`, `noHumanBaked: true` and its `standingNotSeated` reasoning, all three of which described the free-floating staging model that the furniture-registration audit of 2026-09-07 found could not be made physical. Those entries stay written exactly as they were: they record what was true and what it cost, and normalising them would delete the reason this room was rebuilt.",
+   "characterOperations": 1,
+   "room": "nugget_candidate",
+   "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+   "population": {
+    "visiblePatrons": 9,
+    "composition": {
+     "bar": 3,
+     "cardTable": 4,
+     "stairLanding": 1,
+     "stove": 1
+    },
+    "allRuntime": false,
+    "noHumanBaked": false,
+    "baked": "The four card players and the three bar men. Declared in the room file itself (RoomFile.population) so the count is checkable beside the room rather than by counting ambient files that no longer hold them.",
+    "runtime": "nugget_landing_man, nugget_stove_man",
+    "seatedNotStanding": "REVERSED, and this is the whole point of the rebuild. Four men now SIT at a real table with their forearms and cards on it, one man sits on a bar stool with his weight on the seat, one leans with his elbow taking his weight on the counter, and one stands with a boot on the brass rail. The poses came with their furniture in one composition instead of being retrofitted into furniture afterward.",
+    "pianoPlayer": "NONE, still asserted rather than remembered: tests/phase2a-access.test.ts and proofs/room-03/rebuild-proof.json both fail if any of the nine reaches the piano. The nearest box begins at x 745; the piano ends at x 705.",
+    "abandonedHand": "The face-up hand lies alone on the table's near rim at 858,386,40,26, in front of the empty fifth place at 875,470,100,60, while all four seated men hold fanned hands. No seat falls inside that place.",
+    "deke": "Re-reserved. His provisional rect moved to 1240,320,140,420 -- feet at 1310,740 on open dirt in front of the bar, on a walk box, inside nobody, and routable from the arrival point. He crosses two seated men in silhouette because he is nearer than they are, which is what nearer looks like. Still never a re-skinned generic patron."
+   },
+   "evidence": [
+    "docs/36-issue-list.md::Q135",
+    "proofs/room-03/rebuild-proof.json",
+    "renders/opening-set-retrofit/room-03-rebuild-proof.webp",
+    "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png",
+    "art/staging/room-03/card-salvage/salvage.json",
+    "art/staging/room-03/bar-rebuild-01/request.json",
+    "art/staging/room-03/rebuild-01/integration.json",
+    "proofs/room-03/bar-rebuild-registration.json",
+    "tests/phase2a-access.test.ts"
+   ],
+   "ownerAcceptance": null
   }
  }
 }

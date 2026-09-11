@@ -6833,6 +6833,182 @@
    "rejected": true,
    "rejectedWhy": "REJECTED AT THE FURNITURE-REGISTRATION GATE, BEFORE ANY HUMAN WAS EXTRACTED, AND NOT INTEGRATED. This one is not close: the result is a different saloon. A short frontal bar instead of the long diagonal counter, one stool instead of three, a new stove, a new door, a new window, a plank floor. Even the region the mask kept came back changed -- mean difference 26.14, 65% of kept pixels over 16 and 10% over 48 -- and no uniform shift registers it (best offset dx -18 improves the residual from 14.33 to 14.17, about 1%). The counter's measured slope reversed, +0.0011/px sent against -0.1602/px returned. The three men use their bar convincingly; it is not this bar. proofs/room-03/registration-bar.json, doc 36 Q134.",
    "integrated": false
+  },
+  {
+   "attempt": 1,
+   "role": "composition-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/bar-rebuild-01.txt",
+   "promptHash": "5f07592db51e99b2664717cad9d704a9e99f74f2317131cee9a1f1ee8fff95b3",
+   "references": [
+    {
+     "path": "art/staging/room-03/bar-rebuild-01/canvas.png",
+     "hash": "f33ad76cb4757b9bdf208859128e08d450c86b03e4baeb90ff6765edee10c729",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/bar-rebuild-01/identity.png",
+     "hash": "25869e9902ff29bd4ed2e21d6414b9ff5cdd1d23366639cfbc6d6fa7753c4afb",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/cluster-bar-01/source.png",
+     "hash": "db842f9c577e1cc6d5879e6d26ccaba075f46baa30058fceedc3db659943d33f",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-03/bar-rebuild-01/edit-mask.png",
+    "hash": "24c654fa2b53a221226d0fa130559e0f8442ca14a00ae8ffc2e9d464ebef6ca3"
+   },
+   "sourceHash": "f33ad76cb4757b9bdf208859128e08d450c86b03e4baeb90ff6765edee10c729",
+   "sourcePath": "art/staging/room-03/bar-rebuild-01/canvas.png",
+   "out": "art/staging/room-03/bar-rebuild-01/source.png",
+   "outputHash": "6494998d369cd4707241ff1cebb4befc84aca5ec6e55c7eb23ff512419d66319",
+   "bytes": 2143072,
+   "usage": {
+    "input_tokens": 13272,
+    "input_tokens_details": {
+     "image_tokens": 12252,
+     "text_tokens": 1020
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 14644
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-11T13:16:56.903Z",
+   "assetId": "room-03-nugget",
+   "subject": "room-03-nugget",
+   "note": "ROOM 3 REBUILD (Tyler, 2026-09-11, 1 of 1, no retries): the long diagonal bar, its back bar, three stools and the three accepted patrons registered to it, painted into the card-baked plate's own pixels. The last reference is the REJECTED bar generation, carried as pose and contact authority only -- Tyler accepted it for that and rejected its architecture. Nothing is integrated on the strength of this call: the returned room is compared against the canonical input first.",
+   "gates": {
+    "path": "art/staging/room-03/bar-rebuild-01/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-11T13:16:57.086Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-11T13:16:56.917Z"
   }
  ],
  "promotions": [

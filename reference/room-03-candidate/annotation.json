@@ -1,6 +1,6 @@
 {
  "room": "nugget_candidate",
- "plate": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+ "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
  "plateSize": [
   1920,
   864
@@ -124,10 +124,10 @@
    95
   ],
   "patrons": [
-   720,
-   335,
-   360,
-   165
+   715,
+   245,
+   445,
+   300
   ],
   "portrait": [
    968,
@@ -136,13 +136,13 @@
    115
   ],
   "cards": [
-   860,
-   368,
-   100,
-   30
+   858,
+   386,
+   40,
+   26
   ]
  },
- "hotspotsNote": "Read off the candidate: the handbill is the paper the refinement restored on the wall between the doors and the window (x 320-368, y 270-342); the window 375-500 x 100-390; the upright piano 505-705 x 255-520 with its stool in front; the chandelier 830-1060 x 0-155, seven candles, UNLIT (doc 16 canon, and the plate keeps it so); the stove 1058-1128 x 285-405 with its pipe to the ceiling, the rect taking the pipe as the shipping rect did; the back-room door under the landing 1130-1195 x 225-405; the stairs 1200-1420 x 40-390; the bar's counter 1205-1920 from y 385 at its left end, its front foot at y 830 by the frame edge, the rect covering counter, stools and back bar as before; the mirror inside it 1560-1890 x 45-335 and winning by area; the spittoon 1400-1490 x 765-864, cut by the frame's foot; the portrait 968-1048 x 163-278; the hand of cards on the table top at 860-960 x 368-398. THE PATRONS RECT IS THE CARD TABLE AND ITS FOUR CHAIRS (720-1080 x 335-500), which is where the players sit when they are cast back in as separate actors (deferred, phase 2): the hotspot that says what the patrons say has to sit where the patrons will be.",
+ "hotspotsNote": "ROOM 3 REBUILD: the seven staged patrons carry their LOOK and LISTEN on room hotspots, which is Tyler's ruling and also where they already were. `patrons` is the card group -- table, four chairs, four men, the empty fifth place -- re-read off the rebuilt plate. `cards` is the abandoned face-up hand, which lies alone on the near rim in front of that empty place while all four seated men hold fanned hands. `bar` already covered the counter and now covers the three men on it. NOT ONE WRITTEN LINE CHANGED; only the rectangles did. Read off the candidate: the handbill is the paper the refinement restored on the wall between the doors and the window (x 320-368, y 270-342); the window 375-500 x 100-390; the upright piano 505-705 x 255-520 with its stool in front; the chandelier 830-1060 x 0-155, seven candles, UNLIT (doc 16 canon, and the plate keeps it so); the stove 1058-1128 x 285-405 with its pipe to the ceiling, the rect taking the pipe as the shipping rect did; the back-room door under the landing 1130-1195 x 225-405; the stairs 1200-1420 x 40-390; the bar's counter 1205-1920 from y 385 at its left end, its front foot at y 830 by the frame edge, the rect covering counter, stools and back bar as before; the mirror inside it 1560-1890 x 45-335 and winning by area; the spittoon 1400-1490 x 765-864, cut by the frame's foot; the portrait 968-1048 x 163-278; the hand of cards on the table top at 860-960 x 368-398. THE PATRONS RECT IS THE CARD TABLE AND ITS FOUR CHAIRS (720-1080 x 335-500), which is where the players sit when they are cast back in as separate actors (deferred, phase 2): the hotspot that says what the patrons say has to sit where the patrons will be.",
  "exits": {
   "front_doors": [
    40,
@@ -191,52 +191,62 @@
   {
    "id": "spittoon",
    "rect": [
-    1405,
+    1390,
     824,
-    82,
+    110,
     40
    ],
-   "note": "PHASE 2A: THE SPITTOON'S OWN FOOTPRINT, not its sprite. It was [1400,765,90,95] -- the whole drawn object -- and with the floor now reaching the bar that rect stood in open dirt and cut the near floor in two, stranding everything east of it. The brass sits on the ground at y 824-860, x 1405-1487; the obstacle is that, carried to the frame's foot so no unwalkable 4 px sliver is left under it. Same correction the trough got in Phase 1.5G: an obstacle is a thing's base line, not its silhouette."
+   "note": "REBUILD: re-read off the rebuilt plate. The brass sits at x 1390-1500 and its base runs y 824 to the frame's foot. Still a base line, not a silhouette."
   },
   {
    "id": "card_table",
    "rect": [
-    720,
-    335,
-    360,
-    165
+    715,
+    490,
+    445,
+    110
    ],
-   "note": "The table and its four chairs, empty. Its footprint on the floor; he walks round it. The players return as separate actors in phase 2 and stand in this rect."
+   "note": "REBUILD: the canonical card table is the salvaged cluster now -- a bigger, nearer table with four chairs, four seated men and an empty fifth place. Its FOOTPRINT on the floor, re-read off the rebuilt plate: chair legs and boots stand between y 490 and y 600, between x 715 and x 1160. He walks round the left of it or the right of it, and there is no floor behind it to strand him on."
   },
   {
    "id": "bar_stool_1",
    "rect": [
-    1188,
-    604,
-    92,
-    46
+    1195,
+    545,
+    130,
+    60
    ],
-   "note": "PHASE 2A: the far stool. Base centre (1232,632), seat plane y 514."
+   "note": "REBUILD: the far stool and the seated miner on it. The stool's base is y 600 and his boots reach the same row; one rect covers both, because a man on a stool is one thing to walk round."
   },
   {
    "id": "bar_stool_2",
    "rect": [
-    1330,
-    694,
-    100,
-    68
+    1325,
+    595,
+    140,
+    75
    ],
-   "note": "PHASE 2A: the middle stool, carried down to the band edge at y 762. Base centre (1372,727), seat plane y 565. Stopping at its leg tips left a 12 px strip under it, which is a box the router can route through and a man cannot stand in."
+   "note": "REBUILD: the middle stool and the leaning man standing over it. Base y 665."
   },
   {
    "id": "bar_stool_3",
    "rect": [
-    1562,
-    794,
-    200,
-    70
+    1535,
+    660,
+    155,
+    85
    ],
-   "note": "PHASE 2A: the near stool, carried to the frame's foot and east to the bar's plinth. Base centre (1640,830), seat plane y 644. The 30-70 px between a stool and the counter is not a place a man walks, and leaving it walkable made two stranded slivers."
+   "note": "REBUILD: the near stool, empty. Base y 740."
+  },
+  {
+   "id": "bar_man_3",
+   "rect": [
+    1600,
+    620,
+    185,
+    80
+   ],
+   "note": "REBUILD: the standing man at the near end of the run, one boot on the brass rail. His boots occupy x 1610-1775 between y 625 and y 695. He is painted into the plate, so nothing moves him out of the way: he is a wall."
   }
  ],
  "lamps": [
@@ -312,21 +322,21 @@
  "characters": {
   "deke_vessel": {
    "rect": [
-    1090,
-    380,
-    120,
-    320
+    1240,
+    320,
+    140,
+    420
    ],
-   "note": "ACT II. Doc 04 VES_B1, found again in this room. At the near end of the bar, in the stove's and the bar lamps' light, feet about y 700 -- the one place at the counter the floor reaches. Provisional until the sprite exists."
+   "note": "ACT II. Doc 04 VES_B1, found again in this room. REBUILD: moved off the old rect, which the rebuilt card group now occupies. He stands on the open dirt in front of the bar's far half, feet about y 740, in the stove's and the bar lamps' light, clear of all three bar men and of the spittoon. Provisional until the sprite exists."
   },
   "raccoon": {
    "rect": [
-    1215,
-    330,
+    1480,
+    410,
     90,
     70
    ],
-   "note": "ACT II after A5. On the END OF THE BAR -- the counter's left end, 1205-1300 at y 385 -- evicted from a hole and promoted. Provisional until the sprite exists."
+   "note": "ACT II after A5. On the END OF THE BAR. REBUILD: the counter's left end is under a seated man's elbow now, so he moves to the clear stretch between the leaning man's forearm and the standing man's mug, x 1480-1570, standing on the top surface at about y 480. Still the counter, still evicted from a hole and promoted. Provisional until the sprite exists."
   }
  },
  "charactersNote": "Kept OUT of hotspots on purpose, as in the shipping annotation: a rect with no lines is a hotspot that says nothing when clicked. Their words live in their trees and in doc 49.",
@@ -335,7 +345,7 @@
  },
  "walkModel": "clipped",
  "occlusion": {
-  "note": "PLANNED, NOT CUT (Tyler's order: masks only after the plate is selected). The candidate offers real occluders the shipping plate never had: the three bar stools (1180-1270 x 500-680, 1330-1430 x 545-740, 1570-1700 x 620-830), the spittoon (1400-1490 x 765-864) and the near end of the counter. None is in use: the floor's right edge stops at the stools, so Thad never passes behind them, and every band is masked by nothing. When a stool is cut as a plane the floor may extend along the bar and the bands re-declare their planes.",
+  "note": "REBUILD: STILL NO PLANE, and now for a measured reason rather than a pending one. With the seven furniture-dependent patrons painted into the plate, the case the planes were wanted for is gone: nobody has to be registered to furniture at runtime any more. What is left is two actors, and neither passes behind anything. The landing man stands on a stair tread with the whole room in front of him and nothing between. The stove man stands at 1145,508, and the nearest thing that could cross him is the card group, whose right-hand chair back ends at x 1100 while his sprite starts at 1098 -- two pixels, measured off the rebuilt plate, and he is not cut by them. THE FLOOR STILL STOPS AT THE BAR'S PLINTH, so nobody passes behind the counter, and the three bar men are obstacles rather than occluders. A plane whose mask nothing is ever tested against is the thing this room already had and it is worse than none: it cuts a figure along a shape nobody has checked. KNOWN AND NOT CUT HERE: the spittoon, which Thad can walk behind since Phase 2A made its obstacle a base line. That is a pre-existing Room 3 item and not part of what the rebuild was authorized to change.",
   "planes": [],
   "clipPlane": {
    "floor_0": 0,
@@ -353,7 +363,7 @@
   "stage": "CANDIDATE",
   "review": "live at ?room=nugget_candidate; the shipping room is untouched"
  },
- "plateNote": "PHASE 1.5C (doc 36 Q119, owner review of 1.5B failed): the accepted clean plate with ONE continuous dirt floor across the whole public floor -- the third and final floor operation, the whole floor under a mask with no furniture holes and no rectangular restore; the model's floor stands under and between every leg, the model's furniture stands as it kept it, and only the spittoon's tight brass silhouette comes back from the accepted plate. Stove out in the base, fire in the lit overlay, unchanged. art/staging/room-03/corrected-03/derivation.json.",
+ "plateNote": "ROOM 3 REBUILD (Tyler, 2026-09-11). THE PLATE IS NO LONGER PEOPLE-FREE. Tyler accepted the build decision and ruled that the seven furniture-dependent patrons -- four card players and three bar men -- ship as STATIC STAGING baked into the background, with their LOOK and LISTEN copy on the room hotspots, and that only the landing man and the stove man stay runtime actors. That is the method the ORIGINAL shipping Nugget used: art/backgrounds/room-03-nugget.png drew its seated men in the same pass as its furniture. Two sources. The salvaged card cluster, blitted back at the integer x2 it was composed at with its plank floor replaced by this room's own dirt (tools/retrofit/nugget-card-salvage.py). And the ONE authorized bar operation, taken from plate x 1176 rightward (tools/retrofit/nugget-bar-integrate.py). PHASE 1.5C (doc 36 Q119, owner review of 1.5B failed): the accepted clean plate with ONE continuous dirt floor across the whole public floor -- the third and final floor operation, the whole floor under a mask with no furniture holes and no rectangular restore; the model's floor stands under and between every leg, the model's furniture stands as it kept it, and only the spittoon's tight brass silhouette comes back from the accepted plate. Stove out in the base, fire in the lit overlay, unchanged. art/staging/room-03/corrected-03/derivation.json.",
  "hotspotStates": {
   "stove": {
    "default": "lit",
@@ -367,5 +377,172 @@
     }
    }
   }
+ },
+ "population": {
+  "note": "ROOM 3 REBUILD (Tyler, 2026-09-11). THE NUGGET'S POPULATION IS NINE AND SEVEN OF THEM ARE PAINT. The owner ruled the four card players and the three bar men into the background art as static staging, keeping only the landing man and the stove man as runtime actors, and the count therefore stopped being something a test could get by counting ambient files. This declares it instead: every one of the nine, what he is doing, whether he is paint or an actor, and where he is in the plate -- boxes read off art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png on a 50 px grid. A person can check it against renders/opening-set-retrofit/room-03-rebuild-population.webp in under a minute, and tests/phase2a-access.test.ts checks the arithmetic every run.",
+  "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+  "people": [
+   {
+    "id": "card_1",
+    "group": "card",
+    "kind": "baked",
+    "box": [
+     745,
+     305,
+     135,
+     215
+    ],
+    "seat": [
+     800,
+     480
+    ],
+    "what": "flat cap, nearest the piano, back three-quarters to camera, holding a fanned hand"
+   },
+   {
+    "id": "card_2",
+    "group": "card",
+    "kind": "baked",
+    "box": [
+     800,
+     250,
+     110,
+     180
+    ],
+    "seat": [
+     850,
+     435
+    ],
+    "what": "grey hair and side-whiskers, far side of the table, facing the room, holding a fanned hand"
+   },
+   {
+    "id": "card_3",
+    "group": "card",
+    "kind": "baked",
+    "box": [
+     940,
+     255,
+     115,
+     175
+    ],
+    "seat": [
+     1000,
+     435
+    ],
+    "what": "the young one in shirtsleeves and a blue neckerchief, far side, facing the room, holding a fanned hand"
+   },
+   {
+    "id": "card_4",
+    "group": "card",
+    "kind": "baked",
+    "box": [
+     995,
+     300,
+     155,
+     245
+    ],
+    "seat": [
+     1075,
+     490
+    ],
+    "what": "bald, spectacles, nearest the stove, back to camera, holding a fanned hand"
+   },
+   {
+    "id": "bar_1",
+    "group": "bar",
+    "kind": "baked",
+    "box": [
+     1195,
+     262,
+     155,
+     343
+    ],
+    "seat": [
+     1270,
+     600
+    ],
+    "what": "SEATED: the old bearded miner, hips on the far stool, one boot on its ring, both forearms on the counter, tin cup"
+   },
+   {
+    "id": "bar_2",
+    "group": "bar",
+    "kind": "baked",
+    "box": [
+     1330,
+     255,
+     170,
+     410
+    ],
+    "seat": [
+     1410,
+     660
+    ],
+    "what": "LEANING: the lean younger man in shirtsleeves, waistcoat and watch chain, forearm taking his weight on the counter top, both boots on the dirt"
+   },
+   {
+    "id": "bar_3",
+    "group": "bar",
+    "kind": "baked",
+    "box": [
+     1600,
+     212,
+     215,
+     483
+    ],
+    "seat": [
+     1700,
+     690
+    ],
+    "what": "STANDING: the heavy moustached man in the bowler and checked shirt, tin mug in hand, one boot on the brass foot rail, half turned into the room"
+   },
+   {
+    "id": "nugget_landing_man",
+    "group": "landing",
+    "kind": "actor",
+    "box": [
+     1275,
+     67,
+     61,
+     168
+    ],
+    "seat": [
+     1305,
+     235
+    ],
+    "what": "there is always a man on the landing, and he has not moved"
+   },
+   {
+    "id": "nugget_stove_man",
+    "group": "stove",
+    "kind": "actor",
+    "box": [
+     1098,
+     279,
+     94,
+     229
+    ],
+    "seat": [
+     1145,
+     508
+    ],
+    "what": "coat buttoned to the throat, both hands open toward the iron, turned into the stove"
+   }
+  ],
+  "expect": {
+   "total": 9,
+   "bar": 3,
+   "card": 4,
+   "landing": 1,
+   "stove": 1,
+   "baked": 7,
+   "actors": 2
+  },
+  "emptyFifthPlace": [
+   875,
+   470,
+   100,
+   60
+  ],
+  "emptyFifthPlaceNote": "The near side of the table: an empty chair, and the abandoned face-up hand on the rim in front of it. No seat in this file may fall inside it.",
+  "pianoNote": "Nobody plays the piano, nobody touches it, and that is the joke. No box in this file may reach it."
  }
 }
