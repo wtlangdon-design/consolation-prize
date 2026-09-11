@@ -1228,9 +1228,17 @@ built.exits = (live.exits ?? []).map((e) => {
   // topmost zone band ran x40-1690 across a floor 115 wide at that depth and
   // its own centre was not walkable. Two descriptions of one floor have to
   // agree, or a check that asks either of them is asking the wrong one.
-  built.walkable = bands.map(([id, y0, y1, zone]) => {
+  // AND A BAND THE OBSTACLES ATE IS NOT A BAND. Room 3's rebuilt card table
+  // is bigger and nearer than the plate's was and its footprint covers the
+  // whole of floor_0, so carve() left that band no pieces at all -- while the
+  // summary went on declaring 720,506,410x51 of walkable floor that no walk
+  // box backs. Same failure as the clipping above, one step further on: the
+  // summary has to describe what the boxes actually are.
+  built.walkable = bands.flatMap(([id, y0, y1, zone]) => {
     const span = bandSpan(y0, y1) ?? [L, R];
-    return { id, zone, surface: 'mud', rect: [span[0], y0, span[1] - span[0], y1 - y0] };
+    const rect = [span[0], y0, span[1] - span[0], y1 - y0];
+    if (!carve(rect).length) return [];
+    return [{ id, zone, surface: 'mud', rect }];
   });
   built.walkableOutline = ann.walkable;
   // ENTRANCES, PLURAL, WHICH IS WHAT THE ENGINE READS. The compiler wrote a
@@ -1240,6 +1248,23 @@ built.exits = (live.exits ?? []).map((e) => {
   // middle of Main Street with his back to the camera instead of walking in
   // off the road.
   built.entrances = ann.entrances ?? [];
+  // THE PLATE IS THE ANNOTATION'S, NOT A FIELD KEPT BY HAND. The Room 3
+  // rebuild pointed its annotation at a new plate, recompiled, and the room
+  // file went on naming the old one -- because `background` was simply
+  // whatever the previous compile had left there. Two lists that must agree,
+  // kept separately, which is the failure this file already has three notes
+  // about. Every other annotation's `plate` already equals its room's
+  // `background`; this makes that true by construction.
+  if (ann.plate) built.background = ann.plate;
+  // WHO IS IN THE ROOM, INCLUDING THE ONES WHO ARE PAINT. A room whose
+  // furniture-dependent people ship inside the background art cannot have its
+  // population counted from the ambient files, and counting them there would
+  // go on passing while saying nothing. The annotation declares all of them --
+  // painted and runtime alike -- and the room file carries that declaration,
+  // so the count is checkable beside the room it describes rather than from a
+  // path spelled out in a test.
+  if (ann.population) built.population = ann.population;
+  else delete built.population;
   // Doc 18's flicker, by the mechanism that works on a generated plate.
   if (ann.lamps) built.lamps = ann.lamps;
   // Whole-plate animation, where a room declares it.

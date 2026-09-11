@@ -4305,3 +4305,58 @@ The composition itself is right, and that is the frustrating part: four men genu
 `proofs/room-03/registration-card.json` · `registration-bar.json` · `art/staging/room-03/cluster-sources.json` · `tools/retrofit/nugget-cluster-prep.py` · `nugget-cluster-registration.py` · `nugget-cluster-evidence.py` · `proofs/room-03/prompts/cluster-card-01.txt` · `cluster-bar-01.txt`.
 
 **PHASE 2A REMAINS OPEN. PHASE 2B HAS NOT STARTED.**
+
+---
+
+## Q135 · Room 3 rebuilt around its clusters: the card group salvaged as canon, one bar operation spent, the seven furniture-dependent patrons baked — **BUILT 2026-09-11, DEPLOYED, AWAITING OWNER VISUAL ACCEPTANCE**
+
+**THE OWNER REVERSED THE DEPENDENCY.** Q133 diagnosed why the Nugget's patrons could not be made physical: they were cast as free-floating figures and then asked to sit on furniture they had never been drawn against, and no amount of coordinate work reaches a correct frame from there. Q134 spent the two cluster operations that followed from that diagnosis and rejected both. Tyler's answer was not a third retrofit. It was: **author coherent furniture-dependent people clusters first, then build the room around them** — and *do not build another room that requires characters to be retrofitted into furniture afterward.*
+
+He withdrew the Nugget's environment freeze, accepted the build decision, and ruled:
+
+- the rejected **CARD** cluster becomes the canonical card composition;
+- exactly **ONE** further image operation rebuilds the **BAR** quadrant with its three patrons on it, no retry;
+- the **seven furniture-dependent patrons ship as STATIC STAGING baked into the background art**, with their LOOK and LISTEN on room hotspots;
+- only the **landing man** and the **stove man** stay runtime actors;
+- and the per-patron idle animation this forfeits is **accepted**, not a debt.
+
+That is the method the *original* shipping Nugget used. `art/backgrounds/room-03-nugget.png` drew its four seated men and its three bar men in the same pass as its furniture, which is exactly why they fit it.
+
+**THE CARD SALVAGE COST NOTHING.** The free window is blitted back into the accepted plate at the integer ×2 it was composed at, so every canonical pixel lands on the pixel it came from. One repair was required — the endpoint laid a **plank** floor under a dirt-floor saloon — and it is deterministic:
+
+> `out = plateDirt × shadow` where the floor band reads as floor · `out = newArt` where it reads as an object
+
+`shadow` is the new art's own low-frequency floor luminance over a per-row high percentile of itself, so the table's and the chairs' cast shadows survive while the brightness and the grain come from the Nugget's own dirt. Every floor pixel that ships is a plate pixel times a number between 0.35 and 1.15. Nothing is synthesised.
+
+**WHAT DECIDES FLOOR FROM OBJECT IS LOCAL STRUCTURE, NOT FURNITURE RECOGNITION**, and the two rules that failed first are the argument for the third. Thresholding on **darkness** kept the plank seams — a seam is dark, so a seam classified itself as furniture and survived the pass that existed to remove it. Thresholding on **horizontal gradient** kept almost nothing: at this depth a chair leg's edge reads 9–14 against a floor whose own 95th percentile is 10.4, so legs came out as dotted fragments. **Flatness** works, because it is the property that actually separates them: a plank floor is flat at every scale and a leg, a stretcher and a boot are not. The seams are suppressed *first* — otherwise a seam protects itself by being the very structure the test looks for — and what is still flat afterwards gets the dirt.
+
+**THE BAR OPERATION PASSED ITS GATE.** The call it replaces failed because its free window was a **band following the counter**: the counter was free along its whole length, never crossed into kept pixels, and the returned slope reversed (+0.0011/px sent against −0.1602/px back). This window is a **rectangle the counter ENTERS at plate x 1270 and LEAVES at x 1860 through kept room**, so both ends of the line are pinned and the run between them has to join them. The canvas was the card-baked plate, so four accepted men rode inside the frame at their accepted size — the scale and the drawing language were in the picture, not only in the words.
+
+| | mean over kept | > 16 | > 48 | best uniform shift |
+|---|---|---|---|---|
+| card, 2026-09-07 | 4.14 | 2.5% | 0% | none |
+| **bar, 2026-09-07 — rejected** | **26.14** | **65%** | **10%** | none registers it |
+| **bar, 2026-09-11 — this one** | **6.39** | 8.9% | 0.5% | **(0,0) — nothing moved** |
+
+It came back with the long diagonal counter at its own angle, the back bar, the bottles, the mirror, the stairs tread for tread, the dirt floor, three stools, a brass foot rail it was invited to add, and three men: the miner **seated** with his weight on a stool and both forearms on the wood, the lean man **leaning** with his elbow taking his weight, the bowler man **standing** with a boot on the rail. All three identities recognisable.
+
+**WHY THE INTEGRATION TAKES THE WHOLE QUADRANT AND NOT THE FREE WINDOW.** Inside the kept strip nearest the window the endpoint did two things a mask was never going to stop: it carried the new foot rail on past the window edge, and it dropped the far stool. Blitting only the window therefore leaves a rail that begins in mid-air at x 1270 and a counter with a step in it at x 1860. Taking everything from x 1176 — right of the card group, left of anything the men touch — gives a rail that runs the bar's whole length, a counter with no join, and exactly three stools. The seam crosses open dirt and blank wall where the residual is 2 to 4.
+
+**ONE FACE CORRECTION, AND IT IS FIVE PIXELS.** The standing man's near eye came back with a catchlight at luminance 184 inside a socket that runs 0 to 30. Every accepted figure in this game — the four card players two feet to his left included — has one dark shape for an eye. Inside a declared rectangle round that one eye, a pixel lighter than 90 takes the eye's own darkest tone. The other two men were measured and needed nothing. **No cheek was touched**: they model exactly as the accepted card players' do, and the card players' style is what Tyler accepted.
+
+**THE POPULATION MOVED OUT OF THE AMBIENT FILES AND INTO THE ROOM.** Counting `room.ambient` now counts two and says nothing — it would have gone on passing at nine right up to the ruling and then failed for being right. `RoomFile.population` declares all nine instead: who they are, which are paint and which are actors, each one's box in the plate and each one's contact point. The two halves still have to agree — every actor in it is an ambient the room asks for and every ambient the room asks for is in it — so a patron quietly re-added as a free-floating sprite fails on sight.
+
+**THE COMPILER LEARNED TWO THINGS** from this, both of them the same lesson it already has three notes about:
+
+- **The plate is the annotation's.** The rebuild pointed the annotation at a new plate, recompiled, and the room file went on naming the old one, because `background` was simply whatever the previous compile had left there.
+- **A band the obstacles ate is not a band.** The rebuilt card table is bigger and nearer, its footprint covers the whole of `floor_0`, and `carve()` left that band no pieces at all — while the walkable summary went on declaring 410×51 of floor that no walk box backed.
+
+**STILL NO OCCLUSION PLANE, and now for a measured reason rather than a pending one.** With the seven baked, the case the planes were wanted for is gone: nobody has to be registered to furniture at runtime. What is left is two actors, and neither passes behind anything — the landing man has the whole room in front of him, and the stove man's sprite starts at x 1098 against a chair back that ends at 1100. **Known and not cut:** the spittoon, which Thad can walk behind since Phase 2A made its obstacle a base line. That is a pre-existing Room 3 item, not part of what the rebuild was authorized to change.
+
+**LEDGER.** Caps 46 → 47 under the asset Tyler named, `room-03-nugget`, rather than a raised `nugget-*` family cap, so the record of what the free-floating model and the two furniture clusters cost still says exactly what it said. **1 of 1 spent. 47 of 47. No image operation remains authorized anywhere.**
+
+**WHAT IS TRUE OF THE GAME.** Nine patrons — 3 bar, 4 cards, 1 landing, 1 stove — seven of them paint and two of them actors. Four men actually playing cards at a real table with an abandoned face-up hand on the near rim and an empty fifth place behind it. Three men actually occupying a real bar. An empty piano and its empty stool. Thad naturally scaled among them. Every hotspot and both exits routable from the arrival point, and Act II Deke with somewhere to stand that Thad can reach.
+
+`proofs/room-03/rebuild-proof.json` · `bar-rebuild-registration.json` · `renders/opening-set-retrofit/room-03-rebuild-proof.webp` · `art/staging/room-03/card-salvage/salvage.json` · `bar-rebuild-01/request.json` · `rebuild-01/integration.json` · `tools/retrofit/nugget-card-salvage.py` · `nugget-bar-rebuild-prep.py` · `nugget-bar-integrate.py` · `nugget-bar-registration.py` · `nugget-rebuild-proof.ts` · `proofs/room-03/prompts/bar-rebuild-01.txt`.
+
+**ROOM 3 REBUILD PHASE 2A IS DEPLOYED AND AWAITING OWNER VISUAL ACCEPTANCE. PHASE 2B HAS NOT STARTED.**

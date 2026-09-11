@@ -1194,6 +1194,38 @@ export interface RoomFile {
     maskPendingNote?: string;
   }[];
   /**
+   * EVERYONE THE ROOM CONTAINS, INCLUDING THE ONES WHO ARE PAINT.
+   *
+   * A room may ship people inside its background art rather than as runtime
+   * actors -- a group whose poses depend on furniture is one composition, and
+   * cutting it into sprites to place them back where they already were buys
+   * nothing. Such a person is in no ambient file, so the room's population
+   * cannot be counted from `ambient` and a check that counts it there is
+   * counting something else while looking correct.
+   *
+   * This is the declaration instead: every person, their group, whether they
+   * are `baked` or an `actor`, their box in the plate and their contact point.
+   * The engine never reads it. It exists so a count, a staging rule or a
+   * visual proof can be checked against the room rather than against a path
+   * spelled out somewhere else.
+   */
+  population?: {
+    note?: string;
+    plate?: string;
+    people: {
+      id: string;
+      group: string;
+      kind: 'baked' | 'actor';
+      box: number[];
+      seat: number[];
+      what?: string;
+    }[];
+    expect: Record<string, number>;
+    emptyFifthPlace?: number[];
+    emptyFifthPlaceNote?: string;
+    pianoNote?: string;
+  };
+  /**
    * Authored points a room proof stands the actor on, with the plane each is
    * meant to be masked by. Ruling: gate 8C's argument one level down -- the
    * depths a test uses are the author's, not the testing agent's.

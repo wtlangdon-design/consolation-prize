@@ -118,24 +118,60 @@ for (const [label, room, arrival] of [
 }
 
 test('the saloon carries exactly nine patrons, and none of them is at the piano', () => {
-  const here = ambient.filter((npc) => (saloon.ambient ?? []).includes(npc.id));
-  assert.equal(here.length, 9, 'the owner\'s ruling: nine visible runtime patrons');
+  // THE COUNT MOVED OUT OF THE AMBIENT FILES AND INTO THE ART. Tyler's Room 3
+  // rebuild ruling: the four card players and the three bar men ship as static
+  // staging painted into the background, with their LOOK and LISTEN on the
+  // room's own hotspots, and only the landing man and the stove man stay
+  // runtime actors. So counting `room.ambient` now counts two and says nothing
+  // about the room -- it would have gone on passing at nine right up until the
+  // moment the ruling landed, and then failed for being right.
+  //
+  // What is counted instead is the DECLARED population, which names all nine,
+  // says which are paint and which are actors, and carries each one's box in
+  // the plate. The two halves still have to agree: every actor in that file is
+  // an ambient the room asks for, and every ambient the room asks for is in
+  // that file. A patron quietly re-added as a free-floating sprite fails here.
+  const declared = saloon.population;
+  assert.ok(declared, 'the saloon declares who is in it, paint and actors alike');
+  const people = declared.people;
+  const count = (group: string) => people.filter((one) => one.group === group).length;
+  assert.equal(people.length, declared.expect.total, "the owner's ruling: nine visible patrons");
+  assert.equal(count('bar'), declared.expect.bar, 'three at the bar');
+  assert.equal(count('card'), declared.expect.card, 'four at the cards');
+  assert.equal(count('landing'), declared.expect.landing, 'one on the landing');
+  assert.equal(count('stove'), declared.expect.stove, 'one at the stove');
+
+  const actors = people.filter((one) => one.kind === 'actor').map((one) => one.id).sort();
+  const baked = people.filter((one) => one.kind === 'baked');
+  assert.equal(baked.length, declared.expect.baked, 'seven are painted into the plate');
+  assert.deepEqual(actors, [...(saloon.ambient ?? [])].sort(),
+    'the room asks for exactly the people this file calls actors, and no others');
+
   const piano = saloon.hotspots.find((one) => one.id === 'piano');
   assert.ok(piano);
-  const [px, py, pw, ph] = piano.rect;
-  for (const npc of here) {
-    const atIt = npc.x > px - 40 && npc.x < px + pw + 40 && npc.y > py && npc.y < py + ph + 90;
-    assert.ok(!atIt, `${npc.id} stands at ${npc.x},${npc.y}, which is at the piano. Nobody plays `
-      + 'it, nobody touches it, and that is the joke.');
+  const [px = 0, py = 0, pw = 0, ph = 0] = piano.rect;
+  for (const one of people) {
+    const [bx = 0, by = 0, bw = 0, bh = 0] = one.box;
+    const atIt = bx < px + pw + 40 && bx + bw > px - 40 && by < py + ph + 90 && by + bh > py;
+    assert.ok(!atIt, `${one.id} occupies ${one.box.join(',')}, which is at the piano. Nobody `
+      + 'plays it, nobody touches it, and that is the joke.');
   }
+
   // AND THE FIFTH PLACE AT THE TABLE STAYS EMPTY: the abandoned hand lies on
-  // the near edge, which is the side with no chair.
+  // the near rim, in front of a chair nobody is in.
+  const fifth = declared.emptyFifthPlace ?? [];
+  const [fx = 0, fy = 0, fw = 0, fh = 0] = fifth;
+  for (const one of people) {
+    const [sx = 0, sy = 0] = one.seat;
+    assert.ok(!(sx > fx && sx < fx + fw && sy > fy && sy < fy + fh),
+      `${one.id} sits at ${one.seat.join(',')}, in the absent player's place`);
+  }
+
+  // The hand itself is on the table, in front of that place, and is nobody's.
   const hand = saloon.hotspots.find((one) => one.id === 'cards');
   assert.ok(hand);
-  const [cx, , cw] = hand.rect;
-  for (const npc of here) {
-    const onTheNearEdge = npc.x > cx - 20 && npc.x < cx + cw + 20 && npc.y > 540 && npc.y < 620;
-    assert.ok(!onTheNearEdge,
-      `${npc.id} stands at ${npc.x},${npc.y}, on the table's near edge -- the absent player's place`);
-  }
+  const [cx = 0, cy = 0, cw = 0] = hand.rect;
+  assert.ok(cx > fx - 40 && cx + cw < fx + fw + 40,
+    'the abandoned hand lies in front of the empty fifth place');
+  assert.ok(cy < fy, 'it lies on the table top, not on the chair');
 });

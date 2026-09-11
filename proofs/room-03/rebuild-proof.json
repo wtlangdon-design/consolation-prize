@@ -1,0 +1,41 @@
+{
+ "schema": 1,
+ "note": "ROOM 3 REBUILD (Tyler, 2026-09-11): the five proofs his ruling asks for, each a number and a mark on the same sheet.",
+ "room": "nugget_candidate",
+ "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "commit": "1c8c7417451cfe93779a4b2ae851a8be2f7ba6dc",
+ "checks": [
+  {
+   "what": "population is exactly nine",
+   "ok": true,
+   "detail": "9 declared: 4 at the cards, 3 at the bar, 1 on the landing, 1 at the stove"
+  },
+  {
+   "what": "seven are paint and two are actors",
+   "ok": true,
+   "detail": "baked: card_1, card_2, card_3, card_4, bar_1, bar_2, bar_3 · actors: nugget_landing_man, nugget_stove_man · the room asks for: nugget_landing_man, nugget_stove_man"
+  },
+  {
+   "what": "nobody is at the piano",
+   "ok": true,
+   "detail": "the piano stands at 505,255,200,265; the nearest person's box begins at x 745"
+  },
+  {
+   "what": "the fifth place is unoccupied and the hand is in front of it",
+   "ok": true,
+   "detail": "the hand lies at 858,386,40,26, on the table top, in front of the empty place at 875,470,100,60; no seat falls inside it"
+  },
+  {
+   "what": "every hotspot and exit is reachable from where the player arrives",
+   "ok": true,
+   "detail": "14 target(s) routed from 300,760"
+  },
+  {
+   "what": "Act II Deke has somewhere to stand, and Thad can reach it",
+   "ok": true,
+   "detail": "his provisional rect 1240,320,140,420 puts his feet at 1310,740 -- on a walk box, inside nobody, routable from arrival. He crosses bar_1, bar_2 in silhouette, from in front"
+  }
+ ],
+ "passed": true,
+ "sheet": "renders/opening-set-retrofit/room-03-rebuild-proof.webp"
+}

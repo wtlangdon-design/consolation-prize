@@ -3,24 +3,13 @@
   "id": "nugget_candidate",
   "name": "THE BOUNTIFUL NUGGET (CANDIDATE)",
   "note": "Doc 05 Room 3 plus doc 16, verbatim. Twelve hotspots and two exits. THE HANDBILL is the Rules of the Assay and carries Rule 3. THE PATRONS has no drawn figures in the background -- doc 07's ambient characters supply them at runtime, so the rect covers where they stand. Doc 16 note 4: the stove's third LISTEN reverses the first two on purpose; it has gone out and nobody has noticed. Do not 'correct' it.",
-  "background": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+  "background": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
   "colours": {
     "sky": 0,
     "ground": 6
   },
   "horizon": 492,
   "walkable": [
-    {
-      "id": "floor_0",
-      "zone": 2,
-      "surface": "mud",
-      "rect": [
-        720,
-        506,
-        410,
-        51
-      ]
-    },
     {
       "id": "floor_1",
       "zone": 2,
@@ -93,10 +82,10 @@
       "id": "cards",
       "name": "THE HAND OF CARDS",
       "rect": [
-        860,
-        368,
-        100,
-        30
+        858,
+        386,
+        40,
+        26
       ],
       "colour": 202,
       "defaultVerb": "LOOK_AT",
@@ -128,8 +117,8 @@
         "USE": "I do not play. My father was very clear about it, and he was wrong about most things."
       },
       "walkTo": {
-        "x": 910,
-        "y": 583,
+        "x": 878,
+        "y": 707,
         "facing": "back"
       }
     },
@@ -244,7 +233,7 @@
       },
       "walkTo": {
         "x": 1008,
-        "y": 583,
+        "y": 707,
         "facing": "back"
       }
     },
@@ -297,7 +286,7 @@
       },
       "walkTo": {
         "x": 1093,
-        "y": 583,
+        "y": 707,
         "facing": "back"
       }
     },
@@ -340,7 +329,7 @@
       },
       "walkTo": {
         "x": 945,
-        "y": 583,
+        "y": 707,
         "facing": "back"
       }
     },
@@ -426,46 +415,6 @@
       }
     },
     {
-      "id": "patrons",
-      "name": "THE PATRONS",
-      "rect": [
-        720,
-        335,
-        360,
-        165
-      ],
-      "colour": 170,
-      "defaultVerb": "LOOK_AT",
-      "responses": {
-        "LOOK_AT": [
-          {
-            "say": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
-            "repeat": [
-              "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
-              "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
-            ]
-          }
-        ],
-        "LISTEN_TO": [
-          {
-            "say": "Talk. A great deal of it, all at the same volume, none of it listened to.",
-            "repeat": [
-              "Somebody in the corner has told the same story four times and it has grown twice.",
-              "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
-            ]
-          }
-        ]
-      },
-      "overrides": {
-        "TALK_TO": "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
-      },
-      "walkTo": {
-        "x": 900,
-        "y": 586,
-        "facing": "back"
-      }
-    },
-    {
       "id": "stairs",
       "name": "THE STAIRS",
       "rect": [
@@ -540,8 +489,48 @@
         ]
       },
       "walkTo": {
-        "x": 1520,
-        "y": 861,
+        "x": 1725,
+        "y": 864,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "patrons",
+      "name": "THE PATRONS",
+      "rect": [
+        715,
+        245,
+        445,
+        300
+      ],
+      "colour": 170,
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
+            "repeat": [
+              "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
+              "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Talk. A great deal of it, all at the same volume, none of it listened to.",
+            "repeat": [
+              "Somebody in the corner has told the same story four times and it has grown twice.",
+              "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I have tried. They are very friendly, and they want to know what I know, and I know nothing, and this disappoints them each time."
+      },
+      "walkTo": {
+        "x": 938,
+        "y": 706,
         "facing": "back"
       }
     },
@@ -584,7 +573,7 @@
         "PUSH": "It does not move. It is the only thing in Consolation built to stay."
       },
       "walkTo": {
-        "x": 1165,
+        "x": 1563,
         "y": 862,
         "facing": "back"
       }
@@ -747,51 +736,18 @@
   ],
   "walkBoxes": [
     {
-      "id": "floor_0",
-      "points": [
-        {
-          "x": 720,
-          "y": 506
-        },
-        {
-          "x": 1130,
-          "y": 506
-        },
-        {
-          "x": 1130,
-          "y": 557
-        },
-        {
-          "x": 720,
-          "y": 557
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 506,
-        "farHeight": 227,
-        "nearY": 858,
-        "nearHeight": 526
-      },
-      "neighbours": [
-        "floor_1"
-      ]
-    },
-    {
-      "id": "floor_1",
+      "id": "floor_1_0",
       "points": [
         {
           "x": 419,
           "y": 557
         },
         {
-          "x": 1188,
+          "x": 715,
           "y": 557
         },
         {
-          "x": 1188,
+          "x": 715,
           "y": 608
         },
         {
@@ -809,23 +765,125 @@
         "nearHeight": 526
       },
       "neighbours": [
-        "floor_0",
-        "floor_2_0"
+        "floor_1_3",
+        "floor_2"
       ]
     },
     {
-      "id": "floor_2_0",
+      "id": "floor_1_1",
+      "points": [
+        {
+          "x": 1160,
+          "y": 557
+        },
+        {
+          "x": 1195,
+          "y": 557
+        },
+        {
+          "x": 1195,
+          "y": 608
+        },
+        {
+          "x": 1160,
+          "y": 608
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 506,
+        "farHeight": 227,
+        "nearY": 858,
+        "nearHeight": 526
+      },
+      "neighbours": [
+        "floor_1_3",
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_1_2",
+      "points": [
+        {
+          "x": 1195,
+          "y": 605
+        },
+        {
+          "x": 1202,
+          "y": 605
+        },
+        {
+          "x": 1202,
+          "y": 608
+        },
+        {
+          "x": 1195,
+          "y": 608
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 506,
+        "farHeight": 227,
+        "nearY": 858,
+        "nearHeight": 526
+      },
+      "neighbours": [
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_1_3",
+      "points": [
+        {
+          "x": 715,
+          "y": 600
+        },
+        {
+          "x": 1160,
+          "y": 600
+        },
+        {
+          "x": 1160,
+          "y": 608
+        },
+        {
+          "x": 715,
+          "y": 608
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 506,
+        "farHeight": 227,
+        "nearY": 858,
+        "nearHeight": 526
+      },
+      "neighbours": [
+        "floor_1_0",
+        "floor_1_1",
+        "floor_2"
+      ]
+    },
+    {
+      "id": "floor_2",
       "points": [
         {
           "x": 127,
           "y": 608
         },
         {
-          "x": 1188,
+          "x": 1204,
           "y": 608
         },
         {
-          "x": 1188,
+          "x": 1204,
           "y": 659
         },
         {
@@ -843,29 +901,31 @@
         "nearHeight": 526
       },
       "neighbours": [
-        "floor_1",
-        "floor_2_1",
-        "floor_3"
+        "floor_1_0",
+        "floor_1_1",
+        "floor_1_2",
+        "floor_1_3",
+        "floor_3_0"
       ]
     },
     {
-      "id": "floor_2_1",
+      "id": "floor_3_0",
       "points": [
         {
-          "x": 1188,
-          "y": 650
-        },
-        {
-          "x": 1204,
-          "y": 650
-        },
-        {
-          "x": 1204,
+          "x": 40,
           "y": 659
         },
         {
-          "x": 1188,
+          "x": 1325,
           "y": 659
+        },
+        {
+          "x": 1325,
+          "y": 711
+        },
+        {
+          "x": 40,
+          "y": 711
         }
       ],
       "surface": "mud",
@@ -878,27 +938,28 @@
         "nearHeight": 526
       },
       "neighbours": [
-        "floor_2_0",
-        "floor_3"
+        "floor_2",
+        "floor_3_1",
+        "floor_4"
       ]
     },
     {
-      "id": "floor_3",
+      "id": "floor_3_1",
       "points": [
         {
-          "x": 40,
-          "y": 659
+          "x": 1325,
+          "y": 670
         },
         {
           "x": 1326,
-          "y": 659
+          "y": 670
         },
         {
           "x": 1326,
           "y": 711
         },
         {
-          "x": 40,
+          "x": 1325,
           "y": 711
         }
       ],
@@ -912,50 +973,14 @@
         "nearHeight": 526
       },
       "neighbours": [
-        "floor_2_0",
-        "floor_2_1",
-        "floor_4_0"
+        "floor_3_0"
       ]
     },
     {
-      "id": "floor_4_0",
+      "id": "floor_4",
       "points": [
         {
           "x": 40,
-          "y": 711
-        },
-        {
-          "x": 1330,
-          "y": 711
-        },
-        {
-          "x": 1330,
-          "y": 762
-        },
-        {
-          "x": 40,
-          "y": 762
-        }
-      ],
-      "surface": "mud",
-      "clipPlane": 0,
-      "scaleMode": {
-        "kind": "curve",
-        "farY": 506,
-        "farHeight": 227,
-        "nearY": 858,
-        "nearHeight": 526
-      },
-      "neighbours": [
-        "floor_3",
-        "floor_5"
-      ]
-    },
-    {
-      "id": "floor_4_1",
-      "points": [
-        {
-          "x": 1430,
           "y": 711
         },
         {
@@ -967,7 +992,7 @@
           "y": 762
         },
         {
-          "x": 1430,
+          "x": 40,
           "y": 762
         }
       ],
@@ -981,6 +1006,7 @@
         "nearHeight": 526
       },
       "neighbours": [
+        "floor_3_0",
         "floor_5"
       ]
     },
@@ -992,11 +1018,11 @@
           "y": 762
         },
         {
-          "x": 1562,
+          "x": 1625,
           "y": 762
         },
         {
-          "x": 1562,
+          "x": 1625,
           "y": 813
         },
         {
@@ -1014,8 +1040,7 @@
         "nearHeight": 526
       },
       "neighbours": [
-        "floor_4_0",
-        "floor_4_1",
+        "floor_4",
         "floor_6_0",
         "floor_6_1"
       ]
@@ -1028,11 +1053,11 @@
           "y": 813
         },
         {
-          "x": 1405,
+          "x": 1390,
           "y": 813
         },
         {
-          "x": 1405,
+          "x": 1390,
           "y": 864
         },
         {
@@ -1057,19 +1082,19 @@
       "id": "floor_6_1",
       "points": [
         {
-          "x": 1487,
+          "x": 1500,
           "y": 813
         },
         {
-          "x": 1562,
+          "x": 1754,
           "y": 813
         },
         {
-          "x": 1562,
+          "x": 1754,
           "y": 864
         },
         {
-          "x": 1487,
+          "x": 1500,
           "y": 864
         }
       ],
@@ -1159,19 +1184,11 @@
   "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-03-candidate/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10.",
   "retiredNote": "THE 320x144 RELICS ARE GONE. This room carried an `idles` layer declaring four 18-pixel figures against a sheet drawn for the retired 320x144 presentation, and a foreground plane of the same vintage -- both drawn into a 1920x864 room, which is what put black boxes on the floor and one beside Thad. They described the same men who are now baked into the plates: the bar’s near and middle drinkers, a seated player, and doc 16’s man beside the stove.\nTHE MAN ON THE LANDING SURVIVES THE DELETION, because he was never in that list. Ruling 20 makes him an explicit exception -- his whole joke is that he never moves -- and doc 16 keeps him in THE STAIRS: there is always a man on the landing.",
   "ambient": [
-    "nugget_bar_1",
-    "nugget_bar_2",
-    "nugget_bar_3",
-    "nugget_card_1",
-    "nugget_card_2",
-    "nugget_card_3",
-    "nugget_card_4",
     "nugget_landing_man",
     "nugget_stove_man"
   ],
   "occlusionProofs": [],
   "occlusionBands": [
-    "floor_0",
     "floor_1",
     "floor_2",
     "floor_3",
@@ -1180,5 +1197,172 @@
     "floor_6"
   ],
   "occlusionPlanes": [],
-  "candidateOf": "nugget"
+  "candidateOf": "nugget",
+  "population": {
+    "note": "ROOM 3 REBUILD (Tyler, 2026-09-11). THE NUGGET'S POPULATION IS NINE AND SEVEN OF THEM ARE PAINT. The owner ruled the four card players and the three bar men into the background art as static staging, keeping only the landing man and the stove man as runtime actors, and the count therefore stopped being something a test could get by counting ambient files. This declares it instead: every one of the nine, what he is doing, whether he is paint or an actor, and where he is in the plate -- boxes read off art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png on a 50 px grid. A person can check it against renders/opening-set-retrofit/room-03-rebuild-population.webp in under a minute, and tests/phase2a-access.test.ts checks the arithmetic every run.",
+    "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+    "people": [
+      {
+        "id": "card_1",
+        "group": "card",
+        "kind": "baked",
+        "box": [
+          745,
+          305,
+          135,
+          215
+        ],
+        "seat": [
+          800,
+          480
+        ],
+        "what": "flat cap, nearest the piano, back three-quarters to camera, holding a fanned hand"
+      },
+      {
+        "id": "card_2",
+        "group": "card",
+        "kind": "baked",
+        "box": [
+          800,
+          250,
+          110,
+          180
+        ],
+        "seat": [
+          850,
+          435
+        ],
+        "what": "grey hair and side-whiskers, far side of the table, facing the room, holding a fanned hand"
+      },
+      {
+        "id": "card_3",
+        "group": "card",
+        "kind": "baked",
+        "box": [
+          940,
+          255,
+          115,
+          175
+        ],
+        "seat": [
+          1000,
+          435
+        ],
+        "what": "the young one in shirtsleeves and a blue neckerchief, far side, facing the room, holding a fanned hand"
+      },
+      {
+        "id": "card_4",
+        "group": "card",
+        "kind": "baked",
+        "box": [
+          995,
+          300,
+          155,
+          245
+        ],
+        "seat": [
+          1075,
+          490
+        ],
+        "what": "bald, spectacles, nearest the stove, back to camera, holding a fanned hand"
+      },
+      {
+        "id": "bar_1",
+        "group": "bar",
+        "kind": "baked",
+        "box": [
+          1195,
+          262,
+          155,
+          343
+        ],
+        "seat": [
+          1270,
+          600
+        ],
+        "what": "SEATED: the old bearded miner, hips on the far stool, one boot on its ring, both forearms on the counter, tin cup"
+      },
+      {
+        "id": "bar_2",
+        "group": "bar",
+        "kind": "baked",
+        "box": [
+          1330,
+          255,
+          170,
+          410
+        ],
+        "seat": [
+          1410,
+          660
+        ],
+        "what": "LEANING: the lean younger man in shirtsleeves, waistcoat and watch chain, forearm taking his weight on the counter top, both boots on the dirt"
+      },
+      {
+        "id": "bar_3",
+        "group": "bar",
+        "kind": "baked",
+        "box": [
+          1600,
+          212,
+          215,
+          483
+        ],
+        "seat": [
+          1700,
+          690
+        ],
+        "what": "STANDING: the heavy moustached man in the bowler and checked shirt, tin mug in hand, one boot on the brass foot rail, half turned into the room"
+      },
+      {
+        "id": "nugget_landing_man",
+        "group": "landing",
+        "kind": "actor",
+        "box": [
+          1275,
+          67,
+          61,
+          168
+        ],
+        "seat": [
+          1305,
+          235
+        ],
+        "what": "there is always a man on the landing, and he has not moved"
+      },
+      {
+        "id": "nugget_stove_man",
+        "group": "stove",
+        "kind": "actor",
+        "box": [
+          1098,
+          279,
+          94,
+          229
+        ],
+        "seat": [
+          1145,
+          508
+        ],
+        "what": "coat buttoned to the throat, both hands open toward the iron, turned into the stove"
+      }
+    ],
+    "expect": {
+      "total": 9,
+      "bar": 3,
+      "card": 4,
+      "landing": 1,
+      "stove": 1,
+      "baked": 7,
+      "actors": 2
+    },
+    "emptyFifthPlace": [
+      875,
+      470,
+      100,
+      60
+    ],
+    "emptyFifthPlaceNote": "The near side of the table: an empty chair, and the abandoned face-up hand on the rim in front of it. No seat in this file may fall inside it.",
+    "pianoNote": "Nobody plays the piano, nobody touches it, and that is the joke. No box in this file may reach it."
+  }
 }

@@ -1,0 +1,33 @@
+{
+ "schema": 1,
+ "cardBakedPlate": "art/staging/room-03/card-salvage/plate-card-baked.png",
+ "cardBakedSha256": "488b5d08eb88583eb899771179d95a8a65cb2ce400dbb24e8150753407242f0e",
+ "barOperation": "art/staging/room-03/bar-rebuild-01/source.png",
+ "barSha256": "6494998d369cd4707241ff1cebb4befc84aca5ec6e55c7eb23ff512419d66319",
+ "cropPlate": [
+  896,
+  181,
+  1920,
+  864
+ ],
+ "seamX": 1176,
+ "feather": 24,
+ "catchlight": {
+  "rect": [
+   1719,
+   273,
+   1727,
+   277
+  ],
+  "over": 90.0,
+  "who": "the standing man in the bowler, his near eye",
+  "pixelsRepainted": 5,
+  "ink": [
+   3,
+   2,
+   2
+  ]
+ },
+ "out": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "outSha256": "7565d6544db2598e00fa49fbd66daa5871e0d5fd577fa4d090566f08edd2304b"
+}

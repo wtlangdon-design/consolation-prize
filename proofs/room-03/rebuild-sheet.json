@@ -1,0 +1,252 @@
+{
+ "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "people": [
+  {
+   "id": "card_1",
+   "kind": "baked",
+   "box": [
+    745,
+    305,
+    135,
+    215
+   ],
+   "seat": [
+    800,
+    480
+   ]
+  },
+  {
+   "id": "card_2",
+   "kind": "baked",
+   "box": [
+    800,
+    250,
+    110,
+    180
+   ],
+   "seat": [
+    850,
+    435
+   ]
+  },
+  {
+   "id": "card_3",
+   "kind": "baked",
+   "box": [
+    940,
+    255,
+    115,
+    175
+   ],
+   "seat": [
+    1000,
+    435
+   ]
+  },
+  {
+   "id": "card_4",
+   "kind": "baked",
+   "box": [
+    995,
+    300,
+    155,
+    245
+   ],
+   "seat": [
+    1075,
+    490
+   ]
+  },
+  {
+   "id": "bar_1",
+   "kind": "baked",
+   "box": [
+    1195,
+    262,
+    155,
+    343
+   ],
+   "seat": [
+    1270,
+    600
+   ]
+  },
+  {
+   "id": "bar_2",
+   "kind": "baked",
+   "box": [
+    1330,
+    255,
+    170,
+    410
+   ],
+   "seat": [
+    1410,
+    660
+   ]
+  },
+  {
+   "id": "bar_3",
+   "kind": "baked",
+   "box": [
+    1600,
+    212,
+    215,
+    483
+   ],
+   "seat": [
+    1700,
+    690
+   ]
+  },
+  {
+   "id": "nugget_landing_man",
+   "kind": "actor",
+   "box": [
+    1275,
+    67,
+    61,
+    168
+   ],
+   "seat": [
+    1305,
+    235
+   ]
+  },
+  {
+   "id": "nugget_stove_man",
+   "kind": "actor",
+   "box": [
+    1098,
+    279,
+    94,
+    229
+   ],
+   "seat": [
+    1145,
+    508
+   ]
+  }
+ ],
+ "piano": [
+  505,
+  255,
+  200,
+  265
+ ],
+ "hand": [
+  858,
+  386,
+  40,
+  26
+ ],
+ "fifth": [
+  875,
+  470,
+  100,
+  60
+ ],
+ "deke": [
+  1240,
+  320,
+  140,
+  420
+ ],
+ "raccoon": [
+  1480,
+  410,
+  90,
+  70
+ ],
+ "arrival": [
+  300,
+  760
+ ],
+ "targets": [
+  {
+   "id": "cards",
+   "x": 878,
+   "y": 707,
+   "kind": "hotspot"
+  },
+  {
+   "id": "handbill",
+   "x": 344,
+   "y": 717,
+   "kind": "hotspot"
+  },
+  {
+   "id": "spittoon",
+   "x": 1445,
+   "y": 813,
+   "kind": "hotspot"
+  },
+  {
+   "id": "portrait",
+   "x": 1008,
+   "y": 707,
+   "kind": "hotspot"
+  },
+  {
+   "id": "stove",
+   "x": 1093,
+   "y": 707,
+   "kind": "hotspot"
+  },
+  {
+   "id": "chandelier",
+   "x": 945,
+   "y": 707,
+   "kind": "hotspot"
+  },
+  {
+   "id": "window",
+   "x": 438,
+   "y": 650,
+   "kind": "hotspot"
+  },
+  {
+   "id": "piano",
+   "x": 605,
+   "y": 653,
+   "kind": "hotspot"
+  },
+  {
+   "id": "stairs",
+   "x": 1310,
+   "y": 784,
+   "kind": "hotspot"
+  },
+  {
+   "id": "mirror",
+   "x": 1725,
+   "y": 864,
+   "kind": "hotspot"
+  },
+  {
+   "id": "patrons",
+   "x": 938,
+   "y": 706,
+   "kind": "hotspot"
+  },
+  {
+   "id": "bar",
+   "x": 1563,
+   "y": 862,
+   "kind": "hotspot"
+  },
+  {
+   "id": "front_doors",
+   "x": 170,
+   "y": 670,
+   "kind": "exit"
+  },
+  {
+   "id": "back_room_door",
+   "x": 1162.5,
+   "y": 557,
+   "kind": "exit"
+  }
+ ],
+ "out": "renders/opening-set-retrofit/room-03-rebuild-proof.webp"
+}
