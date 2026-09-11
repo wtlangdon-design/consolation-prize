@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "plate": "art/staging/room-03/card-salvage/plate-card-baked.png",
+ "plateSha256": "488b5d08eb88583eb899771179d95a8a65cb2ce400dbb24e8150753407242f0e",
+ "cropPlate": [
+  896,
+  181,
+  1920,
+  864
+ ],
+ "canvasSize": [
+  1536,
+  1024
+ ],
+ "scale": [
+  1.5,
+  1.499267935578331
+ ],
+ "freeWindowPlate": [
+  1270,
+  270,
+  1860,
+  800
+ ],
+ "keptNotchPlate": [
+  1390,
+  755,
+  1505,
+  850
+ ],
+ "freeWindowCanvas": [
+  561,
+  133,
+  1446,
+  928
+ ],
+ "freeFraction": 0.44,
+ "canvas": "art/staging/room-03/bar-rebuild-01/canvas.png",
+ "canvasSha256": "f33ad76cb4757b9bdf208859128e08d450c86b03e4baeb90ff6765edee10c729",
+ "mask": "art/staging/room-03/bar-rebuild-01/edit-mask.png",
+ "maskSha256": "24c654fa2b53a221226d0fa130559e0f8442ca14a00ae8ffc2e9d464ebef6ca3",
+ "identity": "art/staging/room-03/bar-rebuild-01/identity.png",
+ "identitySha256": "25869e9902ff29bd4ed2e21d6414b9ff5cdd1d23366639cfbc6d6fa7753c4afb",
+ "identityFrom": [
+  "art/actors/cast-nugget-bar-1.png",
+  "art/actors/cast-nugget-bar-2.png",
+  "art/actors/cast-nugget-bar-3.png"
+ ],
+ "poseAuthority": "art/staging/room-03/cluster-bar-01/source.png",
+ "roundTrip": "plate (x,y) -> canvas ((x-896)*1.5, (y-181)*1.49927); the return leg resizes 1536x1024 back to 1024x683 and blits at (896,181)"
+}

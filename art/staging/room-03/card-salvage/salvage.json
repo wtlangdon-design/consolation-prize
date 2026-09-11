@@ -1,0 +1,30 @@
+{
+ "schema": 1,
+ "note": "Card cluster salvaged as canon. Free window blitted into the accepted plate at an integer x2; plank floor replaced by plate dirt modulated by the new art's own shadow field. No image operation.",
+ "plate": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+ "plateSha256": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+ "cluster": "art/staging/room-03/cluster-card-01/source.png",
+ "clusterSha256": "4e005d41ddb58b74ca50bad79eae2a16437b132e1dfd360437b984012dd2516e",
+ "freeWindowPlate": [
+  673,
+  260,
+  1159,
+  616
+ ],
+ "floorBandPlate": [
+  673,
+  505,
+  1159,
+  616
+ ],
+ "floorTop": 505,
+ "fadeRows": 20,
+ "cleanDirtRows": [
+  526,
+  622
+ ],
+ "objectPixels": 18510,
+ "bandPixels": 54544,
+ "out": "art/staging/room-03/card-salvage/plate-card-baked.png",
+ "outSha256": "488b5d08eb88583eb899771179d95a8a65cb2ce400dbb24e8150753407242f0e"
+}
