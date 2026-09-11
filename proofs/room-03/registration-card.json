@@ -1,0 +1,18 @@
+{
+ "schema": 1,
+ "cluster": "card",
+ "note": "the furniture-registration gate, run before any human was extracted",
+ "keptRegionPx": 353140,
+ "keptMeanAbsDiff": 4.14,
+ "keptFractionOver16": 0.0248,
+ "keptFractionOver48": 0.0002,
+ "bestTranslation": {
+  "dx": 0,
+  "dy": 0,
+  "residual": 2.67,
+  "atRest": 2.67
+ },
+ "verdict": "REJECTED",
+ "integrated": false,
+ "roomUnchangedProof": "the deployed Nugget was rebuilt and recaptured after both operations. The Thad frame is PIXEL-IDENTICAL to the merged one (0 pixels differ by more than 8). The no-Thad frame differs only in two soft radial glows -- the wall lamp at x 254-380 and the stove at x 1024-1150 -- and the stove's own firebox, which are the room's ambient light between two captures. Every patron reads as an UNCHANGED dark silhouette inside those glows, which is what a figure looks like when the light behind it moved and the figure did not."
+}

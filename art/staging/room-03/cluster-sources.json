@@ -1,0 +1,70 @@
+{
+ "schema": 1,
+ "note": "Furniture-registered cluster sources: the canonical furniture at an integer x2, a mask that frees only where people go, and a separate identity sheet. Doc 36 Q134.",
+ "plate": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+ "plateSha256": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+ "clusters": {
+  "card": {
+   "cropPlate": [
+    655,
+    110,
+    1167,
+    622
+   ],
+   "scale": 2,
+   "canvas": "art/staging/room-03/cluster-card-01/furniture-canvas.png",
+   "canvasSize": [
+    1024,
+    1024
+   ],
+   "canvasSha256": "6f5cb8e15c7419c7114d6bef29ba0ce1051a4f30f9885d920c1baed358b7018c",
+   "mask": "art/staging/room-03/cluster-card-01/edit-mask.png",
+   "maskSha256": "fd349f1a5a576dbcf5d8ab4c27d59af486726d41ead0655652a11f0d312fca45",
+   "freeWindowCanvas": [
+    36,
+    300,
+    1010,
+    1014
+   ],
+   "freeIsPolygon": false,
+   "identity": "art/staging/room-03/cluster-card-01/identity.png",
+   "identitySha256": "895356d942e1e6d5e422a94e934fec75115373bf8b9fddd541ff20b0ff9c9a00",
+   "identityFrom": [
+    "art/actors/cast-nugget-card-1.png",
+    "art/actors/cast-nugget-card-2.png",
+    "art/actors/cast-nugget-card-3.png",
+    "art/actors/cast-nugget-card-4.png"
+   ],
+   "roundTrip": "canvas pixel (cx, cy) is plate pixel (655 + cx//2, 110 + cy//2)"
+  },
+  "bar": {
+   "cropPlate": [
+    1152,
+    310,
+    1920,
+    822
+   ],
+   "scale": 2,
+   "canvas": "art/staging/room-03/cluster-bar-01/furniture-canvas.png",
+   "canvasSize": [
+    1536,
+    1024
+   ],
+   "canvasSha256": "a6d28ced18e3d337f1045d6ee827691d21d081c82c5aabca808051c1453cf596",
+   "mask": "art/staging/room-03/cluster-bar-01/edit-mask.png",
+   "maskSha256": "0140dbabb98246bbeafa3f9608609308f825dbd15be9c42b0bab84e3fc759f60",
+   "freeWindowCanvas": [
+    "bar-band polygon: counter top - 210 canvas px, down to the bar base + 150"
+   ],
+   "freeIsPolygon": true,
+   "identity": "art/staging/room-03/cluster-bar-01/identity.png",
+   "identitySha256": "25869e9902ff29bd4ed2e21d6414b9ff5cdd1d23366639cfbc6d6fa7753c4afb",
+   "identityFrom": [
+    "art/actors/cast-nugget-bar-1.png",
+    "art/actors/cast-nugget-bar-2.png",
+    "art/actors/cast-nugget-bar-3.png"
+   ],
+   "roundTrip": "canvas pixel (cx, cy) is plate pixel (1152 + cx//2, 310 + cy//2)"
+  }
+ }
+}

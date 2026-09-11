@@ -1,0 +1,19 @@
+This image is a room from a 1990s-style point-and-click adventure game. It is the SET, and it is finished. Your job is to seat four men at the card table that is already in it.
+
+THE ROOM IS NOT THE SUBJECT AND MUST NOT CHANGE. Do not redraw, move, resize, re-angle or re-light the table, the chairs, the pedestal, the floor, the walls, the window, the portrait, the stove or the piano. Do not change the perspective. Do not change the time of day or the direction the light comes from. The table's ellipse, its height, its edge, the chairs and the floor line are measurements, not suggestions: bodies will be cut out of this picture afterwards and put back into this exact room, and anything you move stops fitting.
+
+WHAT TO ADD: four seated men, playing cards, and nothing else. No new furniture. No extra people. No props on the table beyond what is already on it.
+
+WHO THEY ARE. Reference 2 shows the four men, each drawn on flat magenta. Keep each one recognisably himself: his age, his build, his hair, his facial hair, his clothes, his colours, his materials. The old grey-haired man in the dark suit and red waistcoat. The young man in shirtsleeves with a neckerchief and untidy hair. The bearded man in the flat cap and work coat. The bald older man in spectacles and a dark jacket. This is not a recast — only their poses change, and they change completely.
+
+HOW THEY SIT. THE TABLE DECIDES, NOT THEIR OLD DRAWINGS. Every one of them was previously drawn facing the viewer, and four men facing the viewer around a round table is a police line-up, not a card game. A game reads only when men face each other across the table.
+
+So: TWO of them sit on the NEAR side, on the chairs closest to the viewer, and are seen FROM BEHIND or from behind and slightly to one side — the backs of their heads, their shoulders, their backs, their arms going forward to the table. TWO sit on the FAR side, facing us across the table. Choose which man goes where by what suits his build; do not force a man to face the viewer because he used to.
+
+MAKE THE CONTACT REAL. Each man's backside is ON a chair seat, at the height that chair's seat actually is. His weight is carried by it. His thighs run forward from his hips and his lower legs drop to the floor, and his boots reach the floor at a believable place — under the table, beside the pedestal, out to the side. His forearms and hands come to the tabletop: resting on it, holding a fan of cards above it, a hand flat on it. Nobody's hands float in mid-air at his chest. The tabletop crosses in front of the near men's laps, and the far men are behind it from the waist down. Nobody sits on the table. Nobody's chair is drawn through his body.
+
+THE FIFTH PLACE STAYS EMPTY. There is one small face-up hand of cards already lying on the table's near edge. It belongs to a man who has left. Do not move it, do not redraw it, do not put it into anybody's hand, and do not seat a fifth man at it. The chair at that place stays empty.
+
+HOW THEY ARE DRAWN. Reference 3 is THAD, the game's protagonist, at the size the game draws him. He is the rendering standard. A face carries the mass of the hair and the brow, one simple dark shape per eye, one shadow for the nose, one line for the mouth, one shadow under the jaw, and facial hair as a single grouped shape. NO white in the eye, no iris, no catchlight. No smooth continuous cheek modelling: flat masses meeting on hard edges. Cloth in a few flat tones with hard folds, no weave, no sheen. Decide every shape as though the finished man were about 230 pixels tall — small, hard, few — and then draw those few shapes cleanly at this canvas's size. Do not make them crude blobs: the form still turns, the light still comes from one side, the anatomy is still right.
+
+Match the room's own light: it is night, the room is lit warm from a lamp above and to the left, and these men are in that light, not in a brighter one.

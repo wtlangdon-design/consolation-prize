@@ -1,0 +1,41 @@
+{
+ "assetId": "nugget-card-furniture-cluster",
+ "attempt": 1,
+ "promptFile": "proofs/room-03/prompts/cluster-card-01.txt",
+ "out": "art/staging/room-03/cluster-card-01/source.png",
+ "size": "1024x1024",
+ "references": [
+  {
+   "path": "art/staging/room-03/cluster-card-01/furniture-canvas.png",
+   "hash": "6f5cb8e15c7419c7114d6bef29ba0ce1051a4f30f9885d920c1baed358b7018c"
+  },
+  {
+   "path": "art/staging/room-03/cluster-card-01/identity.png",
+   "hash": "895356d942e1e6d5e422a94e934fec75115373bf8b9fddd541ff20b0ff9c9a00"
+  },
+  {
+   "path": "art/actors/thad-stand-front/stand-00.png",
+   "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+  },
+  {
+   "path": "renders/room-01-in-engine-1920x1080.png",
+   "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79"
+  },
+  {
+   "path": "art/backgrounds/room-01-stage-road.png",
+   "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+  },
+  {
+   "path": "art/backgrounds/room-05-assay-office.png",
+   "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+  },
+  {
+   "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b"
+  },
+  {
+   "path": "reference/casting/room-01-casting-master.png",
+   "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787"
+  }
+ ]
+}
