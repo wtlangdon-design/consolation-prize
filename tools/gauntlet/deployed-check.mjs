@@ -33,7 +33,11 @@ for (const [name, url] of [['shipping-night', SHIPPING], ...CANDIDATES, ['day', 
   await page.goto(url); await page.waitForTimeout(9000);
   await page.screenshot({ path: `${S}/deployed-${name}.png` });
   const roomFile = url.includes('main_street_candidate') ? 'main-street-candidate.json' : url.includes('nugget_candidate') ? 'nugget-candidate.json' : 'assay-office.json';
-  const backgrounds = responses.filter((r) => /art\/backgrounds\/|candidate-plate\.png|candidate-1920x864\.png/.test(r.url)).map((r) => `${r.status} ${r.url}`);
+  // A PLATE UNDER art/staging IS STILL THE ROOM'S BACKGROUND. The pattern named
+  // two staging plates by hand and the Room 3 rebuild's is a third, so the one
+  // run that exists to say WHICH PLATE THE DEPLOYED PAGE ACTUALLY LOADED went
+  // on listing eight shipping backgrounds and not the one the room is made of.
+  const backgrounds = responses.filter((r) => /art\/backgrounds\/|art\/staging\/.*\/(?:candidate-plate|candidate-1920x864|plate-[a-z0-9-]+)\.png/.test(r.url)).map((r) => `${r.status} ${r.url}`);
   const legacy = responses.filter((r) => r.url.endsWith('art/backgrounds/room-05-assay-office.png'));
   const bad = responses.filter((r) => r.status >= 400);
   out.runs.push({ name, url: url.replace(base, 'https://wtlangdon-design.github.io/consolation-prize/'), roomJson: responses.find((r) => r.url.includes(`content/rooms/${roomFile}`))?.status ?? 'not requested', backgrounds,
