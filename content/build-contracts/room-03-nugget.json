@@ -660,7 +660,7 @@
      "ownerAcceptance": null
     },
     "backgroundComposite2026_09_12": {
-     "status": "AWAITING-OWNER-VISUAL-ACCEPTANCE",
+     "status": "OWNER-REJECTED",
      "ruling": "Tyler, 2026-09-12, third visual ruling: BOTH CHARACTERS ARE ACCEPTED AND IMMOVABLE -- the stove man's new back-room placement and the foreground patron's body placement, the +-13 px residual between his feet included. The two remaining defects are in the rebuilt background art that those characters were exposing. ZERO IMAGE OPERATIONS; the ledger stands at 47/47.",
      "characterOperations": 0,
      "plate": "art/staging/room-03/rebuild-03/plate-room-03-rebuilt.png",
@@ -685,6 +685,26 @@
       "art/staging/room-03/rebuild-03/cleanup.json",
       "art/staging/room-03/cluster-integrations.json",
       "proofs/room-03/rebuild-proof.json"
+     ],
+     "ownerAcceptance": null,
+     "ownerRejection": "Tyler, 2026-09-12: REJECTED, and the method with it. \"The problem is not three isolated defects that need more deterministic raster repair. The problem is that people were moved together with pixels from their OLD surroundings, and you are now repeatedly trying to repair those surroundings after the fact. That approach ends now.\" Two symptoms named: a conspicuous halo of his former environment around essentially the foreground patron's whole silhouette, and a left bar end that dissolves into an amorphous smear."
+    },
+    "recomposition2026_09_12": {
+     "status": "AWAITING-OWNER-VISUAL-REVIEW -- NOT DEPLOYED",
+     "ruling": "Recompose in the correct order: restore a clean background first, then place the people. Zero pixels of a person's previous environment may travel with the person. Do not optimise for zero image operations or a low changed-pixel count.",
+     "characterOperations": 0,
+     "plate": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "stepA": "tools/retrofit/nugget-bar-reconstruct.py -- the empty room. Starts from rebuild-01, erases the patron entirely, and rebuilds the bar and the floor behind him. THE BAR IS A STRAIGHT RUN IN PERSPECTIVE and its horizontal lines converge on the room's own horizon y 239, so with the counter's lit front edge measured (y = 383 + 0.2135(x-1185), rms 2 px over 720 px) the run rectifies to an undistorted elevation in (w, v) = (ln(TOP-239), (y-239)/(TOP-239)). Wall and back bar in register from the plate this bar was composed into; the bar front from the people-free accepted bar mapped into that elevation and rescaled from its 0.117 bay pitch to this bar's 0.083; the floor in register from the accepted cold-dirt plate. The card cluster's plank floor is repaired here too, in the same step, because it is background.",
+     "stepB": "tools/retrofit/nugget-bar-recompose.py -- the man. Matted out of rebuild-01 against the reconstructed room, composited 82 rows lower with authored contact shadows. His position, pose, scale, orientation and appearance are unchanged.",
+     "whyNotSelfSourced": "THE REBUILT BAR HAS NO CLEAN BAY. Three men and two stools stand along it and every stretch has a boot, a knee or a stool seat across part of its height; the widest window unobstructed from apron to dirt is 25 px, a third of a bay. Two attempts to continue the bar from itself copied a stool seat, a trouser leg and a boot into the empty room.",
+     "terminusOpen": "NOT REPAIRED. The accepted plate's end section is clean only from v 0.90 to v 1.37: below that its own first stool stands in front of its own bar end. Every shift that reaches a stool-free plinth reaches it where the bar has a front face and not an end. The remaining source is an 8 px strip, which is the tiny-fragment repair this pass is forbidden to make. Reported, not bodged.",
+     "evidence": [
+      "renders/opening-set-retrofit/room-03-recompose-empty-and-back.webp",
+      "renders/opening-set-retrofit/room-03-recompose-halo.webp",
+      "renders/opening-set-retrofit/room-03-recompose-terminus.webp",
+      "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png",
+      "art/staging/room-03/rebuild-04/empty.json",
+      "art/staging/room-03/rebuild-04/recompose.json"
      ],
      "ownerAcceptance": null
     }
