@@ -1,0 +1,124 @@
+{
+ "schema": 1,
+ "note": "Registration of the four gate actors against the LOCKED composition. Each is scaled so his head height matches the baked man's and placed so his head top and head centre match. Nothing is nudged to make his feet meet the floor: soleY is where they actually landed.",
+ "plate": "art/staging/room-03/rebuild-03/plate-room-03-rebuilt.png",
+ "plateSha256": "aa0bb58647fe374e7dfe88b43ccab1cf71d1b10498b4d99723c71f2dff790c2b",
+ "players": [
+  {
+   "id": "card_1_flatcap",
+   "scale": 0.4559,
+   "drawn": [
+    154,
+    258
+   ],
+   "anchors": {
+    "headTop": 299,
+    "seatY": 480,
+    "assetHeadRow": 3,
+    "assetSeatRow": 400
+   },
+   "placedAt": [
+    710,
+    298
+   ],
+   "headTop": {
+    "locked": 299,
+    "placed": 299
+   },
+   "depthOrder": "in front of the table, drawn whole and last",
+   "sole": {
+    "chairFloor": 553,
+    "placed": 554,
+    "deltaPx": 1,
+    "chairFloorMeasured": true
+   }
+  },
+  {
+   "id": "card_2_silver",
+   "scale": 0.4248,
+   "drawn": [
+    129,
+    253
+   ],
+   "anchors": {
+    "headTop": 260,
+    "seatY": 435,
+    "assetHeadRow": 3,
+    "assetSeatRow": 415
+   },
+   "placedAt": [
+    784,
+    259
+   ],
+   "headTop": {
+    "locked": 260,
+    "placed": 260
+   },
+   "depthOrder": "behind the table, clipped at the far rim y 352",
+   "sole": {
+    "chairFloor": 485,
+    "placed": 509,
+    "deltaPx": 24,
+    "chairFloorMeasured": false
+   }
+  },
+  {
+   "id": "card_3_young",
+   "scale": 0.4403,
+   "drawn": [
+    137,
+    262
+   ],
+   "anchors": {
+    "headTop": 258,
+    "seatY": 435,
+    "assetHeadRow": 3,
+    "assetSeatRow": 405
+   },
+   "placedAt": [
+    896,
+    257
+   ],
+   "headTop": {
+    "locked": 258,
+    "placed": 258
+   },
+   "depthOrder": "behind the table, clipped at the far rim y 352",
+   "sole": {
+    "chairFloor": 485,
+    "placed": 517,
+    "deltaPx": 32,
+    "chairFloorMeasured": false
+   }
+  },
+  {
+   "id": "card_4_spectacles",
+   "scale": 0.4834,
+   "drawn": [
+    163,
+    260
+   ],
+   "anchors": {
+    "headTop": 301,
+    "seatY": 490,
+    "assetHeadRow": 4,
+    "assetSeatRow": 395
+   },
+   "placedAt": [
+    945,
+    299
+   ],
+   "headTop": {
+    "locked": 301,
+    "placed": 301
+   },
+   "depthOrder": "in front of the table, drawn whole and last",
+   "sole": {
+    "chairFloor": 550,
+    "placed": 556,
+    "deltaPx": 6,
+    "chairFloorMeasured": true
+   }
+  }
+ ]
+}
