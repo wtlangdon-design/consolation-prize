@@ -4500,7 +4500,7 @@ The floor band comes from the **room's** own mask and never from the repair, bec
 
 ---
 
-## Q139 · The clusters' people were moved with their surroundings; the room is recomposed instead — **BUILT 2026-09-12, NOT DEPLOYED, AWAITING OWNER VISUAL REVIEW**
+## Q139 · The clusters' people were moved with their surroundings; the room is recomposed instead — **BUILT 2026-09-12, DEPLOYED, REJECTED ON VISUAL REVIEW — SEE Q140**
 
 Q138 was **rejected, and the method with it.** Tyler: *"The problem is not three isolated defects that need more deterministic raster repair. The problem is that people were moved together with pixels from their OLD surroundings, and you are now repeatedly trying to repair those surroundings after the fact. That approach ends now."* Two symptoms named: a conspicuous halo of his former environment around essentially the foreground patron's whole silhouette, and a left bar end that dissolves into an amorphous smear.
 
@@ -4530,4 +4530,50 @@ The accepted plate's end section — counter top, returned thickness, shadowed e
 
 `renders/opening-set-retrofit/room-03-recompose-empty-and-back.webp` · `room-03-recompose-halo.webp` · `room-03-recompose-terminus.webp` · `phase2a-production-nugget-candidate.png`.
 
-**NOT DEPLOYED. AWAITING OWNER VISUAL REVIEW.**
+**DEPLOYED, THEN REJECTED.** Tyler rechecked the deployed build and both named symptoms were still there — the dissolving stove-side end, which this pass reported and did not repair, and a halo that this pass reduced but did not remove. Q140.
+
+---
+
+## Q140 · Room 3's two rejected shipping defects, repaired from the room's own pixels — **BUILT 2026-09-12, DEPLOYED, AWAITING OWNER VISUAL ACCEPTANCE**
+
+Tyler, after rechecking the deployed build: **"The MAN is accepted. The pixels surrounding him are not."** Phase 2A was not accepted, and the previous pass's own readout — *background byte-identical, no shipping art modified* — is exactly why both defects survived it. This pass exists to change the shipping background, and the acceptance test is that its hash differs.
+
+**Zero image operations.** The ledger stays at **49**; operations 50 and 51 remain withdrawn and unavailable. Every pixel written is copied from a source already in the repository.
+
+    BEFORE  93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755
+    AFTER   713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6
+
+14,244 px changed, in two regions and nowhere else: **A** at x 1158–1194 y 366–566 (2,231 px) and **B** at x 1616–1816 y 284–799 (12,013 px).
+
+### The dissolving bar end is older than the rebuild, and the measurement says so
+
+Block-mean `|current − corrected-03/plate-cold-dirt.png|` across the terminus is **0.3–5.1 at x 1160–1180 for every row band** and 8–40 from x 1180 rightward. The room left of x 1180 *is* the accepted plate, untouched — so the dissolve is in the **source generated plate** and every step since has carried it forward. Q139 said as much without drawing the conclusion: `rebuild-04/empty.json` records the terminus as `"OPEN -- not repaired in this pass"`.
+
+That reframes the repair. Q139 looked for a source that could **supply a bar end** and found only an 8px strip. Read at 9–12×, **the bar already has one**: the counter's lit nosing starts at (1189, 382), a dark end edge runs to (1203, 425), and the front face carries a moulded stile at x 1193–1196. Two things run *past* it and fade, and they are the whole of what the owner sees — the nosing smearing left over the wall behind, and the brass foot rail running eighteen pixels beyond the stile with **no bar above it**. Cut both back and the terminus is one line instead of three ragged ones, with no new architecture drawn at all.
+
+| warmth (R−B), wall band y 378–390 | x 1176 | 1180 | 1184 | 1188 | 1192 |
+|---|---|---|---|---|---|
+| rejected | 1.0 | 6.6 | 13.6 | 17.9 | 25.4 |
+| repaired | 1.0 | −0.8 | 0.5 | 0.4 | 25.4 |
+
+The counter now **begins** at x 1192 instead of smearing in from x 1178, and the clamp lost nothing — at x ≤ 1176 the wall was already neutral. Rail peak luminance at x 1190 fell from 70.3 to 44.7, floor level.
+
+**A first attempt was reverted, and it is worth keeping.** It translated a 60px block of floor from x −60, brought the wall base and a spittoon-like object with it, and read as a pasted rectangle with a tonal step — the exact failure mode this project has rejected before. The fill that shipped is 14–28px wide, bounded by the bar's own edge, and its sources were read first: flat wall carrying the same dark line at y 391, and open dirt whose own peak luminances there are 56–67, the same range as the floor it replaces.
+
+### The halo is repaired by restoring the room, not by repairing the repair
+
+Its cause is in `nugget-bar-recompose.py`, in one term: `core = gaussian_filter(poly, 5.0) > 0.80`, taken unconditionally as him, over a **generous 42-point bound whose left side sits at x 1619–1628 where his trouser is at x 1650**. A 15–30px ring of his old surroundings travelled with him through the 82-row shift.
+
+So his pixels are **not recomputed**. The repaired plate is the current plate inside a traced 54-point silhouette and the already-reconstructed `plate-room-03-empty.png` outside it — the clean room Q139's step A built for this exact geometry. **His 64,777 human pixels hash identically before and after, by construction**, which is a stronger statement than any tolerance. The two authored contact shadows are re-laid on the clean dirt at their original centres.
+
+**The preview caught its own error before a pixel was written.** The first trace stopped at x 1726 and staged his entire right boot for removal; measured at 6×, his right boot runs to x 1785 and the brass rail beyond x 1790 is the room's.
+
+### What was not allowed to move is asserted, not described
+
+`tools/retrofit/nugget-shipping-gate.py` reports **0 changed pixels outside the two authorised regions** and **0** inside every protected box — the four card players, the abandoned hand, Deke's empty fifth place, both other bar patrons, the stove man, the landing man, the piano, the spittoon, and the bar outside the local repair. Each band is **hard-clamped in x** so a feather cannot reach one; the nosing band stops at x 1178 because the stove man's declared box runs to x 1177, and a gate that has to be argued with is not a gate.
+
+The interaction identities, the transparent frames, the population schema and the canonical trees are untouched, and the live route re-runs green against the repaired plate: speech anchored 51px above each painted head, the Card Sharp's painted box 100.0000% identical, visible population 9.
+
+`proofs/room-03/shipping-repair/findings.md` · `proof-a-stove-side-bar-end.webp` · `proof-b-foreground-bar-man.webp` · `art/staging/room-03/rebuild-05/repair.json` · `renders/opening-set-retrofit/phase2a-production-nugget-candidate.png`.
+
+**DEPLOYED. AWAITING OWNER VISUAL ACCEPTANCE. Phase 2B has not started.**
