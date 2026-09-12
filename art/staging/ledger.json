@@ -7182,6 +7182,177 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-12T17:29:12.946Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/card-clean-01.txt",
+   "promptHash": "9d7cc2f893b45ffe1e51e1e0f901c30598728da158bc04f07199b24460286498",
+   "references": [
+    {
+     "path": "art/staging/room-03/card-clean-01/source-canvas.png",
+     "hash": "98a2d0411a7fcbd97d331d0248442d9fa160101801724b1b41f4bd6ed2a34131",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+     "hash": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-03/card-clean-01/edit-mask.png",
+    "hash": "b7fe19d2c10b544abc2f2b107880274a3163bda5bb07eabf6d9206de28228b0b"
+   },
+   "sourceHash": "98a2d0411a7fcbd97d331d0248442d9fa160101801724b1b41f4bd6ed2a34131",
+   "sourcePath": "art/staging/room-03/card-clean-01/source-canvas.png",
+   "out": "art/staging/room-03/card-clean-01/source.png",
+   "outputHash": "a8eabaf0d6029c4fb435f6d9ad0e120225224aca9fa7d5135903325dc558cca6",
+   "bytes": 1349391,
+   "usage": {
+    "input_tokens": 11960,
+    "input_tokens_details": {
+     "image_tokens": 10976,
+     "text_tokens": 984
+    },
+    "output_tokens": 439,
+    "output_tokens_details": {
+     "image_tokens": 439,
+     "text_tokens": 0
+    },
+    "total_tokens": 12399
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-12T20:47:20.609Z",
+   "assetId": "nugget-card-clean",
+   "subject": "nugget-card-clean",
+   "note": "ART UNBLOCK GATE operation 49: the accepted card area with the four players and their four occupied chairs removed and only the pixels they exposed reconstructed. The table is frozen; the empty fifth chair and the abandoned hand are held back by the mask rather than asked for. Geometry is measured against the populated accepted table afterwards and a material drift is a STOP.",
+   "gates": {
+    "path": "art/staging/room-03/card-clean-01/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1024x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-12T20:47:20.709Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-12T20:47:20.622Z"
   }
  ],
  "promotions": [

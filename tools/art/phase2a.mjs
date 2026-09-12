@@ -137,6 +137,44 @@ const JOBS = {
     banner: '\nTHE NUGGET · BAR AND STOVE FAMILY -- four distinct men on one sheet, on magenta\n',
     note: 'PHASE 2A CASTING: three bar patrons and the stove man on one family sheet. The stove man is a story anchor -- the man who has not taken his coat off -- and not bar patron #4. Character art only; 0 environment operations.',
   },
+  // ---- ROOM 3 ART UNBLOCK GATE (Tyler, 2026-09-12) ------------------------
+  //
+  // OPERATION 49. The 0a02add stop report found that the canonical rebuilt card
+  // table exists in exactly one place -- always with four men painted on it --
+  // and that card_1 and card_4 sit on its near side with their bodies across
+  // its rim. This is the operation that makes the table exist without them.
+  //
+  // WHY A MASK AND NOT A FRESH CANVAS. The accepted table is frozen: position,
+  // scale, perspective, rim, apron, legs, shadow, cards, and the abandoned
+  // fifth-place hand. Masking only the men and their chairs leaves all of that
+  // VISIBLE in the reference, so the endpoint completes a curve it can see
+  // instead of inventing one it was described. The mask keeps two things back
+  // on purpose -- the empty fifth chair and the two face-up cards in front of
+  // it -- because an unmasked rect is the only way to preserve a thing exactly
+  // rather than ask for it back. tools/retrofit/nugget-card-clean-mask.py.
+  'card-clean': {
+    assetId: 'nugget-card-clean', subject: 'nugget-card-clean',
+    role: 'plate', baselineRoom: 'room-03-nugget',
+    promptFile: `proofs/room-03/prompts/card-clean-${n}.txt`,
+    images: [
+      'art/staging/room-03/card-clean-01/source-canvas.png',   // 1 THE LAW, and the image edited
+      'art/staging/room-03/corrected-03/plate-cold-dirt.png',  // 2 the same saloon, people-free
+      // 3-6 THE GLOBAL BASELINE, which this room's art calls must transmit and
+      // which the prompt does not number: naming a reference in provenance is
+      // not supplying it to the model.
+      'renders/room-01-in-engine-1920x1080.png',               // A
+      'art/backgrounds/room-01-stage-road.png',                // B
+      'art/actors/thad-stand-front/stand-00.png',              // C
+      'art/backgrounds/room-05-assay-office.png',              // D
+      'art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png', // E
+      'reference/casting/room-01-casting-master.png',          // E
+    ],
+    mask: 'art/staging/room-03/card-clean-01/edit-mask.png',
+    size: '1024x1024',
+    out: `art/staging/room-03/card-clean-${n}/source.png`,
+    banner: '\nTHE NUGGET · CLEAN CANONICAL CARD ENVIRONMENT -- the table, five seconds before they sat down\n',
+    note: 'ART UNBLOCK GATE operation 49: the accepted card area with the four players and their four occupied chairs removed and only the pixels they exposed reconstructed. The table is frozen; the empty fifth chair and the abandoned hand are held back by the mask rather than asked for. Geometry is measured against the populated accepted table afterwards and a material drift is a STOP.',
+  },
   // ---- ROOM 3 ARCHITECTURAL RESET, CARD-PLAYER FEASIBILITY GATE -----------
   //
   // Tyler, 2026-09-12: the seven patrons baked into the Room 3 plate were never
