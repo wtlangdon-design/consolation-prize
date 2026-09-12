@@ -1,0 +1,59 @@
+{
+ "schema": 1,
+ "note": "Dirt restored where the card cluster paved the floor; the floor behind the foreground patron's boots given back after the grounding translation's slack laid the bar's kick-board on it; the bar's far end built from the current bar's own front face. No image operation; the ledger stands at 47/47.",
+ "from": "art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png",
+ "fromSha256": "4e0c272871953da9ad53c09997838fded38ef5be5efc1f542ba49a3461d42e60",
+ "dirtSource": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+ "dirtSourceSha256": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+ "slackSource": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "slackSourceSha256": "7565d6544db2598e00fa49fbd66daa5871e0d5fd577fa4d090566f08edd2304b",
+ "regionA": {
+  "rect": [
+   655,
+   385,
+   1195,
+   620
+  ],
+  "flatMax": 7.0,
+  "feather": 2.5,
+  "minRegion": 4000,
+  "furnitureMask": "art/staging/room-03/corrected-03/furniture-tight-mask.png",
+  "floorMask": "art/staging/room-03/floor-03/floor-mask-plate.png",
+  "unsourceable": "the plank in the gaps above y 510 between x 700 and 1080: the accepted plate stands its own card group on those coordinates, so it is not a dirt source there",
+  "fraction": 0.03574
+ },
+ "regionC": {
+  "shift": 82,
+  "belowRow": 714,
+  "slab": [
+   1780,
+   584,
+   1814,
+   698
+  ],
+  "bootMaskPoints": 18,
+  "bootGrowPx": 2.0,
+  "fraction": 0.00241
+ },
+ "endCap": {
+  "src": [
+   1196,
+   398,
+   1203,
+   548
+  ],
+  "dstX": 1185,
+  "dy": -3,
+  "darken": 0.72,
+  "geometry": "the current rebuilt bar itself"
+ },
+ "changedPixels": 24018,
+ "changedBox": [
+  673,
+  396,
+  1806,
+  792
+ ],
+ "out": "art/staging/room-03/rebuild-03/plate-room-03-rebuilt.png",
+ "outSha256": "aa0bb58647fe374e7dfe88b43ccab1cf71d1b10498b4d99723c71f2dff790c2b"
+}

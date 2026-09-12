@@ -152,6 +152,30 @@ Errata 54's rules and errata 63's provisional transform stand. Added by Room 5:
 5. **Rejected candidates are preserved, never deleted**, under the room's staging directory with
    `owner_rejected` and the reason.
 
+Added by Room 3:
+
+6. **A generated interaction cluster brings its own environment with it.** When integrating one,
+   inspect the ENTIRE cluster footprint for imported environmental material — especially floor,
+   walls and furniture seams **that were hidden by actors during review**. The Nugget's two
+   clusters both drew a plank floor into a room whose floor is packed dirt, and both times the
+   evidence was looked at with a man standing in front of the damage; one of them was cleared
+   twice and only surfaced when that man was moved to the back of the room eight days later.
+   Record every cluster, its whole footprint and what it imported
+   (`art/staging/<room>/cluster-integrations.json`); `tools/check-cluster-floor.mjs` then fails if
+   any floor pixel of any footprint is neither repaired nor explicitly written off with a reason.
+   **The floor band comes from the room's own mask and never from the repair** — a repair that
+   declares its own band covers that band by construction, which is exactly how the first one got
+   through. Clearances are pinned to the plate's sha256, so a new plate makes them all stale.
+7. **A restore source is only a source for what it actually contains at those coordinates.**
+   Restoring an earlier accepted plate through a region is only safe where that plate holds what
+   the region claims: the Nugget's accepted plate stands its own bar, stools and card group on
+   ground the rebuilt room has cleared, and a region derived by formula rather than looked at
+   pasted a stool, a bar panel and a bar end into open floor three separate times.
+8. **Where a rebuild and an earlier plate disagree, the rebuild is the geometry authority.**
+   Clean pixels in the old plate are not a licence to reinstate old geometry. The Nugget's bar
+   terminates 22 px further right in the accepted plate; restoring that termination would have
+   fixed the look of the end by shortening the current run.
+
 ## 4.3 · Character pipeline v2
 
 Docs 38 and 52 as amended by Tyler's rulings of 2026-09-05:

@@ -658,6 +658,35 @@
       "proofs/room-03/rebuild-proof.json"
      ],
      "ownerAcceptance": null
+    },
+    "backgroundComposite2026_09_12": {
+     "status": "AWAITING-OWNER-VISUAL-ACCEPTANCE",
+     "ruling": "Tyler, 2026-09-12, third visual ruling: BOTH CHARACTERS ARE ACCEPTED AND IMMOVABLE -- the stove man's new back-room placement and the foreground patron's body placement, the +-13 px residual between his feet included. The two remaining defects are in the rebuilt background art that those characters were exposing. ZERO IMAGE OPERATIONS; the ledger stands at 47/47.",
+     "characterOperations": 0,
+     "plate": "art/staging/room-03/rebuild-03/plate-room-03-rebuilt.png",
+     "tool": "tools/retrofit/nugget-plate-cleanup.py",
+     "auditFirst": "THE AUDIT MOVED THE DIAGNOSIS TWICE, which is why it came first. The card cluster DID pave its floor and its salvage repaired only from y 505 down. The BAR cluster did NOT pave the near floor -- accepted plate and shipping plate carry the same dirt at x 1150-1900, y 600-864, and so does the endpoint's own output -- and a first draft that assumed otherwise pasted the accepted plate's bar, which stands 130 px further forward there, over the near ground. The wooden platform under the foreground patron is the GROUNDING TRANSLATION's slack: it composites the plate shifted 82 rows inside a deliberately loose outline, and below that outline's bottom at y 711 the slack covers floor, so the bar's kick-board came down onto the dirt behind his boots.",
+     "defect1Floor": "Dirt restored over the card cluster's whole footprint wherever the accepted cold-dirt plate has aligned dirt to give back: out = acceptedDirt x (shipping low-frequency / accepted low-frequency), gated by the room's floor mask, the phase-1.5C furniture mask (a source is only a source for what it contains), the shipping plate's flatness and connected area. Above y 510 between x 700 and 1080 there is NO SOURCE -- the accepted plate stands its own card group there -- so that band is left and recorded rather than invented.",
+     "defect1BarEnd": "The run's far end rebuilt FROM THE CURRENT BAR, not the old one: the slice at x 1196-1203 moved 11 px left and 3 up on the run's own measured slope (5 px over 18) and darkened to 0.72. The first draft restored the accepted plate's end panel and was wrong on principle: that bar ends 22 px further right, so restoring it reinstates obsolete geometry over current geometry and shortens the current run.",
+     "defect2Ground": "Below y 714 the shifted plate is given back to rebuild-01 -- the same room, the same rebuilt bar, unshifted -- outside an authored 18-point mask of his two boots, plus the slack beside his right leg at x 1780-1814, y 584-698. The grounding's own contact shadows are re-applied over what is restored so the accepted grounding is not weakened. HE DOES NOT MOVE AND HE IS NOT REPAINTED.",
+     "changed": "24018 px, box 673,396 to 1806,792",
+     "regression": {
+      "bugClass": "A generated furniture cluster can bring its own floor material into a room whose canonical floor is different, and the evidence is reviewed with an actor standing in front of it.",
+      "lesson": "When integrating a generated interaction cluster, inspect the ENTIRE cluster footprint for imported environmental material, especially floor, walls and furniture seams that were hidden by actors during review.",
+      "record": "art/staging/room-03/cluster-integrations.json",
+      "check": "tools/check-cluster-floor.mjs, in npm run validate",
+      "asserts": "Every floor pixel of every cluster footprint is inside a repair rect or inside a rect explicitly written off with a reason; the floor band comes from the ROOM's own mask, never from the repair, because a repair that declares its own band covers it by construction; and every clearance is pinned to the plate's sha256, so a new plate makes them all stale. Verified to FAIL on the historical state -- with only the card salvage's y 505 band declared it names 44914 unaccounted floor pixels, first at 712,404."
+     },
+     "evidence": [
+      "docs/36-issue-list.md::Q138",
+      "renders/opening-set-retrofit/room-03-cleanup2-stove-area.webp",
+      "renders/opening-set-retrofit/room-03-cleanup2-patron-ground.webp",
+      "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png",
+      "art/staging/room-03/rebuild-03/cleanup.json",
+      "art/staging/room-03/cluster-integrations.json",
+      "proofs/room-03/rebuild-proof.json"
+     ],
+     "ownerAcceptance": null
     }
    }
   }
