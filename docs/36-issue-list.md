@@ -4360,3 +4360,53 @@ It came back with the long diagonal counter at its own angle, the back bar, the 
 `proofs/room-03/rebuild-proof.json` · `bar-rebuild-registration.json` · `renders/opening-set-retrofit/room-03-rebuild-proof.webp` · `art/staging/room-03/card-salvage/salvage.json` · `bar-rebuild-01/request.json` · `rebuild-01/integration.json` · `tools/retrofit/nugget-card-salvage.py` · `nugget-bar-rebuild-prep.py` · `nugget-bar-integrate.py` · `nugget-bar-registration.py` · `nugget-rebuild-proof.ts` · `proofs/room-03/prompts/bar-rebuild-01.txt`.
 
 **ROOM 3 REBUILD PHASE 2A IS DEPLOYED AND AWAITING OWNER VISUAL ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
+
+---
+
+## Q136 · Room 3 final Phase 2A cleanup: the foreground patron grounded, the stove man retained with proof, the patron copy corrected, one occlusion plane cut — **BUILT 2026-09-12, DEPLOYED, AWAITING OWNER VISUAL ACCEPTANCE**
+
+Tyler reviewed the live rebuilt Nugget, ruled the rebuild broadly successful and not to be reopened structurally, and named two concrete visual defects plus three deterministic cleanups. **No image generation. The ledger stands at 47 / 47.**
+
+### 1 · The foreground bar patron was standing on the bar
+
+**"The rightmost / closest foreground bar patron does not read as properly standing on the ground."** He is right, and the measurement says by how much. His soles sat at plate rows **700** (rear boot, x 1675) and **695** (forward boot, x 1745); the bar's plinth meets the dirt at **770** and **790** at those columns. He was standing on the bar's own kick-board, 70 to 95 px above the floor, with the brass foot rail passing below and in front of his boots. At 1:1 that is exactly what it looks like: a man standing on a wall.
+
+**Why a translation and not a repaint of the feet.** His two soles sit 5 px apart in y while the floor between their columns drops 20 — his stance already disagrees with this room's perspective by 15 px however he is placed, so no correction of one foot can fix it. A single shift can split it. At **+82** the rear sole lands 12 px below its floor row and the forward sole 13 px above its own: under 3% of his height either way, which is below what an eye reads as floating.
+
+**What made the shift possible at all**, because moving a figure out of a baked plate normally means inventing the scenery it uncovers. Here the scenery already existed. `art/staging/room-03/bar-rebuild-01/canvas.png` is the plate that was *sent* to the endpoint — the same room, the same back bar, no men in it — and side by side the two agree: same mirror panes, same shelf, same bottles in the same places, mean difference **8 to 16 of 255** across the band behind him. So the 82-px ribbon his outline vacated is filled with the Nugget's own back bar, from the very frame this bar was composed into. Nothing is drawn that was not already there.
+
+**The silhouette is authored, not thresholded, and the reason is measured.** His coat is brown against brown bar: a difference against the canvas isolates 12% of his box at any threshold worth using, because the two browns agree. The outline is read off a gamma-lifted 2× capture on a 10 px grid, the way the trough's mask was cut in Q-phase 1.5G, and checked by drawing it back over the art. The change is confined to **x 1615-1816, y 199-796** and touches nothing else in the frame.
+
+### 2 · The stove man is retained, and the impression is accounted for
+
+**"He may need to sit farther back."** He cannot, and he should not.
+
+He stands at **1145,508**. The walkable floor's far edge in this room *is* y 506 — behind it is wall, not floor — so there is no further back to go. And the study says moving him would cost the thing he is for: at 1124,504 his body covers the stove's lit firebox, and at 1112,498 the stove is gone behind him entirely. He is warming himself at a stove nobody can see.
+
+What produced the impression is in the sheet's first panel: the frame this pass inherited has **Thad standing directly across him**, cutting him in half at 1180,640. The clean live frame beside it shows the stove, its pipe and its lit firebox to his left with his open hands turned into them, at the distance a man stands from hot iron — 96 px in front of the stove's base line, about 0.74 m at this depth. **Retained, unmoved.**
+
+### 3 · The patron copy
+
+Tyler supplied the canonical LOOK 1 and LOOK 2. Changed in the authority — `docs/16-room-03-content.md` — and re-extracted, so both `nugget` and `nugget_candidate` carry it. The stale "Eleven men drinking at eleven in the morning" and "The same eleven" are gone from every runtime file. LOOK 3 unchanged. The room now says nine and shows nine.
+
+### 4 · The raccoon rect is reverted
+
+Back to **1215,330,90,70**, its pre-rebuild value, with the deferred note recorded rather than the problem solved: on the rebuilt plate that rect sits across the seated miner's head and shoulders, and whoever builds the raccoon will have to place him elsewhere on the counter. Nothing reads the field yet; no behaviour and no content depends on it.
+
+### 5 · One occlusion plane, and it is the spittoon
+
+Phase 2A made the spittoon's OBSTACLE its base line rather than its silhouette, because the whole drawn object stood in open dirt and cut the near floor in two. That was right, and it left this: Thad may walk *behind* the spittoon, and with no plane cut he drew over it.
+
+**Authored, not thresholded, and again the measurement is the argument**: in the band around it the brass runs luminance 19-84 against dirt at 31-51 and warmth 44-64 against 45-53 — the same lamps light both, and any threshold that catches its body catches half the floor with it. An 18-point polygon, 8,955 opaque pixels, `art/masks/room-03-plane-1.png`, checked by `--check` drawing it back over the art.
+
+The bands behind its base take plane 1 and the near band takes 0. Everywhere else in those bands the mask is transparent, so a man at the far end of the room is unaffected by a plane he is nominally on — that is the difference between a stencil over the room's own pixels and a band-wide overlay, and the live frame at 1200,795 shows him drawn whole in the same band 240 px along.
+
+**Two authored proof points were dropped and the reason is worth keeping.** One stood in that same band where the mask is transparent, and the check refuses a point claiming an occlusion its mask cannot produce. The other stood in front of the brass at plane 0, and a plane a room does not declare cannot be proved. **And a third thing the proof found: a player can never STOP directly behind the spittoon** — that ground is entirely inside the spittoon hotspot's rect, so a click there is a verb, not a walk. The plane earns its keep while he walks past, which is a second of every trip along the near floor.
+
+### What is true of the game
+
+Nine patrons — 3 bar, 4 cards, 1 landing, 1 stove — seven of them paint and two of them actors. Four men playing cards at a real table with an abandoned face-up hand and an empty fifth place. Three men at a real bar, all three now standing, sitting and leaning on things that are under them. An empty piano and its empty stool. Thad naturally scaled among them, and beside the foreground patron on the same floor.
+
+`proofs/room-03/rebuild-proof.json` · `art/staging/room-03/rebuild-02/grounding.json` · `renders/opening-set-retrofit/room-03-cleanup-{grounding,stove-man,spittoon}.webp` · `room-03-style-scale.webp` · `tools/retrofit/nugget-bar-grounding.py` · `nugget-spittoon-mask.py` · `nugget-cleanup-proofs.py`.
+
+**ROOM 3 REBUILD PHASE 2A IS DEPLOYED AND AWAITING OWNER VISUAL ACCEPTANCE. PHASE 2B HAS NOT STARTED.**

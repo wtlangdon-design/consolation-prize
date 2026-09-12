@@ -1,0 +1,42 @@
+{
+ "schema": 1,
+ "note": "Foreground bar patron grounded by an 82-row translation, with the ribbon his outline vacates filled from the plate this operation was composed into. No image operation. Ledger unchanged at 47/47.",
+ "from": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "fromSha256": "7565d6544db2598e00fa49fbd66daa5871e0d5fd577fa4d090566f08edd2304b",
+ "ribbonSource": "art/staging/room-03/bar-rebuild-01/canvas.png",
+ "ribbonSourceSha256": "f33ad76cb4757b9bdf208859128e08d450c86b03e4baeb90ff6765edee10c729",
+ "shiftRows": 82,
+ "featherPx": 3,
+ "solesBefore": {
+  "rear": [
+   1675,
+   700
+  ],
+  "forward": [
+   1745,
+   695
+  ]
+ },
+ "floorAtThoseColumns": {
+  "rear": 770,
+  "forward": 790
+ },
+ "solesAfter": {
+  "rear": [
+   1675,
+   782
+  ],
+  "forward": [
+   1745,
+   777
+  ]
+ },
+ "residual": {
+  "rear": -12,
+  "forward": 13,
+  "note": "px from the floor row; his own stance disagrees with the room by 15, so a translation can split the error but not remove it"
+ },
+ "silhouettePoints": 42,
+ "out": "art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png",
+ "outSha256": "4e0c272871953da9ad53c09997838fded38ef5be5efc1f542ba49a3461d42e60"
+}

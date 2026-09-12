@@ -3,7 +3,7 @@
   "id": "nugget_candidate",
   "name": "THE BOUNTIFUL NUGGET (CANDIDATE)",
   "note": "Doc 05 Room 3 plus doc 16, verbatim. Twelve hotspots and two exits. THE HANDBILL is the Rules of the Assay and carries Rule 3. THE PATRONS has no drawn figures in the background -- doc 07's ambient characters supply them at runtime, so the rect covers where they stand. Doc 16 note 4: the stove's third LISTEN reverses the first two on purpose; it has gone out and nobody has noticed. Do not 'correct' it.",
-  "background": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+  "background": "art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png",
   "colours": {
     "sky": 0,
     "ground": 6
@@ -508,9 +508,9 @@
       "responses": {
         "LOOK_AT": [
           {
-            "say": "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five.",
+            "say": "Nine men drinking after dark, all of whom were at their claims by seven this morning and will be again by seven tomorrow. This is the part in between.",
             "repeat": [
-              "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign.",
+              "The same nine. I have started to be able to tell them apart, which I regard as a poor sign.",
               "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
             ]
           }
@@ -756,7 +756,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -790,7 +790,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -824,7 +824,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -857,7 +857,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -892,7 +892,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -929,7 +929,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -964,7 +964,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -997,7 +997,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -1031,7 +1031,7 @@
         }
       ],
       "surface": "mud",
-      "clipPlane": 0,
+      "clipPlane": 1,
       "scaleMode": {
         "kind": "curve",
         "farY": 506,
@@ -1187,7 +1187,17 @@
     "nugget_landing_man",
     "nugget_stove_man"
   ],
-  "occlusionProofs": [],
+  "occlusionProofs": [
+    {
+      "at": [
+        1443,
+        800
+      ],
+      "expect": 1,
+      "box": "floor_5",
+      "note": "Directly behind the spittoon and 24 px above its base. The brass stands at 745-864 and he stands at 800, so it crosses him from the knee down -- 4% of the figure, which is the whole of what a spittoon should take and is exactly what he drew straight over before this plane was cut. TWO POINTS WERE DROPPED FROM THIS LIST and the reason is worth keeping: one stood in the same band 200 px along, where the mask is transparent, and the check refuses a point claiming an occlusion its mask cannot produce; the other stood in front of the brass at plane 0, and a plane a room does not declare cannot be proved. There is in any case no walkable ground DIRECTLY in front of the spittoon -- its obstacle runs from y 824 to the frame's foot, which is phase 2A's correction and stands."
+    }
+  ],
   "occlusionBands": [
     "floor_1",
     "floor_2",
@@ -1196,11 +1206,16 @@
     "floor_5",
     "floor_6"
   ],
-  "occlusionPlanes": [],
+  "occlusionPlanes": [
+    {
+      "level": 1,
+      "mask": "art/masks/room-03-plane-1.png",
+      "note": "The spittoon, authored as a polygon because it cannot be thresholded: in the band around it the brass runs luminance 19-84 against dirt at 31-51 and warmth 44-64 against 45-53, which is the same lamps lighting both. tools/retrofit/nugget-spittoon-mask.py, --check draws it back over the art."
+    }
+  ],
   "candidateOf": "nugget",
   "population": {
     "note": "ROOM 3 REBUILD (Tyler, 2026-09-11). THE NUGGET'S POPULATION IS NINE AND SEVEN OF THEM ARE PAINT. The owner ruled the four card players and the three bar men into the background art as static staging, keeping only the landing man and the stove man as runtime actors, and the count therefore stopped being something a test could get by counting ambient files. This declares it instead: every one of the nine, what he is doing, whether he is paint or an actor, and where he is in the plate -- boxes read off art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png on a 50 px grid. A person can check it against renders/opening-set-retrofit/room-03-rebuild-population.webp in under a minute, and tests/phase2a-access.test.ts checks the arithmetic every run.",
-    "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
     "people": [
       {
         "id": "card_1",
@@ -1304,15 +1319,15 @@
         "kind": "baked",
         "box": [
           1600,
-          212,
+          294,
           215,
           483
         ],
         "seat": [
           1700,
-          690
+          772
         ],
-        "what": "STANDING: the heavy moustached man in the bowler and checked shirt, tin mug in hand, one boot on the brass foot rail, half turned into the room"
+        "what": "STANDING: the heavy moustached man in the bowler and checked shirt, tin mug in hand, half turned into the room, both boots on the dirt with the brass foot rail passing behind them. TRANSLATED 82 ROWS DOWN on 2026-09-12: the endpoint had stood him on the bar's own kick-board, 70 to 95 px above the floor."
       },
       {
         "id": "nugget_landing_man",
@@ -1363,6 +1378,7 @@
       60
     ],
     "emptyFifthPlaceNote": "The near side of the table: an empty chair, and the abandoned face-up hand on the rim in front of it. No seat in this file may fall inside it.",
-    "pianoNote": "Nobody plays the piano, nobody touches it, and that is the joke. No box in this file may reach it."
+    "pianoNote": "Nobody plays the piano, nobody touches it, and that is the joke. No box in this file may reach it.",
+    "plateNote": "The plate is the room's own `background`; it is not restated here. It was, and the boot-assets check caught it still naming rebuild-01 after the grounding pass moved on to rebuild-02 -- two lists that must agree, kept by hand."
   }
 }

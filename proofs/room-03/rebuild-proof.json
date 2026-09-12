@@ -2,8 +2,8 @@
  "schema": 1,
  "note": "ROOM 3 REBUILD (Tyler, 2026-09-11): the five proofs his ruling asks for, each a number and a mark on the same sheet.",
  "room": "nugget_candidate",
- "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
- "commit": "1c8c7417451cfe93779a4b2ae851a8be2f7ba6dc",
+ "plate": "art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png",
+ "commit": "b08753634a5db0730d3b6ac07ab4ca9bd0eb8d31",
  "checks": [
   {
    "what": "population is exactly nine",
