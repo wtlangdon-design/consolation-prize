@@ -762,7 +762,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_1_3",
@@ -796,7 +799,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_1_3",
@@ -830,7 +836,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_2"
@@ -863,7 +872,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_1_0",
@@ -898,7 +910,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_1_0",
@@ -935,7 +950,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_2",
@@ -970,7 +988,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_3_0"
@@ -1003,7 +1024,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_3_0",
@@ -1037,7 +1061,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_4",
@@ -1072,7 +1099,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_5"
@@ -1105,7 +1135,10 @@
         "farY": 506,
         "farHeight": 227,
         "nearY": 858,
-        "nearHeight": 526
+        "nearHeight": 526,
+        "beyondY": 412,
+        "beyondHeight": 147,
+        "beyondNote": "THE STOVE'S OWN BASE LINE, and this is not an extrapolation choice the way Room 1's was. This curve is a true perspective by construction: 227 at y 506 and 526 at y 858 is a straight line that reaches zero at y 239, which is the horizon this room's scaling note already names. Continuing it above the band is therefore the SAME perspective and not a second model -- 0.8494 x (412 - 239) = 147. IT IS NEEDED BECAUSE heightIn CLAMPS ABOVE farY. Tyler, 2026-09-12: the stove man reads as standing at the card table's depth and must stand at the back of the room with the stove, and his placement is staging, not a player-navigation target. Without this sample he would be drawn at 227 wherever he stood behind the band -- a man at the back of the room at the size of a man at the front of it. CROSS-CHECKED against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there, and the curve says 162. Six per cent, on a door measured off a painting."
       },
       "neighbours": [
         "floor_5"
@@ -1350,16 +1383,16 @@
         "group": "stove",
         "kind": "actor",
         "box": [
-          1098,
-          279,
-          94,
-          229
+          1108,
+          269,
+          69,
+          169
         ],
         "seat": [
-          1145,
-          508
+          1142,
+          438
         ],
-        "what": "coat buttoned to the throat, both hands open toward the iron, turned into the stove"
+        "what": "coat buttoned to the throat, both hands open toward the iron, turned into the stove, AT THE BACK OF THE ROOM beside it and behind the card group"
       }
     ],
     "expect": {

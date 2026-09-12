@@ -638,7 +638,27 @@
      "art/staging/room-03/rebuild-02/grounding.json",
      "proofs/room-03/rebuild-proof.json"
     ],
-    "ownerAcceptance": null
+    "ownerAcceptance": null,
+    "groundingOwnerAccepted": "Tyler, 2026-09-12: the foreground/rightmost bar patron grounding correction is ACCEPTED and that patron is not to be touched again. The +-13 px residual between his two feet is not a meaningful visible defect.",
+    "stoveManDepth": {
+     "status": "AWAITING-OWNER-VISUAL-ACCEPTANCE",
+     "ruling": "Tyler, 2026-09-12, second visual ruling: he reads at the card table's depth and must stand at the back of the room with the stove. The walkable floor's far edge is rejected as an implementation constraint -- he is staging, not a navigation target, and has no tree, no barks and no approach.",
+     "resolution": "RUNTIME, not baked. The engine already carries scaleMode.beyondY/beyondHeight for exactly this (errata 38); a room whose boxes are GENERATED could not have them because the compiler never read them. Three lines of compiler, one annotation block, two numbers on his record.",
+     "before": "1142 -> 1145,508 drawn 229px",
+     "after": "1142,438 drawn 169px, on the painted floor beside the stove whose base line is y 412, and 70 to 160 px behind the card group's chairs",
+     "thirdSample": "beyondY 412, beyondHeight 147. Not a modelling choice: the curve is a true perspective reaching zero at the room's own horizon of y 239, so continuing it is the same perspective. Door cross-check 157 against 162.",
+     "landingMan": "Stature restated 0.74 -> 1.143 and DRAWN AT EXACTLY THE SAME 168 px. A stature is a ratio against a clamp and the clamp moved; the drawn height is the fixed point, not the multiplier.",
+     "populationSemantics": "Unchanged: 9 visible, 7 baked, 2 runtime actors.",
+     "characterOperations": 0,
+     "evidence": [
+      "docs/36-issue-list.md::Q137",
+      "renders/opening-set-retrofit/room-03-cleanup-stove-man.webp",
+      "renders/opening-set-retrofit/room-03-style-scale.webp",
+      "renders/opening-set-retrofit/phase2a-production-nugget-candidate-at-700_700.png",
+      "proofs/room-03/rebuild-proof.json"
+     ],
+     "ownerAcceptance": null
+    }
    }
   }
  }

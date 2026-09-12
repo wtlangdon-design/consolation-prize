@@ -2,7 +2,7 @@
  "schema": 1,
  "id": "nugget_landing_man",
  "name": "THE MAN ON THE LANDING",
- "note": "A STORY ANCHOR: there is always a man on the landing, and he has not moved. RESTAGED TWICE, and the second time is the one that mattered. First from 1382,168 -- the separation plan's zone -- where his hat was cut off by the top of the frame. Then from 1350,212, where the LIVE ROOM showed what a composite sheet had not: he was standing on the STRINGER, the diagonal rail of the flight, with nothing under his boots. THERE IS NO FLAT LANDING IN THIS PLATE. The flight runs up and out of frame behind the upper wall, so the highest place a man can stand is a tread near the top of the visible run: the tread front edges are y 395, 370, 345, 320, 300, 278, 255, 235 going up, and at 235 the tread spans x 1290-1450. He stands at 1305,235, on the tread's own surface at the wall side, with 67 px of headroom. His stature is 0.74 because his feet are not on this room's floor and the engine clamps to the far height there.",
+ "note": "A STORY ANCHOR: there is always a man on the landing, and he has not moved. RESTAGED TWICE, and the second time is the one that mattered. First from 1382,168 -- the separation plan's zone -- where his hat was cut off by the top of the frame. Then from 1350,212, where the LIVE ROOM showed what a composite sheet had not: he was standing on the STRINGER, the diagonal rail of the flight, with nothing under his boots. THERE IS NO FLAT LANDING IN THIS PLATE. The flight runs up and out of frame behind the upper wall, so the highest place a man can stand is a tread near the top of the visible run: the tread front edges are y 395, 370, 345, 320, 300, 278, 255, 235 going up, and at 235 the tread spans x 1290-1450. He stands at 1305,235, on the tread's own surface at the wall side, with 67 px of headroom. His stature is 0.74 because his feet are not on this room's floor and the engine clamps to the far height there. STATURE RESTATED 0.74 -> 1.143 (2026-09-12) AND HE IS DRAWN AT EXACTLY THE SAME 168 PX. His stature was never a statement about him; it was arithmetic against whatever the engine clamps to above the walkable band, and that clamp has changed. The room now declares a third depth sample at the stove's base line so the stove man can stand at the back of the room at the size of a man at the back of the room, which moves the clamp from 227 to 147. Left alone he would have shrunk 35% for a change that is not about him: 227 x 0.74 = 168, and 147 x 1.143 = 168. THE DRAWN HEIGHT IS THE FIXED POINT, not the multiplier.",
  "room": "nugget_candidate",
  "x": 1305,
  "y": 235,
@@ -21,7 +21,7 @@
    ]
   ],
   "figureHeight": 168,
-  "stature": 0.74,
+  "stature": 1.143,
   "note": "PHASE 2A: one frame, and that is the phase, not an omission. Static staging first, and Tyler accepts the face in the room before any life is animated on it -- doc 36 Q128. The sheet is pre-scaled to the height this room asks for where the character stands, so the engine draws it at about 1:1 instead of shrinking a 1200 px painting on every frame."
  },
  "barks": {},

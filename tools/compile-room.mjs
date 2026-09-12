@@ -951,6 +951,17 @@ built.exits = (live.exits ?? []).map((e) => {
     farY: ann.scaling.far.y, farHeight: ann.scaling.far.height,
     nearY: ann.scaling.near.y, nearHeight: ann.scaling.near.height,
   };
+  // THE THIRD SAMPLE, ABOVE THE BAND. heightIn CLAMPS above farY unless the
+  // curve says what happens up there, and a clamp means a staged character
+  // standing at the back of the room is drawn at the size of one standing at
+  // the front of it. Room 1 has carried these fields by hand since errata 38;
+  // a room whose boxes are generated could not have them at all until now.
+  // Declared in the annotation, because it is a statement about the painting.
+  if (ann.scaling.beyond) {
+    scale.beyondY = ann.scaling.beyond.y;
+    scale.beyondHeight = ann.scaling.beyond.height;
+    if (ann.scaling.beyond.note) scale.beyondNote = ann.scaling.beyond.note;
+  }
   // HOW MANY BANDS: three for a floor of constant width, more where it
   // narrows, because each band is a rectangle and a rectangle can only follow
   // a slanted edge in steps. Measured from the floor itself rather than
