@@ -618,7 +618,28 @@
     "proofs/room-03/bar-rebuild-registration.json",
     "tests/phase2a-access.test.ts"
    ],
-   "ownerAcceptance": null
+   "ownerAcceptance": null,
+   "cleanup2026_09_12": {
+    "status": "AWAITING-OWNER-VISUAL-ACCEPTANCE",
+    "ruling": "Tyler, 2026-09-12: the rebuild is broadly successful and is NOT to be reopened structurally. Two owner-observed visual defects and three deterministic cleanups, no image generation, ledger closed at 47/47.",
+    "characterOperations": 0,
+    "plate": "art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png",
+    "grounding": "The foreground bar patron stood on the bar's kick-board 70 to 95 px above the floor. Translated 82 rows down; the ribbon his outline vacated filled from the plate this bar was composed into. Change confined to x 1615-1816, y 199-796.",
+    "stoveMan": "RETAINED at 1145,508 with proof. The walkable floor's far edge IS y 506, so there is no further back; and the study shows moving him covers the lit firebox he is warming himself at. The impression came from a frame with Thad across him.",
+    "patronCopy": "LOOK 1 and 2 replaced in docs/16-room-03-content.md by owner-supplied text and re-extracted into both nugget and nugget_candidate. No \"Eleven men\" remains.",
+    "raccoon": "Rect reverted to its pre-rebuild 1215,330,90,70 by owner instruction; the conflict with the seated miner recorded as deferred, not solved.",
+    "occlusion": "ONE PLANE: the spittoon. art/masks/room-03-plane-1.png, 18 points, 8955 opaque px, one authored proof point at 1443,800 where the mask covers 4% of the figure.",
+    "evidence": [
+     "docs/36-issue-list.md::Q136",
+     "renders/opening-set-retrofit/room-03-cleanup-grounding.webp",
+     "renders/opening-set-retrofit/room-03-cleanup-stove-man.webp",
+     "renders/opening-set-retrofit/room-03-cleanup-spittoon.webp",
+     "renders/opening-set-retrofit/room-03-style-scale.webp",
+     "art/staging/room-03/rebuild-02/grounding.json",
+     "proofs/room-03/rebuild-proof.json"
+    ],
+    "ownerAcceptance": null
+   }
   }
  }
 }

@@ -1,6 +1,6 @@
 {
  "room": "nugget_candidate",
- "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "plate": "art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png",
  "plateSize": [
   1920,
   864
@@ -331,12 +331,13 @@
   },
   "raccoon": {
    "rect": [
-    1480,
-    410,
+    1215,
+    330,
     90,
     70
    ],
-   "note": "ACT II after A5. On the END OF THE BAR. REBUILD: the counter's left end is under a seated man's elbow now, so he moves to the clear stretch between the leaning man's forearm and the standing man's mug, x 1480-1570, standing on the top surface at about y 480. Still the counter, still evicted from a hole and promoted. Provisional until the sprite exists."
+   "note": "ACT II after A5. On the END OF THE BAR -- the counter's left end, 1205-1300 at y 385 -- evicted from a hole and promoted. Provisional until the sprite exists.",
+   "deferred": "REVERTED BY OWNER INSTRUCTION (Tyler, 2026-09-12). The rebuild had moved this rect to 1480,410 because the counter's left end is now under the seated miner's elbow, and Tyler's ruling is that the raccoon's staging is not this pass's to move: revert the coordinates, defer the question. SO IT IS KNOWN AND NOT SOLVED: on the rebuilt plate this rect sits across that miner's head and shoulders, and whoever builds the raccoon will have to place him somewhere else on the counter -- the clear stretch between the leaning man's forearm and the standing man's mug, about x 1480-1570, is the obvious candidate. Nothing reads this field yet; no behaviour and no content depends on it."
   }
  },
  "charactersNote": "Kept OUT of hotspots on purpose, as in the shipping annotation: a rect with no lines is a hotspot that says nothing when clicked. Their words live in their trees and in doc 49.",
@@ -345,25 +346,41 @@
  },
  "walkModel": "clipped",
  "occlusion": {
-  "note": "REBUILD: STILL NO PLANE, and now for a measured reason rather than a pending one. With the seven furniture-dependent patrons painted into the plate, the case the planes were wanted for is gone: nobody has to be registered to furniture at runtime any more. What is left is two actors, and neither passes behind anything. The landing man stands on a stair tread with the whole room in front of him and nothing between. The stove man stands at 1145,508, and the nearest thing that could cross him is the card group, whose right-hand chair back ends at x 1100 while his sprite starts at 1098 -- two pixels, measured off the rebuilt plate, and he is not cut by them. THE FLOOR STILL STOPS AT THE BAR'S PLINTH, so nobody passes behind the counter, and the three bar men are obstacles rather than occluders. A plane whose mask nothing is ever tested against is the thing this room already had and it is worse than none: it cuts a figure along a shape nobody has checked. KNOWN AND NOT CUT HERE: the spittoon, which Thad can walk behind since Phase 2A made its obstacle a base line. That is a pre-existing Room 3 item and not part of what the rebuild was authorized to change.",
-  "planes": [],
+  "note": "ONE PLANE, AND IT IS THE SPITTOON (Tyler, 2026-09-12). Phase 2A made the spittoon's OBSTACLE its base line rather than its silhouette, because the whole drawn object stood in open dirt and cut the near floor in two. That was right, and it left this: Thad may now walk BEHIND the spittoon, and with no plane cut he drew over it -- a man at y 800 with a brass spittoon at y 745-864 in front of him and his shins on top of it. The mask is a 1-bit stencil over the plate's own pixels and is never drawn, so nothing is duplicated and nothing shifts. THE BANDS BEHIND ITS BASE TAKE PLANE 1 AND THE BAND IN FRONT TAKES 0: floor_6 runs 813-864 and the brass stands on 824, so a man down there is nearer than it and is masked by nothing. Everywhere else in those bands the mask is transparent, so a man at the far end of the room is unaffected by a plane he is nominally on. NOTHING ELSE IN THIS ROOM OCCLUDES ANYBODY. The seven furniture-dependent patrons are painted into the plate and need no plane; the floor still stops at the bar's plinth, so nobody passes behind the counter; the stove man stands at 1145,508 and the nearest thing that could cross him is the card group, whose right-hand chair back ends at x 1100 while his sprite starts at 1098 -- two pixels, and he is not cut by them.",
+  "planes": [
+   {
+    "level": 1,
+    "mask": "art/masks/room-03-plane-1.png",
+    "note": "The spittoon, authored as a polygon because it cannot be thresholded: in the band around it the brass runs luminance 19-84 against dirt at 31-51 and warmth 44-64 against 45-53, which is the same lamps lighting both. tools/retrofit/nugget-spittoon-mask.py, --check draws it back over the art."
+   }
+  ],
   "clipPlane": {
-   "floor_0": 0,
-   "floor_1": 0,
-   "floor_2": 0,
-   "floor_3": 0,
-   "floor_4": 0,
-   "floor_5": 0,
+   "floor_0": 1,
+   "floor_1": 1,
+   "floor_2": 1,
+   "floor_3": 1,
+   "floor_4": 1,
+   "floor_5": 1,
    "floor_6": 0
   },
-  "proofPoints": []
+  "proofPoints": [
+   {
+    "at": [
+     1443,
+     800
+    ],
+    "expect": 1,
+    "box": "floor_5",
+    "note": "Directly behind the spittoon and 24 px above its base. The brass stands at 745-864 and he stands at 800, so it crosses him from the knee down -- 4% of the figure, which is the whole of what a spittoon should take and is exactly what he drew straight over before this plane was cut. TWO POINTS WERE DROPPED FROM THIS LIST and the reason is worth keeping: one stood in the same band 200 px along, where the mask is transparent, and the check refuses a point claiming an occlusion its mask cannot produce; the other stood in front of the brass at plane 0, and a plane a room does not declare cannot be proved. There is in any case no walkable ground DIRECTLY in front of the spittoon -- its obstacle runs from y 824 to the frame's foot, which is phase 2A's correction and stands."
+   }
+  ]
  },
  "candidate": {
   "of": "nugget",
   "stage": "CANDIDATE",
   "review": "live at ?room=nugget_candidate; the shipping room is untouched"
  },
- "plateNote": "ROOM 3 REBUILD (Tyler, 2026-09-11). THE PLATE IS NO LONGER PEOPLE-FREE. Tyler accepted the build decision and ruled that the seven furniture-dependent patrons -- four card players and three bar men -- ship as STATIC STAGING baked into the background, with their LOOK and LISTEN copy on the room hotspots, and that only the landing man and the stove man stay runtime actors. That is the method the ORIGINAL shipping Nugget used: art/backgrounds/room-03-nugget.png drew its seated men in the same pass as its furniture. Two sources. The salvaged card cluster, blitted back at the integer x2 it was composed at with its plank floor replaced by this room's own dirt (tools/retrofit/nugget-card-salvage.py). And the ONE authorized bar operation, taken from plate x 1176 rightward (tools/retrofit/nugget-bar-integrate.py). PHASE 1.5C (doc 36 Q119, owner review of 1.5B failed): the accepted clean plate with ONE continuous dirt floor across the whole public floor -- the third and final floor operation, the whole floor under a mask with no furniture holes and no rectangular restore; the model's floor stands under and between every leg, the model's furniture stands as it kept it, and only the spittoon's tight brass silhouette comes back from the accepted plate. Stove out in the base, fire in the lit overlay, unchanged. art/staging/room-03/corrected-03/derivation.json.",
+ "plateNote": "FINAL CLEANUP (Tyler, 2026-09-12): the plate is rebuild-02. One change from rebuild-01 and it is the foreground bar patron, who was standing on the bar's own kick-board 70 to 95 px above the floor; he is translated 82 rows down onto the dirt and the ribbon his outline vacated is filled from the very frame this bar was composed into. tools/retrofit/nugget-bar-grounding.py. No image operation; the ledger stays 47/47. ROOM 3 REBUILD (Tyler, 2026-09-11). THE PLATE IS NO LONGER PEOPLE-FREE. Tyler accepted the build decision and ruled that the seven furniture-dependent patrons -- four card players and three bar men -- ship as STATIC STAGING baked into the background, with their LOOK and LISTEN copy on the room hotspots, and that only the landing man and the stove man stay runtime actors. That is the method the ORIGINAL shipping Nugget used: art/backgrounds/room-03-nugget.png drew its seated men in the same pass as its furniture. Two sources. The salvaged card cluster, blitted back at the integer x2 it was composed at with its plank floor replaced by this room's own dirt (tools/retrofit/nugget-card-salvage.py). And the ONE authorized bar operation, taken from plate x 1176 rightward (tools/retrofit/nugget-bar-integrate.py). PHASE 1.5C (doc 36 Q119, owner review of 1.5B failed): the accepted clean plate with ONE continuous dirt floor across the whole public floor -- the third and final floor operation, the whole floor under a mask with no furniture holes and no rectangular restore; the model's floor stands under and between every leg, the model's furniture stands as it kept it, and only the spittoon's tight brass silhouette comes back from the accepted plate. Stove out in the base, fire in the lit overlay, unchanged. art/staging/room-03/corrected-03/derivation.json.",
  "hotspotStates": {
   "stove": {
    "default": "lit",
@@ -380,7 +397,6 @@
  },
  "population": {
   "note": "ROOM 3 REBUILD (Tyler, 2026-09-11). THE NUGGET'S POPULATION IS NINE AND SEVEN OF THEM ARE PAINT. The owner ruled the four card players and the three bar men into the background art as static staging, keeping only the landing man and the stove man as runtime actors, and the count therefore stopped being something a test could get by counting ambient files. This declares it instead: every one of the nine, what he is doing, whether he is paint or an actor, and where he is in the plate -- boxes read off art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png on a 50 px grid. A person can check it against renders/opening-set-retrofit/room-03-rebuild-population.webp in under a minute, and tests/phase2a-access.test.ts checks the arithmetic every run.",
-  "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
   "people": [
    {
     "id": "card_1",
@@ -484,15 +500,15 @@
     "kind": "baked",
     "box": [
      1600,
-     212,
+     294,
      215,
      483
     ],
     "seat": [
      1700,
-     690
+     772
     ],
-    "what": "STANDING: the heavy moustached man in the bowler and checked shirt, tin mug in hand, one boot on the brass foot rail, half turned into the room"
+    "what": "STANDING: the heavy moustached man in the bowler and checked shirt, tin mug in hand, half turned into the room, both boots on the dirt with the brass foot rail passing behind them. TRANSLATED 82 ROWS DOWN on 2026-09-12: the endpoint had stood him on the bar's own kick-board, 70 to 95 px above the floor."
    },
    {
     "id": "nugget_landing_man",
@@ -543,6 +559,7 @@
    60
   ],
   "emptyFifthPlaceNote": "The near side of the table: an empty chair, and the abandoned face-up hand on the rim in front of it. No seat in this file may fall inside it.",
-  "pianoNote": "Nobody plays the piano, nobody touches it, and that is the joke. No box in this file may reach it."
+  "pianoNote": "Nobody plays the piano, nobody touches it, and that is the joke. No box in this file may reach it.",
+  "plateNote": "The plate is the room's own `background`; it is not restated here. It was, and the boot-assets check caught it still naming rebuild-01 after the grounding pass moved on to rebuild-02 -- two lists that must agree, kept by hand."
  }
 }

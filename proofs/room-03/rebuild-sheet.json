@@ -1,5 +1,5 @@
 {
- "plate": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "plate": "art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png",
  "people": [
   {
    "id": "card_1",
@@ -90,13 +90,13 @@
    "kind": "baked",
    "box": [
     1600,
-    212,
+    294,
     215,
     483
    ],
    "seat": [
     1700,
-    690
+    772
    ]
   },
   {
@@ -153,8 +153,8 @@
   420
  ],
  "raccoon": [
-  1480,
-  410,
+  1215,
+  330,
   90,
   70
  ],

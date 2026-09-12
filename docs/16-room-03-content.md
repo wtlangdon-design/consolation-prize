@@ -30,7 +30,7 @@
 **LISTEN** 1 "The street. Muffled. Somebody arguing about a boundary." · 2 "Still the boundary. Still arguing." · 3 "The stage has come in. Four days from Sacramento and eleven new men who think they are early."
 
 ## THE PATRONS
-**LOOK** 1 "Eleven men drinking at eleven in the morning, all of whom will be at their claims by two and back here by five." · 2 "The same eleven. I have started to be able to tell them apart, which I regard as a poor sign." · 3 "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
+**LOOK** 1 "Nine men drinking after dark, all of whom were at their claims by seven this morning and will be again by seven tomorrow. This is the part in between." · 2 "The same nine. I have started to be able to tell them apart, which I regard as a poor sign." · 3 "Nobody in here is talking about anything but where the gold is. They have been having this conversation for twelve years and it has not advanced."
 **LISTEN** 1 "Talk. A great deal of it, all at the same volume, none of it listened to." · 2 "Somebody in the corner has told the same story four times and it has grown twice." · 3 "The word 'Mott' comes up about once a minute. I have counted. It is once a minute."
 
 ## THE HAND OF CARDS *(new)*
