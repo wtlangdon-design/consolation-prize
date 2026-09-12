@@ -88,20 +88,21 @@ def sheet_spittoon():
 
 
 def sheet_stove_man():
-    clean = Image.open(R + 'phase2a-production-nugget-candidate-at-700_700.png')
-    crowd = Image.open(R + 'phase2a-production-nugget-candidate-at-1180_640.png')
+    """BEFORE and AFTER at 1:1, from the deployed bundle both times.
+
+    The question the owner set is a depth question, so the panels are the same
+    crop of the same room and nothing else changed between them: only where the
+    one actor stands."""
+    before = Image.open('/tmp/ba/before-700.png')
+    after = Image.open(R + 'phase2a-production-nugget-candidate-at-700_700.png')
+    box = (960, 240, 1300, 620)
     panels = [
-        label(crowd.convert('RGB').crop((1020, 250, 1240, 540)),
-              'THE FRAME THAT CAUSED IT  Thad across him'),
-        label(clean.convert('RGB').crop((1020, 250, 1240, 540)),
-              'LIVE  clean frame, Thad elsewhere'),
+        label(before.convert('RGB').crop(box), 'BEFORE  1145,508  drawn 229px'),
+        label(after.convert('RGB').crop(box),  'AFTER  1142,438  drawn 169px'),
     ]
-    for name, tag in (('sm-A', 'RETAINED  1145,508'),
-                      ('sm-B', 'BACK 21px  1124,504  stove hidden'),
-                      ('sm-C', 'BACK 33px  1112,498  stove gone')):
-        path = f'/tmp/{name}.png'
-        if os.path.exists(path):
-            panels.append(label(Image.open(path).crop((1020, 250, 1240, 540)), tag))
+    wide = (640, 140, 1340, 620)
+    panels.append(label(after.convert('RGB').crop(wide),
+                        'AFTER  card group middle, stove man back'))
     row(panels).save(R + 'room-03-cleanup-stove-man.webp', 'WEBP', quality=90, method=6)
 
 
@@ -111,18 +112,21 @@ def sheet_style():
     common 300 px, with its true height printed on it."""
     plate = Image.open(AFTER).convert('RGB')
     picks = [
-        ('THAD act', None, 477, (1443, 800)),
-        ('STOVE act', 'content/ambient/nugget-stove-man.json', None, None),
-        ('LANDING act', 'content/ambient/nugget-landing-man.json', None, None),
-        ('BAR 1 baked', None, None, (1195, 262, 1350, 605)),
-        ('CARD 4 baked', None, None, (995, 300, 1150, 545)),
+        ('THAD act', None, 477, (1443, 800), None),
+        ('STOVE act', 'content/ambient/nugget-stove-man.json', None, None, 169),
+        ('LANDING act', 'content/ambient/nugget-landing-man.json', None, None, 168),
+        ('BAR 1 baked', None, None, (1195, 262, 1350, 605), None),
+        ('CARD 4 baked', None, None, (995, 300, 1150, 545), None),
     ]
     panels = []
-    for name, amb, h, geom in picks:
+    for name, amb, h, geom, staged in picks:
         if amb:
             d = json.load(open(amb)); f = d['sprite']['frames'][0]
             im = Image.open(d['sprite']['sheet']).convert('RGBA') \
                 .crop((f[0], f[1], f[0] + f[2], f[1] + f[3]))
+            if staged:
+                im = im.resize((max(1, round(im.width * staged / im.height)), staged),
+                               Image.NEAREST)
             bg = Image.new('RGB', im.size, (16, 14, 12)); bg.paste(im, (0, 0), im)
             im = bg
         elif h:

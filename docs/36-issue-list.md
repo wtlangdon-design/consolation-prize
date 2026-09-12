@@ -4410,3 +4410,48 @@ Nine patrons — 3 bar, 4 cards, 1 landing, 1 stove — seven of them paint and 
 `proofs/room-03/rebuild-proof.json` · `art/staging/room-03/rebuild-02/grounding.json` · `renders/opening-set-retrofit/room-03-cleanup-{grounding,stove-man,spittoon}.webp` · `room-03-style-scale.webp` · `tools/retrofit/nugget-bar-grounding.py` · `nugget-spittoon-mask.py` · `nugget-cleanup-proofs.py`.
 
 **ROOM 3 REBUILD PHASE 2A IS DEPLOYED AND AWAITING OWNER VISUAL ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
+
+---
+
+## Q137 · The stove man moves to the back of the room: the curve learns a third sample and the landing man's stature is restated — **BUILT 2026-09-12, DEPLOYED, AWAITING OWNER VISUAL ACCEPTANCE**
+
+Tyler accepted the foreground bar patron's grounding and ruled the stove man still wrong: **"He needs to be all the way at the back of the room with the stove."** At 1145,508 he read as standing at the card table's depth, warming his hands beside the players. And he explicitly rejected the reasoning this pass had offered:
+
+> "He cannot go farther back because the walkable floor's far edge is y 506."
+
+That is a statement about **where Thad may walk**, not about where the ground is, and the stove man is staging. He has no tree, no barks and no approach: nothing in the game ever routes to him. Visual staging authority takes precedence, and the rejection is correct.
+
+### The implementation was already in the engine, unused by a generated room
+
+`heightIn` **clamps above `farY`** unless the curve carries a third sample — and the comment above that clamp, written for errata 38, says exactly why: *"a man walking away up the road would not shrink at all: he would slide into the distance at the size of a man standing at the back of the band, forever."* `scaleMode.beyondY` / `beyondHeight` exist for it. Room 1 has carried them by hand since; a room whose boxes are **generated** could not have them at all, because the compiler never read them. Three lines of compiler and one annotation block fixed that.
+
+So: **no special case, no override, and no bake.** The stove man's record changes by two numbers.
+
+### The number is not a modelling choice, which is the difference from Room 1
+
+Room 1's `beyondHeight` is the one number in that file nobody has ruled on, with three ways of measuring it disagreeing by a factor of four. Here there is nothing to choose. This curve is **a true perspective by construction**: 227 at y 506 and 526 at y 858 is a straight line reaching zero at **y 239** — the horizon the room's own scaling note already names. Continuing it above the band is the *same* perspective, not a second model.
+
+At the stove's own base line, **y 412 → 147 px**. Cross-checked against the door behind the stove, whose panel runs y 250 to the floor at 430: 180 px for a two-metre door puts a 1.75 m man at 157 there against the curve's 162 — six per cent, on a door measured off a painting.
+
+### What it cost, and the rule that came out of it
+
+**The landing man would have shrunk 35% for a change that is not about him.** His stature was 0.74 — never a statement about him, but arithmetic against whatever the engine clamps to above the band. Moving the clamp from 227 to 147 moved him with it. Restated to **1.143**, and he is drawn at exactly the same **168 px**: `227 × 0.74 = 168`, `147 × 1.143 = 168`.
+
+**THE DRAWN HEIGHT IS THE FIXED POINT, NOT THE MULTIPLIER.** A stature is a ratio against a clamp, and a clamp is not a constant. Any future room that gains a third sample has to re-derive the statures of everyone standing above its band, and the way to check is to compare pixels rather than numbers. The offline composite caught this before the build did, by drawing him at 1 × 1 px.
+
+### Old and new
+
+| | before | after |
+|---|---|---|
+| stove man | 1145, 508 · drawn **229 px** | 1142, 438 · drawn **169 px** |
+| landing man | 1305, 235 · stature 0.74 · **168 px** | unchanged · stature **1.143** · **168 px** |
+
+He now stands on the painted floor beside the stove — whose own base line is y 412 — and **70 to 160 px behind the card group's chairs**, with the iron and its lit firebox visible past his left shoulder. The A/B/C study of 2026-09-11 had moved him *left* toward the stove and proved that covers the fire he is warming himself at: the answer was depth, not sideways.
+
+### Style
+
+Regenerated at the new depth, as instructed, and reported rather than fixed. At **matched scale** the gap is still there: the two runtime actors and Thad carry flatter masses and simpler faces than the baked patrons. At **actual gameplay scale** it is no longer material — the stove man is 169 px at the back of the room and the landing man 168 px on the stairs, which is the depth their rendering suits. The previous 229 px beside a 245 px baked card player was the comparison that made it conspicuous, and that comparison is gone. **Not fixed. Awaiting a ruling.**
+
+`renders/opening-set-retrofit/room-03-cleanup-stove-man.webp` · `room-03-style-scale.webp` · `proofs/room-03/rebuild-proof.json`.
+
+**ROOM 3 REBUILD PHASE 2A IS DEPLOYED AND AWAITING OWNER VISUAL ACCEPTANCE. PHASE 2B HAS NOT STARTED.**

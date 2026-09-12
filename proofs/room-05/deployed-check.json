@@ -1,5 +1,5 @@
 {
- "deployedSha": "b08753634a5db0730d3b6ac07ab4ca9bd0eb8d31",
+ "deployedSha": "d76543791df8203dab419d51f4ff193700c772a2",
  "served": "dist built with BASE_PATH=/consolation-prize/ exactly as pages.yml, served under /consolation-prize/",
  "runs": [
   {
@@ -26,7 +26,7 @@
    "thadClips": 199,
    "failures": [],
    "pageErrors": [],
-   "responsesSeen": 805
+   "responsesSeen": 768
   },
   {
    "name": "main-street-candidate",
@@ -112,8 +112,8 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
@@ -164,8 +164,8 @@
    "roomJson": 200,
    "backgrounds": [
     "200 art/backgrounds/room-01-stage-road.png",
-    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-02-main-street.png",
+    "200 art/backgrounds/room-00-town-map.png",
     "200 art/backgrounds/room-03-nugget.png",
     "200 art/staging/room-05/plate-03-night-lift/candidate-1920x864.png",
     "200 art/backgrounds/room-18-hotel-lobby.png",
