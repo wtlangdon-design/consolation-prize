@@ -4455,3 +4455,45 @@ Regenerated at the new depth, as instructed, and reported rather than fixed. At 
 `renders/opening-set-retrofit/room-03-cleanup-stove-man.webp` · `room-03-style-scale.webp` · `proofs/room-03/rebuild-proof.json`.
 
 **ROOM 3 REBUILD PHASE 2A IS DEPLOYED AND AWAITING OWNER VISUAL ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
+
+---
+
+## Q138 · The clusters brought their own floor, and the translation laid a kick-board on the dirt — **BUILT 2026-09-12, DEPLOYED, AWAITING OWNER VISUAL ACCEPTANCE**
+
+Both characters are now owner-accepted and immovable — the stove man at the back of the room with the stove, the foreground bar patron's body where it stands, the ±13 px between his feet explicitly not a defect. Tyler's ruling: **"The patron is not the problem. The background beneath him is."**
+
+### The audit came first, and it moved the diagnosis twice
+
+Two of the three findings below are not what this pass set out to fix, and both corrections came from looking at the sources rather than at the complaint.
+
+**The card cluster did pave its floor.** Plate x 1085–1186, y 405–600 is plank in the shipping plate and mottled dirt in the accepted cold-dirt plate, at the same coordinates. `nugget-card-salvage.py` repaired that cluster's floor **from y 505 down**, on the reasoning that above 505 was shadow under the table. Right of the group it is open lit floor, and the stove man's body covered it. He moved to the back of the room and it was the first thing you saw.
+
+**The bar cluster did not.** This pass's first draft assumed it had, and built a region for it. Side by side at x 1150–1900, y 600–864 the accepted plate and the shipping plate carry the same dirt, the same grain, the same clods, and so does the endpoint's own output (`bar-rebuild-01/source.png` against `canvas.png`). The region restored dirt the room already had and, at its right end, pasted the **accepted plate's bar** — which stands 130 px further forward there than the rebuilt one — over the near ground and destroyed the patron's boot. It was removed.
+
+**The wooden platform is the grounding translation's slack.** `nugget-bar-grounding.py` lays the patron back down by compositing the whole plate shifted 82 rows inside his shifted outline, and that outline is deliberately loose — *"a loose edge costs nothing"*. It costs nothing where it covers him. Below his old outline's bottom edge at y 711 it covers **floor**, and there the shifted plate brings the bar's kick-board, plinth and rail down 82 rows and lays them on the dirt behind his boots: a flat, wood-toned apron with a straight lower edge, which is exactly a wooden platform to stand on. The same slack beside his right leg drops a lit step and a hard black void into the bar's front panel.
+
+### Three repairs, deterministic raster, no image operation
+
+`tools/retrofit/nugget-plate-cleanup.py`. 24,018 px changed, box 673,396 → 1806,792. The ledger stands at **47 / 47**.
+
+**1 · The floor.** Dirt restored over the card cluster's whole footprint wherever the accepted plate has aligned dirt to give back — `out = acceptedDirt × (shipping low-frequency ÷ accepted low-frequency)`, so the grain and colour are canonical and every cast shadow and lamp pool the rebuilt room added survives as the ratio. Gated by the room's own floor mask, by the phase-1.5C furniture mask (a restore source is only a source for what it actually contains), by the shipping plate's flatness and by connected area.
+
+**And what it leaves.** Above y 510 between x 700 and 1080 the same plank shows in the gaps between the chairs and beside the piano stool, and **there is no aligned dirt source for it** — the accepted plate stands its *own* card table and four chairs on exactly those coordinates. Sourcing that dirt from elsewhere in the room is the pasted rectangle this pass is forbidden. It is left, and recorded. At gameplay tone that band is shadow under a table; the plank was legible only where the stove man had been standing, which is open lit floor, which is repaired.
+
+**2 · The bar's far end.** At 10× with the local contrast stretched the terminus is three things: a counter top whose lit edge ends cleanly at x 1185, a front face with stile, panel and plinth whose left edge is at x 1191, and between and below them a flat untextured smear with no top, no plinth, no base line and no contact with the floor. The run stops being furniture nine pixels early.
+
+The first draft restored the **accepted** plate's end panel, because that plate has the termination the generation omitted. That is the one thing this pass must not do: the accepted bar ends 22 px further right, so restoring it reinstates obsolete geometry over current geometry and shortens the current run. The end is built from the **current bar's own front face** — the slice at x 1196–1203, which carries this bar's stile, panel rail, plinth and base moulding at this bar's heights, moved 11 px left and 3 px up on the run's own measured slope (5 px over 18) and darkened to 0.72 for a face turned away from the lamp.
+
+**3 · The patron's ground.** Below y 714 the shifted plate has no business being there at all, and rebuild-01 — the same room, the same rebuilt bar, unshifted — is the authority. The floor is given back from it, outside an authored 18-point mask of his two boots, together with the slack beside his right leg at x 1780–1814, y 584–698. The grounding's own contact shadows are re-applied over what is restored, so the repair does not undo half of the grounding Tyler has already accepted. **He does not move by one pixel and not one pixel of him is repainted.**
+
+### The lesson is enforced, not just written down
+
+> **When integrating a generated interaction cluster, inspect the ENTIRE cluster footprint for imported environmental material, especially floor, walls and furniture seams that were hidden by actors during review.**
+
+Three texture discriminators were tried on this room and none separates this room's dirt from this room's wood — fine mottling energy scores wood grain as high as dirt, directional coherence puts dirt at 0.33–0.56 against plank at 0.45–0.71, and in a region this dark every channel is small and so is every difference. So the check does not try to *see* the defect. `art/staging/room-03/cluster-integrations.json` lists every cluster integrated into the plate, its **whole** footprint and what it imported; `tools/check-cluster-floor.mjs` (in `npm run validate`) fails if any floor pixel of any footprint is neither inside a repair rect nor inside a rect explicitly written off with a reason.
+
+The floor band comes from the **room's** own mask and never from the repair, because a repair that declares its own floor band covers that band by construction — which is precisely how the first one got through. Every clearance is pinned to the plate's sha256, so a new plate makes them all stale. Verified to fail on the historical state: with only the card salvage's y 505 band declared it reports 44,914 unaccounted floor pixels, first at 712,404.
+
+`renders/opening-set-retrofit/room-03-cleanup2-stove-area.webp` · `room-03-cleanup2-patron-ground.webp` · `phase2a-production-nugget-candidate.png` · `art/staging/room-03/rebuild-03/cleanup.json`.
+
+**ROOM 3 REBUILD PHASE 2A IS DEPLOYED AND AWAITING OWNER VISUAL ACCEPTANCE. PHASE 2B HAS NOT STARTED.**

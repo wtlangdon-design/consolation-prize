@@ -58,6 +58,7 @@ import { check as occlusion } from './check-occlusion.mjs';
 import { check as occluderBounds } from './check-occluder-bounds.mjs';
 import { check as signBaselines } from './check-sign-baselines.mjs';
 import { check as roomReadiness } from './check-room-readiness.mjs';
+import { check as clusterFloor } from './check-cluster-floor.mjs';
 import { check as fixtures } from './check-fixtures.mjs';
 import { check as afterUse } from './check-dialogue-afteruse.mjs';
 import { check as stateImages } from './check-state-images.mjs';
@@ -153,6 +154,7 @@ const CHECKS = [
   occlusion,
   occluderBounds,
   signBaselines,
+  clusterFloor,
   fontCandidates,
 ];
 

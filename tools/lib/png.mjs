@@ -42,8 +42,12 @@ export function readPng(bytes) {
       // read this file" into "nothing to report" -- which is the exact failure
       // this codebase keeps finding: an instrument that is silent when it
       // should be loud.
-      channels = colour === 6 ? 4 : 3;
-      if (depth !== 8 || (colour !== 6 && colour !== 2) || interlace !== 0) {
+      // COLOUR TYPE 0 (GREYSCALE) TOO, because a 1-bit stencil saved by PIL
+      // as mode 'L' is type 0, and the masks this repository cuts are exactly
+      // that. Same reasoning as type 2 below: a reader that throws on a file
+      // the project actually writes is a check that cannot run.
+      channels = colour === 6 ? 4 : colour === 2 ? 3 : 1;
+      if (depth !== 8 || ![0, 2, 6].includes(colour) || interlace !== 0) {
         throw new Error(`unsupported PNG: depth ${depth}, colour type ${colour}, interlace ${interlace}`);
       }
     } else if (type === 'IDAT') {
@@ -90,12 +94,12 @@ export function readPng(bytes) {
   // iterates four bytes at a time; an RGB file would silently shift every
   // pixel by one channel and read colours that are not there. Expanding once
   // here is the only place that has to know the difference.
-  if (channels === 3) {
+  if (channels !== 4) {
     const rgba = Buffer.alloc(width * height * 4);
-    for (let at = 0, to = 0; at < pixels.length; at += 3, to += 4) {
+    for (let at = 0, to = 0; at < pixels.length; at += channels, to += 4) {
       rgba[to] = pixels[at];
-      rgba[to + 1] = pixels[at + 1];
-      rgba[to + 2] = pixels[at + 2];
+      rgba[to + 1] = pixels[at + (channels === 3 ? 1 : 0)];
+      rgba[to + 2] = pixels[at + (channels === 3 ? 2 : 0)];
       rgba[to + 3] = 255;
     }
     // `hasAlpha` SAYS WHAT THE SOURCE WAS, not what this buffer is.

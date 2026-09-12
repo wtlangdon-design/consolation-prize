@@ -22,7 +22,7 @@ and tools/retrofit/nugget-spittoon-mask.py --check draws it back over the art.
 import hashlib, json, os, sys
 from PIL import Image, ImageDraw
 
-PLATE = 'art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png'
+PLATE = 'art/staging/room-03/rebuild-03/plate-room-03-rebuilt.png'
 OUT   = 'art/masks/room-03-plane-1.png'
 SIZE  = (1920, 864)
 
