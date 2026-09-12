@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "nugget_candidate",
- "commit": "e0b9f2354055094d79e462fcbcb7a41247681b21",
+ "commit": "d1873f67cdd3f8d80f3bf90c9b89ed9089434646",
  "workingTreeClean": false,
  "dirtyAllowed": true,
  "visualState": null,
@@ -12,30 +12,30 @@
  "entryRoute": null,
  "warped": true,
  "lifeRoute": "nugget-interaction-identities",
- "durationSeconds": 59.63,
+ "durationSeconds": 71.65,
  "events": [
   {
-   "t": 3.29,
+   "t": 12.06,
    "line": "warped straight into nugget_candidate (?room=), no entry route"
   },
   {
-   "t": 3.37,
+   "t": 12.22,
    "line": "in nugget_candidate; life route: 36 action(s)"
   },
   {
-   "t": 5.68,
+   "t": 16.57,
    "line": "capture n01-room-entered: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 5.87,
+   "t": 17.22,
    "line": "action 1 (verb): chose verb TALK_TO -- "
   },
   {
-   "t": 7.36,
+   "t": 18.65,
    "line": "action 1 (click): clicked nugget_candidate/card_sharp at world 855,382 -- TALK TO the painted Card Sharp -- card_2, grey hair, far side, facing the room"
   },
   {
-   "t": 8.43,
+   "t": 19.73,
    "trace": {
     "says": null,
     "control": null,
@@ -43,14 +43,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     511,
-     741
+     476,
+     744
     ],
     "moving": true
    }
   },
   {
-   "t": 10.43,
+   "t": 21.91,
    "trace": {
     "says": null,
     "control": null,
@@ -65,7 +65,7 @@
    }
   },
   {
-   "t": 10.64,
+   "t": 21.91,
    "trace": {
     "says": null,
     "control": null,
@@ -73,14 +73,14 @@
     "performing": false,
     "options": 0,
     "thad": [
-     813,
-     715
+     780,
+     718
     ],
     "moving": true
    }
   },
   {
-   "t": 11.46,
+   "t": 22.86,
    "trace": {
     "says": null,
     "control": null,
@@ -95,19 +95,19 @@
    }
   },
   {
-   "t": 11.81,
+   "t": 23.37,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_candidate"
   },
   {
-   "t": 12.54,
+   "t": 24.11,
    "line": "capture n02-card-sharp-list: room nugget_candidate, says null, options 3, control null"
   },
   {
-   "t": 12.96,
+   "t": 24.56,
    "line": "action 1 (option): chose option dealing_off_the_bottom -- “You’re dealing off the bottom.”"
   },
   {
-   "t": 14.05,
+   "t": 25.62,
    "trace": {
     "says": "thad",
     "control": null,
@@ -122,7 +122,7 @@
    }
   },
   {
-   "t": 15,
+   "t": 26.58,
    "trace": {
     "says": "thad",
     "control": null,
@@ -137,152 +137,152 @@
    }
   },
   {
-   "t": 15.23,
+   "t": 26.85,
    "line": "action 1 (waitFor): reached {\"says\":\"card_sharp\"} in room nugget_candidate"
-  },
-  {
-   "t": 15.81,
-   "line": "capture n03-card-sharp-speaks: room nugget_candidate, says \"card_sharp\", options 3, control null"
-  },
-  {
-   "t": 16.88,
-   "trace": {
-    "says": "card_sharp",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 3,
-    "thad": [
-     855,
-     604
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 17.06,
-   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_candidate"
-  },
-  {
-   "t": 17.68,
-   "line": "capture n03b-card-sharp-followup-unlocked: room nugget_candidate, says null, options 4, control null"
-  },
-  {
-   "t": 18.03,
-   "line": "action 1 (option): chose option anyone_object -- the follow-up. ITS CAPTURE IS THE REAL ANCHOR PROOF FOR HIM: by now his approach bark has drained, so the only text on screen is the tree's own reply."
-  },
-  {
-   "t": 19.08,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 4,
-    "thad": [
-     855,
-     604
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 19.93,
-   "line": "action 1 (waitFor): reached {\"says\":\"card_sharp\"} in room nugget_candidate"
-  },
-  {
-   "t": 20.46,
-   "line": "capture n03c-card-sharp-reply-anchored: room nugget_candidate, says \"card_sharp\", options 4, control null"
-  },
-  {
-   "t": 21.49,
-   "trace": {
-    "says": "card_sharp",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 4,
-    "thad": [
-     855,
-     604
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 22.47,
-   "trace": {
-    "says": "card_sharp",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 4,
-    "thad": [
-     855,
-     604
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 23.5,
-   "trace": {
-    "says": "card_sharp",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 4,
-    "thad": [
-     855,
-     604
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 24.52,
-   "trace": {
-    "says": "card_sharp",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 4,
-    "thad": [
-     855,
-     604
-    ],
-    "moving": false
-   }
-  },
-  {
-   "t": 25.12,
-   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_candidate"
-  },
-  {
-   "t": 25.46,
-   "line": "action 1 (option): chose option exit -- “I should go.” -- doc 04's universal exit pool"
-  },
-  {
-   "t": 26.48,
-   "trace": {
-    "says": "thad",
-    "control": null,
-    "beat": null,
-    "performing": true,
-    "options": 4,
-    "thad": [
-     855,
-     604
-    ],
-    "moving": false
-   }
   },
   {
    "t": 27.38,
+   "line": "capture n03-card-sharp-speaks: room nugget_candidate, says \"card_sharp\", options 3, control null"
+  },
+  {
+   "t": 28.62,
+   "trace": {
+    "says": "card_sharp",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     855,
+     604
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 28.79,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_candidate"
+  },
+  {
+   "t": 29.54,
+   "line": "capture n03b-card-sharp-followup-unlocked: room nugget_candidate, says null, options 4, control null"
+  },
+  {
+   "t": 29.79,
+   "line": "action 1 (option): chose option anyone_object -- the follow-up. ITS CAPTURE IS THE REAL ANCHOR PROOF FOR HIM: by now his approach bark has drained, so the only text on screen is the tree's own reply."
+  },
+  {
+   "t": 30.84,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     855,
+     604
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 31.75,
+   "line": "action 1 (waitFor): reached {\"says\":\"card_sharp\"} in room nugget_candidate"
+  },
+  {
+   "t": 32.28,
+   "line": "capture n03c-card-sharp-reply-anchored: room nugget_candidate, says \"card_sharp\", options 4, control null"
+  },
+  {
+   "t": 33.28,
+   "trace": {
+    "says": "card_sharp",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     855,
+     604
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 34.3,
+   "trace": {
+    "says": "card_sharp",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     855,
+     604
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 35.33,
+   "trace": {
+    "says": "card_sharp",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     855,
+     604
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.3,
+   "trace": {
+    "says": "card_sharp",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     855,
+     604
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 36.95,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_candidate"
+  },
+  {
+   "t": 37.34,
+   "line": "action 1 (option): chose option exit -- “I should go.” -- doc 04's universal exit pool"
+  },
+  {
+   "t": 38.37,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     855,
+     604
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 39.21,
    "line": "action 1 (waitFor): reached {\"says\":null} in room nugget_candidate"
   },
   {
-   "t": 28.39,
+   "t": 40.25,
    "trace": {
     "says": null,
     "control": null,
@@ -297,23 +297,23 @@
    }
   },
   {
-   "t": 28.88,
+   "t": 40.71,
    "line": "action 1 (wait): waited 1.5s"
   },
   {
-   "t": 29.52,
+   "t": 41.27,
    "line": "capture n04-card-sharp-released: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 29.6,
+   "t": 41.43,
    "line": "action 1 (verb): chose verb TALK_TO -- "
   },
   {
-   "t": 29.96,
+   "t": 41.76,
    "line": "action 1 (click): clicked nugget_candidate/one_strike_man at world 1272,394 -- TALK TO the painted One-Strike Man -- bar_1, the old bearded miner on the far stool"
   },
   {
-   "t": 31.07,
+   "t": 42.78,
    "trace": {
     "says": null,
     "control": null,
@@ -321,26 +321,26 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1094,
+     1069,
      607
     ],
     "moving": true
    }
   },
   {
-   "t": 31.64,
+   "t": 43.46,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_candidate"
   },
   {
-   "t": 32.42,
+   "t": 44,
    "line": "capture n05-one-strike-list: room nugget_candidate, says null, options 4, control null"
   },
   {
-   "t": 32.79,
+   "t": 44.31,
    "line": "action 1 (option): chose option when_was_this -- “When was this?” -- the one of his three answers the document writes as a LINE"
   },
   {
-   "t": 33.8,
+   "t": 45.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -355,15 +355,15 @@
    }
   },
   {
-   "t": 34.67,
+   "t": 46.26,
    "line": "action 1 (waitFor): reached {\"says\":\"one_strike_man\"} in room nugget_candidate"
   },
   {
-   "t": 35.22,
+   "t": 46.8,
    "line": "capture n06-one-strike-speaks: room nugget_candidate, says \"one_strike_man\", options 4, control null"
   },
   {
-   "t": 36.26,
+   "t": 47.92,
    "trace": {
     "says": "one_strike_man",
     "control": null,
@@ -378,15 +378,15 @@
    }
   },
   {
-   "t": 36.48,
+   "t": 48.03,
    "line": "action 1 (waitFor): reached {\"dialogue\":true} in room nugget_candidate"
   },
   {
-   "t": 36.81,
+   "t": 48.3,
    "line": "action 1 (option): chose option exit -- “Thank you. This has been clarifying.” -- it has not been"
   },
   {
-   "t": 37.83,
+   "t": 49.33,
    "trace": {
     "says": "thad",
     "control": null,
@@ -401,7 +401,7 @@
    }
   },
   {
-   "t": 38.84,
+   "t": 50.41,
    "trace": {
     "says": "thad",
     "control": null,
@@ -416,11 +416,11 @@
    }
   },
   {
-   "t": 39.44,
+   "t": 50.78,
    "line": "action 1 (waitFor): reached {\"says\":null} in room nugget_candidate"
   },
   {
-   "t": 40.49,
+   "t": 51.82,
    "trace": {
     "says": null,
     "control": null,
@@ -435,23 +435,23 @@
    }
   },
   {
-   "t": 40.94,
+   "t": 52.29,
    "line": "action 1 (wait): waited 1.5s"
   },
   {
-   "t": 41.51,
+   "t": 52.85,
    "line": "capture n07-one-strike-released: room nugget_candidate, says null, options 0, control null"
   },
   {
-   "t": 41.59,
+   "t": 53,
    "line": "action 1 (verb): chose verb LOOK_AT -- "
   },
   {
-   "t": 41.97,
+   "t": 53.34,
    "line": "action 1 (click): clicked nugget_candidate/patrons at world 938,395 -- THE GROUP STILL ANSWERS: a hotspot wins over an ambient for every verb but TALK TO"
   },
   {
-   "t": 42.99,
+   "t": 54.41,
    "trace": {
     "says": null,
     "control": null,
@@ -459,22 +459,22 @@
     "performing": false,
     "options": 0,
     "thad": [
-     1011,
-     650
+     983,
+     653
     ],
     "moving": true
    }
   },
   {
-   "t": 43.93,
+   "t": 55.28,
    "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room nugget_candidate"
   },
   {
-   "t": 44.52,
+   "t": 55.8,
    "line": "capture n08-patrons-group-intact: room nugget_candidate, says \"thad\", options 0, control null"
   },
   {
-   "t": 45.53,
+   "t": 56.83,
    "trace": {
     "says": "thad",
     "control": null,
@@ -489,7 +489,7 @@
    }
   },
   {
-   "t": 46.55,
+   "t": 57.85,
    "trace": {
     "says": "thad",
     "control": null,
@@ -504,7 +504,7 @@
    }
   },
   {
-   "t": 47.55,
+   "t": 58.86,
    "trace": {
     "says": "thad",
     "control": null,
@@ -519,7 +519,7 @@
    }
   },
   {
-   "t": 48.56,
+   "t": 59.83,
    "trace": {
     "says": "thad",
     "control": null,
@@ -534,7 +534,7 @@
    }
   },
   {
-   "t": 49.56,
+   "t": 60.83,
    "trace": {
     "says": "thad",
     "control": null,
@@ -549,7 +549,7 @@
    }
   },
   {
-   "t": 50.57,
+   "t": 61.84,
    "trace": {
     "says": "thad",
     "control": null,
@@ -564,7 +564,7 @@
    }
   },
   {
-   "t": 51.53,
+   "t": 62.82,
    "trace": {
     "says": "thad",
     "control": null,
@@ -579,11 +579,11 @@
    }
   },
   {
-   "t": 51.92,
+   "t": 63.24,
    "line": "action 1 (waitFor): reached {\"says\":null} in room nugget_candidate"
   },
   {
-   "t": 52.49,
+   "t": 63.83,
    "line": "capture n09-final: room nugget_candidate, says null, options 0, control null"
   }
  ],
@@ -591,11 +591,11 @@
   {
    "name": "n01-room-entered",
    "why": "the room as a player meets it: nine painted men, nothing drawn over any of them",
-   "t": 5.67,
+   "t": 16.55,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n01-room-entered.png",
-   "hash": "25a8bda1776bc52bbb1ffa40653dda41f90196fb06384469e74ad87f9217e471",
+   "hash": "a292cbd9c93b2829aaee33f6526f05ecfa9e9ecd5a794a668c22ea426b631105",
    "room": "nugget_candidate",
-   "clock": 5.2623,
+   "clock": 11.9015,
    "control": null,
    "says": null,
    "options": 0,
@@ -617,7 +617,7 @@
      "height": 443,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       70,
       317,
@@ -641,11 +641,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -702,11 +702,11 @@
   {
    "name": "n02-card-sharp-list",
    "why": "THREE, not four: “Doesn’t anyone object?” is a follow-up gated on T_SHARP_ACCUSED and he has not been accused yet. The gate is doing its job, which is why this number is asserted rather than assumed.",
-   "t": 12.52,
+   "t": 24.1,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n02-card-sharp-list.png",
-   "hash": "b1fd88e2cb57967067f970bf2c05afe5cd41b92c76ae00454d28f2daa3bf044a",
+   "hash": "5a47f8c60c650aa5b8f92abdd555c21c8f716a550afc9138e4eb71a93d58687d",
    "room": "nugget_candidate",
-   "clock": 12.0453,
+   "clock": 19.9011,
    "control": null,
    "says": null,
    "options": 3,
@@ -752,11 +752,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -813,11 +813,11 @@
   {
    "name": "n03-card-sharp-speaks",
    "why": "THE ANCHOR PROOF: his reply sits over his painted head, not at top-centre",
-   "t": 15.8,
+   "t": 27.36,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n03-card-sharp-speaks.png",
-   "hash": "484abeae69b8740429c06bbf40092c94b6cc5133af8e496d1b7a51ad5ce79dcf",
+   "hash": "ee5f7f49f90ccecb9c837e5a33f6f90d138492728969f8fd52647a53c09017a6",
    "room": "nugget_candidate",
-   "clock": 15.4119,
+   "clock": 23.3677,
    "control": null,
    "says": "card_sharp",
    "options": 3,
@@ -839,7 +839,7 @@
      "height": 310,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-00.png",
+     "from": "art/actors/thad-idle-back/idle-01.png",
      "bounds": [
       671,
       294,
@@ -863,11 +863,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -924,11 +924,11 @@
   {
    "name": "n03b-card-sharp-followup-unlocked",
    "why": "FOUR now: the accusation wrote T_SHARP_ACCUSED and “Doesn’t anyone object?” has joined the list",
-   "t": 17.66,
+   "t": 29.52,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n03b-card-sharp-followup-unlocked.png",
-   "hash": "b595310d8bbeb211cb4f2ae65e92b360754235d89af2cc57f0afc1f163d139a7",
+   "hash": "1e6e2dfbbd4dad0a42513c92ea40815c449b88978f9d0a3a6d318f77fd365cd5",
    "room": "nugget_candidate",
-   "clock": 17.2618,
+   "clock": 25.300900000000002,
    "control": null,
    "says": null,
    "options": 4,
@@ -952,7 +952,7 @@
      "height": 310,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-04.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       671,
       294,
@@ -976,11 +976,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -1037,11 +1037,11 @@
   {
    "name": "n03c-card-sharp-reply-anchored",
    "why": "“They know what I am...” over his painted head, with no bark competing for the channel",
-   "t": 20.45,
+   "t": 32.26,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n03c-card-sharp-reply-anchored.png",
-   "hash": "1e0f72911f49a43929579b1bc5e1ea0c33bd5418cc6312ece85e8f4bdfeb35b6",
+   "hash": "4fbd7097e13abbd085d3794be868f1e6cc33f9472e75bdb8d32d532be165bec6",
    "room": "nugget_candidate",
-   "clock": 20.128400000000003,
+   "clock": 28.2675,
    "control": null,
    "says": "card_sharp",
    "options": 4,
@@ -1065,7 +1065,7 @@
      "height": 310,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-00.png",
+     "from": "art/actors/thad-idle-back/idle-01.png",
      "bounds": [
       671,
       294,
@@ -1089,11 +1089,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -1150,11 +1150,11 @@
   {
    "name": "n04-card-sharp-released",
    "why": "control returned and the card table looks exactly as it did in n01",
-   "t": 29.5,
+   "t": 41.25,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n04-card-sharp-released.png",
-   "hash": "a89c94af9fc71165018e03073868e1a96df8bf67c34c4083d69edfb104da10bc",
+   "hash": "39ae3ce094cb70a0fb492bd9a2e6e250e170074dd57a7de2da77ff4591e81838",
    "room": "nugget_candidate",
-   "clock": 29.1613,
+   "clock": 37.2504,
    "control": null,
    "says": null,
    "options": 0,
@@ -1178,7 +1178,7 @@
      "height": 310,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idlebreak-back/idle-break-04.png",
+     "from": "art/actors/thad-idlebreak-back/idle-break-05.png",
      "bounds": [
       671,
       294,
@@ -1202,11 +1202,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -1263,11 +1263,11 @@
   {
    "name": "n05-one-strike-list",
    "why": "doc 07 §13: two TOPIC options, one COMIC, one EXIT",
-   "t": 32.4,
+   "t": 43.99,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n05-one-strike-list.png",
-   "hash": "b29d22d57530268595976d7b864f36171020d3fd73b79f3f57925d97a07305de",
+   "hash": "5a7acac25892fcbc087bdfbc8a91f46a31558787a616dd71006c0a5318b0d92c",
    "room": "nugget_candidate",
-   "clock": 31.827900000000003,
+   "clock": 39.9837,
    "control": null,
    "says": null,
    "options": 4,
@@ -1291,7 +1291,7 @@
      "height": 328,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-03.png",
+     "from": "art/actors/thad-idle-back/idle-05.png",
      "bounds": [
       1006,
       297,
@@ -1315,11 +1315,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -1376,11 +1376,11 @@
   {
    "name": "n06-one-strike-speaks",
    "why": "THE ANCHOR PROOF: his reply sits over his painted head at the bar",
-   "t": 35.2,
+   "t": 46.78,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n06-one-strike-speaks.png",
-   "hash": "7179da0bfedc36ede467cfd5f9d189c1a4b8a9f405d8b62faf838cc36aba9c0b",
+   "hash": "3119f863bcb67ebc86272a11621520a1b24e9df2871d71192715fa6f52e59d14",
    "room": "nugget_candidate",
-   "clock": 34.8778,
+   "clock": 42.7835,
    "control": null,
    "says": "one_strike_man",
    "options": 4,
@@ -1404,7 +1404,7 @@
      "height": 328,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-back/idle-04.png",
+     "from": "art/actors/thad-idle-back/idle-00.png",
      "bounds": [
       1006,
       297,
@@ -1428,11 +1428,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -1489,11 +1489,11 @@
   {
    "name": "n07-one-strike-released",
    "why": "control returned and the bar looks exactly as it did in n01",
-   "t": 41.49,
+   "t": 52.83,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n07-one-strike-released.png",
-   "hash": "2d8df33deb34248f9bec8149dc4fadec7cadff68f6e048ad36e2de1bd1f440df",
+   "hash": "0d5fcad54aafd4fcfc94251bfb3253145cec971a15460899751e9d58908c7d6d",
    "room": "nugget_candidate",
-   "clock": 41.1609,
+   "clock": 48.85,
    "control": null,
    "says": null,
    "options": 0,
@@ -1541,11 +1541,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -1602,11 +1602,11 @@
   {
    "name": "n08-patrons-group-intact",
    "why": "the patrons hotspot's own LOOK line, unstolen by either identity",
-   "t": 44.51,
+   "t": 55.79,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n08-patrons-group-intact.png",
-   "hash": "2bfebdf6e201799d09fc7e8ebe5e477159a2f454e3a419c2c79aba1ca2c47f3b",
+   "hash": "9d2efe1ec798635aa05ed6dd22b6e738f8228bc89dbd1621f2c60cab2fbbaac8",
    "room": "nugget_candidate",
-   "clock": 44.1441,
+   "clock": 51.7999,
    "control": null,
    "says": "thad",
    "options": 0,
@@ -1654,11 +1654,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -1715,11 +1715,11 @@
   {
    "name": "n09-final",
    "why": "RE-ENTRY / GHOST PROOF: compared against n01 pixel for pixel by the report",
-   "t": 52.46,
+   "t": 63.81,
    "file": "renders/proofs/nugget-candidate/life/raw-captures-ignored/n09-final.png",
-   "hash": "f1613c347d413b11db7f170218d2bc22a009051eeaf1d08c5deb882ec00623b2",
+   "hash": "bea51b6ddbc1273107096c4dd8ff9dc0df3eeaaf11d92cd0714c475e484ec37a",
    "room": "nugget_candidate",
-   "clock": 52.1104,
+   "clock": 59.7829,
    "control": null,
    "says": null,
    "options": 0,
@@ -1767,11 +1767,11 @@
    "assets": [
     {
      "key": "bg:nugget_candidate",
-     "path": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
-     "drawn": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "drawn": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
      "candidate": false,
      "loaded": true,
-     "hash": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
     },
     {
      "key": "art/masks/room-03-plane-1.png",
@@ -1838,7 +1838,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 59.63s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 71.65s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -1853,5 +1853,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-09-12T22:16:21.902Z"
+ "at": "2026-09-12T23:37:28.709Z"
 }

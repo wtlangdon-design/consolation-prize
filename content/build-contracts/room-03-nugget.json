@@ -690,7 +690,7 @@
      "ownerRejection": "Tyler, 2026-09-12: REJECTED, and the method with it. \"The problem is not three isolated defects that need more deterministic raster repair. The problem is that people were moved together with pixels from their OLD surroundings, and you are now repeatedly trying to repair those surroundings after the fact. That approach ends now.\" Two symptoms named: a conspicuous halo of his former environment around essentially the foreground patron's whole silhouette, and a left bar end that dissolves into an amorphous smear."
     },
     "recomposition2026_09_12": {
-     "status": "AWAITING-OWNER-VISUAL-REVIEW -- NOT DEPLOYED",
+     "status": "SUPERSEDED BY shippingRepair2026_09_12 -- OWNER-REJECTED",
      "ruling": "Recompose in the correct order: restore a clean background first, then place the people. Zero pixels of a person's previous environment may travel with the person. Do not optimise for zero image operations or a low changed-pixel count.",
      "characterOperations": 0,
      "plate": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
@@ -705,6 +705,54 @@
       "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png",
       "art/staging/room-03/rebuild-04/empty.json",
       "art/staging/room-03/rebuild-04/recompose.json"
+     ],
+     "ownerAcceptance": null,
+     "ownerRejection": "Tyler, 2026-09-12: REJECTED. Rechecked in the deployed build and both visually-rejected defects are still plainly visible -- the stove-side bar edge dissolving into the floor, and a residual background/floor halo around the foreground bar man's lower body. \"The MAN is accepted. The pixels surrounding him are not.\" Phase 2A is not accepted."
+    },
+    "shippingRepair2026_09_12": {
+     "status": "AWAITING-OWNER-VISUAL-ACCEPTANCE -- the runtime screenshot is the gate",
+     "ruling": "Tyler, 2026-09-12: a deterministic repair of the CURRENT shipping Room 3 background and nothing else. No image generation. Do not reopen interaction architecture, patron representation or dialogue. The foreground bar man is accepted and must not move.",
+     "characterOperations": 0,
+     "imageOperations": 0,
+     "ledger": "49 spent; operations 50 and 51 remain withdrawn and unavailable",
+     "plate": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "plateSha256": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6",
+     "supersedes": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+     "supersedesSha256": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755",
+     "defectA": "THE STOVE-SIDE BAR END. Provenance: present in the SOURCE generated plate, not introduced by the rebuild -- block-mean |current - corrected-03/plate-cold-dirt.png| is 0.3-5.1 at x 1160-1180 for every row band of the terminus, so nothing left of x 1180 was ever touched, and rebuild-04/empty.json records the terminus as \"OPEN -- not repaired in this pass\". Two things overran the end the bar already has: the counter nosing feathered out across x 1178-1191 over the wall behind, and the brass foot rail ran to x 1178 with no bar above it. Both are cut back to the moulded end stile at x 1193-1196 and filled with a short registered translation of the untouched wall (dx -30) and floor (dx -44) immediately beside them. No new architecture.",
+     "defectB": "THE FOREGROUND BAR MAN'S HALO. Provenance: nugget-bar-recompose.py matted him with core = gaussian_filter(poly, 5.0) > 0.80 taken unconditionally as him, over a GENEROUS 42-point bound whose left side sits at x 1619-1628 where his trouser is at x 1650, so a 15-30px ring of his old surroundings travelled with him through the 82-row shift. Repaired by RESTORE, not rematte: the current plate inside a traced 54-point silhouette, rebuild-04/plate-room-03-empty.png outside it. His 64,777 human pixels hash identically before and after, by construction.",
+     "changed": {
+      "pixels": 14244,
+      "regionA": {
+       "pixels": 2231,
+       "bbox": [
+        1158,
+        366,
+        1194,
+        566
+       ]
+      },
+      "regionB": {
+       "pixels": 12013,
+       "bbox": [
+        1616,
+        284,
+        1816,
+        799
+       ]
+      }
+     },
+     "tools": [
+      "tools/retrofit/nugget-shipping-repair.py",
+      "tools/retrofit/nugget-shipping-gate.py",
+      "tools/retrofit/nugget-shipping-proof.py"
+     ],
+     "evidence": [
+      "art/staging/room-03/rebuild-05/repair.json",
+      "proofs/room-03/shipping-repair/proof-a-stove-side-bar-end.webp",
+      "proofs/room-03/shipping-repair/proof-b-foreground-bar-man.webp",
+      "proofs/room-03/shipping-repair/findings.md",
+      "renders/opening-set-retrofit/phase2a-production-nugget-candidate.png"
      ],
      "ownerAcceptance": null
     }

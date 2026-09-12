@@ -1,0 +1,118 @@
+{
+ "note": "ROOM 3 SHIPPING ART REPAIR, rebuild-05. The two defects Tyler rejected in the deployed build, repaired deterministically from sources already in the repository. No image generation: the operation ledger is unchanged at 49 and operations 50 and 51 stay withdrawn.",
+ "inputs": {
+  "plate": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+  "plateSha256": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755",
+  "empty": "art/staging/room-03/rebuild-04/plate-room-03-empty.png",
+  "emptySha256": "c7241089060bee7e416d88a14279447bceef37afb0122313c1196f313dcf5f5a"
+ },
+ "output": {
+  "plate": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+  "sha256": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
+ },
+ "defectB": {
+  "what": "residual background halo around the foreground bar man",
+  "origin": "nugget-bar-recompose.py matted him with an unconditional core term over a GENEROUS 42-point bound, so a ring of his old surroundings travelled with him through the 82-row shift",
+  "method": "restore, not rematte: current plate inside a traced silhouette, rebuild-04/plate-room-03-empty.png outside it, so his accepted pixels are byte-identical by construction",
+  "silhouettePoints": 54,
+  "grow": 3,
+  "contactShadows": [
+   [
+    [
+     1675,
+     782
+    ],
+    40,
+    9
+   ],
+   [
+    [
+     1748,
+     777
+    ],
+    46,
+    10
+   ]
+  ],
+  "shade": 0.45
+ },
+ "defectA": {
+  "what": "the stove-side bar end dissolving into the floor",
+  "origin": "present in the SOURCE generated plate: block-mean |current - corrected-03/plate-cold-dirt.png| is 0.3-5.1 at x 1160-1180 for every row band of the terminus, so the rebuild never touched it; rebuild-04/empty.json records the terminus as \"OPEN -- not repaired in this pass\"",
+  "method": "cut the two overruns back to the moulded end stile the bar already carries at x 1193-1196; fill each with a short registered translation of the untouched wall or floor immediately beside it",
+  "nosing": {
+   "poly": [
+    [
+     1176,
+     372
+    ],
+    [
+     1190,
+     372
+    ],
+    [
+     1190,
+     392
+    ],
+    [
+     1176,
+     392
+    ]
+   ],
+   "sourceDx": -30,
+   "clampX": [
+    1178,
+    1191
+   ]
+  },
+  "rail": {
+   "poly": [
+    [
+     1164,
+     518
+    ],
+    [
+     1192,
+     518
+    ],
+    [
+     1192,
+     560
+    ],
+    [
+     1164,
+     560
+    ]
+   ],
+   "sourceDx": -44,
+   "clampX": [
+    0,
+    1195
+   ]
+  },
+  "feather": 1.4
+ },
+ "changed": {
+  "pixels": 14244,
+  "regions": {
+   "A  stove-side bar end": {
+    "pixels": 2231,
+    "bbox": [
+     1158,
+     366,
+     1194,
+     566
+    ]
+   },
+   "B  foreground bar man": {
+    "pixels": 12013,
+    "bbox": [
+     1616,
+     284,
+     1816,
+     799
+    ]
+   }
+  }
+ }
+}
