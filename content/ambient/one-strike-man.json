@@ -1,0 +1,48 @@
+{
+ "schema": 1,
+ "id": "one_strike_man",
+ "name": "THE ONE-STRIKE MAN",
+ "note": "AN INTERACTION IDENTITY, NOT A SPRITE. He is bar_1 in the room's declared population -- the old bearded miner, hips on the far stool, one boot on its ring, both forearms on the counter, tin cup -- which is the man doc 07 §13 describes, and he is PAINTED INTO THE PLATE and stays that way (Tyler's OWNER ARCHITECTURE RULING, Option A, 2026-09-12). The sprite is pure transparency at his painted dimensions; the painting remains the only art of him.",
+ "room": "nugget_candidate",
+ "x": 1272,
+ "y": 525,
+ "zone": 0,
+ "approachRadius": 130,
+ "tree": "amb_one_strike_man",
+ "walkTo": {
+  "x": 1200,
+  "y": 625,
+  "facing": "back"
+ },
+ "walkToNote": "floor_2, the open floor at the left end of the bar. His own baseline is a bar stool behind the counter line, so the nearest-floor rule would put Thad in the sliver between the card table and the bar rather than beside him.",
+ "registrationNote": "His painted box is x 1195-1350, y 262-605, so his head top is 262. zone 0 is 263 tall, so y 525 puts speakerHead at 525-263 = 262, exactly his painted head top, with the balloon's foot 32px above it. The 155x263 frame gives a hit box of 0.2*263 either side of 1272 -- x 1220 to 1324. bar_2's declared box starts at x 1330, so unlike the card table there is NO overlap with a neighbour: his target is his own body and nobody else's.",
+ "approachNote": "130 because the anchor is not his feet. The nearest legal ground to (1272, 525) is 83px away and his walkTo is 125px away, so the radius has to clear the larger of the two or the bark never fires on arrival and tests/phase2a-access fails him as stranded. It is a bark radius, not a hit box -- it decides when the town notices Thad, not what he can click.",
+ "clipPlane": 1,
+ "clipPlaneNote": "Declared rather than inferred from the nearest walk box. Moot while the sprite is transparent, and stable if a walk box moves later.",
+ "sprite": {
+  "sheet": "art/actors/nugget-one-strike-identity.png",
+  "rate": 0.0,
+  "frames": [
+   [
+    0,
+    0,
+    155,
+    263
+   ]
+  ],
+  "note": "ZERO ALPHA EVERYWHERE, built and asserted by tools/retrofit/nugget-identity-frames.py. No figureHeight, so the blit is 1:1 and the hit box measures the drawn height."
+ },
+ "barks": {
+  "R_NOBODY": "Found color in ’49. Nugget the size of a fist.",
+  "R_SWINDLED": "Found color in ’49. Size of a fist.",
+  "R_RACCOON": "Found color in ’49. Size of a good apple.",
+  "R_SURVEYED": "Found color in ’49. Size of an apple.",
+  "R_BORDERS_MOTT": "Found color in ’49! Size of a walnut, mind.",
+  "R_LOST_DUEL": "Found color in ’49. Walnut.",
+  "R_WON_DUEL": "Found color once. Size of a pea.",
+  "R_DEAD": "Found color in ’49. Think I did.",
+  "R_TRUTH": "…I don’t believe I found anything."
+ },
+ "barksNote": "Doc 07 §13's bark table, all nine states. THE STRIKE SHRINKS FROM A FIST TO A PEA ACROSS THEM AND NOTHING ANYWHERE MARKS IT -- that is his whole arc and it must stay unmarked. TWO TRANSFORMS, both recorded: the document's British \"colour\" is written \"color\" because the fiction is American and check-american-english enforces it (doc 07 §13 was corrected in the same commit, so the document and the content still read alike); and R_DEAD's internal direction, written \"Found color in ’49.\" *(pause)* \"Think I did.\", loses the parenthetical because a bark is one string. No word is added or changed.",
+ "idNote": "THE ID IS THE SPEAKER ID, AND THAT IS MECHANISM RATHER THAN CONVENTION. Renderer.speakerHead finds an ambient speaker by `each.id === this.speaker`, and the speaker is what the TREE declares -- so an ambient called nugget_card_sharp whose tree says `card_sharp` is never found, and doc 30 section 3.1's forbidden top-centre fallback fires for a man plainly on screen. It did: the first live proof of this pass drew \"I am.\" over the chandelier. Every other speaking character in the game -- winnie, pie_woman, map_seller, letter_writer -- is named this way for the same reason, and the room-prefixed nugget_* ids belong to the ambients that never speak."
+}

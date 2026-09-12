@@ -1,0 +1,45 @@
+{
+ "schema": 1,
+ "id": "amb_one_strike_man",
+ "note": "Doc 07 #13 micro-tree, verbatim. TWO OF HIS THREE ANSWERS ARE NOT LINES. The document writes them as scenes -- he tells the story, and later he tells it again -- so they are carried as `beat` directions rather than invented into dialogue. His arc is that the strike shrinks every time he mentions it and he never notices; nothing in here may draw attention to that.",
+ "start": "N1",
+ "nodes": {
+  "N1": {
+   "noPrompt": true,
+   "exceptionReason": "DOC 07 §13 WRITES NO ROOT LINE FOR HIM, and the same reasoning applies as for the Card Sharp: the earlier ambient trees' prompts were authored, not extracted, and inventing one here would be generating written content. Declared absent rather than typed.",
+   "options": [
+    {
+     "id": "tell_me_about_it",
+     "text": "Tell me about it.",
+     "tag": "TOPIC",
+     "beat": "(He does. At length. It is genuinely moving the first time.)",
+     "set": {
+      "T_STRIKE_TOLD": true
+     }
+    },
+    {
+     "id": "when_was_this",
+     "text": "When was this?",
+     "tag": "TOPIC",
+     "say": "Forty-nine.",
+     "repeat": "Forty-nine."
+    },
+    {
+     "id": "and_since",
+     "text": "And since?",
+     "tag": "COMIC",
+     "beat": "(He looks at his hands. Then tells the story again.)"
+    },
+    {
+     "id": "exit",
+     "text": "Thank you. This has been clarifying.",
+     "tag": "EXIT"
+    }
+   ]
+  }
+ },
+ "speaker": "one_strike_man",
+ "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null and the words fall to top-centre in the wrong colour.",
+ "beatNote": "Doc 07 writes \"(He does. At length. It is genuinely moving the first time.)\" and \"(He looks at his hands. Then tells the story again.)\" as DIRECTIONS, not speech. check-content-schema's `beat` carries a direction into the data and lists it every run as unbuilt, which is the honest state: the option exists, the document says what happens, and nobody has written the words he says because the joke is that they are the same words either way.",
+ "exitNote": "From doc 04's UNIVERSAL EXIT LINES pool. \"Thank you. This has been clarifying.\" is marked available only when it has not been, and a man telling you the same story twice has clarified nothing, so it is his."
+}

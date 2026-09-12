@@ -36,7 +36,9 @@
   "content/dialogue/undertaker.json",
   "content/dialogue/hotel-clerk.json",
   "content/dialogue/deke-vessel.json",
-  "content/dialogue/winnie.json"
+  "content/dialogue/winnie.json",
+  "content/dialogue/amb-card-sharp.json",
+  "content/dialogue/amb-one-strike-man.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -74,7 +76,9 @@
   "content/ambient/nugget-man34.json",
   "content/ambient/nugget-stove-man.json",
   "content/ambient/pie-woman.json",
-  "content/ambient/winnie.json"
+  "content/ambient/winnie.json",
+  "content/ambient/card-sharp.json",
+  "content/ambient/one-strike-man.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

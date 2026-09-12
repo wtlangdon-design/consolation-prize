@@ -1203,11 +1203,28 @@ export interface RoomFile {
    * cannot be counted from `ambient` and a check that counts it there is
    * counting something else while looking correct.
    *
-   * This is the declaration instead: every person, their group, whether they
-   * are `baked` or an `actor`, their box in the plate and their contact point.
-   * The engine never reads it. It exists so a count, a staging rule or a
-   * visual proof can be checked against the room rather than against a path
-   * spelled out somewhere else.
+   * This is the declaration instead: every person, their group, what kind of
+   * thing they are, their box in the plate and their contact point. The engine
+   * never reads it. It exists so a count, a staging rule or a visual proof can
+   * be checked against the room rather than against a path spelled out
+   * somewhere else.
+   *
+   * THERE ARE THREE KINDS AND THE THIRD IS NOT A HALFWAY HOUSE. Tyler's Option
+   * A ruling on the Nugget: the seven furniture-dependent patrons stay painted,
+   * and two of them are named characters who speak. `Interactable` carries no
+   * `tree` field, so a dialogue tree opens only from `AmbientFile.tree` -- a
+   * painted man who talks still needs an ambient, one whose sprite is a frame
+   * of pure transparency at his painted dimensions. He is not "half an actor":
+   * every pixel of him is still the plate's.
+   *
+   *   baked  painted, and carrying no runtime object at all
+   *   voice  painted TOO, plus an invisible interaction identity, whose ambient
+   *          id is named in `identity`
+   *   actor  drawn at runtime
+   *
+   * THE INVARIANT IS THE VISIBLE COUNT, `people.length`, and it is no longer
+   * the ambient count -- the Nugget asks for four ambients and two of them draw
+   * nothing. A check that equates the two would now fail for being right.
    */
   population?: {
     note?: string;
@@ -1215,7 +1232,9 @@ export interface RoomFile {
     people: {
       id: string;
       group: string;
-      kind: 'baked' | 'actor';
+      kind: 'baked' | 'voice' | 'actor';
+      /** The ambient that carries this painted character. `voice` only. */
+      identity?: string;
       box: number[];
       seat: number[];
       what?: string;

@@ -190,6 +190,24 @@
    "note": "He has said he draws the maps himself. Gates the follow-up that asks what from."
   },
   {
+   "id": "T_SHARP_ACCUSED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:amb_card_sharp:N1:dealing_off_the_bottom"
+   ],
+   "note": "He has been told he is dealing off the bottom, and has agreed. Gates the follow-up that asks whether anyone objects -- without it the question is about an admission nobody has heard."
+  },
+  {
+   "id": "T_STRIKE_TOLD",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:amb_one_strike_man:N1:tell_me_about_it"
+   ],
+   "note": "He has told the story of the strike once. READ BY NOTHING, ON PURPOSE: doc 07 #13 gives him no line that depends on it and his arc is that he never notices the repetition, so nothing may be gated on having heard it. It is written down because the option writes it and a flag nobody declares is a crash."
+  },
+  {
    "id": "T_CHARGE_ASKED",
    "type": "boolean",
    "initial": false,
