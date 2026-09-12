@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "id": "amb_card_sharp",
+ "note": "Doc 07 #17 micro-tree, verbatim. He admits the cheat in four words and then makes it the player's problem. Nothing here is softened: \"I am.\" is the whole of the first answer and must stay that short.",
+ "start": "N1",
+ "nodes": {
+  "N1": {
+   "noPrompt": true,
+   "exceptionReason": "DOC 07 §17 WRITES NO ROOT LINE FOR HIM. The three ambient trees that shipped before this one carry a prompt that was authored rather than extracted -- \"The pie woman does not look up.\" is in no document. Inventing one here would be generating written content, which CLAUDE.md forbids, so the node declares it has none. If Tyler wants an opening beat for him it is written in the doc and re-extracted, not typed into this file.",
+   "options": [
+    {
+     "id": "dealing_off_the_bottom",
+     "text": "You’re dealing off the bottom.",
+     "tag": "TOPIC",
+     "say": "I am.",
+     "repeat": "I am.",
+     "set": {
+      "T_SHARP_ACCUSED": true
+     }
+    },
+    {
+     "id": "anyone_object",
+     "text": "Doesn’t anyone object?",
+     "tag": "TOPIC",
+     "when": {
+      "T_SHARP_ACCUSED": true
+     },
+     "say": "They know what I am. They don’t know what the Colonel is. Which of us is the problem?",
+     "repeat": "They know what I am. They don’t know what the Colonel is. Which of us is the problem?"
+    },
+    {
+     "id": "deal_me_in",
+     "text": "Deal me in.",
+     "tag": "COMIC",
+     "say": "No. I like you.",
+     "repeat": "No. I like you."
+    },
+    {
+     "id": "exit",
+     "text": "I should go.",
+     "tag": "EXIT"
+    }
+   ]
+  }
+ },
+ "speaker": "card_sharp",
+ "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null and the renderer has no head to put the words over, so they drop to the top-centre fallback in the wrong colour -- doc 30 section 3.1 forbids exactly that.",
+ "gateNote": "\"Doesn’t anyone object?\" is a FOLLOW-UP and is gated on the accusation having been made. Offered from the first moment it is a question about an admission nobody has heard, which is the defect the pie woman's tree was fixed for.",
+ "repeatNote": "Doc 07 writes ONE line per answer and no repeat variants. Rather than invent second versions the repeat is the same line, which is the pie woman's precedent and is in character for a man who has already told you exactly what he is.",
+ "exitNote": "From doc 04's UNIVERSAL EXIT LINES pool, which is available at every node. \"Thank you. This has been clarifying.\" is marked available only when it has not been, and this conversation is the most clarifying in the building, so it is not his. \"I should go.\" is."
+}

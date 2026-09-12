@@ -1,0 +1,36 @@
+{
+ "schema": 1,
+ "note": "The foreground bar patron matted against the reconstructed empty room and composited back 82 rows lower, with authored contact shadows. No pixel of his old surroundings travels with him. No image operation.",
+ "background": "art/staging/room-03/rebuild-04/plate-room-03-empty.png",
+ "backgroundSha256": "c7241089060bee7e416d88a14279447bceef37afb0122313c1196f313dcf5f5a",
+ "actorSource": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "actorSourceSha256": "7565d6544db2598e00fa49fbd66daa5871e0d5fd577fa4d090566f08edd2304b",
+ "shiftRows": 82,
+ "silhouette": {
+  "erode": 5.0,
+  "dilate": 2.0,
+  "edgeThreshold": 30.0,
+  "authoredPoints": 42
+ },
+ "contactShadows": [
+  [
+   [
+    1675,
+    782
+   ],
+   40,
+   9
+  ],
+  [
+   [
+    1748,
+    777
+   ],
+   46,
+   10
+  ]
+ ],
+ "actorPixels": 72356,
+ "out": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+ "outSha256": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755"
+}

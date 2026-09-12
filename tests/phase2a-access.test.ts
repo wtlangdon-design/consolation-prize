@@ -141,11 +141,40 @@ test('the saloon carries exactly nine patrons, and none of them is at the piano'
   assert.equal(count('landing'), declared.expect.landing, 'one on the landing');
   assert.equal(count('stove'), declared.expect.stove, 'one at the stove');
 
-  const actors = people.filter((one) => one.kind === 'actor').map((one) => one.id).sort();
-  const baked = people.filter((one) => one.kind === 'baked');
-  assert.equal(baked.length, declared.expect.baked, 'seven are painted into the plate');
-  assert.deepEqual(actors, [...(saloon.ambient ?? [])].sort(),
-    'the room asks for exactly the people this file calls actors, and no others');
+  // THREE KINDS, NOT TWO, AND THE INVARIANT IS THE VISIBLE COUNT. Tyler's
+  // Option A ruling: the seven furniture-dependent patrons stay painted, and
+  // two of them are named characters who speak. `Interactable` carries no
+  // `tree` field -- a dialogue tree opens only from `AmbientFile.tree` -- so a
+  // speaking painted man needs an ambient that draws nothing. That makes
+  // "ambient count == visible population" false on purpose, and asserting it
+  // would now fail for being right, which is the same trap the count fell into
+  // the last time the architecture moved.
+  //
+  //   baked  painted, no runtime object at all
+  //   voice  painted TOO, plus an invisible interaction identity in `identity`
+  //   actor  drawn at runtime
+  const painted = people.filter((one) => one.kind !== 'actor');
+  assert.equal(painted.length, declared.expect.baked,
+    'seven are painted into the plate, speaking or not');
+  const voices = people.filter((one) => one.kind === 'voice');
+  assert.equal(voices.length, declared.expect.voice,
+    'two of the painted seven carry an interaction identity');
+  for (const one of voices) {
+    assert.ok(one.identity, `${one.id} is a voice and must name the ambient that carries it`);
+  }
+
+  // Every runtime ambient is accounted for by somebody in this file, and
+  // nobody in this file claims an ambient the room does not ask for. A patron
+  // quietly re-added as a free-floating sprite still fails here.
+  const runtime = [
+    ...people.filter((one) => one.kind === 'actor').map((one) => one.id),
+    ...voices.map((one) => one.identity as string),
+  ].sort();
+  assert.deepEqual(runtime, [...(saloon.ambient ?? [])].sort(),
+    'the room asks for exactly the actors plus the voices, and no others');
+
+  // AND THE ONE A PERSON CHECKS AGAINST THE RENDER: nine men are visible.
+  assert.equal(people.length, declared.expect.total, 'visible population is nine');
 
   const piano = saloon.hotspots.find((one) => one.id === 'piano');
   assert.ok(piano);

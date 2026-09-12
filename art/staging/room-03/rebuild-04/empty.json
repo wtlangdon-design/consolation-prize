@@ -1,0 +1,79 @@
+{
+ "schema": 1,
+ "note": "The Nugget with the foreground bar patron removed and the bar and floor he stood in front of reconstructed. STEP A of the recomposition: no person is composited here. No image operation.",
+ "from": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+ "fromSha256": "7565d6544db2598e00fa49fbd66daa5871e0d5fd577fa4d090566f08edd2304b",
+ "floorSource": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+ "floorSourceSha256": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+ "wallSource": "art/staging/room-03/bar-rebuild-01/canvas.png",
+ "wallSourceSha256": "f33ad76cb4757b9bdf208859128e08d450c86b03e4baeb90ff6765edee10c729",
+ "geometry": {
+  "horizon": 239.0,
+  "counterTopEdge": [
+   1185.0,
+   383.0,
+   0.2135
+  ],
+  "vBack": 0.95,
+  "vSlab": 1.18,
+  "vBase": 1.945,
+  "slabColumnW": 5.4713,
+  "acceptedEdge": [
+   1220.0,
+   423.3,
+   0.22687
+  ],
+  "acceptedCleanBayW": [
+   5.6748,
+   5.747
+  ],
+  "anchorW": [
+   5.4765,
+   5.747
+  ],
+  "pitchW": [
+   0.0832,
+   0.1171
+  ],
+  "vSpan": [
+   1.0,
+   1.0
+  ],
+  "terminusW": [
+   4.88,
+   5.03
+  ],
+  "terminusShiftW": [
+   0.2309,
+   0.7055
+  ],
+  "terminusV": [
+   0.9,
+   1.99
+  ],
+  "terminusVSplit": 1.4
+ },
+ "erasedPixels": 90915,
+ "extraErase": [
+  1768,
+  455,
+  1818,
+  714
+ ],
+ "cardFloor": {
+  "window": [
+   655,
+   385,
+   1195,
+   620
+  ],
+  "flatMax": 7.0,
+  "minRegion": 4000,
+  "floorMask": "art/staging/room-03/floor-03/floor-mask-plate.png",
+  "furnitureMask": "art/staging/room-03/corrected-03/furniture-tight-mask.png",
+  "fraction": null
+ },
+ "terminus": "OPEN -- not repaired in this pass, see the tool header",
+ "out": "art/staging/room-03/rebuild-04/plate-room-03-empty.png",
+ "outSha256": "c7241089060bee7e416d88a14279447bceef37afb0122313c1196f313dcf5f5a"
+}

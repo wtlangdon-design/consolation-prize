@@ -1,0 +1,72 @@
+REFERENCE 1 IS THE IMAGE YOU ARE EDITING AND IT IS THE LAW.
+
+It is the card corner of a frontier saloon at night, 1850s, in an established
+2D point-and-click adventure game. Four men are sitting at a round mahogany
+table playing cards. A mask frees the four men and the four chairs they are
+sitting on, and nothing else.
+
+YOUR ONLY JOB: REMOVE THOSE FOUR MEN AND THEIR FOUR CHAIRS, AND CLOSE THE ROOM
+BEHIND THEM.
+
+The result must look like REFERENCE 1 five seconds before those four men sat
+down. Same table. Same room. Same night. Nobody there.
+
+WHAT MUST COME BACK, AND IT IS ALL ALREADY VISIBLE IN REFERENCE 1:
+
+- THE ROUND TABLE, COMPLETE. Its far rim, its near rim and the whole of its
+  elliptical top are the single most important thing in this operation. The rim
+  is a continuous smooth ellipse. Where the two near men's bodies currently
+  cross it -- on the left and on the right -- continue that same ellipse behind
+  them at exactly the curve the visible parts already describe. Do not make the
+  table smaller. Do not make it larger. Do not move it. Do not change how it
+  sits in perspective. Its widest point is level with the middle of its top.
+- THE TABLE'S APRON AND ITS TURNED CENTRE PEDESTAL, and the splayed feet at the
+  bottom of the pedestal, continuing behind where the men were.
+- THE TABLE'S OWN SHADOW on the dirt beneath it.
+- PACKED DIRT FLOOR everywhere the men and their chairs stood. This room's
+  floor is packed dirt with small clods and shallow ruts -- see reference 2.
+  It is NOT planks, NOT boards, NOT stone.
+- THE WALL AND ITS FITTINGS behind the two far men: horizontal grey-brown log
+  and plank wall, the window with its frame, the framed portrait, the black
+  iron stove and its lit firebox, the door. All of these are visible in
+  reference 1 and in reference 2 and simply continue.
+
+WHAT MUST NOT CHANGE, AND IS OUTSIDE THE MASK FOR THAT REASON:
+
+- THE EMPTY CHAIR at front centre, facing the table. It stays exactly as it is.
+- THE TWO FACE-UP PLAYING CARDS lying on the tabletop in front of that empty
+  chair. They stay exactly as they are. They are somebody's abandoned hand and
+  they are the point of the empty chair.
+
+DO NOT ADD A FIFTH CHAIR. DO NOT ADD A PERSON. DO NOT ADD A NEW OBJECT OF ANY
+KIND -- no bottles, no glasses, no lamp, no spittoon, no cat, no coat over a
+chair back. If something is not in reference 1, it does not belong here.
+
+DO NOT REDESIGN. Do not restyle the furniture, do not change the wall, do not
+change the light, do not warm it up or cool it down, do not clean it up, do not
+make it prettier. This room has been approved as it is.
+
+RENDERING. Match reference 1 exactly: hand-painted 2D game background art, the
+look of a high-end late-1990s point-and-click adventure. Crisp, deliberate
+brushwork; no photographic texture; no 3D render; no airbrush gradients; no
+modern digital gloss; no outlines around objects.
+
+LIGHT. One warm interior source. The room is DARK -- a night interior lit by
+lamplight and the stove's firebox. Deep shadow across most of the floor, warm
+highlights only on the table's top surface, the rim, and the near edges of the
+furniture. Do not raise the overall brightness. Do not flatten the shadows.
+
+REFERENCE 2 is this same saloon, approved, with no people in it at all. Take
+the dirt floor material, the wall treatment, the palette and the darkness from
+it. Its table is an OLDER, SMALLER, FURTHER-BACK table and is NOT the table you
+are drawing -- the table you are drawing is the one in reference 1, and only
+that one.
+
+The remaining references are the game's global art baseline: the approved live
+frame, the approved shipping background, the approved protagonist and the
+approved comparable room. They are the visual language this must belong to.
+They are not the subject and nothing from them is to be copied into this image.
+
+OUTPUT: the same picture as reference 1, same framing, same size, same
+everything -- minus four men and four chairs, plus the room that was behind
+them.

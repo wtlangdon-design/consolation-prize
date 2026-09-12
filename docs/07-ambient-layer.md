@@ -327,7 +327,7 @@ is the whole of his character.
 ---
 
 ## 13 · THE ONE-STRIKE MAN
-*The Nugget. Found colour once, in 1849. **Arcs — the strike shrinks every time and he never notices.***
+*The Nugget. Found color once, in 1849. **Arcs — the strike shrinks every time and he never notices.***
 
 **Micro-tree**
 > "Tell me about it." → *(He does. At length. It is genuinely moving the first time.)*
@@ -337,14 +337,14 @@ is the whole of his character.
 **Barks**
 | State | Line |
 |---|---|
-| `R_NOBODY` | "Found colour in '49. Nugget the size of a fist." |
-| `R_SWINDLED` | "Found colour in '49. Size of a fist." |
-| `R_RACCOON` | "Found colour in '49. Size of a good apple." |
-| `R_SURVEYED` | "Found colour in '49. Size of an apple." |
-| `R_BORDERS_MOTT` | "Found colour in '49! Size of a walnut, mind." |
-| `R_LOST_DUEL` | "Found colour in '49. Walnut." |
-| `R_WON_DUEL` | "Found colour once. Size of a pea." |
-| `R_DEAD` | "Found colour in '49." *(pause)* "Think I did." |
+| `R_NOBODY` | "Found color in '49. Nugget the size of a fist." |
+| `R_SWINDLED` | "Found color in '49. Size of a fist." |
+| `R_RACCOON` | "Found color in '49. Size of a good apple." |
+| `R_SURVEYED` | "Found color in '49. Size of an apple." |
+| `R_BORDERS_MOTT` | "Found color in '49! Size of a walnut, mind." |
+| `R_LOST_DUEL` | "Found color in '49. Walnut." |
+| `R_WON_DUEL` | "Found color once. Size of a pea." |
+| `R_DEAD` | "Found color in '49." *(pause)* "Think I did." |
 | `R_TRUTH` | "…I don't believe I found anything." |
 
 ---

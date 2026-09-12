@@ -1,0 +1,27 @@
+FOUR SEATED MEN ON A FLAT MAGENTA FIELD. A casting sheet, not a scene.
+
+REFERENCE 1 IS THE LAW. It is the accepted card table of The Bountiful Nugget, and it holds the four men this sheet must return: the same four faces, the same four builds, the same four sets of clothes, the same four poses, and — this is the part that matters most — THE SAME FOUR VIEWING ANGLES. Do not redesign any of them. Do not turn any of them to face the viewer because a front view is easier to draw. Two of these men are seen FROM BEHIND and they must come back seen from behind.
+
+REFERENCE 2 IS THE FORMAT. It is an earlier casting sheet of this same cast: seated men, each complete from the crown of the head to the soles of the boots, sitting on chairs that are not drawn, on flat magenta, with clear magenta between them. That is exactly the output wanted here — only the men in it face the wrong way.
+
+THE FOUR MEN, LEFT TO RIGHT ACROSS THE NEW SHEET, matching reference 1:
+
+1. THE MAN IN THE FLAT CAP — in reference 1 he is the near-left player, the one whose BACK is to us. Forty, broad, black-bearded, a flat cap, a quilted work coat. WE SEE HIS BACK. Visible: the whole back of his coat, the back and side of his flat cap, and — past the right-hand edge of his head as we look at him — the cheekbone and the black beard, just enough to know there is a face turned away. No eyes, no nose, no mouth. He holds a fanned hand of cards raised on the VIEWER'S RIGHT of his body, about shoulder height, his forearm crossing in front of his chest. NOT a front view. NOT a profile. The back of a seated man, three quarters turned.
+
+2. THE SILVER-HAIRED MAN — in reference 1 he is the far-left player, facing the room. Fifty, silver hair, long moustache and side-whiskers, the best coat in the room and it is still not a good coat, a dark waistcoat and a dark red tie. WE SEE HIM FROM THE FRONT, very slightly turned. Both forearms come forward and up; he holds a fanned hand of cards in front of his chest.
+
+3. THE YOUNG MAN IN SHIRTSLEEVES — in reference 1 he is the far-right player, facing the room. Mid twenties, fair tousled hair, no hat, sunburnt, cream shirtsleeves rolled, a BLUE NECKERCHIEF at his throat, a plain waistcoat. WE SEE HIM FROM THE FRONT, very slightly turned. Both forearms come forward and up; he holds a fanned hand of cards.
+
+4. THE BALD MAN IN SPECTACLES — in reference 1 he is the near-right player, the other one whose BACK is to us. Sixty, bald with a fringe of white hair over the ears, small spectacles, a threadbare blue-grey frock coat. WE SEE HIS BACK. Visible: the whole back of his coat, his bald crown with its fringe of white hair, and — past the left-hand edge of his head as we look at him — the temple, the ear, and the wire arm of his spectacles running back to it. No eyes, no nose, no mouth. He holds a fanned hand of cards raised on the VIEWER'S LEFT of his body, about shoulder height, his forearm crossing in front of his chest. NOT a front view. NOT a profile.
+
+POSTURE — BINDING, AND THE SAME FOR ALL FOUR. Each man SITS on a chair that is not drawn. Thighs level, knees bent square, both boots flat on the ground, back upright or leaning very slightly in. The forearms are raised to the height of a table edge that is also not drawn — put that edge at exactly the height on his body that reference 1 shows it at, which is a little below the bottom of the ribs. Wrists and hands forward of the body, clear of the torso.
+
+DRAW THE WHOLE MAN, INCLUDING WHAT THE TABLE HIDES IN REFERENCE 1. In reference 1 the tabletop cuts across every one of them. Here there is no table: the lap, the belly, the belt, the thighs, the knees, the shins and the boots must all be drawn, complete and continuous. A man who stops where the table used to be is a failed drawing.
+
+FRAME — BINDING. Flat MAGENTA #FF00FF, edge to edge. NOTHING ELSE IN THE FRAME: no table, no tabletop, no table edge, no chair, no chair back, no chair leg, no stool, no floor, no floorboards, no dirt, no wall, no window, no stove, no lamp, no cards on any surface, no glasses, no bottles, no cast shadow on the ground, no pool of light, no border, no vignette. Only four men and magenta. CLEAR MAGENTA BETWEEN EVERY FIGURE — no man touches, overlaps or occludes any other man, and no man is cropped by any edge of the frame.
+
+RENDERING — BINDING. Paint this in EXACTLY the manner of the attached references: the same hand that painted Thad (reference 3), Winnie the counter clerk (reference 4) and the Room 1 casting master (reference 6). Hand-painted pixel art for a 1990s point-and-click adventure at 1920x1080: flat masses, selective grain, warm lamplight against cool shadow, a readable silhouette first and detail second. NOT photographic. NOT a 3D render. NOT caricature. No outlines drawn around the figures. No text, no lettering, no numbers, no signature, no watermark anywhere in the image.
+
+SETTING — a failing Californian gold-rush town, 1852, a saloon after dark with the lamps lit. Period clothing, worn and actually lived in. The palette belongs with the attached room (reference 5) and with Thad (reference 3): warm lamplight from the left and above, cool shadow.
+
+SCALE — BINDING. All four are adult men, drawn at the same scale as each other, each about four fifths of the height of the frame when seated. Vary their build, not their species. Head about one seventh of standing height on each of them.

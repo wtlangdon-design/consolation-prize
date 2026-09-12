@@ -1,0 +1,132 @@
+{
+ "schema": 1,
+ "note": "ROOM 3 CARD-PLAYER FEASIBILITY GATE (Tyler, 2026-09-12). One authorized generation round, spent. The four card-table players as independently separable runtime actors against the locked card-table composition. Nothing here is promoted, merged or deployed; the production plate is untouched.",
+ "operation": {
+  "assetId": "nugget-card-players",
+  "attempts": "1 of 1",
+  "role": "composition-master",
+  "sheet": "art/staging/room-03/cast-card-players-01/source.png",
+  "billedTokens": 15748,
+  "ledgerRows": 48,
+  "gates": "PASS",
+  "promptFile": "proofs/room-03/prompts/card-players-01.txt",
+  "referencesTransmitted": "9 of 9"
+ },
+ "contamination": {
+  "hardMagentaLeftInComposite": 0,
+  "pinkCastRingOutsideActors": 0.48,
+  "pinkCastSameRingOnBakedPlate": 0.24,
+  "note": "(r+b)/2 - g in the 3 px ring just outside every actor, in the composited 1920x864 plate. The actors are a quarter of a level pinker than the painting they stand in, which is not a halo. A first cut measured +30 there and was rejected and re-keyed."
+ },
+ "verdict": "PASS",
+ "players": [
+  {
+   "id": "card_1_flatcap",
+   "view": "three-quarter BACK",
+   "independentRuntimePlacement": "PASS",
+   "independentRuntimeDepthOrdering": "PASS",
+   "cleanAlpha": "PASS",
+   "furnitureIndependence": "PASS",
+   "futurePoseStateVariants": "PASS",
+   "evidence": {
+    "file": "art/staging/room-03/cast-card-players-01/card_1_flatcap.png",
+    "sha256": "b2cea32500f2a20a9f8f0dbe827e3b94834a979f7c0f228e9ffd9b96372a8919",
+    "size": [
+     338,
+     565
+    ],
+    "opaquePx": 111490,
+    "partialEdgePx": 5741,
+    "drawnInRoom": [
+     154,
+     258
+    ],
+    "scale": 0.4559,
+    "soleVsChairFloorPx": 1,
+    "chairFloor": "measured off the drawn chair",
+    "depthOrder": "in front of the table, drawn whole and last"
+   }
+  },
+  {
+   "id": "card_2_silver",
+   "view": "FRONT",
+   "independentRuntimePlacement": "PASS",
+   "independentRuntimeDepthOrdering": "PASS",
+   "cleanAlpha": "PASS",
+   "furnitureIndependence": "PASS",
+   "futurePoseStateVariants": "PASS",
+   "evidence": {
+    "file": "art/staging/room-03/cast-card-players-01/card_2_silver.png",
+    "sha256": "3558ff73c738626511db376d986a208b11e4511d9d60801f9763ecefca3b6e0b",
+    "size": [
+     304,
+     596
+    ],
+    "opaquePx": 102084,
+    "partialEdgePx": 5718,
+    "drawnInRoom": [
+     129,
+     253
+    ],
+    "scale": 0.4248,
+    "soleVsChairFloorPx": 24,
+    "chairFloor": "ESTIMATED -- his chair is hidden behind him in the locked composition",
+    "depthOrder": "behind the table, clipped at the far rim y 352"
+   }
+  },
+  {
+   "id": "card_3_young",
+   "view": "FRONT",
+   "independentRuntimePlacement": "PASS",
+   "independentRuntimeDepthOrdering": "PASS",
+   "cleanAlpha": "PASS",
+   "furnitureIndependence": "PASS",
+   "futurePoseStateVariants": "PASS",
+   "evidence": {
+    "file": "art/staging/room-03/cast-card-players-01/card_3_young.png",
+    "sha256": "f9ddfbd3aec0d3be15e5a222cfb607200381b843b1d3ca4efdca1d47cde0f802",
+    "size": [
+     312,
+     595
+    ],
+    "opaquePx": 97654,
+    "partialEdgePx": 6008,
+    "drawnInRoom": [
+     137,
+     262
+    ],
+    "scale": 0.4403,
+    "soleVsChairFloorPx": 32,
+    "chairFloor": "ESTIMATED -- his chair is hidden behind him in the locked composition",
+    "depthOrder": "behind the table, clipped at the far rim y 352"
+   }
+  },
+  {
+   "id": "card_4_spectacles",
+   "view": "three-quarter BACK",
+   "independentRuntimePlacement": "PASS",
+   "independentRuntimeDepthOrdering": "PASS",
+   "cleanAlpha": "PASS",
+   "furnitureIndependence": "PASS",
+   "futurePoseStateVariants": "PASS",
+   "evidence": {
+    "file": "art/staging/room-03/cast-card-players-01/card_4_spectacles.png",
+    "sha256": "ae6e7760b61bc966b040a4def3e14bf5e828be062530bef780679fb3af8b203f",
+    "size": [
+     338,
+     538
+    ],
+    "opaquePx": 110484,
+    "partialEdgePx": 5741,
+    "drawnInRoom": [
+     163,
+     260
+    ],
+    "scale": 0.4834,
+    "soleVsChairFloorPx": 6,
+    "chairFloor": "measured off the drawn chair",
+    "depthOrder": "in front of the table, drawn whole and last"
+   }
+  }
+ ]
+}

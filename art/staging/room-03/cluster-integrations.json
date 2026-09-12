@@ -1,9 +1,9 @@
 {
  "schema": 1,
- "note": "EVERY GENERATED CLUSTER INTEGRATED INTO THE NUGGET'S PLATE, ITS WHOLE FOOTPRINT, AND WHAT EACH ONE BROUGHT WITH IT. Read by tools/check-cluster-floor.mjs, which asserts that no floor pixel of any footprint is accounted for by not having been mentioned. The clearances below are against the plate named here and no other: change the plate and they are all stale, which is the point -- the card cluster's plank was reviewed twice with the stove man standing on it and passed both times.",
+ "note": "EVERY GENERATED CLUSTER INTEGRATED INTO THE NUGGET'S PLATE, ITS WHOLE FOOTPRINT, AND WHAT EACH ONE BROUGHT WITH IT. Read by tools/check-cluster-floor.mjs, which asserts that no floor pixel of any footprint is accounted for by not having been mentioned. The clearances below are against the plate named here and no other: change the plate and they are all stale, which is the point.",
  "room": "nugget_candidate",
- "plate": "art/staging/room-03/rebuild-03/plate-room-03-rebuilt.png",
- "plateSha256": "aa0bb58647fe374e7dfe88b43ccab1cf71d1b10498b4d99723c71f2dff790c2b",
+ "plate": "art/staging/room-03/rebuild-04/plate-room-03-recomposed.png",
+ "plateSha256": "93fc4a60cd16e5f375560f236139a081fe573c7cd2236445a90a79df5014c755",
  "floorMask": "art/staging/room-03/floor-03/floor-mask-plate.png",
  "floorMaskNote": "Phase 1.5B's mask of the Nugget's public floor, cut on the accepted cold-dirt plate. It is the ROOM's statement of where floor is, which is why it is the authority here: a repair that declares its own floor band covers that band by construction, and the card salvage declared y 505 and covered y 505.",
  "canonicalFloor": "packed dirt",
@@ -12,21 +12,26 @@
    "id": "card-cluster",
    "source": "art/staging/room-03/cluster-card-01/source.png",
    "integratedBy": "tools/retrofit/nugget-card-salvage.py",
-   "footprint": [673, 260, 1159, 616],
+   "footprint": [
+    673,
+    260,
+    1159,
+    616
+   ],
    "footprintNote": "the free window the endpoint could paint in, which is also the rect the salvage blitted",
    "imported": [
     "a plank floor, under and around the table, where this room's floor is dirt"
    ],
    "repairs": [
     {
-     "tool": "tools/retrofit/nugget-card-salvage.py",
-     "rect": [673, 505, 1159, 616],
-     "what": "dirt restored from y 505 down. THIS WAS THE BUG: the band was chosen by the repair, not by the room."
-    },
-    {
-     "tool": "tools/retrofit/nugget-plate-cleanup.py",
-     "rect": [673, 385, 1159, 616],
-     "what": "the rest of the footprint's floor, wherever the accepted plate has aligned dirt to give back. Above y 510 between x 700 and 1080 it does not -- it stands its own card group on those coordinates -- so the furniture gate leaves that shadow under the table as it is, and says so."
+     "tool": "tools/retrofit/nugget-bar-reconstruct.py",
+     "rect": [
+      673,
+      385,
+      1159,
+      616
+     ],
+     "what": "dirt restored over the cluster's floor wherever the accepted cold-dirt plate has aligned dirt to give back. Above y 510 between x 700 and 1080 it does not -- it stands its own card group on those coordinates -- so that band is left and recorded. Done in the background step, before any actor is composited."
     }
    ]
   },
@@ -34,7 +39,12 @@
    "id": "bar-cluster",
    "source": "art/staging/room-03/bar-rebuild-01/source.png",
    "integratedBy": "tools/retrofit/nugget-bar-integrate.py",
-   "footprint": [1152, 181, 1920, 864],
+   "footprint": [
+    1152,
+    181,
+    1920,
+    864
+   ],
    "footprintNote": "NOT the free window. The integration blends the endpoint's whole quadrant in from x 1176 with a 24 px feather, so everything from 1152 rightward is the endpoint's pixels, including the ground outside the window it was told it could paint.",
    "imported": [
     "a plank floor at x 1152-1195, y 398-520 -- outside the free window, where the output was meant to reproduce the canvas and did not",
@@ -42,40 +52,55 @@
    ],
    "repairs": [
     {
-     "tool": "tools/retrofit/nugget-plate-cleanup.py",
-     "rect": [1152, 385, 1195, 620],
-     "what": "the strip between the card group and the bar's end -- open lit floor that the stove man's body covered until he moved to the back of the room"
+     "tool": "tools/retrofit/nugget-bar-reconstruct.py",
+     "rect": [
+      1152,
+      385,
+      1195,
+      620
+     ],
+     "what": "the strip between the card group and the bar, open lit floor the stove man covered until he moved"
     }
    ],
    "writtenOff": [
     {
-     "rect": [1152, 398, 1920, 864],
+     "rect": [
+      1152,
+      398,
+      1920,
+      864
+     ],
      "why": "INSPECTED AND CLEAR. The near floor was compared with the accepted plate side by side at x 1150-1900, y 600-864 and with the endpoint's own output (bar-rebuild-01/source.png against canvas.png): same dirt, same grain, same clods. This cluster did not pave its floor, and a first draft of the cleanup that assumed it had restored dirt the room already had and pasted the accepted plate's bar -- which stands 130 px further forward here -- over the near ground."
     }
    ]
   },
   {
-   "id": "patron-grounding",
-   "source": "art/staging/room-03/rebuild-02/plate-room-03-rebuilt.png",
-   "integratedBy": "tools/retrofit/nugget-bar-grounding.py",
-   "footprint": [1619, 199, 1812, 791],
-   "footprintNote": "the foreground patron's outline and the same outline 82 rows lower -- not a generated cluster but the same bug class, because it composites one part of the plate into another and carries that part's environment with it",
+   "id": "patron-recomposition",
+   "source": "art/staging/room-03/rebuild-01/plate-room-03-rebuilt.png",
+   "integratedBy": "tools/retrofit/nugget-bar-reconstruct.py + nugget-bar-recompose.py",
+   "footprint": [
+    1619,
+    195,
+    1820,
+    795
+   ],
+   "footprintNote": "the foreground patron where the endpoint drew him, and the same outline 82 rows lower where the owner accepted him",
    "imported": [
-    "the bar's kick-board, plinth and foot rail, laid on the dirt behind his boots by the 82-row shift wherever his outline is looser than he is"
+    "nothing. The previous pass translated him with a feathered rectangle of his own surroundings and the owner rejected it; he is now matted out of the plate and composited on to a background that was reconstructed first, so no pixel of his old surroundings travels with him"
    ],
    "repairs": [
     {
-     "tool": "tools/retrofit/nugget-plate-cleanup.py",
-     "rect": [1619, 714, 1812, 791],
-     "what": "below his old outline the shifted plate has no business being there at all, so the floor is given back from rebuild-01 -- the same room, unshifted -- outside an authored mask of his two boots, and the grounding's contact shadows are re-applied over it"
+     "tool": "tools/retrofit/nugget-bar-reconstruct.py",
+     "rect": [
+      1619,
+      195,
+      1820,
+      795
+     ],
+     "what": "the bar and the floor he stood in front of, rebuilt as an empty room: wall and back bar in register from the plate this bar was composed into, the bar front from the people-free accepted bar mapped into this bar's geometry and rescaled to this bar's bay pitch, the floor in register from the accepted cold-dirt plate"
     }
    ],
-   "writtenOff": [
-    {
-     "rect": [1619, 698, 1812, 714],
-     "why": "the last rows of his old outline plus its 3 px feather: the shifted plate there is still him, and he is owner-accepted and not this pass's to touch"
-    }
-   ]
+   "writtenOff": []
   }
  ]
 }

@@ -21,6 +21,7 @@ import { assertRecordable, attachGates, budgetFor, record } from './staging.mjs'
  *   node tools/art/phase2a.mjs map-seller [n]
  *   node tools/art/phase2a.mjs bar-stove-family [n]
  *   node tools/art/phase2a.mjs card-landing-family [n]
+ *   node tools/art/phase2a.mjs card-players [n]
  *
  * WHY MAGENTA AND NOT A ROOM. Doc 38 R3: these have to be keyed out and the
  * cast belongs in dark wool, which green sits inside. The room rides along as
@@ -135,6 +136,89 @@ const JOBS = {
     out: `art/staging/room-03/cast-bar-stove-${n}/source.png`,
     banner: '\nTHE NUGGET · BAR AND STOVE FAMILY -- four distinct men on one sheet, on magenta\n',
     note: 'PHASE 2A CASTING: three bar patrons and the stove man on one family sheet. The stove man is a story anchor -- the man who has not taken his coat off -- and not bar patron #4. Character art only; 0 environment operations.',
+  },
+  // ---- ROOM 3 ART UNBLOCK GATE (Tyler, 2026-09-12) ------------------------
+  //
+  // OPERATION 49. The 0a02add stop report found that the canonical rebuilt card
+  // table exists in exactly one place -- always with four men painted on it --
+  // and that card_1 and card_4 sit on its near side with their bodies across
+  // its rim. This is the operation that makes the table exist without them.
+  //
+  // WHY A MASK AND NOT A FRESH CANVAS. The accepted table is frozen: position,
+  // scale, perspective, rim, apron, legs, shadow, cards, and the abandoned
+  // fifth-place hand. Masking only the men and their chairs leaves all of that
+  // VISIBLE in the reference, so the endpoint completes a curve it can see
+  // instead of inventing one it was described. The mask keeps two things back
+  // on purpose -- the empty fifth chair and the two face-up cards in front of
+  // it -- because an unmasked rect is the only way to preserve a thing exactly
+  // rather than ask for it back. tools/retrofit/nugget-card-clean-mask.py.
+  'card-clean': {
+    assetId: 'nugget-card-clean', subject: 'nugget-card-clean',
+    role: 'plate', baselineRoom: 'room-03-nugget',
+    promptFile: `proofs/room-03/prompts/card-clean-${n}.txt`,
+    images: [
+      'art/staging/room-03/card-clean-01/source-canvas.png',   // 1 THE LAW, and the image edited
+      'art/staging/room-03/corrected-03/plate-cold-dirt.png',  // 2 the same saloon, people-free
+      // 3-6 THE GLOBAL BASELINE, which this room's art calls must transmit and
+      // which the prompt does not number: naming a reference in provenance is
+      // not supplying it to the model.
+      'renders/room-01-in-engine-1920x1080.png',               // A
+      'art/backgrounds/room-01-stage-road.png',                // B
+      'art/actors/thad-stand-front/stand-00.png',              // C
+      'art/backgrounds/room-05-assay-office.png',              // D
+      'art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png', // E
+      'reference/casting/room-01-casting-master.png',          // E
+    ],
+    mask: 'art/staging/room-03/card-clean-01/edit-mask.png',
+    size: '1024x1024',
+    out: `art/staging/room-03/card-clean-${n}/source.png`,
+    banner: '\nTHE NUGGET · CLEAN CANONICAL CARD ENVIRONMENT -- the table, five seconds before they sat down\n',
+    note: 'ART UNBLOCK GATE operation 49: the accepted card area with the four players and their four occupied chairs removed and only the pixels they exposed reconstructed. The table is frozen; the empty fifth chair and the abandoned hand are held back by the mask rather than asked for. Geometry is measured against the populated accepted table afterwards and a material drift is a STOP.',
+  },
+  // ---- ROOM 3 ARCHITECTURAL RESET, CARD-PLAYER FEASIBILITY GATE -----------
+  //
+  // Tyler, 2026-09-12: the seven patrons baked into the Room 3 plate were never
+  // the right architecture, and the four card players are the gate because the
+  // near seats need views the old cast never had. ONE round.
+  //
+  // WHAT IS DIFFERENT FROM card-landing-family, WHICH SPENT TWO OPERATIONS AND
+  // COULD NOT BE STAGED. That sheet was drawn from a written description of the
+  // room, so all four men came back facing the camera -- and a round table's
+  // near seats need men seen from BEHIND, which no placement, scale or occlusion
+  // can produce from a front view (Q133). This call does not describe the room:
+  // the accepted card table itself is reference 1 and is the image being edited,
+  // so the four identities, the four poses and the two back views are SHOWN and
+  // not asked for. Reference 2 is that earlier sheet, present only as the OUTPUT
+  // FORMAT it did get right -- seated men, complete, on flat magenta -- because
+  // it is the same four archetypes and cannot bleed a stranger into the cast.
+  'card-players': {
+    assetId: 'nugget-card-players', subject: 'nugget-card-players',
+    role: 'composition-master', baselineRoom: 'room-03-nugget',
+    promptFile: `proofs/room-03/prompts/card-players-${n}.txt`,
+    images: [
+      'art/staging/room-03/cast-card-players-01/locked-composition.png', // 1 THE LAW
+      'art/staging/room-03/cast-card-landing-02/source.png',             // 2 the format
+      'art/actors/thad-stand-front/stand-00.png',                        // 3 the hand
+      'art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png',  // 4 the hand
+      'art/staging/room-03/corrected-03/plate-cold-dirt.png',            // 5 palette and light
+      'reference/casting/room-01-casting-master.png',                    // 6 rendering by example
+      // 7-9 THE GLOBAL BASELINE, which this room's art calls must transmit and
+      // which the prompt does not number: naming a reference in provenance is
+      // not supplying it to the model, and the baseline guard says so before
+      // the call rather than after it. Appended, so references 1-6 stay exactly
+      // the ones the prompt names.
+      'renders/room-01-in-engine-1920x1080.png',                         // 7 A
+      'art/backgrounds/room-01-stage-road.png',                          // 8 B
+      'art/backgrounds/room-05-assay-office.png',                        // 9 D
+    ],
+    size: SHEET,
+    out: `art/staging/room-03/cast-card-players-${n}/source.png`,
+    banner: '\nTHE NUGGET · THE FOUR CARD PLAYERS -- feasibility gate, seat-correct views, on magenta\n',
+    note: 'ROOM 3 ARCHITECTURAL RESET, CARD-PLAYER FEASIBILITY GATE: the four card-table players '
+      + 'as independently separable runtime actors, in the seat-correct orientations the locked '
+      + 'composition already has -- two of the four seen from behind. The accepted card table is '
+      + 'transmitted as the image being edited so the composition is shown and not described. '
+      + 'Character art only; 0 environment operations. ONE round, no retry.',
   },
   'card-landing-family': {
     assetId: 'nugget-card-landing-family', subject: 'nugget-card-landing-family',

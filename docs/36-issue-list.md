@@ -4497,3 +4497,37 @@ The floor band comes from the **room's** own mask and never from the repair, bec
 `renders/opening-set-retrofit/room-03-cleanup2-stove-area.webp` · `room-03-cleanup2-patron-ground.webp` · `phase2a-production-nugget-candidate.png` · `art/staging/room-03/rebuild-03/cleanup.json`.
 
 **ROOM 3 REBUILD PHASE 2A IS DEPLOYED AND AWAITING OWNER VISUAL ACCEPTANCE. PHASE 2B HAS NOT STARTED.**
+
+---
+
+## Q139 · The clusters' people were moved with their surroundings; the room is recomposed instead — **BUILT 2026-09-12, NOT DEPLOYED, AWAITING OWNER VISUAL REVIEW**
+
+Q138 was **rejected, and the method with it.** Tyler: *"The problem is not three isolated defects that need more deterministic raster repair. The problem is that people were moved together with pixels from their OLD surroundings, and you are now repeatedly trying to repair those surroundings after the fact. That approach ends now."* Two symptoms named: a conspicuous halo of his former environment around essentially the foreground patron's whole silhouette, and a left bar end that dissolves into an amorphous smear.
+
+### The bar is a straight run in perspective, and that is the whole method
+
+Its horizontal lines converge on the room's **own horizon, y 239** — the same horizon the depth curve reaches zero at. The counter's lit front edge, measured off the plate, is
+
+    TOP(x) = 383 + 0.2135 (x − 1185)        rms 2 px from x 1190 to x 1910
+
+so every horizontal line of the bar's front plane is `y = 239 + v·(TOP(x) − 239)` for a constant v — v 1 is the counter's lit edge, v 1.945 where it meets the dirt — and distance along the run is `w = ln(TOP(x) − 239)`, because the plane's scale is proportional to its distance below the horizon. In (w, v) the bar is an **undistorted elevation**: panels are upright rectangles, the plinth and the rail are horizontal bands, and the bay repeats with a constant pitch. Everything below is done in that space, which is why the reconstruction lands on the bar's own lines instead of near them.
+
+### Step A — the empty room, before any person
+
+`tools/retrofit/nugget-bar-reconstruct.py`. The patron is erased from rebuild-01 entirely and what he stood in front of is rebuilt: the **wall and back bar** in register from the plate this bar was composed into (the endpoint reproduced them within 8–16 of 255); the **bar front** from the people-free accepted bar, mapped into this elevation and rescaled from its 0.117 bay pitch to this bar's 0.083; the **floor** in register from the accepted cold-dirt plate, carrying this plate's own low-frequency light. The card cluster's plank floor is repaired in the same step, because it is background too.
+
+**THE REBUILT BAR CANNOT RECONSTRUCT ITSELF, and that is the finding that cost the most time.** Three men and two stools stand along it and every stretch has a boot, a knee or a stool seat across part of its height; the widest window unobstructed from apron to dirt is **25 px, a third of a bay**. Two attempts to continue the bar from itself duly copied a stool seat, a trouser leg and a boot into the empty room. The accepted plate's bar is the only people-free source, its warp into this geometry is verified — its counter edge falls on this counter edge along the whole run — and only its bay pitch had to be corrected.
+
+### Step B — then the man, and only the man
+
+`tools/retrofit/nugget-bar-recompose.py`. Two extractions were tried and failed in ways worth keeping. A **pure difference matte** against the reconstructed room held his face, his shirt and his mug and dropped most of the man: his coat is the same brown as the bar to within a few levels. A **per-row edge snap** wandered onto the bottles behind his hat and the panel beside his arm. What works is the authored polygon supplying only what it is reliable for — a region that certainly contains him, and a region that certainly does not — with the few pixels between decided by whether the plate differs from the room step A reconstructed behind him. Inside the eroded core nothing can be dropped; outside the dilated bound nothing can be carried.
+
+His position, pose, scale, orientation and appearance are unchanged. His contact shadows are authored here, not inherited.
+
+### The terminus is NOT repaired, and is reported rather than bodged
+
+The accepted plate's end section — counter top, returned thickness, shadowed end panel, plinth, the line where it meets the dirt — is clean only from **v 0.90 to v 1.37**: below that its *own* first stool stands in front of its own bar end, seat and legs, x 1205–1350. Every shift that reaches a stool-free plinth reaches it somewhere else along the run, where the bar has a front face and not an end, so the end's vertical edge is lost below v 1.4; bringing the section anyway puts that stool in the middle of the room, which two attempts did. The one remaining source is an 8 px strip of the accepted end panel at x 1197–1205 — the tiny-fragment repair this pass is forbidden to make. **Left as it is, and reported.**
+
+`renders/opening-set-retrofit/room-03-recompose-empty-and-back.webp` · `room-03-recompose-halo.webp` · `room-03-recompose-terminus.webp` · `phase2a-production-nugget-candidate.png`.
+
+**NOT DEPLOYED. AWAITING OWNER VISUAL REVIEW.**

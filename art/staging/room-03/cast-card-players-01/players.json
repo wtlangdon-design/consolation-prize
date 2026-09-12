@@ -1,0 +1,106 @@
+{
+ "schema": 1,
+ "note": "The four card players cut from the feasibility-gate sheet. One asset per man, keyed off a flat magenta field, despilled, split by connected component and trimmed to his own box. No table, chair, floor, wall or neighbour is in any of them, because none was in the sheet.",
+ "source": "art/staging/room-03/cast-card-players-01/source.png",
+ "sourceSha256": "645de00af531db73c355248842bbbe1459eb416e66b8b032047dfb367f3a4f80",
+ "key": {
+  "colour": "#FF00FF",
+  "soft": 120.0,
+  "alpha": "a = 1 - (min(r,b) - g)/255 inside the field neighbourhood",
+  "colour_recovery": "unpremultiplied: F = (P - (1-a)K) / a"
+ },
+ "players": [
+  {
+   "id": "card_1_flatcap",
+   "file": "art/staging/room-03/cast-card-players-01/card_1_flatcap.png",
+   "sha256": "b2cea32500f2a20a9f8f0dbe827e3b94834a979f7c0f228e9ffd9b96372a8919",
+   "sheetBox": [
+    69,
+    215,
+    338,
+    565
+   ],
+   "size": [
+    338,
+    565
+   ],
+   "opaquePx": 111490,
+   "transparentFraction": 0.4262,
+   "partialEdgePx": 5741,
+   "soleRow": 561,
+   "standPoint": [
+    155,
+    561
+   ]
+  },
+  {
+   "id": "card_2_silver",
+   "file": "art/staging/room-03/cast-card-players-01/card_2_silver.png",
+   "sha256": "3558ff73c738626511db376d986a208b11e4511d9d60801f9763ecefca3b6e0b",
+   "sheetBox": [
+    437,
+    190,
+    304,
+    596
+   ],
+   "size": [
+    304,
+    596
+   ],
+   "opaquePx": 102084,
+   "transparentFraction": 0.4472,
+   "partialEdgePx": 5718,
+   "soleRow": 592,
+   "standPoint": [
+    144,
+    592
+   ]
+  },
+  {
+   "id": "card_3_young",
+   "file": "art/staging/room-03/cast-card-players-01/card_3_young.png",
+   "sha256": "f9ddfbd3aec0d3be15e5a222cfb607200381b843b1d3ca4efdca1d47cde0f802",
+   "sheetBox": [
+    788,
+    194,
+    312,
+    595
+   ],
+   "size": [
+    312,
+    595
+   ],
+   "opaquePx": 97654,
+   "transparentFraction": 0.4848,
+   "partialEdgePx": 6008,
+   "soleRow": 592,
+   "standPoint": [
+    163,
+    592
+   ]
+  },
+  {
+   "id": "card_4_spectacles",
+   "file": "art/staging/room-03/cast-card-players-01/card_4_spectacles.png",
+   "sha256": "ae6e7760b61bc966b040a4def3e14bf5e828be062530bef780679fb3af8b203f",
+   "sheetBox": [
+    1110,
+    244,
+    338,
+    538
+   ],
+   "size": [
+    338,
+    538
+   ],
+   "opaquePx": 110484,
+   "transparentFraction": 0.4026,
+   "partialEdgePx": 5741,
+   "soleRow": 535,
+   "standPoint": [
+    180,
+    535
+   ]
+  }
+ ]
+}
