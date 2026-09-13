@@ -127,12 +127,12 @@
   },
   "bar_cluster": {
    "rect": [
-    1140,
-    334,
+    1130,
+    64,
     1920,
     854
    ],
-   "what": "BAR CLUSTER bounds, 780x520 = 3:2: counter, back bar, stools, brass rail, and the three patrons -- seated at the far end, leaning at the middle, standing at the near"
+   "what": "BAR CLUSTER bounds, 790x790 = 1:1: counter, BACK BAR with its bottles and mirror, stools, brass rail, and the three patrons -- seated at the far end, leaning at the middle, standing at the near. SQUARE because the back bar rises to y 64 behind the counter's near end and a 3:2 box cut it off; the endpoint's square size is 1024."
   },
   "chandelier": {
    "rect": [

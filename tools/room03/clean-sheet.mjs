@@ -36,6 +36,7 @@ import { edit, hashFile } from '../art/openai-image.mjs';
 import { assertRecordable, attachGates, budgetFor, record } from '../art/staging.mjs';
 
 const SHEET = '1536x1024';
+const SQUARE = '1024x1024';
 const say = (line) => process.stdout.write(`${line}\n`);
 
 /** The global baseline, in the order the prompts number them. */
@@ -111,6 +112,9 @@ if (!budget.ok) {
   process.exit(1);
 }
 
+// THE BAR CLUSTER IS SQUARE, because its back bar rises behind the counter's
+// near end to y 64 and a 3:2 box cut it off.
+const size = which === 'bar' ? SQUARE : SHEET;
 const promptFile = `proofs/room-03/prompts/clean-${which}-cluster-${n}.txt`;
 const out = `art/staging/room-03/clean-${which}-${n}/source.png`;
 const images = [job.guide, 'proofs/room-03/clean-sheet/blocking.png', ...AUTHORITY];
@@ -121,7 +125,7 @@ assertRecordable({ assetId: job.assetId, subject: job.subject, role: job.role,
 mkdirSync(resolve(ROOT, out.slice(0, out.lastIndexOf('/'))), { recursive: true });
 for (const image of images) say(`  ref ${hashFile(image).slice(0, 12)}  ${image}`);
 
-const made = await edit({ promptFile, out, images, size: SHEET,
+const made = await edit({ promptFile, out, images, size,
   baselineRoom: 'room-03-nugget', purpose: 'character' });
 say(`  wrote ${made.out}, ${made.bytes} bytes, sha ${made.outputHash.slice(0, 12)}`);
 say(`  transmitted: ${made.references.filter((r) => r.transmitted).length}/${made.references.length}`);
@@ -129,10 +133,10 @@ say(`  transmitted: ${made.references.filter((r) => r.transmitted).length}/${mad
 const row = record({ ...made, assetId: job.assetId, subject: job.subject, role: job.role,
   note: job.note });
 say(`  recorded as ${job.assetId} attempt ${row.attempt}`);
-const gates = runGates(made.out, { kind: 'plate', expect: SHEET });
+const gates = runGates(made.out, { kind: 'plate', expect: size });
 attachGates(job.assetId, row.attempt, gates);
 say(`  gates: ${gates.passed ? 'PASS' : 'FAIL'}`);
 for (const line of gates.failures) say(`    x ${line}`);
 writeFileSync(resolve(ROOT, `${out.slice(0, out.lastIndexOf('/'))}/casting.json`),
-  `${JSON.stringify({ assetId: job.assetId, attempt: row.attempt, promptFile, out, size: SHEET,
+  `${JSON.stringify({ assetId: job.assetId, attempt: row.attempt, promptFile, out, size,
     references: made.references.map((r) => ({ path: r.path, hash: r.hash })) }, null, 1)}\n`);

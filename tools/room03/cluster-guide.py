@@ -43,6 +43,7 @@ A = 3.0 * (BLOCK['floor']['nearY'] - EYE)
 SEATED = 0.78
 
 OUTSIZE = (1536, 1024)
+SQUARE = (1024, 1024)
 
 
 def h(y):
@@ -65,9 +66,13 @@ def per_metre(y):
 class Frame:
     """The cluster box, and room <-> local conversion inside it."""
 
-    def __init__(self, rect):
+    out = OUTSIZE
+
+    def __init__(self, rect, out=None):
+        if out:
+            self.out = out
         self.x0, self.y0, self.x1, self.y1 = rect
-        self.s = OUTSIZE[0] / (self.x1 - self.x0)
+        self.s = self.out[0] / (self.x1 - self.x0)
 
     def p(self, x, y):
         return ((x - self.x0) * self.s, (y - self.y0) * self.s)
@@ -182,58 +187,77 @@ def card_guide():
 
 
 def bar_guide():
+    """
+    THE BAR IS THE ROOM'S SPINE, so the guide's job is to say how far it runs
+    and how differently three men can stand at it. The first version of this
+    drew a back-bar polygon that swallowed the frame and a counter with no
+    front face at all, which would have told the endpoint nothing except that
+    the picture is brown.
+    """
     rect = BLOCK['regions']['bar_cluster']['rect']
-    f = Frame(rect)
-    img = Image.new('RGB', OUTSIZE, (34, 34, 34))
+    f = Frame(rect, SQUARE)
+    img = Image.new('RGB', SQUARE, (34, 34, 34))
     d = ImageDraw.Draw(img)
-    near = BLOCK['bar']['nearEnd']
-    far = BLOCK['bar']['farEnd']
+    near, far = BLOCK['bar']['nearEnd'], BLOCK['bar']['farEnd']
 
-    def top_at(x):
+    def counter(x):
         t = (x - near[0]) / (far[0] - near[0])
         base = near[1] + t * (far[1] - near[1])
         return base, base - 0.63 * h(base)
 
-    # the counter: base line, top line, and the face between them
-    pts_base, pts_top = [], []
-    for x in range(int(far[0]), int(near[0]) + 1, 10):
-        b, t = top_at(x)
-        pts_base.append(f.p(x, b))
-        pts_top.append(f.p(x, t))
-    d.polygon(pts_top + pts_base[::-1], fill=(104, 88, 68), outline=(190, 165, 128))
-    d.line(pts_top, fill=(235, 208, 160), width=6)
-    d.text(f.p(1500, top_at(1500)[1] - 40), 'MAHOGANY COUNTER -- the room\'s longest line',
-           fill=(240, 214, 170))
+    fb, ft = counter(far[0])
+    nb, nt = counter(near[0])
 
-    # the back bar behind it
-    d.polygon([f.p(1240, 505), f.p(1920, 838), f.p(1920, 300), f.p(1240, 330)],
-              fill=(58, 50, 44), outline=(140, 126, 112))
-    d.text(f.p(1560, 360), 'BACK BAR: shelves, bottles, mirror', fill=(190, 178, 164))
+    # THE BACK BAR, behind the counter: shelves, bottles and the mirror, rising
+    # a further 0.9 of a man above the counter's own top edge at each end.
+    d.polygon([f.p(far[0], ft - 0.90 * h(fb)), f.p(near[0], nt - 0.90 * h(nb)),
+               f.p(near[0], nt), f.p(far[0], ft)], fill=(52, 44, 38), outline=(132, 118, 104))
+    d.text(f.p(1420, 200), 'BACK BAR: shelves, bottles, THE MIRROR', fill=(196, 182, 166))
 
-    for who, x, y, role in (('bar_1', 1360, 578, 'SEATED on a stool'),
-                            ('bar_2', 1500, 690, 'LEANING, forearm on the counter'),
-                            ('bar_3', 1740, 812, 'STANDING, drinking')):
+    # THE COUNTER, as a face with a lit top edge -- 1.10 m at every depth.
+    d.polygon([f.p(far[0], ft), f.p(near[0], nt), f.p(near[0], nb), f.p(far[0], fb)],
+              fill=(96, 74, 52), outline=(176, 148, 112))
+    d.line([f.p(far[0], ft), f.p(near[0], nt)], fill=(240, 212, 164), width=7)
+    d.text(f.p(1500, 470), 'MAHOGANY COUNTER', fill=(244, 216, 170))
+    # the brass foot rail, forward of the base and lower
+    d.line([f.p(far[0] + 20, fb + 0.10 * h(fb)), f.p(near[0] - 20, nb + 0.10 * h(nb))],
+           fill=(206, 168, 96), width=6)
+    d.text(f.p(1620, 800), 'BRASS FOOT RAIL', fill=(214, 180, 112))
+
+    for who, x, y, role, kind in (
+            ('bar_1', 1360, 578, 'SEATED on a stool, both forearms on the counter', 'seat'),
+            ('bar_2', 1500, 690, 'LEANING, one forearm taking his weight', 'lean'),
+            ('bar_3', 1740, 812, 'STANDING, drinking, half turned into the room', 'stand')):
         hh = h(y)
-        w = 0.30 * hh
-        crown = y - (SEATED * hh if who == 'bar_1' else hh)
-        d.rectangle([*f.p(x - w / 2, crown + 0.13 * hh), *f.p(x + w / 2, y)],
-                    fill=(126, 126, 126), outline=(184, 184, 184), width=3)
-        d.ellipse([*f.p(x - 0.065 * hh, crown), *f.p(x + 0.065 * hh, crown + 0.13 * hh)],
-                  fill=(172, 172, 172), outline=(214, 214, 214), width=3)
+        half = 0.115 * hh
+        head = 0.105 * hh
+        crown = y - (SEATED * hh if kind == 'seat' else hh)
+        if kind == 'seat':
+            sx, sy = f.p(x, y - 0.26 * hh)
+            d.ellipse([sx - half * f.s, sy - 14, sx + half * f.s, sy + 14], fill=(120, 98, 66))
+            d.line([f.p(x, y - 0.26 * hh), f.p(x, y)], fill=(120, 98, 66), width=8)
+        d.rectangle([*f.p(x - half, crown + head), *f.p(x + half, y - (0.26 * hh if kind == 'seat' else 0))],
+                    fill=(128, 128, 128), outline=(188, 188, 188), width=3)
+        d.ellipse([*f.p(x - head / 2, crown), *f.p(x + head / 2, crown + head)],
+                  fill=(176, 176, 176), outline=(216, 216, 216), width=3)
+        if kind == 'lean':
+            d.line([f.p(x - half, crown + head * 1.4), f.p(x + half * 2.2, counter(x + 40)[1])],
+                   fill=(214, 214, 214), width=7)
         tx, ty = f.p(x, crown)
-        d.text((tx - 60, ty - 34), f'{who} {hh:.0f}px', fill=(240, 240, 240))
-        d.text((tx - 60, ty - 12), role, fill=(230, 210, 190))
+        d.text((tx - 70, ty - 34), f'{who}  {hh:.0f}px', fill=(244, 244, 244))
+        d.text((tx - 70, ty - 14), role, fill=(232, 212, 190))
 
     facts = [
         f'BAR CLUSTER STAGING GUIDE -- room box x {rect[0]}-{rect[2]} y {rect[1]}-{rect[3]}, drawn at {f.s:.3f}x',
-        f'camera: h(y) = {K} (y - {EYE:.0f})',
-        f'counter runs (1900, 838) to (1240, 505): a man at the near end is {h(838):.0f} px, at the far end {h(505):.0f} px',
-        f'counter top edge: y {top_at(1900)[1]:.0f} at x 1900, y {top_at(1240)[1]:.0f} at x 1240 (1.10 m)',
-        'THREE PATRONS, three different relationships to the bar. Its far end meets the stair foot.',
+        f'camera h(y) = {K} (y - {EYE:.0f})',
+        f'the counter runs (1900, 838) to (1240, 505): a man at the near end is {h(838):.0f} px, at the far end {h(505):.0f} px',
+        f'its top edge is 1.10 m at every depth -- y {nt:.0f} at x 1900, y {ft:.0f} at x 1240',
+        'THREE PATRONS, THREE DIFFERENT RELATIONSHIPS TO THE BAR. Its far end meets the foot of the stairs.',
     ]
     for i, line in enumerate(facts):
-        d.text((14, 14 + i * 22), line, fill=(250, 250, 250))
-    return img, {'rect': rect, 'scale': f.s, 'nearEnd': near, 'farEnd': far, 'groundA': A}
+        d.text((12, 12 + i * 20), line, fill=(250, 250, 250))
+    return img, {'rect': rect, 'scale': f.s, 'nearEnd': near, 'farEnd': far, 'groundA': A,
+                 'counterTop': {'x1900': round(nt), 'x1240': round(ft)}}
 
 
 def main():

@@ -1,0 +1,90 @@
+ONE COHERENT SALOON-BAR COMPOSITION for a 2D point-and-click adventure game in the
+tradition of The Secret of Monkey Island. Stylised early-1990s graphic-adventure
+pixel art at a modern source resolution. NOT photorealistic, NOT PBR, NOT glossy 3D,
+NOT AAA concept art, NOT smooth modern character illustration, NOT portrait rendering.
+
+SUBJECT. A long mahogany bar in an 1858 frontier saloon at night -- its counter, its
+back bar, its stools and its brass foot rail -- with THREE men at it, each standing in
+a different relationship to it.
+
+REFERENCE 1 IS THE STAGING AND IS BINDING. It is a grayscale blocking diagram of
+exactly this composition, drawn to the game's own camera. Reproduce its geometry:
+the counter's long diagonal run and how far it recedes, the height of its top edge at
+each end, where the back bar sits behind it, where the foot rail runs, and where each
+of the three men stands and how big he is. Replace its grey blocks with finished art.
+Do not rearrange it, and do not shorten the bar.
+
+THE BAR IS THE DEPTH OF THIS ROOM, and that is the first thing to get right.
+  - The counter runs from the NEAR RIGHT of the frame, where it is large and close,
+    back and to the LEFT, where it is small and far. It is the longest line in the
+    picture.
+  - A man standing at the near end is drawn more than TWICE the height of a man at
+    the far end. That ratio is the whole point; do not flatten it.
+  - The counter top is 1.10 m at every depth -- about waist height on the men -- so it
+    is lower relative to the frame at the far end and higher at the near end.
+  - The BACK BAR stands behind the counter: shelves, bottles, glassware, and a long
+    mirror. It recedes with the counter.
+  - A BRASS FOOT RAIL runs the length of the bar, forward of its base and lower,
+    where boots rest on it.
+  - The bar's FAR END simply continues out of the frame at the top left. Do not draw
+    a floating end, a fading edge or a counter that dissolves into nothing.
+
+THE THREE MEN, and physical contact is the point of this image:
+
+  A · SEATED, at the FAR end, the smallest of the three.
+     An old bearded miner. His HIPS ARE GENUINELY ON THE STOOL and his weight is
+     carried by it. Both forearms rest ON the counter top, in contact with it. One
+     boot is hooked on the stool's ring or on the foot rail; the other hangs. A tin
+     cup stands on the counter by his hands.
+
+  B · LEANING, at the MIDDLE, larger.
+     A lean younger man in shirtsleeves, waistcoat and watch chain. ONE FOREARM AND
+     ELBOW GENUINELY TAKE HIS WEIGHT on the counter top -- his shoulder drops into
+     it, his torso leans, his spine is not vertical. BOTH BOOTS ARE FLAT ON THE
+     DIRT FLOOR, one foot turned out. He is turned half toward the far end.
+
+  C · STANDING AND DRINKING, at the NEAR end, the largest, strong foreground presence.
+     A heavy moustached man in a bowler hat and checked shirt. BOTH BOOTS FLAT ON
+     THE FLOOR, weight on one leg. He holds a tin mug in one hand, raised, clearly
+     his. His other hand or forearm rests on the counter. He is half turned into the
+     room, so we see him three-quarters.
+
+EVERY ONE OF THESE MUST BE TRUE:
+  - nobody floats: every boot that touches the ground is ON the ground;
+  - nobody's forearm hovers above the counter -- it lies on it and casts its weight;
+  - no limb passes through the counter, a stool or the rail;
+  - the rail is one continuous brass line, not a series of disconnected pieces;
+  - the counter does not dissolve, fade out or change height along its run;
+  - the men stand IN FRONT of the counter, on our side of it, not behind it.
+
+BACKGROUND. FLAT SOLID MAGENTA (255, 0, 255), edge to edge, everywhere that is not
+the bar, the back bar, the stools, the rail, the men or what they hold and what
+stands on the counter. NO floor, NO dirt, NO walls, NO room, NO stairs, NO cast
+shadow on the ground, NO vignette, NO gradient, NO texture in the magenta. The
+magenta is keyed out and anything drawn into it becomes foreign scenery inside
+another room. This matters more than it sounds.
+
+LIGHT. Warm interior practical light -- lamps above the back bar and a stove out of
+frame to the left. Warm ochre and umber on the lit planes, cool umber-grey in shadow,
+the counter top catching a long lit edge along its whole run. Reference 5 (the assay
+office) is the visual-language authority for how light and material are drawn in this
+game; match its restraint, not a modern render's.
+
+CHARACTER RENDERING -- a hard gate that has failed before.
+Reference 3 is Thad, the player character, and he is THE RULER. These three men must
+be drawn at HIS level of abstraction, not above it. At gameplay scale require:
+  - simplified eye treatment, the same weight of mark Thad's eyes are drawn with;
+  - hair, beards and moustaches as GROUPED MASSES, never individual strands;
+  - restrained skin modelling: two or three values, no smooth cheek gradients;
+  - restrained cloth folds: readable tonal masses, not rendered drapery;
+  - hard, legible silhouettes that read at a glance;
+  - NO portrait eyeballs, NO catchlights, NO individually drawn moustache hairs,
+    NO airbrushed skin, NO rendered-illustration finish.
+A man here must look like he came from the same hand and the same year as Thad. If he
+looks better drawn than Thad, he is wrong.
+
+References: 1 the staging diagram, BINDING. 2 the room blocking guide, for the camera.
+3 Thad -- the ruler and the rendering level. 4 Winnie, the accepted character hand.
+5 the assay office, the visual-language authority. 6 Room 1 in engine, what the game
+actually looks like. 7 the Room 1 casting master, rendering by example. 8 the Room 1
+plate.

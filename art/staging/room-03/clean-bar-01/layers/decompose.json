@@ -1,0 +1,62 @@
+{
+ "source": "art/staging/room-03/clean-bar-01/source.png",
+ "method": "seeded gradient watershed",
+ "layers": {
+  "furniture-bar": {
+   "pixels": 427873,
+   "cropInMaster": [
+    21,
+    20,
+    1024,
+    978
+   ]
+  },
+  "bar_1-behind": {
+   "pixels": 12337,
+   "cropInMaster": [
+    52,
+    286,
+    168,
+    549
+   ]
+  },
+  "bar_1-front": {
+   "pixels": 3144,
+   "cropInMaster": [
+    100,
+    348,
+    188,
+    397
+   ]
+  },
+  "bar_2": {
+   "pixels": 49774,
+   "cropInMaster": [
+    147,
+    257,
+    466,
+    733
+   ]
+  },
+  "bar_3": {
+   "pixels": 88757,
+   "cropInMaster": [
+    654,
+    215,
+    951,
+    941
+   ]
+  }
+ },
+ "furnitureComplete": {
+  "pixels": 545562,
+  "cropInMaster": [
+   21,
+   20,
+   1024,
+   978
+  ],
+  "holesFilled": 117689,
+  "method": "nearest bare bar structure, smoothed once, grain re-added"
+ }
+}
