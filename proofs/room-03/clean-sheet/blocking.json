@@ -1,0 +1,344 @@
+{
+ "note": "CLEAN-SHEET ROOM 3 BLOCKING GUIDE (Tyler, clean-sheet reset sec.16). Structural authority for the rebuild. No image operation was spent to produce it and no old Room 3 coordinate was read into it -- only the CAMERA is carried over, because the Thad depth relationship is the one part of the retired room that was measured, cross-checked and owner-accepted.",
+ "camera": {
+  "eyeLevelY": 239.0,
+  "k": 0.8494,
+  "law": "drawnHeight(y) = k * (y - eyeLevelY), a 1.75 m man",
+  "carriedFrom": "the retired room's accepted curve: 227 px at y 506, 526 px at y 858, zero at y 239"
+ },
+ "size": [
+  1920,
+  864
+ ],
+ "floor": {
+  "nearY": 858,
+  "farY": 520
+ },
+ "bar": {
+  "nearEnd": [
+   1900,
+   838
+  ],
+  "farEnd": [
+   1240,
+   505
+  ],
+  "why": "the room's spine. 780 px across and 341 px of depth, so the bar itself says how deep the room is; its far end dies into the back wall and the stair rather than into open floor, so there is no terminus to invent"
+ },
+ "regions": {
+  "back_wall": {
+   "rect": [
+    0,
+    262,
+    1920,
+    505
+   ],
+   "what": "the back wall: its base runs y 497-505, so a man standing against it is drawn 219-226 px"
+  },
+  "front_doors": {
+   "rect": [
+    0,
+    300,
+    250,
+    800
+   ],
+   "what": "THE FRONT DOORS -- batwings on the left wall, cut by the frame, floor at y 800 (476 px man)"
+  },
+  "window": {
+   "rect": [
+    276,
+    232,
+    470,
+    382
+   ],
+   "what": "THE WINDOW -- street-side, night blue, left wall ABOVE the piano and clear of it"
+  },
+  "handbill": {
+   "rect": [
+    262,
+    452,
+    316,
+    536
+   ],
+   "what": "THE HANDBILL -- nailed to the left wall by the doors, at a reading height nobody uses"
+  },
+  "piano": {
+   "rect": [
+    300,
+    392,
+    620,
+    650
+   ],
+   "what": "THE PIANO -- upright against the left wall, mid-depth. 258 px tall because 1.3 m at a depth where a man is 349, NOBODY AT IT AND NOBODY NEAR IT"
+  },
+  "card_cluster": {
+   "rect": [
+    380,
+    430,
+    980,
+    790
+   ],
+   "what": "CARD CLUSTER bounds: table, four players, four chairs, the empty fifth place nearest camera"
+  },
+  "card_table": {
+   "rect": [
+    470,
+    560,
+    900,
+    745
+   ],
+   "what": "the round table itself; top plane y 578-640, near rim y 726, floor contact y 745"
+  },
+  "stove": {
+   "rect": [
+    980,
+    262,
+    1100,
+    500
+   ],
+   "what": "THE STOVE -- iron box and pipe against the back wall, between the card floor and the stair foot"
+  },
+  "stove_man": {
+   "rect": [
+    1107,
+    279,
+    1173,
+    500
+   ],
+   "what": "THE STOVE MAN stands here, back of the room, coat on, hands to the heat (221 px at y 500)"
+  },
+  "stairs": {
+   "rect": [
+    1230,
+    40,
+    1500,
+    430
+   ],
+   "what": "THE STAIRS -- on the BACK wall, rising right to left. THE BAR'S FAR END DIES INTO THEIR FOOT, which is why this room has no terminus to invent"
+  },
+  "landing": {
+   "rect": [
+    1290,
+    90,
+    1450,
+    250
+   ],
+   "what": "THE LANDING -- and the man on it. There is always a man on the landing."
+  },
+  "bar_cluster": {
+   "rect": [
+    1200,
+    340,
+    1920,
+    864
+   ],
+   "what": "BAR CLUSTER bounds: counter, back bar, stools, brass rail, three patrons"
+  },
+  "chandelier": {
+   "rect": [
+    820,
+    0,
+    1120,
+    165
+   ],
+   "what": "THE CHANDELIER -- hung over OPEN DIRT FLOOR, not over the table, which is the whole joke"
+  },
+  "portrait": {
+   "rect": [
+    700,
+    296,
+    812,
+    430
+   ],
+   "what": "THE FADED PORTRAIT -- back wall, left of the stove"
+  },
+  "mirror": {
+   "rect": [
+    1560,
+    262,
+    1900,
+    500
+   ],
+   "what": "THE MIRROR -- over the back bar, on the right wall behind the bar's near half"
+  },
+  "spittoon": {
+   "rect": [
+    1120,
+    792,
+    1216,
+    862
+   ],
+   "what": "THE SPITTOON -- foreground, short of the bar's near end, and it occludes"
+  },
+  "deke_reserve": {
+   "rect": [
+    200,
+    790,
+    560,
+    862
+   ],
+   "what": "FUTURE DEKE -- open near-left floor inside the doors, reserved and NOT implemented"
+  }
+ },
+ "people": [
+  {
+   "id": "card_1",
+   "contact": [
+    560,
+    745
+   ],
+   "depthY": 745,
+   "drawnHeight": 430,
+   "elevated": false,
+   "what": "near side, left seat, BACK TO CAMERA, three-quarter left"
+  },
+  {
+   "id": "card_2",
+   "contact": [
+    596,
+    640
+   ],
+   "depthY": 640,
+   "drawnHeight": 341,
+   "elevated": false,
+   "what": "far side, left seat, facing the room -- THE CARD SHARP"
+  },
+  {
+   "id": "card_3",
+   "contact": [
+    790,
+    640
+   ],
+   "depthY": 640,
+   "drawnHeight": 341,
+   "elevated": false,
+   "what": "far side, right seat, facing the room"
+  },
+  {
+   "id": "card_4",
+   "contact": [
+    838,
+    745
+   ],
+   "depthY": 745,
+   "drawnHeight": 430,
+   "elevated": false,
+   "what": "near side, right seat, BACK TO CAMERA, three-quarter right"
+  },
+  {
+   "id": "bar_1",
+   "contact": [
+    1360,
+    578
+   ],
+   "depthY": 578,
+   "drawnHeight": 288,
+   "elevated": false,
+   "what": "far end of the bar, seated on a stool -- THE ONE-STRIKE MAN"
+  },
+  {
+   "id": "bar_2",
+   "contact": [
+    1500,
+    690
+   ],
+   "depthY": 690,
+   "drawnHeight": 383,
+   "elevated": false,
+   "what": "mid bar, LEANING, forearm on the counter"
+  },
+  {
+   "id": "bar_3",
+   "contact": [
+    1740,
+    812
+   ],
+   "depthY": 812,
+   "drawnHeight": 487,
+   "elevated": false,
+   "what": "near end of the bar, STANDING, drinking, foreground depth"
+  },
+  {
+   "id": "stove_man",
+   "contact": [
+    1140,
+    500
+   ],
+   "depthY": 500,
+   "drawnHeight": 222,
+   "elevated": false,
+   "what": "at the back with the stove, coat on"
+  },
+  {
+   "id": "landing_man",
+   "contact": [
+    1370,
+    250
+   ],
+   "depthY": 478,
+   "drawnHeight": 203,
+   "elevated": true,
+   "what": "on the landing, above the room, barely moving"
+  }
+ ],
+ "thadProofPositions": [
+  {
+   "label": "far",
+   "at": [
+    700,
+    560
+   ],
+   "drawnHeight": 273
+  },
+  {
+   "label": "middle",
+   "at": [
+    900,
+    700
+   ],
+   "drawnHeight": 392
+  },
+  {
+   "label": "near",
+   "at": [
+    640,
+    852
+   ],
+   "drawnHeight": 521
+  }
+ ],
+ "checks": [
+  {
+   "name": "bar run",
+   "says": "near end y 838 -> a man is 509 px; far end y 505 -> 226 px; ratio 2.25x"
+  },
+  {
+   "name": "counter height, near end",
+   "says": "321 px at x 1900 -- top edge y 517"
+  },
+  {
+   "name": "counter height, far end",
+   "says": "142 px at x 1240 -- top edge y 363"
+  },
+  {
+   "name": "card table",
+   "says": "floor contact y 745, a man there is 430 px, so the top is 185 px up at y 560"
+  },
+  {
+   "name": "card seat",
+   "says": "a chair seat is 112 px up, y 633"
+  },
+  {
+   "name": "depth range",
+   "says": "stove man 221 px at y 499, near bar patron 487 px at y 812, 2.20x -- the room is that deep"
+  },
+  {
+   "name": "thad",
+   "says": "far y560=273px  middle y700=392px  near y852=521px"
+  },
+  {
+   "name": "walk band",
+   "says": "floor y 520 to 858, 239 px to 526 px"
+  }
+ ]
+}
