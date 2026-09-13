@@ -10,45 +10,45 @@
  },
  "layers": {
   "furniture-table": {
-   "pixels": 254143,
+   "pixels": 228375,
    "cropInMaster": [
-    282,
-    330,
-    1155,
-    709
+    286,
+    294,
+    1148,
+    718
    ]
   },
   "card_1": {
-   "pixels": 121908,
+   "pixels": 134235,
    "cropInMaster": [
     124,
-    403,
-    596,
+    407,
+    569,
     990
    ]
   },
   "card_2": {
-   "pixels": 65662,
+   "pixels": 69288,
    "cropInMaster": [
     243,
     87,
-    651,
-    444
+    654,
+    443
    ]
   },
   "card_3": {
-   "pixels": 55081,
+   "pixels": 56669,
    "cropInMaster": [
-    803,
+    896,
     80,
-    1161,
-    432
+    1184,
+    433
    ]
   },
   "card_4": {
-   "pixels": 166423,
+   "pixels": 174650,
    "cropInMaster": [
-    961,
+    963,
     284,
     1412,
     990

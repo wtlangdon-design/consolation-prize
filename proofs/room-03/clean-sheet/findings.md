@@ -86,12 +86,31 @@ covered exactly once, none covered twice, none missed.
 > a pixel in two layers, a pixel in none, a crop written at the wrong offset, a stale master. All
 > have happened to this project.
 
-## 6 · The one residual defect, and it is a real one
+## 6 · The arms — half recovered, and the half that is not
 
-**The four men's forearms, hands and fans of cards are still in the table layer.** The
-furniture-alone panel of the gate sheet shows it plainly, and those are exactly the pixels §15 says
-have to animate. Until they move to their men, **§34 fails for the card players**: hand and card
-motion cannot be added later without unbaking them from the table.
+The first split subtracted the table outright, which put **all four men's forearms, hands and fans
+of cards in the table layer** — exactly the pixels §15 says have to animate.
+
+**A gradient watershed recovers most of them, and needs no image operation.** Give the table a
+marker of its own, make the cost the gradient magnitude, and let five markers flood: the frontier
+between two markers settles on the ridge of highest cost between them, and in this art that ridge
+is the **drawn outline** — the one thing that does separate a sleeve from a tabletop when hue,
+luminance and R−B all fail to. It is written out longhand in `card-decompose.py` because
+scikit-image is not installed and because a boundary this one matters should not be a black box.
+
+It also caught its own leak: with only the middle of the ellipse marked, the flood walked the
+low-gradient band along the apron and gave **the whole near rim to the near-left man** — his mask
+ran to x 1100, most of the way across a table he is not sitting at. No arm rests on the near rim,
+so the rim below the centre is now marked table outright.
+
+**Recovered:** the two far men's hands and forearms, and the near rim.
+**NOT recovered:** the two near men's forearms, hands and card fans — `furniture-table.png` still
+covers **100%** of both hand boxes. The flood from the table crosses smooth wood cheaply and wins
+the race to the sleeve's outline against a flood from the man that has to cross his own fold
+gradients first. Fixing it needs a per-label path cost rather than one shared cost image.
+
+So **§34 still fails for the two near card players**: their hand and card motion cannot be added
+later without unbaking those pixels from the table. Everything else about them is independent.
 
 ## 7 · The companion route is closed — measured, operation 51, category A attempt 2
 

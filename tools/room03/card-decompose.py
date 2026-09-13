@@ -44,9 +44,12 @@ import json
 import sys
 from pathlib import Path
 
+import heapq
+
 import numpy as np
 from PIL import Image, ImageDraw
-from scipy.ndimage import (binary_dilation, binary_erosion, distance_transform_edt, label)
+from scipy.ndimage import (binary_dilation, binary_erosion, distance_transform_edt,
+                           gaussian_filter, label, sobel)
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / 'art/staging/room-03/clean-card-01/source.png'
@@ -60,6 +63,7 @@ PROOF = ROOT / 'proofs/room-03/clean-sheet'
 TABLE = dict(cx=718, cy=496, a=436, b=168)
 TABLE_FEET = [(596, 620, 664, 716), (884, 620, 960, 716)]
 ERODE = 23
+CORE = 0.82        # the table's own marker, as a fraction of its ellipse
 
 # WHO IS WHO, by where a marker's centroid lands. The four are in four corners
 # of the frame, so this is a label and not a judgement.
@@ -88,21 +92,81 @@ def table_mask(shape):
     return np.asarray(m) > 0
 
 
+def watershed(cost, markers, inside):
+    """
+    PRIORITY-FLOOD WATERSHED, written out because scikit-image is not installed
+    and because a boundary this one matters should not be a black box.
+
+    Every marker floods outward, always taking the CHEAPEST unclaimed neighbour
+    next, so the frontier between two markers settles on the ridge of highest
+    cost between them. With the gradient as cost that ridge is the drawn outline
+    -- which is the one thing in this picture that does separate a sleeve from
+    the tabletop when hue, luminance and R-B all fail to.
+    """
+    h, w = cost.shape
+    labels = markers.copy()
+    heap = []
+    ys, xs = np.nonzero(markers)
+    for y, x in zip(ys, xs):
+        for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            ny, nx = y + dy, x + dx
+            if 0 <= ny < h and 0 <= nx < w and inside[ny, nx] and labels[ny, nx] == 0:
+                heapq.heappush(heap, (float(cost[ny, nx]), ny, nx, int(markers[y, x])))
+    while heap:
+        _, y, x, k = heapq.heappop(heap)
+        if labels[y, x]:
+            continue
+        labels[y, x] = k
+        for dy, dx in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            ny, nx = y + dy, x + dx
+            if 0 <= ny < h and 0 <= nx < w and inside[ny, nx] and labels[ny, nx] == 0:
+                heapq.heappush(heap, (float(cost[ny, nx]), ny, nx, k))
+    return labels * inside
+
+
 def split(rgb):
     cluster = ~key(rgb)
-    table = table_mask(rgb.shape[:2]) & cluster
-    people = cluster & ~table
+    rough = table_mask(rgb.shape[:2]) & cluster
+    people = cluster & ~rough
     people = binary_dilation(binary_erosion(people, np.ones((3, 3))), np.ones((3, 3)))
 
+    # FOUR MARKERS FOR THE FOUR MEN, from an erosion deep enough to break the
+    # two places where a near man's head touches a far man's coat.
     seed = binary_erosion(people, np.ones((3, 3)), iterations=ERODE)
     lab, _ = label(seed)
     sizes = np.bincount(lab.ravel())
     sizes[0] = 0
-    markers = np.zeros(people.shape, int)
+    markers = np.zeros(people.shape, np.int32)
     for k, i in enumerate(np.argsort(sizes)[::-1][:4], 1):
         markers[lab == i] = k
-    _, idx = distance_transform_edt(markers == 0, return_indices=True)
-    owned = markers[idx[0], idx[1]] * people
+
+    # AND A FIFTH FOR THE TABLE, which is what recovers the arms. Subtracting
+    # the ellipse outright -- the first version of this -- left every forearm,
+    # hand and fan of cards in the table layer, and those are exactly the pixels
+    # sec.15 says have to animate. Giving the table a marker of its own and
+    # letting the watershed settle the boundary puts them back on their men and
+    # still keeps the bottle, the cups, the chips and the abandoned hand.
+    cx, cy, a, b = (TABLE[k] for k in ('cx', 'cy', 'a', 'b'))
+    core = Image.new('L', (rgb.shape[1], rgb.shape[0]), 0)
+    cd = ImageDraw.Draw(core)
+    cd.ellipse([cx - a * CORE, cy - b * CORE, cx + a * CORE, cy + b * CORE], fill=255)
+    # AND THE NEAR RIM IS THE TABLE'S TOO, declared rather than hoped for. With
+    # only the middle of the ellipse marked, the watershed walked the low-
+    # gradient band along the apron and gave the whole near rim to the near-left
+    # man -- his mask ran to x 1100, most of the way across a table he is not
+    # sitting at. No arm rests on the near rim; the men reach in from the left,
+    # the right and the far side. So the rim below the centre is marked table.
+    cd.ellipse([cx - a, cy - b, cx + a, cy + b], fill=255)
+    cd.ellipse([cx - a * 0.86, cy - b * 0.86, cx + a * 0.86, cy + b * 0.86], fill=0)
+    cd.rectangle([0, 0, rgb.shape[1], int(cy + b * 0.45)], fill=0)
+    cd.ellipse([cx - a * CORE, cy - b * CORE, cx + a * CORE, cy + b * CORE], fill=255)
+    markers[(np.asarray(core) > 0) & cluster] = 5
+
+    grey = gaussian_filter(rgb.astype(float).mean(2), 0.8)
+    grad = np.clip(np.hypot(sobel(grey, 0), sobel(grey, 1)), 0, 255)
+    owned = watershed(grad, markers, cluster)
+    table = owned == 5
+    owned = np.where(owned == 5, 0, owned)
 
     # EVERY CLUSTER PIXEL MUST LAND SOMEWHERE. The open-morphology that cleans
     # the people mask drops a few hundred single pixels off thin edges, and a
