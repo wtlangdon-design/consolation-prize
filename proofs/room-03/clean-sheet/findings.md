@@ -270,7 +270,66 @@ colour is flooded outward first. And a violet line still ran round all three bar
 near chairs, because **that line is in the art**: the masters are drawn against magenta and their
 silhouettes are anti-aliased into it. The outermost pixel of every layer is dropped.
 
-## 17 · What is NOT done
+## 17 · The rejected assembly, what was actually wrong with it, and one thing that was not
+
+Tyler looked at the first assembly and said it was bad. He was right, and the three gates that had
+passed could not have told him: recomposition, actor-off and small-motion all measure whether the
+DECOMPOSITION is sound, and every one of them was green while the room was a collage. I had let
+three passing gates stand in for looking at the room.
+
+Measured afterwards, five things were wrong, four of them fixable with no image operation:
+
+| | what it was | what it cost |
+|---|---|---|
+| lighting | shell reads luminance 29.7 / warmth (R−B) 26.8; clusters read 37.8 / 38.3. Under the card cluster 33.3 vs 44.0, under the bar 25.1 vs 34.9 | both clusters sat on the room as bright warm rectangles |
+| grounding | no contact shadow under the table pedestal, eight chair legs, three stools or fourteen boots | everything floated |
+| the bar's far end | terminated in mid-air inside the frame — **the same defect rejected twice before** | I reported the opposite, because I checked the master's own canvas instead of the composite |
+| key residue | 15 pixels of magenta left on the foot rail and chair rails after defringe and debleed — single pixels, so they had survived every edge-based pass by not being on an edge | §29 has no tolerance |
+| style | reported as "the patrons are 3–4× Thad's detail density, obviously from different games" | **this was wrong, see below** |
+
+### The style claim was a measurement error, not a finding
+
+The first four are real and are fixed: `relight()` pulls each cluster's broad light to the shell's
+local light by low-frequency ratio (furniture 0.86, actors 0.52 with a 1.10 face lift, so the floor
+never ends up brighter than the people); `contact_shadows()` grounds every layer off its own lowest
+solid pixel per column; `BAR_SHIFT_X = -54` takes the counter's far end behind the stove; `descum()`
+neutralises the last fifteen pixels.
+
+**The fifth was my own arithmetic.** I had compared Thad's SOURCE frames, which are 626px tall,
+against the patrons' layers, which are already at room size. The engine draws Thad at 233. Crediting
+him with detail no player ever sees made every patron look three to four times denser than him, and
+I reported that as a finding about the art.
+
+`tools/room03/style-gate.py` asks the question properly, and the normaliser is the camera: every
+figure is scaled by MATCH_H / the drawn height a standing 1.75 m man has at that figure's own ground
+line, which `blocking.json` already carries. Thad is resampled to 233 first.
+
+| | drawn | of a standing | edge density | vs Thad | tones | vs Thad |
+|---|---|---|---|---|---|---|
+| thad | 233 | 233 | 0.2081 | — | 22 | — |
+| card_1 | 243 | 389 | 0.2141 | 1.03× | 11 | 0.50× |
+| card_2 | 144 | 308 | 0.2571 | 1.24× | 21 | 0.95× |
+| card_3 | 148 | 308 | 0.2587 | 1.24× | 22 | 1.00× |
+| card_4 | 297 | 389 | 0.2590 | 1.24× | 21 | 0.95× |
+| bar_1 | 173 | 288 | 0.2326 | 1.12× | 17 | 0.77× |
+| bar_2 | 315 | 383 | 0.2740 | 1.32× | 22 | 1.00× |
+| bar_3 | 482 | 487 | 0.1970 | 0.95× | 18 | 0.82× |
+
+All seven inside 1.5×. `style-gate-matched-height.png` is the picture the numbers are for — eight
+men at one standing scale, feet on a line — and it is the part that should be judged, not the table.
+
+**The gate itself got this wrong once before it got it right, and the first version is worth
+recording.** It normalised each LAYER'S BOUNDING BOX to a fixed height. A seated man's layer is
+bounded by his head and the table edge that cuts him off, so normalising his bbox to a standing
+figure's height enlarged him by however much of him the furniture hides — card_2 and card_3 came out
+as giant busts beside a full-length Thad, and every number taken from them was inflated by an amount
+nobody could state. A normaliser that cannot be named is not a gate.
+
+`card-gate.py` is superseded by `card-proofs.py` and now refuses by name rather than dying on a
+KeyError, for the reason the render refusals exist: a check that is quietly deleted is a check the
+next person does not know was ever run.
+
+## 18 · What is NOT done
 
 The runtime integration: the room JSON, actor records, occlusion planes, cluster registrations,
 hotspots, exits, walk geometry, the Thad depth curve against the new room, the Deke reservation,

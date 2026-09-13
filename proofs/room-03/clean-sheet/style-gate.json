@@ -1,0 +1,75 @@
+{
+  "reference": {
+    "name": "thad",
+    "drawn_height": 233,
+    "standing_height": 233,
+    "edge_density": 0.2081,
+    "tones": 22
+  },
+  "figures": [
+    {
+      "name": "card_2",
+      "drawn_height": 144,
+      "standing_height": 308,
+      "edge_density": 0.2571,
+      "tones": 21,
+      "edge_ratio": 1.24,
+      "tone_ratio": 0.95
+    },
+    {
+      "name": "card_3",
+      "drawn_height": 148,
+      "standing_height": 308,
+      "edge_density": 0.2587,
+      "tones": 22,
+      "edge_ratio": 1.24,
+      "tone_ratio": 1.0
+    },
+    {
+      "name": "card_1",
+      "drawn_height": 243,
+      "standing_height": 389,
+      "edge_density": 0.2141,
+      "tones": 11,
+      "edge_ratio": 1.03,
+      "tone_ratio": 0.5
+    },
+    {
+      "name": "card_4",
+      "drawn_height": 297,
+      "standing_height": 389,
+      "edge_density": 0.259,
+      "tones": 21,
+      "edge_ratio": 1.24,
+      "tone_ratio": 0.95
+    },
+    {
+      "name": "bar_1",
+      "drawn_height": 173,
+      "standing_height": 288,
+      "edge_density": 0.2326,
+      "tones": 17,
+      "edge_ratio": 1.12,
+      "tone_ratio": 0.77
+    },
+    {
+      "name": "bar_2",
+      "drawn_height": 315,
+      "standing_height": 383,
+      "edge_density": 0.274,
+      "tones": 22,
+      "edge_ratio": 1.32,
+      "tone_ratio": 1.0
+    },
+    {
+      "name": "bar_3",
+      "drawn_height": 482,
+      "standing_height": 487,
+      "edge_density": 0.197,
+      "tones": 18,
+      "edge_ratio": 0.95,
+      "tone_ratio": 0.82
+    }
+  ],
+  "outside": []
+}

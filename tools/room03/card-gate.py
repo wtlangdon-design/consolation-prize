@@ -1,5 +1,17 @@
 #!/usr/bin/env python3
 """
+SUPERSEDED BY tools/room03/card-proofs.py. DO NOT DELETE THIS FILE.
+
+This gate was written against the four-layer card decomposition, one layer per
+man. The far pair then had to be split behind/front -- the completed tabletop
+was painting over their hands -- so the layer names it asks for (`card_2`,
+`card_3`) no longer exist and it dies on a KeyError. `card-proofs.py` runs all
+three gates against the seven-layer order that shipped.
+
+It stays here, refusing by name, because a gate that is quietly deleted is a
+gate the next person does not know was ever run. Same reason the render
+refusals exist.
+
 THE STATIC RECOMPOSITION GATE FOR THE CARD CLUSTER.
 
 Tyler's clean-sheet reset, sec.9, and it is the gate that exists to stop the
@@ -111,4 +123,7 @@ def main() -> int:
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    raise SystemExit(
+        'card-gate.py is SUPERSEDED by tools/room03/card-proofs.py -- it asks '
+        'for the pre-split layer names card_2 / card_3, which the behind/front '
+        'split replaced. Run: python3 tools/room03/card-proofs.py')
