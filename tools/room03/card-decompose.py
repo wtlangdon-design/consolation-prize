@@ -1,47 +1,44 @@
 #!/usr/bin/env python3
 """
-THE CARD CLUSTER, DECOMPOSED INTO LAYERS THAT REBUILD IT.
+THE CARD CLUSTER, DECOMPOSED INTO LAYERS THAT REBUILD IT EXACTLY.
 
 Tyler's clean-sheet reset, sec.6-9. The accepted cluster master is the VISUAL
-TRUTH; these layers exist to reconstruct it exactly, and the gate in
-`card-gate.py` is the thing that says whether they do.
+TRUTH; these layers exist to reconstruct it, and `card-gate.py` is what says
+whether they do.
 
-THE LAYER ORDER IS READ OFF THE ART, NOT ASSUMED. At 3x the near men are seen
-from behind with their CHAIR BACKS DRAWN OVER THEIR LOWER TORSOS -- the slats
-cross the waistcoat -- while the far men have their chair posts BEHIND their
-shoulders. So the cluster is five layers, not three:
+THE UNIT IS A MAN ON HIS OWN CHAIR, and that is a decision worth defending.
+Sec.6 asks for a fixed furniture base and four independent actors. The obvious
+reading puts the chairs in the base -- but the two near men are seen from
+behind with their CHAIR BACKS DRAWN OVER THEIR LOWER TORSOS, six slats about
+ten pixels wide alternating with the coat behind them, and measurement says
+nothing separates them:
 
-    1  back furniture   the two far chairs
-    2  card_2, card_3   the far players
-    3  mid furniture    the table, its apron and legs, and everything on it
-    4  card_1, card_4   the near players
-    5  front furniture  the two near chairs, which occlude the near players
+    hue 26-35 everywhere in the picture; chair back luminance 21.6 against coat
+    27.8; across three horizontal profiles the slats oscillate 4-43 against a
+    coat running 7-40; R-B overlaps in every zone where the two touch.
 
-WHY THE SILHOUETTES ARE TRACED AND NOT CLASSIFIED. Wood and wool do not
-separate here: measured over ten sample regions the table top runs hue 26 and
-the near-left man's coat hue 29, his coat luminance 28 against the chair back's
-22, and their R-B differ by six levels. A colour rule that cut one would cut the
-other, which is the same finding the retired lineage reached from the other
-direction when a difference matte "held his face and dropped most of the man".
+The slats are painted in shadow, so they are genuinely the same values as the
+wool behind them. Hand-tracing at slat resolution would be the same kind of
+authored boundary the retired lineage's halo came from, and it would have to be
+done again for every man in the room.
 
-SO THE FURNITURE IS TRACED AND THE PEOPLE ARE WHAT IS LEFT. The first attempt
-here traced the four men directly and the preview showed why not to: two of the
-four outlines wandered across the tabletop, claimed the chips and the abandoned
-hand, and overlapped each other by ten thousand pixels. A man is a hard shape to
-follow by hand and an easy one to get wrong by a hundred pixels.
+So the chair goes with its man. Sec.34's four requirements are what actually
+matter and all four hold: each player can swap to alternate frames
+independently; the TABLE stays fixed; occlusion still works, because the table's
+near rim is its own layer over the near men's laps; and nobody needs unbaking
+later, because the man and his chair are one sprite that can be redrawn without
+touching the room. Nobody is painted into the room, the floor, the table or the
+lighting plate, which is what sec.5 forbids.
 
-A table and four chairs are not. They are ellipses and rectilinear frames, their
-edges are the highest-contrast lines in the picture, and once they are removed
-THE FOUR MEN FALL OUT AS FOUR CONNECTED COMPONENTS, because no man touches
-another man. The separation stops being a judgement and becomes a label.
+HOW THE FOUR ARE TOLD APART, without tracing a single man. Remove the table and
+the four units nearly fall out as connected components -- nearly, because the
+near men's heads touch the far men's coats at two places. So the people mask is
+ERODED UNTIL FOUR MARKERS APPEAR (23 iterations, measured, not chosen) and every
+people pixel is then given to its nearest marker. The separation is a distance
+transform, not a judgement.
 
-The far chairs are traced TIGHT, because they sit behind their men and anything
-the polygon claims beyond the visible post is a piece of a person. The near
-chairs may be traced generously where they cross their man, because there they
-are genuinely in front of him and the pixels are genuinely chair.
-
-    python3 tools/room03/card-decompose.py --preview   # what each layer claims
-    python3 tools/room03/card-decompose.py             # write the layers
+    python3 tools/room03/card-decompose.py --preview
+    python3 tools/room03/card-decompose.py
 """
 import json
 import sys
@@ -49,66 +46,27 @@ from pathlib import Path
 
 import numpy as np
 from PIL import Image, ImageDraw
-from scipy.ndimage import binary_dilation, binary_erosion, label
+from scipy.ndimage import (binary_dilation, binary_erosion, distance_transform_edt, label)
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / 'art/staging/room-03/clean-card-01/source.png'
 OUT = ROOT / 'art/staging/room-03/clean-card-01/layers'
 PROOF = ROOT / 'proofs/room-03/clean-sheet'
 
-# ---- THE FURNITURE, TRACED AT 3x OFF THE MASTER ----------------------------
-#
-# THE TABLE is an ellipse on the ground plane plus the apron under its rim and
-# the two feet below that. Its top surface runs from the far rim at y 350 to the
-# near rim at y 645 and from x 300 to x 1105, and everything standing on it --
-# bottle, cups, chips, coins and the abandoned hand -- belongs to it.
-TABLE_ELLIPSE = (702.0, 497.0, 403.0, 148.0)     # cx, cy, semi-major, semi-minor
-TABLE_SKIRT = [(310, 470), (1100, 470), (1096, 560), (1035, 622), (930, 664),
-               (820, 682), (700, 688), (580, 682), (470, 664), (370, 622),
-               (312, 560)]
-TABLE_FEET = [(596, 620), (664, 620), (664, 712), (596, 712),
-              (884, 620), (960, 620), (960, 712), (884, 712)]
+# THE TABLE, fitted to its own visible extremes rather than to the staging
+# guide: left x 296, right x 1146, far rim y 338, near rim y 650. The first fit
+# was 40 px too narrow and left a crescent of unmasked wood along the far rim
+# that joined all four men into one component.
+TABLE = dict(cx=718, cy=496, a=436, b=168)
+TABLE_FEET = [(596, 620, 664, 716), (884, 620, 960, 716)]
+ERODE = 23
 
-# THE FOUR CHAIRS. The near pair are the frames drawn OVER their men; the far
-# pair are the posts and top rails showing past their men's shoulders.
-CHAIRS = {
-    'chair_near_left': {
-        'zone': 'front',
-        'poly': [(118, 460), (176, 452), (196, 470), (330, 500), (352, 520),
-                 (364, 560), (372, 640), (382, 700), (400, 760), (424, 812),
-                 (470, 880), (498, 934), (506, 972), (476, 992), (446, 980),
-                 (410, 920), (372, 856), (330, 800), (300, 760), (284, 800),
-                 (296, 880), (304, 948), (286, 968), (256, 960), (244, 900),
-                 (234, 830), (226, 760), (196, 742), (168, 720), (150, 690),
-                 (140, 640), (130, 570), (120, 500)],
-    },
-    'chair_near_right': {
-        'zone': 'front',
-        'poly': [(1418, 466), (1370, 452), (1344, 470), (1210, 500), (1188, 520),
-                 (1176, 560), (1166, 640), (1156, 700), (1138, 760), (1114, 812),
-                 (1068, 880), (1040, 934), (1032, 972), (1062, 992), (1092, 980),
-                 (1128, 920), (1166, 856), (1208, 800), (1238, 760), (1254, 800),
-                 (1242, 880), (1234, 948), (1252, 968), (1282, 960), (1294, 900),
-                 (1304, 830), (1312, 760), (1342, 742), (1370, 720), (1388, 690),
-                 (1398, 640), (1408, 570), (1418, 500)],
-    },
-    'chair_far_left': {
-        'zone': 'back',
-        'poly': [(362, 196), (398, 196), (400, 236), (398, 300), (392, 350),
-                 (366, 352), (360, 300), (358, 240)],
-    },
-    'chair_far_right': {
-        'zone': 'back',
-        'poly': [(1122, 196), (1166, 196), (1170, 250), (1168, 310), (1164, 360),
-                 (1132, 362), (1126, 306), (1122, 244)],
-    },
-}
-
-# WHO EACH COMPONENT IS, by the quadrant its centroid lands in. The four men do
-# not touch, so this is a label and not a judgement.
-WHO = [('card_2', 'far', 0, 760, 0, 400), ('card_3', 'far', 760, 1536, 0, 400),
-       ('card_1', 'near', 0, 760, 400, 1024), ('card_4', 'near', 760, 1536, 400, 1024)]
-GROW = 0
+# WHO IS WHO, by where a marker's centroid lands. The four are in four corners
+# of the frame, so this is a label and not a judgement.
+WHO = [('card_1', 'near', 0, 768, 430, 1024),   # near left, flat cap, back view
+       ('card_2', 'far', 0, 768, 0, 430),       # far left, grey hair -- THE CARD SHARP
+       ('card_3', 'far', 768, 1536, 0, 430),    # far right, the young one
+       ('card_4', 'near', 768, 1536, 430, 1024)]  # near right, bald, back view
 
 
 def key(rgb):
@@ -116,74 +74,76 @@ def key(rgb):
     return (r > 180) & (b > 180) & (g < 90)
 
 
-def poly_mask(points, shape):
+def table_mask(shape):
     m = Image.new('L', (shape[1], shape[0]), 0)
-    ImageDraw.Draw(m).polygon(points, fill=255)
+    d = ImageDraw.Draw(m)
+    cx, cy, a, b = TABLE['cx'], TABLE['cy'], TABLE['a'], TABLE['b']
+    d.ellipse([cx - a, cy - b, cx + a, cy + b], fill=255)
+    # the apron and the shadowed underside, down to the feet
+    d.polygon([(cx - a + 8, cy), (cx + a - 8, cy), (cx + a - 40, cy + 140),
+               (cx + 180, cy + 190), (cx, cy + 200), (cx - 180, cy + 190),
+               (cx - a + 40, cy + 140)], fill=255)
+    for foot in TABLE_FEET:
+        d.rectangle(list(foot), fill=255)
     return np.asarray(m) > 0
 
 
-def furniture_mask(shape):
-    """The table, its skirt, its feet and the four chairs."""
-    m = Image.new('L', (shape[1], shape[0]), 0)
-    d = ImageDraw.Draw(m)
-    cx, cy, a, b = TABLE_ELLIPSE
-    d.ellipse([cx - a, cy - b, cx + a, cy + b], fill=255)
-    d.polygon(TABLE_SKIRT, fill=255)
-    d.rectangle(TABLE_FEET[0] + TABLE_FEET[2], fill=255)
-    d.rectangle(TABLE_FEET[4] + TABLE_FEET[6], fill=255)
-    table = np.asarray(m) > 0
-    chairs = {}
-    for name, spec in CHAIRS.items():
-        chairs[name] = poly_mask(spec['poly'], shape)
-    return table, chairs
+def split(rgb):
+    cluster = ~key(rgb)
+    table = table_mask(rgb.shape[:2]) & cluster
+    people = cluster & ~table
+    people = binary_dilation(binary_erosion(people, np.ones((3, 3))), np.ones((3, 3)))
+
+    seed = binary_erosion(people, np.ones((3, 3)), iterations=ERODE)
+    lab, _ = label(seed)
+    sizes = np.bincount(lab.ravel())
+    sizes[0] = 0
+    markers = np.zeros(people.shape, int)
+    for k, i in enumerate(np.argsort(sizes)[::-1][:4], 1):
+        markers[lab == i] = k
+    _, idx = distance_transform_edt(markers == 0, return_indices=True)
+    owned = markers[idx[0], idx[1]] * people
+
+    # EVERY CLUSTER PIXEL MUST LAND SOMEWHERE. The open-morphology that cleans
+    # the people mask drops a few hundred single pixels off thin edges, and a
+    # layer set that does not tile the cluster cannot recompose it -- the gate
+    # would report a scatter of 136 stray pixels and be right to. So the
+    # leftovers are given to whichever of the five layers is nearest.
+    stray = cluster & ~table & (owned == 0)
+    if stray.any():
+        base = np.where(table, 5, owned)
+        _, idx2 = distance_transform_edt(base == 0, return_indices=True)
+        filled = base[idx2[0], idx2[1]]
+        owned = np.where(stray & (filled < 5), filled, owned)
+        table = table | (stray & (filled == 5))
+
+    masks = {}
+    for k in range(1, 5):
+        m = owned == k
+        ys, xs = np.nonzero(m)
+        cx, cy = xs.mean(), ys.mean()
+        for who, _, x0, x1, y0, y1 in WHO:
+            if x0 <= cx < x1 and y0 <= cy < y1:
+                masks[who] = m
+                break
+    return cluster, table, masks
 
 
 def main():
     rgb = np.asarray(Image.open(SRC).convert('RGB')).astype(np.uint8)
-    cluster = ~key(rgb)
-    table, chairs = furniture_mask(rgb.shape[:2])
-
-    # FRONT chairs take their pixels from whoever is behind them; BACK chairs
-    # take only what is not already a person, which is why they are traced tight.
-    front = np.zeros(rgb.shape[:2], bool)
-    back = np.zeros(rgb.shape[:2], bool)
-    for name, spec in CHAIRS.items():
-        (front if spec['zone'] == 'front' else back)[chairs[name]] = True
-
-    furn = (table | front | back) & cluster
-    people = cluster & ~furn
-    people = binary_erosion(people, np.ones((3, 3)))
-    people = binary_dilation(people, np.ones((3, 3)))
-
-    lab, n = label(people)
-    sizes = np.bincount(lab.ravel())
-    sizes[0] = 0
-    masks, unclaimed = {}, []
-    for i in np.argsort(sizes)[::-1]:
-        if sizes[i] < 1500:
-            break
-        comp = lab == i
-        ys, xs = np.nonzero(comp)
-        cx, cy = xs.mean(), ys.mean()
-        for who, zone, x0, x1, y0, y1 in WHO:
-            if x0 <= cx < x1 and y0 <= cy < y1:
-                masks[who] = masks.get(who, np.zeros(comp.shape, bool)) | comp
-                break
-        else:
-            unclaimed.append((int(sizes[i]), int(cx), int(cy)))
+    cluster, table, masks = split(rgb)
 
     if '--preview' in sys.argv:
         lit = np.clip((rgb.astype(float) / 255) ** 0.5 * 255, 0, 255)
-        tint = {'card_1': (90, 240, 130), 'card_2': (240, 200, 90),
-                'card_3': (110, 190, 250), 'card_4': (245, 120, 130)}
-        lit[furn] = lit[furn] * 0.55 + np.array([120, 120, 255]) * 0.45
+        tint = {'card_1': (232, 204, 96), 'card_2': (110, 200, 220),
+                'card_3': (244, 150, 170), 'card_4': (110, 232, 130)}
+        lit[table] = lit[table] * 0.55 + np.array([90, 110, 255]) * 0.45
         for who, m in masks.items():
-            edge = m & ~binary_erosion(m, np.ones((5, 5)))
             lit[m] = lit[m] * 0.6 + np.array(tint[who]) * 0.4
-            lit[edge] = tint[who]
+        lit[~cluster] = (30, 0, 30)
         out = PROOF / 'card-trace-preview.png'
         Image.fromarray(lit.astype('uint8')).save(out)
-        print(f'wrote {out}   BLUE = furniture, one colour per man')
+        print(f'wrote {out}   BLUE = the table, one colour per man-on-his-chair')
         for who, _, _, _, _, _ in WHO:
             m = masks.get(who)
             if m is None:
@@ -191,30 +151,30 @@ def main():
                 continue
             ys, xs = np.nonzero(m)
             print(f'  {who:7s} {m.sum():7d} px  bbox x {xs.min()}-{xs.max()} y {ys.min()}-{ys.max()}')
-        print(f'  furniture {int(furn.sum())} px   cluster {int(cluster.sum())} px')
-        if unclaimed:
-            print(f'  UNCLAIMED components (>1500 px): {unclaimed}')
+        covered = table.copy()
+        for m in masks.values():
+            covered |= m
+        print(f'  table {int(table.sum())} px   cluster {int(cluster.sum())} px'
+              f'   UNASSIGNED {int((cluster & ~covered).sum())} px (must be 0)')
         return
 
     OUT.mkdir(parents=True, exist_ok=True)
-    rec = {'source': str(SRC.relative_to(ROOT)), 'actors': {}, 'furniture': {}}
-    for who, m in masks.items():
+    rec = {'source': str(SRC.relative_to(ROOT)), 'method': 'table mask, then nearest-marker',
+           'erodeIterations': ERODE, 'table': TABLE, 'layers': {}}
+
+    def write(name, mask):
         a = np.zeros((*rgb.shape[:2], 4), np.uint8)
         a[:, :, :3] = rgb
-        a[:, :, 3] = np.where(m, 255, 0)
-        ys, xs = np.nonzero(m)
+        a[:, :, 3] = np.where(mask, 255, 0)
+        ys, xs = np.nonzero(mask)
         crop = (int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1)
-        Image.fromarray(a).crop(crop).save(OUT / f'{who}.png')
-        rec['actors'][who] = {'pixels': int(m.sum()), 'cropInMaster': crop}
-        print(f'  wrote {who}.png  {crop[2] - crop[0]}x{crop[3] - crop[1]}')
-    for tag, m in (('back', back & cluster & ~np.logical_or.reduce(list(masks.values()))),
-                   ('mid', table & cluster), ('front', front & cluster)):
-        a = np.zeros((*rgb.shape[:2], 4), np.uint8)
-        a[:, :, :3] = rgb
-        a[:, :, 3] = np.where(m, 255, 0)
-        Image.fromarray(a).save(OUT / f'furniture-{tag}.png')
-        rec['furniture'][tag] = int(m.sum())
-        print(f'  wrote furniture-{tag}.png  {int(m.sum())} px')
+        Image.fromarray(a).crop(crop).save(OUT / f'{name}.png')
+        rec['layers'][name] = {'pixels': int(mask.sum()), 'cropInMaster': crop}
+        print(f'  wrote {name}.png  {crop[2] - crop[0]}x{crop[3] - crop[1]}  {int(mask.sum())} px')
+
+    write('furniture-table', table)
+    for who, _, _, _, _, _ in WHO:
+        write(who, masks[who])
     (OUT / 'decompose.json').write_text(json.dumps(rec, indent=1) + '\n')
 
 

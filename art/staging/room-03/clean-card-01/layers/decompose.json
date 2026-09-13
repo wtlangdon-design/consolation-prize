@@ -1,0 +1,58 @@
+{
+ "source": "art/staging/room-03/clean-card-01/source.png",
+ "method": "table mask, then nearest-marker",
+ "erodeIterations": 23,
+ "table": {
+  "cx": 718,
+  "cy": 496,
+  "a": 436,
+  "b": 168
+ },
+ "layers": {
+  "furniture-table": {
+   "pixels": 254143,
+   "cropInMaster": [
+    282,
+    330,
+    1155,
+    709
+   ]
+  },
+  "card_1": {
+   "pixels": 121908,
+   "cropInMaster": [
+    124,
+    403,
+    596,
+    990
+   ]
+  },
+  "card_2": {
+   "pixels": 65662,
+   "cropInMaster": [
+    243,
+    87,
+    651,
+    444
+   ]
+  },
+  "card_3": {
+   "pixels": 55081,
+   "cropInMaster": [
+    803,
+    80,
+    1161,
+    432
+   ]
+  },
+  "card_4": {
+   "pixels": 166423,
+   "cropInMaster": [
+    961,
+    284,
+    1412,
+    990
+   ]
+  }
+ }
+}

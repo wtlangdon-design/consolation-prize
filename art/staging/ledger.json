@@ -7521,6 +7521,172 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-13T00:28:43.552Z"
+  },
+  {
+   "attempt": 2,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/clean-card-cluster-02.txt",
+   "promptHash": "daa18b28cff1d8360d7fa248ad98d8ab021e019ac656a98221419328bf478288",
+   "references": [
+    {
+     "path": "art/staging/room-03/clean-card-01/source.png",
+     "hash": "ebd37bb79b5732ff69c39b7a1eb634b17e2e17e276906087dd6380ad8f4a5e78",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": {
+    "path": "art/staging/room-03/clean-card-01/companion-mask.png",
+    "hash": "eff422bbd855527cacf2df0f96bb397bc7d60c0830ebeb433b1083dc7ff24dfa"
+   },
+   "sourceHash": "ebd37bb79b5732ff69c39b7a1eb634b17e2e17e276906087dd6380ad8f4a5e78",
+   "sourcePath": "art/staging/room-03/clean-card-01/source.png",
+   "out": "art/staging/room-03/clean-card-02/source.png",
+   "outputHash": "a7a8a7d207c512b6be47d16453f66364d6bab4387a6227b05a549d8d325a6dc6",
+   "bytes": 1329209,
+   "usage": {
+    "input_tokens": 10526,
+    "input_tokens_details": {
+     "image_tokens": 9980,
+     "text_tokens": 546
+    },
+    "output_tokens": 158,
+    "output_tokens_details": {
+     "image_tokens": 158,
+     "text_tokens": 0
+    },
+    "total_tokens": 10684
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-13T00:48:13.133Z",
+   "assetId": "nugget-clean-card-cluster",
+   "subject": "nugget-clean-card-cluster",
+   "note": "CLEAN-SHEET REBUILD sec.14, category A attempt 2 of 2, REFINEMENT. The people-free companion to the card cluster master, for one concrete failure: the master cannot be split into its objects by any deterministic rule -- measured three ways -- so the four men's forearms, hands and cards stay in the table layer, which is exactly the set of pixels sec.15 says has to animate. Errata 53 condition 2 is the project's own method: ask the generator for the same scene without the object and the layer is a difference between two images. The table centre, the bottle and the abandoned hand are held back by the mask so the table is completed rather than re-invented; registration is measured on that core afterwards and a drift there is a STOP.",
+   "gates": {
+    "path": "art/staging/room-03/clean-card-02/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-13T00:48:13.231Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-13T00:48:13.136Z"
   }
  ],
  "promotions": [

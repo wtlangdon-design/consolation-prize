@@ -1,0 +1,40 @@
+THE SAME PICTURE WITH NOBODY IN IT.
+
+Reference 1 is the image being edited. It shows a round card table in an 1858
+frontier saloon at night, with four seated men, four chairs, and things on the
+table, on a flat magenta field. Produce THE IDENTICAL PICTURE WITH THE FOUR MEN
+AND THEIR FOUR CHAIRS REMOVED -- the table and its contents alone, five seconds
+before anybody sat down.
+
+WHAT MUST NOT CHANGE, and this is the whole operation:
+  - the table's position, size, elliptical perspective, rim, apron, legs and feet;
+  - the wood, its grain, its colour and its lighting;
+  - the bottle, the two tin cups, every chip and every coin, in the same places;
+  - THE ABANDONED HAND OF CARDS LYING FACE UP on the near rim -- it stays exactly
+    where it is, face up, belonging to nobody;
+  - the magenta field.
+The unmasked centre of the table is held back so you can see all of this. Complete
+the table outward from it; do not re-invent it.
+
+WHAT TO REMOVE:
+  - all four men, entirely -- heads, bodies, arms, hands, and the fans of cards
+    they are holding;
+  - all four of their chairs, entirely;
+  - and nothing else.
+
+WHAT TO DRAW WHERE THEY WERE:
+  - where a man's arm, hand or cards lay ON THE TABLE: continue the TABLE. The
+    wood grain, the rim, the apron and the lighting carry straight through, as
+    though the arm had never been there. This is the point of the operation --
+    the table has to be whole under where the arms were.
+  - where a man or a chair stood against the background: FLAT SOLID MAGENTA
+    (255, 0, 255), the same magenta as the rest of the field. No floor, no dirt,
+    no walls, no room, no shadow on the ground, no gradient, no texture.
+
+DO NOT add anybody. Do not add a fifth man, a barman, a hand, an arm, a hat on a
+chair, or a figure in the distance. Do not add furniture. Do not add a floor. Do
+not move the table. Do not re-light it. Do not change its shape.
+
+The result is composited back against the original, pixel for pixel, and every
+difference between the two is taken to be a man. Anything you add that was not
+there will be taken to be a man as well.
