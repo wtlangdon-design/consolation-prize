@@ -197,7 +197,7 @@ busy". Differencing these two images would mark the entire picture as a man.
 This is the second time this endpoint has failed a registered edit (operation 49 was the first), and
 the first time it has failed one under conditions this favourable. `card-companion-drift.webp`.
 
-## 8 · What this means for the plan
+## 12 · What the closed companion route means for the plan
 
 The pipeline **can** author a cluster master that meets §10 in one operation. It **cannot** produce
 a registered people-free companion of that master. And a master cannot be split into its objects by
@@ -211,3 +211,72 @@ deterministically or not at all.
 shape between the rim and the hand — four of them, plus two card fans — far easier to trace than a
 man or a slat. Move them to their men and continue the tabletop beneath by elliptical continuation
 and grain sampling, which is exactly what §14 lists as permitted. That has not been done yet.
+
+---
+
+## 13 · BAR — operation 52, category B attempt 1 of 2, accepted without a refinement
+
+A genuine long diagonal run receding to the back left. **Its far end continues out of frame rather
+than dissolving**, so the terminus defect that consumed two earlier passes cannot recur here. The
+rail is one continuous brass line. Three patrons, three relationships to the counter: seated with
+his hips on the stool and both forearms on the top; leaning with one forearm taking his weight and
+both boots on the dirt; standing with a mug raised and his other arm on the counter.
+
+Decomposed by the method the card cluster proved, **with no companion render**. Four leaks, each
+found by rendering a layer alone — bar_1 took his own stool and the bar's far end; bar_3 took
+180 × 250 px of back-bar shelving; bar_2 took the counter's end face and a length of rail; and the
+furniture took bar_1's hat brim and bar_3's upper sleeve, because nothing had seeded them.
+
+A mirror is no use on a bar: a table is a circle with a centre line to borrow from, a bar is a run.
+The fill takes the nearest **bare** structure along the run, with bottles, lamps, the mirror and
+cups excluded, and the source mask **opened first** — the stray-pixel pass leaves single furniture
+pixels inside each man, and a nearest-source fill treats every one as bar, painting the standing
+man's own checked shirt back into his own hole.
+
+| gate | result |
+|---|---|
+| static recomposition vs the master | **0 differing pixels** |
+| actor-off, each of the three | **0 holes in the bar** |
+| small motion, all three nudged | **0 holes in the bar** |
+
+## 14 · ROOM SHELL — operation 53, category C attempt 1 of 2, accepted without a refinement
+
+People-free. Packed-earth floor running to the frame, board walls with a dado, batwing doors with
+the night street beyond, a window, the handbill, an upright piano with its lid down and nobody at
+it, an iron stove with firelight and its pipe to the ceiling, a staircase at the back right, the
+faded portrait, an oil chandelier over open floor, a brass spittoon in the foreground.
+
+**The crop band is a real decision.** The endpoint's widest size is 3:2 and the play area is
+2.22:1, so 416 rows have to go. Three bands were composited and looked at: top 160 keeps the
+chandelier and loses the piano behind the card men; top 320 keeps the piano and cuts the
+chandelier off; **top 240 keeps the chandelier's arms and the piano's top**. Both carry canonical
+LOOK lines, so 240 is the band that keeps the room's own jokes.
+
+## 15 · Placement, solved against the camera rather than assumed
+
+| | scale | anchor, exact | the others |
+|---|---|---|---|
+| CARD | 0.420 | card_1 at row 633 | card_2 +10.3%, card_3 +12.6%, card_4 +3.0% |
+| BAR | 0.667 | bar_3 at row 808 | bar_2 −13.7%, bar_1 −14.7% |
+
+Within ±15%, which reads as depth rather than error. The bar lands at room x 1240–1908, its far
+end within a pixel of the blocking.
+
+## 16 · Contamination, twice
+
+§29 calls a cluster's accidental scenery contamination and both kinds appeared. **Resizing a keyed
+layer mixes the magenta still under its transparent pixels into every edge** — so each layer's own
+colour is flooded outward first. And a violet line still ran round all three bar patrons and both
+near chairs, because **that line is in the art**: the masters are drawn against magenta and their
+silhouettes are anti-aliased into it. The outermost pixel of every layer is dropped.
+
+## 17 · What is NOT done
+
+The runtime integration: the room JSON, actor records, occlusion planes, cluster registrations,
+hotspots, exits, walk geometry, the Thad depth curve against the new room, the Deke reservation,
+the stove-man and landing-man audit and placement, the dialogue rewiring onto the visible actors,
+the validation suite, the PR and the deploy.
+
+**Room 3 is assembled as an image but not as a room.** `room-composite.png` is produced by
+`tools/room03/integrate.py`, not by the engine, and the shipping room still points at the retired
+plate.
