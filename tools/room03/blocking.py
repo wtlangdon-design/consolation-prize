@@ -90,9 +90,18 @@ REGIONS = {
         'what': ('THE PIANO -- upright against the left wall, mid-depth. 258 px tall because 1.3 m at '
                  'a depth where a man is 349, NOBODY AT IT AND NOBODY NEAR IT'),
     },
+    # THE CLUSTER BOXES ARE 3:2 ON PURPOSE. They are the frame an authored
+    # cluster master is generated into, and the endpoint's landscape size is
+    # 1536x1024, so a box of another shape would be letterboxed or cropped and
+    # the geometry inside it would no longer be the geometry that was designed.
+    # The top of each box is set by the TALLEST HEAD in it, computed rather
+    # than guessed: a seated man's crown is 0.78 of his standing height above
+    # the floor, so the far card players' heads reach y 374 and the box has to
+    # start above that.
     'card_cluster': {
-        'rect': [380, 430, 980, 790],
-        'what': 'CARD CLUSTER bounds: table, four players, four chairs, the empty fifth place nearest camera',
+        'rect': [370, 360, 1015, 790],
+        'what': ('CARD CLUSTER bounds, 645x430 = 3:2: table, four players, four chairs, the empty '
+                 'fifth place nearest camera, and the abandoned hand'),
     },
     'card_table': {
         'rect': [470, 560, 900, 745],
@@ -116,8 +125,9 @@ REGIONS = {
         'what': 'THE LANDING -- and the man on it. There is always a man on the landing.',
     },
     'bar_cluster': {
-        'rect': [1200, 340, 1920, 864],
-        'what': 'BAR CLUSTER bounds: counter, back bar, stools, brass rail, three patrons',
+        'rect': [1140, 334, 1920, 854],
+        'what': ('BAR CLUSTER bounds, 780x520 = 3:2: counter, back bar, stools, brass rail, and the '
+                 'three patrons -- seated at the far end, leaning at the middle, standing at the near'),
     },
     'chandelier': {
         'rect': [820, 0, 1120, 165],
@@ -152,11 +162,18 @@ FLOOR_FAR_Y = 520
 # WHERE THE NINE STAND, in room coordinates, as floor contact points. These are
 # BLOCKING intentions, not final runtime anchors: the cluster masters decide the
 # exact contacts and sec.11 and sec.13 record them afterwards.
+#
+# THE FOUR SEATS ARE SOLVED ON THE GROUND PLANE, NOT PLACED BY EYE. The table
+# centre stands 4.35 m from the camera; the four chairs sit 0.95 m out from it
+# at the four diagonals, so each seat is 0.67 m across and 0.67 m nearer or
+# further, and the camera turns that into rows 744 and 609 and offsets of 164
+# and 120 px. Placing them by eye is how the retired room ended up with four
+# seats that all wanted the same 230 px figure.
 PEOPLE = [
-    ('card_1', 560, 745, 'near side, left seat, BACK TO CAMERA, three-quarter left'),
-    ('card_2', 596, 640, 'far side, left seat, facing the room -- THE CARD SHARP'),
-    ('card_3', 790, 640, 'far side, right seat, facing the room'),
-    ('card_4', 838, 745, 'near side, right seat, BACK TO CAMERA, three-quarter right'),
+    ('card_1', 499, 697, 'near-left seat, THREE-QUARTER BACK VIEW, 72 deg round from the empty place'),
+    ('card_2', 602, 602, 'far-left seat, facing the room -- THE CARD SHARP'),
+    ('card_3', 798, 602, 'far-right seat, facing the room'),
+    ('card_4', 901, 697, 'near-right seat, THREE-QUARTER BACK VIEW'),
     ('bar_1', 1360, 578, 'far end of the bar, seated on a stool -- THE ONE-STRIKE MAN'),
     ('bar_2', 1500, 690, 'mid bar, LEANING, forearm on the counter'),
     ('bar_3', 1740, 812, 'near end of the bar, STANDING, drinking, foreground depth'),
@@ -197,10 +214,19 @@ def verify():
     hn = figure_height(812)
     out.append(('depth range', f'stove man {hs:.0f} px at y 499, near bar patron {hn:.0f} px at y 812, '
                                f'{hn / hs:.2f}x -- the room is that deep'))
+    for who, x, y, *rest in PEOPLE:
+        if who.startswith('card'):
+            h = figure_height(y)
+            out.append((f'{who} crown', f'seated, {SEATED * h:.0f} px above his floor row {y} -> y {y - SEATED * h:.0f}'))
     out.append(('thad', '  '.join(f'{n} y{y}={figure_height(y):.0f}px' for n, _, y in THAD)))
     out.append(('walk band', f'floor y {FLOOR_FAR_Y} to {FLOOR_NEAR_Y}, '
                              f'{figure_height(FLOOR_FAR_Y):.0f} px to {figure_height(FLOOR_NEAR_Y):.0f} px'))
     return out
+
+
+# A seated man's crown, as a fraction of his standing height above the floor:
+# a 1.75 m man sits 0.91 m from seat to crown on a 0.45 m seat, so 1.36 m.
+SEATED = 0.78
 
 
 def bar_top(x):

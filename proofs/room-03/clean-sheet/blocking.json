@@ -73,12 +73,12 @@
   },
   "card_cluster": {
    "rect": [
-    380,
-    430,
-    980,
+    370,
+    360,
+    1015,
     790
    ],
-   "what": "CARD CLUSTER bounds: table, four players, four chairs, the empty fifth place nearest camera"
+   "what": "CARD CLUSTER bounds, 645x430 = 3:2: table, four players, four chairs, the empty fifth place nearest camera, and the abandoned hand"
   },
   "card_table": {
    "rect": [
@@ -127,12 +127,12 @@
   },
   "bar_cluster": {
    "rect": [
-    1200,
-    340,
+    1140,
+    334,
     1920,
-    864
+    854
    ],
-   "what": "BAR CLUSTER bounds: counter, back bar, stools, brass rail, three patrons"
+   "what": "BAR CLUSTER bounds, 780x520 = 3:2: counter, back bar, stools, brass rail, and the three patrons -- seated at the far end, leaning at the middle, standing at the near"
   },
   "chandelier": {
    "rect": [
@@ -184,46 +184,46 @@
   {
    "id": "card_1",
    "contact": [
-    560,
-    745
+    499,
+    697
    ],
-   "depthY": 745,
-   "drawnHeight": 430,
+   "depthY": 697,
+   "drawnHeight": 389,
    "elevated": false,
-   "what": "near side, left seat, BACK TO CAMERA, three-quarter left"
+   "what": "near-left seat, THREE-QUARTER BACK VIEW, 72 deg round from the empty place"
   },
   {
    "id": "card_2",
    "contact": [
-    596,
-    640
+    602,
+    602
    ],
-   "depthY": 640,
-   "drawnHeight": 341,
+   "depthY": 602,
+   "drawnHeight": 308,
    "elevated": false,
-   "what": "far side, left seat, facing the room -- THE CARD SHARP"
+   "what": "far-left seat, facing the room -- THE CARD SHARP"
   },
   {
    "id": "card_3",
    "contact": [
-    790,
-    640
+    798,
+    602
    ],
-   "depthY": 640,
-   "drawnHeight": 341,
+   "depthY": 602,
+   "drawnHeight": 308,
    "elevated": false,
-   "what": "far side, right seat, facing the room"
+   "what": "far-right seat, facing the room"
   },
   {
    "id": "card_4",
    "contact": [
-    838,
-    745
+    901,
+    697
    ],
-   "depthY": 745,
-   "drawnHeight": 430,
+   "depthY": 697,
+   "drawnHeight": 389,
    "elevated": false,
-   "what": "near side, right seat, BACK TO CAMERA, three-quarter right"
+   "what": "near-right seat, THREE-QUARTER BACK VIEW"
   },
   {
    "id": "bar_1",
@@ -331,6 +331,22 @@
   {
    "name": "depth range",
    "says": "stove man 221 px at y 499, near bar patron 487 px at y 812, 2.20x -- the room is that deep"
+  },
+  {
+   "name": "card_1 crown",
+   "says": "seated, 303 px above his floor row 697 -> y 394"
+  },
+  {
+   "name": "card_2 crown",
+   "says": "seated, 240 px above his floor row 602 -> y 362"
+  },
+  {
+   "name": "card_3 crown",
+   "says": "seated, 240 px above his floor row 602 -> y 362"
+  },
+  {
+   "name": "card_4 crown",
+   "says": "seated, 303 px above his floor row 697 -> y 394"
   },
   {
    "name": "thad",
