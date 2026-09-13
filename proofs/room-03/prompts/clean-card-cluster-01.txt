@@ -1,0 +1,80 @@
+ONE COHERENT CARD-TABLE COMPOSITION for a 2D point-and-click adventure game in the
+tradition of The Secret of Monkey Island. Stylised early-1990s graphic-adventure
+pixel art at a modern source resolution. NOT photorealistic, NOT PBR, NOT glossy 3D,
+NOT AAA concept art, NOT smooth modern character illustration, NOT portrait rendering.
+
+SUBJECT. A round card table in an 1858 frontier saloon at night, with FOUR seated
+men playing cards, their four chairs, and a fifth place that is conspicuously EMPTY.
+
+REFERENCE 1 IS THE STAGING AND IS BINDING. It is a grayscale blocking diagram of
+exactly this composition, drawn to the game's own camera. Reproduce its geometry:
+the table's size and elliptical perspective, where each man sits, which way each man
+faces, who is in front of the table and who is behind it, and the gap at the near
+side. Replace its grey blocks with finished art. Do not rearrange it.
+
+THE FIVE-PLACE RING, and the two things it exists to get right.
+  - The table is round, about 1.35 m across, seen from slightly above and in front.
+  - FOUR men sit on it at 72 and 144 degrees either side of the camera direction.
+  - THE TWO NEAR MEN (left and right, lower in the frame, drawn LARGER) are seen
+    FROM BEHIND, in three-quarter back view. We see their backs, their shoulders,
+    the backs of their heads and their chair backs. WE DO NOT SEE THEIR FACES.
+  - THE TWO FAR MEN (higher in the frame, drawn SMALLER) face into the room and
+    toward the camera. We see their faces.
+  - NOT ALL FOUR FACE THE CAMERA. A composition with four faces in it is wrong and
+    must be redrawn.
+  - THE FIFTH PLACE, nearest the camera, is EMPTY: no chair, no man, nothing. The
+    ring of men is open at the front.
+
+THE FOUR MEN, who are specific people and not a crowd:
+  1  NEAR LEFT, back three-quarter view: a man in a flat cap, work coat, holding a
+     fanned hand of cards we see the back of.
+  2  FAR LEFT, facing the room: grey hair and side-whiskers, an older man in a dark
+     coat and waistcoat, holding a fanned hand.
+  3  FAR RIGHT, facing the room: the young one, shirtsleeves and a blue neckerchief,
+     holding a fanned hand.
+  4  NEAR RIGHT, back three-quarter view: bald, wire spectacles, seen from behind so
+     the spectacle arm shows at the side of his head, holding a fanned hand.
+
+PHYSICAL CONTACT IS THE POINT OF THIS IMAGE. Every one of these must be true:
+  - each man's hips are genuinely ON his chair seat and his weight is supported;
+  - his knees and boots go UNDER or AROUND the table, on the ground, not floating;
+  - the TABLE TOP CROSSES the far men's bodies at the waist -- they are behind it;
+  - the near men are IN FRONT of the table and their shoulders overlap its rim;
+  - forearms and hands rest ON the table surface, in contact with it, not hovering;
+  - no man sits on the table, no limb passes through the table or a chair;
+  - nobody's feet are in the air and nobody is standing.
+
+ON THE TABLE: a scatter of chips and coins, a bottle, two tin cups, and -- on the
+RIM AT THE EMPTY FIFTH PLACE, nearest the camera -- an ABANDONED HAND OF CARDS LYING
+FACE UP, clearly belonging to nobody, with no man and no chair behind it.
+
+BACKGROUND. FLAT SOLID MAGENTA (255, 0, 255), edge to edge, everywhere that is not
+the table, the chairs, the men or what is on the table. NO floor, NO dirt, NO walls,
+NO back bar, NO room, NO cast shadow on the ground, NO vignette, NO gradient, NO
+texture in the magenta. The magenta is keyed out and anything drawn into it becomes
+foreign scenery inside another room. This matters more than it sounds.
+
+LIGHT. Warm interior practical light from above and slightly to the right -- an oil
+chandelier and a stove out of frame. Warm ochre and umber on the lit planes, cool
+umber-grey in shadow, deep values that still read at a glance. Reference 5 (the
+assay office) is the visual-language authority for how light and material are drawn
+in this game; match its restraint, not a modern render's.
+
+CHARACTER RENDERING -- this is a hard gate and it has failed before.
+Reference 3 is Thad, the player character, and he is THE RULER. These four men must
+be drawn at HIS level of abstraction, not above it. At gameplay scale require:
+  - simplified eye treatment, the same weight of mark Thad's eyes are drawn with;
+  - hair, beards and side-whiskers as GROUPED MASSES, never individual strands;
+  - restrained skin modelling: two or three values, no smooth cheek gradients;
+  - restrained cloth folds: readable tonal masses, not rendered drapery;
+  - hard, legible silhouettes that read at a glance;
+  - NO portrait eyeballs, NO catchlights, NO individually drawn moustache hairs,
+    NO airbrushed skin, NO rendered-illustration finish.
+A man here must look like he came from the same hand and the same year as Thad. If
+he looks better drawn than Thad, he is wrong.
+
+References: 1 the staging diagram, BINDING. 2 the room blocking guide, for the
+camera. 3 Thad -- the ruler and the rendering level. 4 Winnie, the accepted
+character hand. 5 the assay office, the visual-language authority. 6 Room 1 in
+engine, what the game actually looks like. 7 the Room 1 casting master, rendering
+by example. 8 the Room 1 plate.

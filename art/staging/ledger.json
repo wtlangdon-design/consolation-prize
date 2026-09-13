@@ -7353,6 +7353,174 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-12T20:47:20.622Z"
+  },
+  {
+   "attempt": 1,
+   "role": "composition-master",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/clean-card-cluster-01.txt",
+   "promptHash": "514fe7cc21d3178f1d30827dfa293a6d8cef8709c956ac9083531edfc8c87751",
+   "references": [
+    {
+     "path": "proofs/room-03/clean-sheet/card-cluster-guide.png",
+     "hash": "9e79d168c50603d9215cd5595e6ba84fa29f01e842c324ff9ef0d9275a0286fc",
+     "transmitted": true
+    },
+    {
+     "path": "proofs/room-03/clean-sheet/blocking.png",
+     "hash": "a02a30297f7b26e5b2fd5539fa749ec7782304c81fb1a73019e5f7417e2e2e04",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "character",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "9e79d168c50603d9215cd5595e6ba84fa29f01e842c324ff9ef0d9275a0286fc",
+   "sourcePath": "proofs/room-03/clean-sheet/card-cluster-guide.png",
+   "out": "art/staging/room-03/clean-card-01/source.png",
+   "outputHash": "ebd37bb79b5732ff69c39b7a1eb634b17e2e17e276906087dd6380ad8f4a5e78",
+   "bytes": 1805029,
+   "usage": {
+    "input_tokens": 12801,
+    "input_tokens_details": {
+     "image_tokens": 11488,
+     "text_tokens": 1313
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 14173
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-13T00:28:43.537Z",
+   "assetId": "nugget-clean-card-cluster",
+   "subject": "nugget-clean-card-cluster",
+   "note": "CLEAN-SHEET REBUILD sec.10: the card cluster authored as ONE coherent composition so the contacts are real -- hips on seats, knees under the table, the top crossing the far men and the near men in front of it -- and decomposed afterwards into a furniture base, four independent actors and occlusion. The two near seats are BACK VIEWS, which is the thing Q133 proved cannot be asked for in words. Nobody ships flattened into the table.",
+   "gates": {
+    "path": "art/staging/room-03/clean-card-01/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-13T00:28:43.710Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-13T00:28:43.552Z"
   }
  ],
  "promotions": [
