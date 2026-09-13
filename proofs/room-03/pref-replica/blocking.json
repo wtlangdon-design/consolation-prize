@@ -1,0 +1,291 @@
+{
+ "schema": 1,
+ "note": "R3-PREF blocking, measured off the preferred plate. Zero image operations. This is the layout the replica must be faithful to.",
+ "blueprint": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+ "peopleFreeAncestor": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+ "size": [
+  1920,
+  864
+ ],
+ "camera": {
+  "eyeY": 239.0,
+  "k": 0.8494,
+  "note": "a 1.75 m man is k*(y-eyeY) tall with soles on row y"
+ },
+ "bar": {
+  "farEnd": [
+   1185,
+   383
+  ],
+  "nearEnd": [
+   1908,
+   560
+  ],
+  "slope": 0.24481,
+  "terminusRequirement": "the stove-side end must resolve structurally: end stile, return, or continuation into architecture. It may not fade, smear or depend on a patron to hide it."
+ },
+ "features": {
+  "door_swinging": {
+   "box": [
+    28,
+    250,
+    200,
+    640
+   ],
+   "what": "the batwing doors, room exit WEST"
+  },
+  "window_front": {
+   "box": [
+    232,
+    178,
+    430,
+    460
+   ],
+   "what": "the front window onto the night street"
+  },
+  "piano": {
+   "box": [
+    430,
+    300,
+    660,
+    520
+   ],
+   "what": "the upright piano -- NOBODY IS EVER AT IT"
+  },
+  "card_table": {
+   "box": [
+    673,
+    340,
+    1160,
+    560
+   ],
+   "what": "the card table, its chairs and its floor"
+  },
+  "stove": {
+   "box": [
+    1080,
+    250,
+    1230,
+    520
+   ],
+   "what": "the stove, REARWARD of the card table"
+  },
+  "stairs": {
+   "box": [
+    1290,
+    120,
+    1560,
+    430
+   ],
+   "what": "the staircase"
+  },
+  "landing": {
+   "box": [
+    1275,
+    67,
+    1400,
+    260
+   ],
+   "what": "the landing -- there is always a man on it"
+  },
+  "back_bar": {
+   "box": [
+    1430,
+    150,
+    1920,
+    400
+   ],
+   "what": "the back bar: shelves, bottles, mirror"
+  },
+  "spittoon": {
+   "box": [
+    1390,
+    755,
+    1505,
+    850
+   ],
+   "what": "the spittoon (occlusion plane 1)"
+  }
+ },
+ "reservedForPeople": [
+  {
+   "id": "card_1",
+   "box": [
+    745,
+    305,
+    135,
+    215
+   ],
+   "seat": [
+    800,
+    480
+   ],
+   "standingHeightHere": 204.7,
+   "what": "flat cap, nearest the piano, back three-quarters to camera, holding a fanned hand"
+  },
+  {
+   "id": "card_2",
+   "box": [
+    800,
+    250,
+    110,
+    180
+   ],
+   "seat": [
+    850,
+    435
+   ],
+   "standingHeightHere": 166.5,
+   "what": "grey hair and side-whiskers, far side of the table, facing the room, holding a fanned hand"
+  },
+  {
+   "id": "card_3",
+   "box": [
+    940,
+    255,
+    115,
+    175
+   ],
+   "seat": [
+    1000,
+    435
+   ],
+   "standingHeightHere": 166.5,
+   "what": "the young one in shirtsleeves and a blue neckerchief, far side, facing the room, holding a fanned hand"
+  },
+  {
+   "id": "card_4",
+   "box": [
+    995,
+    300,
+    155,
+    245
+   ],
+   "seat": [
+    1075,
+    490
+   ],
+   "standingHeightHere": 213.2,
+   "what": "bald, spectacles, nearest the stove, back to camera, holding a fanned hand"
+  },
+  {
+   "id": "bar_1",
+   "box": [
+    1195,
+    262,
+    155,
+    343
+   ],
+   "seat": [
+    1270,
+    600
+   ],
+   "standingHeightHere": 306.6,
+   "what": "SEATED: the old bearded miner, hips on the far stool, one boot on its ring, both forearms on the counter, tin cup"
+  },
+  {
+   "id": "bar_2",
+   "box": [
+    1330,
+    255,
+    170,
+    410
+   ],
+   "seat": [
+    1410,
+    660
+   ],
+   "standingHeightHere": 357.6,
+   "what": "LEANING: the lean younger man in shirtsleeves, waistcoat and watch chain, forearm taking his weight on the counter top, both boots on the dirt"
+  },
+  {
+   "id": "bar_3",
+   "box": [
+    1600,
+    294,
+    215,
+    483
+   ],
+   "seat": [
+    1700,
+    772
+   ],
+   "standingHeightHere": 452.7,
+   "what": "STANDING: the heavy moustached man in the bowler and checked shirt, tin mug in hand, half turned into the room, both boots on the dirt with the brass foot rail passing behind them. TRANSLATED 82 ROWS DOWN on 2026-09-12: the endpoint had stood him on the bar's own kick-board, 70 to 95 px above the floor."
+  },
+  {
+   "id": "nugget_landing_man",
+   "box": [
+    1275,
+    67,
+    61,
+    168
+   ],
+   "seat": [
+    1305,
+    235
+   ],
+   "standingHeightHere": -3.4,
+   "what": "there is always a man on the landing, and he has not moved"
+  },
+  {
+   "id": "nugget_stove_man",
+   "box": [
+    1108,
+    269,
+    69,
+    169
+   ],
+   "seat": [
+    1142,
+    438
+   ],
+   "standingHeightHere": 169.0,
+   "what": "coat buttoned to the throat, both hands open toward the iron, turned into the stove, AT THE BACK OF THE ROOM beside it and behind the card group"
+  }
+ ],
+ "reservedNote": "card_1 card_2 card_3 card_4 bar_1 bar_2 bar_3 stove_man landing_man deke",
+ "thadSamples": [
+  {
+   "at": [
+    360,
+    800
+   ],
+   "where": "foreground",
+   "drawnHeight": 476.5
+  },
+  {
+   "at": [
+    760,
+    690
+   ],
+   "where": "near card",
+   "drawnHeight": 383.1
+  },
+  {
+   "at": [
+    1120,
+    620
+   ],
+   "where": "stove approach",
+   "drawnHeight": 323.6
+  },
+  {
+   "at": [
+    1500,
+    700
+   ],
+   "where": "near bar",
+   "drawnHeight": 391.6
+  },
+  {
+   "at": [
+    300,
+    560
+   ],
+   "where": "far left / exit",
+   "drawnHeight": 272.7
+  }
+ ],
+ "out": "proofs/room-03/pref-replica/blocking-on-r3pref.png"
+}

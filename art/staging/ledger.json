@@ -8023,6 +8023,352 @@
    },
    "promoted": false,
    "recordedAt": "2026-09-13T03:14:05.865Z"
+  },
+  {
+   "attempt": 1,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/pref-replica-plate-01.txt",
+   "promptHash": "2942a225df2dae6449ddf08ddf2219e5c375ff20242022c88c90d67245d586ff",
+   "references": [
+    {
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/corrected-03/plate-cold-dirt.png",
+     "hash": "f3b8f3070a96dcbb755634c709d643e58e696045a311596de981c55b6aa95397",
+     "transmitted": true
+    },
+    {
+     "path": "proofs/room-03/pref-replica/blocking-on-r3pref.png",
+     "hash": "6649e1c602e141d1db29086cc43ae5728b2aa25fc5149fd5e809112299f3aa28",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6",
+   "sourcePath": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+   "out": "art/staging/room-03/pref-replica-01/source.png",
+   "outputHash": "17bbe34f3b98046b374ee428144c424fc912988107c92e4b271a017ad9113862",
+   "bytes": 2409553,
+   "usage": {
+    "input_tokens": 14805,
+    "input_tokens_details": {
+     "image_tokens": 12968,
+     "text_tokens": 1837
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 16177
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-13T18:17:03.936Z",
+   "assetId": "room-03-pref-replica-plate",
+   "subject": "room-03-pref-replica-plate",
+   "note": "R3-PREF PEOPLE-FREE REPLICA (Tyler, 2026-09-13). The asset truth audit proved no people-free R3-PREF exists anywhere in the repository or its history -- the card and bar furniture only ever arrived in the same generated images as the men -- so the room is recreated empty rather than decomposed. R3-PREF is reference 1 and binding: same camera, same bar trajectory, same card table, same stove depth, same darkness. Candidate only; nothing is promoted and the shipping room still points at R3-PREF.",
+   "gates": {
+    "path": "art/staging/room-03/pref-replica-01/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-13T18:17:04.227Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-13T18:17:03.965Z"
+  },
+  {
+   "attempt": 2,
+   "role": "plate",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1536x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "proofs/room-03/prompts/pref-replica-plate-02.txt",
+   "promptHash": "7c921314627d20daf7453e2bdf06dea36a497aeaabffc7d1ee47a28f816e1d43",
+   "references": [
+    {
+     "path": "art/staging/room-03/pref-replica-01/source.png",
+     "hash": "17bbe34f3b98046b374ee428144c424fc912988107c92e4b271a017ad9113862",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+     "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6",
+     "transmitted": true
+    },
+    {
+     "path": "proofs/room-03/pref-replica/blocking-on-r3pref.png",
+     "hash": "6649e1c602e141d1db29086cc43ae5728b2aa25fc5149fd5e809112299f3aa28",
+     "transmitted": true
+    },
+    {
+     "path": "art/actors/thad-stand-front/stand-00.png",
+     "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+     "transmitted": true
+    },
+    {
+     "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+     "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-05-assay-office.png",
+     "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+     "transmitted": true
+    },
+    {
+     "path": "renders/room-01-in-engine-1920x1080.png",
+     "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+     "transmitted": true
+    },
+    {
+     "path": "reference/casting/room-01-casting-master.png",
+     "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+     "transmitted": true
+    },
+    {
+     "path": "art/backgrounds/room-01-stage-road.png",
+     "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+     "transmitted": true
+    }
+   ],
+   "baseline": {
+    "room": "room-03-nugget",
+    "purpose": "room-art",
+    "visualType": "interior-public",
+    "slots": [
+     {
+      "slot": "A",
+      "role": "approved Room 1 full-frame live-runtime baseline",
+      "path": "renders/room-01-in-engine-1920x1080.png",
+      "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79",
+      "transmitted": true
+     },
+     {
+      "slot": "B",
+      "role": "approved Room 1 shipping background",
+      "path": "art/backgrounds/room-01-stage-road.png",
+      "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b",
+      "transmitted": true
+     },
+     {
+      "slot": "C",
+      "role": "approved current Thad",
+      "path": "art/actors/thad-stand-front/stand-00.png",
+      "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05",
+      "transmitted": true
+     },
+     {
+      "slot": "D",
+      "role": "closest approved comparable (room-05-assay-office)",
+      "path": "art/backgrounds/room-05-assay-office.png",
+      "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (Winnie, the accepted Room 5 counter clerk)",
+      "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+      "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b",
+      "transmitted": true
+     },
+     {
+      "slot": "E",
+      "role": "casting reference (the approved Room 1 casting master)",
+      "path": "reference/casting/room-01-casting-master.png",
+      "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787",
+      "transmitted": true
+     }
+    ]
+   },
+   "mask": null,
+   "sourceHash": "17bbe34f3b98046b374ee428144c424fc912988107c92e4b271a017ad9113862",
+   "sourcePath": "art/staging/room-03/pref-replica-01/source.png",
+   "out": "art/staging/room-03/pref-replica-02/source.png",
+   "outputHash": "c73dec3b1b890a39b36df553041e5d5340187fe219e3e180b1b49bee36233cce",
+   "bytes": 2830510,
+   "usage": {
+    "input_tokens": 14261,
+    "input_tokens_details": {
+     "image_tokens": 12996,
+     "text_tokens": 1265
+    },
+    "output_tokens": 1372,
+    "output_tokens_details": {
+     "image_tokens": 1372,
+     "text_tokens": 0
+    },
+    "total_tokens": 15633
+   },
+   "revisedPrompt": null,
+   "at": "2026-09-13T18:25:18.377Z",
+   "assetId": "room-03-pref-replica-plate",
+   "subject": "room-03-pref-replica-plate",
+   "note": "R3-PREF PEOPLE-FREE REPLICA (Tyler, 2026-09-13). The asset truth audit proved no people-free R3-PREF exists anywhere in the repository or its history -- the card and bar furniture only ever arrived in the same generated images as the men -- so the room is recreated empty rather than decomposed. R3-PREF is reference 1 and binding: same camera, same bar trajectory, same card table, same stove depth, same darkness. Candidate only; nothing is promoted and the shipping room still points at R3-PREF.",
+   "gates": {
+    "path": "art/staging/room-03/pref-replica-02/source.png",
+    "kind": "plate",
+    "passed": true,
+    "gates": [
+     {
+      "name": "DIMENSIONS / FORMAT / ALPHA",
+      "failures": [],
+      "notes": [
+       "1536x1024, RGB",
+       "0.0% transparent"
+      ]
+     },
+     {
+      "name": "CLIPPING",
+      "failures": [],
+      "notes": [
+       "not a sprite -- a plate is meant to reach its own edges, so nothing asserted"
+      ]
+     },
+     {
+      "name": "KEY / EDGE CLEANLINESS",
+      "failures": [],
+      "notes": [
+       "no alpha channel -- there is no key to have left behind"
+      ]
+     },
+     {
+      "name": "PLATE CONTENT",
+      "failures": [],
+      "notes": [
+       "no --room given, so nothing was derived. Pass the doc 05 room number."
+      ]
+     }
+    ],
+    "failures": [],
+    "at": "2026-09-13T18:25:18.539Z"
+   },
+   "promoted": false,
+   "recordedAt": "2026-09-13T18:25:18.382Z"
   }
  ],
  "promotions": [

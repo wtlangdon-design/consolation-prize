@@ -1,0 +1,110 @@
+REPAINT THE ROOM IN REFERENCE 1, KEEPING IT THE SAME, AND FIX THREE THINGS.
+
+Reference 1 is very nearly right and is the picture to preserve. It is an empty
+1858 frontier saloon at night, the background plate for a 2D point-and-click
+adventure game. Almost everything in it is correct and must come back unchanged.
+
+This is a REPAIR, not a new picture. Do not reinterpret the room. Do not move the
+furniture. Do not change the camera, the perspective, the palette, the darkness
+or the light. Do not redraw the card table. Do not redraw the stools. Do not
+re-arrange the back bar. Do not open the room out or tidy it.
+
+Three specific things are wrong. Fix those three and leave everything else alone.
+
+======================================================================
+DEFECT 1 -- THERE IS NO LANDING AT THE TOP OF THE STAIRS
+======================================================================
+
+In reference 1 the staircase at the back right rises and simply runs out of the
+top of the picture. There is no platform up there.
+
+This room needs a real LANDING: a flat wooden platform at the head of the stairs,
+fully inside the picture, wide enough and deep enough for a grown man to stand on
+comfortably, with a railing or banister along its open edge and a wall or a door
+behind it. It should read as somewhere a person could be — because in this game
+somebody always is, and he is added later.
+
+Bring the whole stair-and-landing structure DOWN into the frame so the platform,
+its rail and the top steps are all clearly visible above the bar. Nobody is
+standing on it in this picture.
+
+======================================================================
+DEFECT 2 -- THE FAR END OF THE BAR DOES NOT MEET THE FLOOR
+======================================================================
+
+In reference 1 the long counter's far end (the left, stove-side end) has a
+squared end cap and an end panel, which is good and should stay. But underneath
+it the panelling fades into shadow and never arrives at the dirt. The bar appears
+to stop in mid-air.
+
+Finish it as a carpenter would:
+  - carry the end panel and the base moulding all the way DOWN to the dirt floor,
+    with a visible plinth or kick board sitting on the ground;
+  - give the end a corner post or end stile with a proper foot;
+  - terminate the brass foot rail properly at that end, on its own bracket, not
+    running on into empty air;
+  - it must be obvious where the bar stops and what is holding it up.
+
+It must NOT fade, smear, thin away or dissolve into the floor or the wall. The
+rest of the counter's length — its top, its front panels, its mouldings — stays
+exactly as reference 1 has it.
+
+======================================================================
+DEFECT 3 -- THE NEAR END OF THE BAR IS TOO SLIGHT
+======================================================================
+
+In reference 2, the older version of this same room, the bar's NEAR end is a big,
+heavy, close piece of furniture that fills the lower-right of the frame and makes
+the room feel deep. In reference 1 it has thinned out and pulled back.
+
+Bring the near end forward and make it substantial again: a massive counter
+coming toward the viewer at the bottom right, its top edge wide, its front
+panelling tall and detailed, the way reference 2 has it. This is the room's main
+depth device and it should dominate the right-hand side.
+
+Do not change the counter's angle or where it runs to at the far end. Only the
+near end's weight and how close it comes.
+
+======================================================================
+WHAT MUST COME BACK UNCHANGED FROM REFERENCE 1
+======================================================================
+
+  - the room, its size, its camera, its perspective, its proportions;
+  - the packed dirt floor, continuous, hard-trodden, exactly this material;
+  - the card table exactly where it is, with its complete round top, its pedestal
+    and ALL FIVE of its whole chairs, and the props on it: the face-up hand of
+    cards, the bottle, the tin mugs;
+  - the upright piano against the left wall with nobody at it;
+  - the batwing doors at the far left with the blue night street beyond;
+  - the window, the handbill, the wall lamp, the oval portrait, the chandelier;
+  - the iron stove against the back wall with firelight in its door, rearward,
+    beyond the card table;
+  - the back bar: its shelves, its bottles, its mirror, its columns and cornice;
+  - every bar stool, whole, standing on the dirt;
+  - the brass spittoon on the dirt in the near foreground;
+  - the darkness. This is night, lit by lamps, the stove and the chandelier, with
+    warm pools of light and deep shadow between them. It stays dark.
+
+======================================================================
+NOBODY IS IN THIS PICTURE
+======================================================================
+
+No people at all. Not at the card table, not at the bar, not by the stove, not on
+the new landing, not in the mirror, not through a window, not in the distance. No
+silhouettes, no partial figures, no hats, no boots, no coats hung where a man
+was, no person-shaped shadows.
+
+The room is empty and should look naturally so.
+
+======================================================================
+HOW IT IS DRAWN
+======================================================================
+
+Stylised early-1990s graphic-adventure pixel art at a modern source resolution,
+in the tradition of The Secret of Monkey Island -- painted, flat masses, selective
+grain, honest materials, readable at a glance. NOT photorealistic, NOT PBR, NOT
+glossy 3D, NOT AAA concept art, NOT a concept painting. Match reference 1's own
+finish exactly.
+
+Fill the whole frame. No border, no vignette, no text, no watermark, no signature,
+no UI, no labels, no magenta, no framing device of any kind.

@@ -1,0 +1,148 @@
+RECONSTRUCT THE ROOM IN REFERENCE 1, EXACTLY AS IT IS, WITH NOBODY IN IT.
+
+This is not a new room. It is the SAME room, repainted empty. Reference 1 is a
+background plate from a 2D point-and-click adventure game that is already
+approved and already loved; the only thing wrong with it is that nine people are
+painted into it and they must come out.
+
+Your job is to give back that same picture -- same room, same size, same camera,
+same bar, same card table, same stove, same stairs, same piano, same dirt floor,
+same darkness, same warm lamplight -- with every person gone and with the
+furniture and floor they were standing in front of COMPLETED behind them.
+
+Do not redesign anything. Do not improve anything. Do not tidy the room. Do not
+open it out. Do not brighten it. A viewer who knows reference 1 must look at your
+picture and say "yes, that is the same saloon, and now it is empty."
+
+======================================================================
+THE REFERENCES
+======================================================================
+
+REFERENCE 1 -- THE ROOM. BINDING. This is the room you are painting. Its layout,
+its perspective, its proportions, its architecture, its furniture, its palette
+and its light are all correct and none of them may change. Everything you need
+to know about what this room looks like is in this image.
+
+REFERENCE 2 -- THE SAME ROOM WITH NO PEOPLE, AN EARLIER VERSION. Useful for one
+thing only: it shows you this room's walls, dirt floor, stove, piano, stairs,
+doors and lamplight with nobody standing in front of them, so you can see how the
+empty parts of the room are painted. ITS BAR AND ITS CARD TABLE ARE THE WRONG
+ONES -- an older arrangement. Do NOT copy its bar. Do NOT copy its card table.
+Reference 1's bar and card table are the correct ones.
+
+REFERENCE 3 -- THE BLOCKING. Reference 1 with the room's geometry marked: the
+horizon, the bar's trajectory, the feature boxes, and the places where people
+will later be placed. The marked people-boxes tell you WHERE FURNITURE MUST BE
+FINISHED, not where to draw anybody.
+
+REFERENCES 4-9 -- the approved art of this game: the protagonist, another
+character, another room of this game at night, the game running, and the
+project's rendering reference. They fix the drawing vocabulary -- how much
+detail, how the light behaves, how material is described. Do not copy their
+content into this room.
+
+======================================================================
+NOBODY IS IN THIS PICTURE
+======================================================================
+
+Remove, and do not replace: the four men at the card table; the three men at the
+bar; the man by the stove; the man on the landing; anyone in a mirror; anyone
+outside a window; anyone at all.
+
+No figures. No silhouettes. No partial arms or hands. No hats left on chairs as
+a hint of someone. No boots. No coats hanging where a man was. No person-shaped
+shadow on the floor or on the bar that only makes sense if somebody is casting
+it. No reflection of a person in the back-bar mirror.
+
+The room should look NATURALLY EMPTY -- not evacuated, not erased, not cut out.
+An empty saloon between one crowd and the next.
+
+======================================================================
+FINISH THE FURNITURE THE PEOPLE WERE HIDING
+======================================================================
+
+This is the real work. Where a man stood, there must now be a complete, solid,
+physically believable piece of room. No gaps, no soft patches, no vague areas.
+
+THE CARD TABLE, complete:
+  - the whole round top, unbroken, with its full far rim and full near rim,
+    its apron and its pedestal base standing on the dirt;
+  - EVERY CHAIR that belongs to it, drawn whole -- seat, back, legs, stretchers
+    -- including the chairs the seated men were hiding, and including one chair
+    at the near side of the table for the empty fifth place;
+  - four places that a seated man could plausibly occupy: two on the far side
+    facing the room, two on the near side with their backs to the viewer;
+  - the dirt floor continuous under and behind every chair;
+  - the props already on the table in reference 1 stay: the abandoned FACE-UP
+    hand of cards lying on the near part of the table, the scattered chips, the
+    bottle, the tin mugs. The face-up hand belongs to the room, not to a player,
+    and it stays exactly where reference 1 has it.
+
+THE BAR, complete:
+  - the long counter running back into the room on exactly the trajectory it has
+    in reference 1, with an unbroken top and an unbroken panelled front along its
+    whole length -- including the stretches the three men were leaning on;
+  - the back bar behind it complete: shelves, bottles, the mirror, its columns
+    and cornice, including the parts the men's heads and shoulders were covering;
+  - EVERY STOOL drawn whole, standing on the dirt, including the one the seated
+    man was on;
+  - the brass foot rail complete and CONTINUOUS along the counter's base,
+    properly carried on its brackets, including the stretch behind the standing
+    man's boots;
+  - the kick board and base moulding complete along the whole run;
+  - the dirt floor continuous in front of the bar along its entire length, right
+    to the bottom-right of the frame where the nearest man was standing. No
+    wooden island, no patch of a different material, no dark footprint.
+
+======================================================================
+THE STOVE-SIDE END OF THE BAR -- READ THIS TWICE
+======================================================================
+
+In reference 1 the far (left, stove-side) end of the counter PETERS OUT. It thins
+and dissolves into the floor and wall near the stove instead of ending. That is
+the one thing in reference 1 that is wrong, and it is wrong because a man was
+standing in front of it hiding the problem. He is gone now, so it must be built.
+
+Give that end a real physical resolution. Any of these is correct:
+  - a proper end stile and moulded cap that closes the counter off;
+  - a short return running back to the wall;
+  - the counter continuing cleanly behind the stove and its pipe.
+
+It must NOT fade out, smear into the dirt, thin to nothing, or leave the foot
+rail running on into empty air. A carpenter built this bar and it has an end.
+
+======================================================================
+WHAT MUST STAY EXACTLY AS REFERENCE 1 HAS IT
+======================================================================
+
+  - the room's size and the feeling of a big, solid, heavily built interior;
+  - the camera, the horizon and the perspective;
+  - the long diagonal bar as the room's main depth device, at its angle and in
+    its position, dominating the right half;
+  - the card table where it is in the left-of-centre middle ground, in front of
+    the piano;
+  - the iron stove REARWARD, against the back wall, beyond the card table;
+  - the staircase at the back right and its landing above, empty;
+  - the upright piano against the left wall with NOBODY AT IT and no stool
+    positioned as though someone just got up from playing;
+  - the batwing doors at the far left with the blue night street beyond;
+  - the window, the handbill, the oval portrait, the oil chandelier, the brass
+    spittoon on the dirt;
+  - the packed-earth dirt floor, continuous, hard-trodden, no boards;
+  - the darkness: this is night, lit only by lamps, the stove and the chandelier.
+    Warm pools of practical light and deep shadow between them. It stays dark.
+  - the dense, occupied, lived-in feeling of a room that is used hard, even
+    though at this moment it happens to be empty.
+
+======================================================================
+HOW IT IS DRAWN
+======================================================================
+
+Stylised early-1990s graphic-adventure pixel art at a modern source resolution,
+in the tradition of The Secret of Monkey Island -- painted, flat masses, selective
+grain, honest materials, readable at a glance. NOT photorealistic, NOT PBR, NOT
+glossy 3D, NOT AAA concept art, NOT a concept painting, NOT a flat stage-set
+backdrop. Match the finish of references 1 and 6.
+
+Fill the whole frame. No border, no vignette, no text, no watermark, no signature,
+no UI, no labels, no magenta, no framing device of any kind.

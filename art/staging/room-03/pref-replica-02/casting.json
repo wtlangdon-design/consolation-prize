@@ -1,0 +1,47 @@
+{
+ "assetId": "room-03-pref-replica-plate",
+ "attempt": 2,
+ "promptFile": "proofs/room-03/prompts/pref-replica-plate-02.txt",
+ "out": "art/staging/room-03/pref-replica-02/source.png",
+ "size": "1536x1024",
+ "blueprint": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+ "blueprintHash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6",
+ "references": [
+  {
+   "path": "art/staging/room-03/pref-replica-01/source.png",
+   "hash": "17bbe34f3b98046b374ee428144c424fc912988107c92e4b271a017ad9113862"
+  },
+  {
+   "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+   "hash": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
+  },
+  {
+   "path": "proofs/room-03/pref-replica/blocking-on-r3pref.png",
+   "hash": "6649e1c602e141d1db29086cc43ae5728b2aa25fc5149fd5e809112299f3aa28"
+  },
+  {
+   "path": "art/actors/thad-stand-front/stand-00.png",
+   "hash": "d84aca95c0444d0677f694070eaf9a6889d93288312ed36f33cda277faf11d05"
+  },
+  {
+   "path": "art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png",
+   "hash": "0f3a0423fe4c9e093c70a80a299824bdc18b1294bcf26a5eebb705978b0e879b"
+  },
+  {
+   "path": "art/backgrounds/room-05-assay-office.png",
+   "hash": "92e3f8f5b70a98224f6126aade96c39c6e71256091f0314917ba28d044fda46c"
+  },
+  {
+   "path": "renders/room-01-in-engine-1920x1080.png",
+   "hash": "f6b668db6d67f934fb2ba5d01f6e1748faf776746cb58af136afec2b2f48db79"
+  },
+  {
+   "path": "reference/casting/room-01-casting-master.png",
+   "hash": "b03795dd72925e0a9163cad6aec066dbbca788b1367e6d6c24ab8d0262190787"
+  },
+  {
+   "path": "art/backgrounds/room-01-stage-road.png",
+   "hash": "3e4582227ac85decee41f50b8e8d5dd0c9e8a2fef3433464ddca8271c409af0b"
+  }
+ ]
+}
