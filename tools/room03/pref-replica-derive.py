@@ -6,8 +6,15 @@ Zero image operations. The endpoint's widest size is 3:2 and the play area is
 2.22:1, so a band of the 1536x1024 source has to be chosen. That choice is a
 real decision and it is recorded here rather than buried in a magic number.
 
+THE GEOMETRY PASS CHANGED THE ANSWER. pref-replica-02's landmarks disagreed
+about the band by 280 source rows; pref-geometry-02 was composed against the
+engine's own arithmetic and its landmarks now agree about all but one. The band
+is the full source width -- 1536 x 691, the most rows that can reach a 1920-wide
+room -- and it holds 15 of 18 features whole. What it does not hold is recorded
+below and not smoothed over.
+
 HOW THE BAND WAS CHOSEN, and the measurement that decided it. A band is ONE
-number, and the replica's landmarks do not agree about what it should be. Each
+number, and pref-replica-02's landmarks did not agree about what it should be. Each
 was measured in the source and asked where it would have to sit for the band to
 put it where R3-PREF has it:
 
@@ -37,13 +44,13 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[2]
-SRC = ROOT / 'art/staging/room-03/pref-replica-02/source.png'
+SRC = ROOT / 'art/staging/room-03/pref-geometry-02/source.png'
 PREF = ROOT / 'art/staging/room-03/rebuild-05/plate-room-03-repaired.png'
 THAD = ROOT / 'art/actors/thad-stand-front/stand-00.png'
-OUT = ROOT / 'art/staging/room-03/pref-replica-02'
+OUT = ROOT / 'art/staging/room-03/pref-geometry-02'
 PROOF = ROOT / 'proofs/room-03/pref-replica'
 
-BAND = dict(x=32, y=120, w=1472, h=662)     # 1472/662 = 2.2236, target 2.2222
+BAND = dict(x=0, y=109, w=1536, h=691)     # 1472/662 = 2.2236, target 2.2222
 EYE, K = 239.0, 0.8494
 
 # Where Thad will actually walk, read off the blocking guide. Proof only.
@@ -79,7 +86,7 @@ def main():
     ab.save(PROOF / 'A-B-r3pref-over-replica.png')
 
     # C: the bar, both rooms, with the stove-side terminus and the foreground
-    bar = (1100, 180, 1920, 864)
+    bar = (940, 300, 1920, 864)
     cw, ch = bar[2] - bar[0], bar[3] - bar[1]
     c = Image.new('RGB', (cw, ch * 2 + 8), (140, 20, 20))
     c.paste(pref.crop(bar), (0, 0))
@@ -87,7 +94,7 @@ def main():
     c.resize((cw * 3 // 4, (ch * 2 + 8) * 3 // 4), Image.LANCZOS).save(PROOF / 'C-bar.png')
 
     # D: the card area, both rooms
-    card = (560, 300, 1240, 800)
+    card = (380, 300, 1060, 800)
     cw, ch = card[2] - card[0], card[3] - card[1]
     d = Image.new('RGB', (cw, ch * 2 + 8), (140, 20, 20))
     d.paste(pref.crop(card), (0, 0))

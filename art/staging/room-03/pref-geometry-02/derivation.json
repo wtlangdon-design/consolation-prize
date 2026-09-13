@@ -1,0 +1,97 @@
+{
+ "schema": 1,
+ "note": "The R3-PREF people-free replica candidate. CANDIDATE ONLY -- not promoted, not referenced by any room JSON, not deployed. R3-PREF remains shipping.",
+ "source": {
+  "path": "art/staging/room-03/pref-geometry-02/source.png",
+  "sha256": "3ea07bbab63dc6dd4e5456f2d3c2e831f9424cc4575b81df06363b18dde5bc7e",
+  "size": [
+   1536,
+   1024
+  ],
+  "ledger": "room-03-pref-replica-plate attempt 2"
+ },
+ "blueprint": {
+  "path": "art/staging/room-03/rebuild-05/plate-room-03-repaired.png",
+  "sha256": "713e6580060d69a57fcd9f21bc1bad9123ccef2953aa09f857e69f4ff62b88c6"
+ },
+ "band": {
+  "x": 0,
+  "y": 109,
+  "w": 1536,
+  "h": 691
+ },
+ "bandWhy": "the card table and the bar agree on it within 25 rows and they are the room's subject; the chandelier (source y36) and the spittoon (source y906) fall outside it and are extractable as props later with no image operation",
+ "landmarkBands": {
+  "cardTableTop": 133,
+  "barFarEnd": 108,
+  "chandelier": 21,
+  "spittoon": 301
+ },
+ "resample": {
+  "algorithm": "lanczos3",
+  "from": [
+   1536,
+   691
+  ],
+  "to": [
+   1920,
+   864
+  ]
+ },
+ "derived": {
+  "path": "art/staging/room-03/pref-geometry-02/candidate-1920x864.png",
+  "sha256": "34b77bd34b06d723a2d170d79f1a9db052ae96e2ef584bd74f65067df8eb3567",
+  "size": [
+   1920,
+   864
+  ]
+ },
+ "thadProof": [
+  {
+   "at": [
+    300,
+    800
+   ],
+   "where": "foreground left",
+   "drawnHeight": 476.5
+  },
+  {
+   "at": [
+    700,
+    700
+   ],
+   "where": "near the card table",
+   "drawnHeight": 391.6
+  },
+  {
+   "at": [
+    1080,
+    620
+   ],
+   "where": "stove approach",
+   "drawnHeight": 323.6
+  },
+  {
+   "at": [
+    1450,
+    700
+   ],
+   "where": "at the bar",
+   "drawnHeight": 391.6
+  },
+  {
+   "at": [
+    250,
+    560
+   ],
+   "where": "the doors",
+   "drawnHeight": 272.7
+  }
+ ],
+ "proofs": [
+  "proofs/room-03/pref-replica/A-B-r3pref-over-replica.png",
+  "proofs/room-03/pref-replica/C-bar.png",
+  "proofs/room-03/pref-replica/D-card.png",
+  "proofs/room-03/pref-replica/E-thad-scale.png"
+ ]
+}

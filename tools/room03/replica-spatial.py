@@ -13,12 +13,23 @@ own camera is fitted from its FOUR BAR STOOLS, which are the cleanest anchors
 in the frame: one object type, known real height, four depths, each with a
 visible seat and a visible floor contact.
 
-    seat 0.75 m drawn 160 px with feet on row 640
-                       200 px              727
-                       233 px              820
+THE GEOMETRY-CORRECTED PLATE HAS ITS OWN CAMERA AGAIN, and it is re-fitted
+rather than carried over, for the same reason as last time.
 
-    h(y) = c (y - E)  ->  E = 292,  c = 0.460 for 0.75 m
-    a 1.75 m man:         k = 0.460 * 1.75/0.75 = 1.073
+    seat 0.75 m drawn 120 px with feet on row 660
+                       130 px              700
+                       145 px              745
+                       160 px              800
+
+    h(y) = c (y - E)  ->  E = 240,  c = 0.2857 for 0.75 m
+    a 1.75 m man:         k = 0.667
+
+The horizon lands on 240 against R3-PREF's 239, which is the vertical
+recomposition doing what it was asked to do -- the eye line did not move. k did:
+0.667 against R3-PREF's 0.8494, so a man at row 800 is 373 px here and 476 px
+there. Compressing the room's vertical spread by a third makes everything in it
+about a fifth smaller, and that is the price of fitting the chandelier, the
+landing and the man who stands on it into a band 864 rows deep.
 
 Cross-checked against the card-table chairs (0.95 m to the back top) which give
 k = 0.99, so k is carried as 1.03 +/- 5% and every clearance below is computed
@@ -57,11 +68,11 @@ from pathlib import Path
 from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[2]
-CAND = ROOT / 'art/staging/room-03/pref-replica-02/candidate-1920x864.png'
+CAND = ROOT / 'art/staging/room-03/pref-geometry-02/candidate-1920x864.png'
 OUT = ROOT / 'proofs/room-03/pref-replica'
 
-EYE, K = 292.0, 1.03          # the replica's own camera, fitted from its stools
-K_HIGH = 1.073                # the pessimistic end, used for every clearance
+EYE, K = 240.0, 0.667         # this plate's own camera, fitted from its four stools
+K_HIGH = 0.70                 # the pessimistic end, used for every clearance
 SHOULDER = 0.34               # a man's shoulder width as a fraction of his height
 CLEAR = 12                    # px of daylight a route must keep from any solid
 
@@ -78,33 +89,35 @@ def foot(x, y, k=K_HIGH):
 
 # ---- WHAT IS IN THE PICTURE, measured off candidate-1920x864.png -------------
 FEATURES = {
-    'front_doors':   dict(rect=(0, 200, 290, 780), kind='exit',   what='batwing doors, exit WEST to Main Street'),
-    'handbill':      dict(rect=(300, 220, 350, 300), kind='B',    what='the Rules of the Assay, carries Rule 3'),
-    'window':        dict(rect=(360, 60, 620, 390), kind='B',     what='window onto the night street'),
-    'piano':         dict(rect=(500, 210, 730, 570), kind='C',    what='A8 -- tuned for the filing fee, REPEATABLE; OPEN raises the lid'),
-    'portrait':      dict(rect=(830, 100, 930, 240), kind='B',    what='the oval portrait of a forgotten man'),
-    'card_table':    dict(rect=(790, 350, 1100, 440), kind='B',   what='the round top, its rims and apron'),
-    'cards':         dict(rect=(900, 385, 990, 415), kind='B',    what='the abandoned face-up fifth hand -- belongs to the ROOM'),
-    'stove':         dict(rect=(1130, 230, 1200, 450), kind='C',  what='fire state; doc 16 note 4 keeps its third LISTEN reversed'),
-    'back_room_door': dict(rect=(1210, 150, 1290, 430), kind='exit', what='exit to the back room'),
-    'stairs':        dict(rect=(1290, 0, 1490, 390), kind='B',    what='the staircase; its LANDING is above the frame'),
-    'bar':           dict(rect=(1255, 370, 1920, 700), kind='B',  what='the long counter, its far end now structurally resolved'),
-    'back_bar':      dict(rect=(1500, 120, 1920, 400), kind='B',  what='shelves, bottles, mirror'),
+    'front_doors':   dict(rect=(0, 350, 290, 790), kind='exit',   what='batwing doors, exit WEST to Main Street'),
+    'handbill':      dict(rect=(318, 298, 362, 362), kind='B',    what='the Rules of the Assay, carries Rule 3'),
+    'window':        dict(rect=(340, 120, 460, 390), kind='B',    what='window onto the night street'),
+    'piano':         dict(rect=(515, 265, 735, 565), kind='C',    what='A8 -- tuned for the filing fee, REPEATABLE; OPEN raises the lid'),
+    'chandelier':    dict(rect=(780, 15, 1065, 165), kind='C',    what='NOW INSIDE THE BAND -- seven candles, a light source doc 35 names'),
+    'portrait':      dict(rect=(900, 215, 990, 292), kind='B',    what='the oval portrait of a forgotten man'),
+    'card_table':    dict(rect=(690, 410, 1015, 475), kind='B',   what='the round top, its rims and apron'),
+    'cards':         dict(rect=(800, 440, 890, 470), kind='B',    what='the abandoned face-up fifth hand -- belongs to the ROOM'),
+    'stove':         dict(rect=(1045, 335, 1115, 480), kind='C',  what='fire state; doc 16 note 4 keeps its third LISTEN reversed'),
+    'back_room_door': dict(rect=(1120, 278, 1185, 452), kind='exit', what='exit to the back room'),
+    'stairs':        dict(rect=(1230, 60, 1445, 435), kind='B',   what='the staircase, now connecting to a real landing'),
+    'landing':       dict(rect=(1230, 55, 1400, 175), kind='B',   what='NOW INSIDE THE BAND -- a platform with a balustrade and headroom'),
+    'bar':           dict(rect=(1170, 410, 1920, 640), kind='B',  what='the long counter'),
+    'back_bar':      dict(rect=(1420, 125, 1920, 425), kind='B',  what='shelves, bottles, mirror'),
 }
 
 # ---- THE NINE, AND DEKE. Placeholders only; no art, nothing ships. -----------
 # Each is (x at his feet, y of his floor contact or seat contact, pose).
 PEOPLE = [
-    dict(id='card_2', x=840, y=560, pose='seated FAR side on the far-left chair, facing the room -- THE CARD SHARP'),
-    dict(id='card_3', x=1020, y=560, pose='seated FAR side on the far-right chair, facing the room'),
-    dict(id='card_1', x=778, y=632, pose='seated NEAR-LEFT, three-quarter BACK to camera'),
-    dict(id='card_4', x=1112, y=632, pose='seated NEAR-RIGHT, three-quarter BACK to camera'),
-    dict(id='bar_1', x=1290, y=642, pose='SEATED on the far stool -- THE ONE-STRIKE MAN'),
-    dict(id='bar_2', x=1332, y=722, pose='LEANING, forearm on the counter, feet on the dirt'),
-    dict(id='bar_3', x=1500, y=845, pose='STANDING, drinking, on the near dirt'),
-    dict(id='stove_man', x=1098, y=602, pose='beside the stove, hands open to the iron'),
-    dict(id='landing_man', x=1390, y=120, pose='ON THE LANDING -- see the failure note'),
-    dict(id='deke_RESERVED', x=560, y=706, pose='RESERVED, not implemented: A3 sells Thad a claim here'),
+    dict(id='card_2', x=745, y=578, pose='seated FAR side, facing the room -- THE CARD SHARP'),
+    dict(id='card_3', x=945, y=578, pose='seated FAR side, facing the room'),
+    dict(id='card_1', x=695, y=650, pose='seated NEAR-LEFT, three-quarter BACK to camera'),
+    dict(id='card_4', x=1045, y=650, pose='seated NEAR-RIGHT, three-quarter BACK to camera'),
+    dict(id='bar_1', x=980, y=662, pose='SEATED on the far stool -- THE ONE-STRIKE MAN'),
+    dict(id='bar_2', x=1115, y=748, pose='LEANING, forearm on the counter'),
+    dict(id='bar_3', x=1330, y=856, pose='STANDING, drinking, on the near dirt'),
+    dict(id='stove_man', x=1015, y=640, pose='beside the stove, hands open to the iron'),
+    dict(id='landing_man', x=1305, y=172, pose='ON THE LANDING, and this time he fits'),
+    dict(id='deke_RESERVED', x=450, y=724, pose='RESERVED, not implemented: A3 sells Thad a claim here'),
 ]
 SEATED = {'card_1', 'card_2', 'card_3', 'card_4', 'bar_1'}
 
@@ -117,42 +130,45 @@ SEATED = {'card_1', 'card_2', 'card_3', 'card_4', 'bar_1'}
 # drawn rectangle. A chair's drawn rect reaches the top of its back; the ground
 # it takes up is its four feet. Using the drawn rect is how the first run of
 # this audit reported sixteen failures that were not there.
-WALK = [(140, 590), (700, 588), (1180, 600), (1258, 624), (1420, 744),
-        (1580, 864), (140, 864)]
+WALK = [(60, 618), (700, 610), (1140, 622), (1250, 648), (1500, 748),
+        (1740, 860), (60, 864)]
 SOLID = {
-    'piano base':        (490, 520, 748, 582),
-    'chair far-left':    (795, 530, 885, 575),
-    'chair far-right':   (975, 530, 1065, 575),
-    'chair near-left':   (715, 575, 840, 645),
-    'chair near-right': (1050, 575, 1175, 645),
-    'chair fifth place': (885, 630, 1015, 710),
-    'table pedestal':    (890, 575, 1005, 625),
-    'stove base':       (1125, 400, 1205, 465),
+    'piano base':        (515, 500, 735, 566),
+    'chair far-left':    (700, 545, 790, 590),
+    'chair far-right':   (900, 545, 990, 590),
+    'chair near-left':   (630, 592, 760, 662),
+    'chair near-right':  (980, 592, 1110, 662),
+    'chair fifth place': (810, 642, 940, 716),
+    'table pedestal':    (815, 592, 925, 652),
+    'stove base':       (1045, 440, 1115, 482),
 }
 
 # ---- WHERE THAD STANDS TO DO EACH THING -------------------------------------
 APPROACH = {
-    'front_doors':    (210, 700),
+    'front_doors':    (200, 700),
     'handbill':       (330, 660),
-    'window':         (470, 640),
-    'piano':          (628, 636),
-    'portrait':       (880, 760),
-    'card_table':     (945, 742),
-    'cards':          (945, 742),
-    'card_2':         (900, 742),
-    'card_1':         (700, 690),
-    'card_3':         (1030, 742),
-    'card_4':         (1200, 742),
-    'stove':          (1240, 700),
-    'stove_man':      (1240, 700),
-    'back_room_door': (1250, 712),
-    'stairs':         (1290, 732),
-    'bar':            (1350, 762),
-    'bar_1':          (1288, 722),
-    'bar_2':          (1400, 790),
-    'bar_3':          (1560, 862),
-    'back_bar':       (1420, 820),
-    'deke_RESERVED':  (640, 760),
+    'window':         (420, 648),
+    'piano':          (565, 634),
+    'chandelier':     (880, 760),
+    'portrait':       (880, 780),
+    'card_table':     (860, 760),
+    'cards':          (860, 760),
+    'stove':          (1165, 682),
+    'stove_man':      (1165, 682),
+    'back_room_door': (1180, 690),
+    'stairs':         (1210, 660),
+    'landing':        (1210, 680),
+    'bar':            (1230, 700),
+    'back_bar':       (1350, 790),
+    'card_2':         (800, 760),
+    'card_3':         (960, 760),
+    'card_1':         (640, 700),
+    'card_4':         (1075, 745),
+    'bar_1':          (1050, 700),
+    'bar_2':          (1180, 790),
+    'bar_3':          (1420, 860),
+    'landing_man':    (1210, 680),
+    'deke_RESERVED':  (500, 780),
 }
 
 
@@ -193,6 +209,9 @@ def occupied():
     """
     out = []
     for p in PEOPLE:
+        # THE LANDING MAN IS NOT ON THE GROUND PLANE. He stands a storey up, so
+        # he occupies no dirt and blocks nothing -- and his drawn height is set
+        # by his distance, not by k(y - EYE), which would make him enormous.
         if p['id'].startswith('deke') or p['id'] == 'landing_man':
             continue
         hh = h(p['y']) * (0.78 if p['id'] in SEATED else 1.0)
@@ -294,16 +313,15 @@ def main():
         # conversationVerbs, so he answers at the same 2.0 body heights a LOOK
         # does. Giving him his own rect is what lets the engine rule apply to
         # him instead of falling back to a staged position this audit invented.
-        if person is not None and f is None and person['id'] != 'landing_man':
-            hh = h(person['y']) * (0.78 if person['id'] in SEATED else 1.0)
+        if person is not None and f is None:
+            hh = 160.0 if person['id'] == 'landing_man' else \
+                h(person['y']) * (0.78 if person['id'] in SEATED else 1.0)
             w = SHOULDER * hh
             f = dict(rect=(person['x'] - w / 2, person['y'] - hh,
                            person['x'] + w / 2, person['y']),
                      kind='D', what=person['pose'])
         ap = APPROACH.get(t)
         visible = True
-        if person and person['id'] == 'landing_man':
-            visible = False
         clickable = visible
         needs = not (f and f['kind'] == 'B' and t in ('portrait', 'back_bar'))
         if ap is None:
@@ -354,9 +372,9 @@ def main():
         d.rectangle([a, b, c, e], outline=(255, 120, 60, 170), width=2)
         d.text((a + 4, b + 4), name, fill=(255, 160, 100, 230))
     for p in PEOPLE:
-        hh = h(p['y']) * (0.78 if p['id'] in SEATED else 1.0)
+        hh = 160.0 if p['id'] == 'landing_man' else h(p['y']) * (0.78 if p['id'] in SEATED else 1.0)
         w = SHOULDER * hh
-        col = (255, 90, 90, 200) if p['id'] == 'landing_man' else \
+        col = (120, 255, 255, 220) if p['id'] == 'landing_man' else \
               (150, 255, 150, 190) if p['id'].startswith('deke') else (255, 100, 255, 190)
         d.rectangle([p['x'] - w / 2, p['y'] - hh, p['x'] + w / 2, p['y']],
                     fill=(col[0], col[1], col[2], 60), outline=col, width=2)
@@ -364,7 +382,7 @@ def main():
     for t, ap in APPROACH.items():
         d.ellipse([ap[0] - 7, ap[1] - 7, ap[0] + 7, ap[1] + 7],
                   outline=(255, 240, 120, 235), width=3)
-    for t in ('piano', 'bar', 'card_table', 'stove', 'front_doors'):
+    for t in ('piano', 'bar', 'card_table', 'stove', 'front_doors', 'landing'):
         _, _, path = route(start, APPROACH[t], [q for q in people if q[0] != t])
         d.line(path, fill=(255, 255, 255, 160), width=3)
     proof.save(OUT / 'G-spatial-proof.png')
@@ -403,6 +421,18 @@ def main():
                walk=WALK, solid=SOLID, people=PEOPLE, approach=APPROACH, matrix=rows)
     (OUT / 'spatial.json').write_text(json.dumps(rec, indent=1) + '\n')
 
+    # THE SPITTOON IS NOT IN FEATURES BECAUSE IT IS NOT IN THE PICTURE, and a
+    # target that passes by being left off the list is the worst kind of green.
+    # It is a canonical hotspot in nugget-candidate.json AND the room's only
+    # occlusionPlane, it is drawn in the source at rows 782-908, and the band
+    # ends at 800. It is carried here as an explicit failure.
+    rows.append(dict(target='spittoon', visible=False, clickable=False,
+                     needsApproach=True, approachExists=None, approach=None,
+                     routeOk=None, radius=None, materialProblem=True,
+                     note='drawn at source rows 782-908; the band ends at 800, so its '
+                          'lower 108 rows fall outside the plate. Canonical hotspot and '
+                          'the room\'s only occlusion plane.'))
+
     print('ACCESS MATRIX  (with all nine placeholders standing)\n')
     print(f'{"target":<16}{"vis":>5}{"click":>7}{"needs":>7}{"legal":>7}{"route":>7}  approach')
     fails = 0
@@ -414,6 +444,11 @@ def main():
         # ENGINE would walk him to cannot be reached. It does not fail because
         # a staging position this audit authored is awkward -- that position is
         # a suggestion for Phase C, and the engine never sends him to it.
+        if r.get('materialProblem'):
+            fails += 1
+            print(f'  {r["target"]:<16}{"FAIL":>5}{"FAIL":>7}{"Y":>7}{"-":>7}{"-":>7}  '
+                  f'{r["note"]}')
+            continue
         needs_walk = bool(r.get('radius') and r['radius']['walkRequired'])
         material = (not r['visible']) or (needs_walk and r['routeOk'] is False) \
             or (r['routeOk'] is False and not r.get('radius'))

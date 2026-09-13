@@ -1,0 +1,98 @@
+KEEP THE ROOM IN REFERENCE 1 EXACTLY AS IT IS AND FIX TWO THINGS.
+
+Reference 1 is an empty 1858 frontier saloon at night, the background plate for
+a 2D point-and-click adventure game. Its composition is now correct and must be
+preserved: the ceiling height, the chandelier's position, the stair landing and
+its headroom, the card table, the piano, the stove, the bar's angle and depth,
+the dirt floor, the darkness and the warm lamplight are all right.
+
+This is a REPAIR, not a new picture. Do not recompose the room. Do not move the
+furniture. Do not change the camera, the perspective or the light. Two things
+are wrong. Fix those two and leave everything else alone.
+
+======================================================================
+DEFECT 1 -- THE SPITTOON IS TOO LOW IN THE PICTURE
+======================================================================
+
+In reference 1 the brass spittoon stands on the dirt very near the bottom edge
+of the frame. The game can only show a wide shallow slice of this room and the
+spittoon falls below it.
+
+Move the spittoon UP THE ROOM -- further back on the dirt floor, so it sits
+roughly a sixth of the picture's height higher than it does now, in open floor
+in front of the bar rather than at the frame's bottom edge. Draw it slightly
+smaller to match its new depth. It is the same brass spittoon, standing on the
+same dirt, just further from the viewer.
+
+It must not end up under the bar, under a stool, or against the counter, and it
+must not sit in the middle of the open walking floor on the left. Near-middle,
+right of centre, on clean dirt, clear of the furniture.
+
+======================================================================
+DEFECT 2 -- THE FAR END OF THE BAR IS NOT FINISHED
+======================================================================
+
+REFERENCE 2 SHOWS HOW THIS BAR'S FAR END IS SUPPOSED TO LOOK. In reference 2
+the counter's far (left, stove-side) end has a squared end cap, a corner end
+stile, the front panelling carried all the way DOWN to the dirt, a base plinth
+or kick board sitting on the ground, and the brass foot rail terminating on its
+own bracket. It is obvious where the bar stops and what holds it up.
+
+In reference 1 that end has the cap and the stile but the panelling below it
+fades into shadow and never arrives at the floor, so the bar appears to stop in
+mid-air.
+
+Finish it the way reference 2 has it:
+  - carry the end panel and the base moulding DOWN to the dirt;
+  - a visible plinth or kick board sitting on the ground;
+  - the corner post with a proper foot;
+  - the brass foot rail terminating on its own bracket, not running on into
+    empty air.
+
+It must NOT fade, smear, thin away or dissolve into the floor or the wall. The
+rest of the counter -- its top, its length, its angle, its front panels, its
+mouldings, the back bar behind it -- stays exactly as reference 1 has it.
+
+======================================================================
+WHAT MUST COME BACK UNCHANGED FROM REFERENCE 1
+======================================================================
+
+  - the whole vertical composition: the ceiling height, the chandelier hanging
+    where it hangs with its chains, and the stair landing with the clear
+    headroom above it;
+  - the landing: a wooden platform at the head of the stairs with its
+    balustrade and the door behind it, with room above for a man to stand;
+  - the card table exactly where it is, with its complete round top, its
+    pedestal and ALL FIVE of its whole chairs, and the props on it -- the
+    face-up hand of cards, the bottle, the tin mugs;
+  - the upright piano against the left wall with nobody at it;
+  - the batwing doors far left with the blue night street beyond;
+  - the window, the handbill, the wall lamp, the oval portrait;
+  - the iron stove against the back wall with firelight in its door, and the
+    back-room door beside it;
+  - the staircase, the back bar, its shelves, its bottles, its mirror;
+  - every bar stool, whole, standing on the dirt;
+  - the packed dirt floor, continuous, hard-trodden;
+  - the darkness. Night, lit by lamps, the stove and the chandelier, warm pools
+    and deep shadow between them. It stays dark.
+
+======================================================================
+NOBODY IS IN THIS PICTURE
+======================================================================
+
+No people at all. Not at the card table, not at the bar, not by the stove, not
+on the landing, not in the mirror, not through a window, not in the distance.
+No silhouettes, no partial figures, no hats, no boots, no coats hung where a man
+was, no person-shaped shadows. The room is empty and looks naturally so.
+
+======================================================================
+HOW IT IS DRAWN
+======================================================================
+
+Stylised early-1990s graphic-adventure pixel art at a modern source resolution,
+in the tradition of The Secret of Monkey Island -- painted, flat masses,
+selective grain, honest materials. NOT photorealistic, NOT PBR, NOT glossy 3D,
+NOT AAA concept art. Match reference 1's own finish exactly.
+
+Fill the whole frame. No border, no vignette, no text, no watermark, no
+signature, no UI, no labels, no magenta, no guide lines and no framing device.

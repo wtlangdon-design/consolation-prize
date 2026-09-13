@@ -1,0 +1,219 @@
+{
+ "schema": 1,
+ "note": "Engine-fit composition guide. Zero image operations.",
+ "source": [
+  1536,
+  1024
+ ],
+ "band": {
+  "x": 0,
+  "y": 166,
+  "w": 1536,
+  "h": 691
+ },
+ "bandWhy": "PLAY_HEIGHT 864 is fixed and the camera scrolls in X only, so 1536 * 864/1920 = 691 rows is everything that can reach the screen",
+ "roomFromSource": "room_y = (source_y - 166) * 864/691",
+ "camera": {
+  "eyeY": 239.0,
+  "k": 0.8494,
+  "carriedFrom": "R3-PREF"
+ },
+ "featuresRoomCoords": {
+  "CEILING BEAM": [
+   980,
+   8,
+   1560,
+   48
+  ],
+  "THE LANDING": [
+   1240,
+   175,
+   1600,
+   262
+  ],
+  "THE STAIRCASE": [
+   1210,
+   240,
+   1600,
+   480
+  ],
+  "THE CHANDELIER": [
+   770,
+   25,
+   1060,
+   175
+  ],
+  "FRONT DOORS  exit": [
+   0,
+   230,
+   300,
+   800
+  ],
+  "THE WINDOW": [
+   360,
+   120,
+   620,
+   400
+  ],
+  "THE HANDBILL": [
+   300,
+   250,
+   355,
+   335
+  ],
+  "THE PIANO": [
+   480,
+   270,
+   735,
+   600
+  ],
+  "THE PORTRAIT": [
+   830,
+   145,
+   935,
+   265
+  ],
+  "THE CARD TABLE": [
+   790,
+   395,
+   1105,
+   485
+  ],
+  "CARD CHAIRS": [
+   700,
+   375,
+   1180,
+   700
+  ],
+  "THE STOVE": [
+   1090,
+   250,
+   1200,
+   470
+  ],
+  "BACK ROOM DOOR exit": [
+   1205,
+   185,
+   1290,
+   450
+  ],
+  "THE BAR": [
+   1250,
+   425,
+   1920,
+   730
+  ],
+  "BACK BAR + MIRROR": [
+   1480,
+   150,
+   1920,
+   425
+  ],
+  "BAR STOOLS": [
+   1255,
+   520,
+   1790,
+   815
+  ],
+  "THE SPITTOON": [
+   1140,
+   755,
+   1265,
+   855
+  ],
+  "FOREGROUND DIRT": [
+   0,
+   700,
+   1920,
+   864
+  ]
+ },
+ "peopleRoomCoords": {
+  "landing man": [
+   1359,
+   82,
+   1421,
+   262
+  ],
+  "stove man": [
+   1023,
+   293,
+   1127,
+   600
+  ],
+  "card_2 seat": [
+   819,
+   361,
+   901,
+   600
+  ],
+  "card_3 seat": [
+   989,
+   361,
+   1071,
+   600
+  ],
+  "card_1 seat": [
+   741,
+   385,
+   839,
+   672
+  ],
+  "card_4 seat": [
+   1056,
+   385,
+   1154,
+   672
+  ],
+  "bar_1 stool": [
+   1249,
+   391,
+   1351,
+   690
+  ],
+  "bar_2 lean": [
+   1325,
+   317,
+   1475,
+   760
+  ],
+  "bar_3 stand": [
+   1532,
+   330,
+   1708,
+   845
+  ],
+  "THAD rear": [
+   582,
+   299,
+   698,
+   640
+  ],
+  "THAD mid": [
+   805,
+   317,
+   955,
+   760
+  ],
+  "THAD near": [
+   312,
+   331,
+   488,
+   850
+  ],
+  "DEKE reserved": [
+   491,
+   311,
+   629,
+   720
+  ]
+ },
+ "landingHeadroom": {
+  "landingFloorRoomY": 262,
+  "ceilingRoomY": 48,
+  "manHeightRoomPx": 180,
+  "manHeightWhy": "authored, not from the camera -- he is not on the ground plane; R3-PREF used 168",
+  "headroomRoomPx": 214,
+  "fits": true
+ }
+}

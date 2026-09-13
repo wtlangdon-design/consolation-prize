@@ -31,7 +31,9 @@ import { runGates } from '../art/gates.mjs';
 import { edit, hashFile } from '../art/openai-image.mjs';
 import { assertRecordable, attachGates, budgetFor, record } from '../art/staging.mjs';
 
-const ASSET = 'room-03-pref-replica-plate';
+const MODE = process.argv[2] === 'geometry' ? 'geometry' : 'replica';
+const ASSET = MODE === 'geometry' ? 'room-03-pref-replica-geometry'
+                                  : 'room-03-pref-replica-plate';
 const SIZE = '1536x1024';           // 3:2, the nearest the endpoint has to 1920x864
 const say = (line) => process.stdout.write(`${line}\n`);
 
@@ -46,11 +48,36 @@ const PRIOR = 'art/staging/room-03/pref-replica-01/source.png';
  * has to be the thing the endpoint is looking at; pointing it back at R3-PREF
  * alone would ask for the whole room again and get a third room.
  */
+/**
+ * THE GEOMETRY PASS REORDERS THE REFERENCES, and the order is the instruction.
+ * Reference 1 is the room to be redrawn -- pref-replica-02, which got the bar
+ * and the card table right -- and reference 2 is the composition guide, which
+ * is binding on GEOMETRY and silent on everything else. R3-PREF follows as the
+ * identity blueprint. Putting the guide second rather than first is deliberate:
+ * a wireframe shown first is a wireframe the endpoint tries to draw.
+ */
+const GUIDE = 'proofs/room-03/pref-replica/geometry-guide.png';
+const REPLICA2 = 'art/staging/room-03/pref-replica-02/source.png';
+const GEOM1 = 'art/staging/room-03/pref-geometry-01/source.png';
+
+/**
+ * A REFERENCE MISTAKE WORTH LEAVING WRITTEN DOWN. Geometry attempt 1 was sent
+ * with `PRIOR`, which is pref-replica-01, when the ruling names pref-replica-02
+ * as the primary reference. The two rooms are close, so the geometry work
+ * survived -- but -02 was exactly the attempt that had FINISHED the bar's
+ * stove-side end down to a plinth on the dirt, and -01 had not, so attempt 1
+ * inherited the weaker terminus. That is one of the two defects attempt 2 is
+ * spent on, and half of it was mine.
+ */
 const REFERENCES = [
-  ...(process.argv[2] === '02' ? [PRIOR, R3PREF] : [R3PREF]),        // 1 THE ROOM, binding
-  ...(process.argv[2] === '02' ? [] :
-    ['art/staging/room-03/corrected-03/plate-cold-dirt.png']),       // 2 same room, no people, wrong bar/table
-  'proofs/room-03/pref-replica/blocking-on-r3pref.png',              // 3 the blocking
+  ...(MODE === 'geometry'
+    ? ((process.argv[3] ?? '01') === '01' ? [PRIOR, GUIDE, R3PREF]
+      : [GEOM1, REPLICA2, GUIDE, R3PREF])
+    : process.argv[2] === '02' ? [PRIOR, R3PREF] : [R3PREF]),        // 1 THE ROOM, binding
+  ...(MODE === 'geometry' || process.argv[2] === '02' ? [] :
+    ['art/staging/room-03/corrected-03/plate-cold-dirt.png']),       // same room, no people, wrong bar/table
+  ...(MODE === 'geometry' ? [] :
+    ['proofs/room-03/pref-replica/blocking-on-r3pref.png']),          // the blocking
   'art/actors/thad-stand-front/stand-00.png',                        // 4 the protagonist
   'art/staging/room-05/winnie-02-counter/winnie-counter-sheet.png',  // 5 another character
   'art/backgrounds/room-05-assay-office.png',                        // 6 visual-language authority
@@ -59,9 +86,13 @@ const REFERENCES = [
   'art/backgrounds/room-01-stage-road.png',                          // 9 baseline slot B
 ];
 
-const n = process.argv[2] ?? '01';
-const promptFile = `proofs/room-03/prompts/pref-replica-plate-${n}.txt`;
-const out = `art/staging/room-03/pref-replica-${n}/source.png`;
+const n = (MODE === 'geometry' ? process.argv[3] : process.argv[2]) ?? '01';
+const promptFile = MODE === 'geometry'
+  ? `proofs/room-03/prompts/pref-replica-geometry-${n}.txt`
+  : `proofs/room-03/prompts/pref-replica-plate-${n}.txt`;
+const out = MODE === 'geometry'
+  ? `art/staging/room-03/pref-geometry-${n}/source.png`
+  : `art/staging/room-03/pref-replica-${n}/source.png`;
 
 const budget = budgetFor(ASSET);
 say(`budget ${ASSET}: ${budget.attempts}/${budget.allowedAttempts} attempt(s), `

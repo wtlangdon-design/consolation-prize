@@ -1,0 +1,123 @@
+REDRAW THE ROOM IN REFERENCE 1 AS THE SAME ROOM, WITH THE SAME FURNITURE, BUT
+WITH ITS VERTICAL COMPOSITION COMPRESSED SO EVERYTHING FITS INSIDE THE MARKED
+BAND IN REFERENCE 2.
+
+Reference 1 is an empty 1858 frontier saloon at night, the background plate for
+a 2D point-and-click adventure game. It is already approved. Its bar, its card
+table, its floor, its light, its mood and its identity are all correct and must
+come back unchanged.
+
+The one thing wrong with it is that the room is drawn TOO TALL. The game can
+only show a wide, shallow slice of it, and in reference 1 the chandelier is too
+near the top of the picture, the stair landing is a shelf jammed against the
+ceiling with no room for a person to stand on it, and the spittoon is too near
+the bottom. Those three fall outside what the game can display.
+
+So: the same room, drawn with less distance between its ceiling and its floor.
+
+======================================================================
+THE REFERENCES
+======================================================================
+
+REFERENCE 1 -- THE ROOM. This is the picture you are redrawing. Its furniture,
+its palette, its lighting, its materials and its horizontal layout are all
+correct. Copy them.
+
+REFERENCE 2 -- THE COMPOSITION GUIDE. BINDING ON GEOMETRY. A bright green
+rectangle marks THE PLAYABLE BAND. Only what is inside that band will ever be
+seen. Eighteen numbered boxes mark where each thing must go and HOW BIG it must
+be, and every one of them must sit COMPLETE inside the band. The dark strips
+above and below the band are overscan: draw plain ceiling and roof beams above,
+plain dirt floor below, and nothing else -- they are cropped away.
+
+REFERENCE 3 -- the original room this one was copied from, for its identity and
+its atmosphere.
+
+REFERENCE 4 onward -- approved art from this game, for the drawing vocabulary:
+how much detail, how light behaves, how material is described.
+
+======================================================================
+WHAT MUST NOT CHANGE
+======================================================================
+
+These were got right and must come back as they are:
+
+  - THE BAR. The long counter running diagonally back into the room at the
+    same angle and the same depth, its far end at the stove side still
+    properly FINISHED -- end stile, panelling carried down to the dirt, a base
+    plinth sitting on the ground, the brass foot rail terminating on its own
+    bracket. It does not fade out. Its near end comes forward to the lower
+    right. The back bar behind it keeps its shelves, bottles and mirror.
+  - THE CARD TABLE. Same place, left of centre, in front of the piano. The
+    same round top with its full far and near rims, apron and pedestal. FIVE
+    whole chairs, four round the table and one at the empty near place. The
+    abandoned FACE-UP hand of cards stays on the table where it is, with the
+    bottle and the tin mugs.
+  - The packed dirt floor, continuous, hard-trodden, the same material.
+  - The upright piano against the left wall, lid down, nobody at it.
+  - The batwing doors far left with the blue night street beyond.
+  - The iron stove against the back wall with firelight in its door.
+  - The staircase at the back right.
+  - The window, the handbill, the oval portrait, the wall lamp.
+  - The darkness. Night, lit by lamps, the stove and the chandelier, with warm
+    pools and deep shadow between them. It stays dark.
+  - The room's substance: a big, solid, heavily built interior.
+
+======================================================================
+WHAT CHANGES -- AND IT IS ONLY THE VERTICAL COMPOSITION
+======================================================================
+
+1. THE LANDING. In reference 1 the stairs run up and out of the top of the
+   picture and the landing is a shelf with no headroom. Bring the whole
+   stair-and-landing structure DOWN into the room, at box 2 in reference 2.
+   The landing is a proper wooden platform at the head of the stairs, with a
+   balustrade along its open edge and a wall or door behind it, and there must
+   be CLEAR HEADROOM ABOVE IT -- enough for a grown man to stand upright on it
+   with the ceiling comfortably above his hat. It stays clearly elevated above
+   the main floor, and the stairs connect to it naturally. Nobody is on it.
+
+2. THE CHANDELIER. Hang it LOWER, at box 4. It is an oil chandelier of candles
+   on chains over the open middle of the room. It must be completely inside
+   the band with its chains visible going up. Keep the impression of a high
+   ceiling above it. It does not dominate the picture.
+
+3. THE SPITTOON. Move it UP the room onto the near dirt, at box 17 -- a brass
+   spittoon standing on the floor in the near-middle foreground, clear of the
+   bar and clear of the open walking floor, fully inside the band.
+
+4. THE ROOM'S VERTICAL SPREAD. Take out the wasted vertical distance between
+   the ceiling, the landing and the floor. The ceiling is lower relative to
+   the furniture than in reference 1. The perspective stays believable and the
+   room must NOT become squat, small or generic -- it is still a big room, it
+   is just seen in a shallower slice.
+
+THE HORIZONTAL LAYOUT DOES NOT CHANGE. Doors left, piano left of centre, card
+table centre-left, stove and back-room door centre-right, stairs and landing
+right of them, bar running down the right. Same as reference 1.
+
+======================================================================
+NOBODY IS IN THIS PICTURE
+======================================================================
+
+The dashed magenta outlines in reference 2 ARE NOT PEOPLE. They mark where
+figures will be composited later, and they exist so you build the furniture at
+the right size for them. Draw the furniture and the floor there and NOBODY.
+
+No card players, no drinkers, no barman, no man by the stove, no man on the
+landing, no one in the mirror, no one through a window, no silhouettes, no
+partial figures, no hats or coats left where a person was, no person-shaped
+shadows. The room is empty and must look naturally so.
+
+======================================================================
+HOW IT IS DRAWN
+======================================================================
+
+Stylised early-1990s graphic-adventure pixel art at a modern source resolution,
+in the tradition of The Secret of Monkey Island -- painted, flat masses,
+selective grain, honest materials, readable at a glance. NOT photorealistic,
+NOT PBR, NOT glossy 3D, NOT AAA concept art, NOT a concept painting. Match
+reference 1's own finish exactly.
+
+Fill the whole frame. No border, no vignette, no text, no watermark, no
+signature, no UI, no labels, no magenta, no guide lines, no numbered boxes and
+no framing device of any kind in the final picture.
