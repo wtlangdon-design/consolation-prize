@@ -65,6 +65,52 @@ TABLE_FEET = [(596, 620, 664, 716), (884, 620, 960, 716)]
 ERODE = 23
 CORE = 0.82        # the table's own marker, as a fraction of its ellipse
 
+# ---- THE TWO NEAR ARMS, SEEDED BY HAND -------------------------------------
+#
+# Tyler's ruling: "Human-authored deterministic masks are acceptable. Do not
+# insist on fully automatic segmentation if a small explicit mask is more
+# reliable. This is asset engineering, not a computer-vision benchmark."
+#
+# WHY THEY NEED SEEDING AT ALL, when the far men's arms did not. A watershed
+# gives a region to whichever marker reaches it over the lowest ridge. The far
+# men's forearms stand clear of the wood and their own bodies flood into them
+# first. The near men's arms lie flat ON the tabletop, and the table's flood
+# crosses smooth wood cheaply while the man's flood has to cross his own sleeve
+# folds to get there -- so the table won the race to the sleeve's outline and
+# took the forearm, the hand and the fan of cards with it. Measured: the
+# furniture layer covered 100% of both hand boxes.
+#
+# A seed inside the arm settles it. The watershed still decides WHERE the
+# boundary falls -- on the drawn outline, where it belongs -- and the seed only
+# decides WHO is flooding from inside. Read off the master at 3x: cards, hand,
+# forearm, upper sleeve, in that order down each arm.
+ARM_SEEDS = {
+    'card_1': [(440, 440, 24), (470, 492, 18), (408, 560, 26), (430, 604, 20)],
+    'card_4': [(1086, 450, 24), (1060, 506, 16), (1120, 560, 28), (1166, 606, 24)],
+    # The far pair's hands need the same treatment for the same reason -- they
+    # reach over the table's far rim, which the core also claims.
+    'card_2': [(540, 332, 15), (596, 336, 15), (562, 302, 13)],
+    'card_3': [(928, 322, 15), (974, 332, 15), (950, 298, 13)],
+}
+
+# AND A REGION AROUND EACH ARM, CARVED OUT OF THE TABLE'S CORE, because the
+# first attempt at this seeded the arms and they did not move a pixel: card_1
+# gained 7,379 px for 6,208 px of seed disc, so the seeds had grown by nothing
+# at all. THE SEEDS WERE INSIDE THE TABLE'S OWN CORE MARKER. Every neighbour
+# was already labelled table before the flood began, so there was nowhere for
+# them to expand to -- a marker with no unclaimed border is not a marker, it is
+# a hole. Carving the core back out of these regions gives each seed somewhere
+# to go, and the watershed then settles the boundary on the sleeve's outline
+# rather than on the polygon, which is the point of using one at all.
+ARM_REGIONS = {
+    'card_1': [(372, 404), (514, 404), (526, 470), (516, 522), (500, 562),
+               (486, 612), (458, 648), (390, 648), (362, 600), (358, 500), (362, 438)],
+    'card_4': [(1024, 408), (1152, 408), (1162, 470), (1182, 512), (1208, 562),
+               (1216, 622), (1190, 664), (1098, 664), (1048, 620), (1028, 560), (1020, 478)],
+    'card_2': [(488, 284), (642, 284), (652, 332), (642, 376), (498, 380), (480, 332)],
+    'card_3': [(888, 282), (1032, 282), (1042, 332), (1032, 376), (894, 380), (878, 332)],
+}
+
 # WHO IS WHO, by where a marker's centroid lands. The four are in four corners
 # of the frame, so this is a label and not a judgement.
 WHO = [('card_1', 'near', 0, 768, 430, 1024),   # near left, flat cap, back view
@@ -137,8 +183,15 @@ def split(rgb):
     sizes = np.bincount(lab.ravel())
     sizes[0] = 0
     markers = np.zeros(people.shape, np.int32)
+    index = {}
     for k, i in enumerate(np.argsort(sizes)[::-1][:4], 1):
         markers[lab == i] = k
+        ys, xs = np.nonzero(lab == i)
+        cxm, cym = xs.mean(), ys.mean()
+        for who, _, x0, x1, y0, y1 in WHO:
+            if x0 <= cxm < x1 and y0 <= cym < y1:
+                index[who] = k
+                break
 
     # AND A FIFTH FOR THE TABLE, which is what recovers the arms. Subtracting
     # the ellipse outright -- the first version of this -- left every forearm,
@@ -160,7 +213,19 @@ def split(rgb):
     cd.ellipse([cx - a * 0.86, cy - b * 0.86, cx + a * 0.86, cy + b * 0.86], fill=0)
     cd.rectangle([0, 0, rgb.shape[1], int(cy + b * 0.45)], fill=0)
     cd.ellipse([cx - a * CORE, cy - b * CORE, cx + a * CORE, cy + b * CORE], fill=255)
+    for pts in ARM_REGIONS.values():
+        cd.polygon(pts, fill=0)
     markers[(np.asarray(core) > 0) & cluster] = 5
+
+    # THE ARM SEEDS GO IN LAST, so they win over the table's core where the two
+    # overlap -- which is the whole point, because that overlap IS the arm.
+    seeds = Image.new('I', (rgb.shape[1], rgb.shape[0]), 0)
+    sd = ImageDraw.Draw(seeds)
+    for who, discs in ARM_SEEDS.items():
+        for x, y, r in discs:
+            sd.ellipse([x - r, y - r, x + r, y + r], fill=index[who])
+    stamped = np.asarray(seeds)
+    markers = np.where((stamped > 0) & cluster, stamped, markers)
 
     grey = gaussian_filter(rgb.astype(float).mean(2), 0.8)
     grad = np.clip(np.hypot(sobel(grey, 0), sobel(grey, 1)), 0, 255)
@@ -181,15 +246,7 @@ def split(rgb):
         owned = np.where(stray & (filled < 5), filled, owned)
         table = table | (stray & (filled == 5))
 
-    masks = {}
-    for k in range(1, 5):
-        m = owned == k
-        ys, xs = np.nonzero(m)
-        cx, cy = xs.mean(), ys.mean()
-        for who, _, x0, x1, y0, y1 in WHO:
-            if x0 <= cx < x1 and y0 <= cy < y1:
-                masks[who] = m
-                break
+    masks = {who: owned == k for who, k in index.items()}
     return cluster, table, masks
 
 
@@ -237,8 +294,33 @@ def main():
         print(f'  wrote {name}.png  {crop[2] - crop[0]}x{crop[3] - crop[1]}  {int(mask.sum())} px')
 
     write('furniture-table', table)
-    for who, _, _, _, _, _ in WHO:
-        write(who, masks[who])
+
+    # THE FAR PAIR NEED TWO LAYERS EACH, and the recomposition gate is what said
+    # so: it reported 46,351 differing pixels because the completed table was
+    # painted over their hands. They sit BEHIND the table and their forearms and
+    # cards rest ON it, which is exactly the case Tyler's ruling names -- "if a
+    # player's arm must appear OVER the table while their lower torso appears
+    # BEHIND it, use the existing occlusion architecture" -- and the split is
+    # exact rather than authored: a far man's pixels inside the tabletop's own
+    # silhouette are the ones on top of it.
+    surface = np.zeros(table.shape, bool)
+    tm = Image.new('L', (table.shape[1], table.shape[0]), 0)
+    td = ImageDraw.Draw(tm)
+    cxx, cyy, aa, bb = (TABLE[k] for k in ('cx', 'cy', 'a', 'b'))
+    td.ellipse([cxx - aa, cyy - bb, cxx + aa, cyy + bb], fill=255)
+    td.polygon([(cxx - aa + 8, cyy), (cxx + aa - 8, cyy), (cxx + aa - 40, cyy + 140),
+                (cxx + 180, cyy + 190), (cxx, cyy + 190), (cxx - 180, cyy + 190),
+                (cxx - aa + 40, cyy + 140)], fill=255)
+    surface = np.asarray(tm) > 0
+
+    for who, zone, _, _, _, _ in WHO:
+        if zone == 'far':
+            front = masks[who] & surface
+            behind = masks[who] & ~surface
+            write(f'{who}-behind', behind)
+            write(f'{who}-front', front)
+        else:
+            write(who, masks[who])
     (OUT / 'decompose.json').write_text(json.dumps(rec, indent=1) + '\n')
 
 

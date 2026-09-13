@@ -10,16 +10,16 @@
  },
  "layers": {
   "furniture-table": {
-   "pixels": 228375,
+   "pixels": 189511,
    "cropInMaster": [
-    286,
-    294,
-    1148,
+    324,
+    314,
+    1097,
     718
    ]
   },
   "card_1": {
-   "pixels": 134235,
+   "pixels": 159532,
    "cropInMaster": [
     124,
     407,
@@ -27,26 +27,44 @@
     990
    ]
   },
-  "card_2": {
-   "pixels": 69288,
+  "card_2-behind": {
+   "pixels": 65459,
    "cropInMaster": [
     243,
     87,
+    651,
+    429
+   ]
+  },
+  "card_2-front": {
+   "pixels": 5281,
+   "cropInMaster": [
+    319,
+    330,
     654,
     443
    ]
   },
-  "card_3": {
-   "pixels": 56669,
+  "card_3-behind": {
+   "pixels": 55603,
    "cropInMaster": [
-    896,
+    883,
     80,
     1184,
     433
    ]
   },
+  "card_3-front": {
+   "pixels": 3413,
+   "cropInMaster": [
+    887,
+    341,
+    1113,
+    446
+   ]
+  },
   "card_4": {
-   "pixels": 174650,
+   "pixels": 184418,
    "cropInMaster": [
     963,
     284,
@@ -54,5 +72,19 @@
     990
    ]
   }
+ },
+ "furnitureComplete": {
+  "pixels": 255401,
+  "cropInMaster": [
+   282,
+   314,
+   1155,
+   718
+  ],
+  "holesFilled": 65890,
+  "byMirror": 14547,
+  "byNearestWood": 51343,
+  "mirrorX": 718.0,
+  "note": "the tabletop completed under the four men's arms, hands and cards. Mirror about the table's own centre line first, diffusion plus re-added grain for what the mirror cannot reach. Bounded by the tabletop silhouette: nothing is invented outside it."
  }
 }

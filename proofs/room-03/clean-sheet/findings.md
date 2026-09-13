@@ -86,33 +86,95 @@ covered exactly once, none covered twice, none missed.
 > a pixel in two layers, a pixel in none, a crop written at the wrong offset, a stale master. All
 > have happened to this project.
 
-## 6 · The arms — half recovered, and the half that is not
+## 6 · The arms, recovered — and how
 
 The first split subtracted the table outright, which put **all four men's forearms, hands and fans
-of cards in the table layer** — exactly the pixels §15 says have to animate.
+of cards in the table layer** — exactly the pixels §15 says have to animate. Three things fixed it,
+and each was found by a failure:
 
-**A gradient watershed recovers most of them, and needs no image operation.** Give the table a
-marker of its own, make the cost the gradient magnitude, and let five markers flood: the frontier
+**A gradient watershed**, written out longhand because scikit-image is not installed. Give the
+table a marker of its own and let five markers flood with gradient magnitude as cost: the frontier
 between two markers settles on the ridge of highest cost between them, and in this art that ridge
 is the **drawn outline** — the one thing that does separate a sleeve from a tabletop when hue,
-luminance and R−B all fail to. It is written out longhand in `card-decompose.py` because
-scikit-image is not installed and because a boundary this one matters should not be a black box.
+luminance and R−B all fail to.
 
-It also caught its own leak: with only the middle of the ellipse marked, the flood walked the
-low-gradient band along the apron and gave **the whole near rim to the near-left man** — his mask
-ran to x 1100, most of the way across a table he is not sitting at. No arm rests on the near rim,
-so the rim below the centre is now marked table outright.
+**The near rim, marked as table outright.** With only the middle of the ellipse marked, the flood
+walked the low-gradient band along the apron and gave the whole near rim to the near-left man — his
+mask ran to x 1100, most of the way across a table he is not sitting at.
 
-**Recovered:** the two far men's hands and forearms, and the near rim.
-**NOT recovered:** the two near men's forearms, hands and card fans — `furniture-table.png` still
-covers **100%** of both hand boxes. The flood from the table crosses smooth wood cheaply and wins
-the race to the sleeve's outline against a flood from the man that has to cross his own fold
-gradients first. Fixing it needs a per-label path cost rather than one shared cost image.
+**Authored seeds inside each arm**, which is what Tyler's ruling permits and what finally worked.
+The first attempt at seeding moved nothing: card_1 gained 7,379 px for 6,208 px of seed disc, so
+the seeds had grown by **nothing at all** — they had been stamped *inside the table's own core
+marker*, so every neighbour was already claimed before the flood began. A marker with no unclaimed
+border is not a marker, it is a hole. Carving a region back out of the core around each arm gives
+each seed somewhere to go, and the watershed then puts the boundary on the sleeve's outline rather
+than on the authored polygon, which is the point of using one at all.
 
-So **§34 still fails for the two near card players**: their hand and card motion cannot be added
-later without unbaking those pixels from the table. Everything else about them is independent.
+## 7 · The chairs — a deviation from the ownership rule, with its reason
 
-## 7 · The companion route is closed — measured, operation 51, category A attempt 2
+**The chair travels with its man.** The layer-ownership rule says an actor must not own chair
+furniture intended to remain fixed, and this is the one place the build departs from it.
+
+The two near men are seen from behind with their **chair backs drawn over their lower torsos** —
+six slats about ten pixels wide alternating with the coat behind them, painted in shadow. Four
+measurements say they cannot be separated: hue 26–35 everywhere; chair back luminance **21.6**
+against coat **27.8**; three horizontal profiles oscillating 4–43 against 7–40; and an automatic
+slat-column detector finds **two peaks where there are six slats**. Hand-masking at slat resolution
+would produce exactly the kind of authored boundary the retired lineage's halo came from, and a
+wrong slat is a defect that travels with an animating actor.
+
+These chairs are **not "merely partially hidden"** — they are interleaved with the man at slat
+pitch. And nothing in the design ever removes a card player and leaves his chair: the population is
+fixed at nine and each chair is that man's station. So the chair is part of his sprite, he stays
+independently swappable, and the consequence is bounded: a ±5 px occupational nudge translates his
+chair with him, which the small-motion gate measures and finds opens no hole on the table.
+
+**This is flagged rather than buried.** If it is not acceptable, the fix is a slat-level authored
+mask per near chair, and it needs no image operation.
+
+## 8 · The table, completed under the arms
+
+Bounded to pixels a man actually occupies inside the tabletop's own silhouette — the first version
+filled the whole ellipse, painted wood onto open field where the ellipse overshoots the real table,
+and the recomposition gate reported 46,351 differing pixels, correctly.
+
+| | |
+|---|---|
+| holes | **65,890 px** |
+| filled by mirror about the table's centre line | 14,547 px |
+| filled by nearest bare wood + re-added grain | 51,343 px |
+
+Two earlier fills were rejected by their own preview. **Diffusion** read as a pale smear — a soft
+blob is the one thing a flat wood surface cannot absorb. **Row-wise interpolation** held the grain
+in the middle and broke at the left and right extremes, where a row's only known wood is on one
+side, so a single pixel got dragged across a long span as hard horizontal streaks. And the mirror
+had to be restricted to **bare** wood after it copied the right-hand tin mug across to the left
+side of the table, where it sat as a pale ghost: a bottle, a cup or a stack of chips is a unique
+object standing on the surface; only the surface repeats.
+
+## 9 · The far pair need two layers each, and the gate said so
+
+The recomposition gate reported 46,351 differing pixels because the completed table was painted
+over the far men's hands. They sit **behind** the table and their forearms and cards rest **on**
+it — the case the ruling names. The split is exact rather than authored: a far man's pixels inside
+the tabletop's silhouette are the ones on top of it. `card_2-front` is 5,281 px, `card_3-front`
+3,413 px.
+
+Runtime order: `card_2-behind`, `card_3-behind`, **completed table**, `card_2-front`,
+`card_3-front`, `card_1`, `card_4`.
+
+## 10 · CARD PASSES — all three gates
+
+| gate | result |
+|---|---|
+| static recomposition vs the master | **0 differing pixels**, max difference 0 |
+| actor-off, each of the four | **0 tabletop holes** in every case |
+| small motion, all four nudged | **0 tabletop holes**; 14,316 px of field appears, all of it around the chairs, none on the table |
+
+Four players independent · hands, forearms and held cards actor-owned · furniture base complete ·
+abandoned hand fixed and distinct in the table layer · fifth place empty.
+
+## 11 · The companion route is closed — measured, operation 51, category A attempt 2
 
 Errata 53 condition 2 is the project's own answer to precisely this: *"ask the generator for the
 same scene without the object, quantise both, and the layer is a difference between two images."*
