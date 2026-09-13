@@ -1,0 +1,841 @@
+{
+ "schema": 1,
+ "note": "PROOF ONLY. No runtime geometry, no room JSON, no character art.",
+ "plate": "art/staging/room-03/pref-replica-02/candidate-1920x864.png",
+ "camera": {
+  "eyeY": 292.0,
+  "k": 1.03,
+  "kPessimistic": 1.073,
+  "fittedFrom": "the four bar stools, 0.75 m seats at four depths",
+  "crossCheck": "card-table chairs give k=0.99",
+  "r3prefWas": {
+   "eyeY": 239,
+   "k": 0.8494
+  }
+ },
+ "walk": [
+  [
+   140,
+   590
+  ],
+  [
+   700,
+   588
+  ],
+  [
+   1180,
+   600
+  ],
+  [
+   1258,
+   624
+  ],
+  [
+   1420,
+   744
+  ],
+  [
+   1580,
+   864
+  ],
+  [
+   140,
+   864
+  ]
+ ],
+ "solid": {
+  "piano base": [
+   490,
+   520,
+   748,
+   582
+  ],
+  "chair far-left": [
+   795,
+   530,
+   885,
+   575
+  ],
+  "chair far-right": [
+   975,
+   530,
+   1065,
+   575
+  ],
+  "chair near-left": [
+   715,
+   575,
+   840,
+   645
+  ],
+  "chair near-right": [
+   1050,
+   575,
+   1175,
+   645
+  ],
+  "chair fifth place": [
+   885,
+   630,
+   1015,
+   710
+  ],
+  "table pedestal": [
+   890,
+   575,
+   1005,
+   625
+  ],
+  "stove base": [
+   1125,
+   400,
+   1205,
+   465
+  ]
+ },
+ "people": [
+  {
+   "id": "card_2",
+   "x": 840,
+   "y": 560,
+   "pose": "seated FAR side on the far-left chair, facing the room -- THE CARD SHARP"
+  },
+  {
+   "id": "card_3",
+   "x": 1020,
+   "y": 560,
+   "pose": "seated FAR side on the far-right chair, facing the room"
+  },
+  {
+   "id": "card_1",
+   "x": 778,
+   "y": 632,
+   "pose": "seated NEAR-LEFT, three-quarter BACK to camera"
+  },
+  {
+   "id": "card_4",
+   "x": 1112,
+   "y": 632,
+   "pose": "seated NEAR-RIGHT, three-quarter BACK to camera"
+  },
+  {
+   "id": "bar_1",
+   "x": 1290,
+   "y": 642,
+   "pose": "SEATED on the far stool -- THE ONE-STRIKE MAN"
+  },
+  {
+   "id": "bar_2",
+   "x": 1332,
+   "y": 722,
+   "pose": "LEANING, forearm on the counter, feet on the dirt"
+  },
+  {
+   "id": "bar_3",
+   "x": 1500,
+   "y": 845,
+   "pose": "STANDING, drinking, on the near dirt"
+  },
+  {
+   "id": "stove_man",
+   "x": 1098,
+   "y": 602,
+   "pose": "beside the stove, hands open to the iron"
+  },
+  {
+   "id": "landing_man",
+   "x": 1390,
+   "y": 120,
+   "pose": "ON THE LANDING -- see the failure note"
+  },
+  {
+   "id": "deke_RESERVED",
+   "x": 560,
+   "y": 706,
+   "pose": "RESERVED, not implemented: A3 sells Thad a claim here"
+  }
+ ],
+ "approach": {
+  "front_doors": [
+   210,
+   700
+  ],
+  "handbill": [
+   330,
+   660
+  ],
+  "window": [
+   470,
+   640
+  ],
+  "piano": [
+   628,
+   636
+  ],
+  "portrait": [
+   880,
+   760
+  ],
+  "card_table": [
+   945,
+   742
+  ],
+  "cards": [
+   945,
+   742
+  ],
+  "card_2": [
+   900,
+   742
+  ],
+  "card_1": [
+   700,
+   690
+  ],
+  "card_3": [
+   1030,
+   742
+  ],
+  "card_4": [
+   1200,
+   742
+  ],
+  "stove": [
+   1240,
+   700
+  ],
+  "stove_man": [
+   1240,
+   700
+  ],
+  "back_room_door": [
+   1250,
+   712
+  ],
+  "stairs": [
+   1290,
+   732
+  ],
+  "bar": [
+   1350,
+   762
+  ],
+  "bar_1": [
+   1288,
+   722
+  ],
+  "bar_2": [
+   1400,
+   790
+  ],
+  "bar_3": [
+   1560,
+   862
+  ],
+  "back_bar": [
+   1420,
+   820
+  ],
+  "deke_RESERVED": [
+   640,
+   760
+  ]
+ },
+ "matrix": [
+  {
+   "target": "front_doors",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    210,
+    700
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 0,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 0,
+    "needAtApproach": 840,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "handbill",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    330,
+    660
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 410,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 360,
+    "needAtApproach": 758,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "window",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    470,
+    640
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 344,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 250,
+    "needAtApproach": 717,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "piano",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    628,
+    636
+   ],
+   "engineStop": [
+    308,
+    656
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "hands-on",
+    "gapFromEntrance": 318,
+    "needAtEntrance": 210,
+    "walkRequired": true,
+    "gapAtApproach": 66,
+    "needAtApproach": 177,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "portrait",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": false,
+   "approachExists": true,
+   "approach": [
+    880,
+    760
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 772,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 520,
+    "needAtApproach": 964,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "card_table",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    945,
+    742
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 636,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 302,
+    "needAtApproach": 927,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "cards",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    945,
+    742
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 747,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 327,
+    "needAtApproach": 927,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "stove",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": false,
+   "approach": [
+    1240,
+    700
+   ],
+   "engineStop": [
+    319,
+    670
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 953,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 253,
+    "needAtApproach": 840,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_2"
+   ]
+  },
+  {
+   "target": "back_room_door",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": false,
+   "approach": [
+    1250,
+    712
+   ],
+   "engineStop": [
+    399,
+    649
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 1036,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 282,
+    "needAtApproach": 865,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_2"
+   ]
+  },
+  {
+   "target": "stairs",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": false,
+   "approach": [
+    1290,
+    732
+   ],
+   "engineStop": [
+    482,
+    622
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 1124,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 342,
+    "needAtApproach": 906,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_2"
+   ]
+  },
+  {
+   "target": "bar",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": false,
+   "approach": [
+    1350,
+    762
+   ],
+   "engineStop": [
+    415,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 1045,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 62,
+    "needAtApproach": 968,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_2"
+   ]
+  },
+  {
+   "target": "back_bar",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": false,
+   "approachExists": false,
+   "approach": [
+    1420,
+    820
+   ],
+   "engineStop": [
+    681,
+    674
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 1324,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 428,
+    "needAtApproach": 1088,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_3"
+   ]
+  },
+  {
+   "target": "card_2",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    900,
+    742
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 610,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 183,
+    "needAtApproach": 927,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "card_3",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    1030,
+    742
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 786,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 182,
+    "needAtApproach": 927,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "card_1",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    700,
+    690
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 526,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 66,
+    "needAtApproach": 820,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "card_4",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": false,
+   "approach": [
+    1200,
+    742
+   ],
+   "engineStop": [
+    228,
+    699
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 858,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 118,
+    "needAtApproach": 927,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_2"
+   ]
+  },
+  {
+   "target": "bar_1",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": false,
+   "approach": [
+    1288,
+    722
+   ],
+   "engineStop": [
+    403,
+    689
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 1034,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 80,
+    "needAtApproach": 886,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_2"
+   ]
+  },
+  {
+   "target": "bar_2",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": false,
+   "approach": [
+    1400,
+    790
+   ],
+   "engineStop": [
+    416,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 1047,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 68,
+    "needAtApproach": 1026,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_3"
+   ]
+  },
+  {
+   "target": "bar_3",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    1560,
+    862
+   ],
+   "engineStop": [
+    563,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 1193,
+    "needAtEntrance": 840,
+    "walkRequired": true,
+    "gapAtApproach": 17,
+    "needAtApproach": 1174,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  },
+  {
+   "target": "stove_man",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": false,
+   "approach": [
+    1240,
+    700
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 839,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 132,
+    "needAtApproach": 840,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": [
+    "bar_2"
+   ]
+  },
+  {
+   "target": "landing_man",
+   "visible": false,
+   "clickable": false,
+   "needsApproach": true,
+   "approachExists": null,
+   "approach": null,
+   "routeOk": null,
+   "note": "no approach authored"
+  },
+  {
+   "target": "deke_RESERVED",
+   "visible": true,
+   "clickable": true,
+   "needsApproach": true,
+   "approachExists": true,
+   "approach": [
+    640,
+    760
+   ],
+   "engineStop": [
+    210,
+    700
+   ],
+   "routeOk": true,
+   "radius": {
+    "verbClass": "examine",
+    "gapFromEntrance": 278,
+    "needAtEntrance": 840,
+    "walkRequired": false,
+    "gapAtApproach": 55,
+    "needAtApproach": 964,
+    "within": true
+   },
+   "blockedBy": [],
+   "standClash": []
+  }
+ ]
+}
