@@ -1,0 +1,68 @@
+THE INSIDE OF AN 1858 FRONTIER SALOON AT NIGHT, WITH NOBODY IN IT, as the
+background plate for a 2D point-and-click adventure game in the tradition of The
+Secret of Monkey Island. Stylised early-1990s graphic-adventure pixel art at a
+modern source resolution. NOT photorealistic, NOT PBR, NOT glossy 3D, NOT AAA
+concept art, NOT a saloon concept painting, NOT a flat stage-set backdrop.
+
+THIS IS A ROOM SHELL. Two large pieces of furniture and every person in this room
+ALREADY EXIST as separate art and are composited on top of this plate afterwards.
+Your job is the room they stand in.
+
+REFERENCE 1 IS THE LAYOUT AND IS BINDING. It is the play area at 1:1 -- 1920 wide
+by 864 tall -- with every element marked where it goes.
+
+THE TWO MAGENTA HATCHED RECTANGLES ARE ALREADY BUILT. Leave those areas as plain
+room: floor, wall, and whatever architecture passes behind them. Specifically:
+  - DO NOT draw a card table, chairs, cards, chips or a bottle on a table;
+  - DO NOT draw a bar, a counter, a back bar, bottles on shelves, stools or a
+    brass foot rail;
+  - DO NOT draw a single person anywhere in this picture.
+Anything you draw inside those rectangles will sit behind a finished bar or a
+finished card table and will read as a second one showing through.
+
+NOBODY IS IN THIS ROOM. No patrons, no barman, no card players, no man on the
+landing, no silhouettes, no figures in a mirror, no one in the distance. An empty
+saloon, five seconds before it filled up.
+
+WHAT THIS PLATE MUST SUPPLY, in the positions reference 1 marks:
+  - THE DIRT FLOOR. Packed earth, hard-trodden, dry, lighter where it is walked.
+    It runs to the bottom of the frame and to both sides. It is NOT boards and
+    NOT planks. This is the floor a chandelier hangs over, which is the joke.
+  - THE BACK WALL and the side walls: rough sawn board, studs, a dado where the
+    boards change, the grain and knots of cheap frontier lumber.
+  - THE FRONT DOORS at the far left: batwing doors seen from inside, with the
+    night street beyond them, cut by the left edge of the frame.
+  - A WINDOW on the left wall above the piano, small panes, night blue outside.
+  - A HANDBILL nailed to the wall by the doors -- a small printed sheet, curling.
+  - AN UPRIGHT PIANO against the left wall, mid-depth, lid down, nobody at it.
+  - AN IRON STOVE against the back wall right of centre, its pipe rising to the
+    ceiling, its door showing firelight.
+  - A STAIRCASE at the back right, rising from right to left, with a LANDING at
+    the top. It runs BEHIND where the bar will be, so its lower flight is partly
+    hidden; draw it anyway.
+  - A FADED PORTRAIT on the back wall, a dark oval of a forgotten man.
+  - AN OIL CHANDELIER hanging over the open floor in the middle of the frame.
+  - A BRASS SPITTOON standing on the dirt in the near foreground.
+
+THE ROOM MUST HAVE DEPTH, and the layout gives you the camera: a man standing at
+the back of the walkable floor is 239 px tall and a man at the front is 526 px.
+Build the room to that. The ceiling and its beams recede. The wall boards
+converge. The floor opens out toward the viewer. Foreground, mid-ground and
+background must be three distinguishable planes.
+
+LIGHT. Warm practical light and nothing else: the chandelier above the middle of
+the floor, the stove's firelight low and to the right of centre, a small wall lamp
+by the doors, and cold night blue at the window and past the batwings. Warm ochre
+and umber where the light lands, deep cool umber-grey where it does not, and real
+darkness in the corners. Reference 5, the assay office, is the visual-language
+authority for how this game draws light and material -- match its restraint and
+its weight, not a modern render's.
+
+MATERIALS. Believable frontier building: sawn lumber, iron, brass, glass, packed
+earth. Everything has mass and thickness. Nothing is smooth, glossy, or new.
+
+References: 1 the room layout, BINDING, at 1:1. 2 the same layout again.
+3 Thad, the player character, for scale and for the level of abstraction this
+game draws at. 4 Winnie. 5 the assay office -- THE VISUAL-LANGUAGE AUTHORITY.
+6 Room 1 in engine, what the game actually looks like. 7 the Room 1 casting
+master. 8 the Room 1 plate.

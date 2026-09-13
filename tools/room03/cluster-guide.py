@@ -260,9 +260,68 @@ def bar_guide():
                  'counterTop': {'x1900': round(nt), 'x1240': round(ft)}}
 
 
+def shell_guide():
+    """
+    THE ROOM SHELL'S GUIDE, drawn at the room's own 1920x864 and showing two
+    things: the architecture the shell must supply, and the two footprints it
+    must LEAVE EMPTY because the accepted clusters already fill them.
+
+    The clusters are drawn as flat blocks and not as their art, deliberately.
+    Showing the endpoint a finished bar is the surest way to be given a second
+    one painted into the wall behind the first.
+    """
+    place = json.loads((OUT / 'placement.json').read_text())
+    img = Image.new('RGB', (1920, 864), (30, 30, 34))
+    d = ImageDraw.Draw(img)
+
+    floor = BLOCK['floor']
+    d.polygon([(0, floor['nearY'] + 6), (1920, floor['nearY'] + 6),
+               (1920, floor['farY']), (0, floor['farY'])], fill=(66, 56, 44))
+    d.text((40, floor['nearY'] - 40), 'DIRT FLOOR -- packed earth, all the way to the frame',
+           fill=(198, 180, 154))
+    d.line([(0, EYE), (1920, EYE)], fill=(96, 96, 140))
+    d.text((6, EYE - 16), f'EYE LEVEL y {EYE:.0f}', fill=(150, 150, 200))
+
+    want = ['back_wall', 'front_doors', 'window', 'handbill', 'piano', 'stove',
+            'stairs', 'landing', 'chandelier', 'portrait', 'spittoon']
+    for name in want:
+        x0, y0, x1, y1 = BLOCK['regions'][name]['rect']
+        d.rectangle([x0, y0, x1, y1], fill=(84, 80, 76), outline=(190, 200, 210), width=3)
+        d.text((x0 + 5, y0 + 4), name.upper().replace('_', ' '), fill=(210, 224, 236))
+
+    for tag, spec in place.items():
+        # THE ART'S OWN BOX, not the master's whole canvas -- most of a cluster
+        # master is empty magenta, and reserving that reserved the stove.
+        x0, y0, x1, y1 = spec['artBox']
+        for yy in range(y0, y1, 22):
+            d.line([(x0, yy), (x1, yy)], fill=(150, 40, 120), width=9)
+        d.rectangle([x0, y0, x1, y1], outline=(255, 120, 200), width=6)
+        d.text((x0 + 12, y0 + 12), f'{tag.upper()} CLUSTER -- ALREADY EXISTS',
+               fill=(255, 220, 240))
+        d.text((x0 + 12, y0 + 32), 'LEAVE THIS AREA EMPTY. Do not draw a table,',
+               fill=(255, 220, 240))
+        d.text((x0 + 12, y0 + 50), 'a bar, chairs, stools or any person here.',
+               fill=(255, 220, 240))
+
+    for label, x, y in [(p['label'], *p['at']) for p in BLOCK['thadProofPositions']]:
+        hh = K * (y - EYE)
+        d.rectangle([x - hh * 0.15, y - hh, x + hh * 0.15, y], outline=(120, 235, 150), width=4)
+        d.text((x - 40, y + 6), f'THAD {label} {hh:.0f}px', fill=(150, 245, 175))
+
+    facts = [
+        'ROOM SHELL GUIDE -- 1920 x 864, the play area at 1:1',
+        f'camera h(y) = {K} (y - {EYE:.0f});  a man is 239 px at the back of the walk band and 526 px at the front',
+        'THE TWO MAGENTA BLOCKS ARE ALREADY BUILT. Leave them empty; they are composited over this plate.',
+        'NOBODY IS IN THIS PICTURE. No patrons, no barman, no figures in the distance.',
+    ]
+    for i, line in enumerate(facts):
+        d.text((10, 8 + i * 20), line, fill=(250, 250, 250))
+    return img, {'clusters': {k: v['roomBox'] for k, v in place.items()}}
+
+
 def main():
     which = sys.argv[1] if len(sys.argv) > 1 else 'card'
-    img, rec = {'card': card_guide, 'bar': bar_guide}[which]()
+    img, rec = {'card': card_guide, 'bar': bar_guide, 'shell': shell_guide}[which]()
     OUT.mkdir(parents=True, exist_ok=True)
     img.save(OUT / f'{which}-cluster-guide.png')
     (OUT / f'{which}-cluster-guide.json').write_text(json.dumps(rec, indent=1) + '\n')

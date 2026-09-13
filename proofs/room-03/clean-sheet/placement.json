@@ -1,0 +1,107 @@
+{
+ "card": {
+  "scale": 0.42,
+  "offset": [
+   398.4,
+   257.6
+  ],
+  "roomBox": [
+   398,
+   258,
+   1044,
+   688
+  ],
+  "artBox": [
+   451,
+   291,
+   991,
+   673
+  ],
+  "figures": [
+   {
+    "id": "card_1",
+    "kind": "seated",
+    "floorRow": 633,
+    "drawn": 261,
+    "cameraWants": 261,
+    "errorPct": 0.0,
+    "what": "THE ANCHOR"
+   },
+   {
+    "id": "card_2",
+    "kind": "seated",
+    "floorRow": 444,
+    "drawn": 150,
+    "cameraWants": 136,
+    "errorPct": 10.3,
+    "what": "far left -- THE CARD SHARP"
+   },
+   {
+    "id": "card_3",
+    "kind": "seated",
+    "floorRow": 445,
+    "drawn": 153,
+    "cameraWants": 136,
+    "errorPct": 12.6,
+    "what": "far right"
+   },
+   {
+    "id": "card_4",
+    "kind": "seated",
+    "floorRow": 673,
+    "drawn": 296,
+    "cameraWants": 288,
+    "errorPct": 3.0,
+    "what": "near right"
+   }
+  ]
+ },
+ "bar": {
+  "scale": 0.667,
+  "offset": [
+   1226.3,
+   181.3
+  ],
+  "roomBox": [
+   1226,
+   181,
+   1909,
+   864
+  ],
+  "artBox": [
+   1240,
+   195,
+   1909,
+   833
+  ],
+  "figures": [
+   {
+    "id": "bar_3",
+    "kind": "standing",
+    "floorRow": 808,
+    "drawn": 484,
+    "cameraWants": 484,
+    "errorPct": 0.0,
+    "what": "THE ANCHOR"
+   },
+   {
+    "id": "bar_2",
+    "kind": "standing",
+    "floorRow": 668,
+    "drawn": 315,
+    "cameraWants": 365,
+    "errorPct": -13.7,
+    "what": "leaning, middle"
+   },
+   {
+    "id": "bar_1",
+    "kind": "seated",
+    "floorRow": 545,
+    "drawn": 173,
+    "cameraWants": 203,
+    "errorPct": -14.7,
+    "what": "seated at the far end"
+   }
+  ]
+ }
+}

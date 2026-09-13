@@ -108,11 +108,11 @@ REGIONS = {
         'what': 'the round table itself; top plane y 578-640, near rim y 726, floor contact y 745',
     },
     'stove': {
-        'rect': [980, 262, 1100, 500],
+        'rect': [1024, 258, 1146, 500],
         'what': 'THE STOVE -- iron box and pipe against the back wall, between the card floor and the stair foot',
     },
     'stove_man': {
-        'rect': [1107, 279, 1173, 500],
+        'rect': [1152, 279, 1218, 500],
         'what': 'THE STOVE MAN stands here, back of the room, coat on, hands to the heat (221 px at y 500)',
     },
     'stairs': {
@@ -179,7 +179,7 @@ PEOPLE = [
     ('bar_1', 1360, 578, 'far end of the bar, seated on a stool -- THE ONE-STRIKE MAN'),
     ('bar_2', 1500, 690, 'mid bar, LEANING, forearm on the counter'),
     ('bar_3', 1740, 812, 'near end of the bar, STANDING, drinking, foreground depth'),
-    ('stove_man', 1140, 500, 'at the back with the stove, coat on'),
+    ('stove_man', 1185, 500, 'at the back with the stove, coat on'),
     # HE IS NOT ON THE FLOOR, so his size does not come from his feet. A man on
     # a raised landing has his contact row high in the frame while standing at
     # the DEPTH of the back wall, and sizing him from his contact row would draw

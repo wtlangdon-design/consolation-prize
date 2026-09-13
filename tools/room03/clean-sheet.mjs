@@ -37,6 +37,7 @@ import { assertRecordable, attachGates, budgetFor, record } from '../art/staging
 
 const SHEET = '1536x1024';
 const SQUARE = '1024x1024';
+const WIDE = '1536x1024';   // 3:2, the nearest the endpoint has to 1920x864
 const say = (line) => process.stdout.write(`${line}\n`);
 
 /** The global baseline, in the order the prompts number them. */
@@ -78,7 +79,7 @@ const JOBS = {
   },
   shell: {
     assetId: 'nugget-clean-room-shell', subject: 'nugget-clean-room-shell', role: 'plate',
-    guide: 'proofs/room-03/clean-sheet/blocking.png',
+    guide: 'proofs/room-03/clean-sheet/shell-cluster-guide.png',
     banner: '\nCLEAN-SHEET ROOM 3 · THE PEOPLE-FREE ROOM SHELL\n',
     note: ('CLEAN-SHEET REBUILD sec.11: the room the accepted clusters already stand in -- walls, dirt '
       + 'floor, windows, doors, piano, stove, stairs and landing, chandelier, mirror, practical light -- '
@@ -114,10 +115,10 @@ if (!budget.ok) {
 
 // THE BAR CLUSTER IS SQUARE, because its back bar rises behind the counter's
 // near end to y 64 and a 3:2 box cut it off.
-const size = which === 'bar' ? SQUARE : SHEET;
+const size = which === 'bar' ? SQUARE : which === 'shell' ? WIDE : SHEET;
 const promptFile = `proofs/room-03/prompts/clean-${which}-cluster-${n}.txt`;
 const out = `art/staging/room-03/clean-${which}-${n}/source.png`;
-const images = [job.guide, 'proofs/room-03/clean-sheet/blocking.png', ...AUTHORITY];
+const images = [job.guide, which === 'shell' ? job.guide : 'proofs/room-03/clean-sheet/blocking.png', ...AUTHORITY];
 
 say(job.banner);
 assertRecordable({ assetId: job.assetId, subject: job.subject, role: job.role,

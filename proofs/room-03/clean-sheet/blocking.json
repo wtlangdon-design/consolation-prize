@@ -91,18 +91,18 @@
   },
   "stove": {
    "rect": [
-    980,
-    262,
-    1100,
+    1024,
+    258,
+    1146,
     500
    ],
    "what": "THE STOVE -- iron box and pipe against the back wall, between the card floor and the stair foot"
   },
   "stove_man": {
    "rect": [
-    1107,
+    1152,
     279,
-    1173,
+    1218,
     500
    ],
    "what": "THE STOVE MAN stands here, back of the room, coat on, hands to the heat (221 px at y 500)"
@@ -261,7 +261,7 @@
   {
    "id": "stove_man",
    "contact": [
-    1140,
+    1185,
     500
    ],
    "depthY": 500,
