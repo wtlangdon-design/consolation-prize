@@ -1540,6 +1540,19 @@ export class Renderer {
   }
 
   /**
+   * The top of an ambient character as drawn, and the drawn height: where a
+   * remark over her head belongs. The same arithmetic drawAmbient places her
+   * with, so a figure drawn smaller than her zone's standard man -- the pie
+   * woman -- gets a bark at her own head rather than at a standard man's.
+   */
+  ambientDrawnTop(npc: AmbientFile): { top: number; height: number } | null {
+    const frame = npc.sprite?.frames?.[0];
+    if (!frame) return null;
+    const [, drawH] = this.ambientSize(npc, frame[2], frame[3]);
+    return { top: npc.y - drawH + 1, height: drawH };
+  }
+
+  /**
    * How big to draw an ambient's frame: the room's own man-height where her
    * feet are, times her `stature`, over the height her sheet draws a figure
    * at. A sheet that declares no `figureHeight` is drawn 1:1, exactly as
