@@ -97,6 +97,13 @@ export class AmbientLayer {
     return npc.barks[this.reputationState] ?? null;
   }
 
+  /** The rect a character answers the pointer in: the box npcAt tests. */
+  hitBox(npc: AmbientFile): [number, number, number, number] {
+    const height = npc.sprite?.frames?.[0]?.[3] ?? this.state.heightForZone(npc.zone);
+    const half = height * NPC_HALF_WIDTH;
+    return [npc.x - half, npc.y - height, half * 2, height];
+  }
+
   npcAt(x: number, y: number): AmbientFile | undefined {
     // A PERSON WHO SPEAKS WINS over a figure who does not, where they
     // overlap. The Nugget's named regulars are identities laid over men the
