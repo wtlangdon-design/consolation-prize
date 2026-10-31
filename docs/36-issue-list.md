@@ -4577,3 +4577,27 @@ The interaction identities, the transparent frames, the population schema and th
 `proofs/room-03/shipping-repair/findings.md` · `proof-a-stove-side-bar-end.webp` · `proof-b-foreground-bar-man.webp` · `art/staging/room-03/rebuild-05/repair.json` · `renders/opening-set-retrofit/phase2a-production-nugget-candidate.png`.
 
 **DEPLOYED. AWAITING OWNER VISUAL ACCEPTANCE. Phase 2B has not started.**
+
+---
+
+## Q141 · The old Nugget ships; the rebuild is retired — **RULED 2026-10-31, BUILT, AWAITING OWNER PLAYTHROUGH**
+
+Tyler played the deployed old Nugget (`?room=nugget`, still the room Main Street's door leads to) and reported three things: the front-right drinker "is messed up when he moved", the middle bar man's "head disappears when he moves", and "everyone seems to stop moving when I'm not clicking around". Asked to choose between the old room and the rebuild, he handed the choice back; the recommendation was **keep the old Nugget**, and it stands as the ruling. Q140 is closed with it: the rebuild's bar defects were repaired twice and rejected twice, its generation budget is spent, and its seven patrons are static by construction, against the standing rule that no room is ever totally static. The old room moves, and its defects are fixable.
+
+**Story parity, checked rather than assumed.** Both rooms carry the same twelve hotspots, LOOK and LISTEN lines and two exits. The only story content the rebuild had and the old room lacked was the two interaction identities, so they moved:
+
+| | Who in the old plate | Anchor | Approach |
+|---|---|---|---|
+| `card_sharp` | blue-coated man in waistcoat and tie, far side of the card table | 930,522, zone 2 → head 300 | 1080,605 facing left |
+| `one_strike_man` | seated man in the brown coat at the near end of the bar | 1205,582, zone 2 → head 360 | 1095,640 facing right |
+
+The first card-sharp approach (930,630 facing back) put Thad between the player and the man he was talking to; it was moved after the capture showed only Thad's back. `Ambient.npcAt` now prefers a speaking ambient where two overlap, so which one a click finds no longer depends on the alphabet. The rebuild's population records the two as paint again, with `identityRetired` naming who they had been; it still loads at `?room=nugget_candidate` for reference.
+
+**The freeze was code.** `GameScene.ambientChanged` asked only the two-frame sway question, so a figure on a beat never caused a redraw. The frame rule is now one pure function, `ambientFrameAt`, used by both the renderer and the scene; lit rooms also redraw on a 10 Hz tick for the lamp flicker. Headless, 20 s, no input: 14 redraws before, 164 after.
+
+**Still open in this room:**
+1. **The two broken drinkers are art, not code.** `nugget_bar3`'s drinking frame is a different drawing (the hat is gone and the torso does not meet the plate below it). `nugget_bar2`'s band is cut through the middle of his head, so a turn leaves half of it behind. Both need redrawing as character sheets; no image operation has been spent.
+2. **Deke Vessel (A3) has no figure.** Critical path. His tree is built; the build contract reserves the near end of the bar. In this plate that is the standing room in front of the One-Strike Man, not his seat.
+3. **The Fiddler (doc 07 §11) has no figure** in either room.
+
+`proofs/room-03/old-nugget-ships/card-sharp-speaks.webp` · `one-strike-man-speaks.webp`

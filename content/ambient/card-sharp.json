@@ -2,23 +2,21 @@
  "schema": 1,
  "id": "card_sharp",
  "name": "THE CARD SHARP",
- "note": "AN INTERACTION IDENTITY, NOT A SPRITE. He is card_2 in the room's declared population -- grey hair, side-whiskers, far side of the table, facing the room -- and he is PAINTED INTO THE PLATE and stays that way (Tyler's OWNER ARCHITECTURE RULING, Option A, 2026-09-12). This file exists because `Interactable` carries no `tree` field: a dialogue tree opens only from `AmbientFile.tree`, so a speaking character must be an ambient even when his picture is already in the background. The sprite is a frame of pure transparency at his painted dimensions, so it draws nothing and the painting remains the only art of him in the room.",
- "room": "nugget_candidate",
- "x": 855,
- "y": 513,
- "zone": 0,
- "approachRadius": 95,
+ "note": "AN INTERACTION IDENTITY, NOT A SPRITE. He is the blue-coated man in the waistcoat and tie on the far side of the card table, facing the room -- drawn and animated by nugget_man34's band, which this file does not touch. Tyler, 2026-10-31: the OLD Nugget ships and the rebuild (nugget_candidate) is retired -- it moves, its problems can be fixed, and the rebuild's bar defects could not. Story-wise the two rooms carry the same twelve hotspots and two exits; what the rebuild had and the old room lacked was these two identities, so they move here. The sprite is a frame of pure transparency over him; a speaking character must be an ambient because only AmbientFile carries a tree.",
+ "room": "nugget",
+ "x": 930,
+ "y": 522,
+ "zone": 2,
+ "approachRadius": 180,
  "tree": "amb_card_sharp",
  "walkTo": {
-  "x": 855,
-  "y": 604,
-  "facing": "back"
+  "x": 1080,
+  "y": 605,
+  "facing": "left"
  },
- "walkToNote": "The floor in front of the card table, floor_1_3. His own baseline is behind the table, exactly the Winnie-behind-a-counter case the field was added for: without this the walk snaps to the nearest floor and Thad ends up pressed into the table over somebody's hand.",
- "registrationNote": "x IS THE FRAME'S HORIZONTAL CENTRE AND y IS ITS LAST ROW -- that is Renderer.drawAmbient, and it is why these numbers are not his feet. His painted box is x 800-910, y 250-430, so his head top is 250. zone 0 is 263 tall, so y 513 puts speakerHead at 513-263 = 250, exactly his painted head top, and the balloon's foot 32px above it. The 110x263 frame gives Ambient.npcAt a hit box of 0.2*263 either side of 855 -- x 803 to 907 against a painted body of 800 to 910. A person-sized target on the person, not on the table.",
- "hitboxNote": "HONEST LIMIT: the box spans y 250-513, so its lower third lies over the tabletop in front of him, and card_1's declared box reaches x 880 so the two overlap between x 803 and 880. Both follow from four men sitting at one small table and neither can be tuned away -- the half-width is 0.2 x the frame height in engine code. A hotspot wins over an ambient for every verb but TALK TO, so LOOK, LISTEN, USE and PICK UP on the cards and the table are unaffected; only TALK TO in that overlap reaches him rather than the patrons group, which for a man at a card table is the right answer anyway.",
- "clipPlane": 1,
- "clipPlaneNote": "The plane the card group stands behind. Moot while the sprite is transparent -- nothing is drawn to mask -- but declared rather than left to the nearest-box rule, so a future pass cannot change what masks him by moving a walk box.",
+ "walkToNote": "floor_1 at the open right side of the card table, facing him. The first placement (930,630, facing back) put Thad squarely between the player and the man he was talking to -- the proof capture showed only Thad's back. From here the card sharp stays in view over Thad's shoulder.",
+ "registrationNote": "x IS THE FRAME'S HORIZONTAL CENTRE AND y IS ITS LAST ROW (Renderer.drawAmbient). His head top in the old plate is y 300 at x 930. zone 2 is 222 tall, so y 522 puts speakerHead at 300, the balloon over his hat. The frame is cut to 110x222 so Ambient.npcAt's box is x 886-974, y 300-522: his body, then the table edge and floor in front of him.",
+ "hitboxNote": "HONEST LIMIT, same as the rebuild's: the box's lower part lies over the table in front of him. A hotspot wins over an ambient for every verb but TALK TO, so LOOK and LISTEN on THE PATRONS and THE HAND OF CARDS are unaffected; only TALK TO reaches him there, which is the right answer at a card table.",
  "sprite": {
   "sheet": "art/actors/nugget-card-sharp-identity.png",
   "rate": 0.0,
@@ -27,10 +25,10 @@
     0,
     0,
     110,
-    263
+    222
    ]
   ],
-  "note": "ZERO ALPHA EVERYWHERE. tools/retrofit/nugget-identity-frames.py builds it and asserts the alpha maximum is 0. No figureHeight, so the renderer blits 1:1 and the height Ambient.npcAt measures the hit box from is the height that is drawn. An ambient with NO sprite draws the graybox outline instead, which is the right loud behaviour for a content gap and the wrong behaviour for a man who is deliberately painted."
+  "note": "ZERO ALPHA EVERYWHERE (tools/retrofit/nugget-identity-frames.py asserts it). The declared frame is the top 222 rows of the 110x263 sheet, so the hit box matches zone 2's height."
  },
  "barks": {
   "R_NOBODY": "Sit down. Lose something.",
@@ -44,5 +42,6 @@
   "R_TRUTH": "Told the truth in a lying contest. And they gave him the pot."
  },
  "barksNote": "Doc 07 §17's bark table, all nine states, verbatim. ONE TRANSFORM, and it is the pie woman's precedent: the document writes R_TRUTH as \"Told the truth in a lying contest. *(He shakes his head.)* And they gave him the pot.\" and the italic direction is dropped, because a bark is one string over a head and the words are what it can carry. Nothing is added and no word is changed.",
- "idNote": "THE ID IS THE SPEAKER ID, AND THAT IS MECHANISM RATHER THAN CONVENTION. Renderer.speakerHead finds an ambient speaker by `each.id === this.speaker`, and the speaker is what the TREE declares -- so an ambient called nugget_card_sharp whose tree says `card_sharp` is never found, and doc 30 section 3.1's forbidden top-centre fallback fires for a man plainly on screen. It did: the first live proof of this pass drew \"I am.\" over the chandelier. Every other speaking character in the game -- winnie, pie_woman, map_seller, letter_writer -- is named this way for the same reason, and the room-prefixed nugget_* ids belong to the ambients that never speak."
+ "idNote": "THE ID IS THE SPEAKER ID, AND THAT IS MECHANISM RATHER THAN CONVENTION. Renderer.speakerHead finds an ambient speaker by `each.id === this.speaker`, and the speaker is what the TREE declares -- so an ambient called nugget_card_sharp whose tree says `card_sharp` is never found, and doc 30 section 3.1's forbidden top-centre fallback fires for a man plainly on screen. It did: the first live proof of this pass drew \"I am.\" over the chandelier. Every other speaking character in the game -- winnie, pie_woman, map_seller, letter_writer -- is named this way for the same reason, and the room-prefixed nugget_* ids belong to the ambients that never speak.",
+ "approachNote": "180 because walkTo (1080,605) is 171px from his anchor (930,522), and the bark must fire on arrival."
 }

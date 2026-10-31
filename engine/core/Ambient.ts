@@ -98,7 +98,11 @@ export class AmbientLayer {
   }
 
   npcAt(x: number, y: number): AmbientFile | undefined {
-    return this.present.find((npc) => {
+    // A PERSON WHO SPEAKS WINS over a figure who does not, where they
+    // overlap. The Nugget's named regulars are identities laid over men the
+    // patron bands draw, and the cast list is sorted by id -- so without this,
+    // which one a click found depended on the alphabet.
+    const hits = this.present.filter((npc) => {
       // THE SPRITE'S OWN HEIGHT WHEN IT HAS ONE, the zone's when it does not.
       // The zone heights are the game's three fixed drawn sizes; a figure
       // whose sheet is 440 rows tall behind a counter has a head 200 rows
@@ -108,6 +112,7 @@ export class AmbientLayer {
       return x >= npc.x - half && x <= npc.x + half
         && y >= npc.y - height && y <= npc.y;
     });
+    return hits.find((npc) => npc.tree !== undefined) ?? hits[0];
   }
 
   progressSnapshot(): string[] {

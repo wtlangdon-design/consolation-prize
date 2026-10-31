@@ -1218,9 +1218,7 @@
  "retiredNote": "THE 320x144 RELICS ARE GONE. This room carried an `idles` layer declaring four 18-pixel figures against a sheet drawn for the retired 320x144 presentation, and a foreground plane of the same vintage -- both drawn into a 1920x864 room, which is what put black boxes on the floor and one beside Thad. They described the same men who are now baked into the plates: the bar’s near and middle drinkers, a seated player, and doc 16’s man beside the stove.\nTHE MAN ON THE LANDING SURVIVES THE DELETION, because he was never in that list. Ruling 20 makes him an explicit exception -- his whole joke is that he never moves -- and doc 16 keeps him in THE STAIRS: there is always a man on the landing.",
  "ambient": [
   "nugget_landing_man",
-  "nugget_stove_man",
-  "card_sharp",
-  "one_strike_man"
+  "nugget_stove_man"
  ],
  "occlusionProofs": [
   {
@@ -1271,7 +1269,7 @@
    {
     "id": "card_2",
     "group": "card",
-    "kind": "voice",
+    "kind": "baked",
     "box": [
      800,
      250,
@@ -1283,7 +1281,7 @@
      435
     ],
     "what": "grey hair and side-whiskers, far side of the table, facing the room, holding a fanned hand",
-    "identity": "card_sharp"
+    "identityRetired": "card_sharp"
    },
    {
     "id": "card_3",
@@ -1320,7 +1318,7 @@
    {
     "id": "bar_1",
     "group": "bar",
-    "kind": "voice",
+    "kind": "baked",
     "box": [
      1195,
      262,
@@ -1332,7 +1330,7 @@
      600
     ],
     "what": "SEATED: the old bearded miner, hips on the far stool, one boot on its ring, both forearms on the counter, tin cup",
-    "identity": "one_strike_man"
+    "identityRetired": "one_strike_man"
    },
    {
     "id": "bar_2",
@@ -1407,7 +1405,7 @@
    "stove": 1,
    "baked": 7,
    "actors": 2,
-   "voice": 2
+   "voice": 0
   },
   "emptyFifthPlace": [
    875,
@@ -1417,6 +1415,7 @@
   ],
   "emptyFifthPlaceNote": "The near side of the table: an empty chair, and the abandoned face-up hand on the rim in front of it. No seat in this file may fall inside it.",
   "pianoNote": "Nobody plays the piano, nobody touches it, and that is the joke. No box in this file may reach it.",
-  "plateNote": "The plate is the room's own `background`; it is not restated here. It was, and the boot-assets check caught it still naming rebuild-01 after the grounding pass moved on to rebuild-02 -- two lists that must agree, kept by hand."
+  "plateNote": "The plate is the room's own `background`; it is not restated here. It was, and the boot-assets check caught it still naming rebuild-01 after the grounding pass moved on to rebuild-02 -- two lists that must agree, kept by hand.",
+  "retiredNote": "RETIRED 2026-10-31. Tyler kept the OLD Nugget (content/rooms/nugget.json) and this rebuild no longer ships. Its two voices, card_sharp and one_strike_man, moved to the old room with the ruling, so card_2 and bar_1 are paint again here and `identityRetired` records who they had been. The room still loads at ?room=nugget_candidate for reference."
  }
 }
