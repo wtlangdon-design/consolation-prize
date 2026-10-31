@@ -286,6 +286,59 @@ export interface OverlayFor {
 }
 
 /** Fills `{name}` placeholders from the supplied map. */
+/**
+ * Which frame an ambient figure shows at a given clock. A pure function of its
+ * declaration and the time, so the scene can ask "did anyone's frame change
+ * since the last draw?" with the same rule the renderer draws with. The scene
+ * used to ask a simpler question -- the two-frame sway only -- and a figure on
+ * a BEAT (rate 0) never answered yes: the Nugget's men moved only when the
+ * pointer happened to cause a redraw. Tyler, 2026-10-31: "everyone seems to
+ * stop moving when I'm not clicking around."
+ */
+export function ambientFrameAt(
+  declared: NonNullable<AmbientFile['sprite']>, phase: number, clock: number,
+): number {
+  // A BEAT: at rest on frame 0, and every `beatEvery` seconds the rest of
+  // the frames play once. Different intervals per figure mean they coincide
+  // only by chance, which is the difference between a room of people and a
+  // chorus line.
+  if (declared.beatEvery) {
+    const span = declared.beatSeconds ?? 1.2;
+    const t = clock + phase * declared.beatEvery;
+    const into = t - Math.floor(t / declared.beatEvery) * declared.beatEvery;
+    if (into >= span) return 0;
+    const rest = declared.frames.length - 1;
+    if (rest <= 0) return 0;
+    // ONE MOVEMENT PER BEAT, ROTATING, when a band holds more than one man.
+    // The Nugget's third and fourth card players share a band -- their arms
+    // overlap, so no column between them is safe to cut on -- and playing
+    // both movements in sequence every beat would be one man's arm followed
+    // by the other's, which reads as choreography. Rotating means each beat
+    // is one of them, and which one changes each time.
+    const beat = Math.floor(t / declared.beatEvery);
+    return 1 + (((beat % rest) + rest) % rest);
+  }
+
+  const idleFrames = declared.breaks?.length
+    ? Math.min(2, declared.frames.length) : declared.frames.length;
+  const sway = Math.floor((clock * declared.rate + phase) * 2) % idleFrames;
+  const breaks = declared.breaks;
+  if (!breaks?.length) return sway;
+
+  const every = declared.breakEvery ?? 26;
+  // The phase spreads the characters apart, so nobody breaks in unison.
+  const t = clock + phase * every;
+  const cycle = Math.floor(t / every);
+  const into = t - cycle * every;
+  // A cheap deterministic shuffle of the cycle number: the same street, run
+  // twice, does the same thing, and it still does not repeat in a pattern
+  // a player can learn.
+  const pick = breaks[Math.abs(cycle * 2654435761) % breaks.length] ?? [];
+  const FRAME_SECONDS = 0.34;
+  const step = Math.floor(into / FRAME_SECONDS);
+  return step < pick.length ? (pick[step] ?? sway) : sway;
+}
+
 export function format(template: string, vars: Record<string, string>): string {
   return template.replace(/\{(\w+)\}/g, (whole, key: string) => vars[key] ?? whole);
 }
@@ -1554,45 +1607,7 @@ export class Renderer {
   }
 
   private ambientFrame(declared: NonNullable<AmbientFile['sprite']>, phase: number): number {
-    // A BEAT: at rest on frame 0, and every `beatEvery` seconds the rest of
-    // the frames play once. Different intervals per figure mean they coincide
-    // only by chance, which is the difference between a room of people and a
-    // chorus line.
-    if (declared.beatEvery) {
-      const span = declared.beatSeconds ?? 1.2;
-      const t = this.clock + phase * declared.beatEvery;
-      const into = t - Math.floor(t / declared.beatEvery) * declared.beatEvery;
-      if (into >= span) return 0;
-      const rest = declared.frames.length - 1;
-      if (rest <= 0) return 0;
-      // ONE MOVEMENT PER BEAT, ROTATING, when a band holds more than one man.
-      // The Nugget's third and fourth card players share a band -- their arms
-      // overlap, so no column between them is safe to cut on -- and playing
-      // both movements in sequence every beat would be one man's arm followed
-      // by the other's, which reads as choreography. Rotating means each beat
-      // is one of them, and which one changes each time.
-      const beat = Math.floor(t / declared.beatEvery);
-      return 1 + (((beat % rest) + rest) % rest);
-    }
-
-    const idleFrames = declared.breaks?.length
-      ? Math.min(2, declared.frames.length) : declared.frames.length;
-    const sway = Math.floor((this.clock * declared.rate + phase) * 2) % idleFrames;
-    const breaks = declared.breaks;
-    if (!breaks?.length) return sway;
-
-    const every = declared.breakEvery ?? 26;
-    // The phase spreads the characters apart, so nobody breaks in unison.
-    const t = this.clock + phase * every;
-    const cycle = Math.floor(t / every);
-    const into = t - cycle * every;
-    // A cheap deterministic shuffle of the cycle number: the same street, run
-    // twice, does the same thing, and it still does not repeat in a pattern
-    // a player can learn.
-    const pick = breaks[Math.abs(cycle * 2654435761) % breaks.length] ?? [];
-    const FRAME_SECONDS = 0.34;
-    const step = Math.floor(into / FRAME_SECONDS);
-    return step < pick.length ? (pick[step] ?? sway) : sway;
+    return ambientFrameAt(declared, phase, this.clock);
   }
 
   /**

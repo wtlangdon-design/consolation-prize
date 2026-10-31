@@ -2,23 +2,21 @@
  "schema": 1,
  "id": "one_strike_man",
  "name": "THE ONE-STRIKE MAN",
- "note": "AN INTERACTION IDENTITY, NOT A SPRITE. He is bar_1 in the room's declared population -- the old bearded miner, hips on the far stool, one boot on its ring, both forearms on the counter, tin cup -- which is the man doc 07 §13 describes, and he is PAINTED INTO THE PLATE and stays that way (Tyler's OWNER ARCHITECTURE RULING, Option A, 2026-09-12). The sprite is pure transparency at his painted dimensions; the painting remains the only art of him.",
- "room": "nugget_candidate",
- "x": 1272,
- "y": 525,
- "zone": 0,
+ "note": "AN INTERACTION IDENTITY, NOT A SPRITE. He is the seated man in the brown coat at the near (left) end of the bar -- drawn and animated by nugget_bar1's band, which this file does not touch. Tyler, 2026-10-31: the OLD Nugget ships and the rebuild (nugget_candidate) is retired -- it moves, its problems can be fixed, and the rebuild's bar defects could not. Story-wise the two rooms carry the same twelve hotspots and two exits; what the rebuild had and the old room lacked was these two identities, so they move here. The sprite is a frame of pure transparency over him.",
+ "room": "nugget",
+ "x": 1205,
+ "y": 582,
+ "zone": 2,
  "approachRadius": 130,
  "tree": "amb_one_strike_man",
  "walkTo": {
-  "x": 1200,
-  "y": 625,
-  "facing": "back"
+  "x": 1095,
+  "y": 640,
+  "facing": "right"
  },
- "walkToNote": "floor_2, the open floor at the left end of the bar. His own baseline is a bar stool behind the counter line, so the nearest-floor rule would put Thad in the sliver between the card table and the bar rather than beside him.",
- "registrationNote": "His painted box is x 1195-1350, y 262-605, so his head top is 262. zone 0 is 263 tall, so y 525 puts speakerHead at 525-263 = 262, exactly his painted head top, with the balloon's foot 32px above it. The 155x263 frame gives a hit box of 0.2*263 either side of 1272 -- x 1220 to 1324. bar_2's declared box starts at x 1330, so unlike the card table there is NO overlap with a neighbour: his target is his own body and nobody else's.",
- "approachNote": "130 because the anchor is not his feet. The nearest legal ground to (1272, 525) is 83px away and his walkTo is 125px away, so the radius has to clear the larger of the two or the bark never fires on arrival and tests/phase2a-access fails him as stranded. It is a bark radius, not a hit box -- it decides when the town notices Thad, not what he can click.",
- "clipPlane": 1,
- "clipPlaneNote": "Declared rather than inferred from the nearest walk box. Moot while the sprite is transparent, and stable if a walk box moves later.",
+ "walkToNote": "floor_2 at the open end of the bar, beside him and facing him. DEKE VESSEL, when he is drawn, needs the bar's near end too (build contract: 'near end of the bar for A3'); in this plate that is the standing room in front of this man and the first stool, not his seat.",
+ "registrationNote": "His head top in the old plate is y 360 at x 1205. zone 2 is 222 tall, so y 582 puts speakerHead at 360. The frame is cut to 155x222, so Ambient.npcAt's box is x 1161-1249, y 360-582: his head, shoulders and back down to the stool.",
+ "approachNote": "130 because the anchor is not his feet: walkTo (1095,640) is 124px from (1205,582), and the bark must fire on arrival.",
  "sprite": {
   "sheet": "art/actors/nugget-one-strike-identity.png",
   "rate": 0.0,
@@ -27,10 +25,10 @@
     0,
     0,
     155,
-    263
+    222
    ]
   ],
-  "note": "ZERO ALPHA EVERYWHERE, built and asserted by tools/retrofit/nugget-identity-frames.py. No figureHeight, so the blit is 1:1 and the hit box measures the drawn height."
+  "note": "ZERO ALPHA EVERYWHERE (tools/retrofit/nugget-identity-frames.py asserts it). The declared frame is the top 222 rows of the 155x263 sheet."
  },
  "barks": {
   "R_NOBODY": "Found color in ’49. Nugget the size of a fist.",

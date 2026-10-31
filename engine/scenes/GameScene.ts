@@ -21,7 +21,7 @@ import { askedObjectStates } from '../dev/ObjectStates.ts';
 import { askedFont, PreviewFont } from '../render/PreviewFont.ts';
 import { CyclingBackground } from '../render/CyclingBackground.ts';
 import { IdleLayer } from '../render/IdleLayer.ts';
-import { Renderer, choiceLines } from '../render/Renderer.ts';
+import { Renderer, ambientFrameAt, choiceLines } from '../render/Renderer.ts';
 import {
   NATIVE_HEIGHT,
   NATIVE_WIDTH,
@@ -121,6 +121,8 @@ export class GameScene extends Phaser.Scene {
   } | null = null;
   /** How long the evidence is held before her before it lands: contact, then the line. */
   private static readonly EVIDENCE_BEAT_SECONDS = 1.1;
+  /** How often a room with lamps redraws for their flicker, per second. */
+  private static readonly LAMP_TICKS = 10;
   /** The selection being performed, or null while choices are up. */
   private performance: DialoguePerformance | null = null;
   /**
@@ -416,6 +418,14 @@ export class GameScene extends Phaser.Scene {
     // one of them turns over rather than every frame. Same rule as ruling
     // 20's crowds: the room is still, and then it is very slightly not.
     if (this.ambientChanged(before, now)) this.markDirty();
+    // A LAMP FLICKERS CONTINUOUSLY, so a lit room redraws on a slow tick
+    // rather than never: before this, the glow only moved when something else
+    // happened to cause a frame. Ten a second is enough for a two-sine wobble
+    // of a few per cent and far below the per-frame cost of walking.
+    if (this.state.room.lamps?.length
+      && Math.floor(before * GameScene.LAMP_TICKS) !== Math.floor(now * GameScene.LAMP_TICKS)) {
+      this.markDirty();
+    }
     if (this.actor.isWalking) {
       this.markDirty();
       const fired = this.ambient.checkApproach(this.actor.x, this.actor.y);
@@ -609,14 +619,17 @@ export class GameScene extends Phaser.Scene {
     this.dirty = true;
   }
 
-  /** Whether any ambient character's two-frame idle turned over. */
+  /**
+   * Whether any ambient character's frame changed: sway, break or beat. Asked
+   * with the renderer's own rule (ambientFrameAt), so a figure can never move
+   * in the drawing code and stand still on screen for want of a redraw.
+   */
   private ambientChanged(before: number, after: number): boolean {
     return this.ambient.present.some((npc) => {
       const sprite = npc.sprite;
       if (!sprite) return false;
       const phase = sprite.phase ?? 0;
-      const at = (seconds: number) => Math.floor((seconds * sprite.rate + phase) * 2);
-      return at(before) !== at(after);
+      return ambientFrameAt(sprite, phase, before) !== ambientFrameAt(sprite, phase, after);
     });
   }
 
