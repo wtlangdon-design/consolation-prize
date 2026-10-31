@@ -94,6 +94,17 @@ export class GameScene extends Phaser.Scene {
    * it as a fraction gives 1440, which is what the rule always meant.
    */
   private static readonly SPEECH_BLOCK_WIDTH = Math.round(NATIVE_WIDTH * (240 / 320));
+  /**
+   * Doc 30's bark width, "150 native pixels", read the same way: a fraction
+   * of the 320 play area, not a pixel count. Left as 150 at 1920 wide it held
+   * five glyphs a line, and the card sharp's "Sit down. Lose something." came
+   * out as a column of four one-word lines (Tyler, 2026-10-31). Captions -- a
+   * sound written over the thing that made it -- use the bark's face and its
+   * width, and had the same fault.
+   */
+  /** A bark's gap above the head, as a fraction of height -- speech's SPEECH_GAP. */
+  private static readonly BARK_GAP = 0.12;
+  private static readonly BARK_BLOCK_WIDTH = Math.round(NATIVE_WIDTH * (150 / 320));
 
   private sayLines: string[] = [];
   /** When the line on screen has been up long enough. Null while none is. */
@@ -429,8 +440,7 @@ export class GameScene extends Phaser.Scene {
     if (this.actor.isWalking) {
       this.markDirty();
       const fired = this.ambient.checkApproach(this.actor.x, this.actor.y);
-      if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x,
-        fired.npc.y - 30 * GLYPH_SCALE);
+      if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
     }
     // The tree opens when the walk that was started for it finishes.
     if (this.linesOnArrival && !this.actor.isWalking) {
@@ -1688,6 +1698,14 @@ export class GameScene extends Phaser.Scene {
     // screen. Anchoring only reads as anchoring if the block is narrow enough
     // to sit somewhere. 240 native pixels is 240 x GLYPH_SCALE drawn.
     this.sayLines = text ? this.font.wrap(text, GameScene.SPEECH_BLOCK_WIDTH) : [];
+    // A BARK GIVES WAY TO SPEECH. A remark thrown at Thad on arrival is over
+    // the moment somebody actually speaks; left up, it sat on top of Thad's
+    // first line of the conversation the arrival opened.
+    if (text && this.barkAt) {
+      this.barkTimer?.remove();
+      this.barkLines = [];
+      this.barkAt = null;
+    }
     this.sayingActor = text ? speaker : null;
     this.sayUntil = text && !this.state.dialogue.isActive
       ? this.time.now / 1000 + this.lineSeconds(text)
@@ -2058,7 +2076,7 @@ export class GameScene extends Phaser.Scene {
       if (this.spokenBreak === token) continue;
       this.spokenBreak = token;
       const line = this.ambient.barkFor(npc);
-      if (line) this.showBark(npc.name, line, npc.x, npc.y - 30 * GLYPH_SCALE);
+      if (line) this.showBark(npc.name, line, npc.x, this.barkFoot(npc));
     }
   }
 
@@ -2122,7 +2140,7 @@ export class GameScene extends Phaser.Scene {
    * the panel, and it clears itself.
    */
   private showCaption(text: string, x: number, y: number, holdMs: number): void {
-    this.captionLines = this.font.wrap(text, 150);
+    this.captionLines = this.font.wrap(text, GameScene.BARK_BLOCK_WIDTH);
     this.captionAt = { x, y };
     this.captionTimer?.remove();
     this.captionTimer = this.time.delayedCall(holdMs, () => {
@@ -2133,8 +2151,22 @@ export class GameScene extends Phaser.Scene {
     this.markDirty();
   }
 
+  /**
+   * Where a bark's last line sits: over the speaker's head as DRAWN, with
+   * speech's gap (SPEECH_GAP) above it. It used to be a
+   * fixed 180px above the anchor, and the anchor is not always the feet -- a
+   * painted man's identity is anchored so its zone height lands on his head --
+   * so the card sharp's bark was drawn across his face.
+   */
+  private barkFoot(npc: AmbientFile): number {
+    const drawn = this.view.ambientDrawnTop(npc);
+    if (drawn) return Math.round(drawn.top - GameScene.BARK_GAP * drawn.height);
+    const height = this.state.heightForZone(npc.zone);
+    return Math.round(npc.y - height - GameScene.BARK_GAP * height);
+  }
+
   private showBark(_name: string, line: string, x: number, y: number): void {
-    this.barkLines = this.font.wrap(line, 150);
+    this.barkLines = this.font.wrap(line, GameScene.BARK_BLOCK_WIDTH);
     this.barkAt = { x, y };
     this.barkTimer?.remove();
     this.barkTimer = this.time.delayedCall(2600, () => {
