@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 import type { GameState } from '../core/GameState.ts';
-import type { Exit, Facing, Interactable, CombinationPair,
+import type { AmbientFile, Exit, Facing, Interactable, CombinationPair,
 } from '../core/types.ts';
 import { Actor } from '../core/Actor.ts';
 import { planBoot } from '../core/BootAssets.ts';
@@ -620,6 +620,33 @@ export class GameScene extends Phaser.Scene {
   }
 
   /**
+   * The person under the pointer, or undefined when an object there takes it.
+   * One rule for the hover and the click, so the sentence line never names
+   * one target and the click reaches another.
+   *
+   * A SMALL OBJECT BESIDE A PERSON IS STILL AN OBJECT: Winnie's pen stand sits
+   * inside her hit box, and PICK UP on it must reach the pen. But A PERSON IN
+   * FRONT OF SCENERY IS STILL A PERSON. Tyler, 2026-10-31, hovering the card
+   * sharp with the default verb: "Look at THE PATRONS" -- the table's rect is
+   * three times his size and swallowed him for every verb but TALK TO, so
+   * nothing on screen said he was anyone. So: TALK TO always finds the person;
+   * otherwise a person who speaks (has a tree) wins over a hotspot LARGER than
+   * his own hit box, and loses to one smaller. A figure with no tree never
+   * takes a hotspot's place, so THE PATRONS' authored LOOK and LISTEN still
+   * play on the generic men.
+   */
+  private personAt(wx: number, y: number, verb: string | null): AmbientFile | undefined {
+    const npc = this.ambient.npcAt(wx, y);
+    if (!npc) return undefined;
+    const object = this.state.targetAt(wx, y);
+    if (!object || verb === 'TALK_TO') return npc;
+    if (!npc.tree) return undefined;
+    const [, , ow, oh] = this.state.presentation(object)?.bounds ?? object.rect;
+    const [, , pw, ph] = this.ambient.hitBox(npc);
+    return ow * oh > pw * ph ? npc : undefined;
+  }
+
+  /**
    * Whether any ambient character's frame changed: sway, break or beat. Asked
    * with the renderer's own rule (ambientFrameAt), so a figure can never move
    * in the drawing code and stand still on screen for want of a redraw.
@@ -678,9 +705,7 @@ export class GameScene extends Phaser.Scene {
     // names the hotspot, not the person standing over it, unless the verb
     // is TALK TO -- otherwise the sentence line promised "Pick up WINNIE
     // LEDGER" for a click that picked up her pen.
-    const hoveredObject = y < PLAY_HEIGHT ? this.state.targetAt(wx, y) : null;
-    const npc = y < PLAY_HEIGHT && !(hoveredObject && this.state.verbs.selectedVerb !== 'TALK_TO')
-      ? this.ambient.npcAt(wx, y) : undefined;
+    const npc = y < PLAY_HEIGHT ? this.personAt(wx, y, this.state.verbs.selectedVerb) : undefined;
     const found = npc
       ? { id: npc.id, name: npc.name,
           defaultVerb: this.state.content.verbs.npcVerb }
@@ -830,9 +855,7 @@ export class GameScene extends Phaser.Scene {
     // never played. When the click lands on a hotspot's own rect, the
     // hotspot wins for every verb but TALK TO -- talking is the one thing a
     // person is for and an object is not.
-    const chosenVerb = this.state.verbs.selectedVerb;
-    const objectUnderClick = y < PLAY_HEIGHT ? this.state.targetAt(wx, y) : null;
-    const npc = objectUnderClick && chosenVerb !== 'TALK_TO' ? undefined : this.ambient.npcAt(wx, y);
+    const npc = y < PLAY_HEIGHT ? this.personAt(wx, y, this.state.verbs.selectedVerb) : undefined;
 
     // A PERSON IS NOT A LEVER. Every verb pointed at an ambient character used
     // to open their tree, so Tyler clicked PUSH on the letter-writer and got a
