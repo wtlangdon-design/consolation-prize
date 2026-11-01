@@ -53,5 +53,5 @@
   "lumSD": 37.1,
   "satMean": 85.5
  },
- "metricNote": "here = mean absolute luminance difference between 4-neighbours over\nthe figure interior (alpha eroded 2 px), at Thad's in-game height, box\nresampled. The 6.09 / 4.90 figures in CLAUDE.md came from a metric that was\nnever committed; this one gives Thad 6.44, so compare within this file only."
+ "metricNote": "here = mean absolute luminance difference between 4-neighbours over\nthe figure interior (alpha eroded 2 px), at Thad's in-game height, box\nresampled. The 6.09 / 4.90 figures in CLAUDE.md came from a metric that was\nnever committed; this one gives Thad 6.48, so compare within this file only."
 }

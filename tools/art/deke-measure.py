@@ -11,7 +11,8 @@ import json, sys
 import numpy as np
 from PIL import Image
 from scipy import ndimage as ndi
-R = '/home/user/consolation-prize/'
+import os
+R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) + '/'
 GAME_H = 296   # Thad at the near end of the bar: proofs/room-03/old-nugget-ships/one-strike-man-speaks.webp, hat y~340, soles y~636
 FRAME = 'proofs/room-03/old-nugget-ships/one-strike-man-speaks.webp'
 

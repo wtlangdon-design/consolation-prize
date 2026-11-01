@@ -3,7 +3,8 @@ style reference on the left, attempt 1's five poses shrunk to Thad's height
 beside him, on magenta. No content; art plumbing only."""
 import numpy as np
 from PIL import Image
-R = '/home/user/consolation-prize/'
+import os
+R = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) + '/'
 THAD_TOP, THAD_BASE = 39, 339          # measured on reference/room-03/deke/style-reference.png
 THAD_H = THAD_BASE - THAD_TOP + 1      # 301
 KEY = (255, 0, 255)
