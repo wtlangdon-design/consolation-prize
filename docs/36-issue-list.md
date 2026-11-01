@@ -4687,7 +4687,7 @@ Under errata 72 F, a gap in a puzzle's path makes the room **wait**, not ship wi
 
 **To unblock:** the wrong counters and Vessel's replies, for every pair Vessel can throw in Duels One and Two. That is at least Tier 1 (pairs 2–4) for Duel One and every pair from which Duel Two draws. It is Tyler's writing. Then a ruling on item 1. Room 4's four operations are untouched and waiting.
 
-## Q147 · The 45 puzzles' own writing was never checked — **OPEN 2026-10-31: AUDITED (doc 56), GATE NOW CHECKS IT (errata 74)**
+## Q147 · The 45 puzzles' own writing was never checked — **CLOSED 2026-11-01: AUDITED (doc 56), GATE CHECKS IT (errata 74), EVERY GAP WRITTEN OR DECIDED (doc 57, errata 75)**
 
 Tyler, after Q146: "Is it going to run into this same problem over and over with every room? I thought everything was done and ready to build." It would have. Q144's "writing layer finished" covered the examine layer only. Doc 56 is the audit: eight structural holes (an Act II deadlock, the fake funeral with no design, the executor unwritten, the funeral-to-coffin transition unstaged, A7's money loop, the act-3 boundary, F4's 24 pairs, D5's circular opening) and missing lines or items in most puzzles. Only C1, C5, E8, F2 (writing), B5 and B6 are complete.
 
