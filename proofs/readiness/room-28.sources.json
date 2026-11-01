@@ -3,30 +3,44 @@
  "room": 28,
  "id": "room-28",
  "name": "SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54).",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
+  "primary": "docs/05-examine-layer.md::ROOM 28 \u2014 SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
   "batch": [
-   "docs/08-examine-batch-1.md::ROOM 28 — SHENG'S LAUNDRY"
+   "docs/08-examine-batch-1.md::ROOM 28 \u2014 SHENG'S LAUNDRY"
   ],
   "merged": [
-   "docs/08-examine-batch-1.md::ROOM 28 — SHENG'S LAUNDRY"
+   "docs/08-examine-batch-1.md::ROOM 28 \u2014 SHENG'S LAUNDRY"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 28 \u00b7 SHENG'S LAUNDRY"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Part Two-B wrote no variant for the laundry."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 28 \u2014 SHENG'S LAUNDRY",
+ "dialogue": {
+  "characters": [
+   "Ah-Lam Sheng"
+  ],
+  "trees": [
+   "docs/04-dialogue-trees.md::AH-LAM SHENG",
+   "docs/04-dialogue-trees.md::`SHE_D1` \u2014 the paper *(W1 growth: D3, D4)*"
   ]
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 28 — SHENG'S LAUNDRY",
- "dialogue": {
-  "characters": [],
-  "trees": [],
-  "mapped": false
- },
  "puzzles": {
-  "ids": [],
-  "source": null,
-  "mapped": false
+  "ids": [
+   "D3",
+   "D4"
+  ],
+  "source": "docs/02-puzzle-graph.md::TRIAL THREE \u2014 Proof of Continuous Occupancy (Document D)"
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "D3 and D4 are Sheng's dialogue; no doc 48 script is sited here."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "exits": "docs/54-batch-c.md::ROOM 28 \u00b7 SHENG'S LAUNDRY"
 }

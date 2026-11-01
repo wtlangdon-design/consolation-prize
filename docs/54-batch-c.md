@@ -986,3 +986,66 @@
 **THE SUBSCRIPTION BOOK** — LOOK 2 "There is a pen beside it, inked and ready. It is the only pen in town that is always inked." · 3 "The last name on the page has subscribed for one share. It is spelled carefully, as if it mattered." | LISTEN 2 "The page lifting in the warm air off the stove." · 3 "Nothing. It is waiting for the next small number."
 
 **THE STOVE** — LOOK 2 "There are scraps of paper in the ash pan, half burned. The Company heats its lobby with what it no longer needs." · 3 "It is very warm in here. You do not want to leave, and you do not want to take your coat off, and so you sit." | LISTEN 2 "A soft collapse in the firebox as something settles." · 3 "Burning, steadily. It is never allowed to go out, which is the most expensive thing in the room."
+
+---
+
+# ROOM 28 · SHENG'S LAUNDRY
+
+*Merged: doc 05's twelve and doc 08's twelve, seventeen objects. One contradiction decided for doc 05 on a tie (errata 68 H): three coppers, not four, so doc 08's THE COPPERS LOOK is dropped from the sequence. Doc 08's plants (the ledger's other column, the Thursday book) get repeats that add no fact, and nothing here says who comes on Thursdays.*
+
+## Same object, both passes
+
+**THE COLLAR ADVERTISEMENT** ≡ **THE WINDOW ADVERTISEMENT**
+**THE DRYING LINES** ≡ **THE LINE**
+**THE STOVE & IRONS** ≡ **THE IRONS**
+**THE STOVE & IRONS** ≡ **THE STOVE**
+**SHENG'S CHAIR** ≡ **THE CHAIR BY THE DOOR**
+**THE WINDOW, STEAMED** ≡ **THE STREET WINDOW**
+
+*(THE COPPERS has the same name in both passes.)*
+
+## Repeats
+
+**THE COPPERS** — LOOK 2 "Each copper has its own fire and its own temper, and he knows both." · 3 "The water in the last copper is the clearest in Consolation. It has been boiled into honesty." | LISTEN 3 "The lid on the middle copper lifting and settling, like a man about to object and deciding it is not worth it."
+
+**THE MANGLE** — LOOK 2 "The rollers are wood, worn so smooth they shine. Ten thousand shirts have gone through them and come out flatter and better." · 3 "A brass plate on the frame gives a maker and a city. It is the only thing in Consolation that came from somewhere and still works." | LISTEN 2 "A slow creak as the crank settles back a quarter turn." · 3 "Nothing. It is resting, and it has earned it more than anyone in town."
+
+**THE DRYING LINES** — LOOK 2 "Every shirt is pegged by the tail, shoulders down, so the collar dries straight. There is a method to all of it." · 3 "My own shirt is up there, the better one. It looks more respectable on the line than it has ever looked on me." | LISTEN 2 "A peg snapping shut on a corner as the wind takes it." · 3 "A long gust that fills every shirt at once. A whole congregation, breathing in."
+
+**THE COLLAR ADVERTISEMENT** — LOOK 3 "Up close, the printing is very fine. He has a dimple. I had not noticed the dimple in the Clarion." | LISTEN 3 "The paper lifting at one corner when the door opens, and lying flat again."
+
+**THE TICKET RAIL** — LOOK 2 "Each ticket is torn in half. He keeps one half and you keep the other, and the two halves have never once failed to meet." · 3 "My own ticket is on the wire: one shirt, one collar. My entire wardrobe, in Sheng's custody." | LISTEN 2 "The tags sliding as he moves a shirt along the rail." · 3 "Nothing, for a moment. The wire waiting for the next number."
+
+**THE STARCH CROCK** — LOOK 2 "There is a paddle standing upright in it, unsupported. That is how stiff it is." · 3 "He mixes it by eye and is never wrong. I tune by ear. We have a professional understanding." | LISTEN 2 "A slow bubble breaking the surface, considering." · 3 "Nothing. Even the starch here stands to attention."
+
+**THE STOVE & IRONS** — LOOK 2 "Each handle is wrapped in rag of a different color, so he knows which iron is which without looking." · 3 "One iron is smaller than the rest. It is for collars, and it has done more for this town's dignity than the church." | LISTEN 2 "A hiss as he tests an iron with a wet finger." · 3 "Iron set down, iron taken up. Still the steadiest time in town."
+
+**THE MENDING BASKET** — LOOK 2 "One shirt has been mended so often it is mostly mending. The original shirt is a rumor." · 3 "The needles are stuck in a pincushion shaped like a strawberry. It is the only frivolous object in the building." | LISTEN 2 "Nothing. Torn cloth, waiting its turn." · 3 "Nothing. The damage has been sorted by owner."
+
+**THE HIGH RIDGE PATH** — LOOK 2 "The first stretch is stepped with flat stones, carefully set. Past the laundry, nobody bothered." · 3 "It climbs to the only place in the district with a view, and it starts at the only place in town that works." | LISTEN 2 "Boots coming down it, slowly. Someone who went up to decide something." · 3 "The wind coming down the path, and the shirts turning to meet it."
+
+**THE PAYMENT TIN** — LOOK 2 "The sign says EXACT CHANGE, and underneath, in English only, PLEASE. The please is for the English." · 3 "He has never once counted it in front of a customer. He does not need to." | LISTEN 2 "Nothing. Sheng's money does not discuss itself." · 3 "A coin settling as the shelf takes my elbow. One clean note, and done."
+
+**SHENG'S CHAIR** — LOOK 3 "A cup of tea on the floor beside it, gone cold. The ten minutes were interrupted." | LISTEN 3 "Nothing. The chair is empty, and he is at work, which is where he usually is."
+
+**THE WINDOW, STEAMED** — LOOK 2 "A small clear circle is wiped in the fog at the height of a seated man. He watches the street through it." · 3 "Through the clear spot, Main Street, very small and very sharp, like a picture in a locket." | LISTEN 2 "Steam ticking against the glass, then running." · 3 "The street, muffled to almost nothing. The coppers win."
+
+**THE LEDGER** — LOOK 2 "The laundry columns total to the cent. The other column totals to a great deal more than laundry." · 3 "He saw me reading it and did not close it. In this town that is a kind of respect." | LISTEN 2 "Nothing. Figures that balance make no noise." · 3 "The page lifting in the steam and settling again, heavy with damp and arithmetic."
+
+**THE COLLARS** — LOOK 2 "Each box is labeled with a name. The Colonel has six. The Reverend has one, very clean." · 3 "There is a box with my name on it. It holds one collar, which is the right number." | LISTEN 2 "Nothing. Starch keeps a straight face." · 3 "A box lid settling. Somebody's dignity, put away for the week."
+
+**THE THURSDAY BOOK** — LOOK 2 "The entries are short: a date, a name, a sum. Every date is a Thursday." · 3 "It is shelved a hand's width from the laundry book. A hand's width is the distance between washing and banking in this town." | LISTEN 2 "Nothing. Thursdays are kept quiet." · 3 "The spine creaking as I lean near it. It is not used to visitors on a Monday."
+
+### THE BACK ROOM
+**LOOK** 1 "A curtain across a doorway, and behind it a room I am not invited into." · 2 "The curtain is clean. Everything here is clean, including, I suspect, the business behind it." · 3 "Once the curtain moved, and I saw a desk and a lamp and a great many papers in very good order. Then it moved back."
+**LISTEN** 1 "Nothing behind the curtain, or nothing I am meant to hear." · 2 "A pen, somewhere back there, adding." · 3 "Nothing. Sheng's back room is where the town's noise goes to be counted."
+
+### THE SCALE
+**LOOK** 1 "A brass scale for weighing laundry by the pound. It is as accurate as the one at the assay office, and it weighs shirts." · 2 "The weights are stamped and checked. A man who weighs collars this honestly would weigh anything honestly." · 3 "I put my hat on it. Eleven ounces. Sheng did not charge me."
+**LISTEN** 1 "A small tick as the pan settles level." · 2 "Nothing. It is perfectly balanced, and has nothing to add." · 3 "The beam rocking once when the door goes, and finding level again without help."
+
+## Overrides
+
+> **AH-LAM SHENG** · PICK UP — "He would tell me my weight to the ounce, and what I owe him for the information."
+> **AH-LAM SHENG** · PUSH — "He is ironing. I value my hand."
+> **AH-LAM SHENG** · USE — "Everybody in town uses Sheng. He keeps a book of it."
