@@ -1,0 +1,11 @@
+{
+ "assetId": "room-07",
+ "subject": "sump",
+ "role": "canonical-design",
+ "purpose": "room-art",
+ "baselineRoom": "room-07-claims-registrar",
+ "promptFile": "reference/room-07/prompts/sump-01.txt",
+ "out": "art/staging/room-07/sump-01/sheet.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-07/composition-master-01.png"]
+}

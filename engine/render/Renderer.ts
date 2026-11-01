@@ -1,3 +1,4 @@
+import { mapLayout as layoutMap, mapPlaceAt } from './MapLayout.ts';
 import type { GameState } from '../core/GameState.ts';
 import type { PresentedOption } from '../core/DialogueRunner.ts';
 import { FAR_WALK, IDLE_BREAK, type Actor } from '../core/Actor.ts';
@@ -585,31 +586,16 @@ export class Renderer {
       { id: location.id, built, rect }));
   }
 
-  /**
-   * Where each location's marker and label go.
-   *
-   * A label near the right edge is drawn to the LEFT of its marker instead of
-   * running off the screen -- which is what THE ROAD TO THE CLAIMS did, and
-   * it is the location errata 30c puts on the map from the first opening, so
-   * it was the most-seen label in the game and half of it was missing.
-   */
+  /** The place a map click means (engine/render/MapLayout.ts, mapPlaceAt). */
+  mapHitAt(x: number, y: number): { id: string; rect: Rect; built: boolean } | undefined {
+    const box = mapPlaceAt(this.mapLayout(), x, y);
+    return box ? { id: box.location.id, built: box.built, rect: box.rect } : undefined;
+  }
+
+  /** Where each location's marker and label go (engine/render/MapLayout.ts). */
   private mapLayout() {
-    return this.state.mapLocations.map(({ location, label, built }) => {
-      const [x, y] = location.at;
-      const width = this.font.measure(label);
-      const fits = x + MAP_MARKER + GLYPH_SCALE * 2 + width <= NATIVE_WIDTH - GLYPH_SCALE * 2;
-      const labelX = fits ? x + MAP_MARKER + GLYPH_SCALE * 2 : x - GLYPH_SCALE * 2 - width;
-      const left = Math.min(x, labelX);
-      const right = Math.max(x + MAP_MARKER, labelX + width);
-      return {
-        location,
-        label,
-        built,
-        labelX,
-        rect: { x: left - GLYPH_SCALE, y: y - GLYPH_SCALE * 2,
-          width: (right - left) + GLYPH_SCALE * 2, height: MAP_LABEL_HEIGHT },
-      };
-    });
+    return layoutMap(this.state.mapLocations, (text: string) => this.font.measure(text),
+      { marker: MAP_MARKER, labelHeight: MAP_LABEL_HEIGHT, glyph: GLYPH_SCALE, width: NATIVE_WIDTH });
   }
 
   drawFrame(frame: Frame): void {

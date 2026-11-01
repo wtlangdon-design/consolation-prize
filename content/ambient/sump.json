@@ -1,0 +1,94 @@
+{
+ "schema": 1,
+ "id": "sump",
+ "name": "REGISTRAR SUMP",
+ "posture": "behind-counter",
+ "room": "claims_registrar",
+ "x": 1278,
+ "y": 450,
+ "zone": 2,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 890,
+  "y": 790,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the floor before the counter's left end, clear of the ticket spindle (at x 960 his head sat on it in the life proof) and left of the FILING sign and its rope, facing him across the counter (errata 80 C). The queue posts stand on the floor in front of his window, so Thad does not stand in either line; nobody does.",
+ "tree": "SUMP",
+ "note": "REGISTRAR CADWALLADER SUMP, at his window in the partition (doc 04: 'every response is a citation... completely immovable'). Canon gives him no appearance, so he is a plain territorial clerk of the 1850s -- spectacles, white shirt, black sleeve protectors, dark waistcoat (errata 80 B). Drawn first in room-07's composition master beside Thad (style gate step 1), then alone on magenta in five poses (room-07 operation 3), keyed by tools/art/room07-sump.py. BEHIND THE COUNTER, as Winnie is in Room 5: the sheet stops at the ledger's far edge, so `y` is the row under his resting hands, not his feet. Present in every act: the office is his.",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Sump.",
+ "sprite": {
+  "sheet": "art/actors/room-07-sump.png",
+  "frames": [
+   [
+    2,
+    2,
+    180,
+    222
+   ],
+   [
+    184,
+    2,
+    180,
+    222
+   ],
+   [
+    366,
+    2,
+    180,
+    222
+   ],
+   [
+    548,
+    2,
+    180,
+    222
+   ],
+   [
+    730,
+    2,
+    180,
+    222
+   ]
+  ],
+  "rate": 0.25,
+  "phase": 0.2,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0,
+    2,
+    2,
+    0
+   ],
+   [
+    4,
+    4,
+    4,
+    0
+   ],
+   [
+    2,
+    2,
+    3,
+    3,
+    0,
+    2,
+    0
+   ]
+  ],
+  "breakEvery": 6,
+  "talkFrame": 4,
+  "frameNote": "0 rest (hands on the ledger) · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 writing · 3 stamping, the stamp raised · 4 looking up over his spectacles. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool: he writes, he stamps, he looks up (errata 35 and 77: a deliberate action at least every 30 s).",
+  "provenance": "art/staging/room-07/sump/sump.json"
+ }
+}

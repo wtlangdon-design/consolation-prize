@@ -109,6 +109,8 @@ type LegacyProgress = Record<string, string[] | Record<string, number>>;
 export interface MilestoneStore {
   reached(id: string): boolean;
   set(id: string, status: PuzzleStatus): void;
+  /** Whether he carries this item: read only, for an option's `holds` gate. */
+  holds?(item: string): boolean;
 }
 
 //: EXIT ENDS THE CONVERSATION. That is the tag's function, not an exemption
@@ -251,6 +253,11 @@ export class DialogueRunner {
 
   private milestoneReached(id: string): boolean {
     return this.milestones.reached(id);
+  }
+
+  /** Whether he carries everything an option's `holds` names (DialogueOption.holds). */
+  private carries(option: DialogueOption): boolean {
+    return (option.holds ?? []).every((item) => this.milestones.holds?.(item) ?? false);
   }
 
   get isActive(): boolean {
@@ -432,6 +439,7 @@ export class DialogueRunner {
     const out: PresentedOption[] = [];
     for (const authored of node.options) {
       if (!this.flags.test(authored.when)) continue;
+      if (!this.carries(authored)) continue;
       if (!this.followsAsked(authored, treeId, nodeId)) continue;
       const taken = this.countOf(treeId, nodeId, authored.id);
       // ERRATA 57: THE OPTION'S OWN AFTERMATH DECIDES. `remove` is gone once
@@ -493,7 +501,8 @@ export class DialogueRunner {
     if (!option) {
       throw new Error(`Unknown option: ${optionId}`);
     }
-    if (!this.flags.test(option.when) || !this.followsAsked(option, this.activeTree.id, this.activeNodeId as string)) {
+    if (!this.flags.test(option.when) || !this.carries(option)
+      || !this.followsAsked(option, this.activeTree.id, this.activeNodeId as string)) {
       throw new Error(`Gated option selected: ${optionId}`);
     }
     if (this.isSpent(option, this.countOf(this.activeTree.id, this.activeNodeId, option.id))) {

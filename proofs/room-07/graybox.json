@@ -1,0 +1,334 @@
+{
+ "room": 7,
+ "note": "Ruling 22 steps 1-6 for the claims registrar, written by tools/room07-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 80).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 735,
+   "height": 494
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers (reference/room-05/annotation.json)"
+ },
+ "walkable": [
+  240,
+  735,
+  1600,
+  115
+ ],
+ "exit": {
+  "hotspot": "THE STREET DOOR",
+  "to": "main_street",
+  "rect": [
+   40,
+   140,
+   200,
+   540
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 770,
+   "facing": "right"
+  },
+  "talk_sump": {
+   "x": 1040,
+   "y": 775,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE STREET DOOR",
+   "rect": [
+    40,
+    140,
+    200,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW",
+   "rect": [
+    290,
+    130,
+    250,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BENCH",
+   "rect": [
+    270,
+    520,
+    330,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MAP OF CLAIMS",
+   "rect": [
+    620,
+    120,
+    240,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FORMS RACK",
+   "rect": [
+    640,
+    360,
+    200,
+    300
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "SUMP'S CLOCK",
+   "rect": [
+    990,
+    110,
+    110,
+    110
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SEALED ARCHIVE DOOR",
+   "rect": [
+    1650,
+    90,
+    190,
+    300
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STATUTE (posted)",
+   "rect": [
+    1570,
+    150,
+    60,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "REGISTRAR SUMP (behind the counter)",
+   "rect": [
+    1160,
+    190,
+    160,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COUNTER",
+   "rect": [
+    900,
+    390,
+    980,
+    310
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LEDGER",
+   "rect": [
+    1150,
+    372,
+    190,
+    24
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "SUMP'S PEN",
+   "rect": [
+    1350,
+    370,
+    40,
+    20
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COUNTER BELL",
+   "rect": [
+    1040,
+    368,
+    36,
+    24
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "FORM 12-C (THE STACK)",
+   "rect": [
+    1450,
+    370,
+    80,
+    22
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STATUTE BOOK",
+   "rect": [
+    1580,
+    366,
+    80,
+    26
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE NUMBER SPINDLE",
+   "rect": [
+    915,
+    320,
+    40,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TWO LINES (FILING sign)",
+   "rect": [
+    1000,
+    560,
+    70,
+    170
+   ],
+   "where": "floor"
+  },
+  {
+   "name": "THE TWO LINES (INQUIRIES sign)",
+   "rect": [
+    1500,
+    560,
+    70,
+    170
+   ],
+   "where": "floor"
+  },
+  {
+   "name": "THE TWO LINES (ropes)",
+   "rect": [
+    980,
+    700,
+    640,
+    30
+   ],
+   "where": "floor"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: the counter, the queue ropes and the bench are all behind it, so no plane is needed. Sump stands behind the counter and is drawn cut at its top, as Winnie is (posture behind-counter).",
+ "surfaces": [
+  {
+   "surface": "public wall, pale plank",
+   "p10": 64.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "partition, pale wood and glass",
+   "p10": 58.0,
+   "p90": 88.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 33.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "right wall, behind the counter",
+   "p10": 80.0,
+   "p90": 80.0,
+   "darkAnchorMargin": 54.5,
+   "lightAnchorMargin": 41.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, worn boards",
+   "p10": 90.0,
+   "p90": 99.0,
+   "darkAnchorMargin": 64.5,
+   "lightAnchorMargin": 22.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE STREET DOOR",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 24.5,
+   "lightAnchorMargin": 71.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE BENCH",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MAP OF CLAIMS",
+   "p10": 96.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 70.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE FORMS RACK",
+   "p10": 74.0,
+   "p90": 74.0,
+   "darkAnchorMargin": 48.5,
+   "lightAnchorMargin": 47.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SEALED ARCHIVE DOOR",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE COUNTER",
+   "p10": 78.0,
+   "p90": 78.0,
+   "darkAnchorMargin": 52.5,
+   "lightAnchorMargin": 43.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

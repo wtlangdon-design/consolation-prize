@@ -1,0 +1,29 @@
+{
+ "schema": 1,
+ "room": "claims_registrar",
+ "note": "ROOM 7's PROOF SPEC. The route is Main Street's, then the map. The room has one visual state (errata 80 A); its principal change is the act: in Act III the counter answers with doc 05 Part Two-B's line and Sump opens on SUM_E1. A9's filing needs the survey (A7, Room 16, unbuilt) and is played in tests/room-07.test.ts from fixture r7-b.",
+ "route": "claims-registrar",
+ "settleMs": 4000,
+ "principalChange": {
+  "note": "ACT 3 (errata 75 H: set at E0b's card, in rooms not built, so the flag control sets it). Visible consequence: LOOK AT the counter speaks the Act III line.",
+  "flags": {
+   "ACT": 3
+  },
+  "actions": [
+   {
+    "do": "verb",
+    "verb": "LOOK_AT"
+   },
+   {
+    "do": "click",
+    "on": "counter",
+    "why": "the counter, which has an Act III line"
+   },
+   {
+    "do": "waitFor",
+    "says": "thad",
+    "upTo": 30
+   }
+  ]
+ }
+}

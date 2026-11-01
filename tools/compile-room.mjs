@@ -490,6 +490,29 @@ if (!existsSync(annPath)) fail(`no annotation at ${annPath}. Run tools/annotate/
 const ann = JSON.parse(readFileSync(annPath, 'utf8'));
 
 const hotspots = MERGED ? mergedSubjects(MERGED) : examineLayer(examine);
+// A SUBJECT A LATER DOCUMENT REWROTE WHOLE. Doc 19 section 2 replaces doc 05's
+// THE TWO LINES for Room 7 ("THE TWO LINES is rewritten and needs no
+// figures"), three LOOK and three LISTEN on `> **LOOK** 1 "..." · 2 ...` lines.
+// The annotation names the section (`supersededBy`), so the room says which
+// document wins and the compiler reads the words from there; a name doc 05
+// does not write, or a section with no such runs, is refused.
+for (const [name, ref] of Object.entries(ann.supersededBy ?? {})) {
+  if (!hotspots.has(name)) fail(`supersededBy names "${name}", which doc 05 does not write for this room`);
+  const [path, heading] = ref.split('::');
+  const text = read(path);
+  const at = text.indexOf(heading);
+  if (at < 0) fail(`supersededBy: ${path} has no section "${heading}"`);
+  const rest = text.slice(at);
+  const body = rest.slice(0, (/\n---\n|\n# /.exec(rest.slice(heading.length)) ?? { index: rest.length }).index + heading.length);
+  const responses = {};
+  for (const [label, verb] of [['LOOK', 'LOOK_AT'], ['LISTEN', 'LISTEN_TO']]) {
+    const run = new RegExp(`\\*\\*${label}\\*\\* (.+)$`, 'm').exec(body);
+    if (!run) fail(`supersededBy: ${ref} has no ${label} run for "${name}"`);
+    const lines = [...run[1].matchAll(/\d "([^"]+)"/g)].map((m) => m[1]);
+    responses[verb] = [lines.length > 1 ? { say: lines[0], repeat: lines.slice(1) } : { say: lines[0] }];
+  }
+  hotspots.set(name, { ...hotspots.get(name), responses, supersededBy: ref });
+}
 // DOC 05 NAMES A ROOM MORE THAN ONCE: its act-variant block, 1200 lines
 // below the examine layer, repeats the heading and writes subjects `*(act:
 // "2-4")*`. A subject that appears ONLY there is an act-gated hotspot; one
@@ -506,6 +529,13 @@ const actSections = [];
     actSections.push(next ? rest.slice(0, next.index) : rest);
   }
 }
+// WHAT THE ROOM DOC WRITES IN FULL, read before the act block: a subject doc 05
+// only NAMES in its roster ("THE COUNTER ... *(working script)*") and writes in
+// its act block is still a subject the room has, once doc 25 writes its first
+// line (doc 25's Newly written). One doc 25 writes only repeats for -- Room 5's
+// QUEUE BENCH -- stays the act-only subject it was.
+// Read after, Room 7's counter took its Act III line as its first LOOK.
+const written = ROOM_DOC ? roomDocHotspots(ROOM_DOC_TEXT) : new Map();
 const actOnly = new Map();
 // ACT VARIANTS ON A SUBJECT THE ROOM ALREADY HAS (Part Two-B): THE PIANO's
 // act 2 and act 4 lines, THE BAR's act 3. Compiled as guarded rules ahead of
@@ -520,7 +550,8 @@ const actSpan = (spec) => {
 for (const block of actSections) {
   for (const [name, entry] of examineLayer(block)) {
     const act = new RegExp(`\\*\\*${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\*\\*\\s*\\*\\(act:\\s*"?([^)"]+)"?\\)\\*`).exec(block);
-    if (hotspots.has(name)) {
+    const writtenWhole = Object.values(written.get(name) ?? {}).some((variants) => variants?.first);
+    if (hotspots.has(name) || writtenWhole) {
       // ONE ENTRY PER OCCURRENCE, NOT PER NAME. THE PIANO appears twice in
       // Room 3's block (acts 2 and 4); read by name, the second's lines
       // overwrote the first's under the first's act.
@@ -548,7 +579,6 @@ for (const block of actSections) {
 
 const overrides = MERGED ? mergedOverrides(MERGED) : verbOverrides(wrongDoc);
 const repeats = MERGED ? mergedRepeats(MERGED) : repeatVariants(wrongDoc);
-const written = ROOM_DOC ? roomDocHotspots(ROOM_DOC_TEXT) : new Map();
 
 // A ROOM DOCUMENT MAY WRITE HOTSPOTS DOC 05 ONLY NAMES. Doc 05 lists Room 3's
 // six unwritten ones on a single line and says the full lines live elsewhere;

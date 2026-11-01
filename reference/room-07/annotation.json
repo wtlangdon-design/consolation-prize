@@ -1,0 +1,214 @@
+{
+ "room": "claims_registrar",
+ "plate": "art/backgrounds/room-07-claims-registrar.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-07/plate-01/candidate-1920x864.png, room-07 attempt 2, Room 7's own 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-07-claims-registrar.png",
+ "plateShippingHash": "74405fab6351b07f277ed3e7",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   220,
+   752
+  ],
+  [
+   1010,
+   752
+  ],
+  [
+   1010,
+   850
+  ],
+  [
+   220,
+   850
+  ]
+ ],
+ "walkableNote": "THE PUBLIC FLOOR LEFT OF THE QUEUE LINES (errata 80 C). The bench's front legs stand at y 745 and the counter's base at y 720, so the band starts at 752, in front of both. The two roped lines come forward from the counter on brass posts to y 860 between x 1040 and 1830: a man walking among them would need a mask per post, and the lines are empty by canon (doc 19: 'There is nobody in either of them'), so the band stops at x 1010, short of the first post. The counter, the spindle, the ledger and Sump are reached from its right end; the archive door and the statute book from the same point, across the room.",
+ "scaling": {
+  "far": {
+   "y": 752,
+   "height": 480
+  },
+  "near": {
+   "y": 850,
+   "height": 547
+  },
+  "note": "ROOM 7'S DEPTH, FROM THE MAN THE MASTER PAINTED IN IT. The composition master drew Thad 428 tall with his feet at y 787 of the 1536x1024 source, which is 541 at y 842 in this plate's frame; sampled along Room 5's slope (0.69 per row) that is 480 at the band's far edge and 547 at its near edge. Composited at the bench, the counter and the door (renders/room-07-scale-check.png), he reads as a man in this room."
+ },
+ "entrance": [
+  330,
+  800
+ ],
+ "entrances": [
+  {
+   "from": "town_map",
+   "at": [
+    330,
+    800
+   ],
+   "facing": "right",
+   "note": "Doc 20 and errata 43: Room 7 is reached from the map (and from Lower Street, unbuilt). He arrives just inside the street door."
+  },
+  {
+   "from": "main_street",
+   "at": [
+    330,
+    800
+   ],
+   "facing": "right",
+   "note": "By the street door."
+  },
+  {
+   "from": "default",
+   "at": [
+    330,
+    800
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the street door."
+  }
+ ],
+ "hotspots": {
+  "bench": [
+   200,
+   500,
+   440,
+   250
+  ],
+  "map_of_claims": [
+   565,
+   15,
+   365,
+   280
+  ],
+  "forms_rack": [
+   555,
+   305,
+   285,
+   310
+  ],
+  "number_spindle": [
+   975,
+   350,
+   100,
+   110
+  ],
+  "counter": [
+   915,
+   430,
+   1005,
+   120
+  ],
+  "ledger": [
+   1190,
+   445,
+   205,
+   40
+  ],
+  "sumps_pen": [
+   1370,
+   445,
+   95,
+   115
+  ],
+  "sumps_clock": [
+   1335,
+   120,
+   110,
+   105
+  ],
+  "sealed_archive_door": [
+   1650,
+   125,
+   260,
+   315
+  ],
+  "two_lines": [
+   1040,
+   550,
+   790,
+   314
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE LEDGER is the open book's near half, below Sump's hands, so he is clicked above it (doc 55 section 8: a person who cannot be clicked because the scenery behind him is bigger). SUMP'S PEN is the chain hanging over the counter's front. THE TWO LINES are the posts, ropes and blank signs in front of the counter, and win by area over it. THE SEALED ARCHIVE DOOR carries the statute posted beside it, which its LOOK reads. THE COUNTER is its top and brass rail (y 430-550); below the rail the queue posts and signs stand in front of its face and are THE TWO LINES, so neither covers the other's click point.",
+ "exits": {
+  "back_to_street": [
+   0,
+   0,
+   265,
+   760
+  ]
+ },
+ "exitWalkTo": {
+  "back_to_street": {
+   "x": 250,
+   "y": 790,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "counter_lamp_left",
+   "at": [
+    1155,
+    330
+   ],
+   "radius": 420,
+   "amount": 0.12,
+   "rate": 0.3,
+   "phase": 0.1,
+   "note": "The left of the counter's two oil lamps (errata 80 A). A slow, low breath; it never stops and never signals anything (invariant 9)."
+  },
+  {
+   "id": "counter_lamp_right",
+   "at": [
+    1578,
+    330
+   ],
+   "radius": 420,
+   "amount": 0.12,
+   "rate": 0.27,
+   "phase": 0.55,
+   "note": "The right lamp, on its own phase."
+  }
+ ],
+ "defaultVerbs": {
+  "bench": "LOOK_AT",
+  "map_of_claims": "LOOK_AT",
+  "forms_rack": "LOOK_AT",
+  "number_spindle": "LOOK_AT",
+  "counter": "LOOK_AT",
+  "ledger": "LOOK_AT",
+  "sumps_pen": "LOOK_AT",
+  "sumps_clock": "LOOK_AT",
+  "sealed_archive_door": "LOOK_AT",
+  "two_lines": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click. The floor is not a hotspot: the walk band is clicked to walk.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM. The walk band (y 752-850, x 220-1010) is in front of the bench, the forms rack and the counter's left end, and stops short of the queue posts. Sump stands behind the counter and his sheet stops at the ledger's far edge (posture behind-counter), so no plane is needed for him either.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "unhoused": {
+  "THE CHAINED PEN": "docs/36-issue-list.md::Q150",
+  "FORM 12-C (THE STACK)": "docs/36-issue-list.md::Q150",
+  "THE COUNTER BELL": "docs/36-issue-list.md::Q150",
+  "THE STATUTE BOOK": "docs/36-issue-list.md::Q150",
+  "THE PARTITION": "docs/36-issue-list.md::Q150"
+ },
+ "unhousedNote": "Doc 49 Part 4 writes wrong-verb lines for five Room 7 objects doc 05 and doc 25 do not name. THE CHAINED PEN is very likely SUMP'S PEN, but its PICK UP line differs from doc 25's for the pen, and choosing between two written lines is not the builder's; the other four have no LOOK or LISTEN, so they cannot be hotspots. Reported in doc 36 Q150 (errata 80 F).",
+ "supersededBy": {
+  "THE TWO LINES": "docs/19-19b-resolutions.md::# 2 · ROOM 7, THE REGISTRAR — the contradiction is mine, and the spindle wins"
+ },
+ "supersededByNote": "Doc 19 section 2: THE TWO LINES is rewritten (no figures), and the spindle survives. The room file shipped doc 19's lines before this compile; the compiler now reads them from doc 19."
+}

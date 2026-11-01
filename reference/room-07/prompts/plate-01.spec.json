@@ -1,0 +1,11 @@
+{
+ "assetId": "room-07",
+ "subject": "room-07-claims-registrar",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-07-claims-registrar",
+ "promptFile": "reference/room-07/prompts/plate-01.txt",
+ "out": "art/staging/room-07/plate-01/source.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-07/composition-master-01.png"]
+}

@@ -1,0 +1,24 @@
+Image 1 is a frame from my pixel-art adventure game: a claims registrar's office at night. The man in the long blue coat on the left is Thad, the hero, and he is the style standard. The clerk behind the counter, in spectacles, white shirt, black sleeve protectors and a dark waistcoat, is Registrar Sump. I need Sump drawn on his own, whole, as a sheet of five poses.
+
+STYLE -- match Thad exactly, not the room:
+- The same pixel-art style as Thad and as Sump already is in image 1: the same pixel size, flat soft shading, very little texture, simple shapes, clean outlines. Not sharp, not finely detailed, no hard internal contrast.
+- The same proportions: the same head size relative to the body. Sump is a slightly smaller, thinner man than Thad.
+- The same warm lamplight as image 1.
+
+THE CHARACTER -- Registrar Sump, exactly as image 1 shows him: middle-aged, thin, upright, clean-shaven, hair combed flat, small round spectacles, white shirt, black sleeve protectors over the forearms, dark waistcoat, dark tie. Below the waist, plain dark trousers and plain black shoes. A completely immovable, precise man; his face never smiles.
+
+THE SHEET -- one image, five poses of this same man, side by side, left to right, each FULL LENGTH from head to shoes:
+1. REST: standing straight, facing the viewer and turned slightly to the left of the picture, both hands resting flat side by side in front of him at waist height, as if on a counter top.
+2. BREATH: identical to pose 1 except his shoulders are very slightly raised. Nothing else changes.
+3. WRITING: as pose 1, but his head is bowed and his right hand holds a pen at waist height, writing on an unseen page; his left hand stays flat.
+4. STAMPING: as pose 1, but his right arm is raised high holding a small wooden rubber stamp, about to bring it down. His face does not change.
+5. LOOKING UP: as pose 1, but his head is tilted down a little and he looks up over the top of his spectacles, straight out at the viewer. His body does not move.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no counter, no furniture, nothing else in the picture.
+- He stands on his own and touches nothing.
+- All five poses the same size, with his shoes on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face, same proportions everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

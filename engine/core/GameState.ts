@@ -1,5 +1,6 @@
 import type {
   ContentBundle, Entrance, Exit, Interactable, MapLocation, Point, RoomFile, WalkableRegion, PlaytestFixture, PuzzleStatus, CombinationPair,
+  SpokenLine,
 } from './types.ts';
 import { cameraAt, cameraFollow, roomWidth } from './Camera.ts';
 import { heightIn, WalkBoxes, type Route } from './WalkBoxes.ts';
@@ -18,7 +19,9 @@ import type { ActionTransaction, DurableEffect, FinishReason } from './runtime-t
 export interface InteractionResult {
   say: string | null;
   /** Doc 30 §5: further utterances after `say`, first selection only. */
-  then?: string[];
+  then?: SpokenLine[];
+  /** Who speaks `say`, when it is not the actor. */
+  by?: string;
   enteredDialogue: boolean;
   changedRoom: boolean;
 }
@@ -45,7 +48,8 @@ export interface InteractionResolution {
   /** The tree this response opens once it has finished performing. */
   readonly dialogue: string | null;
   readonly say: string | null;
-  readonly then?: string[];
+  readonly by?: string;
+  readonly then?: SpokenLine[];
   readonly effects: readonly DurableEffect[];
 }
 
@@ -121,6 +125,7 @@ export class Interaction {
     this.finished = 'settled';
     return {
       say: this.resolution.say,
+      ...(this.resolution.by ? { by: this.resolution.by } : {}),
       then: this.resolution.then,
       enteredDialogue: this.resolution.dialogue !== null,
       changedRoom: this.resolution.destination !== null,
@@ -195,6 +200,7 @@ export class GameState {
     this.dialogue = new DialogueRunner(content.dialogue, this.flags, this.journals, {
       reached: (puzzle) => this.puzzles.get(puzzle) === 'complete',
       set: (puzzle, status) => { this.puzzles.set(puzzle, status); },
+      holds: (item) => this.carried.includes(item),
     }, content.assay ? {
       file: content.assay,
       // A WON DUEL'S YIELDS (doc 03: Document A and the watch). The tree may
@@ -761,6 +767,7 @@ export class GameState {
       destination,
       dialogue: action.dialogue,
       say: action.say,
+      ...(action.by ? { by: action.by } : {}),
       then: action.then,
       effects,
     };

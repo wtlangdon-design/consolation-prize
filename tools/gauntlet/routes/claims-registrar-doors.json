@@ -1,0 +1,125 @@
+{
+ "schema": 1,
+ "room": "claims_registrar",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 7: in by the map (the spec's entry route), then out by the street door to Main Street and back by the map, twice. Room 7's real way in is Lower Street (errata 43), not built; the map is how it is reached today (doc 20). Each capture asserts the room it should be in.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "THE STREET DOOR -- out"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-out",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "at": [
+    554,
+    1052
+   ],
+   "why": "the panel's MAP button"
+  },
+  {
+   "do": "waitFor",
+   "room": "town_map",
+   "upTo": 20
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "click",
+   "at": [
+    700,
+    345
+   ],
+   "why": "the registrar's marker"
+  },
+  {
+   "do": "waitFor",
+   "room": "claims_registrar",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-in"
+  },
+  {
+   "do": "click",
+   "on": "back_to_street",
+   "why": "THE STREET DOOR -- out"
+  },
+  {
+   "do": "waitFor",
+   "room": "main_street",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-out",
+   "room": "main_street"
+  },
+  {
+   "do": "click",
+   "at": [
+    554,
+    1052
+   ],
+   "why": "the panel's MAP button"
+  },
+  {
+   "do": "waitFor",
+   "room": "town_map",
+   "upTo": 20
+  },
+  {
+   "do": "wait",
+   "seconds": 1
+  },
+  {
+   "do": "click",
+   "at": [
+    700,
+    345
+   ],
+   "why": "the registrar's marker"
+  },
+  {
+   "do": "waitFor",
+   "room": "claims_registrar",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-in"
+  }
+ ]
+}

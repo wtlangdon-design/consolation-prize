@@ -1,0 +1,199 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 7, the claims registrar. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r7-a",
+   "label": "R7-A Act I, the deed and no survey (A6)",
+   "room": "claims_registrar",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "filing_fee"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A8": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::A6 · The deed has no boundary",
+    "docs/02-puzzle-graph.md:126-133 (the item ledger: deed from A3, the fee from A8)"
+   ],
+   "notBuilt": [
+    "A7 (Room 16): the survey; A4 (the map's reading) is not needed to ask"
+   ],
+   "expect": {
+    "tree": "SUMP",
+    "opensOn": "SUM_A1"
+   },
+   "note": "Thad holds the deed and the fee and no survey. TALK TO Sump, option 1, or USE the deed on the counter: Sump's refusal and A6."
+  },
+  {
+   "id": "r7-b",
+   "label": "R7-B Act I, the survey in hand (A9)",
+   "room": "claims_registrar",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "filing_fee",
+    "survey"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::A9 · File the deed — the Act I turn",
+    "docs/57-puzzle-completion.md::A7 · The survey"
+   ],
+   "notBuilt": [
+    "A7 (Room 16, Ozymandia): this fixture is how the survey arrives until her room is built"
+   ],
+   "expect": {
+    "tree": "SUMP",
+    "opensOn": "SUM_A1"
+   },
+   "note": "The deed, the survey and the fee: USE them in the statute's order -- the deed and the survey on the counter, the fee on Sump -- for the read-back, T_BORDERS_MOTT and THE INVITATION."
+  },
+  {
+   "id": "r7-c",
+   "label": "R7-C Act II, the three documents (D1)",
+   "room": "claims_registrar",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "ACT": 2
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::D1 · The ninety-day rule",
+    "docs/00-errata.md::75 · THE PUZZLE COMPLETION PASS (2026-11-01) (H: ACT 2 at A10's card)"
+   ],
+   "notBuilt": [
+    "A10 (Room 11, the dinner): the act card that sets ACT 2"
+   ],
+   "expect": {
+    "tree": "SUMP",
+    "opensOn": "SUM_B1"
+   },
+   "note": "Act II: TALK TO Sump opens SUM_B1, whose opening asks for Documents A, B and D. About Document D is D1."
+  },
+  {
+   "id": "r7-d",
+   "label": "R7-D Act III, the petition (E1, E2)",
+   "room": "claims_registrar",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "T_NINETY_DAYS": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::E1 · Have Mott declared dead",
+    "docs/57-puzzle-completion.md::E2 · The loophole",
+    "docs/00-errata.md::75 · THE PUZZLE COMPLETION PASS (2026-11-01) (H: ACT 3 at E0b)",
+    "tools/check-fixtures.mjs: Act III follows the Act II chain, A9 then C1 (T_ASSAY_QUEUE)"
+   ],
+   "notBuilt": [
+    "Act II's trials and E0 (rooms 9-22): what brings the game to Act III"
+   ],
+   "expect": {
+    "tree": "SUMP",
+    "opensOn": "SUM_E1"
+   },
+   "note": "Act III: TALK TO Sump opens SUM_E1. Option 1 is E1, blocked by design; option 2, after it, is E2."
+  }
+ ]
+}

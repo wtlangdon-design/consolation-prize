@@ -993,10 +993,91 @@ function combinations() {
     }
   }
 
-  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string').length;
+  const spoken = existing.pairs.filter((pair) => typeof pair.say === 'string' && !/^Doc 57 /.test(pair.note ?? '')).length;
   if (rebuilt.length - opening.length !== spoken) {
     throw new Error(`doc 24: ${rebuilt.length - opening.length} spoken pairs extracted, ${spoken} on file`);
   }
+
+  // DOC 57 A6 AND A9: THE REGISTRAR'S COUNTER, IN THE STATUTE'S ORDER (errata
+  // 80 D). A6: the deed on the counter without a survey is Sump's refusal, the
+  // words of SUM_A1 option 1 (doc 04). A9: the deed (with the survey in hand),
+  // then the survey, then the fee to Sump, the last of which is the read-back
+  // and the invitation. The WORDS are the documents'; which flag or item each
+  // case tests, takes or gives is routing, authored here as A8_CASES is.
+  const registrar = (() => {
+    const d04 = read('docs/04-dialogue-trees.md');
+    const a1 = d04.slice(d04.indexOf('**`SUM_A1`'), d04.indexOf('**`SUM_B1`'));
+    const row = /^\| 1 \|[^|]*\|[^|]*\|(.+?)\|/m.exec(a1);
+    if (!row) throw new Error('doc 04: SUM_A1 option 1 not found');
+    const refusal = quoted(row[1].replace(/\*\([^)]*\)\*/g, ''));
+    if (refusal.length < 1) throw new Error('doc 04: SUM_A1 option 1 has no reply');
+    const whole = read('docs/57-puzzle-completion.md');
+    const from = whole.indexOf('## A9 ');
+    if (from < 0) throw new Error('doc 57: no A9 section');
+    const body = whole.slice(from, whole.indexOf('\n## ', from + 5));
+    const caseLine = (who, item, label) => {
+      const re = new RegExp(`^> \\*\\*${who}\\*\\* · USE ${item}, \\*${label}\\* — (.+)$`, 'm');
+      const m = re.exec(body);
+      if (!m) throw new Error(`doc 57 A9: no case "${who} · USE ${item}, ${label}"`);
+      const words = quoted(m[1].split('→')[0].replace(/\*\([^)]*\)\*/g, ''));
+      if (!words.length) throw new Error(`doc 57 A9: "${label}" has no line`);
+      return { line: words[0], sump: /^\*\*SUMP:\*\*/.test(m[1]) };
+    };
+    const readBack = [];
+    const tail = body.slice(body.indexOf('**the read-back**'));
+    let invitation = null;
+    for (const m of tail.matchAll(/^> \*\*(SUMP|THAD):\*\* (.+)$/gm)) {
+      const speaker = m[1] === 'SUMP' ? 'sump' : 'thad';
+      const [spoken, after] = m[2].split('→');
+      const words = quoted(spoken.replace(/\*\([^)]*\)\*/g, ''));
+      if (after && /THE INVITATION/.test(after)) { invitation = words.map((line) => ({ speaker, line })); continue; }
+      for (const line of words) readBack.push(speaker === 'thad' ? line : { speaker, line });
+    }
+    if (!readBack.length || !invitation) throw new Error('doc 57 A9: the read-back or the invitation line was not found');
+    return {
+      refusal,
+      deedWith: caseLine('THE COUNTER', 'THE DEED', 'with THE SURVEY'),
+      surveyAfter: caseLine('THE COUNTER', 'THE SURVEY', 'after the deed'),
+      surveyBefore: caseLine('THE COUNTER', 'THE SURVEY', 'before the deed'),
+      feeBefore: caseLine('REGISTRAR SUMP', 'THE FILING FEE', 'before the deed and the survey'),
+      feeAfter: caseLine('REGISTRAR SUMP', 'THE FILING FEE', 'after both'),
+      readBack, invitation,
+    };
+  })();
+  const sumpSays = (line) => ({ by: 'sump', say: line });
+  for (const pair of rebuilt) {
+    if (pair.item === 'deed' && pair.room === 'claims_registrar' && pair.target === 'counter') {
+      if (pair.say !== registrar.deedWith.line) throw new Error('doc 57 A9: the deed with the survey does not open on doc 24\'s line');
+      delete pair.targetPending;
+      pair.rules = [
+        { case: 'with THE SURVEY', when: { T_DEED_LODGED: false }, holds: ['survey'], say: registrar.deedWith.line,
+          set: { T_DEED_LODGED: true } },
+        { case: 'without THE SURVEY (A6)', when: { T_DEED_LODGED: false }, ...sumpSays(registrar.refusal[0]),
+          ...(registrar.refusal.length > 1 ? { then: registrar.refusal.slice(1).map((line) => ({ speaker: 'sump', line })) } : {}),
+          set: { T_SURVEY_NEEDED: true }, completes: 'A6' },
+      ];
+    }
+    if (pair.item === 'filing_fee' && pair.room === 'claims_registrar' && pair.target === 'sump') {
+      if (pair.say !== registrar.feeAfter.line) throw new Error('doc 57 A9: the fee after both does not open on doc 24\'s line');
+      delete pair.targetPending;
+      pair.rules = [
+        { case: 'after both', when: { T_SURVEY_LODGED: true, T_BORDERS_MOTT: false }, say: registrar.feeAfter.line,
+          then: [...registrar.readBack, ...registrar.invitation], takes: ['filing_fee'], items: ['invitation'],
+          set: { T_BORDERS_MOTT: true }, completes: 'A9' },
+        { case: 'before the deed and the survey', when: { T_BORDERS_MOTT: false }, ...sumpSays(registrar.feeBefore.line) },
+      ];
+    }
+  }
+  rebuilt.push({
+    item: 'survey', room: 'claims_registrar', target: 'counter', puzzle: 'A9', say: registrar.surveyAfter.line,
+    note: 'Doc 57 A9 (not doc 24): the survey on the counter, after the deed and before it.',
+    rules: [
+      { case: 'after the deed', when: { T_DEED_LODGED: true }, say: registrar.surveyAfter.line, takes: ['survey'],
+        set: { T_SURVEY_LODGED: true } },
+      { case: 'before the deed', ...sumpSays(registrar.surveyBefore.line) },
+    ],
+  });
+
 
   const pools = {};
   let current = null;
@@ -2024,6 +2105,158 @@ function actTwoItems() {
 }
 
 /**
+ * The lines of a response cell, in order, with their speakers: an italic
+ * quote `*"..."*` is THAD's (doc 04's convention inside another man's reply),
+ * a plain quote is the node's own speaker. Emphasis inside a line is dropped
+ * (the face has no italic). Italic directions are returned as staging.
+ */
+function spokenIn(cell, speaker) {
+  const lines = [];
+  for (const m of cell.matchAll(/\*"([^"]+)"\*|"([^"]+)"/g)) {
+    lines.push({ speaker: m[1] !== undefined ? 'thad' : speaker, line: (m[1] ?? m[2]).replace(/\*/g, '') });
+  }
+  const staging = [...cell.matchAll(/\*\(([^)]+)\)\*/g)].map((m) => m[1]);
+  return { lines, staging };
+}
+
+/**
+ * DOC 04, REGISTRAR CADWALLADER SUMP: Room 7's tree (errata 80).
+ *
+ * Doc 04 writes Sump's nodes as bold `SUM_XX` lines rather than headings,
+ * numbers a rephrase chain's options 1, 1-prime, 1-double-prime and
+ * 1-triple-prime (ids sump1, sump1a, sump1b, sump1c), and puts an option's
+ * state either in a fifth State column or inside the response after the
+ * reply. Read the same way from either: `sets` a backticked flag writes it,
+ * `req` a backticked flag gates on it, `req THE SURVEY` gates on carrying it
+ * (DialogueOption.holds), `req E1` follows option 1, and a bold puzzle id is
+ * the puzzle the option completes.
+ *
+ * WHAT IS NOT EXTRACTED YET, AND WHY (doc 36 Q150): SUM_B1's option
+ * 1-triple-prime needs Documents B and D in hand, and both come from rooms not
+ * built (C6, D6); SUM_C1 opens on the death certificate (E4); SUM_F1 is Act
+ * IV's filing (doc 48 S6), after F4. Each is extracted when the room that
+ * makes it playable is built. Nothing is invented: every string is the
+ * document's.
+ *
+ * ENTRIES: SUM_E1 from Act III ("Open from Act III", errata 75 H's ACT 3),
+ * SUM_B1 from Act II ("Act II -- the three documents"), else SUM_A1.
+ */
+function sumpTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('## REGISTRAR CADWALLADER SUMP');
+  const to = doc.indexOf('## DEKE VESSEL', from);
+  if (from < 0 || to < 0) throw new Error('doc 04: cannot find the SUMP section');
+  const body = doc.slice(from, to);
+  const SPEAKER = 'sump';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
+  const DEFER = {
+    SUM_C1: 'opens on the death certificate (E4, Act III), which no built room yields',
+    SUM_F1: 'Act IV\'s filing (doc 48 S6, doc 57 F5), after F4 in rooms not built',
+  };
+  const DEFER_OPTION = { 'SUM_B1:1‴': 'needs Documents B and D in hand (C6, D6), from rooms not built' };
+  const ENTRY = { SUM_E1: { ACT: { atLeast: 3 } }, SUM_B1: { ACT: { atLeast: 2 } } };
+  const ITEM = { 'THE SURVEY': 'survey' };
+  const PRIME = { '': '', '′': 'a', '″': 'b', '‴': 'c' };
+  const unplayed = [];
+  const nodes = {};
+  let poolIndex = 0;
+  const parts = body.split(/^\*\*`(SUM_[A-Z0-9]+)`/m);
+  for (let at = 1; at < parts.length; at += 2) {
+    const id = parts[at];
+    const text = parts[at + 1];
+    if (DEFER[id]) { unplayed.push(`${id} not extracted yet: ${DEFER[id]}`); continue; }
+    const ROW = /^\| (\d+)(′|″|‴)? \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|(?:[ \t]*(.*?)[ \t]*\|)?[ \t]*$/gm;
+    const rows = [...text.matchAll(ROW)];
+    if (!rows.length) throw new Error(`doc 04: ${id} has no option rows`);
+    const opening = [...text.matchAll(/^> \*\*(SUMP|THAD):\*\* (.+)$/gm)].map((m) => {
+      const speaker = m[1] === 'THAD' ? 'thad' : SPEAKER;
+      for (const d of m[2].matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} opening (${speaker}) staging: ${d[1]}`);
+      const line = quoted(m[2]).join(' ').replace(/\*/g, '');
+      if (!line) throw new Error(`doc 04: ${id} opening line by ${speaker} has no quoted speech`);
+      return { speaker, line };
+    });
+    const lastSump = [...opening].reverse().find((u) => u.speaker === SPEAKER);
+    const options = [];
+    let hasExit = false;
+    for (const [, number, prime, optionCell, tagCell, responseCell, stateCell] of rows) {
+      const label = `${number}${prime ?? ''}`;
+      if (DEFER_OPTION[`${id}:${label}`]) { unplayed.push(`${id} option ${label} not extracted yet: ${DEFER_OPTION[`${id}:${label}`]}`); continue; }
+      const tagged = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(`${tagCell} ${optionCell}`);
+      if (!tagged) throw new Error(`doc 04: ${id} option ${label} has no tag`);
+      const option = { id: `${SPEAKER}${number}${PRIME[prime ?? '']}`, tag: tagged[1] };
+      const optionText = quoted(optionCell)[0];
+      if (tagged[1] === 'EXIT') {
+        hasExit = true;
+        option.text = optionText ?? POOL[poolIndex % POOL.length];
+        if (!optionText) { option.universal = true; poolIndex += 1; }
+        option.ends = true;
+      } else {
+        if (!optionText) throw new Error(`doc 04: ${id} option ${label} has no option text`);
+        option.text = optionText;
+      }
+      if (tagged[2]) option.afterUse = tagged[2];
+      // The reply, split on *(second)* for a counted repeat; anything after an arrow is state.
+      const ORDINALS = { second: 2, third: 3 };
+      const [replyCell] = responseCell.split('→');
+      const pieces = replyCell.split(/\*\((second|third)\)\*/);
+      const first = spokenIn(pieces[0], SPEAKER);
+      const stateText = `${stateCell ?? ''} ${responseCell}`;
+      for (const d of first.staging) if (!/sets `|\*\*[A-F]\d+\*\*/.test(d)) unplayed.push(`${id} option ${label} staging: ${d}`);
+      if (first.lines.length === 1 && first.lines[0].speaker === SPEAKER) option.say = first.lines[0].line;
+      else if (first.lines.length) option.exchange = first.lines;
+      else throw new Error(`doc 04: ${id} option ${label} has no reply`);
+      for (let k = 1; k < pieces.length; k += 2) {
+        const later = spokenIn(pieces[k + 1] ?? '', SPEAKER);
+        for (const d of later.staging) unplayed.push(`${id} option ${label} selection ${ORDINALS[pieces[k]]} staging: ${d}`);
+        if (later.lines.length) (option.repeats ??= []).push({ selection: ORDINALS[pieces[k]], say: later.lines.map((l) => l.line).join(' ') });
+      }
+      const sets = [...stateText.matchAll(/sets ((?:`[A-Z_0-9]+`(?:, )?)+)/g)]
+        .flatMap((m) => [...m[1].matchAll(/`([A-Z_0-9]+)`/g)].map((f) => f[1]));
+      if (sets.length) option.set = Object.fromEntries(sets.map((f) => [f, true]));
+      const reqFlag = /req `([A-Z_0-9]+)`/.exec(stateText);
+      if (reqFlag) option.when = { [reqFlag[1]]: true };
+      const reqItem = /req (THE [A-Z ]+?)(?:;|$|\s\*)/.exec(stateText);
+      if (reqItem) {
+        const item = ITEM[reqItem[1].trim()];
+        if (!item) throw new Error(`doc 04: ${id} option ${label} requires "${reqItem[1]}", which has no item id`);
+        option.holds = [item];
+      }
+      const reqPuzzle = /req ([A-F])(\d+)\b/.exec(stateText);
+      if (reqPuzzle) option.after = [`${SPEAKER}${reqPuzzle[2]}`];
+      const completes = /\*\*([A-F]\d+)\*\*/.exec(stateText);
+      if (completes) option.puzzle = { [completes[1]]: 'complete' };
+      options.push(option);
+    }
+    if (!hasExit) {
+      options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true });
+      poolIndex += 1;
+    }
+    nodes[id] = { id, ...(lastSump ? { prompt: lastSump.line } : { noPrompt: true,
+      exceptionReason: 'Doc 04 writes this node as a table only -- no opening exchange -- so '
+        + 'the conversation opens on the choices.' }),
+      ...(opening.length ? { opening } : {}), options };
+  }
+  if (!nodes.SUM_A1) throw new Error('doc 04: SUM_A1 was not extracted');
+  const entries = Object.entries(ENTRY).filter(([node]) => nodes[node]).map(([node, when]) => ({ when, node }));
+  for (const note of unplayed) process.stderr.write(`  doc 04 SUMP: ${note}\n`);
+  return write('content/dialogue/sump.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'SUMP',
+    speaker: SPEAKER,
+    name: 'REGISTRAR SUMP',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (REGISTRAR CADWALLADER SUMP) by tools/extract-content.mjs. '
+      + 'Do not edit: change doc 04 and re-run. Plain quotes in a reply are Sump\'s, italic quotes Thad\'s. '
+      + 'SUM_C1, SUM_F1 and SUM_B1\'s last document option wait for the rooms that make them playable '
+      + '(see the extractor). Universal exit lines are doc 04 part one\'s pool.',
+    entries,
+    start: 'SUM_A1',
+    nodes,
+  });
+}
+
+/**
  * DOC 04, WINNIE LEDGER: the first principal's tree, extracted for Room 5.
  *
  * Doc 04's shape differs from doc 27's in four ways this parser reads rather
@@ -2620,7 +2853,7 @@ function assay() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), ...actTwoItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), ...actTwoItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

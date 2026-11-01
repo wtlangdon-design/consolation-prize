@@ -1,5 +1,5 @@
 import type {
-  CombinationsFile, Interactable, ResponseRule, VerbFallbacksFile, VerbsFile,
+  CombinationsFile, Interactable, ResponseRule, SpokenLine, VerbFallbacksFile, VerbsFile,
 } from './types.ts';
 import type { FlagStore } from './FlagStore.ts';
 import { flagEffects } from './Commit.ts';
@@ -13,7 +13,9 @@ export interface ResolvedAction {
    * repeat variant is one line by design and a punchline does not want
    * re-delivering every time the player clicks.
    */
-  then?: string[];
+  then?: SpokenLine[];
+  /** Who speaks `say`, when it is not the actor (a pair rule's `by`). */
+  by?: string;
   dialogue: string | null;
   goto: string | null;
   /** Doc 22 item 9: the state this response moves the object to. */
@@ -186,11 +188,14 @@ export class VerbSystem {
       const prefix = `with/${roomId}/${target.id}/${itemId}`;
       return {
         say: rule.say,
+        ...(rule.by ? { by: rule.by } : {}),
         ...(rule.then?.length ? { then: rule.then } : {}),
         dialogue: null,
         goto: null,
         ...(rule.items?.length ? { grants: rule.items } : {}),
         effects: [
+          ...(rule.takes ?? []).map((item, n) => ({ id: `${prefix}#takes${n}:${item}`,
+            kind: 'inventoryRemove' as const, item })),
           ...flagEffects(prefix, rule.set, rule.add),
           ...(rule.completes
             ? [{ id: `${prefix}#complete:${rule.completes}`, kind: 'puzzleProgress' as const,

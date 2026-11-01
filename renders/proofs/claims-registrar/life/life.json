@@ -1,0 +1,2188 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "claims_registrar",
+ "commit": "387b2906de68e880051173fb449f350d1d3af7e7",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "claims-registrar",
+ "warped": false,
+ "lifeRoute": "claims-registrar-life",
+ "durationSeconds": 197.7,
+ "events": [
+  {
+   "t": 3.36,
+   "line": "entry route claims-registrar: 26 action(s)"
+  },
+  {
+   "t": 106.49,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 106.49,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 106.49,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 106.49,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 106.49,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 106.49,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 106.49,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 106.49,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 106.49,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 106.49,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 106.49,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 106.49,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 106.49,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 106.49,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 106.49,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 106.49,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 106.49,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 106.49,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 106.49,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 106.49,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 106.49,
+   "line": "action 21 (click): clicked screen 554,1052 -- the panel's MAP button (content/ui/panel.json mapButton: the fourth verb row, column 1)"
+  },
+  {
+   "t": 106.49,
+   "line": "action 22 (waitFor): reached {\"room\":\"town_map\"} in room town_map"
+  },
+  {
+   "t": 106.49,
+   "line": "action 23 (wait): waited 1s"
+  },
+  {
+   "t": 106.49,
+   "line": "action 24 (click): clicked screen 700,345 -- the registrar's place on the map (content/rooms/town-map.json loc_registrar)"
+  },
+  {
+   "t": 106.49,
+   "line": "action 25 (waitFor): reached {\"room\":\"claims_registrar\"} in room claims_registrar"
+  },
+  {
+   "t": 106.49,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 106.51,
+   "line": "in claims_registrar; life route: 42 action(s)"
+  },
+  {
+   "t": 107.05,
+   "line": "capture 01-arrived: room claims_registrar, says null, options 0, control null"
+  },
+  {
+   "t": 108.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 109.09,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 110.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 111.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 112.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 113.08,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 114.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 115.06,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 115.61,
+   "line": "capture 02-sump-at-work: room claims_registrar, says null, options 0, control null"
+  },
+  {
+   "t": 116.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 117.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 118.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 119.62,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 120.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 121.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 122.62,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 122.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     800
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 123.2,
+   "line": "capture 03-sump-later: room claims_registrar, says null, options 0, control null"
+  },
+  {
+   "t": 123.29,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 123.49,
+   "line": "action 1 (click): clicked world 1278,330 -- Sump, at his window"
+  },
+  {
+   "t": 124.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     743,
+     793
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 125.06,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room claims_registrar"
+  },
+  {
+   "t": 125.57,
+   "line": "capture 04-sum-a1: room claims_registrar, says null, options 4, control null"
+  },
+  {
+   "t": 125.85,
+   "line": "action 1 (option): chose option sump3 -- "
+  },
+  {
+   "t": 126.89,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 127.97,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 128.07,
+   "line": "action 1 (waitFor): reached {\"says\":\"sump\"} in room claims_registrar"
+  },
+  {
+   "t": 128.58,
+   "line": "capture 05-sump-speaks: room claims_registrar, says \"sump\", options 4, control null"
+  },
+  {
+   "t": 129.61,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 130.59,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 130.65,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room claims_registrar"
+  },
+  {
+   "t": 130.88,
+   "line": "action 1 (option): chose option sump3 -- the counted repeat: 12-F"
+  },
+  {
+   "t": 131.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.9,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 133.91,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 134.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 135.07,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room claims_registrar"
+  },
+  {
+   "t": 135.35,
+   "line": "action 1 (option): chose option sump1 -- A6: the refusal"
+  },
+  {
+   "t": 136.4,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 137.44,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 138.41,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 139.42,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 140.41,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.39,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.59,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room claims_registrar"
+  },
+  {
+   "t": 142.19,
+   "line": "capture 06-after-a6: room claims_registrar, says null, options 4, control null"
+  },
+  {
+   "t": 142.46,
+   "line": "action 1 (option): chose option sump1a -- "
+  },
+  {
+   "t": 143.46,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 144.47,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 145.48,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146.5,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 147.47,
+   "trace": {
+    "says": "sump",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 4,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 148.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 3,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 148.52,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room claims_registrar"
+  },
+  {
+   "t": 148.79,
+   "line": "action 1 (option): chose option sumpx -- leave the conversation"
+  },
+  {
+   "t": 149.81,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 150.8,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.81,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 152.8,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 153.85,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.8,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 154.82,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 3,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.88,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 155.17,
+   "line": "action 1 (click): clicked claims_registrar/ledger at world 1293,465 -- LOOK at the ledger"
+  },
+  {
+   "t": 155.22,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room claims_registrar"
+  },
+  {
+   "t": 155.84,
+   "line": "capture 07-look-ledger: room claims_registrar, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 156.88,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.85,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 158.87,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.88,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.86,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.85,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 163.93,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 164.14,
+   "line": "action 1 (click): clicked claims_registrar/sumps_clock at world 1390,173 -- LISTEN to Sump's clock"
+  },
+  {
+   "t": 164.2,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room claims_registrar"
+  },
+  {
+   "t": 164.85,
+   "line": "capture 08-listen-clock: room claims_registrar, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 165.88,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 166.87,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.87,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.86,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.86,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.92,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.87,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     960,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.85,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 172.91,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 173.14,
+   "line": "action 1 (click): clicked claims_registrar/number_spindle at world 1025,405 -- doc 25's authored PICK UP"
+  },
+  {
+   "t": 173.76,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room claims_registrar"
+  },
+  {
+   "t": 174.3,
+   "line": "capture 09-pickup-spindle: room claims_registrar, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 175.32,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     935,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.31,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     935,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.33,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     935,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.34,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     935,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.33,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     935,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.36,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     935,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.34,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     935,
+     847
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.3,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 182.38,
+   "line": "action 1 (verb): chose verb OPEN -- "
+  },
+  {
+   "t": 182.65,
+   "line": "action 1 (click): clicked claims_registrar/sealed_archive_door at world 1780,283 -- doc 25's authored OPEN"
+  },
+  {
+   "t": 183.49,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room claims_registrar"
+  },
+  {
+   "t": 184.11,
+   "line": "capture 10-open-archive: room claims_registrar, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 185.14,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1010,
+     752
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 186.16,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1010,
+     752
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1010,
+     752
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1010,
+     752
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.15,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1010,
+     752
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.19,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1010,
+     752
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.16,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1010,
+     752
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.12,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "arrival by the street door",
+   "t": 107.05,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/01-arrived.png",
+   "hash": "57e581929800f53e851ef793c8c075509fef6349541350da2665366de11fd106",
+   "room": "claims_registrar",
+   "clock": 106.6754,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 513,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-03.png",
+     "bounds": [
+      64,
+      287,
+      532,
+      566
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-sump-at-work",
+   "why": null,
+   "t": 115.6,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/02-sump-at-work.png",
+   "hash": "836fa51d942e43e8b780df426c1d683d9ca41f6c51f34e1d58b936233d15955c",
+   "room": "claims_registrar",
+   "clock": 115.2084,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 513,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-11.png",
+     "bounds": [
+      64,
+      287,
+      532,
+      566
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-sump-later",
+   "why": null,
+   "t": 123.2,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/03-sump-later.png",
+   "hash": "5a0377cd7165daadea7716fbeb45a302989f6fe04535038cfa8bac4fa9da43ef",
+   "room": "claims_registrar",
+   "clock": 122.9581,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      800
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 513,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      64,
+      287,
+      532,
+      566
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-sum-a1",
+   "why": "SUM_A1's list, and Thad at his stand",
+   "t": 125.57,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/04-sum-a1.png",
+   "hash": "566f5ad87a8fa2b9b876f6153f3fd30d2e07ec68fb01f96fc3f0e757e8cb7b35",
+   "room": "claims_registrar",
+   "clock": 125.208,
+   "control": null,
+   "says": null,
+   "options": 4,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      960,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 506,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      697,
+      284,
+      525,
+      559
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-sump-speaks",
+   "why": "Sump's line over his head",
+   "t": 128.57,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/05-sump-speaks.png",
+   "hash": "79e4101e5c8d58af3beaad7ff0050effe4d9b34eeb76990d463a486aa543786e",
+   "room": "claims_registrar",
+   "clock": 128.2079,
+   "control": null,
+   "says": "sump",
+   "options": 4,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      960,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 506,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      697,
+      284,
+      525,
+      559
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-after-a6",
+   "why": "the surveyor question is offered now",
+   "t": 142.18,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/06-after-a6.png",
+   "hash": "e860d31c8b187948c9ae3a88c707838275aac43c665bfd55fb304c09147cedca",
+   "room": "claims_registrar",
+   "clock": 141.924,
+   "control": null,
+   "says": null,
+   "options": 4,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      960,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 506,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-06.png",
+     "bounds": [
+      697,
+      284,
+      525,
+      559
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-look-ledger",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 155.84,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/07-look-ledger.png",
+   "hash": "e7874a5b1cfb9c197c8f21fdfcc65d32f5c435d7b142ba31557af2e652cb98b2",
+   "room": "claims_registrar",
+   "clock": 155.5735,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      960,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 506,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-01.png",
+     "bounds": [
+      697,
+      284,
+      525,
+      559
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-listen-clock",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 164.84,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/08-listen-clock.png",
+   "hash": "faf4a344c5053425abbce854f759be845ba3832a6ec394cbfb5df6d814409402",
+   "room": "claims_registrar",
+   "clock": 164.5731,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      960,
+      790
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 506,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-04.png",
+     "bounds": [
+      660,
+      284,
+      599,
+      559
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-pickup-spindle",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 174.29,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/09-pickup-spindle.png",
+   "hash": "1ab22939ec704037455bd13e910f4e0750877897660c1d3d43acc7a8d3222e57",
+   "room": "claims_registrar",
+   "clock": 173.9061,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      935,
+      847
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 545,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      612,
+      302,
+      645,
+      602
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "10-open-archive",
+   "why": "where the words land (doc 55 section 8)",
+   "t": 184.11,
+   "file": "renders/proofs/claims-registrar/life/raw-captures-ignored/10-open-archive.png",
+   "hash": "ccb17d506c5bd2ae1953dba9a8dc3687aad27f9ccc56458618dee3e7c1f029d3",
+   "room": "claims_registrar",
+   "clock": 183.7224,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_SURVEY_NEEDED"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1010,
+      752
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 480,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-02.png",
+     "bounds": [
+      761,
+      272,
+      498,
+      530
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:claims_registrar",
+     "path": "art/backgrounds/room-07-claims-registrar.png",
+     "drawn": "art/backgrounds/room-07-claims-registrar.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "74405fab6351b07f277ed3e7d6c63c9eb18a927c5b27af2b809215e7347ecc18"
+    },
+    {
+     "key": "art/actors/room-07-sump.png",
+     "path": "art/actors/room-07-sump.png",
+     "drawn": "art/actors/room-07-sump.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "46eede4422a3c1b34e1d8c174d992aab4e8437990ec0a2069bd551b7b51315b9"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 197.7s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-01T21:46:58.057Z"
+}

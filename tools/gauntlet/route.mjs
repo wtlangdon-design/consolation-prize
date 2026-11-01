@@ -153,8 +153,10 @@ async function waitFor(page, want, upTo, why) {
     // deadline. A line up for the minimum reading hold is clicked once, as
     // settle() does -- for every wait but a `says` wait, which wants the line
     // up. A click while a line performs is spent on the line, never on the room.
-    if (want.says === undefined && READS_BY_CLICK && last?.performing
-      && Date.now() - lineSince >= READ_MS) {
+    // A wait for one speaker reads past anyone else's line: Thad's echo of the
+    // question he chose holds until clicked, and the reply waited for is next.
+    if ((want.says === undefined || (last?.says && last.says !== want.says)) && READS_BY_CLICK
+      && last?.performing && Date.now() - lineSince >= READ_MS) {
       await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
       lineSince = Date.now();
     }

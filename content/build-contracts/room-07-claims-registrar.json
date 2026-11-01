@@ -1,0 +1,191 @@
+{
+ "schema": 1,
+ "id": "room-07-claims-registrar",
+ "room": "claims_registrar",
+ "docRoom": 7,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for Room 7 of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/25-rooms-05-07.md",
+  "docs/19-19b-resolutions.md",
+  "docs/49-wrong-answers.md",
+  "docs/04-dialogue-trees.md",
+  "docs/57-puzzle-completion.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-07.json",
+    "docs/00-errata.md::80 · ROOM 7 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Every act: SUM_A1, SUM_B1 from Act II, SUM_E1 from Act III; A6, A9, D1, E1, E2 played here. Night, one visual state."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-07/graybox.json",
+    "docs/00-errata.md::80 · ROOM 7 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Every subject is plate; Sump is a sprite; the counter's act variant is a line."
+  },
+  "cast": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/ledger.json",
+    "renders/room-07-sump-cut.png",
+    "docs/00-errata.md::80 · ROOM 7 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Sump drawn in the master beside Thad, then alone on magenta in five poses, keyed whole."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claims-registrar/life/life.json"
+   ],
+   "note": "Sump breathes, writes, stamps and looks up; the two counter lamps breathe."
+  },
+  "physicalContact": {
+   "status": "PASS",
+   "evidence": [
+    "renders/room-07-sump-cut.png"
+   ],
+   "note": "Sump's sheet ends at the ledger's far edge; his hands rest on it."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-07/annotation.json"
+   ],
+   "note": "Two counter lamps, plate light and a runtime breath each."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::80 · ROOM 7 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "No examine clue here carries a puzzle; A6 and A9 are actions at the counter."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-07.json",
+    "content/rooms/claims-registrar.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 70 lines compiled; five doc 49 names unhoused (Q150)."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-07: 3 of 4 operations (master, people-free plate, Sump's five-pose sheet)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/claims-registrar.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-07/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claims-registrar/proof.json"
+   ],
+   "note": "Panel D: Act III, the counter's act line."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claims-registrar/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/claims-registrar/doors/life.json",
+    "tests/room-07.test.ts",
+    "tests/map.test.ts"
+   ],
+   "note": "Out by the street door and back by the map, twice; A6, A9, D1, E1, E2 played in the suite."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-07/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-07-claims-registrar.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-07/plate-01/frame.json"
+   ]
+  },
+  {
+   "subject": "Registrar Sump",
+   "class": "MOVER",
+   "stage": "SHIPPING",
+   "path": "art/actors/room-07-sump.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-07/sump/sump.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q150 · Room 7, the claims registrar: built, awaiting Tyler's playthrough; five doc 49 objects unhoused, three of Sump's nodes waiting — **RULED 2026-11-01 (errata 80, delegated); BUILT, room-07 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate and Sump -- errata 72 E: given or withheld in the playthrough"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q150 · Room 7, the claims registrar: built, awaiting Tyler's playthrough; five doc 49 objects unhoused, three of Sump's nodes waiting — **RULED 2026-11-01 (errata 80, delegated); BUILT, room-07 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E: shipped, acceptance pending."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

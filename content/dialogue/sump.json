@@ -1,0 +1,277 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "SUMP",
+  "speaker": "sump",
+  "name": "REGISTRAR SUMP",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (REGISTRAR CADWALLADER SUMP) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are Sump's, italic quotes Thad's. SUM_C1, SUM_F1 and SUM_B1's last document option wait for the rooms that make them playable (see the extractor). Universal exit lines are doc 04 part one's pool.",
+  "entries": [
+    {
+      "when": {
+        "ACT": {
+          "atLeast": 3
+        }
+      },
+      "node": "SUM_E1"
+    },
+    {
+      "when": {
+        "ACT": {
+          "atLeast": 2
+        }
+      },
+      "node": "SUM_B1"
+    }
+  ],
+  "start": "SUM_A1",
+  "nodes": {
+    "SUM_A1": {
+      "id": "SUM_A1",
+      "noPrompt": true,
+      "exceptionReason": "Doc 04 writes this node as a table only -- no opening exchange -- so the conversation opens on the choices.",
+      "options": [
+        {
+          "id": "sump1",
+          "tag": "PROGRESS",
+          "text": "I need to file this deed.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'"
+            },
+            {
+              "speaker": "sump",
+              "line": "Thereabouts is not a unit, Mr. Grubb. I have checked."
+            }
+          ],
+          "set": {
+            "T_SURVEY_NEEDED": true
+          },
+          "puzzle": {
+            "A6": "complete"
+          }
+        },
+        {
+          "id": "sump1a",
+          "tag": "PROGRESS",
+          "text": "Where would I find a surveyor?",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "The territory licenses surveyors. Consolation has none. The statute accepts a boundary 'attested in good form by any person holding a trade license from this office.'"
+            },
+            {
+              "speaker": "sump",
+              "line": "I have issued one license this year. It was to a diviner."
+            }
+          ],
+          "when": {
+            "T_SURVEY_NEEDED": true
+          }
+        },
+        {
+          "id": "sump1b",
+          "tag": "PROGRESS",
+          "text": "I have a survey.",
+          "afterUse": "remove",
+          "say": "Then the deed, the survey and the fee. In that order. The order is in the statute, so that nobody can say he paid for the paper.",
+          "holds": [
+            "survey"
+          ]
+        },
+        {
+          "id": "sump2",
+          "tag": "TOPIC",
+          "text": "The deed's drawn wrong side up.",
+          "afterUse": "retain",
+          "say": "Statute does not specify an orientation. You would be surprised how much statute does not specify. I would not. I have read it."
+        },
+        {
+          "id": "sump3",
+          "tag": "COMIC",
+          "text": "Is there a form for that?",
+          "afterUse": "counted-repeat",
+          "say": "There is a form for everything, Mr. Grubb. That is the point of forms.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "12-F. Requests, Facetious."
+            }
+          ]
+        },
+        {
+          "id": "sumpx",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "SUM_B1": {
+      "id": "SUM_B1",
+      "prompt": "C is the certificate. It cannot require itself. That would be circular, and this office is linear.",
+      "opening": [
+        {
+          "speaker": "thad",
+          "line": "I'd like to see how Claim One was filed. We're neighbors now."
+        },
+        {
+          "speaker": "sump",
+          "line": "Neighbors may view a sealed filing on a Certificate of Contiguity. Document C. It is issued on presentation of Documents A, B and D."
+        },
+        {
+          "speaker": "thad",
+          "line": "Not A, B and C?"
+        },
+        {
+          "speaker": "sump",
+          "line": "C is the certificate. It cannot require itself. That would be circular, and this office is linear."
+        }
+      ],
+      "options": [
+        {
+          "id": "sump1",
+          "tag": "TOPIC",
+          "text": "About Document A—",
+          "afterUse": "retain",
+          "say": "The Affidavit of Original Sale. Sworn by the vendor. The office does not require the vendor to be found. It requires him to sign."
+        },
+        {
+          "id": "sump1a",
+          "tag": "TOPIC",
+          "text": "About Document B—",
+          "afterUse": "retain",
+          "say": "The Assay of Record, from the Assay Office, on its own form. It need not find anything. It need only be issued."
+        },
+        {
+          "id": "sump1b",
+          "tag": "PROGRESS",
+          "text": "About Document D—",
+          "afterUse": "remove",
+          "say": "Proof of Continuous Occupancy. Ninety days, attested by a neighbor. The office accepts one neighbor. It does not inquire into his character. It has never found that useful.",
+          "set": {
+            "T_NINETY_DAYS": true
+          },
+          "puzzle": {
+            "D1": "complete"
+          }
+        },
+        {
+          "id": "sump2",
+          "tag": "TOPIC",
+          "text": "Who else may see a sealed filing?",
+          "afterUse": "retain",
+          "say": "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control."
+        },
+        {
+          "id": "sump3",
+          "tag": "COMIC",
+          "text": "Do you ever stamp anything just for the pleasure of it?",
+          "afterUse": "retain",
+          "say": "Pleasure is not a ground. I stamp on grounds."
+        },
+        {
+          "id": "sumpx",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "SUM_E1": {
+      "id": "SUM_E1",
+      "prompt": "Mr. Grubb. You have the look of a man with a petition.",
+      "opening": [
+        {
+          "speaker": "sump",
+          "line": "Mr. Grubb. You have the look of a man with a petition."
+        }
+      ],
+      "options": [
+        {
+          "id": "sump1",
+          "tag": "PROGRESS",
+          "text": "I'd like Obadiah Mott declared dead.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "Seven years' absence, which Mr. Mott has comfortably achieved, and a petitioner with standing: kin, or a creditor. Mr. Mott has no kin on file, and he owes nobody."
+            },
+            {
+              "speaker": "sump",
+              "line": "It is the most suspicious thing about him."
+            }
+          ],
+          "puzzle": {
+            "E1": "complete"
+          }
+        },
+        {
+          "id": "sump2",
+          "tag": "PROGRESS",
+          "text": "Section nineteen. The executor of a deceased claimholder.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "sump",
+              "line": "May open the archive. Correct."
+            },
+            {
+              "speaker": "thad",
+              "line": "I hold a claim."
+            },
+            {
+              "speaker": "sump",
+              "line": "You do."
+            },
+            {
+              "speaker": "thad",
+              "line": "If I were deceased—"
+            },
+            {
+              "speaker": "sump",
+              "line": "Your executor would have the archive, and you would have a plot."
+            },
+            {
+              "speaker": "sump",
+              "line": "An executor may hold no interest in any claim touching the estate. Sub-section two. It was written after a family in Placerville."
+            },
+            {
+              "speaker": "sump",
+              "line": "The office does not advise. It answers."
+            }
+          ],
+          "set": {
+            "T_NEED_TO_DIE": true,
+            "T_EXECUTOR_RULE": true
+          },
+          "after": [
+            "sump1"
+          ],
+          "puzzle": {
+            "E2": "complete"
+          }
+        },
+        {
+          "id": "sump3",
+          "tag": "COMIC",
+          "text": "Is dying difficult here?",
+          "afterUse": "retain",
+          "say": "It is the only thing in Consolation that requires no form in advance. Afterward there are several."
+        },
+        {
+          "id": "sumpx",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

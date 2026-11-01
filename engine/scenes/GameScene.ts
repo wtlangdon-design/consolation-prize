@@ -766,7 +766,7 @@ export class GameScene extends Phaser.Scene {
     // for the same reason an icon does: a marker must never be the only way a
     // place is identified.
     if (this.state.isMap) {
-      const hit = this.view.mapHitboxes().find((box) => pointInRect(x, y, box.rect));
+      const hit = this.view.mapHitAt(x, y);
       const id = hit?.built ? hit.id : null;
       if (id !== this.hoveredLocation) {
         this.hoveredLocation = id;
@@ -1010,6 +1010,26 @@ export class GameScene extends Phaser.Scene {
         return;
       }
     }
+    // AN ITEM USED ON A PERSON WITH A WRITTEN PAIR THAT OPENS NO TREE. Doc 57
+    // A9: THE FILING FEE on Registrar Sump is a pair with its own cases (the
+    // money last; then the read-back). It resolves through GameState.interact
+    // like an item on any object -- the pair names the person's id as its
+    // target -- instead of falling through to the people pool.
+    if (person && held && chosen !== null) {
+      const room = this.state.room.id;
+      const plain = this.state.content.combinations?.pairs.some((one) => one.item === held
+        && one.room === room && one.target === person.id && !one.opens);
+      if (plain) {
+        const [hx, hy, hw, hh] = this.ambient.hitBox(person);
+        this.applyInteraction({
+          id: person.id, name: person.name, rect: [hx, hy, hw, hh], colour: 0, responses: {},
+          // He walks to where a conversation with this person stands, as TALK TO does.
+          ...(person.walkTo ? { walkTo: person.walkTo } : {}),
+        } as Interactable, chosen);
+        this.markDirty();
+        return;
+      }
+    }
     // THE ROOM'S LINES FOR THIS PERSON FIRST (doc 54's per-room overrides):
     // any verb, and TALK TO too for a person with no tree to open. Only a
     // rule whose condition holds answers; otherwise the person's own layer
@@ -1238,13 +1258,19 @@ export class GameScene extends Phaser.Scene {
     // a fallback -- is his, and the renderer's fallback ink already assumed
     // so; the probe did not, and reported the LAST speaker it had seen, which
     // in Room 5 made an override of Winnie's read as the stage driver's.
-    this.setSay(result.say, this.state.content.actor.id);
+    // A PAIR RULE NAMES ITS SPEAKER (doc 57 A9: Sump's refusals); every other
+    // verb line is his, as before. Two branches rather than a fallback: a line
+    // with no speaker is Thad's by definition, not by default.
+    if (result.by) this.setSay(result.say, result.by);
+    else this.setSay(result.say, this.state.content.actor.id);
     // DOC 30 §5's SPLIT UTTERANCES. The setup goes up now and the rest queue
     // behind it on their own reading holds, which is the 1990 rhythm the
     // presentation borrows: setup, beat, punchline.
     if (result.then?.length) {
       const who = this.state.content.actor.id;
-      this.pendingSay.push(...result.then.map((line) => ({ speaker: who, line })));
+      // A bare line is his; a line with a speaker is theirs (doc 57 A9's read-back).
+      this.pendingSay.push(...result.then.map((line) => (typeof line === 'string'
+        ? { speaker: who, line } : { speaker: line.speaker, line: line.line })));
     }
     if (result.changedRoom) {
       this.hovered = null;
@@ -1589,7 +1615,7 @@ export class GameScene extends Phaser.Scene {
   }
 
   private onMapClick(x: number, y: number): void {
-    const hit = this.view.mapHitboxes().find((box) => pointInRect(x, y, box.rect));
+    const hit = this.view.mapHitAt(x, y);
     // An unbuilt destination is drawn and does not travel. Silently: doc 17
     // v3.1's constraint is that nothing announces itself, and a notice saying
     // "not implemented" is the loudest possible announcement.
