@@ -1298,6 +1298,11 @@ built.exits = (live.exits ?? []).map((e) => {
   if (ann.onEnterWalkTo) {
     built.onEnter = { ...(built.onEnter ?? {}), walkTo: ann.onEnterWalkTo };
   }
+  // A CHARACTER WHO OPENS ON THE PLAYER (doc 35's auto-open), declared in the
+  // annotation because it is staging in this room.
+  if (ann.onEnterAccost) {
+    built.onEnter = { ...(built.onEnter ?? {}), accost: ann.onEnterAccost };
+  }
   if (ann.onEnterSay) {
     built.onEnter = { ...(built.onEnter ?? {}), ...ann.onEnterSay };
   }

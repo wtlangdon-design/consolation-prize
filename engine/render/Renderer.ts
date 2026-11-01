@@ -1709,7 +1709,12 @@ export class Renderer {
     // is 1440, so even at spec the block spans most of the frame and the
     // clamp can shift it by at most 240px. A caption that wide has nowhere to
     // be but the middle; the only real fix is to stop anchoring it.
-    if (!this.performing && !this.state.dialogue.isActive) {
+    // A GREETING IS CONVERSATION TOO. It is said in the moment before the tree
+    // opens -- not performing, not yet active -- so it fell to this caption
+    // rule and every opening line in the game (the one-strike man's, the card
+    // sharp's, Vessel's "You're the piano man.") printed top-centre instead of
+    // over the person saying it. Found by Deke Vessel's proof, 2026-10-31.
+    if (!this.performing && !this.state.dialogue.isActive && this.greeting === null) {
       return { x: NATIVE_WIDTH / 2, y: SAY_TOP };
     }
     const at = this.speakerHead();

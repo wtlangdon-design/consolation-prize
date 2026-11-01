@@ -1305,5 +1305,19 @@
     "floor_4",
     "floor_5",
     "floor_6"
-  ]
+  ],
+  "onEnter": {
+    "accost": {
+      "npc": "deke_vessel",
+      "when": {
+        "T_SWINDLED": false,
+        "T_VESSEL_OPENED": false
+      },
+      "afterSeconds": 1.5,
+      "set": {
+        "T_VESSEL_OPENED": true
+      },
+      "note": "Doc 35, VESSEL'S AUTO-OPEN, exactly: on entering, unless the swindle has happened or he has already opened, wait 1500 ms, he says \"You're the piano man.\" (his tree's opening, extracted from doc 27's Root) and the tree opens; T_VESSEL_OPENED makes it once only. Thad does not walk to him (doc 27: 'He opens. Thad does not approach him.')."
+    }
+  }
 }

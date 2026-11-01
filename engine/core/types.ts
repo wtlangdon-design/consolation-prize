@@ -1164,6 +1164,16 @@ export interface RoomFile {
      */
     say?: string[];
     sayOnce?: string;
+    /**
+     * A CHARACTER WHO ACCOSTS THE PLAYER. Doc 27: Deke Vessel "opens. Thad
+     * does not approach him." Doc 35 ("VESSEL'S AUTO-OPEN") specifies it:
+     * when the condition holds on entering, wait, then the character's tree
+     * opens where Thad stands -- its opening line is the greeting -- and the
+     * flags in `set` are written so it happens once. TALK TO still reaches
+     * the same tree; this is how he finds Thad, not the only way in. "This
+     * is the pattern for every character who accosts the player."
+     */
+    accost?: { npc: string; when?: Condition; afterSeconds?: number; set?: FlagWrites; note?: string };
   };
   /** Destinations doc 20 names but whose appearance rule nobody has stated. */
   pendingLocations?: { room: number | null; name: string; doc: string; missing: string }[];
