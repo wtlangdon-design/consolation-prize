@@ -1,0 +1,17 @@
+The first attached image is a six-frame walk cycle of Deke Vessel from my pixel-art adventure game. The second attached image shows the problem: on the LEFT is Deke as he was approved, standing; on the RIGHT is the first frame of the walk. The walking Deke does not match the approved Deke in two ways.
+
+Redraw the first image with exactly these two corrections, in all six figures:
+
+1. HIS HAT. The walking Deke's hat reads as a mass of hair. Give him the approved Deke's hat: a small, dark brown, soft felt hat with a low crown and a short brim, pushed back on his head so his forehead shows. It must read clearly as a hat, with its brim edge visible.
+2. HIS JACKET. The walking Deke wears a long coat down to his knees. The approved Deke wears a short, faded brown jacket that ends at his hips, just below the belt, open over the worn shirt. Make the walking Deke's jacket that short jacket, so his trousers show from the hips down.
+
+CHANGE NOTHING ELSE:
+- Every figure keeps exactly its pose, its place in the row and its size: the same legs, the same stride, the same arm swing, the same head, face and moustache, the same boots on the same baseline.
+- Same pixel-art style, same pixel size, same flat soft shading, same small amount of texture. Not sharper and not more detailed.
+
+RULES — these matter more than anything else:
+- One row of six figures, left to right, all the same size, full length from hat to boots, with the boots on the same baseline.
+- Clear magenta space between figures. No figure touches or overlaps another.
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, nothing else in the picture.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.
