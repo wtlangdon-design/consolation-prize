@@ -53,10 +53,49 @@ export class AmbientLayer {
   private departures: { npc: AmbientFile; exit: AmbientExit; startedAt: number }[] = [];
   private clock = 0;
 
-  constructor(private readonly state: GameState) {}
+  /** Who was in the room when Thad arrived in it. See `present`. */
+  private latched: Map<string, AmbientFile> | null = null;
+  private latchedRoom: string | null = null;
 
-  /** Ambient characters placed in the current room. */
+  private readonly state: GameState;
+
+  // A plain field rather than a parameter property, so node's type stripping
+  // can load this module and a test can drive the layer without a browser.
+  constructor(state: GameState) {
+    this.state = state;
+  }
+
+  /** Thad has arrived in a room (or a save has put him there): who is here is decided afresh. */
+  arrived(): void {
+    this.latched = null;
+  }
+
+  /**
+   * Ambient characters in the current room.
+   *
+   * NOBODY POPS IN OR OUT OF VIEW (Tyler, 2026-11-01: "it would bother me
+   * immensely to have a character just disappear"). Who is here is decided
+   * when Thad arrives. A character whose condition stops holding while he
+   * watches walks out if he has an `exit`, and otherwise stays until Thad
+   * leaves -- the judges after Duel Two, who have no walk. One whose condition
+   * starts holding while he watches is there next time he comes in.
+   */
   get present(): AmbientFile[] {
+    const live = this.live;
+    const room = this.state.room.id;
+    if (this.latched === null || this.latchedRoom !== room) {
+      this.latchedRoom = room;
+      this.latched = new Map(live.map((npc) => [npc.id, npc]));
+    }
+    const out = live.filter((npc) => this.latched!.has(npc.id));
+    for (const [id, npc] of this.latched) {
+      if (!npc.exit && !out.some((one) => one.id === id)) out.push(npc);
+    }
+    return out;
+  }
+
+  /** Who the conditions place here right now. */
+  private get live(): AmbientFile[] {
     const ids = this.state.room.ambient ?? [];
     const roomId = this.state.room.id;
     return ids

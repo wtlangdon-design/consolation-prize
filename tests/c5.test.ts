@@ -8,6 +8,8 @@ import { loadContent, type JsonReader } from '../engine/core/ContentLoader.ts';
 import { GameState } from '../engine/core/GameState.ts';
 import { MemoryStorage } from '../engine/core/SaveManager.ts';
 
+// PLAYS: C5
+
 const ROOT = resolve(fileURLToPath(new URL('.', import.meta.url)), '..');
 const fsReader: JsonReader = async (path) => JSON.parse(await readFile(resolve(ROOT, path), 'utf8'));
 

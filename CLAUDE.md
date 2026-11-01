@@ -144,6 +144,10 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 - Win state reachable from every reachable state
 - Save/load restores exact state including partial dialogue trees
 - 60fps on a Chromebook
+- Nobody stands on anybody: every conversation stand and every talking character is clear of the other figures, on drawn pixels (`tests/staging-clear.test.ts`)
+- Nobody vanishes in front of Thad; every item content hands over is loaded and has an icon; every puzzle sited in built rooms is played by a test or its reason is recorded (`tests/lessons.test.ts`)
+
+**What playing found that no script can hold** — light, staging taste, cutting figures from plates, walk cycles, speech placement — is in `docs/55-full-game-build.md` §8, with the process that worked. Read it before building a room.
 
 ---
 

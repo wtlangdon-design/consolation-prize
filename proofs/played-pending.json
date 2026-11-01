@@ -1,0 +1,11 @@
+{
+ "schema": 1,
+ "note": "Puzzles sited wholly in built rooms that no test plays through yet, each with why. tests/lessons.test.ts fails on any such puzzle missing from both this file and a test's `// PLAYS:` line, so a new room cannot leave a puzzle unplayed in silence. Take an entry out when a test plays it.",
+ "puzzles": {
+  "C1": "Winnie's refusal is a topic (doc 02: 'Topic: the queue'), reached through WIN_A1; no puzzle state is written for it and nothing waits on C1 as a puzzle. Played in Room 5's acceptance by Tyler; no test walks it as a puzzle.",
+  "C2": "A topic like C1 (doc 02: 'Topic: get into Fanshawe's office'); its evidence is Room 11's submission log, and Room 11 is not built.",
+  "C6": "Written as pending by WIN_B2 (c5.test.ts holds that it is pending); its completion is Act II's assay request, played once Rooms 6 and 11 exist.",
+  "E4": "Act III: Winnie signs the certificate. Its prerequisite E3 is in an unbuilt room.",
+  "F4": "Act IV: the final duel on Main Street. Its prerequisites F1-F3 are in unbuilt rooms."
+ }
+}

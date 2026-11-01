@@ -65,7 +65,8 @@
   "content/items/filing-fee.json",
   "content/items/harness-token.json",
   "content/items/padded-log.json",
-  "content/items/watch.json"
+  "content/items/watch.json",
+  "content/items/document-a.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
