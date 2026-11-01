@@ -3,9 +3,9 @@
  "id": "nugget_bar2",
  "name": "THE PATRONS",
  "room": "nugget",
- "note": "A drinker above the counter, redrawn in Thad\u2019s idiom. Texture 7.66 to 4.90 against Thad\u2019s 6.09 -- the first figure in the game to reach him, and slightly past. All four rules held first time: below the counter 0.47, three separable bands, each moving in exactly one pose and 0.0 in the others. The standing man straightens off the foot rail.",
- "x": 1517,
- "y": 509,
+ "note": "A drinker above the counter, redrawn in Thad’s idiom. Texture 7.66 to 4.90 against Thad’s 6.09 -- the first figure in the game to reach him, and slightly past. All four rules held first time: below the counter 0.47, three separable bands, each moving in exactly one pose and 0.0 in the others. The standing man straightens off the foot rail.",
+ "x": 1413,
+ "y": 601,
  "zone": 1,
  "approachRadius": 40,
  "barks": {},
@@ -16,19 +16,20 @@
    [
     2,
     2,
-    214,
-    153
+    231,
+    245
    ],
    [
-    218,
+    235,
     2,
-    214,
-    153
+    231,
+    245
    ]
   ],
   "rate": 0.0,
   "beatEvery": 4.5,
   "beatSeconds": 1.8,
   "phase": 0.4
- }
+ },
+ "recutNote": "RE-CUT 2026-10-31 by tools/retrofit/nugget-bar-recut.py. Tyler: the drinker 'is messed up when he moved' and the middle man's 'head disappears when he moves'. Both were August cutting errors, not the drawing: the bar1/bar2 seam sat inside the middle man's head, and every band stopped 153 rows down while two poses change lower (to rows 175 and 235). Seams now sit in empty columns (172, 403) and all three bands are 245 tall; the rest frame is the screen as it was, pixel for pixel."
 }
