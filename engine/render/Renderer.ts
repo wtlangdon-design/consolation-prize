@@ -64,6 +64,8 @@ export interface Frame {
    * matched against. Null when nobody is talking, which selects the default.
    */
   speaker?: string | null;
+  /** The line on screen is a stage direction: same place, quieter ink. */
+  direction?: boolean;
   /**
    * An exchange is being PERFORMED, so the choice list is neither drawn nor
    * clickable. Doc 30 section 1.
@@ -490,6 +492,7 @@ export class Renderer {
   }
   private readonly shownOverlays = new Map<string, string>();
   private speaker: string | null = null;
+  private direction = false;
   /**
    * Set from the frame, read by BOTH the draw and the hit test.
    *
@@ -578,6 +581,7 @@ export class Renderer {
       watch.frame(this.frameIndex, this.clock, frame.beat ?? null);
     }
     this.speaker = frame.speaker ?? null;
+    this.direction = frame.direction ?? false;
     this.performing = frame.performing === true;
     this.greeting = frame.greeting ?? null;
     // THE PANEL BAND IS CLEARED EVERY FRAME, WHETHER OR NOT A PANEL GOES IN IT.
@@ -1814,6 +1818,10 @@ export class Renderer {
    * is legible rather than invisible.
    */
   private speechColour(): string {
+    // A STAGE DIRECTION IS NOBODY'S VOICE. It sits over the person it
+    // describes, so the player knows whose it is, but it is drawn in the dim
+    // ink rather than theirs: nobody is saying it.
+    if (this.direction) return this.screen.roleColour('inkDim');
     const declared = this.speaker
       ? this.state.content.speechColours?.speakers[this.speaker]?.colour
       : undefined;

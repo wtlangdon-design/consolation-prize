@@ -31,6 +31,8 @@ export interface Utterance {
   /** Who says it. Null only where content attributes nobody. */
   speaker: string | null;
   line: string;
+  /** A stage direction rather than speech: drawn over the speaker, quieter. */
+  direction?: boolean;
 }
 
 /**

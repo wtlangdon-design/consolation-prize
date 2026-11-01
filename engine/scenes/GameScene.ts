@@ -145,6 +145,8 @@ export class GameScene extends Phaser.Scene {
    * Null for a line that carries no attribution; never inferred.
    */
   private sayingActor: string | null = null;
+  /** The line on the speech channel is a stage direction, not speech. */
+  private sayIsDirection = false;
   private notice: string | null = null;
   private barkLines: string[] = [];
   /** The last break that spoke, so a clock-derived break fires its line once. */
@@ -538,6 +540,7 @@ export class GameScene extends Phaser.Scene {
       // Doc 43 line 97: the driver's head answers to who is speaking. Null
       // when nobody is, which selects the overlay's default.
       speaker: this.sayLines.length > 0 ? this.sayingActor : null,
+      direction: this.sayLines.length > 0 && this.sayIsDirection,
       performing: this.performance !== null,
       // Whose greeting is being said, so they hold still for it as they do
       // for their open tree.
@@ -1397,7 +1400,11 @@ export class GameScene extends Phaser.Scene {
     // THE WORDING AS DRAWN, which is the option's own or its rephrase.
     const echo = { speaker: this.state.content.actor.id, line: chosen.text };
     const replies = [
-      ...(said.say ? [{ speaker: said.sayer, line: said.say }] : []),
+      ...(said.say ? [{
+        speaker: said.sayer,
+        line: said.direction ? GameScene.asDirection(said.say) : said.say,
+        direction: said.direction,
+      }] : []),
       ...said.rest.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })),
     ];
     this.performance = new DialoguePerformance(
@@ -1429,7 +1436,7 @@ export class GameScene extends Phaser.Scene {
     const live = this.performance;
     if (!live) return;
     const line = live.current;
-    this.setSay(line?.line ?? null, line?.speaker ?? null);
+    this.setSay(line?.line ?? null, line?.speaker ?? null, line?.direction ?? false);
     if (!live.done) { this.markDirty(); return; }
     this.performance = null;
     if (!this.state.dialogue.isActive) {
@@ -1689,7 +1696,19 @@ export class GameScene extends Phaser.Scene {
     return this.state.dialogue.isActive && this.performance === null;
   }
 
-  private setSay(text: string | null, speaker: string | null = null): void {
+  /**
+   * A stage direction as the documents print it: in parentheses. Doc 07 kept
+   * its brackets through extraction and docs 04 and 27 lost theirs, so the
+   * brackets are restored here, where it is presentation, rather than in the
+   * content, where it would be retyping.
+   */
+  private static asDirection(text: string): string {
+    const trimmed = text.trim();
+    return trimmed.startsWith('(') ? trimmed : '(' + trimmed + ')';
+  }
+
+  private setSay(text: string | null, speaker: string | null = null, direction = false): void {
+    this.sayIsDirection = text !== null && direction;
     // DOC 30 SECTION 5'S BLOCK WIDTH, WHICH NOTHING HAD EVER USED. "Spoken
     // text uses a default maximum block width of 240 native pixels." This
     // wrapped at NATIVE_WIDTH minus the margins -- 1856 -- so a two-line block

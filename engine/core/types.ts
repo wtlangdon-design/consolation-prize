@@ -1341,9 +1341,11 @@ export interface DialogueOption {
    * deed comes back. The direction is carried here verbatim rather than
    * dropped, and check-content-schema lists every one of these on every run.
    *
-   * The runner shows nothing for it, which is correct and temporary. An
-   * option carrying a beat must never be given an invented line to fill the
-   * silence -- when the machinery exists, the beat plays.
+   * SHOWN AS WRITTEN (Tyler, 2026-10-31, option A): the runner presents the
+   * direction itself, over the character, in the dim ink, in parentheses. It
+   * had shown nothing, which played as a broken reply. Nothing is ever
+   * invented to fill it; a performed version (a chore, a staged scene) can
+   * replace the text later where art exists.
    */
   beat?: string;
   set?: FlagWrites;

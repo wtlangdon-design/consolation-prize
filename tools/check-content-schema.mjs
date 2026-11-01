@@ -194,7 +194,7 @@ export function check() {
   // every run, because an option that shows the player nothing is otherwise
   // indistinguishable from an option somebody forgot to write.
   if (beats.length > 0) {
-    report.note(`${beats.length} option(s) declare a beat rather than a line -- unbuilt`);
+    report.note(`${beats.length} option(s) declare a beat rather than a line -- shown as a stage direction (Tyler, 2026-10-31)`);
     for (const beat of beats) report.note(`  ${beat}`);
   }
 
