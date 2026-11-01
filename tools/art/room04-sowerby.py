@@ -23,10 +23,10 @@ moved 118 px right, into the gap between that chair and the table's left end
 -- still at the back wall and the chalkboard, boots on the same floor line.
 
 HIS HEIGHT IS THE ROOM'S CURVE. Room 4's depth note is a standing man of 470 at
-y 600 and 560 at y 840; at his feet (y 525) that is 442, and the room declares
+y 600 and 560 at y 840; at his soles (y 513) that is 437, and the room declares
 it as its `beyond` sample (reference/room-04/annotation.json). The edit drew
-him 391, which beside the seated judges read as a boy; he is resampled once
-to 442 (Lanczos, alpha re-thresholded), the same resampler every plate in the
+him 379, which beside the seated judges read as a boy; he is resampled once
+to 437 (Lanczos, alpha re-thresholded), the same resampler every plate in the
 room has been through.
 
 THE PENCIL. Errata 75: "Sowerby holds the pencil", and the plate paints the
@@ -59,7 +59,25 @@ GAP = 2
 WORK = (380, 100, 640, 540)     # GrabCut's window
 CHAIR_LINE = 300                # above it the base is plain wall and slate; below, the base's chair
 SHIFT = 118                     # clear of the front chair's back, short of the table's end
-HEIGHT = 442                    # the room's curve at y 525 (annotation `beyond`)
+HEIGHT = 437                    # the room's curve at his soles, y 513 (annotation `beyond`)
+# BELOW THE HEM, TRACED. Tyler, 2026-11-01, on the first cut in the game: "The
+# judge is missing part of his leg." Black trousers on a dark wall, with the
+# chair's seat touching the left leg: GrabCut took in wall beside and between
+# the legs, and 20 px of floor under the boots, and that wall, drawn 118 px
+# from where it was painted, read as a piece out of his leg. So from the coat's
+# hem down the outline is the derived picture's own, read off it brightened
+# (renders/room-04-sowerby-legs.png): rows, then the columns his legs and boots
+# fill, ending at the soles on the floor line.
+HEM = 432
+LEGS = [(HEM, 446, 452, 514),      # y0, y1, x0, x1: the tops of both legs, under the coat
+        (446, 490, 452, 471),      # the left leg: the chair seat ends at x 452
+        (446, 490, 481, 514),      # the right leg. Between them is wall: the plank seam
+                                   # at y 452 runs through x 471-481 level with the one
+                                   # right of his legs
+        (490, 514, 450, 477)]      # the left boot
+# THE RIGHT BOOT rises from its heel to its toe: wall above that line stays out.
+TOE = [(y, 481, 514 if y < 496 else min(533, 514 + 2 * (y - 496))) for y in range(490, 514)]
+SOLES = 514
 PENCIL = (772, 333, 850, 376)   # the judges' pencil on the plate, with its shadow, below judge 1's hands
 WOOD_FROM = 84                  # bare table this far right of it
 
@@ -112,8 +130,14 @@ cv2.grabCut(crop, gc, None, bgm, fgm, 8, cv2.GC_INIT_WITH_MASK)
 mask = np.zeros(lum.shape, bool)
 mask[Y0:Y1, X0:X1] = largest(ndi.binary_opening((gc == cv2.GC_FGD) | (gc == cv2.GC_PR_FGD), iterations=1))
 
+mask[HEM:, :] = False
+for y0, y1, x0, x1 in LEGS:
+    mask[y0:y1, x0:x1] = True
+for y, x0, x1 in TOE:
+    mask[y, x0:x1] = True
 ys, xs = np.where(mask)
 t, bot, l, rt = ys.min(), ys.max() + 1, xs.min(), xs.max() + 1
+assert bot == SOLES, bot
 fig = np.asarray(Image.open(DERIVED).convert('RGBA'))[t:bot, l:rt].copy()
 fig[..., 3] = np.where(mask[t:bot, l:rt], 255, 0)
 drawn = bot - t
@@ -165,3 +189,12 @@ view[~mask[t - 10:bot + 10, l - 10:rt + 10]] = [255, 0, 255]
 Image.fromarray(view).resize((view.shape[1] * 2, view.shape[0] * 2), Image.NEAREST).save(
     os.path.join(ROOT, 'renders/room-04-sowerby-cut.png'))
 print(json.dumps({k: record[k] for k in ('frames', 'anchor', 'drawnHeight', 'height', 'pixels')}))
+
+# The reading the legs were traced from: the derived picture brightened, with the traced outline.
+from PIL import ImageDraw, ImageEnhance
+legs = ImageEnhance.Brightness(Image.open(DERIVED).convert('RGB').crop((420, 400, 540, 530))).enhance(3.0)
+legs = legs.resize((960, 1040), Image.NEAREST)
+pen = ImageDraw.Draw(legs)
+for y0, y1, x0, x1 in LEGS + [(y, y + 1, x0, x1) for y, x0, x1 in TOE]:
+    pen.rectangle(((x0 - 420) * 8, (y0 - 400) * 8, (x1 - 420) * 8 - 1, (y1 - 400) * 8 - 1), outline=(255, 0, 255))
+legs.save(os.path.join(ROOT, 'renders/room-04-sowerby-legs.png'))
