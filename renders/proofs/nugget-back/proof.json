@@ -4,39 +4,10 @@
  "room": "nugget_back",
  "roomWidth": 1920,
  "branch": "claude/tender-sagan-buz50u",
- "commit": "2e0d2d5198ba7fdc9d426a93bb115f4573182282",
- "workingTreeClean": false,
- "dirtyAllowed": true,
- "uncommitted": [
-  "M art/staging/ledger.json",
-  " M content/ambient/deke-vessel.json",
-  " M content/manifest.json",
-  " M content/rooms/nugget.json",
-  " M engine/core/Ambient.ts",
-  " M engine/core/types.ts",
-  " M proofs/readiness/room-04.json",
-  " M proofs/readiness/room-04.sources.json",
-  " M reference/room-03/annotation.json",
-  " M tools/art/staging.mjs",
-  " M tools/compile-room.mjs",
-  " M tools/gauntlet/proof.mjs",
-  " M tools/lib/chromium.mjs",
-  "?? art/actors/deke-vessel-room-04.png",
-  "?? art/actors/room-04-judge-1.png",
-  "?? art/actors/room-04-judge-2.png",
-  "?? art/actors/room-04-judge-3.png",
-  "?? art/backgrounds/room-04-nugget-back.png",
-  "?? content/ambient/room-04-judge-1.json",
-  "?? content/ambient/room-04-judge-2.json",
-  "?? content/ambient/room-04-judge-3.json",
-  "?? content/rooms/nugget-back.json",
-  "?? proofs/spec/nugget-back.json",
-  "?? reference/room-04/annotation.json",
-  "?? renders/proofs/nugget-back/",
-  "?? tools/art/room04-promote.mjs",
-  "?? tools/gauntlet/routes/nugget-back-doors.json",
-  "?? tools/gauntlet/routes/nugget-back.json"
- ],
+ "commit": "0214c776602bacc05f1e4959d4614261287ce322",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": "nugget-back",
@@ -100,7 +71,7 @@
    ],
    "reportedHeight": 509,
    "expected": 509,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
    "bounds": [
     696,
     197,
@@ -137,7 +108,7 @@
    ],
    "reportedHeight": 560,
    "expected": 560,
-   "drawnFrom": "art/actors/thad-idle-right/idle-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     669,
     279,
@@ -156,7 +127,7 @@
   {
    "panel": "B",
    "room": "nugget_back",
-   "clock": 142.277,
+   "clock": 143.1728,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -195,7 +166,7 @@
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       31,
       212,
@@ -222,15 +193,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-01T07:27:22.239Z",
+   "capturedAt": "2026-11-01T07:50:45.677Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "7d844b180f8d5c28dc4dbf5bf10532a36c148532f144aefdb665a9abcf3575fa"
+   "hash": "2b0b8356f37d9382dbc128bd28de52f7a541ccd49718fb2aa2fd4feb00e65f27"
   },
   {
    "panel": "A",
    "room": "nugget_back",
-   "clock": 143.3935,
+   "clock": 144.52270000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -293,15 +264,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T07:27:23.342Z",
+   "capturedAt": "2026-11-01T07:50:46.918Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "9b16c4578290cb585e0cbfb4b004a29385c1ac5a4baf87c67b1ea09fbd71575f"
+   "hash": "da04834ae3cc45d0a4a12fe6118a6335058443af691dd69b23cda7c396078a49"
   },
   {
    "panel": "D",
    "room": "nugget_back",
-   "clock": 151.7099,
+   "clock": 153.03910000000002,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -341,7 +312,7 @@
      "height": 530,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-01.png",
      "bounds": [
       525,
       230,
@@ -410,10 +381,10 @@
     "cast(true)",
     "flag T_VESSEL_FOUND=true"
    ],
-   "capturedAt": "2026-11-01T07:27:31.680Z",
+   "capturedAt": "2026-11-01T07:50:55.410Z",
    "intent": "principal changed state: THE ASSAY CONVENES. Prerequisite: T_VESSEL_FOUND (B3, Room 15, unbuilt). Visible consequence: Deke Vessel at his mark across the burnt line and the three judges behind the table. Then TALK TO Vessel opens VES_B1.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "887883be0e67c0a2a326a39828b78ed349b54429490008648e008184127a3f24",
+   "hash": "48b9fb9e8c8974489de88a6885a144658425017f6758db53a8a0d61aee5b5a6f",
    "changedBy": "flags"
   }
  ],
@@ -444,11 +415,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T07:27:31.680Z",
+ "at": "2026-11-01T07:50:55.411Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 339496,
+  "bytes": 339286,
   "panels": 5,
   "scale": 0.5
  }
