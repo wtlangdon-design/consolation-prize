@@ -2193,3 +2193,19 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 - `T_HOB_KNOWS` and `T_HOB_HANDWRITING` are declared. HOB_C1 option 4 stays `[COMIC]` and nothing in the data marks it (invariant 7).
 
 **E · Errata 70 C2 is withdrawn. The 90-second arc starts on the confirmed void (errata 52).** Errata 52 moved F2's tuning arc to the confirmed-void reveal: "elapsed time would make waiting advance the dramatic state; proximity would turn the music into a hidden meter." Errata 70 C2 started it on the fork strike — elapsed time, the thing 52 ruled out — without citing 52. **Restored:** the search runs on the tap gradient alone, against the −35-cent score. **On the confirmed void** its line plays, and `R33-TUNE` runs −35 → 0 cents across exactly 90 active seconds from that moment, and stays at 0 for the rest of the game. **S5 beat 3 is those ninety seconds:** Thad sits down in the dark and listens while THADDEUS comes into tune. Room 33's lamp (invariant 8) slows to stillness on the same ninety seconds, so the room arrives at complete stillness and complete tune together, as doc 28 writes it. Because it begins only after the void is found, it tells the player nothing (invariant 9, and the hint errata 52 struck). F3 follows when the ninety seconds are over. 70 C1 (THADDEUS complete), C3's "the void is never gated" and "the tuning never snaps", C4 and C5 stand. C3's found-before/found-after cases fall away: there is only after.
+
+# 72 · THE FULL GAME BUILD (Tyler, 2026-10-31)
+
+*Tyler, in chat: "Here's my thought process. Build the whole game in the style of what we've done so far. I'll play through it and we can make adjustments as I play." Asked three questions, he answered: **"Real art room by room"**; **"Review while playing"**; **"Up to 4 per room (~120)"**.*
+
+**A · Every remaining room is named.** 4, 6–23 (23 and 24 are one room), 25–31, 33–36, in doc 20's numbering, which is the canonical build order (doc 36 Q142). Rooms 13, 18, 19, 29 and 36, which exist only at the void 320×144 size, are rebuilt at errata 54's. Room 5 is built; Room 32 is built and awaits Tyler's audition. Each room still needs `BUILDABLE WITHOUT INVENTION: YES` from its gate, and still follows ruling 22's order (graybox, then the legibility gate, then art).
+
+**B · Real art, room by room.** A room ships with its finished plate before the next begins. Generation happens only in a session started in Tyler's "OpenAI" cloud environment.
+
+**C · Four image operations per room**, covering its plate, any companion state and its own new characters, all logged under one asset id `room-NN` (`art/staging/caps.json`; attemptsTotal 52 → 172). A room that spends its four without a usable result stops, is reported, and the build moves to the next room. No room borrows another's.
+
+**D · The character style gate's step 3 moves to the playthrough.** Steps 1 (generated against Thad in the room), 2 (measured: `tests/scale.test.ts`, edges, colour and contrast in Thad's range) and 4 (a miss is corrected, against the side-by-side) stand. Instead of a side-by-side before the cut, the character goes in and Tyler flags misses while he plays.
+
+**E · Tyler's visual and audio acceptance moves to the playthrough as well.** Every room merges to main and deploys as soon as it is built and green, so what he plays is what exists. Acceptance is his, as before; it is given or withheld while he plays.
+
+**F · The writing rules are unchanged.** No line is written by the builder. A subject whose line is missing is reported in doc 36 and the room ships without that subject's missing variant rather than with an invented one, or waits if the gap is in a puzzle's path. Staging and mechanism gaps are decided under the standing delegation and recorded here, as errata 68–71 were.
