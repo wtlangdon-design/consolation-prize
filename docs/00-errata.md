@@ -2209,3 +2209,21 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 **E · Tyler's visual and audio acceptance moves to the playthrough as well.** Every room merges to main and deploys as soon as it is built and green, so what he plays is what exists. Acceptance is his, as before; it is given or withheld while he plays.
 
 **F · The writing rules are unchanged.** No line is written by the builder. A subject whose line is missing is reported in doc 36 and the room ships without that subject's missing variant rather than with an invented one, or waits if the gap is in a puzzle's path. Staging and mechanism gaps are decided under the standing delegation and recorded here, as errata 68–71 were.
+
+# 73 · THE LIAR'S ASSAY'S WRONG ANSWERS, AND HOW THE DUELS RUN (2026-10-31)
+
+*Room 4's builder stopped (doc 36 Q146): the duels in Room 4 need three wrong counters per pair, and only pair 1's were written. Tyler's instruction of 2026-10-31, "do everything you have to to finish the writing so the other rooms can be built", covers this layer; Q144 missed it. Written and decided in this session, by one voice, under that instruction and the standing delegation. Every line and ruling below can be struck or changed by name.*
+
+**A · The wrong answers are written** in doc 03 Part Three, "Wrong answers, pairs 2–23": three per pair, each with its reply, plus the three jokes beside pair 24 in Duel Three's fifth exchange. That is 69 counters and 69 replies, none reused (doc 03 Part Five, note 1). No wrong answer takes the right answer's shape (claim acquaintance, then downgrade), so the rule that makes the system a system still picks out exactly one option. A reply is spoken by whoever threw the boast: **Vessel** for pairs only he throws, **Reply** for pairs 4 and 9 (thrown by Vessel and, in Duel Three, by Fanshawe), **Fanshawe** for 22, 23 and the fifth exchange. The standing mockery lines remain a pool for anything else that loses.
+
+**B · Duels One and Two are fought in Room 4.** Doc 05 ("The Assay duels are held here"), doc 54 and doc 20's map agree, and doc 20 has no camp room and forbids timed travel screens. Doc 03's "a camp two days out" is where Thad finds Vessel: B1 finds out where, and B2–B3 get him there with Grievance, off screen. B4's "the local way" is the Assay, which has judges, a fee and a room, so it brings the two of them back to the Nugget's back room. Vessel's "You came all this way" stands, because Thad did. **From B3's completion, Vessel is in Room 4.** For Duels One and Two, Sowerby's handbill, the judges and the pencil are Room 4's, as written; Duel Three stays public, on Main Street.
+
+**C · What Thad is offered.** For a boast whose counter he has not learned, the three wrong answers and nothing else. Once he has learned it, the right counter joins them as a fourth. Its position among the four varies by pair and is never always the same slot.
+
+**D · Duel One's arithmetic.** Thad writes each counter in his notebook as he hears it ("Malnourished. Bishop. Yes."), and **the notebook joins his repertoire when the duel is over**, not during it. Vessel throws pairs 1, 2, 3 and 4, then pair 1 again. Thad has nothing but wrong answers to all five, and loses five straight exchanges. On the repeat of pair 1 nobody mutters anything; he has already written it down.
+
+**E · Duel Two's order is the builder's to decide**, with two conditions: a Thad who holds exactly fourteen pairs can win, verified by the traversal, and losing Duel Two closes nothing, so TALK TO Vessel offers it again (invariant 6). Vessel draws from pairs 1–21, Tier 1 first ("Vessel escalates").
+
+**F · The bystander who mutters each counter** is a voice from the ring of chairs, unnamed, as doc 03 writes it. Staging.
+
+**G · The readiness gate missed this** because it checks that a puzzle's sections resolve, not that every node inside them is written. A builder may add a check that every duel node has three wrong answers and a reply for each. That is tooling and needs no ruling.

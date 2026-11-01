@@ -167,6 +167,125 @@ Every node offers four counters. Three are wrong and all three must be funny. Sa
 > **"I don't believe in bishops."** — *Vessel: "Nobody's asking you to worship it, son, only to be impressed."*
 > **"I have a small nugget."** — *Vessel: "Then say so louder. That's how it's done."*
 
+## Wrong answers, pairs 2–23 *(errata 73 A)*
+
+*Three per pair, each answered by whoever threw the boast. A line marked **Vessel** is only ever thrown by Vessel (Duels One and Two). Pairs 4 and 9 are thrown by Vessel and by Fanshawe (Duel Three), so their answers are marked **Reply** and fit either man. Pairs 22 and 23 are Fanshawe's alone. No wrong answer claims acquaintance with the thing boasted about and downgrades it: that shape belongs to the right answer, and only to it.*
+
+**2.** *("nine hundred dollars to the ton")*
+> **"Assayed by whom?"** — *Vessel: "By a man I trust entirely. I see him every morning when I shave."*
+> **"That is forty-five cents a pound. I have done the arithmetic."** — *Vessel: "Rule five, son. No arithmetic. It's on the wall."*
+> **"Congratulations."** — *Vessel: "Don't congratulate a man in an Assay. It looks like losing, because it is."*
+
+**3.** *("more gold than you've washed shirts")*
+> **"I send my shirts out."** — *Vessel: "Then I've washed more gold than your laundress, and she won't mind hearing it."*
+> **"I have four shirts. I am wearing the good one."** — *Vessel: "That's an inventory, Grubb. Nobody bets on an inventory."*
+> **"Gold does not need washing. It is famously inert."** — *Vessel: "So's the audience, son. Look at them."*
+
+**4.** *("famous from here to Sacramento")*
+> **"I have never been to Sacramento."** — *Reply: "Then you'll have to take my word for it, and you just have."*
+> **"Luck is what a man calls the parts he did not arrange."** — *Reply: "And the pencil calls it a point. Mark it."*
+> **"I once found a dollar in a hymnal."** — *Reply: "Keep it. You'll want it for the fee."*
+
+**5.** *("the assayer wept")*
+> **"The assayer is a woman."** — *Vessel: "Then she wept prettily, and I lent her my handkerchief. Do keep up."*
+> **"I would keep tears away from an assay. Salt affects the reading."** — *Vessel: "Everything affects the reading, Grubb. That's what I'm counting on."*
+> **"Was he all right?"** — *Vessel: "He'll live. You, I'm less sure of."*
+
+**6.** *("three fortunes and lost two")*
+> **"Which one did you keep?"** — *Vessel: "The one I'm telling you. It's the only kind that lasts."*
+> **"Then you have one left. Could you lend me four dollars?"** — *Vessel: "I could. I'd want a deed for it."*
+> **"Two out of three is a poor rate of keeping."** — *Vessel: "It's a fine rate of telling, and telling's what's scored."*
+
+**7.** *("turned down ten thousand dollars")*
+> **"That was foolish of you."** — *Vessel: "It was. That's what makes it a good account. Nobody brags about the sensible thing."*
+> **"I bought a claim from you for four dollars and a watch."** — *Vessel: "So you know I've been through hard times, Grubb. Thank you for raising it."*
+> **"Who offered it?"** — *Vessel: "A gentleman. I didn't catch his name, on account of the weeping."*
+
+**8.** *("never filed a claim that didn't pay")*
+> **"I have filed one claim, and I regret it in detail."** — *Vessel: "Regret's not scored, Grubb. Only the size of the thing."*
+> **"Never?"** — *Vessel: "Never is the strongest word in the territory, son. I use it sparingly and on purpose."*
+> **"Some claims pay in experience."** — *Vessel: "That's what we tell the Eastern men, Grubb. Don't repeat it back to me."*
+
+**9.** *("every man in this territory owes me money")*
+> **"I do not owe you money."** — *Reply: "Not yet. The afternoon is young."*
+> **"Would you like it in writing?"** — *Reply: "Nothing here is ever wanted in writing, Mr. Grubb. That's what keeps it cheerful."*
+> **"Then you must be very rich, on paper."** — *Reply: "Paper's where all the money in this territory lives. It's the climate."*
+
+**10.** *("more gold in my tailings")*
+> **"You sold me my whole claim."** — *Vessel: "And I'd know, wouldn't I. That's why it's a strong account."*
+> **"What are tailings?"** — *Vessel: "What's left over, Grubb. You'll be one shortly."*
+> **"That is a low bar, and I will not pretend otherwise."** — *Vessel: "Pretending otherwise is the whole sport, son. You've just declined to play."*
+
+**11.** *("forty feet wide")*
+> **"Have you measured it?"** — *Vessel: "Measuring's for men who expect to be checked."*
+> **"That is wider than this room."** — *Vessel: "Everything's wider than this room. That's why we come in here to say it."*
+> **"I have a vein in my temple that does something similar when I am lied to."** — *Vessel: "Then you'll want to sit down, son. It's going to be a long afternoon."*
+
+**12.** *("through solid granite with my hands")*
+> **"Why would you not use a pick?"** — *Vessel: "A pick's for men with nothing to prove."*
+> **"I tune pianos. My hands are the only part of me anyone has ever relied on."** — *Vessel: "Then keep them in your pockets, son. The judges can see them shaking."*
+> **"Did it hurt?"** — *Vessel: "Only the granite."*
+
+**13.** *("a mountain named for me")*
+> **"Which one?"** — *Vessel: "The big one. You can't miss it, which is more than I can say for your counters."*
+> **"I once had a dog named for me. It was a misunderstanding."** — *Vessel: "And did it come when you called it? Mine doesn't either."*
+> **"Mountains are named by surveyors, as a rule, not for prospectors."** — *Vessel: "This one was named by me, son, which saved the surveyor a trip."*
+
+**14.** *("forty men to work my claim")*
+> **"Forty is a great many men for a small claim."** — *Vessel: "They were small men, Grubb. I hired them by the yard."*
+> **"Are you hiring?"** — *Vessel: "Not tuners. Gold doesn't go flat."*
+> **"I work my claim alone, with a raccoon in an advisory capacity."** — *Vessel: "Then you're over-staffed by one raccoon."*
+
+**15.** *("it followed me home")*
+> **"Gold has no legs."** — *Vessel: "Mine did. I'm sorry yours never learned."*
+> **"Where do you live?"** — *Vessel: "Ask the gold. It found the place."*
+> **"Nothing has ever followed me anywhere, except a bill."** — *Vessel: "Then the bill knows something the gold doesn't."*
+
+**16.** *("shaped exactly like the President")*
+> **"Which President?"** — *Vessel: "The one that's in, son. I'm a patriot."*
+> **"Did it say anything?"** — *Vessel: "It said what Presidents say. I've forgotten it already."*
+> **"I have a turnip shaped like the Vice President."** — *Vessel: "Nobody remembers the Vice President, Grubb. That's a turnip."*
+
+**17.** *("my father died rich")*
+> **"I am sorry for your loss."** — *Vessel: "Don't be sorry in an Assay, son. It's a forfeit."*
+> **"My father died in debt, and he was very proud of how much."** — *Vessel: "That's a better account than mine, Grubb, and you've wasted it on a counter."*
+> **"Of what?"** — *Vessel: "Richness. It runs in the family."*
+
+**18.** *("the Improvement Company came to me on their knees")*
+> **"The Company has been very courteous to me."** — *Vessel: "Then they've not finished with you yet."*
+> **"Were they proposing?"** — *Vessel: "They were, and I said I'd think about it, and I'm still thinking. That's called leverage."*
+> **"That is also how I tune the bottom octave."** — *Vessel: "Nobody here has heard a bottom octave, son, and the Company would charge it rent."*
+
+**19.** *("a pound before breakfast")*
+> **"What did you have for breakfast?"** — *Vessel: "Gold, Grubb. Weren't you listening?"*
+> **"A pound troy, or a pound avoirdupois?"** — *Vessel: "A pound Vessel. It's heavier than both."*
+> **"I am not at my best before breakfast either."** — *Vessel: "That's an admission, Grubb. We don't do those in here."*
+
+**20.** *("bought a saloon with a single nugget")*
+> **"This saloon?"** — *Vessel: "A better one. This one I won at cards, which is more respectable."*
+> **"What did you buy with the change?"** — *Vessel: "The bartender. He's been very loyal."*
+> **"I would not know what to do with a saloon."** — *Vessel: "You'd stand behind the bar, son, and the town would hand you its money. Hardest part's the apron."*
+
+**21.** *("I know where Mott's strike is")*
+> **"Where?"** — *Vessel: "If I told you, son, it'd be your account, and I'm using it."*
+> **"So do I, approximately."** — *Vessel: "Approximately's where everybody keeps it. It's crowded."*
+> **"Then why are you here and not there?"** — *Vessel: "Because there's no audience out there, Grubb, and a strike's no good without one."*
+
+**22.** *("I built this town")*
+> **"It is a very nice town."** — *Fanshawe: "Thank you, Mr. Grubb. I'll have that put on a plaque."*
+> **"Some of it is level."** — *Fanshawe: "The important parts, Mr. Grubb. I see to the important parts."*
+> **"With your own hands?"** — *Fanshawe: "With other people's, which is the modern way."*
+
+**23.** *("never been wrong about a claim")*
+> **"I have been wrong about several. I find it restful."** — *Fanshawe: "Then rest, Mr. Grubb. Some of us have a town to run."*
+> **"Neither have I. I have only had the one."** — *Fanshawe: "Then we're both perfect, and only one of us owns the town."*
+> **"That must be very lonely."** — *Fanshawe: "Not at all. Being right draws a crowd, Mr. Grubb. Look around you."*
+
+**Duel Three, the fifth exchange** *("I have never told a lie in my life" — the three jokes beside pair 24)*
+> **"Neither have I, and look where it got me."** — *Fanshawe: "Into a hole, by most accounts. Do try again, Mr. Grubb."*
+> **"You just did."** — *Fanshawe: "That's not a counter, Mr. Grubb, that's an accusation, and we have no court for those."*
+> **"I tune pianos."** — *Fanshawe: "And we are all very grateful. Was there anything else?"*
+
 **Standing mockery lines** (rotated on any loss):
 
 - *"That's not a lie, that's a remark."*

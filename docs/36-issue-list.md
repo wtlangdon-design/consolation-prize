@@ -4670,7 +4670,7 @@ Errata 71. HOB's three nodes are in content/dialogue/hob.json; Room 32's lid ope
 - **Hob's "Running" lines** go to the ambient layer when he is placed in a night room.
 - **HOB_A1 option 6's pair 21** waits on doc 03's duel machinery.
 
-## Q146 · Room 4 (the Nugget back room) stops before art: the Liar's Assay's wrong counters are unwritten — **STOPPED 2026-11-01 (doc 55 §6, errata 72 F); NO IMAGE OPERATION SPENT (room-04: 0 of 4)**
+## Q146 · Room 4 (the Nugget back room) stops before art: the Liar's Assay's wrong counters are unwritten — **RULED 2026-10-31 (errata 73): the wrong answers are written in doc 03 Part Three, and items 1–5 below are decided. Room 4 may resume.** *(Was: STOPPED 2026-11-01, doc 55 §6, errata 72 F; no image operation spent, room-04: 0 of 4.)*
 
 The builder session for Room 4 ran its gate under doc 55 §3. **`node tools/check-room-readiness.mjs 4` answers `BUILDABLE WITHOUT INVENTION: YES`**, and the examine layer, the repeats and the wrong-verb refusals really are complete (doc 05 + doc 09 merged in doc 54, doc 49). The room stops at the next question: the puzzles it hosts.
 
