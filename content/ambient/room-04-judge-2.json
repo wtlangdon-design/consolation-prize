@@ -28,20 +28,64 @@
    [
     2,
     2,
-    163,
+    171,
     166
    ],
    [
-    167,
+    175,
     2,
-    163,
+    171,
+    166
+   ],
+   [
+    348,
+    2,
+    171,
+    166
+   ],
+   [
+    521,
+    2,
+    171,
+    166
+   ],
+   [
+    694,
+    2,
+    171,
     166
    ]
   ],
-  "rate": 0.0,
-  "beatEvery": 7.0,
-  "beatSeconds": 1.6,
-  "phase": 2.3,
-  "note": "Frame 0 at rest; frame 1 a breath (everything above the table top lifted 1 px, tools/rig/ambient-breath.py's rule with the table as the hem). Beats every 5, 7 and 4.5 s across the three, so they drift apart and never move together (ruling 20; Tyler: no person in a room is ever static)."
+  "rate": 0.19,
+  "phase": 0.55,
+  "note": "Frames: 0 rest · 1 breath (everything above the table top lifted 1 px) · 2 lean left · 3 lean right · 4 sitting up, all derived from his rest frame by tools/rig/room04-idles.py, the lean a shear pivoting at the table top so his hands stay where they rest. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds (8, 11 and 7 across the three) one break from the pool, so they never move together (Tyler, 2026-11-01: 'the four men in the back are completely stationary').",
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   [
+    4,
+    4,
+    0,
+    4,
+    4
+   ]
+  ],
+  "breakEvery": 11.0
  }
 }

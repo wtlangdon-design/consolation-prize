@@ -8554,6 +8554,82 @@
    "acceptedBy": null,
    "by": "claude, Room 4 correction (Tyler 2026-11-01: one more operation, Sowerby drawn whole)",
    "at": "2026-11-01T18:18:00.310Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/idles/room_04_judge_1.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/idles/idles.json",
+   "to": "art/actors/room-04-judge-1.png",
+   "hash": "c3b22ff19dd607b5f6760a6ed5ed3c022d452b584d2b0e244b2f7a4ee8e13a93",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": "5ad313f39f8dfb96d3fd3729ffb3d5ed6590df0f655f4ad0de50ca49e79a5caf",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 idles (Tyler 2026-11-01: \"the four men in the back are completely stationary\")",
+   "at": "2026-11-01T18:36:13.129Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/idles/room_04_judge_2.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/idles/idles.json",
+   "to": "art/actors/room-04-judge-2.png",
+   "hash": "d9ce0e6d67ac7ae755d4c5a808c248a9f8552a23ac024c6c3121946ff3e8fa7b",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": "00f56a7eddf50f71c777884a97e759005a60537d9ab8969340cca59bbe3892ab",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 idles (Tyler 2026-11-01: \"the four men in the back are completely stationary\")",
+   "at": "2026-11-01T18:36:13.150Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/idles/room_04_judge_3.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/idles/idles.json",
+   "to": "art/actors/room-04-judge-3.png",
+   "hash": "33397f166b9c7d3a8713185ae6c22ba21cce9bf4e38eb9c09a75ecd0c6699727",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": "47522ff19859e497e09826175c0f07b5e297567960255e75bb3bfbc4e3aed290",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 idles (Tyler 2026-11-01: \"the four men in the back are completely stationary\")",
+   "at": "2026-11-01T18:36:13.175Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 5,
+   "from": "art/staging/room-04/idles/sowerby.png",
+   "derivedFrom": "art/staging/room-04/sowerby-03/source.png",
+   "provenance": "art/staging/room-04/idles/idles.json",
+   "to": "art/actors/room-04-sowerby.png",
+   "hash": "fb8bd9689afb962031b04094c491aeefcb3abbe17b3c63f57cfc69a4d4d49738",
+   "sourceHash": "c2e2020fb17c4100eb0096734e9b6facae3bfde3e44c3da5d3ab71dce01e3416",
+   "replacedHash": "d1b1e341deb49368ca9ee5c15d21c5fcff1043c43f4ae5c7f8fd5175999e14c7",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 idles (Tyler 2026-11-01: \"the four men in the back are completely stationary\")",
+   "at": "2026-11-01T18:36:13.225Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."

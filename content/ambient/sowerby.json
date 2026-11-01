@@ -28,21 +28,37 @@
    [
     2,
     2,
-    187,
+    195,
     437
    ],
    [
-    191,
+    199,
     2,
-    187,
+    195,
+    437
+   ],
+   [
+    396,
+    2,
+    195,
+    437
+   ],
+   [
+    593,
+    2,
+    195,
+    437
+   ],
+   [
+    790,
+    2,
+    195,
     437
    ]
   ],
-  "rate": 0.0,
-  "beatEvery": 6.0,
-  "beatSeconds": 1.6,
-  "phase": 3.1,
-  "note": "Frame 0 at rest; frame 1 a breath (tools/rig/ambient-breath.py: the chest lifted 1 px above the coat's widest row). Beats every 6 s, against the judges' 5, 7 and 4.5.",
+  "rate": 0.2,
+  "phase": 0.35,
+  "note": "Frames: 0 rest · 1 breath (tools/rig/ambient-breath.py) · 2 pencil raised · 3 leaning toward the judges · 4 leaning back, all derived from his rest frame by tools/rig/room04-idles.py. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool (Tyler, 2026-11-01: 'the four men in the back are completely stationary').",
   "props": [
    {
     "sheet": "art/objects/room-04/pencil-cover.png",
@@ -58,6 +74,42 @@
     ],
     "note": "THE JUDGES' PENCIL, IN HIS HAND. The plate paints the pencil on the table for the room without him; while he is present he holds it (errata 75), and this piece of the plate's own bare table -- the wood beside the pencil, matched row by row -- covers the one on the table. Drawn only while he is, because a prop is his."
    }
-  ]
+  ],
+  "breaks": [
+   [
+    2,
+    0,
+    2,
+    0,
+    2,
+    2
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+   ],
+   [
+    4,
+    4,
+    0,
+    4,
+    4
+   ],
+   [
+    2,
+    2,
+    2,
+    0,
+    3,
+    3,
+    3
+   ]
+  ],
+  "breakEvery": 9.0
  }
 }
