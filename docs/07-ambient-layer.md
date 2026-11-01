@@ -33,8 +33,15 @@ first moment, which is how the pie woman came to offer *"That isn't what I
 asked"* before Thad had asked anything — an option arguing with an answer
 nobody had given.
 
-Three follow-ups exist, one per tree, and each is the same shape: a character
+Four follow-ups exist, one per tree, and each is the same shape: a character
 gives a deflecting answer and the follow-up is Thad noticing.
+
+An indented ***Asked again:*** line is the REPEAT: what the character says the
+second and every later time the option above it is chosen. Without one, a
+repeat is the first answer again.
+
+An `[EXIT]` line is the option that ends the conversation, and the reply after
+its arrow, if any, is the character's last word.
 
 An indented ***Thad:*** line inside a reply is an INTERJECTION: the character
 stops, Thad says that, and the rest of the reply follows. Doc 30 §5 requires
@@ -330,9 +337,13 @@ is the whole of his character.
 *The Nugget. Found color once, in 1849. **Arcs — the strike shrinks every time and he never notices.***
 
 **Micro-tree**
-> "Tell me about it." → *(He does. At length. It is genuinely moving the first time.)*
-> "When was this?" → "Forty-nine."
-> `[COMIC]` "And since?" → *(He looks at his hands. Then tells the story again.)*
+*Revised 2026-10-31 (Tyler): every payoff is spoken. He opens each conversation with his bark for the current state, so the first option answers it.*
+
+> "Tell me about it." → "Bent down to drink. There it was, winking up at me. I've been bending down ever since."
+>   *Asked again:* "Again? …Bless you. Nobody asks twice."
+> "When was this?" → "Forty-nine. Spring. A Tuesday."
+> `[COMIC]` "And since?" → "Since what?"
+> `[EXIT]` "Thank you. This has been clarifying."
 
 **Barks**
 | State | Line |
@@ -404,9 +415,15 @@ is the whole of his character.
 *The Nugget. Cheats openly. Everyone knows. Nobody minds.*
 
 **Micro-tree**
+*Revised 2026-10-31 (Tyler): second-ask replies, one new option and a parting line; the original three answers are unchanged. He opens each conversation with his bark for the current state.*
+
 > "You're dealing off the bottom." → "I am."
-> "Doesn't anyone object?" → "They know what I am. They don't know what the Colonel is. Which of us is the problem?"
+>   *Asked again:* "Still am."
+> ↳ "Doesn't anyone object?" → "They know what I am. They don't know what the Colonel is. Which of us is the problem?"
 > `[COMIC]` "Deal me in." → "No. I like you."
+>   *Asked again:* "I still like you. Don't make it difficult."
+> `[COMIC]` "Are you any good?" → "I'm the best honest card player in the territory. Small field. I'm not in it."
+> `[EXIT]` "I should go." → "Count your fingers on the way out."
 
 **Barks**
 | State | Line |

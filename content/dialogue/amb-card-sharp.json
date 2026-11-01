@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "id": "amb_card_sharp",
- "note": "Doc 07 #17 micro-tree, verbatim. He admits the cheat in four words and then makes it the player's problem. Nothing here is softened: \"I am.\" is the whole of the first answer and must stay that short.",
+ "note": "Doc 07 §17 micro-tree, verbatim, as revised 2026-10-31 (Tyler approved): the original three answers unchanged, with second-ask replies, one new option and a parting line.",
  "start": "N1",
  "nodes": {
   "N1": {
@@ -13,7 +13,7 @@
      "text": "You’re dealing off the bottom.",
      "tag": "TOPIC",
      "say": "I am.",
-     "repeat": "I am.",
+     "repeat": "Still am.",
      "set": {
       "T_SHARP_ACCUSED": true
      }
@@ -33,12 +33,20 @@
      "text": "Deal me in.",
      "tag": "COMIC",
      "say": "No. I like you.",
-     "repeat": "No. I like you."
+     "repeat": "I still like you. Don’t make it difficult."
+    },
+    {
+     "id": "any_good",
+     "text": "Are you any good?",
+     "tag": "COMIC",
+     "say": "I’m the best honest card player in the territory. Small field. I’m not in it.",
+     "repeat": "I’m the best honest card player in the territory. Small field. I’m not in it."
     },
     {
      "id": "exit",
      "text": "I should go.",
-     "tag": "EXIT"
+     "tag": "EXIT",
+     "say": "Count your fingers on the way out."
     }
    ]
   }
@@ -46,6 +54,6 @@
  "speaker": "card_sharp",
  "speakerNote": "Who says the replies. Without it DialogueRunner leaves `sayer` null and the renderer has no head to put the words over, so they drop to the top-centre fallback in the wrong colour -- doc 30 section 3.1 forbids exactly that.",
  "gateNote": "\"Doesn’t anyone object?\" is a FOLLOW-UP and is gated on the accusation having been made. Offered from the first moment it is a question about an admission nobody has heard, which is the defect the pie woman's tree was fixed for.",
- "repeatNote": "Doc 07 writes ONE line per answer and no repeat variants. Rather than invent second versions the repeat is the same line, which is the pie woman's precedent and is in character for a man who has already told you exactly what he is.",
- "exitNote": "From doc 04's UNIVERSAL EXIT LINES pool, which is available at every node. \"Thank you. This has been clarifying.\" is marked available only when it has not been, and this conversation is the most clarifying in the building, so it is not his. \"I should go.\" is."
+ "repeatNote": "Doc 07 now writes an *Asked again:* line where there is one; where there is none the repeat is the first answer, the pie woman's precedent.",
+ "exitNote": "Doc 07 §17's [EXIT] row: \"I should go.\" (doc 04's universal exit pool) and his last word, \"Count your fingers on the way out.\""
 }
