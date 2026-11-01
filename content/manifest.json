@@ -41,7 +41,8 @@
   "content/dialogue/winnie.json",
   "content/dialogue/hob.json",
   "content/dialogue/amb-card-sharp.json",
-  "content/dialogue/amb-one-strike-man.json"
+  "content/dialogue/amb-one-strike-man.json",
+  "content/dialogue/sump.json"
  ],
  "puzzles": [],
  "sequences": [
@@ -49,7 +50,8 @@
  ],
  "fixtures": [
   "content/fixtures/room-05.json",
-  "content/fixtures/room-04.json"
+  "content/fixtures/room-04.json",
+  "content/fixtures/room-07.json"
  ],
  "openingSequence": "opening",
  "actor": "content/actors/thad.json",
@@ -66,7 +68,9 @@
   "content/items/harness-token.json",
   "content/items/padded-log.json",
   "content/items/watch.json",
-  "content/items/document-a.json"
+  "content/items/document-a.json",
+  "content/items/survey.json",
+  "content/items/invitation.json"
  ],
  "scaling": "content/actors/scaling.json",
  "ambient": [
@@ -89,7 +93,8 @@
   "content/ambient/room-04-judge-1.json",
   "content/ambient/room-04-judge-2.json",
   "content/ambient/room-04-judge-3.json",
-  "content/ambient/sowerby.json"
+  "content/ambient/sowerby.json",
+  "content/ambient/sump.json"
  ],
  "reputation": "content/reputation.json",
  "verbFallbacks": "content/ui/verb-fallbacks.json",

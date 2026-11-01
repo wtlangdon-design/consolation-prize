@@ -361,12 +361,17 @@ test('D31: an item combination reserves its writes, and precedence is unchanged'
     const action = state.verbs.resolveWith('USE', pair.item, target, pair.room);
     assert.deepEqual(state.flags.snapshot(), before, `${pair.item} on ${pair.target} wrote`);
     // Doc 24 tier 1: the authored pair answers, and its line is the written
-    // one rather than a pool line standing in for it.
-    assert.equal(action.say, pair.say ?? null);
+    // one rather than a pool line standing in for it. A pair that answers by
+    // circumstance (doc 57 A8, A9) answers with the first of its cases that
+    // holds -- in a fresh game, carrying nothing -- and that line is written too.
+    const answering = pair.rules?.find((rule) => state.flags.test(rule.when) && !(rule.holds ?? []).length);
+    assert.equal(action.say, answering ? answering.say : (pair.say ?? null));
     for (const effect of action.effects) {
-      // A case that completes a puzzle (doc 57 A8's first tuning) records it;
-      // nothing else a pair reserves is anything but flags.
+      // A case that completes a puzzle (doc 57 A8's first tuning) records it,
+      // and one that lodges a paper (doc 57 A9) takes it; nothing else a pair
+      // reserves is anything but flags.
       if (effect.kind === 'puzzleProgress' && pair.rules?.some((rule) => rule.completes === effect.puzzle)) continue;
+      if (effect.kind === 'inventoryRemove' && answering?.takes?.includes(effect.item)) continue;
       assert.equal(EFFECT_PHASE[effect.kind], 'flags');
     }
   }

@@ -33,7 +33,8 @@
   ],
   "interior-institutional": [
    "room-05-assay-office",
-   "room-06-assay-records"
+   "room-06-assay-records",
+   "room-07-claims-registrar"
   ]
  },
  "rooms": {
@@ -159,6 +160,22 @@
     }
    ],
    "castingNote": "No character is new here and nobody stands in the room. The composition master carries Thad once, at his height for the room's curve, as the scale anchor and the style standard; the plate is the same picture with him taken out."
+  },
+  "room-07-claims-registrar": {
+   "visualType": "interior-institutional",
+   "comparable": {
+    "id": "room-05-assay-office",
+    "path": "art/backgrounds/room-05-assay-office.png",
+    "note": "D -- the approved institutional interior at night: a counter, a clerk behind it, a public side in front. Errata 17b gives the registrar its own material (pale institutional wood, paper and dust), so it is a comparable and not a palette to match."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example this project has used since Room 1 (doc 38 part one)."
+    }
+   ],
+   "castingNote": "Registrar Sump is new and has no approved image. He is drawn first in the composition master, behind his counter beside Thad (style gate step 1), and then drawn alone on magenta from that master (doc 55 section 8: generate every new figure whole and key him). Canon gives him no appearance (errata 80 B)."
   }
  }
 }

@@ -6,6 +6,9 @@
   "C2": "A topic like C1 (doc 02: 'Topic: get into Fanshawe's office'); its evidence is Room 11's submission log, and Room 11 is not built.",
   "C6": "Written as pending by WIN_B2 (c5.test.ts holds that it is pending); its completion is Act II's assay request, played once Rooms 6 and 11 exist.",
   "E4": "Act III: Winnie signs the certificate. Its prerequisite E3 is in an unbuilt room.",
-  "F4": "Act IV: the final duel on Main Street. Its prerequisites F1-F3 are in unbuilt rooms."
+  "F4": "Act IV: the final duel on Main Street. Its prerequisites F1-F3 are in unbuilt rooms.",
+  "D6": "Room 7's attestation is Pratt's (PRA_D6 option 5): he stands at Sump's counter the next time Thad comes in. Pratt and his rooms are not built, so nothing can stage him here yet.",
+  "E0": "SUM_B1 option 1''' issues the Certificate of Contiguity on Documents A, B and D; B (C6) and D (D6) come from rooms not built, so the option waits unextracted (doc 36 Q150).",
+  "F5": "Act IV's filing (doc 48 S6): SUM_F1 and the documents laid on the counter need F1-F4, in rooms not built; SUM_F1 waits unextracted (doc 36 Q150)."
  }
 }

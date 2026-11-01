@@ -238,6 +238,36 @@ def document_a(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.rect(9, 9, 3, 3, seal.frac(0.55))
 
 
+def survey(canvas: IndexedCanvas, palette: Palette) -> None:
+    """Madame Ozymandia's survey: a printed Form 12-C, ruled boxes, filled in
+    purple ink, with a boundary that wanders (doc 23: "in purple ink... goes on
+    with feeling"). The purple is what tells it from the deed and the letter."""
+    _paper(canvas, palette, 6, 2, 18, 17, tone=0.80)
+    grey = palette.family("grey")
+    canvas.hline(8, 5, 14, grey.frac(0.40))
+    canvas.hline(8, 9, 14, grey.frac(0.40))
+    canvas.vline(14, 5, 4, grey.frac(0.40))
+    ink = palette.family("accent_indigo")
+    canvas.line(8, 15, 12, 12, ink.frac(0.55))
+    canvas.line(12, 12, 15, 16, ink.frac(0.55))
+    canvas.line(15, 16, 21, 13, ink.frac(0.55))
+    canvas.line(9, 7, 13, 7, ink.frac(0.55))
+    canvas.line(16, 7, 21, 7, ink.frac(0.55))
+
+
+def invitation(canvas: IndexedCanvas, palette: Palette) -> None:
+    """Colonel Fanshawe's invitation: heavy engraved card with a gilt edge, one
+    line of copperplate (doc 23: "Engraved... Heavy card"). Smaller and squarer
+    than the papers, and the only one with gold on it."""
+    gold = palette.family("accent_gold")
+    canvas.rect(8, 4, 15, 13, gold.frac(0.55))
+    _paper(canvas, palette, 9, 5, 13, 11, tone=0.90)
+    ink = palette.family("umber")
+    canvas.hline(11, 8, 9, ink.frac(0.12))
+    canvas.hline(12, 10, 7, ink.frac(0.18))
+    canvas.hline(11, 12, 9, ink.frac(0.18))
+
+
 ICONS = {
     "document_a": document_a,
     "watch": watch,
@@ -250,6 +280,8 @@ ICONS = {
     "horse_blanket": horse_blanket,
     "pickaxe": pickaxe,
     "filing_fee": filing_fee,
+    "survey": survey,
+    "invitation": invitation,
 }
 
 

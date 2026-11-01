@@ -59,9 +59,10 @@
    "question": "Puzzle requirements complete?",
    "answer": "YES",
    "evidence": [
-    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+    "proofs/readiness/puzzles.json"
    ],
-   "why": "A6, A9 are all specified in that section"
+   "why": "A6, A9 are specified, and every piece of their content is written"
   },
   {
    "id": "items",
@@ -130,7 +131,8 @@
    "question": "Puzzle behaviour",
    "answer": "YES",
    "evidence": [
-    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+    "proofs/readiness/puzzles.json"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
@@ -165,24 +167,26 @@
   {
    "id": "visual-subjects",
    "question": "Visual subject requirements",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "A renders/room-01-in-engine-1920x1080.png",
     "B art/backgrounds/room-01-stage-road.png",
-    "C art/actors/thad-stand-front/stand-00.png"
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-05-assay-office.png",
+    "E reference/casting/room-01-casting-master.png"
    ],
-   "why": "D and E: room-07-claims-registrar has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+   "why": "every baseline slot is satisfied: A, B, C, D, E"
   },
   {
    "id": "geometry",
    "question": "Geometry/placement",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-07/annotation.json",
     "content/rooms/claims-registrar.json",
     "art/backgrounds/room-07-claims-registrar.png"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | no shipping plate declared"
+   "why": "annotation, room file and plate are all present at the canonical size"
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
@@ -193,11 +197,11 @@
   {
    "id": "annotation",
    "question": "Room annotation exists?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-07/annotation.json"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+   "why": "authored geometry is on disk"
   },
   {
    "id": "compiled",
@@ -211,14 +215,14 @@
   {
    "id": "plate",
    "question": "Shipping plate at the canonical size?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "art/backgrounds/room-07-claims-registrar.png"
    ],
-   "why": "no shipping plate declared"
+   "why": "art/backgrounds/room-07-claims-registrar.png is 1920x864, PNG colour type 2"
   }
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
- "geometryReady": "NO",
- "at": "2026-11-01T05:09:20.713Z"
+ "geometryReady": "YES",
+ "at": "2026-11-01T21:51:01.055Z"
 }

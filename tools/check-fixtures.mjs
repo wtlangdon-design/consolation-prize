@@ -102,7 +102,8 @@ export function check() {
         const tree = trees.get(expect.tree);
         if (!tree) report.fail(`${where}: expects tree "${expect.tree}", which is not a tree`);
         else {
-          const opens = (tree.entries ?? []).find((entry) => Object.entries(entry.when ?? {}).every(([id, value]) => fixture.flags[id] === value)
+          // gateOpen, not strict equality: an act-gated entry is `{ ACT: { atLeast: 2 } }`.
+          const opens = (tree.entries ?? []).find((entry) => gateOpen(entry.when ?? {}, fixture.flags)
             && (!entry.puzzle || fixture.puzzles?.[entry.puzzle] === 'complete'))?.node ?? tree.start;
           if (expect.opensOn && opens !== expect.opensOn) report.fail(`${where}: ${expect.tree} opens on ${opens} under these flags, not ${expect.opensOn}`);
           else report.note(`${fixture.id}: ${expect.tree} opens on ${opens}`);

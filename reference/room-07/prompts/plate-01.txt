@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game, with two people in it: the man in the blue coat standing on the floor at the left of the counter, and the registrar behind the counter.
+
+Remove both of them. Paint what is behind each, exactly as the room would look with nobody in it: the floorboards, the forms rack and the bench behind the man in the blue coat; behind the counter, the partition's open window with the wall, the clock and the lamplight behind where the registrar stood, and the open ledger on the counter with nobody's hands on it.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the door and its bell, the window, the bench, the map, the forms rack, the ticket spindle, the lamps, the ledger, the chained pen, the desk bell, the stack of forms, the statute book, the clock, the locked door and its notice, the brass rail, the posts, ropes and blank signs. The grey strips above and below stay grey. No people, no shadows of people, no text.

@@ -105,7 +105,39 @@
       "target": "counter",
       "puzzle": "A9",
       "say": "Filed. Mr Sump has written a number in a book, and the number is mine.",
-      "targetPending": "Doc 02 A9. Room 7 exists; doc 05 marks its hotspot list a working script and the counter is not among the five wired."
+      "rules": [
+        {
+          "case": "with THE SURVEY",
+          "when": {
+            "T_DEED_LODGED": false
+          },
+          "holds": [
+            "survey"
+          ],
+          "say": "Filed. Mr Sump has written a number in a book, and the number is mine.",
+          "set": {
+            "T_DEED_LODGED": true
+          }
+        },
+        {
+          "case": "without THE SURVEY (A6)",
+          "when": {
+            "T_DEED_LODGED": false
+          },
+          "by": "sump",
+          "say": "Form 12-C requires a boundary by survey. Your deed says 'from the stake, thereabouts.'",
+          "then": [
+            {
+              "speaker": "sump",
+              "line": "Thereabouts is not a unit, Mr. Grubb. I have checked."
+            }
+          ],
+          "set": {
+            "T_SURVEY_NEEDED": true
+          },
+          "completes": "A6"
+        }
+      ]
     },
     {
       "item": "filing_fee",
@@ -113,7 +145,65 @@
       "target": "sump",
       "puzzle": "A9",
       "say": "Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure.",
-      "targetPending": "Doc 02 A9. Sump is a character, not scenery -- he arrives with the minor character trees doc 15 lists as sketched only."
+      "rules": [
+        {
+          "case": "after both",
+          "when": {
+            "T_SURVEY_LODGED": true,
+            "T_BORDERS_MOTT": false
+          },
+          "say": "Two dollars, for a number in a book. He has taken it without looking at me, which I am told is the correct procedure.",
+          "then": [
+            {
+              "speaker": "sump",
+              "line": "Claim Two. 'Prosperity,' in pencil. Commencing at the stake, thereabouts; thence uphill, with feeling, to the larger of the two rocks; thence along the line the rod preferred, some forty feet, until the humming stopped; thence home."
+            },
+            {
+              "speaker": "sump",
+              "line": "Bounded west by Claim Three. North by the creek. South by the road."
+            },
+            {
+              "speaker": "sump",
+              "line": "East by Claim One."
+            },
+            "Claim One.",
+            {
+              "speaker": "sump",
+              "line": "O. Mott. Filed eighteen forty-six."
+            },
+            {
+              "speaker": "sump",
+              "line": "Your neighbor, Mr. Grubb."
+            },
+            {
+              "speaker": "sump",
+              "line": "Next."
+            },
+            {
+              "speaker": "sump",
+              "line": "There is a note for you. It arrived before you did."
+            }
+          ],
+          "takes": [
+            "filing_fee"
+          ],
+          "items": [
+            "invitation"
+          ],
+          "set": {
+            "T_BORDERS_MOTT": true
+          },
+          "completes": "A9"
+        },
+        {
+          "case": "before the deed and the survey",
+          "when": {
+            "T_BORDERS_MOTT": false
+          },
+          "by": "sump",
+          "say": "The money last, Mr. Grubb, so that nobody can say he paid for the paper."
+        }
+      ]
     },
     {
       "item": "tuning_fork",
@@ -175,6 +265,34 @@
       "opens": "WINNIE",
       "note": "ERRATA 66 A-C: SHOW / USE the submission log on Winnie is C5. The target is the room's ambient character, not a hotspot. No `say`: the pair's line is WIN_B2's opening, which the action launches at once. The log is kept. With C5 complete the pair yields to the ordinary pools (doc 36 Q113).",
       "opensNode": "WIN_B2"
+    },
+    {
+      "item": "survey",
+      "room": "claims_registrar",
+      "target": "counter",
+      "puzzle": "A9",
+      "say": "The survey, on the correct form. He has read it without expression, which I am told is the highest mark this office gives.",
+      "note": "Doc 57 A9 (not doc 24): the survey on the counter, after the deed and before it.",
+      "rules": [
+        {
+          "case": "after the deed",
+          "when": {
+            "T_DEED_LODGED": true
+          },
+          "say": "The survey, on the correct form. He has read it without expression, which I am told is the highest mark this office gives.",
+          "takes": [
+            "survey"
+          ],
+          "set": {
+            "T_SURVEY_LODGED": true
+          }
+        },
+        {
+          "case": "before the deed",
+          "by": "sump",
+          "say": "The deed first. The order is in the statute."
+        }
+      ]
     }
   ],
   "itemPools": {

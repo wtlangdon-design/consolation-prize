@@ -1,5 +1,12 @@
 {
  "schema": 1,
  "note": "Every time a check is loosened to get past it -- a threshold changed, an exception added, a movementException -- the pull request that does it adds an entry here (tools/check-friction.mjs, run by CI, insists). Three loosenings of one check in fourteen days make the next pull request that touches it evaluate the check (TUNE or MERGE) and add a 'reviewed' entry. Retiring a check is Tyler's, through the twice-monthly review.",
- "entries": []
+ "entries": [
+  {
+   "check": "proofs/played-pending.json",
+   "date": "2026-11-01",
+   "kind": "loosened",
+   "why": "Room 7 built (PR for errata 80): D6, E0 and F5 are sited wholly in Room 7 and each needs a character or documents from rooms not built yet, so they are recorded pending with reasons rather than played. Not a misfire: the list is doing its job, and each entry comes out when its room is built."
+  }
+ ]
 }

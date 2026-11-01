@@ -1,0 +1,18 @@
+{
+ "assetId": "room-07",
+ "subject": "room-07-claims-registrar",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-07-claims-registrar",
+ "promptFile": "reference/room-07/prompts/composition-master-01.txt",
+ "out": "art/staging/room-07/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-07/layout-1536x1024.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/backgrounds/room-01-stage-road.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "art/backgrounds/room-05-assay-office.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}

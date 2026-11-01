@@ -843,6 +843,9 @@ export interface CombinationPair {
   rules?: PairRule[];
 }
 
+/** A line in an exchange: Thad's as a bare string, anyone else's with their speaker id. */
+export type SpokenLine = string | { speaker: string; line: string };
+
 /** One circumstance of a pair. See CombinationPair.rules. */
 export interface PairRule {
   /** The document's own label for the case, kept for the reader. */
@@ -851,9 +854,25 @@ export interface PairRule {
   /** Items he must be carrying for this case to answer. */
   holds?: string[];
   say: string;
-  then?: string[];
+  /**
+   * WHO SAYS `say`, when it is not Thad. Doc 57 A9: USE THE SURVEY on the
+   * counter before the deed is answered by SUMP ("The deed first. The order is
+   * in the statute."), and the speaker is the document's, carried as an id.
+   */
+  by?: string;
+  /**
+   * The rest of the exchange, in order: a bare string is Thad's line, an
+   * object names its speaker (doc 57 A9's read-back: Sump, Thad, Sump).
+   */
+  then?: SpokenLine[];
   /** Items this case puts in the inventory. */
   items?: string[];
+  /**
+   * Items this case takes OUT of the inventory: lodged, spent or handed over.
+   * Doc 57 A9: "The survey is lodged; it leaves inventory", and the fee is
+   * paid. Never an item doc 02's ledger says cannot be lost.
+   */
+  takes?: string[];
   set?: FlagWrites;
   add?: FlagAdds;
   /** The canonical puzzle this case completes. */
@@ -1530,6 +1549,13 @@ export interface DialogueOption {
   duel?: string;
   set?: FlagWrites;
   add?: FlagAdds;
+  /**
+   * OFFERED ONLY WHILE HE CARRIES THESE. Doc 04's SUM_A1 option 1'' is "req
+   * THE SURVEY": a question about a paper is asked holding the paper. Read
+   * through the runner's MilestoneStore, which answers from the game state; a
+   * tree still never writes inventory (doc 34).
+   */
+  holds?: string[];
   /** Puzzle progress the option writes (doc 53): WIN_B2's first row makes C6 pending. */
   puzzle?: Record<string, PuzzleStatus>;
   goto?: string;

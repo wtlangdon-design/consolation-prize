@@ -230,8 +230,10 @@
    "id": "T_BORDERS_MOTT",
    "type": "boolean",
    "initial": false,
-   "writtenBy": [],
-   "note": "Doc 04: Winnie's Act II root WIN_B1 opens 'after T_BORDERS_MOTT'. Written by the claim-boundary puzzle (doc 02 B-series), not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's."
+   "writtenBy": [
+    "combination:filing_fee:claims_registrar:sump"
+   ],
+   "note": "Doc 04: Winnie's Act II root WIN_B1 opens 'after T_BORDERS_MOTT'. Written by the claim-boundary puzzle (doc 02 B-series), not built yet. EXTRACTED for Room 5 from docs/04-dialogue-trees.md::WINNIE LEDGER; the name is the document's. Written by doc 57 A9's read-back in Room 7 (errata 80 D)."
   },
   {
    "id": "T_RACCOON_NAMED",
@@ -580,6 +582,61 @@
    "writtenBy": [
     "combination:tuning_fork:nugget:piano"
    ]
+  },
+  {
+   "id": "T_SURVEY_NEEDED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_A1:sump1",
+    "combination:deed:claims_registrar:counter"
+   ],
+   "note": "Doc 57 A6 (doc 57's flag table): Sump's refusal, from SUM_A1 option 1 or the deed on the counter before there is a survey. Read by SUM_A1 option 1' and OZY_A1 option 1."
+  },
+  {
+   "id": "T_DEED_LODGED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:deed:claims_registrar:counter"
+   ],
+   "note": "Doc 57 A9's order, the deed first: the deed is on the counter (errata 80 D: a routing flag, so the survey and the fee can answer 'after the deed' and 'after both'). The deed stays in his inventory: doc 02's ledger says it cannot be lost."
+  },
+  {
+   "id": "T_SURVEY_LODGED",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:survey:claims_registrar:counter"
+   ],
+   "note": "Doc 57 A9: the survey, after the deed, is lodged and leaves inventory (errata 80 D's routing flag)."
+  },
+  {
+   "id": "T_NINETY_DAYS",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_B1:sump1b"
+   ],
+   "note": "Doc 57 D1: SUM_B1 option 1'' (About Document D)."
+  },
+  {
+   "id": "T_NEED_TO_DIE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_E1:sump2"
+   ],
+   "note": "Doc 57 E2: Section nineteen, said aloud, to its end."
+  },
+  {
+   "id": "T_EXECUTOR_RULE",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "dialogue:SUMP:SUM_E1:sump2"
+   ],
+   "note": "Doc 57 E2. Read by HOB_E6 (doc 57 E6), on his rounds at night."
   }
  ]
 }

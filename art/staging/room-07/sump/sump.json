@@ -1,0 +1,56 @@
+{
+ "sheet": "art/staging/room-07/sump/sump.png",
+ "frames": [
+  [
+   2,
+   2,
+   180,
+   222
+  ],
+  [
+   184,
+   2,
+   180,
+   222
+  ],
+  [
+   366,
+   2,
+   180,
+   222
+  ],
+  [
+   548,
+   2,
+   180,
+   222
+  ],
+  [
+   730,
+   2,
+   180,
+   222
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "writing",
+  "stamping",
+  "looking up"
+ ],
+ "topLeft": {
+  "x": 1188,
+  "y": 228
+ },
+ "anchor": {
+  "x": 1278,
+  "y": 450
+ },
+ "height": 450,
+ "feetRow": 706.5,
+ "cut": 450,
+ "handsTo": 450,
+ "key": 90,
+ "source": "room-07 attempt 3 (art/staging/room-07/sump-01/sheet.png)"
+}

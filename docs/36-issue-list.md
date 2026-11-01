@@ -4722,3 +4722,13 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Open: THE ASSAY OFFICE door's LOOK and LISTEN.** Doc 25 writes Room 5's THE RECORDS ROOM DOOR (three LOOK, three LISTEN); nothing writes the same door seen from inside the records room. It ships as a stub exit (errata 79 F), working and silent to LOOK and LISTEN, and `check-examine-lines` names it among the stubs. Three LOOK and three LISTEN, in doc 54's Room 6 section, would close it; it is not in any puzzle's path.
 
 **For Tyler, in the playthrough:** the plate (errata 79 D), and Thad's size in it (79 E) against Room 5's next door.
+
+## Q150 · Room 7, the claims registrar: built, awaiting Tyler's playthrough; five doc 49 objects unhoused, three of Sump's nodes waiting — **RULED 2026-11-01 (errata 80, delegated); BUILT, room-07 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Ten subjects and the street door, 70 lines compiled from docs 05, 25, 19 and 49; Registrar Sump at his window with SUM_A1, SUM_B1 and SUM_E1; A6 and A9 played at his counter in doc 57's order; D1, E1 and E2 through his tree. `tests/room-07.test.ts` plays all five; `?room=claims_registrar`, fixtures `r7-a` to `r7-d`. Four-panel proof, life proof and in and out (street door out, map in) twice under `renders/proofs/claims-registrar/`.
+
+**Open, for Tyler's wording (errata 80 F):** doc 49 Part 4 writes wrong-verb lines for THE CHAINED PEN, FORM 12-C (THE STACK), THE COUNTER BELL, THE STATUTE BOOK and THE PARTITION. Either THE CHAINED PEN is SUMP'S PEN (and one of the two PICK UP lines -- doc 25's "It is chained. That is the entire design." or doc 49's "It comes exactly eleven inches...") should go, or it is a second pen; the other four each need three LOOK and three LISTEN to become hotspots, or their lines should be struck. None is in a puzzle's path.
+
+**Waiting for other rooms (errata 80 E):** SUM_B1's About Document C (E0: Documents B and D, from C6 and D6), SUM_C1 (E5: the death certificate, E4) and SUM_F1 (F5, Act IV). Pratt at the counter (D6) waits for Pratt.
+
+**For Tyler, in the playthrough:** Sump's look (errata 80 B -- his first drawing), the plate (80 G), and A9's read-back, which plays from the fixture `r7-b` until Ozymandia's room exists.
