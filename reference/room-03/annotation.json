@@ -77,14 +77,14 @@
    },
    {
     "y": 655,
-    "height": 375
+    "height": 345
    },
    {
     "y": 797,
     "height": 415
    }
   ],
-  "samplesNote": "THE CURVE BENDS. Tyler, 2026-10-31, at the bar's near end: 'If any of those guys at the bar stood up, they'd be head and shoulders above Deke and Thad. The guy in the chair is currently the same height sitting as Deke/Thad.' Measured: a standing man at y655 was 312 and the man seated on the first stool, beside him, 300 from the floor to his hat. A straight line through the two earlier rulings cannot fix that without breaking one of them, because this painting recedes steeply behind y600 and hardly at all in front of it. So: 236 at y550 (the old line's value -- the back is unchanged), 375 at y655 (the seated man is then 0.8 of a standing one), 415 at y797 (the standing-drinker ruling, unchanged). tools/check-scale-anchors.mjs holds all three rulings."
+  "samplesNote": "THE CURVE BENDS. Tyler, 2026-10-31, at the bar's near end: 'If any of those guys at the bar stood up, they'd be head and shoulders above Deke and Thad. The guy in the chair is currently the same height sitting as Deke/Thad.' Measured: a standing man at y655 was 312 and the man seated on the first stool, beside him, 300 from the floor to his hat. A straight line through the two earlier rulings cannot fix that without breaking one of them, because this painting recedes steeply behind y600 and hardly at all in front of it. So: 236 at y550 (the old line's value -- the back is unchanged), 345 at y655 -- Tyler chose it from four sizes side by side (330, 345, 360, 375) after 375 looked 'way too big' and 312 left the seated man the same height as a standing one, 415 at y797 (the standing-drinker ruling, unchanged). tools/check-scale-anchors.mjs holds all three rulings."
  },
  "hotspots": {
   "handbill": [
