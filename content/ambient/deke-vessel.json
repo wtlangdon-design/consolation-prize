@@ -4,7 +4,7 @@
  "name": "DEKE VESSEL",
  "posture": "standing",
  "room": "nugget",
- "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to 375 -- the bent curve's man where he stands (Tyler, 2026-10-31: the bar men would be 'head and shoulders above' him at 312) -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
+ "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to 345 -- the bent curve's man where he stands (Tyler, 2026-10-31: 312 too small, 375 'way too big', 345 chosen from four) -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
  "x": 1109,
  "y": 655,
  "zone": 0,
@@ -25,32 +25,32 @@
    [
     2,
     2,
-    171,
-    375
+    157,
+    345
    ],
    [
-    175,
+    161,
     2,
-    171,
-    375
+    157,
+    345
    ],
    [
-    348,
+    320,
     2,
-    171,
-    375
+    157,
+    345
    ],
    [
-    521,
+    479,
     2,
-    171,
-    375
+    157,
+    345
    ],
    [
-    694,
+    638,
     2,
-    171,
-    375
+    157,
+    345
    ]
   ],
   "rate": 0.35,
