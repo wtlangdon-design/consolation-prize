@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "what": "reference/room-03/barrel/brief.md step 7, in the running game",
- "commit": "afd0b1d66d21a8125ea1e1ea3ef8608d9804a74c",
+ "commit": "3466bc4964f0ba6ec4c2754fbd357bcfd522f897",
  "branch": "claude/whiskey-barrel-room-2mqopu",
  "dirty": true,
  "barrel": {
@@ -32,6 +32,10 @@
  },
  "paths": {
   "behind": [
+   [
+    332,
+    761
+   ],
    [
     364,
     761
@@ -107,10 +111,6 @@
   ],
   "front": [
    [
-    858,
-    776
-   ],
-   [
     826,
     781
    ],
@@ -156,7 +156,7 @@
   {
    "name": "b01-room-with-barrel",
    "why": "the room with the barrel at Deke's left, after his opening is left",
-   "hash": "9ee250d74ede4aeb9fb3dc678a931c3ee0b421b47ce1a3eae3a0a1d73fea17f8",
+   "hash": "2a0620ae0d50d6442be060d8541037484cb4ed979fbaa3a96cbbb15fcb2d8d77",
    "file": "raw-captures-ignored/b01-room-with-barrel.png",
    "thad": {
     "at": [
@@ -170,7 +170,7 @@
      438
     ],
     "order": 0,
-    "from": "art/actors/thad-idlebreak-right/idle-break-10.png",
+    "from": "art/actors/thad-idle-right/idle-04.png",
     "fallback": false
    },
    "says": null,
@@ -183,7 +183,7 @@
   {
    "name": "b02-thad-behind-barrel",
    "why": "Thad behind the barrel: it draws after him and covers his legs",
-   "hash": "a7473a2d8779fd13fa0db69c34f446d1366ff3044c236cd186371e4d66b70227",
+   "hash": "089c8d6f049b91a2dd7a12b4e577a0a63f7dfad4e72a3575ad82bb0e65b81710",
    "file": "raw-captures-ignored/b02-thad-behind-barrel.png",
    "thad": {
     "at": [
@@ -197,7 +197,7 @@
      444
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-right/idle-00.png",
+    "from": "art/actors/thad-idle-right/idle-03.png",
     "fallback": false
    },
    "says": null,
@@ -224,7 +224,7 @@
   {
    "name": "b03-thad-in-front-of-barrel",
    "why": "Thad in front of the barrel: he draws after it and covers it",
-   "hash": "b5dbca87b213119810a50b4673d002157f5d25fbfef79e2991acd1da01b6e467",
+   "hash": "27d3442aa00b281b30bd9e8a97ddf57fb1cf9cd5a4910c4873d368662526cbb3",
    "file": "raw-captures-ignored/b03-thad-in-front-of-barrel.png",
    "thad": {
     "at": [
@@ -238,7 +238,7 @@
      502
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-right/idle-01.png",
+    "from": "art/actors/thad-idle-right/idle-05.png",
     "fallback": false
    },
    "says": null,
@@ -260,7 +260,7 @@
   {
    "name": "b04-talking-to-deke",
    "why": "TALK TO Deke: Thad across the barrel from him, nobody overlapping",
-   "hash": "dfb54cce9b86e6aff3d05907eb05dd3fcbb005e9a6d7f1c4fb86d09fe04c9ddf",
+   "hash": "a7c83f64de90b1eabeee460209d2158d0da4dfc10c5e19e2e146faac6a5c8b26",
    "file": "raw-captures-ignored/b04-talking-to-deke.png",
    "thad": {
     "at": [
@@ -274,7 +274,7 @@
      475
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-right/idle-02.png",
+    "from": "art/actors/thad-idle-right/idle-00.png",
     "fallback": false
    },
    "says": null,
@@ -300,7 +300,7 @@
   {
    "name": "b05-talking-to-one-strike-man",
    "why": "TALK TO one_strike_man: Thad at his unchanged place, clear of the barrel",
-   "hash": "21d4100a23e1b5d06c930ab105bed9ca97f56b8447c1965ca42c9001ec9d1574",
+   "hash": "8ba2cd6371acb2280bfca3a51a8c7ea0039ac21705654c0bbd6a92444aad9214",
    "file": "raw-captures-ignored/b05-talking-to-one-strike-man.png",
    "thad": {
     "at": [
@@ -314,7 +314,7 @@
      429
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-back/idle-03.png",
+    "from": "art/actors/thad-idle-back/idle-02.png",
     "fallback": false
    },
    "says": null,
@@ -334,7 +334,7 @@
   {
    "name": "b06-talking-to-card-sharp",
    "why": "TALK TO card_sharp: Thad at his unchanged place, clear of the barrel",
-   "hash": "a8a547a7740e32ae47c82cc2a1a9e5d4d8b72b6aaefaa612214c2d1d4510c652",
+   "hash": "63b3a51658ea4b523ed03b141ff041f5a16bdd0dbf481ebd37a5199e1a9a71ee",
    "file": "raw-captures-ignored/b06-talking-to-card-sharp.png",
    "thad": {
     "at": [

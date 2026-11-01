@@ -34,6 +34,8 @@ const git = (...args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8'
 const outDir = 'renders/proofs/room-03-barrel';
 const rawDir = `${outDir}/raw-captures-ignored`;
 mkdirSync(resolve(ROOT, rawDir), { recursive: true });
+// Before anything is written: the proof's own outputs would make every run dirty.
+const dirty = git('status', '--porcelain') !== '';
 
 const room = readJson('content/rooms/nugget.json');
 const barrel = room.props.find((prop) => prop.id === 'whiskey_barrel');
@@ -230,7 +232,7 @@ try {
     schema: 1,
     what: 'reference/room-03/barrel/brief.md step 7, in the running game',
     commit: git('rev-parse', 'HEAD'), branch: git('rev-parse', '--abbrev-ref', 'HEAD'),
-    dirty: git('status', '--porcelain') !== '',
+    dirty,
     barrel: { ...barrel, drawnBox: barrelBox, obstacle: obstacle.rect,
       sheetHash: sha(Buffer.from(execFileSync('cat', [resolve(ROOT, barrel.sheet)]))) },
     paths: { behind: behindPath, front: frontPath },
