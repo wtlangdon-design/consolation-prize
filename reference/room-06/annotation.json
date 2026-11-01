@@ -1,0 +1,223 @@
+{
+ "room": "assay_records",
+ "plate": "art/backgrounds/room-06-assay-records.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-06/plate-02/candidate-1920x864.png, room-06 attempt 3, Room 6's own 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-06-assay-records.png",
+ "plateShippingHash": "b10725d59f1389db3d9378fc",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   230,
+   655
+  ],
+  [
+   1190,
+   655
+  ],
+  [
+   1190,
+   845
+  ],
+  [
+   230,
+   845
+  ]
+ ],
+ "walkableNote": "THE LIT FLOOR (errata 31a) in front of the stove, the drawers and the desk. It starts at y 655, in front of every piece of furniture's feet (the drawers to 600, the stove to 570, the desk and stool to 615), so nothing on the back wall is nearer than a man standing in it. It stops at x 1190, short of the cot (x 1255 and right, from y 585 to its near legs at 830): a man of 528 is 108 wide, so at x 1190 his right edge is at 1244 and he never stands behind it. The bench, the crucible and the acid bottles are reached from the band's right end. The left wall's wainscot meets the floor at y 640-700, so the band starts at x 230.",
+ "scaling": {
+  "far": {
+   "y": 655,
+   "height": 433
+  },
+  "near": {
+   "y": 845,
+   "height": 528
+  },
+  "note": "ROOM 6'S DEPTH, FROM THE DOOR AND THE FURNITURE BESIDE IT. The composition master painted Thad 379 tall at y 680 (in this plate's frame), which makes the door Thad leaves by 1.4 times his height and the high stool reach his thigh; composited at that size and at a door-led size (tools/room06-graybox.py's renders, renders/room-06-scale-choice.png), the door-led curve reads as a man in this room and the painted one as a boy. So: 433 at the band's far edge (y 655, the door's base), 528 at its near edge -- within 8% of Room 5's own 470-560 next door, which is the same building."
+ },
+ "entrance": [
+  380,
+  690
+ ],
+ "entrances": [
+  {
+   "from": "assay_office",
+   "at": [
+    380,
+    690
+   ],
+   "facing": "right",
+   "note": "Through the door from the front office, at left, onto the lit floor."
+  },
+  {
+   "from": "default",
+   "at": [
+    380,
+    690
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "hotspots": {
+  "register_of_assays": [
+   950,
+   280,
+   250,
+   305
+  ],
+  "nineteen_names": [
+   1072,
+   325,
+   115,
+   70
+  ],
+  "sample_shelf": [
+   1085,
+   15,
+   225,
+   565
+  ],
+  "scales_cabinet": [
+   1310,
+   100,
+   178,
+   480
+  ],
+  "acid_bottles": [
+   1505,
+   85,
+   180,
+   185
+  ],
+  "crucible": [
+   1505,
+   325,
+   80,
+   115
+  ],
+  "map_of_claims": [
+   528,
+   62,
+   200,
+   215
+  ],
+  "spare_apron": [
+   470,
+   180,
+   72,
+   350
+  ],
+  "shelf_of_reference_volumes": [
+   538,
+   285,
+   185,
+   75
+  ],
+  "filed_certificates": [
+   538,
+   375,
+   192,
+   225
+  ],
+  "stove": [
+   735,
+   290,
+   100,
+   280
+  ],
+  "her_tea_things": [
+   860,
+   395,
+   95,
+   165
+  ],
+  "back_window": [
+   912,
+   12,
+   155,
+   130
+  ],
+  "stool": [
+   982,
+   450,
+   92,
+   168
+  ],
+  "stain_on_the_floor": [
+   700,
+   640,
+   330,
+   90
+  ],
+  "cot_in_the_corner": [
+   1255,
+   585,
+   630,
+   250
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE REGISTER OF ASSAYS is the high desk with the open ledger and its lamp; THE NINETEEN NAMES are the ledger's right-hand page, which is how the register reads them (errata 69 D), and win by area inside it, as THE STOOL does. THE STAIN ON THE FLOOR is the scrubbed pale patch where the mat's top edge lies over it, kept small so the floor around it is clicked to walk. The acid bottles are the brown bottles on the bracket shelf; the crucible on its stand stands on the bench below them.",
+ "exits": {
+  "back_to_assay": [
+   300,
+   100,
+   165,
+   540
+  ]
+ },
+ "exitWalkTo": {
+  "back_to_assay": {
+   "x": 380,
+   "y": 665,
+   "facing": "back"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "desk_lamp",
+   "at": [
+    1040,
+    285
+   ],
+   "radius": 520,
+   "amount": 0.12,
+   "rate": 0.3,
+   "phase": 0.15,
+   "note": "THE DESK LAMP (errata 31a: 'add a lamp at the desk'): one small brass oil lamp, the room's work light, and the warm pool on the floor it throws. A slow, low breath; it never stops and never signals anything (invariant 9). The stove has no runtime lamp and stays a painted accent, as Room 5's does."
+  }
+ ],
+ "defaultVerbs": {
+  "register_of_assays": "LOOK_AT",
+  "nineteen_names": "LOOK_AT",
+  "sample_shelf": "LOOK_AT",
+  "scales_cabinet": "LOOK_AT",
+  "acid_bottles": "LOOK_AT",
+  "crucible": "LOOK_AT",
+  "map_of_claims": "LOOK_AT",
+  "spare_apron": "LOOK_AT",
+  "shelf_of_reference_volumes": "LOOK_AT",
+  "filed_certificates": "LOOK_AT",
+  "stove": "LOOK_AT",
+  "her_tea_things": "LOOK_AT",
+  "back_window": "LOOK_AT",
+  "stool": "LOOK_AT",
+  "stain_on_the_floor": "LOOK_AT",
+  "cot_in_the_corner": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click -- LOOK AT, the game's own default (content/ui/verbs.json). The floor is not a hotspot: the walk band is clicked to walk.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM. The walk band (y 655-845, x 230-1190) is in front of every piece of furniture on the back wall and stops short of the cot, the only near object. Every band is plane 0.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ }
+}

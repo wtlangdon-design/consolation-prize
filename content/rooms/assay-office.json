@@ -555,7 +555,7 @@
         565
       ],
       "colour": 196,
-      "to": "stub_assay_records",
+      "to": "assay_records",
       "defaultVerb": "OPEN",
       "note": "Doc 20: Room 5 leads on to Room 6. Doc 25 writes the door, which is why it exists now -- the room behind it is a stub.",
       "responses": {
@@ -640,7 +640,7 @@
       "note": "He came in by the street door at left."
     },
     {
-      "from": "stub_assay_records",
+      "from": "assay_records",
       "at": [
         1600,
         706

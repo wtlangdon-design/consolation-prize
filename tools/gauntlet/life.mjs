@@ -160,7 +160,7 @@ async function main() {
       // A CAPTURE MAY DECLARE ITS ROOM. The Act I pass leaves by the street
       // door and comes back, and a still taken on Main Street is the proof of
       // the round trip, not a wrong-room failure.
-      const expectRoom = action.room ?? (action.name.includes('records') ? 'stub_assay_records' : roomId);
+      const expectRoom = action.room ?? (action.name.includes('records') ? 'assay_records' : roomId);
       if (frame.room !== expectRoom) failures.push(`capture ${action.name}: room is ${frame.room}, expected ${expectRoom}`);
       if (stubs.length) failures.push(`capture ${action.name}: stub or fallback drew -- ${stubs.join(', ')}`);
       if (missing.length) failures.push(`capture ${action.name}: asset(s) never loaded -- ${missing.join(', ')}`);

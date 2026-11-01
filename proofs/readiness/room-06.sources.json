@@ -1,7 +1,7 @@
 {
  "schema": 1,
  "room": 6,
- "id": "room-06",
+ "id": "room-06-assay-records",
  "name": "ASSAY OFFICE, RECORDS ROOM",
  "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54); errata 66 D and 69 D move three doc 08 subjects to Room 5.",
  "examine": {
@@ -48,5 +48,7 @@
   "required": false,
   "why": "No doc 48 script is sited here."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/assay-records.json",
+ "plate": "art/backgrounds/room-06-assay-records.png"
 }

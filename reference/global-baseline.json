@@ -32,7 +32,8 @@
    "room-04-nugget-back"
   ],
   "interior-institutional": [
-   "room-05-assay-office"
+   "room-05-assay-office",
+   "room-06-assay-records"
   ]
  },
  "rooms": {
@@ -142,6 +143,22 @@
     }
    ],
    "castingNote": "The judges are new and are drawn first in the composition master, beside Thad and Deke, then taken out of it by subtraction against the people-free plate (doc 36 D4), so they come from the same pass as the room. Style gate step 1: the master is generated against Thad -- the graybox carries his frame at his marks, and reference/room-03/deke/style-reference.png is Thad in the Nugget."
+  },
+  "room-06-assay-records": {
+   "visualType": "interior-institutional",
+   "comparable": {
+    "id": "room-05-assay-office",
+    "path": "art/backgrounds/room-05-assay-office.png",
+    "note": "D -- the room on the other side of the door: Room 5's owner-accepted night plate (Act I accepted 2026-09-05). The same building and the same hour (errata 64b), so it carries the world's handling and the night light; errata 31a and 30f's identity make Room 6 a different room in it (ledger leather and dust, warm and closed against Room 5's cold precision), so it is a comparable and not a palette to match."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example this project has used since Room 1 (doc 38 part one). Nobody is staged in the records room (doc 20; the readiness gate), so no character reference is owed; Thad is slot C."
+    }
+   ],
+   "castingNote": "No character is new here and nobody stands in the room. The composition master carries Thad once, at his height for the room's curve, as the scale anchor and the style standard; the plate is the same picture with him taken out."
   }
  }
 }

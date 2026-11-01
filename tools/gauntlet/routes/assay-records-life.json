@@ -1,0 +1,208 @@
+{
+ "schema": 1,
+ "room": "assay_records",
+ "note": "ROOM 6's LIFE ROUTE, ruling 47: about a minute in the room, starting inside it (the entry route is proofs/spec/assay-records.json's). Nobody lives here on screen: the desk lamp's breath is the room's only motion. A walk across the lit floor; a LOOK and a LISTEN; the room's authored wrong actions (doc 49: OPEN the scales cabinet, TALK TO the nineteen names, USE the crucible); a LOOK at the far end of the room, reached from the band's right end.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived",
+   "why": "arrival by the door"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "02-later",
+   "why": "the lamp's breath; nothing else moves, because nobody is here"
+  },
+  {
+   "do": "click",
+   "at": [
+    1100,
+    800
+   ],
+   "why": "walk across the lit floor, in front of the desk"
+  },
+  {
+   "do": "wait",
+   "seconds": 5
+  },
+  {
+   "do": "capture",
+   "name": "03-walked"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "register_of_assays",
+   "why": "LOOK at the register"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "04-look-register",
+   "why": "where the words land (doc 55 section 8: speech placement)"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "the line reads out before the next verb"
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "world": [
+    1200,
+    150
+   ],
+   "why": "LISTEN to the sample shelf, on its upper rows: below them the high desk stands in front of it and the register answers, as it should"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "05-listen-shelf",
+   "why": "where the words land (doc 55 section 8: speech placement)"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "the line reads out before the next verb"
+  },
+  {
+   "do": "verb",
+   "verb": "OPEN"
+  },
+  {
+   "do": "click",
+   "on": "scales_cabinet",
+   "why": "doc 49's authored refusal"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "06-open-cabinet",
+   "why": "where the words land (doc 55 section 8: speech placement)"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "the line reads out before the next verb"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "on": "nineteen_names",
+   "why": "doc 49's authored TALK TO"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "07-talk-names",
+   "why": "where the words land (doc 55 section 8: speech placement)"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "the line reads out before the next verb"
+  },
+  {
+   "do": "verb",
+   "verb": "USE"
+  },
+  {
+   "do": "click",
+   "on": "crucible",
+   "why": "doc 49's authored refusal"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "08-use-crucible",
+   "why": "where the words land (doc 55 section 8: speech placement)"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "the line reads out before the next verb"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "cot_in_the_corner",
+   "why": "the near corner, reached from the band's right end"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "09-look-cot",
+   "why": "where the words land (doc 55 section 8: speech placement)"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "the line reads out before the next verb"
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "map_of_claims",
+   "why": "the far left wall"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 20
+  },
+  {
+   "do": "capture",
+   "name": "10-look-map",
+   "why": "where the words land (doc 55 section 8: speech placement)"
+  },
+  {
+   "do": "wait",
+   "seconds": 9,
+   "why": "the line reads out before the next verb"
+  }
+ ]
+}

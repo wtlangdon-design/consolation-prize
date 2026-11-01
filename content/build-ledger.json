@@ -95,6 +95,23 @@
    "note": "Room 4, built 2026-11-01 under doc 55 (errata 72, 73, 74). Acceptance is Tyler's, in the playthrough (Q148)."
   },
   {
+   "id": "room-06-assay-records",
+   "kind": "room",
+   "sources": [
+    "content/examine/room-06.json",
+    "docs/20-room-map.md"
+   ],
+   "dependsOn": [
+    "room-05-assay-office"
+   ],
+   "status": "built",
+   "contract": "content/build-contracts/room-06-assay-records.json",
+   "proof": "renders/proofs/assay-records/proof.json",
+   "gauntlet": "tools/gauntlet/routes/assay-records.json",
+   "blockers": [],
+   "note": "Room 6, built 2026-11-01 under doc 55 (errata 72, 79). Acceptance is Tyler's, in the playthrough (Q149)."
+  },
+  {
    "id": "room-05-assay-office",
    "kind": "room",
    "sources": [

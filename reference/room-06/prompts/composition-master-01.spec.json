@@ -1,0 +1,18 @@
+{
+ "assetId": "room-06",
+ "subject": "room-06-assay-records",
+ "role": "composition-master",
+ "purpose": "composition-master",
+ "baselineRoom": "room-06-assay-records",
+ "promptFile": "reference/room-06/prompts/composition-master-01.txt",
+ "out": "art/staging/room-06/composition-master-01.png",
+ "size": "1536x1024",
+ "images": [
+  "reference/room-06/layout-1536x1024.png",
+  "renders/room-01-in-engine-1920x1080.png",
+  "art/backgrounds/room-01-stage-road.png",
+  "art/actors/thad-stand-front/stand-00.png",
+  "art/backgrounds/room-05-assay-office.png",
+  "reference/casting/room-01-casting-master.png"
+ ]
+}
