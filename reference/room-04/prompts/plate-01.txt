@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game, with five people in it: two men standing on the floor in the middle and three men seated behind the table.
+
+Remove all five people. Paint what is behind each of them, exactly as the room would look with nobody in it: the floorboards and the burnt line on the floor, the table's edge and legs, the three empty chairs behind the table, the wall, the lamplight on the floor.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the door, the slate, the tin, the lamp, the window, the table and what is on it, every chair. No people, no shadows of people, no text.

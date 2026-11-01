@@ -49,6 +49,8 @@ export class AmbientLayer {
     return ids
       .map((id) => this.state.content.ambient.get(id))
       .filter((npc): npc is AmbientFile => npc !== undefined)
+      // PRESENT ONLY WHILE THEIR CONDITION HOLDS, the room's placement first.
+      .filter((npc) => this.state.flags.test(npc.placements?.[roomId]?.when ?? npc.when))
       // A PER-ROOM PLACEMENT WINS over the file's own x,y in that room (doc 36
       // Q117): the same dog, standing where THIS plate has ground for him.
       .map((npc) => {
@@ -67,6 +69,7 @@ export class AmbientLayer {
             // character against a replacement plate is a different
             // picture, and the shipping room keeps the one it shipped.
             sprite: placed.sprite ?? npc.sprite,
+            posture: placed.posture ?? npc.posture,
           }
           : npc;
       });

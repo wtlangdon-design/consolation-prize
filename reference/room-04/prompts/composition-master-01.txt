@@ -1,0 +1,21 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for walls and furniture, and the hero (the man in the long coat) standing where people stand. Paint this room as a finished game background, keeping the camera, the layout and every block where image 1 puts it. Everything that matters stays inside the lighter middle band of image 1; the top and bottom are margin.
+
+THE ROOM: the back room of a frontier saloon in a gold-rush town, 1850s. The town holds its bragging duels here, judged like a court. Lit by one lamp; the only window is painted over from the inside, so no daylight.
+- Left wall: the door to the bar. A plain plank door with a small shuttered slot at eye height; the paint worn pale around the handle.
+- Back wall, left: a big slate scoreboard of past duels, covered in chalk tallies and chalk scrawl that is NOT readable writing; a chalk ledge under it with a small tin box on it.
+- Back wall, right: a window painted over from the inside in the same green as the lamp shade.
+- Centre: one long plain table, its top scored with knife tallies; three plain chairs behind it. On the table: a short pencil on a chain, and a thick binder tied with string.
+- Hung low over the table: one oil lamp with a shade painted green inside. Its light falls on the floor in front of the table and leaves the far side of the table in shadow.
+- At the two ends of the table, two chairs facing each other: one wobbly with a short leg, one with a cushion.
+- In the middle of the floor, running from the front of the picture toward the table: one straight line burnt into the floorboards.
+- Around the edges of the room: a ring of plain wooden chairs, close in, more chairs than people. Two of them stand big in the near corners of the picture.
+- Floor: worn, scored pine boards.
+
+PEOPLE (this picture is a reference painting, so people are allowed in it):
+- The hero from image 5, standing left of the burnt line, facing right.
+- The swindler from image 7 (his pose 1, standing at ease), standing right of the burnt line, facing left toward the hero.
+- Three judges seated behind the table, in the shadow beyond the lamp: plain townsmen of the 1850s West, hats and waistcoats, middle-aged or older, faces barely lit.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 8, and the same hand as the hero and the swindler: flat, soft shading, very little texture, simple shapes, a visible pixel grid. Not sharp, not finely detailed, no hard internal contrast. The room has its own colours, not the all-brown of the bar next door (image 6 is that bar, for the world only): green lamplight from the shade, chalky grey slate, the green-painted window, grey-green painted plank walls, worn pale pine. A mid-value room: nothing near black where people stand; the slate is chalk-dusted grey, not black.
+
+RULES: no text, letters or numbers anywhere. No border, no frame, no caption.

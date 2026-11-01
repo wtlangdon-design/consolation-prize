@@ -989,6 +989,22 @@ export class GameScene extends Phaser.Scene {
         return;
       }
     }
+    // THE ROOM'S LINES FOR THIS PERSON FIRST (doc 54's per-room overrides):
+    // any verb, and TALK TO too for a person with no tree to open. Only a
+    // rule whose condition holds answers; otherwise the person's own layer
+    // and the people pool below, as before.
+    const roomLines = npc && chosen !== null
+      ? this.state.room.peopleResponses?.[npc.id]?.[chosen] : undefined;
+    if (npc && chosen !== null && roomLines?.some((rule) => this.state.flags.test(rule.when))
+      && (chosen !== 'TALK_TO' || !npc.tree)) {
+      const [hx, hy, hw, hh] = this.ambient.hitBox(npc);
+      this.applyInteraction({
+        id: `${npc.id}@${this.state.room.id}`, name: npc.name, rect: [hx, hy, hw, hh], colour: 0,
+        responses: { [chosen]: roomLines.filter((rule) => this.state.flags.test(rule.when)) },
+      } as Interactable, chosen);
+      this.markDirty();
+      return;
+    }
     if (npc && chosen !== null && chosen !== 'TALK_TO') {
       // HIS OWN LINES FIRST. A character with an examine layer (doc 27's three)
       // is examined like an object: the lines live on his tree file and play

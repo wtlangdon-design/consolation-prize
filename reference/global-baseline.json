@@ -28,7 +28,8 @@
    "room-02-main-street"
   ],
   "interior-public": [
-   "room-03-nugget"
+   "room-03-nugget",
+   "room-04-nugget-back"
   ],
   "interior-institutional": [
    "room-05-assay-office"
@@ -120,6 +121,27 @@
      "path": "art/backgrounds/room-03-nugget.png"
     }
    ]
+  },
+  "room-04-nugget-back": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the room on the other side of the door: the Nugget's approved shipping plate. The same building, so it carries the world's handling and light; errata 17b's material identity makes Room 4 a different room in it (green-shaded lamplight, chalky slate, green paint, worn pine -- errata 74 C), so it is a comparable and not a palette to match."
+   },
+   "casting": [
+    {
+     "who": "Deke Vessel, approved by Tyler 2026-11-01",
+     "path": "art/staging/room-03/deke-02/sheet.png",
+     "note": "E -- Tyler approved this sheet ('I've approved the Deke attempt-2 sheet'). Room 4 reuses him; he is not generated again. Generated against Thad in the Nugget, flat and soft -- the 'too sharp' correction."
+    },
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example this project has used since Room 1 (doc 38 part one)."
+    }
+   ],
+   "castingNote": "The judges are new and are drawn first in the composition master, beside Thad and Deke, then taken out of it by subtraction against the people-free plate (doc 36 D4), so they come from the same pass as the room. Style gate step 1: the master is generated against Thad -- the graybox carries his frame at his marks, and reference/room-03/deke/style-reference.png is Thad in the Nugget."
   }
  }
 }
