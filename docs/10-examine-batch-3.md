@@ -109,7 +109,7 @@
 > **LISTEN:** "Nothing."
 
 **THE MARKER**
-> **LOOK:** "THADEUS GRUBBE. Frame supplied the spelling. It is the last one and it is not the best one."
+> **LOOK:** "THADDEUS GRUBB. Frame supplied the spelling and got it right, once, for a grave I am not going to be in." *(Errata ruling, doc 00 line ~104; applied at source 2026-10-31.)*
 > **LISTEN:** "Nothing."
 
 **THE COFFIN**

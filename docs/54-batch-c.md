@@ -718,3 +718,105 @@
 
 - **Dropped, as contradicting doc 05 (doc 48 S7):** doc 08's THE IMPROVEMENT COMPANY SIGN LOOK and LISTEN; THE WATER TROUGH LISTEN; THE BOARDWALK LOOK and LISTEN; THE CHURCH STEEPLE LISTEN. The repeats above are numbered to fill the sequences those drops leave.
 - **Made at source:** doc 08's "Two storeys tall in front and one storey deep" becomes "Two stories tall in front and one story deep."
+
+---
+
+# ROOM 17 · CHURCH & MEETING HALL
+
+*Merged: doc 05's ten and doc 09's ten, thirteen objects. One contradiction, decided for doc 05 on a tie (errata 68 H): the hymnal is one copy per pew, so doc 09's "One hymnal, on the lectern, for a congregation of two hundred" is dropped. Its LISTEN ("They sing what they remember") agrees with both and stays.*
+
+## Same object, both passes
+
+**THE STOVE, CHURCH-SIZED** ≡ **THE STOVE**
+**THE WINDOW GLASS** ≡ **THE WINDOW**
+
+*(THE BELL ROPE, THE PEWS, THE HYMNAL, THE PULPIT and THE COLLECTION PLATE have the same name in both passes.)*
+
+## Repeats
+
+**THE BELL ROPE** — LOOK 3 "A second knot is tied higher up, for a taller ringer. Nobody has needed it since Sowerby came." | LISTEN 3 "A faint hum down the rope from above. The bell is never entirely silent; it is only flat quietly."
+
+**THE BELL** — LOOK 2 "A dark ring on the ceiling boards around the hole, where years of ringing have shaken the dust loose." · 3 "I have never seen it and I could draw you its crack." | LISTEN 2 "Nothing at the moment, and I can still hear exactly how wrong it is." · 3 "The beam it hangs from ticks in the heat. The bell is saving its error for the morning."
+
+**THE PEWS** — LOOK 3 "The back pew is worn smoother than the front. The town's devotion is strongest nearest the door." | LISTEN 3 "A pew creaking under nobody. Old wood remembering a Sunday."
+
+**THE HYMNAL** — LOOK 2 "Somebody has pressed a flower in Hymn 41. It has outlasted whoever meant it." · 3 "Every hymn has its key printed at the top. Not one of them is the key this town sings in." | LISTEN 3 "Nothing. It is waiting for Sunday, when it will be overruled."
+
+**THE PULPIT** — LOOK 2 "There is a step behind it for a shorter preacher. Sowerby uses neither." · 3 "On the shelf inside, a sermon in Sowerby's hand, priced in the margin." | LISTEN 2 "The boards behind it creak when the door opens, as though someone were about to begin." · 3 "Nothing. A pulpit nobody climbs is the quietest furniture in town."
+
+**THE MEETING TABLE** — LOOK 2 "Rings from coffee cups at one end and from whiskey glasses at the other. The town divides along the table." · 3 "The minutes book lies open at the last meeting. Item one: the Company's proposal. Carried. Item two: nothing." | LISTEN 2 "The wobble again when I lean on it. The motion is seconded." · 3 "Nothing. The town is not in session."
+
+**THE STOVE, CHURCH-SIZED** — LOOK 2 "Gilt letters on the door: GIVEN BY COL. A. FANSHAWE. Even the stove is grateful in public." · 3 "The front pews have their paint blistered from it and the back pews have frost in January. Theology, by distance." | LISTEN 2 "A slow tick as it cools, like a clock with nothing to count." · 3 "Nothing. Cold iron, waiting for the cold months to give it something to say."
+
+**THE WINDOW GLASS** — LOOK 3 "There is a bubble in one pane, low in the corner. The whole street bends around it a little, like a congregation around a stranger." | LISTEN 3 "The wind again, nearly sung. It never quite reaches the note."
+
+**THE COLLECTION PLATE** — LOOK 3 "Somebody has scratched a small cross on the rim and somebody else a small dollar sign, and both have been polished over equally." | LISTEN 3 "A last ring as the plate settles on its bolt. Fuller than it is, again."
+
+**THE DOOR, ALWAYS UNLOCKED** — LOOK 2 "The hinge pin has been tapped half out and tapped back in. Somebody tried to oil it and was overruled." · 3 "It stands open more than it is shut. Sowerby says a church should be easy to enter. He says nothing about leaving." | LISTEN 2 "The hinge, as I pass. It has my name ready." · 3 "The street through the gap, and the hinge waiting to comment on whoever comes next."
+
+**THE SUBSCRIPTION LIST** — LOOK 2 "The Colonel's name is in gilt four times. Everyone else's is in ink once, and some have been crossed out and written in again, smaller." · 3 "At the bottom, in pencil: ORGAN FUND — $3.15. It has been $3.15 for some years." | LISTEN 2 "Nothing. Gratitude, framed and hung, makes no sound." · 3 "The frame tapping the wall when the door goes. The Colonel, knocking politely."
+
+**THE FLOOR** — LOOK 2 "A worn path runs from the door to the stove and another from the stove to the door. The pews are mostly decorative." · 3 "Not a nail head standing proud in the whole floor. Whoever laid it believed in something." | LISTEN 1 "Solid underfoot. Not a creak in it, which in this town is a kind of miracle." · 2 "My own footsteps, sounding more certain than I feel." · 3 "Nothing. It was built to be quiet, and it is."
+
+### THE NOTICE OF SERVICES
+**LOOK** 1 "SERVICES SUNDAY. FUNERALS AS REQUIRED. A schedule of fees below, in a smaller hand." · 2 "The fees are by the word, and the longer words cost more." · 3 "WEDDINGS has been painted out. There is room under it for something new, and nothing has been put there."
+**LISTEN** 1 "Nothing. Paper, pinned flat." · 2 "The pin rattling in the draft from the door." · 3 "Nothing. A schedule with one fixed day has very little to say."
+
+## Overrides
+
+> **REVEREND SOWERBY** · PICK UP — "There would be a charge. There is a charge for everything here, including, I suspect, the suggestion."
+> **REVEREND SOWERBY** · PUSH — "He would bless me for it, at the standard rate."
+> **REVEREND SOWERBY** · USE — "He is available, by the word."
+
+---
+
+# ROOM 31 · THE FUNERAL
+
+*Merged: doc 05's nine and doc 10's nine, thirteen objects. Doc 48 S2 governs the staging: "the examine layer carries the comedy … the player is free to wander their own funeral." S2's beat 3 fires on the **second** LOOK at the grave, so THE GRAVE's LOOK 2 below plays and then Hob speaks. One contradiction, decided for doc 05 (errata 68 H): the coffin has handles and a plate — UND_C1 orders "best pine, handles, plate" — so doc 10's "Plain. Not Respectable, and certainly not Handsome" is dropped. Doc 10's marker line is the errata's corrected one ("THADDEUS GRUBB … got it right, once"), now applied at source.*
+
+## Same object, both passes
+
+**THE HEADBOARD** ≡ **THE MARKER**
+**REVEREND SOWERBY, OFFICIATING** ≡ **REVEREND SOWERBY**
+**THE ONE WHO KNOWS** ≡ **HOB, AT THE EDGE**
+**THE COFFIN** ≡ **THE COFFIN (MINE)**
+
+*(THE MOURNERS has the same name in both passes; THE COFFIN (MINE) is doc 49's name.)*
+
+## Repeats
+
+**THE COFFIN** — LOOK 2 "The lid is propped against the trestle, waiting for me, like a coat held out by a valet." · 3 "Someone has put a cushion in it. I suspect the undertaker, and I suspect he will charge." | LISTEN 3 "Nothing yet. That changes shortly, and I am trying not to think about it."
+
+**THE NAME PLATE** — LOOK 2 "The engraver gave the G a flourish he could not afford to give the rest." · 3 "It will be on the lid, over my face, for the next few minutes of my life. I would have liked it spelled right for that." | LISTEN 2 "A faint ring when the wind catches the lid. Flat, as noted." · 3 "Nothing. Brass keeps its opinions about spelling to itself."
+
+**THE MOURNERS** — LOOK 3 "One of them is holding his hat over his heart and his other hand over his wallet. He has been to funerals here before." | LISTEN 3 "A sniff at the back, and then a nose blown into a sleeve with real feeling."
+
+**REVEREND SOWERBY, OFFICIATING** — LOOK 3 "He has a card in his palm with the adjectives on it and is ticking them off as he goes. I am getting exactly what I paid for." | LISTEN 3 "'…a man who came among us, and stayed…' — that one was free, I think. He has thrown it in."
+
+**THE FLOWERS, WAXED** — LOOK 2 "Somebody has wiped the dust off them for the occasion. That is the undertaker's idea of grief, and I find I accept it." · 3 "They lean toward the grave, the way everything here eventually does." | LISTEN 2 "A faint tap of wax on wax when the wind finds them." · 3 "Nothing. They have outlived everyone they were ever arranged for, and they will outlive me, technically."
+
+**THE GRAVE** — LOOK 2 "Six feet, measured. I am two inches shorter than the hole, which is the first time this town has given me room." · 3 "A plank is laid across it for the pallbearers. It looks like a very short bridge to nowhere in particular." | LISTEN 2 "A clod falling from the edge, then another. The ground is in a hurry." · 3 "Nothing for a moment. Then the wind across the top of it, a low, open note."
+
+**THE HEADBOARD** — LOOK 3 "The paint has run on the D's. My name is weeping slightly, which is more than I expected of it." | LISTEN 3 "Nothing now. The paint has set. It is official."
+
+**GRIEVANCE, IN BLACK** — LOOK 2 "A black ribbon is plaited into her mane. She has allowed this, which is a greater tribute than anything Sowerby will say." · 3 "She keeps her head turned a little toward the coffin. I do not think she is fooled." | LISTEN 2 "A hoof shifting once in the soft earth, then still." · 3 "Nothing. She is standing at attention, and she means it more than the mourners do."
+
+**THE ONE WHO KNOWS** — LOOK 3 "He has not looked at the coffin once. He has looked at me twice." | LISTEN 3 "Nothing. I have never heard a man be so quiet on purpose."
+
+**THE DIRT PILE** — LOOK 2 "A shovel stands upright in it, waiting for a volunteer, and nobody is looking at it." · 3 "It is exactly the size of the hole. Nothing is ever wasted at the undertaker's." | LISTEN 2 "Loose earth sliding down its side, rehearsing." · 3 "Nothing. It is very patient, for dirt."
+
+**THE HATS** — LOOK 2 "Hats of every class, held against every chest. A hat is the only formal clothing most of these men own." · 3 "One man is holding two hats. I would like to know whose the other one is, and I am not going to ask at a funeral." | LISTEN 1 "Nothing. Nobody fans himself with a hat at a funeral." · 2 "A brim being turned in nervous fingers, round and round." · 3 "Nothing. Nine hats, held still."
+
+### THE SKY
+**LOOK** 1 "Clear, very high and very blue. It is a beautiful day to be buried, if one has to be." · 2 "One cloud, keeping to itself over the hills." · 3 "I am going to want to remember this sky in a few minutes. I am trying to look at it properly."
+**LISTEN** 1 "A hawk, very high, one long cry." · 2 "Nothing up there. The sky is not attending." · 3 "Wind, high and thin. The last open-air sound for a while."
+
+### BOOT HILL, BEYOND
+**LOOK** 1 "The rest of Boot Hill, rising behind in rows. My new neighbors, keeping a respectful distance." · 2 "Ezra Pike is up there, third row, second from the end. I came a very long way to join him." · 3 "From here the markers look like a crowd that came early and sat down."
+**LISTEN** 1 "Wind through the grass between the rows." · 2 "Nothing. The neighborhood is quiet, as advertised." · 3 "A loose board on some marker up the hill, tapping, like somebody keeping time for the service."
+
+## Overrides
+
+> **REVEREND SOWERBY** · TALK TO, *during the service* — "He is mid-adjective. Interrupting would cost us both."
+> **THE ONE WHO KNOWS** · TALK TO, *before S2 beat 3* — "Not here. Not with the whole town watching me be dead."
+> **GRIEVANCE, IN BLACK** · PICK UP — "She is working."
