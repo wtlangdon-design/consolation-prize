@@ -11,19 +11,21 @@
    "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 18 — HOTEL LOBBY#1",
-    "docs/26-batch-a.md::ROOM 18 · HOTEL LOBBY"
+    "docs/26-batch-a.md::ROOM 18 · HOTEL LOBBY",
+    "docs/54-batch-c.md::ROOM 18 · HOTEL LOBBY"
    ],
-   "why": "11 subject(s), each with a LOOK and a LISTEN"
+   "why": "12 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 18 — HOTEL LOBBY#1",
-    "docs/26-batch-a.md::ROOM 18 · HOTEL LOBBY"
+    "docs/26-batch-a.md::ROOM 18 · HOTEL LOBBY",
+    "docs/54-batch-c.md::ROOM 18 · HOTEL LOBBY"
    ],
-   "why": "3 subject(s) short of three: THE CLERK'S BELL (LOOK 1, LISTEN 1); THE PAINTING (LOOK 1, LISTEN 1); THE FRONT WINDOW (LOOK 1, LISTEN 1)"
+   "why": "all 12 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
@@ -41,7 +43,7 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 18 — HOTEL LOBBY"
    ],
-   "why": "4 authored refusal(s)"
+   "why": "5 authored refusal(s)"
   },
   {
    "id": "dialogue",
@@ -106,17 +108,18 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 11,
+ "subjectsFound": 12,
  "subjectsDeclaredByDocument": null,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 18 — HOTEL LOBBY#1",
     "docs/26-batch-a.md::ROOM 18 · HOTEL LOBBY",
+    "docs/54-batch-c.md::ROOM 18 · HOTEL LOBBY",
     "docs/49-wrong-answers.md::ROOM 18 — HOTEL LOBBY",
     "docs/27-minor-trees.md::THE HOTEL CLERK · Room 18"
    ],
@@ -183,10 +186,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "repeat-variants: 3 subject(s) short of three: THE CLERK'S BELL (LOOK 1, LISTEN 1); THE PAINTING (LOOK 1, LISTEN 1); THE FRONT WINDOW (LOOK 1, LISTEN 1)"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -219,5 +220,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:41:48.937Z"
+ "at": "2026-11-01T04:44:13.424Z"
 }

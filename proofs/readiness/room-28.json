@@ -10,27 +10,29 @@
    "question": "LOOK/LISTEN complete?",
    "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH"
+    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
+    "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY"
    ],
-   "why": "12 subject(s), each with a LOOK and a LISTEN"
+   "why": "17 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH"
+    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
+    "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY"
    ],
-   "why": "12 subject(s) short of three: THE COPPERS (LOOK 1, LISTEN 1); THE MANGLE (LOOK 1, LISTEN 1); THE DRYING LINES (LOOK 1, LISTEN 1); THE COLLAR ADVERTISEMENT (LOOK 1, LISTEN 1); THE TICKET RAIL (LOOK 1, LISTEN 1); THE STARCH CROCK (LOOK 1, LISTEN 1); THE STOVE & IRONS (LOOK 1, LISTEN 1); THE MENDING BASKET (LOOK 1, LISTEN 1); THE HIGH RIDGE PATH (LOOK 1, LISTEN 1); THE PAYMENT TIN (LOOK 1, LISTEN 1); SHENG'S CHAIR (LOOK 1, LISTEN 1); THE WINDOW, STEAMED (LOOK 1, LISTEN 1)"
+   "why": "all 17 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
    "question": "Act/state variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH"
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "none, by doctrine: Part Two-B wrote no variant for the laundry."
   },
   {
    "id": "wrong-verbs",
@@ -39,59 +41,64 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 28 — SHENG'S LAUNDRY"
    ],
-   "why": "4 authored refusal(s)"
+   "why": "5 authored refusal(s)"
   },
   {
    "id": "dialogue",
    "question": "Dialogue used by this room complete?",
-   "answer": "NO",
-   "evidence": [],
-   "why": "no dialogue declared for this room"
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::AH-LAM SHENG",
+    "docs/04-dialogue-trees.md::`SHE_D1` — the paper *(W1 growth: D3, D4)*"
+   ],
+   "why": "2 node(s) resolve for Ah-Lam Sheng"
   },
   {
    "id": "puzzles",
    "question": "Puzzle requirements complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)"
    ],
-   "why": "not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "D3, D4 are all specified in that section"
   },
   {
    "id": "items",
    "question": "Required items declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)"
    ],
-   "why": "the declared puzzle section names no item or topic"
+   "why": "the puzzle section names the documents and topics this room issues and needs"
   },
   {
    "id": "flags",
    "question": "Required flags/state declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)"
    ],
-   "why": "the declared puzzle section names no flag or topic"
+   "why": "the puzzle section names the topic flags this room sets"
   },
   {
    "id": "staging",
    "question": "Beat/staging script complete OR genuinely not required?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: D3 and D4 are Sheng's dialogue; no doc 48 script is sited here."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour sufficiently authored?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/04-dialogue-trees.md::AH-LAM SHENG",
+    "docs/04-dialogue-trees.md::`SHE_D1` — the paper *(W1 growth: D3, D4)*",
+    "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "Ah-Lam Sheng has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "open-canon",
@@ -101,55 +108,60 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 12,
+ "subjectsFound": 17,
  "subjectsDeclaredByDocument": 12,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
-    "docs/49-wrong-answers.md::ROOM 28 — SHENG'S LAUNDRY"
+    "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY",
+    "docs/49-wrong-answers.md::ROOM 28 — SHENG'S LAUNDRY",
+    "docs/04-dialogue-trees.md::AH-LAM SHENG",
+    "docs/04-dialogue-trees.md::`SHE_D1` — the paper *(W1 growth: D3, D4)*"
    ],
    "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
   },
   {
    "id": "puzzle-behaviour",
    "question": "Puzzle behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
   {
    "id": "act-behaviour",
    "question": "Act/state behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH"
+    "docs/05-examine-layer.md::PART TWO-B — ACT VARIANTS *(W4, under errata 60's act field)*"
    ],
-   "why": "no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart"
+   "why": "none, by doctrine: Part Two-B wrote no variant for the laundry."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/04-dialogue-trees.md::AH-LAM SHENG",
+    "docs/04-dialogue-trees.md::`SHE_D1` — the paper *(W1 growth: D3, D4)*",
+    "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "Ah-Lam Sheng has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "staging-behaviour",
    "question": "Staging behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: D3 and D4 are Sheng's dialogue; no doc 48 script is sited here."
   },
   {
    "id": "visual-subjects",
@@ -175,17 +187,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "repeat-variants: 12 subject(s) short of three: THE COPPERS (LOOK 1, LISTEN 1); THE MANGLE (LOOK 1, LISTEN 1); THE DRYING LINES (LOOK 1, LISTEN 1); THE COLLAR ADVERTISEMENT (LOOK 1, LISTEN 1); THE TICKET RAIL (LOOK 1, LISTEN 1); THE STARCH CROCK (LOOK 1, LISTEN 1); THE STOVE & IRONS (LOOK 1, LISTEN 1); THE MENDING BASKET (LOOK 1, LISTEN 1); THE HIGH RIDGE PATH (LOOK 1, LISTEN 1); THE PAYMENT TIN (LOOK 1, LISTEN 1); SHENG'S CHAIR (LOOK 1, LISTEN 1); THE WINDOW, STEAMED (LOOK 1, LISTEN 1)",
-  "act-variants: no act-gated variant is authored for this room. Errata 60 makes ACT a number and the compiler checks act coverage; a room with none has either genuinely none or an unwritten layer, and nothing here can tell those apart",
-  "dialogue: no dialogue declared for this room",
-  "puzzles: not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "items: the declared puzzle section names no item or topic",
-  "flags: the declared puzzle section names no flag or topic",
-  "staging: declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -218,5 +221,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:42:24.351Z"
+ "at": "2026-11-01T04:44:14.125Z"
 }

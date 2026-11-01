@@ -8,20 +8,22 @@
   {
    "id": "look-listen",
    "question": "LOOK/LISTEN complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#1"
+    "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#1",
+    "docs/54-batch-c.md::ROOM 23 & 24 · PROSPERITY, AND THE HOLE"
    ],
-   "why": "2 subject(s) without both: THE CREEK, THE RIDGE"
+   "why": "10 subject(s), each with a LOOK and a LISTEN"
   },
   {
    "id": "repeat-variants",
    "question": "Repeat-selection variants complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#1"
+    "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#1",
+    "docs/54-batch-c.md::ROOM 23 & 24 · PROSPERITY, AND THE HOLE"
    ],
-   "why": "7 subject(s) short of three: THE CLAIM MARKER (LOOK 1, LISTEN 1); THE MUD (LOOK 1, LISTEN 1); THE HOLE (LOOK 1, LISTEN 1); THE RACCOON (LOOK 1, LISTEN 1); CLAIM ONE'S BOUNDARY (LOOK 1, LISTEN 1); THE CREEK (LOOK 0, LISTEN 0); THE RIDGE (LOOK 0, LISTEN 0)"
+   "why": "all 10 subject(s) carry three LOOK and three LISTEN variants"
   },
   {
    "id": "act-variants",
@@ -39,59 +41,65 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE"
    ],
-   "why": "4 authored refusal(s)"
+   "why": "6 authored refusal(s)"
   },
   {
    "id": "dialogue",
    "question": "Dialogue used by this room complete?",
-   "answer": "NO",
-   "evidence": [],
-   "why": "no dialogue declared for this room"
+   "answer": "YES",
+   "evidence": [
+    "docs/04-dialogue-trees.md::`RAC_A1` — the naming *(Batch C, doc 54; errata 68 A)*"
+   ],
+   "why": "1 node(s) resolve for The Raccoon"
   },
   {
    "id": "puzzles",
    "question": "Puzzle requirements complete?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+    "docs/02-puzzle-graph.md::ACT IV — *The Quietest Part of the Game*"
    ],
-   "why": "not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "A5, F1 are all specified in that section"
   },
   {
    "id": "items",
    "question": "Required items declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+    "docs/02-puzzle-graph.md::ACT IV — *The Quietest Part of the Game*"
    ],
-   "why": "the declared puzzle section names no item or topic"
+   "why": "the puzzle section names the documents and topics this room issues and needs"
   },
   {
    "id": "flags",
    "question": "Required flags/state declared?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+    "docs/02-puzzle-graph.md::ACT IV — *The Quietest Part of the Game*"
    ],
-   "why": "the declared puzzle section names no flag or topic"
+   "why": "the puzzle section names the topic flags this room sets"
   },
   {
    "id": "staging",
    "question": "Beat/staging script complete OR genuinely not required?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/54-batch-c.md::ROOM 23 & 24 · PROSPERITY, AND THE HOLE"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: No doc 48 script is sited here; A5's attempts are written as lines with their stage directions in doc 54 (errata 68 A)."
   },
   {
    "id": "character-behaviour",
    "question": "Character behaviour sufficiently authored?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/04-dialogue-trees.md::`RAC_A1` — the naming *(Batch C, doc 54; errata 68 A)*",
+    "docs/54-batch-c.md::ROOM 23 & 24 · PROSPERITY, AND THE HOLE"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "The Raccoon has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "open-canon",
@@ -101,26 +109,29 @@
    "why": "no open issue in docs/36-issue-list.md names this room and the build ledger lists no blocker"
   }
  ],
- "subjectsFound": 7,
+ "subjectsFound": 10,
  "subjectsDeclaredByDocument": 7,
  "unresolvedCitations": [],
  "dimensions": [
   {
    "id": "writing",
    "question": "Writing",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#1",
-    "docs/49-wrong-answers.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE"
+    "docs/54-batch-c.md::ROOM 23 & 24 · PROSPERITY, AND THE HOLE",
+    "docs/49-wrong-answers.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE",
+    "docs/04-dialogue-trees.md::`RAC_A1` — the naming *(Batch C, doc 54; errata 68 A)*"
    ],
    "why": "examine lines, repeat variants, the wrong-verb layer and this room's dialogue"
   },
   {
    "id": "puzzle-behaviour",
    "question": "Puzzle behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+    "docs/02-puzzle-graph.md::ACT IV — *The Quietest Part of the Game*"
    ],
    "why": "the puzzles sited here, the items they need and issue, and the flags they set"
   },
@@ -136,20 +147,21 @@
   {
    "id": "character-behaviour",
    "question": "Character behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room content section declared)"
+    "docs/04-dialogue-trees.md::`RAC_A1` — the naming *(Batch C, doc 54; errata 68 A)*",
+    "docs/54-batch-c.md::ROOM 23 & 24 · PROSPERITY, AND THE HOLE"
    ],
-   "why": "either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
+   "why": "The Raccoon has authored dialogue, and the room content section carries verb overrides that state where they are and what they permit"
   },
   {
    "id": "staging-behaviour",
    "question": "Staging behaviour",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "docs/54-batch-c.md::ROOM 23 & 24 · PROSPERITY, AND THE HOLE"
    ],
-   "why": "declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading."
+   "why": "not required: No doc 48 script is sited here; A5's attempts are written as lines with their stage directions in doc 54 (errata 68 A)."
   },
   {
    "id": "visual-subjects",
@@ -175,17 +187,8 @@
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
- "buildableWithoutInvention": "NO",
- "blocking": [
-  "look-listen: 2 subject(s) without both: THE CREEK, THE RIDGE",
-  "repeat-variants: 7 subject(s) short of three: THE CLAIM MARKER (LOOK 1, LISTEN 1); THE MUD (LOOK 1, LISTEN 1); THE HOLE (LOOK 1, LISTEN 1); THE RACCOON (LOOK 1, LISTEN 1); CLAIM ONE'S BOUNDARY (LOOK 1, LISTEN 1); THE CREEK (LOOK 0, LISTEN 0); THE RIDGE (LOOK 0, LISTEN 0)",
-  "dialogue: no dialogue declared for this room",
-  "puzzles: not resolvable: \"null\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "items: the declared puzzle section names no item or topic",
-  "flags: the declared puzzle section names no flag or topic",
-  "staging: declared as required and \"undefined\" is not a qualified reference. docs/36-issue-list.md carries two Q-number series, so a bare Q id names two different issues. Write path.md::Exact Heading.",
-  "character-behaviour: either the dialogue does not resolve or the room content section has no Overrides block -- and a character present in a room with no authored refusals has behaviour that would have to be invented at the first wrong verb"
- ],
+ "buildableWithoutInvention": "YES",
+ "blocking": [],
  "hardStopNote": "BUILDABLE WITHOUT INVENTION = NO is a hard stop. Never generate replacement comedy, dialogue, puzzle solutions, story beats or character writing to clear it.",
  "geometry": [
   {
@@ -218,5 +221,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:42:23.932Z"
+ "at": "2026-11-01T04:44:13.842Z"
 }

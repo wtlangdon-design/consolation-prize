@@ -1291,3 +1291,50 @@
 **THE NAMES** — LOOK 1 "Amos Treadwell, blacksmith. May 1849. The question." · 2 "Josiah Penhallow, miner. August 1849. The question." · 3 "Michael Doyle, teamster. October 1849. The question." · 4 "Heinrich Vogel, baker. March 1850. The question." · 5 "Elias Crane, surveyor. April 1850. The question." · 6 "Tobias Wren, printer. September 1850. The question." · 7 "Rafael Sandoval, muleteer. February 1851. The question." · 8 "Nathaniel Hobbs, attorney. May 1851. The question." · 9 "Silas Marchbank, clerk. June 1851. The question." · 10 "Gideon Fairweather, minister. April 1852. The question." · 11 "Patrick Keane, carpenter. November 1852. The question." · 12 "Jonas Whitlock, barber. March 1853. The question." · 13 "Abel Stroud, gambler. August 1853. The question." · 14 "Cyrus Lamb, prospector. June 1854. The question." · 15 "Isaac Pell, wheelwright. October 1854. The question." · 16 "Matthias Oakes, cooper. July 1855. The question." · 17 "Owen Prothero, collier. May 1856. The question." · 18 "Daniel Ashby, clerk. January 1857. The question." · 19 "Lemuel Garrow, drover. This spring. The question. The ink is hardly dry." | LISTEN 1 "Nothing." · 2 "Nothing." · 3 "Nothing." · 4 "Nothing." · 5 "Nothing." · 6 "Nothing." · 7 "Nothing." · 8 "Nothing." · 9 "Nothing." · 10 "Nothing." · 11 "Nothing." · 12 "Nothing." · 13 "Nothing." · 14 "Nothing." · 15 "Nothing." · 16 "Nothing." · 17 "Nothing." · 18 "Nothing." · 19 "Nothing."
 
 *(The nine on Boot Hill: Treadwell, Penhallow, Crane, Sandoval, Marchbank, Keane, Stroud, Pell, Prothero. Gone: Doyle, Wren, Hobbs, Fairweather, Whitlock, Lamb, Oakes, Ashby, Garrow. The bakehouse: Vogel. "The question" is the ledger's own word for it; what the question was is WIN_B3's to say.)*
+
+---
+
+# ROOM 4 · THE NUGGET BACK ROOM
+
+*Merged: doc 05's eight and doc 09's eight, eleven objects. Duels One and Two are fought here (doc 03); Duel Four is public, on Main Street. One contradiction decided for doc 05 (errata 68 H): the judges' pencil is chained — doc 49 agrees ("the chain is newer than the pencil") — so doc 09's "on a string, nailed to the table" is dropped. Doc 09's tally board carries a plant (Fanshawe has never entered); its repeats add nothing to it. THE CHAIRS (doc 05's two, facing) and THE RING OF CHAIRS (doc 09's audience) are different chairs.*
+
+## Same object, both passes
+
+**THE LONG TABLE** ≡ **THE JUDGES' TABLE**
+**THE JUDGES' PENCIL** ≡ **THE PENCIL**
+**THE SCOREBOARD** ≡ **THE TALLY BOARD**
+**THE LAMP OVER THE TABLE** ≡ **THE LAMP**
+
+*(THE DOOR TO THE BAR has the same name in both passes.)*
+
+## Repeats
+
+**THE LONG TABLE** — LOOK 3 "The top is scored with knife marks in tallies of five, older than the scoreboard. Somebody kept count before there was a slate to keep it on." | LISTEN 3 "A knuckle rapping it, somewhere in memory. The table remembers every point of order."
+
+**THE JUDGES' PENCIL** — LOOK 2 "It has been sharpened so often there is very little pencil left between the two points. Justice, worn to a stub." · 3 "There are tooth marks on it, at both ends. The judges deliberate in the usual way." | LISTEN 3 "The chain clinking against the table leg when the door opens."
+
+**THE SCOREBOARD** — LOOK 3 "The chalk on the oldest names has been gone over again and again, so it will not fade. Losing is kept up as carefully as winning." | LISTEN 3 "Nothing, then a crumb of chalk dropping from the ledge. History, settling."
+
+**THE LAMP OVER THE TABLE** — LOOK 2 "The chain it hangs from has been shortened twice, a link at a time. The liars have been getting closer to the light." · 3 "Its shade is painted green inside, which makes everyone under it look slightly unwell and entirely sincere." | LISTEN 2 "The flame, leaning toward the door and settling back." · 3 "A low hiss. The lamp is the only one here that never exaggerates."
+
+**THE CHAIRS** — LOOK 2 "The challenger's chair has a short leg. Nobody has fixed it, because nobody thinks the challenger should be comfortable." · 3 "The champion's chair has a cushion. It was won, I am told, in a duel about the cushion." | LISTEN 2 "The short leg, rocking once as I touch it." · 3 "Nothing. Two chairs, facing, saying nothing to each other."
+
+**THE DOOR TO THE BAR** — LOOK 2 "There is a slot at eye height, with a shutter, so the bar can be told the result without the bar being let in." · 3 "The paint is worn around the handle by men coming in confident and going out otherwise." | LISTEN 3 "A cheer, through the boards, for something that has nothing to do with in here."
+
+**THE SPIT LINE** — LOOK 2 "Some men stand a long way behind it. Some stand on it. Nobody stands in front of it, twice." · 3 "Someone has gone over it with a hot iron to keep it from wearing away. The line is the most maintained thing in the Nugget." | LISTEN 2 "Nothing. It is a line, and it is enough." · 3 "Nothing. The boasts it has heard have all gone into the floor."
+
+**THE WINDOW, PAINTED OVER** — LOOK 2 "Someone has scratched a small hole in the paint at the corner, at eye height, the size of an eye." · 3 "The paint is the same green as the lamp shade. Somebody had a theory about green." | LISTEN 2 "The wind, filed under 'outside', and a cart going by in the margin." · 3 "Nothing. The window is keeping the room's confidence."
+
+**THE SECOND RULEBOOK** — LOOK 2 "Amendment Nine: no man may boast of his own mother. Amendment Ten: or anybody else's." · 3 "The binder's spine is held together with string, and the string has an amendment of its own." | LISTEN 2 "A page turning back on its own, to the seating rules." · 3 "Nothing. Fourteen amendments, at rest."
+
+**THE RING OF CHAIRS** — LOOK 2 "The chairs nearest the table are worn at the front edge. Everybody leans in." · 3 "There are more chairs than there are men in town who come to duels. Somebody is optimistic about attendance." | LISTEN 2 "One chair creaking as the floor shifts. An audience of one, getting comfortable." · 3 "Nothing. The ring is waiting for the next fool, and I am standing in the middle of it."
+
+### THE CHALK
+**LOOK** 1 "A stub of chalk on the scoreboard's ledge, worn to the shape of a thumb." · 2 "It is kept in a little tin with a lid. Chalk has been stolen here before, I am told, by a man who meant to change history." · 3 "Only the judges may touch it. It is the most powerful object in the territory and it is the size of a bean."
+**LISTEN** 1 "Nothing. Chalk at rest is silent." · 2 "The tin lid, ticking as the room warms." · 3 "Nothing. It speaks once a duel, on slate, and then it is done."
+
+## Overrides
+
+> **DEKE VESSEL** · PICK UP, *in a duel* — "Not across the line. There are amendments."
+> **THE JUDGES** · TALK TO, *in a duel* — "They are deliberating. I can hear them chewing the pencil."
+> **THE JUDGES** · USE — "Nobody uses the judges. That is the one thing everyone here agrees on."

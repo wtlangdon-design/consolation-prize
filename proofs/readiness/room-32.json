@@ -39,7 +39,7 @@
    "evidence": [
     "docs/49-wrong-answers.md::ROOM 32 — INSIDE THE COFFIN"
    ],
-   "why": "1 authored refusal(s)"
+   "why": "2 authored refusal(s)"
   },
   {
    "id": "dialogue",
@@ -217,5 +217,5 @@
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
  "geometryReady": "NO",
- "at": "2026-11-01T02:42:24.800Z"
+ "at": "2026-11-01T04:44:14.375Z"
 }

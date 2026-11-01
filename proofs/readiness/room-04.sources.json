@@ -1,0 +1,44 @@
+{
+ "schema": 1,
+ "room": 4,
+ "id": "room-04-nugget-back",
+ "name": "NUGGET BACK ROOM",
+ "note": "POINTERS, NOT ANSWERS. Declared 2026-10-31 for Batch C (doc 54). Room 4 had no source declaration; it is the Assay's room (doc 03, Duels One and Two).",
+ "examine": {
+  "primary": "docs/05-examine-layer.md::ROOM 4 \u2014 NUGGET BACK ROOM",
+  "completions": [
+   "docs/54-batch-c.md::ROOM 4 \u00b7 THE NUGGET BACK ROOM"
+  ],
+  "merged": [
+   "docs/09-examine-batch-2.md::ROOM 4 \u2014 THE NUGGET BACK ROOM"
+  ],
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "Part Two-B wrote no variant for the back room."
+  }
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 4 \u2014 NUGGET BACK ROOM",
+ "dialogue": {
+  "characters": [
+   "Deke Vessel",
+   "The judges"
+  ],
+  "trees": [
+   "docs/03-liars-assay.md::DUEL ONE \u2014 Deke Vessel (unwinnable by design)",
+   "docs/03-liars-assay.md::DUEL TWO \u2014 Deke Vessel, rematch (winnable)"
+  ]
+ },
+ "puzzles": {
+  "ids": [
+   "B5",
+   "B6"
+  ],
+  "source": "docs/02-puzzle-graph.md::TRIAL ONE \u2014 Affidavit of Original Sale (Document A)"
+ },
+ "staging": {
+  "required": true,
+  "source": "docs/03-liars-assay.md::How it plays"
+ },
+ "exits": "docs/54-batch-c.md::ROOM 4 \u00b7 THE NUGGET BACK ROOM",
+ "connectivity": "docs/20-room-map.md"
+}
