@@ -1189,3 +1189,57 @@
 ### THE LAMP OIL
 **LOOK** 1 "Lamp oil in a drum with a tap, a funnel, and a sign saying NO LIGHTS. The stove is four feet away." · 2 "The tap drips. A thin dark ring on the floor records every drop since the drum arrived." · 3 "The town runs on this after dark. It is the only thing in Consolation that keeps the lights on, and it is sold by the pint."
 **LISTEN** 1 "A drip, slow and oily, into the tray." · 2 "Nothing. Oil is in no hurry." · 3 "The drip again. Somebody should tighten that tap, and somebody never does."
+
+---
+
+# ROOM 6 · ASSAY OFFICE, RECORDS ROOM
+
+*Merged: doc 05's eleven and doc 08's eleven, seventeen objects. Errata 66 D moved doc 08's THE FLOORBOARD, LIFTED and THE SECOND LEDGER to Room 5, and errata 69 D (below) moves doc 08's THE NAMES with them: the nineteen names "individually examinable" are entries in the second ledger, and the second ledger is under Room 5's board. The room keeps doc 05's THE NINETEEN NAMES, which is how the assay register reads them. Winnie sleeps here (doc 08's cot); nothing below makes more of it.*
+
+## Same object, both passes
+
+**THE REGISTER OF ASSAYS** ≡ **THE OFFICIAL LEDGER**
+**THE SAMPLE SHELF** ≡ **THE SAMPLE WALL**
+**THE BACK WINDOW** ≡ **THE HIGH WINDOW**
+
+## Repeats
+
+**THE REGISTER OF ASSAYS** — LOOK 3 "The columns are ruled by hand, every page, every year. She has never once bought ruled paper." | LISTEN 3 "A page lifting in the draft from the door and lying down again exactly where it was."
+
+**THE NINETEEN NAMES** — LOOK 2 "Each name has a date beside it, and the dates are spread across twelve years like a slow leak." · 3 "I have read them often enough to know any of them if I met him. I am not going to meet most of them." | LISTEN 2 "Nothing. Nineteen men, filed quietly." · 3 "Nothing. A short list keeps a long silence."
+
+**THE SAMPLE SHELF** — LOOK 3 "There are gaps where bottles were taken out and never returned. Some men took their pinch home to remember it by." | LISTEN 3 "The ring again, very faint, as I step back. Glass, sorry to see me go."
+
+**THE CRUCIBLE** — LOOK 2 "Its inside is glazed by fire to a dull gold that has nothing to do with gold." · 3 "Tongs hang beside it, long enough to keep a hand well away from the truth." | LISTEN 2 "Nothing. It is waiting for a fire and a question." · 3 "A faint tick as it settles on its stand. Even cold, it has weight."
+
+**THE SCALES CABINET** — LOOK 2 "The glass door has a brass lock. The key, I am told, is on a ribbon round her neck." · 3 "Beside the scales, a set of weights in a velvet tray, each in its own hollow, none missing." | LISTEN 2 "Nothing. Precision does not hum." · 3 "The glass door ticking very slightly in its frame when the street door goes."
+
+**THE MAP OF CLAIMS** — LOOK 2 "The claims along the creek are drawn in a careful hand, the ones up the hill in a quicker one, as if the town got ahead of her." · 3 "Claim One is drawn in ink and labeled. Every other claim is pencil." | LISTEN 2 "A pin working loose somewhere in the damp." · 3 "Nothing. The district, flat and quiet, the way it never is."
+
+**THE STOOL** — LOOK 2 "One leg has been mended with wire. She mended it herself, by the look of the wire." · 3 "It stands exactly where the window light falls on the ledger. Not an inch to the left." | LISTEN 2 "The loose joint again, when I set a hand on it. It is used to one weight only." · 3 "Nothing. It is waiting for her."
+
+**THE ACID BOTTLES** — LOOK 2 "Each bottle carries a printed label, POISON, and beneath it, in her hand: ALSO TRUTH." · 3 "One drop has eaten into the bench, a small brown crater. It was a test somebody failed." | LISTEN 2 "A tiny ping of glass as the shelf takes the weight of the morning." · 3 "Nothing. It does its work in silence, and I respect that more than I can say."
+
+**THE FILED CERTIFICATES** — LOOK 2 "Each certificate is stamped, signed and dated, and most of them say nothing worth stamping." · 3 "The folders are tied with tape, and every bow is the same size." | LISTEN 2 "Nothing. Certainty, in folders, makes no sound." · 3 "Paper settling in a drawer, a long, dry exhale."
+
+**THE BACK WINDOW** — LOOK 2 "It is set high, so nobody passing can see in. She can see out only by standing on the stool." · 3 "From up here the diggings look like a page of arithmetic, and none of it adds up." | LISTEN 2 "A pick, then another, then a man laughing at something that was probably not funny." · 3 "The wind across the glass, come down from the diggings with nothing in its hands."
+
+**THE STAIN ON THE FLOOR** — LOOK 2 "Someone has laid a mat over the edge of it. The mat is not quite big enough." · 3 "It is the shape of a hand, if you look at it the wrong way, which I did." | LISTEN 2 "Nothing. The floor has forgiven it." · 3 "Nothing. Even the boards around it are quiet."
+
+**THE COT IN THE CORNER** — LOOK 2 "One blanket, folded square, and a pillow with the shape of a head still in it." · 3 "From it you can see the street door. She sleeps facing the way she might be needed." | LISTEN 2 "Nothing. It is very carefully not being slept in, just now." · 3 "A spring easing in the frame, long after anyone sat on it."
+
+### THE STOVE
+**LOOK** 1 "A small stove, lit low, with a kettle on it and a pan of something that might be supper or might be glue." · 2 "The fender is polished. Everything in this room is looked after, and the stove is looked after twice." · 3 "Her shawl is drying on the rail. She works here, and lives a good part of the rest of the time here too."
+**LISTEN** 1 "A low ticking, like a clock that has been told to keep its voice down." · 2 "The kettle, thinking about it." · 3 "Coals shifting, settling, staying in."
+
+### THE SPARE APRON
+**LOOK** 1 "A spare apron on a peg, starched and pressed, with acid holes along the hem in a neat row." · 2 "The pocket holds a pencil sharpened at one end only, which in this town is a sign of good character." · 3 "It matches the one she is wearing, stain for stain. She keeps a spare of everything except time."
+**LISTEN** 1 "Nothing. Linen, on a peg." · 2 "The peg creaking very slightly when the door opens." · 3 "Nothing. It is ready for tomorrow, and the day after."
+
+### THE SHELF OF REFERENCE VOLUMES
+**LOOK** 1 "Assaying manuals, a chemistry, a German dictionary and the territorial statutes, all with their spines broken in the right places." · 2 "One manual is annotated in her hand. In three places she has corrected the author." · 3 "The German dictionary is the most used. I cannot think what for, and I am afraid to ask."
+**LISTEN** 1 "Nothing. Knowledge, resting." · 2 "A spine creaking as the shelf takes the damp." · 3 "Nothing. They have been read thoroughly and have nothing new to say."
+
+### HER TEA THINGS
+**LOOK** 1 "A cup, a saucer, a tin of tea and a spoon, arranged on a tray as exactly as everything else she keeps." · 2 "One cup. She does not entertain." · 3 "The tin's label is from Canton by way of San Francisco by way of Sheng. Even her tea has a paper trail."
+**LISTEN** 1 "A faint clink of spoon on saucer as the floor moves." · 2 "Nothing. The cup is clean and dry and upside down." · 3 "Nothing. Tea for one makes the smallest sound in the world."

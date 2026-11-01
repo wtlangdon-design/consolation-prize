@@ -312,7 +312,13 @@ function ask(room, sources, note) {
     for (const reference of sources.examine?.merged ?? []) {
       const found = section(reference);
       if (!found.ok) continue;
+      // A BATCH SUBJECT A RULING MOVED ELSEWHERE (errata 66 D: the second
+      // ledger is Room 5's) is not this room's. The room must cite the
+      // ruling, and the ruling must resolve.
+      const retired = sources.examine?.retired;
+      const retiredNames = retired && section(retired.ruling).ok ? retired.names : [];
       for (const one of batchSubjects(found.body)) {
+        if (retiredNames.some((name) => one.name.startsWith(name))) continue;
         const at = slot(one.name);
         at.look += one.look ? 1 : 0;
         at.listen += one.listen ? 1 : 0;
