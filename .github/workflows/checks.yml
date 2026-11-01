@@ -68,6 +68,11 @@ jobs:
   # saying out loud how much is actually covered.
   gauntlet:
     runs-on: ubuntu-latest
+    # A normal run takes about three minutes. On 2026-10-31 one hung in
+    # "Install chromium" for over two hours and, with GitHub's default
+    # six-hour limit, held a merge for the whole evening. Fifteen minutes is
+    # five times a normal run: a hang now fails fast and can be re-run.
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
 
