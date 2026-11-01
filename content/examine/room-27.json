@@ -1,0 +1,220 @@
+{
+  "room": 27,
+  "name": "ABANDONED CLAIM ROW",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 27 — ABANDONED CLAIM ROW",
+    "docs/08-examine-batch-1.md::ROOM 27 — ABANDONED CLAIM ROW",
+    "docs/54-batch-c.md::ROOM 27 · ABANDONED CLAIM ROW",
+    "docs/49-wrong-answers.md::ROOM 27 — ABANDONED CLAIM ROW"
+  ],
+  "subjects": [
+    {
+      "name": "CLAIM MARKER — \"EUREKA\"",
+      "LOOK_AT": [
+        "The first marker in the row. EUREKA, it says, dated the spring of the rush. He found the name and nothing else.",
+        "Dated the spring of the rush. He was among the first, and the first to be wrong.",
+        "Someone has scratched a small question mark after it. Not the same hand. A later, sadder hand."
+      ],
+      "LISTEN_TO": [
+        "Wind on split wood. The exclamation has weathered off.",
+        "The board ticks in the sun. It has dried out, like the word.",
+        "Nothing. Eureka is a word you only get to say once."
+      ]
+    },
+    {
+      "name": "CLAIM MARKER — \"PROVIDENCE\"",
+      "LOOK_AT": [
+        "PROVIDENCE. A Rhode Island man, then. We are eleven hundred miles from the reference and it did not help him either.",
+        "The lettering is careful, the hand schooled. Somebody's mother taught him that hand, in the same town as mine.",
+        "I find I have stood here longer than at the others. I am not going to examine why."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Providence has moved on.",
+        "Wind across the face of it. It sounds like a Sunday afternoon a long way off.",
+        "Nothing. The reference is lost on the territory."
+      ]
+    },
+    {
+      "name": "CLAIM MARKER — \"THE SURE THING\"",
+      "LOOK_AT": [
+        "THE SURE THING. The paint outlasted the certainty.",
+        "Beneath the name, smaller, a date, and smaller still, a second date. On the second, he was sure of something else.",
+        "It is the best-made marker in the row. He was sure of the carpentry, at least."
+      ],
+      "LISTEN_TO": [
+        "A loose nail, ringing faintly. The one sure thing on the claim.",
+        "The nail again, ringing when the wind leans.",
+        "The nail, and then nothing. Even the one sure thing is working loose."
+      ]
+    },
+    {
+      "name": "CLAIM MARKER — \"PATIENCE\"",
+      "LOOK_AT": [
+        "PATIENCE. Abandoned second in the row, the register says. There is a lesson and nobody wants it.",
+        "The paint is thick and careful, laid on in three coats. He had time for that, at the beginning.",
+        "Nobody has filed on it since. The town learned something here and will not say what."
+      ],
+      "LISTEN_TO": [
+        "Nothing at all. It ran out.",
+        "Nothing. Not even the wind waits here long.",
+        "Nothing. It was very patient, and then it was not."
+      ]
+    },
+    {
+      "name": "CLAIM MARKER — \"THE MOTHERLODE\"",
+      "LOOK_AT": [
+        "THE MOTHERLODE, in letters that used up two boards. Ambition at marker scale. The hole behind it is knee deep.",
+        "He painted the O's as nuggets. He had the whole thing planned, except the gold.",
+        "Knee deep. I measured it against my own knee. The hole never came up to the name."
+      ],
+      "LISTEN_TO": [
+        "Both boards knock in the wind, out of time with each other.",
+        "The two boards knocking, one for MOTHER and one for LODE, and they have never agreed.",
+        "A slow double knock, like someone at a door who does not expect an answer."
+      ],
+      "overrides": {
+        "PUSH": "Both boards knocked, out of time. Even leaning on it, you can hear the argument the name lost."
+      }
+    },
+    {
+      "name": "CLAIM MARKER — \"LUCKY DAN'S\"",
+      "LOOK_AT": [
+        "LUCKY DAN'S. Dan, the story goes, left the territory with money — from selling this marker's claim to the next optimist. The luck was real. It was just all in the leaving.",
+        "DAN'S is in bigger letters than LUCKY. He knew which part he could count on.",
+        "Three men bought this claim from each other after Dan. None of them changed the marker. It was the only thing on it with any value."
+      ],
+      "LISTEN_TO": [
+        "A creak with a rhythm to it. Almost a chuckle.",
+        "The creak again, with its rhythm. Dan, laughing all the way to Sacramento.",
+        "Nothing. The joke has been told, and Dan has gone with the punchline."
+      ],
+      "overrides": {
+        "PICK_UP": "I considered taking the marker as a lesson. But the lesson is load-bearing where it stands."
+      }
+    },
+    {
+      "name": "CLAIM MARKER — \"BONANZA\"",
+      "LOOK_AT": [
+        "BONANZA, misspelled BONANSA, corrected, the correction misspelled. He fought that word to a draw and the ground beat him.",
+        "The last attempt is the smallest, squeezed in at the edge. He ran out of board and patience together.",
+        "Somebody has since corrected it a fourth time, in chalk, and got it right. Too late to matter to anyone."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The argument is over.",
+        "Nothing. Neither side is talking.",
+        "Wind in the letters. Even it cannot decide on the Z."
+      ]
+    },
+    {
+      "name": "CLAIM MARKER — \"GLORY HOLE\"",
+      "LOOK_AT": [
+        "GLORY HOLE. A mining term, I am assured. The hole is there. The glory is on back order.",
+        "The shaft goes deeper than any other on the row. He was the most certain or the most stubborn, and out here they look the same.",
+        "His initials are cut into the lip of the shaft, at the height of a man sitting on the edge. By the wear, he sat there a long time."
+      ],
+      "LISTEN_TO": [
+        "Wind across the shaft mouth below. A low note, held.",
+        "The low note again, held as long as the wind holds it.",
+        "The note, falling away. The shaft lets it go, the way it let everything go."
+      ]
+    },
+    {
+      "name": "CLAIM MARKER — \"THE WIDOW'S MITE\"",
+      "LOOK_AT": [
+        "THE WIDOW'S MITE. Small letters, careful hand. Whoever she was, she dug it herself; the workings are narrow and exact.",
+        "The workings are no wider than her shoulders. She dug them to fit herself, exactly.",
+        "Somebody keeps the marker upright. Not straightened — kept. A stone has been set at its foot, and replaced."
+      ],
+      "LISTEN_TO": [
+        "The quietest marker in the row. Even the wind lowers its voice.",
+        "Very quiet. The wind goes round it.",
+        "Nothing, and a different nothing from the others. It sounds attended to."
+      ]
+    },
+    {
+      "name": "CLAIM MARKER — \"NEW CANAAN\"",
+      "LOOK_AT": [
+        "NEW CANAAN. The promised land, claimed and quit inside one summer. The scripture on the reverse has weathered down to 'AND THE LORD.'",
+        "On the back, under AND THE LORD, the ghost of more words, gone too pale to follow.",
+        "Claimed and quit in one summer. The promised land took less time to leave than to reach."
+      ],
+      "LISTEN_TO": [
+        "Split wood, breathing with the heat. The sermon continues at a whisper.",
+        "Split wood, ticking. The sermon has reached a pause.",
+        "Nothing. The congregation has gone home."
+      ]
+    },
+    {
+      "name": "CLAIM MARKER — THE BLANK ONE",
+      "aliases": [
+        "THE MARKERS"
+      ],
+      "LOOK_AT": [
+        "The last marker has no name at all. Either he never chose one or he took it with him. Of the eleven, this is the one I think about.",
+        "Not weathered off. Never painted. The wood is as clean as the day it was set.",
+        "The workings behind it are the deepest on the row. Whoever he was, he did not need a name to dig."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Not a thing. It never said, and it isn't starting now.",
+        "Nothing.",
+        "Nothing."
+      ],
+      "overrides": {
+        "TALK_TO": "I asked its name. The wind declined on its behalf. Of the eleven, it is still the one I think about."
+      }
+    },
+    {
+      "name": "THE WORKINGS",
+      "LOOK_AT": [
+        "Eleven holes. Some of them are forty feet deep. Somebody dug forty feet by hand and then stopped and walked away, and I would like to know on which day he decided.",
+        "Every hole on the row is a different depth, and every depth is a different day somebody gave up.",
+        "Some were filled back in, neatly. Most were not. You can tell the tidy men from here."
+      ],
+      "LISTEN_TO": [
+        "Wind, in the holes. It's a low sound. It is almost the same sound as my hole and it is not the same sound at all.",
+        "Wind in the holes, eleven notes, none of them in tune with another.",
+        "Nothing, in a lull. Eleven holes, holding their breath."
+      ]
+    },
+    {
+      "name": "THE SLUICE FRAMES",
+      "LOOK_AT": [
+        "The frames of old sluices, their boards long since borrowed for something else. The skeleton of an idea about water.",
+        "One still has its riffles, nailed in hope and left in place.",
+        "The water they were built for went somewhere else a season later. Even the creek left the row."
+      ],
+      "LISTEN_TO": [
+        "Wind through the frames, a dry rattle where water should be.",
+        "A loose board tapping, as if asking to be used.",
+        "Nothing. They have been dry long enough to forget."
+      ]
+    },
+    {
+      "name": "A BOOT",
+      "LOOK_AT": [
+        "One boot. Good quality, once. It is not paired with anything.",
+        "A left boot. I looked at the other markers for a right one. There isn't one.",
+        "Good stitching, gone gray. Somebody paid a month's wages for this boot and walked out of it."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Wind across the top of it, a hollow little hoot.",
+        "Nothing. It is waiting for the other one, and so, a little, am I."
+      ]
+    },
+    {
+      "name": "THE PATH",
+      "LOOK_AT": [
+        "A path, worn deep, between eleven claims that produced nothing. Somebody walked this every day for a long time.",
+        "Worn down past the topsoil to the hardpan. A great many days went into this path.",
+        "It is the one thing on the row that was finished."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Nobody comes up here.",
+        "My own boots on it, and nobody else's.",
+        "Nothing. The path has outlasted every reason to walk it."
+      ]
+    }
+  ]
+}

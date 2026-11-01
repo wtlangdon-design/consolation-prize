@@ -1,0 +1,197 @@
+{
+  "room": 15,
+  "name": "THE LIVERY STABLE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 15 — THE LIVERY STABLE",
+    "docs/09-examine-batch-2.md::ROOM 15 — THE LIVERY STABLE",
+    "docs/54-batch-c.md::ROOM 15 · THE LIVERY STABLE",
+    "docs/49-wrong-answers.md::ROOM 15 — THE LIVERY STABLE"
+  ],
+  "subjects": [
+    {
+      "name": "GRIEVANCE",
+      "LOOK_AT": [
+        "A mule of settled convictions. She has looked at me once, fully, and reached a verdict she sees no reason to revisit.",
+        "Her ears follow me round the stable. The rest of her does not consider me worth turning for.",
+        "She is the color of a wet saddle, and she is wearing her own opinion of me."
+      ],
+      "LISTEN_TO": [
+        "Breathing, slow and deliberate. She is not asleep. She is declining to participate.",
+        "Nothing. She is holding her breath. I am almost certain she is holding her breath.",
+        "A long breath out through the nose. It is the most eloquent opinion anyone in this town has given me."
+      ],
+      "overrides": {
+        "USE_THE_TUNING_FORK (before the livery man has hummed)": "I could give her an A. I do not think an A is what she is waiting for.",
+        "USE_THE_TUNING_FORK (after B3)": "She has heard it. She does not need to hear it twice.",
+        "USE": "You do not use Grievance. You are, if she consents, briefly adjacent to her purposes.",
+        "PUSH": "I have pushed buildings with more give."
+      }
+    },
+    {
+      "name": "GRIEVANCE'S BLANKET",
+      "LOOK_AT": [
+        "Her blanket, striped, older than the stable. It is hers the way the territory is the government's: nominally, and at her pleasure.",
+        "A blanket, folded, considerably better than the blanket on my bed.",
+        "It smells of mule, and of something older, like a coat kept in a cedar chest."
+      ],
+      "LISTEN_TO": [
+        "Wool and straw. A warm quiet.",
+        "Nothing.",
+        "Nothing. It is the quietest thing in the stable, and it knows its worth."
+      ],
+      "overrides": {
+        "PICK_UP": "She turned her head one inch. I returned the blanket two inches. We understand each other."
+      }
+    },
+    {
+      "name": "GRIEVANCE'S FEED BIN",
+      "LOOK_AT": [
+        "Oats, at a level she monitors precisely. The livery man says she can count. He says it without smiling.",
+        "The lid has a latch she has learned to work and a second latch she has decided not to, as a courtesy.",
+        "The level has not gone down while I have been here. She is watching me watch it."
+      ],
+      "LISTEN_TO": [
+        "A shift of grain. She heard me look.",
+        "Grain settling, then a snort from the stall to let me know it was noted.",
+        "Nothing. She has stopped listening for me, which I take as a promotion."
+      ]
+    },
+    {
+      "name": "THE STALLS",
+      "LOOK_AT": [
+        "Six stalls, one occupied. The others hold hay, a broken sulky, and the general storage of a town that keeps everything.",
+        "The broken sulky has a seat for one and a wheel for nobody.",
+        "One stall is stacked with folding chairs, which the town keeps here against the next funeral."
+      ],
+      "LISTEN_TO": [
+        "Boards, warm and creaking. The building digests.",
+        "A mouse in the empty stalls, taking inventory.",
+        "The boards again, warm and slow. The stable sounds like a big animal at rest."
+      ]
+    },
+    {
+      "name": "THE TACK WALL",
+      "aliases": [
+        "THE TACK"
+      ],
+      "LOOK_AT": [
+        "Harness, bridles, and collars, hung by size. A history of horses this town no longer has.",
+        "Harness, in good repair, hung in order. Whoever runs this stable is better at their trade than anybody else in town is at theirs.",
+        "One collar is enormous. It belonged to a horse the livery man still talks about, and nobody has oiled it since."
+      ],
+      "LISTEN_TO": [
+        "Leather straps, touching in the draft. A dry conversation.",
+        "Leather. Nothing.",
+        "A buckle tapping in the draft, keeping a slow time of its own."
+      ]
+    },
+    {
+      "name": "THE ANVIL",
+      "LOOK_AT": [
+        "A shoeing anvil, cold more days than not. The ring of it, they say, used to be the town's clock.",
+        "The face is worn into a shallow dish by forty years of hammering. It has outlasted every horse it shod.",
+        "A horseshoe hangs on the horn, half made. The smith left in the middle of a sentence."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It is saving its one note.",
+        "Nothing, though I can hear it anyway: a high clean A, if it is any good. I am not going to strike it to find out.",
+        "Nothing. An anvil at rest is the quietest iron there is."
+      ],
+      "overrides": {
+        "PICK_UP": "It occurred to me. It stopped occurring to me almost immediately."
+      }
+    },
+    {
+      "name": "THE HAY LOFT",
+      "aliases": [
+        "THE HAY"
+      ],
+      "LOOK_AT": [
+        "Hay above, gold below, if you ask the loft ladder, which is worn brighter than any pew in the church.",
+        "Men sleep up there, by the look of the ladder, and the livery man does not ask.",
+        "Hay, and dust in the light, and the smell of a summer that happened somewhere else."
+      ],
+      "LISTEN_TO": [
+        "Straw settling, and something small making a home in it.",
+        "A rustle, a squeak, and a silence that is pretending to be hay.",
+        "Nothing up there now. Whoever sleeps in it is out working, or trying to."
+      ],
+      "overrides": {
+        "USE": "The ladder is worn bright by men sleeping off their optimism. I have a room. For now, I insist on the distinction."
+      }
+    },
+    {
+      "name": "THE STABLE DOORS",
+      "LOOK_AT": [
+        "Doors wide enough for a coach, opened to a gap wide enough for a man. The territory in one hinge.",
+        "The hinges are new and the doors are not. Somebody repairs what moves and leaves what doesn't.",
+        "Grievance can see out through the gap from her stall. I suspect that is why it is that wide and no wider."
+      ],
+      "LISTEN_TO": [
+        "Wind through the gap, asking to come in. The doors hold their line.",
+        "Main Street, narrowed to the width of the gap.",
+        "The wind, still asking. The doors, still saying no."
+      ]
+    },
+    {
+      "name": "GRIEVANCE'S STALL",
+      "LOOK_AT": [
+        "Her name is burned into the post. The other stalls are numbered. Somebody, at some point, decided this animal warranted a name.",
+        "Her stall is swept and the others are not. The livery man has priorities, and they are a mule.",
+        "There are tooth marks along the top board. She has been working on it for years, without hurry."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Her tail swishing, at a tempo she sets.",
+        "Nothing. She is standing very still, which is how she listens."
+      ]
+    },
+    {
+      "name": "THE OTHER MULES",
+      "LOOK_AT": [
+        "Four mules, numbered, entirely willing to work. They are looking at Grievance the way a work crew looks at a man who has got away with something.",
+        "Number Three is asleep standing up. Number One is pretending to be.",
+        "They are good mules. Nobody will ever name them."
+      ],
+      "LISTEN_TO": [
+        "Contented. They have no idea.",
+        "Chewing, in four slightly different rhythms.",
+        "One of them sighs. It is a working sigh, and it means nothing by it."
+      ]
+    },
+    {
+      "name": "THE LIVERY MAN'S CHAIR",
+      "LOOK_AT": [
+        "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once.",
+        "The back legs are worn short. He has tipped it for so many years the chair has adapted.",
+        "It faces Grievance's stall. He sits where he can see her. I have yet to see her return the courtesy."
+      ],
+      "LISTEN_TO": [
+        "A creak as it settles back onto four legs.",
+        "Nothing. It is waiting for him, and it can wait.",
+        "The chair ticks against the wall in the draft, as if he were still in it, rocking."
+      ]
+    },
+    {
+      "name": "THE BOARD OF NAMES",
+      "LOOK_AT": [
+        "Who has hired what, going back years. Twelve years ago somebody hired Grievance for four days and did not write down where they were going.",
+        "Names, dates and animals, in a hand that gets more patient every year.",
+        "Some names have a line through them and the word PAID. Some have a line and the word GONE."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Paper pinned to wood, keeping accounts.",
+        "The pin rattles in the draft. Twelve years of comings and goings, held up by one nail."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "THE LIVERY MAN": {
+      "PICK_UP": "He has lifted every animal in this stable at one time or another. I am not going to give him the satisfaction of the comparison.",
+      "PUSH": "He is tipped back on two chair legs. One push and we would both learn something.",
+      "USE": "You do not use the livery man. You apply, like everybody else."
+    }
+  }
+}

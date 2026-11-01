@@ -1,0 +1,228 @@
+{
+  "room": 13,
+  "name": "THE UNDERTAKER'S",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 13 — THE UNDERTAKER'S",
+    "docs/09-examine-batch-2.md::ROOM 13 — THE UNDERTAKER'S",
+    "docs/26-batch-a.md::ROOM 13 · THE UNDERTAKER'S",
+    "docs/54-batch-c.md::ROOM 13 · THE UNDERTAKER'S",
+    "docs/49-wrong-answers.md::ROOM 13 — THE UNDERTAKER'S"
+  ],
+  "subjects": [
+    {
+      "name": "THE GOOD SUIT",
+      "LOOK_AT": [
+        "One good suit, in three sizes, rented for viewings and returned after. Half the men in Boot Hill were photographed in it. It has more friends than I do.",
+        "Three sizes, on one hanger, and all three have been let out at the waist.",
+        "It hangs better than most of the men who wore it. The suit, at least, has kept its shape."
+      ],
+      "LISTEN_TO": [
+        "Wool, on a hanger, at rest. It has heard every eulogy in town and improved none of them.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing."
+      ],
+      "overrides": {
+        "PICK_UP": "It is rented, and I am not the size.",
+        "USE": "Renting it while alive is, I'm told, 'irregular but not unprecedented.' I did not ask about the precedent."
+      }
+    },
+    {
+      "name": "THE COFFINS",
+      "LOOK_AT": [
+        "Three on trestles: pine, pine with handles, and pine with handles and a name plate. The tiers of Consolation, laid out plainly for once.",
+        "Coffins, stacked by size. There are a great many in the smallest size, which I have decided to attribute to storage efficiency.",
+        "Six months of work, standing ready. He is not expecting a quiet year."
+      ],
+      "LISTEN_TO": [
+        "Empty wood. A patient sound.",
+        "Nothing. Naturally nothing. I don't know what I expected.",
+        "Nothing.",
+        "Nothing. Naturally nothing."
+      ],
+      "overrides": {
+        "USE": "Trying one for size is free. I know because I asked, which tells you what this town has done to my sense of thrift.",
+        "OPEN": "There is nothing in it. I have checked, which I regret."
+      }
+    },
+    {
+      "name": "THE TEETH",
+      "aliases": [
+        "THE JAR OF TEETH"
+      ],
+      "LOOK_AT": [
+        "A jar of teeth. I asked whose. He said, and I am quoting, 'various.'",
+        "A jar of teeth. He sells them on to the barber, who fits them to the living. Nothing in this establishment is wasted.",
+        "Still there. I have decided to think of it as inventory.",
+        "There are more than there were on Tuesday. I am not going to develop this thought."
+      ],
+      "LISTEN_TO": [
+        "They shift when the floor does. I wish they would not.",
+        "Nothing. Obviously nothing. I checked, and I regret it.",
+        "Nothing.",
+        "Nothing. I have satisfied myself and I should like that to be the end of it."
+      ],
+      "overrides": {
+        "PICK_UP": "No.",
+        "USE": "I have teeth. It is among my few unencumbered assets."
+      }
+    },
+    {
+      "name": "THE MEASURING WALL",
+      "LOOK_AT": [
+        "Heights penciled on the door frame, like a family kitchen, except for what the measurements are for. I am between two men I never met.",
+        "Each mark has a name and a date beside it. The dates are all endings.",
+        "The tallest mark is a foot above my head and reads BIG SWEDE. He stooped through that door for years, and then he did not have to."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The wall takes your measure and keeps it.",
+        "Nothing. Pencil does not carry.",
+        "Nothing. It learns one thing about each man, and it is in no hurry to learn mine."
+      ],
+      "overrides": {
+        "TALK_TO": "I congratulated the wall on its discretion. It has the measure of everyone and repeats nothing."
+      }
+    },
+    {
+      "name": "THE VIEWING TABLE",
+      "aliases": [
+        "THE TABLE"
+      ],
+      "LOOK_AT": [
+        "Scrubbed oak, scrubbed often. The cleanest surface in the territory, for the least demanding clients.",
+        "Scrubbed to the grain, and scrubbed again since.",
+        "There is a block at one end for the head. It is padded. Somebody thought of that, and I am grateful to him on behalf of strangers."
+      ],
+      "LISTEN_TO": [
+        "Nothing at all. Not even the wind bothers.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing."
+      ]
+    },
+    {
+      "name": "THE LEDGER OF ACCOUNTS",
+      "aliases": [
+        "THE LEDGER"
+      ],
+      "LOOK_AT": [
+        "Burials on credit. The undertaker is owed by more of Boot Hill than the bank is, and he collects with more patience.",
+        "Every burial in Consolation. Eleven pages. Two thousand people have lived here for twelve years and it is eleven pages, which means most of them left.",
+        "Eleven pages in twelve years, in a town of two thousand.",
+        "Which means most of them left. I have been telling myself that all morning."
+      ],
+      "LISTEN_TO": [
+        "A page lifts and lies back down. Somebody's balance.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing."
+      ]
+    },
+    {
+      "name": "THE FLOWERS, WAXED",
+      "LOOK_AT": [
+        "Wax lilies, used at every service and dusted between them. Real flowers die, which is considered to be in poor taste here.",
+        "Dusted so often the wax has worn thin at the tips. Even the permanent arrangements are wearing out.",
+        "Somebody has painted a dewdrop on one petal. It is the only tear the arrangement has ever shed, and it is paint."
+      ],
+      "LISTEN_TO": [
+        "Nothing. They are beyond all that.",
+        "A faint click when the vase is touched. Wax petals, settling against each other.",
+        "Nothing. No bee has been fooled, and no bee has tried."
+      ]
+    },
+    {
+      "name": "THE HEARSE HARNESS",
+      "LOOK_AT": [
+        "Black harness on a peg, kept supple. The undertaker has no horse of his own; he borrows Grievance, who wears black well and knows the route.",
+        "The brass fittings are blacked over. Even the buckles are in mourning.",
+        "It is cut for Grievance and nobody else. She knows the road to Boot Hill, he says, and does not stop at the gate unless asked."
+      ],
+      "LISTEN_TO": [
+        "Leather, easing on the peg. Working clothes between shifts.",
+        "A buckle ticking against the wall, patient as a mule.",
+        "Nothing. It is not a working day, and the harness can tell."
+      ]
+    },
+    {
+      "name": "THE PRICE BOARD",
+      "aliases": [
+        "THE PRICE LIST"
+      ],
+      "LOOK_AT": [
+        "Prices, chalked: the suit, the plate, the words said over you at three grades of sincerity. The top grade is surprisingly reasonable.",
+        "Plain, Respectable, and Handsome. The Handsome is four times the Plain and the difference is a handle.",
+        "There is a fourth line, scratched out, that began with the word Gratis.",
+        "Nobody has ever asked me which I would want, and I have decided that is a courtesy."
+      ],
+      "LISTEN_TO": [
+        "Chalk dust. Commerce, at its most certain.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing."
+      ],
+      "overrides": {
+        "PICK_UP": "It is nailed up, and I would rather not be seen taking it."
+      }
+    },
+    {
+      "name": "THE TOOLS",
+      "LOOK_AT": [
+        "A saw, a plane, a brace, and a mallet, hung level and clean. This is a carpenter's shop that has specialized.",
+        "The plane has been used this morning. There are shavings and they are pale.",
+        "He makes them himself. I had assumed they came from somewhere."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing.",
+        "Nothing. He is not working while I am standing here."
+      ],
+      "overrides": {
+        "PICK_UP": "They are hung level. I am not the man who unhangs them."
+      }
+    },
+    {
+      "name": "THE WAITING BENCH",
+      "LOOK_AT": [
+        "A bench by the door, for those come to arrange things. It has a cushion.",
+        "Somebody put a cushion on a bench in an undertaker's. I would like to know who and I am not going to ask.",
+        "It is worn in the middle, which is the opposite of the Registrar's."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing.",
+        "Nothing. It is the quietest bench in the territory and it has earned it."
+      ],
+      "overrides": {
+        "USE": "I have sat down. It is a very good cushion and that is somehow the worst part."
+      }
+    },
+    {
+      "name": "THE WINDOW",
+      "LOOK_AT": [
+        "North light, and a blind half down. He works by it and he does not want watching.",
+        "The glass is clean. Everything in here is clean.",
+        "Boot Hill is that way, up the rise. You can see the markers from this window and he has left the blind so you can."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The street, a long way off, and not much of it.",
+        "Nothing.",
+        "Nothing at all."
+      ]
+    },
+    {
+      "name": "THE STREET DOOR",
+      "LOOK_AT": [
+        "The door out. There is no bell, and I understand the decision.",
+        "It opens onto a lane rather than the street. He is not on Main Street and he is not hiding either.",
+        "The step is scrubbed. Of course the step is scrubbed."
+      ],
+      "LISTEN_TO": [
+        "The town, at a distance.",
+        "Nothing.",
+        "Nothing."
+      ]
+    }
+  ]
+}

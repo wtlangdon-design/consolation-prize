@@ -1,0 +1,262 @@
+{
+  "room": 19,
+  "name": "THAD'S HOTEL ROOM",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/08-examine-batch-1.md::ROOM 19 — THAD'S HOTEL ROOM",
+    "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM",
+    "docs/54-batch-c.md::ROOM 19 · THAD'S HOTEL ROOM",
+    "docs/49-wrong-answers.md::ROOM 19 — THAD'S HOTEL ROOM"
+  ],
+  "subjects": [
+    {
+      "name": "THE BED",
+      "LOOK_AT": [
+        "A bed with a valley in it, shaped by predecessors. I sleep on one slope or the other.",
+        "A bed, made, narrow, and the sheets are clean. I had not expected the sheets to be clean.",
+        "It is the only thing in Consolation that has exceeded my expectations.",
+        "Five dollars a week. I have decided the sheets are most of it."
+      ],
+      "LISTEN_TO": [
+        "Springs. They report every intention before I have finished forming it.",
+        "Nothing.",
+        "Nothing.",
+        "Nothing. It is a bed and it is waiting, which is what they do."
+      ],
+      "overrides": {
+        "USE": "It is nine in the morning.",
+        "PUSH": "I moved it off the valley. I woke in the valley. The bed and the floor have seniority."
+      }
+    },
+    {
+      "name": "THE WASHSTAND",
+      "LOOK_AT": [
+        "A basin, a pitcher, and a bar of soap worn to a wafer. Washing in the territory is devotional: brief, and mostly symbolic.",
+        "A washstand, a jug, a basin, and a piece of mirror the size of my hand.",
+        "The water is brought up cold at six and is cold at six.",
+        "I have shaved in a piece of mirror the size of my hand every day for eleven weeks and I am beginning to take a view about it."
+      ],
+      "LISTEN_TO": [
+        "A drip that keeps no rhythm. I have tried tuning it. It resists.",
+        "Nothing. Water, when I move it.",
+        "Nothing.",
+        "Nothing."
+      ],
+      "overrides": {
+        "USE": "I muffled it with a sock. It transposed. The drip has range."
+      }
+    },
+    {
+      "name": "THE WINDOW",
+      "LOOK_AT": [
+        "The alley. A cat, some barrels, and a view of the back of the Improvement Company.",
+        "The alley. A cat, some barrels, and the back of the Improvement Company.",
+        "One story, from here. From the street it is three. I have checked from both."
+      ],
+      "LISTEN_TO": [
+        "The town. All of it. The wall between us is a formality.",
+        "Somebody unloading, two streets over. It goes on all night. I have stopped minding it, which worries me.",
+        "The cat is on the barrels again. She gets up there and then reconsiders.",
+        "Nothing. Whoever was unloading has stopped, and the quiet is worse."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "The alley. The cat has gone. The barrels are the same."
+          ],
+          "LISTEN_TO": []
+        }
+      ]
+    },
+    {
+      "name": "THE DESK",
+      "LOOK_AT": [
+        "One short leg, corrected with a folded claim notice. The most useful work a claim notice has done all year.",
+        "A desk, a chair, and a window facing an alley. For five dollars a week, I had expected a slightly worse alley.",
+        "The chair does not match the desk. Neither matches the room."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The drama is all in what gets written at it.",
+        "Nothing. It is the only place in Consolation where nobody is talking.",
+        "Nothing."
+      ]
+    },
+    {
+      "name": "THE LETTERS HOME",
+      "aliases": [
+        "THE OUTGOING LETTER"
+      ],
+      "LOOK_AT": [
+        "My letters, in draft. True in the way maps are true — accurate about everything except how it feels to stand here.",
+        "A sheet, begun. 'Dear Mother —' and then a space where the rest of it should be.",
+        "I have started it four times. The four beginnings are identical.",
+        "It goes out Thursday, with whatever is on it by Thursday."
+      ],
+      "LISTEN_TO": [
+        "Paper. It holds whatever you tell it. That is the entire trouble with paper.",
+        "Nothing.",
+        "Nothing. It has not been written yet and it is being quiet about that too."
+      ]
+    },
+    {
+      "name": "THE WARDROBE",
+      "LOOK_AT": [
+        "A wardrobe for a man with wardrobe ambitions. My second shirt hangs in it with room to spread out.",
+        "The bottom drawer sticks. I have nothing to put in it, so we have come to an accommodation.",
+        "Somebody left a single glove on the top shelf. Nobody in Consolation owns gloves, so it was a visitor, and he lost the other one too."
+      ],
+      "LISTEN_TO": [
+        "Empty hangers, touching. A small cold applause.",
+        "The door drifting on its hinge, a long, thin creak.",
+        "Nothing. My second shirt has nothing to say for itself."
+      ],
+      "overrides": {
+        "CLOSE": "The door drifts open again in the night, at the same slow speed each time, like it's checking on me."
+      }
+    },
+    {
+      "name": "THE LAMP",
+      "LOOK_AT": [
+        "Trimmed low by management. Light is billed separately in spirit, if not on paper.",
+        "A notice is tacked beside it: GUESTS WILL KINDLY NOT TURN UP THE WICK. Kindly is underlined.",
+        "I turned it up a quarter inch. Nobody came. I turned it back down anyway."
+      ],
+      "LISTEN_TO": [
+        "The flame eats quietly. Good manners, in a fire.",
+        "A small flutter when the door opens. It does not like visitors either.",
+        "Nothing. It burns at the volume management prefers."
+      ],
+      "overrides": {
+        "TALK_TO": "I bade it goodnight. Management's wick allowance ended the conversation on its side."
+      }
+    },
+    {
+      "name": "THE FLOORBOARDS",
+      "LOOK_AT": [
+        "Gaps generous enough to bank coins in, which I would consider if I had coins to a degree worth hiding.",
+        "One board is newer than the others, and nailed down harder.",
+        "At night the lobby lamp shines up through the gaps, and the floor glows in stripes, like a cell, or a keyboard."
+      ],
+      "LISTEN_TO": [
+        "The lobby, in outline. Mostly the bell.",
+        "The clerk below, turning a page.",
+        "Somebody crossing the lobby slowly and stopping at the foot of the stairs. Then going on."
+      ],
+      "overrides": {
+        "PULL": "The gap by the window lifts. Beneath: dust, a button, and one playing card. The eight of diamonds. Some other tenant's whole story, in three items."
+      }
+    },
+    {
+      "name": "THE DOOR",
+      "LOOK_AT": [
+        "The lock takes the key, considers it, and admits anyone regardless. It is ceremonial, like most security.",
+        "The door down to the lobby. Number nineteen, in brass, hung slightly crooked.",
+        "Nineteen. The nine has been on and off more than once.",
+        "It locks. It is the only door I have ever had that locks and I do not lock it."
+      ],
+      "LISTEN_TO": [
+        "The hallway. A man passes twice an hour, slower each time.",
+        "The lobby. A clock, and somebody on the landing.",
+        "Still the clock.",
+        "Nothing."
+      ]
+    },
+    {
+      "name": "HIS MOTHER'S LETTERS",
+      "LOOK_AT": [
+        "Three from home. She is proud of me. She has been given no reason to be.",
+        "She asks about the weather here as though it were a place that has weather.",
+        "The most recent is six weeks old. It went to Sacramento and waited for me there."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Paper is very quiet about this sort of thing.",
+        "Nothing.",
+        "Nothing. Three letters, and not one of them has asked me anything I would have to answer."
+      ],
+      "acts": [
+        {
+          "act": "2",
+          "LOOK_AT": [
+            "Four from home. She has told the neighbours. The neighbours are also proud of me."
+          ],
+          "LISTEN_TO": []
+        },
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "Five from home. She asks whether I am eating."
+          ],
+          "LISTEN_TO": []
+        },
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "Six. I am going to answer this one properly."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
+      "overrides": {
+        "PICK_UP": "I have them. I have had them since Sacramento."
+      }
+    },
+    {
+      "name": "THE TUNING FORK CASE",
+      "LOOK_AT": [
+        "Velvet-lined, and worth more than the fork. My father's idea of a sensible investment.",
+        "Velvet-lined, and worth more than the fork it was made for.",
+        "It is the most cared-for object I own and it is a box."
+      ],
+      "LISTEN_TO": [
+        "Nothing, closed. It is a very good case.",
+        "Nothing, closed.",
+        "Nothing."
+      ]
+    },
+    {
+      "name": "THE COAT ON THE DOOR",
+      "LOOK_AT": [
+        "My good coat. It is the only thing I own that suggests I was once somebody's son with prospects.",
+        "My good coat. The only thing I own that suggests I was once somebody's son with prospects.",
+        "It has mud to the knee and I have stopped attending to it.",
+        "Providence made this coat for a man walking to an office."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing.",
+        "Nothing."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "My good coat. It has been in a grave."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
+      "overrides": {
+        "PICK_UP": "I am wearing the other one, which is this one."
+      }
+    },
+    {
+      "name": "THE WALL",
+      "LOOK_AT": [
+        "Boards, papered once, and the paper has given up in two corners.",
+        "Somebody before me wrote a number on the wall beside the bed and crossed it out.",
+        "The number was two hundred. I have not worked out what it was counting and I have stopped trying."
+      ],
+      "LISTEN_TO": [
+        "Two men, next door, discussing where Mott's strike is. They are very sure. They are sure in completely different directions.",
+        "Two men next door, discussing where Mott's strike is. They are very sure, and sure in completely different directions.",
+        "Still sure. Still different.",
+        "One of them has gone to sleep mid-sentence. The other has not noticed."
+      ],
+      "overrides": {
+        "PUSH": "It gives. I am going to stop pushing it."
+      }
+    }
+  ]
+}

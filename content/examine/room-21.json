@@ -1,0 +1,103 @@
+{
+  "room": 21,
+  "name": "THE WATCHMAN'S SHACK",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 21 — THE WATCHMAN'S SHACK",
+    "docs/54-batch-c.md::ROOM 21 · THE WATCHMAN'S SHACK",
+    "docs/49-wrong-answers.md::ROOM 21 — THE WATCHMAN'S SHACK"
+  ],
+  "subjects": [
+    {
+      "name": "THE COT",
+      "LOOK_AT": [
+        "A cot. It has never been slept in.",
+        "The blanket is folded square, with corners you could rule a ledger by. Somebody learned that a long way from here.",
+        "There is no dent in the pillow. A man who works nights must sleep days, and he does not do it here."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Not a rope under it has been asked to take a weight in years.",
+        "Nothing. A cot that has never been slept in has never learned to creak."
+      ],
+      "overrides": {
+        "USE": "It has been made, military-fashion, every day for years, and slept in — by the look of it — almost never."
+      }
+    },
+    {
+      "name": "THE TALLY MARKS",
+      "LOOK_AT": [
+        "Marks cut into the wall. Thousands of them. Someone has been counting something here for a very long time and has not stopped.",
+        "In fives, the fifth stroke always across. Every group is finished except the last, which is today's.",
+        "The oldest are at the height of a standing man's eye and gone soft with handling. The newest are down by the floor. He has run out of wall."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Somebody did this quietly.",
+        "Nothing. The knife that made these is not here, and neither is the man.",
+        "I put my ear to the boards. Wood, and the street beyond it. Nobody is counting out loud."
+      ]
+    },
+    {
+      "name": "THE LAMP",
+      "LOOK_AT": [
+        "Trimmed, filled, and ready. It is the only well-maintained object I have seen in Consolation.",
+        "The wick is trimmed square, and the glass is polished on the inside, which is the side that matters and the side nobody checks.",
+        "The brass is worn bright in one place, where a hand lifts it the same way every evening."
+      ],
+      "LISTEN_TO": [
+        "Nothing yet.",
+        "Nothing. It is waiting for dark, and it is good at waiting.",
+        "Not a sound. It is the only thing in this room that expects to be needed tonight."
+      ]
+    },
+    {
+      "name": "THE COAT ON THE NAIL",
+      "LOOK_AT": [
+        "A coat. Eastern cut, twelve or thirteen years out of fashion, and far too good for a night watchman.",
+        "The lining is silk, worn through at one pocket, where something heavy was carried for a long time.",
+        "It has been brushed recently and not worn in years. Somebody looks after it for no reason I can see."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Good wool keeps quiet on principle.",
+        "Nothing. It hangs exactly straight. Even the draft has been asked to leave it alone."
+      ]
+    },
+    {
+      "name": "THE WINDOW",
+      "LOOK_AT": [
+        "It faces Main Street. It faces the Improvement Company. Whoever put this window in wanted to see one particular building.",
+        "The glass has been cleaned in one square only, at the height of a man on a stool. The rest of the window may do as it likes.",
+        "From here you can see every door on Main Street, and the Company's twice. I do not know what you would be watching for. I suspect he does."
+      ],
+      "LISTEN_TO": [
+        "The street. All of it.",
+        "Main Street, at the distance a watchman would choose: near enough to hear a door, far enough not to be asked anything.",
+        "The Company's door, opening and closing. From in here it is the loudest thing in town."
+      ]
+    },
+    {
+      "name": "THE STOVE",
+      "LOOK_AT": [
+        "Cold. It has not been lit this season.",
+        "Swept out, and the ash bucket empty. A cold stove that someone still cleans.",
+        "There is kindling laid in it, dry, and from the dust on it, laid a long time ago."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Iron, at the temperature of the room, which is the temperature of outside.",
+        "Nothing. A stove that has given up on this season and possibly the next."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "HOB": {
+      "PICK_UP": "No. Some men you leave exactly where they have chosen to stand.",
+      "PUSH": "He has stood in one place for twelve years. I am not going to be the one who moves him.",
+      "USE": "No. Everybody in this town has had some use of him, and none of them noticed. I will not make one more."
+    },
+    "THE DOOR": {
+      "CLOSE": "It doesn't latch from outside. A watchman's door. Nothing of his was ever protected but the town."
+    }
+  }
+}

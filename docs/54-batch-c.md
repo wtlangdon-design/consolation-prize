@@ -57,7 +57,7 @@
 - **THE LEDGER OF ACCOUNTS, LOOK.** Doc 26's lines 2 and 3 restate doc 09's line 1. **Decided:** kept — they are its continuation (eleven pages → most of them left), not a repetition of doc 05's credit joke.
 - **THE PRICE BOARD.** **Decided:** chalked and nailed up; no contradiction.
 
-**THE GOOD SUIT** — LOOK 3 "It has been let out at the waist and taken in at the shoulders. The town has been getting older in it." 
+**THE GOOD SUIT** — LOOK 3 "It hangs better than most of the men who wore it. The suit, at least, has kept its shape." 
 
 **THE VIEWING TABLE** — LOOK 3 "There is a block at one end for the head. It is padded. Somebody thought of that, and I am grateful to him on behalf of strangers."
 
@@ -94,6 +94,8 @@
 *One pass only (doc 05). **THE HOLE's LISTEN is the line the entire game rests on** (doc 05) and is one of the three that must never be marked. Its repeats are therefore doc 05's line again, word for word: doc 05 Part Two-B's Act III variant says of it "The same words as always; I am only now hearing what they were saying", so the hole has only ever said one thing. Repeating it is how ten other subjects in the game repeat "Nothing", which is what keeps it from standing out. Declare both as deliberate repetitions in content; never as anything else.*
 
 **THE CLAIM MARKER** ≡ **THE CLAIM MARKER (MINE)**
+**THE MUD** ≡ **THE MUD (DEEDED)**
+**THE HOLE** ≡ **THE RACCOON'S FORMER RESIDENCE**
 
 *(Part Two-B's Act IV LOOK for the marker names it THE CLAIM MARKER (MINE). It is this stake; its variant replaces LOOK only, as Part Two-B's doctrine says single-verb variants do.)*
 
@@ -145,10 +147,7 @@
 **LOOK** 1 "Grievance's blanket, on loan. She knows." · 2 "It is warmer than my coat and better kept than my room." · 3 "I will bring it back. I would like that written down somewhere she can read it."
 **LISTEN** 1 "Nothing. It smells of mule and moral authority." · 2 "Wool, settling. It has been folded by an expert and unfolded by me." · 3 "Nothing. I have the sense of being watched from the stable."
 
-**In Room 12 (the Mercantile)** — where both are had, on Thad's account:
-> **THE PICKLE JAR** · PICK UP — "One jar, on my account. I have an account now. I am told that makes me a resident." → the pickled eggs
-> **DR. PURVIS'S TONIC** · PICK UP — "On account, with the eggs. It was wrapped for me as though it might go off, in either sense." → the tonic
-> Either, PICK UP again — "One is an account. Two is a habit."
+*The eggs and the tonic are had in Room 12, on Thad's account: their PICK UP lines are in Room 12's section.*
 
 ---
 
@@ -825,7 +824,7 @@
 
 # ROOM 35 · THE COMPANY VAULT
 
-*Merged: doc 05's ten and doc 10's ten, sixteen objects. Act IV. One contradiction, decided for doc 05 on a tie (errata 68 H): the strongbox holds money, "less than the town believes", so doc 10's "Open. Empty." and its LISTEN are dropped. Doc 10's two dates now carry errata 10's corrections at source (the subscription is 1846; the portraits have been printed as Mott for seven years), and doc 05's "labelled" is spelled the American way.*
+*Merged: doc 05's ten and doc 10's ten, sixteen objects. Act IV. One contradiction, decided for doc 05 on a tie (errata 68 H): the strongbox holds money, "less than the town believes", so doc 10's "Open. Empty." and its LISTEN are dropped. Doc 10's two dates now carry errata 10's corrections at source (the subscription is 1846; the portraits have been printed as Mott for seven years), and doc 05's "labeled" is spelled the American way.*
 
 ## Same object, both passes
 
@@ -883,6 +882,7 @@
 ## Same object, both passes
 
 **THE LETTERS HOME** ≡ **THE OUTGOING LETTER**
+**THE WASHSTAND** ≡ **THE WASHSTAND DRIP**
 
 *(THE BED, THE WASHSTAND, THE WINDOW and THE DESK have the same name in both passes. Doc 05's THE DOOR is the exit to Room 18, whose LOOK and LISTEN runs are doc 26's.)*
 
@@ -1176,7 +1176,13 @@
 
 **THE UNSOLD SCALES** — LOOK 2 "The paper on them has yellowed and the scales underneath are still new. It is a strange kind of age." · 3 "He has never marked them down. He is still waiting for the men who would need to weigh things." | LISTEN 2 "Nothing. A dozen scales, perfectly balanced, with nothing to weigh." · 3 "The paper crackling as I lean on the shelf. That is as close as they have come to being used."
 
-**THE CATALOGUE — furniture pages** — LOOK 2 "A parlor suite in red plush, freight extra. The freight is more than the suite." · 3 "Somebody has pencilled a small man sitting on the settee. He looks very comfortable. He is the only comfortable man in Consolation." | LISTEN 2 "Nothing. Soft furniture, on paper, is softer still." · 3 "Nothing. The page is too worn to rustle."
+**THE CATALOGUE — furniture pages** — LOOK 2 "A parlor suite in red plush, freight extra. The freight is more than the suite." · 3 "Somebody has penciled a small man sitting on the settee. He looks very comfortable. He is the only comfortable man in Consolation." | LISTEN 2 "Nothing. Soft furniture, on paper, is softer still." · 3 "Nothing. The page is too worn to rustle."
+
+## Overrides *(errata 68 A)*
+
+> **THE PICKLE JAR** · PICK UP — "One jar, on my account. I have an account now. I am told that makes me a resident." *(→ the pickled eggs)*
+> **DR. PURVIS'S TONIC** · PICK UP — "On account, with the eggs. It was wrapped for me as though it might go off, in either sense." *(→ the tonic)*
+> **THE PICKLE JAR** · PICK UP, *again* — "One is an account. Two is a habit."
 
 ### THE BOOTS
 **LOOK** 1 "Boots in pairs, tied together by the laces and hung on a nail. The only things in town guaranteed to go everywhere together." · 2 "The leather is good and the price is better than the leather. That is not a compliment." · 3 "One boot without a partner, marked down to half. I know a monument on the claims road it would suit."
@@ -1262,7 +1268,7 @@
 
 **PIKE'S MARKER** ≡ **PIKE'S HEADBOARD**
 **PIKE'S MARKER** ≡ **PLOT ELEVEN**
-**PIKE'S NEIGHBOUR** ≡ **THE FRESH PLOT**
+**PIKE'S NEIGHBOR** ≡ **THE FRESH PLOT**
 
 *(PIKE'S HEADBOARD and PLOT ELEVEN are doc 49's names for Ezra Pike's grave — "Plot eleven" (UND_A1), "third row, second from the end" (doc 27). Doc 05 gives Pike's line as "the tenth marker the player checks"; errata 69 E makes his grave its own hotspot, findable from Act I, with doc 05's line as its first LOOK. THE GATE is the room's exit. Doc 49's THE FENCE and THE WILD OATS name objects no pass places and are retired under errata 68 E.)*
 
@@ -1276,9 +1282,9 @@
 
 *(MOTT'S MARKER's LISTEN repeats keep doc 05's fact — there is nothing under it — and add none.)*
 
-**PIKE'S NEIGHBOUR** — LOOK 2 "The spade is still in the spoil heap, waiting for a decision that has already been made." · 3 "Frame's spelling is on the marker in paint. The undertaker has left room to correct it, and will not." | LISTEN 2 "A trickle of dirt into the bottom of it. Practice." · 3 "Nothing yet, for the second time. The yet is doing a great deal of work."
+**PIKE'S NEIGHBOR** — LOOK 2 "The spade is still in the spoil heap, waiting for a decision that has already been made." · 3 "Frame's spelling is on the marker in paint. The undertaker has left room to correct it, and will not." | LISTEN 2 "A trickle of dirt into the bottom of it. Practice." · 3 "Nothing yet, for the second time. The yet is doing a great deal of work."
 
-**MY OWN PLOT** — LOOK 2 "The grass has started over it. I am the first man in Consolation to watch his own grave come in." · 3 "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I am not going to say." | LISTEN 2 "Nothing. Not from me, and I would know." · 3 "The oats again, and somewhere down the hill, a piano, in tune."
+**MY OWN PLOT** *(act: "3-4")* — LOOK 2 "The grass has started over it. I am the first man in Consolation to watch his own grave come in." · 3 "Someone has left a tuning peg on the headboard, a piano's. I know whose piano. I am not going to say." | LISTEN 2 "Nothing. Not from me, and I would know." · 3 "The oats again, and somewhere down the hill, a piano, in tune."
 
 *(MY OWN PLOT is Part Two-B's act 3–4 variant of the fresh plot, after the funeral; its repeats belong to the same acts.)*
 
@@ -1402,3 +1408,53 @@
 *Doc 49's two (THE WALLS · PUSH, THE DARK · USE) stand. THE WALLS is the rock under its other name.*
 
 **EVERY ROCK SURFACE** ≡ **THE WALLS**
+
+---
+
+# MERGE DECLARATIONS
+
+*Errata 68 H's and 69's decisions, in the form tools/extract-examine.mjs reads. Each **Drop** leaves a line out of a merged subject's sequence (the line stays in its source document); the number, where given, is that line's number in its source's run. Each **Retire** removes a doc 49 refusal whose object no room has (errata 68 E, 70 A). Each **Move** takes a doc 49 refusal filed under the wrong room to the room whose object it is.*
+
+- **Drop** · Room 18 · **THE REGISTER** · LOOK · docs/09-examine-batch-2.md
+- **Drop** · Room 18 · **THE SETTEE** · LISTEN · docs/26-batch-a.md · 1
+- **Drop** · Room 18 · **THE KEY RACK** · LOOK · docs/05-examine-layer.md
+- **Drop** · Room 13 · **THE GOOD SUIT** · LOOK · docs/09-examine-batch-2.md
+- **Drop** · Room 13 · **THE GOOD SUIT** · LOOK · docs/26-batch-a.md · 3
+- **Drop** · Room 13 · **THE VIEWING TABLE** · LOOK · docs/09-examine-batch-2.md
+- **Drop** · Room 13 · **THE VIEWING TABLE** · LOOK · docs/26-batch-a.md · 3
+- **Drop** · Room 13 · **THE COFFINS** · LOOK · docs/26-batch-a.md · 2
+- **Drop** · Room 22 · **THE MILE POST** · LOOK · docs/10-examine-batch-3.md
+- **Drop** · Room 26 · **THE SLUICE** · LOOK · docs/10-examine-batch-3.md
+- **Drop** · Room 15 · **GRIEVANCE** · LOOK · docs/09-examine-batch-2.md
+- **Drop** · Room 25 · **THE TAILINGS PILE** · LOOK · docs/10-examine-batch-3.md
+- **Drop** · Room 25 · **THE DIGGINGS, SUCH AS THEY ARE** · LOOK · docs/10-examine-batch-3.md
+- **Drop** · Room 36 · **THE IMPROVEMENT COMPANY SIGN** · LOOK · docs/08-examine-batch-1.md
+- **Drop** · Room 36 · **THE IMPROVEMENT COMPANY SIGN** · LISTEN · docs/08-examine-batch-1.md
+- **Drop** · Room 36 · **THE WATER TROUGH** · LISTEN · docs/08-examine-batch-1.md
+- **Drop** · Room 36 · **THE BOARDWALK** · LOOK · docs/08-examine-batch-1.md
+- **Drop** · Room 36 · **THE BOARDWALK** · LISTEN · docs/08-examine-batch-1.md
+- **Drop** · Room 36 · **THE CHURCH STEEPLE** · LISTEN · docs/08-examine-batch-1.md
+- **Drop** · Room 17 · **THE HYMNAL** · LOOK · docs/09-examine-batch-2.md
+- **Drop** · Room 31 · **THE COFFIN** · LOOK · docs/10-examine-batch-3.md
+- **Drop** · Room 35 · **THE STRONGBOX** · LOOK · docs/10-examine-batch-3.md
+- **Drop** · Room 35 · **THE STRONGBOX** · LISTEN · docs/10-examine-batch-3.md
+- **Drop** · Room 19 · **THE WINDOW** · LOOK · docs/05-examine-layer.md
+- **Drop** · Room 19 · **THE DESK** · LOOK · docs/26-batch-a.md · 2
+- **Drop** · Room 19 · **THE DESK** · LISTEN · docs/26-batch-a.md · 3
+- **Drop** · Room 4 · **THE JUDGES' PENCIL** · LOOK · docs/09-examine-batch-2.md
+- **Drop** · Room 28 · **THE COPPERS** · LOOK · docs/08-examine-batch-1.md
+- **Drop** · Room 16 · **THE PRICE LIST** · LOOK · docs/05-examine-layer.md
+- **Drop** · Room 12 · **THE CATALOGUE** · LOOK · docs/08-examine-batch-1.md
+- **Drop** · Room 12 · **THE DYNAMITE CRATE** · LOOK · docs/08-examine-batch-1.md
+- **Drop** · Room 10 · **THE CHAIRS** · LOOK · docs/09-examine-batch-2.md
+- **Retire** · Room 11 · **THE CONTRACT DRAWER**
+- **Retire** · Room 11 · **THE PEN (NO INK)**
+- **Retire** · Room 21 · **THE LAMP RESERVE**
+- **Retire** · Room 21 · **THE WALL CALENDAR**
+- **Retire** · Room 21 · **THE STOOL BY THE WINDOW**
+- **Retire** · Room 14 · **THE FENCE**
+- **Retire** · Room 14 · **THE WILD OATS**
+- **Retire** · Room 27 · **THE ROW ENTIRE**
+- **Retire** · Room 32 · **THE LID**
+- **Retire** · Room 32 · **THE DARK**
+- **Move** · Room 10 · **THE GLOBE** · from docs/49-wrong-answers.md::ROOM 11 — FANSHAWE'S OFFICE

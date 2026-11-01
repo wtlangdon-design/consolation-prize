@@ -1,0 +1,272 @@
+{
+  "room": 28,
+  "name": "SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 28 — SHENG'S LAUNDRY & THE HIGH RIDGE PATH",
+    "docs/08-examine-batch-1.md::ROOM 28 — SHENG'S LAUNDRY",
+    "docs/54-batch-c.md::ROOM 28 · SHENG'S LAUNDRY",
+    "docs/49-wrong-answers.md::ROOM 28 — SHENG'S LAUNDRY"
+  ],
+  "subjects": [
+    {
+      "name": "THE COPPERS",
+      "LOOK_AT": [
+        "Three copper boilers at a rolling steam. Ah-Lam Sheng runs the only business in the district with repeat customers and clean margins, and the town has decided not to notice.",
+        "Each copper has its own fire and its own temper, and he knows both.",
+        "The water in the last copper is the clearest in Consolation. It has been boiled into honesty."
+      ],
+      "LISTEN_TO": [
+        "Water at the boil, cloth turning in it. Industry, actually happening.",
+        "Water, and a rhythm to it. Somebody has worked out the fastest way to do this and has been doing it that way for years.",
+        "The lid on the middle copper lifting and settling, like a man about to object and deciding it is not worth it."
+      ],
+      "overrides": {
+        "OPEN": "Steam took my hat's shape briefly. Sheng did not look up: 'Collars are extra.'"
+      }
+    },
+    {
+      "name": "THE MANGLE",
+      "LOOK_AT": [
+        "A hand-cranked mangle, the single most reliable machine in the territory. It has never broken. Nobody else can say that about anything they own.",
+        "The rollers are wood, worn so smooth they shine. Ten thousand shirts have gone through them and come out flatter and better.",
+        "A brass plate on the frame gives a maker and a city. It is the only thing in Consolation that came from somewhere and still works."
+      ],
+      "LISTEN_TO": [
+        "Rollers, waiting. A machine that keeps its promises keeps them quietly.",
+        "A slow creak as the crank settles back a quarter turn.",
+        "Nothing. It is resting, and it has earned it more than anyone in town."
+      ],
+      "overrides": {
+        "USE": "He let me turn the crank once. It was the most useful thing I have done in the territory and we both knew it."
+      }
+    },
+    {
+      "name": "THE DRYING LINES",
+      "aliases": [
+        "THE LINE"
+      ],
+      "LOOK_AT": [
+        "Lines of shirts drying in ridge wind, whiter than anything else for a hundred miles. From the diggings it looks like the hillside is surrendering.",
+        "Every shirt is pegged by the tail, shoulders down, so the collar dries straight. There is a method to all of it.",
+        "My own shirt is up there, the better one. It looks more respectable on the line than it has ever looked on me."
+      ],
+      "LISTEN_TO": [
+        "Cloth, filling and luffing. The hill wearing sails.",
+        "A peg snapping shut on a corner as the wind takes it.",
+        "A long gust that fills every shirt at once. A whole congregation, breathing in."
+      ]
+    },
+    {
+      "name": "THE COLLAR ADVERTISEMENT",
+      "aliases": [
+        "THE WINDOW ADVERTISEMENT"
+      ],
+      "LOOK_AT": [
+        "A printed advertisement for detachable collars, pinned inside the door. The gentleman modeling them is square-jawed, confident, and — I am increasingly sure — the same man as in every printed image in this town.",
+        "A portrait of a gentleman in an excellent collar, advertising the excellence of the collar. I have seen this man before. He is on the front page of the Clarion once a month and his name there is Obadiah Mott.",
+        "Up close, the printing is very fine. He has a dimple. I had not noticed the dimple in the Clarion."
+      ],
+      "LISTEN_TO": [
+        "Paper on a nail. The gentleman keeps his own counsel.",
+        "Nothing.",
+        "The paper lifting at one corner when the door opens, and lying flat again."
+      ],
+      "overrides": {
+        "TALK_TO": "I asked the gentleman who he really was. He kept his jaw square and his counsel. He is the most consistent man in Consolation and he does not exist."
+      }
+    },
+    {
+      "name": "THE TICKET RAIL",
+      "LOOK_AT": [
+        "Claim tickets on a wire, numbered in two scripts. Sheng's numbering has never once been disputed, which makes it the district's most trusted ledger.",
+        "Each ticket is torn in half. He keeps one half and you keep the other, and the two halves have never once failed to meet.",
+        "My own ticket is on the wire: one shirt, one collar. My entire wardrobe, in Sheng's custody."
+      ],
+      "LISTEN_TO": [
+        "Paper tags, ticking along the wire. A small abacus of shirts.",
+        "The tags sliding as he moves a shirt along the rail.",
+        "Nothing, for a moment. The wire waiting for the next number."
+      ],
+      "overrides": {
+        "PULL": "The district's one uncorrupted ledger, on a wire. I withdrew my hand with the reverence it was owed."
+      }
+    },
+    {
+      "name": "THE STARCH CROCK",
+      "LOOK_AT": [
+        "Starch, mixed stiff. Consolation's collars stand up straight even when their owners cannot.",
+        "There is a paddle standing upright in it, unsupported. That is how stiff it is.",
+        "He mixes it by eye and is never wrong. I tune by ear. We have a professional understanding."
+      ],
+      "LISTEN_TO": [
+        "A thick, patient bubble. Rigidity, brewing.",
+        "A slow bubble breaking the surface, considering.",
+        "Nothing. Even the starch here stands to attention."
+      ]
+    },
+    {
+      "name": "THE STOVE & IRONS",
+      "aliases": [
+        "THE IRONS",
+        "THE STOVE"
+      ],
+      "LOOK_AT": [
+        "Flat irons in ranks on the stove top, rotated by weight and heat in an order I could not learn in a year.",
+        "Each handle is wrapped in rag of a different color, so he knows which iron is which without looking.",
+        "One iron is smaller than the rest. It is for collars, and it has done more for this town's dignity than the church."
+      ],
+      "LISTEN_TO": [
+        "Iron on iron, set down and taken up. A steady percussion. It is the closest thing this town has to a metronome, and I would know.",
+        "A hiss as he tests an iron with a wet finger.",
+        "Iron set down, iron taken up. Still the steadiest time in town."
+      ]
+    },
+    {
+      "name": "THE MENDING BASKET",
+      "LOOK_AT": [
+        "Torn shirts awaiting needles. The territory is hard on elbows. Half the mending is the same three men's.",
+        "One shirt has been mended so often it is mostly mending. The original shirt is a rumor.",
+        "The needles are stuck in a pincushion shaped like a strawberry. It is the only frivolous object in the building."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Damage, at rest.",
+        "Nothing. Torn cloth, waiting its turn.",
+        "Nothing. The damage has been sorted by owner."
+      ]
+    },
+    {
+      "name": "THE HIGH RIDGE PATH",
+      "LOOK_AT": [
+        "The path up the ridge starts at the door, which is why the laundry gets the wind and the wind gets the shirts. It climbs like it means it.",
+        "The first stretch is stepped with flat stones, carefully set. Past the laundry, nobody bothered.",
+        "It climbs to the only place in the district with a view, and it starts at the only place in town that works."
+      ],
+      "LISTEN_TO": [
+        "Wind, arriving from a long way off with nothing in its pockets.",
+        "Boots coming down it, slowly. Someone who went up to decide something.",
+        "The wind coming down the path, and the shirts turning to meet it."
+      ]
+    },
+    {
+      "name": "THE PAYMENT TIN",
+      "LOOK_AT": [
+        "Coins in a tin, exact change encouraged by a sign in two languages and one universal tone.",
+        "The sign says EXACT CHANGE, and underneath, in English only, PLEASE. The please is for the English.",
+        "He has never once counted it in front of a customer. He does not need to."
+      ],
+      "LISTEN_TO": [
+        "Honest weight. It does not rattle; it is past rattling.",
+        "Nothing. Sheng's money does not discuss itself.",
+        "A coin settling as the shelf takes my elbow. One clean note, and done."
+      ],
+      "overrides": {
+        "OPEN": "It does not rattle and it does not open for customers. Sheng's bank has one teller and no robberies. The Company should take the tour."
+      }
+    },
+    {
+      "name": "SHENG'S CHAIR",
+      "aliases": [
+        "THE CHAIR BY THE DOOR"
+      ],
+      "LOOK_AT": [
+        "A chair by the door, angled at the ridge, for the ten minutes a day the boilers allow. The view is the wage.",
+        "A chair by the door, facing out, worn smooth. He sits here and watches the street and everyone assumes he is resting.",
+        "A cup of tea on the floor beside it, gone cold. The ten minutes were interrupted."
+      ],
+      "LISTEN_TO": [
+        "The chair is still warm-sounding, if that is a thing. The ten minutes were recent.",
+        "Nothing.",
+        "Nothing. The chair is empty, and he is at work, which is where he usually is."
+      ]
+    },
+    {
+      "name": "THE WINDOW, STEAMED",
+      "aliases": [
+        "THE STREET WINDOW"
+      ],
+      "LOOK_AT": [
+        "The one window, permanently fogged from inside. The town appears through it as coloured weather, which flatters it.",
+        "A small clear circle is wiped in the fog at the height of a seated man. He watches the street through it.",
+        "Through the clear spot, Main Street, very small and very sharp, like a picture in a locket."
+      ],
+      "LISTEN_TO": [
+        "A drop of condensation running. The window keeps time in its own way.",
+        "Steam ticking against the glass, then running.",
+        "The street, muffled to almost nothing. The coppers win."
+      ]
+    },
+    {
+      "name": "THE LEDGER",
+      "LOOK_AT": [
+        "Laundry accounts. And, in the same book, in the same hand, in a column headed nothing at all, rather larger numbers.",
+        "The laundry columns total to the cent. The other column totals to a great deal more than laundry.",
+        "He saw me reading it and did not close it. In this town that is a kind of respect."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Figures that balance make no noise.",
+        "The page lifting in the steam and settling again, heavy with damp and arithmetic."
+      ]
+    },
+    {
+      "name": "THE COLLARS",
+      "LOOK_AT": [
+        "Two hundred collars, boxed, by name. Every important man in Consolation is in this box.",
+        "Each box is labeled with a name. The Colonel has six. The Reverend has one, very clean.",
+        "There is a box with my name on it. It holds one collar, which is the right number."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Starch is silent.",
+        "Nothing. Starch keeps a straight face.",
+        "A box lid settling. Somebody's dignity, put away for the week."
+      ]
+    },
+    {
+      "name": "THE THURSDAY BOOK",
+      "LOOK_AT": [
+        "A separate book for Thursdays. Thursdays appear to be different.",
+        "The entries are short: a date, a name, a sum. Every date is a Thursday.",
+        "It is shelved a hand's width from the laundry book. A hand's width is the distance between washing and banking in this town."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Thursdays are kept quiet.",
+        "The spine creaking as I lean near it. It is not used to visitors on a Monday."
+      ]
+    },
+    {
+      "name": "THE BACK ROOM",
+      "LOOK_AT": [
+        "A curtain across a doorway, and behind it a room I am not invited into.",
+        "The curtain is clean. Everything here is clean, including, I suspect, the business behind it.",
+        "Once the curtain moved, and I saw a desk and a lamp and a great many papers in very good order. Then it moved back."
+      ],
+      "LISTEN_TO": [
+        "Nothing behind the curtain, or nothing I am meant to hear.",
+        "A pen, somewhere back there, adding.",
+        "Nothing. Sheng's back room is where the town's noise goes to be counted."
+      ]
+    },
+    {
+      "name": "THE SCALE",
+      "LOOK_AT": [
+        "A brass scale for weighing laundry by the pound. It is as accurate as the one at the assay office, and it weighs shirts.",
+        "The weights are stamped and checked. A man who weighs collars this honestly would weigh anything honestly.",
+        "I put my hat on it. Eleven ounces. Sheng did not charge me."
+      ],
+      "LISTEN_TO": [
+        "A small tick as the pan settles level.",
+        "Nothing. It is perfectly balanced, and has nothing to add.",
+        "The beam rocking once when the door goes, and finding level again without help."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "AH-LAM SHENG": {
+      "PICK_UP": "He would tell me my weight to the ounce, and what I owe him for the information.",
+      "PUSH": "He is ironing. I value my hand.",
+      "USE": "Everybody in town uses Sheng. He keeps a book of it."
+    }
+  }
+}

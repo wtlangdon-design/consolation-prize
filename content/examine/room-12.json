@@ -1,0 +1,388 @@
+{
+  "room": 12,
+  "name": "THE MERCANTILE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 12 — THE MERCANTILE#1",
+    "docs/08-examine-batch-1.md::ROOM 12 — THE MERCANTILE",
+    "docs/54-batch-c.md::ROOM 12 · THE MERCANTILE",
+    "docs/05-examine-layer.md::ROOM 12 — THE MERCANTILE#2",
+    "docs/49-wrong-answers.md::ROOM 12 — THE MERCANTILE"
+  ],
+  "subjects": [
+    {
+      "name": "THE COUNTER",
+      "LOOK_AT": [
+        "Scarred by forty years of coins pushed across it, most of them reluctantly.",
+        "There is a groove worn in it where coins slide, exactly the width of a dollar.",
+        "A brass rule is let into the edge for measuring cloth. It is the only straight thing in the building."
+      ],
+      "LISTEN_TO": [
+        "Wood. It has absorbed a great deal of haggling and repeats none of it.",
+        "A coin, somewhere, being set down very firmly.",
+        "Nothing. Wood that has heard every argument about price has stopped taking sides."
+      ]
+    },
+    {
+      "name": "THE SCALES",
+      "LOOK_AT": [
+        "Polished bright. They weigh dust honest and flour otherwise, or so the men at the Nugget say.",
+        "A little dish of lead shot sits beside them, for adjustments. The adjustments are made out of sight.",
+        "They are the brightest object in the store. Something that busy keeps its shine."
+      ],
+      "LISTEN_TO": [
+        "A faint tick as they settle. Always to the same side.",
+        "The pan settling, still to the same side.",
+        "Nothing. They are between customers, and between opinions."
+      ],
+      "overrides": {
+        "USE": "I weighed my four dollars. The scales say three-eighty. The scales and Sheng should talk."
+      }
+    },
+    {
+      "name": "THE CREDIT LEDGER",
+      "aliases": [
+        "THE DEBT LEDGER"
+      ],
+      "LOOK_AT": [
+        "Names, sums, and a column of small marks I decline to interpret. Half the town is in this book, and none of it gets out.",
+        "Every man in town, and a number beside him. The numbers only go one way. He is not worried, because they cannot leave until they pay, and they cannot pay.",
+        "The ink changes color halfway down the page, where he ran out and carried on in whatever was nearest."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Debt is quiet until it isn't.",
+        "Nothing.",
+        "A page turning back on itself, as if it would rather not look forward."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "My account is ruled off and marked DECEASED. Cleanest my finances have ever looked."
+          ],
+          "LISTEN_TO": []
+        }
+      ]
+    },
+    {
+      "name": "TINNED GOODS",
+      "aliases": [
+        "THE TINNED GOODS"
+      ],
+      "LOOK_AT": [
+        "Tins from the East. The labels show harvests of implausible color. One is marked simply MEAT, with confidence.",
+        "Peaches, from Baltimore, at a dollar the tin. There is a man in the corner looking at them the way other men look at gold.",
+        "Every tin is dented in the same place at the same height. They came over the same mountain in the same crate."
+      ],
+      "LISTEN_TO": [
+        "One of them, very faintly, fizzes.",
+        "The fizz again, from the tin marked MEAT. I am moving away from it.",
+        "Nothing from the peaches. They are above all this."
+      ]
+    },
+    {
+      "name": "THE PICKLE JAR",
+      "LOOK_AT": [
+        "Pickled eggs in a jar the size of a christening font. The brine has opinions.",
+        "A wooden spoon hangs beside it on a string, for fishing. The string is short and the jar is deep. It is a test of character.",
+        "The eggs have been in brine so long they have the color of old ivory and the confidence of old money."
+      ],
+      "LISTEN_TO": [
+        "The brine, working. I am not reassured.",
+        "A slow bubble rising through the brine and arriving with nothing to say.",
+        "Nothing. The eggs are waiting, and they have time."
+      ],
+      "overrides": {
+        "PICK_UP": "One jar, on my account. I have an account now. I am told that makes me a resident.",
+        "PICK_UP (again)": "One is an account. Two is a habit.",
+        "OPEN": "The brine and I regarded each other. I resealed the arrangement."
+      }
+    },
+    {
+      "name": "DR. PURVIS'S TONIC",
+      "LOOK_AT": [
+        "Restorative Bile Tonic. Restores bile, presumably. The testimonials on the label are all in the same hand.",
+        "The label shows Dr. Purvis himself, bearded and benevolent. The same beard is on the hair restorer, the cough syrup and the horse liniment.",
+        "Ingredients: 'Restorative Principles.' I should like to meet the chemist who isolated them."
+      ],
+      "LISTEN_TO": [
+        "It settles. Something in it is still deciding.",
+        "A faint fizz against the glass when I tilt the shelf.",
+        "Nothing, which is somehow worse."
+      ],
+      "overrides": {
+        "PICK_UP": "On account, with the eggs. It was wrapped for me as though it might go off, in either sense."
+      }
+    },
+    {
+      "name": "THE PICKAXES",
+      "aliases": [
+        "THE PICKAXE"
+      ],
+      "LOOK_AT": [
+        "Picks, new. Heads tight, hafts bright. Optimism by the dozen, at a dollar ten.",
+        "A pickaxe with a loose head, marked down accordingly. It is the only honest transaction available in this building.",
+        "The handles are numbered in chalk. Somebody is keeping count of how much optimism has left the store."
+      ],
+      "LISTEN_TO": [
+        "Nothing yet. A pick only learns to speak underground.",
+        "The head, shifting. It has an opinion about being carried.",
+        "The loose one again, clicking on its haft. It is the only one of them that has ever told the truth."
+      ]
+    },
+    {
+      "name": "THE DYNAMITE CRATE",
+      "aliases": [
+        "THE DYNAMITE"
+      ],
+      "LOOK_AT": [
+        "Dynamite, stored beside the stove, which tells you everything about the proprietor's understanding of the product.",
+        "The lid is open, and a newspaper is laid over the sticks. The newspaper is the Clarion. It seems an appropriate use.",
+        "Somebody has chalked FRAGILE on it, and somebody else has added, smaller, BUT FINE."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It is either perfectly safe or saving itself.",
+        "…No. I would rather not.",
+        "Nothing. I have listened as long as I am prepared to."
+      ],
+      "acts": [
+        {
+          "act": "3-4",
+          "LOOK_AT": [
+            "Still beside the stove. The town has survived twelve years of lies and one crate of dynamite, and I no longer know which is the greater miracle."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
+      "overrides": {
+        "USE": "The proprietor says it's perfectly safe. The proprietor stores it by the stove. I decline both the product and the reasoning."
+      }
+    },
+    {
+      "name": "THE STOVE",
+      "LOOK_AT": [
+        "The stove around which the town's opinions are formed each evening. Stand close and you can feel yesterday's arguments.",
+        "A ring of chairs around it, each claimed by habit. Nobody has ever asked who sits where; everybody knows.",
+        "A coffee pot on the back has never been washed, on principle. It is said to improve."
+      ],
+      "LISTEN_TO": [
+        "Iron, ticking as it cools. It talks most after everyone has gone.",
+        "A log settling in the firebox, and the chairs going quiet, as if someone important had come in.",
+        "Iron ticking. Yesterday's opinions, cooling."
+      ],
+      "overrides": {
+        "TALK_TO": "I addressed it as the true mayor of Consolation. It warmed to the subject."
+      }
+    },
+    {
+      "name": "THE CALICO",
+      "aliases": [
+        "THE BOLTS OF CLOTH"
+      ],
+      "LOOK_AT": [
+        "A bolt of calico in a print called Prosperity. Small blue flowers. Nobody in this town has bought a dress in a year.",
+        "A card is pinned to the bolt: PROSPERITY, 12¢ THE YARD. It is the cheapest prosperity in town, and nobody is buying.",
+        "The blue flowers have faded on the outside of the bolt, where the window light reaches. Even Prosperity fades in public."
+      ],
+      "LISTEN_TO": [
+        "Cloth. A held breath of a sound.",
+        "Nothing. It is the softest thing within two hundred miles and nobody in here has touched it.",
+        "A thread catching on my sleeve and letting go."
+      ],
+      "overrides": {
+        "PULL": "Forty yards would come off that bolt at a tug, and the proprietor knows the sound a tug makes from the back room."
+      }
+    },
+    {
+      "name": "THE CATALOGUE",
+      "aliases": [
+        "THE CATALOGUE — cover"
+      ],
+      "LOOK_AT": [
+        "Eleven hundred pages of the East, delivered to the edge of nowhere twice a year. The most-read book in the territory, scripture included.",
+        "The spine has been mended with flour paste and a strip of the Clarion. It holds.",
+        "Every page is thumbed at the bottom corner except the page on trusses, which is thumbed at the top, quickly."
+      ],
+      "LISTEN_TO": [
+        "Pages easing. It exhales civilization.",
+        "Nothing.",
+        "Pages riffling when the door opens. Civilization, in a draft."
+      ],
+      "overrides": {
+        "PICK_UP": "The store copy stays. The store copy always stays. It is the town's one shared scripture and this is its altar."
+      }
+    },
+    {
+      "name": "THE CATALOGUE — LADIES' NOTIONS",
+      "LOOK_AT": [
+        "Forty pages of buttons, ribbon, and collars. Someone has folded a corner down, and I hope they get their collar.",
+        "Someone has ticked a pair of gloves in pencil, crossed the tick out, and ticked it again.",
+        "The prices are in Chicago dollars. Out here a Chicago dollar buys about a third of a ribbon."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Longing is silent.",
+        "A pin dropping somewhere in the store. Nothing to do with the page.",
+        "A page lifting and falling back. Somebody's wish, reconsidered."
+      ]
+    },
+    {
+      "name": "THE CATALOGUE — PATENT MACHINES",
+      "LOOK_AT": [
+        "Machines for washing, for churning, and for the improvement of posture. Every one endorsed by clergy.",
+        "A machine for peeling, coring and slicing an apple at once. There is not an apple within two hundred miles.",
+        "The Improved Posture Brace is endorsed by a bishop. The bishop, in the engraving, is stooping."
+      ],
+      "LISTEN_TO": [
+        "Nothing, and it's trying.",
+        "Nothing. On paper they are all very quiet machines.",
+        "Nothing, and it is trying even harder."
+      ]
+    },
+    {
+      "name": "THE CATALOGUE — FIREARMS",
+      "LOOK_AT": [
+        "Two pages of revolvers, between the hymnals and the hair oil, which is about where they sit in life as well.",
+        "Someone has drawn a mustache on the man demonstrating the revolver. It suits him.",
+        "The cheapest revolver costs less than the cheapest hymnal. I draw no conclusion. The territory does."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Paper guns. The safest kind.",
+        "Nothing. Paper guns go off very quietly.",
+        "Nothing. The safest page in the book, and the most read after the pianos."
+      ]
+    },
+    {
+      "name": "THE CATALOGUE — MUSICAL INSTRUMENTS",
+      "aliases": [
+        "THE CATALOGUE — the page on pianos"
+      ],
+      "LOOK_AT": [
+        "A parlor organ, freight paid, four months out. There is also an upright piano. I have read its description many times. It is spelled correctly and tuned by definition.",
+        "Uprights, from ninety dollars. Delivery not available west of St. Louis.",
+        "In the corner of the page, a tuning fork, eleven cents. Mine cost my father considerably more, and was worth it."
+      ],
+      "LISTEN_TO": [
+        "I can nearly hear it. That is not the same as hearing it.",
+        "Nothing. It's a picture of a piano. I am aware that I am doing this.",
+        "Nothing. I have stopped pretending otherwise."
+      ]
+    },
+    {
+      "name": "THE CATALOGUE — ORDER FORM",
+      "LOOK_AT": [
+        "The order form, in triplicate. Consolation's real currency is the promise of goods from elsewhere.",
+        "Under ITEM someone has written PIANO, under QUANTITY, ONE, and under PAYMENT, nothing at all.",
+        "Delivery in six to ten weeks, it promises. It does not say from when."
+      ],
+      "LISTEN_TO": [
+        "Carbon paper, whispering everything twice.",
+        "The carbon, faintly, as the page settles: everything said twice, quietly.",
+        "Nothing. An order not sent is very patient."
+      ]
+    },
+    {
+      "name": "THE PRICE LIST",
+      "LOOK_AT": [
+        "Flour, twelve dollars the barrel. In Providence it is two. I have read this list four times looking for the error and the error is that I came here.",
+        "Coffee, a dollar the pound. I have stopped converting. Converting only makes it worse.",
+        "At the bottom: CREDIT EXTENDED TO ESTABLISHED CUSTOMERS. In this town that is everyone."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It is entirely comfortable with itself.",
+        "The board ticking against the wall when the door goes.",
+        "Nothing. Prices this high have no need to raise their voices."
+      ]
+    },
+    {
+      "name": "THE SHOVELS",
+      "LOOK_AT": [
+        "Forty shovels. There are two thousand men in Consolation and forty shovels, and somehow this has never become a problem, which tells you something about the men.",
+        "Each has a price tag on a string, and the strings have been retied as the price went up.",
+        "Somebody scratched his initials into one handle before buying it, and has not come back for it."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Forty shovels, standing at ease.",
+        "A faint scrape as one leans into another."
+      ]
+    },
+    {
+      "name": "THE PANS",
+      "LOOK_AT": [
+        "Gold pans, stacked to the ceiling. He has never had to reorder.",
+        "The top pan has a dent in the middle the shape of a fist. Somebody returned it.",
+        "They nest perfectly, one inside the next, all the way to the ceiling. It is the most orderly hope in the district."
+      ],
+      "LISTEN_TO": [
+        "They ring, faintly, when the door opens. Tin. Flat, obviously.",
+        "The ring again, a little flat, when a wagon passes.",
+        "Nothing between wagons. Tin, waiting to be disappointed."
+      ]
+    },
+    {
+      "name": "THE UNSOLD SCALES",
+      "LOOK_AT": [
+        "A dozen assayer's scales, still in their paper. He ordered them in the first year, for all the men who would need to weigh things.",
+        "The paper on them has yellowed and the scales underneath are still new. It is a strange kind of age.",
+        "He has never marked them down. He is still waiting for the men who would need to weigh things."
+      ],
+      "LISTEN_TO": [
+        "Nothing. They have never been out of the paper.",
+        "Nothing. A dozen scales, perfectly balanced, with nothing to weigh.",
+        "The paper crackling as I lean on the shelf. That is as close as they have come to being used."
+      ]
+    },
+    {
+      "name": "THE CATALOGUE — furniture pages",
+      "LOOK_AT": [
+        "Parlor suites. Somebody has turned down the corner of this page. Several somebodies. The corner is soft.",
+        "A parlor suite in red plush, freight extra. The freight is more than the suite.",
+        "Somebody has penciled a small man sitting on the settee. He looks very comfortable. He is the only comfortable man in Consolation."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Soft furniture, on paper, is softer still.",
+        "Nothing. The page is too worn to rustle."
+      ]
+    },
+    {
+      "name": "THE BOOTS",
+      "LOOK_AT": [
+        "Boots in pairs, tied together by the laces and hung on a nail. The only things in town guaranteed to go everywhere together.",
+        "The leather is good and the price is better than the leather. That is not a compliment.",
+        "One boot without a partner, marked down to half. I know a monument on the claims road it would suit."
+      ],
+      "LISTEN_TO": [
+        "Leather creaking as the pairs turn on their nail.",
+        "Nothing. New boots have not been anywhere to talk about.",
+        "The laces tapping together, like two people agreeing quietly."
+      ]
+    },
+    {
+      "name": "THE NAILS",
+      "LOOK_AT": [
+        "Nails by the pound in a keg, every size mixed. You buy them and sort them yourself, at no extra charge.",
+        "Most of the town is held together with nails from this keg, and the town shows it.",
+        "A magnet on a string hangs by the keg, for fishing out the size you want. It is the best tool in the store, and it is not for sale."
+      ],
+      "LISTEN_TO": [
+        "A small metallic shifting when the floor moves.",
+        "Nothing. Nails keep their points to themselves.",
+        "The magnet clicking against the keg's rim as it sways."
+      ]
+    },
+    {
+      "name": "THE LAMP OIL",
+      "LOOK_AT": [
+        "Lamp oil in a drum with a tap, a funnel, and a sign saying NO LIGHTS. The stove is four feet away.",
+        "The tap drips. A thin dark ring on the floor records every drop since the drum arrived.",
+        "The town runs on this after dark. It is the only thing in Consolation that keeps the lights on, and it is sold by the pint."
+      ],
+      "LISTEN_TO": [
+        "A drip, slow and oily, into the tray.",
+        "Nothing. Oil is in no hurry.",
+        "The drip again. Somebody should tighten that tap, and somebody never does."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "room": 30,
+  "name": "MOTT'S SUPPOSED STRIKE SITE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 30 — MOTT'S SUPPOSED STRIKE SITE",
+    "docs/08-examine-batch-1.md::ROOM 30 — MOTT'S SUPPOSED SITE",
+    "docs/54-batch-c.md::ROOM 30 · MOTT'S SUPPOSED SITE",
+    "docs/05-examine-layer.md::ROOM 30 — MOTT'S SUPPOSED SITE",
+    "docs/49-wrong-answers.md::ROOM 30 — MOTT'S SUPPOSED SITE"
+  ],
+  "subjects": [
+    {
+      "name": "THE SITE",
+      "aliases": [
+        "THE SITE ENTIRE",
+        "THE GROUND"
+      ],
+      "LOOK_AT": [
+        "The most famous forty feet in the territory, excavated to bedrock and below by twelve years of certainty. It looks like the moon, if the moon had been disappointed in.",
+        "Turned over so many times that it is no longer ground so much as an opinion about where ground used to be.",
+        "There is a bench at the edge for pilgrims. It faces the diggings the way pews face an altar."
+      ],
+      "LISTEN_TO": [
+        "Wind in the workings. A hollow instrument, played badly.",
+        "Nothing. Nothing whatsoever. It is the emptiest sound I have heard since I arrived.",
+        "The wind, and under it, faint and far off, somebody's pick. Even here, somebody is still checking."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "The famous nothing, resting. The pilgrims have stopped coming — the gold has an address now, and it was never this one. The moon can have its claim back."
+          ],
+          "LISTEN_TO": [
+            "Wind in the workings, same as ever. It sounds different when it is no longer lying to anyone."
+          ]
+        }
+      ],
+      "overrides": {
+        "TALK_TO": "'You could have been anywhere,' I told the famous nothing. The wind moved a sieve. I chose to hear an apology; nothing here corrects you."
+      }
+    },
+    {
+      "name": "THE BEDROCK",
+      "LOOK_AT": [
+        "Scraped clean as a plate. Men have gone over this stone with brushes. With brushes.",
+        "There are scratches in it from every tool the Mercantile has ever sold, in roughly the order it sold them.",
+        "It is the cleanest rock in the district and the least interesting. I have looked at it longer than it deserves, in honor of everyone else who did."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Stone that has answered the same question ten thousand times.",
+        "Nothing. It has had nothing to hide for twelve years, and has said so, under brushes.",
+        "Nothing. Brushed by ten thousand men, it has nothing left to confide."
+      ],
+      "overrides": {
+        "USE": "Ten thousand men, with brushes. There is nothing left to do to this stone except apologize."
+      }
+    },
+    {
+      "name": "THE OLD WINDLASS",
+      "LOOK_AT": [
+        "A windlass over the deepest shaft, rope long gone. It lowered a decade of hope down a hole and hauled up gravel.",
+        "The crank is worn to the shape of a hand. Several hands. The same shape.",
+        "The shaft below it is boarded over. Somebody fell in once, I am told, and found nothing there either."
+      ],
+      "LISTEN_TO": [
+        "The frame moans in the wind. It has earned it.",
+        "A slow creak as the wind turns the drum half an inch and lets it go.",
+        "The moan again, longer. The frame and the wind have been at this for years."
+      ]
+    },
+    {
+      "name": "THE SIEVE PILE",
+      "LOOK_AT": [
+        "Broken sieves and worn pans, discarded where the last hopeful stood. The tools give up before the men, but not by much.",
+        "A pan with its bottom worn clean through. Somebody swirled until there was nothing left to swirl with.",
+        "The meshes get finer toward the top of the pile. The hopes got smaller and so did the holes."
+      ],
+      "LISTEN_TO": [
+        "Mesh, buzzing faintly in the gusts. The pile still sifts the wind.",
+        "A rattle as a gust goes through: tin, wire and patience, all past use.",
+        "Nothing between gusts. The pile waits for the wind like everything else here."
+      ]
+    },
+    {
+      "name": "THE INITIALS",
+      "LOOK_AT": [
+        "Carved into the one standing post: initials, dozens deep, overwritten into a texture. Every man who ever proved the site empty signed the proof.",
+        "Dates too. The oldest are eleven years old and the newest is this week. Proof, it turns out, needs constant renewal.",
+        "There is no room left to carve, and somebody has started on the back of the post."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The names have said their piece.",
+        "Nothing. Dozens of men, all done talking.",
+        "Wood ticking in the sun. The post is drying out, one name at a time."
+      ],
+      "overrides": {
+        "USE": "There is no room left to carve. The proof is fully subscribed."
+      }
+    },
+    {
+      "name": "THE SURVEY STAKE, ORIGINAL",
+      "LOOK_AT": [
+        "The original stake from Mott's filing, or the fourth replica of it — the first three were stolen by admirers. The town cannot agree which this is, and guards it either way.",
+        "It is painted, which no survey stake is. Admirers paint it every spring.",
+        "A small brass plaque at its foot reads ORIGINAL. The plaque has been replaced twice."
+      ],
+      "LISTEN_TO": [
+        "It hums when the wind crosses the shaft. The site's one note, played on a lie.",
+        "The hum again, over the shaft: one note, a little sharp, held for as long as there is wind.",
+        "Nothing, in the lull. A lie at rest sounds exactly like the truth at rest."
+      ],
+      "overrides": {
+        "PICK_UP": "Whichever replica it is, taking it would make me the fourth thief of a fake of a lie. There are depths, and I have a claim in them already."
+      }
+    },
+    {
+      "name": "THE VIEW OF PROSPERITY",
+      "LOOK_AT": [
+        "From the famous nothing, you can just see my worthless something — one ridge over, unregarded, mine. Nobody has ever dug there twice.",
+        "From here it looks exactly like every piece of ground in between, which is its own kind of camouflage.",
+        "I can see my marker from here if I squint, leaning the way it leans."
+      ],
+      "LISTEN_TO": [
+        "Quiet, from that direction. It has never had anything to say. I find I like it for that.",
+        "Still quiet from over there. It is very good at it.",
+        "Nothing from that direction. It is the most restful thing I own."
+      ]
+    },
+    {
+      "name": "THE PITS",
+      "LOOK_AT": [
+        "Perhaps four hundred separate diggings, overlapping. Ten thousand men have come here, individually, each certain that the others had looked in the wrong place.",
+        "They overlap so completely that nobody can say where one man's hope ended and the next began.",
+        "One pit still has a ladder in it. The man who climbed out did not come back for it."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Loose dirt sliding back into a pit, slowly refilling what was emptied.",
+        "Nothing. Four hundred holes, every one keeping the same secret, which is that there isn't one."
+      ]
+    },
+    {
+      "name": "THE OFFERINGS",
+      "LOOK_AT": [
+        "Coins, pressed into the dirt at the center. Men have been leaving money here. I do not know what for and I do not think they do.",
+        "Pennies, mostly. A dime. A brass button. A gold tooth, which I regard as a serious commitment.",
+        "Nobody takes them. In a town that would pick a nail out of the road, nobody takes them."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "A coin settling as the dirt dries around it.",
+        "Nothing. Whatever they paid for has not been delivered."
+      ]
+    },
+    {
+      "name": "A NEW DIGGING",
+      "LOOK_AT": [
+        "Fresh. Somebody was here this week, and dug, in ground that has been dug four hundred times, and went home.",
+        "Neat work, square corners. He took care, digging in ground he must have known was empty.",
+        "The spoil is heaped on the side facing town, so nobody would see him from there."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. He has gone home.",
+        "Dirt crumbling at the edge. The ground is filling it back in, patiently, as it does."
+      ]
+    },
+    {
+      "name": "THE VIEW BACK TO TOWN",
+      "LOOK_AT": [
+        "From here the town is a smudge of chimney smoke and one bright steeple, keeping an eye on the place.",
+        "The road between is worn by pilgrims, going out hopeful and coming back the same, which is a kind of faith.",
+        "From the famous nothing, Consolation looks like something. It is the best view of it in the district."
+      ],
+      "LISTEN_TO": [
+        "The bell, very thin, carried on the wind.",
+        "Hammering, small and far. Somebody is building something on top of all this.",
+        "Nothing for a moment, then the bell again, as though the town had remembered itself."
+      ]
+    },
+    {
+      "name": "THE SPOIL HEAPS",
+      "LOOK_AT": [
+        "Spoil heaps, grown into small hills of their own. The site has produced a new landscape and no gold.",
+        "Grass has started on the oldest heap. Even nature has stopped waiting for a result.",
+        "Somebody has sifted the heaps too, and heaped the siftings. It is heaps all the way down."
+      ],
+      "LISTEN_TO": [
+        "Gravel trickling down a slope: a small, dry, continual surrender.",
+        "A scrabble on the warm side. A lizard, probably, minding the property.",
+        "Nothing. Dirt that has been looked through has nothing left to say."
+      ]
+    },
+    {
+      "name": "THE MARKER STONE",
+      "LOOK_AT": [
+        "A stone, with MOTT cut into it by somebody who cared. It is not a claim marker. It is not anything. Somebody carved it because there was nothing here to look at.",
+        "The letters are cut deep and straight. Whoever did it had time, a good chisel and no particular reason.",
+        "There are dried flowers at its foot. Somebody comes here to remember a man nobody can describe."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Stone, with a name in it, keeping it.",
+        "Wind across the letters, a faint whistle in the M."
+      ]
+    }
+  ]
+}

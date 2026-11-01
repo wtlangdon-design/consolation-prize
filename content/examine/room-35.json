@@ -1,0 +1,245 @@
+{
+  "room": 35,
+  "name": "THE COMPANY VAULT",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 35 — THE COMPANY VAULT",
+    "docs/10-examine-batch-3.md::ROOM 35 — THE COMPANY VAULT",
+    "docs/54-batch-c.md::ROOM 35 · THE COMPANY VAULT",
+    "docs/49-wrong-answers.md::ROOM 35 — THE COMPANY VAULT"
+  ],
+  "subjects": [
+    {
+      "name": "THE VAULT DOOR",
+      "aliases": [
+        "THE DOOR"
+      ],
+      "LOOK_AT": [
+        "A door from a city bank, freighted here whole. It cost more than everything it protects, which the Colonel would call an investment in impressions.",
+        "The bolts are as thick as my wrist, and there are eleven of them. Somebody counted his secrets and ordered a bolt for each.",
+        "It stands open. For a door this expensive, it looks very tired of the arrangement."
+      ],
+      "LISTEN_TO": [
+        "The mechanism, oiled and huge. It breathes better than most residents.",
+        "The tumblers ticking faintly as the door settles on its hinges.",
+        "A long iron sigh when I lean on it. The most honest thing in the building is the weight of this door."
+      ]
+    },
+    {
+      "name": "THE LEDGER SHELF",
+      "aliases": [
+        "THE REAL LEDGERS"
+      ],
+      "LOOK_AT": [
+        "The Company's books, bound in green, immaculate. Every year of the search, entered twice: once as it happened, once as it pays.",
+        "The Company's actual accounts. It has never once traded in gold. It trades in maps, permits, tools, filings, lots, lumber and hope, and it has been extraordinarily profitable.",
+        "The last page of the last book is ruled off neatly. Somebody knew this year might be the last and wanted the totals tidy."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Double entries keep each other quiet.",
+        "Nothing.",
+        "The shelf creaks under twelve years of very profitable nothing."
+      ]
+    },
+    {
+      "name": "THE DEED BOXES",
+      "LOOK_AT": [
+        "Tin boxes of deeds, labeled by street. The Company owns the fronts, the backs, the lots between, and the mortgage on most of what it doesn't. Consolation, in a filing system.",
+        "My hotel is in here. So is the Nugget, and the church roof, and the ground under the Clarion.",
+        "The box marked MAIN STREET is the heaviest. The town's spine, in tin."
+      ],
+      "LISTEN_TO": [
+        "Tin, ticking with the temperature. The town, expanding and contracting.",
+        "A lid shifting as the vault cools.",
+        "Nothing. Property keeps very still when it is being looked at."
+      ]
+    },
+    {
+      "name": "THE SEARCH FUND",
+      "LOOK_AT": [
+        "The subscription book for the Mott Search Fund, twelve years of donations from three territories. The search is the Company's best property and it is very well maintained.",
+        "The donations get smaller every year and more numerous. The search is kept alive by the people who can least afford it.",
+        "The last entry is from Ohio, two dollars, with a note: FOR THE FINDING. It was entered in the same hand as all the others."
+      ],
+      "LISTEN_TO": [
+        "Banknotes settle differently than paper. Softer. Better fed.",
+        "Nothing. A book of other people's hope, closed.",
+        "The binding creaks as it opens. It is used to being opened by someone more interested in the totals."
+      ]
+    },
+    {
+      "name": "THE MAP, PRIVATE",
+      "LOOK_AT": [
+        "Another map of the district — but this one has the Company's true holdings, and pins where the search is to be steered next. Away, always, from anything owned. It is a map of where gold must never be found.",
+        "Year by year the pins move outward. The search has been walking politely away from Claim One for twelve years.",
+        "It is beautifully drawn. It would be the best map in the territory, if it were trying to help anyone."
+      ],
+      "LISTEN_TO": [
+        "Pins in cork. The quietest rigging imaginable.",
+        "A pin dropping out of the cork and ticking on the floor.",
+        "Nothing. The rigging has done its work."
+      ],
+      "overrides": {
+        "USE": "A map of where gold must never be found. I checked one spot. My claim is not marked. Nobody ever thought to steer anyone away from Prosperity. Nobody ever had to."
+      }
+    },
+    {
+      "name": "THE STRONGBOX",
+      "LOOK_AT": [
+        "The actual money, in the actual box. Less than the town believes. The Company's fortune is mostly the town's belief, held at interest.",
+        "Coin, sorted by denomination, and a great deal of air between the stacks.",
+        "I had expected to want it. I find I do not."
+      ],
+      "LISTEN_TO": [
+        "Coin, but thinly. An echo with good posture.",
+        "A coin turning over as I set the lid down. A small, embarrassed sound.",
+        "Nothing. Less money than the door suggests, and it knows it."
+      ],
+      "overrides": {
+        "PICK_UP": "Lighter than its reputation, which is the Company entire. I put it down before the metaphor could finish."
+      }
+    },
+    {
+      "name": "FANSHAWE'S PRIVATE DRAWER",
+      "LOOK_AT": [
+        "A drawer with its own lock, its own key, and its own smell of good tobacco. Whatever the Colonel keeps from the Company, he keeps here.",
+        "The key is not here. The Colonel carries it, I imagine, next to the five versions of his war.",
+        "It is the one locked thing in the vault. Everything else he has kept for the Company. This he has kept for himself."
+      ],
+      "LISTEN_TO": [
+        "One paper, sliding when the drawer is tried. A single secret, loosely filed.",
+        "The paper inside sliding again, alone.",
+        "Nothing. Whatever is in there, he has kept it quiet longer than the gold."
+      ],
+      "overrides": {
+        "PULL": "Locked, and the lock is better than the vault's. Whatever the Colonel keeps from the Company matters more to him than the money he keeps for it."
+      }
+    },
+    {
+      "name": "THE CHAMPAGNE",
+      "LOOK_AT": [
+        "One bottle, dusty, laid down with a label in Fanshawe's hand: FOR THE DAY. He has never specified which day. I begin to suspect the bottle is the point.",
+        "The dust on it is twelve years thick. I wrote nothing in it, which took some restraint.",
+        "FOR THE DAY. I begin to think he meant the day he would no longer need to lie, and that he never once expected it to come."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Corked hope.",
+        "A tiny tick from the cork as the vault cools. Hope, pressing.",
+        "Nothing. It has waited this long. It can wait for somebody else's day."
+      ],
+      "overrides": {
+        "OPEN": "FOR THE DAY, says the label. It is not my day to declare. Though it is closer than the Colonel thinks."
+      }
+    },
+    {
+      "name": "THE GAS LAMP, FIXED",
+      "aliases": [
+        "THE LAMP"
+      ],
+      "LOOK_AT": [
+        "A fixed lamp, plumbed for gas that does not exist within a thousand miles. Installed for how it looks unlit. The whole Company, in one fitting.",
+        "The mantle has never been lit. It is as white as the day it was unpacked.",
+        "There is an oil lamp on the floor beneath it, doing all the work."
+      ],
+      "LISTEN_TO": [
+        "A hollow pipe. It hums when the vault door moves, an organ note for an empty church.",
+        "The hum again, when the door moves.",
+        "Nothing. It is very good at being unlit."
+      ],
+      "overrides": {
+        "USE": "Plumbed for gas that does not exist within a thousand miles. I turned the key. Nothing, magnificently."
+      }
+    },
+    {
+      "name": "THE VISITOR'S CHAIR",
+      "LOOK_AT": [
+        "One chair, inside a vault, facing the boxes. Someone sits in here, with the money and the maps, and thinks. The upholstery says: often, and at length.",
+        "It faces the strongbox, not the maps. Whoever sits here sits looking at what he has, not at what he says.",
+        "On the floor beside it, a glass with a finger of whisky in it, untouched. He pours, even here, and does not drink."
+      ],
+      "LISTEN_TO": [
+        "Nothing. What gets thought in here does not leak.",
+        "Leather settling. It was sat in today.",
+        "Nothing. The thinking done in this chair has never been said aloud anywhere."
+      ]
+    },
+    {
+      "name": "THE ORIGINAL SUBSCRIPTION",
+      "LOOK_AT": [
+        "The subscription for the Mott expedition, Boston, 1846. Eleven names. The fourth is A. Fanshawe. He was not a colonel then either.",
+        "Eleven names, all signed in the same confident ink. Ten of them, I would guess, never saw this territory.",
+        "Fanshawe's signature is the smallest on the page. It is the only modest thing he has ever done, and it was the start of everything."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Paper twelve years old, keeping the oldest secret in town.",
+        "The page lifting a little in the draft from the door, then lying back down."
+      ]
+    },
+    {
+      "name": "THE MAPS",
+      "LOOK_AT": [
+        "The originals of all eleven maps to Mott's strike. Same hand. Same paper. Same ink. They were drawn in an afternoon.",
+        "On every map the strike is somewhere else. On every map it is marked with exactly the same little cross.",
+        "There is a twelfth map, half drawn, the ink still bright. The Colonel was planning another edition."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Paper rustling as I lift one. Lighter than it should be, for what it cost the town.",
+        "Nothing. Eleven maps to nowhere, in perfect agreement."
+      ]
+    },
+    {
+      "name": "THE STOCK PORTRAIT BOXES",
+      "LOOK_AT": [
+        "Four gross of portraits of a man in a good collar, purchased at wholesale in 1851. The Clarion has been printing him as Obadiah Mott for seven years.",
+        "Four gross, less however many the Clarion has used. The boxes are still nearly full. There is a great deal of Obadiah Mott left.",
+        "He has a kind face, the man in the collar. I hope he never learned what became of it."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Card, packed tight, the way you pack anything bought by the gross.",
+        "Nothing. A great many copies of one man, and not one of them has anything to say."
+      ]
+    },
+    {
+      "name": "THE UNSOLD DEEDS",
+      "LOOK_AT": [
+        "Two hundred claims, unsold, held quietly. All of them adjoining Claim One. Every piece of ground a man might dig near the strike belongs to the Company, and has for years.",
+        "Every one is drawn properly, right side up, with a boundary description. They kept the good paperwork for themselves.",
+        "Two hundred claims, and one gap in the ring around Claim One. The gap is mine."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Two hundred claims nobody is allowed to dig, keeping very quiet about it.",
+        "The bundle shifting as I set it down. Paper, heavier than any of it is worth."
+      ]
+    },
+    {
+      "name": "THE CORRESPONDENCE FILE",
+      "LOOK_AT": [
+        "Letters to Boston. Nine years of them, copied out in his own hand, all saying the same thing in different words: that the search continues, that hopes are high, and that further funds would be timely.",
+        "Each letter is warmer than the last. By the ninth year he writes to Boston like a man writing home.",
+        "The replies are not in the file. Either Boston stopped answering or he stopped keeping what it said."
+      ],
+      "LISTEN_TO": [
+        "Nothing. A file of copies keeps its originals to itself.",
+        "Paper sliding inside the folder when I tilt it.",
+        "Nothing. Nine years of the same letter, and not one of them said aloud."
+      ]
+    },
+    {
+      "name": "THE SHARE CERTIFICATES",
+      "LOOK_AT": [
+        "Shares in the Consolation Improvement Company, beautifully engraved, with a sunrise over a gold field that does not exist.",
+        "These are unsigned. The Company kept its own shares and sold the town everything else.",
+        "Each one has a vignette of a miner holding up a nugget and smiling. He has the same face as Obadiah Mott."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Engraved paper is very confident and very quiet.",
+        "A stack shifting, crisp, like cards being squared.",
+        "Nothing. The sunrise on them has been rising for twelve years without a sound."
+      ]
+    }
+  ]
+}

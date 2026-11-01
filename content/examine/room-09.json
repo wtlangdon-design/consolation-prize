@@ -1,0 +1,150 @@
+{
+  "room": 9,
+  "name": "THE CLARION OFFICE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 9 — THE CLARION OFFICE",
+    "docs/54-batch-c.md::ROOM 9 · THE CLARION OFFICE",
+    "docs/49-wrong-answers.md::ROOM 9 — THE CLARION OFFICE"
+  ],
+  "subjects": [
+    {
+      "name": "THE TYPE CASE",
+      "LOOK_AT": [
+        "Lead type in wooden trays. The B is worn nearly flat.",
+        "The exclamation marks have a compartment of their own, and it is the largest.",
+        "Every letter is cast backward so that it prints forward. It is the most honest thing in the building and it does it in reverse."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It is lead and it has nothing to add.",
+        "A faint rattle of lead when the press starts. The type knows what is coming.",
+        "Nothing. Several thousand words in that case, and not one of them in order."
+      ],
+      "overrides": {
+        "PICK_UP": "The letter B, I notice, is nearly worn out. My name has been spending it."
+      }
+    },
+    {
+      "name": "THE PRESS",
+      "LOOK_AT": [
+        "A flatbed press of considerable age, operated by a man of considerable enthusiasm.",
+        "A sheet is half-printed in the bed: CONSOLATION REJOICES. The headline has not yet decided at what.",
+        "It is older than the town. It came over the mountains in pieces, which is more effort than anyone has put into the news since."
+      ],
+      "LISTEN_TO": [
+        "It knocks on the return stroke. It has been knocking for years and it will not be attended to.",
+        "The knock again, on the return. I could find it in a minute, and he would print that I had broken it.",
+        "A long iron sigh as the bed comes home, and then the knock, with the timing of a man repeating a joke."
+      ],
+      "overrides": {
+        "USE": "Frame offered to let me. Then he described the last man's sleeve. I withdrew the request and he printed that I had.",
+        "TALK_TO": "It has told more of this town's story than anyone alive, most of it invented. I keep my remarks neutral."
+      }
+    },
+    {
+      "name": "BACK EDITIONS",
+      "LOOK_AT": [
+        "Twelve years of the *Clarion*. The Mott story runs on the front page of one issue in three, and has for twelve years, with nothing new in it.",
+        "Each Mott story gives a different date for the strike. The latest has moved it to a Sunday, for color.",
+        "The oldest are yellow and the newest are white, and the story inside them has not aged at all."
+      ],
+      "LISTEN_TO": [
+        "Paper. Rather a lot of it.",
+        "The stack creaks. Twelve years of news, settling under its own weight.",
+        "Nothing. Yesterday's paper has nothing to add to yesterday."
+      ],
+      "overrides": {
+        "PULL": "The stack is structural. Frame's filing system is masonry."
+      }
+    },
+    {
+      "name": "THE MOTT PHOTOGRAPH",
+      "LOOK_AT": [
+        "The only known likeness of Obadiah Mott. I have seen this exact photograph in Mr. Sheng's window, advertising collars.",
+        "He has the look of a man who was asked to think of something noble and is thinking of lunch.",
+        "The photographer's stamp has been trimmed off the bottom, neatly. Somebody wanted this to be a picture of someone."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It is a picture of a man in Ohio.",
+        "Nothing. Whoever he is, he has not said a word in twelve years.",
+        "The frame ticks on its nail. It is the most this likeness has ever said."
+      ]
+    },
+    {
+      "name": "FRAME'S DESK",
+      "LOOK_AT": [
+        "A desk under a drift of proofs, notes and half-sentences. Somewhere beneath them, I am assured, is a desk.",
+        "A card pinned to the top reads VERIFY. It has been there so long the ink has faded to a suggestion.",
+        "Every drawer is open. Nothing in this office has ever been kept back from print, including several things that should have been."
+      ],
+      "LISTEN_TO": [
+        "Paper, shifting whenever the press runs. The desk is in a permanent state of mild landslide.",
+        "A pencil rolling slowly toward the edge. It has done this before, and nobody has stopped it.",
+        "Nothing, for once. The quietest place in the building is where he does his thinking, which may explain the paper."
+      ]
+    },
+    {
+      "name": "THE INK",
+      "LOOK_AT": [
+        "A keg of printer's ink, black as a creditor's mood and nearly as hard to get off the hands.",
+        "There are black thumbprints on everything in this office, including, somehow, the ceiling.",
+        "The keg is stenciled ST. LOUIS. The news here is local; the black is imported."
+      ],
+      "LISTEN_TO": [
+        "A thick, slow settle when the floor moves. It does not slosh. It considers.",
+        "Nothing. It is waiting to be turned into opinions.",
+        "The lid comes up with a reluctant kiss. I put it back down."
+      ]
+    },
+    {
+      "name": "THE SPIKE",
+      "LOOK_AT": [
+        "A paper spike, loaded to the hilt with stories that did not run. It is the most accurate archive in the building.",
+        "The top sheet reads CORRECTION in capitals, and nothing else. It was spiked before he could think of one.",
+        "He spikes his own stories when better ones occur to him. The better ones are on the front page. The true ones are here."
+      ],
+      "LISTEN_TO": [
+        "Nothing. A spike is where a story's life ends, and it is very quiet there.",
+        "Paper stirring when the door opens. The rejected, briefly hopeful.",
+        "Nothing. I will not be adding to it."
+      ]
+    },
+    {
+      "name": "THE WINDOW",
+      "LOOK_AT": [
+        "The front window, lettered THE CLARION in gold, backward from in here, which is how Frame sees most things.",
+        "People stop outside to read the headline board, then glance in to see whether Frame has noticed them reading. He always has.",
+        "The glass is the cleanest thing in the office. He likes to see who is coming before they can deny it."
+      ],
+      "LISTEN_TO": [
+        "Main Street, and over it someone reading a headline aloud to someone who cannot read. Both of them are pleased.",
+        "The bell over the door, waiting. It rings for news and for creditors and cannot tell them apart.",
+        "Boots on the boardwalk, slowing at the glass. Everybody slows here. It is the only place in town the news is free."
+      ]
+    },
+    {
+      "name": "THE SCHEDULE BOARD",
+      "LOOK_AT": [
+        "The stage schedules, chalked: arrivals, departures, and a column headed DELAYED that has never once been empty.",
+        "One departure has been rubbed out with a thumb. Whoever left on it, Frame is keeping for himself.",
+        "The coach east runs Tuesdays. The coach west runs when it feels it has something to say."
+      ],
+      "LISTEN_TO": [
+        "Chalk dust drifting off the ledge. Every departure leaves a little behind.",
+        "Nothing. A timetable is a silent form of optimism.",
+        "The board knocks against the wall when the press runs, in time with it. The whole building keeps the same bad rhythm."
+      ],
+      "overrides": {
+        "CLOSE": "Tomorrow's headline is chalked and facing the street. There is no closing the news. I have asked."
+      }
+    }
+  ],
+  "exitsAndUnplaced": {
+    "IGNATIUS FRAME": {
+      "PICK_UP": "He would print it. He would print it on the front page, and he would spell it GRUBBE.",
+      "PUSH": "He is already leaning toward the next sentence. He does not need help.",
+      "USE": "Everybody in town uses him. He calls it circulation.",
+      "GIVE": "Anything I hand him becomes a story. I am being careful what I hand him."
+    }
+  }
+}

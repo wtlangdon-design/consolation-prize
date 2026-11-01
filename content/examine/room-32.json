@@ -1,0 +1,10 @@
+{
+  "room": 32,
+  "name": "INSIDE THE COFFIN (E7)",
+  "special": "zero hotspots and no verb panel by invariant 2; the room is its timeline (errata 70 A, B)",
+  "note": "EXTRACTED by tools/extract-examine.mjs. A doc 05 special case (errata 70).",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 32 — INSIDE THE COFFIN *(E7)*"
+  ],
+  "subjects": []
+}

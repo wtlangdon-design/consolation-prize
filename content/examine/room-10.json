@@ -1,0 +1,257 @@
+{
+  "room": 10,
+  "name": "IMPROVEMENT COMPANY LOBBY",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY#1",
+    "docs/09-examine-batch-2.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY",
+    "docs/54-batch-c.md::ROOM 10 · IMPROVEMENT COMPANY LOBBY",
+    "docs/05-examine-layer.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY#2",
+    "docs/49-wrong-answers.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY"
+  ],
+  "subjects": [
+    {
+      "name": "THE CHAIRS",
+      "LOOK_AT": [
+        "Six chairs, each more comfortable than anything else in the territory. A man could wait here all day, and that is the design.",
+        "The cushions are plumped after every visitor. I have watched the clerk do it, tenderly.",
+        "Each one faces the inner door. You wait looking at the thing you are waiting for."
+      ],
+      "LISTEN_TO": [
+        "Upholstery, accepting someone's shape. It approves of everyone.",
+        "Leather, settling. That is the sound of somebody deciding to stay a bit longer.",
+        "A long, comfortable exhale of horsehair. It is the sound of an afternoon going missing."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "Six chairs, and for the first time in Company history, nobody waiting in any of them. Comfort with no takers. It is the saddest furniture in the territory and I cannot spare it a full minute."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
+      "overrides": {
+        "USE": "I sat. Twenty minutes evaporated. These chairs are how the Company buys time — literally, in bulk, from visitors."
+      }
+    },
+    {
+      "name": "THE CARPET",
+      "aliases": [
+        "THE RUG"
+      ],
+      "LOOK_AT": [
+        "An actual carpet, red as a promise, freighted a thousand miles so that boots could apologize for themselves at the door.",
+        "Turkish, or claiming to be. The only floor covering in Consolation, and it goes right up to the mud at the threshold.",
+        "A path is worn in it from the street door to the inner door, and nowhere else. Nobody wanders in here."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It swallows footsteps whole. You could be robbed here politely and not hear it coming.",
+        "Nothing. It takes my footsteps and keeps them.",
+        "A faint grit underfoot by the door, where the territory got in."
+      ],
+      "overrides": {
+        "PULL": "It runs under the desk, under the door, and — for all I know — under the town."
+      }
+    },
+    {
+      "name": "THE PORTRAIT OF FANSHAWE",
+      "LOOK_AT": [
+        "The Colonel, in oils, one hand on a globe. The globe is turned so his thumb covers the East.",
+        "The painter has given him a kindly eye and a firm jaw and charged, I imagine, for both.",
+        "A brass plate below it: COL. A. FANSHAWE, FOUNDER. The rank is engraved deeper than the name."
+      ],
+      "LISTEN_TO": [
+        "Canvas. Even the painting says nothing without an appointment.",
+        "The frame ticks against the wall when the inner door opens. He knows when somebody is going in.",
+        "Nothing. An oil portrait at rest is the most patient listener in the building."
+      ],
+      "overrides": {
+        "PUSH": "Straightened it. It was straight. It is now very slightly crooked and I feel I have accomplished something.",
+        "USE": "I spun it. His thumb-mark is worn into it over the East. I stopped spinning it."
+      }
+    },
+    {
+      "name": "THE PROSPECTUS RACK",
+      "LOOK_AT": [
+        "Pamphlets: CONSOLATION — TERRITORY OF TOMORROW. The artist has drawn the town with a river it does not have, running gold it has not got.",
+        "On the back of each pamphlet, a small form: I WISH TO INVEST $___ IN TOMORROW. Several have been filled in and not mailed.",
+        "The river in the drawing has a steamboat on it now. Each edition, the town gets more water."
+      ],
+      "LISTEN_TO": [
+        "Paper, riffling in the door's draft. Optimism, ventilated.",
+        "A pamphlet slipping down in its slot, settling into a better position.",
+        "Nothing. Tomorrow keeps very quiet in print."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "The rack is empty. TERRITORY OF TOMORROW went out of print somewhere between the filing and the morning after."
+          ],
+          "LISTEN_TO": [
+            "The draft, unemployed."
+          ]
+        }
+      ],
+      "overrides": {
+        "PICK_UP": "Free, insists the clerk. Nothing in this building is free. I took one. We shall see what it cost."
+      }
+    },
+    {
+      "name": "THE CLOCK",
+      "LOOK_AT": [
+        "A fine clock, eleven minutes slow. In this building, your appointment is always slightly sooner than you think, and you are always slightly late.",
+        "The clerk winds it every morning, carefully, so that it stays eleven minutes slow.",
+        "Brass pendulum, walnut case. It is the best-made lie in the room, and it has competition."
+      ],
+      "LISTEN_TO": [
+        "It ticks with authority. Wrong, but with authority.",
+        "Tick. Tick. Wrong, wrong, with conviction.",
+        "The chime, gathering itself. It will strike eleven minutes after the town has gone to lunch."
+      ],
+      "overrides": {
+        "USE": "Setting it right would be an act of vandalism against a working system."
+      }
+    },
+    {
+      "name": "THE RECEPTION DESK",
+      "aliases": [
+        "THE CLERK'S DESK"
+      ],
+      "LOOK_AT": [
+        "High enough that you address the clerk's collar. Papers pass over it in one direction only.",
+        "A brass bell on the desk, polished, with no sign it has ever been rung. The clerk sees you coming.",
+        "The clerk's book is open at today. My name is in it already, with the time I arrived: eleven minutes early."
+      ],
+      "LISTEN_TO": [
+        "A pen nib, somewhere behind the panelling, writing without pause.",
+        "The pen nib again, behind the panelling, steady as rain.",
+        "The clerk, breathing through his nose with the patience of a professional."
+      ]
+    },
+    {
+      "name": "THE DOOR TO THE OFFICE",
+      "aliases": [
+        "THE INNER DOOR"
+      ],
+      "LOOK_AT": [
+        "Panelled, brass-handled, and it opens for you exactly when the Colonel finds it useful. I have watched men age in front of it.",
+        "The handle is polished on the inside of the curve, where the Colonel's hand goes, and dull where a visitor would reach.",
+        "A pane of frosted glass at head height, through which nothing can be seen and everything is suggested."
+      ],
+      "LISTEN_TO": [
+        "Voices, shaped like laughter, sized like arithmetic.",
+        "A laugh behind it, generous and long. Somebody is being given something.",
+        "Nothing. Then the latch, and the door opens exactly as I look away from it."
+      ]
+    },
+    {
+      "name": "THE WINDOW BLINDS",
+      "aliases": [
+        "THE WINDOW"
+      ],
+      "LOOK_AT": [
+        "Half-drawn, always, at the same angle. The Company sees the street; the street sees slats.",
+        "The slats are dusted. The window behind them is not.",
+        "Through the slats, the street in strips: a horse's head, a wheel, a man's boots, and nothing whole."
+      ],
+      "LISTEN_TO": [
+        "A tap when the wind moves them. The building's one nervous habit.",
+        "A slat ticking in the draft from the door.",
+        "The street, cut into slices and served politely."
+      ]
+    },
+    {
+      "name": "THE SPITTOON, POLISHED",
+      "LOOK_AT": [
+        "A spittoon polished to a shine that forbids its purpose. Nobody has ever dared.",
+        "My face is in it, warped and improved. It is a very flattering spittoon.",
+        "There is a small brass plaque on it, which says PRESENTED, and nothing else."
+      ],
+      "LISTEN_TO": [
+        "A ring, faint, like a bell that regrets being one.",
+        "A hum when the door closes, tuned more or less to F.",
+        "Nothing. It has never been used, and it has never looked better."
+      ]
+    },
+    {
+      "name": "THE MAP OF HOLDINGS",
+      "LOOK_AT": [
+        "The district again, but coloured: what the Company owns is green, and the map is mostly green. My claim is a small white apology near the edge.",
+        "The green is hand-tinted, and someone has gone over the edges twice, so there is no doubt where the Company ends. It does not, much.",
+        "The legend has two entries: COMPANY and OTHER. OTHER is in very small type."
+      ],
+      "LISTEN_TO": [
+        "Nothing. The green does not need to say anything.",
+        "Nothing. Paper with this much green on it is very composed.",
+        "The frame tapping the wall as the inner door shuts."
+      ]
+    },
+    {
+      "name": "THE MODEL",
+      "LOOK_AT": [
+        "A scale model of Consolation as it will be. A bank, an opera house, a second church, a park. It is beautifully made. It has been beautifully made for nine years.",
+        "The opera house has tiny painted posters on it for an opera that has not been written.",
+        "The model's Main Street is paved. The real one is three yards away and is not."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. A town in miniature is even quieter than the real one.",
+        "A tiny bell in the model church, ringing when I knock the table. It is in tune, which is how I know it is a model."
+      ]
+    },
+    {
+      "name": "THE MAP WALL",
+      "LOOK_AT": [
+        "Maps to Mott's strike, framed, for sale. Eleven different maps, all of them authoritative, all of them different.",
+        "Each one is priced. The more certain the map, the higher the price, and the most certain is very expensive indeed.",
+        "I have stood in front of them for a while now. The strike has been in eleven places and I have not moved."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Eleven confident maps, not arguing with each other in public.",
+        "The glass of one frame humming faintly when a wagon passes."
+      ]
+    },
+    {
+      "name": "THE TESTIMONIALS",
+      "LOOK_AT": [
+        "Framed letters of thanks from satisfied claimholders. Four of them. I have read the dates. They are all from the first two years.",
+        "One thanks the Company 'for everything'. It does not go into detail.",
+        "There is room on the wall for forty. Somebody planned for more gratitude than arrived."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Thanks, framed, goes very quiet after two years.",
+        "A frame settling on its wire. Even the gratitude is sagging."
+      ]
+    },
+    {
+      "name": "THE SUBSCRIPTION BOOK",
+      "LOOK_AT": [
+        "Shares in the Company, at a dollar. A long list of names, and beside each a small number, and the numbers were larger nearer the top of the page.",
+        "There is a pen beside it, inked and ready. It is the only pen in town that is always inked.",
+        "The last name on the page has subscribed for one share. It is spelled carefully, as if it mattered."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "The page lifting in the warm air off the stove.",
+        "Nothing. It is waiting for the next small number."
+      ]
+    },
+    {
+      "name": "THE STOVE",
+      "LOOK_AT": [
+        "A stove, lit, in a lobby, in July. Nobody who comes in here is ever cold.",
+        "There are scraps of paper in the ash pan, half burned. The Company heats its lobby with what it no longer needs.",
+        "It is very warm in here. You do not want to leave, and you do not want to take your coat off, and so you sit."
+      ],
+      "LISTEN_TO": [
+        "Burning. Paper, I think, rather than wood.",
+        "A soft collapse in the firebox as something settles.",
+        "Burning, steadily. It is never allowed to go out, which is the most expensive thing in the room."
+      ]
+    }
+  ]
+}

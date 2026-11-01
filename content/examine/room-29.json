@@ -1,0 +1,132 @@
+{
+  "room": 29,
+  "name": "THE HIGH RIDGE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 29 — THE HIGH RIDGE",
+    "docs/10-examine-batch-3.md::ROOM 29 — THE HIGH RIDGE",
+    "docs/54-batch-c.md::ROOM 29 · THE HIGH RIDGE",
+    "docs/49-wrong-answers.md::ROOM 29 — THE HIGH RIDGE"
+  ],
+  "subjects": [
+    {
+      "name": "THE VIEW",
+      "aliases": [
+        "CONSOLATION, BELOW"
+      ],
+      "LOOK_AT": [
+        "All of Consolation at once: two streets, a steeple, the diggings' brown lace. From here it is exactly what it is — a stage set, assembled in a valley, waiting for its play.",
+        "The town, from above. From here you can see that every building on Main Street is a front with nothing behind it, and that people are moving between them anyway, briskly, all day.",
+        "I can cover the whole of Main Street with one thumb. The Colonel has a portrait that does the same to the East."
+      ],
+      "LISTEN_TO": [
+        "Everything, faint and mixed. The bell, the picks, a dog. The town's whole voice fits in a pocket up here.",
+        "Faintly, all of it at once. It sounds exactly like a real town.",
+        "The bell, a beat late, as if the sound had to climb."
+      ],
+      "overrides": {
+        "USE": "I used it the way everyone uses it: I stood in the wind until my problems reached their correct size, and then I climbed back down to them."
+      }
+    },
+    {
+      "name": "THE WIND",
+      "LOOK_AT": [
+        "You cannot look at it, but up here you stand in it the way you stand in a river. It has been traveling for a week and stops for nobody's hat.",
+        "It leans on me with the full weight of the territory, and the territory is not light.",
+        "My coat has been trying to leave since I arrived. Up here it very nearly manages."
+      ],
+      "LISTEN_TO": [
+        "It says the one long thing it always says.",
+        "The same long thing. It has never needed a second subject.",
+        "A gust, a low whistle across the cairn, and then the long thing again."
+      ]
+    },
+    {
+      "name": "THE CAIRN",
+      "LOOK_AT": [
+        "A cairn of ridge stones, added to by everyone who ever climbed up here and felt something. It is taller than I expected.",
+        "Some of the stones have names scratched on them, some have dates. One has a single word, SORRY, and nobody has put a stone on that one.",
+        "I have added a stone. I did not feel anything in particular. I added it anyway, in case."
+      ],
+      "LISTEN_TO": [
+        "Stone on stone, holding. The wind takes the top note off it.",
+        "A stone settling, very slightly, under the weight of all the others.",
+        "The wind takes its note off the top, as before, and the cairn hums it back lower."
+      ],
+      "overrides": {
+        "PICK_UP": "You add. You do not subtract. I added."
+      }
+    },
+    {
+      "name": "THE SURVEY MARK",
+      "LOOK_AT": [
+        "A brass pin in the rock, set by the territorial survey. The one fixed point in the district. Everything below is measured, ultimately, from this.",
+        "Stamped with a number, a year, and a small arrow pointing at nothing in particular with great conviction.",
+        "Every deed in the valley, mine included, is a distance from this pin. It is the most important object in the district, and a goat could stand on it."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Fixed points have nothing to add.",
+        "Nothing. Brass in rock, holding still for everybody.",
+        "Nothing. It does not hum in the wind. It is the only thing up here that doesn't."
+      ],
+      "overrides": {
+        "PULL": "The one fixed point in the district. Prying at it felt like arguing with north."
+      }
+    },
+    {
+      "name": "THE ROCK SEAT",
+      "LOOK_AT": [
+        "A shelf of rock polished by a generation of sitting. Whatever people come up here to decide, this is where they sit to decide it.",
+        "Below it the ledge is worn into two heel marks, where people have sat with their knees up and thought.",
+        "I sat. The town fit between my boots. It did not make the decision any smaller."
+      ],
+      "LISTEN_TO": [
+        "The wind, divided around the rock. Behind it, a pocket of true quiet — the only one for miles.",
+        "The pocket of quiet behind the rock. You could hear a thought in it.",
+        "My own breathing, for once louder than the town."
+      ],
+      "overrides": {
+        "TALK_TO": "I asked it what the others decided, all the ones before me. The quiet behind the rock kept every confidence. Good stone."
+      }
+    },
+    {
+      "name": "THE FOUNDATIONS",
+      "LOOK_AT": [
+        "From up here you can see the order they were built in. The saloon first. The assay office second. The schoolhouse third — before the church, before the bank, before anybody's house. They built a school for children who had not arrived yet, and no teacher ever came.",
+        "The schoolhouse roof has fallen in. Nobody has mended it, because nobody has had a reason to.",
+        "The church is fourth. The town found time to be good after it had found time to be drunk, assayed and educated."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Twelve years of building make no sound from this high.",
+        "Nothing. A schoolhouse with no children in it is quiet even from close up."
+      ]
+    },
+    {
+      "name": "THE CLAIMS",
+      "LOOK_AT": [
+        "Four hundred claims, laid out below like a badly ruled page. Somewhere in the middle is forty feet that belongs to me.",
+        "From here you can see which ones are worked and which have been left. More have been left.",
+        "Mine is near the edge, beside the famous one. From up here they are exactly the same size, because they are."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Four hundred holes and not a sound out of any of them.",
+        "Nothing, and then, very faint, one pick somewhere. One man who has not given up.",
+        "Nothing. From up here the whole rush is a silent picture."
+      ]
+    },
+    {
+      "name": "THE ROAD EAST",
+      "LOOK_AT": [
+        "Eleven hundred miles that way. From up here you can see about nine of them.",
+        "The coach road, a pale thread going over the edge of the world. I came in on it.",
+        "From up here it looks almost walkable. That is the view's one lie."
+      ],
+      "LISTEN_TO": [
+        "Nothing coming.",
+        "Nothing coming.",
+        "Nothing coming."
+      ]
+    }
+  ]
+}

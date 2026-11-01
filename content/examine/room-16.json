@@ -1,0 +1,284 @@
+{
+  "room": 16,
+  "name": "OZYMANDIA'S TENT",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT",
+    "docs/09-examine-batch-2.md::ROOM 16 — MADAME OZYMANDIA'S TENT",
+    "docs/54-batch-c.md::ROOM 16 · MADAME OZYMANDIA'S TENT",
+    "docs/49-wrong-answers.md::ROOM 16 — OZYMANDIA'S TENT"
+  ],
+  "subjects": [
+    {
+      "name": "MADAME OZYMANDIA'S TABLE",
+      "aliases": [
+        "THE TASSELS"
+      ],
+      "LOOK_AT": [
+        "A round table under a fringed cloth. Round, I am told, so that no one sits at the head. She sits at the head anyway.",
+        "The fringe is long enough to hide a foot. I have decided not to wonder whose.",
+        "A ring of wear on the cloth where a hundred clients have rested their hands, palms up, and paid."
+      ],
+      "LISTEN_TO": [
+        "The cloth's tassels, moving without wind. There is a wind. It is just not one you can feel.",
+        "The tassels again, swaying. I checked for a draft. There is a draft.",
+        "Nothing, for once. The table is between appointments."
+      ],
+      "overrides": {
+        "PULL": "One came off in my hand. It was back on the cloth when I looked again. I have elected not to think about this."
+      }
+    },
+    {
+      "name": "THE CRYSTAL BALL",
+      "aliases": [
+        "THE CRYSTAL"
+      ],
+      "LOOK_AT": [
+        "A glass ball on a brass stand. In it: the tent, upside down, and me, small. It is right about both.",
+        "Glass. Good glass, though. She has not economized on the glass.",
+        "A small chip on the underside, turned to the wall. Even the future has a bad side."
+      ],
+      "LISTEN_TO": [
+        "Nothing. Glass keeps what it sees.",
+        "Nothing. It is reflecting, which is quiet work.",
+        "A faint ring when the table is bumped. The future, briefly, in a key."
+      ],
+      "overrides": {
+        "USE": "I looked. Upside-down tent, small Thad. Two dollars. On reflection — which is all the ball does — fair."
+      }
+    },
+    {
+      "name": "THE BRASS ROD",
+      "aliases": [
+        "THE ROD"
+      ],
+      "LOOK_AT": [
+        "A dowsing rod of solid brass, polished at the grip. It finds water, gold, and — per the sign — 'that which the seeker conceals from himself.' Priced accordingly.",
+        "A brass rod. Gold is not magnetic and neither is brass, and I have decided that raising this would be unkind and also expensive.",
+        "The grip is wrapped in red thread, worn through to the brass where her thumb goes. Eleven years of the same thumb."
+      ],
+      "LISTEN_TO": [
+        "A hum, if I hold my breath. Possibly my own blood. Possibly not.",
+        "It rings when she sets it down. She sets it down a great deal, always in the same place, and it always rings the same.",
+        "Nothing, when I breathe normally. I have decided to breathe normally."
+      ],
+      "overrides": {
+        "USE": "It swung toward the money box. 'It seeks the hidden metal,' she said, without a trace of embarrassment. Professional courtesy forbade comment."
+      }
+    },
+    {
+      "name": "THE PRICE LIST",
+      "LOOK_AT": [
+        "Divination, two dollars. Boundary divination, two dollars. Consultation regarding prices, one dollar.",
+        "Below the prices, smaller: SATISFACTION AS THE SPIRITS ALLOW.",
+        "Boundary divination costs the same as the ordinary kind. The earth does not charge extra for lines, apparently."
+      ],
+      "LISTEN_TO": [
+        "Paper. The prices hold steady, which is more than the bank manages.",
+        "Nothing.",
+        "The card tapping against the tent pole in the draft. Two dollars, two dollars."
+      ]
+    },
+    {
+      "name": "THE CARDS",
+      "LOOK_AT": [
+        "A deck worn soft, wrapped in silk. The top card, when she is elsewhere, is always the same one. I have stopped checking which.",
+        "The silk has a monogram, faded past reading. They were somebody else's before they were hers.",
+        "The deck is thinner than a full deck. Some futures, she says, are not for sale."
+      ],
+      "LISTEN_TO": [
+        "Card against card, in the wrap. They shuffle themselves slightly. I have decided this is settling.",
+        "A whisper of silk when the tent breathes.",
+        "Nothing. They are waiting to be told what they mean."
+      ],
+      "overrides": {
+        "PICK_UP": "The silk wrap tightened. I did not see her move. The deck stayed where destiny — her word — had left it."
+      }
+    },
+    {
+      "name": "THE TEA SERVICE",
+      "LOOK_AT": [
+        "The leaves are read in a cup with no handle, from a pot that is never empty. The tea itself is genuinely good, which she considers beside the point.",
+        "The cups are four different patterns, each from a different town she has left.",
+        "The leaves at the bottom of my cup made a shape. I asked what it was. She said it was a fee."
+      ],
+      "LISTEN_TO": [
+        "The pot, at a murmur. It is always just off the boil.",
+        "A soft rattle of china when the table moves.",
+        "The pot, still murmuring. It is the only thing in the tent that never pretends."
+      ]
+    },
+    {
+      "name": "THE INCENSE BURNER",
+      "LOOK_AT": [
+        "Smoke rises from it in a line and then decides things. The smell is cedar, church, and somewhere behind both, supper.",
+        "It is shaped like a small brass temple from a country she has certainly never seen.",
+        "The ash beneath it is a week deep. The smell of the tent is mostly the tent's own history."
+      ],
+      "LISTEN_TO": [
+        "The faintest crackle. A very small fire with a very large job.",
+        "A thread of smoke whispering as it breaks against the canvas.",
+        "Nothing between draws, then the faint crackle again, working."
+      ]
+    },
+    {
+      "name": "THE TENT WALLS",
+      "LOOK_AT": [
+        "Canvas, painted with stars on the inside, patched with flour sacks on the out. From in here, the sky is always clear.",
+        "Some of the painted stars are in constellations. Some are wherever she wanted a star.",
+        "From outside: FLOUR, FLOUR, FLOUR, in faded stencil. From inside: the heavens."
+      ],
+      "LISTEN_TO": [
+        "Canvas breathing. The whole room inhales.",
+        "A gust leaning on the canvas, and the stars bellying in.",
+        "The street through canvas, soft and far, like a rumor about a street."
+      ]
+    },
+    {
+      "name": "THE TESTIMONIAL BOARD",
+      "aliases": [
+        "THE TESTIMONIAL LETTERS"
+      ],
+      "LOOK_AT": [
+        "Letters pinned up: SHE FOUND MY RING. SHE KNEW ABOUT WILLIAM. One reads only I WAS WRONG TO DOUBT, unsigned, in a fine hand.",
+        "Letters of thanks. They are in four different hands and one of them is hers.",
+        "I WAS WRONG TO DOUBT is pinned higher than the others, at eye level. She knows which letter does the work."
+      ],
+      "LISTEN_TO": [
+        "Paper, pinned and fluttering. A choir of the convinced.",
+        "Nothing.",
+        "A pin working loose, and a letter sliding an inch before it holds. Even the convinced waver."
+      ]
+    },
+    {
+      "name": "THE LANTERN, RED",
+      "aliases": [
+        "THE LAMP"
+      ],
+      "LOOK_AT": [
+        "A lantern with red glass, hung center. It makes everyone's face look like a secret being kept.",
+        "The red glass is cracked and mended with a strip of red ribbon. Nothing in here is allowed to be ordinary, not even a repair.",
+        "Under it my hands look like a stranger's, and a lucky one."
+      ],
+      "LISTEN_TO": [
+        "The flame, steady. Red does not flicker, apparently. Ask her why.",
+        "A faint hiss from the wick. Steady, as advertised.",
+        "Nothing. The red keeps the flame quiet, or she does."
+      ]
+    },
+    {
+      "name": "THE MONEY BOX",
+      "LOOK_AT": [
+        "A cash box with a painted eye on the lid. Nobody steals from it. The eye may be why. The eye may not be why.",
+        "The eye on the lid has been repainted. It used to look left. It now looks at you.",
+        "A slot in the top and no lock. It does not need one."
+      ],
+      "LISTEN_TO": [
+        "Coins, when the table moves. She is doing better than the Mercantile.",
+        "Nothing. It is listening to me, possibly.",
+        "A single coin shifting as she passes the table. It knows its owner."
+      ],
+      "overrides": {
+        "OPEN": "The painted eye and I held a discussion. The eye won on experience."
+      }
+    },
+    {
+      "name": "THE FLAP TO OUTSIDE",
+      "LOOK_AT": [
+        "The tent flap, weighted so it closes itself with a certain finality. Entrances here are hers; exits are yours.",
+        "Small bells are sewn along the hem. They ring when you leave, never when you come in.",
+        "The weights in the hem are horseshoes, four of them. Luck, put to practical use."
+      ],
+      "LISTEN_TO": [
+        "The street, arriving in pieces. She hears all of this, all day. Perhaps that is the whole trick.",
+        "The bells on the hem, faintly, in the wind.",
+        "The street, and then the flap closing it off with a soft and final thump."
+      ]
+    },
+    {
+      "name": "THE SECOND ROD",
+      "LOOK_AT": [
+        "An identical rod, in a box, under the table. She has a spare. I find this oddly reassuring about her sincerity.",
+        "The box is lined in velvet and the spare is polished. It has never been used, and it is better looked after than the first.",
+        "Two rods. If one finds nothing, there is always the other, to find nothing in agreement."
+      ],
+      "LISTEN_TO": [
+        "Nothing, boxed.",
+        "Nothing, under the table, in the dark.",
+        "A faint ring when the table is bumped. It would like to work."
+      ]
+    },
+    {
+      "name": "THE CHART",
+      "LOOK_AT": [
+        "A chart of the humors of the earth, hand-painted, extremely detailed, and entirely invented. It took somebody weeks.",
+        "The earth's humors are color-coded. Gold is a warm humor. Debt, I notice, is not on it.",
+        "In one corner, very small, the painter's name. It is hers, in a different style."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Invented things make no noise.",
+        "The paper lifting at one corner in the draft from the flap."
+      ]
+    },
+    {
+      "name": "THE GROUND",
+      "LOOK_AT": [
+        "Bare earth, under a tent, in the middle of town. She could have had a floor. She has chosen not to have a floor.",
+        "Swept bare and level, with the marks of a broom going round in circles, like the rest of the business.",
+        "Her chair legs have sunk an inch into it. She has sat in exactly the same place for a very long time."
+      ],
+      "LISTEN_TO": [
+        "Nothing unusual.",
+        "Nothing unusual. Earth, under a tent.",
+        "Nothing. Packed dirt, minding its own business."
+      ]
+    },
+    {
+      "name": "THE CUSHIONS",
+      "LOOK_AT": [
+        "Cushions on the client's side, faded velvet, each softer than the last. You sink into a consultation.",
+        "There is a coin down between two of them. I have left it. It is probably part of the act.",
+        "Her side has no cushion, only a hard stool. She does not need to be comfortable to be certain."
+      ],
+      "LISTEN_TO": [
+        "A soft sigh of velvet as I lean on one.",
+        "Nothing. They absorb everything, including doubt.",
+        "A faint crunch of something sewn inside. Lavender, or nerves."
+      ]
+    },
+    {
+      "name": "THE STOVE",
+      "LOOK_AT": [
+        "A small iron stove, very hot, in a tent whose door is a sheet of canvas.",
+        "It is fed with pages from an almanac. The future, she tells me, is excellent fuel.",
+        "The heat makes the painted stars shimmer. I am almost certain that is deliberate."
+      ],
+      "LISTEN_TO": [
+        "A low roar, small and steady, like an audience waiting.",
+        "A page curling as it catches.",
+        "Iron ticking. It keeps better time than her predictions."
+      ]
+    },
+    {
+      "name": "THE CURTAIN",
+      "LOOK_AT": [
+        "A curtain at the back, dark velvet with a fringe of gold thread, most of it still gold.",
+        "Behind it, she says, the spirits wait. Behind it, I am fairly sure, is her bed.",
+        "It is drawn exactly as far as she wants it drawn. I have never seen it move, and I have never seen it in the same place twice."
+      ],
+      "LISTEN_TO": [
+        "Breathing behind it, or the tent breathing. I prefer the tent.",
+        "Nothing behind the curtain. The spirits are between appointments.",
+        "The rings on the rail, faintly, when the wind leans on the tent."
+      ]
+    }
+  ],
+  "exitsAndUnplaced": {
+    "MADAME OZYMANDIA": {
+      "PICK_UP": "There would be a fee, and then a curse, and the fee would be larger.",
+      "PUSH": "She would sway, theatrically, and describe it afterward as a vision.",
+      "GIVE": "Anything I give her, she prices."
+    }
+  }
+}

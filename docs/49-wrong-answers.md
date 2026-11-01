@@ -180,7 +180,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 **THE BELL ROPE** · PULL — "The whole town orders its morning by that flat note, and it was not morning. Sowerby appeared before the echo died. We have agreed it was the wind."
 **THE COLLECTION PLATE** · PICK_UP — "It is bolted down, which I take to be doctrine informed by experience."
 **THE PULPIT** · USE — "I stood at it a moment while the hall was empty. It faces a room of chairs the way my claim faces the future: expectantly, on faith."
-**THE HYMNAL** · USE — "I corrected the pencilled corrections. Somebody has since corrected mine. The hymnal is now a debate."
+**THE HYMNAL** · USE — "I corrected the penciled corrections. Somebody has since corrected mine. The hymnal is now a debate."
 **THE STOVE** · TALK_TO — "I asked it to extend its range to the back pews. It ticked noncommittally, like everything else in this building with a congregation."
 
 ## ROOM 18 — HOTEL LOBBY

@@ -169,7 +169,7 @@ function doc25Subjects(body) {
   // Repeat variants for doc 05's own subjects are written as a bold run
   // rather than as `###` blocks.
   for (const line of body.split('\n')) {
-    const found = /^\*\*(.+?)\*\*\s*—\s*LOOK\s(.*)$/.exec(line.trim());
+    const found = /^\*\*(.+?)\*\*\s*(?:\*\(act:[^)]*\)\*)?\s*—\s*LOOK\s(.*)$/.exec(line.trim());
     if (!found) continue;
     const halves = found[2].split('|');
     const count = (text) => (text.match(/(?:^|·)\s*\d+\s+"/g) ?? []).length;

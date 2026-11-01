@@ -1,0 +1,144 @@
+{
+  "room": 23,
+  "name": "PROSPERITY, AND THE HOLE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#1",
+    "docs/54-batch-c.md::ROOM 23 & 24 · PROSPERITY, AND THE HOLE",
+    "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#2",
+    "docs/49-wrong-answers.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE"
+  ],
+  "subjects": [
+    {
+      "name": "THE CLAIM MARKER",
+      "aliases": [
+        "THE CLAIM MARKER (MINE)"
+      ],
+      "LOOK_AT": [
+        "A stake with a number on it. Beyond it, forty feet of land that is legally, indisputably mine.",
+        "The number is painted on with confidence and very little paint.",
+        "It leans. I have straightened it twice and it has gone back to leaning, which I respect as a position."
+      ],
+      "LISTEN_TO": [
+        "Wind. It is not impressed either.",
+        "The stake creaks in the wind like a man trying to remember something.",
+        "Wind again. It comes through here on its way to somewhere better."
+      ],
+      "acts": [
+        {
+          "act": "4",
+          "LOOK_AT": [
+            "Prosperity. Named by a liar, bought by a fool, and correct the entire time. There is a sermon in that and Sowerby cannot have it."
+          ],
+          "LISTEN_TO": []
+        }
+      ],
+      "overrides": {
+        "PUSH": "Mine now, lean and all. I have decided the lean is jaunty.",
+        "TALK_TO": "'Prosperity,' I told it, 'you and I are going to be the punchline of something.' I was righter than I knew."
+      }
+    },
+    {
+      "name": "THE MUD",
+      "LOOK_AT": [
+        "Approximately forty percent mud, thirty percent rock, and thirty percent a substance I have not yet identified.",
+        "Having stood in it, I can report on the unidentified thirty percent. It is cold, and it is personal.",
+        "This is the mud I own. I keep expecting to feel differently about it than about other mud. I do not."
+      ],
+      "LISTEN_TO": [
+        "Wet. Working at it.",
+        "It sucks at my boot as I lift it. Possessive, for something I bought.",
+        "A slow settling. It has nowhere else to be, and neither, it turns out, do I."
+      ],
+      "overrides": {
+        "USE": "I did use it. I filed it. It is the most administrated mud in the territory."
+      }
+    },
+    {
+      "name": "THE HOLE",
+      "LOOK_AT": [
+        "A hole. Forty feet of my property goes down into it and does not come back.",
+        "The edges are old and smooth. Whatever dug this was in no hurry.",
+        "Forty feet of my land, and this is the only part of it that has shown any initiative."
+      ],
+      "LISTEN_TO": [
+        "Air. Moving. It's warmer than the day.",
+        "Air. Moving. It's warmer than the day.",
+        "Air. Moving. It's warmer than the day."
+      ],
+      "acts": [
+        {
+          "act": "3",
+          "LOOK_AT": [
+            "The hole. The warm air. I evicted a raccoon from the front door of a fortune and apologized to neither of us."
+          ],
+          "LISTEN_TO": [
+            "Air. Moving. Warmer than the day. The same words as always; I am only now hearing what they were saying."
+          ]
+        }
+      ],
+      "overrides": {
+        "CLOSE": "You cannot close a hole. You can only fill it, and I have nothing to spare, including — on some mornings — the inclination.",
+        "TALK_TO": "I said good morning down it. The echo said it back warmer than the town does.",
+        "OPEN": "Vacant, per the eviction. The warm air keeps it aired. Best-ventilated address I own."
+      }
+    },
+    {
+      "name": "THE RACCOON",
+      "LOOK_AT": [
+        "He is in my hole. He was in my hole before it was my hole, which he clearly regards as decisive.",
+        "He has arranged the hole to his satisfaction. There is a pine cone positioned with real intent.",
+        "We have looked at each other for some time. He is winning, in the sense that he is comfortable."
+      ],
+      "LISTEN_TO": [
+        "Breathing. Slowly. In a way I would describe as editorial.",
+        "A small, contented grinding. He is eating something, and it was mine.",
+        "He is breathing at me again. I have been reviewed and found tenantable."
+      ],
+      "overrides": {
+        "PICK_UP": "No. He is in residence, and I am not his landlord in any sense he recognizes.",
+        "PUSH": "I am not going to push a raccoon further into a hole he already likes. That is encouragement.",
+        "USE": "He is not a tool. He is barely a tenant."
+      }
+    },
+    {
+      "name": "CLAIM ONE'S BOUNDARY",
+      "LOOK_AT": [
+        "Somewhere past that stake is the most famous piece of ground in the territory. It looks exactly like this piece of ground.",
+        "A boundary stake, older than mine and sunk deeper. Someone meant it.",
+        "On that side, the most valuable ground in the territory. On this side, mine. The raccoon cannot tell the difference, and has not tried."
+      ],
+      "LISTEN_TO": [
+        "The same. Exactly the same.",
+        "Wind, crossing from his land to mine without a survey.",
+        "Exactly the same. I have listened for the difference twice now, and the difference is the price."
+      ]
+    },
+    {
+      "name": "THE CREEK",
+      "LOOK_AT": [
+        "A creek, low and brown, running past the foot of my claim and declining to stop.",
+        "Men upstream pan it every day. By the time it reaches me it has been thoroughly searched.",
+        "It is the only thing on my property that is going anywhere."
+      ],
+      "LISTEN_TO": [
+        "Water over stones, talking to itself the way water does, cheerfully and without content.",
+        "The same water. It has said nothing new since I arrived, which makes it the most reliable voice in the district.",
+        "A pan scraping, far upstream. Somebody hoping. The creek carries that down too."
+      ]
+    },
+    {
+      "name": "THE RIDGE",
+      "LOOK_AT": [
+        "The ridge above the claims, bare to the sky. From up there, I am told, you can see the whole district and none of its prospects.",
+        "There is a path up it, worn by men going to look at what they cannot have.",
+        "It was here before the town and expects to be here after. It has the patience of a creditor."
+      ],
+      "LISTEN_TO": [
+        "Wind along the top, steady as a held note.",
+        "The wind again, a little sharp. Somebody should see to that.",
+        "Nothing coming down from it. Whatever is up there is keeping it to itself."
+      ]
+    }
+  ]
+}

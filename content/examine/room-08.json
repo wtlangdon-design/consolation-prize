@@ -1,0 +1,219 @@
+{
+  "room": 8,
+  "name": "REGISTRAR'S ARCHIVE",
+  "note": "EXTRACTED by tools/extract-examine.mjs from the documents its sources name -- errata 67's merge, in doc 05's, the batch's, then the repeats' order, less errata 68 H's drops. Do not edit: change the documents and re-run.",
+  "sources": [
+    "docs/05-examine-layer.md::ROOM 8 — REGISTRAR'S ARCHIVE",
+    "docs/08-examine-batch-1.md::ROOM 8 — REGISTRAR'S ARCHIVE",
+    "docs/54-batch-c.md::ROOM 8 · REGISTRAR'S ARCHIVE",
+    "docs/49-wrong-answers.md::ROOM 8 — REGISTRAR'S ARCHIVE"
+  ],
+  "subjects": [
+    {
+      "name": "THE STACKS",
+      "aliases": [
+        "THE SHELVES"
+      ],
+      "LOOK_AT": [
+        "Shelves to the ceiling, every claim and quarrel in the district folded into brown paper. The town's entire memory, filed under mostly the wrong letters.",
+        "Every claim ever filed in this district, in boxes, in order. It is the most organized thing in Consolation and no one is permitted to look at it.",
+        "The boxes for the first year are the thinnest. It took the town a year to start lying in quantity."
+      ],
+      "LISTEN_TO": [
+        "Settling. An archive breathes about once an hour.",
+        "Nothing. Paper does not keep secrets so much as decline to volunteer.",
+        "A box settling on a high shelf. The archive, turning over in its sleep."
+      ],
+      "overrides": {
+        "PULL": "One folder is never one folder. The stacks are an ecosystem and I am not licensed to hunt in it."
+      }
+    },
+    {
+      "name": "THE FILING LADDER",
+      "LOOK_AT": [
+        "A ladder on a rail, for reaching the years nobody asks about. The wheels are rusted at 1858 and shine at the present.",
+        "The rungs are worn smooth in the middle, the way rungs are.",
+        "From the top rung you can touch the ceiling and the oldest box in the district at once."
+      ],
+      "LISTEN_TO": [
+        "The rail, ticking as the building cools.",
+        "A wheel squeaking a quarter turn as I lean on it.",
+        "Nothing. It has been put back exactly where it was, which is to say, used."
+      ],
+      "overrides": {
+        "PUSH": "It rolls to 1858 and stops of its own accord, like a horse that knows the route."
+      }
+    },
+    {
+      "name": "THE MOTT FILE",
+      "aliases": [
+        "THE FILING ITSELF"
+      ],
+      "LOOK_AT": [
+        "The famous filing. The original declaration of the strike, under glass now, because people kept touching it. The signature is confident. The rest is brief.",
+        "One sheet. A date, a name, an assertion, and a signature. There is no location on it. There has never been a location on it. Ten thousand men have dug for twelve years on the strength of a sheet of paper that does not say where.",
+        "It is shorter than my letter to my mother. It has done considerably more."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It has said what it has to say for twelve years.",
+        "Nothing at all.",
+        "Nothing. Twelve years under glass, and still nothing to add."
+      ],
+      "overrides": {
+        "OPEN": "Under glass, and the glass is under Sump, and Sump is under statute. It is the best-defended document in the territory."
+      }
+    },
+    {
+      "name": "THE TIMESHEET",
+      "LOOK_AT": [
+        "The watch rota for the year of the strike, kept for no reason anyone remembers. Names, nights, initials.",
+        "The watchman's hours, signed weekly. Twelve years of them, in a stack.",
+        "Bundled with string and labeled by year. The archive keeps everything, including what nobody asked it to keep."
+      ],
+      "LISTEN_TO": [
+        "Paper. Same hand as the filing.",
+        "Paper. Same hand as the filing.",
+        "Paper. Same hand as the filing."
+      ]
+    },
+    {
+      "name": "THE COUNTY SEAL",
+      "LOOK_AT": [
+        "The seal that makes paper true. A pound of brass with the weight of scripture. Sump cleans it more often than it needs.",
+        "The handle is wrapped in chamois so it will not mark. Even the seal is handled with care.",
+        "Around the rim, CONSOLATION COUNTY; in the middle, a pickaxe crossed with a quill. That is the whole economy, and it is accurate."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It speaks only when pressed.",
+        "Nothing. It is resting between truths.",
+        "A faint ring when I set it down. Brass, agreeing with itself."
+      ],
+      "overrides": {
+        "USE": "I lifted it an inch. The weight of it is a legal argument. I set it down persuaded."
+      }
+    },
+    {
+      "name": "THE UNCLAIMED CORRESPONDENCE",
+      "LOOK_AT": [
+        "A pigeonhole of letters addressed to men the territory has misplaced. Some have waited years. The postage is a small museum.",
+        "One is addressed to Ezra Pike. Six years waiting. I carried its twin eleven hundred miles.",
+        "Some envelopes have been readdressed three times, each to a camp further west. The last is addressed to nowhere at all, and was delivered here."
+      ],
+      "LISTEN_TO": [
+        "Envelopes. Patience, in paper form.",
+        "A soft slither as one envelope leans into another.",
+        "Nothing. Letters keep very quiet when nobody is coming for them."
+      ],
+      "overrides": {
+        "PICK_UP": "Other men's letters. I have one of my own addressed to a dead man; I know how they feel about being held."
+      }
+    },
+    {
+      "name": "THE DAMP CORNER",
+      "LOOK_AT": [
+        "The roof lets go here in the wet months, and the records of 1851 have paid for it. The town's third year is a soft gray brick.",
+        "A bucket under the worst of it, half full, and a second bucket under the first bucket's overflow.",
+        "Whatever was filed in 1851 is legible only as a color now: a soft brown peace."
+      ],
+      "LISTEN_TO": [
+        "A drip, in season. Today it is only thinking about it.",
+        "A single drop, at last, into the bucket. It had been thinking about it for some time.",
+        "Nothing. The roof is saving up."
+      ]
+    },
+    {
+      "name": "THE CLERK'S DESK",
+      "LOOK_AT": [
+        "Sump's desk in the archive, angled so he can see the door and the door cannot see what he is reading.",
+        "A blotter, a pen and a stamp pad, all squared to the edge. Sump's archive desk is Sump in furniture.",
+        "One drawer has a brass label: PENDING. It is empty. Nothing in Sump's charge is pending for long."
+      ],
+      "LISTEN_TO": [
+        "A drawer that does not quite shut. It holds something read often.",
+        "The drawer that will not quite shut, ticking when the floor moves.",
+        "Nothing. Sump's desk is quiet even when he is not at it."
+      ]
+    },
+    {
+      "name": "THE LAMP BRACKET",
+      "aliases": [
+        "THE LAMP"
+      ],
+      "LOOK_AT": [
+        "No open flame in the archive; the lamp lives in a bracket by the door, and the deep stacks stay dark. What the archive knows, it knows in the dark.",
+        "The wall above it is scorched in a neat oval, the shape of a lamp held at that height for a long time.",
+        "It is the only light allowed in here, and it is allowed only as far as the door."
+      ],
+      "LISTEN_TO": [
+        "The bracket rocks a little. Someone takes the lamp down more than Sump admits.",
+        "The bracket creaking as the door swings.",
+        "Nothing. The lamp is down, and the bracket is waiting for it."
+      ]
+    },
+    {
+      "name": "CLAIM ONE'S BOX",
+      "LOOK_AT": [
+        "The most famous claim in the territory. The box is the same size as all the others, which I find unreasonable.",
+        "It has a brass corner piece, which none of the others has. Somebody felt the most famous box deserved a little armor.",
+        "The label is in Sump's hand, and has been relabeled once, in Sump's hand, more neatly."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. A box holding one sheet makes the same sound as an empty one.",
+        "Nothing. The most famous box in the territory has nothing to say for itself."
+      ]
+    },
+    {
+      "name": "THE EXECUTORS' LEDGER",
+      "LOOK_AT": [
+        "A record of every man who has entered this room. Nineteen names. I am the twentieth, and I am dead.",
+        "The ink of the last entry before mine is years old. Nobody has been dead enough to come in here for a long time.",
+        "I signed it. Under occupation I wrote 'deceased', because it seemed the honest thing."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. A book of visitors, none of whom is visiting.",
+        "The page settling as I close it. Twenty names now, and one of them still breathing."
+      ]
+    },
+    {
+      "name": "THE BARRED WINDOW",
+      "LOOK_AT": [
+        "Barred, on the inside. Whoever built this was not worried about people getting in.",
+        "The bars are set in mortar on the inside of the frame. Somebody built a room to keep paper from escaping.",
+        "Through the bars, a slice of Main Street: one hitching rail, one horse, one man looking at neither."
+      ],
+      "LISTEN_TO": [
+        "Main Street. Muffled. It sounds like a town from in here.",
+        "A wagon passing, reduced to a rumor.",
+        "Somebody laughing outside. In here it sounds like a story about someone else."
+      ]
+    },
+    {
+      "name": "THE DUST",
+      "LOOK_AT": [
+        "Undisturbed everywhere except one shelf, at chest height, where somebody has been reaching for years.",
+        "It lies on everything else like a sheet over the furniture in a closed house.",
+        "My own prints are in it now. It will remember me longer than the town does."
+      ],
+      "LISTEN_TO": [
+        "Nothing.",
+        "Nothing. Dust is very good at being undisturbed.",
+        "Nothing. I sneezed once, which is the loudest thing this room has heard in a year."
+      ]
+    },
+    {
+      "name": "THE CHAIR",
+      "LOOK_AT": [
+        "One chair. Facing the shelves. Somebody sits in here.",
+        "A plain chair with a cushion worn flat in the shape of one particular person.",
+        "I did not sit in it. It felt like someone else's."
+      ],
+      "LISTEN_TO": [
+        "Nothing. It has been sat in a great deal and it is not saying by whom.",
+        "A creak as the cushion lets go of the last shape it held.",
+        "Nothing. It is waiting for whoever it waits for."
+      ]
+    }
+  ]
+}
