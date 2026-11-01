@@ -1,0 +1,39 @@
+{
+ "schema": 1,
+ "note": "THAD'S SCALE RULINGS, AS DATA. Each entry is a ruling Tyler made by looking, recorded where tests/scale.test.ts can hold the room to it: the height the room's curve gives a standing man at that spot must stay inside the range. Added 2026-10-31 at Tyler's request: 'Make sure matching scales are written into the system of checks.' A curve change that breaks an earlier ruling now fails CI instead of reaching his screen.",
+ "anchors": [
+  {
+   "room": "nugget",
+   "at": [
+    1280,
+    797
+   ],
+   "min": 400,
+   "max": 430,
+   "ruling": "Thad slightly shorter than the standing drinker at the bar (434 with his feet at y797).",
+   "by": "Tyler, 2026-08"
+  },
+  {
+   "room": "nugget",
+   "at": [
+    760,
+    508
+   ],
+   "min": 195,
+   "max": 220,
+   "ruling": "Small at the back: about 205 at the card table, his head no higher than the players' (about y303).",
+   "by": "Tyler, 2026-08"
+  },
+  {
+   "room": "nugget",
+   "at": [
+    1109,
+    655
+   ],
+   "min": 360,
+   "max": 395,
+   "ruling": "At the bar's near end a standing man is clearly taller than the man seated on the stool beside him (300 from floor to hat); at 312 the bar men 'would be head and shoulders above Deke and Thad'.",
+   "by": "Tyler, 2026-10-31"
+  }
+ ]
+}

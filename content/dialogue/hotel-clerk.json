@@ -8,6 +8,12 @@
     "root": {
       "id": "root",
       "prompt": "Mr. Grubbe.",
+      "opening": [
+        {
+          "speaker": "hotel_clerk",
+          "line": "Mr. Grubbe."
+        }
+      ],
       "options": [
         {
           "id": "hotel_clerk1",

@@ -2,17 +2,18 @@
  "schema": 1,
  "id": "deke_vessel",
  "name": "DEKE VESSEL",
+ "posture": "standing",
  "room": "nugget",
- "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs, BOX-reduced to 312 -- the depth curve's man where he stands -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
- "x": 1110,
+ "note": "Doc 27, DEKE VESSEL · Room 3: gates A3, the swindle. Drawn from Tyler's approved attempt 2 (art/staging/room-03/deke-02, generated against Thad in this room, 2026-10-31), keyed, despilled, the five poses registered on his legs by tools/art/cut-ambient-sheet.py, BOX-reduced to 375 -- the bent curve's man where he stands (Tyler, 2026-10-31: the bar men would be 'head and shoulders above' him at 312) -- and graded to the bar men beside him (tools/grade/match-neighbours.py) after Tyler: 'Deke's coloring doesn't match anything else around him'.",
+ "x": 1109,
  "y": 655,
  "zone": 0,
- "approachRadius": 130,
+ "approachRadius": 160,
  "tree": "DEKE_VESSEL",
  "placeNote": "THE NEAR END OF THE BAR (build contract: 'must appear at the near end of the bar for A3'), standing in front of the first stool beside the one-strike man, facing the door -- doc 27 LOOK 1: 'watching the door'.",
  "walkTo": {
-  "x": 1000,
-  "y": 660,
+  "x": 960,
+  "y": 665,
   "facing": "right"
  },
  "walkToNote": "Floor at his left, between him and the card table; Thad faces him and the door is behind Thad.",
@@ -24,32 +25,32 @@
    [
     2,
     2,
-    143,
-    312
+    171,
+    375
    ],
    [
-    147,
+    175,
     2,
-    143,
-    312
+    171,
+    375
    ],
    [
-    292,
+    348,
     2,
-    143,
-    312
+    171,
+    375
    ],
    [
-    437,
+    521,
     2,
-    143,
-    312
+    171,
+    375
    ],
    [
-    582,
+    694,
     2,
-    143,
-    312
+    171,
+    375
    ]
   ],
   "rate": 0.35,
