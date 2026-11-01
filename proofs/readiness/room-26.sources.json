@@ -8,6 +8,9 @@
   "primary": "docs/05-examine-layer.md::ROOM 26 — THE CREEK & SLUICE",
   "batch": [
    "docs/10-examine-batch-3.md::ROOM 26 — THE CREEK & SLUICE"
+  ],
+  "merged": [
+   "docs/10-examine-batch-3.md::ROOM 26 — THE CREEK & SLUICE"
   ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 26 — THE CREEK & SLUICE",

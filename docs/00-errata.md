@@ -2084,3 +2084,18 @@ Tyler's rulings after the Room 5 playtest-fixture harness (doc 36 Q111) found th
 **J · WIN_C1 is canonical, verbatim.** The Act III tree in doc 04 is implemented whole — the retained failed attempts and the one advancing row, "You're right. Forget it.", after which the authored signing exchange plays. Not a yes/no. Consequence, as in E: rule 2 (a COMIC option) does not bar it.
 
 **K · WIN_F1 stands and is not F3/F5.** Fixture R5-G opening WIN_F1 is not gameplay acceptance. The real-gold assay, its outcome and F5's certification (WIN_F2, Room 7) are still to be implemented.
+
+---
+
+# 67 · THE TWO EXAMINE PASSES ARE MERGED — OWNER RULING (2026-10-31)
+
+**Found:** twenty-two rooms were scripted twice. The batch docs (08, 09, 10, late July) wrote each room's hotspots, some in full and some sketched; doc 05's W3 pass (2026-08-04) then wrote a complete set for the same rooms without reconciling against them. The two sets name different objects, or the same object differently (Room 13's *THE TEETH* and *THE JAR OF TEETH*), and each carries plants. Doc 49 uses doc 05's names. The two rooms already compiled (13, 18) use the batch names.
+
+**Ruling (Tyler, 2026-10-31: "Merge them"):** a room's examine layer is **both passes**. Every subject either pass wrote is a hotspot. Where both passes wrote the same object, it is **one** hotspot:
+- **name:** doc 05's (the name doc 49 and the later documents use);
+- **variant order:** doc 05's line is variant 1, the batch line variant 2, and any repeat variants written for either follow in the order they were written;
+- **same-object pairs are declared, never guessed:** a completion section states them as `**DOC 05 NAME** ≡ **BATCH NAME**`. Two names with no declaration are two objects. A pair with an identical name in both passes needs no declaration.
+
+No authored line is cut. Hotspot counts per room grow beyond doc 05's prose counts; those counts describe the W3 pass, not the room. Rulings already made on a batch subject's *location* (66 D, the second ledger) stand.
+
+**The readiness gate implements this:** `examine.merged` names the batch section, `≡` lines fold pairs, and the hotspot-count cross-check compares doc 05's count with doc 05's subjects only.

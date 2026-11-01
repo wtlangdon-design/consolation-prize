@@ -8,6 +8,9 @@
   "primary": "docs/05-examine-layer.md::ROOM 20 — THE BACK ALLEY",
   "batch": [
    "docs/09-examine-batch-2.md::ROOM 20 — THE BACK ALLEY"
+  ],
+  "merged": [
+   "docs/09-examine-batch-2.md::ROOM 20 — THE BACK ALLEY"
   ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 20 — THE BACK ALLEY",

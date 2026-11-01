@@ -9,6 +9,9 @@
   "actVariants": "docs/05-examine-layer.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY#2",
   "batch": [
    "docs/09-examine-batch-2.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY"
+  ],
+  "merged": [
+   "docs/09-examine-batch-2.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY"
   ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 10 — IMPROVEMENT COMPANY LOBBY",

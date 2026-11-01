@@ -8,6 +8,9 @@
   "primary": "docs/05-examine-layer.md::ROOM 22 — THE ROAD TO THE CLAIMS",
   "batch": [
    "docs/10-examine-batch-3.md::ROOM 22 — THE ROAD TO THE CLAIMS"
+  ],
+  "merged": [
+   "docs/10-examine-batch-3.md::ROOM 22 — THE ROAD TO THE CLAIMS"
   ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 22 — THE ROAD TO THE CLAIMS",

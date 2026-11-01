@@ -9,7 +9,10 @@
   "completions": [
    "docs/26-batch-a.md::ROOM 13 · THE UNDERTAKER'S"
   ],
-  "batch": "docs/09-examine-batch-2.md::ROOM 13 — THE UNDERTAKER'S"
+  "batch": "docs/09-examine-batch-2.md::ROOM 13 — THE UNDERTAKER'S",
+  "merged": [
+   "docs/09-examine-batch-2.md::ROOM 13 — THE UNDERTAKER'S"
+  ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 13 — THE UNDERTAKER'S",
  "dialogue": {

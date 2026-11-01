@@ -8,6 +8,9 @@
   "primary": "docs/05-examine-layer.md::ROOM 29 — THE HIGH RIDGE",
   "batch": [
    "docs/10-examine-batch-3.md::ROOM 29 — THE HIGH RIDGE"
+  ],
+  "merged": [
+   "docs/10-examine-batch-3.md::ROOM 29 — THE HIGH RIDGE"
   ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 29 — THE HIGH RIDGE",
