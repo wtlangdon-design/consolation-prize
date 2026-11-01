@@ -502,7 +502,18 @@ export class GameScene extends Phaser.Scene {
         // map seller left Thad facing whichever way the walk happened to end --
         // in Tyler's screenshot, squarely at the building behind him. A man
         // stops, turns, and then speaks.
-        this.actor.faceToward(at.x, at.y);
+        // UNLESS THE STAGING SAYS WHICH WAY. `faceToward` takes the dominant
+        // axis, so a seated drinker whose feet are well above Thad's turned
+        // him to face the bar with his back to the room. A declared stand's
+        // `facing` is the authored answer, honoured when he is standing on it.
+        const talker = this.pendingTree.npc
+          ? this.ambient.present.find((each) => each.id === this.pendingTree?.npc) : undefined;
+        const declared = talker?.walkTo;
+        if (declared?.facing && Math.abs(this.actor.x - declared.x) < 8 && Math.abs(this.actor.y - declared.y) < 8) {
+          this.actor.setFacing(declared.facing);
+        } else {
+          this.actor.faceToward(at.x, at.y);
+        }
         if (evidence) {
           // CONTACT. She looks up from the ledger now (the greeting state
           // holds her talk frame) and the evidence is held before her for a
