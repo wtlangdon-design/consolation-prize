@@ -8,6 +8,9 @@
   "primary": "docs/05-examine-layer.md::ROOM 34 — UNDER PROSPERITY",
   "batch": [
    "docs/10-examine-batch-3.md::ROOM 34 — UNDER PROSPERITY"
+  ],
+  "merged": [
+   "docs/10-examine-batch-3.md::ROOM 34 — UNDER PROSPERITY"
   ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 34 — UNDER PROSPERITY",

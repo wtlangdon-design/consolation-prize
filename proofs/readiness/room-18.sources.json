@@ -11,7 +11,10 @@
    "docs/54-batch-c.md::ROOM 18 · HOTEL LOBBY"
   ],
   "actVariants": "docs/05-examine-layer.md::ROOM 18 — HOTEL LOBBY#2",
-  "batch": "docs/09-examine-batch-2.md::ROOM 18 — HOTEL LOBBY"
+  "batch": "docs/09-examine-batch-2.md::ROOM 18 — HOTEL LOBBY",
+  "merged": [
+   "docs/09-examine-batch-2.md::ROOM 18 — HOTEL LOBBY"
+  ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 18 — HOTEL LOBBY",
  "dialogue": {

@@ -3,25 +3,37 @@
  "room": 23,
  "id": "room-23",
  "name": "PROSPERITY, AND THE HOLE",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54); A5 by errata 68 A.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#1",
-  "actVariants": "docs/05-examine-layer.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE#2"
+  "primary": "docs/05-examine-layer.md::ROOM 23 & 24 \u2014 PROSPERITY, AND THE HOLE#1",
+  "actVariants": "docs/05-examine-layer.md::ROOM 23 & 24 \u2014 PROSPERITY, AND THE HOLE#2",
+  "completions": [
+   "docs/54-batch-c.md::ROOM 23 & 24 \u00b7 PROSPERITY, AND THE HOLE"
+  ]
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 23 & 24 — PROSPERITY, AND THE HOLE",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 23 & 24 \u2014 PROSPERITY, AND THE HOLE",
  "dialogue": {
-  "characters": [],
-  "trees": [],
-  "mapped": false
+  "characters": [
+   "The Raccoon"
+  ],
+  "trees": [
+   "docs/04-dialogue-trees.md::`RAC_A1` \u2014 the naming *(Batch C, doc 54; errata 68 A)*"
+  ]
  },
  "puzzles": {
-  "ids": [],
-  "source": null,
-  "mapped": false
+  "ids": [
+   "A5",
+   "F1"
+  ],
+  "source": [
+   "docs/02-puzzle-graph.md::ACT I \u2014 *In Which Our Hero Is Robbed, and Enjoys It*",
+   "docs/02-puzzle-graph.md::ACT IV \u2014 *The Quietest Part of the Game*"
+  ]
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "No doc 48 script is sited here; A5's attempts are written as lines with their stage directions in doc 54 (errata 68 A)."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "exits": "docs/54-batch-c.md::ROOM 23 & 24 \u00b7 PROSPERITY, AND THE HOLE"
 }

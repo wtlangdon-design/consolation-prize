@@ -29,7 +29,7 @@
 *Eight hotspots. The best-worked claim in the district. It has never produced anything.*
 
 **THE WORKINGS**
-> **LOOK:** "Square. Timbered properly. Swept — somebody has *swept* a mine. This is the finest piece of work in the territory and there has never been a thing in it."
+> **LOOK:** "Square. Timbered properly. Swept — somebody has swept a mine. This is the finest piece of work in the territory and there has never been a thing in it."
 > **LISTEN:** "Nothing. It is very well made and there is nothing in it."
 
 **THE TALLY POST**
@@ -49,7 +49,7 @@
 > **LISTEN:** "Nothing."
 
 **THE SIGN** · **THE SLUICE** · **THE BOUNDARY**
-> *(The sign — **LOOK:** "C. PRATT. No claim name. Every other man out here named his. He has just put his name on it, which on reflection is the only accurate sign in the district.")*
+> *(The sign — **LOOK:** "N. PRATT. No claim name. Every other man out here named his. He has just put his name on it, which on reflection is the only accurate sign in the district.")*
 
 ---
 

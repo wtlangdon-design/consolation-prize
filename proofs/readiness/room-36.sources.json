@@ -8,6 +8,9 @@
   "primary": "docs/05-examine-layer.md::ROOM 36 — MAIN STREET, DAWN",
   "batch": [
    "docs/08-examine-batch-1.md::ROOM 36 — MAIN STREET, DAWN"
+  ],
+  "merged": [
+   "docs/08-examine-batch-1.md::ROOM 36 — MAIN STREET, DAWN"
   ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 36 — MAIN STREET, DAWN",

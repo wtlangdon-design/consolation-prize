@@ -944,7 +944,7 @@ The only prose line in the entire room, on the correct spot:
 > **LOOK:** "On its own flat stone by a fire ring swept between uses. Pratt's coffee is famously terrible and famously punctual."
 > **LISTEN:** "Tin, ticking in the sun. Ten o'clock is coming."
 
-**THE SIGN: NO COLOUR YET**
+**THE SIGN: NO COLOR YET**
 > **LOOK:** "A small board, neatly lettered: NO COLOR YET. The YET has been repainted more times than the rest. It is the most honest sign in the district and the most stubborn word in it."
 > **LISTEN:** "Nothing. The sign says everything it hears."
 

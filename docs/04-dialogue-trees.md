@@ -244,6 +244,24 @@ Distributed across all Fanshawe nodes, all optional, all `[TOPIC]`. Only a playe
 He does not deny it, does not explain it, and does not become hostile. It is far worse than a denial, and it is entirely optional content that most players will miss. That is correct.
 
 
+## ACT I — `FAN_A2`: the dinner (A10) *(Batch C, doc 54)*
+
+*Written 2026-10-31 at Tyler's instruction. Doc 48 S1 lists this tree as "written, doc 04"; it was not — only its row in the Fanshawe Rule table was. Doc 02 A10: "Six options, five of which sell the claim in language Thad doesn't recognise as a sale. Find the one that doesn't." Doc 04's rule table: Thad receives dinner, wine and warmth, and gives up that he intends to work the claim — so the one option that does not sell is the one that tells Fanshawe exactly that. Doc 04's FAN_C1 note governs the other five: Fanshawe never lets a sale complete, because a sale would move the claim to someone who might dig. Each is accepted with delight and deferred, a different way each time.*
+
+> **FANSHAWE:** "You'll take wine. It takes itself, mostly." *(doc 48 S1, beat 1)*
+
+| # | Option | Tag | Response | Rule ledger |
+|---|---|---|---|---|
+| 1 | "I'd be glad of a partner in it." | `[TOPIC · retain]` | "Partners! Then we are partners. We'll do the paper when we're sober. I never do paper in drink. It's the only rule I keep." | sells half; deferred |
+| 2 | "You're welcome to the working of it while I learn the trade." | `[TOPIC · retain]` | "A lease! How modern of you. I'll have Sump draw something up." *(He will not. Sump is never asked.)* | leases it; deferred |
+| 3 | "Whatever's in it, I'd sooner it went to someone who'd use it." | `[TOPIC · retain]` | "Then we agree entirely, and that is the best foundation for anything. More wine?" *(The subject has gone wherever subjects go at his table.)* | gives it away; deferred |
+| 4 | "Put it down as a kindness, and I'll owe you." | `[TOPIC · retain]` | "You owe me nothing at all, Mr. Grubb." *(warmly)* "Yet." | mortgages it; deferred |
+| 5 | "I'd sign anything that came with a wine like this." | `[TOPIC · retain]` | "Then you shall sign nothing tonight. I would never take advantage of a man at his dinner." *(He means it. It is the most dangerous thing he says all evening.)* | signs it away; deferred |
+| 6 | "I mean to work it myself." | `[PROGRESS · remove]` | "Of course you do." *(He is delighted. He refills Thad's glass. He has learned the only thing he wanted to know.)* → A10, doc 48 S1 beat 3 | receives: dinner, wine, warmth. gives up: that he will work the claim |
+| 7 | "This is very good wine." | `[COMIC · retain]` | "Isn't it! I have no idea what it is. I buy whatever costs most and let it explain itself." | — |
+
+**Doc 48 S1 and doc 02 disagree**, and this node is written so either reading builds: doc 02 makes A10 a puzzle (find the one option that does not sell); S1 beat 3 says "whichever option" ends the dinner. Under doc 02, options 1–5 retain and grey and only 6 advances; under S1, every option advances. Reported for Tyler in doc 36 Q143.
+
 ## ACT II — `FAN_B1`: the introduction *(W1 growth)*
 
 Per the Fanshawe Rule: Thad receives the Registrar introduction; gives up that he is pursuing contiguity.
@@ -444,6 +462,18 @@ Every single conversation, regardless of topic, ends with Pratt making an offer.
 | 5 | "How's the bite?" | `[COMIC · retain]` | "Healing wrong." *(Every time, for the rest of the game, in every act, including the ending.)* |
 
 
+## `PRA_A1` — next door, Act I *(Batch C, doc 54; errata 68 A)*
+
+Pratt on his own claim, beside Prosperity, raking. The node exists for A5's "send Pratt". It is the first meeting; PRA_D2 below is the first jump.
+
+> **PRATT:** "Nine dollars." *(Nobody has asked him anything.)*
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "There's a raccoon in my hole. Would you get him out?" | `[PROGRESS · remove]` | "Raccoon." *(He thinks about it for some time.)* "All right." *(He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it.)* "He's in there." *(From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything.)* → `T_PRATT_BITTEN` |
+| 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(He says it as though it were the weather.)* |
+| 3 | "Lovely morning." | `[COMIC · retain]` | *(He looks up at the sky, checking.)* "Yep." |
+
 ## `PRA_D2` — the first encounter *(W1 growth)*
 
 Pratt discovered on Prosperity with a stake and a mallet, mid-jump, unhurried about it.
@@ -489,6 +519,23 @@ He signs. Then:
 > **PRATT:** "I like the claim."
 
 ---
+
+# THE RACCOON
+
+## `RAC_A1` — the naming *(Batch C, doc 54; errata 68 A)*
+
+The bible: "Thad names it (full Christian name, chosen by the player from three equally poor options)." Opened by the first TALK TO the raccoon. The raccoon does not speak; every response is Thad's.
+
+> **THAD:** "If we are going to be neighbors, you will need a name."
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "Absalom Crispin Thrupp." | `[PROGRESS · remove]` → node closes | *(The raccoon regards him.)* "Absalom. He looks like a man who owns a bank and has never been inside it." → `T_RACCOON_NAMED`, display name ABSALOM |
+| 2 | "Ebenezer Augustine Vole." | `[PROGRESS · remove]` → node closes | "Ebenezer. He has accepted it the way he accepts weather: without comment, and with some resentment." → `T_RACCOON_NAMED`, display name EBENEZER |
+| 3 | "Bartholomew Euphrates Dodd." | `[PROGRESS · remove]` → node closes | "Bartholomew. It is too much name for him, and he will grow into none of it." → `T_RACCOON_NAMED`, display name BARTHOLOMEW |
+| 4 | "On reflection, he can name himself." | `[COMIC · retain]` | *(The raccoon does not.)* "He declines. It is the first thing we have agreed on." |
+
+*FAN_C1 option 5, "I've named a raccoon after you", is a `[COMIC]` line Thad may say whichever name he chose. Only a player who picked Absalom will know it is true.*
 
 # MADAME OZYMANDIA
 ### Diviner
@@ -596,12 +643,26 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 
 **`SUM_B1` (Act II — the three documents):** the trials' paper spine. One `[PROGRESS · rephrase]` option per document — "About Document A—" rephrasing as each is satisfied — and the citation for why B can only be issued to the deceased, delivered without the slightest acknowledgement that this is remarkable.
 
+*Grown to a node in Batch C (doc 54), 2026-10-31, at Tyler's instruction. The description names a citation "for why B can only be issued to the deceased"; nothing in doc 02 restricts Document B (the Assay of Record, C6) to the dead, and the only thing doc 02 gives the deceased is E2's archive access for an executor. Option 2 is written as that citation — the Act III loophole, planted in Act II and delivered as procedure. If the description meant something else, option 2 is the line to replace.*
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "About Document A—" | `[PROGRESS · rephrase → "About Document B—"]` | "The Affidavit of Original Sale. Sworn by the vendor, on Form 4. The office does not require the vendor to be found. It requires him to sign." |
+| 1′ | "About Document B—" | `[PROGRESS · rephrase → "About Document D—"]` · *after Document A* | "The Assay of Record, from the Assay Office, on its own form. It need not find anything. It need only be issued." |
+| 1″ | "About Document D—" | `[PROGRESS · rephrase → "About Document C—"]` · *after Document B* | "Proof of Continuous Occupancy. Ninety days, attested by a neighbor. The office accepts one neighbor. It does not inquire into his character. It has never found that useful." |
+| 1‴ | "About Document C—" | `[PROGRESS · remove]` · *after Document D* | "Present A, B and D together and the office issues C, the Certificate of Contiguity. It is the only document that comes after D. I find that restful." → E0 |
+| 2 | "Can I see how Claim One was filed?" | `[TOPIC · retain]` | "Sealed filings are open to the court, to the claimholder, and to the executor of a deceased claimholder. Section nineteen. You are none of these, Mr. Grubb, and only one of them is beyond your control." |
+| 3 | "Do you ever stamp anything just for the pleasure of it?" | `[COMIC · retain]` | "Pleasure is not a ground. I stamp on grounds." |
+
 **`SUM_C1` (Act III — accepting the death certificate):**
 
 | # | Option | Tag | Response |
 |---|---|---|---|
 | 1 | *(present the certificate)* | `[PROGRESS · remove]` | *(He examines it. He examines Thad. He stamps it.)* "The office does not require the deceased to be absent. An oversight, possibly. I do not correct statute. I administer it." |
 | 2 | "You know I'm not dead." | `[TOPIC · remove]` | "I know what is *certified*, Mr. Grubb. It is the only kind of knowing this window does." |
+| 3 | "Is there a form for this?" | `[COMIC · retain]` | "Form 31-D. Notice of Decease, Self-Reported. Nobody has used it before. It was printed in hope." |
+
+*Option 3 added in Batch C (doc 54), 2026-10-31, at Tyler's instruction: the node had two options and no `[COMIC]`, against node rules 1 and 2. It answers SUM_A1's "Is there a form for that?"*
 
 **`SUM_F1` (Act IV — the filing)** is doc 48's S6. His one human moment is scripted there: *"…That's a very old claim number."* He stamps it. He does not look up. He knows exactly what he is doing.
 
@@ -631,7 +692,8 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | 1 | "I need the mule for the diggings road." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." *(She looks. A long moment.)* "…Huh. First time for everything." → D-travel opens |
 | 2 | "Why 'Grievance'?" | `[TOPIC · retain]` | "Had a partner once. She took his side." |
 | 3 | "Is the mule all right?" | `[COMIC · retain]` | "He's fine. He's just got a view." |
-| 4 | "What's that tune?" | `[ASSAY · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* → his Assay pair |
+| 4 | "What's that tune?" | `[ASSAY · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* → his Assay pair; `T_HUM_HEARD` *(errata 68 F: B3 needs it)* |
+| 5 | "Could I borrow a blanket?" | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → livery blanket *(errata 68 A; option added in Batch C, doc 54)* |
 
 ## THE UNDERTAKER — two nodes
 
@@ -644,6 +706,14 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | 3 | "My condolences." | `[COMIC · retain]` | "Accepted on his behalf. He'd have wanted the credit." |
 
 **`UND_C1` (Act III — arrangements):** the coffin fitting. One `[PROGRESS · remove]` — "I'll need your best pine, handles, plate" — met with the measuring wall, the pencil, and no questions at all: *"Sizing's free. It's the only thing that is. Stand straight."* He is the only person in Act III who is completely unsurprised, because in his trade everyone lies down eventually and half of them get up in the night to check on things.
+
+*Grown to a node in Batch C (doc 54), 2026-10-31, at Tyler's instruction — the description above had one option against node rules 1 and 2. Options 2 and 3 are new; option 1 is the description's.*
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "I'll need your best pine, handles, plate." | `[PROGRESS · remove]` | *(The measuring wall. The pencil. No questions at all.)* "Sizing's free. It's the only thing that is. Stand straight." |
+| 2 | "You haven't asked who it's for." | `[TOPIC · retain]` | "It's for whoever fits." |
+| 3 | "Could you make it roomy?" | `[COMIC · retain]` | "Everybody asks for roomy. Nobody's ever come back to complain." |
 
 
 ---

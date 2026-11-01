@@ -8,6 +8,9 @@
   "primary": "docs/05-examine-layer.md::ROOM 16 — OZYMANDIA'S TENT",
   "batch": [
    "docs/09-examine-batch-2.md::ROOM 16 — MADAME OZYMANDIA'S TENT"
+  ],
+  "merged": [
+   "docs/09-examine-batch-2.md::ROOM 16 — MADAME OZYMANDIA'S TENT"
   ]
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 16 — OZYMANDIA'S TENT",
