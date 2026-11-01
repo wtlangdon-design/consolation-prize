@@ -1,0 +1,28 @@
+{
+ "schema": 1,
+ "room": 7,
+ "id": "room-07-claims-registrar",
+ "name": "CLAIMS REGISTRAR",
+ "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 from the docs for the unattended room pass. Doc 19 section 2 replaces doc 05's THE TWO LINES with THE NUMBER SPINDLE; the room file already carries that. Puzzles: A6 and A9 are in the ACT I table; D1 (Trial Three) and the Act III archive objective also play here and are named in otherPuzzleSources, which the gate does not read.",
+ "examine": {
+  "primary": "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#1",
+  "completions": ["docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR"],
+  "actVariants": "docs/05-examine-layer.md::ROOM 7 — CLAIMS REGISTRAR#2",
+  "override": "docs/19-19b-resolutions.md::2 · ROOM 7, THE REGISTRAR — the contradiction is mine, and the spindle wins"
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 7 — CLAIMS REGISTRAR",
+ "dialogue": {
+  "characters": ["Registrar Cadwallader Sump"],
+  "trees": ["docs/04-dialogue-trees.md::REGISTRAR CADWALLADER SUMP — four nodes, act-gated"]
+ },
+ "puzzles": {
+  "ids": ["A6", "A9"],
+  "source": "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*",
+  "otherPuzzleSources": ["docs/02-puzzle-graph.md::TRIAL THREE — Proof of Continuous Occupancy (Document D)", "docs/02-puzzle-graph.md::ACT III — *Thaddeus Grubb Is Legally Dead*"]
+ },
+ "staging": {"required": false, "why": "No scripted sequence for Room 7 in any canonical document; it is entered, examined and talked in. SUM_F1's filing is doc 48 S6, an Act IV beat outside an Act I build."},
+ "exits": "docs/25-rooms-05-07.md::ROOM 7 · CLAIMS REGISTRAR",
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/claims-registrar.json",
+ "plate": "art/backgrounds/room-07-claims-registrar.png"
+}

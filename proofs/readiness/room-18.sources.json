@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "room": 18,
+ "id": "room-18-hotel-lobby",
+ "name": "HOTEL LOBBY",
+ "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 from the docs for the unattended room pass. 'batch' names the doc 08/09/10 examine section, which the gate's parser does not read.",
+ "examine": {
+  "primary": "docs/05-examine-layer.md::ROOM 18 — HOTEL LOBBY#1",
+  "completions": [
+   "docs/26-batch-a.md::ROOM 18 · HOTEL LOBBY"
+  ],
+  "actVariants": "docs/05-examine-layer.md::ROOM 18 — HOTEL LOBBY#2",
+  "batch": "docs/09-examine-batch-2.md::ROOM 18 — HOTEL LOBBY"
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 18 — HOTEL LOBBY",
+ "dialogue": {
+  "characters": [
+   "The Hotel Clerk"
+  ],
+  "trees": [
+   "docs/27-minor-trees.md::THE HOTEL CLERK · Room 18"
+  ]
+ },
+ "puzzles": {
+  "ids": [
+   "A2"
+  ],
+  "source": "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+ },
+ "staging": {
+  "required": false,
+  "why": "No scripted sequence for this room in any canonical document."
+ },
+ "exits": "docs/26-batch-a.md::ROOM 18 · HOTEL LOBBY",
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/hotel-lobby.json",
+ "plate": "art/backgrounds/room-18-hotel-lobby.png"
+}

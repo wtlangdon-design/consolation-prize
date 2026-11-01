@@ -1,0 +1,38 @@
+{
+ "schema": 1,
+ "room": 13,
+ "id": "room-13-undertakers",
+ "name": "THE UNDERTAKER'S",
+ "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 from the docs for the unattended room pass. 'batch' names the doc 08/09/10 examine section, which the gate's parser does not read.",
+ "examine": {
+  "primary": "docs/05-examine-layer.md::ROOM 13 — THE UNDERTAKER'S",
+  "completions": [
+   "docs/26-batch-a.md::ROOM 13 · THE UNDERTAKER'S"
+  ],
+  "batch": "docs/09-examine-batch-2.md::ROOM 13 — THE UNDERTAKER'S"
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 13 — THE UNDERTAKER'S",
+ "dialogue": {
+  "characters": [
+   "The Undertaker"
+  ],
+  "trees": [
+   "docs/27-minor-trees.md::THE UNDERTAKER · Room 13",
+   "docs/04-dialogue-trees.md::THE UNDERTAKER — two nodes"
+  ]
+ },
+ "puzzles": {
+  "ids": [
+   "A1"
+  ],
+  "source": "docs/02-puzzle-graph.md::ACT I — *In Which Our Hero Is Robbed, and Enjoys It*"
+ },
+ "staging": {
+  "required": false,
+  "why": "No scripted sequence for this room in any canonical document."
+ },
+ "exits": "docs/26-batch-a.md::ROOM 13 · THE UNDERTAKER'S",
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/undertaker.json",
+ "plate": "art/backgrounds/room-13-undertakers.png"
+}

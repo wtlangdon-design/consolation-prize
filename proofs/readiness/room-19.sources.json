@@ -1,0 +1,33 @@
+{
+ "schema": 1,
+ "room": 19,
+ "id": "room-19-thads-room",
+ "name": "THAD'S HOTEL ROOM",
+ "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 from the docs for the unattended room pass. 'batch' names the doc 08/09/10 examine section, which the gate's parser does not read.",
+ "examine": {
+  "primary": "docs/05-examine-layer.md::ROOM 19 — THAD'S HOTEL ROOM",
+  "completions": [
+   "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM"
+  ],
+  "batch": "docs/08-examine-batch-1.md::ROOM 19 — THAD'S HOTEL ROOM"
+ },
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 19 — THAD'S HOTEL ROOM",
+ "dialogue": {
+  "characters": [],
+  "trees": [],
+  "why": "Nobody speaks in Thad's room in any canonical document. The gate reports NO when no dialogue is declared; that NO is recorded as it stands rather than argued with."
+ },
+ "puzzles": {
+  "ids": [],
+  "source": null,
+  "why": "No puzzle in doc 02 is sited in Room 19 by name; the letters-home system lives here and is never tracked (invariant 10)."
+ },
+ "staging": {
+  "required": false,
+  "why": "No scripted sequence for this room in any canonical document."
+ },
+ "exits": "docs/26-batch-a.md::ROOM 19 · THAD'S ROOM",
+ "connectivity": "docs/20-room-map.md",
+ "roomFile": "content/rooms/thads-room.json",
+ "plate": "art/backgrounds/room-19-thads-room.png"
+}
