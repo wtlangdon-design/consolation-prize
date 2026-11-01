@@ -2274,6 +2274,154 @@ function sumpTree() {
 }
 
 /**
+ * DOC 04, IGNATIUS FRAME: Room 9's tree (errata 82). Read the way Sump's is
+ * (spokenIn, quoted, afterIds), with doc 04's Frame layout: nodes are
+ * `## Root: \`FRA_A1\`` and `## \`FRA_B1\`` headings; option 4's later
+ * answers are a block after the table ("Option 4 responses rotate and never
+ * resolve"); FRA_B1's destination line sits in the State column after
+ * `then:`. Every string is the document's.
+ *
+ * ROUTING THE PROSE NAMES IN WORDS, authored here as A8_CASES is: FRA_A1 1
+ * "opens B1 trade" goes to FRA_B1; 6 "begins the funeral day -- C3" is
+ * T_FUNERAL_DAY and C3 (doc 57 C3 step 4); 7's "pair 16" is ASSAY_PAIR_16
+ * (errata 75 J: the character tells the story of the pair); FRA_B1 1 and 2
+ * are B1 (doc 57 B1: "either story pays"); FRA_E1 1 gives THE OBITUARY, sets
+ * T_OBITUARY and is E5 (doc 57 E5). FRA_E1 opens on the next TALK TO after
+ * T_DECEASED (doc 57 E5).
+ */
+function frameTree() {
+  const doc = read('docs/04-dialogue-trees.md');
+  const from = doc.indexOf('# IGNATIUS FRAME');
+  const to = doc.indexOf('## The misspelling gag', from);
+  if (from < 0 || to < 0) throw new Error('doc 04: cannot find the IGNATIUS FRAME section');
+  const body = doc.slice(from, to);
+  const SPEAKER = 'frame';
+  const POOL = [...doc.slice(doc.indexOf('## Universal exit lines'), doc.indexOf('# PART TWO')).matchAll(/^> "(.+?)"/gm)].map((m) => m[1]);
+  if (POOL.length < 3) throw new Error('doc 04: the universal exit pool was not found');
+  const ROUTE = {
+    'FRA_A1:1': { goto: 'FRA_B1' },
+    'FRA_A1:6': { set: { T_FUNERAL_DAY: true }, puzzle: { C3: 'complete' } },
+    'FRA_A1:7': { set: { ASSAY_PAIR_16: true } },
+    'FRA_B1:1': { puzzle: { B1: 'complete' } },
+    'FRA_B1:2': { puzzle: { B1: 'complete' }, sameAs: 1 },
+    'FRA_E1:1': { gives: ['obituary'], set: { T_OBITUARY: true }, puzzle: { E5: 'complete' } },
+  };
+  const ENTRY = { FRA_E1: { T_DECEASED: true } };
+  const unplayed = [];
+  const nodes = {};
+  let poolIndex = 0;
+  const parts = body.split(/^## (?:Root: )?`(FRA_[A-Z0-9]+)`.*$/m);
+  for (let at = 1; at < parts.length; at += 2) {
+    const id = parts[at];
+    const text = parts[at + 1];
+    const ROW = /^\| (\d+) \|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|[ \t]*(.*?)[ \t]*\|(?:[ \t]*(.*?)[ \t]*\|)?[ \t]*$/gm;
+    const rows = [...text.matchAll(ROW)];
+    if (!rows.length) throw new Error(`doc 04: ${id} has no option rows`);
+    const opening = [...text.matchAll(/^> \*\*(FRAME|THAD):\*\* (.+)$/gm)].map((m) => {
+      const speaker = m[1] === 'THAD' ? 'thad' : SPEAKER;
+      for (const d of m[2].matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} opening (${speaker}) staging: ${d[1]}`);
+      const line = quoted(m[2]).join(' ').replace(/\*/g, '');
+      if (!line) throw new Error(`doc 04: ${id} opening line by ${speaker} has no quoted speech`);
+      return { speaker, line };
+    });
+    const lastFrame = [...opening].reverse().find((u) => u.speaker === SPEAKER);
+    const options = [];
+    let hasExit = false;
+    for (const [, number, optionCell, tagCell, responseCell, stateCell] of rows) {
+      const route = ROUTE[`${id}:${number}`] ?? {};
+      const tagged = /\[([A-Z]+)(?:\s*·\s*([a-z-]+))?\]/.exec(`${tagCell} ${optionCell}`);
+      if (!tagged) throw new Error(`doc 04: ${id} option ${number} has no tag`);
+      const option = { id: `${SPEAKER}${number}`, tag: tagged[1] };
+      const optionText = quoted(optionCell)[0];
+      if (tagged[1] === 'EXIT') {
+        hasExit = true;
+        option.text = optionText ?? POOL[poolIndex % POOL.length];
+        if (!optionText) { option.universal = true; poolIndex += 1; }
+        option.ends = true;
+      } else {
+        if (!optionText) throw new Error(`doc 04: ${id} option ${number} has no option text`);
+        option.text = optionText;
+      }
+      if (tagged[2]) option.afterUse = tagged[2];
+      const follows = afterIds(tagCell, SPEAKER);
+      if (follows) option.after = follows;
+      const ORDINALS = { second: 2, third: 3 };
+      const [replyCell] = responseCell.split('→');
+      const pieces = replyCell.split(/\*\((second|third)\)\*/);
+      const first = spokenIn(pieces[0], SPEAKER);
+      for (const d of first.staging) unplayed.push(`${id} option ${number} staging: ${d}`);
+      // FRA_B1's destination: `then: "..."` in the State column is Frame's next line.
+      const thenLine = /then: "([^"]+)"/.exec(stateCell ?? '')?.[1];
+      let lines = first.lines;
+      if (thenLine) lines = [...lines, { speaker: SPEAKER, line: thenLine }];
+      if (route.sameAs) {
+        const like = options.find((o) => o.id === `${SPEAKER}${route.sameAs}`);
+        const tail = like?.exchange?.at(-1);
+        if (!tail) throw new Error(`doc 04: ${id} option ${number} says "the same destination line" and option ${route.sameAs} has none`);
+        lines = [...lines, tail];
+        // "the same grant": what option N writes, this writes too.
+        if (like.set) route.set = { ...like.set, ...(route.set ?? {}) };
+      }
+      if (lines.length === 1 && lines[0].speaker === SPEAKER) option.say = lines[0].line;
+      else if (lines.length) option.exchange = lines;
+      else if (first.staging.length) option.beat = first.staging.join(' ');
+      else throw new Error(`doc 04: ${id} option ${number} has no reply`);
+      for (let k = 1; k < pieces.length; k += 2) {
+        const later = spokenIn(pieces[k + 1] ?? '', SPEAKER);
+        for (const d of later.staging) unplayed.push(`${id} option ${number} selection ${ORDINALS[pieces[k]]} staging: ${d}`);
+        if (later.lines.length) (option.repeats ??= []).push({ selection: ORDINALS[pieces[k]], say: later.lines.map((l) => l.line).join(' ') });
+      }
+      const state = `${stateCell ?? ''} ${responseCell.split('→').slice(1).join(' ')}`;
+      const sets = [...state.matchAll(/sets `([A-Z_0-9]+)`/g)].map((m) => m[1]);
+      const counter = /`([A-Z_0-9]+)` \+1/.exec(state);
+      const req = /req `([A-Z_0-9]+)`/.exec(state);
+      const flags = [...state.matchAll(/→ `([A-Z_0-9]+)`/g)].map((m) => m[1]);
+      const set = { ...Object.fromEntries([...sets, ...flags].map((f) => [f, true])), ...(route.set ?? {}) };
+      if (Object.keys(set).length) option.set = set;
+      if (counter) option.add = { [counter[1]]: 1 };
+      if (req) option.when = { [req[1]]: true };
+      if (route.goto) option.goto = route.goto;
+      if (route.gives) option.gives = route.gives;
+      if (route.puzzle) option.puzzle = route.puzzle;
+      options.push(option);
+    }
+    // "Option N responses rotate and never resolve:" -- its later answers, in order.
+    const rotate = /\*\*Option (\d+) responses rotate[^*]*\*\*\s*\n((?:> .+\n?)+)/.exec(text);
+    if (rotate) {
+      const option = options.find((o) => o.id === `${SPEAKER}${rotate[1]}`);
+      if (!option) throw new Error(`doc 04: ${id}'s rotating answers name option ${rotate[1]}, which it lacks`);
+      const said = [...rotate[2].matchAll(/^> "([^"]+)"/gm)].map((m) => m[1]);
+      for (const d of rotate[2].matchAll(/\*\(([^)]+)\)\*/g)) unplayed.push(`${id} option ${rotate[1]} rotation staging: ${d[1]}`);
+      option.repeats = said.map((say, k) => ({ selection: k + 2, say }));
+      unplayed.push(`${id} option ${rotate[1]}: "rotate and never resolve" -- the runner plays the three in order and then holds the last`);
+    }
+    if (!hasExit) {
+      options.push({ id: `${SPEAKER}x`, tag: 'EXIT', text: POOL[poolIndex % POOL.length], universal: true, ends: true });
+      poolIndex += 1;
+    }
+    nodes[id] = { id, ...(lastFrame ? { prompt: lastFrame.line } : { noPrompt: true,
+      exceptionReason: 'Doc 04 writes this node as a table only.' }),
+      ...(opening.length ? { opening } : {}), options };
+  }
+  if (!nodes.FRA_A1) throw new Error('doc 04: FRA_A1 was not extracted');
+  const entries = Object.entries(ENTRY).filter(([node]) => nodes[node]).map(([node, when]) => ({ when, node }));
+  for (const note of unplayed) process.stderr.write(`  doc 04 FRAME: ${note}\n`);
+  return write('content/dialogue/frame.json', {
+    aftermathAuthored: true,
+    schema: 1,
+    id: 'FRAME',
+    speaker: SPEAKER,
+    name: 'IGNATIUS FRAME',
+    note: 'EXTRACTED from docs/04-dialogue-trees.md (IGNATIUS FRAME) by tools/extract-content.mjs. '
+      + 'Do not edit: change doc 04 and re-run. Plain quotes in a reply are Frame\'s, italic quotes Thad\'s. '
+      + 'Universal exit lines are doc 04 part one\'s pool.',
+    entries,
+    start: 'FRA_A1',
+    nodes,
+  });
+}
+
+/**
  * DOC 04, WINNIE LEDGER: the first principal's tree, extracted for Room 5.
  *
  * Doc 04's shape differs from doc 27's in four ways this parser reads rather
@@ -2870,7 +3018,7 @@ function assay() {
 }
 
 const written = [opening(), stageDriver(), combinations(), ...rooms0507(), room02Exits(),
-  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), ...actTwoItems(), assay()];
+  ...roomsBatchA(), ...minorTrees(), openingCase(), winnieTree(), hobTree(), sumpTree(), frameTree(), ...actTwoItems(), assay()];
 if (!CHECKING) {
   for (const path of written) process.stdout.write(`extracted ${path}\n`);
 } else {

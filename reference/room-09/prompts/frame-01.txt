@@ -1,0 +1,24 @@
+Image 1 is a frame from my pixel-art adventure game: a small newspaper office at night. The man in the long blue coat on the left is Thad, the hero, and he is the style standard. The man in the apron at the printing press is Ignatius Frame, the editor. I need Frame drawn on his own, whole, as a sheet of five poses.
+
+STYLE -- match Thad exactly, not the room:
+- The same pixel-art style as Thad and as Frame already is in image 1: the same pixel size, flat soft shading, very little texture, simple shapes, clean outlines. Not sharp, not finely detailed, no hard internal contrast.
+- The same proportions: the same head size relative to the body, the same overall height as Thad.
+- The same warm lamplight as image 1.
+
+THE CHARACTER -- Ignatius Frame, exactly as image 1 shows him: a wiry man of about forty, untidy brown hair, a quick, bright, eager face, shirt sleeves rolled up, an ink-stained printer's apron over a loose waistcoat, ink on his hands, dark trousers, worn boots. A pencil behind his ear. Enthusiastic and permanently mid-sentence.
+
+THE SHEET -- one image, five poses of this same man, side by side, left to right, each FULL LENGTH from head to boots, body turned three-quarters toward the LEFT of the picture:
+1. REST: standing at ease, weight on one leg, hands at his sides, smiling, looking to the left.
+2. BREATH: identical to pose 1 except his shoulders are very slightly raised. Nothing else changes.
+3. TALKING: as pose 1, but mouth open mid-sentence and one hand held out palm-up toward the left, delighted.
+4. TAKING A QUOTE: as pose 1, but he holds a small notebook in one hand and writes in it fast with the pencil from behind his ear, head bent over it.
+5. LEANING IN: as pose 1, but he leans his upper body eagerly toward the left, eyebrows up, as if he has just heard something printable. His feet do not move.
+
+RULES -- these matter more than anything else:
+- Background: flat, pure magenta (#FF00FF) everywhere. No floor, no shadow, no press, no furniture, nothing else in the picture.
+- He stands on his own and touches nothing.
+- All five poses the same size, with his boots on the same baseline, each about two-thirds the height of the picture.
+- Clear magenta space between poses. No pose touches or overlaps another.
+- Between poses, ONLY the change described happens. Same clothes, same colours, same face, same proportions everywhere else.
+- Crisp pixel edges against the magenta. No soft glow or blur around him.
+- No text, labels, numbers or borders.

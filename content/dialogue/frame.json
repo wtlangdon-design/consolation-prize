@@ -1,0 +1,325 @@
+{
+  "aftermathAuthored": true,
+  "schema": 1,
+  "id": "FRAME",
+  "speaker": "frame",
+  "name": "IGNATIUS FRAME",
+  "note": "EXTRACTED from docs/04-dialogue-trees.md (IGNATIUS FRAME) by tools/extract-content.mjs. Do not edit: change doc 04 and re-run. Plain quotes in a reply are Frame's, italic quotes Thad's. Universal exit lines are doc 04 part one's pool.",
+  "entries": [
+    {
+      "when": {
+        "T_DECEASED": true
+      },
+      "node": "FRA_E1"
+    }
+  ],
+  "start": "FRA_A1",
+  "nodes": {
+    "FRA_A1": {
+      "id": "FRA_A1",
+      "prompt": "'I'd… rather… not,' says mystery man.",
+      "opening": [
+        {
+          "speaker": "frame",
+          "line": "You're new! Say something quotable."
+        },
+        {
+          "speaker": "thad",
+          "line": "I'd rather not."
+        },
+        {
+          "speaker": "frame",
+          "line": "'I'd… rather… not,' says mystery man."
+        }
+      ],
+      "options": [
+        {
+          "id": "frame1",
+          "tag": "PROGRESS",
+          "text": "Where did Deke Vessel go?",
+          "afterUse": "remove",
+          "say": "I print the stage schedules! I know where everyone goes. Give me a story and I'll give you a coach.",
+          "goto": "FRA_B1"
+        },
+        {
+          "id": "frame2",
+          "tag": "TOPIC",
+          "text": "What do you know about Mott?",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "frame",
+              "line": "Everything! I wrote most of it."
+            },
+            {
+              "speaker": "frame",
+              "line": "Some of it was told to me."
+            },
+            {
+              "speaker": "frame",
+              "line": "I'd have to check which."
+            }
+          ],
+          "set": {
+            "T_MOTT_FACE_UNKNOWN": true
+          }
+        },
+        {
+          "id": "frame3",
+          "tag": "TOPIC",
+          "text": "Do you have a photograph of him?",
+          "afterUse": "retain",
+          "after": [
+            "frame2"
+          ],
+          "say": "I have the photograph of him."
+        },
+        {
+          "id": "frame4",
+          "tag": "COMIC",
+          "text": "You've spelled my name wrong.",
+          "afterUse": "counted-repeat",
+          "say": "Have I! Which way?",
+          "add": {
+            "MISSPELLINGS_SEEN": 1
+          },
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "That's how it's spelled in Providence, is it? Extraordinary place."
+            },
+            {
+              "selection": 3,
+              "say": "I'll fix it in the next edition."
+            },
+            {
+              "selection": 4,
+              "say": "The type's worn. It's not my fault the letter B has opinions."
+            }
+          ]
+        },
+        {
+          "id": "frame5",
+          "tag": "PROGRESS",
+          "text": "Does Fanshawe ever leave his office?",
+          "afterUse": "remove",
+          "say": "For funerals! Every one. Front pew, black gloves, a wreath the size of a cartwheel. I print the notices, and he's the only man in town who reads them.",
+          "set": {
+            "T_FANSHAWE_FUNERALS": true
+          },
+          "when": {
+            "T_OFFICE_TOPIC": true
+          }
+        },
+        {
+          "id": "frame6",
+          "tag": "PROGRESS",
+          "text": "I need a funeral notice printed.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "frame",
+              "line": "A FUNERAL!"
+            },
+            {
+              "speaker": "frame",
+              "line": "'MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS.' I've added refreshments. It doubles the turnout."
+            }
+          ],
+          "set": {
+            "T_FUNERAL_DAY": true
+          },
+          "when": {
+            "T_MEMORIAL_BOOKED": true
+          },
+          "puzzle": {
+            "C3": "complete"
+          }
+        },
+        {
+          "id": "frame7",
+          "tag": "ASSAY",
+          "text": "Have you ever been in the Liar's Assay?",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "frame",
+              "line": "Once! Fellow told me he'd found a nugget shaped exactly like the President, and I said—"
+            },
+            {
+              "speaker": "frame",
+              "line": "'So did four men this month. It is a popular shape.' I printed it. Front page. He moved to Sacramento."
+            }
+          ],
+          "set": {
+            "ASSAY_PAIR_16": true
+          }
+        },
+        {
+          "id": "framex",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "FRA_B1": {
+      "id": "FRA_B1",
+      "prompt": "A story for a schedule. That's the rate. It's always been the rate.",
+      "opening": [
+        {
+          "speaker": "frame",
+          "line": "A story for a schedule. That's the rate. It's always been the rate."
+        }
+      ],
+      "options": [
+        {
+          "id": "frame1",
+          "tag": "PROGRESS",
+          "text": "A piano tuner bought the worst claim in the district on purpose.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "frame",
+              "line": "ON PURPOSE! Is it true?"
+            },
+            {
+              "speaker": "frame",
+              "line": "Don't tell me. It's better not knowing."
+            },
+            {
+              "speaker": "frame",
+              "line": "Vessel took the Tuesday coach to Fiddler's Gulch. Two days out, if the road holds, and the road never holds."
+            }
+          ],
+          "set": {
+            "T_VESSEL_LOCATION": true
+          },
+          "puzzle": {
+            "B1": "complete"
+          }
+        },
+        {
+          "id": "frame2",
+          "tag": "PROGRESS",
+          "text": "There's a raccoon in my hole with a name.",
+          "afterUse": "remove",
+          "exchange": [
+            {
+              "speaker": "frame",
+              "line": "A NAMED raccoon. Sir, you are a wellspring."
+            },
+            {
+              "speaker": "frame",
+              "line": "Vessel took the Tuesday coach to Fiddler's Gulch. Two days out, if the road holds, and the road never holds."
+            }
+          ],
+          "set": {
+            "T_VESSEL_LOCATION": true
+          },
+          "puzzle": {
+            "B1": "complete"
+          }
+        },
+        {
+          "id": "frame3",
+          "tag": "TOPIC",
+          "text": "What did you print about Vessel leaving?",
+          "afterUse": "retain",
+          "say": "'BELOVED CITIZEN ANSWERS CALL OF COMMERCE.' He owed me for six advertisements. The headline was cheaper than forgiving the debt."
+        },
+        {
+          "id": "frame4",
+          "tag": "COMIC",
+          "text": "Print a correction: my name.",
+          "afterUse": "counted-repeat",
+          "say": "A correction! We run those in the spring.",
+          "repeats": [
+            {
+              "selection": 2,
+              "say": "It is not spring."
+            },
+            {
+              "selection": 3,
+              "say": "Persistent AND punctual-minded. I may do a profile. How do you spell it?"
+            }
+          ]
+        },
+        {
+          "id": "framex",
+          "tag": "EXIT",
+          "text": "I've taken enough of your time. I'll be taking more later.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
+    "FRA_E1": {
+      "id": "FRA_E1",
+      "prompt": "Everyone knew him. He was— —he was the only man in town who fixed anything.",
+      "opening": [
+        {
+          "speaker": "frame",
+          "line": "An obituary. For the piano man."
+        },
+        {
+          "speaker": "thad",
+          "line": "Did you know him?"
+        },
+        {
+          "speaker": "frame",
+          "line": "Everyone knew him. He was— —he was the only man in town who fixed anything."
+        }
+      ],
+      "options": [
+        {
+          "id": "frame1",
+          "tag": "PROGRESS",
+          "text": "What will you write?",
+          "afterUse": "remove",
+          "say": "The truth. It's an obituary. There are rules.",
+          "set": {
+            "T_OBITUARY": true
+          },
+          "gives": [
+            "obituary"
+          ],
+          "puzzle": {
+            "E5": "complete"
+          }
+        },
+        {
+          "id": "frame2",
+          "tag": "TOPIC",
+          "text": "He owed you a quote.",
+          "afterUse": "retain",
+          "exchange": [
+            {
+              "speaker": "frame",
+              "line": "He never gave me one worth having."
+            },
+            {
+              "speaker": "frame",
+              "line": "I invented better. He never complained. That was the quote, probably."
+            }
+          ]
+        },
+        {
+          "id": "frame3",
+          "tag": "COMIC",
+          "text": "Spell it right.",
+          "afterUse": "remove",
+          "say": "…I always meant to."
+        },
+        {
+          "id": "framex",
+          "tag": "EXIT",
+          "text": "I am going to leave now, in a dignified manner.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    }
+  }
+}

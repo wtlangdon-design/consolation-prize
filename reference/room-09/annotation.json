@@ -1,0 +1,198 @@
+{
+ "room": "clarion",
+ "plate": "art/backgrounds/room-09-clarion.png",
+ "plateNote": "Read on the promoted plate (art/staging/room-09/plate-01/candidate-1920x864.png, room-09 attempt 2, the standard 20:9 crop -- frame.json). Every rect below was read off that picture with a grid over it.",
+ "plateShipping": "art/backgrounds/room-09-clarion.png",
+ "plateShippingHash": "0b9697b29d5b8f49a4a5e67c",
+ "plateSize": [
+  1920,
+  864
+ ],
+ "walkModel": "clipped",
+ "walkable": [
+  [
+   230,
+   745
+  ],
+  [
+   1320,
+   745
+  ],
+  [
+   1320,
+   850
+  ],
+  [
+   230,
+   850
+  ]
+ ],
+ "walkableNote": "THE PUBLIC FLOOR. The door's foot is at y 710, the desk's at 640, the stacks' at 607; the press's front legs come forward to y 767 from x 1390, and the ink keg to 780 beyond them. So the band runs y 745-850 and stops at x 1320, short of the press: Frame stands at it, and Thad talks to him from before the desk.",
+ "scaling": {
+  "far": {
+   "y": 745,
+   "height": 521
+  },
+  "near": {
+   "y": 850,
+   "height": 593
+  },
+  "note": "ROOM 9'S DEPTH, FROM THE MAN THE MASTER PAINTED. The composition master drew Thad 423 tall with his feet at source y 775, which is 534 at y 764 in this plate's frame; along Room 5's slope (0.69 per row) that is 521 at the band's far edge and 593 at its near. Frame stands at y 717, beside the press, at 502 on the same curve."
+ },
+ "entrance": [
+  330,
+  790
+ ],
+ "entrances": [
+  {
+   "from": "main_street",
+   "at": [
+    330,
+    790
+   ],
+   "facing": "right",
+   "note": "In by the street door, at left."
+  },
+  {
+   "from": "default",
+   "at": [
+    330,
+    790
+   ],
+   "facing": "right",
+   "note": "Anything else arrives by the door."
+  }
+ ],
+ "hotspots": {
+  "window": [
+   245,
+   25,
+   280,
+   495
+  ],
+  "schedule_board": [
+   530,
+   90,
+   175,
+   305
+  ],
+  "back_editions": [
+   670,
+   230,
+   360,
+   380
+  ],
+  "mott_photograph": [
+   905,
+   40,
+   140,
+   175
+  ],
+  "frame_s_desk": [
+   985,
+   420,
+   385,
+   220
+  ],
+  "spike": [
+   1050,
+   235,
+   115,
+   155
+  ],
+  "press": [
+   1380,
+   160,
+   320,
+   600
+  ],
+  "type_case": [
+   1630,
+   160,
+   290,
+   450
+  ],
+  "ink": [
+   1645,
+   615,
+   160,
+   165
+  ]
+ },
+ "hotspotsNote": "Generous over the thing the player sees (ruling 32). THE SCHEDULE BOARD is the chalkboard by the window (doc 57: the same board as THE HEADLINE BOARD). THE SPIKE is the little rack of slips on the wall above the desk. FRAME'S DESK wins over the stacks where they meet. THE PRESS stands behind Frame; a TALK TO on him reaches him.",
+ "exits": {
+  "back_to_street": [
+   20,
+   60,
+   200,
+   660
+  ]
+ },
+ "exitWalkTo": {
+  "back_to_street": {
+   "x": 250,
+   "y": 770,
+   "facing": "left"
+  }
+ },
+ "obstacles": [],
+ "lamps": [
+  {
+   "id": "press_lamp",
+   "at": [
+    1507,
+    150
+   ],
+   "radius": 520,
+   "amount": 0.12,
+   "rate": 0.3,
+   "phase": 0.2,
+   "note": "The lamp hung over the press. A slow, low breath (invariant 9)."
+  },
+  {
+   "id": "desk_lamp",
+   "at": [
+    1180,
+    395
+   ],
+   "radius": 380,
+   "amount": 0.1,
+   "rate": 0.27,
+   "phase": 0.6,
+   "note": "The oil lamp on Frame's desk, on its own phase."
+  }
+ ],
+ "defaultVerbs": {
+  "window": "LOOK_AT",
+  "schedule_board": "LOOK_AT",
+  "back_editions": "LOOK_AT",
+  "mott_photograph": "LOOK_AT",
+  "frame_s_desk": "LOOK_AT",
+  "spike": "LOOK_AT",
+  "press": "LOOK_AT",
+  "type_case": "LOOK_AT",
+  "ink": "LOOK_AT"
+ },
+ "defaultVerbsNote": "Errata 28b. Every object here is looked at on a bare click.",
+ "occlusion": {
+  "note": "NO PLANE MASKS THAT CAN REACH HIM: the walk band is in front of the desk and the stacks and stops short of the press.",
+  "clipPlane": {
+   "mud_far": 0,
+   "mud_mid": 0,
+   "mud_near": 0
+  },
+  "planes": []
+ },
+ "people": {
+  "IGNATIUS FRAME": [
+   "frame"
+  ]
+ },
+ "headlines": {
+  "hotspot": "schedule_board",
+  "ref": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines",
+  "counter": "MISSPELLINGS_SEEN",
+  "seenPrefix": "T_HEADLINE_"
+ },
+ "headlinesNote": "Doc 57: Room 9's THE SCHEDULE BOARD is THE HEADLINE BOARD and carries the current edition. Editions are gated on the puzzles they follow; the ninth rendering is Room 31's grave marker (errata 9)."
+}

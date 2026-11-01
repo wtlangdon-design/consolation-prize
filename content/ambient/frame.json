@@ -1,0 +1,89 @@
+{
+ "schema": 1,
+ "id": "frame",
+ "name": "IGNATIUS FRAME",
+ "posture": "standing",
+ "room": "clarion",
+ "x": 1372,
+ "y": 717,
+ "zone": 2,
+ "approachRadius": 40,
+ "walkTo": {
+  "x": 1120,
+  "y": 790,
+  "facing": "right"
+ },
+ "walkToNote": "WHERE THAD STANDS TO TALK TO HIM: on the floor before the desk, facing him at his press (errata 82 C): talkers by furniture, not on open floor (doc 55 section 8).",
+ "tree": "FRAME",
+ "note": "IGNATIUS FRAME, editor and sole employee of the Clarion (doc 01; doc 04: 'enthusiastic, amoral, and permanently mid-sentence'). Canon gives him no appearance, so he is a wiry 1850s printer-editor -- rolled sleeves, an ink-stained apron, a pencil behind his ear (errata 82 B). Drawn first in room-09's composition master at his press beside Thad (style gate step 1), then alone on magenta in five poses (room-09 operation 3), keyed by tools/art/room09-frame.py. He stands at his press, at the room's curve. Room 9 is his first drawing and so his canonical design (doc 38 section 1).",
+ "barks": {},
+ "barksNote": "Doc 07 writes no barks for Frame.",
+ "sprite": {
+  "sheet": "art/actors/room-09-frame.png",
+  "frames": [
+   [
+    2,
+    2,
+    243,
+    502
+   ],
+   [
+    247,
+    2,
+    243,
+    502
+   ],
+   [
+    492,
+    2,
+    243,
+    502
+   ],
+   [
+    737,
+    2,
+    243,
+    502
+   ],
+   [
+    982,
+    2,
+    243,
+    502
+   ]
+  ],
+  "rate": 0.3,
+  "phase": 0.4,
+  "breaks": [
+   [
+    2,
+    2,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    3,
+    3,
+    0
+   ],
+   [
+    4,
+    4,
+    0,
+    2,
+    0
+   ],
+   [
+    3,
+    3,
+    0
+   ]
+  ],
+  "breakEvery": 5,
+  "talkFrame": 2,
+  "frameNote": "0 rest · 1 breath (derived from rest by tools/rig/ambient-breath.py) · 2 talking, a hand out · 3 taking a quote in his notebook · 4 leaning in. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds one break from the pool (errata 35, 77: a deliberate action at least every 30 s).",
+  "provenance": "art/staging/room-09/frame/frame.json"
+ }
+}

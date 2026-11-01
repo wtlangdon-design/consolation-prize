@@ -1,0 +1,114 @@
+{
+ "schema": 1,
+ "note": "PLAYTEST FIXTURES FOR ROOM 9, the Clarion office. ?fixture=<id> starts there in the named state. Ids, flags and pointers only.",
+ "fixtures": [
+  {
+   "id": "r9-a",
+   "label": "R9-A Act II, Vessel gone (B1) and the headline board",
+   "room": "clarion",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "ACT": 2
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::B1 · Find where Vessel went",
+    "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines"
+   ],
+   "notBuilt": [
+    "A10 (Room 11): the dinner and the act card that sets ACT 2"
+   ],
+   "expect": {
+    "tree": "FRAME",
+    "opensOn": "FRA_A1"
+   },
+   "note": "TALK TO Frame: option 1 goes to the trade (FRA_B1); either story pays with Fiddler's Gulch. LOOK at the headline board: the latest edition, once."
+  },
+  {
+   "id": "r9-b",
+   "label": "R9-B Act III, recorded deceased (E5)",
+   "room": "clarion",
+   "flags": {
+    "T_OPENING_SAID": true,
+    "T_DRIVER_ASKED": 3,
+    "T_COACH_DEPARTED": true,
+    "T_UNDERTAKER_NAMED": true,
+    "T_HOB_CROSSING": true,
+    "T_THAD_LEAVING": true,
+    "T_HOB_SPOKEN": true,
+    "T_HOB_GONE": true,
+    "T_OPENING_DONE": true,
+    "T_SEEN_MAIN_STREET": true,
+    "T_CASE_DOWN": true,
+    "T_CASE_TAKEN": true,
+    "T_SWINDLED": true,
+    "T_SURVEY_NEEDED": true,
+    "T_DEED_LODGED": true,
+    "T_SURVEY_LODGED": true,
+    "T_BORDERS_MOTT": true,
+    "ACT": 3,
+    "T_ASSAY_QUEUE": true,
+    "T_NINETY_DAYS": true,
+    "T_NEED_TO_DIE": true,
+    "T_EXECUTOR_RULE": true,
+    "T_DECEASED": true
+   },
+   "inventory": [
+    "tuning_fork",
+    "deed",
+    "company_map",
+    "invitation"
+   ],
+   "puzzles": {
+    "A3": "complete",
+    "A6": "complete",
+    "A7": "complete",
+    "A8": "complete",
+    "A9": "complete",
+    "D1": "complete",
+    "E1": "complete",
+    "E2": "complete",
+    "E4": "complete"
+   },
+   "derivedFrom": [
+    "docs/57-puzzle-completion.md::E5 · The obituary"
+   ],
+   "notBuilt": [
+    "E3-E4 and SUM_C1 (Room 7, deferred): the death certificate and the decease that open FRA_E1"
+   ],
+   "expect": {
+    "tree": "FRAME",
+    "opensOn": "FRA_E1"
+   },
+   "note": "Thad, hat low, recorded deceased. TALK TO Frame opens FRA_E1; option 1 is the obituary and E5."
+  }
+ ]
+}

@@ -1,0 +1,202 @@
+{
+ "schema": 1,
+ "room": "clarion",
+ "note": "ROOM 9's LIFE ROUTE, ruling 47: about a minute and a half in the room, starting inside it. Frame breathes, talks, takes quotes and leans in on his own beats; two lamps breathe. A conversation (the misspelling, twice; Mott and the photograph that follows it; the exit), so his lines are seen over his head; a LOOK at the headline board; a LISTEN; doc 49's authored wrong verbs.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "01-arrived"
+  },
+  {
+   "do": "wait",
+   "seconds": 7
+  },
+  {
+   "do": "capture",
+   "name": "02-frame-at-work"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "capture",
+   "name": "03-frame-later"
+  },
+  {
+   "do": "verb",
+   "verb": "TALK_TO"
+  },
+  {
+   "do": "click",
+   "world": [
+    1410,
+    450
+   ],
+   "why": "Frame, at his press"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "capture",
+   "name": "04-fra-a1"
+  },
+  {
+   "do": "option",
+   "option": "frame4",
+   "why": "You've spelled my name wrong."
+  },
+  {
+   "do": "waitFor",
+   "says": "frame",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "05-frame-speaks"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "frame4",
+   "why": "again: the rotation"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "frame2",
+   "why": "Mott"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "capture",
+   "name": "06-photograph-offered",
+   "why": "the photograph question follows"
+  },
+  {
+   "do": "option",
+   "option": "frame3"
+  },
+  {
+   "do": "waitFor",
+   "dialogue": true,
+   "upTo": 60
+  },
+  {
+   "do": "option",
+   "option": "framex",
+   "why": "leave"
+  },
+  {
+   "do": "wait",
+   "seconds": 6
+  },
+  {
+   "do": "verb",
+   "verb": "LOOK_AT"
+  },
+  {
+   "do": "click",
+   "on": "schedule_board",
+   "why": "the headline board"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "07-look-board",
+   "why": "where the words land"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "LISTEN_TO"
+  },
+  {
+   "do": "click",
+   "on": "window",
+   "why": "the street through the window"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "08-listen-window",
+   "why": "where the words land"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "PICK_UP"
+  },
+  {
+   "do": "click",
+   "on": "type_case",
+   "why": "doc 49's authored PICK UP"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "09-pickup-type",
+   "why": "where the words land"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  },
+  {
+   "do": "verb",
+   "verb": "USE"
+  },
+  {
+   "do": "click",
+   "on": "press",
+   "why": "doc 49's authored USE"
+  },
+  {
+   "do": "waitFor",
+   "says": "thad",
+   "upTo": 30
+  },
+  {
+   "do": "capture",
+   "name": "10-use-press",
+   "why": "where the words land"
+  },
+  {
+   "do": "wait",
+   "seconds": 8
+  }
+ ]
+}

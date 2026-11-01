@@ -609,7 +609,7 @@
         110
       ],
       "colour": 30,
-      "to": "stub_clarion",
+      "to": "clarion",
       "responses": {
         "LOOK_AT": [
           {

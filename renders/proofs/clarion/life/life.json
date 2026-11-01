@@ -1,0 +1,2263 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "clarion",
+ "commit": "bfa7ca0bb4710e4421bf4a7c2e40a949dfbd277d",
+ "workingTreeClean": false,
+ "dirtyAllowed": true,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "clarion",
+ "warped": false,
+ "lifeRoute": "clarion-life",
+ "durationSeconds": 235.99,
+ "events": [
+  {
+   "t": 3,
+   "line": "entry route clarion: 31 action(s)"
+  },
+  {
+   "t": 141.85,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 141.85,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 141.85,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 141.85,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 141.85,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 141.85,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 141.85,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 141.85,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 141.85,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 141.85,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 141.85,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 141.85,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 141.85,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 141.85,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 141.85,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 141.85,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 141.85,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 141.85,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 141.85,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 141.85,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 141.85,
+   "line": "action 21 (click): clicked world 1950,760 -- walk west along the street from the east end"
+  },
+  {
+   "t": 141.85,
+   "line": "action 22 (wait): waited 20s"
+  },
+  {
+   "t": 141.85,
+   "line": "action 23 (click): clicked world 1700,770 -- west again: a click west of the camera's left edge does not register, so in short legs the camera follows"
+  },
+  {
+   "t": 141.85,
+   "line": "action 24 (wait): waited 5s"
+  },
+  {
+   "t": 141.85,
+   "line": "action 25 (click): clicked world 1450,780 -- "
+  },
+  {
+   "t": 141.85,
+   "line": "action 26 (wait): waited 5s"
+  },
+  {
+   "t": 141.85,
+   "line": "action 27 (click): clicked world 1200,790 -- "
+  },
+  {
+   "t": 141.85,
+   "line": "action 28 (wait): waited 5s"
+  },
+  {
+   "t": 141.85,
+   "line": "action 29 (click): clicked main_street/to_clarion at world 1097,467 -- Main Street's door to the Clarion office"
+  },
+  {
+   "t": 141.85,
+   "line": "action 30 (waitFor): reached {\"room\":\"clarion\"} in room clarion"
+  },
+  {
+   "t": 141.85,
+   "line": "action 31 (wait): waited 3s"
+  },
+  {
+   "t": 141.88,
+   "line": "in clarion; life route: 42 action(s)"
+  },
+  {
+   "t": 142.38,
+   "line": "capture 01-arrived: room clarion, says null, options 0, control null"
+  },
+  {
+   "t": 143.39,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 144.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 145.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 147.41,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 148.43,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 149.39,
+   "line": "action 1 (wait): waited 7s"
+  },
+  {
+   "t": 149.4,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 149.93,
+   "line": "capture 02-frame-at-work: room clarion, says null, options 0, control null"
+  },
+  {
+   "t": 150.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 152.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 153.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 154.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 155.93,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 155.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     330,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 156.48,
+   "line": "capture 03-frame-later: room clarion, says null, options 0, control null"
+  },
+  {
+   "t": 156.55,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 156.7,
+   "line": "action 1 (click): clicked world 1410,450 -- Frame, at his press"
+  },
+  {
+   "t": 157.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     776,
+     790
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 158.72,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.73,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.72,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.72,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.63,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room clarion"
+  },
+  {
+   "t": 163.21,
+   "line": "capture 04-fra-a1: room clarion, says null, options 5, control null"
+  },
+  {
+   "t": 163.42,
+   "line": "action 1 (option): chose option frame4 -- You've spelled my name wrong."
+  },
+  {
+   "t": 164.44,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.45,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 165.54,
+   "line": "action 1 (waitFor): reached {\"says\":\"frame\"} in room clarion"
+  },
+  {
+   "t": 166.04,
+   "line": "capture 05-frame-speaks: room clarion, says \"frame\", options 5, control null"
+  },
+  {
+   "t": 167.06,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.06,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.1,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room clarion"
+  },
+  {
+   "t": 168.3,
+   "line": "action 1 (option): chose option frame4 -- again: the rotation"
+  },
+  {
+   "t": 169.33,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.34,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.31,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.39,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.5,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room clarion"
+  },
+  {
+   "t": 172.69,
+   "line": "action 1 (option): chose option frame2 -- Mott"
+  },
+  {
+   "t": 173.69,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.7,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 175.72,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 176.72,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.72,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.73,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.71,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 5,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.55,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room clarion"
+  },
+  {
+   "t": 181.13,
+   "line": "capture 06-photograph-offered: room clarion, says null, options 6, control null"
+  },
+  {
+   "t": 181.36,
+   "line": "action 1 (option): chose option frame3 -- "
+  },
+  {
+   "t": 182.4,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.37,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.39,
+   "trace": {
+    "says": "frame",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 185.31,
+   "line": "action 1 (waitFor): reached {\"dialogue\":true} in room clarion"
+  },
+  {
+   "t": 185.52,
+   "line": "action 1 (option): chose option framex -- leave"
+  },
+  {
+   "t": 186.54,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.57,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.53,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": true,
+    "options": 6,
+    "thad": [
+     1120,
+     790
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.53,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 191.6,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 191.78,
+   "line": "action 1 (click): clicked clarion/schedule_board at world 618,243 -- the headline board"
+  },
+  {
+   "t": 192.81,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     676,
+     812
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 193.53,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room clarion"
+  },
+  {
+   "t": 194.01,
+   "line": "capture 07-look-board: room clarion, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 195.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     618,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 196.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     618,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.03,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     618,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 198.02,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     618,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     618,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     618,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     618,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 202.01,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 202.1,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 202.3,
+   "line": "action 1 (click): clicked clarion/window at world 385,273 -- the street through the window"
+  },
+  {
+   "t": 203.07,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room clarion"
+  },
+  {
+   "t": 203.63,
+   "line": "capture 08-listen-window: room clarion, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 204.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     385,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 205.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     385,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 206.68,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     385,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 207.67,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     385,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 208.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     385,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 209.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     385,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 210.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     385,
+     850
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 211.63,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 211.71,
+   "line": "action 1 (verb): chose verb PICK_UP -- "
+  },
+  {
+   "t": 211.9,
+   "line": "action 1 (click): clicked clarion/type_case at world 1775,385 -- doc 49's authored PICK UP"
+  },
+  {
+   "t": 212.93,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     844,
+     833
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 213.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1316,
+     815
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 214.54,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room clarion"
+  },
+  {
+   "t": 215.1,
+   "line": "capture 09-pickup-type: room clarion, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 216.11,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 217.13,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 218.12,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 219.14,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 220.11,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 221.12,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 222.13,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 223.1,
+   "line": "action 1 (wait): waited 8s"
+  },
+  {
+   "t": 223.15,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 223.35,
+   "line": "action 1 (click): clicked clarion/press at world 1540,460 -- doc 49's authored USE"
+  },
+  {
+   "t": 223.41,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room clarion"
+  },
+  {
+   "t": 223.95,
+   "line": "capture 10-use-press: room clarion, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 224.99,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 226.01,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 226.96,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 228.01,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 229.97,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 231.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1320,
+     745
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 231.96,
+   "line": "action 1 (wait): waited 8s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": null,
+   "t": 142.37,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/01-arrived.png",
+   "hash": "a3c1584f372bf1e0a332ee218130e33fe7eb696f0f25a44628c7daa1e1207169",
+   "room": "clarion",
+   "clock": 142.05470000000003,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 552,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      44,
+      238,
+      572,
+      609
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-frame-at-work",
+   "why": null,
+   "t": 149.92,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/02-frame-at-work.png",
+   "hash": "d375dfef7e230707b94ef7c00f130bb4cf2fe0e237d76a6b097aa3716af31b9e",
+   "room": "clarion",
+   "clock": 149.5711,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 552,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      44,
+      238,
+      572,
+      609
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-frame-later",
+   "why": null,
+   "t": 156.47,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/03-frame-later.png",
+   "hash": "c70e3e8df09b3e93df6f085b91c1ae32b78b571841aa9aa58abc5272b95eead2",
+   "room": "clarion",
+   "clock": 156.1209,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      330,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 552,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-06.png",
+     "bounds": [
+      44,
+      238,
+      572,
+      609
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-fra-a1",
+   "why": null,
+   "t": 163.2,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/04-fra-a1.png",
+   "hash": "61cb3391a3487f37864c28c8d41dae763b0463f0fb516abdc17c368ede069099",
+   "room": "clarion",
+   "clock": 162.9872,
+   "control": null,
+   "says": null,
+   "options": 5,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1120,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 552,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      834,
+      238,
+      572,
+      609
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-frame-speaks",
+   "why": null,
+   "t": 166.04,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/05-frame-speaks.png",
+   "hash": "74eb35f5e28407ee6166bf7931f873d6a5a209dfa6c417b259991328db2b3278",
+   "room": "clarion",
+   "clock": 165.72039999999998,
+   "control": null,
+   "says": "frame",
+   "options": 5,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1120,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 552,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      834,
+      238,
+      572,
+      609
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-photograph-offered",
+   "why": "the photograph question follows",
+   "t": 181.12,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/06-photograph-offered.png",
+   "hash": "203b9e0dfd9a0418d915690f0a2ad558afbf8a21d76655bd05eb46cc59881ee4",
+   "room": "clarion",
+   "clock": 180.75320000000002,
+   "control": null,
+   "says": null,
+   "options": 6,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_MOTT_FACE_UNKNOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 2
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1120,
+      790
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 552,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-01.png",
+     "bounds": [
+      834,
+      238,
+      572,
+      609
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-look-board",
+   "why": "where the words land",
+   "t": 194,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/07-look-board.png",
+   "hash": "66cf46343e3824fa6c549d8a3b90f02bdf2fb2089acc4452a04d66e60b8a2424",
+   "room": "clarion",
+   "clock": 193.6859,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_MOTT_FACE_UNKNOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 2
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      618,
+      850
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 593,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      267,
+      257,
+      702,
+      655
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-listen-window",
+   "why": "where the words land",
+   "t": 203.62,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/08-listen-window.png",
+   "hash": "bf05daa09b03d5e29403d391e6b89d22e562ade350f08b3dfa31d6ee8dc411f2",
+   "room": "clarion",
+   "clock": 203.40220000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_MOTT_FACE_UNKNOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 2
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      385,
+      850
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 593,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      34,
+      257,
+      702,
+      655
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-pickup-type",
+   "why": "where the words land",
+   "t": 215.09,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/09-pickup-type.png",
+   "hash": "a75746acdc0eaea1d43dd851d8468c6c043dfef9d0be33511e4517ae6dc90ddb",
+   "room": "clarion",
+   "clock": 214.73510000000002,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_MOTT_FACE_UNKNOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 2
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1320,
+      745
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 521,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-05.png",
+     "bounds": [
+      1050,
+      224,
+      540,
+      575
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "10-use-press",
+   "why": "where the words land",
+   "t": 223.95,
+   "file": "renders/proofs/clarion/life/raw-captures-ignored/10-use-press.png",
+   "hash": "4c6c48d6f3ce4d8e12c00e3f1b23c268133efdec7d9ea5e9377c387822c443ed",
+   "room": "clarion",
+   "clock": 223.5848,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN",
+    "T_MOTT_FACE_UNKNOWN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0,
+    "MISSPELLINGS_SEEN": 2
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1320,
+      745
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 521,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      1011,
+      224,
+      617,
+      575
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": null,
+    "count": 0
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:clarion",
+     "path": "art/backgrounds/room-09-clarion.png",
+     "drawn": "art/backgrounds/room-09-clarion.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "0b9697b29d5b8f49a4a5e67c03e003138b5ed279cb184fa7bc975bc0ff154459"
+    },
+    {
+     "key": "art/actors/room-09-frame.png",
+     "path": "art/actors/room-09-frame.png",
+     "drawn": "art/actors/room-09-frame.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "dc850c7e1184fa28fd0a1ff5d5f3ba0a15099a09880c0657d6574dc8b8d46728"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 235.99s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-01T23:27:47.338Z"
+}

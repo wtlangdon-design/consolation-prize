@@ -2396,3 +2396,23 @@ What Tyler still decides: acceptance of the art (errata 72 E, at the full playth
 **E · The way back has no lines** (doc 36 Q151): no document writes the archive's side of its door. A stub exit, as Room 6's is.
 
 **F · Found while building, and fixed.** A response that leads elsewhere and has lines -- the archive door -- moved the room at once, so the clerk's first line hung over the archive and the rest were cancelled. The game state now reports such a destination (`goesTo`) and the scene moves once the last line has been read; `tests/room-08.test.ts` holds it. An examine response may now name its speaker, carry speaker-tagged lines and complete a puzzle; an annotation's `sceneLines` reads doc 57's scene lines on a room's subjects, words and speakers from the document.
+
+---
+
+# 82 · ROOM 9 BUILT — THE BUILDER'S DECISIONS (2026-11-01)
+
+*Made by the Room 9 builder under doc 55 section 5's standing delegation. No line was written. Every ruling below can be struck or changed by its letter.*
+
+**A · One visual state, night.** The Clarion is on Main Street, whose base state is night (errata 64a), and Frame works late: lamps over the press and the desk, the street dark through the lettered window.
+
+**B · Frame's look.** Canon gives Ignatius Frame no appearance -- only his voice ("enthusiastic, amoral, and permanently mid-sentence"). He is a wiry printer-editor of about forty: untidy hair, rolled sleeves, an ink-stained apron over a loose waistcoat, a pencil behind his ear. Drawn first in the composition master at his press beside Thad, then alone on magenta in five poses (rest, breath, talking, taking a quote, leaning in), keyed whole by `tools/art/room09-frame.py`. **Room 9 is his first drawing and so his canonical design** (doc 38 section 1).
+
+**C · Staging.** The street door and the front window at the left, the schedule board (doc 57: the headline board) beside the window; the stacks of back editions and the Mott photograph on the back wall; Frame's desk under its drift; the press, the type case and the ink keg at the right. Frame stands at his press; **Thad talks to him from before the desk** (1120, 790), by the furniture rather than on open floor (doc 55 section 8).
+
+**D · Frame's tree and the running gag.** FRA_A1, FRA_B1 and FRA_E1 are extracted from doc 04 with their routing: option 1 opens the trade; 6 begins the funeral day (`T_FUNERAL_DAY`, C3); 7 is pair 16 (`ASSAY_PAIR_16`); FRA_B1 1 and 2 both pay with Fiddler's Gulch (`T_VESSEL_LOCATION`, B1); FRA_E1 opens on `T_DECEASED` and its option 1 gives THE OBITUARY (E5) through the game state, as a won duel's yields do. Option 4's three rotating answers play in order and then hold the last (the runner does not rotate; reported). **The headline board** carries doc 57's editions: each answers the board's next LOOK once after its event, latest first, marks itself and every older one read (`T_HEADLINE_<event>_SEEN`), and counts `MISSPELLINGS_SEEN`; then the board's ordinary lines resume. An examine rule may now wait on a puzzle's completion (`afterPuzzles`), because C5 is puzzle progress and not a flag (errata 66 B).
+
+**E · The art: 3 of room-09's 4 operations.** A composition master against the graybox with Thad and Frame (it kept the 20:9 band, so the standard crop); the same room with nobody in it; Frame's five-pose sheet. One operation is unspent. Promoted provisionally (errata 72 E).
+
+**F · The way back has no lines** (doc 36 Q152): doc 14 writes Main Street's side of the Clarion door and nothing writes the inside. A stub exit, as Rooms 6 and 8's are.
+
+**G · Found while building.** The compiler drops a document's `*emphasis*` asterisks in merged rooms (doc 54 italicises *Clarion*; the face has no italic). The gauntlet's waits read through a conversation's greeting under click-to-read, and a route along Main Street walks in short legs (the camera does not follow a click west of its edge).

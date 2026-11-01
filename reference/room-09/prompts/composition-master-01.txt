@@ -1,0 +1,18 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background with two people in it, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the ceiling to the floor in front of the hero, fits inside that band.
+
+THE ROOM: the one-man newspaper office of a gold-rush town, 1850s, at night: the Consolation Clarion. Cramped, busy, inky. Image 5 is a saloon on the same street at the same hour, for the world and the night light only.
+- Left wall: the street door, with a small bell over it. Beside it a big front window onto the dark night street; gold lettering on the glass seen backwards from inside, as unreadable gold marks.
+- Beside the window, on the wall: a chalkboard of stage schedules, covered in chalk marks and columns, NO readable writing.
+- Back wall, middle: tall stacks of old newspapers piled to shoulder height, yellowed, holding each other up; above them a small framed photograph portrait of a stern bearded man.
+- Back wall, right of middle: a cluttered editor's desk under a drift of papers and proofs, with a paper spike loaded with slips and an oil lamp.
+- Right: a big old iron flatbed hand press, and beside it a tall wooden type case with slanted drawers of lead type; a keg of printer's ink on the floor by the press. A lamp hangs over the press.
+- Floor: plank boards, ink-stained.
+- Light: two oil lamps, over the press and on the desk; the corners dimmer. No daylight.
+
+THE PEOPLE (this picture is a reference painting, so people are allowed in it):
+- The hero from image 4, standing where image 1 puts him, at exactly that size, facing right toward the press.
+- IGNATIUS FRAME, editor and sole employee, standing at his press, turned toward the hero, mid-sentence and delighted: a wiry man of about forty, untidy hair, quick bright face, shirt sleeves rolled up, an ink-stained printer's apron over a loose waistcoat, ink on his hands, a pencil behind his ear. Standing full length on the floor beside the press, the size of a standing man at that depth.
+
+THE LOOK: the same pixel-art style as images 2, 3 and 6, and the same hand as the hero: flat, soft shading, very little texture, simple shapes, a visible pixel grid. Not sharp, not finely detailed, no hard internal contrast. Draw Frame exactly as softly as the hero. This room has its own colours: lamp-black ink, yellowed newsprint, dark iron, warm lamplight. Nothing near black where the hero stands.
+
+RULES: no text, letters or numbers anywhere -- the newspapers, the chalkboard, the window lettering and the type carry marks, never words. No border, no frame, no caption.

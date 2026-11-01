@@ -1,0 +1,238 @@
+{
+ "room": 9,
+ "note": "Ruling 22 steps 1-6 for the Clarion office, written by tools/room09-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 82).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 740,
+   "height": 497
+  },
+  "near": {
+   "y": 850,
+   "height": 573
+  },
+  "from": "Room 5's interior numbers (reference/room-05/annotation.json)"
+ },
+ "walkable": [
+  220,
+  740,
+  1500,
+  110
+ ],
+ "exit": {
+  "hotspot": "THE STREET DOOR",
+  "to": "main_street",
+  "rect": [
+   40,
+   160,
+   190,
+   530
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 330,
+   "y": 780,
+   "facing": "right"
+  },
+  "talk_frame": {
+   "x": 1180,
+   "y": 790,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE STREET DOOR",
+   "rect": [
+    40,
+    160,
+    190,
+    530
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE WINDOW",
+   "rect": [
+    260,
+    140,
+    330,
+    330
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SCHEDULE BOARD",
+   "rect": [
+    610,
+    180,
+    200,
+    230
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "BACK EDITIONS",
+   "rect": [
+    830,
+    330,
+    260,
+    360
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MOTT PHOTOGRAPH",
+   "rect": [
+    900,
+    150,
+    110,
+    140
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "FRAME'S DESK",
+   "rect": [
+    1110,
+    470,
+    300,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SPIKE",
+   "rect": [
+    1360,
+    420,
+    30,
+    60
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE PRESS",
+   "rect": [
+    1430,
+    330,
+    330,
+    360
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TYPE CASE",
+   "rect": [
+    1780,
+    220,
+    140,
+    470
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE INK",
+   "rect": [
+    1640,
+    600,
+    90,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "IGNATIUS FRAME (at the press)",
+   "rect": [
+    1370,
+    240,
+    120,
+    450
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: every piece of furniture is behind it; the bench are all behind it, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, newsprint-papered plank",
+   "p10": 46.0,
+   "p90": 94.0,
+   "darkAnchorMargin": 20.5,
+   "lightAnchorMargin": 27.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "floor, ink-stained boards",
+   "p10": 90.0,
+   "p90": 99.0,
+   "darkAnchorMargin": 64.5,
+   "lightAnchorMargin": 22.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE STREET DOOR",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE WINDOW",
+   "p10": 46.0,
+   "p90": 46.0,
+   "darkAnchorMargin": 20.5,
+   "lightAnchorMargin": 75.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE SCHEDULE BOARD",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "BACK EDITIONS",
+   "p10": 94.0,
+   "p90": 94.0,
+   "darkAnchorMargin": 68.5,
+   "lightAnchorMargin": 27.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "FRAME'S DESK",
+   "p10": 60.0,
+   "p90": 66.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 55.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE PRESS",
+   "p10": 52.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 26.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE TYPE CASE",
+   "p10": 70.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 44.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

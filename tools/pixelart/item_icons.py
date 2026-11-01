@@ -286,6 +286,20 @@ def executor_form(canvas: IndexedCanvas, palette: Palette) -> None:
     canvas.outline(17, 12, 5, 5, stamp.frac(0.55))
 
 
+def obituary(canvas: IndexedCanvas, palette: Palette) -> None:
+    """The Clarion's obituary of Thad: a column of newsprint torn from the page,
+    a black mourning rule across its head (doc 23). The only icon with a black
+    border; newsprint, not the papers' bone."""
+    grey = palette.family("grey")
+    canvas.rect(9, 2, 12, 17, grey.frac(0.78))
+    canvas.vline(20, 2, 17, grey.frac(0.50))
+    void = palette.family("void")
+    canvas.rect(9, 2, 12, 3, void.at(0))
+    ink = palette.family("umber").frac(0.16)
+    for row in range(7, 18, 2):
+        canvas.hline(10, row, 10 - (row % 4 == 3) * 3, ink)
+
+
 ICONS = {
     "document_a": document_a,
     "watch": watch,
@@ -301,6 +315,7 @@ ICONS = {
     "survey": survey,
     "invitation": invitation,
     "executor_form": executor_form,
+    "obituary": obituary,
 }
 
 

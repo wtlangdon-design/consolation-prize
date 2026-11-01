@@ -1,0 +1,54 @@
+{
+ "sheet": "art/staging/room-09/frame/frame.png",
+ "frames": [
+  [
+   2,
+   2,
+   243,
+   502
+  ],
+  [
+   247,
+   2,
+   243,
+   502
+  ],
+  [
+   492,
+   2,
+   243,
+   502
+  ],
+  [
+   737,
+   2,
+   243,
+   502
+  ],
+  [
+   982,
+   2,
+   243,
+   502
+  ]
+ ],
+ "frameNames": [
+  "rest",
+  "breath",
+  "talking",
+  "taking a quote",
+  "leaning in"
+ ],
+ "topLeft": {
+  "x": 1251,
+  "y": 215
+ },
+ "anchor": {
+  "x": 1372,
+  "y": 717
+ },
+ "height": 502,
+ "feetRow": 717,
+ "key": 90,
+ "source": "room-09 attempt 3 (art/staging/room-09/frame-01/sheet.png)"
+}

@@ -66,6 +66,13 @@ export class VerbSystem {
   private readonly pools: Record<string, string[]>;
   private readonly combinations: CombinationsFile | undefined;
 
+  /**
+   * WHETHER A CANONICAL PUZZLE IS COMPLETE, for a rule's `afterPuzzles`. The
+   * game state answers from its puzzle progress; a VerbSystem built without
+   * one answers no, so no puzzle-gated line plays by accident.
+   */
+  reached: (puzzle: string) => boolean = () => false;
+
   constructor(
     file: VerbsFile, flags: FlagStore, fallbacks?: VerbFallbacksFile,
     combinations?: CombinationsFile,
@@ -287,7 +294,8 @@ export class VerbSystem {
    */
   resolve(verbId: string, target: Interactable, scope = ''): ResolvedAction {
     const rules = target.responses?.[verbId];
-    const index = rules?.findIndex((rule: ResponseRule) => this.flags.test(rule.when)) ?? -1;
+    const index = rules?.findIndex((rule: ResponseRule) => this.flags.test(rule.when)
+      && (rule.afterPuzzles ?? []).every((puzzle) => this.reached(puzzle))) ?? -1;
     const matched = index >= 0 ? rules?.[index] : undefined;
 
     if (matched) {

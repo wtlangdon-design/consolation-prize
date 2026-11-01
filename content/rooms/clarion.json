@@ -1,0 +1,807 @@
+{
+  "schema": 1,
+  "id": "clarion",
+  "name": "THE CLARION OFFICE",
+  "materialIdentity": "Ink, newsprint and lamp-black (17b); night, two lamps over the press and the desk (errata 82 A)",
+  "note": "Room 9, doc 20: the Consolation Clarion, on Main Street. Ignatius Frame at his press (doc 04 FRAME); B1 and E5 are his (doc 57); the headline board carries the running gag's editions (doc 57). Compiled by tools/compile-room.mjs from content/examine/room-09.json and reference/room-09/annotation.json.",
+  "background": "art/backgrounds/room-09-clarion.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        230,
+        745,
+        1090,
+        35
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        230,
+        780,
+        1090,
+        35
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        230,
+        815,
+        1090,
+        35
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "spike",
+      "name": "THE SPIKE",
+      "rect": [
+        1050,
+        235,
+        115,
+        155
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A paper spike, loaded to the hilt with stories that did not run.",
+            "repeat": [
+              "The top sheet reads CORRECTION in capitals, and nothing else. It was spiked before he could think of one.",
+              "He spikes his own stories when better ones occur to him. The better ones are on the front page. The true ones are here."
+            ],
+            "then": [
+              "It is the most accurate archive in the building."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. A spike is where a story's life ends, and it is very quiet there.",
+            "repeat": [
+              "Paper stirring when the door opens. The rejected, briefly hopeful.",
+              "Nothing. I will not be adding to it."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1108,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "mott_photograph",
+      "name": "THE MOTT PHOTOGRAPH",
+      "rect": [
+        905,
+        40,
+        140,
+        175
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The only known likeness of Obadiah Mott. I have seen this exact photograph in Mr.",
+            "repeat": [
+              "He has the look of a man who was asked to think of something noble and is thinking of lunch.",
+              "The photographer's stamp has been trimmed off the bottom, neatly. Somebody wanted this to be a picture of someone."
+            ],
+            "then": [
+              "Sheng's window, advertising collars."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is a picture of a man in Ohio.",
+            "repeat": [
+              "Nothing. Whoever he is, he has not said a word in twelve years.",
+              "The frame ticks on its nail. It is the most this likeness has ever said."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 975,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "ink",
+      "name": "THE INK",
+      "rect": [
+        1645,
+        615,
+        160,
+        165
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A keg of printer's ink, black as a creditor's mood and nearly as hard to get off the hands.",
+            "repeat": [
+              "There are black thumbprints on everything in this office, including, somehow, the ceiling.",
+              "The keg is stenciled ST. LOUIS. The news here is local; the black is imported."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A thick, slow settle when the floor moves. It does not slosh. It considers.",
+            "repeat": [
+              "Nothing. It is waiting to be turned into opinions.",
+              "The lid comes up with a reluctant kiss. I put it back down."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "schedule_board",
+      "name": "THE SCHEDULE BOARD",
+      "rect": [
+        530,
+        90,
+        175,
+        305
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "afterPuzzles": [
+              "E5"
+            ],
+            "when": {
+              "T_HEADLINE_E5_SEEN": false
+            },
+            "say": "OBITUARY, PAGE ONE. 'THADEUS GRUBBE.' I have read my own death in the street, misspelled with great care.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true,
+              "T_HEADLINE_A7_SEEN": true,
+              "T_HEADLINE_B5_SEEN": true,
+              "T_HEADLINE_B6_SEEN": true,
+              "T_HEADLINE_C5_SEEN": true,
+              "T_HEADLINE_C3_SEEN": true,
+              "T_HEADLINE_E3_SEEN": true,
+              "T_HEADLINE_E5_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after E5"
+          },
+          {
+            "afterPuzzles": [
+              "E3"
+            ],
+            "when": {
+              "T_HEADLINE_E3_SEEN": false
+            },
+            "say": "FUNERAL THURSDAY: THE PIANO MAN. They have not used my name at all. It is the most accurate they have been.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true,
+              "T_HEADLINE_A7_SEEN": true,
+              "T_HEADLINE_B5_SEEN": true,
+              "T_HEADLINE_B6_SEEN": true,
+              "T_HEADLINE_C5_SEEN": true,
+              "T_HEADLINE_C3_SEEN": true,
+              "T_HEADLINE_E3_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after E3"
+          },
+          {
+            "afterPuzzles": [
+              "C3"
+            ],
+            "when": {
+              "T_HEADLINE_C3_SEEN": false
+            },
+            "say": "MEMORIAL FOR E. PIKE, LATE. ALL WELCOME. REFRESHMENTS. Frame added the refreshments. He was right to.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true,
+              "T_HEADLINE_A7_SEEN": true,
+              "T_HEADLINE_B5_SEEN": true,
+              "T_HEADLINE_B6_SEEN": true,
+              "T_HEADLINE_C5_SEEN": true,
+              "T_HEADLINE_C3_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after C3"
+          },
+          {
+            "afterPuzzles": [
+              "C5"
+            ],
+            "when": {
+              "T_HEADLINE_C5_SEEN": false
+            },
+            "say": "ASSAY QUEUE 'SLIMS,' SAYS LEDGER. 'Mr. GRUBBE, a client.' The E is back. It was always going to come back.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true,
+              "T_HEADLINE_A7_SEEN": true,
+              "T_HEADLINE_B5_SEEN": true,
+              "T_HEADLINE_B6_SEEN": true,
+              "T_HEADLINE_C5_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after C5"
+          },
+          {
+            "afterPuzzles": [
+              "B6"
+            ],
+            "when": {
+              "T_HEADLINE_B6_SEEN": false
+            },
+            "say": "VESSEL SIGNS! 'T. GRUB.' I won, and it cost me a letter.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true,
+              "T_HEADLINE_A7_SEEN": true,
+              "T_HEADLINE_B5_SEEN": true,
+              "T_HEADLINE_B6_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after B6"
+          },
+          {
+            "afterPuzzles": [
+              "B5"
+            ],
+            "when": {
+              "T_HEADLINE_B5_SEEN": false
+            },
+            "say": "VESSEL TROUNCES NEWCOMER IN ASSAY. 'A Mr. Grubbe of the East.' I am now a region.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true,
+              "T_HEADLINE_A7_SEEN": true,
+              "T_HEADLINE_B5_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after B5"
+          },
+          {
+            "afterPuzzles": [
+              "A7"
+            ],
+            "when": {
+              "T_HEADLINE_A7_SEEN": false
+            },
+            "say": "DIVINER SURVEYS CLAIM TWO; EARTH 'BRIEF.' 'Mr. GRABB.' He has given me an A I did not ask for.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true,
+              "T_HEADLINE_A7_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after A7"
+          },
+          {
+            "afterPuzzles": [
+              "A5"
+            ],
+            "when": {
+              "T_HEADLINE_A5_SEEN": false
+            },
+            "say": "RACCOON EVICTED BY PIANO MAN. 'Mr. GRUB.' I have lost a B to a raccoon.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true,
+              "T_HEADLINE_A5_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after A5"
+          },
+          {
+            "afterPuzzles": [
+              "A3"
+            ],
+            "when": {
+              "T_HEADLINE_A3_SEEN": false
+            },
+            "say": "EASTERN GENTLEMAN BUYS CLAIM TWO, IS DELIGHTED. 'Mr. T. GRUBBS of Providence.' The S is new.",
+            "set": {
+              "T_HEADLINE_A3_SEEN": true
+            },
+            "add": {
+              "MISSPELLINGS_SEEN": 1
+            },
+            "sceneLine": "docs/57-puzzle-completion.md::# THE RUNNING GAG, MADE VISIBLE — the Clarion's headlines · after A3"
+          },
+          {
+            "say": "The stage schedules, chalked: arrivals, departures, and a column headed DELAYED that has never once been empty.",
+            "repeat": [
+              "One departure has been rubbed out with a thumb. Whoever left on it, Frame is keeping for himself.",
+              "The coach east runs Tuesdays. The coach west runs when it feels it has something to say."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Chalk dust drifting off the ledge. Every departure leaves a little behind.",
+            "repeat": [
+              "Nothing. A timetable is a silent form of optimism.",
+              "The board knocks against the wall when the press runs, in time with it. The whole building keeps the same bad rhythm."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "CLOSE": "Tomorrow's headline is chalked and facing the street. There is no closing the news. I have asked."
+      },
+      "walkTo": {
+        "x": 618,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "frame_s_desk",
+      "name": "FRAME'S DESK",
+      "rect": [
+        985,
+        420,
+        385,
+        220
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A desk under a drift of proofs, notes and half-sentences.",
+            "repeat": [
+              "A card pinned to the top reads VERIFY. It has been there so long the ink has faded to a suggestion.",
+              "Every drawer is open. Nothing in this office has ever been kept back from print, including several things that should have been."
+            ],
+            "then": [
+              "Somewhere beneath them, I am assured, is a desk."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper, shifting whenever the press runs.",
+            "repeat": [
+              "A pencil rolling slowly toward the edge. It has done this before, and nobody has stopped it.",
+              "Nothing, for once. The quietest place in the building is where he does his thinking, which may explain the paper."
+            ],
+            "then": [
+              "The desk is in a permanent state of mild landslide."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1178,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "type_case",
+      "name": "THE TYPE CASE",
+      "rect": [
+        1630,
+        160,
+        290,
+        450
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Lead type in wooden trays. The B is worn nearly flat.",
+            "repeat": [
+              "The exclamation marks have a compartment of their own, and it is the largest.",
+              "Every letter is cast backward so that it prints forward. It is the most honest thing in the building and it does it in reverse."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. It is lead and it has nothing to add.",
+            "repeat": [
+              "A faint rattle of lead when the press starts. The type knows what is coming.",
+              "Nothing. Several thousand words in that case, and not one of them in order."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "The letter B, I notice, is nearly worn out. My name has been spending it."
+      }
+    },
+    {
+      "id": "back_editions",
+      "name": "BACK EDITIONS",
+      "rect": [
+        670,
+        230,
+        360,
+        380
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Twelve years of the Clarion. The Mott story runs on the front page of one issue in three, and has for twelve years, with nothing new in it.",
+            "repeat": [
+              "Each Mott story gives a different date for the strike. The latest has moved it to a Sunday, for color.",
+              "The oldest are yellow and the newest are white, and the story inside them has not aged at all."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper. Rather a lot of it.",
+            "repeat": [
+              "The stack creaks. Twelve years of news, settling under its own weight.",
+              "Nothing. Yesterday's paper has nothing to add to yesterday."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PULL": "The stack is structural. Frame's filing system is masonry."
+      },
+      "walkTo": {
+        "x": 850,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "window",
+      "name": "THE WINDOW",
+      "rect": [
+        245,
+        25,
+        280,
+        495
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The front window, lettered THE CLARION in gold, backward from in here, which is how Frame sees most things.",
+            "repeat": [
+              "People stop outside to read the headline board, then glance in to see whether Frame has noticed them reading. He always has.",
+              "The glass is the cleanest thing in the office. He likes to see who is coming before they can deny it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Main Street, and over it someone reading a headline aloud to someone who cannot read. Both of them are pleased.",
+            "repeat": [
+              "The bell over the door, waiting. It rings for news and for creditors and cannot tell them apart.",
+              "Boots on the boardwalk, slowing at the glass. Everybody slows here. It is the only place in town the news is free."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 385,
+        "y": 850,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "press",
+      "name": "THE PRESS",
+      "rect": [
+        1380,
+        160,
+        320,
+        600
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A flatbed press of considerable age, operated by a man of considerable enthusiasm.",
+            "repeat": [
+              "A sheet is half-printed in the bed: CONSOLATION REJOICES. The headline has not yet decided at what.",
+              "It is older than the town. It came over the mountains in pieces, which is more effort than anyone has put into the news since."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "It knocks on the return stroke.",
+            "repeat": [
+              "The knock again, on the return. I could find it in a minute, and he would print that I had broken it.",
+              "A long iron sigh as the bed comes home, and then the knock, with the timing of a man repeating a joke."
+            ],
+            "then": [
+              "It has been knocking for years and it will not be attended to."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Frame offered to let me. Then he described the last man's sleeve. I withdrew the request and he printed that I had.",
+        "TALK_TO": "It has told more of this town's story than anyone alive, most of it invented. I keep my remarks neutral."
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_street",
+      "name": "MAIN STREET",
+      "stub": true,
+      "rect": [
+        20,
+        60,
+        200,
+        660
+      ],
+      "colour": 0,
+      "to": "main_street",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the one way back to Main Street. NO DOCUMENT WRITES THIS DOOR from inside the Clarion (doc 14 writes Main Street's side, THE CLARION OFFICE). A stub exit, as Rooms 6 and 8's are (doc 36 Q152).",
+      "walkTo": {
+        "x": 250,
+        "y": 770,
+        "facing": "left"
+      }
+    }
+  ],
+  "ambient": [
+    "frame"
+  ],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-09.json",
+      "reference/room-09/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      230,
+      745
+    ],
+    [
+      1320,
+      745
+    ],
+    [
+      1320,
+      850
+    ],
+    [
+      230,
+      850
+    ]
+  ],
+  "entrance": [
+    330,
+    790
+  ],
+  "entrances": [
+    {
+      "from": "main_street",
+      "at": [
+        330,
+        790
+      ],
+      "facing": "right",
+      "note": "In by the street door, at left."
+    },
+    {
+      "from": "default",
+      "at": [
+        330,
+        790
+      ],
+      "facing": "right",
+      "note": "Anything else arrives by the door."
+    }
+  ],
+  "peopleResponses": {
+    "frame": {
+      "PICK_UP": [
+        {
+          "say": "He would print it. He would print it on the front page, and he would spell it GRUBBE."
+        }
+      ],
+      "PUSH": [
+        {
+          "say": "He is already leaning toward the next sentence. He does not need help."
+        }
+      ],
+      "USE": [
+        {
+          "say": "Everybody in town uses him. He calls it circulation."
+        }
+      ],
+      "GIVE": [
+        {
+          "say": "Anything I hand him becomes a story. I am being careful what I hand him."
+        }
+      ]
+    }
+  },
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 230,
+          "y": 745
+        },
+        {
+          "x": 1320,
+          "y": 745
+        },
+        {
+          "x": 1320,
+          "y": 780
+        },
+        {
+          "x": 230,
+          "y": 780
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 521,
+        "nearY": 850,
+        "nearHeight": 593
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 230,
+          "y": 780
+        },
+        {
+          "x": 1320,
+          "y": 780
+        },
+        {
+          "x": 1320,
+          "y": 815
+        },
+        {
+          "x": 230,
+          "y": 815
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 521,
+        "nearY": 850,
+        "nearHeight": 593
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 230,
+          "y": 815
+        },
+        {
+          "x": 1320,
+          "y": 815
+        },
+        {
+          "x": 1320,
+          "y": 850
+        },
+        {
+          "x": 230,
+          "y": 850
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 745,
+        "farHeight": 521,
+        "nearY": 850,
+        "nearHeight": 593
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "press_lamp",
+      "at": [
+        1507,
+        150
+      ],
+      "radius": 520,
+      "amount": 0.12,
+      "rate": 0.3,
+      "phase": 0.2,
+      "note": "The lamp hung over the press. A slow, low breath (invariant 9)."
+    },
+    {
+      "id": "desk_lamp",
+      "at": [
+        1180,
+        395
+      ],
+      "radius": 380,
+      "amount": 0.1,
+      "rate": 0.27,
+      "phase": 0.6,
+      "note": "The oil lamp on Frame's desk, on its own phase."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-09/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

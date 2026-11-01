@@ -29,7 +29,8 @@
   ],
   "interior-public": [
    "room-03-nugget",
-   "room-04-nugget-back"
+   "room-04-nugget-back",
+   "room-09-clarion"
   ],
   "interior-institutional": [
    "room-05-assay-office",
@@ -193,6 +194,22 @@
     }
    ],
    "castingNote": "Nobody is staged in the archive (doc 20; the readiness gate). Thad is painted once in the master for scale and taken out."
+  },
+  "room-09-clarion": {
+   "visualType": "interior-public",
+   "comparable": {
+    "id": "room-03-nugget",
+    "path": "art/backgrounds/room-03-nugget.png",
+    "note": "D -- the approved public interior on Main Street at night. The Clarion is a working print shop: ink, newsprint and lamp-black (errata 17b), so a comparable and not a palette."
+   },
+   "casting": [
+    {
+     "who": "the approved Room 1 casting master",
+     "path": "reference/casting/room-01-casting-master.png",
+     "note": "E -- the rendering-by-example since Room 1."
+    }
+   ],
+   "castingNote": "Ignatius Frame is new and has no approved image; canon gives him no appearance (errata 82 B). He is drawn first in the composition master at his press beside Thad (style gate step 1), then alone on magenta in five poses."
   }
  }
 }

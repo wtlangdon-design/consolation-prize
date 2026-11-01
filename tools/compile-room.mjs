@@ -369,11 +369,15 @@ function splitUtterance(line) {
 }
 
 /** A merged room's subjects in examineLayer's shape: variant 1 of each verb. */
+// THE FACE HAS NO ITALIC. A document's `*Clarion*` is emphasis in prose; on
+// screen the asterisks would be drawn. Dropped here, as the tree extractors drop
+// it, and nowhere else: the merged file keeps the document's words exactly.
+const plainLine = (line) => line.replace(/\*([^*\s][^*]*?)\*/g, '$1');
 function mergedSubjects(file) {
   const out = new Map();
   for (const s of file.subjects) {
     const responses = {};
-    for (const verb of ['LOOK_AT', 'LISTEN_TO']) if (s[verb]?.length) responses[verb] = [{ say: s[verb][0] }];
+    for (const verb of ['LOOK_AT', 'LISTEN_TO']) if (s[verb]?.length) responses[verb] = [{ say: plainLine(s[verb][0]) }];
     out.set(s.name, { name: s.name, responses });
   }
   return out;
@@ -384,7 +388,7 @@ function mergedRepeats(file) {
   for (const s of file.subjects) {
     const verbs = {};
     for (const verb of ['LOOK_AT', 'LISTEN_TO']) {
-      if (s[verb]?.length) verbs[verb] = { first: s[verb][0], rest: s[verb].slice(1) };
+      if (s[verb]?.length) verbs[verb] = { first: plainLine(s[verb][0]), rest: s[verb].slice(1).map(plainLine) };
     }
     out.set(s.name, verbs);
   }
@@ -1024,6 +1028,39 @@ for (const spec of ann.sceneLines ?? []) {
   if (!hotspot) fail(`sceneLines: no hotspot "${spec.hotspot}" in this room`);
   const rule = sceneLine(spec);
   (hotspot.responses[spec.verb] ??= []).unshift(rule);
+}
+
+// DOC 57'S RUNNING GAG ON A ROOM'S BOARD. "After each event below, its next
+// LOOK is that edition's line (then its ordinary lines resume), and
+// MISSPELLINGS_SEEN counts it." The annotation's `headlines` names the board,
+// the section and the counter; the editions are read from the document, each
+// `*after A3* — "..."` line in order. Each becomes a LOOK rule gated on its
+// event's completion and on not yet having been seen; the latest event's
+// edition is tried first, and seeing it marks it and every older one seen, so
+// a stale edition never surfaces later. Thad reads them: his lines.
+if (ann.headlines) {
+  const spec = ann.headlines;
+  const hotspot = built.hotspots.find((one) => one.id === spec.hotspot);
+  if (!hotspot) fail(`headlines: no hotspot "${spec.hotspot}" in this room`);
+  const [path, heading] = spec.ref.split('::');
+  const text = read(path);
+  const at = text.indexOf(heading);
+  if (at < 0) fail(`headlines: ${path} has no section "${heading}"`);
+  const rest = text.slice(at + heading.length);
+  const body = rest.slice(0, (/\n---\n/.exec(rest) ?? { index: rest.length }).index);
+  const editions = [...body.matchAll(/^> (?:\*\*[^*]+\*\* · LOOK, )?\*after ([A-F]\d+)\* — "([^"]+)"/gm)]
+    .map((m) => ({ event: m[1], line: m[2] }));
+  if (editions.length < 2) fail(`headlines: ${spec.ref} gives ${editions.length} edition(s)`);
+  const seen = (event) => `${spec.seenPrefix}${event}_SEEN`;
+  const rules = editions.map((edition, index) => ({
+    afterPuzzles: [edition.event],
+    when: { [seen(edition.event)]: false },
+    say: edition.line,
+    set: Object.fromEntries(editions.slice(0, index + 1).map((one) => [seen(one.event), true])),
+    add: { [spec.counter]: 1 },
+    sceneLine: `${spec.ref} · after ${edition.event}`,
+  })).reverse();
+  (hotspot.responses.LOOK_AT ??= []).unshift(...rules);
 }
 
 // SMALLEST RECT FIRST, because resolution takes the first hit and the writing
