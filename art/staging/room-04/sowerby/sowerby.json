@@ -4,30 +4,30 @@
   [
    2,
    2,
-   206,
-   442
+   210,
+   437
   ],
   [
-   210,
+   214,
    2,
-   206,
-   442
+   210,
+   437
   ]
  ],
  "anchor": {
   "x": 616,
-  "y": 525
+  "y": 513
  },
- "drawnHeight": 391,
- "height": 442,
+ "drawnHeight": 379,
+ "height": 437,
  "shift": 118,
  "cutBox": [
   407,
   135,
   182,
-  391
+  379
  ],
- "pixels": 40005,
+ "pixels": 37835,
  "pencilCover": {
   "staged": "art/staging/room-04/sowerby/pencil-cover.png",
   "x": 811,

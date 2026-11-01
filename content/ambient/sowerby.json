@@ -8,9 +8,9 @@
   "T_VESSEL_FOUND": true,
   "T_DUEL_TWO_WON": false
  },
- "note": "Reverend Sowerby (doc 01: 'presides over funerals with enormous feeling... Charges by the adjective'). In Room 4 he presides over the Assay: errata 75 -- 'The judges sit in the dark beyond the lamp; Sowerby holds the pencil' -- and reads the handbill's five rules before each duel (doc 03). His drawing is room-04's fourth operation (Tyler, 2026-11-01, option 1: the third drew him legless where no table hid him): an edit of the room as it stands with Thad, Deke and the judges in place, asked for him full length at the chalkboard, cut with GrabCut (tools/art/room04-sowerby.py). He stands at the foot of the back wall in the judges' shadow, between the front chair and the table's left end, at the room's curve (442 at y 525, the annotation's `beyond` sample). Present while the Assay sits (errata 76 B). His id is his speaker id, so his lines are drawn over his head. No tree in this room; every verb is doc 07's people pool.",
+ "note": "Reverend Sowerby (doc 01: 'presides over funerals with enormous feeling... Charges by the adjective'). In Room 4 he presides over the Assay: errata 75 -- 'The judges sit in the dark beyond the lamp; Sowerby holds the pencil' -- and reads the handbill's five rules before each duel (doc 03). His drawing is room-04's fourth operation (Tyler, 2026-11-01, option 1: the third drew him legless where no table hid him): an edit of the room as it stands with Thad, Deke and the judges in place, asked for him full length at the chalkboard, cut with GrabCut (tools/art/room04-sowerby.py). He stands at the foot of the back wall in the judges' shadow, between the front chair and the table's left end, at the room's curve (437 at his soles, y 513: the annotation's `beyond` sample). Present while the Assay sits (errata 76 B). His id is his speaker id, so his lines are drawn over his head. No tree in this room; every verb is doc 07's people pool.",
  "x": 616,
- "y": 525,
+ "y": 513,
  "zone": 2,
  "approachRadius": 40,
  "tree": "",
@@ -28,14 +28,14 @@
    [
     2,
     2,
-    206,
-    442
+    210,
+    437
    ],
    [
-    210,
+    214,
     2,
-    206,
-    442
+    210,
+    437
    ]
   ],
   "rate": 0.0,
