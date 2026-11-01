@@ -210,3 +210,77 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 > **COLONEL FANSHAWE** · PUSH — "He would step aside before I touched him, and thank me, and I would be further in than I was."
 > **COLONEL FANSHAWE** · GIVE — "Whatever I give him, he gives back something nicer. I have stopped giving him things."
 > **COLONEL FANSHAWE** · USE — "He is the one who uses. It is not a position open to applicants."
+
+---
+
+# ROOM 22 · THE ROAD TO THE CLAIMS
+
+*Merged: doc 05's five and doc 10's five, eight objects. Doc 10 calls the two crowd hotspots "the whole room".*
+
+## Same object, both passes
+
+**THE MILE POST** ≡ **THE MILEPOST**
+
+*(THE ROAD has the same name in both passes. Variant numbers below are each line's place in its subject's sequence: doc 05's line, then doc 10's, then these.)*
+
+## Repeats
+
+**THE ROAD** — LOOK 3 "I have walked it enough times now to have a favorite rut. It is the one that does not fill with water." | LISTEN 2 "Boots far up the road, coming or going. From here you cannot tell which, and often neither can they." · 3 "The hum again, low. The road sounds best when nobody is on it."
+
+**THE MILE POST** — LOOK 3 "The paint is fresh on the CLAIMS side and peeling on the TOWN side. The post knows which way the money walks." | LISTEN 3 "The knock, slower than yesterday. The wind is tired, or the post is."
+
+**THE BOOT** — LOOK 2 "It is laced. Whoever left it took the time to lace it first." · 3 "Somebody has put a wildflower in it, and somebody else has taken it out. The boot is a matter of local controversy." | LISTEN 2 "Wind across its mouth, a low note, a little flat." · 3 "Nothing. Whatever it saw, it is not telling."
+
+**THE VIEW BACK AT TOWN** — LOOK 2 "From this distance you cannot see that the fronts are false. It is the distance the town was built to be seen from." · 3 "A thread of smoke from the Nugget's chimney, straight up. Even the smoke goes there first." | LISTEN 2 "The bell, and a hammer that keeps a little behind it." · 3 "A dog, very small with distance, objecting to something on principle."
+
+**THE VIEW AHEAD** — LOOK 2 "From here every claim looks promising. Distance is an optimist." · 3 "Above it all, a bare ridge. Nobody digs up there. Nobody has a reason to." | LISTEN 2 "Picks, and between the picks a man swearing in a steady, careful rhythm, like a hymn." · 3 "Picks, still. Somebody up there is always certain it is the next swing."
+
+**THE MEN GOING OUT** — LOOK 2 "Every one of them is carrying something he bought at the Mercantile. The Mercantile is the only claim in the district that pays." · 3 "They walk fast. Optimism has a pace, and it is brisk." | LISTEN 2 "Plans, mostly. Each man is explaining to the man beside him what he will do with it." · 3 "A whistle somewhere in the middle, out of tune and cheerful about it."
+
+**THE MEN COMING BACK** — LOOK 2 "Nobody is carrying anything he did not take out." · 3 "They walk slower than they walked out, and all at the same pace, without anyone having agreed to it." | LISTEN 2 "Boots. Only boots. Nobody even swears." · 3 "Nothing. Tomorrow they will talk again on the way out. This is the part nobody talks about."
+
+### THE SCRUB
+**LOOK** 1 "Sage and greasewood, gray-green and low, holding the hillside together out of habit." · 2 "Something lives in it. I have seen it move with nobody near." · 3 "It was here before the road and will be here after. It has never needed the gold, or anything else."
+**LISTEN** 1 "Dry leaves, rattling like a gourd." · 2 "A rustle, then stillness. Whatever it is, it heard me first." · 3 "Wind through it, a long hiss. The hillside, breathing out."
+
+## For Tyler's cut
+
+- **THE MILE POST.** Doc 05's post reads THE CLAIMS 1 MI. and TOWN 1 MI.; doc 10's reads CLAIMS — 2 MI. with other numbers scratched under it. One post, two distances.
+- **THE ROAD, LOOK.** "A foot deep" is in doc 05's line 1 and doc 10's line 2.
+
+---
+
+# ROOM 29 · THE HIGH RIDGE
+
+*Merged: doc 05's five and doc 10's five, eight objects.*
+
+## Same object, both passes
+
+**THE VIEW** ≡ **CONSOLATION, BELOW**
+
+*(THE WIND has the same name in both passes; doc 10 only sketches it.)*
+
+## Repeats
+
+**THE VIEW** — LOOK 3 "I can cover the whole of Main Street with one thumb. The Colonel has a portrait that does the same to the East." | LISTEN 3 "The bell, a beat late, as if the sound had to climb."
+
+**THE WIND** — LOOK 2 "It leans on me with the full weight of the territory, and the territory is not light." · 3 "My coat has been trying to leave since I arrived. Up here it very nearly manages." | LISTEN 2 "The same long thing. It has never needed a second subject." · 3 "A gust, a low whistle across the cairn, and then the long thing again."
+
+**THE CAIRN** — LOOK 2 "Some of the stones have names scratched on them, some have dates. One has a single word, SORRY, and nobody has put a stone on that one." · 3 "I have added a stone. I did not feel anything in particular. I added it anyway, in case." | LISTEN 2 "A stone settling, very slightly, under the weight of all the others." · 3 "The wind takes its note off the top, as before, and the cairn hums it back lower."
+
+**THE SURVEY MARK** — LOOK 2 "Stamped with a number, a year, and a small arrow pointing at nothing in particular with great conviction." · 3 "Every deed in the valley, mine included, is a distance from this pin. It is the most important object in the district, and a goat could stand on it." | LISTEN 2 "Nothing. Brass in rock, holding still for everybody." · 3 "Nothing. It does not hum in the wind. It is the only thing up here that doesn't."
+
+**THE ROCK SEAT** — LOOK 2 "Below it the ledge is worn into two heel marks, where people have sat with their knees up and thought." · 3 "I sat. The town fit between my boots. It did not make the decision any smaller." | LISTEN 2 "The pocket of quiet behind the rock. You could hear a thought in it." · 3 "My own breathing, for once louder than the town."
+
+**THE FOUNDATIONS** — LOOK 2 "The schoolhouse roof has fallen in. Nobody has mended it, because nobody has had a reason to." · 3 "The church is fourth. The town found time to be good after it had found time to be drunk, assayed and educated." | LISTEN 2 "Nothing. Twelve years of building make no sound from this high." · 3 "Nothing. A schoolhouse with no children in it is quiet even from close up."
+
+**THE CLAIMS** — LOOK 2 "From here you can see which ones are worked and which have been left. More have been left." · 3 "Mine is near the edge, beside the famous one. From up here they are exactly the same size, because they are." | LISTEN 2 "Nothing, and then, very faint, one pick somewhere. One man who has not given up." · 3 "Nothing. From up here the whole rush is a silent picture."
+
+**THE ROAD EAST** — LOOK 2 "The coach road, a pale thread going over the edge of the world. I came in on it." · 3 "From up here it looks almost walkable. That is the view's one lie." | LISTEN 2 "Nothing coming." · 3 "Nothing coming."
+
+*THE ROAD EAST's LISTEN repeats are doc 10's line word for word, as Room 1's are (doc 17, note 3: "Do not vary them").*
+
+## For Tyler's cut
+
+- **THE VIEW, LOOK.** Doc 05's line 1 calls the town "a stage set"; doc 10's line 1 says "every building on Main Street is a front with nothing behind it". One idea, twice in a row.
+- **"Nothing coming."** Doc 17 note 3 counts three uses in the game (Room 1's two repeats and the ridge). The ridge now says it three times, so the game says it five.

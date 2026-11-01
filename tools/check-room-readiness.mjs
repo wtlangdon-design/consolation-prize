@@ -188,9 +188,16 @@ function batchSubjects(body) {
     const line = lines[at].trim();
     if (!/^\*\*[^*]+\*\*(\s*·\s*\*\*[^*]+\*\*)+\s*$/.test(line)) continue;
     const names = [...line.matchAll(/\*\*([^*]+)\*\*/g)].map((m) => m[1].trim());
-    const note = /^>?\s*\*\((.+?)\s+—\s+\*\*LOOK:?\*\*/.exec((lines[at + 1] ?? '').trim());
-    const looked = note ? note[1].trim().toUpperCase() : null;
-    for (const name of names) sketched.push({ name, look: name === looked, listen: false });
+    // `*(The road east — **LOOK:** "..." **LISTEN:** "...")*`, or either verb
+    // alone (Room 18's stairs carry only a LISTEN).
+    const next = (lines[at + 1] ?? '').trim();
+    const note = /^>?\s*\*\((.+?)\s+—\s+\*\*(LOOK|LISTEN):?\*\*/.exec(next);
+    const noted = note ? note[1].trim().toUpperCase() : null;
+    const hasLook = /\*\*LOOK:?\*\*/.test(next);
+    const hasListen = /\*\*LISTEN:?\*\*/.test(next);
+    for (const name of names) {
+      sketched.push({ name, look: name === noted && hasLook, listen: name === noted && hasListen });
+    }
   }
   return [...written, ...sketched];
 }
