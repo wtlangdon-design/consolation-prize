@@ -28,8 +28,9 @@ beside it). What is used instead:
   top, where their hands rest; Sowerby at his hips, so his boots stay put.
   A NOD is the same idea vertically: the rows above the chin are resampled
   down, NOD px at the crown and nothing at the chin.
-  THE HANDS are lifted whole; what they uncover at the bottom is transparent,
-  and behind it is the plate's own table top, which is what is under a hand.
+  THE HANDS rise by a smooth warp: each pixel is read from a little below
+  itself, HANDS_UP px over the hands and nothing at the table top or a few
+  pixels away from them, so the wrists stay on and nothing parts.
   THE FOREARM (Sowerby) is every pixel right of the coat's edge and above the
   elbow, turned about the corner of the joint it folds into -- the top when it
   lowers, the bottom when it rises -- so no wedge opens between sleeve and
@@ -57,6 +58,7 @@ CONFER = 5        # px at the crown
 GLANCE = 3
 NOD = 3
 HANDS_UP = 4
+TAPER = 8
 ARM_DOWN = (8, 15)    # degrees, clockwise: the hand comes down
 ARM_UP = 7
 ELBOW_KEEP = 10
@@ -131,19 +133,33 @@ def nod(a, depth):
 
 
 def lift_hands(a, dy):
-    """The box around the skin in the lower third, lifted dy px over the body."""
-    h = a.shape[0]
+    """The hands lifted dy px by a smooth warp, so nothing parts.
+
+    Every output pixel is read from a little below itself: dy px over the
+    hands, tapering to nothing at the table top (the sprite's bottom row),
+    TAPER rows above the hands and TAPER px either side of them. The sleeve
+    between hands and table stretches up behind them and the torso just above
+    gives way, so the hands rise with their wrists still on. (Moving the hands
+    as a block left a slit under them, inside the figure -- the hands end at
+    room y 300-324 and the sprite runs to the table top at 333; the review on
+    #98 caught it.)"""
+    h, w = a.shape[:2]
     skin = skin_of(a)
     skin[: h * 2 // 3] = False
     ys, xs = np.where(skin)
-    y0, y1, x0, x1 = int(ys.min()), int(ys.max()) + 1, int(xs.min()), int(xs.max()) + 1
-    box = a[y0:y1, x0:x1].copy()
-    out = a.copy()
-    out[y0:y1, x0:x1] = 0
-    out[y0 - dy:y0, x0:x1] = a[y0 - dy:y0, x0:x1]
-    dest = out[y0 - dy:y1 - dy, x0:x1]
-    out[y0 - dy:y1 - dy, x0:x1] = np.where(box[..., 3:4] > 0, box, dest)
-    return out
+    y0, y1, x0, x1 = int(ys.min()), int(ys.max()), int(xs.min()), int(xs.max())
+    yy = np.arange(h, dtype=float)
+    wy = np.ones(h)
+    wy[yy > y1] = (h - 1 - yy[yy > y1]) / max(1, h - 1 - y1)
+    top = y0 - dy
+    above = yy < top
+    wy[above] = np.clip(1 - (top - yy[above]) / TAPER, 0, 1)
+    xx = np.arange(w, dtype=float)
+    wx = np.clip(1 - np.maximum(x0 - xx, xx - x1) / TAPER, 0, 1)
+    wx[(xx >= x0) & (xx <= x1)] = 1
+    d = dy * wy[:, None] * wx[None, :]
+    src = np.clip(np.rint(yy[:, None] + d).astype(int), 0, h - 1)
+    return a[src, np.arange(w)[None, :]]
 
 
 def swing_forearm(a, degrees):

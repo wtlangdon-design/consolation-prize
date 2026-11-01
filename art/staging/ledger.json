@@ -8706,6 +8706,63 @@
    "acceptedBy": null,
    "by": "claude, Room 4 idles (Tyler 2026-11-01: \"Sowerby's arm needs to move up and down... the judges to move more than just breathing\")",
    "at": "2026-11-01T18:58:54.369Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/idles/room_04_judge_1.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/idles/idles.json",
+   "to": "art/actors/room-04-judge-1.png",
+   "hash": "c76e47d27c0979941bc59b761814e05dc9df29661d10e4ef1fb70f5a49d88623",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": "36c840e5d1ef91df1f1ca7bc224b24a898ce44021db182d65d45cae98f6cc009",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 idles: drumming hands warped, not moved (review on #98)",
+   "at": "2026-11-01T19:06:11.962Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/idles/room_04_judge_2.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/idles/idles.json",
+   "to": "art/actors/room-04-judge-2.png",
+   "hash": "eb94545e6ce472944c57f2e80a41100ec884dd07e34e0959a522610b32bd2f26",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": "adace770a5c8da045ec13b8370f70f42815a6c3be0d72cba8450765ac2df38ea",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 idles: drumming hands warped, not moved (review on #98)",
+   "at": "2026-11-01T19:06:11.991Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 2,
+   "from": "art/staging/room-04/idles/room_04_judge_3.png",
+   "derivedFrom": "art/staging/room-04/plate-01/source.png",
+   "provenance": "art/staging/room-04/idles/idles.json",
+   "to": "art/actors/room-04-judge-3.png",
+   "hash": "844cf22eb7894ae447fb8fd3bd5b1377d55f86aca3c08038df761f2db3bb71e7",
+   "sourceHash": "8654f0f9f9acf9640e029f27f615298d0b96b155f8da68a6a9ea314cd7ca5d28",
+   "replacedHash": "5102c96cb4fbe830175f4954ece32d0bff56b1c1f1dec9e2ac95109559997cb9",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 idles: drumming hands warped, not moved (review on #98)",
+   "at": "2026-11-01T19:06:12.013Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."
