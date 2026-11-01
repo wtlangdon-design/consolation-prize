@@ -122,6 +122,8 @@ export class GameScene extends Phaser.Scene {
    */
   private pendingTree: {
     tree: string; at: { x: number; y: number }; greeted: boolean;
+    /** The ambient character the conversation is with, when it is one. */
+    npc?: string;
     /**
      * AN EVIDENCE ACTION ON THE WAY TO A PERSON (errata 66 A-C): the pair it
      * carries, the beat it holds at contact before the puzzle lands, and
@@ -441,7 +443,19 @@ export class GameScene extends Phaser.Scene {
     }
     if (this.actor.isWalking) {
       this.markDirty();
-      const fired = this.ambient.checkApproach(this.actor.x, this.actor.y);
+      // A WALK TO A CONVERSATION HEARS ONLY THE PERSON IT IS GOING TO. Barks
+      // are the town noticing Thad in passing; on the way to talk to somebody
+      // a BYSTANDER's remark lands on top of the greeting that follows (the
+      // one-strike man, two stools from the card sharp, did exactly that).
+      // The person being approached still calls out as before, if Thad comes
+      // within her radius -- unless he greets with that bark, in which case
+      // he says it to Thad's face.
+      // Nothing a bystander had to say is consumed: he says it next time.
+      const going = this.pendingTree;
+      const host = going?.npc ? this.ambient.present.find((each) => each.id === going.npc) : undefined;
+      const fired = !going ? this.ambient.checkApproach(this.actor.x, this.actor.y)
+        : host && !host.greetsWithBark ? this.ambient.checkApproach(this.actor.x, this.actor.y, host.id)
+          : null;
       if (fired) this.showBark(fired.npc.name, fired.line, fired.npc.x, this.barkFoot(fired.npc));
     }
     // The tree opens when the walk that was started for it finishes.
@@ -476,7 +490,14 @@ export class GameScene extends Phaser.Scene {
           // playthrough (2026-09-04): the exchange had never played -- the
           // node's last line stood as a caption over the options, which read
           // as a non sequitur when TALK TO was chosen.
-          const greeting = this.state.dialogue.openingOf(tree);
+          let greeting = this.state.dialogue.openingOf(tree);
+          const host = this.pendingTree.npc
+            ? this.ambient.present.find((each) => each.id === this.pendingTree?.npc) : undefined;
+          const remark = host?.greetsWithBark ? this.ambient.barkFor(host) : null;
+          if (greeting.length === 0 && host && remark) {
+            greeting = [{ speaker: host.id, line: remark }];
+            this.ambient.markBarked(host);
+          }
           if (greeting.length > 0) {
             this.pendingSay.push(...greeting.map((spoken) => ({ speaker: spoken.speaker, line: spoken.line })));
             this.advanceSay();
@@ -932,7 +953,7 @@ export class GameScene extends Phaser.Scene {
       // line, and Thad loomed over her ledger. Her file declares where a
       // conversation with her stands.
       const stand = npc.walkTo ?? { x: from, y: npc.y };
-      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false };
+      this.pendingTree = { tree: npc.tree, at: { x: npc.x, y: npc.y }, greeted: false, npc: npc.id };
       // THE VERB IS SPENT. Errata 28b: a verb used on a thing resets. Every
       // other path resets through GameState.interact; this one never reached
       // it, so TALK TO stayed selected through the whole conversation and the

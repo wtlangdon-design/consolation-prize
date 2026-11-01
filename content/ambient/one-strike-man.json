@@ -9,6 +9,8 @@
  "zone": 2,
  "approachRadius": 130,
  "tree": "amb_one_strike_man",
+ "greetsWithBark": true,
+ "greetsWithBarkNote": "Tyler, 2026-10-31: TALK TO opens with his bark for the current reputation, so the tree's first options answer something. Doc 07 writes no root line for him; this stages his own barks, it adds none.",
  "walkTo": {
   "x": 1095,
   "y": 640,

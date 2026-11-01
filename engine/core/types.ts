@@ -368,6 +368,16 @@ export interface AmbientFile {
   approachRadius: number;
   tree: string;
   /**
+   * OPENS EVERY CONVERSATION WITH HIS BARK. Tyler, 2026-10-31: the one-strike
+   * man's tree starts on Thad's "Tell me about it." -- a reply to the
+   * remark he calls out on approach, which shows once, briefly, and never on
+   * a second visit, so the reply answered nothing. With this set, TALK TO
+   * has him say the bark for Thad's current reputation before the options
+   * appear, and the approach bark is not shown separately. His own written
+   * line, staged; nothing is added.
+   */
+  greetsWithBark?: boolean;
+  /**
    * Where Thad stands to talk to this person, when the floor beside them is
    * not where a conversation happens. Absent, he walks to a conversational
    * gap beside them on their own baseline -- right for a map seller on the

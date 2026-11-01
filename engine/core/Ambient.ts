@@ -78,9 +78,10 @@ export class AmbientLayer {
   }
 
   /** The bark for whoever the actor has just walked up to, or null. */
-  checkApproach(x: number, y: number): FiredBark | null {
+  checkApproach(x: number, y: number, only?: string): FiredBark | null {
     const state = this.reputationState;
     for (const npc of this.present) {
+      if (only !== undefined && npc.id !== only) continue;
       const key = `${npc.id}:${state}`;
       if (this.fired.has(key)) continue;
       if (Math.hypot(npc.x - x, npc.y - y) > npc.approachRadius) continue;
@@ -90,6 +91,15 @@ export class AmbientLayer {
       return { npc, line };
     }
     return null;
+  }
+
+  /**
+   * Records this character's bark for the current reputation as said, so the
+   * walk past him later does not repeat what he has just told Thad face to
+   * face. Used when a conversation opens with the bark (greetsWithBark).
+   */
+  markBarked(npc: AmbientFile): void {
+    this.fired.add(`${npc.id}:${this.reputationState}`);
   }
 
   /** The line this character has for the reputation Thad currently carries. */
