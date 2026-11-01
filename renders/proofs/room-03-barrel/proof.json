@@ -1,9 +1,9 @@
 {
  "schema": 1,
  "what": "reference/room-03/barrel/brief.md step 7, in the running game",
- "commit": "3466bc4964f0ba6ec4c2754fbd357bcfd522f897",
+ "commit": "cb25572beb8f7761d77eb8b7142afe00f21f2ec1",
  "branch": "claude/whiskey-barrel-room-2mqopu",
- "dirty": true,
+ "dirty": false,
  "barrel": {
   "id": "whiskey_barrel",
   "sheet": "art/props/room-03-barrel.png",
@@ -111,6 +111,10 @@
   ],
   "front": [
    [
+    858,
+    776
+   ],
+   [
     826,
     781
    ],
@@ -156,7 +160,7 @@
   {
    "name": "b01-room-with-barrel",
    "why": "the room with the barrel at Deke's left, after his opening is left",
-   "hash": "2a0620ae0d50d6442be060d8541037484cb4ed979fbaa3a96cbbb15fcb2d8d77",
+   "hash": "9ee250d74ede4aeb9fb3dc678a931c3ee0b421b47ce1a3eae3a0a1d73fea17f8",
    "file": "raw-captures-ignored/b01-room-with-barrel.png",
    "thad": {
     "at": [
@@ -170,7 +174,7 @@
      438
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-right/idle-04.png",
+    "from": "art/actors/thad-idlebreak-right/idle-break-10.png",
     "fallback": false
    },
    "says": null,
@@ -183,7 +187,7 @@
   {
    "name": "b02-thad-behind-barrel",
    "why": "Thad behind the barrel: it draws after him and covers his legs",
-   "hash": "089c8d6f049b91a2dd7a12b4e577a0a63f7dfad4e72a3575ad82bb0e65b81710",
+   "hash": "a7473a2d8779fd13fa0db69c34f446d1366ff3044c236cd186371e4d66b70227",
    "file": "raw-captures-ignored/b02-thad-behind-barrel.png",
    "thad": {
     "at": [
@@ -197,7 +201,7 @@
      444
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-right/idle-03.png",
+    "from": "art/actors/thad-idle-right/idle-00.png",
     "fallback": false
    },
    "says": null,
@@ -224,7 +228,7 @@
   {
    "name": "b03-thad-in-front-of-barrel",
    "why": "Thad in front of the barrel: he draws after it and covers it",
-   "hash": "27d3442aa00b281b30bd9e8a97ddf57fb1cf9cd5a4910c4873d368662526cbb3",
+   "hash": "543bce32d8be3068628330a487f5f3d5a0df2d3bbac8c65cfb33308415d363b0",
    "file": "raw-captures-ignored/b03-thad-in-front-of-barrel.png",
    "thad": {
     "at": [
@@ -238,7 +242,7 @@
      502
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-right/idle-05.png",
+    "from": "art/actors/thad-idle-right/idle-01.png",
     "fallback": false
    },
    "says": null,
@@ -260,7 +264,7 @@
   {
    "name": "b04-talking-to-deke",
    "why": "TALK TO Deke: Thad across the barrel from him, nobody overlapping",
-   "hash": "a7c83f64de90b1eabeee460209d2158d0da4dfc10c5e19e2e146faac6a5c8b26",
+   "hash": "bf3ff8851b2aac9c88a25f589b467ed505cddcdd77cd8e4dda258d026045d21e",
    "file": "raw-captures-ignored/b04-talking-to-deke.png",
    "thad": {
     "at": [
@@ -274,7 +278,7 @@
      475
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-right/idle-00.png",
+    "from": "art/actors/thad-idle-right/idle-04.png",
     "fallback": false
    },
    "says": null,
@@ -300,7 +304,7 @@
   {
    "name": "b05-talking-to-one-strike-man",
    "why": "TALK TO one_strike_man: Thad at his unchanged place, clear of the barrel",
-   "hash": "8ba2cd6371acb2280bfca3a51a8c7ea0039ac21705654c0bbd6a92444aad9214",
+   "hash": "119eab0f1390a9494256605c4b7e7fa74d3ce698d9517464f767f76918dc8427",
    "file": "raw-captures-ignored/b05-talking-to-one-strike-man.png",
    "thad": {
     "at": [
@@ -314,7 +318,7 @@
      429
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-back/idle-02.png",
+    "from": "art/actors/thad-idle-back/idle-00.png",
     "fallback": false
    },
    "says": null,
@@ -334,7 +338,7 @@
   {
    "name": "b06-talking-to-card-sharp",
    "why": "TALK TO card_sharp: Thad at his unchanged place, clear of the barrel",
-   "hash": "63b3a51658ea4b523ed03b141ff041f5a16bdd0dbf481ebd37a5199e1a9a71ee",
+   "hash": "6ead20202a1c5ccd4276d09d871533a5ede9a5b8a160c6c1c3f9736edff74678",
    "file": "raw-captures-ignored/b06-talking-to-card-sharp.png",
    "thad": {
     "at": [
@@ -348,7 +352,7 @@
      312
     ],
     "order": 0,
-    "from": "art/actors/thad-idle-back/idle-00.png",
+    "from": "art/actors/thad-idle-back/idle-04.png",
     "fallback": false
    },
    "says": null,
