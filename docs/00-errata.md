@@ -2312,7 +2312,7 @@ It was written down: errata 35 says nobody is ever perfectly still and gives nam
 2. **Has a deliberate action.** At least one frame changes 10% of the figure's pixels against its rest frame. A one-pixel breath changes 5-8% and does not count; a lean, a gesture, a turned head or a drink does.
 3. **Does it often enough.** That action plays at least every 30 seconds -- in the beat, in a break from its pool, or in the running idle. 30 s is the slowest pace already approved (Main Street's three, 23-29 s).
 
-`tests/movement.test.mjs` holds all three, measured from the frames themselves, not from what a file says about them. Run against Room 4 as it first shipped, it fails exactly the four men Tyler flagged and passes everyone else.
+`tests/movement.test.mjs` holds all three, measured from the frames themselves and from the engine's own schedule (`ambientFrameAt`, sampled over ten minutes of play), not from what a file says about them -- so a crawling idle or an action buried in one break pool of four fails as the gap it really leaves. Run against Room 4 as it first shipped, it fails exactly the four men Tyler flagged and passes everyone else.
 
 **Exceptions.** `identity` figures draw nothing and are not checked; candidate rooms are not shipping rooms. Any other figure that must be still -- the Nugget candidate's man on the landing, "who has not moved", would be one -- carries a `movementException` that quotes the ruling allowing it. There is no silent way past the check.
 
