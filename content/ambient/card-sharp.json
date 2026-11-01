@@ -12,11 +12,11 @@
  "greetsWithBark": true,
  "greetsWithBarkNote": "Tyler, 2026-10-31: TALK TO opens with his bark for the current reputation, so the tree's first options answer something. Doc 07 writes no root line for him; this stages his own barks, it adds none.",
  "walkTo": {
-  "x": 1080,
-  "y": 605,
+  "x": 1030,
+  "y": 600,
   "facing": "left"
  },
- "walkToNote": "floor_1 at the open right side of the card table, facing him. The first placement (930,630, facing back) put Thad squarely between the player and the man he was talking to -- the proof capture showed only Thad's back. From here the card sharp stays in view over Thad's shoulder.",
+ "walkToNote": "Moved 2026-10-31 for Deke Vessel at the bar's near end: (1080,605) put Thad half behind him.",
  "registrationNote": "x IS THE FRAME'S HORIZONTAL CENTRE AND y IS ITS LAST ROW (Renderer.drawAmbient). His head top in the old plate is y 300 at x 930. zone 2 is 222 tall, so y 522 puts speakerHead at 300, the balloon over his hat. The frame is cut to 110x222 so Ambient.npcAt's box is x 886-974, y 300-522: his body, then the table edge and floor in front of him.",
  "hitboxNote": "HONEST LIMIT, same as the rebuild's: the box's lower part lies over the table in front of him. A hotspot wins over an ambient for every verb but TALK TO, so LOOK and LISTEN on THE PATRONS and THE HAND OF CARDS are unaffected; only TALK TO reaches him there, which is the right answer at a card table.",
  "sprite": {
@@ -44,6 +44,5 @@
   "R_TRUTH": "Told the truth in a lying contest. And they gave him the pot."
  },
  "barksNote": "Doc 07 §17's bark table, all nine states, verbatim. ONE TRANSFORM, and it is the pie woman's precedent: the document writes R_TRUTH as \"Told the truth in a lying contest. *(He shakes his head.)* And they gave him the pot.\" and the italic direction is dropped, because a bark is one string over a head and the words are what it can carry. Nothing is added and no word is changed.",
- "idNote": "THE ID IS THE SPEAKER ID, AND THAT IS MECHANISM RATHER THAN CONVENTION. Renderer.speakerHead finds an ambient speaker by `each.id === this.speaker`, and the speaker is what the TREE declares -- so an ambient called nugget_card_sharp whose tree says `card_sharp` is never found, and doc 30 section 3.1's forbidden top-centre fallback fires for a man plainly on screen. It did: the first live proof of this pass drew \"I am.\" over the chandelier. Every other speaking character in the game -- winnie, pie_woman, map_seller, letter_writer -- is named this way for the same reason, and the room-prefixed nugget_* ids belong to the ambients that never speak.",
- "approachNote": "180 because walkTo (1080,605) is 171px from his anchor (930,522), and the bark must fire on arrival."
+ "idNote": "THE ID IS THE SPEAKER ID, AND THAT IS MECHANISM RATHER THAN CONVENTION. Renderer.speakerHead finds an ambient speaker by `each.id === this.speaker`, and the speaker is what the TREE declares -- so an ambient called nugget_card_sharp whose tree says `card_sharp` is never found, and doc 30 section 3.1's forbidden top-centre fallback fires for a man plainly on screen. It did: the first live proof of this pass drew \"I am.\" over the chandelier. Every other speaking character in the game -- winnie, pie_woman, map_seller, letter_writer -- is named this way for the same reason, and the room-prefixed nugget_* ids belong to the ambients that never speak."
 }

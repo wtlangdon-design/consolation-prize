@@ -7,18 +7,17 @@
  "x": 1205,
  "y": 582,
  "zone": 2,
- "approachRadius": 130,
+ "approachRadius": 210,
  "tree": "amb_one_strike_man",
  "greetsWithBark": true,
  "greetsWithBarkNote": "Tyler, 2026-10-31: TALK TO opens with his bark for the current reputation, so the tree's first options answer something. Doc 07 writes no root line for him; this stages his own barks, it adds none.",
  "walkTo": {
-  "x": 1095,
-  "y": 640,
+  "x": 1010,
+  "y": 645,
   "facing": "right"
  },
- "walkToNote": "floor_2 at the open end of the bar, beside him and facing him. DEKE VESSEL, when he is drawn, needs the bar's near end too (build contract: 'near end of the bar for A3'); in this plate that is the standing room in front of this man and the first stool, not his seat.",
+ "walkToNote": "Moved 2026-10-31 for Deke Vessel, who now stands at the bar's near end where Thad used to: Thad talks to the one-strike man from Deke's left, past him. 210 because walkTo is 205px from the anchor.",
  "registrationNote": "His head top in the old plate is y 360 at x 1205. zone 2 is 222 tall, so y 582 puts speakerHead at 360. The frame is cut to 155x222, so Ambient.npcAt's box is x 1161-1249, y 360-582: his head, shoulders and back down to the stool.",
- "approachNote": "130 because the anchor is not his feet: walkTo (1095,640) is 124px from (1205,582), and the bark must fire on arrival.",
  "sprite": {
   "sheet": "art/actors/nugget-one-strike-identity.png",
   "rate": 0.0,
