@@ -247,13 +247,13 @@ During the three minutes: no other music, ambience, narration, aside, LISTEN res
 
 | Cue | Trigger | Theme / stem | Instruments / SFX | Begins | Runs until | Hands over to | Loop |
 |---|---|---|---|---|---|---|---|
-| `R33-M` | Room 33 entry | **OPEN: Doc 28 Part Five specifies the tuning behavior but not the theme/stem mix** | **OPEN** | Crossfaded from origin at a bar boundary | Room exit | Destination mix | OQ-06 |
+| `R33-M` | Room 33 entry | **THADDEUS, complete statement (errata 70 C)** | Solo fiddle | Crossfaded from origin at a bar boundary | Room exit | Destination mix | OQ-06 |
 | `R33-TAP` | Each LISTEN action on a rock surface | Carry `R33-M` | SFX synthesis: solid-rock high damped knock ↔ void low long-tail response, with continuous spatial gradient | Cold on Thad's tap | Each synthesized tail reaches silence | Existing `R33-M` | No; each tap is a one-shot |
 | `R33-RIPPLE` | Same event and same calculated tail value as `R33-TAP` | No audio | Visual accessibility event; duration equals audible tail exactly | Simultaneous with tap | Simultaneous with audible tail end | Ready for next tap | No |
-| `R33-TUNE` | **OPEN trigger: room entry or first valid tap is not specified** | Global score detune automation, not a new theme | All active score instruments | Starts at −35 cents without a jump | Exactly 90 active, unpaused seconds later: 0 cents | Remains at 0 for the rest of the game | No repeat; one-shot automation |
+| `R33-TUNE` | **S5 beat 1's fork strike (errata 70 C)** | Global score detune automation, not a new theme | All active score instruments | Starts at −35 cents without a jump | Exactly 90 active, unpaused seconds later: 0 cents | Remains at 0 for the rest of the game | No repeat; one-shot automation |
 | `R33-VOID` | LISTEN on correct spot after the mechanic permits discovery | Carry `R33-M`; no sting | SFX: correct low void response and long tail | Cold on tap | Tail ends; prose line displays | Next documented puzzle state | No |
 
-The score mix and the automation start/early-find behavior are blocking **OQ-06** items. Do not gate the correct spot, snap tuning to zero, or choose a Room 33 theme without an answer.
+The score mix and the automation start/early-find behavior were **OQ-06**, **ruled in errata 70 C**: THADDEUS complete; the automation starts on the fork strike; the void is never gated; the tuning never snaps.
 
 ## Manifest rooms not fully scripted in Doc 05
 

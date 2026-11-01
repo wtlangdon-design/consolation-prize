@@ -1338,3 +1338,67 @@
 > **DEKE VESSEL** · PICK UP, *in a duel* — "Not across the line. There are amendments."
 > **THE JUDGES** · TALK TO, *in a duel* — "They are deliberating. I can hear them chewing the pencil."
 > **THE JUDGES** · USE — "Nobody uses the judges. That is the one thing everyone here agrees on."
+
+---
+
+# ROOM 32 · INSIDE THE COFFIN
+
+*Doc 05: "Special case. Zero hotspots. No verb panel." Invariant 2. There is nothing to examine and nothing is written to be examined. What makes the room is its timeline, decided in errata 70 A and B; it is restated here as the room's staging so the build reads one place.*
+
+## Staging *(errata 70 A, B)*
+
+| # | At (active, unpaused) | What happens | Control |
+|---|---|---|---|
+| 1 | 0 s | The lid closes. `R32-MUTE`: the score stops dead, playhead carried silently. The verb panel is gone between one frame and the next. Black, but for one candle-width of seam light. | none |
+| 2 | 2–30 s | `R32-DIRT`: shovelfuls on the lid every 2–3 s, close and hollow. Each narrows the seam light. | none |
+| 3 | 30–88 s | Shovelfuls every 4–6 s, duller — earth on earth. The seam light is gone by about 40 s. The last lands at about 88 s. | none |
+| 4 | 88–180 s | Nothing. | none |
+| 5 | 180 s | A spade, far off, then nearer. `R32-RETURN`: the score returns mid-phrase. **The verb panel returns first**, before the art resolves. | none |
+| 6 | ~186 s | The spade strikes the lid. Three knocks, even, a beat apart. The lid opens on Hob's lantern. No line. | none |
+| 7 | — | HOB_C1 (doc 04). | dialogue |
+
+*No line of Thad's, no music, no narration, no joke, from 1 to 6. The player can do nothing, and that is the room.*
+
+## Overrides
+
+*There is no verb panel until step 5, so there is nothing to override. From step 7 the conversation is HOB_C1's.*
+
+> **HOB** · any verb but TALK TO, *as the lid opens* — *(no response: the panel has only just returned, and HOB_C1 opens on its own)*
+
+---
+
+# ROOM 33 · THE LISTENING CHAMBER
+
+*Doc 05: "Special case. LOOK is deliberately useless. LISTEN is the interface." The mechanic is doc 28 Part Five's and doc 45's (errata 70 D): each LISTEN on the rock is a synthesized knock whose tail lengthens toward the void, drawn as a ripple of the same length. LISTEN returns pitch, not prose — the one prose line is the void's. The score is THADDEUS, complete, tuning from −35 cents to 0 across ninety seconds from the fork's first strike (errata 70 C).*
+
+## THE ROCK — LOOK, emptied *(errata 70 F)*
+
+**EVERY ROCK SURFACE** — LOOK 5 "Rock, a little to the left of the last rock." · 6 "More rock. It is being very consistent." · 7 "Rock, in the dark, where I left it." · 8 "Rock."
+
+*(LOOK 1–4 are doc 05's four lines, in doc 05's order. From the eighth LOOK on, every LOOK is line 8. No line tells the player to stop looking.)*
+
+**EVERY ROCK SURFACE** · LISTEN — *(no prose: `R33-TAP` and `R33-RIPPLE`)*
+
+**THE VOID** · LISTEN — *(doc 05's line, `R33-VOID`, once:)* "…There's a room down there."
+
+## Staging *(doc 48 S5 as amended by errata 70 C–E)*
+
+| # | Beat | Control |
+|---|---|---|
+| 1 | The chamber. The tuning fork comes out unbidden — the only scripted USE in the game. One strike: A, 440. **The 90-second automation starts here.** | none |
+| 2 | Play: LOOK (the ladder above) and LISTEN (the taps). The void answers from the first tap. | full |
+| 3 | The void found: its line. When the score reaches 0 cents — at once, if it already has — Thad sits down in the dark and listens to THADDEUS, complete, in tune. No lines. | none |
+| 4 | Play resumes: F3. | full |
+
+## F3 — breaking through *(errata 70 E)*
+
+> **THE ROCK** · USE THE PICKAXE, *before the void is found* — "I have dug enough holes in this territory on faith."
+> **THE VOID** · USE THE PICKAXE, *first* — *(Thad swings. The head flies off into the dark and lands somewhere he cannot see.)* "The Mercantile's pickaxe, performing to its price." *(He finds it and fits it back.)*
+> **THE VOID** · USE THE PICKAXE, *second* — *(The head comes off again, gently, as if apologizing.)* "Twice. It is consistent. Down here I have come to value that." *(He fits it back.)*
+> **THE VOID** · USE THE PICKAXE, *third* — *(Thad holds the head on with one hand and swings with the other. The rock gives. Warm air comes through, and behind it a dark that goes a long way down.)* → F3, `T_BROKE_THROUGH`; Room 34's second state.
+
+## Overrides
+
+*Doc 49's two (THE WALLS · PUSH, THE DARK · USE) stand. THE WALLS is the rock under its other name.*
+
+**EVERY ROCK SURFACE** ≡ **THE WALLS**

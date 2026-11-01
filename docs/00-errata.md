@@ -2144,3 +2144,30 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 
 **E · The nineteen names, written; Boot Hill's markers, and Pike's grave.** Neither doc 05 (Room 14) nor doc 08 (Room 6) wrote the nineteen; both left stage directions. They are written in doc 54: nineteen names, trades and dates in the second ledger (Room 5), nine of them again on Boot Hill with their years of death. Nothing says how any of them died. Boot Hill's THE NINETEEN and Room 5's THE NAMES are each one hotspot whose LOOK reads along the row. Ezra Pike's grave is its own hotspot (doc 49's PIKE'S HEADBOARD and PLOT ELEVEN, doc 27's "third row, second from the end"), findable from Act I, because A1 sends Thad to it; doc 05's "tenth marker" line is its first LOOK.
 
+
+---
+
+# 70 · ROOMS 32 AND 33 — THE COFFIN AND THE LISTENING, DECIDED (2026-10-31)
+
+*Tyler, 2026-10-31: "finish 32 and 33", under the standing delegation ("I want you to make all of those decisions yourself"). What was open was staging and audio decisions, not missing comedy. Each is recorded so it can be reversed by name.*
+
+**A · Room 32 obeys invariant 2 and doc 05, and doc 48 S3 yields where it disagrees.** No verb panel, no hotspots, no LOOK, no LISTEN, no narration, no music. S3's beat 1 line ("This is the quietest room in Consolation…") and its beat 2 ("LOOK/LISTEN only") are void; so are doc 49's two Room 32 refusals (THE LID, THE DARK), which need a panel the room does not have. S3's beat 3 — the knock from outside, even, counted, and the lid opening on Hob's lantern straight into HOB_C1 — stands, without "that answers his": Thad never knocks, because nothing in the room lets him.
+
+**B · Room 32's timeline (doc 45's R32 cues, given an authored pattern).** All times are active, unpaused game time from the lid-close nail; the interval is doc 45's 180,000 ms.
+- **0 s** — the lid closes. `R32-MUTE`: the score stops dead, its playhead carried silently. The verb panel is gone between one frame and the next (doc 05). The screen is black but for one candle-width of seam light (S3 beat 1's picture, which stands).
+- **2 s to 90 s** — `R32-DIRT`, the authored pattern doc 45 asks for: shovelfuls on the lid every 2–3 s for the first 30 s, close and hollow; then every 4–6 s and duller, earth landing on earth, until about 75 s; the last at about 88 s. Each shovelful narrows the seam light; it is gone by about 40 s. Nothing at all from 90 s to 180 s.
+- **180 s** — Hob begins digging: spade into earth, far, then nearer. `R32-RETURN`: the score comes back mid-phrase at the playhead it would have reached, and **the verb panel returns first, before the art has resolved** (doc 05).
+- **About 186 s** — the spade strikes the lid. Three knocks, even, a beat apart (S3 beat 3). The lid opens on Hob's lantern. No line. Straight into HOB_C1.
+
+**C · OQ-06 is ruled.**
+1. **The Room 33 score is THADDEUS, complete** — solo fiddle, the complete statement doc 28 withholds until Act IV and doc 48 S5 names ("this is the one place it finishes"). `R33-M` is that bed.
+2. **The 90-second automation starts on S5 beat 1's fork strike** — the room's first sound, in a `control: none` beat, where errata 59 lets a cue sit. It runs −35 → 0 cents across exactly 90 s of active time and stays at 0 for the rest of the game.
+3. **The void is never gated and the tuning never snaps.** The correct spot answers from the first tap. Found before 90 s: its line plays and the automation runs on undisturbed; S5 beat 3 (Thad sits down in the dark and listens) begins when the score reaches 0. Found after 90 s: beat 3 follows the line at once. Either way, by the time he finds it the score is in tune (doc 28 Part Five) or arrives there while he sits.
+4. **WINNIE never bypasses the global detune** — doc 45's reading stands.
+5. **Room 33's lamp** (invariant 8) ramps to stillness on the same automation. Errata 54 voided palette cycling, so this is the lamp's frame animation, slowed to a stop; nothing announces it.
+
+**D · The mechanic is doc 28 Part Five and doc 45's, not S5 beat 2's.** Doc 28: tap, hear a knock, follow the tail that lengthens toward the void; doc 45 `R33-TAP`/`R33-RIPPLE`/`R33-VOID`; errata 49: live synthesis for the tap. S5 beat 2's "the player tunes by LISTEN, interval by interval" is void. S5 beats 1 and 3 stand.
+
+**E · F3 is staged in Room 33** (errata 69 A), after F2, with the pickaxe whose head "falls off twice for comedy; always refittable" (doc 02's ledger). Lines in doc 54.
+
+**F · Room 33's LOOK ladder** empties over its first eight selections and then says "Rock." for as long as the player keeps looking (doc 05: "systematically emptied out over about thirty selections"). It ends on the word, not on advice: no line tells the player to listen.

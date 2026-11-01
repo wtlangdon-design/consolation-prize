@@ -4651,8 +4651,11 @@ Tyler, 2026-10-31: "do everything you have to to finish the writing so the other
 
 | | Rooms |
 |---|---|
-| **BUILDABLE WITHOUT INVENTION: YES** | 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 34, 35, 36 |
+| **BUILDABLE WITHOUT INVENTION: YES** | 4, 6–36 — including 32 and 33, once errata 70 decided their staging and OQ-06 |
 | NO — its own open issues, not writing | 5 (Q23, Q26, Q111; already built) |
-| NO — audio, not writing | 32 (doc 15 §4: no audio exists), 33 (OQ-06) |
+
+**Rooms 32 and 33 still need audio built, and that is build work, not writing:** Room 32's dirt and spade SFX (rendered offline, errata 49) and the bed's silent playhead; Room 33's live tap synthesis, the visual ripple, and THADDEUS's complete statement as a rendered stem. Errata 49's caveat binds them: an agent that cannot hear must say so, and **Tyler auditions** the dirt, the taps and the tail gradient before either room ships.
+
+**Deke Vessel merged (PR #67), Tyler: "Approve deke", 2026-10-31** — after the move off the stool leg (x 1109 → 1060) and the two approaches re-sited around him. Q141's swindle-trade question is answered by errata 68 C's reading only as far as the flag: `T_SWINDLED` is Deke's; the four dollars and the watch still need the items-follow-the-flag mechanism (Q141 addendum, route 1) when Room 3's A3 is wired.
 
 Also written: FAN_A2 (the dinner), RAC_A1 (the raccoon's naming), PRA_A1, UND_C1, SUM_B1 and SUM_C1 grown to full nodes, LIV_A1 option 5, A5's attempts, the office search, B3, and the nineteen names. What remains for a room is the build's own work: annotation, plate, art (and Tyler's visual acceptance), and wiring.

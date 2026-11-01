@@ -3,24 +3,38 @@
  "room": 33,
  "id": "room-33",
  "name": "THE LISTENING CHAMBER *(F2)*",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31; errata 70 C to F.",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 33 — THE LISTENING CHAMBER *(F2)*"
+  "primary": "docs/05-examine-layer.md::ROOM 33 \u2014 THE LISTENING CHAMBER *(F2)*",
+  "special": {
+   "source": "docs/54-batch-c.md::ROOM 33 \u00b7 THE LISTENING CHAMBER",
+   "why": "LOOK is the emptied ladder and LISTEN answers in pitch, with one prose line at the void (errata 70 D, F)"
+  },
+  "actVariantsNone": {
+   "doctrine": "docs/05-examine-layer.md::PART TWO-B \u2014 ACT VARIANTS *(W4, under errata 60's act field)*",
+   "why": "The chamber exists only in Act IV."
+  }
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 33 — THE LISTENING CHAMBER",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 33 \u2014 THE LISTENING CHAMBER",
  "dialogue": {
   "characters": [],
   "trees": [],
-  "mapped": false
+  "none": {
+   "source": "docs/48-act-turn-beats.md::S5 \u00b7 THE LISTENING (F2)",
+   "why": "Thad is alone; S5 has no lines but the void's."
+  }
  },
  "puzzles": {
-  "ids": [],
-  "source": null,
-  "mapped": false
+  "ids": [
+   "F2",
+   "F3"
+  ],
+  "source": "docs/02-puzzle-graph.md::ACT IV \u2014 *The Quietest Part of the Game*"
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": true,
+  "source": "docs/54-batch-c.md::ROOM 33 \u00b7 THE LISTENING CHAMBER"
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "exits": "docs/54-batch-c.md::ROOM 33 \u00b7 THE LISTENING CHAMBER"
 }
