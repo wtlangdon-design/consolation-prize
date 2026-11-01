@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 
 import { readJson, Report, ROOT, runCheck } from './lib/content.mjs';
 import { resolveIssueRef } from './lib/issueref.mjs';
+import { puzzleContent } from './lib/puzzle-content.mjs';
 
 /**
  * IS THIS ROOM BUILDABLE WITHOUT INVENTING ANYTHING? Tyler's ruling 6.
@@ -493,13 +494,21 @@ function ask(room, sources, note) {
         `no puzzle is sited in this room: ${sources.puzzles.none.why}`);
     }
   } else {
+  // ERRATA 74: NAMED IS NOT WRITTEN. Each puzzle sited here must also pass
+  // its content audit (proofs/readiness/puzzles.json, read by
+  // tools/lib/puzzle-content.mjs): every node, item, duel pair and scene it
+  // needs, present in a shape a builder can use. Room 4 answered YES on names
+  // alone and stopped its builder on sixty-nine missing lines (Q146).
+  const content = ids.map((id) => ({ id, ...puzzleContent(id) }));
+  const unwritten = content.filter((one) => !one.ok);
   add('puzzles', 'Puzzle requirements complete?',
-    puzzleSource.ok && ids.length > 0 && absent.length === 0 ? 'YES' : 'NO',
-    puzzleRefs.filter(Boolean).length ? puzzleRefs.filter(Boolean) : ['(none declared)'],
+    puzzleSource.ok && ids.length > 0 && absent.length === 0 && unwritten.length === 0 ? 'YES' : 'NO',
+    [...(puzzleRefs.filter(Boolean).length ? puzzleRefs.filter(Boolean) : ['(none declared)']), 'proofs/readiness/puzzles.json'],
     !puzzleSource.ok ? `not resolvable: ${puzzleSource.why}`
       : ids.length === 0 ? 'no puzzles declared for this room'
-        : absent.length === 0 ? `${ids.join(', ')} are all specified in that section`
-          : `declared but not found in the section: ${absent.join(', ')}`);
+        : absent.length > 0 ? `declared but not found in the section: ${absent.join(', ')}`
+          : unwritten.length > 0 ? `content not all written -- ${unwritten.map((one) => `${one.id}: ${one.why.join('; ')}`).join(' | ')}`
+            : `${ids.join(', ')} are specified, and every piece of their content is written`);
 
   /* 7 · required items ----------------------------------------------------- */
   /* 8 · required flags / state -------------------------------------------- */

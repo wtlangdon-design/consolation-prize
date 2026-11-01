@@ -1,0 +1,27 @@
+{
+ "schema": 1,
+ "note": "ERRATA 74. What each of the 45 puzzles needs written, from the audit of 2026-10-31, checked by tools/lib/puzzle-content.mjs and read by the readiness gate. Kinds: node (a doc 04/27 node with >=3 written options and a [COMIC]), item (a '## NAME' with LOOK and LISTEN 1-3 in doc 23 or 54), duel (doc 03 Part Three: three wrong answers with replies per pair), section (a doc heading that resolves, optionally containing a marker). A puzzle with no entry has not been audited, and the gate answers NO for any room that hosts it.",
+ "puzzles": {
+  "B5": {
+   "rooms": [4],
+   "audited": "2026-10-31",
+   "needs": [
+    { "kind": "node", "id": "VES_B1" },
+    { "kind": "duel", "pairs": [1, 2, 3, 4] },
+    { "kind": "section", "ref": "docs/03-liars-assay.md::DUEL ONE — Deke Vessel (unwinnable by design)" },
+    { "kind": "section", "ref": "docs/00-errata.md::73 · THE LIAR'S ASSAY'S WRONG ANSWERS, AND HOW THE DUELS RUN (2026-10-31)" }
+   ]
+  },
+  "B6": {
+   "rooms": [4],
+   "audited": "2026-10-31",
+   "needs": [
+    { "kind": "node", "id": "VES_B1" },
+    { "kind": "duel", "pairs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21] },
+    { "kind": "section", "ref": "docs/03-liars-assay.md::DUEL TWO — Deke Vessel, rematch (winnable)" },
+    { "kind": "item", "name": "THE POCKET WATCH" },
+    { "kind": "item", "name": "THE AFFIDAVIT" }
+   ]
+  }
+ }
+}
