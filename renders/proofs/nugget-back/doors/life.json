@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
  "room": "nugget_back",
- "commit": "0405453f2a53a1834d9c488c161c6cce239afbc0",
+ "commit": "c43fa7ad08850b1513dc5e96b103306b7f98633c",
  "workingTreeClean": true,
  "dirtyAllowed": false,
  "visualState": null,
@@ -12,146 +12,146 @@
  "entryRoute": "nugget-back",
  "warped": false,
  "lifeRoute": "nugget-back-doors",
- "durationSeconds": 160.13,
+ "durationSeconds": 159.87,
  "events": [
   {
-   "t": 4.55,
+   "t": 4.21,
    "line": "entry route nugget-back: 29 action(s)"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 1 (wait): waited 2.5s"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 13 (wait): waited 3s"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 17 (wait): waited 6s"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 20 (wait): waited 2s"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 21 (click): clicked main_street/to_nugget at world 2317,459 -- Main Street's Nugget doors"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 22 (waitFor): reached {\"room\":\"nugget\"} in room nugget"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 23 (wait): waited 3s"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 24 (waitFor): reached {\"dialogue\":true} in room nugget"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 25 (option): chose option deke_vessel7 -- his EXIT -- a player leaving the conversation to go through the back door"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 26 (wait): waited 7s"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 27 (click): clicked nugget/back_room_door at world 1115,335 -- the Nugget's back room door, behind the near end of the bar"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 28 (waitFor): reached {\"room\":\"nugget_back\"} in room nugget_back"
   },
   {
-   "t": 139.15,
+   "t": 138.94,
    "line": "action 29 (wait): waited 3s"
   },
   {
-   "t": 139.15,
+   "t": 139,
    "line": "in nugget_back; life route: 17 action(s)"
   },
   {
-   "t": 139.82,
+   "t": 139.62,
    "line": "capture 00-arrived: room nugget_back, says null, options 0, control null"
   },
   {
-   "t": 140.14,
+   "t": 139.98,
    "line": "action 1 (click): clicked nugget_back/to_bar at world 170,265 -- THE DOOR TO THE BAR -- out"
   },
   {
-   "t": 140.59,
+   "t": 140.45,
    "line": "action 1 (waitFor): reached {\"room\":\"nugget\"} in room nugget"
   },
   {
-   "t": 141.62,
+   "t": 141.47,
    "trace": {
     "says": null,
     "control": null,
@@ -166,11 +166,11 @@
    }
   },
   {
-   "t": 142.6,
+   "t": 142.45,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 142.62,
+   "t": 142.47,
    "trace": {
     "says": null,
     "control": null,
@@ -185,15 +185,15 @@
    }
   },
   {
-   "t": 143.24,
+   "t": 143.1,
    "line": "capture 01-out: room nugget, says null, options 0, control null"
   },
   {
-   "t": 143.77,
+   "t": 143.6,
    "line": "action 1 (click): clicked nugget/back_room_door at world 1115,335 -- and back in by the Nugget's back room door"
   },
   {
-   "t": 144.89,
+   "t": 144.66,
    "trace": {
     "says": null,
     "control": null,
@@ -201,18 +201,18 @@
     "performing": false,
     "options": 0,
     "thad": [
-     993,
-     522
+     300,
+     730
     ],
     "moving": false
    }
   },
   {
-   "t": 145.25,
+   "t": 144.75,
    "line": "action 1 (waitFor): reached {\"room\":\"nugget_back\"} in room nugget_back"
   },
   {
-   "t": 146.29,
+   "t": 145.85,
    "trace": {
     "says": null,
     "control": null,
@@ -227,11 +227,11 @@
    }
   },
   {
-   "t": 147.25,
+   "t": 146.75,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 147.31,
+   "t": 146.77,
    "trace": {
     "says": null,
     "control": null,
@@ -246,19 +246,19 @@
    }
   },
   {
-   "t": 147.93,
+   "t": 147.38,
    "line": "capture 01-in: room nugget_back, says null, options 0, control null"
   },
   {
-   "t": 148.28,
+   "t": 147.69,
    "line": "action 1 (click): clicked nugget_back/to_bar at world 170,265 -- THE DOOR TO THE BAR -- out"
   },
   {
-   "t": 148.81,
+   "t": 148.1,
    "line": "action 1 (waitFor): reached {\"room\":\"nugget\"} in room nugget"
   },
   {
-   "t": 149.85,
+   "t": 149.13,
    "trace": {
     "says": null,
     "control": null,
@@ -273,11 +273,11 @@
    }
   },
   {
-   "t": 150.82,
+   "t": 150.11,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 150.88,
+   "t": 150.13,
    "trace": {
     "says": null,
     "control": null,
@@ -292,15 +292,15 @@
    }
   },
   {
-   "t": 151.44,
+   "t": 150.7,
    "line": "capture 02-out: room nugget, says null, options 0, control null"
   },
   {
-   "t": 151.94,
+   "t": 151.23,
    "line": "action 1 (click): clicked nugget/back_room_door at world 1115,335 -- and back in by the Nugget's back room door"
   },
   {
-   "t": 153.03,
+   "t": 152.25,
    "trace": {
     "says": null,
     "control": null,
@@ -315,11 +315,11 @@
    }
   },
   {
-   "t": 153.2,
+   "t": 152.5,
    "line": "action 1 (waitFor): reached {\"room\":\"nugget_back\"} in room nugget_back"
   },
   {
-   "t": 154.24,
+   "t": 153.52,
    "trace": {
     "says": null,
     "control": null,
@@ -334,11 +334,11 @@
    }
   },
   {
-   "t": 155.2,
+   "t": 154.51,
    "line": "action 1 (wait): waited 2s"
   },
   {
-   "t": 155.27,
+   "t": 154.53,
    "trace": {
     "says": null,
     "control": null,
@@ -353,7 +353,7 @@
    }
   },
   {
-   "t": 155.78,
+   "t": 155.16,
    "line": "capture 02-in: room nugget_back, says null, options 0, control null"
   }
  ],
@@ -361,11 +361,11 @@
   {
    "name": "00-arrived",
    "why": null,
-   "t": 139.8,
+   "t": 139.6,
    "file": "renders/proofs/nugget-back/doors/raw-captures-ignored/00-arrived.png",
-   "hash": "8b84b792d7f18c7eaa800afd5682a214b66e79c679ffd874f05d24220d440564",
+   "hash": "c036474dd7c71c9c13d6dd0df5d19f3f5317f48650098e2cc0990b9a4dab1cf2",
    "room": "nugget_back",
-   "clock": 139.2915,
+   "clock": 139.1601,
    "control": null,
    "says": null,
    "options": 0,
@@ -400,7 +400,7 @@
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-04.png",
+     "from": "art/actors/thad-idle-right/idle-03.png",
      "bounds": [
       31,
       212,
@@ -435,11 +435,11 @@
   {
    "name": "01-out",
    "why": null,
-   "t": 143.22,
+   "t": 143.08,
    "file": "renders/proofs/nugget-back/doors/raw-captures-ignored/01-out.png",
-   "hash": "63976ee770e9a77a42ddcd843ec3ad822a3f23ec846ebdf9a8338b1f3c44f4b2",
+   "hash": "5ba9cc6aa4d30abee69b9205642ebecfab5435d3640a823df4616eb27afe5273",
    "room": "nugget",
-   "clock": 142.6914,
+   "clock": 142.60989999999998,
    "control": null,
    "says": null,
    "options": 0,
@@ -581,11 +581,11 @@
   {
    "name": "01-in",
    "why": null,
-   "t": 147.9,
+   "t": 147.35,
    "file": "renders/proofs/nugget-back/doors/raw-captures-ignored/01-in.png",
-   "hash": "1571447548820417193dd014eb616e60301411235dda2bbef8fa4eb2e3761728",
+   "hash": "7d844b180f8d5c28dc4dbf5bf10532a36c148532f144aefdb665a9abcf3575fa",
    "room": "nugget_back",
-   "clock": 147.3745,
+   "clock": 146.8931,
    "control": null,
    "says": null,
    "options": 0,
@@ -620,7 +620,7 @@
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-05.png",
+     "from": "art/actors/thad-idle-right/idle-04.png",
      "bounds": [
       31,
       212,
@@ -655,11 +655,11 @@
   {
    "name": "02-out",
    "why": null,
-   "t": 151.43,
+   "t": 150.68,
    "file": "renders/proofs/nugget-back/doors/raw-captures-ignored/02-out.png",
-   "hash": "77d1870704ad65d1eb7ff16b2ea5785cd2f1781f887555285aad38e0db1a711e",
+   "hash": "f4c08c96463575203f69f682ed84643149e9961e7d53f4669ded84b9ae9fe07b",
    "room": "nugget",
-   "clock": 150.9411,
+   "clock": 150.2596,
    "control": null,
    "says": null,
    "options": 0,
@@ -694,7 +694,7 @@
      "height": 278,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       786,
       312,
@@ -801,11 +801,11 @@
   {
    "name": "02-in",
    "why": null,
-   "t": 155.76,
+   "t": 155.14,
    "file": "renders/proofs/nugget-back/doors/raw-captures-ignored/02-in.png",
-   "hash": "0e5a01a164abcc078ece8b47356e5da72230dc6de623c713233b166ffb2f07c6",
+   "hash": "59ad052b3163b82229143b8011e1f59238b52ff6e475e5dae785ad1cedb1fca1",
    "room": "nugget_back",
-   "clock": 155.2909,
+   "clock": 154.67610000000002,
    "control": null,
    "says": null,
    "options": 0,
@@ -840,7 +840,7 @@
      "height": 518,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-00.png",
+     "from": "art/actors/thad-idle-right/idle-05.png",
      "bounds": [
       31,
       212,
@@ -885,7 +885,7 @@
     "the authored occlusion marks mask the figure as declared",
     "ambient figures sit inside their declared contact bands",
     "the principal state change was reached by the authored route and captured",
-    "the room stayed coherent for 160.13s of a deterministic route: every capture in the room it names, every asserted state met"
+    "the room stayed coherent for 159.87s of a deterministic route: every capture in the room it names, every asserted state met"
    ],
    "doesNotEstablish": [
     "that the art is good, in style, or consistent with the accepted rooms",
@@ -900,5 +900,5 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T08:05:54.868Z"
+ "at": "2026-11-01T08:28:33.096Z"
 }
