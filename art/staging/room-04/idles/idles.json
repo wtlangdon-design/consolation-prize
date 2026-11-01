@@ -1,43 +1,50 @@
 {
  "room_04_judge_1": {
   "ambient": "content/ambient/room-04-judge-1.json",
+  "from": "art/staging/room-04/judges/judge-1.png",
   "staged": "art/staging/room-04/idles/room_04_judge_1.png",
   "shipping": "art/actors/room-04-judge-1.png",
   "frames": [
    [
     2,
     2,
-    168,
-    174
-   ],
-   [
     172,
-    2,
-    168,
     174
    ],
    [
-    342,
+    176,
     2,
-    168,
+    172,
     174
    ],
    [
-    512,
+    350,
     2,
-    168,
+    172,
     174
    ],
    [
-    682,
+    524,
     2,
-    168,
+    172,
+    174
+   ],
+   [
+    698,
+    2,
+    172,
+    174
+   ],
+   [
+    872,
+    2,
+    172,
     174
    ]
   ],
   "rate": 0.22,
   "phase": 0.1,
-  "breakEvery": 8.0,
+  "breakEvery": 6.0,
   "breaks": [
    [
     2,
@@ -46,65 +53,83 @@
     2,
     2,
     2,
-    2
+    2,
+    2,
+    0
    ],
    [
     3,
+    0,
+    3,
+    0,
     3,
     3,
-    3,
-    3,
-    3,
-    3
+    0
    ],
    [
     4,
     4,
     0,
     4,
-    4
+    4,
+    0
+   ],
+   [
+    5,
+    5,
+    5,
+    5,
+    5,
+    0
    ]
   ]
  },
  "room_04_judge_2": {
   "ambient": "content/ambient/room-04-judge-2.json",
+  "from": "art/staging/room-04/judges/judge-2.png",
   "staged": "art/staging/room-04/idles/room_04_judge_2.png",
   "shipping": "art/actors/room-04-judge-2.png",
   "frames": [
    [
     2,
     2,
-    171,
-    166
-   ],
-   [
     175,
-    2,
-    171,
     166
    ],
    [
-    348,
+    179,
     2,
-    171,
+    175,
     166
    ],
    [
-    521,
+    356,
     2,
-    171,
+    175,
     166
    ],
    [
-    694,
+    533,
     2,
-    171,
+    175,
+    166
+   ],
+   [
+    710,
+    2,
+    175,
+    166
+   ],
+   [
+    887,
+    2,
+    175,
     166
    ]
   ],
   "rate": 0.19,
   "phase": 0.55,
-  "breakEvery": 11.0,
+  "breakEvery": 7.5,
   "breaks": [
    [
     2,
@@ -113,65 +138,83 @@
     2,
     2,
     2,
-    2
+    2,
+    2,
+    0
    ],
    [
     3,
+    0,
+    3,
+    0,
     3,
     3,
-    3,
-    3,
-    3,
-    3
+    0
    ],
    [
     4,
     4,
     0,
     4,
-    4
+    4,
+    0
+   ],
+   [
+    5,
+    5,
+    5,
+    5,
+    5,
+    0
    ]
   ]
  },
  "room_04_judge_3": {
   "ambient": "content/ambient/room-04-judge-3.json",
+  "from": "art/staging/room-04/judges/judge-3.png",
   "staged": "art/staging/room-04/idles/room_04_judge_3.png",
   "shipping": "art/actors/room-04-judge-3.png",
   "frames": [
    [
     2,
     2,
-    142,
-    172
-   ],
-   [
     146,
-    2,
-    142,
     172
    ],
    [
-    290,
+    150,
     2,
-    142,
+    146,
     172
    ],
    [
-    434,
+    298,
     2,
-    142,
+    146,
     172
    ],
    [
-    578,
+    446,
     2,
-    142,
+    146,
+    172
+   ],
+   [
+    594,
+    2,
+    146,
+    172
+   ],
+   [
+    742,
+    2,
+    146,
     172
    ]
   ],
   "rate": 0.25,
   "phase": 0.8,
-  "breakEvery": 7.0,
+  "breakEvery": 5.5,
   "breaks": [
    [
     2,
@@ -180,98 +223,133 @@
     2,
     2,
     2,
-    2
+    2,
+    2,
+    0
    ],
    [
     3,
+    0,
+    3,
+    0,
     3,
     3,
-    3,
-    3,
-    3,
-    3
+    0
    ],
    [
     4,
     4,
     0,
     4,
-    4
+    4,
+    0
+   ],
+   [
+    5,
+    5,
+    5,
+    5,
+    5,
+    0
    ]
   ]
  },
  "sowerby": {
   "ambient": "content/ambient/sowerby.json",
+  "from": "art/staging/room-04/sowerby/sowerby.png",
   "staged": "art/staging/room-04/idles/sowerby.png",
   "shipping": "art/actors/room-04-sowerby.png",
   "frames": [
    [
     2,
     2,
-    195,
+    243,
     437
    ],
    [
-    199,
+    247,
     2,
-    195,
+    243,
     437
    ],
    [
-    396,
+    492,
     2,
-    195,
+    243,
     437
    ],
    [
-    593,
+    737,
     2,
-    195,
+    243,
     437
    ],
    [
-    790,
+    982,
     2,
-    195,
+    243,
+    437
+   ],
+   [
+    1227,
+    2,
+    243,
+    437
+   ],
+   [
+    1472,
+    2,
+    243,
     437
    ]
   ],
   "rate": 0.2,
   "phase": 0.35,
-  "breakEvery": 9.0,
+  "breakEvery": 4.0,
   "breaks": [
    [
     2,
-    0,
+    3,
+    3,
     2,
-    0,
-    2,
-    2
+    0
    ],
    [
+    2,
     3,
+    2,
+    0,
+    2,
     3,
-    3,
-    3,
-    3,
-    3,
-    3
+    2,
+    0
    ],
    [
     4,
     4,
     0,
-    4,
-    4
+    2,
+    0
    ],
    [
-    2,
-    2,
-    2,
+    5,
+    5,
+    5,
+    5,
+    5,
     0,
+    2,
     3,
-    3,
-    3
+    2,
+    0
+   ],
+   [
+    6,
+    6,
+    6,
+    0,
+    4,
+    0
    ]
   ]
  }

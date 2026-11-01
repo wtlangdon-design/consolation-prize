@@ -28,37 +28,43 @@
    [
     2,
     2,
-    171,
-    166
-   ],
-   [
     175,
-    2,
-    171,
     166
    ],
    [
-    348,
+    179,
     2,
-    171,
+    175,
     166
    ],
    [
-    521,
+    356,
     2,
-    171,
+    175,
     166
    ],
    [
-    694,
+    533,
     2,
-    171,
+    175,
+    166
+   ],
+   [
+    710,
+    2,
+    175,
+    166
+   ],
+   [
+    887,
+    2,
+    175,
     166
    ]
   ],
   "rate": 0.19,
   "phase": 0.55,
-  "note": "Frames: 0 rest · 1 breath (everything above the table top lifted 1 px) · 2 lean left · 3 lean right · 4 sitting up, all derived from his rest frame by tools/rig/room04-idles.py, the lean a shear pivoting at the table top so his hands stay where they rest. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds (8, 11 and 7 across the three) one break from the pool, so they never move together (Tyler, 2026-11-01: 'the four men in the back are completely stationary').",
+  "note": "Frames: 0 rest · 1 breath · 2 conferring (a lean toward his neighbour) · 3 hands lifted off the table (drumming) · 4 nod · 5 glancing the other way, all derived from his rest frame by tools/rig/room04-idles.py; the lean is a shear pivoting at the table top so his hands stay where they rest. Breathing on 0 and 1 at `rate`; every `breakEvery` seconds (6, 7.5 and 5.5 across the three) one action from the pool, so they never move together (errata 35; Tyler, 2026-11-01: 'it would be better for the judges to move more than just breathing').",
   "breaks": [
    [
     2,
@@ -67,25 +73,36 @@
     2,
     2,
     2,
-    2
+    2,
+    2,
+    0
    ],
    [
     3,
+    0,
+    3,
+    0,
     3,
     3,
-    3,
-    3,
-    3,
-    3
+    0
    ],
    [
     4,
     4,
     0,
     4,
-    4
+    4,
+    0
+   ],
+   [
+    5,
+    5,
+    5,
+    5,
+    5,
+    0
    ]
   ],
-  "breakEvery": 11.0
+  "breakEvery": 7.5
  }
 }

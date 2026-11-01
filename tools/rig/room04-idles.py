@@ -1,37 +1,46 @@
-"""Room 4's back row, given something to do. No image operation.
+"""Room 4's back row, given deliberate movement. No image operation.
 
-Tyler, 2026-11-01: "the four men in the back are completely stationary." Each
-had a two-frame idle -- rest, and a one-pixel breath every 4.5 to 7 seconds --
-and at the size a phone draws the room, one pixel every few seconds is no
-movement at all. Ruling 20: no person in a room is ever static.
+Errata 35: nobody is ever perfectly still, and figures get deliberate actions
+-- the driver "shifts a case, straightens, looks up the road" -- not only a
+breath. Tyler, 2026-11-01, twice: first "the four men in the back are completely
+stationary" (a one-pixel breath every few seconds), then, of the leans that
+answered it, "Sowerby's arm needs to move up and down otherwise it looks like
+he's frozen. And it would be better for the judges to move more than just
+breathing."
 
-So each gets the idle Winnie and Deke have: a slow breath that never stops,
-and every so often one BREAK, drawn from a pool, so nobody repeats a routine
-(types.ts `breaks`). The break frames are derived from the figure's own rest
-frame, the way Winnie's moving hand is (Room 5 frames.json): a part of him is
-moved a few whole pixels, and nothing is repainted. A pixel the part vacates
-becomes transparent, so the plate behind -- the wall or the chalkboard he was
-cut against -- shows there, which is what would.
+So each has the idle Winnie and Deke have -- a breath that never stops, and
+every few seconds one BREAK from a pool (types.ts `breaks`) -- and the breaks
+are actions:
 
-  judges   0 rest · 1 breath · 2 lean left · 3 lean right · 4 sit up
-  Sowerby  0 rest · 1 breath · 2 pencil raised · 3 lean to the judges · 4 lean back
+  judges   0 rest · 1 breath · 2 confer (lean to the neighbour) · 3 hands lifted
+           (drumming on the table) · 4 nod · 5 glance the other way
+  Sowerby  0 rest · 1 breath · 2 pencil hand lowered · 3 lowered further ·
+           4 raised · 5 lean to the judges · 6 lean back
 
-A LEAN, NOT A MOVED HEAD. The first version moved the head as a block and tore
-the figure wherever the block's edge crossed a hat brim or a shoulder -- a
-see-through slit beside the face. A lean shears him instead: each row above a
-pivot moves sideways in proportion to its height, LEAN px at the crown and
-nothing at the pivot, so neighbouring rows never differ by more than a pixel
-and nothing parts. The judges pivot at the table top, where their hands rest;
-Sowerby at his hips, so his boots stay where they stand. Frames are padded PAD
-px either side so a lean is never clipped, and padded equally so his
-bottom-centre anchor does not move.
+Every pose is derived from the man's own rest frame, the way Winnie's moving
+hand is: parts of him move whole pixels, nothing is repainted, and no part is
+moved in a way that opens a hole inside him. That rules out moving a block
+(the first attempt moved the head as a rectangle and tore a see-through slit
+beside it). What is used instead:
 
-THE PENCIL ARM is every column right of the coat's widest point at mid-torso,
-above the elbow; it lifts on a ramp, nothing at the shoulder and ARM_LIFT px
-at the hand, so the sleeve never parts.
+  A LEAN shears every row above a pivot sideways in proportion to its height,
+  so neighbouring rows differ by at most a pixel. Judges pivot at the table
+  top, where their hands rest; Sowerby at his hips, so his boots stay put.
+  A NOD is the same idea vertically: the rows above the chin are resampled
+  down, NOD px at the crown and nothing at the chin.
+  THE HANDS are lifted whole; what they uncover at the bottom is transparent,
+  and behind it is the plate's own table top, which is what is under a hand.
+  THE FOREARM (Sowerby) is every pixel right of the coat's edge and above the
+  elbow, turned about the corner of the joint it folds into -- the top when it
+  lowers, the bottom when it rises -- so no wedge opens between sleeve and
+  coat; the original sleeve stays under it within ELBOW_KEEP px of the lower
+  corner.
 
-Writes art/staging/room-04/idles/<id>.png (five frames, side by side) and
-idles.json (frames and the idle timing per figure).
+The rest frames are read from the staged cuts, not the shipping sheets, so a
+second run does not pad a padded frame. Frames are padded PAD px either side
+so no movement is clipped, and equally so the bottom-centre anchors stay put.
+
+Writes art/staging/room-04/idles/<id>.png and idles.json.
 """
 import json
 import os
@@ -40,27 +49,52 @@ import numpy as np
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-OUT = os.path.join(ROOT, 'art/staging/room-04/idles')
+S = os.path.join(ROOT, 'art/staging/room-04')
+OUT = os.path.join(S, 'idles')
 GAP = 2
-LEAN = 3
-SIT_UP = 2
-ARM_LIFT = 3
-PAD = 4
+PAD = 6
+CONFER = 5        # px at the crown
+GLANCE = 3
+NOD = 3
+HANDS_UP = 4
+ARM_DOWN = (8, 15)    # degrees, clockwise: the hand comes down
+ARM_UP = 7
+ELBOW_KEEP = 10
+SWING_PAD = 28    # the lowered hand travels about 25 px right
+LEAN_TO_JUDGES = 4
 
+
+def judge_frames(n):
+    return json.load(open(f'{S}/judges/judges.json'))['judges'][n - 1]['frames']
+
+
+# id: ambient file, staged rest+breath sheet and its frames, which way the neighbour is (+1 right), timing
 FIGURES = {
-    # id: the ambient file, and its timing: breath rate, phase, seconds between breaks
-    'room_04_judge_1': ('content/ambient/room-04-judge-1.json', 0.22, 0.10, 8.0),
-    'room_04_judge_2': ('content/ambient/room-04-judge-2.json', 0.19, 0.55, 11.0),
-    'room_04_judge_3': ('content/ambient/room-04-judge-3.json', 0.25, 0.80, 7.0),
-    'sowerby': ('content/ambient/sowerby.json', 0.20, 0.35, 9.0),
+    'room_04_judge_1': ('content/ambient/room-04-judge-1.json', 'judges/judge-1.png', judge_frames(1), +1, 0.22, 0.10, 6.0),
+    'room_04_judge_2': ('content/ambient/room-04-judge-2.json', 'judges/judge-2.png', judge_frames(2), -1, 0.19, 0.55, 7.5),
+    'room_04_judge_3': ('content/ambient/room-04-judge-3.json', 'judges/judge-3.png', judge_frames(3), -1, 0.25, 0.80, 5.5),
+    'sowerby': ('content/ambient/sowerby.json', 'sowerby/sowerby.png',
+                json.load(open(f'{S}/sowerby/sowerby.json'))['frames'], +1, 0.20, 0.35, 4.0),
 }
-JUDGE_BREAKS = [[2, 2, 2, 2, 2, 2, 2], [3, 3, 3, 3, 3, 3, 3], [4, 4, 0, 4, 4]]
-SOWERBY_BREAKS = [[2, 0, 2, 0, 2, 2], [3, 3, 3, 3, 3, 3, 3], [4, 4, 0, 4, 4], [2, 2, 2, 0, 3, 3, 3]]
+JUDGE_BREAKS = [[2, 2, 2, 2, 2, 2, 2, 2, 0],        # confers with his neighbour
+                [3, 0, 3, 0, 3, 3, 0],              # drums his hands on the table
+                [4, 4, 0, 4, 4, 0],                 # nods
+                [5, 5, 5, 5, 5, 0]]                 # glances the other way
+SOWERBY_BREAKS = [[2, 3, 3, 2, 0],                  # marks the air with the pencil
+                  [2, 3, 2, 0, 2, 3, 2, 0],         # and again, twice
+                  [4, 4, 0, 2, 0],                  # lifts it, brings it down
+                  [5, 5, 5, 5, 5, 0, 2, 3, 2, 0],   # turns to the judges, then marks
+                  [6, 6, 6, 0, 4, 0]]               # leans back, lifts the pencil
 
 
-def pad(a):
-    """PAD transparent px either side."""
-    return np.pad(a, ((0, 0), (PAD, PAD), (0, 0)))
+def pad(a, px=None):
+    px = PAD if px is None else px
+    return np.pad(a, ((0, 0), (px, px), (0, 0)))
+
+
+def skin_of(a):
+    r, g, b, al = (a[..., i].astype(int) for i in range(4))
+    return (al > 0) & (r > 110) & (r > g + 15) & (g > b)
 
 
 def lean(a, pivot, crown_dx):
@@ -69,70 +103,100 @@ def lean(a, pivot, crown_dx):
     out[pivot:] = a[pivot:]
     for y in range(pivot):
         dx = int(round(crown_dx * (pivot - y) / pivot))
-        row = a[y]
         if dx > 0:
-            out[y, dx:] = row[:-dx]
+            out[y, dx:] = a[y, :-dx]
         elif dx < 0:
-            out[y, :dx] = row[-dx:]
+            out[y, :dx] = a[y, -dx:]
         else:
-            out[y] = row
+            out[y] = a[y]
     return out
 
 
-def sit_up(a, pivot, dy):
-    """Everything above the pivot lifted dy px; the pivot row itself stays."""
+def chin(a):
+    """The lowest skin row in the upper half, within the columns the crown spans."""
+    h = a.shape[0]
+    crown = np.where((a[: max(4, h * 6 // 100), :, 3] > 0).any(0))[0]
+    cols = slice(max(0, int(crown.min()) - 2), int(crown.max()) + 3)
+    return int(np.where(skin_of(a)[: h // 2, cols].any(1))[0].max())
+
+
+def nod(a, depth):
+    """The rows above the chin resampled down: depth px at the crown, nothing at the chin."""
+    c = chin(a)
     out = a.copy()
-    out[: pivot - dy] = a[dy:pivot]
-    out[pivot - dy:pivot] = a[pivot - dy:pivot]
+    for y in range(c + 1):
+        src = y - int(round(depth * (c - y) / c))
+        out[y] = a[src] if src >= 0 else 0
     return out
 
 
-def lift_arm(a):
-    """Sowerby's forearm and hand, lifted on a ramp from the coat's edge."""
+def lift_hands(a, dy):
+    """The box around the skin in the lower third, lifted dy px over the body."""
+    h = a.shape[0]
+    skin = skin_of(a)
+    skin[: h * 2 // 3] = False
+    ys, xs = np.where(skin)
+    y0, y1, x0, x1 = int(ys.min()), int(ys.max()) + 1, int(xs.min()), int(xs.max()) + 1
+    box = a[y0:y1, x0:x1].copy()
+    out = a.copy()
+    out[y0:y1, x0:x1] = 0
+    out[y0 - dy:y0, x0:x1] = a[y0 - dy:y0, x0:x1]
+    dest = out[y0 - dy:y1 - dy, x0:x1]
+    out[y0 - dy:y1 - dy, x0:x1] = np.where(box[..., 3:4] > 0, box, dest)
+    return out
+
+
+def swing_forearm(a, degrees):
+    """Sowerby's forearm and hand, rotated about the elbow (clockwise = down)."""
     h, w = a.shape[:2]
-    torso = a[int(h * 0.40):int(h * 0.60), :, 3] > 0
-    coat_edge = int(np.where(torso.any(0))[0].max()) + 1
-    elbow = int(h * 0.42)
-    hand = int(np.where((a[:elbow, :, 3] > 0).any(0))[0].max())
-    out = a.copy()
-    for x in range(coat_edge, hand + 1):
-        d = int(round(ARM_LIFT * (x - coat_edge + 1) / (hand - coat_edge + 1)))
-        if d == 0:
-            continue
-        col = a[:elbow, x].copy()
-        out[:elbow, x] = 0
-        out[0:elbow - d, x] = col[d:elbow]
-    return out
+    body = a[int(h * 0.36):int(h * 0.44), :, 3] > 0
+    coat_edge = int(np.where(body.any(0))[0].max()) + 1
+    elbow_y = int(np.where(a[:, coat_edge:, 3].any(1))[0].max())
+    # THE HINGE IS THE CORNER THE TURN FOLDS INTO. Lowering, it is the top of
+    # the joint, where the sleeve's upper edge leaves the coat; raising, the
+    # bottom. Hinged at the other corner, each opened a wedge between sleeve
+    # and coat.
+    hinge_y = int(np.where(a[:elbow_y + 1, coat_edge, 3] > 0)[0].min())
+    piece = np.zeros_like(a)
+    piece[:elbow_y + 1, coat_edge:] = a[:elbow_y + 1, coat_edge:]
+    keep = a.copy()
+    keep[:elbow_y + 1, coat_edge:] = 0
+    yy, xx = np.mgrid[:h, :w]
+    near = (yy - elbow_y) ** 2 + (xx - coat_edge) ** 2 <= ELBOW_KEEP ** 2
+    keep[near] = a[near]
+    turned = np.asarray(Image.fromarray(piece).rotate(-degrees, resample=Image.NEAREST,
+                                                      center=(coat_edge, hinge_y if degrees > 0 else elbow_y)))
+    return np.where(turned[..., 3:4] > 0, turned, keep)
 
 
 os.makedirs(OUT, exist_ok=True)
 record = {}
-for fid, (path, rate, phase, every) in FIGURES.items():
-    amb = json.load(open(os.path.join(ROOT, path)))
-    sp = amb['sprite']
-    sheet = np.asarray(Image.open(os.path.join(ROOT, sp['sheet'])).convert('RGBA'))
-    (x0, y0, w, h), (x1, y1, _, _) = sp['frames'][0], sp['frames'][1]
-    rest = sheet[y0:y0 + h, x0:x0 + w]
-    breath = sheet[y1:y1 + h, x1:x1 + w]
-    rest, breath = pad(rest), pad(breath)
+for fid, (path, staged_rest, rects, side, rate, phase, every) in FIGURES.items():
+    sheet = np.asarray(Image.open(f'{S}/{staged_rest}').convert('RGBA'))
+    (x0, y0, w, h), (x1, y1, _, _) = rects[0], rects[1]
+    px = SWING_PAD if fid == 'sowerby' else PAD
+    rest, breath = pad(sheet[y0:y0 + h, x0:x0 + w], px), pad(sheet[y1:y1 + h, x1:x1 + w], px)
     w = rest.shape[1]
     if fid == 'sowerby':
         hips = int(h * 0.5)
-        frames = [rest, breath, lift_arm(rest), lean(rest, hips, LEAN), lean(rest, hips, -2)]
+        frames = [rest, breath, swing_forearm(rest, ARM_DOWN[0]), swing_forearm(rest, ARM_DOWN[1]),
+                  swing_forearm(rest, -ARM_UP), lean(rest, hips, LEAN_TO_JUDGES), lean(rest, hips, -3)]
         breaks = SOWERBY_BREAKS
     else:
-        frames = [rest, breath, lean(rest, h - 1, -LEAN), lean(rest, h - 1, LEAN), sit_up(rest, h - 1, SIT_UP)]
+        frames = [rest, breath, lean(rest, h - 1, side * CONFER), lift_hands(rest, HANDS_UP),
+                  nod(rest, NOD), lean(rest, h - 1, -side * GLANCE)]
         breaks = JUDGE_BREAKS
     out = np.zeros((h + 2 * GAP, len(frames) * (w + GAP) + GAP, 4), np.uint8)
-    rects = []
+    frame_rects = []
     for i, f in enumerate(frames):
         x = GAP + i * (w + GAP)
         out[GAP:GAP + h, x:x + w] = f
-        rects.append([x, GAP, int(w), int(h)])
+        frame_rects.append([x, GAP, int(w), int(h)])
     staged = os.path.join(OUT, f'{fid}.png')
     Image.fromarray(out).save(staged)
-    record[fid] = {'ambient': path, 'staged': os.path.relpath(staged, ROOT), 'shipping': sp['sheet'],
-                   'frames': rects, 'rate': rate, 'phase': phase,
+    amb = json.load(open(os.path.join(ROOT, path)))
+    record[fid] = {'ambient': path, 'from': f'art/staging/room-04/{staged_rest}', 'staged': os.path.relpath(staged, ROOT),
+                   'shipping': amb['sprite']['sheet'], 'frames': frame_rects, 'rate': rate, 'phase': phase,
                    'breakEvery': every, 'breaks': breaks}
-    print(fid, w, h)
+    print(fid, w, h, len(frames), 'frames')
 json.dump(record, open(os.path.join(OUT, 'idles.json'), 'w'), indent=1)
