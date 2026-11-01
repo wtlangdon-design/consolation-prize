@@ -401,7 +401,7 @@
     146,
     236
    ],
-   "note": "Set dressing at Deke's left, a drink on it (Tyler, 2026-11-01). Not a hotspot: no document writes a LOOK or LISTEN for it, so clicks go through it. Generated once (art/staging/room-03/barrel-01, room-03-barrel 1 of 2), keyed and BOX-reduced by tools/art/cut-prop.py to 225 px to the rim -- 0.53 of Deke's 428, his belt -- and graded to the bar front by tools/grade/match-neighbours.py at 0.9. Spans x 817-962, clear of Deke's rest-pose left edge at about 981. Then darkened by tools/art/darken-prop.py at brightness 0.7 with the base falling to 0.7 (Tyler, 2026-11-01: \"It's too bright. Please darken it so it fits in better.\" Chosen from 0.8, 0.7 and 0.6 rendered in the room; 0.6 went muddy)."
+   "note": "Set dressing at Deke's left, a drink on it (Tyler, 2026-11-01). Not a hotspot: no document writes a LOOK or LISTEN for it, so clicks go through it. Generated once (art/staging/room-03/barrel-01, room-03-barrel 1 of 2), keyed and BOX-reduced by tools/art/cut-prop.py to 225 px to the rim -- 0.53 of Deke's 428, his belt -- and graded to the bar front by tools/grade/match-neighbours.py at 0.9. Spans x 817-962, clear of Deke's rest-pose left edge at about 981. Then darkened by tools/art/darken-prop.py, now at brightness 0.75 with the base falling to 0.7 (Tyler, 2026-11-01: \"It's too bright. Please darken it so it fits in better.\" Chosen from 0.8, 0.7 and 0.6 rendered in the room; 0.6 went muddy). Then 0.75 (Tyler, 2026-11-01: \"Maybe ever so slightly lighter since the floor behind it is so bright?\")."
   }
  ]
 }
