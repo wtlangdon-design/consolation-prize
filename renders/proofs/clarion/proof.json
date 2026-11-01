@@ -4,55 +4,10 @@
  "room": "clarion",
  "roomWidth": 1920,
  "branch": "ccr-347d40c6-71r9f9",
- "commit": "bfa7ca0bb4710e4421bf4a7c2e40a949dfbd277d",
- "workingTreeClean": false,
- "dirtyAllowed": true,
- "uncommitted": [
-  "M art/staging/ledger.json",
-  " M art/ui/item-icons.png",
-  " M content/build-ledger.json",
-  " M content/flags/flags.json",
-  " M content/manifest.json",
-  " M content/rooms/main-street-candidate.json",
-  " M content/rooms/main-street.json",
-  "D  content/rooms/stub-clarion.json",
-  " M content/ui/item-icons.json",
-  " M engine/core/DialogueRunner.ts",
-  " M engine/core/GameState.ts",
-  " M engine/core/VerbSystem.ts",
-  " M engine/core/types.ts",
-  " M proofs/readiness/room-09.json",
-  " M proofs/readiness/room-09.sources.json",
-  " M reference/global-baseline.json",
-  " M renders/item-icons.png",
-  " M renders/item-icons@4x.png",
-  " M tests/interface.test.ts",
-  " M tools/compile-room.mjs",
-  " M tools/extract-content.mjs",
-  " M tools/gauntlet/route.mjs",
-  " M tools/pixelart/item_icons.py",
-  "?? art/actors/room-09-frame.png",
-  "?? art/backgrounds/room-09-clarion.png",
-  "?? content/ambient/frame.json",
-  "?? content/dialogue/frame.json",
-  "?? content/fixtures/room-09.json",
-  "?? content/rooms/clarion.json",
-  "?? proofs/room-09/",
-  "?? proofs/spec/clarion.json",
-  "?? reference/room-09/",
-  "?? renders/proofs/clarion/",
-  "?? renders/room-09-frame-cut.png",
-  "?? renders/room-09-graybox-with-thad.png",
-  "?? renders/room-09-graybox.png",
-  "?? tests/room-09.test.ts",
-  "?? tools/art/room09-frame.py",
-  "?? tools/art/room09-plate.mjs",
-  "?? tools/art/room09-promote.mjs",
-  "?? tools/gauntlet/routes/clarion-doors.json",
-  "?? tools/gauntlet/routes/clarion-life.json",
-  "?? tools/gauntlet/routes/clarion.json",
-  "?? tools/room09-graybox.py"
- ],
+ "commit": "0e25be1e32dc657aa34ed22753888d0dab21091a",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "uncommitted": [],
  "visualState": null,
  "candidates": [],
  "route": "clarion",
@@ -122,7 +77,7 @@
    ],
    "reportedHeight": 522,
    "expected": 522,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-01.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-02.png",
    "bounds": [
     504,
     224,
@@ -159,7 +114,7 @@
    ],
    "reportedHeight": 592,
    "expected": 592,
-   "drawnFrom": "art/actors/thad-idlebreak-right/idle-break-05.png",
+   "drawnFrom": "art/actors/thad-idle-right/idle-01.png",
    "bounds": [
     468,
     257,
@@ -196,7 +151,7 @@
     "height": 503,
     "bottom": 717,
     "right": 1493,
-    "changed": 46666
+    "changed": 48280
    },
    "props": []
   }
@@ -205,7 +160,7 @@
   {
    "panel": "B",
    "room": "clarion",
-   "clock": 145.48829999999998,
+   "clock": 145.97560000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -246,7 +201,7 @@
      "height": 552,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-01.png",
+     "from": "art/actors/thad-idle-right/idle-02.png",
      "bounds": [
       44,
       238,
@@ -281,15 +236,15 @@
    "stubs": [],
    "missingAssets": [],
    "controlWrites": [],
-   "capturedAt": "2026-11-01T23:30:26.651Z",
+   "capturedAt": "2026-11-01T23:37:56.570Z",
    "intent": "normal populated state",
    "file": "raw-captures-ignored/panel-b-populated.png",
-   "hash": "f977b45d90693552e3bd6e14fc4a0839792ca558e6477609cd8e47bd11ec56a5"
+   "hash": "e0b37435b6ef0a277f15adc27fe3c0e09af65f4632e1b16cf9ee3ce506638849"
   },
   {
    "panel": "A",
    "room": "clarion",
-   "clock": 146.2883,
+   "clock": 147.00889999999998,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -362,15 +317,15 @@
    "controlWrites": [
     "cast(false)"
    ],
-   "capturedAt": "2026-11-01T23:30:27.565Z",
+   "capturedAt": "2026-11-01T23:37:57.592Z",
    "intent": "base state, cast suppressed",
    "file": "raw-captures-ignored/panel-a-base.png",
-   "hash": "e3e0967254cf34ab0ae57b27bd19e11dfff55451f9b283be93dc097838908c5f"
+   "hash": "fb296a06a7d75e745d13a0b7a693a599b39e58a835083922c0739c341d45021f"
   },
   {
    "panel": "D",
    "room": "clarion",
-   "clock": 171.154,
+   "clock": 172.84120000000001,
    "beat": null,
    "control": null,
    "camera": 0,
@@ -412,7 +367,7 @@
      "height": 552,
      "moving": false,
      "drawn": "sprite",
-     "from": "art/actors/thad-idle-right/idle-02.png",
+     "from": "art/actors/thad-idle-right/idle-00.png",
      "bounds": [
       834,
       238,
@@ -456,10 +411,10 @@
     "cast(false)",
     "cast(true)"
    ],
-   "capturedAt": "2026-11-01T23:30:52.446Z",
+   "capturedAt": "2026-11-01T23:38:23.467Z",
    "intent": "principal changed state: B1 (doc 57): FRA_A1 option 1 opens the trade, and the piano-tuner story pays. Visible consequence: Frame's destination line; T_VESSEL_LOCATION written.",
    "file": "raw-captures-ignored/panel-d-changed.png",
-   "hash": "bab1e844634869e53055434eb8652dd4d483d9c6c5d9f7d4831d2945f194e76a",
+   "hash": "b9d4f39867519e5d2e3224cebaf17af9a51eedfc10eb26e294a81fef315f043c",
    "changedBy": "flags"
   }
  ],
@@ -490,11 +445,11 @@
    "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
   }
  },
- "at": "2026-11-01T23:30:52.446Z",
+ "at": "2026-11-01T23:38:23.468Z",
  "contactSheet": {
   "file": "contact-sheet.webp",
   "format": "webp",
-  "bytes": 435584,
+  "bytes": 435454,
   "panels": 5,
   "scale": 0.5
  }
