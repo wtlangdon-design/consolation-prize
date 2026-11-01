@@ -1,3 +1,4 @@
+import type { AssayFile } from './Assay.ts';
 /**
  * Content schema types. The engine knows these shapes and nothing else --
  * no room ids, no verb ids, no character names are named in code.
@@ -1412,6 +1413,13 @@ export interface DialogueOption {
    * replace the text later where art exists.
    */
   beat?: string;
+  /**
+   * THE DUEL THIS OPTION STARTS (content/assay/assay.json), played after the
+   * option's own reply. Doc 04's VES_B1 options 3 and 5: "-> Duel One",
+   * "-> Duel Two". The runner presents the duel's counters as the list
+   * until it ends, then the conversation carries on where it was.
+   */
+  duel?: string;
   set?: FlagWrites;
   add?: FlagAdds;
   /** Puzzle progress the option writes (doc 53): WIN_B2's first row makes C6 pending. */
@@ -1689,6 +1697,8 @@ export interface ManifestFile {
   carriedLight?: string;
   /** A colour per speaker for spoken lines. Absent draws in the default ink. */
   speechColours?: string;
+  /** Doc 03's Liar's Assay, as content/assay/assay.json. Optional so a manifest without duels still loads. */
+  assay?: string;
   speechColoursNote?: string;
   items: string[];
   /** Verb panel and inventory geometry. Errata ruling 26. */
@@ -1896,6 +1906,8 @@ export interface ContentBundle {
   paths: Map<string, PathFile>;
   /** A colour per speaker, or null where none is declared. */
   speechColours: SpeechColoursFile | null;
+  /** The Liar's Assay, or null when the manifest names none. */
+  assay: AssayFile | null;
 }
 
 /**

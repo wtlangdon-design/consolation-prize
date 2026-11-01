@@ -2422,6 +2422,8 @@ function assay() {
       pairs.push({
         n: Number(n), tier: Number(tierNumber), learnedFrom: who ?? plain(learned).replace(/^Learned from /, ''),
         boast: plain(boast), counter: plain(counter), wrong: [],
+        // The knowledge flag (content/flags/flags.json). Fanshawe's tier is never Thad's to learn.
+        ...(Number(tierNumber) <= 5 ? { flag: `ASSAY_PAIR_${String(n).padStart(2, '0')}` } : {}),
       });
     }
     const written = Number(count) - (tier.includes('*see Duel Four.*') ? 1 : 0);
@@ -2495,6 +2497,7 @@ function assay() {
         notebookRuling: 'errata 73 D: the notebook joins Thad\'s repertoire when the duel is over. Doc 03 writes the '
           + 'notebook line for pair 1 only, so pairs 2-4 are muttered and not read back.',
         learns: [1, 2, 3, 4],
+        sets: { T_DUEL_ONE_LOST: true },
         loss: duelOneLoss,
         winnable: false,
       },
@@ -2506,6 +2509,7 @@ function assay() {
         orderRuling: 'errata 73 E and errata 74 A: Tier 1 first, then ascending. While Thad holds fewer than '
           + 'fourteen pairs, Vessel leads with the boasts Thad cannot answer (doc 02 B6: ">=14 pairs").',
         win: two2[0],
+        setsOnWin: { T_DUEL_TWO_WON: true },
         yields: ['document_a', 'watch'],
         lossRuling: 'errata 73 H: a lost Duel Two ends on the reply that lost it; nothing more is said.',
       },

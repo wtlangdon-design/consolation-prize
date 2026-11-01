@@ -96,6 +96,8 @@
  ],
  "speechColours": "content/ui/speech-colours.json",
  "speechColoursNote": "A colour per speaker for spoken lines. Hand-authored, and NOT in the extracted speakers table: that file is rewritten whole on every extraction, so a colour edited there would vanish silently at the next run.",
+ "assay": "content/assay/assay.json",
+ "assayNote": "Doc 03's Liar's Assay: the pairs, their wrong answers and the duels, extracted by tools/extract-content.mjs. Read by the dialogue runner when an option names a duel.",
  "overlays": [
   "content/actors/driver-head.json"
  ],

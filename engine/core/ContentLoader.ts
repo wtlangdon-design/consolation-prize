@@ -1,3 +1,4 @@
+import type { AssayFile } from './Assay.ts';
 import type {
   ActorFile,
   CarriedLightFile,
@@ -82,6 +83,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   const speechColours = manifest.speechColours
     ? (await read(manifest.speechColours)) as SpeechColoursFile
     : null;
+  const assay = manifest.assay ? (await read(manifest.assay)) as AssayFile : null;
   const panel = (await read(manifest.panel)) as PanelFile;
   const combinations = (await read(manifest.combinations)) as CombinationsFile;
   const itemIcons = (await read(manifest.itemIcons)) as ItemIconsFile;
@@ -149,7 +151,7 @@ export async function loadContent(read: JsonReader, manifestPath = MANIFEST_PATH
   return {
     manifest, font, palette, ui, menu, verbs, flags, scaling, reputation,
     verbFallbacks, ambient, rooms, dialogue, actor, actors, overlays, carriedLight, paths,
-    speechColours, items, fixtures, panel,
+    speechColours, assay, items, fixtures, panel,
     combinations, itemIcons,
     sequences,
   };

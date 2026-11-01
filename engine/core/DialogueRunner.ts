@@ -3,6 +3,18 @@ import type { FlagStore } from './FlagStore.ts';
 import { pureResolution } from './Assertions.ts';
 import { commitBundle, flagEffects, localJournals, type DurableWorld, type JournalSource } from './Commit.ts';
 import type { DialogueTransaction, DurableEffect, FinishReason } from './runtime-types.ts';
+import { DuelSession, knownPairs, type AssayFile, type DuelSnapshot } from './Assay.ts';
+
+/**
+ * THE LIAR'S ASSAY, AS THE RUNNER SEES IT. The file to play from, and where a
+ * won duel's yields go: a tree may not write inventory (doc 34 section 4.2,
+ * refused by `dialogueWorld`), so the game state owns that half and is handed
+ * the items when the choice that wins settles.
+ */
+export interface AssayHost {
+  file: AssayFile;
+  grant(items: readonly string[]): void;
+}
 
 /**
  * An option as the UI should draw it. `text` is the wording to draw and to
@@ -74,6 +86,10 @@ export interface DialogueResolution {
   readonly ends: boolean;
   /** Dialogue counts and flag writes, reserved rather than applied. */
   readonly effects: readonly DurableEffect[];
+  /** The duel this selection starts once it settles (an option's `duel`). */
+  readonly duelStart?: string;
+  /** A counter chosen in a running duel: the duel advances when this settles. */
+  readonly duelChoice?: string;
 }
 
 /**
@@ -217,11 +233,15 @@ export class DialogueRunner {
   private readonly milestones: MilestoneStore;
   private pending: DialogueExchange | null = null;
   private serial = 0;
+  private readonly assay: AssayHost | null;
+  /** The duel being fought inside the open conversation, if one is. */
+  private duel: DuelSession | null = null;
 
   constructor(trees: Map<string, DialogueFile>, flags: FlagStore, journals?: JournalSource,
-    milestones?: MilestoneStore) {
+    milestones?: MilestoneStore, assay?: AssayHost) {
     this.trees = trees;
     this.flags = flags;
+    this.assay = assay ?? null;
     this.journals = journals ?? localJournals();
     // NO MILESTONE IS REACHED UNTIL SOMETHING CANONICAL SAYS SO. A rephrase
     // names a puzzle (`after: "C5"`); the game state answers from its puzzle
@@ -293,8 +313,41 @@ export class DialogueRunner {
     // out of a tree, not a way to lose a commit.
     this.pending?.settle();
     this.pending = null;
+    // A duel is fought inside its conversation and goes with it. No EXIT is
+    // offered while it runs, so play cannot get here mid-duel; a closure from
+    // outside drops it with nothing written, and `isSpent` keeps the option
+    // that started it on offer until the duel has written its result.
+    this.duel = null;
     this.activeTree = null;
     this.activeNodeId = null;
+  }
+
+  /** True while a duel is being fought. The option list is its counters. */
+  get inDuel(): boolean {
+    return this.duel !== null;
+  }
+
+  /** The running duel's state for the save file, or null. */
+  duelSnapshot(): DuelSnapshot | null {
+    return this.duel?.snapshot() ?? null;
+  }
+
+  /**
+   * WHETHER A TAKEN `remove` OPTION IS GONE. Always, except an option that
+   * starts a duel: that one is gone once its duel has written its result
+   * (Duel One's `sets`), and offered again if the duel never finished.
+   * Invariant 6 -- a duel dropped mid-fight must not take the duel with it.
+   */
+  private isSpent(option: DialogueOption, taken: number): boolean {
+    if (option.afterUse !== 'remove' || taken === 0) return false;
+    if (!option.duel || !this.assay) return true;
+    const writes = this.assay.file.duels[option.duel]?.sets ?? {};
+    return Object.entries(writes).every(([flag, value]) => this.flags.get(flag) === value);
+  }
+
+  private knownPairs(): Set<number> {
+    if (!this.assay) return new Set();
+    return knownPairs(this.assay.file, (flag) => this.flags.get(flag) === true);
   }
 
   get currentNode(): DialogueNode | null {
@@ -351,6 +404,16 @@ export class DialogueRunner {
    * applied to the list as well as to the node.
    */
   presentOptions(): PresentedOption[] {
+    // A DUEL'S LIST IS ITS COUNTERS (errata 73 C), drawn and clicked exactly
+    // as a node's options are. None greys: each boast is a fresh question.
+    if (this.duel) {
+      return this.duel.offered().map((offer) => ({
+        option: { id: offer.id, text: offer.text, tag: 'ASSAY' as const },
+        text: offer.text,
+        exhausted: false,
+        selections: 0,
+      }));
+    }
     const node = this.currentNode;
     if (!node || !this.activeTree) return [];
     const treeId = this.activeTree.id;
@@ -362,7 +425,7 @@ export class DialogueRunner {
       // ERRATA 57: THE OPTION'S OWN AFTERMATH DECIDES. `remove` is gone once
       // taken; `replace` gives way to what it names; `retain` and `rephrase`
       // stay and grey; `counted-repeat` stays at full weight.
-      if (authored.afterUse === 'remove' && taken > 0) continue;
+      if (this.isSpent(authored, taken)) continue;
       const option = authored.afterUse === 'replace' && taken > 0 && authored.replaceWith
         ? authored.replaceWith : authored;
       const selections = option === authored ? taken : this.countOf(treeId, nodeId, option.id);
@@ -386,7 +449,7 @@ export class DialogueRunner {
 
   /** The committed selection counts of the current node's options, by option id. For the probe. */
   selectionsHere(): Record<string, number> {
-    if (!this.activeTree || !this.activeNodeId) return {};
+    if (!this.activeTree || !this.activeNodeId || this.duel) return {};
     const out: Record<string, number> = {};
     for (const option of this.currentNode?.options ?? []) {
       out[option.id] = this.countOf(this.activeTree.id, this.activeNodeId, option.id);
@@ -410,6 +473,7 @@ export class DialogueRunner {
     if (!node || !this.activeTree || !this.activeNodeId) {
       throw new Error(`Selection with no active node: ${optionId}`);
     }
+    if (this.duel) return this.resolveDuelChoice(optionId);
     // THE OPTION AS PRESENTED: a `replace` aftermath offers what it names in
     // the authored option's place, and that is what the player selected.
     const option = this.presentOptions().find((shown) => shown.option.id === optionId)?.option
@@ -420,7 +484,7 @@ export class DialogueRunner {
     if (!this.flags.test(option.when)) {
       throw new Error(`Gated option selected: ${optionId}`);
     }
-    if (option.afterUse === 'remove' && this.countOf(this.activeTree.id, this.activeNodeId, option.id) > 0) {
+    if (this.isSpent(option, this.countOf(this.activeTree.id, this.activeNodeId, option.id))) {
       throw new Error(`Removed option selected: ${optionId}`);
     }
 
@@ -470,6 +534,23 @@ export class DialogueRunner {
     // keeps the one it named.
     if (say !== null && sayer === null) sayer = this.activeTree.speaker ?? null;
 
+    // AN OPTION THAT STARTS A DUEL: its own reply, then the duel's opening and
+    // first boast, spoken in the same performance. The duel itself begins
+    // when this exchange settles, from the same knowledge read here.
+    let duelStart: string | undefined;
+    if (option.duel) {
+      if (!this.assay) throw new Error(`Option ${option.id} starts ${option.duel} and no assay is loaded`);
+      duelStart = option.duel;
+      const intro = new DuelSession(this.assay.file, option.duel, this.knownPairs()).intro();
+      if (say === null && intro.length) {
+        say = intro[0]!.line;
+        sayer = intro[0]!.speaker;
+        rest = [...rest, ...intro.slice(1)];
+      } else {
+        rest = [...rest, ...intro];
+      }
+    }
+
     const ends = option.tag === EXIT_TAG;
     const goto = !ends && option.goto ? option.goto : null;
     if (goto && !this.activeTree.nodes[goto]) {
@@ -497,6 +578,36 @@ export class DialogueRunner {
       goto,
       ends,
       effects,
+      ...(duelStart ? { duelStart } : {}),
+    };
+  }
+
+  /**
+   * A counter chosen in a running duel. Its reply, the voice from the ring,
+   * the notebook and the next boast (or the ending) are the presentation;
+   * the duel's writes, present only on the choice that ends it, are its
+   * effects. No dialogue count is kept: a counter is not a node's option.
+   */
+  private resolveDuelChoice(optionId: string): DialogueResolution {
+    const duel = this.duel as DuelSession;
+    const choice = duel.resolve(optionId);
+    const [first, ...rest] = choice.lines;
+    const prefix = `assay/${duel.id}/${duel.snapshot().index}/${optionId}`;
+    return {
+      optionId,
+      tree: (this.activeTree as DialogueFile).id,
+      node: this.activeNodeId as string,
+      presentation: {
+        say: first?.line ?? null,
+        sayer: first?.speaker ?? null,
+        rest,
+        direction: false,
+        ended: false,
+      },
+      goto: null,
+      ends: false,
+      effects: flagEffects(prefix, choice.sets),
+      duelChoice: optionId,
     };
   }
 
@@ -562,6 +673,17 @@ export class DialogueRunner {
     commitBundle(exchange.tx.effects, this.dialogueWorld(), exchange.tx.journal);
 
     const { resolution } = exchange;
+    if (resolution.duelChoice && this.duel) {
+      const choice = this.duel.commit(resolution.duelChoice);
+      if (choice.ended) {
+        this.duel = null;
+        if (choice.yields.length) this.assay?.grant(choice.yields);
+      }
+      return;
+    }
+    if (resolution.duelStart && this.assay) {
+      this.duel = new DuelSession(this.assay.file, resolution.duelStart, this.knownPairs());
+    }
     if (resolution.ends) {
       this.activeTree = null;
       this.activeNodeId = null;
@@ -605,6 +727,7 @@ export class DialogueRunner {
       tree: this.activeTree?.id ?? null,
       node: this.activeNodeId,
       counts: this.progressSnapshot(),
+      duel: this.duelSnapshot(),
     });
   }
 
@@ -643,11 +766,13 @@ export class DialogueRunner {
     return out;
   }
 
-  restore(progress: LegacyProgress, position: { tree: string | null; node: string | null }): void {
+  restore(progress: LegacyProgress, position: { tree: string | null; node: string | null },
+    duel: DuelSnapshot | null = null): void {
     // A load abandons the unsaved live session whole. An exchange reserved
     // against the world being replaced is part of what is abandoned.
     this.pending?.abandon('sessionAbandoned');
     this.pending = null;
+    this.duel = null;
     this.counts = new Map();
     for (const [treeId, taken] of Object.entries(progress)) {
       if (!this.trees.has(treeId)) continue;
@@ -662,6 +787,13 @@ export class DialogueRunner {
       this.activeTree && position.node && this.activeTree.nodes[position.node] ? position.node : null;
     if (this.activeTree && !this.activeNodeId) {
       this.activeTree = null;
+    }
+    // A DUEL SAVED MID-FIGHT RESUMES AT THE SAME BOAST. "Save/load restores
+    // exact state including partial dialogue trees" (CLAUDE.md), and a duel
+    // is a partial tree: dropping it would leave Duel One's option spent and
+    // its writes unlanded -- a game that cannot be won.
+    if (duel && this.activeTree && this.assay) {
+      this.duel = new DuelSession(this.assay.file, duel.duel, new Set(duel.known), duel);
     }
   }
 }
