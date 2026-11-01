@@ -1,0 +1,11 @@
+{
+ "assetId": "room-06",
+ "subject": "room-06-assay-records",
+ "role": "plate",
+ "purpose": "room-art",
+ "baselineRoom": "room-06-assay-records",
+ "promptFile": "reference/room-06/prompts/plate-01.txt",
+ "out": "art/staging/room-06/plate-01/source.png",
+ "size": "1536x1024",
+ "images": ["art/staging/room-06/composition-master-01.png"]
+}

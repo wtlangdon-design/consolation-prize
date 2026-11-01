@@ -1,0 +1,64 @@
+{
+ "source": "art/staging/room-06/plate-02/source.png",
+ "crop": {
+  "x": 8,
+  "y": 152,
+  "width": 1520,
+  "height": 684
+ },
+ "out": "art/staging/room-06/plate-02/candidate-1920x864.png",
+ "derivation": {
+  "transform": "errata-63-fixed-room-source-acquisition",
+  "provisional": true,
+  "provisionalNote": "ROOM 5 PILOT ONLY. Tyler's full-frame review decides whether this source-to-shipping treatment survives to Room 6. It is not a forty-room rule.",
+  "source": {
+   "path": "art/staging/room-06/plate-02/source.png",
+   "hash": "9462a37244c45ea5fec45d3e74e52fb7467c26fd5c58f62244cdd37bcbc010aa",
+   "width": 1536,
+   "height": 1024,
+   "bytes": 1857471,
+   "kept": true
+  },
+  "crop": {
+   "x": 8,
+   "y": 152,
+   "width": 1520,
+   "height": 684,
+   "aspect": "20:9"
+  },
+  "resample": {
+   "algorithm": "lanczos3-separable-premultiplied-srgb-clamped",
+   "lobes": 3,
+   "from": [
+    1520,
+    684
+   ],
+   "to": [
+    1920,
+    864
+   ],
+   "factor": 1.263157894736842,
+   "normalisedWeights": true,
+   "premultiplied": true,
+   "rounding": "half-away-from-zero, clamped to 0..255",
+   "forbidden": [
+    "nearest-neighbour",
+    "ai-upscale",
+    "sharpen",
+    "denoise",
+    "recolour",
+    "contrast-enhancement",
+    "generative-second-pass"
+   ]
+  },
+  "derived": {
+   "path": "art/staging/room-06/plate-02/candidate-1920x864.png",
+   "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde",
+   "width": 1920,
+   "height": 864,
+   "bytes": 2664133,
+   "colourType": 2
+  }
+ },
+ "why": "Room 6 takes its own 20:9 crop of operation 3, which re-framed the room into a band at y 128-895 (tools/art/room06-plate.mjs)."
+}

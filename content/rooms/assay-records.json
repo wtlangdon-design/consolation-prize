@@ -1,0 +1,850 @@
+{
+  "schema": 1,
+  "id": "assay_records",
+  "name": "THE ASSAY RECORDS ROOM",
+  "materialIdentity": "Ledger leather and dust over a dark field, warm and closed against Room 5's cold precision next door (errata 30f); a lit floor under the desk lamp (errata 31a)",
+  "note": "Room 6, doc 20: behind the assay office's counter. Nobody is staged here and no puzzle is sited here; Winnie sleeps here (doc 54). One visual state, night, inherited from Room 5 (errata 64b, 79). Compiled by tools/compile-room.mjs from content/examine/room-06.json and reference/room-06/annotation.json.",
+  "background": "art/backgrounds/room-06-assay-records.png",
+  "colours": {
+    "sky": 0,
+    "ground": 6
+  },
+  "horizon": 320,
+  "walkable": [
+    {
+      "id": "mud_far",
+      "zone": 2,
+      "surface": "mud",
+      "rect": [
+        230,
+        655,
+        960,
+        63
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "zone": 1,
+      "surface": "mud",
+      "rect": [
+        230,
+        718,
+        960,
+        64
+      ]
+    },
+    {
+      "id": "mud_near",
+      "zone": 0,
+      "surface": "mud",
+      "rect": [
+        230,
+        782,
+        960,
+        63
+      ]
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "nineteen_names",
+      "name": "THE NINETEEN NAMES",
+      "rect": [
+        1072,
+        325,
+        115,
+        70
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The nineteen. Some are dead, some left, one runs the bakehouse now.",
+            "repeat": [
+              "Each name has a date beside it, and the dates are spread across twelve years like a slow leak.",
+              "I have read them often enough to know any of them if I met him. I am not going to meet most of them."
+            ],
+            "then": [
+              "Not one of them found enough to matter, and every one of them is famous for it."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Fame this size is very quiet.",
+            "repeat": [
+              "Nothing. Nineteen men, filed quietly.",
+              "Nothing. A short list keeps a long silence."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "TALK_TO": "I read them aloud once, quietly. It felt like a roll call. Nobody answered, which is the point of the list."
+      },
+      "walkTo": {
+        "x": 1130,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "crucible",
+      "name": "THE CRUCIBLE",
+      "rect": [
+        1505,
+        325,
+        80,
+        115
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The crucible that has judged every hope in the district.",
+            "repeat": [
+              "Its inside is glazed by fire to a dull gold that has nothing to do with gold.",
+              "Tongs hang beside it, long enough to keep a hand well away from the truth."
+            ],
+            "then": [
+              "It is the size of a teacup and twice as final."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Cold. A crucible only speaks at temperature.",
+            "repeat": [
+              "Nothing. It is waiting for a fire and a question.",
+              "A faint tick as it settles on its stand. Even cold, it has weight."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "Cold, and not mine to fire. Some instruments you earn."
+      }
+    },
+    {
+      "id": "shelf_of_reference_volumes",
+      "name": "THE SHELF OF REFERENCE VOLUMES",
+      "rect": [
+        538,
+        285,
+        185,
+        75
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Assaying manuals, a chemistry, a German dictionary and the territorial statutes, all with their spines broken in the right places.",
+            "repeat": [
+              "One manual is annotated in her hand. In three places she has corrected the author.",
+              "The German dictionary is the most used. I cannot think what for, and I am afraid to ask."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Knowledge, resting.",
+            "repeat": [
+              "A spine creaking as the shelf takes the damp.",
+              "Nothing. They have been read thoroughly and have nothing new to say."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 631,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stool",
+      "name": "THE STOOL",
+      "rect": [
+        982,
+        450,
+        92,
+        168
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A high stool worn by the assayer's particular way of sitting, which is mostly leaning.",
+            "repeat": [
+              "One leg has been mended with wire. She mended it herself, by the look of the wire.",
+              "It stands exactly where the window light falls on the ledger. Not an inch to the left."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "One loose joint. It announces him.",
+            "repeat": [
+              "The loose joint again, when I set a hand on it. It is used to one weight only.",
+              "Nothing. It is waiting for her."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "USE": "I sat on it. It announced me. I got down."
+      },
+      "walkTo": {
+        "x": 1028,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "her_tea_things",
+      "name": "HER TEA THINGS",
+      "rect": [
+        860,
+        395,
+        95,
+        165
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cup, a saucer, a tin of tea and a spoon, arranged on a tray as exactly as everything else she keeps.",
+            "repeat": [
+              "One cup. She does not entertain.",
+              "The tin's label is from Canton by way of San Francisco by way of Sheng. Even her tea has a paper trail."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A faint clink of spoon on saucer as the floor moves.",
+            "repeat": [
+              "Nothing. The cup is clean and dry and upside down.",
+              "Nothing. Tea for one makes the smallest sound in the world."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 908,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "back_window",
+      "name": "THE BACK WINDOW",
+      "rect": [
+        912,
+        12,
+        155,
+        130
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "It looks up the diggings. From here you can watch men carry hope in and results out.",
+            "repeat": [
+              "It is set high, so nobody passing can see in. She can see out only by standing on the stool.",
+              "From up here the diggings look like a page of arithmetic, and none of it adds up."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Picks, far off. The hills, being asked.",
+            "repeat": [
+              "A pick, then another, then a man laughing at something that was probably not funny.",
+              "The wind across the glass, come down from the diggings with nothing in its hands."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 990,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "spare_apron",
+      "name": "THE SPARE APRON",
+      "rect": [
+        470,
+        180,
+        72,
+        350
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A spare apron on a peg, starched and pressed, with acid holes along the hem in a neat row.",
+            "repeat": [
+              "The pocket holds a pencil sharpened at one end only, which in this town is a sign of good character.",
+              "It matches the one she is wearing, stain for stain. She keeps a spare of everything except time."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Linen, on a peg.",
+            "repeat": [
+              "The peg creaking very slightly when the door opens.",
+              "Nothing. It is ready for tomorrow, and the day after."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 506,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stove",
+      "name": "THE STOVE",
+      "rect": [
+        735,
+        290,
+        100,
+        280
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A small stove, lit low, with a kettle on it and a pan of something that might be supper or might be glue.",
+            "repeat": [
+              "The fender is polished. Everything in this room is looked after, and the stove is looked after twice.",
+              "Her shawl is drying on the rail. She works here, and lives a good part of the rest of the time here too."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A low ticking, like a clock that has been told to keep its voice down.",
+            "repeat": [
+              "The kettle, thinking about it.",
+              "Coals shifting, settling, staying in."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 785,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "stain_on_the_floor",
+      "name": "THE STAIN ON THE FLOOR",
+      "rect": [
+        700,
+        640,
+        330,
+        90
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "An old acid burn, scrubbed at for years and settled into the grain.",
+            "repeat": [
+              "Someone has laid a mat over the edge of it. The mat is not quite big enough.",
+              "It is the shape of a hand, if you look at it the wrong way, which I did."
+            ],
+            "then": [
+              "Some result somebody took badly."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing. Whatever happened here is finished happening.",
+            "repeat": [
+              "Nothing. The floor has forgiven it.",
+              "Nothing. Even the boards around it are quiet."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 865,
+        "y": 843,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "acid_bottles",
+      "name": "THE ACID BOTTLES",
+      "rect": [
+        1505,
+        85,
+        180,
+        185
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Aqua fortis, in brown glass, with a stopper the shape of regret.",
+            "repeat": [
+              "Each bottle carries a printed label, POISON, and beneath it, in her hand: ALSO TRUTH.",
+              "One drop has eaten into the bench, a small brown crater. It was a test somebody failed."
+            ],
+            "then": [
+              "It tells gold from everything that wishes it were."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "A hiss so small it may be memory.",
+            "repeat": [
+              "A tiny ping of glass as the shelf takes the weight of the morning.",
+              "Nothing. It does its work in silence, and I respect that more than I can say."
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "map_of_claims",
+      "name": "THE MAP OF CLAIMS",
+      "rect": [
+        528,
+        62,
+        200,
+        215
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The district in pencil, each claim a small rectangle of intention. Mine is there.",
+            "repeat": [
+              "The claims along the creek are drawn in a careful hand, the ones up the hill in a quicker one, as if the town got ahead of her.",
+              "Claim One is drawn in ink and labeled. Every other claim is pencil."
+            ],
+            "then": [
+              "It is drawn slightly crooked, which feels personal."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper on a damp wall, easing.",
+            "repeat": [
+              "A pin working loose somewhere in the damp.",
+              "Nothing. The district, flat and quiet, the way it never is."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 628,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "filed_certificates",
+      "name": "THE FILED CERTIFICATES",
+      "rect": [
+        538,
+        375,
+        192,
+        225
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Certificates of assay, filed by year.",
+            "repeat": [
+              "Each certificate is stamped, signed and dated, and most of them say nothing worth stamping.",
+              "The folders are tied with tape, and every bow is the same size."
+            ],
+            "then": [
+              "The folders get thinner toward the present, like the town is holding its breath."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Paper, in quantity. A dry sea.",
+            "repeat": [
+              "Nothing. Certainty, in folders, makes no sound.",
+              "Paper settling in a drawer, a long, dry exhale."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 634,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "register_of_assays",
+      "name": "THE REGISTER OF ASSAYS",
+      "rect": [
+        950,
+        280,
+        250,
+        305
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Every ounce of color ever brought in, weighed and named. Nineteen names, twelve years.",
+            "repeat": [
+              "Nine years of assays, in a hand that has not varied once. Not one crossing-out.",
+              "The columns are ruled by hand, every page, every year. She has never once bought ruled paper."
+            ],
+            "then": [
+              "It is a shorter book than the town believes."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Pages. Very few of them turn.",
+            "repeat": [
+              "Nothing.",
+              "A page lifting in the draft from the door and lying down again exactly where it was."
+            ]
+          }
+        ]
+      },
+      "walkTo": {
+        "x": 1075,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "scales_cabinet",
+      "name": "THE SCALES CABINET",
+      "rect": [
+        1310,
+        100,
+        178,
+        480
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "The good scales, behind glass, level to a hair.",
+            "repeat": [
+              "The glass door has a brass lock. The key, I am told, is on a ribbon round her neck.",
+              "Beside the scales, a set of weights in a velvet tray, each in its own hollow, none missing."
+            ],
+            "then": [
+              "The one instrument in Consolation nobody has ever accused of anything."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing at all. Precision resting.",
+            "repeat": [
+              "Nothing. Precision does not hum.",
+              "The glass door ticking very slightly in its frame when the street door goes."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "OPEN": "Locked, and the key is Winnie, and Winnie is the lock."
+      }
+    },
+    {
+      "id": "sample_shelf",
+      "name": "THE SAMPLE SHELF",
+      "rect": [
+        1085,
+        15,
+        225,
+        565
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "Rows of little bottles, each holding a pinch of the territory.",
+            "repeat": [
+              "Every sample assayed in nine years, in labeled vials. It is beautiful, in the way that only a completed thing is beautiful.",
+              "There are gaps where bottles were taken out and never returned. Some men took their pinch home to remember it by."
+            ],
+            "then": [
+              "Labeled in a hand that gets smaller as the years go on."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Glass, shoulder to shoulder. A faint ring when the floor moves.",
+            "repeat": [
+              "Nothing. It is nine years of work and it is not asking for anything.",
+              "The ring again, very faint, as I step back. Glass, sorry to see me go."
+            ]
+          }
+        ]
+      },
+      "overrides": {
+        "PICK_UP": "Every bottle is somebody's whole year. I am not qualified to hold a year."
+      },
+      "walkTo": {
+        "x": 1045,
+        "y": 802,
+        "facing": "back"
+      }
+    },
+    {
+      "id": "cot_in_the_corner",
+      "name": "THE COT IN THE CORNER",
+      "rect": [
+        1255,
+        585,
+        630,
+        250
+      ],
+      "defaultVerb": "LOOK_AT",
+      "responses": {
+        "LOOK_AT": [
+          {
+            "say": "A cot. Used. She has slept in this building, and recently, and more than once.",
+            "repeat": [
+              "One blanket, folded square, and a pillow with the shape of a head still in it.",
+              "From it you can see the street door. She sleeps facing the way she might be needed."
+            ]
+          }
+        ],
+        "LISTEN_TO": [
+          {
+            "say": "Nothing.",
+            "repeat": [
+              "Nothing. It is very carefully not being slept in, just now.",
+              "A spring easing in the frame, long after anyone sat on it."
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "exits": [
+    {
+      "id": "back_to_assay",
+      "name": "THE ASSAY OFFICE",
+      "rect": [
+        300,
+        100,
+        165,
+        540
+      ],
+      "colour": 0,
+      "to": "assay_office",
+      "responses": {},
+      "fallback": [],
+      "defaultVerb": "WALK_TO",
+      "note": "Doc 20: the one way back to Room 5. NO DOCUMENT WRITES THIS SIDE OF THE DOOR: doc 25 writes Room 5's THE RECORDS ROOM DOOR, and docs 05, 08, 49 and 54 give the records room no door subject. So its examine layer is honestly absent, marked as a stub exit as Main Street's door to the hotel is, and reported in doc 36 Q149; the door works, and its LOOK and LISTEN wait for lines.",
+      "stub": true,
+      "walkTo": {
+        "x": 380,
+        "y": 665,
+        "facing": "back"
+      }
+    }
+  ],
+  "ambient": [],
+  "size": [
+    1920,
+    864
+  ],
+  "generated": {
+    "by": "tools/compile-room.mjs",
+    "from": [
+      "content/examine/room-06.json",
+      "reference/room-06/annotation.json"
+    ],
+    "note": "GENERATED. Edit the documents or the annotation, never this file."
+  },
+  "walkableOutline": [
+    [
+      230,
+      655
+    ],
+    [
+      1190,
+      655
+    ],
+    [
+      1190,
+      845
+    ],
+    [
+      230,
+      845
+    ]
+  ],
+  "entrance": [
+    380,
+    690
+  ],
+  "entrances": [
+    {
+      "from": "assay_office",
+      "at": [
+        380,
+        690
+      ],
+      "facing": "right",
+      "note": "Through the door from the front office, at left, onto the lit floor."
+    },
+    {
+      "from": "default",
+      "at": [
+        380,
+        690
+      ],
+      "facing": "right",
+      "note": "Anything else arrives by the door."
+    }
+  ],
+  "walkBoxes": [
+    {
+      "id": "mud_far",
+      "points": [
+        {
+          "x": 230,
+          "y": 655
+        },
+        {
+          "x": 1190,
+          "y": 655
+        },
+        {
+          "x": 1190,
+          "y": 718
+        },
+        {
+          "x": 230,
+          "y": 718
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 655,
+        "farHeight": 433,
+        "nearY": 845,
+        "nearHeight": 528
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    },
+    {
+      "id": "mud_mid",
+      "points": [
+        {
+          "x": 230,
+          "y": 718
+        },
+        {
+          "x": 1190,
+          "y": 718
+        },
+        {
+          "x": 1190,
+          "y": 782
+        },
+        {
+          "x": 230,
+          "y": 782
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 655,
+        "farHeight": 433,
+        "nearY": 845,
+        "nearHeight": 528
+      },
+      "neighbours": [
+        "mud_far",
+        "mud_near"
+      ]
+    },
+    {
+      "id": "mud_near",
+      "points": [
+        {
+          "x": 230,
+          "y": 782
+        },
+        {
+          "x": 1190,
+          "y": 782
+        },
+        {
+          "x": 1190,
+          "y": 845
+        },
+        {
+          "x": 230,
+          "y": 845
+        }
+      ],
+      "surface": "mud",
+      "clipPlane": 0,
+      "scaleMode": {
+        "kind": "curve",
+        "farY": 655,
+        "farHeight": 433,
+        "nearY": 845,
+        "nearHeight": 528
+      },
+      "neighbours": [
+        "mud_mid"
+      ]
+    }
+  ],
+  "lamps": [
+    {
+      "id": "desk_lamp",
+      "at": [
+        1040,
+        285
+      ],
+      "radius": 520,
+      "amount": 0.12,
+      "rate": 0.3,
+      "phase": 0.15,
+      "note": "THE DESK LAMP (errata 31a: 'add a lamp at the desk'): one small brass oil lamp, the room's work light, and the warm pool on the floor it throws. A slow, low breath; it never stops and never signals anything (invariant 9). The stove has no runtime lamp and stays a painted accent, as Room 5's does."
+    }
+  ],
+  "occlusionPlanes": [],
+  "occlusionBands": [
+    "mud_far",
+    "mud_mid",
+    "mud_near"
+  ],
+  "walkBoxNote": "GENERATED by tools/compile-room.mjs from reference/room-06/annotation.json. Heights come from that annotation’s own depth curve, which each room derives from its own architecture -- doc 36 Q10."
+}

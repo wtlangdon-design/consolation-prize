@@ -1,0 +1,385 @@
+{
+ "room": 6,
+ "note": "Ruling 22 steps 1-6 for the assay records room, written by tools/room06-graybox.py before any image operation. Errata 31a is the lighting brief (dark field, lit floor, a lamp at the desk); positions and values are the plan the plate is generated against (errata 79).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 700,
+   "height": 470
+  },
+  "near": {
+   "y": 830,
+   "height": 560
+  },
+  "from": "reference/room-05/annotation.json scaling (the same building)"
+ },
+ "walkable": [
+  140,
+  700,
+  1400,
+  130
+ ],
+ "exit": {
+  "hotspot": "THE DOOR TO THE ASSAY OFFICE",
+  "to": "assay_office",
+  "rect": [
+   60,
+   170,
+   220,
+   470
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 240,
+   "y": 760,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE DOOR TO THE ASSAY OFFICE",
+   "rect": [
+    60,
+    170,
+    220,
+    470
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SPARE APRON",
+   "rect": [
+    310,
+    260,
+    70,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MAP OF CLAIMS",
+   "rect": [
+    410,
+    120,
+    280,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SHELF OF REFERENCE VOLUMES",
+   "rect": [
+    410,
+    345,
+    280,
+    70
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FILED CERTIFICATES",
+   "rect": [
+    410,
+    440,
+    300,
+    200
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOVE (pipe)",
+   "rect": [
+    785,
+    0,
+    30,
+    420
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOVE",
+   "rect": [
+    740,
+    420,
+    130,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOVE (kettle)",
+   "rect": [
+    770,
+    380,
+    70,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HER TEA THINGS (stand)",
+   "rect": [
+    890,
+    520,
+    80,
+    120
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "HER TEA THINGS",
+   "rect": [
+    890,
+    506,
+    80,
+    14
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BACK WINDOW",
+   "rect": [
+    1040,
+    70,
+    190,
+    150
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STOOL",
+   "rect": [
+    1000,
+    470,
+    50,
+    170
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE REGISTER (high desk)",
+   "rect": [
+    1060,
+    430,
+    260,
+    210
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE REGISTER OF ASSAYS",
+   "rect": [
+    1100,
+    408,
+    160,
+    24
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DESK LAMP",
+   "rect": [
+    1280,
+    352,
+    36,
+    78
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SAMPLE SHELF",
+   "rect": [
+    1350,
+    100,
+    280,
+    540
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE SCALES CABINET",
+   "rect": [
+    1650,
+    280,
+    130,
+    360
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BENCH",
+   "rect": [
+    1790,
+    450,
+    130,
+    190
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE ACID BOTTLES",
+   "rect": [
+    1790,
+    300,
+    130,
+    80
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CRUCIBLE",
+   "rect": [
+    1820,
+    400,
+    60,
+    50
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STAIN ON THE FLOOR",
+   "rect": [
+    700,
+    730,
+    260,
+    60
+   ],
+   "where": "floor"
+  },
+  {
+   "name": "THE STAIN ON THE FLOOR (mat)",
+   "rect": [
+    820,
+    722,
+    160,
+    64
+   ],
+   "where": "floor"
+  },
+  {
+   "name": "THE COT IN THE CORNER",
+   "rect": [
+    1580,
+    680,
+    340,
+    184
+   ],
+   "where": "front"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "The cot is the only near object and the walk band stops short of it (x <= 1540), so nothing can stand behind it and no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "back wall, dark plaster and leather",
+   "p10": 56.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "wainscot",
+   "p10": 50.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 24.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "floor, lit boards",
+   "p10": 92.0,
+   "p90": 104.0,
+   "darkAnchorMargin": 66.5,
+   "lightAnchorMargin": 17.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE DOOR TO THE ASSAY OFFICE",
+   "p10": 56.0,
+   "p90": 56.0,
+   "darkAnchorMargin": 30.5,
+   "lightAnchorMargin": 65.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SPARE APRON",
+   "p10": 96.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 70.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MAP OF CLAIMS",
+   "p10": 96.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 70.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SHELF OF REFERENCE VOLUMES",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE FILED CERTIFICATES",
+   "p10": 54.0,
+   "p90": 54.0,
+   "darkAnchorMargin": 28.5,
+   "lightAnchorMargin": 67.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STOVE",
+   "p10": 46.0,
+   "p90": 46.0,
+   "darkAnchorMargin": 20.5,
+   "lightAnchorMargin": 75.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "HER TEA THINGS (stand)",
+   "p10": 58.0,
+   "p90": 58.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 63.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STOOL",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 24.5,
+   "lightAnchorMargin": 71.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE REGISTER (high desk)",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE SAMPLE SHELF",
+   "p10": 58.0,
+   "p90": 96.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 25.3,
+   "verdict": "strong"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}

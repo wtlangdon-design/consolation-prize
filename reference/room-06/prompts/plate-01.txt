@@ -1,0 +1,5 @@
+Image 1 is a finished background from my pixel-art adventure game, with one person in it: the man in the blue coat standing on the floor in front of the stove.
+
+Remove him. Paint what is behind him, exactly as the room would look with nobody in it: the stove and its glowing door, the stand with the cup, the floorboards and the worn pale patch on the floor, the lamplight on the floor.
+
+Change nothing else. Same framing, same camera, same pixel grid, same colours, same light, same objects in the same places: the door, the apron, the map, the books, the drawers, the stove and kettle, the window, the desk, the open ledger, the lamp, the stool, the bottle shelves, the glass cabinet, the bench, the crucible, the cot, the mat. No people, no shadows of people, no text.

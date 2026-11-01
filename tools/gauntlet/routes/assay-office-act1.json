@@ -2144,7 +2144,7 @@
   },
   {
    "do": "waitFor",
-   "room": "stub_assay_records",
+   "room": "assay_records",
    "upTo": 40
   },
   {

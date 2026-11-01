@@ -461,6 +461,10 @@ const ROOM_DOC_IS_RANGE = Boolean(ROOM_DOC) && /-rooms-\d+-\d+\.md$/.test(ROOM_D
 const ROOM_DOC_TEXT = !ROOM_DOC ? '' : !ROOM_DOC_IS_RANGE ? read(ROOM_DOC) : (() => {
   const whole = read(ROOM_DOC);
   const at = new RegExp(`^# ROOM ${room} · `, 'm').exec(whole);
+  // A MERGED ROOM (doc 54) carries its writing in content/examine/room-NN.json,
+  // so a range document with no section for it has nothing to give it: Room 6
+  // sits in doc 25's 05-07 range and doc 25 writes only Room 5's door to it.
+  if (!at && MERGED) return '';
   if (!at) fail(`${ROOM_DOC} covers this room's number range and has no "# ROOM ${room} ·" heading`);
   const rest = whole.slice(at.index);
   const next = /^# ROOM \d+ · /m.exec(rest.slice(at[0].length));

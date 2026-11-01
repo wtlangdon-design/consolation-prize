@@ -1,0 +1,19 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background, keeping the camera, the layout and every block where image 1 puts it. Everything that matters stays inside the darker middle band of image 1; the light grey top and bottom are margin.
+
+THE ROOM: the small records room behind a gold-rush town's assay office, 1850s, at night. The assayer, a meticulous woman, keeps her records here, works here and sometimes sleeps here. Image 5 is the front office on the other side of the door, at the same hour: the same building, the same night.
+- Left wall: a plain panelled door back to the front office. Beside it, a wooden peg with a starched work apron hanging on it.
+- Back wall, left: a large pencilled map of mining claims pinned to the damp plaster, small rectangles drawn in pencil, one claim inked; NO readable writing. Under it a short shelf of thick, well-used reference books, and under that a wooden cabinet of drawers holding folders tied with tape.
+- Back wall, centre-left: a small iron stove lit low, a faint orange glow at its door, a kettle on top, its pipe going up to the ceiling. Beside it a little stand with a tray: one cup upside down on a saucer, a tea tin, a spoon.
+- Back wall, centre: one small window set HIGH in the wall, near the ceiling: night sky, dark blue, a few stars, nothing else visible through it. Below it a tall clerk's desk with a big ledger lying open on it, and a small brass oil lamp on the desk, lit. A high wooden stool at the desk, one leg mended with wire.
+- Back wall, right of centre: a tall wall of shelves filled with rows of small glass sample bottles, each with a tiny paper label; a few gaps in the rows.
+- Right: a tall cabinet with a glass door and a small brass lock; inside it a fine brass balance and a tray of weights. Beside it a workbench with a shelf of brown glass bottles above it, and on the bench a small cup-shaped crucible on an iron stand with long tongs hanging by it; a small burnt crater on the bench top.
+- Near right corner: a narrow cot with one blanket folded square and a pillow, low in the foreground.
+- Floor: worn pine boards. In the middle of the floor an old pale acid stain scrubbed into the grain, with a small mat laid over its edge that does not quite cover it.
+
+THE LIGHT: a dark, closed room. The walls and shelves stay dim and warm; the floor, the desk and the space where the hero stands are lit by the desk lamp's warm pool, so a man standing on the floor reads clearly against what is behind him. No daylight anywhere. The stove's glow is small.
+
+THE PERSON: the hero from image 4, standing where image 1 puts him, at exactly that size. He is only there to show scale.
+
+THE LOOK: the same pixel-art style as images 2, 3, 5 and 6, and the same hand as the hero: flat, soft shading, very little texture, simple shapes, a visible pixel grid. Not sharp, not finely detailed, no hard internal contrast. This room has its own colours, warmer and more closed than the cold grey-blue front office in image 5: ledger-leather browns, dusty umber walls, bone-coloured paper, a little rust. Nothing near black where the hero stands.
+
+RULES: no text, letters or numbers anywhere -- the map, the labels and the ledger carry marks, never words. No border, no frame, no caption.

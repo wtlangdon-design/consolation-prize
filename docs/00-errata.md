@@ -2333,3 +2333,23 @@ It was written down: errata 35 says nobody is ever perfectly still and gives nam
 
 What Tyler still decides: acceptance of the art (errata 72 E, at the full playthrough), and anything that asks him for a decision the docs do not make.
 
+
+---
+
+# 79 · ROOM 6 BUILT — THE BUILDER'S DECISIONS (2026-11-01)
+
+*Made by the Room 6 builder under doc 55 section 5's standing delegation. No line was written. Every ruling below can be struck or changed by its letter.*
+
+**A · One visual state, night.** The records room is reached only through Room 5, and Room 5's base presentation is night (errata 64b, 66; its day plate is a companion staged for a later state). So the records room is night too: the high window shows a night sky, the desk lamp is the work light and the stove is lit low (doc 54). Nobody is staged here (doc 20; the readiness gate), no puzzle is sited here (doc 02) and doc 05 Part Two-B wrote no act variant, so nothing in the room changes: its proof spec declares no principal change and says why (`principalChange: { none }`, new in `tools/gauntlet/proof.mjs`), rather than inventing one.
+
+**B · The light is errata 31a, literally.** A dark field (walls and shelves dim), a lit floor, a lamp at the desk. The graybox's legibility gate (`proofs/room-06/graybox.json`) re-blocked the starched apron and the pinned map down into the field's value, because at paper-white Thad's face would sink against them; the generated room kept them dim.
+
+**C · The layout.** Doc 54's seventeen subjects less the two errata 66 D and 69 D moved to Room 5. The door to the front office at the left of the back wall (Room 5's records door is at its right, so this room lies to its right); the apron on its peg by the door ("the peg creaking when the door opens"); the map, the reference shelf and the drawers of certificates on the left wall; the stove with the tea things beside it; the high window over the high desk and the stool ("exactly where the window light falls on the ledger"); the sample shelf; the scales cabinet; the bench under the acid bottles with the crucible on it; the cot in the near corner, facing the door ("she sleeps facing the way she might be needed"). THE NINETEEN NAMES are the open register's right-hand page (errata 69 D: "how the assay register reads them").
+
+**D · The art: 3 of room-06's 4 operations.** 1, a composition master against the graybox with Thad once for scale; 2, the same picture with him taken out; 3, that plate given to the generator at 0.8 scale in the 20:9 band, asking it to extend the walls into the side strips. Operation 2's framing could not be cropped to 20:9 without halving the window and losing the mat; operation 3 re-framed the whole room a little further back instead, every subject in it, and that is the plate (`tools/art/room06-plate.mjs`, crop x 8, y 152). Promoted provisionally, pending Tyler's playthrough (errata 72 E). One operation is unspent.
+
+**E · The depth.** The master painted Thad about 380 tall at y 680, which makes the door 1.4 times his height and the stool reach his thigh. Composited at that size and at a door-led size, the door-led one reads as a man in the room: 433 at y 655, 528 at y 845, within 8% of Room 5's own curve next door (`reference/room-06/annotation.json`).
+
+**F · The way back has no lines, and is marked so.** No document writes Room 6's side of the door to the front office (doc 25 writes Room 5's side). It is a stub exit, as Main Street's door to the hotel is: it works, and its LOOK and LISTEN wait for lines (doc 36 Q149). The room id is `assay_records`; the stub room `stub_assay_records` is retired.
+
+**G · Tooling, found while building.** The gauntlet's waits clicked through nothing under `conversationWaitsForClick`, so every route that passes through the opening timed out on the driver's first answer; `tools/gauntlet/route.mjs` now reads a performing line by click during any wait that is not waiting for a line, as `settle()` already did. `tools/compile-room.mjs` accepts a merged room that a range document (doc 25's 05-07) has no section for.

@@ -1,0 +1,10 @@
+{
+ "schema": 1,
+ "room": "assay_records",
+ "note": "ROOM 6's PROOF SPEC. The route is the assay office's, then its records room door. Room 6 has no principal changed state: one visual state (night, errata 64b and 79), nobody staged in it (doc 20; the readiness gate) and no puzzle sited in it (doc 02), so panel D is declared absent rather than invented.",
+ "route": "assay-records",
+ "settleMs": 4000,
+ "principalChange": {
+  "none": "Room 6 has one visual state and nothing in it changes: no character is present (doc 20, the readiness gate), no puzzle is sited here (doc 02), and Part Two-B wrote no act variant for the records room (doc 05). Errata 79 A."
+ }
+}

@@ -143,8 +143,21 @@ const probe = (page) => page.evaluate(() => window.__gauntlet?.probe() ?? null);
 async function waitFor(page, want, upTo, why) {
   const deadline = Date.now() + upTo * 1000;
   let last = null;
+  let lineSince = Date.now();
   for (;;) {
     last = await probe(page);
+    // WAITING PAST A CONVERSATION IS WAITING FOR ITS LINES TO BE READ. Under
+    // ui.json conversationWaitsForClick an exchange performs until it is
+    // clicked, so a wait for the next list of options after choosing one
+    // never ended: the opening's driver sat on his first answer for its whole
+    // deadline. A line up for the minimum reading hold is clicked once, as
+    // settle() does -- for every wait but a `says` wait, which wants the line
+    // up. A click while a line performs is spent on the line, never on the room.
+    if (want.says === undefined && READS_BY_CLICK && last?.performing
+      && Date.now() - lineSince >= READ_MS) {
+      await clickScreen(page, NATIVE.width / 2, PLAY.height / 2);
+      lineSince = Date.now();
+    }
     if (last) {
       if (want.room !== undefined && last.room === want.room) return last;
       if (want.control !== undefined && last.control === want.control) return last;

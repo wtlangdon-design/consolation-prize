@@ -1,0 +1,8 @@
+Image 1 is a finished background from my pixel-art adventure game, a small records room at night, placed in the middle of the canvas. The flat grey strips down the LEFT and RIGHT sides are unfinished.
+
+Extend the room into the two grey side strips, so it fills the whole width:
+- Left strip: more of the same dim back wall and wainscot to the left of the plain door, and the same worn pine floorboards continuing below. Nothing new on the wall.
+- Right strip: more of the same dim wall to the right of the shelf of brown bottles and the workbench, and more of the cot's foot and the floorboards below. Nothing new on the wall.
+- The new parts match the room exactly: same pixel-art style and pixel grid, same colours, same dim lamplight falling off toward the edges, same perspective.
+
+Do not change anything already painted in the middle: same door, apron, map, books, drawers, stove and kettle, cup, window, desk, open ledger, lamp, stool, bottle shelves, glass cabinet, bench, crucible, cot, mat, floor, light. The grey above and below the picture may stay grey. No people, no text, no border.

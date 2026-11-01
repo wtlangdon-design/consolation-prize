@@ -1,0 +1,2099 @@
+{
+ "schema": 1,
+ "note": "ROOM LIFE PROOF: full-frame stills at named steps of a deterministic route, with the probe state at each. Technical coherence only -- says nothing about whether the room is any good.",
+ "room": "assay_records",
+ "commit": "4af6e1c08a065ac5abf196ee0f3468f41ddb7625",
+ "workingTreeClean": true,
+ "dirtyAllowed": false,
+ "visualState": null,
+ "objectStates": null,
+ "pace": 1,
+ "candidates": [],
+ "entryRoute": "assay-records",
+ "warped": false,
+ "lifeRoute": "assay-records-life",
+ "durationSeconds": 211.51,
+ "events": [
+  {
+   "t": 3.5,
+   "line": "entry route assay-records: 26 action(s)"
+  },
+  {
+   "t": 119.07,
+   "line": "action 1 (wait): waited 2.5s"
+  },
+  {
+   "t": 119.07,
+   "line": "action 2 (click): clicked screen 960,430 -- past the title into beat 2"
+  },
+  {
+   "t": 119.07,
+   "line": "action 3 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 119.07,
+   "line": "action 4 (option): chose option drv1 -- Where can I find Ezra Pike?"
+  },
+  {
+   "t": 119.07,
+   "line": "action 5 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 119.07,
+   "line": "action 6 (option): chose option drv2 -- Where am I supposed to sleep? The list rebuilds, so the row moves up"
+  },
+  {
+   "t": 119.07,
+   "line": "action 7 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 119.07,
+   "line": "action 8 (option): chose option drv3 -- You don't think much of my chances. Three asked, so 35e8c16's gate opens the exit"
+  },
+  {
+   "t": 119.07,
+   "line": "action 9 (waitFor): reached {\"dialogue\":true} in room stage_road"
+  },
+  {
+   "t": 119.07,
+   "line": "action 10 (option): chose option drv4 -- Thank you for the ride. Sets T_COACH_DEPARTED"
+  },
+  {
+   "t": 119.07,
+   "line": "action 11 (waitFor): reached {\"handedOver\":true} in room stage_road"
+  },
+  {
+   "t": 119.07,
+   "line": "action 12 (click): clicked stage_road/lamp at world 640,623 -- SPEAK TO HOB, WHICH IS THE STEP THE ROUTE NEVER HAD. Beat 9 declares awaitFlag T_HOB_SPOKEN, so Hob stands at the roadside with his lamp until he is addressed -- Q63, ruled: 'Hob stands in the gap, and clearing him is the way out.' He is a MOVER with no rect (Q60), so the lamp he carries is the only part of him a player can click, and every response on it writes the flag. Until this click, beat 9 never plays, beat 10 never sets T_HOB_GONE, and road_west stays shut for ever."
+  },
+  {
+   "t": 119.07,
+   "line": "action 13 (wait): waited 3s"
+  },
+  {
+   "t": 119.07,
+   "line": "action 14 (waitFor): reached {\"flag\":\"T_HOB_GONE\"} in room stage_road"
+  },
+  {
+   "t": 119.07,
+   "line": "action 15 (verb): chose verb PICK_UP -- WALK_TO is the default; clicking the case without this only walks to it"
+  },
+  {
+   "t": 119.07,
+   "line": "action 16 (click): clicked stage_road/case_mud at world 1055,794 -- the suitcase. The west exit will not open without it"
+  },
+  {
+   "t": 119.07,
+   "line": "action 17 (wait): waited 6s"
+  },
+  {
+   "t": 119.07,
+   "line": "action 18 (click): clicked stage_road/road_west at world 530,455 -- the gap in the fence, which is beat 11's trigger"
+  },
+  {
+   "t": 119.07,
+   "line": "action 19 (waitFor): reached {\"room\":\"main_street\"} in room main_street"
+  },
+  {
+   "t": 119.07,
+   "line": "action 20 (wait): waited 2s"
+  },
+  {
+   "t": 119.07,
+   "line": "action 21 (click): clicked main_street/to_assay_office at world 3113,479 -- Main Street's assay-office door (doc 14). Resolved by id, so the camera scroll is the probe's problem, not this file's"
+  },
+  {
+   "t": 119.07,
+   "line": "action 22 (waitFor): reached {\"room\":\"assay_office\"} in room assay_office"
+  },
+  {
+   "t": 119.07,
+   "line": "action 23 (wait): waited 3s"
+  },
+  {
+   "t": 119.07,
+   "line": "action 24 (click): clicked assay_office/to_records at world 1621,309 -- THE RECORDS ROOM DOOR, behind the counter (doc 25). Its default verb walks him to it and through"
+  },
+  {
+   "t": 119.07,
+   "line": "action 25 (waitFor): reached {\"room\":\"assay_records\"} in room assay_records"
+  },
+  {
+   "t": 119.07,
+   "line": "action 26 (wait): waited 3s"
+  },
+  {
+   "t": 119.08,
+   "line": "in assay_records; life route: 41 action(s)"
+  },
+  {
+   "t": 119.7,
+   "line": "capture 01-arrived: room assay_records, says null, options 0, control null"
+  },
+  {
+   "t": 120.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     380,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 121.71,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     380,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 122.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     380,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 123.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     380,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 124.74,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     380,
+     690
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 125.71,
+   "line": "action 1 (wait): waited 6s"
+  },
+  {
+   "t": 126.29,
+   "line": "capture 02-later: room assay_records, says null, options 0, control null"
+  },
+  {
+   "t": 126.45,
+   "line": "action 1 (click): clicked screen 1100,800 -- walk across the lit floor, in front of the desk"
+  },
+  {
+   "t": 127.46,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     753,
+     705
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 128.45,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1099,
+     737
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 129.47,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1099,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 130.46,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1099,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 131.45,
+   "line": "action 1 (wait): waited 5s"
+  },
+  {
+   "t": 131.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1099,
+     799
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 132.03,
+   "line": "capture 03-walked: room assay_records, says null, options 0, control null"
+  },
+  {
+   "t": 132.11,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 132.4,
+   "line": "action 1 (click): clicked assay_records/register_of_assays at world 1075,433 -- LOOK at the register"
+  },
+  {
+   "t": 132.96,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_records"
+  },
+  {
+   "t": 133.48,
+   "line": "capture 04-look-register: room assay_records, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 134.5,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1075,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 135.5,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1075,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 136.51,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1075,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 137.52,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1075,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 138.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1075,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 139.5,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1075,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 140.51,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1075,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 141.49,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1075,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 142.48,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 142.57,
+   "line": "action 1 (verb): chose verb LISTEN_TO -- "
+  },
+  {
+   "t": 142.81,
+   "line": "action 1 (click): clicked world 1200,150 -- LISTEN to the sample shelf, on its upper rows: below them the high desk stands in front of it and the register answers, as it should"
+  },
+  {
+   "t": 143.35,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_records"
+  },
+  {
+   "t": 143.91,
+   "line": "capture 05-listen-shelf: room assay_records, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 144.97,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 145.97,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 146.96,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 147.96,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 148.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 149.95,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 150.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 151.94,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1045,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 152.91,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 152.99,
+   "line": "action 1 (verb): chose verb OPEN -- "
+  },
+  {
+   "t": 153.25,
+   "line": "action 1 (click): clicked assay_records/scales_cabinet at world 1399,340 -- doc 49's authored refusal"
+  },
+  {
+   "t": 153.91,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_records"
+  },
+  {
+   "t": 154.51,
+   "line": "capture 06-open-cabinet: room assay_records, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 155.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1116,
+     743
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 156.56,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1116,
+     743
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 157.54,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1116,
+     743
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 158.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1116,
+     743
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 159.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1116,
+     743
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 160.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1116,
+     743
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 161.57,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1116,
+     743
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 162.55,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1116,
+     743
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 163.51,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 163.6,
+   "line": "action 1 (verb): chose verb TALK_TO -- "
+  },
+  {
+   "t": 163.88,
+   "line": "action 1 (click): clicked assay_records/nineteen_names at world 1130,360 -- doc 49's authored TALK TO"
+  },
+  {
+   "t": 164.46,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_records"
+  },
+  {
+   "t": 165,
+   "line": "capture 07-talk-names: room assay_records, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 166.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 167.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 168.04,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 169.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 170.05,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 171.03,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 172.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 173.02,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.01,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 174.07,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1130,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 174.11,
+   "line": "action 1 (verb): chose verb USE -- "
+  },
+  {
+   "t": 174.38,
+   "line": "action 1 (click): clicked assay_records/crucible at world 1545,383 -- doc 49's authored refusal"
+  },
+  {
+   "t": 175.02,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_records"
+  },
+  {
+   "t": 175.59,
+   "line": "capture 08-use-crucible: room assay_records, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 176.63,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 177.64,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 178.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 179.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 180.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 181.63,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 182.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 183.68,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 184.6,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 184.67,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 184.97,
+   "line": "action 1 (click): clicked assay_records/cot_in_the_corner at world 1570,710 -- the near corner, reached from the band's right end"
+  },
+  {
+   "t": 185.04,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_records"
+  },
+  {
+   "t": 185.62,
+   "line": "capture 09-look-cot: room assay_records, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 186.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 187.67,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 188.65,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 189.66,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 190.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 191.65,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 192.64,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 193.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     1190,
+     655
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 194.62,
+   "line": "action 1 (wait): waited 9s"
+  },
+  {
+   "t": 194.69,
+   "line": "action 1 (verb): chose verb LOOK_AT -- "
+  },
+  {
+   "t": 194.96,
+   "line": "action 1 (click): clicked assay_records/map_of_claims at world 628,170 -- the far left wall"
+  },
+  {
+   "t": 196,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     840,
+     694
+    ],
+    "moving": true
+   }
+  },
+  {
+   "t": 196.99,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 197.05,
+   "line": "action 1 (waitFor): reached {\"says\":\"thad\"} in room assay_records"
+  },
+  {
+   "t": 197.63,
+   "line": "capture 10-look-map: room assay_records, says \"thad\", options 0, control null"
+  },
+  {
+   "t": 198.69,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 199.67,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 200.69,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 201.68,
+   "trace": {
+    "says": "thad",
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 202.69,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 203.68,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 204.67,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 205.66,
+   "trace": {
+    "says": null,
+    "control": null,
+    "beat": null,
+    "performing": false,
+    "options": 0,
+    "thad": [
+     628,
+     802
+    ],
+    "moving": false
+   }
+  },
+  {
+   "t": 206.64,
+   "line": "action 1 (wait): waited 9s"
+  }
+ ],
+ "captures": [
+  {
+   "name": "01-arrived",
+   "why": "arrival by the door",
+   "t": 119.69,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/01-arrived.png",
+   "hash": "f3991e1ea813a6a34f5bcae2ef45518e91292f3743e5823d99cff953f5717beb",
+   "room": "assay_records",
+   "clock": 119.41980000000001,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      380,
+      690
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 451,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-04.png",
+     "bounds": [
+      146,
+      239,
+      468,
+      498
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "02-later",
+   "why": "the lamp's breath; nothing else moves, because nobody is here",
+   "t": 126.29,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/02-later.png",
+   "hash": "46ae8292e6bef8a0cd6529346b550b4acf946d64b02b20711ab1eb7341a85250",
+   "room": "assay_records",
+   "clock": 126.0195,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      380,
+      690
+     ],
+     "facing": "right",
+     "clip": "idle-break",
+     "height": 451,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idlebreak-right/idle-break-02.png",
+     "bounds": [
+      146,
+      239,
+      468,
+      498
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "03-walked",
+   "why": null,
+   "t": 132.03,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/03-walked.png",
+   "hash": "70d386ad5bdf8a3d3b956ee69ef87be42ea1928e8daab4ac5c2995a9eaca98c9",
+   "room": "assay_records",
+   "clock": 131.586,
+   "control": null,
+   "says": null,
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1099,
+      799
+     ],
+     "facing": "front",
+     "clip": "idle",
+     "height": 505,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-front/idle-03.png",
+     "bounds": [
+      799,
+      294,
+      599,
+      557
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "04-look-register",
+   "why": "where the words land (doc 55 section 8: speech placement)",
+   "t": 133.47,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/04-look-register.png",
+   "hash": "26200110fa2123015b67cdd5a9c524e8f7827ea8e5236a11453695b37a50e131",
+   "room": "assay_records",
+   "clock": 133.08589999999998,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1075,
+      802
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 507,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-01.png",
+     "bounds": [
+      775,
+      295,
+      600,
+      560
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "05-listen-shelf",
+   "why": "where the words land (doc 55 section 8: speech placement)",
+   "t": 143.9,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/05-listen-shelf.png",
+   "hash": "7db0d0b06b9e906afd2d91fca2a5f48623619eaa657af4b295abbd8c245e2c39",
+   "room": "assay_records",
+   "clock": 143.5188,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1045,
+      802
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 507,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-02.png",
+     "bounds": [
+      745,
+      295,
+      600,
+      560
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "06-open-cabinet",
+   "why": "where the words land (doc 55 section 8: speech placement)",
+   "t": 154.5,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/06-open-cabinet.png",
+   "hash": "ed296bbc3405da741e09c351de12cc38b984d10a3163fac43a10d7bc1de7d944",
+   "room": "assay_records",
+   "clock": 154.085,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1116,
+      743
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 477,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-03.png",
+     "bounds": [
+      833,
+      266,
+      565,
+      527
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "07-talk-names",
+   "why": "where the words land (doc 55 section 8: speech placement)",
+   "t": 164.99,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/07-talk-names.png",
+   "hash": "24b98d651215699f08c80cd51c11de6ff749d9c03d19a3013d4d45afd5933897",
+   "room": "assay_records",
+   "clock": 164.6179,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1130,
+      802
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 507,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      830,
+      295,
+      600,
+      560
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "08-use-crucible",
+   "why": "where the words land (doc 55 section 8: speech placement)",
+   "t": 175.59,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/08-use-crucible.png",
+   "hash": "85b3c074662b9481bd404da0330f5d852c39a489ec4c371c6ac3226929a5322f",
+   "room": "assay_records",
+   "clock": 175.3342,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1190,
+      655
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 433,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-00.png",
+     "bounds": [
+      933,
+      222,
+      513,
+      478
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "09-look-cot",
+   "why": "where the words land (doc 55 section 8: speech placement)",
+   "t": 185.61,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/09-look-cot.png",
+   "hash": "25a4c0bab35bfa363dc3939543f497ffe4697e1a5f09d215e4063690815e7486",
+   "room": "assay_records",
+   "clock": 185.2004,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      1190,
+      655
+     ],
+     "facing": "right",
+     "clip": "idle",
+     "height": 433,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-right/idle-00.png",
+     "bounds": [
+      965,
+      222,
+      449,
+      478
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  },
+  {
+   "name": "10-look-map",
+   "why": "where the words land (doc 55 section 8: speech placement)",
+   "t": 197.63,
+   "file": "renders/proofs/assay-records/life/raw-captures-ignored/10-look-map.png",
+   "hash": "147a1d730b23b4334b1e3860f303406c1e29f375299eb5a37fff2ed2f5e8fcfd",
+   "room": "assay_records",
+   "clock": 197.3666,
+   "control": null,
+   "says": "thad",
+   "options": 0,
+   "flags": [
+    "T_OPENING_SAID",
+    "T_COACH_DEPARTED",
+    "T_UNDERTAKER_NAMED",
+    "T_HOB_CROSSING",
+    "T_THAD_LEAVING",
+    "T_HOB_SPOKEN",
+    "T_HOB_GONE",
+    "T_OPENING_DONE",
+    "T_SEEN_MAIN_STREET",
+    "T_CASE_DOWN",
+    "T_CASE_TAKEN"
+   ],
+   "counters": {
+    "HARNESS_PUSH_COUNT": 0,
+    "T_DRIVER_ASKED": 3,
+    "ACT": 1,
+    "T_NUGGET_PIANO_PAID": 0
+   },
+   "camera": 0,
+   "movers": {
+    "thad": {
+     "at": [
+      628,
+      802
+     ],
+     "facing": "back",
+     "clip": "idle",
+     "height": 507,
+     "moving": false,
+     "drawn": "sprite",
+     "from": "art/actors/thad-idle-back/idle-05.png",
+     "bounds": [
+      328,
+      295,
+      600,
+      560
+     ],
+     "order": 0,
+     "clipLevel": 0,
+     "fallback": false
+    }
+   },
+   "states": {},
+   "cues": {
+    "last": "R05-FLOOR-STEP",
+    "count": 1
+   },
+   "steps": {},
+   "caption": false,
+   "assets": [
+    {
+     "key": "bg:assay_records",
+     "path": "art/backgrounds/room-06-assay-records.png",
+     "drawn": "art/backgrounds/room-06-assay-records.png",
+     "candidate": false,
+     "loaded": true,
+     "hash": "b10725d59f1389db3d9378fc28b9eaf815c00fccd674170ddd6f60af4e647cde"
+    }
+   ],
+   "stubs": [],
+   "missingAssets": []
+  }
+ ],
+ "failures": [],
+ "passed": true,
+ "judgement": {
+  "machine": {
+   "passed": true,
+   "establishes": [
+    "the named room was drawn by the live runtime at the recorded commit, on the tree the record describes",
+    "every asset the room declares loaded; no stub, graybox or fallback was drawn",
+    "the protagonist stands on the authored depth marks at the curve’s height and with his feet on the mark, within the rounding budget",
+    "the authored occlusion marks mask the figure as declared",
+    "ambient figures sit inside their declared contact bands",
+    "the principal state change was reached by the authored route and captured",
+    "the room stayed coherent for 211.51s of a deterministic route: every capture in the room it names, every asserted state met"
+   ],
+   "doesNotEstablish": [
+    "that the art is good, in style, or consistent with the accepted rooms",
+    "that the scene reads, is funny, or is lit right",
+    "that the room plays -- gameplay acceptance is a separate owner ruling",
+    "that the room feels alive -- a person judges the contact sheet"
+   ]
+  },
+  "human": {
+   "visual": "PENDING TYLER",
+   "gameplay": "PENDING TYLER",
+   "note": "Only Tyler sets either. A proof cannot advance them; the build ledger and the room’s build contract record his rulings, by date."
+  }
+ },
+ "at": "2026-11-01T21:04:00.636Z"
+}

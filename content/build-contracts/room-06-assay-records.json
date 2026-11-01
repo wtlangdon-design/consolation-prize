@@ -1,0 +1,176 @@
+{
+ "schema": 1,
+ "id": "room-06-assay-records",
+ "room": "assay_records",
+ "docRoom": 6,
+ "note": "A ROOM BUILD CONTRACT (Factory v2, docs/46-room-factory.md part four), for the second room of the full game build (errata 72, doc 55). Ids, statuses and pointers only.",
+ "authorities": [
+  "docs/00-errata.md",
+  "docs/05-examine-layer.md",
+  "docs/08-examine-batch-1.md",
+  "docs/54-batch-c.md",
+  "docs/49-wrong-answers.md",
+  "docs/20-room-map.md",
+  "docs/55-full-game-build.md"
+ ],
+ "preArtGate": {
+  "roomStoryState": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-06.json",
+    "docs/00-errata.md::79 · ROOM 6 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Reached from Room 5 at any time; night, one visual state (errata 64b, 79 A). Nobody staged, no puzzle sited."
+  },
+  "staticVsStatefulArt": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/room-06/graybox.json",
+    "docs/00-errata.md::79 · ROOM 6 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "Every subject is plate; nothing in the room changes state."
+  },
+  "cast": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "proofs/readiness/room-06.json"
+   ],
+   "note": "No character is present (doc 20). Thad was painted once in the master as the scale anchor and taken out."
+  },
+  "roomLife": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/assay-records/life/life.json"
+   ],
+   "note": "The desk lamp's breath is the room's only motion; nobody lives here on screen."
+  },
+  "physicalContact": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::79 · ROOM 6 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "No figure touches any furniture."
+  },
+  "lighting": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-06/annotation.json",
+    "proofs/room-06/graybox.json"
+   ],
+   "note": "Errata 31a: dark field, lit floor, a lamp at the desk; plate light plus one runtime lamp breath."
+  },
+  "cluePerceptibility": {
+   "status": "NOT-APPLICABLE",
+   "evidence": [
+    "docs/00-errata.md::79 · ROOM 6 BUILT — THE BUILDER'S DECISIONS (2026-11-01)"
+   ],
+   "note": "No examine clue here carries a puzzle."
+  },
+  "contentCompilerHealth": {
+   "status": "PASS",
+   "evidence": [
+    "proofs/readiness/room-06.json",
+    "content/examine/room-06.json"
+   ],
+   "note": "BUILDABLE WITHOUT INVENTION: YES; 101 authored lines carried by tools/compile-room.mjs's merged mode."
+  },
+  "artBudget": {
+   "status": "PASS",
+   "evidence": [
+    "art/staging/caps.json",
+    "art/staging/ledger.json"
+   ],
+   "note": "room-06: 3 of 4 operations (master, people-free plate, re-framed plate)."
+  }
+ },
+ "liveGates": {
+  "compiler": {
+   "status": "PASS",
+   "evidence": [
+    "content/rooms/assay-records.json",
+    "tools/compile-room.mjs"
+   ]
+  },
+  "annotation": {
+   "status": "PASS",
+   "evidence": [
+    "reference/room-06/annotation.json"
+   ]
+  },
+  "fourPanelProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/assay-records/proof.json"
+   ],
+   "note": "Panels A, B, C; D declared absent (errata 79 A)."
+  },
+  "lifeProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/assay-records/life/life.json"
+   ]
+  },
+  "gameplayProof": {
+   "status": "PASS",
+   "evidence": [
+    "renders/proofs/assay-records/doors/life.json"
+   ],
+   "note": "In and out by the real doors twice."
+  },
+  "regression": {
+   "status": "PASS",
+   "evidence": [
+    "tools/run-all.mjs"
+   ],
+   "note": "run-all, npm test, typecheck, build."
+  }
+ },
+ "lifecycle": [
+  {
+   "subject": "composition master 01",
+   "class": "PLATE",
+   "stage": "STAGED",
+   "path": "art/staging/room-06/composition-master-01.png",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Reference only; never ships."
+  },
+  {
+   "subject": "the plate",
+   "class": "PLATE",
+   "stage": "SHIPPING",
+   "path": "art/backgrounds/room-06-assay-records.png",
+   "evidence": [
+    "art/staging/ledger.json",
+    "art/staging/room-06/plate-02/frame.json"
+   ]
+  }
+ ],
+ "acceptance": {
+  "visual": {
+   "status": "PENDING",
+   "evidence": [
+    "docs/36-issue-list.md::Q149 · Room 6, the assay records room: built, awaiting Tyler's playthrough; its door back to the front office has no lines — **RULED 2026-11-01 (errata 79, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-06 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+   ],
+   "scope": "the plate and Thad's size in it -- errata 72 E: given or withheld in the playthrough"
+  },
+  "gameplay": {
+   "room": {
+    "status": "PENDING",
+    "evidence": [
+     "docs/36-issue-list.md::Q149 · Room 6, the assay records room: built, awaiting Tyler's playthrough; its door back to the front office has no lines — **RULED 2026-11-01 (errata 79, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-06 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**"
+    ]
+   }
+  },
+  "promotion": {
+   "status": "DONE",
+   "evidence": [
+    "art/staging/ledger.json"
+   ],
+   "note": "Provisional, errata 72 E (tools/art/staging.mjs promoteProvisional): shipped, acceptance pending."
+  }
+ },
+ "laterStates": [],
+ "retrofit": []
+}

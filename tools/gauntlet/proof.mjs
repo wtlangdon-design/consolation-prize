@@ -863,7 +863,16 @@ async function main() {
 
     /* ---- PANEL D: principal changed state --------------------------------- */
 
-    if (!spec.principalChange) {
+    // A ROOM WITH NO CHANGED STATE SAYS SO, AND SAYS WHY. Room 6 has one visual
+    // state, nobody in it and no puzzle sited in it: there is no change to
+    // photograph. `principalChange: { none: "<the ruling>" }` is that answer,
+    // given by a person in the spec and quoted in the manifest -- never inferred
+    // by the proof, which still fails a spec that says nothing at all.
+    const noChange = typeof spec.principalChange?.none === 'string' && spec.principalChange.none.trim()
+      ? spec.principalChange.none : null;
+    if (noChange) {
+      console.log(`    NOTE: panel D not taken -- the spec declares no changed state: ${noChange}`);
+    } else if (!spec.principalChange) {
       failures.push(`${specPath} declares no principalChange, so panel D cannot be taken. `
         + 'Which state change is a room\'s PRINCIPAL one is authorship, not a thing to guess.');
     } else {
@@ -1002,7 +1011,7 @@ async function main() {
 
     // EVERY PANEL, OR IT IS NOT A FOUR-PANEL PROOF. A run that quietly
     // produced three is a run whose green covers whichever one is missing.
-    for (const wanted of ['A', 'B', 'D']) {
+    for (const wanted of noChange ? ['A', 'B'] : ['A', 'B', 'D']) {
       if (!panels.some((panel) => panel.panel === wanted)) {
         failures.push(`panel ${wanted} was never captured`);
       }

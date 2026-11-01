@@ -4714,3 +4714,11 @@ Built under doc 55 section 3 after errata 73 cleared Q146. Reachable at `?room=n
 **Found while building:**
 - **Two image calls died at the proxy** with `502 upstream request failed` at about 30.7 s and returned no image. A free probe showed the 11 MB upload itself is fine (0.8 s), so the response path gives up on a slow generation. `tools/art/room-op.mjs` now streams partial images, and the next call returned in 31 s. The two failed calls produced nothing and are not ledger rows. Whether OpenAI billed them is unknown.
 - **`tools/lib/chromium.mjs`** looked only under `chrome-linux/`; this image's Chromium is under `chrome-linux64/`. Both are tried now.
+
+## Q149 · Room 6, the assay records room: built, awaiting Tyler's playthrough; its door back to the front office has no lines — **RULED 2026-11-01 (errata 79, delegated; the door ships as a stub exit under errata 72 F); BUILT, room-06 3 of 4 operations, AWAITING TYLER'S PLAYTHROUGH (errata 72 E, 78)**
+
+**Built.** Sixteen subjects, 101 authored lines, extracted (content/examine/room-06.json) and compiled (content/rooms/assay-records.json). Night, one visual state, nobody in it. Four-panel proof (panel D declared absent: nothing changes here), life proof, and in and out by the real doors twice, under `renders/proofs/assay-records/`. `?room=assay_records`.
+
+**Open: THE ASSAY OFFICE door's LOOK and LISTEN.** Doc 25 writes Room 5's THE RECORDS ROOM DOOR (three LOOK, three LISTEN); nothing writes the same door seen from inside the records room. It ships as a stub exit (errata 79 F), working and silent to LOOK and LISTEN, and `check-examine-lines` names it among the stubs. Three LOOK and three LISTEN, in doc 54's Room 6 section, would close it; it is not in any puzzle's path.
+
+**For Tyler, in the playthrough:** the plate (errata 79 D), and Thad's size in it (79 E) against Room 5's next door.

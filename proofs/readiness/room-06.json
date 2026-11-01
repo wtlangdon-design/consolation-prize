@@ -2,7 +2,7 @@
  "schema": 1,
  "note": "ROOM CONTENT READINESS. Whether this room can be BUILT WITHOUT INVENTING ANYTHING. It holds no creative prose -- every answer cites a document path and an exact heading, or a qualified issue reference. It says nothing about whether the writing is good.",
  "room": 6,
- "id": "room-06",
+ "id": "room-06-assay-records",
  "name": "ASSAY OFFICE, RECORDS ROOM",
  "content": [
   {
@@ -160,24 +160,26 @@
   {
    "id": "visual-subjects",
    "question": "Visual subject requirements",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "A renders/room-01-in-engine-1920x1080.png",
     "B art/backgrounds/room-01-stage-road.png",
-    "C art/actors/thad-stand-front/stand-00.png"
+    "C art/actors/thad-stand-front/stand-00.png",
+    "D art/backgrounds/room-05-assay-office.png",
+    "E reference/casting/room-01-casting-master.png"
    ],
-   "why": "D and E: room-06 has no entry in reference/global-baseline.json. The comparable room and the casting references are declared per room, never inferred from a name."
+   "why": "every baseline slot is satisfied: A, B, C, D, E"
   },
   {
    "id": "geometry",
    "question": "Geometry/placement",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-06/annotation.json",
-    "(no room file declared)",
-    "(none declared)"
+    "content/rooms/assay-records.json",
+    "art/backgrounds/room-06-assay-records.png"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points | the room is not in the manifest | no shipping plate declared"
+   "why": "annotation, room file and plate are all present at the canonical size"
   }
  ],
  "dimensionsNote": "Tyler's ruling 13: reported separately, because they fail separately. Writing being complete does not make a room buildable, and a room being unbuildable does not mean a line is missing.",
@@ -188,32 +190,32 @@
   {
    "id": "annotation",
    "question": "Room annotation exists?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
     "reference/room-06/annotation.json"
    ],
-   "why": "no annotation, so there are no walk boxes, no scale curve, no entrance, no exit geometry, no clip planes and no occlusion proof points"
+   "why": "authored geometry is on disk"
   },
   {
    "id": "compiled",
    "question": "Room JSON in the manifest?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(no room file declared)"
+    "content/rooms/assay-records.json"
    ],
-   "why": "the room is not in the manifest"
+   "why": "content/rooms/assay-records.json is loaded by the engine"
   },
   {
    "id": "plate",
    "question": "Shipping plate at the canonical size?",
-   "answer": "NO",
+   "answer": "YES",
    "evidence": [
-    "(none declared)"
+    "art/backgrounds/room-06-assay-records.png"
    ],
-   "why": "no shipping plate declared"
+   "why": "art/backgrounds/room-06-assay-records.png is 1920x864, PNG colour type 2"
   }
  ],
  "geometryNote": "REPORTED SEPARATELY AND NEVER FOLDED INTO THE ANSWER ABOVE. A missing annotation is not creative incompleteness, and a room may be fully written with no geometry at all. Missing geometry is also NOT permission to infer geometry: walk boxes and clip planes are readings of a PICTURE, so they cannot precede the plate.",
- "geometryReady": "NO",
- "at": "2026-11-01T05:09:20.650Z"
+ "geometryReady": "YES",
+ "at": "2026-11-01T20:47:18.884Z"
 }
