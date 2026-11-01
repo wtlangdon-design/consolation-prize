@@ -937,3 +937,52 @@
 **THE DUST** — LOOK 2 "It lies on everything else like a sheet over the furniture in a closed house." · 3 "My own prints are in it now. It will remember me longer than the town does." | LISTEN 2 "Nothing. Dust is very good at being undisturbed." · 3 "Nothing. I sneezed once, which is the loudest thing this room has heard in a year."
 
 **THE CHAIR** — LOOK 2 "A plain chair with a cushion worn flat in the shape of one particular person." · 3 "I did not sit in it. It felt like someone else's." | LISTEN 2 "A creak as the cushion lets go of the last shape it held." · 3 "Nothing. It is waiting for whoever it waits for."
+
+---
+
+# ROOM 10 · IMPROVEMENT COMPANY LOBBY
+
+*Merged: doc 05's ten and doc 09's ten, sixteen objects. One doubled joke decided (errata 68 H): doc 09's THE CHAIRS LOOK ("Six chairs, all of them better than any chair I have sat in since Providence") repeats doc 05's and is dropped from the sequence. Errata 68 E: doc 49's THE GLOBE · USE, filed under Room 11, belongs to THE PORTRAIT OF FANSHAWE here — the globe and the thumb are in this portrait's LOOK. Nothing below shows the maps to be drawn in one hand: that is the vault's (Room 35), in Act IV.*
+
+## Same object, both passes
+
+**THE CARPET** ≡ **THE RUG**
+**THE RECEPTION DESK** ≡ **THE CLERK'S DESK**
+**THE DOOR TO THE OFFICE** ≡ **THE INNER DOOR**
+**THE WINDOW BLINDS** ≡ **THE WINDOW**
+**THE PORTRAIT OF FANSHAWE** ≡ **THE PORTRAIT**
+**THE PORTRAIT OF FANSHAWE** ≡ **THE GLOBE**
+
+*(THE CHAIRS has the same name in both passes; THE PORTRAIT and THE GLOBE are doc 49's names.)*
+
+## Repeats
+
+**THE CHAIRS** — LOOK 2 "The cushions are plumped after every visitor. I have watched the clerk do it, tenderly." · 3 "Each one faces the inner door. You wait looking at the thing you are waiting for." | LISTEN 3 "A long, comfortable exhale of horsehair. It is the sound of an afternoon going missing."
+
+**THE CARPET** — LOOK 3 "A path is worn in it from the street door to the inner door, and nowhere else. Nobody wanders in here." | LISTEN 2 "Nothing. It takes my footsteps and keeps them." · 3 "A faint grit underfoot by the door, where the territory got in."
+
+**THE PORTRAIT OF FANSHAWE** — LOOK 2 "The painter has given him a kindly eye and a firm jaw and charged, I imagine, for both." · 3 "A brass plate below it: COL. A. FANSHAWE, FOUNDER. The rank is engraved deeper than the name." | LISTEN 2 "The frame ticks against the wall when the inner door opens. He knows when somebody is going in." · 3 "Nothing. An oil portrait at rest is the most patient listener in the building."
+
+**THE PROSPECTUS RACK** — LOOK 2 "On the back of each pamphlet, a small form: I WISH TO INVEST $___ IN TOMORROW. Several have been filled in and not mailed." · 3 "The river in the drawing has a steamboat on it now. Each edition, the town gets more water." | LISTEN 2 "A pamphlet slipping down in its slot, settling into a better position." · 3 "Nothing. Tomorrow keeps very quiet in print."
+
+**THE CLOCK** — LOOK 2 "The clerk winds it every morning, carefully, so that it stays eleven minutes slow." · 3 "Brass pendulum, walnut case. It is the best-made lie in the room, and it has competition." | LISTEN 2 "Tick. Tick. Wrong, wrong, with conviction." · 3 "The chime, gathering itself. It will strike eleven minutes after the town has gone to lunch."
+
+**THE RECEPTION DESK** — LOOK 2 "A brass bell on the desk, polished, with no sign it has ever been rung. The clerk sees you coming." · 3 "The clerk's book is open at today. My name is in it already, with the time I arrived: eleven minutes early." | LISTEN 2 "The pen nib again, behind the panelling, steady as rain." · 3 "The clerk, breathing through his nose with the patience of a professional."
+
+**THE DOOR TO THE OFFICE** — LOOK 2 "The handle is polished on the inside of the curve, where the Colonel's hand goes, and dull where a visitor would reach." · 3 "A pane of frosted glass at head height, through which nothing can be seen and everything is suggested." | LISTEN 2 "A laugh behind it, generous and long. Somebody is being given something." · 3 "Nothing. Then the latch, and the door opens exactly as I look away from it."
+
+**THE WINDOW BLINDS** — LOOK 2 "The slats are dusted. The window behind them is not." · 3 "Through the slats, the street in strips: a horse's head, a wheel, a man's boots, and nothing whole." | LISTEN 2 "A slat ticking in the draft from the door." · 3 "The street, cut into slices and served politely."
+
+**THE SPITTOON, POLISHED** — LOOK 2 "My face is in it, warped and improved. It is a very flattering spittoon." · 3 "There is a small brass plaque on it, which says PRESENTED, and nothing else." | LISTEN 2 "A hum when the door closes, tuned more or less to F." · 3 "Nothing. It has never been used, and it has never looked better."
+
+**THE MAP OF HOLDINGS** — LOOK 2 "The green is hand-tinted, and someone has gone over the edges twice, so there is no doubt where the Company ends. It does not, much." · 3 "The legend has two entries: COMPANY and OTHER. OTHER is in very small type." | LISTEN 2 "Nothing. Paper with this much green on it is very composed." · 3 "The frame tapping the wall as the inner door shuts."
+
+**THE MODEL** — LOOK 2 "The opera house has tiny painted posters on it for an opera that has not been written." · 3 "The model's Main Street is paved. The real one is three yards away and is not." | LISTEN 2 "Nothing. A town in miniature is even quieter than the real one." · 3 "A tiny bell in the model church, ringing when I knock the table. It is in tune, which is how I know it is a model."
+
+**THE MAP WALL** — LOOK 2 "Each one is priced. The more certain the map, the higher the price, and the most certain is very expensive indeed." · 3 "I have stood in front of them for a while now. The strike has been in eleven places and I have not moved." | LISTEN 2 "Nothing. Eleven confident maps, not arguing with each other in public." · 3 "The glass of one frame humming faintly when a wagon passes."
+
+**THE TESTIMONIALS** — LOOK 2 "One thanks the Company 'for everything'. It does not go into detail." · 3 "There is room on the wall for forty. Somebody planned for more gratitude than arrived." | LISTEN 2 "Nothing. Thanks, framed, goes very quiet after two years." · 3 "A frame settling on its wire. Even the gratitude is sagging."
+
+**THE SUBSCRIPTION BOOK** — LOOK 2 "There is a pen beside it, inked and ready. It is the only pen in town that is always inked." · 3 "The last name on the page has subscribed for one share. It is spelled carefully, as if it mattered." | LISTEN 2 "The page lifting in the warm air off the stove." · 3 "Nothing. It is waiting for the next small number."
+
+**THE STOVE** — LOOK 2 "There are scraps of paper in the ash pan, half burned. The Company heats its lobby with what it no longer needs." · 3 "It is very warm in here. You do not want to leave, and you do not want to take your coat off, and so you sit." | LISTEN 2 "A soft collapse in the firebox as something settles." · 3 "Burning, steadily. It is never allowed to go out, which is the most expensive thing in the room."
