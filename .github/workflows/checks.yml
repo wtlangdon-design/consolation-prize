@@ -18,6 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The whole history, so a pull request can be compared with its base
+          # (tools/check-lesson-carried.mjs).
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -32,6 +36,14 @@ jobs:
       # until the day they disagreed.
       - name: npm run check
         run: npm run check
+
+      # EVERY CORRECTION CARRIES ITS LESSON (CLAUDE.md). Tyler, 2026-11-01:
+      # he will not check this by hand, so CI does. A pull request that fixes
+      # something must change a test, a check or doc 55 section 8, or say
+      # `Lesson: none -- <why>` in its description.
+      - name: A fix carries its lesson
+        if: github.event_name == 'pull_request'
+        run: node tools/check-lesson-carried.mjs
 
       # DELIBERATELY NOT GATING THE DEPLOY. pages.yml publishes on every push
       # to main and says why: "a half-published Pages site is worse than a
