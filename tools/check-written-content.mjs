@@ -26,6 +26,7 @@ export function check() {
   const noFallback = [];
   let responses = 0;
   let actVariants = 0;
+  let sceneLines = 0;
 
   const fixtureRooms = new Set(
     content.rooms.filter(({ data }) => data.fixture).map(({ data }) => data.id),
@@ -44,6 +45,10 @@ export function check() {
         // single LOOK or LISTEN for a subject in a given act, answered ahead
         // of its ordinary chain; the three-variant rule is the chain's.
         if (rule.when && 'ACT' in rule.when) { actVariants += 1; continue; }
+        // A DOC 57 SCENE LINE IS ONE MOMENT. THE MOTT FILE's LOOK with
+        // T_HOB_HANDWRITING (E9) is written once, answered ahead of the
+        // subject's ordinary chain, like an act variant; its chain is checked.
+        if (rule.sceneLine) { sceneLines += 1; continue; }
         responses += 1;
         const variants = 1 + (rule.repeat?.length ?? 0);
         if (variants < MIN_VARIANTS) thinVariants.push({ where: `${where}/${verb}`, have: variants });
@@ -93,6 +98,7 @@ export function check() {
   report.note('these lines exist in the design or must be authored -- they are not to be generated');
   report.note(`${responses} examine responses checked; ${fixtureRooms.size} fixture room(s) excluded`);
   report.note(`${actVariants} act variant(s) answered ahead of their subject's chain (doc 05 Part Two-B, one line each)`);
+  report.note(`${sceneLines} doc 57 scene line(s) answered ahead of their subject's chain (one moment each)`);
   return report;
 }
 

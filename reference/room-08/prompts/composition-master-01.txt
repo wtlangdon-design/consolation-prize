@@ -1,0 +1,17 @@
+Image 1 is the layout for one room of my pixel-art adventure game: grey blocks for walls and furniture, and the hero (the man in the long coat) standing on the floor. Paint this room as a finished game background, keeping the camera, the layout and every block where image 1 puts it. Paint the room ONLY inside the darker middle band of image 1, edge to edge; leave the light grey strips above and below it flat light grey, untouched. The whole room, from the ceiling to the floor in front of the hero, fits inside that band.
+
+THE ROOM: the sealed records archive behind a frontier claims office, 1850s, at night. Every claim and quarrel in the district is kept here in brown paper. Nobody is allowed in. Image 5 is another office in the same town at the same hour, for the world and the night light only.
+- Left wall: a heavy plain door back to the office. Beside it, an oil lamp in an iron wall bracket, lit, with a neat scorched oval on the wall above it: the ONLY light in the room. A pigeonhole case of old letters on the wall beyond it.
+- Back wall: tall shelves to the ceiling packed with boxes and bundles of brown paper, dusty, fading into darkness away from the lamp. A rolling library ladder on a rail leaning against them. On one shelf at chest height the dust is wiped away where someone has reached for years; on it, one box with a small brass corner piece, and bundles of papers tied with string.
+- Left of centre, near the lamp: a small plain clerk's desk squared neatly, with a blotter, a pen, a stamp pad, a heavy brass seal with its handle wrapped in cloth, and a ledger; one drawer with a small brass label.
+- Centre: a single sheet of paper under glass in a plain glass-topped display case on a stand. Beside it, one plain chair with a flat worn cushion, facing the shelves.
+- Right wall: one small window high up, with iron bars set on the INSIDE of the frame; through it, the night street.
+- Back right corner: a water stain spreading down the wall and ceiling, ruined brown paper, a bucket under the drip and a second bucket under the first.
+- Floor: old dusty boards.
+- The light: the lamp by the door lights the desk, the floor near the door and the front of the room; the deep shelves stay dark. No daylight.
+
+THE PERSON: the hero from image 4, standing where image 1 puts him, at exactly that size. He is only there to show scale.
+
+THE LOOK: the same pixel-art style as images 2, 3, 5 and 6, and the same hand as the hero: flat, soft shading, very little texture, simple shapes, a visible pixel grid. Not sharp, not finely detailed, no hard internal contrast. Paper, dust and brown; dark but not black where the hero stands.
+
+RULES: no text, letters or numbers anywhere -- labels, boxes and papers carry marks, never words. No border, no frame, no caption.

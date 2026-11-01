@@ -132,6 +132,8 @@ export class GameScene extends Phaser.Scene {
   private sayUntil: number | null = null;
   /** Lines still to come in a multi-speaker response, in order. */
   private pendingSay: { speaker: string | null; line: string }[] = [];
+  /** A scene's destination, travelled to once its lines have been read (GameState.resolveInteraction). */
+  private travelAfterSay: string | null = null;
   /** Lines to speak once the arrival walk finishes, not during it. */
   private linesOnArrival: { speaker: string; line: string }[] | null = null;
 
@@ -404,6 +406,16 @@ export class GameScene extends Phaser.Scene {
       // do. Every other queued line keeps waiting for the click it always
       // waited for.
       if (!(this.pendingTree?.greeted && this.advanceSay())) this.setSay(null);
+      this.markDirty();
+    }
+    // THE SCENE'S LAST LINE HAS BEEN READ: now the room changes.
+    if (this.travelAfterSay !== null && this.sayingActor === null && this.pendingSay.length === 0) {
+      const destination = this.travelAfterSay;
+      this.travelAfterSay = null;
+      this.state.enterRoom(destination);
+      this.hovered = null;
+      this.hoveredName = null;
+      this.enterRoomPerformance();
       this.markDirty();
     }
     this.view.setClock(now);
@@ -1277,6 +1289,7 @@ export class GameScene extends Phaser.Scene {
       this.hoveredName = null;
       this.enterRoomPerformance();
     }
+    if (result.goesTo) this.travelAfterSay = result.goesTo;
     this.markDirty();
   }
 

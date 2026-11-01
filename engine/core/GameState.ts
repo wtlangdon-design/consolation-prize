@@ -22,6 +22,8 @@ export interface InteractionResult {
   then?: SpokenLine[];
   /** Who speaks `say`, when it is not the actor. */
   by?: string;
+  /** Where the scene leads once its lines have been read; the room has not changed yet. */
+  goesTo?: string;
   enteredDialogue: boolean;
   changedRoom: boolean;
 }
@@ -50,6 +52,8 @@ export interface InteractionResolution {
   readonly say: string | null;
   readonly by?: string;
   readonly then?: SpokenLine[];
+  /** Where the scene leads once its lines have been read (see resolveInteraction). */
+  readonly goesTo?: string;
   readonly effects: readonly DurableEffect[];
 }
 
@@ -127,6 +131,7 @@ export class Interaction {
       say: this.resolution.say,
       ...(this.resolution.by ? { by: this.resolution.by } : {}),
       then: this.resolution.then,
+      ...(this.resolution.goesTo ? { goesTo: this.resolution.goesTo } : {}),
       enteredDialogue: this.resolution.dialogue !== null,
       changedRoom: this.resolution.destination !== null,
     };
@@ -739,7 +744,15 @@ export class GameState {
         state: action.state,
       });
     }
-    const destination = action.goto ?? null;
+    // A SCENE THAT LEADS SOMEWHERE IS SPOKEN WHERE IT IS SAID. Doc 57 E9's
+    // archive door: the clerk's exchange, then the archive. Moved at once, the
+    // first line hung over the archive and the rest were cancelled by the room
+    // change (found building Room 8). A response with lines and a `goto`
+    // reports the destination as `goesTo`; the scene moves once the last line
+    // has been read. A bare `goto` still moves at once.
+    const spoken = Boolean(action.say) || Boolean(action.then?.length);
+    const goesTo = action.goto && spoken ? action.goto : null;
+    const destination = goesTo ? null : action.goto ?? null;
     if (destination) {
       effects.push({ id: `act/${objectKey}/${verb}#room`, kind: 'room', room: destination });
     }
@@ -769,6 +782,7 @@ export class GameState {
       say: action.say,
       ...(action.by ? { by: action.by } : {}),
       then: action.then,
+      ...(goesTo ? { goesTo } : {}),
       effects,
     };
   }

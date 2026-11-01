@@ -1,0 +1,93 @@
+{
+ "schema": 1,
+ "room": "archive",
+ "note": "DOC 46 4.13's GAMEPLAY PASS for Room 8: in by the archive door (the spec's route), then out to the registrar's and back in through the archive door, twice.",
+ "actions": [
+  {
+   "do": "capture",
+   "name": "00-arrived"
+  },
+  {
+   "do": "click",
+   "on": "back_to_registrar",
+   "why": "the door back -- out"
+  },
+  {
+   "do": "waitFor",
+   "room": "claims_registrar",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-out",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "verb",
+   "verb": "OPEN"
+  },
+  {
+   "do": "click",
+   "on": "sealed_archive_door",
+   "why": "and in again"
+  },
+  {
+   "do": "waitFor",
+   "room": "archive",
+   "upTo": 90
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "01-in"
+  },
+  {
+   "do": "click",
+   "on": "back_to_registrar",
+   "why": "the door back -- out"
+  },
+  {
+   "do": "waitFor",
+   "room": "claims_registrar",
+   "upTo": 60
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-out",
+   "room": "claims_registrar"
+  },
+  {
+   "do": "verb",
+   "verb": "OPEN"
+  },
+  {
+   "do": "click",
+   "on": "sealed_archive_door",
+   "why": "and in again"
+  },
+  {
+   "do": "waitFor",
+   "room": "archive",
+   "upTo": 90
+  },
+  {
+   "do": "wait",
+   "seconds": 2
+  },
+  {
+   "do": "capture",
+   "name": "02-in"
+  }
+ ]
+}

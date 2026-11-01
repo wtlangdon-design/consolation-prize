@@ -637,6 +637,26 @@
     "dialogue:SUMP:SUM_E1:sump2"
    ],
    "note": "Doc 57 E2. Read by HOB_E6 (doc 57 E6), on his rounds at night."
+  },
+  {
+   "id": "T_EXECUTOR_NAMED",
+   "type": "boolean",
+   "initial": false,
+   "pending": true,
+   "writtenBy": [
+    "docs/57-puzzle-completion.md E6, the executor's form to Sump with T_DECEASED (Room 7; the form is HOB_E6's, Room 20) -- unbuilt"
+   ],
+   "note": "Doc 57 E6: Sump accepts Hob as executor. Read by THE ARCHIVE DOOR's OPEN in Room 7 (doc 57 E9), which lets Thad into Room 8. A fixture or the ?flags= control sets it until E6's pieces are built."
+  },
+  {
+   "id": "T_SAME_HAND",
+   "type": "boolean",
+   "initial": false,
+   "writtenBy": [
+    "combination:executor_form:archive:mott_file",
+    "room:archive:mott_file:LOOK_AT"
+   ],
+   "note": "Doc 57 E9: Hob's signature and Mott's are the same small, upright hand. Set quietly; nothing announces it (invariant 7)."
   }
  ]
 }

@@ -267,6 +267,24 @@
       "opensNode": "WIN_B2"
     },
     {
+      "item": "executor_form",
+      "room": "archive",
+      "target": "mott_file",
+      "puzzle": "E9",
+      "say": "Hob's signature. Mott's signature. The same small, upright hand, twelve years apart, in no hurry either time.",
+      "note": "Doc 57 E9 (not doc 24): the executor's form on the Mott file -- the same hand.",
+      "rules": [
+        {
+          "case": "the same hand",
+          "say": "Hob's signature. Mott's signature. The same small, upright hand, twelve years apart, in no hurry either time.",
+          "set": {
+            "T_SAME_HAND": true
+          },
+          "completes": "E9"
+        }
+      ]
+    },
+    {
       "item": "survey",
       "room": "claims_registrar",
       "target": "counter",

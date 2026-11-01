@@ -1,0 +1,7 @@
+Image 1 is a finished background from my pixel-art adventure game, a dark records archive at night, placed in the middle of the canvas, with one person in it: the man in the blue coat standing in the middle of the floor. The flat grey strips down the LEFT and RIGHT sides are unfinished.
+
+Make exactly two changes:
+1. Remove the man. Paint what is behind him: the shelves and boxes, the foot of the ladder, the floorboards, the lamplight on the floor.
+2. Extend the room into the two grey side strips, so it fills the whole width: on the left, more of the same dim wall beyond the door and the same floorboards; on the right, more of the same damp-stained wall and floorboards beyond the buckets. Nothing new on the walls. The new parts match the room exactly: same pixel-art style and pixel grid, same colours, same perspective, the light falling off into darkness away from the lamp.
+
+Change nothing else in the middle: the door, the lamp and its scorch mark, the letter pigeonholes, the desk and everything on it, the shelves and ladder, the box with the brass corner, the glass case and its sheet, the chair, the barred window, the stain, the buckets and the fallen papers stay exactly as they are. The grey above and below the picture may stay grey. No people, no text, no border.

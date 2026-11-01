@@ -1,0 +1,294 @@
+{
+ "room": 8,
+ "note": "Ruling 22 steps 1-6 for the registrar's archive, written by tools/room08-graybox.py before any image operation. Positions and values are the plan the plate is generated against (errata 81).",
+ "thadAnchors": {
+  "dark": 25.5,
+  "light": 121.3,
+  "source": "art/actors/thad-idle-right/idle-00.png"
+ },
+ "depth": {
+  "far": {
+   "y": 735,
+   "height": 468
+  },
+  "near": {
+   "y": 850,
+   "height": 547
+  },
+  "from": "Room 7's curve (reference/room-07/annotation.json), the same building"
+ },
+ "walkable": [
+  220,
+  735,
+  1400,
+  115
+ ],
+ "exit": {
+  "hotspot": "THE DOOR TO THE REGISTRAR'S",
+  "to": "claims_registrar",
+  "rect": [
+   60,
+   160,
+   200,
+   530
+  ]
+ },
+ "marks": {
+  "entrance": {
+   "x": 300,
+   "y": 780,
+   "facing": "right"
+  },
+  "mott_file": {
+   "x": 900,
+   "y": 780,
+   "facing": "right"
+  }
+ },
+ "objects": [
+  {
+   "name": "THE DOOR TO THE REGISTRAR'S",
+   "rect": [
+    60,
+    160,
+    200,
+    530
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE LAMP BRACKET",
+   "rect": [
+    280,
+    300,
+    60,
+    90
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE UNCLAIMED CORRESPONDENCE",
+   "rect": [
+    380,
+    170,
+    200,
+    220
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE STACKS",
+   "rect": [
+    620,
+    100,
+    900,
+    580
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DUST (the reached shelf)",
+   "rect": [
+    1100,
+    390,
+    360,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "CLAIM ONE'S BOX",
+   "rect": [
+    1180,
+    360,
+    80,
+    60
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE TIMESHEET",
+   "rect": [
+    1320,
+    380,
+    110,
+    40
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE FILING LADDER",
+   "rect": [
+    760,
+    100,
+    90,
+    590
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE BARRED WINDOW",
+   "rect": [
+    1600,
+    120,
+    180,
+    170
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE DAMP CORNER",
+   "rect": [
+    1560,
+    420,
+    330,
+    270
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CLERK'S DESK",
+   "rect": [
+    330,
+    500,
+    300,
+    190
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE COUNTY SEAL",
+   "rect": [
+    520,
+    470,
+    60,
+    34
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE EXECUTORS' LEDGER",
+   "rect": [
+    360,
+    476,
+    120,
+    24
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE MOTT FILE",
+   "rect": [
+    980,
+    520,
+    200,
+    170
+   ],
+   "where": "behind"
+  },
+  {
+   "name": "THE CHAIR",
+   "rect": [
+    870,
+    560,
+    80,
+    130
+   ],
+   "where": "behind"
+  }
+ ],
+ "occluders": [],
+ "occlusionNote": "Nothing stands nearer the camera than the walk band: every piece of furniture is behind it, so no plane is needed.",
+ "surfaces": [
+  {
+   "surface": "walls, old plaster",
+   "p10": 52.0,
+   "p90": 70.0,
+   "darkAnchorMargin": 26.5,
+   "lightAnchorMargin": 51.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "floor, dusty boards",
+   "p10": 88.0,
+   "p90": 101.0,
+   "darkAnchorMargin": 62.5,
+   "lightAnchorMargin": 20.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE DOOR TO THE REGISTRAR'S",
+   "p10": 52.0,
+   "p90": 52.0,
+   "darkAnchorMargin": 26.5,
+   "lightAnchorMargin": 69.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE UNCLAIMED CORRESPONDENCE",
+   "p10": 60.0,
+   "p90": 60.0,
+   "darkAnchorMargin": 34.5,
+   "lightAnchorMargin": 61.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE STACKS",
+   "p10": 58.0,
+   "p90": 76.0,
+   "darkAnchorMargin": 32.5,
+   "lightAnchorMargin": 45.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DUST (the reached shelf)",
+   "p10": 84.0,
+   "p90": 100.0,
+   "darkAnchorMargin": 58.5,
+   "lightAnchorMargin": 21.3,
+   "verdict": "pass"
+  },
+  {
+   "surface": "THE FILING LADDER",
+   "p10": 64.0,
+   "p90": 64.0,
+   "darkAnchorMargin": 38.5,
+   "lightAnchorMargin": 57.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE DAMP CORNER",
+   "p10": 54.0,
+   "p90": 54.0,
+   "darkAnchorMargin": 28.5,
+   "lightAnchorMargin": 67.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CLERK'S DESK",
+   "p10": 62.0,
+   "p90": 62.0,
+   "darkAnchorMargin": 36.5,
+   "lightAnchorMargin": 59.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE MOTT FILE",
+   "p10": 76.0,
+   "p90": 76.0,
+   "darkAnchorMargin": 50.5,
+   "lightAnchorMargin": 45.3,
+   "verdict": "strong"
+  },
+  {
+   "surface": "THE CHAIR",
+   "p10": 50.0,
+   "p90": 50.0,
+   "darkAnchorMargin": 24.5,
+   "lightAnchorMargin": 71.3,
+   "verdict": "pass"
+  }
+ ],
+ "legibilityGate": "PASS",
+ "weakOrFailing": []
+}
