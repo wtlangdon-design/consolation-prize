@@ -5,7 +5,7 @@
 
 *Format is doc 26's, so the readiness gate and the extractor read it as they read Batch A: a `**NAME** — LOOK 2 … · 3 … | LISTEN 2 … · 3 …` run supplies the repeats for a subject whose first lines are elsewhere (the numbers are the variant's place in the subject's sequence, not a count); a `### NAME` block supplies all three of each for a subject that had none. Thad's voice is doc 01's: dry, exact, polite to the point of injury, and never the punchline's victim by accident.*
 
-*ERRATA 67 (Tyler, 2026-10-31: "Merge them"). A room's examine layer is doc 05's pass and the batch pass (docs 08–10) together. `**DOC 05 NAME** ≡ **BATCH NAME**` declares one object written twice: doc 05's name, doc 05's line first, the batch line second, then the repeats. Each room's **For Tyler's cut** list names the places where merging put the same joke in front of the player twice — kept, by the ruling, and listed so the cut is his.*
+*ERRATA 67 (Tyler, 2026-10-31: "Merge them"). A room's examine layer is doc 05's pass and the batch pass (docs 08–10) together. `**DOC 05 NAME** ≡ **BATCH NAME**` declares one object written twice: doc 05's name, doc 05's line first, the batch line second, then the repeats. Each room's **Merge decisions** list names where merging put the same joke or two contradictory facts in front of the player, and what was decided (errata 68 H, delegated by Tyler: "I want you to make all of those decisions yourself"). A *dropped* line stays in its source document and is left out of the room's variant sequence.*
 
 ---
 
@@ -19,12 +19,12 @@
 
 **THE FRONT WINDOW** — LOOK 2 "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves." · 3 "My own reflection, rippling. Even the window has not decided whether I have arrived." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **THE REGISTER, LOOK.** The misspelled name is the joke of doc 05's line 1 ("Thadeus Grub"), doc 09's line 1 ("spelled in a way it has never previously been spelled") and doc 26's line 3 ("spelled in a way I have not previously encountered"). Three of the five.
-- **THE SETTEE, LISTEN.** Doc 05's "Horsehair, resettling. It sighs longer than furniture should." and doc 26's "Nothing. Horsehair, settling." are one observation.
-- **THE KEY RACK, LOOK.** Doc 05's "Forty hooks, three keys" and doc 09's "Forty keys. Four of them are out" disagree on the count, and doc 26 follows doc 09 (four out, number nineteen).
-- **THE PAINTING and THE ENGRAVING.** Two framed pictures in one lobby. Errata art direction (the hotel's) names only the engraving.
+- **THE REGISTER, LOOK.** The misspelled name is the joke of doc 05's line, doc 09's line and doc 26's line 3. **Decided:** doc 09's line is dropped. The sequence is doc 05's line, doc 26's line 2, doc 26's line 3 — the first and last still share the joke, and the last is where it is paid off ("in a way I have not previously encountered"), so it stays.
+- **THE SETTEE, LISTEN.** Doc 05's "Horsehair, resettling…" and doc 26's "Nothing. Horsehair, settling." are one observation. **Decided:** doc 26's line 1 is dropped (four remain).
+- **THE KEY RACK, LOOK.** Doc 05 says three keys, docs 09 and 26 four. **Decided:** four (three lines against one); doc 05's line is dropped (three remain).
+- **THE PAINTING and THE ENGRAVING.** **Decided:** both stay. A lobby can hang two pictures; the art direction's engraving and doc 05's mountain scene are both drawn.
 
 ---
 
@@ -49,14 +49,17 @@
 
 **THE HEARSE HARNESS** — LOOK 2 "The brass fittings are blacked over. Even the buckles are in mourning." · 3 "It is cut for Grievance and nobody else. She knows the road to Boot Hill, he says, and does not stop at the gate unless asked." | LISTEN 2 "A buckle ticking against the wall, patient as a mule." · 3 "Nothing. It is not a working day, and the harness can tell."
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **THE GOOD SUIT, LOOK.** Doc 05's line 1 and doc 09's line 1 open with the same sentence ("One good suit, in three sizes, rented for viewings…"), and doc 26's line 3 is doc 09's last sentence again ("…viewed in this and buried in their own clothes").
-- **THE VIEWING TABLE, LOOK.** "The cleanest surface in the territory" is in doc 05's line 1, doc 09's line 1 and doc 26's line 3; "scrubbed" in all four.
-- **THE COFFINS, LOOK.** Doc 26's line 2 ("Stacked by size, and there are a great many in the smallest") restates doc 09's line 1.
-- **THE LEDGER OF ACCOUNTS, LOOK.** Doc 26's lines 2 and 3 restate doc 09's line 1 (eleven pages, most of them left).
-- **THE PRICE BOARD.** Doc 05's is chalked; doc 26's override for THE PRICE LIST says it is nailed up. Declared one object because a shop has one price display; the two descriptions disagree on what it is made of.
+- **THE GOOD SUIT, LOOK.** Doc 05's and doc 09's line 1 open with the same sentence, and doc 26's line 3 repeats doc 09's. **Decided:** doc 09's line and doc 26's line 3 are dropped; doc 05's line, then doc 26's line 2, then THE GOOD SUIT needs one more LOOK — written below.
+- **THE VIEWING TABLE, LOOK.** "Cleanest surface in the territory" three times. **Decided:** doc 09's line and doc 26's line 3 are dropped; the sequence is doc 05's line, doc 26's line 2, and one more written below.
+- **THE COFFINS, LOOK.** Doc 26's line 2 restates doc 09's line 1. **Decided:** doc 26's line 2 is dropped (doc 05, doc 09, doc 26 line 3 remain).
+- **THE LEDGER OF ACCOUNTS, LOOK.** Doc 26's lines 2 and 3 restate doc 09's line 1. **Decided:** kept — they are its continuation (eleven pages → most of them left), not a repetition of doc 05's credit joke.
+- **THE PRICE BOARD.** **Decided:** chalked and nailed up; no contradiction.
 
+**THE GOOD SUIT** — LOOK 3 "It has been let out at the waist and taken in at the shoulders. The town has been getting older in it." 
+
+**THE VIEWING TABLE** — LOOK 3 "There is a block at one end for the head. It is padded. Somebody thought of that, and I am grateful to him on behalf of strangers."
 
 ---
 
@@ -112,9 +115,40 @@
 **LOOK** 1 "The ridge above the claims, bare to the sky. From up there, I am told, you can see the whole district and none of its prospects." · 2 "There is a path up it, worn by men going to look at what they cannot have." · 3 "It was here before the town and expects to be here after. It has the patience of a creditor."
 **LISTEN** 1 "Wind along the top, steady as a held note." · 2 "The wind again, a little sharp. Somebody should see to that." · 3 "Nothing coming down from it. Whatever is up there is keeping it to itself."
 
-## Not written here — A5, the raccoon, is a puzzle-design question
+## Overrides
 
-Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons arrive), smoke (Thad can't get in either), send Pratt (bitten), the blanket (success) — and the bible fixes the naming: "full Christian name, chosen by the player from three equally poor options". Neither says **which item is the bait, what makes the smoke, how Pratt is sent, or when the naming happens**, and the item ledger holds no bait or smoke item. Those are puzzle-design decisions under the no-dead-ends traversal, not lines, and they are listed for Tyler in doc 36 Q143. The three names and the attempt lines follow once they are settled.
+> **THE RACCOON** · PICK UP — "No. He is in residence, and I am not his landlord in any sense he recognizes."
+> **THE RACCOON** · PUSH — "I am not going to push a raccoon further into a hole he already likes. That is encouragement."
+> **THE RACCOON** · USE — "He is not a tool. He is barely a tenant."
+
+## A5 — the raccoon *(errata 68 A)*
+
+*The naming is doc 04's `RAC_A1`; sending Pratt is doc 04's `PRA_A1`; the blanket is LIV_A1 option 5. The attempts below are Thad's lines and the stage directions doc 31 Table 3 asks for. Nothing here is set by LISTENING to the hole, and the blanket goes back into inventory, so the hole's LISTEN never changes.*
+
+**The bait** · USE THE PICKLED EGGS on THE HOLE — "An egg at the entrance, as an inducement." *(Rustling. Sniffing. Three more raccoons arrive from nowhere in particular and settle in around the first.)* "He has called a meeting." *(The eggs are spent. The three are gone the next time Thad enters.)*
+
+**The smoke** · USE DR. PURVIS'S TONIC on THE HOLE — "Dr. Purvis's Restorative Bile Tonic, applied where it might do some good." *(It fumes. Thad retreats, coughing, as far as the claim marker.)* "He is unbothered. I, on the other hand, cannot now go within ten feet of my own hole. We are both locked out, which is a kind of fairness." *(The tonic is spent.)*
+> While the fumes last, any verb on THE HOLE or THE RACCOON — "Not until the air clears. Possibly not until the season does."
+
+**The blanket** · USE THE LIVERY BLANKET on THE HOLE — "The blanket, over the mouth of the hole." *(The cloth settles. A long pause. The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk.)* "The hole has gone cold, and he has gone with it. I appear to have evicted him by weather." *(Thad takes the blanket back.)* → A5, `T_WARM_HOLE`
+> USE THE LIVERY BLANKET on THE HOLE, after — "It has done its work. I will not insult the hole twice."
+
+### THE PICKLED EGGS *(inventory)*
+**LOOK** 1 "A jar of pickled eggs, on account. The brine has followed me home." · 2 "They have not got any less pickled." · 3 "I am keeping them for a purpose. I have not decided it is eating."
+**LISTEN** 1 "Sloshing, with intent." · 2 "The brine, settling into its opinions." · 3 "Nothing. Even the eggs are waiting to see what I do."
+
+### DR. PURVIS'S TONIC *(inventory)*
+**LOOK** 1 "Dr. Purvis's tonic. The label promises everything except what it does." · 2 "The cork has been wired down. Someone has learned from experience." · 3 "Take a spoonful at need, it says. It does not say whose need."
+**LISTEN** 1 "A faint fizz, as though it were thinking it over." · 2 "A small, sullen bubble rising." · 3 "Nothing. Whatever is in there has gone quiet, which is worse."
+
+### THE LIVERY BLANKET *(inventory)*
+**LOOK** 1 "Grievance's blanket, on loan. She knows." · 2 "It is warmer than my coat and better kept than my room." · 3 "I will bring it back. I would like that written down somewhere she can read it."
+**LISTEN** 1 "Nothing. It smells of mule and moral authority." · 2 "Wool, settling. It has been folded by an expert and unfolded by me." · 3 "Nothing. I have the sense of being watched from the stable."
+
+**In Room 12 (the Mercantile)** — where both are had, on Thad's account:
+> **THE PICKLE JAR** · PICK UP — "One jar, on my account. I have an account now. I am told that makes me a resident." → the pickled eggs
+> **DR. PURVIS'S TONIC** · PICK UP — "On account, with the eggs. It was wrapped for me as though it might go off, in either sense." → the tonic
+> Either, PICK UP again — "One is an account. Two is a habit."
 
 ---
 
@@ -204,6 +238,15 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 **LOOK** 1 "From this side it is a door like any other. From the lobby it is the most important door in the territory. He has arranged both." · 2 "The hinges are oiled so that it closes without a sound. Visitors find themselves inside before they have decided to come in." · 3 "There is no lock on this side. There has never been any need. Nobody leaves this office in a hurry."
 **LISTEN** 1 "The lobby, faintly, and the clock out there being eleven minutes wrong." · 2 "Nothing. A door this well hung keeps every secret in the room and lets in only the draft." · 3 "Voices in the lobby, waiting. Everyone waits out there. Nobody waits in here."
 
+## C3/C4 — the office, empty *(errata 68 D)*
+
+*While the funeral C3 manufactures is running, the room is drawn without Fanshawe. On first entering it:*
+> "Empty. It is the first time I have seen this room without somebody being generous in it."
+
+> **THE SUBMISSION LOG** · PICK UP, *empty office* — "Nine years of priority submissions, filed one day a month, every month, in one hand. Winnie is going to want to see this, and she is not going to enjoy it." → the padded log (C4)
+> **THE STOCK PORTRAIT DRAWER** · OPEN or PICK UP, *empty office* — "The drawer is full of the same gentleman. Dozens of him, stacked, all looking nobly at nothing. Every one of him is Obadiah Mott." → the fake photograph (C4)
+> **THE SUBMISSION LOG** or **THE STOCK PORTRAIT DRAWER** · PICK UP or OPEN, *Fanshawe present* — "Not with him in the room. He would offer to help me carry it."
+
 ## Overrides
 
 > **COLONEL FANSHAWE** · PICK UP — "He would allow it. He would find it delightful. That is the reason not to."
@@ -243,10 +286,12 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 **LOOK** 1 "Sage and greasewood, gray-green and low, holding the hillside together out of habit." · 2 "Something lives in it. I have seen it move with nobody near." · 3 "It was here before the road and will be here after. It has never needed the gold, or anything else."
 **LISTEN** 1 "Dry leaves, rattling like a gourd." · 2 "A rustle, then stillness. Whatever it is, it heard me first." · 3 "Wind through it, a long hiss. The hillside, breathing out."
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **THE MILE POST.** Doc 05's post reads THE CLAIMS 1 MI. and TOWN 1 MI.; doc 10's reads CLAIMS — 2 MI. with other numbers scratched under it. One post, two distances.
-- **THE ROAD, LOOK.** "A foot deep" is in doc 05's line 1 and doc 10's line 2.
+- **THE MILE POST.** **Decided:** doc 05's (1 MI. each way, both sides convinced); doc 10's line 1 is dropped, and the sequence is doc 05's line and this batch's line 3, with one more written below.
+- **THE ROAD, LOOK.** "A foot deep" twice. **Decided:** kept — doc 10's line makes a second point (boots moved more dirt than digging) and the repeat is two words.
+
+**THE MILE POST** — LOOK 2 "Somebody has carved an arrow under TOWN pointing at the claims, and somebody else an arrow under CLAIMS pointing at town. The argument continues in pocketknife."
 
 ---
 
@@ -280,10 +325,10 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 
 *THE ROAD EAST's LISTEN repeats are doc 10's line word for word, as Room 1's are (doc 17, note 3: "Do not vary them").*
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **THE VIEW, LOOK.** Doc 05's line 1 calls the town "a stage set"; doc 10's line 1 says "every building on Main Street is a front with nothing behind it". One idea, twice in a row.
-- **"Nothing coming."** Doc 17 note 3 counts three uses in the game (Room 1's two repeats and the ridge). The ridge now says it three times, so the game says it five.
+- **THE VIEW, LOOK.** Doc 05's "stage set" and doc 10's "front with nothing behind it". **Decided:** kept — doc 10's line goes on to the people moving between the fronts "briskly, all day", which is its own joke.
+- **"Nothing coming."** **Decided:** five uses, deliberately. The ridge is the same road seen from above; doc 17's rule is that the line does not vary.
 
 ---
 
@@ -317,10 +362,10 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 **LOOK** 1 "Alley mud, which is Main Street's mud without the audience." · 2 "Footprints both ways, mostly to and from the Nugget's back door, and the ones coming back are less straight." · 3 "It is the same mud as the street. I find that reassuring, which tells you how my week has gone."
 **LISTEN** 1 "Wet, and in no hurry." · 2 "Drips from the eaves, landing in it one at a time." · 3 "Nothing. Even the mud keeps its voice down back here."
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **THE BACK OF THE IMPROVEMENT COMPANY, LOOK 1** (doc 09) says "One storey". The American-English check will refuse "storey" when it is extracted; "One story" is the American spelling. A line change in doc 09, and his.
-- **THE BACK OF THE IMPROVEMENT COMPANY, LISTEN 1** (doc 09) calls it "the quietest building in Consolation from every side", and doc 05's Room 10 LISTEN hears "a pen nib, somewhere behind the panelling, writing without pause".
+- **"storey".** **Decided and made:** doc 09 now reads "One story".
+- **The Company's back, LISTEN** against Room 10's pen nib. **Decided:** kept. From the alley the building is quiet; from the lobby a man is writing behind the panelling. Both true.
 
 ---
 
@@ -359,16 +404,18 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 **LOOK** 1 "The far bank, close enough to hit with a stone and claimed by a different set of men, who look exactly like this set." · 2 "They are working the same water a few feet over. A different claim and the same creek; that is the whole law of the district." · 3 "A man on the far side raised his hat to me. I raised mine. We have now met, and neither of us will mention it again."
 **LISTEN** 1 "The same water, telling them the same thing." · 2 "Picks on the far side, a beat behind ours, like an echo with ambitions." · 3 "Someone over there laughing. It carries well across water, and it sounds expensive."
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **THE SLUICE.** Doc 05's is one community sluice, "forty feet of graded boxes"; doc 10's is "forty sluices along a hundred yards of creek". One object, two descriptions of what it is.
-- **THE CREEK, LOOK.** Doc 05's line 1 ("talked a thousand men into staying") and doc 10's line 1 ("the reason two thousand people live here") make one point twice, with different populations.
+- **THE SLUICE.** **Decided:** doc 05's one community sluice; doc 10's line 1 is dropped, and one more LOOK is written below.
+- **THE CREEK, LOOK.** **Decided:** kept — doc 10's line goes somewhere else ("…and the reason two thousand people live here"); the populations are different counts of different things.
+
+**THE SLUICE** — LOOK 2 "The boxes are graded, the top ones wide and the bottom ones fine, so that what one man misses the next man misses more carefully."
 
 ---
 
 # ROOM 15 · THE LIVERY STABLE
 
-*Merged: doc 05's eight and doc 09's eight, twelve objects. Grievance is a mare in doc 04 ("She took his side"), doc 05 and doc 49, and a he in doc 09; every line below says she. Doc 09's three lines need the same change (For Tyler's cut).*
+*Merged: doc 05's eight and doc 09's eight, twelve objects. Grievance is a mare in doc 04 ("She took his side"), doc 05 and doc 49, and was a he in doc 09, now corrected at source (errata 68 H). Every line says she.*
 
 ## Same object, both passes
 
@@ -405,16 +452,24 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 **LOOK** 1 "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once." · 2 "The back legs are worn short. He has tipped it for so many years the chair has adapted." · 3 "It faces Grievance's stall. He sits where he can see her. I have yet to see her return the courtesy."
 **LISTEN** 1 "A creak as it settles back onto four legs." · 2 "Nothing. It is waiting for him, and it can wait." · 3 "The chair ticks against the wall in the draft, as if he were still in it, rocking."
 
+## B3 — the Grievance puzzle *(errata 68 F)*
+
+> **GRIEVANCE** · USE THE TUNING FORK, *before the livery man has hummed* — "I could give her an A. I do not think an A is what she is waiting for."
+> **GRIEVANCE** · USE THE TUNING FORK, *after `T_HUM_HEARD`* — *(Thad strikes the fork on his boot heel and listens to it. Then he whistles the livery man's tune, corrected: the fourth bar lifted where the livery man let it sag. Grievance's ears come round. She looks at Thad for a long moment. Then she walks out of her stall.)* **LIVERY MAN:** "Twelve years." *(He says nothing else.)* → B3, Grievance
+> **GRIEVANCE** · USE THE TUNING FORK, *after B3* — "She has heard it. She does not need to hear it twice."
+
 ## Overrides
 
 > **THE LIVERY MAN** · PICK UP — "He has lifted every animal in this stable at one time or another. I am not going to give him the satisfaction of the comparison."
 > **THE LIVERY MAN** · PUSH — "He is tipped back on two chair legs. One push and we would both learn something."
 > **THE LIVERY MAN** · USE — "You do not use the livery man. You apply, like everybody else."
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **GRIEVANCE's pronoun.** Doc 09 writes Grievance as "he" (LOOK 1, LISTEN 1, and THE STALL's "His name"). Doc 04, doc 05 and doc 49 say she, and so does everything above. A line change in doc 09.
-- **GRIEVANCE, LOOK.** Doc 05's line 1 ("She has looked at me once, fully, and reached a verdict") and doc 09's line 1 ("He has looked at me once, at length") are one joke, back to back.
+- **Grievance's pronoun.** **Decided and made:** doc 09 now says she.
+- **GRIEVANCE, LOOK.** One joke twice (she looked once). **Decided:** doc 09's line is dropped; doc 05's line, this batch's line 3, and one more written below.
+
+**GRIEVANCE** — LOOK 2 "She is the color of a wet saddle, and she is wearing her own opinion of me."
 
 ---
 
@@ -462,10 +517,10 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 **LOOK** 1 "Spoil heaps, grown into small hills of their own. The site has produced a new landscape and no gold." · 2 "Grass has started on the oldest heap. Even nature has stopped waiting for a result." · 3 "Somebody has sifted the heaps too, and heaped the siftings. It is heaps all the way down."
 **LISTEN** 1 "Gravel trickling down a slope: a small, dry, continual surrender." · 2 "A scrabble on the warm side. A lizard, probably, minding the property." · 3 "Nothing. Dirt that has been looked through has nothing left to say."
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **THE SITE, LISTEN.** Doc 05's line 1 is "Wind in the workings. A hollow instrument, played badly"; doc 08's is "Nothing. Nothing whatsoever. It is the emptiest sound I have heard since I arrived." Both true, back to back.
-- **Two Mott markers.** THE SURVEY STAKE, ORIGINAL (doc 05) and THE MARKER STONE (doc 08) both stand at the site with Mott's name on them. Different objects, by their descriptions; whether the room wants both is art direction.
+- **THE SITE, LISTEN.** **Decided:** kept — wind in the workings, then nothing whatsoever; the second is what you hear when the wind drops.
+- **Two Mott markers.** **Decided:** both stay; the stake is the filing's (or its replica), the stone somebody's memorial.
 
 ---
 
@@ -478,7 +533,7 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 **THE DIGGINGS, SUCH AS THEY ARE** ≡ **THE WORKINGS**
 **THE TAILINGS PILE** ≡ **THE SPOIL HEAP**
 **THE BORDER STONES** ≡ **THE BOUNDARY**
-**THE SIGN: NO COLOUR YET** ≡ **THE SIGN**
+**THE SIGN: NO COLOR YET** ≡ **THE SIGN**
 
 *(THE TOOL RACK has the same name in both passes.)*
 
@@ -498,7 +553,7 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 
 **THE COFFEE POT** — LOOK 2 "Blackened outside and spotless in. Pratt has his own idea of which side shows." · 3 "There is one cup. He has never been asked to share and has never had to refuse." | LISTEN 2 "A faint ping as the tin warms. Ten o'clock is nearer." · 3 "Not yet. At ten it will boil, and the diggings will set their watches by the smell."
 
-**THE SIGN: NO COLOUR YET** — LOOK 3 "The board is planed and the letters are ruled. He has taken more care over NO than most men take over YES." | LISTEN 2 "The board ticks against its post in the wind. Not yet, not yet." · 3 "Nothing. The sign is waiting, along with the rest of him."
+**THE SIGN: NO COLOR YET** — LOOK 3 "The board is planed and the letters are ruled. He has taken more care over NO than most men take over YES." | LISTEN 2 "The board ticks against its post in the wind. Not yet, not yet." · 3 "Nothing. The sign is waiting, along with the rest of him."
 
 **THE TALLY POST** — LOOK 2 "Every fifth stroke is cut a little deeper, as though he leaned on that day." · 3 "The post is nearly full. A second post stands beside it, already planed, waiting for the next two thousand." | LISTEN 2 "Nothing. A count kept in wood makes no sound adding up." · 3 "Nothing. Tomorrow there will be one more mark, made quietly."
 
@@ -514,9 +569,64 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 > **NICKEL PRATT** · PUSH — "He has not moved off his line in nine years. I do not intend to be the exception."
 > **NICKEL PRATT** · USE — "He has a use already. It is this claim, and he is busy with it."
 
-## For Tyler's cut
+## Merge decisions *(errata 68 H)*
 
-- **THE TAILINGS PILE, LOOK.** Doc 05's line 1 ("Even his refuse is graded") and doc 10's line 1 ("He has sorted his waste rock") are one joke, back to back.
-- **THE DIGGINGS.** Doc 05's are "a neat trench … deepening a careful inch a week"; doc 10's are a mine, "timbered properly". One working, two descriptions of what it is. Doc 10's line also sets *swept* in markdown italics, which the emphasis check will refuse at extraction.
-- **His name.** Doc 10's sign reads "C. PRATT"; doc 04 calls him Nickel Pratt.
-- **The sign's name.** Doc 05 heads it THE SIGN: NO COLOUR YET (British), and the line itself reads NO COLOR YET. If the heading is what the panel shows, it needs the American spelling too.
+- **THE TAILINGS PILE, LOOK.** One joke twice (sorted refuse). **Decided:** doc 10's line is dropped; doc 05's line, this batch's line 3, and one more written below.
+- **THE DIGGINGS.** **Decided:** doc 05's trench; doc 10's line 1 is dropped, and one more LOOK is written below. (Its *swept* italics are gone at source either way.)
+- **His name.** **Decided and made:** doc 10's sign reads N. PRATT.
+- **The sign's name.** **Decided and made:** THE SIGN: NO COLOR YET, in doc 05, doc 49 and here.
+
+**THE TAILINGS PILE** — LOOK 2 "The coarse pile has a shovel stuck upright in it, and the fine pile a brush. He keeps a separate tool for each kind of nothing." 
+
+**THE DIGGINGS, SUCH AS THEY ARE** — LOOK 2 "The walls are cut so straight you could hang a picture on them. Nobody is going to."
+
+---
+
+# ROOM 27 · ABANDONED CLAIM ROW
+
+*Errata 68 G: the eleven markers are doc 05's. Doc 08's eleven names are retired; its device — the same word, "Nothing.", landing differently the eleventh time — survives in the blank marker's LISTEN repeats. Doc 08's THE MARKERS folds into the blank marker; its other four subjects merge in. Fifteen objects.*
+
+## Same object, both passes
+
+**CLAIM MARKER — THE BLANK ONE** ≡ **THE MARKERS**
+**CLAIM MARKER — THE BLANK ONE** ≡ **THE BLANK MARKER**
+**CLAIM MARKER — "THE MOTHERLODE"** ≡ **"THE MOTHERLODE"**
+**CLAIM MARKER — "LUCKY DAN'S"** ≡ **"LUCKY DAN'S"**
+
+*(The last three are doc 49's names for doc 05's markers.)*
+
+## Repeats
+
+**CLAIM MARKER — "EUREKA"** — LOOK 2 "Dated the spring of the rush. He was among the first, and the first to be wrong." · 3 "Someone has scratched a small question mark after it. Not the same hand. A later, sadder hand." | LISTEN 2 "The board ticks in the sun. It has dried out, like the word." · 3 "Nothing. Eureka is a word you only get to say once."
+
+**CLAIM MARKER — "PROVIDENCE"** — LOOK 2 "The lettering is careful, the hand schooled. Somebody's mother taught him that hand, in the same town as mine." · 3 "I find I have stood here longer than at the others. I am not going to examine why." | LISTEN 2 "Wind across the face of it. It sounds like a Sunday afternoon a long way off." · 3 "Nothing. The reference is lost on the territory."
+
+**CLAIM MARKER — "THE SURE THING"** — LOOK 2 "Beneath the name, smaller, a date, and smaller still, a second date. On the second, he was sure of something else." · 3 "It is the best-made marker in the row. He was sure of the carpentry, at least." | LISTEN 2 "The nail again, ringing when the wind leans." · 3 "The nail, and then nothing. Even the one sure thing is working loose."
+
+**CLAIM MARKER — "PATIENCE"** — LOOK 2 "The paint is thick and careful, laid on in three coats. He had time for that, at the beginning." · 3 "Nobody has filed on it since. The town learned something here and will not say what." | LISTEN 2 "Nothing. Not even the wind waits here long." · 3 "Nothing. It was very patient, and then it was not."
+
+**CLAIM MARKER — "THE MOTHERLODE"** — LOOK 2 "He painted the O's as nuggets. He had the whole thing planned, except the gold." · 3 "Knee deep. I measured it against my own knee. The hole never came up to the name." | LISTEN 2 "The two boards knocking, one for MOTHER and one for LODE, and they have never agreed." · 3 "A slow double knock, like someone at a door who does not expect an answer."
+
+**CLAIM MARKER — "LUCKY DAN'S"** — LOOK 2 "DAN'S is in bigger letters than LUCKY. He knew which part he could count on." · 3 "Three men bought this claim from each other after Dan. None of them changed the marker. It was the only thing on it with any value." | LISTEN 2 "The creak again, with its rhythm. Dan, laughing all the way to Sacramento." · 3 "Nothing. The joke has been told, and Dan has gone with the punchline."
+
+**CLAIM MARKER — "BONANZA"** — LOOK 2 "The last attempt is the smallest, squeezed in at the edge. He ran out of board and patience together." · 3 "Somebody has since corrected it a fourth time, in chalk, and got it right. Too late to matter to anyone." | LISTEN 2 "Nothing. Neither side is talking." · 3 "Wind in the letters. Even it cannot decide on the Z."
+
+**CLAIM MARKER — "GLORY HOLE"** — LOOK 2 "The shaft goes deeper than any other on the row. He was the most certain or the most stubborn, and out here they look the same." · 3 "His initials are cut into the lip of the shaft, at the height of a man sitting on the edge. By the wear, he sat there a long time." | LISTEN 2 "The low note again, held as long as the wind holds it." · 3 "The note, falling away. The shaft lets it go, the way it let everything go."
+
+**CLAIM MARKER — "THE WIDOW'S MITE"** — LOOK 2 "The workings are no wider than her shoulders. She dug them to fit herself, exactly." · 3 "Somebody keeps the marker upright. Not straightened — kept. A stone has been set at its foot, and replaced." | LISTEN 2 "Very quiet. The wind goes round it." · 3 "Nothing, and a different nothing from the others. It sounds attended to."
+
+**CLAIM MARKER — "NEW CANAAN"** — LOOK 2 "On the back, under AND THE LORD, the ghost of more words, gone too pale to follow." · 3 "Claimed and quit in one summer. The promised land took less time to leave than to reach." | LISTEN 2 "Split wood, ticking. The sermon has reached a pause." · 3 "Nothing. The congregation has gone home."
+
+**CLAIM MARKER — THE BLANK ONE** — LOOK 2 "Not weathered off. Never painted. The wood is as clean as the day it was set." · 3 "The workings behind it are the deepest on the row. Whoever he was, he did not need a name to dig." | LISTEN 3 "Nothing."
+
+*(The blank marker's LISTEN runs doc 05's line, then doc 08's "Nothing.", then "Nothing." again — doc 08's device, deliberately repeated. Declare it as a deliberate repetition in content.)*
+
+**THE WORKINGS** — LOOK 2 "Every hole on the row is a different depth, and every depth is a different day somebody gave up." · 3 "Some were filled back in, neatly. Most were not. You can tell the tidy men from here." | LISTEN 2 "Wind in the holes, eleven notes, none of them in tune with another." · 3 "Nothing, in a lull. Eleven holes, holding their breath."
+
+**A BOOT** — LOOK 2 "A left boot. I looked at the other markers for a right one. There isn't one." · 3 "Good stitching, gone gray. Somebody paid a month's wages for this boot and walked out of it." | LISTEN 2 "Wind across the top of it, a hollow little hoot." · 3 "Nothing. It is waiting for the other one, and so, a little, am I."
+
+**THE PATH** — LOOK 2 "Worn down past the topsoil to the hardpan. A great many days went into this path." · 3 "It is the one thing on the row that was finished." | LISTEN 2 "My own boots on it, and nobody else's." · 3 "Nothing. The path has outlasted every reason to walk it."
+
+### THE SLUICE FRAMES
+**LOOK** 1 "The frames of old sluices, their boards long since borrowed for something else. The skeleton of an idea about water." · 2 "One still has its riffles, nailed in hope and left in place." · 3 "The water they were built for went somewhere else a season later. Even the creek left the row."
+**LISTEN** 1 "Wind through the frames, a dry rattle where water should be." · 2 "A loose board tapping, as if asking to be used." · 3 "Nothing. They have been dry long enough to forget."

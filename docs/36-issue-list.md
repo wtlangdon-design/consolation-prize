@@ -4632,7 +4632,7 @@ Tyler's mandate (dated 2026-10-31): build as many rooms as possible in the canon
   2. **The swindle is a scene.** Doc 27 writes it as a stage direction — "(The swindle. Four dollars and the watch for the deed.)" — so a short staged beat after option 6 performs the exchange and writes the inventory, the way the opening's beats write state. Closer to the document; needs a sequence step that may write inventory, and its staging is a creative decision.
 - **Rooms:** Q142 (merged) — every room after 5 is blocked on unwritten repeat variants; Room 18 is three subjects short. Writing is Tyler's.
 
-## Q143 · Batch C's open questions — Room 11, Room 15, Room 23/24 and Room 27, the dinner's reading, and doc 49's homeless objects — **OPEN 2026-10-31, AWAITING TYLER**
+## Q143 · Batch C's open questions — Room 11, Room 15, Room 23, Room 24 and Room 27, the dinner's reading, and doc 49's homeless objects — **RULED 2026-10-31 (errata 68, delegated: "I want you to make all of those decisions yourself")**
 
 Found while writing the repeat-variant layer (doc 54) under errata 67. Each is a decision, not a line, so none is guessed.
 

@@ -3,7 +3,7 @@
  "room": 23,
  "id": "room-23",
  "name": "PROSPERITY, AND THE HOLE",
- "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54) from docs 02, 04, 05, 48 and 54. Open decisions affecting the room are in doc 36 Q143 where it is named.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54); A5 by errata 68 A.",
  "examine": {
   "primary": "docs/05-examine-layer.md::ROOM 23 & 24 \u2014 PROSPERITY, AND THE HOLE#1",
   "actVariants": "docs/05-examine-layer.md::ROOM 23 & 24 \u2014 PROSPERITY, AND THE HOLE#2",
@@ -13,12 +13,12 @@
  },
  "wrongVerbs": "docs/49-wrong-answers.md::ROOM 23 & 24 \u2014 PROSPERITY, AND THE HOLE",
  "dialogue": {
-  "characters": [],
-  "trees": [],
-  "none": {
-   "source": "docs/05-examine-layer.md::ROOM 23 & 24 \u2014 PROSPERITY, AND THE HOLE#1",
-   "why": "Nobody speaks at Prosperity; the raccoon does not. A5's 'send Pratt' is part of the open A5 design question (doc 36 Q143)."
-  }
+  "characters": [
+   "The Raccoon"
+  ],
+  "trees": [
+   "docs/04-dialogue-trees.md::`RAC_A1` \u2014 the naming *(Batch C, doc 54; errata 68 A)*"
+  ]
  },
  "puzzles": {
   "ids": [
@@ -32,7 +32,8 @@
  },
  "staging": {
   "required": false,
-  "why": "No doc 48 script is sited here; A5's attempts are blocked on Q143, which the open-canon check reports."
+  "why": "No doc 48 script is sited here; A5's attempts are written as lines with their stage directions in doc 54 (errata 68 A)."
  },
- "connectivity": "docs/20-room-map.md"
+ "connectivity": "docs/20-room-map.md",
+ "exits": "docs/54-batch-c.md::ROOM 23 & 24 \u00b7 PROSPERITY, AND THE HOLE"
 }

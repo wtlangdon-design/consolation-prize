@@ -2099,3 +2099,31 @@ Tyler's rulings after the Room 5 playtest-fixture harness (doc 36 Q111) found th
 No authored line is cut. Hotspot counts per room grow beyond doc 05's prose counts; those counts describe the W3 pass, not the room. Rulings already made on a batch subject's *location* (66 D, the second ledger) stand.
 
 **The readiness gate implements this:** `examine.merged` names the batch section, `≡` lines fold pairs, and the hotspot-count cross-check compares doc 05's count with doc 05's subjects only.
+
+---
+
+# 68 · Q143 DECIDED — DELEGATED RULINGS (2026-10-31)
+
+**Tyler, 2026-10-31: "I want you to make all of those decisions yourself."** Each ruling below was made by Claude under that delegation and is recorded so it can be reversed by name. The writing they release is in doc 54, doc 04 and doc 48.
+
+**A · A5, the raccoon (Rooms 23/24).** No new item enters the critical path.
+- **Naming:** the first TALK TO the raccoon opens `RAC_A1` (doc 04): three names and a `[COMIC]` refusal. Any name sets `T_RACCOON_NAMED` and the hotspot's display name becomes the chosen name; the lines do not change (doc 05: "varies by naming choice").
+- **Bait:** USE the **jar of pickled eggs** (bible item list) on the hole. Three more raccoons arrive; they are gone the next time Thad enters. The eggs are spent.
+- **Smoke:** USE **Dr. Purvis's Restorative Bile Tonic** (bible item list) on the hole. It fumes; Thad retreats coughing and cannot approach the hole until he leaves and returns. The tonic is spent.
+- **Both come from the Mercantile on Thad's account** — PICK UP on THE PICKLE JAR and DR. PURVIS'S TONIC. The account is doc 05's own fact: in Act III the credit ledger shows "My account is ruled off and marked DECEASED." Both attempts are optional, so neither can strand the player.
+- **Send Pratt:** Pratt is met at his claim in Act I, next to Prosperity (doc 02 D2: "the only neighbour"). `PRA_A1` (doc 04) asks him; he is bitten; `T_PRATT_BITTEN`. PRA_B1's "How's the bite?" depends on it. **PRA_D2 is the first *jump*, not the first meeting**; its lines need no change.
+- **The blanket:** borrowed from the livery man — a new LIV_A1 option (doc 04), because doc 49 makes PICK UP on Grievance's blanket a refusal. USE it on the hole: the hole goes cold, the raccoon leaves for good, `T_WARM_HOLE` is set, and **the blanket comes back into inventory**, so the hole is warm again and its LISTEN never changes. Nothing is set by LISTENING to the hole.
+
+**B · A10 is a puzzle (doc 02 wins over doc 48 S1).** In FAN_A2, options 1–5 retain and grey; only option 6 advances.
+
+**C · `T_SWINDLED` is Deke's** (A3, doc 27 option 6). Doc 48 S1 beat 3 sets a new flag, **`T_DINED`**, instead.
+
+**D · C3/C4, searching the office (Room 11).** While the manufactured funeral runs (C3), Room 11 is drawn without Fanshawe. Only then do PICK UP on THE SUBMISSION LOG and THE STOCK PORTRAIT DRAWER give the padded log and the fake photograph; with him in the room they are refused. Lines in doc 54.
+
+**E · Doc 49's homeless refusals.** A refusal whose object is a placed object under another name attaches to it (Room 9's two; THE SURVEY STAKE; THE SITE ENTIRE; Room 11's GLOBE belongs to **Room 10's** THE PORTRAIT OF FANSHAWE, whose LOOK describes the globe and the thumb; THE RACCOON'S FORMER RESIDENCE is THE HOLE after A5; Room 21's THE DOOR is the shack's exit). The rest — Room 11's THE CONTRACT DRAWER and THE PEN (NO INK), Room 21's THE LAMP RESERVE, THE WALL CALENDAR and THE STOOL BY THE WINDOW — are **retired**: they name objects no room has, and adding objects to hold them would change the rooms.
+
+**F · B3, the Grievance puzzle (Room 15).** No pitch interface. The tuning fork is the tool (doc 02's ledger already spends it at B3). Once the livery man has hummed the tune (LIV_A1 option 4, `T_HUM_HEARD`), USE THE TUNING FORK on Grievance: Thad sounds the fork, whistles the tune corrected, and she moves. Before the hum, the same USE gets a refusal. Lines in doc 54.
+
+**G · Room 27's markers are doc 05's eleven.** Doc 08's eleven names are retired. Doc 08's device survives in one place: the blank marker's LISTEN repeats are "Nothing." Doc 08's THE MARKERS folds into the blank marker; its WORKINGS, SLUICE FRAMES, A BOOT and THE PATH merge in.
+
+**H · The merge's doubled jokes (every "For Tyler's cut" list in doc 54).** Where a merged object shows the same joke twice, the **later** variant is dropped from the sequence, provided three remain; doc 54 marks each as *Decided*. Mechanical corrections are made at source: doc 09's "storey" becomes "story"; doc 09's Grievance becomes "she"; doc 10's "C. PRATT" becomes "N. PRATT"; doc 10's *swept* loses its italics; doc 05's "THE SIGN: NO COLOUR YET" becomes "THE SIGN: NO COLOR YET". **Contradictions keep the version more lines are built on, and on a tie doc 05's (the later pass):** the key rack has four keys out (docs 09 and 26, three lines against one); the mile post reads 1 MI. both ways (doc 05); Pratt's working is the trench (doc 05); the sluice is one community sluice of forty feet (doc 05, which Room 26's mercury flask is chained to). The line that disagrees is dropped from its sequence. The price display is chalked *and* nailed up — no contradiction.

@@ -462,6 +462,18 @@ Every single conversation, regardless of topic, ends with Pratt making an offer.
 | 5 | "How's the bite?" | `[COMIC · retain]` | "Healing wrong." *(Every time, for the rest of the game, in every act, including the ending.)* |
 
 
+## `PRA_A1` — next door, Act I *(Batch C, doc 54; errata 68 A)*
+
+Pratt on his own claim, beside Prosperity, raking. The node exists for A5's "send Pratt". It is the first meeting; PRA_D2 below is the first jump.
+
+> **PRATT:** "Nine dollars." *(Nobody has asked him anything.)*
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "There's a raccoon in my hole. Would you get him out?" | `[PROGRESS · remove]` | "Raccoon." *(He thinks about it for some time.)* "All right." *(He walks over, unhurried, and reaches into the hole. The bite. He withdraws the hand and studies it.)* "He's in there." *(From this moment Pratt dislikes Thad, steadily and without heat, the way he does everything.)* → `T_PRATT_BITTEN` |
+| 2 | "Nine dollars for what?" | `[TOPIC · retain]` | "Your claim." *(He says it as though it were the weather.)* |
+| 3 | "Lovely morning." | `[COMIC · retain]` | *(He looks up at the sky, checking.)* "Yep." |
+
 ## `PRA_D2` — the first encounter *(W1 growth)*
 
 Pratt discovered on Prosperity with a stake and a mallet, mid-jump, unhurried about it.
@@ -507,6 +519,23 @@ He signs. Then:
 > **PRATT:** "I like the claim."
 
 ---
+
+# THE RACCOON
+
+## `RAC_A1` — the naming *(Batch C, doc 54; errata 68 A)*
+
+The bible: "Thad names it (full Christian name, chosen by the player from three equally poor options)." Opened by the first TALK TO the raccoon. The raccoon does not speak; every response is Thad's.
+
+> **THAD:** "If we are going to be neighbors, you will need a name."
+
+| # | Option | Tag | Response |
+|---|---|---|---|
+| 1 | "Absalom Crispin Thrupp." | `[PROGRESS · remove]` → node closes | *(The raccoon regards him.)* "Absalom. He looks like a man who owns a bank and has never been inside it." → `T_RACCOON_NAMED`, display name ABSALOM |
+| 2 | "Ebenezer Augustine Vole." | `[PROGRESS · remove]` → node closes | "Ebenezer. He has accepted it the way he accepts weather: without comment, and with some resentment." → `T_RACCOON_NAMED`, display name EBENEZER |
+| 3 | "Bartholomew Euphrates Dodd." | `[PROGRESS · remove]` → node closes | "Bartholomew. It is too much name for him, and he will grow into none of it." → `T_RACCOON_NAMED`, display name BARTHOLOMEW |
+| 4 | "On reflection, he can name himself." | `[COMIC · retain]` | *(The raccoon does not.)* "He declines. It is the first thing we have agreed on." |
+
+*FAN_C1 option 5, "I've named a raccoon after you", is a `[COMIC]` line Thad may say whichever name he chose. Only a player who picked Absalom will know it is true.*
 
 # MADAME OZYMANDIA
 ### Diviner
@@ -663,7 +692,8 @@ Available from Act I. He assumes every visitor is bereaved until corrected, and 
 | 1 | "I need the mule for the diggings road." | `[PROGRESS · remove]` | "You don't hire Grievance. You *apply*. She'll look at you. Then we'll know." *(She looks. A long moment.)* "…Huh. First time for everything." → D-travel opens |
 | 2 | "Why 'Grievance'?" | `[TOPIC · retain]` | "Had a partner once. She took his side." |
 | 3 | "Is the mule all right?" | `[COMIC · retain]` | "He's fine. He's just got a view." |
-| 4 | "What's that tune?" | `[ASSAY · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* → his Assay pair |
+| 4 | "What's that tune?" | `[ASSAY · remove]` | *(He hums the pitch. Badly. It is recognisably the town theme and recognisably wrong, and Thad's ear files it.)* → his Assay pair; `T_HUM_HEARD` *(errata 68 F: B3 needs it)* |
+| 5 | "Could I borrow a blanket?" | `[PROGRESS · remove]` | "Hers?" *(He looks at Grievance. Grievance looks at the blanket.)* "She's not using it. Bring it back before she notices." → livery blanket *(errata 68 A; option added in Batch C, doc 54)* |
 
 ## THE UNDERTAKER — two nodes
 

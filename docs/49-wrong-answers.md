@@ -217,7 +217,7 @@ where the two conflicted, the better line won and is noted in doc 13.
 
 **THE BORDER STONES** · PUSH — "I nudged one a hand-width. When I passed at dusk it was back, and the whitewash was fresh. We have not discussed it. We will never discuss it."
 **THE TOOL RACK** · PICK_UP — "Borrowing from Pratt is simple: you ask, he says yes, and then you are a man who borrowed from Pratt, and the tools come back cleaner than they left. I am not ready for the standard."
-**THE SIGN: NO COLOUR YET** · TALK_TO — "'Any day now,' I told it. The YET gleamed. Somebody repaints that word the way other men pray."
+**THE SIGN: NO COLOR YET** · TALK_TO — "'Any day now,' I told it. The YET gleamed. Somebody repaints that word the way other men pray."
 **THE CAMP CHAIR** · USE — "I sat in it. The trench looked back, square-cornered, patient. For one minute I understood him completely, and it was restful."
 
 ## ROOM 26 — THE CREEK & SLUICE

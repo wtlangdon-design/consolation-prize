@@ -190,15 +190,23 @@ function batchSubjects(body) {
     const names = [...line.matchAll(/\*\*([^*]+)\*\*/g)].map((m) => m[1].trim());
     // `*(The road east — **LOOK:** "..." **LISTEN:** "...")*`, or either verb
     // alone (Room 18's stairs carry only a LISTEN).
-    const next = (lines[at + 1] ?? '').trim();
-    const note = /^>?\s*\*\((.+?)\s+—\s+\*\*(LOOK|LISTEN):?\*\*/.exec(next);
-    const noted = note ? note[1].trim().toUpperCase() : null;
-    const hasLook = /\*\*LOOK:?\*\*/.test(next);
-    const hasListen = /\*\*LISTEN:?\*\*/.test(next);
+    // One parenthesis per sketched subject that has a line, each on its own
+    // line under the names (doc 08's Room 27 carries two).
+    const notes = [];
+    for (let k = at + 1; k < lines.length; k += 1) {
+      const next = lines[k].trim();
+      const note = /^>?\s*\*\((.+?)\s+—\s+\*\*(LOOK|LISTEN):?\*\*/.exec(next);
+      if (!note) break;
+      notes.push({ noted: note[1].trim().toUpperCase(),
+        look: /\*\*LOOK:?\*\*/.test(next), listen: /\*\*LISTEN:?\*\*/.test(next) });
+    }
     for (const name of names) {
       // "The board" names THE BOARD OF NAMES: a parenthesis may shorten.
-      const mine = noted !== null && (name === noted || name.startsWith(`${noted} `));
-      sketched.push({ name, look: mine && hasLook, listen: mine && hasListen });
+      // And may change the article: "(The boot" is doc 08's A BOOT.
+      const bare = (text) => text.replace(/^(THE|A|AN)\s+/, '');
+      const mine = notes.find((one) => bare(name) === bare(one.noted)
+        || bare(name).startsWith(`${bare(one.noted)} `));
+      sketched.push({ name, look: Boolean(mine?.look), listen: Boolean(mine?.listen) });
     }
   }
   return [...written, ...sketched];
