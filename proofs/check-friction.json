@@ -1,0 +1,5 @@
+{
+ "schema": 1,
+ "note": "Every time a check is loosened to get past it -- a threshold changed, an exception added, a movementException -- the pull request that does it adds an entry here (tools/check-friction.mjs, run by CI, insists). Three loosenings of one check in fourteen days make the next pull request that touches it evaluate the check (TUNE or MERGE) and add a 'reviewed' entry. Retiring a check is Tyler's, through the twice-monthly review.",
+ "entries": []
+}

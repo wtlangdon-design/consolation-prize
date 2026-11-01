@@ -147,6 +147,10 @@ Acceptance criteria are scripts a person can check in under a minute, not adject
 - Nobody stands on anybody: every conversation stand and every talking character is clear of the other figures, on drawn pixels (`tests/staging-clear.test.ts`)
 - Nobody vanishes in front of Thad; every item content hands over is loaded and has an icon; every puzzle sited in built rooms is played by a test or its reason is recorded (`tests/lessons.test.ts`)
 
+**Every correction carries its lesson.** A fix for something Tyler, a proof or a review found is not done until the same PR adds a check that fails on that defect (proved by reintroducing it), or, for matters of taste, a row in doc 55 §8. Fixing only the one room teaches the next thirty nothing. **CI enforces it** (`tools/check-lesson-carried.mjs`, in the `check` job on every pull request): a PR whose title or description reads as a fix and changes no test, no `tools/check-*.mjs` and no line of doc 55 §8 fails. A PR that fixes nothing -- a first build of a room, a build-log entry -- says so in its description with a line `Lesson: none -- <why>`.
+
+**Checks that get in the way are noticed at once.** A pull request that loosens a check to get past it (a threshold, an exception, a `movementException`) records it in `proofs/check-friction.json`; three in two weeks on one check make the next pull request TUNE or MERGE it and record the review (`tools/check-friction.mjs`, in CI). The suite and the gauntlet have time budgets in CI, and `run-all` names the slowest checks every run. Retiring a check is Tyler's, through the twice-monthly review.
+
 **What playing found that no script can hold** — light, staging taste, cutting figures from plates, walk cycles, speech placement — is in `docs/55-full-game-build.md` §8, with the process that worked. Read it before building a room.
 
 ---

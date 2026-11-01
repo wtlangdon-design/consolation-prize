@@ -172,8 +172,10 @@ const DIAGNOSTICS = [
 ];
 
 let failed = 0;
+const timings = [];
 for (const check of CHECKS) {
   let report;
+  const started = Date.now();
   try {
     // Awaited: a check may load content through the ENGINE's own async loader
     // rather than the tools' parallel one, which is the only way to assert
@@ -185,8 +187,14 @@ for (const check of CHECKS) {
     failed += 1;
     continue;
   }
+  timings.push([report?.name ?? check.name, Date.now() - started]);
   if (!runCheck(report)) failed += 1;
 }
+// THE SLOWEST CHECKS, every run, so a slowdown has a name the day it starts
+// (Tyler, 2026-11-01). CI holds `npm run check` to a time budget.
+console.log('');
+console.log(`slowest checks: ${timings.sort((a, b) => b[1] - a[1]).slice(0, 5)
+  .map(([name, ms]) => `${name || 'anonymous'} ${(ms / 1000).toFixed(1)}s`).join(', ')}`);
 
 console.log('');
 console.log('--- DIAGNOSTICS: reported, never asserted. None of these can fail. ---');

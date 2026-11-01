@@ -18,6 +18,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The whole history, so a pull request can be compared with its base
+          # (tools/check-lesson-carried.mjs).
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -30,8 +34,36 @@ jobs:
       # because that is the one a person runs locally -- a CI job that ran a
       # different set would drift from it, and the drift would be invisible
       # until the day they disagreed.
+      # THE SUITE HAS A TIME BUDGET (Tyler, 2026-11-01: rules piling up must
+      # be noticed as they slow things, not weeks later). About 40 s today;
+      # three minutes is the alarm. Over it, the pull request makes the
+      # slowest checks faster -- `run-all` names them -- rather than dropping
+      # one, which only the review and Tyler may do.
       - name: npm run check
-        run: npm run check
+        run: |
+          start=$(date +%s)
+          npm run check
+          took=$(( $(date +%s) - start ))
+          echo "npm run check took ${took}s (budget 180s)"
+          if [ "$took" -gt 180 ]; then
+            echo "THE CHECKS HAVE SLOWED past their budget. Make the slowest ones (listed above) faster in this pull request."
+            exit 1
+          fi
+
+      # EVERY CORRECTION CARRIES ITS LESSON (CLAUDE.md). Tyler, 2026-11-01:
+      # he will not check this by hand, so CI does. A pull request that fixes
+      # something must change a test, a check or doc 55 section 8, or say
+      # `Lesson: none -- <why>` in its description.
+      - name: A fix carries its lesson
+        if: github.event_name == 'pull_request'
+        run: node tools/check-lesson-carried.mjs
+
+      # A CHECK THAT KEEPS GETTING WORKED AROUND IS NOTICED THE DAY IT HAPPENS
+      # (tools/check-friction.mjs): a loosening is recorded, and three in two
+      # weeks make the next pull request evaluate the check.
+      - name: Checks that get in the way are noticed
+        if: github.event_name == 'pull_request'
+        run: node tools/check-friction.mjs
 
       # DELIBERATELY NOT GATING THE DEPLOY. pages.yml publishes on every push
       # to main and says why: "a half-published Pages site is worse than a
@@ -93,8 +125,17 @@ jobs:
       # strips the probe from the production bundle, so this is the only place
       # they can run -- doc 44 part three states that rather than implying the
       # deployed build is under the same scrutiny.
+      # A time budget, as for the suite: about three minutes today, eight is the alarm.
       - name: Gauntlet
-        run: npm run gauntlet
+        run: |
+          start=$(date +%s)
+          npm run gauntlet
+          took=$(( $(date +%s) - start ))
+          echo "the gauntlet took ${took}s (budget 480s)"
+          if [ "$took" -gt 480 ]; then
+            echo "THE GAUNTLET HAS SLOWED past its budget. Find the slow beat or proof and make it faster in this pull request."
+            exit 1
+          fi
 
       # The built artifact, screencast from navigation, no state assertions.
       # It catches a build that does not boot, which is the one class of fault
