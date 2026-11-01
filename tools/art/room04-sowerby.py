@@ -69,15 +69,16 @@ HEIGHT = 437                    # the room's curve at his soles, y 513 (annotati
 # (renders/room-04-sowerby-legs.png): rows, then the columns his legs and boots
 # fill, ending at the soles on the floor line.
 HEM = 432
-LEGS = [(HEM, 446, 452, 514),      # y0, y1, x0, x1: the tops of both legs, under the coat
-        (446, 490, 452, 471),      # the left leg: the chair seat ends at x 452
-        (446, 490, 481, 514),      # the right leg. Between them is wall: the plank seam
-                                   # at y 452 runs through x 471-481 level with the one
-                                   # right of his legs
-        (490, 514, 450, 477)]      # the left boot
+LEGS = [(HEM, 440, 448, 514),      # y0, y1, x0, x1: under the coat's hem, both legs
+        (440, 496, 448, 470),      # the left leg, outline to outline
+        (440, 490, 481, 514),      # the right leg. Between them, x 470-481, is wall: the
+                                   # plank seams at y 452 and 475 cross it and stop at
+                                   # each leg's outline, so the room shows through there
+        (496, 514, 449, 469)]      # the left boot, from its top line to the floor line
 # THE RIGHT BOOT rises from its heel to its toe: wall above that line stays out.
 TOE = [(y, 481, 514 if y < 496 else min(533, 514 + 2 * (y - 496))) for y in range(490, 514)]
 SOLES = 514
+COAT_EDGE = (286, 421, 524, 540)   # rows, and the columns its outline is found in
 PENCIL = (772, 333, 850, 376)   # the judges' pencil on the plate, with its shadow, below judge 1's hands
 WOOD_FROM = 84                  # bare table this far right of it
 
@@ -130,6 +131,17 @@ cv2.grabCut(crop, gc, None, bgm, fgm, 8, cv2.GC_INIT_WITH_MASK)
 mask = np.zeros(lum.shape, bool)
 mask[Y0:Y1, X0:X1] = largest(ndi.binary_opening((gc == cv2.GC_FGD) | (gc == cv2.GC_PR_FGD), iterations=1))
 
+# THE COAT'S RIGHT EDGE, FOLLOWED. Tyler, on the traced legs: "The one leg is
+# still cut off on the side." Below the elbow the wall marked certain stopped at
+# x 541, a ruled line, and GrabCut kept the 6 px of wall between it and the
+# coat: a straight strip down his side that, 118 px from where it was painted,
+# read as his side sliced off. The coat has its own dark outline at x 527-536;
+# each row stops there, and the right panel stops at its hem, y 421.
+lum_v = ndi.uniform_filter1d(lum, size=3, axis=0)
+for y in range(COAT_EDGE[0], COAT_EDGE[1]):
+    x = COAT_EDGE[2] + int(np.argmin(lum_v[y, COAT_EDGE[2]:COAT_EDGE[3]]))
+    mask[y, x + 1:] = False
+mask[COAT_EDGE[1]:, LEGS[0][3]:] = False
 mask[HEM:, :] = False
 for y0, y1, x0, x1 in LEGS:
     mask[y0:y1, x0:x1] = True

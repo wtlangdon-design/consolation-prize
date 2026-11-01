@@ -8319,6 +8319,44 @@
    "acceptedBy": null,
    "by": "claude, Room 4 correction (Tyler 2026-11-01: \"The judge is missing part of his leg\")",
    "at": "2026-11-01T17:42:19.474Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 4,
+   "from": "art/staging/room-04/sowerby/sowerby.png",
+   "derivedFrom": "art/staging/room-04/sowerby-02/source.png",
+   "provenance": "art/staging/room-04/sowerby/sowerby.json",
+   "to": "art/actors/room-04-sowerby.png",
+   "hash": "095649cc72bfee7e65a5689fe98b6c9c50fb544255dde09b4e1e6360a19e3bbe",
+   "sourceHash": "43f58d387368d0e82cd04845c6c5444ddf046e4bb3aa09f6f5bd9fc1322e899a",
+   "replacedHash": "b7aacce8558c9fe3ca1affec2dfa1d34b8c660c606b6ab2d10fc2c0fb46048c9",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 correction (Tyler 2026-11-01: \"The one leg is still cut off on the side\")",
+   "at": "2026-11-01T17:49:45.059Z"
+  },
+  {
+   "assetId": "room-04",
+   "attempt": 4,
+   "from": "art/staging/room-04/sowerby/sowerby.png",
+   "derivedFrom": "art/staging/room-04/sowerby-02/source.png",
+   "provenance": "art/staging/room-04/sowerby/sowerby.json",
+   "to": "art/actors/room-04-sowerby.png",
+   "hash": "433913896379ba5b91e34e766764db174087d892d65a815703b497a4e5ac3edd",
+   "sourceHash": "43f58d387368d0e82cd04845c6c5444ddf046e4bb3aa09f6f5bd9fc1322e899a",
+   "replacedHash": "095649cc72bfee7e65a5689fe98b6c9c50fb544255dde09b4e1e6360a19e3bbe",
+   "gates": {
+    "passed": true,
+    "kind": "sprite"
+   },
+   "acceptance": "pending Tyler's playthrough (errata 72 E)",
+   "acceptedBy": null,
+   "by": "claude, Room 4 correction (Tyler 2026-11-01: \"The one leg is still cut off on the side\")",
+   "at": "2026-11-01T17:51:04.775Z"
   }
  ],
  "overCapNote": "nugget-bar-stove-family STANDS AT 3 OPERATIONS AGAINST TYLER'S CAP OF 2 -- over the authorized ceiling by one, and the cap is deliberately NOT raised so the guard keeps the category blocked until he rules. The third call happened because the second threw inside record() AFTER the API had returned and billed, and it was re-run before it was diagnosed; the re-run overwrote the second call's image, which is the row that reads out: NOT RETAINED. tools/art/staging.mjs assertRecordable() now runs BEFORE the spend, so a row that cannot be recorded can no longer be billed. Doc 36 Q129."
