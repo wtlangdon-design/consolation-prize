@@ -7972,6 +7972,55 @@
    "gates": null,
    "promoted": false,
    "recordedAt": "2026-11-01T17:01:37.040Z"
+  },
+  {
+   "attempt": 1,
+   "role": "canonical-design",
+   "assetId": "room-03-barrel",
+   "subject": "room-03-barrel",
+   "operation": "edit",
+   "model": "gpt-image-2",
+   "parameters": {
+    "size": "1024x1024",
+    "quality": null
+   },
+   "prompt": null,
+   "promptFile": "reference/room-03/barrel/prompt-01.txt",
+   "promptHash": "0359d1a2d8a78b4416ff2d40b7484d391eb570b7ae4f42203cf89c48dee1fe58",
+   "references": [
+    {
+     "path": "reference/room-03/barrel/style-reference.png",
+     "hash": "f687f73c63b705f0df0a07047e46a311a3b0502b7ed787b508a1498ddb90bac4",
+     "transmitted": true
+    }
+   ],
+   "baseline": null,
+   "mask": null,
+   "sourceHash": "f687f73c63b705f0df0a07047e46a311a3b0502b7ed787b508a1498ddb90bac4",
+   "sourcePath": "reference/room-03/barrel/style-reference.png",
+   "out": "art/staging/room-03/barrel-01/source.png",
+   "outputHash": "346a7707236a64d6631f076429e296f5402ad2a02cf432904f961753cbb2b5ae",
+   "bytes": 896324,
+   "usage": {
+    "input_tokens": 1228,
+    "input_tokens_details": {
+     "image_tokens": 832,
+     "text_tokens": 396
+    },
+    "output_tokens": 196,
+    "output_tokens_details": {
+     "image_tokens": 196,
+     "text_tokens": 0
+    },
+    "total_tokens": 1424
+   },
+   "revisedPrompt": null,
+   "at": "2026-11-01T17:44:03.360Z",
+   "auth": "environment network secret attached by the agent proxy; no key in the session",
+   "authorizedBy": "Tyler, 2026-11-01, room-03-barrel cap 2",
+   "gates": null,
+   "promoted": false,
+   "recordedAt": "2026-11-01T17:44:03.373Z"
   }
  ],
  "promotions": [

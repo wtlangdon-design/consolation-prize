@@ -2,7 +2,7 @@
 
 Tyler, 2026-11-01, playing the Nugget: *"There's so much empty space in the bottom left third of the screen. So maybe move Deke slightly to the left so he's not overlapping the guy at the bar at all? And then we put the barrel to the left of Deke with a drink sitting on it?"* (An upright whiskey barrel was suggested instead of a high-top table, being nearer the period; he chose it.)
 
-**Status:** Deke moved to 1035,815 (merged). The engine draws room furniture in depth order (`RoomFile.props`, set in `reference/room-03/annotation.json` and compiled through). **The barrel itself is not made yet**: the session that wrote this had no OpenAI key. Cap: `art/staging/caps.json`, asset `room-03-barrel`, 2 operations.
+**Status:** Deke moved to 1035,815 (merged). The engine draws room furniture in depth order (`RoomFile.props`, set in `reference/room-03/annotation.json` and compiled through). **Made 2026-11-01**, first operation (`art/staging/room-03/barrel-01`, `room-03-barrel` 1 of 2; it broke none of the RULES, so the second was not spent): cut by `tools/art/cut-prop.py`, graded to the bar front, placed at 890,812 with its footprint obstacle, Thad talking to Deke from 730,818, proven by `tools/gauntlet/barrel-proof.mjs` (`renders/proofs/room-03-barrel/`). Cap: `art/staging/caps.json`, asset `room-03-barrel`, 2 operations.
 
 ## What it is
 Set dressing only. It is not a hotspot (no document writes a LOOK or LISTEN for a barrel, and none may be invented), clicks go through it, and nothing in any puzzle refers to it.
