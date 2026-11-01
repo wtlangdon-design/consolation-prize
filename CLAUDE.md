@@ -66,6 +66,16 @@ Steps 1–6 are graybox. **Nothing proceeds past the legibility gate until it pa
 
 Three rooms have already shipped or nearly shipped broken by ignoring this. Thirty-nine remain.
 
+## Character style gate — Tyler, 2026-10-31
+
+**The standard is Thad's look.** Not "whatever is already in the game": Thad, the Nugget's bar men and the stage driver match it; Main Street's letter-writer, pie woman and map seller do not yet, and are not a reference. No new or redrawn character ships until all four steps hold:
+
+1. **Generated against Thad in the actual room.** Attach a frame of Thad in the room the character will stand in. Written style descriptions alone have failed six times; showing the mismatch as a picture is what worked.
+   **Too sharp is the usual miss.** The September Nugget rebuild's men were all "way too sharp" beside Thad (Tyler, 2026-10-31): fine detail, crisp texture and hard internal contrast read as a different game. Thad's look is flat, soft-shaded and low in texture; the bar men reached it at texture 4.90 against his 6.09.
+2. **Measured before anyone looks.** Height against Thad at the same depth; crisp pixel edges against the key colour (no halo, no blur); colour and contrast in Thad's range. These flag; they do not decide. The texture metric ranked the cast backwards against Tyler's eye once, so no number is the verdict.
+3. **Tyler sees it beside Thad and the nearby cast at game size, then placed in the room,** before it is cut into the game for real.
+4. **A miss is corrected, not accepted.** Tyler rejected "accept it" for style mismatches. A correction shows the generator the side-by-side, within the attempt cap Tyler sets in `art/staging/caps.json`.
+
 ## Content is extracted from the docs, never retyped
 
 Every written line in `/content` is **parsed out of `/docs`**, not transcribed. The documents are the source of truth and the pipeline reads them.
