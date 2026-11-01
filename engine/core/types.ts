@@ -320,7 +320,18 @@ export type ScaleMode =
    * an answer for it.
    */
   | { kind: 'curve'; farY: number; farHeight: number; nearY: number; nearHeight: number;
-      beyondY?: number; beyondHeight?: number };
+      beyondY?: number; beyondHeight?: number;
+      /**
+       * EXTRA POINTS BETWEEN far AND near, [y, height], for a room whose
+       * painting does not recede at one rate. Tyler, 2026-10-31, in the
+       * Nugget: a straight line through his two rulings (slightly shorter
+       * than the standing drinker at the front, small at the card table)
+       * made a man standing at the bar's near end the same height as a man
+       * SITTING on the stool beside him. The back of that room recedes
+       * steeply and its middle hardly at all, so the curve bends. Heights
+       * between points are linear; far and near stay the ends.
+       */
+      samples?: [number, number][] };
 
 /** A convex quadrilateral of floor, with adjacency, scale and clip level. */
 export interface WalkBox {
@@ -366,6 +377,17 @@ export interface AmbientFile {
   y: number;
   zone: number;
   approachRadius: number;
+  /**
+   * WHAT THE FIGURE IS, for the scale check (tests/scale.test.ts). Every
+   * visible ambient in a shipping room declares one, so a new character cannot
+   * slip past it: `standing` figures must be drawn within 5% of the room
+   * curve's man at their feet. The rest say why they are exempt: `seated`,
+   * `band` (a strip of several people over furniture), `identity` (an
+   * invisible frame over a painted man), `animal`, `behind-counter` (a
+   * half-figure). Tyler, 2026-10-31: "Make sure matching scales are written
+   * into the system of checks."
+   */
+  posture?: 'standing' | 'seated' | 'band' | 'identity' | 'animal' | 'behind-counter';
   tree: string;
   /**
    * OPENS EVERY CONVERSATION WITH HIS BARK. Tyler, 2026-10-31: the one-strike

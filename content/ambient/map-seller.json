@@ -2,6 +2,7 @@
  "schema": 1,
  "id": "map_seller",
  "name": "THE MAP SELLER",
+ "posture": "standing",
  "note": "Doc 07 #16. Sells maps to Mott's strike. Unknowingly employed by the Improvement Company. Genuinely believes in them. The saddest character in the game and he is played entirely for laughs.",
  "room": "main_street",
  "x": 3140,

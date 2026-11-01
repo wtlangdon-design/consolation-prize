@@ -2,6 +2,7 @@
  "schema": 1,
  "id": "one_strike_man",
  "name": "THE ONE-STRIKE MAN",
+ "posture": "identity",
  "note": "AN INTERACTION IDENTITY, NOT A SPRITE. He is the seated man in the brown coat at the near (left) end of the bar -- drawn and animated by nugget_bar1's band, which this file does not touch. Tyler, 2026-10-31: the OLD Nugget ships and the rebuild (nugget_candidate) is retired -- it moves, its problems can be fixed, and the rebuild's bar defects could not. Story-wise the two rooms carry the same twelve hotspots and two exits; what the rebuild had and the old room lacked was these two identities, so they move here. The sprite is a frame of pure transparency over him.",
  "room": "nugget",
  "x": 1205,

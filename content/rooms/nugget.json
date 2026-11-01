@@ -772,7 +772,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_1"
@@ -805,7 +819,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_0",
@@ -839,7 +867,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_1",
@@ -873,7 +915,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_2",
@@ -907,7 +963,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_3",
@@ -941,7 +1011,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_4",
@@ -975,7 +1059,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_6_1"
@@ -1008,7 +1106,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_5_0",
@@ -1042,7 +1154,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_5_1",
@@ -1076,7 +1202,21 @@
         "farY": 498,
         "farHeight": 198,
         "nearY": 858,
-        "nearHeight": 459
+        "nearHeight": 459,
+        "samples": [
+          [
+            550,
+            236
+          ],
+          [
+            655,
+            375
+          ],
+          [
+            797,
+            415
+          ]
+        ]
       },
       "neighbours": [
         "floor_6_0",

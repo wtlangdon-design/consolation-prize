@@ -69,7 +69,22 @@
    "y": 858,
    "height": 459
   },
-  "note": "TWO ANCHORS, BOTH TYLER’S: slightly shorter than the standing drinker at the bar (he is 434 with his feet at y797, Thad is 415 there), and small enough at the back that his head is nowhere near the chandelier -- 205 at the card table, topping out about y303 where the players’ own heads are.\nTHE FLAT CURVE WAS THE PREVIOUS FIX AND IT WAS WRONG AT THE BACK. Flat kept him from swelling as he crossed toward the bar, which was the complaint then, but it also kept him full size at the far wall, where he stood as tall as the chandelier. A room this deep needs a real slope; what it does not need is one fitted to a single figure."
+  "note": "TWO ANCHORS, BOTH TYLER’S: slightly shorter than the standing drinker at the bar (he is 434 with his feet at y797, Thad is 415 there), and small enough at the back that his head is nowhere near the chandelier -- 205 at the card table, topping out about y303 where the players’ own heads are.\nTHE FLAT CURVE WAS THE PREVIOUS FIX AND IT WAS WRONG AT THE BACK. Flat kept him from swelling as he crossed toward the bar, which was the complaint then, but it also kept him full size at the far wall, where he stood as tall as the chandelier. A room this deep needs a real slope; what it does not need is one fitted to a single figure.",
+  "samples": [
+   {
+    "y": 550,
+    "height": 236
+   },
+   {
+    "y": 655,
+    "height": 375
+   },
+   {
+    "y": 797,
+    "height": 415
+   }
+  ],
+  "samplesNote": "THE CURVE BENDS. Tyler, 2026-10-31, at the bar's near end: 'If any of those guys at the bar stood up, they'd be head and shoulders above Deke and Thad. The guy in the chair is currently the same height sitting as Deke/Thad.' Measured: a standing man at y655 was 312 and the man seated on the first stool, beside him, 300 from the floor to his hat. A straight line through the two earlier rulings cannot fix that without breaking one of them, because this painting recedes steeply behind y600 and hardly at all in front of it. So: 236 at y550 (the old line's value -- the back is unchanged), 375 at y655 (the seated man is then 0.8 of a standing one), 415 at y797 (the standing-drinker ruling, unchanged). tools/check-scale-anchors.mjs holds all three rulings."
  },
  "hotspots": {
   "handbill": [

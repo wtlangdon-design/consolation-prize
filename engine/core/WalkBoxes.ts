@@ -265,6 +265,18 @@ export function heightIn(box: WalkBox, y: number): number {
   }
   const span = mode.nearY - mode.farY;
   if (span === 0) return mode.nearHeight;
+  if (mode.samples?.length) {
+    const points: [number, number][] = [
+      [mode.farY, mode.farHeight], ...mode.samples, [mode.nearY, mode.nearHeight],
+    ].sort((a, b) => (a[0] ?? 0) - (b[0] ?? 0)) as [number, number][];
+    const at = Math.max(points[0]![0], Math.min(points[points.length - 1]![0], y));
+    for (let i = 0; i + 1 < points.length; i += 1) {
+      const [y0, h0] = points[i]!;
+      const [y1, h1] = points[i + 1]!;
+      if (at <= y1) return Math.round(y1 === y0 ? h1 : h0 + (h1 - h0) * ((at - y0) / (y1 - y0)));
+    }
+    return points[points.length - 1]![1];
+  }
   const walk = Math.max(0, Math.min(1, (y - mode.farY) / span));
   return Math.round(mode.farHeight + (mode.nearHeight - mode.farHeight) * walk);
 }

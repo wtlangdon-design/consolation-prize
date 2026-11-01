@@ -1486,6 +1486,14 @@ function minorTrees() {
         root: {
           id: 'root',
           prompt: rootSpeech[0].line,
+          // THE ROOT IS SAID, NOT CAPTIONED. Doc 30 section 14 stopped drawing
+          // `prompt` anywhere, and a root line that lived only there was never
+          // heard: Vessel's "You're the piano man." -- his whole opening, per
+          // doc 27's "He opens" -- the undertaker's "Yes." and the clerk's
+          // "Mr. Grubbe." all played as silence before the list. Carried as the
+          // node's opening, the greeting is performed before the options, the
+          // same route every act-root greeting already takes.
+          opening: [rootSpeech[0]],
           options,
         },
       },

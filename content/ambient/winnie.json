@@ -2,6 +2,7 @@
  "schema": 1,
  "id": "winnie",
  "name": "WINNIE LEDGER",
+ "posture": "behind-counter",
  "room": "assay_office",
  "x": 1035,
  "y": 401,

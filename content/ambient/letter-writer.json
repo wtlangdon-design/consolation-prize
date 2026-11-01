@@ -2,6 +2,7 @@
  "schema": 1,
  "id": "letter_writer",
  "name": "THE LETTER-WRITER",
+ "posture": "standing",
  "note": "Doc 07 #1. Writes letters home for men who can't. Charges by the page. Resolves the notice board hotspot. Doing better than anyone, because he sells the one thing that never runs out.",
  "room": "main_street",
  "x": 1330,
