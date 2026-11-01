@@ -2229,3 +2229,11 @@ No authored line is cut. Hotspot counts per room grow beyond doc 05's prose coun
 **H · Room 4's other three gaps, written.** Duel Two had no way to be asked for, and the two things it returns had no lines. Written: **VES_B1 option 5**, "I'd like a rematch." (doc 04), offered once Duel One is lost; **THE POCKET WATCH** and **THE AFFIDAVIT** (Document A), three LOOK and three LISTEN each (doc 23). A lost Duel Two ends on the reply that lost it; nothing more is said, and option 5 offers it again.
 
 **G · The readiness gate missed this** because it checks that a puzzle's sections resolve, not that every node inside them is written. A builder may add a check that every duel node has three wrong answers and a reply for each. That is tooling and needs no ruling.
+
+# 74 · NAMED IS NOT WRITTEN: THE GATE CHECKS EACH PUZZLE'S CONTENT (2026-10-31)
+
+*Room 4 answered `BUILDABLE WITHOUT INVENTION: YES` and then stopped its builder on sixty-nine unwritten lines (Q146), because the gate asked only whether a room's puzzles were named. Tyler asked whether this would happen in every room. An audit of all 45 puzzles (doc 56) says it would have: most puzzles outside Room 4 lack lines, items or decisions.*
+
+**A · Every puzzle needs an audited content entry** in `proofs/readiness/puzzles.json`, listing what it needs: dialogue nodes (a doc 04/27 node with at least three written options and a [COMIC]), items (`## NAME` with LOOK and LISTEN 1–3), duel pairs (three wrong answers with replies each), and scenes or rulings (sections that resolve). `tools/lib/puzzle-content.mjs` checks each one, and the readiness gate's "Puzzle requirements complete?" answers NO for any room hosting a puzzle with no entry or with an unresolved need.
+
+**B · Today only B5 and B6 have entries**, so Room 4 is the only room with puzzles that answers YES. That is the truth, not a regression: doc 56 lists what each other puzzle lacks. An entry is added when a puzzle's gaps are closed, never before.
