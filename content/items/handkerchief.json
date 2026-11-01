@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "handkerchief",
+  "name": "Colonel Fanshawe's handkerchief",
+  "short": "THE HANDKERCHIEF",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Pocketed absently at A10. Kept. Room 11's own handkerchief is hidden once it is taken. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Colonel Fanshawe's handkerchief. I do not remember taking it. I remember him pressing it on me, and then I remember the street.",
+        "repeat": [
+          "I have wiped nothing with it. It is not the kind of thing that wipes.",
+          "I should give it back. He would refuse, warmly, and I would leave with something else of his."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Nothing. It is too fine to make a sound in a pocket.",
+        "repeat": [
+          "Nothing.",
+          "A faint smell of his cigars. It is still working for him."
+        ]
+      }
+    ]
+  }
+}

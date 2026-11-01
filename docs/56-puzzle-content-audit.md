@@ -8,7 +8,9 @@
 > `tools/lib/puzzle-content.mjs`): a room is not buildable until every puzzle it hosts has an
 > audited entry whose needs all resolve.
 >
-> **Status:** B5 and B6 (Room 4) are complete (errata 73). **Everything below is open.** `[W]` is
+> **Status (2026-11-01): CLOSED by doc 57 and errata 75.** Every gap below was written or decided there; the readiness gate checks each puzzle's entry in `proofs/readiness/puzzles.json`. The list is kept as the record of what was missing.
+>
+> **Was:** B5 and B6 (Room 4) were complete (errata 73). Everything below was open. `[W]` is
 > missing writing; `[D]` is a missing decision. "file:line" citations are to `docs/`.
 
 ---

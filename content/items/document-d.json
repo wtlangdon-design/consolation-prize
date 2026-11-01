@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "document_d",
+  "name": "Nickel Pratt's attestation of occupancy",
+  "short": "THE ATTESTATION",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Document D. Sworn at D6. Kept. Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Nickel Pratt's sworn attestation that I have occupied Claim Two for ninety days. Document D. I have occupied it for eleven.",
+        "repeat": [
+          "He has signed with an X and then, underneath, his name in full, in case the X was misunderstood.",
+          "Notarized, stamped, accepted. It is false in every particular, and it is the soundest document I own."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Paper, with a stamp pressed into it.",
+        "repeat": [
+          "Nothing.",
+          "Nothing. Perjury is very quiet once it has been notarized."
+        ]
+      }
+    ]
+  }
+}

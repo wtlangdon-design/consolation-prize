@@ -228,6 +228,19 @@
           ]
         },
         {
+          "id": "winnie6",
+          "tag": "PROGRESS",
+          "text": "Who keeps the Company's log of submissions?",
+          "afterUse": "remove",
+          "say": "The Company. In the Colonel's office, in a drawer he sits in front of all day. I asked to see it once. He sent me a very kind note.",
+          "set": {
+            "T_OFFICE_TOPIC": true
+          },
+          "when": {
+            "T_ASSAY_QUEUE": true
+          }
+        },
+        {
           "id": "winniex",
           "tag": "EXIT",
           "text": "I am going to leave now, in a dignified manner.",
@@ -304,6 +317,69 @@
         }
       ]
     },
+    "WIN_B4": {
+      "id": "WIN_B4",
+      "prompt": "The form requires an assay. It doesn't require a good one.",
+      "opening": [
+        {
+          "speaker": "winnie",
+          "line": "Your assay."
+        },
+        {
+          "speaker": "thad",
+          "line": "And?"
+        },
+        {
+          "speaker": "winnie",
+          "line": "Mud, rock, and a mineral I've recorded as disappointment. No gold. Not a color."
+        },
+        {
+          "speaker": "thad",
+          "line": "Then there's no Document B."
+        },
+        {
+          "speaker": "winnie",
+          "line": "The form requires an assay. It doesn't require a good one."
+        }
+      ],
+      "options": [
+        {
+          "id": "winnie1",
+          "tag": "ASSAY",
+          "text": "Teach me to answer a boast.",
+          "afterUse": "remove",
+          "say": "Sit."
+        },
+        {
+          "id": "winnie2",
+          "tag": "TOPIC",
+          "text": "So my claim is worthless.",
+          "afterUse": "retain",
+          "say": "Comprehensively. It's certified. It's the most certain thing you own."
+        },
+        {
+          "id": "winnie3",
+          "tag": "TOPIC",
+          "text": "Thank you.",
+          "afterUse": "retain",
+          "say": "Don't thank me for a form. Thank me for something I chose."
+        },
+        {
+          "id": "winnie4",
+          "tag": "COMIC",
+          "text": "Was it the raccoon?",
+          "afterUse": "retain",
+          "say": "The raccoon is not an assayable substance. I have told you this."
+        },
+        {
+          "id": "winniex",
+          "tag": "EXIT",
+          "text": "I should go.",
+          "universal": true,
+          "ends": true
+        }
+      ]
+    },
     "WIN_F1": {
       "id": "WIN_F1",
       "prompt": "…Get in the book. You're the book.",
@@ -331,7 +407,7 @@
           "tag": "PROGRESS",
           "text": "Run it.",
           "afterUse": "remove",
-          "beat": "She runs it herself, at the window, in front of him — the first assay the player ever watches happen. It is very good gold."
+          "say": "Twenty-two hundred dollars to the ton."
         },
         {
           "id": "winnie2",
@@ -356,7 +432,7 @@
         {
           "id": "winniex",
           "tag": "EXIT",
-          "text": "I should go.",
+          "text": "I've taken enough of your time. I'll be taking more later.",
           "universal": true,
           "ends": true
         }

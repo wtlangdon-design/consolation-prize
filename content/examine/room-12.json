@@ -128,7 +128,11 @@
         "Nothing yet. A pick only learns to speak underground.",
         "The head, shifting. It has an opinion about being carried.",
         "The loose one again, clicking on its haft. It is the only one of them that has ever told the truth."
-      ]
+      ],
+      "overrides": {
+        "PICK_UP": "The one with the loose head, on my account. It is the only one I can afford, and the only one honest about itself.",
+        "PICK_UP (again)": "One pickaxe is equipment. Two is a statement, and I have nothing to say."
+      }
     },
     {
       "name": "THE DYNAMITE CRATE",

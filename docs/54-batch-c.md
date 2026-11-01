@@ -19,6 +19,12 @@
 
 **THE FRONT WINDOW** — LOOK 2 "A man outside has been about to cross the street for the whole of my stay. The glass makes him reconsider in waves." · 3 "My own reflection, rippling. Even the window has not decided whether I have arrived." | LISTEN 2 "A wagon, a dog, a man insisting. The glass lets the insisting through." · 3 "Somebody laughing on the boardwalk. Through the window it sounds like an opinion."
 
+### THE PARLOR PIANO
+**LOOK** 1 "An upright piano in the corner of the lobby, under a fern that is doing better than it is. The hotel calls this corner the parlor." · 2 "Walnut, with a brass plate: DONATED BY THE CONSOLATION IMPROVEMENT COMPANY. There is no plate saying who has played it since." · 3 "The clerk dusts it every morning, around the keys. He does not touch the keys. Neither does anyone else."
+**LISTEN** 1 "Nothing, until a cart goes by. Then every string answers, and every one of them is wrong in its own direction." · 2 "Still wrong. The A is the worst. The A is always the worst." · 3 "Four minutes' work, and a room for the night. I have done the arithmetic, which I gather is frowned on here."
+
+*Errata 75: A2's piano had no hotspot in any pass. It stands in the lobby's corner, which the hotel calls the parlor. Its LISTEN is the line A2 teaches LISTEN TO with.*
+
 ## Merge decisions *(errata 68 H)*
 
 - **THE REGISTER, LOOK.** The misspelled name is the joke of doc 05's line, doc 09's line and doc 26's line 3. **Decided:** doc 09's line is dropped. The sequence is doc 05's line, doc 26's line 2, doc 26's line 3 — the first and last still share the joke, and the last is where it is paid off ("in a way I have not previously encountered"), so it stays.
@@ -135,17 +141,7 @@
 **The blanket** · USE THE LIVERY BLANKET on THE HOLE — "The blanket, over the mouth of the hole." *(The cloth settles. A long pause. The raccoon emerges, gives Thad one look of complete contempt, and leaves at a walk.)* "The hole has gone cold, and he has gone with it. I appear to have evicted him by weather." *(Thad takes the blanket back.)* → A5, `T_WARM_HOLE`
 > USE THE LIVERY BLANKET on THE HOLE, after — "It has done its work. I will not insult the hole twice."
 
-### THE PICKLED EGGS *(inventory)*
-**LOOK** 1 "A jar of pickled eggs, on account. The brine has followed me home." · 2 "They have not got any less pickled." · 3 "I am keeping them for a purpose. I have not decided it is eating."
-**LISTEN** 1 "Sloshing, with intent." · 2 "The brine, settling into its opinions." · 3 "Nothing. Even the eggs are waiting to see what I do."
-
-### DR. PURVIS'S TONIC *(inventory)*
-**LOOK** 1 "Dr. Purvis's tonic. The label promises everything except what it does." · 2 "The cork has been wired down. Someone has learned from experience." · 3 "Take a spoonful at need, it says. It does not say whose need."
-**LISTEN** 1 "A faint fizz, as though it were thinking it over." · 2 "A small, sullen bubble rising." · 3 "Nothing. Whatever is in there has gone quiet, which is worse."
-
-### THE LIVERY BLANKET *(inventory)*
-**LOOK** 1 "Grievance's blanket, on loan. She knows." · 2 "It is warmer than my coat and better kept than my room." · 3 "I will bring it back. I would like that written down somewhere she can read it."
-**LISTEN** 1 "Nothing. It smells of mule and moral authority." · 2 "Wool, settling. It has been folded by an expert and unfolded by me." · 3 "Nothing. I have the sense of being watched from the stable."
+*THE PICKLED EGGS, DR. PURVIS'S TONIC and THE LIVERY BLANKET, the inventory items A5 uses, moved to doc 23 so items live in one place (errata 75).*
 
 *The eggs and the tonic are had in Room 12, on Thad's account: their PICK UP lines are in Room 12's section.*
 
@@ -1183,6 +1179,8 @@
 > **THE PICKLE JAR** · PICK UP — "One jar, on my account. I have an account now. I am told that makes me a resident." *(→ the pickled eggs)*
 > **DR. PURVIS'S TONIC** · PICK UP — "On account, with the eggs. It was wrapped for me as though it might go off, in either sense." *(→ the tonic)*
 > **THE PICKLE JAR** · PICK UP, *again* — "One is an account. Two is a habit."
+> **THE PICKAXES** · PICK UP — "The one with the loose head, on my account. It is the only one I can afford, and the only one honest about itself." *(→ THE PICKAXE; errata 75)*
+> **THE PICKAXES** · PICK UP, *again* — "One pickaxe is equipment. Two is a statement, and I have nothing to say."
 
 ### THE BOOTS
 **LOOK** 1 "Boots in pairs, tied together by the laces and hung on a nail. The only things in town guaranteed to go everywhere together." · 2 "The leather is good and the price is better than the leather. That is not a compliment." · 3 "One boot without a partner, marked down to half. I know a monument on the claims road it would suit."

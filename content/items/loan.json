@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "id": "loan",
+  "name": "Two dollars and sixty cents from Mr. Sheng",
+  "short": "SHENG'S LOAN",
+  "note": "EXTRACTED from docs/23-inventory-act1.md (Act II items) by tools/extract-content.mjs. Do not edit: change doc 23 and re-run. Act III, from SHE_D1 once D4 is done. Spent at the undertaker's (E3). Errata 66 ruling A: shown to the character at C5 and kept; never consumed.",
+  "responses": {
+    "LOOK_AT": [
+      {
+        "say": "Two dollars and sixty cents, at ten per cent, from Mr. Sheng. The exact cost of my funeral.",
+        "repeat": [
+          "He counted it into my hand twice: once for me, and once for the ledger.",
+          "I have borrowed money to pay for my own burial. I would like this kept out of the letters."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Coin. Exactly enough of it.",
+        "repeat": [
+          "Coin.",
+          "Nothing. It knows what it is for."
+        ]
+      }
+    ]
+  }
+}

@@ -300,6 +300,15 @@
    "writtenBy": [
     "dialogue:HOB:HOB_C1:hob4"
    ]
+  },
+  {
+   "id": "T_OFFICE_TOPIC",
+   "type": "bool",
+   "initial": false,
+   "note": "C2 (errata 75): Winnie has said the Company's log is in the Colonel's office. Opens FRA_A1 option 5.",
+   "writtenBy": [
+    "dialogue:WINNIE:WIN_B1:winnie6"
+   ]
   }
  ]
 }
