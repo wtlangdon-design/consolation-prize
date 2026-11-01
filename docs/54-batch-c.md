@@ -363,3 +363,106 @@ Doc 02 and doc 31 (Table 3) fix A5's four attempts — bait (three more raccoons
 
 - **THE SLUICE.** Doc 05's is one community sluice, "forty feet of graded boxes"; doc 10's is "forty sluices along a hundred yards of creek". One object, two descriptions of what it is.
 - **THE CREEK, LOOK.** Doc 05's line 1 ("talked a thousand men into staying") and doc 10's line 1 ("the reason two thousand people live here") make one point twice, with different populations.
+
+---
+
+# ROOM 15 · THE LIVERY STABLE
+
+*Merged: doc 05's eight and doc 09's eight, twelve objects. Grievance is a mare in doc 04 ("She took his side"), doc 05 and doc 49, and a he in doc 09; every line below says she. Doc 09's three lines need the same change (For Tyler's cut).*
+
+## Same object, both passes
+
+**THE TACK WALL** ≡ **THE TACK**
+**THE HAY LOFT** ≡ **THE HAY**
+
+*(GRIEVANCE and GRIEVANCE'S BLANKET have the same name in both passes.)*
+
+## Repeats
+
+**GRIEVANCE** — LOOK 3 "Her ears follow me round the stable. The rest of her does not consider me worth turning for." | LISTEN 3 "A long breath out through the nose. It is the most eloquent opinion anyone in this town has given me."
+
+**GRIEVANCE'S BLANKET** — LOOK 3 "It smells of mule, and of something older, like a coat kept in a cedar chest." | LISTEN 3 "Nothing. It is the quietest thing in the stable, and it knows its worth."
+
+**GRIEVANCE'S FEED BIN** — LOOK 2 "The lid has a latch she has learned to work and a second latch she has decided not to, as a courtesy." · 3 "The level has not gone down while I have been here. She is watching me watch it." | LISTEN 2 "Grain settling, then a snort from the stall to let me know it was noted." · 3 "Nothing. She has stopped listening for me, which I take as a promotion."
+
+**THE STALLS** — LOOK 2 "The broken sulky has a seat for one and a wheel for nobody." · 3 "One stall is stacked with folding chairs, which the town keeps here against the next funeral." | LISTEN 2 "A mouse in the empty stalls, taking inventory." · 3 "The boards again, warm and slow. The stable sounds like a big animal at rest."
+
+**THE TACK WALL** — LOOK 3 "One collar is enormous. It belonged to a horse the livery man still talks about, and nobody has oiled it since." | LISTEN 3 "A buckle tapping in the draft, keeping a slow time of its own."
+
+**THE ANVIL** — LOOK 2 "The face is worn into a shallow dish by forty years of hammering. It has outlasted every horse it shod." · 3 "A horseshoe hangs on the horn, half made. The smith left in the middle of a sentence." | LISTEN 2 "Nothing, though I can hear it anyway: a high clean A, if it is any good. I am not going to strike it to find out." · 3 "Nothing. An anvil at rest is the quietest iron there is."
+
+**THE HAY LOFT** — LOOK 2 "Men sleep up there, by the look of the ladder, and the livery man does not ask." · 3 "Hay, and dust in the light, and the smell of a summer that happened somewhere else." | LISTEN 2 "A rustle, a squeak, and a silence that is pretending to be hay." · 3 "Nothing up there now. Whoever sleeps in it is out working, or trying to."
+
+**THE STABLE DOORS** — LOOK 2 "The hinges are new and the doors are not. Somebody repairs what moves and leaves what doesn't." · 3 "Grievance can see out through the gap from her stall. I suspect that is why it is that wide and no wider." | LISTEN 2 "Main Street, narrowed to the width of the gap." · 3 "The wind, still asking. The doors, still saying no."
+
+**GRIEVANCE'S STALL** — LOOK 2 "Her stall is swept and the others are not. The livery man has priorities, and they are a mule." · 3 "There are tooth marks along the top board. She has been working on it for years, without hurry." | LISTEN 2 "Her tail swishing, at a tempo she sets." · 3 "Nothing. She is standing very still, which is how she listens."
+
+**THE OTHER MULES** — LOOK 2 "Number Three is asleep standing up. Number One is pretending to be." · 3 "They are good mules. Nobody will ever name them." | LISTEN 2 "Chewing, in four slightly different rhythms." · 3 "One of them sighs. It is a working sigh, and it means nothing by it."
+
+**THE BOARD OF NAMES** — LOOK 2 "Names, dates and animals, in a hand that gets more patient every year." · 3 "Some names have a line through them and the word PAID. Some have a line and the word GONE." | LISTEN 2 "Nothing. Paper pinned to wood, keeping accounts." · 3 "The pin rattles in the draft. Twelve years of comings and goings, held up by one nail."
+
+### THE LIVERY MAN'S CHAIR
+**LOOK** 1 "A kitchen chair tipped back against the wall at the exact angle of a man who has seen everything once." · 2 "The back legs are worn short. He has tipped it for so many years the chair has adapted." · 3 "It faces Grievance's stall. He sits where he can see her. I have yet to see her return the courtesy."
+**LISTEN** 1 "A creak as it settles back onto four legs." · 2 "Nothing. It is waiting for him, and it can wait." · 3 "The chair ticks against the wall in the draft, as if he were still in it, rocking."
+
+## Overrides
+
+> **THE LIVERY MAN** · PICK UP — "He has lifted every animal in this stable at one time or another. I am not going to give him the satisfaction of the comparison."
+> **THE LIVERY MAN** · PUSH — "He is tipped back on two chair legs. One push and we would both learn something."
+> **THE LIVERY MAN** · USE — "You do not use the livery man. You apply, like everybody else."
+
+## For Tyler's cut
+
+- **GRIEVANCE's pronoun.** Doc 09 writes Grievance as "he" (LOOK 1, LISTEN 1, and THE STALL's "His name"). Doc 04, doc 05 and doc 49 say she, and so does everything above. A line change in doc 09.
+- **GRIEVANCE, LOOK.** Doc 05's line 1 ("She has looked at me once, fully, and reached a verdict") and doc 09's line 1 ("He has looked at me once, at length") are one joke, back to back.
+
+---
+
+# ROOM 30 · MOTT'S SUPPOSED SITE
+
+*Merged: doc 05's seven and doc 08's seven, thirteen objects. Nothing below says or hints where the gold is; the site's whole joke is that it is not here, and that joke is already made.*
+
+## Same object, both passes
+
+**THE SITE** ≡ **THE GROUND**
+**THE SITE** ≡ **THE SITE ENTIRE**
+**THE SURVEY STAKE, ORIGINAL** ≡ **THE SURVEY STAKE**
+
+*(Part Two-B's Act IV variant and doc 49 call the site THE SITE ENTIRE; doc 49 calls the stake THE SURVEY STAKE.)*
+
+## Repeats
+
+**THE SITE** — LOOK 3 "There is a bench at the edge for pilgrims. It faces the diggings the way pews face an altar." | LISTEN 3 "The wind, and under it, faint and far off, somebody's pick. Even here, somebody is still checking."
+
+**THE BEDROCK** — LOOK 2 "There are scratches in it from every tool the Mercantile has ever sold, in roughly the order it sold them." · 3 "It is the cleanest rock in the district and the least interesting. I have looked at it longer than it deserves, in honor of everyone else who did." | LISTEN 2 "Nothing. It has had nothing to hide for twelve years, and has said so, under brushes." · 3 "Nothing. Brushed by ten thousand men, it has nothing left to confide."
+
+**THE OLD WINDLASS** — LOOK 2 "The crank is worn to the shape of a hand. Several hands. The same shape." · 3 "The shaft below it is boarded over. Somebody fell in once, I am told, and found nothing there either." | LISTEN 2 "A slow creak as the wind turns the drum half an inch and lets it go." · 3 "The moan again, longer. The frame and the wind have been at this for years."
+
+**THE SIEVE PILE** — LOOK 2 "A pan with its bottom worn clean through. Somebody swirled until there was nothing left to swirl with." · 3 "The meshes get finer toward the top of the pile. The hopes got smaller and so did the holes." | LISTEN 2 "A rattle as a gust goes through: tin, wire and patience, all past use." · 3 "Nothing between gusts. The pile waits for the wind like everything else here."
+
+**THE INITIALS** — LOOK 2 "Dates too. The oldest are eleven years old and the newest is this week. Proof, it turns out, needs constant renewal." · 3 "There is no room left to carve, and somebody has started on the back of the post." | LISTEN 2 "Nothing. Dozens of men, all done talking." · 3 "Wood ticking in the sun. The post is drying out, one name at a time."
+
+**THE SURVEY STAKE, ORIGINAL** — LOOK 2 "It is painted, which no survey stake is. Admirers paint it every spring." · 3 "A small brass plaque at its foot reads ORIGINAL. The plaque has been replaced twice." | LISTEN 2 "The hum again, over the shaft: one note, a little sharp, held for as long as there is wind." · 3 "Nothing, in the lull. A lie at rest sounds exactly like the truth at rest."
+
+**THE VIEW OF PROSPERITY** — LOOK 2 "From here it looks exactly like every piece of ground in between, which is its own kind of camouflage." · 3 "I can see my marker from here if I squint, leaning the way it leans." | LISTEN 2 "Still quiet from over there. It is very good at it." · 3 "Nothing from that direction. It is the most restful thing I own."
+
+**THE PITS** — LOOK 2 "They overlap so completely that nobody can say where one man's hope ended and the next began." · 3 "One pit still has a ladder in it. The man who climbed out did not come back for it." | LISTEN 2 "Loose dirt sliding back into a pit, slowly refilling what was emptied." · 3 "Nothing. Four hundred holes, every one keeping the same secret, which is that there isn't one."
+
+**THE OFFERINGS** — LOOK 2 "Pennies, mostly. A dime. A brass button. A gold tooth, which I regard as a serious commitment." · 3 "Nobody takes them. In a town that would pick a nail out of the road, nobody takes them." | LISTEN 2 "A coin settling as the dirt dries around it." · 3 "Nothing. Whatever they paid for has not been delivered."
+
+**A NEW DIGGING** — LOOK 2 "Neat work, square corners. He took care, digging in ground he must have known was empty." · 3 "The spoil is heaped on the side facing town, so nobody would see him from there." | LISTEN 2 "Nothing. He has gone home." · 3 "Dirt crumbling at the edge. The ground is filling it back in, patiently, as it does."
+
+**THE MARKER STONE** — LOOK 2 "The letters are cut deep and straight. Whoever did it had time, a good chisel and no particular reason." · 3 "There are dried flowers at its foot. Somebody comes here to remember a man nobody can describe." | LISTEN 2 "Nothing. Stone, with a name in it, keeping it." · 3 "Wind across the letters, a faint whistle in the M."
+
+### THE VIEW BACK TO TOWN
+**LOOK** 1 "From here the town is a smudge of chimney smoke and one bright steeple, keeping an eye on the place." · 2 "The road between is worn by pilgrims, going out hopeful and coming back the same, which is a kind of faith." · 3 "From the famous nothing, Consolation looks like something. It is the best view of it in the district."
+**LISTEN** 1 "The bell, very thin, carried on the wind." · 2 "Hammering, small and far. Somebody is building something on top of all this." · 3 "Nothing for a moment, then the bell again, as though the town had remembered itself."
+
+### THE SPOIL HEAPS
+**LOOK** 1 "Spoil heaps, grown into small hills of their own. The site has produced a new landscape and no gold." · 2 "Grass has started on the oldest heap. Even nature has stopped waiting for a result." · 3 "Somebody has sifted the heaps too, and heaped the siftings. It is heaps all the way down."
+**LISTEN** 1 "Gravel trickling down a slope: a small, dry, continual surrender." · 2 "A scrabble on the warm side. A lizard, probably, minding the property." · 3 "Nothing. Dirt that has been looked through has nothing left to say."
+
+## For Tyler's cut
+
+- **THE SITE, LISTEN.** Doc 05's line 1 is "Wind in the workings. A hollow instrument, played badly"; doc 08's is "Nothing. Nothing whatsoever. It is the emptiest sound I have heard since I arrived." Both true, back to back.
+- **Two Mott markers.** THE SURVEY STAKE, ORIGINAL (doc 05) and THE MARKER STONE (doc 08) both stand at the site with Mott's name on them. Different objects, by their descriptions; whether the room wants both is art direction.

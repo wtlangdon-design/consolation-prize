@@ -196,7 +196,9 @@ function batchSubjects(body) {
     const hasLook = /\*\*LOOK:?\*\*/.test(next);
     const hasListen = /\*\*LISTEN:?\*\*/.test(next);
     for (const name of names) {
-      sketched.push({ name, look: name === noted && hasLook, listen: name === noted && hasListen });
+      // "The board" names THE BOARD OF NAMES: a parenthesis may shorten.
+      const mine = noted !== null && (name === noted || name.startsWith(`${noted} `));
+      sketched.push({ name, look: mine && hasLook, listen: mine && hasListen });
     }
   }
   return [...written, ...sketched];

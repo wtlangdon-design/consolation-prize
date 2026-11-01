@@ -3,31 +3,39 @@
  "room": 30,
  "id": "room-30",
  "name": "MOTT'S SUPPOSED STRIKE SITE",
- "note": "POINTERS, NOT ANSWERS. Declared 2026-11-01 by the unattended room pass. The examine, act-variant and wrong-verb pointers were resolved mechanically from document headings. Dialogue and puzzles are NOT mapped: the room is blocked at the repeat-variant layer (doc 15 section 5, 'Repeat variants and verb fallbacks, 41 rooms', unchecked), which no mapping can change, so the gate's dialogue/puzzle NOs here mean 'not declared', not 'not written'. Map them before this room is reconsidered.",
+ "note": "POINTERS, NOT ANSWERS. Mapped 2026-10-31 for Batch C (doc 54).",
  "examine": {
-  "primary": "docs/05-examine-layer.md::ROOM 30 — MOTT'S SUPPOSED STRIKE SITE",
-  "actVariants": "docs/05-examine-layer.md::ROOM 30 — MOTT'S SUPPOSED STRIKE SITE#2",
+  "primary": "docs/05-examine-layer.md::ROOM 30 \u2014 MOTT'S SUPPOSED STRIKE SITE",
+  "actVariants": "docs/05-examine-layer.md::ROOM 30 \u2014 MOTT'S SUPPOSED SITE",
   "batch": [
-   "docs/08-examine-batch-1.md::ROOM 30 — MOTT'S SUPPOSED SITE"
+   "docs/08-examine-batch-1.md::ROOM 30 \u2014 MOTT'S SUPPOSED SITE"
   ],
   "merged": [
-   "docs/08-examine-batch-1.md::ROOM 30 — MOTT'S SUPPOSED SITE"
+   "docs/08-examine-batch-1.md::ROOM 30 \u2014 MOTT'S SUPPOSED SITE"
+  ],
+  "completions": [
+   "docs/54-batch-c.md::ROOM 30 \u00b7 MOTT'S SUPPOSED SITE"
   ]
  },
- "wrongVerbs": "docs/49-wrong-answers.md::ROOM 30 — MOTT'S SUPPOSED SITE",
+ "wrongVerbs": "docs/49-wrong-answers.md::ROOM 30 \u2014 MOTT'S SUPPOSED SITE",
  "dialogue": {
   "characters": [],
   "trees": [],
-  "mapped": false
+  "none": {
+   "source": "docs/20-room-map.md::From the map \u2014 the diggings",
+   "why": "Nobody is staged here to speak; the pilgrims are in the lines, not the room."
+  }
  },
  "puzzles": {
   "ids": [],
-  "source": null,
-  "mapped": false
+  "none": {
+   "source": "docs/02-puzzle-graph.md::Puzzle Dependency Graph \u2014 v1",
+   "why": "Doc 02 sites none of the 45 here."
+  }
  },
  "staging": {
-  "required": null,
-  "why": "not assessed: blocked at the examine layer"
+  "required": false,
+  "why": "No doc 48 script is sited here."
  },
  "connectivity": "docs/20-room-map.md"
 }
