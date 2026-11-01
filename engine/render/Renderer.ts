@@ -16,7 +16,7 @@ export function stateImagePath(shown: { image?: string; imageByState?: Record<st
   const state = askedState();
   return (state && shown.imageByState?.[state]) || shown.image;
 }
-import type { ActorFile, AmbientFile, FigureLight, Interactable, OverlayFile, RoomLamp } from '../core/types.ts';
+import type { ActorFile, AmbientFile, FigureLight, Interactable, OverlayFile, RoomLamp, RoomProp } from '../core/types.ts';
 import { ActorSprite, type DrawnFrame } from './ActorSprite.ts';
 import { depthTies, watch } from '../dev/Watch.ts';
 import type { DrawRecord } from '../dev/Probe.ts';
@@ -232,6 +232,7 @@ export interface RoomFigure {
   /** Exactly one of these is set. */
   npc?: AmbientFile;
   mover?: Actor;
+  prop?: RoomProp;
 }
 
 /**
@@ -245,8 +246,11 @@ export interface RoomFigure {
  * quietly went back to drawing one protagonist would look identical in every
  * screenshot of a room nobody had staged yet.
  */
-export function roomFigures(ambient: AmbientFile[], movers: Actor[]): RoomFigure[] {
+export function roomFigures(ambient: AmbientFile[], movers: Actor[], props: RoomProp[] = []): RoomFigure[] {
   return [
+    // Furniture first, so a figure standing exactly on its base line is drawn
+    // in front of it: the stable sort keeps insertion order on a tie.
+    ...props.map((prop) => ({ id: prop.id, feetX: prop.x, feetY: prop.y, prop })),
     ...ambient.map((npc) => ({ id: npc.id, feetX: npc.x, feetY: npc.y, npc })),
     ...movers.map((mover) => ({
       id: mover.id, feetX: Math.round(mover.x), feetY: Math.round(mover.y), mover,
@@ -1115,8 +1119,12 @@ export class Renderer {
     // ERRATA 70 G: a room that hides the player (Room 32 -- he is lying in
     // the dark he is looking at) draws everyone but him.
     const playerHidden = this.state.room.actor === 'hidden';
-    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all()))) {
+    for (const figure of depthOrder(roomFigures(this.ambient.present, this.actors.all(), this.state.room.props))) {
       if (playerHidden && figure.mover?.id === this.state.content.actor.id) continue;
+      if (figure.prop) {
+        this.drawRoomProp(figure.prop);
+        continue;
+      }
       // An ambient that declares its own plane is masked by it; everyone
       // else by the box under their feet. See AmbientFile.clipPlane.
       const declaredPlane = figure.npc ? (figure.npc as AmbientFile).clipPlane : undefined;
@@ -1158,6 +1166,18 @@ export class Renderer {
       watch.record('depth-tie', `${one} ${two}`,
         `both at feet y ${spans.find((s) => s.id === one)?.feetY}, overlapping in x`);
     }
+  }
+
+  /** A piece of furniture, 1:1, its bottom row on its base line. See RoomFile.props. */
+  private drawRoomProp(prop: RoomProp): void {
+    const image = this.sheet(prop.sheet);
+    if (!image) {
+      watch.record('graybox:not-loaded', prop.id, `${prop.sheet} has not arrived; drew nothing`);
+      return;
+    }
+    const [sx, sy, width, height] = prop.frame;
+    this.screen.context.drawImage(image, sx, sy, width, height,
+      prop.x - Math.floor(width / 2), prop.y - height + 1, width, height);
   }
 
   /**
