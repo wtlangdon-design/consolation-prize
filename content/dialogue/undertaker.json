@@ -4,6 +4,26 @@
   "speaker": "undertaker",
   "name": "THE UNDERTAKER",
   "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are undertaker, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
+  "examine": {
+    "LOOK_AT": [
+      {
+        "say": "A man in his fifties in a clean apron, doing something careful with a plane. He has not looked up.",
+        "repeat": [
+          "His hands are a carpenter's. Everything else about him is a clerk's.",
+          "He is the only man in Consolation who is not waiting for something."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "Nothing. He works quietly and he does not hum.",
+        "repeat": [
+          "Nothing.",
+          "Breathing, and a plane on pine. It is the most restful sound in the territory and I would rather it were anywhere else."
+        ]
+      }
+    ]
+  },
   "nodes": {
     "root": {
       "id": "root",

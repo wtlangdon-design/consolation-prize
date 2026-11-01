@@ -1443,6 +1443,14 @@ export interface DialogueFile {
   id: string;
   note?: string;
   /**
+   * The character's own examine layer, in the hotspot response shape, keyed
+   * by verb. Doc 27: "Each character is a hotspot in their room like anything
+   * else." A verb other than TALK TO pointed at him reads these first -- with
+   * the same repeat counting as any object -- and falls back to doc 07's
+   * people pool only for a verb he has no lines for.
+   */
+  examine?: Record<string, ResponseRule[]>;
+  /**
    * Who answers, by speaker id.
    *
    * An option's `exchange` names a speaker per line and an option's own `say`

@@ -930,6 +930,19 @@ export class GameScene extends Phaser.Scene {
       }
     }
     if (npc && chosen !== null && chosen !== 'TALK_TO') {
+      // HIS OWN LINES FIRST. A character with an examine layer (doc 27's three)
+      // is examined like an object: the lines live on his tree file and play
+      // through applyInteraction, so the second LISTEN is "Still talking."
+      // because the count is kept where every object's is.
+      const layer = npc.tree ? this.state.content.dialogue.get(npc.tree)?.examine : undefined;
+      if (layer?.[chosen]?.length) {
+        const [hx, hy, hw, hh] = this.ambient.hitBox(npc);
+        this.applyInteraction({
+          id: npc.id, name: npc.name, rect: [hx, hy, hw, hh], colour: 0, responses: layer,
+        } as Interactable, chosen);
+        this.markDirty();
+        return;
+      }
       const pool = this.state.content.verbFallbacks?.people?.[chosen];
       if (Array.isArray(pool) && pool.length) {
         this.setSay(pool[0]!, this.state.content.actor.id);

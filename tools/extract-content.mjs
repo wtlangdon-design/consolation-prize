@@ -1391,6 +1391,25 @@ function minorTrees() {
   const unspoken = [];
   const directions = [];
 
+  // THE EXAMINE LAYERS: "Each character is a hotspot in their room like
+  // anything else" (doc 27). LOOK and LISTEN, three variants each, carried on
+  // the character's tree file in the hotspot response shape -- first line,
+  // then the repeats -- so a verb pointed at the person reads his lines
+  // through the same route, and the same repeat counting, as any object.
+  const layers = {};
+  const examineDoc = doc.split(/^# EXAMINE LAYERS$/m)[1]?.split(/^# (?!#)/m)[0] ?? '';
+  for (const block of examineDoc.split(/^## /m).slice(1)) {
+    const title = block.split('\n')[0].trim();
+    const run = (label) => {
+      const line = block.match(new RegExp(`^\\*\\*${label}\\*\\* (.+)$`, 'm'))?.[1];
+      if (!line) throw new Error(`doc 27: ${title} has no ${label} run`);
+      const said = [...line.matchAll(/\d "([^"]+)"/g)].map((m) => m[1]);
+      if (said.length !== 3) throw new Error(`doc 27: ${title} ${label} has ${said.length} variants, not 3`);
+      return [{ say: said[0], repeat: said.slice(1) }];
+    };
+    layers[title] = { LOOK_AT: run('LOOK'), LISTEN_TO: run('LISTEN') };
+  }
+
   for (let index = 0; index < sections.length; index += 3) {
     const title = sections[index].trim();
     const body = sections[index + 2];
@@ -1482,6 +1501,7 @@ function minorTrees() {
         + `edit: change doc 27 and re-run. Speakers come from the document's own `
         + `typography -- plain quotes are ${who.speaker}, italic quotes are Thad, and `
         + `an italic bracket is a stage direction nobody says.`,
+      examine: layers[title] ?? (() => { throw new Error(`doc 27: ${title} has no examine layer`); })(),
       nodes: {
         root: {
           id: 'root',

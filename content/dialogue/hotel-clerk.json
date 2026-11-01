@@ -4,6 +4,26 @@
   "speaker": "hotel_clerk",
   "name": "THE HOTEL CLERK",
   "note": "EXTRACTED from docs/27-minor-trees.md by tools/extract-content.mjs. Do not edit: change doc 27 and re-run. Speakers come from the document's own typography -- plain quotes are hotel_clerk, italic quotes are Thad, and an italic bracket is a stage direction nobody says.",
+  "examine": {
+    "LOOK_AT": [
+      {
+        "say": "A young man behind a counter, in a coat that has been brushed a great deal more often than it has been cleaned.",
+        "repeat": [
+          "He is twenty-two at the outside and he has the manner of a man defending an institution.",
+          "He has not once looked at the door. Nobody is coming through it and he knows the timetable."
+        ]
+      }
+    ],
+    "LISTEN_TO": [
+      {
+        "say": "A pen. He is writing something that is not the register.",
+        "repeat": [
+          "Still writing.",
+          "Nothing. He has stopped, and he is waiting for me to go so that he can start again."
+        ]
+      }
+    ]
+  },
   "nodes": {
     "root": {
       "id": "root",
